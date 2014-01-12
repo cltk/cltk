@@ -34,6 +34,14 @@ c.dump_txts_phi5()
 c.dump_txts_tlg()
 ```
 
+The above code looks for the original corpora in a script's current directory and outputs there, too. The <code>Compile()</code> class takes two optional parameters, being corpora directory and target directory for the JSON output. E.g,:
+
+```python
+from cltk.compiler import Compile
+
+c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/Downloads/project_dir')
+```
+
 LICENSE
 -------
 The MIT License (MIT)
