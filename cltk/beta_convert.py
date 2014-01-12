@@ -12,6 +12,18 @@ E)PI\ TOU/TW| KOINH\N E)PIDE/XONTAI KAI\ TH\N QERAPEI/AN. A)LL' E)PEIDH\ OU) MI/
 replacement_patterns = [
 
     #iota subscripts + all accents, lower
+    #ᾀ 	ᾁ 	ᾂ 	ᾃ 	ᾄ 	ᾅ 	ᾆ 	ᾇ
+    (r'A\)\|', 'ᾀ'),
+    (r'A\(\|', 'ᾁ'),
+    (r'A\)\\\|', 'ᾂ'),
+    (r'A\(\\\|', 'ᾃ'),
+    (r'A\)/\|', 'ᾄ'),
+    (r'A\(/\|', 'ᾅ'),
+    (r'A\)=\|', 'ᾆ'),
+    (r'A\(=\|', 'ᾇ'),
+    #ᾐ 	ᾑ 	ᾒ 	ᾓ 	ᾔ 	ᾕ 	ᾖ 	ᾗ
+    #ᾠ 	ᾡ 	ᾢ 	ᾣ 	ᾤ 	ᾥ 	ᾦ 	ᾧ
+    #(r'\|', ''),
     #ᾲ 	ᾳ 	ᾴ  ᾷ
     (r'A\\\|', 'ᾲ'),
     (r'A\|', 'ᾳ'),
@@ -27,10 +39,6 @@ replacement_patterns = [
     (r'W\|', 'ῳ'),
     (r'W/\|', 'ῴ'),
     (r'W=\|', 'ῷ'),
-    #ᾀ 	ᾁ 	ᾂ 	ᾃ 	ᾄ 	ᾅ 	ᾆ 	ᾇ
-    #ᾐ 	ᾑ 	ᾒ 	ᾓ 	ᾔ 	ᾕ 	ᾖ 	ᾗ
-    #ᾠ 	ᾡ 	ᾢ 	ᾣ 	ᾤ 	ᾥ 	ᾦ 	ᾧ
-    #(r'|', ''),
     #breathing + grave, lower
     (r'A\)\\', 'ἂ'),
     (r'A\(\\', 'ἃ'),
