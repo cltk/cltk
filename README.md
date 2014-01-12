@@ -42,6 +42,10 @@ from cltk.compiler import Compile
 c = Compile('/home/kyle/Documents/corpora', '/home/kyle/project_dir')
 ```
 
+FUTURE RELEASES
+---------------
+Future releases will prioritize porting existing code into this project.
+
 LICENSE
 -------
 The MIT License (MIT)
