@@ -26,10 +26,9 @@ To convert corpora into a single JSON file, use the following in your example. S
 from cltk.compiler import Compile
 
 c = Compile()
-
-c.dump\_txts\_phi7()
-c.dump\_txts\_phi5()
-c.dump\_txts\_tlg()
+c.dump_txts_phi7()
+c.dump_txts_phi5()
+c.dump_txts_tlg()
 ```
 
 LICENSE
