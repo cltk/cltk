@@ -39,7 +39,7 @@ The above code looks for the original corpora in a script's current directory an
 ```python
 from cltk.compiler import Compile
 
-c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/Downloads/project_dir')
+c = Compile('/home/kyle/Documents/corpora', '/home/kyle/project_dir')
 ```
 
 LICENSE
