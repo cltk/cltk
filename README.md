@@ -23,7 +23,7 @@ USE
 ---
 The CLTK is developed in Python 3.3.
 
-To convert corpora into a single JSON file, use the following in your example. See examples/ for more.
+To convert corpora into single JSON files, use the following in your example.
 
 ```python
 from cltk.compiler import Compile
@@ -42,9 +42,11 @@ from cltk.compiler import Compile
 c = Compile('/home/kyle/Documents/corpora', '/home/kyle/project_dir')
 ```
 
+Note that the disks need to be labelled as follow: PHI5, PHI7, and TLG_E.
+
 FUTURE RELEASES
 ---------------
-Future releases will prioritize porting existing code into this project.
+Future releases will prioritize porting existing code to this project, especially getting betacode translation right.
 
 LICENSE
 -------
