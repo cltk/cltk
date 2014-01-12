@@ -38,4 +38,4 @@ LICENSE
 -------
 The MIT License (MIT)
 
-Copyright (c) 2013 Kyle P. Johnson
+Copyright (c) 2014 Kyle P. Johnson
