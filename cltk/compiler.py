@@ -5,6 +5,10 @@ import logging
 import os
 import re
 
+INDEX_DICT_PHI5 = None
+INDEX_DICT_PHI7 = None
+INDEX_DICT_TLG = None
+
 class Compile(object):
     """Make JSON files out of TLG & PHI disks"""
 
@@ -32,7 +36,7 @@ class Compile(object):
 
     def open_index_phi7(self):
         """Creates a dictionary of PHI7 collections and file names."""
-        global index_dict
+        global INDEX_DICT_PHI7
         logging.info('Starting PHI7 index parsing.')
         index = 'AUTHTAB.DIR'
         local_index = self.corpora_root + '/' + 'PHI7/' + index
@@ -41,7 +45,7 @@ class Compile(object):
                 index_read = index_opened.read().decode('latin-1')
                 index_split = index_read.split('ÿ')[2:-9]
                 index_filter = [item for item in index_split if item]
-                index_dict = {}
+                INDEX_DICT_PHI7 = {}
                 for file in index_filter:
                     file_repl = file.replace('l', '').replace('g', '')\
                       .replace('h', '').replace('>', '').replace(']]', ']')
@@ -53,9 +57,9 @@ class Compile(object):
                         split = file_repl.split(' ', 1)
                         number = split[0]
                         name = split[1]
-                        index_dict[number] = name
+                        INDEX_DICT_PHI7[number] = name
                 logging.info('Finished PHI7 index parsing.')
-                return index_dict
+                return INDEX_DICT_PHI7
         except IOError:
             logging.error('Failed to open PHI7 index file AUTHTAB.DIR')
 
@@ -64,8 +68,8 @@ class Compile(object):
         logging.info('Starting PHI7 corpus compilation.')
         self.open_index_phi7()
         phi7_dict = {}
-        for file_name in index_dict:
-            abbrev = index_dict[file_name]
+        for file_name in INDEX_DICT_PHI7:
+            abbrev = INDEX_DICT_PHI7[file_name]
             files_path = self.corpora_root + '/' + 'PHI7' + '/' \
               + file_name + '.TXT'
             try:
@@ -76,10 +80,10 @@ class Compile(object):
             except IOError:
                 logging.error('Failed to open PHI7 file %s of author %s',
                               file_name, abbrev)
-        json_array = json.dumps(phi7_dict)
         local_project_save = self.project_root + '/' + 'phi7.json'
         try:
             with open(local_project_save, 'w') as json_opened:
+                json_array = json.dumps(phi7_dict)
                 json_opened.write(json_array)
         except IOError:
             logging.error('Failed to create and/or write to file phi7.json.')
@@ -88,7 +92,7 @@ class Compile(object):
 
     def open_index_phi5(self):
         """Creates a dictionary of PHI5 collections and file names."""
-        global index_dict
+        global INDEX_DICT_PHI5
         logging.info('Starting PHI5 index parsing.')
         index = 'AUTHTAB.DIR'
         local_index = self.corpora_root + '/' + 'PHI5/' + index
@@ -97,7 +101,7 @@ class Compile(object):
                 index_read = index_opened.read().decode('latin-1')
                 index_split = index_read.split('ÿ')[1:-21]
                 index_filter = [item for item in index_split if item]
-                index_dict = {}
+                INDEX_DICT_PHI5 = {}
                 for file in index_filter:
                     file_repl = file.replace('\x83l', '')\
                       .replace('', '; ').replace('&1', '')\
@@ -105,9 +109,9 @@ class Compile(object):
                     file_split = file_repl.split(' ', 1)
                     label = file_split[0]
                     name = file_split[1]
-                    index_dict[label] = name
+                    INDEX_DICT_PHI5[label] = name
                 logging.info('Finished PHI5 index parsing.')
-                return index_dict
+                return INDEX_DICT_PHI5
         except IOError:
             logging.error('Failed to open PHI5 index file AUTHTAB.DIR')
 
@@ -116,8 +120,8 @@ class Compile(object):
         logging.info('Starting PHI5 corpus compilation.')
         self.open_index_phi5()
         phi5_dict = {}
-        for file_name in index_dict:
-            abbrev = index_dict[file_name]
+        for file_name in INDEX_DICT_PHI5:
+            abbrev = INDEX_DICT_PHI5[file_name]
             files_path = self.corpora_root + '/' + 'PHI5' + '/' \
               + file_name + '.TXT'
             try:
@@ -140,7 +144,7 @@ class Compile(object):
 
     def open_index_tlg(self):
         """Creates a dictionary of TLG collections and file names."""
-        global index_dict
+        global INDEX_DICT_TLG
         logging.info('Starting TLG index parsing.')
         index = 'AUTHTAB.DIR'
         local_index = self.corpora_root + '/' + 'TLG_E/' + index
@@ -149,7 +153,7 @@ class Compile(object):
                 index_read = index_opened.read().decode('latin-1')
                 index_split = index_read.split('ÿ')[1:-7]
                 index_filter = [item for item in index_split if item]
-                index_dict = {}
+                INDEX_DICT_TLG = {}
                 for file in index_filter:
                     file_repl = file.replace(' &1', ' ').replace('&', '')\
                       .replace(' 1', ' ').replace('-1', '-').replace('[2', '[')\
@@ -158,9 +162,9 @@ class Compile(object):
                     file_split = file_repl.split(' ', 1)
                     label = file_split[0]
                     name = file_split[1]
-                    index_dict[label] = name
+                    INDEX_DICT_TLG[label] = name
                 logging.info('Finished TLG index parsing.')
-                return index_dict
+                return INDEX_DICT_TLG
         except IOError:
             logging.error('Failed to open TLG index file AUTHTAB.DIR')
 
@@ -169,8 +173,8 @@ class Compile(object):
         logging.info('Starting TLG corpus compilation.')
         self.open_index_tlg()
         tlg_dict = {}
-        for file_name in index_dict:
-            abbrev = index_dict[file_name]
+        for file_name in INDEX_DICT_TLG:
+            abbrev = INDEX_DICT_TLG[file_name]
             files_path = self.corpora_root + '/' + 'TLG_E' + '/' \
               + file_name + '.TXT'
             try:
