@@ -1,5 +1,4 @@
 """Config for PyPI"""
-import os
 from setuptools import setup, find_packages
 
 setup(
@@ -25,12 +24,12 @@ setup(
     description=('NLP support for Ancient Greek and Latin'),
     keywords=['nlp', 'ancient greek', 'latin', 'tlg', 'phi', 'literature'],
     license='MIT',
-    long_description = """The Classical Language Toolkit (NLTK) is a \
+    long_description="""The Classical Language Toolkit (NLTK) is a \
 suite of tools assisting natural language processing for the Ancient Greek \
 and Latin languages. It is developed in Python 3.3.""",
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
     version='0.0.0.1',
-    zip_safe = True,
+    zip_safe=True,
 )
