@@ -5,9 +5,9 @@ import logging
 import os
 import re
 
-INDEX_DICT_PHI5 = None
-INDEX_DICT_PHI7 = None
-INDEX_DICT_TLG = None
+INDEX_DICT_PHI5 = {}
+INDEX_DICT_PHI7 = {}
+INDEX_DICT_TLG = {}
 
 class Compile(object):
     """Make JSON files out of TLG & PHI disks"""
@@ -17,7 +17,7 @@ class Compile(object):
         self.corpora_root = corpora_root
         self.project_root = project_root
         local_project_save = self.project_root + '/' \
-          + 'classics_corpus_compiler.log'
+          + 'cltk.log'
         #clear_log()
         logging.basicConfig(filename=local_project_save,
                             level=logging.INFO,
