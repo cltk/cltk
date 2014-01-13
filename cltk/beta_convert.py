@@ -10,7 +10,10 @@ E)PI\ TOU/TW| KOINH\N E)PIDE/XONTAI KAI\ TH\N QERAPEI/AN. A)LL' E)PEIDH\ OU) MI/
 """
 
 replacement_patterns = [
-
+    #diaresis, all, lower
+    #breve, all, lower
+    #macron, all, lower
+    #all rhos, all, lower
     #iota subscripts + all accents, lower
     #ᾀ 	ᾁ 	ᾂ 	ᾃ 	ᾄ 	ᾅ 	ᾆ 	ᾇ
     (r'A\)\|', 'ᾀ'),
@@ -39,7 +42,6 @@ replacement_patterns = [
     (r'W\(/\|', 'ᾥ'),
     (r'W\)=\|', 'ᾦ'),
     (r'W\(=\|', 'ᾧ'),
-    #(r'\|', ''),
     #ᾲ 	ᾳ 	ᾴ  ᾷ
     (r'A\\\|', 'ᾲ'),
     (r'A\|', 'ᾳ'),
@@ -88,14 +90,10 @@ replacement_patterns = [
     #breathing + circumflex, lower
     (r'A\)=', 'ἆ'),
     (r'A\(=', 'ἇ'),
-    #(r'E\)=', ''),
-    #(r'E\(=', ''),
     (r'H\)=', 'ἦ'),
     (r'H\(=', 'ἧ'),
     (r'I\)=', 'ἶ'),
     (r'I\(=', 'ἷ'),
-    #(r'O\)=', ''),
-    #(r'O\(=', ''),
     (r'U\)=', 'ὖ'),
     (r'U\(=', 'ὗ'),
     (r'W\)=', 'ὦ'),
