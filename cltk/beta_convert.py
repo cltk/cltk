@@ -281,27 +281,31 @@ PUNCT = [
     (r'_', '—'),
 ]
 
-class BetaReplacer(object):
+class BetaReplacer(object):#pylint: disable=R0903
     """Beta match and replace"""
-    def __init__(self, pattern1=UPPER, pattern2=LOWER, pattern3=PUNCT):
+    def __init__(self, pattern1=None, pattern2=None, pattern3=None):
+        if pattern1 is None:
+            pattern1 = UPPER
+        if pattern2 is None:
+            pattern2 = LOWER
+        if pattern3 is None:
+            pattern3 = PUNCT
         self.pattern1 = [(re.compile(regex), repl) for \
                          (regex, repl) in pattern1]
         self.pattern2 = [(re.compile(regex), repl) for \
                          (regex, repl) in pattern2]
         self.pattern3 = [(re.compile(regex), repl) for \
                          (regex, repl) in pattern3]
+
+
     def replace(self, text):
         """Replace method"""
         no_hyph = text.replace('-', '')
         beta_string = no_hyph
         for (pattern, repl) in self.pattern1:
-            (beta_string, count) = re.subn(pattern, repl, beta_string)
+            (beta_string, count) = re.subn(pattern, repl, beta_string)#pylint: disable=W0612
         for (pattern, repl) in self.pattern2:
             (beta_string, count) = re.subn(pattern, repl, beta_string)
         for (pattern, repl) in self.pattern3:
             (unicode_string, count) = re.subn(pattern, repl, beta_string)
         return unicode_string
-
-    #!http://stackoverflow.com/questions/9526465/best-practice-for-setting-the-default-value-of-a-parameter-thats-supposed-to-be
-
-    #!http://stackoverflow.com/questions/14027417/what-does-pylints-too-few-public-methods-message-mean
