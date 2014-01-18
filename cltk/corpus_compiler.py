@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import re
+from cltk.replacer import Replacer
 
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
