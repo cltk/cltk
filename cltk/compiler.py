@@ -181,7 +181,10 @@ class Compile(object):
                 with open(files_path, 'rb') as index_opened:
                     txt_read = index_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
+                    #r = Replacer()
+                    #grk_unicode = r.beta_code(body)
                     tlg_dict[abbrev] = txt_ascii
+                    #tlg_dict[abbrev] = grk_unicode
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)

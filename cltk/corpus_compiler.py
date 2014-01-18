@@ -6,6 +6,7 @@ import os
 import re
 from cltk.replacer import Replacer
 
+
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
 INDEX_DICT_TLG = {}
@@ -173,6 +174,7 @@ class Compile(object):
 
     def dump_txts_tlg(self):
         """reads file and translates to ascii"""
+        print("Starting dump of texts.")
         logging.info('Starting TLG corpus compilation.')
         self.open_index_tlg()
         tlg_dict = {}
@@ -184,7 +186,11 @@ class Compile(object):
                 with open(files_path, 'rb') as index_opened:
                     txt_read = index_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
-                    tlg_dict[abbrev] = txt_ascii
+                    #tlg_dict[abbrev] = txt_ascii
+                    r = Replacer()
+                    new_uni = r.beta_code(txt_ascii)
+                    print(new_uni)
+                    tlg_dict[abbrev] = new_uni
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)

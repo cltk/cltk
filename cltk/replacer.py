@@ -293,7 +293,6 @@ class Replacer(object):#pylint: disable=R0903
         self.pattern3 = [(re.compile(regex), repl) for \
                          (regex, repl) in pattern3]
 
-
     def beta_code(self, text):
         """Replace method, returns a tuple (new_string, number_of_subs_made)"""
         no_hyph = text.replace('-', '')
