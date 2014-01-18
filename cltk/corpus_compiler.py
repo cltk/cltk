@@ -1,46 +1,13 @@
-"""Assembles JSON files of PHI and TLG corpora, and translates Beta Code to
-Unicode
-"""
+"""Assembles JSON files of PHI and TLG corpora"""
 
 import json
 import logging
 import os
 import re
-from betacode_translations import UPPER, LOWER, PUNCT
 
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
 INDEX_DICT_TLG = {}
-
-
-class Replacer(object):#pylint: disable=R0903
-    """Beta match and replace; PUNCT broken???"""
-    def __init__(self, pattern1=None, pattern2=None, pattern3=None):
-        if pattern1 is None:
-            pattern1 = UPPER
-        if pattern2 is None:
-            pattern2 = LOWER
-        if pattern3 is None:
-            pattern3 = PUNCT
-        self.pattern1 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern1]
-        self.pattern2 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern2]
-        self.pattern3 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern3]
-
-
-    def beta_code(self, text):
-        """Replace method, returns a tuple (new_string, number_of_subs_made)"""
-        no_hyph = text.replace('-', '')
-        beta_string = no_hyph
-        for (pattern, repl) in self.pattern1:
-            (beta_string, count) = re.subn(pattern, repl, beta_string)#pylint: disable=W0612
-        for (pattern, repl) in self.pattern2:
-            (beta_string, count) = re.subn(pattern, repl, beta_string)
-        for (pattern, repl) in self.pattern3:
-            (unicode_string, count) = re.subn(pattern, repl, beta_string)
-        return unicode_string
 
 
 class Compile(object):
@@ -110,6 +77,7 @@ class Compile(object):
                 with open(files_path, 'rb') as txt_opened:
                     txt_read = txt_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
+                    print(txt_ascii)
                     phi7_dict[abbrev] = txt_ascii
             except IOError:
                 logging.error('Failed to open PHI7 file %s of author %s',
