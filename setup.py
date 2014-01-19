@@ -30,6 +30,6 @@ and Latin languages. It is developed in Python 3.3.""",
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
-    version='0.0.0.3a4',
+    version='0.0.0.3a5',
     zip_safe=True,
 )

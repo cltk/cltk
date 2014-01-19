@@ -190,14 +190,19 @@ class Compile(object):
                     tlg_dict[abbrev] = new_uni
                     local_project_save = self.project_root + '/' + 'tlg.json'
                     loaded_json = {}
+                    print("Beginning json open.")
                     try:
                         with open(local_project_save, 'r') as tlg_json:
                             loaded_json = json.load(tlg_json)
+                            print("Read JSON")
                     except ValueError:
-                        print("ValueError, no JSON")
-                        pass
+                        try:
+                            with open(local_project_save, 'w+') as tlg_json:
+                                print("ValueError, no JSON, creating tlg.json")
+                        except:
+                            print("Couldn't write the new tlg.json.")
                     loaded_json.update(tlg_dict)
-                    with open(local_project_save, 'w') as tlg_json:
+                    with open(local_project_save, 'r+') as tlg_json:
                         json.dump(loaded_json, tlg_json)
                         print("Wrote json with .dump().")
                         '''
