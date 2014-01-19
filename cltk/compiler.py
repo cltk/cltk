@@ -185,8 +185,8 @@ class Compile(object):
                 with open(files_path, 'rb') as index_opened:
                     txt_read = index_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
-                    r = Replacer()
-                    new_uni = r.beta_code(txt_ascii)
+                    local_replacer = Replacer()
+                    new_uni = local_replacer.beta_code(txt_ascii)
                     #print(new_uni)
                     tlg_dict[abbrev] = new_uni
             except IOError:
