@@ -1,16 +1,13 @@
-"""Assembles JSON files of PHI and TLG corpora"""
+""" Creates a dictionary of PHI author numbers and their associated names. """
 
 import json
 import logging
 import os
 import re
-from cltk.replacer import Replacer
-
 
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
 INDEX_DICT_TLG = {}
-
 
 class Compile(object):
     """Make JSON files out of TLG & PHI disks"""
@@ -79,7 +76,6 @@ class Compile(object):
                 with open(files_path, 'rb') as txt_opened:
                     txt_read = txt_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
-                    print(txt_ascii)
                     phi7_dict[abbrev] = txt_ascii
             except IOError:
                 logging.error('Failed to open PHI7 file %s of author %s',
@@ -176,8 +172,8 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting TLG corpus compilation.')
         self.open_index_tlg()
+        tlg_dict = {}
         for file_name in INDEX_DICT_TLG:
-            tlg_dict = {}
             abbrev = INDEX_DICT_TLG[file_name]
             files_path = self.corpora_root + '/' + 'TLG_E' + '/' \
               + file_name + '.TXT'
@@ -185,40 +181,20 @@ class Compile(object):
                 with open(files_path, 'rb') as index_opened:
                     txt_read = index_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
-                    r = Replacer()
-                    new_uni = r.beta_code(txt_ascii)
-                    tlg_dict[abbrev] = new_uni
-                    local_project_save = self.project_root + '/' + 'tlg.json'
-                    try:
-                        with open(local_project_save, 'r') as tlg_json:
-                            try:
-                                loaded_json = json.load(tlg_json)
-                                loaded_json.update(tlg_dict)
-                            except ValueError:
-                                pass
-                    except IOError:
-                        logging.error('Failed to open tlg.json.')
-                    try:
-                        with open(local_project_save, 'r+') as tlg_json:
-                            try:
-                                json.dump(loaded_json, tlg_json)
-                            except (ValueError, UnboundLocalError):
-                                json.dumps(tlg_dict)
-                    except IOError:
-                        logging.error('Failed to write to tlg.json.')
-                        '''
-                        a_dict = {'new_key': 'new_value'}
-                        with open('test.json') as f:
-                            data = json.load(f)
-                        data.update(a_dict)
-                        with open('test.json', 'w') as f:
-                            json.dump(data, f)
-                        '''
-                        #tlg_json_array = json.dumps(tlg_dict)
-                        #tlg_json.write(tlg_json_array)
+                    #r = Replacer()
+                    #grk_unicode = r.beta_code(body)
+                    tlg_dict[abbrev] = txt_ascii
+                    #tlg_dict[abbrev] = grk_unicode
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
+        local_project_save = self.project_root + '/' + 'tlg.json'
+        try:
+            with open(local_project_save, 'w') as tlg_json:
+                tlg_json_array = json.dumps(tlg_dict)
+                tlg_json.write(tlg_json_array)
+        except IOError:
+            logging.error('Failed to create and write to file tlg.json.')
         self.confirm_json_present('TLG_E')
         logging.info('Finished TLG corpus compilation.')
 
