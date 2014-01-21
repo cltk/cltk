@@ -1,0 +1,4418 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+  <teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+	<title>Ab urbe condita libri, erkl&auml;rt von M. Weissenborn, books 43-44, textual notes</title>
+	
+	<author n="Liv.">Titus Livius (Livy)</author>
+	&responsibility;
+	&fund.NEH;
+      </titleStmt>
+	
+      <extent></extent>
+      
+	&Perseus.publish;
+      
+      <sourceDesc>
+	<listBibl>
+	  <biblStruct>
+	    <monogr>
+	      <author>Livy</author>
+	      <editor>W. Weissenborn</editor>
+	      <title>Ab urbe condita, 43-44: textual notes</title>
+	      <imprint>
+		<pubPlace>Berlin</pubPlace>
+		<publisher>Weidmannsche Buchhandlung</publisher>
+		<date>1880</date>
+	      </imprint>
+	      <biblScope type="volume">9.2</biblScope>
+	    </monogr>
+	  </biblStruct>
+
+	</listBibl>
+      </sourceDesc>
+      
+    </fileDesc>
+    
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+	<state delim="." unit="book"/>
+	<state delim="." unit="chapter"/>
+	<state unit="section"/>
+      </refsDecl>
+    </encodingDesc>
+    
+    <profileDesc>
+      <langUsage>
+	<language id="la">Latin
+	</language><language id="en">English
+	</language><language id="de">German
+      </language></langUsage>
+    </profileDesc>
+    
+    <revisionDesc>
+      <change>
+	<date>2006/7/03</date>
+	<respStmt><name>Gregory Crane</name><resp>ed.</resp></respStmt>
+	<item>
+
+      </item></change></revisionDesc></teiHeader>
+
+<text><front><pb id="p.iii"/>
+<div1 type="intro"><head>Vorwort.</head>
+<p>Der zehnte Band der Weifsenbornschen Liviusausgabe, der einzige, welcher nicht von des Verfassers eigner Hand erneuert und, was bei ihm dasselbe bedeutete, verbessert worden ist, erscheint erst jetzt nach einem Zeitraum von vierzehn Jahren in neuer Auflage, obgleich eine solche schon seit langer Zeit Bed&uuml;rfnis war. Die gleichzeitig notwendig gewordenen Neubearbeitungen vieler Teile des Werkes nahmen in den letzten Jahren die Kraft Weifsenborns so volst&auml;ndig in Anspruch, dafs er, obwohl sein Fleifs Ungew&ouml;hnliches zu leisten im Stande war, die Revision dieses letzten Bandes immer von neuem zu verschieben gezwungen wurde; und schliefslich hinderte ein pl&ouml;tzlicher Tod den rastlosen Mann an der Arbeit, welche den Schlufs seiner Besch&auml;ftigung mit Livius, wie seiner schriftstellerischen Th&auml;tigkeit &uuml;berhaupt bilden sollte.</p>
+<p>Die zweite Auflage dieses vorliegenden ersten Heftes unterscheidet sich von der ersten in hohem Grade. Wiederholt bin ich bedenklich geworden, ob ich recht daran th&auml;te, von der urspr&uuml;nglichen Fassung so sehr abzuweichen und ganze Partieen des Kommentars, wie es geschehen, durch neue Er&ouml;rterungen zu ersetzen; aber ich glaubte mich der &Uuml;berzeugung hingeben zu d&uuml;rfen, dafs Weifs?nborn selbst dem Ganzen eine wesentlich andere Gestalt gegeben haben w&uuml;rde, war doch bei mehreren B&auml;nden die zweite Auflage von der ersten so verschieden, dafs sie als eine ganz neue Ausgabe gelten konnte.</p>
+<p>Die &Auml;nderungen in den erkl&auml;renden Anmerkungen haben ihren Grund teilweise in den ver&auml;nderten Lesarten des Textes, in der Mehrzahl aber sind sie durch die Ber&uuml;cksichtigung der neueren Litteratur, durch sch&auml;rfere Beobachtung des Livianischen Sprachgebrauchs und durch eine genaue Revision der Citate veranlafst, welche letzteren der Sichtung und Berichtigung durchaus bed&uuml;rftig waren. Dafs ich kritische Notizen in dem Kommentar belassen, ja sogar vielfach in denselben eingef&uuml;gt habe, glaube ich verantworten zu k&ouml;nnen. F&uuml;r die Lekt&uuml;re auf Schulen eignen sich diese B&uuml;cher wegen ihrer L&uuml;ckenhaftigkeit nicht besonders, und Sch&uuml;ler der obersten Stufe werden eventuell das
+<pb id="p.iv"/>
+
+f&uuml;r sie Unwichtige oder nicht auf sie Berechnete leicht auzuscheiden wissen.</p>
+<p>F&uuml;r die Konstituierung des Textes waren aufser Madvigs Emendationes Livianae und Harants mir leider erst w&auml;hrend des Druckes bekannt gewordenen Emendationes et adnotationes ad T. Livium vorzugsweise Vahlens kritische Beitr&auml;ge zu ber&uuml;cksichtigen, der sich unter den Neueren um die Verbeserung der f&uuml;nften Dekade des Livius unstreitig die gr&ouml;fsten Verdienste erworben hat. Viele seiner &Auml;nderungen habe ich unbedenklich in den Text aufgenommen; an anderen Stellen, wo mich seine Ansicht oder sein Vorschlag nicht &uuml;berzeugt haben, findet sich, was er vorgetragen, in den Noten. Ebenso glaubte ich bei den Versuchen anderer verfahren zu sollen (z. B. bei den Korrekturen Harants, von denen mir nur wenige ganz schlagend erschienen) und in erster Linie bei den eigenen, um nicht durch &uuml;bereilte Entscheidung zu verschlechtern, wo zu f&ouml;rdern und bessern der ernstliche Wille vorhanden war. Neue Lesarten sind an folgenden Stellen aufgenommen worden: 
+<bibl n="Liv. 43.3.4">43, 3, 4</bibl>.
+<bibl n="Liv. 43.4.1.">4, 1</bibl>.
+<bibl n="Liv. 43.6.7.">6, 7</bibl>.
+<bibl n="Liv. 43.6.13">13</bibl>.
+<bibl n="Liv. 43.7.5.">7, 5</bibl>.
+<bibl n="Liv. 43.7.6">6</bibl>.
+<bibl n="Liv. 43.8.8.">8, 8</bibl>.
+<bibl n="Liv. 43.9.7.">9, 7</bibl>.
+<bibl n="Liv. 43.11.11.">11, 11</bibl>.
+<bibl n="Liv. 43.11.13">13</bibl>.
+<bibl n="Liv. 43.12.3.">12, 3</bibl>.
+<bibl n="Liv. 43.13.1.">13, 1</bibl>.
+<bibl n="Liv. 43.14.6.">14, 6</bibl>.&mdash;
+<bibl n="Liv. 44.2.12">44, 2, 12</bibl>.
+<bibl n="Liv. 44.4.4.">4, 4</bibl>.
+<bibl n="Liv. 44.5.4.">5, 4</bibl>.
+<bibl n="Liv. 44.5.12">12</bibl>.
+<bibl n="Liv. 44.8.4.">8, 4</bibl>.
+<bibl n="Liv. 44.10.1.">10, 1</bibl>.
+<bibl n="Liv. 44.12.6.">12, 6</bibl>.
+<bibl n="Liv. 44.14.7.">14, 7</bibl>.
+<bibl n="Liv. 44.14.10">10</bibl>.
+<bibl n="Liv. 44.15.1.">15, 1</bibl>.
+<bibl n="Liv. 44.16.7.">16, 7</bibl>.
+<bibl n="Liv. 44.17.3.">17, 3</bibl>.
+<bibl n="Liv. 44.18.5.">18, 5</bibl>.
+<bibl n="Liv. 44.18.6">6</bibl>.
+<bibl n="Liv. 44.19.4.">19, 4</bibl>.
+<bibl n="Liv. 44.20.4.">20, 4</bibl>.
+<bibl n="Liv. 44.22.2.">22, 2</bibl>.
+<bibl n="Liv. 44.22.12">12</bibl>.
+<bibl n="Liv. 44.22.17">17</bibl>.
+<bibl n="Liv. 44.25.1.">25, 1</bibl>.
+<bibl n="Liv. 44.25.9">9</bibl>.
+<bibl n="Liv. 44.26.6.">26, 6</bibl>.
+<bibl n="Liv. 44.26.9">9</bibl>.
+<bibl n="Liv. 44.29.5.">29, 5</bibl>.
+<bibl n="Liv. 44.30.5.">30, 5</bibl>.
+<bibl n="Liv. 44.32.7.">32, 7</bibl>.
+<bibl n="Liv. 44.33.2.">33, 2</bibl>.
+<bibl n="Liv. 44.34.4.">34, 4</bibl>.
+<bibl n="Liv. 44.34.10">10</bibl>.
+<bibl n="Liv. 44.35.10.">35, 10</bibl>.
+<bibl n="Liv. 44.35.16">16</bibl>.
+<bibl n="Liv. 44.36.2.">36, 2</bibl>.
+<bibl n="Liv. 44.36.13">13</bibl>.
+<bibl n="Liv. 44.37.12.">37, 12</bibl>.
+<bibl n="Liv. 44.38.8.">38, 8</bibl>.
+<bibl n="Liv. 44.38.9">9</bibl>.
+<bibl n="Liv. 44.41.2.">41, 2</bibl>.
+<bibl n="Liv. 44.41.4">4</bibl>.
+<bibl n="Liv. 44.43.3.">43, 3</bibl>.
+<bibl n="Liv. 44.45.9.">45, 9</bibl>.</p>
+<p>Besondere Schwierigkeiten verursachte der die handschriftlichen Varianten enthaltende Anhang. Eine sorgf&auml;ltigere Betrachtung derselben ergab n&auml;mlich die Gewifsheit, dafs  hier, wo die gr&ouml;fstm&ouml;gliche Korrektheit in den Angaben vorausgesetzt werden mufs, eine Unzahl von Druckfehlern vorliege. Es war daher notwendig, teils die Kopitarsche Abschrift von neuem einzusehen, teils die Kollationen Vahlens und Madvigs mit dem, was Weidsenborn aus ihnen anf&uuml;hrt, genau zu vergleichen, damit wenigstens hier die bis jetzt mangelnde &Uuml;bereinstimmung hergestellt w&uuml;rde. Diese Arbeit verlangte Ausdauer, fand aber auch ihren Lohn; denn mit Befriedigung kann ich konstatieren, dafs in die zw&ouml;lf Seiten des Anhangs mehr als ein halbes Tausend Berichtigungen eingef&uuml;hrt worden sind. Die Zuverl&auml;ssigkeit der Angaben hat hierdurch gegen fr&uuml;her wenigstens erheblich gewonnen. F&uuml;r absolute Richtigkeit wage ich nicht einzustehen, da auch dem sch&auml;rfsten und ge&uuml;btesten Auge leicht mancherlei entgeht; im ganzen jedoch werden nicht sehr viele Fehler stehen geblieben sein. Nur mufs ich betonen, dafs ich die Angaben bei Hertz, an deren Richtigkeit mir hin und wieder Zweifel kamen,
+<pb id="p.v"/>
+
+alle auf Treu und Glauben anzunehmen gen&ouml;tigt war, um mir nicht selbst den Boden unter den F&uuml;fsen zu entziehen.</p>
+<p>Die Kollation Kopitars hat durch die Ausmerzung einiger Versehen etwas gewonnen; einen Vergleich mit den beiden anderen kann sie gleichwohl nicht aushalten, und man wird gut thun, wo ihr das &uuml;bereinstimmende Zeugnis Vahlens und Madvigs gegen&uuml;bersteht, diesen, nicht jenem zu folgen. Hoffentlich macht Gitlbauer der Ungewifsheit bald ein Ende und erm&ouml;glicht es, an die Stelle dieses bunten Gemisches von Varianten ein einheitliches, diplomatisch gesichertes Verzeichnis der Lesarten des Codex zu setzen.</p>
+<p>Dankbar gedenke ich zum Schlufs der treuen H&uuml;lfe meines fr&uuml;heren Sch&uuml;lers Otto Morgenstern, Stud. phil. auf hiesiger Universit&auml;t, welcher mir bei der Emendation des Anhangs ganz wesentliche Dienste geleistet hat.</p>
+<closer><dateline>Berlin im Mai 1880.</dateline>
+<name>Dr. Hermann Johannes M&uuml;ller.</name></closer></div1>
+<div1 type="intro"><head>Vorwort zur ersten auflage.</head>
+<p>Als ich vor funfzehn Jahren die vorliegende Ausgabe des Livius begann, verhehlte ich mir keineswegs die vielfachen und grofsen Schwierigkeiten eines solchen Unternehmens; aber die &Uuml;berzeugung, dafs eine den Bed&uuml;rfnissen und Anforderungen der Schule entsprechende Behandlung dieses Schriftstellers w&uuml;nschenswert und wenigstens einen Anfang zu machen zeitgem&auml;fs sei, bestimmten mich dasselbe zu wagen, die freundliche Aufnahme, welche die ersten Versuche fanden, gab mir den Mut es fortzusetzen und forderte mich auf das Begonnene zu verbessern und zu vervollkommnen. Und hierzu fehlte es weder an Stoff noch an Mitteln, da seit der Zeit, in der ich die Arbeit anfing, bis jetzt vielleicht f&uuml;r keinen Schriftsteller direkt und indirekt so viel geleistet worden ist, als f&uuml;r Livius. Denn w&auml;hrend einerseits neue kritische H&uuml;fsmittel gewonnen, festere und richtigere Grunds&auml;tze f&uuml;r deren Benutzung aufgestellt, viele Stellen neu untersucht und zum Teil verbessert worden, Sprache und Sprachgebrauch des Schriftstellers Gegenstand mehrfacher und sorgf&auml;ltiger Untersuchungen gewesen sind, ist andererseits das Verfahren und die Methode, welche Livius als Geschichtschreiber befolgt hat, sein Verh&auml;ltnis zu seinen Quellen, seine Vorz&uuml;ge und M&auml;ngel genauer erkannt
+<pb id="p.vi"/>
+
+und durch die gr&uuml;ndlichen und geistreichen Forschungen auf dem Gebiete der Geschichte und Chronologie, der Antiquit&auml;ten, Mythologie u. a. &uuml;ber vieles Licht verbreitet worden. Ich habe die Resultate dieser Untersuchungen, welche mir, je weiter ich in der Arbeit fortschritt, in um so reicherem Mafse zuflossen, so weit sie zug&auml;nglich waren und der Zweek der Ausgabe es gestattete, gewissenhaft benutzt und bin mir bewufst den Schwierigkeiten, welche die Erkl&auml;rung des Livius in so grofser Menge darbietet, nicht aus dem Wege gegangen zu sein. Wenn ich dennoch viele derselben zu l&ouml;sen nicht im stande gewesen bin, sondern mich habe begn&uuml;gen m&uuml;ssen auf das Dasein derselben hinzuweisen, auch wohl erkenne, wie weit meine Arbeit hinter dem Ziele, welches ich mir gesteckt, und den Anforderungen, die ich mir gestellt hatte, zur&uuml;ckgeblieben ist, so l&auml;fst mich doch die Gr&ouml;fse der Aufgabe an sich bei billigen und humanen Richtern einige Nachsicht erwarten. Das Bewufstsein unerm&uuml;det und gewissenhaft nach dem Wahren und Passenden gesucht zu haben giebt mir einige Beruhigung, die Teilnahme, welche das Werk auch so, wie es ist, gefunden hat, l&auml;fst mich schliefsen, dafs ich nicht ganz umsonst gearbeitet und nicht ohne allen Erfolg gestrebt habe einem Bed&uuml;rfnisse abzuhelfen, und ich darf hoffen, dafs eine unparteiische Vergleichung des von mir Gegebenen mit fr&uuml;heren und nach der meinigen enstandenen, einen gleichen Zweck verfolgenden Ausgaben zeigen werde, was ich meinen Vorg&auml;ngern verdanke, und in welchem Verh&auml;ltnisse zu dem von mir gemachten Versuche meine Nachfolger stehen. Wenn es an Widerspruch und Tadel nicht gefehlt hat, so hatte ich dies bei einem so reichen und vielfach unsicheren Stoffe nicht anders erwartet; ich habe in demselben, wenn auch zuweilen die Gr&uuml;nde, durch die ich geleitet worden war, weniger Beachtung gefunden hatten, als man erwarten sollte, nur eine Aufforderung gefunden meine Ansichten einer neuen Pr&uuml;fung zu unterwerfen und die Bemerkungen<note><p>Manche Bemerkung w&auml;re indessen nicht n&ouml;tig gewesen. So heifst es, um nur einiges anzuf&uuml;hren, in der 3. Ausgabe des 1. Bandes von 1861 zu 2, 13, 9: <foreign lang="la">quos vellet:</foreign> &ldquo;da die &sect; 6 erw&auml;hnten Jungfrauen nicht zur&uuml;ckgegeben werden, so enth&auml;lt <foreign lang="la">quos</foreign> und <foreign lang="la">ipsorum</foreign> eine Andeutung, dafs L. auch Knaben und J&uuml;nglinge unter den Geiseln gedacht habe, wie es Dion. und Plut. berichten.&rsquo; Im Philologus 22, 183 vom J. 1865 wurde ich ausf&uuml;hrlich belehrt, dafs L. mit den &uuml;brigen Historikern &uuml;bereinstimme.&mdash;2, 27, 5 hatte ich zu <foreign lang="la">pro pontifice</foreign> bemerkt: &rdquo; da der Priester bei der Dedikation nicht fehlen kann, s. 8, 7; Cic. de dom. s. 133, so bedeutet es wohl: in der Gegenwart, vor dem Priester solle er die Feierlichkeit vollziehen.&rsquo; In Bezug darauf heifst es in dem Programm von Duisburg 1859 S. 19: quod qua ratione W. interpretandum censeat: in Gegenwart der Priester, equidem non exputo; es wird dann angenommen, dafs der Magistrat und so an jener Stelle Laetorius die munia sacerdotis vollzogen habe. Ich darf wohl nur auf Marquardt Handbuch d. r&ouml;m. Altert&uuml;mer 4, 227 (= StVw. 3, 262, 6) verweisen.&mdash;Bei <bibl n="Liv. 22.10.2">22, 10, 2</bibl>: <foreign lang="la">stet ut velim . .</foreign> hatte ich bemerkt: &rdquo;vielleicht ist eine L&uuml;cke anzunehmen, da man die Erw&auml;hnung des Gottes (d. h. des luppiter) schon hier, nicht erst in einem Nebensatze, &sect; 3, erwartet; . . zu <foreign lang="la">servaverit</foreign> ist (nat&uuml;rlich nach der gew&ouml;hnlichen Lesart) aus dem Zusammenhange Iuppiter zu denken.&rsquo; Im Rhein. Museum 19, 405 heifst es: &rdquo;die Einschiebung von <foreign lang="la">Iuppiter</foreign> (nach <foreign lang="la">servaverit</foreign>) fordert der Zusammenhang (d. h. so ziemlich dasselbe, was ich angedeutet hatte), ein blofses Hinzudenken des Namens, was W. dem H&ouml;rer oder Leser zumutet, vertr&auml;gt sich mit der Bestimmtheit fordernden Formel nicht.&rsquo;&mdash;<bibl n="Liv. 24.28.4">24, 28, 4</bibl> war in der ersten Ausgabe stehen geblieben <foreign lang="la">ali alio trahat.</foreign> Dazu wird in dem Bonner Lektionskataloge f&uuml;r das Wintersemester 1861/62 die Bemerkung gemacht: paulo gravius potest videri, quod ipse W. <foreign lang="la">ali alio</foreign> ipsi scriptori tribuit idque in continuitatem verborum exempli sui recepit. Quod cur non probemus causas tam esse apertas putamus, ut et otio et operae et chartis parcendum sit. Das hier in dem letzten Satze Gesagte leidet volle Anwendung auf die Bemerkung selbst, da ich, ohne die Belehrung in dem Bonner Lektionska taloge abzuwarten, schon in dem Anfange des Jahres in der 2. Ausgabe <foreign lang="la">alii alio</foreign> hergestellt hatte.&mdash;<bibl n="Liv. 26.42.7">26, 42, 7</bibl> habe ich <foreign lang="la">MCC passuum</foreign> in den Text aufgenommen; dies f&auml;llt dem Verfasser des Programms von Torgau 1859 auf, obgleich die ganze Stelle <bibl n="Liv. 26.41.8">26, 41, 8</bibl>&mdash;44, 1 sich in keiner alten Handschrift findet. Und dieser Art mehr.</p></note> benutzt, um Irrt&uuml;mer zu entfernen, an-
+
+<pb id="p.vii"/>
+
+deres genauer zu bestimmen und zu vervollst&auml;ndigen. Wenn mir namentlich der Vorwurf gemacht worden ist, dafs ich zu fest an der handschriftlichen oder fr&uuml;heren Lesart halte, so habe ich mich dar&uuml;ber in dem Vorworte zu der 2. Ausgabe des 6. Bandes ausgesprochen und ich gestehe noch jetzt der nicht allein von mir vertretenen Ansicht zu sein, dafs in Ausgaben wie die vorliegende mehr konservativ verfahren und die &uuml;berlieferte Gestalt des Textes beibehalten werden k&ouml;nne, wenn etwas vollst&auml;ndig Gen&uuml;gendes noch nicht gefunden ist, nicht scheinbare, f&uuml;r den Augenblick blendende Konjekturen, weil sie neu sind, aufgenommen werden d&uuml;rfen, um in K&uuml;rze anderen Platz zu machen.</p>
+<p>Anders habe ich geglaubt in den f&uuml;nf letzten B&uuml;chern verfahren zu m&uuml;ssen, weil hier die Verh&auml;ltnisse andere waren. Da der Text dieser B&uuml;cher nur auf einer einzigen, zwar alten, aber vielfach verdorbenen und l&uuml;ckenhaften Handschrift beruht, die noch dazu fast drei Jahrhunderte nicht benutzt worden ist, so dafs die Verbesserungsvorschl&auml;ge fr&uuml;herer Kritiker nicht selten einer sicheren Grundlage entbehrten, so bin ich h&auml;ufiger von dem
+
+<pb id="p.viii"/>
+
+Texte, wie er von Simon Grynaeus mit ausgezeichnetem Takte und Scharfsinn hergestellt und im ganzen bis in die neuere Zeit beibehalten worden ist, abgewichen und habe an nicht wenigen Stellen<note><p>Anders urteilt ein Mitarbeiter an der Eos, der sich daselbst 2, 34 also vernehmen l&auml;fst: multa etiam nunc vitia restant, quae M. Hertzius Weissenborniusque (die mit der meinigen fast gleichzeitig erschienene Ausgabe von Madvig ist jetzt so wenig als deren vorhergehende Teile bei einem fr&uuml;heren Schriftchen f&uuml;r den Kritiker vorhanden) aut non satis feliciter temptarunt aut intacta reliquerunt. Ille . . Kreyssigii, Madvigi, Vahleni, Kochi, Seyfferti aliorum sive coniecturas sive emendationes in suum usum convertit; . . W. multa etiam nunc quaerit ecfugia veteresque errores quasi nova commenta recoxit. Zahlen sprechen in solchen F&auml;llen am deutlichsten. Ich habe in dem 41. und 42. Buche (von diesen ist an der angef&uuml;hrten Stelle zun&auml;chst die Rede; &uuml;ber die erste Dekade bemerkt M. Hertz selbst vol. I p. XXXV: accuratius etiam, quam vel a Weissenbornio nuper factum est, Medicei codicis vestigia pressi) und zwar in vielen F&auml;llen nicht erst jetzt, sondern schon vor 16 Jahren in der Teubnerschen Ausgabe an mehr als 200 Stellen dieselben Konjekturen neuerer oder erst jetzt als richtig erkannte &auml;lterer Kritiker wie H. aufgenommen, an mehr als 40 Stellen gleichfalls Ver&auml;nderungen f&uuml;r n&ouml;tig gehalten, aber anders als H. zu helfen gesucht; an &uuml;ber 30 Stellen bin ich von dem alten Texte abgegangen, an denen H. denselben beibehalten hat; an einer etwa gleichen Anzahl findet das Umgekehrte statt.</p></note> Konjekturen von Neueren, besonders von Kreyssig, aufgenommen, anderes selbst zu verbessern gesucht. Damit die Notwendigkeit dieser Ver&auml;nderungen leichter erkannt und die Vergleichung der handschriftlichen und der aufgenom menen Lesart sogleich vorgenommen werden k&ouml;nne, habe ich die von Kopitar schon 1820 f&uuml;r die Weidmannsche Buchhandlung besorgte, weder von Bekker noch von Kreyssig vollst&auml;ndig und nicht immer genau bekannt gemachte Kollation des Wiener Codex mit den Erg&auml;nzungen und Berichtigungen aus den von Hertz und Madvig benutzten Kollationen, wie fr&uuml;her die des Puteanus, aufnehmen zu m&uuml;ssen geglaubt.</p>
+<p>Ich kann diesen letzten Teil einer vielj&auml;hrigen und m&uuml;hevollen Arbeit nicht schliefsen ohne allen, die mich bei derselben unterst&uuml;tzt haben, meinen aufrichtigen Dank auszusprechen. Ich f&uuml;ge den Wunsch hinzu, dafs auch dieser Band eine freundliche Aufnahme finden und das Ganze das Verst&auml;ndnis des Livius f&ouml;rdern, der Schule und den Lernenden den beabsichtigten Nutzen bringen m&ouml;ge.</p>
+
+<closer><dateline>Eisenach im November 1866.</dateline>
+<name>Wilhelm Weissenborn.</name></closer></div1></front>
+<body>
+
+<pb id="p.171"/>
+<div1 type="introduction">
+<head>Abweichungen der Wiener handschrift von dem gegebenen texte.</head>
+<p>&Uuml;ber die Handschrift ist in dem Anhange zum zweiten Hefte des neunten Bandes, welches das 41. und 42. Buch des Livius enth&auml;lt, kurz gesprochen. Ebendaselbst finden sich die n&ouml;tigen Angaben &uuml;ber Sinn und Bedeutung der in der folgenden Zusammenstellung gebrauchten Klammern und sonstigen Zeichen. In dem vorliegenden Hefte haben auch die sporadischen Anf&uuml;hrungen Gitlbauers Ber&uuml;cksichtigung gefunden. Dieselben sind in der Weise kenntlich gemacht, dafs zu der verzeichneten Variante jedesmal ein Sternchen hinzugef&uuml;gt ist, wo Gitlbauers Lesung &uuml;bereinstimt; wo seine Angaben von den drei anderen Collationen abweichen, sind, dem sonstigen Verfahren entsprechend, runde Klammern unter Hinzuf&uuml;gung von G gew&auml;hlt.</p>
+<p>Da Madvig nicht &uuml;berall angiebt, wo im Codex <foreign lang="la">que</foreign> f&uuml;r <foreign lang="la">quae</foreign> und umgekehrt <foreign lang="la">quae</foreign> f&uuml;r <foreign lang="la">que</foreign> geschrieben steht, so ist nicht besonders angemerkt, wo diese W&ouml;rtchen in Madvigs Text mit den Angaben Kopitars und Vahlens disharmonieren. Ebenso ist bei Angabe der Zahlzeichen und einiger anderen Abk&uuml;rzungen, die Hertz, wie er ausdr&uuml;cklich hervorhebt, nur an einzelnen wichtigen oder zweifelhaften Stellen verzeichnet hat, die &Uuml;bereinstimmung Kopitars mit Madvig nicht mehr kenntlich gemacht.</p>
+<p>Kein Zeichen hinter der handschriftlichen Lesart ist = verbessert von Grynaeus; &verbar;&verbar; = Ende der Zeile in der Hdschr.; &verbar;&verbar; &verbar;&verbar; = Ende der Seite in der Hdschr.; Ald. = Aldus; Bk. = Bekker; Crev. = Crevier; Drak. = Drakenborch; Duk. = Duker; ed. v. = editiones veteres vor Aldus; Gryn. = S. Grynaeus (ed. Frobeniana 1531); Fr. 2. = ed. Frobeniana 1535; Gr. = I. F. Gronov; JGr. = Jacob Gronov; Htz. = Hertz; HJM. = H. J. M&uuml;ller; Kr. = Kreyssig; Mg. = Madvig; Mms. = Th. Mommsen; Sig. = Sigonius; Va. = Vahlen; Wfsb. = Weifsenborn</p></div1>
+<div1 type="book" n="43">
+
+<div2 type="chapter" n="1">
+<div3 type="section" n="1">
+<p>aetate &verbar; thessalialegatus <ref>Sig. Kr.</ref> &verbar; con_s_.* (cons <ref>V,</ref> con_s_ <ref>M</ref>) &verbar; (omissus*) &verbar; oppugna<foreign lang="la">j</foreign>ui(a<foreign lang="la">i</foreign>ui <ref>V</ref>, aj<foreign lang="la">u</foreign>i M)ceremiamiu (mui <ref>V</ref>) adque <ref>Wfsb. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>[omniaquae <ref>M</ref>] &verbar; issua &verbar; concessitinopinione &verbar; eosquecarnuntem &verbar; (<foreign lang="la">cap V,</foreign> cap <ref>M</ref> munitam)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>seconplere &verbar; opsidendo &verbar; reliq. &verbar;&verbar; rat * (reliq &verbar;&verbar; rat)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>inlyricum &verbar; ligiones &verbar; madoniam</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>quiq. (quiq <ref>M</ref>) &verbar;&verbar; re(erere <ref>V,</ref> rere * <ref>M</ref>)ntes &verbar; systrorum</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>inlyricum &verbar; macedoniamseea</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>ceteras (exteras <ref>V</ref>) &verbar; ducere <ref>Gr.</ref> &verbar; aperire <ref>Gr.</ref> &verbar; possent <ref>Htz. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>necbellum &verbar; cumquae &verbar; censuerant <ref>I. Perizonius</ref></p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>hii <ref>Gr.</ref> &verbar; [cetegus <ref>M</ref>] (cete &verbar;&verbar; gus <ref>G</ref>) &verbar; p_. m_. <ref>V,</ref> p_. m_. <ref>M,</ref> p_ m_. <ref>G</ref>) rex &verbar; metu &verbar; adque.</p></div3>
+</div2>
+
+<div2 type="chapter" n="2">
+<div3 type="section" n="1">
+<p>aliquod &verbar; senatu <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>idemmagistratuum &verbar; superbiaque &verbar;&verbar; (que <ref>M</ref>) quae &verbar; hostiis</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>(indignaq. &verbar;&verbar; rererentur <ref>M</ref>) &verbar; cannuleio &verbar; quinosrecuperarentex</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>(.s_c_ <ref>M</ref>) &verbar; (nominare<foreign lang="la">i V,</foreign> ret <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>scipio &verbar; aemilium <foreign lang="la">j</foreign> m. (f. m. <ref>M,</ref> p m., <foreign lang="la">der erste Strich von</foreign> p <foreign lang="la">durchstrichen V</foreign>) paulum <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>consule &verbar; sumseruntuis</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>estora &verbar; (populiq <ref>V,</ref> populiq. <ref>M</ref>) &verbar; sumserunt</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>reciperatores</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>hincuiennio &verbar; c. (c <ref>V</ref>) popilio &verbar; (pr <ref>V</ref>) &verbar; excusatio &verbar; (exsilii <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>auxiadqueeam &verbar; prouinciamabiti(t<foreign lang="la">i V</foreign>)nereplures</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>futurumconsultamentumab <ref>Kr.</ref> &verbar; hispanisquantiipseuellent.</p></div3>
+<pb id="p.172"/>
+
+
+</div2>
+
+<div2 type="chapter" n="3">
+<div3 type="section" n="2">
+<p>hominumexhispaniaorabant</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>aput &verbar; proficerentur &verbar; (manumissent *) <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>potestatemfore (fore <foreign lang="la">undeutlich M,</foreign> fieri, e <foreign lang="la">nicht deutlich V</foreign>) &verbar; (esset <ref>V</ref>) &verbar; (ut<foreign lang="la">i V</foreign>) &verbar; coloniamfuisse (fu<foreign lang="la">i</foreign> sse <ref>V</ref>) <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>gulussama(mat <ref>V,</ref> ma<foreign lang="la">t M</foreign>)sinissae(nis &verbar;&verbar; sae <ref>V</ref>)regulusfilius <ref>Kr.</ref> &verbar; cart(th <ref>M</ref>)aginienses</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>etmissa(missaq. <ref>V</ref>)erant &verbar; (exp<foreign lang="la">l</foreign>osuit) &verbar; imperarent &verbar; (merito p&rmacr; <ref>M</ref>) &verbar; etmonuitet (i <foreign lang="la">durch Punkt getilgt, das zweite</foreign> et <foreign lang="la">radiert V</foreign>) &verbar; consc (sg <ref>M</ref>) ripti</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>eos (eo, <foreign lang="la">dann</foreign> s <foreign lang="la">radiert V</foreign>) &verbar; coepisse (sse<foreign lang="la">i V,</foreign> ssus, sus <foreign lang="la">kaum zu lesen M</foreign>)specie &verbar; macedoniasubea(macedonia &verbar;&verbar; subea <ref>V</ref>) &verbar; iniec(iniec &verbar;&verbar; &verbar;&verbar; <ref>V, dann fehlen</ref> 4 <ref>Lagen der Hdschr. M</ref>).</p></div3>
+</div2>
+
+<div2 type="chapter" n="4">
+<div3 type="section" n="1">
+<p>pavor <foreign lang="la">ed. v.</foreign> &verbar; capitacastra</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(fuga<foreign lang="la">d</foreign>) &verbar; praecibus</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>optulissent</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>agrumquepaulo</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>sanguinem</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>[adsiduiscum <foreign lang="la">ohne</foreign> lacerabant] &verbar; eranttutis(erant &verbar;&verbar; &verbar;&verbar; tutis <ref>V</ref>) &verbar; [ineoagro <ref>V</ref>] &verbar; [essetet] &verbar; quamque</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>(locoasse)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>auerterent &verbar; abderite &verbar; quaerentesque</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(incentum) &verbar; impetraret &verbar; quodeare</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>(siuixdum) &verbar; peruenissetaudisse <ref>V</ref>) &verbar; percussoscoronasubceterosuenisseetaudisse</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>indignesenatui <ref>Gr.</ref> &verbar; decreueruntquaeeadem &verbar; quecoroneis &verbar; eandemquae &verbar; edicerequ<foreign lang="la">a</foreign>e(quae <ref>M</ref>)maenium</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>blesius &verbar; abderitis</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>isdem &verbar; nuntiarentsenatununtiarentabderitis &verbar; conquaeriquae.</p></div3>
+</div2>
+
+<div2 type="chapter" n="5">
+<div3 type="section" n="1">
+<p>fueratcumtribunis(cum &verbar;&verbar; tribunis <ref>G</ref>)militibus &verbar; quaerellae &verbar; cincibilitenuerunt</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>senat&umacr; (tu <ref>V,</ref> tum <ref>M</ref>) &verbar; quaestus &verbar; depopulo &verbar;&verbar; rum(lorum * <ref>M</ref>) c. cassius</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>idtempus <ref>Kr.</ref> &verbar; histrorumquepydum</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>(paca<foreign lang="la">m</foreign>tum) &verbar; aliudidbellum &verbar; cregressumhostiliteritinereperagrasse &verbar; suosducespassim <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>senatu &verbar; quaerantur</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>t&umacr;si (tu &verbar;&verbar; si <ref>V,</ref> tusi <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>indicarentq. (q &verbar;&verbar; <ref>V</ref>)patrum &verbar; (esse)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>duofratresregulis &verbar; (phal<foreign lang="la">a</foreign>erati <ref>M</ref>) &verbar; arma (ma<foreign lang="la">i V,</foreign> ma<foreign lang="la">t M</foreign>) autsagula.</p></div3>
+</div2>
+
+<div2 type="chapter" n="6">
+<div3 type="section" n="2">
+<p>introductiipsequod &verbar; praetorio &verbar; exposuerint(<foreign lang="la">i</foreign>nt <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>arent <ref>Nipperdey</ref> &verbar; [etaliquae <ref>M</ref>]</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>milessi &verbar; nihilpraestitissent <ref>Mg.</ref> &verbar; praestaret</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>adlab&amacr;(ban)denses &verbar; commemoraue &verbar; ludosquae</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>coronaaurea &verbar; ioui &omacr; m_ &verbar; CCC &verbar; (poneretsacrificare)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>hoclamsa(ms<foreign lang="la">e</foreign>a <ref>V,</ref> msea <ref>M</ref>ceni Gr. &verbar; LXXX</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>discessisseeaperseo &verbar; romanoexercitui(tu)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>p_&rmacr; (pr <ref>V</ref>) romani &verbar; potestatemreciperentur (r&emacr; &verbar;&verbar; tur <ref>G) Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>committerepossumlamsacenos &verbar; iussu &verbar; millium &verbar; datalabandenses &verbar; (hosti<foreign lang="la">u</foreign>lium)</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>simulcarthaginien(ginen)siumtritici <ref>Crev.</ref> &verbar; hordeiquinquaginta(qu<foreign lang="la">i</foreign>nquag<foreign lang="la">i</foreign>nta <ref>V) Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>(pr. <ref>M</ref>) &verbar; populisegreca(ga)torum &verbar; (fideliumq <ref>M</ref>) &verbar; sociumque</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>MetCC &verbar; XII elepantos &verbar; opusesse &verbar; animoetquae <ref>HJM.</ref> &verbar; ipso</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>rogatiquaeuteaquaeuteaquae &verbar; deportaret.</p></div3>
+</div2>
+
+<div2 type="chapter" n="7">
+<div3 type="section" n="1">
+<p>apublio &verbar; macedoniasemisissetcum(et<foreign lang="la">i</foreign>cum <ref>V,</ref> eticum <ref>M</ref>)infitiatinoninterrogarenturaput &verbar; quamaput</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>(pr. <ref>M</ref>) &verbar; is &verbar; socis</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>calcidenses &verbar; introituobit <ref>HJM.</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>adfecta</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>[relicuum] &verbar; linguas</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>tumque &verbar; romanussuperauerecrudeliterfecisse &verbar; deindeque</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>etiamis &verbar; quamsinedeced&amacr; &verbar;&verbar; (dan &verbar;&verbar; <ref>M</ref>)tursic <ref>Kr.</ref> &verbar; hortensiumquae</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>maronem &verbar; aput &verbar; conpilataspoliataquesacrilegiis <ref>Wfsb.</ref> &verbar; liberacorporaliberatain &verbar; cotidiediediripi</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>adque &verbar; pensisi <ref>Sig.</ref> &verbar; neque(neq. <ref>M</ref>)facerem.</p></div3>
+</div2>
+
+<div2 type="chapter" n="8">
+<div3 type="section" n="1">
+<p>(plura<foreign lang="la">q.</foreign>) &verbar; (audiuit<foreign lang="la">i</foreign>) &verbar; m. iuuentiustalna <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>[senatum <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>senatu &verbar; calcidensibus &verbar;&verbar; que(busque)maenius (maenus, i <foreign lang="la">&uuml;ber</foreign> nu) &verbar; que &verbar; gratia(grat<foreign lang="la">i</foreign>a <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>factac.lucretio &verbar; (ferique, i <foreign lang="la">&uuml;ber</foreign> fe) &verbar; ablucretiohortensiopre(p<foreign lang="la">r</foreign>e <ref>V</ref>)toribus &verbar; quaerantur &verbar; fieuoluntates(tes &verbar;&verbar; <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>patriaeius &verbar; magistratibusutsocias(ciat*)queamici <ref>Duk.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>calchidensesquaerantur &verbar; eosconprimo</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>[millium <ref>M</ref>] &verbar; publicae(publ<foreign lang="la">i</foreign>cae <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>et XXX &verbar; (trib <ref>V,</ref> trib. <ref>M</ref>) &verbar; [cumcondemnarunt <ref>V</ref>].</p></div3>
+<pb id="p.173"/>
+
+
+</div2>
+
+<div2 type="chapter" n="9">
+<div3 type="section" n="1">
+<p>eonihil &verbar; (neq. <ref>M</ref>)consuliumagrum</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>adid</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>t&amacr; &verbar;&verbar; (tam <ref>M</ref>)et &verbar; inlyriorum &verbar; habebat</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>brundisios &verbar; praeerantmiseruntduamilia</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>inpositaq.<foreign lang="la">i</foreign>m(taq<foreign lang="la">i</foreign>m. <ref>V,</ref> taq. im. <ref>M</ref>)recius <ref>Kr.</ref> &verbar; que &verbar; inlyrico &verbar; appium &verbar; inlyricumquattuor &verbar; (millibus <ref>M</ref>) &verbar; inlyrici &verbar; tutarentur <ref>I. Perizonius</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>contentusis &verbar; UIII &verbar; hominumuario <ref>Mg.</ref> &verbar; omniaea &verbar; lycidinum <ref>Gryn. Sig.</ref></p></div3>
+</div2>
+
+<div2 type="chapter" n="10">
+<div3 type="section" n="1">
+<p>finiumplerique &verbar; (<foreign lang="la">i</foreign>erat <ref>V,</ref> ferat <ref>M</ref>) &verbar; X</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>nuntiis &verbar; foret &verbar; praetium &verbar; prae(pre <ref>V</ref>)dam</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>specupiditatis &verbar; occecauitanimumnecutisqui &verbar; uenerunt <ref>Gr.</ref> &verbar; opsides &verbar; futurosaforoetfraudem <ref>Bk.</ref> &verbar; lygdino</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>dissiparetur</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>subiectu <ref>Dr.</ref> &verbar; strepitusquee<foreign lang="la">n</foreign>uris, m <foreign lang="la">&uuml;ber n</foreign> &verbar; (seruilii)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>[terrorefecit <ref>V</ref>] &verbar; (millia? <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>eos &verbar; consectando</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>utuosdissipatos &verbar; lycidum.</p></div3>
+</div2>
+
+<div2 type="chapter" n="11">
+<div3 type="section" n="1">
+<p>exdigitiosextop&rmacr;. (p_r. <ref>V,</ref> p&rmacr; <ref>M</ref>) miliaquisacrificiis &verbar; uenerunt</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>nequemaior <ref>A. Perizonius</ref> &verbar; m. furium <ref>Fr.</ref> 2. &verbar; rebellummiseruntquaecumconperta</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>edicere &verbar; comitiapossent <ref>Gr.</ref> &verbar; utquoqueprimotempore</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>recio <ref>Pighius</ref> &verbar; reuocarent</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>consulariaad .u. kal. sep. fuere <ref>Pighius</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>etq. seruiliuscepio <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>m. sulpicius <ref>Sig.</ref> &verbar; serg. cor. (cor <ref>V) Fr.</ref> 2.</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>iquattuor(<foreign lang="la">i</foreign>quattuor <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>ambitiorem &verbar; intribunos&mdash;inconsulem(con<foreign lang="la">s</foreign>ulem <ref>M</ref>) <foreign lang="la">zweimal geschrieben</foreign> &verbar; conferri</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>quiperpaucos <ref>HJM.</ref> &verbar; magnatumultuario</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>destinateq.(q <ref>V</ref>) &verbar; issunt</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>intercalaria <ref>Wfsb.</ref> &verbar; (<foreign lang="la">in</foreign> sacerdotes) mortuusest <ref>Mg.</ref> &verbar; l. flaminiuspontifices <ref>Gryn. Sig.</ref> &verbar; c.iuniussalinator &verbar; [locumt, <ref>Punkt &uuml;ber</ref> t, manlium].</p></div3>
+</div2>
+
+<div2 type="chapter" n="12">
+<div3 type="section" n="1">
+<p>nouii &verbar; [q seruilius <ref>V</ref>] &verbar; conpa &verbar;&verbar; reeos* (areeos <ref>M</ref>) &verbar; italiamautmacedoniam</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>cernensin &verbar; (<foreign lang="la">a</foreign>quod <ref>V,</ref> aquod <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>decerniinmacedoniam <ref>HJM.</ref> &verbar; latini Ulmilia &verbar; CCL socios CCC</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>CCC. equites</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>nulli &verbar; quein &verbar; ducentenos</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>peditum(d<foreign lang="la">i</foreign>t&umacr; &verbar;&verbar; <ref>V</ref>)latinorumXmilia <ref>Gr.</ref> &verbar; et .ac.equites &verbar; que</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>isnon &verbar; .XUI. millia &verbar; imperiti</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(<foreign lang="la">u</foreign>si)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>cura &verbar; classemcuraillesocii &verbar; (ciuesr. libertini <ref>M</ref>) &verbar; italiascribi <ref>Duk. Kr.</ref> &verbar; [iussit <ref>H</ref>] &verbar; scriberetur &verbar; cladis</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>su(su &verbar;&verbar; <ref>V</ref>)plementum &verbar; CCC &verbar; milia treceni(n<foreign lang="la">i V</foreign>)et .XXX. equites <ref>Drak.</ref></p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>imperaret &verbar; CCC &verbar; Illlmilia.</p></div3>
+</div2>
+
+<div2 type="chapter" n="13">
+<div3 type="section" n="1">
+<p>(<foreign lang="la">e</foreign>sum) &verbar; necleg<foreign lang="la">ia</foreign>entia &verbar; credant <ref>Gr.</ref> &verbar; nulla <ref>Gr.</ref> &verbar; publicumquein</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(re <ref>V</ref>) &verbar; ani<foreign lang="la">i</foreign>mus <ref>V</ref>) &verbar; regiotenet &verbar; publicaesuscipiendo &verbar; dignis <ref>Crev.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>locutampublicae <ref>Hullemann</ref> &verbar; alimentumisquoque &verbar; speciem</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>edit<foreign lang="la">a</foreign>ui &verbar; iuuatum</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>alternaede &verbar; primigenae <ref>Gr.</ref> &verbar; prodigiaquaeincolle<foreign lang="la">e</foreign>mpalmaminaerenatam &verbar; (pluisse <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>enataminpluuio <ref>Gr.</ref> &verbar; (nuntia<foreign lang="la">i</foreign>bat) &verbar; luci &verbar; aemerat &verbar; oras</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>XL &verbar; hostibus &verbar; diis &verbar; etutdideruntutisuplicatio <ref>Gr.</ref></p></div3>
+</div2>
+
+<div2 type="chapter" n="14">
+<div3 type="section" n="1">
+<p>(censorib. <ref>G</ref>) &verbar; leuinus</p></div3>
+
+
+
+<div3 type="section" n="1">
+
+<p>(p. <ref>V</ref>) &verbar; c.(c <ref>V</ref>)iunius <ref>Sig.</ref> &verbar; pulcer &verbar; t.sempronius <ref>Fr.</ref> 2.</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>macedoni(nici)bellicuramesse &verbar; aput &verbar; quodetiuniores <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>claudiuspr.(praetores <ref>M</ref>) &verbar; abis</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>idutitaut <ref>Kr.</ref> &verbar; patresc. (patresc <ref>V</ref>) &verbar; praetoresetquibusuis</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>patrumnonsine <ref>Sig. Kr.</ref> &verbar; contionemeduxerunt</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>XLestusque &verbar; t.semproni <ref>Sig.</ref> &verbar; proditi(tis <ref>V</ref>)et <ref>Mg.</ref> &verbar; eritquaehi <ref>Harant</ref> &verbar; indilectu <ref>Sig.</ref> &verbar; prouidebis</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>it&emacr; (ite) &verbar; dixerunt &verbar; aeliocons. (coss <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>quieorumquiin &verbar; XXX &verbar; cons.(cons <ref>V</ref>)priusaput &verbar; nomineadsederentur</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>uisaetesseet (uisaesseet) eos &verbar; (iuss<foreign lang="la">o</foreign>uros).</p></div3>
+</div2>
+
+<div2 type="chapter" n="15">
+<div3 type="section" n="1">
+<p>dilectu</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>serg <ref>Fr.</ref> 2. &verbar; consulumqueseruilioitaliac.marcio(c<foreign lang="la">i</foreign>o <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>cepione &verbar; senatu &verbar; his &verbar; uiderentur</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>patiente <ref>Gr.</ref> &verbar; subdectumdemissosenonad &verbar; consulinelegando &verbar; [fecerunt, <ref>Punkt &uuml;ber dem ersten</ref> e]</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>lectuseptemensese(mense)natuelecti</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>censum &verbar; quicquammulti &verbar; prouinciamcogebant <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>stipendis &verbar; t. sempronicensoriamin.</p></div3>
+</div2>
+
+<div2 type="chapter" n="16">
+<div3 type="section" n="1">
+<p>adque</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>quiquefuluio &verbar; conduxissem</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>quaerendo &verbar; nequisset &verbar; t&rmacr;. pl. utilum (tribunumplutilium <ref>V) Sig.</ref> &verbar; contention<foreign lang="la">e</foreign>m</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>praeterutilium</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>hic &verbar; promulgatus &verbar; uectigaliaultro <ref>Walch</ref> &verbar; et t. sempronius</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>adintegro</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>eiusrogationem <ref>Kr.</ref> &verbar; dixitq.(q <ref>V</ref>) postuenit &verbar; dicendo &verbar; fuitclaudio</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>auocato &verbar; quaestus &verbar; abit</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>tib. gracci &verbar; quitribuniquitribunu<foreign lang="la">n</foreign>m (quitribunitribunu<foreign lang="la">n</foreign>m <ref>V</ref>) appellassent</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>auocassenteteutrimque &verbar; petit</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>qui(qui<foreign lang="la">i</foreign>)minus <ref>Gr.</ref> &verbar; inantedie. UIII. et .UII. kal. oct. comitis <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>libertatescenderunt <ref>Kr.</ref> &verbar; etibisignatis <ref>Mg.</ref> &verbar; esse</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>ex XII &verbar; .UIII. con<foreign lang="la">d</foreign>sorem &verbar; suplices</p></div3>
+
+
+
+<div3 type="section" n="15">
+
+<p>tib. graccus &verbar; [comitem, <ref>Punkt &uuml;ber dem ersten</ref> m] &verbar; (exsilii <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="16">
+
+<p>ueniret &verbar; graccho. <pb id="p.174"/></p></div3>
+</div2>
+
+<div2 type="chapter" n="17">
+<div3 type="section" n="1">
+<p>augeret <ref>I. Perizonius</ref> &verbar; [* etafamiliae <ref>M</ref>] &verbar; (sunt, <foreign lang="la">darnach leerer Raum f&uuml;r acht oder neun Buchstaben am Ende der Zeile ohne Rasur M</foreign>) &verbar; lucus<foreign lang="la">st</foreign>(s<foreign lang="la">i</foreign>) &verbar; subolo</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>erantsc(<foreign lang="la">c</foreign>sc <ref>V, c</ref>sc_ <ref>M</ref>) &verbar; peloponnensesui &verbar; quidsenatus</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>one(onene <ref>M</ref>)ribusque <ref>Fr.</ref> 2.</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>acaicoconci(si)lio &verbar; argisagitato <ref>Ursinus. Wfsb.</ref> &verbar; (aditique, u <foreign lang="la">&uuml;ber</foreign> ad) &verbar; statuis &verbar; ipsosplenaqueinteripsosplenaobquae</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>typri (tyrri <ref>V) Sig.</ref> &verbar; (legatis, <foreign lang="la">aus</foreign> legatas <foreign lang="la">korrigiert</foreign>) &verbar; interfectiones &verbar; (praesdia, i <foreign lang="la">&uuml;ber</foreign> aes <ref>M</ref>) &verbar; macedonicamgentem <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>par &verbar; si(so <ref>M</ref>)ciae</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>depraecatio &verbar; (<foreign lang="la">h</foreign>larisa <ref>V,</ref> hl<foreign lang="la">a</foreign>risa <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>octauiam &verbar; (popillium <ref>M</ref>).</p></div3>
+</div2>
+
+<div2 type="chapter" n="18">
+<div3 type="section" n="1">
+<p>finibusneaususne &verbar; exsuperabilisabtessalia &verbar; (nuis, i <hi>&uuml;ber</hi> nu)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(<foreign lang="la">pe</foreign>ratus) &verbar; quidinaduersose &verbar; periculiabisset <ref>Forchhammer</ref> &verbar; trecia &verbar; (<foreign lang="la">ie</foreign>(fe <ref>M</ref>)piro) &verbar; cepalus &verbar; domuissetsed &verbar; bellum <foreign lang="la">l (i V,</foreign> i <ref>M</ref>) solum</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>adinlyrico &verbar; inlyrii &verbar; inlyriorum &verbar; (<foreign lang="la">e</foreign>posse) &verbar; cum .X.</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>armatorum <ref>Gr.</ref> &verbar; stybernam</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>sumptu &verbar; uscana &verbar; [paenestianae <ref>V</ref>] &verbar; maxime <ref>Sig.</ref> &verbar; posuitcausaprius</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>(qu<foreign lang="la">od</foreign>am) &verbar; temptarentsinunc &verbar; praesidi &verbar; animose &verbar; romanum &rmacr;(<foreign lang="la">r V</foreign>) postquam</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>adhortusetcoroneamcapereconatum &verbar; interestmissione &verbar; aliaa<foreign lang="la">a</foreign>liis &verbar; murisignem <ref>Kr.</ref> &verbar; inferent</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(hiemps <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(<foreign lang="la">a</foreign>excitari) &verbar; uidentur &verbar; parens &verbar; utnecinopinata (utnecopinata <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>spe &verbar; esse &verbar; poletinus &verbar; romani</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>prestitum &verbar; hisenimurbe &verbar; escanienses (escanenses <ref>M) Sig.</ref> &verbar; (ded<foreign lang="la">e</foreign>iderunt.).</p></div3>
+</div2>
+
+<div2 type="chapter" n="19">
+<div3 type="section" n="1">
+<p>stuberam</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>ciuitatem &verbar; illyrisque &verbar; inpeneinpesiam (pestiam <ref>V</ref>) &verbar; redducitadeoeneum &verbar; (pote<foreign lang="la">i</foreign>statem)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>alioquaeopportunae &verbar; labeantesubigent<foreign lang="la">e</foreign>ibus</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>praetereuti &verbar; oaeneon</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>omne &verbar; quamspecelerioremdeditior&emacr; &verbar;&verbar; (rem <ref>M</ref>) &verbar; metum</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>(* et a <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>a<foreign lang="la">e</foreign>ideonaeum(a<foreign lang="la">e</foreign>ideoenaeum <ref>V,</ref> a<foreign lang="la">e</foreign>ideoaeneum <ref>M</ref>) &verbar; (non<foreign lang="la">m</foreign>)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>hincmos (mos<foreign lang="la">e</foreign>) &verbar; auditu</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>altitudinem</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>(tutabuntur) &verbar; (<foreign lang="la">it V, ii M</foreign>) inpediebant &verbar; (magne) &verbar; (e<foreign lang="la">r</foreign>st) &verbar; nocturnoqueuolneribus &verbar; erat</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>muros &verbar; (appellanti <ref>M,</ref> an<foreign lang="la">tt V</foreign>)</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>incus &verbar;&verbar; diam* (cusdiam <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>stuberam &verbar; reuertensaugentium &verbar; [exultantem <ref>M</ref>] &verbar; aput &verbar; etaputeum <ref>Valesius</ref> &verbar; abeuroea</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>ismandat &verbar; hi(h<foreign lang="la">i V</foreign>)emisquaesuaeactasua &verbar; uardanosqueactasuaaduersusadicerent.</p></div3>
+</div2>
+
+<div2 type="chapter" n="20">
+<div3 type="section" n="1">
+<p>hii &verbar; sollicitudines &verbar; quasperindustria &verbar; (transi<foreign lang="la">b</foreign>tus) &verbar; essenti(t<foreign lang="la">i V</foreign>)scoram</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>uoluntate</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>idem &verbar; additagl(cl <ref>M</ref>)aucia &verbar; quaundabarbaros <ref>Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>redducit &verbar; firmatis(t<foreign lang="la">i</foreign>s <ref>V</ref>)quae &verbar; ci(<foreign lang="la">ci V</foreign>)scaeam (eam<foreign lang="la">q</foreign>) &verbar; praesidii.</p></div3>
+</div2>
+
+<div2 type="chapter" n="21">
+<div3 type="section" n="1">
+<p>&imacr; &verbar;&verbar; lyrico &verbar; inislocisrexnonesset &verbar; repulsislycidum</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(trebelli<foreign lang="la">a</foreign>um) &verbar; manupaeneistas &verbar; his <ref>Kr.</ref> &verbar; que &verbar; (ami &verbar;&verbar; tiam * <ref>V,</ref> amitiam <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>partinos &verbar;&verbar; (nos <ref>M</ref>) iisquoque [os <foreign lang="la">am Ende der Zeile radiert, kaum zu lesen</foreign>] &verbar; exigi <ref>Wfsb.</ref> &verbar; penestorum &verbar; partyino (<foreign lang="la">y</foreign>iono <ref>M</ref>) rum &verbar; dyrracium &verbar; omen</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>phalanomepiri &verbar; oppugnari &verbar; athoanum(thoanum)tesprotorumque <ref>Mg.</ref> &verbar; (ad UI hominum)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>neq.(neque <ref>V</ref>)operepraetium &verbar; creua &verbar; aelimeam &verbar; eamet &verbar;&verbar; (eamet <ref>M</ref>)exercitum</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>ualidissimumurbsaetolierat &verbar; ambraciamsineprope &verbar; amnemacaum <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>certodie &verbar; transgressis &verbar; (altitudine)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>poteratquod &verbar; (uiaut) &verbar; essent &verbar; niceum</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>arrathum(tum) <ref>Bergk</ref> &verbar; itineri &verbar; iteroobuium &verbar; arcidamum &verbar; quemaestratus(us<foreign lang="la">d</foreign>).</p></div3>
+</div2>
+
+<div2 type="chapter" n="22">
+<div3 type="section" n="1">
+<p>argolis(agricolis)castra <ref>Gryn. Mg.</ref> &verbar; inach&umacr;(um)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>castriscum &verbar; omnibuspositisaetolos &verbar; uenturas &verbar; adqueipseea &verbar; legatio &verbar; arcidamiauctoritate (auctori &verbar;&verbar; te*)conpulsis &verbar; arcidamo(mi <ref>V</ref>) &verbar; adambracia</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>dinachus &verbar; (p_fc_ <ref>V,</ref> .p_fc_. <ref>M</ref>) &verbar; (cum.ac_. <ref>M</ref>) &verbar; equitibus. <foreign lang="la">t.</foreign> satis</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>consultabat &verbar; (<foreign lang="la">d</foreign>animo)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>(p<foreign lang="la">u</foreign>opilius) &verbar; sua</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>dinacrum &verbar; admouit</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>conloquis &verbar; opstinatosadque &verbar; argentis &verbar; passum</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>arcidamus &verbar; macedonicum</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>obsessucensuri(cen &verbar;&verbar; suri <ref>G</ref>) &verbar; autprocul</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>aperantiaecum &verbar; achidami &verbar; octingentorummillium. <pb id="p.175"/></p></div3>
+</div2>
+
+<div2 type="chapter" n="23">
+<div3 type="section" n="1">
+<p>cumminore <ref>Freinsheim. Drak.</ref> &verbar; redit &verbar; tamenabsidionefanotes</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>inuiismouentium &verbar; coepit</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>angustiisquemincampomeleona &verbar; gle(cle <ref>V</ref>)basabsumpto &verbar; quiepirotarum <ref>Crev.</ref> &verbar; antigonensemhabebattranscendit</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>(<foreign lang="la">a</foreign>profecti) &verbar; pilostratus &verbar; insidisdeloco &verbar; inpo<foreign lang="la">i</foreign>alatos &verbar; erupisset &verbar; abantig<foreign lang="la">at</foreign>onemarmamfugientes &verbar; praecipitantibusidemoccisis <ref>Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>capti &verbar; inferre</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>praesidisparteniorum <ref>Sig.</ref> &verbar; (dimissisipse <ref>A. Perizonius</ref>)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>adgentio &verbar; adserentes &verbar; adque &verbar; mittendos &verbar; eamdestiti [<foreign lang="la">das untere Ende der Seite ist beschnitten; auf der R&uuml;ckseite steht; M</foreign>] titiliui &verbar;&verbar; aburbecondita &verbar;&verbar; liber XLIII. explicit &verbar;&verbar; lib. XLIIII &verbar;&verbar; feliciter.</p></div3>
+</div2></div1>
+<div1 type="book" n="44">
+
+<div2 type="chapter" n="1">
+<div3 type="section" n="1">
+<p>profectusquomarcius &verbar; milibusquod <ref>Crev. Drak.</ref> &verbar; (traiectus*)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>alia &verbar; (t&rmacr;. mil. <ref>G,</ref> t&rmacr; mil. <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>egr(<foreign lang="la">e</foreign>gr <ref>V</ref>)esus(essus <ref>M</ref>)tinere (ti &verbar;&verbar; nere <ref>G</ref>)terrestri(tris) &verbar; tessaliam &verbar; relictus &verbar; boetiamdies &verbar; calchidem</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>phaleparsalum &verbar; sicutmultare &verbar; adiunctammilitarem</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>inexisset <ref>Ald.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>prim&umacr;(mum <ref>M</ref>) &verbar; dignitatem &verbar; gerendisprocons_</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>exercitumpaucis [<foreign lang="la">inder Mitte der Seite ohne Zeichen, dafs etwas fehlt</foreign>]</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>aputmilitesabit</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>orsusadparricidium &verbar; [regnum <foreign lang="la">fehlt</foreign>] &verbar; beneficiacedes &verbar; diis</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>perque</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>(exexercitibus <ref>V,</ref> ex &verbar;&verbar; exercitibus <ref>G</ref>) &verbar; (pilippi)antiocique.</p></div3>
+</div2>
+
+<div2 type="chapter" n="2">
+<div3 type="section" n="1">
+<p>consultareinsumma &verbar; calcide</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>tessaliam &verbar; ad*(at <ref>V</ref>)queindeper(pere <ref>V</ref>)gereinde</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>dareoram &verbar; hostilium</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>militescumferre</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>exponerent <ref>Gr.</ref> &verbar; concilio(conc<foreign lang="la">i</foreign>l<foreign lang="la">i</foreign>o <ref>V) Gr.</ref> &verbar; quampotissimum</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>pytoum &verbar; alisperg&amacr; &verbar;&verbar; *(c&amacr; &verbar;&verbar; <ref>V,</ref> cam <ref>M</ref>)buneos(bunneios <ref>V,</ref> bunneos * <ref>M</ref>) &verbar; hostibusconsulariis(ris <ref>V</ref>)preteraspiriden</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>itaquinid &verbar; quodprope &verbar; di(de <ref>M</ref>)l<foreign lang="la">e</foreign>iberatio &verbar; differatur</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>perrebiam &verbar; gazorumetdolycensstatiua &verbar; [capesserat <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(pro)eosdem</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>X milia</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>accuridempaluerat &verbar; XII milium &verbar; (tenerae <ref>V,</ref> tener<foreign lang="la">a</foreign>e <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>ipseeumreliquiis &verbar; adeout <ref>Gitlbauer</ref> &verbar; (obtorp<foreign lang="la">o</foreign>uisse) &verbar; inobs &verbar; uiderecircumequitibus &verbar; heracleam <ref>Gr.</ref> &verbar; pilam &verbar; diurepentes.</p></div3>
+</div2>
+
+<div2 type="chapter" n="3">
+<div3 type="section" n="1">
+<p>sententiasstetit &verbar; o<foreign lang="la">c(oe V</foreign>)ttolobumdu(di <ref>V</ref>)ximus &verbar; castrapraemitti <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(tamen &imacr;&imacr;&imacr;&imacr; armatorum <ref>M</ref>) &verbar; quipraepositi</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>(ardeo <ref>V, ar</ref>deo <ref>M</ref>) &verbar; confragosafuitut <ref>Gryn. HJM.</ref> &verbar; passumegre &verbar; posuerintfuerimquedierum <ref>Va.</ref> &verbar; [qu&emacr;] &verbar; appellantur(t<foreign lang="la">ur V</foreign>)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>[UII. progressi <ref>M</ref>] &verbar; (<foreign lang="la">a</foreign>remittunt)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>hostiumpraesiderat &verbar; ascyridem</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>coniunctiisque &verbar; qui &verbar;&verbar; tebatur (quitebatur)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>quepaulo (quaepaullo <ref>M</ref>) &verbar; addiemetpilam &verbar; oraquae &verbar; petente &verbar; subigitur</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(postquam<foreign lang="la">m</foreign>) &verbar; belliaeg(aec <ref>M</ref>)regias</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>laboreuitae.</p></div3>
+</div2>
+
+<div2 type="chapter" n="4">
+<div3 type="section" n="1">
+<p>(agm<foreign lang="la">a</foreign>ini) &verbar; consul</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>(uolnera<foreign lang="la">t</foreign>) &verbar; utriusquae</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>adque &verbar; (infes<foreign lang="la">iu</foreign>tius) &verbar; concursumabellisinloci <ref>Va.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>praecipuae &verbar; [erat <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>anc(an<foreign lang="la">c</foreign>) fractus &verbar; (procurreret <ref>V</ref>) &verbar; adque &verbar; pugnampatereadpluribus <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>(inopi<foreign lang="la">a</foreign>) &verbar; regedi, r <foreign lang="la">&uuml;ber</foreign> ge &verbar; (adque*) &verbar; periculosecedenti <ref>Muret</ref> &verbar; locisstare <ref>Muret</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>aliudstabat <ref>Fr.</ref> 2.</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(habuiss<foreign lang="la">s</foreign>et) &verbar; (accip<foreign lang="la">e</foreign>i) &verbar; addiuperlittera &verbar; .X_&Imacr;&Imacr;.prope &verbar; adirenec &verbar; integrisfestis</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>(imp_. <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>egraegiae &verbar; (in<foreign lang="la">t</foreign>uia) &verbar; transgressus <ref>Wfsb.</ref> &verbar; peremissisrepurgarentite(ita <ref>V</ref>)attalumetcysacenemetsuae</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>impedimentaquae.</p></div3>
+</div2>
+
+<div2 type="chapter" n="5">
+<div3 type="section" n="1">
+<p>inerrabilis(inerrabi &verbar;&verbar; lis <ref>G</ref>) &verbar; ui(u<foreign lang="la">i V</foreign>)xduum &verbar; IIIImilia &verbar; passum &verbar; obtabiliusesset</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>hostile &verbar; tumultu &verbar; elepanti &verbar; inuitaest</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>ualidasseres &verbar; partem &verbar; (quantauelatitudo) &verbar; ligno(tigno <ref>V,</ref> tignc <ref>M</ref>)astricenos <ref>Kr. Mg. Wfsb.</ref> &verbar; iniungebatur</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>alterpostdein</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>soli(li<foreign lang="la">i V,</foreign> li<foreign lang="la">t M</foreign>)do &verbar; praecedebat &verbar; elephans <ref>Kr.</ref> &verbar; extremumcederet &verbar; pron &verbar;&verbar; (pon <ref>V,</ref> pon &verbar;&verbar; <ref>M</ref>)susquealterius <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>elepanti(p&amacr; &verbar;&verbar; ti <ref>V</ref>)prohibebantur &verbar; (exce<foreign lang="la">ss</foreign>pisset) &verbar; (pon &verbar;&verbar; tis <ref>V,</ref> pontis <ref>M</ref>) deferebantur (<foreign lang="la">der Rest der Zeile, f&uuml;r 13&mdash;15 Buchstaben ausreichend, leer</foreign>) &verbar; (iuallem <ref>V,</ref> <foreign lang="la">l</foreign>uallem <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(paullo <ref>M</ref>) &verbar; [UII die <ref>M</ref>] <ref>Gr.</ref> &verbar; (pedi<foreign lang="la">i</foreign>bus) &verbar; itineribus &verbar; (s<foreign lang="la">i</foreign>e) &verbar; alisque &verbar; adeone &verbar; (itineri<foreign lang="la">b</foreign>s)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>nequ&atilde;(nequ&atilde; &verbar;&verbar; <ref>V</ref>)infectus <ref>Wfsb. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>uixi &verbar; exspirato &verbar; balle</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>callipe&utilde;(eu <ref>V,</ref> eum <ref>M</ref>)quae</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>tertio(<foreign lang="la">i</foreign>o <ref>V</ref>)inde <ref>Sig.</ref> &verbar; aequaeinuias &verbar; umquam <ref>Sig.</ref> &verbar; digressi &verbar; haracetum <ref>Gr.</ref> &verbar; libetthyrum(r&utilde; &verbar;&verbar; <ref>V</ref>) <ref>Fr.</ref> 2.</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>tenebatibiualle <ref>Kr. Wfsb.</ref> &verbar; parte &verbar; [amplectebatur <ref>V</ref>].</p></div3>
+<pb id="p.176"/>
+
+
+</div2>
+
+<div2 type="chapter" n="6">
+<div3 type="section" n="1">
+<p>labanti</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>peraliaquaepauida &verbar; alterumusquead pathumpecunia <ref>Wfsb. Mg.</ref> &verbar; eratex <ref>Crev.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>rapti <ref>Kr.</ref> &verbar; inclasseiustocidemigrasse <ref>Kr. Bk.</ref></p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>n&otilde; &verbar;&verbar; (non <ref>M</ref>) consultam <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>tempin(temp. in G) &verbar; que &verbar; regis</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>itquesidua &verbar; .X. &verbar; species &verbar; (adprop&itilde; &verbar;&verbar; quantis <ref>V</ref>) &verbar; romanuspartemintessaliamneque<foreign lang="la">r</foreign>commeat<foreign lang="la">u</foreign>ibus &verbar; eo <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>enimp. (p <ref>V</ref>)saltus</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>ex &verbar;&verbar; ex(exex <ref>M</ref>) iguum &verbar; onustointerstru &verbar;&verbar; pes(strupes) &verbar; posset &verbar; sinitus &verbar; amamnis</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>regis</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>unus &verbar; connumerataalterum &verbar; condylon <ref>Drak.</ref> &verbar; lapathynta &verbar; caraca</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>[uallesest &verbar;&verbar; positum <ref>M</ref>] (uallesestpositum <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>temp. (temp <ref>V</ref>) &verbar; cummeatibus &verbar; ipsi <ref>Mg.</ref> &verbar; repentedi</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>atenentibus</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>dimouentemregiamdemissentipsum <ref>Gryn. B&uuml;ttner</ref></p></div3>
+
+
+
+<div3 type="section" n="15">
+
+<p>(paullo <ref>M</ref>) &verbar; passum &verbar; hostium &verbar; baplyri&atilde;(iam <ref>M</ref>) &verbar;&verbar; amnis <ref>Fr.</ref> 2. &verbar; teneo</p></div3>
+
+
+
+<div3 type="section" n="16">
+
+<p>[relic&utilde; &verbar;&verbar; perexiguum] &verbar; poteratthessalorumad <ref>Fr.</ref> 2. &verbar; siluestrisquae &verbar; (mariae*) &verbar; (poterant <ref>V,</ref> poterat <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="17">
+
+<p>despexisset &verbar; mensubito &verbar; patefactisquaebello-factisaddypylam[s <foreign lang="la">&uuml;ber</foreign> yl] (t'am <ref>V,</ref> l'am <ref>M</ref>)refugit.</p></div3>
+</div2>
+
+<div2 type="chapter" n="7">
+<div3 type="section" n="1">
+<p>praesidiiperspeciecernens &verbar; hostiis &verbar; lucretiussarisam (issam <ref>M</ref>) &verbar; temp.</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>sacruminlocum</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>magna &verbar; [exornat&atilde; &verbar;&verbar; publicis] &verbar; multitudines &verbar; egregiae &verbar; [aliquam <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>mouetur &verbar; credensimperia <ref>Kr.</ref> &verbar; ferre &verbar; ada &verbar;&verbar; nem</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>acassam <ref>Gr.</ref> &verbar; opsidibuscontentussibipraesidiorelinqueres &verbar;&verbar; eis (reseis <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>dieiitem</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>dubitationibus &verbar; tuttum</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>perseusperactis <ref>Wfsb.</ref> &verbar; adquehippia</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>diceret &verbar; macedonia</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>on(on<foreign lang="la">i V,</foreign> on<foreign lang="la">t M</foreign>)erarias</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>castellasiquae &verbar; esseetcircapilan.</p></div3>
+</div2>
+
+<div2 type="chapter" n="8">
+<div3 type="section" n="1">
+<p>(subuect<foreign lang="la">u</foreign>io)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>haudquamquam &verbar; manentiimperia <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>aliignarum &verbar; omisisse <ref>Duk.</ref> &verbar; repenti</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>foret</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>profectionem &verbar; decussa &verbar; passum &verbar; ripamenipi <ref>Mg.</ref> &verbar; [&atilde; &verbar;&verbar; nis]</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>olimpi &verbar; exiguum &verbar; gurgitibus &verbar; intrapro (poro) rupta <ref>Gr.</ref> &verbar; praecipitiis</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>fluminehospesetseptum <ref>Wfsb.</ref> &verbar; re(<foreign lang="la">a</foreign>re* <ref>M</ref>) licuum (cum <ref>V</ref>) &verbar; eaaestatis <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>heraclea (eam <ref>V</ref>) <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>pila &verbar; U &verbar; interdiutemp. queinrupem (pe <ref>M</ref>) animi.</p></div3>
+</div2>
+
+<div2 type="chapter" n="9">
+<div3 type="section" n="1">
+<p>(principib. &verbar;&verbar; que <ref>G</ref>)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>elipeum <ref>Mg.</ref> &verbar; (apparei (<foreign lang="la">i V</foreign>) bant)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>haec &verbar; bestis (iis <ref>M</ref>) &verbar; conquirereneranae (nae &verbar;&verbar; <ref>V</ref>) semel <ref>On. Panvinius</ref> &verbar; (quadrigi) &verbar; desultor&etilde; &verbar;&verbar; (r&etilde; <ref>V,</ref> rem <ref>M</ref>) &verbar; [utr&itilde; &verbar;&verbar; que <ref>V</ref>] &verbar; con (com <ref>M</ref>) plebit</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>appari (ra) toribusludi <ref>Muret</ref> &verbar; inductionparte <ref>Drak.</ref> &verbar; elegantiorisexercitusquam <ref>Kr.</ref> &verbar; [propriorque <ref>V</ref>] &verbar; decursos <ref>Douiatius</ref> &verbar; (scuti) &verbar; secumdis &verbar; tertis &verbar; genungenunixis</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>distantis &verbar; procurre &verbar; [c&otilde; &verbar;&verbar; minatique] &verbar; perhoras</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>simillimeparti <ref>Kr. Mg.</ref> &verbar; muripermota &verbar; (subi<foreign lang="la">p</foreign>s &verbar;&verbar; sent <ref>V,</ref> subi<foreign lang="la">p</foreign>ssent <ref>M</ref>) &verbar; depulsisquaeiniisin</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>extrema <ref>Lipsius</ref> &verbar; praetecta <ref>Latinius</ref> &verbar; [testudine <ref>M</ref>] &verbar; inbris</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>captaiamheraclea <ref>Gr.</ref> &verbar; eoperuictam &verbar;&verbar; (tam <ref>M</ref>) quam <ref>Wfsb.</ref> &verbar; (adque*) &verbar; imperiam &verbar; progressus</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>hibernam &verbar; subeundisextessalia &verbar; elegi &verbar; opportunalecetectaque.</p></div3>
+</div2>
+
+<div2 type="chapter" n="10">
+<div3 type="section" n="1">
+<p>tandempauore <ref>Sig.</ref> &verbar; quod &verbar; ma (m<foreign lang="la">o</foreign>a) llet <ref>Sig.</ref> &verbar; (com <ref>M</ref>) &verbar; gaiam &verbar; tessalonicae</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>tessalonicum &verbar; ipsud &verbar; penitentiae &verbar; proicendae &verbar; quodfueratnatumsed <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>rememendabilem <ref>Drak.</ref> &verbar; omnes &verbar; estr (str) actusest</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>hac &verbar; heraclea <ref>Gr.</ref> &verbar; tessalonicam &verbar; aliquod</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>namque</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>tessalonicae &verbar; .XU. &verbar; earbisabest &verbar; pynam &verbar; fertilisagros</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>teram &verbar; praede</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(dein<foreign lang="la">d</foreign>) &verbar; effusae &verbar; persecuti. a. (a <ref>M</ref>) ferme</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>re &verbar;&verbar; integrata &verbar; estatiuaequiin <ref>Gryn. Kr.</ref> &verbar; antigone &verbar; (excensionem)</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>fertissimus &verbar; (orae<foreign lang="la">i</foreign>) &verbar; (<foreign lang="la">e</foreign>ibi) &verbar; XX &verbar; adelea &verbar; missiapris &verbar;&verbar; sae (aprissae) rege.</p></div3>
+<pb id="p.177"/>
+
+</div2>
+
+<div2 type="chapter" n="11">
+<div3 type="section" n="1">
+<p>accensione &verbar; praetorii</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>que &verbar; iungit &verbar; saept&atilde; (saeptam <ref>M</ref>) &verbar;&verbar; meminent</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>quaminaltusmagnitudine <ref>Kr.</ref> &verbar; [promuntoriis] &verbar; poseum, id <foreign lang="la">von derselben Hand &uuml;ber</foreign> se &verbar; mini<foreign lang="la">s</foreign> (s <ref>M</ref>) noricanastreum</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>cerbis &verbar; intereluderet &verbar; [macedoniaad <ref>V</ref>] &verbar; (toronaecum <ref>M</ref>) &verbar; adaltera</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>quaerentis &verbar; structosseconsilium</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>coepit &verbar; iteminfauereautem &verbar; auertissent</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>praesidiocas &verbar;&verbar; praeter (caspraeter <ref>M</ref>) &verbar; (contemp<foreign lang="la">t</foreign>nendam) &verbar; accc. &verbar; [agri &verbar;&verbar; <foreign lang="la">a</foreign>nes]</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>romano &verbar; inrupereinarmati <ref>I. Perizonius</ref> &verbar; inrupturum.</p></div3>
+</div2>
+
+<div2 type="chapter" n="12">
+<div3 type="section" n="1">
+<p>quidam</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(<foreign lang="la">a</foreign>patere) &verbar; phyto &verbar; procoqui <ref>Freinsheim</ref> &verbar; ualidoa &verbar; etrumpunt</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>alialiunde &verbar; urbemadferrent &verbar; adque* &verbar; fugampersecunturadquefossam &verbar; qua &verbar; &atilde;c~. (.ac. <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>terraingredienti &verbar; quidquam</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>firmauit &verbar; intromisti &verbar; (m<foreign lang="la">a</foreign>oenia)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>parantibushis <ref>HJM.</ref> &verbar; tessalonica &verbar; (intraru<foreign lang="la">m</foreign>nt)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>circumuentipromunturiumactoronen (nem <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>quoqueadpugnare.</p></div3>
+</div2>
+
+<div2 type="chapter" n="13">
+<div3 type="section" n="1">
+<p>(&itilde;ter) haec &verbar; agrohos. (hos <ref>V</ref>) m. popilium &verbar; U &verbar; moelibeam</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>[si<foreign lang="la">i</foreign>ta <ref>V</ref>] &verbar; tessaliam &verbar; opportunae</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>deindenecopinato <ref>Vascosanus</ref> &verbar; quam &verbar; primoimo</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>(obsidio<foreign lang="la">n</foreign>) &verbar; operaoppugnationem <ref>Va.</ref> &verbar; moeliboeam &verbar; classemlocistareinde &verbar; eupramorem &verbar; [qu&emacr; &verbar;&verbar; dam] &verbar; exducibusexdelectisd (<foreign lang="la">c</foreign>d <ref>V,</ref> <foreign lang="la">e</foreign>d <ref>M</ref>) uobus &verbar; militibusobeam</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>idem &verbar; moeliboea (baea <ref>M</ref>) &verbar; [iolgo]</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>moeliboealocumin &verbar; suntiniectus &verbar; a<foreign lang="la">b</foreign>moeliboea</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>euphanor &verbar; noctemueniamodo <ref>Wfsb.</ref> &verbar; (<foreign lang="la">e</foreign>aggros <ref>V,</ref> <foreign lang="la">e</foreign>ag &verbar;&verbar; gros <ref>M</ref>) &verbar; confiderunt <ref>Forchhammer</ref> &verbar; eteruditionibusinuagos &verbar; notisine (notisi &verbar;&verbar; ne <ref>G</ref>)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(<foreign lang="la">s</foreign>i <ref>V,</ref> si <ref>M</ref> amen) &verbar; (rexe) &verbar; (urb<foreign lang="la">e</foreign>is) &verbar; posse</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>cy<foreign lang="la">t</foreign> (t <ref>V</ref>) antem, d <foreign lang="la">&uuml;ber t</foreign> &verbar; demetridi &verbar; persae</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>sciatum &verbar; oreumboetiae <ref>Gr.</ref> &verbar; urb&emacr; &verbar;&verbar; urbem (urbem &verbar;&verbar; urbem) &verbar; quiain &verbar; tessalia</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>ant (anc <ref>V</ref>) iaci &verbar; isdem &verbar; tendeset</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>adduxeretreliquerat &verbar; aput &verbar; aegregiamque &verbar; bellosuisse.</p></div3>
+</div2>
+
+<div2 type="chapter" n="14">
+<div3 type="section" n="2">
+<p>muneraquae &verbar; pondocuiphaleratus</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>pampyli &verbar; .XX. &verbar; philippiorum &verbar; cella. &itilde;&otilde;&mtilde; &verbar; petereetsacrificare</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>renouarenouantibus</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>rodis &verbar; eademlonge &verbar; suntoraquaelegatio</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>[prysiae <ref>V</ref>] &verbar; praeces &verbar; stetissetquodad &verbar; statuturum</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>(finiendi) &verbar; etispollicitum <ref>Forchhammer</ref> &verbar; deprae (depraeca <ref>V</ref>) toremaput &verbar; ira &verbar;&verbar; se <ref>Forchhammer</ref> &verbar; pacispossent <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>rodi &verbar; commoratiserga &ptilde;&rtilde;. etpaene <ref>Gryn. Wfsb. Mg.</ref> &verbar; anthioco &verbar; ase <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(<foreign lang="la">mace</foreign>amicitiam)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>mariin &verbar;&verbar; terimincluso <ref>Wfsb.</ref> &verbar; inopiam (in<foreign lang="la">o</foreign>piam <ref>G</ref>) insulam &verbar;&verbar;* (lam <ref>V</ref>) inopemmiss (missc <ref>G</ref>) <ref>Mg.</ref> &verbar; . . . . . . ritimis (<foreign lang="la">von</foreign> r <foreign lang="la">nur ein Teil zu lesen M</foreign>) iuu . . . (iuue. r <ref>V,</ref> iuuet<foreign lang="la">u</foreign>r <ref>G</ref>) colendi (<foreign lang="la">mit</foreign> inopem <foreign lang="la">beginnt die letzte Zeile des Blattes, in welcher hinter</foreign> miss 6 (5 <ref>V,</ref> 9 <ref>G</ref>) <ref>Buchstaben verwischt oder radiert (&lsquo;rasura&rsquo; Kopitar) sind; das folgende Blatt beginnt mit</ref> colendiitaque <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>parti &verbar; rodis &verbar; romani (ni &verbar;&verbar; <ref>V</ref>) seromam</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>quostetisset &verbar; quissibi &verbar; rodios</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>essenuncquidem &verbar; (audir<foreign lang="la">e</foreign> (e <ref>M</ref>) iue &verbar; (qui<foreign lang="la">a</foreign>).</p></div3>
+</div2>
+
+<div2 type="chapter" n="15">
+<div3 type="section" n="1">
+<p>gentemsciretindicatum (screcitatum <ref>V</ref>) <ref>Va.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>magniloquentia &verbar;&verbar; uix (tiauix) curiam</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>(<foreign lang="la">e</foreign>et) &verbar; inissetidante</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>legatorumoccultaconsi-liainissetpaulo &verbar; redigisse &verbar; (initior)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>rhodiosnuntioinorbe <ref>I. Perizonius</ref> &verbar; ageredeorumnutu <ref>I. Perizonius</ref> &verbar; rodios</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>tandemispareaturisexercitusque <ref>Crev.</ref> &verbar; quodrodi</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>tamenlongatis (t<foreign lang="la">i</foreign>s <ref>V</ref>) &verbar; (millium).</p></div3>
+</div2>
+
+<div2 type="chapter" n="16">
+<div3 type="section" n="1">
+<p>(<foreign lang="la">d</foreign>elitterae) &verbar; deindecitate<foreign lang="la">s</foreign>quemarciconsulisunt &verbar; transisse</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>commeatusremp. &verbar;&verbar; pro (remp. pro) spectos <ref>Kr.</ref> &verbar; [.XX. modium <ref>M</ref>] &verbar; X</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>romam &verbar; esseet. quis (etquis) CC &verbar; numidinecsi &verbar;&verbar; in (siin <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>sc~. etea &verbar; p&rtilde; (praetor) &verbar; uitocarum (.UI. togarum <ref>V</ref>) &verbar; equosetdeportanda <ref>Forchhammer</ref> &verbar; praebendaquae &verbar; pecuniamque &verbar; solui &verbar; pytons &verbar; institut&umacr;t_ &verbar;&verbar; (tum &verbar;&verbar; <ref>V,</ref> tum <ref>M</ref>) queusque &verbar; seruabat <ref>Drak.</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>decerpere (decerrere <ref>V</ref>) &verbar; nequidprimo<foreign lang="la">p</foreign> &verbar; adquealiasne &verbar; isquae &verbar; proditionibus &verbar; transfugitmagno <ref>Drak.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>memorasse &verbar; referre &verbar; lautiam <ref>Fr.</ref> 2. &verbar; agriintra (tra &verbar;&verbar; <ref>V</ref>) rentinqui &verbar; decio</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>mandatumrecensumidibus &verbar; (qua<foreign lang="la">n</foreign>m) &verbar; pr. (p.r. <ref>V</ref>) ulilio &verbar; accusarettribusquoquehis &verbar; etl (et) operarius <ref>Ursinus</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(quaestori &verbar;&verbar; busesset, <foreign lang="la">dann leerer Raum bis an das Ende der Zeile etwa f&uuml;r</foreign> 20 <ref>Buchstaben M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>t. (t <ref>V</ref>) sempronius <ref>Fr.</ref> 2. &verbar; sisignum &verbar; laneasque <ref>Turnebus</ref></p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>basilicamfaciendamque &verbar; cura (a<foreign lang="la">i V, at M</foreign>) uit.</p></div3>
+
+<pb id="p.178"/>
+
+
+</div2>
+
+<div2 type="chapter" n="17">
+<div3 type="section" n="1">
+<p>macedonicae &verbar; tam (tamd <ref>V</ref>) enid &verbar; (habenda<foreign lang="la">h</foreign>)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>consulempost <ref>Gryn. Va.</ref> &verbar; dieminurbem</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>(co &verbar;&verbar; sules <ref>V</ref>) &verbar; septumodecumo <ref>Sig.</ref> &verbar; [grassus <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>praetor &verbar; c~&ntilde;. p&atilde; &verbar;&verbar; pilius (pampilius) <ref>Gryn. Sig.</ref> &verbar; helua t. papirius</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>placuitproud (prouid) eante &verbar;&verbar; eum (eante &verbar;&verbar; um <ref>V,</ref> eanteum <ref>M</ref>) utri <ref>Gryn. Mg.</ref> &verbar; uenisset <foreign lang="la">ed. v.</foreign> &verbar; (sci<foreign lang="la">t</foreign>retur) &verbar; (&verbar;&verbar; &verbar;&verbar; in<foreign lang="la">i</foreign>de <ref>V,</ref> in<foreign lang="la">i</foreign>de <ref>M</ref>) &verbar; cogitarentur &verbar; pararent &verbar;&verbar; quaeque (ntquaeque) &verbar; quare <ref>Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>nequeconsulem <ref>Forchhammer</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>siciliaetsardietsardinia</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>[macedoniam <ref>M</ref>] &verbar; &ptilde;&rtilde;. resc&ntilde;. (prres<foreign lang="la">t</foreign>cn. <ref>V</ref>) &verbar; hispaniamc. papirius.</p></div3>
+</div2>
+
+<div2 type="chapter" n="18">
+<div3 type="section" n="1">
+<p>(<foreign lang="la">i</foreign>apparuit) &verbar; quodaliisuir <ref>Gryn. Wfsb.</ref> &verbar; eteamquod</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>tamomnium &verbar; petit <ref>Duk.</ref> &verbar; opusest <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>quaqua &verbar; fore &verbar; romana</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>nobiissociis &verbar; dubi &verbar; subportarentur &verbar; (coerta) &verbar; posseseratus <ref>Gryn. Bk.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>deditutrisin <ref>Harant</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>henobarbus (barb &verbar;&verbar; <ref>V,</ref> barb&rsquo; <ref>M,</ref> barb. <ref>G</ref>) &verbar; neruaal (al. <ref>V</ref>) baebiusibisineexitu &verbar; nuntiatumesse <ref>Mg.</ref> &verbar; agrosimulinbeientibusnouem (n <ref>V</ref>) diale <ref>Ald.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>(mor &verbar;&verbar; tui <ref>M</ref>) sunt, <foreign lang="la">dann leerer Raum f&uuml;r 7 oder</foreign> 8 <ref>Buchstaben mitten in der Zeite</ref> &verbar; (et<foreign lang="la">qm.</foreign>) &verbar; Xuiri &verbar; effectusetiam <ref>Gryn. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>nasicae<foreign lang="la">a</foreign>et &verbar; aediliscurulis <ref>Fr.</ref> 2. &verbar; (LXIII &verbar; XL <ref>M</ref>).</p></div3>
+</div2>
+
+<div2 type="chapter" n="19">
+<div3 type="section" n="1">
+<p>licinioc~&ntilde;. (cn <ref>V</ref>) idib. &verbar; [martis <ref>V</ref>] &verbar; expectationem &verbar; referret &verbar;&verbar; nondum (etnondum) inlegati <ref>Kr. Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>essent &verbar; dyrraciumeiectos <ref>Ald.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>esse &verbar; infra</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>id. april. (idapril <ref>V</ref>) &verbar; perfectoessetc~&ntilde;. <ref>Harant</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>(li<foreign lang="la">i</foreign>cinio) &verbar; cura &verbar; mittenturq. (q <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>&mdash;6. possesacrificiorite (<foreign lang="la">i</foreign>rite) perfectoprimi <ref>Crev.</ref> &verbar; ptolemeopatraregibus</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>(ingres<foreign lang="la">c</foreign>si)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>anthiocus &verbar; requi (qui<foreign lang="la">i</foreign>) obses &verbar; redducendi</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>apelusium &verbar; apelusium &verbar; proeliofuerat <ref>Wfsb.</ref> &verbar; tumultuarioparaeponte &verbar; transgressum &verbar; (<foreign lang="la">o</foreign>exercitum<foreign lang="la">ex</foreign>) &verbar; [obsidion&emacr; &verbar;&verbar; ipsam <ref>V</ref>] (obsidionemipsam <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>quaerentes &verbar; ferunt</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>anthiocum &verbar; aput &verbar; enuntiarent &verbar; essent</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>regnumptolemeum &verbar; nullamspemin</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>praecibus &verbar; popiliumlegatumet &verbar; interleges</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>anthiocum &verbar; ptolemeum &verbar; nuntiarentabsistatur.</p></div3>
+</div2>
+
+<div2 type="chapter" n="20">
+<div3 type="section" n="1">
+<p>profectus &verbar; (macedionia <ref>V</ref>) &verbar; [ut &verbar;&verbar; ui <ref>V</ref>] (utui <ref>M</ref>) nisiuespereset</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>nuntiati &verbar; inducit</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>epeiainteriecto <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>inhiemem &verbar; etiaminspe (spe &verbar;&verbar; <ref>V</ref>)rebus <ref>Va.</ref> &verbar; interuenissenotiomilitialii &verbar; quam Ulfrumentum &verbar; .XXX.</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>lycanidum &verbar; exercitui &verbar; potuissetinancipitirello(<foreign lang="la">r</foreign>ello <ref>M</ref>), b <foreign lang="la">&uuml;ber</foreign> r <foreign lang="la">von derselben Hand</foreign> &verbar; destinere <ref>Gr.</ref> &verbar; etcumeo &verbar; indeducantur</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>classemee(eex) castris, s <foreign lang="la">&uuml;ber</foreign> me &verbar; profectus &verbar; audissetadsumptum &verbar; suos &verbar; (<foreign lang="la">d</foreign>navibus)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>adlata &verbar; dubiaattali <ref>Gr.</ref> &verbar; aegregiae.</p></div3>
+</div2>
+
+<div2 type="chapter" n="21">
+<div3 type="section" n="1">
+<p>(aud<foreign lang="la">a</foreign>itis)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>utiocto &verbar; populos</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>tr. mil.</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>anicius tr. cuius &verbar; lycidinum &verbar; (succederet <ref>V,</ref> succedere<foreign lang="la">t M</foreign>)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>(delectus <ref>M</ref>) &verbar; inpositiscentum (cen &verbar;&verbar; tum <ref>M</ref>) milia &verbar; CC</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>latinis &verbar; [impetrare <ref>V</ref>] &verbar; CCCC &verbar; equieten.</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>optinenti &verbar; ut<foreign lang="la">s</foreign>sa(<foreign lang="la">s.</foreign>&amacr;c_ <ref>V</ref>)equitesconscriberent</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>cetero &verbar;&verbar; peditesque (ceterospeditesque) &verbar; (<foreign lang="la">a</foreign>idonei) &verbar; impetrata &verbar; X &verbar; accc(.ac_c_c_. <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>praesidi &verbar; ducenosequi &verbar;&verbar; habentes &verbar; umilia</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>optinere &verbar; .X. &verbar; (<foreign lang="la">i</foreign>milia) &verbar; ac.(ac <ref>M</ref>)equites.</p></div3>
+</div2>
+
+<div2 type="chapter" n="22">
+<div3 type="section" n="1">
+<p>sc_. &verbar; talemanimaduertisse</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>maioremmihisortito &verbar;&verbar; ma(toma) ioremsortitomacedoniampro &verbar;&verbar; uinciam (prouinciam) &verbar; autconpulsus <ref>Mg.</ref> &verbar; consulatus &verbar; inisent(iniissent <ref>V,</ref> inissent <ref>M) Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(<foreign lang="la">o</foreign>id) &verbar; (macedoniam) &verbar; traditur &verbar; sortis &verbar;&verbar; per(sortisper)eosdemque</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>opinari <ref>Crev.</ref> &verbar; certohabeoaudeome <ref>Mg.</ref> &verbar; essefrustra</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>(profi<foreign lang="la">s</foreign>cisci) &verbar; [mor&amacr; &verbar;&verbar; sum] &verbar; aegregius &verbar; enixae</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>uobis &verbar;&verbar; mo(uobismo)rescrudelitatisuestraeadlatis <ref>Gryn. Mg.</ref> &verbar; [quorumnemo <foreign lang="la">ohne</foreign> auctor] &verbar; (exstabit <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>[c&otilde; &verbar;&verbar; temptor] &verbar; (cuiuscuiu) &verbar; nondelita &verbar;&verbar;ri* (tari)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>adque &verbar; placet &verbar;&verbar; in(cetin)conuisunt &verbar; inma &verbar;&verbar; cem* (macem)ducent &verbar; [locandassint <ref>M</ref>] &verbar; [quaeterra <ref>V</ref>] &verbar; subuehentur &verbar; quiesset(se <ref>V</ref>)sitnequidmeliusfaciendum <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>[alterquam <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>&verbar; gerentibusquaeneque &verbar; etcontactisanimi &verbar; possent(possunt <ref>V</ref>)q.fabius <ref>Gryn. Mg.</ref> &verbar; [remp.gerere]</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>isquequi &verbar; iudicio</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>propriaeductis &verbar; abhis <ref>Kr.</ref> &verbar; gerendislocoqui <ref>Sig.</ref> &verbar; (<foreign lang="la">q</foreign>uident)</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>[erepsit] &verbar; (<foreign lang="la">i V, q M</foreign> confidat) &verbar; rem(reimp <ref>V, remip. M</ref>)etmacedoniammecuminueniat &verbar; tabernacula &verbar; [iuuabiturquem, si <foreign lang="la">von derselben Hand &uuml;ber rq M</foreign>] &verbar; fare</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>pigetotium <foreign lang="la">ed. v.</foreign> &verbar; (praeocptat) &verbar; nae</p></div3>
+
+
+
+<div3 type="section" n="15">
+
+<p>urbisloquacitatem <ref>Mg.</ref> &verbar; hos &verbar; consuliscont<foreign lang="la">iois</foreign> (tiois <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="16">
+
+<p>contentione &verbar; latinisquepridie &verbar; (april <ref>V,</ref> april. <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="17">
+
+<p>estmemoriaeest <ref>Va.</ref> &verbar; frequentiaestprosequentiaconsul &verbar;&verbar; ce (consulcc)lebratumat(ac <ref>V</ref>prope &verbar; omniatotesse &verbar; finemesse <ref>Crev.</ref> <pb id="p.179"/></p></div3>
+</div2>
+
+<div2 type="chapter" n="23">
+<div3 type="section" n="1">
+<p>incoatum</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>salutem &verbar; (aduesse) &verbar; CCC &verbar; animiaduertit &verbar; cum &verbar;&verbar; hip(cumhip)piam &verbar; ultroutroque &verbar; pantaucum</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>mitone <ref>Kr.</ref> &verbar; terraepantaue &verbar;&verbar; us(aueus)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>tumeodem(d&etilde; <ref>G</ref>) &verbar; panthauco &verbar; rodum &verbar; destinatur <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>profi(fis)cisceren(re)tur</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>esse</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>inlyriorumperseus &verbar; abenipeio <ref>Mg.</ref> &verbar; amni(<foreign lang="la">a</foreign>mni <ref>M</ref>), o <foreign lang="la">&uuml;ber</foreign> a</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>conuenerunt <ref>Gr.</ref> &verbar; foederisanciocum &verbar; isadiecturam</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>acceptiqueexpelleadtensauros &verbar; inlyris &verbar; tessalonicae &verbar; iussibimetrodorus</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>dione <ref>Gr.</ref> &verbar; poliarato &verbar; rodios &verbar; essetiis &verbar; [princips, e <foreign lang="la">&uuml;ber</foreign> ip <ref>V</ref>] &verbar; tunc &verbar;&verbar; te(tuncte)cuminlyriis.</p></div3>
+</div2>
+
+<div2 type="chapter" n="24">
+<div3 type="section" n="1">
+<p>(etadeumenen <ref>V</ref>) &verbar; anthiocum</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>libera &verbar; quoindignus</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>antiocum &verbar; [eumen&etilde; &verbar;&verbar; et] &verbar; prysian</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>fore &verbar; [proxum&atilde; &verbar;&verbar; asiam] &verbar; liberandaciuitatis</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>prysiam &verbar; praeferritam(iam <ref>V</ref>)anthiocum &verbar; belliabegypto <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>[c&otilde; &verbar;&verbar; munes] &verbar; antiocum &verbar; (ads) &verbar; eratuera <ref>HAKoch</ref> &verbar; grauioribusproditor &verbar; [eni &verbar;&verbar; ac]</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>cydes &verbar; ampipolim &verbar; aput &verbar; cumanthi(ti <ref>V</ref>)ocoregibus(buss <ref>V</ref>)ducibus <ref>Gryn. Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>eropon <foreign lang="la"> Heiske. Bk.</foreign> &verbar; [eumen&etilde; &verbar;&verbar; iam]</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>quidam.</p></div3>
+</div2>
+
+<div2 type="chapter" n="25">
+<div3 type="section" n="1">
+<p>eumin(in <ref>V</ref>)uadere <ref>Dobree</ref> &verbar; animo <ref>Sig.</ref> &verbar; erantquamip(<foreign lang="la">i</foreign>p <ref>V</ref>) sorum <ref>Duk.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>uictiseumenebateumenes(es<foreign lang="la">i</foreign> <ref>V,</ref> est <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>perse &verbar; indiem &verbar; proprioradmouetur</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>(spe<foreign lang="la">i V,</foreign> spei <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>uenditoreconciliandamgratiam &verbar; cupit</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>(neg <ref>V,</ref> ne<foreign lang="la">q</foreign> <ref>M</ref>) &verbar; pacispatriamde &verbar; interesset ?? .eta.(et.a. <ref>V</ref>) <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>inutroque <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>nominisregisturpem</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>essemalebat <ref>Mg.</ref> &verbar; samotracae</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>interessean <ref>Wfsb.</ref> &verbar; ferrent</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>moue.</p></div3>
+</div2>
+
+<div2 type="chapter" n="26">
+<div3 type="section" n="1">
+<p>persespe &verbar;&verbar; (spe <ref>V</ref>)raueritiam <ref>Gryn. Bk.</ref> &verbar; pecuniamtutametpacem <ref>Wfsb.</ref> &verbar; haberequaeper &verbar; essetaucreceptus <ref>Gr.</ref> &verbar; inicum &verbar; fecere(fec<foreign lang="la">i</foreign>ere)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>sedtamtegentiregis <ref>Kr. Bk.</ref> &verbar; etitum &verbar; inlyricum &verbar; oblatumauaritia <ref>Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>(uenie<foreign lang="la">i</foreign>bant) &verbar; .X. &verbar; petitum</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>equos &verbar; imile</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>(uenien<foreign lang="la">s</foreign>tibus) &verbar; elpeio <ref>Mg.</ref> &verbar; obuia &verbar; propriaquaesut, n <foreign lang="la">&uuml;ber</foreign> ut &verbar; paruomauri <ref>Wfsb.</ref> &verbar; quosinter</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>inmodicaexercitus &verbar; mercedemcapta &verbar;&verbar; opperiens (taopperiens)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>antic<foreign lang="la">u</foreign>anum (c<foreign lang="la">u</foreign>aonum <ref>V</ref>) &verbar; abbylazora &verbar; hislocum &verbar; LXXU</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>adiecissetquaeperquemquant&atilde; &verbar;&verbar; omnium (quantamomnium) &verbar; copiamintuliforent <ref>Mg.</ref> &verbar; uesti(uestig)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>etquid (quis <ref>V</ref>) &verbar; adduxisset <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>c. londicus &verbar; inquid</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>aduocati &verbar; quinomnessu &verbar;&verbar; as(suas)auriesset</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>periculosumest &verbar; acciperegrauiores</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>quinq(q. <ref>M</ref>)milia &verbar; satissequibus <ref>Kr.</ref> &verbar; [utiabellum <ref>V</ref>].</p></div3>
+</div2>
+
+<div2 type="chapter" n="27">
+<div3 type="section" n="1">
+<p>apparehationomnibus <ref>Florebellus</ref> &verbar; mercedemmultitudinemtimere <ref>Mg.</ref> &verbar; nequicquam &verbar; suadereconsulentnemo &verbar; nuntiarent &verbar; milia &verbar; nonte<foreign lang="la">m</foreign>nere <ref>Kr.</ref> &verbar; alia</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(indigna<foreign lang="la">m</foreign>ntium) &verbar; excitus &verbar; .c.longicus &verbar; etquid</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>cerneretuiolato &verbar; histriumperpostulatistreciam</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>adenipeum <ref>Mg.</ref> &verbar; perrebiae &verbar; tessaliam &verbar; populanda</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>tenentesadnelpeum <ref>Gryn. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>fuisse &verbar; tessalia &verbar; exe &verbar; macedonumquiea</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>CCC &verbar; pellemissagentio <ref>Fr.</ref> 2. &verbar; passusinde <ref>Fr.</ref> 2.</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>pentaucum &verbar; X &verbar; (portantibusuis)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>essent &verbar; [subsisterent <foreign lang="la">fehlt</foreign>]</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>genitusexigua &verbar; adsiduepantauc<foreign lang="la">i</foreign>o <ref>Sig.</ref> &verbar; romanostimularetur &verbar; potilium &verbar; ueniret(uenirent <ref>V</ref>) &verbar; confecit</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>contraxisseum<foreign lang="la">e</foreign> (<foreign lang="la">c M</foreign>) necessitatisratus <ref>Doering</ref> &verbar; bellum <ref>Va.</ref> &verbar; quantam &verbar; praedaexedictouicto <ref>Gryn. Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>hieroponimoignotisquem <ref>Gryn. Bk.</ref> &verbar; [occulta <ref>V</ref>].</p></div3>
+<pb id="p.180"/>
+
+
+</div2>
+
+<div2 type="chapter" n="28">
+<div3 type="section" n="1">
+<p>eropontispe &verbar; (XL <ref>M</ref>) &verbar; pristiseranttenendum</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(sparsae) &verbar; mnauemmacedoniam &verbar; tutaremur</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>suntdetenendum &verbar; satisinporturodios (rhodios) &verbar; naues &verbar;&verbar; seu(uesseu)damumque &verbar; ear&etilde;, u <foreign lang="la">&uuml;ber</foreign> &etilde; &verbar; inuiolatusadque <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>eumenes &verbar; <foreign lang="la">d</foreign>iamius</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>X &verbar; mittitaut &verbar;&verbar; in(utin) &verbar; totum <ref>Vascosanus</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>nonpostdiem &verbar; si &verbar;&verbar; gr(sigr)ium &verbar; s&utilde; &verbar;&verbar; mo(summo <ref>M</ref>)ta &verbar; eleaeethotraiciunt <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>qu&atilde; &verbar;&verbar; sum(quamsum)mota &verbar; XXX &verbar; abele &verbar; (promunturi&utilde; &verbar;&verbar; <ref>M</ref>) &verbar; chionum</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(exspectacula(esse &verbar; acsubotis &verbar; etrytharum &verbar; chiumquae &verbar; isoccurrit</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>macedonus &verbar; acremissos</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>derectaequae &verbar; sepropehostis &verbar; apparuissent <ref>Turnebus</ref></p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>propriores &verbar; eryteam &verbar; reliquisque &verbar; chiopartam &verbar;&verbar; (t&atilde; &verbar;&verbar;) signari</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>accc(.accc. <ref>V</ref>) &verbar; cc &verbar; mare &verbar; partimneruos <ref>Kr.</ref> &verbar; succederunt</p></div3>
+
+
+
+<div3 type="section" n="15">
+
+<p>XX &verbar; captiuisisdem &verbar; X &verbar; tessalonicam &verbar; reuertiplanisseeum</p></div3>
+
+
+
+<div3 type="section" n="16">
+
+<p>triumferme &verbar; urbemphanas &verbar; ingressisexlembis <ref>Gryn. Mg.</ref> &verbar; aegelo.</p></div3>
+</div2>
+
+<div2 type="chapter" n="29">
+<div3 type="section" n="1">
+<p>calcide &verbar; delumcum &verbar;&verbar; nisset(sent <ref>V</ref>) &verbar; (XL et U <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>sanctita &verbar; insulaequae &verbar; sociietintemplo <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>aliquasaltu &verbar; (d<foreign lang="la">e</foreign>isposita)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>supremebant</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>popiliusaut <ref>Htz.</ref> &verbar; fallebantur</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>inlyriiquesesimul &verbar; adqueaegeum</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>animinon<foreign lang="la">i</foreign>ac <ref>Gr.</ref> &verbar; estpalam &verbar; belli &verbar; (s<foreign lang="la">e</foreign>ua) &verbar; inpositurus.</p></div3>
+</div2>
+
+<div2 type="chapter" n="30">
+<div3 type="section" n="1">
+<p>prouinciam <ref>Kr.</ref> &verbar; (uenerant, <foreign lang="la">darnach leerer Raum f&uuml;r 8 Buchstaben am Ende der Zeile</foreign>) &verbar; gentiumpatre <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>illiryorum &verbar; mac(mac) tre &verbar; duosflatoresutroque &verbar; caruandium &verbar; matreeamnatum</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>suspecta duo &verbar;&verbar; am(duoam)ici &verbar; etpicadum&itilde; &verbar;&verbar; pi(impi <ref>V,</ref> inpi <ref>M</ref>)gros</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>honuni <ref>Mms.</ref> &verbar; metutam &verbar; fratrieumeniuidissetantiquam &verbar; nup &verbar;&verbar; tis(ptis) &verbar; dardanorumgen &verbar;&verbar; ti(genti)um &verbar; simillium &verbar; platorem</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>demptofratre <ref>Va.</ref> &verbar; uiolentia</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>(.X~U~. armatorum <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>fratriingauiorum &verbar; subigenda &verbar; abassoniam</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>perremissos <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>scarauantium &verbar; cauis &verbar; alter<foreign lang="la">o</foreign>a &verbar; etagros &verbar; effusae &verbar; aliquod &verbar; concursuiinterfectis</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>quam &verbar; bullaniorum <ref>Drak.</ref> &verbar; [apollonatium <ref>V</ref>] &verbar; durracenorum &verbar; genus(uus <ref>M</ref>)suum <ref>Turnebus</ref></p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>presea &verbar; dubiae</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>auditisque &verbar; praemissusque &verbar; (genussuum <ref>V,</ref> genusuum <ref>M</ref>) &verbar; operiretur</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>auxiliapartinorumiuuentaduobus <ref>Wfsb.</ref> &verbar; equitumalgalsus &verbar; bassantis &verbar; impetu &verbar; orum</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>LXXX &verbar; partauco &verbar; dyrracinorum</p></div3>
+
+
+
+<div3 type="section" n="15">
+
+<p>ad, <foreign lang="la">darnach fehlt ein Blatt.</foreign></p></div3>
+</div2>
+
+<div2 type="chapter" n="31">
+<div3 type="section" n="1">
+<p>inclinatione &verbar; clementiaomnis</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>scondram &verbar; estadquodbellicapotuerat <ref>Gryn. Drak. Kr.</ref> &verbar; [centius] &verbar; coeperat &verbar; (etium, a <foreign lang="la">&uuml;ber</foreign> u)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>[cincunt] &verbar; ea &verbar; laboetisde</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>hii &verbar; scodra &verbar; (scorda <ref>V</ref>) <ref>Drak.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>scodrus <ref>Drak.</ref> &verbar; (altissimis) &verbar; eius &verbar;&verbar; eius &verbar; dardanicam &verbar; (sub<foreign lang="la">e</foreign>iectam)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>narali &verbar; gensquaeidota &verbar; (prspere <ref>V</ref>) &verbar; secutura &verbar; ese, s <foreign lang="la">&uuml;ber</foreign> es (esse <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>portus &verbar; disposita <ref>Mg. Htz.</ref> &verbar; pepulissem</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>loca &verbar; animoquam (qu&atilde; &verbar;&verbar; <ref>V</ref>) commiseruntquam</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>CC &verbar; (insipsis <ref>V,</ref> insipsis <ref>M</ref>) &verbar; praetores<foreign lang="la">e</foreign>mitteret (rent <ref>V</ref>) &verbar; (et&ptilde;bellum <ref>V,</ref> et<foreign lang="la">p</foreign>bellum <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>baba &verbar;&verbar; no (barbano <ref>V,</ref> babano <ref>M</ref>) &verbar; nauigant &verbar; scretum</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>farsaspeexituscarbantium &verbar; actisex(ea <ref>V,</ref> exea <ref>M</ref>) <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>tumor (<foreign lang="la">ri</foreign>) &verbar; nauemadeam</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>(<foreign lang="la">von</foreign> ab <foreign lang="la">ist</foreign> b <foreign lang="la">durch Beschneidung des oberen Blattrandes verloren gegangen M</foreign>) &verbar; (ortus) &verbar; praeces</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>redit &verbar; honorificaeestaepulatus</p></div3>
+
+
+
+<div3 type="section" n="15">
+
+<p>t&rtilde;. pl. traditus &verbar; reccideret.</p></div3>
+</div2>
+
+<div2 type="chapter" n="32">
+<div3 type="section" n="3">
+<p>labena(ean <ref>V</ref>)tium &verbar; cerdilio &verbar; (pleurat<foreign lang="la">i</foreign>oque <ref>M</ref>) &verbar; curauantium</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>XXX &verbar; romae &verbar; cuparent &verbar;&verbar; con(rentcon)iugem &verbar; alis &verbar;&verbar; que (alisque)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>(propters) &verbar; quaem</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>horae &verbar; tessalonica &verbar; (praeerat <ref>M</ref>) &verbar; ????.</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>iussumsedipsis &verbar; ??? equitescreantigonensismisit <ref>Kr.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>littore</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>[.U.macedonum <ref>M</ref>] &verbar; missaetpraesidium &verbar; p<foreign lang="la">a</foreign>etrae &verbar; histiacus &verbar; teogenes &verbar; transire</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>huic ut <ref>Muret</ref> &verbar; coactae <ref>Drak.</ref> &verbar; benigne, <foreign lang="la">darnach fehlen 2 Bl&auml;tter der Hdschr.</foreign> </p></div3>
+<pb id="p.181"/>
+</div2>
+
+<div2 type="chapter" n="33">
+<div3 type="section" n="1">
+<p>sedutrarios <ref>Mg.</ref> &verbar; (misnus) &verbar; [CCC] &verbar; passushabebatiussit &verbar; foedere</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>euergent(entt)riuos <ref>KEGeorges.</ref> &verbar; (occ<foreign lang="la">o</foreign>ultos <ref>V,</ref> occoultos <ref>M</ref>) &verbar; continere <ref>Duk.</ref> &verbar; unde</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>deducta <ref>Drak.</ref> &verbar; scaturriges &verbar; [turbide <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>aput &verbar; adicit <ref>Gr.</ref> &verbar; primisquaeordinibusquaead &verbar; transitusdescensus <ref>Wfsb.</ref> &verbar; inicos</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>quoqueprimum <ref>Mg.</ref> &verbar; adiutum</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>exaudiret &verbar; accepto&imacr; (in <ref>M</ref>) &verbar;&verbar; alios &verbar; aliosnimis &verbar; dissonosostalosminusfacereclamoresdeindedis &verbar;&verbar; sonos (dissonos <ref>V</ref>)sororiomnibus &verbar; ipsis</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>proximoquecui<foreign lang="la">us</foreign> (ius <ref>M</ref>)que &verbar; perferuntdum</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>moro &verbar; excitetquae</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>pil &verbar;&verbar; leo (pilleo) &verbar; possitipsenihilprouideat <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>murummutauit &verbar; professos &verbar; adhorti &verbar; (hosties)</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>statiuastatione.</p></div3>
+</div2>
+
+<div2 type="chapter" n="34">
+<div3 type="section" n="1">
+<p>contioneadnuntiata</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>aduocarint (cauerint <ref>V</ref>) &verbar; (iactares)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>cura &verbar; consultet <ref>Kr.</ref> &verbar; uulgi</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>ispraebeant &verbar; nihilquodid &verbar; nauareab <ref>Wfsb. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>consules &verbar; (reru<foreign lang="la">i</foreign>m <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>uidere &verbar; buccolasquescutorumaliiloricas <ref>Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>quicerneret &verbar; (uict<foreign lang="la">i</foreign>oria) &verbar; egregio &verbar; memorabilisinituros <ref>Muret</ref></p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>aput &verbar; pila &verbar; dubiae &verbar; speculan <ref>HJM., hiernach ist ein Blatt der Hdschr. ausgefallen.</ref></p></div3>
+</div2>
+
+<div2 type="chapter" n="35">
+<div3 type="section" n="1">
+<p>norumesse <ref>Sig.</ref> &verbar; aut &verbar; attuliterrorem</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>suprimere &verbar; pantaucum &verbar; [uenient&emacr; &verbar;&verbar;] &verbar; adpropinquarent</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>quaque &verbar; accuratiuscuratureo <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>rodi &verbar; isdem &verbar; excitare</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>cumalipraecipes(pites <ref>V</ref>) &verbar; ag&emacr; &verbar;&verbar; dos(endos) <foreign lang="la">i</foreign>castris(icastris)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>gerendiplacebatcoepit &verbar;&verbar; qui (pitqui) busdam</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>maioribus <ref>Crev.</ref> &verbar; etunofa &verbar;&verbar; ci(faci)entibus &verbar; pro &verbar;&verbar; pr(propr)iore</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>tessalonicampeteretpopulatione &verbar; ostendentem &verbar; negarealiqua</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>ut &verbar;&verbar; (ut <ref>V</ref>)audierat</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>perrebos &verbar; choenumetmenopilum &verbar; notaeetfideiiamsibi <ref>Kr.</ref> &verbar; perrebiam</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>regis <ref>Crev.</ref> &verbar; coepit &verbar; ualidammanuadgressusualidanecopinantis &verbar; dei &verbar;&verbar; ci(deisi)</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>cum &verbar;&verbar; mi(cummi)nus</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>cognitacibaria</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>p. scipioscipionem &verbar; quinquedilectis <ref>Htz.</ref> &verbar; c&omacr; &verbar;&verbar; sces(conces)suros &verbar; uastanda</p></div3>
+
+
+
+<div3 type="section" n="15">
+
+<p>quidetusmoraretur &verbar; ducis &verbar; duidere, i <foreign lang="la">&uuml;ber</foreign> du</p></div3>
+
+
+
+<div3 type="section" n="16">
+
+<p>commisitpugnatumadque <ref>Kr.</ref> &verbar; utrimquesitleui</p></div3>
+
+
+
+<div3 type="section" n="17">
+
+<p>utriusquae &verbar; passum &verbar; (medidium) &verbar; albi</p></div3>
+
+
+
+<div3 type="section" n="18">
+
+<p>hincconsule</p></div3>
+
+
+
+<div3 type="section" n="19">
+
+<p>ligusti &verbar;&verbar; ro(stiro <ref>V</ref>)manus</p></div3>
+
+
+
+<div3 type="section" n="20">
+
+<p>ferecoeptui &verbar; direp &verbar;&verbar; tum(reptum <ref>V</ref>) &verbar; aut</p></div3>
+
+
+
+<div3 type="section" n="21">
+
+<p>his <ref>Kr.</ref> &verbar; qua</p></div3>
+
+
+
+<div3 type="section" n="22">
+
+<p>plurimoseodicto &verbar;&verbar; a(toa) missis</p></div3>
+
+
+
+<div3 type="section" n="23">
+
+<p>digressus <ref>Gr.</ref> &verbar; ueluta &verbar;&verbar; per (taper) &verbar; [deuexumbracchiumt.temptaturus, <foreign lang="la">mit</foreign> t. <foreign lang="la">ist</foreign> transitum <foreign lang="la">gemeint</foreign>]</p></div3>
+
+
+
+<div3 type="section" n="24">
+
+<p>erat, <foreign lang="la">darnach fehlen</foreign> 4 <ref>Bl&auml;tter in der Hdschr.</ref></p></div3>
+</div2>
+
+<div2 type="chapter" n="36">
+<div3 type="section" n="1">
+<p>[solistitium <ref>M</ref>] &verbar; dieiamadmeridieuer &verbar;&verbar; ge(uerge)bat</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>(lassitud<foreign lang="la">i</foreign>o* <ref>V</ref>) &verbar; meridieae &verbar;&verbar; sta(e &verbar;&verbar; aesta*)temagisadcesserunttummox &verbar;&verbar; ad* (moxad)parebat(baret <ref>G</ref>) <ref>Va.</ref> &verbar; adque</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>[acc&emacr; &verbar;&verbar; debat]</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>increscereaestaset &verbar; seniores</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>[constituerunt <ref>M</ref>]</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>laboreflagoreflagrantissimo</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>hiscunctationem <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>mutationem &verbar; aliis &verbar; ir*(aliisir)ent &verbar; nehostemquidemludificatus <ref>Gr. Crev.</ref> &verbar; emi(<foreign lang="la">i V</foreign>)ttere <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>nenocte <ref>Kr.</ref> &verbar; habeat &verbar; maxime &verbar; sitaesosquesicut <ref>Mg.</ref> &verbar; percast(<foreign lang="la">st V</foreign>)es, Il <foreign lang="la">&uuml;ber</foreign> st</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>parenti &verbar; (<foreign lang="la">h</foreign>adgred<foreign lang="la">i</foreign>atur <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>(liberadmonitione) &verbar; inquid &verbar; (nasi<foreign lang="la">qu</foreign>ca <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>multi &verbar; operaesit <ref>Mg.</ref> &verbar; tunc &verbar; causisquihodieesse &verbar; contemptus</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>dubiae &verbar; consulemq. &verbar;&verbar; sibi (qsibi <ref>V</ref>) &verbar; appareret.</p></div3>
+</div2>
+
+<div2 type="chapter" n="37">
+<div3 type="section" n="1">
+<p>metatacontraimpedimentaquaecolocata &verbar; actae (aciae)</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>[hastatisiquid <ref>V</ref>] &verbar; [cornus <ref>M</ref>]</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>(<foreign lang="la">e</foreign>equites <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>detractione(ne<foreign lang="la">e V</foreign>) &verbar; eodefuisset &verbar; contemptus &verbar; equod <ref>Htz.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>permissus &verbar; uacatis</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>quispro, in <foreign lang="la">&uuml;ber</foreign> sp (quisinpro) &verbar; stantis &verbar; scire</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>(certis) &verbar; lunaequae &verbar; senescente <ref>Florebellus</ref> &verbar; fu &verbar;&verbar; ge(fuge)re</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>editaluna &verbar;&verbar; hora(lunahora <ref>V,</ref> lunahora, e <foreign lang="la">&uuml;ber</foreign> ah <ref>M</ref>) cum <ref>Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>permitiemque &verbar; (ul<foreign lang="la">a</foreign>ulatusque <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>utrisque</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>promptam &verbar; (<foreign lang="la">s</foreign>eo <ref>V</ref>) &verbar; iniquitasloci &verbar;&verbar; ini(ciini)quitas</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>hostis &verbar;&verbar; no(isno)cte &verbar; (uidebatr, u <foreign lang="la">&uuml;ber</foreign> tr <ref>V</ref>) &verbar; signa<foreign lang="la">s</foreign>m, u <foreign lang="la">&uuml;ber as,</foreign> propositumpugnaeadexeundum <ref>Va.</ref></p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>adque &verbar; tempusest &verbar; intempestiuae &verbar; extraheresermo &verbar;&verbar; nes(mones) tamen <ref>Wfsb.</ref></p></div3>
+<pb id="p.182"/>
+</div2>
+
+<div2 type="chapter" n="38">
+<div3 type="section" n="1">
+<p>adulescens &verbar;&verbar; om(censom)nibusexunus <ref>Fr.</ref> 2.</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>alis &verbar; uisumessetetibi</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>quodoccultius</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>[peniteat <ref>V</ref>] &verbar; opinioneessenequissinecausauestrum <ref>Va.</ref> &verbar; (u<foreign lang="la">e</foreign>idetur <ref>V,</ref> ueidetur <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>[ignorassethesterno] &verbar; inplicatamintuentis <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>hocnoctemansiturusexituri &verbar; uidebaturdiis</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>laborehodie <ref>Va.</ref> &verbar; adque &verbar; acie &verbar; educans</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>adlongo &verbar; (enere, o <foreign lang="la">&uuml;ber</foreign> en <ref>M</ref>) &verbar; [fessumadentem <ref>V</ref>] &verbar; ardentibus <ref>Florebellus. Gr.</ref> &verbar; adque &verbar; torrentem <ref>I. Perizonius</ref> &verbar; quieto <ref>Gr.</ref> &verbar; consumtas</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>(deum<foreign lang="la">u V</foreign>) &verbar; adque &verbar; uirumuicerit &verbar; hoste &verbar; reparaue(<foreign lang="la">u</foreign>ue <ref>V</ref>)rant <ref>Nipperdey</ref></p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>trepidant &verbar;&verbar; dum (ntdum).</p></div3>
+</div2>
+
+<div2 type="chapter" n="39">
+<div3 type="section" n="1">
+<p>ad &verbar; (anninihil)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>eassaepissent <ref>Gr.</ref> &verbar; [etiamse <ref>V</ref>]</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>fortunae</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>patriamalteramestmilitariesthaec &verbar; tenorium &verbar; (su<foreign lang="la">a</foreign>m<foreign lang="la">s</foreign>) &verbar; paenates</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>paenitus &verbar; ultima macedoni&amacr; (iam) &verbar; (exhauriend<foreign lang="la">o</foreign>um <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>[mansurumcum <ref>V</ref>] &verbar; (statuiset, s <foreign lang="la">&uuml;ber</foreign> is <ref>V</ref>) &verbar; quemnunc &verbar; nosnecinterdiuautnocteab &verbar;&verbar; eu(abeu)ndt(n<foreign lang="la">d</foreign>t <ref>V</ref>)emestnobis <ref>Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>optatusquarumut &verbar; saeptacrebris &verbar; (a<foreign lang="la">b</foreign>gmine <ref>V</ref>) &verbar; (abeun<foreign lang="la">d</foreign>tem <ref>V</ref>) &verbar; (ab<foreign lang="la">oi V</foreign>) &verbar; adori&amacr; &verbar;&verbar; tur(&amacr;tur <ref>V,</ref> antur <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(e<foreign lang="la">t</foreign>nimetipsi<foreign lang="la">i V</foreign>) &verbar; pel(pel <ref>M</ref>)elpeium, r <foreign lang="la">&uuml;ber dem ersten</foreign>| &verbar; absit.</p></div3>
+</div2>
+
+<div2 type="chapter" n="40">
+<div3 type="section" n="1">
+<p>nequicquam</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>regiquod <ref>Gr. Kr.</ref> &verbar; [c&omacr; &verbar;&verbar; positos] &verbar; ligno &verbar; que &verbar; (catris, s <foreign lang="la">&uuml;ber</foreign> at <ref>V</ref>) &verbar; exieratne &verbar;&verbar; tot(netot)imperatorum</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>que &verbar; consilis</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>fluumen &verbar; proprius &verbar; equabantur</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>apertaeromanorum &verbar; marrucinae &verbar; [piligna <ref>V</ref>](peligna <ref>M</ref>) &verbar; sylus <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>statimuouerat &verbar; legatorescohortes &verbar; [cremonensi <ref>V</ref>] &verbar; placenti(ti<foreign lang="la">s</foreign>)naept(e<foreign lang="la">p</foreign>t <ref>V</ref>)essemina(essernina) <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>ora &verbar; quarta <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(a<foreign lang="la">li</foreign>quam <ref>V</ref>) &verbar; tre(stre)ces &verbar; tradentesaltero &verbar; suorumrecipiebant</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>tracum &verbar; (<foreign lang="la">in</foreign>passi <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>praesidio, <foreign lang="la">darnach fehlen</foreign> 2 <ref>Bl&auml;tter in der Hdschr.</ref></p></div3>
+</div2>
+
+<div2 type="chapter" n="41">
+<div3 type="section" n="1">
+<p>imperi &verbar; periculiquae &verbar; (inplebit) &verbar; adqueacie</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>cetratiserat <ref>Mg.</ref> &verbar; ac(cac)laspides <ref>Gr.</ref> &verbar; cons. (cons <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>cornum &verbar; elepantosinducietalias <ref>Kr.</ref> &verbar; fugam</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>expi&emacr; &verbar;&verbar; do*(iendo) <ref>Turnebus</ref> &verbar; agantur <ref>Sig.</ref> &verbar; elepanto &verbar;&verbar; mace(tomace)nomensinetantousu <ref>Wfsb.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>sociis &verbar; pepuleruntquae &verbar; leuom</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>legioinmassa &verbar; (fuit<foreign lang="la">t</foreign> &verbar;&verbar; &verbar;&verbar; <ref>V,</ref> fuit<foreign lang="la">t M</foreign>) &verbar; passum &verbar; turbarent &verbar; phalange(gem <ref>M</ref>)cumiusconfertae &verbar; horrendis</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>adgrediendos &verbar; longi(<foreign lang="la">i V</foreign>)tudi(<foreign lang="la">i M</foreign>)nemegrauidatae &verbar; con &verbar;&verbar; fu(confu)satrue &verbar; aliqui &verbar; turbam &verbar;&verbar; tur (turbam &verbar;&verbar; turbantur)</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(incurrentos, e <foreign lang="la">&uuml;ber</foreign> o) &verbar; obuiaminre &verbar; ordinesuo</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>(<foreign lang="la">p</foreign>quod) &verbar; (pelignis) &verbar; incautae &verbar; hastisinconfertam.</p></div3>
+</div2>
+
+<div2 type="chapter" n="42">
+<div3 type="section" n="2">
+<p>fuga &verbar; aliis &verbar; confestimcostocus <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>aleaeintegrishabebantor &verbar;&verbar; di(ordi)nibus &verbar; cedes &verbar; tenebant <ref>Gr.</ref> &verbar; fecerantsequenda</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>aqua &verbar; [supiciter, l <foreign lang="la">&uuml;ber</foreign> pi <ref>V</ref>] (supliciter <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>adnauibus &verbar; ratos</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>hostiliterscaphiscederen(re <ref>M</ref>)tur &verbar; ablitus &verbar; obterrebant</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>conueniebatromanis <ref>Wfsb.</ref> &verbar; (aciem <ref>V,</ref> aciem <ref>M</ref>) &verbar; [. XX . milia] &verbar; ad UI qui &verbar; uagietfuga &umacr;. in (.u. <foreign lang="la">m V,</foreign> u. m <ref>M</ref>) hominum</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(peligni)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>delatae &verbar; ferent noxaefugientes.</p></div3>
+</div2>
+
+<div2 type="chapter" n="43">
+<div3 type="section" n="1">
+<p>persesuus &verbar; uiam</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>inuiamsiluam &verbar; fidos</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>alialia &verbar; inte</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>noctemterrore <ref>Wfsb.</ref> &verbar; difficultatibusuide<foreign lang="la">x</foreign>uexatusinregiamestaperseo <ref>Putsche. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>pel(p<foreign lang="la">i</foreign>el)laepraeerantco &verbar;&verbar; ac(coac)tusqueregi <ref>Wfsb.</ref> &verbar; alialio</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>uenitreserant &verbar; cretensiscn_. euboetius (c_n_euoetius <ref>V</ref>) <ref>Sig.</ref></p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>isiametuens</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(<foreign lang="la">ad</foreign>secuti) &verbar; admodum<foreign lang="la">a</foreign> (a <ref>V</ref>)cretenses &verbar; ampipoli &verbar; (pella<foreign lang="la">e</foreign>) &verbar; (aproperans <ref>V</ref>) &verbar; asium.</p></div3>
+</div2>
+
+<div2 type="chapter" n="44">
+<div3 type="section" n="1">
+<p>fruerentcura</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>delectacartagine &verbar; consulispauliadoptione (consulispauliconsulisadoptione) <ref>Gryn. Duk.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>curamaudebat &verbar; hospite</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>ampipolim &verbar; quemlauropolon &verbar; fleret &verbar; pre &verbar;&verbar; e(pree)rat &verbar; traces &verbar; diriperentautsubornato &verbar; tabellari</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>(sc<foreign lang="la">i</foreign>riptum <ref>V</ref>) &verbar; (o<foreign lang="la">s</foreign>rare <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>ortaturtracas &verbar; romani</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>aduersa</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>tracibus &verbar; eostrymonem.</p></div3>
+</div2>
+
+<div2 type="chapter" n="45">
+<div3 type="section" n="1">
+<p>ampipolim</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>panthaucus &verbar; ueroeam <ref>Kr.</ref> &verbar; aliae <ref>Gr.</ref> &verbar; perXXXXIIII. 45, 2&mdash;46, 11. culsae <ref>Gr.</ref></p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>missispolia</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>al(a<foreign lang="la">i V,</foreign> a <ref>M</ref>)castris</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>ueroea &verbar; tessalonica</p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>incog &verbar;&verbar; ni(incogni <ref>V</ref>)ta(incog &verbar;&verbar; <foreign lang="la">die folgenden</foreign> 4 <ref>Buchstaben sind nicht zu lesen M</ref>) &verbar; turbaequeex &verbar; inaedificata</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>pa<foreign lang="la">u</foreign>ntaucus &verbar; praesidioerat <ref>Gr.</ref> &verbar; perseumemittitur &verbar; [dedittum <ref>M</ref>]</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>speuisaaltarumauxili &verbar; temptati (ta <ref>M</ref>) <ref>Gr.</ref> &verbar; nequicquam</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>apilipp(ampili<foreign lang="la">p</foreign>p <ref>V</ref>)olitanos &verbar; autsempersecuti <ref>Mg.</ref> &verbar; fugaeeodem &verbar; confi(f<foreign lang="la">i V</foreign>)rmare</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>aliiquotiens &verbar; lacrimaepependissent &verbar; ipsesci &verbar;&verbar; re(scire)nequid <ref>Mg.</ref> &verbar; editisqueagi</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>ipseingemu(nu)erat</p></div3>
+
+
+
+<div3 type="section" n="12">
+
+<p>rexindomum <ref>Gr.</ref> &verbar; strumone</p></div3>
+
+
+
+<div3 type="section" n="13">
+
+<p>traces &verbar; delapsi &verbar; aliae <ref>Mg.</ref> &verbar; turbae <ref>Mg.</ref> &verbar; cretensis &verbar; [sicuti <ref>V</ref>] &verbar; L &verbar; talentais</p></div3>
+
+
+
+<div3 type="section" n="14">
+
+<p>obhac 15. cali(l<foreign lang="la">i V</foreign>)psum <ref>Sig.</ref> &verbar; posteromoataquamquamquampetebant. <pb id="p.183"/></p></div3>
+</div2>
+
+<div2 type="chapter" n="46">
+<div3 type="section" n="1">
+<p>debitas &verbar; (citates*) &verbar; nequia &verbar; [inuria, i <foreign lang="la">&uuml;ber</foreign> nu <ref>V</ref>] &verbar; fierent &verbar; aput</p></div3>
+
+
+
+<div3 type="section" n="2">
+
+<p>sindicen</p></div3>
+
+
+
+<div3 type="section" n="3">
+
+<p>moelibea &verbar; dirigiturquaead &verbar; eruptioneeruptioneex factamissi &verbar; eginiensibus(sib <ref>V,</ref> sib. <ref>M</ref>)</p></div3>
+
+
+
+<div3 type="section" n="4">
+
+<p>pidna &verbar; (profectous <ref>V</ref>) &verbar; canas &verbar;&verbar; tra(conastra) &verbar; ? &verbar; aliquod &verbar; ubi</p></div3>
+
+
+
+<div3 type="section" n="5">
+
+<p>(sitaetin) &verbar; [cincunt <ref>V</ref>] &verbar; inexs (exs <ref>V</ref>)uperabiles &verbar; faciuntpa<foreign lang="la">dc</foreign>us <ref>Florebellus. Mg.</ref></p></div3>
+
+
+
+<div3 type="section" n="6">
+
+<p>proxime &verbar; uelet &verbar; &amacr; &verbar;&verbar; ge(an &verbar;&verbar; ge <ref>M</ref>)ri</p></div3>
+
+
+
+<div3 type="section" n="7">
+
+<p>(intermur<foreign lang="la">o</foreign>ali) &verbar; (oppugnante<foreign lang="la">o V</foreign>) &verbar; adituadulla custodie</p></div3>
+
+
+
+<div3 type="section" n="8">
+
+<p>(caza <ref>V</ref>) &verbar; (<foreign lang="la">i</foreign>tum <ref>V</ref>)</p></div3>
+
+
+
+<div3 type="section" n="9">
+
+<p>perquoddiesapellam &verbar; tessaliaaudita</p></div3>
+
+
+
+<div3 type="section" n="10">
+
+<p>samotracam &verbar; profectusap(app)ellam &verbar; ampipolim</p></div3>
+
+
+
+<div3 type="section" n="11">
+
+<p>obuia <ref>Fr.</ref> 2. &verbar; cuiusindicio &verbar; obra(orba), <foreign lang="la">dann fehlt ein Blatt.</foreign></p></div3>
+
+</div2></div1></body></text></TEI.2>

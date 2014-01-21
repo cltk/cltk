@@ -1,0 +1,2487 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="As.">Asinaria</title>
+<title type="sub">Machine readable text</title>
+<author n="Pl.">T. Maccius Plautus</author>
+<editor role="editor" n="Leo">F. Leo</editor>
+&responsibility;
+&fund.NEH;
+</titleStmt>
+<extent>about 71Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>T. Maccius Plautus</author>
+<title>Plauti Comoediae</title>
+<editor role="editor">F. Leo</editor>
+<imprint>
+<pubPlace>Berlin</pubPlace>
+<publisher>Weidmann</publisher>
+<date>1895</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+    <encodingDesc>
+    	<refsDecl doctype="TEI.2">
+    		<state unit="act"/>
+    		<state n="chunk" unit="scene"/>
+    	</refsDecl>
+    	<refsDecl doctype="TEI.2">
+    		<state unit="TLN line"/>
+    	</refsDecl>
+    </encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>7/15/97</date>
+<respStmt><name>Anonymous</name><resp>ed.</resp></respStmt>
+<item>Base TEI tagging.
+</item></change>
+<change><date>10 August 1999</date>
+<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
+<item>
+$Log: pl.as_lat.xml,v $
+Revision 1.2  2010-02-26 21:44:38  rsingh04
+added back in TLN line chunking for latin texts
+
+Revision 1.1  2009/12/07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.2  2005/08/01 16:22:22  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:39  packel
+Converted to XML
+
+Revision 1.9  2005/03/07 19:29:46  mimno
+changed refsdecls from step to state
+
+Revision 1.8  2003/07/01 22:17:31  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.7  2002/05/23 18:11:27  amahoney
+mark all the apostrophe-s as abbreviations
+
+Revision 1.6  2002/05/21 17:55:30  amahoney
+use quote entities so the apostrophes are clearly distinct
+
+Revision 1.5  2000/03/06 22:09:21  amahoney
+remove title headers so acts go into short toc
+
+Revision 1.4  2000/03/04 20:35:10  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.3  2000/01/13 00:04:48  dasmith
+Corrected Latin ID.
+Fixed Aulularia title.
+
+Revision 1.2  1999/08/10 21:53:23  dasmith
+Tagged through line numbers separately.
+
+Revision 1.1  1999/08/10 14:48:08  textgod
+Added to repository.
+
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text>
+<body>
+
+<div1 type="act" n="prol.">
+<head>PROLOGVS</head>
+<lb ed="TLN" n="1"/><l>Hoc agite sultis, spectatores, nunciam,</l>
+<lb ed="TLN" n="2"/><l>quae quidem mihi atque vobis res vertat bene</l>
+<lb ed="TLN" n="3"/><l>gregique hu&iacute;c et dominis atque conductoribus.</l>
+<lb ed="TLN" n="4"/><l>face nunciam tu, praeco, omnem auritum poplum.</l>
+<lb ed="TLN" n="5"/><l n="5">age nunc reside, cave modo ne gratiis.</l>
+<lb ed="TLN" n="6"/><l>nunc quid processerim huc et quid mihi voluerim</l>
+<lb ed="TLN" n="7"/><l>dicam: ut sciretis nomen huius fabulae;</l>
+<lb ed="TLN" n="8"/><l>nam quod ad argumentum attinet, sane brevest.</l>
+<lb ed="TLN" n="9"/><l>nunc quod me dixi velle vobis dicere,</l>
+<lb ed="TLN" n="10"/><l n="10">dicam: h&uacute;ic nomen graece Onagost fabulae;</l>
+<lb ed="TLN" n="11"/><l>Demophilus scripsit, Maccus vortit barbare;</l>
+<lb ed="TLN" n="12"/><l>Asinariam volt esse, si per vos licet.</l>
+<lb ed="TLN" n="13"/><l>inest lepos ludusque in hac comoedia,</l>
+<lb ed="TLN" n="14"/><l>ridicula res est. date benigne operam mihi,</l>
+<lb ed="TLN" n="15"/><l n="15">ut vos, ut alias, pariter nunc Mars adiuvet.</l>
+</div1>
+
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+
+<sp><speaker>Libanvs</speaker>
+<lb ed="TLN" n="16"/><l>Sicut tuom vis unicum gnatum tuae</l>
+<lb ed="TLN" n="17"/><l>superesse vitae sospitem et superstitem,</l>
+<lb ed="TLN" n="18"/><l>ita ted obtestor per senectutem tuam</l>
+<lb ed="TLN" n="19"/><l>perque illam, quam tu metuis, uxorem tuam,</l>
+<lb ed="TLN" n="20"/><l n="5">si quid med erga hodie falsum dixeris,</l>
+<lb ed="TLN" n="21"/><l>ut tibi superstes uxor aetatem siet</l>
+<lb ed="TLN" n="22"/><l>atque illa viva vivos ut pestem oppetas.</l></sp>
+
+<sp><speaker>Demaenetvs</speaker>
+<lb ed="TLN" n="23"/><l>Per Dium Fidium quaeris: iurato mihi</l>
+<lb ed="TLN" n="24"/><l>video necesse esse eloqui quidquid roges.</l>
+<lb ed="TLN" n="25"/><l n="10">[ita me obstinate <abbr expan="adgressus es">adgressu's</abbr>, ut non audeam</l>
+<lb ed="TLN" n="26"/><l>profecto, percontanti quin promam omnia.]</l>
+<lb ed="TLN" n="27"/><l>proinde actutum istuc quid sit quod scire expetis</l>
+<lb ed="TLN" n="28"/><l>eloquere: ut ipse scibo, te faciam ut scias.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="29"/><l>Dic obsecro hercle serio quod te rogem,</l>
+<lb ed="TLN" n="30"/><l part="I" n="15">cave m&iacute;hi mendaci quicquam.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Quin tu ergo rogas?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="31"/><l>Num me illuc ducis, ubi lapis lapidem terit?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="32"/><l>Quid ist&uacute;c est? aut ubi ist&uacute;c est terrarum loci?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="33"/><l>[Vbi flent nequam homines, qui polentam pinsitant.]</l>
+<lb ed="TLN" n="34"/><l>apud f&uacute;stitudinas, ferricrepinas insulas,</l>
+<lb ed="TLN" n="35"/><l n="20">ubi vivos homines mortui incursant boves.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="36"/><l>Modo pol percepi, Libane, quid istuc sit loci:</l>
+<lb ed="TLN" n="37"/><l part="I">ubi fit polenta, te fortasse dicere.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Ah,</l>
+<lb ed="TLN" n="38"/><l>neque hercle ego istuc dico nec dictum volo,</l>
+<lb ed="TLN" n="39"/><l>teque obsecro hercle ut quae <abbr expan="locutus es">locutu's</abbr> despuas.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="40"/><l part="I" n="25">Fiat, geratur mos tibi.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Age, age usque excrea.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="41"/><l part="I">Etiamne?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Age quaeso hercle usque ex penitis faucibus.</l>
+<lb ed="TLN" n="42"/><l part="I">etiam amplius.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Nam quo usque?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Vsque ad mortem volo.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="43"/><l part="I">Cave s&iacute;s malam rem.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Vxoris dico, non tuam.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="44-45"/><l>Dono te ob istuc dictum, ut expers sis metu.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="46"/><l part="I" n="30">Di tibi dent quaecumque optes.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Redde operam mihi.</l>
+<lb ed="TLN" n="47"/><l>cur hoc ego ex te quaeram? aut cur miniter tibi</l>
+<lb ed="TLN" n="48"/><l>propterea quod me non scientem feceris?</l>
+<lb ed="TLN" n="49"/><l>aut cur postremo filio suscenseam,</l>
+<lb ed="TLN" n="50"/><l part="I">patres ut faciunt ceteri?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quid ist&uacute;c novi est?</l>
+<lb ed="TLN" n="51"/><l n="35">demiror quid sit et quo evadat sum in metu.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="52"/><l>Equidem scio iam, filius quod amet meus</l>
+<lb ed="TLN" n="53"/><l>istanc meretricem e proxumo Philaenium.</l>
+<lb ed="TLN" n="54"/><l part="I">estne hoc ut dico, Libane?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Rectam instas viam.</l>
+<lb ed="TLN" n="55"/><l>ea res est. sed eum morbus invasit gravis.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="56"/><l part="I" n="40">Quid morbi est?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quia non suppetunt dictis data.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="57"/><l>Tune es adiutor nunc amanti filio?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="58"/><l>Sum vero, et alter noster est Leonida.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="59"/><l>Bene hercle facitis &eacute;t a me initis gratiam.</l>
+<lb ed="TLN" n="60"/><l>verum meam uxorem, Libane, nescis qualis sit?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="61"/><l n="45">Tu primus sentis, nos tamen in pretio sumus.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="62"/><l>Fate&oacute;r eam esse importunam atque incommodam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="63"/><l>Posterius istuc dicis quam credo tibi.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="64"/><l>Omnes parentes, Libane, liberis suis,</l>
+<lb ed="TLN" n="65"/><l>qui mi auscultabunt, facient obsequellam&dagger;</l>
+<lb ed="TLN" n="66"/><l n="50">quippe qu&iacute; mage amico utantur gnato et benevolo.</l>
+<lb ed="TLN" n="67"/><l>atque ego me id facere studeo, volo amari a meis;</l>
+<lb ed="TLN" n="68"/><l>volo m&eacute; patris mei similem, qui causa mea</l>
+<lb ed="TLN" n="69"/><l>nauclerico ipse ornatu per fallaciam</l>
+<lb ed="TLN" n="70"/><l>quam amabam abduxit ab lenone mulierem;</l>
+<lb ed="TLN" n="71"/><l n="55">neque puduit eum id aetatis sycophantias</l>
+<lb ed="TLN" n="72"/><l>struere et beneficiis me emere gnatum suom sibi.</l>
+<lb ed="TLN" n="73"/><l>eos m&eacute; decretumst persequi mores patris.</l>
+<lb ed="TLN" n="74"/><l>nam me hodie oravit Argyrippus filius,</l>
+<lb ed="TLN" n="75"/><l>uti sibi amanti facerem argenti copiam;</l>
+<lb ed="TLN" n="76"/><l n="60">et &iacute;d ego percupio obsequi gnato meo.</l>
+<lb ed="TLN" n="77"/><l>[volo amori obsecutum illius, volo amet me patrem.]</l>
+<lb ed="TLN" n="78"/><l>quamquam illum mater arte contenteque habet,</l>
+<lb ed="TLN" n="79"/><l>patres ut consueverunt: ego mitto omnia haec.</l>
+<lb ed="TLN" n="80"/><l>praesertim quom is me dignum quoi concrederet</l>
+<lb ed="TLN" n="81"/><l n="65">habuit, me habere honorem eius ingenio decet;</l>
+<lb ed="TLN" n="82"/><l>quom me adiit, ut pudentem gnatum aequomst patrem,</l>
+<lb ed="TLN" n="83"/><l>cupio esse amicae quod det argentum suae.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="84"/><l>Cupis id quod cupere te nequiquam intellego.</l>
+<lb ed="TLN" n="85"/><l>dotalem servom Sauream uxor tua</l>
+<lb ed="TLN" n="86"/><l n="70">adduxit, cui plus in manu sit quam tibi.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="87"/><l>Argentum accepi, dote imperium vendidi.</l>
+<lb ed="TLN" n="88"/><l>nunc verba in pauca conferam quid te velim.</l>
+<lb ed="TLN" n="89"/><l>viginti iam usust filio argenti minis:</l>
+<lb ed="TLN" n="90"/><l part="I">face id ut paratum iam sit.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Vnde gentium?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="91"/><l part="I" n="75">Me defraudato.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Maxumas nugas agis:</l>
+<lb ed="TLN" n="92"/><l>nudo detrahere vestimenta me iubes.</l>
+<lb ed="TLN" n="93"/><l>defraudem te ego? age s&iacute;s, tu sine pennis vola.</l>
+<lb ed="TLN" n="94"/><l>tene ego defraudem, cui ipsi nihil est in manu,</l>
+<lb ed="TLN" n="95"/><l>nisi quid tu porro uxorem defraudaveris?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="96"/><l n="80">Qua me, qua uxorem, qua tu servom Sauream</l>
+<lb ed="TLN" n="97"/><l>potes, circumduce, aufer; promitto tibi</l>
+<lb ed="TLN" n="98"/><l>non offuturum, si id hodie effeceris.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="99"/><l>Iubeas una opera me piscari in aere,</l>
+<lb ed="TLN" n="100"/><l>venari autem rete iaculo in medio mari.&dagger;</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="101"/><l n="85">Tibi optionem sumito Leonidam,</l>
+<lb ed="TLN" n="102"/><l>fabricare quidvis, quidvis comminiscere:</l>
+<lb ed="TLN" n="103"/><l>perficito, argentum hodie ut habeat filius,</l>
+<lb ed="TLN" n="104"/><l part="I">amicae quod det.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quid ais tu, Demaenete?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="105"/><l part="I">Quid &lt;vis?&gt;</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Si forte in insidias devenero,</l>
+<lb ed="TLN" n="106"/><l n="90">tun redimes me, si me hostes interceperint?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="107"/><l part="I">Redimam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Tum tu igitur aliud cura quid lubet.</l>
+<lb ed="TLN" n="108"/><l part="I">ego eo ad forum, nisi quid vis.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Ei, bene ambula.</l>
+<lb ed="TLN" n="109"/><l part="I">atque audin etiam?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Ecce.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Si quid te volam,</l>
+<lb ed="TLN" n="110"/><l part="I">ubi eris?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Vbicumque libitum erit animo meo.</l>
+<lb ed="TLN" n="111"/><l n="95">profecto nemo est quem iam dehinc metuam mihi</l>
+<lb ed="TLN" n="112"/><l>ne quid nocere possit, cum tu mihi tua</l>
+<lb ed="TLN" n="113"/><l>oratione omnem animum ostendisti tuom.</l>
+<lb ed="TLN" n="114"/><l>quin te quoque ipsum facio haud magni, si hoc patro.</l>
+<lb ed="TLN" n="115"/><l>pergam quo occepi atque ibi consilia exordiar.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="116"/><l n="100">Audin tu? apud Archibulum ego ero argentarium.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="117"/><l part="I">Nempe in foro?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Ibi, si quid opus fuerit.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Meminero.&mdash;</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="118"/><l>Non esse servos peior hoc quisquam potest</l>
+<lb ed="TLN" n="119"/><l>nec magis versutus nec quo ab caveas aegrius.</l>
+<lb ed="TLN" n="120"/><l>eidem homini, si quid recte curatum velis,</l>
+<lb ed="TLN" n="121"/><l n="105">mandes: moriri sese misere mavolet,</l>
+<lb ed="TLN" n="122"/><l>quam non perfectum reddat quod promiserit.</l>
+<lb ed="TLN" n="123"/><l>nam ego illud argentum tam paratum filio</l>
+<lb ed="TLN" n="124"/><l>scio esse quam me hunc scipionem contui.</l>
+<lb ed="TLN" n="125"/><l>sed quid ego cesso ire ad forum, quo inceperam?</l>
+<lb ed="TLN" n="126"/><l n="110">* atque ibi manebo apud argentarium.&mdash;</l></sp>
+</div2>
+<div2 type="scene" n="2">
+
+<sp><speaker>Argyrippvs</speaker>
+<lb ed="TLN" n="127"/><l>S&iacute;cine hoc f&iacute;t? foras a&eacute;dibus me &eacute;ici?</l>
+<lb ed="TLN" n="128"/><l>promerenti optume hocin preti redditur?</l>
+<lb ed="TLN" n="129"/><l>bene merenti mala es, male merenti bona es;</l>
+<lb ed="TLN" n="130"/><l>at malo cum tuo, nam iam ex hoc loco</l>
+<lb ed="TLN" n="131"/><l n="5">&iacute;bo ego ad tr&eacute;s viros v&oacute;straque ibi n&oacute;mina</l>
+<lb ed="TLN" n="132"/><l>faxo erunt, capitis te perdam ego et filiam,</l>
+<lb ed="TLN" n="133"/><l>p&eacute;rlecebrae, p&eacute;rmities, &aacute;dulescentum exitium.</l>
+<lb ed="TLN" n="134"/><l>n&aacute;m mare haud &eacute;st mare, v&oacute;s mare ac&eacute;rrumum;</l>
+<lb ed="TLN" n="135"/><l>nam in mari repperi, hic elavi bonis.</l>
+<lb ed="TLN" n="136"/><l n="10">ingrata atque inrita esse omnia intellego</l>
+<lb ed="TLN" n="137"/><l>quae dedi et quod bene feci, at posthac tibi</l>
+<lb ed="TLN" n="138"/><l>m&aacute;le quod potero f&aacute;cere faciam, m&eacute;ritoque id faci&aacute;m tuo.</l>
+<lb ed="TLN" n="139"/><l>ego pol te redigam eodem unde orta es, ad egestatis terminos,</l>
+<lb ed="TLN" n="140"/><l>ego edepol te faciam ut quae sis nunc et quae fueris scias.</l>
+<lb ed="TLN" n="141"/><l n="15">quae prius quam &iacute;stam adii atque amans ego animum m&eacute;um isti dedi,</l>
+<lb ed="TLN" n="142"/><l>sordido vitam oblectabas pane in pannis inopia,</l>
+<lb ed="TLN" n="143"/><l>atque ea si &eacute;rant, magn&aacute;s habebas omnibus dis gratias;</l>
+<lb ed="TLN" n="144"/><l>eadem nunc, cum est melius, me, cuius opera est, ignoras mala.</l>
+<lb ed="TLN" n="145"/><l>reddam ego te ex fera fame mansuetem, me specta modo.</l>
+<lb ed="TLN" n="146"/><l n="20">nam isti quid suscenseam ipsi? nihil est, nihil quicquam meret;</l>
+<lb ed="TLN" n="147"/><l>tuo facit iussu, tuo imperio paret: mater tu, eadem era es.</l>
+<lb ed="TLN" n="148"/><l>t&eacute; ego ulciscar, t&eacute; ego ut digna es perdam atque ut de me meres.</l>
+<lb ed="TLN" n="149"/><l>at scelesta viden ut ne id quidem, me dignum esse existumat</l>
+<lb ed="TLN" n="150"/><l>qu&eacute;m adeat, quem conloquatur quoique irato supplicet?</l>
+<lb ed="TLN" n="151"/><l n="25">atque eccam inlecebra exit tandem; opinor hic ante ostium</l>
+<lb ed="TLN" n="152"/><l>meo modo loquar qua&eacute; volam, quoniam intus non licitum est mihi.</l></sp>
+</div2>
+<div2 type="scene" n="3">
+
+<sp><speaker>Cleareta</speaker>
+<lb ed="TLN" n="153"/><l>Vnum quodque istorum verbum nummis Philippis aureis</l>
+<lb ed="TLN" n="154"/><l>non potest auferre hinc a me si quis emptor venerit;</l>
+<lb ed="TLN" n="155"/><l>nec recte quae tu in nos dicis, aurum atque argentum merumst:</l>
+<lb ed="TLN" n="156"/><l>fixus hic apud n&oacute;s est animus tuos clavo Cupidinis.</l>
+<lb ed="TLN" n="157"/><l n="5">remigio veloque quantum poteris festina et fuge:</l>
+<lb ed="TLN" n="158"/><l>quam magis t&eacute; in altum capessis, tam aestus te in portum refert.</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="159"/><l>Ego pol istum portitorem privabo portorio;</l>
+<lb ed="TLN" n="160"/><l>ego te dehinc ut merita es de me et mea re tractare exsequar,</l>
+<lb ed="TLN" n="161"/><l>quom tu med ut meritus sum non tractas atque eicis domo.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="162"/><l n="10">Magis istuc percipimus lingua dici, quam factis fore.</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="163"/><l>Solus solitudine ego ted atque ab egestate abstuli;</l>
+<lb ed="TLN" n="164"/><l>solus si ductem, referre gratiam numquam potes.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="165"/><l>Solus ductato, si semper solus quae poscam dabis;</l>
+<lb ed="TLN" n="166"/><l>semper tibi promissum habeto hac lege, dum superes datis.</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="167"/><l n="15">Qui modus dandi? nam numquam tu quidem expleri potes;</l>
+<lb ed="TLN" n="168"/><l>modo quom accepisti, haud multo post aliquid quod poscas paras.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="169"/><l>Quid modist ductando, amando? numquamne expleri potes?</l>
+<lb ed="TLN" n="170"/><l>modo remisisti, continuo iam ut remittam ad te rogas.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="171"/><l part="I">Dedi equidem quod mecum egisti.</l></sp>
+
+<sp><speaker>C.</speaker>
+<l part="M">Et tibi ego misi mulierem:</l>
+<lb ed="TLN" n="172"/><l n="20">par pari datum hostimentumst, opera pro pecunia.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="173"/><l part="I">Male agis mecum.</l></sp>
+
+<sp><speaker>C.</speaker>
+<l part="M">Quid me accusas, si facio officium meum?</l>
+<lb ed="TLN" n="174"/><l>nam neque fictum usquamst neque pictum neque scriptum in poematis</l>
+<lb ed="TLN" n="175"/><l>ubi lena bene agat cum quiquam amante, quae frugi esse volt.</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="176"/><l>Mihi quidem te parcere aequomst tandem, ut tibi durem diu.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="177"/><l n="25">Non tu scis? quae amanti parcet, eadem sibi parcet parum.</l>
+<lb ed="TLN" n="178"/><l>quasi piscis, itidemst amator lenae: nequam est, nisi recens;</l>
+<lb ed="TLN" n="179"/><l>is habet sucum, is suavitatem, eum quo vis pacto condias,</l>
+<lb ed="TLN" n="180"/><l>vel patinarium vel assum, verses quo pacto lubet:</l>
+<lb ed="TLN" n="181"/><l>is dare volt, is se aliquid posci, nam ibi de pleno promitur;</l>
+<lb ed="TLN" n="182"/><l n="30">neque ille scit quid det, quid damni faciat: illi rei studet.</l>
+<lb ed="TLN" n="183"/><l>volt placere sese amicae, volt mihi, volt pedisequae,</l>
+<lb ed="TLN" n="184"/><l>volt famulis, volt etiam ancillis; et quoque catulo meo</l>
+<lb ed="TLN" n="185"/><l>subblanditur novos amator, se ut quom videat gaudeat.</l>
+<lb ed="TLN" n="186"/><l>vera dico: ad suom quemque hominem quaestum esse aequomst callidum.</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="187"/><l n="35">Perdidici istaec esse vera damno cum magno meo.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="188"/><l>Si ecastor nunc habeas quod des, alia verba praehibeas;</l>
+<lb ed="TLN" n="189"/><l>nunc quia nihil habes, maledictis te eam ductare postulas.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="190"/><l part="I">Non meum est.</l></sp>
+
+<sp><speaker>C.</speaker>
+<l part="M">Nec meum quidem edepol, ad te ut mittam gratiis.</l>
+<lb ed="TLN" n="191"/><l>verum aetatis atque honoris gratia hoc fiet tui,</l>
+<lb ed="TLN" n="192"/><l n="40">quia nobis lucro fuisti potius quam decori tibi:</l>
+<lb ed="TLN" n="193"/><l>si mihi dantur duo talenta argenti numerata in manum,</l>
+<lb ed="TLN" n="194"/><l>hanc tibi noctem honoris causa gratiis dono dabo.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="195"/><l part="I">Quid si non est?</l></sp>
+
+<sp><speaker>C.</speaker>
+<l part="M">Tibi non esse credam, illa alio ibit tamen.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="196"/><l part="I">Vbi illaec quae dedi ante?</l></sp>
+
+<sp><speaker>C.</speaker>
+<l part="M">Abusa. nam si ea durarent mihi,</l>
+<lb ed="TLN" n="197"/><l n="45">mulier mitteretur ad te, numquam quicquam poscerem.</l>
+<lb ed="TLN" n="198"/><l>diem aquam solem lunam noctem, haec argento non emo:</l>
+<lb ed="TLN" n="199"/><l>ceterum quae volumus uti Graeca mercamur fide.</l>
+<lb ed="TLN" n="200"/><l>quom a pistore panem petimus, vinum ex oenopolio,</l>
+<lb ed="TLN" n="201"/><l>si aes habent, dant mercem: eadem nos discipulina utimur.</l>
+<lb ed="TLN" n="202"/><l n="50">semper oculatae manus sunt nostrae, credunt quod vident.</l>
+<lb ed="TLN" n="203"/><l>vetus est: &lsquo;nihili coactiost&rsquo; &mdash; scis cuius. non dico amplius.</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="204"/><l>Aliam nunc mi orationem despoliato praedicas,</l>
+<lb ed="TLN" n="205"/><l>longe aliam, inquam, praebes nunc atque olim, quom dabam,</l>
+<lb ed="TLN" n="206"/><l>aliam atque olim, quom inliciebas me ad te blande ac benedice.</l>
+<lb ed="TLN" n="207"/><l n="55">tum mi aedes quoque arridebant, cum ad te veniebam, tuae;</l>
+<lb ed="TLN" n="208"/><l>me unice unum ex omnibus te atque illam amare aibas mihi;</l>
+<lb ed="TLN" n="209"/><l>ubi quid dederam, quasi columbae pulli in ore ambae meo</l>
+<lb ed="TLN" n="210"/><l>usque eratis, meo de studio studia erant vostra omnia,</l>
+<lb ed="TLN" n="211"/><l>usque adhaerebatis: quod ego iusseram, quod volueram</l>
+<lb ed="TLN" n="212"/><l n="60">faciebatis, quod nolebam ac votueram, de industria</l>
+<lb ed="TLN" n="213"/><l>fugiebatis, neque conari id facere audebatis prius.</l>
+<lb ed="TLN" n="214"/><l>nunc neque quid velim neque nolim facitis magni, pessumae.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="215"/><l>Non tu scis? hic noster quaestus aucupi simillimust.</l>
+<lb ed="TLN" n="216"/><l>auceps quando concinnavit aream, offundit cibum;</l>
+<lb ed="TLN" n="217"/><l n="65">aves adsuescunt: n&eacute;cesse est facere sumptum qui quaerit lucrum;</l>
+<lb ed="TLN" n="218"/><l>saepe edunt: semel si sunt captae, rem solvont aucupi.</l>
+<lb ed="TLN" n="219-220"/><l>itidem hic apud nos: aedes nobis area est, auceps sum ego,</l>
+<lb ed="TLN" n="221"/><l>esca est meretrix, lectus inlex est, amatores aves;</l>
+<lb ed="TLN" n="222"/><l>bene salutando consuescunt, compellando blanditer,</l>
+<lb ed="TLN" n="223"/><l n="70">osculando, oratione vinnula, venustula.</l>
+<lb ed="TLN" n="224"/><l>si papillam pertractavit, haud est ab re a&uacute;cupis;</l>
+<lb ed="TLN" n="225"/><l>savium si sumpsit, sumere eum licet sine retibus.</l>
+<lb ed="TLN" n="226"/><l>haecine te esse oblitum, in ludo qui fuisti tam diu?</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="227"/><l>Tua ista culpa est, quae discipulum semidoctum abs te amoves.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="228"/><l n="75">Remeato audacter, mercedem s&iacute; eris nactus: nunc abi.</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="229"/><l>Mane, mane, audi. dic, quid me aequom censes pro illa tibi dare,</l>
+<lb ed="TLN" n="230"/><l part="I">annum hunc ne cum quiquam alio sit?</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<l part="M">Tene? viginti minas;</l>
+<lb ed="TLN" n="231"/><l>atque ea lege: si alius ad me prius attulerit, tu vale.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="232"/><l part="I">At ego est etiam prius quam abis quod volo loqui.</l></sp>
+
+<sp><speaker>C.</speaker>
+<l part="M">Dic quod lubet.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="233"/><l n="80">Non omnino iam perii, est relicuom quo peream magis.</l>
+<lb ed="TLN" n="234"/><l>habeo unde istuc tibi quod poscis dem; sed in leges meas</l>
+<lb ed="TLN" n="235"/><l>dabo, uti scire possis, perpetuom annum hunc mihi uti serviat</l>
+<lb ed="TLN" n="236"/><l>nec quemquam interea alium admittat prorsus quam me ad se virum.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="237"/><l>Quin, si tu voles, domi s&eacute;rvi qui sunt castrabo viros.</l>
+<lb ed="TLN" n="238"/><l n="85">postremo ut voles nos esse, syngraphum facito adferas;</l>
+<lb ed="TLN" n="239"/><l>ut voles, ut tibi lubebit, nobis legem imponito:</l>
+<lb ed="TLN" n="240"/><l>modo tecum una argentum adferto, facile patiar cetera.</l>
+<lb ed="TLN" n="241"/><l>portitorum s&iacute;millumae sunt ianuae lenoniae:</l>
+<lb ed="TLN" n="242"/><l>si adfers, tum patent, si non est quod des, aedes non patent.&mdash;</l></sp>
+
+<sp><speaker>Argyr.</speaker>
+<lb ed="TLN" n="243"/><l n="90">Interii, si non invenio ego illas viginti minas,</l>
+<lb ed="TLN" n="244"/><l>et profecto, nisi illud perdo argentum, pereundum est mihi.</l>
+<lb ed="TLN" n="245"/><l>nunc pergam ad forum atque experiar opibus, omni copia,</l>
+<lb ed="TLN" n="246"/><l>supplicabo, exobsecrabo ut quemque amicum videro,</l>
+<lb ed="TLN" n="247"/><l>dignos indignos adire atque experiri certumst mihi,&dagger;</l>
+<lb ed="TLN" n="248"/><l n="95">nam si mutuas non potero, certumst sumam faenore.&mdash;</l></sp>
+</div2></div1>
+
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+
+<sp><speaker>Libanvs</speaker>
+<lb ed="TLN" n="249"/><l>Hercle vero, Libane, nunc te meliust expergiscier</l>
+<lb ed="TLN" n="250"/><l>atque argento comparando fingere fallaciam.</l>
+<lb ed="TLN" n="251"/><l>iam diu est fact&uacute;m quom discesti ab ero atque abiisti ad forum,</l>
+<lb ed="TLN" n="252"/><l>[igitur inveniundo argento ut fingeres fallaciam.]</l>
+<lb ed="TLN" n="253"/><l n="5">ibi tu ad hoc diei tempus dormitasti in otio.</l>
+<lb ed="TLN" n="254"/><l>quin tu abs te socordiam omnem reice et segnitiem amove</l>
+<lb ed="TLN" n="255"/><l>atque ad ingenium vetus versutum te recipis tuom.</l>
+<lb ed="TLN" n="256"/><l>serva erum, cave t&uacute; idem faxis alii quod servi solent,</l>
+<lb ed="TLN" n="257"/><l>qu&iacute; ad eri fraudationem callidum ingenium gerunt.</l>
+<lb ed="TLN" n="258"/><l n="10">unde sumam? quem intervortam? quo hanc celocem conferam?</l>
+<lb ed="TLN" n="259"/><l>impetritum, inauguratumst: quovis admittunt aves,</l>
+<lb ed="TLN" n="260"/><l>picus et cornix ab laeva, corvos parra ab dextera</l>
+<lb ed="TLN" n="261"/><l>consuadent; certum herclest vostram consequi sententiam.</l>
+<lb ed="TLN" n="262"/><l>sed quid hoc, quod picus ulmum tundit? non temerariumst.</l>
+<lb ed="TLN" n="263"/><l n="15">certe hercle ego quantum ex augurio &eacute;ius pici intellego,</l>
+<lb ed="TLN" n="264"/><l>aut mihi in mundo sunt virgae aut atriensi Saureae.</l>
+<lb ed="TLN" n="265"/><l>sed quid ill&uacute;c, quod exanimatus currit huc Leonida?</l>
+<lb ed="TLN" n="266"/><l>metuo quom illic obscaevavit meae falsae fallaciae.</l></sp>
+</div2>
+<div2 type="scene" n="2">
+
+<sp><speaker>Leonida</speaker>
+<lb ed="TLN" n="267"/><l>Vbi ego nunc Libanum requiram aut familiarem filium,</l>
+<lb ed="TLN" n="268"/><l>ut ego illos lubentiores faciam quam Lubentiast?</l>
+<lb ed="TLN" n="269"/><l>maximam praedam et triumphum eis adfero adventu meo.</l>
+<lb ed="TLN" n="270"/><l>quando mecum pariter potant, pariter scortari solent,</l>
+<lb ed="TLN" n="271"/><l n="5">hanc quidem, quam nactus, praedam pariter cum illis partiam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="272"/><l>Illic homo aedis compilavit, more si fecit suo.</l>
+<lb ed="TLN" n="273"/><l>vae illi, qui tam indiligenter observavit ianuam.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="274"/><l>Aetatem velim servire, Libanum ut conveniam modo.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="275"/><l>Mea quidem hercle &oacute;pera liber numquam fies ocius.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="276"/><l n="10">Etiam de tergo ducentas plagas praegnatis dabo.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="277"/><l>Largitur peculium, omnem in tergo thensaurum gerit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="278"/><l>Nam si huic s&eacute;se occasioni tempus supterduxerit,</l>
+<lb ed="TLN" n="279"/><l>numquam edepol quadrigis albis indipiscet postea;</l>
+<lb ed="TLN" n="280"/><l>erum in &oacute;bsidione linquet, inimicum animos auxerit.</l>
+<lb ed="TLN" n="281"/><l n="15">sed si mecum occasionem opprimere hanc, quae obvenit, studet,</l>
+<lb ed="TLN" n="282"/><l>maximas opimitates, gaudio exfertissimas</l>
+<lb ed="TLN" n="283"/><l>suis eris ille una mecum pariet, gnatoque et patri,</l>
+<lb ed="TLN" n="284"/><l>adeo ut aetatem ambo ambobus nobis sint obnoxii,</l>
+<lb ed="TLN" n="285"/><l part="I">nostro devincti beneficio.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Vinctos nescio quos ait;</l>
+<lb ed="TLN" n="286"/><l n="20">non placet: metuo, in commune ne quam fraudem frausus sit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="287"/><l>Perii ego oppido, nisi Libanum invenio iam, ubiubi est gentium.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="288"/><l>Illic hom&oacute; socium ad malam rem quaerit quem adiungat sibi.</l>
+<lb ed="TLN" n="289"/><l>non placet: pro monstro extemplo est, quando qui sudat tremit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="290"/><l>Sed quid ego hic properans concesso pedibus, lingua largior?</l>
+<lb ed="TLN" n="291"/><l n="25">quin ego hanc iubeo tacere, quae loquens lacerat diem?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="292"/><l>Edepol hominem &iacute;nfelicem, qui patronam comprimat.</l>
+<lb ed="TLN" n="293"/><l>nam si quid sceleste fecit, lingua pro illo perierat.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="294"/><l>Adproperabo, ne post tempus praedae praesidium parem.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="295"/><l>Quae illaec praeda est? ibo advorsum atque electabo, quidquid est.</l>
+<lb ed="TLN" n="296"/><l n="30">iubeo te salvere voce summa, quo ad vires valent.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="297"/><l part="I">Gymnasium flagri, salveto.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quid agis, custos carceris?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="298"/><l part="I">O catenarum colone.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">O virgarum lascivia.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="299"/><l part="I">Quot pondo ted esse censes nudum?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Non edepol scio.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="300"/><l>Scibam ego te nescire, at pol ego, qui ted expendi, scio:</l>
+<lb ed="TLN" n="301"/><l n="35">nudus vinctus centum pondo es, quando pendes per pedes.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="302"/><l part="I">Quo argumento istuc?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Ego dicam, quo argumento et quo modo.</l>
+<lb ed="TLN" n="303"/><l>ad pedes quando adligatumst aequom centumpondium,</l>
+<lb ed="TLN" n="304"/><l>ubi manus manicae complexae sunt atque adductae ad trabem,</l>
+<lb ed="TLN" n="305"/><l>nec dependes nec propendes&mdash;quin malus nequamque sis.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="306"/><l part="I" n="40">Vae tibi.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Hoc testamento Servitus legat tibi.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="307"/><l>Verbivelitationem fieri compendi volo.</l>
+<lb ed="TLN" n="308"/><l part="I">Quid istud est negoti?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Certum est credere.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Audacter licet.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="309"/><l>Sis amanti subvenire familiari filio,</l>
+<lb ed="TLN" n="310"/><l>tantum adest boni improviso, verum commixtum malo:</l>
+<lb ed="TLN" n="311"/><l n="45">omnes de nobis carnificum concelebrabuntur dies.</l>
+<lb ed="TLN" n="312"/><l>Libane, nunc audacia usust nobis inventa et dolis.</l>
+<lb ed="TLN" n="313"/><l>tantum facinus modo inv&eacute;ni ego, ut nos dicamur duo</l>
+<lb ed="TLN" n="314"/><l>omnium dignissumi esse, quo cruciatus confluant.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="315"/><l>Ergo mirabar quod dudum scapulae gestibant mihi,</l>
+<lb ed="TLN" n="316"/><l n="50">hariolari quae occeperunt, sibi esse in mundo malum.</l>
+<lb ed="TLN" n="317"/><l part="I">quidquid est, eloquere.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Magna est praeda cum magno malo.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="318"/><l>Si quidem omnes coniurati cruciamenta conferant,</l>
+<lb ed="TLN" n="319"/><l>habeo opinor familiare tergum, ne quaeram foris.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="320"/><l>Si istam firmitudinem animi &oacute;ptines, salvi sumus.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="321"/><l n="55">Quin si tergo res solvenda est, rapere cupio publicum:</l>
+<lb ed="TLN" n="322"/><l>pernegabo atque obdurabo, periurabo denique.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="323"/><l>Em ista virtus est, quando usust qui malum fert fortiter;</l>
+<lb ed="TLN" n="324"/><l>fortiter malum qui patitur, idem post potitur bonum.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="325"/><l>Quin rem actutum edisseris? cupio malum nanciscier.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="326"/><l n="60">Placide ergo unum quidquid rogita, ut adquiescam. non vides</l>
+<lb ed="TLN" n="327"/><l part="I">me ex cursura anhelitum etiam ducere?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Age, age, mansero</l>
+<lb ed="TLN" n="328"/><l part="I">tuo arbitratu, vel adeo usque dum peris.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Vbinam est erus?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="329"/><l part="I">Maior apud forumst, minor hic est intus.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Iam satis est mihi.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="330"/><l part="I">T&uacute;m igitur tu dives es factus?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Mitte ridicularia.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="331"/><l n="65">Mitto. * istuc quod adfers aures exspectant meae.</l></sp>
+
+<sp><speaker>Le.</speaker>
+<lb ed="TLN" n="332"/><l part="I">Animum adverte, ut aeque mecum ha&eacute;c scias.</l></sp>
+
+<sp><speaker>Li.</speaker>
+<l part="M">Taceo.</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Beas.</l>
+<lb ed="TLN" n="333"/><l>meministin asinos Arcadicos mercatori Pellaeo</l>
+<lb ed="TLN" n="334-335"/><l part="I">nostrum vendere atriensem?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Memini. quid tum postea?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="336"/><l>Em ergo is argentum huc remisit, quod daretur Saureae</l>
+<lb ed="TLN" n="337"/><l n="70">pr&oacute; asinis. adulescens venit modo, qui id argentum attulit.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="338"/><l part="I">Vbi is homost?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Iam devorandum censes, si conspexeris?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="339"/><l>Ita enim vero. sed tamen, tu nempe eos asinos praedicas</l>
+<lb ed="TLN" n="340"/><l>vetulos, claudos, quibus subtritae ad femina i&aacute;m erant ungulae?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="341"/><l>Ipsos, qui tibi subvectabant rure huc virgas ulmeas.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="342"/><l part="I" n="75">Teneo, atque idem te hinc vexerunt vinctum rus.</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Memor es probe.</l>
+<lb ed="TLN" n="343"/><l>verum in tonstrina ut sedebam, me infit percontarier,</l>
+<lb ed="TLN" n="344"/><l>ecquem filium Stratonis noverim Demaenetum.</l>
+<lb ed="TLN" n="345"/><l>dico me novisse extemplo et me eius servom praedico</l>
+<lb ed="TLN" n="346"/><l part="I">esse, et aedis demonstravi nostras.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quid tum postea?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="347"/><l n="80">Ait se ob asinos ferre argentum &aacute;triensi Saureae,</l>
+<lb ed="TLN" n="348"/><l>viginti minas, s&eacute;d eum sese non nosse hominem qui siet,</l>
+<lb ed="TLN" n="349"/><l>ipsum vero se novisse callide Demaenetum.</l>
+<lb ed="TLN" n="350"/><l part="I">quoniam ille elocutus haec sic&mdash;</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quid tum?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Ausculta ergo, scies.</l>
+<lb ed="TLN" n="351"/><l>extemplo facio facetum me atque magnificum virum,</l>
+<lb ed="TLN" n="352"/><l n="85">dico med esse atriensem. sic hoc respondit mihi:</l>
+<lb ed="TLN" n="353"/><l>&lsquo;ego pol Sauream non novi neque qua facie sit scio.</l>
+<lb ed="TLN" n="354"/><l>te non aequomst suscensere. s&iacute; erum vis Demaenetum,</l>
+<lb ed="TLN" n="355"/><l>qu&eacute;m ego novi, adduce: argentum non morabor quin feras.&rsquo;</l>
+<lb ed="TLN" n="356"/><l>ego me dixi erum adducturum et me domi praesto fore;</l>
+<lb ed="TLN" n="357"/><l n="90">ille in balineas iturust, inde huc veniet postea.</l>
+<lb ed="TLN" n="358"/><l part="I">quid nunc consili captandum censes? dic.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Em istuc ago,</l>
+<lb ed="TLN" n="359"/><l>quo modo argento intervortam et adventorem et Sauream.</l>
+<lb ed="TLN" n="360"/><l>iam hoc opus est &dagger; exasceatum; nam si ille argentum prius</l>
+<lb ed="TLN" n="361"/><l>hospes huc affert, continuo nos ambo exclusi sumus.</l>
+<lb ed="TLN" n="362"/><l n="95">nam me hodie senex seduxit solum sorsum ab aedibus,</l>
+<lb ed="TLN" n="363"/><l>mihi tibique interminatust nos futuros ulmeos,</l>
+<lb ed="TLN" n="364"/><l>n&iacute; hodie Argyrippo &eacute;ssent viginti argenti minae;</l>
+<lb ed="TLN" n="365"/><l>iussit vel nos atriensem vel nos uxorem suam</l>
+<lb ed="TLN" n="366"/><l>defraudare, dixit sese &oacute;peram promiscam dare.</l>
+<lb ed="TLN" n="367"/><l n="100">nunc tu abi ad forum ad erum et narra haec ut nos acturi sumus:</l>
+<lb ed="TLN" n="368"/><l>te ex Leonida futurum esse atriensem Sauream,</l>
+<lb ed="TLN" n="369"/><l part="I">dum argentum afferat mercator pr&oacute; asinis.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Faciam ut iubes.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="370"/><l>Ego illum interea hic oblectabo, prius si forte advenerit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="371"/><l part="I">Quid ais?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quid vis?</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Pugno malam si tibi percussero,</l>
+<lb ed="TLN" n="372"/><l n="105">mox cum Sauream imitabor, caveto ne suscenseas.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="373"/><l>Hercle vero tu cavebis ne me attingas, si sapis,</l>
+<lb ed="TLN" n="374"/><l>n&eacute; hodie malo cum auspicio nomen commutaveris.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="375"/><l part="I">Quaeso, aequo animo patitor.</l></sp>
+
+<sp><speaker>L.</speaker>
+<l part="M">Patitor t&uacute; item, cum ego te referiam.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="376"/><l part="I">Dico ut usust fieri.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Dico hercle ego quoque ut facturus sum.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="377"/><l part="I" n="110">Ne nega.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quin promitto, inquam, hostire contra ut merueris.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="378"/><l>Ego abeo, tu iam, scio, patiere. sed quis hic est? is est,</l>
+<lb ed="TLN" n="379"/><l>ille est ipsus. iam ego recurro h&uacute;c. tu hunc interea hic tene.</l>
+<lb ed="TLN" n="380"/><l part="I">volo seni narrare.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quin tuom officium facis ergo ac fugis?</l></sp>
+</div2>
+<div2 type="scene" n="3">
+
+<sp><speaker>Mercator</speaker>
+<lb ed="TLN" n="381"/><l>Vt d&eacute;monstratae s&uacute;nt mihi, hasce a&eacute;dis esse op&oacute;rtet,</l>
+<lb ed="TLN" n="382"/><l>Demaenetus ubi dicitur habitare. i, puere, pulta</l>
+<lb ed="TLN" n="383"/><l>atque atriensem Sauream, si est intus, evocato huc.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="384"/><l>Quis nostras sic frangit fores? ohe, inquam, si quid audis.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="385"/><l part="I" n="5">Nemo etiam tetigit. sanun es?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">At censebam attigisse</l>
+<lb ed="TLN" n="386"/><l>propterea, huc quia habebas iter. nolo ego fores conservas</l>
+<lb ed="TLN" n="387"/><l>meas &aacute; te verberarier. sane ego sum amicus nostris.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="388"/><l>Pol haud periclum est, cardines ne foribus effringantur,</l>
+<lb ed="TLN" n="389"/><l>si istoc exemplo omnibus qui quaerunt respondebis.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="390"/><l n="10">Ita haec morata est ianua: extemplo ianitorem</l>
+<lb ed="TLN" n="391"/><l>clamat, procul si quem videt ire ad se calcitronem.</l>
+<lb ed="TLN" n="392"/><l part="I">sed quid venis? quid quaeritas?</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Demaenetum volebam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="393"/><l part="I">Si sit domi, dicam tibi.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Quid eius atriensis?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="394"/><l part="I">Nihilo mage intus est.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Vbi est?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Ad tonsorem ire dixit.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="395"/><l part="I" n="15">Conveni. sed post non redit?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Non edepol. quid volebas?</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="396"/><l>Argenti viginti minas, si adesset, accepisset.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="397"/><l part="I">Qui pro istuc?</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Asinos vendidit Pellaeo mercatori</l>
+<lb ed="TLN" n="398"/><l part="I">mercatu.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Scio. tu id nunc refers? iam hic credo eum adfuturum.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="399"/><l>Qua facie voster Saurea est? si is est, iam scire potero.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="400"/><l n="20">Macilentis malis, rufulus aliquantum, ventriosus,</l>
+<lb ed="TLN" n="401"/><l>truculentis oculis, commoda statura, tristi fronte.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="402"/><l>Non potuit pictor rectius describere eius formam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="403"/><l>Atque hercle ipsum adeo contuor, quassanti capite incedit.</l>
+<lb ed="TLN" n="404"/><l>quisque obviam huic occesserit irato, vapulabit.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="405"/><l n="25">Siquidem h&eacute;rcle Aeacidinis minis animisque expletus incedit,</l>
+<lb ed="TLN" n="406"/><l>si med iratus tetigerit, iratus vapulabit.</l></sp>
+</div2>
+<div2 type="scene" n="4">
+
+<sp><speaker>Leonida</speaker>
+<lb ed="TLN" n="407"/><l>Quid hoc s&iacute;t negoti, neminem meum dictum magni facere?</l>
+<lb ed="TLN" n="408"/><l>Libanum in tonstrinam ut iusseram venire, is nullus venit.</l>
+<lb ed="TLN" n="409"/><l>ne ille edepol tergo et cruribus consuluit haud decore.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="410"/><l part="I">Nimis imperiosust.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Vae mihi.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Hodie salvere iussi</l>
+<lb ed="TLN" n="411"/><l part="I" n="5">Libanum libertum? iam manu <abbr expan="emissus es">em&iacute;ssu's</abbr>?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Obsecro te.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="412"/><l>Ne tu hercle cum magno malo mihi obviam occessisti.</l>
+<lb ed="TLN" n="413"/><l part="I">cur non venisti, ut iusseram, in tonstrinam?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Hic me moratust.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="414"/><l>Siquidem h&eacute;rcle nunc summum Iovem te dicas detinuisse</l>
+<lb ed="TLN" n="415"/><l>atque is precator adsiet, malam rem effugies numquam.</l>
+<lb ed="TLN" n="416"/><l part="I" n="10">tu, verbero, imperium meum contempsisti?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Perii, hospes.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="417"/><l>Quaeso hercle noli, Saurea, mea causa hunc verberare.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="418"/><l part="I">Vtinam nunc stimulus in manu mihi sit.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Quiesce quaeso.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="419"/><l>Qui latera conteram tua, quae occalluere plagis.</l>
+<lb ed="TLN" n="420"/><l>abscede ac sine me hunc perdere, qui semper me ira incendit,</l>
+<lb ed="TLN" n="421"/><l n="15">cui numquam unam rem me licet semel praecipere furi,</l>
+<lb ed="TLN" n="422"/><l>quin centiens eadem imperem atque ogganniam, itaque iam hercle</l>
+<lb ed="TLN" n="423"/><l>clamore ac stomacho non queo labori suppeditare.</l>
+<lb ed="TLN" n="424"/><l>iussin, sceleste, ab ianua hoc stercus hinc auferri?</l>
+<lb ed="TLN" n="425"/><l>iussin columnis deici operas araneorum?</l>
+<lb ed="TLN" n="426"/><l n="20">iussin in splendorem dari bullas has foribus nostris?</l>
+<lb ed="TLN" n="427"/><l>nihil est: tamquam si claudus sim, cum fustist ambulandum.</l>
+<lb ed="TLN" n="428"/><l>quia triduom hoc unum modo foro operam adsiduam dedo,</l>
+<lb ed="TLN" n="429"/><l>dum reperiam qui quaeritet argentum in faenus, hic vos</l>
+<lb ed="TLN" n="430"/><l>dormitis interea domi, atque erus in hara, haud aedibus, habitat.</l>
+<lb ed="TLN" n="431"/><l part="I" n="25">em ergo h&oacute;c tibi.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Hospes, te obsecro, defende.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Saurea, oro,</l>
+<lb ed="TLN" n="432"/><l part="I">mea causa ut mitt&aacute;s.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Eho, ecquis pro vectura olivi</l>
+<lb ed="TLN" n="433"/><l part="I">rem solvit?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Solvit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Cui datumst?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Sticho vicario ipsi</l>
+<lb ed="TLN" n="434"/><l part="I">tuo.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">V&aacute;h, delenire apparas, scio mihi vicarium esse,</l>
+<lb ed="TLN" n="435"/><l>neque eo esse servom in aedibus eri qu&iacute; sit pluris quam illest.</l>
+<lb ed="TLN" n="436"/><l n="30">sed vina qua&eacute; heri vendidi vinario Exaerambo,</l>
+<lb ed="TLN" n="437"/><l part="I">iam pr&oacute; eis satis fecit Sticho?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Fecisse satis opinor,</l>
+<lb ed="TLN" n="438"/><l>nam vidi huc ipsum adducere trapezitam Exaerambum.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="439"/><l>Sic dedero. prius quae credidi vix anno post exegi;</l>
+<lb ed="TLN" n="440"/><l>nunc satagit: adducit domum etiam ultro et scribit nummos.</l>
+<lb ed="TLN" n="441"/><l part="I" n="35">Dromo mercedem rettulit?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Dimidio minus opinor.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="442"/><l part="I">Quid relicuom?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Aibat reddere quom extemplo redditum esset;</l>
+<lb ed="TLN" n="443"/><l>nam retineri, ut quod sit sibi operis locatum efficeret.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="444"/><l>Scyphos quos utendos dedi Philodamo, rettulitne?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="445"/><l part="I">Non etiam.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Hem non? si velis da * , commoda homini amico.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="446"/><l part="I" n="40">Perii hercle, iam hic me abegerit suo odio.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">He&uacute;s iam satis tu.</l>
+<lb ed="TLN" n="447"/><l part="I">audin quae loquitur?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Audio et quiesco.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Tandem, opinor,</l>
+<lb ed="TLN" n="448"/><l>conticuit. nunc adeam optimum est, prius quam incipit tinnire.</l>
+<lb ed="TLN" n="449"/><l part="I">quam mox mi operam das?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Ehem, &oacute;ptume. quam dudum tu advenisti?</l>
+<lb ed="TLN" n="450"/><l>non hercle te provideram (quaeso, ne vitio vortas),</l>
+<lb ed="TLN" n="451"/><l part="I" n="45">ita iracundia obstitit oculis.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Non mirum factum est.</l>
+<lb ed="TLN" n="452"/><l part="I">sed si domi est, Demaenetum volebam.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Negat esse intus.</l>
+<lb ed="TLN" n="453"/><l>verum istuc argentum tamen mihi si vis denumerare,</l>
+<lb ed="TLN" n="454"/><l>repromittam istoc nomine solutam rem futuram.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="455"/><l>Sic potius, ut Demaeneto tibi ero praesente reddam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="456"/><l part="I" n="50">Erus istunc novit atque erum hic.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Ero huic praesente reddam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="457"/><l>Da modo meo periculo, rem salvam ego exhibebo;</l>
+<lb ed="TLN" n="458"/><l>nam si sciat noster senex fidem non esse huic habitam,</l>
+<lb ed="TLN" n="459"/><l>suscenseat, quoi &oacute;mnium rerum ipsus semper credit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="460"/><l>Non magni pendo. ne duit, si non volt. sic sine astet.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="461"/><l n="55">Da, inquam. vah, formido miser, ne hic me tibi arbitretur</l>
+<lb ed="TLN" n="462"/><l>suasisse, sibi ne crederes. da, quaeso, ac ne formida:</l>
+<lb ed="TLN" n="463"/><l part="I">salvom hercle erit.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Credam fore, dum quidem ipse in m&aacute;nu habebo.</l>
+<lb ed="TLN" n="464"/><l part="I">peregrinus ego sum, Sauream non novi.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">At nosce sane.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="465"/><l>Sit, non sit, non edepol scio. si is est, eum esse oportet.</l>
+<lb ed="TLN" n="466"/><l n="60">ego certe me incerto scio hoc daturum nemini homini.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="467"/><l>Hercle istum di omnes perduint. verbo cave supplicassis.</l>
+<lb ed="TLN" n="468"/><l>ferox est viginti minas meas tractare sese.</l>
+<lb ed="TLN" n="469"/><l>nemo accipit, aufer te domum, abscede hinc, molestus ne sis.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="470"/><l>Nimis iracunde. non decet superbum esse hominem servom.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="471"/><l n="65">Malo hercle iam magno tuo, ni isti nec recte dicis.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="472"/><l part="I">Impure, nihili. non vides irasci?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Perge porro.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="473"/><l>Flagitium hominis. da, &oacute;bsecro, argentum huic, ne male loquatur.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="474"/><l part="I">Malum hercle vobis quaeritis.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Crura hercle diffringentur,</l>
+<lb ed="TLN" n="475"/><l part="I">ni istum impudicum percies.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Perii hercle. age impudice,</l>
+<lb ed="TLN" n="476"/><l n="70">sceleste, non audes mihi scelesto subvenire?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="477"/><l part="I">Pergin precari pessimo?</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Quae res? tun libero homini</l>
+<lb ed="TLN" n="478"/><l part="I">male servos loquere?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Vapula.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Id quid&eacute;m tibi hercle fiet,</l>
+<lb ed="TLN" n="479"/><l>ut vapules, Demaenetum simul ac conspexero hodie.</l>
+<lb ed="TLN" n="480"/><l part="I">[in ius voco te.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Non eo.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Non is? memento.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Memini.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="481"/><l part="I" n="75">Dabitur pol supplicium mihi de tergo vostro.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Vae te.</l>
+<lb ed="TLN" n="482"/><l part="I">tibi quidem supplicium, carnufex, de nobis detur?&dagger;</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Atque etiam</l>
+<lb ed="TLN" n="483"/><l>pro dictis vostris maledicis poenae pendentur mi hodie.]</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="484-485"/><l>Quid, verbero? ain tu, furcifer? erum nos fugitare censes?</l>
+<lb ed="TLN" n="486"/><l>ei nunciam ad erum, quo vocas, iam dudum quo volebas.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="487"/><l n="80">Nunc demum? tamen numquam hinc feres argenti nummum, nisi me</l>
+<lb ed="TLN" n="488"/><l part="I">dare iusserit Demaenetus.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Ita facito, age ambula ergo.</l>
+<lb ed="TLN" n="489"/><l>tu contumeliam alteri facias, tibi non dicatur?</l>
+<lb ed="TLN" n="490"/><l part="I">tam ego homo sum quam tu.</l></sp>
+
+<sp><speaker>Me.</speaker>
+<l part="M">Scilicet. ita res est.</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Sequere hac ergo.</l>
+<lb ed="TLN" n="491"/><l>praefiscini hoc nunc dixerim: nemo etiam me accusavit</l>
+<lb ed="TLN" n="492"/><l n="85">merito meo, neque me alter est Athenis hodie quisquam,</l>
+<lb ed="TLN" n="493"/><l part="I">cui credi recte aeque putent.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Fortassis. sed tamen me</l>
+<lb ed="TLN" n="494"/><l>numquam hodie induces, ut tibi credam hoc argentum ignoto.</l>
+<lb ed="TLN" n="495"/><l>lupus est homo homini, non homo, quom qualis sit non novit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="496"/><l>Iam nunc secunda mihi facis. scibam huic te capitulo hodie</l>
+<lb ed="TLN" n="497"/><l n="90">facturum satis pro iniuria; quamquam ego sum sordidatus,</l>
+<lb ed="TLN" n="498"/><l>frugi tamen sum, nec potest peculium enumerari.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="499"/><l part="I">Fortasse.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Etiam &dagger; nunc dico Periphanes Rhodo mercator dives</l>
+<lb ed="TLN" n="500"/><l>absente ero solus mihi talentum argenti soli</l>
+<lb ed="TLN" n="501"/><l>adnumeravit et mihi cr&eacute;didit, nequest deceptus in eo.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<lb ed="TLN" n="502"/><l part="I" n="95">Fortasse.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Atque etiam tu quoque ipse, si esses percontatus</l>
+<lb ed="TLN" n="503"/><l part="I">me ex aliis, scio pol crederes nunc quod fers.</l></sp>
+
+<sp><speaker>Merc.</speaker>
+<l part="M">Haud negassim.&mdash;</l></sp>
+</div2></div1>
+
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+
+<sp><speaker>Cleareta</speaker>
+<lb ed="TLN" n="504"/><l>N&eacute;queon ego ted interdictis facere mansuetem meis?</l>
+<lb ed="TLN" n="505"/><l>an ita tu es animata, ut qui matris &eacute;xpers imperio sies?</l></sp>
+
+<sp><speaker>Philaenivm</speaker>
+<lb ed="TLN" n="506"/><l>Vbi piem Pietatem, si istoc more moratam tibi</l>
+<lb ed="TLN" n="507"/><l>postulem placere, mater, mihi quo pacto praecipis?</l>
+<lb ed="TLN" n="508"/><l part="I" n="5">[</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<l part="M">An decorum est adversari meis te praeceptis?</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Quid est?]</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="509"/><l>Hocine est pietatem colere, matris imp&eacute;rium minuere?</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="510"/><l>Neque quae recte faciunt culpo neque quae delinquont amo.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="511"/><l part="I">Satis dicacula es amatrix.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Mater, is quaestus mihi est:</l>
+<lb ed="TLN" n="512"/><l>lingua poscit, corpus quaerit; animus orat, res monet.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="513"/><l n="10">Ego te volui castigare, tu mi accusatrix ades.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="514"/><l>Neque edepol te accuso neque id me facere fas existimo.</l>
+<lb ed="TLN" n="515"/><l>verum ego meas queror fortunas, cum illo qu&eacute;m amo prohibeor.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="516"/><l>Ecqua pars orationis de die dabitur mihi?</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="517"/><l>Et meam partem loquendi &eacute;t tuam trado tibi;</l>
+<lb ed="TLN" n="518"/><l n="15">ad loquendum atque ad tacendum tute habeas portisculum.</l>
+<lb ed="TLN" n="519"/><l>quin pol si reposivi remum, sola ego in casteria</l>
+<lb ed="TLN" n="520"/><l>ubi quiesco, omnis familiae causa consistit tibi.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="521"/><l>Quid ais tu, quam ego unam vidi mulierem audacissimam?</l>
+<lb ed="TLN" n="522"/><l>quotiens te votui Argyrippum filium Demaeneti</l>
+<lb ed="TLN" n="523"/><l n="20">compellare aut contrectare, conloquive aut contui?</l>
+<lb ed="TLN" n="524"/><l>quid dedit? quid ad nos iussit deportari? an tu tibi</l>
+<lb ed="TLN" n="525"/><l>verba blanda esse aurum rere, dicta docta pro datis?</l>
+<lb ed="TLN" n="526"/><l>ultro amas, ultro expetessis, ultro ad te accersi iubes.</l>
+<lb ed="TLN" n="527"/><l>illos qui dant, eos derides; qui deludunt, deperis.</l>
+<lb ed="TLN" n="528"/><l n="25">an te id exspectare oportet, si quis promittat tibi</l>
+<lb ed="TLN" n="529"/><l>te facturum divitem, si moriatur mater sua?</l>
+<lb ed="TLN" n="530"/><l>&dagger;ecastor nobis periclum magnum et familiae portenditur,</l>
+<lb ed="TLN" n="531"/><l>dum eius exspectamus mortem, ne nos moriamur fame.</l>
+<lb ed="TLN" n="532"/><l>nunc adeo nisi mi huc argenti &aacute;dfert viginti minas,</l>
+<lb ed="TLN" n="533"/><l n="30">ne ille ecastor hinc trudetur largus lacrumarum foras.</l>
+<lb ed="TLN" n="534"/><l>hic dies summust * apud me in&oacute;piae excusatio.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="535"/><l>Patiar, si cibo carere me iubes, mater mea.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="536"/><l>Non voto t&eacute;d amare qui dant quoia amentur gratia.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="537"/><l part="I">Quid si hic animus occupatust, mater, quid faciam? mone.</l></sp>
+
+<sp><speaker>C.</speaker>
+<l part="M">Em,</l>
+<lb ed="TLN" n="538"/><l n="35">meum caput contemples, si quidem ex re consultas tua.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="539-540"/><l>Etiam &oacute;pilio qui pascit, mater, alienas ovis,</l>
+<lb ed="TLN" n="541"/><l>aliquam habet peculiarem, qui spem soletur suam.</l>
+<lb ed="TLN" n="542"/><l>sine me amare unum Argyrippum &aacute;nimi causa, quem volo.</l></sp>
+
+<sp><speaker>Clear.</speaker>
+<lb ed="TLN" n="543"/><l>Intro abi, nam te quidem edepol nihil est impudentius.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="544"/><l n="40">Audientem dicto, mater, produxisti filiam.</l></sp>
+</div2>
+<div2 type="scene" n="2">
+
+<sp><speaker>Libanvs</speaker>
+<lb ed="TLN" n="545"/><l>Perf&iacute;diae laudes gr&aacute;tiasque hab&eacute;mus merito m&aacute;gnas,</l>
+<lb ed="TLN" n="546"/><l>quom nostris sycophantiis, dolis astutiisque,</l>
+<lb ed="TLN" n="547"/><l>[scapularum confidentia, virtute ulmorum freti]</l>
+<lb ed="TLN" n="548"/><l>qui advorsum stimulos, lamminas, crucesque compedesque,</l>
+<lb ed="TLN" n="549-550"/><l n="5">nervos, catenas, carceres, numellas, pedicas, boias</l>
+<lb ed="TLN" n="551"/><l>&dagger;indoctoresque acerrumos gnarosque nostri tergi,</l>
+<lb ed="TLN" n="552"/><l>[qui saepe ante in nostras scapulas cicatrices indiderunt]</l>
+<lb ed="TLN" n="553"/><l>* * *</l>
+<lb ed="TLN" n="554"/><l>eae n&uacute;nc legiones, copiae exercitusque eorum</l>
+<lb ed="TLN" n="555"/><l n="10">vi pugnando periuriis nostris fugae potiti.</l>
+<lb ed="TLN" n="556"/><l>id virtute huius &dagger; collegae meaque comitate</l>
+<lb ed="TLN" n="557"/><l>factumst. qui me vir fortior ad sufferundas plagas?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="558"/><l>Edepol virtutes qui tuas non possis conlaudare</l>
+<lb ed="TLN" n="559"/><l>sic ut ego possim, quae domi duellique male fecisti.</l>
+<lb ed="TLN" n="560"/><l n="15">ne illa edepol pro merito tuo memorari multa possunt:</l>
+<lb ed="TLN" n="561"/><l>ubi fidentem fraudaveris, ubi ero infidelis fueris,</l>
+<lb ed="TLN" n="562"/><l>ubi verbis conceptis sciens libenter periuraris,</l>
+<lb ed="TLN" n="563"/><l>ubi parietes perfoderis, in furto ubi sis prehensus,</l>
+<lb ed="TLN" n="564"/><l>ubi saepe causam dixeris pendens adversus octo</l>
+<lb ed="TLN" n="565"/><l n="20">artutos, audacis viros, valentis virgatores.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="566"/><l>Fateor profecto ut praedicas, Leonida, esse vera;</l>
+<lb ed="TLN" n="567"/><l>verum edepol ne etiam t&uacute;a quoque malefacta iterari multa</l>
+<lb ed="TLN" n="568"/><l>et vero possunt: ubi sciens fideli infidus fueris,</l>
+<lb ed="TLN" n="569"/><l>ubi prensus in furto sies manifesto et verberatus,</l>
+<lb ed="TLN" n="570"/><l n="25">[ubi periuraris, ubi sacro manus sis admolitus,]</l>
+<lb ed="TLN" n="571"/><l>ubi eris damno, molestiae et dedecori saepe fueris,</l>
+<lb ed="TLN" n="572"/><l>ubi creditum quod sit tibi datum esse pernegaris,</l>
+<lb ed="TLN" n="573"/><l>[ubi amicae qu&aacute;m amico tuo fueris magis fidelis,]</l>
+<lb ed="TLN" n="574"/><l>ubi saepe ad languorem tua duritia dederis octo</l>
+<lb ed="TLN" n="575"/><l n="30">validos lictores, ulmeis adfectos lentis virgis.</l>
+<lb ed="TLN" n="576"/><l>num male relata est gratia, ut collegam collaudavi?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="577"/><l>Vt meque teque maxime atque ingenio nostro decuit.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="578"/><l part="I">Iam omitte ista atque hoc quod rogo responde.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Rogita quod vis.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="579"/><l part="I">Argenti vinginti minas habesne?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Hariolare.</l>
+<lb ed="TLN" n="580"/><l n="35">edepol senem Demaenetum lepidum fuisse nobis:</l>
+<lb ed="TLN" n="581"/><l>ut adsimulabat Sauream med esse quam facete!</l>
+<lb ed="TLN" n="582"/><l>nimis aegre risum contini, ubi hospitem inclamavit,</l>
+<lb ed="TLN" n="583"/><l>quod se absente mihi fidem habere noluisset.</l>
+<lb ed="TLN" n="584"/><l>ut memoriter me Sauream vocabat atriensem!</l></sp>
+
+<sp><speaker>Li.</speaker>
+<lb ed="TLN" n="585"/><l part="I" n="40">Mane d&uacute;m.</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Quid est?</l></sp>
+
+<sp><speaker>Li.</speaker>
+<l part="M">Philaenium estne ha&eacute;c quae intus exit</l>
+<lb ed="TLN" n="586"/><l part="I">atque Argyrippus una?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Opprime os, is est. subauscultemus.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="587"/><l>Lacrumantem lacinia tenet lacrumans. quidnam esse dicam?</l>
+<lb ed="TLN" n="588"/><l part="I">taciti auscultemus.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Attatae, modo hercle in mentem venit,</l>
+<lb ed="TLN" n="589"/><l part="I">nimis v&eacute;llem habere perticam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quoi rei?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Qui verberarem</l>
+<lb ed="TLN" n="590"/><l n="45">asinos, si forte occeperint clamare hinc ex crumina.</l></sp>
+</div2>
+<div2 type="scene" n="3">
+
+<sp><speaker>Argyrippvs</speaker>
+<lb ed="TLN" n="591"/><l part="I">Cur me retentas?</l></sp>
+
+<sp><speaker>Philaenivm</speaker>
+<l part="M">Quia tui amans abeuntis egeo.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="592"/><l part="I">Vale.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Aliquanto &aacute;mplius valerem, si hic maneres.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="593"/><l part="I">Salve.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Salvere me iubes, quoi tu abiens offers morbum.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="594"/><l>Mater supremam mihi tua dixit, domum ire iussit.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="595"/><l n="5">Acerbum funus filiae faciet, si te carendum est.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="596"/><l part="I">Homo hercle hinc exclusust foras.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Ita res est.</l></sp>
+
+<sp><speaker>A.</speaker>
+<l part="M">Mitte quaeso.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="597"/><l part="I">Quo nunc abis? quin tu hic manes?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Nox, si voles, manebo.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="598"/><l>Audin hunc opera ut largus est nocturna? nunc enim esse</l>
+<lb ed="TLN" n="599"/><l>negotiosum interdius videlicet Solonem,</l>
+<lb ed="TLN" n="600"/><l n="10">leges ut conscribat, quibus se populus teneat. gerrae!</l>
+<lb ed="TLN" n="601"/><l>qui sese parere apparent huius l&eacute;gibus, profecto</l>
+<lb ed="TLN" n="602"/><l>numquam bonae frugi sient, dies noctesque potent.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="603"/><l>Ne iste hercle ab ista non pedem discedat, si licessit,</l>
+<lb ed="TLN" n="604"/><l>qui nunc festinat atque ab hac minatur sese abire.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="605"/><l n="15">Sermoni iam finem face tuo, huius sermonem accipiam.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="606"/><l part="I">Vale.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Quo properas?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Bene vale, apud Orcum te videbo.</l>
+<lb ed="TLN" n="607"/><l>nam equidem me iam quantum potest a vita abiudicabo.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="608"/><l>Cur tu, obsecro, immerito meo me morti dedere optas?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="609"/><l>Ego te? quam si intellegam deficere vita, iam ipse</l>
+<lb ed="TLN" n="610"/><l n="20">vitam meam tibi largiar et de mea ad tuam addam.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="611"/><l>Cur ergo minitaris mihi, te vitam esse amissurum?</l>
+<lb ed="TLN" n="612"/><l>nam quid me facturam putas, si istuc quod dicis faxis?</l>
+<lb ed="TLN" n="613"/><l>mihi certum est facere in me omnia eadem quae tu in te faxis.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="614"/><l part="I">Oh melle dulci dulcior tu es.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Certe enim t&uacute; vita es mi.</l>
+<lb ed="TLN" n="615"/><l part="I" n="25">complectere.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Facio lubens.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Vtinam sic efferamur.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="616"/><l part="I">O Libane, uti miser est homo qui amat.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Immo hercle vero,</l>
+<lb ed="TLN" n="617"/><l part="I">qui pendet multo est miserior.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Scio qui periclum feci.</l>
+<lb ed="TLN" n="618"/><l>circum sistamus, alter hinc, hinc alter appellemus.</l>
+<lb ed="TLN" n="619"/><l>ere, salve. sed num fumus est haec mulier quam amplexare?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="620"/><l part="I" n="30">Quidum?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Quia oculi sunt tibi lacrumantes, eo rogavi.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="621"/><l>Patronus qui vobis fuit futurus, perdidistis.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="622"/><l>Equidem hercle nullum perdidi, ideo quia numquam ullum habui.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="623"/><l part="I">Philaenium, salve.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Dabunt di quae velitis vobis.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="624"/><l>Noctem tuam et vini cadum velim, si optata fiant.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="625"/><l part="I" n="35">Verbum cave f&aacute;xis, verbero.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Tibi equidem, non mihi opto.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="626"/><l part="I">Tum tu igitur loquere quod lubet.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Hunc hercle verberare.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="627"/><l>Quisnam istuc adcredat tibi, cinaede calamistrate?</l>
+<lb ed="TLN" n="628"/><l>tun verberes, qui pro cibo habeas te verberari?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="629"/><l>Vt vostrae fortunae meis praecedunt, Libane, longe,</l>
+<lb ed="TLN" n="630"/><l part="I" n="40">qui h&oacute;die numquam ad vesperum vivam.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quapropter, quaeso?</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="631"/><l>Quia ego hanc am&oacute; et haec me amat, huic quod dem nusquam quicquam est,</l>
+<lb ed="TLN" n="632"/><l>hinc med amantem ex aedibus eiecit huius mater.</l>
+<lb ed="TLN" n="633"/><l>argenti viginti minae me ad m&oacute;rtem appulerunt,</l>
+<lb ed="TLN" n="634"/><l>quas hodie adul&eacute;scens Diabolus ipsi daturus dixit,</l>
+<lb ed="TLN" n="635"/><l n="45">ut hanc ne quoquam mitteret nisi ad se hunc annum totum.</l>
+<lb ed="TLN" n="636"/><l>videtin viginti minae quid pollent quidve possunt?</l>
+<lb ed="TLN" n="637"/><l>ille qui &iacute;llas perdit salvos est, ego qui non perdo pereo.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="638"/><l part="I">Iam dedit argentum?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Non dedit.</l></sp>
+
+<sp><speaker>Li.</speaker>
+<l part="M">Bono animo es, ne formida.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="639"/><l part="I">Secede huc, Libane, te volo.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Si quid vis.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Obsecro vos,</l>
+<lb ed="TLN" n="640"/><l n="50">eadem istac opera suaviust complexos fabulari.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="641"/><l>Non omnia eadem aeque omnibus, ere, suavia esse scito:</l>
+<lb ed="TLN" n="642"/><l>vobis est suave amantibus complexos fabulari,</l>
+<lb ed="TLN" n="643"/><l>ego complexum huius nil moror, meum autem hic aspernatur.</l>
+<lb ed="TLN" n="644"/><l>proinde istud facias ipse quod faciamus nobis suades.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="645"/><l n="55">Ego vero, et quidem edepol lubens. interea, si videtur,</l>
+<lb ed="TLN" n="646"/><l part="I">concedite istuc.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Vin erum deludi?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Dignust sane.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="647"/><l>Vin faciam ut te Philaenium praesente hoc amplexetur?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="648"/><l part="I">Cupio hercle.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Sequere hac.</l></sp>
+
+<sp><speaker>A.</speaker>
+<l part="M">Ecquid est salutis? satis locuti.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="649"/><l>Auscultate atque operam date et mea dicta devorate.</l>
+<lb ed="TLN" n="650"/><l n="60">primum omnium servos tuos nos esse non negamus;</l>
+<lb ed="TLN" n="651"/><l>sed tibi si viginti minae argenti proferentur,</l>
+<lb ed="TLN" n="652"/><l part="I">quo nos vocabis nomine?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Libertos.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Non patronos?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="653"/><l part="I">Id potius.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Viginti minae hic insunt in crumina,</l>
+<lb ed="TLN" n="654"/><l part="I">has ego, si vis, tibi dabo.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Di te servassint semper,</l>
+<lb ed="TLN" n="655"/><l n="65">custos erilis, decus popli, thensaurus copiarum,</l>
+<lb ed="TLN" n="656"/><l>salus interioris &dagger; corporis amorisque imperator.</l>
+<lb ed="TLN" n="657"/><l>hic pone, hic istam colloca cruminam in collo plane.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="658"/><l>Nolo ego te, qu&iacute; erus sis, mihi onus istuc sustinere.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="659"/><l>Quin tu labore liberas te atque istam imponis in me?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="660"/><l n="70">Ego baiulabo, tu, ut decet dominum, ante me ito inanis.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="661"/><l part="I">Quid nunc?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Quid est?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Quin tradis huc cruminam pressatum umerum?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="662"/><l>Hanc, cui <abbr expan="daturus es">daturu's hanc</abbr>, iube petere atque orare mecum.</l>
+<lb ed="TLN" n="663"/><l>nam istuc proclive est, quo iubes me plane collocare.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="664"/><l>Da, meus ocellus, mea rosa, mi &aacute;nime, mea voluptas,</l>
+<lb ed="TLN" n="665"/><l n="75">Leonida, argentum mihi, ne nos diiunge amantis.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="666"/><l>Dic me igitur tuom passerculum, gallinam, coturnicem,</l>
+<lb ed="TLN" n="667"/><l>agnellum, haedillum me tuom dic esse vel vitellum,</l>
+<lb ed="TLN" n="668"/><l>prehende auriculis, compara labella cum labellis.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="669"/><l part="I">Ten osculetur, verbero?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Quam vero indignum visum est?</l>
+<lb ed="TLN" n="670"/><l n="80">at qui pol hodie non feres, ni genua confricantur.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="671"/><l>Quidvis egestas imperat: fricentur. dan quod oro?</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="672"/><l>Age, mi Leonida, obsecro, fer amanti ero salutem,</l>
+<lb ed="TLN" n="673"/><l>redime istoc benefici&oacute; te ab hoc, et tibi eme hunc isto argento.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="674"/><l>Nimis b&eacute;lla es atque amabilis, et si hoc meum esset, hodie</l>
+<lb ed="TLN" n="675"/><l n="85">numquam me orares quin darem: illum te orare meliust,</l>
+<lb ed="TLN" n="676"/><l>illic h&aacute;nc mihi servandam dedit. ei sane bella belle.</l>
+<lb ed="TLN" n="677"/><l part="I">cape hoc sis, Libane.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Furcifer, etiam me delusisti?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="678"/><l>Numquam hercle facerem, genua ni tam nequiter fricares.</l>
+<lb ed="TLN" n="679"/><l>age sis tu in partem nunciam hunc delude atque amplexare hanc.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="680"/><l part="I" n="90">Taceas, me spectes.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Quin ad hunc, Philaenium, adgredimur,</l>
+<lb ed="TLN" n="681"/><l>virum quidem pol optimum et non similem furis huius?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="682"/><l>Inambulandum est: nunc mihi vicissim supplicabunt.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="683"/><l>Quaeso hercle, Libane, sis erum tuis factis sospitari,</l>
+<lb ed="TLN" n="684"/><l>da mi istas viginti minas. vides me amantem egere.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="685"/><l n="95">Videbitur. factum volo. redito huc conticinno.</l>
+<lb ed="TLN" n="686"/><l>nunc istanc tantisper iube petere atque orare mecum.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="687"/><l>Amandone exorarier vis ted an osculando?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="688"/><l part="I">Enim v&eacute;ro utrumque.</l></sp>
+
+<sp><speaker>P.</speaker>
+<l part="M">Ergo, obsecro, &eacute;t tu utrumque nostrum serva.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="689"/><l>O Libane, mi patrone, mi trade istuc. magis decorumst</l>
+<lb ed="TLN" n="690"/><l n="100">libertum potius quam patronum onus in via portare.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="691"/><l>Mi Libane, ocellus aureus, donum decusque amoris,</l>
+<lb ed="TLN" n="692"/><l>amabo, faciam quod voles, da istuc argentum nobis.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="693"/><l>Dic igitur med aniticulam, columbam vel catellum,</l>
+<lb ed="TLN" n="694"/><l>hirundinem, monerulam, passerculum putillum,</l>
+<lb ed="TLN" n="695"/><l n="105">fac proserpentem bestiam me, duplicem ut habeam linguam,</l>
+<lb ed="TLN" n="696"/><l>circumda torquem brachiis, meum collum circumplecte.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="697"/><l part="I">Ten complectatur, carnufex?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Quam vero indignus videor?</l>
+<lb ed="TLN" n="698"/><l>ne istuc nequiquam dixeris tam indignum dictum in me,</l>
+<lb ed="TLN" n="699"/><l>vehes p&oacute;l hodie me, si quidem hoc argentum ferre speres.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="700"/><l part="I" n="110">Ten ego veham?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Tun hoc feras argentum &aacute;liter a me?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="701"/><l>Perii hercle. si verum quidem et decorum erum vehere servom,</l>
+<lb ed="TLN" n="702"/><l part="I">inscende.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Sic isti solent superbi subdomari.</l>
+<lb ed="TLN" n="703"/><l>asta igitur, ut consuetus es puer olim. scin ut dicam?</l>
+<lb ed="TLN" n="704"/><l>em sic. abi, la&uacute;do, nec te equo magis est equos ullus sapiens.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="705"/><l part="I" n="115">Inscende actutum.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Ego fecero. hem quid ist&uacute;c est? ut tu incedis?</l>
+<lb ed="TLN" n="706"/><l>demam hercle iam de h&oacute;rdeo, tolutim ni badizas.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="707"/><l part="I">Amabo, Libane, iam sat est.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Numquam hercle hodie exorabis.</l>
+<lb ed="TLN" n="708"/><l>nam iam calcari quadrupedo agitabo advorsum clivom,</l>
+<lb ed="TLN" n="709"/><l>postidea ad pistores dabo, ut ib&iacute; cruciere currens.</l>
+<lb ed="TLN" n="710"/><l n="120">asta ut descendam nunciam in proclivi, quamquam nequam es.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="711"/><l>Quid nunc, amabo? quoniam, ut est libitum, nos delusistis,</l>
+<lb ed="TLN" n="712"/><l part="I">datisne argentum?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Si quidem mihi statuam et aram statuis</l>
+<lb ed="TLN" n="713"/><l>atque ut deo mi hic immolas bovem: nam ego tibi Salus sum.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="714"/><l>Etiam tu, ere, istunc amoves abs te atque &dagger; ipse me adgredere</l>
+<lb ed="TLN" n="715"/><l n="125">atque illa, sibi quae hic iusserat, mihi statuis supplicasque?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="716"/><l part="I">Quem te autem divom nominem?</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Fortunam, atque Obsequentem.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="717"/><l part="I">Iam istoc es melior.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">An quid est homini Salute melius?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="718"/><l>Licet la&uacute;dem Fortunam, tamen ut ne Salutem culpem.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="719"/><l part="I">Ecastor ambae sunt bonae.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Sciam ubi boni quid dederint.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="720"/><l part="I" n="130">Opta id quod ut c&oacute;ntingat tibi vis.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Quid si optaro?</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Eveniet.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="721"/><l part="I">Opto annum hunc perpetuom mihi huius operas.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Impetrasti.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="722"/><l part="I">Ain vero?</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Certe inquam.</l></sp>
+
+<sp><speaker>Li.</speaker>
+<l part="M">Ad me adi vicissim atque experire.</l>
+<lb ed="TLN" n="723"/><l>exopta id quod vis maxime tibi evenire: fiet.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="724"/><l>Quid ego aliud exoptem amplius nisi illud cuius in&oacute;piast,</l>
+<lb ed="TLN" n="725"/><l n="135">viginti argenti commodas minas, huius quas dem matri.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="726"/><l>Dabuntur, animo sis bono face, exoptata optingent.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="727"/><l>Vt consuevere, homines Salus frustratur et Fortuna.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="728"/><l>Ego caput huic argento fui hodie reperiundo.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="729"/><l part="I">Ego pes fui.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Quin nec caput nec pes sermoni apparet.</l>
+<lb ed="TLN" n="730"/><l n="140">nec quid dicatis scire nec me cur ludatis possum.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="731"/><l>Satis i&aacute;m delusum censeo. nunc r&eacute;m ut est eloquamur.</l>
+<lb ed="TLN" n="732"/><l>animum, Argyrippe, advorte sis. pater nos ferre hoc iussit</l>
+<lb ed="TLN" n="733"/><l part="I">argentum ad ted.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Vt temperi opportuneque attulistis.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="734"/><l>Hic inerunt viginti minae bonae, mala opera partae;</l>
+<lb ed="TLN" n="735"/><l part="I" n="145">has tibi nos pactis legibus dare iussit.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Quid id est, quaeso?</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<lb ed="TLN" n="736"/><l part="I">Noctem huius et c&eacute;nam sibi ut dares.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Iube advenire quaeso:</l>
+<lb ed="TLN" n="737"/><l>meritissimo eius quae volet faciemus, qui hosce amores</l>
+<lb ed="TLN" n="738"/><l part="I">nostros dispulsos compulit.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">&lt;Patierin, Argyrippe,&gt;</l>
+<lb ed="TLN" n="739"/><l part="I">patrem hanc amplexari tuom?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Haec faciet facile ut patiar.</l>
+<lb ed="TLN" n="740"/><l n="150">Leonida, curre obsecro, patrem huc orato ut veniat.</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<lb ed="TLN" n="741"/><l part="I">Iam dudum est intus.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Hac quidem non venit.</l></sp>
+
+<sp><speaker>Le.</speaker>
+<l part="M">Angiporto</l>
+<lb ed="TLN" n="742"/><l>illac per hortum circum iit clam, ne quis se videret</l>
+<lb ed="TLN" n="743"/><l>huc ire familiarium: ne uxor resciscat metuit.</l>
+<lb ed="TLN" n="744"/><l part="I">de argento si mater tua sci&aacute;t ut sit factum&mdash;</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Heia,</l>
+<lb ed="TLN" n="745"/><l part="I" n="155">bene dicite.</l></sp>
+
+<sp><speaker>Lib.</speaker>
+<l part="M">Ite intro cito.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Valete.&mdash;</l></sp>
+
+<sp><speaker>Leon.</speaker>
+<l part="M">Et vos amate.&mdash;</l></sp>
+</div2></div1>
+
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+
+<sp><speaker>Diabolvs</speaker>
+<lb ed="TLN" n="746"/><l>Agedum istum ostende quem conscripsti syngraphum</l>
+<lb ed="TLN" n="747"/><l>inter me et amicam et lenam. leges pellege.</l>
+<lb ed="TLN" n="748"/><l>nam tu poeta es prorsus ad eam rem unicus.</l></sp>
+
+<sp><speaker>Parasitvs</speaker>
+<lb ed="TLN" n="749"/><l>Horrescet faxo lena, leges cum audiet.</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<lb ed="TLN" n="750"/><l part="I" n="5">Age quaeso mi hercle translege.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Audin?</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Audio.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="751"/><l>&lsquo;Diabolus Glauci filius Clearetae</l>
+<lb ed="TLN" n="752"/><l>lenae dedit d&oacute;no argenti viginti minas,</l>
+<lb ed="TLN" n="753"/><l>Philaenium ut secum esset noctes et dies</l>
+<lb ed="TLN" n="754"/><l part="I">hunc annum totum.&rsquo;</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Neque cum quiquam alio quidem.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="755"/><l part="I" n="10">Addone?</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">&Aacute;dde, et scribas v&iacute;de plane et probe.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="756"/><l>&lsquo;Alienum h&oacute;minem intro mittat neminem.</l>
+<lb ed="TLN" n="757"/><l>quod illa a&uacute;t amicum a&uacute;t patronum nominet,</l>
+<lb ed="TLN" n="758"/><l>aut qu&oacute;d illa amicae * amatorem praedicet,</l>
+<lb ed="TLN" n="759"/><l>fores occlusae &oacute;mnibus sint nisi tibi.</l>
+<lb ed="TLN" n="760"/><l n="15">in foribus scribat occupatam &eacute;sse se.</l>
+<lb ed="TLN" n="761"/><l>aut quod illa dicat peregre allatam epistulam,</l>
+<lb ed="TLN" n="762"/><l>ne epistula quidem ulla sit in aedibus</l>
+<lb ed="TLN" n="763"/><l>nec cerata adeo tabula; et si qua inutilis</l>
+<lb ed="TLN" n="764"/><l>pictura sit, eam vendat: ni in quadriduo</l>
+<lb ed="TLN" n="765"/><l n="20">abalienarit, quo abs te argentum acceperit,</l>
+<lb ed="TLN" n="766"/><l>tuos arbitratus sit, comburas, si velis,</l>
+<lb ed="TLN" n="767"/><l>ne illi sit cera, ubi facere possit litteras.</l>
+<lb ed="TLN" n="768"/><l>vocet convivam neminem illa, tu voces;</l>
+<lb ed="TLN" n="769"/><l>ad eorum ne quem &oacute;culos adiciat suos.</l>
+<lb ed="TLN" n="770"/><l n="25">si quem alium aspexit, caeca continuo siet.</l>
+<lb ed="TLN" n="771"/><l>tecum una potet, aeque pocla potitet:</l>
+<lb ed="TLN" n="772"/><l>abs ted accipiat, tibi propinet, tu bibas,</l>
+<lb ed="TLN" n="773"/><l part="I">ne illa minus aut plus quam tu sapiat.&rsquo;</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Satis placet.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="774"/><l>&lsquo;Suspiciones omnes ab se segreget.</l>
+<lb ed="TLN" n="775"/><l n="30">neque illaec ulli pede ped&eacute;m homini premat,</l>
+<lb ed="TLN" n="776"/><l>cum surgat, neque &lt;cum&gt; in lectum inscendat proximum,</l>
+<lb ed="TLN" n="777"/><l>neque cum descendat inde, det cuiquam manum:</l>
+<lb ed="TLN" n="778"/><l>spectandum ne cui &aacute;nulum det neque roget.</l>
+<lb ed="TLN" n="779"/><l>talos ne cuiquam h&oacute;mini admoveat nisi tibi.</l>
+<lb ed="TLN" n="780"/><l n="35">cum iaciat, &ldquo;te&rdquo; ne dicat: nomen nominet.</l>
+<lb ed="TLN" n="781"/><l>deam invocet sibi quam libebit propitiam,</l>
+<lb ed="TLN" n="782"/><l>deum nullum; si magis religiosa fuerit,</l>
+<lb ed="TLN" n="783"/><l>tibi dicat: tu pro illa ores ut sit propitius.</l>
+<lb ed="TLN" n="784"/><l>neque illa ulli homini nutet, nictet, annuat.</l>
+<lb ed="TLN" n="785"/><l n="40">post, si lucerna exstincta sit, ne quid sui</l>
+<lb ed="TLN" n="786"/><l part="I">membri commoveat quicquam in tenebris.&rsquo;</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Optumest.</l>
+<lb ed="TLN" n="787"/><l>ita scilicet facturam. verum in cubiculo&mdash;</l>
+<lb ed="TLN" n="788"/><l>deme istuc&mdash;equidem illam moveri gestio.</l>
+<lb ed="TLN" n="789"/><l>nolo illam habere causam et votitam dicere.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="790"/><l part="I" n="45">Scio, c&aacute;ptiones metuis.</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Verum.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Ergo ut iubes</l>
+<lb ed="TLN" n="791"/><l part="I">tollam.</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Quid ni?</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Audi relicua.</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Loquere, audio.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="792"/><l>&lsquo;Neque ullum verbum faciat perplexabile,</l>
+<lb ed="TLN" n="793"/><l>neque ulla lingua sciat loqui nisi Attica.</l>
+<lb ed="TLN" n="794"/><l>forte s&iacute; tussire occepsit, ne sic tussiat,</l>
+<lb ed="TLN" n="795"/><l n="50">ut cuiquam linguam in tussiendo proserat.</l>
+<lb ed="TLN" n="796"/><l>quod illa a&uacute;tem simulet, quasi gravedo profluat,</l>
+<lb ed="TLN" n="797"/><l>hoc ne sic faciat: tu labellum abstergeas</l>
+<lb ed="TLN" n="798"/><l>potius quam cuiquam savium faciat palam.</l>
+<lb ed="TLN" n="799"/><l>nec mater lena ad vinum accedat interim,</l>
+<lb ed="TLN" n="800"/><l n="55">nec ulli verbo male dicat. si dixerit,</l>
+<lb ed="TLN" n="801"/><l>haec multa ei esto, vino viginti dies</l>
+<lb ed="TLN" n="802"/><l part="I">ut careat.&rsquo;</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">Pulchre scripsti. scitum syngraphum.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="803"/><l>&lsquo;Tum si coronas, serta, unguenta iusserit</l>
+<lb ed="TLN" n="804"/><l>ancillam ferre Veneri a&uacute;t Cupidini,</l>
+<lb ed="TLN" n="805"/><l n="60">tuos servos servet, Venerine eas det an viro.</l>
+<lb ed="TLN" n="806"/><l>si forte pure velle habere dixerit,</l>
+<lb ed="TLN" n="807"/><l>tot noctes reddat spurcas quot pure habuerit.&rsquo;</l>
+<lb ed="TLN" n="808"/><l>haec sunt non nugae, non enim mortualia.</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<lb ed="TLN" n="809"/><l part="I">Placent profecto leges. sequere intro.&mdash;</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Sequor.&mdash;</l></sp>
+</div2>
+<div2 type="scene" n="2">
+
+<sp><speaker>Diab.</speaker>
+<lb ed="TLN" n="810"/><l>Sequere hac. egone haec patiar aut taceam? emori</l>
+<lb ed="TLN" n="811"/><l>me malim, quam haec non eius uxori indicem.</l>
+<lb ed="TLN" n="812"/><l>ain tu? &aacute;pud amicam munus adulescentuli</l>
+<lb ed="TLN" n="813"/><l>fungare, uxori excuses te et dicas senem?</l>
+<lb ed="TLN" n="814"/><l n="5">praeripias scortum amanti atque argentum obicias</l>
+<lb ed="TLN" n="815"/><l>lenae? suppiles clam domi uxorem tuam?</l>
+<lb ed="TLN" n="816"/><l>suspendam potius me, quam tu haec tacita auferas.</l>
+<lb ed="TLN" n="817"/><l>iam quidem hercle ad illam hinc ibo, quam tu propediem,</l>
+<lb ed="TLN" n="818"/><l>nisi qu&iacute;dem illa ante occupassit te, effliges scio,</l>
+<lb ed="TLN" n="819"/><l n="10">luxuriae sumptus suppeditare ut possies.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="820"/><l>Ego sic faciundum censeo: me honestiust,</l>
+<lb ed="TLN" n="821"/><l>quam te palam hanc rem facere, ne illa existimet</l>
+<lb ed="TLN" n="822"/><l>amoris causa percitum id fecisse te</l>
+<lb ed="TLN" n="823"/><l part="I">magis qu&aacute;m sua ca&uacute;sa.</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">At pol qui dixti rectius.</l>
+<lb ed="TLN" n="824"/><l n="15">tu ergo fac ut illi turbas lites concias;</l>
+<lb ed="TLN" n="825"/><l>cum suo sib&iacute; gnato unam ad amicam de die</l>
+<lb ed="TLN" n="826"/><l part="I">potare, illam expilare &lt;narra&gt;.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Ne mone,</l>
+<lb ed="TLN" n="827"/><l part="I">ego istud curabo.&mdash;</l></sp>
+
+<sp><speaker>Diab.</speaker>
+<l part="M">At ego te opperiar domi.&mdash;</l></sp>
+</div2></div1>
+
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<lb ed="TLN" n="828"/><l part="I">[</l>
+
+<sp><speaker>Argyrippvs</speaker>
+<l part="M">Age decumbamus sis, pater.</l></sp>
+
+<sp><speaker>Demaenetvs</speaker>
+<l part="M">Vt iusseris,</l>
+<lb ed="TLN" n="829"/><l part="I">mi gnate, ita fiet.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Pueri, mensam adponite.]</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="830"/><l>Numqu&iacute;dnam tibi mol&eacute;stumst, gnate m&iacute;, si haec nunc mecum &aacute;ccubat?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="831"/><l>Pietas, pater, oculis dolorem prohibet. quamquam ego ist&aacute;nc amo,</l>
+<lb ed="TLN" n="832"/><l n="5">possum equidem inducere animum, ne aegre patiar quia tecum accubat.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="833"/><l part="I">Decet verecundum esse adulescentem, Argyrippe.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Edepol, pater,</l>
+<lb ed="TLN" n="834"/><l part="I">merito tuo facere possum.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Age ergo, hoc agitemus convivium</l>
+<lb ed="TLN" n="835"/><l>vino ut sermone suavi. nolo ego metui, amari mavolo,</l>
+<lb ed="TLN" n="836"/><l part="I">mi gnate, me abs te.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Pol ego utrumque facio, ut aequom est filium.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="837"/><l part="I" n="10">Credam istuc, si esse te hilarum videro.</l></sp>
+
+<sp><speaker>A.</speaker>
+<l part="M">An tu me tristem putas?</l></sp>
+
+<sp><speaker>D.</speaker>
+<lb ed="TLN" n="838"/><l>Putem ego, quem videam aeque esse maestum ut quasi dies si dicta sit?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="839-840"/><l part="I">Ne dixis istuc.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Ne sic fueris: ilico ego non dixero.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="841"/><l part="I">Em aspecta: rideo.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Vtinam male qui mihi volunt sic rideant.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="842"/><l>Scio equidem quam ob rem me, pater, tu tristem credas nunc tibi:</l>
+<lb ed="TLN" n="843"/><l n="15">quia ista&eacute;c est tecum. atque ego quidem hercle ut verum tibi dicam, pater,</l>
+<lb ed="TLN" n="844"/><l>ea res me male habet; at non eo, quia tibi non cupiam quae velis;</l>
+<lb ed="TLN" n="845"/><l>verum istam amo. aliam tecum esse equidem facile possum perpeti.</l></sp>
+
+<sp><speaker>D.</speaker>
+<lb ed="TLN" n="846"/><l part="I">At ego hanc volo.</l></sp>
+
+<sp><speaker>A.</speaker>
+<l part="M">Ergo sunt quae exoptas: mihi quae ego exoptem volo.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="847"/><l>Vnum hunc diem perpetere, quoniam tibi potestatem dedi,</l>
+<lb ed="TLN" n="848"/><l n="20">cum hac annum ut esses, atque amanti argenti feci copiam.</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="849-850"/><l part="I">Em istoc me facto tibi devinxti.</l></sp>
+
+<sp><speaker>D.</speaker>
+<l part="M">Quin te ergo hilarum das mihi?</l></sp>
+</div2>
+<div2 type="scene" n="2">
+
+<sp><speaker>Artemona</speaker>
+<lb ed="TLN" n="851"/><l>&Aacute;in tu meum virum h&iacute;c potare, &oacute;bsecro, cum f&iacute;lio</l>
+<lb ed="TLN" n="852"/><l>et ad amicam detulisse argenti viginti minas</l>
+<lb ed="TLN" n="853"/><l>meoque filio sciente id facere flagitium patrem?</l></sp>
+
+<sp><speaker>Parasitvs</speaker>
+<lb ed="TLN" n="854"/><l>Neque divini neque mi humani posthac quicquam accreduas,</l>
+<lb ed="TLN" n="855"/><l n="5">Artemona, si huius rei m&eacute; mendacem inveneris.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="856"/><l>At scelesta ego praeter alios meum virum &dagger; frugi rata,</l>
+<lb ed="TLN" n="857"/><l>siccum, frugi, continentem, amantem uxoris maxume.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="858"/><l>At nunc dehinc scito illum ante omnes minimi mortalem preti,</l>
+<lb ed="TLN" n="859"/><l>madidum, nihili, incontinentem atque osorem uxoris suae.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="860"/><l n="10">Pol ni istaec vera essent, numquam faceret ea quae nunc facit.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="861"/><l>Ego quoque hercle illum antehac hominem semper sum frugi ratus,</l>
+<lb ed="TLN" n="862"/><l>verum hoc facto sese ostendit, qui quidem cum filio</l>
+<lb ed="TLN" n="863"/><l>potet una atque una amicam ductet, decrepitus senex.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="864"/><l>Hoc ecastor est quod ille it ad cenam cottidie.</l>
+<lb ed="TLN" n="865"/><l n="15">ait sese ire ad Archidemum, Chaeream, Chaerestratum,</l>
+<lb ed="TLN" n="866"/><l>Cliniam, Chremem, Cratinum, Diniam, Demosthenem:</l>
+<lb ed="TLN" n="867"/><l>is apud scortum corruptelae est liberis, lustris studet.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="868"/><l>Quin tu illum iubes ancillas rapere sublimen domum?</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="869"/><l part="I">Tace modo. ne &lt;ego&gt; illum ecastor miserum habebo.</l></sp>
+
+<sp><speaker>P.</speaker>
+<l part="M">Ego ist&uacute;c scio,</l>
+<lb ed="TLN" n="870"/><l part="I" n="20">ita fore illi dum quidem cum &iacute;llo nupta eris.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Ego censeo.</l>
+<lb ed="TLN" n="871"/><l>&dagger;eum etiam hominem in senatu dare operam aut clientibus,</l>
+<lb ed="TLN" n="872"/><l>ibi labore delassatum noctem totam stertere:</l>
+<lb ed="TLN" n="873"/><l>ille oper&eacute; foris faciendo lassus noctu &lt;ad me&gt; advenit;</l>
+<lb ed="TLN" n="874"/><l>fundum alienum arat, incultum familiarem deserit.</l>
+<lb ed="TLN" n="875"/><l n="25">is etiam corruptus porro suom corrumpit filium.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="876"/><l>Sequere hac me mod&oacute;, iam faxo ipsum hominem manifesto opprimas.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="877"/><l part="I">Nihil ecastor est quod facere mavelim.</l></sp>
+
+<sp><speaker>P.</speaker>
+<l part="M">Mane dum.</l></sp>
+
+<sp><speaker>A.</speaker>
+<l part="M">Quid est?</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="878"/><l>Possis, si forte accubantem tuom virum conspexeris</l>
+<lb ed="TLN" n="879"/><l>cum corona amplexum amicam, si videas, cognoscere?</l></sp>
+
+<sp><speaker>A.</speaker>
+<lb ed="TLN" n="880"/><l part="I" n="30">Possum ecastor.</l></sp>
+
+<sp><speaker>P.</speaker>
+<l part="M">Em tibi hominem.</l></sp>
+
+<sp><speaker>A.</speaker>
+<l part="M">Perii.</l></sp>
+
+<sp><speaker>P.</speaker>
+<l part="M">Paulisper mane.</l>
+<lb ed="TLN" n="881"/><l>aucupemus ex insidiis clanculum quam rem gerant.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="882"/><l part="I">Quid modi, pater, amplexando facies?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Fateor, gnate mi&mdash;</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="883"/><l part="I">Quid fatere?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Me ex amore h&uacute;ius corruptum oppido.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="884"/><l part="I">Audin quid ait?</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Audio.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Egon ut non domo uxori meae</l>
+<lb ed="TLN" n="885"/><l n="35">subripiam in deliciis pallam quam h&aacute;bet, atque ad te deferam,</l>
+<lb ed="TLN" n="886"/><l>non edepol conduci possum vita uxoris annua.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<lb ed="TLN" n="887"/><l>Censen tu illum hodi&eacute; primum ire &aacute;dsuetum esse in ganeum?</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="888"/><l>Ille ecastor suppilabat me, quod ancillas meas</l>
+<lb ed="TLN" n="889"/><l part="I">suspicabar atque insontis miseras cruciabam.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Pater,</l>
+<lb ed="TLN" n="890"/><l n="40">iube dari vinum; iam dudum factum est cum primum bibi.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="891"/><l>Da, puere, ab summo. &aacute;ge tu interibi ab infimo da savium.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="892"/><l>Perii misera, ut osculatur carnufex, capuli decus.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="893"/><l>Edepol animam suaviorem aliquanto quam uxoris meae.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="894"/><l part="I">Dic amabo, an fetet anima &uacute;xoris tuae?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Nauteam</l>
+<lb ed="TLN" n="895"/><l n="45">bibere malim, si necessum sit, quam illam oscularier.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="896"/><l>Ain tandem? edepol ne tu istuc cum malo magno tuo</l>
+<lb ed="TLN" n="897"/><l>Dixisti in me. sine, revenias modo domum, faxo ut scias</l>
+<lb ed="TLN" n="898"/><l>quid pericli sit dotatae uxori vitium dicere.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="899"/><l part="I">Miser ecastor es.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Ecastor dignus est.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Quid ais, pater?</l>
+<lb ed="TLN" n="900"/><l part="I" n="50">ecquid matrem amas?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Egone illam? nunc amo, quia non adest.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="901"/><l part="I">Quid cum adest?</l></sp>
+
+<sp><speaker>D.</speaker>
+<l part="M">Periisse cupio.</l></sp>
+
+<sp><speaker>P.</speaker>
+<l part="M">Amat homo hic te, ut praedicat.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="902"/><l>Ne illa ecastor faenerato funditat: nam si domum</l>
+<lb ed="TLN" n="903"/><l>redierit hodie, osculando ego ulciscar potissimum.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="904"/><l part="I">Iace, pater, talos, ut porro nos iaciamus.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Maxime.</l>
+<lb ed="TLN" n="905"/><l n="55">te, Philaenium, mihi atque uxoris mortem. hoc Venerium est.</l>
+<lb ed="TLN" n="906"/><l>pueri, plaudite et mi ob iactum cantharo mulsum date.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="907"/><l part="I">Non queo durare.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Si non didicisti fulloniam,</l>
+<lb ed="TLN" n="908"/><l>non mirandum est. * in oculos invadi optumum est.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="909"/><l>Ego pol vivam et tu istaec hodie cum tuo magno malo</l>
+<lb ed="TLN" n="910"/><l part="I" n="60">invocavisti.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Ecquis currit pollictorem accersere?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="911"/><l part="I">Mater, salve.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Sat salutis.</l></sp>
+
+<sp><speaker>Par.</speaker>
+<l part="M">Mortuost Demaenetus.</l>
+<lb ed="TLN" n="912"/><l>tempus est subducere hinc me; pulchre hoc gliscit proelium.</l>
+<lb ed="TLN" n="913"/><l>ibo ad Diabolum, mandata dicam facta ut voluerit,</l>
+<lb ed="TLN" n="914"/><l>atque interea ut decumbamus suadebo, hi dum litigant.</l>
+<lb ed="TLN" n="915"/><l n="65">poste demum huc cras adducam ad lenam, ut viginti minas</l>
+<lb ed="TLN" n="916"/><l>ei det, in partem hac amanti ut liceat ei potirier.</l>
+<lb ed="TLN" n="917"/><l>Argyrippus exorari spero poterit, ut sinat</l>
+<lb ed="TLN" n="918"/><l>sese alternas cum illo noctes hac frui. nam ni impetro,</l>
+<lb ed="TLN" n="919"/><l>regem perdidi: ex amore tantum est homini incendium.&mdash;</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="920"/><l part="I" n="70">Quid tibi hunc receptio ad te est meum virum?</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Pol me quidem</l>
+<lb ed="TLN" n="921"/><l part="I">miseram odio &eacute;nicavit.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Surge, amator, i domum.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="922"/><l part="I">Nullus sum.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Immo es, ne nega, omnium &lt;unus&gt; pol nequissimus.</l>
+<lb ed="TLN" n="923"/><l>at etiam cubat cuculus. surge, amator, i domum.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="924"/><l part="I">Vae mihi.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Vera hariolare. surge, amator, i domum.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="925"/><l part="I" n="75">Abscede ergo paululum istuc.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Surge, amator, i domum.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="926"/><l part="I">Iam obsecro, uxor.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Nunc uxorem me esse meministi tuam?</l>
+<lb ed="TLN" n="927"/><l>modo, cum dicta in me ingerebas, odium, non uxor eram.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="928"/><l part="I">Totus perii.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Quid tandem? anima fetetne uxoris tuae?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="929"/><l part="I">Murram olet.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Iam subrupuisti pallam, quam scorto dares?</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="930"/><l n="80">Ecastor qui subrupturum pallam promisit tibi.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="931"/><l part="I">Non taces?</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Ego dissuadebam, mater.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<l part="M">Bellum filium.</l>
+<lb ed="TLN" n="932"/><l>istoscine patrem aequom est mores liberis largirier?</l>
+<lb ed="TLN" n="933"/><l part="I">nilne te pudet?</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Pol, si aliud nil sit, tui me, uxor, pudet.</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="934"/><l>Cano capite te cuculum uxor ex lustris rapit.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="935"/><l n="85">Non licet manere (cena coquitur) dum cenem modo?</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="936"/><l>Ecastor cenabis hodie, ut dignus es, magnum malum.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<lb ed="TLN" n="937"/><l>Male cubandum est: iudicatum me uxor abducit domum.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<lb ed="TLN" n="938"/><l>Dicebam, pater, tibi, ne matri consuleres male.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="939"/><l part="I">De palla memento, amabo.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">Iuben hanc hinc abscedere?</l></sp>
+
+<sp><speaker>Art.</speaker>
+<lb ed="TLN" n="940"/><l part="I" n="90">I domum.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<l part="M">Da savium etiam prius quam abis.</l></sp>
+
+<sp><speaker>Dem.</speaker>
+<l part="M">I in crucem.</l></sp>
+
+<sp><speaker>Phil.</speaker>
+<lb ed="TLN" n="941"/><l part="I">Immo intro potius. sequere hac me, m&iacute; anime.</l></sp>
+
+<sp><speaker>Arg.</speaker>
+<l part="M">Ego vero sequor.</l></sp>
+
+<sp><speaker>Grex</speaker>
+<lb ed="TLN" n="942"/><l>Hic senex si quid clam uxorem suo animo fecit volup,</l>
+<lb ed="TLN" n="943"/><l>neque novom neque mirum fecit nec secus quam alii solent;</l>
+<lb ed="TLN" n="944"/><l>nec quisquam est tam ingenio duro nec tam firmo pectore,</l>
+<lb ed="TLN" n="945"/><l n="95">quin ubi quicque occasionis sit sibi faciat bene.</l>
+<lb ed="TLN" n="946"/><l>nunc si voltis deprecari huic seni ne vapulet,</l>
+<lb ed="TLN" n="947"/><l>remur impetrari posse, plausum si clarum datis.</l></sp>
+</div2></div1>
+</body></text></TEI.2>

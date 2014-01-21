@@ -1,0 +1,1099 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Andria:  The Fair Andrian</title>
+<author>P. Terentius Afer (Terence)</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Terence</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>Ney York</pubPlace>
+<publisher>Harper and Brothers</publisher>
+<date>1874</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="TLN line"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>14-Aug-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: an_eng.xml,v $
+Revision 1.2  2010-07-09 16:04:29  student
+fixed place tags - zr
+
+Revision 1.1  2009/12/08 20:46:27  rsingh04
+moved more xml files around based on copyright status.  renamed terence files to follow the abbreviations and split up minora_lat.xml into separate files
+
+Revision 1.5  2008/11/14 21:28:08  lcerrato
+fixed author names for consistent sorting
+
+Revision 1.4  2006/05/05 17:38:30  packel
+fixed date tags
+
+Revision 1.3  2006/02/10 20:50:43  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:31:41  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:04:44  packel
+Converted to XML
+
+Revision 1.9  2003/07/01 22:18:12  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2002/03/06 21:34:10  czietz
+one last mark-up
+
+Revision 1.7  2002/03/06 21:08:09  czietz
+finished mark-up
+
+Revision 1.6  2001/08/29 19:56:38  amahoney
+make the various Dramatis Personae lists independent instead of cross referencing each other
+
+Revision 1.5  2001/08/21 18:49:51  amahoney
+get translator's name into proper place in meta-data, use same form of author's name as in Latin
+
+Revision 1.4  2001/08/17 17:32:56  amahoney
+fix headers for TOC
+
+Revision 1.3  2001/08/17 17:24:11  amahoney
+begin marking the Latin
+
+Revision 1.2  2001/08/17 15:32:08  amahoney
+fix line numbers in the English, pick up a few typos in Latin
+
+Revision 1.1  2001/08/16 21:11:14  amahoney
+new texts
+
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<castList>
+<castItem type="role"><role>SIMO,<note anchored="yes">From <foreign lang="greek">simo\s,</foreign> "flat-nosed."</note> </role><roleDesc>an aged Athenian.</roleDesc></castItem>
+<castItem type="role"><role>PAMPHILUS,<note anchored="yes">From <foreign lang="greek">pa=n,</foreign> "all," and <foreign lang="greek">filo\s,</foreign> "a friend."</note> </role><roleDesc>son of Simo.</roleDesc></castItem>
+<castItem type="role"><role>SOSIA,<note anchored="yes">From <foreign lang="greek">sw/zw,</foreign> "to save;" saved in war.</note> </role><roleDesc>freedman of Simo.</roleDesc></castItem>
+<castItem type="role"><role>CHREMES,<note anchored="yes">From <foreign lang="greek">xre/mptomai,</foreign> "to spit."</note> </role><roleDesc>an aged Athenian.</roleDesc></castItem>
+<castItem type="role"><role>CHARINUS,<note anchored="yes">From <foreign lang="greek">xa/ris,</foreign> "grace."</note> </role><roleDesc>a young Athenian, in love with Philumena.</roleDesc></castItem>
+<castItem type="role"><role>CRITO,<note anchored="yes">From <foreign lang="greek">krith\s,</foreign> "a judge."</note> </role><roleDesc>a native of <placeName key="perseus,Andros City">Andros</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>DAVUS,<note anchored="yes">From <placeName key="tgn,1000091">Dacia</placeName>, his native country; the Davi and Daci being the same people.</note> </role><roleDesc>servant of Simo.</roleDesc></castItem>
+<castItem type="role"><role>DROMO,<note anchored="yes">From <foreign lang="greek">dro/mos,</foreign> "a race."</note> </role><roleDesc>servant of Simo.</roleDesc></castItem>
+<castItem type="role"><role>BYRRHIA,<note anchored="yes">From <foreign lang="greek">pur)r(o\s,</foreign> "red-haired."</note> </role><roleDesc>servant of Charinus.</roleDesc></castItem>
+<castItem type="role"><role>GLYCERIUM,<note anchored="yes">From <foreign lang="greek">glukero\s,</foreign> "sweet."</note> </role><roleDesc>a young woman beloved by Pamphilus.</roleDesc></castItem>
+<castItem type="role"><role>MYSIS,<note anchored="yes">From <placeName key="tgn,7016748">Mysia</placeName>, her native country.</note> </role><roleDesc>her maid-servant.</roleDesc></castItem>
+<castItem type="role"><role>LESBIA<note anchored="yes">From <placeName key="tgn,7002672">Lesbos</placeName>, her native country.</note> </role><roleDesc>a midwife.</roleDesc></castItem>
+</castList>
+<p>Scene.--<placeName key="perseus,Athens">Athens</placeName>; before the houses of SIMO and GLYCERIUM.
+</p>
+<div1 type="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+<p>CHREMES and Phania were brothers, citizens of <placeName key="perseus,Athens">Athens</placeName>. Chremes going to <placeName key="tgn,1000004">Asia</placeName>, leaves his daughter, Pasibula, in the care of his brother Phania, who, afterward setting sail with Pasibula for <placeName key="tgn,1000004">Asia</placeName>, is wrecked off the Isle of <placeName key="perseus,Andros City">Andros</placeName>. Escaping with their lives, they are kindly received by a native of the island; and Phania soon afterward dies there. The Andrian changes the name of the girl to Glycerium, and brings her up, as his own child, with his daughter Chrysis. On his death, Chrysis and Glycerium sail for <placeName key="perseus,Athens">Athens</placeName> to seek their fortune there. Chrysis being admired by several Athenian youths, Pamphilus, the son of Simo, an opulent citizen, chances to see Glycerium, and falls violently in love with her. She afterward becomes pregnant by him, on which he makes her a promise of marriage. In the mean time, Chremes, who is now living at <placeName key="perseus,Athens">Athens</placeName>, and is ignorant of the fate of Pasibula, agrees with Simo, the father of Pamphilus, to give Philumena, another daughter, in marriage to Pamphilus. While these arrangements are being made, Chrysis dies; on which Simo accidentally discovers his son's connection with Glycerium. Chremes, also coming to hear of it, declines the match, having no idea that Glycerium is really his own daughter. Simo, however, in order to test his son's feelings, resolves to pretend that the marriage-day is fixed. Meeting Pamphilus in the town, he desires him to go home and prepare for the wedding, which is to take place immediately. In his perplexity, the youth has recourse to his servant Davus, who, having heard of the refusal of Chremes, suspects the design of Simo. At this conjuncture, Charinus, a friend of Pamphilus, who is enamored of Philumena, but has been rejected by her father, entreats Pamphilus to put off the marriage, for at least a few days. Disclosing his own aversion to the match, Pamphilus readily engages to do this. In order the more effectually to break it off, Davus advises Pamphilus to pretend a readiness to comply with his father's wishes, supposing that of course Chremes will steadily persist in his refusal. Pamphilus does as he is advised, on which Simo again applies to Chremes, who, after some entreaty, gives his consent. Just at this conjuncture, Glycerium is delivered of a son; and by the advice of Davus, it is laid before the door of Simo's house. Chremes happening to see it there, and ascertaining that Pamphilus is its father, again refuses to give him his daughter. At this moment, Crito, a native of <placeName key="perseus,Andros">Andros</placeName>, arrives, who, being a relative of Chrysis, has come to <placeName key="perseus,Athens">Athens</placeName> to look after her property. Through him, Chremes discovers that Glycerium is no other than his long-lost daughter, Pasibula; on which he consents to her immediate marriage with Pamphilus, who promises Charinus that he will use his best endeavors to obtain for him the hand of Philumena.
+</p></div2>
+<div2 type="scene" n="production">
+<head>THE TITLE OF THE PLAY.</head>
+<p>PERFORMED at the Megalensian Games;<note anchored="yes"><lemma targOrder="U">The Megalensian Games</lemma> These games were instituted at <placeName key="perseus,Rome">Rome</placeName> in honor of the Goddess Cybele, when her statue was brought thither from Pessinum, in <placeName key="tgn,7002294">Asia Minor</placeName>, by Scipio Nasica; they were so called from the Greek title <foreign lang="greek">*mega/lh *mh/thr,</foreign> "the Great Mother." They were called Megalesia or Megalensia, indifferently. A very interesting account of the origin of these games will be found in the Fasti of Ovid. B. iv. 1. 194, et seq.</note> M. Fulvius and M. Glabrio being Curule Aediles.<note anchored="yes"><lemma targOrder="U">Being Curule Aediles</lemma> Among the other offices of the Aediles at <placeName key="perseus,Rome">Rome</placeName>, it was their duty to preside at the public games, and to provide the necessary dramatic representations for the Theatre, by making contracts with the Poets and Actors.</note> Ambivius Turpio and Lucius Atilius Praenestinus<note anchored="yes"><lemma targOrder="U">Ambivius Turpio and Lucius Atilius Proenestinus</lemma> These persons were the heads or managers of the company of actors who performed the Play, and as such it was their province to make the necessary contracts with the Curule Aediles. They were also actors themselves, and usually took the leading characters. Ambivius Turpio seems to have been a favorite with the Roman public, and to have performed for many years; of L. Atilius Praenestinus nothing is known.</note> performed it. Flaccus, the freedman of Claudius,<note anchored="yes"><lemma targOrder="U">Freedman of Claudius</lemma> According to some, the words, "Flaccus Claudi" mean "the son of Claudius." It is, however, more generally thought that it is thereby meant that he was the freedman or liberated slave of some Roman noble of the family of the Claudii.</note> composed the music, to a pair of treble flutes and bass flutes<note anchored="yes"><lemma targOrder="U">Treble flutes and bass flutes</lemma> The history of ancient music, and especially that relative to the "<foreign lang="la">tibiae</foreign>," "pipes" or "flutes," is replete with obscurity. It is not agreed what are the meanings of the respective terms, but in the present Translation the following theory has been adopted: The words "<foreign lang="la">dextrae</foreign>" and "<foreign lang="la">sinistrae</foreign>" denote the kind of flute, the former being treble, the latter bass flutes, or, as they were sometimes called, "<foreign lang="la">incentiveae</foreign>" or "<foreign lang="la">succentivae</foreign>;" though it has been thought by some that they were so called because the former were held with the right hand, the latter with the left. When two treble flutes or two bass flutes were played upon at the same time, they were called "<foreign lang="la">tibiae pares</foreign>;" but when one was "<foreign lang="la">dextra</foreign>" and the other "<foreign lang="la">sinistra</foreign>," "<foreign lang="la">tibiae impares</foreign>." Hence the words "<foreign lang="la">paribus dextris et sinistris</foreign>," would mean alternately with treble flutes and bass flutes. Two "<foreign lang="la">tibiae</foreign>" were often played upon by one performer at the same time. For a specimen of a Roman "<foreign lang="la">tibicen</foreign>" or "piper," see the last scene of the Stichus of Plautus. Some curious information relative to the pipers of <placeName key="perseus,Rome">Rome</placeName> and the legislative enactments respecting them will be found in the Fasti of Ovid, B. vi. 1. 653, et seq.</note> alternately. And it is entirely Grecian.<note anchored="yes"><lemma targOrder="U">It is entirely Grecian</lemma> This means that the scene is in <placeName key="tgn,1000074">Greece</placeName>, and that it is of the kind called "<foreign lang="la">palliata</foreign>," as representing the manners of the Greeks, who wore the "<foreign lang="la">pallium</foreign>," or outer cloak; whereas the Romans wore the "<foreign lang="la">toga</foreign>." In the Prologue, Terence states that he borrowed it from the Greek of Menander.</note> Published--M. Marcellus and Cneius Sulpicius being Consuls.<note anchored="yes"><lemma targOrder="U">Being Consuls</lemma> M. Claudius Marcellus and C. Sulpicius Galba were Consuls in the year from the building of <placeName key="perseus,Rome">Rome</placeName> 586, and B.C. <date value="-167">167</date>.</note>
+</p></div2>
+<div2 type="scene" n="summary">
+<head>THE SUMMARY OF C. SULPITIUS APOLLINARIS.</head>
+<p>PAMPHILUS seduces Glycerium, wrongfully supposed to be a sister of a Courtesan, an Andrian by birth; and she having become pregnant, he gives his word that she shall be his wife; but his father has engaged for him another, the daughter of Chremes; and when he discovers the intrigue he pretends that the nuptials are about to take place, desiring to learn what intentions his son may have. By the advice of Davus, Pamphilus does not resist; but Chremes, as soon as he has seen the little child born of Glycerium, breaks off the match, and declines him for a son-in-law. Afterward, this Glycerium, un-expectedly discovered to be his own daughter, he bestows as a wife on Pamphilus, the other on Charinus.
+</p></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<sp><speaker>THE PROLOGUE.</speaker><p>THE POET, when first he applied his mind to writing, thought that the only duty which devolved on him was, that the Plays he should compose might please the public. But he perceives that it has fallen out entirely otherwise; for he is wasting his labor in writing Prologues, not for the purpose of relating the plot, but to answer the slanders of a malevolent old Poet.<milestone n="7" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A malevolent old Poet</lemma>: He alludes to Luscus Lanuvinus, or Lavinius, a Comic Poet of his time, but considerably his senior. He is mentioned by Terence in all his Prologues except that to the Hecyra, and seems to have made it the business of his life to run down his productions and discover faults in them.</note> Now I beseech you, give your attention to the thing which they impute as a fault. Menander composed the Andrian<milestone n="9" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Composed the Andrian</lemma>: This Play, like that of our author, took its name from the Isle of <placeName key="perseus,Andros City">Andros</placeName>, one of the <placeName key="tgn,7011270">Cyclades</placeName> in the <placeName key="tgn,7002675">Aegean Sea</placeName>, where Glycerium is supposed to have been born. Donatus, the Commentator on Terence, informs us that the first Scene of this Play is almost a literal translation from the Perinthian of Menander, in which the old man was represented as discoursing with his wife just as Simo does here with Sosia. In the Andrian of Menander, the old man opened with a soliloquy.</note> and the Perinthian.<milestone n="9" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And the Perinthian</lemma>: This Play was so called from Perinthus, a town of <placeName key="tgn,7002756">Thrace</placeName>, its heroine being a native of that place.</note> He who knows either of them well, will know them both; they are in plot not very different, and yet they have been composed in different language and style. What suited, he confesses he has transferred into the Andrian from the Perinthian, and has employed them as his own. These parties censure this proceeding; and on this point they differ from him, that Plays ought not to be mixed up together. By being thus knowing, do they not show that they know nothing at all? For while they are censuring him, they are censuring Naevius, Plautus, and Ennius,<milestone n="18" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Noevius, Plautus, and Ennius</lemma>: Ennius was the oldest of these three Poets. Naevius a contemporary of Plautus. See a probable allusion to his misfortunes in the Miles Gloriosus of Plautus, l. 211.</note> whom our Poet has for his precedents; whose carelessness he prefers to emulate, rather than the mystifying carefulness<milestone n="21" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The mystifying carefulness</lemma>: By "<foreign lang="la">obscuram diligentiam</foreign>" he means that formal degree of precision which is productive of obscurity.</note> of those parties. Therefore, I advise them to be quiet in future, and to cease to slander; that they may not be made acquainted with their own misdeeds. Be well disposed, then; attend with unbiased mind, and consider the matter, that you may determine what hope is left; whether the Plays which he shall in future compose anew, are to be witnessed, or are rather to be driven off the stage.
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="28" unit="TLN line"/>
+<stage>Enter SIMO and SOSIA, followed by SERVANTS carrying provisions.</stage>
+<sp><speaker>SIMO</speaker><p> <stage>to the Servants.</stage> Do you carry those things away in-doors; begone. <stage>(Beckoning to SOSIA.)</stage> Sosia, just step here; I want a few words with you.
+</p></sp>
+<sp><speaker>SOSIA</speaker><p> Consider it as said; that these things are to be taken care of, I suppose.<milestone n="30" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are to be taken care of, I suppose</lemma>: <quote lang="la">"Nempe ut curentur recte haec."</quote> Colman here remarks; "Madame Dacier will have it that Simo here makes use of a kitchen term in the word <foreign lang="la">'curentur.'</foreign> I believe it rather means 'to take care of' any thing generally; and at the conclusion of this very scene, Sosia uses the word again, speaking of things very foreign to cookery, '<foreign lang="la">Sat est, curabo</foreign>.'"</note></p></sp>
+<sp><speaker>SIMO</speaker><p> No, it's another matter.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What is there that my ability can effect for you more than this?</p></sp>
+<sp><speaker>SIMO</speaker><p> There's no need of that ability in the matter which I have in hand; but of those qualities which I have ever known as existing in you, fidelity and secrecy.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I await your will.</p></sp>
+<sp><speaker>SIMO</speaker><p> Since I purchased you, you know that, from a little child, your servitude with me has always been easy and light. From a slave I made you my freedman ;<milestone n="37" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be my freedman</lemma>: <quote lang="la">"Libertus"</quote> was the name given to a slave set at liberty by his master. A <foreign lang="la">"libertinus"</foreign> was the son of a <quote lang="la">"libertus."</quote></note> for this reason, because you served me with readiness. The greatest recompense that I possessed, I bestowed upon you.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I bear it in mind.</p></sp>
+<sp><speaker>SIMO</speaker><p> I am not changed.</p></sp>
+<sp><speaker>SOSIA</speaker><p> If I have done or am doing aught that is pleasing to you, Simo, I am glad that it has been done; and that the same has been gratifying to you, I consider sufficient thanks. But this is a cause of uneasiness to me; for the recital is, as it were, a censure<milestone n="43" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As it were a censure</lemma>: Among the Greeks (whose manners and sentiments are supposed to be depicted in this Play) it was a maxim that he who did a kindness should forget it, while he who received it should keep it in memory. Sosia consequently feels uneasy, and considers the remark of his master in the light of a reproach.</note> to one forgetful of a kindness. But tell me, in one word, what it is that you want with me.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'll do so. In the first place, in this affair I give you notice: this, which you suppose to be such, is not a real marriage.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Why do you pretend it then ?</p></sp>
+<sp><speaker>SIMO</speaker><p> You shall hear all the matter from the beginning; by that means you'll be acquainted with both my son's mode of life and my own design, and what I want you to do in this affair. For after he had passed youthfulness,<milestone n="51" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">After he had passed from youthfulness</lemma>: "Ephebus" was the name given to a youth when between the ages of sixteen and twenty.</note> Sosia, and had obtained free scope of living, (for before, how could you know or understand his disposition, while youthful age, fear, and a master<milestone n="54" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And a master</lemma>: See the Notes to the Translation of the Bacchides of Plautus, l. 109, where Lydus, a slave, appears as the <foreign lang="la">"paedagogus,"</foreign> or <quote lang="la">"magister,"</quote> of Pistoclerus.</note> were checking him ?)----</p></sp>
+<sp><speaker>SOSIA</speaker><p> That's true.</p></sp>
+<sp><speaker>SIMO</speaker><p> What all young men, for the most part, do,--devote their attention to some particular pursuit, either to training horses or dogs for hunting, or to the philosophers;<milestone n="57" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Or to the philosophers</lemma>: It was the custom in <placeName key="tgn,1000074">Greece</placeName> with all young men of free birth to apply themselves to the study of philosophy, of course with zeal proportioned to the love of learning in each. They each adopted some particular sect, to which they attached themselves. There is something sarcastic here, and indeed not very respectful to the "philosophers," in coupling them as objects of attraction with horses and hounds.</note> in not one of these did he engage in particular beyond the rest, and yet in all of them in a moderate degree. I was pleased.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Not without reason; for this I deem in life to be especially advantageous; that one do nothing to excess.<milestone n="61" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nothing to excess</lemma>: <quote lang="la">"Ne quid nimis."</quote> This was one of the three sentences which were inscribed in golden letters in the Temple of Apollo at <placeName key="perseus,Delphi">Delphi</placeName>. The two others were "Know thyself," and "Misery is the consequence of debt and discord." Sosia seems from the short glimpse we have of him to have been a retailer of old saws and proverbs. He is unfortunately only a Protatic or introductory character, as we lose sight of him after this Act.</note></p></sp>
+<sp><speaker>SIMO</speaker><p> Such was his mode of life; readily to bear and to comply with all; with whomsoever he was in company, to them to resign himself; to devote himself to their pursuits; at variance with no one; never preferring himself to them. Thus most readily you may acquire praise without envy, and gain friends.</p></sp>
+<sp><speaker>SOSIA</speaker><p> He has wisely laid down his rule of life; for in these days obsequiousness begets friends; sincerity, dislike.</p></sp>
+<sp><speaker>SIMO</speaker><p> Meanwhile, three years ago,<milestone n="69" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Meanwhile, three years ago</lemma>: The following remark of Donatus on this passage is quoted by Colman for its curiosity. " The Author has artfully said three years, when he might have given a longer or a shorter period; since it is probable that the woman might have lived modestly one year; set up the trade the next; and died the third. In the first year, therefore, Pamphilus knew nothing of the family of Chrysis; in the second, he became acquainted with Glycerium; and in the third, Glycerium marries Pamphilus, and finds her parents."</note> a certain woman from <placeName key="perseus,Andros City">Andros</placeName> removed hither into this neighborhood, driven by poverty and the neglect of her relations, of surpassing beauty and in the bloom of youth.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Ah! I'm afraid that this Andrian will bring some mischief.</p></sp>
+<sp><speaker>SIMO</speaker><p> At first, in a modest way, she passed her life with thriftiness and in hardship, seeking a livelihood with her wool and loom. But after an admirer made advances, promising her a recompense, first one and then another; as the disposition of all mankind has a downward tendency from industry toward pleasure, she accepted their proposals, and then began to trade upon her beauty. Those who then were her admirers, by chance, as it often happens, took my son thither that he might be in their company. Forthwith I said to myself, " He is surely caught; he is smitten."<milestone n="78" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He is smitten</lemma>: <quote lang="la">"Habet,"</quote> literally "He has it." This was the expression used by the spectators at the moment when a Gladiator was wounded by his antagonist. In the previous line, in the words <quote lang="la">"captus est,"</quote> a figurative allusion is made to the <foreign lang="la">"retiarius,"</foreign> a Gladiator who was provided with a net, with which he endeavored to entangle his opponent.</note> In the morning I used to observe their servant-boys coming or going away; I used to make inquiry, "Here, my lad, tell me, will you, who had Chrysis yesterday?" for that was the name of the Andrian <stage>touching SOSIA on the arm</stage>.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I understand.</p></sp>
+<sp><speaker>SIMO</speaker><p> Phaedrus, or Clinias, or Niceratus, they used to say; for these three then loved her at the same time. "Well now, what did Pamphilus do?" "What ? He gave his contribution;<milestone n="88" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Gave his contribution</lemma>: <quote lang="la">"Symbolam."</quote> The "symbolae," " shot" at picnic or club entertainments, are more than once alluded to in the Notes to the Translation of Plautus.</note> he took part in the dinner." Just so on another day I made inquiry, but I discovered nothing whatever that affected Pamphilus. In fact, I thought him sufficiently proved, and a great pattern of continence; for he who is brought into contact with dispositions of that sort, and his feelings are not aroused even under such circumstances, you may be sure that he is already capable of undertaking the governance of his own life. This pleased me, and every body with one voice began to say all kinds of flattering things, and to extol my good fortune, in having a son endowed with such a disposition. What need is there of talking? Chremes, influenced by this report, came to me of his own accord, to offer his only daughter as a wife to my son, with a very large portion. It pleased me; I betrothed him; this was the day appointed for the nuptials.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What then stands in the way? Why should they not take place ?</p></sp>
+<sp><speaker>SIMO</speaker><p> You shall hear. In about a few days after these things had been agreed on, Chrysis, this neighbor, dies.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Bravo! You've made me happy. I was afraid for him on account of Chrysis.</p></sp>
+<sp><speaker>SIMO</speaker><p> Then my son was often there, with those who had admired Chrysis; with them he took charge of the funeral; sorrowful, in the mean time, he sometimes wept with them in condolence. Then that pleased me. Thus I reflected: "He by reason of this slight intimacy takes her death so much to heart; what if he himself had wooed her? What will he do for me his father?" All these things I took to be the duties of a humane disposition and of tender feelings. Why do I detain you with many words? Even I myself,<milestone n="116" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Even I myself</lemma>: Cooke remarks here: " A complaisant father, to go to the funeral of a courtesan, merely to oblige his son !"</note> for his sake, went forth to the funeral, as yet suspecting no harm.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Ha! what is this?</p></sp>
+<sp><speaker>SIMO</speaker><p> You shall know. She is brought out; we proceed. In the mean time, among the females who were there present, I saw by chance one young woman of beauteous form.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Very likely.</p></sp>
+<sp><speaker>SIMO</speaker><p> And of countenance, Sosia, so modest, so charming, that nothing could surpass. As she appeared to me to lament beyond the rest, and as she was of a figure handsome and genteel beyond the other women, I approached the female attendants ;<milestone n="123" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The female attendants</lemma>: "Pedissequae." These <quote lang="la">"pedissequae,"</quote> or female attendants, are frequently alluded to in the Plays of Plautus. See the Notes to Bohn's Translation.</note> I inquired who she was. They said that she was the sister of Chrysis. It instantly struck my mind: "Ay, ay, this is it; hence those tears, hence that sympathy."</p></sp>
+<sp><speaker>SOSIA</speaker><p> How I dread what you are coming to !</p></sp>
+<sp><speaker>SIMO</speaker><p> The funeral procession meanwhile advances; we follow; we come to the burying-place.<milestone n="128" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the burying-place</lemma>: <quote lang="la">"Sepulcrum"</quote> strictly means, the tomb or place for burial, but here the funeral pile itself. When the bones were afterward buried on the spot where they were burned, it was called <foreign lang="la">"bustum."</foreign></note> She is placed upon the pile; they weep. In the mean time, this sister, whom I mentioned, approached the flames too incautiously, with considerable danger. There, at that moment, Pamphilus, in his extreme alarm, discovers his well-dissembled and long-hidden passion; he runs up, clasps the damsel by the waist. "My Glycerium," says he, "what are you doing? Why are you going to destroy yourself?" Then she, so that you might easily recognize their habitual attachment, weeping, threw herself back upon him--how affectionately !</p></sp>
+<sp><speaker>SOSIA</speaker><p> What do you say?</p></sp>
+<sp><speaker>SIMO</speaker><p> I returned thence in anger, and hurt at heart: and yet there was not sufficient ground for reproving him. He might say; " What have I done? How have I deserved this, or offended, father ? She who wished to throw herself into the flames, I prevented; I saved her." The defense is a reasonable one.</p></sp>
+<sp><speaker>SOSIA</speaker><p> You judge aright; for if you censure him who has assisted to preserve life, what are you to do to him who causes loss or misfortune to it?</p></sp>
+<sp><speaker>SIMO</speaker><p> Chremes comes to me next day, exclaiming: "Disgraceful conduct!"--that he had ascertained that Pamphilus was keeping this foreign woman as a wife. I steadfastly denied that to be the fact. He insisted that it was the fact. In short, I then left him refusing to bestow his daughter.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Did not you then reprove your son?</p></sp>
+<sp><speaker>SIMO</speaker><p> Not even this was a cause sufficiently strong for censuring him.</p></sp>
+<sp><speaker>SOSIA</speaker><p> How so? Tell me.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> " You yourself, father," he might say, "have prescribed a limit to these proceedings. The time is near, when I must live according to the humor of another; meanwhile, for the present allow me to live according to my own."</p></sp>
+<sp><speaker>SOSIA</speaker><p> What room for reproving him, then, is there left?</p></sp>
+<sp><speaker>SIMO</speaker><p> If on account of his amour he shall decline to take a wife, that, in the first place, is an offense on his part to be censured. And now for this am I using my endeavors, that, by means of the pretended marriage, there may be real ground for rebuking him, if lie should refuse; at the same time, that if that rascal Davus has any scheme, he may exhaust it now, while his knaveries can do no harm: who, I do believe, with hands, feet, and all his might, will do every thing; and more for this, no doubt, that he may do me an ill turn, than to oblige my son.</p></sp>
+<sp><speaker>SOSIA</speaker><p> For what reason ?</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you ask? Bad heart, bad disposition. Whom, however, if I do detect ---- But what need is there of talking? If it should turn out, as I wish, that there is no delay on the part of Pamphilus, Chremes remains to be prevailed upon by me; and I do hope that all will go well. Now it's your duty to pretend these nuptials cleverly, to terrify Davus; and watch my son, what he's about, what schemes he is planning with him.</p></sp>
+<sp><speaker>SOSIA</speaker><p> 'Tis enough; I'll take care; now let's go in-doors.</p></sp>
+<sp><speaker>SIMO</speaker><p> You go first; I'll follow. <stage>SOSIA goes into the house of SIMO.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>to himself.</stage> There's no doubt but that my son doesn't wish for a wife; so alarmed did I perceive Davus to be just now, when he heard that there was going to be a marriage. But the very man is coming out of the house. <stage>Stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="172" unit="TLN line"/>
+<stage>Enter DAVUS from the house of SIMO.</stage>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud to himself.</stage> I was wondering if this matter was to go off thus; and was continually dreading where my master's good humor would end; for, after he had heard that a wife would not be given to his son, he never uttered a word to any one of us, or took it amiss.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart, overhearing him.</stage> But now he'll do so: and that, I fancy, not without heavy cost to you.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself:</stage> He meant this, that we, thus unsuspecting, should be led away by delusive joy; that now in hope, all fear being removed, we might during our supineness be surprised, so that there might be no time for planning a rupture of the marriage. How clever!</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart.</stage> The villain ! what does he say?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>overhearing him, to himself.</stage> It's my master, and I didn't see him.</p></sp>
+<sp><speaker>SIMO</speaker><p> Davus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Well, what is it ?</p></sp>
+<sp><speaker>SIMO</speaker><p> Just step this way to me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> What does he want ?</p></sp>
+<sp><speaker>SIMO</speaker><p> What are you saying ?</p></sp>
+<sp><speaker>DAVUS</speaker><p> About what?</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you ask the question? There's a report that my son's in love.</p></sp>
+<sp><speaker>DAVUS</speaker><p> The public troubles itself about that,<milestone n="185" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Troubles itself about that</lemma>: He says this contemptuously, as if it was likely that the public should take any such great interest in his son as the father would imply by his remark. By thus saying, he also avoids giving a direct reply.</note> of course.</p></sp>
+<sp><speaker>SIMO</speaker><p> Will you attend to this, or not?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Certainly, I will, to that.</p></sp>
+<sp><speaker>SIMO</speaker><p> But for me to inquire now into these matters, were the part of a severe father. For what he has done hitherto, doesn't concern me at all. So long as his time of life prompted to that course, I allowed him to indulge his inclination: now this day brings on another mode of life, demands other habits. From this time forward, I do request, or if it is reasonable, I do entreat you, Davus, that he may now return to the right path.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> What can this mean?</p></sp>
+<sp><speaker>SIMO</speaker><p> All who are intriguing take it ill to have a wife given them.</p></sp>
+<sp><speaker>DAVUS</speaker><p> So they say.</p></sp>
+<sp><speaker>SIMO</speaker><p> And if anyone has adopted a bad instructor in that course, he generally urges the enfeebled mind to pursuits still more unbecoming.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I'faith, I do not comprehend.</p></sp>
+<sp><speaker>SIMO</speaker><p> No? Ha----</p></sp>
+<sp><speaker>DAVUS</speaker><p> No--I am Davus, not OEdipus.<milestone n="194" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Davus, not OEdipus</lemma>: Alluding to the circumstance of OEdipus alone being able to solve the riddle of the Sphynx.</note></p></sp>
+<sp><speaker>SIMO</speaker><p> Of course then, you wish me to speak plainly in what further I have to say.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Certainly, by all means.</p></sp>
+<sp><speaker>SIMO</speaker><p> If I this day find out that you are attempting any trickery about this marriage, to the end that it may not take place; or are desirous that in this matter it should be proved how knowing you are; I'll hand you over, Davus, beaten with stripes, to the mill,<milestone n="199" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the mill</lemma>: The <quote lang="la">"pistrinum,"</quote> or "hand-mill," for grinding corn, was used as a mode of punishment for refractory slaves. See the Notes to the Translation of Plautus.</note> even to your dying day, upon this condition and pledge, that if ever I release you, I shall grind in your place. Now, do you understand this? Or not yet even this ?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Yes, perfectly: you have now spoken so plainly upon the subject, you have not used the least circumlocution.</p></sp>
+<sp><speaker>SIMO</speaker><p> In any thing would I more willingly allow myself to be imposed upon than in this matter.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Fair words, I entreat.</p></sp>
+<sp><speaker>SIMO</speaker><p> You are ridiculing me: you don't at all deceive me. I give you warning, don't act rashly, and don't say you were not warned. Take care. <stage>Shaking his stick, goes into the house.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="206" unit="TLN line"/>
+<stage>DAVUS alone.</stage>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> Assuredly, Davus, there's no room for slothfulness or inactivity, so far as I've just now ascertained the old man's mind about the marriage; which if it is not provided against by cunning, will be bringing either myself or my master to ruin. What to do, I am not determined; whether I should assist Pamphilus or obey the old man. If I desert the former, I fear for his life; if I assist him, I dread the other's threats, on whom it will be a difficult matter to impose. In the first place, he has now found out about this amour; with hostile feelings he watches me, lest I should be devising some trickery against the marriage. If he discovers it, I'm undone; or even if he chooses to allege any pretext, whether rightfully or wrongfully, he will consign me headlong to the mill. To these evils this one is besides added for me. This Andrian, whether she is his wife, or whether his mistress, is pregnant by Pamphilus. It is worth while to hear their effrontery; for it is an undertaking worthy of those in their dotage, not of those who dote in love ;<milestone n="218" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Those in their dotage, not those who dote in love</lemma>: There is a jingle intended in this line, in the resemblance between <foreign lang="la">"amentium,"</foreign> "mad persons," and <foreign lang="la">"amantium,"</foreign> "lovers."</note> whatever she shall bring forth, they have resolved to rear ;<milestone n="219" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">They have resolved to rear</lemma>: This passage alludes to the custom among the Greeks of laying new-born children on the ground, upon which the father, or other person who undertook the care of the child, lifted it from the ground, " tollebat." In case no one took charge of the child, it was exposed, which was very frequently done in the case of female children. Plato was the first to inveigh against this barbarous practice. It is frequently alluded to in the Plays of Plautus.</note> and they are now contriving among themselves a certain scheme, that she is a citizen of <placeName key="tgn,7002681">Attica</placeName>. There was formerly a certain old man of this place, a merchant; he was shipwrecked off the Isle of <placeName key="perseus,Andros City">Andros</placeName>; he died. They say that there, the father of Chrysis, on that occasion, sheltered this girl, thrown on shore, an orphan, a little child. What nonsense! To myself at least it isn't very probable; the fiction pleases them, however. But Mysis is coming out of the house. Now I'll betake myself hence to the Forum,<milestone n="226" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hence to the Forum</lemma>: Colman has the following remark: "The Forum is frequently spoken of in the Comic Authors; and from various passages in which Terence mentions it, it may be collected that it was a public place, serving the several purposes of a market, the seat of the courts of justice, a public walk, and an exchange."</note> that I may meet with Pamphilus, lest his father should take him by surprise about this matter.  <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="228" unit="TLN line"/>
+<stage>Enter MYSIS from the house of GLYCERIUM.</stage>
+<sp><speaker>MYSIS</speaker><p> <stage>speaking at the door to Archylis within.</stage> I've heard you already, Archylis; you request Lesbia to be fetched. Really, upon my faith, she is a wine-bibbing<milestone n="229" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Wine-bibbing</lemma>: The nurses and midwives of antiquity seem to have been famed for their tippling propensities. In some of the Plays of Plautus we do not find them spared.</note> and a rash woman, and not sufficiently trustworthy for you to commit to her care a female at her first delivery; is she still to be brought? <stage>She receives an answer from within, and comes forward.</stage> Do look at the inconsiderateness of the old woman; because she is her pot-companion. Ye Gods, I do entreat you, give her ease in her delivery, and to that woman an opportunity of making her mistakes elsewhere in preference. But why do I see Pamphilus so out of spirits? I fear what it may be. I'll wait, that I may know whether this sorrow portends any disaster. <stage>Stands apart.</stage></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="236" unit="TLN line"/>
+<stage>Enter PAMPHILUS, wringing his hands.</stage>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>to himself.</stage> Is it humane to do or to devise this? Is this the duty of a father?</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>apart.</stage> What does this mean?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>to himself.</stage> O, by our faith in the Gods! what is, if this is not, an indignity? He had resolved that he himself would give me a wife to-day; ought I not to have known this beforehand? Ought it not to have been mentioned previously?</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>apart.</stage> Wretched me! What language do I hear?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>to himself.</stage> What does Chremes do? He who had declared that he would not intrust his daughter to me as a wife; because he himself sees me unchanged he has changed. Thus perversely does he lend his aid, that he may withdraw wretched me from Glycerium. If this is effected, I am utterly undone. That any man should be so unhappy in love, or so unfortunate as I am! Oh, faith of Gods and men! shall I by no device be able to escape this alliance with Chremes? In how many ways am I contemned, and held in scorn? Every thing done, and concluded! Alas! once rejected I am sought again; for what reason? Unless perhaps it is this, which I suspect it is: they are rearing some monster,<milestone n="250" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Rearing some monster</lemma>: <quote lang="la">"Aliquid monstri alunt."</quote> Madame Dacier and some other Commentators give these words the rather far-fetched meaning of "They are hatching some plot." Donatus, with much more probability, supposes him to refer to the daughter of Chremes, whom, as the young women among the Greeks were brought up in great seclusion, we may suppose Pamphilus never to have seen.</note> and as she can not be pushed off upon any one else, they have recourse to me.</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>apart.</stage> This language has terrified wretched me with apprehension.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>to himself.</stage> But what am I to say about my father? Alas! that he should so thoughtlessly conclude an affair of such importance! Passing me in the Forum just now, he said, "Pamphilus, you must be married to-day: get ready; be off home." He seemed to me to say this: "Be off this instant, and go hang yourself." I was amazed; think you that I was able to utter a single word, or any excuse, even a frivolous, false, or lame one? I was speechless. But if any one were to ask me now what I would have done, if I had known this sooner, why, I would have done any thing rather than do this. But now, what course shall I first adopt? So many cares beset me, which rend my mind to pieces; love, sympathy for her, the worry of this marriage; then, respect for my father, who has ever, until now, with such an indulgent disposition, allowed me to do whatever was agreeable to my feelings. Ought I to oppose him ? Ah me! I am in uncertainty what to do.</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>apart.</stage> I'm wretchedly afraid how this uncertainty is to terminate. But now there's an absolute necessity, either for him to speak to her, or for me to speak to him about her. While the mind is in suspense, it is swayed by a slight impulse one way or the other.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>overhearing her.</stage> Who is it speaking here ? <stage>Seeing her.</stage> Mysis? Good-morrow to you.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Oh ! Good-morrow to you, Pamphilus.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How is she?</p></sp>
+<sp><speaker>MYSIS</speaker><p> Do you ask ? She is oppressed with grief,<milestone n="268" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">She is oppressed with grief</lemma>: <quote lang="la">"Laborat a dolore."</quote> Colman has the following remark upon this passage: "Though the word 'laborat' has tempted Donatus and the rest of the Commentators to suppose that this sentence signifies Glycerium being in labor, I can not help concurring with Cooke, that it means simply that she is weighed down with grief. The words immediately subsequent corroborate this interpretation; and at the conclusion of the Scene, when Mysis tells him that she is going for a midwife, Pamphilus hurries her away, as he would naturally have done here had he understood by these words that her mistress was in labor."</note> and on this account the poor thing is anxious, because some time ago the marriage was arranged for this day. Then, too, she fears this, that you may forsake her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Ha! could I attempt that? Could I suffer her, poor thing, to be deceived on my account? She, who has confided to me her affection, and her entire existence? She, whom I have held especially dear to my feelings as my wife? Shall I suffer her mind, well and chastely trained and tutored, to be overcome by poverty and corrupted? I will not do it.</p></sp>
+<sp><speaker>MYSIS</speaker><p> I should have no fear if it rested with yourself alone; but whether you may be able to withstand compulsion----</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Do you deem me so cowardly, so utterly ungrateful, inhuman, and so brutish, that neither intimacy, nor affection, nor shame, can move or admonish me to keep faith ?</p></sp>
+<sp><speaker>MYSIS</speaker><p> This one thing I know, that she is deserving that you should not forget her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Forget her? Oh Mysis, Mysis, at this moment are those words of Chrysis concerning Glycerium written on my mind. Now at the point of death, she called me; I went to her; you had withdrawn; we were alone; she began: " My dear Pamphilus, you see her beauty and her youth; and it is not unknown to you to what extent both of these are now of use to her, in protecting both her chastity and her interests. By this right hand I do entreat you, and by your good Genius,<milestone n="289" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By your good Genius</lemma>: <quote lang="la">"Per Genium tuum."</quote> This was a common expression with the Romans, and is used by <cit><bibl n="Hor. Ep. 1.7">Horace, Epistles, B. i., Ep. 7:--</bibl>
+<quote lang="la"><lg type="hexameter"><l>Quod te per Genium dextramque Deosque Penates,</l>
+<l>Obsecro, et obtestor----"</l></lg></quote></cit>
+The word "Genius" signified the tutelary God who was supposed to attend every person from the period of his birth. The signification of the word will be found further referred to in the Notes to the Translation of Plautus.</note> by your own fidelity, and by her bereft condition, do not withdraw yourself from her, or forsake her; if I have loved you as my own brother, or if she has always prized you above all others, or has been obedient to you in all things. You do I give to her as a husband, friend, protector, father. This property of mine do I intrust to you, and commit to your care." She placed her in my hands; that instant, death came upon her. I accepted her; having accepted, I will protect her.</p></sp>
+<sp><speaker>MYSIS</speaker><p> So indeed I hope. <stage>Moving.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But why are you leaving her?</p></sp>
+<sp><speaker>MYSIS</speaker><p> I'm going to fetch the midwife.<milestone n="299" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To fetch the midwife</lemma>: Cooke has the following remark here: "Methinks Mysis has loitered a little too much, considering the business which she was sent about; but perhaps Terence knew that some women were of such a temper as to gossip on the way, though an affair of life or death requires their haste." Colman thus takes him to task for this observation: "This two-edged reflection, glancing at once on Terence and the ladies, is, I think, very ill-founded. The delay of Mysis, on seeing the emotion of Pamphilus, is very natural; and her artful endeavors to interest Pamphilus on behalf of her mistress, are rather marks of her attention than neglect."</note></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Make all haste. And--do you hear?--take care, and not one word about the marriage, lest that too should add to her illness.</p></sp>
+<sp><speaker>MYSIS</speaker><p> I understand. <stage>(Exeunt severally.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="301" unit="TLN line"/>
+<stage>Enter CHARINUS and BYRRHIA.<note anchored="yes"> We learn from Donatus that the characters of Charinus and Byrrhia were not introduced in the work of Menander, but were added to the Play of Terence, lest Philumena's being left without a husband, on the marriage of Pamphilus to Glycerium, should appear too tragical a circumstance. Diderot is of opinion that Terence did not improve his Play by this addition.</note></stage>
+<sp><speaker>CHARINUS</speaker><p> How say you, Byrrhia? Is she to be given in marriage to Pamphilus to-day?</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> It is so.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> How do you know?
+</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> I heard it just now from Davus at the Forum.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Woe unto wretched me! As, hitherto, until now, my mind has been racked amid hope and fear; so, since hope has been withdrawn, wearied with care, it sinks overwhelmed.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> By my troth, Charinus, since that which you wish can not come to pass, prithee, do wish that which can.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I wish for nothing else but Philumena.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> Alas! How much better were it for you to endeavor to expel that passion from your mind, than to be saying that by which your desire is to no purpose still more inflamed.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> We all, when we are well, with ease give good advice to the sick. If you were in my situation, you would think otherwise.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> Well, well, just as you like.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>looking down the side scene.</stage> But I see Pamphilus; I'm determined I'll try every thing before I despair.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> <stage>aside.</stage> What does he mean?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I will entreat his own self; I will supplicate him; I will disclose to him my love. I think that I shall prevail upon him to put off the marriage for some days at least; in the mean time, something will turn up, I trust.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> That something is nothing.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Byrrhia, how seems it to you ? Shall I accost him ?</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> Why not ? Should you not prevail, that at least he may look upon you as a gallant ready provided for him, if he marries her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Away with you to perdition with that vile suggestion, you rascal!
+<stage>Enter PAMPHILUS.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I espy Charinus. <stage>Accosting him.</stage> Good-morrow!</p></sp>
+<sp><speaker>CHARINUS</speaker><p> O, good-morrow. Pamphilus, I'm come to you, seeking hope, safety, counsel, and assistance.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'faith, I have neither time for counsel, nor resources for assistance. But what's the matter now?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> To-day you are going to take a wife ?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> So they say.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Pamphilus, if you do that, you behold me this day for the last time.
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why so</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Ah me! I dread to tell it; prithee, do you tell it, Byrrhia.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> I'll tell it.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What is it?</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> He's in love with your betrothed.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Assuredly he's not of my way of thinking. Come now, tell me, have you had any more to do with her, Charinus?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Oh Pamphilus, nothing.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How much I wish you had.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Now, by our friendship and by my affection, I do beseech you, in the first place, not to marry her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> For my own part I'll use my endeavors.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But if that can not be, or if this marriage is agreeable to you----</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Agreeable to me?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Put it off for some days at least, while I go elsewhere, that I may not be witness.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Now listen, once for all: I think it, Charinus, to be by no means the part of an ingenuous man, when he confers nothing, to expect that it should be considered as an obligation on his part. I am more desirous to avoid this match, than you to gain it.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You have restored me to life.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Now, if you can do any thing, either you yourself, or Byrrhia here, manage, fabricate, invent, contrive some means, whereby she may be given to you; this I shall aim at, how she may not be given to me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I am satisfied.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Most opportunely I perceive Davus, on whose advice I have depended.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>turning to BYRRHIA.</stage> But you, i'faith, tell me nothing,<milestone n="336" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tell me nothing</lemma>: It has been suggested that this refers to Byrrhia's dissuading his master from addressing Pamphilus, or else to what he has told him concerning the intended marriage. Westerhovius thinks that Byrrhia is just then whispering some trifling nonsense in his master's ear, which he, occupied with more important cares, is unwilling to attend to.</note> except those things which there is no need for knowing. <stage>Pushing him away.</stage> Get you gone from here.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> Certainly I will, and with all my heart. <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="338" unit="TLN line"/>
+<stage>Enter DAVUS in haste.</stage>
+<sp><speaker>DAVUS</speaker><p> <stage>not seeing PAMPHILUS and CHARINUS.</stage> Ye gracious Gods, what good news I bring! But where shall I find Pamphilus, that I may remove the apprehension in which he now is, and fill his mind with joy----?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart to PAMPHILUS.</stage> He's rejoiced about something, I don't know what.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>apart.</stage> It's of no consequence; he hasn't yet heard of these misfortunes.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> For I do believe now, if he has already heard that a marriage is prepared for him----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart.</stage> Don't you hear him?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> He is seeking me distractedly all the city over. But where shall I look for him ? Or in which direction now first to betake me----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart to PAMPHILUS.</stage> Do you hesitate to accost him ?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> I have it. <stage>Moving on.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Davus, come here! Stop!</p></sp>
+<sp><speaker>DAVUS</speaker><p> Who's the person that's----<stage>Turning round.</stage> O Pamphilus, you are the very man I'm looking for. Well done, Charinus ! both in the nick of time: I want you both.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Davus, I'm undone!</p></sp>
+<sp><speaker>DAVUS</speaker><p> Nay but, do hear this.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'm utterly ruined!</p></sp>
+<sp><speaker>DAVUS</speaker><p> I know what you are afraid of.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'faith, my life indeed is really in danger.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to CHARINUS.</stage> And what you are afraid of, I know.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> My marriage----</p></sp>
+<sp><speaker>DAVUS</speaker><p> As if I did not know it?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> This day----</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why keep dinning me with it, when I know it all? <stage>To PAMPHILUS.</stage> This are you afraid of, lest you should marry her; and you <stage>to CHARINUS,</stage> lest you should not marry her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You understand the matter.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> That's the very thing.</p></sp>
+<sp><speaker>DAVUS</speaker><p> And that very thing is in no danger; trust me for that.
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I do entreat you, release wretched me as soon as possible from this apprehension.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Well, then, I will release you; Chremes is not going to give you his daughter at present.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How do you know ?</p></sp>
+<sp><speaker>DAVUS</speaker><p> You shall know. Your father just now laid hold of me; he said that a wife was to be given you to-day, and many other things as well, which just now I haven't time to relate. Hastening to you immediately, I ran on to the Forum that I might tell you these things. When I didn't find you, I ascended there to a high place.<milestone n="356" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To a high place</lemma>: He probably alludes to some part of the Acropolis, the citadel, or higher part of <placeName key="perseus,Athens">Athens</placeName>, which commanded a view of the lower town.</note> I looked around; you were nowhere. There by chance I saw Byrrhia, his servant <stage>pointing to CHARINUS</stage>. I inquired of him; he said he hadn't seen you. This puzzled me. I considered what I was to do. As I was returning in the mean time, a surmise from the circumstances themselves occurred to me: " How now,--a very small amount of good cheer; lie out of spirits; a marriage all of a sudden; these things don't agree."</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But to what purpose this ?</p></sp>
+<sp><speaker>DAVUS</speaker><p> I forthwith betook myself to the house of Chremes. When I arrived there--stillness before the door;<milestone n="362" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Stillness before the door</lemma>: Madame Dacier observes that this remark is very appropriately made by Davus, as showing that the marriage was clearly not intended by Chremes. The house of the bride on such an occasion would be thronged by her friends, and at the door would be the musicians and those who were to form part of the bridal procession.</note> then I was pleased at that.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You say well.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Proceed.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I stopped there. In the mean time I saw no one going in, no one going out; no matron at the house,<milestone n="364" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">No matron at the house</lemma>: By the use of the word <quote lang="la">"matrona,"</quote> he probably alludes to the <foreign lang="la">"pronubae"</foreign> among the Romans, whose duties were somewhat similar to those of our bride's-maids. At the completion of the bridal repast, the bride was conducted to the bridal chamber by matrons who had not had more than one husband.</note> no preparation, no bustle. I drew near; looked in----
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I understand; a considerable indication.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Do these things seem to accord with a wedding ?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I think not, Davus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Think, do you say ? You don't view it rightly; the thing is certain. Besides, coming away from there I saw the servant-boy of Chremes carrying some vegetables and little fishes, an obol's worth,<milestone n="369" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An obol's worth</lemma>: The <quote lang="la">"obolus"</quote> was the smallest Greek silver coin, and was equal in value to about three halfpence of our money. <foreign lang="la">"Pisciculi minuti,"</foreign> "little fish," were much used for food among the poorer classes; <foreign lang="la">"mena,"</foreign> a fish resembling our pilchard, was a common article of food with the Romans. The larger kinds of fish went under the general name of <foreign lang="la">"cetum."</foreign></note> for the old man's dinner.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> This day, Davus, have I been delivered by your means.</p></sp>
+<sp><speaker>DAVUS</speaker><p> And yet not at all.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why so? Surely he will not give her to him, after all this. <stage>Pointing to PAMPHILUS.</stage></p></sp>
+<sp><speaker>DAVUS</speaker><p> You silly fellow ! as though it were a necessary consequence that if he doesn't give her to him you should marry her: unless, indeed, you look about you; unless you entreat and make court to the old man's friends.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You advise well. I'll go; although, upon my faith, this hope has often eluded me already. Farewell! <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="375" unit="TLN line"/>
+<stage>PAMPHILUS and DAVUS.</stage>
+<sp><speaker>PAMPHILUS</speaker><p> What then does my father mean? Why does he thus make pretense?</p></sp>
+<sp><speaker>DAVUS</speaker><p> I'll tell you. If now he were angry with you, because Chremes will not give you a wife, he would seem to himself to be unjust, and that not without reason, before he has ascertained your feelings as to the marriage, how they are disposed. But if you refuse to marry her, in that case he will transfer the blame to you; then such disturbances will arise.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I will submit to any thing from him.</p></sp>
+<sp><speaker>DAVUS</speaker><p> He is your father, Pamphilus. It is a difficult matter. Besides, this woman is defenseless. No sooner said than done; he will find some pretext for driving her away from the city.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Driving her away ?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Aye, and quickly too.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Tell me then, Davus, what am I to do?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Say that you will marry her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>starting.</stage> Ha!</p></sp>
+<sp><speaker>DAVUS</speaker><p> What's the matter ?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What, am I to say so?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why not?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Never will I do it.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Don't say so.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Don't attempt to persuade me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Consider what will be the result of it.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> That I shall be deprived of the one, and fixed with the other.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Not so. In fact, I think it will be thus: Your father will say: "I wish you to marry a wife to-day." You reply: " I'll marry her." Tell me, how can he raise a quarrel with you ? Thus you will cause all the plans which are now arranged by him to be disarranged, without any danger; for this is not to be doubted, that Chremes will not give you his daughter. Therefore do not hesitate in those measures which you are taking, on this account, lest he should change his sentiments. Tell your father that you consent; so that although he may desire it, he may not be able to be angry at you with reason. For that which you rely on, I will easily refute; "No one," you think, "will give a wife to a person of these habits." But he will find a beggar for you, rather than allow you to be corrupted by a mistress. If, however, he shall believe that you bear it with a contented mind, you will render him indifferent; at his leisure he will look out for another wife for you; in the mean time something lucky may turn up.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Do you think so?</p></sp>
+<sp><speaker>DAVUS</speaker><p> It really is not a matter of doubt.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Consider to what you are persuading me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Nay, but do be quiet.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Well, I'll say it; but, that he mayn't come to know that she has had a child by me, is a thing to be guarded against; for I have promised to bring it up.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Oh, piece of effrontery.
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> She entreated me that I would give her this pledge, by which she might be sure she should not be deserted.</p></sp>
+<sp><speaker>DAVUS</speaker><p> It shall be attended to; but your father's coming. Take care that he doesn't perceive that you are out of spirits.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="404" unit="TLN line"/>
+<stage>Enter SIMO, at a distance.</stage>
+<sp><speaker>SIMO</speaker><p> <stage>apart to himself.</stage> I've come back to see what they are about, or what scheme they are hatching.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to PAMPHILUS.</stage> He has no doubt at present but that you'll refuse to marry. Having considered his course, he's come from a retired spot somewhere or other; he hopes that he has framed a speech by which to disconcert you; do you take care, then, to be yourself.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> If I am only able, Davus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Trust me for that, Pamphilus, I tell you; your father will never this day exchange a single word with you, if you say that you will marry.</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="412" unit="TLN line"/>
+<stage>Enter BYRRHIA, unperceived, at a distance behind SIMO.</stage>
+<sp><speaker>BYRRHIA</speaker><p> <stage>apart to himself.</stage> My master has ordered me, leaving my business, to keep an eye on Pamphilus today, what he is doing with regard to the marriage. I was to learn it; for that reason, I have now followed him<milestone n="414" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I have now followed him</lemma>: <quote lang="la">"Hunc venientem sequor."</quote> Cooke has the following remark on this line: "This verse, though in every edition, as Bentley judiciously observes, is certainly spurious; for as Pamphilus has not disappeared since Byrrhia left the stage, he could not say <foreign lang="la">'nunc hunc venientem sequor.'</foreign> If we suppose the line genuine, we must at the same time suppose Terence guilty of a monstrous absurdity." On these words Colman rakes the following just observations: " Other Commentators have also stumbled at this passage; but if in the words 'followed him hither,' we suppose 'him' (hunc) to refer to Simo, the difficulty is removed; and that the pronoun really does signify Simo, is evident from the circumstance of Pamphilus never having left the stage since the disappearance of Byrrhia. Simo is also represented as coming on the stage homeward, so that Byrrhia might easily have followed him along the street; and it is evident that Byrrhia does not allude to Pamphilus from the agreeable surprise which he expresses on seeing him there so opportunely for the purpose."</note> <stage>pointing to SIMO</stage> as he came hither. Himself, as well, I see standing with Davus close at hand; I'll note this.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart to himself.</stage> I see that both of them are here.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>in a low voice to PAMPHILUS.</stage> Now then, be on your guard.</p></sp>
+<sp><speaker>SIMO</speaker><p> Pamphilus!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>in a low voice.</stage> Look round at him as though taken unawares.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>turning round sharply.</stage> What, my father!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>in a low voice.</stage> Capital!</p></sp>
+<sp><speaker>SIMO</speaker><p> I wish you to marry a wife to-day, as I was saying.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> <stage>apart.</stage> Now I'm in dread for our side, as to what he will answer.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Neither in that nor in any thing else shall you ever find any hesitation in me.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> <stage>apart.</stage> Hah!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>in a low voice to PAMPHILUS.</stage> He is struck dumb.</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> <stage>apart.</stage> What a speech!</p></sp>
+<sp><speaker>SIMO</speaker><p> You act as becomes you, when that which I ask I obtain with a good grace.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside to PAMPHILUS.</stage> Am I right?</p></sp>
+<sp><speaker>BYRRHIA</speaker><p> My master, so far as I learn, has missed his wife.</p></sp>
+<sp><speaker>SIMO</speaker><p> Now, then, go in-doors, that you mayn't be causing delay when you are wanted.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'll go. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>BYRRHIA</speaker><p> <stage>apart.</stage> Is there, in no case, putting trust in any man ? That is a true proverb which is wont to be commonly quoted, that "all had rather it to be well for themselves than for another." I remember noticing, when I saw her, that she was a young woman of handsome figure; wherefore I am the more disposed to excuse Pamphilus, if he has preferred that he himself, rather than the other, should embrace her in his slumbers. I'll carry back these tidings, that, in return for this evil he may inflict evil upon me.<milestone n="431" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Inflict evil upon me</lemma>: <quote lang="la">"Malum;"</quote> the usual name by which slaves spoke of the beatings they were in the habit of receiving at the hands or by the order of their irascible masters. Colman has the following remarks: "Donatus observes on this Scene between Byrrhia, Simo, Pamphilus, and Davus, that the dialogue is sustained by four persons, who have little or no intercourse with each other; so that the Scene is not only in direct contradiction to the precept of <persName>Horace</persName>, excluding a fourth person, but is also otherwise vicious in its construction. Scenes of this kind are, I think, much too frequent in Terence, though, indeed, the form of the ancient Theatre was more adapted to the representation of them than the modern. The multiplicity of speeches aside is also the chief error in this dialogue; such speeches, though very common in dramatic writers, ancient and modern, being always more or less unnatural."</note> <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="432" unit="TLN line"/>
+<stage>SIMO and DAVUS.</stage>
+<sp><speaker>DAVUS</speaker><p> <stage>aside, coming away from the door of the house.</stage> He now supposes that I'm bringing some trick to bear against him, and that on that account I've remained here.</p></sp>
+<sp><speaker>SIMO</speaker><p> What does he say, Davus ?<milestone n="434" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What does he say, Davus?</lemma>: <quote lang="la">"Quid, Dave, narrat?"</quote> This reading Vollbehr suggests in place of the old one, <foreign lang="la">"Quid Davus narrat ?"</foreign> and upon good grounds, as it appears. According to the latter reading we are to suppose that Davus is grumbling to himself, on which Simo says, " What does Davus say?" It seems, however, much more likely that Davus accompanies Pamphilus to the door, and speaks to him before he goes in, and then, on his return to Simo, the latter asks him, "What does he say, Davus ?"</note></p></sp>
+<sp><speaker>DAVUS</speaker><p> Just as much as nothing.<milestone n="434" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Just as much as nothing</lemma>: <quote lang="la">"Aeque quidquam nunc quidem."</quote> This is a circumlocution for "nothing at all:" somewhat more literally perhaps, it might be rendered "just as much as before." Perizonius supplies the ellipsis with a long string of Latin words, which translated would mean, "Now, indeed, he says equally as much as he says then, when he says nothing at all."</note></p></sp>
+<sp><speaker>SIMO</speaker><p> What, nothing? Eh?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Nothing at all.</p></sp>
+<sp><speaker>SIMO</speaker><p> And yet I certainly was expecting something.</p></sp>
+<sp><speaker>DAVUS</speaker><p> It has turned out contrary to your expectations. <stage>Aside.</stage> I perceive it; this vexes the man.</p></sp>
+<sp><speaker>SIMO</speaker><p> Are you able to tell me the truth?</p></sp>
+<sp><speaker>DAVUS</speaker><p> I? Nothing more easy.</p></sp>
+<sp><speaker>SIMO</speaker><p> Is this marriage at all disagreeable to him, on account of his intimacy with this foreign woman?</p></sp>
+<sp><speaker>DAVUS</speaker><p> No, faith; or if at all, it is a two or three days' annoyance this--you understand. It will then cease. Moreover, he himself has thought over this matter in a proper way.</p></sp>
+<sp><speaker>SIMO</speaker><p> I commend him.
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> While it was allowed him, and while his years prompted him, he intrigued; even then it was secretly. He took precaution that that circumstance should never be a cause of disgrace to him, as behooves a man of principle; now that he must have a wife, he has set his mind upon a wife.</p></sp>
+<sp><speaker>SIMO</speaker><p> He seemed to me to be somewhat melancholy in a slight degree.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Not at all on account of her, but there's something he blames you for.</p></sp>
+<sp><speaker>SIMO</speaker><p> What is it, pray?</p></sp>
+<sp><speaker>DAVUS</speaker><p> It's a childish thing.</p></sp>
+<sp><speaker>SIMO</speaker><p> What is it?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Nothing at all.</p></sp>
+<sp><speaker>SIMO</speaker><p> Nay but, tell me what it is.</p></sp>
+<sp><speaker>DAVUS</speaker><p> He says that you are making too sparing preparations.</p></sp>
+<sp><speaker>SIMO</speaker><p> What, I?</p></sp>
+<sp><speaker>DAVUS</speaker><p> You.--He says that there has hardly been fare provided to the amount of ten drachmae.<milestone n="451" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Amount of ten drachmoe</lemma>: The Attic drachma was a silver coin worth in value about 9&frac34;d. of English money.</note>--"Does he seem to be bestowing a wife on his son? Which one now, in preference, of my companions shall I invite to the dinner?" And, it must be owned, you really are providing too parsimoniously--I do not commend you.</p></sp>
+<sp><speaker>SIMO</speaker><p> Hold your tongue.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> I've touched him up.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'll see that these things are properly done. <stage>DAVUS goes into the house.</stage> What's the meaning of this? What does this old rogue mean? But if there's any knavery here, why, he's sure to be the source of the mischief. <stage>Goes into his house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="459" unit="TLN line"/>
+<stage>Enter SIMO and DAVUS from the house of the former. MYSIS and LESBIA are coming toward the house of GLYCERIUM.</stage>
+<sp><speaker>MYSIS</speaker><p> <stage>not seeing SIMO and DAVUS.</stage> Upon my faith, the fact is really as you mentioned, Lesbia, you can hardly find a man constant to a woman.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart to DAVUS.</stage> This maid-servant comes from the Andrian.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>apart to SIMO.</stage> What do you say?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart to DAVUS.</stage> It is so.</p></sp>
+<sp><speaker>MYSIS</speaker><p> But this Pamphilus----</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart to DAVUS.</stage> What is she saying?</p></sp>
+<sp><speaker>MYSIS</speaker><p> Has proved his constancy.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart.</stage> Hah!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>apart to himself.</stage> I wish that either he were deaf, or she struck dumb.</p></sp>
+<sp><speaker>MYSIS</speaker><p> For the child she brings forth, he has ordered to be brought up.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart.</stage> O <persName>Jupiter</persName>! What do I hear! It's all over, if indeed this woman speaks the truth.</p></sp>
+<sp><speaker>LESBIA</speaker><p> You mention a good disposition on the part of the young man.</p></sp>
+<sp><speaker>MYSIS</speaker><p> A most excellent one. But follow me in-doors, that you mayn't keep her waiting.</p></sp>
+<sp><speaker>LESBIA</speaker><p> I'll follow. <stage>MYSIS and LESBIA go into GLYCERIUM'S house.</stage>
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> What remedy now shall I find for this mishap?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>to himself aloud.</stage> What does this mean? Is he so infatuated ? The child of a foreign woman? Now I understand; ah! scarcely even at last, in my stupidity, have I found it out.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside to himself.</stage> What does he say he has found out?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>aside.</stage> This piece of knavery is being now for the first time palmed upon me by this fellow; they are pretending that she's in labor, in order that they may alarm Chremes.</p></sp>
+<sp><speaker>GLYCERIUM</speaker><p> <stage>exclaiming from within her house.</stage> Juno Lucina,<milestone n="473" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Juno Lucina</lemma>: Juno Lucina had the care of women in childbed. Under this name some suppose <persName>Diana</persName> to have been worshiped. A similar incident to the present is found in the <title>Adelphi</title>, l. 486; and in the Aulularia of Plautus, l. 646.</note> grant me thine aid, save me, I do entreat thee!</p></sp>
+<sp><speaker>SIMO</speaker><p> Whew! so sudden? What nonsense! As soon
+as she has heard that I'm standing before the door, she makes all haste. These incidents, Davus, have not been quite happily adapted by you as to the points of time.</p></sp>
+<sp><speaker>DAVUS</speaker><p> By me?</p></sp>
+<sp><speaker>SIMO</speaker><p> Are your scholars forgetful?
+<milestone n="477" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are your scholars forqetful?</lemma>: He alludes under this term to Mysis, Lesbia, and Pamphilus, whom he supposes Davus to have been training to act their parts in the plot against him.</note></p></sp>
+<sp><speaker>DAY.</speaker><p> I don't know what you are talking about.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>aside.</stage> If he at the real marriage of my son had taken me off my guard, what sport he would have made of me. Now it is at his own risk; I'm sailing in harbor.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="481" unit="TLN line"/>
+<stage>Re-enter LESBIA from the house of GLYCERIUM.</stage>
+<sp><speaker>LESBIA</speaker><p> <stage>speaking to ARCHYLIS at the door, and not seeing SIMO and DAVUS.</stage> As yet, Archylis, all the customary symptoms which ought to exist toward recovery, I perceive in her. Now, in the first place, take care and let her bathe;<milestone n="483" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Let her bathe</lemma>: It was the custom for women to bathe immediately after childbirth. See the Amphitryon of Plautus, 1. 669, and the Note to the passage in Bohn's Translation.</note> then, after that, what I ordered to be given her to drink, and as much as I prescribed, do you administer: presently I will return hither. <stage>To herself aloud.</stage> By all that's holy, a fine boy has been born to Pamphilus. I pray the Gods that he may survive, since the father himself is of a good disposition, and since he has hesitated to do an injustice to this most excellent young woman. <stage>(Exit.)</stage>
+</p></sp>
+<sp><speaker>SIMO</speaker><p> Even this, who is there that knows you that would not believe that it originated in you?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why, what is this?</p></sp>
+<sp><speaker>SIMO</speaker><p> She didn't order in their presence what was requisite to be done for the woman lying in; but after she has come out, she bawls from the street to those who are in the house. O Davus, am I thus trifled with by you? Or pray, do I seem to you so very well suited to be thus openly imposed upon
+by your tricks? At all events it should have been with pre-caution; that at least I might have seemed to be feared, if I should detect it.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> Assuredly, upon my faith, it's he that's, now deceiving himself, not I.</p></sp>
+<sp><speaker>SIMO</speaker><p> I gave you warning, I forbade you with threats to do it. Have you been awed? What has it availed? Am I to believe you now in this, that this woman has had a child by Pamphilus?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> I understand where he's mistaken; and I see what I must do.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why are you silent?</p></sp>
+<sp><speaker>DAVUS</speaker><p> What would you believe? As though word had not been brought you that thus it would happen.</p></sp>
+<sp><speaker>SIMO</speaker><p> Any word brought to me?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Come now, did you of your own accord perceive that this was counterfeited?</p></sp>
+<sp><speaker>SIMO</speaker><p> I am being trifled with.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Word has been brought you; for otherwise how could this suspicion have occurred to you?</p></sp>
+<sp><speaker>SIMO</speaker><p> How? Because I knew you.</p></sp>
+<sp><speaker>DAVUS</speaker><p> As though you meant to say that this has been done by my contrivance.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why, I'm sure of it, to a certainty.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Not yet even do you know me sufficiently, Simo, what sort of person I am.</p></sp>
+<sp><speaker>SIMO</speaker><p> I, not know you!</p></sp>
+<sp><speaker>DAVUS</speaker><p> But if I begin to tell you any thing, at once you think that deceit is being practiced upon you in guile; therefore, upon my faith, I don't dare now even to whisper.</p></sp>
+<sp><speaker>SIMO</speaker><p> This one thing I am sure of, that no person has been delivered here. <stage>Pointing to GLYCERIUM'S house.</stage></p></sp>
+<sp><speaker>DAVUS</speaker><p> You have discovered that? Still, not a bit the less will they presently be laying the child<milestone n="507" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be laying the child</lemma>: Colman has the following remark on this line:--"The art of this passage is equal to the pleasantry, for though Davus runs into this detail merely with a view to dupe the old man still further by flattering him on his fancied sagacity, yet it very naturally prepares us for an incident which, by another turn of circumstances, afterward becomes necessary."</note> here before the door. Of this, then, I now warn you, master, that it will happen,
+
+that you may be aware of it. Don't you hereafter be saying that this was done through the advice or artifices of Davus. I wish this suspicion of yours to be entirely removed from myself.</p></sp>
+<sp><speaker>SIMO</speaker><p> How do you know that?</p></sp>
+<sp><speaker>DAVUS</speaker><p> I've heard so, and I believe it: many things combine for me to form this conjecture. In the first place then, she declared that she was pregnant by Pamphilus; that has been proved to be false.
+<milestone n="513" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Proved to be false</lemma>: That is, according to Simo's own notion, which Davus now thinks proper to humor.</note> Now, when she sees that preparations are being made for the wedding at our house, the maid-servant is directly sent to fetch the midwife to her, and to bring a child at the same time.
+<milestone n="515" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To bring a child at the same time</lemma>: This is a piece of roguery which has probably been practiced in all ages, and was some-what commonly perpetrated in <placeName key="tgn,1000074">Greece</placeName>. The reader of English history will remember how the unfortunate son of James II. was said, in the face of the strongest evidence to the contrary, to have been a supposititious child brought into the queen's chamber in a silver warming-pan.</note> Unless it is managed for you to see the child, the marriage will not be at all impeded.</p></sp>
+<sp><speaker>SIMO</speaker><p> What do you say to this? When you perceived that they were adopting this plan, why didn't you tell Pamphilus immediately?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why, who has induced him to leave her, but myself? For, indeed, we all know how desperately he loved her. Now he wishes for a wife. In fine, do you intrust me with that affair; proceed however, as before, to celebrate these nuptials, just as you are doing, and I trust that the Gods will prosper this matter.</p></sp>
+<sp><speaker>SIMO</speaker><p> Very well; be off in-doors; wait for me there, and get ready what's necessary to be prepared. <stage>DAVUS goes into the house.</stage> He hasn't prevailed upon me even now altogether to believe these things, and I don't know whether what he has said is all true; but I deem it of little moment; this is of far greater importance to me--that my son himself has promised me. Now I'll go and find Chremes; I'll ask him for a wife for my son; if I obtain my request, at what other time rather than to-day should I prefer these nuptials taking place? For as my son has promised, I have no doubt but that if he should prove unwilling, I can fairly compel him. And look! here's Chremes himself, just at the very time.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="533" unit="TLN line"/>
+<stage>Enter CHREMES.</stage>
+<sp><speaker>SIMO</speaker><p> I greet you, Chremes.</p></sp>
+<sp><speaker>CHREMES</speaker><p> O, you are the very person I was looking for.</p></sp>
+<sp><speaker>SIMO</speaker><p> And I for you.</p></sp>
+<sp><speaker>CHREMES</speaker><p> You meet me at a welcome moment. Some persons have been to me, to say that they had heard from you, that my daughter was to be married to your son to-day; I've come to see whether they are out of their senses or you.</p></sp>
+<sp><speaker>SIMO</speaker><p> Listen; in a few words you shall learn both what I want of you, and what you seek to know.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I am listening; say what you wish.</p></sp>
+<sp><speaker>SIMO</speaker><p> By the Gods, I do entreat you, Chremes, and by our friendship, which, commencing with our infancy, has grown up with our years, and by your only daughter and by my own son (of preserving whom the entire power lies with you), that you will assist me in this matter; and that, just as this marriage was about to be celebrated, it may be celebrated.</p></sp>
+<sp><speaker>CHREMES</speaker><p> O, don't importune me; as though you needed to obtain this of me by entreaty. Do you suppose I am different now from what I was formerly, when I promised her? If it is for the advantage of them both that it should take place, order her to be sent for. But if from this course there would result more harm than advantage for each, this I do beg of you, that you will consult for their common good, as though she were your own daughter, and I the father of Pamphilus.</p></sp>
+<sp><speaker>SIMO</speaker><p> Nay, so I intend, and so I wish it to be, Chremes; and I would not ask it of you, did not the occasion itself require it.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What is the matter?</p></sp>
+<sp><speaker>SIMO</speaker><p> There is a quarrel between Glycerium and my son.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>ironically.</stage> I hear you.</p></sp>
+<sp><speaker>SIMO</speaker><p> So munch so, that I'm in hopes they may be separated.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Nonsense!</p></sp>
+<sp><speaker>SIMO</speaker><p> It really is so.</p></sp>
+<sp><speaker>CHREMES</speaker><p> After this fashion, i'faith, I tell you, "the quarrels of lovers are the renewal of love."
+</p></sp>
+<sp><speaker>SIMO</speaker><p> Well--this I beg of you, that we may prevent it. While an opportunity offers, and while his passion is cooled by affronts, before the wiles of these women and their tears, craftily feigned, bring back his love-sick mind to compassion, let us give him a wife. I trust, Chremes, that, when attached by intimacy and a respectable marriage, he will easily extricate himself from these evils.</p></sp>
+<sp><speaker>CHREMES</speaker><p> So it appears to you; but I do not think
+<milestone n="563" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">But I do not think</lemma>: -4. <quote lang="la">"At ego non posse arbitror neque illum hanc perpetuo habere."</quote> Chremes uses an ambiguous expression here, perhaps purposely. It may mean, "I do not think that he can possibly be constant to her," or, "that she will continue to live with him."</note> that either he can possibly hold to her with constancy, or that I can put up with it if he does not.</p></sp>
+<sp><speaker>SIMO</speaker><p> How then can you be sure of that, unless you make the experiment?</p></sp>
+<sp><speaker>CHREMES</speaker><p> But for that experiment to be made upon a daughter is a serious thing----</p></sp>
+<sp><speaker>SIMO</speaker><p> Why look, all the inconvenience in fine amounts to this--possibly, which may the Gods forfend, a separation may take place. But if he is reformed, see how many are the advantages: in the first place, you will have restored a son to your friend; you will obtain a sure son-in-law
+<milestone n="571" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A sure son-in-law</lemma>: By the use of the word <quote lang="la">"firmum,"</quote> he means a son-in-law who will not be likely to resort to divorce or separation from his wife.</note> for yourself, and a husband for your daughter.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What is one to say to all this? If you feel persuaded that this is beneficial, I don't wish that any advantage should be denied you.</p></sp>
+<sp><speaker>SIMO</speaker><p> With good reason, Chremes, have I always considered you a most valuable friend.</p></sp>
+<sp><speaker>CHREMES</speaker><p> But how say you----?"</p></sp>
+<sp><speaker>SIMO</speaker><p> What?</p></sp>
+<sp><speaker>CHREMES</speaker><p> How do you know that they are now at variance?</p></sp>
+<sp><speaker>SIMO</speaker><p> Davus himself, who is privy to all their plans, has told me so; and he advises me to expedite the match as fast as I can. Do you think he would do so, unless he was aware that my son desired it? You yourself as well shall presently hear what he says. <stage>Goes to the door of his house and calls.</stage>
+
+Halloo there! Call Davus out here. Look, here he is; I see him just coming out.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="581" unit="TLN line"/>
+<stage>Enter DAVUS from the house.</stage>
+<sp><speaker>DAVUS</speaker><p> I was coming to you.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why, what's the matter?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why isn't the bride sent for?
+<milestone n="582" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Why isn't the bride sent for?</lemma>: Among the Greeks the bride was conducted by the bridegroom at nightfall from her father's house, in a chariot drawn by a pair of mules or oxen, and escorted by persons carrying the nuptial torches. Among the Romans, she proceeded in the evening to the bridegroom's house; preceded by a boy carrying a torch of white thorn, or, according to some, of pine-wood. To this custom reference is indirectly made in the present passage.</note> It's now growing late in the day.</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you hear me? I've been for some time not a little apprehensive of you, Davus, lest you should do that which the common class of servants is in the habit of doing, namely, impose upon me by your artifices; because my son is engaged in an amour.</p></sp>
+<sp><speaker>DAVUS</speaker><p> What, I do that?</p></sp>
+<sp><speaker>SIMO</speaker><p> I fancied so; and therefore, fearing that, I concealed from you what I shall now mention.</p></sp>
+<sp><speaker>DAVUS</speaker><p> What?</p></sp>
+<sp><speaker>SIMO</speaker><p> You shall know; for now I almost feel confidence in you.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Have you found out at last what sort of a person I am?</p></sp>
+<sp><speaker>SIMO</speaker><p> The marriage was not to have taken place.</p></sp>
+<sp><speaker>DAVUS</speaker><p> How? Not to have taken place?</p></sp>
+<sp><speaker>SIMO</speaker><p> But I was making pretense, that I might test you all.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>affecting surprise.</stage> What is it you tell me?</p></sp>
+<sp><speaker>SIMO</speaker><p> Such is the fact.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Only see! I was not able to discover that. Dear me! what a cunning contrivance!</p></sp>
+<sp><speaker>SIMO</speaker><p> Listen to this. Just as I ordered you to go from here into the house, he <stage>pointing to CHREMES</stage> most opportunely met me.
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> Ha! Are we undone, then?</p></sp>
+<sp><speaker>SIMO</speaker><p> I told him what you just now told me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> Why, what am I to hear?</p></sp>
+<sp><speaker>SIMO</speaker><p> I begged him to give his daughter, and with difficulty I prevailed upon him.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aside.</stage> Utterly ruined!</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>overhearing him speaking.</stage> Eh--What was it you said?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Extremely well done, I say.</p></sp>
+<sp><speaker>SIMO</speaker><p> There's no delay on his part now.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I'll go home at once; I'll tell her to make due preparation, and bring back word here. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> Now I do entreat you, Davus, since you by yourself have brought about this marriage for me----</p></sp>
+<sp><speaker>DAVUS</speaker><p> I myself, indeed!
+<milestone n="597" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I myself, indeed!</lemma>: No doubt Davus says these words in sorrow and regret; Simo, however, supposes them to be uttered in exultation at the apparent success of his plans. Consequently <quote lang="la">"vero"</quote> is intended by Davus to have the sense here of "too truly."</note></p></sp>
+<sp><speaker>SIMO</speaker><p> Do your best still to reform my son.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Troth, I'll do it with all due care.</p></sp>
+<sp><speaker>SIMO</speaker><p> Do it now, while his mind is agitated.</p></sp>
+<sp><speaker>DAVUS</speaker><p> You may be at ease.</p></sp>
+<sp><speaker>SIMO</speaker><p> Come then; where is he just now?</p></sp>
+<sp><speaker>DAVUS</speaker><p> A wonder if he isn't at home.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'll go to him; and what I've been telling you, I'll tell him as well. <stage>Goes into his house.</stage>
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> I'm a lost man! What reason is there why I shouldn't take my departure straightway hence for the mill? There's no room left for supplicating; I've upset every thing now; I've deceived my master; I've plunged my master's son into a marriage; I've been the cause of its taking place this very day, without his hoping for it, and against the wish of Pamphilus. Here's cleverness for you! But, if I had kept myself quiet, no mischief would have happened. <stage>Starting.</stage> But see, I espy him; I'm utterly undone! Would that there were some spot here for me, from which I might this instant pitch myself headlong! <stage>Stands apart.</stage>
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="608" unit="TLN line"/>
+<stage>Enter PAMPHILUS in haste from SIMO'S house.</stage>
+<sp><speaker>PAMPHILUS</speaker><p> Where is he? The villain, who this day----I'm ruined; and I confess that this has justly befallen me, for being such a dolt, so devoid of sense; that I should have in-trusted my fortunes to a frivolous slave!
+<milestone n="610" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To a frivolous slave</lemma>: <quote lang="la">"Servo futili."</quote> According to the Scholiast on the <title>Thebais</title> of Statius, B. viii. 1. 297, "was futile" was a kind of vessel with a broad mouth and narrow bottom, used in the rites of <persName>Vesta</persName>. It was made of that peculiar shape in order that the priest should be obliged to hold it during the sacrifices, and might not set it on the ground, which was considered profane; as, if set there, the contents must necessarily fall out. From this circumstance, men who could not contain a secret were sometimes called "futiles."</note> I am suffering the reward of my folly; still he shall never get off from me un-punished for this.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>apart.</stage> I'm quite sure that I shall be safe in future, if for the present I get clear of this mishap.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But what now am I to say to my father? Am I to deny that I am ready, who have just promised to marry? With what effrontery could I presume to do that? I know not what to do with myself.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>apart.</stage> Nor I with myself, and yet I'm giving all due attention to it. I'll tell him that I will devise something, in order that I may procure some respite in this dilemma.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>catching sight of him.</stage> Oho!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>apart.</stage> I'm seen.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>sneeringly.</stage> How now, good sir, what are you about? Do you see how dreadfully I am hampered by your devices?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Still, I'll soon extricate you.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> You, extricate me?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Assuredly, Pamphilus.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> As you have just done, I suppose.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why no, better, I trust.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What, am I to believe you, you scoundrel?
+<milestone n="619" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You scoundrel</lemma>: <quote lang="la">"Furcifer;"</quote> literally, wearer of the <foreign lang="la">"furca,"</foreign> or wooden collar. This method of punishment has been referred to in the Notes to the Translation of Plautus.</note> You, indeed, make good a matter that's all embarrassment and
+
+ruin! Just see, in whom I've been placing reliance--you who this day from a most happy state have been and plunged me into a marriage. Didn't I say that this would be the case?</p></sp>
+<sp><speaker>DAVUS</speaker><p> You did say so.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What do you deserve?
+<milestone n="622" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What do you deserve?</lemma>: Madame Dacier remarks that this question is taken from the custom of the Athenians, who never condemned a criminal without first asking him what punishment he thought he deserved; and according to the nature of his answer they mitigated or increased his punishment. The Commentators quote a similar passage from the Frogs of Aristophanes.</note></p></sp>
+<sp><speaker>DAVUS</speaker><p> The cross.
+<milestone n="622" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The cross</lemma>: The "cross," <foreign lang="la">"crux,"</foreign> as a punishment for refractory slaves has been remarked upon in the Notes to the Translation of Plautus.</note> But allow me a little time to recover myself; I'll soon hit upon something.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Ah me! not to have the leisure to inflict punishment upon you as I desire ! for the present conjuncture warns me to take precautions for myself, not to be taking vengeance on you. <stage>(Exeunt.)</stage>
+
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="626" unit="TLN line"/>
+<stage>Enter CHARINUS, wringing his hands.</stage>
+<sp><speaker>CHARINUS</speaker><p> <stage>to himself.</stage> Is this to be believed or spoken of; that malice so great could be inborn in any one as to exult at misfortunes, and to derive advantage from the distresses of another! Oh, is this true? Assuredly, that is the most dangerous class of men, in whom there is only a slight degree of hesitation at refusing; afterward, when the time arrives for fulfilling their promises, then, obliged, of necessity they discover themselves. They are afraid, and yet the circumstances
+<milestone n="635" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The circumstances</lemma>: <quote lang="la">"Res."</quote> According, however, to Donatus, this word has the meaning here of "malice" or "spitefulness."</note> compel them to refuse. Then, in that case, their very insolent remark is, "Who are you? What are you to me? What should I give up) to you what's my own?  Look you, I am the most concerned in my own interests."
+<milestone n="637" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Concerned in my own interests</lemma>: Equivalent to our sayings, "Charity begins at home;" "Take care of number one."</note> But if you inquire where is honor, they are not ashamed.
+<milestone n="638" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">They are not ashamed</lemma>: Terence has probably borrowed this remark from the Epidicus of Plautus, 1. 165-6: "Generally all men are ashamed when it is of no use; when they ought to be ashamed, then does shame forsake them, when occasion is for them to be ashamed."</note> Here, where there is occasion, they are not afraid; there, where there is no occasion, they are afraid. But what am I to do? Ought I not to go to him, and reason with him upon this outrage, and heap many an invective upon him? Yet some one may say, "you will avail nothing." Nothing? At least I shall have vexed him, and have given vent to my own feelings.
+
+<stage>Enter PAMPHILUS and DAVUS.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Charinus, unintentionally I have ruined both myself and you, unless the Gods in some way befriend us.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Unintentionally, is it! An excuse has been discovered at last. You have broken your word.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How so, pray?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Do you expect to deceive me a second time by these speeches?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What does this mean?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Since I told you that I loved her, she has become quite pleasing to you. Ah wretched me! to have judged of your disposition from my own.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> You are mistaken.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Did this pleasure appear to you not to be quite complete, unless you tantalized me in my passion, and lured me on by groundless hopes?--You may take her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I, take her? Alas! you know not in what perplexities, to my sorrow, I am involved, and what vast anxieties this executioner of mine <stage>pointing to DAVUS</stage> has contrived for me by his devices.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What is it so wonderful, if he takes example from yourself?
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> You would not say that if you understood either myself or my affection.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm quite aware <stage>ironically</stage>; you have just now had a dispute with your father, and he is now angry with you in consequence, and has not been able to-day to prevail upon you to marry her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> No, not at all,--as you are not acquainted with my sorrows, these nuptials were not in preparation for me; and no one was thinking at present of giving me a wife.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I am aware; you have been influenced by your own inclination.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Hold; you do not yet know all.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> For my part, I certainly do know that you are about to marry her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why are you torturing me to death? Listen to this. He <stage>pointing to DAVUS</stage> never ceased to urge me to tell my father that I would marry her; to advise and persuade me, even until he compelled me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Who was this person?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Davus.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Davus! For what reason?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I don't know; except that I must have been  under the displeasure of the Gods, for me to have listened to him.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Is this the fact, Davus?</p></sp>
+<sp><speaker>DAVUS</speaker><p> It is the fact.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>starting.</stage> Ha! What do you say, you villain? Then may the Gods send you an end worthy of your deeds. Come now, tell me, if all his enemies had wished him to be plunged into a marriage, what advice but this could they have given?</p></sp>
+<sp><speaker>DAVUS</speaker><p> I have been deceived, but I don't despair.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>ironically.</stage> I'm sure of that.</p></sp>
+<sp><speaker>DAVUS</speaker><p> This way it has not succeeded; we'll try another. Unless, perhaps, you think that because it failed at first, this misfortune can not now possibly be changed for better luck.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Certainly not; for I quite believe that if you set about it, you will be making two marriages for me out of one.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I owe you this, Pamphilus, in respect of my servitude, to strive with hands and feet, night and day; to submit to hazard of my life, to serve you. It is your part, if any thing has fallen out contrary to expectation, to forgive
+
+me. What I was contriving has not succeeded; still, I am using all endeavors; or, do you yourself devise something better, and dismiss me.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I wish to; restore me to the position in which you found me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I'll do so.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But it must be done directly.</p></sp>
+<sp><speaker>DAVUS</speaker><p> But the door of Glycerium's house here makes a noise.
+<milestone n="683" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Makes a noise</lemma>: The doors with the Romans opened in-wardly, while those of the Greeks opened on the outside. It was therefore usual with them, when coming out, to strike the door on the inside with a stick or with the knuckles, that those outside might be warned to get out of the way. Patrick, however, observes with some justice, that the word <quote lang="la">"concrepuit"</quote> may here allude to the creaking of the hinges. See the Curculio of Plautus, l. 160, where the Procuress pours water on the hinges, in order that Cappadox may not hear the opening of the door.</note></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> That's nothing to you.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>assuming an attitude of meditation.</stage> I'm in search of----</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>ironically.</stage> Dear me, what, now at last?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Presently I'll give you what I've hit upon.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="685" unit="TLN line"/>
+<stage>Enter MYSIS from the house of GLYCERIUM.</stage>
+<sp><speaker>MYSIS</speaker><p> <stage>calling at the door to GLYCERIUM within.</stage> Now, wherever he is, I'll take care that your own Pamphilus shall be found for you, and brought to you by me; do you only, my life, cease to vex yourself.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Mysis.</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>turning round.</stage> Who is it? Why, Pamphilus, you do present yourself opportunely to me. My mistress charged me to beg of you, if you love her, to come to her directly; she says she wishes to see you.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside.</stage> Alas! I am undone; this dilemma grows apace! <stage>To DAVUS.</stage> For me and her, unfortunate persons, now to be tortured this way through your means; for I am sent for, because she has discovered that my marriage is in preparation.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> From which, indeed, how easily a respite could have been obtained, if he <stage>pointing to DAVUS</stage> had kept himself quiet.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>ironically to CHARINUS.</stage> Do proceed; if he isn't sufficiently angry of his own accord, do you irritate him.</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>to PAMPHILUS.</stage>, Aye faith, that is the case; and for that reason, poor thing, she is now in distress.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Mysis, I swear by all the Gods that I will never forsake her; not if I were to know that all men would be my enemies in consequence. Her have I chosen for mine; she has fallen to my lot; our feelings are congenial; farewell they, who wish for a separation between us; nothing but Death separates her from me.</p></sp>
+<sp><speaker>MYSIS</speaker><p> I begin to revive.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Not the responses of Apollo are more true than this. If it can possibly be contrived that my father may not believe that this marriage has been broken off through me, I could wish it. But if that can not be, I will do that which is easily effected, for him to believe that through me it has been caused. What do you think of me?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> That you are as unhappy as myself.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>placing his finger on his forehead.</stage> I'm contriving an expedient.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You are a clever hand; if you do set about any thing.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Assuredly, I'll manage this for you.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> There's need of it now.</p></sp>
+<sp><speaker>DAVUS</speaker><p> But I've got it now.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What is it?</p></sp>
+<sp><speaker>DAVUS</speaker><p> For him (pointing to PAMPHILUS) I've got it, not for you, don't mistake.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm quite satisfied.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What will you do? Tell me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I'm afraid that this day won't be long enough for me to execute it, so don't suppose that I've now got leisure for relating it; do you betake yourself off at once, for you are a hinderance to me.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'll go and see her. <stage>Goes into the house of GLYCERIUM.</stage></p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to CHARINUS.</stage> What are you going to do? Whither are you going from here?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Do you wish me to tell you the truth?</p></sp>
+<sp><speaker>DAVUS</speaker><p> No, not at all; <stage>aside</stage> he's making the beginning of a long story for me.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What will become of me?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Come now, you unreasonable person, are you not satisfied that I give you a little respite, by putting off his marriage?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But yet, Davus----</p></sp>
+<sp><speaker>DAVUS</speaker><p> What then?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> That I may marry her----</p></sp>
+<sp><speaker>DAVUS</speaker><p> Absurd.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Be sure to come hither <stage>pointing in the direction of his house</stage> to my house, if you can effect any thing.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why should I come? I can do nothing for you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But still, if any thing----</p></sp>
+<sp><speaker>DAVUS</speaker><p> Well, well, I'll come.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> If you can; I shall be at home. <stage>(Exit.)</stage>
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> Do you, Mysis, remain here a little while, until I come out.</p></sp>
+<sp><speaker>MYSIS</speaker><p> For what reason?</p></sp>
+<sp><speaker>DAVUS</speaker><p> There's a necessity for so doing.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Make haste.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I'll be here this moment, I tell you. <stage>He goes into the house of GLYCERIUM.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="717" unit="TLN line"/>
+<sp><speaker>MYSIS</speaker><p> <stage>to herself.</stage> That nothing can be secure to any one! Ye Gods, by our trust in you ! I used to make sure that this Pamphilus was a supreme blessing for my mistress; a friend, a protector, a husband secured under every circumstance; yet what anguish is she, poor thing, now suffering through him? Clearly there's more trouble for her now than there was happiness formerly. But Davus is coming out.
+
+<stage>Enter DAVUS from the house of GLYCERIUM with the child.</stage></p></sp>
+<sp><speaker>MYSIS</speaker><p> My good sir, prithee, what is that? Whither are you carrying the child?
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> Mysis, I now stand in need of your cunning being brought into play in this matter, and of your address.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Why, what are you going to do?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>holding out the child.</stage> Take it from me directly, and lay it down before our door.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Prithee, on the ground?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>pointing.</stage> Take some sacred herbs <milestone n="727" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take some sacred herbs</lemma>: <quote lang="la">"Verbena"</quote> appears to have been a general term applied to any kind of herb used in honor of the Deities, or to the boughs and leaves of any tree gathered from a pure or sacred place. Fresh <foreign lang="la">"verbenae"</foreign> were placed upon the altars every day. See the Mercator of Plautus, 1. 672.</note> from the altar here,
+<milestone n="727" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From the altar here</lemma>: It was usual to have altars on the stage; when Comedy was performed, one on the left hand in honor of Apollo, and on the representation of Tragedy, one on the right in honor of Bacchus. It has been suggested that Terence here alludes to the former of these. As, however, at <placeName key="perseus,Athens">Athens</placeName> almost every house had its own altar in honor of Apollo Prostaterius just outside of the street door, it is most probable that to one of these altars reference is here made. They are frequently alluded to in the Plays of Plautus.</note> and strew them under it.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Why don't you do it yourself?</p></sp>
+<sp><speaker>DAVUS</speaker><p> That if perchance I should have to swear to my master that I did not place it there, I may be enabled to do so with a clear conscience.</p></sp>
+<sp><speaker>MYSIS</speaker><p> I understand; have these new scruples only just now occurred to you, pray?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Bestir yourself quickly, that you may learn what I'm going to do next. <stage>MYSIS lays the child at SIMO'S door.</stage> Oh <persName>Jupiter</persName>!</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>starting up.</stage> What's the matter?</p></sp>
+<sp><speaker>DAVUS</speaker><p> The father of the intended bride is coming in the middle of it all. The plan which I had first purposed I now give up.
+<milestone n="734" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Which I had first purposed, I now give up</lemma>: His first intention no doubt was to go and inform Simo of the child being laid at the door.</note></p></sp>
+<sp><speaker>MYSIS</speaker><p> I don't understand what you are talking about.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I'll pretend too that I've come in this direction from the right. Do you take care to help out the conversation by your words, whenever there's necessity.
+<milestone n="737" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whenever there's necessity</lemma>: He retires without fully explaining his intention to Mysis; consequently, in the next Scene she gives an answer to Chremes which Davus does not intend.</note>
+</p></sp>
+<sp><speaker>MYSIS</speaker><p> I don't at all comprehend what you are about; but if there's any thing in which you have need of my assistance, as you understand the best, I'll stay, that I mayn't in any way impede your success. <stage>DAVUS retires out of sight.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="741" unit="TLN line"/>
+<stage>Enter CHREMES on the other side of the stage, going toward the house of SIMO.</stage>
+<sp><speaker>CHREMES</speaker><p> <stage>to himself</stage> After having provided the things necessary for my daughter's nuptials, I'm returning, that I may request her to be sent for. <stage>Seeing the child.</stage> But what's this? I'faith, it's a child. <stage>Addressing MYSIS.</stage> Woman, have you laid that here <stage>pointing to the child</stage>?</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>aside, looking out for DAVUS.</stage> Where is he?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Don't you answer me?</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>looking about, to herself.</stage> He isn't any where to be seen. Woe to wretched me! the fellow has left me and is off.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>coming forward and pretending not to see them.</stage> Ye Gods, by our trust in you ! what a crowd there is in the Forum! What a lot of people are squabbling there! <stage>Aloud.</stage> Then provisions are so dear. <stage>Aside.</stage> What to say besides, I don't know. <stage>CHREMES passes by MYSIS, and goes to a distance at the back of the stage.</stage></p></sp>
+<sp><speaker>MYSIS</speaker><p> Pray, why did you leave me here alone?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>pretending to start on seeing the child.</stage> Ha! what story is this? How now, Mysis, whence comes this child? Who has brought it here?</p></sp>
+<sp><speaker>MYSIS</speaker><p> Are you quite right in your senses, to be asking me that?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Whom, then, ought I to ask, as I don't see any one else here?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart to himself.</stage> I wonder whence it has come.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Are you going to tell me what I ask?</p></sp>
+<sp><speaker>MYSIS</speaker><p> Pshaw !</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>in a whisper.</stage> Step aside to the right. <stage>They retire on one side.</stage></p></sp>
+<sp><speaker>MYSIS</speaker><p> You are out of your senses; didn't you your own self?</p></sp>
+<sp><speaker>DAY.</speaker><p> <stage>in a low voice.</stage> Take you care not to utter a single word beyond what I ask you. Why don't you say aloud whence it comes?</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>in a loud voice.</stage> From our house.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>affecting indignation.</stage> Heyday, indeed! it really is a wonder if a woman, who is a courtesan, acts impudently.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> So far as I can learn, this woman belongs to the Andrian.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Do we seem to you such very suitable persons for you to be playing tricks with us in this way?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> I came just in time.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Make haste then, and take the child away from the door here: <stage>in a low voice</stage> stay there; take care you don't stir from that spot.</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>aside.</stage> May the Gods confound you! you do so terrify poor me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>in a loud voice.</stage> Is it to you I speak or not?</p></sp>
+<sp><speaker>MYSIS</speaker><p> What is it you want?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> What--do you ask me again? Tell me, whose child have you been laying here? Let me know.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Don't you know?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>in a low voice.</stage> Have done with what I know; tell me what I ask.</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>aloud.</stage> It belongs to your people.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> Which of our people?</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>aloud.</stage> To Pamphilus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>affecting surprise in a loud tone.</stage> How? What--to Pamphilus?</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>aloud.</stage> How now--is it not so?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> With good reason have I always been averse to this match, it's clear.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>calling aloud.</stage> O abominable piece of effrontery!</p></sp>
+<sp><speaker>MYSIS</speaker><p> Why are you bawling out so?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> What, the very one I saw being carried to your house yesterday evening?</p></sp>
+<sp><speaker>MYSIS</speaker><p> O you impudent fellow!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> It's the truth. I saw Canthara stuffed out beneath her clothes.
+<milestone n="771" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Stuffed out beneath her clothes</lemma>: <quote lang="la">"Suffarcinatam."</quote> He alludes to the trick already referred to as common among the Greeks, of the nurses and midwives secretly introducing supposititious children; see 1. 515 and the Note.</note></p></sp>
+<sp><speaker>MYSIS</speaker><p> I'faith, I thank the Gods that several free women were present
+<milestone n="772" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Several free women were present</lemma>: She speaks of <quote lang="la">"liberae,"</quote> "free women," because in <placeName key="tgn,1000074">Greece</placeName> as well as <placeName key="tgn,1000080">Italy</placeName> slaves were not permitted to give evidence. See the Curculio of Plautus, 1. 621, and the Note to the passage in Bohn's Translation. See also the remark of Geta in the Phormio, 1. 293.</note> at the delivery.
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> Assuredly she doesn't know him, on whose account she resorts to these schemes. Chremes, she fancies, if he sees the child laid before the door, will not give his daughter; i'faith, he'll give her all the sooner.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> I'faith, he'll not do so.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> Now therefore, that you may be quite aware, if you don't take up the child, I'll roll it forthwith into the middle of the road; and yourself in the same place I'll roll over into the mud.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Upon my word, man, you are not sober.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> One scheme brings on another. I now hear it whispered about that she is a citizen of <placeName key="tgn,7002681">Attica</placeName>----</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> Ha!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud.</stage> And that, constrained by the laws,
+<milestone n="782" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Constrained by the laws</lemma>: He alludes to a law at <placeName key="perseus,Athens">Athens</placeName> which compelled a man who had debauched a free-born woman to marry her. This is said by Davus with the view of frightening Chremes from the match.</note> he will have to take her as his wife.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Well now, pray, is she not a citizen?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> I had almost fallen unawares into a comical misfortune. <stage>Comes forward.</stage></p></sp>
+<sp><speaker>DAVUS</speaker><p> Who's that, speaking? <stage>Pretending to look about.</stage> O Chremes, you have come in good time. Do listen to this.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I have heard it all already.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Prithee, did you hear it? Here's villainy for you! she <stage>pointing at MYSIS</stage> ought to be carried off
+<milestone n="787" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">She ought to be carried off</lemma>: He says this implying that Mysis, who is a slave, ought to be put to the torture to confess the truth; as it was the usual method at <placeName key="perseus,Athens">Athens</placeName> to force a confession from slaves by that method. We find in the Hecyra, Bacchis readily offering her slaves to be put to the torture, and in the Adelphi the same custom is alluded to in the Scene between Micio, Hegio and Geta.</note> hence to the torture forthwith. <stage>To MYSIS, pointing at CHREMES.</stage> This is Chremes himself; don't suppose that you are trifling with Davus only.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Wretched me! upon my faith I have told no untruth, my worthy old gentleman.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I know the whole affair. Is Simo within?</p></sp>
+<sp><speaker>DAVUS</speaker><p> He is. <stage>CHREMES goes into SIMO'S house.</stage>
+</p></sp>
+<sp><speaker>MYSIS</speaker><p> <stage>DAVUS attempting to caress her.</stage> Don't touch me, villain. <stage>Moving away.</stage> On my word, if I don't tell Glycerium all this----</p></sp>
+<sp><speaker>DAVUS</speaker><p> How now, simpleton, don't you know what has been done?</p></sp>
+<sp><speaker>MYSIS</speaker><p> How should I know?</p></sp>
+<sp><speaker>DAVUS</speaker><p> This is the bride's father. It couldn't any other way have been managed that he should know the things that we wanted him to know.</p></sp>
+<sp><speaker>MYSIS</speaker><p> You should have told me that before.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Do you suppose that it makes little difference whether you do things according to impulse, as nature prompts, or from premeditation?</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="797" unit="TLN line"/>
+<stage>Enter CRITO, looking about him.</stage>
+<sp><speaker>CRITO</speaker><p> <stage>to himself.</stage> It was said that Chrysis used to live in this street, who preferred to gain wealth here dishonorably to living honestly as a poor woman in her own country: by her death that property has descended to me by law.
+<milestone n="800" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Descended to me by law</lemma>: On the supposition that Chrysis died without a will, Crito as her next of kin would be entitled to her effects.</note> But I see some persons of whom to make inquiry. <stage>Accosting them.</stage> Good-morrow to you.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Prithee, whom do I see? Isn't this Crito, the kinsman of Chrysis? It is he.</p></sp>
+<sp><speaker>CRITO</speaker><p> O Mysis, greetings to you.</p></sp>
+<sp><speaker>MYSIS</speaker><p> Welcome to you, Crito.</p></sp>
+<sp><speaker>CRITO</speaker><p> Is Chrysis then ----?
+<milestone n="804" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is Chrysis then ----?</lemma>: This is an instance of Aposiopesis; Crito, much affected, is unwilling to name the death of Chrysis. It was deemed of ill omen to mention death, and numerous Euphemisms or circumlocutions were employed in order to avid the necessity of doing so.</note> Alas!
+</p></sp>
+<sp><speaker>MYSIS</speaker><p> Too truly. She has indeed left us poor creatures quite heart-broken.</p></sp>
+<sp><speaker>CRITO</speaker><p> How fare you here, and in what fashion? Pretty well?</p></sp>
+<sp><speaker>MYSIS</speaker><p> What, we? Just as we can, as they say; since we can't as we would.</p></sp>
+<sp><speaker>CRITO</speaker><p> How is Glycerium? Has she discovered her parents yet?</p></sp>
+<sp><speaker>MYSIS</speaker><p> I wish she had.</p></sp>
+<sp><speaker>CRITO</speaker><p> What, not yet? With no favorable omen did I set out for this place; for, upon my faith, if I had known that, I never would have moved a foot hither. She was always said to be, and was looked upon as her sister; what things were hers she is in possession of; now for me to begin a suit at law here, the precedents of others warn me, a stranger,
+<milestone n="812" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Warn me, a stranger</lemma>: Patrick has the following remarks upon this passage: "Madame Dacier observes that it appears, from Xenophon's Treatise on the policy of the Athenians, that all the inhabitants of cities and islands in alliance with <placeName key="perseus,Athens">Athens</placeName> were obliged in all claims to repair thither, and refer their cause to the decision of the people, not being permitted to plead elsewhere. We can not wonder then that Crito is unwilling to engage in a suit so inconvenient from its length, expense, and little prospect of success." She might have added that such was the partiality and corruptness of the Athenian people, that, being a stranger, his chances of success would probably be materially diminished.</note> how easy and profitable a task it would be for me. At the same time, I suppose that by this she has got some friend and protector; for she was pretty nearly a grown-up girl when she left there. They would cry out that I am a sharper; that, a pauper, I'm hunting after an inheritance; besides, I shouldn't like to strip the girl herself.</p></sp>
+<sp><speaker>MYSIS</speaker><p> O most worthy stranger! I'faith, Crito, you still adhere to your good old-fashioned ways.</p></sp>
+<sp><speaker>CRITO</speaker><p> Lead me to her, since I have come hither, that I may see her.</p></sp>
+<sp><speaker>MYSIS</speaker><p> By all means. <stage>They go into the house of GLYCERIUM.</stage></p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> I'll follow them; I don't wish the old man to see me at this moment. <stage>He follows MYSIS and CRITO.</stage>
+
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="821" unit="TLN line"/>
+<stage>Enter CHREMES and SIMO from the house of SIMO.</stage>
+<sp><speaker>CHREMES</speaker><p> Enough already, enough, Simo, has my friendship toward you been proved. Sufficient hazard have I begun to encounter; make an end of your entreaties, then. While I've been endeavoring to oblige you, I've almost fooled away my daughter's prospects in life.</p></sp>
+<sp><speaker>SIMO</speaker><p> Nay but, now in especial, Chremes, I do beg and entreat of you, that the favor, commenced a short time since in words, you'll now complete by deeds.</p></sp>
+<sp><speaker>CHREMES</speaker><p> See how unreasonable you are from your very earnestness; so long as you effect what you desire, you neither think of limits to compliance, nor what it is you request of me; for if you did think, you would now forbear to trouble me with unreasonable requests.</p></sp>
+<sp><speaker>SIMO</speaker><p> What unreasonable requests?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Do you ask? You importuned me to promise my daughter to a young man engaged in another attachment, averse to the marriage state, to plunge her into discord and a marriage of uncertain duration; that through her sorrow and her anguish I might reclaim your son. You prevailed; while the case admitted of it I made preparations. Now it does not admit of it; you must put up with it; they say that she is a citizen of this place; a child has been born; do cease to trouble us.</p></sp>
+<sp><speaker>SIMO</speaker><p> By the Gods, I do conjure you not to bring your mind to believe those whose especial interest it is that he should be as degraded as possible. On account of the marriage, have all these things been feigned and contrived. When the reason for which they do these things is removed from them, they will desist.</p></sp>
+<sp><speaker>CHREMES</speaker><p> You are mistaken; I myself saw the servant-maid wrangling with Davus.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>sneeringly.</stage> I am aware.</p></sp>
+<sp><speaker>CHREMES</speaker><p> With an appearance of earnestness, when neither at the moment perceived that I was present there.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> I believe it; and Davus a short time since forewarned me that this would be the case; and I don't know how I forgot to tell it you to-day, as I had intended.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="843" unit="TLN line"/>
+<stage>Enter DAVUS from the house of GLYCERIUM.</stage>
+<sp><speaker>DAVUS</speaker><p> <stage>aloud at the door, not seeing SIMO and CHREMES.</stage> Now then, I bid you set your minds at ease.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to SIMO.</stage> See you, there's Davus.</p></sp>
+<sp><speaker>SIMO</speaker><p> From what house is he coming out?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> Through my means, and that of the stranger----</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>overhearing.</stage> What mischief is this?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> I never did see a more opportune person, encounter, or occasion.</p></sp>
+<sp><speaker>SIMO</speaker><p> The rascal! I wonder who it is he's praising?</p></sp>
+<sp><speaker>DAVUS</speaker><p> All the affair is now in a safe position.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why do I delay to accost him?</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself, catching sight of SIMO.</stage> It's my master; what am I to do?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>accosting him.</stage> O, save you, good sir!</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>affecting surprise.</stage> Hah! Simo! O, Chremes, my dear sir, all things are now quite ready in-doors.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>ironically.</stage> You have taken such very good care.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Send for the bride when you like.</p></sp>
+<sp><speaker>SIMO</speaker><p> Very good: <stage>ironically</stage> of course, that's the only thing that's now wanting here. But do you answer me this, what business had you there? <stage>Pointing to the house of GLYCERIUM.</stage></p></sp>
+<sp><speaker>DAVUS</speaker><p> What, I?</p></sp>
+<sp><speaker>SIMO</speaker><p> Just so.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I?</p></sp>
+<sp><speaker>SIMO</speaker><p> Yes, you.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I went in just now.</p></sp>
+<sp><speaker>SIMO</speaker><p> As if I asked how long ago!</p></sp>
+<sp><speaker>DAVUS</speaker><p> Together with your son.</p></sp>
+<sp><speaker>SIMO</speaker><p> What, is Phamphilus in there? <stage>Aside.</stage> To my confusion, I'm on the rack! <stage>To DAVUS.</stage> How now? Didn't you say that there was enmity between them, you scoundrel?</p></sp>
+<sp><speaker>DAVUS</speaker><p> There is.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> Why is he there, then?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Why do you. suppose he is?   <stage>Ironically.</stage> Quarreling with her, of course.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Nay but, Chremes, I'll let you now hear from me a disgraceful piece of business. An old man, I don't know who he is, has just now come here; look you, he is a confident and shrewd person; when you look at his appearance, he seems to be a person of some consequence. There is a grave sternness in his features, and something commanding in his words.</p></sp>
+<sp><speaker>SIMO</speaker><p> What news are you bringing, I wonder?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why nothing but what I heard him mention.</p></sp>
+<sp><speaker>SIMO</speaker><p> What does he say then?</p></sp>
+<sp><speaker>DAVUS</speaker><p> That he knows Glycerium to be a citizen of <placeName key="tgn,7002681">Attica</placeName>.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>going to his door.</stage> Ho there! Dromo, Dromo!
+
+<stage>Enter DROMO hastily from the house.</stage></p></sp>
+<sp><speaker>DROMO</speaker><p> What is it?</p></sp>
+<sp><speaker>SIMO</speaker><p> Dromo!</p></sp>
+<sp><speaker>DAVUS</speaker><p> Hear me.</p></sp>
+<sp><speaker>SIMO</speaker><p> If you add a word----Dromo!</p></sp>
+<sp><speaker>DAVUS</speaker><p> Hear me, pray.</p></sp>
+<sp><speaker>DROMO</speaker><p> <stage>to SIMO.</stage> What do you want?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>pointing to DAVUS.</stage> Carry him off on your shoulders in-doors as fast as possible.</p></sp>
+<sp><speaker>DROMO</speaker><p> Whom?</p></sp>
+<sp><speaker>SIMO</speaker><p> Davus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> For what reason?</p></sp>
+<sp><speaker>SIMO</speaker><p> Because I choose. <stage>To. DROMO.</stage> Carry him off, I say.</p></sp>
+<sp><speaker>DAVUS</speaker><p> What have I done?</p></sp>
+<sp><speaker>SIMO</speaker><p> Carry him off.</p></sp>
+<sp><speaker>DAVUS</speaker><p> If you find that I have told a lie in any one matter, then kill me.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'll hear nothing. I'll soon have you set in motion.
+<milestone n="865" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You set in motion</lemma>: By the use of the word <quote lang="la">"Commotus"</quote> he seems to allude to the wretched, restless existence of a man tied hand and foot, and continually working at the hand-mill. Westerhovius thinks that Simo uses this word sarcastically, in allusion to the words of Davus, at the beginning of the present Scene, <foreign lang="la">"Animo otioso esse impero;"</foreign> "I bid you set your minds at ease."</note>
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> What? Although this is the truth.</p></sp>
+<sp><speaker>SIMO</speaker><p> In spite of it. <stage>To DROMO.</stage> Take care he's kept well secured; and, do you hear? Tie him up hands and feet together.
+<milestone n="866" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hands and feet together</lemma>: <quote lang="la">"Quadrupedem."</quote> Literally "as a quadruped" or "all fours." Echard remarks that it was the custom of the Athenians to tie criminals hands and feet together, just like calves.</note> Now then, be off; upon my faith this very day, if I live, I'll teach you what hazard there is in deceiving a master, and him in deceiving a father. <stage>DROMO leads DAVUS into the house.</stage></p></sp>
+<sp><speaker>CHREMES</speaker><p> Oh, don't be so extremely vexed.</p></sp>
+<sp><speaker>SIMO</speaker><p> O Chremes, the dutifulness of a son! Do you not pity me? That I should endure so much trouble for such a son! <stage>Goes to the door of GLYCERIUM'S house.</stage> Come, Pamphilus, come out, Pamphilus! have you any shame left?</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="873" unit="TLN line"/>
+<stage>Enter PAMPHILUS in haste from GLYCERIUM'S house.</stage>
+<sp><speaker>PAMPHILUS</speaker><p> Who is it that wants me? <stage>Aside.</stage> I'm undone! it's my father.</p></sp>
+<sp><speaker>SIMO</speaker><p> What say you, of all men, the ----?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Oh! rather speak about the matter itself, and forbear to use harsh language.</p></sp>
+<sp><speaker>SIMO</speaker><p> As if any thing too severe could now be possibly said against him. Pray, do you say that Glycerium is a citizen---</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> So they say.</p></sp>
+<sp><speaker>SIMO</speaker><p> So they say! Unparalleled assurance! does he consider what he says? Is he sorry for what he has done? Does his countenance, pray, at all betray any marks of shame? That he should be of mind so weak, as, without regard to the custom and the law
+<milestone n="880" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Without regard to the custom and the law</lemma>: There was a law among the Athenians which forbade citizens to marry strangers, and made the offspring of such alliances illegitimate; the same law also excluded such as were not born of two citizens from all offices of trust and honor.</note> of his fellow-citizens, and the wish of his own father, to be anxious, in spite of every thing, to have her, to his own utter disgrace!</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Miserable that I am!</p></sp>
+<sp><speaker>SIMO</speaker><p> Ha! have you at last found that out only just now, Pamphilus? Long since did that expression, long since, when you made up your mind, that what you desired must be effected by you at any price; from that very day did that expression aptly befit you. But yet why do I torment myself? Why vex myself? Why worry my old age with this madness? Am I to suffer the punishment for his offenses? Nay then, let him have her, good-by to him, let him pass his life with her.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> My father----</p></sp>
+<sp><speaker>SIMO</speaker><p> How, "my father?" As if you stood in any need of this father. Home, wife, and children, provided by you against the will of your father! People suborned, too, to say that she is a citizen of this place! You have gained your point.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Father, may I say a few words?</p></sp>
+<sp><speaker>SIMO</speaker><p> What can you say to me?</p></sp>
+<sp><speaker>CHREMES</speaker><p> But, Simo, do hear him.</p></sp>
+<sp><speaker>SIMO</speaker><p> I, hear him? Why should I hear him, Chremes?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Still, however, do allow him to speak.</p></sp>
+<sp><speaker>SIMO</speaker><p> Well then, let him speak: I allow him.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I own that I love her; if that is committing a fault, I own that also. To you, father, do I subject myself. Impose on me any injunction you please; command me. Do you wish me to take a wife? Do you wish me to give her up? As well as I can I will endure it. This only I request of you, not to think that this old gentleman has been suborned by me. Allow me to clear myself, and to bring him here before you.</p></sp>
+<sp><speaker>SIMO</speaker><p> To bring him here?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Do allow me, father.</p></sp>
+<sp><speaker>CHREMES</speaker><p> He asks what's reasonable; do give him leave.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Allow me to obtain thus much of you.</p></sp>
+<sp><speaker>SIMO</speaker><p> I allow it. I desire any thing, so long as I find, Chremes, that I have not been deceived by him. <stage>PAMPHILUS goes into the house of GLYCERIUM.</stage></p></sp>
+<sp><speaker>CHREMES</speaker><p> For a great offense, a slight punishment ought to satisfy a father.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="905" unit="TLN line"/>
+<stage>Re-enter PAMPHILUS with CRITO.</stage>
+<sp><speaker>CRITO</speaker><p> <stage>to PAMPHILUS, as he is coming out.</stage> Forbear entreating. Of these, any one reason prompts me to do it, either your own sake, or the fact that it is the truth, or that I wish well for Glycerium herself.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>starting.</stage> Do I see Crito of <placeName key="perseus,Andros City">Andros</placeName>? Surely it is he.</p></sp>
+<sp><speaker>CRITO</speaker><p> Greetings to you, Chremes.</p></sp>
+<sp><speaker>CHREMES</speaker><p> How is it that, so contrary to your usage, you are at <placeName key="perseus,Athens">Athens</placeName>?</p></sp>
+<sp><speaker>CRITO</speaker><p> So it has happened. But is this Simo?</p></sp>
+<sp><speaker>CHREMES</speaker><p> It is he.</p></sp>
+<sp><speaker>CRITO</speaker><p> Simo, were you asking for me?</p></sp>
+<sp><speaker>SIMO</speaker><p> How now, do you say that Glycerium is a citizen of this place?</p></sp>
+<sp><speaker>CRITO</speaker><p> Do you deny it?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>ironically.</stage> Have you come here so well prepared?</p></sp>
+<sp><speaker>CRITO</speaker><p> For what purpose?</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you ask? Are you to be acting this way with impunity? Are you to be luring young men into snares here, inexperienced in affairs, and liberally brought up, by tempting them, and to be playing upon their fancies by making promises?</p></sp>
+<sp><speaker>CRITO</speaker><p> Are you in your senses?</p></sp>
+<sp><speaker>SIMO</speaker><p> And are you to be patching up amours with Courtesans by marriage?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside.</stage> I'm undone! I fear that the stranger will not put up with this.</p></sp>
+<sp><speaker>CHREMES</speaker><p> If, Simo, you knew this person well, you would not think thus; he is a worthy man.</p></sp>
+<sp><speaker>SIMO</speaker><p> He, a worthy man! To come so opportunely to-day just at the very nuptials, and yet never to have come before? <stage>Ironically.</stage> Of course, we must believe him, Chremes.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside.</stage> If I didn't dread my father, I have something, which, in this conjuncture, I could opportunely suggest to him
+<milestone n="919" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Could opportunely suggest to him</lemma>: Colman has the following remark on this line: "Madame Dacier and several English Translators make Pamphilus say that he could give Crito a hint or two. What hints he could propose to suggest to Crito, I can not conceive. The Italian translation, printed with the Vatican Terence, seems to understand the words in the same manner that I have translated them, in which sense (the pronoun <foreign lang="la">'ilium'</foreign> referring to Simo instead of Crito) they seem to be the most natural words of Pamphilus on occasion of his father's anger and the speech immediately preceding."</note>
+</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>sneeringly, to CHREMES.</stage> A sharper!
+<milestone n="920" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A sharper</lemma>: <quote lang="la">"Sycophanta."</quote> For some account of the <foreign lang="la">"sycophantae,"</foreign> "swindlers" or "sharpers" of ancient times, see the Notes to the Trinummus of Plautus, Bohn's Translation.</note></p></sp>
+<sp><speaker>CRITO</speaker><p> <stage>starting.</stage> Hah!</p></sp>
+<sp><speaker>CHREMES</speaker><p> It is his way, Crito; do excuse it.</p></sp>
+<sp><speaker>CRITO</speaker><p> Let him take heed how he behaves. If he persists in saying to me what he likes, he'll be hearing things that he don't like. Am I meddling with these matters or interesting myself? Can you not endure your troubles with a patient mind? For as to what I say, whether it is true or false what I have heard, can soon be known. A certain man of <placeName key="tgn,7002681">Attica</placeName>, a long time ago,
+<milestone n="924" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A long time ago</lemma>: The story begins with <foreign lang="la">"Olim,"</foreign> just in the same way that with us nursery tales commence with "There was, a long time ago."</note> his ship being wrecked, was cast ashore at <placeName key="perseus,Andros City">Andros</placeName>, and this woman together with him, who was then a little girl; he, in his destitution, by chance first made application to the father of Chrysis----</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>ironically.</stage> He's beginning his tale.</p></sp>
+<sp><speaker>CHREM. </speaker><p>Let him alone.</p></sp>
+<sp><speaker>CRITO</speaker><p> Really, is he to be interrupting me in this way?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Do you proceed.</p></sp>
+<sp><speaker>CRITO</speaker><p> He who received him was a relation of mine. There I heard from him that he was a native of <placeName key="tgn,7002681">Attica</placeName>. He died there.</p></sp>
+<sp><speaker>CHREMES</speaker><p> His name?</p></sp>
+<sp><speaker>CRITO</speaker><p> The name, in such a hurry!</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Phania.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>starting.</stage> Hah! I shall die!</p></sp>
+<sp><speaker>CRI. </speaker><p>I'faith, I really think it was Phania; this I know for certain, he said that he was a citizen of Rhamnus.
+<milestone n="931" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A citizen of Rhamnus</lemma>: Rhamnus was a maritime town of <placeName key="tgn,7002681">Attica</placeName>, near which many of the more wealthy Athenians had country-seats. It was famous for the Temple of Nemesis there, the Goddess of Vengeance, who was thence called "Rhamnusia." In this Temple was her statue, carved by Phidias out of the marble which the Persians brought to <placeName key="tgn,1000074">Greece</placeName> for the purpose of making a statue of Victory out of it, and which was thus appropriately devoted to the Goddess of Retribution. The statue wore a crown, and had wings, and, holding a spear of ash in the right hand, it was seated on a stag.</note></p></sp>
+<sp><speaker>CHREMES</speaker><p> O <persName>Jupiter</persName>!
+</p></sp>
+<sp><speaker>CRITO</speaker><p> Many other persons in <placeName key="perseus,Andros City">Andros</placeName> have heard the same, Chremes.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>aside.</stage> I trust it may turn out as I hope. <stage>To CRITO.</stage> Come now, tell me, what did he then say about her? Did he say she was his own daughter?</p></sp>
+<sp><speaker>CRITO</speaker><p> No.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Whose then?</p></sp>
+<sp><speaker>CRITO</speaker><p> His brother's daughter.</p></sp>
+<sp><speaker>CHREMES</speaker><p> She certainly is mine.</p></sp>
+<sp><speaker>CRITO</speaker><p> What do you say?</p></sp>
+<sp><speaker>SIMO</speaker><p> What is this that you say?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside.</stage> Prick up your ears, Pamphilus.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why do you suppose so?</p></sp>
+<sp><speaker>CHREMES</speaker><p> That Phania was my brother.</p></sp>
+<sp><speaker>SIMO</speaker><p> I knew him, and I am aware of it.</p></sp>
+<sp><speaker>CHREMES</speaker><p> He, flying from the wars, and following me to <placeName key="tgn,1000004">Asia</placeName>, set out from here. At the same time he was afraid to leave her here behind; since then, this is the first time I have heard what became of him.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside.</stage> I am scarcely myself, so much has my mind been agitated by fear, hope, joy, and surprise at this so great, so unexpected blessing.</p></sp>
+<sp><speaker>SIMO</speaker><p> Really, I am glad for many reasons that she has been discovered to be a citizen.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I believe it, father.</p></sp>
+<sp><speaker>CHREMES</speaker><p> But there yet remains one difficulty
+<milestone n="941" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">One difficulty</lemma>: <quote lang="la">"Scrupus,"</quote> or "scrupulus," was properly a stone or small piece of gravel which, getting into the shoe, hurt the foot; hence the word figuratively came to mean a "scruple," "difficulty," or "doubt." We have a similar expression: "to be graveled."</note> with me, which keeps me in suspense.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside.</stage> You deserve to be ----, with your scruples, you plague. You are seeking a knot in a bulrush.
+<milestone n="942" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A knot in a bulrush</lemma>: <quote lang="la">"Nodum in scirpo quaerere"</quote> was a proverbial expression implying a desire to create doubts and difficulties where there really were none; there being no knots in the bulrush. The same expression occurs in the Menaechmi of Plautus, 1. 247.</note></p></sp>
+<sp><speaker>CRITO</speaker><p> <stage>to CHREMES.</stage> What is that?</p></sp>
+<sp><speaker>CHREMES</speaker><p> The names don't agree.</p></sp>
+<sp><speaker>CRITO</speaker><p> Troth, she had another when little.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What was it, Crito? Can you remember it?
+</p></sp>
+<sp><speaker>CRITO</speaker><p> I'm trying to recollect it.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside.</stage> Am I to suffer his memory to stand in the way of my happiness, when I myself can provide my own remedy in this matter?   I will not suffer it. <stage>Aloud.</stage> Hark you, Chremes, that which you are trying to recollect is "Pasibula."</p></sp>
+<sp><speaker>CHREMES</speaker><p> The very same.</p></sp>
+<sp><speaker>CRITO</speaker><p> That's it.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I've heard it from herself a thousand times.</p></sp>
+<sp><speaker>SIMO</speaker><p> I suppose, Chremes, that you believe that we all rejoice at this discovery.</p></sp>
+<sp><speaker>CHREMES</speaker><p> So may the Gods bless me, I do believe it.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What remains to be done, father?</p></sp>
+<sp><speaker>SIMO</speaker><p> The event itself has quite brought me to reconcilement.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> O kind father! With regard to her as a wife, since I have taken possession of her, Chremes will not offer any opposition.</p></sp>
+<sp><speaker>CHREMES</speaker><p> The plea is a very good one, unless perchance your father says any thing to the contrary.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Of course, I agree.</p></sp>
+<sp><speaker>SIMO</speaker><p> Then be it so.
+<milestone n="951" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of course----Then be it so</lemma>: <quote lang="la">"Nempe id. Scilicet."</quote> Colman has the following remark on this line: "Donatus, and some others after him, understand these words of Simo and Pamphilus as requiring a fortune of Chremes with his daughter; and one of them' says that Simo, in order to explain his meaning, in the representation, should produce a bag of money. This surely is precious refinement, worthy the genius of a true Commentator. Madame Dacier, who entertains a just veneration for Donatus, doubts the authenticity of the observation ascribed to him. The sense I have followed is, I think, the most obvious and natural' interpretation of the words of Pamphilus and Simo, which refers to the preceding, not the subsequent, speech of Chremes."</note></p></sp>
+<sp><speaker>CHREMES</speaker><p> Her portion, Pamphilus, is ten talents.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I alm satisfied.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I'll hasten to my daughter. Come now, <stage>beckoning</stage> along with me, Crito; for I suppose that she will not know me. <stage>They go into GLYCERIUM'S house.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>To PAMPHILUS.</stage> Why don't you order her to be sent for hither, to our house?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Well thought of; I'll at once give charge of that to Davus.</p></sp>
+<sp><speaker>SIMO</speaker><p> He can't do it.
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How so?</p></sp>
+<sp><speaker>SIMO</speaker><p> Because he has another matter that more nearly concerns himself, and of more importance.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What, pray?</p></sp>
+<sp><speaker>SIMO</speaker><p> He is bound.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Father, he is not rightly bound.
+<milestone n="956" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He is not rightly bound</lemma>: <quote lang="la">"Non recte vinctus;"</quote> meaning it was not well done to bind him." The father pretends to understand him as meaning (which he might equally well by using the same words), <foreign lang="la">"non satis stricte,"</foreign> "he wasn't tightly enough" bound; and answers "I ordered that he should be," referring to his order for Davus to be bound hand and foot. Donatus justly observes that the disposition of the old gentleman to joke is a characteristic mark of his thorough reconciliation.</note></p></sp>
+<sp><speaker>SIMO</speaker><p> But I ordered to that effect.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Prithee, do order him to be set at liberty,</p></sp>
+<sp><speaker>SIMO</speaker><p> Well, be it so.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But immediately.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'm going in.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> O fortunate and happy day! <stage>SIMO goes into his house.</stage></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="958" unit="TLN line"/>
+<stage>Enter CHARINUS, at a distance.</stage>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart to himself.</stage> I'm come to see what Pamphilus is about; and look, here he is.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>to himself.</stage> Some one perhaps might imagine that I don't believe this to be true; but now   it is clear to me that it really is true.  I do think that the life of the Gods is everlasting, for this reason, because their joys are their own.
+<milestone n="961" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Their joys are their own</lemma>: Westerhovius remarks that he seems here to be promulgating the doctrine of Epicurus, who taught that the Deities devoted themselves entirely to pleasure and did not trouble themselves about mortals. Donatus observes that these are the doctrines of Epicurus, and that the whole sentence is copied from the Eunuch of Menander; to which practice of borrowing from various Plays, allusion is made in the Prologue, where he mentions the mixing of plays; <foreign lang="la">"contaminari fabulas."</foreign></note> For immortality has been obtained by me, if no sorrow interrupts this delight. But whom in particular could I wish to be now thrown in my way, for me to relate these things to?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart to himself.</stage> What means this rapture?
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>to himself.</stage> I see Davus. There is no one in the world whom I would choose in preference; for I am sure that he of all people will sincerely rejoice in my happiness.</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="966" unit="TLN line"/>
+<stage>Enter DAVUS.</stage>
+<sp><speaker>DAVUS</speaker><p> <stage>to himself.</stage> Where is Pamphilus, I wonder?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Here he is, Davus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>turning round.</stage> Who's that?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> 'Tis I, Pamphilus; you don't know what has happened to me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> No really; but I know what has happened to myself.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> And I too.</p></sp>
+<sp><speaker>DAVUS</speaker><p> It has fallen out just like human affairs in general, that you should know the mishap I have met with, before I the good that has befallen you.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> My Glycerium has discovered her parents.</p></sp>
+<sp><speaker>DAVUS</speaker><p> O, well done!</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart, in surprise.</stage> Hah!</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Her father is an intimate friend of ours.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Who?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Chremes.</p></sp>
+<sp><speaker>DAVUS</speaker><p> You do tell good news.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> And there's no hinderance to my marrying her at once.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart.</stage> Is he dreaming the same that he has been wishing for when awake?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Then about the child, Davus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> O, say no more; you are the only person whom the Gods favor.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart.</stage> I'm all right if these things are true. I'll accost them. <stage>Comes forward.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Who is this? Why, Charinus, you meet me at the very nick of time.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> That's all right.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Have you heard----?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Every thing; come, in your good fortune do have some regard for me. Chremes is now at your command; I'm sure that he'll do every thing you wish.
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'll remember you; and because it is tedious for us to wait for him until he comes out, follow me this way; he is now in-doors at the house of Glycerium; do you, Davus, go home; send with all haste to remove her thence. Why are you standing there? Why are you delaying?</p></sp>
+<sp><speaker>DAVUS</speaker><p> I'm going. <stage>PAMPHILUS and CHARINUS go into the house of GLYCERIUM. DAVUS then comes forward and addresses the Audience.</stage> Don't you wait until they come out from there; she will be betrothed within: if there is any thing else that remains, it will be transacted in-doors. Grant us your applause.<milestone n="982" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Grant us your applause</lemma>: <quote lang="la">"Plaudite."</quote> Colman has the following remark at the conclusion of this Play: "All the old Tragedies and Comedies acted at <placeName key="perseus,Rome">Rome</placeName> concluded in this manner. <foreign lang="la">'Donec cantor vos "Plaudite" dicat,'</foreign> says Horace. Who the 'cantor' was, is a matter of dispute. Madame Dacier thinks it was the whole chorus; others suppose it to have been a single actor; some the prompter, and some the composer. Before the word 'Plaudite' in all the old copies is an <foreign lang="greek">*w,</foreign> which has also given rise to several learned conjectures. It is most probable, according to the notion of Madame Dacier, that this <foreign lang="greek">*w,</foreign> being the last letter of the Greek alphabet, was nothing more than the mark of the transcriber to signify the end, like the Latin word <foreign lang="la">'Finis'</foreign> in modern books; or it might, as Patrick supposes, stand for <foreign lang="greek">*wdos,</foreign> 'cantor,' denoting that the following word 'Plaudite' was spoken by him. After 'Plaudite' in all the old copies of Terence stand these two words, <foreign lang="la">'Calliopins recensui;'</foreign> which signify, 'I, Calliopius, have revised and corrected this piece.' And this proceeds from the custom of the old critics, who carefully revised all Manuscripts, and when they had read and corrected any work, certified the same by placing their names at the end of it."</note>
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

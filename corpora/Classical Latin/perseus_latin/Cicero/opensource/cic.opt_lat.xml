@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+  <teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+        <title>De Optimo Genere Oratorum</title>
+	<title type="sub">Machine readable text</title>
+	<author n="Cic.">M. Tullius Cicero</author>
+	<editor role="editor" n="OCT">A. S. Wilkins</editor>
+      &responsibility;
+      &fund.Mellon;
+      </titleStmt>
+	&Perseus.publish;
+      <sourceDesc>
+        <biblStruct>
+          <monogr>
+            <author>M. Tullius Cicero</author>
+            <title>M. Tulli Ciceronis Rhetorica, Tomus II</title>
+            <editor role="editor">A. S. Wilkins</editor>
+            <imprint>
+              <pubPlace>Oxonii</pubPlace>
+              <publisher>e Typographeo Clarendoniano</publisher>
+              <date>1911</date>
+            </imprint>
+          </monogr>
+          <series>	    
+            <title>Scriptorum Classicorum Bibliotheca Oxoniensis</title>
+          </series>
+        </biblStruct>
+      </sourceDesc>
+    </fileDesc>
+    
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+	<state delim="." n="chunk" unit="chapter"/>
+	<state unit="section"/>
+      </refsDecl>
+    </encodingDesc>
+    
+    <profileDesc>
+      <langUsage>
+	<language id="la">Latin
+	</language><language id="greek">Greek
+      </language></langUsage>
+    </profileDesc>
+    
+</teiHeader>
+<text>
+<pb id="p.2084"/>
+
+<body><head><abbr expan="Marci">M.</abbr>Tvlli Ciceronis De Optimo Genere Oratorvm</head>
+
+<p><milestone n="1" unit="chapter"/><milestone n="1" unit="section"/><reg>oratorvm</reg> genera esse dicuntur tamquam poetarum;
+id secus est, nam alterum est multiplex. Poematis enim
+tragici comici epici melici etiam ac dithyrambici, quo magis<note>magis <hi rend="italics">codd.</hi>: rarius <hi rend="italics">Hedicke</hi></note>
+est tractatum <del>a Latinis<note>a Latinis <hi rend="italics">secl. Friedrich</hi></note></del>, suum<note>quo ... suum <hi rend="italics">secl. Jahn</hi></note> cuiusque<note>suum cuiusque <hi rend="italics">Manutius</hi>: suum quo ius
+<hi rend="italics">GP</hi>: suumque ius <foreign lang="greek">s</foreign>: suum cuivis <hi rend="italics">Jahn. Totum locum Mommsenio
+duce sic refinxit Jahn</hi>: id secus est; nam alterum est multiplex poematis tragici comici epici, melici etiam ac dithyrambici, suum cuivis
+et diversum a reliquis</note> est, diversum
+a reliquis. Itaque et in tragoedia comicum vitiosum est et
+in comoedia turpe tragicum; et in ceteris suus est cuique<note>cuique <hi rend="italics">G</hi>: cuiusque <hi rend="italics">P</hi></note>
+certus<note>atque certus
+<hi rend="italics">maluit Hedicke</hi></note> sonus et quaedam intellegentibus nota vox. <milestone n="2" unit="section"/><reg>oratorum</reg> autem si quis ita numerat plura genera, ut alios grandis
+aut gravis aut copiosos, alios tenuis aut subtilis aut brevis,
+alios eis interiectos et tamquam medios putet, <hi rend="italics">de </hi>homini-
+bus dicit<note>de hominibus dicit <hi rend="italics">Orelli</hi>: hominibus deicit <hi rend="italics">GP</hi></note> aliquid, de re parum. In re enim quid optimum
+sit quaeritur, in homine dicitur quod est. Itaque licet
+dicere et Ennium summum epicum poetam, si cui ita
+videtur, et Pacuvium tragicum et Caecilium fortasse comi-
+cum. <milestone n="3" unit="section"/><reg>oratorem</reg> genere non divido; perfectum enim quaero. 
+Vnum est autem genus perfecti, a quo qui absunt, non
+genere differunt, ut Terentius ab Accio, sed in eodem
+genere non sunt pares. Optimus est enim orator, qui
+dicendo animos audientium et docet et delectat et per-
+movet. Docere debitum est, delectare honorarium, per-
+
+<pb id="p.2085"/>
+
+movere necessarium. <milestone n="4" unit="section"/><reg>haec</reg> ut alius melius quam alius,
+concedendum est; verum id fit non genere sed gradu.
+Optimum quidem unum est et proximum quod ei similli-
+mum. Ex quo perspicuum est, quod optimo dissimillimum
+sit, id esse deterrimum. <milestone n="2" unit="chapter"/><reg>nam</reg> quoniam eloquentia constat 
+ex verbis et ex sententiis, perficiendum est, ut pure et
+emendate loquentes, quod est Latine, verborum praeterea
+et propriorum et translatorum elegantiam persequamur: in
+propriis ut lautissima eligamus, in translatis ut similitudinem
+secuti verecunde utamur alienis. <milestone n="5" unit="section"/><reg>sententiarum</reg> autem toti- 
+dem genera sunt quot dixi esse laudum. Sunt enim
+docendi acutae, delectandi quasi argutae, commovendi
+graves. Sed et verborum est structura quaedam duas res
+efficiens, numerum et levitatem<note>lenitatem <hi rend="italics">maluit Bentley</hi> (<hi rend="italics">ad Hor. Art. Poet.</hi> 26)</note>, et sententiae suam compositionem habent, <hi rend="italics">et</hi><note>et <hi rend="italics">add.
+Lambinus</hi></note> ad probandam rem accommodatum 
+ordinem. Sed earum omnium rerum <del>ut aedificiorum<note>ut aedificiorum <hi rend="italics">secl. Lambinus</hi></note></del>
+memoria est quasi fundamentum, lumen actio. <milestone n="6" unit="section"/><reg>ea</reg> igitur
+omnia in quo summa <hi rend="italics">erunt,</hi><note>in quo summa
+erunt <hi rend="italics">Lambinus</hi>: in quorum <hi rend="italics">GP</hi></note> erit perfectissimus<note>perfectissimus <hi rend="italics">Lambinus</hi>:
+peritissimus <hi rend="italics">codd.</hi></note> orator; in quo
+media, mediocris; in quo minima, deterrimus. Et<note>Et <hi rend="italics">codd.</hi>: Sed <hi rend="italics">maluit Jahn</hi></note> appellabuntur omnes oratores, ut pictores appellantur etiam mali,
+nec generibus inter sese, sed facultatibus different. Itaque
+nemo est orator qui Demostheni <hi rend="italics">se</hi><note>se
+<hi rend="italics">add. Aldus</hi></note> similem nolit esse; at
+Menander Homeri noluit; genus enim erat aliud. Id non
+est in oratoribus aut, etiam si est ut alius gravitatem sequens
+subtilitatem fugiat, contra alius acutiorem se quam ornatio- 
+rem velit, etiam si est in genere tolerabili<note>tolerabile <hi rend="italics">P</hi></note>, certe non est
+in optimo, si quidem, quod omnis laudes habet, id est
+optimum.</p>
+<p><milestone n="3" unit="chapter"/><milestone n="7" unit="section"/><reg>haec</reg> autem dixi brevius quidem quam res petebat, sed
+ad id quod agimus non fuit dicendum pluribus; unum 
+enim cum sit genus, id quale sit quaerimus. Est autem
+
+<pb id="p.2086"/>
+
+tale quale floruit Athenis; ex quo<note>ex quo <hi rend="italics">codd.</hi>: atqui <hi rend="italics">Hedicke</hi></note> Atticorum oratorum
+ipsa vis ignota est, nota gloria. Nam alterum multi viderunt, vitiosi nihil apud eos esse, alterum pauci, laudabilia
+esse multa. Est enim vitiosum in sententia, si quid ab-
+surdum aut alienum aut non acutum aut subinsulsum est;
+in verbis si inquinatum, si abiectum, si non aptum, si
+durum, si longe petitum. <milestone n="8" unit="section"/><reg>haec</reg> vitaverunt fere omnes qui 
+aut Attici numerantur aut dicunt Attice. Sed qui eatenus<note>qui eatenus <hi rend="italics">Gulielmius</hi>: quate-
+nus <hi rend="italics">codd.</hi></note>
+valuerunt, sani et sicci dumtaxat habeantur, sed ita ut
+palaestritae; spatiari in xysto ut liceat, non<note>at non <hi rend="italics">Hedicke</hi></note> ab Olympiis
+coronam petant. Qui cum careant omni vitio, non sunt
+contenti quasi bona valetudine, sed viris lacertos sanguinem
+quaerunt<note>quaerunt <hi rend="italics">vulg.</hi>: quaerant <hi rend="italics">GP</hi></note>, quandam etiam suavitatem coloris. Eos imi-
+temur, si possumus; si minus<note>si minus <hi rend="italics">GP</hi>: sin minus <hi rend="italics">vulg.</hi></note>, illos potius qui incorrupta
+sanitate sunt, quod est proprium Atticorum, quam eos
+quorum vitiosa abundantia est, qualis Asia multos tulit.
+Quod cum faciemus&mdash;<milestone n="9" unit="section"/><reg>si</reg> modo id ipsum adsequemur; est 
+enim permagnum&mdash; imitemur, si potuerimus, Lysiam et eius
+quidem tenuitatem potissimum; est enim multis locis
+grandior, sed quia et privatas ille plerasque et eas ipsas aliis<note>ipsas aliis <hi rend="italics">vulg.</hi>: ipsas et
+alias <hi rend="italics">codd.</hi></note>
+et parvarum rerum causulas scripsit, videtur esse ieiunior,
+cum se ipse<note>se ipse <hi rend="italics">vulg.</hi>: se ipso <hi rend="italics">GP</hi></note> consulto ad minutarum causarum genera
+limaverit. <milestone n="4" unit="chapter"/><reg>quod</reg> qui ita faciet, <hi rend="italics">ut, </hi>si<note>faciet ut si <hi rend="italics">vulg.</hi>:
+faciet si <hi rend="italics">GP</hi></note> cupiat uberior esse, 
+non possit, habeatur sane orator, sed de minoribus; magno
+autem oratori etiam illo modo saepe dicendum est in tali
+genere causarum. <milestone n="10" unit="section"/><reg>ita</reg> fit ut Demosthenes certe possit sum- 
+misse dicere, elate Lysias fortasse non possit. Sed si eodem
+modo putant exercitu in foro et in omnibus templis, quae
+circum forum sunt, conlocato dici pro Milone decuisse, ut
+si de re privata ad unum iudicem diceremus, vim eloquentiae
+
+<pb id="p.2087"/>
+
+sua facultate, non rei natura metiuntur. <milestone n="11" unit="section"/><reg>qua</reg> re quoniam
+non nullorum sermo iam increbruit, partim se ipsos Attice
+dicere, partim neminem nostrum<note>nostrum <hi rend="italics">vulg.</hi>: vestrum <hi rend="italics">GP</hi>: nostrorum <hi rend="italics">cod. Vit.</hi></note> dicere, alteros neglegamus;
+satis enim eis res ipsa respondet, cum aut non adhibeantur
+ad causas aut adhibiti derideantur; nam si riderentur, esset 
+id ipsum Atticorum. Sed qui dici a nobis Attico more
+volunt<note>volunt
+<hi rend="italics">GP</hi>: nolunt <foreign lang="greek">s</foreign></note>, ipsi autem se non oratores esse profitentur, si teretes
+auris habent intellegensque iudicium, tamquam ad picturam
+probandam adhibentur etiam inscii faciendi cum aliqua
+sollertia iudicandi; <milestone n="12" unit="section"/><reg>sin</reg> autem intellegentiam ponunt in 
+audiendi fastidio neque eos quicquam excelsum magnificumque delectat, dicant se quiddam subtile et politum
+velle, grande ornatumque contemnere; id vero desinant
+dicere, qui subtiliter dicant, eos solos Attice dicere, id est<note>id est <hi rend="italics">codd.</hi>: item <hi rend="italics">Hedicke</hi></note>
+quasi sicce et integre. Et ample<note>Et ample
+<hi rend="italics">codd.</hi>: Etiam ample <hi rend="italics">Lambinus</hi></note> et ornate et copiose cum 
+eadem integritate Atticorum est. Quid ? dubium est utrum
+orationem nostram tolerabilem tantum an etiam admira-
+bilem esse cupiamus? Non enim iam quaerimus quid sit
+Attice, sed quid sit optime dicere. <milestone n="13" unit="section"/><reg>ex</reg> quo intellegitur,
+quoniam Graecorum oratorum praestantissimi sint ei qui 
+fuerint Athenis, eorum autem princeps facile Demosthenes,
+hunc si qui imitetur, cum et Attice dicturum et optime, ut,
+quoniam Attici nobis propositi sunt ad imitandum, bene
+dicere id sit Attice dicere<note>ut, quoniam ... dicere
+<hi rend="italics">post </hi>Atticorum est legere maluit <hi rend="italics">Lachmann</hi>: utique ... est <hi rend="italics">maluit
+Hedicke</hi></note>.</p>
+<p><milestone n="5" unit="chapter"/>Sed cum in eo magnus error esset, quale esset id dicendi 
+genus, putavi mihi suscipiendum laborem utilem studiosis,
+mihi quidem ipsi non necessarium. <milestone n="14" unit="section"/><reg>converti</reg> enim ex
+Atticis duorum eloquentissimorum nobilissimas orationes
+inter seque contrarias, Aeschini <hi rend="italics">et</hi><note>et <hi rend="italics">add. Orelli</hi>: <hi rend="italics">om. codd.</hi></note> Demostheni; nec converti ut interpres, sed ut orator, sententiis isdem et earum 
+
+<pb id="p.2088"/>
+
+formis tamquam<note>tamquam <hi rend="italics">codd.</hi>: atque <hi rend="italics">Hedicke</hi></note> figuris, verbis ad nostram consuetudinem
+aptis. In quibus non verbum pro verbo necesse habui
+reddere, sed genus omne<note>omne <hi rend="italics">Hieronymus</hi>: omnium
+<hi rend="italics">codd.</hi></note> verborum vimque servavi. Non
+enim ea me adnumerare lectori putavi oportere, sed tam-
+quam appendere. <milestone n="15" unit="section"/><reg>hic</reg> labor meus hoc adsequetur<note>adsequetur <hi rend="italics">Ascensius</hi>: adscquitur <hi rend="italics">codd.</hi></note>, ut nostri 
+homines quid ab illis exigant, qui se Atticos volunt, et ad
+quam eos quasi formulam dicendi revocent intellegant.
+'Sed exorietur<note>exorietur
+<hi rend="italics">GP</hi>: exoritur <hi rend="italics">codd. deft. ct ed. Norimb.</hi></note> Thucydides; eius enim quidam eloquentiam
+admirantur.<note>admirantur <hi rend="italics">vulg.</hi>:
+admiratur <hi rend="italics">GP</hi></note>' Id quidem recte; sed nihil ad eum oratorem
+quem quaerimus. Aliud est enim explicare res gestas nar-
+rando, aliud argumentando criminari crimenve dissolvere;
+aliud narrantem tenere auditorem, aliud concitare<note>concitare <hi rend="italics">Aldus</hi>: concitantem <hi rend="italics">codd.</hi></note>. 'At
+loquitur pulchre.' <milestone n="16" unit="section"/><reg>num</reg> melius quam Plato? Necesse est 
+tamen oratori quem quaerimus controversias explicare<note>explicare <hi rend="italics">Aldus</hi>: explicantem <hi rend="italics">GP</hi>: an explicantem ... genere uti
+apto? <hi rend="italics">Friedrich</hi></note>
+forensis dicendi genere apto ad docendum, ad delectandum,
+ad permovendum. <milestone n="6" unit="chapter"/><reg>qua</reg> re si quis erit qui se Thucydideo 
+genere causas in foro dicturum esse profiteatur, is abhorrebit etiam a suspicione eius quod<note>quod <hi rend="italics">Ernesti</hi>: quae <hi rend="italics">codd.</hi></note> versatur in re civili et
+forensi; sin<note>sin <hi rend="italics">Orelli</hi>:
+si <hi rend="italics">GP</hi>: (et) qui <hi rend="italics">codd. dett.</hi></note> Thucydidem laudabit, ascribat suae nostram
+sententiam. <milestone n="17" unit="section"/><reg>quin</reg> ipsum Isocratem, quem divinus auctor 
+Plato suum fere aequalem admirabiliter in Phaedro laudari
+fecit ab Socrate quemque omnes docti summum<note>docti summurn <hi rend="italics">vulg.</hi>: doctissimum
+<hi rend="italics">codd.</hi></note> oratorem
+esse dixerunt, tamen hunc in numerum non repono. Non
+enim in acie versatur nec ferro<note>nec ferro <hi rend="italics">Hermann</hi>: et ferro <hi rend="italics">GP</hi>: et foro <hi rend="italics">codd. detft.</hi> sed quasi <hi rend="italics">vulg.</hi>: et quasi <hi rend="italics">GP</hi></note>, sed quasi rudibus eius
+eludit oratio. A me autem, ut cum maximis minima con-
+feram, gladiatorum par nobilissimum inducitur, Aeschines<note>Aeschines cum Demosthene
+<hi rend="italics">Sch&uuml;tz</hi></note>,
+tamquam Aeserninus, ut ait Lucilius<note>ut ait Lucilius <hi rend="italics">secl. Friedrich</hi></note>, non spurcus homo,
+
+<pb id="p.2089"/>
+
+sed acer et doctus
+<quote rend="blockquote"><l>cum Pacideiano<note>Pacideiano <hi rend="italics">Cratander</hi>: Pacidiano <hi rend="italics">GP</hi></note> hic componitur,&mdash;optimus longe</l>
+<l part="I">post homines natos&mdash;.</l></quote></p>
+<p>Nihil enim illo oratore arbitror cogitari posse divinius.
+<milestone n="18" unit="section"/>Huic labori nostro duo genera reprehensionum<note>reprehensorum
+<hi rend="italics">maluit Manutius</hi></note> oppo-
+nuntur. Vnum hoc: 'Verum<note>verum <hi rend="italics">vulg.</hi>: verbum <hi rend="italics">codd.</hi></note> melius Graeci.' A quo
+quaeratur ecquid<note>ecquid <hi rend="italics">vulg.</hi>:
+et quid <hi rend="italics">codd.</hi></note> possint ipsi<note>ipsi <hi rend="italics">vulg.</hi>: illi <hi rend="italics">G</hi></note> melius Latine? Alterum:
+'Quid istas potius legam quam Graecas ?' Idem
+Andriam et Synephebos nec minus <del>Terentium et Caecilium quam Menandrum legunt, nec<note>Terentium ... nec <hi rend="italics">secl.
+Jahn</hi></note></del> Andromacham aut 
+Antiopam aut Epigonos Latinos recipiunt<del>; sed tamen
+Ennium et Pacuvium et Accium potius quam Euripidem et
+Sophoclem legunt<note>sed tamen... legunt <hi rend="italics">secl. Jahn </hi>(Ennium... legunt
+<hi rend="italics">secl. Orelli</hi>)</note></del>. Quod igitur est eorum in orationibus
+e Graeco<note>e Graeco <hi rend="italics">Lambinus</hi>: a greco <hi rend="italics">GP</hi></note> conversis fastidium, nullum cum sit in versibus ?</p>
+<p><milestone n="7" unit="chapter"/><milestone n="19" unit="section"/>Sed adgrediamur iam quod suscepimus, si prius exposue- 
+rimus quae causa in iudicium deducta sit. Cum esset lex
+Athenis, NE .QVIS POPVLI SCITVM FACERET, VT QVISQVAM
+CORONA DONARETVR IN MAGISTRATV PRIVS QVAM RATIONES
+RETTVLISSET; et altera lex, EOS, QVI A<note>qui a
+<hi rend="italics">vulg.</hi>: quia <hi rend="italics">codd.</hi></note> POPVLO DONARENTVR,
+IN CONTIONE DONARI DEBERE; QVI A SENATV<note>qui a senatu <hi rend="italics">Muretus</hi>: quia <hi rend="italics">codd.</hi></note>, IN SENATV, 
+Demosthenes curator muris reficiendis fuit eosque<note>eosque
+<hi rend="italics">vulg.</hi>: deosque <hi rend="italics">codd.</hi></note> refecit
+pecunia sua; de hoc igitur Ctesiphon scitum fecit nullis ab
+illo rationibus relatis, ut corona aurea donaretur eaque
+donatio fieret<note>fieret <hi rend="italics">vulg.</hi>: fuerit <hi rend="italics">G</hi>: fecerit ut <hi rend="italics">P</hi></note> in theatro populo convocato, qui locus non
+est contionis legitimae, atque ita praedicaretur, EVM DONARI 
+VIRTVTIS ERGO BENEVOLENTIAEQVE QVAM IS ERGA POPVLVM
+ATHENIENSEM HABERET. <milestone n="20" unit="section"/><reg>hunc</reg> igitur Ctesiphontem in
+iudicium adduxit Aeschines, quod contra leges scripsisset,
+
+<pb id="p.2090"/>
+
+ut et rationibus non relatis corona donaretur et ut in
+theatro, et quod de virtute eius et benevolentia falsa scripsisset, cum Demosthenes nec vir bonus esset nec bene
+meritus de civitate. Causa ipsa abhorret illa quidem a
+formula consuetudinis nostrae, sed est magna. Habet
+enim et legum interpretationem satis acutam in utramque
+partem et meritorum in rem publicam contentionem sane
+gravem. <milestone n="21" unit="section"/><reg>itaque</reg> causa fuit Aeschini, cum ipse a Demo- 
+sthene esset capitis accusatus, quod legationem ementitus
+esset, ut ulciscendi inimici causa nomine Ctesiphontis
+iudicium fieret de factis famaque Demosthenis. Non enim
+tam multa <hi rend="italics">dixit</hi><note>dixit <hi rend="italics">add. vulg.</hi></note> de rationibus non relatis, quam de eo quod
+civis improbus ut optimus laudatus esset. <milestone n="22" unit="section"/><reg>hanc</reg> multam 
+Aeschines a Ctesiphonte petivit quadriennio ante Philippi
+Macedonis mortem; sed iudicium factum est aliquot annis
+post Alexandro iam Asiam tenente; ad quod iudicium
+concursus dicitur e tota Graecia factus esse. Quid enim
+tam aut visendum aut audiendum fuit quam summorum
+oratorum in gravissima causa accurata et inimicitiis incensa
+contentio? <milestone n="23" unit="section"/><reg>quorum</reg> ego<note>ego <hi rend="italics">vulg.</hi>: ergo <hi rend="italics">GP</hi></note> orationes si, ut<note>si ut <hi rend="italics">vulg.</hi>:
+sicut <hi rend="italics">codd.</hi></note> spero, ita expres- 
+sero virtutibus utens illorum omnibus, id est sententiis et
+earum figuris et rerum ordine, verba persequens eatenus, ut
+ea non abhorreant a more nostro&mdash;quae si e<note>e <hi rend="italics">om. G</hi></note> Graecis omnia
+conversa non erunt, tamen ut generis eiusdem sint, elabora-
+vimus<note>elaborabimus <hi rend="italics">codd.</hi>: <hi rend="italics">corr.
+Hieronymus</hi></note>&mdash;, erit regula, ad quam eorum dirigantur orationes
+qui Attice volent dicere. Sed de nobis satis. Aliquando
+enim Aeschinem ipsum Latine dicentem audiamus.</p></body></text>
+</TEI.2>

@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+	<title>De Divinatione: introduction</title>
+<title type="sub">Machine readable text</title>
+	<author n="Cic.">M. Tullius Cicero</author>
+<editor role="editor" n="Falconer">William Armistead Falconer</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Cicero: De Senectute De Amicitia De Divinatione</author>
+<title>With An English Translation</title>
+    <editor role="editor" n="Falconer">William Armistead Falconer</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Harvard University Press; Cambridge, Mass., London, England</publisher>
+<date>1923</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+	<refsDecl doctype="TEI.2">
+		<state unit="chapter"/>
+	</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>2006</date>
+<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+<item></item>
+</change>
+
+</revisionDesc>
+</teiHeader>
+
+<text>
+
+<!--<text><body><div1 type="chapter"><head>Preface</head>
+
+<p>While my uncle,<note>Gen. H. B. Armistead, of Charleston, Ark.; b. 1832 in
+Fauquier Co., Virginia; Secretary of State of Arkansas,
+1892&ndash;1896.</note> then in his eighty-first year, was
+confined to his room by a serious illness, he received
+a letter of consolation from a friend, who quoted from
+Shuckburgh's translation of the <hi rend="italics">De senectute.</hi> This
+quotation, though short, brought solace and cheer to
+the invalid and made him eager to hear more of
+Cicero's views on old age, and, as a result, he asked
+me to bring him the essay in the Latin and read it
+to him. Twenty years had passed since I had read
+the tractate at the University of Virginia under my
+revered old professor, Dr. Wm. E. Peters, and hence
+my rendering at sight must have done violence to the
+original in many places; but just as ' honour peereth
+in the meanest habit,' so the light of Cicero's genius
+was not wholly obscured by the medium through
+which it passed. At any rate, when I had finished,
+my uncle begged me&mdash;more, I think, for my good
+than for his own pleasure&mdash;to write out a translation
+of the entire treatise. I pleaded that my Latin was
+too rusty and that my judicial duties did not leave
+me leisure for such a task. He replied that my
+Latin would brighten with use and that an hour or
+
+<pb/>
+
+half-hour spent upon it now and then would not be
+missed and would afford me needed recreation. In
+his earnestness he exacted a promise which his death
+a few months later made only the more sacred.
+And so, on the trains as I went about the circuit, in
+hotels at night after trying cases all day, and in odd
+moments at home, I strove to redeem that promise.
+After several revisions a translation was completed
+and put into type.</p>
+<p>My version had passed from hand to hand for two
+or three years with no thought of publication, when
+my poet-friend Brookes More asked permission to
+show it to his brother, Dr. Paul Elmer More of
+Princeton University, who brought it to the attention of Dr. Edward Capps, the American Editor of
+the L.C.L. At Dr. Capps' suggestion it was sent to
+the Senior Editor in England. After another revision it was accepted by him for publication and an
+invitation given to translate also the <hi rend="italics">De amicitia</hi> and
+the <hi rend="italics">De divinatione.</hi> Four years have gone by since
+this work was begun. It has been carried on amid
+many interruptions. Ill-health and, more often, the
+prior claims of professional and official duties have
+made the task an arduous one; and yet, because of
+these studies in classical learning and my contact
+with great scholars, living and dead, no other period
+of my life has brought me so much pleasure of mind
+and soul: <hi rend="italics">qua voluptate nulla certe potest esse maior.</hi></p>
+<closer><signed><name>William Armistead Falconer.</name></signed>
+<dateline>Fort Smith, Arkansas, U.S.A.,
+March 15, 1922.</dateline></closer></div1></body></text>-->
+
+<pb id="p.214"/>
+
+<body>
+	<div1 type="chapter" n="intro"><head>Introduction to the
+<title>de Divinatione</title></head>
+
+<div2 type="section" n="1"><head>1. Date of composition</head>
+
+<p>This treatise was intended by Cicero to supplement his earlier work, <hi rend="italics">De natura deorum,</hi> which was
+finished probably in August 45 B.C. The greater
+part of the first book of the <hi rend="italics">De divinatione</hi> was
+written (in part at least) before the assassination
+of Caesar, but the work was not completed and
+published until after that event.<note>Ren&eacute; Durand in <quote>La Date du <hi rend="italics">De divinatione,</hi></quote> <hi rend="italics">M&eacute;langes
+Boissier,</hi> takes the view (now generally accepted) that this
+work was wholly written (except for some interpolations and
+changes) prior to Caesar's death, and after that event
+revised and published. The translator, after a careful study
+of all the evidence bearing on the question, is unable to
+accept M. Durand's view, and feels convinced that the latter
+part of Book I. and all of Book II. were written after
+March 15, 44 B.C.</note> </p></div2>
+
+<div2 type="section" n="2"><head>2. The Interlocutors</head>
+
+<p>The dialogue is represented as taking place
+between Cicero and his only brother Quintus, at
+Cicero's country home at Tusculum, about ten miles
+from Rome.</p>
+
+<pb id="p.215"/>
+
+<p>QUINTUS CICERO was born about 102 B.C.; received
+instruction in the best schools at Rome and in
+Greece; was aedile in 65; praetor in 62; governor
+of Asia from March 61 to April 58; and served as
+<hi rend="italics">legatus</hi> under Pompey in Sardinia in 56, under
+Caesar in Gaul in 54 and 53, and under Marcus,
+his brother, in Cilicia, from July 51 to July 50.
+In the Civil War he first joined Pompey, but, after
+the latter's defeat, offered his services to Caesar.
+Quintus was fond of reading and study and devoted
+much of his leisure to writing. During his stay
+in Gaul he wrote four tragedies, which are lost.
+The authorship of the <hi rend="italics">Commentariolum Petitionis</hi> is
+generally conceded to him. He (like his brother)
+died in December 43, in the proscription of the
+Second Triumvirate.</p></div2>
+
+<div2 type="section" n="3"><head>3. Plan and sources of the dialogue</head>
+
+<p>In this treatise, as in his other philosophic works,
+Cicero draws his arguments chiefly from Greek
+sources, but develops them in his own inimitable
+way and illustrates them with examples from his
+varied experiences and from his vast stores of
+learning. As an adherent of the New Academy
+he was free to question the views of the other
+philosophic schools, to compare argument with argument, and to adopt that theory which seemed to
+him most consistent with reason. After a thorough
+and impartial study of all the extant literature on
+the subject, from the time of Xenophanes of
+Colophon, a philosopher of the Eleatic school of
+the sixth century B.C., to that of Cratippus of his
+own day, and including the teachings of the Pyth-
+
+<pb id="p.216"/>
+
+agoreans, the Socratics, the Peripatetics, the Epicureans and the Stoics, he became convinced that
+the commonly accepted belief in divination was a
+superstition which <quote>should be torn up by the roots.</quote>
+He was himself an augur, and in his book <hi rend="italics">On the
+Republic</hi> had written in favour of maintenance of
+the rites of augury and of auspices. But these
+practices were engrafted on the Roman constitution
+and he advocated their observance because of his
+belief in obedience to law and because, as a member
+of the aristocratic party, he thought augury and
+auspices the best means of controlling the excesses
+of democracy.</p></div2>
+
+<div2 type="section" n="4"><head>4. The argument in favour of divination</head>
+
+<p>In treating the subject he proceeded, not as a
+special pleader, but in a truly philosophic spirit.
+As the chief apologists for divination he selected
+the Stoics, who defended it with great force and
+plausibility, accepted it as a part of their philosophic
+system, and sought to bring the world into conformity with their views. They endeavoured to
+unite religion with philosophy to prove that the
+nature of the gods is adapted to reveal the divine
+will through divine prophecy. The belief in a
+superintending care of the gods seemed to them to
+imply a means of communication between God and
+man, whereby the latter might know the divine
+will in advance and obey it. This means they
+called <hi rend="italics">Divination,</hi> the <hi rend="italics">vis divinandi</hi> of the Romans,
+the <foreign lang="greek">mantikh/</foreign> of the Greeks.</p>
+<p>The arguments in the first book in favour of
+divination are based chiefly on the writings of
+
+<pb id="p.217"/>
+
+Posidonius the Stoic. While many of the arguments
+in the second book go back to Carneades, the
+founder of the New Academy, the immediate source
+of the material is not Carneades himself (for he left
+no writings) but one of his disciples, probably
+Clitomachus, who was his successor in the New
+Academy and expounded his doctrines. The discussion of the Chaldean <hi rend="italics">monstra</hi> in the second book,
+from sections 87 to 97, is derived from the Stoic
+Panaetius. The entire discussion is divided into
+two main parts. In the first Quintus, taking the
+affirmative side, sets out the reasons for his belief
+in divination, and in the second Marcus proceeds
+to overwhelm his adversary with merciless logic
+and, with a rare display of abounding humour and
+sarcasm, laughs him out of court.</p>
+<p>Quintus defines divination as <quote>the foreknowledge
+and foretelling of events that happen by chance.</quote>
+He divides it into two classes: the first, Artificial,
+which depends partly on conjecture and partly on
+long-continued observation, and includes astrology,
+auspices, augury, divining by portents, prodigies,
+thunder, lightning, and other natural phenomena;
+the second, Natural, embraces divination by means
+of dreams and prophecies, made by persons inspired,
+as seers and prophets like Calchas, Cassandra, and
+others, and by those in a state of ecstasy or rapture,
+like the Pythian priestess of Apollo, whose prophetic
+powers were induced by exhalations from the earth.
+In defence of these various kinds of divination he
+urged the fact of their acceptance from the earliest
+times by every nation, and by the greatest philosophers including Pythagoras, Socrates, and Plato.
+He was not troubled by his inability to explain the
+
+<pb id="p.218"/>
+
+causes of divination. Those who denied the
+existence of what they could not explain and were
+not convinced by results and by the evidence of
+their own senses, for the same reason should deny
+the power of the magnet to attract iron, or the
+efficacy of drugs to effect certain cures. Divination,
+he urges, was established by many infallible proofs:
+by augury, the city of Rome had been founded and
+the kingdom given to Romulus; by the flight of
+an eagle, King Deiotarus had been warned to discontinue a journey and thereby was saved from
+certain death; the entrails foretold Caesar's approaching fate; in a dream the Rhodian sailor had
+a vision of Pompey's defeat at Pharsalus. He also
+does not disdain the <hi rend="italics">argumentum ad hominem,</hi> but
+quotes freely from his brother's poetry to show that
+he, too, accepts divination.<note>The artifice by which Cicero thus quotes himself is
+delightfully characteristic.</note> </p>
+<p>Following the method of Posidonius, Quintus
+sought to bring divination into conformity with the
+principles of philosophy in three ways; by tracing
+its source to God, to nature, and to fate. The
+reasoning for its origin from God was borrowed
+from Cratippus. The human soul is an emanation
+from the Divine Soul which pervades and governs
+all things. Between the Divine Soul and the
+human soul, both of which are divine and eternal,
+there is a sympathy and a connexion which permit
+of communication from one to the other. The human
+soul when divorced from bodily influences, as in
+sleep and in ecstasy, is most responsive to the
+divine will and most endowed with divine foresight.</p>
+<p>In discussing the origin of divination from the
+
+<pb id="p.219"/>
+
+second source, Quintus defines Fate or <foreign lang="greek">ei(marme/nh</foreign>
+as <quote>the orderly succession of causes wherein cause
+is linked to cause and every cause has its effect.</quote>
+Therefore nothing has happened which was not
+bound to happen and nothing will happen which
+will not find its efficient cause in nature. He who
+knows the links that join cause to cause, knows all
+the results of causes and can foretell every coming
+event. While such omniscience is possible only
+to God, yet since every cause has its sign and there
+are men who can often read those signs, in the
+lapse of time a science has been evolved from the
+recording of signs and the noting of the connexion
+between them and their results.</p>
+<p>The argument from nature is based on the
+phenomena of dreams and ecstasy. The power of
+the soul is much enhanced when divorced from
+bodily sensation. Then it sees things which are
+invisible to it when shackled by the flesh. During
+frenzy or inspiration or ecstasy nature seems most
+to impel the human soul to prophecy.</p>
+<p>To the objection that the forecasts of augurs,
+seers, soothsayers and other diviners are often
+erroneous, Quintus replies that the same point
+may be urged against experts in other arts and
+callings, as, for example, physicians, mariners, and
+statesmen.</p>
+<p>In closing Quintus makes a qualification or partial
+retractation by stating that he does not countenance
+fortune-tellers, necromancers, snake-charmers, astrologers, or interpreters of dreams who are not true
+diviners.</p></div2>
+
+<pb id="p.220"/>
+
+<div2 type="section" n="5"><head>5. The argument against divination</head>
+
+<p>Marcus, in reply, first directs his attack against
+divination in general and adopts the reasoning of
+Carneades. <quote>Divination,</quote> he says, <quote>has no application to things perceived by the senses, which
+are sufficient of themselves and require no aid from
+divination. Nor is there any place for it in matters
+within the domain of science and of art. Likewise
+divination has no place in resolving questions in
+philosophy, in dialectic or in politics. And since it is
+of no use in any of these cases there is no use for it
+anywhere.</quote> Next, he takes the Stoic definition of
+divination as <quote>the foreknowledge and foretelling
+of things that happen by chance,</quote> and shows that
+since such things may or may not happen, or may
+happen in one way or another, they cannot be foreseen by any amount of reason or skill. But if it
+can be known in advance that an event is going to
+happen, then that event is certain and not subject
+to chance and, by the definition, is removed from
+the scope of divination.</p>
+<p>Furthermore, even if it was possible to know the
+future the disadvantages would far outweigh the
+gain. Cicero then takes up separately the various
+modes of divination under their proper divisions of
+Artificial and Natural and shows how utterly unreasonable they are and heaps his ridicule upon them.</p></div2>
+
+<div2 type="section" n="6"><head>6. Manuscripts, editions, and translations</head>
+
+<p>The best Mss. of the <hi rend="italics">De divinatione</hi> are: V. Vindob.,
+10th century, and three Leyden Mss., A, B, and H,
+Leid., 12th century.</p>
+<p>The text of this edition is based chiefly on that of
+
+<pb id="p.221"/>
+
+John Davies, Cambridge, 1730, but emended in
+many places by readings adopted from tile editions
+of George A. Moser, Frankfort-on-the-Main, 1828,
+Aug. Geise, Leipsig, 1829, and C. F. W. M&uuml;ller,
+Leipzig, 1910. Many changes have also been made
+in Davies' spelling, punctuation and paragraphing.</p>
+<p>[In the Teubner series, see the edition by O.
+Plasberg and W. Ax, Stuttgart, 1969 (1938).]</p>
+<p>I have consulted the following translations: C.
+D. Yonge, London, Bohn's series, 1848, in English;
+D. Goldb&eacute;ry, Paris, Garnier Fr&egrave;res, in French;
+Ralph K&uuml;hner, Berlin, Langenscheidt, in German.</p>
+<p>Among books that may be mentioned as useful
+in the study of <hi rend="italics">De divinatione</hi> are the following:</p>
+<p>C. Wachsmuth, <hi rend="italics">Die Ansichten der Stoiker &uuml;ber
+Mantik und D&auml;monen.</hi></p>
+<p>Th. Schiche, <hi rend="italics">De fontibus librorum Ciceronis quae
+sunt de divinatione.</hi></p>
+<p>C. Hartfelder, <hi rend="italics">Die Quellen von Cicero's De
+divinatione.</hi></p>
+<p>A. Schmekel, <hi rend="italics">Die Philosophie der Mittleren Stoa.</hi></p>
+<p>F. Malchin, <hi rend="italics">De auctoribus quibusdam qui Posidonii
+libros meteorologicos adhibuerunt.</hi></p>
+<p>The best edition of the De<hi rend="italics"> divinatione</hi> is that of
+Prof. Pease, University of Illinois Press, 1923.</p>
+<p>A. Bouch&eacute;-Leclercq, <hi rend="italics">Histoire de la divination.</hi></p>
+<p>J. Wight Duff, <hi rend="italics">Literary History of Rome.</hi></p>
+<p>I am indebted to Dr. Gordon J. Laing of the
+University of Chicago for a critical reading of this
+translation and for many helpful suggestions.</p>
+<closer><signed><name>Wm. Armistead Falconer.</name></signed>
+<dateline>Fort Smith, Arkansas</dateline></closer>
+</div2>
+</div1>
+
+</body>
+</text>
+</TEI.2>

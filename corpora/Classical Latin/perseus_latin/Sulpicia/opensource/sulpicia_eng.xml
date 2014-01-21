@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Six Poems</title>
+<author>Sulpicia</author>
+<editor role="translator">Anne Mahoney</editor>
+&responsibility;
+&fund.FIPSE;
+</titleStmt>
+<extent>About 120Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<bibl>
+<title>Sulpicia:  Text, translation, and commentary</title>
+<author>Anne Mahoney</author>
+<date>2000</date>
+<publisher>Text created electronically</publisher>
+</bibl>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+  <state n="chunk" unit="poem"/>
+  <state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>23-Jul-00</date>
+<respStmt><name>Anne Mahoney</name><resp>ed.</resp></respStmt>
+<item>
+$Log: sulpicia_eng.xml,v $
+Revision 1.1  2009-12-09 18:06:59  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 20:50:39  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:30:51  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:04:02  packel
+Converted to XML
+
+Revision 1.4  2003/07/01 22:18:11  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.3  2000/07/24 20:43:46  amahoney
+final fixes to internal citations
+
+Revision 1.2  2000/07/23 21:08:49  amahoney
+add some more refs to the commentary, tidy up title statements
+
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="poem" n="1">
+<l>At last the love I've waited for has come.</l>
+<l>(No shame to say so:  more to cover up).</l>
+<l>My Camenae called on her in prayer,</l>
+<l>and Cytherea brought him to my heart.</l>
+<l n="5"><placeName key="tgn,2021646;tgn,2066902;tgn,2081683;tgn,2094077;tgn,2096104;tgn,2100948;tgn,2108237;tgn,2744069;tgn,2744070;tgn,2744071;tgn,2744072;tgn,2744073">Venus</placeName> kept her promise:  now she can tell</l>
+<l>my tale of joy to those who don't believe.</l>
+<l>I hardly want to give this letter up</l>
+<l>so no one else sees it before he does.</l>
+<l>I'm glad I did it &mdash; why wear a prudish mask,</l>
+<l>as if he wasn't good enough for me!
+</l></div1>
+<div1 type="poem" n="2">
+<l>My stupid birthday's here, and I'm supposed</l>
+<l>to go away and leave Cerinthus here.</l>
+<l>What's better than the city?  On the farm,</l>
+<l>it's cold and rustic &mdash; no place for a girl.</l>
+<l n="5">Messalla, uncle, you're thinking of me,</l>
+<l>but stop it:  this is no time for a trip.</l>
+<l>Take me away, I'll leave my heart and mind</l>
+<l>In <placeName key="perseus,Rome">Rome</placeName>:  what good's free will?  You make the rules.
+</l></div1>
+<div1 type="poem" n="3">
+<l>You know, that trip's been taken off my mind:</l>
+<l>your girlfriend gets to spend her day in <placeName key="perseus,Rome">Rome</placeName>.</l>
+<l>Let's spend the day together, as we hoped:</l>
+<l>we've had the good luck you were waiting for.
+</l></div1>
+<div1 type="poem" n="4">
+<l>I should be glad you think that you can cheat:</l>
+<l>what a fool I'd be to fall into your arms.</l>
+<l>Go:  court your working girl as she spins her wool</l>
+<l>instead of Sulpicia daughter of Servius.</l>
+<l n="5">My family are concerned I might lose out</l>
+<l>to the affections of an unknown's bed.
+</l></div1>
+<div1 type="poem" n="5">
+<l>Cerinthus, do you care that I am sick,</l>
+<l>my body wracked with fever and fatigue?</l>
+<l>I cannot hope that I'll be well again</l>
+<l>unless I think that that's what you want too.</l>
+<l n="5">But if my sickness doesn't worry you,</l>
+<l>what good is it to me to be well again?
+</l></div1>
+<div1 type="poem" n="6">
+<l>My light, may you not love me any more</l>
+<l>the way I think you did a few days since,</l>
+<l>if I have ever in my youthful life</l>
+<l>done anything as stupid as I did</l>
+<l n="5">yesterday, when I left you all alone</l>
+<l>because I didn't want to show my love.</l></div1>
+</body>
+</text>
+</TEI.2>

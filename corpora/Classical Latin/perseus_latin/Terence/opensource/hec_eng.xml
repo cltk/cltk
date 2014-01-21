@@ -1,0 +1,3043 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+    <teiHeader type="text" status="new">
+        <fileDesc>
+            <titleStmt>
+                <title>Hecyra: The Mother-In-Law</title>
+                <author>P. Terentius Afer (Terence)</author>
+                <editor role="transl">Henry Thomas Riley</editor> &responsibility;
+                &fund.DLI2; </titleStmt> &Perseus.publish; <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <title>The Comedies of Terence</title>
+                        <editor role="transl">Henry Thomas Riley</editor>
+                        <imprint>
+                            <pubPlace>Ney York</pubPlace>
+                            <publisher>Harper and Brothers</publisher>
+                            <date>1874</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+
+        <encodingDesc>
+            <editorialDecl>
+                <correction method="silent" status="medium">&Perseus.DE;</correction>
+            </editorialDecl>
+            <refsDecl doctype="TEI.2">
+                <state unit="TLN line"/>
+            </refsDecl>
+            <refsDecl doctype="TEI.2">
+                <state unit="act"/>
+                <state n="chunk" unit="scene"/>
+                <state unit="line"/>
+            </refsDecl>
+        </encodingDesc>
+
+        <profileDesc>
+            <langUsage>
+                <language id="en">English</language>
+                <language id="la">Latin</language>
+                <language id="greek">Greek</language>
+                <language id="de">German</language>
+                <language id="fr">French</language>
+                <language id="it">Italian</language>
+            </langUsage>
+        </profileDesc>
+
+        <revisionDesc>
+            <change>
+                <date>14-Aug-01</date>
+                <respStmt>
+                    <name>AEM</name>
+                    <resp>markup</resp>
+                </respStmt>
+                <item> 
+$Log: hec_eng.xml,v $
+Revision 1.3  2010-07-09 14:48:02  rsingh04
+fixed CVS log keyword
+ 
+Revision 1.1 2009/12/08 20:46:27 rsingh04 
+moved more xml files around based on copyright status. renamed terence files to follow the
+abbreviations and split up minora_lat.xml into separate files 
+
+Revision 1.6 2009/06/25 23:13:43 student 
+fixed bibl error - zr 
+
+Revision 1.5 2008/11/14 21:28:07 lcerrato 
+fixed author names for consistent sorting 
+
+Revision 1.4 2006/05/05 17:38:33 packel 
+fixed date tags 
+
+Revision 1.3 2006/02/10 20:50:43 packel 
+places/dates now actually tagged 
+
+Revision 1.2 2005/08/01 16:31:41 packel
+removed stray item tags 
+
+Revision 1.1 2005/07/25 15:05:03 packel 
+Converted to XML                   
+
+Revision 1.8 2003/07/01 22:18:13 yorkc 
+Updated texts to TEI P4 and Perseus P4
+extensions; minor cleanup (esp. character encodings and typos.) 
+
+Revision 1.7 2001/08/29 19:56:38 amahoney 
+make the various Dramatis Personae lists
+independent instead of cross referencing each other 
+
+Revision 1.6 2001/08/29 19:38:17 amahoney 
+fix incorrect speaker attributions, mark Latin 
+
+Revision 1.5 2001/08/21 18:49:51 amahoney 
+get translator's name into proper place in meta-data, use same form of author's name as in Latin 
+
+Revision 1.4 2001/08/17 17:32:56 amahoney 
+fix headers for TOC 
+
+Revision 1.3 2001/08/17 17:24:12 amahoney
+begin marking the Latin 
+
+Revision 1.2 2001/08/17 15:32:10 amahoney 
+fix line numbers in the English, pick up a few typos in Latin 
+
+Revision 1.1 2001/08/16 21:11:14 amahoney 
+new texts 
+                </item>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+
+    <text lang="en">
+        <body>
+
+            <castList>
+                <castItem type="role">
+                    <role>LACHES,<note anchored="yes">From <foreign lang="greek">lagxu/nw,</foreign>
+                            "to obtain by lot" or "heirship."</note>, </role>
+                    <roleDesc>an aged Athenian, father of Pamphilus.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>PHIDIPPUS,<note anchored="yes">From <foreign lang="greek">feidw,</foreign>
+                            "parsimony," and <foreign lang="greek">i(ppo\s,</foreign> "a
+                            horse."</note>
+                    </role>
+                    <roleDesc>an aged Athenian, father of Philumena.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>PAMPHILUS,<note anchored="yes">From <foreign lang="greek">pa=n,</foreign>
+                            "all," and <foreign lang="greek">filo\s,</foreign> "a friend."</note>
+                    </role>
+                    <roleDesc>son of Laches.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>SOSIA,<note anchored="yes">From <foreign lang="greek">sw/zw,</foreign> "to
+                            save;" saved in war.</note>
+                    </role>
+                    <roleDesc>servant of Pamphilus.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>PARMENO,<note anchored="yes">From <foreign lang="greek">para\,</foreign>
+                            "by," and <foreign lang="greek">me/nw,</foreign> "to remain."</note>
+                    </role>
+                    <roleDesc>servant of Sostrata.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>SOSTRATA,<note anchored="yes">From <foreign lang="greek">swxw\,</foreign>
+                            "to preserve," or "save."</note>
+                    </role>
+                    <roleDesc>wife of Laches.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>MYRRHINA,<note anchored="yes">From <foreign lang="greek"
+                                >mur(r)inh\,</foreign> "a myrtle."</note>
+                    </role>
+                    <roleDesc>wife of Phidippus.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>BACCHIS,<note anchored="yes">From <persName
+                                >Bacchus</persName>, the God of Wine.</note>
+                    </role>
+                    <roleDesc>a Courtesan.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>PHILOTIS,<note anchored="yes">From <foreign lang="greek"
+                                >filoth\s,</foreign> "friendship."</note>
+                    </role>
+                    <roleDesc>a Courtesan.</roleDesc>
+                </castItem>
+                <castItem type="role">
+                    <role>SYRA, <note anchored="yes">From
+                                <placeName key="tgn,1000140">Syria</placeName>, her native
+                            country.</note>
+                    </role>
+                    <roleDesc>a Procuress.</roleDesc>
+                </castItem>
+            </castList>
+            <p>Scene.--<placeName key="perseus,Athens">Athens</placeName>; before the houses of LACHES,
+                PHIDIPPUS, and BACCHIS. </p>
+            <div1 type="intro">
+                <head>Introduction</head>
+                <div2 type="scene" n="subject">
+                    <head>THE SUBJECT.</head>
+                    <p>PAMPHILUS, the son of Laches by his wife Sostrata, being at the time enamored
+                        of Bacchis, a Courtesan, chances, one night, in a drunken fit, to debauch
+                        Philumena, the daughter of Phidippus and Myrrhina. In the struggle he takes
+                        a ring from her, which he gives to Bacchis. Some time afterward, at his
+                        father's express desire, he consents to marry. By chance the young woman
+                        whom he has ravished is given to him as a wife, to the great joy of her
+                        mother, who alone is aware of her misfortune, and hopes that her disgrace
+                        may be thereby concealed. It, however, happens otherwise ; for Pamphilus,
+                        still retaining his passion for Bacchis, refuses for some time to cohabit
+                        with her. Bacchis, however, now rejects the advances of Pamphilus, who by
+                        degrees becomes weaned from his affection for her, and grows attached to his
+                        wife, whom he has hitherto disliked. Meantime, however, he is suddenly
+                        called away from home. During his absence, Philumena, finding herself
+                        pregnant, in consequence of her misfortune before her marriage, fearing
+                        detection, especially avoids the company of her mother-in-law. At length she
+                        makes an excuse for returning to the home of her own parents, where she
+                        remains. Sostrata thereupon sends for her, but is answered that she is ill,
+                        on which she goes to see her, but is refused admittance to the house. On
+                        hearing of this, Laches blames his wife as being the cause of this
+                        estrangement. Pamphilus now returns, and it so happens that, on the day of
+                        his arrival, Philumena is brought to bed of a child. Impatient to see her,
+                        Pamphilus rushes into her room, and to his great distress finds that this is
+                        the case. Myrrhina thereupon entreats him to keep the matter secret, and
+                        begs him, if he refuses to receive her daughter back again, at least not to
+                        ruin her reputation by divulging it. As he now declines either to take back
+                        his wife or give his reason for so doing, Laches suspects that he is still
+                        enamored of Bacchis, and accordingly sends for her, and expostulates with
+                        her. She, however, exonerates herself; on which the old man, supposing that
+                        Philumena and her mother are equally ignorant with himself as to his son's
+                        motives, begs her to call on them and remove their suspicions. While she is
+                        conversing with them, they recognize the ring upon her finger which
+                        Pamphilus had formerly taken from Philumena. By means of this it is
+                        discovered that Pamphilus himself is the person who has ravished Philumena;
+                        on which, overjoyed, he immediately takes home his wife and son. </p>
+                </div2>
+                <div2 type="scene" n="production">
+                    <head>THE TITLE OF THE PLAY.</head>
+                    <p>PERFORMED at the Megalensian Games; Sextus Julius Caesar and Cneius Cornelius
+                        Dolabella being Curule Aediles. The whole was not then acted. Flaccus, the
+                        freedman of Claudius, composed the music to a pair of flutes. It was
+                        composed wholly from the Greek of Menander.<note anchored="yes"
+                            >Menander)--According to some, this Play was borrowed from the Greek of
+                            Apollodorus, a Comic Poet and contemporary of Menander, who wrote
+                            forty-seven Plays.</note> It was performed the first time without a
+                        Prologue. Represented a second time; Cneius Octavius and T. Manlius being
+                            Consuls.<note anchored="yes">Being Consuls)--Cneius Octavius Nepos and
+                            T. Manlius Torquatus were Consuls in the year from the building of the
+                            City 587, and B.C. <date value="-166">166</date>.</note> It was then
+                        brought out in honor of L. Aemilius Paulus, at his Funeral Games, and was
+                        not approved of. It was repeated a third time; Q. Fulvius and L. Marcius
+                        being Curule Aediles. L. Ambivius Turpio performed it. It was then approved
+                            of.<note anchored="yes">It was then approved of)--" Placuit." This is
+                            placed at the end, in consequence of the inauspicious reception which
+                            had been given to it on the two first representations. See the account
+                            given in the Prologues.</note>
+                    </p>
+                </div2>
+                <div2 type="scene" n="summary">
+                    <head>THE SUMMARY OF C. SULPITIUS APOLLINARIS.</head>
+                    <p>PAMPHILUS has married Philumena, to whom, when a virgin, he formerly, not
+                        knowing who she was, offered violence; and whose ring, which he took off by
+                        force, he gave to his mistress, Bacchis, a Courtesan. Afterward he sets out
+                        for Imbros, not having touched his bride. Having become pregnant, her mother
+                        brings her over to her own house, as though sick, that her mother-in-law may
+                        not know it. Pamphilus returns; detects her being delivered; conceals it;
+                        but determines not to take back his wife. His father imputes this to his
+                        passion for Bacchis. While Bacchis is exculpating herself, Myrrhina, the
+                        mother of the injured girl, by chance recognizes the ring. Pamphilus takes
+                        back his wife, together with his son. </p>
+                </div2>
+            </div1>
+            <div1 type="act" n="prologue">
+                <div2 type="scene" n="0">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="1" unit="TLN line"/>
+                    <stage>THE FIRST PROLOGUE.</stage>
+                    <sp>
+                        <speaker>Prologue</speaker>
+                        <p>HECYRA<milestone n="1" unit="TLN line"/><note anchored="yes"><lemma
+                                    targOrder="U">Hecyra</lemma>: The Greek word <foreign
+                                    lang="greek">(/*ekura,</foreign> a "step-mother," or
+                                "mother-in-law," Latinized.</note> is the name of this Play; when it
+                            was represented for the first time, an unusual disaster and
+                                calamity<milestone n="3" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">And calamity</lemma>: "<foreign lang="la"
+                                    >Calamitas</foreign>." This word is used in the same sense in
+                                the first line of the Eunuch. This is evidently the Prologue spoken
+                                on the second attempt to bring forward the piece. On the first
+                                occasion it probably had none. "<foreign lang="la">Vitium</foreign>"
+                                was a word used by the Augurs, with whom it implied an unfavorable
+                                omen, and thence came to be used for any misfortune or disaster. He
+                                seems to mean the depraved taste of the public, that preferred
+                                exhibitions of rope-dancers and pugilists to witnessing his
+                                Plays.</note> interrupted it, so that it could not be witnessed
+                            throughout or estimated; so much had the populace, carried away with
+                            admiration, devoted their attention to some rope-dancing. It is now
+                            offered as though entirely a new Play; and he who wrote it did not wish
+                            to bring it forward then a second time, on purpose that he might be able
+                            again to sell it.<milestone n="7" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Again to sell it</lemma>: See the last
+                                Note to the Second Prologue.</note> Other Plays of his<milestone
+                                n="8" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"
+                                    >Other Plays of his</lemma>: Madame Dacier informs us that
+                                Vossius was of opinion that the second representation of this Play
+                                did not take place till after that of the Adelphi. In that case, they had
+                                already seen the rest of his Plays.</note> you have seen
+                            represented; I beg you now to give your attention to this. </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="1">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="9" unit="TLN line"/>
+                    <stage>THE SECOND PROLOGUE.</stage>
+                    <note anchored="yes"><lemma targOrder="U">Second Prologue</lemma>: --Eugraphius
+                        informs us that this Prologue was spoken by Ambivius Turpio, the head of the
+                        company of Actors.</note>
+                    <sp>
+                        <speaker>Prologue</speaker>
+                        <p>I COME to you as an envoy from the Poet, in the character of
+                            prologue-speaker; allow me to be a successful pleader, that in my old
+                            age I may enjoy the same privilege that I enjoyed when a younger man,
+                            when I caused new Plays, that had been once rejected, to come into
+                            favor; so that his writings might not die with the Poet. Among them, as
+                            to those of Caecilius,<milestone n="14" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">Coecilius</lemma>: Colman has
+                                the following Note: "A famous Comic Poet among the Romans. His chief
+                                excellences are said to have been, the gravity of his style and the
+                                choice of his subjects. The first quality was attributed to him by
+                                Horace, Tully, etc., and
+                                the last by Varro. '<foreign lang="la">In argumentis Caecilius
+                                    poscit palmam, in ethesi Terentius</foreign>.' 'In the choice of
+                                subjects, Caecilius demands the preference; in the manners,
+                                Terence.'" Madame Dacier, indeed, renders "<foreign lang="la">in
+                                    argumentis</foreign>," "in the disposition of his subjects." But
+                                the words will not bear that construction. "<foreign lang="la"
+                                    >Argumentum</foreign>," I believe, is uniformly used for the
+                                argument itself, and never implies the conduct of it; as in the
+                                Prologue to the Andrian, "<foreign lang="la">non tam dissimili
+                                    argumento</foreign>." Besides, the disposition of the subject
+                                was the very art attributed by the critics of those days to Terence,
+                                and which <persName>Horace</persName> mentions
+                                in the very same line with the gravity of Caecilius, distinguishing
+                                them as the several characteristics of each writer, "<foreign
+                                    lang="la">Vincere Caecilius gravitate, Terentius
+                                arte</foreign>."</note> which I first studied when new; in some of
+                            which I was rejected; in some I kept my ground with difficulty. As I
+                            knew that the fortune of the stage was varying, where the hopes were
+                            uncertain, I submitted to certain toil. Those I zealously attempted to
+                            perform, that from the same writer I might learn new ones, and not
+                            discourage him from his pursuits. I caused them to be represented. When
+                            seen, they pleased. Thus did I restore the Poet to his place, who was
+                            now almost weaned, through the malevolence of his adversaries, from his
+                            pursuits and labors, and from the dramatic art. But if I had at that
+                            period slighted the writer, and had wished to use my endeavors in
+                            discouraging him, so that he might live a life of idleness rather than
+                            of study, I might have easily discouraged him from writing others. Now,
+                            for my sake, hear with unbiased minds what it is I ask. I again bring
+                            before you the Hecyra, which I have never been allowed to act before you
+                            in silence; such misfortunes have so overwhelmed it. These misfortunes
+                            your intelligence will allay, if it is a seconder of our exertions. The
+                            first time, when I began to act this Play, the vauntings of
+                                boxers,<milestone n="33" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Vauntings of boxers</lemma>: Horace
+                                probably had this passage in his mind when he penned the First
+                                Epistle in his Second Book, 1. 185 ; where he mentions the populace
+                                leaving a Play in the midst for the sight of a bear, or an
+                                exhibition of boxers.</note> the expectation of a
+                                rope-dancer,<milestone n="34" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Of a rope-dancer</lemma>: The art of
+                                dancing on the tight rope was carried to great perfection among the
+                                ancients. Many paintings have been discovered, which show the
+                                numerous attitudes which the performers assumed. The figures have
+                                their heads enveloped in skins or caps, probably intended as a
+                                protection in case of falling. At the conclusion of the performance
+                                the dancer ran down the rope. Germanicus and Galba are said to have
+                                exhibited elephants dancing on the tight rope.</note> added to
+                            which, the throng of followers, the noise, the clamor of the women,
+                            caused me to retire from your presence before the time. In this new
+                            Play, I attempted to follow the old custom of mine,<milestone n="38"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The old
+                                    custom of mine</lemma>: He says that on the second
+                                representation he followed the plan which he had formerly adopted in
+                                the Plays of Caecilius, of bringing those forward again which had
+                                not given satisfaction at first.</note> of making a fresh trial; I
+                            brought it on again. In the first Act I pleased; when in the mean time a
+                            rumor spread that gladiators were about to be exhibited; the populace
+                            flock together, make a tumult, clamor aloud, and fight for their
+                                places:<milestone n="41" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Fight for their places</lemma>: This was
+                                in consequence of their sitting indiscriminately at the
+                                Amphitheatre, where the gladiators were exhibited; whereas at the
+                                Theatres there were distinct places appropriated to each "<foreign
+                                    lang="la">ordo</foreign>" or class.</note> meantime, I was
+                            unable to maintain my place. Now there is no confusion: there is
+                            attention and silence--an opportunity of acting my Play has been granted
+                            me; to yourselves is given the power of gracing the scenic
+                                festival.<milestone n="45" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Gracing the scenic festival</lemma>:
+                                Madame Dacier remarks that there is great force and eloquence in the
+                                Actor's affecting a concern for the sacred festivals, which were in
+                                danger of being deprived of their chief ornaments, if by too great a
+                                severity they discouraged the Poets who undertook to furnish the
+                                Plays during the solemnity.</note> Do not permit, through your
+                            agency, the dramatic art to sink into the hands of a few; let your
+                            authority prove a seconder and assistant to my own. If I have never
+                            covetously set a price upon my skill, and have come to this conclusion,
+                            that it is the greatest gain in the highest possible degree to
+                            contribute to your entertainment; allow me to obtain this of you, that
+                            him who has intrusted his labors to my protection, and himself to your
+                            integrity,--that him, I say, the malicious may not maliciously deride,
+                            beset by them on every side. For my sake, admit of this plea, and attend
+                            in silence, that he may be encouraged to write other Plays, and that it
+                            may be for my advantage to study new ones hereafter, purchased at my own
+                                expense.<milestone n="57" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">At my own expense</lemma>: It is generally
+                                supposed that "<foreign lang="la">meo pretio</foreign>" means "a
+                                price named as my estimate;" and that it was the custom for the
+                                Aediles to purchase a Play of a Poet at a price fixed by the head of
+                                the company of actors. It is also thought that the money was paid to
+                                the actor, who handed over the whole, or a certain part, to the
+                                Poet, and if the Play was not received with favor, the Aediles had
+                                the right to ask back the money from the actor, who consequently
+                                became a loser by the transaction. Pareus and Meric Casaubon think,
+                                however, that in case of this Play, the Aediles had purchased it
+                                from the Poet, and the performers had bought it of the Aediles as a
+                                speculation. What he means at the end of the First Prologue by
+                                selling the Play over again, is not exactly known. Perhaps if the
+                                Play had been then performed throughout and received with no favor,
+                                he would have had to forfeit the money, and lose all right to any
+                                future pecuniary interest in it; but he preferred to cancel the
+                                whole transaction, and to reserve the Play for purchase and
+                                representation at a more favorable period.</note>
+                        </p>
+                    </sp>
+                </div2>
+            </div1>
+            <div1 type="act" n="1">
+                <div2 type="scene" n="1">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="58" unit="TLN line"/>
+                    <stage>Enter PHILOTIS<note anchored="yes"><lemma targOrder="U">Philotis</lemma>:
+                            This is a protatic character, or one that helps to introduce the subject
+                            of the Play, and then appears no more.</note> and SYRA.</stage>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> I' faith, Syra, you can find
+                            but very few lovers who prove constant to their mistresses. For
+                            instance, how often did this Pamphilus swear to Bacchis--how solemnly,
+                            so that any one might have readily believed him--that he never would
+                            take home a wife so long as she lived. Well now, he is married.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SYRA</speaker>
+                        <p> Therefore, for that very reason, I earnestly both advise and entreat you
+                            to take pity upon no one, but plunder, fleece, and rend every man you
+                            lay hold of.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> What! Hold no one exempt?</p>
+                    </sp>
+                    <sp>
+                        <speaker>SYRA</speaker>
+                        <p> No one; for not a single one of them, rest assured, comes to you without
+                            making up his mind, by means of his flatteries, to gratify his passion
+                            with you at the least possible expense. Will you not, pray, plot against
+                            them in return ?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> And yet, upon my faith, it is unfair to be the same to all.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SYRA</speaker>
+                        <p> What! unfair to take revenge on your enemies? or, for them to be caught
+                            in the very way they try to catch you ? Alas! wretched me! why do not
+                            your age and beauty belong to me, or else these sentiments of mine to
+                            you? </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="2">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="76" unit="TLN line"/>
+                    <stage>Enter PARMENO from the house of LACHES.</stage>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>at the door, speaking to SCIRTUS within.</stage> If the old man
+                            should be asking for me, do you say that I have just gone to the harbor
+                            to inquire about the arrival of Pamphilus. Do you hear what I say,
+                            Scirtus? If he asks for me, then you are to say so; if he does not, why,
+                            say nothing at all; so that at another time I may be able to employ that
+                            excuse as a new one. <stage>Comes forward, and looking
+                            around.</stage>--But is it my dear Philotis that I see? How has she come
+                            here? <stage>Accosting her.</stage> Philotis heartily good-morrow.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> O, good-morrow, Parmeno,</p>
+                    </sp>
+                    <sp>
+                        <speaker>SYRA</speaker>
+                        <p> By my troth, good-morrow, Parmeno.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I' faith, Syra, the same to you. Philotis, tell me, where have you been
+                            enjoying yourself so long?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> For my part, indeed, I have been far from enjoying myself, in leaving
+                            this place for <placeName key="perseus,Corinth">Corinth</placeName> with
+                            a most brutal captain; for two whole years, there, had I to put up with
+                            him to my sorrow.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I' troth, I fancy that regret for <placeName key="perseus,Athens"
+                                >Athens</placeName> full oft possessed you, and that you thought but
+                            poorly of your foresight.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> It can not be expressed how impatient I was to return hither, get rid of
+                            the captain, and see yourselves here, that after our old fashion I might
+                            at my ease enjoy the merry-makings among you; for there it was not
+                            allowed me to speak, except at the moment prescribed, and on such
+                            subjects as he chose.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>sarcastically.</stage> I don't think it was gallant in the
+                            captain to place a restraint on your tongue.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> But what is this piece of business that Bacchis has just now been
+                            telling me in-doors here? <stage>pointing to her house.</stage> A thing
+                            I never supposed would come to pass, that he, in her lifetime, could
+                            possibly prevail upon his feelings to take a wife.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> To take, indeed!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> Why, look you, has he not taken one?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> He has; but I doubt whether this match will be lasting.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> May the Gods and Goddesses grant it so, if it is for the advantage of
+                            Bacchis. But why am I to believe it is so? Tell me, Parmeno.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> There is no need for its being spread abroad; ask me no more about
+                            it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> For fear, I suppose, it may be made public. So may the Gods prosper me,
+                            I do not ask you in order that I may spread it abroad, but that, in
+                            silence, I may rejoice within myself.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> You'll never speak me so fairly, that I shall trust my back to your
+                            discretion.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> Oh, don't say so, Parmeno ;<milestone n="109" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">Don't say so, Parmeno</lemma>:
+                                She says this ironically, at the same time intimating that she knows
+                                Parmeno too well, not to be sure that he is as impatient to impart
+                                the secret to her as she is to know it. Donatus remarks, that she
+                                pretends she has no curiosity to hear it, that he may deem her the
+                                more worthy to be intrusted with the secret.</note> as though you
+                            were not much more impatient to tell me this, than I to learn what I'm
+                            inquiring about.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>to himself.</stage> She tells the truth there; and that is my
+                            greatest failing. <stage>To PHILOTIS.</stage> If you give me your word
+                            that you'll keep it a secret, I'll tell you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> You are now returning to your natural disposition. I give you my word;
+                            say on.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Listen.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> I'm all attention.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Pamphilus was in the height of his passion for Bacchis here, when his
+                            father began to importune him to take a wife, and to urge those points
+                            which are usual with all fathers, that he himself was now in years, and
+                            that he was his only son, that he wished for a support for his declining
+                            years. He refused at first. But on his father pressing more urgently, he
+                            caused him to become wavering in his mind, whether to yield rather to
+                            duty or to love. By hammering on and teazing him, at last the old man
+                            gained his point; and betrothed him to the daughter of our next-door
+                            neighbor here <stage>pointing to the house of PHIDIPPUS</stage>. This
+                            did not seem so very disagreeable to Pamphilus, until on the very point
+                            of marriage, when he saw that all was ready, and that no respite was
+                            granted, but marry he must; then, at last, he took it so much to heart,
+                            that I do believe if Bacchis had been present, even she would have
+                            pitied him. Whenever opportunity was afforded for us being alone, so
+                            that he could converse with me, he used to say: "Parmeno, I am ruined!
+                            What have I done! Into what misery have I plunged myself! Parmeno, I
+                            shall never be able to endure this. To my misery, I am undone !"</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p>
+                            <stage>vehemently exclaiming.</stage> May the Gods and Goddesses
+                            confound you, Laches, for vexing him so !</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> To cut the matter short, he took home his wife. On the first night, he
+                            did not touch the girl; the night that followed that, not a bit the
+                            more.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> What is it you tell me? A young man go to bed with a virgin, intoxicated
+                            to boot, and able to restrain himiself from touching her! You do not say
+                            what's likely; nor do I believe it to be the truth.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I suppose it does seem so to you, for no one comes to you unless he is
+                            eager for you; but he had married her against his will.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> After this, what followed ?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> In a very few days after, Pamphilus took me aside, away from the house,
+                            and told me how that the young woman was still untouched by him; and how
+                            that before he had taken her home as his wife, he had hoped to be able
+                            to endure this marriage: "But, Parmeno, as I can not resolve to live
+                            with her any longer, it is neither honorable in me, nor of advantage to
+                            the young woman herself, for her to be turned to ridicule, but rather I
+                            ought to return her to her relations just as I received her."</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> You tell me of a conscientious and virtuous disposition in
+                            Pamphilus.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> "For me to declare this, I consider to be inconvenient to me, but for
+                            her to be sent back to her father without mentioning any blame, would be
+                            insolent; but I am in hopes that she, when she is sensible that she can
+                            not live with me, will go at last of her own accord."</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> What did he do in the mean while ? Used he to visit Bacchis?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Every day. But as usually is the case, after she saw that he belonged to
+                            another, she immediately became more ill-natured and more peevish.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> I' faith, that's not to be wondered at.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> And this circumstance in especial contributed to estrange him from her;
+                            after he had fairly examined himself, and her, and the one that was at
+                            home, he formed a judgment, by comparison, upon the principles of them
+                            both. She, just as might be expected from a person of respectable and
+                            free birth, chaste and virtuous, patient under the slights and all the
+                            insults of her husband, and concealing his affronts. Upon this, his
+                            mind, partly overcome by compassion for his wife, partly constrained by
+                            the insolence of the other, was gradually estranged from Bacchis, and
+                            transferred its affections to the other, after having found a congenial
+                            disposition. In the mean time, there dies at Imbros<milestone n="171"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U"
+                                    >Imbros</lemma>: An island in the <placeName key="tgn,7002675"
+                                    >Aegean Sea</placeName>, off the coast of <placeName
+                                    key="tgn,7002756">Thrace</placeName>.</note> an old man, a
+                            relative of theirs. His property there devolved on them by law. Thither
+                            his father drove the love-sick Pamphilus, much against his will. He left
+                            his wife here with his mother, for the old man has retired into the
+                            country; he seldom comes into the city.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> What is there yet in this marriage to prevent its being lasting ?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> You shall hear just now. At first, for several days, there really was a
+                            good understanding between them. In the mean time, however, in a strange
+                            way, she began to take a dislike to Sostrata; nor yet was there ever any
+                            quarrel or words between them.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> What then ?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> If at any time she came to converse with her, she would instantly
+                            withdraw from her presence,<milestone n="182" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">From her presence</lemma>: For
+                                the purpose, as will afterward appear, of not letting Sostrata see
+                                that she was pregnant.</note> and refuse to see her; in fine, when
+                            she could no longer endure her, she pretended that she was sent for by
+                            her mother to assist at a sacrifice. When she had been there a few days,
+                            Sostrata ordered her to be fetched. She made some, I know not what,
+                            excuse. Again she gave similar orders; no one sent back any excuse.
+                            After she had sent for her repeatedly, they pretended that the damsel
+                            was sick. My mistress immediately went to see her; no one admitted her.
+                            On the old man coming to know of this, he yesterday came up from the
+                            country on purpose, and waited immediately upon the father of Philumena.
+                            What passed between them, I do not know as yet; but really I do feel
+                            some anxiety in what way this is to end. You now have the whole matter;
+                            and I shall proceed whither I was on my way.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> And I too, for I made an appointment with a certain stranger<milestone
+                                n="195" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"
+                                    >With a certain stranger</lemma>: Here Philotis gives a reason,
+                                as Donatus observes, why she does not again appear in the Play. The
+                                following is an extract from Colman's remarks on this passage: "It
+                                were to be wished, for the sake of the credit of our author's
+                                acknowledged art in the Drama, that Philotis had assigned as good a
+                                reason for her appearing at all. Eugraphius justly says: 'The
+                                Courtesan in this Scene is a character quite foreign to the fable.'
+                                Donatus also says much the same thing in his Preface, and in his
+                                first Note to this Comedy; but adds that 'Terence chose this method
+                                rather. than to relate the argument by means of a Prologue, or to
+                                introduce a God speaking from a machine. I will venture to say that
+                                the Poet might have taken a much shorter and easier method than
+                                either; I mean, to have begun the Play with the very Scene which now
+                                opens the Second Act.'"</note> to meet him.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> May the Gods prosper what you undertake!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHILOTIS</speaker>
+                        <p> Farewell!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> And a kind farewell to you, my dear Philotis. <stage>(Exeunt
+                                severally.)</stage>
+                        </p>
+                    </sp>
+                </div2>
+            </div1>
+            <div1 type="act" n="2">
+                <div2 type="scene" n="1">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="199" unit="TLN line"/>
+                    <stage>Enter LACHES and SOSTRATA, from the house of the former.</stage>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> O faith of Gods and men! what a race is this! what a conspiracy this!
+                            that all women should desire and reject every individual thing alike!
+                            And not a single one can you find to swerve in any respect from the
+                            disposition of the rest. For instance, quite as though with one accord,
+                            do all mothers-in-law hate their daughters-in-law. Just in the same way
+                            is it their system to oppose their husbands; their obstinacy here is the
+                            same. In the very same school they all seem to me to have been trained
+                            up to perverseness. Of that school, if there is any mistress, I am very
+                            sure that she <stage>pointing at SOSTRATA</stage> it is.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Wretched me! when now I don't so much as know why I am accused!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Eh ! you don't know ?</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> So may the Gods kindly prosper me, Laches, and so may it be allowed us
+                            to pass our lives together in unity!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>aside.</stage> May the Gods avert such a misfortune!</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> I'm sure that before long you will be sensible that I have been accused
+                            by you undeservedly.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> You, undeservedly ? Can any thing possibly be said that you deserve in
+                            return for this conduct of yours? You, who are disgracing both me and
+                            yourself and the family, and are laying up sorrow for your Son. Then
+                            besides, you are making our connections become, from friends, enemies to
+                            us, who have thought him deserving for them to intrust their
+                                children<milestone n="212" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Intrust their children</lemma>: The plural
+                                    "<foreign lang="la">liberos</foreign>," children, is used where
+                                only one is being spoken of, similarly, in the Heautontimorumenos,
+                                1. 151.</note> to him. You alone have put yourself forward, by your
+                            folly, to be causing this disturbance.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> What, I ?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> You, woman, I say, who take me to be a stone, not a man. Do you think
+                            because it's my habit to be so much in the country, that I don't know in
+                            what way each person is passing his life here ? I know much better what
+                            is going on here than there, where I am daily; for this reason, because,
+                            just as you act at home, I am spoken of abroad. Some time since, indeed,
+                            I heard that Philumena had taken a dislike to you; nor did I the least
+                            wonder at it; indeed, if she hadn't done so, it would have been more
+                            surprising. But I did not suppose that she would have gone so far as to
+                            hate even the whole of the family; if I had known that, she should have
+                            remained here in preference, and you should have gone away. But consider
+                            how undeservedly these vexations arise on your account, Sostrata; I went
+                            to live in the country, in compliance with your request, and to look
+                            after my affairs, in order that my circumstances might be able to
+                            support your lavishness and comforts, not sparing my own exertions,
+                            beyond what's reasonable and my time of life allows. That you should
+                            take no care, in return for all this, that there should be nothing to
+                            vex me!</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Upon my word, through no means or fault of mine has this taken
+                            place.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Nay, through you in especial; you were the only person here; on you
+                            alone, Sostrata, falls all the blame. You ought to have taken care of
+                            matters here, as I had released you from other anxieties. Is it not a
+                            disgrace for an old woman to pick a quarrel with a girl? You will say it
+                            was her fault.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Indeed I do not say so, my dear Laches.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> I am glad of that, so may the Gods prosper me, for my son's sake. I am
+                            quite sure of this, that no fault of yours can possibly put you in a
+                            worse light.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> How do you know, my husband, whether she may not have pretended to
+                            dislike me, on purpose that she might be more with her mother?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> What say you to this? Is it not proof sufficient, when yesterday no one
+                            was willing to admit you into the house, when you went to see her?</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Why, they told me that she was very ill just then; for that reason I was
+                            not admitted to her.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> I fancy that your humors are more her malady than any thing else; and
+                            with good reason in fact, for there is not one of you but wants her son
+                            to take a wife; and the match which has taken your fancy must be the
+                            one; when, at your solicitation, they have married, then, at your
+                            solicitation, they are to put them away again. </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="2">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="244" unit="TLN line"/>
+                    <stage>Enter PHIDIPPUS from his house.</stage>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p>
+                            <stage>speaking to PHILUMENA within.</stage> Although I am aware,
+                            Philumena, that I have the right to compel you to do what I order,
+                            still, being swayed by the feelings of a father, I will prevail upon
+                            myself to yield to you, and not oppose your inclination.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> And look, most opportunely I see Phidippus; I'll presently know from him
+                            how it is. <stage>Accosting him.</stage> Phidippus, although I am aware
+                            that I am particularly indulgent to all my family, still it is not to
+                            that degree to let my good nature corrupt their minds. And if you would
+                            do the same, it would be more for your own interest and ours. At present
+                            I see that you are under the control of those women.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Just look at that, now !</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> I waited on you yesterday about your daughter; you sent me away just as
+                            wise as I came. It does not become you, if you wish this alliance to
+                            continue, to conceal your resentment. If there is any fault on our side,
+                            disclose it; either by clearing ourselves, or excusing it, we shall
+                            remedy these matters for you, yourself the judge. But if this is the
+                            cause of detaining her at your house, because she is ill, then I think
+                            that you do me an injustice, Phidippus, if you are afraid lest she
+                            should not be attended with sufficient care at my house. But, so may the
+                            Gods prosper me, I do not yield in this to you, although you are her
+                            father, that you can wish her well more than I do, and that on my son's
+                            account, who I know values her not less than his own self. Nor, in fact,
+                            is it unknown to you, how much, as I believe, it will vex him, if he
+                            comes to know<milestone n="262" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">If he comes to know</lemma>: Donatus
+                                observes that the Poet shows his art in here preparing a reason to
+                                be assigned by Pamphilus for his pretended discontent at the
+                                departure of his wife.</note> of this; for this reason, I wish to
+                            have her home before he returns.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Laches, I am sensible of both your carefulness and your good-will, and I
+                            am persuaded that all you say is just as you say: and I would have you
+                            believe me in this; I am anxious for her to return to you, if I possibly
+                            can by any means effect it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> What is it prevents you from effecting it? Come, now, does she make any
+                            complaint against her husband?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> By no means; for when I urged it still more strongly, and attempted to
+                            constrain her by force to return, she solemnly protested that she
+                            couldn't possibly remain with you, while Pamphilus was absent. Probably
+                            each has his own failing; I am naturally of an indulgent disposition; I
+                            can not thwart. my own family.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>turning to his wife, who stands apart.</stage> Ha!
+                                Sostrata!<milestone n="271" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Ha! Sostrata</lemma>: Colman observes on
+                                this passage: "This is extremely artful. The answer of Philumena, as
+                                related by Phidippus, contains an ample vindication of Pamphilus.
+                                What, then, can we suppose could make the house so disagreeable to
+                                her in his absence, but the behavior of Sostrata? She declares her
+                                innocence; yet appearances are all against her. Supposing this to be
+                                the first Act of the Play, it would be impossible for a Comedy to
+                                open in a more interesting manner."</note></p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p>
+                            <stage>sighing deeply.</stage> Alas! wretched me!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>to PHIDIPPUS.</stage> Is this your final determination ?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> For the present, at least, as it seems; but have you any thing else to
+                            say? for I have some business that obliges me to go at once to the
+                            Forum.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> I'll go with you. <stage>(Exeunt.)</stage></p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="3">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="275" unit="TLN line"/>
+                    <stage>SOSTRATA alone.</stage>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Upon my faith, we assuredly are all of us hated by our husbands with
+                            equal injustice, on account of a few, who cause us all to appear
+                            deserving of harsh treatment. For, so may. the Gods prosper me, as to
+                            what my husband accuses me of, I am quite guiltless. But it is not so
+                            easy to clear myself, so strongly have people come to the conclusion
+                            that all step-mothers are harsh: i' faith, not I, indeed, for I never
+                            regarded her otherwise than if she had been my own daughter; nor can I
+                            conceive how this has befallen me. But really, for many reasons, I long
+                            for. my son's return home with impatience. <stage>Goes into her
+                                house.</stage>
+                        </p>
+                    </sp>
+                </div2>
+            </div1>
+            <div1 type="act" n="3">
+                <div2 type="scene" n="1">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="282" unit="TLN line"/>
+                    <stage>Enter PAMPHILUS and PARMENO.</stage>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> No individual, I do believe, ever met with more crosses in love than I.
+                            Alas! unhappy me! that I have thus been sparing of life! Was it for this
+                            I was so very impatient to return home ? O, how much more preferable had
+                            it been for me to pass my life any where in the world than to return
+                            here and be sensible that I am thus wretched! For all of us know who
+                            have met with trouble from any cause, that all the time that passes
+                            before we come to the knowledge of it, is so much gain.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Still, as it is, you'll the sooner know how to extricate yourself from
+                            these misfortunes. If you had not returned, this breach might have
+                            become much wider; but now, Pamphilus, I am sure that both will be awed
+                            by your presence. You will learn the facts, remove their enmity, restore
+                            them to good feeling once again. These are but trifles which you have
+                            persuaded yourself are so grievous.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Why comfort me? Is there a person in all the world so wretched as I?
+                            Before I took her to wife, I had my heart engaged by other affections.
+                            Now, though on this subject I should be silent, it is easy for any one
+                            to know how much I have suffered; yet I never dared refuse her whom my
+                            father forced upon me. With difficulty did I withdraw myself from
+                            another, and disengage my affections so firmly rooted there! and hardly
+                            had I fixed them in another quarter, when, lo! a new misfortune has
+                            arisen, which may tear me from her too. Then besides, I suppose that in
+                            this matter I shall find either my mother or my wife in fault; and when
+                            I find such to be the fact, what remains but to become still more
+                            wretched? For duty, Parmeno, bids me bear with the feelings of a mother;
+                            then, to my wife I am bound by obligations; with so much temper did she
+                            formerly bear my usage, and on no occasion disclose the many wrongs
+                            inflicted on her by me. But, Parmeno, something of consequence, I know
+                            not what it is, must have happened for this misunderstanding to have
+                            arisen between them, that has lasted so long.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Or else something frivolous, i' faith, if you would only give words
+                            their proper value; those which are sometimes the greatest enmities, do
+                            not argue the greatest injuries; for it often happens that in certain
+                            circumstances, in which another would not even be out of temper, for the
+                            very same reason a passionate man becomes your greatest enemy. What
+                            enmities do children entertain among themselves for trifling injuries!
+                            For what reason? Why, because they have a weak understanding to direct
+                            them. Just so are these women, almost like children with their fickle
+                            feelings; perhaps a single word has occasioned this enmity between them,
+                            master.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Go, Parmeno, into the house, and carry word<milestone n="314"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And carry
+                                    word</lemma>: It was the custom with the Greeks and Romans, when
+                                returning from abroad, to send a messenger before them, to inform
+                                their wives of their arrival. See for example Cicero's last <bibl
+                                    n="Cic. Fam. 14.20">letter</bibl> to his wife, <date value="-47"
+                                    >47</date> BC.</note> that I have arrived. <stage>A noise is
+                                heard in the house of PHIDIPPUS.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>starting.</stage> Ha! What means this?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Be silent. I perceive a bustling about, and a running to and fro.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>going to the door.</stage> Come then, I'll approach nearer to the
+                            door. <stage>He listens.</stage> Ha! did you hear?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Don't be prating. <stage>He listens.</stage> O Jupiter, I heard a
+                            shriek!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> You yourself are talking, while you forbid me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p>
+                            <stage>within the house.</stage> Prithee, my child, do be silent.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> That seems to be the voice of Philumena's mother. I'm undone</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Why so?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Utterly ruined!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> For what reason?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Parmeno, you are concealing from me some great misfortune to me
+                            unknown.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> They said that your wife, Philumena, was in alarm about<milestone
+                                n="321" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"
+                                    >Was in alarm about</lemma>: "<foreign lang="la"
+                                    >Pavitare</foreign>." Casaubon has a curious suggestion here; he
+                                thinks it not improbable that he had heard the female servants
+                                whispering among themselves that Philumena "<foreign lang="la"
+                                    >paritare</foreign>," "was about to be brought to bed," which he
+                                took for "<foreign lang="la">pavitare</foreign>," "was in fear" of
+                                something.</note> something, I know not what; whether that may be
+                            it, perchance, I don't know.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I am undone! Why didn't you tell me of this?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Because I couldn't tell every thing at once.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> What is the malady?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I don't know.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> What! has no one brought a physician to see her?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I don't know.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Why delay going in-doors, that I may know as soon as possible for
+                            certain what it is? In what condition, Philumena, am I now to find you?
+                            But if you are in any peril, beyond a doubt I will perish with you.
+                                <stage>Goes into the house of PHIDIPPUS.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>to himself.</stage> There is no need for me to follow him into
+                            the house at present, for I see that we are all disagreeable to them.
+                            Yesterday, no one would give Sostrata admittance. If, perchance, the
+                            malady should become worse, which really I could far from wish, for my
+                            master's sake especially, they would at once say that Sostrata's servant
+                            had been in there; they would invent a story that I had brought some
+                            mischief against their lives and persons, in consequence of which the
+                            malady had been increased. My mistress would be blamed, and I should
+                            incur heavy punishment.<milestone n="335" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">Heavy punishment</lemma>:
+                                Probably meaning that he will be examined by torture, whether he has
+                                not, by drugs or other means, contributed to Philumena's
+                                illness.</note>
+                        </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="2">
+                    <stage>Enter SOSTRATA.</stage>
+                    <milestone n="1" unit="line"/>
+                    <milestone n="337" unit="TLN line"/>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p>
+                            <stage>to herself.</stage> In dreadful alarm, I have for some time
+                            heard, I know not what confusion going on here; I'm sadly afraid
+                            Philumena's illness is getting worse. Aesculapius, I do entreat thee,
+                            and thee, Health,<milestone n="338" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">And thee, Health</lemma>: She
+                                invokes Aesculapius, the God of Medicine, and "<foreign lang="la"
+                                    >Salus</foreign>," or "Health," because, in <placeName
+                                    key="tgn,1000074">Greece</placeName>, their statues were always
+                                placed near each other; so that to have offered prayers to one and
+                                not to the other, would have been deemed a high indignity. On the
+                                worship of Aesculapius, see the opening Scene of the Curculio of
+                                Plautus.</note> that it may not be so. Now I'll go visit her.
+                                <stage>Approaches the door.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>coming forward.</stage> Hark you, Sostrata.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p>
+                            <stage>turning round.</stage> Well.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> You will again be shut out there.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> What, Parmeno, is it you? I'm undone! wretch that I am, what shall I do?
+                            Am I not to go see the wife of Pamphilus, when she is ill here next
+                            door?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Not go see her! Don't even send any person for the purpose of seeing
+                            her; for I'm of opinion that he who loves, a person to whom he is an
+                            object of dislike, commits a double mistake: he himself takes a useless
+                            trouble, and causes annoyance to the other. Besides, your son went in to
+                            see how she is, as soon as he arrived.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> What is it you say? Has Pamphilus arrived?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> He has.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> I give thanks unto the Gods! Well, through that news my spirits are
+                            revived, and anxiety has departed from my heart.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> For this reason, then, I am especially unwilling you should go in there;
+                            for if Philumena's malady at all abates, she will, I am sure, when they
+                            are by themselves, at once tell him all the circumstances; both what
+                            misunderstandings have arisen between you, and how the difference first
+                            began. But see, he's coming out-how sad he looks! <stage>Re-enter
+                                PAMPHILUS, from the house of PHIDIPPUS.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p>
+                            <stage>running up to him.</stage> O my son! <stage>Embraces
+                            him.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> My mother, blessings on you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> I rejoice that you are returned safe. Is Philumena in a fair way?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> She is a little better. <stage>Weeping.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Would that the Gods may grant it so! Why, then, do you weep, or why so
+                            dejected?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> All's well, mother.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> What meant that confusion? Tell me; was she suddenly taken ill?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Such was the fact.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> What is her malady?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> A fever.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> An intermitting one?<milestone n="357" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">An intermitting one</lemma>:
+                                    "<foreign lang="la">Quotidiana</foreign>," literally,
+                                "daily."</note></p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> So they say. Go in the house, please, mother; I'll follow you
+                            immediately.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Very well. <stage>Goes into her house.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Do you run and meet the servants, Parmeno, and help them with the
+                            baggage.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Why, don't they know the way themselves to come to our house?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>stamping.</stage> Do you loiter? <stage>(Exit PARMENO.)</stage>
+                        </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="3">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="362" unit="TLN line"/>
+                    <stage>PAMPHILUS, alone.</stage>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I can not discover any fitting commencement of my troubles, at which to
+                            begin to narrate the things that have so unexpectedly befallen me, some
+                            of which with these eyes I have beheld; some I have heard with my ears;
+                            and on account of which I so hastily betook myself, in extreme
+                            agitation, out of doors. For just now, when, full of alarm, I rushed
+                            into the house, expecting to find my wife afflicted with some other
+                            malady than what I have found it to be--ah me! immediately the
+                            servant-maids beheld that I had arrived, they all at the same moment
+                            joyfully exclaimed, "He is come," from having so suddenly caught sight
+                            of me. But I soon perceived the countenances of all of them
+                                change,<milestone n="369" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">All of them change</lemma>: This must have
+                                been imaginary, as they were not likely to be acquainted with the
+                                reason of Philumena's apprehensions.</note> because at so
+                            unseasonable a juncture chance had brought me there. One of them in the
+                            mean time hastily ran before me to give notice that I had come.
+                            Impatient to see my wife, I followed close. When I entered the room,
+                            that instant, to my sorrow, I found out her malady; for neither did the
+                            time afford any. interval to enable her to conceal it, nor could she
+                            complain in any other accents than those which the case itself prompted.
+                            When I perceived this: "O disgraceful conduct!" I exclaimed, and
+                            instantly hurried away from the spot in tears, overwhelmed by such an
+                            incredible and shocking circumstance. Her mother followed me; just as I
+                            got to the threshold, she threw herself on her knees: I felt compassion
+                            for her. Assuredly it is the fact, in my opinion, just as matters befall
+                            us all, so are we elated or depressed. At once she began to address me
+                            in these words: "O my dear Pamphilus, you see the reason why she left
+                            your house; for violence was offered to her when formerly a maid, by
+                            some villain to us unknown. Now, she took refuge here then, that from
+                            you and others she might conceal her labor." But when I call to mind her
+                            entreaties, I can not, wretched as I am, refrain from tears. "Whatever
+                            chance or fortune it is," said she, "which has brought you here to-day,
+                            by it we do both conjure you, if with equity and justice we may, that
+                            her misfortune may be concealed by you, and kept a secret from all. If
+                            ever you were sensible, my dear Pamphilus, that she was tenderly
+                            disposed toward you, she now asks you to grant her this favor in return,
+                            without making any difficulty of it. But as to taking her back, act
+                            quite according to your own convenience. You alone are aware of her.
+                            lying-in, and that the child is none of yours. For it is said that it
+                            was two months after the marriage before she had commerce with you. And
+                            then, this is but the seventh month since she came to you.<milestone
+                                n="394" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"
+                                    >Since she came to you</lemma>: There is great doubt what is the
+                                exact meaning of "<foreign lang="la">postquam ad te
+                                venit</foreign>," here, whether it means, "it is now the seventh
+                                month since she became your wife," or, "it is now the seventh month
+                                since she came to your embraces," which did not happen for two
+                                months after the marriage. The former is, under the circumstances,
+                                the most probable construction.</note> That you are sensible of
+                            this, the circumstances themselves prove. Now, if it is possible,
+                            Pamphilus, I especially wish, and will use my endeavors, that her labor
+                            may remain unknown to her father, and to all, in fact. But if that can
+                            not be managed, and they do find it out, I will say that she miscarried;
+                            I am sure no one will suspect otherwise than, what is so likely, the
+                            child was by you. It shall be instantly exposed; in that case there is
+                            no inconvenience whatever to yourself, and you will be concealing an
+                            outrage so undeservingly committed upon her,<milestone n="401"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Committed
+                                    upon her</lemma>: Colman very justly observes here: "It is rather
+                                extraordinary that Myrrhina's account of the injury done to her
+                                daughter should not put Pamphilus in mind of his own adventure,
+                                which comes out in the Fifth Act. It is certain that had the Poet
+                                let the Audience into that secret in this place, they would have
+                                immediately concluded that the wife of Pamphilus and the lady whom
+                                he had ravished were one and the same person." Playwrights have
+                                never, in any age or country, troubled themselves much about
+                                probability in their plots. Besides, his adventure with Philumena
+                                was by no means an uncommon one. We find similar instances mentioned
+                                by Plautus; and violence and debauchery seem almost to have reigned
+                                paramount in the streets at night.</note> poor thing!" I promised
+                            this, and I am resolved to keep faith in what I said. But as to taking
+                            her back, really I do not think that would be at all creditable, nor
+                            will I do so, although love for her, and habit, have a strong influence
+                            upon me. I weep when it occurs to my mind, what must be her life, and
+                            how great her loneliness in future. O Fortune, thou hast never been
+                            found constant! But by this time my former passion has taught me
+                            experience in the present case. The means by which I got rid of that, I
+                            must employ on the present occasion. Parmeno is coming with the
+                            servants; it is far from convenient that he should be here under present
+                            circumstances, for he was the only person to whom I trusted the secret
+                            that I kept aloof from her when I first married her. I am afraid lest,
+                            if he should frequently hear her cries, he might find out that she is in
+                            labor. He must be dispatched by me somewhere till Philumena is
+                            delivered. </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="4">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="416" unit="TLN line"/>
+                    <stage>Enter at a distance PARMENO and SOSIA, with people carrying
+                        baggage.</stage>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>to SOSIA.</stage> Do you say that this voyage was disagreeable to
+                            you?</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSIA</speaker>
+                        <p> Upon my faith, Parmeno, it can not be so much as expressed in words, how
+                            disagreeable it is to go on a voyage.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Do you say so?</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSIA</speaker>
+                        <p> O lucky man! You don't know what evils you have escaped, by never having
+                            been at sea. For to say nothing of other hardships, mark this one only;
+                            thirty days or more<milestone n="421" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">Thirty days or more</lemma>: In
+                                his voyage from Imbros to <placeName key="perseus,Athens"
+                                    >Athens</placeName>, namely, which certainly appears to have
+                                been unusually long.</note> was I on board that ship, and every
+                            moment, to my horror, was in continual expectation of death: such
+                            unfavorable weather did we always meet with.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> How annoying!.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSIA</speaker>
+                        <p> That's not unknown to me: in fine, upon my faith, I would rather run
+                            away than go back, if I knew that I should have to go back there.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Why really, but slight causes formerly made you, Sosia, do what now you
+                            are threatening to do. But I see Pamphilus himself standing before the
+                            door. <stage>To the Attendants, who go into the house of LACHES.</stage>
+                            Go in-doors; I'll accost him, to see if he wants any thing with me.
+                                <stage>Accosts PAMPHILUS.</stage> What, still standing here,
+                            master?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Yes, and waiting for you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> What's the matter?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> You must run across to the citadel.<milestone n="431" unit="TLN line"
+                                /><note anchored="yes"><lemma targOrder="U">To the citadel</lemma>:
+                                This was the fort or citadel that defended the <placeName
+                                    key="perseus,Piraeus">Piraeus</placeName>, and being three miles
+                                distant from the city, was better suited for the design of
+                                Pamphilus, whose object it was to keep Parmeno for some time at a
+                                distance.</note></p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Who must?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> You.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> To the citadel? Why thither?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> To meet Callidemides, my entertainer at Myconos, who came over in the
+                            same ship with me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>
+                            <stage>aside.</stage> Confusion! I should say he has made a vow that if
+                            ever he should return home safe, he would rupture me<milestone n="435"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He would
+                                    rupture me</lemma>: He facetiously pretends to think that
+                                Pamphilus may, during a storm at sea, have vowed to walk him to
+                                death, if he should return home.</note> with walking.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Why are you lingering?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> What do you wish me to say? Or am I to meet him only?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> No; say that I can not meet him to-day, as I appointed, so that he may
+                            not wait for me to no purpose. Fly!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> But I don't know the man's appearance.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Then I'll tell you how to know it; a huge fellow, ruddy, with curly
+                            hair, fat, with gray eyes and freckled countenance.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> May the Gods confound him! What if he shouldn't come? Am I to wait
+                            there, even till the evening?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Yes, wait there. Run!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I can't; I am so tired. <stage>(Exit slowly.)</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> He's off. What shall I do in this distressed situation? Really, I don't
+                            know in what way I'm to conceal this, as Myrrhina entreated me, her
+                            daughter's lying-in; but I do pity the woman. What I can, I'll do; only
+                            so long, however, as I observe my duty; for it is proper that I should
+                            be regardful of a parent,<milestone n="448" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">Regardful of a parent</lemma>:
+                                    Colman observes here:
+                                "This reflection seems to be rather improper in this place, for the
+                                discovery of Philumena's labor betrayed to Pamphilus the real motive
+                                of her departure; after which discovery his anxiety proceeds
+                                entirely from the supposed injury offered him, and his filial piety
+                                is from that period made use of merely as a pretense."</note> rather
+                            than of my passion. But look--I see Phidippus and my father. They are
+                            coming this way; what to say to them, I'm at a loss. <stage>Stands
+                                apart.</stage>
+                        </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="5">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="452" unit="TLN line"/>
+                    <stage>Enter, at a distance, LACHES and PHIDIPPUS.</stage>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Did you not say, just now, that she was waiting for my son's return?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Just so.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> They say that he has arrived; let her return.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>apart to himself aloud.</stage> What excuse to make to my father
+                            for not taking her back, I don't know!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>turning round.</stage> Who was it I heard speaking here?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>apart.</stage> I am resolved to persevere in the course I
+                            determined to pursue.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> 'Tis the very person about whom I was talking to you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Health to you, my father.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Health to you, my son.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> I am glad that you have returned, Pamphilus, and the more especially so,
+                            as you are safe and well.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I believe you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Have you but just arrived?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Only just now.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Tell me, what has our cousin Phania left us?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Why really, i' faith, he was a man very much devoted to pleasure while
+                            he lived; and those who are so, don't much benefit their heirs, but for
+                            themselves leave this commendation: While he lived, he lived
+                                well.<milestone n="461" unit="TLN line"/><note anchored="yes"><lemma
+                                    targOrder="U">He lived well</lemma>: This is living well in the
+                                sense used by the "Friar of orders gray." "Who leads a good life is
+                                sure to live well."</note></p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> So then, you have brought home nothing more<milestone n="462"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Brought
+                                    home nothing more</lemma>: Colman remarks that this passage is taken notice of
+                                by Donatus as a particularly happy stroke of character; and indeed
+                                the idea of a covetous old man gaping for a fat legacy, and having
+                                his mouth stopped by a moral precept, is truly comic.</note> than a
+                            single sentiment?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Whatever he has left, we are the gainers by it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Why no, it has proved a loss; for I could have wished him alive and
+                            well.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> You may wish that with impunity; he'll never come to life again; and
+                            after all I know which of the two you would prefer.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Yesterday, he <stage>pointing to PHIDIPPUS</stage> desired Philumena to
+                            be fetched to his house. <stage>Whispers to PHIDIPPUS, nudging him with
+                                his elbow.</stage> Say that you desired it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p>
+                            <stage>aside to LACHES</stage> Don't punch me so. <stage>To
+                                PAMPHILUS.</stage> I desired it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> But he'll now send her home again.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Of course.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I know the whole affair, and how it happened; I heard it just now, on my
+                            arrival.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Then may the Gods confound those spiteful people who told this news with
+                            such readiness!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>to PHIDIPPUS.</stage> I am sure that it has been my study, that
+                            with reason no slight might possibly be committed by your family; and if
+                            I were now truthful to mention of how faithful, loving, and tender a
+                            disposition I have proved toward her, I could do so truly, did I not
+                            rather wish that you should learn it of herself; for by that method you
+                            will be the more ready to place confidence in my disposition when she,
+                            who is now acting unjustly toward me, speaks favorably of me. And that
+                            through no fault of mine this separation has taken place, I call the
+                            Gods to witness. But since she considers that it is not befitting her to
+                            give way to my mother, and with readiness to conform to her temper, and
+                            as on no other terms it is possible for good feeling to exist between
+                            them, either my mother must be separated, Phidippus, from me, or else
+                            Philumena. Now affection urges me rather to consult my mother's
+                            pleasure.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Pamphilus, your words have reached my ears not otherwise than to my
+                            satisfaction, since I find that you post-pone all considerations for
+                            your parent. But take care, Pamphilus, lest impelled by resentment, you
+                            carry matters too far.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> How, impelled by resentment, could, I now be biased against her who
+                            never has been guilty of any thing toward me, father, that I could not
+                            wish, and who has often deserved as well as I could desire? I both love
+                            and praise and exceedingly regret her, for I have found by experience
+                            that she was of a wondrously engaging disposition with regard to myself;
+                            and I sincerely wish that she may spend the remainder of her life with a
+                            husband who may prove more fortunate than me, since necessity thus tears
+                            her from me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> 'Tis in your own power to prevent that.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> If you are in your senses, order her to come back.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> It is not my intention, father; I shall study my mother's interests.
+                                <stage>Going away.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Whither are you going? Stay, stay, I tell you; whither are you going?
+                                <stage>(Exit PAMPHILUS.)</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> What obstinacy is this?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Did I not tell you, Phidippus, that he would take this matter amiss? It
+                            was for that reason I entreated you to send your daughter back.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Upon my faith, I did not believe he would be so brutish; does he now
+                            fancy that I shall come begging to him? If so it is that he chooses to
+                            take back his wife, why, let him; if he is of another mind, let him pay
+                            back her portion,<milestone n="502" unit="TLN line"/><note
+                                anchored="yes"><lemma targOrder="U">Pay back her portion</lemma>: As
+                                was universally done on a separation by agreement.</note> and take
+                            himself off.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Just look at that, now; you too are getting obstinate and huffish.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p>
+                            <stage>speaking with anger.</stage> You have returned to us in a very
+                            ungovernable mood, Pamphilus.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> This anger will depart; although he has some reason for being vexed.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Because you have had a windfall, a little money, your minds are
+                            elevated.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Are you going to fall out with me, too?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Let him consider, and bring me word to-day, whether he will or will not,
+                            that she may belong to another if she does not to him. <stage>Goes
+                                hastily into his own house.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Phidippus, stay; listen to a few words--</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> He's off; what matters it to me? In fine, let them manage it between
+                            themselves,just as they please; since neither my son nor he pay any
+                            regard to me; they care but little for what I say. I'll carry the
+                            quarrel to my wife, by whose planning all these things have been brought
+                            about, and against her I will vent all the vexation that I feel. </p>
+                    </sp>
+                </div2>
+            </div1>
+            <div1 type="act" n="4">
+                <div2 type="scene" n="1">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="517" unit="TLN line"/>
+                    <stage>Enter MYRRHINA, from her house.</stage>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> I am undone! What am I to do? which way turn myself? In my wretchedness,
+                            what answer am I to give to my husband? For he seems to have heard the
+                            voice of the child when crying, so suddenly did he rush in to my
+                            daughter without saying a word. What if he comes to know that she has
+                            been delivered? for what reason I am to say I kept it concealed, upon my
+                            faith I do not know. But there's a noise at the door; I believe it is
+                            himself coming out to me: I'm utterly undone! <stage>Enter PHIDIPPUS,
+                                from the house.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p>
+                            <stage>to himself.</stage> My wife, when she saw me going to my
+                            daughter, betook herself out of the house: and look, there she is.
+                                <stage>Addressing her.</stage> What have you to say, Myrrhina? Hark
+                            you! to you I speak.</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> What, to me, my husband?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Am I your husband? Do you consider me a husband, or a man, in fact? For,
+                            woman, if I had ever appeared to you to be either of these, I should not
+                            in this way have been held in derision by your doings.</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> By what doings?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Do you ask the question? Is not your daughter brought to bed? Eh, are
+                            you silent? By whom?</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> Is it proper for a father to be asking such a question? Oh, shocking! By
+                            whom do you think, pray, except by him to whom she was given in
+                            marriage?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> I believe it; nor indeed is it for a father to think otherwise. But I
+                            wonder much what the reason can be for which you so very much wish all
+                            of us to be in ignorance of the truth, especially when she has been
+                            delivered properly, and at the right time.<milestone n="531"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At the
+                                    right time</lemma>: Lemaire observes that, from this passage, it
+                                would appear that the Greeks considered seven months sufficient for
+                                gestation. So it would appear, if we are to take the time of the
+                                Play to be seven, and not nine, months after the marriage; and, as
+                                before observed, the former seems to be the more reasonable
+                                conclusion.</note> That you should be of a mind so perverse as to
+                            prefer that the child should perish, through which you might be sure
+                            that hereafter there would be a friendship more lasting between us,
+                            rather than that, at the expense of your feelings, his wife should
+                            continue with him! I supposed this to be their fault, while in reality
+                            it lies with you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> I am an unhappy creature!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> I wish I were sure that so it was; but now it recurs to my mind what you
+                            once said about this matter, when we accepted him as our son-in-law. For
+                            you declared that you could not endure your daughter to be married to a
+                            person who was attached to a courtesan, and who spent his nights away
+                            from home.</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p>
+                            <stage>aside.</stage> Any cause whatever I had rather he should suspect
+                            than the right one.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> I knew much sooner than you did, Myrrhina, that he kept a mistress; but
+                            this I never considered a crime in young men; for it is natural to them
+                            all. For, i' faith, the time will soon come when even he will be
+                            disgusted with himself for doing so. But just as you formerly showed
+                            yourself, you have never. ceased to be the same up to the present time;
+                            in order that you might withdraw your daughter from him, and that what I
+                            did might not hold good, one thing itself now plainly proves how far you
+                            wished it carried out.</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> Do you suppose that I am so willful that I could have entertained such
+                            feelings toward one whose mother I am, if this match had been to our
+                            advantage?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Can you possibly foresee or judge what is to our advantage? You have
+                            heard it of some one, perhaps, who has told you that he has seen him
+                            coming from or going to his mistress. What then? If he has done so with
+                            discretion, and but occasionally, is it not more kind in us to conceal
+                            our knowledge of it, than to do our. best to be aware of it, in
+                            consequence of which he will detest us? For if he could all at once have
+                            withdrawn himself from her with whom he had been intimate for so many
+                            years, I should not have deemed him a man, or likely to prove a constant
+                            husband for our daughter.</p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> Do have done about the young man, I pray; and what you say I've been
+                            guilty of. Go away, meet him by yourself; ask him whether he wishes to
+                            have her as a wife or not; if so it is that he should say he does wish
+                            it, why, send her back; but if on the other hand he does not wish it, I
+                            have taken the best course for my child.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> And suppose he does not wish it, and you, Myrrhina, knew him to be in
+                            fault; still I was at hand, by whose advice it was proper for these
+                            matters to be settled; therefore I am greatly offended that you have
+                            presumed to act thus without my leave. I forbid you to attempt to carry
+                            the child any where out of this house. But I am very foolish to be
+                            expecting her to obey my orders. I'll go in-doors, and charge the
+                            servants to allow it to be carried out nowhere. <stage>Goes into the
+                                house.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>MYRRHINA</speaker>
+                        <p> Upon my faith, I do believe that there is no woman living more wretched
+                            than I; for how he would take it, if he came to know the real state of
+                            the case, i' faith, is not unknown to me, when he bears this, which is
+                            of less consequence, with such angry feelings; and I know not in what
+                            way his sentiments can possibly be changed. Out of very many
+                            misfortunes, this one evil alone had been wanting to me, for him to
+                            compel me to rear a child of whom we know not who is the father; for
+                            when my daughter was ravished, it was so dark that his person could not
+                            be distinguished, nor was any thing taken from him on the occasion by
+                            which it could be afterward discovered who he was. He, on leaving her,
+                            took away from the girl, by force, a ring which<milestone n="574"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A ring
+                                    which</lemma>: Colman
+                                remarks that this preparation for the catastrophe by the mention of
+                                the ring, is not so artful as might have been expected from Terence;
+                                as in this soliloquy he tells the circumstances directly to the
+                                Audience.</note> she had upon her finger. I am afraid, too, of
+                            Pamphilus, that he may be unable any longer to conceal what I have
+                            requested, when he learns that the child of another is being brought up
+                            as his. <stage>Goes into the house.</stage>
+                        </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="2">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="578" unit="TLN line"/>
+                    <stage>Enter SOSTRATA and PAMPHILUS.</stage>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> It is not unknown to me, my son, that I am suspected by you as the cause
+                            of your wife having left our house in consequence of my conduct;
+                            although you carefully conceal your knowledge of it. But so may the Gods
+                            prosper me, and so may you answer all my hopes, I have never knowingly
+                            deserved that hatred of me should with reason possess her; and while I
+                            thought before that you loved me, on that point you have confirmed my
+                            belief: for in-doors your father has just now related to me in what way
+                            you have preferred me to your passion. Now it is my determination to
+                            return you the favor, that you may understand that with me lies the
+                            reward of your affection. My Pamphilus, I think that this is expedient
+                            both for yourselves and my own reputation. I have finally resolved to
+                            retire hence into the country with your father, that my presence may not
+                            be an obstacle, and that no pretense may remain why your Philumena
+                            should not return to you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Pray, what sort of resolution is this? Driven away by her folly, would
+                            you be removing from the city to live in the country? You shall not do
+                            so; and I will not permit, mother, any one who may wish to censure us,
+                            to say that this has been done through my perverseness, and not your
+                            inclination. Besides, I do not wish you, for my sake, to forego your
+                            friends and relations, and festive days.<milestone n="592"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And
+                                    festive days</lemma>: "<foreign lang="la">Festos
+                                dies</foreign>." The days for sacrificing to particular Divinities,
+                                when she would have the opportunity of meeting her friends, and
+                                making herself merry with them.</note></p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Upon my word, these things afford me no pleasure now. While my time of
+                            life permitted it, I enjoyed them enough; satiety of that mode of life
+                            has now taken possession of me: this is at present my chief concern,
+                            that the length of my life may prove an annoyance to no one, or that he
+                            may look forward with impatience to my death.<milestone n="596"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Look
+                                    forward with impatience to my death</lemma>: Colman says: "This idea of the
+                                long life of a step-mother being odious to her family, is applied in
+                                a very beautiful and uncommon manner by Shakspeare: <cit>
+                                    <quote lang="en">
+                                        <l>Now, fair Hippolyta, our nuptial hour</l>
+                                        <l>Draws on apace; for happy days bring in</l>
+                                        <l>Another morn; but oh, methinks how slow</l>
+                                        <l>This old morn wanes! she lingers my desires</l>
+                                        <l>Like to a step-dame, or a dowager,</l>
+                                        <l>Long withering out a young man's revenue."</l>
+                                    </quote>
+                                    <bibl n="shak. mnd 1.1">
+                                        <title>Midsummer Night's Dream.</title>
+                                    </bibl>
+                                </cit></note> Here I see that, without deserving it, I am disliked;
+                            it is time for me to retire. Thus, in the best way, I imagine, I shall
+                            cut short all grounds of discontent with all; I shall both free myself
+                            from suspicion, and shall be pleasing them. Pray, let me avoid this
+                            reproach, which so generally attaches on women to their
+                            disadvantage.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>aside.</stage> How happy am I in other respects, were it not for
+                            this one thing alone, in having such a good mother, and her for my
+                            wife!</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Pray, my Pamphilus, can you not, seeing how each woman is, prevail upon
+                            yourself to put up with one matter of inconvenience? If every thing else
+                            is according to your wish, and such as I take it to be-my son, do grant
+                            me this indulgence, and take her back.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Alas! wretched me!</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> And me as well; for this affair does not cause me less sorrow than you,
+                            my son. </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="3">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="608" unit="TLN line"/>
+                    <stage>Enter LACHES.</stage>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> While standing just by here, I have heard, wife, the conversation you
+                            have been holding with him. It is true wisdom to be enabled to govern
+                            the feelings whenever there is necessity; to do at the present moment
+                            what may perhaps, in the end, be necessary to be done.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> Good luck to it, i' troth.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Retire then into the country; there I will bear with you, and you with
+                            me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> I hope so, i' faith.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Go in-doors then, and get together the things that are to be taken with
+                            you. I have now said it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>SOSTRATA</speaker>
+                        <p> I'll do as you desire. <stage>Goes into the house.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Father!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> What do you want, Pamphilus?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> My mother go away? By no means.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Why would you have it so?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Because I am as yet undetermined what I shall do about my wife.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> How is that? What should you intend to do but bring her home?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> For my part, I could like, and can hardly forbear it; but I shall not
+                            alter my design; that which is most advantageous I shall pursue; I
+                            suppose <stage>ironically</stage> that they will be better reconciled,
+                            in consequence, if I shall take her back.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> You can not tell. But it matters nothing to you which they do when she
+                            has gone away. Persons of this age are disliked by young people; it is
+                            right for us to withdraw from the world; in fine, we are now a nice
+                            by-word. We are, Pamphilus, "the old man and the old woman."'<milestone
+                                n="621" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"
+                                    >The old man and the old woman</lemma>: "<foreign lang="la"
+                                    >Senex atque anus</foreign>." In these words he probably refers
+                                to the commencement of many of the stories current in those times,
+                                which began: "There were once upon a time an old man and an-old
+                                woman." Indeed, almost the same words occur in the Stichus of
+                                Plautus, 1. 540, at the commencement of a story: "<foreign lang="la"
+                                    >Fuit olim, quasi ego sum, senex</foreign>," There was upon a
+                                time an old man, just like me."</note> But I see Phidippus coming
+                            out just at the time; let's accost him. </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="4">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="624" unit="TLN line"/>
+                    <stage>Enter PHIDIPPUS, from his house.</stage>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p>. <stage>speaking at the door to PHILUMENA, within.</stage> Upon my
+                            faith, I am angry with you too, Philumena, extremely so, for, on my
+                            word, you have acted badly; still there is an excuse for you in this
+                            matter; your mother forced you to it; but for her there is none.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>accosting him.</stage> Phidippus, you meet me at a lucky moment,
+                            just at the very time.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> What's the matter?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>aside.</stage> What answer shall I make them, or in what manner
+                            keep this secret?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> (to PHIDIPPUS.) Tell your daughter that Sostrata is going into the
+                            country, that the may not now be afraid of returning home.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Alas! your wife has been guilty of no fault in this affair; all this
+                            mischief has originated in my wife Myrrhina.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>aside.</stage> They are changing sides.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> 'Tis she that causes our disturbances, Laches.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>aside.</stage> So long as I don't take her back, let her cause as
+                            much disturbance as she pleases.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> I, Pamphilus, could really wish, if it were possible, this alliance
+                            between us to be lasting; but if you are otherwise inclined, still take
+                            the child.<milestone n="638" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Still take the child</lemma>: In cases of
+                                separation it was customary for the father to have the care of the
+                                male children.</note></p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>aside.</stage> He has discovered that she has been brought to
+                            bed. I'm undone!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> The child! What child?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> We have had a grandson born to us; for my daughter was removed from you
+                            in a state of pregnancy, and yet never before this day did I know that
+                            she was pregnant.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> So may the Gods prosper me, you bring good tidings, and I am glad a
+                            child has been born, and that she is safe: but what kind of woman have
+                            you for a wife, or of what sort of a temper, that we should have been
+                            kept in ignorance of this so long? I can not sufficiently express how
+                            disgraceful this conduct appears to me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> This conduct does not vex me less than yourself, Laches.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>aside.</stage> Even if it had just now been a matter of doubt to
+                            me, it is so no longer, since the child of another man is to accompany
+                            her.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Pamphilus, there is no room now for deliberation for you in this
+                            matter.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>. <stage>aside.</stage> I'm undone!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>to PAMPHILUS.</stage> We were often longing to see the day on
+                            which there should be one to call you father; it has come to pass. I
+                            return thanks to the Gods.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>. <stage>aside.</stage> I am ruined!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Take home your wife, and don't oppose my will.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Father, if she had wished to have children by me, or to continue to be
+                            my wife, I am quite certain she would not have concealed from me what I
+                            find she has concealed. Now, as I find that her mind is estranged from
+                            me, and think that there would be no agreement between us in future, why
+                            should I take her back?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> The young woman has done what her mother persuaded her. Is that to be
+                            wondered at? Do you suppose you can find any woman who is free from
+                            fault? Or is it that men have no failings?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Do you yourselves now consider, Laches, and you, Pamphilus, whether it
+                            is most advisable for you to leave her or take her back. What your wife
+                            may do, is not in my control. Under neither circumstance will you meet
+                            with any difficulty from me. But what are we to do with the child?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> You do ask an absurd question; whatever-happens, send him back his child
+                            of course, that we: may bring it up as ours.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>. <stage>in a low voice.</stage> A child which the father has abandoned,
+                            am I to rear?.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> What was it you said? How--not rear it, Pamphilus? Prithee, are we to
+                            expose it, in preference? What madness is this? Really, I can not now be
+                            silent any longer. For you force me to say in his presence (pointing to
+                            PHIDIPPUS what I would rather not. Do you suppose I am in ignorance of
+                            the cause of your tears, or what it is on account of which you are
+                            perplexed to this degree? In the first place, when you alleged as a
+                            reason, that, on account of your mother, you could not have your wife at
+                            home, she promised that she would leave the house. Now, since you see
+                            this pretext as well taken away from you, because a child has been born
+                            without your knowledge, you have got another You are mistaken if you
+                            suppose that I am ignorant of your feelings. That at last you might
+                            prevail upon your feelings to take this step, how long a period for
+                            loving a mistress did I allow you! With what patience did I bear the
+                            expense you were at in keeping her! I remonstrated with you and
+                            entreated you to take a wife. I said that it was time: by my persuasion
+                            you married. What you then did in obedience to me, you did as became
+                            you. Now again you have set your fancy upon a mistress, and, to gratify
+                            her, you do an injury to the other as well. For I see plainly that you
+                            have once more relapsed into the same course of life.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> What, I?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Your own self, and you act unjustly therein. You feign false grounds for
+                            discord, that you may live with her when you have got rid of this
+                            witness of your actions; your wife has perceived it too; for what other
+                            reason had she for leaving you?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p>
+                            <stage>to himself.</stage> It's clear he guesses right; for that must be
+                            it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I will give you my oath that none of these is the reason.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Oh take home your wife, or tell me why you should not.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> It is not the time at present.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Take the child, for surely that is not in fault; I will consider about
+                            the mother afterward.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>apart.</stage> In every way I am wretched, and what to do I know
+                            not; with so many troubles is my father now besetting wretched me on
+                            every side. I'll go away from here, since I avail but little by my
+                            presence. For without my consent, I do not believe that they will bring
+                            up the child, especially as on that point my mother-in-law will second
+                            me. <stage>(Exit speedily.)</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>to PAMPHILUS.</stage> Do you run away? What, and give me no
+                            distinct answer? <stage>To PHIDIPPUS.</stage> Does he seem to you to be
+                            in his senses? Let him alone. Phidippus, give me the child; I'll bring
+                            it up.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> By all means. No wonder if my wife has taken this amiss: women are
+                            resentful; they do not easily put up with such things. Hence that anger
+                            of hers, for she herself told me of it; I would not mention this to you
+                            in his presence, and at first I did not believe her; but now it is true
+                            beyond a doubt; for I see that his feelings are altogether averse to
+                            marriage.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> What am I to do, then, Phidippus? What advice do you give?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> What are you to do? I am of opinion that first we ought to go to this
+                            mistress of his. Let us use entreaties with her; then let us rebuke her;
+                            and at last, let us very seriously threaten her, if she gives him any
+                            encouragement in future.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> I will do as you advise. <stage>Turning to an ATTEDANT.</stage> Ho,
+                            there, boy! run to the house of Bacchis here, our neighbor; desire her,
+                            in my name, to come hither. <stage>Exit ATTENDANT.</stage> And you, I
+                            further entreat, to give me your assistance in this affair.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Well, I have already said, and I now say again to the same effect,
+                            Laches, I wish this alliance between us to continue, if by any means it
+                            possibly may, which I trust will be the case. But should you
+                                like<milestone n="725" unit="TLN line"/><note anchored="yes"><lemma
+                                    targOrder="U">But should you like</lemma>: Donatus observes that
+                                Phidippus utters these words with an air of disinclination to be
+                                present at the conference; and, indeed, the characters are well
+                                sustained, as it would not become him coolly to discourse with a
+                                courtesan, whom he supposes to have alienated Pamphilus from his
+                                daughter, although he might very properly advise it, as being likely
+                                to conduce to the peace of both families.</note> me to be with you
+                            while you meet her?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Why yes; but first go and get some one as a nurse for the child.
+                                <stage>(Exit PHIDIPPUS.)</stage>
+                        </p>
+                    </sp>
+                </div2>
+            </div1>
+            <div1 type="act" n="5">
+                <div2 type="scene" n="1">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="728" unit="TLN line"/>
+                    <stage>Enter BACCHIS attended by her WOMEN.</stage>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p>
+                            <stage>to her WOMEN.</stage> It is not for nothing that Laches now
+                            desires to speak with me; and, i' faith, I am not very far from mistaken
+                            in making a guess what it is he wants me for.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>to himself.</stage> I must take care that I don't, through anger,
+                            miss gaining, in this quarter what I otherwise might, and that I don't
+                            do any thing which hereafter it would have been better I had not done.
+                            I'll accost her. <stage>Accosts her.</stage> Bacchis, good-morrow to
+                            you!</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Good-morrow to you, Laches!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Troth, now, Bacchis, I suppose you somewhat wonder what can be my reason
+                            for sending the lad to fetch you out of doors.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Upon my faith, I am even in some anxiety as well, when I reflect what I
+                            am, lest the name of my calling should be to my prejudice; for my
+                            behavior I can easily defend.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> If you speak the truth, you will be in no danger, woman, from me, for I
+                            am now of that age that it is not meet for me to receive forgiveness for
+                            a fault; for that reason do I the more carefully attend to every
+                            particular, that I may not act with rashness; for if you now do, or
+                            intend to do, that which is proper for deserving women to do, it would
+                            be unjust for me, in my ignorance, to offer an injury to you, when
+                            undeserving of it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> On my word, great is the gratitude that I ought to feel toward you for
+                            such conduct; for he who, after committing an injury, would excuse
+                            himself, would profit me but little. But what is the matter?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> You admit my son, Pamphilus, to your house.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Ah!</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Just let me speak: before he was married to this woman, I tolerated your
+                            amour. Stay! I have not yet said to you what I intended. He has now got
+                            a wife: look out for another person more to be depended on, while you
+                            have time to deliberate; for neither will he be of this mind all his
+                            life, nor, i' faith, will you be always of your present age.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Who is it says this?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> His mother-in-law.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> What! that I</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> That you do: and she has taken away her daughter; and for that reason,
+                            has wished secretly to destroy the child that has been born.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Did I know any other means whereby I might be enabled to establish my
+                            credit with you, more solemn than an oath, I would, Laches, assure you
+                            of this, that I have kept Pamphilus at a distance<milestone n="752"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Kept
+                                    Pamphilus at a distance</lemma>: Colman observes, how are we to reconcile this with
+                                the words of Parmeno at the beginning of the Play, where he says
+                                that Pamphilus visited Bacchis daily; and he inquires whether we are
+                                to suppose that Bacchis, who behaves so candidly in every other
+                                instance, wantonly perjures herself in this, or that the Poet, by a
+                                strange infatuation attending him in this Play, contradicts
+                                himself?" To this it may be answered, that as Bacchis appears to be
+                                so scrupulous in other instances, it is credible that,
+                                notwithstanding his visits, she may not have allowed him to share
+                                her embraces.</note> from me ever since he took a wife.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> You are very good. But, pray, do you know what I would prefer that you
+                            should do?</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> What? Tell me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Go in-doors there <stage>pointing to the house of PHIDIPPUS</stage> to
+                            the women, and make the same promise, on oath, to them; satisfy their
+                            minds, and clear yourself from this charge.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> I will do so; although, i' faith, if it had been any other woman of this
+                            calling, she would not have done so, I am quite sure; present herself
+                            before a married woman for such a purpose! But I do not wish your son to
+                            be suspected on an unfounded report, nor appear inconstant,
+                            undeservedly, to you, to whom he by no means ought; for he has deserved
+                            of me, that, so far as I am able, I should do him a service.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Your language has rendered me quite friendly and well disposed toward
+                            you; but not only did they think so--I too believed it. Now that I have
+                            found you quite different from what I had expected, take care that you
+                            still continue the same-make use of my friendship as you please; if
+                            otherwise--; but I will forbear, that you may not hear any thing unkind
+                            from me. But this one thing I recommend you make trial what sort of a
+                            friend I am, or what I can effect as such, rather than what as an enemy.
+                        </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="2">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="769" unit="TLN line"/>
+                    <stage>Enter PHIDIPPUS and a NURSE.</stage>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> (to the NURSE.) Nothing at my house will I suffer you to be in want of;
+                            but whatever is requisite shall be supplied you in abundance. Still,
+                            when you are well fed and well drenched, do take care that the child has
+                            enough. <stage>The NURSE goes into his house.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>to BACCHIS.</stage> My son's father-in-law, I see, is coming; he
+                            is bringing a nurse for the child. <stage>Accosting him.</stage>
+                            Phidippus, Bacchis swears most solemnly.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Is this she?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> It is.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Upon my faith, those women don't fear the Gods; and I don't think that
+                            the Gods care about them.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p>
+                            <stage>pointing to her ATTENDANTS.</stage> I will give you up my female
+                            servants; with my full permission, examine them with any tortures you
+                            please. The business at present is this: I must make his wife return
+                            home to Pamphilus; should I effect that, I shall not regret its being
+                            reported that I have been the only one to do what other courtesans avoid
+                                doing.<milestone n="777" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Other courtesans avoid doing</lemma>:
+                                Colman has the following quotation from Donatus: "Terence, by his
+                                uncommon art, has attempted many innovations with great success. In
+                                this Comedy, he introduces, contrary to received prejudices, a good
+                                step-mother and an honest courtesan; but at the same time he so
+                                carefully assigns their motives of action, that by him alone every
+                                thing seems reconcilable to truth and nature; for this is just the
+                                opposite of what he mentions in another place, as the common
+                                privilege of all Poets, 'to paint good matrons and wicked
+                                courtesans.'" Perhaps the same good feeling prompted Terence, in
+                                showing that a mother-in-law and a courtesan could be capable of
+                                acting with good and disinterested feelings, which caused Cumberland to write his Play of
+                                "The Jew," to combat the popular prejudice against that persecuted
+                                class, by showing, in the character of Sheva, that a Jew might
+                                possibly be a virtuous man.</note></p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> We find, Phidippus, that our wives have been unjustly
+                                suspected<milestone n="778" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Have been unjustly suspected</lemma>: The
+                                words here employed are also capable of meaning, if an active sense
+                                is given to "suspectas," "our wives have entertained wrong
+                                suspicions;" but the sense above given seems preferable, as being
+                                the meaning of the passage.</note> by us in this matter. Let us now
+                            try her still further; for if your wife discovers that she has given
+                            credence to a false charge, she will dismiss her resentment; but if my
+                            son is also angry, by reason of the circumstance that his wife has been
+                            brought to bed without his knowledge, that is a trifle: his anger on
+                            that account will speedily subside. Assuredly in this matter, there is
+                            nothing so bad as to be deserving of a separation.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> I sincerely wish it may be so.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Examine her; here she is; she herself will satisfy you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> Why do you tell me these things? Is it because you have not already
+                            heard what my feelings are with regard to this matter, Laches? Do you
+                            only satisfy their minds.</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Troth now, Bacchis, I do entreat that what you have promised me you will
+                            do.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Would you wish me, then, to go in about this business?</p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p> Go, and satisfy their minds, so as to make them believe it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> I'll go: although, upon my word, I am quite sure that my presence will
+                            be disagreeable to them, for a married woman is the enemy of a mistress,
+                            when she has been separated from her husband. </p>
+                    </sp>
+                    <sp>
+                        <speaker>LACH.</speaker>
+                        <p> But they will be your friends, when they know the reason of your
+                            coming.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PHIDIPPUS</speaker>
+                        <p> And I promise that they shall be your friends, when they know the fact;
+                            for you will release them from their mistake, and yourself, at the same
+                            time, from suspicion.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Wretched me! I'm ashamed to meet Philumena. (To her ATTENDANTS.) Do you
+                            both follow me into the house. <stage>Goes into the house with PHIDIPPUS
+                                and her ATTENDANTS.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>LACHES</speaker>
+                        <p>
+                            <stage>to himself.</stage> What is there that I could more wish for,
+                            than what I see has happened to this woman? To gain favor without loss
+                            to myself, and to benefit myself at the same time. For if now it is the
+                            fact that she has really withdrawn from Pamphilus, she knows that by
+                            that step she has acquired honor and reputation: she returns the favor
+                            to him, and, by the same means, attaches us as friends to herself.
+                                <stage>Goes into the house.</stage>
+                        </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="3">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="801" unit="TLN line"/>
+                    <stage>Enter PARMENO, moving along with difficulty.</stage>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>. <stage>to himself.</stage> Upon my faith, my master does assuredly
+                            think my labor of little value; to have sent me for nothing, where I
+                            have been sitting the whole day to no purpose, waiting at the citadel
+                            for Callidemides, his landlord at Myconos. And so, while sitting there
+                            to-day, like a fool, as each person came by, I accosted him:--"Young
+                            man, just tell me, pray, are you a Myconian" "I am not.." "But is your
+                            name Callidemides?" "No." "Have you any former guest here named
+                            Pamphilus?" All said, "No; and I don't believe that there is any such
+                            person." At last, i' faith, I was quite ashamed, and went away. But how
+                            is it I see Bacchis coming out of our neighbor's? What business can she
+                            have there? <stage>Enter BACCHIS, from the house of
+                            PHIDIPPUS.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Parmeno, you make your appearance opportunely; run with all
+                                speed'<milestone n="809" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Run with all speed</lemma>: Donatus
+                                remarks, that Parmeno is drawn as being of a lazy and inquisitive
+                                character; and that Terence, therefore, humorously contrives to keep
+                                him always on the move, and in total ignorance of what is going
+                                on.</note> to Pamphilus.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Why thither?</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Say that I entreat him to come.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> To your house?</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCH. NO;</speaker>
+                        <p> to Philumena.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> What's the matter?</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Nothing that concerns you; so cease to make inquiry.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Am I to say nothing else?</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Yes; that Myrrhina has recognized that ring as her daughter's, which he
+                            formerly gave me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I understand-is that all?</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> That's all. He will be here directly he has heard this from you. But do
+                            you linger?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Far from it, indeed; for I've not had the opportunity given me to-day;
+                            so much with running and walking about have I wasted the whole day.
+                                <stage>Goes into the house of LACHES.</stage></p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> What great joy have I caused for Pamphilus by my coming to-day! How many
+                            blessings have I brought him! and from how many sorrows have I rescued
+                            him! A son I save for him, when it was nearly perishing through the
+                            agency of these women and of himself: a wife, whom he thought that he
+                            must cast off forever, I restore to him: from the suspicion that he lay
+                            under with his father and Phidippus, I have cleared him. This ring, in
+                            fact, was the cause of these discoveries being made. For I remember,
+                            that about ten months ago, at an early hour of night, he came running
+                            home to my house, out of breath, without a companion, and surcharged
+                            with wine,<milestone n="824" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">Surcharged with wine</lemma>: Cooke has
+                                this remark here: "I suppose that this is the best excuse the Poet
+                                could make for the young gentleman's being guilty of felony and rape
+                                at the same time. In this speech, the incident is related on which
+                                the catastrophe of the Play turns, which incident is a very
+                                barbarous one, and attended with more than one absurdity, though it
+                                is the occasion of an agreeable discovery."</note> with this ring in
+                            his hand. I felt alarmed immediately: "My Pamphilus," I said, "prithee,
+                            my dear, why thus breathless, or where did you get that ring?-tell me!"
+                            He began to pretend that he was thinking of something else. When I saw
+                            that, I began to suspect I know not what, and to press him still more to
+                            tell me. The fellow confessed that he had ravished some female, he knew
+                            not whom, in the street; and said, that while she was struggling, he had
+                            taken that ring away from her. Myrrhina here recognized it just now,
+                            while I had it on my finger. She asked whence it came: I told her all
+                            the story. Hence the discovery has been made that it was Philumena
+                            ravished by him, and that this new-born child is his. I am overjoyed
+                            that this happiness hsa befallen him through my agency; although other
+                            courtesans would not have similar feelings; nor, indeed, is it to our
+                            interest that any lover should find pleasure in matrimony. But, i'
+                            faith, I never, for the sake of gain, will give my mind to base actions.
+                            So long as I had the opportunity, I found him to be kind, easy, and
+                            good-natured. This marriage has fallen out unluckily for me,--that I
+                            confess to be the fact. But, upon my word, I do think that I have done
+                            nothing for it to befall me deservedly. It is but reasonable to endure
+                            inconveniences from one from whom I have received so many benefits. </p>
+                    </sp>
+                </div2>
+                <div2 type="scene" n="4">
+                    <milestone n="1" unit="line"/>
+                    <milestone n="843" unit="TLN line"/>
+                    <stage>Enter PAMPHILUS and PARMENO, from the house of LACHES, on the other side
+                        of the stage.</stage>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Once more, take care, will you, my dear Parmeno, that you have brought
+                            me a faithful and distinct account, so as not to allure me for a short
+                            time to indulge in these transient joys.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I have taken care.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> For certain?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p>For certain.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I am quite a God, if it is so!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> You'll find it true.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Just stay, will you; I fear that I'm believing one thing, and you are
+                            telling another.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> I am staying.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I think you said to this effect--that Myrrhina had discovered that
+                            Bacchis has her ring.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> It is the fact.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> The one I formerly gave to her; and she has desired you to tell me this:
+                            is such the fact?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Such is so, I tell you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Who is there happier than I, and, in fact, more full of joyousness? What
+                            am I to present you for these tidings? What?--what? I know not.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> But I know.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> What?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Why, nothing; for neither in the tidings nor in myself do I know of
+                            there being any advantage to you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> What! am I to suffer you, who have caused me, when dead, to be restored
+                            from the shades to life--to leave me unrewarded? Oh, you deem me too
+                            thankless! But look--I see Bacchis standing before the door; she's
+                            waiting for me, I suppose; I'll accost her.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Save you, Pamphilus!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Oh Bacchis! Oh my Bacchis--my preserver!</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> It is a fortunate thing, and gives me great delight.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> By your actions, you give me reason to believe you, and so much do you
+                            retain your former charming qualities, that wherever you go, the meeting
+                            with you, your company, your conversation, always give pleasure.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> And you, upon my word, possess your former manners and disposition; so
+                            much so that not a single man living is more engaging than you.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p>
+                            <stage>laughing.</stage> Ha, ha, ha! do you tell me so?</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> You had reason, Pamphilus, for being so fond of your wife. For never
+                            before to-day did I set eyes upon her, so as to know her: she seems a
+                            very gentle person.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Tell the truth.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> So may the Gods bless me, Pamphilus!</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Tell me, have you as yet told any of these matters to my father?</p>
+                        <p>BACCH. Not a word.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Nor is there need, in fact; therefore keep it a secret: I don't wish it
+                            to be the case here as it is in the Comedies,<milestone n="867"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the
+                                    Comedies</lemma>: Madame Dacier observes on this passage:
+                                "Terence here, with reason, endeavors to make the most of a
+                                circumstance peculiar to his Play. In other Comedies, every body,
+                                Actors as well as Spectators, are at last equally acquainted with
+                                the whole intrigue and catastrophe, and it would even be a defect in
+                                the plot were there any obscurity remaining. But Terence, like a
+                                true genius, makes himself superior to rules, and adds new beauties
+                                to his piece by forsaking them. His reasons for concealing from part
+                                of the personages of the Drama the principal incident of the plot,
+                                are so plausible and natural, that he could not have followed the
+                                beaten track without offending against manners and decency. This
+                                bold and uncommon turn is one of the chief graces of the
+                                Play."</note> where every thing is known to every body. Here, those'
+                            who ought to know, know already; but those who ought not to know, shall
+                            neither hear of it nor know it.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Nay more, I will give you a proof why you may suppose that this may be
+                            the more easily concealed. Myrrhina has told Phidippus to this
+                            effect--that she has given credit to my oath, and that, in consequence,
+                            in her eyes you are exculpated.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Most excellent; and I trust that this matter will turn out according to
+                            our wishes.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Master, may I not be allowed to know from you what is the good that I
+                            have done to-day, or what it is you are talking about?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> You may not.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Still I suspect. "I restore him, when dead, from the shades
+                                below."<milestone n="876" unit="TLN line"/><note anchored="yes"
+                                    ><lemma targOrder="U">From the shades below</lemma>: Parmeno
+                                says this, while pondering upon the meaning of all that is going on,
+                                and thereby expresses his impatience to become acquainted with it.
+                                He therefore repeats what Pamphilus has before said in the twelfth
+                                line of the present Act, about his having been restored from death
+                                to life by his agency.</note> In what way?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> You don't know, Parmeno, how much you have benefited me to-day, and from
+                            what troubles you have extricated me.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Nay, but indeed I do know: and I did not do it without design.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> I know that well enough <stage>ironically</stage>.</p>
+                    </sp>
+                    <sp>
+                        <speaker>BACCHIS</speaker>
+                        <p> Could Parmeno, from negligence, omit any thing that ought to be
+                            done?</p>
+                    </sp>
+                    <sp>
+                        <speaker>PAMPHILUS</speaker>
+                        <p> Follow me in, Parmeno.</p>
+                    </sp>
+                    <sp>
+                        <speaker>PARMENO</speaker>
+                        <p> Ill follow; for my part, I have done more good to-day, without knowing
+                            it, than ever I did, knowingly, in all my life. <stage>Coming
+                                forward.</stage> Grant us your applause.<milestone n="881"
+                                unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your
+                                    applause</lemma>: We may here remark, that the Hecyra is the
+                                only one of the Plays of Terence with a single plot.</note>
+                        </p>
+                    </sp>
+                </div2>
+            </div1>
+        </body>
+    </text>
+</TEI.2>

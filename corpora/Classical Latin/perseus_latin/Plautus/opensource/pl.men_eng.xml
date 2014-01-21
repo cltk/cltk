@@ -1,0 +1,926 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Menaechmi, or The Twin Brothers</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.men_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:55  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:21  packel
+Converted to XML
+
+Revision 1.16  2003/07/01 22:17:29  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.15  2001/08/29 14:49:19  amahoney
+ensure all speakers are identified;  mark remaining Latin
+
+Revision 1.14  2001/08/21 18:49:30  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.13  2001/08/21 18:39:48  amahoney
+mark the Latin
+
+Revision 1.12  2001/08/08 17:55:28  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.11  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.10  2001/08/03 20:50:01  amahoney
+fix spurious italics in lemmata
+
+Revision 1.9  2001/08/02 21:22:39  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.8  2001/08/01 21:34:10  amahoney
+use full speaker names
+
+Revision 1.7  2001/08/01 19:16:30  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.6  2001/07/10 21:15:33  amahoney
+put a TLN at the start of each scene, and make the scenes match the Latin to facilitate chunking
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>MENAECHMUS of <placeName key="tgn,7010750">Epidamnus</placeName>.</role></castItem>
+<castItem type="role"><role>MENAECHMUS SOSICLES, </role><roleDesc>his twin-brother.</roleDesc></castItem>
+<castItem type="role"><role>PENICULUS, </role><roleDesc>a Parasite.</roleDesc></castItem>
+<castItem type="role"><role>MESSENIO, </role><roleDesc>the servant of Menaechmus Sosicles.</roleDesc></castItem>
+<castItem type="role"><role>CYLINDRUS, </role><roleDesc>a Cook.</roleDesc></castItem>
+<castItem type="role"><role>AN OLD MAN, </role><roleDesc>father-in-law of Menaechmus Sosicles.</roleDesc></castItem>
+<castItem type="role"><role>A DOCTOR.</role></castItem>
+<castItem type="role"><role>THE WIFE OF MENAECHMUS of <placeName key="tgn,7010750">Epidamnus</placeName>.</role></castItem>
+<castItem type="role"><role>EROTIUM, </role><roleDesc>a Courtesan.</roleDesc></castItem>
+<castItem type="role"><role>MAID-SERVANT of Erotium.</role></castItem>
+</castList>
+
+<stage>Scene--<placeName key="tgn,7010750">Epidamnus</placeName>, a city of <placeName key="tgn,7016683">Illyricum</placeName>. The house of MENAECHMUS of <placeName key="tgn,7010750">Epidamnus</placeName> is on one side of the street, and that of EROTIUM on the other.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>MOSCHUS, a merchant of <placeName key="perseus,Syracuse">Syracuse</placeName>, had two twin sons who exactly resembled each other. One of these, whose name was Menaechmus, when a child, accompanied his father to <placeName key="tgn,7004100">Tarentum</placeName>, at which place he was stolen and carried away to <placeName key="tgn,7010750">Epidamnus</placeName>, where in course of time he has married a wealthy wife. Disagreements, however, arising with her, he forms an acquaintance with the Courtesan Erotium, and is in the habit of presenting her with clothes and jewels which he pilfers from his wife. The original name of the other twin-brother was Sosicles, but on the loss of Menaechmus, the latter name has been substituted by their grandfather for Sosicles, in remembrance of the lost child. Menaechmus Sosicles, on growing to manhood, determines to seek his lost brother. Having wandered for six years, lie arrives at <placeName key="tgn,7010750">Epidamnus</placeName>, attended by his servant, Messenio. In consequence of his resemblance to his brother, many curious and laughable mistakes happen between him and the Courtesan Erotium, the wife of Menaechmus of <placeName key="tgn,7010750">Epidamnus</placeName>, the Cook Cylindrus, the Parasite Peniculus, the father-in-law of Menaechmus of <placeName key="tgn,7010750">Epidamnus</placeName>, and lastly Messenio himself. At length, through the agency of the latter, the brothers recognize each other; on which Messenio receives his liberty, and Menaechmus of <placeName key="tgn,7010750">Epidamnus</placeName> resolves to make sale of his possessions and to return to <placeName key="perseus,Syracuse">Syracuse</placeName>, his native place.
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>A SICILIAN merchant (<foreign lang="la">Mercator</foreign>) who had two sons, on one being stolen from him (<foreign lang="la">Ei</foreign>), ended his life. As a name (<foreign lang="la">Nomen</foreign>) for him who is at home, his paternal grandfather (<foreign lang="la">Avus</foreign>) gives him that of Menaechmus instead of Sosicles. And (<foreign lang="la">Et</foreign>) he, as soon as he is grown up, goes to seek his brother about (<foreign lang="la">Circum</foreign>) all countries. At last he comes to <placeName key="tgn,7010750">Epidamnus</placeName>; hither (<foreign lang="la">Huc</foreign>) the one that was stoien has been carried. All think that the stranger, Menaechmus (<foreign lang="la">Menaechmum</foreign>), is their fellow-citizen, and address him (<foreign lang="la">Eum</foreign>) <foreign lang="la">as such:</foreign> Courtesan, wife, and father-in-law. There (<foreign lang="la">Ibi</foreign>) at last the brothers mutually recognize each other.
+</p></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<head>THE PROLOGUE.</head>
+<sp><speaker>Prologus</speaker>
+<p>In the first<note anchored="yes"><lemma targOrder="U">In the first</lemma>:  This Play was the foundation of Shakespeare's <title>Comedy of Errors</title>. See the Note at the end of the Play.</note> place now, Spectators, at the commencement, do I wish health and happiness<note anchored="yes"><lemma targOrder="U">Health and happiness</lemma>:  "<foreign lang="la">Salutem propitiam</foreign>." Literally, "propitious health."</note> to myself and to you.I bring you Plautus, with my tongue, not with my hand: I beg that you will receive him with favouring ears. Now learn the argument, and give your attention; in as few words as possible will I be brief. And, in fact, this subject is a Greek one; still, it is not an Attic<milestone n="7" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">It is not an Attic</lemma>:  "<foreign lang="la">Graecissat, Atticissat, Sicelissat</foreign>." Perhaps these words might be more literally translated, "Graecize," "Atticize," and "Sicilicize."</note>, but a Sicilian one. But in their Comedies the poets do this; they feign that all the business takes place at <placeName key="perseus,Athens">Athens</placeName><milestone n="10" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At <placeName key="perseus,Athens">Athens</placeName></lemma>:  As the majority of the Greek Comic Poets were either natives of, or residents at, <placeName key="perseus,Athens">Athens</placeName>, they would naturally take that extensive, opulent, and bustling city as the scene of many of their Comedies. In the time of Plautus, Greek was yet the language of the Sicilians. In Cicero's time the language of the Sicilians was a mixture, partly Greek and partly Latin. Apuleius informs us that in his day they spoke Greek, Latin, and a language peculiar to themselves, called the Sicilian.</note>, in order that it may appear the more Grecian to you. I will not tell you that this matter happened anywhere except where it is said to have happened. This has been my preface to the subject of this play. Now will I give the subject, meted out to you, not in a measure, nor yet in a threefold measure<milestone n="15" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A threefold measure</lemma>:  "<foreign lang="la">Trimodius</foreign>." This was a measure for corn, consisting of three "<foreign lang="la">modii</foreign>," which last contained about a peck of English measure.</note>, but in the granary itself; so great is my heartiness in telling you the plot.</p>
+<p>There was a certain aged man, a merchant at <placeName key="perseus,Syracuse">Syracuse</placeName><milestone n="17" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At <placeName key="perseus,Syracuse">Syracuse</placeName></lemma>:  <placeName key="perseus,Syracuse">Syracuse</placeName> was the principal city of <placeName key="tgn,7003122">Sicily</placeName> famed for its commerce and opulence.</note>; to him two sons were born, twins, children so like in appearance that their own foster-mother<milestone n="19" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Foster-mother</lemma>:  "<foreign lang="la">Mater</foreign>." Literally, "mother."</note>, who gave the breast, was not able to distinguish them, nor even the mother herself who had given them birth; as a person, indeed, informed me who had seen the children; I never saw them, let no one of you fancy so. After the children were now seven years old, the father freighted a large ship with much merchandize. The father put one of the twins on board the ship, and took him away, together with himself, to traffic at <placeName key="tgn,7004100">Tarentum</placeName><milestone n="27" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At <placeName key="tgn,7004100">Tarentum</placeName></lemma>:  <placeName key="tgn,7004100">Tarentum</placeName> was a city of <placeName key="tgn,7007850">Calabria</placeName>, in the south of <placeName key="tgn,1000080">Italy</placeName>. It was said to have been founded by the Lacedaemonians.</note>; the other one he left with his mother at home. By accident, there were games at <placeName key="tgn,7004100">Tarentum</placeName> when he came there: many persons, as generally happens at the games, had met together; the child strayed away there from his father among the people. A certain merchant of <placeName key="tgn,7010750">Epidamnus</placeName> was there; he picked up the child, and carried it away to <placeName key="tgn,7010750">Epidamnus</placeName><milestone n="33" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To <placeName key="tgn,7010750">Epidamnus</placeName></lemma>:  <placeName key="tgn,7010750">Epidamnus</placeName>, or Epidamnum, was a town of <placeName key="tgn,7006667">Macedonia</placeName>, situate on the Adriatic Sea. It was much resorted to for the purpose of transit to the opposite shores of <placeName key="tgn,1000080">Italy</placeName>. It received its original name from <placeName key="tgn,7010750">Epidamnus</placeName>, one of its kings but on falling into the possession of the Romans, they changed its name, as we are informed by Pliny the Elder, into <placeName key="tgn,7010750">Dyrrachium</placeName>, from a superstitious notion that when hey were going to "Epidamnum," they were going "to their loss," as "<foreign lang="la">damnum</foreign>" is the Latin for "loss" or "destruction," and <foreign lang="greek">e)pi/</foreign> is the Greek preposition signifying "to."  Cicero was banished to this place.</note>. But its father, after he had lost the child, took it heavily to heart, and through grief at it he died a few days after at <placeName key="tgn,7004100">Tarentum</placeName>. Now, after news reached the grandfather of the children at home about this matter, how that one of the children had been stolen, the grandfather changed the name of that other twin. So much did he love that one which had been stolen, that he gave his name to the one that was at home. That you may not mistake hereafter, I tell you then this beforehand; the name of both the twin-brothers is the same. He gave the same name of Menaechmus to this one as the other had; and by the same name the grandfather himself was called. I remember his name the more easily for the reason that I saw him cried with much noise<milestone n="48" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Cried with much noise</lemma>:  Probably the word "<foreign lang="la">flagitarier</foreign>" means that the lost child was cried publicly by the "<foreign lang="la">praeco</foreign>," or "crier."</note>. Now must I speed back on foot to <placeName key="tgn,7010750">Epidamnus</placeName>, that I may exactly disclose this matter to you. If any one of you<milestone n="51" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If any one of you</lemma>:  This is said facetiously to the Audience for the purpose of catching a laugh.</note> wishes anything to be transacted for him at <placeName key="tgn,7010750">Epidamnus</placeName>, command me boldly and speak out; but on these terms, that he give me the means by which it may be transacted for him. For unless a person gives the money, he will be mistaken; <stage>in a lower tone</stage> except that he who does give it will be very much more mistaken<milestone n="55" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Very much more mistaken</lemma>:  Because he will keep the money and not execute the commission.</note>. But I have returned to that place whence I set forth, and yet I am standing in the self-same spot. This person of Epidamnus, whom I mentioned just now, that stole that other twin child, had no children, except his wealth. He adopted as his son the child so carried off, and gave him a well-portioned wife, and made him his heir when he himself died. For as, by chance, he was going into the country, when it had rained heavily, entering, not far from the city, a rapid stream, in its rapidity<milestone n="65" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In its rapidity</lemma>:  He means to pun upon the words "<foreign lang="la">rapidus</foreign>," rapid" or "carrying away," and "<foreign lang="la">raptor</foreign>," the "carrier away" or "ravisher."  "The stream carried away the carrier away"</note> it threw the ravisher of the child off his legs; and hurried the man away to great and grievous destruction. And so a very large fortune fell to that youth. Here <stage>pointing to the house</stage> does the stolen twin now dwell. Now that twin, who dwells at <placeName key="perseus,Syracuse">Syracuse</placeName>, has come this day to <placeName key="tgn,7010750">Epidamnus</placeName> with his servant to make enquiry for this own twin-brother of his. This is the city of <placeName key="tgn,7010750">Epidamnus</placeName> while this play is acting; when another shall be acted, it will become another town; just as our companies, too, are wont to be shifted about. The same person now acts the procurer, now the youth, now the old man, the pauper, the beggar, the king, the parasite, the soothsayer <gap/>
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="77" unit="TLN line"/>
+<stage>Enter PENICULUS.</stage>
+<sp><speaker>PENICULUS</speaker><p> The young men have given me the name of Peniculus<note anchored="yes"><lemma targOrder="U">Name of Peniculus</lemma>:  This word means "a sponge" which was fastened to a stick, and was used for the purpose of cleansing tables. He says that the youths so called him from his own propensity for clearing the tables of their provisions. The tails of foxes and of oxen were also used as "<foreign lang="la">peniculi</foreign>." Colman and Warner, in their translations of Terence and Plautus, render the word "dishclout."</note>, for this reason, because when I eat, I wipe the tables clean. <gap/>  The persons who bind captives with chains, and who put fetters upon runaway slaves, act very foolishly, in my opinion at least. For if bad usage is added to his misfortune for a wretched man, the greater is his inclination to run away and to do amiss. For by some means or other do they release themselves from the chains; while thus fettered, they either wear away a link with a file, or else with a stone they knock out the nail; 'tis a mere trifle this. He whom you wish to keep securely that he may not run away, with meat and with drink ought he to be chained; do you bind down the mouth of a man to a full table. So long as you give him what to eat and what to drink at his own pleasure in abundance every day, i' faith he'll never run away, even if he has committed an offence that's capital; easily will you secure him so long as you shall bind him with such chains. So very supple are these chains of food, the more you stretch them so much the more tightly do they bind. But now I'm going directly to Menaechmus; whither for this long time I have been sentenced, thither of my own accord I am going, that he may enchain me. For, by my troth, this man does not nourish persons, but he quite rears and reinvigorates them; no one administers medicine more agreably. Such is this young man; himself with a very well-stocked larder, he gives dinners fit for <placeName key="tgn,7010621">Ceres</placeName><milestone n="101" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Fit for <placeName key="tgn,7010621">Ceres</placeName></lemma>:  As Ceres was the Goddess of corn and the giver of plenty, the entertainments in honor of her would of course he very bounteous.</note>; so does he heap the tables up, and piles so vast of dishes does he arrange, you must stand on your couch if you wish for anything at the top. But I have now had an interval these many days, while I've been lording it at home all along together with my dear ones<milestone n="105" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With my dear ones</lemma>:  "<foreign lang="la">Cum caris meis</foreign>." When he says this, it might be supposed that he is meaning his family by these words of endearment. The next line shows that such is not the case. He has had a supply of victuals, purchased at his own cost; he has been consuming these victuals, and right dear (<foreign lang="la">carissimum</foreign>) has he found them. He is now coming out to look for Menaechmus, and to make up for lost time.</note>;--for nothing do I eat or purchase but what it is most dear. But inasmuch as dear ones, when they are provided, are in the habit of forsaking us, I am now paying him a visit. But his door is opening; and see, 1 perceive Menaechmus himself; he is coming out of doors.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="110" unit="TLN line"/>
+<stage>Enter MENAECHMUS of <placeName key="tgn,7010750">Epidamnus</placeName>, from his house.</stage>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>speaking at the door to his WIFE within</stage>. Unless you were worthless, unless you were foolish, unless you were stark wild and an idiot, that which you see is disagreable to your husband, you would deem to be so to yourself as well. Moreover, if after this day you do any such thing to me, I'll force you, a divorced woman, turned out of my doors to go visit your father. For as often as I wish to go out of the house, you are detaining me, calling me back, asking me questions; whither I am going, what matter I am about, what business I am transacting, what I am wanting, what I am bringing, what I have been doing out of doors? I've surely brought home a custom-house officer<milestone n="117" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A custom-house officer</lemma>:  The "<foreign lang="la">portitores</foreign>" examined those who landed or embarked at any port, to see that they had no merchandize about them which had not paid duty. They also made the necessary enquiries who the parties were, and what was their destination. He compares his wife to one of these inquisitive persons</note> as my wife; so much am I obliged to disclose all my business, whatever I have done and am doing. I've had you hitherto indulged too much. Now, therefore, I'll tell you how I am about to act. Since I find you handsomely in maids, provisions, wool, gold trinkets, garments, and purple, and you are wanting in nought, you'll beware of a mischief if you're wise; you'll leave off watching your husband. <stage>In a lower voice.</stage> And therefore, that you mayn't be watching me in vain, for your pains I shall find me a mistress to-day, and invite her to dinner somewhere out of doors.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>apart</stage>. This fellow pretends that he's upbraiding his wife, but he's addressing myself; for if he does dine out of doors, he really is punishing me, not his wife.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>to himself</stage>. Hurra! I' troth, by my taunts I've driven my wife from the door at last. Where now are your intriguing husbands? Why do they hesitate, all returning thanks, to bring presents to me who have fought so gallantly? This mantle<milestone n="130" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This mantle</lemma>:  The "<foreign lang="la">palla</foreign>," a kind of "mantle" or "cloak," was worn indifferently by both sexes among the Greeks and Romans. This will account for the circumstance of Menaechmus Sosicles wearing, as we shall see in the sequel, the "<foreign lang="la">palla</foreign>" of a female, without expecting to attract the notice of passers-by. The "<foreign lang="la">palla</foreign>," which by the prose writers is also called "<foreign lang="la">pallium</foreign>," was used for many other purposes than that of a garment. See Dr. Smith's <title>Dictionary of Greek and Roman Antiquities</title>.</note> of my wife's <stage>taking it from under his cloak</stage> I've just now stolen from in-doors, and I'm taking it to my mistress. This way it's proper for a clever trick to be played this knowing husband-watcher. This is a becoming action, this is right, this is skilful, this is done in workman-like style; inasmuch as at my own risk I've taken this from my plague, this same shall be carried off to destruction<milestone n="133" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To destruction</lemma>:  "<foreign lang="la">Ad damnum</foreign>." He calls the Courtesan "<foreign lang="la">damnum</foreign>," sheer loss" or "wastefulness" <foreign lang="fr">par eminence</foreign>.</note>. With the safety of my allies<milestone n="134" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of my allies</lemma>:  By these he means the Courtesan Erotium and the Parasite Peniculus, who have run no risk by helping him to filch away the mantle.</note> I've gained a booty from the foe.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>aloud, at a distance</stage>. Harkye! young man; pray what share have I<milestone n="135" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What share have I</lemma>:  Thinking himself alluded to as one of the "<foreign lang="la">socii</foreign>" or "allies," the Parasite immediately appears before him and asks what share, then, he is to have of the booty.</note> in that booty?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I'm undone; I've fallen into an ambuscade.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Say a safeguard rather. Don't be afraid.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What person's this? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> 'Tis I. <stage>Coming up to him.</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> O my convenient friend--O my ready occasion, save you.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> And save you. <stage>they shake hands.</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What are you about?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Holding my good Genius in my right hand.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> You couldn't have come to me more &agrave; propos than you have come.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I'm in the habit of doing so; I understand all the points of ready occasion.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Would you like to be witness of a brilliant exploit?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> What cook has cooked it? I shall know at once if he has made any mistake, when I see the remnants.<milestone n="142" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">When I see the remnants</lemma>:  He thinks that Menaechmus is alluding to something in the eating way, and says that he can tell whether the cook has done his duty well or not, by only looking at the scraps of the entertainment.</note>.
+</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Tell me--did you ever see a picture painted on a wall, where the eagle is carrying off Ganymede<milestone n="144" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ganymede</lemma>:  He is mentioned in the text under another name of a gross nature. Ganymede was the son of Tros, King of <placeName key="perseus,Troy">Troy</placeName>. Jupiter was said, in the form of an eagle, to have carried him off, and made him cupbearer to the Gods, in the place of Hebe, the Goddess of youth.</note>, or Venus Adonis?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Many a time. But what are these pictures to me?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Come, look at me<milestone n="145" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Come, look at me</lemma>:  Saying this, he probably takes the "<foreign lang="la">palla</foreign>" from behind him, and putting it on, stalks about with it upon him. This he could do without the risk of being seen by his wife, as on the Roman stage a number of streets and lanes were seen to terminate, up which the actor would go a little way to escape observation from a house situate just at the end of another street. He means to ask the Parasite if he does not quite equal Ganymede or Adonis, as represented in the pictures, by reason of his tasteful attire.</note>. Do I at all bear any resemblance to them?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> What's this garb of yours?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Pronounce me to be a very clever fellow.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Where are we to feed? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Only do you say that which I requested you.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Well, I do say so; very clever fellow.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> And don't you venture to add anything of your own to it?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> -- And very pleasant fellow. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Go on.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> I' faith, I really can't go on, unless I know for what reason. You've had a fall-out with your wife; on that ground am I the more strongly on my guards<milestone n="151" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On my guard</lemma>:  As Menaechmus has fallen out with his wife, the Parasite thinks there is no chance of a "<foreign lang="la">cena</foreign>" at his house. He is the more careful then to make enquiries, lest Menaechmus should contrive to baulk him of his banquet altogether.</note> against you.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> While you are interrupting me, you are delaying yourself.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Knock out my only eye<milestone n="152" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My only eye</lemma>:  By this it appears that Peniculus has but one eye. In the Curculio, the Parasite of that name is also represented as having but one eye.</note>, Menaechmus, if I speak one word but what you bid me.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <gap/> where, unknown to my wife, we will erect the funeral pile <gap/> and let us consume this day<milestone n="155" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Let consume this day</lemma>:  He supposes the day to be dead so far as business is concerned; the "<foreign lang="la">cena</foreign>," which generally commenced about three o'clock in the afternoon (and sometimes, perhaps, the "<foreign lang="la">prandium</foreign>" as well), was followed by "<foreign lang="la">potatio</foreign>" or "drinking," which by such characters as Menaechmus and the Parasite would be prolonged to midnight, when they would see the day dead, and celebrate its funeral in their orgies.</note> upon it.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Well, come then, since you request what's fair, how soon am I to set fire to the pile? Why really, the day's half dead already down to its navel<milestone n="157" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To its navel</lemma>:  "<foreign lang="la">Umbilicus</foreign>," the "navel," was a term much used to signify the middle part of anything. Thus <placeName key="perseus,Delphi">Delphi</placeName> was called the "<foreign lang="la">umbilicus</foreign>," or "navel," of the world.</note>.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Come this way from the door.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Be it so. <stage>Moves from the door.</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Come still more this way.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Very well. <stage>Moves.</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus</speaker><p> Even still, step aside boldly from the lioness's den.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>still moving</stage>. Well done; by my troth, as I fancy, you really would bean excellent charioteers<milestone n="160" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An excellent charioteer</lemma>:  The drivers of the chariots at the Circensian games were called "<foreign lang="la">agitatores</foreign>." Of course they would look back every now, and then to see how near their opponents were, that they might keep the lead.</note>.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why so? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> That your wife mayn't follow you, you are looking back ever and anon.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> But what say you? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> What, I? Why, whatever you choose, that same do I say, and that same do I deny.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Could you make any conjecture at all from the smell, if perchance you were to take a smell at something?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Were the college of Augurs summoned <gap/></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>holds out the skirt of the mantle</stage>. Come then, take a sniff at this mantle that I'm holding. What does it smell of? Do you decline?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> It's as well to smell the top of a woman's garment; for at this other place the nose is offended with an odour that can't be washed out.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>holding another part</stage>. Take a smell here then, Peniculus, as you are so daintily nice.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Very well. <stage>He smells it.</stage></p></sp>
+<sp><speaker>MENAECHMUS</speaker><p> How now? What does it smell of? Answer me.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Theft, a mistress, and a breakfast. To you <gap/></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> You have spoken out <gap/> now it shall be taken to this mistress of mine, the Courtesan Erotium. I'll order a breakfast at once to be got ready, for me, you, and her; then will we booze away even to the morrow's morning star.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Capital. You've spoken out distinctly. Am I to knock at the door then?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Knock--or hold, rather. </p></sp>
+<sp><speaker>PENICULUS</speaker><p> You've removed<milestone n="178" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You've removed</lemma>:  Peniculus now loses patience, and reflects that there is many a slip between the cup and the lip.</note> the goblet a full mile by that.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Knock gently. </p></sp>
+<sp><speaker>PENICULUS</speaker><p> You're afraid, I think, that the doors are made of Samian crockery. <stage>Goes to knock.</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Hold, prithee, hold, i' faith; see, she's coming out herself. <stage>The door of EROTIUM'S house is opened.</stage> Ha you behold the sun, is it not quite darkened in comparison with the bright rays of her person.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="182" unit="TLN line"/>
+<stage>Enter EROTIUM, from her house.</stage>
+<sp><speaker>EROTIUM</speaker><p> My life, Menaechmus, save you.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> And what for me? </p></sp>
+<sp><speaker>EROTIUM</speaker><p> You are out of my number.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <gap/> that same thing is wont to be done for the other supernumeraries<milestone n="184" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Supernumeraries</lemma>:  The "<foreign lang="la">adscriptivi</foreign>," who were also called "<foreign lang="la">accensi</foreign>," were a body of reserve troops who followed the Roman army without any military duties to perform, and who were drafted off to supply the deficiencies in the legions. In battle they were placed in the rear of the army. Of course they could not claim the same advantages as the regular soldier; and his own position is likened by the Parasite to theirs.</note> of the legion.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I would order a skirmish to be got ready there at your house for me to-day.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> To-day it shall be done.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> In that skirmish we two shall drink. Him shall you choose that shall be found there the better warrior with the goblet; do you make up your mind with which of the two you'll pass this night. How much, my love, when I look upon you, do I hate my wife.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Meantime, however, you cannot help being wrapped in something of hers. What's this? <stage>Takes hold of the mantle.</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>taking it off</stage>. 'Tis a new dress for you, and a spoil from<milestone n="191" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A spoil from</lemma>:  "<foreign lang="la">Exuviae</foreign>" means either the slough or cast skin of a snake, or the spoil taken from the enemy. Perhaps the latter is the sense in which it is here meant, as he has described his operations as a perfect campaign.</note> my wife, my rosebud.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> You have a ready way of prevailing, so as to be superior in my eyes to any one of those that pay me suit. <stage>Embraces him.</stage></p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>aside</stage>. The harlot's coaxing in the meantime, while she's looking out what to plunder <gap/> <stage>to EROTLUM</stage> for if you really loved him, by this his nose ought to have been off with your teething him.<milestone n="195" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With your teething him</lemma>:  Judging from this remark, perhaps she has accidentally forgotten to kiss her dupe, Menaechmus.</note>.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Take hold of this, Peniculus: I wish to dedicate the spoil that I've vowed.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Give it me. <stage>Holds it while MENAECHMUS puts it on.</stage> But, i' faith, prithee, do dance afterwards with the mantle on in this way.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I--dance? I' faith, you're not in your senses.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Are you or I the most? If you won't dance, then take it off.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>to EROTIUM</stage>. At a great risk have I stolen this to-day. In my opinion, indeed, Hercules didn't ever carry off the belt from Hippolyta<milestone n="200" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From Hippolyta</lemma>:  Hercules was commanded by Eurystheus to obtain the belt or girdle of Hippolyta, or Antiope, the Queen of the Amazons. This he effected, and gave her in marriage to his companion Theseus, by whom, after giving birth to Hippolytus, she was put to death. Some accounts, however, state that she was slain by Hercules.</note> with danger as great. Take this for yourself <stage>he takes it off, and gives her the mantle</stage>, since you are the only one alive that's compliant with my humours.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> With such feelings 'tis proper that real lovers should be animated.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>aside</stage>. Those, indeed, who are making haste to bring themselves down to beggary.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I purchased that for my wife a year since at the price of four minae.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>aside</stage>. The four minae are clearly gone for ever, as the account now stands.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Do you know what I wish you to attend to?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> I don't know; but I'll attend to whatever you do wish.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Order a breakfast, then, to be provided for us three at your house, and some dainties to be purchased at the market; kernels of boars' neck, or bacon off the gammon<milestone n="210" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bacon off the gammon</lemma>:  He facetiously calls bacon "<foreign lang="la">pernonides</foreign>," literally, "the son of the gammon."</note>, or pig's head, or something in that way, which, when cooked and placed on table before me, may promote an appetite like a kite's: and-forthwith----</p></sp>
+<sp><speaker>EROTIUM</speaker><p> I' faith, I will. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> We're going to the Forum: we shall be here just now. While it's cooking, we'll take a whet in the meantime.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Come when you like, the things shall be ready.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Only make haste, then. Do you follow me <stage>to PENICULUS</stage>.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> By my troth, I certainly shall keep an eye on you, and follow you. I wouldn't take the wealth of the Gods to lose you this day. <stage>(Exeunt MENAECHMUS and PENICULUS.)</stage></p></sp>
+<sp><speaker>EROTIUM</speaker><p> <stage>speaking at the door of her house</stage>. Call Cylindrus, the cook, out of doors this moment from within.
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="219" unit="TLN line"/>
+<stage>Enter CYLINDRUS, from the house.</stage>
+<sp><speaker>EROTIUM</speaker><p> Take a hand-basket and some money. See, you have three didrachmns here. <stage>Giving him money.</stage>.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> I have so. </p></sp>
+<sp><speaker>EROTIUM</speaker><p> Go and bring some provisions, see that there's enough for three; let it be neither deficient nor overmuch.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> What sort of persons are these to be?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Myself, Menaechmus, and his Parasite.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Then these make ten, for the Parasite easily performs the duty of eight persons<milestone n="223" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Duty of eight persons</lemma>:  Athenaeus, Book I., quotes a passage from Eubulus, the Comic writer, where he represents a Parasite as being counted or two or even three at table.</note>.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> I've now told you the guests; do you take care of the rest.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Very well. It's cooked already; bid them go and take their places.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Make haste back. </p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> I'll be here directly. <stage>(Exit CYLINDRUS, and EROTIUM goes into her house.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="226" unit="TLN line"/>
+<stage>Enter MENAECHMUS SOSICLES and MESSENIO.</stage>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> There's no greater pleasure to voyagers, in my notion, Messenio, than at the moment when from sea they espy the land afar.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> There is a greater, I'll say it without subterfuge,--if on your arrival you see the land that is your own. But, prithee, why are we now come to Epidamnus? Why, like the sea, are we going round all the islands?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> To seek for my own twin-brother born?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Why, what end is there to be of searching for him? This is the sixth year that we've devoted our attention to this business. We have been already carried round the Istrians<milestone n="235" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Istrians</lemma>:  The Istrians were a people of the north of <placeName key="tgn,1000080">Italy</placeName>, near the <placeName key="tgn,7016532">Adriatic Sea</placeName>, and adjoining to <placeName key="tgn,7016683">Illyricum</placeName>. The Illyrians inhabited the countries now called <placeName key="tgn,7015451">Dalmatia</placeName> and Sclavonia. The Massilians were the natives of the city of <placeName key="tgn,7008781">Massilia</placeName>, now called <placeName key="tgn,7008781">Marseilles</placeName>, in the south of France, where Pontius Pilate ended his days in banishment. The Hispani were the inhabitants of <placeName key="tgn,1000095">Hispania</placeName>, now <placeName key="tgn,1000095">Spain</placeName>.</note>, the Hispanians, the Massilians, the Illyrians, all the Upper Adriatic Sea, and foreign <placeName key="tgn,1000074">Greece</placeName><milestone n="236" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And foreign <placeName key="tgn,1000074">Greece</placeName></lemma>:  The "<foreign lang="la">Graecia exotica</foreign>," or "foreign <placeName key="tgn,1000074">Greece</placeName>," here mentioned, was the southern part of <placeName key="tgn,1000080">Italy</placeName>, which was also called "<foreign lang="la">Magna Graecia</foreign>," in consequence of the great number of Grecian settlements there. The Greeks were in the habit of calling the Sicilians and Calabrians <foreign lang="greek">*(/ellhnas e)cwtikou/s</foreign>, "barbarian" or "foreign Greeks."</note>, and all the shores of <placeName key="tgn,1000080">Italy</placeName>, wherever the sea reaches them. If you had been searching for a needle, I do believe you would, long ere this, have found the needle, if it were visible. Among the living are we seeking a person that's dead; for long ago should we have found him if he had been alive.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> For that reason I am looking for a person to give me that information for certain, who can say that he knows that he really is dead; after that I shall never take any trouble in seeking further. But otherwise I shall never, while I'm alive, desist; I know how dear he is to my heart.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> You are seeking a knot in a bulrush<milestone n="247" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In a bulrush</lemma>:  Those who made difficulties when there really was no difficulty at all, were said "<foreign lang="la">in scirpo nodum quaerere</foreign>" "to seek a knot in a bulrush," the stem of which is perfectly smooth.</note>. Why don't we return homeward hence, unless we are to write a history<milestone n="248" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To write a history</lemma>:  A narrative or history of their travels. Boxhorn thinks that the remark alludes to the voyage of Ulysses, a counterpart of which voyage could not be written without great personal observation, and an extensive knowledge of geography.</note>?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Have done with your witty sayings, and be on your guard against a mischief. Don't you be troublesome; this matter shan't be done at your bidding.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>aside</stage>. Aye, aye; by that same expression do I rest assured that I'm a slave; he couldn't in a few words have said more in a plain-spoken way. But still I can't restrain myself from speaking. <stage>Aloud.</stage> Do you hear, Menaechmus? When I look in the purse, I find, i' faith, we're only equipped for our journey like summer travellers<milestone n="255" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Like summer travellers</lemma>:  Of course lighter garments and a less weight of luggage would be carried by travellers in the heat of summer</note>. By my troth, I guess, if you don't be returning home, while you're seeking your twin-brother, you'll surely be groaning<milestone n="257" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You'll surely be groaning</lemma>:  He intends a puerile play upon the resemblance of the words "<foreign lang="la">gemes</foreign>," "will be groaning," and "<foreign lang="la">geminum</foreign>," "twin-brother."</note>, when you have nothing left. For such is this race of people; among the men of <placeName key="tgn,7010750">Epidamnus</placeName> there are debauchees and very great drinkers; swindlers besides, and many wheedlers are living in this city; then the women in the harlot line are said nowhere in the world to be more captivating. The name of Epidamnus was given to this city for the very reason, because hardly any person sojourns here without some damnable mishaps<milestone n="264" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Some damnable mishap</lemma>:  "<foreign lang="la">Sine damno</foreign>," Literally, "without mischief" or "mishap." He puns on the resemblance of "<foreign lang="la">damnum</foreign>" to "Epidamnum." An attempt has been made in the translation to preserve the resemblance in some degree.</note>.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I'll guard against that. Just give me the purse this way.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> What do you want with it?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I'm apprehensive then about yourself, from your expressions.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Why are you apprehensive? </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Lest you should cause me some damnable mishap in Epidamnus. You are a great admirer of the women, Messenio, and I'm a passionate man, of an unmanageable disposition; of both these things will I have a care, when I've got the money, that you shall not commit a fault, and that I shall not be in a passion with you.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>giving him the purse</stage>. Take and keep it; with all my heart you may do so.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="273" unit="TLN line"/>
+<stage>Enter CYLINDRUS, with a basket of provisions.</stage>
+<sp><speaker>CYLINDRUS</speaker><p> I've catered well, and to my mind. I'll set a good breakfast before the breakfasters. But see, I perceive Menaechmus. Woe to my back; the guests are now already walking before the door, before I've returned with the provisions. I'll go and accost him. Save you, Menaechmus.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> The Gods bless you, whoever you are. <gap/></p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> <gap/> who I am?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> I' faith, not I, indeed. </p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Where are the other guests?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What guests are you enquiring about?</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Your Parasite. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> My Parasite? Surely this fellow's deranged.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Didn't I tell you that there were many swindlers here?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What Parasite of mine, young man, are you enquiring about?</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Peniculus.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <gap/> Where is my <gap/>?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> See, I've got your sponge<milestone n="286" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I've got your sponge</lemma>:  Menaechmus takes Cylindrus to mean as though he were really talking about a "<foreign lang="la">peniculus</foreign>," or "sponge," used for the purposes of a napkin. He turns to Messenio, and probably says (in the mutilated passage), "Where is my <foreign lang="la">peniculus</foreign>?" on which the servant, taking it out of the "<foreign lang="la">vidulus</foreign>," or travelling-bag. says, "Here it is, quite safe." </note> [Peniculus] all safe in the wallet.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Menaechmus, you've come here too soon for breakfast; I'm but now returning with the provisions.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Answer me this, young man: at what price do pigs sell here<milestone n="289" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Do pigs sell here</lemma>:  Pigs without blemish were sacrificed to the Lares, or household Gods, in behalf of those who were afflicted with insanity. Menaechmus Sosicles adopts this as a quiet way of telling Cylindrus that he must be mad.</note>, unblemished ones, for sacrifice?</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> At a didrachm a-piece.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>holding out his hand</stage>. Receive, then, a didrachm of me; bid a sacrifice be made for you at my expense; for, by my faith, I really am sure in very truth that you are deranged, who are annoying me, a person that's a stranger, whoever you are.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> I am Cylindrus; don't you know my name?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Whether you are Cylindrus or Caliendrus<milestone n="295" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Cylindrus or Caliendrus</lemma>:  Probably Cylindrus is so called from the words "<foreign lang="la">cylindrus</foreign>," "a cylinder," in the sense of a "rolling-pin." Sosicles plays upon its resemblance to "<foreign lang="la">caliendrus</foreign>," which perhaps meant a "peruke" or "wig," as the Latin word "<foreign lang="la">caliendrum</foreign>" had that signification.</note>, confound you. I don't know you, and, in fact, I don't want to know you.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Well, your name, however, is Menaechmus, that I do know.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> You speak like a sane person when you call me by my name. But where have you known me?</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Where have I known you, you who have Erotium, this mistress of mine <stage>pointing to the house</stage>, for your lady?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> By my troth, I have not, nor do I know yourself what person you are.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Not know who I am, who have many a time filled the cups for your own self at our house, when you've been drinking?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Woe to me, that I've got nothing with which to break this fellow's head.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Are you in the habit of filling the cups for me, who, before this day, have never beheld Epidamnus, nor been there?</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Do you deny it?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Upon my honor,, I decidedly do deny it.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Don't you live in that house? <stage>Pointing to the house of MENAECHMUS of Epidamnus.</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> May the Gods send to perdition those that live there.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Surely, this fellow's mad, who is thus uttering curses against his own self. Do you hear, Menaechmus?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What do you want? </p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> If you take my advice, that didrachm, which you just now promised to give me--you would order, if you were wise, a pig to be procured with it for yourself. For, i' faith, you really for sure are not in your senses, Menaechmus, who are now uttering curses against your own self.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Alas! By my faith, a very silly fellow, and an annoyance to me.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> <stage>to MESSENIO</stage>. He's in the habit of often joking with me in this fashion. How very droll he is, when his wife isn't present. How say you----?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What do you mean, you rascal?</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> <stage>pointing to the basket</stage>. Has this that you see been provided in sufficient quantity for three persons, or am I to provide still more for yourself and the Parasite and the lady?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What ladies--what Parasites are you talking about?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> What, you villain, urges you to be an annoyance to him?</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> Pray what business have you with me? I don't know you; I'm talking to this person, whom I do know.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> By my troth, you are not a person in his right senses, that I know for sure.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> I'll have these things cooked directly; there shall be no delay. Don't you be going after this anywhere at a distance from the house. Do you want anything?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> You to go to utter and extreme perdition.</p></sp>
+<sp><speaker>CYLINDRUS</speaker><p> I' faith, 'twere better for you to go in-doors at once and take your place, while I'm subjecting these things to the strength of the fire<milestone n="330" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Strength of the fire</lemma>:  <foreign lang="la">Vulcani ad violentiam</foreign>. Literally "to the violence of <placeName key="tgn,1050339">Vulcan</placeName>," the God of fire</note>. I'll go in-doors now, and tell Erotium that you are standing here, that she may fetch you away hence, rather than you be standing here out of doors. <stage>He goes into the house.</stage>
+
+<milestone n="333" unit="TLN line"/></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Is he gone then? He is gone. By my faith, I find by experience that your words are not untrue.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Do you only be on your guard; for I do believe that some woman in the harlot line is living here, as, in fact. this madman said, who has just gone away from here.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> But I wonder how he came to know my name.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> I' faith, 'tis far from surprising: courtesans have this custom; they send servant-boys and servant-girls down to the harbour; if any foreign ship comes into port, they enquire of what country it is, and what its name is; after that, at once they set themselves to work, and fasten themselves upon him; if they inveigle him, they send him home a ruined man. Now in this harbour there stands a piratical craft, against which I really think that we must be on our guard.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I' troth, you really counsel aright.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Then, in fine, shall I be sure that I've counselled aright, if you are rightly on your guard.
+</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Be silent for a moment, then; for the door makes a noise. Let's see who's coming out from there.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Meanwhile, I'll lay this down. <stage>He puts down the wallet.</stage> Do you keep watch upon these things, if you please, you sailors<milestone n="350" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You sailors</lemma>:  Some Commentators think that by the words "<foreign lang="la">navales pedes</foreign>" he means "oars," as being the feet, or source of motion to the ship, and that Messenio puts his luggage upon some oars on the ground close by, telling them to be good enough to keep it all safe. It is more probable, however, that he is addressing some of the crew, perhaps the rowers who have carried the luggage from the ship. Others suggest that the luggage-porters, who awaited the arrival of ships with passengers and merchandize, are here referred to. This line, in Cotter's translation, is rendered, "Observe these things now, if you please. Behold the ship!" with this note, "<foreign lang="la">Navales pedes</foreign>, the oars of a ship, put for the ship itself."! De l'Oeuvre ingeniously suggests that "<foreign lang="la">paedes</foreign>" is the correct reading, and the word is the Greek <foreign lang="greek">paide/s</foreign> Latinized, and signifying, in the present instance, the "ship-boys" or "servants." </note>.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="351" unit="TLN line"/>
+<stage>Enter EROTIUM from her house.</stage>
+<sp><speaker>EROTIUM</speaker><p> <stage>speacking to her SERVANTS within</stage>. Leave the door ajar<note anchored="yes"><lemma targOrder="U">Leave the door ajar</lemma>:  Ladies of Erotium's character would find it more convenient to have their doors ajar, that persons might step in unperceived, besides, in the present instance, she wishes the "<foreign lang="la">ianitor</foreign>" not to shut the door, as me expects to return directly with Menaechmus.</note> thus; begone. I don't want it shut: prepare, attend, and provide within; what is requisite, let it be done. Lay down the couches, burn the perfumes; neatness, that is the charm for the minds of lovers. Our agreableness is for the lover's loss, for our own gain. <stage>To herself.</stage> But where is he whom the Cook said was in front of the house? O, I see him there--one who is of service to me, and who profits me very much. And right willingly is such usage shown to him, as he deserves to be of especial importance in my house. Now I'll accost him; I'll address him of my own accord. <stage>To MENAECHMUS.</stage> My dear life, it seems wonderful to me that you are standing here out of doors, for whom the door is wide open, more so than your own house, inasmuch as this house is at your service. Everything's ready as you requested and as you desired; nor have you now any delay in-doors. The breakfast, as you ordered, is prepared here; when you please, you may go and take your place.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> To whom is this woman addressing herself?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Why, I'm talking to yourself.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What business have I ever had with you, or have I now?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Troth, inasmuch as Venus has willed that you singly above all I should exalt; and that not without your deserving it. For, by my faith, you alone make me, by your kindnesses, to be thriving.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> For sure this woman is either mad or drunk, Messemo, that addresses me, a person whom she knows not in so familiar a way.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Didn't I say that these things are in the habit of occurring here? The leaves are falling now; in comparison with this, if we shall be here for three days, the trees will be tumbling upon you. For to such a degree are all these Courtesans wheedlers out of one's money. But only let me address her. Harkye, woman, I'm speaking to you.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> What's the matter? </p></sp>
+<sp><speaker>MESSENIO</speaker><p> Where have you yourself known this person?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> In that same place where he has known me for this long time, in <placeName key="tgn,7010750">Epidamnus</placeName>.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> In Epidamnus? A man who, until this day, has never put a foot here inside of this city.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Heyday! You are making fun, my dear Menaechmus. But, prithee, why not go in? There, it will be more suitable for you.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I' faith, this woman really does address me rightly by my name. I wonder very much what's the meaning of this business.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>aside</stage>. That purse that you are carrying has been smelt out by her.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>aside</stage>. I' faith, and rightly have you put me in mind. Take it, then; I'll know now whether she loves myself or the purse most. <stage>Gives him the purse.</stage></p></sp>
+<sp><speaker>EROTIUM</speaker><p> Let's go in the house to breakfast.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> You invite me kindly; so far, my thanks.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Why then did you bid me a while since prepare a breakfast for you?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I, bid you prepare?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Certainly you did, for yourself and your Parasite.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> A plague, what Parasite? Surely this woman isn't quite right in her senses.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Peniculus.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Who is this Peniculus The one with which the shoes are wiped clean<milestone n="391" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are wiped clean</lemma>:  "<foreign lang="la">Baxae</foreign>" or "<foreign lang="la">baxeae</foreign>" were sandals made a twigs or fibres. They were often worn on the stage by Comic actors, and probably on saying this, Menaechmus Sosicles points to his own. The Egyptians made them of palm-leaves and papyrus. They were much worn by the philosophers of ancient times. Probably the "<foreign lang="la">peniculi</foreign>," made of the tails of oxen, were much used for the purpose of dusting shoes.</note>?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Him, I mean, who came with you a while ago, when you brought me the mantle which you purloined from your wife.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What do you mean? I, gave you a mantle, which I purloined from my wife? Are you in your senses? Surely this woman dreams standing, after the manner of a gelding<milestone n="395" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Manner of a gelding</lemma>:  He compares her to a horse, which sleeps and dreams (if it dreams at all) in a standing posture.</note>.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Why does it please you to hold me in ridicule, and to deny to me things that have been done by you?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Tell me what it is that I deny after having done it?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> That you to-day gave me your wife's mantle.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Even still do I deny it. Indeed, I never had a wife, nor have I one; nor have I ever set my foot here within the city gate since I was born. I breakfasted on board ship; thence did I come this way, and here I met you.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> See that now; I'm undone, wretched creature that I am! What ship are you now telling me about?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> A wooden one, weather-beaten full oft, cracked full oft, many a time thumped with mallets. Just as the implements of the furrier<milestone n="404" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of the furrier</lemma>:  The "<foreign lang="la">pellio</foreign>," "furrier" or "skinner," would require a great many pegs in fastening down the skins for the purpose of stretching them. Meursius thinks that Plautus intends a sly hit here at Pellio, the bad actor, who is mentioned in the Second Scene of the Second Act in the Bacchides. If so, the joke is quite lost on us.</note>; so peg is close to peg.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Now, prithee, do leave off making fun of me, and step this way with me.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <gap/> for, madam, you are looking for some other person, I know not whom, not me.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Don't I know you, Menaechmus, the son of your father Moschus, who are said to have been born in <placeName key="tgn,7003122">Sicily</placeName>, at <placeName key="perseus,Syracuse">Syracuse</placeName>, where King Agathocles reigned, and after him Pintia<milestone n="410" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">After him Pintia</lemma>:  She is supposed, by the Commentators, to be purposely represented here as quite mistaken in her historical facts, and as making nothing but a confused jumble of them. Some think that the words "<foreign lang="la">Pintia</foreign>" and "<foreign lang="la">Liparo</foreign>" are ablative cases; but it is much more probable that they are nominatives. Gronovius thinks that one <placeName key="perseus,Phintias">Phintias</placeName> is alluded to, who, as we are told by Diodorus Siculus, assumed the government at <placeName key="tgn,7003808">Agrigentum</placeName> after the death of Agathocles. He did not, however, reign at <placeName key="perseus,Syracuse">Syracuse</placeName>. We do not learn from history that Hiero received the government from Liparo, but, on the contrary, that his virtuous character was the sole ground for his election to the sovereignty. <placeName key="tgn,7008315">Lipara</placeName> was the name of one of the Aeolian islands (now called the Isles of <placeName key="tgn,7003912">Lipari</placeName>), not far from the coast of <placeName key="tgn,7003122">Sicily</placeName>. Some think that she means to call Agathocles by the additional names of Plintias (and not Pintia) from <foreign lang="greek">plinto\s,</foreign> "pottery," as he had exercised the trade of a potter, and of "Liparo," from the Greek <foreign lang="greek">luphro/s,</foreign> "savage," by reason of the cruelty of which he was guilty in the latter part of his life. This notion seems, however, to be more fanciful than well-founded.</note>, the third Liparo, who at his death left the kingdom to Hiero--which Hiero is now king?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> You say, madam, what is not untrue.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> By <placeName key="tgn,1125260">Jupiter</placeName>, hasn't this woman come from there, who knows you so readily?  <gap/></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>apart</stage>. Troth, I think she must not be denied.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>apart</stage>. Don't you do it. You are undone, if you enter inside her threshold.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>apart</stage>. But you only hold your tongue <gap/> The matter goes on well. I shall assent to the woman, whatever she shall say, if I can get some entertainment. Just now, madam <stage>speaking to her in a low voice</stage>, I contradicted you not undesignedly; I was afraid of that fellow, lest he might carry word to my wife about the mantle and the breakfast. Now, when you please, let's go in-doors.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Are you going to wait for the Parasite as well?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I'm neither going to wait for him, nor do I care a straw for him, nor, if he should come, do I want him to be admitted in-doors.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> By my faith, I shall do that not at all reluctantly. But do you know what I beg you to do?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Only command me what you will.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> For you to take that mantle which you gave me just now to the embroiderer's<milestone n="425" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the embroiderer's</lemma>:  "<foreign lang="la">Phrygionem</foreign>." As the natives of <placeName key="tgn,7002613">Phrygia</placeName> were very dexterous at embroidering, and their services were much sought for the purposes of luxury, all embroiderers, in time came to be called "<foreign lang="la">phrygiones</foreign>."  Cotter renders "<foreign lang="la">ad phrygionem</foreign>" here "to <placeName key="tgn,7002613">Phrygia</placeName>," and so throughout the whole play!</note>, that it may be trimmed again, and that some work may be added which I want.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I' faith, you say what's right; in such a way shall it be disguised that my wife shan't know that you are wearing it, if she should see you in the street.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Then take it away with you just now, when you go away.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> By all means. </p></sp>
+<sp><speaker>EROTIUM</speaker><p> Let's go in-doors. <stage>Goes into her house.</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I'll follow you this instant; I only wish to speak to this person. So, there! Messenio, step to me this way.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Listen.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> What need for it?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> There is need, I know what you'll say to me----</p></sp>
+<sp><speaker>MESSENIO</speaker><p> So much the worse.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Hold your tongue <gap/> I've got some spoil; thus much of the business have I begun upon. Go, and, as quick as you can, take away those peoples<milestone n="436" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Those people</lemma>:  By "<foreign lang="la">istos</foreign>" he probably means the sailors or perters who were carrying the luggage.</note> at once to an inn<note anchored="yes"><lemma targOrder="U">To an inn</lemma>:  The accommodation of the "<foreign lang="la">taberna diversoria</foreign>," or "<foreign lang="la">diversorium</foreign>," was generally of a humble kind, and these places were mostly adapted for the poorer classes only.</note>. Then do you take care to come and meet me<milestone n="437" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Come and meet me</lemma>:  That is, as his "<foreign lang="la">adversitor</foreign>," which was the title given to the servant whose duty it was to fetch his master home in the evening.</note> before sunset.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Don't you know that these people are harlots, master?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Hold your tongue, I say, and go you away from here. It will cost me pain, not you, if I do anything here that's foolish. This woman is silly and inexperienced. So far as I've perceived just now, there's some spoil for us here. <stage>He goes into the house of EROTIUM.</stage></p></sp>
+<sp><speaker>MESSENIO</speaker><p> I'm undone. Are you going away then? He is certainly ruined; the piratical craft is now leading the boat straight to destruction. But I'm an unreasonable fellow to wish to rule my master; he bought me to obey his orders, not to be his commander. <stage>To the ATTENDANTS.</stage> Follow me, that, as I'm ordered, I may come in good time to meet my master.
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="446" unit="TLN line"/>
+<stage>Enter PENICULUS.</stage>
+<sp><speaker>PENICULUS</speaker><p> More than thirty years have I been born yet during that time I never did any more mischievous or more evil trick than this day, when, to my misfortune, I thrust myself into the midst of the assembly<milestone n="448" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Midst of the assembly</lemma>: This "<foreign lang="la">concio</foreign>" was the sitting of the court for the trial of causes, to which we shall find further reference in the sequel, when it is explained how he happened to lose sight of Menaechmus.</note>. while I was gaping about there, Menaechmus stole away from me, and went, I suppose, to his mistress, and didn't want to take me. May all the Divinities confound that man who first mischievously devised the holding of an assembly, which keeps men thus engaged. By my troth, is it not fitting that men who are disengaged should be chosen for that purpose? These, when they are cited, if they are not present, let the officers exact the fine<milestone n="454" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Exact the fine</lemma>:  He suggests that Menaechmus has possibly been summoned, in his capacity as a citizen, to the "<foreign lang="la">concio</foreign>," for the purpose of being present at the trials going on. The Parasite curses this custom, and wishes that they would summon only the idle men, and not those engaged in the important business of feasting their friends. There is some doubt as to the meaning of "<foreign lang="la">census capiant</foreign>," but it probably signifies "let them exact the fine."</note> forthwith <gap/> the senate <gap/>  Abundance of men are there who every day eat their victuals alone, who have no business, who are neither invited nor invite to feast; these ought to give their attendance at the assembly and the law-courts<milestone n="459" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And the law-courts</lemma>:  The "<foreign lang="la">comitia</foreign>" of the Romans have been referred to in a previous Note.</note>. If so it had been, this say I shouldn't have lost my breakfast; to which I deemed myself as much accustomed, as to see myself alive. I'll go; even yet the hope of the scraps comforts my mind. But why do I see Menaechmus here? He's coming out of doors with a chaplet on? The banquet is removed; i' faith, I come just in time to meet him. I'll watch the fellow, what he's about, then I'll go and accost him. <stage>He steps aside.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="466" unit="TLN line"/>
+<stage> Enter MENAECHMUS SOSICLES, from the house of EROTIUM, with the mantle on.</stage>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>speaking to EROTIUM within</stage>. Can't you rest content, if this day I bring it you back in good time, nicely and properly trimmed? I'll cause you to say it isn't itself, so much shall it be disguised.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>apart</stage>. He's carrying the mantle to the embroiderer's, the breakfast finished and the wine drunk up, and the Parasite shut out of doors. By my troth, I'm not the person that I am, if I don't handsomely avenge this injury and myself. 'Tis requisite I should watch <gap/> I'll give something.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>to himself</stage>. O ye immortal Gods! on what man ever have you conferred more blessings in one day, who hoped for less? I've been breakfasting, drinking, feasting with a mistress; and I've carried off this mantle, of which she shall no more be owner after this day.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Isn't he now talking about me, and my share of the repast? I can't well hear what he says.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>to himself</stage>. She says that I secretly gave her this, and that I stole it away from my wife. When I perceived that she was mistaken, at once I began to assent, as though I really had had acquaintanceship with her. Whatever the woman said, the same said I. What need of many words? I was never entertained at less expense.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>apart</stage>. I'll accost the fellow; for I quite long to have a row.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Who's this that's coming up towards me? <stage>Takes off the mantle, and hides it.</stage></p></sp>
+<sp><speaker>PENICULUS</speaker><p> What say you, you fellow lighter than a feather, most rascally and most abandoned--you disgraceful man--you cheat, and most worthless fellow? Why have I deserved this of you? For what reason should you ruin me? How you stole yourself away from me just now at the Forum. You've been performing the funeral of the breakfast in my absence. Why did you dare to do so, when I was entitled to it in an equal degree?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Young man, prithee, what business with me have you, who are thus purposely insulting a person whom you know not? Do you wish a punishment to be given you for your abuse?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Do be quiet; by my faith, I discover that you've done that already indeed.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Answer me, young man, I beg; what is your name?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Are you laughing at me, as well, as though you didn't know my name?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> By my troth, I never saw or knew you, that I'm aware of, before this day; but at all events, whoever you are, if you do what's right, you won't be an annoyance to me.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Don't you know me? </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I shouldn't deny it if I did know you.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Menaechmus, awake. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I' troth, I really am awake, so far as I know.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Don't you know your own Parasite?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Young man, I find that your headpiece isn't sound.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Answer me; have you not purloined that mantle from your wife to-day, and given it to Erotium?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I' faith I have no wife, nor have I given the mantle to Erotium, nor have I purloined it.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Are you really in your senses? <gap/> This matter's settled<milestone n="512" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This matter's settled</lemma>:  "<foreign lang="la">Occisa est haec res</foreign>." Literally, "this matter is killed ;" somewhat similar to our expression, "the murder is out."</note>. Did I not see you coming out of doors clad in a mantle?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Woe to your head. Do you think that all people are effeminate rogues<milestone n="514" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Effeminate rogues</lemma>:  "<foreign lang="la">Cinaedos</foreign>." Literally, "dancers" or "dancing-masters," who, being effeminate persons, would be more likely to wear a "<foreign lang="la">palla</foreign>" of gay colours. [The translator is suppressing the actual meaning of the word.  A <foreign lang="la">cinaedus</foreign> (Greek <foreign lang="greek">ki/naidos</foreign>) is a homosexual man.]</note> because you are one? Do you declare that I was clothed in a mantle?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Troth, I really do. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Why don't you go where you are deserving to go, or else request yourself to be atoned for, you downright madman?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> By my troth, never shall any one prevail upon me not to tell your wife the whole matter now, just as it happened. All these insults shall be retorted upon yourself. I'll take care that you shan't have devoured the breakfast unpunished. <stage>He goes into the house of MENAECHMUS of Epidamnus.</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What's the meaning of this business? Why, Just as I see each person, do they all make fun of me in this way? But the door makes a noise.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="524" unit="TLN line"/>
+<stage>Enter a MAID-SERVANT, from the house of EROTIUM.</stage>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> Menaechmus, Erotium says that she entreats you much, that at the same opportunity you'll take this to the goldsmith's, and add to it an ounce in weight of gold, and order the bracelet<milestone n="527" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Order the bracelet</lemma>:  "<foreign lang="la">Spinter</foreign>" or "<foreign lang="la">spinther</foreign>" is another name, derived from the Greek <foreign lang="greek">sfigkth/r,</foreign> for the Latin "<foreign lang="la">armilla</foreign>" or bracelet. It received its Greek name, from its keeping in its place by compressing the arm of the wearer. Festus tells us that the bracelet called "<foreign lang="la">spinter</foreign>" was worn by the Roman ladies on the left arm, while the "<foreign lang="la">armilla</foreign>" was worn on either.</note> to be fashioned anew. <stage>Gives him a bracelet.</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Tell her that I'll attend both to this and anything else that she shall wish, if she wishes anything else attended to.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> Do you know what this bracelet is?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I don't know, unless it's of gold.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> This is the same one that you once said that you had secretly stolen out of the closet from your wife.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> By my troth, 'twas never done.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> Prithee, don't you remember it?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Not in the least. </p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> Give it me back then, if you don't remember it. <stage>Tries to take it.</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Stop. <stage>Pretends to examine the bracelet.</stage> O yes, I really do remember it; it's the same, I believe, that I presented to her.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> I' faith, it is the same. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Where are the clasps which I gave her together with them?</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> You never gave her any. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Why, faith, I gave them together with this <gap/></p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> Shall I say that you'll attend to it?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Do say so; it shall be attended to. I'll take care that the mantle and the bracelet are brought back together.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> My dear Menaechmus, do, pray, give me some earrings<milestone n="541" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give me some earrings</lemma>:  The drops of the earrings were probably to be of the weight of two didrachms. The earring was called among the Romans "<foreign lang="la">inauris</foreign>," and by the Greeks <foreign lang="greek">e)nw/tion.</foreign> The Greeks also called it <foreign lang="greek">e)llo/bion,</foreign> from its being inserted in the lobe of the ear. These ornaments were worn by both sexes among the Lydians, Persians, Libyans, Carthaginians, and other nations. Among the Greeks and Romans, the females alone were in the habit of wearing them. As with us, the earring consisted of a ring, and a drop, called "<foreign lang="la">stalagmium</foreign>," the ring being generally of gold, though bronze was sometimes used by the common people. Pearls, especially those of elongated form, called "<foreign lang="la">elenchi</foreign>," were very much valued for pendants.</note>, the pendants to be made two didrachms in weight; that I may look on you with delight when you come to our house.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Be it so. Give me the gold<milestone n="544" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give me the gold</lemma>:  He asks for the gold with the intention of stealing it; for, in spite of their wealth, it is evident, from this, and what appears in the sequel, that both he and his brother are by nature arrant thieves.</note>; I'll find the price of the workmanship.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> Give it yourself, please; at a future time I'll give it you back.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> No, give it yourself; at a future time I'll give it you twofold.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> I haven't any. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> But when you have it, do you give it me, then.</p></sp>
+<sp><speaker>MAID-SERVANT of Erotium.</speaker><p> Do you wish for aught? </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Say that I'll attend to these things, <stage>aside</stage> to be sold as soon as they can, and for what they'll fetch. <stage>The MAID-SERVANT goes into the house.</stage> Has she now gone off in-doors? She's gone, and has shut the door. Surely all the Gods are favouring, amplifying, and prospering me. But why do I delay while opportunity and time are granted me to get away from these procurers' dens? Make haste, Menaechmus; pull foot and quicken your pace. I'll take off this chaplet<milestone n="555" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take off this chaplet</lemma>:  This he had been wearing at the "<foreign lang="la">prandium</foreign>," or "breakfast," at Erotium's house. The latter appears to be a more fitting name for a meal that was taken generally about twelve o'clock; while "the <foreign lang="la">cena</foreign>," which commenced in general at about three, cannot with propriety be termed anything else than a "dinner."</note>, and throw it away on the left hand side <stage>throws the chaplet down</stage>, that, if they follow me, they may think I've gone in that direction. I'll go and meet my servant, if I can, that he may learn from me these blessings which the Gods confer upon me.
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="559" unit="TLN line"/>
+<stage>Enter, from her house, the WIFE of MENAECHMUS of Epidamnus, followed by PENICULUS.</stage>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> And shall I allow myself to remain in wedlock<milestone n="559" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To remain in wedlock</lemma>:  As already observed in the Notes to the Stichus and the Miles Gloriosus, the facilities for divorce, by reason of incompatibility and other circumstances, were very great among the Romans.</note> here, when my husband secretly pilfers whatever's in the house, and carries it thence off to his mistress?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Why don't you hold your peace? I'll let you now catch him in the fact; do you only follow me this way. <stage>They go to the opposite side of the stage.</stage> In a state of drunkenness, with a chaplet on, he was carrying the mantle to the embroiderer's, which he purloined from you at home to-day. But see, here is the chaplet which he had on. <stage>Seeing the chaplet on the ground.</stage> Now am I saying false? Aha, this way has he gone, if you wish to trace his footsteps. And, by my faith, see, here he comes on his way back most opportunely, but he isn't wearing the mantle.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> What now shall I do to him?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> The same as usual; abuse him.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> So I am resolved.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Let's step aside this way watch him from ambush. <stage>They retire on one side.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="571" unit="TLN line"/>
+<stage>Enter MENAECHMUS of Epidamnus.</stage>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>to himself</stage>. How we do practise a custom here that is very foolish and extremely troublesome, and how even those who are the most worthy and great<milestone n="572" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Most worthy and great</lemma>:  "<foreign lang="la">Optumi maximi</foreign>." This was properly an epithet of <placeName key="tgn,2019952">Jupiter</placeName>, and is, perhaps, satirically applied to the "little Gods," the great men of <placeName key="tgn,7013962">Rome</placeName>. In the previous line he uses "<foreign lang="la">morus</foreign>," the Greek word <foreign lang="greek">mwro/s,</foreign> signifying "foolish," on account of its resemblance to the word "<foreign lang="la">mores</foreign>," "manner" or "custom."</note> do follow this habit: all wish their dependants to be many in number; whether they are deserving or undeserving, about that they don't enquire. Their property is more enquired about, than what the reputation of their clients is for honor. If any person is poor and not dishonest, he is considered worthless; but if a rich man is dishonest, he is considered a good client. Those who neither regard laws nor any good or justice at all, the same have zealous patrons. What has been entrusted to them, they deny to have been so entrusted; men full of litigation, rapacious, and fraudulent; who have acquired their property either by usury or by perjury; their whole pleasure is in litigation. When the day for trial is appointed, at the same time it is mentioned to their patrons, in order that they may plead for them, about what they have done amiss. Before the people<milestone n="587" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Before the people</lemma>:  It is thought that he here refers to the three modes of trial in civil cases among the Romans -- "<foreign lang="la">apud populum</foreign>," before the people in the <foreign lang="la">Comitia centuriata</foreign>, or full assembly; "<foreign lang="la">in iure</foreign>," before the "<foreign lang="la">Praetor</foreign>," or his delegates, the "<foreign lang="la">Recuperatores</foreign>" or "<foreign lang="la">Iudices selecti</foreign>," "commissioned judges;" and before the Aedile, or city officer. He says, that on being summoned to the "<foreign lang="la">concio</foreign>," a "<foreign lang="la">cliens</foreign>" or dependant suddenly accosted him, and insisted on his defending him, which greatly detained him, but that in spite of the worthlessness of his client's cause, he was at last successful in effecting a compromise.</note>, or at law before the Praetor, or before the Aedile, is the cause tried. Just so, this day, a certain dependant has kept me very much engaged, nor was it allowed me to do what I wished, or in company with whom I wished; so fast did he stick to me, so much did he detain me. Before the Aedile, in behalf of his doings, very many and very disgraceful, did I plead his cause; a compromise I obtained, obscure and perplexed--more than enough I said, and than I needed to say, that surety for him<milestone n="592" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That surety for him</lemma>:  He probably means that he gained time for his client to pay the debt, on condition of his giving bail or security that be would do so within a certain time.</note> might end this litigation. What did he do? Well, what? He gave bail. And never did I at any time see any person more clearly detected; three very adverse witnesses against all his misdeeds were there. May all the Gods confound him, he has so spoilt this day for me; and myself as well, who ever this day beheld the Forum with my eyes. I ordered a breakfast to be prepared; my mistress is expecting me, I'm sure; as soon as ever I had the opportunity, I made haste immediately to leave the Forum. Now, I suppose, she's angry with me; the mantle, however, will appease her that I gave her, the one I took away to-day from my wife and carried to Erotium here.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>apart to the WIFE</stage>. What say you now?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> <stage>apart</stage>. That I'm unfortunately married to a worthless fellow.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>apart</stage>. Do you perfectly hear what he says?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> <stage>apart</stage>. Quite well.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> If I am wise, I shall be going hence in-doors, where it may be comfortable for me.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>coming forward</stage> Stop; on the contrary, it shall be uncomfortable.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <gap/> she is very sorrowful; this doesn't quite please me, but I'll speak to her. Tell me, my wife, what is it amiss with you?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>to the WIFE</stage>. The pretty fellow's soothing you.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Can't you cease being annoying to me? Did I address you?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> <stage>turning away from MENAECHMUS</stage>. Take yourself off--away with your caresses from me. Do you persist in it?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why are you offended with me?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> You ought to know. </p></sp>
+<sp><speaker>PENICULUS</speaker><p> The rascal knows, but he pretends not to know.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Has any one of the servants done amiss? Do either the maid or the men-servants give you saucy answers? Speak out; it shan't be done with impunity.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> You are trifling. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Surely you are angry at some one of the domestics?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> You are trifling. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Are you angry with me at all events?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Now you are not trifling. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I' faith, I haven't done wrong in anything.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Ah! now you are trifling again.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Wife, what's the matter? </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Do you ask me that?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Do you wish me to ask him? <stage>To PENICULUS.</stage> What's the matter?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> The mantle. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> The mantle?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> A certain person has taken a mantle. <stage>MENAECHMUS starts.</stage></p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>to MENAECHMUS</stage>. Why are you alarmed?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> For my part, I'm not alarmed at all--<stage>aside</stage> except about one thing; the mantle makes<milestone n="616" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The mantle makes</lemma>:  "<foreign lang="la">Palla pallorem incutit</foreign>." In his alarm he cannot avoid a pun on the resemblance between "<foreign lang="la">palla</foreign>," the "mantle," and "<foreign lang="la">pallor</foreign>," paleness. The meaning is, literally, "the mantle strikes paleness into me;" but an attempt is made in the Translation to imitate the play upon the words.</note> my face mantle.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>aside to MENAECHMUS</stage>. But as for me, you shouldn't have slily devoured the breakfast. <stage>To the WIFE.</stage> Go on against your husband.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>making signs to PENICULUS</stage>. Won't you hold your tongue?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Faith, I really will not hold my tongue. <stage>To the WIFE.</stage> He's nodding to me not to speak.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> On my word, I really never did nod to you, or wink in any way.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Nothing is more audacious than this man, who resolutely denies those things which you see.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By <placeName key="tgn,2019952">Jupiter</placeName> and all the Gods, I swear, wife, that I did not nod to him; isn't that enough for you?</p></sp>
+<sp><speaker>PENICULUS</speaker><p> She now believes you about that matter; go back again there.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Go back where? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> Why, to the embroiderer, as I suppose. Go and bring the mantle back.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What mantle is it? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> Now I hold my tongue, since he doesn't remember his own business.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Did you suppose that you could possibly commit these villanies unknown to me? By heavens, you have assuredly taken that away from me at a heavy usury; such is the return<milestone n="626" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Such is the return</lemma>:  "<foreign lang="la">Sic datur</foreign>." Literally, "thus it is given," or "on these terms it is lent." Some Commentators will have it, that these words are accompanied with a slap on the face, in which case they will be equivalent to "there, take that." They may, however, simply mean, "such are the terms" on which you had my mantle, "such are the results of your lending;" her abuse and indignation, accompanied, perhaps, with a threat, being the "<foreign lang="la">foenus</foreign>," or "interest" for the loan.</note>. <stage>Shaking her fist.</stage></p></sp>
+<sp><speaker>PENICULUS</speaker><p> Such is the return. Do you make haste to eat up the breakfast in my absence; and then in your drunkenness make fun of me, with your chaplet on, before the house.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By all the powers, I have neither breakfasted, nor have I this day set foot inside of that house.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Do you deny it? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By my troth, I really do deny it.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Nothing is there more audacious than this fellow. Did I not just now see you standing here before the house, with a chaplet of flowers on, when you were declaring that my headpiece wasn't sound, and declaring that you didn't know me, and saying that you were a foreigner?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> On the contrary, as some time since I parted with you, so I'm now returning home at last.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> I understand you. You didn't think it was in my power to take vengeance upon you; i' faith, I've told it all to your wife.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Told her what? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> I don't know; ask her own self.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>turning to his WIFE</stage>. What's this, wife? Pray, what has he been telling you? What is it? Why are you silent? Why don't you say what it is?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> As though you didn't know. I' faith, I certainly am a miserable woman.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why are you a miserable woman? tell me.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Do you ask me? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Faith, I shouldn't ask you if I knew.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> O the wicked fellow; how he does dissemble. You cannot conceal it; she knows the matter thoroughly; by my faith, I've disclosed everything.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What is it? </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Inasmuch as you are not at all ashamed, and don't wish to confess of your own accord, listen, and attend to this; I'll both let you know why I'm sorrowful, and what he has told me. My mantle has been purloined from me at home.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Mantle purloined from me? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>to the WIFE</stage>. D'you see how the rogue is catching you up? <stage>To MENAECHMUS.</stage> It was purloined from her, not from you; for certainly if it had been purloined from you, it would now be safe.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>to PENICULUS</stage>. I've nothing to do with you. But <stage>to his WIFE</stage> what is it you say?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> A mantle, I say, has been lost from home.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Who has stolen it? </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I faith, he knows that, who took it away.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What person was it? </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> A certain Menaechmus.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By my troth, 'twas villanously done. Who is this Menaechmus?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> You are he, I say. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> You. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Who accuses me?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I, myself. </p></sp>
+<sp><speaker>PENICULUS</speaker><p> I, too; and you carried it off to Erotium here, your mistress.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I, gave it her? </p></sp>
+<sp><speaker>PENICULUS</speaker><p> You, you, I say. Do you wish for an owl<milestone n="654" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Wish for an owl</lemma>:  "<foreign lang="la">Tu, tu</foreign>." He alludes to the note of the owl which to the Romans would seem to say "<foreign lang="la">tu, tu</foreign>" "you you."</note> to be brought here, to say "you, you," continually to you? For we are now quite tired of it.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By <placeName key="tgn,2075298">Jupiter</placeName> and all the Gods, I swear, wife (and isn't that enough for you?), that I did not give it.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> Aye, and I, by all the powers, that we are telling no untruth.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> But I haven't given it away, but just only lent it to be made use of.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> But, i' faith, for my part, I don't lend either your scarf or your cloak out of the house, to any one, to be made use of. 'Tis fair that the woman should lend out of the house the woman's apparel, the man the man's. But why don't you bring the mantle home again?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I'll have it brought back. </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> For your own interest you'll do so, as I think; for you shall never enter the house to-day unless you bring the mantle with you. I'm going home.</p></sp>
+<sp><speaker>PENICULUS</speaker><p> <stage>to the WIFE</stage>. What's there to be for me, who have given you this assistance?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Your assistance shall be repaid, when anything shall be purloined from your house. <stage><placeName key="tgn,2769656">The WIFE</placeName> goes into the house.</stage></p></sp>
+<sp><speaker>PENICULUS</speaker><p> Then, by my troth, that really will never be; for nothing have I at home to lose. May the Gods confound you, both husband and wife. I'll make haste to the Forum, for I see clearly that I've quite fallen out with this family. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> My wife thinks that she does me an injury when she shuts me out of doors; as though I hadn't another better place to be admitted into. If I displease you, I must endure it; I shall please Erotium here, who won't be shutting me out of her house, but will be shutting me up in her house rather. Now I'll go; I'll beg her to give me back the mantle that I gave her a while since. I'll purchase another for her--a better one. <placeName key="tgn,2395733">Hallo</placeName>! is any one the porter here? <stage>Knocks at EROTIUM'S door.</stage> Open here, and some one of you call Erotium before the door.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="675" unit="TLN line"/>
+<stage>Enter EROTIUM, from her house.</stage>
+<sp><speaker>EROTIUM</speaker><p> Who's enquiring for me here?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> One that's more of an enemy to his own self than to yourself<milestone n="675" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Than to yourself</lemma>:  "<foreign lang="la">Aetati tuae</foreign>." Literally, "to your age," a circumlocution for "yourself.</note>.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> My dear Menaechmus? Why are you standing before the house? Do follow me in-doors.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Stop. Do you know why it is that I'm come to you?</p></sp>
+<sp><speaker>EROTIUM</speaker><p> I know well; that you may amuse yourself with me.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why no, troth, that mantle which I gave you a while since, give it me back, I entreat you; my wife has become acquainted with all the transaction, in its order, just as it happened. I'll procure for you a mantle of twofold greater value than you shall wish.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Why, I gave it your own self a little while since, that you might take it to the embroiderer's, and that bracelet, too, that you might take it to the goldsmith's that it might be made anew.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> You, gave me the mantle and the bracelet? You'll find 'twas never done. For, indeed, after I gave it you a while ago, and went away to the Forum, I'm but just returning, and now see you for the first time since.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> I see what plan you are upon; that you may defraud me of what I entrusted to you, at that thing you are aiming----</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> On my word, I do not ask it for the sake of defrauding you. But I tell you that my wife has discovered the matter.</p></sp>
+<sp><speaker>EROTIUM</speaker><p> Nor did I of my own accord beg you to give it me; of your own accord you yourself brought it me. You gave it me as a present; now you're asking for the same thing back again. I'll put up with it; keep it to yourself; take it away; make use of it, either yourself or your wife, or squeeze it into your money-box<milestone n="691" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Into your money-box</lemma>:  "As you make so much fuss about and it is so valuable, squeeze it up into your money-box."</note> even. After this day, that you mayn't be deceived, you shan't set your foot in this house, since you hold me in contempt, who deserve so well of you. Unless you bring money, you'll be disappointed; you can't cajole me. Find some other woman, henceforth, for you to be disappointing.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By my troth, very angry at last. <placeName key="tgn,2395733">Hallo</placeName>! you; stay, I bid you. Come you back. Will you stay now? Will you even for my sake come back? <stage>EROTIUM goes into her house, and shuts the door.</stage> She has gone indoors, and shut the house. Now I'm regularly barred out; I have neither any credit at home now, nor with my mistress. I'll go and consult my friends on this matter, as to what they think should be done. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="701" unit="TLN line"/>
+<stage>Enter MENAECHMUS SOSICLES, with the mantle on.</stage>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I did very foolishly a while since, in entrusting my purse to Messenio with the money. I suspect he has got himself into some bad house<milestone n="704" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Into some bad house</lemma>:  The "<foreign lang="la">ganeae</foreign>" or "<foreign lang="la">ganea</foreign>" were, probably, very similar to the "<foreign lang="la">popinae</foreign>," the loose character of which, and the "<foreign lang="la">thermopolia</foreign>," has been alluded to in a preceding Note.</note> or other.
+<stage>Enter the WIFE of Menaechmus of Epidamnus, from the house.</stage></p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I'll look out to see how soon my husband is going to return home. But here he is; I see him; I'm all right, he's bringing back the mantle.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>to himself</stage>. I wonder where Messenio can be walking now.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I'll go and receive the fellow with such language as he deserves. <stage>Accosting him.</stage> Are you not ashamed to come forward in my presence, you disgraceful man, in that garb?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What's the matter? What thing is troubling you, woman?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Do you dare, you shameless fellow, to utter even a single word, or to speak to me?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Pray, what wrong have I committed, that I shouldn't dare to speak to you?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Do you ask me? O dear, the impudent audacity of the fellow!</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Don't you know, madam, for what reason the Greeks used to say that Hecuba was a bitch<milestone n="714" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hecuba was a bitch</lemma>:  Hecuba was the daughter of Cisseus or of Dymas, and the wife of Priam, King of <placeName key="tgn,7014164">Troy</placeName>. In the distribution of the spoil, after the siege of <placeName key="tgn,7014164">Troy</placeName>, she fell to the share of <placeName key="tgn,2093866">Ulysses</placeName>, and became his slave, but lied soon after in <placeName key="tgn,7002756">Thrace</placeName>. Servius alleges, with Plautus, that the Greeks circulated the story of her transformation into a bitch, because she was perpetually railing at them to provoke them to put her to death, rather than condemn her to the life of a slave. According to Strabo and Pomponius Mela, in their time the place of her burial was still to be seen in <placeName key="tgn,7002756">Thrace</placeName>. It was called <foreign lang="greek">ku/nos shma/</foreign>, "the Tomb of the bitch." Euripides, in his "Hecuba," has not followed this tradition, but represents her as complaining that the Greeks had chained her to the door of Agamemnon like a dog.</note>?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I don't know, indeed. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Because Hecuba used to do the same thing that you are now doing. She used to heap all kinds of imprecations on every one she saw; and, therefore, for that reason she was properly begun to be called a bitch.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I can't put up with this disgraceful conduct of yours; for I had rather see my life that of a widow, than endure this vile conduct of yours that you are guilty of.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What is it to me, whether you are able to endure to live in the married state, or whether you will separate from your husband? Is it thus the fashion here to tell these stories to a stranger on his arrival?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> What stories? I say, I'll not endure it henceforth, but live separate rather than put up with these ways.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Troth, so far indeed as I'm concerned, do live separate, even so long as Jupiter shall hold his sway.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> By heavens, I'll certainly now send for my father, and I'll tell him your disgraceful conduct that you are guilty of. Go, Decio <stage>calling to a SERVANT</stage>, seek for my father, that he may come along with you to me; tell him that occasion has arisen for it. I'll. now disclose to him this disgraceful conduct of yours.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Are you in your senses? What disgraceful conduct of mine?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> When you filch from home my mantle and gold trinkets, without the knowledge of your wife, and carry them off to your mistress. Don't I state this correctly?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> O dear! madam, by my faith, you are both very bold and very perverse. Do you dare to say <stage>pointing at the mantle</stage> that this was stolen from you which another woman gave me, for me to get it trimmed?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> A little while since you didn't deny that you had purloined it from me; do you now hold up that same before my eyes? Are you not ashamed?</p></sp><sp><speaker>MENAECHMUS SOSICLES</speaker><p> By my faith, madam, I entreat you, if you know, show me what I'm to drink<milestone n="742" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What I'm to drink</lemma>:  Some Commentators think that he is asking for a medical potion, to help him to swallow down the "<foreign lang="la">petulantia</foreign>," or insulting conduct. This supposition does not seem necessary, for even a draught of water would have the same effect in such a case.</note>, by means of which I may put up with your impertinence. What person you are taking me to be, I don't know; I know you just as well as Parthaon<milestone n="745" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As well as Parthaon</lemma>:  Parthaon was the father of Oeneus, King of Aetona, the father of Deianeira, the wife of Hercules. The name is used to signify a person who lived so long ago that it was impossible to know him.</note>.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> If you laugh at me, still, i' troth, you can't do so at him; my father, I mean, who's coming here. Why don't you look back? Do you know that person?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Just as well as Calchas<milestone n="748" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As well as Calchas</lemma>:  Calchas, the son of Thestor, was a famous soothsayer, who accompanied the Grecian army in the expedition against <placeName key="tgn,7014164">Troy</placeName>.</note> do I know him; I have seen him on that same day on which I have seen yourself before this present day.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Do you deny that you know me? Do you deny that you know my father?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Troth, I shall say the same thing, if you choose to bring your grandfather.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I' faith, you do this and other things just in a like fashion.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="753" unit="TLN line"/>
+<stage>Enter an <placeName key="tgn,2557345">OLD MAN</placeName>, hobbling with a stick.</stage>
+<sp><speaker>OLD MAN</speaker><p> According as my age permits, and as there is occasion to do so, I'll push on my steps and make haste to get along. But how far from easy 'tis for me, I'm not mistaken as to that. For my agility forsakes me, and I am beset with age; I carry my body weighed down; my strength has deserted me. How grievous a pack upon one's back is age. For when it comes, it brings very many and very grievous particulars, were I now to recount all of which, my speech would be too long. But this matter is a trouble to my mind and heart, what this business can possibly be on account of which my daughter suddenly requires me to come to her, and doesn't first let me know what's the matter, what she wants, or why she sends for me. But pretty nearly do I know now what's the matter; I suspect that some quarrel has arisen with her husband. So are these women wont to do, who, presuming on their portions, and haughty, require their husbands to be obedient to them; and they as well full oft are not without fault. But still there are bounds, within which a wife ought to be put up with. By my troth, my daughter never sends for her father to come to her except when either something has been done wrong, or there is a cause for quarrelling. But whatever it is, I shall now know. And see, I perceive her herself before the house, and her husband in a pensive mood. 'Tis the same as I suspected. I'll accost her.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I'll go and meet him. May every happiness attend you, my father.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Happiness attend you. Do I find you in good spirits? Do you bid me be fetched in happy mood? Why are you sorrowful? And why does he <stage>pointing at MENAECHMUS</stage> in anger stand apart from you? Something, I know not what, are you two wrangling about<milestone n="778" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Wrangling about</lemma>:  "<foreign lang="la">Velitati estis</foreign>," literally, "have been skirmishing." The figure is derived from the "<foreign lang="la">velites</foreign>," the light-armed soldiers of the Roman army, who were not drawn up in rank and file, but commonly skirmished in front of the main body, attacking the enemy here and there, and when hard pressed, retiring into the vacant spaces of the legion.</note> between you. Say, in few words, which of the two is in fault: no long speeches, though.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> For my part, I've done nothing wrong; as to that point do I at once make you easy, father. But I cannot live or remain here on any account; you must take me away hence immediately.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Why, what's the matter? </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I am made a laughing-stock of, father.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> By whom? </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> By him to whom you gave me, my husband.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Look at that -- a quarrel now. How often, I wonder, have I told you to be cautious, that neither should be coming to me with your complaints.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> How, my father, can I possibly guard against that?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Do you ask me? <gap/> unless you don't wish. How often have I told you to be compliant to your husband. Don't be watching what he does, where he goes, or what matter he's about.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Why, but he's in love with a courtesan here close by.</p></sp>
+<sp><speaker>OLD MAN</speaker><p>. He is exceedingly wise: and for this painstaking of yours, I would even have him love her the more.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> He drinks there, too.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> And will he really drink the less for you, whether it shall please him to do so there or anywhere else? Plague on it, what assurance is this? On the same principle, you would wish to hinder him from engaging to dine out, or from receiving any other person at his own house. Do you want husbands to be your servants? You might as well expect, on the same principle, to be giving him out his task, and bidding him sit among the female servants and card wool.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Why, surely, father, I've sent for you not to be my advocate, but my husband's: on this side you stand<milestone n="799" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On this side you stand</lemma>:  It was the custom for the patron, when acting as the counsel, to have his client standing by him while pleading. The wife complains that her father has been sent for by her to act as her own advocate, but that, instead of so doing, he is encouraging her supposed husband in his perverseness.</note>, on the other you plead the cause.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> If he has done wrong in anything, so much the more shall I censure him than I've censured you. Since he keeps you provided for and well clothed, and finds you amply in female servants and provisions, 'tis better, madam, to entertain kindly feelings.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> But he purloins from me gold trinkets and mantles from out of the chests at home; he plunders me, and secretly carries off my ornaments to harlots.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> He does wrong, if he does that; if he does not do it, you do wrong in accusing him when innocent.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Why at this moment, even, he has got a mantle, father, and a bracelet, which he had carried off to her; now, because I came to know of it, he brings them back.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> I'll know from himself, then, how it happened. I'll go up to this man and accost him. <stage>Goes up to MENAECHMUS.</stage> Tell me this, Menaechmus, what you two are disputing about, that I may know. Why are you pensive? And why does she in anger stand apart from you?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Whoever you are, whatever is your name, old gentleman, I call to witness supreme Jove and the Deities----</p></sp>
+<sp><speaker>OLD MAN</speaker><p> For what reason, or what matter of all matters?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> That I have neither done wrong to that woman, who is accusing me of having purloined this <stage>pointing to the mantle</stage> away from her at home <gap/> and which she solemnly swears that I did take away. If ever I set foot inside of her house where she lives, I wish that I may become the most wretched of all wretched men.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Are you in your senses to wish this, or to deny that you ever set foot in that house where you live, you downright madman?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Do you say, old gentleman, that I live in this house? <stage>Pointing at the house.</stage></p></sp>
+<sp><speaker>OLD MAN</speaker><p> Do you deny it? </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> By my faith, certainly do deny it.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> In your fun you are going too far in denying it; unless you flitted elsewhere this last night. Step this way, please, daughter. <stage>To the WIFE.</stage> What do you say? Have you removed from this house?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> To what place, or for what reason, prithee?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> I' faith, I don't know. </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> He's surely making fun of you.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Can't you keep yourself quiet? Now, Menaechmus, you really have joked long enough; now do seriously attend to this matter.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Prithee, what have I to do with you? Whence or what person are you? Is your mind right, or hers, in fact, who is an annoyance to me in every way?</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> Don't you see how his eyes sparkle? How a green colour<milestone n="829" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A green colour</lemma>:  It was supposed that in madness, or extreme anger, the countenance assumed a greenish hue. Ben Jonson has probably imitated this passage in the <cit><bibl><title>Silent Woman</title>, Act IV., sc. 4.:</bibl> <quote lang="en">"Lord! how idly he talks, and how his eyes sparkle! he looks green about the temples! Do you see what blue spots he has?"</quote></cit></note> is arising on his temples and his forehead; look how his eyes do glisten <gap/></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> O me! They say I'm mad, whereas they of themselves are mad.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> How he yawns, as he stretches himself. What am I to do now, my father?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Step this way, my daughter, as far as ever you can from him.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>aside</stage>. What is there better for me than, since they say I'm mad, to pretend that I am mad, that I may frighten them away from me? <stage>He dances about.</stage> Evo&euml;, <placeName key="tgn,2108693">Bacchus</placeName>, ho! Bromius<milestone n="836" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ho! Bromius</lemma>:  Evius and Bromius were two of the names by which the Bacchanals addressed <placeName key="tgn,2108693">Bacchus</placeName> in their frenzy.</note>, in what forest dost thou invite me to the chase? I hear thee, but I cannot get away from this spot, so much does this raving mad female cur watch me on the left side. And behind there is that other old he-goat, who many a time in his life has proved the destruction of an innocent fellow-citizen by his false testimony.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> <stage>shaking his stick at him</stage>. Woe to your head.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Lo! by his oracle, Apollo bids me burn out her eyes with blazing torches. <stage>He points with his fingers at her.</stage></p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I'm undone, my father; he's threatening to burn my eyes out.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Hark you, daughter. </p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> What's the matter? What are we to do?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> What if I call the servants out here? I'll go bring some to take him away hence, and bind him at home, before he makes any further disturbance.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>aside</stage>. So now; I think now if I don't adopt some plan for myself, these people will be carrying me off home to their house. <stage>Aloud.</stage> Dost thou forbid me to spare my fists at all upon her face, unless she does at once get out of my sight to utter and extreme perdition? I will do what thou dost bid me, Apollo. <stage>Runs after her.</stage></p></sp>
+<sp><speaker>OLD MAN</speaker><p> <stage>to the WIFE</stage>. Away with you home as soon as possible, lest he should knock you down.</p></sp>
+<sp><speaker>THE WIFE OF MENAECHMUS of Epidamnus.</speaker><p> I'm off. Watch him, my father, I entreat you, that he mayn't go anywhere hence. Am I not a wretched woman to hear these things? <stage>She goes into her house.</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>aside</stage>. I've got rid of her not so badly. <stage>Aloud</stage>. Now as for this most filthy, long-bearded, palsied Tithonus, who is said to have had <placeName key="tgn,2273148">Cygnus</placeName> for his father<milestone n="854" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"><placeName key="tgn,2273148">Cygnus</placeName> for his father</lemma>:  Plautus designedly makes Menaechmus Sosicles be guilty of the mistake of styling Tithonus the son of <placeName key="tgn,2273148">Cygnus</placeName>, as helping to promote the belief of his madness. Tithonus was the son of Laomedon, and the brother of Priam. He was beloved by Aurora, and the poets feigned that he was her husband. Having received the gift of immortality, he forgot to have perpetual youthfulness united with the gift; and at length, in his extreme old age, he was changed into a grasshopper. There were several persons of the name of <placeName key="tgn,2273148">Cygnus</placeName>, or Cycnus; one was the son of Apollo and Hyrie, another of <placeName key="tgn,2008886">Mars</placeName> and Pelopea, or Pyrene, another of <placeName key="tgn,2538397">Neptune</placeName> and Cayx, and a fourth of Ocitus and Amophile.</note>, you bid me break in pieces his limbs, and bones, and members with that walking-stick which he himself is holding.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Punishment shall be inflicted if you touch me indeed, or if you come nearer to me.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>shouting aloud</stage>. I will do what thou dost bid me; I will take a two-edged axe, and I will hew this old fellow to his very bones, and I will chop his entrails into mincemeat.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> <stage>retreating as far as he can</stage>. Why really against that must I take care and precaution. As he threatens, I'm quite in dread of him, lest he should do me some mischief.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>jumping and raising his arms</stage>. Many things dost thou bid me do, Apollo. Now thou dost order me to take the yoked horses, unbroke and fierce, and to mount the chariot, that I may crush to pieces this aged, stinking, toothless lion. Now have I mounted the chariot; now do I hold the reins; now is the whip in my hand. Speed onward, ye steeds, let the sound of your hoofs be heard; in your swift course let the rapid pace of your feet<milestone n="867" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The rapia pace of your feet</lemma>:  "<foreign lang="la">Cursu celeri facite inflexa sit pedum pernicitas</foreign>." Literally, "in the swift course, make the swiftness of your feet to be bent inwards." The legs of good horses, when trotting fast, bend inwards before they throw them out.</note> be redoubled. <stage>Points at the OLD MAN as he pretends to gallop.</stage></p></sp>
+<sp><speaker>OLD MAN</speaker><p> Are you threatening me with your yoked steeds?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Lo! again, Apollo, thou dost bid me to make an onset against him who is standing here, and to murder him. But what person is this that is tearing me hence by the hair down from the chariot? He revokes thy commands and the decree of Apollo.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Alas! a severe and obstinate malady, i' faith. By our trust in you, ye Gods <gap/> even this person who is now mad, how well he was a little time since. All on a sudden has so great a distemper attacked him. I'll go now and fetch a physician as fast as I can. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Prithee, are these persons gone now out of my sight, who are compelling me by force, while in my wits, to be mad? Why do I delay to be off to the ship, while I can in safety? <gap/> And all of you <stage>to the SPECTATORS</stage>, if the old gentleman should return, I beg not to tell him, now, by what street I fled away hence. <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="876" unit="TLN line"/>
+<stage>Enter the OLD MAN, very slowly.</stage>
+<sp><speaker>OLD MAN</speaker><p> My bones ache with sitting, my eyes with watching, while waiting for the Doctor, till he returned from his business. At last the troublesome fellow has with difficulty got away from his patients. He says that he has set a broken leg for Aesculapius<milestone n="885" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For Aesculapius</lemma>:  Apollo and Aesculapius were the two guardian Divinities of the medical art. The old man, perhaps, mentions their names instead of those of some persons of whose wonderful cures the Doctor has been bragging.</note>, and an arm for Apollo. I'm now thinking whether I'm to say that I'm bringing a doctor or a carpenter<milestone n="887" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Or a carpenter</lemma>:  He says that, talking of mending legs, the Doctor may, for aught he knows, be some carpenter, who has been patching up the legs of statues.</note>. But, see, here he comes.--Do get on with your ant's pace.
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="889" unit="TLN line"/>
+<stage>Enter a DOCTOR.</stage>
+<sp><speaker>DOCTOR.</speaker><p> What did you say was his disorder? Tell me, respected sir. Is he harassed by sprites<milestone n="890" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Harassed by sprites</lemma>:  "<foreign lang="la">Larvatus aut cerritus</foreign>." The "<foreign lang="la">larvati</foreign>" were mad persons, supposed to be afflicted with ghosts or spectres; while the "<foreign lang="la">cerriti</foreign>" were persons who were thought to be visited with madness by the Goddess Ceres.</note>, or is he frenzied? Let me know. Is it lethargy, or is it dropsy, that possesses him?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Why, I'm bringing you for that reason, that you may tell me that, and make him convalescent.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> That indeed is a very easy matter. Why, I shall heal innumerable times as many<note anchored="yes"><lemma targOrder="U">Innumerable times as many</lemma>:  The Doctor is bragging of his extersive practice.</note> in the day.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> I wish him to be treated with great attention.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> That he shall be healed, I promise that on my word; so with great attention will I treat him for you.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Why, see! here's the man himself.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Let's watch what matter he's about. <stage>(They stand aside.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="899" unit="TLN line"/>
+<stage>Enter MENAECHMUS of Epidamnus.</stage>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>to himself</stage>. By my faith, this day has certainly fallen out perverse and adverse for me, since the Parasite, who has filled me full of disgrace and terror, has made that all known, which I supposed I was doing secretly; my own <placeName key="tgn,2037257">Ulysses</placeName><milestone n="902" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My own <placeName key="tgn,2037257">Ulysses</placeName></lemma>:  He complains that the Parasite, who used to be his adviser, and as good as a <placeName key="tgn,2446724">Ulysses</placeName> to him, his king, or patron, has been the cause of all his mishaps.</note>, who has brought so great evil on his king--a fellow that, by my troth, if I only live, I'll soon finish his life<milestone n="903" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Finish his life</lemma>:  "<foreign lang="la">Vita evolvam sua</foreign>." Literally, "I will wind him off of his life." He probably alludes to the "<foreign lang="la">Parcae</foreign>," the "Fates" or "Destinies," who were fabled to be the daughters of Nox and Erebus, and of whom, one, named <placeName key="tgn,2054154">Clotho</placeName>, held the distaff, and spun the thread of life; another, named Lachesis, wound it off; and the third, called Atropos, cut it off when of the requisite length.</note>. But I'm a fool, who call that his, which is my own. With my own victuals and at my own expense has he been supported; of existence will I deprive the fellow. But the Courtesan has done this in a way worthy of her, just as the harlot's habit is: because I ask for the mantle, that it may be returned again to my wife, she declares that she has given it me. O dear! By my faith, I do live a wretched man.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> <stage>apart</stage>. Do you hear what he says ?</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <stage>apart</stage>. He declares that he is wretched.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> <stage>apart</stage>. I wish you to accost him.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <stage>going up to him</stage>. Save you, Menaechmus. Prithee, why do you bare your arm? Don't you know how much mischief you are now doing to that disease of yours?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why don't you go hang yourself?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> What think you now? </p></sp>
+<sp><speaker>DOCTOR.</speaker><p> What shouldn't I think? This case can't be treated with even ointment of hellebore. But what have you to say, Menaechmus?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What do you want? </p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Tell me this that I ask of you; do you drink white wine or dark-coloured?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What need have you to enquire?</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <gap/></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why don't you go to utter perdition ?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Troth, he's now beginning to be attacked with the fit.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why don't you ask whether I'm wont to eat dark bread, or purple, or yellow? Or whether I'm wont to eat birds with scales, or fish with wings?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Dear, dear! <stage>To the DOCTOR.</stage> Don't you hear how deliriously he talks? Why do you delay to give him something by way of a potion, before his raving overtakes him?</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Stop a little; I'll question him on some other matters as well.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> You are killing me<milestone n="922" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You are killing me</lemma>:  "<foreign lang="la">Occidis fabulans</foreign>." This remark seems rather to apply to the effect of his chattering, upon the old man himself, who is growing impatient, than upon the supposed madman; though, from the elliptical nature of the expression, the latter may possibly be the meaning.</note> by your prating.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <stage>to MENAECHMUS</stage>. Tell me this; are your eyes ever in the habit of becoming hard<milestone n="923" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of becoming hard</lemma>:  This was supposed to be one of the symptoms of madness.</note>?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What? Do you take me to be a locust<milestone n="924" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be a locust</lemma>:  The eyes of locusts were considered to be of peculiar hardness. They are very large and prominent. It has been suggested that "<foreign lang="la">locusta</foreign>" here means a "lobster."</note>, you most worthless fellow?</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Tell me, now, do your bowels ever rumble that you know of?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> When I'm full, they don't rumble at all; when I'm hungry, then they do rumble.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> I' faith, he really gave me that answer not like an insane person. Do you always sleep soundly until daylight? Do you easily go to sleep when in bed?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I sleep throughout if  <gap/> I go to sleep if I have paid my money to him to whom I owe it.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <gap/></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>to the DOCTOR</stage>. May <placeName key="tgn,2483975">Jupiter</placeName> and all the Divinities confound you, you questioner.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <stage>aside</stage>. Now this person begins to rave. <stage>To the OLD MAN.</stage> From those expressions do you take care of yourself.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Why, he's now really quite favourable in his language, in comparison with what he was a short time since; for, a little while ago, he was saying that his wife was a raving cur.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What did I say?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> You were raving, I say.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What, I? </p></sp>
+<sp><speaker>OLD MAN</speaker><p> You there; who threatened as well to ride me down with your yoked steeds.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <gap/></p></sp>
+<sp><speaker>OLD MAN</speaker><p> I myself saw you do this; I myself accuse you of this.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> And I know that you stole<milestone n="941" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That you stole</lemma>:  This expression has been already remarked upon in the Notes to the Trinummus.</note> the sacred crown of <placeName key="tgn,2483975">Jupiter</placeName>; and that on that account you were confined in prison; and after you were let out, I know that you were beaten with rods in the bilboes; I know, too, that you murdered your father and sold your mother. Don't I give this abuse in answer for your abuse, like a sane person?</p></sp>
+<sp><speaker>OLD MAN</speaker><p> I' faith, Doctor, whatever you are about to do, prithee, do it quickly. Don't you see that the man is raving?</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Do you know what's the best for you to do? Have him taken to my house.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Do you think so? </p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Why should I not? There at my own discretion I shall be able to treat the man.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Do just as you please. </p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <stage>to MENAECHMUS</stage>. I'll make you drink hellebore some twenty days.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> But, hanging up<milestone n="951" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">But, hanging up</lemma>:  "<foreign lang="la">Pendentem</foreign>." When they were flogged, the slaves were tied up with their hands extended over their heads. Probably, the Doctor is intended to be represented as being a slave; as many of the liberal pursuits were followed by slaves, and sometimes to the very great profit of their masters. The "<foreign lang="la">furca</foreign>" (for want of a better word, called 'bilboes' in the translation) is referred to in another Note.</note>, I'll flog you with a whip for thirty days.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> <stage>to the OLD MAN</stage>. Go fetch some men to take him off to my house.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> How many are sufficient?</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Since I see him thus raving, four, no less.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> They shall be here this instant. Do you keep an eye on him, Doctor.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> Why, no, I shall go home that the things may be got ready, which are necessary to be prepared. Bid your servants carry him to my house.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> I'll make him be there just now.</p></sp>
+<sp><speaker>DOCTOR.</speaker><p> I'm off.</p></sp>
+<sp><speaker>OLD MAN</speaker><p> Farewell.
+<stage>(Exeunt OLD MAN and DOCTOR, separately.)</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> My father-in-law is gone, the Doctor is gone; I'm alone. O <placeName key="tgn,2483975">Jupiter</placeName>! Why is it that these people say I'm mad? Why, in fact, since I was born, I have never for a single day been ill. I'm neither mad, nor do I commence strifes or quarrels. In health myself, I see others well; I know people, I address them. Is it that they who falsely say I'm mad, are mad themselves? What shall I do now? I wish to go home; but my wife doesn't allow me; and here <stage>pointing to EROTIUM'S house</stage> no one admits me. Most unfortunately has this fallen out. Here will I still remain; at night, at least, I shall be let into the house, I trust. <stage>Stands near his door.</stage>
+</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="966" unit="TLN line"/>
+<stage>Enter MESSENIO.</stage>
+<sp><speaker>MESSENIO</speaker><p> <stage>to himself</stage>. This is the proof of a good servant, who takes care of his master's business, looks after it, arranges it, thinks about it, in the absence of his master diligently to attend to the affairs of his master, as much so as if he himself were present, or even better. It is proper that his back<milestone n="970" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That his back</lemma>:  For the purpose of keeping his back intact from the whip, and his feet from the fetters.</note> should be of more consequence than his appetite, his legs than his stomach, whose heart is rightly placed. Let him bear in mind, those who are good for nothing, what reward is given them by their masters--lazy, worthless fellows. Stripes, fetters, the mill, weariness, hunger, sharp cold; these are the rewards of idleness. This evil do I terribly stand in awe of. Wherefore 'tis sure that to be good is better than to be bad. Much more readily do I submit to words, stripes I do detest; and I eat what is ground much more readily than supply it ground by myself<milestone n="979" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ground by myself</lemma>:  He alludes to the custom of sending refractory slaves to the "<foreign lang="la">pistrinum</foreign>," where the corn was ground by a handmill, which entailed extreme labour on those grinding. He says that he would rather that others should grind the corn for him, than that he should grind it for others.</note>. Therefore do I obey the command of my master, carefully and diligently do I observe it; and in such manner do I pay obedience, as I think is for the interest of my back. And that course does profit me. Let others be just as they take it to be their interest; I shall be just as I ought to be. If I adhere to that, I shall avoid faultiness; so that I am in readiness for my master on all occasions, I shall not be much afraid. The time is near, when, for these deeds of mine, my master will give his reward. After I had deposited the goods and the servants in the inn, as he ordered me, thus am I come to meet him. <stage>Going to the door of EROTIUM'S house.</stage> Now I'll knock at the door, that he may know that I'm here, and that out of this thick wood<milestone n="988" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This thick wood</lemma>:  He compares the house of the Courtesan to a forest or thicket. These latter places, as being frequently the lurking-places of thieves and robbers, would be especially dangerous to travellers.</note> of peril I may get my master safe out of doors. But I'm afraid that I'm come too late, after the battle has been fought.
+</p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="990" unit="TLN line"/>
+<stage>Enter the OLD MAN, with SERVANTS.</stage>
+<sp><speaker>OLD MAN</speaker><p> <stage>to the SERVANTS</stage>. By Gods and men, I tell you prudently to pay regard to my commands, as to what I have commanded and do command. Take care that this person is carried at once upon your shoulders to the surgery, unless, indeed, you set no value upon your legs or your sides. Take care each of you to regard at a straw whatever threats he shall utter. What are you standing for? Why are you hesitating? By this you ought to have had him carried off on your shoulders. I'll go to the Doctor; I'll be there ready when you shall come.
+<stage>(Exit. The SERVANTS gather around MENAECHMUS.)</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I'm undone. What business is this? Why are these men running towards me, pray? What do you want? What do you seek? Why do you stand around me? <stage>They seize and drag him.</stage> Whither are you dragging me? Whither are you carrying me? I'm undone. I entreat your assistance, citizens, men of Epidamnus, come and help me. <stage>To the men.</stage> Why don't you let me go?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>running towards them</stage>. O ye immortal Gods, I beseech you, what do I behold with my eyes? Some fellows, I know not who, are most disgracefully carrying off my master upon their shoulders.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Who is it that ventures to bring me aid?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> I, master, and right boldly. <stage>Aloud.</stage> O shameful and scandalous deed, citizens of Epidamnus, for my master, here in a town enjoying peace, to be carried off, in daylight, in the street, who came to you a free man. Let him go.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Prithee, whoever you are, do lend me your aid, and don't suffer so great an outrage to be signally committed against me.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Aye, I'll give you my aid, and I'll defend you, and zealously succour you. I'll never let you come to harm; 'tis fitter that I myself should come to harm. I'll now make a sowing on the faces of these fellows, and there I'll plant my fists. I' faith, you're carrying this person off this day at your own extreme hazard. Let him go. <stage>He lays about him.</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>fighting with them</stage>. I've got hold of this fellow's eye.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Make the socket of his eye be seen in his head. You rascals! you villains! you robbers!</p></sp>
+<sp><speaker>THE SERVANTS</speaker><p> <stage>severally</stage>. We are undone. Troth, now, prithee, do----</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Let him go then. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What business have you to touch me? Thump them with your fists.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Come, begone, fly hence to utter perdition with you. <stage>Three run away.</stage> Here's for you, too <stage>giving the fourth one a punch</stage>; because you are the last to yield, you shall have this for a reward. <stage>They all disappear.</stage> Right well have I marked his face, and quite to my liking. Troth, now, master, I really did come to your help just now in the nick of time.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> And may the Gods, young man, whoever you are, ever bless you. For, had it not been for you, I should never have survived this day until sunset.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> By my troth, then, master, if you do right, you will give me my freedom.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I, give you your freedom? </p></sp>
+<sp><speaker>MESSENIO</speaker><p> Doubtless: since, master, I have saved you.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> How's this? Young man, you are mistaken.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> How, mistaken? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By father Jove, I solemnly swear that I am not your master.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Will you not hold your peace? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I'm telling no lie; nor did any servant of mine ever do such a thing as you have done for me.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> In that case, then, let me go free, if you deny that I am your servant.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By my faith, so far, indeed, as I'm concerned, be free, and go where you like.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> That is, you order me to do so?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I' faith, I do order you, if I have aught of authority over you.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Save you, my patron. Since you seriously give me my freedom, I rejoice.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I' faith, I really do believe you.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> But, my patron, I do entreat you that you won't command me any the less now than when I was your servant. With you will I dwell, and when you go I'll go home together with you. Wait for me here; I'll now go to the inn, and bring back the luggage and the money for you. The purse, with the money for our journey, is fast sealed up in the wallet; I'll bring it just now here to you.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Bring it carefully. </p></sp>
+<sp><speaker>MESSENIO</speaker><p> I'll give it back safe to you just as you gave it to me. Do you wait for me here.
+<stage>(Exit MESSENIO.)</stage></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Very wonderful things have really happened this day to me in wonderful ways. Some deny that I am he who I am, and shut me out of doors; others say that I am he who I am not, and will have it that they are my servants. He for instance, who said that he was going for the money, to whom I gave his freedom just now. Since he says that he will bring me a purse with money, if he does bring it<milestone n="1044" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If he does bring it</lemma>:  He contemplates robbing even the man who has just rescued him. The disnonesty of his brother, in carrying off the mantle and bracelet, and wishing to rob the servant-maid of the gold for her earrings, has been previously remarked.</note>, I'll say that he may go free from me where he pleases, lest at a time when he shall have come to his senses he should ask the money of me. My father-in-law and the Doctor were saying that I am mad. Whatever it is, it is a wonderful affair. These things appear to me not at all otherwise than dreams. Now I'll go in the house to this Courtesan, although she is angry with me; if I can prevail upon her to restore the mantle for me to take back home. <stage>He goes into EROTIUM'S house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="1050" unit="TLN line"/>
+<stage>Enter MENAECHMUS SOSICLES and MESSENIO.</stage>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Do you dare affirm, audacious fellow, that I have ever met you this day since the time when I ordered you to come here to meet me?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Why, I just now rescued you before this house, when four men were carrying you off upon their shoulders. You invoked the aid of all Gods and men, when I ran up and delivered you by main force, fighting, and in spite of them. For this reason, because I rescued you, you set me at liberty. When I said that I was going for the money and the luggage, you ran before to meet me as quickly as you could, in order that you might deny what you did.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I, bade you go away a free man?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Certainly. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Why, on the contrary, 'tis most certain that I myself would rather become a slave than ever give you your freedom.
+</p></sp></div2>
+<div2 type="scene" n="9">
+<milestone n="1" unit="line"/><milestone n="1060" unit="TLN line"/>
+<stage>Enter MENAECHMUS of Epidamnus, from EROTIUM's house.</stage>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>at the door, to EROTIUM within</stage>. If you are ready to swear by your eyes, by my troth, not a bit the more for that reason, most vile woman, will you make it that I took away the mantle and the bracelet to-day.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Immortal Gods, what do I see?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What do you see? </p></sp>
+<sp><speaker>MESSENIO</speaker><p> Your resemblance in a mirror.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What's the matter? </p></sp>
+<sp><speaker>MESSENIO</speaker><p> 'Tis your image; 'tis as like as possible.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>catching sight of the other</stage>. Troth, it really is not unlike, so far as I know my own form.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> <stage>to MESSENIO</stage>. O young man, save you, you who preserved me, whoever you are.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> By my troth, young man, prithee, tell me your name, unless it's disagreable.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I' faith, you've not so deserved of me, that it should be disagreable for me to tell what you wish. My name is Menaechmus.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Why, by my troth, so is mine.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I am a Sicilian, of <placeName key="tgn,7014561">Syracuse</placeName>.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Troth, the same is my native country.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What is it that I hear of you?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> That which is the fact.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>To MENAECHMUS SOSICLES, by mistake</stage>. I know this person myself <stage>pointing to the other MENAECHMUS</stage>; he is my master, I really am his servant; but I did think I belonged to this other. <stage>To MENAECHMUS of Epidamnus, by mistake.</stage> I took him to be you; to him, too, did I give some trouble. <stage>To his master.</stage> Pray, pardon me if I have said aught foolishly or unadvisedly to you.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> You seem to me to be mad. Don't you remember that together with me you disembarked from board ship to-day?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Why, really, you say what's right--you are my master; <stage>to MENAECHMUS of Epidamnus</stage> do you look out for a servant. <stage>To his master.</stage> To you my greetings <stage>(to MENAECHMUS of Epidamnus)</stage> to you, farewell. This, I say, is Menaechmus.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> But I say I am. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> What story's this? Are you Menaechmus?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I say that I'm the son of Moschus, who was my father.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Are you the son of my father?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Aye, I really am, young man, of my own father. I don't want to claim your father, nor to take possession of him from you.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Immortal Gods, what unhoped-for hope do you bestow on me, as I suspect. For unless my mind misleads me, these are the two twin-brothers; for they mention alike their native country and their father. I'll call my master aside--Menaechmus.</p></sp>
+<sp><speaker>BOTH OF THE MENAECHMI.</speaker><p> What do you want?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> I don't want you both. But which of you was brought here in the ship with me?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Not I. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> But 'twas I.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> You, then, I want. Step this way. <stage>They go aside.</stage></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I've stepped aside now. What's the matter?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> This man is either an impostor, or he is your twin-brother. But I never beheld one person more like another person. Neither water, believe me, is ever more like to water nor milk to milk, than he is to you, and you likewise to him; besides, he speaks of the same native country and father. 'Tis better for us to accost him and make further enquiries of him.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I' faith, but you've given me good advice, and I return you thanks. Troth, now, prithee, do continue to lend me your assistance. If you discover that this is my brother, be you a free man.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> I hope I shall. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> I too hope that it will be so.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>to MENAECHMUS of Epidamnus</stage>. How say you? I think you said that you are called Menaechmus?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I did so indeed. </p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>pointing to his master</stage>. His name, too, is Menaechmus. You said that you were born at <placeName key="tgn,7014561">Syracuse</placeName>, in <placeName key="tgn,7003122">Sicily</placeName>; he was born there. You said that Moschus was your father; he was his as well. Now both of you can be giving help to me and to yourselves at the same time.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> You have deserved that you should beg nothing but what you should obtain that which you desire. Free as I am, I'll serve you as though you. had bought me for money.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> I have a hope that I shall find that you two are twin-born brothers, born of one mother and of one father on the same day.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> You mention wondrous things. I wish that you could effect what you've promised.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> I can. But attend now, both of you, and tell me that which I shall ask.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Ask as you please, I'll answer you. I'll not conceal anything that I know.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Isn't your name Menaechmus? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I own it.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Isn't it yours as well? </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> It is.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Do you say that Moschus was your father?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Truly, I do say so. </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> And mine as well.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Are you of <placeName key="tgn,7014561">Syracuse</placeName>? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Certainly.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> And you? </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Why not the same?</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Hitherto the marks agree perfectly well. Still lend me your attention. <stage>To MENAECHMUS.</stage> Tell me, what do you remember at the greatest distance of time in your native country?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> When I went with my father to <placeName key="tgn,7004100">Tarentum</placeName> to traffic; and afterwards how I strayed away from my father among the people, and was carried away thence.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Supreme Jupiter, preserve me!</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>to MENAECHMUS SOSICLES</stage>. Why do you exclaim? Why don't you hold your peace? <stage>To MENAECHMUS.</stage> How many years old were you when your father took you from your native country?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Seven years old; for just then my teeth were changing for the first time. And never since then have I seen my father.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Well, how many sons of you had your father then?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> As far as I now remember, two.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Which of the two was the older--you or the other?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Both were just alike in age.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> How can that be? </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> We two were twins.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> The Gods wish to bless me.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>to MENAECHMUS SOSICLES</stage>. If you interrupt, I shall hold my tongue.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Rather than that, I'll hold my tongue.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Tell me, were you both of the same name?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> By no means; for my name was what it is now Menaechmus; the other they then used to call Sosicles.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>embracing his brother</stage>. I recognize the proofs, I cannot refrain from embracing him. My own twin-brother, blessings on you; I am Sosicles.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> How then was the name of Menaechmus afterwards given to you?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> After word was brought to us that you <gap/> and that my father was dead, my grandfather changed it; the name that was yours he gave to me.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I believe that it did so happen as you say. But answer me this.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Ask it of me. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What was the name of our mother?</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Teuximarcha. </p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> That quite agrees. <stage>He again embraces him.</stage> O welcome, unhoped-for brother, whom after many years I now behold.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> And you, whom with many and anxious labours I have ever been seeking up to this time, and whom I rejoice at being found.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>to his master</stage>. It was for this reason that this Courtesan called you by his name; she thought that you were he, I suppose, when she invited you to breakfast.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Why, faith, to-day I ordered a breakfast to be got ready here <stage>pointing to EROTIUM'S house</stage> for me, unknown to my wife; a mantle which a short time since I filched from home, to her I gave it.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Do you say, brother, that this is the mantle which I'm wearing?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> How did this come to you? </p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> The Courtesan who took me here <stage>pointing to EROTIUM'S house</stage> to breakfast, said that I had given it to her. I breakfasted very pleasantly; I drank and entertained myself with my mistress; she gave me the mantle and this golden trinket. <stage>Showing the bracelet.</stage> <gap/></p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I' faith, I'm glad if any luck has befallen you on my account; for when she invited you to her house, she supposed it to be me.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Do you make any objection that I should be free as you commanded?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> He asks, brother, what's very fair and very just Do it for my sake.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> <stage>touching MESSENIO'S shoulder</stage>. Be thou a free man.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> I am glad, Messenio, that you are free.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> Why, better auspices<milestone n="1149" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Better auspices</lemma>:  He alludes to the pretended manumission which he has already received from Menaechmus of Epidamnus, when he took him to be his master</note> were required that I should be free for life. <gap/></p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Since these matters, brother, have turned out to our wishes, let us both return to our native land.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> Brother, I'll do as you wish. I'll have an auction here, and sell whatever I have. In the meantime, brother, let's now go in-doors.</p></sp>
+<sp><speaker>MENAECHMUS SOSICLES</speaker><p> Be it so. </p></sp>
+<sp><speaker>MESSENIO</speaker><p> Do you know what I ask of you?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> What? </p></sp>
+<sp><speaker>MESSENIO</speaker><p> To give me the place of auctioneer.</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> It shall be given you. </p></sp>
+<sp><speaker>MESSENIO</speaker><p> Would you like the auction, then, to be proclaimed at once? For what day?</p></sp>
+<sp><speaker>MENAECHMUS of Epidamnus.</speaker><p> On the seventh day hence.</p></sp>
+<sp><speaker>MESSENIO</speaker><p> <stage>coming forward, and speaking in a loud voice</stage>. An auction of the property of Menaechmus will certainly take place on the morning of the seventh day hence. His slaves, furniture, house, and farms, will be sold. All will go for whatever they'll fetch at ready money prices. His wife, too, will be sold as well, if any purchaser shall come. I think that by the entire sale Menaechmus will hardly get fifty hundred thousand<milestone n="1161" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Fifty hundred thousand</lemma>:  The sestertius, before the time of Augustus, was a silver coin of the value of twopence and one-half of a farthing; while after that period, its value was one penny three-farthings and a half. The large sum here mentioned, at the former value, amounts to 44,370&pound;. 16s. 8d. He. says "<foreign lang="la">vix</foreign>," it will "hardly" amount, by way of a piece of boasting.</note> sesterces. <stage>To the SPECTATORS.</stage> Now, Spectators, fare you well, and give us loud applause<milestone n="1162" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give us loud applause</lemma>:  This Comedy, which is considered to be one of the best, if not the very best, of all the plays of Plautus, is thought by some to have been derived from one of Menander's, as there are some fragments of a play by that Poet, called <foreign lang="greek">*didumoi/</foreign>, "the Twins." It is, however, very doubtful if such is the fact. It is rendered doubly famous from the fact that Shakespeare borrowed the plot of his <title>Comedy of Errors</title> from it, through the medium of the old translation of the Play, published in the year 1595, which is in some parts a strict translation, though in others only an abridgment of the original work. It is thought to have been made by William Warner, who wrote a poem called "Albion's England," which he dedicated to Henry Cary, Lord Hunsdon, who was Lord Chamberlain to Queen Anne the wife of James the First.</note>.</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

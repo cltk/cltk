@@ -1,0 +1,1311 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>De Senectute</title>
+<title type="sub">Machine readable text</title>
+	<author n="Cic.">M. Tullius Cicero</author>
+<editor role="editor" n="Falconer">William Armistead Falconer</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Cicero: De Senectute De Amicitia De Divinatione</author>
+<title>With An English Translation</title>
+    <editor role="editor" n="Falconer">William Armistead Falconer</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Harvard University Press; Cambridge, Mass., London, England</publisher>
+<date>1923</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+	<refsDecl doctype="TEI.2" n="text=Sen">
+		<state unit="section"/>
+	</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+	<language id="la">Latin</language>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>2006</date>
+<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+<item></item>
+</change>
+
+</revisionDesc>
+</teiHeader>
+
+<text><group>
+
+<pb id="p.8"/>
+
+<text n="Sen"><body><head>Cato Maior: de Senectute</head>
+
+<p><milestone unit="chapter" n="1"/><milestone unit="section" n="1"/><quote rend="blockquote">
+<l>O Tite, si quid ego adiuero curamve levasso</l>
+<l>quae nunc te coquit et versat in pectore fixa,</l>
+<l part="I">ecquid erit praemi?</l></quote>
+
+<reg>licet</reg> enim mihi versibus isdem affari te, Attice,
+quibus affatur Flamininum
+
+<quote rend="blockquote">
+<l>ille vir haud magna cum re, sed plenus fidei,</l></quote>
+
+quamquam certo scio non, ut Flamininum,
+
+<quote rend="blockquote">
+<l>sollicitari te, Tite, sic noctesque diesque,</l></quote>
+
+novi enim moderationem animi tui et aequitatem,
+teque non cognomen solum Athenis deportasse, sed
+humanitatem et prudentiam intellego. <reg>et</reg> tamen
+te suspicor isdem rebus quibus me ipsum interdum
+gravius commoveri, quarum consolatio et maior est
+et in aliud tempus differenda.</p>
+
+<pb id="p.10"/>
+
+<p><reg>nunc</reg> autem visum est mihi de senectute aliquid
+ad te conscribere,<milestone unit="section" n="2"/> hoc enim onere, quod mihi
+commune tecum est, aut iam urgentis aut certe
+adventantis senectutis et te et me ipsum levari
+volo; etsi te quidem id modice ac sapienter, sicut
+omnia, et ferre et laturum esse certo scio. <reg>sed</reg>
+mihi, cum de senectute vellem aliquid scribere, tu
+occurrebas dignus eo munere, quo uterque nostrum
+communiter uteretur. <reg>mihi</reg> quidem ita iucunda
+huius libri confectio fuit, ut non modo omnis absterserit senectutis molestias, sed effecerit mollem etiam
+et iucundam senectutem. <reg>numquam</reg> igitur laudari
+satis digne philosophia poterit, cui qui pareat omne
+tempus aetatis sine molestia possit degere.</p>
+<p><milestone unit="section" n="3"/><reg>sed</reg> de ceteris et diximus multa et saepe dicemus:
+hunc librum ad te de senectute misimus. <reg>omnem</reg>
+autem sermonem tribuimus non Tithono, ut Aristo
+Cius, parum enim esset auctoritatis in fabula, sed
+M. Catoni seni, quo maiorem auctoritatem haberet
+oratio; apud quem Laelium et Scipionem facimus
+admirantis, quod is tam facile senectutem ferat,
+eisque eum respondentem; qui si eruditius videbitur disputare quam consuevit ipse in suis libris,
+attribuito litteris Graecis, quarum constat eum perstudiosum fuisse in senectute. <reg>sed</reg> quid opus est
+plura? <reg>iam</reg> enim ipsius Catonis sermo explicabit
+nostram omnem de senectute sententiam.</p>
+
+<pb id="p.12"/>
+
+<p><milestone unit="section" n="4"/><milestone unit="chapter" n="2"/>SCIPIO. Saepe numero admirari soleo cum hoc
+C. Laelio cum ceterarum rerum tuam excellentem,
+M. Cato, perfectamque sapientiam, tum vel maxime
+quod numquam tibi senectutem gravem esse senserim, quae plerisque senibus sic odiosa est, ut onus
+se Aetna gravius dicant sustinere.</p>
+<p>CATO. Rem haud sane, Scipio et Laeli, difficilem
+admirari videmini. <reg>quibus</reg> enim nihil est in ipsis
+opis ad bene beateque vivendum, eis omnis aetas
+gravis est; qui autem omnia bona a se ipsi petunt,
+eis nihil potest malum videri quod naturae necessitas
+afferat. <reg>quo</reg> in genere est in primis senectus, quam
+ut adipiscantur omnes optant, eandem accusant
+adeptam<note>adeptam <hi rend="italics">other MSS.</hi>; adepti <hi rend="italics">LE, Bait., M&uuml;ller.</hi></note> ; tanta est stultitiae inconstantia atque
+perversitas. <reg>obrepere</reg> aiunt eam citius quam putassent. <reg>primum</reg> quis coegit eos falsum putare? <reg>qui</reg>
+enim citius adulescentiae senectus quam pueritiae
+adulescentia obrepit? <reg>deinde</reg> qui minus gravis
+esset eis senectus, si octingentesimum annum agerent,
+quam si octogesimum? <reg>praeterita</reg> enim aetas
+quamvis longa, cum effluxisset, nulla consolatione<note>consolatione <hi rend="italics">EI, Halm.;</hi> consolatio <hi rend="italics">LP, Momms., Bait.</hi></note> 
+permulcere posset stultam senectutem.</p>
+<p><milestone unit="section" n="5"/><reg>quocirca</reg> si sapientiam meam admirari soletis,
+quae utinam digna esset opinione vestra nostroque
+cognomine, in hoc sumus sapientes, quod naturam
+optimam ducem tamquam deum sequimur eique
+paremus; a qua non veri simile est, cum ceterae
+partes aetatis bene discriptae sint, extremum actum
+
+<pb id="p.14"/>
+
+tamquam au inerti poeta esse neglectum. <reg>sed</reg>
+tamen necesse fuit esse aliquid extremum et,
+tamquam in arborum bacis terraeque fructibus,
+maturitate tempestiva quasi vietum et caducum,
+quod ferendum est molliter sapienti. <reg>quid</reg> est enim
+aliud gigantum modo bellare cum dis nisi naturae
+repugnare?</p>
+<p><milestone unit="section" n="6"/>LAELIUS. Atqui, Cato, gratissimum nobis, ut
+etiam pro Scipione pollicear, feceris, si, quoniam
+speramus, volumus quidem certe, senes fieri, multo
+ante a te didicerimus quibus facillime rationibus
+ingravescentem aetatem ferre possimus.</p>
+<p>CATO. Faciam vero, Laeli, praesertim si utrique
+vestrum, ut dicis, gratum futurum est.</p>
+<p>LAELIUS. Volumus sane, nisi molestum est. <name>Cato</name>,
+tamquam longam aliquam viam confeceris, quam
+nobis quoque ingrediendum sit, istuc, quo pervenisti,
+videre quale sit.</p>
+<p><milestone unit="section" n="7"/><milestone unit="chapter" n="3"/>CATO. Faciam ut potero, Laeli. <reg>saepe</reg> enim
+interfui querellis aequalium meorum, pares autem
+vetere proverbio cum paribus facillime congregantur,
+quae C. Salinator, quae Sp. Albinus, homines consulares, nostri fere aequales, deplorare solebant,
+tum quod voluptatibus carerent, sine quibus vitam
+nullam putarent, tum quod spernerentur ab eis, a
+quibus essent coli soliti; qui mihi non id videbantur
+
+<pb id="p.16"/>
+
+accusare, quod esset accusandum. <reg>nam</reg> si id culpa
+senectutis accideret, eadem mihi usu venirent reliquisque omnibus maioribus natu, quorum ego
+multorum cognovi senectutem sine querella, qui se
+et libidinum vinculis laxatos esse non moleste ferrent
+nec a suis despicerentur. <reg>sed</reg> omnium istius modi
+querellarum in moribus est culpa, non in aetate.
+<reg>moderati</reg> enim et nec difficiles nec inhumani senes
+tolerabilem senectutem agunt, importunitas autem
+et inhumanitas omni aetati molesta est.</p>
+<p><milestone unit="section" n="8"/>LAELIUS. Est, ut dicis, Cato; sed fortasse dixerit
+quispiam tibi propter opes et copias et dignitatem
+tuam tolerabiliorem senectutem videri, id autem non
+posse multis contingere.</p>
+<p>CATO. Est istuc quidem, Laeli, aliquid, sed
+nequaquam in isto sunt omnia; ut Themistocles
+fertur Seriphio cuidam in iurgio respondisse, cum
+ille dixisset non eum sua, sed patriae gloria splendorem assecutum: <quote>nec hercule,</quote> inquit, <quote>si ego
+Seriphius essem, nec tu, si Atheniensis,<note><hi rend="italics">LE add</hi> esses <hi rend="italics">after</hi> Atheniensis.</note> clarus
+umquam fuisses.</quote> <reg>quod</reg> eodem modo de senectute
+dici potest; nec enim in summa inopia levis esse
+senectus potest, ne sapienti quidem, nec insipienti
+etiam in summa copia non gravis.</p>
+<p><milestone unit="section" n="9"/><reg>aptissima</reg> omnino sunt, Scipio et Laeli, arma
+senectutis artes exercitationesque virtutum, quae
+in omni aetate cultae, cum diu multumque vixeris,
+
+<pb id="p.18"/>
+
+mirificos ecferunt fructus, non solum quia numquam
+deserunt, ne extremo quidem tempore aetatis, quamquam id quidem maximum est, verum etiam quia
+conscientia bene actae vitae multorumque bene
+factorum recordatio iucundissima est.</p>
+<p><milestone unit="section" n="10"/><milestone unit="chapter" n="4"/><reg>ego</reg> Q. Maximum, eum qui Tarentum recepit,
+senem adulescens ita dilexi, ut aequalem. <reg>erat</reg>
+enim in illo viro comitate condita gravitas, nec
+senectus mores mutaverat. <reg>quamquam</reg> eum colere
+coepi non admodum grandem natu, sed tamen iam
+aetate provectum. <reg>anno</reg> enim post consul primum
+fuerat quam ego natus sum, cumque eo quartum
+consule adulescentulus miles ad Capuam profectus
+sum quintoque anno post ad Tarentum. <reg>quaestor</reg>
+deinde quadriennio post factus sum, quem magistratum gessi consulibus Tuditano et Cethego, cum
+quidem ille admodum senex suasor legis Cinciae de
+donis et muneribus fuit. <reg>hic</reg> et bella gerebat ut
+adulescens, cum plane grandis esset, et Hannibalem
+iuveniliter exsultantem patientia sua molliebat;
+de quo praeclare familiaris noster Ennius:
+
+<quote rend="blockquote">
+<l>unus homo nobis cunctando restituit rem;</l>
+<l>noenum<note>noenum <hi rend="italics"><reg>lachmann</reg>;</hi> non enim <hi rend="italics">MSS.</hi></note> rumores ponebat ante salutem;</l>
+<l>ergo plusque<note>plusque <hi rend="italics"><reg>bernays</reg>;</hi> postque <hi rend="italics">MSS.</hi></note> magisque viri nunc gloria claret.</l></quote></p>
+
+<p><milestone unit="section" n="11"/><name>Tarentum</name> vero qua vigilantia, quo consilio recepit!
+<reg>cum</reg> quidem me audiente Salinatori, qui amisso
+
+<pb id="p.20"/>
+
+oppido fugerat in arcem, glorianti atque ita dicenti,
+<quote>mea opera, Q. Fabi, Tarentum recepisti</quote>; <quote>certe,</quote>
+inquit ridens, <quote>nam nisi tu <corr sic="amississes">amisisses</corr>, numquam
+recepissem.</quote> <reg>nec</reg> vero in armis praestantior quam
+in toga; qui consul iterum, Sp. Carvilio collega
+quiescente, C. Flaminio tribuno plebis, quoad potuit,
+restitit agrum Picentem et Gallicum viritim contra
+senatus auctoritatem dividenti; augurque cum esset,
+dicere ausus est optimis auspiciis ea geri, quae pro
+rei publicae salute gererentur; quae contra rem
+publicam ferrentur, contra auspicia ferri.</p>
+<p><milestone unit="section" n="12"/><reg>multa</reg> in eo viro praeclara cognovi, sed nihil
+admirabilius quam quo modo ille mortem fili tulit,
+clari viri et consularis. <reg>est</reg> in manibus laudatio,
+quam cum legimus, quem philosophum non contemnimus? <reg>nec</reg> vero ille in luce modo atque in oculis
+civium magnus, sed intus domique praestantior.
+<reg>qui</reg> sermo, quae praecepta! <reg>quanta</reg> notitia antiquitatis, scientia iuris auguri! <reg>multae</reg> etiam, ut in
+homine Romano, litterae: omnia memoria tenebat
+non domestica solum, sed etiam externa bella. <reg>cuius</reg>
+sermone ita tum cupide fruebar, quasi iam divinarem, id quod evenit, illo exstincto fore unde discerem neminem.</p>
+<p><milestone unit="section" n="13"/><milestone unit="chapter" n="5"/><reg><corr sic="quorsus">quorsum</corr></reg><note><corr sic="quorsus">quorsum</corr> <hi rend="italics">other Mss.;</hi> quorsum <hi rend="italics">L.</hi></note> igitur haec <corr sic="tarn">tam</corr> multa de Maximo?
+
+<pb id="p.22"/>
+
+Quia profecto videtis nefas esse dictu miseram fuisse
+talem senectutem. <reg>nec</reg> tamen omnes possunt esse
+Scipiones aut Maximi, ut urbium expugnationes, ut
+pedestris navalisve pugnas, ut bella a se gesta, ut
+triumphos recordentur. <reg>est</reg> etiam quiete et pure
+atque eleganter actae aetatis placida ac lenis senectus,
+qualem accepimus Platonis, qui uno et octogesimo
+anno scribens est mortuus, qualem Isocratis, qui
+eum librum, qui Panathenaicus inscribitur, quarto
+nonagesimo anno scripsisse dicit vixitque quinquennium postea; cuius magister Leontinus Gorgias
+centum et septem complevit annos, neque umquam
+in suo studio atque opere cessavit. <reg>qui</reg>, cum ex
+eo quaereretur cur tam diu vellet esse in vita, <quote>nihil
+    habeo,</quote> inquit, <quote>quod accusem senectutem.</quote> <milestone unit="section" n="14"/><reg>praeclarum</reg> responsum et docto homine dignum!</p>
+<p><reg>sua</reg> enim vitia insipientes et suam culpam in
+senectutem conferunt, quod non faciebat is, cuius
+modo mentionem feci, Ennius:
+
+<quote rend="blockquote">
+<l>sic ut fortis equus, spatio qui saepe supremo</l>
+<l>vicit Olympia, nunc senio confectus quiescit.</l></quote>
+
+<reg>equi</reg> fortis et victoris senectuti comparat suam;
+quem quidem probe meminisse potestis; anno enim
+undevicesimo post eius mortem hi consules, T.
+Flamininus et M'. Acilius, facti sunt; ille autem
+Caepione et Philippo iterum consulibus mortuus est,
+cum ego quinque et sexaginta annos natus legem
+
+<pb id="p.24"/>
+
+Voconiam magna voce et bonis lateribus suasissem.<note>suasissem <hi rend="italics">other Mss.;</hi> suasisset <hi rend="italics">P;</hi> suasi sed <hi rend="italics"><reg>forch</reg>.,
+M&uuml;ller.</hi></note> 
+Annos septuaginta natus, tot enim vixit Ennius,
+ita ferebat duo quae maxima putantur onera, paupertatem et senectutem, ut eis paene delectari videretur.</p>
+<p><milestone unit="section" n="15"/><reg>etenim</reg>, cum complector animo, quattuor reperio
+causas cur senectus misera videatur: unam, quod
+avocet a rebus gerendis; alteram, quod corpus faciat
+infirmius; tertiam, quod privet omnibus fere voluptatibus; quartam, quod haud procul absit a morte.
+<reg>earum</reg>, si placet, causarum quanta quamque sit
+iusta una quaeque videamus.</p>
+<p><milestone unit="chapter" n="6"/>A rebus gerendis senectus abstrahit. <reg>quibus</reg>?
+An eis, quae iuventute geruntur et viribus? <reg>nullaene</reg> igitur res sunt seniles, quae vel infirmis corporibus animo et mente administrentur? <reg>nihil</reg> ergo
+agebat Q. Maximus, nihil L. Paulus, pater tuus, socer
+optimi viri fili mei? <reg>ceteri</reg> senes, Fabricii Curii
+Coruncanii, cum rem publicam consilio et auctoritate
+defendebant, nihil agebant?</p>
+<p><reg>ad</reg> Appi Claudi senectutem accedebat etiam ut
+caecus esset; <milestone unit="section" n="16"/>tamen is, cum sententia senatus
+inclinaret ad pacem cum Pyrrho foedusque faciendum,
+non dubitavit dicere illa, quae versibus persecutus
+est Ennius:
+
+<quote rend="blockquote">
+<l>quo vobis mentes, rectae quae stare solebant</l>
+<l>antehac, dementis sese flexere viai?</l></quote>
+
+ceteraque gravissime, notum enim vobis carmen est,
+
+<pb id="p.26"/>
+
+et tamen ipsius Appi exstat oratio. <reg>atque</reg> haec ille
+egit septemdecim annis post alterum consulatum,
+cum inter duos consulatus anni decem interfuissent
+censorque ante superiorem consulatum fuisset, ex
+quo intellegitur Pyrrhi bello grandem sane fuisse,
+et tamen sic a patribus accepimus.</p>
+<p><milestone unit="section" n="17"/><reg>nihil</reg> igitur afferunt qui in re gerenda versari
+senectutem negant, similesque sunt ut si qui
+gubernatorem in navigando nihil agere dicant,
+cum alii malos scandant, alii per foros cursent, alii
+sentinam exhauriant, ille clavum tenens quietus
+sedeat in puppi; non faciat ea, quae iuvenes; at
+vero multo maiora et meliora facit. <reg>non</reg> viribus
+aut velocitate aut celeritate corporum res magnae
+geruntur, sed consilio auctoritate sententia, quibus
+non modo non orbari, sed etiam augeri senectus
+solet.</p>
+<p><milestone unit="section" n="18"/><reg>nisi</reg> forte ego vobis, qui et miles et tribunus et
+legatus et consul versatus sum in vario genere bellorum, cessare nunc videor, cum bella non gero.
+<name>At</name> senatui quae sint gerenda praescribo et quo
+modo; Carthagini male iam diu cogitanti bellum
+multo ante denuntio, de qua vereri non ante desinam
+quam illam <corr sic="exscisam">excisam</corr> esse cognovero. <reg>quam</reg> palmam
+utinam di immortales, <milestone unit="section" n="19"/><name>Scipio</name>, tibi reservent, ut avi
+relliquias persequare, cuius a morte tertius hie et
+tricesimus annus est, sed memoriam illius viri omnes
+
+<pb id="p.28"/>
+
+excipient anni consequentes. <reg>anno</reg> ante me censorem mortuus est, novem annis post meum consulatum, cum consul iterum me consule creatus esset.
+<reg>num</reg> igitur, si ad centesimum annum vixisset,
+senectutis eum suae paeniteret? <reg>nec</reg> enim excursione nec saltu, nec eminus hastis aut comminus
+gladiis uteretur, sed consilio ratione sententia, quae
+nisi essent in senibus, non summum consilium
+maiores nostri appellassent senatum. <reg>apud</reg> Lacedaemonios quidem ei, <milestone unit="section" n="20"/>qui amplissimum magistratum
+gerunt, ut sunt, sic etiam nominantur, senes. <reg>quod</reg>
+si legere aut audire voletis externa, maximas res
+publicas ab adulescentibus labefactatas, a senibus
+sustentatas et restitutas reperietis.
+
+<quote rend="blockquote">
+<l><reg>cedo</reg> qui vestram rem publicam tantam amisistis tam cito?</l></quote>
+
+sic enim percontantur<note>ut est <hi rend="italics">after</hi> percontantur <hi rend="italics">in MSS., generally omitted by</hi>
+<hi rend="italics">editors.</hi></note> in Naevi poetae Lupo.<note>Lupo <hi rend="italics"><reg>ribbeck</reg>, Bennett, Mommsen;</hi> Ludo <hi rend="italics">MSS.</hi></note> 
+Respondentur et alia et hoc in primis:
+
+<quote rend="blockquote">
+<l>proveniebant oratores novi, stulti adulescentuli.</l></quote>
+
+<reg>temeritas</reg> est videlicet florentis aetatis, prudentia
+senescentis.</p>
+<p><milestone unit="section" n="21"/><milestone unit="chapter" n="7"/>At memoria minuitur. <reg>credo</reg>, nisi eam exerceas, aut etiam si sis natura tardior. <name>Themistocles</name>
+omnium civium perceperat nomina; num igitur
+
+<pb id="p.30"/>
+
+censetis eum, cum aetate processisset, qui Aristides
+esset Lysimachum salutare solitum? <reg>equidem</reg> non
+modo eos novi qui sunt, sed eorum patres etiam et
+avos, nec sepulcra legens vereor, quod aiunt, ne
+memoriam perdam; his enim ipsis legendis in
+memoriam redeo mortuorum. <reg>nec</reg> vero quemquam
+senem audivi oblitum, quo loco thesaurum obruisset.
+<reg>omnia</reg> quae curant meminerunt, vadimonia constituta, quis sibi, cui ipsi debeant.</p>
+<p><milestone unit="section" n="22"/><reg>quid</reg> iuris consulti, quid pontifices, quid augures,
+quid philosophi senes? <reg>quam</reg> multa meminerunt!
+<reg>manent</reg> ingenia senibus, modo permaneat studium
+et industria, neque ea solum claris et honoratis viris,
+sed in vita etiam privata et quieta. <name>Sophocles</name> ad
+summam senectutem tragoedias fecit; quod propter
+studium cum rem neglegere familiarem videretur,
+filiis in iudicium vocatus est, ut, quem ad modum
+nostro more male rem gerentibus patribus bonis
+interdici solet, sic ilium quasi desipientem a re
+familiari removerent iudices. <reg>tum</reg> senex dicitur
+eam fabulam quam in manibus habebat et proxime
+scripserat, Oedipum Coloneum, recitasse iudicibus
+quaesisseque num illud carmen desipientis videretur, <milestone unit="section" n="23"/>quo recitato sententiis iudicum est liberatus.
+<reg>num</reg> igitur hunc, num Homerum Hesiodum Simo-
+
+<pb id="p.32"/>
+
+niden Stesichorum, num quos ante dixi Isocraten
+Gorgian, num philosophorum principes, <corr sic="Pythagoran">Pythagoram</corr>
+Democritum, num Platonem Xenocraten, num postea
+Zenonem <corr sic="Cleanthen">Cleanthem</corr>, aut eum, quem vos etiam
+vidistis Romae, <corr sic="Diogenen">Diogenem</corr> Stoicum coegit in suis
+studiis <corr sic="obmutiscere">obmutescere</corr> senectus? <name>An</name> in omnibus
+studiorum agitatio vitae aequalis fuit?</p>
+<p><milestone unit="section" n="24"/>Age, ut ista divina studia omittamus, possum
+nominare ex agro Sabino rusticos Romanos, vicinos
+et familiaris meos, quibus absentibus numquam fere
+ulla in agro maiora opera fiunt, non serendis, non
+percipiendis, non condendis fructibus. <reg>quamquam</reg>
+in aliis minus hoc mirum est, nemo enim est tam
+senex qui se annum non putet posse vivere; sed
+idem in eis elaborant, quae sciunt nihil ad se omnino
+pertinere:
+
+<quote rend="blockquote">
+<l>serit arbores, quae alteri saeclo prosint,</l></quote>
+
+ut ait Statius noster in Synephebis. <milestone unit="section" n="25"/><reg>nec</reg> vero
+dubitat agricola, quamvis sit senex, quaerenti cui
+serat respondere: <quote>dis immortalibus, qui me non
+accipere modo haec a maioribus voluerunt, sed etiam
+posteris prodere.</quote></p>
+<p><milestone unit="chapter" n="8"/><reg>et</reg> melius Caecilius de sene alteri saeculo
+prospiciente, quam illud idem:
+
+<quote rend="blockquote">
+<l>edepol, senectus, si nil quicquam aliud viti</l>
+<l>adportes tecum, cum advenis, unum id sat est,</l>
+<l>quod diu vivendo multa quae non volt videt.</l></quote>
+
+<pb id="p.34"/>
+
+Et multa fortasse quae volt, atque in ea, quae non
+volt, saepe etiam adulescentia incurrit. <reg>illud</reg> vero
+idem Caecilius vitiosius:
+
+<quote rend="blockquote">
+<l>tum equidem in senecta hoc deputo miserrimum,</l>
+<l>sentire ea aetate eumpse esse odiosum alteri.</l></quote>
+
+<milestone unit="section" n="26"/><reg>iucundum</reg> potius quam odiosum! <reg>ut</reg> enim adulescentibus bona indole praeditis sapientes senes
+delectantur, leviorque fit senectus eorum qui a
+iuventute coluntur et diliguntur, sic adulescentes
+senum praeceptis gaudent, quibus ad virtutum
+studia ducuntur; nec minus intellego me vobis quam
+mihi vos esse iucundos. <reg>sed</reg> videtis, ut senectus
+non modo languida atque iners non sit, verum etiam
+sit operosa et semper agens aliquid et moliens, tale
+scilicet, quale cuiusque studium in superiore vita
+fuit. <reg>quid</reg>, qui etiam addiscunt aliquid, ut et
+Solonem versibus gloriantem videmus, qui se cotidie
+aliquid addiscentem dicit senem fieri. <reg>et</reg> ego feci,
+qui litteras Graecas senex didici, quas quidem sic
+avide arripui quasi diuturnam sitim explere cupiens,
+ut ea ipsa mihi nota essent, quibus me nunc exemplis
+uti videtis. <reg>quod</reg> cum fecisse <corr sic="Socraten">Socratem</corr> in fidibus
+audirem, vellem equidem etiam illud, discebant enim
+fidibus antiqui, sed in litteris certe elaboravi.</p>
+<p><milestone unit="section" n="27"/><milestone unit="chapter" n="9"/><reg>ne</reg> nunc quidem viris desidero adulescentis,
+
+<pb id="p.36"/>
+
+is enim erat locus alter de vitiis senectutis, non plus
+quam adulescens tauri aut elephanti desiderabam.
+<reg>quod</reg> est, eo decet uti et quidquid agis<note>agis <hi rend="italics"><name>Reid</name>;</hi> agas <hi rend="italics">MSS.</hi></note> agere pro
+viribus. <reg>quae</reg> enim vox potest esse contemptior
+quam Milonis Crotoniatae? <reg>qui</reg> cum iam senex
+esset athletasque se exercentis in curriculo videret,
+aspexisse lacertos suos dicitur illacrimansque dixisse,
+<quote>at hi quidem mortui iam sunt.</quote> <reg>non</reg> vero tam isti,
+quam tu ipse, nugator, neque enim ex te umquam
+es nobilitatus, sed ex lateribus et lacertis tuis. <reg>nihil</reg>
+Sex. <name>Aelius</name> tale, nihil multis annis ante Ti. Coruncanius, nihil modo P. Crassus, a quibus iura civibus
+praescribebantur, quorum usque ad extremum
+spiritum est provecta prudentia.</p>
+<p><milestone unit="section" n="28"/><reg>Orator</reg> metuo ne languescat senectute, est enim
+munus eius non ingeni solum, sed laterum etiam et
+virium. <reg>omnino</reg> canorum illud in voce splendescit
+etiam nescio quo pacto in senectute, quod equidem
+adhuc non amisi, et videtis annos. <reg>sed</reg> tamen est
+decorus seni sermo quietus et remissus, facitque persaepe ipsa<note>persaepe ipsa <hi rend="italics">other Mss.;</hi> per se ipsa <hi rend="italics">L,M&uuml;ller.</hi></note> sibi audientiam diserti senis composita<note>composita <hi rend="italics">edd.;</hi> compta <hi rend="italics">MSS., M&uuml;ller.</hi></note> 
+et mitis oratio, quam si ipse exsequi nequeas, possis
+tamen Scipioni praecipere et Laelio. <reg>quid</reg> enim est
+iucundius senectute stipata studiis iuventutis? <milestone unit="section" n="29"/><reg>An</reg>
+ne illas quidem viris senectuti relinquimus,<note>relinquimus <hi rend="italics">other Mss.;</hi> relinquemus <hi rend="italics">L, M&uuml;ller.</hi></note> ut
+
+<pb id="p.38"/>
+
+adulescentis doceat, instituat, ad omne offici munus
+instruat? <reg>quo</reg> quidem opere quid potest esse praeclarius? <reg>mihi</reg> vero et Cn. et P. Scipiones et avi tui
+duo L. Aemilius et P. Africanus comitatu nobilium
+iuvenum fortunati videbantur, nec ulli bonarum
+artium magistri non beati putandi, quamvis consenuerint vires atque defecerint.</p>
+<p><reg>etsi</reg> ipsa ista defectio virium adulescentiae vitiis
+efficitur saepius quam senectute; libidinosa enim
+et intemperans adulescentia effetum corpus tradit
+senectuti.<note>senectuti <hi rend="italics"><name>Reid</name>;</hi> senectutis <hi rend="italics"><name>Mss</name>.</hi></note> <milestone unit="section" n="30"/>Cyrus quidem apud Xenophontem eo
+sermone, quem moriens habuit, cum admodum senex
+esset, negat se umquam sensisse senectutem suam
+imbecilliorem factam quam adulescentia fuisset.
+<reg>ego</reg> L. Metellum memini puer, qui, cum quadriennio post alterum consulatum pontifex maximus
+factus esset, viginti et duos annos ei sacerdotio praefuit, ita bonis esse viribus extremo tempore aetatis,
+ut adulescentiam non requireret. <reg>nihil</reg> necesse est
+mihi de me ipso dicere, quamquam est id quidem
+senile aetatique nostrae conceditur. <milestone unit="section" n="31"/> <milestone unit="chapter" n="10"/><reg>videtisne</reg>,
+ut apud Homerum saepissime Nestor de virtutibus
+suis praedicet? <name>Tertiam</name> enim aetatem hominum
+videbat, nec erat ei verendum ne vera praedicans de
+se nimis videretur aut insolens aut loquax. <quote><reg>etenim</reg>,</quote>
+ut ait Homerus, <quote>ex eius lingua melle dulcior fluebat
+oratio;</quote> quam ad suavitatem nullis egebat corporis
+
+<pb id="p.40"/>
+
+viribus. <reg>et</reg> tamen dux ille <corr sic="Gracciae">Graeciae</corr> nusquam optat
+ut Aiacis similis habeat decem, sed ut Nestoris, quod
+si sibi accident, non dubitat quin brevi sit Troia
+peritura.</p>
+<p><milestone unit="section" n="32"/><reg>sed</reg> redeo ad me. <reg>quartum</reg> ago annum et octogesimum: vellem equidem idem posse gloriari quod
+Cyrus, sed tamen hoc queo dicere, non me quidem
+eis esse viribus, quibus aut miles bello Punico aut
+quaestor eodem bello aut consul in Hispania fuerim
+aut quadriennio post, cum tribunus militaris depugnavi apud Thermopylas M'. Glabrione consule; sed
+tamen, ut vos videtis, non plane me enervavit, non
+afflixit senectus: non curia viris meas desiderat, non
+rostra, non amici, non clientes, non hospites. <reg>nec</reg>
+enim umquam sum assensus veteri illi laudatoque
+proverbio, quod monet mature fieri senem, si diu
+velis senex esse. <reg>ego</reg> vero me minus diu senem
+esse mallem quam esse senem ante quam essem.
+<reg>itaque</reg> nemo adhuc convenire me voluit cui fuerim
+occupatus.</p>
+<p><milestone unit="section" n="33"/><reg>At</reg> minus habeo virium quam vestrum utervis.
+<reg>ne</reg> vos quidem T. Ponti centurionis viris habetis:
+num idcirco est ille praestantior? <reg>moderatio</reg> modo
+virium adsit et tantum quantum potest quisque
+nitatur, ne ille non magno desiderio tenebitur virium.
+<reg>olympiae</reg> per stadium ingressus esse Milo dicitur,
+cum umeris sustineret bovem: utrum igitur has
+corporis an Pythagorae tibi malis viris ingeni dari?
+
+<pb id="p.42"/>
+
+Denique isto bono utare, dum adsit, cum absit, ne
+requiras: nisi forte adulescentes pueritiam, paulum
+aetate progressi adulescentiam debent requirere.
+<reg>cursus</reg> est certus aetatis et una via naturae eaque
+simplex, suaque cuique parti aetatis tempestivitas
+est data, ut et infirmitas puerorum et ferocitas
+iuvenum et gravitas iam constantis aetatis et senectutis maturitas naturale quiddam habet, quod suo tempore percipi debeat.</p>
+<p><milestone unit="section" n="34"/><reg>audire</reg> te arbitror, Scipio, hospes tuus avitus
+Masinissa quae faciat hodie nonaginta natus annos:
+cum ingressus iter pedibus sit, in equum omnino
+non ascendere; cum autem equo, ex equo non
+descendere; nullo imbri, nullo frigore adduci ut
+capite operto sit; summam esse in eo corporis
+siccitatem, itaque omnia exsequi regis officia et
+munera. <name>Potest</name> igitur exercitatio et temperantia
+etiam in senectute conservare aliquid pristini roboris.</p>
+<p><milestone unit="chapter" n="11"/><reg>ne</reg> sint<note>ne sint <hi rend="italics">R, Reid;</hi> non sunt <hi rend="italics">LBIS, M&uuml;ller.</hi></note> in senectute vires: ne postulantur
+quidem vires a senectute. <reg>ergo</reg> et legibus et
+institutis vacat aetas nostra muneribus eis quae non
+possunt sine viribus sustineri. <reg>itaque</reg> non modo
+quod non possumus, sed ne quantum possumus
+quidem cogimur. <milestone unit="section" n="35"/><reg>At</reg> multi ita sunt imbecilli senes,
+ut nullum offici aut omnino vitae munus exsequi
+
+<pb id="p.44"/>
+
+possint. <name>At</name> id quidem non proprium senectutis
+vitium est, sed commune valetudinis. <reg>quam</reg> fuit
+imbecillus P. Africani filius, is qui te adoptavit, quam
+tenui aut nulla potius valetudine! <reg>quod</reg> ni ita
+fuisset, alterum illud exstitisset lumen civitatis; ad
+paternam enim magnitudinem animi doctrina uberior
+accesserat. <reg>quid</reg> mirum igitur in senibus, si infirmi
+sunt aliquando, cum id ne adulescentes quidem
+effugere possint?</p>
+<p><reg>resistendum</reg>, Laeli et Scipio, senectuti est eiusque
+vitia diligentia compensanda sunt, pugnandum tamquam contra morbum<note>morbum <hi rend="italics"><name>Mss</name>.;</hi> morborum <hi rend="italics">M&uuml;ller.</hi></note> sic contra senectutem, habenda
+ratio valetudinis, <milestone unit="section" n="36"/>utendum exercitationibus modicis,
+tantum cibi et potionis adhibendum, ut reficiantur
+vires, non opprimantur. <reg>nec</reg> vero corpori solum
+subveniendum est, sed menti atque animo multo
+magis. <reg>nam</reg> haec quoque, nisi tamquam lumini
+oleum instilles, exstinguuntur senectute. <reg>et</reg> corpora
+quidem exercitationum defetigatione ingravescunt,
+animi autem exercitando<note>exercitando <hi rend="italics">other Mss.;</hi> exercendo <hi rend="italics">LER</hi>.</note> levantur. <reg>nam</reg> quos ait
+Caecilius <quote>comicos stultos senes,</quote> hos significat
+credulos obliviosos dissolutos, quae vitia sunt non
+senectutis, sed inertis ignavae somniculosae senectutis. <reg>ut</reg> petulantia, ut libido magis est adulescentium quam senum, nec tamen omnium adulescentium, sed non proborum, sic ista senilis stultitia,
+quae deliratio appellari solet, senum levium est, non
+omnium.</p>
+<p><milestone unit="section" n="37"/><reg>quattuor</reg> robustos filios, quinque filias, tantam
+
+<pb id="p.46"/>
+
+domum, tantas clientelas Appius regebat et caecus et
+senex; intentum enim animum tamquam arcum habebat nec languescens succumbebat senectuti. <reg>tenebat</reg>
+non modo auctoritatem, sed etiam imperium in suos:
+metuebant servi, verebantur liberi, carum omnes
+habebant; vigebat in illa domo mos patrius et
+disciplina.<note>in illa domo patrius mos et disciplina <hi rend="italics">M&uuml;ller;</hi> in illo
+    animus patrius et disciplina <hi rend="italics"><name>Reid</name>, Moore.</hi></note> <milestone unit="section" n="38"/>Ita enim senectus honesta est, si se ipsa
+defendit, si ius suum retinet, si nemini emancipata
+est, si usque ad ultimum spiritum dominatur in suos.
+<reg>ut</reg> enim adulescentem in quo est senile aliquid, sic
+senem in quo est aliquid adulescentis probo, quod
+qui sequitur, corpore senex esse poterit, animo
+numquam erit.</p>
+<p><reg>septimus</reg> mihi liber Originum est in manibus;
+omnia antiquitatis monumenta colligo; causarum
+illustrium, quascunque defendi, nunc cum maxime
+conficio orationes; ius augurium pontificium civile
+tracto; multum etiam Graecis litteris utor; Pythagoriorumque more, exercendae memoriae gratia,
+quid quoque die dixerim audierim egerim commemoro
+vesperi. <reg>hae</reg> sunt exercitationes ingeni, haec curricula mentis; in his desudans atque elaborans
+corporis viris non magno opere desidero. <reg>adsum</reg>
+amicis, venio in senatum frequens ultroque affero res
+multum et diu cogitatas easque tueor animi, non
+
+<pb id="p.48"/>
+
+corporis viribus. <reg>quas</reg> si exsequi nequirem, tamen
+me lectulus meus oblectaret ea ipsa cogitantem,
+quae iam agere non possem; sed ut possim facit
+acta vita. <name>Semper</name> enim in his studiis laboribusque
+viventi non intellegitur quando obrepat senectus:
+ita sensim sine sensu aetas senescit nec subito frangitur, sed diuturnitate exstinguitur.</p>
+<p><milestone unit="section" n="39"/><milestone unit="chapter" n="12"/><reg>sequitur</reg> tertia vituperatio senectutis, quod
+<corr sic="earn">eam</corr> carere dicunt voluptatibus. O praeclarum munus
+aetatis, si quidem id aufert a nobis, quod est in
+adulescentia vitiosissimum! <reg>accipite</reg> enim, optimi
+adulescentes, veterem orationem Archytae Tarentini,
+magni in primis et praeclari viri, quae mihi tradita
+est cum essem adulescens Tarenti cum Q. Maximo.
+<reg>nullam</reg> capitaliorem pestem quam voluptatem corporis hominibus dicebat a natura datam, cuius
+voluptatis avidae libidines temere et <corr sic="ecfrenate">effrenate</corr> ad
+potiendum incitarentur.<milestone unit="section" n="40"/><reg>hinc</reg> patriae proditiones,
+hinc rerum publicarum eversiones, hinc cum hostibus
+clandestina colloquia nasci; nullum denique scelus,
+nullum malum facinus esse, ad quod suscipiendum
+non libido voluptatis impelleret; stupra vero et
+adulteria et omne tale flagitium nullis excitari aliis
+illecebris nisi voluptatis; cumque homini sive natura
+sive quis deus nihil mente praestabilius dedisset,
+huic divino muneri ac dono nihil tam esse inimicum
+
+<pb id="p.50"/>
+
+quam voluptatem.<milestone unit="section" n="41"/><reg>nec</reg> enim <corr sic="libidme">lubidine</corr> dominante
+temperantiae locum esse, neque omnino in voluptatis regno virtutem posse consistere.</p>
+<p><reg>quod</reg> quo magis intellegi posset, fingere animo
+iubebat tanta incitatum aliquem voluptate corporis,
+quanta percipi posset maxima; nemini censebat
+fore dubium quin tam diu, dum ita gauderet, nihil
+agitare mente, nihil ratione, nihil cogitatione consequi posset. <reg>quocirca</reg> nihil esse tam detestabile
+tamque pestiferum quam voluptatem, si quidem ea,
+cum maior esset atque longior, omne animi lumen
+exstingueret. <reg>haec</reg> cum C. Pontio Samnite, patre
+eius, a quo Caudino proelio Sp. Postumius T. Veturius
+consules superati sunt, locutum Archytam Nearchus
+Tarentinus hospes noster, qui in amicitia populi
+Romani permanserat, se a maioribus natu accepisse
+dicebat, cum quidem ei sermoni interfuisset Plato
+Atheniensis, quem Tarentum venisse L. Camillo Ap.
+Claudio consulibus reperio.</p>
+<p><milestone unit="section" n="42"/><reg>quorsus</reg> hoc? <reg>ut</reg> intellegeretis, si voluptatem
+aspernari ratione et sapientia non possemus, magnam
+esse habendam senectuti gratiam, quae efficeret ut
+id non liberet quod non oporteret. <reg>impedit</reg> enim
+consilium voluptas, rationi inimica est, mentis ut
+ita dicam praestringit oculos, nec habet ullum cum
+virtute commercium.</p>
+<p><reg>invitus</reg> feci ut fortissimi viri T. Flaminini fratrem
+L. Flamininum e senatu eicerem septem annis post
+
+<pb id="p.52"/>
+
+quam consul fuisset, sed notandam putavi libidinem.
+<reg>ille</reg> enim cum esset consul in Gallia exoratus in
+convivio a scorto est ut securi feriret aliquem eorum
+qui in vinculis essent, damnati rei capitalis. <reg>hic</reg>
+Tito fratre suo censore, qui proximus ante me fuerat,
+elapsus est, mihi vero et Flacco neutiquam probari
+potuit tam flagitiosa et tam perdita libido, quae cum
+probro privato coniungeret imperi dedecus.</p>
+<p><milestone unit="section" n="43"/><milestone unit="chapter" n="13"/><reg>saepe</reg> audivi e maioribus natu, qui se porro
+pueros a senibus audisse dicebant, mirari solitum C.
+Fabricium quod, cum apud regem Pyrrhum legatus
+esset, audisset a Thessalo Cinea esse quendam
+Athenis qui se sapientem profiteretur, eumque dicere
+omnia quae faceremus ad voluptatem esse referenda.
+<reg>quod</reg> ex eo audientis M'. Curium et Ti. Coruncanium optare solitos ut id Samnitibus ipsique Pyrrho
+persuaderetur, quo facilius vinci possent cum se
+voluptatibus dedissent. <reg>vixerat</reg> M'. Curius cum
+P. Decio, qui quinquennio ante eum consulem se
+pro re publica quarto consulatu devoverat: norat
+eundem Fabricius, norat Coruncanius, qui cum ex
+sua vita tum ex eius quem dico Deci facto iudicabant esse profecto aliquid natura pulchrum atque
+praeclarum, quod sua sponte expeteretur<note>expeteretur <hi rend="italics"><name>Reid</name>;</hi> peteretur <hi rend="italics">MSS.</hi></note> quodque
+
+<pb id="p.54"/>
+
+spreta et contempta voluptate optimus quisque
+sequeretur.</p>
+<p><milestone unit="section" n="44"/><reg>quorsum</reg> igitur tam multa de voluptate? <reg>quia</reg>
+non modo vituperatio nulla, sed etiam summa laus
+senectutis est, quod ea voluptates nullas magno
+opere desiderat. <reg>caret</reg> epulis exstructisque mensis
+et frequentibus poculis. <reg>caret</reg> ergo etiam vinulentia
+et cruditate et insomniis. <reg>sed</reg> si aliquid dandum
+est voluptati, quoniam eius blanditiis non facile
+obsistimus, divine enim Plato <quote>escam malorum</quote>
+appellat voluptatem quod ea videlicet homines capiantur ut pisces, quamquam immoderatis epulis caret
+senectus, modicis tamen conviviis delectari potest.
+C. Duellium M. F., qui Poenos classe primus devicerat,
+redeuntem a cena senem saepe videbam puer;
+delectabatur cereo<note>cereo <hi rend="italics"><reg>manutius</reg>, Mommsen;</hi> crebro <hi rend="italics">MSS.</hi></note> funali et tibicine, quae sibi nullo
+exemplo privatus sumpserat: tantum licentiae dabat
+gloria.</p>
+<p><milestone unit="section" n="45"/><reg>sed</reg> quid ego alios? <reg>ad</reg> me ipsum iam revertar.
+<reg>primum</reg> habui semper sodalis&mdash;sodalitates autem
+me quaestore constitutae sunt sacris Idaeis Magnae
+Matris acceptis&mdash;epulabar igitur cum sodalibus,
+omnino modice, sed erat quidam fervor aetatis,
+qua progrediente omnia fiunt in dies mitiora. <reg>neque</reg>
+enim ipsorum conviviorum delectationem volup-
+
+<pb id="p.56"/>
+
+tatibus corporis magis quam coetu amicorum et
+sermonibus metiebar; bene enim maiores accubitionem epularem amicorum, quia vitae coniunctionem
+haberet, <quote>convivium</quote> nominaverunt, melius quam
+Graeci, qui hoc idem tum <quote>compotationem,</quote> tum
+<quote>concenationem</quote> vocant, ut, quod in eo genere
+minimum est, id maxime probare videantur.</p>
+<p><milestone unit="section" n="46"/><milestone unit="chapter" n="14"/><reg>ego</reg> vero propter sermonis delectationem
+tempestivis quoque conviviis delector, nec cum
+aequalibus solum, qui pauci admodum restant, sed
+cum vestra etiam aetate atque vobiscum, habeoque
+senectuti magnam gratiam, quae mihi sermonis
+aviditatem auxit, potionis et cibi sustulit. <reg>quod</reg> si
+quem etiam ista delectant, ne omnino bellum indixisse videar voluptati, cuius est fortasse quidam
+naturalis modus, non intellego ne in istis quidem
+ipsis voluptatibus carere sensu senectutem. <reg>me</reg>
+vero et magisteria delectant a maioribus instituta
+et is sermo, qui more maiorum a summo adhibetur
+in poculo, et pocula, sicut in Symposio Xenophontis
+est, minuta atque rorantia, et refrigeratio aestate
+et vicissim aut sol aut ignis hibernus. <reg>quae</reg> quidem
+etiam in Sabinis persequi soleo conviviumque vicinorum cotidie compleo, quod ad multam noctem quam
+maxime possumus vario sermone producimus.</p>
+
+<pb id="p.58"/>
+
+<p><milestone unit="section" n="47"/><reg>At</reg> non est voluptatum tanta quasi titillatio in
+senibus. <reg>credo</reg>, sed ne desideratio quidem; nihil
+autem est molestum quod non desideres. <reg>bene</reg>
+Sophocles, cum ex eo quidam iam affecto aetate
+quaereret, utereturne rebus veneriis, <quote>di meliora!</quote>
+inquit; <quote>ego vero<note>ego vero <hi rend="italics">PL</hi>2<hi rend="italics">, Halm, Bait.;</hi> libenter vero <hi rend="italics">L</hi>1<hi rend="italics">BIRS,</hi>
+<hi rend="italics">M&uuml;ller.</hi></note> istinc sicut a domino agresti ac
+furioso profugi.</quote> <reg>cupidis</reg> enim rerum talium odiosum
+fortasse et molestum est carere, satiatis vero et
+expletis iucundius est carere quam frui; quamquam
+non caret is, qui non desiderat; ergo hoc non
+desiderare dico esse iucundius.</p>
+<p><milestone unit="section" n="48"/><reg>quod</reg> si istis ipsis voluptatibus bona aetas fruitur
+libentius, primum parvulis fruitur rebus, ut diximus,
+deinde eis, quibus senectus, etiam si non abunde
+potitur, non omnino caret. <reg>ut</reg> Turpione Ambivio
+magis delectatur qui in prima cavea spectat, delectatur tamen etiam qui in ultima, sic adulescentia
+voluptates propter intuens magis fortasse laetatur,
+sed delectatur etiam senectus, procul eas spectans,
+tantum quantum sat est.</p>
+<p><milestone unit="section" n="49"/><reg>At</reg> illa quanti sunt, animum tamquam emeritis
+stipendiis libidinis ambitionis, contentionum inimicitiarum, cupiditatum omnium secum esse secumque,
+ut dicitur, vivere! <reg>si</reg> vero habet aliquod tamquam
+
+<pb id="p.60"/>
+
+pabulum studi atque doctrinae, <corr sic="nihii">nihil</corr> est otiosa
+senectute iucundius. <reg>videbamus</reg><note>mori <hi rend="italics">before</hi> videbamus <hi rend="italics">in the MSS., omitted by most editors.
+<name>For</name></hi> mori <hi rend="italics"><name>Bennett</name> conjectured</hi> exerceri, <hi rend="italics">cf. infra</hi> &sect; 50.</note> in studio dimetiendi paene caeli atque terrae Gallum familiarem
+patris tui, Scipio. <reg>quotiens</reg> illum lux noctu aliquid
+describere ingressum, quotiens nox oppressit cum
+mane coepisset! <reg>quam</reg> delectabat eum defectiones
+solis et lunae multo ante nobis praedicere!<milestone unit="section" n="50"/><reg>quid</reg>
+in levioribus studiis, sed tamen acutis? <reg>quam</reg>
+gaudebat Bello suo Punico Naevius, quam Truculento
+Plautus, quam Pseudolo! <reg>vidi</reg> etiam senem Livium,
+qui, cum sex annis ante quam ego natus sum fabulam
+docuisset Centone Tuditanoque consulibus, usque ad
+adulescentiam meam processit aetate.</p>
+<p><reg>quid</reg> de P. Licini Crassi et pontifici et civilis iuris
+studio loquar aut de huius P. Scipionis, qui his paucis
+diebus pontifex maximus factus est? <reg>atque</reg> eos
+omnis, quos commemoravi, his studiis flagrantis
+senes vidimus. M. vero Cethegum, quem recte
+<quote>suadae medullam</quote> dixit Ennius, quanto studio exerceri in dicendo videbamus etiam senem! <reg>quae</reg> sunt
+igitur epularum aut ludorum aut scortorum voluptates cum his voluptatibus comparandae? <reg>atque</reg>
+haec quidem studia doctrinae, quae quidem prudentibus et bene institutis pariter cum aetate crescunt,
+ut honestum illud Solonis sit, quod ait versiculo
+
+<pb id="p.62"/>
+
+quodam, ut ante dixi, senescere se multa in dies
+addiscentem, qua voluptate animi nulla certe potest
+esse maior.</p>
+<p><milestone unit="section" n="51"/><milestone unit="chapter" n="15"/><reg>venio</reg> nunc ad voluptates <corr sic="agricolarurm">agricolarum</corr>, quibus
+ego incredibiliter delector, quae nec ulla impediuntur senectute et mihi ad sapientis vitam proxime
+videntur accedere. <reg>habent</reg> enim rationem cum
+terra, quae numquam recusat imperium nec umquam
+sine usura reddit quod accepit, sed alias minore,
+plerumque maiore cum faenore; quamquam me
+quidem non fructus modo, sed etiam ipsius terrae
+vis ac natura delectat. <reg>quae</reg> cum gremio mollito
+ac subacto sparsum semen excepit, primum id
+occaecatum cohibet, ex quo occatio quae hoc efficit
+nominata est; deinde tepefactum vapore et compressu suo diffundit et elicit herbescentem ex eo
+viriditatem, quae nixa fibris stirpium sensim adolescit
+culmoque erecta geniculato vaginis iam quasi pubescens includitur; e quibus cum emersit, fundit
+frugem spici ordine structam et contra avium minorum
+morsus munitur vallo aristarum.</p>
+<p><milestone unit="section" n="52"/><reg>quid</reg> ego vitium ortus satus incrementa commemorem? <reg>satiari</reg> delectatione non possum, ut meae
+senectutis requietem<note>requiem <hi rend="italics">L;</hi> requietem <hi rend="italics">other Mss.</hi></note> oblectamentumque noscatis.
+<reg>omitto</reg> enim vim ipsam omnium quae generantur
+e terra, quae ex fici tantulo grano aut ex acini vinaceo
+
+<pb id="p.64"/>
+
+aut ex ceterarum frugum aut stirpium minutissimis
+seminibus tantos truncos ramosque procreet; malleoli plantae sarmenta viviradices propagines nonne
+efficiunt ut quemvis cum admiratione delectent?
+<reg>vitis</reg> quidem quae natura caduca est et, nisi fulta
+est, fertur ad terram, eadem, ut se erigat, claviculis
+suis quasi manibus quidquid est nacta complectitur,
+quam serpentem multiplici lapsu et erratico, ferro
+amputans coercet ars agricolarum, ne silvescat sarmentis et in omnis partis nimia fundatur.<milestone unit="section" n="53"/><reg>itaque</reg>
+ineunte vere in eis quae relicta sunt exsistit tamquam
+ad articulos sarmentorum ea quae gemma dicitur, a
+qua oriens uva se ostendit, quae et suco terrae et
+calore solis augescens primo est peracerba gustatu,
+dein maturata dulcescit vestitaque pampinis nec
+modico tepore caret et nimios solis defendit ardores.
+<reg>qua</reg> quid potest esse cum fructu laetius, tum aspectu
+pulchrius?</p>
+<p><reg>cuius</reg> quidem non utilitas me solum, ut ante dixi,
+sed etiam cultura et natura ipsa delectat: adminiculorum ordines, capitum iugatio, religatio et propagatio vitium, sarmentorum ea, quam dixi, aliorum
+amputatio, aliorum immissio.</p>
+<p><reg>quid</reg> ego irrigationes, quid fossiones agri repastinationesque proferam, quibus fit multo terra
+fecundior? <reg>quid</reg> de utilitate loquar stercorandi?
+<reg>dixi</reg> in eo libro, quem de rebus rusticis scripsi. <milestone unit="section" n="54"/><reg>De</reg>
+qua doctus Hesiodus ne verbum quidem fecit, cum
+
+<pb id="p.66"/>
+
+de cultura agri scriberet. <reg>At</reg> Homerus, qui multis
+ut mihi videtur, ante saeculis fuit, <corr sic="Laerten">Laertam</corr> lenientem
+desiderium, quod capiebat e filio, colentem agrum
+et eum stercorantem facit. <reg>nec</reg> vero segetibus
+solum et pratis et vineis et arbustis res rusticae laetae
+sunt, sed hortis etiam et pomariis, tum pecudum
+pastu, apium examinibus, florum omnium varietate.
+<reg>nec</reg> consitiones modo delectant, sed etiam insitiones,
+quibus nihil invenit agri cultura sollertius.</p>
+<p><milestone unit="section" n="55"/><milestone unit="chapter" n="16"/><reg>possum</reg> persequi permulta oblectamenta
+rerum rusticarum, sed ea<note>ea <hi rend="italics">other Mss.;</hi> haec L.</note> ipsa quae dixi sentio fuisse
+longiora. <reg>ignoscetis</reg> autem, nam et studio rerum
+rusticarum provectus sum, et senectus est natura
+loquacior, ne ab omnibus eam vitiis videar vindicare.
+<reg>ergo</reg> in hac vita M'. Curius, cum de Samnitibus, de
+Sabinis, de Pyrrho triumphavisset, consumpsit extremum tempus aetatis; cuius quidem ego villam
+contemplans, abest enim non longe a me, admirari
+satis non possum vel hominis ipsius continentiam
+vel temporum disciplinam.<milestone unit="section" n="56"/><reg>curio</reg> ad focum sedenti
+magnum auri pondus Samnites cum attulissent,
+repudiati sunt; non enim aurum habere praeclarum
+sibi videri dixit, sed eis qui haberent aurum imperare.
+<reg>poteratne</reg> tantus animus efficere non iucundam
+senectutem?</p>
+<p><reg>sed</reg> venio ad agricolas, ne a me ipso recedam. <reg>in</reg>
+agris erant tum senatores, id est senes&mdash;si quidem
+aranti L. Quinctio Cincinnato nuntiatum est eum
+dictatorem esse factum, cuius dictatoris iussu magister
+
+<pb id="p.68"/>
+
+equitum C. Servilius Ahala Sp. Maelium regnum
+appetentem occupatum interemit. A villa in senatum arcessebatur et Curius et ceteri senes, ex quo
+qui eos arcessebant viatores nominati sunt. <reg>num</reg>
+igitur horum senectus miserabilis fuit, qui se agri
+cultione oblectabant? <reg>mea</reg> quidem sententia haud
+scio an nulla beatior possit esse, neque solum officio,
+quod hominum generi universo cultura agrorum est
+salutaris, sed et delectatione quam dixi, et saturitate
+copiaque rerum omnium, quae ad victum hominum,
+ad cultum etiam deorum pertinent, ut, quoniam haec
+quidam desiderant, in gratiam iam cum voluptate
+redeamus. <name>Semper</name> enim boni assiduique domini
+referta cella vinaria, olearia, etiam penaria est,
+villaque tota locuples est, abundat porco haedo agno
+gallina, lacte caseo melle. <reg>iam</reg> hortum ipsi agricolae
+<quote>succidiam alteram</quote> appellant. <reg>conditiora</reg> facit
+haec supervacaneis etiam operis aucupium atque
+venatio.</p>
+<p><milestone unit="section" n="57"/><reg>quid</reg> de pratorum viriditate aut arborum ordinibus
+aut vinearum olivetorumve specie plura dicam?
+<reg>brevi</reg> praecidam. <reg>agro</reg> bene culto nihil potest esse
+nec usu uberius nec specie ornatius, ad quem fruendum non modo non retardat, verum etiam invitat
+atque allectat senectus. <reg>ubi</reg> enim potest illa aetas
+
+<pb id="p.70"/>
+
+aut calescere vel apricatione melius vel igni, aut
+vicissim umbris aquisve refrigerari salubrius? <reg>sibi</reg>
+habeant igitur arma,<milestone unit="section" n="58"/> sibi equos, sibi hastas, sibi
+clavam et pilam, sibi natationes<note>natationes <hi rend="italics"><name>Mss</name>.;</hi> venationes <hi rend="italics"><name>Reid</name>.</hi></note> atque cursus; nobis
+senibus ex lusionibus multis talos relinquant et
+tesseras; id ipsum ut<note>ut <hi rend="italics"><name>Reid</name>, Bennett;</hi> utrum <hi rend="italics">codd., M&uuml;ller, Moore;</hi> unum P</note> lubebit, quoniam sine eis
+beata esse senectus potest.</p>
+<p><milestone unit="section" n="59"/><milestone unit="chapter" n="17"/><reg>multas</reg> ad res perutiles Xenophontis libri
+sunt, quos legite, quaeso, studiose, ut facitis. <reg>quam</reg>
+copiose ab eo agri cultura laudatur in eo libro, qui
+est de tuenda re familiari, qui Oeconomicus inscribitur! <reg>atque</reg> ut intellegatis nihil ei tam regale
+videri quam studium agri colendi, Socrates in eo
+libro loquitur cum Critobulo Cyrum minorem, Persarum regem, praestantem ingenio atque imperi
+gloria, cum Lysander Lacedaemonius, vir summae
+virtutis, venisset ad eum Sardis eique dona a sociis
+attulisset, et ceteris in rebus communem erga
+Lysandrum atque humanum fuisse et ei quendam
+consaeptum agrum diligenter consitum ostendisse.
+<reg>cum</reg> autem admiraretur Lysander et proceritates
+arborum et directos in quincuncem ordines et humum
+subactam atque puram et suavitatem odorum qui
+afflarentur ex floribus, tum eum dixisse mirari se
+non modo diligentiam sed etiam sollertiam eius a
+quo essent illa dimensa atque discripta; et Cyrum
+respondisse: <quote>atqui ego ista sum omnia dimensus,
+mei sunt ordines, mea discriptio; multae etiam
+istarum arborum mea manu sunt satae.</quote> <reg>tum</reg>
+
+<pb id="p.72"/>
+
+Lysandrum, intuentem purpuram eius et nitorem
+corporis ornatumque Persicum multo auro multisque
+gemmis, dixisse: <quote>recte vero te, Cyre, beatum ferunt,
+quoniam virtuti tuae fortuna coniuncta est!</quote></p>
+<p><milestone unit="section" n="60"/><reg>hac</reg> igitur fortuna frui licet senibus, nec aetas
+impedit quo minus et ceterarum rerum et in primis
+agri colendi studia teneamus usque ad ultimum
+tempus senectutis. M. quidem Valerium Corvinum
+accepimus ad centesimum annum perduxisse, cum
+esset acta iam aetate in agris eosque coleret, cuius
+inter primum et sextum consulatum sex et quadraginta anni interfuerunt. <reg>ita</reg> quantum spatium
+aetatis maiores ad senectutis initium esse voluerunt,
+tantus illi cursus honorum fuit; atque huius extrema
+aetas hoc beatior quam media, quod auctoritatis
+habebat plus, laboris minus.</p>
+<p><milestone unit="section" n="61"/><reg>apex</reg> est autem senectutis auctoritas. <reg>quanta</reg>
+fuit in L. Caecilio Metello, quanta in A. Atilio
+Calatino! <reg>in</reg> quem illud elogium:
+
+<quote rend="blockquote">
+<l>hunc unum plurimae consentiunt gentes</l>
+<l>populi primarium fuisse virum.</l></quote>
+
+<reg>notum</reg> est totum carmen<note>totum carmen <hi rend="italics">LBV; other MSS. omit</hi> totum.</note> incisum in sepulcro. <reg>iure</reg>
+igitur gravis, cuius de laudibus omnium esset fama
+consentiens. <reg>quem</reg> virum nuper P. Crassum, pontificem maximum, quem postea M. Lepidum eodem
+sacerdotio praeditum vidimus! <reg>quid</reg> de Paulo aut
+
+<pb id="p.74"/>
+
+Africano loquar, aut, ut iam ante, de Maximo?
+<reg>quorum</reg> non in sententia solum, sed etiam in nutu
+residebat auctoritas. <reg>habet</reg> senectus, honorata
+praesertim, tantam auctoritatem, ut ea pluris sit
+quam omnes adulescentiae voluptates.</p>
+<p><milestone unit="section" n="62"/><milestone unit="chapter" n="18"/><reg>sed</reg> in omni orationemementote eam me
+senectutem laudare, quae fundamentis adulescentiae
+constituta sit. <reg>ex</reg> quo efficitur id, quod ego magno
+quondam cum assensu omnium dixi, miseram esse
+senectutem quae se oratione defenderet. <reg>non</reg> cani
+nec rugae repente auctoritatem arripere possunt, sed
+honeste acta superior actas fructus capit auctoritatis
+extremos.<milestone unit="section" n="63"/><reg>haec</reg> enim ipsa sunt honorabilia, quae
+videntur levia atque communia&mdash;salutari appeti
+decedi assurgi deduci reduci consuli, quae et apud
+nos et in aliis civitatibus, ut quaeque optime morata
+est, ita diligentissime observantur. <name>Lysandrum</name> Lacedaemonium, cuius modo feci mentionem, dicere aiunt
+solitum Lacedaemonem esse honestissimum domicilium senectutis; nusquam enim tantum tribuitur
+aetati, nusquam est senectus honoratior. <reg>quin</reg>
+etiam memoriae proditum est, cum Athenis ludis
+quidam in theatrum grandis natu venisset, magno
+consessu locum nusquam ei datum a suis civibus,
+cum autem ad Lacedaemonios accessisset, qui, legati
+cum essent, certo in loco considerant, consurrexisse
+omnes illi dicuntur et senem sessum recepisse;
+
+<pb id="p.76"/>
+
+<milestone unit="section" n="64"/>quibus cum a cuncto consessu plausus esset multiplex
+datus, dixisse ex eis quendam Atheniensis scire quae
+recta essent, sed facere nolle.</p>
+<p><reg>multa</reg> in nostro<note>nostro <hi rend="italics">BS, Reid, Bennett,;</hi> vestro <hi rend="italics">L</hi>2, <hi rend="italics">M&uuml;ller, Mommsen.</hi></note> collegio praeclara, sed hoc, de
+quo agimus, in primis, quod, ut quisque aetate
+antecedit, ita sententiae principatum tenet, neque
+solum honore antecedentibus, sed eis etiam, qui
+cum imperio sunt, maiores natu augures anteponuntur. <reg>quae</reg> sunt igitur voluptates corporis cum
+auctoritatis praemiis comparandae? <reg>quibus</reg> qui
+splendide usi sunt, ei mihi videntur fabulam aetatis
+peregisse nec tamquam inexercitati histriones in
+extremo actu corruisse.</p>
+<p><milestone unit="section" n="65"/><reg>At</reg> sunt morosi et anxii et iracundi et difficiles
+senes. <reg>si</reg> quaerimus, etiam avari; sed haec morum
+vitia sunt, non senectutis. <reg>ac</reg> morositas tamen et
+ea vitia, quae dixi, habent aliquid excusationis, non
+illius quidem iustae, sed quae probari posse videatur:
+contemni se putant, despici, illudi; praeterea in
+fragili corpore odiosa omnis offensio est; quae tamen
+omnia dulciora fiunt et moribus bonis et artibus,
+idque cum in vita tum in scaena intellegi potest ex
+eis fratribus qui in Adelphis sunt. <reg>quanta</reg> in altero
+diritas, in altero comitas! <name>Sic</name> se res habet: ut
+enim non omne vinum, sic non omnis natura vetustate coacescit. <reg>severitatem</reg> in senectute probo, sed
+
+<pb id="p.78"/>
+
+eam, sicut alia, modicam; acerbitatem nullo modo;
+avaritia vero senilis quid sibi velit, non intellego.
+<milestone unit="section" n="66"/><name>Potest</name> enim quicquam esse absurdius quam, quo
+viae minus restet, eo plus viatici quaerere?</p>
+<p><milestone unit="chapter" n="19"/><reg>quarta</reg> restat causa, quae maxime angere
+atque sollicitam habere nostram aetatem videtur,
+appropinquatio mortis, quae certe a senectute non
+potest esse longe. O miserum senem, qui mortem
+contemnendam esse in tam longa aetate non viderit!
+<reg>quae</reg> aut plane neglegenda est, si omnino exstinguit
+animum, aut etiam optanda, si aliquo eum deducit
+ubi sit futurus aeternus. <reg>atqui</reg> tertium certe nihil
+inveniri potest.<milestone unit="section" n="67"/><reg>quid</reg> igitur timeam, si aut non
+miser post mortem, aut beatus etiam futurus sum?
+<reg>quamquam</reg> quis est tam stultus, quamvis sit adulescens, cui sit exploratum se ad vesperum esse victurum? <reg>quin</reg> etiam aetas illa multo pluris quam
+nostra casus mortis habet: facilius in morbos incidunt adulescentes, gravius aegrotant, tristius curantur. <reg>itaque</reg> pauci veniunt ad senectutem; quod ni
+ita accideret, melius et prudentius viveretur. <reg>mens</reg>
+enim et ratio et consilium in senibus est, qui si nulli
+fuissent, nullae omnino civitates fuissent.</p>
+<p><reg>sed</reg> redeo ad mortem impendentem. <reg>quod</reg> est
+istud crimen senectutis, cum id ei videatis cum
+adulescentia esse commune?<milestone unit="section" n="68"/><reg>sensi</reg> ego in optimo
+
+<pb id="p.80"/>
+
+filio, tu in exspectatis ad amplissimam dignitatem
+fratribus, Scipio, mortem omni aetati esse communem. <name>At</name> sperat adulescens diu se victurum,
+quod sperare idem senex non potest. <reg>insipienter</reg>
+sperat; quid enim stultius quam incerta pro certis
+habere, falsa pro veris? <name>At</name> senex ne quod speret
+quidem habet. <name>At</name> est eo meliore condicione quam
+adulescens, quioniam<note>quoniam <hi rend="italics"><name>Reid</name>;</hi> cum <hi rend="italics"><name>Mss</name>.;</hi> quod <hi rend="italics"><reg>lambinus</reg>, M&uuml;ller.</hi></note> id quod ille sperat <corr sic="hie">hic</corr> consecutus est: ille volt diu vivere, <corr sic="hie">hic</corr> diu vixit.</p>
+<p><milestone unit="section" n="69"/><reg>quamquam</reg>, o di boni, quid est in hominis natura
+diu? <reg>da</reg> enim supremum tempus; exspectemus
+Tartessiorum regis aetatem&mdash;fuit enim, ut scriptum
+video, Arganthonius quidam Gadibus, qui octoginta
+regnaverat annos, centum viginti vixerat&mdash;sed mihi
+ne diuturnum quidem quicquam videtur, in quo est
+aliquid extremum; cum enim id advenit, tum illud,
+quod praeteriit, effluxit; tantum remanet, quod
+virtute et recte factis consecutus sis. <reg>horae</reg> quidem
+cedunt et dies et menses et anni, nec praeteritum
+tempus umquam revertitur nec quid sequatur sciri
+potest. <reg>quod</reg> cuique temporis ad vivendum datur,
+eo debet esse contentus.</p>
+<p><milestone unit="section" n="70"/><reg>neque</reg> enim histrioni, ut placeat, peragenda
+fabula est, modo in quocunque fuerit actu probetur;
+neque sapientibus usque ad <quote>plaudite</quote> veniendum
+est, breve enim tempus aetatis satis longum est ad
+
+<pb id="p.82"/>
+
+bene honesteque vivendum; sin processerit longius,
+non magis dolendum est, quam agricolae dolent
+praeterita verni temporis suavitate aestatem autumnumque venisse. <reg>ver</reg> enim tamquam adulescentia
+significat ostenditque fructus futuros; reliqua autem
+tempora demetendis fructibus et percipiendis accommodata sunt.</p>
+<p><milestone unit="section" n="71"/><reg>fructus</reg> autem senectutis est, ut saepe dixi, ante
+partorum bonorum memoria et copia. <reg>omnia</reg> autem,
+quae secundum naturam fiunt, sunt habenda in bonis;
+quid est autem tam secundum naturam quam senibus
+emori? <reg>quod</reg> idem contingit adulescentibus adversante et repugnante natura. <reg>itaque</reg> adulescentes
+mihi mori sic videntur, ut cum aquae multitudine
+flammae vis opprimitur, senes autem sic, ut cum sua
+sponte, nulla adhibita vi, consumptus ignis exstinguitur, et quasi poma ex arboribus, cruda si sunt, vix<note>vix <hi rend="italics">edd.;</hi> vi <hi rend="italics">most Mss.</hi></note> 
+evelluntur, si matura et cocta, decidunt, sic vitam
+adulescentibus vis aufert, senibus maturitas; quae
+quidem mihi tam iucunda est, ut, quo propius ad
+mortem accedam, quasi terram videre videar aliquandoque in portum ex longa navigatione esse
+venturus.</p>
+<p><milestone unit="section" n="72"/><milestone unit="chapter" n="20"/><reg>senectutis</reg> autem nullus est certus terminus,
+recteque in ea vivitur, quoad munus offici exsequi
+et tueri possit mortemque contemnere, ex quo fit ut
+animosior etiam senectus sit quam adulescentia et
+fortior. <reg>hoc</reg> illud est, quod Pisistrato tyranno a
+
+<pb id="p.84"/>
+
+Solone responsum est, cum illi quaerenti qua tandem
+re fretus sibi tam audaciter obsisteret respondisse
+dicitur <quote>senectute.</quote> <reg>sed</reg> vivendi est finis optimus,
+cum integra mente certisque sensibus opus ipsa
+suum eadem quae coagmentavit natura dissolvit.
+<reg>ut</reg> navem, ut aedificium idem destruit facillime qui
+construxit, sic hominem eadem optime quae conglutinavit natura dissolvit. <reg>iam</reg> omnis conglutinatio
+recens aegre, inveterata facile divellitur.</p>
+<p><reg>ita</reg> fit ut illud breve vitae reliquum nec avide appetendum senibus nec sine causa deserendum sit;
+<milestone unit="section" n="73"/>vetatque Pythagoras iniussu imperatoris, id est dei,
+de praesidio et statione vitae decedere. <name>Solonis</name>
+quidem sapientis est elogium, quo se negat velle
+suam mortem dolore amicorum et lamentis vacare.
+<reg>volt</reg>, credo, se esse carum suis. <reg>sed</reg> haud scio an
+melius Ennius:
+
+<quote rend="blockquote">
+<l>nemo me lacrumis decoret, neque funera fletu faxit.</l></quote>
+
+<reg>non</reg> censet lugendam esse mortem, quam immortalitas
+consequatur.</p>
+<p><milestone unit="section" n="74"/><reg>iam</reg> sensus moriendi aliquis esse potest, isque ad
+exiguum tempus, praesertim seni: post mortem
+quidem sensus aut optandus aut nullus est. <reg>sed</reg>
+hoc meditatum ab adulescentia debet esse, mortem
+
+<pb id="p.86"/>
+
+ut neglegamus; sine qua meditatione tranquillo
+animo esse nemo potest. <reg>moriendum</reg> enim certe
+est, et incertum an hoc ipso die. <reg>mortem</reg> igitur
+omnibus horis impendentem timens qui poterit
+animo consistere?<milestone unit="section" n="75"/><reg>De</reg> qua non ita longa disputatione opus esse videtur, cum recordor<note>recordor <hi rend="italics"><name>Reid</name>;</hi> recorder <hi rend="italics"><name>Mss</name>.</hi></note> non L. Brutum,
+qui in liberanda patria est interfectus, non duos
+Decios, qui ad voluntariam mortem cursum equorum
+incitaverunt, non M. Atilium, qui ad supplicium est
+profectus ut fidem hosti datam conservaret, non
+duos Scipiones, qui iter Poenis vel corporibus suis
+obstruere voluerunt, non avum tuum L. Paulum,
+qui morte luit collegae in Cannensi ignominia temeritatem, non M. Marcellum, cuius interitum ne
+crudelissimus quidem hostis honore sepulturae carere
+passus est, sed legiones nostras, quod scripsi in
+Originibus, in eum locum saepe profectas alacri
+animo et erecto, unde se redituras numquam arbitrarentur. <reg>quod</reg> igitur adulescentes, et ei quidem non
+solum indocti sed etiam rustici contemnunt, id docti
+senes extimescent?</p>
+<p><milestone unit="section" n="76"/><reg>omnino</reg>, ut mihi quidem videtur studiorum<note>studiorum <hi rend="italics">LPIS M&uuml;ller;</hi> rerum <hi rend="italics">ER.</hi></note> 
+omnium satietas vitae facit satietatem. <reg>sunt</reg> pueritiae studia certa: num igitur ea desiderant adulescentes? <reg>sunt</reg> ineuntis adulescentiae: num ea constans iam requirit aetas, quae media dicitur? <reg>sunt</reg>
+etiam eius aetatis: ne ea quidem quaeruntur in
+senectute. <reg>sunt</reg> extrema quaedam studia senectutis: ergo, ut superiorum aetatum studia occidunt,
+
+<pb id="p.88"/>
+
+sic occidunt etiam senectutis; quod cum evenit,
+satietas vitae tempus maturum mortis affert.</p>
+<p><milestone unit="section" n="77"/><milestone unit="chapter" n="21"/><reg>non</reg> enim video, cur, quid ipse sentiam de
+morte, non audeam vobis dicere, quod eo cernere
+mihi melius videor, quo ab ea propius absum. <reg>ego</reg>
+vestros patres, P. Scipio tuque, C. Laeli, viros clarissimos mihique amicissimos, vivere arbitror et <corr sic="earn">eam</corr>
+quidem vitam, quae est sola vita nominanda. <reg>nam</reg>
+dum sumus inclusi in his compagibus corporis, munere
+quodam necessitatis et gravi opere perfungimur;
+est enim animus caelestis ex altissimo domicilio
+depressus et quasi demersus in terram, locum divinae
+naturae aeternitatique contrarium. <reg>sed</reg> credo deos
+immortalis sparsisse animos in corpora humana, ut
+essent qui terras tuerentur quique caelestium
+ordinem contemplantes imitarentur eum vitae modo
+atque constantia. <reg>nec</reg> me solum ratio ac disputatio
+impulit ut ita crederem, sed nobilitas etiam summorum philosophorum et auctoritas.</p>
+<p><milestone unit="section" n="78"/><reg>audiebam</reg> <corr sic="Pythagoran">Pythagoram</corr> Pythagoriosque, incolas
+paene nostros, qui essent Italici philosophi quondam
+nominati, numquam dubitasse quin ex universa mente
+divina delibatos animos haberemus. <reg>demonstrabantur</reg> mihi praeterea quae Socrates supremo vitae
+die de immortalitate animorum disseruisset, is qui
+esset omnium sapientissimus oraculo Apollinis iudicatus. <reg>quid</reg> multa? <name>Sic</name> mihi persuasi, sic sentio,
+cum tanta celeritas animorum sit, tanta memoria
+
+<pb id="p.90"/>
+
+praeteritorum futurorumque prudentia, tot artes,
+tantae scientiae, tot inventa, non posse <corr sic="earn">eam</corr> naturam,
+quae res eas contineat, esse mortalem; cumque
+semper agitetur animus nec principium motus habeat,
+quia se ipse moveat, ne finem quidem habiturum
+esse motus, quia numquam se ipse sit relicturus;
+et cum simplex animi natura esset neque haberet in
+se quicquam admixtum dispar sui atque dissimile,
+non posse eum dividi, quod si non posset, non posse
+interire; magnoque esse argumento homines scire
+pleraque ante quam nati sint, quod iam pueri, cum
+artis difficilis discant, ita celeriter res innumerabilis
+arripiant, ut eas non tum primum accipere videantur,
+sed reminisci et recordari. <reg>haec</reg> Platonis fere.</p>
+<p><milestone unit="section" n="79"/><milestone unit="chapter" n="22"/><reg>apud</reg> Xenophontem autem moriens Cyrus
+maior haec dicit: <quote>nolite arbitrari, o mihi carissimi
+filii, me, cum a vobis discessero, nusquam aut nullum
+fore. <reg>nec</reg> enim, dum eram vobiscum, animum meum
+videbatis, sed eum esse in hoc corpore ex eis rebus
+quas gerebam intellegebatis. <reg>eundem</reg> igitur esse
+creditote, etiam si nullum videbitis.<milestone unit="section" n="80"/><reg>nec</reg> vero
+clarorum virorum post mortem honores permanerent, si nihil eorum ipsorum animi efficerent, quo
+diutius memoriam sui teneremus. <reg>mihi</reg> quidem
+numquam persuaderi potuit animos dum in corporibus essent mortalibus vivere, cum excessissent ex
+eis emori; nec vero tum animum esse insipientem
+cum ex insipienti corpore evasisset, sed cum omni
+
+<pb id="p.92"/>
+
+admixtione corporis liberatus purus et integer esse
+coepisset, tum esse sapientem. <reg>atque</reg> etiam, cum
+hominis natura morte dissolvitur, ceterarum <corr sic="rerun">rerum</corr>
+perspicuum est quo quaeque discedat, abeunt enim
+illuc omnia, unde orta sunt; animus autem solus nec
+cum adest nec cum discessit apparet. <reg>iam</reg> vero
+videtis nihil esse morti tam simile quam somnum.
+<milestone unit="section" n="81"/><reg>atqui</reg> dormientium animi maxime declarant divinitatem suam; multa enim, cum remissi et liberi sunt,
+futura prospiciunt; ex quo intellegitur quales
+futuri sint, cum se plane corporis vinculis relaxaverint. <reg>qua</reg> re, si haec ita sunt, sic me colitote,</quote>
+inquit, <quote>ut deum, sin una est interiturus animus cum
+corpore, vos tamen, deos verentes, qui hanc omnem
+pulchritudinem tuentur et regunt, memoriam nostri
+pie inviolateque servabitis.</quote> <milestone unit="chapter" n="23"/><name>Cyrus</name> quidem
+haec moriens; nos, si placet, nostra videamus.</p>
+<p><milestone unit="section" n="82"/><reg>nemo</reg> umquam mihi, Scipio,persuadebit aut patrem
+tuum Paulum, aut duos avos Paulum et Africanum,
+aut Africani patrem aut patruum, aut multos praestantis viros, quos enumerare non est necesse, tanta
+esse conatos quae ad posteritatis memoriam pertinerent, nisi animo cernerent posteritatem ad ipsos
+pertinere. <reg>anne</reg> censes, ut de me ipse aliquid more
+senum glorier, me tantos labores diurnos nocturnosque domi militiaeque suscepturum fuisse, si isdem
+finibus gloriam meam quibus vitam essem termina-
+
+<pb id="p.94"/>
+
+turus? <reg>nonne</reg> melius multo fuisset otiosam et
+quietam aetatem sine ullo labore et contentione
+traducere? <reg>sed</reg> nescio quo modo animus erigens se
+posteritatem ita semper prospiciebat, quasi, cum
+excessisset e vita, tum denique victurus esset. <reg>quod</reg>
+quidem ni ita se haberet ut animi immortales essent,
+haud optimi cuiusque animus maxime ad immortalitatis gloriam niteretur. <reg>quid</reg> quod sapientissimus quisque aequissimo animo moritur,<milestone unit="section" n="83"/>stultissimus
+iniquissimo, nonne vobis videtur is animus, qui plus
+cernat et longius, videre se ad meliora proficisci,
+ille autem, cuius obtusior sit acies, non videre?</p>
+<p><reg>equidem</reg> efferor studio patres vestros quos colui
+et dilexi videndi, neque vero eos solum convenire
+aveo, quos ipse cognovi, sed illos etiam, de quibus
+audivi et legi et ipse conscripsi; quo quidem me
+proficiscentem haud sane quid facile retraxerit, nec
+tamquam <corr sic="Pelian">Peliam</corr> recoxerit. <reg>et</reg> si quis deus mihi
+largiatur ut ex hac aetate repuerascam et in cunis
+vagiam, valde recusem, nec vero velim quasi decurso
+spatio ad carceres a calce revocari.<milestone unit="section" n="84"/><reg>quid</reg> habet
+enim vita commodi? <reg>quid</reg> non potius laboris? <reg>sed</reg>
+habeat sane; habet certe tamen aut satietatem
+aut modum. <reg>non</reg> libet enim mihi deplorare vitam,
+quod multi et ei docti saepe fecerunt, neque me
+vixisse paenitet, quoniam ita vixi, ut non frustra
+
+<pb id="p.96"/>
+
+me natum existimem, et ex vita ita discedo tamquam
+ex hospitio, non tamquam e domo; commorandi
+enim natura <corr sic="divorsorium">devorsorium</corr> nobis, non habitandi dedit.</p>
+<p>O praeclarum diem cum in illud divinum animorum
+concilium coetumque proficiscar cumque ex hac
+turba et colluvione discedam! <reg>proficiscar</reg> enim non
+ad eos solum viros, de quibus ante dixi, verum etiam
+ad Catonem meum, quo nemo vir melior natus est,
+nemo pietate praestantior, cuius a me corpus est
+crematum, quod contra decuit ab illo meum, animus
+vero non me deserens sed respectans, in ea profecto
+loca discessit quo mihi ipsi cernebat esse veniendum.
+<reg><corr sic="quern">quem</corr></reg> ego meum casum fortiter ferre visus sum, non
+quo aequo animo ferrem, sed me ipse consolabar
+existimans non longinquum inter nos digressum et
+discessum fore.</p>
+<p><milestone unit="section" n="85"/><reg>His</reg> mihi rebus, Scipio, id enim te cum Laelio
+admirari solere dixisti, levis est senectus, nec solum
+non molesta, sed etiam iucunda. <reg>quod</reg> si in hoc
+erro, qui animos hominum immortalis esse credam,
+libenter erro nec mihi hunc errorem, quo delector,
+dum vivo, extorqueri volo; sin mortuus, ut quidam
+minuti philosophi censent, nihil sentiam, non vereor
+ne hunc errorem meum philosophi mortui irrideant.
+<reg>quod</reg> si non sumus immortales futuri, tamen exstingui
+homini suo tempore optabile est. <reg>nam</reg> habet natura,
+ut aliarum omnium rerum, sic vivendi modum.
+<reg>senectus</reg> autem aetatis est peractio tamquam fabulae,
+
+<pb id="p.98"/>
+
+cuius defetigationem<note>defetigationem <hi rend="italics">IRS, Reid;</hi> defectionem <hi rend="italics">QE, M&uuml;ller.</hi></note> fugere debemus, praesertim
+adiuncta satietate.</p>
+<p><reg>haec</reg> habui de senectute quae dicerem, ad quam
+utinam veniatis, ut ea, quae ex me audistis, re
+experti probare possitis!</p>
+</body>
+</text>
+</group>
+</text>
+</TEI.2>

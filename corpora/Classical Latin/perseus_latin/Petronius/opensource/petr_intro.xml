@@ -1,0 +1,448 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+    <teiHeader type="text" status="new">
+        <fileDesc>
+            <titleStmt>
+                <title type="work">Satyricon, Fragmenta, and Poems: introduction</title>
+                <title type="sub">Machine readable text</title>
+                <author n="Petr.">Petronius</author>
+                <editor role="editor">Michael Heseltine</editor>
+                &responsibility; &fund.AnnCPB;</titleStmt>
+            <extent>About 100Kb</extent> &Perseus.publish;<sourceDesc>
+                <biblStruct>
+                    <monogr>
+                    	<author>Petronius Arbiter</author>
+                        <title>Petronius</title>
+                    	<editor role="editor" n="Heseltine">Michael Heseltine</editor>                        
+                    	<imprint>
+                            <pubPlace>London</pubPlace>
+                            <publisher>William Heinemann</publisher>
+                            <date>1913</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <refsDecl doctype="TEI.2">
+                <state unit="text"/>
+            </refsDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language id="en">English</language>
+            	<language id="greek">Greek</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+            <change>
+                <date>2006</date>
+                <respStmt>
+                    <name>GRC</name>
+                    <resp>tagging</resp>
+                </respStmt>
+                <item/>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+	<text>
+		<body>
+<!--			<pb id="p.v"/> 
+			<div1><head>CONTENTS</head>
+				<p>PETRONIUS</p>
+				<p>Introduction <ref target="p.vii">vii</ref></p>
+				<p>Satyricon <ref target="p.1">1</ref></p>
+				<p>Fragments <ref target="p.325">325</ref></p>
+				<p>Poems <ref target="p.339">339</ref></p>
+				<p>SENECA</p>
+				<p>Apocolocyntosis <ref target="p.365">365</ref></p>
+			</div1>-->
+			
+			<pb id="p.vii"/>
+			<div1 type="text" n="front">
+			<div2 type="chapter" n="intro"><head>INTRODUCTION</head>
+				<p>THE author of the <hi rend="italics">Satyricon</hi> is identified by the large
+					majority of scholars with Gaius Petronius,<note>He is called Titus Petronius by
+						Plutarch (De Adulatore et Amico, 27).</note> the courtier of Nero. There is a
+					long tradition in support of the identification, and the probability that it is
+					correct appears especially strong in the light of Tacitus's account of the character
+					and death of Gaius Petronius in the eighteenth and nineteenth chapters of the
+					sixteenth book of the Annals. Mr. John Jackson has translated the passage as
+					follows:</p>
+				<p>"Petronius deserves a word in retrospect. He was a man who passed his days in sleep,
+					his nights in the ordinary duties and recreations of life: others had achieved
+					greatness by the sweat of their brows&mdash; Petronius idled into fame. Unlike
+					most who walk the road to ruin, he was never regarded as either debauchee or
+					wastrel, but rather as the finished artist in extravagance. In both word and action,
+					he displayed a freedom and a sort of self-abandonment which were welcomed as the
+					indiscretions of an unsophisticated nature. Yet, in his proconsulship of Bithynia,
+					and later as consul elect, he showed himself an energetic and capable administrator.
+					Then came the revulsion: his genuine or affected vices won him admittance into the
+					narrow circle of Nero's intimates, and he became the Arbiter of Elegance, whose
+					sanction alone divested pleasure of vulgarity and luxury of grossness.</p>
+				<pb id="p.viii"/>
+				<p>"His success aroused the jealousy of Tigellinus against a possible rival&mdash;a
+					professor of voluptuousness better equipped than himself. Playing on the emperor's
+					lust for cruelty, to which all other lusts were secondary, he suborned a slave to
+					turn informer, charged Petronius with his friendship for Scaevinus, deprived him of
+					the opportunity of defence, and threw most of his household into prison.</p>
+				<p>
+					<quote>At that time, it happened, the court had migrated to Campania; and Petronius
+						had reached Cumae, when his detention was ordered. He disdained to await the
+						lingering issue of hopes and fears: still, he would not take a brusque farewell
+						of life. An incision was made in his veins: they were bound up under his
+						directions, and opened again, while he conversed with his friends&mdash;not
+						on the gravest of themes, nor in the key of the dying hero. He listened to no
+						disquisitions on the immortality of the soul or the dogmas of philosophy, but to
+						frivolous song and playful verses. Some of his slaves tasted of his bounty,
+						others of the whip. He sat down to dinner, and then drowsed a little; so that
+						death, if compulsory, should at least be natural. Even in his will, he broke
+						through the routine of suicide, and flattered neither Nero nor Tigellinus nor
+						any other of the mighty: instead, he described the emperor's enormities; added a
+						list of his catamites, his women, and his innovations in lasciviousness; then
+						sealed the document, sent it to Nero, and broke his signet-ring to prevent it
+						from being used to endanger others.</quote>
+				</p>
+				<p>The reflection arises at once that, given the <hi rend="italics">Satyricon,</hi> this
+					kind of book postulates this kind of author. The loose tongue, the levity, and the
+					love of style are common to both. If books betray their writers<pb id="p.ix"/>
+					characteristics, Gaius Petronius, as seen by Tacitus, had the imagination and
+					experience needed to depict the adventures of Encolpius.</p>
+				<p>There is a little evidence, still based on the primary assumption, more exact in its
+					bearing. The <hi rend="italics">Satyricon</hi> contains a detailed criticism of and
+					a poem directed against the style of a writer who must be Lucan. Gaius Petronius was
+					not the man to pass over the poet, epigrammatist, and courtier, in whose epoch and
+					circle he himself shone. He may have deplored Lucan's poetic influence, but he could
+					not neglect it, for Lucan was essentially the singer of his own day. No age was so
+					favourable as that of Nero for the introduction into a supremely scandalous tale of
+					a reasoned and appreciative review of the <hi rend="italics">Pharsalia,</hi> the
+					outstanding poem of the time.</p>
+				<p>The criticism of the schools of rhetoric in their effect upon education and language,
+					and the general style of the book in reflective and descriptive passages, point more
+					vaguely to a similar date of composition.</p>
+				<p>Gaius Petronius found in his work a form which allowed complete expression to the
+					many sides of his active and uncontrolled intellect. Its loose construction is
+					matched by its indifference to any but stylistic reforms; it draws no moral; it is
+					solely and properly occupied in presenting an aspect of things seen by a loiterer at
+					one particular corner of the world. What we possess of it is a fragment, or rather a
+					series of excerpts from the fifteenth and sixteenth books, we know not how
+					representative of the original whole.</p>
+				<pb id="p.x"/>
+				<p>Of this the best-known portion, the description of Trimalchio's dinner, was hidden
+					from the modern world until the middle of the seventeenth century, and was first
+					printed in 1664.<note>See section on the text, <hi rend="italics">codex
+						Traguriensis.</hi></note></p>
+				<p>It is as difficult to grasp any structural outline in the <hi rend="italics"
+					>Satyricon</hi> as it is in <hi rend="italics">Tristram Shandy.</hi> Both
+					alternate with flashing rapidity between exhibitions of pedantry, attacks on
+					pedants, and indecency, in which Sterne is the more successful because he is the
+					less obvious.</p>
+				<p>But Petronius, so far as his plan was not entirely original, was following as model
+					Varro's Menippean satires, and had before him the libel of Seneca on Claudius, the
+					<hi rend="italics">Apocolocyntosis.</hi> The traditional title of his work, <hi
+						rend="italics">Satyricon,</hi> is derived from the word <hi rend="italics"
+							>Satura, a medley,</hi> and means that he was free to pass at will from subject
+					to subject, and from prose to verse and back: it is his achievement that the threads
+					of his story, broken as we hold them, yet show something of the colour and variety
+					of life itself. We call his book a novel, and so pay him a compliment which he alone
+					of Roman writers has earned.</p>
+				<p>Petronius's novel shares with life the quality of moving ceaselessly without knowing
+					why. It differs from most existences in being very seldom dull. An anonymous writer
+					of the eighteenth century, making Observations on the Greek and Roman Classics in a
+					Series of Letters to a Young Nobleman,<note>Published in London, 1753.</note> is of
+					the opinion that: <quote>You will in no Writer, my dear Lord, meet with so much true
+						delicacy of thought, in none with purer language.</quote> This judgment is<pb
+							id="p.xi"/> meant for the age of Smollett and Fielding; but there is no question
+					of the justice of the later remark:<quote>You will be charmed with the ease, and you
+						will be surprised with the variety of his characters.</quote></p>
+				<p>These characters are one and all the product of a period in history when the primary
+					aim of the ripest civilization in the world was money-making. It was this aim which
+					drew Trimalchio from his unknown birthplace in Asia Minor to the glitter and luxury
+					and unnatural passion of a South Italian town. He differs from the minor personages
+					who crowd his dining-room only in the enormous success with which he has plied the
+					arts of prostitution, seduction, flattery and fraud. The persons in whom the action
+					of the novel centres, Encolpius, the mouthpiece of the author, Ascyltos, and Giton,
+					are there by the kindness of Agamemnon, a parasite teacher of the rhetoric which ate
+					swiftly into the heart of Latin language and thought. Giton lives by his charms,
+					Ascyltos is hardly more than a foil to Encolpius, a quarrelsome and lecherous butt.</p>
+				<p>That part of the novel which deals with Trimalchio's dinner introduces a crowd of
+					characters, and gives the most vivid picture extant in classical literature of the
+					life of the small town. The pulsating energy of greed is felt in it everywhere. Men
+					become millionaires with American rapidity, and enjoy that condition as hazardously
+					in Cumae as in Wall Street. The shoulders of one who wallows in Trimalchio's
+					cushions are still sore with carrying firewood for sale; another, perhaps the first
+					undertaker who made a fortune out of extravagant funerals, a gourmet and
+					spendthrift, sits there composing lies to baffle his hungry creditors. Trimalchio
+					towers above them by<pb id="p.xii"/> reason of his more stable fortunes and his
+					colossal impudence. He can afford to delegate the conduct of his business, to grow a
+					little negligent, even&mdash;for his accounts are six months in
+					arrear&mdash;to care for the life of the spirit.</p>
+				<p>He believes, of course, in astrology; he sings excerpts out of tune from the last
+					musical play, and takes phrases from the lips of the comic star whom Nero delights
+					to honour. He has two<note>The MS. says three, and may be right; he is drunk when he
+						boasts of them.</note> libraries, one of Greek, one of Latin books, and
+					mythology courses through his brain in incorrigible confusion.</p>
+				<p>His fellow townsmen and guests, whom he insults, do not aspire to these heights.
+					Dama, Seleucus, and Phileros are rich merely in the common coin of everyday talk, in
+					the proverbial wisdom which seems to gather strength and brightness from being
+					constantly exchanged. <quote>A hot drink is as good as an
+						overcoat</quote>&mdash;<quote>Flies have their virtues, we are nothing but
+							bubbles</quote>&mdash;<quote>An old love pinches like a
+								crab</quote>&mdash;<quote>It is easy when everything goes fair and
+									square.</quote> In these phrases and their like literature speaks to us for once in
+					the tones we know in England through Justice Shallow or Joseph Poorgrass. Nearly all
+					warm themselves with this fatuous talk of riches and drink and deaths, but one man,
+					Ganymede, a shrewd Asiatic immigrant like Trimalchio himself, blows cold on their
+					sentimentality with his searching talk of bread-prices in Cumae, rising pitilessly
+					through drought and the operation of a ring of bakers in league with officials. He
+					tells us in brilliant phrases of the starving poor, of the decay of religion, of
+					lost pride in using good flour. Then Echion, an old<pb id="p.xiii"/> clothes dealer,
+					overwhelms him with a flood of suburban chatter about games, and children, and
+					chickens, and the material blessings of education. But Ganymede is the sole
+					character in Petronius's novel who brings to light the reverse side of Trimalchio's
+					splendour. A system of local government which showers honours upon vulgarity, and
+					allows Trimalchio his bath, his improved sanitation, his host of servants, his house
+					with so many doors that no guest may go in and out by the same one, is invariably
+					true to type in leaving poor men to die in the streets. The very existence of
+					poverty becomes dim for Trimalchio, half unreal, so that he can jest at Agamemnon
+					for taking as the theme of a set speech the eternal quarrel of rich and poor.</p>
+				<p>Between rich and poor in Cumae the one link is commerce in vice. Trimalchio finds
+					Fortunata the chorus-girl standing for sale in the open market, and calls her up to
+					be the partner of his sterile and unmeaning prodigality. She has learnt all the
+					painful lessons of the slums; she will not grace Trimalchio's table until dinner is
+					over, and she has seen the plate safely collected from his guests, and the broken
+					meats apportioned to his slaves; she knows the sting of jealousy, and the solace of
+					intoxication or tears; normally she rules him, as Petruchio ruled Katharine, with
+					loud assertion and tempest of words. The only other woman present at the dinner,
+					Scintilla, the wife of Trimalchio's friend Habinnas, a monumental mason, is more
+					drunken and unseemly, and leaves behind her a less sharp taste of character.</p>
+				<p>Trimalchio's dinner breaks up with a false alarm of fire, and the infamous heroes of
+					the story give Agamemnon the slip. Trimalchio vanishes, and with his loss<pb
+						id="p.xiv"/> the story becomes fragmentary once more, and declines in interest
+					almost as much as in decency. Its attraction lies in the verse and criticism put
+					into the mouth of Eumolpus, a debased poet whom Encolpius meets in a picture
+					gallery. With him the adventures of the trio continue. There is a lodging-house
+					brawl, a voyage where they find themselves in the hands of old enemies, the ship's
+					captain Lichas, whose wife Hedyle they appear to have led astray, and Tryphaena, a
+					peripatetic courtesan who takes the Mediterranean coast for her province, and has
+					some unexplained claim on Giton's affections. They settle these disputes only to be
+					involved in a shipwreck and cast ashore at Croton, where they grow fat on their
+					pretension to be men of fortune, and disappear from sight, Encolpius after a
+					disgraceful series of vain encounters with a woman named Circe, and Eumolpus after a
+					scene where he bequeaths his body to be eaten by his heirs.</p>
+				<p>Coherence almost fails long before the end: the episode in which Encolpius kills a
+					goose, the sacred bird of Priapus, gives a hint, but no more, that the wrath of
+					Priapus was the thread on which the whole<hi rend="italics">Satyricon</hi> was
+					strung. But the life of the later portions of the novel lies in the critical and
+					poetical fragments scattered through it. These show Petronius at his best as a lord
+					of language, a great critic, an intelligent enthusiast for the traditions of
+					classical poetry and oratory. The love of style which was stronger in him even than
+					his interest in manners doubly enriches his work. It brings ready to his pen the
+					proverbs with their misleading hints of modernity,<note>See especially c. 41 to 46,
+						57 to 59.</note> the debased syntax and abuse of gender, which fell from
+					common<pb id="p.xv"/> lips daily, but is reproduced here alone in its
+					fullness;<note>See e.g. the notes of Buecheler or Friedlaender on the verbs<hi
+						rend="italics">apoculamus</hi> (c. 62), <hi rend="italics">duxissenz</hi>
+						(c. 57), <hi rend="italics">plovebat</hi> (c. 44), <hi rend="italics"
+							>percolopabant</hi> (c. 44), the nouns <hi rend="italics">agaga</hi> (c.
+						69), <hi rend="italics">babaecalis</hi> (c. 37),<hi rend="italics"
+							>bacalusias</hi> (c. 41), <hi rend="italics">barcalae</hi> (c. 67), <hi
+								rend="italics">burdubasta</hi> (c. 45), <hi rend="italics">gingilipho</hi>
+						(c. 73), and such expressions as <hi rend="italics">caelus hic</hi> (c. 39), <hi
+							rend="italics">malus Fatzhs</hi> (c. 42), <hi rend="italics">olim
+								oliorum</hi> (c. 43), <hi rend="italics">nummorum Izzmmos</hi> (c. 37), and the
+						Graecisms <hi rend="italics">saplutus</hi> and <hi rend="italics">topanta</hi>
+						(c. 37).</note> and side by side with these mirrored vulgarisms the gravity of
+					the attack on professional rhetoric with which the novel begins, and the weight of
+					the teacher's defence, that the parent will have education set to a tune of his own
+					calling; Eumolpus's brilliant exposition of the supremacy of the poet's task over
+					that of the rhetorician or historian; the curious, violent, epic fragment by which
+					he upholds his doctrine.</p>
+				<p>Petronius employed a pause in literary invention and production in assimilating and
+					expressing a view upon the makers<note>e.g. c. I to 5, 55, 83, 88, 118.</note> of
+					poems, prose, pictures, philosophies, and statues, who preceded him, and thereby
+					deepened his interpretation of contemporary life. His cynicism, his continual
+					backward look at the splendours and severities of earlier art and other morals, are
+					the inevitable outcome of this self-education.</p>
+				<p>By far the most genuine and pathetic expressions of his weariness are the poems which
+					one is glad to be able to attribute to him. The best of them speak of quiet country
+					and seaside, of love deeper than desire and founded on the durable grace of mind as
+					well as the loveliness of the flesh, of simplicity and escape from Court.<note>See
+						e.g. Poems 2, 8, 11, 13&ndash;15, and 22; of the love-poems, 25 and 26, but
+						above all 16 and 27, which show (if they can be by him) a side of Petronius
+						entirely hidden in the Satyricon.</note></p>
+				<pb id="p.xvi"/>
+				<p>He knew the antidote to the fevered life which burnt him up. His book is befouled
+					with obscenity, and, like obscenity itself, is ceasing by degrees to be part of a
+					gentleman's education. But he will always be read as a critic; he tells admirable
+					stories of werewolves and faithless widows;<note>In c.61 through Niceros, in c. 63
+						through Trimalchio, and in c. 111 through Eumolpus (the famous and cosmopolitan
+						tale of the Widow of Ephesus).</note> he is one of the very few novelists who
+					can distil common talk to their purpose without destroying its flavour. The
+					translator dulls his brilliance, and must leave whole pages in the decent obscurity
+					of Latin: he is fortunate if he adds a few to those who know something of Petronius
+					beyond his name and the worst of his reputation.</p>
+				<p>The thanks of the editors and the translator are due to Messrs. Weidmann of Berlin,
+					who have generously placed at their disposal a copyright text of the<hi
+						rend="italics">Satyricon,</hi> the epoch-making work of the late Professor
+					Buecheler.</p>
+				<p>Mr. H. E. Butler, Professor of Latin in the University of London, is responsible for
+					the selection of critical notes from Buecheler's <hi rend="italics">editio
+						maior,</hi> the Introduction to and text of the poems, and the Bibliography: the
+					translator is indebted to him and to the editors for invaluable assistance in
+					attempting to meet the difficulties which a rendering of Petronius continues to
+					present.</p>
+				<closer>
+					<signed>MICHAEL HESELTINE.</signed>
+				</closer>
+			</div2>
+			
+			<pb id="p.xvii"/>
+			
+			<div2 type="chapter" n="text"><head>THE TEXT OF PETRONIUS</head>
+				<p>The sources for the text of Petronius fall into three groups.</p>
+				<p>(1) The <hi rend="italics">codex Leidensis</hi> (Q61) written by Scaliger and the
+					editions of the de Tournes (Tornaesius) 1575 and Pithou (Pithoeus) 1577. These are
+					our authorities for the fuller collection of excerpts. This source is known as L.</p>
+				<p>(2) A number of MSS. of which <hi rend="italics">codex Bernensis</hi> (357) of the
+					10th century is typical. This group is our authority for the abridged collection of
+					excerpts and is known collectively as O.</p>
+				<p>(3) The <hi rend="italics">codex Traguriensis</hi> (Paris 7989) of the 15th century,
+					which, save for a very few brief excerpts in L and O, is our sole authority for the
+					<hi rend="italics">cena Trimalchionis.</hi> This MS. was discovered in 1650 at
+					Trau in Dalmatia. It is known as H.</p>
+				<p>The text was not put on a scientific basis till the appearance of Buecheler's <hi
+					rend="italics">Editio maior</hi> in 1862.</p>
+				<p>In the Apparatus Criticus the source of the most important corrections is stated, and
+					followed by the reading given by Buecheler in his <hi rend="italics">editio
+						minor</hi> as the probable reading of the archetype or as the oldest reading
+					available. The sources from which the different portions of the text are derived are
+					indicated by the letters in the margin of the text.</p>
+				<pb id="p.xviii"/>
+				<p>SIGLA</p>
+				<p>L = codex Scaligeranus, and editions of Tornaesius and Pithoeus.</p>
+				<p>O = MSS. containing abridged excerpts of which cod. Bernensis may be regarded as
+					typical.</p>
+				<p>H = codex Traguriensis, our sole source for the<hi rend="italics">Cena
+					Trimalchionis.</hi></p>
+				<p>NOTE. A great number of minor corrections and alternative readings are, owing to the
+					demands of space, omitted from the critical notes.</p>
+			</div2>
+        	
+            <pb id="p.xix"/>
+           
+			<div2 type="chapter" n="biblio">
+				<head>BIBLIOGRAPHY</head>
+				<div3 type="section" n="1">
+					<head>MOST IMPORTANT EDITIONS: I. PREVIOUS TO DISCOVERY OF <hi rend="italics">Cena
+						Trinmalchionis.</hi></head>
+					<p>1482 Editio Princeps.</p>
+					<p><hi rend="italics">Scriptores Panegyrici Latini,</hi> containing (1) Pliny the
+						younger's <hi rend="italics">Panegyricus.</hi> (2) Ten other panegyrics by various
+						authors on diverse emperors. (3) The <hi rend="italics">Agricola</hi> of Tacitus.
+						(4)<hi rend="italics">Petronii arbitri satyrici fragmenta: quae extant.</hi>
+						Printed by Antonius Zarotus at Milan; the date is approximate.</p>
+					<p>1565 The edition of Johannes Sambucus, who made use of an old MS. of his own, and
+						added a certain amount not previously printed. Antwerp (Chr. Plantin).</p>
+					<p>1575 The edition of Jean de Tournes (Tornaesius) based (among other sources) on codex
+						Cuiacianus, afterwards used by Scaliger. Lyons (J. Tornaesius).</p>
+					<p>1577 The edition of P. Pithou (Pithoeus) based on three MSS. now lost. Paris (M.
+						Patissonius).</p>
+					<p>1583 The edition of Ian. Dousa with notes. Leyden (Io. Paetsius).</p>
+					<p>1610 The edition of Melchior Goldastus with notes. Frankfort (Io. Bringerfor I. Th.
+						Schoenwetter).</p>
+				</div3>
+				<div3 type="section" n="2">
+					<head>II. SUBSEQUENT TO DISCOVERY OF <hi rend="italics">Cena Trimalchionis.</hi></head>
+					<div4 type="subsection" n="1">
+						<head>i. Editions of <hi rend="italics">Cena.</hi></head>
+						<p>1664 <hi rend="italics">Petronii Fragmentum Traguriense.</hi> Padua (P. Frambotti).</p>
+						<p>1664 <foreign lang="greek">ANEKDOTON</foreign>
+							<hi rend="italics">ex Petronii Satirico,</hi> with introduction and notes by Jo.
+							Caius Telebomenus (Jacobus Mentelius). Paris (E. Martin).</p>
+						<pb id="p.xx"/>
+						<p>1665 <hi rend="italics">Petronii Fragmentum</hi> with notes by Io. Scheffer. Upsala
+							(Henr. Curio).</p>
+						<p>1666 <hi rend="italics">Petronii Fragmentum</hi> ed. Th. Reinesius. Leipzig (Chr.
+							Michael for Sigism. Coerner).</p>
+					</div4>
+					<div4 type="subsection" n="2">
+						<head>ii. Complete Editions.</head>
+						<p>1669 The edition of M. Hadrianides. Amsterdam (J. Blaeu).</p>
+						<p>1709 The edition of P. Burmann with copious notes. Utrecht (Guil. van de Water). This
+							is the last complete commentary.</p>
+						<p>1862 The <hi rend="italics">editio maior</hi> of F. Buecheler. Berlin (Weidmann).</p>
+						<p>1862 The <hi rend="italics">editio minor</hi> of the same: 4th edition on which this
+							text is based 1904: 5th edition revised by W. Heraeus 1911.</p>
+					</div4>
+					<div4 type="subsection" n="3">
+						<head>iii. Modern Editions <hi rend="italics">of Cena.</hi></head>
+						<p>1891 <hi rend="italics">Cena Trimalchionis</hi> with German notes and translations by
+							L. Friedlaender. Leipzig (Hirzel). Second edition 1906.</p>
+						<p>1902 <hi rend="italics">Cena Trimalchionis</hi> with English notes by W. E. Waters.
+							Boston (B. H. Sanborn).</p>
+						<p>1905 <hi rend="italics">Cena Trimalchionis</hi> with English notes and translation by
+							W. D. Lowe. Cambridge (Deighton Bell).</p>
+						<p>1905 <hi rend="italics">Cena Trimalchionis</hi> with English notes and translation by
+							M. J. Ryan. London (Walter Scott Publishing Co.).</p>
+					</div4>
+					<div4 type="subsection" n="4"><head>iv. The <hi rend="italics">Bellum Civile.</hi></head>
+						<p>1911 The <hi rend="italics">Bellum Civile</hi> of Petronius, with English notes and
+							translation by Florence T. Baldwin. New York (Columbia University Press).</p>
+					</div4>
+				</div3>
+				<pb id="p.xxi"/>
+				<div3 type="section" n="3">
+					<head>ENGLISH TRANSLATIONS</head>
+					<p>1694 The Satyr of Petronius by Mr. Burnaby. London (S. Briscoe).</p>
+					<p>1736 The Works of Petronius by Mr. Addison. London (J. Watts).</p>
+					<p>1854 and 1880 Petronius by W. K. Kelly. London (Bohn and G. Bell &amp; Sons).</p>
+					<p>1898 Trimalchio's Dinner. H. T. Peck. New York (Dodd, Mead and Co.).</p>
+					<div4 type="subsection" n="1">
+						<head>THE POEMS ATTRIBUTED TO PETRONIUS.</head>
+						<p><hi rend="italics">Poetae Latini Minores,</hi> vol. 4. Baehrens (Teubner Series).</p>
+						<p><hi rend="italics">Editio minor</hi> of Buecheler.</p>
+					</div4>
+					<div4 type="subsection" n="2">
+						<head>THE MSS. OF PETRONIUS.</head>
+						<p>1863 The MSS. of the Satyricon of Petronius Arbiter described and collated by Charles
+							Beck. Cambridge MSS. (Riverside Press).</p>
+						<p><hi rend="italics">Editio maior</hi> of Buecheler.</p>
+					</div4>
+					<div4 type="subsection" n="3">
+						<head>CRITICISMS AND APPRECIATIONS OF PETRONIUS.</head>
+						<p>1856 The Age of Petronius by Charles Beck. Cambridge, Mass. (Metcalf).</p>
+						<p>1875 L'Opposition sous les C&eacute;sars by Gaston Boissier (Un Roman de moeurs
+							sous N&eacute;ron). Paris (Hachette).</p>
+						<p>1892 Etude sur P&eacute;trone by A. Collignon. Paris (Hachette).</p>
+						<p>1898 Studies in Frankness by C. Whibley (p. 27). London (Heinemann).</p>
+						<pb id="p.xxii"/>
+						<p>1902 P&eacute;trone by E. Thomas. Paris (Fontemoing).</p>
+						<p>1903 Roman Society from Nero to M. Aurelius by S. Dill (pp. 120&ndash;137).
+							London (Macmillan).</p>
+						<p>1905 Life and Principate of the Emperor Nero by B. Henderson (pp. 291&ndash;4).
+							London (Methuen).</p>
+						<p>1909 Post-Augustan Poetry by H. E. Butler (p. 125). Oxford (Clarendon Press).</p>
+					</div4>
+					<div4 type="subsection" n="4"><head>BIBLIOGRAPHY.</head>
+						<p>1910 The Bibliography of Petronius by S. GaseleeLondon (East and Blades).<note>The
+							present bibliography is based entirelyon this erudite bibliographical
+							work.</note></p></div4>
+					<div4 type="subsection" n="5"><head>FORGED FRAGMENTS.</head>
+						<p>In 1692, fragments, forged by a Frenchman named Nodot, were printed in the edition
+							published by Leers, at Rotterdam.</p>
+						<p>In 1800 another forgery appeared. The author was a Spaniard named Joseph Marchena.
+							<hi rend="italics">Fragmentum Petronii ex bibl. Sti. Gall. gallice vertit ac
+								notis perpetuis illustravit Lallemandus, S. Theologiae Doctor,</hi> 1800.</p>
+					</div4>
+				</div3>
+			</div2>
+            </div1>
+        </body>
+    </text>
+</TEI.2>

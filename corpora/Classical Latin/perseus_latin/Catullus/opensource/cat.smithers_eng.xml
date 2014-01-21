@@ -1,0 +1,1918 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersVerse PUBLIC "-//Perseus P4//DTD Perseus Verse//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersVerse.dtd" >
+%PersVerse;
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title>Carmina</title>
+				<title type="sub">Machine readable text</title>
+				<author n="Catul.">C. Valerius Catullus</author>
+				<editor role="editor" n="Smithers">Leonard C. Smithers</editor> &responsibility;
+                &fund.NEH; </titleStmt>
+			<extent>about 130Kb</extent> &Perseus.publish; <sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Catullus</author>
+						<title>The Carmina of Gaius Valerius Catullus.</title>
+						<editor role="editor">Leonard C. Smithers</editor>
+						<imprint>
+							<pubPlace>London</pubPlace>
+							<publisher>Smithers.</publisher>
+							<date>1894</date>
+						</imprint>
+					</monogr>
+					<idno type="OCLC">878062</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<step delim="." refunit="poem" from="DESCENDANT (1 DIV1 N %1)"/>
+				<step refunit="line" from="DESCENDANT (1 MILESTONE UNIT line N %2)"/>
+			</refsDecl>
+		</encodingDesc>
+
+		<profileDesc>
+			<langUsage>
+				<language id="en">English</language>
+			</langUsage>
+		</profileDesc>
+
+		<revisionDesc>
+			<change>
+				<date>Jan 1998</date>
+				<respStmt>
+					<name>WM</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>public domain text of Burton translation scanned and proofread by RO, WM, JB,
+                    RC; prose text modernized and corrected to ET Merrill text.</item>
+			</change>
+			<change>
+				<date>3 August 1999</date>
+				<respStmt>
+					<name>David Smith</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item> 
+$Log: cat.smithers_eng.xml,v $
+Revision 1.4  2010-07-06 16:02:34  rsingh04
+fixed CVS log keyword some more
+
+Revision 1.3  2010/07/06 15:59:28  rsingh04
+fixed CVS log keyword
+
+Revision 1.1 2009/10/09 19:49:24 rsingh04 
+more reorganizing of texts module by collection 
+
+Revision 1.5 2008/11/14 21:10:45 lcerrato 
+changed author name to make consistent 
+
+Revision 1.4 2006/05/05 17:37:59 packel 
+fixed date tags 
+
+Revision 1.3 2006/02/10 20:50:16 packel 
+places/dates now actually tagged 
+
+Revision 1.2 2005/08/01 15:56:09 packel 
+removed stray item tags
+
+Revision 1.1 2005/07/25 14:30:44 packel 
+Converted to XML 
+
+Revision 1.4 2003/07/01 22:14:50 yorkc 
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.) 
+
+Revision 1.3 2000/03/04 20:34:08 dasmith
+Added separate funder entity to TEI header. 
+
+Revision 1.2 2000/01/20 01:04:58 dasmith 
+Added missing poem number. 
+
+Revision 1.1 1999/08/03 21:02:50 textgod
+Added to repository. 
+                </item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<div1 type="Poem" n="1">
+				<p>To whom inscribe my charming new book&mdash;just out and with ashen pumice
+                    polished? <persName><surname>Cornelius</surname></persName>, to you! for you
+                    used to deem my triflings of account, and at a time when you alone of Italians
+                    dared unfold the ages' abstract in three chronicles&mdash;learned, by
+                    <persName><surname>Jupiter</surname></persName>!&mdash;and most
+                    laboriously written. Therefore take this booklet, such as it is, and, O Virgin
+                    Patroness, may it outlive generations more than one.</p>
+			</div1>
+			<div1 type="Poem" n="2">
+				<p>Sparrow, darling of my girl, with which she plays, which she presses to her
+                    bosom, to whom she gives her fingertip, arousing sharp bites as he seeks after
+                    it, when gleaming with desire of me she jests a light joke of it, so that, I
+                    think, it is a solace for her pain when the heavy burning is at rest. Could I
+                    but play with you just as she does and lighten the sad cares of mind.<gap/>This
+                    was as pleasing to me as the golden apple was to the fleet footed girl, which
+                    unloosed her girdle long-time fastened.</p>
+			</div1>
+			<div1 type="Poem" n="3">
+				<p>O mourn, you Loves and Cupids, and all men of gracious mind. Dead is the sparrow
+                    of my girl, sparrow, darling of my girl, which she loved more than her eyes; for
+                    it was sweet as honey, and its mistress knew it as well as a girl knows her own
+                    mother. Nor did it move from her lap, but hopping round first one side then the
+                    other, to its mistress alone it continually chirped. Now it fares along that
+                    path of shadows from where nothing may ever return. May evil befall you, savage
+                    glooms of Orcus, which swallow up all things of fairness: which have snatched
+                    away from me the comely sparrow. O wretched deed! O hapless sparrow! Now on your
+                    account my girl's sweet eyes, swollen, redden with tear-drops.</p>
+			</div1>
+			<div1 type="Poem" n="4">
+				<p>That pinnace which you see, my friends, says that it was the speediest of boats,
+                    that it could gain the lead of any craft skimming the surface, whether the task
+                    were to fly with oarblades or sail. And she denies that the shore of the
+                    menacing Adriatic denies this, or the <placeName key="tgn,7011270">Cyclades</placeName> awkward &lsqb;to navigate&rsqb;, or noble
+                        <placeName key="tgn,7011266">Rhodes</placeName> and bristling Thracian
+                    Propontis, or the frim Pontic gulf, where she afterwards was a pinnace,
+                    beforehand was bearded forest; and often on Cytorus' ridge she gave out a
+                    rustling with speaking foliage. And you, Pontic Amastris, and to boxwood bearing
+                    Cytorus, the pinnace declares that this was and is most well-known to you; she
+                    says that from its origin it stood upon your topmost peak, dipped its oars in
+                    your waters, and bore its master from there through so many seas lacking
+                    self-control, whether the wind called from port or starboard or whether
+                    favorable Jove fell on both the sheets at once; and nor were any vows
+                    &lsqb;from stress of storm&rsqb; made be her to shore-gods, when she
+                    came from the most distant sea to this glassy lake. But these things were of
+                    before: now laid away, she grows old in peace and dedicates herself to you, twin
+                    Castor, and to Castor's twin.</p>
+			</div1>
+			<div1 type="Poem" n="5">
+				<p>Let us live, my Lesbia, and let us love, and count all the rumors of stearn old
+                    men at a penny's fee. Suns can set and rise again: we when once our brief light
+                    has set must sleep through a perpetual night. Give me a thousand kisses, and
+                    then a hundred, then another thousand, then a second hundred, then another
+                    thousand without resting, then a hundred. Then, when we have made many
+                    thousands, we will confuse the count lest we know the numbering, so that no one
+                    can cast an evil eye on us through knowing the number of our kisses.</p>
+			</div1>
+			<div1 type="Poem" n="6">
+				<p>Flavius, you would speak of your sweetheart to Catullus, and you could not keep
+                    silent, were she not both ill-mannered and ungraceful. In truth you affect I
+                    know not what hot-blooded whore you love: this you are ashamed to confess. For
+                    your couch, fragrant with garlands and Syrian unguent, in no way mute cries out
+                    that you do not lie alone at night, and also the pillow and bolsters indented
+                    here and there, and the creakings and joggings of the quivering bed: unless you
+                    can silence these, nothing and again nothing avails you to hide your affairs.
+                    And why? You would not display such love-weary loins unless occupied in some
+                    tomfoolery. Therefore, whatever you have for good or ill, tell us! I want to
+                    call you and your loves to heaven in charming verse.</p>
+			</div1>
+			<div1 type="Poem" n="7">
+				<p>You ask, how many kisses of yours, Lesbia, may be enough and to spare for me. As
+                    the countless Libyan sands which strew asafoetida-bearing <placeName key="tgn,7000639">Cyrene</placeName> between the oracle of sweltering Jove
+                    and the sacred tomb of ancient Battus, or as the many stars, when night is
+                    silent, look upon the furtive loves of mortals, to kiss you with kisses of so
+                    great a number is enough and to spare for passion-driven Catullus: so many that
+                    prying eyes may not avail to number, nor ill tongues to bewitch.</p>
+			</div1>
+			<div1 type="Poem" n="8">
+				<p>Unhappy Catullus, cease your trifling and what you see lost, know to be lost.
+                    Once bright days used to shine on you when you used to go wherever your girl led
+                    you, loved by us as never a girl will ever be loved. There those many joys
+                    occured which you did wish, nor was the girl unwilling. In truth bright days
+                    used once to shine on you. Now she no longer wants you: you too, powerless to
+                    avail, must not want her, do not pursue her retreating, do not live unhappy, but
+                    with firm-set mind endure, harden yourself. Farewell, girl! now Catullus hardens
+                    himself, he will not seek you, will not ask you since you are unwilling. But you
+                    will be pained, when you are not asked. Faithless, go your way! what manner of
+                    life remains to you? who now will visit you? who find you beautiful? whom will
+                    you love now? whose will you be called? whom will you kiss? whose lips will you
+                    bite? But you, Catullus, remain firm in your hardness.</p>
+			</div1>
+			<div1 type="Poem" n="9">
+				<p>Veranius, standing in the front of all my friends, had I three hundred thousand
+                    of them, have you come home to your Penates, your longing brothers and your aged
+                    mother? You have come back. O joyful news to me! I'll see you safe and sound,
+                    and hear you speak of regions, deeds, and peoples Iberian, as is your manner;
+                    and reclining over your neck shall kiss your laughing mouth and eyes. Of all men
+                    most full of bliss, who is more happy or more blissful than I?</p>
+			</div1>
+			<div1 type="Poem" n="10">
+				<p>Varus drew me off from the Forum where I was passing the time to see his lover: a
+                    professional, as it seemed to me at first sight, neither inelegant nor lacking
+                    good looks. When we came in, we fell to discussing various subjects, among
+                    which, how was <placeName key="tgn,7016608">Bithynia</placeName> now, how things
+                    had gone there, and whether I had made any money there. I replied what was true,
+                    that neither ourselves nor the praetors nor their company had brought away
+                    anything whereby to flaunt a better-scented hair-do, especially as our praetor,
+                    who boned us all, didn't care a hair for his company. "But surely," she said,
+                    "you got some men to bear your litter, for they are said to grow there?" I, to
+                    make myself appear to the girl as one of the fortunate, "No," I say, "it did not
+                    go that badly with me, ill as the province turned out, that I could not procure
+                    eight strapping men to bear me. (But not a single one was mine either here or
+                    there who could hoist on his neck the fractured foot of my old bedstead). And
+                    she, like the saucy tramp she was, "Please, Catullus," says she, "lend me those
+                    bearers for a short time, for I want to ride to the shrine of Serapis." "Hold
+                    it!" say I to the girl, "when I said I had this, my mind slipped; my friend,
+                    Cinna Gaius, he provided himself with these. In truth, whether his or
+                    mine&mdash;what is it to me? I use them as though I had paid for them. But
+                    you are awfully crude and a bother, not through you am I to be careless."</p>
+			</div1>
+			<div1 type="Poem" n="11">
+				<p>Furius and Aurelius, comrades of Catullus, whether he forces his way to furthest
+                        <placeName key="tgn,7000198">India</placeName> where the shore is lashed by
+                    the far-echoing waves of the Dawn, or whether to the land of the Hyrcanians or
+                    soft Arabs, or whether to the land of the Sacians or quiver-bearing Parthians,
+                    or where the seven-mouthed <placeName key="tgn,1127805">Nile</placeName> colors
+                    the sea, or whether he traverses the lofty <placeName key="tgn,2066659">Alps</placeName>, gazing at the monuments of mighty Caesar, the Gallic
+                    Rhine, the shuddering water and remotest Britons, prepared to attempt all these
+                    things at once, whatever the will of the heavenly gods may
+                    bear,&mdash;repeat to my girl a few words, though they are not at all good.
+                    May she live and flourish with her fornicators, and may she hold three hundred
+                    at once in her embrace, loving not one in truth, but bursting again and again
+                    the guts of all: nor may she look back upon my love as before, which by her
+                    lapse has fallen, just as a flower on the meadow's edge, after the touch of the
+                    passing plough.</p>
+			</div1>
+			<div1 type="Poem" n="12">
+				<p>Marrucinius Asinius, you do not use your left hand nicely amid the jests and
+                    wine: you make off with the napkins of the careless. Do you think this is witty?
+                    It escapes you, fool, how coarse a thing and unbecoming it is! Don't you believe
+                    me? Believe your brother Pollio who would willingly give a talent to divert you
+                    from your thefts: for he is a lad skilled in pleasantries and clever talk.
+                    Therefore, either expect three hundred hendecasyllables, or return me my napkin
+                    which I esteem, not for its value but as a pledge of remembrance from my
+                    comrade. For Fabullus and Veranius sent me napkins as a gift from Iberian
+                    Saetabis; these I must love even as I do Veraniolus and Fabullus.</p>
+			</div1>
+			<div1 type="Poem" n="13">
+				<p>You will feast well with me, my Fabullus, in a few days, if the gods favour you,
+                    provided you bring here with you a good and great feast, not forgetting a
+                    radiant girl and wine and wit and all kinds of laughter. Provided, I say, you
+                    bring them here, our charming friend, you will feast well: for your Catullus'
+                    purse is full with cobwebs. But in return you will receive a pure love, or what
+                    is sweeter or more elegant: for I will give you an unguent which the Venuses and
+                    Cupids gave to my girl, which, when you smell it, you will entreat the gods to
+                    make you, Fabullus, all Nose!</p>
+			</div1>
+			<div1 type="Poem" n="14">
+				<p>If I did not love you more than my eyes, most delightful Calvus, for your gift I
+                    should hate you with Vatinian hatred. For what have I done or what have I said
+                    that you should torment me so vilely with these poets? May the gods give that
+                    client of yours ills enough, who sent you so many scoundrels! Yet if, as I
+                    suspect, Sulla, the litterateur, gives you this new and care-picked gift, it is
+                    not ill to me, but well and beatific, that your labors [in his cause] are not
+                    made light of. Great gods, what a horrible and accursed book which&mdash;if
+                    you please!&mdash;you have sent to your Catullus, that he might die of
+                    boredom the livelong day in the Saturnalia, choicest of days! No, no, my joker,
+                    you will not get off so easily: for at dawn I will haste to the booksellers'
+                    cases; the Caesii, the Aquini, Suffenus, every poisonous rubbish will I collect
+                    that I may repay you with these tortures. Meantime farewell! be gone from here,
+                    where an ill foot brought you, pests of the period, most wretched of poets.</p>
+			</div1>
+			<div1 type="Poem" n="14b">
+				<p>If by chance you ever should be readers of my triflings and you will not quake to
+                    lay your hands upon us<gap/></p>
+			</div1>
+			<div1 type="Poem" n="15">
+				<p>I commend myself and my lover to you, Aurelius. I come with a modest request
+                    that,&mdash;if you longed for anything with your heart which you desired
+                    chaste and untouched&mdash;you will preserve my boy's chastity
+                    from&mdash;I do not say from the people: I fear not at all those who hurry
+                    along the thoroughfares here and there occupied on their own business: in truth,
+                    my fear is from you and your penis, pestilent to boys fair and to foul. Set it
+                    in motion where you please, as you please, as much as you want, outdoors
+                    wherever you find the opportunity: for this one object I make an exception, to
+                    my thought a reasonable request. But if your infatuation and senseless passion
+                    push you forward, scoundrel, to a crime so great as to assail our head with your
+                    snares, ah!, then an evil fate will make you suffer, when, with feet taut bound,
+                    radishes and mullets will pierce through the open hole.</p>
+			</div1>
+			<div1 type="Poem" n="16">
+				<p>I will make you my boys and bone you, sexually submissive Aurelius and Furius the
+                    sodomite, who think, because my verses are voluptuous, that I am not chaste
+                    enough. For it is right that a poet be chaste himself; it is not at all
+                    necessary for his verses to be. My verses, in a word, may have a spice and
+                    charm, if they are voluptuous and not chaste enough, and because they are sexy
+                    and can arouse&mdash;I do not say boys&mdash;but this hairy pair who
+                    can't shake their stiffies. Because you have read of many thousand kisses, do
+                    you think me less a man? I will make you my boys and bone you!</p>
+			</div1>
+			<div1 type="Poem" n="17">
+				<p>O <persName><surname>Colonia</surname></persName>, you who long to play on a
+                    long bridge and have it readied to dance on, but fear the shaky legs of the
+                    little bridge standing on second-hand sticks, lest it tumble flat in the deep
+                    swamp; let the bridge be as good as you desire, on which even the Salian dances
+                    may be undertaken: for which give to me, <persName><surname>Colonia</surname></persName>, the gift of greatest laughter. I want a certain
+                    townsman of mine to go head over heels from your bridge into the mud, in truth
+                    where the brimming, stinking swamp is darkest and an especially deep-sunk mire.
+                    He's the biggest ass of a man, lacking the sense of a two-year-old dozing in his
+                    father's cradling arm. Although a girl is wedded to him flushed with
+                    springtide's bloom (and a girl more dainty than a tender kid needs to be watched
+                    with keener diligence than the lush-black grape-bunch), he leaves her to play as
+                    she wants, cares not a single hair, nor troubles himself with marital office,
+                    but lies like an alder tree felled by a Ligurian hatchet in a ditch, as aware of
+                    everything as though no woman were anywhere. Such is my thick-headed friend! he
+                    sees not, he hears not. He also knows not who he is himself, or whether he is or
+                    is not. Now I want to chuck him head first from your bridge, if it is possible
+                    to suddenly rouse this sleepy dullard and to leave behind in the heavy mud his
+                    sluggish spirit, as does a mule its iron shoe in the sticky mire.</p>
+			</div1>
+			<div1 type="Poem" n="18">
+				<p>= Anth. Lat. <date value="1700">1700</date></p>
+			</div1>
+			<div1 type="Poem" n="19">
+				<p>= Anth. Lat. <date value="1699">1699</date></p>
+			</div1>
+			<div1 type="Poem" n="20">
+				<p>= Anth. Lat. <date value="1698">1698</date></p>
+			</div1>
+			<div1 type="Poem" n="21">
+				<p>Aurelius, father of hunger, in ages past in time now present and in future years
+                    yet to come, you long to make my lover your boy. And you do not operate
+                    secretly: for you are with him, you joke together, closely sticking at his side
+                    you try every means. In vain: for, though you plot against me, I'll tag you
+                    first with a boning.&mdash; Now if you were satisfied, I would be silent:
+                    but what irks me is that my boy, ah me! must learn to starve and thirst with
+                    you. Therefore, desist, while you may with modesty, lest you reach the
+                    end,&mdash;but by being boned.</p>
+			</div1>
+			<div1 type="Poem" n="22">
+				<p>That Suffenus, Varus, whom you know well, is a man fair spoken, witty and urbane,
+                    and one who makes lengthy verses. I think he has written at full length ten
+                    thousand or more, nor are they set down, as commonly, on scraped parchment:
+                    regal paper, new boards, new bosses, straps, red parchment, the whole thing
+                    ruled with the lead and smoothed off with the pumice. But when you read these,
+                    that refined and urbane Suffenus seems on the contrary to be a mere goatherd or
+                    ditch-digger, so great and shocking is the change. What can we think of this?
+                    The same man, who just now seemed a man-about-town, or if anything could be more
+                    polished than that, is stupider than the stupid countryside as soon as he
+                    touches poetry, and nor is the same man ever as happy as when he is writing
+                    poetry&mdash;so greatly is he pleased with himself, so much does he admire
+                    himself. Still, we are all the same and are deceived, nor is there any man in
+                    whom you can not see a Suffenus in some one point. Each of us has his assigned
+                    delusion: but we see not what's in the wallet on our back.</p>
+			</div1>
+			<div1 type="Poem" n="23">
+				<p>Furius, you who have neither a slave, nor a coffer, nor a bug, nor a spider, nor
+                    fire, but have both a father and a step-mother whose teeth can munch up even
+                    flints,&mdash;you live finely with your father, and with your father's
+                    wooden spouse. And no wonder: for you are all in good health, finely you digest,
+                    you fear nothing, not arson, not the fall of your house, not impious thefts, not
+                    plots of poison, no perilous happenings whatsoever. And you have bodies drier
+                    than horn (or if there is anything more arid still, parched by sun, frost, and
+                    famine. So why is it not happy and well with you? Sweat is a stranger to you,
+                    absent also are saliva, phlegm, and evil nose-snot. Add to this cleanliness the
+                    thing that's still more cleanly, that your backside is purer than a salt-cellar,
+                    nor do you crap ten times in the whole year, and then it is harder than beans
+                    and pebbles; and if you rub and crumble it in your hands, you can't ever dirty a
+                    finger. Spurn not hese goodly gifts and favours, Furius, nor think lightly of
+                    them; and stop always begging for a hundred sesterces: for you are happy
+                    enough!</p>
+			</div1>
+			<div1 type="Poem" n="24">
+				<p>O you who are the little flower of Juventian race, not only of these now living,
+                    but of those that were before and also of those that will be in the coming
+                    years, I'd rather that you had given the wealth of Midas to that man who owns
+                    neither a slave nor coffer, than that you should suffer yourself to be loved by
+                    him. "What?" you ask. "Isn't he a fine looking man?" He is; but this fine
+                    looking man has neither a slave nor coffer. Slight and make light of this as you
+                    please: nevertheless, he has neither a slave nor coffer.</p>
+			</div1>
+			<div1 type="Poem" n="25">
+				<p>Thallus you sodomite, softer than rabbit's fur, or goose's marrow, or an ear
+                    lobe, or an old man's drooping penis, and the cobwebs there; again Thallus
+                    greedier than the driving storm, when &dagger;the ram shows them off their
+                    guard&dagger;, give me back my mantle which you have swooped down upon, and
+                    the Saetaban napkin and Thynian tablets which, idiot, you openly parade as
+                    though they were heirlooms. Now unglue these from your nails and return them,
+                    lest the stinging scourge shamefully score your downy little butt and delicate
+                    little hands, and you unaccustomedly heave and toss like a tiny boat surprised
+                    on the vast sea by a raging storm.</p>
+			</div1>
+			<div1 type="Poem" n="26">
+				<p>Furius, your little house is pitted not against the southern breeze nor the
+                    western wind nor cruel Boreas nor sunny east, but fifteen thousand two hundred
+                    sesterces. O horrible and baleful wind.</p>
+			</div1>
+			<div1 type="Poem" n="27">
+				<p>Boy cupbearer of old Falernian, pour me more pungent cups as bids the laws of
+                    Postumia, mistress of the feast, drunker than a drunken grape. But off with you,
+                    as far as you please, crystal waters, bane of wine, depart you to the sober:
+                    here the Thyonian juice is pure.</p>
+			</div1>
+			<div1 type="Poem" n="28">
+				<p>Piso's Company, a penniless staff, with lightweight knapsacks, scantly packed,
+                    most dear Veranius you, and my Fabullus too, how goes it with you? Have you
+                    borne frost and famine enough with that sot? Which in your tablets
+                    appear&mdash;the profits or expenses? So with me, who when I followed a
+                    praetor, inscribed more gifts than gains. "0 Memmius, well and slowly did you
+                    bone me, supine, day by day, with the whole of that beam." But, from what I see,
+                    in like case you have been; for you have been crammed with no smaller a poker.
+                    Courting friends of high rank! But may the gods and goddesses heap ill upon you
+                    disgraces to Romulus and Remus.</p>
+			</div1>
+			<div1 type="Poem" n="29">
+				<p>Who can see this, who can stand it, save the shameless, the glutton, and gambler,
+                    that Mamurra Mentula should possess what long-haired <placeName key="tgn,1000070">Gaul</placeName> had and remotest <placeName key="tgn,7008653">Britain</placeName> had before? You sodomite Romulus, will
+                    you see this and bear it? Then you are shameless, a glutton and a gambler. And
+                    will he now, proud and overflowing, saunter over each one's bed, like a little
+                    white dove or an Adonis? You sodomite Romulus, will you see this and bear it?
+                    Then you are shameless, a glutton and a gambler. For such a name, Generalissimo,
+                    have you been to the furthest island of the west, that this love-weary Mentula
+                    of yours should squander twenty or thirty million? What is it but a skewed
+                    liberality? Perhaps he spent too little, or perhaps he was washed clean? First
+                    he wasted his patrimony; second the loot from <placeName key="tgn,7016619">Pontus</placeName>; then third the loot from <placeName key="tgn,1000095">Spain</placeName>, which even the goldbearing <placeName key="tgn,7016546">Tagus</placeName> knows. Now he is feared by Gauls and <placeName key="tgn,7008653">Britain</placeName>. Why do you indulge this scoundrel?
+                    What can he do but devour well-fattened inheritances? Was it for such a name,
+                    &dagger; most wealthy father-in-law and son-in-law, that you have destroyed
+                    everything?</p>
+			</div1>
+			<div1 type="Poem" n="30">
+				<p>Alfenus, unmindful and unfaithful to your comrades true, is there now no pity in
+                    you, hard of heart, for your sweet loving friend? Do you betray me now, and not
+                    hesitate to play me false now, dishonourable one? Yet the irreverent deeds of
+                    traitorous men do not please the dwellers in heaven: this you take no heed of,
+                    leaving me wretched among my ills. Tell me, ah, what may men do, or in whom may
+                    they have their trust? Surely you used to bid me entrust my soul to you, unfair,
+                    drawing my affections to yourself, as though all were safely mine. Yet now you
+                    withdraw yourself, and all your purposeless words and deeds you suffer the winds
+                    and airy clouds to bear away. If you have forgotten, yet the gods remember,
+                    Faith remembers, and in time to come will make you regret your doing.</p>
+			</div1>
+			<div1 type="Poem" n="31">
+				<p><placeName key="tgn,7005771">Sirmio</placeName>! Eyelet of islands and
+                    peninsulas, which each Neptune holds whether in limpid lakes or on the wide sea,
+                    how gladly and how happily do I see you again, scarcely believing that I've left
+                    behind Thynia and the Bithynian plains, and that I gaze on you safe and sound. O
+                    what greater blessing than cares released, when the mind casts down its burden,
+                    and when wearied with the toil of travel we reach our hearth, and rest in the
+                    long-for bed. This and only this repays our numerous labors. Hail, lovely
+                        <placeName key="tgn,7005771">Sirmio</placeName>, and rejoice in your master;
+                    and rejoice, you waves of the Lybian lake; laugh, you laughters echoing from my
+                    home.</p>
+			</div1>
+			<div1 type="Poem" n="32">
+				<p>Please, my sweet Ipsithilla, my delight, my charmer: order me to come to you at
+                    noon. And if you should order this, it will be useful if no one makes fast the
+                    outer door [against me], and don't be minded to go out, but stay at home and
+                    prepare for us nine continuous love-makings. In truth if you are minded, give
+                    the order at once: for breakfast over, I lie supine and ripe, poking through
+                    both tunic and cloak.</p>
+			</div1>
+			<div1 type="Poem" n="33">
+				<p>0 best of the thieves of the baths, Vibennius the father, and his sexually
+                    submissive son (for the father is the filthier with the right hand, the son is
+                    the greedier with the backside), why don't you go into exile and to hellish
+                    shores, seeing that the father's plunder is known to the people, and that, son,
+                    you cannot sell your hairy butt for one cent?</p>
+			</div1>
+			<div1 type="Poem" n="34">
+				<p>We, upright maids and youths, are in Diana's care: upright youths and maids, we
+                    sing Diana. 0 Latonia, progeny great of greatest Jove, whom your mother bore
+                    beneath Delian olive, that you might be queen of lofty mounts, of foliaged
+                    groves, of remote glens, and of winding streams. You are called Juno Lucina by
+                    the mother in the pangs of childbirth, you are named potent Trivia and
+                        <persName><surname>Luna</surname></persName> with an ill-got light. You,
+                    Goddess, with monthly march measuring the yearly course, glut with produce the
+                    rustic roofs of the farmer. Be you hallowed by whatever name you prefer; and
+                    cherish, with your good aid, as you are accustomed, the ancient race of
+                    Romulus.</p>
+			</div1>
+			<div1 type="Poem" n="35">
+				<p>Paper, I would like you say to that sweet poet, my comrade, Caecilius, that he
+                    come to <placeName key="perseus,Verona">Verona</placeName>, quitting New Comum's
+                    city-walls and Larius' shore; for I want him to receive certain thoughts from a
+                    friend of his and mine. Therefore, if he is wise, he'll devour the way, although
+                    a bright-hued girl a thousand times calls him back when he goes, and flinging
+                    both arms around his neck asks him to delay&mdash;she who now, if truth is
+                    reported to me, is undone with immoderate love of him. For, since the time she
+                    read the beginning of his <title>Mistress of Dindymus</title>, flames have been
+                    devouring the innermost marrow of the poor little girl. I forgive you, girl,
+                    more learned than the Sapphic muse: for charmingly has the Great Mother been
+                    begun by Caecilius.</p>
+			</div1>
+			<div1 type="Poem" n="36">
+				<p>Volusius' <title>Annals</title>, defiled sheets, fulfil a vow for my girl: for
+                    she vowed to sacred Venus and to Cupid that if I were reunited to her, and I
+                    desisted hurling savage iambics, she would give the choicest writings of the
+                    worst poet to the slow-footed god to be burned with ill-omened wood. And the
+                    wretched girl saw herself vow this to the gods in jest. Now, O Creation of the
+                    pale blue sea, you who dwell in sacred <placeName key="tgn,7002336">Idalium</placeName> and in storm-beaten <placeName key="perseus,Urium">Urium</placeName>, and foster <placeName key="perseus,Ancona">Ancona</placeName> and reedy <placeName key="perseus,Amathus">Amathus</placeName>, <placeName key="tgn,5003757">Cnidos</placeName> and
+                    Golgos and <placeName key="tgn,7010750">Dyrrhachium</placeName>, the tavern of
+                    the Adriatic, accept and acknowledge this vow if it lacks neither grace nor
+                    charm. But meantime, off with you to the flames, crammed with boorish speech and
+                    vapid, <title>Annals</title> of Volusius, defiled sheets.</p>
+			</div1>
+			<div1 type="Poem" n="37">
+				<p>Tavern of lust and you, its tentmates (at ninth pillar from the Cap-donned
+                    Brothers), do you think that you alone have mentules, that it is allowed to you
+                    alone to have sex with whatever may be feminine, and to think the rest are
+                    goats? But, because you sit, tasteless, hundred or maybe two hundred in a row,
+                    do you think I would not dare to bone you entire two hundred loungers at once!
+                    Just think it! for I'll scrawl dirty pictures all over the front of your tavern.
+                    For my girl, who has fled from my embrace, she whom I loved as none will be
+                    loved, for whom I fought fierce fights, has seated herself here. All of you,
+                    good men and rich, and also (0 cursed shame) all of you piddling back-alley
+                    fornicators, are making love to her; and you above all, Egnatius, one of the
+                    long-haired race, the son of Celtiberia full of rabbits, whose quality is
+                    stamped by dense-grown beard, and teeth scrubbed with Spanish urine.</p>
+			</div1>
+			<div1 type="Poem" n="38">
+				<p>It is ill, Cornificius, with your Catullus, it is ill, by Hercules, and most
+                    unbearably; and greater, greater ill, each day and hour! And you, what solace do
+                    you give, even the tiniest, the lightest, by your words? I'm angry with you. Is
+                    my love worth this? Yet one little message would cheer me, though more full of
+                    sadness than the tears of Simonides.</p>
+			</div1>
+			<div1 type="Poem" n="39">
+				<p>Egnatius, who has shiny, white teeth, grins forever everywhere. If he is in
+                    court, when counsel excites tears, he grins. If he be at funeral pyre where one
+                    mourns a son devoted, where a bereft mother's tears stream for her only son, he
+                    grins. Whatever it may be, wherever he is, whatever may happen, he grins. Such
+                    an ill habit has he&mdash;neither in good taste, I suppose, nor refined.
+                    Therefore take note from me, my good Egnatius. Whether you are from the city or
+                        <placeName key="tgn,7021127">Sabine</placeName> or Tiburtine, or a thrifty
+                    Umbrian or a fat Etruscan, or a dark, toothy Lanuvian, or Transpadine (to touch
+                    upon my own folk also), or whoever of those who cleanly wash their teeth, still
+                    I wish you wouldn't grin forever everywhere; for nothing is more senseless than
+                    senseless giggling. Now you're a Celtiberian: and in the Celtiberian land early
+                    in the morning they piss and scrub their teeth and pinky gums with it, so that
+                    the higher the polish on your teeth, the more it proclaims that you have drunk
+                    your piss.</p>
+			</div1>
+			<div1 type="Poem" n="40">
+				<p>What ill-set mind, poor little Ravidus, thrusts you headlong at my iambics? What
+                    god, none advocate of good for you, stirs you to a senseless quarrel? That you
+                    may be in the people's mouth? What do you want? Do you want to be famous, no
+                    matter in what way? You will be, but by our long-drawn vengeance, since you
+                    wanted to love my lover.</p>
+			</div1>
+			<div1 type="Poem" n="41">
+				<p>Ameana, a love-worn girl, asks me for a whole ten thousand, that girl with an
+                    ugly little nose, wench of the bankrupt Formian. You near of kin in whose care
+                    the girl is, summon both friends and doctors: for the girl is not sane, and is
+                    not accustomed to ask her mirror how she looks.</p>
+			</div1>
+			<div1 type="Poem" n="42">
+				<p>O come, all ye hendecasyllables, as many as you are, from every part, all of you,
+                    as many soever as you be! A filthy whore thinks that I am a joke, and says she
+                    won't return to me your writing tablets, if you can stand it. Let's pursue her,
+                    and claim them back. "Who is she?" you ask. That one, whom you see strutting
+                    disgracefully, grinning with annoyance like a mime with a face like a Gallic
+                    puppy. Surround her, and claim them back. "Filthy whore, give back the writing
+                    tablets; give back, filthy whore, the writing tablets." You don't give two
+                    cents? You slime, you whorehouse, or if you could be anything even more
+                    loathsome! But you mustn't think that this is enough. For if nothing else we can
+                    extort a blush on your brazened bitch's face. We'll yell again in heightened
+                    voice, "Filthy whore, give back the writing tablets; give back, filthy whore,
+                    the writing tablets." But we do no good, she isn't moved. We must change our
+                    approach and our tune, if you can make further progress&mdash;"Chaste and
+                    honest, give back our writing tablets."</p>
+			</div1>
+			<div1 type="Poem" n="43">
+				<p>Hail, girl with nose not the smallest, and with foot not lovely, and with eyes
+                    not black, and with fingers not long, and with mouth not dry and with tongue not
+                    so very elegant, the wench of the bankrupt Formian. And the province declares
+                    you to be lovely? With you our Lesbia is to be compared? O generation witless
+                    and unmannerly!</p>
+			</div1>
+			<div1 type="Poem" n="44">
+				<p>O, Homestead of ours, whether <placeName key="tgn,7021127">Sabine</placeName> or
+                    Tiburtine (for people in whose heart it is not to wound Catullus declare you
+                    Tiburtine, but those in whose heart it is, will wager anything you're <placeName key="tgn,7021127">Sabine</placeName>) but whether <placeName key="tgn,7021127">Sabine</placeName> or more truly Tiburtine, I was glad to
+                    be within your rural country-home, and to cast off an ill cough from my chest,
+                    which&mdash;not unearned&mdash;my belly granted me, for grasping after
+                    luxurious meals. For, while I want to be Sestius' guest, I read his defence
+                    against the plaintiff Antius, crammed with venom and pestilence. Hence a chill
+                    heavy rheum and fitful cough shook me continually until I fled to your asylum,
+                    and brought me back to health with rest and nettle-broth. Therefore, refreshed,
+                    I give you utmost thanks, that you have not avenged my fault. Nor do I pray now
+                    for anything but that, if I should retake Sestius' abominable script, its chill
+                    may bring a cold and cough to Sestius himself; and he invites me [to dinner]
+                    whenever I read one of his bad books.</p>
+			</div1>
+			<div1 type="Poem" n="45">
+				<p>Septimius, holding his lover Acme in his lap, says, "My Acme, if I do not love
+                    you to death, and am not prepared to love you constantly all the years in time
+                    to come, as much and the most as one can who is desperately in love&mdash;
+                    alone in <placeName key="tgn,1000172">Libya</placeName> or in torrid <placeName key="tgn,7000198">India</placeName> may I come face to face with a grey-eyed
+                    lion." When he said this, Love, leftwards as before, with approbation rightwards
+                    sneezed. Then Acme slightly bending back her head, and kissed the intoxicated
+                    eyes of her sweet boy with her rose-red lips. "So," she said, "my life,
+                    Septimillus, we shall serve this lord alone from now on, as greater, keener fire
+                    burns the more amid my soft marrow." When she said this, Love, leftwards as
+                    before, with approbation rightwards sneezed. Now made complete under good
+                    auspices, with mutual minds they love and are loved. Poor little Septimius wants
+                    Acme alone more than [the wealth of] the <placeName key="tgn,1000140">Syria</placeName> or <placeName key="tgn,7008653">Britain</placeName>: in
+                    Septimius alone the faithful Acme takes delight and pleasure. Whoever has seen
+                    happier people, whoever a more propitious Love?</p>
+			</div1>
+			<div1 type="Poem" n="46">
+				<p>Now spring brings back mild breezes without cold, now heaven's equinoctial fury
+                    falls silent at Zephyr's pleasant breezes. Let the Phrygian meadows be left
+                    behind, Catullus, and the teeming fields of sun-scorched <placeName key="tgn,7008773">Nicaea</placeName>: let us fly to the glorious cities of
+                        <placeName key="tgn,1000004">Asia</placeName>. Now my palpitating soul longs
+                    to wander, now happy in their zeal my feet grow strong. O sweet band of
+                    comrades, fare you well, whom various roads in different directions carry back
+                    all at once setting out far from home.</p>
+			</div1>
+			<div1 type="Poem" n="47">
+				<p>Porcius and Socration, the two left hands of Piso, scurf and hunger of the world,
+                    has that verpus Priapus placed you before my Veraniolus and Fabullus? Do you
+                    spend the day luxuriously in expensive feasts? Do my comrades seek out dinner
+                    invitations the cross-roads?</p>
+			</div1>
+			<div1 type="Poem" n="48">
+				<p>If someone let me kiss continually your honey-sweet eyes, Juventius, continually
+                    I'd kiss even to three hundred thousand kisses, nor ever should I seem on the
+                    verge of having enough, not even if the crop of our kisses should be thicker
+                    than dried wheat sheaves.</p>
+			</div1>
+			<div1 type="Poem" n="49">
+				<p>Most eloquent of Romulus' descendancy&mdash;as many as there are, who have
+                    been, 0 Marcus Tullius, and who will be after in other years&mdash;to you
+                    Catullus gives his greatest gratitude, the worst poet of all by as much as you
+                    are the best advocate of all.</p>
+			</div1>
+			<div1 type="Poem" n="50">
+				<p>Yesterday, Licinius, in leisure much we played upon my tablets, as became us, men
+                    of fancy. Each jotting verses in turn played first in this meter then in that,
+                    exchanging mutual epigrams amid jokes and wine. But I departed from there,
+                    afire, Licinius, with your wit and charm, so that food was useless to my
+                    wretched self; nor could sleep close my eyes in quiet, but all over the bed in
+                    restless fury did I toss, longing to behold daylight that I might speak with
+                    you, and again we might be together. But afterwards, when my limbs, weakened by
+                    my restless labours, lay stretched in semi-death upon the bed, I made this poem
+                    for you, my delight, from which you will perceive my pain. Now beware of
+                    presumptuousness, and beware of rejecting our pleadings, I pray you, apple of my
+                    eye, lest Nemesis exact her dues from you. She is a forceful Goddess; beware her
+                    wrath.</p>
+			</div1>
+			<div1 type="Poem" n="51">
+				<p>He seems to me to be equal to a god, he, if such were lawful, to surpass the
+                    gods, who sitting across from you again and again gazes on you, and listens to
+                    you sweetly laughting, which snatchs away from sombre me my every sense: for the
+                    instant I glance on you, Lesbia, nothing is left to me [of voice], but my tongue
+                    is numbed, a keen-edged flame spreads through my limbs, with sound self-caused
+                    my twin ears sing, and my eyes are enwrapped with night. Leisure, Catullus, to
+                    you is hurtful: in leisure beyond measure do you exult and pass your life.
+                    Leisure first ruined rulers and prosperous cities.</p>
+			</div1>
+			<div1 type="Poem" n="52">
+				<p>What is it, Catullus, why delay your death? Nonius the tumor is seated in the
+                    curule chair, Vatinius lies his way to the consulship: what is it, Catullus, why
+                    delay your death?</p>
+			</div1>
+			<div1 type="Poem" n="53">
+				<p>I just had to laugh at someone in the crowded court who, when with admirable art
+                    my Calvus had set forth Vatinius' crimes, with hands uplifted in admiration thus
+                    spoke: "Great Gods, the fluent little Salaputian!"</p>
+			</div1>
+			<div1 type="Poem" n="54">
+				<p>Otho's tiny little head is<gap/>the master's uncouth half-soaped legs, Libo's
+                    light and delicate wind<gap/>if not all things I wish would displease you and
+                    Fuficius, that warmed-over old man<gap/>again you will be enraged at my
+                    undeserving iambics, Generalissimo.</p>
+			</div1>
+			<div1 type="Poem" n="55">
+				<p>We beg, if maybe it's not too much trouble, you'll show us where your haunt may
+                    be. We looked for you in the smaller Campus, for you in the Circus, for you in
+                    every bookshop, for you in <persName><surname>Jupiter</surname></persName>'s
+                    holy temple. My friend, on Magnus' promenade I grabbed every girl I saw whose
+                    looks were unruffled, and at the same time I demanded loudly, "Give me back
+                    Camerius, you wretched girls." One of them, drawing back her naked<gap/> "Look!
+                    he's hiding here between my rosey-red nipples!" But bearing with you is a labor
+                    of <persName><surname>Hercules</surname></persName> now. Do you deny that you
+                    bear yourself in such great arrogance, my friend? Tell us where you will be,
+                    declare it boldly, give up the secret, trust it to the light. What, do the
+                    milk-white maidens detain you? If you hold your tongue closed up in your mouth,
+                    you squander Love's every fruit: for <persName><surname>Venus</surname></persName> joys in words and talk. Yet if you wish, you may bar your
+                    palate, as long as you are a partner of true love.</p>
+			</div1>
+			<div1 type="Poem" n="56">
+				<p>O thing ridiculous, <persName><surname>Cato</surname></persName>, and funny, and
+                    worthy of your ears and of your laughter. Laugh, <persName><surname>Cato</surname></persName>, the more you love Catullus: the thing is ridiculous and
+                    too funny. Just now I caught a boy a-thrusting in a girl: and, so please you,
+                    Dione, for lack of a weapon I slayed him with my own rigidity.</p>
+			</div1>
+			<div1 type="Poem" n="57">
+				<p>Beautifully it fits the shameless sodomites, Mamurra and sexually submissive
+                    Caesar. It's no wonder: they share like stains&mdash;the one from the City,
+                    the other, Formian&mdash;which stay deep-marked and they can not be washed
+                    off. Debauched twins each, both learned, both in one bed, one not more than the
+                    other the greater greedier adulterer, allied rivals of the girls. Beautifully it
+                    fits the shameless sodomites.</p>
+			</div1>
+			<div1 type="Poem" n="58">
+				<p>0 Caelius, our <persName><surname>Lesbia</surname></persName>, that <persName><surname>Lesbia</surname></persName>, the self-same Lesbia whom Catullus
+                    loved more than himself and all his own, now at the cross-roads and in the
+                    alleyways husks off the high-spirited descendants of <persName><surname>Remus</surname></persName>.</p>
+			</div1>
+			<div1 type="Poem" n="58b">
+				<p>Not if I were molded into the Cretan guard, not if I were born with Pegasean
+                    wing, or I Ladas, or Perseus with winged foot, or Rhesus' swift and snowy team:
+                    add to these the feathery-footed and winged ones, ask at the same time the
+                    course of the winds: which bound up, Camerius, you name as mine; yet exhausted
+                    in my every marrow and with many a faintness consumed, I would be in my quest
+                    for you, my friend.</p>
+			</div1>
+			<div1 type="Poem" n="59">
+				<p>Rufa of <placeName key="tgn,7010649">Bononia</placeName> blows Rufulus, she the
+                    wife of Menenius. Often you have seen her among the tombs, snatching her meal
+                    from the funeral pyre. When she chases after the bread which has rolled from the
+                    fire, she is buffeted by the half-shaven cremator.</p>
+			</div1>
+			<div1 type="Poem" n="60">
+				<p>Did a lioness of the Libyan mountains beget you, or Scylla yelping from her
+                    lowmost groin with mind so harsh and loathsome, that you have contempt for a
+                    suppliant's voice in his last calamity? ah, heart overgreatly cruel.</p>
+			</div1>
+			<div1 type="Poem" n="61">
+				<p>You who dwell on Helicon Hill, sprung from Urania, who carry off the gentle
+                    virgin to her mate, O Hymenaeus Hymen, O Hymen Hymenaeus!</p>
+				<p>Twine round your temples sweet-smelling flowers of marjoram; put on your
+                    gold-tinted veil; lighthearted here, come here, bearing on snowy foot the
+                    golden-yellow sandal:</p>
+				<p>And afire with the joyous day, chanting wedding melodies with ringing voice,
+                    strike the ground with your feet, with your hand swing aloft the torch of
+                    pine.</p>
+				<p>For Vinia&mdash;fair as <persName><surname>Venus</surname></persName>
+                    dwelling in <placeName key="tgn,7002336">Idalium</placeName> when came to the
+                    Phrygian judge&mdash;a virgin fair, weds Manlius amid happy auspices.</p>
+				<p>She, bright-shining as the Asian myrtle florid in its branches, which the
+                    Hamadryads nurture for their pleasure with besprinkled dew.</p>
+				<p>So come then! convey your approach here, leaving the Aonian cave in cliffs of
+                        <placeName key="tgn,5004258">Thespiae</placeName>, over which flows the
+                    chilling stream of Aganippe.</p>
+				<p>And summon homewards the mistress, eager for her new husband, firm-prisoning her
+                    soul in love; as tight-clasping ivy, wandering here and there, wraps the tree
+                    around.</p>
+				<p>And also you, upright virgins, for whom a like day is nearing, chant in cadence,
+                    singing &ldquo;O Hymenaeus Hymen, O Hymen Hymenaeus!&rdquo;</p>
+				<p>That more freely, hearing himself to his duty called, will he bear here his
+                    presence, Lord of honorable love, uniter of true lovers.</p>
+				<p>What god is worthier to be sought by anxious lovers? Whom of the celestials do
+                    men worship more greatly? O Hymenaeus Hymen, O Hymen Hymenaeus!</p>
+				<p>You for his young the trembling father beseeches, for you virgins unclasp the
+                    belt from their breasts, for you the fearful bridegroom harkens with eager
+                    ear.</p>
+				<p>You deliver into the hands of the untamed youth that flower-like maiden, taken
+                    from her mother's bosom, O Hymenaeus Hymen, O Hymen Hymenaeus!</p>
+				<p>Without you Venus can do nothing suitable that good repute sanctions; but she
+                    can, with you willing. Who dares to be compared with such a god?</p>
+				<p>Without you, no house can produce heirs, no parent be surrounded by offspring;
+                    but they can, with you willing. Who dares to be compared with such a god?</p>
+				<p>And lacking your rites no land can give protection to its territory; but it can,
+                    with you willing. Who dares to be compared with such a god?</p>
+				<p>Unbolt, open the gates: the virgin is here. See how the torches shake their
+                    gleaming locks? <gap/></p>
+				<milestone n="80" unit="line"/>
+				<p><gap/>Her natural modesty detains her: hearing this the more, she weeps because
+                    she must go.</p>
+				<p>Cease your tears. For you there is no peril, Aurunculeia, that any woman more
+                    beauteous will ever see the light of day coming from Ocean.</p>
+				<p>You are like the hyacinth flower, which stands aloft amid varied riches of its
+                    master's garden. But you delay, day slips by: advance, new bride.</p>
+				<p>Advance, new bride, it it now seems right, and listen to our speech. See how the
+                    torches shake their glittering tresses: advance, new bride.</p>
+				<p>Nor is your man a fickle husband, given to ill adulteries, seeking shameless
+                    acts, ever wishing to lie away from your soft breasts,</p>
+				<p>But as the lithe vine among neighbouring trees doth cling, so shall he be
+                    enclasped in your embrace. But day slips by: advance, new bride.</p>
+				<p>O nuptial couch which for all<gap/><milestone n="115" unit="line"/>with feet of
+                    ivory white.</p>
+				<p>What joys are coming to your man in fleeting night, in noon of day, let him
+                    rejoice! but day slips by: advance, new bride.</p>
+				<p>Raise high, O boys, the torches: I see the gleaming veil approach. Come, chant in
+                    cadence, &ldquo;O Hymen Hymenaeus io, O Hymen Hymenaeus.&rdquo;</p>
+				<p>Nor longer silent is lewd Fescinnine jest, nor, favorite, hearing your master's
+                    love has flown, deny the nuts to the boys.</p>
+				<p>Give nuts to the boys, O listless favorite; long enough have you played nuts: now
+                    you must serve Talassius. O favorite, give the nuts!</p>
+				<p>The country wives were dirt to you, O favorite, but yesterday: now the barber
+                    shaves your face. Wretched, wretched favorite, give the nuts.</p>
+				<p>They will say when the bridegroom has been annointed that you can scarce abstain
+                    from your hairless boys: butabstain! O Hymen Hymenaeus io, O Hymen
+                    Hymenaeus.</p>
+				<p>We know that these delights were known to you only when lawful: but to the wedded
+                    these same no more are lawful. O Hymen Hymenaeus io, O Hymen Hymenaeus!</p>
+				<p>You also, bride, what your husband seeks beware of denying, lest he go elsewhere
+                    in its search. O Hymen Hymenaeus io, O Hymen Hymenaeus!</p>
+				<p>Look, your husband's home is yours, influential and goodly, allow it to serve you
+                    (O Hymen Hymenaeus io, O Hymen Hymenaeus!)</p>
+				<p>Until white-haired old age, shaking your trembling brow, nods assent to
+                    everything. O Hymen Hymenaeus io, O Hymen Hymenaeus!</p>
+				<p>Bring with good omen your golden feet across the threshold, and go through the
+                    polished doorway. O Hymen Hymenaeus io, O Hymen Hymenaeus!</p>
+				<p>Look! your husband alone within, lying on Tyrian couch, all-expectant waits for
+                    you. O Hymen Hymenaeus io, O Hymen Hymenaeus!</p>
+				<p>No less than in yours, in his breast burns an inmost flame, but more deeply
+                    inward. O Hymen Hymenaeus io, O Hymen Hymenaeus!</p>
+				<p>Release the maiden's slender arm, boy with crimson-bordered toga: now let her
+                    approach her husband's couch. O Hymen Hymenaeus io, O Hymen Hymenaeus.</p>
+				<p>You good women of fair renown to aged spouses, put the maiden to bed. O Hymen
+                    Hymenaeus io, O Hymen Hymenaeus.</p>
+				<p>Now you may come, bridegroom: your wife is in the bedroom, with face brightly
+                    blushing as white parthenice amid ruddy poppies.</p>
+				<p>But, bridegroom (so help me the heaven-dwellers) in no way less beautiful are
+                    you, nor does Venus slight you. But the day slips by: on! do not delay.</p>
+				<p>You have not delayed for long, now you are coming. Kindly Venus will help you,
+                    since what you desire you take publicly, and do not conceal true love.</p>
+				<p>Whoever wishes to keep count of your many thousand games, first let him make an
+                    accounting of the number of <placeName key="tgn,2086787">Africa</placeName>'s
+                    sands and the glittering stars.</p>
+				<p>Play as you like, and speedily give heirs. It does not become so old a name to
+                    without children, but from similar stock always to be generated.</p>
+				<p>A little Torquatus I wish, from his mother's lap reaching out his dainty hands,
+                    and smiling sweetly at his father with lips apart.</p>
+				<p>May he be like his father <persName><surname>Manlius</surname></persName>, and
+                    easily acknowledged by every stranger, and by his face point out his mother's
+                    faithfulness.</p>
+				<p>May such praise confirm his birth from true mother, such fame as rests only with
+                    Telemachus from best of mothers, Penelope.</p>
+				<p>Close the doors, virgins: enough we've played. But, fair bride and groom, live
+                    you well, and diligently fulfil the office of vigorous youth.</p>
+			</div1>
+			<div1 type="Poem" n="62">
+				<p/>
+				<sp>
+					<speaker>Youths</speaker>
+					<p><persName><surname>Vesper</surname></persName> is here: youths, arise.
+                        <persName><surname>Vesper</surname></persName> at last has just borne
+                        aloft in the heavens his long awaited light. Now it is time to arise, now to
+                        leave the luxurious tables, now will come the virgin, now will be sung the
+                        Hymenaeus. Hymen O Hymenaeus, Hymen come O Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Maidens</speaker>
+					<p>Unwedded girls, do you see the youths? Arise in response: so it must be that
+                        the Star of Eve displays its Oetaean fires. Surely it is thus; see how
+                        fleetly they have leapt forth? Nor without intent have they leapt forth;
+                        what they will sing, it is our task to surpass. Hymen O Hymenaeus, Hymen
+                        come O Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Youths</speaker>
+					<p>For us, comrades, the palm of victory is not easily acquired; see how the
+                        girls rehearse what they planned. They do not plan in vain, what they have
+                        may be memorable. No wonder: for inwardly they toil with whole of their
+                        minds. Our minds are parted in one direction, our ears in another:
+                        rightfully therefore we shall be surpassed, for victory loves solicitude. So
+                        then, at least now focus your attention: now they begin to sing, now we
+                        shall have to respond. Hymen O Hymenaeus, Hymen come O Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Maidens</speaker>
+					<p><persName><surname>Hesperus</surname></persName>! what crueler star is borne
+                        aloft in the heavens? you who could pluck a maid from her mother's embrace,
+                        pluck a clinging maid from her mother's embrace, and could give the chaste
+                        girl to a burning youth. What more cruel could victors accomplish in
+                        vanquished city? Hymen O Hymenaeus, Hymen come O Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Youths</speaker>
+					<p><persName><surname>Hesperus</surname></persName>! what more delightful star
+                        shines in the heavens? you who strengthen with your flame the marriage
+                        betrothals which husbands pledge, and which the fathers pledged before, and
+                        they are not joined before your flame is borne aloft. What more wished for
+                        do the gods give than that happy hour? Hymen O Hymenaeus, Hymen come O
+                        Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Maidens</speaker>
+					<p><persName><surname>Hesperus</surname></persName>, comrades, has stolen one
+                        girl away from us,<gap/>&lsqb;Hymen O Hymenaeus, Hymen come O
+                        Hymenaeus!&rsqb;</p>
+				</sp>
+				<sp>
+					<speaker>Youths</speaker>
+					<p>For at your approach a guard always keeps watch. Thieves lie in wait by
+                        night, often on your return with your name changed, <persName><surname>Hesperus</surname></persName>, you catch the same men. Yet it
+                        pleases the unwedded girls to criticize you with false complaints. But what
+                        if they criticize the one whom with silent mind they long for? Hymen O
+                        Hymenaeus, Hymen come O Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Maidens</speaker>
+					<p>As grows the hidden flower in a walled garden, unknown to cattle, uprooted by
+                        no plow, which the breezes caress, the sun strengthens, and the rain gives
+                        growth: many boys and many girls have longed for it: this same flower when
+                        plucked by a delicate fingernail sheds its blossoms: no boys and no girls
+                        long for it: so the virgin, while she stays untouched, so long is she dear
+                        to her own; when she has lost her chaste flower from her body profaned, she
+                        does not remain a delight for the boys,she beauteous, nor is she dear to the
+                        girls. Hymen O Hymenaeus, Hymen come O Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Youths</speaker>
+					<p>As the widowed vine which grows in naked field never uplifts itself, never
+                        ripens a mellow grape, but bending prone beneath the weight of its tender
+                        body now and again its highmost shoot touches with its root; this no farmer,
+                        no oxen will cultivate: but if this same chance to be joined with marital
+                        elm, many farmers, many oxen will cultivate it: so the virgin, while she
+                        stays untouched, so long does she age, uncultivated; but when she obtains
+                        fitting union at the right time, dearer is she to her husband and less of a
+                        trouble to her father. Hymen O Hymenaeus, Hymen come O Hymenaeus!</p>
+				</sp>
+				<sp>
+					<speaker>Youths and Maidens</speaker>
+					<p>Even you, virgin, do not struggle against such a mate. It is improper to
+                        struggle with him to whom your father has handed you over, your father
+                        himself together with your mother whom you must obey. Your maidenhead is not
+                        wholly yours, in part it is your parents': a third part is your father's, a
+                        third part is given to your mother, a third alone is yours: be unwilling to
+                        struggle against two, who to their son-in-law their rights together with
+                        dowry have given. Hymen O Hymenaeus, Hymen come O Hymenaeus!</p>
+				</sp>
+			</div1>
+			<div1 type="Poem" n="63">
+				<p>Over the vast main borne by swift-sailing ship, Attis, as with hasty hurried foot
+                    he reached the Phrygian wood and gained the tree-girt gloomy sanctuary of the
+                    Goddess, there roused by rabid rage and mind astray, with sharp-edged flint
+                    downwards dashed his burden of virility. Then as he felt his limbs were left
+                    without their manhood, and the fresh-spilt blood staining the soil, with
+                    bloodless hand she hastily took a tambour light to hold, your taborine, Cybele,
+                    your initiate rite, and with feeble fingers beating the hollowed bullock's back,
+                    she rose up quivering thus to chant to her companions.</p>
+				<p>&ldquo;Haste you together, she-priests, to Cybele's dense woods, together
+                    haste, you vagrant herd of the dame Dindymene, you who inclining towards strange
+                    places as exiles, following in my footsteps, led by me, comrades, you who have
+                    faced the ravening sea and truculent main, and have castrated your bodies in
+                    your utmost hate of <persName><surname>Venus</surname></persName>, make glad
+                    our mistress speedily with your minds' mad wanderings. Let dull delay depart
+                    from your thoughts, together haste you, follow to the Phrygian home of Cybele,
+                    to the Phrygian woods of the Goddess, where sounds the cymbal's voice, where the
+                    tambour resounds, where the Phrygian flutist pipes deep notes on the curved
+                    reed, where the ivy-clad Maenades furiously toss their heads, where they enact
+                    their sacred orgies with shrill-sounding ululations, where that wandering band
+                    of the Goddess flits about: there it is meet to hasten with hurried mystic
+                    dance.&rdquo;</p>
+				<p>When Attis, spurious woman, had thus chanted to her comity, the chorus
+                    straightway shrills with trembling tongues, the light tambour booms, the concave
+                    cymbals clang, and the troop swiftly hastes with rapid feet to verdurous Ida.
+                    Then raging wildly, breathless, wandering, with brain distraught, hurries Attis
+                    with her tambour, their leader through dense woods, like an untamed heifer
+                    shunning the burden of the yoke: and the swift Gallae press behind their
+                    speedy-footed leader. So when the home of Cybele they reach, wearied out with
+                    excess of toil and lack of food they fall in slumber. Sluggish sleep shrouds
+                    their eyes drooping with faintness, and raging fury leaves their minds to quiet
+                    ease.</p>
+				<p>But when the sun with radiant eyes from face of gold glanced over the white
+                    heavens, the firm soil, and the savage sea, and drove away the glooms of night
+                    with his brisk and clamorous team, then sleep fast-flying quickly sped away from
+                    wakening Attis, and goddess Pasithea received Somnus in her panting bosom. Then
+                    when from quiet rest torn, her delirium over, Attis at once recalled to mind her
+                    deed, and with lucid thought saw what she had lost, and where she stood, with
+                    heaving heart she backwards traced her steps to the landing-place. There, gazing
+                    over the vast main with tear-filled eyes, with saddened voice in tristful
+                    soliloquy thus did she lament her land:</p>
+				<p>&ldquo;Mother-land, my creatress, mother-land, my begetter, which full sadly
+                    I'm forsaking, as runaway serfs do from their lords, to the woods of Ida I have
+                    hasted on foot, to stay amid snow and icy dens of beasts, and to wander through
+                    their hidden lurking-places full of fury. Where, or in what part, mother-land,
+                    may I imagine that you are? My very eyeball craves to fix its glance towards
+                    you, while for a brief space my mind is freed from wild ravings. And must I
+                    wander over these woods far from my home? From country, goods, friends, and
+                    parents, must I be parted? Leave the forum, the palaestra, the race-course, and
+                    gymnasium? Wretched, wretched soul, it is yours to grieve for ever and ever. For
+                    what shape is there, whose kind I have not worn? I (now a woman), I a man, a
+                    stripling, and a lad; I was the gymnasium's flower, I was the pride of the oiled
+                    wrestlers: my gates, my friendly threshold, were crowded, my home was decked
+                    with floral garlands, when I used to leave my couch at sunrise. Now will I live
+                    a ministrant of gods and slave to Cybele? I a Maenad, I a part of me, I a
+                    sterile trunk! Must I range over the snow-clad spots of verdurous Ida, and wear
+                    out my life beneath lofty Phrygian peaks, where stay the sylvan-seeking stag and
+                    woodland-wandering boar? Now, now, I grieve the deed I've done; now, now, do I
+                    repent!&rdquo;</p>
+				<p>As the swift sound left those rosy lips, borne by new messenger to gods' twinned
+                    ears, Cybele, unloosing her lions from their joined yoke, and goading, the
+                    left-hand foe of the herd, thus speaks: &ldquo;Come,&rdquo; she says,
+                    &ldquo;to work, you fierce one, cause a madness urge him on, let a fury
+                    prick him onwards till he returns through our woods, he who over-rashly seeks to
+                    fly from my empire. On! thrash your flanks with your tail, endure your strokes;
+                    make the whole place re-echo with roar of your bellowings; wildly toss your
+                    tawny mane about your nervous neck.&rdquo; Thus ireful Cybele spoke and
+                    loosed the yoke with her hand. The monster, self-exciting, to rapid wrath spurs
+                    his heart, he rushes, he roars, he bursts through the brake with heedless tread.
+                    But when he gained the humid verge of the foam-flecked shore, and spied the
+                    womanish Attis near the opal sea, he made a bound: the witless wretch fled into
+                    the wild wood: there throughout the space of her whole life a bondsmaid did she
+                    stay. Great Goddess, Goddess Cybele, Goddess Dame of Dindymus, far from my home
+                    may all your anger be, 0 mistress: urge others to such actions, to madness
+                    others hound.</p>
+			</div1>
+			<div1 type="Poem" n="64">
+				<p>Pines once sprung from <placeName key="tgn,2096449">Pelion</placeName>'s peak
+                    floated, it is said, through liquid billows of <placeName key="tgn,2065560">Neptune</placeName> to the flowing <placeName key="tgn,7012263">Phasis</placeName> and the Aeetaean territory, when the picked youth, the
+                    vigour of <placeName key="tgn,5001993">Argive</placeName> manhood seeking to
+                    carry away the Golden Fleece from <placeName key="tgn,7016642">Colchis</placeName>, dared to skim over salt seas in a swift-sailing ship,
+                    sweeping the blue-green ocean with paddles shaped from fir-wood. That goddess
+                    who guards the castles in topmost parts of the towns herself fashioned the car,
+                    scudding with lightest of winds, uniting the interweaved pines unto the curving
+                    keel. That goddess first instructed untaught Amphitrite with sailing. Scarce had
+                    it split with its stem the windy waves, and the billow vexed with oars had
+                    whitened into foam, when arose from the swirl of the hoary eddies the faces of
+                    sea-dwelling Nereids wondering at the marvel. And then on that propitious day
+                    mortal eyes gazed on sea-nymphs with naked bodies bare to the breasts
+                    outstanding from the foamy swirl. Then it is said Peleus burned with desire for
+                    Thetis, then Thetis despised not mortal marriage, then Thetis' sire himself
+                    sanctioned her joining to Peleus. O heroes, born in the time of joyfuller ages,
+                    hail! sprung from the gods, good progeny of mothers, hail! and may you be
+                    favourably inclined. I'll address you often in my song, you too I'll approach,
+                    Peleus, pillar of <placeName key="tgn,7001399">Thessaly</placeName>, so
+                    increased in importance by your fortunate wedding-torches, to whom <persName><surname>Jupiter</surname></persName> himself, the sire of the gods himself,
+                    yielded up his beloved. Did not Thetis embrace you, she most winsome of Nereids
+                    born? Did not Tethys consent that you should lead home her grandchild, and
+                    Oceanus too, whose waters enfold the total globe? When in full course of time
+                    the longed-for day had dawned, all <placeName key="tgn,7001399">Thessaly</placeName> assembled and thronged his home, a gladsome company
+                    overspreading the halls: they bear gifts to the fore, and their joy in their
+                    faces they show. Scyros remains a desert, they leave Phthiotic Tempe, Crannon's
+                    homes, and the fortressed walls of Larissa; at Pharsalia they gather, beneath
+                    Pharsalian roofs they throng. None tills the soil, the heifers' necks grow
+                    softened, the trailing vine is not cleansed by the curved rake-prongs, nor does
+                    the bull tear up the clods with the prone-bending plowblade, nor does the sickle
+                    prune the shade of the spreading tree-branches, squalid rust steals over the
+                    neglected plows.</p>
+				<p>But this mansion, throughout its innermost recesses of opulent royalty, glitters
+                    with gleaming gold and with silver. Ivory makes white the seats; goblets glint
+                    on the boards; the whole house delights in the splendour of royal treasure.
+                    Placed in the midst of the mansion is the bridal bed of the goddess, made glossy
+                    with Indian tusks and covered with purple, tinted with the shell-fish's rosy
+                    dye. This tapestry embroidered with figures of men of ancient time portrays with
+                    admirable art the heroes' valour. For looking forth from Dia's beach, resounding
+                    with crashing of breakers, Ariadne watches Theseus moving from sight with his
+                    swift fleet, her heart swelling with raging passion, and she does not yet
+                    believe she sees what she sees, as, newly-awakened from her deceptive sleep, she
+                    perceives herself, deserted and woeful, on the lonely shore. But the heedless
+                    youth, flying away, beats the waves with his oars, leaving his perjured vows to
+                    the gusty gales. In the dim distance from amidst the sea-weed, the daughter of
+                    Minos with sorrowful eyes, like a stone-carved Bacchante, gazes afar, alas!
+                    gazes after him, heaving with great waves of grief. No longer does the fragile
+                    fillet bind her yellow locks, no more with light veil is her hidden bosom
+                    covered, no more with rounded zone the milky breasts are clasped; fallen down
+                    from her body everything is scattered here and there, and the salt waves toy
+                    with them in front of her very feet. But neither on fillet nor floating veil,
+                    but on you, Theseus, in their stead, was she musing: on you she bent her heart,
+                    her thoughts, her love-lorn mind. Ah, woeful one, with sorrows unending
+                    distraught, Erycina sows thorny cares deep in your bosom, since that time when
+                    Theseus fierce in his vigor set out from the curved bay of <placeName key="perseus,Piraeus">Piraeus</placeName>, and gained the Gortynian roofs of
+                    the iniquitous ruler.</p>
+				<p>For it is said that once, constrained by the cruelest plague to expiate the
+                    slaughter of Androgeos, Cecropia used to give both chosen youths and the pick of
+                    the unmarried maidens as a feast to the Minotaur. When thus his strait walls
+                    with ills were vexed, Theseus with free will preferred to yield up his body for
+                    adored <placeName key="perseus,Athens">Athens</placeName> rather than such
+                    Cecropian corpses be carried to <placeName key="tgn,7012056">Crete</placeName>
+                    unobsequied. And therefore borne in a speedy craft by favouring breezes, he came
+                    to the imperious Minos and his superb seat. Instantly with longing glance the
+                    royal virgin saw him, she whom the chaste couch breathing out sweetest of scents
+                    cradled in her mother's tender enfoldings, like the myrtle which the rivers of
+                    Eurotas produce, or the many-tinted blooms opening with the springtide's
+                    breezes, she bent not her flashing eyes away from him, until the flame spread
+                    through her whole body, and burned into her innermost marrow. Ah, hard of heart,
+                    urging with misery to madness, O holy boy, who mingles men's cares and their
+                    joys, and you queen of Golgos and of foliaged <placeName key="tgn,7002336">Idalium</placeName>, on what waves did you heave the mind-kindled maid,
+                    sighing often for the golden-haired guest! What dreads she bore in her swooning
+                    soul! How often did she grow sallower in sheen than gold! When craving to
+                    contend against the savage monster, Theseus faced death or the palm of
+                    praise.</p>
+				<milestone n="103" unit="line"/>
+				<p>Then gifts to the gods not unpleasing, not idly given, with promise from
+                    tight-closed lips did she address her vows. For as an oak waving its boughs on
+                    Taurus' top, or a coniferous pine with sweating stem, is uprooted by savage
+                    storm, twisting its trunk with its blast (dragged from its roots prone it falls
+                    afar, breaking all in the line of its fall) so did Theseus fling down the
+                    conquered body of the brute, tossing its horns in vain towards the skies. Thence
+                    backwards he retraced his steps amidst great laud, guiding his errant footsteps
+                    by means of a tenuous thread, lest when coming out from tortuous labyrinthines
+                    his efforts be frustrated by unobservant wandering. But why, turned aside from
+                    my first story, should I recount more, how the daughter fleeing her father's
+                    face, her sister's embrace, and even her mother's, who despairingly bemoaned her
+                    lost daughter, preferred to all these the sweet love of Theseus; or how borne by
+                    their boat to the spumy shores of Dia she came; or how her husband with
+                    unmemoried breast forsaking her, left her bound in the shadows of sleep? And
+                    oft, so it is said, with her heart burning with fury she poured out clarion
+                    cries from depths of her bosom, then sadly scaled the rugged mounts, whence she
+                    could cast her glance over the vast seething ocean, then ran into the opposing
+                    billows of the heaving sea, raising from her bared legs her clinging raiment,
+                    and in uttermost plight of woe with tear-stained face and chilly sobs she spoke
+                    thus:&mdash;</p>
+				<p>&ldquo;Is it thus, O perfidious, when dragged from my motherland's shores, is
+                    it thus, O false Theseus, that you leave me on this desolate strand? thus do you
+                    depart unmindful of slighted godheads, bearing home your perjured vows? Was no
+                    thought able to bend the intent of your ruthless mind? had you no clemency
+                    there, that your pitiless bowels might show me compassion? But these were not
+                    the promises you gave me idly of old, this was not what you bade me hope for,
+                    but the blithe bride-bed, hymenaeal happiness: all empty air, blown away by the
+                    breezes. Now, now, let no woman give credence to man's oath, let none hope for
+                    faithful vows from mankind; for while their eager desire strives for its end,
+                    nothing fear they to swear, nothing of promises forbear they: but instantly
+                    their lusting thoughts are satiate with lewdness, nothing of speech they
+                    remember, nothing of perjuries care. In truth I snatched you from the midst of
+                    the whirlpool of death, preferring to suffer the loss of a brother rather than
+                    fail your need in the supreme hour, O ingrate. For which I shall be a gift as
+                    prey to be rent by wild beasts and the carrion-fowl, nor dead shall I be placed
+                    in the earth, covered with funeral mound. What lioness bore you beneath lonely
+                    crag? What sea conceived and spued you from its foamy crest? What Syrtis, what
+                    grasping Scylla, what vast Charybdis? O you repayer with such rewards for your
+                    sweet life! If it was not your heart's wish to yoke with me, through holding in
+                    horror the dread decrees of my stern sire, yet you could have led me to your
+                    home, where as your handmaid I might have served you with cheerful service,
+                    laving your snowy feet with clear water, or spreading the purple coverlet over
+                    your couch. Yet why, distraught with woe, do I vainly lament to the unknowing
+                    winds, which unfurnished with sense, can neither hear uttered complaints nor can
+                    return them? For now he has sped away into the midst of the seas, nor does any
+                    mortal appear along this desolate seaboard. Thus with overweening scorn bitter
+                    Fate in my extreme hour even grudges ears to my complaints. All-powerful
+                    Jupiter! would that in old time the Cecropian ships had not touched at the
+                    Gnossan shores, nor that the false mariner, bearing the direful ransom to the
+                    unquelled bull, had bound his ropes to <placeName key="tgn,7012056">Crete</placeName>, nor that yonder wretch hiding ruthless designs beneath
+                    sweet seemings had reposed as a guest in our halls! For whither may I flee? in
+                    what hope, O lost one, take refuge? Shall I climb the Idomenean crags? but the
+                    truculent sea stretching far off with its whirlings of waters separates us. Dare
+                    I hope for help from my father, whom I deserted to follow a youth besprinkled
+                    with my brother's blood? Can I crave comfort from the care of a faithful
+                    husband, who is fleeing with yielding oars, encurving amidst whirling waters? If
+                    I turn from the beach there is no roof in this tenantless island, no way shows a
+                    passage, circled by waves of the sea; no way of flight, no hope; all denotes
+                    dumbness, desolation, and death. Nevertheless my eyes shall not be dimmed in
+                    death, nor my senses secede from my spent frame, until I have besought from the
+                    gods a just penalty for my betrayal, and implored the faith of the celestials
+                    with my last breath. Wherefore you requiters of men's deeds with avenging pains,
+                    O Eumenides, whose front enwreathed with serpent-locks blazons the wrath exhaled
+                    from your bosom, come here, here, listen to my complaint, which I, sad wretch,
+                    am urged to outpour from my innermost marrow, helpless, burning, and blind with
+                    frenzied fury. And since in truth they spring from the very depths of my heart,
+                    be unwilling to allow my agony to pass unheeded, but with such mind as Theseus
+                    forsook me, with like mind, O goddesses, may he bring evil on himself and on his
+                    kin.&rdquo;</p>
+				<milestone n="202" unit="line"/>
+				<p>After she had poured forth these words from her grief-laden bosom, distractedly
+                    clamouring for requital against his heartless deeds, the celestial ruler
+                    assented with almighty nod, at whose motion the earth and the shuddering waters
+                    quaked, and the world of glittering stars quivered. But Theseus, self-blinded
+                    with mental mist, let slip from forgetful breast all those injunctions which
+                    until then he had held firmly in mind, nor bore aloft sweet signals to his sad
+                    sire, showing himself safe when in sight of Erectheus' haven. For it is said
+                    that before, when Aegeus entrusted his son to the winds, on leaving the walls of
+                    the chaste goddess's city, he gave these commands to the youth with his parting
+                    embrace:</p>
+				<p>&ldquo;O my only son, far dearer to me than long life, lately restored to me
+                    at extreme end of my years, O son whom I am forced to send off to a doubtful
+                    hazard, since my ill fate and your ardent valour snatch you from me unwilling,
+                    whose dim eyes are not yet sated with my son's dear form: nor gladly and with
+                    joyous breast do I send you, nor will I suffer you to bear signs of helpful
+                    fortune, but first from my breast many a complaint will I express, sullying my
+                    grey hairs with dust and ashes, and then will I hang dusky sails to the swaying
+                    mast, so that our sorrow and burning of mind are shown by rusty-dark Iberian
+                    canvas. Yet if the dweller on holy Itone, who deigns to defend our race and
+                    Erectheus' dwellings, grant you to besprinkle your right hand in the bull's
+                    blood, then see that in very truth these commandments deep-stored in your
+                    heart's memory do flourish, nor any time deface them. As soon as your eyes shall
+                    see our cliffs, lower their gloomy clothing from every yard, and let the twisted
+                    cordage bear aloft snowy sails, where resplendent shall shine bright topmast
+                    spars, so that, immediately discerning, I may know with gladness and lightness
+                    of heart that in prosperous hour you are returned to my face.&rdquo;</p>
+				<p>These charges, at first held in constant mind, from Theseus slipped away as
+                    clouds are impelled by the breath of the winds from the ethereal peak of a
+                    snow-clad mount. But as his father sought the castle's turrets as watchplace,
+                    dimming his anxious eyes with continual weeping, when first he spied the
+                    discoloured canvas, flung himself headlong from the top of the crags, believing
+                    Theseus lost by harsh fate. Thus as he entered the grief-stricken house, his
+                    paternal roof, Theseus savage with slaughter met with like grief as that which
+                    with unmemoried mind he had dealt to Minos' daughter: while she gazed with
+                    grieving at his disappearing keel, turned over a tumult of cares in her wounded
+                    spirit.</p>
+				<p>But on another part &lsqb;of the tapestry&rsqb; swift hastened the
+                    flushed Iacchus with his train of Satyrs and Nisa-begot Sileni, seeking you,
+                    Ariadne, and aflame with love for you.<gap/>These scattered all around, an
+                    inspired band, rushed madly with mind all distraught, ranting
+                    &ldquo;Euhoe,&rdquo; with tossing of heads &ldquo;Euhoe.&rdquo;
+                    Some with womanish hands shook thyrsi with wreath-covered points; some tossed
+                    limbs of a rended steer; some girded themselves with writhed snakes; some
+                    enacted obscure orgies with deep chests, orgies of which the profane vainly
+                    crave a hearing; others beat the tambours with outstretched palms, or from the
+                    burnished brass provoked shrill tinklings, blew raucous-sounding blasts from
+                    many horns, and the barbarous pipe droned forth horrible song. With luxury of
+                    such figures was the coverlet adorned, enwrapping the bed with its mantling
+                    embrace.</p>
+				<p>After the Thessalian youth were sated with the desire of gazing, they began to
+                    give way to the sacred gods. Hence, as with his morning's breath brushing the
+                    still sea Zephyrus makes the sloping billows uprise, when Aurora mounts beneath
+                    the threshold of the wandering sun, and the waves move forth slowly at first
+                    with the breeze's gentle motion (plashing with the sound as of low laughter),
+                    but after, as the wind swells, more and more frequent they crowd and gleam in
+                    the purple light as they float away,&mdash;so quitting the royal vestibule
+                    the folk left, each to his home with steps wandering hither and thither.</p>
+				<p>After their departure, Chiron came, chief from the summit of <placeName key="tgn,2096449">Pelion</placeName>, the bearer of sylvan spoil: for
+                    whatever the fields bear, what the Thessalian land on its high hills breeds, and
+                    what flowers the fecund air of warm Favonius begets near the running streams,
+                    these did he bear enwreathed into blended garlands wherewith the house rippled
+                    with laughter, caressed by the grateful odor.</p>
+				<p>Speedily Penios stands present, for a time leaving his verdant <placeName key="tgn,7014367">Tempe</placeName>, <placeName key="tgn,7014367">Tempe</placeName> whose overhanging trees encircle, to the <placeName key="tgn,2292724">Dorian</placeName> choirs, damsels Magnesian, to frequent;
+                    nor empty-handed,&mdash;for he has borne here lofty beeches uprooted and the
+                    tall laurel with straight stem, nor lacks he the nodding plane and the lithe
+                    sister of flame-wrapt Phaethon and the aerial cypress. These wreathed in line
+                    did he place around the palace so that the vestibule might grow green sheltered
+                    with soft fronds.</p>
+				<p>After him follows Prometheus of inventive mind, bearing diminishing traces of his
+                    ancient punishment, which once he had suffered, with his limbs confined by
+                    chains hanging from the rugged Scythian crags. Then came the sire of gods from
+                    heaven with his holy consort and offspring, leaving you alone, Phoebus, with
+                    your twin-sister the fosterer of the mountains of Idrus: for equally with
+                    yourself did your sister disdain Peleus nor was she willing to honour the
+                    wedding torches of Thetis. After they had reclined their snow-white forms along
+                    the seats, tables were loaded on high with food of various kinds.</p>
+				<milestone n="305" unit="line"/>
+				<p>In the meantime with shaking bodies and infirm gesture the Parcae began to intone
+                    their truth-naming chant. Their trembling frames were enwrapped around with
+                    white garments, encircled with a purple border at their heels, snowy fillets
+                    bound each aged brow, and their hands pursued their never-ending toil, as of
+                    custom. The left hand bore the distaff enwrapped in soft wool, the right hand
+                    lightly withdrawing the threads with upturned fingers shaped them, then twisting
+                    them with the prone thumb it turned the balanced spindle with well-polished
+                    whirl. And then with a pluck of their tooth the work was always made even, and
+                    the bitten wool-shreds adhered to their dried lips, which shreds at first had
+                    stood out from the fine thread. And in front of their feet wicker baskets of
+                    osier twigs took charge of the soft white woolly fleece. These, with
+                    clear-sounding voice, as they combed out the wool, out-poured fates of such kind
+                    in sacred song, in song which no age yet to come could tax with untruth.</p>
+				<p>&ldquo;O with great virtues augmenting your exceeding honour, mainstay of
+                        <placeName key="tgn,2316645">Emathia</placeName>, most famous in your issue,
+                    receive what the sisters make known to you on this happy day, a truth-naming
+                    oracle! But run, you spindles, drawing the thread which the fates follow, run,
+                    spindles! &ldquo;Now Hesperus will come to you bearing what is longed for by
+                    bridegrooms, with that fortunate star will your bride come, who steeps your soul
+                    with the sway of softening love, and prepares with you to conjoin in languorous
+                    slumber, spreading her smooth arms beneath your sinewy neck. Run, drawing the
+                    thread, run, spindles! &ldquo;No house ever yet enclosed such loves, no love
+                    bound lovers with such pact, as abides with Thetis, as is the concord of Peleus.
+                    Run, drawing the thread, run, spindles! &ldquo;To you will Achilles be born,
+                    a stranger to fear, to his foes known not by his back, but by his strong breast,
+                    who, often the victor in the uncertain struggle of the foot-race, will outrun
+                    the fire-fleet footsteps of the speedy doe. Run, drawing the thread, run,
+                    spindles! &ldquo;None in war with him may compare as a hero, when the
+                    Phrygian streams trickle with Trojan blood, and when besieging the walls of
+                        <placeName key="tgn,7014164">Troy</placeName> with a long, drawn-out warfare
+                    perjured Pelops' third heir lays that city waste. Run, drawing the thread, run,
+                    spindles! &ldquo;Often will mothers attest over funeral-rites of their sons
+                    his glorious acts and illustrious deeds, when the white locks from their heads
+                    are unloosed amid ashes, and they bruise their discoloured breasts with feeble
+                    fists. Run, drawing the thread, run, spindles! &ldquo;For as the reaper,
+                    plucking off the dense wheat-ears before their time, mows the harvest yellowed
+                    beneath ardent sun, so will he cast prostrate the corpses of <placeName key="tgn,7014164">Troy</placeName>'s sons with grim swords. Run, drawing the
+                    thread, run, spindles! &ldquo;His great valour will be attested by
+                    Scamander's wave, which ever pours itself into the swift <placeName key="tgn,7002638">Hellespont</placeName>, narrowing its course with
+                    slaughtered heaps of corpses he shall make tepid its deep stream by mingling
+                    warm blood with the water. Run, drawing the thread, run, spindles!
+                    &ldquo;And finally she will be a witness: the captive-maid handed to death,
+                    when the heaped-up tomb of earth built in lofty mound receives the snowy limbs
+                    of the stricken virgin. Run, drawing the thread, run, spindles! &ldquo;For
+                    instantly fortune will give the means to the war-worn Greeks to break <persName><surname>Neptune</surname></persName>'s stone bonds of the Dardanian city,
+                    the tall tomb shall be made dank with Polyxena's blood, who as the victim
+                    succumbing beneath two-edged sword, with yielding knees shall fall forward a
+                    headless corpse. Run, drawing the thread, run, spindles! &ldquo;Come then!
+                    Conjoin in the longed-for delights of your love. Let the bridegroom receive his
+                    goddess in felicitous compact; let the bride be given to her eager husband. Run,
+                    drawing the thread, run, spindles! &ldquo;Neither will the nurse returning
+                    with morning light succeed in circling her neck with last night's thread.
+                    &lsqb;Run, drawing the thread, run, spindles!&rsqb;, nor need her
+                    solicitous mother fear that sad discord will cause a parted bed for her
+                    daughter, nor need she cease to hope for dear grandchildren. Run, drawing the
+                    thread, run, spindles!&rdquo;</p>
+				<p>With such soothsaying songs of yore did the Parcae chant from divine breast the
+                    felicitous fate of Peleus. For previously the heaven-dwellers used to visit the
+                    chaste homes of heroes and to show themselves in mortal assembly when their
+                    worship had not yet been scorned. Often the father of the gods, resting in his
+                    glorious temple, when on the festal days his annual rites appeared, gazed on a
+                    hundred bulls strewn prone on the earth. Often wandering <placeName key="tgn,2032614">Liber</placeName> on topmost summit of <placeName key="tgn,2113566">Parnassus</placeName> led his howling Thyiads with loosely
+                    tossed locks, when the Delphians tumultuously trooping from the whole of their
+                    city joyously acclaimed the god with smoking altars. Often in lethal strife of
+                    war, Mavors, or swift Triton's queen, or the Rhamnusian virgin, in person did
+                    exhort armed bodies of men. But after the earth was infected with heinous crime,
+                    and each one banished justice from their grasping mind, and brothers steeped
+                    their hands in fraternal blood, the son ceased grieving over departed parents,
+                    the sire craved for the funeral rites of his first-born that freely he might
+                    take of the flower of unwedded step-mother, the unholy mother, lying under her
+                    unknowing son, did not fear to sully her household gods with dishonor:
+                    everything licit and lawless commingled with mad infamy turned away from us the
+                    just-seeing mind of the gods. Wherefore neither do they deign to appear at such
+                    assemblies, nor will they permit themselves to be met in the daylight.</p>
+			</div1>
+			<div1 type="Poem" n="65">
+				<p>Though outspent with care and unceasing grief, I am withdrawn, Ortalus, from the
+                    learned Virgins, nor is my soul's mind able to bring forth the sweet fruit of
+                    the Muses (so much does it waver amidst ills: for but lately the wave of the
+                    Lethean stream washes with its flow the poor, pale foot of my brother, whom the
+                    land of <placeName key="tgn,7014164">Troy</placeName> crushes beneath the
+                    Rhoetean shore, stolen from our eyes. &lsqb;Never again will I hear you
+                    speak,&rsqb; never again, O brother, more lovable than life, will I see you.
+                    But surely I will always love you, always will I sing elegies made gloomy by
+                    your death, such as the Daulian bird pipes beneath densest shades of foliage,
+                    lamenting the lot of slain Itys.&mdash;Yet amidst sorrows so deep, O
+                    Ortalus, I send you these verses recast from Battiades, lest by chance you
+                    should think that your words have slipped from my mind, entrusted to the
+                    wandering winds, as it was with that apple, sent as furtive love-token by the
+                    wooer, which leapt out from the virgin's chaste bosom; for the hapless girl
+                    forgot she had placed it beneath her soft robe&mdash;when she starts at her
+                    mother's approach, out it is shaken: and down it rolls headlong to the ground,
+                    while a tell-tale flush bears witness to the girl's distress.</p>
+			</div1>
+			<div1 type="Poem" n="66">
+				<p>He who scanned all the lights of the great firmament, who ascertained the rising
+                    and the setting of the stars, how the flaming splendour of the swift sun was
+                    darkened, how the planets disappear at certain seasons, how sweet love with
+                    stealth detaining Trivia beneath the Latmian crags draws her away from her airy
+                    circuit: he that same Conon saw me, a lock of hair from <persName><surname>Berenice</surname></persName>'s head, in the celestial light,
+                    gleaming brightly, which she outstretching graceful arms promised to all of the
+                    gods, when the king, magnified by his recent marriage, had gone to lay waste the
+                    Assyrian borders, bearing the sweet traces of nightly contests, in which he had
+                    borne away her virginal spoils. Is <persName><surname>Venus</surname></persName> abhorred by new brides? And are the parents' joys turned
+                    aside by feigned tears, which they shed copiously within the threshold of the
+                    bedchamber? Their groans are untrue, by the gods I swear! This my queen taught
+                    me by her many lamentings, when her bridegroom set out for stern warfare. Yet,
+                    when deserted, you did not grieve the widowed couch, did you, but the tearful
+                    separation from a dear brother? How care consumed your marrow, sad deep within!
+                    Such that, your whole bosom being agitated, and your senses being snatched from
+                    you, your mind wandered! But in truth I have known you great of heart ever since
+                    you were a little maiden. Have you forgotten that noble deed, by which you
+                    gained a royal marriage, than which none dared other deeds bolder? Yet what
+                    grieving words you spoke when bidding your bridegroom farewell! <persName><surname>Jupiter</surname></persName>! how often with sad hand &lsqb;you
+                    wiped&rsqb; your eyes! What mighty god changed you? Was it that lovers are
+                    unwilling to be long absent from their dear one's body? Then did you promise me
+                    to the whole of the gods on your sweet consort's behalf, not without blood of
+                    oxen, if he should be granted safe return. In no long time he added captive
+                        <placeName key="tgn,2097781">Asia</placeName> to the Egyptian territory. For
+                    these reasons I, bestowed amidst the celestial host, by a new gift fulfil your
+                    ancient vow. Unwillingly, O queen, did I quit your brow, unwillingly: I swear to
+                    you and to your head; if anyone swears lightly, may he bear a suitable penalty:
+                    but who may claim himself equal to steel? Even that mountain was swept away, the
+                    greatest on earth, over which Thia's illustrious progeny passed, when the Medes
+                    created a new sea, and the barbarian youth sailed its fleet through the middle
+                    of <placeName key="tgn,7002722">Athos</placeName>. What can locks of hair do,
+                    when such things yield to iron? <persName><surname>Jupiter</surname></persName>! may the whole race of the Chalybes perish, and whoever
+                    first began to seek the veins beneath the earth and invent the hardness of iron!
+                    Just before severance my sister locks were mourning my fate, when Ethiop
+                    Memnon's brother, the winged steed, beating the air with fluttering wings,
+                    appeared before Locrian Arsinoe, and he bearing me up, flies through aethereal
+                    shadows and lays me in the chaste bosom of <persName><surname>Venus</surname></persName>. Zephyritis herself had dispatched him as her servant, a
+                    Greek settler on the Canopian shores. For it was the wish of many gods that the
+                    golden crown from Ariadne's temples stay fixed, not alone in heaven's light, but
+                    that we also should gleam, the spoils dedicated from your golden-yellow head;
+                    when moist with weeping I entered the temples of the gods, the goddess placed
+                    me, a new star, among the ancient ones. For touching the Virgin's and the cruel
+                    Lion's gleams, hard by Lycaonian Callisto, I turn westwards, a guide before the
+                    slow-moving Bootes who barely sinks into the vast ocean. But although the
+                    footsteps of the gods press upon me in the night, and the daytime restores me to
+                    the white-haired Tethys, (grant me your grace to speak thus, O Rhamnusian
+                    virgin, for I will not hide the truth through any fear, even if the stars revile
+                    me with ill words, yet I will unfold the pent-up feelings from truthful breast)
+                    I am not so much rejoiced at these things as I am tortured by being forever
+                    parted, parted from my lady's head, with whom I, in all ointments having not a
+                    share, drank many thousands when she was still a virgin.</p>
+				<p>Now do you, whom the gladsome light of the wedding torches has joined, yield not
+                    your bodies to your desiring husbands nor throw aside your robes and bare your
+                    nipples, before your onyx cup brings me delightful gifts, your onyx, you who
+                    seek the dues of chaste marriage-bed. But she who gives herself to foul
+                    adultery, ah! may the light-lying dust responselessly drink her vile gifts, for
+                    I seek no offerings from folk that do ill. But rather, O brides, may concord
+                    always be yours, and constant love ever dwell in your homes. But when you, O
+                    queen, while gazing at the stars, will propitiate the goddess <persName><surname>Venus</surname></persName> with festal torch lights, let not me,
+                    your own, be left lacking of unguent, but rather gladden me with large gifts.
+                    Why do the stars hold me back? would that I become a royal tress, that Orion
+                    might gleam next to Aquarius.</p>
+			</div1>
+			<div1 type="Poem" n="67">
+				<p/>
+				<sp>
+					<speaker>Catullus</speaker>
+					<p>O dear in thought to the sweet husband, dear in thought to his sire, hail!
+                        and may Jove augment his good grace to you, Door! which of old, they say,
+                        did serve Balbus benignly, while the old man held his home here; and which
+                        on the contrary, so it is said, did serve grudgingly after the old man was
+                        stretched stark, you doing service to the bride. Come, tell us why you are
+                        reported to be changed and to have renounced your ancient faithfulness to
+                        your lord?</p>
+				</sp>
+				<sp>
+					<speaker>Door</speaker>
+					<p>No, (so may I please Caecilius to whom I am now made over!) it is not my
+                        fault, although it is said so to be, nor may anyone impute any crime to me;
+                        albeit the fabling tongues of folk make it so, who, whenever anything is
+                        found not well done, all clamor at me: &ldquo;Door, yours is the
+                        blame!&rdquo;</p>
+				</sp>
+				<sp>
+					<speaker>Catullus</speaker>
+					<p>It is not enough for you to say this by words merely, but so to act that
+                        everyone may feel it and see it.</p>
+				</sp>
+				<sp>
+					<speaker>Door</speaker>
+					<p>In what way can I? No one questions or troubles to know.</p>
+				</sp>
+				<sp>
+					<speaker>Catullus</speaker>
+					<p>We are wishful: be not doubtful to tell us.</p>
+				</sp>
+				<sp>
+					<speaker>Door</speaker>
+					<p>First then, the virgin (so they called her!) who was handed to us was
+                        spurious. Her husband was not the first to touch her, he whose little
+                        dagger, hanging more limply than the tender beet, never raised itself to the
+                        middle of his tunic: but his father is said to have violated his son's bed
+                        and to have polluted the unhappy house, either because his lewd mind blazed
+                        with blind lust, or because his impotent son was sprung from sterile seed,
+                        and therefore one greater of nerve than he was needed, who could unloose the
+                        virgin's belt.</p>
+				</sp>
+				<sp>
+					<speaker>Catullus</speaker>
+					<p>You tell of an excellent parent marvellous in piety, who himself urinated in
+                        the womb of his son!</p>
+				</sp>
+				<sp>
+					<speaker>Door</speaker>
+					<p>But <placeName key="tgn,7005764">Brixia</placeName> says that she has
+                        knowledge of not only this, placed beneath the Cycnean peak, through which
+                        the golden-hued Mella flows with its gentle current, <placeName key="tgn,7005764">Brixia</placeName>, beloved mother of my <placeName key="perseus,Verona">Verona</placeName>. For she talks of the loves of
+                        Postumius and of Cornelius, with whom that one committed foul adultery.</p>
+				</sp>
+				<sp>
+					<speaker>Catullus</speaker>
+					<p>Someone might say here: &ldquo;How do know you these things, O door? you
+                        who are never allowed absence from your lord's threshold, nor may hear
+                        folk's gossip, but fixed to this beam are accustomed only to open or to shut
+                        the house!&rdquo;</p>
+				</sp>
+				<sp>
+					<speaker>Door</speaker>
+					<p>Often have I heard her talking with hushed voice, when alone with her serving
+                        girls, about her iniquities, quoting by name those whom we have spoken of,
+                        for she did not expect me to be gifted with either tongue or ear. Moreover
+                        she added a certain one whose name I'm unwilling to speak, lest he uplift
+                        his red eyebrows. He is a lanky fellow, against whom some time ago was
+                        brought a grave law-suit over the spurious child-birth of a lying belly.</p>
+				</sp>
+			</div1>
+			<div1 type="Poem" n="68">
+				<p>Because you, oppressed by fortune and bitter calamity, sent me this letter
+                    written with tears, that I might bear up shipwrecked you tossed by the foaming
+                    waves of the sea, and restore you from the threshold of death; you whom neither
+                    sacred Venus suffers to repose in soft slumber, desolate on a lonely couch, nor
+                    do the Muses divert with the sweet song of ancient poets, while your anxious
+                    mind keeps watch:&mdash;I am grateful that you call me your friend, and seek
+                    here the gifts of the Muses and of Venus. But so that my troubles may not be
+                    unknown to you, Manlius, and so that you not think that I hate the duty of host,
+                    hear how I myself am engulfed in the waves of fortune, and do not further seek
+                    joyful gifts from a wretched one. In that time when the white toga was first
+                    handed to me, and my flowering age was passing its delightful spring, much and
+                    enough did I sport: nor was the goddess unknown to us who mixes bitter-sweet
+                    with our cares. But my brother's death plunged all this pursuit into mourning. O
+                    brother, taken from my unhappy self; you by your dying have broken my ease, O
+                    brother; all our house is buried with you; with you have perished the whole of
+                    our joys, which your sweet love nourished in your lifetime. With your loss, I
+                    have dismissed wholly from mind these studies and every delight of mind. So
+                    then, because you write, &ldquo;it is shameful for Catullus to be at
+                        <placeName key="tgn,7003262">Verona</placeName>, because here someone of the
+                    better sort warms up his frigid limbs on a desolate couch;&ldquo; that,
+                    Manlius, is not shameful; rather it is a sorrow. Therefore, forgive me if I do
+                    not bestow on you these gifts which grief has snatched from me, because I am
+                    unable. For the fact that there is no great store of writings with me arises
+                    from this, that we live at <placeName key="perseus,Rome">Rome</placeName>: there
+                    is my home, there is my hall, there my time is passed; here but one of my
+                    book-cases follows me. As it is thus, I would not want you to think that we do
+                    this from ill-will or with a mind not open enough, because ample store is not
+                    forthcoming to either of your desires: of my own accord would I grant both, had
+                    I the wherewithal.</p>
+			</div1>
+			<div1 type="Poem" n="68b">
+				<milestone n="41" unit="line"/>
+				<p>I cannot conceal, goddesses, in what way Allius has aided me, or with how many
+                    good services he has assisted me, lest the flight of time through ages of
+                    forgetfulness cover with night's blindness this care of his. But I shall tell it
+                    to you, and you in time to come declare it to many yousands, and make this
+                    paper, grown old, speak of it<gap/>And let him be more and more noted when dead,
+                    nor let the spider aloft, weaving her thin-drawn web, carry on her work over the
+                    neglected name of Allius. For you know what anxiety of mind twofold Amathusia
+                    gave me, and in what manner she overthrew me, when I was burning like the
+                    Trinacrian rocks, or the Malian fount in Oetaean Thermopylae; and my sorrowful
+                    eyes did not cease to dissolve with continual weeping, or did my cheeks to be
+                    dampened with sad showers. As the transparent stream gushes forth from the
+                    moss-grown rock on the airy crest of the mountain, which, when it has rolled
+                    headlong prone down the valley, softly wends its way through the midst of the
+                    populous parts, sweet solace to the wayfarer sweating with weariness, when the
+                    oppressive heat cracks the burnt-up fields agape: or, as to sailors
+                    tempest-tossed in black whirlpool, there comes a favourable and a gently-moving
+                    breeze, implored by prayer now to Pollux, now to Castor: of such kind was
+                    Allius' help to us. He laid open my closed field with a wide path; he gave us a
+                    home and he gave it to our mistress, in which we both might exercise our loves
+                    in common. There with gracious gait my bright-hued goddess betook herself, and
+                    pressed her shining sole on the worn threshold with creaking sandal; as once
+                    came Laodamia, flaming with love for her husband, to the home of
+                    Protesilaus,&mdash;a home begun in vain&mdash;not yet had a victim
+                    appeased the lords of the heavens with sacred blood. May nothing please me
+                    overmuch, Rhamnusian virgin, that is undertaken rashly against the will of those
+                    lords! How the thirsty altar craves the pious blood Laodamia was taught by the
+                    loss of her husband, being compelled to abandon the neck of her new spouse
+                    before one winter and another had come, in whose long nights she might sate her
+                    eager passion, so she could live despite her broken marriage-yoke. The Parcae
+                    decreed that this would not be long distant, if her husband went a soldier to
+                    the walls of <placeName key="tgn,7002329">Ilium</placeName>. For then with
+                    Helen's rape <placeName key="perseus,Troy">Troy</placeName> had begun to summon
+                    the <placeName key="tgn,5001993">Argive</placeName> chiefs to itself; <placeName key="perseus,Troy">Troy</placeName> (accursed!) the common grave of
+                        <placeName key="tgn,1000004">Asia</placeName> and of <placeName key="tgn,1000003">Europe</placeName>, <placeName key="perseus,Troy">Troy</placeName>, the bitter ashes of heroes and of every noble deed, that
+                    also lamentably brought death to our brother. O brother taken from unhappy me! O
+                    delightful light taken from an unhappy brother! together with you is buried all
+                    our house, together with you have perished all our joys, which your sweet love
+                    nurtured during life. Whom now so far away <placeName key="perseus,Troy">Troy</placeName>, obscene, baleful <placeName key="perseus,Troy">Troy</placeName>, an alien land, holds in far-distant soil laid not among
+                    familiar tombs or near the ashes of his kindred. There, it is said, hastening
+                    together from all parts, the Greek youth forsook their hearths and homes, lest
+                    <persName><surname>Paris</surname></persName> enjoy his abducted trollop
+                    with freedom and leisure in a peaceful bed. Such then was your case, loveliest
+                    Laodamia, to be bereft of husband sweeter than life and breath; the tide of love
+                    swallowing you in so great a current bore you off into its steep abyss, as the
+                    Greeks say Pheneus near Cyllene drains off the soil from the rich swampland.
+                    Once the falsely-born son of Amphitryon is heard to have dug this soil, having
+                    cut through the marrow of the mountain, at the time when he knocked down the
+                    Stymphalian monsters with sure arrows at the command of his inferior lord, so
+                    that the gate of heaven might be pressed by a greater number of deities, and
+                    Hebe might not remain in long virginity. But deeper than that abyss was your
+                    deep love which taught you then, untamed, to bear the yoke. For not as dear to
+                    the parent consumed with age is the head of the late-born grandchild an only
+                    daughter rears, who, &lsqb;an heir&rsqb; found at last for the ancestral
+                    wealth, scarcely having brought his name into the public records, casts off the
+                    impious joys of mocking kinsmen and stirs away the vulture from the whitened
+                    head; nor so much does any dove rejoice in her snow-white consort, which they
+                    say is always plucking kisses with her nibbling beak: more shamelessly than a
+                    woman who is especially passionate. But you alone surpassed the great frenzies
+                    of these, when you were once united to your yellow-haired husband. Worthy to
+                    yield to her in no respect or in little, my light brought herself into my
+                    embrace, round whom Cupid, often running here and there, gleamed radiantly in
+                    his saffron tunic. Although she is not content with Catullus alone, we will bear
+                    the rare intrigues of our coy lady, lest we may be too much a bother, after the
+                    manner of fools. Often even Juno, greatest of heaven-dwellers, boiled with
+                    flaring wrath at her husband's fault, knowing the many intrigues of passionate
+                    Jove. Yet it is not fair to compare men with the gods<gap/>bear up the
+                    ungrateful burden of a trembling father. After all she was not handed to me by a
+                    father's right hand when she came to my house fragrant with Assyrian perfume,
+                    but she gave me her stolen favors in the wondrous night, taken away from the
+                    embrace of her own husband. Therefore it is enough if to us alone she gives that
+                    day which she marks with a whiter stone.</p>
+				<p>This gift to you, Allius, completed in what verse I can, is in return for many
+                    services, so that this day and that, and other and other of days may not touch
+                    your name with flaking rust. To this the gods will add the many gifts, which
+                    Themis once used to bring to the pious of old. May you be happy, both you and
+                    your life's-love together, and your home in which we have sported, and its
+                    mistress, and he who first gave us earth takes it away, from whom all my good
+                    fortunes were first born, and lastly she whose very self is dearer to me than
+                    all these,&mdash;my light, who living, living is sweet to me.</p>
+			</div1>
+			<div1 type="Poem" n="69">
+				<p>Don't wonder why no woman, Rufus, wants to place her tender thigh beneath you,
+                    not even if you tempt her with the gift of a rare robe or with the delights of a
+                    crystal-clear gem. A certain ill tale injures you, that you bear housed in the
+                    valley of your armpits a grim goat. This everyone fears. It's no wonder: for it
+                    is an exceeding ill beast, with whom no fair girl will sleep. Therefore, either
+                    murder that cruel plague of their noses, or cease to marvel, "Why do they
+                    fly?"</p>
+			</div1>
+			<div1 type="Poem" n="70">
+				<p>No one, says my lady, would she rather wed than myself, not even if <persName><surname>Jupiter</surname></persName> himself sought her. Thus she says! but
+                    what a woman says to a desirous lover ought fitly to be written on the breezes
+                    and in running waters.</p>
+			</div1>
+			<div1 type="Poem" n="71">
+				<p>If ever anyone was deservedly cursed with an atrocious goat-stench from armpits,
+                    or if limping gout did justly gnaw one, it is your rival, who occupies himself
+                    with your love, and who wondrously has obtained each these ills from you. For as
+                    often as he takes his pleasure, he just as often takes vengeance on both;
+                    herself he prostrates by his stink, he is slain by his gout.</p>
+			</div1>
+			<div1 type="Poem" n="72">
+				<p>Once you used to say you knew only Catullus, <persName><surname>Lesbia</surname></persName>, that you would not hold Jove before me. I loved you
+                    then, not only as a fellow his mistress, but as a father loves his own sons and
+                    sons-in-law. Now I do know you: so if I burn at greater cost, you are
+                    nevertheless to me far viler and of lighter thought. How can this be? you ask.
+                    Because such wrongs drive a lover to love the more, but less to respect.</p>
+			</div1>
+			<div1 type="Poem" n="73">
+				<p>Cease to wish you well deserve anything from anyone, or to think anyone can
+                    become pious. All things are unpleasant, it is of no avail to have done deeds of
+                    kindness, but rather it wearies me, wearies me and proves the greater ill: so
+                    with me, whom no one oppresses more heavily nor more bitterly than he who a
+                    little while ago held me his one and only friend.</p>
+			</div1>
+			<div1 type="Poem" n="74">
+				<p>Gellius had heard that his uncle used to scold anyone who spoke of or practised
+                    the delights of love. That this should not happen to him, he kneaded deeply his
+                    uncle's wife herself, and turned his uncle into a Harpocrates. He did whatever
+                    he wanted; for now, even if he boned his uncle, the uncle wouldn't say a
+                    word.</p>
+			</div1>
+			<div1 type="Poem" n="75">
+				<p>Now is my mind brought down to this point, my <persName><surname>Lesbia</surname></persName>, by your fault, and has so lost itself by its devotion,
+                    that now it cannot wish you well, were you to become most perfect, nor can it
+                    cease to love you, whatever you do.</p>
+			</div1>
+			<div1 type="Poem" n="76">
+				<p>If there is any pleasure in a man's recalling the good deeds of the past, when he
+                    knows that he is pious and has not violated any sacred trust or abused the
+                    divinity of the gods to deceive men in any pact, great store of joys awaits you
+                    during your length of years, Catullus, from this thankless love of yours. For
+                    whatever people can say or do well for someone, such have been your sayings and
+                    your doings, and all your confidences have been squandered on a thankless mind.
+                    So then why do you torture yourself further? Why don't you strengthen your
+                    resolve and lead yourself out of this and, since the gods are unwilling, stop
+                    being miserable? It is difficult suddenly to set aside a love of long standing;
+                    it is difficult, this is true, no matter how you do it. This is your one
+                    salvation, this you must fight to the finish; you must do it, whether it is
+                    possible or impossible. O gods, if it is in you to have pity, or if ever you
+                    brought help to men in death's very extremity, look on pitiful me, and if I have
+                    lived my life with purity, snatch from me this canker and pest! Ah! like a
+                    numbness creeping through my inmost veins it has cast out every happiness from
+                    my breast. Now I no longer pray that she may love me in return, or (what is not
+                    possible) that she should become chaste: I wish but for health and to cast aside
+                    this foul disease. O gods, grant me this in return for my piety.</p>
+			</div1>
+			<div1 type="Poem" n="77">
+				<p><persName><surname>Rufus</surname></persName>, believed by me a friend, in vain
+                    and worthlessly, (in vain? yes, and in fact at an ill and grievous price) you
+                    have thus stolen upon me, and burning my innards, ah! snatched from wretched me
+                    all our good? you have snatched it, alas, you cruel venom of our life! alas, you
+                    plague of our friendship. </p>
+			</div1>
+			<div1 type="Poem" n="78">
+				<p>Gallus has brothers, one of whom has a most charming spouse, the other a charming
+                    son. Gallus is a nice man: for he joins together their sweet loves, so that the
+                    nice girl beds with the the nice boy. Gallus is a foolish man not to see that he
+                    is himself a husband who as an uncle shows how to cuckold an uncle.</p>
+			</div1>
+			<div1 type="Poem" n="78b">
+				<p><gap/>But now I grieve that the pure kisses of a pure girl have mingled with your
+                    filthy spit. But in truth you will not come off with impunity; for every age
+                    will know you, and Old Lady Fame will tell who you are.</p>
+			</div1>
+			<div1 type="Poem" n="79">
+				<p>Lesbius is handsome: why not so? whom <persName><surname>Lesbia</surname></persName> prefers to you, Catullus, and to your whole family. Yet
+                    this handsome one can sell Catullus and his family if he can find three
+                    acquaintances he can gain greet with a kiss.</p>
+			</div1>
+			<div1 type="Poem" n="80">
+				<p>What shall I say, Gellius, how those rosy-red lips have become whiter than winter
+                    snow, when you leave home in the morning and when the eighth hour stirs you from
+                    a gentle nap amid the long day? Something is certain: perhaps Rumor whispers
+                    true that you are devouring the well-grown tenseness of a man's middle? So for
+                    certain it must be! the ruptured guts of poor little Victor and your lips marked
+                    with what was lately-drained cry it aloud.</p>
+			</div1>
+			<div1 type="Poem" n="81">
+				<p>Could no one in this great people, Juventius, be a nice man you could fall in
+                    love with except for this guest of yours, paler than a gilded statue, from the
+                    dying town of <placeName key="tgn,7003991">Pisaurum</placeName>? He who now has
+                    your heart, whom you dare to place before us; and you know not what crime you
+                    commit.</p>
+			</div1>
+			<div1 type="Poem" n="82">
+				<p>Quintius, if you want Catullus to owe you his eyes, or another thing dearer than
+                    his eyes, if such there is, do not snatch from him what is much dearer to him
+                    than his eyes, or what is dearer than his eyes.</p>
+			</div1>
+			<div1 type="Poem" n="83">
+				<p><persName><surname>Lesbia</surname></persName> in her husband's presence says
+                    the utmost ill about me: this gives the fool the greatest pleasure. Mule, you
+                    perceive nothing! If she had forgotten about us and were silent, she would be
+                    all right: now becasuse she snarls and scolds, not only does she remember, but,
+                    what is far more to the point, she is angry. That is, she is enflamed and is
+                    speaking.</p>
+			</div1>
+			<div1 type="Poem" n="84">
+				<p>Chommodious Arrius would say, whenever he wanted to say commodious, and for
+                    insidious hinsidious, and then hoped that he had spoken with accent wondrous
+                    fine, when aspirating hinsidious to the full of his lungs. I believe that his
+                    mother, his free uncle, his maternal grandfather and grandmother all spoke thus.
+                    When he was sent to <placeName key="tgn,1000140">Syria</placeName>, everyone's
+                    ears were rested, hearing these words spoken smoothly and slightly, nor after
+                    that did folk fear such words from him, when suddenly is brought the horrible
+                    news that th' Ionian waves, after Arrius had come there, no longer are Ionian,
+                    but are now the Hionian Hocean.</p>
+			</div1>
+			<div1 type="Poem" n="85">
+				<p>I hate and I love. Why I do this, perhaps you ask. I know not, but I feel it
+                    happening and I am tortured.</p>
+			</div1>
+			<div1 type="Poem" n="86">
+				<p>Quintia is lovely to many; to me she is radiant, tall, and straight. Each of
+                    these qualities I grant, but deny the whole of these is loveliness: for there is
+                    no charm, not a grain of salt in so great a body. <persName><surname>Lesbia</surname></persName> is lovely, for not only is the whole of her most
+                    beautiful, but she has stolen all the Venus-charm from everybody together.</p>
+			</div1>
+			<div1 type="Poem" n="87">
+				<p>No woman can say truly that she has been loved as much as you, <persName><surname>Lesbia</surname></persName>, have been loved by me: no trust in any
+                    pact has ever been found so great as was that on my part in the love of you.</p>
+			</div1>
+			<div1 type="Poem" n="88">
+				<p>What is he doing, Gellius, who has an itch with mother and sister and stays up
+                    all night with tunics cast aside? What is he doing, who does not allow his uncle
+                    to be a husband? Do you know the weight of crime he undertakes? He undertakes, O
+                    Gellius, so much as neither furthest Tethys nor Oceanus, father of nymphs, can
+                    cleanse: for there is no crime which can go further, not even if with lowered
+                    head he swallowed himself.</p>
+			</div1>
+			<div1 type="Poem" n="89">
+				<p>Gellius is thin: why not? He who lives with so good a mother, so healthy and so
+                    beauteous a sister, and who has such a good uncle, and a worldfull of girl
+                    cousins, why would he cease to be skinny? who if he touched nothing but what is
+                    not lawful to touch&mdash;you will find ample reason why he is skinny.</p>
+			</div1>
+			<div1 type="Poem" n="90">
+				<p>Let there be born a Magus from the unspeakable coupling of Gellius and his
+                    mother, and let him learn the Persian art of divination. For if <placeName key="tgn,7000231">Persia</placeName>'s impious religion is true, a pleasing
+                    Magus ought to be begotten from a mother and son, so that, when the chant has
+                    been learned, he may worship gods while melting the fat innards in the sacred
+                    flame.</p>
+			</div1>
+			<div1 type="Poem" n="91">
+				<p>For no other reason, Gellius, did I hope for your faith to me in this our
+                    unhappy, this our desperate love, not because I knew you well or thought you
+                    constant or able to restrain your mind from a shameless act), but because I saw
+                    this girl whose love kept knawing at me was neither your mother nor your sister.
+                    And although I have had many mutual dealings with you, I did not believe this
+                    case to be enough cause for you. You considered it enough: so great is your joy
+                    in every kind of wrongdoing in which there is some vice.</p>
+			</div1>
+			<div1 type="Poem" n="92">
+				<p>Lesbia forever speaks ill of me nor is ever silent about me: I'll be damned if
+                    Lesbia doesn't love me! By what sign? because mine are just the same: I
+                    exsecrate her constantly, yet may I be damned if I do not love her in sober
+                    truth.</p>
+			</div1>
+			<div1 type="Poem" n="93">
+				<p>I am not over anxious, Caesar, to please you greatly, or to know whether you are
+                    a white or a black man.</p>
+			</div1>
+			<div1 type="Poem" n="94">
+				<p>Mentula fornicates. Of course a mentule fornicates! This is what they
+                    say&mdash;the pot itself gathers the vegetables.</p>
+			</div1>
+			<div1 type="Poem" n="95">
+				<p>My Cinna's <title>Zmyrna</title> finally, after the ninth harvest it was begun,
+                    and after the ninth winter it was published, when Hortensius meanwhile five
+                    hundred thousand &lsqb;lines&rsqb; in one &lsqb;year&rsqb;<gap/>
+                    <title>Zmyrna</title> will be sent to the curving waves of innermost Satrachus,
+                    hoary ages will roll out <title>Zmyrna</title> long hence. But Volusius'
+                        <title>Annals</title> will die at <placeName key="tgn,7003085">Padua</placeName> itself, and will often furnish loose wrappings for
+                    mackerel. May the short works of my comrade remain in my heart; as for the
+                    people, let them rejoice in bloated Antimachus.</p>
+			</div1>
+			<div1 type="Poem" n="96">
+				<p>Calvus, if anything pleasing or welcome from our grief can have an effect on
+                    silent graves, then with its longing we renew old loves and weep friendships
+                    once lost, surely Quintilia does not mourn her premature death as much as she
+                    rejoices in your love.</p>
+			</div1>
+			<div1 type="Poem" n="97">
+				<p>So may the Gods love me, I did not think it made any difference whether I smelled
+                    Aemilius' mouth or his arse. In no respect is the latter cleaner, the former
+                    filthier; as a matter of fact, his backside is cleaner and better&mdash;for
+                    it comes without teeth. His mouth has teeth a foot and a half long, gums truly
+                    like an old wagon-box, and besides, he usually has a maw like the split twat of
+                    a she-mule pissing in the summer heat. This man has sex with many girls, and
+                    makes himself out to be charming, and is not condemned to the mill &lsqb;to
+                    drive&rsqb; the mule? Any girl who would touch him we would think could lick
+                    the arse of a diseased hangman.</p>
+			</div1>
+			<div1 type="Poem" n="98">
+				<p>What can be said to you, if to anyone, stinking Victius, is said to wind bags and
+                    fools. For with that tongue, if the occasion should arise, you could lick arses
+                    and farmers' boots. If you want to destroy us altogether, Victius, yawn: you
+                    will accomplish what you want altogether.</p>
+			</div1>
+			<div1 type="Poem" n="99">
+				<p>I stole from you, while you were playing, honeyed Juventius, a kiss sweeter than
+                    sweet ambrosia. But I bore it off not unpunished; for more than an hour I
+                    remember I was nailed to the top of a cross, while I purged myself &lsqb;for
+                    my crime&rsqb; to you, nor could any tears in the least remove your cruelty.
+                    For as soon as it was done, you washed your lips with many drops, and wiped them
+                    off with every finger, lest anything contracted from our mouth remain, as though
+                    it were the filthy spittle of a piss-wet whore. Besides, you have handed
+                    wretched me over to spiteful Love, nor have you ceased to torture me in every
+                    way, so that for me that kiss is now changed from ambrosia to be harsher than
+                    harsh hellebore. Since you award such punishment to wretched lover, never more
+                    after this will I steal kisses.</p>
+			</div1>
+			<div1 type="Poem" n="100">
+				<p>Caelius and Quintius, the flower of the Veronese youth, madly in love with
+                    Aufilenus, madly in love with Aufilena&mdash;the one with the brother; the
+                    other with the sister. This is, as one would say, true brotherhood and sweet
+                    friendship. To whom shall I incline the more? Caelius, to you; for your single
+                    devotion to us was shown by its deeds, when the raging flame scorched my marrow.
+                    Be happy, Caelius, be potent in love.</p>
+			</div1>
+			<div1 type="Poem" n="101">
+				<p>Through many nations and through many seas borne, I come, brother, for these sad
+                    funeral rites, that I may give the last gifts to the dead, and may vainly speak
+                    to your silent ashes, since fortune has taken yourself away from me. Ah, poor
+                    brother, undeservedly snatched from me. But now receive these gifts, which have
+                    been handed down in the ancient manner of ancestors, the sad gifts to the grave,
+                    drenched with a brother's tears, and for ever, brother, hail and farewell.</p>
+			</div1>
+			<div1 type="Poem" n="102">
+				<p>If anything was entrusted in a pledge of silence by a friend whose inmost loyalty
+                    of spirit is known, you will find that I am one of those rightfully devoted,
+                    Cornelius, and think that I have become a Harpocrates.</p>
+			</div1>
+			<div1 type="Poem" n="103">
+				<p>Come, Silo, either return me my ten thousand sesterces, and then be to your
+                    content surly and boorish: or, if you like the money, please stop being a
+                    pimp&mdash;and being surly and boorish.</p>
+			</div1>
+			<div1 type="Poem" n="104">
+				<p>Do you believe that I could curse my life, she who is dearer to me than are both
+                    my eyes? I could not, nor if I could, would my love be so desperate: but you and
+                        <placeName key="tgn,1090192">Tappo</placeName> make a monstrosity out of
+                    everything.</p>
+			</div1>
+			<div1 type="Poem" n="105">
+				<p>Mentula tries to climb Mount Pimpla: the Muses with their forks chuck him
+                    headlong down.</p>
+			</div1>
+			<div1 type="Poem" n="106">
+				<p>When you see an auctioneer with a comely lad, what do believe other than that he
+                    longs to sell himself?</p>
+			</div1>
+			<div1 type="Poem" n="107">
+				<p>If ever something happens that you long for and want and is unhoped for, this is
+                    genuinely pleasing to the soul. And thus is it pleasing to us and far dearer
+                    than gold, that you have returned, Lesbia, to longing me, you have returned to
+                    me, longing and without hope, you brought yourself back to us. O day of whiter
+                    note! Who lives more happily than I alone, or who can name things greater to be
+                    wished for in this life?</p>
+			</div1>
+			<div1 type="Poem" n="108">
+				<p>If, Cominius, by the judgment of the people your white hair made filthy by
+                    unclean practices should perish, to be sure I do not doubt that first your
+                    tongue, hostile to goodness, cut out, will be given to the greedy vulture, the
+                    crow will gorge your eyes, gouged out, down his black throat, the dogs will
+                    gorge down your entrails, the wolves your remaining members.</p>
+			</div1>
+			<div1 type="Poem" n="109">
+				<p>My life, you declare to me that this love of ours will be an everlasting joy
+                    between us. Great Gods! grant that she may promise truly, and say this in
+                    sincerity and from her soul, and that through all our lives we may be allowed to
+                    prolong together this bond of holy friendship.</p>
+			</div1>
+			<div1 type="Poem" n="110">
+				<p>Aufilena, good professional girls are always praised: they receive their pay for
+                    what they intend to do. Because you promised me&mdash;which was a
+                    lie&mdash;you are unprofessional; because you do not give and often bring
+                    &lsqb;home the pay&rsqb;, you do wrong. Either to do it is honest, or
+                    not to have promised was chaste, Aufilena: but to steal what was given by
+                    deceiving, proves you worse than the greedy whore who prostitutes herself with
+                    her whole body.</p>
+			</div1>
+			<div1 type="Poem" n="111">
+				<p>Aufilena, that a bride live content in her husband alone is praise of exceptional
+                    praise: but it is preferable to lie beneath any lover you choose, rather than as
+                    mother to bring forth brothers &lsqb;cousins&rsqb; out of your
+                    uncle.</p>
+			</div1>
+			<div1 type="Poem" n="112">
+				<p>He is a lot of man, <persName><surname>Naso</surname></persName>, and he who
+                    descends with you is not a lot of man: <persName><surname>Naso</surname></persName> you are a lot&mdash;and sexually submissive.</p>
+			</div1>
+			<div1 type="Poem" n="113">
+				<p>In the first consulate of Pompey, Cinna, two used to frequent Mucilla: now again
+                    made consul, the two remain, but to each one has accrued a thousand. The seed of
+                    adultery is fruitful.</p>
+			</div1>
+			<div1 type="Poem" n="114">
+				<p>With his estate not falsely is Mentula of <placeName key="tgn,7004029">Firmum</placeName> said to be rich, which has everything in it of such
+                    excellence, game preserves of every kind, fish, meadows, plowland and beasts. In
+                    vain: the yield is overcome by the expense. Therefore I grant that he is rich,
+                    while everything is lacking. Let us praise the estate, while its owner is a
+                    needy man.</p>
+			</div1>
+			<div1 type="Poem" n="115">
+				<p>Mentula has something like thirty acres of meadow land, forty under cultivation:
+                    the rest are as the sea. Why can he not surpass Croesus in wealth, he who in one
+                    estate possesses so much? Meadow, arable land, immense woods, and open fields
+                    and marshes, even to the uttermost north and to the Ocean sea! All things great
+                    are here, yet is the owner most great beyond all; not a man, but in truth a
+                    mentule mighty, menacing!</p>
+			</div1>
+			<div1 type="Poem" n="116">
+				<p>Often seeking, my mind hunting how I could send to studious you the poems of
+                    Battiades, whereby I might soften you towards us, and you might not try to send
+                    hostile weapons at my head all the time&mdash;I see now that this effort was
+                    undertaken by me in vain, Gellius, and that our prayers to this end were of no
+                    avail. Your weapons against us we will ward off with our cloak; but, transfixed
+                    with ours, you will pay the punishment.</p>
+			</div1>
+		</body>
+	</text>
+</TEI.2>

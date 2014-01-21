@@ -1,0 +1,673 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Stichus, or The Parasite Rebuffed</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.st_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:27  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:24  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:59:45  packel
+Converted to XML
+
+Revision 1.13  2003/07/01 22:17:32  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.12  2001/08/21 18:49:31  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.11  2001/08/08 17:55:30  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.10  2001/08/03 20:53:28  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.9  2001/08/02 21:22:41  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.8  2001/08/01 21:34:11  amahoney
+use full speaker names
+
+Revision 1.7  2001/08/01 19:16:31  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.6  2001/07/10 21:15:33  amahoney
+put a TLN at the start of each scene, and make the scenes match the Latin to facilitate chunking
+
+Revision 1.5  2001/07/05 21:23:36  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:30  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:21  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:36  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:36  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>ANTIPHO, </role><roleDesc>an old gentleman of <placeName key="perseus,Athens">Athens</placeName>.</roleDesc></castItem>
+<castGroup>
+ <castItem type="role"><role>EPIGNOMUS </role><roleDesc>Two Brothers.</roleDesc></castItem>
+ <castItem type="role"><role>PAMPHILUS<note anchored="yes">In the former Editions he is called Pamphilippus. Ritschel clearly shown that this is incorrect.</note></role></castItem>
+</castGroup>
+<castItem type="role"><role>GELASIMUS, </role><roleDesc>a Parasite.</roleDesc></castItem>
+<castItem type="role"><role>STICHUS, </role><roleDesc>the servant of Epignomus.</roleDesc></castItem>
+<castItem type="role"><role>SAGARINUS, </role><roleDesc>the servant of Pamphilus.</roleDesc></castItem>
+<castItem type="role"><role>PINACIUM,<note anchored="yes">In the former Editions he is called Dinacium.</note> </role><roleDesc>a boy.</roleDesc></castItem>
+<castItem type="role"><role>A PIPER.</role></castItem>
+<castItem type="role"><role>PHILUMENA,<note anchored="yes">In the former Editions she is called Panegyris.</note> </role><roleDesc>the wife of Epignomus.</roleDesc></castItem>
+<castItem type="role"><role>PAMPHILA,<note anchored="yes">In the former Editions she is called Pinacium.</note> </role><roleDesc>the wife of Pamphilus, and sister of Philumena.</roleDesc></castItem>
+<castItem type="role"><role>CROCOTIUM, </role><roleDesc>a female servant of Philumena.</roleDesc></castItem>
+<castItem type="role"><role>STEPHANIUM, </role><roleDesc>a female kitchen servant of Pamphila.</roleDesc></castItem>
+</castList>
+
+<stage>Scene.--<placeName key="perseus,Athens">Athens</placeName>: a Street before the house of ANTIPHO and those of EPIGNOMUS and PAMPHILUS; the two latter being nest door to each other.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>THE plot of this Play (which is supposed by some Commentators not to have been written by Plautus) is extremely meagre. Antipho, a wealthy and jovial old gentleman of <placeName key="perseus,Athens">Athens</placeName>, has two daughters, Philumena and Pamphila. They are married to two brothers, Epignomus and Pamphilus, who, having run through their property in the company of idlers and Parasites, have, with the view of retrieving their fortunes, taken to merchandize. Having been absent three years from home, and no tidings being heard of them whether they are alive or not Antipho assumes the prerogative of a father, and requests his daughters to marry again; who resolve, however, to maintain their fidelity to their absent husbands. Philumena sends the Parasite, Gelasimus, to the harbour to see if any ships have arrived. In the meantime, the boy, Pinacium, brings her word that her husband has. returned to <placeName key="perseus,Athens">Athens</placeName>. He and his brother meet the Parasite, and resist all his attempts to fasten himself upon them; they then go home, and become reconciled to Antipho, from whom, in their poverty, they had become estranged; and who now requests them to make him a present of a female slave. Stichus, the servant, obtains a day's holiday, together with a present from his master of a cask of wine. He makes an entertainment for himself, his friend Sagarinus, and their mistress Stephanium. The Play concludes with a dance, to the music of the Piper.
+
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>An old man (<foreign lang="la">Senex</foreign>) rebukes his daughters because they are so (<foreign lang="la">Tam</foreign>) persevering in thus (<foreign lang="la">Ita</foreign>) adhering to their husbands, brothers, poor <foreign lang="la">and</foreign> abroad, and in not deserting them. And, on the other hand (<foreign lang="la">Contra</foreign>), he is softened down by prudent words to allow them to retain (<foreign lang="la">Habere</foreign>) those whom they have already got. Enriched with wealth, their husbands (<foreign lang="la">Viri</foreign>) come back from beyond the sea; each one retains his own (<foreign lang="la">Suam</foreign>) <foreign lang="la">wife,</foreign> and to Stichus a holiday is given.
+
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>Enter PHILUMENA and PAMPHILA.<note anchored="yes">Title <lemma targOrder="U">Stichus</lemma>:  Plautus has named this Play "Stichus," from the servant, who is one of the characters in it, though not the principal one as Gelasimus, the Parasite, certainly occupies that place.</note></stage>
+<sp><speaker>PAMPHILUS</speaker><p> Sister, I think that Penelope was wretched from her very soul, who was so long deprived of her husband; for from our own fortunes, whose husbands are absent from us, we judge of her feelings; for whose affairs, still, in their absence, both night and day, sister, as is becoming, we are ever anxious.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> 'Tis right that we should do our duty; and we do not that any further than affection bids us.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But, sister, step this way a moment; I want to speak about the affairs of my husband.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Ain't they prospering, pray?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I hope and wish so, indeed. But, sister, at this am I vexed, that your and my father, one who is esteemed as especially honorable among all his fellow-citizens, should be now acting the part of a dishonorable man; who is undeservedly doing so great an injustice to our absent husbands, and is wishing to separate us from them. These things, sister, render me tired of existence; these things are a care and a vexation to me. <stage>She sheds tears.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Weep not, sister, nor do that to your feelings which your father is threatening to do. 'Tis to be hoped<milestone n="22" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">'Tis to be hoped</lemma>:  "Spes est." Literally, "there is a hope."</note> that he will act more righteously. I know him well; he says these things in jest; and he would not earn for himself the mountains of the Persians, which are said to be of gold<milestone n="25" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Said to be of gold</lemma>:  No doubt, as the Persians were from an early period noted for their wealth and grandeur, it was a common notion with the people of <placeName key="tgn,1000003">Europe</placeName> that they had "mountains of gold."</note>, to do that of which you are in dread. Still, if he does do it, it befits you by no means to be angry; nor will it happen without some reason. For this is the third year since our husbands have been away from home.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> 'Tis as you say; while, in the meantime, they may be living, and may be well<milestone n="31" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">May be well</lemma>:  After "valeant" in this line, a comma, and not colon, seems more reconcileable to the meaning of the passage.</note>, they do not make us acquainted where they are, what they are doing, whether they are doing well, neither do they return.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> And do you, sister, regret this, that they do not observe their duty, whereas you do yours?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Troth, I do. </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Hold your peace, if you please; take care, please, that I hear not that same thing from you in future.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> And why, pray? </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Because, i' faith, in my opinion, 'tis proper for all prudent people to observe and to do their duty. For that reason, sister, although you are the older, I advise you to remember your duty; and if they are unjust and act otherwise to us than is right, then, i' faith, in exactly the same degree, that there may be no further mischief, it befits us studiously to remember our duty by all means in our power.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> 'Tis good; I'm silenced. </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But do take care and remember it.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I do not wish, sister, to be thought to be unmindful of my husband; nor has he thrown away the distinction that he conferred upon me. For, by my troth, his kindness is pleasing and delightful to me; and, really, this choice of mine is not now irksome to me, nor is there any reason why I should wish to abandon this match. But, in fine, 'tis placed in our father's power<milestone n="53" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In our father's power</lemma>:  By the law of the Twelve Tables at <placeName key="perseus,Rome">Rome</placeName>, females were never "sui juris," but under a perpetual guardianship; and even marriage did not entirely exempt them from parental authority, unless they had been emancipated from it before. Among the Greeks also, parents exercised great authority in disposing of their daughters in marriage.</note>; that must be done by us which our relatives enjoin.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I know it, and in thinking of it I am overwhelmed with grief; for already has he almost disclosed his sentiments.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Let us consider, then, what is necessary for us to do.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="58" unit="TLN line"/>
+<stage>Enter ANTIPHO from his house, speaking at the door to his SERVANTS.</stage>
+<sp><speaker>ANTIPHO</speaker><p> The man in condition of a servant who always waits to be told his duty, and doesn't remember to do it of his own accord, that servant, I say, is not of a deserving character. You remember well on each returning Calends to ask for your allotment of provisions<milestone n="60" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Allotment of provisions</lemma>:  The Greeks, it must be borne in mind, had no Calends (whence the proverb "ad Gr&aelig;cas Calendas," "to-morrow come never"); the Poet is here alluding to the Roman custom of distributing to the slaves their allowance of food on the Calends, or first day of every month.</note>; why, then, do you less remember to do what is necessary to do about the house? Now, therefore, if, when I return, the furniture shall not be set for me, each piece in its proper place, I'll be putting you in mind with a bull's hide remembrancer<milestone n="63" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bull's hide remembrancer</lemma>:  "Monumentis bubulis." Literally, 'with memorials of oxen." The thongs of the "scutica" and of the "flagellum" were generally made of bull's hide.</note>. Not human beings seem to be living with me, but pigs. Take care, if you please, that my house is clean, when I return home. I shall soon be back home; I'm going to her house, to see my eldest daughter. If any one should enquire for me, call me thence, some of you; or----I shall be here soon myself.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> <stage>aside</stage>. What are we to do, sister, if our father shall resolve against us?
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> It befits us to submit to what he does whose power is the stronger. By entreating, not by opposing, I think we must use our endeavours. If with mildness we ask for favour, I trust to obtain it of him. Oppose him we cannot, without disgrace and extreme criminality; I will neither do that myself, nor will I give you the advice to do it, but rather that we should entreat him. I know our family<milestone n="74" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I know our family</lemma>:  "Nostros." Literally, "ours," meaning "our people," "our family."</note>; he will yield to entreaty.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>speaking to himself</stage>. In the first place, in what manner I should make a beginning with them, about that I am in doubt; whether I should accost them in language couched in ambiguous terms, after this fashion, as though I had never pretended<milestone n="77" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As though I had never pretended</lemma>:  Despite the ingenuity of Ritschel, this line seems to be in a corrupt state.</note> anything at all against them, or whether as though I had heard that they were deserving of some censure against them; whether I should rather try them gently or with threats. I know that there will be opposition; I know my daughters right well. If they should prefer to remain here rather than to marry afresh, why, let them do so. What need is there for me, the term of my life run out, to be waging war with my children, when I think that they don't at all deserve that I should do so? By no means; I'll have no disturbances. But I think that this is the best thing to be done by me; I'll do thus; I'll pretend as though they had themselves been guilty of some fault; I'll terribly terrify their minds this day by some ambiguous expressions; ana then, after that, as I shall feel disposed, I'll disclose myself. I know that many words will be spoken; I'll go in. <stage>Goes to the door of PHILUMENA'S house.</stage> But the door's open.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why, surely the sound of my father's voice reached my ears.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I' troth, 'tis he; let's hasten to meet him with a kiss. <stage>They both run to kiss him.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> My father, my respects.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> And to you the same. Away this instant, and be off from me, <stage>Removes her.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> One kiss. </p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I've had enough of your kissing.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Prithee, father, why so?
+</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Because, as it is, the seasoning of your affection has reached my soul<milestone n="92" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has reached my soul</lemma>:  "Me&aelig; anim&aelig; salsura evenit." Literally, 'the salting has come forth to my soul." This phrase is rendered in Leverett's Lexicon, "I am dejected" or "I am in an ill humour." That, however, does not appear to be the meaning. The father has had kissing enough from his daughters, but he intends, as it would seem, to compliment them by comparing their kisses to salt, with its refreshing and vivifying powers; and when Philumena asks for one kiss more, he says, "No, as it is (ita) their refreshing power has reached my soul." <placeName key="tgn,1010231">Rost</placeName> seems to be of this opinion, but he suggests that "anim&aelig; me&aelig;" are vocatives plural; in that case the passage would mean, "as it is, my loves," or "my delights, the refreshing salt of your affection has reached me."</note>.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Sit down here, father. <stage>Points to a chair.</stage> ANT. I'll not sit there; do you sit down; I'll sit on the bench<milestone n="93" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On the bench</lemma>:  "Subsellium" generally means "a footstool," used by persons when sitting on a high seat. Here, however, it probably signifies "a bench," perhaps placed against the wall in the front of Philumena's house, where he was about to make a call.</note>. <stage>Sits on a bench.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Wait till I fetch a cushion.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> You take kind care of me; I'm nicely seated now as I am<milestone n="94" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nicely seated now as I am</lemma>:  "Sat sic fultum est." Literally "enough is it thus supported." She has brought out the cushion, and has placed it upon or at the back of the hard bench, which was perhaps something like our garden chair.</note>.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Do let me, father. <stage>Goes into the house.</stage> ANT. What need is there?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> There is need. <stage>Coming out, and bringing a cushion.</stage></p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I'll submit to you. <stage>Arranging the cushion.</stage> Yes, this does very well.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why, daughters can never take too much care of their parent. Whom is it proper that we should esteem more dear than yourself? And then, in the next place, father, our husbands, for whom you have chosen that we should be the mothers of families.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> You do as it is proper for good wives to do, in esteeming your husbands, though absent, just as though they were present.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> 'Tis propriety, father, for us to highly honor those who have chosen us as companions for themselves.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Is there any other person here to listen with his ears<milestone n="102" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To listen with his ears</lemma>:  "Nostris dictis auceps auribus" Literacy "a fowler for our words;" in allusion to the stealthy manner in which the fowler lies in wait for his prey.</note> to our conversation?
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> There's no one except us and yourself.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I wish your attention to be given; for, unacquainted with female matters and ways, I come now as a pupil to you, my instructresses; in order that each of you may tell me what endowments matrons ought to have, who are the best esteemed.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What's the reason that you come hither to enquire about the ways of females?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Troth, I'm looking for a wife, as your mother's dead and gone.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> You'll easily find, father, one both worse and of worse morals than she was; one better you'll neither find nor does the sun behold.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> But I'm making the enquiry of you, and of this sister of yours.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I' faith, father, I know how they should be, if they are to be such as I think right.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I wish, then, to know what you do think right.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> That when they walk through the city, they should shut the mouths of all, so that none can speak ill of them with good reason.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to PHILUMENA</stage>. And now speak you in your turn.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What do you wish that I should speak to you about, father?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> How is the woman most easily distinguished, who is of a good disposition?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> When she, who has the power of doing ill, refrains from doing so.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Not bad that. <stage>To PAMPHILA.</stage> Come, say you, which choice is the preferable, to marry a maiden or a widow?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> So far as my skill extends, of many evils<milestone n="120" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of many evils</lemma>:  Pamphila is embarrassed here; and as she probably does not wish her father to marry either widow or maiden, but still does not like to tell him so, she takes refuge in a truism, rather than give a direct answer to his question. Aristotle tells us that Epicharmus was much in the habit of giving utterance to remarks of this nature.</note>, that which is the least evil, the same is the least an evil. He that can avoid the women, let him avoid them, so that each day he takes care, the day before, not to do that which, the day after, he may regret.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What sort of woman, pray, seems to you by far the wisest?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> She who, when affairs are prosperous, shall still be able to know herself, and who with equanimity can endure it to be worse with her than it has been.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> By my troth, in merry mood have I been trying the bent of your dispositions. But 'tis this for which I am come to you, and for which I wished to meet you both. My friends are advising me to the effect that I should remove you hence to my own house.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But still, we, whose interests are concerned, are advising you quite otherwise. For either, father, we ought not formerly to have been bestowed in marriage, unless our husbands pleased you, or, it is not right for us now to be taken away when they are absent.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> And shall I suffer you while I am alive to remain married to men who are beggars?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> This beggar of mine is agreable to me; her own king is agreable<milestone n="133" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Her own king is agreable</lemma>:  She speaks here of the husband in the character of the "rex," or "king," in his own establishment, which to him is his kingdom. Of course, then, the wife would be the "regina," or "queen."</note> to the queen. In poverty have I the same feelings that once I had in riches.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> And do you set such high value on thieves and beggars?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> You did not, as I think, give me in marriage to the money, but to the man.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Why are you still in expectation of those who have been absent for now three years? Why don't you accept an eligible match<milestone n="138" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Eligible match</lemma>:  "Conditio," in the sense of "offer" or "proposal," especially applies to one of marriage. As their husbands had spent almost all their substance, the ladies are probably living on the fortune which he has given them, and he anticipates that it may be soon exhausted.</note> in place of a very bad one?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> 'Tis folly, father, to lead unwilling dogs to hunt. That wife is an enemy, who is given to a man in marriage against her will.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Are you then determined that neither of you will obey the command of your father?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> We do obey; for where you gave us in marriage, thence are we unwilling to depart.
+</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Kindly good b'ye; I'll go and tell my friends your resolutions.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> They will, I doubt not, think us the more honorable, if you tell them to honorable men.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Take you care, then, of their domestic concerns, the best way that you can. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Now you gratify us, when you direct us aright: now we will hearken to you. Now, sister, let's go indoors.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Well, first I'll take a look at home. If, perchance, any news should come to you from your husband, take you care that I know it.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Neither will I conceal it from you, nor do you conceal from me what you may know. <stage>Calls at the door of her house.</stage> Ho there, Crocotium<milestone n="150" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Crocotium</lemma>:  This name is derived from 'Crocus," which means the plant of that name, or saffron.</note>, go, fetch hither Gelasimus, the Parasite; bring him here with you. For, i' faith, I wish to send him to the harbour, to see if, perchance, any ship from <placeName key="tgn,1000004">Asia</placeName><milestone n="152" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ship from <placeName key="tgn,1000004">Asia</placeName></lemma>:  <placeName key="tgn,7002294">Asia Minor</placeName> was the place of resort, in those days for persons who wish to make money speedily.</note> has arrived there yesterday or to-day. But, one servant has been sitting at the harbour whole days in waiting; still, however, I wish it to be visited every now and then. Make haste, and return immediately. <stage>Each goes into her own house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="155" unit="TLN line"/>
+<stage>Enter GELASIMUS.</stage>
+<sp><speaker>GELASIMUS</speaker><p> I do suspect that Famine was my mother; for since I was born I have never been filled with victuals. And no man could better return the favour to his mother, than do I right unwillingly return it to my mother, Famine. For in her womb, for ten months she bore me, whereas I have been carrying her for more than ten years in my stomach. She, too, carried me but a little child, wherefore I judge that she endured the less labour; in my stomach no little Famine do I bear, but of full growth, i' faith, and extremely heavy. The labour-pains arise with me each day, but I'm unable to bring forth my mother, nor know I what to do. I've often heard it so said that the elephant is wont<milestone n="168" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The elephant is wont</lemma>:  Pliny the Elder informs us that this was the vulgar notion with regard to the elephant. He also says that Aristotle tells us that two years is the duration of its pregnancy.</note> to be pregnant ten whole years; for sure this hunger of mine is of its breed. For now for many a year has it been clinging to, my inside. Now, if any person wants a droll fellow, I am on sale, with all my equipage: of a filling-up for these chasms am I in search. When little, my father gave me the name of Gelasimus<milestone n="174" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Name of Gelasimus</lemma>:  "Gelasimus" signifies "comical," "laughable," "funny," from the Greek verb <foreign lang="greek">gela/w,</foreign> "to laugh."</note>, because, even from a tiny child, I was a droll chap. By reason of poverty, in fact, did I acquire this name, because, it was poverty that made me to be a droll; for whenever she reaches a person, she instructs him thoroughly in every art. My father used to say that I was born when provisions were dear; for that reason, I do believe, I am now the more sharply set. But on our family such complacence has been bestowed--I am in the habit of refusing no person, if any one asks me out to eat. One form of expression has most unfortunately died away with people, and one, i' faith, most beseeming and most elegant to my thinking, which formerly they employed: "Come here to dinner--do so--really, do promise--don't make any difficulties--is it convenient?--I wish it to be so, I say; I'll not part with you unless you come." But now, in the present day, they have found a substitute for these expressions--a saying, by my faith, truly right worthless and most vile: "I'd invite you to dinner, were I not dining; out myself." I' faith, I wish the very loins of that phrase broken, that it mayn't repeat its perjury if he does dine at his own house. These phrases reduce me to learn foreign habits<milestone n="193" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Foreign habits</lemma>:  By "barbaros mores," he probably alludes to the Roman custom. of selling by auction, which was one of the duties of the "pr&aelig;co," or "herald," here rendered "auctioneer." Plautus frequently speaks at one moment as though addressing a Greek. and at the next, a Roman, audience.</note>, and to spare the necessity for an auctioneer, and so proclaim the auction, and put myself up for sale.
+
+<stage>GELASIMUS.</stage></p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> <stage>aside</stage>. This is the Parasite, whom I've been sent to fetch. I'll listen to what he's saying, before I accost him.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Now there are a good many curious mischief-makers here, who, with extreme zeal, busy themselves with the affairs of other people, and who have themselves no affairs of their own to busy themselves with. They, when they know that any one is about to have an auction, go forthwith and sift out what's the reason; whether a debt compels it, or whether he has purchased a farm; or whether, on a divorce, her marriage-portion is to be repaid to his wife<milestone n="204" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be repaid to his wife</lemma>:  If the divorce took place by mutual consent, then the "dos," or "marriage-portion," of the wife was returned. Such a circumstance occurring on a sudden, might very easily cause a necessity for recourse to the services of the auctioneer.</note>. All these, although, i' faith, I don't judge them undeserving, in their most wretched state, to go toiling on, I don't care about. I'll proclaim the reason of my auction, that they may rejoice in my mishaps, for there's no person a busybody but what he's ill-natured too. Very great mishaps, alas! have befallen wretched me. So dreadfully afflicted has my property<milestone n="210" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has my property</lemma>:  "Mancupium," or "mancipium," was any species of property possessed by right of purchase. He here considers the dinners and the drinking-bouts, which he so misses, in the light of property to himself; the more especially as they had been purchased at the price of his "logi," his "puns," or "bon mots."</note> rendered me: my many drinking-bouts are dead and gone; how many dinners, too, that I've bewailed, are dead! how many a draught of honeyed wine; how many breakfasts, too, that I have lost within these last three years! In my wretchedness, for very grief and vexation have I quite grown old. I'm almost dead with hunger.</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> <stage>aside</stage>. There's no one such a droll, as he is when he is hungry.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Now am I resolved that I'll make a sale: out of doors<milestone n="219" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Out of doors</lemma>:  "Foras;" "abroad," "out of doors.' The sales by auction took place in the open street.</note> am I obliged to sell whatever I possess. Attend, if you please; the bargains will be for those who are present. I've funny bon mots<milestone n="221" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Funny bon mots</lemma>:  "Logos." This word is the Greek <foreign lang="greek">logo\s,</foreign> signifying "a word," or "a witty saying," in a Latin clothing. It exactly corresponds with the expression "bon mots," which we have similarly borrowed from the French.</note> to sell. Come, bid your price. Who bids a dinner? Does any one bid a breakfast? They'll cost vou an Herculean breakfast<milestone n="223" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An Herculean breakfast</lemma>:  It is hard to say what he means by "Herculeum prandium:" but, as Hercules was supposed to send good luck to those who gave him the tenths of their property, whether that property consisted of a house or a meal, his meaning probably is, "Whoever invites me to a meal, that meal shall be as lucky to him as though he had sent the tenth part of it as an offering to Hercules."</note> or dinner. Ho, there! <stage>to one of the SPECTATORS</stage> did you nod to me? No one will offer you better--I won't allow that any Parasite has better quibbles, cajoleries, and parasitical white lies<milestone n="227" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Parasitical white lies</lemma>:  "Perjeratiunculas parasiticas." Literally, "parasitical little perjuries." This is probably meant in reference to the adjurations so common among the ancients on the most trivial occasions, and of which the Parasite promises to be lavish in speaking in praise of his entertainer. The diminutive "uncula" suits the measure, and also shows the air of self- satisfaction with which he mentions that which he takes to be of the same harmless nature which some easy casuists among ourselves attribute to what they choose to call white lies. Indeed, the ancients esteemed perjury very much according to the subject on which it was employed. Ovid mentions Mercury as laughing at the perjuries of cheating tradesmen, and <placeName key="tgn,1125260">Jupiter</placeName> as smiling at those of lovers; surely, then, "a little bit of a perjury" (the true meaning of "perjeratiuncula") could not be amiss on an occasion so trivial, and yet, to the Parasite, so all-important, as the acquisition of a good dinner.</note>. I'm selling a rusty flesh-scraper<milestone n="228" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A rusty flesh-scraper</lemma>:  The "strigil" was an instrument used by the Greeks and Romans in the place of the flesh-brush of modern times. It was made of bone, iron, copper, and sometimes of silver. It was used after taking the "sudatorium," or sweating-bath, for the purpose of scraping the perspiration from the body. These instruments were of curved form, and in shape somewhat resembled our tongue-scrapers on a large scale. Rich persons took slaves with them to the baths for the purpose of scraping them. From Hesychius, Athen&aelig;us, and Theophrastus, we learn that Parasites were much in the habit of spunging for entertainers at the public baths; and, no doubt, they generally had ready, for an emergency, both a "strigil" and a bottle of perfumed ointment, as a handy medium of introduction to strangers.</note>, too; a rusty-coloured brown bottle<milestone n="228" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A rusty-coloured brown bottle</lemma>:  The "ampulla," or "bottle,' was probably a "lorea," or leather one, and had turned of a rusty-brown colour from age.</note> for the Greek unguents<milestone n="229" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Greek unguents</lemma>:  By mentioning "Greek unguents," Plautus here recollects that he is addressing a Latin audience. The Greek cosmetics and perfumes were much esteemed at <placeName key="perseus,Rome">Rome</placeName>. Ovid, in the Art of Love, mentions the Athenian "&oelig;sypum," which was much used by the Roman ladies for making the complexion clear. It was made from the sweat and grease of the fleeces of the sheep of <placeName key="tgn,7002681">Attica</placeName>.</note> at the sweating-baths<milestone n="229" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The sweating-baths</lemma>:  The "sudatorium," or "vapour" or "sweating bath," was also called by the Romans "Laconicum;" because it was the habit of the Laced&aelig;monians to strip and anoint themselves, without using warm water, after the perspiration caused by athletic exercises. Cicero styles it "assa," because it produced perspiration by means of a dry hot atmosphere. After it had been used, and the "strigil" applied to the skin, the bather was dried with towels, and then anointed, when the "unctiones Gr&aelig;c&aelig;" of the Parasite would be in demand. These were used either to close the pores of the skin and to prevent the person from catching cold, or to keep the skin from being rough when dried with the towel. Probably the Parasites were ready to give a hand on an emergency in assisting to rub down and anoint the bather, especially if he was known to keep a good "cuisine."</note>; delicate after-dinner powders<milestone n="230" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">After-dinner powders</lemma>: " Crapularios."These were probably soft and tasteless (malacos) powders, used, like our dinner-pills, in order to prevent the bad effects of heating the, stomach with rich food and excess of wine. A clover Parasite would, of course, always have these in readiness on an emergency.</note>; an empty Parasite as well <stage>pointing to himself</stage>, in whom to lay by your scraps. 'Tis needful that these should be sold at once for as much as they can; that, if I offer the tenth part. to Hercules<milestone n="233" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tenth part to Hercules</lemma>:  He seems to be about to give a fictitious reason for his anxiety to get a dinner--that, forsooth, like a pious man he may have the greater amount of tithes to present to Hercules. The hiatus precludes as from forming any very determinate opinion on the meaning of the passage.</note>, on that account it may be greater * * * * * *</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> <stage>aside</stage>. An auction of no great value, by my troth. Hunger has taken hold of the very deepest recess of the fellow's stomach. I'll accost the man. <stage>Moves towards him.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Who's this that's coming towards me? Why, surely this is Crocotium, the maid-servant of Epignomus.</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> My respects, Gelasimus. </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> That's not my name.</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> I' faith, for sure that used to be your name.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Distinctly it was so, but I've lost it by use. Now I'm called Miccotrogus<milestone n="242" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Miccotrogus</lemma>:  This is a Greek compound word, which signifies "crumb-eater;" in it he alludes to his short commons.</note> from what is fact.
+</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> O dear! I've laughed a good deal at you to-day.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> When? or in what place? </p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> Here, when you were carrying on a most worthless auction.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> How now; did you really hear it?</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> Aye, and one really right worthy of yourself.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Where are you bound for now? </p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> For yourself.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Why have you come? </p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> Philumena bade me ask you by all means to come to visit her at her house this instant, together with me.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I' faith, but I'll surely come there as fast as I can. Are the entrails cooked<milestone n="251" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are the entrails cooked</lemma>:  It has been already remarked, that after the sacrifice, the Gods having received their portion, the devotee took home the remainder, and invited his friends to come to his house and partake of it. The Parasite was not, perhaps, much in the wrong when he deemed a lamb's fry no bad dish. St. Paul alludes to this custom when he tells the converts to keep themselves from "things offered to idols."--Acts, ch. xv., v. 20; and ch. xxi. v. 25.</note> by this? With how many lambs has she been sacrificing?</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> Indeed, she hasn't been sacrificing at all.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> How? What does she want with me, then?</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> I think that she's going to ask you for ten measures of wheat.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Or me rather ask it of her?</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> No; that you yourself should lend them to us.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Tell her that I've nothing to give myself, or that she could wish to borrow, nor anything whatever, except this cloak that I have on. Even my very tongue that so freely used to offer itself<milestone n="258" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That so freely used to offer itself</lemma>:  It is very difficult to say exactly what the Parasite means by "lingua dataria." Perhaps he means to tell the girl that he is in a bad humour--that he now "gives" nothing at all, not even his tongue, which has been hitherto "dataria," or "at the service" of everybody. Now, however, he will put it up to sale by auction, and in future, before he says "dabo," "I'll give you my tongue" or, in other words, "my company" he will say, "cedo," "give me," or "tell me what is your offer" or "bidding.</note> I've sold as well.</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> How? Have you got no tongue?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Why, the former one, that used to say "here, take me<milestone n="260" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Here take me</lemma>:  "Dabo." Literally, "I will give."</note>," I've lost: see, here's one now that says "give me." <stage>Puts out his tongue.</stage></p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> A curse may the Gods give you * * * *
+</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Aye, if a curse you want, this same tongue will give you that.</p></sp>
+<sp><speaker>CROCOTIUM</speaker><p> Well now, are you coming or not?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Well, be off home; tell her I'll be there this moment; make haste and be off. <stage>CROCOTIUM goes into the house.</stage> I wonder why she has requested me to be fetched to her, who has never, before this day, requested that I should be fetched to her, ever since her husband left. I wonder what it can be; except it is for some experiment to be made upon me; I'll go see what she wants. But see, here's her boy, Pinacium. Look at that now; how very facetiously and just like a picture<milestone n="271" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Just like a picture</lemma>:  "Ex pictur&acirc;." Literally, "out of a picture." He means, that he has assumed some attitude at that moment like that of a person in a picture or like a model in statuary, to which the word "pictura" also applies.</note> does he stand? Full many a time, for sure, in good troth, has he poured out for me the wine, almost unmixed, right cleverly into a very tiny cup<milestone n="272" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In a very tiny cup</lemma>:  "Pauxillulo." Most probably this is said in an ironical way. He perhaps refers to some injunction which, in his former and more palmy days, he had given to the boy when waiting at table, to be sure and provide him with a large cup, and not to mix too much water with the wine.</note> indeed. <stage>Stands aside.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="274" unit="TLN line"/>
+<stage>Enter PINACIUM at a distance, with a fishing-rod, hooks, and a basket in his hand.</stage>
+<sp><speaker>PINACIUM</speaker><p> <stage>to himself</stage>. Mercury, who is said to be the messenger of Jove, never bore such pleasing tidings to his father, as I shall e'en now be telling to my mistress. So loaded do I bear my breast with joy and with delight; and really I don't care to speak a syllable but in a highflown style. The charms of all the loves and graces do I bring; my heart, too, is overleaping its banks, and overflowing with joyousness. Now have you the means of acquiring glory, fame, and honor; make haste, Pinacium, exhort your feet to swiftness, grace your message by your deeds, and come to the rescue of your mistress in her need * * * * * * who is so wretched in awaiting the arrival of her husband, Epignomus; just as becomes her does she dote upon her husband, and anxiously long for him. Now, Pinacium, do as pleases you, run on, just as you like; take care and regard no person at the value of a straw; thrust them from the path with your elbows; make right smooth your way. If a, king shall come in your way, upset the king himself forthwith.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> <stage>apart</stage>. Why, I wonder<milestone n="288" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Why I wonder</lemma>:  "Quidnam dicam." Literally, "what shall I" or "must I say;" exactly corresponding to our phrase "I wonder why."</note>, is Pinacium running so overladen with baggage<milestone n="288" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Overladen with baggage</lemma>:  "Lixabundum." The "lix&aelig;" were the free suttlers or dealers, who followed the Roman armies. Their name is said to have been derived from the old Latin word "lixa," "water," probably because they originally supplied the army with water. "Lixabundus" here means "laden with baggage," in allusion to the fishing-tackle which the lad is carrying.</note>? He's carrying a rod, and a basket, and a fish-hook.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> <stage>to himself</stage>. But yet, I think 'tis proper that my mistress should come with entreaty to me, and that she should send envoys to me, and gifts of gold, and chariots in which for me to be borne, for I can't go on foot. Therefore I shall now go back. <stage>Turns back.</stage> I think it is only proper that I should be approached and addressed with entreaties. And do you really think that it's mere nonsense or nothing at all that I am now acquainted with? Blessings so great am I carrying from the harbour, joys so extensive am I bringing, that hardly could my mistress herself presume to wish this of the Gods, if she were to know it. And am I to carry it, then, of my own accord? It pleases me not, nor do I think that the duty of a man. This way does it seem to be better suited to this news of mine; let her come to meet me, let her entreat me to communicate to her this news. Haughtiness and pride befit prosperous fortunes. But, at last, when I reconsider it, how could she know that I know this? <stage>Turning round.</stage> Well, I can't do otherwise than return, than speak, than relate it at length, and relieve my mistress of her grief, and both mightily increase the good deeds of my ancestors, and present her with a comfort unhoped for and opportune. I'll outdo the deeds of Talthybius<milestone n="305" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Talthybius</lemma>:  Talthybius was the Grecian herald, who, with Eurybates, was sent by Agamemnon to Achilles, to fetch away Hippodamia or Briseis.</note>, and I'll set all messengers at nought, and at the same time I'll think about the running at the Olympic games. But this distance<milestone n="307" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">But this distance</lemma>:  He here alludes to the comparative narrowness of the stage, which would not allow him room to practise for the "cursura," or "running" at the Olympic games. The "stadium," or place for running at these games, was about a furlong in length.</note> is far too short for the course; how sorry for it I am. How's this? I see the door's closed. I'll go and knock at the door. <stage>Knocks at the door of PHILUMENA'S house.</stage> Open, and make haste, cause the door to be thrown open; away with all delay. This matter is attended to too carelessly; see how long I've been standing here and knocking. Are you indulging yourselves with a nap? I'll try whether the door or my arms and feet are the stronger. <stage>Knocks and kicks.</stage> I wish much that this door would run away from its master, that for that reason it might meet with a heavy punishment<milestone n="312" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A heavy punishment</lemma>:  He wishes that the door was in the condition of a slave, and that it had run away from its master, and then it would receive a severe punishment for its obduracy--"malum magnum."</note>. I'm tired of knocking. Well, be this the last for you. <stage>Knocks again.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> <stage>apart</stage>. I'll go and accost him. <stage>Accosts PINACIUM.</stage> Good day to you.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> And good day to you. </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Are you turned fisherman, then?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> How long is it since you ate?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Whence come you? What are you carrying? Why are you in a hurry?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> About that which is no business of yours, don't you trouble yourself.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> What's there in that? <stage>Taking up the lid of the basket.</stage> PIN. Snakes, for you to eat.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Why are you so pettish? </p></sp>
+<sp><speaker>PINACIUM</speaker><p> If you had any shame, you wouldn't address me.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> May I learn the truth from you?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> You may; this day you'll get no dinner.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="326" unit="TLN line"/>
+<stage>Enter PHILUMENA from her house.</stage>
+<sp><speaker>PAMPHILUS</speaker><p> Who now, pray, is breaking this door down? <stage>To GELASIMUS.</stage> Are you doing this? Do you come to me like an enemy?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> My respects to you; I come at your bidding.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> And is it for that reason you are breaking down my door?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Scold your own people; the offenders are your own. I came to see what you wanted me for. Why, for my own part, I pitied this door.
+</p></sp>
+<sp><speaker>PINACIUM</speaker><p> For that reason your assistance was given so very readily.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Pray, who's that, talking here so near to us?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Pinacium. </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Where is he? <stage>Looks on each side.</stage></p></sp>
+<sp><speaker>PINACIUM</speaker><p> <stage>coming forward</stage>. Attend to me, and leave alone that needy Parasite, Philumena.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Pinacium. </p></sp>
+<sp><speaker>PINACIUM</speaker><p> That name my elders gave me.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> What's your business </p></sp>
+<sp><speaker>PINACIUM</speaker><p> What's my business, do you ask?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why shouldn't I ask it? </p></sp>
+<sp><speaker>PINACIUM</speaker><p> What's yours with me?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Do you insult me, impudent fellow? Answer me, this very instant, Pinacium.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Bid those, then, to let me alone, who are detaining me.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Who are detaining you? </p></sp>
+<sp><speaker>PINACIUM</speaker><p> Do you ask me that? A lassitude is in possession of all my limbs.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Well, I know right well that it's not in possession of your tongue.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> With such rapid speed have I been hastening from the harbour, for the sake of your own well-doing.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why, do you bring any good news?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> I bring more, by very much, than you expect.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'm saved, then. </p></sp>
+<sp><speaker>PINACIUM</speaker><p> And I'm done for; lassitude is drinking up my marrow apace.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> What, then, am I, the marrow of whose stomach, to my sorrow, famine has seized upon?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Did you meet any one? </p></sp>
+<sp><speaker>PINACIUM</speaker><p> Many.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But any man? </p></sp>
+<sp><speaker>PINACIUM</speaker><p> Very many; but, of the many, not one a greater rascal than he is. <stage>Points at GELASIMUS.</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How so? </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I have been affronted already at his saying uncivil things to me. If you irritate me any further---- <stage>Holds up his fist to PINACIUM.</stage></p></sp>
+<sp><speaker>PINACIUM</speaker><p> I' faith, you'll be plaguy hungry to eat &gt;me.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I'll cause you to know that assuredly you've said that with reason.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> I wish everything to be made clean. <stage>Calls to the SERVANTS from the door.</stage> Bring out here your brooms, and a reed as well,<milestone n="347" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A reed as well</lemma>:  "Arundinem," a long reed, probably like a fishing-rod, which would be able to sweep away the spider-webs otherwise out o each.</note> that I may destroy all the labours of the spiders and their plaguy webs, and rout out all their looms. <stage>The SERVANTS bring some brooms.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> The poor things will be cold in future.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> What? Do you think that they are just like yourself, with only one coat? Take this broom. <stage>Gives him a broom.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I'll take it. </p></sp>
+<sp><speaker>PINACIUM</speaker><p> This I'll take myself. Do you sweep away there.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I'll do so. <stage>Sweeps away.</stage> PIN. <stage>calling aloud.</stage> Will some one bring here a pail and water<milestone n="352" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A pail and water</lemma>:  "Nassiternam." A water-vessel with three spouts, which received its name from "nasum," "a spout," compounded with "tres," "three."</note>?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Really, this fellow's playing the &AElig;dile<milestone n="353" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Playing the &AElig;dile</lemma>:  The writer here again refers, in a play the scene of which is at <placeName key="perseus,Athens">Athens</placeName>, to Roman customs. The &AElig;dile was a public officer at <placeName key="perseus,Rome">Rome</placeName>, whose business it was to see that the streets, houses, and temples, were kept clean. They were chosen by the votes (suffragium) of the common people, to which fact Gelasimus alludes in the next line.</note> without the vote of the public even. <stage>The water is brought.</stage></p></sp>
+<sp><speaker>PINACIUM</speaker><p> Come, do you quickly sweep the ground, and sprinkle before he t house.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I'll do so. </p></sp>
+<sp><speaker>PINACIUM</speaker><p> It needs be done. I'll knock down the spider-webs there from the door and from the wall.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I' faith, a troublesome business, this.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Still, I don't at all understand what it means; unless, perchance, some guests are about to come?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> <stage>ordering the SERVANTS</stage>. Do you spread the couches. </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> <stage>aside</stage>. The beginning pleases me, about the couches.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Others, you chop the billets; others, you clean the fish which the fisherman has brought; take you down the gammon of bacon and the collar of brawn<milestone n="360" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Collar of brawn</lemma>:  "Glandium." This really was the neck of the hag, which received its name from the kernels (glandes) which it contamea.</note>.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> <stage>aside</stage>. I' faith, this is a very sensible fellow.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> By my troth, as I imagine, you haven't quite minded the directions of your mistress.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Why, I've left all matters unattended to by reason of what you wished.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Then do you inform me upon that, on account of which you were sent to the harbour?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> I'll tell you. After, with the daybreak, you had sent me to the harbour, the sun with its beams opportunely arose from out of the sea. While I was enquiring of the revenue officers whether any ship had arrived from <placeName key="tgn,1000004">Asia</placeName>, and they were saying none had come, I beheld, in the meantime, a bark, than which I think I never saw a greater one. With a favouring breeze, and in full sail, it came into harbour. We were enquiring one of another whose ship it was, and what it carried? In the meantime I espied your husband and his servant Stichus.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Ha! what? Did you mention Epignomus?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Your husband and my own life.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> He has arrived, I say. </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Did you see him yourself?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Yes, and with pleasure too. </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I' faith, I'll surely take the broom, and sweep this place with pleasure.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> He has brought a great amount of silver and gold.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> 'Tis right cleverly done. </p></sp>
+<sp><speaker>PINACIUM</speaker><p> Wool and purple in plenty.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Aye, for me to clothe my carcase with.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Couches, adorned with ivory and gold.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I'll recline at table right regally.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Besides--Babylonian coverings for couches<milestone n="378" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Coverings for couches</lemma>:  "Peristromatia," "blankets" or "counterpanes" were used among the Romans to cover couches; they were sometimes of the most costly description, and were mostly of purple colour, and frequently richly embroidered with gold. Pliny speaks of Babylonian cloths of divers colours, and in the seventh chapter of Joshua, ver. 24, we read, "When I saw among the spoils a goodly Babylonish garment."</note>, and carpets dyed in purple, has he brought.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Abundance of fine things. I' faith, his business has been successful.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Then, as I began to say, female players on the harp, on the pipe, sackbuts too<milestone n="381" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sackbuts too</lemma>:  "Sambucas." "Sambuca" is supposed to be the same instrument which is mentioned in the third chapter of the Prophet Daniel, and is rendered in our version of the Old Testament by the word "sackbut." This instrument was probably introduced into <placeName key="tgn,1000074">Greece</placeName> and <placeName key="perseus,Rome">Rome</placeName> from <placeName key="tgn,1000140">Syria</placeName> or <placeName key="tgn,6004687">Phoenicia</placeName>. It is supposed to have been a kind of triangular harp. The word "sambucas" is substituted in Ritschel's edition for "sambucinas," in the former editions It is probably intended here to have the same meaning--"female players on the sambuca,'" who were also called "sambucistri&aelig;," and whose performances were highly prized by the Romans as Asiatic luxuries.</note>, has he brought with him, of surprising beauty.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Capital! When I'm at my wine, I'll be quite sportive; then am I in merriest pin.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Besides many unguents of numerous kinds.
+</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I'll not sell my bon mots; I'll not have an auction now; I've got an estate in fee<milestone n="384" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An estate in fee</lemma>:  "H&aelig;reditas." "A fortune," or "an heirdom," just as we say, "I have come in to a fortune." He alludes to the pleasant life he anticipates, by spunging on the wealthy Epignomus and his brother.</note>. Let the mischievous hunters of auctions go to perdition. Hercules, I congratulate thee that the tenths which I vowed to thee are increased. 'Tis my hope that at length, by some means or other, I may expel this plaguy famine from my stomach.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> And then, besides, he has brought some Parasites<milestone n="388" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Brought some Parasites</lemma>:  The arch boy only adds this to put Gelasimus in a fright, in which he fully succeeds. There was no necessity to import Parasites from <placeName key="tgn,1000004">Asia</placeName> to <placeName key="perseus,Athens">Athens</placeName>.</note> with him.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Alas! to my confusion, I'm undone.</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Right funny fellows. </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I' faith, I'll sweep this dust back, which I just now swept together. <stage>Sweeps it back</stage>. Those bon mots are now on sale, which I was saying I wouldn't sell. I'm done for: now there is occasion for spiteful persons to rejoice at my misfortune. Hercules, thou who art a God, thou really hast departed not oppoitunely.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Did you see Pamphilus, the husband of my sister?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> No. </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Isn't he there?</p></sp>
+<sp><speaker>PINACIUM</speaker><p> Yes, they said that he had come as well. I ran hither before them, with all speed, that I might bring the welcome tidings.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Go in-doors, Pinacium; bid the servants prepare the sacred things<milestone n="396" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The sacred things</lemma>:  To perform a sacrifice on the safe return of her husband.</note> for me. <stage>To GELASIMUS.</stage> Fare you well!</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Do you want me to assist?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I have servants enough in the house. <stage>PHILUMENA and PINACIUM go into the house.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> <stage>to himself</stage>. In good sooth, Gelasimus, I doubt you have come to but little purpose, if neither he that is here gives you any aid, nor yet he that's coming. I'll off indoors to my books<milestone n="400" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To my books</lemma>:  These were probably pamphlets, filled with jokes and funny stories, which Parasites would study for the entertainment of the patrons whom they were to amuse by way of return for their dinner. These books perhape occupied the same position as the "Joe Millers" did in this country during the last century, and the "Academies of Compliments" in the century before. Indeed, the latter, in all their amplitude, would have been invaluable to a Parasite, as they contain directions how to court a lady, ask a riddle, sing a funny song, put a posy on a ring, direct a letter, and a hundred other things.</note>, and take my instructions from the cleverest sayings; for if I don't drive away those fellows, the Parasites that are coming, most surely I'm undone.  <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="402" unit="TLN line"/>
+<stage>Enter EPIGNOMUS and STICHUS, followed by some SLAVES.</stage>
+<sp><speaker>EPIGNOMUS </speaker><p> Inasmuch as, my business prosperously carried on, I am returned safe home, thanks do I return to Neptune and to his tempests; to Mercury as well<milestone n="404" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To Mercury as well</lemma>:  Mercury was the God of traffic and gain, and the guardian of tradesmen He was said to receive his name from "merx," "traffic" or "merchandise." See the comical prayer of the cheating tradesman to his tutelar Divinity, in the Fasti of Ovid, B. 5, l. 675 et seq.</note>, who in my traffic has aided me, and by my profits has rendered my property fourfold. Those whom formerly I affected with sorrow at my departure, the same shall I now make joyous at my arrival. But already have I met my connexion Antipho, and from bad terms have I returned to friendship with him. See, prithee, what money can effect. Since, my affairs prospering, he sees that I've returned, and brought home great wealth, without any mediators, there on board the ship, upon the deck, we have returned to friendship and good feeling. Both he and my brother dine with me this day; for yesterday we were both in the same harbour<milestone n="416" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the same harbour</lemma>:  He here alludes to the custom in those times of lying at anchor during the night, and sailing in the day-time only, as it is clear that reference cannot here be made to the harbour from which they originally set out, as that was in <placeName key="tgn,1000004">Asia</placeName>, and they could not have reached <placeName key="perseus,Athens">Athens</placeName> from <placeName key="tgn,1000004">Asia</placeName> within twenty-four hours. Epignomus and his brother appear to have freighted two ships with the valuable property which they had acquired in partnership.</note> together; but to-day my ship weighed anchor a little the soonest. Take these people in-doors, Stichus, whom<milestone n="418" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">These people whom</lemma>:  He alludes to the female slaves which have been already mentioned, consisting of harpers and music-girls, one of whom we shall shortly find to have attracted the admiration of Antipho.</note> I've brought with me.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Master, whether I'm silent or speak, I'm sure you know how many hardships I've endured in your service; now, on my arrival home, I wish to spend in freedom<milestone n="422" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To spend in freedom</lemma>:  "Eleutheria." This is, originally, a Greek word. It was also the name of the Goddess of Liberty.</note> this one day after these many hardships.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> You ask what's just and right. Stlchus, you may take this day for yourself; I don't object to it. Go where you like. A cask, too, of old wine, I give you to drink.</p></sp>
+<sp><speaker>STICHUS</speaker><p> O, grand! I'll have my mistress this day.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Even ten, so long as it is at your own expense</p></sp>
+<sp><speaker>STICHUS</speaker><p> What * * * * ?</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> What * * * * ?</p></sp>
+<sp><speaker>STICHUS</speaker><p> I'll go and dine * * 'Tis thus it pleases me * * * * *</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Where do you dine to-day?</p></sp>
+<sp><speaker>STICHUS</speaker><p> This plan have I thus resolved upon. I have a mistress here in the neighbourhood, Stephanium, the servantmaid of your brother. I'm going to invite her; I'll take her to a pic-nic entertainment<milestone n="433" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A pic-nic entertainment</lemma>:  "Symbola" was the name given to an entertainment to which each of the guests contributed in money or kind; similar in principle, to what we call a "pic-nic" entertainment.</note> at her fellow- servant's, Sagarinus We both have the same mistress; we are rivals.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Come then, conduct them in. I grant you this day.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Hold me to blame if I don't make the most of it<milestone n="436" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Make the most of it</lemma>:  "Excruciavero." Literally, "torment it.' He seems to allude to the word "dedo," used by his master in the preceding line, "I surrender to you this day;" that word being especially applied to the surrender or giving-up of prisoners; on which Stichus rejoins, "As the day is surrendered to me, I'll torment it like a real prisoner"--meaning "I won't let it pass in quietness." He fully keens his word.</note>. Troth now, I'll pass through the garden to my mistress, to engage her beforehand for me this evening; at the same time I'll give my contribution, and bid the dinner to be cooked at Sagarinus's, or else I'll go myself and make my marketing as caterer. Sagarinus, * * * * * * * a servant * * * for my * * * * * with stripes * * * * to take him home well thrashed, I'll make all things to be in readiness here; but I'm delaying myself. And don't you be surprised<milestone n="446" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Don't you be surprised</lemma>:  He apologises for introducing slaves carousing on the Roman stage, by reminding the Spectators that the scene is at <placeName key="tgn,7001393">Athens</placeName>. where greater freedom and indulgence was allowed to slaves than at <placeName key="perseus,Rome">Rome</placeName>.</note> <stage>to the AUDIENCE</stage> that men, who are slaves, drink, court, and give invitations to dinner? This is allowed us at <placeName key="perseus,Athens">Athens</placeName>. But when I think of it, rather than meet with censure, there's here, too, another door to the back buildings of our house. I'll go that way to market; by that way I'll bring back the provisions--through the garden there's a passage that communicates with both houses. <stage>To the SLAVES.</stage> Do you follow me this way. I surely will pull this day to bits<milestone n="453" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pull this day to bits</lemma>:  "Hunc lacero diem." He seems here to continue the metaphor used in ver. 436: "I'll torture this day finely"--I'll get all I can out of it.</note>. <stage>Goes into the house of EPIGNOMUS.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="454" unit="TLN line"/>
+<stage>Enter GELASIMUS.</stage>
+<sp><speaker>GELASIMUS</speaker><p> <stage>to himself</stage>. I've consulted my books; I'm as sure as possible, that by my funny bon mots I shall recover my patron<milestone n="455" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Recover my patron</lemma>:  "Regem." In common parlance, rich men were often styled by their dependents and flatterers, "rex," "my king."</note>. Now I'm going to see whether he has arrived by this from the harbour, that when he comes I may smooth him down with my speeches.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Surely, this is Gelasimus, the Parasite, that's coming.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> <stage>to himself</stage>. With lucky auspices, by my troth, this day did I come out of doors; since an omen auspiciously befel me<milestone n="460" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Auspiciously befel me</lemma>:  "Quum strena mi obsc&aelig;vavit." This passage is very obscure, and has puzzled the Commentators, who have generally taken refuge in a various reading, "Eum strenue obc&aelig;navit," which seems to make but very poor sense. The research, however, of the indefatigable Ritschel has set that mode of escape entirely at rest. "Strena" was the name of a New Year's gift, which was given and received on the Calenus of January, that the year might be commenced under good auspices. Probably from that circumstance, it became synonymous with a good or "auspicious omen." "Obsc&aelig;vo" is rendered in the Dictionaries, "to give a bad omen" Such, however, is not necessarily its meaning, in all instances. "Sc&aelig;va" is an "omen" or "augury," whether fortunate or not. Consequently, "obsc&aelig;vo" may very reasonably mean, "to fall in one's way as an omen;" if so, the expression, as here used, will mean "a lucky omen fell in my way.</note>. This was beheld by me; how a weasel carried off a mouse close at my feet. For as she found sustenance for herself this day, so do I hope that I shall do, as the augury predicts. <stage>Sees EPIGNOMUS.</stage> Surely this is Epignomus that's standing here; I'll go and address him. My dear Epignomus, how pleased I am to see you now; how my tears are starting forth for very joy. Have you all along enjoyed your health?</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> With care it has been preserved.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Right heartily I wish you health<milestone n="468" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I wish you health</lemma>:  "Propino tibi salutem plenis faucibus." Literally, "I drink your health with my jaws crammed full," a very apt mode of expression for a Parasite.</note>.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> You speak kindly, and like a friend. May the Gods grant what you wish.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> * * * </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I, sup there with you?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Since you are returned safe.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Really, an engagement has been made already; but I give you thanks.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Do promise me. </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> It's settled.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> But do, I say. </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> The thing's agreed on.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> By my troth, you'd do it with much pleasure to me.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I know that well. When an opportunity shall come, it shall be so.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Now, then, is the opportunity.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I' faith, I cannot. </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Why make difficulties? Do consider; I have I know not what luxuries at hand<milestone n="478" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Luxuries at hand</lemma>:  "In mundo." Literally," in the world."</note>.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Do be off, now; seek for yourself another guest for to-day.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> You promise, then? </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I would make no difficulty if I could.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Really, on my word, one thing, for sure, I Promise you, I'd entertain you with pleasure, beyond a doubt, if you would promise.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Adieu! <stage>Moving.</stage> GEL. Have you resolved?</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I have resolved. I shall dine at home.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> <stage>aside</stage>. Since nothing has been effected this way, I'll therefore approach him by a more open path, and I'll speak plainly out. <stage>To EPIGNOMUS.</stage> Since you, yourself, are not willing to promise to come to me, should you like that I should come to dine with you?</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> If it were possible, I should like it; but here are nine other people<milestone n="487" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nine other people</lemma>:  Aulus Gellius and Macrobius tell us that the ancients never admitted to a feast more than nine, the number of the Muses, or less than three, the number of the Graces. The true reason, however, was that the three "triclinia," or couches, made three parts of the square around the table; and each containing but three, nine was as great a number as could be accommodated. Epignomus mentions that number here, by way of assuring Gelasimus that there is really no room for him. On this, the Parasite says that he is "imi subsellii vir," "a man for the lowest stool" or "bench," which he can very well manage with. "Subsellia" was the name of the seats of the Tribunes, Triumvirs, and Qu&aelig;stors, who were not honoured with Curule chairs.</note> coming to dine at my house.
+</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> For my part, I don't ask that I should recline on the couch; you know that I'm a man for the lower seats.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> But these are deputies of a people, tip-top men they come here as public ambassadors from <placeName key="perseus,Ambracia">Ambracia</placeName><milestone n="491" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From <placeName key="perseus,Ambracia">Ambracia</placeName></lemma>:  <placeName key="perseus,Ambracia">Ambracia</placeName> was a city of <placeName key="tgn,7002705">Epirus</placeName>, on the Western coast of <placeName key="tgn,1000074">Greece</placeName>.</note>.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Let then the deputies of a people, your tip-top men, recline at the tip-top place; I, the lowest, in the lowest quarter.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> It isn't proper for you to be entertained among deputies.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I 'faith, and I--I'm a deputy, too<milestone n="495" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I'm a deputy, too</lemma>:  He puns on the word "orator," which signifies "a pleader" or "orator," as well as an "ambassador" or "deputy." He says that he is a pleader too (for the cause of his own stomach), but all to no purpose.</note>, but little it does avail me.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I intend that to-morrow we shall dine upon the scraps. Sincerely, farewell. <stage>Goes into his house.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> By my troth, 'tis clear that I'm undone, and by no fault of my owns<milestone n="497" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By no fault of my own</lemma>:  "Nihil obnoxie," "by reason of no fault or offence of my own;" thus consoling himself for his rebuff. It has been observed by various Critics, that this passage is very obscure; but the above translation, which is sanctioned by the learned <placeName key="tgn,1010231">Rost</placeName>, is most probably the correct one Warner renders it "out of doubt," which, out of doubt, is not the meaning.</note>. The number is less than it was before by one Gelasimus. I'm resolved, hereafter, never to believe in a weasel, for I know of no beast more uncertain than her. She who herself is ten times a day shifting her place, from her have I taken my omens in matters of life and death to me! I'm determined to call my friends together, to take counsel how by rule I must starve henceforth.  <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="505" unit="TLN line"/>
+<stage>Enter ANTIPHO and PAMPHILUS.</stage>
+<sp><speaker>ANTIPHO</speaker><p> So may the Gods favour me, and preserve for me my daughters, it is a pleasure to me, Pamphilus, that I see you both return home to your native land, your business prosperously managed, yourself and your brother.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I should have heard enough from you, Antipho, did I not see that you are friendly to me; now, since I've found that you are my friend, I'll give you credence.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I would invite you to my house to dinner, had not your brother told me that you were going to dine at his house to-day, when he invited myself to his house to dinner. And it would have been more proper for me to give you an entertainment on your arrival, than to engage myself to him, were it not that I didn't wish to disoblige him. Now I don't wish with words alone to insinuate myself into your favour; to-morrow you shall be at my house, both you and he, with your wives.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Then, the day after, at my house; for it was yesterday he invited me for to-day. But am I quite reconciled to you, Antipho?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Since you have thus thrived in your affairs, as it behoves yourselves and persons friendly disposed to wish, let there be good-will and intercourse between us. Take you care to think of this; according as wealth is obtained by each man, so does he experience his friends. If his fortunes are flourishing, so are his friends true; if his prospects decline, so, too, do his friends decline. Fortune finds friends.
+<stage>from his house.</stage></p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> <stage>to himself</stage>. I'm now returned. 'Tis a great delight, if you have been long from home, when you return home again, if no anxieties come in contact with your feelings. But, in my absence, so well has my wife taken care of my private affairs, that she has made me free and unembarrassed by anxieties. But, see, here's my brother Pamphilus, walking with his father-in-law.
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How fares it, Epignomus? </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> How with you? How long since you came into harbour?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Not very long ago. </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> <stage>aside</stage>. And is it since then that he has become on smooth terms with you?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>overhearing</stage>. More smooth than the sea, on which you have both been borne.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> You do as you are wont to do other things. Do we unlade the ship to-day, brother?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I would rather go quietly to work. Let's rather lade ourselves with delights in their turn. How soon will the dinner be cooked? I haven't breakfasted to-day.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Go in-doors to my house and bathe.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'll only step home to my own house, to salute the Gods<milestone n="534" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To salute the Gods</lemma>:  To thank his household Gods for his escape from the perils of the sea, and his success in his speculations.</note> and my wife. If I do that as I wish, I'll forthwith return to your house.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> But your wife is hastening to come here with her sister.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> 'Tis very good; there will then be the less delay on that account. I shall be at your house<milestone n="537" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I shall be at your house</lemma>:  These words are given, in Ritschel's edition, to Epignomus. but clearly erroneously, as it is Pamphilus who is promising that, after he has run home, he will be at the house of his brother immediately.</note> this instant.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to PAMPHILUS.</stage> Before you go away, in your presence I wish to relate a single story to him.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> By all means. </p></sp>
+<sp><speaker>ANTIPHO</speaker><p> There was once an old gentleman, just as I now am; he had two daughters, such as mine now are; they were married to two brothers, just as mine now are to yourselves.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I wonder how the story is to turn out?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> One of these young men had, as you <stage>to PAMPHILUS</stage> now have, a damsel, a music-girl; he had brought her from abroad, as you have now done. Now, this old gentleman was a widower, just as I now am.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Do proceed; this story is really &agrave; propos.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Then said this old gentleman to him to whom the music-girl belonged, just as I now say to you----</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'm listening<milestone n="546" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I'm listening</lemma>:  Pamphilus says this, as the old man has probably touched him, to bespeak his attention.</note>, and carefully giving heed.
+</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> "I gave you my daughter, to be a comfortable bedfellow for you; now, I think it fair that one should be given me in return by you, to be my bed-fellow."</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Who says that? Does he say it<milestone n="549" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Does he say it</lemma>:  He imitates the old man's manner of adapting his story to the present company, and here jokes him upon it.</note> just as though you were to say it?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Just as I now say it to you. "Aye, I'll give you two of them," says this young man, "if one's too little; and if you are not satisfied with two," says he, "two more shall be added."</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Prithee, who says that? Does he say it just as though I were to say it?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> He says it just as though you were to say it. Then says this old gentleman, just as though I were to say it, "Well, give me four, if you like, so long only as, i' faith, you find them something to eat as well, that they mayn't consume my victuals."</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why surely it must have been a stingy old chap to say that, in asking food as well of him who promised them to him.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Why surely, this young man must have been a good-for-nothing fellow, who forthwith, when the other asked him, refused to give him a grain of wheat. But, i' troth, the old gentleman asked what was fair, inasmuch as the dowry which he had given to his daughter, he wished him to have as an equivalent for the music-girl.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I' faith, for sure I really do think that the young man was well advised, who wouldn't give a mistress to that old fellow in return for the dower.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> The old gentleman wished, indeed, if he could, to bargain for their maintenance; because he couldn't, he said he wished it to be done on what terms it might. "Done," said this young man. "You do me a kindness," said the old gentleman. "Have I the thing agreed upon?" said he. "I'll do even as you wish it to be done," said the other. But I'll be off in-doors, and congratulate my daughters on your arrival. Then I'll go wash me at the bath<milestone n="568" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At the bath</lemma>:  "Pyelum." "Pyelus" is a Greek word Latinised it signifies a vessel used in bathing, which was sufficiently large to hold the bathe in a sitting posture.</note>; there will I take all care of my old age; after that, when I've bathed, lying down, I'll await you at my leisure. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> A funny mortal, Antipho; how cleverly he did make up his story. Even yet the rogue considers himself a young man. A mistress shall be given to the fellow, to sing to the old chap at night in bed; for, i' faith, indeed, I know not of what other use a mistress can be to him. But how fares our Parasite, Gelasimus? Is he well, too?</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I' faith, I saw the fellow not so very long ago.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> How fares he? </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Like one half-starved.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Why didn't you invite the fellow to your house to dinner?</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> That on my arrival I mightn't be wasting anything But see, here's the wolf in the Fable<milestone n="577" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Wolf in the Fable</lemma>:  "Lupus in Fabul&acirc;" was a common expression among the Romans, answering exactly to our very elegart Proverb, "Talk of the devil, he is sure to appear." It either alludes to the Fable where the nurse threatens that the wolf shall take the naughty child, on which he makes his appearance, but is disappointed in his expectations; or else to the well-known one of the Shepherd-boy and the Wolf.</note>; here he is in person with his ravenous fit.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> We'll have some sport with the fellow.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> You put me in mind of a plan I had already resolved on.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="579" unit="TLN line"/>
+<stage>Enter GELASIMUS.</stage>
+<sp><speaker>GELASIMUS</speaker><p> <gap/><stage>to the AUDIENCE</stage>. But as I had begun to tell you; while I have been absent hence, I've now been consulting with my friends and with my relatives. They have been my advisers to the effect that I should this very day kill myself with starvation. But don't I see Pamphilus with his brother Epignomus? Yes, 'tis he. I'll accost the man. <stage>Goes up to PAMPHILUS.</stage> O longed-for Pamphilus! O my salvation! O my life! O my delight! right welcome. I rejoice that you've returned safe from abroad to your native land. Welcome.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Welcome, Gelasimus. </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Have you been quite well?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I have taken good care of my health.
+</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I' troth, I'm glad of it. I' faith, I confoundedly wish I had now a thousand measures of silver.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> What need have you of it?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> I' faith, that I might invite him to dinner, and not invite you.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> You are talking against your own interest.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> This, then, that I might invite you both * * * * * * for my part * * * * * I should not avoid<milestone n="590" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I should not avoid</lemma>:  The meaning of this fragment seems to be, "I really would invite you both, if it were in my power; but as I have nothing to offer you, you might as well give me an invitation."</note> * * * * * * there is nothing so * as this * * * *</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Troth, now, I'd ask you with pleasure, if there were room left.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Well, standing, then, I'll gobble down a bit in the scramble.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> No, only this one thing can be done.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> What? </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> When the guests have gone, that then you may come----</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Hurra! capital! </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> To wash the pots, I mean; not to dinner.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> The Gods confound you! What say you, Pamphilus?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I' troth, this day I'm engaged to dine elsewhere abroad.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> How, abroad? </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Really abroad, on my word.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> How the plague do you like, thus wearied, to be supping abroad?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Which do you advise me? </p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Order a dinner to be cooked at home, and word to be sent to him who invited you.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Shall I dine at home, alone?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Why, not alone; invite me. </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> But I'm afraid lest he should scold me, who has been to this expense for my sake.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> It may easily be excused--only listen to me; do order a dinner to be cooked at home.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p>. Not by my advice, indeed, will he act so as to disappoint that person this day.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Will you not be off from here? Perhaps you suppose that I don't see what you're about. Do you look to yourself, please. <stage>To PAMPHILUS.</stage> How that fellow is gaping after your property just like a hungry wolf. Don't you know how men are set upon here in the street at night?
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> So many the more servants will I bid to come and fetch me, that they may protect me.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> He won't stir--he won't stir; because you persuade him so earnestly not to go out.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Do order a dinner to be cooked at home with all speed for me and for yourself and your wife. Troth, if you do so, I don't think you'll say that you are deceived.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> So far as that dinner is concerned, Gelasimus, you may be dinnerless to-day.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Are you going abroad to dine?</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'm going to dine at my brother's, hard by.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Is that fixed? </p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Fixed.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> By my troth, I hope you may be struck with a stone this day.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'm not afraid; I shall go through the garden; I'll not go abroad.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> What say you to that, Gelasimus?</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> You're entertaining your deputies; keep them to yourself.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Why, faith, 'tis your own business.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> If, indeed, 'tis my own business, avail yourself of my assistance; invite me.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> By my faith, I see, as I fancy, one place still for yourself only, where you may recline.</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> Really, I do think it may be managed.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> O light of the city! </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> If you can manage to recline in a small compass.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Aye, even between two wedges<milestone n="619" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Between two wedges</lemma>:  He will take so little space, that he will be able to sit in the compass that lies between two wedges, when driven into a tree for the purpose of forcing out a portion of the wood.</note> of iron. As little space as a puppy can lie in, the same will be enough for me.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I'll beg for it some way or other; come along. <stage>Pulls him along.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> What? This way? </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Yes, to prison. For here, indeed, you'll not find any further entertainment<milestone n="622" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Further entertainment</lemma>:  "Genium." The Genii were tutelary Divmities, each supposed to have charge of an individual from his birth to his death. They were propitiated with wine and sacrifice, and hence the notion arose that they took pleasure in revelry and feasting. From this circumstance, the word "genius" came to signify a persons "capacity for" or "love of enjoyment."</note>. Let's be off, you Pamphilus.
+</p></sp>
+<sp><speaker>PAMPHILUS</speaker><p> I'll but salute the Gods: then I'll pass through to your house forthwith.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> What then? </p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Why, I said that you might go to prison.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Well, if you order it, I'll go there even.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> Immortal Gods! really, by my troth, this fellow might be induced by a dinner or a breakfast to bear extreme torture.</p></sp>
+<sp><speaker>GELASIMUS</speaker><p> Such is my nature; with anything can I struggle much more easily than with hunger.</p></sp>
+<sp><speaker>EPIGNOMUS </speaker><p> I know it: at my house full long enough has this facility of yours been experienced by me * * * * * * while you were the Parasite of myself and my brother, we ruined our fortunes. Now I don't wish you to be made by me from a Gelasimus into a Catagelasimus<milestone n="631" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Catagelasimus</lemma>:  He makes a poor joke on the name of Gelasimus, by way of an excuse for not inviting him. "When helping me to spend my fortune, you were 'Gelasimus,' one that amused us by your wit and drollery. I'll not now be instrumental in making you henceforth a butt and a subject of ridicule to others:" the word being the name of Gelasimus, compounded with the Greek preposition <foreign lang="greek">kata\.</foreign></note>. <stage>EPIGNOMUS and PAMPHILUS go into their houses.</stage></p></sp>
+<sp><speaker>GELASIMUS</speaker><p> And are you gone now? Surely he is gone. Now have I need of a wise resolution. Both are gone; consider, Gelasimus, what plan you must adopt. * * * * What, I? Yes, you. What, for myself? Yes, for yourself. Don't you see how dear provisions are? Don't you see how the kindness and the heartiness of men have vanished? Don't you see how drolls are set at nought, and how they themselves are sponged upon? By my troth, not a person shall ever behold me alive on the morrow; for, this instant, in-doors will I load my throat with a bulrush dose<milestone n="639" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A bulrush dose</lemma>:  He means that he will go and hang himself with a rope made of bulrushes, which he calls a "bulrush dose" or "draught."</note>. And by this I shall not give cause for men to say that I died of hunger. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="641" unit="TLN line"/>
+<stage>Enter STICHUS, and provisions, a table, and couches on the stage.</stage>
+<sp><speaker>STICHUS</speaker><p> Foolishly and unwisely is it done in my opinion, if people are in the habit, if they are expecting a person; of looking out for him; faith, ne doesn't on that account come a bit the faster. I'm now doing that same thing, in looking out for Sagarinus; who, still, for that reason won't come a jot the faster. Troth, I shall just now be taking my place alone, if he doesn't come here. I'll now fetch that cask of wine hither from home, and then I'll take my place. The day, like snow, is melting away apace. <stage>Goes into the house of EPIGNOMUS.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="649" unit="TLN line"/>
+<stage>Enter SAGARINUS.</stage>
+<sp><speaker>SAGARINUS</speaker><p> Hail! <placeName key="perseus,Athens">Athens</placeName>, thou nurse of <placeName key="tgn,1000074">Greece</placeName>; country of my master, hail! How joyously do I behold thee. But I have a wish to see how my mistress and fellow-servant, Stephanium, is faring. For I bade Stichus to give her my regards, and to tell her that I should come to-day, so that she might cook a dinner in good time. But, surely, here's Stichus.
+<stage>with a cask of wine</stage></p></sp>
+<sp><speaker>STICHUS</speaker><p> <stage>to himself</stage>. A clever thing you did, master, when you presented your servant, Stichus, with this gift. O ye immortal Gods! how many delights do I carry, how many smiles, how many jokes, how many a kiss, dancing, dalliance, and good-fellowship.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Stichus, how fare you? </p></sp>
+<sp><speaker>STICHUS</speaker><p> Right well, Sagarinus, most delightfully; I'm bringing Dionysus<milestone n="661" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bringing Dionysus</lemma>:  Dionysus was the Greek name of Bacchus, the God of wine. He alludes to the "cadus," or earthenware cask of wine which be is carrying.</note>, as my guest and yours. For, i' faith, the dinner's cooked; free range has been given me and you at your house. For at our house there's an entertainment; your master's dining there with his wife, and Antipho as well; there, too, is my master. This was given me as a present.<stage>Points to the cask.</stage></p></sp>
+<sp><speaker>SAGARINUS</speaker><p> How? Are you dreaming? </p></sp>
+<sp><speaker>STICHUS</speaker><p> I' faith, I'm telling you the truth.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Who then gave you this? </p></sp>
+<sp><speaker>STICHUS</speaker><p> What matters that to you? I wish us this day to wash away everything of foreign climes. Leave them alone; let's now attend to <placeName key="perseus,Athens">Athens</placeName>; follow me. Do you at once make haste, and bathe.
+</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> I have bathed. </p></sp>
+<sp><speaker>STICHUS</speaker><p> Very good follow me, then, this. way in-doors, Sagarinus.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Of course, I follow. By mytroth, this beginning pleases me as I return home; a happy omen and augury<milestone n="673" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A happy omen and augury</lemma>:  "<placeName key="tgn,7001313">Bona</placeName> sc&aelig;va strenaque." See the Note to l. 460.</note> has met me in my path. <stage>They go into the house of PAMPHILUS.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="673" unit="TLN line"/>
+<stage>Enter STEPHANIUM from the house of EPIGNOMUS.</stage>
+<sp><speaker>STEPHANIUM</speaker><p> <stage>to the AUDIENCE</stage>. I wish that it may appear wondrous to no one of you, Spectators, why I who live there <stage>pointing to the house of PAMPHILUS</stage> am come out hither from this other house: I'll inform you thereon. Just now was I sent for to this house by the back way. For as soon as news was brought that the husbands of these ladies were about to come, we all hurried thither. We attended to laying the couches, and setting all in order. Still, amid these duties, I had a care for my friends, Stichus and my fellow-servant Sagarinus, that their dinner should be cooked. Stichus has been caterer; but for cooking it, I've appointed one my deputy. Now, I'll be off hence, and attend to my friends, who, I see, are coming here. <stage>Goes into the house of PAMPHILUS.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="683" unit="TLN line"/>
+<stage>Enter STICHUS and SAGARINUS from the house of PAMPHILUS with provisions, a PIPER following.</stage>
+<sp><speaker>SAGARINUS</speaker><p> Come, out of doors with you; lead on the procession<milestone n="683" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lead on the procession</lemma>:  They are about to have their carousal in front of the house. Sagarinus puts on an air of importance, as if mustering all of a large company; whereas the only guests, besides himself, are Stichus and the Piper. Stephanium has gone to dress herself for the occasion.</note>. Stichus, I appoint you commander of the cask. I'm resolved to prove our banquet in every fashion this day. So may the Gods love me, we are well entertained in being feasted in this place. I will that each person that passes by shall be invited to join the banquet.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Agreed, so long only as, i' faith, each man comes with his own wine<milestone n="687" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With his own wine</lemma>:  It has been before remarked, that the symbola," or "ic-nic" was made on these terms.</note>; for of this, a mouthful shall be given to no person but ourselves, this day. Eating alone<milestone n="689" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Eating alone</lemma>:  Monotrophi. From the Greek word <foreign lang="greek">monotrofoi\,</foreign> "eaters alone."</note>, let's wait upon ourselves.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> This banquet, for our means, is quite sufficient, with its nuts, beans, figs<milestone n="690" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nuts, beans, figs</lemma>:  These articles formed the usual food of the Roman slaves.</note>, a dish of olives, pounded lupines, and a cake.</p></sp>
+<sp><speaker>STICHUS</speaker><p> It better becomes a man who is a slave to bring his expenses within moderation than beyond. Each one to his own station; they, who have wealth at home, drink from cups, goblets, and bowls; we, if we are now drinking from our Samian jug<milestone n="694" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Samian jug</lemma>:  A plain earthenware goblet, or cup. Reference has been already made to the Samian pottery. The Proverb in this line is similar to ours, of each "cutting his cloth according to his measure."</note>, still build our walls according to our means.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> But while she who is your mistress and mine is arranging her hair, and bedecking herself, I wish us to have some diversion among ourselves. I appoint you the commander<milestone n="697" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The commander</lemma>:  "Strategum." This is a Greek word, signifying the commander of an army. It was usual with the Greeks, Romans, and Jews, to appoint a master of the feast, who probably gave the toasts, looked to the comforts of the guests, and took care that the quality of the wine was satisfactory. See the second Chapter of <placeName key="tgn,7005135">St. John</placeName>, v. 8.</note> of this feast.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Very aptly does it suggest itself to your mind.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Wouldn't we be more suitably entertained like Cynics<milestone n="699" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Entertained like Cynics</lemma>:  The absurdities consequent on the unity of place in the Roman Comedy could not possibly be better illustrated than in the present instance. The servants not only carouse in front of their master's house, but absolutely bring out couches to recline upon. Persons of rigid manners, and especially the Cynic philosophers, persisted in retaining the old posture of sitting at meals; to that circumstance reference is here made.</note> on benches here, than upon couches?</p></sp>
+<sp><speaker>STICHUS</speaker><p> Aye, but this is far the most pleasant.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> On which side is each of us to recline by our mistress?</p></sp>
+<sp><speaker>STICHUS</speaker><p> Of course you go to the upper place. And, so that you may understand it, I make a division with you on these terms: consider, and take which province you would even like now to take. <stage>They take their places.</stage>
+</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> But what's your meaning about this "province?"</p></sp>
+<sp><speaker>STICHUS</speaker><p> Whether you would choose to hold the command over the water or over <placeName key="tgn,2097807">Bacchus</placeName>.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Over Bacchus, most distinctly. But, in the meantime, general of ours, why stands this goblet here? See how many cups<milestone n="706" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">How many cups</lemma>:  "Cyathos." The "cyathus" was a cup which contained a fixed and definite measure. It contained but a small quantity, one- twelfth part of a "sextarius," which was not quite an English pint. It seems most probable that the "cyathus" was used for the purpose of ladling the wine out of the bowl, or "cratera," in which it was mixed with water, into the goblets or cups. The question of Sagarinus here seems to apply to the number of "cyathi" of the pure wine which they had been drinking at each goblet-full that they took, as otherwise they would be making but slow inroads on the "cadus," five "cyathi" holding, perhaps, about as much as three of our ordinary wine-glasses. It is not improbable that a portion of the Play is lost here.</note> we have drunk.</p></sp>
+<sp><speaker>STICHUS</speaker><p> As many as there are fingers on your hand. The Greek song is, "Drink either your five cups<milestone n="707" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Either your five cups, &amp;c.</lemma>:  These words are in Greek. Eustathius and Athen&aelig;us say that this Greek song bears reference to the proportions of water that should be mixed with the wine. It seems, however, here to mean that there's "luck in odd numbers" when you are drinking.</note> or your three, but not your four."</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> <stage>about to drink</stage>. I pledge you. Do you take for yourself the tenth part from the fountain<milestone n="708" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From the fountain</lemma>:  The "fons" in this case was probably a pitcher of water which they had on the table. Sagarinus seems to recommend him, in mixing, only to take one-tenth part of water. Sober people generally mixed in the proportion of three-fifths water and two-fifths wine.</note>, if you are wise. Here's luck to you, luck to us; here's luck to thee, luck to me; luck to our Stephanium as well.</p></sp>
+<sp><speaker>STICHUS</speaker><p> 'Tis bravely done. I pledge you in a goblet. <stage>Drinks.</stage></p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Keep your wine; I'd very much like something by way of a relish<milestone n="711" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By way of a relish</lemma>:  By "pulpamentum" Sagarinus seems to mean some dainty, by way of a relish; at least, Stichus so understands him, as he points to the nuts, beans, figs, lupines, and olives on the table, and tells him that he will get nothing else.</note>.</p></sp>
+<sp><speaker>STICHUS</speaker><p> If you are not satisfied with what's here, there's nothing else. Take some water<milestone n="712" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take some water</lemma>:  He probably tells him to take some water if he feels queer, or, in our vernacular, "seedy," from taking too much wine; which he has some reason to suppose, from the other calling for a "pulpamentum." Anchovy toast is an item of our favorite "pulpamenta."</note>.
+</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> You say right; I care for no dainties. Drink away, <placeName key="tgn,2585845">Piper</placeName><milestone n="713" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Drink away, <placeName key="tgn,2585845">Piper</placeName></lemma>:  He thinks that the <placeName key="tgn,2585845">Piper</placeName> is inclined to shirk his goblet, and to show that he himself is not flagging in spirit, tries to keep him up to the mark.</note>; drink, if you do drink. I' faith, this must be drunk--don't shirk it. <stage>Holds the goblet to the <placeName key="tgn,2585845">PIPER</placeName>.</stage> Why flinch at what you see must be done by you? Why don't you drink? Do it, if you are to do it. Take it, I tell you, for the public pays for this. That's not your way to shirk your drink. Take your pipes<milestone n="716" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take your pipes</lemma>:  The "Tibicines," "Pipers" or "flute-players," among the Greeks and Romans, were in the habit of playing upon two pipes at the same time. These were perfectly distinct, and were not even, as has been supposed by some, connected by a common mouth-piece. The Romans were particularly fond of this music, and it was introduced both at sacrifices, funerals, and entertainments. See a comical story about the Roman "Tibicines" in the Fasti of <placeName key="tgn,2033049">Ovid</placeName>, B. 6, l. 670 et seq. From the present specimen they appear to have been merry souls, occupying much the same place as the country fiddlers of modern times.</note> out of your mouth. <stage>The <placeName key="tgn,2585845">PIPER</placeName> drinks.</stage></p></sp>
+<sp><speaker>STICHUS</speaker><p> When he has drunk, either do you mind my rules<milestone n="717" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Mind my rules</lemma>:  It is pretty clear, that in his zeal, and to show that there is no flagging in him, Sagarinus has been overdoing it, perhaps helping himself out of his turn; on this, the other threatens to resign his office of master of the ceremonies.</note>, or else I'll give up. I don't wish us to drink this straight out; we shall soon be about nothing<milestone n="718" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Soon be about nothing</lemma>:  "Nulli rei erimus poste&agrave;." This is the proper reading, which has been restored by the research of Ritschel. It is difficult to say precisely what he alludes to, but most probably he means, "at this rate our supply will soon be exhausted."</note>; for, by my faith, almost all in a moment, the cask might be turned head downwards<milestone n="719" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Turned head downwards</lemma>:  He says that the "cadus," or earthenware cask, will soon at this rate be capable of being turned upside down without any risk of spilling the wine</note>.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> <stage>to the <placeName key="tgn,2585845">PIPER</placeName></stage>. How now? Although you did make a fuss about it, still it didn't hurt you. Come, <placeName key="tgn,2585845">Piper</placeName>, when you've done drinking, put back your pipes to your lips; quickly puff out your cheeks, just like a reptile serpent<milestone n="722" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A reptile serpent</lemma>:  The head of the serpent is said to swell, or puff out, when it infuriated.</note>. Come now, Stichus, whichever of the two breaks order, shall be fined a cup.</p></sp>
+<sp><speaker>STICHUS</speaker><p> You propose a good regulation. You ought to have your way, who only ask what's fair.
+</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Mind it then; if you offend, I'll forthwith take the forfeit on the spot.</p></sp>
+<sp><speaker>STICHUS</speaker><p> You ask what's quite right and just.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> <stage>pledging STICHUS</stage>. Here's to you first of all.</p></sp>
+<sp><speaker>STICHUS</speaker><p> 'Tis a droll thing this, for two persons, rivals of each other, to be courting, to be drinking from one goblet, and to be kissing one wench. 'Tis worthy of remark this: I am you, you are I; of one accord are we. With one mistress are we both in love; when she's with me, still she's with you; and when she's with you, she's with me as well; neither of us envies the other.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Come, come, there's enough of it; I don't want it overdone to weariness. I'd now like some other sport.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Drink on, if you are drinking.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> There shall be no skulking in me. But, troth, I've had enough of the feast; would but our mistress come here. If she were here, nothing else would be away.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Should you like us to invite our mistress out? She shall give us a dance.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> I agree. </p></sp>
+<sp><speaker>STICHUS</speaker><p> <stage>calling aloud</stage>. My sweet one, my lovely one, my pleasing one, Stephanium, do come out of doors to your sweethearts; to me you are quite charming.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> But to me, indeed, most charming.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Make us jovial fellows more jovial by your assistance and your company. Returning from abroad, we want you, dear little Stephanium, my honey, that is, if our lovingness is pleasing to you, if we are acceptable to you.</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="742" unit="TLN line"/>
+<stage>Enter STEPHANIUM, from the house of PAMPHILUS.</stage>
+<sp><speaker>STEPHANIUM</speaker><p> I'll indulge you, my dears; but, so may pretty <placeName key="tgn,2100948">Venus</placeName> favour me, I should have already come out of doors here together with you, had I not been sprucing myself up for you. For such is the way of woman, when she is well washed, made clean, dressed and tricked out, still is she incomplete; and a female who is a courtesan much more quickly acquires dislike for herself by sluttishness than always keeps in favour through neatness.</p></sp>
+<sp><speaker>STICHUS</speaker><p> That's very cleverly said. </p></sp>
+<sp><speaker>SAGARINUS</speaker><p> 'Tis the genuine language of <placeName key="tgn,2100948">Venus</placeName>.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Sagarinus. </p></sp>
+<sp><speaker>SAGARINUS</speaker><p> What's the matter?
+</p></sp>
+<sp><speaker>STICHUS</speaker><p> I'm in pain all over. </p></sp>
+<sp><speaker>SAGARINUS</speaker><p> All over? So much the more unfortunate you.</p></sp>
+<sp><speaker>STEPHANIUM</speaker><p> Where do I take my place?</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Wherever you please. </p></sp>
+<sp><speaker>STEPHANIUM</speaker><p> I'd like with both of you, for I love you both.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Whack go my savings<milestone n="751" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whack go my savings</lemma>:  It would appear at first sight, that he has some compunctions, and intends to say, "this feast will prove so expensive that all my savings (peculium) will be wasted, and I shall never be able to buy my freedom." There can be little doubt, however, that an, indelicate pun is intended to be concealed under the expression, "vapulat peculium."</note>. I'm done for; freedom has abandoned this person of mine.</p></sp>
+<sp><speaker>STEPHANIUM</speaker><p> Prithee, do give me room, where I may take my place, if, indeed, I am agreable. <stage>She takes her place.</stage> Now I do long to be cozy with you both.</p></sp>
+<sp><speaker>STICHUS</speaker><p>. I'm ruined utterly. What were you saying?</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Heyday! What's the matter? </p></sp>
+<sp><speaker>STICHUS</speaker><p> So may the Gods favour me, it never shall be otherwise this day but that this girl shall have a dance somehow. Come, my love, my sweet, do dance; I'll dance too. <stage>They rise and dance.</stage></p></sp>
+<sp><speaker>SAGARINUS</speaker><p> I' faith, you shan't that way get the better of me, but what I'll have a bit of enjoyment, too, that way.</p></sp>
+<sp><speaker>STEPHANIUM</speaker><p> Well, if I must dance, do you then give the <placeName key="tgn,2585845">Piper</placeName> something to drink.</p></sp>
+<sp><speaker>STICHUS</speaker><p> Aye, and to me. </p></sp>
+<sp><speaker>SAGARINUS</speaker><p> <stage>holds the goblet to the <placeName key="tgn,2585845">PIPER</placeName></stage>. <placeName key="tgn,2585845">Piper</placeName>, you take first: and after that, if you tipple this off, just as has been your wont before to-day, straightway strike up some merry and amorous tune to dance to, by which we may tingle all over from our very finger nails. Pour some water here.
+</p></sp></div2>
+<div2 type="scene" n="6">
+<stage>The <placeName key="tgn,2585845">PIPER</placeName> stops playing while he drinks the water.</stage>
+<sp><speaker>SAGARINUS</speaker><p>Take this, you; toss it off. The drink didn't please him just now; now at last he takes it with less difficulty. Take it, you. <stage>To STEPHANIUM.</stage> In the meantime, apple of my eye, give me a kiss while he's drinking.</p></sp>
+<sp><speaker>STEPHANIUM</speaker><p> Why, it's the way of a common strumpet, for a damsel to give a kiss standing to her sweetheart as he stands. <stage>She turns away, while he tries to kiss her.</stage></p></sp>
+<sp><speaker>STICHUS</speaker><p> Bravo! bravo! that's the way it's given to a thief<milestone n="766" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Given to a thief</lemma>:  She turns away with affected modesty from Sagarinus, who only manages "to steal" a kiss. His rival is pleased at this, and cries out that she only gives it to him as if he was stealing it.</note>.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Come, blow out your cheeks now; something in the amorous way<milestone n="767" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the amorous way</lemma>:  It is difficult to say what was the exact difference between the "lepida" and the "suavis cantio." The first was, perhaps, a "merry," and the other an "amorous" tune.</note> at once. Give us a new tune in return for the old wine.
+</p></sp></div2>
+<div2 type="scene" n="7">
+<sp><speaker>SAGARINUS</speaker><p>What person in the Ionian<milestone n="769" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the Ionian</lemma>:  The Ionian mode of dancing was graceful and voluptuous. The Sicilians had a dance of this nature in honor of Diana, which they called "the Ionic dance."</note> or the ballet line is there that can do anything like that? <stage>He capers about.</stage></p></sp>
+<sp><speaker>STICHUS</speaker><p> If you get the better of me this turn<milestone n="770" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This turn</lemma>:  It is difficult to say what is the exact meaning of "versus" or "versus" here. Possibly, it was the name of some particular dance, or it may have merely meant a "turn" or "round," or as we say, "a set," in dancing. Again, it may possibly mean some curious posture, in which Sagarinus was skilled, and in assuming which Stichus could not cope with him. Gesture and grimace formed the main features of the dance with the Romans.</note>, just challenge me to another.</p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Just you do it in this fashion. <stage>Capers.</stage></p></sp>
+<sp><speaker>STICHUS</speaker><p> And you in this fashion. <stage>Capers too.</stage> SAG. O grand<milestone n="770" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">O grand!</lemma>:  "Bab&aelig;," "Tat&aelig;," and "Pap&aelig;," are merely exclamations of the dancers, while inspired with the spirit of the dance; not unlike the shrieks and noises which are frequently made by the dancers of our times, at fairt and other places of public resort, where uproarious enjoyment takes the place of sobriety, and, not unfrequently, of common decency.</note>!</p></sp>
+<sp><speaker>STICHUS</speaker><p> O fine! </p></sp>
+<sp><speaker>SAGARINUS</speaker><p> O wonderful!</p></sp>
+<sp><speaker>STICHUS</speaker><p> QUIET<milestone n="771" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Quiet!</lemma>:  "Pax." This was the ordinary expression used to signify a pause--"Stop."</note>! </p></sp>
+<sp><speaker>SAGARINUS</speaker><p> Now, then, both in the same step. <stage>They dance quietly, in the same measure.</stage> I challenge all the dancing-masters to dance against me. 'Tis no more possible for there to be enough of this for us than for there to be too much rain for a mushroom.</p></sp>
+<sp><speaker>STICHUS</speaker><p> <stage>(ceasing to dance)</stage> Let's away hence in-doors at once now; we've danced long enough for the wine<milestone n="774" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Long enough for the wine</lemma>:  They have fairly danced the wine out.</note>. You, Spectators, give us your applause, and then go home to enjoy yourselves.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

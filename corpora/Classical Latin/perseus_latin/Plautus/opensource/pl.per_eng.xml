@@ -1,0 +1,981 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Persa, or The Persian</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.per_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:55  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:27  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:22  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:33  packel
+Converted to XML
+
+Revision 1.12  2003/07/01 22:17:30  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.11  2001/08/21 18:49:31  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.10  2001/08/08 17:55:29  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.9  2001/08/03 20:50:02  amahoney
+fix spurious italics in lemmata
+
+Revision 1.8  2001/08/02 21:22:40  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.7  2001/08/01 21:34:11  amahoney
+use full speaker names
+
+Revision 1.6  2001/08/01 19:16:31  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>TOXILUS, </role><roleDesc>a servant.</roleDesc></castItem>
+<castItem type="role"><role>SAGARISTIO, </role><roleDesc>a servant.</roleDesc></castItem>
+<castItem type="role"><role>SATURIO, </role><roleDesc>a Parasite.</roleDesc></castItem>
+<castItem type="role"><role>PAEGNIUM, </role><roleDesc>a boy.</roleDesc></castItem>
+<castItem type="role"><role>DORDALUS, </role><roleDesc>a Procurer.</roleDesc></castItem>
+<castItem type="role"><role>LEMNISELENE, </role><roleDesc>a Courtesan, beloved by Toxilus.</roleDesc></castItem>
+<castItem type="role"><role>SOPHOCLIDISCA, </role><roleDesc>her attendant.</roleDesc></castItem>
+<castItem type="role"><role>A YOUNG WOMAN, </role><roleDesc>daughter of Saturio.</roleDesc></castItem>
+</castList>
+
+<stage>Scene.--<placeName key="perseus,Athens">Athens</placeName>: before the houses of DORDALUS and of the Master of TOXILUS.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>TOXILUS, who is left in charge of his master's house in his absence, is desirous of obtaining the liberty of his mistress Lemniselene, who belongs to the Procurer Dordalus. He applies to his friend Sagaristio to lend him the sum necessary for that purpose. Sagaristio has not the money himself, but succeeds in finding some for the use of his friend. With the view of getting back the money when paid to Dordalus, Toxilus prevails on the Parasite Saturio to allow his daughter to be sold by Sagaristio to Dordalus, as though she were a slave. While these arrangements are being made, Lemniselene sends her attendant Sophoclidisca with a letter to Toxilus, and he at the same time sends the boy P&aelig;gnium with a message to Lemniselene. On receiving the money from Sagaristio, Toxilus pays it to Dordalus, who sets Lemniselene at liberty. Immediately after this, Sagaristio, dressed as a Persian, brings the daughter of Saturio, also dressed as a Persian captive, and sells her to Dordalus, without warranty, for a large sum of money. Immediately upon the departure of Sagaristio, Saturio makes his appearance, and claiming his daughter, takes her away Toxilus and Sagaristio conclude with a feast, and make merry over the Procurer's misfortunes.
+
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>HIS master being absent (<foreign lang="la">Profecto</foreign>), Toxilus purchases (<foreign lang="la">Emit</foreign>) his mistress, and contrives that the Procurer sets her at liberty; and he <foreign lang="la">then</foreign> persuades him to buy of her capturer a young woman, a captive (<foreign lang="la">Raptam</foreign>), the daughter of hit Parasite being dressed up (<foreign lang="la">Subornat&acirc;</foreign>) <foreign lang="la">for that purpose;</foreign> and (<foreign lang="la">Atque</foreign>) as he carouses, he makes sport of Dordalus, <foreign lang="la">thus</foreign> cajoled.
+
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>Enter TOXILUS and SAGARISTIO, on different sides.<note anchored="yes">Title <lemma targOrder="U">The Persian</lemma>:  As "Persa" signifies "a male Persian," the Play is evidently named from the character assumed by Sagaristio, who, as a, Persian, sells the daughter of Saturio, dressed up as a captive, to the Procurer Dordalus.</note></stage>
+<sp><speaker>TOXILUS</speaker><p> <stage>to himself</stage>. He who, falling in love, destitute of means, has first entered upon the paths of love, has in his own labours exceeded all the labours of Hercules. For with the lion<milestone n="3" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With the lion</lemma>:  The. conquest of the Nem&aelig;an lion, the Hydra of <placeName key="perseus,Lerna">Lerna</placeName>, the brazen-footed stag, the Erymanthian boar, the birds of Lake Stymphalus, and the giant Ant&aelig;us, formed part of the labours of Hercules. See the Metamorphoses of Ovid, Books 9 and 10.</note>, and with the Hydra, with the stag, with the &AElig;tolian boar, with the birds of Stamphalus, with Ant&aelig;us, would I rather contend than with love. So wretched am I become with hunting after money to borrow; and yet, those whom I ask know of nothing to answer me, except "I have got none."</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>apart</stage>. The servant that is desirous faithfully to serve his master, i' troth, it surely does behove him to treasure up full many a thing in his breast which he may think will please his master, both present and abroad. I neither serve with cheerfulness, nor am I quite to my master's satisfaction; but, as though from a running eye, my master is still unable to keep his hands off me, in giving me his commands, in making me the support of his affairs.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Who's this that's standing opposite to me?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Who's that that's standing opposite to me?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> It's like Sagaristio.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Surely this is my friend Toxilus.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Certainly it is he. </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I think it is he.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I'll go meet him. </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I'll go up and accost him.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>meeting him</stage>. O Sagaristio, may the Gods bless you.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> O Sagaristio, the Gods grant you what you may desire. How fare you?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Just as I can. </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I still live. </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Quite then to your satisfaction?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> If the things come to pass which I desire, quite.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> You deal with your friends in a very silly fashion.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> How so?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Because you ought to give them your commands.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> As for myself, you were already dead to me, because I haven't seen you.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Business, upon my faith----</p></sp>
+<sp><speaker>TOXILUS</speaker><p> In the iron chain line, perhaps.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> For more than a twelvemonth I've been promoted in chains to be commanding officer in the basting line<milestone n="22" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the basting line</lemma>:  " Tribunus vapularis." Literally, "a vapulary Tribune." By this droll expression he means, promoted above all others to the distinction of a flogging. The military Tribune was an officer high in rank in the Roman armies.</note> at the mill.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why, that's your old line of service.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Have you been quite well all along?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Not very.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I' faith, it's with reason then you are so pale.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I've been wounded in the battles of Venus; Cupid has pierced my heart with his arrow.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Do servants then fall in love here?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why, what could I do? Was I to be struggling against the Gods? Was I, like the sons of Titan, to be waging war with the Deities, with whom I am not quite able to cope?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Do you only take care that "catapult&aelig;" made of elm<milestone n="28" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Made of elm</lemma>:  He means the elm-twigs, which were especially used for the punishment of slaves.</note> don't pierce your sides.
+</p></sp>
+<sp><speaker>TOXILUS</speaker><p> In right royal manner I'm celebrating the feast of Freedom<milestone n="29" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Feast of Freedom</lemma>:  "Agito Eleutheria." He is speaking of his enjoying full range in the absence of his master, and for that purpose borrows a figure from the Eleutheria, or "Feast of Liberty," a festival which the Greeks, after the battle of Plat&aelig;a, instituted in honor of Jupiter or Zeus Eleutherius, "The Deliverer." This festival was not only a mark of gratitude to the Deity, to whom they believed themselves indebted for their victory over the Persians, but employed as a bond of union among themselves. It was celebrated each year at Plat&aelig;a, and every fifth year with additional solemnities, and contests No slaves were allowed to minister on the occasion of this festival.</note>.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> How so? </p></sp>
+<sp><speaker>TOXILUS</speaker><p> Because my master's gone abroad.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Do you say so? Is he gone abroad?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> If you can bear to be enjoying yourself, do you come: you shall live with me; you shall be treated with right royal entertainment.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Out upon it <stage>rubbing himself</stage>; my shoulder-blades are quite itching now, because I've heard you mention these things.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> But this one thing is torturing me.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Why, what is it?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> This day is the very last day, to determine whether my mistress is to be free, or whether she is to endure lasting servitude.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> What, then, do you now desire?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You have it in your power to make me your friend for ever.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> In what way?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> In lending me six hundred didrachms, for me to pay the same for her freedom, which I will forthwith refund you in the next three or four days. Come, do be good-natured; give me your help.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> With what assurance, you impudent fellow, do you venture to ask so much money of me? Why, if I myself were to be sold all in one lot, it's hardly possible for as much to be received as you are asking me for; for now you are asking for water from a pumice-stone, which is all a-dry itself.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Ought you to be treating me in this fashion?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> What am I to do?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do you ask the question? Beg it on loan from somebody.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> You do the same as you are asking me.
+</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I've been trying; I've found it nowhere.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I really will try, if any one will trust me.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Am I then to consider it<milestone n="47" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Am I then to consider it</lemma>:  "Nempe habeo in mundo?" Literally, "I have it in the world, I suppose?" implying that he presumes, that if possible, Sagaristio will comply with his request.</note> as a thing in possibility?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> If I had had it at home, I'd promise it at once. This is in my power, to use my best endeavours.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Whatever it is, come you home to me.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Still do you try to get it; I'll carefully do the same. If anything shall turn up, I'll let you know at once.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I entreat you, and entreat over and over again, do give me your stanch help in this.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> O dear! you are worrying me to death by your importunity.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> It's through the fault of love, and not my own, that I'm now become a silly prater to you.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Then, i' troth, I'll now be taking my leave of you <stage>Moving.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> Are you going away, then? A good walk to you. But betake yourself back as soon as you can, and do take care that I haven't to seek you; I shall be close at home until I have cooked up a mishap for the Procurer. <stage>(Exit SAGARISTIO, and TOXILUS goes into the house.)</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="53" unit="TLN line"/>
+<stage>Enter SATURIO.</stage>
+<sp><speaker>SATURIO</speaker><p> <stage>to himself</stage>. The old and ancient calling of my forefathers do I follow, and hold, and cultivate with great care. For never was there any one of my forefathers, but that by acting the parasite they filled their bellies: my father, grandfather, great-grandfather, great-great-grandfather, his father, and his grandfather, just like mice, always fed on the victuals of others, and in love of good eating no one could excel them. Hard Heads<milestone n="62" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hard Heads</lemma>:  "Duris capitonibus." Literally, "hard large heads." He probably alludes to the necessity which there was for Parasites to have particularly hard heads, in order to be proof against the ill-usage to which they were subjected. The expression would be more likely to catch a laugh from a Roman Audience, as there was a noble family at Rome of the surname of Capito.</note> was their surname. From them have I derived this calling, and the station of my forefathers; nor do I wish myself to turn informer<milestone n="64" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To turn informer</lemma>:  "Quadruplari." He seems to think that he is reduced to the alternative of getting a living either by being a Parasite or an informer, and prefers the first. Informers were called "quadruplatores" at Rome, because they received the fourth part of the fines paid by the persons against whom they informed.</note>, nor indeed does it become me, without risk of my own, to go seize upon the goods of other people; nor do those persons please who do so; I'm speaking out. For whoever does this, more for the sake of the public than of his own benefit, my mind can be induced to believe that he is a citizen both faithful and deserving; but if he should not prosecute to conviction the breaker of the laws, let him pay one half of the intended penalty to the public. And let this, too, be written in that law; when an informer has prosecuted any one, let the other in his turn<milestone n="73" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Let the other in his turn</lemma>:  In case of his not obtaining a conviction. It is not improbable that the practices of informers were an especial annoyance at the time when this Play was written.</note> sue him for just as much, and upon equal terms let them come before the Triumvirs<milestone n="74" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Triumvirs</lemma>:  For an account of the magistrates called "Tresviri," or "Triumviri," see the Notes to the Aulularia and the Amphitryon.</note>. If that were done, assuredly I'd make those nowhere to be seen, who here with their whitened nets<milestone n="76" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whitened nets</lemma>:  By the use of the word "albo," "white," Gronovius is led to think that the passage refers to the white book or paper upon which the rules and ordinances of the Pr&aelig;tor were written, and that the allusion is to the habit of informers hampering people, by repeated accusations of infringing the Pr&aelig;tor's rules. It seems, however, not improbable that he likens the accusations of the informers (who of course pretended that they were only actuated by a desire for the public good) to whitened nets, by reason of their speciousness, and the difficulty of avoiding the meshes which they spread in every direction.</note> lay siege to the property of others. But am I not a simpleton, to be taking care of the public interests when there are the magistrates, whose duty it is to take care of them? Now I'll in-doors here; I'll go look after the scraps from yesterday, whether they have rested well or not; whether they have had a fever<milestone n="80" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Had a fever</lemma>:  By this expression he probably means, "whether they have been warmed up again</note>; whether they've been well covered up or not, so that no one could creep up to them. But the door is opening; I must pause in my steps.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="81" unit="TLN line"/>
+<stage>Enter TOXILUS, from the house of his MASTER.</stage>
+<sp><speaker>TOXILUS</speaker><p> <stage>to himself</stage>. I've hit upon the whole matter, so that with his own money the Procurer may this day make her his fieed-woman. But see, here's the Parasite whose assistance I have need of. I'll make believe as though I didn't see him; in that way I'll allure the fellow. <stage>Goes to the door, and calls to the SERVANTS within.</stage> Do you attend, you there, and quickly make haste, that I mayn't have any delay when I come in-doors. Mix the honied wine; get ready the quinces and the junkets<milestone n="89" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The junkets</lemma>:  "Colutea." These, according to some, were the fruit of a tree called by the same name; others take the word to mean a large kind of quince. As there is some doubt on the subject, a general name has been adopted in the Translation. Warner thinks that the word means "myrrh;" but it is pretty clear that he is mistaken. Quinces were used in the wines of the ancients, as we learn from Columella.</note>, that they may be nicely warmed upon the dishes, and throw in some scented calamus<milestone n="90" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Calamus</lemma>:  Supposed to be "sweet-scented rush." This was used, probably, for flavoring the wine.</note>. I' faith, that boon-companion of mine, I fancy, will be here just now.</p></sp>
+<sp><speaker>SATURIO</speaker><p> <stage>apart</stage>. He's meaning me--bravo!</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I think that he'll be here just now from the baths when he has bathed.</p></sp>
+<sp><speaker>SATURIO</speaker><p> <stage>apart</stage>. How he does keep everything in its due order.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Take you care that the gravy-cakes<milestone n="94" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The gravy-cakes</lemma>:  "Collyr&aelig;." These were cakes eaten with broth or gravy.</note> and the cheese-biscuits<milestone n="94" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The cheese-biscuits</lemma>:  "Colliphia." These were made of a mixture of flour and new cheese.</note> are hot; don't be giving them to me unbaked.</p></sp>
+<sp><speaker>SATURIO</speaker><p> <stage>apart</stage>. He's speaking the very fact; they are worth nothing raw, only if you swallow them warm. Then, unless the broth for the gravy-cakes is of a thick consistency, that miserable, thin, pale, transparent stuff, is worth nothing at all. The broth for a gravy-cake ought to be like a soup. I don't want it to be going into my bladder, I want it for my stomach.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>pretending not to see him</stage>. Some one, I know not who, is talking near me here.</p></sp>
+<sp><speaker>SATURIO</speaker><p> <stage>accosting him</stage>. O my earthly Jupiter, your fellow- feaster addresses you.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> O Saturio, you've come opportunely for me.
+</p></sp>
+<sp><speaker>SATURIO</speaker><p> Upon my faith, you are telling a lie, and it becomes you not; for as Hungerio<milestone n="105" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hungerio</lemma>:  In the original, "Esurio," "Hungerer." He puns on his name, which he says ought to have no relation to "satur," "full," but rather to "esuriens," "one who is hungry."</note> I'm come, not as Saturio am I come.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> But you shall have something to eat; for now the creature-comforts for the stomach are smoking away in-doors. I've ordered the remnants to be warmed.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Why, it's the proper thing for the gammon to be served up cold the day after.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I've ordered it so to be done.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Any caviare<milestone n="109" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Any caviare</lemma>:  "Halec," or "alec," was a "pickle," or "salt liquor," made from fish, and, perhaps, especially herrings. It was probably used for much the same purposes as anchovy sauce with us.</note>?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Get out--do you ask the question?</p></sp>
+<sp><speaker>SATURIO</speaker><p> You have a capital notion of what's good<milestone n="110" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A capital notion of what's good</lemma>:  "<foreign lang="la">Sapis multum ad Genium</foreign>;" more literally, "you have much good taste for enjoyment."</note>.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> But do you at all remember the matter about which I was making mention to you yesterday?</p></sp>
+<sp><speaker>SATURIO</speaker><p> I recollect; that the lamprey and the conger ought not to be made warm; for they are much better stripped of their meat<milestone n="113" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Stripped of their meat</lemma>:  "Oppectuntur." This word comes from "pecten," "a comb," and was not improbably used in especial reference to fish, as the picking the meat off of a conger or a lamprey does reduce it to somewhat of the appearance of a comb. As to eating fish cold, see the words of Periple- comenus, in the Miles Gloriosus, l. 760, and the Note.</note> when cold. But why do we delay to commence the engagement? While it's the morning, it befits all people to eat.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> It's almost too early in the morning.</p></sp>
+<sp><speaker>SATURIO</speaker><p> The business that you begin to do in the morning, that same lasts on throughout the day.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Prithee, do give your attention to this. For yesterday I mentioned it to you, and entreated you to lend me six hundred didrachms.</p></sp>
+<sp><speaker>SATURIO</speaker><p> I recollect it and am aware, both that you did ask me, and that I hadn't any to lend. A Parasite's good for nothing that has got money at home; he has a longing at once to begin upon an entertainment, and to gobble away at his own expense, if he has anything at home. A Parasite ought to be a right down needy Cynic; he ought to have a leather bottle<milestone n="126" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A leather bottle</lemma>:  "Ampullam." This was probably the bottle in which unguents were kept by the Parasite for the convenience of bathers. See the soliloquy of Gelasimus the Parasite, in the Stichus, l. 228.</note>, a strigil, an utensil<milestone n="126" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An utensil</lemma>:  "Scaphium." If this word has not the same meaning here as "matula," it will probably signify a bottle, which he ought to be in the habit of carrying about with him, for taking home any wine left after the entertainment. The use of the "socci" would show that his avocations were more confined to in-doors than the street, where the use of them was considered effeminate. On the "strigil," see the Notes to the Stichus, l. 228.</note>, a pair of slippers, a cloak, and a purse; and in that a little of the needful, with which he may just cheer up the existence of his own household.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I don't want money now; lend me your daughter.</p></sp>
+<sp><speaker>SATURIO</speaker><p> By my troth, never to any person whatsoever have I lent her as yet.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Not for that purpose which you are insinuating.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Why do you want her then? </p></sp>
+<sp><speaker>TOXILUS</speaker><p> You shall know; because she's of a pretty and genteel figure.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Such is the fact. </p></sp>
+<sp><speaker>TOXILUS</speaker><p> This Procurer <stage>pointing to the house of DORDALUS</stage> neither knows yourself nor your daughter.</p></sp>
+<sp><speaker>SATURIO</speaker><p> How should any one know me, except him who finds me food?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Such is the fact. This way you can find some money for me. </p></sp>
+<sp><speaker>SATURIO</speaker><p> I' faith, I wish I could.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Then do you allow me to sell her.</p></sp>
+<sp><speaker>SATURIO</speaker><p> You to sell her?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why no, I'll depute another person to sell her, and to say that he is a foreigner; since it isn't six months since that Procurer removed hither from Megara<milestone n="139" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From Megara</lemma>:  This was a city not far from Athens, on the confines of Attica.</note>.</p></sp>
+<sp><speaker>SATURIO</speaker><p> The remnants are spoiling; this, however, can be done afterwards.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do you understand on what terms it can? Never, on my word, shall you eat here this day, so don't be mistaken, before you declare to me that you'll do this that I'm requesting; and unless you bring your daughter with you hither at once as soon as you can, by my faith, I'll cashier you from this squad. What now? What's the matter? Why don't you say what you will do?</p></sp>
+<sp><speaker>SATURIO</speaker><p> I' troth, prithee sell even myself as well, if you like, so long as you sell me with my stomach full.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> If you are going to do this, do it.</p></sp>
+<sp><speaker>SATURIO</speaker><p> For my part, I'll do what you desire,</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You act kindly. Make haste, be off home; cleverly tutor your daughter beforehand, instruct her cunningly, what she is to say, where she is to declare she was born, who were her parents, how she was kidnapped. But let her declare that she was born at a distance from Athens; and let her shed tears when she makes mention of it.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Now won't you hold your tongue? Three times more artful is she than you would have her be.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I' troth, you say what's excellent. But do you know what you are to do? Get a tunic and a girdle, and bring a scarf and a broad-brimmed hat for him to wear who is to sell her to this Procurer----</p></sp>
+<sp><speaker>SATURIO</speaker><p> Well-capital! </p></sp>
+<sp><speaker>TOXILUS</speaker><p> As though he were a foreigner.</p></sp>
+<sp><speaker>SATURIO</speaker><p> I approve of it----</p></sp>
+<sp><speaker>TOXILUS</speaker><p> And do you bring your daughter cleverly drest up after a foreign fashion.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> "O&ugrave; sont<milestone n="161" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">O&ugrave; sont</lemma>:  The word "whence" is expressed in the text by the Greek <foreign lang="greek">po/qen.</foreign> It has been previously remarked, that the Romans interlarded their dialogue with Greek expressions, in the same way that we adopt French words and phrases.</note>" the dresses? </p></sp>
+<sp><speaker>TOXILUS</speaker><p> Borrow them of the chorus-leader<milestone n="161" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The chorus-leader</lemma>:  "Chorego." As to the "choragus" or "master of the wardrobe," see the Curculio, Act IV., Sc. 1 (and the Note), where he is introduced as one of the Dramatic Person&aelig;. See the Notes also to the Trinummus, l. 858.</note>. He ought to lend them; the &AElig;diles<milestone n="162" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The &AElig;diles</lemma>:  It has been observed in previous Notes that the &AElig;diles had the management of the representations on the stage; and probably they had a contract with the "choregi" that they should always have dresses and "properties" in readiness for the use of the actors.</note> have contracted for them to be found.</p></sp>
+<sp><speaker>SATURIO</speaker><p> I'll have them here just now. But I'm to be acquainted with nothing of these matters?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I' faith, nothing, in fact. But, when I've got the money, do you at once claim her of the Procurer.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Let him keep her for himself, if I don't immediately carry her off from him.
+</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Be off and attend to this. <stage>Exit SATURIO.</stage> In the meantime, I want to send a boy to my mistress; that she may be of good courage, and that I shall manage it to-day. I'm talking too much at length. <stage>Goes into the house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="168" unit="TLN line"/>
+<stage>Enter SOPHOCLIDISCA and LEMNISELENE, from the house of DORDALUS.</stage>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> It were enough to tell an untaught, thoughtless, silly girl the same thing so many times over; really, in fact, I do imagine that I'm quite looked upon by you as a blockhead and a country booby. Although I do drink wine, still I'm not in the habit of swallowing down your commands together with it. I really had fancied that both myself and my ways had now been sufficiently proved by you; for, as for me, I've attended you now these five years; whereas, in that time, a cuckoo even, I do believe, if he had gone to school, could by now have been made to know his letters well; while, in the meantime, whether speaking or not speaking<milestone n="176" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Or not speaking</lemma>:  Schmieder thinks, that by this expression Sophoclidisca alludes to the habitual taciturnity of Lemniselene; indeed, her quiet and inoffensive disposition is observable throughout the Play. In the concluding Scene the Procurer calls her "ignavis." "lump of laziness."</note>, you have not made yourself acquainted with my disposition. Can you not hold your tongue? Can you not cease advising me? I remember, and I know, and I understand, and I keep in mind; i' faith, you are in love, poor thing; on that account your mind's disturbed. I'll cause that that shall be calmed for you.</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> Wretched is the person that's in love. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> <stage>to herself</stage>. Good for nothing, indeed, he certainly is, who is in love with nothing. What need has that person of life? I ought to go, that I may prove obedient to my mistress; that through my aid she may the sooner become a free woman. I'll go meet this Toxilus, however; his ears I'll stuff with what has been enjoined upon me. <stage>Stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="183" unit="TLN line"/>
+<stage>Enter, from the house, TOXILUS and P&AElig;GNIUM.</stage>
+<sp><speaker>TOXILUS</speaker><p> Are these things quite clear and certain to you--do you quite remember and understand them?
+</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Better than you who have instructed me.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Say you so, you whip-rascal?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I really do say so. </p></sp>
+<sp><speaker>TOXILUS</speaker><p> What did I say then P</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I'll tell it to her all correctly.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I' faith, you don't know it.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Troth now, lay me a wager that I don't remember and know it all.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why, for my part, I'll lay a wager with you on this, whether you know your own self, how many fingers you have this day upon your hand.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Without hesitation--if you are desirous to lose.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> A fair truce rather let there be.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> For that reason, then, do you let me go.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I both bid and permit you. But I wish you so to attend to it, that you are back home while I'm thinking that you are there.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I'll do so. <stage>Moves towards their own house.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> Whither are you now going?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Home; that I may be at home while you are thinking that I am there.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You are a rascal of a boy, and----for this service I'll give you something to add<milestone n="191" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give you something to add</lemma>:  "Peculiabo." Some Commentators will have it that an indecent allusion is intended here. Possibly they are not mistaken; but it is a rather far-fetched one.</note> to your savings.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I'm aware how want of shame is wont to be imputed to a master's word, and that masters cannot ever be compelled to appear before the judge on account of those promises.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Be off now.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I'll give you reason to command me.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> But, P&aelig;gnium, take you care and give that letter to Lemniselene herself, and tell her what I bade you.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> <stage>apart</stage>. Do I delay to go whither I was sent?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I'm off. </p></sp>
+<sp><speaker>TOXILUS</speaker><p> Then do be off; I'll off home. Take care and manage this business with attention. Fly post haste. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> That's what the ostrich<milestone n="198" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The ostrich</lemma>:  "Marinus passer." Literally, the "sea-sparrow," P&aelig;gnium alludes to the mode in which the ostrich runs, in answer to the order of Toxilus, who tells him to fly. The ostrich, as it runs, flaps it wings as though flying. Referring to Roman customs, P&aelig;gnium speaks as though he had seen ostriches in the Roman Circus. These, and wild beasts of every description, were hunted there at the "Venationes," for the amusement of the people. It is not improbable that ostriches had been recently introduced into Rome, as forming part of the spoil of the Carthaginians. The Emperor Probus, several centuries after this period, gave a "Venatio" of a thousand ostriches in the Circus.</note> is wont to do in the Circus He's off from here m-doors there. But who's this woman that's coming towards me?</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> <stage>advancing</stage>. Surely this is P&aelig;gnimn.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> This is Sophoclidisca, the private servant of her to whom I'm sent.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> <stage>aside</stage>. There's not a person this day that's reported to be more artful than this boy. I'll accost him.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> At this bar<milestone n="202" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At this bar</lemma>:  Seeing Sophoclidisca, he knows that she will stop him for a bit of gossip, and he consequently stvles her an "obex," a "bar" or "impediment."</note> I must come to a stop.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> P&aelig;gnium, my charmer of a boy, save you; how are you? How do you do?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Sophoclidisca, the Gods will favour me.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Why "me?" Which of us?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I' faith, I don't know. But if they were to do as you deserve, by my troth they'd hold you in hate, and treat you but badly.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Do leave off your abusive talking.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Since I'm saying just as you I'm talking to deserve, properly, not abusively.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> What are you about now?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Standing opposite to you, looking at a worthless woman.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> For my own part, assuredly, I do not know any more good-for-nothing boy than yourself.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> What mischief do I do, or to what person do I speak abusively? </p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> I' faith, to every one that you have the opportunity.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Not an individual has ever thought so.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> But, i' faith, full many a one knows that so it is.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Heyday, indeed! </p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Heyday, indeed!</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> According to your own disposition you judge of the ways of others.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> I certainly do confess that I'm just as befits one of a Procurer's household to be.
+</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I've now had enough of your chattering.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> What say you? Do you plead guilty to what I take you to be?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> If I were so, I should confess it.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Be off then; you've got the victory.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Now then be off with you.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Do you then tell me this--whither are you going?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Whither are you? </p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Say you.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Say you. </p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> I was the first to ask.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Then you shall be the last to know.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> I'm going not far hence.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> And I, indeed, not far.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Whither then, you rascal?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Unless I know first of you, you shall never know this of me that you are enquiring.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> On my honor you shall never this day know before I've heard it of you.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Is such the fact? </p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Is such the fact?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You are a worthless one.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Rogue.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> That befits me.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Me then it does not befit.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> What do you say? Are you quite determined, you hussy, to conceal whither you are going?</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> And are you quite resolved to hide whither you are betaking yourself, you scoundrel?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You are giving answer to what I say like for like; be off with you then, since such is your determination. I don't care at all to know. Good-bye. <stage>Moving.</stage></p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Stop!</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> But I'm in a hurry.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> And, i' faith, I as well.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Have you got anything? <stage>Pointing to her hand.</stage></p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Have you anything? <stage>Pointing likewise.</stage></p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Really nothing whatever.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Show me your hand then.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>showing his right hand</stage>. Is this the hand?</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Where is that other, the pilfering left hand?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>hiding his left hand</stage>. Why, it is at home, d'ye see; I've not brought one hither.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> <stage>trying to seize his hand</stage>. You've got something, what it is I know not.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>pushing her away</stage>. Don't be mauling me about you she-groper.
+</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> But suppose I'm in love with you.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You employ your pains to no purpose.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Why so?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Why, because you are in love with nothing at all, when you are in love with one who doesn't return it.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> It befits these youthful looks and age to be on the watch for pleasure il good time; so that, when your hair comes to change its hue, you may not be always in a grovelling servitude. Why, really, as yet you are not eighty pounds in weight.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Still, that warfare is waged much more successfully by spirit than by weight. But I'm losing my pains.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Why so?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Because I'm teaching those who know it all. But I'm loitering here. <stage>Moves.</stage></p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> <stage>taking hold of him</stage>. Do stop.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You are annoying to me.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> And so I shall be then, if I don't find out whither you are betaking yourself.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> To your house.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> And I to your house, i' faith.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Why thither?</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> What's that to you?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>standing before her</stage>. Why, you shan't go now, unless, in return, I know.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> You are teazing. </p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I choose to.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Never, upon my faith, shall you wring this out of me, so as to prove yourself more artful than I am.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> It's a misery to contend with you in artfulness.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> You are a mischievous baggage.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> What is there for you to fear?</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> The very same that there is for you.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Say then, what is it?</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> But I'm forbidden to tell this to any person, and am instructed that all the dumb people are to speak of it before myself.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> And most especially was I cautioned not to trust this to any person, so that all the dumb people were to mention this before myself.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Still, do you do so; on giving our words, let's trust each other.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I know this--all procuresses are light of faith, and the weight of a water-gnat<milestone n="248" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Weight of a water-gnat</lemma>:  "Tipul&aelig;," a "water-gnat," or "waterspider." This is a very pretty illustration. On a sunny day these little animals may be seen in hundreds skating over the surface of still water. Warner suggests that this simile may have been a proverbial one.</note> is not more light than is the word of a procurer.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Tell me, there's a dear.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Tell me, there's a dear.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> I don't want to be your dear.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You'll easily prevail upon me in that.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Keep it yourself. </p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> And you be mum about this. <stage>Showing her a letter.</stage></p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> It shall be kept a secret.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> It shall not be known. <stage>She shows him a letter.</stage></p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> I'm carrying this letter to Toxilus, your master.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Be off; he's there at home. And I am carrying this pinewood tablet sealed, to Lemniselene, your mistress.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> What's written there. </p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> If you don't know, pretty much like yourself, I don't know, except soft words, perhaps.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> I'm off. </p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> And I'll be off.</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Move on then. <stage>They go into the respective houses.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="251" unit="TLN line"/>
+<stage>Enter SAGARISTO.</stage>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>to himself</stage>. To Jove the opulent, the renowned, the son of Ops<milestone n="250" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The son of Ops</lemma>:  He seems to intend a jingle on the resemblance between "Jove the opulent" and "the son of Ops." The Goddess Ops of the Romans was the same Divinity as the Rhea of the Greeks, and was daughter of C&oelig;lus and Terra, and became the mother of Jupiter by her husband Saturn. She was also known by the name of Cybele, Bona Dea, Magna Mater, and Tellus.</note>, the strong, the mighty in power, who riches, hopes, kind plenty does bestow, joyously and gratefully do I offer the sacrifice of thanksgiving, inasmuch as in a friendly way they have bestowed for my friend this opportunity of satisfying his necessity and of borrowing the money, so that I can lend him aid in his need. Whereas I no more dreamed, or thought, or imagined that I should have this opportunity--that same has now fallen from heaven as it were. For my master has sent me to Eretria<milestone n="260" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Eretria</lemma>:  This was a city in the island of Eub&oelig;a, on the Eastern coast of Greece</note>; he has given me the money to purchase some trained oxen for him; but he said that the fair would take place seven days hence; a simpleton to trust this money to me whose propensity he knew; for this money I shall misapply in some other purpose: there were no oxen for me to buy. Now I'll both promote the success of my friend, and will give my inclination full enjoyment. The pleasures that belong to a long time will I serve up in a single day. Crack, crack<milestone n="265" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Crack, crack</lemma>:  "Tax, tax." The noise of the cracking of the</note> it will be upon my back; I don't care. Now, to a person that is my friend I shall present these trained oxen from out of my purse; for this, in fact, is a delightful thing, handsomely to bite your thrice-dotted niggardly, antiquated, covetous, spiritless people, who against their servant seal up the saltcellar with the salt. It's a virtue, when occasion prompts, to hold them in contempt. What will he do to me? He'll order me to be beaten with stripes, the fetters to be put on. I may get a beating. Don't let him fancy that I shall go begging to him. Woe be unto him! Nothing new can now be inflicted upon me but what I have already experienced it. But see, here comes P&aelig;gnium, Toxilus's boy.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="272" unit="TLN line"/>
+<stage>Enter P&AElig;GNIUM, from the house of DORDALUS.</stage>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>to himself</stage>. My task that was set me I've finished; now I'm hastening home.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Stop, although you are in haste--P&aelig;gnium, listen to me.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You ought to buy a person, for you to desire to be obedient to you. <stage>Moves on.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Stop there, I say. </p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You'd be giving some trouble, I fancy, if I were to be owing you anything, who are now so troublesome.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> You rascal, will you look back then?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I am aware of what age I am; for that reason you shall get off for this abuse with impunity.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Where is Toxilus, your master?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Wherever he pleases, and he don't ask your advice.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Won't you tell me, then, where he is, you villain?
+</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I don't know, I say, you elm-twig spoiler<milestone n="279" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Elm twig spoiler</lemma>:  "Ulmitriba." This word is composed of the Latin "ulmus," "an elm," and the Greek <foreign lang="greek">tribw\,</foreign> "to rub" or "wear;" and may mean either "one beaten" or "rubbed with elm-twigs," or "one that wears elm-twigs."</note>.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> You are abusive to your senior.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> As you deserved it first, do you put up with it. My master bade me hold my labour at his bidding, my tongue in freedom.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Will you not tell me, where is Toxilus?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I tell you that--you may go to perdition everlasting.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> This day you shall be flogged with a rope's end.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> On your account, indeed, you cuckoo! I' faith, you carrion, if I were to give you a broken head, I shouldn't be afraid of that.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I understand you, you've been up to<milestone n="285" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You've been up to</lemma>:  This passage is somewhat modified in the Translation.</note> some bad work just now.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> So I have. What business is that to you? But I haven't, like yourself, all for nothing.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Assurance!</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I' faith, I certainly am; for I am assured that I shall be free; don't be hoping that you'll ever be so.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Can't you cease your impertinence?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> That which you are mentioning, you can't do yourself. </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Away with you to utter perdition.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> And off home with you; for there it's all ready prepared for you.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> He summons me<milestone n="290" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He summons me</lemma>:  The meaning of this allusion is somewhat abscure; but it seems likely that when P&aelig;gnium uses the word "pr&aelig;sto," "ready," or "in preparation," Sagaristio understands him to speak of "pr&aelig;s," "a surety" or "bail;" on which he remarks that P&aelig;gnium is calling him as his surety.</note> on my recognizances.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I only wish the sureties may be out of the way, so that you may get to prison.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Why's this? </p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Aye, why is it?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Still abusing me, rascal?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Why, inasmuch as you are a slave, it ought at least to be allowed a slave to abuse you.
+</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> And is it so? Just look <stage>holding up his fist</stage> what I shall give you.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Nothing; for nothing have you.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> May all the Gods and Goddesses confound me, if I don't this very day, if I lay hold of you, fell you to the ground with blows.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I am your friend; I trust that what you wish may befall you, and that it may come to pass; if you fell me<milestone n="296" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If you fell me</lemma>:  "Tu ut me defigas, te cruci ipsum propediem alii affigant." Literally, "should you fix me down, may others before long be fixing yourself up to the cross;" the play being upon the verbs "defigo" and "affigo." An attempt has been made to give a somewhat similar pun in the Translation.</note>, may others make you feel yourself fixed to the cross before long.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> But you may the Gods and Goddesses----You understand what I was going to say after that, if I hadn't been able to restrain my tongue. Can't you be off?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> You drive me off with ease; for already my shadow's getting<milestone n="299" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My shadow's getting</lemma>:  Being close to the house, and in a hurry to get home, he says that his shadow is in the house already, getting the beating which awaits its owner for having been so long on his errand.</note> a whipping in-doors. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>to himself</stage>. May the Gods and Goddesses confound that fellow! just like a crawling serpent he has got a double tongue, and is a wicked one. Upon my faith, I'm glad he's gone. <stage>Going towards the door.</stage> Open, you door. But look! he's coming from within, the person that I most especially wished to meet with.</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="302" unit="TLN line"/>
+<stage>Enter TOXILUS, from his MASTER'S house, followed by SOPHOCLIDISCA.</stage>
+<sp><speaker>TOXILUS</speaker><p> <stage>to SOPHOCLIDISCA</stage>. Tell her that it's now arranged whence the money is to come. Bid her be of good heart; tell her that I love her exceedingly. When she cheers up, then does she cheer me up. What I've told you to tell her, do you quite understand it?</p></sp>
+<sp><speaker>SOPHOCLIDISCA</speaker><p> Better than your legs<milestone n="307" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Better than your legs</lemma>:  "Magis calleo, quam aprugnum collum callet." This pun cannot be appreciated in a literal translation, and another is substituted, for which we are indebted to Warner. The play is upon the resemblance of "calleo," "to understand," "calleo," "to be hard," and "collum," "the hard part," or "brawn, of a boar's neck." Literally translated, it is, "I understand in a better degree than the brawn of a bar's neck is hard." This pun occurs also in the P&oelig;nulus, l. 577.</note> under-stand you, do I understand it.
+</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Make all haste, be off home. <stage>SOPHOCLIDISCA goes into the house of DORDALUS.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>apart</stage>. Now I'll make myself a perfect droll towards him; I'll carry myself with arms a-kimbo, and assume a lordly air<milestone n="308" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Assume a lordly air</lemma>:  "Amicibor." By the use of the word, he clearly refers to some peculiar way of assuming a jaunty air, probably by tucking up a portion of the dress. In the same way we read in our old Novelists of military men "cocking their hats" to look fierce. To spit with noise and gesture was also considered to give an air of importance.</note>. <stage>Struts along.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> But who's this that's walking like a two-handled jug<milestone n="309" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Like a two handled jug</lemma>:  "Ansatus." His arms being a kimbo, he compares him to a jug with two handles.</note>?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>apart</stage>. I'll spit about me in a dignified style. <stage>Spits about.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why, surely this is Sagaristio. How are you, Sagaristio? How do you do? Is there any tiny hope in you as to that which I entrusted to you?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>in a lofty way</stage>. Step this way; it shall be seen to; I would have it done. Advance--move forward.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What's this swelling<milestone n="313" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What's this swelling</lemma>:  He has the purse slung round his neck, underneath his dress. This bulges out, and Toxilus asks him what it is. There is a somewhat similar Scene in the Asinaria, between Libanus and Leonida.</note> here upon your neck? <stage>Touches his neck.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> It's a tumour; forbear to press it, for when any person touches it with a rude hand, pain is the result.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> When did that first come upon you? </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> To-day.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You should order it to be lanced.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I'm afraid to lance it before it's ripe, lest it should cause me more trouble.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I'd like to examine your complaint. <stage>Comes nearer.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>retreatinq</stage>. Be off, and do be careful, will you, of the horns. TOX. Why so?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Because a couple of oxen are here in the purse.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do let them out, please; don't starve them with hunger--do let them go to pasture.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Why, I'm afraid that I mayn't be able to drive them back to their stall, lest they should wander.
+</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I'll drive them back; be of good heart,</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> You shall be trusted then; I'll lend them you Follow this way, please <stage>taking the purse from his neck</stage>; in this there is the money which you were asking me for a short time since.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What is it you say?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> My master has sent me to Eretria to purchase some oxen; at present my Eretria shall be this house of yours.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You speak quite enchantingly; and I shall very soon return you all the money safe; for now I've arranged and put in readiness all my devices, in which way I'm to get this money out of this Procurer.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> So much the better.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Both for the damsel to be set at liberty, and, still further, for himself to pay the money. But follow me; I have need of your assistance in this affair.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Make use of it just as you please. <stage>They go into the house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="329" unit="TLN line"/>
+<stage>Enter SATURIO and his DAUGHTER<note anchored="yes"><lemma targOrder="U">Daughter</lemma>:  Her name is not given in the Play though she pretends, when asked by Dordalus, that it is Lucris.</note>, in the habit of a PERSIAN.</stage>
+<sp><speaker>SATURIO</speaker><p> May this same matter turn out well for me, and for yourself, and for my stomach, and for everlasting victuals for it as well for all time to come; that I may have more than enough, a superfluity, and that it may outlast me. Follow me this way, my daughter, with the Gods' good leave. The matter to which we are to give our attention, you know, you remember, you understand; to you I have communicated all my designs. For that reason have I dressed you out after this fashion; young woman, to-day you are to be sold.</p></sp>
+<sp><speaker>DAU.</speaker><p> Prithee, my dear father, although you do eagerly long for victuals at another's cost, are you for the sake of your appetite going to sell your own daughter?</p></sp>
+<sp><speaker>SATURIO</speaker><p> It is a wonder, indeed, if I don't sell you, who are my own, for the sake of King Philip or Attalus<milestone n="340" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Philip or Attalus</lemma>:  Attalus was the name of three wealthy kings of Pergamus. Philip was the name of several of the Macedoman monarchs.</note>, rather than my own.
+</p></sp>
+<sp><speaker>DAU.</speaker><p> Whether do you regard me as your slave or as your daughter?</p></sp>
+<sp><speaker>SATURIO</speaker><p> I' faith, that of the two which shall appear most for the interest of my stomach; it's my authority over you, I suppose, not yours over me.</p></sp>
+<sp><speaker>DAU.</speaker><p> This power is yours, father; but still, although our circumstances are but very limited, it's better to pass our lives with frugality and moderation; for if disgrace is added to poverty, poverty will be more unendurable, our character more frail.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Why really you are impertinent.</p></sp>
+<sp><speaker>DAU.</speaker><p> I am not, nor do I think that I am, when, though of youthful age, I give good advice to my father. For enemies carry about slander not in the form in which it took its rise.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Let them carry it about, and let them go to utter and extreme perdition. I don't value all their enmities any more than if an empty table were now set before me.</p></sp>
+<sp><speaker>DAU.</speaker><p> Father, the scandal of men is everlasting; even then does it survive, when you would suppose it to be dead.</p></sp>
+<sp><speaker>SATURIO</speaker><p> What? Are you afraid lest I should sell you?</p></sp>
+<sp><speaker>DAU.</speaker><p> I am not afraid of that, father; but I wish you not to pretend to do so.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Then it's in vain you wish me not; this shall be done rather after my own fashion than yours.</p></sp>
+<sp><speaker>DAU.</speaker><p> Shall be done!</p></sp>
+<sp><speaker>SATURIO</speaker><p> What is the matter, now?</p></sp>
+<sp><speaker>DAU.</speaker><p> Father, reflect upon these words: if a master has threatened punishment to a slave, although it is not intended to be, still, when the whip is taken up, while he is taking off his tunics, with what an amount of misery is he afflicted. Now, that which is not to be, I'm still in fear of.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Damsel or woman none will there ever be, but what she must be good for nothing, who is too wise to be giving satisfaction to her parents.</p></sp>
+<sp><speaker>DAU.</speaker><p> Damsel and woman none can there be, but what she must be good for nothing, who holds her peace if she sees anything going on wrong.</p></sp>
+<sp><speaker>SATURIO</speaker><p> 'Twere better for you to beware of a mischief.</p></sp>
+<sp><speaker>DAU.</speaker><p> But if I cannot beware, what am I to do? For it's as to yourself I wish to beware.
+</p></sp>
+<sp><speaker>SATURIO</speaker><p> What, am I a mischief?</p></sp>
+<sp><speaker>DAU.</speaker><p> You are not, nor is it becoming for me to say so; but for this purpose am I using my endeavours, that others may not say so who have that liberty.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Let each one say what he pleases; from this purpose I shall not be moved.</p></sp>
+<sp><speaker>DAU.</speaker><p> But, could it be after my own way, you would be acting prudently, rather than foolishly.</p></sp>
+<sp><speaker>SATURIO</speaker><p> It is my pleasure. </p></sp>
+<sp><speaker>DAU.</speaker><p> I know that I must let it be your pleasure so far as I'm concerned; but it should not please you to be your pleasure, if I had my way.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Are you going to be obedient to your father's orders, or not? </p></sp>
+<sp><speaker>DAU.</speaker><p> To be obedient.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Do you know then what I instructed you?</p></sp>
+<sp><speaker>DAU.</speaker><p> Everything. </p></sp>
+<sp><speaker>SATURIO</speaker><p> Both this, how you were stolen?</p></sp>
+<sp><speaker>DAU.</speaker><p> I understand it perfectly well.</p></sp>
+<sp><speaker>SATURIO</speaker><p> And who your parents were?</p></sp>
+<sp><speaker>DAU.</speaker><p> I keep it in my memory. You cause me of necessity to be artful; but take you care, when you wish to give me in marriage, that this story doesn't cause the match to be given up.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Hold your tongue, simpleton. Do you not see the customs of people now-a-days, that marriage is easily effected here with a reputation of any kind? So long as there's a marriage-portion, no fault is reckoned as a fault.</p></sp>
+<sp><speaker>DAU.</speaker><p> Then take you care, and let this occur to your thoughts, that I am without a fortune.</p></sp>
+<sp><speaker>SATURIO</speaker><p> Take you care, please, how you say that. By my faith, through the merits of the Gods and of my ancestors I'll say it, you must not say that you are without a fortune, who have a marriage-portion at home. Why look, I've got a whole carriage-full<milestone n="398" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whole carriage-full</lemma>:  "Soracum." This, which was also called "sarracum," was, according to Festus, a vehicle especially used for the purpose of carrying dresses, scenery, and theatrical properties.</note> of books at home. If you carefully give your attention to this matter in which we are exerting ourselves, six hundred bon-mots shall be given you out of them as a fortune, all Attic ones<milestone n="396" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">All Attic ones</lemma>:  In this remark he refers to the pure language of Attica, in contrast with the patois, or mixture of Greek and Latin, spoken by the Sicilians. It is not improbable that the Parasite alludes to the example of Homer, who, &AElig;lian informs us, was said to have given his "Cyprian poems" as a portion to his daughter.</note>, too; you shall not receive a single Sicilian one. With this for a fortune, you might safely marry a beggar even<milestone n="397" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Marry a beggar even</lemma>:  As being sure of always being above want</note>.</p></sp>
+<sp><speaker>DAU.</speaker><p> Why, then, don't you take me, father, if you are going to take me anywhere? Either do you sell me, or do with me what you please.</p></sp>
+<sp><speaker>SATURIO</speaker><p> You ask what's fair and right. Follow me this way.</p></sp>
+<sp><speaker>DAU.</speaker><p> I'm obedient to your command. <stage>They go into the house, to TOXILUS.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="400" unit="TLN line"/>
+<stage>Enter DORDALUS, from his house.</stage>
+<sp><speaker>DORDALUS</speaker><p> <stage>to himself</stage>. I wonder what I'm to say my neighbour is going to do, who swore to me that he would pay the money to-day? But if he should not pay it, and this day go by, I shall have forfeited the money, he his oath. But the door there makes a noise. I wonder who's coming out of doors?</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="405" unit="TLN line"/>
+<stage>Enter TOXILUS, from his MASTER'S house, with a purse in his hand.</stage>
+<sp><speaker>TOXILUS</speaker><p> <stage>speaking at the door to the PERSONS within</stage>. Take you care of that in-doors; I shall betake myself home just now.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Toxilus, how are you? </p></sp>
+<sp><speaker>TOXILUS</speaker><p> How now!--pimping filth mixed up with mud! How now!--public dung-heap! dirty, dishonest, lawless, enticer, disgrace to the public; you hawk after money, greedy and envious; you impudent, rapacious, craving fellow (in three hundred lines no person could run through your villanies), will you take the money? <stage>Holding out the purse.</stage> Take the money, will you, shameless fellow. Take hold of the money, will you. Are you going to take the money, then? Can I make you take the money, filth? <stage>Keeps moving it away.</stage> You didn't suppose that I should have had so much money--you, who didn't venture to trust me at all except upon oath?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Do let me recover breath, so as to give you an answer. Fellow, dregs of the populace, you stable for she-slaves, you liberator of harlots, you surface for the lash, you wearer-out of the fetters, you citizen of the treadmill, you slave everlastingly, you gormandizer, glutton, pilferer, runaway, give me the money, will you. Give me the money, impudence. Can I get the money out of you? Give me the money, I say. Why don't you give me the money? Are you ashamed of nothing? You impersonation of slavery, a Procurer is asking money of you for the liberation of your mistress, so that all may hear it.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Troth now, prithee, do hold your tongue. For sure your voice is in first-rate strength.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I've got a tongue made for returning a compliment. Salt is provided for me at the same price as for yourself; Unless this tongue protects me, it shall never lick a bit of salt.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I'll cease to be angry now. It was for this I blamed you, because you refused to trust me for the money.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> 'Twas a wonder, indeed, that I didn't trust you, that you might do the same to me that some of the bankers do<milestone n="435" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Some of the bankers ao</lemma>:  As to the character of the "argentarii," or "bankers," at Rome at this period, see the Curculio, l. 373, and the Pseudolus, l. 296, and the Notes to those passages.</note>. When you've entrusted them with anything, they immediately run more quickly away from the Forum than a hare, when, at the games<milestone n="437" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">When, at the games</lemma>:  he probably alludes to the games in the Circus, at the Floralia, or Festival of Flora, when hares and deer were hunted. See the Fasti of Ovid, B. 5, l. 372. These animals were sometimes brought in nets, and sometimes in cages, the "porta," or "door," of which is here mentioned. Probably, one reason for hunting the hare was the fact that it is destructive to flowers (especially pinks and carnations), which were under the tutelage of Flora.</note>, he's let out of the entrance of his cage.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>holding out the money</stage>. Take this, will you.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Why don't you give it then?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>giving it</stage>. There will be here six hundred didrachms, full weight and counted; cause the damsel to be set at liberty, and bring her out here forthwith.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'll have her here this moment. I' faith, I don't know to whom now to give this money to be tested<milestone n="441" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be tested</lemma>:  The "argentarn" were licensed to be "probatores," "triers" or "assayers" of the goodness of the coin in circulation.</note>.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Perhaps you are afraid to entrust it to any one's hands? </p></sp>
+<sp><speaker>DORDALUS</speaker><p> Strange if I wasn't. More quickly, now-a-days, do bankers abscond from the Forum, than a wheel spins round in a race.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>pointing</stage>. Do you go that way, through the alleys, the back way to the Forum<milestone n="445" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Back way to the Forum</lemma>:  Dordalus is to go through his house (which adjoins that of the master of Toxilus) to the Forum, for the purpose of procuring the manumission of Lemniselene from the Pr&aelig;tor, who sits in court there. The reason for his being advised by Toxilus to go the back way probably is, that he does not wish, by their walking in the main street, to attract attention to the fact that he has purchased her freedom. The Procurer, too, having to carry the money to the assayers, probably would not like to attract too much attention to his precious burden. As they are to come back the same way, Lemniselene is to enter the house where Toxilus lives at the back entrance, which accounts for her coming thence, in the Fifth Act, without having appeared on the stage since she went back, after speaking with Sophoclidisca, into the house of Dordalus.</note>; let this damsel pass through the same way to our house, through the garden.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'll have her here this moment.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> But not in public view. </p></sp>
+<sp><speaker>DORDALUS</speaker><p> Very discreet.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> To-morrow she must go to return thanks<milestone n="448" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Go to return thanks</lemma>:  It was the custom solemnly to return thanks to the Deities on liberation from servitude.</note>.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I' faith, just so indeed.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> While you've been loitering, you might have got back. <stage>Exit DORDALUS; TOXILUS goes into the house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="449" unit="TLN line"/>
+<stage>Enter TOXILUS.</stage>
+<sp><speaker>TOXILUS</speaker><p> <stage>to himself</stage>. If you give attention to any matter with steadiness or with good management, that same is wont properly to thrive to your satisfaction. And, by my faith, pretty nearly according as each man gives attention to his business, in the same manner do the results<milestone n="453" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The results</lemma>:  "Postprincipia" Literally, "the continuance of a thing after it is once begun."</note> finally ensure him success. If he is knavish or a rogue, the business turns out badly which he has commenced; but if he uses good management, it results profitably. Cleverly and skilfully did I commence upon this business; for that reason do I trust that it will turn out well for me. Now, I'll this day have the Procurer so hampered, that he shan't know himself which way to extricate himself. <stage>Goes to the door.</stage> Sagaristio, hallo! Come forth, and bring out the young woman, and that letter which I sealed for you, which you brought me all the way from Persia, from my master.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="462" unit="TLN line"/>
+<stage>Enter SAGARISTIO and the DAUGHTER of SATURIO, from the house, each dressed in Persian costume.</stage>
+<sp><speaker>SAGARISTIO</speaker><p> Have I delayed at all?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Bravo! bravo! dressed out in splendid style. <stage>To SAGARISTIO.</stage> The tiara<milestone n="465" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The tiara</lemma>:  The "tiara" was a head-dress with a large high crown, which covered the ears, and was worn especially by the Armenians, Parthians, and Persians. The King of Persia wore an erect "tiara," while that of his subjects was soft and flexible, falling on one side.</note> does finely set off your dress. Then, too, how beautifully does the slipper become this stranger damsel! But are you thoroughly up in your parts?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Tragedians and Comedians have never been up so well.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Troth, you are giving me kind assistance. Come, be off that way <stage>pointing</stage>, to a distance out of sight, and hold your tongue. When you see me conversing with the Procurer, that will be the time to accost us; now be off, you,--away with you. <stage>SAGARISTIO and the DAMSEL go aside, out of sight.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="470" unit="TLN line"/>
+<stage>Enter DORDALUS.</stage>
+<sp><speaker>DORDALUS</speaker><p> <stage>to himself</stage>. The man to whom the Deities are propitious, in his way they throw some profit. For I this day have made a saving of two loaves daily; this way, she who this day was my slave is now her own; by his cash he has prevailed; this day then she'll be dining at the expense of another, she'll be tasting nothing of mine. Am I not a worthy man, am I not a courteous citizen, who this day have made the extensive state of Attica still larger, and increased it by a female citizen? But how obliging have I been to-day! To how many have I given credit, and have from no person taken surety; so readily did I give credit to all: and I don't fear that of those whom I've trusted to-day any one will forswear himself against me upon trial. I wish from this day forth to be honest--a thing that never will be and never was.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. This fellow, this very day, by clever contrivances, I'll catch in a springe; and so the snare is cunningly laid for him; I'll accost the fellow. <stage>Aloud.</stage> What are you about? DOR. Giving credit.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Whence do you betake yourself, Dordalus?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'm going to give you credit<milestone n="484" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To give you credit</lemma>:  He probably says this satirically, as Toxilus has really paid him the money. If so, we must suppose that his soliloquy is spoken in a bantering manner, on the absurdity of trusting people. Perhaps he has been just requested at the Forum to give credit to some intended customers. It is not improbable that a portion of this Play is lost here, or that it is in a very corrupt state.</note>.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> May the Gods grant whatever you may desire. How now, have you given the damsel her liberty by this?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'm going to give you credit, i' faith, I'm going to give you credit, I repeat.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Are you now increased in number by one freed-woman? </p></sp>
+<sp><speaker>DORDALUS</speaker><p> You worry me to death. Why, I tell you that I'll give you credit.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Tell me in sober truth, is she now at liberty?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Go, go to the Forum, to the Pr&aelig;tor<milestone n="488" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the Pr&aelig;tor</lemma>:  Who has just manumitted the damsel, by his lictor laying upon her the "vindicta," or "festuca," the rod of liberty, and then registering her name.</note>; make all enquiries, since you don't choose to give me credit. She is at liberty, I say. Do you hear me at all?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> May all the Deities bless you then. And never from this time forward, will I wish to you or yours what you don't wish.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Be off: don't be swearing that. I quite believe you.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Where is your freed-woman now?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> At your house.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do you say so? Is she at our house?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I do say so, I tell you; she is at your house, I say.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> So may the Deities favour me, for this thing many blessings from me are in store for you: for there's a certain matter, which I refrained from mentioning to you; now I'll disclose it, and from it you can make a very large profit. I'll give you cause to remember me so long as you exist.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> My ears are wanting some kind deeds by way of assistance to these kind words.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> It's only your deserts, that I should do as you deserve. And that you may know that I will do so, take this letter <stage>showing him a letter</stage>; read it over.
+</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What has this got to do with me?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why yes, it bears reference to yourself, and it does relate to you. But it has just now been brought me from Persia, from my master.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> When? </p></sp>
+<sp><speaker>TOXILUS</speaker><p> Not long since.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What does it say?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Make enquiry of its own self: it will tell you itself.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Give it me, then. <stage>Taking it from TOXILUS.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> But read it aloud.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Be silent while I read it over.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I'll not utter a word.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>reading</stage>. "Timarchides sends health to Toxilus and all the family. If you are well, I am glad; I am quite well, and carrying on my business, and am making money; and I am not able to return home for these eight months, for there is some business which detains me here; the Persians have taken Chrysopolis<milestone n="515" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Chrysopolis</lemma>:  Chrysopolis (Golden City) would have peculiar charms for the ear of Dordalus; of course there was no such place in reality.</note>, a city of Arabia, full of good things, and an ancient town; there the booty is being collected, that a public auction may be made; this matter causes me to be absent from home. I wish attention and hospitality to be shown to the person who brings this letter to you. Attend to what he wants; for at his own house at home he has shown me the greatest attentions." What has it to do with me or my welfare, what matters the Persians are about, or what your master is doing?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Hold your tongue, silly babbler; you don't know what blessing awaits you. It's in vain that Fortune is ready to light for you her torch that leads to profit.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What Fortune is this that leads to profit?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>pointing to the letter</stage>. Ask that which knows: I know about as much as yourself, except that I was the first to read it through. But as you've begun, learn the matter from the letter.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> You counsel me aright. Keep silence.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Now you'll come to that which does relate to your interest.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>reading on</stage>. "The person that brings this letter, has taken with him a well-bred female of engaging charms, who has been stolen, and brought from the inmost parts of Arabia; I wish you to take charge of her that she may be sold there; but he who makes purchase of her, must buy her at his own risk; nobody will promise or give a warranty. Take you care that he receives money full weight and counted. Pay attention to this, and give attention that the stranger is attended to. Farewell."</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What then? After you have read over what has been committed to the wax, do you believe me now?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Where now is this stranger that brought this letter? </p></sp>
+<sp><speaker>TOXILUS</speaker><p> He'll be here just now, I believe; he has sent for her from the ship.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I don't want any lawsuits or quirks at all. Why should I be laying out so much money at such a distance? Unless I get her on warranty, what need have I of this purchase?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Will you, or will you not, hold your tongue? I never did believe you to be such a blockhead. What are you afraid of?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I' faith, I really am afraid; I've experienced it now so many times, and it will not befall me without having already experienced it, to be getting stuck in such a quagmire.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> There seems to be no risk.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I know that; but I'm afraid about myself.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> It matters nothing whatever to me, so far as I'm concerned; it's for your sake I mentioned it, that I might at the earliest moment give you an opportunity of advantageously purchasing her.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I return you thanks; but it's a nicer thing for you to become wise through others, than for others through yourself.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Surely no person can follow after her from the inmost parts of Arabia. Will you make purchase of her, then?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Only let me see the commodity.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You say what's fair. But look, most &agrave; propos, the stranger is coming himself, who brought this letter hither.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>pointing down the side-scene</stage>. Is that he?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> That's he. </p></sp>
+<sp><speaker>DORDALUS</speaker><p> And is that the girl that was stolen?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I know just about as well as yourself, except that I have seen her. Upon my faith, she certainly is genteel looking, whoever she is.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Faith, she has pretty regular features.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside</stage>. With what contempt the hang-dog does speak of her. <stage>To DORDALUS.</stage> Let's examine her beauty in silence.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I approve of your advice. <stage>They stand aside.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="549" unit="TLN line"/>
+<stage>Enter SAGARISTIO and the DAUGHTER of SATURIO, dressed as PERSIANS.</stage>
+<sp><speaker>SAGARISTIO</speaker><p> Doesn't Athens seem to you a rich and opulent place?</p></sp>
+<sp><speaker>DAU.</speaker><p> I've seen the appearance of the city; the customs of the people I've observed but little of.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. At the very outset has she forborne to make a wise remark.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. I cannot by her very first words form an estimate of her wisdom.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> What as to that which you have seen? How does the city seem fortified to you, with its wall?</p></sp>
+<sp><speaker>DAU.</speaker><p> If the inhabitants have good morals, I think it's properly fortified. If Perfidiousness, and Peculation, and Avarice are exiled from the city, Envy in the fourth place, Ambition in the fifth, Scandal in the sixth, Perjury in the seventh.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. Bravo!</p></sp>
+<sp><speaker>DAU.</speaker><p> Idleness in the eighth, Injustice in the ninth, Immorality, which is the very worst in its attack, in the tenth. If these things shall not be away from it, a wall a hundred-fold were too little for preserving its interests.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. What say you? DOR. <stage>apart</stage>. What do you mean?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. You are among those ten companions; you must depart in banishment from here.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. Why so? TOX. <stage>apart</stage>. Because you are perjured.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. Really she has spoken not without some cleverness.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. That's to your advantage, I say; you buy her.
+</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. Upon my faith, the more I look at her, the more she pleases me.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. If you do buy her, immortal Gods, no other Procurer will be more wealthy than yourself; at your will you'll be turning people out of their estates and households; you'll be transacting business with men of the highest rank; they'll be longing for your favour; they'll be coming to make merry at your house.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. But I shan't allow them to be admitted.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. But then at night they'll be singing<milestone n="577" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">They'll be singing</lemma>:  "Occento" seems to have a twofold meaning --"to sing to" or "serenade," or "to sing against," "to defame in abusive songs." Perhaps the latter is the meaning in the present passage.</note> before your threshold, and be burning down your door; do you at once order your house to be fastened with a door of iron<milestone n="578" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With a door of iron</lemma>:  De l'&OElig;uvre suggests that Plautus here alludes to the story of Jupiter and Dana&euml;.</note>, change for a house of iron, fix in thresholds of iron, a bar of iron and a ring; if you don't prove sparing of the iron, do you order thick fetters of iron to be rivetted upon yourself.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. Away to utter perdition! TOX. <stage>pushing him</stage>. Go then, make purchase of her, and follow my advice.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. Only let me know how much he asks for her.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>apart</stage>. Should you like me to call him here?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>apart</stage>. I'll go to him.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>accosting him</stage>. How fare you, guest?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I'm come; I've brought her <stage>pointing to the DAMSEL</stage>, as I just now said I would. For yesterday at night the ship arrived in harbour: I want her to be sold, if she can; if she cannot, I intend to go away from here as soon as I can.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Greetings to you, young man. </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> If indeed I shall dispose of her at her own price----</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>pointing to DORDALUS</stage>. Why, you'll either sell her handsomely with him for your purchaser, or you can to no one.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Are you a friend of his? </p></sp>
+<sp><speaker>TOXILUS</speaker><p> In the same measure as all the Divinities who inhabit the heavens.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Then you are an assured enemy to me; for to the race of procurers no God was ever so kind as to prove propitious.
+</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Attend to the business in hand. Have you any need to purchase her?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> If you have need for her to be sold, I, too, have need to purchase her; if you have no sudden occasion to sell, just in the same degree have I to buy.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> State a sum; name a price. </p></sp>
+<sp><speaker>DORDALUS</speaker><p> The commodity is your own; it's for you to name a sum.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to SAGARISTIO</stage>. He asks what's right.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Do you wish to buy at a bargain?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Do you wish to sell at a handsome profit?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I' faith, I'm sure that both of you would like to do so.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Come, boldly name your price.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I tell you beforehand; no one will dispose of her to you on warranty. Do you so understand it, then?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I understand it. Declare what's the lowest price at which you'll offer her, for which she may be taken by the purchaser.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Hold your tongue, hold your tongue. Really, upon my faith, you are a very simple man, with your childish ways.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Why so?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why because I wish you first to make enquiries of the damsel which relate to your interest.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> And really, upon my faith, you've given me no bad advice. Look at that, will you. I, an experienced Procurer, had almost fallen into the pit, if you had not been here. How important a point it is to have a person your friend at hand when you are about anything.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I want you to make enquiry of her, of what family or in what country she was born, or of what parents, so that you mayn't say that you've bought her at hazard by my persuasion or suggestion.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> On the contrary, I approve of your counsel, I tell you.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to SAGARISTIO</stage>. Unless it's troublesome, he's desirous to make a few enquiries of her.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> By all means; at his own pleasure.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to DORDALUS</stage>. Why do you delay? Go to him yourself; and do you yourself ask him as well, that you may be allowed to make such enquiries as you please; although he has told me that he gives permission to do so of her, still I had rather that you yourself should go to him, that he mayn't be holding you in contempt.
+</p></sp>
+<sp><speaker>DORDALUS</speaker><p> You give me very proper advice. <stage>Accosting SAGARISTIO.</stage> Stranger, I should like to ask some questions of her. <stage>Pointing to the YOUNG WOMAN.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> From earth to heaven, whatever you like.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Just bid her to step this way to me.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>to the YOUNG WOMAN</stage>. Go you, then, and humour him. <stage>To DORDALUS.</stage> Make enquiry, question her, just as you please.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to DORDALUS</stage>. Well, well<milestone n="614" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Well, well</lemma>:  In Weise's Edition these words are given to Sagaristio, but they seem better in the mouth of Toxilus.</note>, get on then; make your preparations. <stage>Aside to the YOUNG WOMAN.</stage> Take you care to commence with a good omen.</p></sp>
+<sp><speaker>DAU.</speaker><p> The auspices are favourable.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>Aside to the YOUNG WOMAN</stage>. Hold your tongue. <stage>To DORDALUS.</stage> Step you aside here; I will now conduct her to you.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Do what you think is most for my interest.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to the YOUNG WOMAN, who advances with him</stage>. Follow me. <stage>To DORDALUS.</stage> I've brought her, if you are wishful to make any enquiries of her.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> But I want you to be present.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I cannot do otherwise than pay attention to this stranger <stage>pointing to SAGARISTIO</stage>, whom my master bade me show courtesy to. What if he doesn't choose that I should be present together with you?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Yes, but do come.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to DORDALUS</stage>. I'll lend you my assistance, then.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> You're lending it yourself as well when you are assisting your friend.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Examine her. <stage>Aside to the YOUNG WOMAN.</stage> Hark you, be on your guard.</p></sp>
+<sp><speaker>DAU.</speaker><p> <stage>aside</stage>. Enough has been said to me. <stage>Aloud.</stage> Although I am a slave, I know my duty, so that whatever he asks I'll tell the truth as I have heard it.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>pointing to DORDALUS</stage>. Young woman, this is an honorable man. </p></sp>
+<sp><speaker>DAU.</speaker><p> I believe you.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You'll not be long in servitude with him.</p></sp>
+<sp><speaker>DAU.</speaker><p> I' faith, and so I trust, if my parents do their duty.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I do not wish you to be surprised, if we make enquiries of you about either your country or your parents.
+</p></sp>
+<sp><speaker>DAU.</speaker><p> Why should I be surprised at that, my dear sir? My state of servitude has forbidden me to be surprised at any misfortune of my own.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside</stage>. May the Gods confound her! so cunning and crafty is she. She has got shrewd sense: how readily she does say what's needed.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What's your name?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside</stage>. Now I'm afraid she'll be tripping.</p></sp>
+<sp><speaker>DAU.</speaker><p> My name was Lucris<milestone n="633" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Was Lucris</lemma>:  He is enchanted with her name of Lucris, because it so closely resembles "lucrum," "profit" or "gain."</note> in my own country.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> The name and the omen are worth any price. Why don't you make purchase of her? <stage>Aside.</stage> I was greatly afraid that she would be tripping. She has got herself free.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> If I make purchase of you, I trust that you'll prove Lucris to myself as well.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> If you do make purchase of her, never, on my word, do I think that she'll remain your slave throughout the month.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> And so indeed I'd hope, i' faith.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> That what you wish may come to pass, employ your own energies. <stage>Aside.</stage> In nothing even as yet has she made a slip.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Where were you born?</p></sp>
+<sp><speaker>DAU.</speaker><p> According to what my mother told me,in the kitchen<milestone n="637" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the kitchen</lemma>:  This is the first of her evasions of a direct answer to Dordalus. The cleverness of all of them is admirable, and shows a wish, if possible, to save her conscience in the awkward position in which she has been placed by the gluttony of her father.</note>, in a corner on the left hand.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to DORDALUS</stage>. This woman will prove a lucky Courtesan for you; she has been born in a warm spot, where full oft there is an abundance of all good things. <stage>Aside.</stage> The Procurer was taken in when he asked where she was born. She has played him off nicely.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> But I ask of you, what is your country?</p></sp>
+<sp><speaker>DAU.</speaker><p> What should be mine but that where I now am?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> But this I'm asking, what was?</p></sp>
+<sp><speaker>DAU.</speaker><p> Everything that was, do I consider as nothing, since it was, and is not now. Just like a man when he has breathed forth his spirit; why enquire of him who he was?
+</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside</stage>. So may the Deities kindly favour me, right cleverly. And yet I really do pity her.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> But still, young woman, come, tell me at once which is your country? Why are you silent?</p></sp>
+<sp><speaker>DAU.</speaker><p> For my part, I really am telling you my country. Since I'm in servitude here, this is my country.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do cease now making enquiries about that. Don't you see that she's unwilling to declare, lest you should recall to her the remembrance of her misfortunes?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What's the matter? Is your father in captivity?</p></sp>
+<sp><speaker>DAU.</speaker><p> Not in captivity; but what he had, he has lost.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> She will prove to be born of a good family; she knows how to say nothing but the truth.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Who was he? Tell me his name?</p></sp>
+<sp><speaker>DAU.</speaker><p> Why should I tell of him, wretched man, who he was? For the present 'twere proper for him to be called Miserable, and me Miserable.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What kind of a person was he considered by the public?</p></sp>
+<sp><speaker>DAU.</speaker><p> Not a person more acceptable; slaves and free persons all liked him.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You do speak of a miserable man, inasmuch as he's almost lost himself, and has lost his friends.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I shall purchase her, I think.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What, still " I think?"</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I imagine that she's of a noble family.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You'll make riches by her.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> May the Gods grant it so.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do you only buy her.</p></sp>
+<sp><speaker>DAU.</speaker><p> Now this I tell you: my father will be here directly, when he knows that I've been sold, and will ransom me thus separated from him.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What say you now Don. What's the matter?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do you hear what she says?</p></sp>
+<sp><speaker>DAU.</speaker><p> For although his fortunes are broken, he still has friends. <stage>Pretends to cry.</stage></p></sp>
+<sp><speaker>DORDALUS</speaker><p> Don't weep, please; you'll soon be at liberty, if--you have sweethearts enough<milestone n="662" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have sweethearts enough</lemma>:  This is a somewhat modified translation of the passage. The Procurer uses a brutal expression, which well befits his character.</note>. Would you like to belong to me?
+</p></sp>
+<sp><speaker>DAU.</speaker><p> So long, indeed, as I don't belong to you too long. I'd like.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> How well she does keep in mind her liberty. She'll be producing you fine hauls. About it, if you are about it. I'll go back to him. <stage>To the YOUNG WOMAN.</stage> Do you follow me. To </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p>) I've brought her back to you.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Young man, are you disposed to sell her?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I'd like it, rather than lose her.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Do you compress it then into a few words; state the price at which she's offered.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I'll do so, as I see you wish it. Take her for a hundred min&aelig;.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> That's too much. </p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> For eighty.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> That's too much.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> There can't a didrachm be abated from the price which I shall now name.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What is it, then? Speak out at once and name it.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> At your own risk, she's offered at sixty min&aelig;.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Toxilus, what am I to do?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside to DORDALUS</stage>. The Gods and Goddesses are pursuing you with their vengeance, you rogue, for not making haste to purchase her.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Take them, then.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Well done, you have got a rich prize! Be off, and fetch the money out here. On my faith, she's not dear at three hundred min&aelig;.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Hark you, for her clothing there'll be ten min&aelig; added to this as well.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Yes, be deducted, not added.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do hold your tongue, will you; don't you see that he's seeking an excuse to have the bargain broken? Why don't you be off and fetch the money?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>to TOXILUS, as he is going</stage>. Hark you, do you keep an eye upon him.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why don't you then go in?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'll go and fetch the money. <stage>Goes into his house.</stage></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="673" unit="TLN line"/>
+<stage>The DAUGHTER of SATURIO, TOXILUS, and SAGARISTIO.</stage>
+<sp><speaker>TOXILUS</speaker><p> Upon my word, young lady, you have given us praiseworthy aid, good. and wise, and sensible.
+</p></sp>
+<sp><speaker>DAU.</speaker><p> If for good persons anything good is done, the same is wont to be both important and pleasing.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do you hear, you Persian, when you've got the money of him, do you pretend as though you are going straight to the ship.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Don't teach me.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Betake yourself back again to our house, that way <stage>pointing</stage> down the lane through the garden.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> You are naming what's intended to be done.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> But don't you at once be changing your quarters with the money, I recommend you.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> What's worthy of yourself, do you take to be worthy of me?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Hold your tongue; lower your voice; the spoil is coming out of doors.</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="683" unit="TLN line"/>
+<stage>Re-enter DORDALUS, from his house, with a bag of money.</stage>
+<sp><speaker>DORDALUS</speaker><p> Sixty min&aelig; of assayed silver are here <stage>pointing at the bag</stage>, less two didrachms.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> What's the meaning of those didrachms?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> To pay for this bag, or else to cause it to come home again.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Lest you mightn't be enough of a Procurer, did you fear, wretched, filthy, avaricious creature, that you might lose your bag?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Pray, let him alone; since he is a Procurer, he isn't doing anything surprising.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I've judged from omens that I should make some profit to-day; nothing is of value so small to me, but that I grudge to lose it. Come, take this, will you? <stage>Holds out the bag to SAGARISTIO.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Place it around my neck, if it is not too much trouble.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Certainly, it shall be done. <stage>Hangs it round his neck.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Is there anything else that you wish with me?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why are you in such haste?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> My business is of that nature; the letters that have been entrusted me, I want to deliver; and I've heard that my twin-brother's a slave here; I wish to be off to seek him out, and redeem him.
+</p></sp>
+<sp><speaker>TOXILUS</speaker><p> And, i' faith, you've not badly put me in mind of it; I think that I've seen here one very like you in figure, of just the same size.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Why, it must surely be my brother<milestone n="705" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be my brother</lemma>:  Sagaristio is afraid that Dordalus may remember having seen him before about the city, and he artfully preoccupies the ground, by saying that he is searching for his twin-brother, whom he has lost.</note>.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> But we'd like to know what your name is.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What does it matter to us to know?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Listen then, that you may know; my name is Lying- speakerus<milestone n="709" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lying-speakerus</lemma>:  He here uses an assemblage of long words made for the occasion, and coined out of Latin and Greek, hashed up together which, however, contain in themselves an account of the part which he is then acting towards the Procurer. The lines in the original are as follows:
+<quote lang="la"><l>Vaniloquidorus, Virginisvendonides,</l>
+<l>Nugipolyloquides, Argentiexterebronides,</l>
+<l>Tedigniloquides, Nummorumexpalponides,</l>
+<l>Quodseme arripides, Nunquamposteareddides.</l></quote></note>, Virgin-seller-onides, Trifle-great-talker-ides, Silver-screwer-outides, Thee-worthy-to-talk-to-ides, Wheedler-out-of-coin-ides, What-he-has-once-got-hold-of-ides, Never-again-part-with-it-ides.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Dear me; upon my faith, this name of yours is written in many ways.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Such is the way with the Persians; we have long names of many words twisted together. Do you wish for anything else?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Farewell!</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> And you farewell; for my mind's aboard ship already.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> You'd better have gone to-morrow, and dined here to-day. <stage>SAGARISTIO is going.</stage> Farewell! <stage>(Exit SAGARISTIO.)</stage></p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="711" unit="TLN line"/>
+<stage>TOXILUS, DORDALUS, and the DAUGHTER of SATURIO.</stage>
+<sp><speaker>TOXILUS</speaker><p> Since that fellow's gone, I may say here whatever I please. This day has assuredly shone a gainful one for you; for you've not been buying her, but making a clear profit of her.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> He indeed quite understands what he has been about, in having sold me a stolen woman at my own risk; he has got the money, and taken himself off. How do I know now whether she mayn't be claimed at once? Whither am I to follow him? To the Persians, nonsense.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I imagined that my services would be a cause for thankfulness with you.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Why, yes, indeed, I do return you thanks, Toxilus, for I found that you zealously gave me your assistance.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What, I, to you?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> In seriousness, yes. By-the-bye, I forgot just now to give some directions in-doors, which I intended to be given. Do keep watch on her. <stage>Pointing to the YOUNG WOMAN.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> She's all safe, for certain <stage>DORDALUS goes into his house.</stage></p></sp>
+<sp><speaker>DAU.</speaker><p> My father's delaying now.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> What, if I put him in mind?</p></sp>
+<sp><speaker>DAU.</speaker><p> It's full time.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>going to the side of the stage, and calling aloud</stage>. Hallo! Saturio, come forward; now's the opportunity for taking vengeance on the enemy.
+<stage>SATURIO.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> See, here I am. Have I delayed at all?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Well, go you off there at a distance out of sight; keep silence. When you see me talking to the Procurer, do you then make a row.</p></sp>
+<sp><speaker>SATURIO</speaker><p> A word's enough to the wise. <stage>He withdraws out of sight.</stage></p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="731" unit="TLN line"/>
+<stage>Enter DORDALUS, from his house, with a whip in his hand.</stage>
+<sp><speaker>DORDALUS</speaker><p> On coming into the house, I lashed them all with the whip; my house and furniture are in such a dirty state.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Are you returned at last?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'm returned.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Assuredly, I have this day done you many services.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I confess it; I give you thanks.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Do you want anything else with me?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> That happiness may. attend you.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> I' faith, all that indeed I shall surely enjoy at home now; for I shall now go take my place at table with your freed-woman. You, when I'm gone----</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Why don't you hold your tongue? I know what it is you want. <stage>TOXILUS goes into the house.</stage></p></sp></div2>
+<div2 type="scene" n="9">
+<milestone n="1" unit="line"/><milestone n="738" unit="TLN line"/>
+<stage>Enter SATURIO, in a seeming rage.</stage>
+<sp><speaker>SATURIO</speaker><p> If I don't prove the destruction of that fellow----</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'm undone.</p></sp>
+<sp><speaker>SATURIO</speaker><p> And most luckily there he is, himself, before the door.</p></sp>
+<sp><speaker>DAU.</speaker><p> <stage>running towards him</stage>. Most welcome, my dear father. <stage>She embraces him.</stage></p></sp>
+<sp><speaker>SATURIO</speaker><p> Welcome, my child.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>aside</stage>. That Persian has utterly ruined me!</p></sp>
+<sp><speaker>DAU.</speaker><p> <stage>to DORDALUS</stage>. This is my father.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Ha!--what?--father? I'm utterly undone! Why then, in my misery, do I delay to bewail my sixty min&aelig;?</p></sp>
+<sp><speaker>SATURIO</speaker><p> By my faith, you scoundrel, I'll give you cause to bewail your own self as well. </p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'm undone!</p></sp>
+<sp><speaker>SATURIO</speaker><p> Come, walk before a magistrate, Procurer.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Why do you summon me before a magistrate?</p></sp>
+<sp><speaker>SATURIO</speaker><p> I'll tell you there, before the Pr&aelig;tor. But before the magistrate I summon you.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Don't you summon<milestone n="753" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Don't you summon</lemma>:  See the Notes to the Curculio, l. 621. A slave, or a person of infamous character, might be dragged by force, when summoned to appear before the Pr&aelig;tor.</note> a witness?</p></sp>
+<sp><speaker>SATURIO</speaker><p> What, for your sake, hangdog, am I to be touching the ear of any being that's free--you, who are here trading in persons, free citizens?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Let me but speak---- </p></sp>
+<sp><speaker>SATURIO</speaker><p> I won't.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Hear me. </p></sp>
+<sp><speaker>SATURIO</speaker><p> I'm deaf. Walk on--follow me this way <stage>dragging him</stage>, you villanous mouser after maidens! Follow after me this way, my daughter, to the Pr&aelig;tor.</p></sp>
+<sp><speaker>DAU.</speaker><p> I'll follow. <stage>Exit SATURIO, dragging DORDALUS, his DAUGHTER following.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="753" unit="TLN line"/>
+<stage>Enter TOXILUS, from the house.</stage>
+<sp><speaker>TOXILUS</speaker><p> <stage>to himself</stage>. The foe subdued, the citizens safe, the state in tranquillity, peace fully ratified, the war finished, our affairs prospering, the army and the garrisons untouched; inasmuch, Jupiter, and all you other Deities potent in the heavens, you have kindly aided us, for that reason do I return and give you thanks; because I have been fully revenged upon my foe. Now, for this reason, among my partners will I divide and allot the spoil. <stage>To the SLAVES in the house, who obey his orders.</stage> Come out of doors; here, before the entrance and the door, I wish to entertain my commates with hospitality. Lay down the couches here; place here the things that are usual. Here am I determined that my eagle<milestone n="765" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That my eagle</lemma>:  He looks upon himself as a general who has led his troops to victory; and alludes to the eagles or standards of the Roman army, which were entrusted to the Primipilus, or first Centurion of the Legion</note> shall be first pitched; from which spot I'll cause all to become merry, joyous, and delighted, by the aid of whom those things which I wished to be effected have been rendered for me easy to be done; for worthless is the man who knows how to receive a kindness, and knows not how to return it.
+<stage>Enter LEMNISELENE, SAGARISTIO, and P&AElig;GNIUM, from the house.</stage></p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> My Toxilus, why am I without you? And why are you without me?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Come then, my own one, approach me, and embrace me, please. </p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> Indeed I will. <stage>Embraces him.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> O, nothing is there more sweet than this. But, there's a dear, apple of my eye, why don't we at once betake us to the couches?</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> Everything that you wish, the same do I desire.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> It's mutual. Come, come-come then. You, Sagaristio, recline in the upper place.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> I don't at all care for it. Give ne but equal shares in what I've earned. </p></sp>
+<sp><speaker>TOXILUS</speaker><p> All in good time.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> For me that "good time" is too late.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Attend to the matter in hand. Take your place; this delightful day let's keep as a joyous birthday of mine. <stage>To the SLAVES.</stage> Bring water for our hands; arrange the table. <stage>The SLAVES obey, and the GUESTS take their places.</stage> To you, blooming one <stage>addressing LEMNISELENE</stage>, I give this blooming wreath. <stage>Places a garland on her head.</stage> You shall be our governess here. Come, lad, commence these games from the top with a round of seven cups. Bestir your hands; make haste. P&aelig;gnium, you are slow in giving me the cups; really, do give them. Here's luck to me, luck to you, luck to my mistress, luck to us all. This much wished-for day has been sent me by the Gods this day, inasmuch as I am allowed to embrace you a free woman. <stage>He drinks.</stage></p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> By your own agency it was effected. <stage>Giving him the cup.</stage> This cup my hand presents to you, as it becomes a mistress to her love.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Give it me. </p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> Take it. <stage>Gives him the cup.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> Here's luck to him who envies me, and to him who rejoices in this joy. <stage>Drinks.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/>
+<stage>Enter DORDALUS, at a distance.</stage><milestone n="777" unit="TLN line"/>
+<sp><speaker>DORDALUS</speaker><p> <stage>to himself</stage>. Those who are, and those who shall be, and those who have been, and those who are to be hereafter, all of them I singly by far surpass, in being the most wretched of men alive. I'm undone, ruined quite! This day has shone upon me the most unfortunate of days; that ruiner Toxilus has so outman&oelig;uvred me, and has so laid waste my property! A whole cartload of silver, to my misfortune, have I upset, and lost, and have not that for which I did upset it. May all the Deities utterly confound that Persian, and all Persians, and all persons besides! in such a way has Toxilus, the wretch, conjured this up against me. Because I didn't trust him for the money, for that reason has he contrived this plan against me,--a fellow, that, by my faith, if I only live, I'll bring to torture and the fetters; if, indeed, his master ever returns here, as I trust he will. <stage>Catching sight of the REVELLERS.</stage> But what is it I see? Do look at that. What play is this? By my troth, they're carousing here surely. I'll accost them. <stage>He goes up to them.</stage> O worthy sir <stage>to TOXILUS</stage>, my greetings to you--you, too <stage>to LEMNISELENE</stage>, my worthy freed-woman.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Why surely this is Dordalus.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Invite him, then, to come.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to DORDALUS</stage>. Come here, if you like. <stage>Aside.</stage> Come, let's sing his praises. <stage>Aloud.</stage> Dordalus, most delightful fellow, welcome, here's a place for you; take your place here <stage>pointing to a couch</stage>. Bring water for his feet <stage>to the SLAVES.</stage> Are you going to give it, lad? <stage>Is going to pat DORDALUS on the shoulder.</stage></p></sp>
+<sp><speaker>DORDALUS</speaker><p> Don't you, please, be touching me with a single finger, lest I should fell you to the ground, you villain.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>holding up a cup</stage>. And I this very instant will be striking out your eye with this tankard.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What do you say, gallows<milestone n="800" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Gallows</lemma>:  "Crux." Literally, "cross;" in allusion to it as peculiarly the instrument of the punishment of slaves.</note>, you wearer-away of the whip? How have you imposed upon me<milestone n="801" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Imposed upon me</lemma>:  "Manus adita est." Literally, "your hand was gone to." This is probably an allusion to the practice of kissing the hand in irony to a person when he is loudly complaining of having been imposed upon.</note> to-day? Into what embarrassments have you thrown me? How have I been baulked about the Persian?</p></sp>
+<sp><speaker>TOXILUS</speaker><p> You'll be off with your abuse from here, if you are wise.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>to LEMNISELENE</stage>. But, my worthy freed-woman, you knew of this, and concealed it from me.</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> It's folly for a person who can enjoy himself to turn to brawling in preference. 'Twere more proper for you to arrange about those matters another time.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> My heart's in flames.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Give him a goblet, then; put out the fire, if his heart's in flames, that his head mayn't be burnt.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> You're making sport of me, I find.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Would you like<milestone n="807" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Would you like</lemma>:  This passage has been somewhat modified in the Translation.</note> a new playfellow for you, P&aelig;gnium? <stage>Pointing at DORDALUS.</stage> But sport on as you are wont, as this is a place of freedom. <stage>P&AElig;GNIUM struts about round DORDALUS.</stage> O rare! you do stalk in a princely style and right merrily.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> It befits me to be merry, and I've a longing to play this Procurer some pranks, since he's deserving of it.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> As you commenced, proceed.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>striking him</stage>. Take that, Procurer!</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'm undone! he has almost knocked me down!</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Hey--be on your guard<milestone n="814" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be on your guard</lemma>:  In Weise's Edition, "servo," in this line, seems to be not so conformable to the sense of the passage as "serva," which has been adopted.</note> again. <stage>Strikes at him.</stage>
+</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Sport on just as you please, while your master's away from here.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> <stage>skipping around him</stage>. Don't you see how obedient I am to your request? But why, on the other hand, are not you obedient to my request as well, and why don't you do that which I advise you?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What's that?</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Do you take a stout rope for yourself, and go hang yourself.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>shaking his stick</stage>. Take you care, will you, that you don't touch me, lest I give you a heavy return with this walking-stick. P&AElig;G. Make use of it; I give you leave.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Come, come, P&aelig;gnium, put an end to it.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> By my faith, I'll utterly destroy you all.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> But he, who dwells above<milestone n="826" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Who dwells above</lemma>:  He alludes to Jupiter, the King of Heaven.</note> us, wishes you all ill, and will do you all ill. It's not they that tell you so, but I.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Come <stage>to the SLAVES</stage>, carry round the honied wine<milestone n="828" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The honied wine</lemma>:  He probably mentions "mulsum," because that was the draught with which soldiers were regaled after victory.</note>; give us drink in goblets quite full: it's a long time now since we last drank; we've been athirst too long.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> May the Gods grant that you may drink that which may never pass through you.</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> I cannot forbear, Procurer, from at least dancing a hornpipe<milestone n="831" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A hornpipe</lemma>:  "Staticulum." This was probably danced, the performer not moving from the spot; and perhaps was something similar to our hornpipe dances. Of Hegea and Diodorus, the dancing masters, no records are left.</note> for you, which Hegea formerly composed. But just look if it quite pleases you. <stage>He dances.</stage></p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> <stage>rising</stage>. I'd like also to repeat that one which Diodorus formerly composed in Ionia. <stage>Goes close to DORDALUS.</stage></p></sp>
+<sp><speaker>DORDALUS</speaker><p> I'll be doing you a mischief, if you are not off!</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Still muttering, impudence? If you provoke me, I'll just now be bringing you the Persian again.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I' faith, I'm silenced now. Why, you are the Persian that has been fleecing me to the quick!</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Hold your tongue, simpleton; this is his twin-brother.
+</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Is it he? Tox. Aye, and a very twin of twins.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> May the Gods and Goddesses rack both yourself and your twin-brother.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Him, you mean, who has been ruining you; for I don't deserve anything.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> But still, what he deserves, I hope that that may prove to your undoing.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>to SAGARISTIO</stage>. Come, if you like, let's have some sport with this fellow, unless he isn't deemed worthy of it.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Just now it's right.</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> <stage>aside</stage>. But it isn't proper for me.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside</stage>. For the reason, I suppose, that he made no difficulties when I purchased you.</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> <stage>aside</stage>. But still----</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside</stage>. No "still." Beware, then, of a mishap, will you, and obey me. It becomes you to be heedful of my orders; for, i' faith, had it not been for me and my protection, he would before long have made a street-walker of you. But such are some of those who have gained their freedom, unless they thwart their patron, they don't appear to themselves free enough, or wise enough, or honest enough, unless they oppose him, unless they abuse him, unless they are found ungrateful to him who has been kind.</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> <stage>aside</stage>. I' troth, your kindnesses command me to pay obedience to your commands.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>aside</stage>. I clearly am your patron, who paid the money for you to that man <stage>pointing to DORDALUS</stage>; in return for that, I choose that he shall be made sport of.</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> <stage>aside</stage>. For my part, I'll do my utmost.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> For sure, these persons are consulting to do something, I know not what, to injure me.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Hark you. </p></sp>
+<sp><speaker>TOXILUS</speaker><p> What do you say?</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> Is this person here, Dordalus the Procurer, who deals in free women? Is this he who was formerly st stalwart?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> What means this? <stage>P&AElig;GNIUM strikes him.</stage> Oh, oh! he has given me a slap in the face! I'll do you a mischief. <stage>Shakes his fist at him.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> But we have done you one, and shall do it again too.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>P&AElig;GNIUM pinching him</stage>. Oh, oh! he's pinching my behind.
+</p></sp>
+<sp><speaker>P&AElig;G.</speaker><p> Of course; it has been many a time twitched before this.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> Are you still prating, you bit of a boy?</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> <stage>to DORDALUS</stage>. My patron, do, there's a dear, come in-doors to dinner.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> My lump of laziness, are you now scoffing at me?</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> What, because I invite you to enjoy yourself?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I don't want to enjoy myself.</p></sp>
+<sp><speaker>LEMNISELENE</speaker><p> Then don't.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> How then? The six hundred didrachms, how are they? What disturbances they do cause.</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>aside</stage>. I'm utterly undone! They understand full well how to return the compliment to an enemy.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> Have we now had satisfaction enough?</p></sp>
+<sp><speaker>DORDALUS</speaker><p> I confess it; I hold up my hands<note anchored="yes"><lemma targOrder="U">Hold up my hands</lemma>:  "Manus dare," "to extend the hands," was a term applied to the gladiators in the Amphitheatres, who extended their hands for mercy, when they acknowledged themselves defeated.</note> to you.</p></sp>
+<sp><speaker>TOXILUS</speaker><p> And, ere long, you shall be holding them beneath the bilboes<milestone n="861" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Beneath the bilboes</lemma>:  "Furca." This instrument, in shape of the letter V, was placed round the neck of offenders, and their hands tied to the ands of it.</note>. Be off in-doors.</p></sp>
+<sp><speaker>SAGARISTIO</speaker><p> To perdition!</p></sp>
+<sp><speaker>DORDALUS</speaker><p> <stage>to the AUDIENCE</stage>. Have these fellows here worked me in too slight a degree? <stage>Goes into his house.</stage></p></sp>
+<sp><speaker>TOXILUS</speaker><p> <stage>calling after him</stage>. Keep in mind that you met with a Toxilus. <stage>To the AUDIENCE.</stage> Spectators, kindly fare you well. The Procurer is demolished. Grant us your applause.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

@@ -1,0 +1,105 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title type="work">Rerum Gestarum, volume 3 introduction</title>
+				<title type="sub">Machine readable text</title>
+				<author>Ammianus Marcellinus</author>
+				<editor role="editor" n="Rolfe">John C. Rolfe,
+					Ph.D., Litt.D.</editor>
+				&responsibility;
+				&fund.AnnCPB;
+			</titleStmt>
+			<extent>About 100Kb</extent>
+			&Perseus.publish;
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Ammianus Marcellinus</author>
+						<title>With An English Translation</title>
+						<imprint>
+							<pubPlace>Cambridge</pubPlace>
+							<publisher>Cambridge, Mass., Harvard University Press; London, William Heinemann, Ltd.</publisher>
+							<date>1939</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state unit="book"/>
+			</refsDecl>
+		</encodingDesc>
+		
+		<profileDesc>
+			<langUsage>
+				<language id="en">English</language>
+				<language id="greek">Greek</language>
+				<language id="la">Latin</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change><date>2006</date>
+				<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+				<item></item>
+			</change>
+			<change><date>5/27/09</date><respStmt><name>RS</name><resp>(n/a)</resp></respStmt>
+				<item>  
+					$Log: amm.rolfe3_intro.xml,v $
+					Revision 1.1  2009-10-07 21:00:34  rsingh04
+					began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+					Revision 1.1  2009/09/25 19:12:53  rsingh04
+					added seneca epistulae, combined ammianus english and latin into one text and created new files for introductions and indices of the three volumes
+
+					Revision 1.1  2009/09/25 15:15:58  gcrane
+					base files
+					
+					Revision 1.2  2009/05/27 15:55:15  rsingh04
+					added cvs log keyword
+					
+				</item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	
+	<text>
+		<body>  <pb id="v3.v"/>
+			
+			<div1 type="book"><head>Preface</head>
+				
+				<p>In taking leave of Ammianus the translator does so with increased respect for the man and for his work. He is inclined, all things considered, to accept the opinion of E. Stein (<hi rend="italics">Geschichte des Sp&auml;tr&ouml;mischen</hi> <hi rend="italics">Reichs,</hi> i, p. 331) that he is the greatest literary genius that the world has seen between Tacitus and Dante. Stein adds that Ammianus is superior to Tacitus in his greater objectivity, and in a far wider historical horizon in the attention which he gives to the provinces; the latter feature is, of course, due to changed conditions in the time of the later historian. Those who challenge this high estimate must admit that Ammianus had lofty ideals of personal conduct and of historiography, and that he used every effort to prepare himself for his great task.</p>
+				
+				<p>In this volume the deviations from Clark's punctuation are somewhat more numerous than in its two predecessors; these, as well as the changes in orthography, are in great part due to the suggestions of the General Editors, rather than to any doubt of the importance of the punctuation by clausulae. It is natural to suppose that Clark's punctuation would sometimes trouble, and perhaps mislead, the general reader, although it is  <pb id="v3.vi"/>  noteworthy that in no review or letter that has yet come to our attention has any comment on the punctuation of the text been made. There is also reason to suspect, as Gardthausen
+					
+					<note><hi rend="italics">Woch. f. Klass. Phil.</hi> 1911, 218.</note>
+					and others have done, that while Ammianus unquestionably wrote with careful attention to rhythm, he was not a slave to it,
+					
+					<note>Julius Miller, <hi rend="italics">Jahresbericht,</hi> 247 (1935), p. 54.</note>
+					and that some deviations in punctuation are allowable, if not necessary.</p>
+				
+				<p>A glance at the two maps in vol. i makes it clear that in the limited space allowed by the format it would be impossible to include all the places mentioned by Ammianus, even if it were possible to determine the position of all of them. It is hoped that the three sets of maps, which supplement one another, will prove adequate; see the third paragraph of the Preface to vol. ii. Another point is illustrated by Carnuntum, which does not appear on the maps; in xxx, 5, 2 it is called by Ammianus a town of Illyricum, and it is in fact in the Prefecture of Illyricum, but it is more exactly situated in Pannonia, on the Danube, just before that river turns abruptly to the south.</p>
+				
+				<p>The dates in the running-titles refer only to the regular narrative of Ammianus When he has on the same page something which took place at a different date, that date is given in the margin or in the notes.</p>
+				
+				<p>The text of Ammianus, and to a greater extent that of the <hi rend="italics">Excerpta,</hi> contain numerous spellings which vary from English usage, and some which  <pb id="v3.vii"/>  are incorrect; for example, Erecthius (Erechthius), Theoderic (Theodoric), Arrius (Arius). It has seemed best to follow the text in such cases, and to use the approved, or the correct, form in the translation. The <hi rend="italics">Excerpta</hi> also contain a considerable number of spellings and constructions which are found only in late, or in medieval, Latin. With the former the same practice has been followed. Readers should not count such instances as errors, or as inconsistencies.</p> <closer><signed>John C. Rolfe.</signed> <dateline>Philadelphia, November, 1938.</dateline></closer></div1>   <pb id="v3.ix"/>
+			
+			<div1><head><hi rend="italics">Sigla.</hi></head>  <table><row><cell>B =</cell><cell>Codex Berolinensis, 1885, of the ninth century.</cell></row> <row><cell>B1 =</cell><cell>Corrections by the original scribe.</cell></row> <row><cell>B2 =</cell><cell>Corrections by a second hand.</cell></row> <row><cell>B3 =</cell><cell>Corrections about which it is doubtful whether they were made by the scribe or by a later hand.
+				
+				<note>For subdivisions of B<hi rend="sup">1</hi>, B<hi rend="sup">2</hi>, and B<hi rend="sup">3</hi> see Mommsen, <hi rend="italics">l.c.,</hi> p. 2, and for a description of B and P, <hi rend="italics">ibid.,</hi> pp. 3 and 259 ff.</note>
+			</cell></row> <row><cell>P =</cell><cell>Cod. Vat. Pal. Lat. n. 927, of the twelfth century.
+				
+				<note>For <hi rend="italics">Pars Posterior</hi> only. It has not seemed necessary or desirable to record all the variants, orthographic and otherwise, in these codices, but only the important deviations from our text and the more acceptable conjectures.</note>
+			</cell></row> <row><cell>p<hi rend="sup">1</hi>, P<hi rend="sup">2</hi> =</cell><cell>Corrections of P.</cell></row></table>
+			</div1> 
+		</body>
+	</text>
+</TEI.2> 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Fragmenta</title>
+                <author>Seneca the Elder</author>
+                <editor>Adolf Gottlieb Kiessling</editor>
+            </titleStmt>
+            &Perseus.publish;
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <title>Annaei Senecae Oratorum et rhetorum sententiae divisiones colores</title>
+                        <author>Seneca the Elder</author>
+                        <editor>Adolf Gottlieb Kiessling</editor>
+                        <imprint>
+                            <publisher>in aedibus B. G. Teubneri</publisher>
+                            <pubPlace>Leipzig</pubPlace>
+                            <date>1872</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+                
+                <p>Keyboarding</p></sourceDesc>
+        </fileDesc>
+        
+        <encodingDesc>
+            <refsDecl doctype="TEI.2">
+                <state unit="book"/>
+                <state unit="fragment" n="chunk"/>                
+            </refsDecl>
+            
+        </encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language id="la">Latin</language>
+                <language id="greek">Greek</language>
+            </langUsage>
+        </profileDesc>
+    </teiHeader>
+    
+    
+    <text><body>        
+<pb id="p.526"/>
+<div1 type="book" n="1"><head>incertae sedis reliquiae</head>
+    <div2 type="fragment" n="1"><cit><quote>nam memini iuuenis admodum inter Pomponium ac
+        Senecam etiam praefationibus esse tractatum an <q>gradus
+            eliminat</q> in tragoedia dici oportuisset.</quote> <bibl>Quint. VIII 3,31.</bibl></cit></div2>
+    
+    <div2 type="fragment" n="2"><cit><quote>noui uero et praecipue declamatores audacius nec
+        mehercule sine motu quodam imaginantur, ut Seneca in
+        controuersia cuius summa est, quod pater filium et nouercam
+        inducente altero filio in adulterio deprensos occidit: <q>duc,
+            sequor: accipe hanc senilem manum et quocumque uis
+            inprime</q> et post paulo: <q>aspice, inquit, quod diu non credidisti.
+                ego uero non uideo, nox oboritur et crassa caligo.</q></quote> <bibl>Quint. 9.2.42</bibl></cit></div2>
+    
+    <div2 type="fragment" n="3"><cit><quote>nam et in totum iurare, nisi ubi necesse est, graui
+        uiro parum conuenit, et est a Seneca dictum eleganter, non
+        patronorum hoc esse sed testium.</quote> <bibl>Quint. 9.2.98.</bibl></cit></div2>
+    <div2 type="fragment" n="4"><cit><quote>et Seneca tradidit Iulium Montanum poetam
+        solitum dicere, inuolaturum se Vergilio quaedam si et uocem
+        posset et os et hypocrisin: eosdem enim uersus ipso
+        pronuntiante bene sonare, sine illo inanes esse mutosque.</quote> <bibl>Donat.
+            uita Vergilii p. 61.5 Reiff.</bibl></cit>
+    </div2></div1>       
+    </body>
+    </text>
+</TEI.2>

@@ -1,0 +1,1140 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Phormio, or The Scheming Parasite</title>
+<author>P. Terentius Afer (Terence)</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Terence</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>Ney York</pubPlace>
+<publisher>Harper and Brothers</publisher>
+<date>1874</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="TLN line"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>14-Aug-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: ph_eng.xml,v $
+Revision 1.2  2010-07-08 17:50:05  student
+fixed place tags - zr
+
+Revision 1.1  2009/12/08 20:46:27  rsingh04
+moved more xml files around based on copyright status.  renamed terence files to follow the abbreviations and split up minora_lat.xml into separate files
+
+Revision 1.5  2008/11/14 21:28:07  lcerrato
+fixed author names for consistent sorting
+
+Revision 1.4  2006/05/05 17:38:34  packel
+fixed date tags
+
+Revision 1.3  2006/02/10 20:50:44  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:31:42  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:05:09  packel
+Converted to XML
+
+Revision 1.7  2003/07/01 22:18:13  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.6  2001/08/29 19:56:38  amahoney
+make the various Dramatis Personae lists independent instead of cross referencing each other
+
+Revision 1.5  2001/08/21 18:49:51  amahoney
+get translator's name into proper place in meta-data, use same form of author's name as in Latin
+
+Revision 1.4  2001/08/17 17:32:56  amahoney
+fix headers for TOC
+
+Revision 1.3  2001/08/17 17:24:12  amahoney
+begin marking the Latin
+
+Revision 1.2  2001/08/17 15:32:10  amahoney
+fix line numbers in the English, pick up a few typos in Latin
+
+Revision 1.1  2001/08/16 21:11:14  amahoney
+new texts
+
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castGroup>
+<castItem type="role"><role>DEMIPHO,<note anchored="yes">From <foreign lang="greek">dhmo\s,</foreign> "the people," and <foreign lang="greek">fw~s,</foreign> "light."</note></role><roleDesc>Aged Athenians, brothers.</roleDesc></castItem>
+<castItem type="role"><role>CHREMES,<note anchored="yes">From <foreign lang="greek">xre/mptomai,</foreign> "to spit."</note></role></castItem>
+</castGroup>
+<castItem type="role"><role>ANTIPHO,<note anchored="yes">From <foreign lang="greek">a)nti\</foreign>, "opposite to," and <foreign lang="greek">fw=s,</foreign> "light," or <foreign lang="greek">fh=mi</foreign>, "to speak."</note> </role><roleDesc>son of Demipho.</roleDesc></castItem>
+<castItem type="role"><role>PHAEDRIA,<note anchored="yes">From <foreign lang="greek">faidro\s</foreign>, "cheerful."</note> </role><roleDesc>son of Chremes.</roleDesc></castItem>
+<castItem type="role"><role>PHORMIO,<note anchored="yes">From <foreign lang="greek">formo\s,</foreign> "an osier basket."</note> </role><roleDesc>a Parasite.</roleDesc></castItem>
+<castItem type="role"><role>GETA,<note anchored="yes">One of the nation of the Getae.</note> </role><roleDesc>servant of Demipho.</roleDesc></castItem>
+<castItem type="role"><role>DAVUS,<note anchored="yes">From <placeName key="tgn,1000091">Dacia</placeName>, his native country; the Davi and Daci being the same people.</note> </role><roleDesc>a servant.</roleDesc></castItem>
+<castGroup>
+<castItem type="role"><role>HEGIO,<note anchored="yes">From <foreign lang="greek">h(gei=sqai,</foreign> "to lead," or "take charge of."</note> Advocates.</role></castItem>
+<castItem type="role"><role>CRATINUS,<note anchored="yes">From <foreign lang="greek">krato\s,</foreign> "strength."</note></role></castItem>
+<castItem type="role"><role>CRITO,<note anchored="yes">From <foreign lang="greek">krith\s,</foreign> "a judge."</note></role></castItem>
+</castGroup>
+<castItem type="role"><role>DORIO,<note anchored="yes">From Doris, his country, a part of <placeName key="tgn,7002358">Caria</placeName>.</note> </role><roleDesc>a Procurer.</roleDesc></castItem>
+<castItem type="role"><role>NAUSISTRATA,<note anchored="yes">From <foreign lang="greek">nau=s,</foreign> "a ship," and <foreign lang="greek">strato\s,</foreign> "an army."</note> </role><roleDesc>the wife of Chremes.</roleDesc></castItem>
+<castItem type="role"><role>SOPHRONA,<note anchored="yes">From <foreign lang="greek">sw/frwn,</foreign> "prudent."</note> </role><roleDesc>the nurse of Phanium.</roleDesc></castItem>
+</castList>
+<p>Scene.--<placeName key="perseus,Athens">Athens</placeName>; before the houses of DEMIPHO, CHREMES, and DORIO.
+</p>
+<div1 type="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>CHREMES and DEMIPHO are two aged Athenians, brothers. Nausistrata, the wife of Chremes, is a wealthy woman, possessed of large estates in the island of <placeName key="tgn,7011173">Lemnos</placeName>. Chremes, who goes thither yearly to receive the rents, meets with a poor woman there, whom he secretly marries, and has by her a daughter called Phanium: while engaged in this intrigue, Chremes passes at <placeName key="tgn,7011173">Lemnos</placeName> by the name of Stilpho. By his wife, Nausistrata, at <placeName key="perseus,Athens">Athens</placeName>, Chremes has a son, named Phaedria, and his brother has a son, named Antipho. Phanium having now arrived at her fifteenth year, the two brothers privately agree that she shall be brought to <placeName key="perseus,Athens">Athens</placeName> and married to Antipho. For this purpose, Chremes goes to <placeName key="tgn,7011173">Lemnos</placeName>, while Demipho is obliged to take a journey to <placeName key="tgn,7002470">Cilicia</placeName>. On departing, they leave their sons in the care of Geta, one of Demipho's servants. Shortly afterward, Phaedria falls in love with a Music-girl, but, from want of means, is unable to purchase her from her owner. In the mean time, the Lemnian wife of Chremes, urged by poverty, embarks for <placeName key="perseus,Athens">Athens</placeName>, whither she arrives with her daughter and her nurse. Here they inquire for Stilpho, but in vain, as they can not find any one of that name. Shortly after, the mother dies, and Antipho, seeing Phanium by accident, falls in love with her. Being wishful to marry her, he applies to Phormio, a Parasite, for his advice. The latter hits upon the following scheme: there being a law at <placeName key="perseus,Athens">Athens</placeName>, which obliges the next-of-kin to female orphans, either to marry them or give them a portion, the Parasite pretends that he is a friend of Phanium, and insists that Antipho is her nearest relation, and is consequently bound to marry her. Antipho is summoned before a court of justice, and it being previously arranged, allows judgment to be given against himself, and immediately marries Phanium. Shortly after, the old men return upon the same day, and are much vexed, the one on finding that his son has married a woman without a fortune, the other that he has lost the opportunity of getting his daughter advantageously married. In the mean time, Phaedria being necessitated to raise some money to purchase the Music-girl, Geta and Phormio arrange that the former shall pretend to the old man that Phormio has consented to take back the woman whom Antipho has married, if Demipho will give her a portion of thirty mine. Demipho borrows the money of Chremes, and pays it to Phormio, who hands it over to Phaedria, and Phaedria to Dorio, for his mistress. At this conjuncture, it becomes known who Phanium really is, and the old men are delighted to find that Antipho has married the very person they wished. They attempt, however, to get back the thirty minae from Phormio, and proceed to threats and violence. On this, Phormio, who has accidentally learned the intrigue of Chremes with the woman of <placeName key="tgn,7011173">Lemnos</placeName>, exposes him, and relates the whole story to his wife, Nausistrata; on which she censures her husband for his bad conduct, and the Play concludes with her thanks to Phormio for his information.
+</p></div2>
+<div2 type="scene" n="production">
+<head>THE TITLE OF THE PLAY.</head>
+
+<p>PERFORMED at the Roman Games,<note anchored="yes">The Roman Games)--The "ludi Romani," or "Roman Games," were first established by Ancus Marcius, and were celebrated in the month of September.</note> L. Posthumius Albinus and L. Cornelius Merula being Curule Aediles. L. Ambivius Turpio and L. Atilius Praenestinus performed it. Flaccus, the freedman of Claudius, composed the music to a base and a treble flute. It is wholly from the Greek, being the Epidicazomenos of Apollodorus. It was represented four times,<note anchored="yes">Four times)--The numerals signifying "four," Donatus takes to mean that this was the fourth Play composed by Terence; it is, however, more generally supposed that the meaning is, that it was acted four times in one year.</note> C. Fannius and M. Valerius being Consuls.<note anchored="yes">Being Consuls)--M. Valerius Messala and C. Fannius Strabo were Consuls in the year from the Building of the City 591, and B.C. <date value="-162">162</date>.</note>
+</p></div2>
+<div2 type="scene" n="summary">
+<head>THE SUMMARY OF C. SULPITIUS APOLLINARIS.</head>
+<p>DEMIPHO, the brother of Chremes, has gone abroad, his son Antipho being left at <placeName key="perseus,Athens">Athens</placeName>. Chremes has secretly a wife and a daughter at <placeName key="tgn,7011173">Lemnos</placeName>, another wife at <placeName key="perseus,Athens">Athens</placeName>, and an only son, who loves a Music-girl. The mother arrives at <placeName key="perseus,Athens">Athens</placeName> from <placeName key="tgn,7011173">Lemnos</placeName>, and there dies. The girl, her orphan daughter, (Chremes being away,) arranges the funeral. After Antipho has fallen in love with her when seen there, through the aid of the Parasite he receives her as his wife. His father and Chremes, having now returned. begin to be enraged. Afterward they give thirty minae to the Parasite, that he may take her as his own wife. With this money the Music-girl is bought for Phoedria. Antipho then keeps his wife, who has been recognized by his uncle.
+</p></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<sp><speaker>THE PROLOGUE.</speaker><p>SINCE the old Poet<milestone n="1" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Since the old Poet</lemma>: He alludes to his old enemy, Luscus Lavinius, who is mentioned in all his Prologues, except those to the Hecyra.</note> can not withdraw our bard from his pursuits and reduce him to indolence, he endeavors, by invectives, to deter him from writing: for he is wont to say to this effect,--that the Plays which he has hitherto composed are poor in their language, and of meagre style; because he has nowhere described a frantic youth as seeing a hind in flight, and the hounds pursuing; while he implores<note anchored="yes">While one implored)--Ver. 8. "Et eam plorare, orare ut subveniat sibi." This is probably in allusion to some absurd passage in one of the Plays of Lavinius. It is generally supposed to mean, that the stag implores the young man; but as the youth is mad, the absurdity of the passage is heightened if we suppose that he implores the stag, and, in the moment of its own danger, entreats it to come to his own assistance; as certainly the Latin will admit of that interpretation.--Ovid has a somewhat similar passage in the Pontic Epistles, B. ii. Ep. ii. 1. 39: "The hind that, in its terror, is flying from the savage dogs, hesitates not to trust itself to the neighboring house."</note> and entreated that he would give her aid. But if he had been aware that his Play, when formerly first represented, stood its ground more through the merits of the performers than its own, he would attack with much less boldness than he does. Now, if there is any one who says or thinks to this effect, that if the old Poet had not assailed him first, the young one could have devised no Prologue for him to repeat, without having some one to abuse, let him receive this for an answer: "that the prize is proposed in common to. all who apply to the Dramatic art." He has aimed at driving our Poet from his studies to absolute want; he then has in-tended this for an answer, not an attack. If he had opposed him with fair words, he would have heard himself civilly addressed; what has been given by him, let him consider as now returned. I will make an end of speaking about him, when, of his own accord, he himself makes an end of offending. Now give your attention to what I request. I present you a new Play, which they call "Epidicazomenos,"<milestone n="25" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Epidicazomenos</lemma>: A Play of Apollodorus, so called from that Greek word, signifying "one who demands justice from another," in. allusion to Phormio, who is the complainant in the suit, which is the foundation of the plot.</note> in Greek: in the Latin, he calls it "Phormio;" because the person that acts the principal part is Phormio, a Parasite, through whom, principally, the plot will be' carried on, if your flavor attends the Poet. Lend your attention; in silence give an ear with impartial feelings, that we may not experience a like fortune to what we did, when, through a tumult, our Company was driven from the place;<milestone n="32" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Was driven from the place</lemma>: Alluding, probably, to the disturbances which took place at the first representation of the Hecyra, and which are mentioned in the Prologues to that Play.</note> which place, the merit of the actor, and your good-will and candor seconding it, has since restored unto us.
+
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="35" unit="TLN Line"/>
+<stage>Enter DAVUS,<note anchored="yes">Davus is a protatic character, only introduced for the purpose of opening the story.</note> with a bag of money in his hand.</stage>
+<sp><speaker>DAVUS</speaker><p> Geta, my very good friend and fellow-townsman, came to me yesterday. There had been for some time a trifling balance of money of his in my hands upon a small account; he asked me to make it up. I have done so, and am carrying it to him. But I hear that his master's son has taken a wife; this, I suppose, is scraped together as a present for her. How unfair a custom!--that those who have the least should always be giving something to the more wealthy! That which the poor wretch has with difficulty spared, ounce by ounce, out of his allowance,<milestone n="43" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Out of his allowance</lemma>: Donatus tells us that the slaves received four "modii," or measures of corn, each month, which was called their "demensum."</note> defrauding himself of every indulgence, the whole of it will she carry of, without thinking with how much labor it has been acquired. And then besides, Geta will be struck<milestone n="48" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Will be struck</lemma>: "Ferietur." "To strike" a person for a present was said when it was extorted from him reluctantly. So in the Trinummuns of Plautus, 1. 247, "Ibi illa pendentem ferit." "Then does she strike while he is wavering."</note> for another present<milestone n="48" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For another present</lemma>: Presents were usually made to persons on.their birthday, on the day of their marriage, and on the birth of their children.</note> when his mistress is brought to bed; and then again for another present, when the child's birthday comes; when they initiate him,<milestone n="49" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Initiate him</lemma>: It is not known what initiation is here referred to. Madame Dacier thinks it was an initiation into the great mysteries of <persName>Ceres</persName>, which was commonly performed while children were yet very young; others suggest that it means the period of weaning the child, and initiating it into the use of another kind of diet. Donatus says, that Varro speaks of children being initiated into the mysteries of the Deities Edulia, Potica, and Cuba, the Divinities of Eating, Drinking, and Sleeping.</note> too: all this the mother will carry off; the child will only be the pretext for the present. But don't I see Geta there?
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="51" unit="TLN line"/>
+<stage>Enter GETA, from the house of DEMIPHO.</stage>
+<sp><speaker>GETA</speaker><p> <stage>at the door, to those within.</stage> If any red-haired man should inquire for me----</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>stepping forward.</stage> Here he is, say no more.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>starting.</stage> Oh! Why I was trying to come and meet you, Davus.</p></sp>
+<sp><speaker>DAVUS</speaker><p> <stage>giving the money to GETA.</stage> Here, take it; it's all ready counted out;<milestone n="53" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ready counted out</lemma>: "Lectum," literally "picked out" or "chosen"--the coins being of full weight.</note> the number just amounts to the sum I owed you.'</p></sp>
+<sp><speaker>GETA</speaker><p> I am obliged to you; and I return you thanks for not having forgotten me.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Especially as people's ways are nowadays; things are come to such a pass, if a person repays you any thing, you must be greatly obliged to him. But why are you out of spirits?</p></sp>
+<sp><speaker>GETA</speaker><p> What, I? You little know what terror and peril I am in.</p></sp>
+<sp><speaker>DAVUS</speaker><p> What's the matter?</p></sp>
+<sp><speaker> GETA.</speaker><p> You shall know, if you can only keep it secret.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Out upon you, simpleton; the man, whose trustworthiness you have experienced as to money, are you afraid to intrust with words? In what way have I any interest in deceiving you?</p></sp>
+<sp><speaker>GETA</speaker><p> Well then, listen.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I give you my best attention.</p></sp>
+<sp><speaker>GETA</speaker><p> Davus, do you know Chremes, the elder brother of our old gentleman?</p></sp>
+<sp><speaker>DAVUS</speaker><p> Why should I not?</p></sp>
+<sp><speaker>GETA</speaker><p> Well, and his son Phaedria?</p></sp>
+<sp><speaker>DAVUS</speaker><p> As well as your own self.</p></sp>
+<sp><speaker>GETA</speaker><p> It so happened to both the old gentlemen, just at the same period, that the one had to take a journey to <placeName key="tgn,7011173">Lemnos</placeName>, and our old man to <placeName key="tgn,7002470">Cilicia</placeName>, to see an old acquaintance; he tempted over the old man by letters, promising him all but mountains of gold.
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> To one who had so much property, that he had more than he could use?</p></sp>
+<sp><speaker>GETA</speaker><p> Do have done; that is his way.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Oh, as for that, I really ought to have been a man of fortune.</p></sp>
+<sp><speaker>GETA</speaker><p> When departing hence, both the old gentlemen left ne as a sort of tutor to their sons.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Ah, Geta, you undertook a hard task there.</p></sp>
+<sp><speaker>GETA</speaker><p> I came to experience it, I know that. I'm quite sure that I was forsaken by my good Genius, who must have been angry with me.<milestone n="74" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have been angry with me</lemma>: le alludes to the common belief that each person had a Genius or Guardian Deity; and that when misfortune overtook him, he had been abandoned by his Genius.</note> I began to oppose them at first; but what need of talking? As long as I was trusty to the old men, I was paid for it in my shoulder-blades. This, then, occurred to my mind: why, this is folly to kick against the spur.<milestone n="78" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Kick against the spur</lemma>: "To kick against the pricks," or "in spite of the spur," was a common Greek proverb.--The expression occurs in the New Testament, Acts ix. 5. "It is hard for thee to kick against the pricks."</note> I began to do every thing for them that they wished to be humored in.</p></sp>
+<sp><speaker>DAVUS</speaker><p> You knew how to make your market.<milestone n="79" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To make your market</lemma>: This is a metaphorical expression taken from traffic, in which merchants suit themselves to the times, and fix a price on their commodities, according to the course of the market.</note></p></sp>
+<sp><speaker>GETA</speaker><p> Our young fellow did no mischief whatever at first; that Phaedria at once picked up a certain damsel, a Music-girl, and fell in love with her to distraction. She belonged to a most abominable Procurer; and their fathers had taken good care that they should have nothing to give him.. There remained nothing for him then but to feed his eyes, to follow her about, to escort her to the school,<milestone n="86" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the school</lemma>: It was the custom for the "lenones," or "procurers," to send their female slaves to music-schools, in order to learn accomplishments. So in the Prologue to the Rudens of Plautus: "This Procurer brought the maiden to <placeName key="tgn,7000639">Cyrene</placeName> hither. A-certain Athenian youth, a citizen of this city, beheld her as she was going home from the music-school."</note> and to escort her back again. We, having nothing to do, lent our aid to Phaedria. Near the school at which she was taught, right opposite the place, there was a certain barber's shop: here we were generally in the habit of waiting for her, until she was coming home again. In the mean time, while one day we were sitting there, there came in a young man in tears;<note anchored="yes">Young man in tears)--Ver. 92. In the Play of Apollodorus, it was the barber himself that gave the account how he had just returned from cutting off the young woman's hair, which was one of the usual ceremonies in mourning among the Greeks. Donatus remarks, that Terence altered this circumstance that he might not shock a Roman audience by a reference to manners so different from their own.</note> we were surprised at this. We inquired what was the matter? "Never," said he, "has poverty appeared to me a burden so grievous and so insupportable as just now. I have just seen a certain poor young woman in this neighborhood lamenting her dead mother. She was laid out before her, and not a single friend, acquaintance, or relation was there with her, except one poor old woman, to assist her in the funeral: I pitied her. The girl herself was of surpassing beauty." What need of a long story? She moved us all. At once Antipho exclaims, "Would you like us to go and visit her?" The other said, "I think awe ought--let us go--show us the way, please." We went, and arrived there; we saw her; the girl was beautiful, and that you might say so the more, there was no heightening to her beauty; her hair disheveled, her feet bare, herself neglected, and in tears; her dress:mean, so 'that, had there not been an excess of beauty in her very charms, these circumstances must have extinguished those charms. The one who had lately fallen in love with the Music-girl said: "She is well enough;" but our youth----</p></sp>
+<sp><speaker>DAVUS</speaker><p> I know it already-fell in love with her.</p></sp>
+<sp><speaker>GETA</speaker><p> Can you imagine to what an extent? Observe the consequence. The day after, he goes straight to the old woman; entreats her to let him have her: she, on the other hand, refuses him, and says that he is not acting properly; that,she is a citizen of <placeName key="perseus,Athens">Athens</placeName>, virtuous, and born of honest parents: that if he wishes to make her his wife, he is at liberty to do so according to law; but if otherwise, she gives him a refusal. Our youth was at a loss what to. do. He was both eager to marry her, and he dreaded his absent father.
+</p></sp>
+<sp><speaker>DAVUS</speaker><p> Would not his father, if he had returned, have given him leave?</p></sp>
+<sp><speaker>GETA</speaker><p> He let him marry a girl with no fortune, and of obscure birth! He would never do so.</p></sp>
+<sp><speaker>DAVUS</speaker><p> What came of it at last?</p></sp>
+<sp><speaker>GETA</speaker><p> What came of it? There is one Phormio here, a Parasite, a fellow of great assurance; may all the Gods confound him!</p></sp>
+<sp><speaker>DAVUS</speaker><p> What has he done?</p></sp>
+<sp><speaker>GETA</speaker><p> He has given this piece of advice, which I will tell you of. "There is a law, that orphan girls are to marry those who are their next-of-kin; and the same law commands such persons to marry them. I'll say you are the next-of-kin, and take out a summons<milestone n="127" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take out a summons</lemma>: "Dica" was the writ or summons with which an action at law was commenced.</note> against you; I'll pretend that I am a friend of the girl's father; we will come before the judges: who her father was, who her mother, how she is related to you--all this I'll trump up, just as will be advantageous and suited to my purpose; on your disproving none of these things, I shall prevail, of course. Your father will return; a quarrel will be the consequence; what care I? She will still be ours."</p></sp>
+<sp><speaker>DAVUS</speaker><p> An amusing piece of assurance!</p></sp>
+<sp><speaker>GETA</speaker><p> He was, persuaded to this. It was carried out; they came into court: we were beaten. He has married her.</p></sp>
+<sp><speaker>DAVUS</speaker><p> What is it you tell me?</p></sp>
+<sp><speaker>GETA</speaker><p> Just what you have heard.</p></sp>
+<sp><speaker>DAVUS</speaker><p> 0 Geta, what will become of you?</p></sp>
+<sp><speaker>GETA</speaker><p> Upon my faith, I don't know; this one thing I do know, whatever fortune may bring, I'll bear it with firmness.</p></sp>
+<sp><speaker>DAVUS</speaker><p> You please me; well, that is the duty of a man.</p></sp>
+<sp><speaker>GETA</speaker><p> All my hope is in myself.</p></sp>
+<sp><speaker>DAVUS</speaker><p> I commend you.</p></sp>
+<sp><speaker>GETA</speaker><p> Suppose I have recourse to some one to intercede for me, who will plead for: me in these terms: "Pray, do forgive him this time; but if after this he does any thing, I make no entreaty:" if only he doesn't add, "When I've gone, e'en kill him for my part."</p></sp>
+<sp><speaker>DAVUS</speaker><p> What of the one who was usher to the Music-girl?<note anchored="yes">Usher to the Music-girl)--
+Ver. 144. This is said satirically of Phaedria, who was in the habit of escorting the girl to the music-school. It was the duty of the "paedagogi," or "tutors," to lead the children to school, who were placed under their care. See the speech of Lydus, the paedagogus of Pistoclerus, in the Bacchides of Plautus, Act iii. Sc. 3, where, enlarging upon his duties, he mentions this among them.</note>
+</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>shrugging his shoulders.</stage> So so, but poorly.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Perhaps he hasn't much to give.</p></sp>
+<sp><speaker>GETA</speaker><p> Why, really, nothing at all, except mere hopes.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Is his father come back or not?</p></sp>
+<sp><speaker>GETA</speaker><p> Not yet.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Well, when do you expect your old man?</p></sp>
+<sp><speaker>GETA</speaker><p> I don't know for certain; but I just now heard that a letter has been brought from him, and has been left with the officers of the customs: I'm going to fetch it.</p></sp>
+<sp><speaker>DAVUS</speaker><p> Is there any thing else that you want with me, Geta?</p></sp>
+<sp><speaker>GETA</speaker><p> Nothing, but that I wish you well. <stage>Exit DAVUS.</stage> Hark you, boy <stage>calling at the door</stage>. Is nobody coming out here? <stage>A LAD comes out.</stage> Take this, and give it to Dorcium. <stage>He gives the purse to the LAD, who carries it into DEMIPHO'S house and exit GETA.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="153" unit="TLN line"/>
+<stage>Enter ANTIPHO and PHAEDRIA.</stage>
+<sp><speaker>ANTIPHO</speaker><p> That things should have come to such a pass, Phaedria, that I should be in utter dread ,of my father, who wishes me so well, whenever his return comes into my thoughts! Had I not been inconsiderate, I might have waited for him, as I ought to have done.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> What's the matter?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Do you ask the question? You, who have been my confederate in so bold an adventure? How I do wish it had never entered the mind of Phormio to persuade me to this, or to urge me in the heat of my passion to this step, which is the source of my misfortunes. Then I should not have obtained her; in that case I might have been uneasy for some few days; but still, this perpetual anxiety would not have been tormenting my mind <stage>touching PHAEDRIA</stage>.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> I hear you.
+</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> While I am every moment expecting his return, who is to sever from me this connection.<note anchored="yes">Sever from me this connection)--Ver. 161. By forcing him to divorce her.</note></p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Other men feel uneasiness because they can not gain what they love; you complain because you have too much. You are surfeited with love, Antipho. Why, really, upon my faith, this situation of yours is surely one to be coveted and desired. So may the Gods kindly bless me, could I be at liberty to be so long in possession of the object of my love, I could contentedly die. Do you, then, form a judgment as to the rest, what I am now suffering from this privation, and what pleasure you enjoy from the possession of your desires; not to mention how, without any expense, you have obtained a well-born and genteel woman, and have got a wife of unblemished reputation: happy you, were not this one thing wanting, a mind capable of bearing all this with moderation. If you had to deal with that Procurer with whom I have to deal, then you would soon be sensible of it. We are mostly all of us inclined by nature to be dissatisfied with our lot.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Still, on the other hand, Phadria, you now seem to me the fortunate man, who still have the liberty, without restraint, of resolving on what pleases you best: whether to keep, to love on, or to give her up. I, unfortunately, have got my-self into that position, that I have neither right<note anchored="yes">Neither right)--Ver, 176. No right to get rid of her in consequence of the judgment which, at the suit of Phormio, has been pronounced against him; nor yet, right to keep her, because of his father insisting upon turning her out of doors.</note> to give her up, nor liberty to retain her. But how's this? Is it our Geta I see running this way? 'Tis he himself. Alas! I'm dreadfully afraid what news it is he's now bringing me.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="179" unit="TLN line"/>
+<stage>Enter GETA, running, at the other side of the stage.</stage>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> Geta, you are undone, unless you instantly find out some expedient; so suddenly do such mighty evils now threaten me thus unprepared, which I neither know how to shun, nor how to extricate myself therefrom; for this daring step of:ours can not now any longer be kept a secret. If such a result is not adroitly guarded against, these matters will cause the ruin of myself, or of my master.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to PHAEDRIA.</stage> Why, I wonder, is he coming in such fright?:</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> Besides, I've but a moment left for this matter--my master's close at hand.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to PHAEDRIA.</stage> What mischief is this?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> When he comes to hear of it, what remedy shall I discover for his anger Am I to speak? I shall irritate him: be silent? I shall provoke him: excuse myself? I should be washing a brickbat.<note anchored="yes">Be washing a brickbat)--
+Ver. 187. "Laterem lavare," "to wash a brick,"' or "tile," was a proverb signifying labor in vain, probably because (if the brick was previously baked) it was impossible to wash away the red color of it. According to some, the saying alluded to the act of washing a brick which had been only dried in the sun, in which case the party so doing both washed away the brick and soiled his own fingers.</note> Alas! unfortunate me! While I am trembling for myself, this Antipho distracts my mind. I am concerned for him; I'm in dread for him: 'tis he that now keeps me here; for had it not been for him, I should have made due provision for my safety, and have taken vengeance on the old man for his crabbedness; I should have scraped up something, and straightway taken to my heels away from here.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to PHAEDRIA.</stage> I wonder What running away or theft it is that he's planning.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> But where shall I find Antipho, or which way go look for him?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> <stage>to ANTIPHO.</stage> He's mentioning your name.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to PHADRIA.</stage> I know not what great misfortune I expect to hear from this messenger.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> <stage>to ANTIPHO.</stage> Why, are you in your senses?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> I'll make my way homeward; he's generally there.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> <stage>to ANTIPHO.</stage> Let's call the fellow back.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>calling out.</stage> Stop, this instant.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>turning round.</stage> Heyday--with authority enough, whoever you are.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Geta!</p></sp>
+<sp><speaker>GETA</speaker><p> The very person I wanted to find.
+</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Pray, tell me what news you bring, and dispatch it in one word, if you can.</p></sp>
+<sp><speaker>GETA</speaker><p> I'll do so.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Out with it.</p></sp>
+<sp><speaker>GETA</speaker><p> Just now, at the harbor----</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What, my father?----</p></sp>
+<sp><speaker>GETA</speaker><p> You've hit it.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p>. Ruined outright!</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Pshaw!</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What am I to do?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> <stage>to GETA.</stage> What is it you say?</p></sp>
+<sp><speaker>GETA</speaker><p> That I have seen his father, your uncle.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> How am I, wretch that I am, now to find a remedy for this sudden misfortune? But if it should be my fortune, Phanium, to be torn away from you, life would cease to be desirable.</p></sp>
+<sp><speaker>GETA</speaker><p> Therefore, Antipho, since matters are thus, the more need have you to be on your guard; fortune helps the brave.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I am not myself.</p></sp>
+<sp><speaker>GETA</speaker><p> But just now it is especially necessary you should be so, Antipho; for if your father perceives that you are alarmed, he will think that you have been guilty of sone fault.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> That's true.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I can not change.</p></sp>
+<sp><speaker>GETA</speaker><p> What would you do, if now something else still more difficult had to be done by you?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> As I am not equal to this, I should be still less so to the other.</p></sp>
+<sp><speaker>GETA</speaker><p> This is doing nothing at all, Phaedria, let's be gone; why do we waste our time here to no purpose. I shall be off.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> And I too. <stage>They move as if going.</stage></p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Pray, now, if I assume an air, will that do? <stage>He endeavors to assume another air.</stage></p></sp>
+<sp><speaker>GETA</speaker><p> You are trifling.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Look at my countenance--there's for you. <stage>Assuming a different air.</stage> Will that do?</p></sp>
+<sp><speaker>GETA</speaker><p> No.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Well, will this? <stage>Assuming another air.</stage></p></sp>
+<sp><speaker>GETA</speaker><p> Pretty well.
+</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Well then, this? <stage>Assuming a still bolder air.</stage></p></sp>
+<sp><speaker>GETA</speaker><p> That's just the thing. There now, keep to that, and answer him word for word, like for like; don't let him, in his anger, disconcert you with his blustering words.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I understand.</p></sp>
+<sp><speaker>GETA</speaker><p> Say that you were forced against your will by law, by sentence of the court; do you take me? <stage>Looking earnestly in one direction.</stage> But who is the old man that I see at the end of the street?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> 'Tis he himself. I can not stand it. <stage>Going.</stage></p></sp>
+<sp><speaker>GETA</speaker><p> Oh! What are you about? Whither are you going, Antipho? Stop, I tell you.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I know my own self and my offense; to your management I trust Phanium and my own existence. <stage>(Exit hastily.)</stage>
+</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Geta, what's to be done now?</p></sp>
+<sp><speaker>GETA</speaker><p> You will just hear some harsh language: I shall be trussed up and trounced, if I am not somewhat mistaken. But what we were just now advising Antipho to do, the same we must do ourselves, Phaedria.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Away with your "musts;" rather do you command me what I am to do.</p></sp>
+<sp><speaker>GETA</speaker><p> DO you remember what were your words formerly on our entering upon this project, with the view of protecting yourselves from ill consequences--that their cause was just, clear, unanswerable, and most righteous?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> I remember it.</p></sp>
+<sp><speaker>GETA</speaker><p> Well then, now there's need of that plea, or of one still better and more plausible, if such there can be.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> I'll use my best endeavors.</p></sp>
+<sp><speaker>GETA</speaker><p> Do you then accost him first; I'll be here in re-serve,<note anchored="yes">Here in reserve)--Ver. 230. "Succenturiatus." The "succenturiati" were, properly, men intrusted to fill up vacancies in the centuries or companies, when thinned by battle.</note> by way of reinforcement, if you give ground at all.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Very well. <stage>They retire to a distance.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="231" unit="TLN line"/>
+<stage>Enter DEMIPHO, at the other side of the stage.</stage>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to himself.</stage> And is it possible that Antipho has taken a wife without my consent? and that no authority of mine--but let alone "authority"<note anchored="yes"><lemma targOrder="U">Let alone "authority"</lemma>  "Ac mitto imperium." Cicero has quoted this passage in his Epistles to Atticus, B. ii. Ep. 19.</note>--no displeasure of mine, at all events, has he been in dread of? To have no sense of shame! O audacious conduct! O Geta, rare adviser!</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart to PHAEDRIA.</stage> Just brought in at last.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What will they say to me, or what excuse will they find? I wonder much.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> Why, I've found that out already; do think of something else.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Will he be saying this to me: "I did it against my will; the law compelled me?" I hear you, and admit it.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> Well said!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But knowingly, in silence, to give up the cause to his adversaries--did the law oblige him to do that as well?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> That is a hard blow.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> I'll clear that up; let me alone for that.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> It is a matter of doubt what I am to do; for beyond expectation, and quite past all belief, has this befallen me. So enraged am I, that I can not compose my mind to think upon it. Wherefore it is the duty of all persons, when affairs are the most prosperous,<note anchored="yes">When affairs are the most prosperous)--Ver. 241. Cicero quotes this passage in the Third Book of his Tusculan Questions, and the maxim here inculcated was a favorite one with the Stoic philosophers.</note> then in especial to reflect within themselves in what way they are to endure adversity. Returning from abroad, let him always picture to himself dangers and losses, either offenses committed by a son, or the death of his wife, or the sickness of a daughter,--that these things are the common lot, so that no one of them may ever come as a surprise upon his feelings. Whatever falls out beyond his hopes, all that he must look upon as so much gain.
+</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> O Phaedria, it is incredible how much I surpass my master in wisdom. All my misfortunes have been already calculated upon by me, upon my master coming home. I must grind at the mill, be beaten, wear fetters, be set to work in the fields; not one individual thing of these will happen unexpected by my mind. Whatever falls out beyond my expectations, all that I shall look upon as so much gain. But why do you hesitate to accost him, and soften him at the outset with fair words? <stage>PHAEDRIA goes forward to accost DEMIPHO.</stage></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to himself.</stage> I see Phaedria, my brother's son, coming toward me.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> My uncle, welcome!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Greetings to you; but where is Antipho?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> That you have arrived in safety----</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I believe it; answer my question.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> He is well; he's close at hand; but is every thing quite to your wishes?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I wish it was so, indeed.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> What's the matter?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Do you ask me, Phaedria? You people have cooked up a fine marriage in my absence.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> What now, are you angry with him for that?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> What a clever contriver!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Have I not reason to be angry with him? I long for him to come into my sight, that he may know that through his faultiness, from being a mild father, I am become a most severe one.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> But he has done nothing, uncle, for which you should blame him.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Now, do look at that; all alike; all hanging together; when you know one, you know all.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> That is not the case.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> When the one is in fault, the other is at hand to defend him; when it is the other, then he is ready; they just help one another by turns.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> The old man, without. knowing it, has exactly described their proceedings.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> For if it had not been so, you would not, Phaedria, have stood up for him.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> If, uncle; it is the fact, that Antipho has been guilty of any fault, in consequence of which he has been too regardless of his interest or his reputation, I would not allege any reason why he should not suffer what he deserves. But if some one by chance, relying upon his own artfulness, has laid a snare for our youthful age, and has succeeded, is it our fault or that of the judges, who often, through envy, take away from the rich, or, through compassion, award to the poor?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> Unless I knew the case, I could fancy he was saying the truth.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Is there any judge who can possibly know your rights, when you yourself don't answer a word--as he has done?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> He acted the part of an ingenuous young man; after they had come before the judges, he was not able to say what he had intended, so much did his modesty confuse him there through his bashfulness.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> I commend him: but why do I hesitate at once to accost the old man? <stage>Going forward to DEMIPHO.</stage> Master, welcome to you! I'm glad to see you safe returned.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>ironically.</stage> Ah, excellent guardian! save you, stay of my family, no doubt, to whom, at my departure, I intrusted my son.</p></sp>
+<sp><speaker>GETA</speaker><p> For some minutes past I've heard you accusing all of us undeservedly; and me the most undeservedly of them all; for what would you have had me do for you in this affair? The laws do not allow a person who is a slave to plead; nor is there any giving evidence<note anchored="yes">Any giving evidence)--Ver. 293. Slaves were neither allowed to plead for themselves, nor to give evidence. See the Curculio of Plautus, 1. 621, and the Notes to the <placeName key="tgn,7004109">Andria</placeName>.</note> on his part.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I grant all that: I admit this too--the young man, unused to courts, was bashful; I allow it: you, too, are a slave: still, if she was ever so near a relative, it was not necessary for him to marry her, but as the law enjoins, you might have given her a portion;<note anchored="yes">Given her a portion)--Ver. 297. By this remark, Donatus observes that Terence artfully prepares us for the imposition of Phormio, who extorts money fiom the old gentleman on this very ground.</note> she could have looked out for another husband. Why, then, in preference, did he bring a pauper home?
+</p></sp>
+<sp><speaker>GETA</speaker><p> No particular reason; but he hadn't the money.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> He might have borrowed it from some person or other.</p></sp>
+<sp><speaker>GETA</speaker><p> From some person or other? Nothing more easily said.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> After all, if on no other terms, on interest.</p></sp>
+<sp><speaker>GETA</speaker><p> Aye, aye, fine talking; as if any one would have trusted him, while you were living.<note anchored="yes">While you were living)--Ver. 302. There was a law at <placeName key="perseus,Athens">Athens</placeName> which enacted that persons who lent money to young men in the lifetime of their parents should have no power to recover it. In line 303 of the Pseudolus, Plautus alludes to the Quinavicenarian or Laetorian Law, at <placeName key="perseus,Rome">Rome</placeName>, which forbade credit to be given to persons under the age of twenty-five years, and deprived the creditor of all right to recover his money or goods.</note></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> No, it shall not be so; it must not be. Ought I to allow her to remain with him as his wife a single day? She merits no indulgence. I should like this fellow to be pointed out to me, or to be shown where he lives.</p></sp>
+<sp><speaker>GETA</speaker><p> Phormio, do you mean?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> That fellow, the woman's next friend?<note anchored="yes">The woman's next friend)--Ver. 307. The "patronus" was the person who undertook to conduct a lawsuit for another.</note></p></sp>
+<sp><speaker>GETA</speaker><p> I'll have him here immediately.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Where is Antipho at present?</p></sp>
+<sp><speaker>GETA</speaker><p> Away from home.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Go, Phedria, look for him, and bring him here.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> I'Il go straightway to the place.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>aside.</stage> To Pamphila, you mean. (Exeunt PHAEDRIA and GETA.
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to himself.</stage> I'll just step home to salute the house-hold Gods.<note anchored="yes">Salute the household Gods)--Ver. 311. It was the custom for those returning from a voyage or journey, to give thanks to their household Gods for having protected them in their absence. Thus, in the Amphitryon of Plautus, <persName>Jupiter</persName>, while personating Amphitryon, pretends, in 1. 983, that he is going to offer sacrifice for his safe return.</note> From there, I'll go to the Forum, and summon some of my friends to give me their assistance in this affair; so that I may not be unprepared, when Phormio comes. <stage>Goes into his house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="315" unit="TLN line"/>
+<stage>Enter PHORMIO and GETA.</stage>
+<sp><speaker>PHORMIO</speaker><p> And so you say<note anchored="yes">And so you say)--Ver. 315. Donatus tells the following story with reference to this passage: "This Play being once rehearsed before Terence and some of his most intimate acquaintances, Ambivius, who acted the part of Phormio, came in drunk, which threw the author into a violent passion; but Ambivius had scarcely repeated a few lines, stammering and scratching his head, before Terence became pacified, declaring that when he was writing these very lines, he had exactly such a Parasite as Ambivius then represented, in his thoughts."</note> that, dreading his father's presence, he has taken himself off?</p></sp>
+<sp><speaker>GETA</speaker><p> Exactly so.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> That Phanium is left alone?</p></sp>
+<sp><speaker>GETA</speaker><p> Just so.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> And that the old man is in a rage?</p></sp>
+<sp><speaker>GETA</speaker><p> Extremely so.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> The whole business, Phormio, rests on yourself alone; you yourself have hashed it up;<note anchored="yes">Have hashed it up)--Ver. 318. He is thought to allude here, figuratively, to the composition of a dish called "moretum," (in praise of which Virgil wrote a poem,) which was composed of garlic, onions, cheese, eggs, and other ingredients, beaten up in a mortar. The allusion to eating is appropriately used in an address to a Parasite.</note> it must all be swallowed by yourself, so set about it.</p></sp>
+<sp><speaker>GETA</speaker><p> I entreat you----</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to himself.</stage> If he inquires.</p></sp>
+<sp><speaker>GETA</speaker><p> In you is all our hope.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to himself.</stage> Look at this, now:--What if he sends her back?</p></sp>
+<sp><speaker>GETA</speaker><p> It was you that urged us.
+</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to himself.</stage> I think that will do.</p></sp>
+<sp><speaker>GETA</speaker><p> Do help us.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>with alacrity.</stage> Let the old gentleman come; all my plans are now ready prepared in my mind.</p></sp>
+<sp><speaker>GETA</speaker><p> What will you do?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> What would you have me? But that Phanium may continue with him, and that I may clear Antipho from this charge, and turn upon myself<note anchored="yes">Turn upon myself)--Ver. 323. Donatus observes that in this Scene Terence exhibits the lower order of Parasites, who ingratiated themselves by sharping and roguery, as in the Eunuchus he describes Parasites of a higher rank, and of a-newer species, who obtained their ends by flattery.</note> all the wrath of the old gentleman?</p></sp>
+<sp><speaker>GETA</speaker><p> O brave and kind man! But, Phormio, I often dread lest this courage may end in the stocks at last.<note anchored="yes">In the stock at last)--Ver. 325. "In nervum; crumpat denique." There are several interpretations suggested for these words. Some think they allude to the drawing of a bow till it breaks; but they are more generally thought to imply termination in corporal punishment. "Nervus" is supposed to have been the name of a kind of stocks used in torturing slaves, and so called from being formed, in part at least, of the sinews of animals.</note></p></sp>
+<sp><speaker>PHORMIO</speaker><p> Oh, by no means; I've made trial, and have already pondered on the paths for my feet. How many men before to-day do you suppose I have beaten, even to death, strangers as well as citizens: the better I understand it, the oftener I try it. Just tell me, look you, did you ever hear of an action of damages being brought against me?</p></sp>
+<sp><speaker>GETA</speaker><p> How is that?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Because the net is never spread for the hawk or the kite, that do us the mischief; it is spread for those that do us none: because in the last there is profit, while with the others it is labor lost.- For persons, out of whom any thing can be got, there's risk from others; they know that I've got nothing. You will say: "They will take you,<note anchored="yes">They will take you)--Ver. 334. At <placeName key="perseus,Rome">Rome</placeName>, insolvent debtors became the slaves of their creditors till their debts were paid.</note> when sentenced, into their house;" they have no wish to maintain a devouring fellow; and, in my opinion, they are wise, if for an injury they are unwilling to return the highest benefits.
+</p></sp>
+<sp><speaker>GETA</speaker><p> It's impossible that sufficient thanks can be returned you by him for your kindness.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Why no; no person can return thanks sufficient to his patron<note anchored="yes">To his patron)--Ver. 338. "Regi." The Parasites were in the habit of calling their patron "Rex," their "King."</note> for his kindness. For you to take your place at table at free cost,<note anchored="yes">At free cost)--Ver. 339. "Asymbolum." Without having paid his "symbola," or "club," for the entertainment. Donatus informs us that the whole of this passage is borrowed from one of Ennius, which is still preserved.</note> anointed and just washed at the bath, with your mind at ease, whereas he is devoured with the care and expense: while every thing is being done to give you delight, he is being vexed at heart; you are laughing away, first to drink,<note anchored="yes">First to drink)--Ver. 342. To be the first to drink, and to take the higher place on the couch when eating, was the privilege of the most honored guests, who usually bathed, and were then anointed before the repast.</note> take the higher place; a banquet full of doubts<note anchored="yes">Banquet full of doubts)--Ver. 342. "Coena dubia." Horace, who borrows many of his phrases from Terence, uses the same expression.</note> is placed before you----</p></sp>
+<sp><speaker>GETA</speaker><p> What is the meaning of that expression?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> When you are in doubt which in especial to par-take of. When you enter upon a consideration how delicious these things are, and how costly they are, the person who provides them, must you not account him a very God--neither more nor less?</p></sp>
+<sp><speaker>GETA</speaker><p> The old man is coming; take care what you are about; the first onset is the fiercest; if you stand that, then, afterward, you may play just as you please. <stage>They retire to a distance.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="348" unit="TLN line"/>
+<stage>Enter, at a distance, DEMIPHO, HEGIO, CRATINUS, and CRITO, following him.</stage>
+<sp><speaker>DEMIPHO</speaker><p> Well now--did you ever hear of an injury being done to any person in a more affronting manner than this has to me? Assist me, I do beg of you.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> He's in a passion.
+</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>apart.</stage> Do you mind your cue; I'll rouse him just now. <stage>Stepping forward and crying aloud.</stage> Oh immortal Gods! does Demipho deny that Phanium here is related to him?</p></sp>
+<sp><speaker>GETA</speaker><p> He does deny it.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to his friends.</stage> I believe it is the very man I was speaking about. Follow me. <stage>They all come forward.</stage></p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to GETA.</stage> And that he knows who her father was?</p></sp>
+<sp><speaker>GETA</speaker><p> He does deny it.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> And that he knows who Stilpho was?</p></sp>
+<sp><speaker>GETA</speaker><p> He does deny it.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Because the poor thing was left destitute, her father is disowned; she herself is slighted: see what avarice does.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>in a loud voice.</stage> If you are going to accuse my: master of avarice, you shall hear what you won't like.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Oh, the impudence of the fellow! Does he come on purpose to accuse me?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> For really, I have no reason why I should be offended at the young man, if he did not know him; since that person, when growing aged and poor, and supporting himself by his labor, generally confined himself to the country; there hehad a piece of land from my father to cultivate; full oft, in the mean time, did the old. man tell me that this kinsman of his neglected him: but what a man? The very best I ever saw in all my life.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>in a loud voice.</stage> Look to yourself as well as to him, how you speak.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>with affected indignation.</stage> Away, to utter perdition, with you. For if I had not formed such an opinion of him, I should never have incurred such enmity with your family on her account, whom he now slights in such an ungenerous manner.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>aloud.</stage> What, do you persist in speaking abusively of my master in his absence, you most abominable fellow?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Why, it's just what he deserves.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>aloud.</stage> Say you so, you jail-bird?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>calling aloud.</stage> Geta!</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>aloud.</stage> A plunderer of people's property--a perverter of the laws!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>calling aloud.</stage> Geta!
+</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>apart, in a low voice.</stage> Answer him.</p></sp>
+<sp><speaker>GETA</speaker><p> Who is it? <stage>Looking round.</stage> Oh!----</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Hold your peace.</p></sp>
+<sp><speaker>GETA</speaker><p> He has never left off uttering abuse against you behind your back, unworthy of you, and just befitting himself.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Well now, have done. <stage>Addressing PHORMIO.</stage> Young man, in the first place, with your good leave, I ask you this, if you may possibly be pleased to give me an answer: explain to me who this friend of yours was, that you speak of, and how he said that he was related to me.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>sneeringly.</stage> You are fishing it out, just as if you didn't know.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I, know?</p></sp>
+<sp><speaker>PEM.</speaker><p> Yes.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I say I do not; you, Who affirm it, recall it to my recollection.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Come now, didn't you know your own cousin-ger-man?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You torture me to death; tell me his name.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> His name?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Of course. <stage>PHORMIO hesitates.</stage> Why are you silent now?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>aside.</stage> Heavens, I'm undone; I've forgot the name.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Well, what do you say?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>aside, to GETA.</stage> Geta, if you recollect the name I told you a short time since, prompt me. <stage>Aloud, to DEMIPHO.</stage> Well then, I sha'n't tell you; as if you didn't know, you come to pump me.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I, come to pump you, indeed?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>whispering to PHORMIO.</stage> Stilpho.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> But, after all, what matters that to me? It is Stilpho.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Whom did you say?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Stilpho, I tell you; you knew him.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I neither know him, nor had I ever any relation of that name.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Say you so? Are you not ashamed of this? But if he had left you ten talents----</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> May the Gods confound you!</p></sp>
+<sp><speaker>PHORMIO</speaker><p> You'd have been the first, from memory, to trace your line of kindred, even as far back as from grandfather and great-grandfather.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Very likely what you say. In that case, when I had undertaken it, I should have shown how she was related to me; do you do the same: tell me, how is she related to me?</p></sp>
+<sp><speaker>GETA</speaker><p> Well done, my master, that's right! <stage>Threateningly to PHORMIO.</stage> Hark you, take you care.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> I've already made the matter quite plain where I ought, before the judges; besides, if it was untrue, why didn't your son disprove it?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Do you talk about my son to me? Of whose folly there is no speaking in the language it deserves.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Then do you, who are so wise, go to the magistrates, that for you they may give a second decision in the same cause, since you reign alone<note anchored="yes">Since you reign alone)--Ver. 605. This is a remark well put into the mouth of an Athenian, as the public were very jealous of any person becoming paramount to the laws, and to prevent it, were frequently guilty of the most odious oppression.</note> here, and are the only man allowed to get a second trial in the same cause.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Although wrong has been done me, still, however, rather than engage in litigation, or listen to you, just as though she had been my relation, as the law orders one to find her a portion, rid me of her, and take five minae.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> laughing.) Ha, ha, ha! a pleasant individual!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Well! am I asking any thing unfair? Or am I not to obtain even this, which is my right at common law?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Pray, really is it so, that when you have abused-her like a courtesan, the law orders you to pay her hire and pack her off? Or is it the fact, that in order that a citizen may bring no disgrace upon herself through poverty, she has been ordered to be given to her nearest relative, to pass her life with him alone? A thing which you mean to prevent.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Yes, to her nearest.relative, indeed; but why to us, or on what ground?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Well, well, a thing tried, they say, you can't try over again.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Not try it? On the contrary, I shall not desist until I have gone through with it.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> You are trifling.
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Only let me alone for that.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> In short, Demipho, I have nothing to do with you; your son has been cast, and not you; for your time of life for marrying has now gone by.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Consider that it is he that says to you all I now say, or else assuredly, together with this wife of his, I'll be forbidding him the house.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>aside.</stage> He's in a passion.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> You'll be acting more considerately.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Are you so resolved, you unlucky fellow, to do me all the mischief you can?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>aside, to GETA.</stage> He's afraid of us, although he's so careful to conceal it.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>aside, to PHORMIO.</stage> Your beginning has turned out well.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> But if, on the contrary, you endure what must be endured, you'll be doing what's worthy of you, so that we may be on friendly terms.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>indignantly.</stage> What, I seek your friendship, or have any wish to see or hear you?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> If you can agree with her, you will have some one to cheer up your old age; just consider your time of life.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Let her cheer up yourself; keep her to yourself.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Really, do moderate your passion.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Mark what I say. There have been words enough already; if you don't make haste to fetch away the woman, I shall turn her out: I have said it, Phormio.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> If you use her in any other manner than is befitting a free-born woman, I shall be bringing a swinging action against you: I have said it, Demipho. <stage>To GETA.</stage> Hark you, if there should be any occasion for me, I shall be at home.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> I understand you.  <stage>(Exit PHORMIO.)</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="441" unit="TLN line"/>
+<stage>DEMIPHO, HEGIO, CRATINUS, CRITO, and GETA.</stage>
+<sp><speaker>DEMIPHO</speaker><p> What care and anxiety my son does bring upon me, by entangling himself and me in this same marriage! And he doesn't so much as come into my sight, that at least I might know what he says about this matter. or what his sentiments are. <stage>To GETA.</stage> Be off, go see whether he has returned home or not by this.</p></sp>
+<sp><speaker>GETA</speaker><p> I will. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to the ASSISTANTS.</stage> You see how the case stands. What am I to do? Tell me, Hegio.</p></sp>
+<sp><speaker>HEGIO</speaker><p> What, I? I think Cratinus ought, if it seems good to you.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Tell me, Cratinus.</p></sp>
+<sp><speaker>CRATINUS</speaker><p> What, do you wish me to speak? I should like you to do what is most for your advantage; it is my opinion, that what this son of yours has done in your absence, in law and justice ought to be annulled; and that you'll obtain redress. That's my opinion.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Say now, Hegio.</p></sp>
+<sp><speaker>HEGIO</speaker><p> I believe that he has spoken with due deliberation; but it is the fact, "as many men, so many minds;"<note anchored="yes">So many minds)--Ver. 454. "Quot homines, tot sententiae." This is a famous adage. One similar to the succeeding one is found in the Second Eclogue of Virgil, 1. 65: "Trahit sua quemque voluptas," exactly equivalent to our saying, "Every man to his taste."</note> every, one his own way. It doesn't appear to me that what has been done by law can be revoked; and it is wrong to attempt it.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Speak, Crito.</p></sp>
+<sp><speaker>CRITO</speaker><p> I am of opinion that we must deliberate further;<note anchored="yes">Must deliberate further)--Ver. 457. "Amplius deliberandum." This is probably a satirical allusion to the judicial system of procrastination, which, by the Romans, was called "ampliatio." When the judges could not come to a satisfactory conclusion about a cause, they signified it by the letters N. L. (for "non liquet," "it is not clear"), and put off the suit for a rehearing.</note> it is a, matter of importance.</p></sp>
+<sp><speaker>HEGIO</speaker><p> Do you want any thing further with us?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You have done very well. <stage>Exeunt ASSISTANTS.</stage> I am much more at a loss<note anchored="yes">Much more at a loss)--Ver. 459. See the Poenulus of Plautus, where advocates or assistants are introduced among the Dramatic Personae. Colman has the following remarks on this quaint passage: "I believe there is no Scene in Comedy more highly seasoned with the ridiculous than this before us. The idea is truly comic, and it is worked up with all that simplicity and chastity so peculiar to the manner of Terence. An ordinary writer would have indulged himself in twenty little conceits on this occasion; but the dry gravity of Terence infinitely surpasses, as true humor, all the drolleries which, perhaps, even those great masters of Comedy, Plautus or Moli&egrave;re, might have been tempted to throw out. It is the highest art of a Dramatic Author, on some occasions, to leave a good deal to the Actor; and it has been remarked by Heinsius and others, that Terence was particularly attentive to this circumstance."</note> than before.
+
+<stage>Re-enter GETA, from the house.</stage></p></sp>
+<sp><speaker>GETA</speaker><p> They say that he has not come back.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I must wait for my brother. The advice that he gives me about this matter, I shall follow. I'll go make inquiry at the harbor, when he is to come back. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>GETA</speaker><p> And I'll go look for Antipho, that he may learn what has passed here. But look, I see him coming this way, just in the very nick of time.
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="465" unit="TLN line"/>
+<stage>Enter ANTIPHO, at a distance.</stage>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to himself.</stage> Indeed, Antipho, in many ways you are to be blamed for these feelings; to have thus run away, and intrusted your existence to the protection of other people. Did you suppose that others would give more attention to your interests than your own self? For, however other matters stood, certainly you should have thought of her whom you have now at home, that she might not suffer- any harm in consequence of her confiding in you, whose hopes and resources, poor thing, are all now centred in yourself alone.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>coming forward.</stage> Why really, master, we have for some time been censuring you here in your absence, for having thus gone away.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> You are the very person I was looking for.</p></sp>
+<sp><speaker>GETA</speaker><p> But still, we were not a bit the more remiss on that account.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Tell me, I beg of you, in what posture are my interests and fortunes. Has my father any suspicion?</p></sp>
+<sp><speaker>GETA</speaker><p> Not any at present.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Is there still any hope?</p></sp>
+<sp><speaker>GETA</speaker><p> I don't know.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Alas!
+</p></sp>
+<sp><speaker>GETA</speaker><p> But Phaedria has not neglected to use his endeavors in your behalf.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> He did nothing new.</p></sp>
+<sp><speaker>GETA</speaker><p> Then Phormio, too; in this matter, just as in every thing else, showed himself a man of energy.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What did he do?</p></sp>
+<sp><speaker>GETA</speaker><p> With his words he silenced the old man, who was very angry.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Well done, Phormio!</p></sp>
+<sp><speaker>GETA</speaker><p> I, too, did all I could.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> My dear Geta, I love you all.</p></sp>
+<sp><speaker>GETA</speaker><p> The commencement is just in this position, as I tell you: matters, at present; are going on smoothly, and your father intends to wait for your uncle till he arrives.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Why him?</p></sp>
+<sp><speaker>GETA</speaker><p> He said he was wishful to act by his advice, in all that relates to this business.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> How greatly now, Geta, I do dread my uncle's safe arrival! For, according to his single sentence, from what I hear, I am to live or die.</p></sp>
+<sp><speaker>GETA</speaker><p> Here comes Phaedria.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Where is he, pray?</p></sp>
+<sp><speaker>GETA</speaker><p> See, he's coming from his place of exercise.<milestone n="484" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From his place of exercise</lemma>:  "Palaestra." He alludes to the Procurer's house under this name.</note></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="485" unit="TLN line"/>
+<stage>Enter from DORIO'S house, DORIO, followed by PHAEDRIA.</stage>
+<sp><speaker>PHAEDRIA</speaker><p> Prithee, hear me, Dorio.</p></sp>
+<sp><speaker>DORIO</speaker><p> I'll not hear you.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Only a moment.</p></sp>
+<sp><speaker>DORIO</speaker><p> Let me alone.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Do hear what I have to say.</p></sp>
+<sp><speaker>DORIO</speaker><p> Why really I am tired of hearing the same thing a thousand times over.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> But now, I have something to tell you that you'll hear with pleasure.</p></sp>
+<sp><speaker>DORIO</speaker><p> Speak then; I'm listening.
+</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Can I not prevail on you to wait for only three days? Whither are you going now?</p></sp>
+<sp><speaker>DORIO</speaker><p> I was wondering if you had any thing new to offer.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart, to GETA.</stage> I'm afraid for this Procurer, lest--</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart, to ANTIPHO.</stage> Something may befall his own safety.<note anchored="yes">Befall his own safety)--Ver. 490. Overhearing Phedria earnest and determined, and the Procurer obstinate and inflexible, Antipho and Geta join in -apprehending that the brutality of the latter may provoke Phaedria to some act of violence.</note></p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> You don't believe me?</p></sp>
+<sp><speaker>DORIO</speaker><p> You guess right.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> But if I pledge my word.</p></sp>
+<sp><speaker>DORIO</speaker><p> Nonsense!</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> You will have reason to say that this kindness was well laid out by you on interest.</p></sp>
+<sp><speaker>DORIO</speaker><p> Stuff!</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Believe me, you will be glad you did so; upon my faith, it is the truth.</p></sp>
+<sp><speaker>DORIO</speaker><p> Mere dreams!</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Do but try; the time is not long.</p></sp>
+<sp><speaker>DORIO</speaker><p> The same story over again.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> You will be my kinsman, my father, my friend; you----</p></sp>
+<sp><speaker>DORIO</speaker><p> Now, do prate on.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> For you to be of a disposition so harsh and inexorable, that neither by pity nor by entreaties can you be softened!</p></sp>
+<sp><speaker>DORIO</speaker><p> For you to be of a disposition so unreasonable and so unconscionable, Phadria, that you can be talking me over with fine words,<note anchored="yes">With fine words)--Ver. 499. "Phaleratis dictis." "Phalerae" were, properly, the silver ornaments with which horses were decked out, and being only for show, and not for use, gave rise to this saying. "Ductes" was an obscene Word, and not likely to be used by any but such characters as Dorio.</note> and be for amusing yourself with what's my property for nothing!</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart, to GETA.</stage> I am sorry for him.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> <stage>aside.</stage> Alas! I feel it to be too true.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart, to ANTIPHO.</stage> How well each keeps up to his character!
+</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> <stage>to himself.</stage> And would that this misfortune had not befallen me at a time when Antipho was occupied with other cares as well.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>coming forward.</stage> Ah Phaedria, why, what is the matter?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> O most fortunate Antipho!</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What, I?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> To have in your possession the object of your love, and have no occasion to encounter such a nuisance as this.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What I, in my possession? Why yes, as the saying is, I've got a wolf by the ears;<milestone n="505" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A wolf by the ears</lemma>: A proverbial expression which, according to Suetonius, was frequently in the mouth of Tiberius Caesar.</note> for I neither know how to get rid of her, nor yet how to keep her.</p></sp>
+<sp><speaker>DORIO</speaker><p> That's just my case with regard to him <stage>pointing to PHAEDRIA</stage>.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to DORIO.</stage> Aye, aye, don't you show too little of the Procurer. <stage>To PHAEDRIA.</stage> What has he been doing?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> What, he? Acting the part of a most inhuman fellow; been and sold my Pamphila.</p></sp>
+<sp><speaker>GETA</speaker><p> What! Sold her?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Sold her, say you?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Sold her.</p></sp>
+<sp><speaker>DORIO</speaker><p> <stage>ironically.</stage> What a shocking crime--a wench bought with one's own money!</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> I can not prevail upon him to wait for me the next three days, and so far break off the bargain with the person, while I get the money from my friends, which has been promised me; if I don't give it him then, let him not wait a single hour longer.</p></sp>
+<sp><speaker>DORIO</speaker><p> Very good.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> It's not a long time that he asks, Dorio; do let him prevail upon you; he'll pay you two-fold for having acted to him thus obligingly.</p></sp>
+<sp><speaker>DORIO</speaker><p> Mere words!</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Will you allow Pamphila to be carried away from this place? And then, besides, can you possibly allow their love to be severed asunder?</p></sp>
+<sp><speaker>DORIO</speaker><p> Neither I nor you cause that.
+</p></sp>
+<sp><speaker>GETA</speaker><p> May all the Gods grant you what you are deserving of!</p></sp>
+<sp><speaker>DORIO</speaker><p> I have borne with you for several months quite against my inclination; promising and whimpering, and yet bringing nothing; now, on the other hand, I have found one to pay, and not be sniveling; give place to your betters.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I' faith, there surely was a day named, if I remember right, for you to pay him.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> It is the fact.</p></sp>
+<sp><speaker>DORIO</speaker><p> Do I deny it?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Is that day past, then?</p></sp>
+<sp><speaker>DORIO</speaker><p> No; but this one has come before it.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Are you not ashamed of your perfidy?</p></sp>
+<sp><speaker>DORIO</speaker><p> Not at all, so long as it is for my interest.</p></sp>
+<sp><speaker>GETA</speaker><p> Dunghill!</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Dorio, is it right, pray, for you to act thus?</p></sp>
+<sp><speaker>DORIO</speaker><p> It is my way; if I suit you, make use of me.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Do you try to trifle with him <stage>pointing to PHAEDRIA</stage> in this manner?</p></sp>
+<sp><speaker>DORIO</speaker><p> Why really, on the contrary, Antipho, it's he trifling with me, for he knew me to be a person of this sort; I supposed him to be quite a different man; he has deceived me; I'm not a bit different to him from what I was before. But however that may be, I'll yet do this; the captain has said, that to-morrow morning he will pay me the money; if you bring it me before that, Phaedria, I'll follow my rule, that he is the first served who is the first to pay. Farewell! <stage>Goes into his house.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="534" unit="TLN line"/>
+<stage>PHAEDRIA, ANTIPHO, and GETA.</stage>
+<sp><speaker>PHAEDRIA</speaker><p> What am I to do? Wretch that I am! where am I now in this emergency to raise the money for him, I, who am worse than nothing? If it had been possible for these three days to be obtained of him, it was promised me by then.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Geta, shall we suffer him to continue thus wretched, when he so lately assisted me in the kind way you were mentioning? On the contrary, why not, as there's need of it try to do him a kindness in return?
+</p></sp>
+<sp><speaker>GETA</speaker><p> For my part, I'm sure it is but fair.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Come then, you are the only man able to serve him.</p></sp>
+<sp><speaker>GETA</speaker><p> What can I do?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Procure the money.</p></sp>
+<sp><speaker>GETA</speaker><p> I wish I could; but where it is to come from--tell me that.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> My father has come home.</p></sp>
+<sp><speaker>GETA</speaker><p> I know; but what of that?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Oh, a word to the wise<milestone n="540" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A word to the wise</lemma>: "Dictum sapienti sat est." The same proverb is found in the Persa of Plautus, 1. 736.</note> is quite enough.</p></sp>
+<sp><speaker>GETA</speaker><p> Is that it, then?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Just so.</p></sp>
+<sp><speaker>GETA</speaker><p> Upon my faith, you really do give me fine advice; out upon you! Ought I not to be heartily glad, if I meet with no mishap through your marriage, but what, in addition to that, you must now bid me, for his sake, to be seeking risk upon risk?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> 'Tis true what he says.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> What! am I a stranger to you, Geta?</p></sp>
+<sp><speaker>GETA</speaker><p> I don't consider you so. But is it so trifling a matter that the old gentleman is now vexed with us all, that we must provoke him still more, and leave no room for entreaty?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Is another man to take her away from before my eyes to some unknown spot? Alas! speak to me then, Antipho, and look upon me while you have the opportunity, and while I'm present.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Why so, or what are you going to do? Pray, tell me.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> To whatever part of the world she is borne away, I'm determined to follow her or to perish.</p></sp>
+<sp><speaker>GETA</speaker><p> May the Gods prosper your design! Cautiously's the word, however.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to GETA.</stage> Do see if you can give him any assistance at all.</p></sp>
+<sp><speaker>GETA</speaker><p> Any at all--how?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Pray, do try, that he mayn't be doing something that we may afterward be more or less sorry for, Geta.</p></sp>
+<sp><speaker>GETA</speaker><p> I'm considering, <stage>He pauses.</stage> He's all safe, so far as I can guess: but still, I'm afraid of mischief.
+</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Don't be afraid: together with you, we'll share good and bad.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to PHAEDRIA.</stage> How much money do you want? Tell me.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Only thirty mince.</p></sp>
+<sp><speaker>GETA</speaker><p> Thirty? Heyday! she's monstrous dear, Phaedria.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Indeed, she's very cheap.</p></sp>
+<sp><speaker>GETA</speaker><p> Well, well, I'll get them for you.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Oh the dear man! <stage>They both fall to hugging GETA.</stage></p></sp>
+<sp><speaker>GETA</speaker><p> Take yourselves off. <stage>Shakes them of.</stage></p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> There's need for them directly.</p></sp>
+<sp><speaker>GETA</speaker><p> You shall have them directly; but I must have Phormio for my assistant in this business.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> He's quite ready; right boldly lay on him any load you like, he'll bear it: he, in especial, is a friend to his friend.</p></sp>
+<sp><speaker>GETA</speaker><p> Let's go to him at once then.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Will you have any occasion for my assistance?</p></sp>
+<sp><speaker>GETA</speaker><p> None; but be off home, and comfort that poor thing, who I am sure is now in-doors almost dead with fear. Do you linger?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> There's nothing I could do with so much pleasure. <stage>Goes into the house of DEMIPHO.</stage></p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> What way will you manage this?</p></sp>
+<sp><speaker>GETA</speaker><p> I'll tell you on the road; first thing, betake yourself off. <stage>(Exeunt.)</stage>
+
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="567" unit="TLN line"/>
+<stage>Enter DEMIPHO and CHREMES.</stage>
+<sp><speaker>DEMIPHO</speaker><p> Well, have you brought your daughter with you, Chremes, for whom you went to <placeName key="tgn,7011173">Lemnos</placeName>?</p></sp>
+<sp><speaker>CHREMES</speaker><p> No.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why not?</p></sp>
+<sp><speaker>CHREMES</speaker><p> When her mother found that I staid here longer than usual, and at the same time the age of the girl did not suit with my delays, they told me that she, with all her family, set out in search of me.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Pray, then, why did you stay there so long, when you had heard of this?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Why, faith, a malady detained me.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> From what cause? Or what was it?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Do you ask me? Old age itself is a malady. However, I heard that they had arrived safe, from the caps tain who brought them.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Have you heard, Chremes, what has happened to my son in my absence?</p></sp>
+<sp><speaker>CHREMES</speaker><p> 'Tis that, in fact, that has embarrassed me in my plans. For if I offer my daughter in marriage to any person that's a stranger, it must all be told how and by whom I had her. You I knew to be fully as faithful to me as I am to myself; if a stranger shall think fit to be connected with me by marriage, he will hold his tongue, just as long as good terms exist between us: but if he takes a dislike to me, he'll be knowing more than it's proper he should know. I am afraid, too, lest my wife should, by some means, come to know of it; if that is the case, it only remains for me to shake myself<milestone n="585" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To shake myself</lemma>: "Me excutiam." In reference to the custom of the Greeks, and the Eastern nations, of shaking their clothes at the door of any house which they were going to leave.</note> and leave the house; for I'm the only one I can rely on at home.<milestone n="586" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Rely on at home</lemma>: "Nam ego meorum solus sum meus." He means that he is the only person in his house friendly to himself, inasmuch as his wife, from her wealth, has supreme power over the domestics, in whom he himself can place no trust.</note></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I know it is so, and that circumstance is a cause of anxiety to me; and I shall never cease trying, until I've made good what I promised you.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="591" unit="TLN line"/>
+<stage>Enter GETA, on the other side of the stage, not seeing DEMIPHO or CHREMES.</stage>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> I never saw a more cunning fellow than this Phormio. I came to the fellow to tell him that money was needed, and by what means it might be procured. Hardly had I said one half, when he understood me; he was quite delighted; complimented me; asked where the old man was; gave thanks to the Gods that an opportunity was afforded him for showing himself no less a friend to Phaedria than to Antipho: I bade the fellow wait for me at the Forum; whither I would bring the old gentlemanly. But see, here's the very man <stage>catching sight of the Old Man</stage>. Who is the further one? Heyday, Phaedria's father has got back! still, brute beast that I am, what was I afraid of? Is it because two are presented instead of one for me to dupe? I deem it preferable to enjoy a two-fold hope. I'll try for it from him from whom I first intended: if he gives it me, well and good; if I can make nothing of him, then I'll attack this new-comer.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="606" unit="TLN ine"/>
+<stage>Enter ANTIPHO from the house, behind at a distance.</stage>
+<sp><speaker>ANTIPHO</speaker><p> <stage>to himself.</stage> I'm expecting every moment that Geta will be here. But I see my uncle standing close by, with my father. Ah me! how much I fear what influence his return may have upon my father!</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to himself</stage> I'll accost them. <stage>Goes up to them.</stage> O welcome to you, our neighbor Chremes.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Save you, Geta.</p></sp>
+<sp><speaker>GETA</speaker><p> I'm delighted to see you safe returned.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I believe you.</p></sp>
+<sp><speaker>GETA</speaker><p> How go matters?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Many changes here upon my arrival, as usually the case.</p></sp>
+<sp><speaker>GETA</speaker><p> True; have you heard what has happened to Antipho?</p></sp>
+<sp><speaker>CHREMES</speaker><p> All.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to DEMIPHO.</stage> What, have you told him? Disgraceful conduct, Chremes, thus to be imposed on.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> It was about that I was talking to him just now.</p></sp>
+<sp><speaker>GETA</speaker><p> But really, on carefully reflecting upon this matter I think I have found a remedy.
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What is the remedy?</p></sp>
+<sp><speaker>GETA</speaker><p> When I left you, by accident Phormio met me.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Who is Phormio?</p></sp>
+<sp><speaker>GETA</speaker><p> He who patronized her.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I understand.</p></sp>
+<sp><speaker>GETA</speaker><p> It seemed to me that I might first sound him; I took the fellow aside: "Phormio," said I, "why don't we try to settle these matters between us rather with a good grace than with a bad one? My master's a generous man, and one who hates litigation; but really, upon my faith, all his friends were just now advising him with one voice to turn her instantly out of doors."</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart.</stage> What is he about? Or where is this to end at last?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>continuing the supposed conversation.</stage> "He'll have to give satisfaction at law, you say, if he turns her out? That has been already inquired into: aye, aye, you'll have enough to do, if you engage with him; he is so eloquent. But suppose he's beaten; still, however, it's not his life, but his money that's at stake." After I found that the fellow was influenced by these words, I said: "We are now by ourselves here; come now, what should you like to be given you, money down, to drop this suit with my master, so that she may betake herself off, and you annoy us no more?"</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart.</stage> Are the Gods quite on good terms with him?<milestone n="635" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Good terms with him</lemma>: Meaning, "Is he in his senses or not?"</note></p></sp>
+<sp><speaker>GETA</speaker><p> <stage>continuing the conversation.</stage> "For I'm quite sure, if you were to mention any thing that's fair and reasonable, as he is a reasonable man, you'll not have to bandy three words with him."</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Who ordered you to say so?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Nay, he could not have more happily contrived to bring about what we want.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart.</stage> Undone!</p></sp>
+<sp><speaker>CHREMES</speaker><p> Go on with your story.</p></sp>
+<sp><speaker>GETA</speaker><p> At first the fellow raved.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Say, what did he ask?</p></sp>
+<sp><speaker>GETA</speaker><p> What? A great deal too much.
+</p></sp>
+<sp><speaker>CHREMES</speaker><p> How much? Tell me.</p></sp>
+<sp><speaker>GETA</speaker><p> Suppose he were to give a great talent.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Aye, faith, perdition to him rather; has he no shame?</p></sp>
+<sp><speaker>GETA</speaker><p> Just what I said to him: "Pray," said I, "suppose he was portioning an only daughter of his own. It has been of little benefit that he hasn't one of his own, when another has been found to be demanding a fortune." To be brief, and to pass over his impertinences, this at last was his final answer: "I," said he," from the very first, have been desirous to marry the daughter of my friend, as was fit I should; for I was aware of the ill results of this, a poor wife being married into a rich family, and becoming a slave. But, as I am now conversing with you unreservedly, I was in want of a wife to bring me a little money with which to pay off my debts; and even yet, if Demipho is willing to give as much as I am to receive with her to whom I am engaged, there is no one whom I should better like for a wife."</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart.</stage> Whether to say he's doing this through folly or mischief, through stupidity or design, I'm in doubt.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What if he's in debt to the amount of his life?<milestone n="660" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Amount of his life</lemma>: "Quid si animam debet?" Erasmus tells us that this was a proverb among the Greeks applied to those who ran so deeply in debt, that their persons, and consequently, in one sense, their very existence, came into the power of their creditors.</note></p></sp>
+<sp><speaker>GETA</speaker><p> His land is mortgaged,--for ten minae he said.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Well, well, let him take her then; I'll give it.</p></sp>
+<sp><speaker>GETA</speaker><p> He has a house besides, mortgaged for another ten.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Huy, huy! that's too much.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Don't be crying out; you may have those ten of me.</p></sp>
+<sp><speaker>GETA</speaker><p> A lady's maid must be brought for his wife; and then too, a little more is wanted for some furniture, and some is wanted for the wedding expenses. " Well then," said he, "for these items, put down ten more."</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Then let him at once bring six hundred actions<milestone n="667" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Six hundred actions</lemma>: "Sescentos;" literally, "six hundred." The Romans used this term as we do the words "ten thousand," to signify a large, but indefinite number.</note> against me; I shall give nothing at all; is this dirty fellow to be laughing at me as well?
+</p></sp>
+<sp><speaker>CHREMES</speaker><p> Pray do be quiet; I'll give it: do you only bring your son to marry the woman we want him to have.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart.</stage> Ah me! Geta, you have ruined me by your treachery.</p></sp>
+<sp><speaker>CHREMES</speaker><p> 'Tis on my account she's turned off; it's right that I should bear the loss.</p></sp>
+<sp><speaker>GETA</speaker><p> " Take care and let me know," said he, "as soon as possible, if they are going to let me have her, that I may get rid of the other, so that I mayn't be in doubt; for the others have agreed to.pay me down the portion directly."</p></sp>
+<sp><speaker>CHREMES</speaker><p> Let him have her at once; let him give notice to them that he breaks off the match with the other, and let him marry this woman.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Yes, and little joy to him of the bargain!</p></sp>
+<sp><speaker>CHREMES</speaker><p> Luckily, too, I've now brought home some money with me, the rents which my wife's farms at <placeName key="tgn,7011173">Lemnos</placeName> produce. I'll take it out of that, and tell my wife that you had occasion for it. <stage>They go into the house of CHREMES.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="682" unit="TLN line"/>
+<stage>ANTIPHO and GETA.</stage>
+<sp><speaker>ANTIPHO</speaker><p> <stage>coming forward.</stage> Geta.</p></sp>
+<sp><speaker>GETA</speaker><p> Well.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What have you been doing?</p></sp>
+<sp><speaker>GETA</speaker><p> Diddling the old fellows out of their money.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Is that quite the thing?</p></sp>
+<sp><speaker>GETA</speaker><p> I' faith, I don't know: it's just what I was told to do.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> How now, whip-scoundrel, do you give me an answer to what I don't ask you? <stage>Kicks him.</stage></p></sp>
+<sp><speaker>GETA</speaker><p> What was it then that you did ask?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What was it I did ask? Through your agency, matters have most undoubtedly come to the pass that I may go hang myself. May then all the Gods, Goddesses, Deities above and below, with every evil confound you! Look now, if you wish any thing to succeed, intrust it to him who may bring you from smooth water on to a rock. What was there less advantageous than to touch upon this sore, or to name my wife? Hopes have been excited in my father that she may possibly be got rid of. Pray now, tell me, suppose Phormio receives the portion, she must be taken home by him as his wife: what's to become of me?</p></sp>
+<sp><speaker>GETA</speaker><p> But he's not going to marry her.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I know that. But <stage>ironically</stage> when they demand the money back, of course, for our sake, he'll prefer going to prison.</p></sp>
+<sp><speaker>GETA</speaker><p> There is nothing, Antipho, but what it may be made worse by being badly told: you leave out what is good, and you mention the bad. Now then, hear the other side: if he receives the money, she must be taken as his wife, you say; I grant you; still, some time at least will be allowed for preparing for the nuptials, for inviting, and for sacrificing. In the mean time, Phoedria's friends will advance what they have promised; out of that he will repay it.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> On what grounds? Or what will he say?</p></sp>
+<sp><speaker>GETA</speaker><p> Do you ask the question? "How many circumstances, since then, have befallen me as prodigies? A strange black dog<milestone n="705" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A strange black dog</lemma>: This omen, Plautus calls, in the Casina, 1. 937, "canina scaeva."</note> entered the house; a snake came down from the tiles through the sky-light;<milestone n="706" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Through the sky-light</lemma>: So in the Amphitryon of Plautus, l. 1108, two great snakes come down through the "impluvium," or "sky-light." On the subject of the "impluvium," see the Notes to the Miles Gloriosus of Plautus, 1. 159.</note> a hen crowed;<milestone n="707" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A hen crowed</lemma>: Donatus tells us that it was a saying, that in the house where a hen crowed, the wife had the upper hand.</note> the soothsayer forbade it; the diviner<milestone n="708" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The soothsayer--the diviner</lemma>: According to some accounts there was this difference between the "hariolus" and the " arus-pex," that the former foretold human events, the latter those relating to the Deities. Donatus has remarked on these passages, that Terence seems to sneer at the superstitions referred to.</note> warned me not: besides, before winter there is no sufficient reason for me to commence upon any new undertaking." This will be the case.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I only wish it may be the case.</p></sp>
+<sp><speaker>GETA</speaker><p> It shall be the case; trust me for that. Your father's coming out; go tell Phaedria that the money is found.
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="713" unit="TLN line"/>
+<stage>Enter DEMIPHO and CHREMES, from the house of the latter, the former with a purse of money.</stage>
+<sp><speaker>DEMIPHO</speaker><p> Do be quiet, I tell you; I'll take care he shall not be playing any tricks upon us. I'll not rashly part with this without having my witnesses; I'll have it stated to whom I pay it, and for what purpose I pay it.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>apart.</stage> How cautious he is, when there's no need for it!</p></sp>
+<sp><speaker>CHREMES</speaker><p> Why yes, you had need do so, and with all haste, while the fit is upon him; for if this other woman shall prove more pressing, perhaps he may throw us over.</p></sp>
+<sp><speaker>GETA</speaker><p> You've hit upon the very thing.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Lead me to him then.</p></sp>
+<sp><speaker>GETA</speaker><p> I won't delay.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to DEMIPHO.</stage> When you've done so, go over to my wife, that she may call upon her before she goes away. She must tell her that we are going to give her in marriage to Phormio, that she may not be angry with us; and that he is a fitter match for her, as knowing more of her; that we have in no way departed from our duty; that as much has been given for a portion as he asked for.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What the plague does that matter to you?</p></sp>
+<sp><speaker>CHREMES</speaker><p> A great deal, Demipho. It is not enough for you to do your duty, if common report does not approve of it; I wish all this to be done with her own sanction as well, that she mayn't be saying that she has been turned out of doors.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I can do all that myself.</p></sp>
+<sp><speaker>CHREMES</speaker><p> It will come better from one woman to another.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I'll ask her. <stage>Goes into the house of CHREMES; and exit GETA.</stage></p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to himself.</stage> I'm thinking where I can find them now.<milestone n="726" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Can find them now</lemma>: His Lemnian wife and daughter. Colman remarks: " This is intended as a transition to the next Scene; but I think it would have been better if it had followed without this kind of introduction. The Scene itself is admirable, and is, in many places, both affecting and comic, and the discovery of the real character of Phanium is made at a very proper time."</note>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="728" unit="TLN line"/>
+<stage>Enter SOPHRONA from the house of DEMIPHO, at a distance.</stage>
+<sp><speaker>SOPHRONA</speaker><p> <stage>to herself.</stage> What am I to do? What friend, in my distress, shall I find, to whom to disclose these plans; and where shall I look for relief? For I'm afraid that my mistress, in consequence of my advice, may undeservingly sustain some injury, so extremely ill do I hear that the young man's father takes what has happened.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart, to himself.</stage> But what old woman's this, that has come out of my brother's house, half dead with fright?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> <stage>to herself, continuing</stage> It was distress that compelled me to this step, though I knew that the match was not likely to hold good; my object was, that in the mean time life might be supported.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart, to himself.</stage> Upon my faith, surely, unless my recollection deceives me, or my sight's not very good, I espy my daughter's nurse.<milestone n="735" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My daughter's nurse</lemma>: Among the ancients, it was the custom for nurses who had brought up children to remain with them in after-life.</note></p></sp>
+<sp><speaker>SOPHRONA</speaker><p> <stage>to herself.</stage> And we are not able to find----</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> What must I do?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> <stage>to herself.</stage> Her father.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to himself, apart.</stage> Shall I accost her, or shall I wait to learn more distinctly what it is she's saying?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> <stage>to herself</stage> If now I could find him, there's nothing that I should be in fear of.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart, to himself, aloud.</stage> 'Tis the very woman. I'll address her.</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> <stage>turning round.</stage> Who's that speaking here?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>coming forward.</stage> Sophrona.</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Mentioning my name, too?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Look round at me.</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> <stage>seeing him.</stage> Ye Gods, I do beseech you, isn't this Stilpho?</p></sp>
+<sp><speaker>CHREMES</speaker><p> No.
+</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Do you deny it?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>in a low voice.</stage> Step a little this way from that door, Sophrona, if you please <stage>pointing</stage>. Don't you, henceforth, be calling me by that name.</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Why? Pray, are you not the person you always used to say you were?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Hush! <stage>pointing to his own house.</stage></p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Why are you afraid about that door?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>in a low voice.</stage> I have got a shrew of a wife shut up there. For by that name I formerly falsely called myself, in order that you might not chance indiscreetly to blab it out of doors, and then my wife, by some means or other, might come to know of it.</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> I' faith, that's the very reason why we, wretched creatures, have never been able to find you out here.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Well, but tell me, what business have you with that family from whose house you were coming out? Where are the ladies?<milestone n="748" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Where are the ladies?</lemma>: "Ubi illae?" literally, "Where are these women?"</note></p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Ah, wretched me!</p></sp>
+<sp><speaker>CHREMES</speaker><p> Hah! What's the matter? Are they still alive?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Your daughter is alive. Her poor mother died of grief.</p></sp>
+<sp><speaker>CHREMES</speaker><p> An unfortunate thing!</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> As for me, being a lone old woman, in want, and unknown, I contrived, as well as I could, to get the young woman married to the young man who is master of this house <stage>pointing</stage>.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What! to Antipho?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> The very same, I say.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What? Has he got two wives?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Dear no, prithee, he has only got this one.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What about the other one that's called his relative?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Why, this is she.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What is it you say?</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> It was done on purpose, in order that her lover might be enabled to marry her without a portion.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Ye Gods, by our trust in you! How often do those things come about through accident, which you couldn't dare to hope for? On my return, I have found my daughter matched with the very person I wished, and just as I wanted; a thing that we were both using our endeavors, with the greatest earnestness, to bring about. Without any very great management on our part, by her own management, she has by herself brought this about.</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> Now consider what's to be done. The young man's father has returned, and they say that he bears this with feelings highly offended.</p></sp>
+<sp><speaker>CHREMES</speaker><p> There's no danger of that. But, by Gods and men, do take care that no one comes to know that she's my daughter.</p></sp>
+<sp><speaker>SOPHRONA</speaker><p> No one shall know it from me.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Follow me; in-doors we'll hear the rest. <stage>He goes into DEMIPHO'S house, followed by SOPHRONA.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="766" unit="TLN line"/>
+<stage>Enter DEMIPHO and GETA.</stage>
+<sp><speaker>DEMIPHO</speaker><p> 'Tis caused by our own fault, that it is advantageous to be dishonest; while we wish ourselves to be styled very honest and generous. "So run away as not to run beyond the house,"<milestone n="767" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Run beyond the house</lemma>: "Fugias ne printer casam." This passage, has given much trouble to the Commentators; but it is pretty clear that the explanation of Donatus is the correct one: "Don't abandon your own home," that being the safest place. Stallbaum agrees with Gronovius in thinking that it was first applied as a piece of advice to runaway slaves, as being likely to become worse off by the change; probably much in the same spirit as we say, "Out of the frying-pan into the fire."</note> as the saying is. Was it not enough to receive an injury from him, but money must be voluntarily offered him as well, that he may have something on which to subsist while he plans some other piece of roguery?
+</p></sp>
+<sp><speaker>GETA</speaker><p> Most clearly so.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> They now get rewarded for it, who confound right with wrong.</p></sp>
+<sp><speaker>GETA</speaker><p> Most undoubtedly.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> How very foolishly, in fact, we have managed the affair with him!</p></sp>
+<sp><speaker>GETA</speaker><p> If by these means we can only manage for him to marry her.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Is that, then, a matter of doubt?</p></sp>
+<sp><speaker>GETA</speaker><p> I' faith, judging from what the fellow is, I don't know whether he mightn't change his mind.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> How! change it indeed?</p></sp>
+<sp><speaker>GETA</speaker><p> I don't know: but "if perhaps," I say.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I'll do as my brother advised me, bring hither his wife, to talk with her. Do you, Geta, go before; tell her that Nausistrata is about to visit her. <stage>DEMIPHO goes into the house of CHREMES.</stage>
+</p></sp>
+<sp><speaker>GETA</speaker><p> The money's been got for Phaedria; it's all hushed about the lawsuit; due care has been taken that she's not to leave for the present. What next, then? What's to be done? You are still sticking in the mud. You are paying by borrowing;<milestone n="779" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Paying by borrowing</lemma>: "Versura solvere," was "to pay a debt by borrowing money," and consequently to be no better off than before. Geta having, by the money he has procured, freed Phaedria from all danger of losing his mistress, but at the same time having brought Antipho into still greater danger of losing his wife.</note> the evil that was at hand, has been put off for a day. The toils are increasing upon you, if you don't look out. Now I'll away home, and tell Phanium not to be afraid of Nausistrata, or his talking.<milestone n="782" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Or his talking</lemma>: "Ejus" here alludes, not to Nausistrata but to Phormio. Madame Dacier suggests that it should be "hujus."</note> <stage>Goes into the house of DEMIPHO.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="784" unit="TLN line"/>
+<stage>Enter DEMIPHO and NAUSISTRATA, from the house of CHREMES.</stage>
+<sp><speaker>DEMIPHO</speaker><p> Come now, Nausistrata, after your usual way, manage to keep her in good-humor with us, and make her do of her own accord what must be done.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> I will.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You are now seconding me with your endeavors, just as you assisted me with your money<milestone n="785" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With your money</lemma>: Colman observes: "Alluding to the money borrowed of her to pay Phormio; and as Donatus observes in another place, it is admirably contrived, in order to bring about a humorous catastrophe that Chremes should make use of his wife's money on this occasion.'</note> before.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> I wish to do so; and yet, i' faith, through the fault of my husband, I am less able than I ought to be.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why so?</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Because, i' faith, he takes such indifferent care of the property that was so industriously acquired by my father; for from those farms he used regularly to receive two talents of silver yearly; there's an instance, how superior one man is to another.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Two talents, pray?</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Aye, and when things were much worse, two talents even.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Whew!</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> What! does this seem surprising?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Of course it does.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> I wish I had been born a man; Id have shown----</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> That I'm quite sure of.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> In what way----</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Forbear, pray, that you may be able to do battle with her; lest she, being a young woman, may be more than a match for you.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> I'll do as you bid me; but I see my husband coming out of your house.
+
+<stage>Enter CHREMES, hastily, from DEMIPHO'S house.</stage></p></sp>
+<sp><speaker>CHREMES</speaker><p> Ha! Demipho, has the money been paid him yet?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I took care immediately.</p></sp>
+<sp><speaker>CHREMES</speaker><p> I wish it hadn't been paid him. <stage>On seeing NAUSISTRATA, aside.</stage>: Halloo, I espy my wife; I had almost said more than I ought.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why do you wish I hadn't, Chremes?</p></sp>
+<sp><speaker>CHREMES</speaker><p> It's all right.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What say you? Have you been letting her know why we are going to bring her? <stage>pointing to NAUSISTRATA.</stage></p></sp>
+<sp><speaker>CHREMES</speaker><p> I've arranged it.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Pray, what does she say?</p></sp>
+<sp><speaker>CHREMES</speaker><p> She can't be got to leave.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why can't she?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Because they are fond of one another.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What's that to us?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart, to DEMIPHO.</stage> A great deal; besides that, I've found out that she is related to us.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart.</stage> What! You are mad, surely.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> So you will find; I don't speak at random; I've recovered my recollection.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart.</stage> Are you quite in your senses?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> Nay, prithee, do take care not to injure your kinswoman.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart.</stage> She is not.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> Don't deny it; her father went by another name; that was the cause of your mistake.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart.</stage> Did she not know who was her father?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart.</stage> She did.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart.</stage> Why did she call him by another name?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart, frowning.</stage> Will you never yield to me, nor understand what I mean?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart.</stage> If you don't tell me of any thing----</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>impatiently.</stage> Do you persist?</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> I wonder what all this can be.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> For my part, upon my faith, I don't know.
+</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>whispering to him.</stage> Would you like to know? Then, so may Jupiter preserve me, not a person is there more nearly related to her than are you and I.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>starting.</stage> Ye Gods, by our trust in you! let's away to her; I wish for all of us, one way or other, to be sure about this <stage>going</stage>.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>stopping him.</stage> Ah!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>CHREMES</speaker><p> That you should put so little confidence in me!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Do you wish me to believe you? Do you wish me to consider this as quite certain? Very well, be it so. Well, what's to be done with our friend's<milestone n="811" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Our friend's</lemma>: Chremes himself is so called, to deceive Nausistrata.</note> daughter?</p></sp>
+<sp><speaker>CHREMES</speaker><p> She'll do well enough.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Are we to drop her, then?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Why not?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> The other one to stop?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Just so.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You may go then, Nausistrata.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> I' faith, I think it better for all that she should remain here as it is, than as you first intended; for she seemed to me a very genteel person when I saw her. <stage>Goes into her house.</stage></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What is the meaning of all this?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>looking at the door of his house.</stage> Has she shut the door yet?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Now she has.</p></sp>
+<sp><speaker>CHREMES</speaker><p> O Jupiter! the Gods do befriend us; I have found that it is my daughter married to your son.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Ha! How can that possibly be?</p></sp>
+<sp><speaker>CHREMES</speaker><p> This spot is not exactly suited for me to tell it you.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Well then, step in-doors.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Hark, you, I don't wish our sons even to come to know of this. <stage>They go into DEMIPHO'S house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="820" unit="TLN line"/>
+<stage>Enter ANTIPHO.</stage>
+<sp><speaker>ANTIPHO</speaker><p> I'm glad that, however my own affairs go, my brother has succeeded in his wishes. How wise it is to cherish desires of that nature in the mind, that when things run counter, you may easily find a cure for them! He has both got the money, and released himself from care; I, by no method, can extricate myself from these troubles; on the contrary, if the matter is concealed, I am in dread--but if disclosed, in disgrace. Neither should I now go home, were not a hope still presented me of retaining her. But where, I wonder, can I find Geta, that I may ask him what opportunity he would recommend me to take for meeting my father?</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="829" unit="TLN line"/>
+<stage>Enter PHORMIO, at a distance.</stage>
+<sp><speaker>PHORMIO</speaker><p> <stage>to himself</stage> I received the money; handed it over to the Procurer; brought away the woman, that Phaedria might have her as his own--for she has now become free. Now there is one thing still remaining for me to manage,--to get a respite from the old gentlemen for carousing; for I'll enjoy myself the next few days.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> But here's Phormio. <stage>Going up to him.</stage> What have you to say?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> About what?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Why--what's Phaedria going to do now? In what way does he say that he intends to take his fill of love?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> In his turn, he's going to act your part.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What part?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> To run away from his father; he begs that you in your return will act on his behalf--to plead his cause for him. For he's going to carouse at my house. I shall tell the old man that I'm going to Sunium, to the fair, to purchase the female servant that Geta mentioned a while since, so that, when they don't see me here, they mayn't suppose that I'm squandering their money. But there is a noise at the door of your house.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> See who's coming out.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> It's Geta.</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="841" unit="TLN line"/>
+<stage>Enter GETA, at a distance, hastily, from the house of DEMIPHO.</stage>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> O fortune! O good luck!<milestone n="840" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">O good luck</lemma>: "Fors fortuna," "good fortune;" while "fortuna" merely means "chance."</note> with blessings how great, how suddenly hast thou loaded this day with thy favors to my master Antipho!----</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart to PHORMIO.</stage> I wonder what it is he means.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>continuing.</stage> And relieved us, his friends, from alarm; but I'm now delaying, in not throwing my cloak<milestone n="843" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Throwing my cloak</lemma>: When expedition was required, it was usual to throw the ends of the "pallium," or "cloak," over the shoulders.</note> over my shoulder <stage>throws it over his shoulder</stage>, and making haste to find him, that he may know what has happened.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart to PHORMIO.</stage> Do you understand what he's talking about?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>apart to ANTIPHO.</stage> Do you?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>apart to PHORMIO.</stage> Not at all.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>apart to ANTIPHO.</stage> And I just as much.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> I'll be off hence to the Procurer's; they are there just now. <stage>Runs along.</stage></p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>calling out.</stage> Halloo! Geta!</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>still running.</stage> There's for you. Is it any thing new or wonderful to be called back, directly you've started?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Geta!</p></sp>
+<sp><speaker>GETA</speaker><p> Do you persist? Troth, you shall not on this occasion get the better of me by your annoyance.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>running after him.</stage> Won't you stop?</p></sp>
+<sp><speaker>GETA</speaker><p> You'll be getting a beating.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Assuredly that will befall yourself just now unless you stop, you whip-knave.
+</p></sp>
+<sp><speaker>GETA</speaker><p> This must be some one pretty familiar, threatening me with a beating. <stage>Turns round.</stage> But is it the person I'm in search of or not? 'Tis the very man! Up to him at once.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>GETA</speaker><p> O being most blessed of all men living! For without question, Antipho, you are the only favorite of the Gods.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> So I could wish; but I should like to be told why I'm to believe it is so.</p></sp>
+<sp><speaker>GETA</speaker><p> Is it enough if I plunge you into a sea of joy?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> You are worrying me to death.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Nay but do have done with your promises, and tell us what you bring.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>looking round.</stage> Oh, are you here too, Phormio?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> I am: but why do you delay?</p></sp>
+<sp><speaker>GETA</speaker><p> Listen, then. When we just now paid you the money at the Forum, we went straight to Chremes; in the mean time, my master sent me to your wife.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What for?</p></sp>
+<sp><speaker>GETA</speaker><p> I'll omit telling you that, as it is nothing to the present purpose, Antipho. Just as I was going to the woman's apartments, the boy Mida came running up to me, and caught me behind by my cloak, and pulled me back; I turned about, and inquired for what reason he stopped me; he said that it was forbidden for any one to go in to his mistress. "Sophrona has just now," said he, "introduced here Chremes, the old gentleman's brother," and he said that he was then in the room with them: when I heard this, on tip-toe I stole softly along; I came there, stood, held my breath, I applied my ear, and so began to listen, catching the conversation every word in this fashion <stage>shows them</stage>.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Well done, Geta.</p></sp>
+<sp><speaker>GETA</speaker><p> Here I overheard a very pretty piece of business; so much so that I had nearly cried out for joy.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> What was it?</p></sp>
+<sp><speaker>GETA </speaker><p> <stage>laughing.</stage> What do you think?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> I don't know.</p></sp>
+<sp><speaker>GETA</speaker><p> Why, something most marvelous. Your uncle has been discovered to be the father of your wife, Phanium.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> <stage>starting.</stage> Ha! what's that you say</p></sp>
+<sp><speaker>GETA</speaker><p> He formerly cohabited secretly with her mother at <placeName key="tgn,7011173">Lemnos</placeName>.
+</p></sp>
+<sp><speaker>PHORMIO</speaker><p> A dream: how could she be ignorant about her own father?</p></sp>
+<sp><speaker>GETA</speaker><p> Be sure, Phormio, that there is some reason: but do you suppose that, outside of the door, I was able to understand every thing that passed between them within?</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> On my faith, I too have heard the same story.</p></sp>
+<sp><speaker>GETA</speaker><p> Aye, and I'll give you still further reason for believing it: your uncle in the mean time came out from there; not long after he returned again, with your father; each said that he gave you permission to retain her; in fine, I've been sent to find you, and bring you to them.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> Why then carry me off<milestone n="881" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Carry me off</lemma>: Madame Dacier says that Antipho is so rejoiced here at Geta's news, that he jumps upon his shoulders, and is carried off in triumph, which was a sort of stage-trick, and was very diverting to the Audience. On this, Colman observes: "I believe Madame Dacier has not the least foundation for this extraordinary piece of information; and I must confess, that I have too high an opinion, both of the Roman audience and actors, to believe it to be true."</note> at once;--why do you delay?</p></sp>
+<sp><speaker>GETA</speaker><p> I'll do so.</p></sp>
+<sp><speaker>ANTIPHO</speaker><p> O my dear Phormio, farewell!</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Farewell, Antipho. <stage>ANTIPHO and GETA go into DEMIPHO'S house.</stage>
+</p></sp>
+<sp><speaker>PHORMIO</speaker><p> So may the Gods bless me, this has turned out luckily. I'm glad of it, that such good fortune has thus suddenly befallen them. I have now an excellent opportunity for diddling the old men, and ridding Phaedria of all anxiety about the money, so that he mayn't be under the necessity of applying to any of his companions. For this same money, as it has been given him, shall be given for good, whether they like it or not: how to force them to this, I've fund out the very way. I must now assume a new air and countenance. But I'll betake myself off to this next alley; from that spot I'll present myself to them, when they come out of doors. I sha'n't go to the fair, where I pretended I was going. <stage>He retires into the alley.</stage>
+</p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="894" unit="TLN line"/>
+<stage>Enter DEMIPHO and CHREMES, from DEMIPHO'S house.</stage>
+<sp><speaker>DEMIPHO</speaker><p> I do give and return hearty thanks to the Gods, and with reason, brother, inasmuch as these matters have turned out for us so fortunately. We must now meet with Phormio as soon as possible, before he squanders our thirty minae, so that we may get them from him.
+<stage>Enter PHORMIO, coming forward, and speaking aloud, as though not seeing them.</stage></p></sp>
+<sp><speaker>PHORMIO</speaker><p> I'll go see if Demipho's at home; that as to what<milestone n="898" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That as to what</lemma>: Lemaire suggests that he is about to say: "that as to what was agreed upon between us, I may take home this young woman, and make her my wife."</note>----</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>accosting him.</stage> Why, Phormio, we were coming to you.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Perhaps about the very same affair. <stage>DEMIPHO nods assent.</stage> I' faith, I thought so. What were you coming to my house for? Ridiculous; are you afraid that I sha'n't do what I have once undertaken? Hark you, whatever is my poverty, still, of this one thing I have taken due care, not to forfeit my word.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to DEMIPHO.</stage> Is she not genteel-looking,<milestone n="904" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is she not genteel-looking</lemma>: Patrick has the following note here: "One can not conceive any thing more happy or just than these words of Chremes. Demipho's thoughts are wholly taken up how to recover the money, and Phormio is equally solicitous to retain it; but Chremes, who had just left his daughter, is regardless of their discourse, and fresh from the impressions which she had made on him, longs to know if his brother's sentiments of her were equally favorable, and naturally puts this paternal question to him."</note> just as I told you?
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Very much so.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> And this is what I'm come to tell you, Demipho, that I'm quite ready; whenever you please, give me my wife. For I postponed all my other business, as was fit I should, when I understood that you were so very desirous to have it so.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>pointing to CHREMES.</stage> But he has dissuaded me from giving her to you. "For what," says he, "will be the talk among people if you do this? Formerly, when she might have been handsomely disposed of, then she wasn't given; now it's a disgrace for her to be turned out of doors, a repudiated woman;" pretty nearly, in fact, all the reasons which you yourself, some little time since, were urging to me.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Upon my faith, you are treating me in a very insulting manner.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> How so?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Do you ask me? Because I shall not be able to marry the other person I mentioned; for with what face shall I return to her whom I've slighted?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Then besides, I see that Antipho is unwilling to part with her. <stage>Aside, prompting DEMIPHO.</stage> Say so.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Then besides, I see that my son is very unwilling to part with the damsel. But have the goodness to step over to the Forum, and order this money to be transferred to my account,<milestone n="921" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Transferred to my account</lemma>: "Rescribere argentum," or "nummos," meant "to transfer," or "set down money to the account of another person in one's banker's books." A passage in the Asinaria of Plautus, l. 445, seems to have the same meaning.</note> Phormio.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> What, when I've paid it over to the persons to whom I was indebted?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What's to be done, then?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> If you will let me have her for a wife, as you promised, I'll take her; but if you prefer that she should stay with you, the portion must stay with me, Demipho. For it isn't fair that I should be misled for you, as it was for your own sakes that I broke off with the other woman, who was to have brought me a portion just as large.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Away with you to utter perdition, with this swaggering, you vagabond. What, then, do you fancy we don't know you, or your doings?
+</p></sp>
+<sp><speaker>PHORMIO</speaker><p> You are provoking me.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Would you have married her, if she had been given to you?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Try the experiment.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> That my son might cohabit with her at your house, that was your design.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Pray, what is that you say?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Then do you give me my money?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Nay, but do you give me my wife?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Come before a magistrate. <stage>Going to seize hold of him.</stage></p></sp>
+<sp><speaker>PHORMIO</speaker><p> Why, really, if you persist in being troublesome--</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What will you do?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> What, I? You fancy, perhaps, just now, that I am the protector of the portionless; for the well portioned,<milestone n="939" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For the well portioned</lemma>: Though Colman thinks otherwise, it is pretty clear that he alludes to Nausistrata in these words.</note> I'm in the habit of being so as well.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What's that to us?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>with a careless air.</stage> Nothing at all. I know a certain lady here <stage>pointing at CHREMES'S house</stage> whose husband had----</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>starting.</stage> Ha!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Another wife at <placeName key="tgn,7011173">Lemnos</placeName>----</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>aside.</stage> I'm ruined!</p></sp>
+<sp><speaker>PHORMIO</speaker><p> By whom he had a daughter; and her he is secretly bringing up.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>aside.</stage> I'm dead and buried!</p></sp>
+<sp><speaker>PHORMIO</speaker><p> This I shall assuredly now inform her of. <stage>Walks toward the house.</stage></p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>running and catching hold of him.</stage> I beg of you, don't do so.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>with a careless air.</stage> Oh, were you the person?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What a jest he's making of us.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to PHORMIO.</stage> We'll let you off.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Nonsense.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What would you have? We'll forgive you the money you've got,</p></sp>
+<sp><speaker>PHORMIO</speaker><p> I hear you. Why the plague, then, do you two trifle with me in this way, you silly men, with your childish speeches--"I won't, and I will; I will, and I won't," over again: "keep it, give it me back; what has been said, is unsaid; what had been just a bargain, is now no bargain."</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>aside, to DEMIPHO.</stage> In what manner, or from whom has he come to know of this?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside.</stage> I don't, know; but that I've told it to no one, I know for certain.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>aside.</stage> So may the Gods bless me, 'tis as good as a miracle.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>aside, to himself.</stage> I've graveled them.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart, to CHREMES.</stage> Well now, is he to be carrying off<milestone n="954" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be carrying off</lemma>: Patrick has the following note here: "The different characters of the two brothers are admirably preserved throughout this Scene. Chremes stands greatly in awe of his wife, and will submit to any thing rather than the story should come to her ears; but Demipho can not brook the thoughts of losing so much money, and encourages his brother to behave with spirit and resolution, promising to make up matters between him and his wife."</note> from us such a sum of money as this, and so palpably to impose upon us? By heavens, I'd sooner die. Manage to show yourself of resolute and ready wit. You see that this slip of yours has got abroad, and that you can not now possibly conceal it from your wife; it is then more conducive to our quiet, Chremes, ourselves to disclose what she will be hearing from others; and then, in our own fashion, we shall be able to take vengeance upon this dirty fellow.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>aside, to himself.</stage> Good lack-a-day, now's the sticking-point, if I don't look out for myself. They are making toward me with a gladiatorial air.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>apart, to DEMIPHO.</stage> But I doubt whether it's possible for her to be appeased.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart, to CHREMES.</stage> Be of good courage; I'll effect a reconciliation between you; remembering this, Chremes, that she is dead and gone<milestone n="965" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Dlead and gone</lemma>: "E medio excedere," was an Euphemism signifying "to die," which it was deemed of ill omen to mention.</note> by whom you had this girl.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>in a loud voice.</stage> Is this the way you are going to deal with me? Very cleverly done. Come on with you. By heavens, Demipho, you have provoked me, not to his advantage <stage>pointing at CHREMES</stage>. How say you? <stage>addressing CHREMES</stage>. When you've been doing abroad just as you pleased, and have had no regard for this excellent lady here, but on the contrary, have been injuring her in an unheard-of manner, would you be coming to me with prayers to wash away your offenses? On telling her of this, I'll make her so incensed with you, that you sha'n't quench her, though you should melt away into tears.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside.</stage> A plague may all the Gods and Goddesses send upon him. That any fellow should be possessed of so much impudence! Does not this villain deserve to be transported hence to some desolate land at the public charge?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>aside.</stage> I am brought to such a pass, that I really don't know what to do in it.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I know; let's go into court.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Into court? Here in preference <stage>pointing to CHREMES'S house</stage>, if it suits you in any way. <stage>Moves toward the house.</stage></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to CHREMES.</stage> Follow him, and hold him back, till I call out the servants.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>trying to seize PHORMIO.</stage> But I can't by myself; run and help me.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to DEMIPHO, who seizes hold of him.</stage> There's one action of damages against you.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Sue him at law, then.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> And another with you, Chremes.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Lay hold of him. <stage>They both drag him.</stage></p></sp>
+<sp><speaker>PHORMIO</speaker><p> Is it thus you do? Why then I must exert my voice: Nausistrata, come out <stage>calling aloud</stage>.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to DEMIPHO.</stage> Stop his mouth.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> See how strong the rascal is.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>calling aloud.</stage> Nausistrata, I say.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Will you not hold your tongue?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Hold my tongue?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to CHREMES, as they drag him along.</stage> If he won't follow, plant your fists in his stomach.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Or e'en gouge out an eye. The time's coming when I shall have a full revenge on you.
+</p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="990" unit="TLN line"/>
+<stage>Enter NAUSISTRATA, in haste, from the house.</stage>
+<sp><speaker>NAUSISTRATA</speaker><p> Who calls my name?</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>in alarm.</stage> Ha!</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> My husband, pray what means this disturbance?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to CHREMES.</stage> Oh, oh, why are you mute now?</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Who is this man? Won't you answer me?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> What, he to answer you? who, upon my faith, doesn't know where he is.</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>to NAUSISTRATA.</stage> Take care how you believe that fellow in any thing.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to NAUSISTRATA.</stage> Go, touch him; if he isn't in a cold sweat all over, why then kill me.</p></sp>
+<sp><speaker>CHREMES</speaker><p> 'Tis nothing at all.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> What is it, then, that this person is talking about?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> You shall know directly; listen now.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Are you resolved to believe him?</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Pray, how can I believe him, when he has told me nothing?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> The poor creature is distracted from fright.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> It isn't for nothing, i' faith, that you are in such a fright.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What, I in a fright?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to CHREMES.</stage> All right, of course: since you are not in a fright at all, and this is nothing at all that I'm going to tell, do you relate it.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Villain, is he to relate it at your request?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to DEMIPHO.</stage> Come now, you've managed nicely for your brother.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> My husband, will you not tell me?</p></sp>
+<sp><speaker>CHREMES</speaker><p> But----</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> But what?</p></sp>
+<sp><speaker>CHREMES</speaker><p> There's no need to tell you.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Not for you, indeed; but there's need for her to know it. At <placeName key="tgn,7011173">Lemnos</placeName>----</p></sp>
+<sp><speaker>CHREMES</speaker><p> <stage>starting.</stage> Ha! what are you doing?
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to PHORMIO.</stage> Won't you hold your tongue?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>to NAUSISTRATA.</stage> Unknown to you----</p></sp>
+<sp><speaker>CHREMES</speaker><p> Ah me!</p></sp>
+<sp><speaker>PHORMIO</speaker><p> He married another----</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> My dear sir, may the Gods forbid it!</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Such is the fact.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Wretch that I am, I'm undone!</p></sp>
+<sp><speaker>PHORMIO</speaker><p> And had a daughter by her, too, while you never dreamed of it.</p></sp>
+<sp><speaker>CHREMES</speaker><p> What are we to do?</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> O immortal Gods!--a disgraceful and a wicked misdeed!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside, to CHREMES.</stage> It's all up with you.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Was ever any thing now more ungenerously done? Your men, who, when they come to their wives, then become incapacitated from old age.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Demipho, I appeal to you; for with that man it is irksome for me to speak. Were these those frequent journeys and long visits at <placeName key="tgn,7011173">Lemnos</placeName>? Was this the lowness of prices that reduced our rents?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Nausistrata, I don't deny that in this matter he has been deserving of censure; but still, it may be pardoned.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>apart.</stage> He is talking to the dead.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> For he did this neither through neglect or aversion to yourself. About fifteen years since, in a drunken fit, he had an intrigue with this poor woman, of whom this girl was born, nor did he ever touch her afterward. She is dead and gone: the only difficulty that remained in this matter. Wherefore, I do beg of you, that, as in other things, you'll bear this with patience.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Why should I with patience? I could wish, afflicted as I am, that there were an end now of this matter. But how can I hope? Am I to suppose that, at his age, he will not offend in future? Was he not an old man then, if old age makes people behave themselves decently? Are my looks and my age more attractive now, Demipho? What do you advance to me, to make me expect or hope that this will not happen any more?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>in a loud voice.</stage> Those who have<milestone n="1025" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Those who have</lemma>: He here uses the terms which it was customary to employ in the celebration of a public funeral. See also the form of proclaiming an auction, at the end of the Menaechmi of Plautus.</note> a mind to come to the funeral of Chremes, why now's their time. 'Tis thus I retaliate: come now, let him challenge Phormio who pleases: I'll have him victimized<milestone n="1027" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have him victimized</lemma>: "Mactatus" was the term applied to the pouring of wine and frankincense on the victim about to be sacrificed, on which it was said to be "magis auctus," "increased," or "amplified;" which, in time, became corrupted into the word "mactatus," or "mactus."</note> with just a like mischance. Why then, let him return again into her good graces. I have now had revenge enough. She has got something for her as long as she lives, to be forever ringing into his ears.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> But it was because I deserved this, I suppose; why should I now, Demipho, make mention of each particular, how I have conducted myself toward him?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I know it all, as well as yourself.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Does it appear, then, that I deserved this treatment?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Far from it: but since, by reproaching, it can not now be undone, forgive him: he entreats you--he begs your pardon--owns his fault--makes an apology. What would you have more?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>aside.</stage> But really, before she grants pardon to him, I must take care of myself and Phaedria. <stage>To NAUSISTRATA.</stage> Hark you, Nausistrata, before you answer him without thinking, listen to me.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> What's the matter?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> I got out of him thirty minae by a stratagem. I give them to your son; he paid them to a Procurer for his mistress.</p></sp>
+<sp><speaker>CHREMES</speaker><p> Ha! what is it you say?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>sneeringly.</stage> Does it seem to you so very improper for your son, a young man, to keep one mistress, while you have two wives? Are you ashamed of nothing? With what face will you censure him? Answer me that.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> He shall do as you wish.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Nay, that you may now know my determination, I neither forgive nor promise any thing, nor give any answer, before I see my son: to his decision I leave every thing. What he bids me, I shall do.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You are a wise woman, Nausistrata.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Does that satisfy you, Chremes?</p></sp>
+<sp><speaker>CHREMES</speaker><p> Yes, indeed, I come off well, and fully to my satisfaction; indeed, beyond my expectation.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> <stage>to PHORMIO.</stage> Do you tell me, what is your name?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> What, mine? Phormio; a well-wisher to your family, upon my honor, and to your son Phaedria in particular.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Then, Phormio, on my word, henceforward I'll both do and say for you all I can, and whatever you may desire.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> You speak obligingly.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> I' faith, it is as you deserve.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> First, then, will you do this, Nausistrata, at once, to please me, and to make your husband's eyes ache with vexation?</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> With all my heart.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Invite me to dinner.</p></sp>
+<sp><speaker>NAUSISTRATA</speaker><p> Assuredly indeed, I do invite you.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Let us now away in-doors.</p></sp>
+<sp><speaker>CHREMES</speaker><p> By all means; but where is Phaedria, our arbitrator?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> I'll have him here just now. <stage>To the AUDIENCE.</stage> Fare you well, and grant us your applause.<milestone n="1054" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Grant us your applause</lemma>: Thus concludes the last, and certainly not the least meritorious of the Plays of our Author; indeed, for genuine comic spirit, it may challenge comparison with the Eunuch, which is in general considered to be the best.</note>
+</p></sp></div2>
+<div2 type="scene" n="9">
+<milestone n="1" unit="line"/><milestone n="1056" unit="TLN line"/>
+<stage>Enter PHAEDRIA and PHORMIO, from opposite sides of the stage.<note anchored="yes">This scene is generally considered to be spurious.</note></stage>
+<sp><speaker>PHAEDRIA</speaker><p> Assuredly there is a God, who both hears and sees what we do. And I do not consider that to be true which is commonly said: "Fortune frames and fashions the affairs of mankind, just as she pleases."</p></sp>
+<sp><speaker>PHORMIO</speaker><p> <stage>aside.</stage> Heyday! what means this? I've met with Socrates, not Phaedria, so far as I see. Why hesitate to go up and address him? <stage>Accosting him.</stage> How now, Phaedria, whence have you acquired this new wisdom, and derived such great delight, as you show by your countenance?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> O welcome, my friend; O most delightful Phormio, welcome ! There's not a person in all the world I could more wish just now to meet than yourself.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Pray, tell me what is the matter.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Aye, faith, I have to beg of you, that you will listen to it. My Pamphila is a citizen of <placeName key="tgn,7002681">Attica</placeName>, and of noble birth, and rich.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> What is it you tell me? Are you dreaming, pray?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Upon my faith, I'm saying what's true.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Yes, and this, too, is a true saying: " You'll have no great difficulty in believing that to be true, which you greatly wish to be so."</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Nay, but do listen, I beg of you, to all the wonderful things I have to tell you of. It was while thinking of this to myself, that I just now burst forth into those expressions which you heard--that we, and what relates to us, are ruled by the sanction of the Gods, and not by blind chance.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> I've been for some time in a state of suspense.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Do you know Phanocrates?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> As well as I do yourself.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> The rich man?
+</p></sp>
+<sp><speaker>PHORMIO</speaker><p> I understand.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> He is the father of Pamphila. Not to detain you, these were the circumstances: Calchas was his servant, a worthless, wicked fellow. Intending to run away from the house, he carried off this girl, whom her father was bringing up in the country, then five years old, and, secretly taking her with him to Eubaea, sold her to Lycus, a merchant. This person, a long time after, sold her, when now grown up, to Dorio. She, however, knew that she was the daughter of parents of rank, inasmuch as she recollected herself being attended and trained up by female servants: the name of her parents she didn't recollect.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> How, then, were they discovered?</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Stay; I was coming to that. This runaway was caught yesterday, and sent back to Phanocrates: he related the wonderful circumstances I have mentioned about the girl, and how she was sold to Lycus, and afterward to Dorio. Phanocrates sent immediately, and claimed his daughter; but when he learned that she had been sold, he came running to me.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> O, how extremely fortunate!</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Phanocrates has no objection to my marrying her; nor has my father, I imagine.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Trust me for that; I'll have all this matter managed for you; Phormio has so arranged it, that you shall not be a suppliant to your father, but his judge.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> You are joking.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> So it is, I tell you. Do you only give me the thirty minae which Dorio----</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> You put me well in mind; I understand you; you may have them; for he must give them back, as the law forbids a free woman to be sold; and, on my faith, I do rejoice that an opportunity is afforded me of rewarding you, and taking a hearty vengeance upon him; a monster of a fellow he has feelings more hardened than iron.</p></sp>
+<sp><speaker>PHORMIO</speaker><p> Now, Phaedria, I return you thanks; I'll make you a return upon occasion, if ever I have the opportunity. You impose a heavy task upon me, to be contending with you in good offices, as I can not in wealth; and in affection and zeal, I must repay you what I owe. To be surpassed in deserving well, is a disgrace to a man of principle.
+</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Services badly bestowed, I take to be disservices. But I do not know any person more grateful and more mindful of a service than yourself. What is it you were just now mentioning about my father?</p></sp>
+<sp><speaker>PHORMIO</speaker><p> There are many particulars, which at present I have not the opportunity to relate. Let's go in-doors, for Nausistrata has invited me to dinner, and I'm afraid we may keep them waiting.</p></sp>
+<sp><speaker>PHAEDRIA</speaker><p> Very well; follow me. <stage>To the AUDIENCE.</stage> Fare you well, and grant us your applause.</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

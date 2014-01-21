@@ -1,0 +1,91 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+    <teiHeader type="text" status="new">
+    	<fileDesc>
+    		<titleStmt>
+    			<title type="work">Poems: introduction</title>
+    			<title type="sub">Machine readable text</title>
+    			<author n="Petr.">Petronius</author>
+    			<editor role="editor">Michael Heseltine</editor>
+    			&responsibility; &fund.AnnCPB;</titleStmt>
+    		<extent>About 100Kb</extent> &Perseus.publish;<sourceDesc>
+    			<biblStruct>
+                	<monogr>
+                		<author>Petronius Arbiter</author>
+                		<title>Petronius</title>
+                		<editor role="editor" n="Heseltine">Michael Heseltine</editor>                        
+                		<imprint>
+                			<pubPlace>London</pubPlace>
+                			<publisher>William Heinemann</publisher>
+                			<date>1913</date>
+                		</imprint>
+                	</monogr>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <refsDecl doctype="TEI.2">
+                <state unit="section"/>
+            </refsDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language id="en">English</language>
+            	<language id="greek">Greek</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+            <change>
+                <date>2006</date>
+                <respStmt>
+                    <name>GRC</name>
+                    <resp>tagging</resp>
+                </respStmt>
+                <item/>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+        	<pb id="p.340"/>
+        	<div1 type="section"><head>POEMS INTRODUCTION</head>
+            <p>Of the poems which follow, 1&ndash;17 are found in the cod. Vossianus L. Q. 86, a
+                MS. of the 9th century. They follow a number of epigrams attributed to Seneca and
+                are not attributed by the MS. to Petronius. But 3, 1 and 13, 6&ndash;9 are
+                quoted by Fulgentius (myth. I, 1, p. 31 and III, 9, p. 126) as from Petronius, while
+                the general resemblance to Petronius led Scaliger to attribute the remainder to the
+                same author. Though absolute proof of the correctness of this attribution is
+                lacking, most readers will feel little doubt that Scaliger was right.</p>
+            <p>18&ndash;29<note>No. 20 is also contained in cod. Paris, 100318 (Salmasianus),
+                    cod. Vossianus, <hi rend="italics">L. Q.</hi> 86, cod. Paris, 8071
+                (Thuaneus).</note> were contained in a MS. once at Beauvais and now lost. The
+                contents of this codex Bellovacensis were published by Claude Binet in 1579. The
+                last two poems were not, according to Binet, given to Petronius by the MS., and I
+                have included them with some hesitation. But as Binet saw, the resemblance to the
+                style and tone of Petronius is considerable, and they are therefore given here. The
+                six poems which followed in this MS. are given by Baehrens (<hi rend="italics">P.L.M.</hi> iv. 103&ndash;8) to Petronius. But they have no particular
+                affinity with the work of Petronius, and as they have inserted among them in Binet's
+                book a number of poems which are admittedly by Luxorius (see Baehrens, <hi
+                    rend="italics">op. cit.</hi> App. Crit. on <hi rend="italics">P.L.M.</hi> iv.
+                104), they are not included here.</p>
+            <pb id="p.341"/>
+            <p>The remaining two poems are found in cod. Vossianus L.F. 111, a MS. of the 9th
+                century. They are attributed to Petronius by the MS., and follow two poems found in
+                the MSS of the novel (c. 14 and c. 83). Their general resemblance would betray their
+                authorship.</p>
+            <p>For a discussion of these MSS. see Baehrens,<hi rend="italics">Poetae Latini
+                Minores,</hi> vol. iv, pp. 11, 13 and 19. Also p. 36 ff.</p>
+            <p>SIGLA</p>
+            <p>Cod. Voss. L.Q. 86= <hi rend="italics">V.</hi></p>
+            <p>Cod. Bellovacensis = <hi rend="italics">W.</hi></p>
+            <p>Cod. Voss. L.F. 111 = <hi rend="italics">E</hi></p>
+            <p>H.E.B.</p>
+        	</div1>
+        </body>
+    </text>
+</TEI.2>

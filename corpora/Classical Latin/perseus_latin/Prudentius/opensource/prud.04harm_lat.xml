@@ -1,0 +1,1120 @@
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Hamartigenia</title>
+        <author>Prudentius</author>
+	<editor role="editor">H.J. Thomson</editor>
+	&fund.Mellon;
+      </titleStmt>
+      &Perseus.publish;
+      <sourceDesc>
+        <biblStruct>
+          <monogr>
+            <author>Prudentius</author>
+            <title>Prudentius, Vol 1</title>
+            <editor>H.J. Thomson</editor>
+            <imprint>
+              <pubPlace>London; Cambridge, Massachusetts</pubPlace>
+              <publisher>Heinemann; Harvard University Press</publisher>
+              <date>1949</date>
+            </imprint>
+          </monogr>
+        </biblStruct><p>Keyboarding</p></sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="preface"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="section"/>
+</refsDecl>
+
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+	<language id="la">Latin</language>
+	<language id="greek">Greek</language>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+
+
+<text><body><pb id="p.200"/>
+
+<div1 type="preface"><head><add>Praefatio</add></head><p>
+<lb type="displayNum" n="1"/>Fratres ephebi fossor et pastor duo,
+<lb type="displayNum" n="2"/>quos feminarum prima primos procreat,
+<lb type="displayNum" n="3"/>sistunt ad aram de laborum fructibus
+<lb type="displayNum" n="4"/>Deo sacranda munerum primordia.
+<lb type="displayNum" n="5"/>hic terrulentis, ille vivis fungitur; 
+<lb type="displayNum" n="6"/>certante voto discrepantes inmolant,
+<lb type="displayNum" n="7"/>fetum bidentis alter, ast alter scrobis.
+<lb type="displayNum" n="8"/>Deus minoris conprobavit hostiam,
+<lb type="displayNum" n="9"/>reiecit illam quam paravit grandior.
+<lb type="displayNum" n="10"/>vox ecce summo missa persultat throno: 
+<lb type="displayNum" n="11"/><q>Cain, quiesce; namque si recte offeras,
+<lb type="displayNum" n="12"/>oblata nec tu lege recta dividas,
+<lb type="displayNum" n="13"/>perversa nigram vota culpam traxerint.</q>
+<lb type="displayNum" n="14"/>armat deinde parricidalem manum
+<lb type="displayNum" n="15"/>frater, probatae sanctitatis aemulus; 
+<lb type="displayNum" n="16"/>germana curvo colla frangit sarculo,
+<lb type="displayNum" n="17"/>mundum recentem caede tinguit inpia,
+<lb type="displayNum" n="18"/>sero expiandum, iam senescentem, sacro
+<lb type="displayNum" n="19"/>cruore Christi, quo peremptor concidit.
+<lb type="displayNum" n="20"/>mors prima coepit innocentis vulnere, 
+<lb type="displayNum" n="21"/>cessit deinde vulnerato innoxio.
+<lb type="displayNum" n="22"/>per crimen orta dissoluta est crimine,
+<lb type="displayNum" n="23"/>Abel quod ante perculit, Christum dehinc;
+<lb type="displayNum" n="24"/>finita et ipsa est finis exsortem petens.
+<pb id="p.202"/>
+<lb type="displayNum" n="25"/>ergo ex futuris prisca coepit fabula 
+<lb type="displayNum" n="26"/>factoque primo res notata est ultima,
+<lb type="displayNum" n="27"/>ut ille mortis inchoator rusticus
+<lb type="displayNum" n="28"/>insulsa terrae deferens libamina
+<lb type="displayNum" n="29"/>Deumque rerum mortuarum deputans
+<lb type="displayNum" n="30"/>rastris redacta digna sacris crederet, 
+<lb type="displayNum" n="31"/>viventis atrox aemulator hostiae.
+<lb type="displayNum" n="32"/>agnosco nempe quem figura haec denotet,
+<lb type="displayNum" n="33"/>quis fratricida, quis peremptor invidus
+<lb type="displayNum" n="34"/>prave sacrorum disciplinam dividat,
+<lb type="displayNum" n="35"/>mactare dum se vota censet rectius. 
+<lb type="displayNum" n="36"/>Marcion, arvi forma corruptissimi,
+<lb type="displayNum" n="37"/>docet duitas discrepare a Spiritu,
+<lb type="displayNum" n="38"/>contaminatae dona carnis offerens
+<lb type="displayNum" n="39"/>et segregatim numen aeternum colens.
+<lb type="displayNum" n="40"/>qui si quiescat nec monentem neglegat, 
+<lb type="displayNum" n="41"/>pacem quieta 1 diligat germanitas,
+<lb type="displayNum" n="42"/>unum atque vivum fassa vivorum Deum.
+<lb type="displayNum" n="43"/>hic se caduco dedicans mysterio
+<lb type="displayNum" n="44"/>summam profanus dividit substantiam;
+<lb type="displayNum" n="45"/>malum bonumque ceu duorum separatis 
+<lb type="displayNum" n="46"/>regnum Deorum sceptra committit duo,
+<lb type="displayNum" n="47"/>Deum esse credens quem fatetur pessimum.
+<lb type="displayNum" n="48"/>Cain cruentus, unitatis invidus,
+<lb type="displayNum" n="49"/>mundi colonus, immolator squalidus,
+<lb type="displayNum" n="50"/>cuius litamen sordet et terram sapit, 
+<lb type="displayNum" n="51"/>terram caduci corporis, venam putrem,
+<pb id="p.204"/>
+<lb type="displayNum" n="52"/>umore denso conglobatam et pulvere,
+<lb type="displayNum" n="53"/>natura cuius fraude floret fertili
+<lb type="displayNum" n="54"/>fecunda fundens noxiorum crimina,
+<lb type="displayNum" n="55"/>animaeque vitam labe carnis enecat. 
+<lb type="displayNum" n="56"/>caro in sororem tela mentem dirigit,
+<lb type="displayNum" n="57"/>mens in cerebro ventilatur ebrio,
+<lb type="displayNum" n="58"/>ex quo furores suculentos conligit
+<lb type="displayNum" n="59"/>madens veneno corporis lymphatico.
+<lb type="displayNum" n="60"/>Deum perennem findit in duos Deos, 
+<lb type="displayNum" n="61"/>audet secare numen insecabile.
+<lb type="displayNum" n="62"/>cadit perempta denegans unum Deum,
+<lb type="displayNum" n="63"/>Cain triumphat morte fratris halitus. 1</p></div1>
+
+<div1 type="section" n="1"><p>
+<lb type="displayNum" n="1"/>Quo te praecipitat rabies tua, perfide Cain,
+<lb type="displayNum" n="2"/>divisor blaspheme Dei? tibi conditor unus
+<lb type="displayNum" n="3"/>non liquet, et bifidae caligant nubila lucis?
+<lb type="displayNum" n="4"/>insincera acies duo per divortia semper
+<lb type="displayNum" n="5"/>spargitur, in geminis visum frustrata figuris. 
+<lb type="displayNum" n="6"/>terrarum tibi forma duplex obludit, ut excors
+<lb type="displayNum" n="7"/>dividuum regnare Deum super aethera credas.
+<lb type="displayNum" n="8"/>bina boni atque mali glomerat discrimina sordens
+<lb type="displayNum" n="9"/>hic mundus, Domino sed caelum obtemperat uni.
+<lb type="displayNum" n="10"/>non idcirco duos retinent caelestia reges 
+<lb type="displayNum" n="11"/>quod duo sunt opera humanas agitantia curas.
+<lb type="displayNum" n="12"/>exterior terrenus homo est, qui talia cernens
+<lb type="displayNum" n="13"/>conicit esse duo variarum numina rerum.
+<lb type="displayNum" n="14"/>dum putat esse Deum qui prava effinxerit olim,
+<lb type="displayNum" n="15"/>et qui recta itidem condens induxerit, ambos 
+<lb type="displayNum" n="16"/>autumat esse Deos natura dispare summos.
+<lb type="displayNum" n="17"/>quae tandem natura potest consistere duplex
+<lb type="displayNum" n="18"/>aut regnare diu, quam fons divisus ab arce
+<pb id="p.206"/>
+<lb type="displayNum" n="19"/>separat, alternaque apicum dicione recidit?
+<lb type="displayNum" n="20"/>aut unus Deus est, rerum cui summa potestas, 
+<lb type="displayNum" n="21"/>aut quae iam duo sunt minuuntur dispare summa,
+<lb type="displayNum" n="22"/>porro nihil summum nisi plenis viribus unum,
+<lb type="displayNum" n="23"/>distantes quoniam, proprium dum quisque revulso
+<lb type="displayNum" n="24"/>vindicat imperio, nec summa nec omnia possunt,
+<lb type="displayNum" n="25"/>ius varium non est plenum, quia non habet alter 
+<lb type="displayNum" n="26"/>quidquid dispar habet; cumulum discretio carpit,
+<lb type="displayNum" n="27"/>nos plenum sine parte Deum testamur et unum,
+<lb type="displayNum" n="28"/>in quo Christus inest, idem quoque plenus et unus,
+<lb type="displayNum" n="29"/>qui viget ac viguit super omnia quique vigebit
+<lb type="displayNum" n="30"/>participem nullum collato foedere passus. 
+<lb type="displayNum" n="31"/>summa potestatum Pater est, 1 dominatio rerum,
+<lb type="displayNum" n="32"/>virtutum sublime caput, fons unicus orbis,
+<lb type="displayNum" n="33"/>naturalis apex, generisque et originis auctor;
+<lb type="displayNum" n="34"/>ex quo cuncta fluunt, et lux et tempora et anni
+<lb type="displayNum" n="35"/>et numerus, qui post aliquid dedit esse secundum; 
+<lb type="displayNum" n="36"/>unus enim princeps numeri est, nec dinumerari
+<lb type="displayNum" n="37"/>tantum unus potis est. sic, cum Pater ac Deus alter
+<lb type="displayNum" n="38"/>non sit, item Christus non sit genitore secundus,
+<lb type="displayNum" n="39"/>anterior numero est, cui Filius unicus uni est.
+<lb type="displayNum" n="40"/>ille Deus, meritoque Deus, quia primus et unus, 
+<lb type="displayNum" n="41"/>in virtute sua primus, tum primus in illo
+<lb type="displayNum" n="42"/>quem genuit, quid enim differt generatio simplex?
+<lb type="displayNum" n="43"/>unum semper erit gignens atque unus ab uno
+<lb type="displayNum" n="44"/>ante chaos genitus numeroque et tempore liber,
+<lb type="displayNum" n="45"/>quis dixisse duos rem maiestate sub una 
+<pb id="p.208"/>
+<lb type="displayNum" n="46"/>regnantem propriamque sibi retroque perennem
+<lb type="displayNum" n="47"/>ausit, et unius naturae excindere vires?
+<lb type="displayNum" n="48"/>numquid adoptivum genitor sibi sumpsit, ut alter
+<lb type="displayNum" n="49"/>externi generis numerum praestare duorum
+<lb type="displayNum" n="50"/>debeat et geminum distans inducere numen? 
+<lb type="displayNum" n="51"/>forma Patris veri verus stat Filius ac se
+<lb type="displayNum" n="52"/>unum rite probat dum formam servat eandem,
+<lb type="displayNum" n="53"/>non amor adscitus sociat nec iungit utrumque
+<lb type="displayNum" n="54"/>coniurata fides, pietas sed certa genusque
+<lb type="displayNum" n="55"/>unum, quod Deus est, summam revocatur ad unam. 
+<lb type="displayNum" n="56"/>haec tibi, Marcion, via displicet, hanc tua damnat
+<lb type="displayNum" n="57"/>secta fidem dominis caelum partita duobus,
+<lb type="displayNum" n="58"/>quae te confundunt nebulae? quis somnus
+<lb type="displayNum" n="59"/>inerti incubat ingenio, cui per phantasmata duplex
+<lb type="displayNum" n="60"/>occurrit species bivio dispersa superne 
+<lb type="displayNum" n="61"/>si vim mentis hebes stupor obsidet, aspice saltem
+<lb type="displayNum" n="62"/>obvia terrenis oculis elementa, quibus se
+<lb type="displayNum" n="63"/>res occulta Dei dignata est prodere signis,
+<lb type="displayNum" n="64"/>hanc heresin praesaga Patris praeviderat olim
+<lb type="displayNum" n="65"/>maiestas: fore qui rectorem lucis et orbis 
+<lb type="displayNum" n="66"/>scinderet in partes geminatum segrege regno,
+<lb type="displayNum" n="67"/>idcirco specimen posuit spectabile nostris
+<lb type="displayNum" n="68"/>exemplumque oculis, ne quis duo numina credat
+<lb type="displayNum" n="69"/><del>imperitare, vagis mundi per inania formis</del>. 1
+<lb type="displayNum" n="70"/>una per inmensam caeli caveam revolutos 
+<lb type="displayNum" n="71"/>praebet flamma dies, texit sol unicus annum;
+<lb type="displayNum" n="72"/>triplex ille tamen nullo discrimine trina
+<lb type="displayNum" n="73"/>subnixus ratione viget, splendet, volat, ardet,
+<lb type="displayNum" n="74"/>motu agitur, fervore cremat, tum lumine fulget.
+<pb id="p.210"/>
+<lb type="displayNum" n="75"/>sunt tria nempe simul, lux et calor et vegetamen, 
+<lb type="displayNum" n="76"/>una eademque tamen rota sideris indiscretis
+<lb type="displayNum" n="77"/>fungitur his, uno servat tot munera ductu
+<lb type="displayNum" n="78"/>et tribus una subest mixtim substantia rebus.
+<lb type="displayNum" n="79"/>non conferre Deo velut aequiperabile quidquam
+<lb type="displayNum" n="80"/>ausim, nec Domino famulum conponere signum; 
+<lb type="displayNum" n="81"/>ex minimis sed grande suum voluit Pater ipse
+<lb type="displayNum" n="82"/>coniectare homines, quibus ardua visere non est.
+<lb type="displayNum" n="83"/>parvorum speculo non intellecta notamus,
+<lb type="displayNum" n="84"/>et datur occultum per proxima quaerere verum.
+<lb type="displayNum" n="85"/>nemo duos soles nisi sub glaucomate vidit 
+<lb type="displayNum" n="86"/>aut, si fusca polum sntfudit palla serenum,
+<lb type="displayNum" n="87"/>oppositus quotiens radiorum spicula nimbus
+<lb type="displayNum" n="88"/>igne repercusso mentitos spargit in orbes.
+<lb type="displayNum" n="89"/>sunt animis etiam sua nubila, crassus et aer,
+<lb type="displayNum" n="90"/>est glaucoma, aciem quod tegmine velet aquoso, 
+<lb type="displayNum" n="91"/>libera ne tenerum penetret meditatio caelum
+<lb type="displayNum" n="92"/>neve Deum rapidis conprendat sensibus unum;
+<lb type="displayNum" n="93"/>spargitur in bifidas male sana intentio luces,
+<lb type="displayNum" n="94"/>et duplices geminis auctoribus extruit aras.
+<lb type="displayNum" n="95"/>si duo sunt, igitur cur non sint multa Deorum 
+<lb type="displayNum" n="96"/>milia cur numero Deitas contenta gemello est?
+<lb type="displayNum" n="97"/>an non in populos dispersa examina Divum
+<lb type="displayNum" n="98"/>fundere erat melius mundumque inplere capacem
+<lb type="displayNum" n="99"/>semideis passim nullo discrimine monstris,
+<lb type="displayNum" n="100"/>quis fera barbaries perituros mactat honores? 
+<lb type="displayNum" n="101"/>dissona discretum retinent si numina caelum,
+<lb type="displayNum" n="102"/>convenit et nebulis et fontibus et reboanti
+<lb type="displayNum" n="103"/>oceano et silvis et collibus et speluncis,
+<pb id="p.212"/>
+<lb type="displayNum" n="104"/>fluminibus, ventis, fornacibus atque metallis
+<lb type="displayNum" n="105"/>assignare Deos proprios, sua cuique iura. 
+<lb type="displayNum" n="106"/>vel, si gentiles sordet venerarier umbras
+<lb type="displayNum" n="107"/>et placet esse duos sceptris sodalibus aequos,
+<lb type="displayNum" n="108"/>dic, age, quis terras dicionis sorte retentet,
+<lb type="displayNum" n="109"/>quis regat aequoreas aeterna lege procellas,
+<lb type="displayNum" n="110"/>ede coheredum distinctum ius dominorum. 
+<lb type="displayNum" n="111"/><q>unus,</q> ais, <q>tristi residet sublimis in arce,
+<lb type="displayNum" n="112"/>auctor nequitiae, scelerum Deus, asper, iniquus,
+<lb type="displayNum" n="113"/>qui quodcumque malum vitioso fervet in orbe
+<lb type="displayNum" n="114"/>sevit, et anguino medicans nova semina suco
+<lb type="displayNum" n="115"/>rerum principium mortis de fomite traxit. 
+<lb type="displayNum" n="116"/>ipse opifex mundi terram, mare, sidera fecit,
+<lb type="displayNum" n="117"/>condidit ipse hominem lutulenta et membra coëgit,
+<lb type="displayNum" n="118"/>effigians quod morbus edat, quod crimine multo
+<lb type="displayNum" n="119"/>sordeat, informi tumulus quod tabe resolvat.
+<lb type="displayNum" n="120"/>ast alii pietatis amor placidumque medendi 
+<lb type="displayNum" n="121"/>ingenium, recreans homines, mortalia servans.
+<lb type="displayNum" n="122"/>Testamenta duo fluxerunt principe utroque:
+<lb type="displayNum" n="123"/>tradidit iste novum melior, vetus illud acerbus.</q>
+<lb type="displayNum" n="124"/>haec tua, Marcion, gravis et dialectica vox est,
+<lb type="displayNum" n="125"/>immo haec attoniti phrenesis manifesta cerebri. 
+<lb type="displayNum" n="126"/>novimus esse patrem scelerum, sed novimus ipsum
+<lb type="displayNum" n="127"/>haudquaquam tamen esse Deum, quin immo gehennae
+<lb type="displayNum" n="128"/>mancipium, Stygio qui sit damnandus Averno,
+<lb type="displayNum" n="129"/>Marcionita Deus, tristis, ferus, insidiator,
+<lb type="displayNum" n="130"/>vertice sublimis, cinctum cui nubibus atris 
+<lb type="displayNum" n="131"/>anguiferum caput et fumo stipatur et igni,
+<lb type="displayNum" n="132"/>liventes oculos subfundit felle perusto
+<lb type="displayNum" n="133"/>invidia inpatiens iustorum gaudia ferre.
+<lb type="displayNum" n="134"/>hirsutos iuba densa umeros errantibus hydris
+<pb id="p.214"/>
+<lb type="displayNum" n="135"/>obtegit et virides adlambunt ora cerastae. 
+<lb type="displayNum" n="136"/>ipse manu laqueos per lubrica fila reflexos
+<lb type="displayNum" n="137"/>in nodum revocat, facilique ligamine tortas
+<lb type="displayNum" n="138"/>innectit pedicas nervosque in vincula tendit,
+<lb type="displayNum" n="139"/>ars olli captare feras, animalia bruta
+<lb type="displayNum" n="140"/>inretire plagis, retinacula denique caecis 
+<lb type="displayNum" n="141"/>indeprensa locis erranti opponere praedae,
+<lb type="displayNum" n="142"/>hic ille est venator atrox, qui caede frequenti
+<lb type="displayNum" n="143"/>incautas animas non cessat plectere, Nebroth,
+<lb type="displayNum" n="144"/>qui mundum curvis anfractibus et silvosis
+<lb type="displayNum" n="145"/>horrentem scopulis versuto circuit astu, 
+<lb type="displayNum" n="146"/>fraude alios tectisque dolis innectere adortus,
+<lb type="displayNum" n="147"/>porro giganteis alios luctando lacertis
+<lb type="displayNum" n="148"/>frangere, funereos late exercere triumphos,
+<lb type="displayNum" n="149"/>inproba mors, quid non mortalia pectora cogis?
+<lb type="displayNum" n="150"/>ipse suam (pudet heu!) contempto principe vitae 
+<lb type="displayNum" n="151"/>perniciem veneratur homo, colit ipse cruentum
+<lb type="displayNum" n="152"/>carnificem gladiique aciem iugulandus adorat,
+<lb type="displayNum" n="153"/>in tantum miseris peccati nectare captis
+<lb type="displayNum" n="154"/>dulce mori est, tanta in tenebris de peste voluptas!
+<lb type="displayNum" n="155"/>qui mala principio genuit Deus esse putatur, 
+<lb type="displayNum" n="156"/>quique bona infecit vitiis et candida nigris!
+<lb type="displayNum" n="157"/>par furor illorum, quos tradit fama dicatis
+<lb type="displayNum" n="158"/>consecrasse deas Febrem Scabiemque sacellis.
+<lb type="displayNum" n="159"/>inventor vitii non est Deus: angelus illud
+<lb type="displayNum" n="160"/>degener infami conceptum mente creavit, 
+<lb type="displayNum" n="161"/>qui prius augustum radiabat sidus et ingens
+<lb type="displayNum" n="162"/>ex nihilo splendor nutrito ardebat honore.
+<pb id="p.216"/>
+<lb type="displayNum" n="163"/>ex nihilo nam cuncta retro, factumque quod usquam est,
+<lb type="displayNum" n="164"/>at non ex nihilo Deus et Sapientia vera
+<lb type="displayNum" n="165"/>Spiritus et Sanctus, res semper viva nec umquam 
+<lb type="displayNum" n="166"/>coepta, sed aerios etiam molita ministros,
+<lb type="displayNum" n="167"/>horum de numero quidam pulcherrimus ore,
+<lb type="displayNum" n="168"/>maiestate ferox, nimiis dum viribus auctus
+<lb type="displayNum" n="169"/>inflatur, dum grande tumens sese altius effert
+<lb type="displayNum" n="170"/>ostentatque suos licito iactantius ignes, 
+<lb type="displayNum" n="171"/>persuasit propriis genitum se viribus ex se
+<lb type="displayNum" n="172"/>materiam sumpsisse sibi, qua primitus esse
+<lb type="displayNum" n="173"/>inciperet, nascique suum sine principe coeptum,
+<lb type="displayNum" n="174"/>hinc schola subtacitam meditatur gignere sectam,
+<lb type="displayNum" n="175"/>quae docet e tenebris subitum micuisse tyrannum, 
+<lb type="displayNum" n="176"/>qui velut aeterna latitans sub nocte retrorsum
+<lb type="displayNum" n="177"/>vixerit et tecto semper regnaverit aevo.
+<lb type="displayNum" n="178"/>aemulus, ut memorant, opera ad divina repente
+<lb type="displayNum" n="179"/>corrumpenda caput caligine protulit atra.
+<lb type="displayNum" n="180"/>hoc ratio sed nostra negat, cui non licet unam 
+<lb type="displayNum" n="181"/>infirmare fidem, sacro quae tradita libro est.
+<lb type="displayNum" n="182"/><q>nil,</q> ait, <q>absque Deo factum, sed cuncta per ipsum,
+<lb type="displayNum" n="183"/>cuncta, nec est alius quisquam nisi factus ab ipso.</q>
+<lb type="displayNum" n="184"/>sed factus de stirpe bonus, bonitatis in usum
+<lb type="displayNum" n="185"/>proditus et primo generis de fonte serenus, 
+<lb type="displayNum" n="186"/>deterior mox sponte sua, dum decolor illum
+<lb type="displayNum" n="187"/>inficit invidia stimulisque instigat amaris.
+<lb type="displayNum" n="188"/>arsit enim scintilla odii de fomite zeli
+<lb type="displayNum" n="189"/>et dolor ingenium subitus conflavit iniquum,
+<lb type="displayNum" n="190"/>viderat argillam simulacrum et structile flatu 
+<pb id="p.218"/>
+<lb type="displayNum" n="191"/>concaluisse Dei, dominum quoque conditioni 1
+<lb type="displayNum" n="192"/>inpositum, natura soli pelagique polique
+<lb type="displayNum" n="193"/>ut famulans homini locupletem fundere partum
+<lb type="displayNum" n="194"/>nosset et effusum terreno addicere regi.
+<lb type="displayNum" n="195"/>inflavit fermento animi stomachante tumorem 
+<lb type="displayNum" n="196"/>bestia deque acidis vim traxit acerba medullis;
+<lb type="displayNum" n="197"/>bestia sorde carens, cui tunc sapientia longi
+<lb type="displayNum" n="198"/>corporis enodem servabat recta iuventam,
+<lb type="displayNum" n="199"/>conplicat ecce novos sinuoso pectore nexus,
+<lb type="displayNum" n="200"/>involvens nitidam spiris torquentibus alvum. 
+<lb type="displayNum" n="201"/>simplex lingua prius varia micat arte loquendi,
+<lb type="displayNum" n="202"/>et discissa dolis resonat sermone trisulco.
+<lb type="displayNum" n="203"/>hinc natale caput vitiorum, principe ab illo
+<lb type="displayNum" n="204"/>fluxit origo mali, qui se corrumpere primum,
+<lb type="displayNum" n="205"/>mox hominem didicit nullo informante magistro. 
+<lb type="displayNum" n="206"/>ultimus exitium subverso praeside mundus
+<lb type="displayNum" n="207"/>sortitur mundique omnis labefacta supellex,
+<lb type="displayNum" n="208"/>non aliter quam cum incautum spoliare viantem
+<lb type="displayNum" n="209"/>forte latro adgressus, praedae prius inmemor, ipsum
+<lb type="displayNum" n="210"/>ense ferit dominum, pugnae nodumque moramque, 
+<lb type="displayNum" n="211"/>quo pereunte trahat captivos victor amictus
+<lb type="displayNum" n="212"/>iam non obstanti locuples de corpore praedo,
+<lb type="displayNum" n="213"/>sic homini subiecta domus, ditissimus orbis
+<lb type="displayNum" n="214"/>scilicet in facilem domino peccante ruinam
+<lb type="displayNum" n="215"/>lapsus erile malum iam tunc vitiabilis hausit. 
+<lb type="displayNum" n="216"/>tunc lolium lappasque leves per adultera culta
+<lb type="displayNum" n="217"/>ferre malignus ager glaebis male pinguibus ausus
+<lb type="displayNum" n="218"/>triticeam vacuis segetem violavit avenis;
+<lb type="displayNum" n="219"/>tunc etiam innocuo vitulorum sanguine pasci,
+<pb id="p.220"/>
+<lb type="displayNum" n="220"/>iamque iugo edomitos rictu laniare iuvencos 
+<lb type="displayNum" n="221"/>occiso pastore truces didicere leones,
+<lb type="displayNum" n="222"/>nec non et querulis balatibus inritatus
+<lb type="displayNum" n="223"/>plenas nocte lupus studuit perrumpere caulas,
+<lb type="displayNum" n="224"/>omne animal diri callens sollertia furti
+<lb type="displayNum" n="225"/>inbuit et tortos acuit fallacia sensus. 
+<lb type="displayNum" n="226"/>quamvis maceries florentes ambiat hortos,
+<lb type="displayNum" n="227"/>saepibus et densis vallentur vitea rura,
+<lb type="displayNum" n="228"/>aut populator edet gemmantia germina bruchus,
+<lb type="displayNum" n="229"/>aut avibus discerpta feris lacerabitur uva. 
+<lb type="displayNum" n="230"/>uid loquar herbarum fibras medicante veneno 
+<lb type="displayNum" n="231"/>tinctas letiferi fudisse pericula suci?
+<lb type="displayNum" n="232"/>noxius in teneris sapor aestuat ecce frutectis,
+<lb type="displayNum" n="233"/>cum prius innocuas tulerit natura cicutas,
+<lb type="displayNum" n="234"/>roscidus et viridem qui vestit flos rhododaphnen
+<lb type="displayNum" n="235"/>pabula lascivis dederit sincera capellis. 
+<lb type="displayNum" n="236"/>ipsa quoque oppositum destructo foedere certo
+<lb type="displayNum" n="237"/>transcendunt elementa modum rapiuntque ruuntque
+<lb type="displayNum" n="238"/>omnia legirupis quassantia viribus orbem.
+<lb type="displayNum" n="239"/>frangunt umbriferos aquilonum proelia lucos,
+<lb type="displayNum" n="240"/>et cadit inmodicis silva exstirpata procellis. 
+<lb type="displayNum" n="241"/>parte alia violentus aquis torrentibus amnis
+<lb type="displayNum" n="242"/>transilit obiectas, praescripta repagula, ripas
+<lb type="displayNum" n="243"/>et vagus eversis late dominatur in agris.
+<lb type="displayNum" n="244"/>nec tamen his tantam rabiem nascentibus ipse
+<lb type="displayNum" n="245"/>conditor instituit, sed laxa licentia rerum 
+<lb type="displayNum" n="246"/>turbavit placidas rupto moderamine leges.
+<lb type="displayNum" n="247"/>nec mirum si membra orbis concussa rotantur,
+<lb type="displayNum" n="248"/>si vitiis agitata suis mundana laborat
+<pb id="p.222"/>
+<lb type="displayNum" n="249"/>machina, si terras luis incentiva fatigat:
+<lb type="displayNum" n="250"/>exemplum dat vita hominum, quo cetera peccent, 
+<lb type="displayNum" n="251"/>vita hominum, cui quidquid agit vesania et error
+<lb type="displayNum" n="252"/>suppeditant, ut bella fremant, ut fluxa voluptas
+<lb type="displayNum" n="253"/>diffluat, inpuro fervescat ut igne libido,
+<lb type="displayNum" n="254"/>sorbeat ut cumulos nummorum faucibus amplis
+<lb type="displayNum" n="255"/>gurges avaritiae, finis quam nullus habendi 
+<lb type="displayNum" n="256"/>temperat aggestis addentem vota talentis,
+<lb type="displayNum" n="257"/>auri namque fames parto fit maior ab auro.
+<lb type="displayNum" n="258"/>inde seges scelerum, radix et sola malorum,
+<lb type="displayNum" n="259"/>dum scatebras fluviorum omnes et operta metalla
+<lb type="displayNum" n="260"/>eliquat ornatus solvendi leno pudoris, 
+<lb type="displayNum" n="261"/>dum venas squalentis humi scrutatur inepta
+<lb type="displayNum" n="262"/>ambitio scalpens naturae occulta latentis,
+<lb type="displayNum" n="263"/>si quibus in foveis radiantes forte lapillos
+<lb type="displayNum" n="264"/>rimata inveniat, nec enim contenta decore
+<lb type="displayNum" n="265"/>ingenito externam mentitur femina formam 
+<lb type="displayNum" n="266"/>ac, velut artificis Domini manus inperfectum
+<lb type="displayNum" n="267"/>os dederit, quod adhuc res exigat aut hyacinthus
+<lb type="displayNum" n="268"/>pingere sutilibus redimitae frontis in arce,
+<lb type="displayNum" n="269"/>colla vel ignitis sincera incingere sertis,
+<lb type="displayNum" n="270"/>auribus aut gravidis virides suspendere bacas, 
+<lb type="displayNum" n="271"/>nectitur et nitidis concharum calculus albens
+<lb type="displayNum" n="272"/>crinibus aureolisque riget coma texta catenis,
+<lb type="displayNum" n="273"/>taedet sacrilegas matrum percurrere curas,
+<lb type="displayNum" n="274"/>muneribus dotata Dei quae plasmata fuco
+<lb type="displayNum" n="275"/>inficiunt, ut pigmentis cutis inlita perdat 
+<lb type="displayNum" n="276"/>quod fuerat, falso non agnoscenda colore,
+<lb type="displayNum" n="277"/>haec sexus male fortis agit, cui pectore in arto
+<lb type="displayNum" n="278"/>mens fragilis facili vitiorum fluctuat aestu.
+<pb id="p.224"/>
+<lb type="displayNum" n="279"/>quid quod et ipse caput muliebris corporis et rex,
+<lb type="displayNum" n="280"/>qui regit invalidam propria de carne resectam 
+<lb type="displayNum" n="281"/>particulam, qui vas tenerum dicione gubernat,
+<lb type="displayNum" n="282"/>solvitur in luxum? cernas mollescere cultu
+<lb type="displayNum" n="283"/>heroas vetulos, opifex quibus aspera membra
+<lb type="displayNum" n="284"/>finxerat et rigidos duraverat ossibus artus,
+<lb type="displayNum" n="285"/>sed pudet esse viros, quaerunt vanissima quaeque 
+<lb type="displayNum" n="286"/>quis niteant,genuina leves ut robora solvant,
+<lb type="displayNum" n="287"/>vellere non ovium, sed Eoo ex orbe petitis
+<lb type="displayNum" n="288"/>ramorum spoliis fluitantes sumere amictus
+<lb type="displayNum" n="289"/>gaudent et durum scutulis perfundere corpus.
+<lb type="displayNum" n="290"/>additur ars, ut fila herbis saturata recoctis 
+<lb type="displayNum" n="291"/>inludant varias distincto stamine formas,
+<lb type="displayNum" n="292"/>ut quaeque est lanugo ferae mollissima tactu,
+<lb type="displayNum" n="293"/>pectitur. hunc videas lascivas praepete cursu
+<lb type="displayNum" n="294"/>venantem tunicas, avium quoque versicolorum
+<lb type="displayNum" n="295"/>indumenta novis texentem plumea telis, 
+<lb type="displayNum" n="296"/>illum pigmentis redolentibus et peregrino
+<lb type="displayNum" n="297"/>pulvere femineas spargentem turpiter auras,
+<lb type="displayNum" n="298"/>omnia luxus habet nostrae vegetamina vitae,
+<lb type="displayNum" n="299"/>sensibus in quinque statuens quae condidit auctor,
+<lb type="displayNum" n="300"/>auribus atque oculis, tum naribus atque palato 
+<lb type="displayNum" n="301"/>quaeritur infectus vitiosis artibus usus;
+<lb type="displayNum" n="302"/>ipse etiam toto pollet qui corpore tactus
+<lb type="displayNum" n="303"/>palpamen tenerum blandis ex fotibus ambit,
+<lb type="displayNum" n="304"/>pro dolor! ingenuas naturae occumbere leges,
+<lb type="displayNum" n="305"/>captivasque trahi regnante libidine dotes! 
+<pb id="p.226"/>
+<lb type="displayNum" n="306"/>perversum ius omne viget, dum quidquid habendum
+<lb type="displayNum" n="307"/>omnipotens dederat studia in contraria vertunt,
+<lb type="displayNum" n="308"/>idcircone, rogo, speculatrix pupula molli
+<lb type="displayNum" n="309"/>subdita palpebrae est, ut turpia semivirorum
+<lb type="displayNum" n="310"/>membra theatrali spectet vertigine ferri, 
+<lb type="displayNum" n="311"/>incestans miseros foedo oblectamine visus?
+<lb type="displayNum" n="312"/>aut ideo spirant mediaque ex arce cerebri
+<lb type="displayNum" n="313"/>demittunt geminas sociata foramina nares,
+<lb type="displayNum" n="314"/>ut bibat inlecebras male conciliata voluptas
+<lb type="displayNum" n="315"/>quas pigmentato meretrix iacit inproba crine? 
+<lb type="displayNum" n="316"/>num propter lyricae modulamina vana puellae
+<lb type="displayNum" n="317"/>nervorumque sonos et convivale calentis
+<lb type="displayNum" n="318"/>carmen nequitiae patulas Deus addidit aures
+<lb type="displayNum" n="319"/>perque cavernosos iussit penetrare meatus
+<lb type="displayNum" n="320"/>vocis iter? numquid madido sapor inditus ori 
+<lb type="displayNum" n="321"/>vivit ob hanc causam, medicata ut fercula pigram
+<lb type="displayNum" n="322"/>ingluviem vegetamque gulam ganeonis inescent,
+<lb type="displayNum" n="323"/>per varios gustus instructa ut prandia ducat
+<lb type="displayNum" n="324"/>in noctem lassetque gravem sua crapula ventrem?
+<lb type="displayNum" n="325"/>quid durum, quid molle foret, quid lene, quid horrens, 
+<lb type="displayNum" n="326"/>quid calidum gelidumve, Deus cognoscere nosmet
+<lb type="displayNum" n="327"/>ad tactum voluit palpandi interprete sensu,
+<lb type="displayNum" n="328"/>at nos delicias plumarum et linea texta
+<lb type="displayNum" n="329"/>sternimus atque cutem fulcro adtenuante polimus.
+<lb type="displayNum" n="330"/>felix qui indultis potuit mediocriter uti 
+<lb type="displayNum" n="331"/>muneribus parcumque modum servare fruendi,
+<lb type="displayNum" n="332"/>quem locuples mundi species et amoena venustas
+<lb type="displayNum" n="333"/>et nitidis fallens circumflua copia rebus
+<lb type="displayNum" n="334"/>non capit, ut puerum, nec inepto addicit amori,
+<lb type="displayNum" n="335"/>qui sub adumbrata dulcedine triste venenum 
+<lb type="displayNum" n="336"/>deprendit latitare boni mendacis operto,
+<lb type="displayNum" n="337"/>sed fuit id quondam nobis sanctumque bonumque
+<pb id="p.228"/>
+<lb type="displayNum" n="338"/>principio rerum, Christus cum conderet orbem,
+<lb type="displayNum" n="339"/>vidit enim Deus esse bonum velut ipse Moyses
+<lb type="displayNum" n="340"/>historicus mundi nascentis testificatus 
+<lb type="displayNum" n="341"/><q>vidit,</q> ait, <q>Deus esse bonum quodcumque creavit.</q>
+<lb type="displayNum" n="342"/>hoc sequar, hoc stabili conceptum mente tenebo,
+<lb type="displayNum" n="343"/>inspirante Deo quod sanctus vaticinator
+<lb type="displayNum" n="344"/>prodidit antiquae recolens primordia lucis,
+<lb type="displayNum" n="345"/>esse bonum quidquid Deus et Sapientia fecit. 
+<lb type="displayNum" n="346"/>conditor ergo boni Pater est et cum Patre Christus,
+<lb type="displayNum" n="347"/>nam Deus, atque Deus Pater est et Filius unum;
+<lb type="displayNum" n="348"/>quippe unum natura facit, quae constat utrique
+<lb type="displayNum" n="349"/>una voluntatis, iuris, virtutis, amoris,
+<lb type="displayNum" n="350"/>non tamen idcirco duo numina nec duo rerum 
+<lb type="displayNum" n="351"/>artifices, quoniam generis dissensio nulla est,
+<lb type="displayNum" n="352"/>atque ideo nulla est operis distantia, nulla
+<lb type="displayNum" n="353"/>ingenii, peperit bona omnia conditor unus.
+<lb type="displayNum" n="354"/>nil luteum de fonte fluit nec turbidus umor
+<lb type="displayNum" n="355"/>nascitur aut primae violatur origine venae, 
+<lb type="displayNum" n="356"/>sed dum liventes liquor incorruptus harenas
+<lb type="displayNum" n="357"/>praelambit, putrefacta inter contagia sordet.
+<lb type="displayNum" n="358"/>numquid equus, ferrum, taurus, leo, funis, olivum
+<lb type="displayNum" n="359"/>in se vim sceleris, cum formarentur, habebant?
+<lb type="displayNum" n="360"/>quod iugulatur homo, non ferrum causa furoris 
+<lb type="displayNum" n="361"/>sed manus est; nec equum vesania fervida circi
+<lb type="displayNum" n="362"/>auctorem levitatis habet rabidive fragoris:
+<lb type="displayNum" n="363"/>mens vulgi rationis inops, non cursus equorum
+<lb type="displayNum" n="364"/>perfurit: infami studio perit utile donum,
+<lb type="displayNum" n="365"/>sic Lacedaemonias oleo maduisse palaestras 
+<lb type="displayNum" n="366"/>novimus et placidum servire ad crimina sucum,
+<lb type="displayNum" n="367"/>inde per aerium pendens audacia funem
+<pb id="p.230"/>
+<lb type="displayNum" n="368"/>ardua securis scandit proscaenia plantis,
+<lb type="displayNum" n="369"/>inde feras volucri temeraria corpora saltu
+<lb type="displayNum" n="370"/>transibunt mortisque inter discrimina ludunt. 
+<lb type="displayNum" n="371"/>sanguinis humani spectacula publicus edit
+<lb type="displayNum" n="372"/>consensus legesque iubent venale parari
+<lb type="displayNum" n="373"/>supplicium, quo membra hominum discerpta cruentis
+<lb type="displayNum" n="374"/>morsibus oblectent hilarem de funere plebem,
+<lb type="displayNum" n="375"/>mille alia stolidi bacchantia gaudia mundi 
+<lb type="displayNum" n="376"/>percensere piget, quae veri oblita Tonantis
+<lb type="displayNum" n="377"/>humanum miseris volvunt erroribus aevum,
+<lb type="displayNum" n="378"/>nemo animum summi memorem genitoris in altum
+<lb type="displayNum" n="379"/>excitat, ad caelum mittit suspiria nemo,
+<lb type="displayNum" n="380"/>nec recolens apicem solii natalis ad ipsum 
+<lb type="displayNum" n="381"/>respicit auctorem, nec spem super aera librat,
+<lb type="displayNum" n="382"/>sed mentem gravidis contentam stertere curis
+<lb type="displayNum" n="383"/>indigno subdit domino perituraque pronus
+<lb type="displayNum" n="384"/>diligit et curvo quaerit terrestria sensu.
+<lb type="displayNum" n="385"/>hoc pulchrum quod terra parit, quod gloria confert 
+<lb type="displayNum" n="386"/>lubrica, commendat quod perniciosa voluptas,
+<lb type="displayNum" n="387"/>quod velut excitus difflato pulvere ventus
+<lb type="displayNum" n="388"/>praeterit, exemplo tenuis quod transvolat umbrae,
+<lb type="displayNum" n="389"/>his aegras animas morborum pestibus urget
+<lb type="displayNum" n="390"/>praedo potens, tacitis quem viribus interfusum 
+<lb type="displayNum" n="391"/>corda bibunt hominum; serit ille medullitus omnes
+<lb type="displayNum" n="392"/>nequitias spargitque suos per membra ministros,
+<lb type="displayNum" n="393"/>namque illic numerosa cohors sub principe tali
+<pb id="p.232"/>
+<lb type="displayNum" n="394"/>militat horrendisque animas circumsidet armis,
+<lb type="displayNum" n="395"/>Ira, Superstitio, Maeror, Discordia, Luctus, 1 
+<lb type="displayNum" n="396"/>Sanguinis atra Sitis, vini Sitis et Sitis Auri,
+<lb type="displayNum" n="397"/>Livor, Adulterium, Dolus, Obtrectatio, Furtum,
+<lb type="displayNum" n="398"/>informes horrent facies habituque minaces.
+<lb type="displayNum" n="399"/>Ambitio ventosa tumet, Doctrina superbit,
+<lb type="displayNum" n="400"/>personat Eloquium, nodos Fraus abdita nectit. 
+<lb type="displayNum" n="401"/>inde canina foro latrat Facundia toto,
+<lb type="displayNum" n="402"/>hinc gerit Herculeam vilis Sapientia clavam,
+<lb type="displayNum" n="403"/>ostentatque suos vicatim gymnosophistas,
+<lb type="displayNum" n="404"/>inccrat lapides fumosos Idololatrix
+<lb type="displayNum" n="405"/>Religio et surdis pallens advolvitur aris. 
+<lb type="displayNum" n="406"/>heu quantis mortale genus premit inprobus hostis
+<lb type="displayNum" n="407"/>armigeris, quanto ferrata satellite ductor
+<lb type="displayNum" n="408"/>bella gerit, quanta victos dicione triumphat!
+<lb type="displayNum" n="409"/>surgit in auxilium Chananeus atque agmina denset
+<lb type="displayNum" n="410"/>casside terribilis, saetarum pondera mento 
+<lb type="displayNum" n="411"/>concutiens dextramque gravi cum cuspide quassans.
+<lb type="displayNum" n="412"/>ast alia de parte furens exercitus ardet
+<lb type="displayNum" n="413"/>regis Amorraei, tum milia Gergeseorum
+<lb type="displayNum" n="414"/>effundunt aciem toto volitantia campo;
+<lb type="displayNum" n="415"/>eminus hi feriunt, confligunt comminus illi. 
+<lb type="displayNum" n="416"/>ecce Zebusiacae fervent ad proelia turmae,
+<lb type="displayNum" n="417"/>aurea tela quibus de sanguine tincta draconis
+<lb type="displayNum" n="418"/>mortifero splendore micant radiantque
+<lb type="displayNum" n="419"/>necantque. nec non terrificas pilis armare catervas
+<pb id="p.234"/>
+<lb type="displayNum" n="420"/>te, Cittaee, iuvat; sed gens Pherezaea sagittis 
+<lb type="displayNum" n="421"/>insultat virtute pari, sed dispare ferro,
+<lb type="displayNum" n="422"/>postremum cuneum rex promovet Euvaeorum
+<lb type="displayNum" n="423"/>squamosum thoraca gerens de pelle colubri,
+<lb type="displayNum" n="424"/>his subnixa viris scelerum perversa potestas
+<lb type="displayNum" n="425"/>edomat invalidas mentes, quae simplicitate 
+<lb type="displayNum" n="426"/>indociles bellique rudes sub foedere falso
+<lb type="displayNum" n="427"/>tristis amicitiae primum socia agmina credunt,
+<lb type="displayNum" n="428"/>Mammoneamque fidem pacis sub amore sequuntur.
+<lb type="displayNum" n="429"/>mox faciles ad vincla rapi iuga dura volentes
+<lb type="displayNum" n="430"/>addictis subeunt cervicibus, et nebulonum 
+<lb type="displayNum" n="431"/>spirituum iussis servire ferocibus optant.
+<lb type="displayNum" n="432"/>ille,supervacuis augens patrimonia fundis
+<lb type="displayNum" n="433"/>finitimisque inhians contempto limite agellis,
+<lb type="displayNum" n="434"/>ducitur innexus manicis et mille catenis
+<lb type="displayNum" n="435"/>ante triumphales currus post terga revinctus, 
+<lb type="displayNum" n="436"/>nec se barbaricis addictum sentit habenis.
+<lb type="displayNum" n="437"/>hic, qui ventosae scandit fastigia famae
+<lb type="displayNum" n="438"/>inflaturque cavo pompae popularis honore,
+<lb type="displayNum" n="439"/>qui summum solidumque bonum putat ambitionis
+<lb type="displayNum" n="440"/>crescere successu, praeconum voce trementes 
+<lb type="displayNum" n="441"/>exanimare reos, miserorum in corpora fasces
+<lb type="displayNum" n="442"/>frangere, terribiles legum exercere secures,
+<lb type="displayNum" n="443"/>in laqueum iam colla dedit, iam compede dura
+<lb type="displayNum" n="444"/>nectitur et pedibus servilia vincula limat.
+<lb type="displayNum" n="445"/>credite, captivi mortales, hostica quos iam 
+<lb type="displayNum" n="446"/>damnatos cohibent ergastula, quos famulatu
+<lb type="displayNum" n="447"/>poenarum virtus non intellecta coercet,
+<pb id="p.236"/>
+<lb type="displayNum" n="448"/>haec illa est Babylon, haec transmigratio nostrae
+<lb type="displayNum" n="449"/>gentis et horribilis victoria principis Assur,
+<lb type="displayNum" n="450"/>carmine luctifico quam deflens Hieremias 
+<lb type="displayNum" n="451"/>orbatam propriis ululavit civibus urbem,
+<lb type="displayNum" n="452"/>num latet aut dubium est animas de semine Iacob
+<lb type="displayNum" n="453"/>exilium gentile pati, quas Persica regna
+<lb type="displayNum" n="454"/>captivas retinent atque in sua foedera cogunt?
+<lb type="displayNum" n="455"/>illic natali desuescunt vivere ritu 
+<lb type="displayNum" n="456"/>moribus et patriis exutae in barbara iura
+<lb type="displayNum" n="457"/>degenerant linguamque novam vestemque sequuntur,
+<lb type="displayNum" n="458"/>deque profanato discunt sordescere cultu
+<lb type="displayNum" n="459"/>nutricemque abolent petulanti e pectore Sion.
+<lb type="displayNum" n="460"/>iam patriae meminisse piget, iam mystica frangunt 
+<lb type="displayNum" n="461"/>organa et externi laudant anathemata regni.
+<lb type="displayNum" n="462"/>nonne fuit melius saevum Memphitidis aulae
+<lb type="displayNum" n="463"/>imperium tolerasse patres penitusque sinistris
+<lb type="displayNum" n="464"/>adsedisse focis, positos Pharaonis iniqui
+<lb type="displayNum" n="465"/>sub pedibus, limo et paleis servire paratos, 
+<lb type="displayNum" n="466"/>carnis et inmodicae spurco ructamine crudos?
+<lb type="displayNum" n="467"/>quo tantum auxilii per prodigialia signa
+<lb type="displayNum" n="468"/>effudit Dominus, populum dum forte rebellem
+<lb type="displayNum" n="469"/>servat ope inmerita, vinclis dum subdita colla
+<lb type="displayNum" n="470"/>solvit et Aegyptum virga serpente coercet? 
+<lb type="displayNum" n="471"/>quid iuvat aequoreum pelago cedente profundum
+<lb type="displayNum" n="472"/>pulverea calcasse via, cum conscia ponti
+<lb type="displayNum" n="473"/>saxa sub ignoto patuerunt prodita caelo
+<lb type="displayNum" n="474"/>aruit et medio sitiens in gurgite limus,
+<lb type="displayNum" n="475"/>si victor virtute Dei mediasque tenebras 
+<lb type="displayNum" n="476"/>luce columnari scindens exercitus olim
+<pb id="p.238"/>
+<lb type="displayNum" n="477"/>perdidit inventi vallem botryonis opimam,
+<lb type="displayNum" n="478"/>si nescit versare solum, cui melle perenni
+<lb type="displayNum" n="479"/>glaeba fluens niveos permiscet lactea rivos,
+<lb type="displayNum" n="480"/>si domitam Ierichon lituis atque aere canoro 
+<lb type="displayNum" n="481"/>rursus in antiquos patitur consurgere muros,
+<lb type="displayNum" n="482"/>si ripis reflui Iordanis pellitur et iam
+<lb type="displayNum" n="483"/>deserit adscriptam dimensa in iugera sortem,
+<lb type="displayNum" n="484"/>denique si structam tantis sudoribus urbem
+<lb type="displayNum" n="485"/>et quae nubigenas transcendunt culmina nimbos 
+<lb type="displayNum" n="486"/>defensare nequit, si nescit quis lapis ille est
+<lb type="displayNum" n="487"/>hostibus obsistens et inexpugnabile turris
+<lb type="displayNum" n="488"/>praesidium, quem non aerato machina rostro
+<lb type="displayNum" n="489"/>arietat insiliens, nec ferrea verbera quassant?
+<lb type="displayNum" n="490"/>angulus hic portae in capite est, hic continet omnem 
+<lb type="displayNum" n="491"/>saxorum seriem constructaque limina firmat,
+<lb type="displayNum" n="492"/>quem qui rite suis per propugnacula muris
+<lb type="displayNum" n="493"/>noverit insertum, seque ac sua moenia vallo
+<lb type="displayNum" n="494"/>praecingat triplici celsa stans eminus arce,
+<lb type="displayNum" n="495"/>fretus amore petrae castis et pervigil armis, 
+<lb type="displayNum" n="496"/>non illum regina Tyri, non accola magni
+<lb type="displayNum" n="497"/>Euphratis Parthus rapiet, non decolor Indus
+<lb type="displayNum" n="498"/>tempora pinnatis redimitus nigra sagittis,
+<lb type="displayNum" n="499"/>quin si fulmineos cogens ad bella gigantas
+<lb type="displayNum" n="500"/>allophilus tua castra velit delere tyrannus, 
+<lb type="displayNum" n="501"/>tutus eris, nec te firma statione movebit
+<lb type="displayNum" n="502"/>ipse Charon mundi, numen Marcionis, ipse,
+<lb type="displayNum" n="503"/>qui regit aerio vanas sub sole tenebras,
+<lb type="displayNum" n="504"/>nam vanum quidquid sol aspicit, ex elementis
+<pb id="p.240"/>
+<lb type="displayNum" n="505"/>cuncta solubilibus fluxoque creamine constant. 
+<lb type="displayNum" n="506"/>fallo, creaturam nisi doctor apostolus omnem
+<lb type="displayNum" n="507"/>subiectam vanis non sponte laboribus orsus
+<lb type="displayNum" n="508"/>periuro ingemuit miserans servire latroni:
+<lb type="displayNum" n="509"/><q>errat</q> ait, <q>qui luctamen cum sanguine nobis
+<lb type="displayNum" n="510"/>et carne et venis ferventibus et vitioso 
+<lb type="displayNum" n="511"/>felle putat calidisque animam peccare medullis.
+<lb type="displayNum" n="512"/>non mentem sua membra premunt, nec ferrea virtus
+<lb type="displayNum" n="513"/>oppugnat sensus liquidos bellove lacessit,
+<lb type="displayNum" n="514"/>sed cum spiritibus tenebrosis nocte dieque
+<lb type="displayNum" n="515"/>congredimur, quorum dominatibus umidus iste 
+<lb type="displayNum" n="516"/>et pigris densus nebulis obtemperat aer.</q>
+<lb type="displayNum" n="517"/>scilicet hoc medium, caelum inter et infima terrae
+<lb type="displayNum" n="518"/>quod patet et vacuo nubes suspendit hiatu,
+<lb type="displayNum" n="519"/>frena potestatum variarum sustinet ac sub
+<lb type="displayNum" n="520"/>principe Belia rectoribus horret iniquis. 
+<lb type="displayNum" n="521"/>his conluctamur praedonibus, ut sacra nobis
+<lb type="displayNum" n="522"/>oris apostolici testis sententia prodit.
+<lb type="displayNum" n="523"/>nemo habitum naturae, aut inritamina peccans
+<lb type="displayNum" n="524"/>corporis accuset; facile est frenare rebelles
+<lb type="displayNum" n="525"/>affectus carnis nimiosque retundere pulsus 
+<lb type="displayNum" n="526"/>materiae fragilis et viscera victa domare.
+<lb type="displayNum" n="527"/>quippe animus longe praestantior, utpote summo
+<lb type="displayNum" n="528"/>aethere demissus, subiectos si velit artus
+<lb type="displayNum" n="529"/>imperio quassare gravi iussisque severis
+<lb type="displayNum" n="530"/>dedere, regnanti domino vis nulla resistet. 
+<lb type="displayNum" n="531"/>maior inest vis illa homini, quae flatile virus
+<lb type="displayNum" n="532"/>ingerit et tenuem tenui ferit aere mentem.
+<lb type="displayNum" n="533"/>Parthica non aeque ventos transcurrit harundo,
+<pb id="p.242"/>
+<lb type="displayNum" n="534"/>cuius iter nullus potis est conprendere visus;
+<lb type="displayNum" n="535"/>praepes enim volucres dum pennis transvolat auras, 
+<lb type="displayNum" n="536"/>inprovisa venit, nec stridor nuntiat ante
+<lb type="displayNum" n="537"/>adventum leti quam pectoris abdita rumpat,
+<lb type="displayNum" n="538"/>securam penetrans medicato vulnere vitam;
+<lb type="displayNum" n="539"/>sed magis aligera est magis et medicata sagitta,
+<lb type="displayNum" n="540"/>quam iacit umbrosi dominatio lubrica mundi, 
+<lb type="displayNum" n="541"/>eludens excussa oculos calamique volantis
+<lb type="displayNum" n="542"/>praepete transcursu cordis penetralia Agens,
+<lb type="displayNum" n="543"/>nec segnis natura animae est aut tarda cavendi
+<lb type="displayNum" n="544"/>vulneris, ignitum quoniam Deus indidit olli
+<lb type="displayNum" n="545"/>ingenium, purum, sapiens, subtile, serenum, 
+<lb type="displayNum" n="546"/>mobile, sollicitum, velox, agitabile, acutum,
+<lb type="displayNum" n="547"/>factorem modo casta suum veneretur et ipsi
+<lb type="displayNum" n="548"/>militet ac victum proculcet sobria mundum,
+<lb type="displayNum" n="549"/>nil de pestiferis opibus aut falsificatis
+<lb type="displayNum" n="550"/>terrarum spoliis stulto oblectamine libans, 
+<lb type="displayNum" n="551"/>ne sub fasce iacens alieno et dedita regno
+<lb type="displayNum" n="552"/>non queat argutas hostis vitare sagittas,
+<lb type="displayNum" n="553"/>sed quid ego omne malum mundique hominumque maligni
+<lb type="displayNum" n="554"/>hostis ad invidiam detorqueo, cum mala nostra
+<lb type="displayNum" n="555"/>ex nostris concreta animis genus et caput et vim, 
+<lb type="displayNum" n="556"/>quid sint, quid valeant, sumant de corde parente?
+<lb type="displayNum" n="557"/>ille quidem fomes nostrorum et causa malorum est,
+<lb type="displayNum" n="558"/>sed tantum turbare potest aut fallere quantum
+<lb type="displayNum" n="559"/>nos volumus, qui decrepito suggesta leoni
+<lb type="displayNum" n="560"/>armamenta damus: friget fera futtile frendens, 
+<lb type="displayNum" n="561"/>humani generis ni per suffragia gliscat.
+<lb type="displayNum" n="562"/>gignimus omne malum proprio de corpore nostrum,
+<lb type="displayNum" n="563"/>ut genuit David, alias pater optimus, unum
+<lb type="displayNum" n="564"/>crimen Abessalon; taetrum pater ille, sed unum,
+<pb id="p.244"/>
+<lb type="displayNum" n="565"/>innocuas inter suboles genuit patricidam, 
+<lb type="displayNum" n="566"/>ausus in auctorem generis qui stringere ferrum
+<lb type="displayNum" n="567"/>(a pietas!) signis contraria signa paternis
+<lb type="displayNum" n="568"/>egit et unius commisit sanguinis arma.
+<lb type="displayNum" n="569"/>nostra itidem diros urente propagine natos
+<lb type="displayNum" n="570"/>pectora parturiunt, versis qui protinus in nos 
+<lb type="displayNum" n="571"/>morsibus insuescunt gignentum vivere poenis;
+<lb type="displayNum" n="572"/>depopulantur enim nimium fecunda parentum
+<lb type="displayNum" n="573"/>viscera et interitu genitalis stirpis aluntur.
+<lb type="displayNum" n="574"/>progeniem verum ille suam, rex utpote summus
+<lb type="displayNum" n="575"/>atque Dei vates pariturae et virginis auctor, 
+<lb type="displayNum" n="576"/>tristibus atque piis variaverat, ut Solomonis
+<lb type="displayNum" n="577"/>frater Abessalon sereret sua crimina iustis
+<lb type="displayNum" n="578"/>pigneribus dulcemque domum turbaret amaris.
+<lb type="displayNum" n="579"/>nos dignum Solomone nihil, nos degener inplet
+<lb type="displayNum" n="580"/>solus Abessalon lacerans pia viscera ferro. 
+<lb type="displayNum" n="581"/>si licet ex ethicis 1 quidquam praesumere vel si
+<lb type="displayNum" n="582"/>de physicis exempli aliquid, sic vipera, ut aiunt,
+<lb type="displayNum" n="583"/>dentibus cmoritur fusae per viscera prolis,
+<lb type="displayNum" n="584"/>mater morte sua, non sexu fertilis aut de
+<lb type="displayNum" n="585"/>concubitu distenta uterum, sed cum calet igni 
+<lb type="displayNum" n="586"/>percita femineo, moriturum obscena maritum
+<lb type="displayNum" n="587"/>ore sitit patulo; caput inserit ille trilingue
+<lb type="displayNum" n="588"/>coniugis in fauces atque oscula fervidus intrat,
+<lb type="displayNum" n="589"/>insinuans oris coitu genitale venenum,
+<lb type="displayNum" n="590"/>nupta voluptatis vi saucia mordicus haustum 
+<lb type="displayNum" n="591"/>frangit amatoris blanda inter foedera guttur,
+<lb type="displayNum" n="592"/>infusasque bibit caro pereunte salivas.
+<pb id="p.246"/>
+<lb type="displayNum" n="593"/>his pater inlecebris consumitur, at genitricem
+<lb type="displayNum" n="594"/>clausa necat subolis; nam postquam semine adulto
+<lb type="displayNum" n="595"/>incipiunt calidis corpuscula parva latebris 
+<lb type="displayNum" n="596"/>serpere motatumque uterum vibrata ferire,
+<lb type="displayNum" n="597"/>aestuat interno pietatis crimine mater
+<lb type="displayNum" n="598"/>carnificemque gemit damnati conscia sexus
+<lb type="displayNum" n="599"/>progeniem, saepti rumpentem obstacula partus,
+<lb type="displayNum" n="600"/>nam quia nascendi nullus patet exitus, alvus 
+<lb type="displayNum" n="601"/>fetibus in lucem nitentibus excruciata
+<lb type="displayNum" n="602"/>carpitur atque viam lacerata per ilia pandit,
+<lb type="displayNum" n="603"/>tandem obitu altricis prodit grex ille dolorum
+<lb type="displayNum" n="604"/>ingressum vitae vix eluctatus et ortum
+<lb type="displayNum" n="605"/>per scelus exculpens; lambunt natale cadaver 
+<lb type="displayNum" n="606"/>reptantes catuli, prolis dum nascitur orba,
+<lb type="displayNum" n="607"/>haud experta diem miserae nisi postuma matris,
+<lb type="displayNum" n="608"/>non dispar nostrae conceptus mentis: ab ore
+<lb type="displayNum" n="609"/>vipereo infusum sic conbibit illa venenum
+<lb type="displayNum" n="610"/>coniuge Beliade, sic oscula devorat haustu 
+<lb type="displayNum" n="611"/>interiusque rapit, sic felle libidinis ardens
+<lb type="displayNum" n="612"/>inpletur vitiis perituro mixta marito,
+<lb type="displayNum" n="613"/>tunc praegnans letale genus concepta maligni
+<lb type="displayNum" n="614"/>fert opera ingenii de semine conplicis hydri;
+<lb type="displayNum" n="615"/>quem poenis pensare prius sua facta necesse est 
+<lb type="displayNum" n="616"/>corruptae pro stupro animae proque orbe perempto.
+<lb type="displayNum" n="617"/>ipsam porro animam crudelia vulnera carpunt
+<lb type="displayNum" n="618"/>mille puerperiis, suboles dum parturit ex se
+<lb type="displayNum" n="619"/>contra naturam genitas, peccamina crebra
+<pb id="p.248"/>
+<lb type="displayNum" n="620"/>scilicet et pastos materno funere natos. 
+<lb type="displayNum" n="621"/>hinc illa est Domini iusta obiurgatio Christi:
+<lb type="displayNum" n="622"/><q>nonne pater daemon, vos increpo, peccatores,
+<lb type="displayNum" n="623"/>concubitu carnis semen sitientis iniquum
+<lb type="displayNum" n="624"/>vos genuit?</q> sanctum, lector, percense volumen:
+<lb type="displayNum" n="625"/>quod loquor, invenies Dominum dixisse profanis 
+<lb type="displayNum" n="626"/>vera obiectantem mortalibus: <q>ex Patre nam vos
+<lb type="displayNum" n="627"/>esse meo genitos pietas,</q> ait, <q>ipsa probaret
+<lb type="displayNum" n="628"/>ac pietatis opus.</q> pro caeca libido! quid hoc est,
+<lb type="displayNum" n="629"/>quod cum se thalamis desponsam mens bona iustis
+<lb type="displayNum" n="630"/>noverit, inque torum regis nuptura vocetur, 
+<lb type="displayNum" n="631"/>et regis semper iuvenis senioque repulso
+<lb type="displayNum" n="632"/>divinum decus aeterno servantis in ore,
+<lb type="displayNum" n="633"/>malit adulterium fulvo et se munere vilem
+<lb type="displayNum" n="634"/>vendat nocticolae spurcis conplexibus Indi,
+<lb type="displayNum" n="635"/>aspernata Dei fusam per virginis artus 
+<lb type="displayNum" n="636"/>progeniem dulcesque vocans in fornice natos?
+<lb type="displayNum" n="637"/>sentio quam contra moveat pellacia litem,
+<lb type="displayNum" n="638"/>quo dente obnitens spinosa calumnia pugnet
+<lb type="displayNum" n="639"/>nosque lacessito vocet ad luctamina vero.
+<lb type="displayNum" n="640"/><q>si non vult Deus esse malum, cur non vetat?</q> inquit. 
+<lb type="displayNum" n="641"/><q>nil refert auctor fuerit factorque malorum,
+<lb type="displayNum" n="642"/>anne opera in vitium sceleris pulcherrima verti,
+<lb type="displayNum" n="643"/>cum possit prohibere, sinat; qui si velit omnes
+<lb type="displayNum" n="644"/>innocuos agere omnipotens, nec sancta voluntas
+<lb type="displayNum" n="645"/>degeneret, facto nec se manus inquinet ullo. 
+<lb type="displayNum" n="646"/>condidit ergo malum Dominus quod spectat ab alto
+<lb type="displayNum" n="647"/>et patitur fierique probat, tamquam ipse crearit;
+<lb type="displayNum" n="648"/>ipse creavit enim quod, cum discludere possit,
+<pb id="p.250"/>
+<lb type="displayNum" n="649"/>non abolet longoque sinit grassarier usu.</q>
+<lb type="displayNum" n="650"/>damna aures, Pater alme, meas, et claude meatus 
+<lb type="displayNum" n="651"/>obbrutescentis capitis, ne pervia tales
+<lb type="displayNum" n="652"/>concipiat flexura sonos; est perdere tanti
+<lb type="displayNum" n="653"/>extinctum vitae officium de parte cerebri,
+<lb type="displayNum" n="654"/>inmunem modo sese anima expertemque nefandi
+<lb type="displayNum" n="655"/>auditus felix stolida conservet ab aure. 
+<lb type="displayNum" n="656"/>quis ferat haec iniecta Deo convicia, qui se
+<lb type="displayNum" n="657"/>divinis meminit praecellere nobilitatum
+<lb type="displayNum" n="658"/>muneribus? multa ut taceam, vel sola benignum
+<lb type="displayNum" n="659"/>res probat esse Deum, vetiti quod amore peremptos
+<lb type="displayNum" n="660"/>excitat e tumulis homines regnique per aevum 
+<lb type="displayNum" n="661"/>participes iubet esse sui. qui si foret auctor
+<lb type="displayNum" n="662"/>servatorque mali, nunquam post damna salutis
+<lb type="displayNum" n="663"/>peccantumque obitus redivivam ferre medellam
+<lb type="displayNum" n="664"/>vellet et amissos ope restaurare secunda,
+<lb type="displayNum" n="665"/>labi hominis, servare Dei est: meritis perit iste, 
+<lb type="displayNum" n="666"/>ille abolet pereuntis opus meritumque resolvit,
+<lb type="displayNum" n="667"/>argumentum ingens Dominum, qui talia praestet,
+<lb type="displayNum" n="668"/>nolle malum nec, quod post abluit, ante probare.
+<lb type="displayNum" n="669"/><q>invitone aliquis potis est peccare Tonante,
+<lb type="displayNum" n="670"/>cui facile est in corde hominis conponere sensus 
+<lb type="displayNum" n="671"/>quos libeat, fibrasque omnes animare
+<lb type="displayNum" n="672"/>pudicis pulsibus et totum venis infundere honestum?</q>
+<lb type="displayNum" n="673"/>nescis, stulte, tuae vim libertatis ab ipso
+<lb type="displayNum" n="674"/>formatore datam? nescis ab origine quanta
+<lb type="displayNum" n="675"/>sit concessa tibi famulo super orbe potestas, 
+<lb type="displayNum" n="676"/>et super ingenio proprio laxaeque soluto
+<pb id="p.252"/>
+<lb type="displayNum" n="677"/>iure voluntatis, liceat cui velle sequique
+<lb type="displayNum" n="678"/>quod placitum, nullique animum subiungere vinclo?
+<lb type="displayNum" n="679"/>an cum te dominum cunctis, quaecumque crearat,
+<lb type="displayNum" n="680"/>praeficeret mundumque tuis servire iuberet 
+<lb type="displayNum" n="681"/>imperiis, cumque arva, polum, mare, flumina, ventos
+<lb type="displayNum" n="682"/>dederet, arbitrium de te tibi credere avarus
+<lb type="displayNum" n="683"/>nollet ut indigno libertatemque negaret?
+<lb type="displayNum" n="684"/>quale erat electus magni rex orbis ut esset
+<lb type="displayNum" n="685"/>non rex ipse sui, curto foedatus honore? 
+<lb type="displayNum" n="686"/>nam quis honos domini est, cuius mens libera non est,
+<lb type="displayNum" n="687"/>una sed inpositae servit sententia legi?
+<lb type="displayNum" n="688"/>quae laus porro hominis vel quod meritum, sine certo
+<lb type="displayNum" n="689"/>inter utramque viam discrimine vivere iuste?
+<lb type="displayNum" n="690"/>non fit sponte bonus, cui non est prompta potestas 
+<lb type="displayNum" n="691"/>velle aliud flexosque animi convertere sensus,
+<lb type="displayNum" n="692"/>atqui nec bonus est nec conlaudabilis ille
+<lb type="displayNum" n="693"/>qui non sponte bonus, quoniam probitate coacta
+<lb type="displayNum" n="694"/>gloria nulla venit sordetque ingloria virtus;
+<lb type="displayNum" n="695"/>nec tamen est virtus, ni deteriora refutans 
+<lb type="displayNum" n="696"/>emicet et meliore viam petat indole rectam.
+<lb type="displayNum" n="697"/><q>vade,</q> ait ipse parens opifexque et conditor Adae,
+<lb type="displayNum" n="698"/><q>vade, homo, adflatu nostri praenobilis oris,
+<lb type="displayNum" n="699"/>insubiecte, potens, rerum arbiter, arbiter idem
+<lb type="displayNum" n="700"/>et iudex mentis propriae, mihi subdere soli 
+<lb type="displayNum" n="701"/>sponte tua, quo sit subiectio et ipsa soluto
+<lb type="displayNum" n="702"/>libera iudicio, non cogo nec exigo per vim,
+<lb type="displayNum" n="703"/>sed moneo iniustum fugias iustumque sequaris.
+<pb id="p.254"/>
+<lb type="displayNum" n="704"/>lux comes est iusti, comes est mors horrida iniqui,
+<lb type="displayNum" n="705"/>elige rem vitae; tua virtus temet in aevum 
+<lb type="displayNum" n="706"/>provehat, aeternum damnet tua culpa vicissim,
+<lb type="displayNum" n="707"/>praestet et alterutram permissa licentia sortem.</q>
+<lb type="displayNum" n="708"/>hac pietate vagus et tanto munere abundans,
+<lb type="displayNum" n="709"/>transit propositum fas et letalia prudens
+<lb type="displayNum" n="710"/>eligit atque volens, magis utile dum sibi credit 
+<lb type="displayNum" n="711"/>quod prohibente Deopersuasit callidus anguis,
+<lb type="displayNum" n="712"/>persuasit certe hortatu, non inpulit acri
+<lb type="displayNum" n="713"/>imperio; hoc mulier rea criminis exprobranti
+<lb type="displayNum" n="714"/>respondit Domino, suadelis se malefabris
+<lb type="displayNum" n="715"/>inlectam suasisse viro; vir et ipse libenter 
+<lb type="displayNum" n="716"/>consensit, licuitne hortantem spernere recti
+<lb type="displayNum" n="717"/>libertate animi? licuit; namque et Deus ante
+<lb type="displayNum" n="718"/>suaserat ut meliora volens sequeretur; at ille
+<lb type="displayNum" n="719"/>spernens consilium saevo plus credidit hosti,
+<lb type="displayNum" n="720"/>nunc inter vitae Dominum mortisque magistrum 
+<lb type="displayNum" n="721"/>consistit medius; vocat hinc Deus, inde tyrannus
+<lb type="displayNum" n="722"/>ambiguum atque suis se motibus alternantem.
+<lb type="displayNum" n="723"/>accipe gestarum monumenta insignia rerum,
+<lb type="displayNum" n="724"/>praelusit quibus historia spectabile signum.
+<lb type="displayNum" n="725"/>Loth fugiens Sodomis ardentibus omnia secum 
+<lb type="displayNum" n="726"/>pignera cara domus properabat sede relicta
+<lb type="displayNum" n="727"/>nubibus urbicremis subducere, sulpure cum iam
+<lb type="displayNum" n="728"/>nimboso ignitus coelum subtexeret aër
+<lb type="displayNum" n="729"/>flagrantemque diem crepitans incenderet imber,
+<lb type="displayNum" n="730"/>angelus hanc hospes legem praescripserat ollis 
+<lb type="displayNum" n="731"/>emissus virtute Dei sub imagine dupla,
+<pb id="p.256"/>
+<lb type="displayNum" n="732"/>omnis ut e portis iret domus atque in apertum
+<lb type="displayNum" n="733"/>dirigeret constans oculos, nec pone reflexo
+<lb type="displayNum" n="734"/>lumine regnantes per moenia cerneret ignes:
+<lb type="displayNum" n="735"/><q>nemo, memor Sodomae, quae mundi forma cremandi est, 
+<lb type="displayNum" n="736"/>ut semel e muris gressum promoverit, ore
+<lb type="displayNum" n="737"/>post tergum verso respectet funera rerum.</q>
+<lb type="displayNum" n="738"/>Loth monitis sapiens obtemperat, at levis uxor
+<lb type="displayNum" n="739"/>mobilitate animi torsit muliebre retrorsus
+<lb type="displayNum" n="740"/>ingenium Sodomisque suis revocabilis haesit. 
+<lb type="displayNum" n="741"/>traxerat Eva virum dirae ad consortia culpae:
+<lb type="displayNum" n="742"/>haec peccans sibi sola perit; solidata metallo
+<lb type="displayNum" n="743"/>diriguit fragili saxumqtie liquabile facta
+<lb type="displayNum" n="744"/>stat mulier, sicut steterat prius, omnia servans
+<lb type="displayNum" n="745"/>caute sigillati longum salis effigiata, 
+<lb type="displayNum" n="746"/>et decus et cultum frontemque oculosque comamque
+<lb type="displayNum" n="747"/>et flexam in tergum faciem paulumque relata
+<lb type="displayNum" n="748"/>menta retro, antiquae monumenta rigentia noxae,
+<lb type="displayNum" n="749"/>liquitur illa quidem salsis sudoribus uda,
+<lb type="displayNum" n="750"/>sed nulla ex fluido plenae dispendia formae 
+<lb type="displayNum" n="751"/>sentit deliquio, quantumque armenta saporum
+<lb type="displayNum" n="752"/>attenuant saxum, tantum lambentibus umor
+<lb type="displayNum" n="753"/>sufficit attritamque cutem per damna reformat,
+<lb type="displayNum" n="754"/>hoc meruit titulo peccatrix femina sisti,
+<lb type="displayNum" n="755"/>infirmum fluidumque animum per lubrica solvens 
+<lb type="displayNum" n="756"/>consilia et fragilis iussa ad caelestia, voti
+<pb id="p.258"/>
+<lb type="displayNum" n="757"/>propositum contra non conmutabile servat
+<lb type="displayNum" n="758"/>Loth ingressus iter, nec moenia respicit alto
+<lb type="displayNum" n="759"/>in cinerem conlapsa rogo, populumque perustum
+<lb type="displayNum" n="760"/>et mores populi, tabularia, iura forumque, 
+<lb type="displayNum" n="761"/>balnea, propolas, meritoria, templa, theatra,
+<lb type="displayNum" n="762"/>et circum cum plebe sua, madidasque popinas.
+<lb type="displayNum" n="763"/>quidquid agunt homines Sodomorum incendia iustis
+<lb type="displayNum" n="764"/>ignibus involvunt et Christo iudice damnant.
+<lb type="displayNum" n="765"/>haec fugisse semel satis est; non respicit ultra 
+<lb type="displayNum" n="766"/>Loth noster, fragilis sed coniunx respicit, et quae
+<lb type="displayNum" n="767"/>fugerat inverso mutabilis ore revisit,
+<lb type="displayNum" n="768"/>atque inter patrias perstat durata favillas.
+<lb type="displayNum" n="769"/>en tibi signatum libertatis documentum,
+<lb type="displayNum" n="770"/>quo voluit nos scire Deus, quodcumque  sequendum est, 
+<lb type="displayNum" n="771"/>sub nostra dicione situm, passimque remissum
+<lb type="displayNum" n="772"/>alterutram calcare viam. duo cedere iussi
+<lb type="displayNum" n="773"/>de Sodomis; alter se proripit, altera mussat,
+<lb type="displayNum" n="774"/>ille gradum celerat fugiens, contra illa renutat.
+<lb type="displayNum" n="775"/>liber utrique animus, sed dispar utrique voluntas. 
+<lb type="displayNum" n="776"/>dividit huc illuc rapiens sua quemque libido,
+<lb type="displayNum" n="777"/>talem multa sacris speciem notat orbita libris,
+<lb type="displayNum" n="778"/>aspice Ruth gentis Moabitidis et simul Orphan,
+<lb type="displayNum" n="779"/>illa socrum Noomin 1 fido comitatur amore,
+<lb type="displayNum" n="780"/>deserit haec. atquin thalamis et lege iugali 
+<lb type="displayNum" n="781"/>exutae Hebraeisque toris sacrisque vacantes
+<lb type="displayNum" n="782"/>iure fruebantur proprio, sed pristinus Orphae
+<lb type="displayNum" n="783"/>fanorum ritus praeputia barbara suasit
+<lb type="displayNum" n="784"/>malle et semiferi stirpem nutrire Goliae;
+<lb type="displayNum" n="785"/>Ruth dum per stipulas agresti amburitur aestu, 
+<pb id="p.260"/>
+<lb type="displayNum" n="786"/>fulcra Boos 1 meruit, castoque adscita cubili
+<lb type="displayNum" n="787"/>Christigenam fecunda domum, Davitica regna,
+<lb type="displayNum" n="788"/>edidit atque Deo mortales miscuit ortus,
+<lb type="displayNum" n="789"/>saepe egomet memini fratres geminos ad hiulcum
+<lb type="displayNum" n="790"/>pervenisse simul bivium nutante iuventa 
+<lb type="displayNum" n="791"/>et dubitasse diu bifido sub tramite, quodnam
+<lb type="displayNum" n="792"/>esset iter melius; cum dextrum spinea silva
+<lb type="displayNum" n="793"/>sentibus artaret scopulosaque semita longe
+<lb type="displayNum" n="794"/>duceret aërium clivoso margine callem,
+<lb type="displayNum" n="795"/>at laevum nemus umbriferum per amoena virecta 
+<lb type="displayNum" n="796"/>ditibus ornaret pomis et lene iacentem
+<lb type="displayNum" n="797"/>planities daret ampla viam: squalentibus unum
+<lb type="displayNum" n="798"/>contentum spinis reptasse per ardua saxa,
+<lb type="displayNum" n="799"/>porro alium campo sese indulsisse sinistro;
+<lb type="displayNum" n="800"/>illum sideribus caput inmiscere propinquis, 
+<lb type="displayNum" n="801"/>hunc in caenosas subito cecidisse paludes,
+<lb type="displayNum" n="802"/>omnibus una subest natura, sed exitus omnes
+<lb type="displayNum" n="803"/>non unus peragit placitorum segrege forma,
+<lb type="displayNum" n="804"/>haud secus ac si olim per sudum lactea forte
+<lb type="displayNum" n="805"/>lapsa columbarum nubes descendat in arvum 
+<lb type="displayNum" n="806"/>ruris frugiferi, laqueos ubi callidus auceps
+<lb type="displayNum" n="807"/>praetendit lentoque inlevit vimina visco,
+<lb type="displayNum" n="808"/>sparsit et insidias siliquis vel farre doloso,
+<lb type="displayNum" n="809"/>inliciunt alias fallentia grana, gulamque
+<lb type="displayNum" n="810"/>innectunt avidam tortae retinacula saetae, 
+<lb type="displayNum" n="811"/>molle vel inplicitas gluten circumligat alas,
+<lb type="displayNum" n="812"/>ast aliae, quas nullus amor prolectat edendi,
+<lb type="displayNum" n="813"/>gressibus innocuis sterili spatiantur in herba
+<lb type="displayNum" n="814"/>suspectamque cavent oculos convertere ad escam;
+<lb type="displayNum" n="815"/>mox ubi iam caelo revolandum, pars petit aethram 
+<pb id="p.262"/>
+<lb type="displayNum" n="816"/>libera sideream plaudens super aëra pinnis,
+<lb type="displayNum" n="817"/>pars captiva iacet laceris et saucia plumis
+<lb type="displayNum" n="818"/>pugnat humi et volucres nequiquam suspicit, auras;
+<lb type="displayNum" n="819"/>sic animas caeli de fontibus unicoloras
+<lb type="displayNum" n="820"/>infundit natura solo, sed suavibus istic 
+<lb type="displayNum" n="821"/>devinctae inlecebris retinentur, et aethera paucae
+<lb type="displayNum" n="822"/>conscendunt reduces, multas viscosus inescat
+<lb type="displayNum" n="823"/>pastus et ad superas percurrere non sinit auras,
+<lb type="displayNum" n="824"/>praescius inde Pater liventia Tartara plumbo
+<lb type="displayNum" n="825"/>incendit liquido piceasque bitumine fossas 
+<lb type="displayNum" n="826"/>infernalis aquae furvo subfodit Averno,
+<lb type="displayNum" n="827"/>et Phlegethonteo sub gurgite sanxit edaces
+<lb type="displayNum" n="828"/>perpetuis scelerum poenis inolescere vermes,
+<lb type="displayNum" n="829"/>norat enim flatu ex proprio vegetamen inesse
+<lb type="displayNum" n="830"/>corporibus nostris animamque ex ore perenni 
+<lb type="displayNum" n="831"/>formatam non posse mori, non posse vicissim
+<lb type="displayNum" n="832"/>pollutam vitiis rursum ad convexa reverti
+<lb type="displayNum" n="833"/>mersandam penitus puteo ferventis abyssi,
+<lb type="displayNum" n="834"/>vermibus et flammis et discruciatibus aevum
+<lb type="displayNum" n="835"/>inmortale dedit, senio ne poena periret 
+<lb type="displayNum" n="836"/>non pereunte anima, carpunt tormenta foventque
+<lb type="displayNum" n="837"/>materiam sine fine datam, mors deserit ipsa
+<lb type="displayNum" n="838"/>aeternos gemitus et flentes vivere cogit.
+<lb type="displayNum" n="839"/>at diversa procul regionibus in paradisi
+<lb type="displayNum" n="840"/>praemia constituit maiestas gnara futuri 
+<lb type="displayNum" n="841"/>spiritibus puris et ab omni labe remotis,
+<lb type="displayNum" n="842"/>quique Gomorraeas non respexere ruinas,
+<lb type="displayNum" n="843"/>aversis sed rite oculis post terga tenebras
+<lb type="displayNum" n="844"/>liquerunt miseri properanda pericula mundi.
+<lb type="displayNum" n="845"/>ac primum facili referuntur ad astra volatu, 
+<pb id="p.264"/>
+<lb type="displayNum" n="846"/>unde fluens anima structum vegetaverat Adam.
+<lb type="displayNum" n="847"/>nam quia naturam tenuem declivia vitae
+<lb type="displayNum" n="848"/>pondera non reprimunt nec tardat ferrea conpes,
+<lb type="displayNum" n="849"/>concretum celeri relegens secat aera lapsu
+<lb type="displayNum" n="850"/>exsuperatque polum fervens scintilla remensum, 
+<lb type="displayNum" n="851"/>carcereos exosa situs, quibus haeserat exul.
+<lb type="displayNum" n="852"/>tunc postliminio redeuntem suscipit alto
+<lb type="displayNum" n="853"/>cana Fides gremio tenerisque oblectat alumnam
+<lb type="displayNum" n="854"/>deliciis, multos post divorsoria carnis
+<lb type="displayNum" n="855"/>ore renarrantem querulo, quos passa, labores. 
+<lb type="displayNum" n="856"/>illic purpureo latus exporrecta cubili
+<lb type="displayNum" n="857"/>floribus aeternis spirantes libat odores
+<lb type="displayNum" n="858"/>ambrosiumque bibit roseo de stramine rorem,
+<lb type="displayNum" n="859"/>ditibus et longo fumantibus intervallo
+<lb type="displayNum" n="860"/>fluminaque et totos caeli sitientibus imbres 
+<lb type="displayNum" n="861"/>inplorata negat digitum insertare palato,
+<lb type="displayNum" n="862"/>flammarumque apices timenti extinguere tactu,
+<lb type="displayNum" n="863"/>nec mirere locis longe distantibus inter
+<lb type="displayNum" n="864"/>damnatas iustasque animas concurrere visus
+<lb type="displayNum" n="865"/>conspicuos meritasque vices per magna notari 
+<lb type="displayNum" n="866"/>intervalla, polus medio quae dividit orbe.
+<lb type="displayNum" n="867"/>errat, quisque animas nostrorum fine oculorum
+<lb type="displayNum" n="868"/>aestimat, involvit vitreo quos lucida palla
+<lb type="displayNum" n="869"/>obice, quis speculum concreta coagula texunt
+<lb type="displayNum" n="870"/>inpediuntque vagas obducto umore fenestras. 
+<lb type="displayNum" n="871"/>numne animarum oculis denso vegetamine guttae
+<lb type="displayNum" n="872"/>volvuntur teretes aut palpebralibus extra
+<lb type="displayNum" n="873"/>horrescunt saetis, ciliove umbrante teguntur?
+<lb type="displayNum" n="874"/>illis viva acies, nec pupula parva, sed ignis
+<pb id="p.266"/>
+<lb type="displayNum" n="875"/>traiector nebulae vasti et penetrator operti est. 
+<lb type="displayNum" n="876"/>nil ferrugineum solidumve tuentibus obstat,
+<lb type="displayNum" n="877"/>nocturnae cedunt nebulae, nigrantia cedunt
+<lb type="displayNum" n="878"/>nubila, praetenti cedit teres area mundi,
+<lb type="displayNum" n="879"/>nec tantum aerios visu transmittit hiatus
+<lb type="displayNum" n="880"/>spiritus, oppositos sed transit lumine montes, 
+<lb type="displayNum" n="881"/>oceani fines atque ultima littera Thylae
+<lb type="displayNum" n="882"/>transadigit volucresque oculos in Tartara mittit,
+<lb type="displayNum" n="883"/>nostris nempe omnes pereunt sub nocte colores
+<lb type="displayNum" n="884"/>visibus et caeco delentur tempore formae,
+<lb type="displayNum" n="885"/>numquid et exuti membris ac viscere perdunt 
+<lb type="displayNum" n="886"/>agnitione notas rerum, vel gressibus errant?
+<lb type="displayNum" n="887"/>una animas semper facies habet et color unus
+<lb type="displayNum" n="888"/>aëris, ut cuique est meritorum summa, sinistri
+<lb type="displayNum" n="889"/>seu dextri: alternas nec commutabile tempus
+<lb type="displayNum" n="890"/>convertit variatque vices; longum atque perenne est 
+<lb type="displayNum" n="891"/>quidquid id est, unus volvit sua saecula cursus,
+<lb type="displayNum" n="892"/>expertus dubitas animas percurrere visu
+<lb type="displayNum" n="893"/>abdita corporeis oculis, cum saepe quietis
+<lb type="displayNum" n="894"/>rore soporatis cernat mens viva remotos
+<lb type="displayNum" n="895"/>distantesque locos, aciem per rura, per astra, 
+<lb type="displayNum" n="896"/>per maria intendens? nec enim se segregat ipsa
+<lb type="displayNum" n="897"/>ante obitum vivis ex artubus aut fugit exul
+<lb type="displayNum" n="898"/>sanguinis et carnis penetralia seque medullis
+<lb type="displayNum" n="899"/>exuit abductamve abigit de pectore vitam,
+<lb type="displayNum" n="900"/>viscerea sed sede manens speculatur acutis 
+<lb type="displayNum" n="901"/>omnia luminibus et, qua circumtulit acrem
+<lb type="displayNum" n="902"/>naturae levis intuitum nullo obice rerum
+<lb type="displayNum" n="903"/>disclusa, ante oculos subiectum prospicit orbem
+<pb id="p.268"/>
+<lb type="displayNum" n="904"/>atque orbis sub mole situm sordens elementum.
+<lb type="displayNum" n="905"/>obiacet interea tellus nec visibus obstat. 
+<lb type="displayNum" n="906"/>quin si stelligerum vultus convertat ad axem,
+<lb type="displayNum" n="907"/>nil intercurrens obtutibus inpedit ignem
+<lb type="displayNum" n="908"/>pervigilis animae, quamvis denseta graventur
+<lb type="displayNum" n="909"/>nubila et opposito nigrescat vellere caelum,
+<lb type="displayNum" n="910"/>sic arcana videt tacitis cooperta futuris 
+<lb type="displayNum" n="911"/>corporeus Iohannis adhuc nec carne solutus,
+<lb type="displayNum" n="912"/>munere sed somni paulisper carne sequestra
+<lb type="displayNum" n="913"/>liber ad intuitum sensuque oculisque peragrans
+<lb type="displayNum" n="914"/>ordine dispositos Venturis solibus annos,
+<lb type="displayNum" n="915"/>procinctum videt angelicum iam iamque cremandi 
+<lb type="displayNum" n="916"/>orbis in excidium, tristes 1 et percipit aure
+<lb type="displayNum" n="917"/>mugitus gravium mundi sub fine tubarum.
+<lb type="displayNum" n="918"/>haec ille ante obitum membrorum carcere saeptus,
+<lb type="displayNum" n="919"/>secedente anima, non discedente videbat.
+<lb type="displayNum" n="920"/>nonne magis flatus sine corpore cuncta notabit 
+<lb type="displayNum" n="921"/>corporis involucris tumulo frigente repostis?
+<lb type="displayNum" n="922"/>certa fides rapidos subterna nocte caminos,
+<lb type="displayNum" n="923"/>qui pollutam animam per saecula longa perenni
+<lb type="displayNum" n="924"/>igne coquunt, oculis longum per inane remoti
+<lb type="displayNum" n="925"/>pauperis expositos; nec setius aurea dona 
+<lb type="displayNum" n="926"/>iustorum dirimente chao rutilasque coronas
+<lb type="displayNum" n="927"/>eminus ostendi poenarum carcere mersis.
+<lb type="displayNum" n="928"/>hinc paradisicolae post ulcera dira beato
+<lb type="displayNum" n="929"/>proditur infelix ululans in peste reatus
+<lb type="displayNum" n="930"/>spiritus inque vicem meritorum mutua cernunt. 
+<pb id="p.270"/>
+<lb type="displayNum" n="931"/>o Dee cunctiparens, animae dator, o Dee Christe,
+<lb type="displayNum" n="932"/>cuius ab ore Deus subsistit Spiritus unus,
+<lb type="displayNum" n="933"/>te moderante regor, te vitam principe duco,
+<lb type="displayNum" n="934"/>iudice te pallens trepido, te iudice eodem
+<lb type="displayNum" n="935"/>spem capio fore quidquid ago veniabile apud te, 
+<lb type="displayNum" n="936"/>quamlibet indignum venia faciamque loquarque.
+<lb type="displayNum" n="937"/>confiteor; dimitte libens et parce fatenti.
+<lb type="displayNum" n="938"/>omne malum merui, sed tu bonus arbiter aufer
+<lb type="displayNum" n="939"/>quod merui; meliora favens largire precanti
+<lb type="displayNum" n="940"/>dona animae quandoque meae, cum corporis huius 
+<lb type="displayNum" n="941"/>liquerit hospitium nervis, cute, sanguine, felle,
+<lb type="displayNum" n="942"/>ossibus exstructum, corrupta quod incola luxu
+<lb type="displayNum" n="943"/>heu nimium conplexa fovet, cum flebilis hora
+<lb type="displayNum" n="944"/>clauserit hos orbes, et conclamata iacebit
+<lb type="displayNum" n="945"/>materies oculisque suis mens nuda fruetur, 
+<lb type="displayNum" n="946"/>ne cernat truculentum aliquem de gente latronum
+<lb type="displayNum" n="947"/>inmitem, rabidum, vultuque et voce minaci
+<lb type="displayNum" n="948"/>terribilem, qui me maculosum aspergine morum
+<lb type="displayNum" n="949"/>in praeceps, ut praedo, trahat nigrisque ruentem
+<lb type="displayNum" n="950"/>inmergat specubus, cuncta exacturus ad usque 
+<lb type="displayNum" n="951"/>quadrantem minimum damnosae debita vitae,
+<lb type="displayNum" n="952"/>multa in thensauris Patris est habitatio, Christe,
+<lb type="displayNum" n="953"/>disparibus discreta locis, non posco beata
+<lb type="displayNum" n="954"/>in regione domum; sint illic casta virorum
+<lb type="displayNum" n="955"/>agmina, pulvereum quae dedignantia censum 
+<lb type="displayNum" n="956"/>divitias petiere tuas, sit flore perenni
+<lb type="displayNum" n="957"/>candida virginitas animum castrata recisum.
+<lb type="displayNum" n="958"/>at mihi Tartarei satis est si nulla ministri
+<lb type="displayNum" n="959"/>occurrat facies, avidae nec flamma gehennae 
+<pb id="p.272"/>
+<lb type="displayNum" n="960"/>devoret hanc animam mersam fornacibus imis. 
+<lb type="displayNum" n="961"/>esto, cavernoso, quia sic pro labe necesse est
+<lb type="displayNum" n="962"/>corporea, tristis me sorbeat ignis Averno:
+<lb type="displayNum" n="963"/>saltem mitificos incendia lenta vapores
+<lb type="displayNum" n="964"/>exhalent aestuque calor languente tepescat;
+<lb type="displayNum" n="965"/>lux inmensa alios et tempora vincta coronis 
+<lb type="displayNum" n="966"/>glorificent: me poena levis clementer adurat.
+</p></div1></body></text></TEI.2>

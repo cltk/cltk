@@ -1,0 +1,647 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title type="work">Rerum Gestarum, volume 1 introduction</title>
+				<title type="sub">Machine readable text</title>
+				<author>Ammianus Marcellinus</author>
+				<editor role="editor" n="Rolfe">John C. Rolfe,
+					Ph.D., Litt.D.</editor>
+				&responsibility;
+				&fund.AnnCPB;
+			</titleStmt>
+			<extent>About 100Kb</extent>
+			&Perseus.publish;
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Ammianus Marcellinus</author>
+						<title>With An English Translation</title>
+						<imprint>
+							<pubPlace>Cambridge</pubPlace>
+							<publisher>Cambridge, Mass., Harvard University Press; London, William Heinemann, Ltd.</publisher>
+							<date>1935</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state unit="book"/>
+			</refsDecl>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language id="en">English</language>
+				<language id="greek">Greek</language>
+				<language id="la">Latin</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change><date>2006</date>
+				<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+				<item></item>
+			</change>
+			<change><date>5/27/09</date><respStmt><name>RS</name><resp>(n/a)</resp></respStmt>
+				<item>
+					
+					
+				</item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	
+	
+	<text>
+		<body>  
+			<pb id="p.vii"/>
+			<div1 type="book">
+				<div2><head>Preface</head>
+					
+					<p>SOME of the reviews of my previous contributions to the <hi rend="italics">L.C.L.</hi> make it advisable to say that this is a translation and not a critical edition. Every serious student of the text must use the standard edition of C. U. Clark (Berlin, vol. i, 1910; vol. ii, part I, 1915). The translator has, however, attempted to examine all the available critical material, and has deviated in a number of instances from Clark's text, always with hesitation, except in the way of filling out lacunae. To shorten and simplify the critical notes (which are perhaps still too numerous) all instances have been omitted in which the earlier editions have made corrections of Codex V which are generally accepted.</p>
+					
+					<p>Clark's punctuation according to the metrical <hi rend="italics">clausulae</hi> (see Introd., p. xxii) is regarded by Nov&aacute;k (<hi rend="italics">Wiener Studien</hi> 33, p. 293) as no less important in establishing the text than the discovery of a new and valuable manuscript. Although this punctuation differs from the usual system, especially in the case of some relative clauses and in a more abundant use of commas, it has seemed best to follow it except in a few instances, where it might be misleading. It frequently throws light on the writer's meaning.</p>
+					
+					<p>My obligations to Professor Clark are not confined to the use of his edition. He generously placed at  <pb id="p.viii"/>  my disposal the first draft of his translation of Books xiv&ndash;xvii, 11, 4, which has been of great service. My translation, however, must not be supposed to reflect his final version. He also lent me his copy of the somewhat rare translation of Holland.</p>
+					
+					<p>Anyone who is at all familiar with the constant problems presented by the text of Ammianus, and by his Latinity, will view with indulgence an attempt to render him into English and to retain so far as possible something of the flavour of the original.</p> <closer><signed>John C. Rolfe.</signed> <dateline>PHILADELPHIA, June, 1935.</dateline></closer>
+				</div2>  
+				<pb id="p.ix"/>
+				
+				<div2><head>Introduction The life of Ammianus</head>
+					
+					<p>Our knowledge of Ammianus is derived almost wholly from his own writings. He was born about A.D. 330 in Syrian Antioch, of a good Greek family,
+						
+						<note>Cf. <hi rend="italics">ingenuus,</hi> xix. 8, 6, and xxxi. 16, 9.</note>
+						and probably received his early education in his native city. Antioch at that time was one of the principal cities of the Roman Empire, <hi rend="italics">orientis apex</hi> <hi rend="italics">pulcher,</hi>
+						
+						<note>xxii. 9, 14.</note>
+						and Ammianus took just pride in its material prosperity.
+						
+						<note>xiv. 8, 8; xiv. 1, 9.</note>
+						He was not, however, equally proud of his fellow citizens, a mixed population of Greeks, Jews, Syrians, and other peoples,
+						
+						<note>Mommsen, <hi rend="italics">R&ouml;m. Gesch.</hi> v. 456.</note>
+						united only in their devotion to luxury and the pursuit of pleasure. The historian makes no reply to the criticisms passed upon them by Julian,
+						
+						<note>xxii. 14, 2&ndash;3; xxiii. 2, 3&ndash;4.</note>
+						except to characterize them as exaggerated. But Greek still maintained its intellectual leadership, and the opportunities for education were good.
+						
+						<note>Mommsen, <hi rend="italics">l.c.</hi></note>
+						The city produced other men of distinction, notably Libanius and Joannes Chrysostom.</p>
+					
+					<p>Ammianus spent his active life during the reigns of Constantius II, Julian, Jovian, Valentinian, and Valens, in the second half of the fourth century, when, in spite of some memorable victories, the  <pb id="p.x"/>  prestige of the empire was on the wane. The turning-point in its history was the disastrous defeat of Valens by the Goths at Adrianople in 378, in which the emperor himself met his death, and at that date our direct knowledge of Ammianus comes to an end.</p>
+					
+					<p>At an early age the future historian was made one of the <hi rend="italics">protectores domestici,</hi>
+						
+						<note>See pp. xlii f., below. Their full title, <hi rend="italics">protector lateris divini Augusti nostri,</hi> appears in an inscription in <hi rend="italics">Ephem.</hi> <hi rend="italics">Epigr.,</hi> v. 121 (no. 4).</note>
+						a select corps of the imperial bodyguard, which is further testimony to his good birth. In 353 he was attached by the emperor's order to the staff of Ursicinus, commander-in-chief of the army in the East, and joined him at Nisibis in Mesopotamia.
+						
+						<note>xiv. 9, 1.</note>
+						He accompanied his general to Antioch, where Ursicinus was entrusted by Gallus Caesar with the conduct of trials for high treason. Ammianus' early life is closely connected with the career of Ursicinus, to whom he was strongly attached, and with whom he shared prosperity and adversity. Incidentally, he immortalized his chief, of whom little or nothing is known from other sources.</p>
+					
+					<p>In 354 Ursicinus, who had become an object of suspicion to the emperor, was summoned to the court at Mediolanum,
+						
+						<note>xiv. 11, 4 f.</note>
+						accompanied by Ammianus.</p>
+					
+					<p>There palace intrigues caused Ursicinus to be still more distrusted by Constantius, who accordingly assigned to him the difficult task of suppressing the revolt of Silvanus, who had assumed the purple at Cologne
+						
+						<note>xv. 5, 21 ff.</note>
+						; but although the mission was successful, Ursicinus not only received no commendation  <pb id="p.xi"/>  from the emperor, but was even accused of embezzling some of the Gallic treasure.
+						
+						<note>xv. 5, 36.</note>
+						Ammianus remained with his chief in Gaul until the summer of 357, and hence was in close touch with the exploits of Julian, the newly appointed Caesar. Ursicinus was next summoned by the suspicious emperor to Sirmium in Pannonia, and from there, because of the danger which threatened from the Persians, was once more sent to the East,
+						
+						<note>xvi. 10, 21.</note>
+						still accompanied by Ammianus. But when the Persians began hostilities in 359, Ursicinus was again recalled to court, but on reaching the river Hebrus received orders to return to Mesopotamia, which had already been invaded by the enemy.
+						
+						<note>xviii. 6, 5.</note>
+					</p>
+					
+					<p>Since Sabinianus, who in the meantime had been appointed commander-in-chief of the army in the East, took no action, Ursicinus with his staff went to Nisibis, to prevent that city from being surprised and taken by the Persians.
+						
+						<note>xviii. 6, 8.</note>
+						From there he set out for Amida, to keep the roads from being occupied, but immediately after leaving Nisibis sent Ammianus back to the city on an errand.
+						
+						<note>xviii. 6, 10 ff.</note>
+						In order to escape the hardships of the siege with which Nisibis was threatened, Ammianus after hastily carrying out his orders tried to rejoin his general. He was all but captured on the way, but finally came up with Ursicinus and his following at Amudis, warned them of the approach of the Persians, and accompanied them in their retreat.
+						
+						<note>xviii. 6, 12 f.</note>
+						By a clever stratagem they misled their pursuers into taking the wrong direction, and finally reached  <pb id="p.xii"/>  Amida.
+						
+						<note>xviii. 6, 14 ff.</note>
+						There by a cipher message from Procopius, who had gone to the Persians as an envoy and was detained by them, they were informed that the enemy's main body had crossed the Tigris, and Ursicinus sent Ammianus, accompanied by a faithful centurion, to the satrap of Corduene, who was secretly a friend of the Romans, in quest of more definite information.
+						
+						<note>xviii. 6, 20 f.</note>
+						From a rocky height Ammianus saw the advance of Sapor's army, witnessed their crossing of the river Anzaba, and reported what he had learned to Ursicinus. He, on hearing of the enemy's advance, resolved to go to Samosata and destroy the bridges by which the Persians were planning to cross the Euphrates
+						
+						<note>xviii. 8, 1.</note>
+						; but through the negligence of the Roman cavalry outposts his forces were attacked and scattered.
+						
+						<note>xviii. 8, 2 ff.</note>
+						Ammianus after several narrow escapes was forced to return to Amida,
+						
+						<note>xviii. 8, 11.</note>
+						where he took part in the stubborn resistance of the city to the Persian attack.
+						
+						<note>xix. 1&ndash;7.</note>
+						When Amida finally fell, he succeeded in making his escape under cover of night and after many adventures met Ursicinus at Melitene in Armenia Minor and with him returned safely to Antioch.
+						
+						<note>ix. 8, 5&ndash;12.</note>
+					</p>
+					
+					<p>After the deposition of Ursicinus in 360 we hear little definite about the historian's career. He took some part in Julian's Persian campaign of 363, but in what capacity is uncertain; he apparently joined Julian with the arrival of the Euphrates fleet, since it is after that point in his narrative that we find him using the first person.
+						
+						<note>xxiii. 5, 7, <hi rend="italics">profecti</hi> . . <hi rend="italics">venimus.</hi></note>
+						After the return  <pb id="p.xiii"/>  of the Roman army to Antioch on the death of Julian and the accession of Jovian he seems to have remained in his native city for a considerable time, since his account of the trials conducted there for high treason in 371 is clearly that of an eye-witness.
+						
+						<note>xxix. 1, 24 ff.</note>
+						He probably made his home in Antioch until the defeat and death of Valens, but his residence in the city was interrupted by journeys to Egypt
+						
+						<note>xvii. 4, 6; xxii. 15, 1.</note>
+						and to Greece after the great earthquake of July 6, 366.
+						
+						<note>xxvi. 10, 19.</note>
+						It was doubtless in Antioch that he did some of his extensive reading in preparation for the writing of his Historv. His military career occupied a comparatively brief period of his life,
+						
+						<note>Apparently not more than fifteen years; cf. Klein, pp. 9 f. (For this and similar references see <hi rend="italics">Bibliographical</hi> <hi rend="italics">Note, p.</hi> xlix).</note>
+						the greater part of which was devoted to study and writing.</p>
+					
+					<p>After the events of 378 Ammianus went to Rome by way of Thrace, where he seems to have inspected the battlefields,
+						
+						<note>xxxi. 7, 16.</note>
+						choosing the land route rather than the more convenient trip by sea in order to get material for his History. At any rate, he seems to have taken up his residence in the Eternal City before 383, and his bitter language about the expulsion of foreigners at that time because of threatened famine
+						
+						<note>xiv. 6, 19.</note>
+						has led some to infer that he was one of those who were forced to leave. The words of Symmachus,
+						
+						<note><hi rend="italics">Epist.</hi> ii. 7.</note>
+						<hi rend="italics">defectum timemus annonae, pulsis omnibus quos exserto et pleno ubere Roma susceperat,</hi> imply that the expulsion was general,  <pb id="p.xiv"/>  and Ammianus' unfavourable opinion of the Anicii, who at that time were a powerful family at Rome, may have some bearing on the question.
+						
+						<note>xvi. 8, 13.</note>
+						Others believe that his rank as a former <hi rend="italics">protector domesticus,</hi> which carried with it the title of <hi rend="italics">perfectissimus,</hi>
+						
+						<note>See pp. xxviii and xliii, below.</note>
+						would have spared him such an indignity. If he was driven out, it seems probable that the hope of Symmachus,
+						
+						<note><hi rend="italics">l.c.</hi></note>
+						<hi rend="italics">quam primum revocet urbs nostra quos</hi> <hi rend="italics">invita dimisit,</hi> was fulfilled, for Ammianus wrote his History in Rome, and acquired a certain position in the city, numbering among his friends Symmachus and Praetextatus,
+						
+						<note>xxi. 12, 24; xxvii. 3, 3; 9, 8.</note>
+						although apparently some circles of distinguished Romans did not admit an <hi rend="italics">honestus</hi> <hi rend="italics">advena</hi> to intimacy.
+						
+						<note>xiv. 6, 12.</note>
+					</p>
+					
+					<p>That Ammianus was not a Christian is evident from many of his utterances, for he speaks of Christian rites, ceremonies, and officials in a way which shows a lack of familiarity with them.
+						
+						<note>xiv. 9, 7; xv. 5, 31; xxvi. 3, 3; xxvii. 10, 2; etc.</note>
+						At the same time he was liberal in his attitude towards the Church; he twice censures the closing of the schools of rhetoric to Christian teachers,
+						
+						<note>xxii. 10, 7; xxv. 4, 20.</note>
+						praises the simple life of the provincial bishops,
+						
+						<note>xxvii. 3, 15.</note>
+						and in general favours absolute religious toleration.
+						
+						<note>xxx. 9, 5.</note>
+						He often refers to a supreme power (<hi rend="italics">numen</hi>), with such adjectives as <hi rend="italics">magnum, superum, caeleste, divinum, sempiternum,</hi> and others of the same kind, and he sometimes speaks of this power as <hi rend="italics">deus,</hi>
+						
+						<note>xvii. 13, 33; xxiv. 1, 1; etc.</note>
+						but in  <pb id="p.xv"/>  much the same sense as the word is used by Horace
+						
+						<note><hi rend="italics">Odes,</hi> i. 3, 21; i. 34, 13.</note>
+						and other pagan writers. He indicates a belief in astrology, divination, dreams, and other superstitions of his time, and he speaks of <hi rend="italics">Fortuna</hi> <hi rend="italics">andfatum</hi> as controlling powers, but shows that they may be overcome or influenced by man's courage and resourcefulness.
+						
+						<note>xviii. 1, 1 ff.; xxiv. 3, 6; 4, 1 ff.; xxxi. 5, 14; cf. xxiii. 5, 5.</note>
+						The view of Dill
+						
+						<note>p. 101.</note>
+						that <quote>his real creed was probably a vague monotheism with a more decided tendency to fatalism</quote> is rightly questioned by Ensslin,
+						
+						<note>p. 81.</note>
+						who says that Ammianus was a determinist, but not a passive fatalist, one who in inactive quiet awaited what might come.</p>
+					
+					<p>When Ammianus died is quite uncertain. The latest allusion in his History is to the consulship of Neotherius in 391.
+						
+						<note>xxvi. 5, 14.</note>
+						In the same year the Serapeum at Alexandria was burned, but the historian refers to the building as if it were still standing;
+						
+						<note>xxii. 16, 12.</note>
+						other indications are his references to Probus and Theodosius.
+						
+						<note>xxvii. 11, 1 xxix. 6, 15.</note>
+						He was certainly living in 391, and probably in 393, but how much longer his life was prolonged cannot be determined.</p>
+					
+					<div3><head>HIS HISTORY.</head>
+						
+						<p>Ammianus set himself the vast project of succeeding Tacitus as an historian, and might have entitled his work <hi rend="italics">Res Gestae a fine Corneli Taciti;</hi> but the title which has come down to us is simply <hi rend="italics">Res Gestae.</hi>
+							
+							<note>Priscian, <hi rend="italics">Gr. Lat. ii.</hi> 487, 1, Keil.</note>
+							<pb id="p.xvi"/>  It covered the period between the accession of Nerva in A.D. 96 to the death of Valens in 378, and was divided into thirty-one books, of which the first thirteen are lost. Since the surviving eighteen books deal with a period of twenty-five years, from 353, the seventeenth year of the reign of Constantius II, to the battle of Adrianople, the lost books must have given a brief account of the two hundred and fifty-seven years to which they were devoted. In 391 Libanius implies
+							
+							<note><hi rend="italics">Epist.</hi> 983, <foreign lang="greek">a)kou/w de\ th\n (Pw/mhn au)th\n stefanou=n soi to\n po/non kai\ kei=sqai yh=fon au)th=|, tw=n me/n se kekrathke/nai, tw=n de\</foreign> <foreign lang="greek">au)x h(tth=sqai.</foreign> <quote>I hear that Rome herself has crowned your work, and that her verdict is, that you have surpassed some and equalled others.</quote></note>
+							that Ammianus published, and probably recited parts of his work at Rome with great success. Seeck thinks that the part which was published in 390 or 391 ended with the twenty-fifth book; that this was his original plan, and that he was encouraged to go farther by the favourable reception given to a public recitation; that he intended to continue beyond the death of Valens is indicated by his promise to tell of the fate that ove rtook Maximinus and Simplicius,
+							
+							<note>xxviii. 1, 57. xvi</note>
+							but his failure to do so may possibly have been an oversight. That the work was published in instalments seems to be indicated by the prefatory remarks at the beginning of Books xv. and xxvi.</p>
+						
+						<p>There can be no doubt that Ammianus took his task seriously and made careful preparation for it, reading extensively in Latin literature and making copious notes of what he read. He naturally gave special attention to Tacitus, in particular  <pb id="p.xvii"/>  to the Histories, and imitated him so far as he could. He also read Livy and sometimes attempts to use his periodic structure, occasionally with success.
+							
+							<note>At the beginning of Books xiv. and xxiv.; see Mackail, <hi rend="italics">Class. Studies,</hi> p. 163.</note>
+							He also was acquainted with Sallust, although the traces of the Amiternian's diction may be due to the latter's influence on Tacitus. It is of no significance that he nowhere mentions either Tacitus or Livy in his work. To perfect his Latinity he read Cicero, whom he quotes more than thirty times; partly for the same reason and partly for information about Gaul, he read Caesar. In addition to these conspicuous examples he shows acquaintance, not only with such prose writers as Gellius, Valerius Maximus, the elder Pliny, Florus, and others, but also with the poets; for example, Plautus and Terence, Virgil, Horace, Ovid, and Lucan. Of later writers he used the <hi rend="italics">Annales</hi> of Virius Nicomachus Flavianus, and the work of an anonymous Greek writer who followed the Thucydidean chronology by summers and winters; Ammianus shows in this respect a mixture of the annalistic and the Thucydidean method. He depended also for historical information on the <hi rend="italics">Diary</hi> of Magnus of Carrhae;
+							
+							<note>On this complicated question see especially Klein, who also reconstructs the fragments of Magnus of Carrhae.</note>
+							and in his excursuses he made use of Seneca, <hi rend="italics">Naturales Quaestiones,</hi> Solinus, Ptolemy, and others, as well as of the official lists of the provinces (<hi rend="italics">Notitiae</hi>).</p>
+						
+						<p>In addition to his literary sources Ammianus relied for a considerable part of his work on his own  <pb id="p.xviii"/>  observation and personal experiences, and it is these that give his work its greatest charm. It is evident that he wished to write a history, rather than follow the biographical treatment which had been popular since the time of Suetonius; he speaks with scorn of those who, <hi rend="italics">detestantes ut venena doctrinas,</hi> read only Juvenal and Marius Maximus.
+							
+							<note>xviii. 4, 14. Mentioned as authors of gossipy works, contrasted with those of solid learning. Marius Maximus (circa A.D. 165&ndash;230) wrote <hi rend="italics">Lives of the Caesars,</hi> in continuation of Suetonius, from Nerva to Elegabalus. His work is lost, but was used by the <hi rend="italics">Scriptores Historiae Augustae.</hi></note>
+							Yet he could not wholly escape the influence of the followers of Suetonius; he has a biographical sketch of each of the emperors and Caesars included in his History, besides an encomium of the eunuch Eutherius,
+							
+							<note>xvi. 7, 4 ff.; his account of Julian also has characteristics of the <hi rend="italics">encomium;</hi> see M. J. Kennedy, <hi rend="italics">The Literary</hi> <hi rend="italics">Work of Ammianus,</hi> Univ. of Chicago diss., 1912.</note>
+							but be did not follow any fixed form of biographical composition.
+							
+							<note>See Leo, <hi rend="italics">Die griechisch-r&ouml;mische Biographie,</hi> pp. 236 ff. </note>
+							He also disapproved of the epitomes which were fashionable in his day, yet he did not hesitate to draw on Eutropius, Rufius Festus, and Aurelius Victor.</p>
+						
+						<p>Ammianus aimed at strict truthfulness
+							
+							<note>See e.g. xv. i. 1; xvi. 1, 3; xxxi. 5, 10.</note>
+							without suppressing anything that was well authenticated or indulging in deliberate invention,
+							
+							<note>xxix. 1, 15.</note>
+							faults which he censures in his criticism of the official reports of the emperor Constantius;
+							
+							<note>xvi. 12, 69.</note>
+							and he avoided exaggeration.
+							
+							<note>xviii. 6, 23.</note>
+							Although he recognised the danger of speaking freely and frankly of recent or contemporary  <pb id="p.xix"/>  personages and events,
+							
+							<note>xxvi. 1, 1; xxvii. 9, 4.</note>
+							he does not profess to write <hi rend="italics">sine ira et studio,</hi>
+							
+							<note>Tac., <hi rend="italics">Ann.</hi> i. 1.</note>
+							but gives free expression to praise or blame; he did not hesitate to censure where censure was due, and he more than once finds faults even in his hero Julian.
+							
+							<note>xxii. 9, 12; 10, 7; etc.</note>
+							In the historical part of his work he may fairly be said to have attained his ideal of truthfulness; that he was less successful in his numerous excursuses was due in part to lack of knowledge, and to some extent to an apparent desire to conceal the extent of his dependence upon literary sources. If he had heeded Livy's warning about digressions,
+							
+							<note>ix. 17, 1.</note>
+							his work would have been more uniformly successful. They could be omitted without interfering with the course of the narrative.</p>
+						
+						<p>Ammianus wrote for Roman readers, and in particular for the leading literary circle of the Eternal City, of which Symmachus was a prominent member. It was for that reason, and not merely because he was continuing the narrative of Tacitus, that he wrote in Latin and not in his native language. His readers and hearers were of course <hi rend="italics">utriusque</hi> <hi rend="italics">linguae periti,</hi> but they knew their Roman literature and could appreciate and applaud his echoes of Livy, Cicero, and other greater writers of the past.</p>
+						
+						<p>In modern times Gibbon found him sincere, modest, loyal to his superior officers, copious and authentic, an accurate and faithful guide.
+							
+							<note><hi rend="italics">Passim;</hi> see Mackail, <hi rend="italics">Class. Stud.,</hi> p. 164.</note>
+							Mackail calls him an officer and a gentleman, worthy of a place among  <pb id="p.xx"/>  the great Roman historians.
+							
+							<note><hi rend="italics">l. c.</hi></note>
+							Seek
+							
+							<note>Paully-Wissowa, <hi rend="italics">Real-Enc.</hi> i., p. 1852.</note>
+							praises his ability in depicting character, all but unexampled in ancient literature, and ranking him with the first historians of all time. In ancient times his work was little known; it is cited only once, by Priscian,
+							
+							<note>Gr.<hi rend="italics"> Lat.</hi> 2, 487, 1 f., Keil, <hi rend="italics">ut</hi> <hi rend="italics"><quote>indulsi indulsum</quote> vel</hi> <hi rend="italics"><quote>indultum,</quote> unde Marcellinus rerum gestarum xiiii</hi>. . .</note>
+							who seems to have had no more of the History before him than we have to-day. Cassiodorus is said to have written out the entire work and to have imitated its author's style.
+							
+							<note>Teuffel, <hi rend="italics">R&ouml;mische Literatur,</hi> 6th ed., p. 299.</note>
+						</p></div3>
+					
+					<div3><head>HIS STYLE</head>
+						
+						<p>That Ammianus gave great attention to the style of his work is evident. Klein's idea of the manner in which he composed the History seems plausible,
+							
+							<note><hi rend="italics">l.c.,</hi> p. 9.</note>
+							namely, that he wrote his first draft in his natural Latin, using also from memory expressions which he had met in his wide reading. When he wished to publish, or recite, a part of it, he worked it over with particular attention to stylistic effect, drawing heavily on the results of his reading from the notes which he had collected. Being a soldier, he knew Latin as the official language of the army; he could speak, read, and write it, but he did not acquire a thorough mastery of it, the <hi rend="italics">Sprachgef&uuml;hl</hi> of a native Roman. As Pliny aptly says,
+							
+							<note><hi rend="italics">Epist.</hi> iii. 13, 3.</note>
+							<hi rend="italics">invenire praeclare, enuntiare magnifice interdum etiam barbari solent; disponere  <pb id="p.xxi"/>  apte, figurare varie nisi eruditis negatum est.</hi> It was in particular Ammianus' attempt to decorate his style with ornaments of all kinds, drawn from every source, combined with his imitation of Tacitus, that produced his very extraordinary Latin; in the words of Kroll,
+							
+							<note>Teuffel, <hi rend="italics">R&ouml;mische Literatur,</hi> 6th ed., p. 297, repeated from earlier editions.</note>
+							<quote>sein taciteisches Latein ist schwer zu verstehen, unleidlich geziert und &uuml;berladen, eine Qual seiner Leser,</quote> a verdict in which the present translator would take exception only to the last clause. Some of his peculiarities are an unnatural word-order, attempted picturesque and poetic forms of expression, and a general striving for effect, due in part to the general taste of the time in which he lived, and in part to the custom of public recitations. There are colloquial features: the use of the comparative for the positive, of <hi rend="italics">quod</hi> with the indicative for the accusative and the infinitive, of the present for the future, the imperfect for the pluperfect, and the pluperfect for a preterit; also improper uses of the subjunctive, and a disregard of the sequence of tenses. Naturally, characteristics of his native language appear; some of the peculiarities already noted may be traced to that source, as well as his extensive use of participial constructions.
+							
+							<note>Norden, <hi rend="italics">Die Antike Kunstprosa,</hi> pp. 648 ff., who sees also influence of the Asianic oratorical style.</note>
+						</p>
+						
+						<p>In spite of all this, when we consider the high value which the Romans, even of late times, set upon form and rhetoric, it does not seem possible that the success of his public recitations was due solely to the content of his History, or that his style  <pb id="p.xxii"/>  could have been as offensive to his hearers as it is to the modern reader of his work.</p>
+						
+						<p>Ammianus' attention to form is further shown by the rhythmical structure of his prose; for it has long since been observed that he regularly ended his clauses with metrical <hi rend="italics">clausulae.</hi> These have recently been made the object of special study by Clark
+							
+							<note>Ed. of Ammianus, vol. i., Berlin, 1910, pp. vi. ff.</note>
+							and Harmon,
+							
+							<note><hi rend="italics"> Trans. Conn. Acad. of Arts and Science,</hi> 16 (1910), pp. 117 ff.</note>
+							with the result that they have been found to be based upon accent and not upon quantity. The system which he uses was a simple one: between the last two accents of a phrase two or four unaccented syllables are placed, never one or three. Quantity makes no difference and final vowels are never elided; Greek words as a rule retain the Greek accent; <hi rend="italics">i</hi> and <hi rend="italics">u</hi> may be read either as vowels or as consonants. Of course it is possible that in some instances the arrangement of syllables may be accidental, but the number of <hi rend="italics">clausulae</hi> is too great to be other than designed. In spite of the simplicity of his system Ammianus has considerable variety in his endings, as is illustrated by Clark
+							
+							<note><hi rend="italics">l.c.,</hi> p. vii. For the value of the <hi rend="italics">clausulae</hi> for the interpretation of the text, see Preface.</note>
+							in the following scheme:</p>  <table><row><cell><hi rend="italics">Cursus planus:</hi></cell><cell>expediti&oacute;nis ev&eacute;ntus, xiv. 1, 1.</cell></row> <row><cell></cell><cell>Ill&uacute;c transit&uacute;rus, xiv. 6, 16.</cell></row> <row><cell></cell><cell>A&eacute;gyptum p&eacute;tens, xxii. 5, 5.
+								
+								<note>Greek accent retained.</note>
+							</cell></row> <row><cell></cell><cell>r&eacute;gna Pers&iacute;dis, xxiii. 5, 16.
+								
+								<note>Greek accent retained.</note>
+							</cell></row> <row><cell><hi rend="italics">Cursus tardus:</hi></cell><cell>p&aacute;rtium &aacute;nimis, xiv. 1, 1.</cell></row> <row><cell></cell><cell>Instrum&eacute;nt non l&eacute;via, xiv. 6, 18.</cell></row></table>  <pb id="p.xxiii"/>  <table><row><cell><hi rend="italics">Cursus velox:</hi></cell><cell>fr&eacute;gerat et lab&oacute;rum, xiv. 1, 1.</cell></row> <row><cell></cell><cell>relat&uacute;iri quae aud&iacute;ret, xiv. 1, 6.
+								
+								<note><hi rend="italics">Quae</hi> read as dissyllabic.</note>
+							</cell></row> <row><cell></cell><cell>obi&eacute;cti sunt praeter m&oacute;rem, xiv. 2, 1.</cell></row> <row><cell></cell><cell>A&eacute;gypto trucid&aacute;tur, xiv. 11, 32.
+								
+								<note></note>
+							</cell></row> <row><cell></cell><cell>gram&iacute;nea prope r&iacute;vum, xxiv. 8, 7.</cell></row> <row><cell></cell><cell>n&oacute;mine alloc&uacute;tus est, xv. 6, 3.</cell></row> <row><cell></cell><cell>inc&eacute;nsas et habit&aacute;cula, xviii. 2, 19</cell></row></table></div3>
+					
+					<div3><head>Roman officials in the time of Ammianus.</head>
+						
+						<p>The transformation of the Roman Empire into an oriental monarchy began in A.D. 284, when Diocletian became sole ruler. He abandoned all republican traditions and undertook the reorganisation of the civil and military administration. The process was continued by Constantine and his successors, until the government became a bureaucracy in the hands of a limited number of high officials. The powers and rank of these ministers varied during this period, and involve a number of difficult problems. For the sake of reasonable brevity the offices are described so far as possible as they were in the time of Ammianus.</p>
+						
+						<p>Diocletian, realising that the rule of the vast empire was too great a task for one man, took Maximianus as his colleague, sharing with him also the title <hi rend="italics">Augustus.</hi> The authority of the two <hi rend="italics">Augusti</hi> was equal and all laws and edicts were issued in their common name, but practically the empire was divided into two parts, Diocletian ruling the East, with his headquarters at Nicomedia, Maximian  <pb id="p.xxiv"/>  the West, at Mediolanum. The <hi rend="italics">Augusti</hi> were not accountable to any legislative body or magistrate. They wore the imperial diadem and a robe trimmed with jewels, and an elaborate ceremonial was required of all who approached them. Everything connected with the emperor was called <hi rend="italics">sacer, sanctissimus,</hi> or <hi rend="italics">divinus.</hi></p>
+						
+						<p>Nine years after Diocletian became emperor he and Maximian chose two Caesars, who stood next to themselves in rank and dignity; they were, however, dependents of the <hi rend="italics">Augusti,</hi> having no authority except what was conferred upon them by their superiors, and receiving a fixed salary. The administration of the empire was then divided into four parts; Diocletian took Thrace, Egypt, Syria, and Asia Minor, and assigned to Galerius, the Caesar whom he had nominated, the Danubian provinces, Illyricum, Greece, and Crete; Maximian governed Italy and Africa; Constantius, his Caesar, ruled Gaul, Spain, and after 296 Britain. This division was only for administrative purposes; the empire in reality consisted of two parts, of which the two <hi rend="italics">Augusti</hi> were the supreme rulers.</p>
+						
+						<p>The main purpose of the institution of the Caesars was to provide for the succession, and it was a part of the plan that when one of the <hi rend="italics">Augusti</hi> died or resigned, his place should be filled by one of the Caesars, who at the time of their appointment were adopted by the <hi rend="italics">Augusti.</hi> When Diocletian and Maximian retired in 306, a series of wars followed among the Caesars and the <hi rend="italics">Augusti.</hi> In that year Constantine I, later surnamed the Great, assumed the title of Caesar, which was acknowledged by  <pb id="p.xxv"/>  Galerius; in 308 he was declared Augustus along with Galerius, and Severus and Maximinus were chosen as Caesars. Maxentius, son of Maximian. was proclaimed Augustus by the troops at Rome, but was not acknowledged by the other <hi rend="italics">Augusti</hi> and Caesars; he defeated and slew Severus in Italy, whereupon Licinius was made an Augustus by Galerius. In 308 there were four <hi rend="italics">Augusti:</hi> Constantine, Galerius, Licinius, and Maximinus, in addition to the usurper Maxentius. A series of wars followed. Maximinus was defeated by Licinius and died shortly afterward; Galerius had died in 311. Constantine defeated Maxentius at Saxa Rubra in 312 and reigned for a time with Licinius. After two wars, with a brief interval of peace, Constantine defeated Licinius at Adrianople and Chalcedon in 324. In that year he became sole Augustus, with his sons Crispus, Constantineand Constantius as Caesars; in 335 Delmatius and Hannibalianus were added to the list of Caesars, making five in all.</p>
+						
+						<p>Constantine ruled alone until his death in 337, when his sons Constantinus II, Constantius II, and Constans were declared <hi rend="italics">Augusti;</hi> Crispus had in the meantime fallen victim to the jealousy of Fausta, his stepmother, and Delmatius and Hannibalianus were now put to death. In 340 war broke out between Constantinus II and Constans; the former was defeated and slain, and Constans became sole emperor in the West. In 350 Constans died, and three usurpers appeared: Magnentius in Gaul, Nepontianus at Rome, and Vetranio at Mursa in Pannonia. The last two were quickly  <pb id="p.xxvi"/>  disposed of; Nepontianus was killed in less than a month after his elevation to the supreme rank, and Vetranio was defeated and deposed by Constantius after ten months. The contest with Magnentius, who had appointed his brother Decentius to the position of Caesar, lasted for three years; Constantius defeated the usurper at Mursa and drove him into Gaul, where Magnentius was again defeated and took his own life. Constantius ruled as sole Augustus until 361; in 351, while the war with Magnentius was still going on, he had conferred the rank of Caesar on his cousin Gallus and sent him to the East, to carry on war against the Persians. With Gallus' arrogance and cruelty at Antioch the extant part of Ammianus' narrative begins.</p>
+						
+						<p>After Constantius became sole emperor his authority was supreme, but the four-fold administrative division of the empire into the East, Illyricum, Italy, and Gaul was continued;
+							
+							<note>The development of the administrative system was a gradual one from the time of Constantine until the fifth century, and the exact date of the various changes is in many instances uncertain.</note>
+							the divisions were called prefectures, and were governed by praetorian prefects, resident at Constantinople, which Constantine had made the capital of the empire in 330; at Sirmium; at Mediolanum (Milan); and at Treveri (Tr&egrave;ves) or at Eboracum (York). The prefectures were divided into dioceses, and the dioceses into provinces; the provinces were under the charge of a governor called <hi rend="italics">consularis, corrector,</hi> or <hi rend="italics">praeses.</hi>
+							
+							<note>See note 1, p. 143. Ammianus often uses the word <hi rend="italics">iudex</hi> of governors of provinces and other high officials (xviii. 6, 12; xx. 5, 7; xx. 8, 14; xx. 9, 1), and transfers it to similar officers among foreign peoples (Quadi, xvii. 12, 21; Goths, xxvii. 5, 6); sometimes he uses <hi rend="italics">iudex</hi> in its usual sense of <quote>a judge</quote> (xiv. 9, 3). The two meanings are combined in xvi. 8, 6.</note>
+							There were thirteen dioceses and 101  <pb id="p.xxvii"/>  provinces (compared with 45 in Hadrian's time), a number which was later increased to about 120.</p>
+						
+						<p>The purpose of these divisions and of the consequent increase in the number of these and of other officials
+							
+							<note>See below under the various officials.</note>
+							was to prevent any officer from becoming powerful enough to start a revolution and interfere with the regular succession to imperial power. The same end was sought by a sharp division between civil and military authority,
+							
+							<note>These were never held at the same time by the same official; the place of the senatorial and equestrian <hi rend="italics">cursus</hi> <hi rend="italics">honorum</hi> was taken by careers that were mainly civil or mainly military.</note>
+							and by the fact that the competence of the various official groups was not always clearly defined, which led to jealousy and rivalry among the officers. Also the subordinates of the higher officials were appointed by the emperor, and the conduct of their superiors was besides watched and reported to the Augustus by a corps of secret service men, the <hi rend="italics">agentes in rebus.</hi>
+							
+							<note>See note 2, p. 98, and Index II.</note>
+							The effect of all this, and the elaborate ceremonial required in order to approach the emperor, removed him from contact with his subjects and enhanced his dignity and majesty; at the same time he was unable to hear the complaints of the people, since the officials, who often enriched themselves at the expense of the provincials, concealed one another's  <pb id="p.xxviii"/>  misdemeanors. In fact, the emperor, although in theory all-powerful, was actually a tool in the hands of a hierarchy of powerful ministers; the real control was exercised by the highest civil and military officers, and those in charge of the affairs of the imperial household.</p>
+						
+						<p>The entire body of officials was divided into a number of grades, each with its own title. All officers who held positions of sufficient importance became members of the senatorial order, with the title <hi rend="italics">clarissimi,</hi> which was also held by the two higher grades. A smaller group of higher officials had the title <hi rend="italics">spectabiles,</hi> and a third body, including only the heads of the various administrative departments, made up the <hi rend="italics">illustres.</hi> The title <hi rend="italics">nobilissimus</hi> was reserved for the members of the imperial family. Two classes ranking below the <hi rend="italics">clarissimi</hi> were the <hi rend="italics">perfectissimi</hi> and the <hi rend="italics">egregii;</hi> these included only a small number of officials, and the titles gradually went out of use.</p>
+						
+						<p>Two other orders of a somewhat different character were created by Constantine. A purely honorary title, <hi rend="italics">patricius,</hi> was open only to those who had held the positions of praetorian prefect, city prefect, commander-in-chief of the army, or <hi rend="italics">consul ordinarius.</hi> It was held for life and its possessor took precedence of all officials except consuls in office.</p>
+						
+						<p>To the <hi rend="italics">comites,</hi> originally merely the companions of an emperor or high official on his travels,
+							
+							<note>Horace, <hi rend="italics">Epist.</hi> i. 3.</note>
+							Constantine gave importance by making <hi rend="italics">comes</hi> (count) a title of honour conferred upon the holders of some public offices, or conferred as a reward for service  <pb id="p.xxix"/>  The counts were attached to the emperor and the ruling house,
+							
+							<note><hi rend="italics"> Comes domini nostri Constantini Aug.,</hi> Dessau, 1213; <hi rend="italics">C.I.L.</hi> vi. 1707; <hi rend="italics">comiti dominorum nostrorum Augustorm et Caesarum,</hi> Dessau, 1223; <hi rend="italics">C.I.L.</hi> x. 4752.</note>
+							but it was a natural and easy step to assign them various duties as the emperor's deputies,
+							
+							<note><hi rend="italics">Comes et quaestor, Cod. Theod.</hi> i. 8, 1, 2; <hi rend="italics">comes et</hi> <hi rend="italics">magister equitum,</hi> ibid. vii. 1, 9.</note>
+							both in a civil and in a military capacity. There were three grades (<hi rend="italics">comites primi, secundi, et</hi> <hi rend="italics">tertii ordinis</hi>),
+							
+							<note>A similar division by Tiberius (Suet., <hi rend="italics">Tib.</hi> 46) seems to have been made for a special occasion only.</note>
+							and counts appear among the <hi rend="italics">illustres,</hi> the <hi rend="italics">spectabiles,</hi> and the <hi rend="italics">clarissimi.</hi> Like other officials, they were variously designated as in actual service (<hi rend="italics">in actu positi</hi>); as <hi rend="italics">vacantes,</hi> men of inferior position who on retiring from office were given the rank and insignia of counts as a reward for good service; and as <hi rend="italics">honorarii,</hi> who received the title by imperial favour or by purchase, but did not have the right to wear the insignia.
+							
+							<note>See also Index II.</note>
+						</p>
+						
+						<p>The emperors gathered about them a body of advisers, which entirely superseded the senate in importance.
+							
+							<note>The senate and the senatorial order retained their dignity, but the power of the senate was purely local.</note>
+							It was first called the <hi rend="italics">auditorium</hi> or <hi rend="italics">consilium principis,</hi> but Constantine gave it the title of <hi rend="italics">consistorium principis</hi> or <hi rend="italics">sacrum consistorium;</hi>
+							
+							<note>On the use of <hi rend="italics">sacer,</hi> see p. xxiv, above.</note>
+							<hi rend="italics">consistorium</hi> does not appear in inscriptions until 353, and Ammianus seems to be the first writer to use the word. There is difference of opinion as to its membership. It was composed mainly of the  <pb id="p.xxx"/>  heads of the various departments of administration, certainly of those most intimately connected with the imperial household (<hi rend="italics">dignitates palatinae</hi>): the Minister of Finance (<hi rend="italics">comes sacrarum lagitionum</hi>),
+							
+							<note>For an account of these high officials see below.</note>
+							the Minister of the Privy Purse (<hi rend="italics">comes rerum priva-</hi> tarum), the Quaestor (<hi rend="italics">quaestor sacri palatii</hi>), who was the emperor's legal adviser, and the Master of the Offices. The prefect, whose seat of government was at the capital (<hi rend="italics">praefectus praetorio praesens</hi>), was probably a member, as well as the Grand Chamberlain (<hi rend="italics">praepositus sacri cubiculi</hi>), and some officials of the grade <hi rend="italics">spectabilis.</hi> The members of the council were called <hi rend="italics">comites consistoriani</hi> or simply <hi rend="italics">consistoriani.</hi>
+							
+							<note>xv. 5, 12.</note>
+							It was presided over by the emperor, or in his absence by the Quaestor, who was obliged to give his decisions in writing; the proceedings were taken down by secretaries and stenographers (<hi rend="italics">notarii</hi>).
+							
+							<note><hi rend="italics">Notarii</hi> were of varying ranks; those who attended the meetings of the consistory were <hi rend="italics">tribuni et notarii principis,</hi> where <hi rend="italics">tribuni</hi> is merely a designation of rank, given to the secretaries in the service of the emperor and the praetorian prefect. Besides their clerical duties they were sometimes sent abroad on confidential missions, to keep an eye on suspected persons (xvii. 9, 7; xxi. 7, 2); and they were often promoted to high positions (xx. 9, 5; xxviii. 1, 12; xxviii, 2, 5). See also Index II.</note>
+						</p>
+						
+						<p>Since the consulship was often held by the emperor, that office was one of high honour and the consul in. office ranked next to the emperor himself, above the <hi rend="italics">patricii</hi> and the prefects. The consuls, however, had little actual power. On the day of their accession to office they held a procession, which the  <pb id="p.xxxi"/>  emperor himself attended, exhibited games, and freed slaves. The title <hi rend="italics">consularis,</hi> which was the highest title held by the governors of the provinces,
+							
+							<note>E.g. Pannonia, xvi. 8, 3; Picenum, xv. 7, 5; Syria, xiv. 7, 5; etc. On <hi rend="italics">consularisa corrector</hi> and <hi rend="italics">praeses,</hi> see p. 143, note 1.</note>
+							did not necessarily imply that its holder was an ex-consul.</p>
+						
+						<p>The Praetorian Prefect (<hi rend="italics">praefectus praetorio</hi>) in the time of Augustus was a military officer, the commander of the praetorian cohorts in Rome, which formed the emperor's body-guard. It was the highest grade in the equestrian <hi rend="italics">cursus honorum,</hi> and its holder gradually acquired great power. Sejanus was practically the ruler of Rome during the absence of Tiberius, and Titus, although of senatorial rank, assumed the office in order to increase his authority and to have a freer hand.
+							
+							<note>Suetonius, <hi rend="italics">Titus,</hi> 6.</note>
+							There were ordinarily two prefects, although occasionally there was only one, and in the latter part of the reign of Commodus there were three.</p>
+						
+						<p>This official, as time went on, became more prominent as a judge and in a civil capacity, and under Septimius Severus and Gallienus he was practically a civil minister, although he retained some vestiges of military authority even under Diocletian. When Constantine abolished the praetorian guard and replaced it by the <hi rend="italics">scholae Palatinae,</hi>
+							
+							<note>See below, p. xliii.</note>
+							the dignity and rank of the prefect survived and he became the highest civil servant of the emperor, without any participation in military affairs. He was appointed for an indefinite period, but because of his great  <pb id="p.xxxii"/>  power he was seldom kept in office for more than a year. Constantine also appointed a <hi rend="italics">praefectus per Gallias</hi> and a <hi rend="italics">praefectus per Orientem,</hi> and to these a <hi rend="italics">praefectus per Illyricum</hi> was later added, so that each of the four grand divisions of the empire was governed by a prefect. The prefect had a number of <hi rend="italics">vicarii,</hi> each of whom governed one of the dioceses into which his prefecture was divided.
+							
+							<note>E.g. <hi rend="italics">vicarius Asiae,</hi> xxvii. 9, 6.</note>
+						</p>
+						
+						<p>In spite of various restrictions
+							
+							<note>Especially the transfer of some of the prefect's powers to other officials.</note>
+							the power of a prefect was very extensive. His office, like that of the other <hi rend="italics">illustres,</hi> was large and well organized, with assistants, recorders, clerks, shorthand writers and mounted messengers. From the time of Alexander Severus he was a member of the senate. He had complete control of the general tax ordered by the emperor (<hi rend="italics">indictio</hi>), and through his subordinates took part in levying it; he held court as the emperor's representative; he issued edicts, which had the same force as those of the emperor, unless they were annulled by the Augustus; he supervised the governors and judges of the provinces, proposed their names, and paid their salaries; and he had a general supervision of the grain supplies, manufactures, coinage, roads and courier-service (<hi rend="italics">cursus</hi> <hi rend="italics">publicus</hi>).
+							
+							<note>This last, with the right of granting free conveyance, he shared with the emperor and the <hi rend="italics">magister officiorum.</hi></note>
+							His insignia were a lofty chariot, a golden pen-case, a silver inkstand, and a silver tripod and bowl for receiving petitions. He wore a cloak like that of the emperor, except that it  <pb id="p.xxxiii"/>  reached to the knees instead of to the feet; as a mark of his former military rank he carried a sword.
+							
+							<note>Cassiodorus, <hi rend="italics">Variae,</hi> Books vi. and vii., gives the formulae for conferring the various offices, with a summary of their duties; for the Praetorian Prefect, see vi. 3; there is a condensed translation by T. Hodgkin, London, 1886.</note>
+							Of the four praetorian prefects one who was resident at the court of an emperor or a Caesar seems to have been called <hi rend="italics">praesens or praesentalis,</hi> if the number of <hi rend="italics">Augusti</hi> and Caesars was less than four.
+							
+							<note>See xiv. 1, 10, note; xxiii. 5, 6; cf. xx. 4, 8. If the <hi rend="italics">Augusti</hi> and Caesars were four in number, each had his own prefect, and no such designation was necessary.</note>
+						</p>
+						
+						<p>The Prefect of the City (<hi rend="italics">praefectus urbis</hi>) in early times had charge of the city of Rome during the absence of the king or the consuls. His duties and powers were gradually taken over by the city praetor (<hi rend="italics">praetor urbanus</hi>), until Augustus revived the office, in order to provide for the government of Rome during his absence. Under Tiberius, because of his long stay at Capri, the office became a permanent one, and it increased in power and importance until the City Prefect ranked next to the Praetorian. He had command of the city troops (<hi rend="italics">cohortes urbanae</hi>) and general charge of the policing of the city. In addition to this he had a number of officers under his supervision, through whom he managed the census, the markets, and the granaries, and had power over all the corporations and guilds which carried on business in the city. Within the hundredth milestone he had supreme judicial, military, and administrative power. He convoked and presided over the senate, and made known its wishes to the  <pb id="p.xxxiv"/>  emperor. His insignia were twelve fasces, he wore the toga, and shared with the praetorian prefect alone the privilege of using a chariot within the city. There was also a city prefect at Constantinople (xxvi. 7, 2) with corresponding powers.</p>
+						
+						<p>In very early times the Master of the Horse (<hi rend="italics">magister equitum</hi>) was an assistant of the dictator, and was appointed by him; he played a particularly important part between 49 and 44 B.C., because of the frequent absence of the dictator Caesarfrom Italy. Augustus transferred the powers of this official to the <hi rend="italics">praefectus praetorio,</hi> who exercised them for a long time. Constantine in the early part of his reign, for the purpose of limiting the powers of the praetorian prefect, revived the office by appointing two commanders-in-chief of the military forces of the empire, one of the cavalry (<hi rend="italics">magister equitum</hi>), the other of the infantry (<hi rend="italics">magister peditum</hi>). From the middle of the fourth century these two officers began to be called <hi rend="italics">magistri equitum et peditum,</hi> or <hi rend="italics">magistri utriusque militiae,</hi> and finally, <hi rend="italics">magistri</hi> <hi rend="italics">militum.</hi> Ammianus uses both titles, as well as <hi rend="italics">magister armorum,</hi>
+							
+							<note>xv. 5, 36; xvi. 7, 3; xx. 1, 2.</note>
+							<hi rend="italics">magister rei castrensis</hi>
+							
+							<note>xxvii. 10, 6.</note>
+							and <hi rend="italics">pedestris militiae rector.</hi>
+							
+							<note>xv. 5, 2. In spite of his experience as a soldier, Ammianus is somewhat loose and inexact in his use of military titles, although some at least of his terms were probably due to a desire for variety.</note>
+							Constantius added three more <hi rend="italics">magistri militum,</hi> for the Orient, Gaul, and Illyricum, and in the <hi rend="italics">Notitia Dignitatum</hi> we find five in the Eastern, and three in the Western Empire.</p>
+						
+						<p>With the appointment of these officers the  <pb id="p.xxxv"/>  organisation of the army was changed. The <hi rend="italics">limitanei,</hi> who guarded the boundaries of the empire, were diminished in number, while the <hi rend="italics">comitatenses,</hi> or field-troops under command of the several <hi rend="italics">magistri</hi> <hi rend="italics">militum,</hi> and the <hi rend="italics">palatini,</hi>
+							
+							<note>The <hi rend="italics">Scholae Palatinae</hi> consisting of five corps of 500 men each at Rome and at Constantinople, to which two others were later added at Constantinople; see note 3, p. 56. Besides these there were the <hi rend="italics">protectores</hi> and <hi rend="italics">domestici.</hi></note>
+							attached to the court and commanded by the Master of the Offices, were increased. The <hi rend="italics">magistri militum</hi> were the judges of the army under their control, and had the power of jurisdiction even in some civil cases involving their soldiers; but their civil powers were very strictly limited, and in civil matters the decision ordinarily rested with the provincial judges; an appeal from their decision went to the <hi rend="italics">praefectus</hi> <hi rend="italics">praetorio,</hi> and not to the <hi rend="italics">magister militum.</hi> The <hi rend="italics">magistri militum</hi> were judges over their subordinates, the <hi rend="italics">comites rei castrensis</hi> and the <hi rend="italics">duces,</hi> but not over the subordinates of the <hi rend="italics">comites</hi> and <hi rend="italics">duces.</hi> They could not move troops from one part of the empire to another, without the emperor's order, except in case of a very great emergency.</p>
+						
+						<p>Next in rank to these three officials was the Grand Chamberlain (<hi rend="italics">praepositus sacri cubiculi</hi>). Chamberlains are first mentioned in connection with Julius Caesar's capture by the pirates
+							
+							<note>Suetonius, <hi rend="italics">Jul.</hi> 4, 1.</note>
+							; four years later Cicero alludes to them in such a way as to imply that they were regular members of the families of the wealthier citizens;
+							
+							<note><hi rend="italics">Verres,</hi> ii. 3, 4, 8.</note>
+							they had considerable importance as personal attendants of the governors  <pb id="p.xxxvi"/>  of provinces, but were not members of their official staff.
+							
+							<note>Cicero, <hi rend="italics">Ad Att.</hi> vi. 2, 5; <hi rend="italics">Digest, 1.</hi> 16, 203.</note>
+							When Augustus reorganized the palace service, the chamberlains formed a corps under the headship of an officer called <hi rend="italics">a cubiculo,</hi>
+							
+							<note>Dunlap, pp. 169 ff.; see note 4, p. xiii.</note>
+							who was in close touch with the emperor, later sometimes his companion
+							
+							<note>Philo, <hi rend="italics">Legatio ad Gaium,</hi> 27.</note>
+							and confidant, and hence gradually acquired wide influence. Another official of the corps is perhaps the <hi rend="italics">decurio cubiculariorum,</hi> mentioned by Suetonius in connection with the murder of Domitian.
+							
+							<note>Suet., <hi rend="italics">Dom.</hi> 17, 2.</note>
+							The <hi rend="italics">praepositi</hi> of the time of Ammianus were eunuchs, and as constant companions of the emperor they had great power; in one instance a <hi rend="italics">praepositus</hi> who confessed that he had taken part in a conspiracy escaped punishment through the intervention of his fellow eunuchs,
+							
+							<note>xv. 2, 10.</note>
+							and Ammianus ironically says
+							
+							<note>xviii. 4, 3; so Dunlap, p. 181, but as Ammianus is not often, if ever, humorous, the conjecture of <hi rend="italics">posuit</hi> for <hi rend="italics">potuit</hi> is a reasonable one, with the meaning that Constantius depended greatly on Eusebius.</note>
+							that the emperor Constantius had considerable influence, if the truth be told, witb Eusebius, his Grand Chamberlain.</p>
+						
+						<p>The Grand Chamberlain had a considerable body of subordinates, all of whom were employed in the personal service of the emperor; the <hi rend="italics">primicerius</hi> <hi rend="italics">sacri cubiculi</hi> was the head of those who served as the chamberlains of the emperor's apartment, and the <hi rend="italics">comes castrensis sacri palatii</hi> of all who were not chamberlains, such as pages, and the throng of palace servants; other subordinates, with  <pb id="p.xxxvii"/>  appropriate titles, had charge of the royal wardrobe, of necessary repairs in the palace, and the keeping of any noise from reaching the imperial apartments (the <hi rend="italics">silentiarii</hi>).</p>
+						
+						<p>Another important official in close contact with the imperial household was the Master of the Offices (<hi rend="italics">magister officiorum</hi>). In 321 and 323 we hear of a <hi rend="italics">tribunus et magister officiorum,</hi>
+							
+							<note>Cod. Theod. xvi. 10, 1; xi. 9, 1.</note>
+							so that the office goes back at least as far as Constantine, although the earliest <hi rend="italics">magister</hi> who appears in inscriptions held office in 346.
+							
+							<note>Dessau, 1244; <hi rend="italics">C.I.L.</hi> vi. 1721.</note>
+							Since <hi rend="italics">tribunus</hi> implies military service, the office is supposed to have originated when Diocletian organized the <hi rend="italics">officiates</hi> of the palace on a military basis and chose the senior tribune of the praetorian guard to take charge of the various corps of palace attendants, and also to command the soldiers attached to the court.
+							
+							<note>Dunlap, pp. 26 f.</note>
+							As one of the <hi rend="italics">dignitates palatinae</hi> the functions of the Master of the Offices came in conflict with those of the Praetorian Prefect, whose power he still further curtailed, and to some extent with those of the Grand Chamberlain. Besides being in command of the five <hi rend="italics">scholae</hi> of the palace guards,
+							
+							<note>Note 3, p. 56.</note>
+							he had supervision over the chiefs of the four imperial <hi rend="italics">scrinia,</hi> or correspondence bureaus, and over the <hi rend="italics">schola</hi> of the <hi rend="italics">agentes in rebus,</hi>
+							
+							<note>See p. xxvii, above, and note 3. This was a large corps, numbering 1174 in the Orient in 430, and increased to 1248 by the emperor Leo (457&ndash;474). They were divided into five grades, and from the two higher classes chiefs of bureau for the <hi rend="italics">vicarii</hi> were recruited, as well as <hi rend="italics">comites,</hi> <hi rend="italics">duces</hi> and even governors of provinces.</note>
+							<pb id="p.xxxviii"/>  and he also had charge of the <hi rend="italics">cursus publicus,</hi> or state courier-service. The management of this was at first in the hands of the Praetorian Prefect, but was transferred under Constantine to the Master of the Offices. This control of the means of conveying state dispatches and persons travelling on state business throughout the empire was a very important one, since it included the right to issue passes giving the privilege of using the <hi rend="italics">cursus.</hi> It brought the Master into frequent collision with the Praetorian Prefect, but the Master had the superior supervision.</p>
+						
+						<p>The Master of the Offices also had control of the great arsenals and manufactories of arms of Italy, and in particular it was through him that imperial audiences were obtained, and that the ambassadors of foreign powers were received and introduced. Actual entrance into the audience-chamber was under the direction of a <hi rend="italics">magister</hi> <hi rend="italics">admissionum,</hi> and a corps of <hi rend="italics">admissionales;</hi> in the cases of distinguished applicants for audience the <hi rend="italics">magister admissionum</hi> functioned
+							
+							<note>See note, p. 144.</note>
+							and in very exceptional cases the <hi rend="italics">magister officiorum</hi> himself, regularly in the case of women of distinction. He had a very large corps of assistants and subordinates; his duties were very complex and important, and he was one of the most powerful officials.</p>
+						
+						<p>The <hi rend="italics">Quaestor Sacri Palatii</hi> was also numbered among the <hi rend="italics">dignitates palatinae</hi> and was in close touch with the emperor. In the days of Augustus the quaestorship was the lowest office that gave  <pb id="p.xxxix"/>  admission to the senate. It was given additional prestige by the arrangement by which some of its occupants were selected by the emperor himself (called <hi rend="italics">quaestores candidati</hi> or <hi rend="italics">quaestores Augusti,</hi> or <hi rend="italics">principis</hi>), and because one of them was regularly attached to the person of the ruler, to read his letters and other communications to the senate.
+							
+							<note>Suet., <hi rend="italics">Aug.</hi> 65, 2; <hi rend="italics">Nero,</hi> 15, 2; <hi rend="italics">Titus, 6,</hi> 1.</note>
+							As the emperor's letters came more and more to have the force of laws and edicts, the Quaestor was considered a legal officer connected with civil jurisprudence, and ranked as one of the highest officials of the court. He had the rank of Count and at the end of the fourth century became an <hi rend="italics">illustris.</hi> His duties required him to be the mouthpiece of the emperor, and to suggest to the ruler anything that would be for the welfare of the state. He had the right to suggest laws and to answer petitions addressed to the emperor. It was therefore necessary that he should be a trained jurist, in order to be an exact and just interpreter of the law. He also had the supervision of every one who entered the capital; he made inquiries into the character of all who came from the provinces, and found out from what provinces they came and for what reasons, the purpose being to prevent worthless men from taking up their residence in the city.</p>
+						
+						<p>Theodoric wrote to the senate with regard to the office of Quaestor:
+							
+							<note>Cassiodorus, <hi rend="italics">Varia,</hi> v. 4 (Hodgkin); vi. 5; viii. 19; the <hi rend="italics">Varia</hi> contain valuable information about all these high officials.</note>
+							<quote>It is only men whom we consider to be of the highest learning that we raise  <pb id="p.xl"/>  to the dignity of the quaestorship, such men as are fitted to be the interpreters of the laws and sharers of our counsels,</quote> and Claudian said of that official
+							
+							<note><hi rend="italics">Panegyr. dictus Manlio Theodoro,</hi> 34 ff. (<hi rend="italics">L.C.L. ii.,</hi> p. 341.)</note>
+							<quote>thou comest to give edicts to the world, to make reply to suppliants. A monarch's utterance has won dignity from thine eloquence.</quote></p>
+						
+						<p>The Count of the Sacred Largesses (<hi rend="italics">comes sacrarum largitionum</hi>) was the Minister of Finance, who controlled the revenues of the state, except those which passed into the hands of the prefects, the Count of the Privy Purse (<hi rend="italics">comes rerum privatarum),</hi>
+							
+							<note>See below.</note>
+							the Quaestor, and the Master of the Offices. He had supreme charge of the <hi rend="italics">sacrum aerarium,</hi> or state treasury, including the former <hi rend="italics">aerarium</hi> and <hi rend="italics">fiscus,</hi>
+							
+							<note>That is, the <hi rend="italics">aerarium Saturni,</hi> or public treasure, and the emperor's privy purse.</note>
+							exerting it in the provinces through his subordinates, the <hi rend="italics">comites largitionum,</hi> of whom there was one for each diocese. The latter had subordinates called <hi rend="italics">rationales summarum,</hi> each of whom collected the money and taxes either of his whole diocese or of a great part of it.</p>
+						
+						<p>The <hi rend="italics">Comes Sacrarum Largitionum</hi> also had under his supervision numerous direct and indirect taxes, and the revenues from the provinces were sent to him by the first of March. Through subordinates he had control of the sea-coasts and of merchants, who could not go beyond certain cities prescribed by law; and the trading in salt, which was a government monopoly, was under his direct supervision,  <pb id="p.xli"/>  including the granting of licences for the working of the public salt mines, the revenues from which were under his control. Through other subordinates he had charge of the banks in the various provinces, in which the money that was collected was kept until it was sent to him. He controlled the other mines and those who worked in them, the coinage, and the mints. He was general superintendent of the imperial factories, the employees in which could not engage in private work and were hereditarily confined to their special trades; they were under the direct charge of <hi rend="italics">procuratores.</hi></p>
+						
+						<p>He also had judicial control over his subordinates and the power of confirming the appointments of some judges in the provinces. As his title implies, he administered the bounties of the emperor (the <hi rend="italics">largitiones</hi>). The disposition of the money under his charge was entirely dependent on the good will of the emperor, either in meeting the demands of the various necessities of state, or in giving presents, or in conferring rewards.</p>
+						
+						<p>Like the other high officials he had in his office a great number of bureaus of correspondence (<hi rend="italics">scrinia</hi>) consisting of officials who received the payments made each year by the provinces; kept accounts of the <hi rend="italics">sacrae largitiones</hi> through <hi rend="italics">tabularii;</hi> made out the fiscal accounts and supervised the <hi rend="italics">largitiones;</hi> had charge of all the expenditures for clothing needed in the palace and for the soldiers, whether they belonged to the palace troops or not, of the silverware of the palace, and the like.</p>
+						
+						<p>The Count of the Privy Purse (<hi rend="italics">comes rerum privatarum</hi>) had charge of the <hi rend="italics">aerarium privatum,</hi>  <pb id="p.xlii"/>  consisting both of the <hi rend="italics">res privatae,</hi> the inalienable crown property, and the <hi rend="italics">patrimonium sacrum,</hi> the private and personal property of the emperor, which could be inherited by his family. His subordinates were at first the <hi rend="italics">magistri</hi> (later the <hi rend="italics">rationales) rei privatae,</hi> one for each diocese or province, who took care of all finances within their province, including lands belonging to the temples, and kept a record of the income. He had the superintendence through his <hi rend="italics">rationales</hi> of the government estates, both at home and in the provinces, as well as of the revenues from estates which were especially assigned to the imperial house. The <hi rend="italics">res privatae</hi> at this time included also the confiscated property of men who had been condemned or proscribed, which before Tiberius had gone to the state treasury (<hi rend="italics">aerarium</hi>), as well as all deposited money which because of long lapse of time had no claimant, and property for which there were no heirs.</p>
+						
+						<p>The Count of the Privy Purse also superintended the collectors of the rents of the imperial property in the provinces, and of the gifts of silver or gold demanded in time of need from those to whom the emperors had made presents of real estate, which was free from taxation.</p>
+						
+						<p>To the <hi rend="italics">dignitates palatinae,</hi> or offices whose duties did not call their holders away from the capital, might be added the Counts of the Body Guard (<hi rend="italics">comes domesticorum equitum</hi> and <hi rend="italics">comes domesticorum peditum</hi>), who are placed in the <hi rend="italics">Notitia</hi> <hi rend="italics">Dignitatum</hi> immediately after the <hi rend="italics">Comes rerum</hi> <hi rend="italics">privatarum,</hi> although they were not always <hi rend="italics">illustres,</hi> but sometimes held that rank. With the <hi rend="italics">domestici</hi>  <pb id="p.xliii"/>  the <hi rend="italics">protectores</hi> are sometimes coupled,
+							
+							<note>xiv. 10, 2, <hi rend="italics">protector domesticus;</hi> cf. xviii. 8, 11.</note>
+							and when Constantine in 312 disbanded the praetorian troops, he gave their rank and duties to the <hi rend="italics">protectores et</hi> <hi rend="italics">domestici.</hi> Thus we have two kinds of palace troops: the <hi rend="italics">scholae palatinae</hi>
+							
+							<note>See above, p. xxxi.</note>
+							under the command of the Master of the Offices, and two corps of <hi rend="italics">protectores et</hi> <hi rend="italics">domestici,</hi> who ranked higher than the members of the <hi rend="italics">scholae palatinae</hi> and were commanded by the <hi rend="italics">comites domesticorum.</hi> Ammianus is the first to refer to the <hi rend="italics">protectores</hi> and <hi rend="italics">domestici</hi> as also divided into scholae.
+							
+							<note>xiv. 7, 9, note; xxvi. 5, 3.</note>
+							These consisted of ten divisions of fifty men each, commanded by <hi rend="italics">decemprimi,</hi> of the rank <hi rend="italics">clarissimus,</hi> and these were under the supervision of a <hi rend="italics">primicerius,</hi>
+							
+							<note>xviii. 3, 5.</note>
+							of the grade <hi rend="italics">spectabilis;</hi> the <hi rend="italics">protectores</hi> themselves ranked as <hi rend="italics">perfectissimi.</hi></p>
+						
+						<p>In addition to accompanying the emperor when he went abroad, the <hi rend="italics">protectores</hi> and <hi rend="italics">domestici</hi> were sent to the provinces to perform various public services, although a part had to be always <hi rend="italics">in praesenti,</hi> or at court. Sometimes, as in the case of Ammianus, they were sent to a <hi rend="italics">magister militum</hi> and placed under his orders. Whenever they were sent abroad, their pay, which was already large, was increased.</p>
+						
+						<p><hi rend="italics">Tribunus</hi> is a title of various military officers in connection with the <hi rend="italics">domestici,</hi> the <hi rend="italics">armaturae,</hi> the <hi rend="italics">scutarii,</hi> and the <hi rend="italics">protectores;</hi> also of officers in charge of manufactories of arms
+							
+							<note>xiv. 7, 18; xv. 5, 9, at Cremona.</note>
+							and of the imperial stables.
+							
+							<note>xiv. 10, 8; xxx. 5, 19.</note>
+							As has already been noted, the title was  <pb id="p.xliv"/>  given also to civil officials, such as the higher in rank of the <hi rend="italics">notarii.</hi>
+							
+							<note>Note 3, p. 339.</note>
+							<hi rend="italics">Tribuni vacantes</hi> had the title and rank of <hi rend="italics">tribuni</hi> without a special assignment.
+							
+							<note>xvi. 12, 63; xviii. 2, 2.</note>
+						</p>
+						
+						<p>For further information see Index II, which sometimes supplements also the notes on the Text.</p></div3>
+					
+					<div3><head>Manuscripts and Editions.</head>
+						
+						<p>There are twelve manuscripts that contain all the surviving books of Ammianus. Two break off at the end of Book xxvi. (PR). and one ends abruptly at xxv. 3, 13 (D). There are besides six detached sheets which once formed part of a codex belonging to the abbey of Hersfeld; these are now in Kassel, and the manuscript to which they belonged is designated as M. Of the other fifteen manuscripts seven are in Rome (VDYEURP), one each in Florence (F), Modena (Q), Cesena (K), and Venice (W), and the remaining four in Paris (CHTN). V and M are of the ninth century, the rest of the fifteenth. A fulldescription of all these and their relations to one another is given by Clark,
+							
+							<note><hi rend="italics">The Text Tradition of Ammianus Marcellinus,</hi> New Haven, 1904.</note>
+							who has convincingly shown that of the existing manuscripts only V has independent value. To this are added the readings of M, so far as that manuscript has been preserved,
+							
+							<note>Fragments of Books xxiii., xxviii. and xxx.; see H. Nissen, <hi rend="italics">Frag. Marb.,</hi> Berlin, 1876.</note>
+							and so far as the readings of its lost part can be restored from the edition of Gelenius, who professed  <pb id="p.xlv"/>  to follow M, but made extensive emendations of his own.</p>
+						
+						<p>Clark reconstructs the history of the text as follows. A capital manuscript, presumably of the sixth century, was copied, probably in Germany by a writer using the <hi rend="italics">scriptura Scottica.</hi> In the early Caroline period a copy was made from this insular manuscript, which is the parent of V (<hi rend="italics">Fuldensis</hi>), and of the one of which the Hersfeld fragments formed a part (M). No copy of the <hi rend="italics">Hersfeldensis</hi> exists, but many of its readings are found in the edition of Gelenius. Every other manuscript is copied from the <hi rend="italics">Fuldensis</hi> (V), four directly (FDN and E), and the other nine through F, including Gardthausen's <hi rend="italics">codices mutili</hi> (P and R), which are copies of V at two removes at least.</p>
+						
+						<p>Since the text of V is in bad shape, with numerous <hi rend="italics">lacunae,</hi> some of the readings of the early editions are of value. The first printed edition (S) was that of Sabinus, Rome, 1474, containing Books xiv.- xxvi.; it is a reprint of R, the poorest manuscript in existence, and hence of little or no value. The next (B), that of Petrus Castellus, Bologna, 1517, was a reprint of S, in which the text was further debased by irresponsible emendations, which vitiated all the subsequent history of the text of Books xiv.-xxvi. A pirated reprint of B by Erasmus (b) was published at Basle in 1518.</p>
+						
+						<p>The first improvement dates from the edition of Accursius (A), Augsburg, May, 1533, who used a manuscript copied from V and corrected from a copy of E, which is itself a transcript of V emended by a humanist. A still greater improvement was  <pb id="p.xlvi"/>  made by the edition of Gelenius, Basle, July, 1533, who also was partly dependent on the copy of E, but had access besides to the purer tradition of M.</p>
+						
+						<p>Subsequent editions were those of Gruter, 1611, who corrected his text from V; of Lindenbrog, Hamburg, 1609, who made use of F and first provided the text with explanatory notes; of Henricus Valesius, Paris, 1636, whose annotations formed the basis of all later commentaries, while his brilliant scholarship and critical acumen led him to make numerous correct emendations, with the help of N (his <hi rend="italics">codex Regius</hi>). He also recognised the existence of metrical <hi rend="italics">clausulae,</hi> and says three or four times
+							
+							<note>E.g. at the end of the annotations on Book xiv.</note>
+							that certain emendations do not correspond with these. His punctuation also seems to take account of the <hi rend="italics">clausulae,</hi> and hence is often the same as that of Clark.
+							
+							<note>See Preface.</note>
+							Also important are the editions of Wagner and Erfurdt, Leipzig, 1808, with a collection of the best material in previous commentaries, and of Ernesti, Leipzig, 1773, with a useful <hi rend="italics">index verborum,</hi> which, however, is not complete, and gives only the numbers of the chapters, without those of the sections, a practice especially exasperating in the long chapters.</p>
+						
+						<p>The critical study of the text begins with the edition of Henricus Valesius. His younger brother Hadrianus in his edition (Paris, 1681) had the use of two additional manuscripts, C and the codex Valentinus, which is now lost. Later editors were content with the readings of these editions until  <pb id="p.xlvii"/>  1871, when Eyssenhardt published his text at Berlin, which was followed in 1874&ndash;75 by that of Gardthausen (Leipzig). The latter was the first to use the <hi rend="italics">Petrinus</hi> (P), which he thought was written before V came into Italy, from an archetype on a plane with V, and that a copy of V, corrected from M, was the archetype of E and of Accursius' codex. His readings of P are often erroneous, and it is now recognized, as already said, that P does not represent a tradition independent of V. The standard critical edition is that of C. U. Clark, of which volume one, containing Books xiv.-xxv., and volume two, part one, containing xxiv.-xxxi., were published at Berlin in 1910 and 1915 respectively. The second part of volume two, the indices, has not yet appeared.
+							
+							<note>A complete <hi rend="italics">Sprachlicher u. Historischer Kommentar</hi> <hi rend="italics">zu Ammianus Marcellinus</hi> is planned by P. De Jonge, who published the notes on xiv, 1&ndash;7, as his doctoral dissertation, Groningen, 1935. Part 2 (on xiv, 7&ndash;11) appeared in 1939.</note>
+						</p>
+					</div3>  
+					<pb id="p.xlviii"/>
+					
+					<div3><head>Bibliographical Note</head>
+						
+						<p>There is no commentary in English on Ammianus, and no full and satisfactory one in any language.
+							
+							<note>See note, p. xlvii.</note>
+							He has been translated into English by Philemon Holland, London, 1609, and by C. D. Yonge, London, 1862; into German by C. B&uuml;chele, Stuttgart, 1827 (reprinted 1853&ndash;54; a second edition by L. Tross, Ulm, 1898, seems never to have gone beyond Vol. I, containing Books xiv.-xv.); into French by T. Salv&egrave;te, with the Latin text, Collection Nisard, Paris, 1849. All these are based upon texts which differ from the present standard editions.</p>
+						
+						<p>Papers and monographs dealing with various phases of Ammianus and his work are very numerous. On the text may be mentioned in addition to those cited by Clark in his Compendia: R. Novak, <hi rend="italics">Kritische Nachlese zu Ammianus Marcellinus,</hi> Wiener Studien, 33 (1912), pp. 293 ff.; P. H. Damst&eacute;, <hi rend="italics">Adversaria critica,</hi> Mnemosyne, lv. (1927), pp. 241&ndash;259; lviii. (1930), pp. 1 ff.; G. B. A. Fletcher, <hi rend="italics">Notes on Ammianus Marcellinus,</hi> Classical Quarterly, xxiv. (1930), pp. 193 ff., and <hi rend="italics">A.J.P.</hi> lviii. (1937), pp. 392 ff.; J. P. Pighius (G. P. Pighi), <hi rend="italics">Studia Ammnianea,</hi> Milano, 1935; <hi rend="italics">I Discorsi nelle Storie d'Ammiano Marcellino</hi> and <hi rend="italics">Nuovi Studi Ammianei,</hi> Milano, 1936; R. P. Robinson, <hi rend="italics">The Hersfeldensis and Fuldensis of Ammianus Marcellinus,</hi> in the Univ. of Missouri Studies, Columbia, Missouri, 1936. On the officials: M. Cosenza, <hi rend="italics">Official Positions after the Time of Constantine</hi> (Columbia Univ. dissertation), Lancaster, Pa., 1905; A. E. R. Boak, <hi rend="italics">Roman Magistri in the Civil and Military Service of the Empire,</hi> Harvard Studies in Class. Phil., xxvi. (1915), pp. 73 ff., and <hi rend="italics">The Master of the Offices,</hi> Univ. of Michigan Studies, xiv., pp. 1&ndash;160, New York, 1924; J. E. Dunlap, <hi rend="italics">The Grand Chamberlain,</hi> ibid., pp. 161&ndash;324. General: Klein, W., <hi rend="italics">Studien zu Ammianus</hi> <hi rend="italics">Marcellinus,</hi> Klio, Beiheft 13, 1914; Ensslin, W., <hi rend="italics">Zur Geschichtsschreibung und Weltanschauung des Ammianus</hi>  <pb id="p.xlix"/>  <hi rend="italics">Marcellinus,</hi> Klio, Beiheft 16, 1923; T. R. Glover, <hi rend="italics">Life and Letters in the Fourth Century,</hi> Camb. Univ. Press, 1901; R. B. Steele, <hi rend="italics">Ammianus Marcellinus, Class. Weekly,</hi> xvi., pp. 18 ff. and 27 ff.; W. Hyde, <hi rend="italics">Roman Alpine Routes,</hi> American Philosophical Society, 1935; A. Hoepffner, in <hi rend="italics">Rev. des &Eacute;tudes Lat.,</hi> xiv. (1936), pp. 119 ff. (on the death of Theodosius); E. A. Thompson, <hi rend="italics">The Historical Work of Ammianus,</hi> Cambridge, 1947. To these may be added: G. B. A. Fletcher, <hi rend="italics">Ammianus and Solinus, Phil.</hi> xci. (1936), pp. 478 ff.; <hi rend="italics">Stylistic Borrowings and Parallels in A</hi> mm<hi rend="italics">ianus Marcellinus, Rev. de Phil.</hi> xi. (1937), pp. 378 ff.; and <hi rend="italics">Ammianea, Amer. Jour. of Phil.</hi> lviii. (1937), pp. 378 ff.; S. Blomgren, <hi rend="italics">De Sermone Azmiani Marcellini Quaestiones Variae,</hi> Uppsala Universitets &Aring;rsskrift, 1937; R. A. Pack, <hi rend="italics">Studies in Libanius and Antiochene Society under Theodosius,</hi> Univ. of Mich. diss., 1935; J. Miller, <hi rend="italics">Jahresbericht,</hi> 247 (1935), pp. 52 ff., with selected literature on Ammianus, 1925&ndash;32; H. Hagendahl, <hi rend="italics">Studia Ammianea,</hi> Uppsala, 1921; and <hi rend="italics">De Abundantia Sermonis Ammianei,</hi> in <hi rend="italics">Eranos,</hi> xxii, 1924, pp. 161 ff.</p>
+					</div3>  
+					<pb id="p.1"/>
+					
+					<div3><head>Sigla</head>
+						
+						<p><table><row><cell>A</cell><cell>= the edition of Accursius.
+							
+							<note>For a brief description of the principal manuscripts and editions see Introd., pp. xliv ff., and for a full description, Clark's <hi rend="italics">Text Tradition;</hi> see p. xliv, note 3.</note>
+						</cell></row> <row><cell>B</cell><cell>= the edition of Castellus.</cell></row> <row><cell><hi rend="italics">b</hi></cell><cell> = the edition of Erasmus.</cell></row> <row><cell>Boxh.</cell><cell>= the edition of Boxhorn, Leyden, 1632.</cell></row> <row><cell>c.c.</cell><cell>= <hi rend="italics">cursus causa,</hi> emendations made to correct rhythmical endings.</cell></row> <row><cell>D</cell><cell>= Codex Vaticanus, 1874 (ends at xxv. 3, 13).</cell></row> <row><cell>E</cell><cell>= Codex Vaticanus Lat. 2969.</cell></row> <row><cell>Eyssen.</cell><cell>= the edition of Eyssenhardt.</cell></row> <row><cell>G</cell><cell>= the edition of Gelenius.</cell></row> <row><cell>g</cell><cell>= the edition of Gelenius by R. Stephanus, Paris, 1544.</cell></row> <row><cell>Gardt.</cell><cell>= the edition of Gardthausen.</cell></row> <row><cell>H</cell><cell>= Codex Parisinus, Bibl. Nat. Lat. 5819.</cell></row> <row><cell>Her.</cell><cell>= W. Heraeus, who collaborated with Clark in his edition.</cell></row> <row><cell>lac.</cell><cell>= <hi rend="italics">lacuna.</hi></cell></row> <row><cell>Lind.</cell><cell>= the edition of Lindenbrog.</cell></row> <row><cell>M</cell><cell>= Codex Hersfeldensis.</cell></row> <row><cell>N</cell><cell>= Codex Neapolitanus, Paris, Bibl. Nat. Lat. 6120.</cell></row> <row><cell>P</cell><cell>= Codex Petrinus, Rome, Basil. S. Petri, E 27 (ends with Book xxvi.).</cell></row> <row><cell>Pet.</cell><cell>= M. Petschenig.</cell></row> <row><cell></cell><cell>T = Codex Tolosanus, Paris, Bibl. Nat. Lat. 5820.</cell></row> <row><cell>vulgo</cell><cell>= readings unknown to the Valesii, but found in the ed. of Gronov.</cell></row> <row><cell>V</cell><cell>= Codex Fuldensis, Rome, Vat. Lat. 1873.</cell></row> <row><cell>Val.</cell><cell>= the edition of Henricus Valesius.</cell></row> <row><cell>Hadr. Val.</cell><cell>= the edition of Hadrian Valesius.</cell></row> <row><cell>W</cell><cell>= Codex Venetus, Bibl. S. Marc. 388, Bess.</cell></row></table></p>
+					</div3>
+				</div2>
+			</div1>
+		</body>
+	</text>
+</TEI.2>

@@ -1,0 +1,777 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Curculio, or The Forgery</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.cur_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.11  2009/06/23 13:44:29  student
+fixed Pl. Trin. references - zr
+
+Revision 1.10  2009/06/22 17:20:27  student
+fixed Pl. Ps. references - zr
+
+Revision 1.9  2009/06/18 18:59:27  student
+fixed Pl. Cur. references - zr
+
+Revision 1.8  2009/06/18 15:29:38  student
+changed Pl. Capt. from tln to act.scene - zr
+
+Revision 1.7  2009/06/18 13:19:26  student
+changed Pl. Bac. from tln to act.scene - zr
+
+Revision 1.6  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.5  2009/04/29 02:53:47  lcerrato
+fixed bad bibls
+
+Revision 1.4  2009/02/25 03:22:55  lcerrato
+fixing bad bibl refs
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:12  packel
+Converted to XML
+
+Revision 1.14  2003/07/01 22:17:28  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.13  2001/08/21 18:49:30  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.12  2001/08/08 17:55:28  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.11  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.10  2001/08/03 20:50:01  amahoney
+fix spurious italics in lemmata
+
+Revision 1.9  2001/08/02 21:22:39  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.8  2001/08/01 21:34:10  amahoney
+use full speaker names
+
+Revision 1.7  2001/08/01 19:16:30  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.6  2001/07/17 22:07:36  amahoney
+make scene divisions match the Latin
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>CURCULIO, </role><roleDesc>the Parasite of Ph&aelig;dromus.</roleDesc></castItem>
+<castItem type="role"><role>THERAPONTIGONUS, </role><roleDesc>a Captain of <placeName key="tgn,7002358">Caria</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>PHAEDROMUS, </role><roleDesc>a young man in love with Planesium.</roleDesc></castItem>
+<castGroup>
+<castItem type="role"><role>PALINURUS,</role><roleDesc>Servants of Ph&aelig;dromus.</roleDesc></castItem>
+<castItem type="role"><role>COOK,</role></castItem>
+</castGroup>
+<castItem type="role"><role>LYCO, </role><roleDesc>a Banker.</roleDesc></castItem>
+<castItem type="role"><role>CAPPADOX, </role><roleDesc>a Procurer.</roleDesc></castItem>
+<castItem type="role"><role>THE CHOREGUS </role><roleDesc>(or, Director of the Chorus).</roleDesc></castItem>
+<castItem type="role"><role>AN ACTOR.</role></castItem>
+<castItem type="role"><role>PLANESIUM, </role><roleDesc>a young woman belonging to Cappadox.</roleDesc></castItem>
+<castItem type="role"><role>AN OLD WOMAN, </role><roleDesc>a Procuress.</roleDesc></castItem>
+</castList>
+
+<stage>Scene--<placeName key="tgn,7011116">Epidaurus</placeName>, in <placeName key="tgn,7017076">Peloponnesus</placeName>; before the houses of PH&AElig;DROMUS and CAPPADOX, and the Temple of &AElig;sculapius.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<sp><speaker>PH&AElig;DROMUS</speaker><p> is desperately in love with Planesium, who is in the possession of Cappadox, an avaricious Procurer. Not having the means of obtaining her freedom, Ph&aelig;dromus sends Curculio, his Parasite, to <placeName key="tgn,7002358">Caria</placeName>, to borrow the money from a friend. The friend being unable to lend it, Curculio by accident meets a military officer, named Therapontigonus, and is invited by him to dinner. The Captain accidentally mentions to him that he has agreed to purchase Planesium of the Procurer, and that the money is deposited with Lyco, the banker, who, has been ordered, on receiving a letter signed with the Captain's signet, to have the young woman delivered to the bearer. While the Captain is overpowered with wine, Curculio steals his signet, and hastens back to <placeName key="tgn,7011116">Epidaurus</placeName>, where he forges a letter by means of it, which he delivers to Lyco, as though from the Captain. The money is paid to the Procurer, and Planesium is handed over to Curculio; a condition having been previously made, that if she should turn out to be a free woman by birth, the money shall be repaid to the purchaser. Curculio then delivers Planesium to Ph&aelig;dromus. The same day, the Captain arrives at <placeName key="tgn,7011116">Epidaurus</placeName>, and is soon after recognized by Planesium as her brother, through the medium of the ring, which had belonged to her father. To corroborate her assertion, Planesium produces another ring, which Therapontigonus had presented to her when a child as a birthday present. On this, she is given by her brother in marriage to Ph&aelig;dromus; and Cappadox, much against his will, is forced to refund the money to the Captain.
+
+</p></sp></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>On an errand of Ph&aelig;dromus, Curculio (<foreign lang="la">Curculio</foreign>) goes to <placeName key="tgn,7002358">Caria</placeName>, that (<foreign lang="la">Ut</foreign>) he may obtain some money; there he despoils the rival (<foreign lang="la">Rivalem</foreign>) <foreign lang="la">of Ph&aelig;dromus</foreign> of his ring. He writes a letter, and seals it <foreign lang="la">with that seal.</foreign> Lyco, when he sees it, recognizes (<foreign lang="la">Cognoscit</foreign>) the seal of the Captain; that (<foreign lang="la">Ut</foreign>) he may send him his mistress, he pays the money to the Procurer. The Captain <foreign lang="la">threatens to</foreign> summon Lyco (<foreign lang="la">Lyconem</foreign>) and the Procurer to justice: he himself (<foreign lang="la">Ipsus</foreign>) discovers his sister that was lost, at whose request (<foreign lang="la">Oratu</foreign>) he gives her in marriage to Ph&aelig;dromus.
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>(Before daybreak.)  Enter at one side of the stage PH&AElig;DROMUS, with a lighted torch, and followed by SLAVES with wine and provisions for an entertainment, and PALINURUS on the opposite side.</stage>
+<sp><speaker>PALINURUS</speaker><p> Whither away must I say that you are going out of doors at this time o' night, Ph&aelig;dromus, with that dress and with this train<milestone n="2" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And with this train</lemma>:  As it is supposed to be before daybreak, he is holding a lighted torch, and is attended by a train of slaves, who are carrying wine and other provisions for the entertainment, or early breakfast, which he is about to give. He has also a gay dress on for the occasion.</note>?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Whither Venus and Cupid summon me, and Love persuades me; whether 'tis the midnight or whether the earliest twilight, if the day is fixed<milestone n="5" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If the day is fixed</lemma>:  "Status condictus dies." This term properly applies to a day appointed for pleading a cause.</note> for pleading your cause with your antagonist, still must you go where they command you, whether you will or no.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> But pray, pray---- </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p>Pray ---- you are annoying to me.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Really that is neither pretty nor befitting you to say. You are your own servant<milestone n="9" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your own servant</lemma>:  "Puer" may signify either "servant" or "boy" in this passage. In the former case, Palinurus would mean, "you are acting as your own servant, in carrying the torch;" in the latter, the allusion would probably be to the fact that boys, handsomely drest, used, at the nuptial ceremony, to carry lighted torches before the bride and bridegroom.</note>; in your fine garb you are showing the light with your waxen torch<milestone n="10" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your waxen torch</lemma>:  It is not improbable that the flambeaux, or torches, used by the higher classes, were of wax; while those in more common use were made of pine-wood, tow, and other inflammable substances.</note>.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> And ought I not to carry that which is gathered by the labour of the little bees--which has its birth in sweets--to my own sweet one, my little honey?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> But whither must I say that you are going?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> If you ask me that, I'll tell, so that you may know.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> If I make the enquiry, what would you answer me?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> This is the Temple <stage>pointing to it</stage> of &AElig;sculapius.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> That I have known for more than a twelvemonth past.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Close to it is that door, dear as my very eyes. <stage>Points to the door of CAPPADOX.</stage> Hail to you! door, dear as my very eyes; have you been quite well of late?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Did a fever leave you<milestone n="18" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A fever leave you</lemma>:  He asks his master this, as he is in doubt whether he is in his senses or not. It was a notion among the ancients that fasting was very apt to produce delirium.</note> but yesterday, or the day before, and did you take your dinner yesterday?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Are you laughing at me? </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Why then, madman, are you enquiring whether the door is well or not?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I' faith, I've known it as a door most comely and most discreet: never one word does it whisper; when it is opened, it is silent; and when, by night, she secretly comes out to me, it holds its peace.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> And are you not, Ph&aelig;dromus, doing, or contemplating the doing of, some deed which is unworthy of yourself or of your family? Are you not laying a snare for some modest fair one, or for one that should be modest?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> For no one; and may <placeName key="tgn,1125260">Jupiter</placeName> not permit me to do so.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> I wish the same. Ever, if you are wise, so bestow your love, that if the public should know the object which you love, it may be no disgrace to you. Ever do you take care that you be not disgraced<milestone n="30" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be not disgraced</lemma>:  "Intestabilis." One who is, infamous, and whose evidence cannot be taken as a witness in the courts of law. Lambinus suggests that here, as in other instances where the word is used by Plautus, an indelicate pun is intended.</note>.
+</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What means that expression? </p></sp>
+<sp><speaker>PALINURUS</speaker><p> For you to proceed with caution on your path; the object that you love, love in the presence of witnesses.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Why, 'tis a Procurer that lives here. <stage>He points.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> No one drives you away from there, nor yet forbids you, if you have the money, to buy what's openly on sale. No one forbids any person from going along the public road, so long as he doesn't make a path through the field that's fenced around; so long as you keep yourself away from the wife, the widow, the maiden, youthful age, and free-born children, love what you please.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> This is the house of a Procurer.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> A curse befall it. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p>Why so?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Because it serves in an infamous service.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You speak out. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Be it so, most especially.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Once more, will you hold your tongue?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> You bade me speak out<milestone n="42" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bade me speak out</lemma>:  Ph&aelig;dromus had said to Palinurus, "Obloquere," which may either mean "you are abusive" or "do you speak out." Ph&aelig;dromus intends it in the former sense, but Palinurus pretends to understand it in the latter; and when his master tells him to be quiet, he says, "Why, I thought you told me to speak out."</note>, I thought.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Then, now I forbid you. But, as I had begun to say, he has a young female slave----</p></sp>
+<sp><speaker>PALINURUS</speaker><p> This Procurer, you mean, who's living here?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You have hold of it exactly.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> The less shall I be in dread of its falling.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You are impertinent. He wishes to make her a courtesan, while she is desperately in love with me; whereas I don't wish to have her upon loan.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Why so? </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Because I'm for having her as my own; I love her equally as well.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Clandestine courtship is bad; 'tis utter ruin.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I' troth, 'tis so as you say.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Has she as yet submitted to the yoke of Venus?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> For me she is as chaste as though she were my own sister, unless, indeed, she is any the more unchaste for some kissing.
+</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Always, do you understand, flame follows very close on smoke; with smoke, nothing can be burnt, with flame, it can. He who wishes to eat the kernel<milestone n="55" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To eat the kernel</lemma>:  This is exactly our proverb, which implies that labour attends every pursuit--"To extract the kernel, you must crack the shell."</note> of the nut, first breaks the nut; he who wishes to seduce, opens the dance<milestone n="56" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Opens the dance</lemma>:  There is an indecent allusion intended in this line, which is somewhat modified in the translation.</note> with kisses.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> But she is chaste, and never yet has bestowed her favours upon man.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> That I could believe<milestone n="58" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I could believe</lemma>:  Palinurus thinks it impossible that such a wretch as Cappadox would leave her untouched.</note>, if any Procurer had any shame.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Well, but what think you of her? When she has any opportunity, she steals away to me; when she has given me a kiss, she's off again. This happens by reason of this, because this Procurer is lying a-bed ill in the Temple<milestone n="62" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the Temple</lemma>:  It was the custom of those who wished to ask anything of the Gods, to lie in their Temples, in order that they might receive their answers and instructions in their sleep.</note> of &AElig;sculapius; that fellow is my torturer.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> How so? </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> At one time he asks me for thirty min&aelig; for her, at another for a great talent; and from him I cannot obtain any fair and just dealing.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> You are too exacting, in requiring that of him which no Procurer possesses.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Now, I've sent my Parasite hence to <placeName key="tgn,7002358">Caria</placeName><milestone n="67" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To <placeName key="tgn,7002358">Caria</placeName></lemma>:  <placeName key="tgn,7002358">Caria</placeName> was in <placeName key="tgn,7002294">Asia Minor</placeName>. Schmieder justly observes, that the Parasite must have used the wings of D&aelig;dalus, to go from <placeName key="tgn,7011116">Epidaurus</placeName> in the <placeName key="tgn,7017076">Peloponnesus</placeName>, to <placeName key="tgn,7002358">Caria</placeName>, and discharge his commission and return in four days only. A Roman audience would not, however, be likely to know much about the relative distance of places so far off.</note>, to ask for money on loan from my friend; if he doesn't bring me this, which way to turn myself I know not.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> If you salute the Deities, towards the right<milestone n="70" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Towards the right</lemma>:  Dextrovorsum. A quibble seems to be intended in the use of this word; Palinurus, in saying "turn to the right hand," probably me&aelig;is, sarcastically, "turn to a right course of life."</note> I think; now this is this altar of Venus before their door.
+</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I have already vowed to bring me<milestone n="72" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To bring me</lemma>:  "Me inferre." These words may mean, according to the context, either "myself to bring" or "to bring myself." Ph&aelig;dromus means to use them in the former sense; but, in his quibbling mood, Palinurus chooses to understand them in the latter.</note> an early breakfast for my Venus<milestone n="72" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For my Venus</lemma>:  By his "Venus" he means Planesium, with whom he is desperately in love, and for whom and the Procuress he is carrying the "jentaculum." This was a meal which, we learn from Martial, was generally taken about three or four o'clock in the morning. It was, however, taken by few but invalids and children. The reason of Ph&aelig;dromus providing a "jentaculum' for his mistress is probably the circumstance of the Procurer not being likely to interfere, as he has determined to pass the night in the Temple of &AElig;sculapius.</note>. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> What? Will you then be giving up yourself as a breakfast to Venus?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Myself, and you, and all of these. <stage>Pointing to the SLAVES.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> Then you would have Venus to be sick outright.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>to an ATTENDANT</stage>. Here, boy, give me the bowl.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> What are you going to do?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You'll know directly. An old hag is in the habit of sleeping here, as the keeper of the door; the name of the Procuress is "Much-bibber" and "Neat-bibber."</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Just as you would speak of a flagon, in which Chian wine<milestone n="79" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Chian wine</lemma>:  <placeName key="tgn,7002670">Chios</placeName>, now <placeName key="tgn,7002670">Scio</placeName>, in the &AElig;gean Sea, produced the choicest wine, which was the only wine of Greece that did not requne to be mixed with sea-water, to correct acidity and increase its durability.</note> is wont to be.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What need is there of words? She is a most vinous soul; and the very moment that I've sprinkled this door with the wine, she knows by the smell that I'm here, and opens it forthwith.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Is it for her the bowl is brought with the wine?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Unless you object. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> I' faith, I do object; for I'd rather have it broken about him who has brought it. I fancied it was brought for ourselves.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Why don't you hold your tongue? If any's left after her, it will be enough for ourselves.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> What river is it, pray, that the sea does not receive?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Follow me this way, Palinurus, to the door; do you be obedient to me. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> I'll do so. <stage>They advance to the door of the PROCURER'S house.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>sprinkling the door with wine</stage>. Come, drink, you joyous door, quaff on, readily prove propitious unto me.
+</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>in an afected tone</stage>. Door, would you like some olives or a tit-bit, or some capers?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Arouse and send out here to me your portress.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> You're spilling the wine; what matter is it that possesses you? <stage>Takes hold of his arm.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Let me alone. Don't you see? This most joyous door is opening; does the hinge make a bit of creaking? 'Tis a charming one.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Why don't you then give it a kiss?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Hold your tongue; let's keep back the light and our noise. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Be it so. <stage>They stand apart, leaving the bowl near the door.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="96" unit="TLN line"/>
+<stage>Enter the PROCURESS, from the house of CAPPADOX.</stage>
+<sp><speaker>PROC.</speaker><p> The savour of aged wine has reached my nostrils; the love of it has brought me in my eagerness hither in the dark; wherever it is, it's near me. O capital, I've found it. <stage>Stooping, and smelling at the bowl.</stage> Hail to you, my soul, Joy of dear Bacchus; how enamoured am I of your old age. For in comparison with yours, the odour of all unguents were mere bilge-water; you are my myrrh, you my cinnamon, you my rose, you my saffron unguent and my cassia, you are my vine-palm<milestone n="101" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Vine-palm</lemma>:  "Bdellium" was a gum of fragrant smell and bitter aste, which exuded from a tree that grew in Arabia. It is described by the Elder Pliny, in his Twelfth Book.</note> scent. But, where you have been poured, there would I most earnestly hope to be buried.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>apart</stage>. This old lady's thirsty; how limited is her thirst? PH&AElig;D. <stage>apart</stage>. She's a moderate person; she swallows eight gallons<milestone n="103" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Eight gallons</lemma>:  "Quadrantal." This was a measure which held forty-eight "sextarii," of about a pint and a half each.</note> only.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>apart</stage>. I' faith, according to your account, this year's vintage is not enough for this old woman alone.</p></sp>
+<sp><speaker>PROC.</speaker><p> But since as yet you, fragrance, alone have penetrated to my nostrils, so in its turn afford some delight to my throat. <stage>Feels for the bowl on the ground, which PALINURUS draws away.</stage> I find you not; where is your own dear self? I'm longing to touch you; do let me pour your liquids into me by sip-sipping. But in this direction it has gone, this way I'll. follow it. <stage>Goes in the direction of PALINURUS, who has the bowl.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>apart</stage>. It really had been more proper for her to be a dog; she has a good nose.</p></sp>
+<sp><speaker>PROC.</speaker><p> Prithee, whose voice is it that I hear at a distance.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>apart</stage>. I think that this old hag should be accosted. I'll approach her. <stage>Aloud.</stage> Come back, Procuress, and look back towards me.</p></sp>
+<sp><speaker>PROC.</speaker><p> Who is it that gives his commands?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> The all-powerful in wine, jolly Bacchus; he who, when you're hawking, parched, and half asleep, brings you a draught and comes to quench your thirst.</p></sp>
+<sp><speaker>PROC.</speaker><p> How far is he away from me?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>holding up the torch</stage>. See this light.</p></sp>
+<sp><speaker>PROC.</speaker><p> Then, prithee, do quicken your pace towards me.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Health to you. </p></sp>
+<sp><speaker>PROC.</speaker><p> How can I have health, who am parched with thirst?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> But you shall drink in a moment.</p></sp>
+<sp><speaker>PROC.</speaker><p> 'Tis long a-coming.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>extending the bowl</stage>. Here's for you, jolly old dame.</p></sp>
+<sp><speaker>PROC.</speaker><p> Health to you, gentleman dear as my very eyes.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Come, toss this off quickly into your abyss; scour out your sink right speedily.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Hold your tongue; I won't have her ill spoken to.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>aside</stage>. In preference, then, I'll do her ill.</p></sp>
+<sp><speaker>PROC.</speaker><p> <stage>pouring some of the residue on the altar</stage>. Venus, of this little, this very little will I give to thee<milestone n="123" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Will I give to thee</lemma>:  As a libation. It was the custom to pour out wine or other liquors, as libations in honor of the Gods, either upon an altar, on the ground, into the sea, or on a table, according to the circumstances of the case.</note>--sore against my will; for all the lovers, in their cups, to propitiate thee, expend their wine upon thee: not such windfalls often fall to me. <stage>Drinks again.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> Do look at that, please, how greedily the filthy hag swills down the pure wine into herself with distended gullet.</p></sp>
+<sp><speaker>PROC.</speaker><p> <stage>patting her stomach and chuckling</stage>. Ha, ha, ha</p></sp>
+<sp><speaker>PALINURUS</speaker><p> How is it? Do you like it? </p></sp>
+<sp><speaker>PROC.</speaker><p> I do like it.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> And I, too, should like to goad with a spur as well.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>aside to PALINURUS</stage>. Don't you--do hold your tongue. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> I'll hold my tongue; <stage>the old woman drinks</stage> but see, the rainbow's drinking<milestone n="129" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The rainbow's drinking</lemma>:  This is said in allusion to an absurd belief which prevailed among the ancients, that the rainbow drank up water from be surface of the earth.</note>; I' faith, I do believe it will rain to-day.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Troth now, I'm quite undone; what first to say to her I know not.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Why, the same thing that you said to me.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What's that? </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Say that you're quite undone.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> May the Gods confound you. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Say so to her.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Am I to say then to her----?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Say what? </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> That I'm quite undone.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Well then, say so. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Old lady, do listen. I wish you to know this; to my sorrow, I'm quite undone.</p></sp>
+<sp><speaker>PROC.</speaker><p> But, i' faith, for my part, I'm altogether brought to life. But why is it that you are pleased to say you are quite undone? </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Because I'm deprived of the object which I love. <stage>Pretends to weep</stage></p></sp>
+<sp><speaker>PROC.</speaker><p> My dear Ph&aelig;dromus, prithee, do not weep; do you take care that I'm not thirsty, I'll at once bring out here for you the object which you love. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Assuredly, if you keep faith with me, in place of a golden statue, I'll erect for you one of wine<milestone n="140" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">One of wine</lemma>:  "Vineam." There is more humour in taking this to mean "a statue of wine," than merely "a vine-tree," as Warner has transated it.</note>, which shall be a memorial of your gullet Palinurus, who on earth will be so blest as myself, if she comes to me?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> By my faith, he who is in love, if he is in want as well, is afflicted with a dreadful malady.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Such is not the case with me; for I feel sure that this very day my Parasite will come hither to me with the money. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> You attempt something mighty, if you expect that which nowhere exists.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What if I approach the door, and trill a carol<milestone n="145" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Trill a carol</lemma>:  "Occentem." This word has probably much the time meaning here as our word "serenade."</note>?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> If you choose; I neither bid nor request you, since, my master, I see that you are of manners and disposition thus changed.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>sings</stage>. Bolts, O ye bolts, with pleasure do I salute you. I love you, I court you, I seek you, and you entreat; most kindly lend your aid to me in love; become, for my sake, as though play-actors<milestone n="150" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Play-actors</lemma>:  The Lydians, or rather their descendants, the Etrurians, were the earliest actors at Rome; hence the term used here, "barbari," "foreigners." The metaphor is borrowed from the fact that dancing, leaping, and gestures, were the especial features of their performances.</note> from foreign climes; leap upwards pray, and send out of doors this fair one, who drains my blood for me distractedly in love. <stage>Addressing PALINURUS.</stage> Look at that, how those most accursed bolts sleep on, and none the quicker for my sake do they bestir themselves. <stage>Addressing the door.</stage> I see quite clearly that you don't value my esteem at all. Hist! hush, hush!</p></sp>
+<sp><speaker>PALINURUS</speaker><p> I' troth, for my part I'm silent enough.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I hear a noise; at last, i' faith, these bolts have become complaisant to me.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="158" unit="TLN line"/>
+<stage>Re-enter the PROCURESS, with PLANESIUM, from the house of CAPPADOX.</stage>
+<sp><speaker>PROC.</speaker><p> <stage>to PLANESIUM, while opening the door</stage>. Come softly out, and prevent the noise of the doors and the creaking of the hinges, my dear Planesium, that our master mayn't perceive that that is going on which we are doing here. Stay, I'll pour a little water<milestone n="160" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pour a little water</lemma>:  To prevent their creaking, so that Cappadox may not hear them.</note> on it. <stage>Pours water on the hinges.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>to PH&AElig;DROMUS</stage>. Do you see how the palsied hag is giving her dose? She herself has learnt right well to drink up the wine; to the door she's giving water for it to drink.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> <stage>looking around</stage>. Where are you--you who have summoned me on the recognizances of Venus<milestone n="162" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Recognizances of Venus</lemma>:  "Veneriis vadimoniis." She borrows a legal phrase here. "Vadimonium legere" was, "to call a person on his bail" or "recognizances." When the Pr&aelig;tor had granted an action, the plaintiff required the defendant to give security for his appearance on the day named. The defendant, on finding a surety, was said "vadem dare," or "vadimonium facere;" and the "vas," or "surety," was said "spondere." The plaintiff, if satisfied with the surety, was said "vadari reum," "to let the defendant go on his sureties." Planesium probably means that she considers herself summoned on pain of forfeiting the love of Ph&aelig;dromus.</note>? To you do I present myself, and, in the same way do I call on you, on the other hand, to present yourself to me.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>stepping forward</stage>. Here I am; for could I be absent, I wouldn't repine for any misfortune to befall me, my honey. PLAN. My life, it is not becoming for one thus in love to be at a distance.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Palinurus, Palinurus! </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Say on; why is it that you call upon Palinurus?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>aside</stage>. She is a charming one.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>aside</stage>. Aye, too charming. PH&AElig;D. I am a God.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Why, no--a mortal, of no great value.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What have you seen, or what will you see, more nearly to be compared with the Gods?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> You are not in your senses, master; a thing that's grievous to me. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You are not sufficiently respectful to me: hold your tongue.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> The person that sees<milestone n="170" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Person that sees</lemma>:  He is censuring his master for his backwardness in not embracing Planesium instantly on her appearance.</note> the object which he loves, and enjoys not the opportunity while he may, is one who torments his own self.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Rightly does he rebuke me; really there's nothing which for this long time past I have more eagerly desired.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Clasp me, embrace me then. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>embracing her</stage>. This, too, is a reason for which I could wish to live; because your master restrains, you, in secret do I court you.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Restrain me? He neither can restrain me, nor will he restrain me, unless death should separate my soul from you.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Let monarchs keep their kingdoms to themselves, the rich their riches to themselves, to themselves their honors, to themselves their prowess, to themselves their combats, to themselves their battles; so long as they abstain from envying me, let each one of them keep what is his own.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>aside</stage>. Of a truth, I cannot refrain from giving a lecture to my master; for, really, it is good to love in a moderate degree; to distraction, it is not good; but to love to entire distraction, is the thing that my master's doing. <stage>Aloud.</stage> What say you, sir? Have you made a vow, Ph&aelig;dromus, you'd watch the night through for Venus? For really, upon my faith, before very long hence the dawn will be breaking.</p></sp>
+<sp><speaker>PR&AElig;D.</speaker><p> Do hold your tongue.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Why hold my tongue? What, are you going to sleep?
+</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I am asleep; don't you make a noise.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Why, but you're broad awake. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Age, but after my own fashion I'm asleep; this is my slumber.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>to PLANESIUM</stage>. A word with you, madam; 'tis thoughtlessness to treat amiss one who deserves it not.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> You would be angry, if, when you are eating, he were to drive you away<milestone n="186" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To drive you away</lemma>:  As Palinurus wishes his master to withdraw against the wish of Planesium, she asks him how he would like his victuals to be taken away from him--implying that Ph&aelig;dromus is as dear to herself as her very sustenance.</note> from your food.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>aside</stage>. It's all over with him. I see that these two are equally in love to distraction; and both of them are mad. D'ye see how intensely they hug each other? They cannot embrace enough. <stage>Addressing them.</stage> Are you going to part yet?</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> No human being has blessings that last<milestone n="189" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Blessings that last</lemma>:  This is like the sentiment in <cit><bibl n="Hor. Carm. 3.16">Horace, Book iii., Ode 16:</bibl><quote lang="la"><lg type="lyric"><l part="F">Nihil est ab omni</l>
+<l part="I">Parte beatum.</l></lg></quote></cit></note> for ever. To this pleasure, then, is that plague added.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> What say you, you shocking hussy<milestone n="190" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Shocking hussy</lemma>:  "Propudium." This was a very harsh term of reproach; and it is not to be wondered at that Ph&aelig;dromus is angry with Palinurus for using it.</note>? What, you little tipsy ninny<milestone n="192" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tipsy ninny</lemma>:  "Ebriola," and not "ebriol&aelig;," seems to be the correct reading here. She has perhaps been taking her share of the wine, to which fact he alludes. "Persolla" means either "a little mask" or a "diminutive person;" much as we call a little interfering body a "whipper-snapper."</note>, are even you with your owlish eyes<milestone n="191" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Owlish eyes</lemma>:  Though grey eyes were admired among the Greeks Palinurus does not intend this as a compliment to Planesium. He perhaps alludes to her intended vocation, as having eyes peculiarly adapted for the night- time.</note> to be calling me a plague, you whipper-snapper?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What, you abusing my own Venus? And really, is a slave well trounced with the rod to be commencing a discussion with myself? But, by the powers, you've surely said that to your own misfortune. <stage>Strikes him.</stage> There, take that, by way of punishment for this abusive language, that you may be able to put a check upon your speech.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>to PLANESIUM</stage>. Your aid, I pray, you night- watching Venus. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What, do you still persist, whip- scoundrel? <stage>Strikes hint.</stage></p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Don't, there's a dear, be beating a stone, lest you should hurt your hand.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> You perpetrate, Ph&aelig;dromus, a flagitious and a shameful deed of great enormity; one who directs you aright, you pummel with your fists; her you are in love with, a mere nonentity. Is it right that you should behave yourself in this unreasonable manner?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Find me a reasonable lover against his weight in gold; here, take the gold of me. <stage>Holds out his purse.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> Do you find me a person for me to serve in his sound senses against his weight in double-distilled gold.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Kindly fare you well, apple of my eye, for I hear the sound and creaking of doors; I think the keeper<milestone n="204" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The keeper</lemma>:  &AElig;dituum. The "&aelig;ditui" were persons who took care of the Temples, and attended to the cleaning of them. They, however, partook in some measure of the priestly character, and are sometimes called priests by the Greek Grammarians. They lived in or near to the Temples, and showed them to those persons who wished to see them.</note> is opening the temple. But, prithee, in this same manner shall we always enjoy our love by stealth?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Far from it; for I sent my Parasite four days since to Caria to fetch some money; he'll be here to-day.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> You are very long in your contriving.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> So may Venus love me, I'll never allow you to be three days in this house here, before I procure your liberty.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Take care to remember it. Once more, before I go hence, take this kiss. <stage>Kisses him.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> By heavens, really if a kingdom now were offered me, I should not obtain it with greater pleasure. When shall I see you again?</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Why now, for that expression get ready the Pr&aelig;tor's rod<milestone n="212" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Pr&oelig;tor's rod</lemma>:  Vindicta. This was the rod which was lats on the head of the person who received his freedom.</note>; if you love me, purchase my freedom; don't make any haggling. Take care to prevail with your offer. Kindly adieu! <stage>Goes into the house of the PROCURER.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> And am I then left behind? Palinurus, I'm Lilled outright.
+</p></sp>
+<sp><speaker>PALINURUS</speaker><p> And I as well, who am dying with thumps and sleepiness. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Do you follow me. <stage>They go into the house of PH&AElig;DROMUS.</stage></p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="216" unit="TLN line"/>
+<stage>Enter CAPPADOX, from the Temple of &AElig;SCULAPIUS.</stage>
+<sp><speaker>CAPPADOX</speaker><p> <stage>to himself</stage>. I am resolved to depart from this Temple out of doors forthwith, since thus I find<milestone n="217" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Since thus I find</lemma>:  It being near daybreak, Cappadox comes from the Temple, complaining that he has experienced no relief from his visit.</note> the determination of &AElig;sculapius, who sets me at nought, and chooses not that I should be healed. My health is declining, my weakness increases. For now I walk, girded with my spleen as though with a belt; in my stomach do I seem to be holding a twin offspring. I'm afraid of nothing, but that, in my misery, I should burst asunder in the middle.
+<stage>PH&AElig;DROMUS.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>speaking to PH&AElig;DROMUS within as he enters</stage>. If you do right, Ph&aelig;dromus, you'll listen to me, and banish this sorrow from your feelings. You are anxious because your Parasite hasn't returned from Caria. I think he'll bring the money; but if he doesn't bring it, by a chain of iron he couldn't be withheld from betaking himself to eat at his manger<milestone n="228" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At his manger</lemma>:  "Pr&aelig;sepem," a "manger" or "stall," in allusion to the sensual propensities of Parasites.</note>.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> <stage>turning round</stage>. What person is it that speaks?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>to himself</stage>. Whose voice is it that I hear?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Isn't this Palinurus, the servant of Ph&aelig;dromus?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>aside</stage>. Who is this fellow with extended paunch, and eyes as green as grass? From his figure I know him; from his complexion I cannot recognize him. O, now I do know him: it's the Procurer Cappadox. I'll accost him.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Save you, Palinurus. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> O source of villanies, save you; how are you?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I'm just alive. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Just as you deserve, I suppose? But what's the matter with you?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> My spleen is killing me, my reins are in torment, my lungs are being torn asunder, my liver is being tortured, my heart-strings are giving way, all my intestines are in pain.
+</p></sp>
+<sp><speaker>PALINURUS</speaker><p> The liver complaint is afflicting you, then.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> My spleen is expanded. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> Take walking exercise<milestone n="240" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take walking exercise</lemma>:  There is little doubt that he means seriously to tell Cappadox that exercise is the best cure for disease of the spleen. The Procurer, however, thinks that he is laughing at him.</note>; that's the best thing for the spleen.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> 'Tis an easy matter to laugh at the afflicted.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Well, then, do you hold out<milestone n="242" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Do you hold out</lemma>:  This passage has much perplexed Commentators. If a period is placed after "tibi," and "exputescant" is read for "exputescunt," much of the difficulty is removed. None of the Commentators seem to have observed that, in all probability, "si id feceris," "if you do that," refers to the advice previously given as to taking exercise. If so, the meaning is clear. "If you don't take exercise, in a few days your inside will be putrefying. If, however, you do so now, while the humours of the body are not corrupted, your inside will fetch a higher price than your whole carcase put together"--alluding to the worthless character of the Procurer.</note> for some days until your intestines become putrid. Now, while the humours are pretty sound, if you do that, you yourself might sell for a worse price than those intestines of yours.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Prithee, have done with this, and answer me this which I ask; can you possibly form a conjecture on it, if I relate to you what I dreamt last night in my sleep?</p></sp>
+<sp><speaker>PALINURUS</speaker><p> Psha, this--<stage>pointing to himself</stage>--this is the sole person that is really skilled in divination; why, the interpreters of dreams ask advice of myself; the answer that I have given them, by that opinion they all stand.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="251" unit="TLN line"/>
+<stage>Enter a COOK, from the house of PH&AElig;DROUMS.</stage>
+<sp><speaker>COOK</speaker><p> Palinurus, why do you delay? Why are not the things served out for me which are needed for the breakfast to be prepared for the Parasite when he comes.</p></sp>
+<sp><speaker>PAR.</speaker><p> Wait, please, until I interpret his dream. <stage>Pointing to CAPPADOX.</stage></p></sp>
+<sp><speaker>COOK</speaker><p> Why, you your own self, if you've had any dream, always apply to me. </p></sp>
+<sp><speaker>PALINURUS</speaker><p> I confess it.</p></sp>
+<sp><speaker>COOK</speaker><p> Be off, then, and serve out the things.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>to CAPPADOX</stage>. Come now, do you in the meantime relate your dream to him. I give you a substitute better than I am myself; for what I do know, all of it I know from him. <stage>Pointing to the COOK.</stage>
+</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Let him give his attention then.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> He'll give it. </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> He does what few do, in being attentive to their masters even. <stage>To the COOK.</stage> Do you give me your attention then. <stage>PALINURUS goes into the house of PH&AElig;DROMUS.</stage></p></sp>
+<sp><speaker>COOK</speaker><p> Although I don't know you, I'll give it you.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Last night I seemed in my sleep to behold &AElig;sculapius, seated at a distance far away from me; and it seemed that he didn't come near me, or set any value upon me.</p></sp>
+<sp><speaker>COOK</speaker><p> The other Gods will do the same, you must know; in fact, among themselves they agree with perfect unanimity. It isn't to be wondered at, if it fares no better with you. But it had been better for you to pass the night in Jove's Temple, who has given you his assistance<milestone n="267" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Given you his assistance</lemma>: -- He may either mean that Jupiter has favoured him when he has been guilty of perjury, or that the Procurer must be greatly indebted to that God for having so often lent him his name on his making solemn adjurations to further his base purposes.</note> in your oaths.
+</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> If, indeed, those should wish to sleep there who have been guilty of perjury, it were not possible for room to be found them in the Capitol<milestone n="269" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the Capitol</lemma>:  Though the Scene is in the Peloponnesus, Plautus makes mention of the Capitol, a part of Rome. Some others of the Italian towns had their "Capitols" in later times.</note>.</p></sp>
+<sp><speaker>COOK</speaker><p> Give your attention to this; ask peace of &AElig;sculapius, lest perchance some great mishap befall you, which has been portended to you in your rest.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> You do well in advising me; I'll go and pray to him. <stage>Goes into the Temple.</stage></p></sp>
+<sp><speaker>COOK</speaker><p> And ill speed you with it * * * * * * <stage>Goes into the house of PH&AElig;DROMUS.</stage>
+
+<stage>Enter PALINURUS, from the house.</stage></p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>looking in the distance, as he enters</stage>. O immortal Gods, whom do I behold? Who's that yonder? <stage>Pointing.</stage> Isn't that the Parasite, who was sent to Caria? <stage>Goes to the door.</stage> Hallo, come out, Ph&aelig;dromus, come out, come out, come out this instant, I say.
+<stage>from the house.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Why are you making this noise here?
+</p></sp>
+<sp><speaker>PALINURUS</speaker><p>] see your Parasite running; see, there he is <stage>pointing</stage>, down at the end of the street<milestone n="278" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The end of the street</lemma>:  This passage, combined with the long soliloquy of the Parasite while still walking along, gives an apt illustration of the great width and depth of the Roman stage.</note>. Let's listen from here what he's about.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I think it's as well. <stage>They stand aside.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="280" unit="TLN line"/>
+<stage>Enter CURCULIO, at a distance, walking fast.</stage>
+
+<sp><speaker>CURCULIO</speaker><p> <stage>to himself</stage>. Known or unknown, make way for me, while here I execute my commission; fly all of you, be off, and get out of the way, lest I should hurt any person in my speed with my head, or elbow, or breast, or with my knee. So suddenly now am I charged with a business of quickness and despatch. And be there no person ever so opulent to stop me in my way, neither general<milestone n="285" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">General</lemma>:  Though the Scene is at Epidaurus, he no doubt alludes to the ten "Strategi" of Athens, who, after the remodelling of the constitution by Cleisthenes, discharged the duties which had been formerly performed either by the King or the Archon Polemarchus. They were elected by the suffrages of the people, and exercised the supreme power in peace and war. See an able article on this subject in Dr. Smith's "Dictionary of Antiquities."</note>, nor any tyrant<milestone n="285" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tyrant</lemma>:  By the use of the word "tyrannus" he perhaps refers to the "Basileus Archon," or "King Archon." of Athens, who was the representative of the ancient kings, in their capacity of high priest. It was his duty to preside at the Len&aelig;a, or older Dionysia, to superintend mysteries and certain games, and to offer prayers and sacrifices in the Eleusinium, both at Athens and Eleusis. The word may, however, be only intended as a general name, like our term "potentate."</note>, nor market-officer<milestone n="285" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Market-officer</lemma>:  "Agoranomus," the "market-officer" of the Greeks, has been referred to in a Note to the Miles Gloriosus.</note>, nor demarch<milestone n="286" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Denmarch</lemma>:  The "Demarchi" were the chief officers of the "demi," "townships" or "hundreds," in Attica. It was their duty to convene the "demus," and take the votes; to register the landed estates, to collect the public rents, and to furnish to the authorities a list of the members of the townships who were fit to serve in war.</note> nor comarch<milestone n="286" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Comarch</lemma>:  The "Comarchi" were the prefects, or head officers of each village or framlet in Attica.</note>, with their honors so great, but that down he goes, and tumbles head first from the footpath into the carriage-road. And then those Grecians with their cloaks, who walk about with covered heads, who go loaded beneath their cloaks with books, and with baskets<milestone n="289" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With baskets</lemma>:  In the "sportule," or "baskets," the poor, and the parasitical dependants on the rich, carried away the scraps that were given to them after an entertainment was concluded.</note>, they loiter together, and engage in gossipping among themselves, the gad-abouts<milestone n="290" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The gad-abouts</lemma>:  Drapet&aelig;. From the Greek <foreign lang="greek">dre/mw,</foreign> "to run." He probably alludes to the propensities of the Athenians for gossipping and running about from place to place. Probably, at the time of Plautus, they had begun in considerable numbers to resort to Rome. By his reference to the books, he is, perhaps, more particularly alluding to their Philosophers. The Romans considered it effeminate in civil life to go with the head covered.</note>; you may always see them enjoying themselves in the hot liquor-shops<milestone n="292" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hot liquor-shops</lemma>-- The "thermopolia" have been alluded to in a Note to the Trinummus, l. 1013.</note>; when they have scraped up some trifle, with their covered pates they are drinking mulled wine, sad and maudlin they depart: if I stumble upon them here, from every single one of them I'll squeeze out a belch from their pearled-barley diet<milestone n="295" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Their pearled-barley diet</lemma>:  This passage is necessarily somewhat modified in the translation. The Philosophers, especially the Stoics, who prided themselves on their abstinence, lived principally upon pearled barley.</note>. And then those servants of your dainty townsmen<milestone n="296" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of your dainty townsmen</lemma>:  He alludes to those opulent townsmen who, to make a show, are keeping more servants than they want; in consequence whereof, these servants have nothing to do but play at ball in the streets, much to the annoyance of the passers-by.</note>, who are playing at catch-ball in the road, both throwers and catchers, all of them I'll pitch under foot. Would they avoid a mishap, why then, let them keep at home.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>apart</stage>. He points out aright, he only requires that he should speak with authority; for such manners are in vogue in the present day, such at present are the slaves; really, control cannot be held over them.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>to himself</stage>. Is there any one, I wonder, who can point out to me Ph&aelig;dromus, my good Genius? The matter is of such pressing nature, I really must meet with the man this instant.</p></sp>
+<sp><speaker>PALINURUS</speaker><p> <stage>apart</stage>. He's looking for you. PH&AElig;D. <stage>apart</stage>. What if we accost him? <stage>Aloud.</stage> Hallo! Curculio, I want you.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>looking round</stage>. Who's calling me? Who's mentioning my name?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> One who wishes to meet with you.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>seeing him</stage>. You don't wish more for me than I wish for you.
+</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> O my own ready occasion, Curculio, much longed-for, greetings to you.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Greetings to you. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I'm glad that you have arrived safe; give me your right hand. How stand my hopes? Troth now, prithee, do speak out.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> To you, troth now, prithee, do speak out, how stand my own. <stage>Makes curious gestures.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What's the matter with you? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> A dimness is beginning to come, my knees are failing through fasting.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I' faith, through lassitude, I think.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>staggering</stage>. Support me, prithee, do support me.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> See how pale he has turned; will you give him a seat, for him to be seated at once, and an ewer with some water? Will you make haste, this very instant?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'm faint. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Would you like some water?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> If it's full of bits<milestone n="312" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Full of bits</lemma>:  He will like the water very well, if it is in the shape of a rich soup, with plenty of meat in it.</note> of meat, prithee, give it me to swallow down, i' faith. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Woe be to that head of yours.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Troth now, prithee do give me cause to rejoice at my arrival<milestone n="313" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At my arrival</lemma>:  Ventum. This word gives occasion to a pun here, as, according to the context, it may either meal "that I am arrived," or "wind." The Parasite says, "Give me reason (by providing some victuals) to rejoice that I have arrived." Ph&aelig;dromus chooses to understand him as saving, "Give me some wind, that I may rejoice," and says "By all means," and begins to fan him. The other asks what he is doing, or making; to which he replies, "Making some air."</note>. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>begins to fan him</stage>. By all means.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Prithee, what's this you're about. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Some air.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Really, for my part, I don't want a breath to be raised.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What then? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> To eat, that I may rejoice on my arrival.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> May Jupiter and the Deities confound you.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'm quite undone; I can hardly see; my mouth is bitter; my teeth, I find, are blunted<milestone n="318" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are blunted</lemma>:  It is hard to say what "plenos" means when applied to the teeth--if indeed, that word is the correct reading here.</note>; my jaws are clammy through fasting; with my entrails thus lank with abstinence from food am I come.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You shall eat something just now.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I' faith, I don't want "something;" I'd rather have what's fixed for certain, than your "something."
+</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Aye, but if you only knew what has been put by for you.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'd very much like to know where it is; for really it's necessary for it and my teeth to make acquaintance.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> A gammon of bacon, a sow's stomach, some udder and kernels of the throat.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> What, all this do you say? Perhaps you mean that they are in the flesh-market?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> In the dishes, I mean; they've been got ready for you, since we knew that you were about to arrive.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Take care you don't be fooling me.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> So may the fair one love me whom I love, I don't say what's false. But as to what I sent you upon I'm none the wiser yet.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I've brought back nothing. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You've undone me.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I can find something, if you'll give me your attention. After, at your request, I had set out, I arrived in Caria; I saw your friend; I asked him to make me a loan of some money. In answer, you were to know that he was willing to oblige you; he didn't wish to disappoint you, as it is only proper that a person who is a friend should be ready, and should assist his friend. In a few words he answered me, and quite in confidence, that he also was in the same extreme want of money as yourself.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> By your words you ensure my undoing.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Why no; I'm saving you, and wish you to be saved. After this answer was given me, I went away from him to the Forum, in sorrow that I had applied to him in vain. By accident I espied a military officer; this person I accosted, and as I approached I saluted him. "Save you," said he to me, took my right hand, drew me aside, and asked me why I had come to Caria. I said that I had come there for the sake of amusement. Upon this he asked me whether I knew a certain Lyco, a banker of Epidaurus. I said I knew him. "Well, and the Procurer Cappadox?" I answered yes, that I had seen him. "But what do you want of him?" said I. "Because," said he, "I bought of him a girl for thirty min&aelig;, her clothes and golden jewels too; and for these last ten min&aelig; more are added." "Have you paid the money?" said I. "No," said he; "it is lodged with this Lyco the banker, whom I was mentioning, and I've instructed him that the person who should bring a letter sealed with my own ring, to him he was to give his services, that he might receive the damsel, with her jewels of gold and her clothes, from the Procurer." After he told me this, I was going away from him. At once he called me back, invited me to dinner; it was a point of conscience, I was unwilling to refuse him. "What if we go off home, and take our places at table?" said he. The suggestion pleased me; it is neither proper to lengthen out the day, nor to curtail the night. Everything was prepared, and we, for whom it was prepared, were at our places. After we had dined and well drunk, he asked for the dice to be fetched him. He challenged me to play with him a game of hazard. I staked my cloak, he staked his ring against it; he called on the name<milestone n="356" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Called on the name</lemma>:  On the custom of invoking their mistresses, when playing at dice, see a Note to the Captivi, Act I., Sc. 1. We are, perhaps, to suppose that the Captain takes off his ring for the purpose of staking it, which would enable Curculio to steal it the more easily.</note> of Planesium.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What, my mistress? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Be silent a while. He threw a most losing cast<milestone n="357" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Most losing cast</lemma>:  When playing with the "tali," or "knucklebone dice," with only four marked sides, they used sets of four. "Volturii quatuor" (literally, "the four vultures") was the most unlucky throw of all, and is supposed to have been four aces.</note>. I took up the dice, and invoked Hercules as my genial patron<milestone n="358" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My genial patron</lemma>:  "Nutricem;" literally, "nurse." It has been suggested that the Parasite intended to compliment his entertainer, the Captain, under the name of Hercules, whom he invokes for luck. The Delphin Commentator says that Parasites invoked Hercules because the tenths of entertainments were offered to him, and these were distributed among the needy, in the number of whom they ranked.</note>; I threw a first-rate cast<milestone n="259" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A first-rate cast</lemma>:  The best throw with the "tali" was called "Venus" or "Venereus jactus," when the dice turned up 2, 3, 4, and 5. As it war by this throw that the Romans chose the King of the Feast, it received the name of "Basilicus," "the king's throw." See the last Scene in the Asinaria.</note>, and pledged him in a bumping cup; in return he drank it off, reclined his head, and fell fast asleep. I slily took away from him the ring, and took my legs quietly from off the couch, so that the Captain mightn't perceive it. The servants enquired whither I was going; I said that I was going whither persons when full are wont to go. When I beheld the door, at once on the instant I betook myself away from the place.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I commend you. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Commend me when I've brought this thing about which you desire. Now let's go indoors, that we may seal the letter.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Do I delay you? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> But let's cram down something first, the gammon, the udder, and the kernels; these are the foundations for the stomach, with bread and roast beef, a good-sized cup and a capacious pot, that counsel enough may be forthcoming. Do you, yourself, seal the letter; he'll do the honors <stage>pointing to PALINURUS</stage> while I am eating. I'll dictate after what fashion you're to write. Follow me this way, in-doors.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I follow. <stage>They go into the house of PH&AElig;DROMUS.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="371" unit="TLN line"/>
+<stage>Enter LYCO.</stage>
+<sp><speaker>LYCO</speaker><p> I seem to be in opulence; I've struck my balance, how much money I have, and how much I owe. I'm rich, if I don't pay<milestone n="373" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If I don't pay</lemma>:  He probably alludes to some shuffling and cheating methods by which the bankers of the day had recently distinguished themselves. See the Pseudolus, <bibl n="Pl. Ps. 1.3">l. 296</bibl> (Act I., Sc. 3).</note> those to whom I'm in debt. If I do pay those to whom I'm in debt, my debts are the greatest. But really, upon my faith, when I carefully consider, if they press me hard, I'll resort to the Pr&aelig;tor<milestone n="376" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Resort to the Pr&aelig;tor</lemma>:  This was probably a method with bankers and traders, by which, for the purpose of defrauding their creditors, they surrendered their effects to the Pr&aelig;tor, and by doing so, contrived to make a purse, as is too often done by bankrupts and insolvents at the present day. In l. <bibl n="Pl. Cur. 5.3">684</bibl> (Act V., Sc. 3), we find Cappadox expressing himself as apprehensive that Lyco will be "taking the benefit of the Act."</note>. Most bankers have this habit, for one to borrow of the other, and to pay nobody, and to discharge the debt with their fists, if any one duns in a loudish tone. The person that has<milestone n="380" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The person that has</lemma>:  Gueudeville, in his translation, informs us that this maxim was much repeated by Louis XII. of France, who was a great admirer of Plautus.</note> in a short time acquired wealth, unless in good time he saves it, in good time comes to starvation. I'd like to buy a servant for myself, who now, however, must be sought by me on hire<milestone n="382" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sought by me on hire</lemma>:  This passage has been much commented on, as containing some indelicate meaning. After all, it seems clearly to mean that he has occasion for all his ready cash; and, though he would like to buy a slave, he must content himself with hiring one.</note>: there's occasion for my ready money.
+<stage>within.</stage></p></sp>
+<sp><speaker>CURCULIO</speaker><p> Don't you be reminding me now I'm full; I recollect and understand. I'll render up to you all this cleverly carried out; do hold your peace. I' faith, I've surely filled myself in-doors right well, and still in my stomach I've left room for one corner, in which to stow away the remnants of these remnants. <stage>Seeing LYCO.</stage> Who's this that with covered head is saluting &AElig;sculapius? Heyday, the very man I wanted. <stage>To an ATTENDANT.</stage> Follow me. I'll make pretence as though I didn't know him. <stage>Aloud.</stage> Hark you; I want you.</p></sp>
+<sp><speaker>LYCO</speaker><p> <stage>turning round</stage>. One-eyed man<milestone n="392" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">One-eyed man</lemma>:  It appears from this that Curculio has but one eye. The occasion of his losing it is hinted at in l. 396.</note>, save you.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Prithee, do you jeer me? </p></sp>
+<sp><speaker>LYCO</speaker><p> I suppose that you are of the family of the Coclites<milestone n="393" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Family of the Coclites</lemma>:  "Coclitum prosapia" no doubt here means a general term, "the family of one-eyed men." Horatius, who, single-handed, opposed the army of Porsenna, was called "Cocles," from having but one eye. Pliny the Elder speaks of the Cyclops and the Arimaspians, a nation of Sarmatia, as having but one eye.</note>; for they are one-eyed.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> This was knocked out for me by a catapulta, at Sicyon.</p></sp>
+<sp><speaker>LYCO</speaker><p> What matters it to me, pray, if it had been knocked out by a broken pot with cinders in it?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>aside.</stage> This fellow's a wizard, surely<milestone n="397" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A wizard, surely</lemma>:  He is surprised at Lyco having so exactly hit upon the truth. It has been already remarked that Parasites were the especial butts for practical jokes. On one of these occasions the unfortunate fellow probably lost his eye.</note>; he tells the truth, for such catapultas are often directed at me. <stage>Aloud.</stage> Young man, as I bear this mark on my face<milestone n="399" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bear this mark on my face</lemma>:  "Hoc intus mihi." This passage is most probably corrupt.</note> in the service of the public, prithee don't be uncivil<milestone n="400" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Don't be uncivil</lemma>:  "Incomitio" probably means, "to treat rudely," or "be uncivil to." Lyco puns upon it, as though meaning, "to bring before the comitia,'" or public assemblies of the people.</note> to me.</p></sp>
+<sp><speaker>LYCO</speaker><p> May I then inforize<milestone n="401" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Inforize</lemma>:  In the word "inforare," which is coined for the occasion, and signifies "to summon to the Forum," it is not improbable that an indecent pun is intended. The liberty has been taken of adopting these two word for the occasion.</note> you, if I may not incomitiatize?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> You shan't be inforizing me, indeed; and really I don't care at all about your Forum or your Comitia. But if you can point me out this person that I'm seeking, you will be doing me a real and a great service. I'm looking for Lyco the banker.</p></sp>
+<sp><speaker>LYCO</speaker><p> Tell me why you are now seeking for him, or, of what country are you? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'll tell you: I'm come from Therapontigonus Platagidorus, the Captain.</p></sp>
+<sp><speaker>LYCO</speaker><p> I' faith, I know the name: <stage>aside</stage> for with that same name, when I wrote, I filled four whole sides<milestone n="410" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Four whole sides</lemma>:  "Ceras." Waxed sides of a tablet.</note>. <stage>To CURCULIO.</stage> But why are you seeking for Lyco?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>showing the letter</stage>. I've been ordered to deliver this letter to him. LYC. What person are you?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> His freed-man, whom all call Summanus<milestone n="413" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Summanus</lemma>:  There was a Divinity of this name. See the Bacchides, <bibl n="Pl. Bac. 4.8">l. 895</bibl> (Act IV., Sc. 8) The name, as here coined by Curculio, would perhaps, answer to the English "Mr. Keep-tight-in-hand."</note>. </p></sp>
+<sp><speaker>LYCO</speaker><p> Summanus, my greetings. But why Summanus? Let me know.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Because, when in my drunken fit I've gone to sleep, I "summane<milestone n="416" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I summane</lemma>:  "Summano" Literally, "I keep my hands upon." For the purpose of keeping up the spirit of the passage, the liberty has been taken of coining a word. The Parasite seems to allude, somewhat obscurely, to the trick he has played the Captain Therapontigonus.</note>" the garments; for that reason do all people call me Summanus.</p></sp>
+<sp><speaker>LYCO</speaker><p> 'Twere better for you to look out for entertainment for you somewhere else; really in my own house I have no room for a Summanus. But I am the person that you are looking for.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Prithee, are you he, Lyco the banker?</p></sp>
+<sp><speaker>LYCO</speaker><p> I am. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Therapontigonus requested me to give you a hearty greeting, and to deliver this letter.</p></sp>
+<sp><speaker>LYCO</speaker><p> What, to me? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Just so. Take it, recognize the seal. Do you know it? <stage>LYCO takes the letter.</stage></p></sp>
+<sp><speaker>LYCO</speaker><p> Why should I not know it? On which, a man, holding a shield, is cleaving an elephant asunder with a sword.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> What's written there he bade me request you to do immediately, if you wished for his esteem.</p></sp>
+<sp><speaker>LYCO</speaker><p> Step aside; I'll look what's written in it.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>stepping aside</stage>. By all means, at your pleasure, so long as I receive of you that which I'm come for.</p></sp>
+<sp><speaker>LYCO</speaker><p> <stage>reads</stage>. "Therapontigonus Platagidorus, the Captain, his guest, sends to his host Lyco, at Epidaurus, right hearty greeting."
+</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>aside</stage>. This fellow's my own; he's swallowing the hook.</p></sp>
+<sp><speaker>LYCO</speaker><p> <stage>going on</stage>. "I beg and request of you that, the person who delivers this letter to you, to him be given up the girl whom I purchased there (which I did there in your presence, and you being the negotiator), and the golden trinkets and clothes as well. You know already how it was agreed upon. You give the money to the Procurer, and give the young woman to this person." <stage>To CURCULIO.</stage> Where is he himself? Why doesn't he come?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'll tell you; because it is but four days since we arrived in Caria, from India; there he now intends to order a solid golden statue to be made of Philippean gold, which is to be seven feet high--a memorial of his exploits.</p></sp>
+<sp><speaker>LYCO</speaker><p> For what reason this? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'll tell you; why, because within twenty days he singly has subdued the Persians, Paphlagonians, Sinopians, Arabians, Cretans, Syrians, Rhodia and Lycia, Peredia and Bibesia<milestone n="444" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Peredia and Bibesia</lemma>:  Most of these names are real, while some are fictitious--as, for instance, "Peredia," "Hungry-land," and "Bibesia," "Thirsty-land." By Centauromachia he perhaps means Thessaly, the country of the Centaurs; though, possibly, this region may have been too near for him to hope to impose upon Lyco.</note>, Centauromachia and Classia Unomammia<milestone n="445" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Classia Unomammia</lemma>:  "Classia" is supposed by Schmieder to be used for "classis," "an army." "Unomammia," "the land of the one-breasted people," may perhaps be an allusion to the Amazons, who were feigned to be in the habit of cutting off one breast, for the purpose of using the bow with greater adroitness. "Conterebromia" is a name coined for the occasion, signifying "the and of piercing."</note>, and all Libya, and all Conterebromia; one half even of all nations has he conquered unaided in twenty days.</p></sp>
+<sp><speaker>LYCO</speaker><p> Dear me! </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Why are you surprised?</p></sp>
+<sp><speaker>LYCO</speaker><p> Why, because if all these people were penned up in a cage as close as chickens, even so they couldn't be encompassed in a year. Upon my faith, 1 do believe that you are<milestone n="452" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That you are</lemma>:  "Esse," "to be" or "to eat," according to the context. Limiers suggests that a pun is here in ended. If so, it will admit of either these meanings, "that you are his servant" or "that you eat at his expense."</note> come from him; for you do jabber such nonsense.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Aye, and I can tell you still more, if you like.</p></sp>
+<sp><speaker>LYCO</speaker><p> No; I don't want it. Follow me this way. I'll pay you that, on account of which you came; and lo, 1 see * * * * * * * * *
+
+<stage>from his house.</stage></p></sp>
+<sp><speaker>LYCO</speaker><p> Save you, Procurer. </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> May the Gods prosper you.</p></sp>
+<sp><speaker>LYCO</speaker><p> Do you know what this is about which I'm come to you? </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Say on what you please.</p></sp>
+<sp><speaker>LYCO</speaker><p> You are to receive the money, and to send away the young woman with him. <stage>Pointing to CURCULIO.</stage></p></sp>
+<sp><speaker>CAPPADOX</speaker><p> But what if I'm bound on oath to another?</p></sp>
+<sp><speaker>LYCO</speaker><p> What matters that to you, so long as you get the money? </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> He who advises is as good as an accomplice. Do you follow.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Procurer, take care that you don't cause me any delay. <stage>They go into the house of CAPPADOX.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="462" unit="TLN line"/>
+<stage>Enter the CHOREGUS <note anchored="yes"><lemma targOrder="U">The Choregus</lemma>:  The "Choregus" was the person who had the care of the dresses and decorations for the actors, and provided the Choruses. See the Trinummus, <bibl n="Pl. Trin. 4.2">l. 858 (Act IV., Sc. 2)</bibl>.</note>, as CHORUS.</stage>
+<sp><speaker>THE CHOREGUS </speaker><p> By my faith, Ph&aelig;dromus has cleverly met with this clever rogue; but whether a salt-water rogue<milestone n="463" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Salt-water rogue</lemma>:  "Halophantam." The "halophant&aelig;" were those who informed against the exporters of salt contrary to law, as the "sycophant&aelig;" did against the exporters of figs. The Choregus is using a choice of names for the same thing, as he means to say, "call him by what name you will, Curculio is a clever rogue." It is not possible to translate the passage literally and preserve the spirit of it at the same time.</note> or a dry-land one I'm the rather to say he is, I really don't know. The costume that I've lent I fear I shan't get back. Although I have nothing whatever to do with him (I trusted Ph&aelig;dromus himself), still I'll keep an eye upon him. But until he comes out of doors, I'll point out in what place you may easily meet with each person, that he mayn't lose his labour through too much trouble, if any one wishes to meet either a rascal or one without rascality, or an honest man or a dishonest one. He who desires to meet with a perjured fellow, let him go into the courts of law<milestone n="470" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Into the courts of law</lemma>:  The "Comitium" was a place in the Roman Forum, near the "Curia," where trials were carried on before the Pr&aelig;tor. It was near the "Puteal Libonis," or "Scribonianum." where witnesses were sworn, and perjured people were to be found, ready to give false testimony.</note>; he who wants a liar and a braggart, near the rites of Cloacina<milestone n="471" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Rites of Cloacina</lemma>:  Venus is supposed to have been called by this name, from her statue having been once found in the "Cloac&aelig;," or sewer of Rome. He alludes to the neighbourhood of her Temple, in which Plautus himself is said to have dwelt, The "Basilica" has been mentioned in a previous Note.</note>. The rich and erring husbands seek you at the magisterial halls of the Basilica. There, too, will be the worn-out harlots, and those who are wont to haggle for them. Contributors to pic-nic dinners<milestone n="474" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pic-nic dinners</lemma>:  The "symbol&aelig;," or "pic-nic entertainments," have been referred to in the Notes to the Stichus. They were probably got up on a cheap scale.</note> you'll find in the fishmarket. In the lower part of the Forum good men<milestone n="475" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Good men</lemma>:  "Boni" is here used in the sense of "opulent," "men of substance."</note> and opulent do walk; in the middle, near the canal<milestone n="476" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Near the canal</lemma>:  The banks of this canal were much resorted to by walkers. It is not accurately known in what part of Rome it was situate.</note>, there are the mere puffers-off. Beyond the lake<milestone n="477" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Beyond the lake</lemma>:  He probably alludes to the former site of the Curtian Lake, which, in his time, was dried up. Ovid says, in the Fasti, B. vi., l. 401, "This place, where now are the markets, formerly fenny marshes covered; a ditch was here swimming with water from the overflowing of the river. That spot formed the Curtian Lake, which now supports the altars on dry ground: 'tis now dry ground, but once it was a lake." It is not a little amusing, that though the Scene is in Epidaurus, Plautus is here discussing Roman scenes and manners.</note> of Curtius are impudent, talkative, and malevolent fellows, who boldly, without reason, utter calumnies about another, and who, themselves, have sufficient that might with truth be said against them. There, at the old shops<milestone n="481" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The old shops</lemma>:  He probably alludes to the old shops in the Forum, which were the property of the state, and were let out to the bankers and money-lenders.</note>, are these who lend and those who borrow at interest. Behind the Temple of Castor there are those to whom unguardedly you may be lending to your cost. There, in the Etrurian street, are those men who hold themselves<milestone n="482" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Who hold themselves</lemma>:  Horace alludes to the "turba impia," the "impious throng," of the Etrurian street.</note> on sale. In the Velabrum<milestone n="484" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Velabrum</lemma>:  See the Captivi, <bibl n="Pl. Capt. 3.1">l. 494</bibl> (Act III., Sc. 1).</note> you'll find either baker, or butcher, or soothsayer; either those who sell retail themselves, or supply to others things to be sold by retail. Rich sinning husbands you'll find at the house of Oppian Leucadia<milestone n="485" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Oppian Leucadia</lemma>:  The best solution of the meaning of this passage seems to be, that he is alluding to a woman named Leueadia, a freed. woman of the Oppian family, whose house was a rendezvous for riotous and debauched husbands.</note>. But, meantime, the door makes a noise; I must curb my tongue. <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="487" unit="TLN line"/>
+<stage>Enter, from the house of CAPPADOX, CURCULIO, leading PLANESIUM, followed by LYCO and CAPPADOX.</stage>
+<sp><speaker>CURCULIO</speaker><p> Maiden, do you go before; what is behind me I cannot keep my eye upon. Both the trinkets of gold, and all the clothing that she had, were his own, he said.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> No one is going to deny it. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Still, however, it's somewhat better for me to remind you.</p></sp>
+<sp><speaker>LYCO</speaker><p> Remember that you've undertaken, that, if any one should assert in course of law that she's properly free, all the money is to be returned to me-thirty min&aelig;.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I shall remember; be easy about that; and now I say the same. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> But I wish you to remember this well.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I remember, and I shall deliver her to you on warranty<milestone n="495" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On warranty</lemma>:  "Dare mancupio" meant, "to sell a thing upon warranty," which, when formally done, was effected "per &aelig;s et libram," by striking the balance with an "as," in the presence of six witnesses, when the seller guaranteed the possession of it to the purchaser.</note>.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> And am I to take anything on warranty from a Procurer, people who have nothing of their own except a tongue only; who, if anything's entrusted them, deny it upon oath? You Procurers dispose of what belongs to others, you give liberty to what belongs to others, and what belongs to others your give your commands to; no guarantee of ownership is there in the transfer to yourselves, nor are you yourselves guarantees to another person. The race of Procurers, among mortals, in my way of thinking at least, are just like flies, gnats, bugs, lice, and fleas--a plague, a mischief, and a nuisance; you are of no serviceable use, and no respectable person dares to stand with you in the Forum; he that does associate with you, they censure him, he's spat upon and abused; they say that he has lost his property and his honor, although he has done nothing at all.</p></sp>
+<sp><speaker>LYCO</speaker><p> Upon my faith, my clever one-eyed friend, in my way of thinking, you are well acquainted with the Procurers.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> You bankers, i' faith, I put and place in the same rank; you are the very counterparts of them. They, at least, are on sale in dark corners, you in the very Forum<milestone n="507" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the very Forum</lemma>:  In allusion to the place where most of the bankers' shops were situate.</note>. You tear men to pieces with usury, they by persuading them amiss and by means of their dens. Full many a proposed statute<milestone n="509" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Proposed statute</lemma>:  "Rogitatio," or, more commonly, "rogatio," was the term applied to a proposed law, or decree of the people, or "plebiscitum."</note> has the public confirmed on your account, which when confirmed you break; some loophole you find out; just as boiling water becomes cold, so do you deem the laws.</p></sp>
+<sp><speaker>LYCO</speaker><p> <stage>aside</stage>. I'd rather I'd held my tongue CAP. Not wrongfully, and with good reason, are you abusive against them.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> If abuse is uttered against those who deserve it not, that I do hold to be abuse; but if it is uttered against those who are deserving, it is fair censure, in my way of thinking, at least. I care nothing about your warranty, nor about any other Procurer whatever. Lyco, do you want anything with me?</p></sp>
+<sp><speaker>LYCO</speaker><p> Heartily fare you well. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Farewell. <stage>Going.</stage></p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Hark you! I say to you----</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Say on; what do you want?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Prithee do you take care that all's well with her <stage>pointing to PLANESIUM</stage>; I've brought her up in my house carefully and in chastity.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> If you have such compassion for her, pray, what would you give for it to be all well with her?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> A plaguy mishap for yourself.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> You need take due care on that score about yourself.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> <stage>to PLANESIUM, who is weeping</stage>. Why, simpleton, do you cry? Don't be afraid; upon my faith, I've sold you favourably. Take care, will you, and be a good girl; now prettily accompany him, pretty one.</p></sp>
+<sp><speaker>LYCO</speaker><p> Summanus, do you want anything with me at present? </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Fare you well, and health attend you. <stage>Aside.</stage> For you've kindly given me your services and your money.</p></sp>
+<sp><speaker>LYCO</speaker><p> Give abundant greetings to my patron.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'll give them. <stage>(Exit with PLANESIUM.)</stage></p></sp>
+<sp><speaker>LYCO</speaker><p> Procurer, do you wish for anything?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Give me those ten min&aelig; for me to manage for myself with, until things are better with me. </p></sp>
+<sp><speaker>LYCO</speaker><p> They shall be paid; order them to be fetched to-morrow. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Since I've successfully finished the matter, I wish to return thanks here in the Temple. For long since, when a little girl, I bought her for ten min&aelig;; but him who sold her to me, never since then have I set eyes upon. I think he's dead. What matters that to me? I've got the money. The man to whom the Gods are propitious, for him, no doubt, they throw gain in his way. Now will I give my attention to my devotions; it's clear that he has a kind regard for me. <stage>Goes into the Temple.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="533" unit="TLN line"/>
+<stage>Enter THERAPONTIGONUS. <note anchored="yes"><lemma targOrder="U">Therapontigonus</lemma>--He seems to be a miller member of the class of braggarts, of which Pyrgopolinices, in the Miles Gloriosus, is so admirable a specimen.</note> and LYCO.</stage>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I'm come now, inflamed with wrath in no moderate degree, but with that same with which I've learned to deal destruction upon cities. At once now, unless this moment you make haste instantly to pay me the thirty min&aelig; which I left with you, make haste to lay down your life.</p></sp>
+<sp><speaker>LYCO</speaker><p> By my troth, to no little mischief do I now devote you, but to that same to which I am wont to devote that man to whom I owe nothing at all.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Don't you be making yourself bold with me, or suppose that I shall be entreating you.</p></sp>
+<sp><speaker>LYCO</speaker><p> And you, indeed, shall never force me to pay you what has been paid, nor shall I give it you.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I thought this, when I entrusted you with it, that you would repay nothing at all.</p></sp>
+<sp><speaker>LYCO</speaker><p> Why then are you now asking it back of me?</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I wish to know to whom you have paid it.</p></sp>
+<sp><speaker>LYCO</speaker><p> To your one-eyed freed-man; he said that he was called Summanus; I paid it to him, who brought me this sealed letter. <stage>Gives him the letter.</stage></p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What letter of mine, what one-eyed freed-man, what people called Summanus are you dreaming about? I really have no freed-man at all.</p></sp>
+<sp><speaker>LYCO</speaker><p> You act more wisely than a portion of the military men who have freed-men, and then forsake them.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What have you done? </p></sp>
+<sp><speaker>LYCO</speaker><p> What you requested me, I've done for your sake, that I mightn't slight the messenger who had brought your seal's impression.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> More fool than fool were you to give credit to this letter.</p></sp>
+<sp><speaker>LYCO</speaker><p> To that by which matters both public and private are carried on ought I not to have given credit? I'll be off; the money has been properly paid you. Warrior, farewell.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> How--farewell? </p></sp>
+<sp><speaker>LYCO</speaker><p> Fare you ill then, if you choose,--aye, all your life, so far as I'm concerned. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What shall I do now? Of what use is it that I have caused kings to obey me, if this obscure fellow<milestone n="556" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Obscure fellow</lemma>:  "Umbraticus," a low fellow, a haunter of obscure places.</note> is this day to laugh at me?</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="557" unit="TLN line"/>
+<stage>Enter CAPPADOX, from the Temple.</stage>
+<sp><speaker>CAPPADOX</speaker><p> <stage>to himself</stage>. The man to whom the Gods are propitious, they cannot, I think, be angered with him. After I ad finished my devotions, it then came into my mind, lest the banker should abscond, to go fetch the money, that I may make good cheer rather than he.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I had left my compliments for you at your house.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Therapontigonus Platagidorus, save you; since you are come safe to Epidaurus this day, at my house--you won't lick up one grain of salt<milestone n="562" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lick up one grain of salt</lemma>:  He pretends that he is going to invite him; but, stopping short, ends by saying that he shall not even taste salt with him. <foreign lang="greek">a)/lalexe=in,</foreign> "to lick salt," Erasmus, in his Adagia, tells os was a proverbial expression, denoting "to live sparingly."</note>.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> You give me a kind invitation; things, however, are in a train for it to go badly with yourself. But how fares my purchase at your house?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Why, not at my house at all. Don't be bringing your witnesses--assuredly, I don't owe you anything.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> How's that?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> What I was bound on oath to do, I've done.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Will you give me up the girl or not, before I spit you with this sabre of mine, you whip-scoundrel?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I bid you go to perdition with all my heart; don't you be terrifying me. She has been carried off; you shall e carried off hence away from me, beyond a doubt, if you persist in abusing me, to whom I owe nothing but a punishing.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What, threaten me with a punishing?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Aye, and by my troth, I'll not be threatening, but I'll give it, if you persist in being impertinent to me.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> A Procurer, forsooth, threatening me; and are my combats in battle, so many in number, lying trodden under foot? But so may my sabre and my shield * * * * * trustily aid me when fighting in the field; unless the girl is restored to me, I'll at once cause the ants to carry you away piecemeal from this spot.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> And so may my tweezers<milestone n="376" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">So may my tweezers</lemma>:  We might almost fancy that it was a barber speaking, from this mention of the implements of his trade. Probably Cappadox employed these articles himself, in putting the best appearance upon his commodities, that they might the more readily attract the public.</note>, my comb, my looking-glass, my crisping-iron, and my hair-scissors and scrubbing-towel love me well, I don't value your high-sounding words, nor these big threats of yours, a bit the more than my servant-girl that washes out my sink. I've given her up to him who brought the money from you.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What person was that? </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> He said that he was Summanus, your freed-man.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Mine? You don't say so; i' faith, it's that Curculio that has put a trick upon me, when I think upon it; he stole my ring from me.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> <stage>aside</stage>. The Captain has been finely appointed to a cashiered company<milestone n="585" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Appointed to a cashiered company</lemma>:  He remarks that the Captain has been made a fool of, just in the same way as if he had received a commission in a disbanded maniple, or company.</note>.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Where now shall I find Curculio<milestone n="586" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Find Curculio</lemma>:  He asks where he can find Curculio. That word signifying not only the Parasite's name, but "a weevil" as well, Cappadox tells him that he may find hundreds of them in wheat.</note>?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> In some wheat with the greatest ease I'll make you find even five hundred Curculios instead of one. Therefore I'm off; fare you well, and my service to you. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Fare you ill, a plague attend you. What shall I do? Shall I stop or go away? That I should have been imposed upon in this way! I'd like to give a reward to him who would point out that fellow to me. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="591" unit="TLN line"/>
+<stage>Enter CURCULIO, with a ring, from the house of PH&AElig;DROMUS.</stage>
+<sp><speaker>CURCULIO</speaker><p> I've heard that an ancient Poet<milestone n="591" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An ancient Poet</lemma>:  Who this ancient Poet was, is not known.</note> wrote in a Tragedy, that two women are worse than one; such is the fact. But a more crafty woman than is this mistress of Ph&aelig;dromus, I never saw or heard of, nor, i' faith, can one be spoken of or imagined; she, as soon as ever she saw that I had got this ring, asked me whence I got it. "Why do you ask that?" said I. "Because I've need to know," said she. I said I wouldn't tell her. To get it away, she seized hold of my hand with her teeth. With much ado I betook me out of doors, and made my escape. Away with this slut<milestone n="598" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This slut</lemma>:  "Caniculam." "Little bitch."</note>.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="599" unit="TLN line"/>
+<stage>Enter PLANESIUM, followed by PH&AElig;DROMUS, from his house.</stage>
+<sp><speaker>PLANESIUM</speaker><p> My Ph&aelig;dromus, make haste.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Make haste for what? </p></sp>
+<sp><speaker>PLANESIUM</speaker><p> That you mayn't let the Parasite escape; the affair's of consequence.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Nothing have I<milestone n="600" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nothing have I</lemma>:  Planesium says, "res," "the affair," is urgent. Ph&aelig;dromus, understanding the word as meaning "property," says, "I've got none; what I had, I soon squandered."</note> of consequence; for what I did have I quickly made away with? <stage>Seizes CURCULIO.</stage> I've got him; what's the matter?</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Ask him whence he got that ring: my father used to wear it. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Why, troth, and so did my aunt.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> My mother gave it him to wear.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> And your father, in his turn, to me.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> You are talking nonsense.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I'm in the habit; for by reason of it I make a livelihood the more easily. What is the matter now?</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> I entreat you, don't be keeping me from finding my parents.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> How can I? Have I got your father and mother hidden beneath the stone? <stage>Holding up the ring.</stage></p></sp>
+<sp><speaker>PLANESIUM</speaker><p> I was born a free woman.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> And so were many others, who are now in servitude.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Really now, I'm vexed. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> For my part, I've told you how this came into my possession. How often must you be told? I cheated the Captain at dice, I tell you.
+<stage>THERAPONTIGONUS.</stage></p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> <stage>eyeing CURCULIO</stage>. I'm all right; see, here he is whom I was looking for. How do you do, good sir?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I hear you; three casts of the dice, if you like, even for that scarf of yours.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Why don't you go to very perdition, with your casts and catch-pennies<milestone n="612" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Casts and catch-pennies</lemma>:  "Cum bolis, cum bulbis." Literally "with your casts of dice and your onions." He probably uses the word "bulbis" solely for its similarity to "bolis," by way of alliteration. A little variation is made in the translation, to keep the spirit of the passage, which it is impossible to do by adhering to the letter.</note>? Either give me back the money or the young woman?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>with an air of surprise</stage>. What money? what rubbish are you talking about to me? What young woman are you demanding back of me? THER. The one that you took away this day from the Procurer, you scoundrelly fellow.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I took none away. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Why, surely, I see her. There she is. <stage>Pointing to PLANESIUM.</stage></p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> This young woman is free. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What, my female slave free, to whom I have never given her liberty?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Who gave you possession of her, or of whom did you buy her? Let me know that? </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Why, I paid the money for her through my banker--a sum which I'll have refunded to me fourfold by you and the Procurer.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> You, who understand how to traffic in young women, kidnapped and of free birth, come you before the judge. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I shan't come.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I may call my witness<milestone n="621" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Call my witness</lemma>:  It was a custom with the Romans, when a man was summoned by another to go with him at once before the Pr&aelig;tor, for the plaintiff, if the defendant would not go quietly, to call any bystander to be witness (<foreign lang="la">antestari</foreign>) that he had been duly summnened; and, having touched the ear of the witness, the latter was bound to aid in dragging the defendant to court. Only free persons could be witnesses. For this reason the Captain tells Ph&aelig;dromus that he cannot summon a witness on this occasion, as he knows that Planesium is not free, and supposes that Curculio is also a slave.</note> to the summons.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> No, you mayn't. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> May Jupiter then utterly confound you: live without witnesses<milestone n="622" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Without witnesses</lemma>:  "Intestatus." An indelicate allusion tended in this line.</note> then.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> But I'm a person that he may summon.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>to CURCULIO</stage>. Do you step this way.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What? A slave summoned as a witness? Take you care. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> Well, that you may know it, I'm free.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Then come before the judge. There's for you: take that. <stage>Gives him a blow.</stage></p></sp>
+<sp><speaker>CURCULIO</speaker><p> O townsmen, townsmen, help.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Why do you bawl so?</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> What right have you to strike him?</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Because I choose. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>to CURCULIO</stage>. Step this way you <stage>pushes him towards the CAPTAIN</stage>; there, I'll give him up to you. Hold your noise.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Ph&aelig;dromus, prithee do save me.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> As I would myself and my own good Genius. Captain, prithee, do tell me whence you got that ring, which this Parasite purloined from you.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> <stage>kneeling before the CAPTAIN</stage>. By your knees, I do entreat you to give us that information. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What matters that to you? You might as well ask after this sabre and this scarf, how each came into my possession.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> What airs the swaggerer does give himself!</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Send that fellow away <stage>pointing to CURCULIO</stage>; then I'll tell you all. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> It's nonsense what he says.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Prithee, do let me know. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I'll tell you: <stage>to PLANESIUM</stage> get up. Listen to this matter, and give attention. My father Periphanes used to wear it.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Ha! Periphanes? </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> He, before he died, gave it to me as being his son, as it was right he should.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> O Jupiter!</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> And on that occasion he made me his heir.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> O filial affection, do thou preserve me, since I have carefully preserved thee. Welcome, my brother.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> How am I to believe that? Tell me, if you are speaking the truth, who was your mother?</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Cleobula. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Who was your nurse?</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Archestrata. Amid the sacred rites of Bacchus she had carried me to see the sights * * * * * * * after we had come thither, when now she had found me a place, a whirlwind arose<milestone n="647" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A whirlwind arose</lemma>:  Many mishaps appear to have happened to families through the lawlessness and violence of which the Festivals of the Divinities were the occasion.</note>; the scaffolding<note anchored="yes"><lemma targOrder="U">The scaffolding</lemma>:  Suetonius tells us that the reign of Tiberius was rendered memorable by the fall of the scaffolding in the theatre of Fiden&aelig;.</note> of the stage there tumbled down; I was greatly alarmed, and then some one, I know not who, seized hold of me trembling and frightened, neither alive nor dead; and in what manner he carried me off I cannot say.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I recollect that disturbance happening; but, do you tell me, where is this person, who carried you away?</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> I know not; but <stage>showing a ring</stage> this ring I have all along preserved by me, with it long since was I lost.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Give it me to look at.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> <stage>to PLANESIUM</stage>. Are you in your senses to be trusting it to that fellow? <stage>Holds her arm.</stage></p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Do you only leave me alone. <stage>(She gives it to the CAPTAIN.)</stage> </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p><stage>examining it</stage>. O Jupiter! This is the same that I presented you upon your birthday; I recognize it as easily as my own self. Welcome to you, my sister.
+</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> My brother, welcome to you.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I trust the Gods will prosper this matter for you.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> And I, for all of us. <stage>To the CAPTAIN.</stage> Do you, as having this day arrived, give a dinner in honor of your sister he <stage>pointing to PH&AElig;DROMUS</stage>, to-morrow, will give one in honor of his marriage; we promise that.</p></sp>
+<sp><speaker>PI&AElig;D.</speaker><p> <stage>to CURCULIO</stage>. Do you hold your tongue.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> I shan't hold my tongue, as things are turning out so well. Captain, do you promise her to him; I'll give the marriage-portion. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What is the marriage-portion?</p></sp>
+<sp><speaker>CURCULIO</speaker><p> What, that I give? Why, that always as long as he lives he's to feed me.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I' troth, he says what's fair; with my consent you shall do so. But this Procurer owes me the thirty min&aelig;.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> For what reason so?</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Because he agreed with me on these terms to give it back: that if any one should assert her to be free born in due course of law, he would, without dispute, pay back all the money.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> Then let's go to the Procurer. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I agree.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> This first I wish; to despatch my matter.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What's that? </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> That you will betroth her to me. <stage>The CAPTAIN considers.</stage></p></sp>
+<sp><speaker>CURCULIO</speaker><p> Why do you hesitate, Captain, to give her as a wife to him? </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> If she is agreable.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> My brother, it is my wish.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> So be it then. </p></sp>
+<sp><speaker>CURCULIO</speaker><p> You do rightly.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Captain, do you betroth me to her for my wife?</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I do betroth her. </p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>pointing to CURCULIO</stage>. And to him do I promise support at my expense.</p></sp>
+<sp><speaker>CURCULIO</speaker><p> You do kindly. But * * * * * * * *</p></sp>
+<sp><speaker>THER,</speaker><p> * * * * * But see, here's the Procurer coming; my treasurer<milestone n="677" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My treasurer</lemma>:  In allusion to the money which he intends to have back from the Procurer. "Thesaurum" seems here to have the signification of "treasurer" or "treasury."</note>, I mean.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="679" unit="TLN line"/>
+<stage>Enter CAPPADOX, in haste.</stage>
+<sp><speaker>CAPPADOX</speaker><p> <stage>to himself</stage>. Those who say<milestone n="679" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Those who say</lemma>:  This and the following line are clearly in a very corrupt state. Indeed, it is hard to gather any sense whatever from them.</note> it's bad for bankers to be trusted, utter nonsense; I say it's neither good nor bad for them to be trusted, and that, I've fully experienced this day. They are not<milestone n="681" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">They are not</lemma>:  He seems to mean, that, where there is no possibility of the debtor paying back the money, the case is more fortunate than where you are tormented by hopes of getting it back, which, however, are doomed to disappointment.</note> badly trusted, who never repay, but with whom it is lost outright. As for example, before this Lyco paid me the ten min&aelig;, he had to go to every banker's counter. After there were no proceeds, I summoned the fellow with much noise; he appealed against me to the court. I was most confoundedly afraid that this day he'd be settling accounts with me before the Pr&aelig;tor<milestone n="684" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Before the Pr&aelig;tor</lemma>:  He was afraid that Lyco would cheat him, by filing his schedule, or taking the benefit, in the Roman style. See the Note to l. 373 (Act III., Sc. 1).</note>; but my friends forced him, so he paid the money at home. Now I'm resolved to make haste to my house. <stage>Runs towards his door.</stage></p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Hallo! you Procurer; I want you.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> And I want you.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> But I don't want either of you.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Stay this instant, will you.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> And make you haste to disgorge the money with all despatch.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> <stage>to PH&AElig;DROMUS</stage>. What have you to do with me? <stage>To the CAPTAIN.</stage> Or what have you?</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Because this day I shall be making a javelin of you, discharged from a catapulta, and twist you with the string<milestone n="690" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With the string</lemma>:  "Nervus," "a cord," was also the name of the iron chain fastened round the neck and legs of the prisoner. If the debtor did not pay within thirty days after judgment, lie was liable to be thrown into prison by the creditor.</note>, just as the catapultas are in the habit of doing.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> I'll this day make a coxcomb of you, to be sleeping with a puppy<milestone n="691" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With a puppy</lemma>:  He jokes on the double meaning of the word "catellus," which signified "an iron chain," and also "a little dog."</note> in your bed--an iron one, I mean.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> But I'll make you both to be rotting in a strong-barred prison. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Seize him by the throat, and away with him to extreme torture.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> However that is, he'll be going there of his own accord. <stage>The CAPTAIN seizes him.</stage></p></sp>
+<sp><speaker>CAPPADOX</speaker><p> O Gods and men, your aid! that I, uncondemned, and without evidence against me, should thus be dragged along! Prithee, Planesium, and you, Ph&aelig;dromus, do give me assistance.</p></sp>
+<sp><speaker>PLANESIUM</speaker><p> Brother, I do beseech you, don't ruin him uncondemned; he treated me kindly and modestly at his house.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> That was through no inclination of his own; give you thanks to this &AElig;sculapius<milestone n="699" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To this &AElig;sculapius</lemma>:  Who had not granted him convalescence so soon as he desired.</note> <stage>pointing to the Temple</stage> that you've preserved your chastity; for if he had been well, he'd long ago have packed you off wherever he could.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Now attend to me, both of you, if I can arrange between you. <stage>To the CAPTAIN.</stage> You let him go. Procurer, come you this way. I'll pronounce my opinion, if indeed you are ready to abide by what I shall decide you should do.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> We leaves it to you. <stage>He lets go of the PROCURER.</stage></p></sp>
+<sp><speaker>CAPPADOX</speaker><p> So long, i' faith, as you give a decision to the effect that no one is to take the money away from me.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What, not that which you promised?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I, promised? How? </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> With your tongue.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> With that same tongue I now gainsay it; that was given me by Nature for the purpose of speaking, not of losing my property.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> He's trifling; seize the fellow by the throat. <stage>Seizes him.</stage> CAP. I'll at once then do as you bid me.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Since you are an honest man, answer me this that I ask you. </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Ask me what you please.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Did you not promise, that if any one should show that she <stage>pointing to PLANESIUM</stage> was freeborn, you would pay back all the money? </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I don't remember saying so.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What, do you deny it? </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I' faith, I really do deny it. In whose presence? In what place was it?</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> In my own presence, and that of Lyco the banker.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Why don't you hold your tongue?</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I shan't hold my tongue.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I don't care a rush for you; don't be bullying me.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> In my own presence and that of Lyco it took place.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> <stage>to the CAPTAIN</stage>. I quite believe you. Now, therefore, Procurer, that you may know my judgment, <stage>pointing to PLANESIUM</stage> she is a free woman; he <stage>pointing to the CAPTAIN</stage> is her brother, and she is his sister; she is engaged to me; do you restore him the money; that's my decision.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Upon my faith, Ph&aelig;dromus, you have given this decision corruptly. It shall both be bad for you, and you, Captain,--may the Gods and Goddesses confound you.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> And as for you, you shall be clapt in prison at once, unless the money's returned me.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> Then follow me. </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Follow you where?</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> To my banker--to the Pr&aelig;tor<milestone n="722" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the Pr&aelig;tor</lemma>:  See the Note to l. 684.</note>; for it's there that I pay my money to all persons to whom I'm indebted.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I'll be carrying you hence to prison, and not to the Pr&aelig;tor, if you don't pay back the money.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I do most earnestly wish you may come to a bad end, so don't misunderstand me<milestone n="724" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Don't misunderstand me</lemma>:  "Ne me nescias." Equivalent to our phrase, "I fully give you to understand."</note>.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> Do you really so? </p></sp>
+<sp><speaker>CAPPADOX</speaker><p> I' faith, I really do so.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> I don't misunderstand these fists of mine. <stage>Holding them up.</stage></p></sp>
+<sp><speaker>CAPPADOX</speaker><p> What then? </p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> What then, do you ask? With these same fists, if you provoke me, I'll be making you quiet immediately.</p></sp>
+<sp><speaker>CAPPADOX</speaker><p> <stage>taking the money from his girdle</stage>. Well then, take this back at once.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> <stage>taking the money</stage>. By all means.</p></sp>
+<sp><speaker>PH&AElig;D.</speaker><p> Captain, you'll dine with me; the nuptials shall take place to-day.</p></sp>
+<sp><speaker>THERAPONTIGONUS</speaker><p> May this matter turn out well for me and for yourselves.</p></sp>
+<sp><stage>An ACTOR.</stage><p>Spectators, give us your applause.</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

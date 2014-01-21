@@ -1,0 +1,1010 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Bacchides, or The Twin Sisters</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.bac_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:31  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:00  packel
+Converted to XML
+
+Revision 1.15  2003/07/01 22:17:28  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.14  2001/08/29 19:12:20  amahoney
+mark Latin and fix missed speaker tags
+
+Revision 1.13  2001/08/21 18:49:29  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.12  2001/08/08 17:55:27  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.11  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.10  2001/08/03 20:50:01  amahoney
+fix spurious italics in lemmata
+
+Revision 1.9  2001/08/02 21:22:38  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.8  2001/08/01 21:34:09  amahoney
+use full speaker names
+
+Revision 1.7  2001/08/01 19:16:30  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.6  2001/07/10 21:15:33  amahoney
+put a TLN at the start of each scene, and make the scenes match the Latin to facilitate chunking
+
+Revision 1.5  2001/07/05 21:23:34  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>SILENUS, </role><roleDesc>the Divinity, who speaks the Prologue.</roleDesc></castItem>
+<castItem type="role"><role>NICOBULUS, </role><roleDesc>an aged citizen of <placeName key="perseus,Athens">Athens</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>MNESILOCHUS, </role><roleDesc>his son.</roleDesc></castItem>
+<castItem type="role"><role>PHILOXENUS, </role><roleDesc>another aged citizen of <placeName key="perseus,Athens">Athens</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>PISTOCLERUS, </role><roleDesc>his son.</roleDesc></castItem>
+<castItem type="role"><role>LYDUS, </role><roleDesc>servant of Philoxenus, and tutor of Pistoclerus.</roleDesc></castItem>
+<castItem type="role"><role>CHRYSALUS, </role><roleDesc>servant of Nicobulus.</roleDesc></castItem>
+<castItem type="role"><role>CLEOMACHUS, </role><roleDesc>a Captain of <placeName key="tgn,7002673">Samos</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>A PARASITE  </role><roleDesc>of Cleomachus.</roleDesc></castItem>
+<castItem type="role"><role>BOY, </role><roleDesc>servant of Cleomachus.</roleDesc></castItem>
+<castItem type="role"><role>SERVANT </role><roleDesc>of Pistoclerus (in the introductory fragment).</roleDesc></castItem>
+<castItem type="role"><role>ARTAMO, </role><roleDesc>servant of Nicobulus.</roleDesc></castItem>
+<castGroup>
+ <castItem type="role"><role>FIRST BACCHIS </role><roleDesc>Twin-sisters, Courtesans.</roleDesc></castItem>
+ <castItem type="role"><role>SECOND BACCHIS</role></castItem> 
+</castGroup>
+</castList>
+<stage type="scene">Scene--<placeName key="perseus,Athens">Athens</placeName>: before the houses of the FIRST BACCHIS and of PHILOXENUS which are in the same street</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>MNESILOCHUS, when absent at <placeName key="tgn,7002499">Ephesus</placeName>, writes and requests his friend, Pistoclerus, to search for his mistress, Bacchis, who has left <placeName key="perseus,Athens">Athens</placeName> with a military Captain. Having discovered her on her return to <placeName key="perseus,Athens">Athens</placeName>, Pistoclerus falls in love with her twin-sister, whose name is also Bacchis, and is severely reproved by his tutor, Lydus, for so doing. Mnesilochus returns to <placeName key="perseus,Athens">Athens</placeName>, and discovers from Lydus that his friend Pistoclerus is in love with a female of the name of Bacchis. He thereupon imagines that he has supplanted him with his own mistress, and in his anger resolves to restore to his father some money of his which he had gone to <placeName key="tgn,7002499">Ephesus</placeName> to recover, and a part of which he had contrived, through a scheme of the servant Chrysalus, to retain, in order that he might redeem his mistress from the Captain. Having afterwards discovered the truth, he greatly repents that he has done so, as the officer threatens to carry Bacchis off instantly, if the money is not paid. On this, Chrysalus contrives another stratagem against Nicobulus, his aged master, and makes him, through fear of the Captain's threats, pay the required sum. Having gained not only this but a still further sum of money, the young men regale themselves at the house of Bacchis. Nicobulus afterwards discovers from the Captain the trick that has been prayed upon him, and he and Mnesilochus repair to the house of Bacchis to demand their sons. The damsels, hereupon, apply themselves to coaxing the old men, who are at last persuaded to forgive their sons and Chrysalus and to go into the house and join the entertainment.
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT.  <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>MNESILOCHUS is inflamed with love for Bacchis (<foreign lang="la">Bacchidis</foreign>). But, first of all, he goes to <placeName key="tgn,7002499">Ephesus</placeName>, to bring back some gold (<foreign lang="la">Aurum</foreign>). Bacchis sails for <placeName key="tgn,7012056">Crete</placeName> (<foreign lang="la">Cretam</foreign>), and meets with (<foreign lang="la">Convenit</foreign>) the other Bacchis; thence she returns to <placeName key="perseus,Athens">Athens</placeName>; upon this (<foreign lang="la">Hinc</foreign>), Mnesilochus sends a letter to Pistoclerus, that he may seek for her (<foreign lang="la">Illam</foreign>). He returns; he makes a quarrel while (<foreign lang="la">Dum</foreign>) he supposes that his own mistress is beloved <foreign lang="la">by Pistoclerus;</foreign> when they have discovered the mistake as to the twin-sisters, <foreign lang="la">Mnesilochus</foreign> pays the gold to that (<foreign lang="la">Ei</foreign>) <foreign lang="la">Captain;</foreign> equally are the <foreign lang="la">two</foreign> in love. The old men (<foreign lang="la">Senes</foreign>), while they are looking after their sons, join the women, and carouse.
+</p></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="p1" unit="TLN line"/>
+<head>THE PROLOGUE<note anchored="yes"><lemma targOrder="U">Prologue</lemma>:  There is little doubt that this Prologue is spurious, but as it is prefixed to many of the editions, and to <placeName key="tgn,1136756">Thornton</placeName>'s and the French translations, it is here inserted. Lascaris, the Greek grammarian, says, in a letter to Bembo, that it was discovered by him in <placeName key="tgn,7003122">Sicily</placeName>. Some writers have supposed it to have been written by the Poet Petrarch.</note>.</head>
+<sp><speaker>SILENUS</speaker> <stage>mounted on his Ass.</stage>
+<p>'Tis a wonder if the spectators on the benches this day don't hiss, and cough, and make a snorting noise at this ridiculous sight, furrow their brows, and, with cries with one consent<milestone n="p3" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With cries with one consent</lemma>:  "<foreign lang="la">Concrepario</foreign>" is a barbarous word, formed from "<foreign lang="la">crepo</foreign>," to make a noise.</note>, shout all aloud, and mutter imprecations. Hardly in their youth can beardless actors, or mimics with their beards plucked out, find room upon the stage. Why comes forth this aged and lethargic go-between, who is borne upon the ass's back? Listen, I pray, and give me your attention, while I tell you the name of this quiet Comedy<milestone n="p10" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Quiet Comedy</lemma>:  "<foreign lang="la">Statariae</foreign>." There were two kinds of Comedy represented on the ancient stage, one of which was called "<foreign lang="la">stataria</foreign>," while the other was "<foreign lang="la">motoria</foreign>." In the first, the actors stood still, or moved about quietly, and with little gesture; while in the other, dancing, gesture, and grimace were extensively employed.</note>. 'Tis proper for you to make silence for a Divinity. It befits not those to use the resources of the voice, who come here not to exclaim, but to be spectators. Give me attentive ears; but not into my hands I mean; I wish my voice<milestone n="p15" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I wish my voice</lemma>:  There is a poor attempt at alliteration here, in the words "<foreign lang="la">volo volans vox vacuas</foreign>."</note>, as it flies, to strike these vacant ears. What do you fear? Are those blows more hurtful which open what is shut<milestone n="p17" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What is shut</lemma>:  This passage is obscure, but the meaning seems to be, "Is it anything more disagreable to open your ears and listen, than to keep them shut and be stunned by my noise? for talk I will.</note>, or which close what is open? You're very kind; the inhabitants of heaven do love you deservedly. There is profound silence--even the children are still--and now, attend to a new-come messenger, on a new errand. Who I am--why I am come to you--I'll tell you in a few words; at the same time, I'll disclose to you the name of this Comedy. Now, behold, I shall tell you what you wish to know; do you then give me your attention. I am a God of Nature<milestone n="p25" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A God of Nature</lemma>:  The ancients considered Pan, Silenus, Sylvanus, the Fauns, the Dryades, the Hyades, and the Oreades, as Gods of Nature, presiding over it in its various aspects.</note>, the foster-father of most mighty Bromius<note anchored="yes"><lemma targOrder="U">Bromius</lemma>:  Bromius was one of the names of Bacchus, probably derived from <foreign lang="greek">*bre/mw,</foreign> "to make a noise;" the Bacchanalian orgies being attended with riot and drunkenness.</note>, him who, with a female army<milestone n="p26" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With a female army</lemma>:  He alludes to the Indian expedition of Bacchus, who was fabled to have marched thither at the head of an arny of Bacchantes or "<foreign lang="la">Bacchae</foreign>," females who were his votaries.</note>, gained a kingdom. Whatever about him renowned nations relate, some part, at least, has been accomplished by my advice. That which pleases me is never displeasing to him. 'Tis right if one father<milestone n="p30" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If one father</lemma>:  The ancients gave the Gods the title of <foreign lang="la">pater</foreign>, "father," by way of honorable distinction. Bacchus would especially be so honored, as wine was looked upon as one of the chief supports of life.</note> another father does obey. Ass-borne do the Ionian multitudes<milestone n="p31" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ionian multitudes</lemma>:  The Lydians were adjacent to the people of lonia. Etruria, which supplied the earliest actors to <placeName key="tgn,7013962">Rome</placeName>, was supposed to have been colonised by the Lydians.</note> style me, because I am borne on an ass<note anchored="yes"><lemma targOrder="U">Borne on an ass</lemma>:  "<foreign lang="la">Asibidam</foreign>." This is a spurious word, probably invented by the author.</note> for my conveyance. Who I am, you understand: if you understand, allow me now to tell the name of this quiet play; at the same time, you may learn why I have come to you. Philemon<milestone n="p36" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Philemon</lemma>:  Philemon was a Greek Comic poet, of considerable merit, though inferior to Menander, of whom he was a contemporary. This play is more generally supposed to have been borrowed from a Comedy of Menander, which was called <foreign lang="greek">*di\s *e)capatw=n,</foreign> "the Twice Deceived."</note> formerly produced a play in Greek; this, those who speak the Greek language call "Evantides<milestone n="p37" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Evantides</lemma>:  "Evantides" corresponds with the Latin word "Bacchantes," "followers," or "namesakes" of <placeName key="tgn,2097807">Bacchus</placeName>," as "<placeName key="tgn,2054401">Evan</placeName>" was one of the names by which that God was addressed during the celebration of the orgies.</note>;" Plautus, who speaks the Latin, calls it "Bacchides." 'Tis not to be wondered, then, if hither I have come. <placeName key="tgn,2097807">Bacchus</placeName> sends to you the Bacchides--the Bacchanalian Bacchanals. I am bringing them unto you. What! Have I told a lie? It don't become a God to tell a lie; but the truth I tell--I bring not them; but the salacious ass, wearied with its journey, is bringing to you three, if I remember right. One you behold; see now, what on my lips I bring--to wit, two Samian sisters<milestone n="p46" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Samian sisters</lemma>:  <placeName key="tgn,2639881">Samos</placeName> was an island off the coast of lonia, neat <placeName key="tgn,7002499">Ephesus</placeName>. It was the birthplace of the philosopher Pythagoras.</note>, Bacchanalians, merry Courtesans, born of the same parents, at one time, at a twin-birth; not less alike than milk to milk, if you compare it, or water to water; were you to see them you would think them halved<milestone n="p50" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Think them halved</lemma>:  "<foreign lang="la">Dimidiatas</foreign>" &mdash; "one split into two."</note>; so much would you confuse your sight, that you would not be able to distinguish which was which. What remains you long to hear. Now give attention: the story of this Play I will disclose. What country <placeName key="tgn,7002673">Samos</placeName> is, is known to all; for seas, lands, mountains, and islands, have your legions<milestone n="p57" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have your legions</lemma>:  He is supposed to be flattering the Romans in their love for foreign conquest.</note> made easy of access. There, Sostrata bore to her husband, Pyrgoteles Pyrocles<milestone n="p58" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pyrgoteles Pyrocles</lemma>:  It was quite unusual for the Greeks to have two names. They have here been introduced either for the sake of the metre, or, as the Delphin editor suggests, as meaning "her husband Pyrocles, who was a regular Pyrgoteles," that is, a most skilful engraver; a celebrated artist of that name having flourished in the time of Alexander the Great.</note>, twin daughters at one birth; and it pleased them, being initiated at the triennial festival<milestone n="p60" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Triennial festival</lemma>:  Among the festivals of <placeName key="tgn,2097807">Bacchus</placeName>, there was one which occurred every three years, and was called the "<foreign lang="la">Trieterica</foreign>." On that occasion the Bacchantes carried the figure of the God on a chariot, drawn by two tigers or panthers, and crowned with vine leaves; holding thyrsi in their hands, they ran in a frantic manner around the chariot, filling the air with the sound of tambourines and brazen instruments, shouting "<foreign lang="la">Evo&euml; Bacche</foreign>," and calling the God by his several names of Bromius, Ly&aelig;us, Evan, Len&aelig;us, and Sabazius. To this ceremonial, which was derived from the Egyptians, the Greeks added other rites, replete with licentiousness and repulsive to decency. The author says that the parents of the Bacchides were initiated at this festival, and that in compliment to the God they named each of the newly-born twins "Bacchis."</note> of Bacchus, to call after his name the damsels of which they were the parents. The parents, as often happens, gave a turn to<milestone n="p62" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Gave a turn to</lemma>:  "<foreign lang="la">Fata occupant</foreign>." "Consider the fact of their being born at that period as ominous of their future destiny, and devote them to the service of the Deity."</note> their future fortunes. A Captain carried one of them with him to <placeName key="tgn,7012056">Crete</placeName>. The other of the twins sailed for <placeName key="tgn,7001393">Athens</placeName><milestone n="p64" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sailed for <placeName key="perseus,Athens">Athens</placeName></lemma>:  Literally, "Cecropia." Cecrops was the founder of <placeName key="perseus,Athens">Athens</placeName>.</note>. As soon as Mnesilochus, the son of Nicobulus, beheld her, he began to love her, and frequently paid her visits. Meantime, his father sent the youth to <placeName key="tgn,7002499">Ephesus</placeName>, to bring back thence some gold, which he himself, some time before, had deposited with Archidemides, an ancient friend of his, an aged Ph&oelig;nician. When, for two years he had stayed at <placeName key="tgn,7002499">Ephesus</placeName>, he received the sad news that Bacchis was gone from <placeName key="perseus,Athens">Athens</placeName>, for some sailors of his acquaintance sent him word that she had set sail. On this, he writes a letter to Pistoclerus, his only friend, the son of Philoxenus, entreating him to seek the fugitive with care and earnestness. While Pistoclerus is devoting his services to his friend, the twin-sisters, who have just returned to <placeName key="perseus,Athens">Athens</placeName>, arouse a passion in the seeker. The one wins Pistoclerus for herself; the other longs for the coming of Mnesilochus. What wonder if two bewitching, merry, pretty Bacchantes, should attract to themselves two unfledged Bacchanalians, and if they should ensnare their decrepit, most aged fathers, fit subjects for the undertaker<milestone n="p84" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Subjects for the undertaker</lemma>:  "<foreign lang="la">Libitinarios</foreign>." This word properly corresponds to our word "undertakers." They were so called because their biers and other requisites were kept in the temple of the Goddess "Libitina." The word here has the forced meaning of "persons with one not in the grave."</note>, bowed down by the weight of their years? But, see, here's Pistoclerus, who is returning to the Bacchides so lately found, and in his simplicity<milestone n="p87" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In his simplicity</lemma>:  "<foreign lang="la">Insolens</foreign>." Mnesilochus is already in love with the Second Bacchis before the play commences; but Pistoclerus is entrapped during the First Act.</note> is blowing in himself the sparks of passion so lately kindled. Now I'm off--do you attend. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="fragments">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>Enter PISTOCLERUS.<note anchored="yes">The portion from the commencement of this scene down to the beginning of the thirty-fifth line, is translated from the fragments of the beginning of the play which have been lately discovered by the research of Ritschel. It was generally supposed by Commentators that the beginning of the play had been lost, and that the author of the Prologue, or some other writer, had supplied the hiatus by adding a first scene of his own composition; in which he represents, somewhat inconsistently, Pistoclerus as having been in love with the First Bacchis before the play began, whereas it is obviously the intention of Plautus to represent him as drawn into the amour by her allurements during the First Act. It is worthy of remark, that the learned and ingenious <placeName key="tgn,1010231">Rost</placeName> was of opinion that the beginning of this play had not been lost, and that it properly commenced at line 35, "<foreign lang="la">Quod si hoc potis est</foreign>." This opinion, however, is thoroughly controverted by the result of the researches of Ritschel. Although, for the sake of brevity, these fragments are here grouped into one Scene, to supply the place of the spurious Scene which formerly occupied their place, it is clear that they are really the remnants of several Scenes, introductory to the attempt of the First Bacchis to entrap Pistoclerus.  The fragments are ordered differently by different editors.</note></stage>
+<sp><speaker>PISTOCLERUS</speaker><p> <gap/> those who are<note anchored="yes"><lemma targOrder="U">Those who are</lemma>:  It is not unlikely that this and the next three lines are fragments of a Prologue, spoken by Pistoclerus, in which he is complimenting the ingenuity shown by the slave Chrysalus throughout the piece as he is making reference to the punishment of slaves when speaking of "chains, rods, and the mill;" to which latter place refractory slaves were sent for hard labour.</note> of a thrifty turn of mind, modest, and without servility. <gap/> Chains, rods, and mills; their shocking brutality becomes worse. <gap/> She who keeps my friend and me engaged. <gap/> <stage>(Exit.)</stage>
+
+<stage>Enter FIRST BACCHIS.</stage></p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> I have heard<milestone n="5" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I have heard</lemma>:  This is probably the commencement of a Scene. The First Bacchis is revolving her plans against Pistoclerus, who is wandering through the city in search of the mistress of his friend Mnesilochus.</note> that Ulysses underwent toils innumerable, who, in wanderings, was twenty years away from his native land. But this young man by far outdoes Ulysses; who here in this spot is wandering within the walls of the city.
+<gap/></p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> <gap/> She was of the same name with myself. <gap/></p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Sweep out the house<milestone n="10" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sweep out the house</lemma>:  She is evidently ordering the servants to put the house in readiness against the arrival of her sister from abroad.</note> with brooms, work briskly. <gap/> Will some one call that most dirty fellow with the water-pail<milestone n="12" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The water-pail</lemma>:  "<foreign lang="la">Nassiterna</foreign>" was a pail, or water-pot, having three spouts or mouths.</note> and the water.
+<stage>CLEOMACHUS, SECOND BACCHIS.</stage></p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> <gap/> But if a life<milestone n="13" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">But if a life</lemma>:  Here is another Scene. It would appear probable that the Second Bacchis, having heard, on her arrival, that Mnesilochus, by his friend, is in search of her, signifies to the Captain her intention to remain at <placeName key="perseus,Athens">Athens</placeName>, and not to accompany him to Elatia in <placeName key="tgn,4003963">Phocis</placeName>, on which he reminds her of the sum of money he has given her, and the original terms of the agreement. It would appear that he proceeds to threaten with his wrath any more fortunate rival; and then concludes by inveighing against harlots in general, as "<foreign lang="la">limaces</foreign>," "snails," or "slugs," in the same way as a Comic writer of our day might style them "leeches," or "bloodsuckers." It may be remarked, that with the ancients, the avail was the emblem of salacity.</note> of wantonness is perchance preferred by you, consider the price that I agreed to give you that at that age you might not be following me for nought <gap/> that from no one else you might be receiving a yearly pay, except from oneself, nor be toying with any man <gap/> like slugs upon a man.
+<stage>PISTOCLERUS, SECOND BACCHIS, SERVANT.</stage>
+<gap/>
+</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> As like as milk<milestone n="19" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As like as milk</lemma>:  Here again is another Scene. Pistoclerus has caught sight of the Second Bacchis, but being unaware that she really is the person whom he is in search of, he remarks upon her strong resemblance to the First Bacchis, with whom, by this time, he has probably had an interview on the subject. His servant then comes and informs him that she is the person whom he is looking for, but that she is under the protection of a mighty Captain, whose breast heaves like a pair of blacksmith's bellows.</note> is to milk; whatever is her name <gap/></p></sp>
+<sp><speaker>SERVANT </speaker><p> The soldier who sells his life for gold <gap/> I know that his breath is much stronger than when the bellows of bull's hide are blowing, when the rocks melt where the iron is made.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Of what country did he seem to you?</p></sp>
+<sp><speaker>SERVANT </speaker><p> I think he is of Pr&aelig;neste<milestone n="24" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is of Pr&aelig;neste</lemma>:  He has a hit here at the people of Pr&aelig;neste, whom he has in a former play censured for their bad grammar, and whom he here represents as occupying the same place in Roman estimation, as the Gascons do, whether deservedly or not, in ours.</note>; he was such a boaster.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> <gap/> The city <gap/> and I don't think it is in spurious boastfulness.
+<gap/>
+<stage>Enter FIRST and SECOND BACCHIS.</stage></p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> <gap/> My heart, my hope<milestone n="27" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My heart, my hope</lemma>:  The First Bacchis seems here to be repeating her first lessons in the attack which she is about to make on the heart of the novice Pistoclerus; she is evidently conning over the flattering things that she intends to say to him.</note>, my honey, my sweetness, my nutriment, my delight. <gap/> Let me bestow on you my love <gap/> the Arabian <gap/> Has Cupid or has love overpowered you? <gap/> Perhaps to suspect that you are in love. <gap/> Get money from that quarter <gap/> for I really do believe that with ease you can enchant the heart of any man<milestone n="34" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The heart of any man</lemma>:  With this line conclude the fragments which have been brought to light by Ritschel; in the previous editions the next line commences the second Scene, the spurious Scene preceding it.</note>.
+</p></sp></div2>
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="35" unit="TLN line"/>
+<sp><speaker>1st BACCHIS</speaker><p> And suppose it is much better that you should hold your peace, and I should speak?</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> With pleasure; you may proceed.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> When my memory shall fail me, then do you take care to aid me, sister.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> I' faith, I'm more afraid that I shan't have the choice of prompting you.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Troth, I'm afraid the little nightingale may lose her powers<milestone n="38" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">May lose her powers</lemma>:  The nightingale was supposed to sing continually; so that "<foreign lang="la">lusciniae deest cantio</foreign>," "the nightingale has lost her song," became a proverb which expressed the happening of anything extraordinary.</note> of song. Follow this way. <stage>They move.</stage>
+<stage>Enter PISTOCLERUS.</stage></p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What are these two Courtesans, the namesake-sisters, about?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Nothing is there more wretched than a woman.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What, say you, is there more worthy of it? What have you been planning in your consultation?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> What's proper? </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I' faith, that doesn't belong to the Courtesan.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> This sister of mine entreats me so to find some person to protect her against this Captain; that when she as served her time<milestone n="43" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has served her time</lemma>:  "<foreign lang="la">Emeritus</foreign>" was the term applied to soldiers who had "served out their time," or "got their discharge."  Plautus probably uses the term satirically, as applied to the engagement which the Second Bacchis had made with the Captain.</note> he may bring her back home. Do you, I entreat you, be her protector.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Why should I protect her?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> That she may be brought home again, when she has fulfilled her engagement to him, so that he may not take her as a servant<milestone n="45" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As a servant</lemma>:  She pretends that her sister is afraid, that when her time has expired, the Captain--having carried her to a foreign country--may make a slave of her, and that she s, consequently, desirous to be left at Athens, and to repay him the money which he had given her upon the making of the engagement. She feigns that it is necessary for him to protect her sister on behalf of his absent friend Mnesilochus, that she herself may obtain an opportunity of ensnaring him</note> for himself. But, if she had the gold to pay him back again, gladly would she do so.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Where now is this person? </p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> I expect that he'll be here just now. But this you'll be able to arrange better among ourselves; and sitting there, you shall wait until he comes. So you will drink some wine, and so, I'll give you a kiss when you have drunk it.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Your coaxing is mere birdlime.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> How so?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Because, in fact, I understand how you two are aiming at one poor pigeon, myself; <stage>aside</stage> very nearly is the limed reed<milestone n="51" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The limed reed</lemma>:  A reed dipped in birdlime was employed for the purpose of catching birds. Pistoclerus says to himself that he feels how nearly he is entrapped.</note> breaking my feathers. Madam, I judge that such deeds befit me not.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Why so, I pray?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Bacchis, it is, because I dread you Bacchantes, and your Bacchanalian den<milestone n="53" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your Bacchanalian den</lemma>:  "Bacchanal" was properly the place where the Bacchanalia, or orgies, were celebrated. He styles them "Bacchantes," and their house a "Bacchanal," in allusion both to their names and their habits.</note>.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> What is it that you dread? Surely, not that the couch in my house may lead you into mischief?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Your allurements<milestone n="55" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your allurements</lemma>:  There is a play here upon the resemblance of the words "<foreign lang="la">illectus</foreign>," "allurement," and "<foreign lang="la">lectus</foreign>," a "bed."</note>, more than your couch, do I dread. You're a mischievous serpent<milestone n="55" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Mischievous serpent</lemma>:  "<foreign lang="la">Mala tu's bestia</foreign>." Literally, "you are an evil beast;" which sounds harsh to an English ear, even when applied to such an animal as Bacchis.</note>. But, madam, a lurking-place does not befit this youthful age.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Should you wish at my house to do anything that's unwise, I myself should hinder it. But, when the Captain comes, I wish you to be at my house for this reason; because, when you are present, no one will do her and me any injury. You will prevent that, and by the same means you will be aiding your friend; this Captain, too, on arriving, will suspect that I am your mistress. Why are you silent, pray?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Because these things are pleasant in the talking of; but in the practice, and when you make trial, the same are armed with stings. They pierce the feelings, goad one's fortune, and wound one's merits and character.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> What do you dread from her?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What do I dread, do you ask? Am I a person in my youth to enter a place of exercise<milestone n="66" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A place of exercise</lemma>:  He draws a parallel between the life of a person who for health and rational recreation frequents the "<foreign lang="la">palaestra</foreign>," or school for exercise, and of those who frequent the haunts of Courtesans. He alludes in the following lines to the exercises of throwing the quoit, running, boxing fencing, hurling the lance, and riding.</note> of such a nature, where people sweat to their undoing?--where for the quoit I rereive a loss, disgrace, too, for my running?</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> How charmingly you do talk. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Where I'm to take a turtle-dove<milestone n="68" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A turtle-dove</lemma>:  The turtle-dove, as being sacred to Venus, would be an appropriate inmate of a Courtesan's house.</note> instead of a sword, and where another puts into my hand the goblet<milestone n="69" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The goblet</lemma>:  "<foreign lang="la">Cantharus</foreign>" was a kind of drinking-cup, with two handles. It was considered as peculiarly sacred to Bacchus, the tutelary Divinity of Bacchis, whom Pistoclerus is addressing.</note> instead of the cestus; the drinking-cup<milestone n="70" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The drinking-cup</lemma>:  "<foreign lang="la">Scaphium</foreign>" here probably means a "drinking vessel with a swelling belly." Some Commentators, however, think that it has here the same meaning as "<foreign lang="la">matula</foreign>."</note> is in place of the helmet, the wreathed garland instead of the crest<milestone n="70" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Instead of the crest</lemma>:  The "<foreign lang="la">insigne</foreign>" was the crest, or waving plume of the helmet.</note>, the dice in place of the lance. For the coat of mail I should have to assume a soft cloak<milestone n="71" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A soft cloak</lemma>:  It was the custom at entertainments for the revellers to exchange their ordinary clothes for fine vestments, elaborately embroidered.</note>; where, too, in place of a horse a couch must be given me,--for shield, a strumpet<milestone n="72" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For shield, a strumpet</lemma>:  "<foreign lang="la">Scortum pro scuto</foreign>." There is a play here upon the resemblance of the words.</note> may be lying by me. Avaunt from me--avaunt!</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> O, you're too fierce. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I am attending to my own interests.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> You must be softened down; and, in fact, I offer you my aid in this.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> But you are too expensive an assistant.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Do pretend that you are in love with me.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Whether should I be pretending that in jest, or seriously?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Well said! better to do the last. When the Captain comes here, I want you<milestone n="76" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I want you</lemma>:  He is only to pretend to be her admirer when the Captain comes, by way of accounting for his presence and interference on behalf of her sister. This is afterwards rendered unnecessary by his own pliancy, and the arrival of Mnesilochus himself.</note> to embrace me.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What need is there of my doing that?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> I want him to see you. I know what I'm about?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> And I, i' faith, I know not what I'm in fear of. But what say you----?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> What's the matter now?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Well, suppose perchance on a sudden a breakfast or a drinking bout, or else a dinner, should take place at your house, just as is the wont in such places of resort; where, then, should I take my place?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Near myself, my life, that with a she wit a he wit may be reclining at the repast. A place here, at our house, should you come late, is always at your service. When you wish right merrily to disport yourself, my rosebud, you say to me, "Do let me enjoy myself to-day," I'll provide you a delightful place where it may be so.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Here is a rapid stream; not without hazard can this way be passed.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> <stage>aside</stage>. And, by my troth, something must you lose amid this stream. <stage>Aloud.</stage> Give me your hand and follow me.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> O, by no means. 1st </p></sp>
+<sp><speaker>FIRST BACCHIS </speaker><p> Why so?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Because to a man in his youth nothing can be more alluring than these--night, women, wine.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Away, then, with you; for my part, I don't at all care for it, but for your own sake. The Captain, then, shall take her off; don't you be present at all if you don't choose.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> <stage>to himself</stage>. And am I a thing of nothing, who cannot moderate my own passions?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> What's there for you to fear?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> There's nothing; all nonsense. Madam, I resign myself to you. I'm yours; to you do I devote my services.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> You are a dear man. Now I wish you to do this. To-day I want to give a welcome entertainment<milestone n="94" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A welcome entertainment</lemma>:  "C&aelig;na viatica" was an entertainment offered to a person by his friends immediately on his arrival from a voyage or journey.</note> to my sister. For that purpose I shall at once order the money<milestone n="95" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Order the money</lemma>:  This she says artfully, well knowing that he will at once offer to bear the expense of the entertainment.</note> to be brought you from in-doors. Do you take care and cater for us a splendid entertainment.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> No, I'll stand treat; for it would be a shame, that on my account you both should take trouble for me, and by reason of that trouble should pay the expense from your own means.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> But I can't allow you to give anything.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Do let me.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Well, I'll let you, if you choose. Prithee, do make haste.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I shall be here again, before I cease to love you.  <stage>(Exit PISTOCLERUS.)</stage></p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> You entertain me pleasantly upon my return, my sister.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> How so, prithee?</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> Because, in my way of thinking, this day a lucky haul has fallen to your lot.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> He's mine, assuredly. Now, sister, with respect to Mnesilochus, I'll give you my aid<milestone n="103" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give you my aid</lemma>:  They will try to get Mnesilochus to advance the-money to redeem her from the Captain.</note>, that here at home you may be receiving gold, rather than be going hence together with the Captain.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> That's my desire.</p></sp>
+<sp><speaker>1st BACCHIS </speaker><p> My aid shall be given you. The water's warm; let's go in, that you may bathe. For, as you have travelled on board ship, you are faint, I think.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> A little so, sister. <stage>PISTOCLERUS is seen at a distance.</stage> Besides, he's beginning to cause I don't know what bustle. Let's begone hence.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Follow me this way in-doors to bathe, that you may relieve your weariness.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="109" unit="TLN line"/>
+<stage>Enter PISTOCLERUS, accompanied by People with Provisions for the Entertainment, followed by LYDES.</stage>
+<sp><speaker>LYDUS</speaker><p> For some time, Pistoclerus, I've been following you in silence<note anchored="yes"><lemma targOrder="U">Following you in silence</lemma>:  We must not be surprised to find "Lydus" a Lydian slave, as his name imports, acting as the "<foreign lang="la">paedagogus</foreign>," or "tutor," of Pistoclerus. Among the wealthy, the sons of the family were committed to the "<foreign lang="la">paedagogi</foreign>" at their sixth or seventh year, and of course that officer was selected from the most trustworthy and most learned among the slaves. The youths remained under the tutor till they reached the years of puberty. His duty was rather to watch and protect them and accompany them to their school and the "<foreign lang="la">gymnasium</foreign>" or "<foreign lang="la">palaestra</foreign>," the place of exercise, than to instruct them himself; indeed; the "<foreign lang="la">praeceptores</foreign>," or "teachers," are expressly distinguished by Quintilian from the "<foreign lang="la">paedagogi</foreign>," or "conductors" of the youths. Eunuchs were sometimes appointed to this office. Among the Romans, a tutor attended on both boys and girls very frequently, as they were not confined at home according to the Grecian custom. During the Empire, much care was taken in the training of the "<foreign lang="la">paedagogi</foreign>."</note>, watching what you were doing in this dress<milestone n="110" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In this dress</lemma>:  He has put on the "<foreign lang="la">malacum pallium</foreign>," "the soft garment," mentioned in l. 71, as being about to join the entertainment which he is providing.</note>. For, so may the Gods favour me, even Lycurgus himself<milestone n="111" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lycurgus himself</lemma>:  He says that such company is enough to corrupt Lycurgus himself, a man of the most moral and strict habits. He was the lawgiver of Sparta.</note> seems to me as if he could be led into debauchery here. Whither now are you betaking yourself hence in an opposite direction with such a train?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> To this place <stage>pointing to the house</stage>.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Why to this place? Who lives there?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Love, Pleasure, Venus, Beauty, Joy, Jesting, Dalliance, Converse, and Sweet-kissing.</p></sp>
+<sp><speaker>LYDUS</speaker><p> What intercourse have you with these most destructive Deities?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Bad are those men who speak evil of the good. You speak not well of even the Gods themselves; you do what is not right.</p></sp>
+<sp><speaker>LTD.</speaker><p> Is Sweet-kissing, then, some God?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> And do you not think she is? O Lydus, why, what a barbarians<milestone n="121" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What a barbarian</lemma>:  He alludes to Lydia, the country of Lydus, which was "<foreign lang="la">barbara</foreign>."</note> you are, you, whom I had deemed to be far more wise than Thales hinself<milestone n="122" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Than Thales himself</lemma>:  Thales of Miletus was one of the seven wise men of Greece. He was the founder of the Ionic sect of philosophers.</note>. Go to, you are more foolish than Potitius, the foreigner<milestone n="123" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Potitius, the foreigner</lemma>:  "<foreign lang="la">Barbaro</foreign>" signifies "Roman," the scene being in Attica. We learn from St. Augustine that the Potitii received the epithet of "<foreign lang="la">stulti</foreign>," "unwise," from the following circumstance. They were the hereditary priests of Hercules, at Rome. Wishing to lighten their duties, they instructed some slaves in their office, for which, by the wrath of the Divinity twelve families of them were destroyed in one night.</note>, who, at an age so advanced, knew not the names of the Divinities.</p></sp>
+<sp><speaker>LYDUS</speaker><p> This dress of yours pleases me not.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> But no one prepared it for you; it was prepared for myself, whom it pleases well.</p></sp>
+<sp><speaker>LYDUS</speaker><p> And do you commence upon your repartees against myself even? You, who, if you had even ten tongues, ought to be silent.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Not every age, Lydus, is suited for school<milestone n="129" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Suited for school</lemma>:  There is here a "Paronomasia," or jingle upon the resemblance of the words "<foreign lang="la">Lyde</foreign>," "Lydus," and "<foreign lang="la">ludo</foreign>," "a school."</note>. One thing especially is just now on my mind, how the cook may with due care attend to these things as befits the elegance of the entertainment.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Now have you undone yourself and me and all my labours, me who so oft have shown you what is right, all to no purpose.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> In the same place have I lost my labour where you've lost yours: your instructions profit neither me nor yourself.</p></sp>
+<sp><speaker>LYDUS</speaker><p> O obdurate heart! </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> You are troublesome to me. Hold your tongue, Lydus, and follow me.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Now, see that, please; he no longer calls<milestone n="138" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He no longer calls</lemma>:  He is shocked at the want of respect shown to him by his pupil.</note> me "tutor," but mere "Lydus."</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> It seems not proper, nor can it be fit, that, when a person is in a house, and is reclining at the feast together with his mistress, and is kissing her, and the other guests are reclining too, the tutor should be there too in their presence.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Are these provisions purchased for such a purpose, pray?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> My intentions, indeed, expect so; how it falls out, is in the hands of the Gods.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Will you be having a mistress?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> When you see, then you'll know.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Aye, but you shall not have one, and I won't allow it. Go back again home.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Do leave me alone, Lydus, and beware of mischief<milestone n="147" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Beware of mischief</lemma>:  This is a threat of vengeance if Lydns presumes to interfere any further.</note>.</p></sp>
+<sp><speaker>LYDUS</speaker><p> What? Beware of mischief? O yawning gulf, where art thou now? How gladly would I avail myself of thee! Already have I lived far longer than I could have wished. 'Twere much better now to have once existed than to be living still. That any pupil should thus threaten his tutor!</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> My years are now advanced beyond your tutorship.</p></sp>
+<sp><speaker>LYDUS</speaker><p> I want no pupils for me with heated blood<milestone n="153" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With heated blood</lemma>:  "<foreign lang="la">Plenus sanguinis</foreign>." Literally, "full of blood."</note>. An up-grown one may harass me thus devoid of strength.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> As I guess, I shall become a Hercules, and you a Linus<milestone n="155" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You a Linus</lemma>:  Linus instructed Hercules in music, and was slain by his scholar with his musical instrument.</note>.</p></sp>
+<sp><speaker>LYDUS</speaker><p> I' faith, I fear more that through your goings-on I shall become a Ph&oelig;nix<milestone n="156" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Become a Ph&oelig;nix</lemma>:  Ph&oelig;nix was the preceptor who attended Achilles to the Siege of Troy, and brought the account of his death to his father Peleus.</note>, and have to tell the news to your father that you are dead.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Enough of these stories. </p></sp>
+<sp><speaker>LYDUS</speaker><p> This youth is lost to shame<milestone n="158" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is lost to shame</lemma>:  "<foreign lang="la">Hic vereri perdidit</foreign>." Literally, "He has lost how to be ashamed."</note>; the man's ruined. And does it then recur to you that you have a father?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Am I your servant, or you mine?</p></sp>
+<sp><speaker>LYDUS</speaker><p> By my troth, you made an exchange not desirable for that age of yours, when you gained these impudent ways. Some bad master has been teaching you all this, not I. You are a scholar far more apt at these pursuits than at those lessons which I taught you when I was losing my labour. Troth, 'twas a bad piece of deceit you were guilty of at your age, when you concealed these vicious tendencies from myself and from your father.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Lydus, you have thus far had liberty of speech; that is enough. So now do you follow this way, and hold your tongue<milestone n="169" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hold your tongue</lemma>:  The interval between this Act and the next is filled up with the time necessary for preparing the entertainment which Pistoclerus is giving to Bacchis and her sister.</note>. <stage>They go into the house of BACCHIS.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="170" unit="TLN line"/>
+<stage>Enter CHRYSALUS.</stage>
+<sp><speaker>CHRYSALUS</speaker><p> All hail, land of my master! which I joyfully behold after the two years that I have been absent hence at Ephesus. I salute thee, neighbour Apollo<milestone n="172" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Neighbour Apollo</lemma>:  He is supposed to refer to Apollo "<foreign lang="la">Prostitorus</foreign>," whose statue was placed in the vestibule of the houses, and to whom the Athenians paid veneration as the tutelar God of their habitations.</note>, who dost have thy shrine close by our house, and to thee do I make my prayer, that thou wilt not let me meet our old gentleman, Nicobulus, before I have seen Pistoclerus, the friend of Mnesilochus, him to whom Mnesilochus has sent the letter about his mistress, Bacchis.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="178" unit="TLN line"/>
+<stage>Enter PISTOCLERUS from the house of BACCHIS.</stage>
+<sp><speaker>PISTOCLERUS</speaker><p> <stage>to the FIRST BACCHIS within</stage>. 'Tis strange that you are so earnestly begging me to return, who am able by no possible means to depart hence, if I were willing, so bound down<milestone n="180" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">So bound down</lemma>:  "<foreign lang="la">Vadatus</foreign>" was a term properly applied to a person bound under a penalty as surety for another.</note>, and so enchained with love do you hold me.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> O, ye immortal Gods, I espy Pistoclerus! O, Pistoclerus, hail!</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Hail, Chrysalus, to you! </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I will at present compress many speeches for you in a small space. You are glad that I am come; I give you credit for it. You promise me lodging and an entertainment coming from my journey, as it is befitting, and I agree to come. I bring you the sincere greetings of your friend. Would you ask me where he is? He's come.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Is he alive and well? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> That I was wishful to enquire of yourself.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> How can I know? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> No one better.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Why, in what way? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Because if she has been found whom he so loves, he is alive and well. If she is not found, he is not well, and is like to die. His mistress is the very life of a lover. If she is away, he is non-existent; if she is with him, his property is non-existent, and himself worthless and wretched. But what have you done in respect of his commission?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> And ought I not to have his request complied with against his arrival, which his messenger brought to me from him? I'd sooner be dwelling in the realms of Acheron than not.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> How now, have you found out this Bacchis?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Yes, and a Samian one too. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Prithee, do take care that no one handles her carelessly: you know how soon a Samian vessel<milestone n="202" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A Samian vessel</lemma>:  He plays upon the word "Samian," as the isle of Samos was celebrated for the quality of its earthenware, which, as he here says, was very brittle.</note> is wont to break.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What now, your old habit? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Prithee, do tell me where she now is.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Here, where you just now saw me coming out.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> How capital that is! She's living almost next door. Does she at all remember Mnesilochus?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Do you ask me that? Aye, him alone does she esteem at the very highest value.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Indeed! </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Yes, and were you to believe her, distractedly in love--she quite longs for him.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> That's good. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Yes, Chrysalus; see, now; not even so small a space of time ever passes by as this<milestone n="209" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Passes by as this</lemma>:  This is doing what the Greeks call <foreign lang="greek">deiktikw=s.</foreign> Suiting the action to the word, he points at the time of speaking to something very small, perhaps the breadth of his finger-nail.</note>, out that she is uttering his name.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I' faith, so much the better. <stage>Moving, as if about to go.</stage></p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Yes; but--<stage>Holds him.</stage> CHRYS. Yes, faith<milestone n="211" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Yes, faith</lemma>:  It has been suggested that Chrysalus is put out of patience here by the frequent repetition by Pistoclerus of the word "<foreign lang="la">immo</foreign>," "aye," or "yes;" on which he rejoins, "<foreign lang="la">immo</foreign>, &amp;c.," "yes, and I'll be off."</note>, I'd rather be off.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> And do you so unwillingly hear how your master's interests have prospered?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> No, not the subject<milestone n="213" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">No, not the subject</lemma>:  He seems to mean that he is not displeased with the subject. but at the tedious way in which Pistoclerus relates it to him.</note>, but the actor offends my feelings with his tediousness. Even "Epidicus," a play that I love quite as much as my own self, were Pollio to act it<milestone n="216" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pollio to act it</lemma>:  It is clear from this that the Epidicus of Plautus was written before the Bacchides. With a rather unusual degree of license he seems to refer to an event that has recently happened, and it is not improbable that the "Epidicus," good play as it was, had suffered from the demerits of some contemptible actor of the day, known as Pollio. Plautus thus excuses his play, and excites a laugh by the quaintness of the remark. There is a passage in the Nigrinus of Lucian that throws light on this: "Friend, have you never seen a bad Tragic or Comic actor? some of those I mean who are hissed because they spoil a good play with their acting, and are at last driven off the stage; though the play itself be at other times applauded, and bear away the prize."</note>, no play would I see so reluctantly. But, does Bacchis seem handsome, as well, to you?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Do you ask the question? Had I not got a Venus, I should pronounce her a Juno.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I' faith, Mnesilochus, as I find these matters proceeding, there's something ready for you to love; 'tis needful that you find something to give her. But, perhaps you have need of gold for that other one?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Yes, some Philippeans. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> And you have need of it directly, perhaps?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Aye, and even sooner than directly. For there's a Captain coming here just now----</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> A Captain, indeed! </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Who is demanding some gold here for relinquishing Bacchis.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Let him come when he pleases, and so there be no delay. The money's at home; I fear not for myself, nor do I go begging to any man; so long, at least, as this heart of mine shall be armed with its inventiveness. Go in; I'll manage here. Do you tell them in-doors, that Mnesilochus is coming to Bacchis.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I'll do as you request. <stage>Goes into the house of BACCHIS.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> The money business belongs to me. From Ephesus we have brought twelve hundred golden Philippeans, which our entertainer owed to our old gentleman. Hence, some contrivance<milestone n="239" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Some contrivance</lemma>:  "<foreign lang="la">Machinabor machinam</foreign>" is an Atticism borrowed by Plautus, probably from the original. With us it would be literally "will machinate a machine"</note> will I this day contrive, to procure gold for this son of my master thus in love. But there's a noise at our door--who's coming out of doors, I wonder? <stage>Stands aside.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="235" unit="TLN line"/>
+<stage>Enter NICOBULUS from his house.</stage>
+<sp><speaker>NICOBULUS</speaker><p> <stage>to himself</stage>. To the Pir&aelig;us will I go; I'll go see whether any merchant-ship has come into harbour from Ephesus. For my mind misgives me; my son lingers there so long, and does not return.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>aside</stage>. Now, I'll finely unravel him, if the Gods are propitious. There must be no sleeping; gold is requisite<milestone n="240" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Gold is requisite</lemma>:  "Opus est chryso Chrysalo." He borrows the Greek word "<foreign lang="greek">xruso\s</foreign>" "gold," and plays on his own name, which has that word for its origin.</note> for Chrysalus. I'll accost him, whom for sure this day I'll make a ram of Phryxus<milestone n="241" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ram of Phryxus</lemma>:  The Ram with the golden fleece carried Phryxus in safety over the Hellespont; but his sister Helle fell off its back on the passage, from which that arm of the sea derived its name. Jason recovered the golden fleece by the aid of Medea. The story of Helle and Phryxus is related at length in the Fasti and the Metamorphoses of Ovid.</note> of; so, even to the quick<milestone n="242" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Even to the quick</lemma>:  "Ad vivam cutem"--literally, "to the living skin."</note>, will I shear him of his gold. <stage>Accosting him.</stage> His servant Chrysalus salutes Nicobulus.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> O, immortal Gods! where is my son?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Why don't you return the salutation first, which I gave you?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Well, save you. But where on earth is Mnesilochus P</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He is alive and well. Nico. Is he not come?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He is come. Nico. Hurra! you've brought me to<note anchored="yes"><lemma targOrder="U">You've brought me to</lemma>:  <foreign lang="la">Aspersisti aquam</foreign>--literally, "you have sprinkled water on me," in allusion to the refreshing effects of water in cases of faintness.</note> my senses. And has he all along been well?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Aye, well as a boxer<milestone n="248" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Well as a boxer</lemma>:  "<foreign lang="la">Pancratice atque athletice</foreign>"--literally, "boxing-like and wrestler-like."</note> and an athlete.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> But what as to this--the business on account or which I sent him hence to Ephesus? Has he rot received the gold from his entertainer, Archidemides?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Alas! my heart and my brain are cleft, Nicobulus, whenever mention is made of that fellow. Why don't you call that entertainer of his your enemy?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Troth now, prithee, why so?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Because, i' faith, I know for sure, that Vulcan, the Moon, the Sun, the Day, those four Divinities, never shone upon another more wicked.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What, than Archidemides? Dear me!</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Than Archidemides, I say. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What has he done?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What has he not done? Why don't you ask me that? In the first place, then, he began to make denials to your son, and to assert that he didn't owe three obols<milestone n="260" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Three obols</lemma>:  The "<foreign lang="la">obolus</foreign>" was a very small Greek silver coin. Its value was something more than three-halfpence of our money.</note> to you. Forthwith, Mnesilochus summoned to himself there our ancient host, the old gentleman, Pelago; in his presence, he at once showed the fellow the token<milestone n="263" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The token</lemma>:  "<foreign lang="la">Symbolum</foreign>" was some object which a person delivered to another, in order to serve as a mark, sign, or token to a third person, that he was to do something which had been previously agreed upon.</note>, which you yourself had given to your son to deliver to him.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Well--when he showed him the token?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He began to say that it was counterfeit, and that it was not a true token; and how many reproaches he did utter against him so undeserving of them! and he said that in other matters he had committed forgery.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Have you not the gold? In the first place, I want that to be told me.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Yes, after the Pr&aelig;tor had appointed delegates<milestone n="270" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Appointed delegates</lemma>:  "<foreign lang="la">Recuperatores</foreign>" were certain commissioners or judges-delegate, who were usually named by the Pr&aelig;tor, at Rome and in the provinces, to decide matters in dispute, such as disagreements about money and property; also to assess the damages where a wrong had been done; to enquire whether a man was freeborn or not; or, to which of two claimants civic honours properly belonged.</note>; being cast, at length compelled by force he paid down twelve hundred Philippeans.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> He owed that much. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Besides, listen to another struggle of his, as well, which he was desirous to enter on.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What, besides, as well? Oho! this will turn out now a regular hawk's nest<milestone n="274" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Regular hawk's nest</lemma>:  "<foreign lang="la">Accipitrina</foreign>." This word is given by Ritschel, in place of the old reading "<foreign lang="la">accipe trina</foreign>," which made nonsense. The word does not seem to occur elsewhere.</note>. I've been deceived. I've entrusted my gold to an Autolycus<milestone n="275" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An Autolycus</lemma>:  Autolycus was the son of Mercury and the grand-father of Ulysses. He was noted for his thievish propensities, and was in the habit of painting the cattle which he had stolen of another colour, in order that they might not be recognized.</note> for my host!</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Nay, but do you listen---- </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Well, I wasn't aware of the disposition of my avaricious entertainer.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Afterwards, at last we had got the gold, and embarked on board ship, desirous for home. By chance, as I was sitting on the deck, while I was looking about me, at that moment I beheld a long bark being fitted out by this cheating knave.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Troth, I'm undone; that bark breaks my heart<milestone n="281" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Breaks my heart</lemma>:  "<foreign lang="la">Laedit latus</foreign>" -- literally, "hurts my sides," or in other words, "gives me a twitch."</note>.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> This was held in partnership by your host and some pirates.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> And that I should be such a blockhead as to trust him, when his very name of Archidemides<milestone n="284" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Name of Archidemides</lemma>:  He puns upon the name of Archidemides, which was really derived from the Greek "<foreign lang="greek">a)/rxomai,</foreign>" "to govern," and "<foreign lang="greek">dhma\s,</foreign>" "the people," To adapt his pun, however, to the taste of a Roman audience he would make out that it was in part a compound of the Latin word "<foreign lang="la">demo</foreign>," to filch" or "take away."</note> cried aloud to me that he would deprive me of it, if I should entrust anything to him.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> This bark was lying in wait for our ship. I began to watch them, to see what business they were about. Meanwhile, from harbour our ship set sail. When we had fully left the harbour, these fellows began to follow with their oars; nor birds, nor winds more swiftly. As I discovered what scheme was being carried out, at once we dropped anchor. As they beheld us stopping, they began to keep their vessel back in harbour.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Wicked wretches, by my troth. What did you do at last?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> We returned again into harbour. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> 'Twas cleverly done by you. What after that?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> At nightfall they returned ashore.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Troth now, they intended to carry off the gold; they were attempting that plan, no doubt.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> It didn't escape me; I discovered it: I was almost terrified to death by it. As I saw that a scheme was being laid against the gold, forthwith on this we came to this determination; the next day we carried away all the gold thence in their presence, openly and publicly, that they might know it was done.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Skilfully managed, i' faith. Tell me, what did they?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Chopfallen at once,--soon as ever they saw us leaving the harbour with the gold, shaking their heads, they hauled their bark ashore. We deposited all the gold with Theotimus, who is a priest there<milestone n="307" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A priest there</lemma>:  St. Paul, when he visited Ephesus, found Diana still enthroned there in the full blaze of her glory. Her temple was esteemed one of the wonders of the world.</note> of Ephesian Diana.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Who is this Theotimus? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> The son of Megalobyzus<milestone n="308" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Son of Megalobyzus</lemma>:  The priests of Diana at Ephesus are supposed to have been eunuchs, and the priestesses virgins. Taubmann thinks that "Megabyzus," which ought to be read here, was a general name of the priests of Diana; and that the words "<foreign lang="la">Megabyzi filius</foreign>," "a son of Megabyzus," have the same import as the word "Megabyzus" itself. It may, however, mean that Theotimus was a priest, and not of necessity that his father was so.</note>, who is now living at Ephesus, a man most dear to the Ephesians.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> By my troth, he'll surely turn out very much more dear to me<milestone n="309" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">More dear to me</lemma>:  The pun here perpetrated answers equally well in English.</note> if he shall chouse me out of all that gold.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> But it is stowed away in the very temple itself of the Goddess Diana; there they keep guard at the public expense<milestone n="313" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At the public expense</lemma>:  The ancients used to place a guard, at the public expense, at the gates of their temples, as great quantities of property or value were there deposited as in places of safety.</note>.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> You kill me outright; much more safely would it have been kept in private hands. But haven't you brought any of the gold home here?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> O yes; but how much he has brought, I don't know.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> How's that?--not know? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Because Mnesilochus went privately by night to Theotimus; and didn't wish to entrust it to me, nor to any one in the ship. For that reason I don't know how much he has brought, but he hasn't brought very much.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Do you think it was even a half?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> By my troth, I know not; but I don't think it.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Does he bring a third part?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Troth, I think not; but I do not know the truth. Indeed, I know nothing at all about the gold, except that I do know nothing about it. Now, you yourself must take a voyage there on board ship, to carry home this gold from Theotimus; and, hearkye---- <stage>Takes him by the arm.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What do you want? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Take care and remember to carry your son's ring.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What need is there of the ring?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Because that is the token agreed on with Theotimus, that the person who brings it to him, to him he is to give up the gold.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I'll remember it, and you advise me well. But is this Theotimus rich?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What, do you ask that? Why, hasn't he the soles fastened to his shoes with gold?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Why does he thus despise it?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He has such immense riches; he doesn't know what to do with his gold.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I wish he'd give it me. But in whose presence was this gold delivered to Theotimus?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> In presence of the people; there's not a person in Ephesus but what knows it.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> My son at least did wisely there, in entrusting that gold to a rich man to keep. From him it may be recovered even at a moment's notice.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Aye, and look here, he'll never keep you waiting even thus much <stage>shows his finger-nail</stage> from receiving it on the very day you arrive there.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I thought that I had escaped a seafaring life, and that, at length, an old man of my years, I shouldn't be sailing about. But now I find that I'm not allowed to have the choice whether I would or no; 'tis my fine host Archidemides has done me this. Where, then, is my son, Mnesilochus, at present?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He has gone to the market-place to pay his respects to the Deities and his friends.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Then I'll go hence to meet him as soon as I can. <stage>(Exit NICOBULUS.)</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He's right well loaded, and carries more than his proper burden. Not so very badly has this web been commenced by me, that I may find means for the son of my master in his amour. I've managed it so, that he may take as much of the gold as he chooses, and give up to his father as much as he may like to give up. The old gentleman will be going hence to Ephesus to fetch his gold; here our life will be spent in a delicious manner, since the old man will leave me and Mnesilochus here, and not be taking us along with him. O! what a kick-up I shall be making here. But what's to be done, when the old gentleman shall have discovered this? When he shall have found out that he has made his journey thither to no purpose, and that we have misspent his gold, what will become of me after that? I' faith, I think upon his arrival he'll be changing my name, and at once be making me Crucisalus<milestone n="362" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Crucisalus</lemma>:  Anticipating the punishment of the cross, which was often inflicted on slaves, he coins an epithet, "<foreign lang="la">crucisalus</foreign>," "cross-struggler," for himself, and then compares it with his own name.</note> instead of Chrysalus. Troth, I'll run away, if there shall be a greater necessity for it. If I'm caught, I'll plague him for a punishment<milestone n="364" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For a punishment</lemma>:  He means to say, that his master will not be able to chastise him without punishing himself, in some measure, by the loss of the rods that will be wasted on his back.</note>; if his rods are in the fields, still my back's at home. Now I'll be off, and tell my master's son this contrivance about the gold, and about his mistress Bacchis who has been found. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="368" unit="TLN line"/>
+<stage>Enter LYDUS from the house of BACCHIS.</stage>
+<sp><speaker>LYDUS</speaker><p> Open and throw back straightway this gate of hell<milestone n="368" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This gate of hell</lemma>:  The words of Lydus strongly resemble those of Solomon, in the <bibl n="proverbs 8.27">Eighth Chapter of Proverbs, verse 27</bibl>: "Her house is the way to hell, going down to the chambers of death."</note>, I do entreat. For, really, I do deem it nothing else; inasmuch as no one comes here but he whon all hopes have deserted, that he may yet be a decent person. Bacchis--no, not Bacchis is their name, but they are most determined Bacchanals. Avaunt from me, you sisters, who suck the blood of men. Richly and elegantly furnished is this house--for destruction. Soon as I beheld all this, at once I straight-way way betook myself to my heels. And ought I to carry these things concealed in secrecy? Ought I, Pistoclerus, to conceal from your father your excesses, or your misdeeds, or your places of resort? by which you are aiming to drive your father and myself, and your own self and all your friends, to disgrace, and shame, and ruin altogether, and to destroy us all. Within yourself you entertain no awe of either me or your own self on account of the deeds which you are doing by which you have made your own father and myself as well, your friends and your connexions, to be abettors<milestone n="381" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be abettors</lemma>:  "<foreign lang="la">Gerulifigulos</foreign>" -- literally, "carriers" or "hawkers about of pottery." He probably alludes to the low esteem in which these higglers were held; and it is not impossible, that by his reference to the earthen-ware, he alludes to the frail companions of Pistoclerus (whom he has just found to have come from Samos, where earthenware was made), in carrying out whose schemes the young man was, in a degree, making both Lydus himself, and his father, Philoxenus, his abettors.</note> in the disgrace of your excesses. Now, before you add this mischief to the rest, I am resolved at once to tell your parent. This instant from myself will I remove this blame, and shall disclose the matter to the old gentleman, that he may forthwith draw forth his son out from this loathsome pollution. <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="385" unit="TLN line"/>
+<stage>Enter MNESILOCHUS.</stage>
+<sp><speaker>MNESILOCHUS</speaker><p> In many ways have I thought it over with myself, and thus I think it is; a man your friend, who is a friend such as the name imports--except the Gods--nothing does excel him. By fact have I experienced it so to be. For when I departed hence to Ephesus ('tis now almost two years ago it happened), from Ephesus I sent letters hither to my friend Pistoclerus, requesting that he would find out my mistress Bacchis for me. I hear that he has found her, as my servant Chrysalus has brought me word. How aptly, too, has he framed a device against my father about the gold, that I may have abundance in my amour. I see 'tis right<milestone n="393" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I see 'tis right</lemma>:  The whole of the passage, from the word "<foreign lang="la">aequom</foreign>," in this line, to "<foreign lang="la">celabis</foreign>," in 1. 403, is supposed by Ritschel not to have been the composition of Plautus, but of some other ancient poet. The passage is in a most confused state, and the reading suggested by Rost has been here adopted, the lines being read in the following order: 393, 396, 394, 397, 395, 398.</note> that I should make a due return. 'Tis better for you to be styled extravagant than ungrateful; but, i' faith, in my way of thinking at least, there's nothing more extravagant than the ungrateful man. The former the good will praise, the latter even the bad will censure. 'Twere better for an ill-doer to escape than for a benefactor to be deserted. For this reason, then, it behoves me to take the greater care; I needs must be on the watch. Now, Mnesilochus, the sample is on view, now the contest is being decided, whether you are or are not such as you ought to be; good or bad, of whichever kind; just or unjust, penurious or liberal, fretful or complying. Take you care, if you please, lest you let your servant exce. you in doing well. Whatever you shall prove, I warn you, you shall not be concealed. But see, I perceive my friend's father and his tutor coming this way. I'll listen what matter 'tis they are upon. <stage>He retires aside.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="405" unit="TLN line"/>
+<stage>Enter LYDUS and PHILOXENUS.</stage><note anchored="yes">Thornton suggests that Moli&egrave;re had in his eye this Scene when he wrote "<title lang="fr">Les Fourberies de Scapin</title>," which Otway translated under the title of "The Cheats of Scapin."</note>
+<sp><speaker>LYDUS</speaker><p> I'll now make trial, whether your heart is sharpened by wisdom in your breast. Follow me.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Whither shall I follow? Whither are you now leading me?</p></sp>
+<sp><speaker>LYDUS</speaker><p> To her who has undone, utterly destroyed your single, only son.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> How now, Lydus; those are the wiser who mode-rate their passion. 'Tis less to be<milestone n="409" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">'Tis less to be</lemma>:  After reading this, we shall be the less surprised at the conduct of Philoxenus in the last Scene.</note> wondered at if this age does some of these things than if it does not do so; I, as well, did the same in my youth.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Ah me! ah me! this over-indulgence has proved his ruin. For had he been without you, I should have had him trained up to moral rectitude; now, by reason of you and your trusting disposition, Pistoclerus has become abandoned.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>aside</stage>. Immortal Gods! he names my friend. What means this, that Lydus is thus exciting his master, Pistoclerus?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> 'Tis but a little time, Lydus, that a man has a desire to indulge his inclinations; the time will soon come, when he will hate himself even. Humour him; so that care is taken that he offends not beyond the line of honor, e'en suffer him.</p></sp>
+<sp><speaker>LYDUS</speaker><p> I'll suffer him not, nor, for my part, while I'm alive, will I allow him to be corrupted. But you, who are pleading his cause for a son so profligate, was this same your own training, when you were a young man? I declare that for your first twenty years you had not even this much liberty, to move your foot out of the house even a finger's length away from your tutor. When it did happen so, this evil, too, was added to the evil; both pupil and preceptor were esteemed disgraced. Before the rising of the sun had you not come to the school for exercise<milestone n="426" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The school for exercise</lemma>:  "<foreign lang="la">Palaestram</foreign>." This was the school for athletic exercise, probably for both youths and men; though it has been contended that the "<foreign lang="la">palaestra</foreign>" was devoted to the youths, and the "<foreign lang="la">gymnasium</foreign>" to the men.</note>, no slight punishment would you have had at the hands of the master of the school. There did they exercise themselves rather with running, wrestling, the quoit, the javelin, boxing, the ball, and leaping, rather than with harlots or with kissing; there did they prolong their lives<milestone n="430" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Prolong their lives</lemma>:  "<foreign lang="la">Extendere aetatem</foreign>" probably means here, not only "to live, but "to prolong life" by healthy exercise.</note>, and not in secret-lurking holes. Then, when from the hippodrome<milestone n="431" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The hippodrome</lemma>:  The "<foreign lang="la">hippodromus</foreign>" answered the same purpose as our riding-schools</note> and school of exercise you had returned home, clad in your belted frock<milestone n="432" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your belted frock</lemma>-- "<foreign lang="la">Cincticulum</foreign>" was a frock worn by children, with a girdle or belt round the waist.</note>, upon a stool by your masters<milestone n="432" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By your master</lemma>:  This "<foreign lang="la">magister</foreign>" would be what the Greeks called the <foreign lang="greek">dida/skalos,</foreign> or "preceptor," whose duty it was to instruct the children in grammar, music, and other accomplishments</note> would you sit; and there, when you were reading your book, if you made a mistake in a single syllable, your skin would be made as spotted as your nurse's gown<milestone n="434" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your nurse's gown</lemma>:  It is not known whether the words "<foreign lang="la">maculosum pallium</foreign>" refer here to a kind of spotted gown, perhaps of dark pattern, peculiar to nurses, or to the dirty, soiled appearance which, not improbably, their gowns usually presented. Some Commentators take a wider range, and think that the passage refers to the robe of Cybele, the Mother of the Gods, which was made of the skin of a panther.</note>.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>(aside).</stage> I'm sorely vexed, to my sorrow, that on my account these things should be said about my friend. In his innocence he incurs this suspicion for my sake.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> The manners, Lydus, now are altered.</p></sp>
+<sp><speaker>LYDUS</speaker><p> That, for my part, I know full well. For formerly, a man used to receive public honors by the votes of the people, before he ceased to be obedient to one appointed his tutor. But now-a-days, before he is seven years old, if you touch a boy with your hand, at once the child breaks his tutor's head with his tablet. When you go to complain to the father, thus says the father to the child: "Be you my own dear boy, since you can defend yourself from an injury." The tutor then is called for; "Hallo! you old good-for-nothing<milestone n="444" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You old good-for-nothing</lemma>:  That is, in his capacity as a slave, a purchaseable commodity.</note>, don't you be touching the child for this reason, that he has behaved so boldly;" and thus the despised tutor becomes just like a lantern<milestone n="446" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Just like a lantern</lemma>:  This passage has been much discussed by various Commentators. It is, however, most probable that the Romans used lanterns made of oiled linen cloth; and that he is comparing his head, when it has been broken by the tablets, and plaistered over with oiled linen, to one of these lanterns. In his Epistles to Atticus, <bibl n="Cic. Att. 4.3">B. 4, Ep. 3</bibl>, Cicero makes mention of "linen lanterns."</note> with his oiled linen rags. Judgment pronounced, they go away thence. Can this preceptor then, on these terms, keep up his authority, if he himself is to be beaten the first?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>aside</stage>. This is a severe accusation. So far as I understand his words, 'tis strange if Pistoclerus has never thumped Lydus with his fists.</p></sp>
+<sp><speaker>LYDUS</speaker><p> <stage>seeing MNESILOCHUS</stage>. But who is it that I see standing here before the door? O Philoxenus, I would not prefer for myself to behold even the propitious Gods rather than him.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Who's this? </p></sp>
+<sp><speaker>LYDUS</speaker><p> Why, he's Mnesilochus, the friend of your son. He is not of a like turn of mind with him who reclines and takes his meals in brothels. Fortunate Nicobulus! who begot him for himself.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> <stage>(advancing).</stage> My greetings to you, Mnesilochus; I'm glad that you have arrived safe.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> May the Gods favour you, Philoxenus.</p></sp>
+<sp><speaker>LYDUS</speaker><p> He, now, was born at a lucky moment for his father; he goes to sea, attends to the interests of his family, takes care of the house, is obedient and attentive to the wish and commands of his father. He, when but a boy, was the companion of Pistoclerus in his boyhood; 'tis not by three days that he is the older in age, but his disposition is more improved by thirty years than that of the other.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Beware of a mischief<milestone n="463" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of a mischief</lemma>:  "<foreign lang="la">Malo</foreign>" seems here to be a preferable reading to "<foreign lang="la">malum</foreign>." He alludes to the punishment, to which Lydus, as a slave, is liable.</note>, and forbear to speak of him unjustly.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Hold your peace. You're a foolish man, who cannot bear to have him badly spoken of who does badly. But I would rather have him draw upon my mishaps than upon my savings<milestone n="465" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Upon my savings</lemma>:  He seems to mean, that he had rather put up with insult, or violence even, from his pupil, than be responsible for his misdeeds in which latter case, probably, some part of his "<foreign lang="la">peculium</foreign>," or "savings," would be taken away from him, in the shape of fines.</note>.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Why so? </p></sp>
+<sp><speaker>LYDUS</speaker><p> Because, if he were to draw upon my mishaps, he would each day be making them less.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Why, Lydus, are you censuring your pupil, my friend?</p></sp>
+<sp><speaker>LYDUS</speaker><p> Your friend is ruined. </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> May the Gods forbid it.</p></sp>
+<sp><speaker>LYDUS</speaker><p> 'Tis so as I say. And further, I myself saw it when he was undone; I am not censuring him from hearsay.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> What has been done by him?</p></sp>
+<sp><speaker>LYDUS</speaker><p> He is disgracefully doting upon a harlot.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Won't you be silent now? </p></sp>
+<sp><speaker>LYDUS</speaker><p> She, too, like a tide, most voraciously swallows all up, whenever she has touched any one.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Where does this woman live? </p></sp>
+<sp><speaker>LYDUS</speaker><p> Here. <stage>(Points to the house.)</stage></p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Whence do they say she comes?</p></sp>
+<sp><speaker>LYDUS</speaker><p> From Samos. </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> What's her name?</p></sp>
+<sp><speaker>LYDUS</speaker><p> Bacchis. </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> You are wrong, Lydus; I know the whole affair, just as it is. You are blaming Pistoclerus without reason, and in his innocence. For he is carefully performing the business enjoined on him by his friend and companion, his sincere well-wisher. Neither is he himself in love, nor do you suppose him so.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Is it necessary for him carefully to perform the business enjoined upon him by his friend in this fashion--for himself, sitting down, to hold a damsel in his lap who is kissing him? Can the business thus entrusted be in no way transacted unless ever and anon he is placing his hand upon the bosom of Bacchis, or never withdraws his lips from hers? But I'm ashamed to make mention of other things which I have seen him do; when, in my presence, I saw him take most unbecoming liberties with the person of Bacchis, and yet not be at all ashamed. What need of words is there? My pupil, your friend, his son <stage>pointing to PHILOXENUS</stage>, is ruined. For I say that he is ruined, whose modesty in fact is lost. What need of words is there? Had I been willing to wait only a little time, that I might have had a better opportunity of viewing him, I then should, I think, have seen more than would have been proper for me to see, and for him to do.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>(aside).</stage> Friend, you have undone me. And ought I not to punish this woman with death? I should prefer that I should perish after some dreadful fashion. Isn't it the fact, you know not whom to deem faithful to yourself, or in whom to put your trust?</p></sp>
+<sp><speaker>LYS.</speaker><p> Don't you see how much he grieves that your son, his friend, has been corrupted? and how he is afflicting himself with sorrow?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Mnesilochus, I beg this of you, that you will influence his feelings and his disposition. Preserve for yourself a friend as well as a son for me.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I fain would do so. </p></sp>
+<sp><speaker>LYDUS</speaker><p> <stage>to PHILOXENUS</stage>. Much better, too, would you leave me here together with him.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Mnesilochus has cares, more than enough.</p></sp>
+<sp><speaker>LYDUS</speaker><p> Rate the man soundly, who disgraces me, yourself his friend, and others, by his excesses.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> <stage>to MNESILOCHUS</stage>. Upon you do I impose all this responsibility. Lydus, follow me this way. </p></sp>
+<sp><speaker>LYDUS</speaker><p> I follow you. <stage>(Exeunt PHILOXENUS and LYDUS.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="500" unit="TLN line"/>
+<stage>MNESILOCUHS, alone.</stage>
+<sp><speaker>MNESILOCHUS</speaker><p> Which of the two now I should think to be my greater enemy, my companion or Bacchis, is extremely doubtful. Has she chosen him in preference? Let her keep him, that's the best. Surely, by my troth, she has done this to her own loss. For never let<milestone n="504" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For never let</lemma>:  This passage is a circumlocution for "May I be prepared to commit a sacrilege, if, &amp;c."</note> any one entrust to me aught that is sacred, if I don't by an abundant example<milestone n="504" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Example</lemma>:  This is an instance of Aposiopesis. He stops short in his indignation, and owns that, despite of her supposed inconstancy, he loves her still.</note>, and----as-suredly love her. I'll make her not to say that she has got hold of a person to make a fool of. But I'll go home now and pilfer something from my father. Even to such straits will I force her, that beggary shall be the lot of<milestone n="508" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Shall be the lot of</lemma>:  This is another instance of Aposiopesis. He threatens his vengeance on her, even to making his father a beggar for her sake.</note>----my father. But do I really now possess my wits with a mind unimpaired, who am in this fashion prating here of these things that are to come to pass? I' faith, I'm of opinion that I'm in love, inasmuch as I know for sure I am. But still, than that she, from my abundance, should, by the scraping of a single feather, grow the richer, I'd rather outvie a beggar in begging. Never, by Heaven, while I live, shall she make a laughing-stock of me. For I have made up my mind to pay down all the gold at once to my father. Upon me, therefore, needy and penniless, shall she fawn, at the time, when it shall be for her advantage not a whit the more than if she were saying her pretty things to a dead man at his tomb. Beyond a doubt, 'tis my fixed determination to give the gold up to my father. Likewise, I'll entreat that, for my sake, my father won't hurt Chrysalus, nor censure him at all on my account with respect to the gold which he has deceived him about. For 'tis right that I should have a care for him, who, for my sake, has told this falsehood. <stage>(To some ATTENDANTS)</stage> Do you follow me, <stage>Goes into his father's house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="526" unit="TLN line"/>
+<stage>Enter PISTOCLERUS from the house of BACCHIS.</stage>
+<sp><speaker>PISTOCLERUS</speaker><p> <stage>speaking to BACCHIS as he comes out</stage>. Before other matters, Bacchis, will I give place to what you enjoin me, that I find out Mnesilochus, and bring him, together with myself, to you. But at this my mind is surprised, if my messenger has reached him, what it is that delays him. I'll go into his house here, and see if perchance he's at home.
+</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="530" unit="TLN line"/>
+<stage>Enter MNESILOCHUS from his father's house.</stage>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>as he enters</stage>. I've given up to my father all the gold. Now could I wish that she should meet me, after I am penniless, this fair one so scornful of me. Yet with what great difficulty did he grant me a pardon for Chrysalus. But I prevailed on him at last that he wouldn't be at all angry with him.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> <stage>apart</stage>. Isn't this my friend?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>apart</stage>. Isn't this my foe that I see?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> For sure 'tis he. </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> 'Tis he.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> <stage>apart</stage>. I'll go to meet him, and I'll mend my pace. <stage>Aloud.</stage> Health to you, Mnesilochus!</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Hail! </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> As you are arrived safe from abroad, a dinner must be given.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> A dinner pleases me not, which excites my choler.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Has any vexation befallen you on your arrival?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Aye, and a very grievous one.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> From what quarter? </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> From a person whom heretofore I had supposed to be my friend.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Many live after that manner and method, who, when you think them to be friends, are found false with their deceitfulness, strong in their talking, slothful in their doing, of faith infirm. Not one is there whom they don't envy on their enjoying prosperity; through their own indolence do they themselves take right good care that no envy is directed against them.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> By my troth, you surely understand their ways most thoroughly. But still this one misfortune do they find from their bad disposition; they are the friends of no one, while they themselves are all at enmity against themselves; and these, while they are deceiving themselves, in their foolishness imagine that others are deceived. Just so is he whom I supposed to be as much a friend to me as I am to my own self. He, so far as in him lay, has taken all care to do whatever injury he could towards me, to turn all my own resources against me.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> This same must me a bad man.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I judge that so he is.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Troth now, prithee, do tell me who it is.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> He lives on good terms with yourself. But were he not; so, I would entreat you to do him whatever harm you could do.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Only tell me the person, who he is; if I don't do him an injury, some way or other, do you say that I'm the greatest of cowards.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> The person's a bad one, but he's your friend, i' faith.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> So much the rather, then, tell me who he is. In good sooth, I set no value on the esteem of a worthless person.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I appear, then, not to be able to avoid disclosing to you his name. Pistoclerus, you have utterly undone me, your friend.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> How's that? </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> How's that? Did I not send you a letter from Ephesus about my mistress, that you should find her out for me?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I own you did; and I have discovered her.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> How now? Was there not a choice for you of other Courtesans in Athens, for you to form engagements with, instead of with her whom I had recommended to your care? Could you yourself begin to love, and to contrive an injury against myself?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Are you in your senses? </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I have found out the whole affair from your tutor; don't deny it. You've ruined me.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What, still upbraiding me without reason with these rebukes of yours?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Why? You're in love with Bacchis.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> But look you, two persons of the name of Bacchis are living here in this house.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> How, two? </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Aye, and the two are sisters.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> You are now designedly telling idle stories.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> In fine, if you persist in thinking there's but little confidence in me, I'll take you upon my shoulders, and carry you hence into their house.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Well, I'll go; but stay a moment.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I will not stay, and you shall not be holding me under a false suspicion.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I follow you then. <stage>(They go into the house of BACCHIS.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="573" unit="TLN line"/>
+<stage>Enter a PARASITE and a BOY.</stage>
+<sp><speaker>PARASITE</speaker><p> Of a debauched and unscrupulous fellow am I the Parasite--a Captain, who has brought his mistress with him from Samos. Now he has ordered me to go to her, and make enquiry whether she will pay back the gold, or whether she will depart together with him. You, boy, who have for some time been with her, whichever of these is the house, do you knock. Go to the door forthwith. <stage>The BOY goes to knock.</stage> Are you coming back from there, you hangdog<milestone n="579" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You hangdog</lemma>:  "<foreign lang="la">Dierecte</foreign>." The meaning of this word has been explained in the Notes to the Trinummus.</note>? How the graceless scoundrel does knock! You can gobble up a loaf three feet wide, and yet you don't know how to knock at a door. <stage>He calls out and knocks violently.</stage> Is there any one in-doors? Hallo! is there any one here? Does any one open this door? Who's coming out?
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="584" unit="TLN line"/>
+<stage>Enter PISTOCLERUS from the house.</stage>
+<sp><speaker>PISTOCLERUS</speaker><p> What's the matter? What's this knocking? Why, what the confounded torment possesses you, to be exerting your strength in this fashion on another person's door? You've almost broken the door down. What do you want now?</p></sp>
+<sp><speaker>PARASITE</speaker><p> Young gentleman, my respects. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> And my respects. But whom are you looking for?</p></sp>
+<sp><speaker>PARASITE</speaker><p> For Bacchis. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> But which of them?</p></sp>
+<sp><speaker>PARASITE</speaker><p> Of that I know nothing, only it's Bacchis. In a few words, the Captain, Cleomachus, has sent me to her, either for her to pay back the tyro hundred golden Philippeans, or to go hence this day, together with him, to Elatia<milestone n="591" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To Elatia</lemma>:  Elatia was a city of Phocis, a district in the Northern part of Greece.</note>.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> She doesn't go: she says she shan't go. Begone, and take back this message--she loves another person, and not him. Take yourself off from the house.</p></sp>
+<sp><speaker>PARASITE</speaker><p> You're too hasty. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> And would you know now hasty I am? By my faith, your phiz isn't far off from a mishap; so much are these teeth-crackers <stage>looking at his fists</stage> longing in my fists.</p></sp>
+<sp><speaker>PARASITE</speaker><p> <stage>aside</stage>. So far as I understand his words, 'tis a warning to me, lest he should knock my nut-crackers out of my jaws. <stage>To PISTOCLERUS.</stage> At your own peril, I'll tell him this.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What do you say? </p></sp>
+<sp><speaker>PARASITE</speaker><p> I'll tell him that which you bade me.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Who are you? Tell me.</p></sp>
+<sp><speaker>PARASITE</speaker><p> I'm the skill of his body<milestone n="601" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Skin of his body</lemma>:  "<foreign lang="la">Integumentum corporis</foreign>." Literally, "the skin," or "covering of the body." This was probably a nickname for a body. guard, or hanger-on.</note> </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> He needs must be a scampish fellow, who has got so worthless a skin.</p></sp>
+<sp><speaker>PARASITE</speaker><p> He'll be coming here, swollen up with wrath.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I wish he may burst. </p></sp>
+<sp><speaker>PARASITE</speaker><p> <stage>about to go</stage>. Is there anything you want?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Be off; you must do so this instant.</p></sp>
+<sp><speaker>PARASITE</speaker><p> Good-bye, teeth-cracker. <stage>Exit.</stage> PISTOC. And you, skin of his body, good-bye! This matter has come to such a point, that what advice to give my friend about his mistress, I know not; who, in his pet, has given up all the gold to his father, and not a coin is there that may be paid to the Captain. But I'll step aside, for the door makes a noise. O, here's Mnesilochus coming out, and pensive, too. <stage>He stands apart.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="612" unit="TLN line"/>
+<stage>Enter MNESILOCHUS from the house of BACCHIS.</stage>
+<sp><speaker>MNESILOCHUS</speaker><p> Insolent, of a froward, passionate, ungovernable, inconsiderate disposition, without reason and moderation, am I; without fine principles of rectitude and honor, hard of belief, powerless to control my passions, born of a temper ill-disposed, unamiable and ungracious is my life<note anchored="yes"><lemma targOrder="U">Is my life</lemma>:  "<foreign lang="la">Vivo</foreign>." Literally "I live," "I exist."</note> In fine, I am that which I could wish others to be. There's not a person more worthless, or more unworthy for the Gods to bless, or for men to love or to associate with. 'Tis more just that I should have enemies than friends--'tis more reasonable that the bad should give me their assistance than the good. There's not a person more deserving of all the reproaches that are befitting worthless men, than I, who have given up to my father the money that was in my power. Could this be believed by any one whatever? Am I not a madman, who have miserably undone myself and the device of Chrysalus?</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> <stage>aside</stage>. He must now be consoled by me; I'll accost him. <stage>Aloud.</stage> Hallo, Mnesilochus! what's the matter?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I'm ruined. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> May the Gods grant better things!</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I'm ruined. </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Won't you hold your tongue, simpleton?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Hold my tongue? </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> You are not now quite right in your senses.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I'm undone. Many sharp and poignant woes are now arising in my breast. Did I not put faith in that accusation? Without any cause was I angry with you.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Come, come, do have a good heart.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Whence have it? A dead man is of more value than I am.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> The Captain's Parasite came here, just now, to fetch the gold hence. I drove the fellow away from this door and from this fair one, and packed him off through my harsh language.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> But of what service is that to me? Wretch that I am, what shall I do? I have nothing; and he certainly will carry her off.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> By my faith, if I had the means, I'd engage not.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I know you'd give it me; I know your ways; and were you not in love, I should now have the very greatest possible confidence in your assistance. At present, you yourself have more than enough of your own business, for me to suppose that you, who are in want yourself; are able to give me any assistance.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Do but hold your tongue: some Divinity will favour us.</p></sp>
+<sp><speaker>MNESILOCHUS.</speaker><p> Nonsense. <stage>Moves as if going.</stage> </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Do stay <stage>Takes hold of him.</stage></p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> What's the matter? </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Why, I see Chrysalus here, your main resource.
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="640" unit="TLN line"/>
+<stage>Enter CHRYSALUS, at a distance.</stage>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>to himself</stage>. It's right this man <stage>pointing to himself</stage> should be worth his weight<milestone n="640" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be worth his weight</lemma>:  "<foreign lang="la">Auro expendi</foreign>." Literally, "to be weighed against gold."</note> in gold: it's fair that a statue of gold should be erected for him. For, this day, two exploits have I achieved; with twofold spoils have I been graced. So cleverly have I gulled my elder master this day, that he has been made a fool of. The crafty old blade, by my crafty tricks, have I compelled and constrained to believe me in everything. Then, for the son of the old gentleman, my master here in love, together with whom I drink, with whom I eat and go a-courting, I have procured regal and golden trea sures, that he may take from thence at home, and not go seeking abroad. Those Parmenos<milestone n="649" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Those Parmenos</lemma>:  Syrus and Parmeno were the names of certain crafty intriguing slaves introduced in Comedy. The first occurs as the name of a slave in the Adelphi of Terence; the second in his Eunuchus.</note> and those Syruses, please me not, who filch some two or three minae from their masters. There's nothing more worthless than a servant without skill--worthless, if he has not a breast mightily well-stocked, so that, whenever there is necessity, he may draw his supply from his own breast. No one can be a person well to do <gap/> unless he understands both how to do good and how to do evil. With rogues he must be a rogue; with thieves let him filch whatever he can. It befits him who is truly wise, to be a person that can shift his very skin<milestone n="658" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Shift his very skin</lemma>:  "<foreign lang="la">Vorsipellis</foreign>." Literally, "a turner of his skin;" similar in meaning to our expression, a "turncoat."</note>. Good with the good let him be, bad with the bad: just as things are, so let him ever frame his humour. But I should like to know how much gold my master has taken for himself, and what he has given up to his father. If he is a prudent person, he has made a Hercules<milestone n="665" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has made a Hercules</lemma>:  A tenth part of the spoil taken in warfare was devoted to Hercules; and it was believed to ensure prosperity, if persons devoted a tenth of their possessions to the same Divinity</note> of his parent: he has given him the tenth part, and has kept back nine for himself. But, see! the person whom I was looking for; he meets me most opportunely. <stage>To MNESILOCHUS.</stage> Has any of your money fallen down, my master, that thus, in silence, you are looking down upon the ground? Why do I see you two sad and sorrowful? I like it not; and 'tis not without some reason. Are you going now to give me any answer?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I'm undone, Chrysalus. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Perhaps you took too little of the gold.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> How, a plague, too little? Why, yes, indeed, a very great deal less than too little.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Why the mischief then, simpleton, since by my skill an opportunity was procured for that very purpose, that you might take as much as you pleased, did you thus take it up with the tips of two fingers<milestone n="675" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Two fingers</lemma>:  He says that when he had the opportunity of gathering up the money by handfuls, he contented himself with taking it only with the tips of his fingers, that is, piece by piece; some would take "<foreign lang="la">digiti duo primores</foreign>" to mean "the two first fingers of the hand;" that is, the forefinger and thumb.  The meaning, either way, will be just the same.</note>? Or, didn't you know how rarely an opportunity of that kind presents itself to a person?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> You are mistaken. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Why, surely, 'tis you yourself that were mistaken, when you dip't your fingers in not deep enough.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I' faith, you'd upbraid me more than now you do, if you knew the matter better. I'm undone.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> My mind is now foreboding further mischief from those words.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I'm ruined. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> How so?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Because I've given all up to my father, with every particle<milestone n="680" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With every particle</lemma>:  "<foreign lang="la">Ramentum</foreign>" properly means the filings of scrapings--"dust and all" "every particle."</note> of it.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Given it up? </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Given it up.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What, all? </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Every jot.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> We are done for. How came it into your mind to do this deed so foul?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I had a suspicion, Chrysalus, by reason of a charge, that Bacchis and he <stage>(pointing to PISTOCLERUS)</stage> had been playing me false; for that reason, in my anger, I gave up all the gold to my father.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What did you say to your father when you gave up the gold?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> That I had at once received this gold from his host, Archidemides.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Eh! by that speech you have this day consigned Chrysalus to the torture; for, when he shall set eyes on me, the old gentleman will carry me off that instant to the executioner.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> I've besought my father. </p></sp>
+<sp><speaker>CERYS.</speaker><p> I suppose, to do, in fact, the thing that I was speaking of?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Nay, not to punish you, or to blame you at all on account of this business. And with some difficulty I've prevailed. Now, Chrysalus, this must be your care.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What do you wish should be my care?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> That once again you should make a second inroad upon the old gentleman. Contrive, devise, invent whatever you please; frame your plans<milestone n="693" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Frame your plans</lemma>:  "<foreign lang="la">Conglutina</foreign>." Literally, "glue the pieces together "</note>, so that this day you may cleverly deceive the old man unawares, and carry off the gold.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> It scarcely seems possible to be done.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Set about it, and you'll easily effect it.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> How the plague "easily," for me, whom he has this moment caught out in a lie? Should I entreat him not to believe me at all, he would not venture even to believe me in that.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Aye, and if you were to hear what things he said about you in my presence.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What did he say?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> That if you were to say that this sun was the sun, he would believe it was the moon, and that that is the night which is now the day.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> By my troth, I'll bamboozle the old chap right well this very day, so that he shan't have said that for nothing.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Now, what would you have us do?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Why, nothing, except that I beg you'll still love on. As for the rest, ask of me as much gold as you please; I'll find it you. Of what use is it for me to have the name of Chrysalus<milestone n="704" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Name of Chrysalus</lemma>:  He alludes to his name as derived from the Greek <foreign lang="greek">xruso\s,</foreign> "gold."</note>, unless I give proofs by fact? But now, tell me, Mnesilochus, how much gold is requisite for you.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> There's occasion for two hundred pieces at once, to pay the Captain for Bacchis.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I'll find it you.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Then we have need of some for current expenses.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Aye, aye, I wish us to do each thing deliberately; when I've accomplished the one, then I'll set about the other. First, for the two hundred pieces, I shall direct my engine of war against the old gentleman. If with that engine I batter down the tower and the outworks, straight at the gate that instant I'll attack the old town and the new one; if I take it, then carry to your friends the gold in baskets, just as your heart wishes.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Our hearts are with you, Chrysalus.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Now, do you go in-doors to Bacchis, Pistoclerus, and quickly bring out--</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> What? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> A pen, some wax<milestone n="715" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Some wax</lemma>:  This wax was to be used--not to be placed on the surface of the tablets, but in the manner of our sealing-wax, upon the strings with which the tablets were fastened.</note>, tablets, and some cord.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I'll have them here this instant. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> What now are you about to do? Do tell me that.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Let a breakfast be prepared; there will be you two, and your mistress will make a third with you.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Just as you say. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Pistoclerus has no mistress?</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> O yes, she's here; he's in love with the one sister, I with the other, both of the name of Bacchis.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What were you going to say? MNES. This; how we are to manage<milestone n="720" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are to manage</lemma>:  Mnesilochus is probably going to ask how they are about to arrange, when he is interrupted by Chrysalus, who then asks him what he was going to say, on which he answers that he was going to observe how many there would be at the entertainment.</note>.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Where are your couches<milestone n="720" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your couches</lemma>:  "<foreign lang="la">Biclinium</foreign>" is supposed to mean either a snug room fitted up with only two "<foreign lang="la">lecti</foreign>," or couches for reclining at meals, or else, perhaps with more probability, a couch formed for holding two guests, instead of three, as the common "<foreign lang="la">triclinium</foreign>" did. It is not unlikely that the use of these was especially adopted in houses of the character of that kept by Bacchis.</note> laid out? </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Why o you ask that?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> So the matter stands; I wish to be informed. You know not what I am about to do, nor what a great exploit I shall attempt.</p></sp>
+<sp><speaker>MINES.</speaker><p> Give me your hand, and follow me close, to the door. Peep in. <stage>CHRYSALUS looks in at the door of the house of BACCHIS.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Hurra! 'Tis a very pretty place, this, and exactly as I could wish it to be.
+<stage>Re-enter PISTOCLERUS, with pen and tablets.</stage></p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> The things that you ordered--what's ordered for a good purpose is forthwith done by the obedient.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What have you brought? </p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Everything that you bade me bring.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>to MNESILOCHUS</stage>. Do you take the pen at once, and these tablets.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>taking them</stage>. What then? CHRYS. Write there what I shall bid you; for I wish you to write for this reason, that your father may know the hand when he reads it. Write now.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> What shall I write? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Health to your father, in your own language. <stage>MNESILOCHUS writes.</stage></p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Suppose he were to write "disease and death," in preference, that would be much better.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Don't you interrupt us. </p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> What you have ordered is now written on the wax.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Tell me in what terms.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> "Mnesilochus sends health to his father."</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Write this, too, quickly: "My father, Chrysalus is always and everywhere talking at me, and in no measured terms, because I gave you up the gold, and because I did not cheat you of it." <stage>MNESILOCHUS writes.</stage></p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Stop till he has written it. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> It befits the hand of a lover to be active.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> I' faith, that hand is more active by far at lavishing than at writing.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Say on; that's written down.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> "Now, my dear father, do you henceforth be on your guard against him, for he is forming knavish plans to deprive you of the gold, and has declared that he will have it beyond a doubt." Write legibly.</p></sp>
+<sp><speaker>MINE.</speaker><p> You only dictate. <stage>Writes.</stage> CHRYS. "And he promises that he will give this gold to me, for me to give away to naughty women, and to consume it and live like a Greek<milestone n="743" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Live like a Greek</lemma>:  It has been before remarked, that the Greek mode of free living had passed into a proverb with the Romans, among whom a person of a licentious mode of life was said "<foreign lang="la">congraecare</foreign>," "to live like a Greek." Plautus forgets that the scene is at Athens.</note> in dens of infamy. But, father, do you take care that he does not impose on you this day; I entreat you, do beware."</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Only say on. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Just write on, then.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Only say what I am to write</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>MNESILOCHUS writing</stage>. "But, father, what you promised me I beg that you will remember, that you will not beat him, but keep him in chains at your house at home." Do you give me the wax and cord forthwith. Come, fasten it, and seal it in an instant.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>sealing the tablets</stage>. Prithee, what use is there in this writing after such a fashion, that he is to give no credence to you, and to keep you in chains at home?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Because it pleases me so. Can't you possibly take care of your own self, and have no thought about me? In confidence in myself I undertook the task, and at my own peril do I carry on the matter.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> You say what's true. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Give me the tablets.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> <stage>giving them</stage>. Take them.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Give attention now; Mnesilochus, and you, Pistoclerus, do you take care that each of you goes at once and reclines on his couch with his mistress; so 'tis requisite; and on that same spot where the couches are now laid, do you forthwith commence to carouse.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> Anything else? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> This, and this especially: when you shall have once taken your places together, don't you arise anyhow, until the signal shall be given by me.</p></sp>
+<sp><speaker>PISTOCLERUS</speaker><p> O skilful commander! </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> You ought by this time to have taken your second draught.</p></sp>
+<sp><speaker>MNESILOCHUS</speaker><p> Capital; let's go. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Do you take care of your duty, and I'll do mine. <stage>MNESILOCHUS and PISTOCLERUS go into the house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="761" unit="TLN line"/>
+<stage>CHRYSALUS, alone.</stage>
+<sp><speaker>CHRYSALUS</speaker><p> A tremendously great business am I undertaking, and I have my fears how in this one day I may accomplish it. But now I have occasion for the old blade to be fierce and savage at me. For it suits not this plan of mine that the old fellow should be calm when he has beheld me in his presence. I'll turn him about<milestone n="766" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Turn him about</lemma>:  It is not improbable that this figure is borrowed from frying fish in the kitchen--"When he is done on one side, I'll turn him on the Other."</note> this day, finely, if I live. I'll have him parched as well as ever pea was parched<milestone n="767" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pea was parched</lemma>:  "<foreign lang="la">Frictum cicer</foreign>," "parched vetches." Horace mentions these dainties. They were mostly purchased by the lower orders, and by slaves.</note>. I'll walk before the door, that when he comes out, at once as he comes up, I may put the letters<milestone n="769" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Put the letter</lemma>:  His object is to entrap old Nicobulus in such a way that he must of necessity see his son in the company of the damsels, on which he will be inclined the more readily to believe the story that he has formed an intrigue with the wife of the Captain.</note> in his hand. <stage>Stands near the door of BACCHIS.</stage>
+</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="770" unit="TLN line"/>
+<stage>Enter NICOBULUS, at a distance.</stage>
+<sp><speaker>NICOBULUS</speaker><p> This is a matter of great vexation to me, that Chrysalus has thus escaped me this day.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>aside</stage>. I'm all right: the old fellow is in a passion. Now's my time for me to accost my man.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Who speaks hard by? <stage>Looking round.</stage> Why surely this is Chrysalus, I think.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>aside</stage>. I'll accost him. NICO. My honest servant, hail to you. What's doing now? How soon do I set sail for Ephesus, to bring back the gold home from Theotimus? What--silent? I swear by all the Gods, if I didn't love my son so much as to wish everything done for him that he desires <gap/> that your sides should be wealed now right well with rods, and that in irons at the mill you should be lingering out your life. I've learnt of Mnesilochus all your wicked pranks.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Has he accused me? 'Tis very good; I am a bad one, I am a cursed one--a wicked one. Only reflect upon the matter. I'll utter not one word.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What? Hangdog, do you even threaten me<milestone n="785" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Even threaten me</lemma>:  Nicobulus takes it for a threat, when he tells him "<foreign lang="la">specta rem modo</foreign>" "only reflect upon the matter."</note>?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> You'll find out before long what sort of man he is. He ordered me just now to carry this letter to you. He requested that that which is there written may be done.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Give it me, </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Take notice of the seal <stage>Gives him the tablets.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I know it. Where is he himself?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I don't know. I ought to know nothing now; I've forgotten everything. I know that I'm a slave; I know not even that which I do know. <stage>Aside.</stage> Now from the springe this thrush is catching at the worm; he'll be finely noosed this day, so well I've set the snare.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Stay here but a moment; I'll return to you directly, Chrysalus. <stage>Goes into his house.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> How he does dissemble with me; how ignorant I am of the business he's about. He has gone to fetch slaves from in-doors to bind me. The ship speeds prosperously on; finely, too, is this craft boarding it<milestone n="797" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Craft boarding it</lemma>:  "<foreign lang="la">Pulcre haec confertur ratis</foreign>." This is a figure taken from naval affairs. Ships were said "<foreign lang="la">conferri</foreign>" when they closed together on commencing the engagement.</note>. But I'll hold my tongue, for I hear the door opening.
+</p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="799" unit="TLN line"/>
+<stage>Re-enter NICOBULUS, with SLAVES carrying fetters.</stage>
+<sp><speaker>NICOBULUS</speaker><p> Artamo, do you fasten the hands of that fellow this very instant. <stage>The SLAVES bind him.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What have I done? </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Pitch your fist into him if he mutters a word. <stage>To CHRYSALUS, pointing at the tablets.</stage> What does this letter say?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Why do you ask me? As I received it from him, so I've brought it sealed to you.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Come now, you rascal, have you not shamefully abused my son in your talk, because he gave me up that gold, and said that you would still take that gold away from me by some knavish trick?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Have I said so? </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> You have.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What person is there, who says that I've said so?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Hold your tongue. No person says so; this letter which you have brought me accuses you. See, 'tis this that requests you to be chained. <stage>Points to the open tablets.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Ah! your son has been making a Bellerophon<milestone n="810" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A Bellerophon</lemma>:  He alludes to the hero Bellerophon, who, being accused by Sthenoboea of having made an attempt on her chastity, was sent by Proetus, King of Argos, with a letter to Iobates, in which he was desired to put the bearer to death.</note> of me; I myself brought this letter, for the purpose that I might be bound. Be it so.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> This I am doing for this reason, because you persuade my son to live like a Greek with you, you thrice-dotted villain.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>aside</stage>. O fool, fool, you know not that you are at this moment on sale; and that you are standing on the very stone<milestone n="815" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On the very stone</lemma>:  He alludes to the stone upon which the "<foreign lang="la">praeco</foreign>," or "auctioneer," stood with the slaves, when he sold them by auction. Only the cheapest and the least desirable of them were sold in this way.</note> as the auctioneer puts you up.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>overhearing him</stage>. Answer me; who is selling me?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He whom the Gods favour<milestone n="817" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whom the Gods favour</lemma>:  Menander has a sentence to the effect--"He whom the Gods love, dies young." Chrysalus tells Nicobulus that he is clearly no favorite of the Gods, or he would have died long since.</note> dies in youth, while he is in his health, has his senses and judgment sound. This person <stage>(pointing to NICOBULUS)</stage>, if any God had favoured him, ought to have been dead more than ten years--aye, more than twenty years ago. 'Tis for long, he has walked, a nuisance, on the earth; so devoid is he of either judgment or sense. He is of as much value as a rotten mushroom is.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Do you think that I am a nuisance to the earth? Away with him in-doors, and tie him tightly to the post. You shall never take away any gold from here.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> No, but you'll soon be giving it me.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I, give it you? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> You'll be entreating me, too, of your own accord to receive it, when you shall come to know this accuser of mine, in how great danger and in what a dreadful situation he is. Then will you be offering his liberty to Chrysalus; but I certainly shan't accept it.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Tell me, source of mischief, tell me, in what danger is my son Mnesilochus.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Follow me this way; I'll soon let you know.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Where on earth shall I follow you?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Only three steps. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Aye, ten even.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Come, then, Artamo, do you open you this door out a very little way; softly, don't make it creak. <stage>The door of the house of BACCHIS is opened.</stage> That's enough. Now, step you hither. <stage>To NICOBULUS, who looks in.</stage> Do you see the entertainment?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>still looking in</stage>. I see Pistoclerus and Bacchis right opposite.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Who are upon that other couch?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>looking on the other side</stage>. Wretch that I am, I'm undone. CHRYS. Do you recognize that person?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I do recognize him. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Now tell me, if you please, does that woman seem of handsome appearance?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Very much so. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Well, do you take her to be a courtesan?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Why not? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> You are mistaken.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Who is she then, prithee? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> You'll find out from me. indeed, you'll get no more information to-day.
+</p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="842" unit="TLN line"/>
+<stage>Enter CLEOMACHUS, at a distance.</stage>
+<sp><speaker>CLEOMACHUS</speaker><p> <stage>aloud</stage>. Is this Mnesilochus, the son of Nicobulus, by force to detain my own mistress? What proceeding is this?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Who's this? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>aside</stage>. This Captain's opportunely come for me.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> He doesn't consider that I am a soldier, but a woman, who cannot defend myself and mine. But may neither Bellona nor Mars ever put confidence in me, if I don't put him out of life, if I meet him, or if I don't make him lose possession of his existence.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Chrysalus, who's this that's threatening my son?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> This is the husband of that woman with whom he is now reclining.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What! The husband?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> The husband, I say. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Prithee, is she married then?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> You'll know before very long.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Wretch that I am; I'm utterly undone.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> How now? Does Chrysalus seem such a villain to you? Come, chain me now<milestone n="855" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Chain me now</lemma>:  He says this satirically pointing to his fetters</note>, and do listen to your son. Didn't I tell you that you would discover what sort of person he is?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What shall I do now? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Order me at once to be released, if you please; for, if I'm not released, he'll just now be overpowering the young man in our presence.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> There's no gain that I should this day take so much delight in making, as I should in falling upon him as he reclines with her, so that I might kill them both.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>to NICOBULUS</stage>. Don't you hear what he says Why don't you order me to be released?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>to the SLAVES</stage>. Unbind him. I'm ruined; wretch that I am! I'm in a dreadful fright.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Then I'd make her, who publicly puts up her person for sale, not to say that she has got a person for her to laugh at.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>to NICOBULUS</stage>. You may make terms with him for a little money.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Make terms, then, I beg, for what you like; so that he mayn't, in our presence, fall upon the young man, or kill him outright.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Unless the two hundred Philippeans are repaid to me at once, I'll this instant swallow the lives of them both outright.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>to CHRYSALUS</stage>. Make terms with him, if you can; prithee, do make haste; agree for any sum you like.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I'll go, and do it carefully. <stage>Goes up to CLEOMACHUS.</stage> Why are you exclaiming so?</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Where's your master? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Nowhere; I don't know. Do you wish the two hundred pieces to be promised you at once, so as to make no riot or disturbance here?</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> There's nothing that I would desire more.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> And that I may heap many a curse upon you?</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Just as you please. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>aside</stage>. How the villain does cringe. <stage>To CLEOMACHUS.</stage> This is the father of Mnesilochus: follow rme; he shall promise it you. Do you ask for the gold. As to the rest, a word's enough<milestone n="878" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A word's enough</lemma>:  He says this, as he is afraid that if the conversation proceeds to any length, the old man will discover that she is not the Captain's wife.</note>. <stage>They go up to NICOBULUS.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What has been done? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I've struck the bargain for two hundred Philippeans.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Well done! Goddess Salvation<milestone n="879" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Salvation</lemma>:  It was a proverbial expression with the Romans to day that the Goddess "<foreign lang="la">Salus</foreign>," "health," or "salvation," "had saved," or "could not save" a person, as the case might be.</note>, thou hast saved me. Well, how soon am I to say I'll pay it?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> <stage>to CLEOMACHUS</stage>. Do you ask it of him; and <stage>to NICOBULUS</stage> do you promise it him.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I promise it. <stage>To CLEOMACHUS.</stage> Come, ask me.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Will you give me two hundred golden Philippean pieces, lawful money?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> "They shall be given," say: do answer him.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I'll give them. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Well, now, filthy fellow is there anything owing to you? Why are you plaguing him? Why are you frightening him about death? Both I and he wish you every ill luck. If you have a sword, still we have a spit at home; with which, in fact, if you provoke me, I'll make you more full of holes than a rat's skin<milestone n="889" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A rat's skin</lemma>:  "<foreign lang="la">Soricina naenia</foreign>," "than a rat's ditty," literally. This was, no doubt, a proverbial saying, and speaking elliptically, was, perhaps, intended to apply to the squeaking of a rat when his body was pierced with holes while held fast in the trap. There is, however, great obscurity in the passage, and Commentators are very much divided as to its meaning.</note> when caught in a trap. I' faith, for my part, some time since I found out what suspicion it was that tormented you; namely, that he was with that wife of yours.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Yes; and so he is. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> So may Jupiter, Juno, Ceres, Minerva, Hope, Latona, Ops, Virtue, Venus, Castor, Pollux, Mars, Mercury, Hercules, Summanus<milestone n="895" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Summanus</lemma>:  It is not accurately known who the Deity Summanus was. Ovid, in his Fasti, B. 6, l. 731, speaks in uncertainty of him. He is, however, generally thought to have been the same with Pluto, who was so called as being "<foreign lang="la">Summus Manum</foreign>," "the Chief of the Spirits." Varro says that his worship was introduced by Tatius the Sabine</note>, the Sun, Saturn, and all the Deities, prosper me, he neither reclines with her, nor walks, nor kisses, nor does that which is wont to be reported.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>aside</stage>. How he does swear! He's saving me, however, by his perjury.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Where then, at this moment, is Mnesilochus?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> His father has sent him into the country. And she has gone hence to the citadel, to see the temple of Minerva. The door's open now; go in, and see if he's there.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> I'll be off to the Forum next.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Or rather, by my troth, to very perdition.</p></sp>
+<sp><speaker>CLEOMACHUS</speaker><p> Am I to demand this gold to-day?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Demand it, and go hang yourself; don't you suppose, you worthless fellow, that we shall be entreating of you. <stage>Exit CLEOMACHUS.</stage> He's taken himself off. Permit me, master, I entreat you by the immortal Gods, to go in-doors here to your son. <stage>Pointing to the house of BACCHIS.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> But why go in there? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> That with many words I may rebuke him, since after this fashion he has been going on this way.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Well, I beg you will do so, Chrysalus; and I entreat you not to spare him in your talking to him.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> And do you instruct even myself? Isn't it sufficient, if this day he shall hear from me more harsh things than ever Clinias heard<milestone n="912" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Clinias heard</lemma>:  He is alluding to a scene in some play, then well known, which is now lost. In it, Demetrius was probably severe upon Clinias.  The Delphin editor thinks that this must have been a proverb.</note> from Demetrius? <stage>Goes into the house of BACCHIS.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> This servant of mine is very like a running eye; if you have it not, you don't wish for it or desire it; if you have it, you can't keep off from rubbing it. But if he hadn't, by lucky chance, been here to-day, the Captain would have surprised Mnesilochus with his wife, and have killed him as an adulterer detected in the fact. Now, in a manner have I ransomed my son with the two hundred Philippeans which I have promised to give to the Captain; which, however, I shall not rashly pay him down, before I have met with my son. By my troth, I'll never rashly give credence in anything to Chrysalus. But I have a mind even once again to read over this letter; 'tis right that when a letter is sealed we should give credence to it. <stage>Goes into his house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="9">
+<milestone n="1" unit="line"/><milestone n="925" unit="TLN line"/>
+<stage>Enter CHRYSALUS from the house of BACCHIS.</stage>
+<sp><speaker>CHRYSALUS</speaker><p> The two brothers, the sons of Atreus, are said to have done a most famous deed, when, with arms, and horses, and an army, and with chosen warriors, and with ships a thousand in number, after the tenth year, they subdued Pergamus, the native land of Priam, founded by hands divine. Not more decidedly did it fall by the engine of war, than I shall storm my master here, without a fleet, and without an army and so great array of soldiers. I have won, I have taken by storm this gold from his father for my master's son, in his amour. Now, before the old man comes here, I wish to lament until he does come out. O Troy! O my country! O Pergamus! O Priam! old man, you are undone, you, who'll be wretchedly and shockingly choused out of four hundred golden Philippeans. For those tablets, sealed on the one side and on the other, they are not tablets, but the horse which the Greeks sent, of wood. Pistoclerus is the Epeus<milestone n="937" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is the Epeus</lemma>:  Epeus was the builder of the wooden horse. When the treacherous Sinon was left behind, he lurked in the tomb of Achilles, or, according to some, in that of Palamedes.</note>; from him were these received. Mnesilochus is the Simon left behind. Behold him! not in Achilles' tomb, but on a couch he reclines: he has Bacchis with him; just as the other formerly had the fire with which to give the signal; so now does she inflame himself. I am Ulysses, by whose advice they do these things. Then, the characters which there are written, are the soldiers in this horse, armed and of high courage. So even thus far has the matter prospered with me. This horse, too, will be making his attack, not on a citadel, but on a coffer<milestone n="943" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Not on a citadel, but on a coffer</lemma>:  He puns on the resemblance of the words "<foreign lang="la">arcem</foreign>," a "citadel," and "<foreign lang="la">arcam</foreign>," a "chest" or "coffer."</note> A ruin, a destruction, a cleaner-out of the old man's gold, will this horse prove this day. To this silly old man of ours, in fact, I give the name of Ilium; the Captain is Menela&uuml;s; I, Agamemnon; I, too, am Ulysses, the son of La&euml;rtes; Mnesilochus is Alexander<milestone n="947" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Alexander</lemma>:  Alexander was one of the names of Paris, the son of Priam.</note>, who will be the destruction of his father's fortunes; he has borne off the Helen, on whose account I am now carrying on the siege of Ilium. For there I have heard say that Ulysses was both bold and full of mischief, just as I am. I have been detected in my tricks--he, discovered in a beggar's guise, had almost perished, while he was spying out there the doings of the Trojans. Similarly has it happened to myself to-day. I have been bound, but by my devices I have redeemed myself; he, too, preserved himself by artifice. I have heard that there were three destinies<milestone n="953" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">There were three destinies</lemma>:  He has omitted three of the circumstances by which the downfall of Troy was to be precipitated--namely: if the horses of Rhesus should be captured before they had tasted of the pastures of Troy and the waters of Xanthus; if the bow and arrow of Hercules should be employed in the siege; and if one of the posterity of Achilles should be present, in all which circumstances the Greeks were eventually favoured.</note> attending Troy, which were fatal to it; if the statue should be lost from the citadel; whereas the second was the death of Troilus; the third was when the upper lintel of the Phrygian gate<milestone n="955" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Phrygian gate</lemma>:  This was the Sc&aelig;an gate, near the tomb of King Laomedon</note> should be demolished. Just so are there three fatalities for this Troy of ours, corresponding with those three; for, first of all, when, a short time since, as I told our old gentleman the lying story about his host, and the gold, and the bark, then, that instant, did I steal the statue<milestone n="958" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Steal the statue</lemma>:  The Palladium was stealthily carried off from Troy by Ulysses and Diomedes.</note> from the citadel. And even then two fatalities were remaining, and no further had I taken this city. Afterwards, when I carried the letter to the old man, then I killed my Troilus. When he supposed, just now, that Mnesilochus was with the Captain's wife, from that, with difficulty, did I disengage myself. And that danger do I compare to what they say, how that Ulysses, recognized by Helen<milestone n="963" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Recognized by Helen</lemma>:  He alludes here, and in l. 951, to the occasion when Ulysses entered Troy as a spy, in the disguise of a beggar, on which occasion he was recognized by Helen.</note>, was betrayed to Hecuba. But as, in olden time, by his coaxing arts, he liberated himself from her, and persuaded her to let him go, so I, by my devices, have rescued myself from the danger, and have deceived the old man. Afterwards, I engaged with the blustering Captain, who, unarmed, takes cities with his words, and there I repulsed my man. Then I engaged in fight with the old gentleman; straightway by one lying device did I vanquish him; by one blow, in a moment, did I take the spoils away from him. He now will give the two hundred Philippean pieces to the Captain, which he has promised that he will give. <gap/> Now, I have occasion for another two hundred, to be distributed when Ilium is taken, that there may be the usual draught of honeyed wine<milestone n="972" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Draught of honeyed wine</lemma>:  "<foreign lang="la">Mulsum</foreign>." This was a mixture of wine and honey, flavoured with myrrh, cassia, nard, costum, or pepper. On the occasion of a triumph, the soldiers were treated to copious draughts of this mixture.</note> with which the soldiers may celebrate their triumph. But this Priam is far superior to him of old. Not fifty sons only has he, but four hundred, and all choice ones, without a blemish; all these this day will I cut off at two single blows. Now, if there were any purchaser for this Priam of ours, I would sell the old fellow in the lump<milestone n="976" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the lump</lemma>:  "<foreign lang="la">Coemptionalem senem</foreign>." Those slaves were called "coemptionales" who, by reason of age or bad character, were so utterly worthless that they would fetch no price, and were consequently thrown into a lot with other slaves or property of real value.</note>, whom I have on sale the moment that J shall have taken the city. But, lo! I see our Priam standing before the door; I'll go and speak to him.
+</p></sp></div2>
+<div2 type="scene" n="10">
+<milestone n="1" unit="line"/><milestone n="1076" unit="TLN line"/>
+<stage>Enter NICOBULUS from his house.</stage>
+<sp><speaker>NICOBULUS</speaker><p> Pray, whose voice is it that sounds near me?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> O Nicobulus! </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What's the matter?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> O, capital! </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Well, have you done aught of what I sent you upon?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What--ask you that? Step closer this way.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>coming nearer</stage>. Well, I do come closer.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I am an excellent pleader. By rebuking him, and by whatever hard language I really was able to think of, I forced the fellow to tears.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What did he say? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He uttered not a word: crying, he listened in silence to what I was saying; in silence he wrote down on his tablets; these sealed he gave to me; he bade me deliver them to you. <stage>Gives him the tablets.</stage> But I am afraid that they sing to the same tune that the former ones did. Observe the seal, is it his?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I recognize it. I'd like to read them over. <stage>Goes to a distance.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Read them through. <stage>Aside.</stage> Now is the upper lintel<milestone n="988" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The upper lintel</lemma>:  He alludes to the Phrygian gate, which he has before mentioned in l. 955</note> being cut down, now is the destruction of Troy near at hand. The wooden horse is shaking it right cleverly.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Chrysalus, just step here while I am reading these through.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Prithee, what need is there for me to be near you?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> That you may know what's written here.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I don't care, and I don't wish to know.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Still, do come here. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What need is there?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Hold your tongue. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I won't, I say.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> But I will, I say. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> What need is there?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Still do you only do that which I bid you.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I'll come. 'Tis right to do so; your own servant ought to be obedient at your command. <stage>Goes up to him.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>looking at the tablets</stage>. Heyday! he hasn't been sparing<milestone n="993" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hasn't been sparing</lemma>:  By this expression he means that his son has written a very long letter, as he has been neither sparing of the wax for the table's, nor of the use of the "stylus" or pen.</note> of his wax or pen. But whatever it is, I'm resolved to read it through. Attend to me, please, this very instant.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> When you choose, read on; I devote to you the attention of my ears.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>looking close</stage>. Bless me! the letters are small.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> To one, indeed, who cannot see well with his eyes but they are quite large enough for one who can see well.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Give your attention then. <stage>He reads.</stage> "Father, I beseech you, do give two hundred Philippeans to Chrysalus, if you wish me to be safe or alive for you----"</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> By my troth, really a very great mistake, I tell you.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What's the matter? </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He hasn't first written the salutation to you.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>looking</stage>. I don't see it anywhere.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Even from its very commencement the letter is an impertinent one. If you are wise, you'll not give it; but at the best, if you give it him, why, let him find out some other porter for himself, if he is wise; for I won't carry it if you order me ever so much. I've been quite enough suspected as it is, when I was guiltless of a fault.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Listen on now, while I read through what's written. <stage>(Reading.)</stage> "I am ashamed, father, to appear before you in your presence; such disgraceful conduct of mine have I heard that you are aware of, that I have formed an intercourse with the wife of a strange Captain." By my troth, you are not joking there; for I have saved your life from the consequences of this foul deed with two hundred golden Philippeans.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> There's not a particle of these things but what I've told him.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>reading</stage>. "I confess that I have acted foolishly. But I beseech you, father, do not forsake me, if, in my folly, I have transgressed. Of fierce desires, and eyes uncontrolled, have I been; I have been urged on to do a deed of which I am now ashamed." It were proper, then, that you should have taken heed before you were ashamed.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> All these very same words did I say to him only just now.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>reading</stage>. "I beseech you, father, to consider that it is enough that Chrysalus has reproached me with many cutting words, and by his advice has made me a better man, so that 'tis right that you should return him sincere thanks."</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Is that written there? </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Look and see, then you'll know. <stage>Shows him the letter.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> He that has so offended, how humble to all he is, and of his own accord.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>reading</stage>. "Now, father, if even yet I may be allowed to ask anything of you, do give me two hundred Philippean pieces, I do entreat you."</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> By my troth, now, not one even, if you are wise.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Let me read on. <stage>Reading.</stage> "In set form<milestone n="1028" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In set form</lemma>:  Of course the oath would be the more solemn in such case.</note> I have taken an oath that I would give this to the woman this day before nightfall, ere she leaves me. Now, father, have a care that I be not forsworn, and take me hence away from her as soon as you can, on whose account I have incurred so much loss and guilt. Take care and let not the two hundred pieces be a cause of annoyance to you; I will repay you innumerable times as much, if I live. Farewell, and do attend to these matters." Now, Chrysalus, what do you think?</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I won't give you one bit of advice this day, and I won't run the risk, that if any mistake is made, you should say that you had done it by my counsel. But, as I conceive, if I were in your place, I would rather give the gold than suffer him to be corrupted. There is a twofold choice consider which you would adopt; either to lose the gold, or for a lover to be forsworn. I neither order you, nor forbid you, nor do I persuade you.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I'm sorry for him. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> You don't do anything surprising--he is your son. If still more must be lost, 'tis better for it to go, than for this disgrace to be everywhere proclaimed.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> By my troth, I certainly had much rather he had been at Ephesus, so long as he was well, than that he had returned home. But why don't I hasten to get rid of that which is doomed to be squandered away? I'll bring you just now from in-doors twice two hundred Philippeans, both those which, a little time since, to my sorrow, I promised to the Captain, and these others. Wait there; I'll be out to you, Chrysalus, this instant. <stage>Goes into his house.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Troy is laid waste, the chiefs have razed Pergamus. I knew some time ago that I should be the ruin of Pergamus. I' faith I wouldn't dare make a bet with him who should say that I was deserving of severe torture; so great confusion am I making. But the door makes a noise; the plunder's being brought forth from Troy. For the present I'll hold my tongue.
+<stage>with the money in two bays.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Take you this gold, Chrysalus; go, carry it to my son. But I'll go hence to the market-place to pay this to the Captain.</p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> For my part, I'll not receive it; do you seek somebody at once to take it. I won't have it entrusted to me.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> But do take it; you're worrying me now. <stage>Holds it to him.</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> For my part, I'll not take it.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> But, prithee do. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I am telling you what is the fact.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> You are delaying me. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I don't want, I say, the gold to be entrusted to me. At all events, find some person to keep a watch upon me.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> You're plaguing me. </p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> Well, give it me, if it must be so. <stage>Holds out his hand.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>gives him the money</stage>. Take care of it. I'll be back here just now. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>CHRYSALUS</speaker><p> I've taken care----that you shall be a most wretched old fellow; this is bringing an undertaking to a fair ending; even as it has proved my lot to go rejoicing, laden with the spoil. With safety to myself, and the city taken by stratagem, I now bring home my whole army unhurt. But, Spectators, don't you now be surprised that I don't go in triumph; 'tis such a common thing, I don't care for it. Still however, the soldiers shall be received with the usual honeyed wine. Now I'll carry off all this booty at once to the Qu&aelig;stor<milestone n="1075" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the Quaestor</lemma>:  It was the custom of the Romans to deliver to the City Quaestor the plunder taken in war, to be employed in the public service. Here he means his young master, Mnesilochus.</note>. <stage>Goes into the house of BACCHIS.</stage>
+<stage>Enter PHILOXENUS.</stage></p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> The more I revolve it in my breast, what disturbances my son has raised, into what a course of life, and into what habits he unwittingly has headlong plunged himself, the greater is my concern, and the more do I dread lest he may be ruined or corrupted. I know it; I once was of the same age, and I did all these things; but in a quiet way. I was gay, I had my mistress, I drank, I feasted, I made presents, but still it was seldom I did so. The methods, too, please me not which I see parents in general employ towards their sons. I have determined to give some latitude to my son, that he may have some scope for his inclinations. I think that's right; but still, I don't wish him to give way too much to sloth and wantonness. Now I'm going to Mnesilochus, to see whether, as I requested, by his endeavours he has turned him for me to virtue and to sobriety; as, indeed, I am sure he has done if he has met him, of such a disposition is he by nature.  <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1087" unit="TLN line"/>
+<stage>Enter NICOBULUS, wringing his hands.</stage>
+<sp><speaker>NICOBULUS</speaker><p> Whoever there are in any place whatsoever, whoever have been, and whoever shall be, in time to come, fools, blockheads, idiots, dolts, sots, oafs, lubbers<milestone n="1088" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Oafs, lubbers</lemma>:  "<foreign lang="la">Blennus</foreign>" means, properly, "dirty-nosed," and thence "a driveller," "an idiot." "<foreign lang="la">Bucco</foreign>" was "one who had large puffed-out cheeks," which was considered to be the mark of a blockhead or foot.</note>, I singly by far exceed them all in folly and absurd ways. I'm undone. I'm ashamed of myself; that I at this time of life should disgracefully have been twice made a fool of! The more I think of this confusion which my son has made, the more am I incensed. I'm ruined, and I'm utterly destroyed; I'm distracted in every possible way. All plagues harass me, by all modes of death do I perish. This day has Chrysalus rent me in pieces; Chrysalus has plundered wretched me; he, the villain, by his clever tricks, has shaved, to the very quick, simple me, just as he has pleased. For the Captain says that she is a Courtezan, whom that fellow said was his wife; and he has informed me of everything, as each particular happened; how that she had been hired by him for this year; how that that much gold was left to be repaid<milestone n="1098" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Left to be repaid</lemma>:  This passage is rather obscure; but it seems to mean that Bacchis had been engaged for a year by the Captain, and that having received the whole sum when the original agreement was made, she had arranged to repay the Captain a sum proportionate to the time that was wanting to complete the year engaged for.</note>, which I, most simple man, had promised him. 'Tis this, this, I say, through which my breast boils with indignation<milestone n="1099" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Boils with indignation.</lemma>:  "<foreign lang="la">Peracescit</foreign>." Literally, "turns sour."</note>; 'tis this, in fine, by which I am distracted; that I, at my time of life, should be made a fool of, aye, by Heaven, so made a very sport of, and with my hoary head and white beard, that wretched I should be bamboozled out of my gold. Undone am I, inasmuch as this slave of mine has dared in this way to set not the value of a nutshell upon me. And I--if any other way I had lost a greater sum--I should have taken it less amiss, and have deemed it less of a loss to me.
+<stage>Enter PHILOXENUS.</stage></p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> <stage>as he enters</stage>. For sure, some person, I know not who, seems to be talking near to me. But who's this I see? Really, 'tis the father of Mnesilochus.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Hah! I see a partner in affliction. Save you, Philoxenus!</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> And you; whence are you betaking yourself?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> From a place whence comes a wretched and a luckless mortal.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Why, troth, I'm surely on the earth, the spot where it befits a wretched and a luckless mortal to be.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> We now, as we are of like age, are meeting with similar fortunes.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> So it is. But as to yourself, what's the matter with you?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I' faith, mine's the same mishap as your own.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Does this misfortune in any way relate to your son?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Such is the fact. </p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> The same disease exists in my own breast.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Aye, and that very worthy fellow, Chrysalus, has been ruining my son, myself, and all my fortunes.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Pray now, what is this mishap of yours about your son?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> You shall know: together with your own son he's undone; both of them are keeping mistresses alike.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> How do you know? </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I have seen them.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Ah! wretch that I am! I'm ruined outright.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Why do we hesitate a moment to knock and to call them both hither out of doors.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> I don't object. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>knocks at the door of the house of BACCHIS</stage>. Hallo there! Bacchis! Bid the door to be opened this instant, if you please, unless you had rather the door and the posts be knocked to bits with hatchets.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="1120" unit="TLN line"/>
+<stage>Enter FIRST BACCHIS and SECOND BACCHIS from the house.</stage>
+<sp><speaker>1st BACCHIS</speaker><p> Who is it that calls out my name with such a noise and tumult, and is knocking so hard at the door?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I and this person here. <stage>Pointing to PHILOXENUS.</stage></p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Pray, what's the matter now? Who has been driving these sheep<milestone n="1121" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Driving these sheep</lemma>:  She calls them sheep, probably, because of their venerable appearance; though she afterwards remarks that they are but dirty sheep. Perhaps, too, it was the custom among ladies of this class, in cant phrase to call those "sheep" who could stand fleecing; a point on which it will be found in the dialogue that they exchange remarks. "Goats" would have been a more appropriate name, under the circumstances for the old sinners.</note> to us?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> These most shocking hussies call us sheep.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> Their shepherd's asleep, as they come straying thus from the flock.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> But, i' faith, they are not white; they both look dirty.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> Because they have both been shorn just now.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> How they seem to be laughing at us.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Let them, just as long as they please.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Don't you think that these sheep are shorn three times a year?</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> I' faith, to-day one of them has been already shorn twice, that's sure.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> They are old and fleeceless<milestone n="1129" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Old and fleeceless</lemma>:  "<foreign lang="la">Mina ovis</foreign>" was a sheep that had no wool on its belly. It is hard to say why this name was given to it. If the word "mina" had signified a certain coin, and not a sum of money merely, we might have supposed it alluded to the smoothness of the coin.</note>, both of them.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> But I think they have been in good plight once.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Prithee, do you see how they are looking with a sheep's eye at us?</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> By my troth, I really do believe they are without any ill design.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> This happens to us deservedly, for having come here.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Well, let them be driven in-doors to fold<milestone n="1134" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be driven in-doors to fold</lemma>:  "<foreign lang="la">Cogantur</foreign>." Literally, "let them be driven within." "<foreign lang="la">Cogor</foreign>" was the term applied to penning or folding sheep of cattle.</note>.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> I don't know what occasion there is for that, as they have neither milk nor wool. Let them stand as they are. Of whatever value they have been, they are now out of date; all their fruit has fallen off them by this. Don't you see, how, straying unattended, they are ranging about at liberty? Why, I fancy that they must be dumb with age; they don't bleat even, though they are absent from the rest of the flock. They seem both silly and worthless.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Let's return in-doors, sister.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Stay where you are, both of you; these sheep want you.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> Why, surely this is a prodigy; sheep are addressing us with a human voice.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> These sheep will return you the heavy and great injury which they owe to you.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> If you owe me aught, I forgive it you; keep it to yourself; I'll never demand it of you. But what is the reason that you are threatening mischief to us?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Because they say that our two lambs are shut up here. <stage>Pointing to the house.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> And besides those lambs, my dog is there concealed that bites<milestone n="1146" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That bites</lemma>:  He alludes to his having been bitten by Chrysalus.</note>. If they are not now produced to us and sent out of the house, we shall be furious rams; we shall attack you forthwith.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Sister, I have something to say to you in private.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> How now, prithee? <stage>They go apart.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Whither are they going?</p></sp>
+<sp><speaker>FIRST BACCHIS </speaker><p> Sister, I give to you that old fellow that's farthest off, that you may have him cleverly smoothed down; I'll now attack this other one that's angry; if we can only entice them here indoors.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> I'll manage my task with cleverness, although 'tis to caress an old skeleton.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Take care and do your best.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> Be quiet; do you do yours; I'll manage what I have said.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Why are these two women holding a council here in private?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> What say you, my good fellow----?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What would you with me? </p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> I really am ashamed to tell you a certain thing.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What is it that you're ashamed about?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Still, as you are a person, a friend of mine, I'm determined to entrust you with what I could wish. <stage>Whispers.</stage> I'm good for nought.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I've known that this long time; but tell me why you're good for nought?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> I've been terribly touched with birdlime: troth, my heart is pierced by the goad.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I' faith, 'twere much better if your flanks were goaded, you worthless fellow. But what is it? Although I suspect that I myself pretty well know already what it is; still, I should even like to hear it from yourself.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Do you see that woman? <stage>Pointing to the SECOND BACCHIS.</stage> </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I see her.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> She's not an uncomely person.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Troth, but she is decidedly uncomely; and you are a good-for-nothing fellow.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Why more? I'm in love. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> You, in love?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> 'Pon honor<milestone n="1162" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pon honor</lemma>:  <foreign lang="greek">*nai ga/r.</foreign> This Greek phrase was, no doubt, used as a cant or off-hand mode of expression, just as on similar occasions we adopt the French "<foreign lang="fr">oui</foreign>" or "<foreign lang="la">vraiement</foreign>," "yes," "decidedly."</note>. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> And do you, you rotten creature, presume to become a lover at your time of life?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Why not? </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Because it's a disgrace.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> What need of words? I am not vexed with my son, nor yet is it right you should be vexed with yours: if they are in love, they do wisely.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> <gap/> Follow me this way. <stage>They approach the old men.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> See, they are moving at last, these allurers and enticers to disgrace. <stage>To the women.</stage> How now? Do you this instant restore us our sons and my servant, or am I to try rougher means with you?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Won't you away with you? You surely are not a man, to address a pretty woman so rudely in that fashion.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Most worthy old gentleman, by whatsoever is upon the earth, let me entreat this of you, that you will cease to attack this error with such great vehemence.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> If you don't away with you, although you are so handsome, I'll be doing you some great mischief just now.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> I shall endure it; I don't apprehend that any blow that you can give, will cause me any pain.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> How smooth of speech she is. O me! I am in alarm.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> <stage>aside</stage>. He's more calm already. <stage>Aloud.</stage> Step this way with me in-doors; and there, if you choose, correct your son. <stage>Takes his arm.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Avaunt from me, abomination! <stage>Shakes her off.</stage></p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Do, my love, let me prevail upon you.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> You, prevail upon me? 2nd </p></sp>
+<sp><speaker>FIRST BACCHIS </speaker><p> For sure, I shall prevail, at all events, upon this gentleman. <stage>Pointing PHILOXENUS.</stage></p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Yes, I beg of you to show me in-doors.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> What a dear man you are.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> But do you know on what condition you are to show me in-doors?</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> That you are to be with me. </p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> You mention all that I desire.</p></sp>
+<sp><speaker>2nd BACCHIS</speaker><p> <gap/></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I have seen wicked men; but not one worse than yourself.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> I am as I am.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> <stage>to NICOBULUS</stage>. Step this way in-doors with me, where you may be elegantly received with viands, wine, and unguents.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Enough, enough now of your banquets; it matters not to me how I'm received. My son and Chrysalus have choused me out of four hundred Philippeans. If I don't surely this day put him to the torture, may I never receive as large a sum again.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> What, pray, if half the gold is paid you back? Will you go in-doors here with me, and so control your feelings as to forgive them their faults?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> He'll do it. <stage>Takes his arm.</stage></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Certainly not--I won't--I don't care--let me alone, now. <stage>Shakes him off.</stage> I had rather punish them both.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Take you care, you good-for-nothing man, that through your own fault you don't lose even that which the favouring Gods offer you. One half of the gold is offered; take it, and carouse, and enjoy yourself with your partner.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What, am I to carouse in that very place where my son is being corrupted?</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> You must carouse there. </p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Am I to be the witness of it when she is reclining with him at table?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Nay, so far as I'm concerned, i' faith, I'll recline at table with your own self.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> My head does itch so<milestone n="1192" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Does itch so</lemma>:  Being in doubt what to do, he scratches his head, and then tries to turn it off by saying, "Bless me, how my head does itch."</note>. <stage>Aside.</stage> I'm a ruined man--I can scarce deny her.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> And has it not before this come into your mind, that if, while you live, you enjoy yourself, that, i' faith, is for no very long time; and that, if you lose the present day, it can never return to you after you are dead?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What am I to do? </p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> What are you to do? Do you even ask it?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> I should like, and yet I'm afraid.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> What are you afraid of?</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Lest I should be exposed before my son and my servant.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Pray now, my honey; such things do happen. He's your own son; whence do you suppose that he is to have money, except that only which you give him yourself? Let me obtain pardon of you for them both.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> <stage>aside</stage>. How she does work her way. She's now prevailing on me against that which I was quite resolved upon.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> I will love you, and embrace you.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Through your doing, and for your sake am I corrupted.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> I certainly had rather 'twere for your own than for mine.</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> Come then, however that may be, although it is to my disgrace, I'll submit; I'll induce my feelings to do so.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> Have I that solemnly promised?  <gap/></p></sp>
+<sp><speaker>NICOBULUS</speaker><p> What I have once said, I will not alter.</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> The day wears apace. Come into the house, to take your places at table: your sons are expecting within----</p></sp>
+<sp><speaker>NICOBULUS</speaker><p> How soon, in fact, we may be dead, d'ye mean?</p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> 'Tis evening, already; come, follow us.</p></sp>
+<sp><speaker>PHILOXENUS</speaker><p> Lead us in like bondsmen<milestone n="1205" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Like bondsmen</lemma>:  "<foreign lang="la">Addicti</foreign>" were those who were made the slaves of their creditors; being thus by law deprived of their liberty until they had paid their debts.</note>. <stage>They go into the house.</stage></p></sp>
+<sp><speaker>1st BACCHIS</speaker><p> <stage>to the SPECTATORS</stage>. Right cleverly are these persons entrapped<milestone n="1206" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">These persons entrapped</lemma>:  The two old men, at this moment, would form a good companion picture to the Elders, who solicited the chastity of Susanna.</note> themselves, who for their sons had laid a snare. <stage>Goes in.</stage></p></sp>
+<sp><speaker>The COMPANY <note anchored="yes"><lemma targOrder="U">The company</lemma>:  The whole company of actors (<foreign lang="la">Caterva</foreign>) now comes forward, and chant or repeat the moral of the Play which has just been acted.</note> of COMEDIANS</speaker>
+<p>Had not these old men been worthless from their youth upwards, they would not, with their hoary heads, have this day done an action so disgraceful; nor, indeed, should we have represented this, if we had not, before this, seen it happen that fathers became the rivals of their sons in the houses of procurers. Spectators, we wish you Farewell! and that you will grant us loud applause.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

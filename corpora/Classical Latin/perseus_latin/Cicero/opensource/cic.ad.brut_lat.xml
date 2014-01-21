@@ -1,0 +1,1616 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+  <teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+	<title>Letters to and from Brutus</title>
+	<title type="sub">Machine readable text</title>
+	<author n="Cic.">M. Tullius Cicero</author>
+	<editor role="editor" n="OCT">L. C. Purser</editor>
+	&responsibility;
+	&fund.NEH;
+      </titleStmt>
+      &Perseus.publish;
+      <sourceDesc>
+	<p>Scanned printed text
+      </p></sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+	<state delim="." unit="book"/>
+	<state delim="." unit="letter"/>
+	<state unit="section"/>
+      </refsDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+	<language id="la">Latin
+	</language><language id="greek">Greek
+      </language></langUsage>
+    </profileDesc>
+
+    <revisionDesc>
+      <change><date>4 August 1999</date>
+	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
+	<item>
+$Log: cic.ad.brut_lat.xml,v $
+Revision 1.1  2009-10-09 19:49:13  rsingh04
+more reorganizing of texts module by collection
+
+Revision 1.4  2006/05/05 17:38:00  packel
+fixed date tags
+
+Revision 1.3  2006/02/10 20:50:16  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 15:59:18  packel
+removed stray item tags
+
+	Revision 1.1  2005/07/25 14:30:58  packel
+	Converted to XML
+	
+Revision 1.8  2004/05/24 14:28:33  amahoney
+mark dates in headers
+
+Revision 1.7  2003/07/01 22:14:56  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.6  2000/03/06 21:49:09  amahoney
+remove headers so books show up in short toc
+
+Revision 1.5  2000/03/05 02:06:56  dasmith
+Added responsibility and funder info to TEI header.
+
+Revision 1.4  1999/08/04 21:56:39  dasmith
+Added encodingDesc and revisionDesc.
+
+
+</item>
+	</change>
+    </revisionDesc>
+  </teiHeader>
+
+<text>
+<body>
+<div1 type="Book" n="1">
+<head>LIBER PRIMVS</head>
+
+
+<div2 type="letter" n="1">
+<opener>
+
+<dateline>Scr. eodem die quo ep. 2a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><persName>L. Clodius</persName>, tribunus plebis designatus, valde me diligit
+vel, ut <foreign lang="greek">e)mfatikw/teron</foreign> dicam, valde me amat. <reg>quod</reg> cum
+mihi ita persuasum sit, non dubito (bene enim me nosti)
+quin illum quoque iudices a me amari. <reg>nihil</reg> enim mihi
+minus hominis videtur quam non respondere in amore iis
+a quibus provocere. <reg>is</reg> mihi visus est suspicari nec sine
+magno quidem dolore aliquid a suis vel per suos potius
+iniquos ad te esse delatum quo tuus animus a se esset
+alienior. <reg>non</reg> soleo, mi <name>Brute</name>, quod tibi notum esse arbitror, temere adfirmare de altero; est enim periculosum
+propter occultas hominum voluntates multiplicisque
+naturas; sed <name>Clodi</name> animum perspectum habeo, cognitum,
+iudicatum. <reg>multa</reg> eius indicia sed ad scribendum non
+necessaria. <reg>volo</reg> enim testimonium hoc tibi videri potius
+quam epistulam. <reg>auctus</reg> <name>Antoni</name> beneficio est. <reg>eius</reg> ipsius
+benefici magna pars a te est. <reg>itaque</reg> eum salvis nobis
+
+<pb/>
+
+vellet salvum. 
+<milestone n="2" unit="section"/><reg>in</reg> eum autem locum rem adductam intellegit (est enim, ut scis, minime stultus) ut utrique salvi esse
+non possint. <reg>itaque</reg> nos mavult; de te vero amicissime et
+loquitur et sentit. <reg>qua</reg> re si quis secus ad te de eo scripsit
+aut si coram locutus est, peto a te etiam atque etiam mihi
+ut potius credas, qui et facilius iudicare possum quam ille
+nescio quis et te plus diligo. <name>Clodium</name> tibi amicissimum
+existima civemque talem qualis et prudentissimus et fortuna
+optima esse debet.
+</p>
+</div2>
+
+<div2 type="letter" n="2">
+<opener>
+
+<dateline>Scr. Romae ex. m. Mai. a. 711(43).</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>scripta</reg> et obsignata iam epistula litterae mihi redditae
+sunt a te plenae rerum novarum, maximeque mirabile
+<name>Dolabellam</name> quinque cohortis misisse in <name>Chersonesum</name>.
+<reg>adeone</reg> copiis abundat ut is qui ex <name>Asia</name> fugere dicebatur
+<name>Europam</name> appetere conetur? <reg>quinque</reg> autem cohortibus
+quidnam se facturum arbitratus est, cum tu &dagger;eo&dagger; quinque
+legiones, optimum equitatum, maxima auxilia haberes?
+<reg>quas</reg> quidem cohortis spero iam tuas esse, quoniam latro
+ille tam fuit demens. 
+
+<milestone n="2" unit="section"/><reg>tuum</reg> consilium vehementer laudo
+quod non prius exercitum <name>Apollonia</name> Dyrrhachioque movisti
+quam de <name>Antoni</name> fuga audisti, <name>Bruti</name> eruptione, populi <name>Romani</name>
+victoria. <reg>itaque</reg> quod scribis post ea statuisse te ducere
+exercitum in <name>Chersonesum</name> nec pati sceleratissimo hosti
+ludibrio esse imperium populi <name>Romani</name>, facis ex tua dignitate
+et ex re publica.
+
+<milestone n="3" unit="section"/><reg>quod</reg> scribis de seditione quae facta est
+in legione quarta decima fraude <persName>C. Antoni</persName> (in bonam partem
+accipies), magis mihi probatur militum severitas quam tua. ** *
+</p>
+</div2>
+
+<div2 type="letter" n="2a">
+<opener>
+
+<dateline>Scr. Romae <date>xv K. Mai.</date> a. 711 (43).</dateline>
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>te</reg> benevolentiam exercitus equitumque expertum vehementer 
+gaudeo. <reg>de</reg> <name>Dolabella</name>, ut scribis, si quid habes
+novi, facies me certiorem; in quo delector me ante providisse, ut tuum iudicium liberum esset cum <name>Dolabella</name> belli
+gerendi. <reg>id</reg> valde pertinuit, ut ego tum intellegebam, ad
+rem publicam, &lt;ut&gt; nunc iudico, ad dignitatem tuam.
+<milestone n="2" unit="section"/>* * * <reg>quod</reg> scribis me maximo otio egisse ut insectarer 
+<name>Antonios</name> idque laudas, credo ita videri tibi. <reg>sed</reg> illam
+distinctionem tuam nullo pacto probo; scribis enim acrius
+prohibenda bella civilia esse quam in superatos iracundiam
+exercendam. <reg>vehementer</reg> a te, <name>Brute</name>, dissentio nec clementiae tuae concedo, sed salutaris severitas vincit inanem
+speciem clementiae. <reg>quod</reg> si clementes esse volumus,
+numquam deerunt bella civilia. <reg>sed</reg> de hoc tu videris; de
+me possum idem quod <name>Plautinus</name> pater in <name>Trinummo</name>:
+
+<quote><l><reg>mi</reg>/hi quidem aetas a/cta ferme est; tu/a istuc refert ma/xime.</l></quote>
+
+<milestone n="3" unit="section"/><reg>opprimemini</reg>, mihi crede, <name>Brute</name>, nisi provideritis; neque 
+enim populum semper eundem habebitis neque senatum
+neque senati ducem. <reg>haec</reg> ex oraculo <name>Apollinis</name> <name>Pythi</name>
+edita tibi puta; nihil potest esse venus. <date>xv K. Maias.</date></p>
+</div2>
+
+<div2 type="letter" n="3">
+<opener>
+
+<dateline>Scr. Romae <date>xi K. Mai.</date>, ut videtur, a. 711 (43)</dateline>
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>nostrae</reg> res meliore loco videbantur; scripta enim ad te 
+certo scio quae gesta sunt. <reg>qualis</reg> tibi saepe scripsi consules, tales exstiterunt. <name>Caesaris</name> vero pueri mirifica indoles
+<pb/>
+virtutis est. Vtinam tam facile eum florentem et honoribus
+et gratia regere ac tenere possimus quam facile adhuc
+tenuimus! <reg>est</reg> omnino illud difficilius sed tamen non
+diffidimus. <reg>persuasum</reg> est enim adulescenti et maxime per
+me eius opera nos esse salvos. <reg>et</reg> certe, nisi is <name>Antonium</name>
+ab urbe avertisset, perissent omnia.
+
+<milestone n="2" unit="section"/><reg>triduo</reg> vero aut quadriduo ante hanc rem pulcherrimam timore quodam perculsa
+civitas tota ad te se cum coniugibus et liberis effundebat
+eadem recreata a. d. <date>xii Kal. Maias</date> te huc venire quam se
+ad te ire malebat. <reg>quo</reg> quidem die magnorum meorum
+laborum multarumque vigiliarum fructum cepi maximum, si
+modo est aliquis fructus ex solida veraque gloria. <reg>nam</reg>
+tantae multitudinis quantam capit urbs nostra concursus est
+ad me factus; a qua usque in <name>Capitolium</name> deductus maximo
+clamore atque plausu in rostris conlocatus sum. <reg>nihil</reg> est in
+me inane; neque enim debet; sed tamen omnium ordinum
+consensus, gratiarum actio gratulatioque me commovet
+propterea quod popularem me esse in populi salute praeclarum est. 
+
+<milestone n="3" unit="section"/><reg>sed</reg> haec te malo ab aliis.
+<milestone unit="para"/>
+<reg>me</reg> velim de tuis rebus consiliisque facias diligentissime
+certiorem illudque consideres ne tua liberalitas dissolutior
+videatur. <reg>sic</reg> sentit senatus, sic populus <name>Romanus</name>, nullos
+umquam hostis digniores omni supplicio fuisse quam eos
+civis qui hoc bello contra patriam arma ceperunt; quos
+quidem ego omnibus sententiis ulciscor et persequor:
+omnibus bonis approbantibus. <reg>tu</reg> quid de hac re sentias,
+tui iudici est; ego sic sentio trium fratrum unam et eandem
+esse causam.
+</p>
+</div2>
+
+<div2 type="letter" n="3a">
+<opener>
+
+<dateline>Scr. Romae <date>v Kal. Mai.</date> a. 711 (43).</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>consules</reg> duos bonos quidem, sed dumtaxat bonos consules amisimus. <name>Hirtius</name> quidem in ipsa victoria occidit,
+cum paucis diebus ante magno proelio vicisset. <reg>nam</reg> <name>Pansa</name>
+fugerat vulneribus acceptis quae ferre non potuit. <reg>reliquias</reg>
+hostium <name>Brutus</name> persequitur et <name>Caesar</name>. <reg>hostes</reg> autem omnes
+iudicati qui <persName>M. Antoni</persName> sectam secuti sunt, idque senatus
+consultum plerique interpretantur etiam ad tuos sive captivos sive dediticios pertinere. <reg>equidem</reg> nihil disserui
+durius cum nominatim de <persName>C. Antonio</persName> decernerem, quod
+ita statueram, a te cognoscere causam eius senatum oportere.
+V. K. <name>Maias</name>.
+</p>
+</div2>
+
+<div2 type="letter" n="4">
+<opener>
+
+<dateline>Scr. Dyrrachi iii antprid. id. Mai. a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>quanta</reg> sim laetitia adfectus cognitis rebus <name>Bruti</name> nostri 
+et consulum facilius est tibi existimare quam mihi scribere.
+<name>Cum</name> alia laudo et gaudeo accidisse, tum quod <name>Bruti</name> eruptio
+non solum ipsi salutaris fuit sed etiam maximo ad victoriam
+adiumento. 
+
+<milestone n="2" unit="section"/><reg>quod</reg> scribis mihi trium <name>Antoniorum</name> unam
+atque eandem causam esse, quid ego sentiam mei iudici
+esse: statuo nihil nisi hoc, senatus aut populi <name>Romani</name>
+iudicium esse de iis civibus qui pugnantes non interierint.
+&lsquo;<reg>at</reg> hoc ipsum&rsquo; inquies &lsquo;inique facis qui hostilis animi in
+rem publicam homines civis appelles.&rsquo; <reg>immo</reg> iustissime.
+<reg>quod</reg> enim nondum senatus censuit nec populus <name>Romanus</name>
+
+<pb/>
+iussit, id adroganter non praeiudico neque revoco ad arbitrium meum. <reg>illud</reg> quidem non muto, quod ei quem me
+occidere res non coegit neque crudeliter quicquam eripui
+neque dissolute quicquam remisi habuique in mea potestate
+quoad bellum fuit. <reg>multo</reg> equidem honestius iudico magisque quod concedere possit res publica miscrorum fortunam
+non inscctari quam infinite tribucre potentibus quac cupiditatem et adrogantiam incendere possint.
+
+<milestone n="3" unit="section"/><reg>qua</reg> in re, <name>Cicero</name>,
+vir optime atque fortissime mihique merito et meo nomine
+et rei publicae carissime, nimis credere videris spei tuae
+statimque, ut quisque aliquid recte fecerit, omnia dare ac
+permittere, quasi non liceat traduci ad mala consilia corruptum largitionibus animum. <reg>quae</reg> tua est humanitas, aequo
+animo te moneri patieris, praesertim de communi salute;
+facies tamen quod tibi visum fuerit; etiam ego, cum me
+docueris * *
+</p>
+</div2>
+
+<div2 type="letter" n="4a">
+<opener>
+
+<dateline>Scr. ex castris Id. Mai. a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p>* * * <reg>nunc</reg>, <name>Cicero</name>, nunc agendum est ne frustra oppressum esse <name>Antonium</name> gavisi simus neu semper primi cuiusque
+mali excidendi causa sit ut aliud renascatur illo peius.
+
+<milestone n="2" unit="section"/><reg>nihil</reg>
+iam neque opinantibus aut patientibus nobis adversi evenire
+potest in quo non cum omnium culpa tum praecipue tua
+futura sit, cuius tantam auctoritatem senatus ac populus
+<name>Romanus</name> non solum esse patitur sed etiam cupit quanta
+maxima in libera civitate unius esse potest; quam tu non
+solum bene sentiendo sed etiam prudenter tueri debes.
+<reg>prudentia</reg> porro, quae tibi superest, nulla abs te desideratur
+
+<pb/>
+
+nisi modus in tribuendis honoribus. <name>Alia</name> omnia sic adsunt
+ut eum quolibet antiquorum comparari possint tuae virtutes;
+unum hoc a grato animo liberalique profectum cautiorem
+ac moderatiorem liberalitatem desiderat. <reg>nihil</reg> enim senatus cuiquam dare debet quod male cogitantibus exemplo
+aut praesidio sit. <reg>itaque</reg> timeo de consulatu ne <name>Caesar</name>
+tuus altius se ascendisse putet decretis tuis quam inde, si
+consul factus sit, sit descensurus.
+
+<milestone n="3" unit="section"/><reg>quod</reg> si <name>Antonius</name> ab 
+alio relictum regni instrumentum occasionem regnandi
+habuit, quonam animo fore putas si quis auctore non
+tyranno interfecto sed ipso senatu putet se imperia quaelibet
+concupiscere posse? <reg>qua</reg> re tum et facilitatem et providentiam laudabo tuam cum exploratum habere coepero
+<name>Caesarem</name> honoribus quos acceperit extraordinariis fore
+contentum. &lsquo;<reg>alienae</reg> igitur&rsquo; inquies &lsquo;culpae me reum
+subicies?&rsquo; <reg>prorsus</reg> alienae, si provideri potuit ne exsisteret! <reg>quod</reg> utinam inspectare possis timorem de illo
+meum!
+
+<milestone n="4" unit="section"/><milestone unit="para"/>
+<reg>his</reg> litteris scriptis consulem te factum audivimus. <reg>tum</reg>
+vero incipiam proponere mihi rem publicam iustam et iam
+suis nitentem viribus si istuc videro. <reg>filius</reg> valet et in
+<name>Macedoniam</name> cum equitatu praemissus est. <name>Idibus</name> <name>Maiis</name>
+ex castris.
+</p>
+</div2>
+
+<div2 type="letter" n="5">
+<opener>
+
+<dateline>Scr. Romae <date>iii Non. Mai.</date> a. 711 (43).</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p>A. d. V K. <name>Maias</name> cum de iis qui hostes iudicati sunt 
+bello persequendis sententiae dicerentur, dixit <name>Servilius</name>
+etiam de <name>Ventidio</name> et ut <name>Cassius</name> persequeretur <name>Dolabellam</name>.
+
+<pb/>
+
+arbitrarere utile exque re publica esse, persequerere bello
+<name>Dolabellam</name>; si minus id commodo rei publicae facere
+posses sive non existimares ex re publica esse, ut in isdem
+locis exercitum contineres. <reg>nihil</reg> honorificentius potuit
+facere senatus quam ut tuum esset iudicium quid tibi
+maxime conducere rei publicae videretur. <reg>equidem</reg> sic
+sentio, si manum habet, si castra, si ubi consistat uspiam
+<name>Dolabella</name>, ad finem et ad dignitatem tuam pertinere eum
+persequi.
+<milestone unit="para"/>
+<milestone n="2" unit="section"/><reg>de</reg> <name>Cassi</name> nostri copiis nihil sciebamus. <reg>neque</reg> enim ab
+ipso ullae litterae neque nuntiabatur quicquam quod pro
+certo haberemus. <reg>quanto</reg> opere autem intersit opprimi
+<name>Dolabellam</name> profecto intellegis, cum ut sceleris poenas persolvat tum ne sit quo se latronum duces ex <name>Mutinensi</name> fuga
+conferant. <reg>atque</reg> hoc mihi iam ante placuisse potes ex
+superioribus meis litteris recordari; quamquam tum et fugae
+portus erat in tuis castris et subsidium salutis in tuo exercitu.
+<reg>quo</reg> magis nunc liberati, ut spero, periculis in <name>Dolabella</name>
+opprimendo occupati esse debemus. <reg>sed</reg> haec cogitabis
+diligentius, statues sapienter; facies nos quid constitueris et
+quid agas, si tibi videbitur, certiores.
+
+<milestone unit="para"/>
+<milestone n="3" unit="section"/><name>Ciceronem</name> nostrum in vestrum conlegium cooptari volo.
+<reg>existimo</reg> omnino absentium rationem sacerdotum comitiis
+posse haberi; nam etiam factum est antea. <name>Gaius</name> enim
+<name>Marius</name>, cum in <name>Cappadocia</name> esset, lege <name>Domitia</name> factus est
+augur nec quo minus id postea liceret ulla lex sanxit. <reg>est</reg>
+etiam in lege <name>Iulia</name>, quae lex est de sacerdotiis proxima, his
+verbis: &lsquo;QVI PETET CVIVSVE RATIO HABEBITVR.&rsquo; <reg>aperte</reg>
+indicat posse rationem haberi etiam non praesentis. <reg>hac</reg>
+
+<pb/>
+de re scripsi ad eum, ut tuo iudicio uteretur sicut in rebus
+omnibus; tibi autem statuendum est de <name>Domitio</name>, de
+<name>Catone</name> nostro. <reg>sed</reg> quamvis liceat absentis rationem
+haberi, tamen omnia sunt praesentibus faciliora. <reg>quod</reg> si
+statueris in <name>Asiam</name> tibi eundum, nulla erit ad comitia nostros
+accersendi facultas.
+
+<milestone unit="para"/>
+<milestone n="4" unit="section"/><reg>omnino</reg> <name>Pansa</name> vivo celeriora omnia putabamus. <reg>statim</reg> 
+enim conlegam sibi subrogavisset, deinde ante praetoria
+sacerdotum comitia fuissent. <reg>nunc</reg> per auspicia longam
+moram video. <reg>dum</reg> enim unus erit patricius magistratus,
+auspicia ad patres redire non possunt. <name>Magna</name> sane perturbatio. <reg>tu</reg> tota de re quid sentias velim me facias certiorem.
+iii <name>Nonas</name> <name>Maias</name>.
+
+</p>
+</div2>
+
+<div2 type="letter" n="6">
+<opener>
+
+<dateline>Scr. Romae <date>xiv K. Iun.</date> a. 711 (43).</dateline>
+
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>noli</reg> exspectare dum tibi gratias agam. <reg>iam</reg> pridem hoc 
+ex nostra necessitudine quae ad summam benevolentiam
+pervenit sublatum esse debet. <reg>filius</reg> tuus a me abest; in
+<name>Macedonia</name> congrediemur. <reg>iussus</reg> est enim <name>Ambracia</name>
+ducere equites per <name>Thessaliam</name>. <reg>scripsi</reg> ad eum ut mihi
+<name>Heracleam</name> occurreret. <name>Cum</name> eum videro, quoniam nobis
+permittis, communiter constituemus de reditu eius ad
+petitionem aut commendationem honoris. 
+
+<milestone n="2" unit="section"/><reg>tibi</reg> Glycona, 
+medicum <name>Pansae</name>, qui sororem <name>Achilleos</name> nostri in matrimonio habet, diligentissime commendo. <reg>audimus</reg> eum
+venisse in suspicionem <name>Torquato</name> de morte <name>Pansae</name> custodirique ut parricidam. <reg>nihil</reg> minus credendum est; quis
+enim maiorem calamitatem morte <name>Pansae</name> accepit? <reg>praeterea</reg> est modestus homo et frugi quem ne utilitas quidem
+videatur impulsura fuisse ad facinus. <reg>rogo</reg> te et quidem
+
+<pb/>
+valde rogo (nam <name>Achilleus</name> noster non minus quam aequum
+est laborat) eripias eum ex custodia conservesque. <reg>hoc</reg> ego
+ad meum officium privatarum rerum aeque atque ullam
+aliam rem pertinere arbitror.
+
+<milestone unit="para"/>
+<milestone n="3" unit="section"/><name>Cum</name> has ad te scriberem litteras, a Satrio, legato
+<persName>C. Treboni</persName>, reddita est epistula mihi a <name>Tillio</name> et <name>Deiotaro</name>
+<name>Dolabellam</name> caesum fugatumque esse. <name>Graecam</name> epistulam
+tibi misi Cicereii cuiusdam ad Satrium missam.
+
+<milestone unit="para"/>
+<milestone n="4" unit="section"/><name>Flavius</name> noster de controversia quam habet cum
+Dyrrhachinis hereditariam sumpsit te iudicem. <reg>rogo</reg> te,
+<name>Cicero</name>, et <name>Flavius</name> rogat rem conficias. <reg>quin</reg> ei qui
+<name>Flavium</name> fecit heredem pecuniam debuerit civitas non est
+dubium; neque Dyrrhachini infitiantur sed sibi donatum
+aes alienum a <name>Caesare</name> dicunt. <reg>noli</reg> pati a necessariis tuis
+necessario meo iniuriam fieri. x<date>iiii K. Iunias</date> ex castris ad
+imam <name>Candaviam</name>.
+</p>
+</div2>
+
+<div2 type="letter" n="7">
+<opener>
+
+<dateline>Scr. in castris circ. <date>ix K. Quint</date>, a. 711 (43).</dateline>
+
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><persName>L. Bibulus</persName> quam carus mihi esse debeat, nemo melius
+iudicare potest quam tu cuius tantae pro re publica contentiones sollicitudinesque fuerunt. <reg>itaque</reg> vel ipsius virtus
+vel nostra necessitudo debet conciliare te illi. <reg>quo</reg> minus
+multa mihi scribenda esse arbitror. <reg>voluntas</reg> enim te
+movere debet nostra, si modo iusta est aut pro officio
+necessario suscipitur. <reg>is</reg> <name>Pansae</name> locum petere constituit.
+<reg>eam</reg> nominationem a te petimus. <reg>neque</reg> coniunctiori dare
+beneficium quam nos tibi sumus neque digniorem nominare potes quam <name>Bibulum</name>.
+
+<milestone n="2" unit="section"/><reg>de</reg> <name>Domitio</name> et <name>Apuleio</name> quid
+attinet me scribere, cum ipsi per se tibi commendatissimi
+sint? <name>Apuleium</name> vero tu tua auctoritate sustinere debes.
+
+<pb/>
+
+<reg>sed</reg> <name>Apuleius</name> in sua epistula celebrabitur. <name>Bibulum</name> noli
+dimittere e sinu tuo, tantum iam virum ex quanto, crede
+mihi, potest evadere qui vestris paucorum respondeat
+laudibus.
+</p>
+</div2>
+
+<div2 type="letter" n="8">
+<opener>
+
+<dateline>Scr. ex. m. Maio aut in. Iun. a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>multos</reg> tibi commendabo et commendem necesse est. 
+<reg>optimus</reg> enim quisque vir et civis maxime sequitur tuum
+iudicium tibique omnes fortes viri dare operam et studium
+volunt, nec quisquam est quin ita existimet, meam apud te
+et auctoritatem et gratiam valere plurimum.
+
+<milestone n="2" unit="section"/><reg>sed</reg> C. 
+Nasenniun, municipem <name>Suessanum</name>, tibi ita commendo
+ut neminem diligentius. <name>Cretensi</name> bello <name>Metello</name> imperatore
+octavum principem duxit, postea in re familiari occupatus
+fuit, hoc tempore cum rei publicae partibus tum tua excellenti dignitate commotus voluit per te aliquid auctoritatis
+adsumere. <reg>fortem</reg> virum, <name>Brute</name>, tibi commendo, frugi
+hominem et, si quid ad rem pertinet, etiam locupletem.
+<reg>pergratum</reg> mihi erit si eum ita tractaris ut merito tuo mihi
+gratias agere possit.
+</p>
+</div2>
+
+<div2 type="letter" n="9">
+<opener>
+
+<dateline>Scr. Romae. in. Quint., ...ut videtur a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>fungerer</reg> eo officio quo tu functus es in meo luctu teque 
+per litteras consolarer, nisi scirem iis remediis quibus meum
+dolorem tu levasses te in tuo non egere, ac velim facilius
+quam tunc mihi nunc tibi tute medeare. <reg>est</reg> autem
+
+<pb/>
+
+alienum tanto viro quantus es tu, quod alteri praeceperit
+id ipsum facere non posse. <reg>me</reg> quidem cum rationes quas
+conlegeras tum auctoritas tua a nimio maerore deterruit.
+<name>Cum</name> enim mollius tibi ferre viderer quam deceret virum
+praesertim eum qui alios consolari soleret, accusasti me
+per litteras gravioribus verbis quam tua consuetudo ferebat.
+<milestone n="2" unit="section"/><reg>itaque</reg> iudicium tuum magni aestimans idque veritus me
+ipse conlegi et ea quae didiceram, legeram, acceperam,
+graviora duxi tua auctoritate addita. <reg>ac</reg> mihi tum, <name>Brute</name>,
+officio solum erat et naturae, tibi nunc populo et scaenae,
+ut dicitur, serviendum est. <reg>nam</reg> cum in te non solum
+exercitus tui sed omnium civium ac paene gentium coniecti
+oculi sint, minime decet propter quem fortiores ceteri sumus
+eum ipsum animo debilitatum videri. <reg>quam</reg> ob rem
+accepisti tu quidem dolorem (id enim amisisti cui simile
+in terris nihil fuit), et est dolendum in tam gravi vulnere
+ne id ipsum, carere omni sensu doloris, sit miserius
+quam dolere, sed ut modice ceteris utile est, &lt;ita&gt; tibi
+necesse est.
+
+<milestone unit="para"/>
+<milestone n="3" unit="section"/><reg>scriberem</reg> plura nisi ad te haec ipsa nimis multa essent.
+<reg>nos</reg> te tuumque exercitum exspectamus; sine quo, ut reliqua
+ex sententia succedant, vix satis liberi videmur fore. <reg>de</reg>
+tota re publica plura scribam et fortasse iam certiora iis
+litteris quas <reg>veteri</reg> nostro cogitabam dare.
+</p>
+</div2>
+
+<div2 type="letter" n="10">
+<opener>
+
+<dateline>Scr. Romae med. m. Quint. a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>nullas</reg> adhuc a te litteras habebamus, ne famam quidem
+quae declararet te cognita senatus auctoritate in <name>Italiam</name>
+adducere exercitum; quod ut faceres idque maturares magno
+opere desiderabat res publica. <reg>ingravescit</reg> enim in dies
+intestinum malum, nec extemis hostibus magis quam
+
+<pb/>
+
+domesticis laboramus, qui erant omnino ab initio belli sed
+facilius frangebantur. <reg>erectior</reg> senatus erat non sententiis
+solum nostris sed etiam cohortationibus excitatus. <reg>erat</reg> in
+senatu satis vehemens et acer <name>Pansa</name> cum in ceteros huius
+generis tum maxime in socerum, cui consuli non animus
+ab initio, non fides ad extremum defuit.
+
+<milestone n="2" unit="section"/><reg>bellum</reg> ad 
+<name>Mutinam</name> gerebatur, nihil ut in <name>Caesare</name> reprehenderes, non
+nulla in <name>Hirtio</name>. <reg>huius</reg> belli fortuna 
+
+<quote><l>ut in secundis flu/xa, ut in adversi/s bona.</l></quote>
+
+<reg>erat</reg> victrix res publica caesis <name>Antoni</name>
+copiis, ipso expulso. <name>Bruti</name> deinde ita multa peccata ut
+quodam modo victoria excideret e manibus. <reg>perterritos</reg>,
+inermis, saucios non sunt nostri duces persecuti, datumque
+<name>Lepido</name> tempus est in quo levitatem eius saepe perspectam
+maioribus in malis experiremur. <reg>sunt</reg> exercitus boni sed
+rudes <name>Bruti</name> et <name>Planci</name>, sunt fidelissima et maxima auxilia
+<name>Gallorum</name>;
+
+<milestone n="3" unit="section"/>sed <name>Caesarem</name> meis consiliis adhuc gubernatum,
+praeclara ipsum indole admirabilique constantia, improbissimis litteris quidam fallacibusque interpretibus ac nuntiis
+impulerunt in spem certissimam consulatus. <reg>quod</reg> simul
+atque sensi, neque ego illum absentem litteris monere
+destiti nec accusare praesentis eius necessarios qui eius
+cupiditati suffragari videbantur, nec in senatu sceleratissimorum consiliorum fontis aperire dubitavi. <reg>nec</reg> vero ulla
+in re memini aut senatum meliorem aut magistratus; numquam enim in honore extraordinario potentis hominis vel
+potentissimi potius (quando quidem potentia iam in vi
+posita est et armis) accidit ut nemo tribunus plebis, nemo
+alio magistratu, nemo privatus auctor exsisteret. <reg>sed</reg> in
+hac constantia atque virtute erat tamen sollicita civitas.
+<reg>inludimur</reg> enim, <name>Brute</name>, tum militum deliciis, tum imperatoris insolentia. <reg>tantum</reg> quisque se in re publica posse
+postulat quantum habet virium; non ratio, non modus, non
+
+<pb/>
+
+lex, non mos, non officium valet, non iudicium non existimatio civium, non posteritatis verecundia.
+
+<milestone n="4" unit="section"/><reg>haec</reg> ego
+multo ante prospiciens fugiebam ex <name>Italia</name> tum, cum me
+vestrorum edictorum fama revocavit; incitavisti vero tu me,
+<name>Brute</name>, <name>Veliae</name>. <reg>quamquam</reg> enim dolebiwn in eam me
+urbem ire quam tu fugeres qui eam liberavisses, quod mihi
+quoque quondam acciderat periculo simili, casu tristiore,
+perrexi tamen <name>Romamque</name> perveni nulloque praesidio quatefeci <name>Antonium</name> contraque eius arma nefanda praesidia quae
+oblata sunt <name>Caesaris</name> consilio et auctoritate firmavi. <reg>qui</reg> si
+steterit fide mihique paruerit, satis videmur habituri praesidi; sin autem impiorum consilia plus valuerint quam
+nostra aut imbecillitas aetatis non potuerit gravitatem
+rerum sustinere, spes omnis est in te. <reg>quam</reg> ob rem advola
+obsecro, atque eam rem publicam, quam virtute atque
+animi magnitudine magis quam eventis rerum liberavisti,
+exitu libera. <reg>omnis</reg> omnium concursus ad te futurus est.
+<reg>hortare</reg> idem per litteras <name>Cassium</name>.
+
+<milestone n="5" unit="section"/><reg>spes</reg> libertatis nusquam nisi in vestrorum castrorum principiis est. <reg>firmos</reg>
+omnino et duces habemus ab occidente et exercitus. <reg>hoc</reg>
+adulescentis praesidium equidem adhuc firmum esse confido, sed ita multi labefactant ut ne moveatur interdum
+extimescam.
+<reg>habes</reg> totum rei publicae statum, qui quidem tum erat,
+cum has litteras dabam. <reg>velim</reg> deinceps meliora sint. <reg>sin</reg>
+aliter fuerit, (quod di omen avertant!) rei publicae vicem
+dolebo quae immortalis esse debebat; mihi quidem quantulum reliqui est?
+
+<pb/>
+</p>
+</div2>
+
+<div2 type="letter" n="11">
+<opener>
+
+<dateline>Scr. in castris ex. m. Iun., a. <date value="-43">711 (43)</date>.</dateline>
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>veteris</reg> <name>Antisti</name> talis animus est in rem publicam ut non 
+dubitem quin et in <name>Caesare</name> et in <name>Antonio</name> se praestaturus
+fuerit acerrimum propugnatorem communis libertatis, si
+occasioni potuisset occurrere. <reg>nam</reg> qui in <name>Achaia</name> congressus &lt;cum&gt; <name>Dolabella</name> milites atque equites habente quodvis
+adire periculum ex insidiis paratissimi ad omnia latronis
+maluerit quam videri aut coactus esse pecuniam dare aut
+libenter dedisse homini nequissimo atque improbissimo, is
+nobis ultro et pollicitus est et dedit HS <num>xx</num> ex sua pecunia
+et, quod multo carius est, se ipsum obtulit et coniunxit.
+<milestone n="2" unit="section"/><reg>huic</reg> persuadere cupimus, ut imperator in castris remaneret 
+remque publicam defenderet. <reg>statuit</reg> id sibi * *, quoniam
+exercitum dimisisset. <reg>statim</reg> vero rediturum ad nos confirmavit legatione suscepta, nisi praetorum comitia habituri
+essent consules. <reg>nam</reg> illi ita sentienti de re publica magno
+opere auctor fui ne differret tempus petitionis suae. <reg>cuius</reg>
+factum omnibus gratum esse debet qui modo iudicarint
+hunc exercitum esse utilem rei publicae, tibi tanto gratius
+quanto maiore et animo gloriaque libertatem nostram
+defendis et dignitate, si contigerit nostris consiliis exitus
+quem optamus, perfuncturus es. <reg>ego</reg> etiam, mi <name>Cicero</name>,
+proprie familiariterque te rogo ut <reg>veterem</reg> ames velisque
+esse quam amplissimum; qui etsi nulla re deterreri a proposito potest, tamen excitari tuis laudibus indulgentiaque
+
+<pb/>
+
+potent quo magis amplexetur ac tueatur iudicium suum.
+<reg>id</reg> mihi gratissimum erit.
+</p>
+</div2>
+
+<div2 type="letter" n="12">
+<opener>
+
+<dateline>Scr. Romae in. m. Quint, a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>etsi</reg> daturus eram <name>Messalae</name> <name>Corvino</name> continuo litteras,
+tamen <reg>veterem</reg> nostrum ad te sine litteris meis venire nolui.
+<reg>maximo</reg> in discrimine res publica, <name>Brute</name>, versatur victoresque rursus decertare cogimur. <reg>id</reg> accidit <persName>M. Lepidi</persName> scelere
+et amentia. <reg>quo</reg> tempore cum multa propter eam curam
+quam pro re publica suscepi graviter ferrem, tum nihil tuli
+gravius quam me non posse matris tuae precibus cedere,
+non sororis; nam tibi, quod mihi plurimi est, facile me
+satis facturum arbitrabar. <reg>nullo</reg> enim modo poterat causa
+<name>Lepidi</name> distingui ab <name>Antonio</name> omniumque iudicio etiam
+durior erat quod, cum honoribus amplissimis a senatu esset
+<name>Lepidus</name> ornatus tum etiam paucis ante diebus praeclaras
+litteras ad senatum misisset, repente non solum recepit
+reliquias hostium sed bellum acerrime terra marique gerit;
+cuius exitus qui futurus sit incertum est. <reg>ita</reg> cum rogamur
+ut misericordiam liberis eius impertiamus, nihil adfertur
+quo minus summa supplicia, si (quod <name>Iuppiter</name> omen avertat!)
+pater puerorum vicerit, subeunda nobis sint. 
+
+<milestone n="2" unit="section"/><reg>nec</reg> vero me
+fugit quam sit acerbum parentum scelera filiorum poenis
+lui; sed hoc praeclare legibus comparatum est, ut caritas
+liberorum amiciores parentis rei publicae redderet. <reg>itaque</reg>
+<name>Lepidus</name> crudelis in liberos, non is qui <name>Lepidum</name> hostem
+iudicat. <reg>atque</reg> ille si armis positis de vi damnatus esset,
+quo in iudicio certe defensionem non haberet, eandem
+calamitatem subirent liberi bonis publicatis. <reg>quamquam</reg>
+quod tua mater et soror deprecatur pro pueris, id ipsum
+et multa alia crudeliora nobis omnibus <name>Lepidus</name>, <name>Antonius</name>
+
+<pb/>
+
+et reliqui hostes denuntiant. <reg>itaque</reg> maximam spem hoc
+tempore habemus in te atque exercitu tuo. <name>Cum</name> ad rei
+publicae summam tum ad gloriam et dignitatem tuam vehementer pertinet te, ut ante scripsi, in <name>Italiam</name> venire quam
+primum. <reg>eget</reg> enim vehementer cum viribus tuis tum
+etiam consilio res publica. 
+
+<milestone n="3" unit="section"/><reg>veterem</reg> pro eius erga te benevolentia singularique officio libenter ex tuis litteris complexus
+sum eumque cum tui tum rei publicae studiosissimum
+amantissimumque cognovi. <name>Ciceronem</name> meum propediem,
+ut spero, videbo. <reg>tecum</reg> enim illum [et te] in <name>Italiam</name>
+celeriter esse venturum confido.
+</p>
+</div2>
+
+<div2 type="letter" n="13">
+<opener>
+
+<dateline>Scr. in castris K. Quint, a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>de</reg> <persName>M. Lepido</persName> vereri me cogit reliquorum timor. <reg>qui</reg> 
+si eripuerit se nobis, quod velim temere atque iniuriose de
+illo suspicati sint homines, oro atque obsecro te, <name>Cicero</name>,
+necessitudinem nostram tuamque in me benevolentiam
+obtestans, sororis meae liberos obliviscaris esse <name>Lepidi</name> filios
+meque iis in patris locum successisse existimes. <reg>hoc</reg> si
+a te impetro, nihil profecto dubitabis pro iis suscipere.
+<reg>aliter</reg> alii cum suis vivunt; nihil ego possum in sororis
+meae liberis facere quo possit expleri voluntas mea aut
+officium. <reg>quid</reg> vero aut mihi tribuere boni possunt, si
+modo digni sumus quibus aliquid tribuatur, aut ego matri
+ac sorori puerisque illis praestaturus sum, si nihil valuerit
+apud te reliquumque senatum contra patrem <name>Lepidum</name>
+<name>Brutus</name> avunculus?
+
+<milestone n="2" unit="section"/><reg>scribere</reg> multa ad te neque possum 
+prae sollicitudine ac stomacho neque debeo. <reg>nam</reg> si in
+tanta re tamque necessaria verbis mihi opus est ad te
+excitandum et confirmandum, nulla spes est facturum te
+
+<pb/>
+
+quod volo et quod oportet. <reg>qua</reg> re noli exspectare longas
+preces; intuere me ipsum qui hoc a te, vel a <name>Cicerone</name>,
+coniunctissimo homine, privatim vel a consulari tali viro
+remota necessitudine privata, debeo impetrare. <reg>quid</reg> sis
+facturus velim mihi quam primum rescribas. Kal. <name>Quintilibus</name> ex castris.
+</p>
+</div2>
+
+<div2 type="letter" n="14">
+<opener>
+
+<dateline>Scr. Romae <date>v Id. Quint</date>, a. 711 (43).</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>breves</reg> litterae tuae&mdash;breves dico, immo nullae. <reg>tribusne</reg>
+versiculis his temporibus <name>Brutus</name> ad me? <reg>nihil</reg> scripsisses
+potius. <reg>et</reg> requiris meas! <reg>quis</reg> umquam ad te tuorum
+sine meis venit? quae autem epistula non pondus habuit?
+<reg>quae</reg> si ad te perlatae non sunt, ne domesticas quidem
+tuas perlatas arbitror. <name>Ciceroni</name> scribis te longiorem daturum epistulam. <reg>recte</reg> id quidem, sed haec quoque
+debuit esse plenior. <reg>ego</reg> autem, cum ad me de <name>Ciceronis</name>
+abs te discessu scripsisses, statim extrusi tabellarios litterasque ad <name>Ciceronem</name> ut, etiam si in <name>Italiam</name> venisset, ad te
+rediret; nihil enim mihi iucundius, nihil illi honestius.
+<reg>quamquam</reg> aliquotiens ei scripseram sacerdotum comitia
+mea summa contentione in alterum annum esse reiecta&mdash;
+quod ego cum <name>Ciceronis</name> causa elaboravi tum <name>Domiti</name>,
+<name>Catonis</name>, <name>Lentuli</name>, <name>Bibulorum</name>; quod ad te etiam scripseram&mdash;;
+sed videlicet, cum illam pusillam epistulam tuam ad me
+dabas, nondum erat tibi id notum. 
+
+<milestone n="2" unit="section"/><reg>qua</reg> re omni studio
+a te, mi <name>Brute</name>, contendo ut <name>Ciceronem</name> meum ne dimittas
+tecumque deducas; quod ipsum, si rem publicam cui susceptus es respicis, tibi iam iamque faciendum est. <reg>renatum</reg>
+enim bellum est idque non parvum scelere <name>Lepidi</name>. <reg>exercitus</reg>
+
+<pb/>
+
+autem <name>Caesaris</name>, qui erat optimus, non modo nihil
+prodest sed etiam cogit exercitum tuum flagitari. <reg>qui</reg> si
+<name>Italiam</name> attigerit, erit civis nemo quem quidem civem appellari fas sit, qui se non in tua castra conferat. <reg>etsi</reg>
+<name>Brutum</name> praeclare cum <name>Planco</name> coniunctum habemus; sed
+non ignoras quam sint incerti et animi hominum infecti
+partibus et exitus proeliorum. <reg>quin</reg> etiam si, ut spero,
+vicerimus, tamen magnam gubernationem tui consili tuaeque auctoritatis res desiderabit. <reg>subveni</reg> igitur, per deos,
+idque quam primum tibique persuade non te <name>Idibus</name> <name>Martiis</name>
+quibus servitutem a tuis civibus depulisti plus profuisse
+patriae quam si mature veneris profuturum. <date>v Idus Quintiles.</date>
+</p>
+</div2>
+
+<div2 type="letter" n="15">
+<opener>
+
+<dateline>Scr. Romae circ. med. in. Quint, a. <date value="-43">711 (43)</date></dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><name>Messalam</name> habes. <reg>quibus</reg> igitur litteris tam accurate 
+scriptis adsequi possum, subtilius ut explicem quae gerantur
+quaeque sint in re publica, quam tibi is exponet qui et
+optime omnia novit et elegantissime expedire et deferre
+ad te potest? <reg>cave</reg> enim existimes, <name>Brute</name> (quamquam non
+necesse est ea me ad te quae tibi nota sunt scribere; sed
+tamen tantam omnium laudum excellentiam non queo
+silentio praeterire), cave putes probitate, constantia, cura,
+studio rei publicae quicquam illi esse simile, ut eloquentia,
+qua mirabiliter excellit, vix in eo locum ad laudandum
+habere videatur; quamquam in hac ipsa sapientia plus
+apparet; ita gravi iudicio multaque arte se exercuit in
+verissimo genere dicendi. <reg>tanta</reg> autem industria est tantumque evigilat in studio ut non maxima ingenio, quod in
+eo summum est, gratia habenda videatur.
+
+<milestone n="2" unit="section"/><reg>sed</reg> provehor
+
+<pb/>
+
+amore. <reg>non</reg> enim id propositum est huic epistulae <name>Messalam</name> ut laudem, praesertim ad <name>Brutum</name> cui et virtus illius
+non minus quam mihi nota est et haec ipsa studia quae
+laudo notiora. <reg>quem</reg> cum a me dimittens graviter ferrem,
+hoc levabar uno, quod ad te tamquam ad alterum me proficiscens et officio fungebatur et laudem maximam sequebatur. <reg>sed</reg> haec hactenus.
+</p>
+<p><milestone n="3" unit="section"/><reg>venio</reg> nunc longo sane intervallo ad quandam epistulam,
+qua mihi multa tribuens unum reprehendebas quod in
+honoribus decernendis essem nimius et tamquam prodigus.
+<reg>tu</reg> hoc; alius fortasse, quod in animadversione poenaque
+durior, nisi forte utrumque tu. <reg>quod</reg> si ita est, utriusque
+rei meum iudicium studeo tibi esse notissimum &dagger;neque
+solum ut <name>Solonis</name> dictum usurpem&dagger; qui et sapientissimus
+fuit ex septem et legum scriptor solus ex septem. <reg>is</reg> rem
+publicam contineri duabus rebus dixit, praemio et poena.
+<reg>est</reg> scilicet utriusque rei modus sicut reliquarum et quaedam in utroque genere mediocritas. <reg>sed</reg> non tanta de
+re propositum est hoc loco disputare;
+
+<milestone n="4" unit="section"/>quid ego autem
+secutus hoc bello sim in sententiis dicendis aperire non
+ahenum puto.
+<reg>post</reg> interitum <name>Caesaris</name> et vestras memorabilis <name>Idus</name>
+Mart., <name>Brute</name>, quid ego praetermissum a vobis quantamque
+impendere rei publicae tempestatem dixerim non es oblitus.
+<name>Magna</name> pestis erat depulsa per vos, magna populi <name>Romani</name>
+macula deleta, vobis vero parta divina gloria, sed instrumentum regni delatum ad <name>Lepidum</name> et <name>Antonium</name>; quorum
+alter inconstantior, alter impurior, uterque pacem metuens,
+immicus otio. <reg>his</reg> ardentibus perturbandae rei publicae
+cupiditate quod opponi posset praesidium non habebamus;
+
+<pb/>
+
+erexerat enim se civitas in retinenda libertate consentiens,
+
+<milestone n="5" unit="section"/>nos tum nimis acres, vos fortasse sapientius excessistis urbe
+ea quam liberaratis, <name>Italiae</name> sua vobis studia profitenti remisistis. <reg>itaque</reg> cum teneri urbem a parricidis viderem nec te
+in ea nec <name>Cassium</name> tuto esse posse eamque armis oppressam
+ab <name>Antonio</name>, mihi quoque ipsi esse excedendum putavi;
+taetrum enim spectaculum oppressa ab impiis civitas opitulandi potestate praecisa. <reg>sed</reg> animus idem qui semper
+infixus in patriae caritate discessum ab eius periculis ferre
+non potuit. <reg>itaque</reg> in medio <name>Achaico</name> cursu cum etesiarum
+diebus <reg>auster</reg> me in <name>Italiam</name> quasi dissuasor mei consili
+rettulisset, te vidi <name>Veliae</name> doluique vehementer. <reg>cedebas</reg>
+enim, <name>Brute</name>, cedebas, quoniam <name>Stoici</name> nostri negant fugere
+sapientis.
+
+<milestone n="6" unit="section"/><name>Romam</name> ut veni, statim me obtuli <name>Antoni</name> sceleri 
+atque dementiae. <reg>quem</reg> cum in me incitavissem, consilia
+imre coepi <name>Brutina</name> plane (vestri enim haec sunt propria
+sanguinis) rei publicae liberandae. <reg>longa</reg> sunt, quae
+restant, praetereunda; sunt enim de me; tantum dico,
+<name>Caesarem</name> hunc adulescentem, per quem adhuc sumus si
+verum fateri volumus, fluxisse ex fonte consiliorum meorum.
+
+
+<milestone n="7" unit="section"/><reg>huic</reg> habiti a me honores nulli quidem, <name>Brute</name>, nisi debiti, 
+nulli nisi necessarii. Vt enim primum libertatem revocare
+coepimus, cum se nondum ne <name>Decimi</name> quidem <name>Bruti</name> divina
+virtus ita commovisset ut iam id scire possemus, atque
+omne praesidium esset in puero qui a cervicibus nostris
+avertisset <name>Antonium</name>, quis honos ei non fuit decernendus?
+<reg>quamquam</reg> ego illi tum verborum laudem tribui eamque
+modicam, decrevi etiam imperium; quod quamquam videbatur illi aetati honorificum, tamen erat exercitum babenti
+necessarium. <reg>quid</reg> enim est sine imperio exercitus?
+
+<pb/>
+
+<reg>statuam</reg> <name>Philippus</name> decrevit, celeritatem petitionis primo
+<name>Servius</name>, post maiorem etiam <name>Servilius</name>. <reg>nihil</reg> tum nimium
+videbatur. 
+
+<milestone n="8" unit="section"/><reg>sed</reg> nescio quo modo facilius in timore benigni
+quam in victoria grati reperiuntur. <reg>ego</reg> enim, <persName>D. Bruto</persName>
+liberato cum laetissimus ille civitati dies inluxisset idemque
+casu <name>Bruti</name> natalis esset, decrevi ut in fastis ad eum diem
+<name>Bruti</name> nomen adscriberetur, in eoque sum maiorum exemplum secutus qui hunc honorem mulieri <name>Larentiae</name> tribuerunt, cuius vos pontifices ad aram in <name>Velabro</name> sacrificium
+facere soletis. <reg>quod</reg> ego cum dabam <name>Bruto</name>, notam esse
+in fastis gratissimae victoriae sempiternam volebam. <reg>atque</reg>
+illo die cognovi paulo pluris in senatu malevolos esse quam
+gratos. <reg>per</reg> eos ipsos dies effudi, si ita vis, honores in
+mortuos, <name>Hirtium</name> et <name>Pansam</name>, <name>Aquilam</name> etiam. <reg>quod</reg> quis
+reprehendet, nisi qui deposito metu praeteriti periculi fuerit
+oblitus?
+
+<milestone n="9" unit="section"/><reg>accedebat</reg> ad benefici memoriam gratam ratio
+illa quae etiam posteris esset salutaris. <reg>exstare</reg> enim volebam in crudelissimos hostis monimenta odi publici sempiterna. <reg>suspicor</reg> illud tibi minus probari quod a tuis
+familiaribus, optimis illis quidem viris sed in re publica
+rudibus, non probabatur, quod ut ovanti introire <name>Caesari</name>
+liceret decreverim. <reg>ego</reg> autem (sed erro fortasse nec tamen
+is sum ut mea me maxime delectent) nihil mihi videor
+hoc bello sensisse prudentius. <reg>cur</reg> autem ita sit aperiendum
+non est, ne magis videar providus fuisse quam gratus. <reg>hoc</reg>
+ipsum nimium; qua re alia videamus. <persName>D. Bruto</persName> decrevi
+honores, decrevi <persName>L. Planco</persName>. <reg>praeclara</reg> illa quidem ingenia
+quae gloria invitantur, sed senatus etiam sapiens qui qua
+quemque re putat, modo honesta, ad rem publicam iuvandam posse adduci hac utitur. <reg>at</reg> in <name>Lepido</name> reprehendimur; cui cum statuam in rostris statuissemus, idem
+
+<pb/>
+
+illam evertimus. <reg>nos</reg> illum honore studuimus a furore
+revocare. <reg>vicit</reg> amentia levissimi hominis nostram prudentiam; nec tamen tantum in statuenda <name>Lepidi</name> statua factum
+est mali quantum in evertenda boni.
+
+
+<milestone unit="para"/>
+<milestone n="10" unit="section"/><reg>satis</reg> multa de honoribus; nunc de poena pauca dicenda
+sunt. <reg>intellexi</reg> enim ex tuis saepe litteris te in iis quos
+bello devicisti clementiam tuam velle laudari. <reg>existimo</reg>
+equidem nihil a te nisi sapienter; sed sceleris poenam
+praetermittere (id enim est quod vocatur ignoscere), etiam
+si in ceteris rebus tolerabile est, in hoc bello perniciosum
+puto. <reg>nullum</reg> enim bellum civile fuit in nostra re publica
+omnium quae memoria mea fuerunt, in quo bello non,
+utracumque pars vicisset, tamen aliqua forma esset futura
+rei publicae. <reg>hoc</reg> bello victores quam rem publicam
+simus habituri non facile adfirmarim, victis certe nulla
+umquam erit. <reg>dixi</reg> igitur sententias in <name>Antonium</name>, dixi
+in <name>Lepidum</name> severas neque tam ulciscendi causa quam ut
+et in praesenti sceleratos civis timore ab impugnanda patria
+deterrerem et in posterum documentum statuerem ne quis
+talem amentiam vellet imitari. 
+
+<milestone n="11" unit="section"/><reg>quamquam</reg> haec quidem
+sententia non magis mea fuit quam omnium. <reg>in</reg> qua
+videtur illud esse crudele, quod ad liberos qui nihil
+meruerunt poena pervenit. <reg>sed</reg> id et antiquum est et
+omnium civitatum, si quidem etiam <name>Themistocli</name> liberi
+eguerunt; et si iudicio damnatos eadem poena sequitur
+civis, qui potuimus leniores esse in hostis? <reg>quid</reg> autem
+queri quisquam potest de me, qui si vicisset acerbiorem
+se in me futurum fuisse confiteatur necesse est? <reg>habes</reg>
+rationem mearum sententiarum de hoc genere dumtaxat
+honoris et poenae; nam de ceteris rebus quid senserim
+quidque censuerim audisse te arbitror.
+
+<pb/>
+</p>
+<p><milestone n="12" unit="section"/><reg>sed</reg> haec quidem non ita necessaria, illud valde necessarium, <name>Brute</name>, te in <name>Italiam</name> cum exercitu venire quam
+primum. <reg>summa</reg> est exspectatio tui. <reg>quod</reg> si <name>Italiam</name>
+attigeris, ad te concursus fiet omnium. <name>Sive</name> enim vicerimus, qui quidem pulcherrime viceramus nisi <name>Lepidus</name>
+perdere omnia et perire ipse cum suis concupivisset, tua
+nobis auctoritate opus est ad conlocandum aliquem civitatis
+statum; sive etiam nunc certamen reliquum est, maxima
+spes est cum &lt;in&gt; auctoritate tua tum in exercitus tui viribus.
+<reg>sed</reg> propera, per deos! <reg>scis</reg> quantum sit in temporibus,
+quantum in celeritate.
+</p>
+<p><milestone n="13" unit="section"/><reg>sororis</reg> tuae filiis quam diligenter consulam spero te ex
+matris et ex sororis litteris cogniturum. <reg>qua</reg> in causa
+maiorem habeo rationem tuae voluntatis quae mihi carissima est quam, ut quibusdam videor, constantiae meae.
+<reg>sed</reg> ego nulla in re malo quam in te amando constans et
+esse et videri.
+</p>
+</div2>
+
+<div2 type="letter" n="16">
+<opener>
+
+<dateline>Scr. Athenis in. Maio a. 711 (a).</dateline>
+
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>particulam</reg> litterularum tuarum, quas misisti <name>Octavio</name>, legi
+missam ab <name>Attico</name> mihi. <reg>studium</reg> tuum curaque de <reg>salute</reg>
+mea nulla me nova voluptate adfecit. <reg>non</reg> solum enim
+usitatum sed etiam cotidianum est aliquid audire de te,
+quod pro nostra dignitate fideliter atque honorifice dixeris
+aut feceris. <reg>at</reg> dolore quantum maximum capere animo
+possum eadem illa pars epistulae scripta ad <name>Octavium</name> de
+nobis adfecit. <reg>sic</reg> enim illi gratias agis de re publica, tam
+suppliciter ac demisse&mdash;quid scribam? pudet condicionis
+ac fortunae sed tamen scribendum est: commendas nostram
+salutem illi, quae morte qua non perniciosior? ut prorsus
+
+<pb/>
+
+prae te feras non sublatam dominationem sed dominum
+commutatum esse. <reg>verba</reg> tua recognosce et aude negare
+servientis adversus regem istas esse preces. <name>Vnum</name> ais esse
+quod ab eo postuletur et exspectetur, ut eos civis de quibus
+viri boni populusque <name>Romanus</name> bene existimet salvos velit.
+<reg>quid</reg> si nolit? non erimus? <reg>atqui</reg> non esse quam esse
+per illum praestat.
+
+<milestone n="2" unit="section"/><reg>ego</reg> medius fidius non existimo tam
+omnis deos aversos esse a salute populi <name>Romani</name> ut <name>Octavius</name>
+orandus sit pro salute cuiusquam civis, non dicam pro
+liberatoribus orbis terrarum; iuvat enim magnifice loqui et
+certe decet adversus ignorantis quid pro quoque timendum
+aut a quoque petendum sit. <reg>hoc</reg> tu, <name>Cicero</name>, posse fateris
+<name>Octavium</name> et illi amicus es? aut, si me carum habes, vis
+<name>Romae</name> videre, cum ut ibi esse possem commendandus
+puero illi fuerim? <reg>cui</reg> quid agis gratias, si ut nos salvos
+esse velit et patiatur rogandum putas? <reg>an</reg> hoc pro beneficio habendum est, quod se quam <name>Antonium</name> esse maluerit
+a quo ista petenda essent? <name>Vindici</name> quidem alienae dominationis, non vicario, ecquis supplicat ut optime meritis de
+re publica liceat esse salvis?
+
+<milestone n="3" unit="section"/><reg>ista</reg> vero imbecillitas et 
+desperatio, cuius culpa non magis in te residet quam in
+omnibus aliis, et <name>Caesarem</name> in cupiditatem regni impulit et
+<name>Antonio</name> post interitum illius persuasit ut interfecti locum
+occupare conaretur et nunc puerum istum extulit, ut tu
+iudicares precibus esse impetrandam salutem talibus viris
+misericordiaque unius vix etiam nunc viri tutos fore nos,
+haud ulla alia re. <reg>quod</reg> si <name>Romanos</name> nos esse meminissemus, non audacius dominari cuperent postremi homines
+quam id nos prohiberemus, neque magis inritatus esset
+<name>Antonius</name> regno <name>Caesaris</name> quam ob eiusdem mortem deterritus.
+
+<milestone n="4" unit="section"/><reg>tu</reg> quidem consularis et tantorum scelerum vindex, 
+
+<pb/>
+
+quibus oppressis vereor ne in breve tempus dilata sit abs te
+pernicies, qui potes intueri quae gesseris, simul et ista vel
+probare vel ita demisse ac facile pati ut probantis speciem
+habeas? <reg>quod</reg> autem tibi cum <name>Antonio</name> privatim odium?
+<reg>nempe</reg> quia postulabat haec, salutem ab se peti, precariam
+nos incolumitatem habere a quibus ipse libertatem accepisset, esse arbitrium suum de re publica, quaerenda
+esse arma putasti quibus dominari prohiberetur, scilicet ut
+illo prohibito rogaremus alterum qui se in eius locum
+reponi pateretur, an ut esset sui iuris ac mancipi res
+publica? nisi forte non de servitute sed de condicione
+serviendi recusatum est a nobis. <reg>atqui</reg> non solum bono
+domino potuimus <name>Antonio</name> tolerare nostram fortunam sed
+etiam beneficiis atque honoribus ut participes frui quantis
+vellemus. <reg>quid</reg> enim negaret iis quorum patientiam
+videret maximum dominationis suae praesidium esse?
+<reg>sed</reg> nihil tanti fuit quo venderemus fidem nostram et
+libertatem.
+
+<milestone unit="para"/>
+<milestone n="5" unit="section"/><reg>hic</reg> ipse puer quem <name>Caesaris</name> nomen incitare videtur in
+<name>Caesaris</name> interfectores, quanti aestimet, si sit commercio
+locus, posse nobis auctoribus tantum quantum profecto
+potent, quoniam vivere et pecunias habere et dici consulares
+volumus! <reg>ceterum</reg> &lt;ne&gt; nequiquam perierit ille cuius
+interitu quid gavisi sumus, si mortuo nihilo minus servituri
+eramus, nulla cura adhibetur? <reg>sed</reg> mihi prius omnia di
+deaeque eripuerint quam illud iudicium, quo non modo
+heredi eius quem occidi non concesserim quod in illo non
+tuli, sed ne patri quidem meo, si revivescat, ut patiente
+me plus legibus ac senatu possit. <reg>an</reg> hoc tibi persuasum
+est, fore ceteros ab eo liberos quo invito nobis in ista
+civitate locus non sit? <reg>qui</reg> porro id quod petis fleri potest
+
+<pb/>
+
+ut impetres? <reg>rogas</reg> enim velit nos salvos esse. <reg>videmur</reg>
+ergo tibi salutem accepturi cum vitam acceperimus?
+<reg>quam</reg>, nisi prius dimittimus dignitatem et libertatem, qui
+possumus accipere?
+
+<milestone n="6" unit="section"/><reg>an</reg> tu <name>Romae</name> habitare, id putas
+incolumem esse? <reg>res</reg> non locus oportet praestet istuc
+mihi. <reg>neque</reg> incolumis <name>Caesare</name> vivo fui, nisi postea quam
+illud conscivi facinus, neque usquam exsul esse possum,
+dum servire et pati contumelias peius odero malis omnibus
+aliis. <reg>nonne</reg> hoc est in easdem tenebras recidisse, &lt;si&gt; ab eo
+qui tyranni nomen adscivit sibi, cum in <name>Graecis</name> civitatibus
+liberi tyrannorum oppressis illis eodem supplicio adficiantur,
+petitur ut vindices atque oppressores dominationis salvi
+sint? <reg>hanc</reg> ego civitatem videre velim aut putem ullam,
+quae ne traditam quidem atque inculcatam libertatem recipere possit plusque timeat in puero nomen sublati regis
+quam confidat sibi, cum illum ipsum qui maximas opes
+habuerit paucorum virtute sublatum videat? <reg>me</reg> vero
+posthac ne commendaveris <name>Caesari</name> tuo, ne te quidem
+ipsum, si me audies. <reg>valde</reg> care aestimas tot annos quot
+ista aetas recipit, si propter eam causam puero isti supplicaturus es.
+
+<milestone n="7" unit="section"/><reg>deinde</reg> quod pulcherrime fecisti ac facis in
+<name>Antonio</name> vide ne convertatur a laude maximi animi ad
+opinionem formidinis. <reg>nam</reg> si <name>Octavius</name> tibi placet, a quo
+de nostra salute petendum sit, non dominum fugisse sed
+amiciorem dominum quaesisse videberis. <reg>quem</reg> quod
+laudas ob ea quae adhuc fecit plane probo; sunt enim
+laudanda, si modo contra alienam potentiam non pro sua
+suscepit eas actiones. <name>Cum</name> vero iudicas tantum illi non
+modo licere sed etiam a te ipso tribuendum esse ut rogandus
+sit ne nolit esse nos salvos, nimium magnam mercedem
+statuis (id enim ipsum illi largiris quod per illum habere
+videbatur res publica), neque hoc tibi in mentem venit, si
+
+<pb/>
+
+<name>Octavius</name> ullis dignus sit honoribus quia cum <name>Antonio</name>
+bellum gerat, iis qui illud malum exciderint cuius istae
+reliquiae sunt nihil quo expleri possit eorum meritum
+tributurum umquam populum <name>Romanum</name>, si omnia simul
+congesserit.
+
+<milestone n="8" unit="section"/><reg>ac</reg> vide quanto diligentius homines metuant
+quam meminerint, quia <name>Antonius</name> vivat atque in armis sit,
+de <name>Caesare</name> vero quod fieri potuit ac debuit transactum est
+neque iam revocari in integrum potest. <name>Octavius</name> is est qui
+quid de nobis iudicaturus sit exspectet populus <name>Romanus</name>;
+nos ii sumus de quorum salute unus homo rogandus videatur? <reg>ego</reg> vero, ut istoc revertar, is sum qui non modo
+non supplicem sed etiam coerceam postulantis ut sibi
+supplicetur. <reg>aut</reg> longe a servientibus abero mihique esse
+iudicabo <name>Romam</name> ubicumque liberum esse licebit, ac vestri
+miserebor quibus nec aetas neque honores nec virtus aliena
+dulcedinem vivendi minuere potuerit. 
+
+<milestone n="9" unit="section"/><reg>mihi</reg> quidem ita
+beatus esse videbor, si modo constanter ac perpetuo placebit hoc consilium ut relatam putem gratiam pietati meae.
+<reg>quid</reg> enim est melius quam memoria recte factorum et
+libertate contentum neglegere humana? <reg>sed</reg> certe non
+succumbam succumbentibus nec vincar ab iis qui se vinci
+volunt experiarque et temptabo omnia neque desistam
+abstrahere a servitio civitatem nostram. <reg>si</reg> secuta fuerit
+quae debet fortuna, gaudebimus omnes; si minus, ego
+tamen gaudebo. <reg>quibus</reg> enim potius haec vita factis aut
+cogitationibus traducatur quam iis quae pertinuerint ad
+liberandos civis meos?
+</p>
+<p><milestone n="10" unit="section"/><reg>te</reg>, <name>Cicero</name>, rogo atque hortor ne defetigere neu diffidas,
+semper in praesentibus malis prohibendis futura quoque
+explores ne se, nisi ante sit occursum, insinuent. <reg>fortem</reg>
+
+<pb/>
+
+et liberum animum, quo et consul et nunc consularis rem
+publicam vindicasti, sine constantia et aequabilitate nullum
+esse putaris. <reg>fateor</reg> enim duriorem esse condicionem spectatae virtutis quam incognitae. <reg>bene</reg> facta pro debitis
+exigimus, quae aliter eveniunt ut decepti ab iis infesto
+animo reprehendimus. <reg>itaque</reg> resistere <name>Antonio</name> <name>Ciceronem</name>, etsi maxima laude dignum est, tamen, quia ille consul
+hunc consularem merito praestare videtur, nemo admiratur;
+<milestone n="11" unit="section"/>idem <name>Cicero</name>, si flexerit adversus alios iudicium suum quod
+tanta firmitate ac magnitudine direxit in exturbando <name>Antonio</name>, non modo reliqui temporis gloriam eripuerit sibi sed
+etiam praeterita evanescere coget. <reg>nihil</reg> enim per se amplum est nisi in quo iudici ratio exstat. <reg>quin</reg> neminem
+magis decet rem publicam amare libertatisque defensorem
+esse vel ingenio vel rebus gestis vel studio atque efflagitatione omnium. <reg>qua</reg> re non <name>Octavius</name> est rogandus ut velit
+nos salvos esse, magis tute te exsuscita, ut eam civitatem
+in qua maxima gessisti liberam atque honestam fore putes,
+si modo sint populo duces ad resistendum improborum
+consiliis.
+</p>
+</div2>
+
+<div2 type="letter" n="17">
+<opener>
+
+<dateline>Scr. m. Maio, ut videtur, a. <date value="-43">711 (43)</date>.</dateline>
+<salute>BRVTVS ATTICO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>scribis</reg> mihi mirari <name>Ciceronem</name> quod nihil significem umquam de suis actis. <reg>quoniam</reg> me flagitas, coactu tuo scribam quae sentio. <reg>omnia</reg> fecisse <name>Ciceronem</name> optimo animo
+scio; quid enim mihi exploratius esse potest quam illius
+animus in rem publicam? <reg>sed</reg> quaedam mihi videtur&mdash; 
+quid dicam? imperite vir omnium prudentissimus an ambitiose fecisse qui valentissimum <name>Antonium</name> suscipere pro
+re publica non dubitarit inimicum. <reg>nescio</reg> quid scribam
+
+<pb/>
+
+tibi nisi unum, pueri et cupiditatem et licentiam potius
+esse inritatam quam repressam a <name>Cicerone</name>, tantumque eum
+tribuere huic indulgentiae ut se maledictis non abstineat iis
+quidem quae in ipsum dupliciter recidunt, quod et pluris
+occidit uno seque prius oportet fateatur sicarium quam
+obiciat <name>Cascae</name> quod obicit et imitatur in <name>Casca</name> <name>Bestiam</name>.
+<reg>an</reg> quia non omnibus horis iactamus <name>Idus</name> <name>Martias</name> similiter
+atque ille <name>Nonas</name> <name>Decembris</name> suas in ore habet, eo meliore
+condicione <name>Cicero</name> pulcherrimum factum vituperabit quam
+<name>Bestia</name> et <name>Clodius</name> reprehendere illius consulatum soliti sunt?
+
+<milestone n="2" unit="section"/><reg>sustinuisse</reg> mihi gloriatur bellum <name>Antoni</name> togatus <name>Cicero</name>
+noster! <reg>quid</reg> hoc mihi prodest, si merces <name>Antoni</name> oppressi
+poscitur in <name>Antoni</name> locum successio et si vindex illius mali
+auctor exstitit alterius fundamentum et radices habituri
+altiores, si patiamur? ut iam ista quae facit dominationem
+an dominum [an <name>Antonium</name>] timentis sint. <reg>ego</reg> autem
+gratiam non habeo si quis, dum ne irato serviat, rem ipsam
+non deprecatur. <reg>immo</reg> triumphus et stipendium et omnibus decretis hortatio ne eius pudeat concupiscere fortunam
+cuius nomen susceperit, consularis aut <name>Ciceronis</name> est?
+
+<milestone n="3" unit="section"/><reg>quoniam</reg> mihi tacere non licuit, leges quae tibi necesse est molesta esse. <reg>etenim</reg> ipse sentio quanto cum dolore haec ad
+te scripserim, nec ignoro quid sentias in re publica et quam
+desperatam quoque sanari putes posse. <reg>nec</reg> me hercule te,
+<name>Attice</name>, reprehendo. <reg>aetas</reg> enim, mores, liberi segnem efficiunt; quod quidem etiam ex Flayio nostro perspexi. 
+
+<milestone n="4" unit="section"/><reg>sed</reg>
+redeo ad <name>Ciceronem</name>. <reg>quid</reg> inter Salvidienum et eum interest? <reg>quid</reg> autem amplius ille decerneret? &lsquo;<reg>timet</reg>,&rsquo;
+inquis, &lsquo;etiam nunc reliquias belli civilis.&rsquo; <reg>quisquam</reg> ergo
+
+<pb/>
+
+ita timet profligatum ut neque potentiam eius qui exercitum
+victorem habeat neque temeritatem pueri putet extimescendam esse? <reg>an</reg> hoc ipsum ea re facit, quod illi propter amplitudinem omnia iam ultroque deferenda putat? 0 magnam
+stultitiam timoris, id ipsum quod verearis ita cavere ut, cum
+vitare fortasse potueris, ultro arcessas et attrahas. <reg>nimium</reg>
+timemus mortem et exsilium et paupertatem. <reg>haec</reg> nimirum videntur <name>Ciceroni</name> ultima esse in malis et, dum habeat
+a quibus impetret quae velit et a quibus colatur ac laudetur,
+servitutem, honorificam modo, non aspernatur, si quicquam
+in extrema ac miserrima contumelia potest honorificum esse.
+
+
+<milestone n="5" unit="section"/><reg>licet</reg> ergo patrem appellet <name>Octavius</name> <name>Ciceronem</name>, referat
+omnia, laudet, gratias agat, tamen illud apparebit verba
+rebus esse contraria. <reg>quid</reg> enim tam alienum ab humanis
+sensibus est quam eum patris habere loco qui ne liberi
+quidem hominis numero sit? <reg>atqui</reg> co tendit, id agit, ad
+eum exitum properat vir optimus ut sit illi <name>Octavius</name> propitius. <reg>ego</reg> vero iam iis artibus nihil tribuo quibus <name>Ciceronem</name> scio instructissimum esse. <reg>quid</reg> enim illi prosunt quae
+pro libertate patriae, de dignitate, quae de morte, exsilio,
+paupertate scripsit copiosissime? <reg>quanto</reg> autem magis illa
+callere videtur <name>Philippus</name> qui privigno minus tribuerit quam
+<name>Cicero</name> qui alieno tribuat! <reg>desinat</reg> igitur gloriando etiam
+insectari dolores nostros. <reg>quid</reg> enim nostra victum esse
+<name>Antonium</name>, si victus est ut alii vacaret quod ille obtinuit? 
+
+<milestone n="6" unit="section"/><reg>tametsi</reg> tuae litterae dubia etiam nunc significant.
+<reg>vivat</reg> hercule <name>Cicero</name>, qui potest, supplex et obnoxius, si
+neque aetatis neque honorum neque rerum gestarum pudet;
+ego certe quin cum ipsa re bellum geram, hoc est cum regno
+et imperiis extraordinariis et dominatione et potentia quae
+supra leges se esse velit, nulla erit tam bona condicio serviendi
+
+<pb/>
+qua deterrear, quamvis sit vir bonus, ut scribis, &dagger;<name>Antonius</name>&dagger;; quod ego numquam existimavi. <reg>sed</reg> dominum ne
+parentem quidem maiores nostri voluerunt esse.
+<reg>te</reg> nisi tantum amarem quantum <name>Ciceroni</name> persuasum est
+diligi ab <name>Octavio</name>, haec ad te non scripsissem. <reg>dolet</reg> mihi
+quod tu nunc stomacharis amantissimus cum tuorum omnium tum <name>Ciceronis</name>; sed persuade tibi de voluntate propria
+mea nihil esse remissum, de iudicio largiter. <reg>neque</reg> enim
+impetrari potest quin quale quidque videatur ei talem quisque de illo opinionem habeat.
+
+<milestone unit="para"/>
+<milestone n="7" unit="section"/><reg>vellem</reg> mihi scripsisses quae condiciones essent <name>Atticae</name>
+nostrae; potuissem aliquid tibi de meo sensu perscribere.
+<reg>valetudinem</reg> <name>Porciae</name> meae tibi curae esse non miror.
+<reg>denique</reg> quod petis faciam libenter; nam etiam sorores
+me rogant. <reg>et</reg> hominem noro et quid sibi voluerit.
+</p>
+</div2>
+
+<div2 type="letter" n="18">
+<opener>
+
+<dateline>Scr. Romae <date>vi K. Sexi</date>, a. 711 (43).</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><name>Cum</name> saepe te litteris hortatus essem ut quam primum
+rei publicae subvenires in <name>Italiamque</name> exercitum adduceres
+neque id arbitrarer dubitare tuos necessarios, rogatus sum
+a prudentissima et diligentissima femina, matre tua, cuius
+omnes curae ad te referuntur et in te consumuntur ut venirem ad se a. d. VIII Kal. <name>Sextilis</name>. <reg>quod</reg> ego, ut debui, sine
+mora feci. <name>Cum</name> autem venissem, <name>Casca</name> aderat et <name>Labeo</name> et
+<name>Scaptius</name>. <reg>at</reg> illa rettulit quaesivitque quidnam mihi videretur, arcesseremusne te atque id tibi conducere putaremus
+an tardare et commorari te melius esset.
+
+<milestone n="2" unit="section"/><reg>respondi</reg> id quod
+sentiebam, et dignitati et existimationi tuae maxime conducere te primo quoque tempore ferre praesidium labenti et
+inclinatae paene rei publicae. <reg>quid</reg> enim abesse censes
+
+<pb/>
+
+mali in eo bello, in quo victores exercitus fugientem hostem
+persequi noluerint et in quo incolumis imperator honoribus
+amplissimis fortunisque maximis, coniuge, liberis, vobis adfinibus ornatus bellum rei publicae indixerit? quid dicam
+in tanto senatus populique consensu, cum tantum resideat
+intra muros mali? 
+
+<milestone n="3" unit="section"/><reg>maximo</reg> autem, cum haec scribebam,
+adficiebar dolore quod, cum me pro adulescentulo ac paene
+puero res publica accepisset vadem, vix videbar quod promiseram praestare posse. <reg>est</reg> autem gravior et difficilior
+animi et sententiae maximis praesertim in rebus pro altero
+quam pecuniae obligatio. <reg>haec</reg> enim solvi potest et est
+rei familiaris iactura tolerabilis; rei publicae quod spoponderis, quem ad modum solvas, nisi is dependi facile patitur
+pro quo spoponderis? 
+
+<milestone n="4" unit="section"/><reg>quamquam</reg> et hunc, ut spero, tenebo
+multis repugnantibus. <reg>videtur</reg> enim esse indoles, sed flexibilis aetas multique ad depravanduin parati; qui splendore
+falsi honoris obiecto aciem boni ingeni praestringi posse
+confidunt. <reg>itaque</reg> ad reliquos hic quoque labor mihi accessit ut omnis adhibeam machinas ad tenendum adulescentem ne famam subeam temeritatis. <reg>quamquam</reg> quae
+temeritas est? <reg>magis</reg> enim illum pro quo spopondi quam
+me ipsum obligavi; nec vero paenitere potest rem publicam
+me pro eo spopondisse, qui fuit in rebus gerendis cum suo
+ingenio tum mea promissione constantior.
+
+
+<milestone unit="para"/>
+<milestone n="5" unit="section"/><reg>maximus</reg> autem, nisi me forte fallit, in re publica nodus
+est inopia rei pecuniariae. <reg>obdurescunt</reg> enim magis cotidie
+boni viri ad vocem tributi; quod ex centesima conlatum impudenti censu locupletium in duarum legionum praemiis
+omne consumitur. <reg>impendent</reg> autem infiniti sumptus cum
+in hos exercitus quibus nunc defendimur tum vero in
+
+<pb/>
+
+tuum. <reg>nam</reg> <name>Cassius</name> noster videtur posse satis ornatus
+venire. <reg>sed</reg> et haec et multa alia coram cupio idque quam
+primum.
+
+<milestone unit="para"/>
+<milestone n="6" unit="section"/><reg>de</reg> sororis tuae filiis non exspectavi, <name>Brute</name>, dum scriberes.
+<reg>omnino</reg> ipsa tempora (bellum enim ducetur) integram tibi
+causam reservant. <reg>sed</reg> ego a principio, cum divinare de
+belli diuturnitate non possem, ita causam egi puerorum in
+senatu ut te arbitror e matris litteris potuisse cognoscere;
+nec vero ulla res erit umquam in qua ego non vel vitae periculo ea dicam eaque faciam quae te velle quaeque ad te
+pertinere arbitrabor. <date>vi Kal. Sextilis.</date></p>
+</div2>
+</div1>
+
+<div1 type="Book" n="2">
+<head>LIBER SECVNDVS</head>
+
+
+<div2 type="letter" n="1">
+<opener>
+
+<dateline>Scr. Romae ex. m. Mart. ant in. Apr. a. <date value="-43">711 (43)</date>.</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><name>Cum</name> haec scribebam, res existimabatur in extremum adducta discrimen. <reg>tristes</reg> enim de <name>Bruto</name> nostro litterae
+nuntiique adferebantur. <reg>me</reg> quidem non maxime conturbabant. <reg>his</reg> enim exercitibus ducibusque quos habemus
+nullo modo poteram diffidere neque adsentiebar maiori
+parti hominum. <reg>fidem</reg> enim consulum non condemnabam quae suspecta vehementer erat; desiderabam non
+nullis in rebus prudentiam et celeritatem; qua si essent
+usi, iam pridem rem &lt;publicam&gt; reciperassemus. <reg>non</reg> enim
+ignoras quanta momenta sint in re publica temporum et
+quid intersit idem illud utrum ante an post decernatur,
+suscipiatur, agatur. <reg>omnia</reg> quae severe decreta sunt hoc
+tumultu, si aut quo die dixi sententiam perfecta essent et
+
+<pb/>
+
+non in diem ex die dilata aut, quo ex tempore suscepta
+sunt ut agerentur, non tardata et procrastinata, bellum iam
+nullum haberemus.
+
+<milestone n="2" unit="section"/><reg>omnia</reg>, <name>Brute</name>, praestiti rei publicae
+quae praestare debuit is qui esset &lt;in&gt; eo in quo ego sum
+gradu senatus populique iudicio conlocatus, nec illa modo
+quae nimirum sola ab homine sunt postulanda, fidem, vigilantiam, patriae caritatem. <reg>ea</reg> sunt enim quae nemo est
+qui non praestare debeat. <reg>ego</reg> autem ei qui sententiam
+dicat in principibus de re publica puto etiam prudentiam
+esse praestandam nec me, cum mihi tantum sumpserim ut
+gubernacula rei publicae prehenderem, minus putarim reprehendendum si inutiliter aliquid senatui suaserim quam
+si infideliter.
+
+<milestone unit="para"/>
+<milestone n="3" unit="section"/><name>Acta</name> quae sint quaeque agantur scio perscribi ad te diligenter; ex me autem illud est quod te velim habere cognitum, meum quidem animum in acie esse neque respectum
+ullum quaerere nisi me utilitas civitatis forte converterit;
+maioris autem partis animi te <name>Cassiumque</name> respiciunt.
+<reg>quam</reg> ob rem ita te para, <name>Brute</name>, ut intellegas aut, si hoc
+tempore bene res gesta sit, tibi meliorem rem publicam
+esse faciendam aut, si quid offensum sit, per te esse eandem
+reciperandam.
+</p>
+</div2>
+
+<div2 type="letter" n="2">
+<opener>
+
+<dateline>Scr. Romae <date>iii Id. Apr.</date> a. 711 (43).</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><name>Planci</name> animum in rem publicam egregium, legiones,
+auxilia, copias ex litteris eius quarum exemplum tibi missum arbitror perspicere potuisti. <name>Lepidi</name>, tui necessari,
+qui secundum fratrem adfinis habet quos oderit proximos,
+levitatem et inconstantiam animumque semper inimicum
+
+<pb/>
+
+rei publicae iam credo tibi ex tuorum litteris esse perspectum.
+
+<milestone n="2" unit="section"/><reg>nos</reg> exspectatio sollicitat, &dagger;quae&dagger; est omnis iam in
+extremum adducta discrimen. <reg>est</reg> enim spes omnis in
+<name>Bruto</name> expediendo, de quo vehementer timebamus.
+
+<milestone n="3" unit="section"/><reg>ego</reg> hic cum homine furioso satis habeo negoti, <name>Servilio</name>; quem
+tuli diutius quam dignitas mea patiebatur, sed tuli rei publicae causa, ne darem perditis civibus hominem parum
+sanum illum quidem sed tamen nobilem quo concurrerent,
+quod faciunt nihilo minus; sed eum alienandum a re publica non putabam. <reg>finem</reg> feci eius ferendi. <reg>coeperat</reg> enim
+esse tanta insolentia ut neminem liberum duceret. <reg>in</reg> <name>Planci</name>
+vero causa exarsit incredibili dolore mecumque per biduum
+ita contendit et a me ita fractus est ut eum in perpetuum
+modestiorem sperem fore. <reg>atque</reg> in hac contentione ipsa,
+cum maxime res ageretur, a. d. <date>v Idus Aprilis</date> litterae mihi
+in senatu redditae sunt a <name>Lentulo</name> nostro de <name>Cassio</name>, de legionibus, de <name>Syria</name>. <reg>quas</reg> statim cum recitavissem, cecidit
+<name>Servilius</name>, complures praeterea; sunt enim insignes aliquot
+qui improbissime sentiunt. <reg>sed</reg> acerbissime tulit <name>Servilius</name>
+adsensum esse mihi de <name>Planco</name>. <name>Magnum</name> illud monstrum
+in re publica est, sed quo * * *.
+</p>
+</div2>
+
+<div2 type="letter" n="3">
+<opener>
+
+<dateline>Scr. Dyrrach<date>i K. Apr.</date> a. 711 (43).</dateline>
+
+<salute>BRVTVS CICERONI SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><name>Litteras</name> tuas valde exspecto, quas scripsisti post nuntios 
+nostrarum rerum et de morte <name>Treboni</name>. <reg>non</reg> enim dubito
+quin mihi consilium tuum explices. <reg>indigno</reg> scelere et
+civem optimum amisimus et provinciae possessione pulsi
+
+<pb/>
+
+sumus, quam reciperari facile est neque minus turpe aut
+flagitiosum erit post reciperari.
+
+<milestone unit="para"/>
+<milestone n="2" unit="section"/><name>Antonius</name> adhuc est nobiscum, sed medius fidius et
+moveor hominis precibus et timeo ne illum aliquorum
+furor excipiat. <reg>plane</reg> aestuo. <reg>quod</reg> si scirem quid tibi
+placeret, sine sollicitudine essem; id enim optimum esse
+persuasum esset mihi. <reg>qua</reg> re quam primum fac me certiorem quid tibi placeat.
+
+<milestone n="3" unit="section"/><name>Cassius</name> noster <name>Syriam</name>, legiones
+<name>Syriacas</name> habet ultro quidem a <name>Murco</name> et a <name>Marcio</name> et ab
+exercitu ipso arcessitus. <reg>ego</reg> scripsi ad <name>Tertiam</name> sororem
+et matrem ne prius ederent hoc quod optime ac felicissime
+gessit <name>Cassius</name> quam tuum consilium cognovissent tibique
+visum esset.
+
+<milestone unit="para"/>
+<milestone n="4" unit="section"/><reg>legi</reg> orationes duas tuas, quarum altera Kal. Ian. usus
+es, altera de litteris meis, quae habita est abs te contra
+<name>Calenum</name>. <reg>nunc</reg> scilicet hoc exspectas dum eas laudem.
+<reg>nescio</reg> animi an ingeni tui maior in his libellis laus contineatur; iam concedo ut vel <name>Philippici</name> vocentur, quod tu
+quadam epistula iocans scripsisti.
+
+<milestone unit="para"/>
+<milestone n="5" unit="section"/><reg>duabus</reg> rebus egemus, <name>Cicero</name>, pecunia et supplemento;
+quarum altera potest abs te expediri ut aliqua pars militum
+istinc mittatur nobis vel secreto consilio adversus <name>Pansam</name>
+vel actione in senatu, altera quo magis est necessaria neque
+meo exercitui magis quam reliquorum, hoc magis doleo
+<name>Asiam</name> nos amisisse; quam sic vexari a <name>Dolabella</name> audio
+ut iam non videatur crudelissimum eius facinus interfectio
+<name>Treboni</name>. <reg>vetus</reg> <name>Antistius</name> me tamen pecunia sublevavit.
+
+<milestone unit="para"/>
+<milestone n="6" unit="section"/><name>Cicero</name>, filius tuus, sic mihi se probat industria, patientia,
+labore, animi magnitudine, omni denique officio ut prorsus
+numquam dimittere videatur cogitationem cuius sit filius.
+<reg>qua</reg> re quoniam efficere non possum ut pluris facias eum
+
+<pb/>
+
+qui tibi est carissimus, illud tribue iudicio meo ut tibi persuadeas non fore illi abutendum gloria tua ut adipiscatur
+honores paternos. Kalend. Apr. Dyrrhachio.
+</p>
+</div2>
+
+<div2 type="letter" n="4">
+<opener>
+
+<dateline>Scr. Romae <date>prid. Id. Apr.</date> mane a. 711 (43).</dateline>
+
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><name>Datis</name> mane a. d. in <reg>id</reg>. April. <name>Scaptio</name> litteris eodem die 
+tuas accep<date>i Kal. April.</date> Dyrrhachio datas vesperi. <reg>itaque</reg>
+mane <date>prid. Id. Apr.</date>, cum a <name>Scaptio</name> certior factus essem
+non esse eos profectos quibus pridie dederam et statim
+ire, hoc paululum exaravi ipsa in turba matutinae salutationis.
+
+<milestone unit="para"/>
+<milestone n="2" unit="section"/><reg>de</reg> <name>Cassio</name> laetor et rei publicae gratulor, mihi etiam qui 
+repugnante et irascente <name>Pansa</name> sententiam dixerim ut <name>Dolabellam</name> bello <name>Cassius</name> persequeretur. <reg>et</reg> quidem audacter
+dicebam sine nostro senatus consulto iam illud eum bellum
+gerere. <reg>de</reg> te etiam dixi tum quae dicenda putavi. <reg>haec</reg>
+ad te oratio perferetur, quoniam te video delectari <name>Philippicis</name>
+nostris.
+<milestone unit="para"/>
+<milestone n="3" unit="section"/><reg>quod</reg> me de <name>Antonio</name> consulis, quoad <name>Bruti</name> exitum cognorimus custodiendum puto. <reg>ex</reg> iis litteris quas mihi
+misisti, <name>Dolabella</name> <name>Asiam</name> vexare videtur et in ea se gerere
+taeterrime. <reg>compluribus</reg> autem scripsisti <name>Dolabellam</name> a
+<name>Rhodiis</name> esse exclusum. <reg>qui</reg> si ad <name>Rhodum</name> accessit, videtur mihi <name>Asiam</name> reliquisse. <reg>id</reg> si ita est, istic tibi censeo
+commorandum; sin &dagger;eam semel cepit, mihi crede, non erit
+<reg>id</reg>. Apr.&dagger; at in <name>Asiam</name> censeo persequendum. <reg>nihil</reg> mihi
+videris hoc tempore melius acturus. 
+
+<milestone n="4" unit="section"/><reg>quod</reg> egere te duabus
+necessariis rebus scribis, supplemento et pecunia, difficile 
+consilium est. <reg>non</reg> enim mihi occurrunt facultates quibus
+
+<pb/>
+
+uti te posse videam praeter illas quas senatus decrevit, ut
+pecunias a civitatibus mutuas sumeres. <reg>de</reg> supplemento
+autem non video quid fleri possit. <reg>tantum</reg> enim abest ut
+<name>Pansa</name> de exercitu suo aut dilectu tibi aliquid tribuat, ut
+etiam moleste ferat tam multos ad te ire voluntarios, quo
+modo equidem credo, quod iis rebus quae in <name>Italia</name> decernuntur nullas copias nimis magnas esse arbitretur, quo
+modo autem multi suspicantur, &lt;quod&gt; ne te quidem nimis
+firmum esse velit; quod ego non suspicor.
+</p>
+<p><milestone n="5" unit="section"/><reg>quod</reg> scribis te ad <name>Tertiam</name> sororem &lt;et matrem&gt; scripsisse
+ut ne prius ederent ea quae gesta a <name>Cassio</name> essent quam
+mihi visum esset, video te veritum esse, id quod verendum
+fuit, ne animi partium <name>Caesaris</name>, quo modo etiam nunc
+partes appellantur, vehementer commoverentur. <reg>sed</reg> ante
+quam tuas litteras accepimus, audita res erat et pervulgata;
+tui etiam tabellarii ad multos familiaris tuos litteras attulerant. <reg>qua</reg> re neque supprimenda res erat, praesertim cum
+id fieri non posset, neque, si posset, non divulgandam potius
+quam occultandam putaremus.
+
+<milestone unit="para"/>
+<milestone n="6" unit="section"/><reg>de</reg> <name>Cicerone</name> meo et, si tantum est in eo quantum scribis,
+tantum scilicet quantum debeo gaudeo et, si quod amas
+eum eo maiora facis, id ipsum incredibiliter gaudeo a te
+eum diligi.
+</p>
+</div2>
+
+<div2 type="letter" n="5">
+<opener>
+
+<dateline>Scr. Romae <date>xviii K. Mai.</date> a. 711 (43).</dateline>
+<salute>CICERO BRVTO SAL.</salute>
+</opener>
+<milestone n="1" unit="section"/><p><reg>quae</reg> litterae tuo nomine recitatae sint <reg>id</reg>. April. in senatu
+eodemque tempore <name>Antoni</name> credo ad te scripsisse tuos;
+quorum ego nemini concedo. <reg>sed</reg> nihil necesse erat eadem
+omnis, illud necesse me ad te scribere quid sentirem tota
+de constitutione huius belli et quo iudicio essem quaque
+sententia. <reg>voluntas</reg> mea, <name>Brute</name>, de summa re publica
+
+<pb/>
+
+semper eadem fuit quae tua, ratio quibusdam in rebus
+(non enim omnibus) paulo fortasse vehementior. <reg>scis</reg> mihi
+semper placuisse non rege solum sed regno liberari rem
+publicam; tu lenius immortali omnino cum tua laude; sed
+quid melius fuerit magno dolore sensimus, magno periculo
+sentimus. <reg>recenti</reg> illo tempore tu omnia ad pacem quae
+oratione confici non poterat, ego omnia ad libertatem quae
+sine pace nulla est. <reg>pacem</reg> ipsam bello atque armis effici
+posse arbitrabar. <reg>studia</reg> non deerant arma poscentium;
+quorum repressimus impetum ardoremque restinximus.
+<milestone n="2" unit="section"/><reg>itaque</reg> res in eum locum venerat ut, nisi <name>Caesari</name> <name>Octaviano</name>
+deus quidam illam mentem dedisset, in potestatem perditissimi hominis et turpissimi <persName>M. Antoni</persName> veniendum fuerit,
+quocum vides hoc tempore ipso quod sit quantumque certamen. <reg>id</reg> profecto nullum esset, nisi tum conservatus
+esset <name>Antonius</name>. <reg>sed</reg> haec omitto; res enim a te gesta
+memorabilis et paene caelestis repellit omnis reprehensiones,
+quippe quae ne laude quidem satis idonea adfici possit.
+<reg>exstitisti</reg> nuper vultu severo; exercitum, copias, legiones
+idoneas per te brevi tempore comparasti. <reg>di</reg> immortales!
+qui ille nuntius, quae illae litterae, quae laetitia senatus,
+quae alacritas civitatis erat! nihil umquam vidi tam omnium consensione laudatum. <reg>erat</reg> exspectatio reliquiarum
+<name>Antoni</name>, quem equitatu legionibusque magna ex parte spoliaras. <reg>ea</reg> quoque habuit exitum optabilem. <reg>nam</reg> tuac
+litterae quae recitatae in senatu sunt et imperatoris et militum virtutem et industriam tuorum, in quibus <name>Ciceronis</name> mei,
+declarant. <reg>quod</reg> si tuis placuisset de his litteris referri et
+nisi in tempus turbuientissimum post discessum <name>Pansae</name>
+consulis incidissent, honos quoque iustus et debitus dis
+immortalibus decretus esset.
+
+<milestone n="3" unit="section"/><reg>ecce</reg> tibi Idib. April. advolat
+mane <name>Celer</name> <name>Pilius</name>, qui vir, di boni, quam gravis, quam constans,
+
+<pb/>
+
+quam bonarum in re publica partium! <reg>hic</reg> epistulas
+adfert duas, unam tuo nomine, alteram <name>Antoni</name>; dat <name>Servilio</name>
+tribuno plebis, ille <name>Cornuto</name>. <reg>recitantur</reg> in senatu. &lsquo;ANTONIVS PROCOS.&rsquo; <name>Magna</name> admiratio, ut si esset recitatum
+&lsquo;DOLABELLA IMPERATOR&rsquo;; a quo quidem venerant tabellarii, sed nemo <name>Pili</name> similis qui proferre litteras auderet aut
+magistratibus reddere. <reg>tuae</reg> recitantur breves illae quidem
+sed in <name>Antonium</name> admodum lenes. <reg>vehementer</reg> admiratus
+senatus. <reg>mihi</reg> autem non erat explicatum quid agerem.
+<reg>falsas</reg> dicerem? quid si tu eas adprobasses? 
+<milestone n="4" unit="section"/><reg>confirmarem</reg>? non erat dignitatis tuae. <reg>itaque</reg> ille dies silentio.
+<reg>postridie</reg> autem cum sermo increbruisset, <name>Piliusque</name> oculos
+vehementius hominum offendisset, natum omnino est principium a me. <reg>de</reg> proconsule <name>Antonio</name> multa. <name>Sestius</name> causae
+non defuit post me, cum quanto suum filium, quanto meum
+in periculo futurum diceret, si contra proconsulem arma
+tulissent. <name>Nosti</name> hominem; causae non defuit. <reg>dixerunt</reg>
+etiam alii. <name>Labeo</name> vero noster nec signum tuum in epistula
+nec diem adpositum nec te scripsisse ad tuos, ut soleres.
+<reg>hoc</reg> cogere volebat falsas litteras esse et, si quaeris, probabat. 
+
+<milestone n="5" unit="section"/><reg>nunc</reg> tuum est consilium, <name>Brute</name>, de toto genere
+belli. <reg>video</reg> te lenitate delectari et eum putare fructum
+esse maximum praeclare quidem, sed aliis rebus, aliis temporibus 
+locus esse solet debetque clementiae. <reg>nunc</reg> quid
+agitur, <name>Brute</name>? <reg>templis</reg> deorum immortalium imminet
+hominum egentium et perditorum spes, nec quicquam aliud
+decernitur hoc bello nisi utrum simus necne. <reg>cui</reg> parcimus
+aut quid agimus? <reg>hic</reg> ergo consulimus quibus victoribus
+vestigium nostrum nullum relinquetur? <reg>nam</reg> quid interest
+inter <name>Dolabellam</name> et quemvis <name>Antoniorum</name> trium? <reg>quorum</reg>
+si cui parcimus, duri fuimus in <name>Dolabella</name>. <reg>haec</reg> ut ita
+
+<pb/>
+
+sentiret senatus populusque <name>Romanus</name>, etsi res ipsa cogebat,
+tamen maxima ex parte nostro consilio atque auctoritate
+perfectum est. <reg>tu</reg> si hanc rationem non probas, tuam
+sententiam defendam, non relinquam meam. <reg>neque</reg> dissolutum a te quicquam homines exspectant nec crudele.
+<reg>huius</reg> rei moderatio facilis est. ut in duces vehemens sis.
+in milites liberalis.</p>
+<p><milestone n="6" unit="section"/><name>Ciceronem</name> meum, mi <name>Brute</name>, velim quam plurimum tecum
+habeas. <reg>virtutis</reg> disciplinam meliorem reperiet nullam quam
+contemplationem atque imitationem tui. XVIII Kalend.
+<name>Maias</name>.</p>
+</div2>
+</div1>
+</body></text></TEI.2>

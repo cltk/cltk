@@ -1,0 +1,1277 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersVerse PUBLIC "-//Perseus P4//DTD Perseus Verse//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersVerse.dtd" >
+%PersVerse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Eclogues</title>
+<title type="sub">Machine readable text</title>
+<author n="Verg.">P. Vergilius Maro</author>
+<editor role="editor" n="Greenough">J. B. Greenough</editor>
+&responsibility;
+&fund.NEH;
+</titleStmt>
+<extent>about 60Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Vergil</author>
+<title>Eclogues</title>
+<editor role="editor">J. B. Greenough</editor>
+<imprint>
+	<pubPlace>Boston</pubPlace>
+	<publisher>Ginn &amp; Co.</publisher>
+<date>1895</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step delim="." refunit="poem" from="DESCENDANT (1 DIV1 N %1)"/>
+<step refunit="line" from="DESCENDANT (1 L N %2)"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>3/97</date>
+<respStmt><name>KW</name><resp>ed. asst.</resp></respStmt>
+<item>converted mdashes, quotes; added speaker, LG, div2 tags, designated capital letters at line beginnings to keep with an *.</item></change>
+<change><date>4/8/97</date>
+<respStmt><name>DAS</name><resp>ed.</resp></respStmt>
+<item>
+$Log: verg.ecl_eng.xml,v $
+Revision 1.2  2010-07-01 18:17:37  student
+fixed place tags - zr
+
+Revision 1.1  2009/12/09 18:06:47  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 20:50:32  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:34:36  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:06:53  packel
+Converted to XML
+
+Revision 1.14  2003/07/01 22:18:59  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.13  2003/02/05 14:00:51  amahoney
+don't EVER put angle brackets in comments: it fouls up the whole file
+
+Revision 1.12  2003/02/04 16:02:57  gcrane
+systematic error -- we have lots of places where closing L tags were missing a bracket
+
+Revision 1.11  2000/12/04 17:47:36  amahoney
+fix misspelling of title
+
+Revision 1.10  2000/03/06 22:14:19  amahoney
+remove headers so poem numbers get into short toc
+
+Revision 1.9  2000/03/04 20:35:31  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.8  1999/08/12 17:24:54  dasmith
+Changed line tags to handle verse translation.
+
+Revision 1.7  1999/08/04 23:08:06  textgod
+Changed header.
+
+Revision 1.6  1997/09/24 20:17:03  textgod
+Changed names and redid headers.
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+<text>
+<body>
+<div1 type="Poem" n="1">
+<head>MELIBOEUS TITYRUS</head>
+<sp><speaker>MELIBOEUS</speaker>
+<l n="tr">You, Tityrus, 'neath a broad beech-canopy</l>
+<l n="tr">reclining, on the slender oat rehearse</l>
+<l n="tr">your silvan ditties: I from my sweet fields,</l>
+<l n="tr">and home's familiar bounds, even now depart.</l>
+<l n="tr">Exiled from home am I; while, Tityrus, you</l>
+<l n="tr">sit careless in the shade, and, at your call,</l>
+<l n="tr">&ldquo;Fair Amaryllis&rdquo; bid the woods resound.</l></sp>
+<sp><speaker>TITYRUS</speaker>
+<l n="tr">O Meliboeus, 'twas a god vouchsafed</l>
+<l n="tr">this ease to us, for him a god will I</l>
+<l n="tr">deem ever, and from my folds a tender lamb</l>
+<l n="tr">oft with its life-blood shall his altar stain.</l>
+<l n="tr">His gift it is that, as your eyes may see,</l>
+<l n="tr">my kine may roam at large, and I myself</l>
+<l n="tr">play on my shepherd's pipe what songs I will.</l></sp>
+<sp><speaker>MELIBOEUS</speaker>
+<l n="tr">I grudge you not the boon, but marvel more,</l>
+<l n="tr">such wide confusion fills the country-side.</l>
+<l n="tr">See, sick at heart I drive my she-goats on,</l>
+<l n="tr">and this one, O my Tityrus, scarce can lead:</l>
+<l n="tr">for 'mid the hazel-thicket here but now</l>
+<l n="tr">she dropped her new-yeaned twins on the bare flint,</l>
+<l n="tr">hope of the flock&mdash;an ill, I mind me well,</l>
+<l n="tr">which many a time, but for my blinded sense,</l>
+<l n="tr">the thunder-stricken oak foretold, oft too</l>
+<l n="tr">from hollow trunk the raven's ominous cry.</l>
+<l n="tr">But who this god of yours? Come, Tityrus, tell.</l></sp>
+<sp><speaker>TITYRUS</speaker>
+<l n="tr">The city, Meliboeus, they call <placeName key="perseus,Rome">Rome</placeName>,</l>
+<l n="tr">I, simpleton, deemed like this town of ours,</l>
+<l n="tr">whereto we shepherds oft are wont to drive</l>
+<l n="tr">the younglings of the flock: so too I knew</l>
+<l n="tr">whelps to resemble dogs, and kids their dams,</l>
+<l n="tr">comparing small with great; but this as far</l>
+<l n="tr">above all other cities rears her head</l>
+<l n="tr">as cypress above pliant osier towers.</l></sp>
+<sp><speaker>MELIBOEUS</speaker>
+<l n="tr">And what so potent cause took you to <placeName key="perseus,Rome">Rome</placeName>?</l></sp>
+<sp><speaker>TITYRUS</speaker>
+<l n="tr">Freedom, which, though belated, cast at length</l>
+<l n="tr">her eyes upon the sluggard, when my beard</l>
+<l n="tr">'gan whiter fall beneath the barber's blade&mdash;</l>
+<l n="tr">cast eyes, I say, and, though long tarrying, came,</l>
+<l n="tr">now when, from Galatea's yoke released,</l>
+<l n="tr">I serve but Amaryllis: for I will own,</l>
+<l n="tr">while Galatea reigned over me, I had</l>
+<l n="tr">no hope of freedom, and no thought to save.</l>
+<l n="tr">Though many a victim from my folds went forth,</l>
+<l n="tr">or rich cheese pressed for the unthankful town,</l>
+<l n="tr">never with laden hands returned I home.</l></sp>
+<sp><speaker>MELIBOEUS</speaker>
+<l n="tr">I used to wonder, Amaryllis, why</l>
+<l n="tr">you cried to heaven so sadly, and for whom</l>
+<l n="tr">you left the apples hanging on the trees;</l>
+<l n="tr">'twas Tityrus was away. Why, Tityrus,</l>
+<l n="tr">the very pines, the very water-springs,</l>
+<l n="tr">the very vineyards, cried aloud for you.</l></sp>
+<sp><speaker>TITYRUS</speaker>
+<l n="tr">What could I do? how else from bonds be freed,</l>
+<l n="tr">or otherwhere find gods so nigh to aid?</l>
+<l n="tr">There, Meliboeus, I saw that youth to whom</l>
+<l n="tr">yearly for twice six days my altars smoke.</l>
+<l n="tr">There instant answer gave he to my suit,</l>
+<l n="tr">&ldquo;Feed, as before, your kine, boys, rear your bulls.&rdquo;</l></sp>
+<sp><speaker>MELIBOEUS</speaker>
+<l n="tr">So in old age, you happy man, your fields</l>
+<l n="tr">will still be yours, and ample for your need!</l>
+<l n="tr">Though, with bare stones o'erspread, the pastures all</l>
+<l n="tr">be choked with rushy mire, your ewes with young</l>
+<l n="tr">by no strange fodder will be tried, nor hurt</l>
+<l n="tr">through taint contagious of a neighbouring flock.</l>
+<l n="tr">Happy old man, who 'mid familiar streams</l>
+<l n="tr">and hallowed springs, will court the cooling shade!</l>
+<l n="tr">Here, as of old, your neighbour's bordering hedge,</l>
+<l n="tr">that feasts with willow-flower the Hybla bees,</l>
+<l n="tr">shall oft with gentle murmur lull to sleep,</l>
+<l n="tr">while the leaf-dresser beneath some tall rock</l>
+<l n="tr">uplifts his song, nor cease their cooings hoarse</l>
+<l n="tr">the wood-pigeons that are your heart's delight,</l>
+<l n="tr">nor doves their moaning in the elm-tree top.</l></sp>
+<sp><speaker>TITYRUS</speaker>
+<l n="tr">Sooner shall light stags, therefore, feed in air,</l>
+<l n="tr">the seas their fish leave naked on the strand,</l>
+<l n="tr">germans and Parthians shift their natural bounds,</l>
+<l n="tr">and these the <placeName key="tgn,1084764">Arar</placeName>, those the <placeName key="tgn,1130850">Tigris</placeName> drink,</l>
+<l n="tr">than from my heart his face and memory fade.</l></sp>
+<sp><speaker>MELIBOEUS</speaker>
+<l n="tr">But we far hence, to burning <placeName key="tgn,1000172">Libya</placeName> some,</l>
+<l n="tr">some to the Scythian steppes, or thy swift flood,</l>
+<l n="tr">cretan Oaxes, now must wend our way,</l>
+<l n="tr">or <placeName key="tgn,7008653">Britain</placeName>, from the whole world sundered far.</l>
+<l n="tr">Ah! shall I ever in aftertime behold</l>
+<l n="tr">my native bounds&mdash;see many a harvest hence</l>
+<l n="tr">with ravished eyes the lowly turf-roofed cot</l>
+<l n="tr">where I was king? These fallows, trimmed so fair,</l>
+<l n="tr">some brutal soldier will possess these fields</l>
+<l n="tr">an alien master. Ah! to what a pass</l>
+<l n="tr">has civil discord brought our hapless folk!</l>
+<l n="tr">For such as these, then, were our furrows sown!</l>
+<l n="tr">Now, Meliboeus, graft your pears, now set</l>
+<l n="tr">your vines in order! Go, once happy flock,</l>
+<l n="tr">my she-goats, go. Never again shall I,</l>
+<l n="tr">stretched in green cave, behold you from afar</l>
+<l n="tr">hang from the bushy rock; my songs are sung;</l>
+<l n="tr">never again will you, with me to tend,</l>
+<l n="tr">on clover-flower, or bitter willows, browse.</l></sp>
+<sp><speaker>TITYRUS</speaker>
+<l n="tr">Yet here, this night, you might repose with me,</l>
+<l n="tr">on green leaves pillowed: apples ripe have I,</l>
+<l n="tr">soft chestnuts, and of curdled milk enow.</l>
+<l n="tr">And, see, the farm-roof chimneys smoke afar,</l>
+<l n="tr">and from the hills the shadows lengthening fall!</l></sp></div1>
+<div1 type="Poem" n="2">
+<head>ALEXIS</head>
+<l n="tr">the shepherd Corydon with love was fired</l>
+<l n="tr">for fair Alexis, his own master's joy:</l>
+<l n="tr">no room for hope had he, yet, none the less,</l>
+<l n="tr">the thick-leaved shadowy-soaring beech-tree grove</l>
+<l n="tr">still would he haunt, and there alone, as thus,</l>
+<l n="tr">to woods and hills pour forth his artless strains.</l>
+<l n="tr">&ldquo;Cruel Alexis, heed you naught my songs?</l>
+<l n="tr">Have you no pity? you'll drive me to my death.</l>
+<l n="tr">Now even the cattle court the cooling shade</l>
+<l n="tr">and the green lizard hides him in the thorn:</l>
+<l n="tr">now for tired mowers, with the fierce heat spent,</l>
+<l n="tr">pounds Thestilis her mess of savoury herbs,</l>
+<l n="tr">wild thyme and garlic. I, with none beside,</l>
+<l n="tr">save hoarse cicalas shrilling through the brake,</l>
+<l n="tr">still track your footprints 'neath the broiling sun.</l>
+<l n="tr">Better have borne the petulant proud disdain</l>
+<l n="tr">of Amaryllis, or Menalcas wooed,</l>
+<l n="tr">albeit he was so dark, and you so fair!</l>
+<l n="tr">Trust not too much to colour, beauteous boy;</l>
+<l n="tr">white privets fall, dark hyacinths are culled.</l>
+<l n="tr">You scorn me, Alexis, who or what I am</l>
+<l n="tr">care not to ask&mdash;how rich in flocks, or how</l>
+<l n="tr">in snow-white milk abounding: yet for me</l>
+<l n="tr">roam on Sicilian hills a thousand lambs;</l>
+<l n="tr">summer or winter, still my milk-pails brim.</l>
+<l n="tr">I sing as erst Amphion of Circe sang,</l>
+<l n="tr">what time he went to call his cattle home</l>
+<l n="tr">on Attic Aracynthus. Nor am I</l>
+<l n="tr">so ill to look on: lately on the beach</l>
+<l n="tr">I saw myself, when winds had stilled the sea,</l>
+<l n="tr">and, if that mirror lie not, would not fear</l>
+<l n="tr">daphnis to challenge, though yourself were judge.</l>
+<l n="tr">Ah! were you but content with me to dwell.</l>
+<l n="tr">Some lowly cot in the rough fields our home,</l>
+<l n="tr">shoot down the stags, or with green osier-wand</l>
+<l n="tr">round up the straggling flock! There you with me</l>
+<l n="tr">in silvan strains will learn to rival Pan.</l>
+<l n="tr">Pan first with wax taught reed with reed to join;</l>
+<l n="tr">for sheep alike and shepherd Pan hath care.</l>
+<l n="tr">Nor with the reed's edge fear you to make rough</l>
+<l n="tr">your dainty lip; such arts as these to learn</l>
+<l n="tr">what did Amyntas do?&mdash;what did he not?</l>
+<l n="tr">A pipe have I, of hemlock-stalks compact</l>
+<l n="tr">in lessening lengths, Damoetas' dying-gift:</l>
+<l n="tr">&lsquo;Mine once,&rsquo; quoth he, &lsquo;now yours, as heir to own.&rsquo;</l>
+<l n="tr">Foolish Amyntas heard and envied me.</l>
+<l n="tr">Ay, and two fawns, I risked my neck to find</l>
+<l n="tr">in a steep glen, with coats white-dappled still,</l>
+<l n="tr">from a sheep's udders suckled twice a day&mdash;</l>
+<l n="tr">these still I keep for you; which Thestilis</l>
+<l n="tr">implores me oft to let her lead away;</l>
+<l n="tr">and she shall have them, since my gifts you spurn.</l>
+<l n="tr">Come hither, beauteous boy; for you the Nymphs</l>
+<l n="tr">bring baskets, see, with lilies brimmed; for you,</l>
+<l n="tr">plucking pale violets and poppy-heads,</l>
+<l n="tr">now the fair Naiad, of narcissus flower</l>
+<l n="tr">and fragrant fennel, doth one posy twine&mdash;</l>
+<l n="tr">with cassia then, and other scented herbs,</l>
+<l n="tr">blends them, and sets the tender hyacinth off</l>
+<l n="tr">with yellow marigold. I too will pick</l>
+<l n="tr">quinces all silvered-o'er with hoary down,</l>
+<l n="tr">chestnuts, which Amaryllis wont to love,</l>
+<l n="tr">and waxen plums withal: this fruit no less</l>
+<l n="tr">shall have its meed of honour; and I will pluck</l>
+<l n="tr">you too, ye laurels, and you, ye myrtles, near,</l>
+<l n="tr">for so your sweets ye mingle. Corydon,</l>
+<l n="tr">you are a boor, nor heeds a whit your gifts</l>
+<l n="tr">alexis; no, nor would Iollas yield,</l>
+<l n="tr">should gifts decide the day. Alack! alack!</l>
+<l n="tr">What misery have I brought upon my head!&mdash;</l>
+<l n="tr">loosed on the flowers Siroces to my bane,</l>
+<l n="tr">and the wild boar upon my crystal springs!</l>
+<l n="tr">Whom do you fly, infatuate? gods ere now,</l>
+<l n="tr">and Dardan Paris, have made the woods their home.</l>
+<l n="tr">Let Pallas keep the towers her hand hath built,</l>
+<l n="tr">us before all things let the woods delight.</l>
+<l n="tr">The grim-eyed lioness pursues the wolf,</l>
+<l n="tr">the wolf the she-goat, the she-goat herself</l>
+<l n="tr">in wanton sport the flowering cytisus,</l>
+<l n="tr">and Corydon Alexis, each led on</l>
+<l n="tr">by their own longing. See, the ox comes home</l>
+<l n="tr">with plough up-tilted, and the shadows grow</l>
+<l n="tr">to twice their length with the departing sun,</l>
+<l n="tr">yet me love burns, for who can limit love?</l>
+<l n="tr">Ah! Corydon, Corydon, what hath crazed your wit?</l>
+<l n="tr">Your vine half-pruned hangs on the leafy elm;</l>
+<l n="tr">why haste you not to weave what need requires</l>
+<l n="tr">of pliant rush or osier? Scorned by this,</l>
+<l n="tr">elsewhere some new Alexis you will find.&rdquo;</l></div1>
+<div1 type="Poem" n="3">
+<head>MENALCAS   DAMOETAS   PALAEMON</head>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">Who owns the flock, Damoetas? Meliboeus?</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">Nay, they are Aegon's sheep, of late by him</l>
+<l n="tr">committed to my care.</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">O every way</l>
+<l n="tr">unhappy sheep, unhappy flock! while he</l>
+<l n="tr">still courts Neaera, fearing lest her choice</l>
+<l n="tr">should fall on me, this hireling shepherd here</l>
+<l n="tr">wrings hourly twice their udders, from the flock</l>
+<l n="tr">filching the life-juice, from the lambs their milk.</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">Hold! not so ready with your jeers at men!</l>
+<l n="tr">We know who once, and in what shrine with you&mdash;</l>
+<l n="tr">the he-goats looked aside&mdash;the light nymphs laughed&mdash;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">Ay, then, I warrant, when they saw me slash</l>
+<l n="tr">micon's young vines and trees with spiteful hook.</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">Or here by these old beeches, when you broke</l>
+<l n="tr">the bow and arrows of Damon; for you chafed</l>
+<l n="tr">when first you saw them given to the boy,</l>
+<l n="tr">cross-grained Menalcas, ay, and had you not</l>
+<l n="tr">done him some mischief, would have chafed to death.</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">With thieves so daring, what can masters do?</l>
+<l n="tr">Did I not see you, rogue, in ambush lie</l>
+<l n="tr">for Damon's goat, while loud Lycisca barked?</l>
+<l n="tr">And when I cried, &ldquo;Where is he off to now?</l>
+<l n="tr">Gather your flock together, Tityrus,&rdquo;</l>
+<l n="tr">you hid behind the sedges.</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">Well, was he</l>
+<l n="tr">whom I had conquered still to keep the goat.</l>
+<l n="tr">Which in the piping-match my pipe had won!</l>
+<l n="tr">You may not know it, but the goat was mine.</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">You out-pipe him? when had you ever pipe</l>
+<l n="tr">wax-welded? in the cross-ways used you not</l>
+<l n="tr">on grating straw some miserable tune</l>
+<l n="tr">to mangle?</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">Well, then, shall we try our skill</l>
+<l n="tr">each against each in turn? Lest you be loth,</l>
+<l n="tr">I pledge this heifer; every day she comes</l>
+<l n="tr">twice to the milking-pail, and feeds withal</l>
+<l n="tr">two young ones at her udder: say you now</l>
+<l n="tr">what you will stake upon the match with me.</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">Naught from the flock I'll venture, for at home</l>
+<l n="tr">I have a father and a step-dame harsh,</l>
+<l n="tr">and twice a day both reckon up the flock,</l>
+<l n="tr">and one withal the kids. But I will stake,</l>
+<l n="tr">seeing you are so mad, what you yourself</l>
+<l n="tr">will own more priceless far&mdash;two beechen cups</l>
+<l n="tr">by the divine art of Alcimedon</l>
+<l n="tr">wrought and embossed, whereon a limber vine,</l>
+<l n="tr">wreathed round them by the graver's facile tool,</l>
+<l n="tr">twines over clustering ivy-berries pale.</l>
+<l n="tr">Two figures, one Conon, in the midst he set,</l>
+<l n="tr">and one&mdash;how call you him, who with his wand</l>
+<l n="tr">marked out for all men the whole round of heaven,</l>
+<l n="tr">that they who reap, or stoop behind the plough,</l>
+<l n="tr">might know their several seasons? Nor as yet</l>
+<l n="tr">have I set lip to them, but lay them by.</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">For me too wrought the same Alcimedon</l>
+<l n="tr">a pair of cups, and round the handles wreathed</l>
+<l n="tr">pliant acanthus, Orpheus in the midst,</l>
+<l n="tr">the forests following in his wake; nor yet</l>
+<l n="tr">have I set lip to them, but lay them by.</l>
+<l n="tr">Matched with a heifer, who would prate of cups?</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">You shall not balk me now; where'er you bid,</l>
+<l n="tr">I shall be with you; only let us have</l>
+<l n="tr">for auditor&mdash;or see, to serve our turn,</l>
+<l n="tr">yonder Palaemon comes! In singing-bouts</l>
+<l n="tr">i'll see you play the challenger no more.</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">Out then with what you have; I shall not shrink,</l>
+<l n="tr">nor budge for any man: only do you,</l>
+<l n="tr">neighbour Palaemon, with your whole heart's skill&mdash;</l>
+<l n="tr">for it is no slight matter&mdash;play your part.</l></sp>
+<sp><speaker>PALAEMON</speaker>
+<l n="tr">Say on then, since on the greensward we sit,</l>
+<l n="tr">and now is burgeoning both field and tree;</l>
+<l n="tr">now is the forest green, and now the year</l>
+<l n="tr">at fairest. Do you first, Damoetas, sing,</l>
+<l n="tr">then you, Menalcas, in alternate strain:</l>
+<l n="tr">alternate strains are to the Muses dear.</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;From Jove the Muse began; Jove filleth all,</l>
+<l n="tr">makes the earth fruitful, for my songs hath care.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;Me Phoebus loves; for Phoebus his own gifts,</l>
+<l n="tr">bays and sweet-blushing hyacinths, I keep.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Gay Galatea throws an apple at me,</l>
+<l n="tr">then hies to the willows, hoping to be seen.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;My dear Amyntas comes unasked to me;</l>
+<l n="tr">not Delia to my dogs is better known.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Gifts for my love I've found; mine eyes have marked</l>
+<l n="tr">where the wood-pigeons build their airy nests.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;Ten golden apples have I sent my boy,</l>
+<l n="tr">all that I could, to-morrow as many more.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;What words to me, and uttered O how oft,</l>
+<l n="tr">hath Galatea spoke! waft some of them,</l>
+<l n="tr">ye winds, I pray you, for the gods to hear.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;It profiteth me naught, Amyntas mine,</l>
+<l n="tr">that in your very heart you spurn me not,</l>
+<l n="tr">if, while you hunt the boar, I guard the nets.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Prithee, Iollas, for my birthday guest</l>
+<l n="tr">send me your Phyllis; when for the young crops</l>
+<l n="tr">I slay my heifer, you yourself shall come.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;I am all hers; she wept to see me go,</l>
+<l n="tr">and, lingering on the word, &lsquo;farewell&rsquo; she said,</l>
+<l n="tr">&lsquo;My beautiful Iollas, fare you well.&rsquo;&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Fell as the wolf is to the folded flock,</l>
+<l n="tr">rain to ripe corn, Sirocco to the trees,</l>
+<l n="tr">the wrath of Amaryllis is to me.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;As moisture to the corn, to ewes with young</l>
+<l n="tr">lithe willow, as arbute to the yeanling kids,</l>
+<l n="tr">so sweet Amyntas, and none else, to me.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;My Muse, although she be but country-bred,</l>
+<l n="tr">is loved by Pollio: O Pierian Maids,</l>
+<l n="tr">pray you, a heifer for your reader feed!&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Pollio himself too doth new verses make:</l>
+<l n="tr">feed ye a bull now ripe to butt with horn,</l>
+<l n="tr">and scatter with his hooves the flying sand.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Who loves thee, Pollio, may he thither come</l>
+<l n="tr">where thee he joys beholding; ay, for him</l>
+<l n="tr">let honey flow, the thorn-bush spices bear.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;Who hates not Bavius, let him also love</l>
+<l n="tr">thy songs, O Maevius, ay, and therewithal</l>
+<l n="tr">yoke foxes to his car, and he-goats milk.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;You, picking flowers and strawberries that grow</l>
+<l n="tr">so near the ground, fly hence, boys, get you gone!</l>
+<l n="tr">There's a cold adder lurking in the grass.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;Forbear, my sheep, to tread too near the brink;</l>
+<l n="tr">yon bank is ill to trust to; even now</l>
+<l n="tr">the ram himself, see, dries his dripping fleece!&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Back with the she-goats, Tityrus, grazing there</l>
+<l n="tr">so near the river! I, when time shall serve,</l>
+<l n="tr">will take them all, and wash them in the pool.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;Boys, get your sheep together; if the heat,</l>
+<l n="tr">as late it did, forestall us with the milk,</l>
+<l n="tr">vainly the dried-up udders shall we wring.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;How lean my bull amid the fattening vetch!</l>
+<l n="tr">Alack! alack! for herdsman and for herd!</l>
+<l n="tr">It is the self-same love that wastes us both.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;These truly&mdash;nor is even love the cause&mdash;</l>
+<l n="tr">scarce have the flesh to keep their bones together</l>
+<l n="tr">some evil eye my lambkins hath bewitched.&rdquo;</l></sp>
+<sp><speaker>DAMOETAS</speaker>
+<l n="tr">&ldquo;Say in what clime&mdash;and you shall be withal</l>
+<l n="tr">my great Apollo&mdash;the whole breadth of heaven</l>
+<l n="tr">opens no wider than three ells to view.&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;Say in what country grow such flowers as bear</l>
+<l n="tr">the names of kings upon their petals writ,</l>
+<l n="tr">and you shall have fair Phyllis for your own.&rdquo;</l></sp>
+<sp><speaker>PALAEMON</speaker>
+<l n="tr">Not mine betwixt such rivals to decide:</l>
+<l n="tr">you well deserve the heifer, so does he,</l>
+<l n="tr">with all who either fear the sweets of love,</l>
+<l n="tr">or taste its bitterness. Now, boys, shut off</l>
+<l n="tr">the sluices, for the fields have drunk their fill.</l></sp></div1>
+<div1 type="Poem" n="4">
+<head>POLLIO</head>
+<lg type="stanza"><l n="tr">muses of <placeName key="tgn,7003122">Sicily</placeName>, essay we now</l>
+<l n="tr">a somewhat loftier task! Not all men love</l>
+<l n="tr">coppice or lowly tamarisk: sing we woods,</l>
+<l n="tr">woods worthy of a Consul let them be.</l>
+<lg><l n="tr">Now the last age by Cumae's Sibyl sung</l>
+<l n="tr">has come and gone, and the majestic roll</l>
+<l n="tr">of circling centuries begins anew:</l>
+<l n="tr">justice returns, returns old Saturn's reign,</l>
+<l n="tr">with a new breed of men sent down from heaven.</l>
+<l n="tr">Only do thou, at the boy's birth in whom</l>
+<l n="tr">the iron shall cease, the golden race arise,</l>
+<l n="tr">befriend him, chaste Lucina; 'tis thine own</l>
+<l n="tr">apollo reigns. And in thy consulate,</l>
+<l n="tr">this glorious age, O Pollio, shall begin,</l>
+<l n="tr">and the months enter on their mighty march.</l>
+<l n="tr">Under thy guidance, whatso tracks remain</l>
+<l n="tr">of our old wickedness, once done away,</l>
+<l n="tr">shall free the earth from never-ceasing fear.</l>
+<l n="tr">He shall receive the life of gods, and see</l>
+<l n="tr">heroes with gods commingling, and himself</l>
+<l n="tr">be seen of them, and with his father's worth</l>
+<l n="tr">reign o'er a world at peace. For thee, O boy,</l>
+<l n="tr">first shall the earth, untilled, pour freely forth</l>
+<l n="tr">her childish gifts, the gadding ivy-spray</l>
+<l n="tr">with foxglove and Egyptian bean-flower mixed,</l>
+<l n="tr">and laughing-eyed acanthus. Of themselves,</l>
+<l n="tr">untended, will the she-goats then bring home</l>
+<l n="tr">their udders swollen with milk, while flocks afield</l>
+<l n="tr">shall of the monstrous lion have no fear.</l>
+<l n="tr">Thy very cradle shall pour forth for thee</l>
+<l n="tr">caressing flowers. The serpent too shall die,</l>
+<l n="tr">die shall the treacherous poison-plant, and far</l>
+<l n="tr">and wide Assyrian spices spring. But soon</l>
+<l n="tr">as thou hast skill to read of heroes' fame,</l>
+<l n="tr">and of thy father's deeds, and inly learn</l>
+<l n="tr">what virtue is, the plain by slow degrees</l>
+<l n="tr">with waving corn-crops shall to golden grow,</l>
+<l n="tr">from the wild briar shall hang the blushing grape,</l>
+<l n="tr">and stubborn oaks sweat honey-dew. Nathless</l>
+<l n="tr">yet shall there lurk within of ancient wrong</l>
+<l n="tr">some traces, bidding tempt the deep with ships,</l>
+<l n="tr">gird towns with walls, with furrows cleave the earth.</l>
+<l n="tr">Therewith a second Tiphys shall there be,</l>
+<l n="tr">her hero-freight a second Argo bear;</l>
+<l n="tr">new wars too shall arise, and once again</l>
+<l n="tr">some great Achilles to some <placeName key="perseus,Troy">Troy</placeName> be sent.</l>
+<l n="tr">Then, when the mellowing years have made thee man,</l>
+<l n="tr">no more shall mariner sail, nor pine-tree bark</l>
+<l n="tr">ply traffic on the sea, but every land</l>
+<l n="tr">shall all things bear alike: the glebe no more</l>
+<l n="tr">shall feel the harrow's grip, nor vine the hook;</l>
+<l n="tr">the sturdy ploughman shall loose yoke from steer,</l>
+<l n="tr">nor wool with varying colours learn to lie;</l>
+<l n="tr">but in the meadows shall the ram himself,</l>
+<l n="tr">now with soft flush of purple, now with tint</l>
+<l n="tr">of yellow saffron, teach his fleece to shine.</l>
+<l n="tr">While clothed in natural scarlet graze the lambs.</l>
+<l n="tr">&ldquo;Such still, such ages weave ye, as ye run,&rdquo;</l>
+<l n="tr">sang to their spindles the consenting Fates</l>
+<l n="tr">by Destiny's unalterable decree.</l>
+<l n="tr">Assume thy greatness, for the time draws nigh,</l>
+<l n="tr">dear child of gods, great progeny of Jove!</l>
+<l n="tr">See how it totters&mdash;the world's orbed might,</l>
+<l n="tr">earth, and wide ocean, and the vault profound,</l>
+<l n="tr">all, see, enraptured of the coming time!</l>
+<l n="tr">Ah! might such length of days to me be given,</l>
+<l n="tr">and breath suffice me to rehearse thy deeds,</l>
+<l n="tr">nor Thracian Orpheus should out-sing me then,</l>
+<l n="tr">nor Linus, though his mother this, and that</l>
+<l n="tr">his sire should aid&mdash;Orpheus Calliope,</l>
+<l n="tr">and Linus fair Apollo. Nay, though Pan,</l>
+<l n="tr">with Arcady for judge, my claim contest,</l>
+<l n="tr">with Arcady for judge great Pan himself</l>
+<l n="tr">should own him foiled, and from the field retire.</l></lg>
+<lg><l n="tr">Begin to greet thy mother with a smile,</l>
+<l n="tr">o baby-boy! ten months of weariness</l>
+<l n="tr">for thee she bore: O baby-boy, begin!</l>
+<l n="tr">For him, on whom his parents have not smiled,</l>
+<l n="tr">gods deem not worthy of their board or bed.</l></lg></lg></div1>
+<div1 type="Poem" n="5">
+<head>MENALCAS   MOPSUS</head>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">Why, Mopsus, being both together met,</l>
+<l n="tr">you skilled to breathe upon the slender reeds,</l>
+<l n="tr">I to sing ditties, do we not sit down</l>
+<l n="tr">here where the elm-trees and the hazels blend?</l></sp>
+<sp><speaker>MOPSUS</speaker>
+<l n="tr">You are the elder, 'tis for me to bide</l>
+<l n="tr">your choice, Menalcas, whether now we seek</l>
+<l n="tr">yon shade that quivers to the changeful breeze,</l>
+<l n="tr">or the cave's shelter. Look you how the cave</l>
+<l n="tr">is with the wild vine's clusters over-laced!</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">None but Amyntas on these hills of ours</l>
+<l n="tr">can vie with you.</l></sp>
+<sp><speaker>MOPSUS</speaker>
+<l n="tr">What if he also strive</l>
+<l n="tr">to out-sing Phoebus?</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">Do you first begin,</l>
+<l n="tr">good Mopsus, whether minded to sing aught</l>
+<l n="tr">of Phyllis and her loves, or Alcon's praise,</l>
+<l n="tr">or to fling taunts at Codrus. Come, begin,</l>
+<l n="tr">while Tityrus watches o'er the grazing kids.</l></sp>
+<sp><speaker>MOPSUS</speaker>
+<l n="tr">Nay, then, I will essay what late I carved</l>
+<l n="tr">on a green beech-tree's rind, playing by turns,</l>
+<l n="tr">and marking down the notes; then afterward</l>
+<l n="tr">bid you Amyntas match them if he can.</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">As limber willow to pale olive yields,</l>
+<l n="tr">as lowly Celtic nard to rose-buds bright,</l>
+<l n="tr">so, to my mind, Amyntas yields to you.</l>
+<l n="tr">But hold awhile, for to the cave we come.</l></sp>
+<sp><speaker>MOPSUS</speaker>
+<l n="tr">&ldquo;For Daphnis cruelly slain wept all the Nymphs&mdash;</l>
+<l n="tr">ye hazels, bear them witness, and ye streams&mdash;</l>
+<l n="tr">when she, his mother, clasping in her arms</l>
+<l n="tr">the hapless body of the son she bare,</l>
+<l n="tr">to gods and stars unpitying, poured her plaint.</l>
+<l n="tr">Then, Daphnis, to the cooling streams were none</l>
+<l n="tr">that drove the pastured oxen, then no beast</l>
+<l n="tr">drank of the river, or would the grass-blade touch.</l>
+<l n="tr">Nay, the wild rocks and woods then voiced the roar</l>
+<l n="tr">of Afric lions mourning for thy death.</l>
+<l n="tr">Daphnis, 'twas thou bad'st yoke to Bacchus' car</l>
+<l n="tr">armenian tigresses, lead on the pomp</l>
+<l n="tr">of revellers, and with tender foliage wreathe</l>
+<l n="tr">the bending spear-wands. As to trees the vine</l>
+<l n="tr">is crown of glory, as to vines the grape,</l>
+<l n="tr">bulls to the herd, to fruitful fields the corn,</l>
+<l n="tr">so the one glory of thine own art thou.</l>
+<l n="tr">When the Fates took thee hence, then Pales' self,</l>
+<l n="tr">and even Apollo, left the country lone.</l>
+<l n="tr">Where the plump barley-grain so oft we sowed,</l>
+<l n="tr">there but wild oats and barren darnel spring;</l>
+<l n="tr">for tender violet and narcissus bright</l>
+<l n="tr">thistle and prickly thorn uprear their heads.</l>
+<l n="tr">Now, O ye shepherds, strew the ground with leaves,</l>
+<l n="tr">and o'er the fountains draw a shady veil&mdash;</l>
+<l n="tr">so Daphnis to his memory bids be done&mdash;</l>
+<l n="tr">and rear a tomb, and write thereon this verse:</l>
+<l n="tr">&lsquo;I, Daphnis in the woods, from hence in fame</l>
+<l n="tr">am to the stars exalted, guardian once</l>
+<l n="tr">of a fair flock, myself more fair than they.&rsquo;&rdquo;</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">So is thy song to me, poet divine,</l>
+<l n="tr">as slumber on the grass to weary limbs,</l>
+<l n="tr">or to slake thirst from some sweet-bubbling rill</l>
+<l n="tr">in summer's heat. Nor on the reeds alone,</l>
+<l n="tr">but with thy voice art thou, thrice happy boy,</l>
+<l n="tr">ranked with thy master, second but to him.</l>
+<l n="tr">Yet will I, too, in turn, as best I may,</l>
+<l n="tr">sing thee a song, and to the stars uplift</l>
+<l n="tr">thy Daphnis&mdash;Daphnis to the stars extol,</l>
+<l n="tr">for me too Daphnis loved.</l></sp>
+<sp><speaker>MOPSUS</speaker>
+<l n="tr">Than such a boon</l>
+<l n="tr">what dearer could I deem? the boy himself</l>
+<l n="tr">was worthy to be sung, and many a time</l>
+<l n="tr">hath Stimichon to me your singing praised.</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">&ldquo;In dazzling sheen with unaccustomed eyes</l>
+<l n="tr">daphnis stands rapt before <placeName key="perseus,Olympos,Lycia">Olympus</placeName>' gate,</l>
+<l n="tr">and sees beneath his feet the clouds and stars.</l>
+<l n="tr">Wherefore the woods and fields, Pan, shepherd-folk,</l>
+<l n="tr">and Dryad-maidens, thrill with eager joy;</l>
+<l n="tr">nor wolf with treacherous wile assails the flock,</l>
+<l n="tr">nor nets the stag: kind Daphnis loveth peace.</l>
+<l n="tr">The unshorn mountains to the stars up-toss</l>
+<l n="tr">voices of gladness; ay, the very rocks,</l>
+<l n="tr">the very thickets, shout and sing, &lsquo;A god,</l>
+<l n="tr">a god is he, Menalcas&rsquo;  Be thou kind,</l>
+<l n="tr">propitious to thine own. Lo! altars four,</l>
+<l n="tr">twain to thee, Daphnis, and to Phoebus twain</l>
+<l n="tr">for sacrifice, we build; and I for thee</l>
+<l n="tr">two beakers yearly of fresh milk afoam,</l>
+<l n="tr">and of rich olive-oil two bowls, will set;</l>
+<l n="tr">and of the wine-god's bounty above all,</l>
+<l n="tr">if cold, before the hearth, or in the shade</l>
+<l n="tr">at harvest-time, to glad the festal hour,</l>
+<l n="tr">from flasks of Ariusian grape will pour</l>
+<l n="tr">sweet nectar. Therewithal at my behest</l>
+<l n="tr">shall Lyctian Aegon and Damoetas sing,</l>
+<l n="tr">and Alphesiboeus emulate in dance</l>
+<l n="tr">the dancing Satyrs. This, thy service due,</l>
+<l n="tr">shalt thou lack never, both when we pay the Nymphs</l>
+<l n="tr">our yearly vows, and when with lustral rites</l>
+<l n="tr">the fields we hallow. Long as the wild boar</l>
+<l n="tr">shall love the mountain-heights, and fish the streams,</l>
+<l n="tr">while bees on thyme and crickets feed on dew,</l>
+<l n="tr">thy name, thy praise, thine honour, shall endure.</l>
+<l n="tr">Even as to Bacchus and to Ceres, so</l>
+<l n="tr">to thee the swain his yearly vows shall make;</l>
+<l n="tr">and thou thereof, like them, shalt quittance claim.&rdquo;</l></sp>
+<sp><speaker>MOPSUS</speaker>
+<l n="tr">How, how repay thee for a song so rare?</l>
+<l n="tr">For not the whispering south-wind on its way</l>
+<l n="tr">so much delights me, nor wave-smitten beach,</l>
+<l n="tr">nor streams that race adown their bouldered beds.</l></sp>
+<sp><speaker>MENALCAS</speaker>
+<l n="tr">First this frail hemlock-stalk to you I give,</l>
+<l n="tr">which taught me &ldquo;Corydon with love was fired</l>
+<l n="tr">for fair Alexis,&rdquo; ay, and this beside,</l>
+<l n="tr">&ldquo;Who owns the flock?&mdash;Meliboeus?&rdquo;</l></sp>
+<sp><speaker>MOPSUS</speaker>
+<l n="tr">But take you</l>
+<l n="tr">this shepherd's crook, which, howso hard he begged,</l>
+<l n="tr">antigenes, then worthy to be loved,</l>
+<l n="tr">prevailed not to obtain&mdash;with brass, you see,</l>
+<l n="tr">and equal knots, Menalcas, fashioned fair!</l></sp></div1>
+<div1 type="Poem" n="6">
+<head>TO VARUS</head>
+<l n="tr">first my Thalia stooped in sportive mood</l>
+<l n="tr">to Syracusan strains, nor blushed within</l>
+<l n="tr">the woods to house her. When I sought to tell</l>
+<l n="tr">of battles and of kings, the Cynthian god</l>
+<l n="tr">plucked at mine ear and warned me: &ldquo;Tityrus,</l>
+<l n="tr">beseems a shepherd-wight to feed fat sheep,</l>
+<l n="tr">but sing a slender song.&rdquo; Now, Varus, I&mdash;</l>
+<l n="tr">for lack there will not who would laud thy deeds,</l>
+<l n="tr">and treat of dolorous wars&mdash;will rather tune</l>
+<l n="tr">to the slim oaten reed my silvan lay.</l>
+<l n="tr">I sing but as vouchsafed me; yet even this</l>
+<l n="tr">if, if but one with ravished eyes should read,</l>
+<l n="tr">of thee, O Varus, shall our tamarisks</l>
+<l n="tr">and all the woodland ring; nor can there be</l>
+<l n="tr">a page more dear to Phoebus, than the page</l>
+<l n="tr">where, foremost writ, the name of Varus stands.</l>
+<lg><l n="tr">Speed ye, Pierian Maids! Within a cave</l>
+<l n="tr">young Chromis and Mnasyllos chanced to see</l>
+<l n="tr">silenus sleeping, flushed, as was his wont,</l>
+<l n="tr">with wine of yesterday. Not far aloof,</l>
+<l n="tr">slipped from his head, the garlands lay, and there</l>
+<l n="tr">by its worn handle hung a ponderous cup.</l>
+<l n="tr">Approaching&mdash;for the old man many a time</l>
+<l n="tr">had balked them both of a long hoped-for song&mdash;</l>
+<l n="tr">garlands to fetters turned, they bind him fast.</l>
+<l n="tr">Then Aegle, fairest of the Naiad-band,</l>
+<l n="tr">aegle came up to the half-frightened boys,</l>
+<l n="tr">came, and, as now with open eyes he lay,</l>
+<l n="tr">with juice of blood-red mulberries smeared him o'er,</l>
+<l n="tr">both brow and temples. Laughing at their guile,</l>
+<l n="tr">and crying, &ldquo;Why tie the fetters? loose me, boys;</l>
+<l n="tr">enough for you to think you had the power;</l>
+<l n="tr">now list the songs you wish for&mdash;songs for you,</l>
+<l n="tr">another meed for her&rdquo;&mdash;forthwith began.</l>
+<l n="tr">Then might you see the wild things of the wood,</l>
+<l n="tr">with Fauns in sportive frolic beat the time,</l>
+<l n="tr">and stubborn oaks their branchy summits bow.</l>
+<l n="tr">Not Phoebus doth the rude Parnassian crag</l>
+<l n="tr">so ravish, nor Orpheus so entrance the heights</l>
+<l n="tr">of Rhodope or Ismarus: for he sang</l>
+<l n="tr">how through the mighty void the seeds were driven</l>
+<l n="tr">of earth, air, ocean, and of liquid fire,</l>
+<l n="tr">how all that is from these beginnings grew,</l>
+<l n="tr">and the young world itself took solid shape,</l>
+<l n="tr">then 'gan its crust to harden, and in the deep</l>
+<l n="tr">shut Nereus off, and mould the forms of things</l>
+<l n="tr">little by little; and how the earth amazed</l>
+<l n="tr">beheld the new sun shining, and the showers</l>
+<l n="tr">fall, as the clouds soared higher, what time the woods</l>
+<l n="tr">'gan first to rise, and living things to roam</l>
+<l n="tr">scattered among the hills that knew them not.</l>
+<l n="tr">Then sang he of the stones by Pyrrha cast,</l>
+<l n="tr">of Saturn's reign, and of Prometheus' theft,</l>
+<l n="tr">and the Caucasian birds, and told withal</l>
+<l n="tr">nigh to what fountain by his comrades left</l>
+<l n="tr">the mariners cried on Hylas till the shore</l>
+<l n="tr">then re-echoed &ldquo;Hylas, Hylas!&rdquo; soothed</l>
+<l n="tr">pasiphae with the love of her white bull&mdash;</l>
+<l n="tr">happy if cattle-kind had never been!&mdash;</l>
+<l n="tr">o ill-starred maid, what frenzy caught thy soul</l>
+<l n="tr">the daughters too of Proetus filled the fields</l>
+<l n="tr">with their feigned lowings, yet no one of them</l>
+<l n="tr">of such unhallowed union e'er was fain</l>
+<l n="tr">as with a beast to mate, though many a time</l>
+<l n="tr">on her smooth forehead she had sought for horns,</l>
+<l n="tr">and for her neck had feared the galling plough.</l>
+<l n="tr">O ill-starred maid! thou roamest now the hills,</l>
+<l n="tr">while on soft hyacinths he, his snowy side</l>
+<l n="tr">reposing, under some dark ilex now</l>
+<l n="tr">chews the pale herbage, or some heifer tracks</l>
+<l n="tr">amid the crowding herd. Now close, ye Nymphs,</l>
+<l n="tr">ye Nymphs of Dicte, close the forest-glades,</l>
+<l n="tr">if haply there may chance upon mine eyes</l>
+<l n="tr">the white bull's wandering foot-prints: him belike</l>
+<l n="tr">following the herd, or by green pasture lured,</l>
+<l n="tr">some kine may guide to the Gortynian stalls.</l>
+<l n="tr">Then sings he of the maid so wonder-struck</l>
+<l n="tr">with the apples of the Hesperids, and then</l>
+<l n="tr">with moss-bound, bitter bark rings round the forms</l>
+<l n="tr">of Phaethon's fair sisters, from the ground</l>
+<l n="tr">up-towering into poplars. Next he sings</l>
+<l n="tr">of Gallus wandering by Permessus' stream,</l>
+<l n="tr">and by a sister of the Muses led</l>
+<l n="tr">to the Aonian mountains, and how all</l>
+<l n="tr">the choir of Phoebus rose to greet him; how</l>
+<l n="tr">the shepherd Linus, singer of songs divine,</l>
+<l n="tr">brow-bound with flowers and bitter parsley, spake:</l>
+<l n="tr">&ldquo;These reeds the Muses give thee, take them thou,</l>
+<l n="tr">erst to the aged bard of Ascra given,</l>
+<l n="tr">wherewith in singing he was wont to draw</l>
+<l n="tr">time-rooted ash-trees from the mountain heights.</l>
+<l n="tr">With these the birth of the Grynean grove</l>
+<l n="tr">be voiced by thee, that of no grove beside</l>
+<l n="tr">apollo more may boast him.&rdquo; Wherefore speak</l>
+<l n="tr">of Scylla, child of Nisus, who, 'tis said,</l>
+<l n="tr">her fair white loins with barking monsters girt</l>
+<l n="tr">vexed the Dulichian ships, and, in the deep</l>
+<l n="tr">swift-eddying whirlpool, with her sea-dogs tore</l>
+<l n="tr">the trembling mariners? or how he told</l>
+<l n="tr">of the changed limbs of Tereus&mdash;what a feast,</l>
+<l n="tr">what gifts, to him by Philomel were given;</l>
+<l n="tr">how swift she sought the desert, with what wings</l>
+<l n="tr">hovered in anguish o'er her ancient home?</l>
+<l n="tr">All that, of old, Eurotas, happy stream,</l>
+<l n="tr">heard, as Apollo mused upon the lyre,</l>
+<l n="tr">and bade his laurels learn, Silenus sang;</l>
+<l n="tr">till from <placeName key="perseus,Olympos,Lycia">Olympus</placeName>, loth at his approach,</l>
+<l n="tr">vesper, advancing, bade the shepherds tell</l>
+<l n="tr">their tale of sheep, and pen them in the fold.</l></lg></div1>
+<div1 type="Poem" n="7">
+<head>MELIBOEUS   CORYDON   THYRSIS</head>
+<l n="tr">daphnis beneath a rustling ilex-tree</l>
+<l n="tr">had sat him down; Thyrsis and Corydon</l>
+<l n="tr">had gathered in the flock, Thyrsis the sheep,</l>
+<l n="tr">and Corydon the she-goats swollen with milk&mdash;</l>
+<l n="tr">both in the flower of age, Arcadians both,</l>
+<l n="tr">ready to sing, and in like strain reply.</l>
+<l n="tr">Hither had strayed, while from the frost I fend</l>
+<l n="tr">my tender myrtles, the he-goat himself,</l>
+<l n="tr">lord of the flock; when Daphnis I espy!</l>
+<l n="tr">Soon as he saw me, &ldquo;Hither haste,&rdquo; he cried,</l>
+<l n="tr">&ldquo;O Meliboeus! goat and kids are safe;</l>
+<l n="tr">and, if you have an idle hour to spare,</l>
+<l n="tr">rest here beneath the shade. Hither the steers</l>
+<l n="tr">will through the meadows, of their own free will,</l>
+<l n="tr">untended come to drink. Here Mincius hath</l>
+<l n="tr">with tender rushes rimmed his verdant banks,</l>
+<l n="tr">and from yon sacred oak with busy hum</l>
+<l n="tr">the bees are swarming.&rdquo; What was I to do?</l>
+<l n="tr">No Phyllis or Alcippe left at home</l>
+<l n="tr">had I, to shelter my new-weaned lambs,</l>
+<l n="tr">and no slight matter was a singing-bout</l>
+<l n="tr">'twixt Corydon and Thyrsis. Howsoe'er,</l>
+<l n="tr">I let my business wait upon their sport.</l>
+<l n="tr">So they began to sing, voice answering voice</l>
+<l n="tr">in strains alternate&mdash;for alternate strains</l>
+<l n="tr">the Muses then were minded to recall&mdash;</l>
+<l n="tr">first Corydon, then Thyrsis in reply.</l>
+<sp><speaker>CORYDON</speaker>
+<l n="tr">&ldquo;Libethrian Nymphs, who are my heart's delight,</l>
+<l n="tr">grant me, as doth my Codrus, so to sing&mdash;</l>
+<l n="tr">next to Apollo he&mdash;or if to this</l>
+<l n="tr">we may not all attain, my tuneful pipe</l>
+<l n="tr">here on this sacred pine shall silent hang.&rdquo;</l></sp>
+<sp><speaker>THYRSIS</speaker>
+    <l n="tr">&ldquo;<placeName key="tgn,7002735">Arcadian</placeName> shepherds, wreathe with ivy-spray</l>
+<l n="tr">your budding poet, so that Codrus burst</l>
+<l n="tr">with envy: if he praise beyond my due,</l>
+<l n="tr">then bind my brow with foxglove, lest his tongue</l>
+<l n="tr">with evil omen blight the coming bard.&rdquo;</l></sp>
+<sp><speaker>CORYDON</speaker>
+<l n="tr">&ldquo;This bristling boar's head, Delian Maid, to thee,</l>
+<l n="tr">with branching antlers of a sprightly stag,</l>
+<l n="tr">young Micon offers: if his luck but hold,</l>
+<l n="tr">full-length in polished marble, ankle-bound</l>
+<l n="tr">with purple buskin, shall thy statue stand.&rdquo;</l></sp>
+<sp><speaker>THYRSIS</speaker>
+<l n="tr">&ldquo;A bowl of milk, Priapus, and these cakes,</l>
+<l n="tr">yearly, it is enough for thee to claim;</l>
+<l n="tr">thou art the guardian of a poor man's plot.</l>
+<l n="tr">Wrought for a while in marble, if the flock</l>
+<l n="tr">at lambing time be filled,stand there in gold.&rdquo;</l></sp>
+<sp><speaker>CORYDON</speaker>
+<l n="tr">&ldquo;Daughter of Nereus, Galatea mine,</l>
+<l n="tr">sweeter than Hybla-thyme, more white than swans,</l>
+<l n="tr">fairer than ivy pale, soon as the steers</l>
+<l n="tr">shall from their pasture to the stalls repair,</l>
+<l n="tr">if aught for Corydon thou carest, come.&rdquo;</l></sp>
+<sp><speaker>THYRSIS</speaker>
+<l n="tr">&ldquo;Now may I seem more bitter to your taste</l>
+<l n="tr">than herb Sardinian, rougher than the broom,</l>
+<l n="tr">more worthless than strewn sea-weed, if to-day</l>
+<l n="tr">hath not a year out-lasted! Fie for shame!</l>
+<l n="tr">Go home, my cattle, from your grazing go!&rdquo;</l></sp>
+<sp><speaker>CORYDON</speaker>
+<l n="tr">&ldquo;Ye mossy springs, and grass more soft than sleep,</l>
+<l n="tr">and arbute green with thin shade sheltering you,</l>
+<l n="tr">ward off the solstice from my flock, for now</l>
+<l n="tr">comes on the burning summer, now the buds</l>
+<l n="tr">upon the limber vine-shoot 'gin to swell.&rdquo;</l></sp>
+<sp><speaker>THYRSIS</speaker>
+<l n="tr">&ldquo;Here is a hearth, and resinous logs, here fire</l>
+<l n="tr">unstinted, and doors black with ceaseless smoke.</l>
+<l n="tr">Here heed we Boreas' icy breath as much</l>
+<l n="tr">as the wolf heeds the number of the flock,</l>
+<l n="tr">or furious rivers their restraining banks.&rdquo;</l></sp>
+<sp><speaker>CORYDON</speaker>
+<l n="tr">&ldquo;The junipers and prickly chestnuts stand,</l>
+<l n="tr">and 'neath each tree lie strewn their several fruits,</l>
+<l n="tr">now the whole world is smiling, but if fair</l>
+<l n="tr">alexis from these hill-slopes should away,</l>
+<l n="tr">even the rivers you would ; see run dry.&rdquo;</l></sp>
+<sp><speaker>THYRSIS</speaker>
+<l n="tr">&ldquo;The field is parched, the grass-blades thirst to death</l>
+<l n="tr">in the faint air; Liber hath grudged the hills</l>
+<l n="tr">his vine's o'er-shadowing: should my Phyllis come,</l>
+<l n="tr">green will be all the grove, and Jupiter</l>
+<l n="tr">descend in floods of fertilizing rain.&rdquo;</l></sp>
+<sp><speaker>CORYDON</speaker>
+<l n="tr">&ldquo;The poplar doth Alcides hold most dear,</l>
+<l n="tr">the vine Iacchus, Phoebus his own bays,</l>
+<l n="tr">and Venus fair the myrtle: therewithal</l>
+<l n="tr">phyllis doth hazels love, and while she loves,</l>
+<l n="tr">myrtle nor bay the hazel shall out-vie.&rdquo;</l></sp>
+<sp><speaker>THYRSIS</speaker>
+<l n="tr">&ldquo;Ash in the forest is most beautiful,</l>
+<l n="tr">pine in the garden, poplar by the stream,</l>
+<l n="tr">fir on the mountain-height; but if more oft</l>
+<l n="tr">thou'ldst come to me, fair Lycidas, to thee</l>
+<l n="tr">both forest-ash, and garden-pine should bow.&rdquo;</l></sp>
+<sp><speaker>MELIBOEUS</speaker>
+<l n="tr">These I remember, and how Thyrsis strove</l>
+<l n="tr">for victory in vain. From that time forth</l>
+<l n="tr">is Corydon still Corydon with us.</l></sp></div1>
+<div1 type="Poem" n="8">
+<head>TO POLLIO.   DAMON   ALPHESIBOEUS</head>
+<l n="tr">of Damon and Alphesiboeus now,</l>
+<l n="tr">those shepherd-singers at whose rival strains</l>
+<l n="tr">the heifer wondering forgot to graze,</l>
+<l n="tr">the lynx stood awe-struck, and the flowing streams,</l>
+<l n="tr">unwonted loiterers, stayed their course to hear&mdash;</l>
+<l n="tr">how Damon and Alphesiboeus sang</l>
+<l n="tr">their pastoral ditties, will I tell the tale.</l>
+<lg><l n="tr">Thou, whether broad Timavus' rocky banks</l>
+<l n="tr">thou now art passing, or dost skirt the shore</l>
+<l n="tr">of the Illyrian main,&mdash;will ever dawn</l>
+<l n="tr">that day when I thy deeds may celebrate,</l>
+<l n="tr">ever that day when through the whole wide world</l>
+<l n="tr">I may renown thy verse&mdash;that verse alone</l>
+<l n="tr">of Sophoclean buskin worthy found?</l>
+<l n="tr">With thee began, to thee shall end, the strain.</l>
+<l n="tr">Take thou these songs that owe their birth to thee,</l>
+<l n="tr">and deign around thy temples to let creep</l>
+<l n="tr">this ivy-chaplet 'twixt the conquering bays.</l></lg>
+<lg><l n="tr">Scarce had night's chilly shade forsook the sky</l>
+<l n="tr">what time to nibbling sheep the dewy grass</l>
+<l n="tr">tastes sweetest, when, on his smooth shepherd-staff</l>
+<l n="tr">of olive leaning, Damon thus began.</l></lg>
+<sp><speaker>DAMON</speaker>
+<l n="tr">&ldquo;Rise, Lucifer, and, heralding the light,</l>
+<l n="tr">bring in the genial day, while I make moan</l>
+<l n="tr">fooled by vain passion for a faithless bride,</l>
+<l n="tr">for Nysa, and with this my dying breath</l>
+<l n="tr">call on the gods, though little it bestead&mdash;</l>
+<l n="tr">the gods who heard her vows and heeded not.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Ever hath Maenalus his murmuring groves</l>
+<l n="tr">and whispering pines, and ever hears the songs</l>
+<l n="tr">of love-lorn shepherds, and of Pan, who first</l>
+<l n="tr">brooked not the tuneful reed should idle lie.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Nysa to Mopsus given! what may not then</l>
+<l n="tr">we lovers look for? soon shall we see mate</l>
+<l n="tr">griffins with mares, and in the coming age</l>
+<l n="tr">shy deer and hounds together come to drink.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Now, Mopsus, cut new torches, for they bring</l>
+<l n="tr">your bride along; now, bridegroom, scatter nuts:</l>
+<l n="tr">forsaking Oeta mounts the evening star!</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">O worthy of thy mate, while all men else</l>
+<l n="tr">thou scornest, and with loathing dost behold</l>
+<l n="tr">my shepherd's pipe, my goats, my shaggy brow,</l>
+<l n="tr">and untrimmed beard, nor deem'st that any god</l>
+<l n="tr">for mortal doings hath regard or care.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Once with your mother, in our orchard-garth,</l>
+<l n="tr">a little maid I saw you&mdash;I your guide&mdash;</l>
+<l n="tr">plucking the dewy apples. My twelfth year</l>
+<l n="tr">I scarce had entered, and could barely reach</l>
+<l n="tr">the brittle boughs. I looked, and I was lost;</l>
+<l n="tr">a sudden frenzy swept my wits away.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Now know I what Love is: 'mid savage rocks</l>
+<l n="tr">tmaros or <placeName key="tgn,7002754">Rhodope</placeName> brought forth the boy,</l>
+<l n="tr">or Garamantes in earth's utmost bounds&mdash;</l>
+<l n="tr">no kin of ours, nor of our blood begot.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Fierce Love it was once steeled a mother's heart</l>
+<l n="tr">with her own offspring's blood her hands to imbrue:</l>
+<l n="tr">mother, thou too wert cruel; say wert thou</l>
+<l n="tr">more cruel, mother, or more ruthless he?</l>
+<l n="tr">Ruthless the boy, thou, mother, cruel too.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Now let the wolf turn tail and fly the sheep,</l>
+<l n="tr">tough oaks bear golden apples, alder-trees</l>
+<l n="tr">bloom with narcissus-flower, the tamarisk</l>
+<l n="tr">sweat with rich amber, and the screech-owl vie</l>
+<l n="tr">in singing with the swan: let Tityrus</l>
+<l n="tr">be Orpheus, Orpheus in the forest-glade,</l>
+<l n="tr">arion 'mid his dolphins on the deep.</l>
+<lg><l n="tr">&lsquo;Begin, my flute, with me Maenalian lays.&rsquo;</l></lg>
+<l n="tr">Yea, be the whole earth to mid-ocean turned!</l>
+<l n="tr">Farewell, ye woodlands I from the tall peak</l>
+<l n="tr">of yon aerial rock will headlong plunge</l>
+<l n="tr">into the billows: this my latest gift,</l>
+<l n="tr">from dying lips bequeathed thee, see thou keep.</l>
+<l n="tr">Cease now, my flute, now cease Maenalian lays.&rsquo;&rdquo;</l>
+<lg><l n="tr">thus Damon: but do ye, Pierian Maids&mdash;</l>
+<l n="tr">we cannot all do all things&mdash;tell me how</l>
+<l n="tr">alphesiboeus to his strain replied.</l></lg></sp>
+<sp><speaker>ALPHESIBOEUS</speaker>
+<l n="tr">&ldquo;Bring water, and with soft wool-fillet bind</l>
+<l n="tr">these altars round about, and burn thereon</l>
+<l n="tr">rich vervain and male frankincense, that I</l>
+<l n="tr">may strive with magic spells to turn astray</l>
+<l n="tr">my lover's saner senses, whereunto</l>
+<l n="tr">there lacketh nothing save the power of song.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">Songs can the very moon draw down from heaven</l>
+<l n="tr">circe with singing changed from human form</l>
+<l n="tr">the comrades of Ulysses, and by song</l>
+<l n="tr">is the cold meadow-snake, asunder burst.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">These triple threads of threefold colour first</l>
+<l n="tr">I twine about thee, and three times withal</l>
+<l n="tr">around these altars do thine image bear:</l>
+<l n="tr">uneven numbers are the god's delight.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">Now, Amaryllis, ply in triple knots</l>
+<l n="tr">the threefold colours; ply them fast, and say</l>
+<l n="tr">this is the chain of Venus that I ply.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">As by the kindling of the self-same fire</l>
+<l n="tr">harder this clay, this wax the softer grows,</l>
+<l n="tr">so by my love may Daphnis; sprinkle meal,</l>
+<l n="tr">and with bitumen burn the brittle bays.</l>
+<l n="tr">Me Daphnis with his cruelty doth burn,</l>
+<l n="tr">I to melt cruel Daphnis burn this bay.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">As when some heifer, seeking for her steer</l>
+<l n="tr">through woodland and deep grove, sinks wearied out</l>
+<l n="tr">on the green sedge beside a stream, love-lorn,</l>
+<l n="tr">nor marks the gathering night that calls her home&mdash;</l>
+<l n="tr">as pines that heifer, with such love as hers</l>
+<l n="tr">may Daphnis pine, and I not care to heal.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">These relics once, dear pledges of himself,</l>
+<l n="tr">the traitor left me, which, O earth, to thee</l>
+<l n="tr">here on this very threshold I commit&mdash;</l>
+<l n="tr">pledges that bind him to redeem the debt.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">These herbs of bane to me did Moeris give,</l>
+<l n="tr">in <placeName key="tgn,7016619">Pontus</placeName> culled, where baneful herbs abound.</l>
+<l n="tr">With these full oft have I seen Moeris change</l>
+<l n="tr">to a wolf's form, and hide him in the woods,</l>
+<l n="tr">oft summon spirits from the tomb's recess,</l>
+<l n="tr">and to new fields transport the standing corn.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">Take ashes, Amaryllis, fetch them forth,</l>
+<l n="tr">and o'er your head into the running brook</l>
+<l n="tr">fling them, nor look behind: with these will</l>
+<l n="tr">upon the heart of Daphnis make essay.</l>
+<l n="tr">Nothing for gods, nothing for songs cares he.</l>
+<lg><l n="tr">&lsquo;Draw from the town, my songs, draw Daphnis home.&rsquo;</l></lg>
+<l n="tr">Look, look I the very embers of themselves</l>
+<l n="tr">have caught the altar with a flickering flame,</l>
+<l n="tr">while I delay to fetch them: may the sign</l>
+<l n="tr">prove lucky! something it must mean, for sure,</l>
+<l n="tr">and Hylax on the threshold 'gins to bark!</l>
+<l n="tr">May we believe it, or are lovers still</l>
+<l n="tr">by their own fancies fooled?</l>
+<lg><l n="tr">Give o'er, my songs,</l>
+<l n="tr">daphnis is coming from the town, give o'er.&rdquo;</l></lg></sp></div1>
+<div1 type="Poem" n="9">
+<head>LYCIDAS   MOERIS</head>
+<sp><speaker>LYCIDAS</speaker>
+<l n="tr">Say whither, Moeris?&mdash;Make you for the town,</l>
+<l n="tr">or on what errand bent?</l></sp>
+<sp><speaker>MOERIS</speaker>
+<l n="tr">O Lycidas,</l>
+<l n="tr">we have lived to see, what never yet we feared,</l>
+<l n="tr">an interloper own our little farm,</l>
+<l n="tr">and say, &ldquo;Be off, you former husbandmen!</l>
+<l n="tr">These fields are mine.&rdquo; Now, cowed and out of heart,</l>
+<l n="tr">since Fortune turns the whole world upside down,</l>
+<l n="tr">we are taking him&mdash;ill luck go with the same!&mdash;</l>
+<l n="tr">these kids you see.</l></sp>
+<sp><speaker>LYCIDAS</speaker>
+<l n="tr">But surely I had heard</l>
+<l n="tr">that where the hills first draw from off the plain,</l>
+<l n="tr">and the high ridge with gentle slope descends,</l>
+<l n="tr">down to the brook-side and the broken crests</l>
+<l n="tr">of yonder veteran beeches, all the land</l>
+<l n="tr">was by the songs of your Menalcas saved.</l></sp>
+<sp><speaker>MOERIS</speaker>
+<l n="tr">Heard it you had, and so the rumour ran,</l>
+<l n="tr">but 'mid the clash of arms, my Lycidas,</l>
+<l n="tr">our songs avail no more than, as 'tis said,</l>
+<l n="tr">doves of <placeName key="perseus,Dodona">Dodona</placeName> when an eagle comes.</l>
+<l n="tr">Nay, had I not, from hollow ilex-bole</l>
+<l n="tr">warned by a raven on the left, cut short</l>
+<l n="tr">the rising feud, nor I, your Moeris here,</l>
+<l n="tr">no, nor Menalcas, were alive to-day.</l></sp>
+<sp><speaker>LYCIDAS</speaker>
+<l n="tr">Alack! could any of so foul a crime</l>
+<l n="tr">be guilty? Ah! how nearly, thyself,</l>
+<l n="tr">reft was the solace that we had in thee,</l>
+<l n="tr">Menalcas! Who then of the Nymphs had sung,</l>
+<l n="tr">or who with flowering herbs bestrewn the ground,</l>
+<l n="tr">and o'er the fountains drawn a leafy veil?&mdash;</l>
+<l n="tr">who sung the stave I filched from you that day</l>
+<l n="tr">to Amaryllis wending, our hearts' joy?&mdash;</l>
+<l n="tr">&ldquo;While I am gone, 'tis but a little way,</l>
+<l n="tr">feed, Tityrus, my goats, and, having fed,</l>
+<l n="tr">drive to the drinking-pool, and, as you drive,</l>
+<l n="tr">beware the he-goat; with his horn he butts.&ldquo;</l></sp>
+<sp><speaker>MOERIS</speaker>
+<l n="tr">Ay, or to Varus that half-finished lay,</l>
+<l n="tr">&ldquo;Varus, thy name, so still our <placeName key="perseus,Mantua">Mantua</placeName> live&mdash;</l>
+<l n="tr"><placeName key="perseus,Mantua">Mantua</placeName> to poor <placeName key="perseus,Cremona">Cremona</placeName> all too near&mdash;</l>
+<l n="tr">shall singing swans bear upward to the stars.&rdquo;</l></sp>
+<sp><speaker>LYCIDAS</speaker>
+<l n="tr">So may your swarms Cyrnean yew-trees shun,</l>
+<l n="tr">your kine with cytisus their udders swell,</l>
+<l n="tr">begin, if aught you have. The Muses made</l>
+<l n="tr">me too a singer; I too have sung; the swains</l>
+<l n="tr">call me a poet, but I believe them not:</l>
+<l n="tr">for naught of mine, or worthy Varius yet</l>
+<l n="tr">or Cinna deem I, but account myself</l>
+<l n="tr">a cackling goose among melodious swans.</l></sp>
+<sp><speaker>MOERIS</speaker>
+<l n="tr">'Twas in my thought to do so, Lycidas;</l>
+<l n="tr">even now was I revolving silently</l>
+<l n="tr">if this I could recall&mdash;no paltry song:</l>
+<l n="tr">&ldquo;Come, Galatea, what pleasure is 't to play</l>
+<l n="tr">amid the waves? Here glows the Spring, here earth</l>
+<l n="tr">beside the streams pours forth a thousand flowers;</l>
+<l n="tr">here the white poplar bends above the cave,</l>
+<l n="tr">and the lithe vine weaves shadowy covert: come,</l>
+<l n="tr">leave the mad waves to beat upon the shore.&rdquo;</l></sp>
+<sp><speaker>LYCIDAS</speaker>
+<l n="tr">What of the strain I heard you singing once</l>
+<l n="tr">on a clear night alone? the notes I still</l>
+<l n="tr">remember, could I but recall the words.</l></sp>
+<sp><speaker>MOERIS</speaker>
+<l n="tr">&ldquo;Why, Daphnis, upward gazing, do you mark</l>
+<l n="tr">the ancient risings of the Signs? for look</l>
+<l n="tr">where Dionean Caesar's star comes forth</l>
+<l n="tr">in heaven, to gladden all the fields with corn,</l>
+<l n="tr">and to the grape upon the sunny slopes</l>
+<l n="tr">her colour bring! Now, the pears;</l>
+<l n="tr">so shall your children's children pluck their fruit.&rdquo;</l>
+<lg><l n="tr">Time carries all things, even our wits, away.</l>
+<l n="tr">Oft, as a boy, I sang the sun to rest,</l>
+<l n="tr">but all those songs are from my memory fled,</l>
+<l n="tr">and even his voice is failing Moeris now;</l>
+<l n="tr">the wolves eyed Moeris first: but at your wish</l>
+<l n="tr">Menalcas will repeat them oft enow.</l></lg></sp>
+<sp><speaker>LYCIDAS</speaker>
+<l n="tr">Your pleas but linger out my heart's desire:</l>
+<l n="tr">now all the deep is into silence hushed,</l>
+<l n="tr">and all the murmuring breezes sunk to sleep.</l>
+<l n="tr">We are half-way thither, for Bianor's tomb</l>
+<l n="tr">begins to show: here, Moeris, where the hinds</l>
+<l n="tr">are lopping the thick leafage, let us sing.</l>
+<l n="tr">Set down the kids, yet shall we reach the town;</l>
+<l n="tr">or, if we fear the night may gather rain</l>
+<l n="tr">ere we arrive, then singing let us go,</l>
+<l n="tr">our way to lighten; and, that we may thus</l>
+<l n="tr">go singing, I will case you of this load.</l></sp>
+<sp><speaker>MOERIS</speaker>
+<l n="tr">Cease, boy, and get we to the work in hand:</l>
+<l n="tr">we shall sing better when himself is come.</l></sp></div1>
+<div1 type="Poem" n="10">
+<head>GALLUS</head>
+<l n="tr">This now, the very latest of my toils,</l>
+<l n="tr">vouchsafe me, Arethusa! needs must I</l>
+<l n="tr">sing a brief song to Gallus&mdash;brief, but yet</l>
+<l n="tr">such as Lycoris' self may fitly read.</l>
+<l n="tr">Who would not sing for Gallus? So, when thou</l>
+<l n="tr">beneath Sicanian billows glidest on,</l>
+<l n="tr">may Doris blend no bitter wave with thine,</l>
+<l n="tr">begin! The love of Gallus be our theme,</l>
+<l n="tr">and the shrewd pangs he suffered, while, hard by,</l>
+<l n="tr">the flat-nosed she-goats browse the tender brush.</l>
+<l n="tr">We sing not to deaf ears; no word of ours</l>
+<l n="tr">but the woods echo it. What groves or lawns</l>
+<l n="tr">held you, ye Dryad-maidens, when for love&mdash;</l>
+<l n="tr">love all unworthy of a loss so dear&mdash;</l>
+<l n="tr">Gallus lay dying? for neither did the slopes</l>
+<l n="tr">of Pindus or <placeName key="tgn,7011022">Parnassus</placeName> stay you then,</l>
+<l n="tr">no, nor Aonian Aganippe. Him</l>
+<l n="tr">even the laurels and the tamarisks wept;</l>
+<l n="tr">for him, outstretched beneath a lonely rock,</l>
+<l n="tr">wept pine-clad Maenalus, and the flinty crags</l>
+<l n="tr">of cold Lycaeus. The sheep too stood around&mdash;</l>
+<l n="tr">of us they feel no shame, poet divine;</l>
+<l n="tr">nor of the flock be thou ashamed: even fair</l>
+<l n="tr">Adonis by the rivers fed his sheep&mdash;</l>
+<l n="tr">came shepherd too, and swine-herd footing slow,</l>
+<l n="tr">and, from the winter-acorns dripping-wet</l>
+<l n="tr">Menalcas. All with one accord exclaim:</l>
+<l n="tr">&ldquo;From whence this love of thine?&rdquo; Apollo came;</l>
+<l n="tr">&ldquo;Gallus, art mad?&rdquo; he cried, &ldquo;thy bosom's care</l>
+<l n="tr">another love is following.&rdquo; Therewithal</l>
+<l n="tr">Silvanus came, with rural honours crowned;</l>
+<l n="tr">the flowering fennels and tall lilies shook</l>
+<l n="tr">before him. Yea, and our own eyes beheld</l>
+<l n="tr">pan, god of Arcady, with blood-red juice</l>
+<l n="tr">of the elder-berry, and with vermilion, dyed.</l>
+<l n="tr">&ldquo;Wilt ever make an end?&rdquo; quoth he, &ldquo;behold</l>
+<l n="tr">love recks not aught of it: his heart no more</l>
+<l n="tr">with tears is sated than with streams the grass,</l>
+<l n="tr">bees with the cytisus, or goats with leaves.&rdquo;</l>
+<l n="tr">&ldquo;Yet will ye sing, Arcadians, of my woes</l>
+<l n="tr">upon your mountains,&rdquo; sadly he replied&mdash;</l>
+<l n="tr">&ldquo;Arcadians, that alone have skill to sing.</l>
+<l n="tr">O then how softly would my ashes rest,</l>
+<l n="tr">if of my love, one day, your flutes should tell!</l>
+<l n="tr">And would that I, of your own fellowship,</l>
+<l n="tr">or dresser of the ripening grape had been,</l>
+<l n="tr">or guardian of the flock! for surely then,</l>
+<l n="tr">let Phyllis, or Amyntas, or who else,</l>
+<l n="tr">bewitch me&mdash;what if swart Amyntas be?</l>
+<l n="tr">Dark is the violet, dark the hyacinth&mdash;</l>
+<l n="tr">among the willows, 'neath the limber vine,</l>
+<l n="tr">reclining would my love have lain with me,</l>
+<l n="tr">Phyllis plucked garlands, or Amyntas sung.</l>
+<l n="tr">Here are cool springs, soft mead and grove, Lycoris;</l>
+<l n="tr">here might our lives with time have worn away.</l>
+<l n="tr">But me mad love of the stern war-god holds</l>
+<l n="tr">armed amid weapons and opposing foes.</l>
+<l n="tr">Whilst thou&mdash;Ah! might I but believe it not!&mdash;</l>
+<l n="tr">alone without me, and from home afar,</l>
+<l n="tr">look'st upon Alpine snows and frozen <placeName key="tgn,7012611">Rhine</placeName>.</l>
+<l n="tr">Ah! may the frost not hurt thee, may the sharp</l>
+<l n="tr">and jagged ice not wound thy tender feet!</l>
+<l n="tr">I will depart, re-tune the songs I framed</l>
+<l n="tr">in verse Chalcidian to the oaten reed</l>
+<l n="tr">of the Sicilian swain. Resolved am I</l>
+<l n="tr">in the woods, rather, with wild beasts to couch,</l>
+<l n="tr">and bear my doom, and character my love</l>
+<l n="tr">upon the tender tree-trunks: they will grow,</l>
+<l n="tr">and you, my love, grow with them. And meanwhile</l>
+<l n="tr">I with the Nymphs will haunt Mount Maenalus,</l>
+<l n="tr">or hunt the keen wild boar. No frost so cold</l>
+<l n="tr">but I will hem with hounds thy forest-glades,</l>
+<l n="tr">parthenius. Even now, methinks, I range</l>
+<l n="tr">o'er rocks, through echoing groves, and joy to launch</l>
+<l n="tr">Cydonian arrows from a Parthian bow.&mdash;</l>
+<l n="tr">as if my madness could find healing thus,</l>
+<l n="tr">or that god soften at a mortal's grief!</l>
+<l n="tr">Now neither Hamadryads, no, nor songs</l>
+<l n="tr">delight me more: ye woods, away with you!</l>
+<l n="tr">No pangs of ours can change him; not though we</l>
+<l n="tr">in the mid-frost should drink of <placeName key="tgn,7002660">Hebrus</placeName>' stream,</l>
+<l n="tr">and in wet winters face Sithonian snows,</l>
+<l n="tr">or, when the bark of the tall elm-tree bole</l>
+<l n="tr">of drought is dying, should, under Cancer's Sign,</l>
+<l n="tr">in Aethiopian deserts drive our flocks.</l>
+<l n="tr">Love conquers all things; yield we too to love!&rdquo;</l>
+<lg><l n="tr">These songs, Pierian Maids, shall it suffice</l>
+<l n="tr">your poet to have sung, the while he sat,</l>
+<l n="tr">and of slim mallow wove a basket fine:</l>
+<l n="tr">to Gallus ye will magnify their worth,</l>
+<l n="tr">Gallus, for whom my love grows hour by hour,</l>
+<l n="tr">as the green alder shoots in early Spring.</l>
+<l n="tr">Come, let us rise: the shade is wont to be</l>
+<l n="tr">baneful to singers; baneful is the shade</l>
+<l n="tr">cast by the juniper, crops sicken too</l>
+<l n="tr">in shade. Now homeward, having fed your fill&mdash;</l>
+<l n="tr">eve's star is rising&mdash;go, my she-goats, go.</l></lg></div1>
+</body></text></TEI.2>
