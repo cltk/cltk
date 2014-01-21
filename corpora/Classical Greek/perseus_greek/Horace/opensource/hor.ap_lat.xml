@@ -1,0 +1,595 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work">De Arte Poetica liber</title>
+<title type="sub">Machine readable text</title>
+<author n="Hor.">Q. Horatius Flaccus (Horace)</author>
+&responsibility;
+&fund.NEH;
+</titleStmt>
+<extent>about 112Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Horace</author>
+<title>The Works of Horace</title>
+<editor role="editor">C. Smart</editor>
+<imprint>
+<pubPlace>Philadelphia</pubPlace>
+<publisher>Joseph Whetham</publisher>
+<date>1836</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="line"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state n="chunk" unit="card"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="la">Latin</language>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date> 9-Jun-00</date>
+<respStmt><name>AEM</name><resp>ed.</resp></respStmt>
+<item>
+$Log: hor.ap_lat.xml,v $
+Revision 1.1  2011-01-15 23:36:27  gcrane
+base file for sdl
+
+Revision 1.1  2009/11/24 20:08:27  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2008/11/14 21:23:21  lcerrato
+fixed author name for consistent sorting
+
+Revision 1.2  2005/08/01 16:12:23  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:37:13  packel
+Converted to XML
+
+Revision 1.3  2005/07/21 21:42:22  packel
+added a milestone at the beginning of the text
+
+Revision 1.2  2003/07/01 22:17:02  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.1  2000/06/09 21:34:04  amahoney
+new texts (they parse but haven't been proofread yet)
+
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="la">
+<body>
+<milestone ed="p" n="1" unit="card"/>
+<l>Humano capiti cervicem pictor equinam </l>
+<l>iungere si velit, et varias inducere plumas, </l>
+<l>undique conlatis membris, ut turpiter atrum </l>
+<l>desinat in piscem mulier formosa superne, </l>
+<l n="5">spectatum admissi risum teneatis, amici? </l>
+<l>credite, Pisones, isti tabulae fore librum </l>
+<l>persimilem, cuius, velut aegri somnia, vanae </l>
+<l>fingentur species, ut nec pes nec caput uni </l>
+<l>reddatur formae. 'pictoribus atque poetis </l>
+<l n="10">quidlibet audendi semper fuit aequa potestas.' </l>
+<l>scimus, et hanc veniam petimusque damusque vicissim; </l>
+<l>sed non ut placidis coeant inmitia, non ut  </l>
+<l>serpentes avibus geminentur, tigribus agni. </l>
+<l>inceptis gravibus plerumque et magna professis </l>
+<l n="15">purpureus, late qui splendeat, unus et alter </l>
+<l>adsuitur pannus, cum lucus et ara Dianae </l>
+<l>et properantis aquae per amoenos ambitus agros </l>
+<l>aut flumen Rhenum aut pluvius describitur arcus; </l>
+<l>sed nunc non erat his locus. et fortasse cupressum </l>
+<l n="20">scis simulare: quid hoc, si fractis enatat exspes </l>
+<l>navibus, aere dato qui pingitur? amphora coepit </l>
+<l>institui: currente rota cur urceus exit? </l>
+<l>denique sit quodvis, simplex dumtaxat et unum. </l>
+<l>maxima pars vatum, pater et iuvenes patre digni, </l>
+<l n="25">decipimur specie recti: brevis esse laboro, </l>
+<l>obscurus fio; sectantem levia nervi </l>
+<l>deficiunt animique; professus grandia turget; </l>
+<l>serpit humi tutus nimium timidusque procellae: </l>
+<l>qui variare cupit rem prodigialiter unam, </l>
+<l n="30">delphinum silvis adpingit, fluctibus aprum: </l>
+<l>in vitium ducit culpae fuga, si caret arte. </l>
+<l>Aemilium circa ludum faber imus et unguis </l>
+<l>exprimet et mollis imitabitur aere capillos, </l>
+<l>infelix operis summa, quia ponere totum </l>
+<l n="35">nesciet: hunc ego me, si quid componere curem, </l>
+<l>non magis esse velim quam naso vivere pravo, </l>
+<l>spectandum nigris oculis nigroque capillo. </l>
+<l>sumite materiam vestris, qui scribitis, aequam </l>
+<l>viribus et versate diu, quid ferre recusent,  </l>
+<l n="40">quid valeant umeri. cui lecta potenter erit res, </l>
+<l>nec facundia deseret hunc nec lucidus ordo. </l>
+<l>ordinis haec virtus erit et venus, aut ego fallor, </l>
+<l>ut iam nunc dicat iam nunc debentia dici, </l>
+<l>pleraque differat et praesens in tempus omittat. 
+
+<milestone ed="p" n="44" unit="card"/></l>
+<l>in verbis etiam tenuis cautusque serendis </l>
+<l n="45">hoc amet, hoc spernat promissi carminis auctor. </l>
+<l>dixeris egregie, notum si callida verbum </l>
+<l>reddiderit iunctura novum. si forte necesse est </l>
+<l>indiciis monstrare recentibus abdita rerum et </l>
+<l n="50">fingere cinctutis non exaudita Cethegis, </l>
+<l>continget dabiturque licentia sumpta pudenter, </l>
+<l>et nova fictaque nuper habebunt verba fidem, si </l>
+<l>Graeco fonte cadent parce detorta. quid autem </l>
+<l>Caecilio Plautoque dabit Romanus ademptum </l>
+<l n="55">Vergilio Varioque? ego cur, adquirere pauca </l>
+<l>si possum, invideor, cum lingua Catonis et Enni </l>
+<l>sermonem patrium ditaverit et nova rerum </l>
+<l>nomina protulerit? licuit semperque licebit </l>
+<l>signatum praesente nota producere nomen. </l>
+<l n="60">ut silvae foliis pronos mutantur in annos, </l>
+<l>prima cadunt: ita verborum vetus interit aetas,  </l>
+<l>et iuvenum ritu florent modo nata vigentque. </l>
+<l>debemur morti nos nostraque: sive receptus </l>
+<l>terra Neptunus classes Aquilonibus arcet, </l>
+<l n="65">regis opus, sterilisve diu palus aptaque remis </l>
+<l>vicinas urbes alit et grave sentit aratrum, </l>
+<l>seu cursum mutavit iniquum frugibus amnis </l>
+<l>doctus iter melius: mortalia facta peribunt, </l>
+<l>nedum sermonum stet honos et gratia vivax. </l>
+<l n="70">multa renascentur quae iam cecidere cadentque </l>
+<l>quae nunc sunt in honore vocabula, si volet usus, </l>
+<l>quem penes arbitrium est et ius et norma loquendi. 
+
+<milestone ed="p" n="73" unit="card"/></l>
+<l>res gestae regumque ducumque et tristia bella </l>
+<l>quo scribi possent numero, monstravit Homerus; </l>
+<l n="75">versibus inpariter iunctis querimonia primum, </l>
+<l>post etiam inclusa est voti sententia compos; </l>
+<l>quis tamen exiguos elegos emiserit auctor, </l>
+<l>grammatici certant et adhuc sub iudice lis est; </l>
+<l>Archilochum proprio rabies armavit iambo; </l>
+<l n="80">hunc socci cepere pedem grandesque cothurni, </l>
+<l>alternis aptum sermonibus et popularis </l>
+<l>vincentem strepitus et natum rebus agendis; </l>
+<l>musa dedit fidibus Divos puerosque Deorum </l>
+<l>et pugilem victorem et equum certamine primum </l>
+<l n="85">et iuvenum curas et libera vina referre: </l>
+<l>descriptas servare vices operumque colores </l>
+<l>cur ego si nequeo ignoroque poeta salutor?  </l>
+<l>cur nescire pudens prave quam discere malo? </l>
+<l>versibus exponi tragicis res comica non volt; </l>
+<l n="90">indignatur item privatis ac prope socco </l>
+<l>dignis carminibus narrari cena Thyestae: </l>
+<l>singula quaeque locum teneant sortita decentem. </l>
+<l>interdum tamen et vocem comoedia tollit </l>
+<l>iratusque Chremes tumido delitigat ore; </l>
+<l n="95">et tragicus plerumque dolet sermone pedestri, </l>
+<l>Telephus et Peleus cum pauper et exsul uterque </l>
+<l>proiicit ampullas et sesquipedalia verba, </l>
+<l>si curat cor spectantis tetigisse querella. 
+
+<milestone ed="p" n="99" unit="card"/></l>
+<l>non satis est pulchra esse poemata: dulcia sunto </l>
+<l n="100">et quocumque volent animum auditoris agunto. </l>
+<l>ut ridentibus adrident, ita flentibus adflent </l>
+<l>humani voltus. si vis me flere, dolendum est </l>
+<l>primum ipsi tibi: tum tua me infortunia laedent, </l>
+<l>Telephe vel Peleu; male si mandata loqueris, </l>
+<l n="105">aut dormitabo aut ridebo. tristia maestum </l>
+<l>voltum verba decent, iratum plena minarum, </l>
+<l>ludentem lasciva, severum seria dictu. </l>
+<l>format enim natura prius nos intus ad omnem </l>
+<l>fortunarum habitum: iuvat aut inpellit ad iram </l>
+<l n="110">aut ad humum maerore gravi deducit et angit: </l>
+<l>post effert animi motus interprete lingua. </l>
+<l>si dicentis erunt fortunis absona dicta, </l>
+<l>Romani tollent equites peditesque cachinnum.  </l>
+<l>intererit multum, Davusne loquatur an heros, </l>
+<l n="115">maturusne senex an adhuc florente iuventa </l>
+<l>fervidus, et matrona potens an sedula nutrix, </l>
+<l>mercatorne vagus cultorne virentis agelli, </l>
+<l>Colchus an Assyrius, Thebis nutritus, an Argis. </l>
+<l>aut famam sequere aut sibi convenientia finge </l>
+<l n="120">scriptor. honoratum si forte reponis Achillem, </l>
+<l>inpiger, iracundus, inexorabilis, acer </l>
+<l>iura neget sibi nata, nihil non adroget armis. </l>
+<l>sit Medea ferox invictaque, flebilis Ino, </l>
+<l>perfidus Ixion, Io vaga, tristis Orestes. 
+
+<milestone ed="p" n="125" unit="card"/></l>
+<l n="125">si quid inexpertum scaenae conmittis et audes </l>
+<l>personam formare novam, servetur ad imum, </l>
+<l>qualis ab incepto processerit, et sibi constet. </l>
+<l>difficile est proprie communia dicere, tuque </l>
+<l>rectius Iliacum carmen deducis in actus </l>
+<l n="130">quam si proferres ignota indictaque primus: </l>
+<l>publica materies privati iuris erit, si </l>
+<l>non circa vilem patulumque moraberis orbem </l>
+<l>nec verbo verbum curabis reddere fidus </l>
+<l>interpres nec desilies imitator in artum, </l>
+<l n="135">unde pedem proferre pudor vetet aut operis lex, </l>
+<l>nec sic incipies, ut scriptor cyclicus olim: </l>
+<l>'fortunam Priami cantabo et nobile bellum.' </l>
+<l>quid dignum tanto feret hic promissor hiatu? </l>
+<l>parturient montes, nascetur ridiculus mus.  </l>
+<l n="140">quanto rectius hic, qui nil molitur inepte: </l>
+<l>'dic mihi, Musa, virum, captae post tempora Troiae </l>
+<l>qui mores hominum multorum vidit et urbes.' </l>
+<l>non fumum ex fulgore, sed ex fumo dare lucem </l>
+<l>cogitat, ut speciosa dehinc miracula promat, </l>
+<l n="145">Antiphaten, Scyllamque, et cum Cyclope Charybdim; </l>
+<l>nec reditum Diomedis ab interitu Meleagri </l>
+<l>nec gemino bellum Troianum orditur ab ovo: </l>
+<l>semper ad eventum festinat et in medias res </l>
+<l>non secus ac notas auditorem rapit et quae </l>
+<l n="150">desperat tractata nitescere posse relinquit </l>
+<l>atque ita mentitur, sic veris falsa remiscet, </l>
+<l>primo ne medium, medio ne discrepet imum. 
+
+<milestone ed="p" n="153" unit="card"/></l>
+<l>tu, quid ego et populus mecum desideret, audi, </l>
+<l>si plausoris eges aulaea manentis et usque </l>
+<l n="155">sessuri, donec cantor 'vos plaudite' dicat. </l>
+<l>aetatis cuiusque notandi sunt tibi mores, </l>
+<l>mobilibusque decor naturis dandus et annis. </l>
+<l>reddere qui voces iam scit puer et pede certo </l>
+<l>signat humum, gestit paribus conludere et iram </l>
+<l n="160">colligit ac ponit temere et mutatur in horas. </l>
+<l>inberbis iuvenis, tandem custode remoto, </l>
+<l>gaudet equis canibusque et aprici gramine campi, </l>
+<l>cereus in vitium flecti, monitoribus asper, </l>
+<l>utilium tardus provisor, prodigus aeris, </l>
+<l n="165">sublimis cupidusque et amata relinquere pernix. </l>
+<l>conversis studiis aetas animusque virilis  </l>
+<l>quaerit opes et amicitias, inservit honori, </l>
+<l>conmisisse cavet quod mox mutare laboret. </l>
+<l>multa senem circumveniunt incommoda, vel quod </l>
+<l n="170">quaerit et inventis miser abstinet ac timet uti, </l>
+<l>vel quod res omnis timide gelideque ministrat, </l>
+<l>dilator, spe longus, iners avidusque futuri, </l>
+<l>difficilis, querulus, laudator temporis acti </l>
+<l>se puero, castigator censorque minorum. </l>
+<l n="175">multa ferunt anni venientes commoda secum, </l>
+<l>multa recedentes adimunt: ne forte seniles </l>
+<l>mandentur iuveni partes pueroque viriles: </l>
+<l>semper in adiunctis aevoque morabitur aptis. </l>
+<l>aut agitur res in scaenis aut acta refertur. </l>
+<l n="180">segnius inritant animos demissa per aurem </l>
+<l>quam quae sunt oculis subiecta fidelibus et quae </l>
+<l>ipse sibi tradit spectator: non tamen intus </l>
+<l>digna geri promes in scaenam multaque tolles </l>
+<l>ex oculis, quae mox narret facundia praesens: </l>
+<l n="185">ne pueros coram populo Medea trucidet </l>
+<l>aut humana palam coquat exta nefarius atreus </l>
+<l>aut in avem Procne vertatur, Cadmus in anguem. </l>
+<l>quodcumque ostendis mihi sic, incredulus odi. 
+
+<milestone ed="p" n="189" unit="card"/></l>
+<l>neve minor neu sit quinto productior actu </l>
+<l n="190">fabula quae posci volt et spectanda reponi. </l>
+<l>nec Deus intersit, nisi dignus vindice nodus </l>
+<l>inciderit, nec quarta loqui persona laboret. </l>
+<l>actoris partis chorus officiumque virile </l>
+<l>defendat, neu quid medios intercinat actus </l>
+<l n="195">quod non proposito conducat et haereat apte. </l>
+<l>ille bonis faveatque et consilietur amice  </l>
+<l>et regat iratos et amet pacare tumentis, </l>
+<l>ille dapes laudet mensae brevis, ille salubrem </l>
+<l>iustitiam legesque et apertis otia portis, </l>
+<l n="200">ille tegat conmissa Deosque precetur et oret, </l>
+<l>ut redeat miseris, abeat fortuna superbis. </l>
+<l>tibia non, ut nunc orichalco, vincta tubaeque </l>
+<l>aemula, sed tenuis simplexque foramine pauco </l>
+<l>adspirare et adesse choris erat utilis atque </l>
+<l n="205">nondum spissa nimis complere sedilia flatu; </l>
+<l>quo sane populus numerabilis, utpote parvos, </l>
+<l>et frugi castusque verecundusque coibat. </l>
+<l>postquam coepit agros extendere victor et urbis </l>
+<l>latior amplecti murus vinoque diurno </l>
+<l n="210">placari Genius festis inpune diebus, </l>
+<l>accessit numerisque modisque licentia maior. </l>
+<l>indoctus quid enim saperet liberque laborum </l>
+<l>rusticus urbano confusus, turpis honesto? </l>
+<l>sic priscae motumque et luxuriem addidit arti </l>
+<l n="215">tibicen traxitque vagus per pulpita vestem; </l>
+<l>sic etiam fidibus voces crevere severis, </l>
+<l>et tulit eloquium insolitum facundia praeceps </l>
+<l>utiliumque sagax rerum et divina futuri </l>
+<l>sortilegis non discrepuit sententia Delphis. 
+
+<milestone ed="p" n="220" unit="card"/></l>
+<l n="220">carmine qui tragico vilem certavit ob hircum, </l>
+<l>mox etiam agrestis Satyros nudavit et asper </l>
+<l>incolumi gravitate iocum temptavit eo quod </l>
+<l>inlecebris erat et grata novitate morandus  </l>
+<l>spectator functusque sacris et potus et exlex. </l>
+<l n="225">verum ita risores, ita commendare dicacis </l>
+<l>conveniet Satyros, ita vertere seria ludo, </l>
+<l>ne, quicumque Deus, quicumque adhibebitur heros, </l>
+<l>regali conspectus in auro nuper et ostro, </l>
+<l>migret in obscuras humili sermone tabernas </l>
+<l n="230">aut, dum vitat humum, nubis et inania captet. </l>
+<l>effutire levis indigna tragoedia versus, </l>
+<l>ut festis matrona moveri iussa diebus, </l>
+<l>intererit Satyris paulum pudibunda protervis. </l>
+<l>non ego inornata et dominantia nomina solum </l>
+<l n="235">verbaque, Pisones, Satyrorum scriptor amabo </l>
+<l>nec sic enitar tragico differre colori, </l>
+<l>ut nihil intersit, Davusne loquatur et audax </l>
+<l>Pythias, emuncto lucrata Simone talentum, </l>
+<l>an custos famulusque Dei Silenus alumni. </l>
+<l n="240">ex noto fictum carmen sequar, ut sibi quivis </l>
+<l>speret idem, sudet multum frustraque laboret </l>
+<l>ausus idem: tantum series iuncturaque pollet, </l>
+<l>tantum de medio sumptis accedit honoris. </l>
+<l>silvis deducti caveant, me iudice, Fauni, </l>
+<l n="245">ne velut innati triviis ac paene forenses.</l>
+<l>aut nimium teneris iuvenentur versibus umquam </l>
+<l>aut inmunda crepent ignominiosaque dicta. </l>
+<l>offenduntur enim, quibus est equus et pater et res, </l>
+<l>nec, siquid fricti ciceris probat et nucis emptor, </l>
+<l n="250">aequis accipiunt animis donantve corona. </l>
+<l>syllaba longa brevi subiecta vocatur Iambus, </l>
+<l>pes citus: unde etiam trimetris adcrescere iussit </l>
+<l>nomen iambeis, cum senos redderet ictus, </l>
+<l>primus ad extremum similis sibi: non ita pridem,  </l>
+<l n="255">tardior ut paulo graviorque veniret ad auris, </l>
+<l>spondeos stabilis in iura paterna recepit </l>
+<l>commodus et patiens, non ut de sede secunda </l>
+<l>cederet aut quarta socialiter. hic et in Acci </l>
+<l>nobilibus trimetris adparet rarus et Enni </l>
+<l n="260">in scaenam missos cum magno pondere versus </l>
+<l>aut operae celeris nimium curaque carentis </l>
+<l>aut ignoratae premit artis crimine turpi. </l>
+<l>non quivis videt inmodulata poemata iudex </l>
+<l>et data Romanis venia est indigna poetis. </l>
+<l n="265">idcircone vager scribamque licenter? an omnis </l>
+<l>visuros peccata putem mea, tutus et intra </l>
+<l>spem veniae cautus? vitavi denique culpam, </l>
+<l>non laudem merui. vos exemplaria Graeca </l>
+<l>nocturna versate manu, versate diurna. </l>
+<l n="270">at nostri proavi Plautinos et numeros et </l>
+<l>laudavere sales, nimium patienter utrumque, </l>
+<l>ne dicam stulte, mirati, si modo ego et vos </l>
+<l>scimus inurbanum lepido seponere dicto </l>
+<l>legitimumque sonum digitis callemus et aure. 
+
+<milestone ed="p" n="275" unit="card"/></l>
+<l n="275">ignotum tragicae genus invenisse Camenae </l>
+<l>dicitur et plaustris vexisse poemata Thespis, </l>
+<l>quae canerent agerentque peruncti faecibus ora. </l>
+<l>post hunc personae pallaeque repertor honestae </l>
+<l>Aeschylus et modicis instravit pulpita tignis </l>
+<l n="280">et docuit magnumque loqui nitique cothurno. </l>
+<l>successit vetus his comoedia, non sine multa </l>
+<l>laude; sed in vitium libertas excidit et vim </l>
+<l>dignam lege regi: lex est accepta chorusque  </l>
+<l>turpiter obticuit sublato iure nocendi. </l>
+<l n="285">nil intemptatum nostri liquere poetae </l>
+<l>nec minimum meruere decus vestigia Graeca </l>
+<l>ausi deserere et celebrare domestica facta </l>
+<l>vel qui praetextas vel qui docuere togatas. </l>
+<l>nec virtute foret clarisve potentius armis </l>
+<l n="290">quam lingua Latium, si non offenderet unum </l>
+<l>quemque poetarum limae labor et mora. vos, o </l>
+<l>Pompilius sanguis, carmen reprehendite, quod non </l>
+<l>multa dies et multa litura coercuit atque </l>
+<l>praesectum deciens non castigavit ad unguem. </l>
+<l n="295">ingenium misera quia fortunatius arte </l>
+<l>credit et excludit sanos Helicone poetas </l>
+<l>Democritus, bona pars non unguis ponere curat, </l>
+<l>non barbam, secreta petit loca, balnea vitat. </l>
+<l>nanciscetur enim pretium nomenque poetae, </l>
+<l n="300">si tribus Anticyris caput insanabile numquam </l>
+<l>tonsori Licino conmiserit. o ego laevus, </l>
+<l>qui purgor bilem sub verni temporis horam. </l>
+<l>non alius faceret meliora poemata; verum </l>
+<l>nil tanti est. ergo fungar vice cotis, acutum </l>
+<l n="305">reddere quae ferrum valet exsors ipsa secandi; </l>
+<l>munus et officium, nil scribens ipse, docebo, </l>
+<l>unde parentur opes, quid alat formetque poetam, </l>
+<l>quid deceat, quid non, quo virtus, quo ferat error. 
+
+<milestone ed="p" n="309" unit="card"/></l>
+<l>scribendi recte sapere est et principium et fons. </l>
+<l n="310">rem tibi Socraticae poterunt ostendere chartae </l>
+<l>verbaque provisam rem non invita sequentur.  </l>
+<l>qui didicit, patriae quid debeat et quid amicis, </l>
+<l>quo sit amore parens, quo frater amandus et hospes, </l>
+<l>quod sit conscripti, quod iudicis officium, quae </l>
+<l n="315">partes in bellum missi ducis, ille profecto </l>
+<l>reddere personae scit convenientia cuique. </l>
+<l>respicere exemplar vitae morumque iubebo </l>
+<l>doctum imitatorem et vivas hinc ducere voces. </l>
+<l>interdum speciosa locis morataque recte </l>
+<l n="320">fabula nullius veneris, sine pondere et arte, </l>
+<l>valdius oblectat populum meliusque moratur </l>
+<l>quam versus inopes rerum nugaeque canorae. </l>
+<l>Graiis ingenium, Graiis dedit ore rotundo </l>
+<l>Musa loqui, praeter laudem nullius avaris. </l>
+<l n="325">Romani pueri longis rationibus assem </l>
+<l>discunt in partis centum diducere. 'dicat </l>
+<l>filius Albini: si de quincunce remota est </l>
+<l>uncia, quid superat? poteras dixisse.' 'triens.' 'eu, </l>
+<l>rem poteris servare tuam. redit uncia, quid fit?' </l>
+<l n="330">'semis.' an, haec animos aerugo et cura peculi </l>
+<l>cum semel imbuerit, speremus carmina fingi </l>
+<l>posse linenda cedro et levi servanda cupresso? </l>
+<l>aut prodesse volunt aut delectare poetae </l>
+<l>aut simul et iucunda et idonea dicere vitae. </l>
+<l n="335">quidquid praecipies, esto brevis, ut cito dicta </l>
+<l>percipiant animi dociles teneantque fideles: </l>
+<l>omne supervacuum pleno de pectore manat. </l>
+<l>ficta voluptatis causa sint proxima veris: </l>
+<l>ne quodcumque volet poscat sibi fabula credi </l>
+<l n="340">neu pransae Lamiae vivum puerum extrahat alvo.  </l>
+<l>centuriae seniorum agitant expertia frugis, </l>
+<l>celsi praetereunt austera poemata Rhamnes: </l>
+<l>omne tulit punctum, qui miscuit utile dulci </l>
+<l>lectorem delectando pariterque monendo. </l>
+<l n="345">hic meret aera liber Sosiis, hic et mare transit </l>
+<l>et longum noto scriptori prorogat aevum. 
+
+<milestone ed="p" n="347" unit="card"/></l>
+<l>sunt delicta tamen, quibus ignovisse velimus: </l>
+<l>nam neque chorda sonum reddit quem volt manus et mens, </l>
+<l>poscentique gravem persaepe remittit acutum, </l>
+<l n="350">nec semper feriet quodcumque minabitur arcus. </l>
+<l>verum ubi plura nitent in carmine, non ego paucis </l>
+<l>offendar maculis, quas aut incuria fudit </l>
+<l>aut humana parum cavit natura. quid ergo est? </l>
+<l>ut scriptor si peccat idem librarius usque, </l>
+<l n="355">quamvis est monitus, venia caret, et citharoedus </l>
+<l>ridetur, chorda qui semper oberrat eadem, </l>
+<l>sic mihi, qui multum cessat, fit Choerilus ille, </l>
+<l>quem bis terve bonum cum risu miror; et idem </l>
+<l>indignor, quandoque bonus dormitat Homerus; </l>
+<l n="360">verum operi longo fas est obrepere somnum. </l>
+<l>ut pictura poesis: erit quae, si propius stes, </l>
+<l>te capiat magis, et quaedam, si longius abstes; </l>
+<l>haec amat obscurum, volet haec sub luce videri, </l>
+<l>iudicis argutum quae non formidat acumen; </l>
+<l n="365">haec placuit semel, haec deciens repetita placebit. </l>
+<l>o maior iuvenum, quamvis et voce paterna </l>
+<l>fingeris ad rectum et per te sapis, hoc tibi dictum </l>
+<l>tolle memor, certis medium et tolerabile rebus </l>
+<l>recte concedi: consultus iuris et actor </l>
+<l n="370">causarum mediocris abest virtute diserti  </l>
+<l>Messallae nec scit quantum Cascellius Aulus, </l>
+<l>sed tamen in pretio est: mediocribus esse poetis </l>
+<l>non homines, non Di, non concessere columnae. </l>
+<l>ut gratas inter mensas symphonia discors </l>
+<l n="375">et crassum unguentum et Sardo cum melle papaver </l>
+<l>offendunt, poterat duci quia cena sine istis: </l>
+<l>sic animis natum inventumque poema iuvandis, </l>
+<l>si paulum summo decessit, vergit ad imum. </l>
+<l>ludere qui nescit, campestribus abstinet armis </l>
+<l n="380">indoctusque pilae discive trochive quiescit, </l>
+<l>ne spissae risum tollant inpune coronae: </l>
+<l>qui nescit versus, tamen audet fingere. quidni? </l>
+<l>liber et ingenuus, praesertim census equestrem </l>
+<l>summam nummorum vitioque remotus ab omni. </l>
+<l n="385">tu nihil invita dices faciesve Minerva: </l>
+<l>id tibi iudicium est, ea mens. siquid tamen olim </l>
+<l>scripseris, in Meti descendat iudicis auris </l>
+<l>et patris et nostras nonumque prematur in annum </l>
+<l>membranis intus positis: delere licebit, </l>
+<l n="390">quod non edideris, nescit vox missa reverti. 
+
+<milestone ed="p" n="391" unit="card"/></l>
+<l>silvestris homines sacer interpresque Deorum </l>
+<l>caedibus et victu foedo deterruit Orpheus, </l>
+<l>dictus ob hoc lenire tigres rabidosque leones; </l>
+<l>dictus et Amphion, Thebanae conditor urbis, </l>
+<l n="395">saxa movere sono testudinis et prece blanda </l>
+<l>ducere quo vellet. fuit haec sapientia quondam, </l>
+<l>publica privatis secernere, sacra profanis, </l>
+<l>concubitu prohibere vago, dare iura maritis, </l>
+<l>oppida moliri, leges incidere ligno. </l>
+<l n="400">sic honor et nomen divinis vatibus atque  </l>
+<l>carminibus venit. post hos insignis Homerus </l>
+<l>Tyrtaeusque mares animos in Martia bella </l>
+<l>versibus exacuit; dictae per carmina sortes </l>
+<l>et vitae monstrata via est et gratia regum </l>
+<l n="405">Pieriis temptata modis ludusque repertus </l>
+<l>et longorum operum finis: ne forte pudori </l>
+<l>sit tibi Musa lyrae sollers et cantor Apollo. </l>
+<l>natura fieret laudabile carmen an arte, </l>
+<l>quaesitum est: ego nec studium sine divite vena </l>
+<l n="410">nec rude quid prosit video ingenium: alterius sic </l>
+<l>altera poscit opem res et coniurat amice. </l>
+<l>qui studet optatam cursu contingere metam, </l>
+<l>multa tulit fecitque puer, sudavit et alsit, </l>
+<l>abstinuit venere et vino; qui Pythia cantat </l>
+<l n="415">tibicen, didicit prius extimuitque magistrum. </l>
+<l>nunc satis est dixisse 'ego mira poemata pango; </l>
+<l>occupet extremum scabies; mihi turpe relinqui est </l>
+<l>et quod non didici sane nescire fateri'. 
+
+<milestone ed="p" n="419" unit="card"/></l>
+<l>ut praeco, ad merces turbam qui cogit emendas, </l>
+<l n="420">adsentatores iubet ad lucrum ire poeta </l>
+<l>dives agris, dives positis in fenore nummis. </l>
+<l>si vero est, unctum qui recte ponere possit </l>
+<l>et spondere levi pro paupere et eripere artis </l>
+<l>litibus inplicitum, mirabor, si sciet inter-</l>
+<l n="425">noscere mendacem verumque beatus amicum. </l>
+<l>tu seu donaris seu quid donare voles cui, </l>
+<l>nolito ad versus tibi factos ducere plenum </l>
+<l>laetitiae; clamabit enim 'pulchre! bene! recte!'  </l>
+<l>pallescet, super his etiam stillabit amicis </l>
+<l n="430">ex oculis rorem, saliet, tundet pede terram. </l>
+<l>ut, qui conducti plorant in funere, dicunt </l>
+<l>et faciunt prope plura dolentibus ex animo, sic </l>
+<l>derisor vero plus laudatore movetur. </l>
+<l>reges dicuntur multis urgere culillis </l>
+<l n="435">et torquere mero, quem perspexisse laborent </l>
+<l>an sit amicitia dignus; si carmina condes, </l>
+<l>numquam te fallent animi sub vulpe latentes. </l>
+<l>Quintilio siquid recitares, 'corrige sodes </l>
+<l>hoc' aiebat 'et hoc'. mulius te posse negares </l>
+<l n="440">bis terque expertum frustra: delere iubebat </l>
+<l>et male tornatos incudi reddere versus. </l>
+<l>si defendere delictum quam vertere malles, </l>
+<l>nullum ultra verbum aut operam insumebat inanem, </l>
+<l>quin sine rivali teque et tua solus amares. </l>
+<l n="445">vir bonus et prudens versus reprehendet inertis, </l>
+<l>culpabit duros, incomptis adlinet atrum </l>
+<l>transverso calamo signum, ambitiosa recidet </l>
+<l>ornamenta, parum claris lucem dare coget, </l>
+<l>arguet ambigue dictum, mutanda notabit: </l>
+<l n="450">fiet Aristarchus; non dicet 'cur ego amicum </l>
+<l>offendam in nugis?' hae nugae seria ducent </l>
+<l>in mala derisum semel exceptumque sinistre. 
+
+<milestone ed="p" n="453" unit="card"/></l>
+<l>ut mala quem scabies aut morbus regius urget </l>
+<l>aut fanaticus error et iracunda Diana, </l>
+<l n="455">vesanum tetigisse timent fugiuntque poetam  </l>
+<l>qui sapiunt, agitant pueri incautique sequuntur. </l>
+<l>hic, dum sublimis versus ructatur et errat, </l>
+<l>si veluti merulis intentus decidit auceps </l>
+<l>in puteum foveamve, licet 'succurrite' longum </l>
+<l n="460">clamet, 'io cives', non sit qui tollere curet. </l>
+<l>si curet quis opem ferre et demittere funem, </l>
+<l>'qui scis, an prudens huc se deiecerit atque </l>
+<l>servari nolit?' dicam siculique poetae </l>
+<l>narrabo interitum. 'Deus inmortalis haberi </l>
+<l n="465">dum cupit Empedocles, ardentem frigidus Aetnam </l>
+<l>insiluit. sit ius liceatque perire poetis: </l>
+<l>invitum qui servat, idem facit occidenti. </l>
+<l>nec semel hoc fecit nec, si retractus erit, iam </l>
+<l>fiet homo et ponet famosae mortis amorem. </l>
+<l n="470">nec satis adparet, cur versus factitet, utrum </l>
+<l>minxerit in patrios cineres an triste bidental </l>
+<l>moverit incestus: certe furit ac velut ursus, </l>
+<l>obiectos caveae valuit si frangere clatros, </l>
+<l>indoctum doctumque fugat recitator acerbus; </l>
+<l n="475">quem vero arripuit, tenet occiditque legendo, </l>
+<l>non missura cutem, nisi plena cruoris, hirudo.'  </l>
+</body>
+</text>
+</TEI.2>

@@ -1,0 +1,769 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title type="sub">Machine readable text</title>
+				<title n="Nic." type="work">Nicias</title>
+				<author n="Plut.">Plutarch</author>
+				<editor n="Perrin" role="editor">Bernadotte Perrin</editor>
+				&responsibility;
+				&fund.AnnCPB;
+			</titleStmt>
+			<extent>about 96Kb</extent>
+			&Perseus.publish;
+			<sourceDesc>
+				<biblStruct>
+					<analytic n="Nic."></analytic>
+					<monogr>
+						<author>Plutarch</author>
+						<title>Plutarch's Lives</title>
+						<respStmt>
+							<resp>with an English Translation by</resp>
+							<name>Bernadotte Perrin</name></respStmt>
+						<imprint>
+							<pubPlace>Cambridge, MA</pubPlace>
+							<publisher>Harvard University Press</publisher>
+							<pubPlace>London</pubPlace>
+							<publisher>William Heinemann Ltd.</publisher>
+							<date>1916</date></imprint>
+						<biblScope type="volume">3</biblScope>
+					</monogr>
+					<idno type="ISBN">0674990722</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<editorialDecl>
+				<correction status="high" method="silent">
+					<p>optical character recognition</p>
+				</correction>
+			</editorialDecl>
+			<refsDecl doctype="tei.2">
+				<state unit="chapter" delim="."/>
+				<state unit="section"/>
+			</refsDecl>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language id="en">English</language>
+				<language id="greek">Greek</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change>
+				<date>8/90</date>
+				<respStmt>
+					<name>EM</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>Proofread by Ted Armstrong.</item>
+			</change>
+			<change>
+				<date>8/91</date>
+				<respStmt>
+					<name>EM</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>Revise DTDs and recheck texts.</item>
+			</change>
+			<change>
+				<date>8/92</date>
+				<respStmt>
+					<name>DAS</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>Removed highlighted text, cleaned up notes and citations,
+					and changed chapters to DIV2's.</item>
+			</change>
+			<change>
+				<date>10/22/92</date>
+				<respStmt>
+					<name>EM</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>Glued all Plutarch files together,
+					put in HEAD tags to title them.</item>
+			</change>
+			<change>
+				<date>9/12/97</date>
+				<respStmt>
+					<name>David Smith</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>Made conformant with TEI P3.</item>
+			</change>
+			<change>
+				<date></date>
+				<respStmt>
+					<name>David Smith</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>	
+					$Log: plut.nic_eng.xml,v $
+					Revision 1.3  2010-11-19 13:56:30  balmas01
+					normalizing quote and q tags
+
+					Revision 1.2  2009-12-15 20:52:49  rsingh04
+					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
+
+					Revision 1.1  2009/12/07 22:05:55  rsingh04
+					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
+
+					Revision 1.6  2009/06/19 19:09:10  lcerrato
+					fixed bad bibls
+
+					Revision 1.5  2009/06/11 15:43:28  student
+					fixing citations - ad
+
+					Revision 1.4  2009/04/03 20:44:32  lcerrato
+					fixing bad bibl refs
+
+					Revision 1.3  2009/01/23 22:09:51  rsingh04
+					small fixes
+
+					Revision 1.2  2009/01/22 22:18:58  rsingh04
+					now validates and entities fixed
+
+					Revision 1.3  2001/09/28 19:40:18  lcerrato
+					fixed entity typo
+					
+					Revision 1.2  2001/09/28 19:34:07  lcerrato
+					cleaned up quotes, bibls and notes
+					
+					Revision 1.1  2001/09/27 21:56:41  lcerrato
+					adding new tags for DE, ISBN, etc.
+					
+					Revision 1.4  2000/03/04 20:35:11  dasmith
+					Added separate funder entity to TEI header.
+					
+					Revision 1.3  1999/07/28 18:27:56  dasmith
+					Added text to REFSDECL.
+					
+					Revision 1.2  1999/07/09 23:15:27  textgod
+					Converted to TEI-conformant SGML.
+				</item>
+			</change>
+			<change>
+				<date>9/01</date>
+				<respStmt>
+					<name>LMC</name>
+					<resp></resp>
+				</respStmt>
+				<item>removed from group file, retagged and parsed</item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<head>NICIAS</head>
+			<p>
+				<milestone n="1" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>I think that Nicias is a suitable parallel to Crassus, and the Sicilian to the Parthian disaster.  I must therefore at once, and in all modesty, entreat my readers not to imagine for an instant that in my narration of what Thucydides has inimitably set forth, surpassing even himself in pathos, vividness, and variety, I am so disposed as was Timaeus.
+				<milestone n="2" unit="section"></milestone>
+				He, confidently hoping to excel Thucydides in skill, and to make Philistus seem altogether tedious and clumsy, pushes his history along through the conflicts and sea-fights and harangues which those writers had already handled with the greatest success, showing himself, in rivalry with them, not even so much as
+				<quote rend="blockquote">
+					<l part="N">By Lydian car a footman slowly plodding,</l>
+				</quote>
+				
+				to use Pindar's comparison,<note resp="ed" place="unspecified" anchored="yes">One of the <title>Fragmenta Incerta</title> <bibl>(Bergk, <title>Poet. Lyr. Graeci</title>, i(4). p. 450).</bibl></note> nay rather a perfect example of senile learning and youthful conceit, and, in the words of Diphilus,
+				
+				<quote rend="blockquote">
+					<l part="N">Obese, stuffed to the full with Sicilian grease.</l>
+				</quote>
+				<note resp="ed" place="unspecified" anchored="yes"><bibl>Kock, <title>Com. Att. Frag.</title> ii. p. 576.</bibl></note>
+				
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>Indeed, he often lapses unawares into the manner of Xenarchus, as, for instance, when he says he thinks it was a bad omen for the Athenians that Nicias, whose name was derived from victory, declined at first to head their expedition; also that, by the mutilation of the 
+				<q>Hermae,</q><note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Nic. 13.2">Plut. Nic. 13.2</bibl>.</note> Heaven indicated to them in advance that by the hands of Hermocrates the son of Hermon they were to suffer most of their reverses during the war; and, further, that it was fitting that Heracles should aid the Syracusans, for the sake of their goddess Cora who delivered Cerberus into his hands, but should be angry with the Athenians because they were trying to succour the Egestaeans although they were descendants of the Trojans, whose city he had once destroyed because of the wrong done him by Laomedon their king.
+				<milestone n="4" unit="section"></milestone>
+			</p>
+			<p>As for Timaeus, he may possibly have been moved to write thus in the exercise of the same critical taste which led him to correct the language of Philistus and abuse Plato and Aristotle; but as for me, I feel that jealous rivalry with other writers in matters of diction is altogether undignified and pedantic, and if it be practised toward what is beyond all imitation, utterly silly.
+				<milestone n="5" unit="section"></milestone>
+				At all events, those deeds which Thucydides and Philistus have set forth,&mdash;since I cannot entirely pass them by, indicating as they do the nature of my hero and the disposition which lay hidden beneath his many great sufferings,&mdash;I have run over briefly, and with no unnecessary detail, in order to escape the reputation of utter carelessness and sloth; but those details which have escaped most writers, and which others have mentioned casually, or which are found on ancient votive offerings or in public decrees, these I have tried to collect, not massing together useless material of research, but handing on such as furthers the appreciation of character and temperament.
+				<milestone n="2" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Accordingly, I may say of Nicias, in the first place, what Aristotle wrote,<note resp="ed" place="unspecified" anchored="yes"><bibl n="Aristot. Ath. Pol. 28.5">Aristot. Const. Ath. 28.5</bibl>.</note> namely, that the three best citizens of Athens,&mdash;men of hereditary good will and friendship for the people,&mdash;were Nicias the son of Niceratus, Thucydides the son of Melesias, and Theramenes the son of Hagnon.  However, this was true of the last in lesser degree than of the other two, because he has been flouted for inferior parentage as an alien from Ceos; and on account of his not being steadfast, but ever trying to court both sides in his political career, was nicknamed 
+				<q>Cothurnus.</q><note resp="ed" place="unspecified" anchored="yes">The high boot of early tragic actors, which could be worn on either foot.</note>
+				<milestone n="2" unit="section"></milestone>
+				Of the other two, Thucydides was the older man, and as head of the aristocratic party,&mdash;the party of the 
+				<q>Good and True,</q>&mdash;often opposed Pericles in his efforts to win the favour of the people.  Nicias was a younger man.  He was held in some repute even while Pericles was still living, so that he was not only associated with him as general, but frequently had independent command himself; after Pericles was dead,<note resp="ed" place="unspecified" anchored="yes">429 B.C.</note> Nicias was at once put forward into the position of leader, especially by the party of the rich and noble.  These made him their champion to face the disgusting boldness of Cleon.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>And yet, for that matter, the common people also held him in favour and aided his ambitions.  For although Cleon had great influence with them 
+				<q>by coddling them, and giving frequent jobs for pay,</q><note resp="ed" place="unspecified" anchored="yes">An iambic trimeter from an unknown comic poet (;Kock, Com. Att. Frag., iii. p. 400).</note> yet the very men whose favour he thus sought to gain were aware of his rapacity and fierce effrontery, for the most part preferred Nicias as their champion.  The dignity of Nicias was not of the harsh, offensive sort, but was blended with much circumspection, and won control of the people from the very fact that he was thought to be afraid of them.
+				<milestone n="4" unit="section"></milestone>
+				Timid as he was by nature, and distrustful of success, in war he managed to succeed in hiding his cowardice under a cloak of good fortune, for he was uniformly successful as a general; while in political life his nervousness, and the ease with which he could be put to confusion by accusers, actually tended to make him popular, and gave him in high degree that power which comes from the favour of the people, because they fear men who scorn them, but exalt men who fear them.  The multitude can have no greater honor shown them by their superiors than not to be despised.
+				<milestone n="3" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Now Pericles led the city by virtue of his native excellence and powerful eloquence, and had no need to assume any persuasive mannerisms with the multitude; but Nicias, since he lacked such powers, but had excessive wealth, sought by means of this to win the leadership of the people.
+				<milestone n="2" unit="section"></milestone>
+				And since he despaired of his ability to vie successfully with the versatile buffoonery by which Cleon catered to the pleasure of the Athenians, he tried to captivate the people by choral and gymnastic exhibitions, and other like prodigalities, outdoing in the costliness and elegance of these all his predecessors and contemporaries.
+				<milestone n="3" unit="section"></milestone>
+				Of his dedicatory offerings there remain standing in my day not only the Palladium on the acropolis,&mdash;the one which has lost its gilding,&mdash;but also the temple surmounted by choregic tripods,<note resp="ed" place="unspecified" anchored="yes">Bronze tripods were awarded as prizes to the victorious choregi in the dithyrambic choral contests.</note> in the precinct of Dionysus.  For he was often victorious with choruses, and was never defeated.  A story is told how, in one of his choral exhibitions, a house servant of his appeared in the costume of Dionysus, very fair to see, and very tall, the down of youth still upon his face. The Athenians were delighted at the sight, and applauded for a long time.  At last Nicias rose and said he deemed it an unholy thing that one who had been acclaimed as a god should be a slave, and gave the youth his freedom.
+				<milestone n="4" unit="section"></milestone>
+			</p>
+			<p>It is matter of record also how splendid and worthy of the god his lavish outlays at Delos were.  The choirs which cities used to send thither to sing the praises of the god were wont to put in at the island in haphazard fashion.  The throng of worshippers would meet them at the ship and bid them sing, not with the decorum due, but as they were hastily and tumultuously disembarking, and while they were actually donning their chaplets and vestments.
+				<milestone n="5" unit="section"></milestone>
+				But when Nicias conducted the festal embassy, he landed first on the neighboring island of Rheneia, with his choir, sacrificial victims, and other equipment.  Then, with the bridge of boats which he had brought along with him from Athens, where it had been made to measure and signally adorned with gildings and dyed stuffs and garlands and tapestries, he spanned during the night the strait between Rheneia and Delos, which is not wide.  At break of day he led his festal procession in honor of the god, and his choir arrayed in lavish splendor and singing as it marched, across the bridge to land.
+				<milestone n="6" unit="section"></milestone>
+				After the sacrifices and the choral contests and the banquets were over, he erected the famous bronze palm-tree as a thank offering to the god, and consecrated to his service a tract of land which he bought at the price of ten thousand drachmas,<note resp="ed" place="unspecified" anchored="yes">About £40, or $2000, with four or five times the present purchasing power of money.</note> the revenues from which the Delians were to expend in sacrificial banquets, at which many blessings should be invoked upon Nicias from the gods.  This stipulation he actually had graven on the stone which he left in Delos to be as it were the sentry over his benefaction.  The palm-tree, however, was torn away by the wind and fell against the colossal statue of the god which the Naxians erected, and overturned it.
+				<milestone n="4" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>In this course it is clear that there was much ostentatious publicity, looking towards increase of reputation and gratification of ambition; and yet, to judge from the rest of the man's bent and character, one might feel sure that such means of winning the favour and control of the people were rather a corollary to his reverent piety.  For he was one of those who are excessively terrified at heavenly portents, and was 
+				<q>addicted to divination,</q> as Thucydides says.<note resp="ed" place="unspecified" anchored="yes"><bibl n="Thuc. 7.50.4">Thuc. 7.50.4</bibl></note>
+				<milestone n="2" unit="section"></milestone>
+				And in one of the dialogues of Pasiphon<note resp="ed" place="unspecified" anchored="yes">Not extant.</note> it is recorded that he sacrificed every day to the gods, and that he kept a diviner at his house, ostensibly for the constant enquiries which he made about public affairs, whereas most of his enquiries were really made about his own private matters, and especially about his silver mines; for he had large interests in the mining district of Laurium, and they were exceedingly profitable, although worked at great risks.  He maintained a multitude of slaves in these mines, and the most of his substance was in silver.
+				<milestone n="3" unit="section"></milestone>
+				For this reason he had a large retinue of people who wanted his money, and who got it too; for he gave to those who could work him harm no less than to those who deserved his favours, and in general his cowardice was a source of revenue to the base, as his liberality was to the good. 
+			</p>
+			<p>Witness to this can be had from the comic-poets.
+				<milestone n="4" unit="section"></milestone>
+				Telecleides composed the following verses on a certain public informer:&mdash;
+				
+				<quote rend="blockquote">
+					<l part="N">So then Charicles gave a mina that he might not tell of him</l>
+					<l part="N">How he was his mother's first-born,&mdash;and her purse-born child at that.</l>
+					<l part="N">Minas four he got from Nicias, son of rich Niceratus;</l>
+					<l part="N">But the reason why he gave them, though I know it very well,</l>
+					<l part="N">I'll not tell; the man's my friend, and I think him wise and true.</l>
+				</quote>
+				<note resp="ed" place="unspecified" anchored="yes">From a play of unknown name. <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 219.</bibl></note>
+				
+				
+				<milestone n="5" unit="section"></milestone>
+				And the personage who is held up to ridicule by Eupolis, in his 
+				<q>Maricas,</q><note resp="ed" place="unspecified" anchored="yes">A caricature of the demagogue Hyperbolus. <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 308.</bibl></note> fetches in a sort of lazy pauper, and says:&mdash;
+				
+				<quote rend="blockquote">
+					<sp><speaker>Maricas</speaker>
+						<l part="N"><quote>How long a time now since you were with Nicias?</quote></l>
+					</sp>
+					<sp><speaker>Pauper</speaker>
+						<l part="N"><quote>I have not seen him,&mdash;saving just now on the Square.</quote></l>
+					</sp>
+					<sp><speaker>Maricas</speaker>
+						<l part="N">&ldquo;The man admits he actually did see Nicias!</l>
+						<l part="N">Yet what possessed him thus to see him if he was not treacherous?&rdquo;</l>
+					</sp>
+					<sp><speaker>Chorus?</speaker>
+						<l part="N">&ldquo;Ye heard, ye heard, my comrades, O!</l>
+						<l part="N">Our Nicias was taken in the very act!&rdquo;</l>
+					</sp>
+					<sp><speaker>Pauper</speaker>
+						<l part="N">&ldquo;What! you? O crazy-witted folk!</l>
+						<l part="N">You catch a man so good in sin of any sort?&rdquo;</l>
+					</sp>
+				</quote>
+				
+				<milestone n="6" unit="section"></milestone>
+				And the Cleon of Aristophanes<note resp="ed" place="unspecified" anchored="yes"><bibl n="Aristoph. Kn. 358"><title>Knights</title>, 358</bibl>. It is not Cleon, but his adversary, the rampant sausage-seller, who utters the verse.</note> blusteringly says:&mdash;
+				<quote>
+					<l part="N">I'll bellow down the orators, and Nicias I'll rattle.</l>
+				</quote>
+				
+				And Phrynichus plainly hints at his lack of courage and his panic-stricken air in these verses:&mdash;
+				
+				<quote rend="blockquote">
+					<l part="N">He was a right good citizen, and I know it well;</l>
+					<l part="N">He wouldn't cringe and creep as Nicias always does.</l>
+				</quote>
+				<note resp="ed" place="unspecified" anchored="yes">From a play of unknown name. <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 385.</bibl></note>
+				
+				<milestone n="5" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Since he was disposed to be thus cautious of public informers, he would neither dine with a fellow citizen, nor indulge in general interchange of views or familiar social intercourse; indeed, he had no leisure for such pastimes, but when he was general, he remained at the War Department till night, and when he was councillor, he was first to reach and last to leave the council.  And even if he had no public business to transact, he was inaccessible and hard to come at, keeping close at home with his doors bolted.
+				<milestone n="2" unit="section"></milestone>
+				His friends used to accost those who were in waiting at his door and beg them to be indulgent with Nicias, for he was even then engaged upon sundry urgent matters of public business. 
+			</p>
+			<p>The man who most aided him in playing this role, and helped him to assume his costume of pompous dignity, was Hiero.  He had been reared in the household of Nicias, and thoroughly instructed by him in letters and literature.  He pretended to be the son of Dionysius, surnamed Chalcus, whose poems<note resp="ed" place="unspecified" anchored="yes">Seven fragments appear in Bergk,  Poet. Lyr. Graeci, iii(;4).pp. 262 ff.</note> are indeed extant, and who, as leader of the colonizing expedition to Italy, founded Thurii.<note resp="ed" place="unspecified" anchored="yes">Cf.  <bibl n="Plut. Per. 11.5">Plut. Per. 11.5</bibl>.</note>
+				<milestone n="3" unit="section"></milestone>
+				This Hiero it was who managed for Nicias his secret dealings with the seers, and who was forever putting forth among the people moving tales about the life of severe hardships which his patron led for the sake of the city.  
+				<q>Why!</q> said he, 
+				<q>even when he takes his bath and when he eats his dinner, some public business or other is sure to confront him; he neglects his private interests in his anxiety for the common good, and scarcely gets to sleep till others wake.
+					<milestone n="4" unit="section"></milestone>
+					That's the reason why he is physically all run down, and is not affable or pleasant to his friends, nay, he has actually lost these too, in addition to his substance, and all in the service of the city.  Other public men not only win friends but enrich them- selves through their influence as public speakers, and then fare sumptuously, and make a plaything of the service of the city.</q>  In point of fact, such was the life of Nicias that he could say of himself what Agamemnon did:&mdash;
+				
+				<quote rend="blockquote">
+					<l part="N">Sooth, as master of my life</l>
+					<l part="N">My pomp I have, and to the populace I'm a slave.</l>
+				</quote><note place="unspecified" anchored="yes"><bibl n="Eur. IA 445">Euripides, <title>Iphigenia in Aulis</title></bibl></note>
+				
+				<milestone n="6" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>He saw that the people, upon occasion, served their own turn with experienced men of eloquence or surpassing ability, but ever looked with suspicious and cautious eyes upon such powers, and tried to abate the pride and reputation to which they gave rise.  This was manifest in their fining Pericles,<note resp="ed" place="unspecified" anchored="yes"><bibl n="Plut. Per. 35.4">Plut. Per. 35.4</bibl></note> and ostracising Damon,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Per. 4.1">Plut. Per. 4.1-2</bibl>.</note> and discrediting, as most of them did, Antiphon the Rhamnusian,<note resp="ed" place="unspecified" anchored="yes">He was tried and executed for participation in the revolution of the Four Hundred (;411 B.C.)</note> and finally, above all, in the fate of Paches, the captor of Lesbos,<note resp="ed" place="unspecified" anchored="yes">In 427 B.C. (;<bibl n="Thuc. 3.28">Thuc. 3.28</bibl>).</note>
+				<milestone n="2" unit="section"></milestone>
+				who, while he was giving the official account of his generalship, drew his sword in the very court-room and slew himself.  Nicias therefore tried to evade commands which were likely to be laborious and long, and whenever he did serve as general made safety his chief aim, and so was successful for the most part, as was natural.  He did not, however,  ascribe his achievements to any wisdom or ability or valor of his own, but rather credited them to fortune, and took modest refuge in the divine ordering of events, relinquishing thereby part of his reputation through fear of envy.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>Events bore witness to his wisdom, for in the many great reverses which the city suffered at that period he had absolutely no share.  It was under the leadership of Calliades<note resp="ed" place="unspecified" anchored="yes">An error for Callias, who lost his life before Potidaea in 432 B.C. (;<bibl n="Thuc. 3.63">Thuc. 3.63</bibl>).  In 429, Xenophon was defeated and killed, with his two colleagues (;<bibl n="Thuc. 2.79">Thuc. 2.79</bibl>).</note> and Xenophon that his countrymen met defeat at the hands of the Chalcidians in Thrace; the Aetolian disaster occurred when Demosthenes was in command;<note resp="ed" place="unspecified" anchored="yes">In 426 B.C. (;<bibl n="Thuc. 3.91">Thuc. 3.91-98</bibl>).</note> Hippocrates was general when a thousand citizens were sacrificed at Delium;<note resp="ed" place="unspecified" anchored="yes">In 424 B.C. (;<bibl n="Thuc. 4.89">Thuc. 4.89-101</bibl>).</note> and for the plague Pericles incurred the most blame, because he shut up the throng from the country in the city on account of the war, and the plague was the result of their change of abode and their unwonted manner of living.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Per. 34.3">Plut. Per. 34.3</bibl> f.</note>
+				<milestone n="4" unit="section"></milestone>
+				For all these things Nicias was free from blame, while as general he captured Cythera,<note resp="ed" place="unspecified" anchored="yes">In 424 B.C. (;<bibl n="Thuc. 4.53">Thuc. 4.53-55</bibl>).</note> an island favorably situated for the command of Laconia and inhabited by Lacedaemonians; he captured also many places in Thrace<note resp="ed" place="unspecified" anchored="yes">In 423 B.C. (;<bibl n="Thuc. 4.129">Thuc. 4.129-133</bibl>).</note> which had revolted, and brought them back to their allegiance; having shut up the Megarians in their city he straightway seized the island of Minoa,<note resp="ed" place="unspecified" anchored="yes">In 427 B.C. (;<bibl n="Thuc. 3.51">Thuc 3.51</bibl>).</note> and shortly after, from this base of operations, got possession of Nisaea;<note resp="ed" place="unspecified" anchored="yes">This, on the contrary, was the exploit of Demosthenes in 424 B.C. (;<bibl n="Thuc. 4.66">Thuc. 4.66-69</bibl>).</note> he also made a descent upon the territory of Corinth,<note resp="ed" place="unspecified" anchored="yes">In 425 B.C. (;<bibl n="Thuc. 4.42.1">Thuc. 4.42.1</bibl>, and <bibl n="Thuc. 4.44">Thuc. 4.44</bibl>).</note> defeated the Corinthians in battle and slew many of them, including Lycophron their general.
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>Here it befell him, when his dead were taken up for burial, that two of his men were left unnoticed on the field.  As soon as he was made aware of this, he halted his armament and sent a herald back to the enemy asking leave to take up his dead.  And yet by usage and unwritten law the side which secured the right to take up its dead by a truce, was thought to renounce all claims to victory, and for those who so obtained this right, the erection of a trophy of victory was unlawful, since they are victors who possess the field; but petitioners do not possess the field, since they cannot take what they want.
+				<milestone n="6" unit="section"></milestone>
+				Notwithstanding this, Nicias endured rather to abandon the honor and reputation of his victory than to leave unburied two of his fellow citizens. 
+			</p>
+			<p>He also ravaged the coasts of Laconia,<note resp="ed" place="unspecified" anchored="yes">In 424 B.C. (;<bibl n="Thuc. 4.54">Thuc. 4.54</bibl>).</note> routed the Lacedaemonians who opposed him, captured Thyrea, which the Aeginetans held, and took his prisoners off alive to Athens.
+				<milestone n="7" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>After Demosthenes had fortified Pylos,<note resp="ed" place="unspecified" anchored="yes">In 425 B.C.  The Pylos episode is narrated at great length by Thucydides (;<bibl n="Thuc. 4.2">Thuc. 4.2-41</bibl>).</note> the Peloponnesians came up against it by land and sea, a battle was fought, and about four hundred Spartans were shut off on the island of Sphacteria.  Then the Athenians considered that their capture would be a great achievement, as was true.  But the siege was difficult and toilsome, since the region afforded little fresh water.  Even in summer the shipping of the necessary supplies round Peloponnesus was a long and expensive process, while in winter it was sure to be perilous if not altogether impossible.  The Athenians were therefore in bad humor, and repented them of having repulsed an embassy of the Lacedaemonians which had come to treat with them for a truce and peace.
+				<milestone n="2" unit="section"></milestone>
+				They had repulsed it because Cleon, chiefly on account of Nicias, was opposed to it. For he hated Nicias, and when he saw him zealously cooperating with the Lacedaemonians, persuaded the people to reject the truce.  So when the siege grew longer and longer, and they leaned that their forces were in terrible straits, they were angry with Cleon.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>He, however, laid all the blame on Nicias, and denounced him, saying that it was through cowardice and weakness that he was letting the men on the island slip through his hands, whereas, had he himself been general instead of Nicias, they would not have held out so long.  Thereupon it occurred to the Athenians to say: 
+				<q>It's not too late!  Why don't you sail yourself and fetch the men?</q>  Nicias too rose in the assembly and resigned his command of the expedition to Pylos in favour of Cleon, bidding him take as large a force as he wished, and not to vent his boldness in mere words which brought no peril with them, but to perform some deed for the city which would be worth its notice.
+				<milestone n="4" unit="section"></milestone>
+				At first Cleon tried to draw back, confused by the unexpectedness of this offer; but the Athenians kept up the same cries of encouragement, and Nicias kept taunting him, until, his ambition incited and on fire, he undertook the command, and, besides, declared in so many words that within twenty days after sailing he would either slay the men on the island or bring them alive to Athens.  The Athenians were moved to hearty laughter at this rather than to belief in it, for they were already in the way of treating his mad vanity as a joke, and a pleasant one too.
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>It is said, for instance, that once when the assembly was in session, the people sat out on the Pnyx a long while waiting for him to address them, and that late in the day he came in all garlanded for dinner and asked them to adjourn the assembly to the morrow. 
+				<q>I'm busy to-day,</q> he said, 
+				<q>I'm going to entertain some guests, and have already sacrificed to the gods.</q> The Athenians burst out laughing, then rose up and dissolved the assembly.
+				<milestone n="8" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>However, this time he had good fortune, served as general most successfully along with Demosthenes, and within the time which he had specified brought home as prisoners of war, their arms surrendered, all the Spartans on Sphacteria who had not fallen in battle.  This success of Cleon's brought great discredit on Nicias.  He was thought not merely to have cast away his shield, but to have done something far more disgraceful and base in voluntarily throwing up his command out of cowardice, and in abandoning to his enemy the opportunity for so great a success,&mdash;actually voting himself out of office.
+				<milestone n="2" unit="section"></milestone>
+				For this, Aristophanes again scoffs at him in his 
+				<q><title>Birds</title>,</q> in words like these:&mdash;
+				
+				<quote rend="blockquote">
+					<l part="N">And lo! by Zeus! we can no longer doze about,&mdash;</l>
+					<l part="N">We have no time,&mdash;nor shilly-shally-niciasize;</l>
+				</quote><note resp="ed" place="unspecified" anchored="yes"><bibl n="Aristoph. Birds 638"> Verses 638 f.</bibl></note>
+				
+				and in his 
+				<q><title>Farmers</title>,</q> where he writes:&mdash;
+				
+				<quote rend="blockquote">
+					<l part="N">I want to go a-farming.</l>
+				</quote>
+				<quote rend="blockquote">
+					<l part="F">Pray who hinders you?</l>
+				</quote>
+				<quote rend="blockquote">
+					<l part="N">You people do.  Come!  Let me give a thousand drachms</l>
+					<l part="N">If you'll release me from my offices.</l>
+				</quote>
+				<quote rend="blockquote">
+					<l part="F">'Tis done!</l>
+					<l part="N">Yours make two thousand, counting those that Nicias gave.</l>
+				</quote><note resp="ed" place="unspecified" anchored="yes">This play is not extant. <bibl> Kock, <title>Com. Att. Frag.</title> i. p. 416.</bibl></note>
+				
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>And besides, he wrought no little harm to the city in allowing Cleon to have such an access of reputation and influence that he launched out into offensive pride and ungovernable boldness and inflicted many mischiefs on the city, the bitter fruits of which he himself reaped most abundantly.  Worst of all, Cleon stripped the bema of its decorum, setting the fashion of yelling when he harangued the people, of throwing back his robe, slapping his thigh, and running about while speaking.  He thus imbued the managers of the city's policies with that levity and contempt for propriety which soon after confounded the whole state.
+				<milestone n="9" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Just about that time Alcibiades was beginning to be a power at Athens.  For a popular leader he was not so unmixed an evil as Cleon.  The soil of Egypt, it is said, by reason of its very excellence, produces alike
+				
+				<quote rend="blockquote">
+					<l part="N">Drugs of which many are good, intermixed, but </l>
+					<l part="N">many are deadly.</l>
+				</quote><note resp="ed" place="unspecified" anchored="yes"><bibl n="Hom. Od. 4.230"><title>Odyssey</title>, iv. 230</bibl>.</note>
+				
+				In like manner the nature of Alcibiades, setting as it did with full and strong currents towards both good and evil, furnished cause and beginning for serious innovations.
+				<milestone n="2" unit="section"></milestone>
+				And so it came to pass that even after Nicias was rid of Cleon, he did not get opportunity to lull the city into perfect rest and calm, but, when he had actually set the state fairly in the path of safety, was hurled from it by an impetuous onset of Alcibiades' ambition, and plunged again into war. 
+			</p>
+			<p>This was the way it came about.  The men most hostile to the peace of Hellas were Cleon and Brasidas.  Of these, war covered up the baseness of the one and adorned the excellence of the other; that is to say, it gave the one opportunities for great iniquities, the other for great achievements.
+				<milestone n="3" unit="section"></milestone>
+				After these men had both fallen in one and the same battle before Amphipolis,<note resp="ed" place="unspecified" anchored="yes">In the autumn of 422 B.C.  Cf. <bibl n="Thuc. 5.8">Thuc. 5.8-11</bibl>.</note> Nicias found at once that the Spartans had long been eager for peace, and that the Athenians were no longer in good heart for the war; that both were, so to speak, unstrung, and glad to let their arms drop to their sides.  He therefore strove to unite the two cities in friendship, and to free the rest of the Hellenes from ills, as well as to give himself a season of rest, and so to make secure for all coming time the name which he had for success.
+				<milestone n="4" unit="section"></milestone>
+				The men who were well-to-do, and the elderly men, and most of the farmers, he found inclined to peace from the first; and after he had talked privately with many of the rest, taught them his views, and blunted the edge of their desire for war, then he at once held out hopes to the Spartans and urgently invited them to seek for peace.  They had confidence in him, not only because of his usual fairness towards them, but especially because he had shown kind attentions to those of their men who had been captured at Pylos and kept in prison at Athens, had treated them humanely, and so eased their misfortune.
+				<milestone n="5" unit="section"></milestone>
+				The two parties had before this made a sort of stay of mutual hostilities for a year, during this time they had held conferences with one another, and tasted again the sweets of security and leisure and intercourse with friends at home and abroad, so that they yearned for that old life which was undefiled by war, and listened gladly when choirs sang such strains as
+				
+				<quote rend="blockquote">
+					<l part="N">Let my spear lie unused for the spider to </l>
+					<l part="N">cover with webs</l>
+				</quote>
+				<note resp="ed" place="unspecified" anchored="yes">The first verse of a beautiful fragment of the <title>Erechtheus</title> of Euripides; (<bibl>Nauck, <title>Trag. Graec. Frag.(2)</title>  p. 474).</bibl></note>
+				
+				and gladly called to mind the saying, 
+				<q>In peace the sleeper is waked not by the trumpet, but by the cock.</q>
+				<milestone n="6" unit="section"></milestone>
+				Accordingly, they heaped abuse on those who said that the war was fated to last thrice nine years,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Thuc. 5.26">Thuc. 5.26</bibl>.</note> and then, in this spirit, debated the whole issue, and made peace.<note resp="ed" place="unspecified" anchored="yes">Signed in the spring of 421 B.C.</note> Most men held it to be a manifest release from ills, and Nicias was in every mouth.  They said he was a man beloved of God, and that Heaven had bestowed on him, for his reverent piety, the privilege of giving his name to the greatest and fairest of blessings.
+				<milestone n="7" unit="section"></milestone>
+				They really thought that the peace was the work of Nicias, as the war had been that of Pericles.  The one, on slight occasion, was thought to have plunged the Hellenes into great calamities; the other had persuaded them to forget the greatest injuries and become friends.  Therefore, to this day, men call that peace 
+				<q>The Peace of Nicias.</q>
+				<milestone n="10" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>The articles of peace<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Thuc. 5.18">Thuc. 5.18</bibl>.</note> required that the strongholds and cities and prisoners of war which each party had taken from the other should be restored and since that party was to make restoration first on whom the lot fell, the lot was secretly bought up by Nicias, so that the Lacedaemonians were the first to make restoration.
+				<milestone n="2" unit="section"></milestone>
+				This is the testimony of Theophrastus.  But when the Corinthians and Boeotians, who were vexed at the course things were taking, seemed likely, by their accusations and complaints, to revive the war, Nicias persuaded the Athenians and Lacedaemonians to make the general peace secure by the mighty bond of a mutual alliance, whereby they should become more formidable to all seceders and better assured of each other.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>Such being the course of events, Alcibiades, who was naturally indisposed to be quiet, and who was incensed at the Lacedaemonians because they scornfully ignored him in their fond attachment to Nicias, promptly opposed and obstructed the general peace. At the outset he made no headway; but a little while after, seeing that the Athenians were not so well pleased as before with the Lacedaemonians, but thought they had wronged them in making a separate alliance with the Boeotians, and in not restoring Panactum with its walls intact, nor Amphipolis at all, he laid great stress on these grounds of complaint, and tried to incense the people over each one of them.
+				<milestone n="4" unit="section"></milestone>
+				Finally he managed to have an embassy sent from Argos to Athens,<note resp="ed" place="unspecified" anchored="yes">In the spring of 419 B.C.</note>
+			</p>
+			<p>and tried to effect a separate alliance between these two cities.  Ambassadors came at once from Sparta with full powers to treat all issues, and at their preliminary audience with the council were declared by that body to come with nothing but just proposals.  But Alcibiades was afraid they would bring the assembly over to their views with the same arguments which had won the council.  He therefore circumvented them by deceitfully swearing that he would cooperate with them fully in the assembly if they would only not claim nor even admit that they had come with full powers to treat all issues; for thus, he declared, they would most surely attain their desires.
+				<milestone n="5" unit="section"></milestone>
+				After they were persuaded by him, and had put themselves out of the guiding hands of Nicias and into his, he introduced them to the assembly, and asked them first whether they had come with full powers to treat all issues. On their saying 
+				<q>No</q> to this, he surprised them by changing front and calling on the members of the council who were present to bear witness to what they had said before that body.  He then urged the people not to follow, much less trust, men who were so manifestly liars, and who said now 
+				<q>Yes</q> and now 
+				<q>No</q> to the same question.
+				<milestone n="6" unit="section"></milestone>
+				The ambassadors were overwhelmed with confusion, naturally, and Nicias was unable to say a word,&mdash;struck dumb with amazement and anguish.  Therefore the people were at once eager to call in the Argive embassy and make the alliance it desired, but there came a slight earthquake shock just then, luckily for Nicias, and the assembly was dissolved.  On the following day, when the people had assembled again, by dint of great effort and much talking Nicias succeeded, with difficulty, in persuading them to refrain from the proposed arrangement with Argos, and to send him on an embassy to the Lacedaemonians, assuring them that everything would thus turn out well.
+				<milestone n="7" unit="section"></milestone>
+			</p>
+			<p>But when he came to Sparta, though in other ways he was honored by them as a true man and one who had been zealous in their behalf, still, he accomplished nothing that he purposed, but was beaten by the party there which had Boeotian sympathies, and so came back home, not merely with loss of reputation and under harsh abuse, but actually in bodily fear of the Athenians.  They were vexed and indignant because they had been persuaded by him to restore so many eminent prisoners of war; for the men who had been brought to the city from Pylos belonged to the leading families of Sparta, and the most influential men there were their friends and kinsmen.
+				<milestone n="8" unit="section"></milestone>
+				However, the Athenians took no very harsh measures in their anger against Nicias, but elected Alcibiades general, made an alliance with the Mantineans and Eleans, who had seceded from the Lacedaemonians, as well as with the Argives, sent freebooters to Pylos to ravage Laconia, and thus plunged again into war.
+				<milestone n="11" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>At last the feud between Nicias and Alcibiades became so intense that recourse was had to the process of ostracism.  This the people used to institute from time to time when they wished to remove for ten years, by the ostrakon ballot, any one man who was an object of suspicion generally because of his great reputation, or of jealousy because of his great wealth.  Both the rivals were thus involved in much confusion and peril, since one or the other must in any event succumb to the ostracism.
+				<milestone n="2" unit="section"></milestone>
+				In the case of Alcibiades, men loathed his manner of life and dreaded his boldness, as will be shown more at length in his biography; and in the case of Nicias, his wealth made him an object of jealousy.  Above all else, his way of life, which was not genial nor popular but unsocial and aristocratic, seemed alien and foreign:  and since he often opposed the people's desires and tried to force them against their wishes into the way of their advantage, he was burdensome to them.
+				<milestone n="3" unit="section"></milestone>
+				To tell the simple truth, it was a struggle between the young men who wanted war and the elderly men who wanted peace; one party proposed to ostracise Nicias, the other Alcibiades.
+				
+				<quote type="proverb" rend="blockquote">
+					<l part="N">But in a time of sedition, the base man too is in </l>
+					<l part="N">honor,</l>
+				</quote>
+				<note resp="ed" place="unspecified" anchored="yes">A proverb in hexameter verse, attributed to Callimachus, the Alexandrian poet and scholar (310-235 B.C.).</note>
+				and so in this case also the people divided into two factions, and thereby made room for the most  aggressive and mischievous men.  Among these was Hyperbolus of the deme Perithoedae, a man whose boldness was not due to any influence that he possessed, but who came to influence by virtue of his boldness, and became, by reason of the very credit which he had in the city, a discredit to the city.
+				<milestone n="4" unit="section"></milestone>
+				This fellow at that time thought himself beyond the reach of ostracism, since, indeed, he was a likelier candidate for the stocks; but he expected that when one of the rivals had been banished he might himself become a match for the one who was left, and so it was plain that he was pleased at their feud, and that he was inciting the people against both of them.  Accordingly, when Nicias and Alcibiades became aware of his baseness, they took secret counsel with one another, united and harmonized their factions, and carried the day, so that neither of them was ostracised, but Hyperbolus instead.<note resp="ed" place="unspecified" anchored="yes">Probably in 417 B.C.</note>
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>For the time being this delighted and amused the people, but afterwards they were vexed to think that the ordinance of ostracism had been degraded by its application to so unworthy a man.  They thought that even chastisement had its dignity, or rather, they regarded the ostracism as a chastisement in the cases of Thucydides and Aristides and such men, but in the case of Hyperbolus as an honor, and as good ground for boasting on his part, since for his baseness he had met with the same fate as the best men. And so Plato the comic poet somewhere said of him:&mdash;
+				<milestone n="6" unit="section"></milestone>
+				
+				<quote rend="blockquote">
+					<l part="N">Indeed he suffered worthy fate for men of old</l>
+					<l part="N">Albeit a fate too good for him and for his brands.</l>
+					<l part="N">For such as him the ostrakon was ne'er devised.</l>
+				</quote>
+				
+				And in the end no one was ever ostracised after Hyperbolus, but he was the last, as Hipparchus of Cholargus, a kinsman of the famous tyrant Peisistratus, was the first to be so banished.<note resp="ed" place="unspecified" anchored="yes">488-487 B.C.</note>
+				<milestone n="7" unit="section"></milestone>
+			</p>
+			<p>Verily fortune is an uncertain thing, and incalculable.  Had Nicias run the risk with Alcibiades of being ostracised, he had either carried the day, expelled his rival, and then dwelt safely in the city; or, defeated, he had himself gone forth from the city before his last misfortunes, and had preserved the reputation of being a most excellent general. 
+			</p>
+			<p>I am well aware that Theophrastus says that Hyperbolus was ostracised when Phaeax, and not Nicias, was striving against Alcibiades, but most writers state the case as I have done.
+				<milestone n="12" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>It was Nicias, then, who, when an embassy came from Egesta and Leontini<note resp="ed" place="unspecified" anchored="yes">In the spring of 415 B.C.</note> seeking to persuade the Athenians to undertake an expedition against Sicily, opposed the measure, only to be defeated by the ambitious purposes of Alcibiades.  Before the assembly had met at all, Alcibiades had already corrupted the multitude and got them into his power by means of his sanguine promises, so that the youth in their training-schools and the old men in their work-shops and lounging-places would sit in cluster drawing maps of Sicily, charts of the sea about it, and plans of the harbors and districts of the island which look towards Libya.
+				<milestone n="2" unit="section"></milestone>
+				For they did not regard Sicily itself as the prize of the war, but rather as a mere base of operations, purposing therefrom to wage a contest with the Carthaginians and get possession of both Libya and of all the sea this side the Pillars of Heracles.
+			</p>
+			<p>Since, therefore, their hearts were fixed on this, Nicias, in his opposition to them, had few men, and these of no influence, to contend on his side.  For the well-to-do citizens feared accusations of trying to escape their contributions for the support of the navy, and so, despite their better judgement, held their peace.
+				<milestone n="3" unit="section"></milestone>
+				But Nicias did not faint nor grow weary. Even after the Athenians had actually voted for the war and elected him general first, and after him Alcibiades and Lamachus, in a second session of the assembly he rose and tried to divert them from their purpose by the most solemn adjurations, and at last accused Alcibiades of satisfying his own private greed and ambition in thus forcing the city into grievous perils beyond the seas.
+				<milestone n="4" unit="section"></milestone>
+				Still, he made no headway, nay, he was held all the more essential to the enterprise because of the experience from which he spoke. There would be great security, his hearers thought, against the daring of Alcibiades and the roughness of Lamachus, if his well known caution were blended with their qualities.  And so he succeeded only in confirming the previous vote.  For Demostratus, the popular leader who was most active in spurring the Athenians on to the war, rose and declared that he would stop the mouth of Nicias from uttering vain excuses; so he introduced a decree to the effect that the generals have full and independent powers in counsel and in action, both at home and at the seat of war, and persuaded the people to vote it.
+				<milestone n="13" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>And yet the priesthood also is said to have offered much opposition to the expedition.  But Alcibiades had other diviners in his private service, and from sundry oracles reputed ancient he cited one saying that great fame would be won by the Athenians in Sicily.  To his delight also certain envoys who had been sent to the shrine of Ammon<note resp="ed" place="unspecified" anchored="yes">In an oasis of the Libyan desert.  Cf. <bibl n="Plut. Cim. 18.6">Plut. Cim. 18.6</bibl> f.</note> came back with an oracle declaring that the Athenians would capture all the Syracusans; but utterances of opposite import the envoys concealed, for fear of using words of ill omen.
+				<milestone n="2" unit="section"></milestone>
+				For no signs could deter the people from the expedition, were they never so obvious and clear such as, for instance, the mutilation of the 
+				<q>Hermae.</q> These statues were all disfigured in a single night except one, called the Hermes of Andocides, a dedication of the Aegeid tribe, standing in front of what was at that time the house of Andocides.  Then there was the a affair of the altar of the Twelve Gods.  An unknown man leaped upon it all of a sudden, bestrode it, and then mutilated himself with a stone.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>At Delphi, moreover, there stood a Palladium, made of gold and set upon a bronze palm tree, a dedication of the city of Athens from the spoils of her valor in the Persian wars.  Ravens alighted on this image and pecked it for many days together; they also bit off the fruit of the palm-tree, which was of gold, and cast it to the ground.
+				<milestone n="4" unit="section"></milestone>
+				The Athenians, it is true, said that this whole story was an invention of the Delphians, at the instigation of the Syracusans; but at any rate when a certain oracle bade them bring the priestess of Athena from Clazomenae, they sent and fetched the woman, and lo! her name was Peace.  And this, as it seemed, was the advice which the divinity would give the city at that time, namely, to keep the peace.
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>It was either because he feared such signs as these, or because, from mere human calculation, he was alarmed about the expedition, that the astrologer Meton, who had been given a certain station of command, pretended to be mad and set his house on fire. Some, however, tell the story in this way: Meton made no pretence of madness, but burned his house down in the night, and then came forward publicly in great dejection and begged his fellow citizens, in view of the great calamity which had befallen him, to release from the expedition his son, who was about to sail for Sicily in command of a trireme.
+				<milestone n="6" unit="section"></milestone>
+				To Socrates the wise man also, his divine guide, making use of the customary tokens for his enlightenment, indicated plainly that the expedition would make for the ruin of the city.  Socrates let this be known to his intimate friends, and the story had a wide circulation.
+				<milestone n="7" unit="section"></milestone>
+			</p>
+			<p>Not a few also were somewhat disconcerted by the character of the days in the midst of which they dispatched their armament. The women were celebrating at that time the festival of Adonis, and in many places throughout the city little images of the god were laid out for burial, and funeral rites were held about them, with wailing cries of women, so that those who cared anything for such matters were distressed, and feared lest that powerful armament, with all the splendor and vigor which were so manifest in it, should speedily wither away and come to naught.
+				<milestone n="14" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Now, that Nicias should oppose the voting of the expedition, and should not be so buoyed up by vain hopes nor so crazed by the magnitude of his command as to change his real opinion,&mdash;this marked him as a man of honesty and discretion.  But when he availed naught either in his efforts to divert the people from the war or in his desire to be relieved of his command,&mdash;the people as it were picking him up bodily and setting him over their forces as general,&mdash;
+				<milestone n="2" unit="section"></milestone>
+				then it was no longer a time for the exceeding caution and hesitation which he displayed, gazing back homewards from his ship like a child, and many times resuming and dwelling on the thought that the people had not yielded to his reasonings, till he took the edge from the zeal of his colleagues in command and lost the fittest time for action. He ought rather at once to have engaged the enemy at close quarters and put fortune to the test in struggles for the mastery.
+				<milestone n="3" unit="section"></milestone>
+				Instead of this, while Lamachus urged that they sail direct to Syracuse and give battle close to the city, and Alcibiades that they rob the Syracusans of their allied cities first and then proceed against them, Nicias proposed and urged in opposition that they make their way quietly by sea along the coasts of Sicily, circumnavigate the island, make a display of their troops and triremes, and then sail back to Athens, after having first culled out a small part of their force to give the Egestaeans a taste of succor.  In this way he soon relaxed the resolution and depressed the spirits of his men.
+				<milestone n="4" unit="section"></milestone>
+			</p>
+			<p>After a little while the Athenians summoned Alcibiades home to stand his trial, and then Nicias, who nominally had still a colleague in the command, but really wielded sole power, made no end of sitting idle, or cruising aimlessly about, or taking deliberate counsel, until the vigorous hopes of his men grew old and feeble, and the consternation and fear with which the first sight of his forces had filled his enemies slowly subsided.
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>While Alcibiades was yet with the fleet, sixty ships sailed for Syracuse, of which fifty lay out in the offing, drawn up so as to command the harbor, while ten rowed in to reconnoiter.  These made formal proclamation by voice of herald that the people of Leontini should return to their homes.  They also captured a ship of the enemy with tablets on board in which the Syracusans had recorded lists of the citizens by tribes.  These lists had been deposited at some distance from the city, in the sanctuary of Olympian Zeus, but had been sent for at that time with a view to determining and enrolling those who had come to military age.
+				<milestone n="6" unit="section"></milestone>
+				Now when these had been captured by the Athenians and brought to their generals, and the number of names was seen, the soothsayers were in distress lest in this circumstance lie the fulfillment of what was predicted by the oracle which said:  
+				<q>The Athenians shall take all the Syracusans.</q>  However, they say that it was in another circumstance altogether that this prophecy was fulfilled for the Athenians, namely, at the time when Callippus the Athenian slew Dion and got possession of Syracuse.<note resp="ed" place="unspecified" anchored="yes">In 353 B.C.  See <bibl>Plut. Dion 54-57</bibl>.</note>
+				<milestone n="15" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>A little while after this Alcibiades sailed away from Sicily,<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Alc. 21.1">Plut. Alc. 21.1</bibl>.</note> and then Nicias took the entire command.  Lamachus was, it is true, a sturdy and honorable man, one who put forth his might without stint in battle, but so poor and petty that in every campaign where he served as general he would charge up to the Athenian people certain trifling moneys for his own clothes and boots.
+				<milestone n="2" unit="section"></milestone>
+				Nicias, on the contrary, was a man of great dignity and importance, especially because of his wealth and reputation.  It is said that once at the War Department, when his fellow commanders were deliberating on some matter of general moment, he bade Sophocles the poet state his opinion first, as being the senior general on the Board.  Thereupon Sophocles said: 
+				<q>I am the oldest man, but you are the senior general.</q>
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>So also in the present case he brought Lamachus under his orders, although more of a general than himself, and, always using his forces in a cautious and hesitating manner, he first gave the enemy courage by cruising around Sicily as far as possible from them, and then, by attacking the diminutive little city of Hybla, and going off without taking it, he won their utter contempt.
+				<milestone n="4" unit="section"></milestone>
+				Finally, he went back to Catana without effecting anything at all except the overthrow of Hyccara, a barbarian fastness. From this place it is said that Lais the courtesan was sold as a prisoner of war, being still a girl, and brought into Peloponnesus.
+				<milestone n="16" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>The summer was now spent when Nicias learned that the Syracusans had plucked up courage and were going to take the initiative and come out against him.  Their horsemen already had the insolence to ride up to the Athenian camp and ask its occupants whether they had come to share the homes of the Catanians or to restore the Leontines to their old homes.  At last, therefore, and reluctantly, Nicias set out to sail against Syracuse.
+				<milestone n="2" unit="section"></milestone>
+				Wishing to establish his forces there deliberately and without fear of interruption from the enemy, he secretly sent on a man of Catana with a message for the Syracusans: if they wished to find the camp and equipment of the Athenians abandoned of defenders, they must come in full force to Catana on a given day, for that the friends of the Syracusans in the city, where the Athenians spent most of their time, had determined, on perceiving their approach, to seize the gates and set fire to the Athenian fleet; the conspirators were already many and awaited their coming.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>This was the best generalship that Nicias displayed in Sicily.  He brought his enemy out of their city in full force, thereby almost emptying it of defenders, while he himself put out to sea from Catana, got control of the enemy's harbors, and seized a spot for his camp where he was confident that he would suffer least injury from that arm of the service in which he was inferior, the cavalry, and meet no hindrance in fighting with that arm whereon he most relied.
+				<milestone n="4" unit="section"></milestone>
+				When the Syracusans hurried back from Catana and drew up in order of battle before their own city, Nicias led his Athenians swiftly against them and carried the day.  He did not slay many of the enemy, it is true, for their horsemen prevented his pursuit; he had to content himself with cutting to pieces and destroying the bridges over the river, and thus gave Hermocrates occasion to say, as he sought to encourage the Syracusans, that Nicias was ridiculous in maneuvering so as not to give battle, as though it was not for battle that he had crossed the seas.
+				<milestone n="5" unit="section"></milestone>
+				However, he did infuse fegr and mighty consternation into the Syracusans, so that in place of their fifteen generals then in office they elected three others, to whom the people pledged themselves under oath that they would surely suffer them to command with full and independent powers.
+				<milestone n="6" unit="section"></milestone>
+			</p>
+			<p>The Olympieum was hard by, and the Athenians set out to seize it, inasmuch as it contained many offerings of gold and silver.  But Nicias purposely delayed operations until it was too late, and allowed a garrison from Syracuse to enter in, because he thought that if his soldiers plundered the temple's treasures the commonwealth would get no advantage from it, and he himself would incur the blame for the sacrilege.
+				<milestone n="7" unit="section"></milestone>
+				Of his victory, which was so noised about, he made no use whatever, but after a few days had elapsed withdrew again to Naxos, and there spent the winter, making large outlays on his vast armament, but effecting little in his negotiations with the few Sicels who thought of coming over to his side.  The Syracusans therefore plucked up courage again, marched out to Catana, ravaged the fields, and burnt what had been the Athenian camp.
+				<milestone n="8" unit="section"></milestone>
+			</p>
+			<p>These things all men laid to the charge of Nicias, since, as they said, by his excessive calculation and hesitation and caution he let the proper time for action go by for ever.  When he was once in action no one could find fault with the man, for after he set out to do a thing he was vigorous and effective; but in venturing out to do it he was hesitating and timid.
+				<milestone n="17" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>At any rate, when he moved his armament back to Syracuse,<note resp="ed" place="unspecified" anchored="yes">In the spring of 414 B.C.. as described in <bibl n="Thuc. 6.97">Thuc. 6.97</bibl>.</note> he showed such generalship, and made his approach with such speed and safety, that he put in at Thapsus with his fleet and landed his men unobserved, seized Epipolae<note resp="ed" place="unspecified" anchored="yes">A triangular plateau, rising gradually to the westwards of Syracuse, visible from the interior of the city, and surrounded by precipitous cliffs.</note> before the enemy could prevent, defeated the picked companies which came to its rescue, killing three hundred men, and even routed the cavalry of the enemy, which was thought to be invincible.
+				<milestone n="2" unit="section"></milestone>
+			</p>
+			<p>But what most of all filled the Sicilians with terror and the Hellenes with incredulity was the fact that in a short time he carried a wall around Syracuse, a city fully as large as Athens, although the unevenness of the territory about it, its proximity to the sea and its adjacent marshes, made the task of surrounding it with such a wall very difficult.
+				<milestone n="3" unit="section"></milestone>
+				But he came within an ace of bringing this great task to completion,&mdash;a man who had not even sound health for such concerns, but was sick of a disease in the kidneys.  To this it is only fair to ascribe the fact that part of the work was unfinished.  I can but admire the watchful care of the general and the noble valor of his soldiers in what they did accomplish.
+				<milestone n="4" unit="section"></milestone>
+				Euripides, after their defeat and destruction, composed an epitaph for them, in which he said:&mdash;
+				
+				<quote rend="blockquote">
+					<l part="N">These men at Syracuse eight times were triumphant as victors;</l>
+					<l part="N">Heroes they were while the gods favoured both causes alike.</l>
+				</quote><note resp="ed" place="unspecified" anchored="yes"><bibl>Bergk, <title>Poet. Lyr. Graeci</title>, ii (4) p. 265.</bibl></note>
+				
+				<milestone n="5" unit="section"></milestone>
+				And not eight times only, nay, more than that you will find that the Syracusans were beaten by them, until the gods, as the poet says, or fortune, became hostile to the Athenians at the very pinnacle of their power.
+				<milestone n="18" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Now in most actions Nicias took part, despite his bodily infirmity.  But once, when his weakness was extreme, he was lying in bed within the walls, attended by a few servants, while Lamachus with the soldiery was fighting the Syracusans. These were trying to run a wall from their city out to that which the Athenians were building, to inter- sect it and prevent its completion.
+				<milestone n="2" unit="section"></milestone>
+				The Athenians prevailed, and hurried off in pursuit with more or less disorder, so that Lamachus was isolated, and then had to face some Syracusan horsemen who made an onset upon him.  Foremost of these was Callicrates, a man skilled in war and of a high courage. Lamachus accepted his challenge to single combat, fought him, got a mortal blow from him, but gave him back the like, and fell and died along with him.
+				<milestone n="3" unit="section"></milestone>
+				The Syracusans got possession of the body of Lamachus, with its armour, and carried it off.  Then they made a dash upon the Athenian walls where Nicias was, with none to succour him.  He nevertheless, necessity compelling him, rose from his bed, saw his peril, and ordered his attendants to bring fire and set it to all the timbers that lay scattered in front of the walls for the construction of siege-engines, and to the engines themselves.  This brought the Syracusans to a halt, and saved Nicias as well as the walls and stores of the Athenians.  For when the Syracusans saw a great flame rising between them and the walls, they withdrew.
+				<milestone n="4" unit="section"></milestone>
+			</p>
+			<p>Thus it came to pass that Nicias was left sole general; but he was in great hopes.  Cities were inclining to take his side, and ships full of grain came to his camp from every quarter.  Everybody hastens to join a successful cause.  Besides, sundry proposals for a treaty were already coming to him from those Syracusans who despaired of their city.
+				<milestone n="5" unit="section"></milestone>
+				At this time, too, Gylippus, who was sailing from Sparta to their aid, when he heard on his voyage how they were walled up and in sore distress, held on his way, it is true, but with the belief that Sicily was as good as taken, and that he could only save the cities of the Italian Greeks, if haply even that.  For the opinion gained ground and strength that the Athenians were all powerful, and had a general who was invincible by reason of his judgement and good fortune.
+				<milestone n="6" unit="section"></milestone>
+			</p>
+			<p>And Nicias himself, contrary to his nature, was straightway so emboldened by the present momentum of his good fortune, and, most of all, by the secret messengers sent to him from the Syracusans was so fixed i his belief that the city was just on the point of surrendering conditionally, that he made no sort of account of Gylippus at his approach.  He did not even set an adequate watch against him.  Wherefore, finding himself completely overlooked and despised, the man sailed stealthily through the straits, made a landing at the farthest point from Syracuse, and collected a large force, the Syracusans being not so much as aware of his presence, nor even expecting him.
+				<milestone n="7" unit="section"></milestone>
+				On the contrary, they had actually called an assembly to discuss the agreements to be made with Nicias, and some were already on their way to it, thinking that the terms of peace should be made before their city was completely walled up.  For that part of the work which remained to be done was quite small, and all the material required for it lay strewn along the line.
+				<milestone n="19" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>But in this nick of time and crisis of their peril Gongylus came to them from Corinth with a single trireme.  All flocking to meet him, as was natural, he told them that Gylippus would come speedily, and that other ships of war were sailing to their aid.
+				<milestone n="2" unit="section"></milestone>
+				Ere yet they could put implicit faith in what Gongylus told them, there came a messenger from Gylippus bidding them come out to meet him.  Then they plucked up heart and donned their arms.  No sooner had Gylippus come up than he led his men in battle array against the Athenians.  But when Nicias arrayed his men too over against him, Gylippus halted under arms, and sent a herald with the message that he offered the Athenians safe con- duct if they would depart from Sicily.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>Nicias deigned no answer to this; but some of his soldiers mocked, and asked the herald if the presence of a single Spartan cloak and staff had made the prospects of the Syracusans on a sudden so secure that they could afford to deride the Athenians, who had restored to the Lacedaemonians, out of prison and fetters, three hundred men<note resp="ed" place="unspecified" anchored="yes">The captives of Sphacteria (;<bibl n="Plut. Nic. 8.1">Plut. Nic. 8.1</bibl>), two hundred and ninety-two in number (;<bibl n="Thuc. 4.38.5">Thuc. 4.38.5</bibl>).</note> far sturdier than Gylippus, and longer haired.
+				<milestone n="4" unit="section"></milestone>
+				Timaeus says that the Sicilians also made no account of Gylippus, later on, indeed, because they learned to know his base greed and penuriousness; but as soon as they set eyes upon him they jeered at his cloak and his long hair.  Then, however, Timaeus himself says that as soon as Gylippus showed himself, for all the world like an owl among birds, many flocked to him, with ready offers of military service.  This latter statement has more truth in it than his first, for in the staff and cloak of Gylippus men beheld the symbols of the majesty of Sparta, and rallied round them.
+				<milestone n="5" unit="section"></milestone>
+				Moreover, that the whole achievement of deliverance was his, is the testimony not only of Thucydides, but also of Philistus, who was a Syracusan, and an eye-witness of the events thereof. 
+			</p>
+			<p>Well, then, in the first battle the Athenians were victors and slew some few of the Syracusans, and also Gongylus the Corinthian; but on the day following, Gylippus showed what a great thing experience is. Although he had the same infantry and the same cavalry and the same localities to deal with he did not do it in the same way as before, but changed his tactics, and thereby conquered the Athenians.
+				<milestone n="6" unit="section"></milestone>
+				And as they fled to their camp, he halted his Syracusans in their pursuit, and with the very stones and timbers which his enemies had brought up for their own use, he carried on the cross wall until it intersected the besiegers' wall of enclosure, so that their superior strength in the field really availed them naught. 
+			</p>
+			<p>After this the Syracusans plucked up heart and went to manning their ships, while their own horsemen and those of their allies would ride about and cut off many of their besiegers.
+				<milestone n="7" unit="section"></milestone>
+				Gylippus also went out in person to the cities of Sicily and roused up and united them all into vigorous and obedient concert with him.  Nicias therefore fell back again upon those views of the undertaking which he had held at the outset, and, fully aware of the reversal which it had suffered, became dejected, and wrote a dispatch<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Thuc. 7.11">Thuc. 7.11-15</bibl>.</note> to the Athenians urging them to send out another armament, or else to recall the one already in Sicily, begging them also in any case to relieve him of his command because of his disease.
+				<milestone n="20" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Even before this the Athenians had made preparations to send another force to Sicily, but the leading men among them felt some jealousy of the preliminary good fortune of Nicias, and so had induced many delays.  Now, however, they were all eagerness to send aid.  It was therefore determined that Demosthenes should sail with a large armament in the spring, and while it was yet winter Eurymedon preceded him with a smaller fleet, bringing money, and announcing the selection of colleagues for Nicias from among the members of the expedition there,&mdash;to wit, Euthydemus and Menander.
+				<milestone n="2" unit="section"></milestone>
+			</p>
+			<p>But in the meantime Nicias was suddenly attacked by land and sea.  With his fleet, though vanquished at first, he yet succeeded in repulsing the enemy and sank many of their ships; but he was not prompt enough in sending aid to his garrison at Plemmyrium,<note resp="ed" place="unspecified" anchored="yes">A promontory which runs out opposite the city of Syracuse, and narrows the entrance into the great harbor.</note> and so Gylippus, who had fallen upon it suddenly, captured it.  Large naval stores and moneys were in deposit there, all of which Gylippus secured, besides killing many men and taking many prisoners.
+				<milestone n="3" unit="section"></milestone>
+				What was most important of all, he robbed Nicias of his easy importation of supplies.  These had been safely and speedily brought in past to Plemmyrium as long as the Athenians held that post; but now that they had been driven from it, the process was a difficult one, and involved fighting with the enemy who lay at anchor there.  And besides all this, the Syracusans felt that their fleet had been defeated, not through any superior strength in their enemy, but by reason of their own disorderly pursuit of that enemy.  Accordingly, they were making more vigorous preparations to try the issue again.
+				<milestone n="4" unit="section"></milestone>
+			</p>
+			<p>But Nicias did not want a sea fight.  He said it would be great folly, when so large an armament was sailing to their aid and hurrying up fresh troops under Demosthenes, to fight the issue out with inferior forces, and those wretchedly supplied. Menander and Euthydemus, however, who had just been appointed to their offices, were moved by an ambitious rivalry with both the other generals; they longed to anticipate Demosthenes in some brilliant exploit, and to eclipse Nicias.
+				<milestone n="5" unit="section"></milestone>
+				They therefore made much of their city's reputation.  This, they declared again and again, would be altogether ruined and dissipated if they should show fear when the Syracusans sailed out to attack them; and so they forced a decision to give battle by sea.  But they were simply out-maneuvered by Ariston, the Corinthian captain, in the matter of the noon-day meal, as Thucydides relates,<note resp="ed" place="unspecified" anchored="yes"><bibl n="Thuc. 7.36">Thuc. 7.36-41</bibl>.  The Syracusan crews took their meal close by their ships, and then suddenly re-embarked and attacked the Athenians, who supposed there would be no more fighting that day, and were taken unawares.</note> and then worsted in action, with the loss of many men.  And so a great despair encompassed Nicias; he had met with disaster while in sole command, and was now again brought to grief by his colleagues.
+				<milestone n="21" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>But at this juncture Demosthenes hove in sight off the harbors,<note resp="ed" place="unspecified" anchored="yes">About mid-summer, 413 B.C.</note>
+			</p>
+			<p>most resplendent in his array, and most terrifying to the enemy.  He brought five thousand hoplites on seventy-three ships of war, besides javelineers and archers and slingers to no less a number than three thousand. What with the gleam of his arms and the insignia of his triremes and the multitude of his coxwains and pipers, he made a spectacular display, and one which smote the enemy with dismay.
+				<milestone n="2" unit="section"></milestone>
+				Again, then, as was natural, fear reigned among the Syracusans.  They saw before them no final release from their perils, but only useless toils and vain self-destruction. 
+			</p>
+			<p>But the joy of Nicias at the presence of this fresh force was not long lived.  Nay, at the very first council of war, when Demosthenes urged an immediate attack upon the enemy, a settlement of the whole struggle by the speediest hazard, and either the capture of Syracuse or else a return home, he was in fearful amaze at such aggressive daring, and begged that nothing be done rashly or foolishly.
+				<milestone n="3" unit="section"></milestone>
+				Delay, he said, was sure to work against the enemy; they no longer had money to spend, and their allies would no longer stand by them; let them only be really distressed by the straits they were in, and they would soon come to him again for terms, as they had done before.  For not a few of the men of Syracuse were in secret communication with Nicias. They urged him to bide his time, on the ground that even now they were worn out by the war and weary of Gylippus, and that if their necessities should but increase a little, they would give over altogether.
+				<milestone n="4" unit="section"></milestone>
+				At some of these matters Nicias could only hint darkly, of others he was unwilling to speak in public, and so he made the generals think him cowardly.  It was the same old story over again with him, they would say,&mdash;delays, postponements, and hairsplitting distinctions; he had already forfeited the golden moment by not attacking the enemy at once, but rather going stale and winning their contempt.  So they sided with Demosthenes, and Nicias, with great reluctance, was forced to yield.
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>Therefore, Demosthenes, with the infantry, made a night attack upon Epipolae.  He took some of the enemy by surprise, and slew them; others, who tried to make a stand, he routed.  Victorious, he did not halt, but pressed on farther, until he fell in with the Boeotians.  These were the first of the enemy to form in battle array, and dashing upon the Athenians with spears at rest and with loud shouts, they repulsed them and slew many of them there.
+				<milestone n="6" unit="section"></milestone>
+				Through the whole army of attack there was at once panic and confusion.  The part that was still pressing on victoriously was presently choked up with the part that fled, and the part that was yet coming up to the attack was beaten back by the panic-stricken and fell foul of itself, supposing that the fugitives were pursuers, and treating friends as foes.
+				<milestone n="7" unit="section"></milestone>
+				Their huddling together in fear and ignorance, and the deceitfulness of their vision, plunged the Athenians into terrible perplexities and disasters. For the night was one which afforded neither absolute darkness nor a steady light.  The moon was low on the horizon, and was partially obscured by the numerous armed figures roving to and fro in her light, and so she naturally made even friends mutually suspicious through fear of foes, by not distinguishing their forms clearly.
+				<milestone n="8" unit="section"></milestone>
+				Besides, it somehow happened that the Athenians had the moon at their backs, so that they cast their shadows on their own men in front of them, and thus obscured their number and the brilliancy of their weapons; while in the case of the enemy, the reflection of the moon upon their shields made them seem far more numerous than they really were, and more resplendent to the eye.
+				<milestone n="9" unit="section"></milestone>
+			</p>
+			<p>Finally, when the Athenians gave ground, the enemy attacked them on all sides and put them to flight.  Some of them died at the hands of their pursuers, others by one another's hands, and others still by plunging down the cliffs.  The scattered and wandering fugitives, when day came, were overtaken and cut to pieces by the enemy's horsemen.  The dead amounted in all to two thousand; and of the survivors, few saved their armour with their lives.
+				<milestone n="22" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Nicias, accordingly, was overcome by this disaster, though it did not take him wholly by surprise, and he accused Demosthenes of rashness.  Demosthenes defended himself on this score, and then urged that they sail away as soon as they could. No other force would come to their aid, he declared, and with the one they had they could not finally master the enemy,
+				<milestone n="2" unit="section"></milestone>
+				since, even if they were victorious in battle they would be forced to change their base and abandon their present position; this was always, as they heard, a grievous and unwholesome spot for encampment, and now particularly, as they saw, it was actually deadly on account of the season of the year.  For it was the beginning of autumn; many were sick already, and all were in low spirits. 
+			</p>
+			<p>But Nicias could not bear to hear of sailing off in flight, not because he had no fear of the Syracusans, but because he was more afraid of the Athenians with their prosecutions and denunciations.
+				<milestone n="3" unit="section"></milestone>
+				Nothing dreadful, he would say, was to be expected where they were, and even if the worst should come, he chose rather to die at the hands of his enemies than at the hands of his fellow citizens.  In this he was not like-minded with Leon of Byzantium, who, at a later time,<note resp="ed" place="unspecified" anchored="yes">Perhaps in 340 B.C., when Philip of Macedon was besieging Byzantium.  Leon was a rhetorician and historian.</note> said to his fellow citizens: 
+				<q>I would rather be put to death by you than with you.</q> However, regarding the exact spot to which they should remove their camp, Nicias said they would deliberate at their leisure.
+				<milestone n="4" unit="section"></milestone>
+				Thereupon Demosthenes, who had not been successful in his previous plan, ceased trying to carry his point, and so led the rest of the generals to believe that Nicias must have confident expectations from his correspondents in the city in making such a sturdy fight against the proposed retreat; they therefore sided with him.  However, a fresh army came to the aid of the Syracusans, and sickness kept spreading among the Athenians, so that at last Nicias also decided in favour of a change of base, and ordered the soldiers to hold themselves in readiness to sail away.
+				<milestone n="23" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>But just as everything was prepared for this and none of the enemy were on the watch, since they did not expect the move at all, there came an eclipse of the moon by night.  This was a great terror to Nicias and all those who were ignorant or superstitious enough to quake at such a sight.  The obscuration of the sun towards the end of the month was already understood, even by the common folk as caused somehow or other by the moon;
+				<milestone n="2" unit="section"></milestone>
+				but what what it was that the moon encountered, and how, being at the full, she should on a sudden lose her light and emit all sorts of colors, this was no easy thing to comprehend.
+			</p>
+			<p>The first man to put in writing the clearest and boldest of all doctrines about the changing phases of the moon was Anaxagoras.  But he was no ancient authority, nor was his doctrine in high repute.  It was still under seal of secrecy, and made its way slowly among a few only, who received it with a certain caution rather than with implicit confidence.
+				<milestone n="3" unit="section"></milestone>
+				Men could not abide the natural philosophers and 
+				<q>visionaries,</q> as they were then called, for that they reduced the divine agency down to irrational causes, blind forces, and necessary incidents.  Even Protagoras had to go into exile,<note resp="ed" place="unspecified" anchored="yes">Not far from 411 B.C.</note> Anaxagoras was with difficulty rescued from imprisonment by Pericles,<note resp="ed" place="unspecified" anchored="yes">About 432 B.C.  See <bibl n="Plut. Per. 32.3">Plut. Per. 32.3</bibl>.</note> and Socrates, though he had nothing whatever to do with such matters, nevertheless lost his life<note resp="ed" place="unspecified" anchored="yes">In the spring of 399 B.C.</note> because of philosophy.
+				<milestone n="4" unit="section"></milestone>
+				It was not until later times that the radiant repute of Plato, because of the life the man led, and because he subjected the compulsions of the physical world to divine and more sovereign principles, took away the obloquy of such doctrines as these, and gave their science free course among all men.  At any rate, his friend Dion, although the moon suffered an eclipse at the time when he was about to set out from Zacynthus on his voyage against Dionysius, was in no wise disturbed, but put to sea, landed at Syracuse, and drove out the tyrant.<note resp="ed" place="unspecified" anchored="yes">In 357 B.C.  See <bibl>Plut. Dion 24</bibl>.</note>
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>However, it was the lot of Nicias at this time to be without even a soothsayer who was expert.  The one who had been his associate, and who used to set him free from most of his superstition, Stilbides, had died a short time before.  For indeed the sign from Heaven, as Philochorus observed, was not an obnoxious one to fugitives, but rather very propitious; concealment is just what deeds of fear need, whereas light is an enemy to them.
+				<milestone n="6" unit="section"></milestone>
+				And besides, men were wont to be on their guard against portents of sun and moon for three days only, as Autocleides has remarked in his 
+				<q>Exegetics</q>; but Nicias persuaded the Athenians to wait for another full period of the moon, as if, forsooth, he did not see that the planet was restored to purity and splendor just as soon as she had passed beyond the region which was darkened and obscured by the earth.
+				<milestone n="24" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Abandoning almost everything else, Nicias lay there sacrificing and divining until the enemy came up against him.  With their land forces they laid siege to his walls and camp, and with their fleet they took possession of the harbor round about. Not only the men of Syracuse in their triremes, but even the striplings, on board of fishing smacks and skiffs, sailed up from every side with challenges and insults for the Athenians.
+				<milestone n="2" unit="section"></milestone>
+				To one of these, a boy of noble parentage, Heracleides by name, who had driven his boat well on before the rest, an Attic ship gave chase, and was like to capture him.  But the boy's uncle, Pollichus, concerned for his safety, rowed out to his defence with the ten triremes which were under his orders, and then the other commanders, fearing in turn for the safety of Pollichus, likewise put out for the scene of action.  A fierce sea fight was thus brought on, in which the Syracusans were victorious, and slew Eurymedon along with many others.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>Accordingly the Athenians could no longer endure to remain there, but cried out loudly upon their generals and bade them withdraw by land; for the Syracusans, immediately after their victory, had blocked up and shut off the mouth of the harbor. But Nicias could not consent to this.  He said it would be a terrible thing to abandon so many transports, and triremes almost two hundred in number.
+				<milestone n="4" unit="section"></milestone>
+				So he embarked the best of his infantry and the most efficient of his javelineers to man a hundred and ten triremes; the rest lacked oars.  Then he stationed the remainder of his army along the shore of the harbor, abandoning his main camp and the walls which connected it with the Heracleum.  And so it was that the Syracusans, who had so long been unable to offer their customary sacrifice to Heracles, offered it then, priests and generals going up to the temple for this purpose while their triremes were a-manning.
+				<milestone n="25" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Presently their diviners announced to the Syracusans that the sacrifices indicated a splendid victory for them if only they did not begin the fighting, but acted on the defensive.  Heracles also, they said, always won the day because he acted on the defensive and suffered himself to be attacked first. Thus encouraged, they put out from shore. 
+			</p>
+			<p>This proved the greatest and hottest sea fight they had yet made, and roused as many tumultuous emotions in those who were mere spectators as in those who did the fighting, because the whole action was in plain sight, and took on shifts and turns which were varied, unexpected, and sudden.  Their own equipment wrought the Athenians no less harm than did that of their enemy;
+				<milestone n="2" unit="section"></milestone>
+				for they fought against light and nimble ships, which bore down upon them from different directions at once, while their own were heavy and clumsy and all crowded together.  Besides, they were bombarded with stones, whose blow is just as effective however they light; whereas they could only reply with javelins and arrows, whose proper cast was disturbed by the tossing water, so that they did not all fly head on to their mark.  This method of fighting was taught the Syracusans by Ariston the Corinthian captain, who fought zealously while the battle lasted, only to fall just as the Syracusans were victorious.
+				<milestone n="3" unit="section"></milestone>
+			</p>
+			<p>The Athenians suffered such great rout and loss that they were cut off from flight by sea.  Even by land they saw that their salvation was a difficult matter, so that they neither tried to hinder the enemy from towing away their ships under their very eyes, nor did they ask the privilege of taking up their dead.  These, forsooth, could go unburied; the survivors were confronted with a more pitiful sight in the abandonment of their sick and wounded, and thought themselves more wretched still than their dead, since they were sure to come with more sorrows than they to the same end after all.
+				<milestone n="26" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>They purposed to set out during the night, and Gylippus, who saw that the Syracusans were given over to sacrificial revels because of their victory and their festival of Heracles, despaired of persuading or compelling them to rise up from their pleasures at once and attack their enemy as he departed.  But Hermocrates, all on his own account, concocted a trick to put upon Nicias,
+				<milestone n="2" unit="section"></milestone>
+				and sent certain companions to him with assurances that they were come from those men who before this had often held secret conferences with him.  They advised Nicias not to set out during the night, inasmuch as the Syracusans had laid snares for him and preoccupied the ways of escape.  Nicias was completely out-generalled by this trick, and so ended by suffering in very truth at the hands of his enemies what their lies had made him fear.
+				<milestone n="3" unit="section"></milestone>
+				For the Syracusans set forth at break of day, occupied the difficult points in the roads, fortified the river fords, cut away the bridges, and posted their cavalry in the smooth open spaces, so that no spot was left where the Athenians could go forward without fighting. 
+			</p>
+			<p>They waited therefore all that day and the following night, and then set out, for all the world as though they were quitting their native city and not an enemy's country, with wailings and lamentations at their lack of the necessaries of life and their enforced abandonment of helpless friends and comrades.  And yet they regarded these present sorrows as lighter than those which they must expect to come.
+				<milestone n="4" unit="section"></milestone>
+				Many were the fearful scenes in the camp, but the most pitiful sight of all was Nicias himself, undone by his sickness, and reduced, as he little deserved, to a scanty diet, and to the smallest supply of those personal comforts whereof he stood so much in need because of his disease.  And yet, for all his weakness, he persisted in doing what many of the strong could barely endure, and all saw plainly that it was not for his own sake or for any mere love of life that he was faithful to his tasks, but for their sakes he would not give up hope.
+				<milestone n="5" unit="section"></milestone>
+				The rest, for very fear and distress, had recourse to lamentations and tears; but whenever he was driven to this pass, it was plainly because he was contrasting the shameful dishonor to which his expedition had now come with the great and glorious successes which he had hoped to achieve.
+				<milestone n="6" unit="section"></milestone>
+			</p>
+			<p>Besides, it was not merely the sight of him now, but also the memory of the arguments and exhortations with which he had once tried to prevent the sailing of the expedition, that led men to think him all the more unworthy to suffer such hardships now; and they had no courage to hope for aid from the gods when they reflected that a man so devout as he, and one who had performed so many great and splendid religious services, now met with no seemlier fortune than the basest and most obscure man in his army.
+				<milestone n="27" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>However, it was this very Nicias who tried, both by words and looks and kindly manner, to show himself superior to his dreadful lot.  And during all the march which he conducted for eight successive days,<note resp="ed" place="unspecified" anchored="yes">Minutely described, day by day, in <bibl n="Thuc. 7.78">Thuc. 7.78-85</bibl>.</note> though suffering from the missiles of the enemy, he yet succeeded in keeping his own forces from defeat, until Demosthenes and his detachment of the army were captured.  These fell behind as they fought their way along, and were surrounded on the homestead of Polyzelus.
+				<milestone n="2" unit="section"></milestone>
+				Demosthenes himself drew his sword and gave himself a thrust; he did not, however, succeed in killing himself since the enemy quickly closed in upon him and seized him. 
+			</p>
+			<p>When the Syracusans rode up and told Nicias of this disaster, he first sent horsemen to make certain that the force of Demosthenes was really taken, and then proposed to Gylippus a truce permitting the Athenians to depart from Sicily after giving hostages to the Syracusans for all the moneys which they had expended on the war.
+				<milestone n="3" unit="section"></milestone>
+				But they would not entertain the proposal.  Nay, with insolent rage they reviled and insulted him, and kept pelting him with missiles, destitute as he was of all the necessaries of life. However, through that night and the following day he managed to hold out, and finally came, under constant fire, to the river Asinarus.  There some of his men were crowded along by the enemy and thrust into the stream, while others, in advance of pursuit, were impelled by their thirst to cast themselves in,
+				<milestone n="4" unit="section"></milestone>
+				and an exceeding great and savage carnage raged in the river itself, men being butchered as they drank.  At last Nicias fell down at the feet of Gylippus and cried: 
+				<q>Have pity, Gylippus, now that you are victorious, not on me at all, though my great successes have brought me name and fame, but on the rest of these Athenians.  Remember that the fortunes of war are common to all, and that the Athenians, when they were in good fortune, used it with moderation and gentleness toward you.</q>
+				<milestone n="5" unit="section"></milestone>
+			</p>
+			<p>So spake Nicias, and Gylippus felt some compunction, both at the sight of him, and at what he said. For he knew that the Lacedaemonians had been well treated by him when the peace was made, and, besides, he thought it would increase his own fame if he should bring home alive the generals who had opposed him.  Therefore he raised Nicias up, gave him words of cheer, and issued command to take the rest of his men alive.  But the command made its way slowly along, so that the spared were far fewer than the slain.  And yet many were stolen and hidden away by the soldiery.
+				<milestone n="6" unit="section"></milestone>
+				The public prisoners were collected together, the fairest and tallest trees along the river bank were hung with the captured suits of armour, and then the victors crowned themselves with wreaths, adorned their own horses splendidly while they sheared and cropped the horses of their conquered foes, and so marched into the city.  They had brought to successful end a struggle which was the most brilliant ever made by Hellenes against Hellenes, and had won the completest of victories by the most overwhelming and impetuous display of zeal and valor.
+				<milestone n="28" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>At a general assembly of the Syracusans and their allies, Eurycles, the popular leader, brought in a motion, first, that the day on which they had taken Nicias be made a holy day, with sacrifices and abstention from labour, and that the festival be called Asinaria, from the river Asinarus (the day was the twenty-sixth of the month Carneius, which the Athenians call Metageitnion);
+				<milestone n="2" unit="section"></milestone>
+				and second, that the serving men of the Athenians and their immediate allies be sold into slavery, while the freemen and the Sicilian Hellenes who had joined them be cast into the stone quarries for watch and ward,&mdash;all except the generals, who should be put to death. 
+			</p>
+			<p>These propositions were adopted by the Syracusans. When Hermocrates protested that there was something better than victory, to wit, a noble use of victory, he was met with a tumult of disapproval; and when Gylippus demanded the Athenian generals as his prize, that he might take them alive to the Lacedaemonians, the Syracusans, now grown insolent with their good fortune, abused him roundly.
+				<milestone n="3" unit="section"></milestone>
+				They were the more ready to do this because, all through the war, they had found it hard to put up with his harshness and the Laconian style with which he exercised his authority.  Timaeus says, moreover, that they denounced his exceeding penuriousness and avarice,&mdash;an inherited infirmity, it would seem, since his father, Cleandridas, was convicted of taking bribes and had to flee his country.  And Gylippus himself, for abstracting thirty talents from the thousand which Lysander had sent to Sparta, and hiding them in the roof of his house&mdash;as an informer was prompt to show&mdash;was banished in the deepest disgrace.  But this has been told with more detail in my Life of Lysander.<note resp="ed" place="unspecified" anchored="yes"><bibl n="Plut. Lys. 16">Plut. Lys. 16</bibl> f.</note>
+				<milestone n="4" unit="section"></milestone>
+			</p>
+			<p>Timaeus denies that Demosthenes and Nicias were put to death by the orders of the Syracusans, as Philistus and Thucydides<note resp="ed" place="unspecified" anchored="yes"><bibl n="Thuc. 7.86.2">Thuc. 7.86.2</bibl></note> state; but rather, Hermocrates sent word to them of the decision of the assembly while it was yet in session, and with the connivance of one of their guards they took their own lives.  Their bodies, however, he says, were cast out at the prison door, and lay there in plain sight of all who craved the spectacle.
+				<milestone n="5" unit="section"></milestone>
+				And I learn that down to this day there is shown among the treasures of a temple in Syracuse a shield which is said to have been the shield of Nicias.  It is a welded mosaic of gold and purple interwoven with rare skill.
+				<milestone n="29" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>Most of the Athenians perished in the stone quarries of disease and evil fare, their daily rations being a pint of barley meal and a half-pint of water; but not a few were stolen away and sold into slavery, or succeeded in passing themselves off for serving men.  These, when they were sold, were branded in the forehead with the mark of a horse,&mdash;yes, there were some freemen who actually suffered this indignity in addition to their servitude.
+				<milestone n="2" unit="section"></milestone>
+			</p>
+			<p>But even these were helped by their restrained and decorous bearing; some were speedily set free, and some remained with their masters in positions of honor.  Some also were saved for the sake of Euripides.  For the Sicilians, it would seem, more than any other Hellenes outside the home land, had a yearning fondness for his poetry.  They were forever learning by heart the little specimens and morsels of it which visitors brought them from time to time, and imparting them to one another with fond delight.
+				<milestone n="3" unit="section"></milestone>
+				In the present case, at any rate, they say that many Athenians who reached home in safety greeted Euripides with affectionate hearts, and recounted to him, some that they had been set free from slavery for rehearsing what they remembered of his works; and some that when they were roaming about after the final battle they had received food and drink for singing some of his choral hymns. Surely, then, one need not wonder at the story that the Caunians, when a vessel of theirs would have put in at the harbor of Syracuse to escape pursuit by pirates, were not admitted at first, but kept outside, until, on being asked if they knew any songs of Euripides, they declared that they did indeed, and were for this reason suffered to bring their vessel safely in.
+				<milestone n="30" unit="chapter"></milestone>
+				<milestone n="1" unit="section"></milestone>
+			</p>
+			<p>The Athenians, they say, put no faith in the first tidings of the calamity, most of all because of the messenger who brought them.  A certain stranger, as it would seem, landed at the Piraeus, took a seat in a barber's shop, and began to discourse of what had happened as if the Athenians already knew all about it.  The barber, on hearing this, before others learned of it, ran at the top of his speed to the upper city, accosted the archons, and at once set the story going in the market place.
+				<milestone n="2" unit="section"></milestone>
+				Consternation and confusion reigned, naturally, and the archons convened an assembly and brought the man before it.  But, on being asked from whom he had learned the matter, he was unable to give any clear answer, and so it was decided that he was a storymaker, and was trying to throw the city into an uproar.  He was therefore fastened to the wheel and racked a long time, until messengers came with the actual facts of the whole disaster.  So hard was it for the Athenians to believe that Nicias had suffered the fate which he had often foretold to them.
+			</p>
+		</body>
+	</text>
+</TEI.2>

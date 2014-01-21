@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Comp.Dio.Brut." type="work">Comparison of Dion and Brutus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 12Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Comp.Dio.Brut."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1918</date>
+                  </imprint>
+                  <biblScope type="volume">6</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991095</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>6/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>COMPARISON OF DION AND BRUTUS</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>We see, therefore, that both men had many noble traits, and especially that they rose to the greatest heights from the most inconsiderable beginnings; but this is most to the credit of Dion. For he had no one to dispute his eminence, as Brutus had in Cassius, a man whose virtue and fame did not inspire confidence in like degree, but who, by reason of his boldness, ability, and efficiency, contributed no less than Brutus did to the war; indeed, some attribute to him the origin of the whole enterprise, declaring that he took the lead in the plot against Caesar when Brutus was passive. 
+				<milestone n="2" unit="section"/>Dion, however, appears to have acquired by his own efforts, not only arms and vessels and a military force, but also friends and co-workers for his enterprise. However, Dion did not, like Brutus, win wealth and power from the course of the war itself, nay, he contributed his own wealth for the war, expending in behalf of the liberty of his countrymen those resources which supported him in his exile. 
+				<milestone n="3" unit="section"/>And further, it was not safe for Brutus and Cassius to keep quiet after their banishment from Rome, but since they were condemned to death and pursued, it was of necessity that they resorted to war; and in committing their persons to the protection of their arms they incurred danger in their own behalf rather than in behalf of their countrymen; whereas Dion was living with greater confidence and pleasure in his banishment than the tyrant who banished him, and yet of his own accord he hazarded a peril so great in order to save Sicily.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And verily it was not a like thing for Syracuse to be rid of Dionysius and Rome of Caesar. For Dionysius was even an avowed tyrant, and filled Sicily with countless ills; whereas the rule of Caesar, although during its establishment it gave no little trouble to its opponents, still, after they had been overpowered and had accepted it, they saw that it was a tyranny only in name and appearance, and no cruel or tyrannical act was authorized by it; nay, it was plain that the ills of the state required a monarchy, and that Caesar, like a most gentle physician, had been assigned to them by Heaven itself. 
+				<milestone n="2" unit="section"/>Therefore the Roman people felt at once a yearning for Caesar, and in consequence became harsh and implacable towards his murderers; whereas Dion, for letting Dionysius escape from Syracuse, and for not demolishing the tomb of the former tyrant, was held most culpable by his countrymen.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Next, as regards their actual military achievements, Dion was a consummate general; where he himself made the plans, he achieved the best results, and where failure was due to others, he restored and bettered the situation. 
+				<milestone n="2" unit="section"/>Brutus, on the other hand, as it seems, was unwise in entering upon the last supreme struggle, and when he was defeated, could not find a way to restore his cause, but gave up and abandoned his hopes, not even facing adverse fortune with as much resolution as Pompey, and that too although on land he had much ground for confidence left in his troops, and with his fleet was secure master of all the sea.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Moreover, the gravest charge which is brought against Brutus, namely, that although his life was spared by the kindness of Caesar, together with the lives of all the fellow captives for whom he wished to intercede, and although Caesar held him a friend and honoured him above many, he struck down his preserver with his own hand,&mdash;this charge no one can bring against Dion. On the contrary, while he was a courtier and friend of Dionysius, he tried to set the state in order and help in preserving it; but when he had been banished from his country, wronged as a husband, and deprived of his property, he openly resorted to a war that was lawful and just. 
+				<milestone n="4" unit="section"/>Or does this argument reverse itself at once? For that which redounds to the praise of both men is their hostility to tyrants and hatred of their baseness, and this is disinterested and sincere in the case of Brutus, since without any private grievance against Caesar he risked his life for the common liberty; 
+				<milestone n="5" unit="section"/>whereas, had not Dion himself been mistreated, he would not have gone to war. And this is made manifest by the letters of Plato, from which it is clear that Dion did not revolt, but was cast out from the tyranny, and therefore overthrew Dionysius. Still further, it was the public good that made Brutus a friend even to Pompey, who was his foe, and an enemy to Caesar, since he determined both hatred and friendship by justice alone; Dion, on the other hand, gave Dionysius much support in order to win his favour, when he was secure in his confidence, and when he was discredited by him, it was to gratify anger that he went to war. 
+				<milestone n="6" unit="section"/>Therefore Dion was not trusted even by all his friends, who felt that after removing Dionysius he might secure the government for himself, enticing his countrymen along by some milder name than that of tyranny; but the enemies of Brutus were wont to say that of all the conspirators against Caesar he alone had one aim from first to last, namely the restoration to the Romans of their ancient form of government.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, apart from these considerations, the struggle against Dionysius was surely unlike that against Caesar. For Dionysius must have been despised by every one of his associates, devoted as he was to wine, dice, and women; but to plan the overthrow of Caesar, and now to fear the ability, power, and good fortune of the man whose very name robbed the kings of Parthia and India of their sleep, betokened an extraordinary spirit, and one which fear could never induce to remit its lofty purposes. 
+				<milestone n="2" unit="section"/>Therefore Dion had only to be seen in Sicily, and many thousands joined him in attacking Dionysius; whereas the fame of Caesar, even after he had fallen, supported his friends, and his name raised the helpless boy who adopted it to be at once the foremost Roman, and he wore it as a charm against the power and hatred of Antony.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>But should it be objected that Dion cast out the tyrant only after great struggles, while Brutus slew Caesar unarmed and unguarded, this very circumstance was a result of the highest ability and generalship, namely, that a man enveloped in such great power should be taken unarmed and unguarded. For not on a sudden, nor alone, or with a few helpers only, did he fall upon him and slay him, nay, his plan was long in forming, and his attack was made with many helpers, not one of whom proved false to him. For either he chose out at once the best men, or his choice of them before others, and his confidence in them, made them good. 
+				<milestone n="4" unit="section"/>But Dion either chose unwisely and entrusted himself to bad men, or else treated the men of his choice so as to turn them from good to bad, neither of which mistakes a prudent man ought to make. And in fact Plato censures him for choosing such friends as proved his ruin.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Further, no one arose to avenge Dion's death; but in the case of Brutus, Antony, an enemy, gave him illustrious burial, and Octavius, an enemy, actually took care to preserve his honours. For a bronze statue of him stood in Mediolanum in Cisalpine Gaul. This statue, at a later time, Octavius noticed as he passed by, for it was a good likeness and an artistic piece of work; then stopping, after a little, in the hearing of many he summoned the magistrates and declared that he had caught their city violating its treaty and harbouring an enemy of his. 
+				<milestone n="2" unit="section"/>At first, then, as was natural, they denied it, and looked at one another in perplexity, not knowing what he meant. Then Octavius, turning to the statue and knitting his brows, said: 
+				<q direct="unspecified">Well, is not this an enemy of mine who stands here?</q> At this, the magistrates were still more dumbfounded and held their peace. But Octavius, with a smile, praised the Gauls because they were true to their friends even in adversity, and gave orders that the statue should remain where it was.
+			</p>
+      </body>
+   </text>
+</TEI.2>

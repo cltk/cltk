@@ -1,0 +1,2285 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Agamemnon</title>
+<author>Aeschylus</author>
+<editor role="translator">Robert Browning</editor>
+&responsibility;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Poetical Works of Robert Browning, volume 13</title>
+<author>Robert Browning</author>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>Smith, Elder, and Co.</publisher>
+<date>1889</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.OCR;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="line"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="card"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date> 7-May-02</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>initial scanning and markup
+</item>
+</change>
+	<change><date>5/26/09</date><respStmt><name>RS</name><resp>(n/a)</resp></respStmt>
+		<item>  
+			$Log: aesch.ag.brown_eng.xml,v $
+			Revision 1.1  2009-10-07 20:59:42  rsingh04
+			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+			Revision 1.4  2009/06/22 16:58:03  student
+			edited entity tags CEH
+
+			Revision 1.3  2009/05/27 15:22:04  rsingh04
+			added cvs log keyword
+
+		</item>
+	</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<front>
+<div1 type="preface">
+<head>Translator's preface</head>
+<milestone ed="p" n="0" unit="card"/>
+<p>MAY I be permitted to chat a little, by way of recreation,
+at the end of a somewhat toilsome and perhaps fruitless
+adventure?</p>
+<p>If, because of the immense fame of the following
+Tragedy, I wished to acquaint myself with it, and could
+only do so by the help of a translator, I should require
+him to be literal at every cost save that of absolute
+violence to our language.  The use of certain allowable
+constructions which, happening to be out of daily favour,
+are all the more appropriate to archaic workmanship, is
+no violence: but I would be tolerant for once,--in the
+case of so immensely famous an original,--of even a
+clumsy attempt to furnish me with the very turn of each
+phrase in as Greek a fashion as English will bear: while,
+with respect to amplifications and embellishments,--anything rather than, with the good farmer, experience that
+most signal of mortifications, "to gape for Aeschylus and
+get Theognis." I should especially decline,--what may
+appear to brighten up a passage,--the employment of a
+new word for some old one--<foreign lang="greek">po/nos</foreign>, or <foreign lang="greek">me/gas</foreign>, or <foreign lang="greek">te/los</foreign>,
+with its congeners, recurring four times in three lines:
+for though such substitution may be in itself perfectly
+justifiable, yet this exercise of ingenuity ought to be
+within the competence of the unaided English reader
+if he likes to show himself ingenious. Learning Greek
+teaches Greek, and nothing else: certainly not common
+sense, if that have failed to precede the teaching. Further,--if I obtained a mere strict bald version of thing
+by thing, or at least word pregnant with thing, I should
+hardly look for an impossible transmission of the reputed
+magniloquence and sonority of the Greek; and this with
+the less regret, inasmuch as there is abundant musicality
+elsewhere, but nowhere else than in his poem the ideas
+of the poet.  And lastly, when presented with these
+ideas, I should expect the result to prove very hard
+reading indeed if it were meant to resemble Aeschylus,
+<cit><quote lang="greek">cumbalei=n ou) r(a/|dios</quote> <bibl n="Aristoph. Frogs 931">(Frogs 931)</bibl></cit>, "not easy to understand," in the
+opinion of his stoutest advocate among the ancients;
+while, I suppose, even modern scholarship sympathizes
+with that early declaration of the redoubtable Salmasius,
+when, looking about for an example of the truly obscure
+for the benefit of those who found obscurity in the sacred
+books, he protested that this particular play leaves them
+all behind in this respect, with their "Hebraisms, Syriasms,
+Hellenisms, and the whole of such bag and baggage."<note anchored="yes"><cit><quote lang="la">"Quis Aeschylum possit affirmare Graece nunc scienti magis
+patere explicabilem  quam  Evangelia aut Epistolas Apostolicas?
+Unus ejus Agamemnon obscuritate superat quantum est librorum
+sacrorum  cum  suis Hebraismis et Syriasmis et tota Hellenisticae
+supellectili vel farragine."</quote> <bibl>SALMASIUS de Hellenistica, Epist. Dedic.</bibl></cit></note>
+For, over and above the purposed ambiguity of the Chorus,
+the text is sadly corrupt, probably interpolated, and certainly mutilated; and no unlearned person enjoys the
+scholar's privilege of trying his fancy upon each obstacle
+whenever he comes to a stoppage, and effectually clearing the way by suppressing what seems to lie in it.</p>
+<p>All I can say for the present performance is, that I
+have done as I would be done by, if need were. Should
+anybody, without need, honour my translation by a comparison with the original, I beg him to observe that,
+following no editor exclusively, I keep to the earlier
+readings so long as sense can be made out of them, but
+disregard, I hope, little of importance in recent criticism
+so far as I have fallen in with it.  Fortunately, the
+poorest translation, provided only it be faithful,--though
+it reproduce all the artistic confusion of tenses, moods,
+and persons, with which the original teems,--will not
+only suffice to display what an eloquent friend maintains
+to be the all-in-all of poetry--"the action of the piece"--
+but may help to illustrate his assurance that "the Greeks
+are the highest models of expression, the unapproached
+masters of the grand style: their expression is so excellent because it is so admirably kept in its right degree
+of prominence, because it is so simple and so well subordinated, because it draws its force directly from the
+pregnancy of the matter which it conveys . . . not a
+word wasted, not a sentiment capriciously thrown in,
+stroke on stroke!"<note anchored="yes"><title>Poems by Matthew Arnold</title>, Preface.</note> So may all happen!</p>
+<p>Just a word more on the subject of my spelling--in a
+transcript from the Greek and there exclusively--Greek
+names and places precisely as does the Greek author. I
+began this practice, with great innocency of intention,
+some six-and-thirty years ago. Leigh Hunt, I remember,
+was accustomed to speak of his gratitude, when ignorant
+of Greek, to those writers (like Goldsmith) who had
+obliged him by using English characters, so that he
+might relish, for instance, the smooth quality of such a
+phrase as "hapalunetai galen&eacute;;" he said also that Shelley
+was indignant at "Firenze" having displaced the Dantesque "Fiorenza," and would contemptuously English
+the intruder "Firence." I supposed I was doing a simple
+thing enough: but there has been till lately much astonishment
+at <mentioned>os</mentioned> and <mentioned>us</mentioned>, <mentioned>ai</mentioned> and <mentioned>oi</mentioned>, representing the same
+letters in Greek.  Of a sudden, however, whether in
+translation or out of it, everybody seems committing the
+offence, although the adoption of <mentioned>u</mentioned> for <mentioned>v</mentioned> still presents
+such difficulty that it is a wonder how we have hitherto
+escaped "Eyripides." But there existed a sturdy Briton
+who, Ben Jonson informs us, wrote "The Life of the
+Emperor Anthony Pie" -- whom we now acquiesce in as
+Antoninus Pius: for "with time and patience the mulberry
+leaf becomes satin." Yet there is, on all sides, much
+profession of respect for what Keats called "vowelled
+Greek" -- "consonanted," one would expect; and, in a
+criticism upon a late admirable translation of something
+of my own, it was deplored that, in a certain verse corresponding in measure to the fourteenth of the sixth
+Pythian Ode, "neither Professor Jebb in his Greek, nor
+Mr. Browning in his English, could emulate that matchlessly musical <cit><quote lang="greek">go/non i)dw\n ka/lliston a)ndrw=n</quote> <bibl n="Pind. P. 4.123">(Pyth. 4.123)</bibl></cit>."  Now,
+undoubtedly, "Seeing her son the fairest of men" has
+more sense than sound to boast of: but then, would not
+an Italian roll us out <quote lang="it">"Rimirando il figliuolo bellissimo
+degli uomini!"</quote> whereat Pindar, no less than Professor
+Jebb and Mr. Browning, <cit><quote lang="greek">triakth=ros oi)/xetai tuxw/n</quote> <bibl n="Aesch. Ag. 171">(Ag. 171)</bibl></cit>.</p>
+<p>It is recorded in the annals of Art<note anchored="yes"><title lang="fr">Lettres &agrave; un jeune Prince, traduites du Su&eacute;dois</title>.</note> that there was
+    once upon a time, practising so far north as <placeName key="tgn,7003777">Stockholm</placeName>, a
+painter and picture-cleaner -- sire of a less unhappy son
+-- Old Muytens: and the annalist, Baron de Tess&eacute;, has
+not concealed his profound dissatisfaction at Old Muytens'
+conceit "to have himself had something to do with the
+work of whatever master of eminence might pass through
+his hands."  Whence it was,--the Baron goes on to
+deplore,--that much detriment was done to that excellent
+piece "The Recognition of Achilles," by Rubens, through
+the perversity of Old Muytens, "who must needs take on
+him to beautify every nymph of the twenty by the bestowment of a widened eye and an enlarged mouth." I,
+at least, have left eyes and mouths everywhere as I found
+them, and this conservatism is all that claims praise for --
+what is, after all, <cit><quote lang="greek">a)ke/leustos a)/misqos a)oida/</quote> <bibl n="Aesch. Ag. 979">(Ag. 979)</bibl></cit>.  No, neither
+"uncommanded" nor "unrewarded":   since it was commanded of me by my venerated friend Thomas Carlyle,
+and rewarded will it indeed become if I am permitted to
+dignify it by the prefatory insertion of his dear and noble
+name.</p>
+<closer>
+<name reg="Robert Browning">R. B.</name>
+<placeName key="tgn,7011781">LONDON</placeName>: <date value="1877-10-01">October 1st, 1877.</date>
+</closer></div1>
+</front>
+
+<body>
+<milestone ed="p" n="1" unit="card"/>
+<castList>
+<castItem type="role"><role>Warder.</role></castItem>
+<castItem type="role"><role>Choros of Old Men.</role></castItem>
+<castItem type="role"><role>KLUTAIMNESTRA.</role></castItem>
+<castItem type="role"><role>TALTHUBIOS, </role><roleDesc>Herald.</roleDesc></castItem>
+<castItem type="role"><role>AGAMEMNON.</role></castItem>
+<castItem type="role"><role>KASSANDRA.</role></castItem>
+<castItem type="role"><role>AIGISTHOS.</role></castItem>
+</castList>
+
+<div1 type="episode">
+<sp><speaker>WARDER.</speaker>
+<l n="tr">The gods I ask deliverance from these labours,</l>
+<l n="tr">Watch of a year's length whereby, slumbering through it</l>
+<l n="tr">On the Atreidai's roofs on elbow, -- dog-like --</l>
+<l n="tr">I know of nightly star-groups the assemblage,</l>
+<l n="tr">And those that bring to men winter and summer</l>
+<l n="tr">Bright dynasts, as they pride them in the aether</l>
+<l n="tr">-- Stars, when they wither, and the uprisings of them.</l>
+<l n="tr">And now on ward I wait the torch's token,</l>
+<l n="tr">The glow of fire, shall bring from <placeName key="tgn,7002329">Troia</placeName> message</l>
+<l n="tr">And word of capture: so prevails audacious</l>
+<l n="tr">The man's-way-planning hoping heart of woman.</l>
+<l n="tr">But when I, driven from night-rest, dew-drenched hold to</l>
+<l n="tr">This couch of mine -- not looked upon by visions,</l>
+<l n="tr">Since fear instead of sleep still stands beside me,</l>
+<l n="tr">So as that fast I fix in sleep no eyelids --</l>
+<l n="tr">And when to sing or chirp a tune I fancy,</l>
+<l n="tr">For slumber such song-remedy infusing,</l>
+<l n="tr">I wail then, for this House's fortune groaning,</l>
+<l n="tr">Not, as of old, after the best ways governed.</l>
+<l n="tr">Now, lucky be deliverance from these labours,</l>
+<l n="tr">At good news -- the appearing dusky fire!</l>
+<l n="tr">O hail, thou lamp of night, a day-long lightness</l>
+<l n="tr">Revealing, and of dances the ordainment!</l>
+<l n="tr">Halloo, halloo!</l>
+<l n="tr">To Agamemnon's wife I show, by shouting,</l>
+<l n="tr">That, from bed starting up at once, i' the household</l>
+<l n="tr">Joyous acclaim, good-omened to this torch-blaze,</l>
+<l n="tr">She send aloft, if haply <placeName key="tgn,7002329">Ilion</placeName>'s city</l>
+<l n="tr">Be taken, as the beacon boasts announcing.</l>
+<l n="tr">Ay, and, for me, myself will dance a prelude,</l>
+<l n="tr">For, that my masters' dice drop right, I'll reckon:</l>
+<l n="tr">Since thrice-six has it thrown to me, this signal.</l>
+<l n="tr">Well, may it hap that, as he comes, the loved hand</l>
+<l n="tr">O' the household's lord I may sustain with this hand!</l>
+<l n="tr">As for the rest, I'm mute: on tongue a big ox</l>
+<l n="tr">Has trodden. Yet this House, if voice it take should,</l>
+<l n="tr">Most plain would speak. So, willing I myself speak</l>
+<l n="tr">To those who know: to who know not -- I'm blankness.
+<milestone ed="p" n="40" unit="card"/></l></sp>
+<sp n="CHOROS"><speaker>CHOROS.</speaker>
+<l n="tr">The tenth year this, since Priamos' great match,</l>
+<l n="tr">King Menelaos, Agamemnon King,</l>
+<l n="tr">-- The strenuous yoke-pair of the Atreidai's honour</l>
+<l n="tr">Two-throned, two-sceptred, whereof Zeus was donor --</l>
+<l n="tr">Did from this land the aid, the armament despatch,</l>
+<l n="tr">The thousand-sailored force of Argives clamouring</l>
+<l n="tr">"Ares" from out the indignant breast, as fling</l>
+<l n="tr">Passion forth vultures which, because of grief</l>
+<l n="tr">Away, -- as are their young ones, -- with the thief,</l>
+<l n="tr">Lofty above their brood-nests wheel in ring,</l>
+<l n="tr">Row round and round with oar of either wing,</l>
+<l n="tr">Lament the bedded chicks, lost labour that was love:</l>
+<l n="tr">Which hearing, one above</l>
+<l n="tr">-- Whether Apollon, Pan or Zeus -- that wail,</l>
+<l n="tr">Sharp-piercing bird-shriek of the guests who fare</l>
+<l n="tr">Housemates with gods in air --</l>
+<l n="tr">Suchanone sends, against who these assail,</l>
+<l n="tr">What, late-sent, shall not fail</l>
+<l n="tr">Of punishing -- Erinus. Here as there,</l>
+<l n="tr">The Guardian of the Guest, Zeus, the excelling one,</l>
+<l n="tr">Sends against Alexandros either son</l>
+<l n="tr">Of Atreus: for that wife, the many-husbanded,</l>
+<l n="tr">Appointing many a tug that tries the limb,</l>
+<l n="tr">While the knee plays the prop in dust, while, shred</l>
+<l n="tr">To morsels, lies the spear-shaft; in those grim</l>
+<l n="tr">Marriage-prolusions when their Fury wed</l>
+<l n="tr">Danaoi and Troes, both alike. All's said:</l>
+<l n="tr">Things are where things are, and, as fate has willed,</l>
+<l n="tr">So shall they be fulfilled.</l>
+<l n="tr">Not gently-grieving, not just doling out</l>
+<l n="tr">The drops of expiation -- no, nor tears distilled --</l>
+<l n="tr">Shall he we know of bring the hard about</l>
+<l n="tr">To soft -- that intense ire</l>
+<l n="tr">At those mock rites unsanctified by fire.</l>
+<l n="tr">But we pay nought here: through our flesh, age-weighed,</l>
+<l n="tr">Left out from who gave aid</l>
+<l n="tr">In that day, -- we remain,</l>
+<l n="tr">Staying on staves a strength</l>
+<l n="tr">The equal of a child's at length.</l>
+<l n="tr">For when young marrow in the breast doth reign,</l>
+<l n="tr">That's the old man's match, -- Ares out of place</l>
+<l n="tr">In either: but in oldest age's case,</l>
+<l n="tr">Foliage a-fading, why, he wends his way</l>
+<l n="tr">On three feet, and, no stronger than a child,</l>
+<l n="tr">Wanders about gone wild,</l>
+<l n="tr">A dream in day.
+<milestone ed="p" n="83" unit="card"/></l>
+<l n="tr">But thou, Tundareus' daughter, Klutaimnestra queen,</l>
+<l n="tr">What need? What new? What having heard or seen,</l>
+<l n="tr">By what announcement's tidings, everywhere</l>
+<l n="tr">Settest thou, round about, the sacrifice a-flare?</l>
+<l n="tr">For, of all gods the city-swaying,</l>
+<l n="tr">Those supernal, those infernal,</l>
+<l n="tr">Those of the fields', those of the mart's obeying, --</l>
+<l n="tr">The altars blaze with gifts;</l>
+<l n="tr">And here and there, heaven-high the torch uplifts</l>
+<l n="tr">Flame-medicated with persuasions mild,</l>
+<l n="tr">With foul admixture unbeguiled --</l>
+<l n="tr">Of holy unguent, from the clotted chrism</l>
+<l n="tr">Brought from the palace, safe in its abysm.</l>
+<l n="tr">Of these things, speaking what may be indeed</l>
+<l n="tr">Both possible and lawful to concede,</l>
+<l n="tr">Healer do thou become! -- of this solicitude</l>
+<l n="tr">Which, now, stands plainly forth of evil mood,</l>
+<l n="tr">And, then . . . but from oblations, hope, to-day</l>
+<l n="tr">Gracious appearing, wards away</l>
+<l n="tr">From soul the insatiate care,</l>
+<l n="tr">The sorrow at my breast, devouring there!</l></sp></div1>
+<div1 type="choral">
+<milestone ed="p" n="104" unit="card"/>
+<sp n="CHOROS"><speaker>CHOROS.</speaker>
+<l n="tr">Empowered am I to sing</l>
+<l n="tr">The omens, what their force which, journeying,</l>
+<l n="tr">Rejoiced the potentates:</l>
+<l n="tr">(For still, from God, inflates</l>
+<l n="tr">My breast song-suasion: age,</l>
+<l n="tr">Born to the business, still such war can wage)</l>
+<l n="tr">-- How the fierce bird against the Teukris land</l>
+<l n="tr">Despatched, with spear and executing hand,</l>
+<l n="tr">The Achaian's two-throned empery--o'er <placeName key="tgn,1000074">Hellas</placeName>' youth</l>
+<l n="tr">Two rulers with one mind:</l>
+<l n="tr">The birds' king to these kings of ships, on high,</l>
+<l n="tr">-- The black sort, and the sort that's white behind,  --</l>
+<l n="tr">Appearing by the palace, on the spear-throw side,</l>
+<l n="tr">In right sky-regions, visible far and wide, --</l>
+<l n="tr">Devouring a hare-creature, great with young,</l>
+<l n="tr">Baulked of more racings they, as she from whom they sprung!</l>
+<l n="tr">Ah, Linos, say -- ah, Linos, song of wail!</l>
+<l n="tr">But may the good prevail!
+<milestone ed="p" n="122" unit="card"/></l>
+<l n="tr">The prudent army-prophet seeing two</l>
+<l n="tr">The Atreidai, two their tempers, knew</l>
+<l n="tr">Those feasting on the hare</l>
+<l n="tr">The armament-conductors were;</l>
+<l n="tr">And thus he spoke, explaining signs in view.</l>
+<l n="tr">"In time, this outset takes the town of Priamos:</l>
+<l n="tr">But all before its towers, -- the people's wealth that was,</l>
+<l n="tr">Of flocks and herds, -- as sure, shall booty-sharing thence</l>
+<l n="tr">Drain to the dregs away, by battle violence.</l>
+<l n="tr">Only, have care lest grudge of any god disturb</l>
+<l n="tr">With cloud the unsullied shine of that great force, the curb</l>
+<l n="tr">Of <placeName key="tgn,7002329">Troia</placeName>, struck with damp</l>
+<l n="tr">Beforehand in the camp!</l>
+<l n="tr">For envyingly is</l>
+<l n="tr">The virgin Artemis</l>
+<l n="tr">Toward -- her father's flying hounds -- this House --</l>
+<l n="tr">The sacrificers of the piteous</l>
+<l n="tr">And cowering beast,</l>
+<l n="tr">Brood and all, ere the birth: she hates the eagles' feast.</l>
+<l n="tr">Ah, Linos, say -- ah, Linos, song of wail!</l>
+<l n="tr">But may the good prevail!
+<milestone ed="p" n="140" unit="card"/></l>
+<l n="tr">(Thus ready is the beauteous one with help</l>
+<l n="tr">To those small dewdrop-things fierce lions whelp,</l>
+<l n="tr">And udder-loving litter of each brute</l>
+<l n="tr">That roams the mead; and therefore makes she suit,</l>
+<l n="tr">The fair one, for fulfilment to the end</l>
+<l n="tr">Of things these signs portend --</l>
+<l n="tr">Which partly smile, indeed, but partly scowl --</l>
+<l n="tr">The phantasms of the fowl.</l>
+<l n="tr">I call Ie&iuml;os Paian to avert</l>
+<l n="tr">She work the Danaoi hurt</l>
+<l n="tr">By any thwarting waftures, long and fast</l>
+<l n="tr">Holdings from sail of ships:</l>
+<l n="tr">And sacrifice, another than the last,</l>
+<l n="tr">She for herself precipitate --</l>
+<l n="tr">Something unlawful, feast for no man's lips,</l>
+<l n="tr">Builder of quarrels, with the House cognate --</l>
+<l n="tr">Having in awe no husband: for remains</l>
+<l n="tr">A frightful, backward-darting in the path,</l>
+<l n="tr">Wily house-keeping chronicler of wrath,</l>
+<l n="tr">That has to punish that old children's fate!"</l>
+<l n="tr">Such things did Kalchas, -- with abundant gains</l>
+<l n="tr">As well, -- vociferate,</l>
+<l n="tr">Predictions from the birds, in journeying,</l>
+<l n="tr">Above the abode of either king.</l>
+<l n="tr">With these, symphonious, sing --</l>
+<l n="tr">Ah, Linos, say -- ah, Linos, song of wail!</l>
+<l n="tr">But may the good prevail!
+<milestone ed="p" n="160" unit="card"/></l>
+<l n="tr">Zeus, whosoe'er he be, -- if that express</l>
+<l n="tr">Aught dear to him on whom I call --</l>
+<l n="tr">So do I him address.</l>
+<l n="tr">I cannot liken out, by all</l>
+<l n="tr">Admeasurement of powers,</l>
+<l n="tr">Any but Zeus for refuge at such hours,</l>
+<l n="tr">If veritably needs I must</l>
+<l n="tr">From off my soul its vague care-burthen thrust.
+<milestone ed="p" n="167" unit="card"/></l>
+<l n="tr">Not -- whosoever was the great of yore,</l>
+<l n="tr">Bursting to bloom with bravery all round --</l>
+<l n="tr">Is in our mouths: he was, but is no more.</l>
+<l n="tr">And who it was that after came to be,</l>
+<l n="tr">Met the thrice-throwing wrestler, -- he</l>
+<l n="tr">Is also gone to ground.</l>
+<l n="tr">But "Zeus" -- if any, heart and soul, that name --</l>
+<l n="tr">Shouting the triumph-praise -- proclaim,</l>
+<l n="tr">Complete in judgment shall that man be found.
+<milestone ed="p" n="176" unit="card"/></l>
+<l n="tr">Zeus, who leads onward mortals to be wise,</l>
+<l n="tr">Appoints that suffering masterfully teach.</l>
+<l n="tr">In sleep, before the heart of each,</l>
+<l n="tr">A woe-remembering travail sheds in dew</l>
+<l n="tr">Discretion, -- ay, and melts the unwilling too</l>
+<l n="tr">By what, perchance, may be a graciousness</l>
+<l n="tr">Of gods, enforced no less, --</l>
+<l n="tr">As they, commanders of the crew,</l>
+<l n="tr">Assume the awful seat.
+<milestone ed="p" n="184" unit="card"/></l>
+<l n="tr">And then the old leader of the Achaian fleet,</l>
+<l n="tr">Disparaging no seer --</l>
+<l n="tr">With bated breath to suit misfortune's inrush here</l>
+<l n="tr">-- (What time it laboured, that Achaian host,</l>
+<l n="tr">By stay from sailing, -- every pulse at length</l>
+<l n="tr">Emptied of vital strength, --</l>
+<l n="tr">Hard over Kalchis shore-bound, current-crost</l>
+<l n="tr">In <placeName key="perseus,Aulis">Aulis</placeName> station, -- while the winds which post
+<milestone ed="p" n="192" unit="card"/></l>
+<l n="tr">From Strumon, ill-delayers, famine-fraught,</l>
+<l n="tr">Tempters of man to sail where harbourage is naught,</l>
+<l n="tr">Spendthrifts of ships and cables, turning time</l>
+<l n="tr">To twice the length, -- these carded, by delay,</l>
+<l n="tr">To less and less away</l>
+<l n="tr">The Argeians' flowery prime:</l>
+<l n="tr">And when a remedy more grave and grand</l>
+<l n="tr">Than aught before, -- yea, for the storm and dearth, --</l>
+<l n="tr">The prophet to the foremost in command</l>
+<l n="tr">Shrieked forth, as cause of this</l>
+<l n="tr">Adducing Artemis,</l>
+<l n="tr">So that the Atreidai striking staves on earth</l>
+<l n="tr">Could not withhold the tear) --
+<milestone ed="p" n="205" unit="card"/></l>
+<l n="tr">Then did the king, the elder, speak this clear.</l>
+<l n="tr">"Heavy the fate, indeed, -- to disobey!</l>
+<l n="tr">Yet heavy if my child I slay,</l>
+<l n="tr">The adornment of my household: with the tide</l>
+<l n="tr">Of virgin-slaughter, at the altar-side,</l>
+<l n="tr">A father's hands defiling: which the way</l>
+<l n="tr">Without its evils, say?</l>
+<l n="tr">How shall I turn fleet-fugitive,</l>
+<l n="tr">Failing of duty to allies?</l>
+<l n="tr">Since for a wind-abating sacrifice</l>
+<l n="tr">And virgin blood, -- 't is right they strive,</l>
+<l n="tr">Nay, madden with desire.</l>
+<l n="tr">Well may it work them -- this that they require! "
+<milestone ed="p" n="218" unit="card"/></l>
+<l n="tr">But when he underwent necessity's</l>
+<l n="tr">Yoke-trace, -- from soul blowing unhallowed change</l>
+<l n="tr">Unclean, abominable, -- thence--another man --</l>
+<l n="tr">The audacious mind of him began</l>
+<l n="tr">Its wildest range.</l>
+<l n="tr">For this it is gives mortals hardihood --</l>
+<l n="tr">Some vice-devising miserable mood</l>
+<l n="tr">Of madness, and first woe of all the brood.</l>
+<l n="tr">The sacrificer of his daughter -- strange! --</l>
+<l n="tr">He dared become, to expedite</l>
+<l n="tr">Woman-avenging warfare, -- anchors weighed</l>
+<l n="tr">With such prelusive rite!
+<milestone ed="p" n="228" unit="card"/></l>
+<l n="tr">Prayings and callings "Father" -- naught they made</l>
+<l n="tr">Of these, and of the virgin-age, --</l>
+<l n="tr">Captains heart-set on war to wage!</l>
+<l n="tr">His ministrants, vows done, the father bade --</l>
+<l n="tr">Kid-like, above the altar, swathed in pall,</l>
+<l n="tr">Take her -- lift high, and have no fear at all,</l>
+<l n="tr">Head-downward, and the fair mouth's guard</l>
+<l n="tr">And frontage hold, -- press hard</l>
+<l n="tr">From utterance a curse against the House
+<milestone ed="p" n="238" unit="card"/></l>
+<l n="tr">By dint of bit-violence bridling speech.</l>
+<l n="tr">And as to ground her saffron-vest she shed,</l>
+<l n="tr">She smote the sacrificers all and each</l>
+<l n="tr">With arrow sweet and piteous,</l>
+<l n="tr">From the eye only sped, --</l>
+<l n="tr">Significant of will to use a word,</l>
+<l n="tr">Just as in pictures: since, full many a time,</l>
+<l n="tr">In her sire's guest-hall, by the well-heaped board</l>
+<l n="tr">Had she made music, -- lovingly with chime</l>
+<l n="tr">Of her chaste voice, that unpolluted thing,</l>
+<l n="tr">Honoured the third libation, -- paian that should bring</l>
+<l n="tr">Good fortune to the sire she loved so well.
+<milestone ed="p" n="248" unit="card"/></l>
+<l n="tr">What followed -- those things I nor saw nor tell.</l>
+<l n="tr">But Kalchas' arts, -- whate'er they indicate, --</l>
+<l n="tr">Miss of fulfilment never: it is fate.</l>
+<l n="tr">True, justice makes, in sufferers, a desire</l>
+<l n="tr">To know the future woe preponderate.</l>
+<l n="tr">But -- hear before is need?</l>
+<l n="tr">To that, farewell and welcome! 't is the same, indeed,</l>
+<l n="tr">As grief beforehand: clearly, part for part,</l>
+<l n="tr">Conformably to Kalchas' art,</l>
+<l n="tr">Shall come the event.</l>
+<l n="tr">But be they as they may, things subsequent, --</l>
+<l n="tr">What is to do, prosperity betide</l>
+<l n="tr">E'en as we wish it! -- we, the next allied,</l>
+<l n="tr">Sole guarding barrier of the Apian land.</l></sp></div1>
+<div1 type="episode">
+<milestone ed="p" n="258" unit="card"/>
+<sp n="CHOROS"><speaker>CHOROS.</speaker>
+<l n="tr">I am come, reverencing power in thee,</l>
+<l n="tr">O Klutaimnestra! For 't is just we bow</l>
+<l n="tr">To the ruler's wife, -- the male-seat man-bereaved.</l>
+<l n="tr">But if thou, having heard good news, -- or none, --</l>
+<l n="tr">For good news' hope dost sacrifice thus wide,</l>
+<l n="tr">I would hear gladly: art thou mute, -- no grudge!</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Good-news-announcer, may -- as is the by-word --</l>
+<l n="tr">Morn become, truly, -- news from Night his mother!</l>
+<l n="tr">But thou shalt learn joy past all hope of hearing.</l>
+<l n="tr">Priamos' city have the Argeioi taken.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">How sayest? The word, from want of faith, escaped me.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr"><placeName key="tgn,7002329">Troia</placeName> the Achaioi hold: do I speak plainly?</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Joy overcreeps me, calling forth the tear-drop.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Right! for, that glad thou art, thine eye convicts thee.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">For -- what to thee, of all this, trusty token?</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">What's here! how else? unless the god have cheated.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Haply thou flattering shows of dreams respectest?</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">No fancy would I take of soul sleep-burthened.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">But has there Puffed thee up some unwinged omen?</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">As a young maid's my mind thou mockest grossly.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Well, at what time was -- even sacked, the city?</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Of this same mother Night -- the dawn, I tell thee.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">And who of messengers could reach this swiftness?
+<milestone ed="p" n="281" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Hephaistos -- sending a bright blaze from Ide.</l>
+<l n="tr">Beacon did beacon send, from fire the poster,</l>
+<l n="tr">Hitherward: Ide to the rock Hermaian</l>
+<l n="tr">Of <placeName key="tgn,7011173">Lemnos</placeName>: and a third great torch o' the island</l>
+<l n="tr">Zeus' seat received in turn, the Athoan summit.</l>
+<l n="tr">And, -- so upsoaring as to stride sea over,</l>
+<l n="tr">The strong lamp-voyager, and all for joyance --</l>
+<l n="tr">Did the gold-glorious splendour, any sun like,</l>
+<l n="tr">Pass on -- the pine-tree -- to Makistos' watch-place;</l>
+<l n="tr">Who did not, -- tardy, -- caught, no wits about him,</l>
+<l n="tr">By sleep, -- decline his portion of the missive.</l>
+<l n="tr">And far the beacon's light, on stream Euripos</l>
+<l n="tr">Arriving, made aware Messapios' warders,</l>
+<l n="tr">And up they lit in turn, played herald onwards,</l>
+<l n="tr">Kindling with flame a heap of grey old heather.</l>
+<l n="tr">And, strengthening still, the lamp, decaying nowise,</l>
+<l n="tr">Springing o'er Plain Asopos, -- full-moon-fashion</l>
+<l n="tr">Effulgent, -- toward the crag of Mount Kithairon,</l>
+<l n="tr">Roused a new rendering-up of fire the escort --</l>
+<l n="tr">And light, far escort, lacked no recognition</l>
+<l n="tr">O' the guard -- as burning more than burnings told you.</l>
+<l n="tr">And over Lake Gorgopis light went leaping,</l>
+<l n="tr">And, at Mount Aigiplanktos safe arriving,</l>
+<l n="tr">Enforced the law --  "to never stint the fire-stuff."</l>
+<l n="tr">And they send, lighting up with ungrudged vigour,</l>
+<l n="tr">Of flame a huge beard, ay, the very foreland</l>
+<l n="tr">So as to strike above, in burning onward,</l>
+<l n="tr">The look-out which commands the Strait Saronic.</l>
+<l n="tr">Then did it dart until it reached the outpost</l>
+<l n="tr">Mount Arachnaios here, the city's neighbour;</l>
+<l n="tr">And then darts to this roof of the Atreidai</l>
+<l n="tr">This light of Ide's fire not unforefathered!</l>
+<l n="tr">Such are the rules prescribed the flambeau-bearers:</l>
+<l n="tr">He beats that's first and also last in running.</l>
+<l n="tr">Such is the proof and token I declare thee,</l>
+<l n="tr">My husband having sent me news from <placeName key="tgn,7002329">Troia</placeName>.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">The gods, indeed, anon will I pray, woman!</l>
+<l n="tr">But now, these words to hear, and sate my wonder</l>
+<l n="tr">Thoroughly, I am fain -- if twice thou tell them.
+<milestone ed="p" n="320" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr"><placeName key="tgn,7002329">Troia</placeName> do the Achaioi hold, this same day.</l>
+<l n="tr">I think a noise -- no mixture -- reigns i' the city.</l>
+<l n="tr">Sour wine and unguent pour thou in one vessel --</l>
+<l n="tr">Standers-apart, not lovers, wouldst thou style them:</l>
+<l n="tr">And so, of captives and of conquerors, partwise</l>
+<l n="tr">The voices are to hear, of fortune diverse.</l>
+<l n="tr">For those, indeed, upon the bodies prostrate</l>
+<l n="tr">Of husbands, brothers, children upon parents</l>
+<l n="tr">-- The old men, from a throat that 's free no longer,</l>
+<l n="tr">Shriekingly wail the death-doom of their dearest:</l>
+<l n="tr">While these -- the after-battle hungry labour,</l>
+<l n="tr">Which prompts night-faring, marshals them to breakfast</l>
+<l n="tr">On the town's store, according to no billet</l>
+<l n="tr">Of sharing, but as each drew lot of fortune.</l>
+<l n="tr">In the spear-captured Troic habitations</l>
+<l n="tr">House they already: from the frosts upmethral</l>
+<l n="tr">And dews delivered, will they, luckless creatures,</l>
+<l n="tr">Without a watch to keep, slumber all night through.</l>
+<l n="tr">And if they fear the gods, the city-guarders,</l>
+<l n="tr">And the gods' structures of the conquered country,</l>
+<l n="tr">They may not -- capturers--soon in turn be captive.</l>
+<l n="tr">But see no prior lust befall the army</l>
+<l n="tr">To sack things sacred -- by gain-cravings vanquished</l>
+<l n="tr">For there needs homeward the return's salvation,</l>
+<l n="tr">To round the new limb back o' the double race-course.</l>
+<l n="tr">And guilty to the gods if came the army,</l>
+<l n="tr">Awakened up the sorrow of those slaughtered</l>
+<l n="tr">Might be -- should no outbursting evils happen.</l>
+<l n="tr">But may good beat -- no turn to see i' the balance!</l>
+<l n="tr">For, many benefits I want the gain of.</l></sp>
+<sp n="CHOROS"><speaker>CHOROS.</speaker>
+<l n="tr">Woman, like prudent man thou kindly speakest.</l>
+<l n="tr">And I, thus having heard thy trusty tokens,</l>
+<l n="tr">The gods to rightly hail forthwith prepare me;</l>
+<l n="tr">For, grace that must be paid has crowned our labours.
+<milestone ed="p" n="355" unit="card"/></l>
+<l n="tr">O Zeus the king, and friendly Night</l>
+<l n="tr">Of these brave boons bestower --</l>
+<l n="tr">Thou who didst fling on <placeName key="tgn,7002329">Troia</placeName>'s every tower</l>
+<l n="tr">The o'er-roofing snare, that neither great thing might,</l>
+<l n="tr">Nor any of the young ones, overpass</l>
+<l n="tr">Captivity's great sweep-net -- one and all</l>
+<l n="tr">Of At&eacute; held in thrall!</l>
+<l n="tr">Ay, Zeus I fear -- the guest's friend great -- who was</l>
+<l n="tr">The doer of this, and long since bent</l>
+<l n="tr">The bow on Alexandros with intent</l>
+<l n="tr">That neither wide o' the white</l>
+<l n="tr">Nor o'er the stars the foolish dart should light.</l></sp></div1>
+<div1 type="choral">
+<milestone ed="p" n="367" unit="card"/>
+<sp n="CHOROS"><speaker>CHOROS.</speaker>
+<l n="tr">The stroke of Zeus -- they have it, as men say!</l>
+<l n="tr">This, at least, from the source track forth we may!</l>
+<l n="tr">As he ordained, so has he done.</l>
+<l n="tr">"No" -- said someone --</l>
+<l n="tr">"The gods think fit to care</l>
+<l n="tr">Nowise for mortals, such</l>
+<l n="tr">As those by whom the good and fair</l>
+<l n="tr">Of things denied their touch</l>
+<l n="tr">Is trampled!" but he was profane.</l>
+<l n="tr">That they do care, has been made plain</l>
+<l n="tr">To offspring of the over-bold,</l>
+<l n="tr">Outbreathing "Ares" greater than is just --</l>
+<l n="tr">Houses that spill with more than they can hold,</l>
+<l n="tr">More than is best for man. Be man's what must</l>
+<l n="tr">Keep harm off, so that in himself he find</l>
+<l n="tr">Sufficiency -- the well-endowed of mind!</l>
+<l n="tr">For there's no bulwark in man's wealth to him</l>
+<l n="tr">Who, through a surfeit, kicks -- into the dim</l>
+<l n="tr">And disappearing -- Right's great altar.
+<milestone ed="p" n="385" unit="card"/></l>
+<l part="Y" n="tr">Yes --</l>
+<l n="tr">It urges him, the sad persuasiveness,</l>
+<l n="tr">At&eacute;'s insufferable child that schemes</l>
+<l n="tr">Treason beforehand: and all cure is vain.</l>
+<l n="tr">It is not hidden: out it glares again,</l>
+<l n="tr">A light dread-lamping-mischief, just as gleams</l>
+<l n="tr">The badness of the bronze;</l>
+<l n="tr">Through rubbing, puttings to the touch,</l>
+<l n="tr">Black-clotted is he, judged at once.</l>
+<l n="tr">He seeks -- the boy -- a flying bird to clutch,</l>
+<l n="tr">The insufferable brand</l>
+<l n="tr">Setting upon the city of his land</l>
+<l n="tr">Whereof not any god hears prayer;</l>
+<l n="tr">While him who brought about such evils there,</l>
+<l n="tr">That unjust man, the god in grapple throws.</l>
+<l n="tr">Such an one, Paris goes</l>
+<l n="tr">Within the Atreidai's house --</l>
+<l n="tr">Shamed the guest's board by robbery of the spouse.
+<milestone ed="p" n="403" unit="card"/></l>
+<l n="tr">And, leaving to her townsmen throngs a-spread</l>
+<l n="tr">With shields, and spear-thrusts of sea-armament,</l>
+<l n="tr">And bringing <placeName key="tgn,7002329">Ilion</placeName>, in a dowry's stead,</l>
+<l n="tr">Destruction -- swiftly through the gates she went,</l>
+<l n="tr">Daring the undareable. But many a groan outbroke</l>
+<l n="tr">From prophets of the House as thus they spoke.</l>
+<l n="tr">"Woe, woe the House, the House and Rulers, -- woe</l>
+<l n="tr">The marriage-bed and dints</l>
+<l n="tr">A husband's love imprints!</l>
+<l n="tr">There she stands silent! meets no honour -- no</l>
+<l n="tr">Shame -- sweetest still to see of things gone long ago!</l>
+<l n="tr">And, through desire of one across the main,</l>
+<l n="tr">A ghost will seem within the house to reign.</l>
+<l n="tr">And hateful to the husband is the grace</l>
+<l n="tr">Of well-shaped statues: from -- in place of eyes</l>
+<l n="tr">Those blanks -- all Aphrodite dies.
+<milestone ed="p" n="420" unit="card"/></l>
+<l n="tr">"But dream-appearing mournful fantasies --</l>
+<l n="tr">There they stand, bringing grace that's vain.</l>
+<l n="tr">For vain 't is, when brave things one seems to view;</l>
+<l n="tr">The fantasy has floated off, hands through;</l>
+<l n="tr">Gone, that appearance, -- nowise left to creep, --</l>
+<l n="tr">On wings, the servants in the paths of sleep!"</l>
+<l n="tr">Woes, then, in household and on hearth, are such</l>
+<l n="tr">As these--and woes surpassing these by much.</l>
+<l n="tr">But not these only: everywhere --</l>
+<l n="tr">For those who from the land</l>
+<l n="tr">Of <placeName key="tgn,1000074">Hellas</placeName> issued in a band,</l>
+<l n="tr">Sorrow, the heart must bear,</l>
+<l n="tr">Sits in the home of each, conspicuous there.</l>
+<l n="tr">Many a circumstance, at least,</l>
+<l n="tr">Touches the very breast.</l>
+<l n="tr">For those</l>
+<l n="tr">Whom any sent away, -- he knows:</l>
+<l n="tr">And in the live man's stead,</l>
+<l n="tr">Armour and ashes reach</l>
+<l n="tr">The house of each.
+<milestone ed="p" n="437" unit="card"/></l>
+<l n="tr">For Ares, gold-exchanger for the dead,</l>
+<l n="tr">And balance-holder in the fight o' the spear,</l>
+<l n="tr">Due-weight from <placeName key="tgn,7002329">Ilion</placeName> sends --</l>
+<l n="tr">What moves the tear on tear --</l>
+<l n="tr">A charred scrap to the friends:</l>
+<l n="tr">Filling with well-packed ashes every urn,</l>
+<l n="tr">For man -- that was -- the sole return.</l>
+<l n="tr">And they groan -- praising much, the while,</l>
+<l n="tr">Now this man as experienced in the strife,</l>
+<l n="tr">Now that, fallen nobly on a slaughtered pile,</l>
+<l n="tr">Because of -- not his own -- another's wife.</l>
+<l n="tr">But things there be, one barks,</l>
+<l n="tr">When no man harks:</l>
+<l n="tr">A surreptitious grief that's grudge</l>
+<l n="tr">Against the Atreidai who first sought the judge.</l>
+<l n="tr">But some there, round the rampart, have</l>
+<l n="tr">In Ilian earth, each one his grave:</l>
+<l n="tr">All fair-formed as at birth,</l>
+<l n="tr">It hid them -- what they have and hold -- the hostile earth.
+<milestone ed="p" n="456" unit="card"/></l>
+<l n="tr">And big with anger goes the city's word,</l>
+<l n="tr">And pays a debt by public curse incurred.</l>
+<l n="tr">And ever with me-- as about to hear</l>
+<l n="tr">A something night-involved -- remains my fear:</l>
+<l n="tr">Since of the many-slayers -- not</l>
+<l n="tr">Unwatching are the gods.</l>
+<l n="tr">The black Erinues, at due periods --</l>
+<l n="tr">Whoever gains the lot</l>
+<l n="tr">Of fortune with no right --</l>
+<l n="tr">Him, by life's strain and stress</l>
+<l n="tr">Back-again-beaten from success,</l>
+<l n="tr">They strike blind: and among the out-of-sight</l>
+<l n="tr">For who has got to be, avails no might.</l>
+<l n="tr">The being praised outrageously</l>
+<l n="tr">Is grave, for at the eyes of such an one</l>
+<l n="tr">Is launched, from Zeus, the thunder-stone.</l>
+<l n="tr">Therefore do I decide</l>
+<l n="tr">For so much and no more prosperity</l>
+<l n="tr">Than of his envy passes unespied.</l>
+<l n="tr">Neither a city-sacker would I be,</l>
+<l n="tr">Nor life, myself by others captive, see.
+<milestone ed="p" n="475" unit="card"/></l>
+<l n="tr">A swift report has gone our city through,</l>
+<l n="tr">From fire, the good-news messenger: if true,</l>
+<l n="tr">Who knows? Or is it not a god-sent lie?</l>
+<l n="tr">Who is so childish and deprived of sense</l>
+<l n="tr">That, having, at announcements of the flame</l>
+<l n="tr">Thus novel, felt his own heart fired thereby,</l>
+<l n="tr">He then shall at a change of evidence,</l>
+<l n="tr">Be worsted just the same?</l>
+<l n="tr">It is conspicuous in a woman's nature,</l>
+<l n="tr">Before its view to take a grace for granted:</l>
+<l n="tr">Too trustful, -- on her boundary, usurpature</l>
+<l n="tr">Is swiftly made;</l>
+<l n="tr">But swiftly, too, decayed,</l>
+<l n="tr">The glory perishes by woman vaunted.</l></sp></div1>
+<div1 type="episode">
+<milestone ed="p" n="488" unit="card"/>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Soon shall we know -- of these light-bearing torches,</l>
+<l n="tr">And beacons and exchanges, fire with fire --</l>
+<l n="tr">If they are true, indeed, or if, dream-fashion,</l>
+<l n="tr">This gladsome light came and deceived our judgment.</l>
+<l n="tr">Yon herald from the shore I see, o'ershadowed</l>
+<l n="tr">With boughs of olive: dust, mud's thirsty brother,</l>
+<l n="tr">Close neighbours on his garb, thus testify me</l>
+<l n="tr">That neither voiceless, nor yet kindling for thee</l>
+<l n="tr">Mountain-wood-flame, shall he explain by fire-smoke:</l>
+<l n="tr">But either tell out more the joyance, speaking ..</l>
+<l n="tr">Word contrary to which, I aught but love it!</l>
+<l n="tr">For may good be -- to good that's known -- appendage!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Whoever prays for aught else to this city</l>
+<l n="tr">-- May he himself reap fruit of his mind's error!</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">Ha, my forefathers' soil of earth Argeian!</l>
+<l n="tr">Thee, in this year's tenth light, am I returned to --</l>
+<l n="tr">Of many broken hopes, on one hope chancing;</l>
+<l n="tr">For never prayed I, in this earth Argeian</l>
+<l n="tr">Dying, to share my part in tomb the dearest.</l>
+<l n="tr">Now, hail thou earth, and hail thou also, sunlight,</l>
+<l n="tr">And Zeus, the country's lord, and king the Puthian</l>
+<l n="tr">From bow no longer urging at us arrows!</l>
+<l n="tr">Enough, beside Skamandros, cam'st thou adverse:</l>
+<l n="tr">Now, contrary, be saviour thou and healer,</l>
+<l n="tr">O king Apollon! And gods conquest-granting,</l>
+<l n="tr">All -- I invoke too, and my tutelary</l>
+<l n="tr">Hermes, dear herald, heralds' veneration, --</l>
+<l n="tr">And Heroes our forthsenders, -- friendly, once more</l>
+<l n="tr">The army to receive, the war-spear's leavings!</l>
+<l n="tr">Ha, mansions of my monarchs, roofs beloved,</l>
+<l n="tr">And awful seats, and deities sun-fronting --</l>
+<l n="tr">Receive with pomp your monarch, long time absent!</l>
+<l n="tr">For he comes bringing light in night-time to you,</l>
+<l n="tr">In common with all these -- king Agamemnon.</l>
+<l n="tr">But kindly greet him -- for clear shows your duty --</l>
+<l n="tr">Who has dug under <placeName key="tgn,7002329">Troia</placeName> with the mattock</l>
+<l n="tr">Of Zeus the Avenger, whereby plains are out-ploughed,</l>
+<l n="tr">Altars unrecognizable, and gods' shrines,</l>
+<l n="tr">And the whole land's seed thoroughly has perished.</l>
+<l n="tr">And such a yoke-strap having cast round <placeName key="tgn,7002329">Troia</placeName>,</l>
+<l n="tr">The elder king Atreides, happy man -- he</l>
+<l n="tr">Comes to be honoured, worthiest of what mortals</l>
+<l n="tr">Now are. Nor Paris nor the accomplice-city</l>
+<l n="tr">Outvaunts their deed as more than they are done-by:</l>
+<l n="tr">For, in a suit for rape and theft found guilty,</l>
+<l n="tr">He missed of plunder and, in one destruction,</l>
+<l n="tr">Fatherland, house and home has mowed to atoms:</l>
+<l n="tr">Debts the Priamidai have paid twice over.
+<milestone ed="p" n="538" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Hail, herald from the army of Achaians!</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">I hail: -- to die, will gainsay gods no longer!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Love of this fatherland did exercise thee?</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">So that I weep, at least, with joy, my eyes full.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">What, of this gracious sickness were ye gainers?</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">How now? instructed, I this speech shall master.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">For those who loved you back, with longing stricken.</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">This land yearned for the yearning army, say'st thou?</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">So as to set me oft, from dark mind, groaning.</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">Whence came this ill mind -- hatred to the army?</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Of old, I use, for mischiefs physic, silence.</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">And how, the chiefs away, did you fear any?</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">So that now, -- late thy word, -- much joy were -- dying!</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">For well have things been worked out: these, -- in much time,</l>
+<l n="tr">Some of them, one might say, had luck in falling,</l>
+<l n="tr">While some were faulty: since who, gods excepted,</l>
+<l n="tr">Goes, through the whole time of his life, ungrieving?</l>
+<l n="tr">For labours should I tell of, and bad lodgments,</l>
+<l n="tr">Narrow deckways ill-strewn, too, -- what the day's woe</l>
+<l n="tr">We did not groan at getting for our portion?</l>
+<l n="tr">As for land-things, again, on went more hatred!</l>
+<l n="tr">Since beds were ours hard by the foemen's ramparts,</l>
+<l n="tr">And, out of heaven and from the earth, the meadow</l>
+<l n="tr">Dews kept a-sprinkle, an abiding damage</l>
+<l n="tr">Of vestures, making hair a wild-beast matting.</l>
+<l n="tr">Winter, too, if one told of it -- bird-slaying --</l>
+<l n="tr">Such as, unbearable, Idaian snow brought --</l>
+<l n="tr">Or heat, when waveless, on its noontide couches</l>
+<l n="tr">Without a wind, the sea would slumber falling</l>
+<l n="tr">-- Why must one mourn these? O'er and gone is labour:</l>
+<l n="tr">O'er and gone is it, even to those dead ones,</l>
+<l n="tr">So that no more again they mind uprising.</l>
+<l n="tr">Why must we tell in numbers those deprived ones,</l>
+<l n="tr">And the live man be vexed with fate's fresh outbreak?</l>
+<l n="tr">Rather, I bid full farewell to misfortunes!</l>
+<l n="tr">For us, the left from out the Argeian army,</l>
+<l n="tr">The gain beats, nor does sorrow counterbalance.</l>
+<l n="tr">So that 't is fitly boasted of, this sunlight,</l>
+<l n="tr">By us, o'er sea and land the aery flyers,</l>
+<l n="tr">"<placeName key="tgn,7002329">Troia</placeName> at last taking, the band of Argives</l>
+<l n="tr">Hang up such trophies to the gods of <placeName key="tgn,1000074">Hellas</placeName></l>
+<l n="tr">Within their domes -- new glory to grow ancient!"</l>
+<l n="tr">Such things men having heard must praise the city</l>
+<l n="tr">And army-leaders: and the grace which wrought them --</l>
+<l n="tr">Of Zeus, shall honoured be. Thou hast my whole word.
+<milestone ed="p" n="583" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">O'ercome by words, their sense I do not gainsay.</l>
+<l n="tr">For, aye this breeds youth in the old -- "to learn well."</l>
+<l n="tr">But these things most the house and Klutaimnestra</l>
+<l n="tr">Concern, 't is likely: while they make me rich, too.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">I shouted long ago, indeed, for joyance,</l>
+<l n="tr">When came that first night-messenger of fire</l>
+<l n="tr">Proclaiming <placeName key="tgn,7002329">Ilion</placeName>'s capture and dispersion.</l>
+<l n="tr">And someone, girding me, said, "Through fire-bearers</l>
+<l n="tr">Persuaded -- <placeName key="tgn,7002329">Troia</placeName> to be sacked now, thinkest?</l>
+<l n="tr">Truly, the woman's way, -- high to lift heart up! "</l>
+<l n="tr">By such words I was made seem wit-bewildered:</l>
+<l n="tr">Yet still I sacrificed; and, -- female-song with, --</l>
+<l n="tr">A shout one man and other, through the city,</l>
+<l n="tr">Set up, congratulating in the gods' seats,</l>
+<l n="tr">Soothing the incense-eating flame right fragrant.</l>
+<l n="tr">And now, what's more, indeed, why need'st thou tell me?</l>
+<l n="tr">I of the king himself shall learn the whole word:</l>
+<l n="tr">And, -- as may best be, -- I my revered husband</l>
+<l n="tr">Shall hasten, as he comes back, to receive: for --</l>
+<l n="tr">What's to a wife sweeter to see than this light</l>
+<l n="tr">(Her husband, by the god saved, back from warfare)</l>
+<l n="tr">So as to open gates? This tell my husband --</l>
+<l n="tr">To come at soonest to his loving city.</l>
+<l n="tr">A faithful wife at home may he find, coming!</l>
+<l n="tr">Such an one as he left -- the dog o' the household --</l>
+<l n="tr">Trusty to him, adverse to the ill-minded,</l>
+<l n="tr">And, in all else, the same: no signet-impress</l>
+<l n="tr">Having done harm to, in that time's duration.</l>
+<l n="tr">I know nor pleasure, nor blameworthy converse</l>
+<l n="tr">With any other man more than -- bronze-dippings!
+<milestone ed="p" n="613" unit="card"/></l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">Such boast as this -- brimful of the veracious --</l>
+<l n="tr">Is, for a high-born dame, not bad to send forth!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Ay, she spoke thus to thee -- that hast a knowledge</l>
+<l n="tr">From clear interpreters -- a speech most seemly.</l>
+<l n="tr">But speak thou, herald! Meneleos I ask of:</l>
+<l n="tr">If he, returning, back in safety also</l>
+<l n="tr">Will come with you -- this land's beloved chieftain?</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">There's no way I might say things false and pleasant</l>
+<l n="tr">For friends to reap the fruits of through a long time.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">How then if, speaking good, things true thou chance on?</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">For not well-hidden things become they, sundered.</l>
+<l n="tr">The man has vanished from the Achaic army,</l>
+<l n="tr">He and his ship too. I announce no falsehood.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Whether forth-putting openly from <placeName key="tgn,7002329">Ilion</placeName>,</l>
+<l n="tr">Or did storm -- wide woe -- snatch him from the army?</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">Like topping bowman, thou hast touched the target,</l>
+<l n="tr">And a long sorrow hast succinctly spoken.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Whether, then, of him, as a live or dead man</l>
+<l n="tr">Was the report by other sailors bruited?</l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">Nobody knows so as to tell out clearly</l>
+<l n="tr">Excepting Helios who sustains earth's nature.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">How say'st thou then, did storm the naval army</l>
+<l n="tr">Attack and end, by the celestials' anger?
+<milestone ed="p" n="636" unit="card"/></l></sp>
+<sp><speaker>HERALD.</speaker>
+<l n="tr">It suits not to defile a day auspicious</l>
+<l n="tr">With ill-announcing speech: distinct each god's due:</l>
+<l n="tr">And when a messenger with gloomy visage</l>
+<l n="tr">To a city bears a fall'n host's woes-- God ward off! --</l>
+<l n="tr">One popular wound that happens to the city,</l>
+<l n="tr">And many sacrificed from many households --</l>
+<l n="tr">Men, scourged by that two-thonged whip Ares loves so,</l>
+<l n="tr">Double spear-headed curse, bloody yoke-couple, --</l>
+<l n="tr">Of woes like these, doubtless, whoe'er comes weighted,</l>
+<l n="tr">Him does it suit to sing the Erinues' paian.</l>
+<l n="tr">But who, of matters saved a glad-news-bringer,</l>
+<l n="tr">Comes to a city in good estate rejoicing. ...</l>
+<l n="tr">How shall I mix good things with evil, telling</l>
+<l n="tr">Of storm against the Achaioi, urged by gods' wrath?</l>
+<l n="tr">For they swore league, being arch-foes before that,</l>
+<l n="tr">Fire and the sea: and plighted troth approved they,</l>
+<l n="tr">Destroying the unhappy Argeian army.</l>
+<l n="tr">At night began the bad-wave-outbreak evils;</l>
+<l n="tr">For, ships against each other Threkian breezes</l>
+<l n="tr">Shattered: and these, butted at in a fury</l>
+<l n="tr">By storm and typhoon, with surge rain-resounding, --</l>
+<l n="tr">Off they went, vanished, thro' a bad herd's whirling.</l>
+<l n="tr">And, when returned the brilliant light of Helios,</l>
+<l n="tr">We view the Aigaian sea on flower with corpses</l>
+<l n="tr">Of men Achaian and with naval ravage.</l>
+<l n="tr">But us indeed, and ship, unhurt i' the hull too,</l>
+<l n="tr">Either someone outstole us or outprayed us --</l>
+<l n="tr">Some god -- no man it was the tiller touching.</l>
+<l n="tr">And Fortune, saviour, willing on our ship sat.</l>
+<l n="tr">So as it neither had in harbour wave-surge</l>
+<l n="tr">Nor ran aground against a shore all rocky.</l>
+<l n="tr">And then, the water-Haides having fled from</l>
+<l n="tr">In the white day, not trusting to our fortune,</l>
+<l n="tr">We chewed the cud in thoughts -- this novel sorrow</l>
+<l n="tr">O' the army labouring and badly pounded.</l>
+<l n="tr">And now -- if anyone of them is breathing --</l>
+<l n="tr">They talk of us as having perished: why not?</l>
+<l n="tr">And we -- that they the same fate have, imagine.</l>
+<l n="tr">May it be for the best! Meneleos, then,</l>
+<l n="tr">Foremost and specially to come, expect thou!</l>
+<l n="tr">If (that is) any ray o' the sun reports him</l>
+<l n="tr">Living and seeing too--by Zeus' contrivings,</l>
+<l n="tr">Not yet disposed to quite destroy the lineage --</l>
+<l n="tr">Some hope is he shall come again to household.</l>
+<l n="tr">Having heard such things, know, thou truth art hearing!</l></sp></div1>
+<div1 type="choral">
+<milestone ed="p" n="681" unit="card"/>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Who may he have been that named thus wholly with exactitude --</l>
+<l n="tr">(Was he someone whom we see not, by forecastings of the future</l>
+<l n="tr">Guiding tongue in happy mood?)</l>
+<l n="tr">-- Her with battle for a bridegroom, on all sides contention-wooed,</l>
+<l n="tr">Helena? Since -- mark the suture! --</l>
+<l n="tr">Ship's-Hell, Man's-Hell, City's-Hell,</l>
+<l n="tr">From the delicately-pompous curtains that pavilion well,</l>
+<l n="tr">Forth, by favour of the gale</l>
+<l n="tr">Of earth-born Zephuros did she sail.</l>
+<l n="tr">Many shield-bearers, leaders of the pack,</l>
+<l n="tr">Sailed too upon their track,</l>
+<l n="tr">Theirs who had directed oar,</l>
+<l n="tr">Then visible no more,</l>
+<l n="tr">To Simois' leaf-luxuriant shore --</l>
+<l n="tr">For sake of strife all gore!
+<milestone ed="p" n="699" unit="card"/></l>
+<l n="tr">To <placeName key="tgn,7002329">Ilion</placeName> Wrath, fulfilling her intent,</l>
+<l n="tr">This marriage-care -- the rightly named so -- sent:</l>
+<l n="tr">In after-time, for the tables' abuse</l>
+<l n="tr">And that of the hearth-partaker Zeus,</l>
+<l n="tr">Bringing to punishment</l>
+<l n="tr">Those who honoured with noisy throat</l>
+<l n="tr">The honour of the bride, the hymenseal note</l>
+<l n="tr">Which did the kinsfolk then to singing urge.</l>
+<l n="tr">But, learning a new hymn for that which was,</l>
+<l n="tr">The ancient city of Priamos</l>
+<l n="tr">Groans probably a great and general dirge,</l>
+<l n="tr">Denominating Paris</l>
+<l n="tr">"The man that miserably marries": --</l>
+<l n="tr">She who, all the while before,</l>
+<l n="tr">A life, that was a general dirge</l>
+<l n="tr">For citizens' unhappy slaughter, bore.
+<milestone ed="p" n="716" unit="card"/></l>
+<l n="tr">And thus a man, by no milk's help,</l>
+<l n="tr">Within his household reared a lion's whelp</l>
+<l n="tr">That loved the teat</l>
+<l n="tr">In life's first festal stage:</l>
+<l n="tr">Gentle as yet,</l>
+<l n="tr">A true child-lover, and, to men of age,</l>
+<l n="tr">A thing whereat pride warms;</l>
+<l n="tr">And oft he had it in his arms</l>
+<l n="tr">Like any new-born babe, bright-faced, to hand</l>
+<l n="tr">Wagging its tail, at belly's strict command.
+<milestone ed="p" n="727" unit="card"/></l>
+<l n="tr">But in due time upgrown,</l>
+<l n="tr">The custom of progenitors was shown:</l>
+<l n="tr">For-thanks for sustenance repaying</l>
+<l n="tr">With ravage of sheep slaughtered --</l>
+<l n="tr">It made unbidden feast;</l>
+<l n="tr">With blood the house was watered,</l>
+<l n="tr">To household came a woe there was no staying:</l>
+<l n="tr">Great mischief many-slaying!
+<milestone ed="p" n="737" unit="card"/></l>
+<l n="tr">From God it was-some priest</l>
+<l n="tr">Of At&eacute;, in the house, by nurture thus increased.</l>
+<l n="tr">At first, then, to the city of Ilion went</l>
+<l n="tr">A soul, as I might say, of windless calm --</l>
+<l n="tr">Wealth's quiet ornament,</l>
+<l n="tr">An eyes'-dart bearing balm,</l>
+<l n="tr">Love's spirit-biting flower.</l>
+<l n="tr">But -- from the true course bending --</l>
+<l n="tr">She brought about, of marriage, bitter ending:</l>
+<l n="tr">Ill-resident, ill-mate, in power</l>
+<l n="tr">Passing to the Priamidai -- by sending</l>
+<l n="tr">Of Hospitable Zeus --</l>
+<l n="tr">Erinus for a bride, -- to make brides mourn, her dower.
+<milestone ed="p" n="750" unit="card"/></l>
+<l n="tr">Spoken long ago</l>
+<l n="tr">Was the ancient saying</l>
+<l n="tr">Still among mortals staying:</l>
+<l n="tr">"Man's great prosperity at height of rise</l>
+<l n="tr">Engenders offspring nor unchilded dies;</l>
+<l n="tr">And, from good fortune, to such families,</l>
+<l n="tr">Buds forth insatiate woe."</l>
+<l n="tr">Whereas, distinct from any,</l>
+<l n="tr">Of my own mind I am:</l>
+<l n="tr">For 't is the unholy deed begets the many,</l>
+<l n="tr">Resembling each its dam.</l>
+<l n="tr">Of households that correctly estimate,</l>
+<l n="tr">Ever a beauteous child is born of Fate.
+<milestone ed="p" n="763" unit="card"/></l>
+<l n="tr">But ancient Arrogance delights to generate</l>
+<l n="tr">Arrogance, young and strong mid mortals' sorrow,</l>
+<l n="tr">Or now, or then, when comes the appointed morrow.</l>
+<l n="tr">And she bears young Satiety;</l>
+<l n="tr">And, fiend with whom nor fight nor war can be,</l>
+<l n="tr">Unholy Daring -- twin black Curses</l>
+<l n="tr">Within the household, children like their nurses.
+<milestone ed="p" n="772" unit="card"/></l>
+<l n="tr">But Justice shines in smoke-grimed habitations,</l>
+<l n="tr">And honours the well-omened life;</l>
+<l n="tr">While, -- gold-besprinkled stations</l>
+<l n="tr">Where the hands' filth is rife,</l>
+<l n="tr">With backward-turning eyes</l>
+<l n="tr">Leaving, -- to holy seats she hies,</l>
+<l n="tr">Not worshipping the power of wealth</l>
+<l n="tr">Stamped with applause by stealth:</l>
+<l n="tr">And to its end directs each thing begun.
+<milestone ed="p" n="782" unit="card"/></l>
+<l n="tr">Approach then, my monarch, of <placeName key="tgn,7002329">Troia</placeName> the sacker, of Atreus the son!</l>
+<l n="tr">How ought I address thee, how ought I revere thee, --  nor yet overhitting</l>
+<l n="tr">Nor yet underbending the grace that is fitting?</l>
+<l n="tr">Many of mortals hasten to honour the seeming-to-be --</l>
+<l n="tr">Passing by justice: and, with the ill-faring, to groan as he groans all are free.</l>
+<l n="tr">But no bite of the sorrow their liver has reached to:</l>
+<l n="tr">They say with the joyful, -- one outside on each, too,</l>
+<l n="tr">As they force to a smile smileless faces.</l>
+<l n="tr">But whoever is good at distinguishing races</l>
+<l n="tr">In sheep of his flock -- it is not for the eyes</l>
+<l n="tr">Of a man to escape such a shepherd's surprise,</l>
+<l n="tr">As they seem, from a well-wishing mind,</l>
+<l n="tr">In watery friendship to fawn and be kind.</l>
+<l n="tr">Thou to me, then, indeed, sending an army for Helena's sake,</l>
+<l n="tr">(I will not conceal it) wast -- oh, by no help of the Muses! -- depicted</l>
+<l n="tr">Not well of thy midriff the rudder directing. -- convicted</l>
+<l n="tr">Of bringing a boldness they did not desire to the men with existence at stake.</l>
+<l n="tr">But now -- from no outside of mind, nor unlovingly -- gracious thou art</l>
+<l n="tr">To those who have ended the labour, fulfilling their part;</l>
+<l n="tr">And in time shalt thou know, by inquiry instructed,</l>
+<l n="tr">Who of citizens justly, and who not to purpose, the city conducted.</l></sp></div1>
+<div1 type="episode">
+<milestone ed="p" n="810" unit="card"/>
+<sp><speaker>AGAMEMNON.</speaker>
+    <l n="tr">First, indeed, <placeName key="tgn,perseus,Argos">Argos</placeName>, and the gods, the local,</l>
+<l n="tr">'T is right addressing -- those with me the partners</l>
+<l n="tr">In this return and right things done the city</l>
+<l n="tr">Of Priamos: gods who, from no tongue hearing</l>
+<l n="tr">The rights o' the cause, for <placeName key="tgn,7002329">Ilion</placeName>'s fate man-slaught'rous</l>
+<l n="tr">Into the bloody vase, not oscillating,</l>
+<l n="tr">Put the vote-pebbles, while, o' the rival vessel,</l>
+<l n="tr">Hope rose up to the lip-edge: filled it was not.</l>
+<l n="tr">By smoke the captured city is still conspicuous:</l>
+<l n="tr">At&eacute;'s burnt offerings live: and, dying with them,</l>
+<l n="tr">The ash sends forth the fulsome blasts of riches.</l>
+<l n="tr">Of these things, to the gods grace many-mindful</l>
+<l n="tr">'T is right I render, since both nets outrageous</l>
+<l n="tr">We built them round with, and, for sake of woman,</l>
+<l n="tr">It did the city to dust -- the Argeian monster,</l>
+<l n="tr">The horse's nestling, the shield-bearing people</l>
+<l n="tr">That made a leap, at setting of the Pleiads,</l>
+<l n="tr">And, vaulting o'er the tower, the raw-flesh-feeding</l>
+<l n="tr">Lion licked up his fill of blood tyrannic.</l>
+<l n="tr">I to the gods indeed prolonged this preface;</l>
+<l n="tr">But -- as for <emph>thy</emph> thought, I remember hearing --</l>
+<l n="tr">I say the same, and thou co-pleader hast me.</l>
+<l n="tr">Since few of men this faculty is born with --</l>
+<l n="tr">To honour, without grudge, their friend, successful.</l>
+<l n="tr">For moody, on the heart, a poison seated</l>
+<l n="tr">Its burthen doubles to who gained the sickness:</l>
+<l n="tr">By his own griefs he is himself made heavy,</l>
+<l n="tr">And out-of-door prosperity seeing groans at.</l>
+<l n="tr">Knowing, I'd call (for well have I experienced)</l>
+<l n="tr">"Fellowship's mirror," "phantom of a shadow,"</l>
+<l n="tr">Those seeming to be mighty gracious to me:</l>
+<l n="tr">While just Odusseus -- he who sailed not willing --</l>
+<l n="tr">When joined on, was to me the ready trace-horse.</l>
+<l n="tr">This of him, whether dead or whether living,</l>
+<l n="tr">I say. For other city-and-gods' concernment --</l>
+<l n="tr">Appointing common courts, in full assemblage</l>
+<l n="tr">We will consult. And as for what holds seemly --</l>
+<l n="tr">How it may lasting stay well, must be counselled:</l>
+<l n="tr">While what has need of medicines Paionian</l>
+<l n="tr">We, either burning or else cutting kindly,</l>
+<l n="tr">Will make endeavour to turn pain from sickness.</l>
+<l n="tr">And now into the domes and homes by altar</l>
+<l n="tr">Going, I to the gods first raise the right-hand --</l>
+<l n="tr">They who, far sending, back again have brought me.</l>
+<l n="tr">And Victory, since she followed, fixed remain she!
+<milestone ed="p" n="855" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Men, citizens, Argeians here, my worships!</l>
+<l n="tr">I shall not shame me, consort-loving manners</l>
+<l n="tr">To tell before you: for in time there dies off</l>
+<l n="tr">The diffidence from people. Not from others</l>
+<l n="tr">Learning, I of myself will tell the hard life</l>
+<l n="tr">I bore so long as this man was 'neath <placeName key="tgn,7002329">Ilion</placeName>.</l>
+<l n="tr">First: for a woman, from the male divided,</l>
+<l n="tr">To sit at home alone, is monstrous evil --</l>
+<l n="tr">Hearing the many rumours back-revenging:</l>
+<l n="tr">And for now This to come, now That bring after</l>
+<l n="tr">Woe, and still worse woe, bawling in the household!</l>
+<l n="tr">And truly, if so many wounds had chanced on</l>
+<l n="tr">My husband here, as homeward used to dribble</l>
+<l n="tr">Report, he's pierced more than a net to speak of!</l>
+<l n="tr">While, were he dying (as the words abounded)</l>
+<l n="tr">A triple-bodied Geruon the Second,</l>
+<l n="tr">Plenty above -- for loads below I count not --</l>
+<l n="tr">Of earth a three-share cloak he'd boast of taking,</l>
+<l n="tr">Once only dying in each several figure!</l>
+<l n="tr">Because of suchlike rumours back-revenging,</l>
+<l n="tr">Many the halters from my neck, above head,</l>
+<l n="tr">Others than <emph>I</emph> loosed -- loosed from neck by main force!</l>
+<l n="tr">From this cause, sure, the boy stands not beside me --</l>
+<l n="tr">Possessor of our troth-plights, thine and mine too --</l>
+<l n="tr">As ought Orestes: be not thou astonished!</l>
+<l n="tr">For, him brings up our well-disposed guest-captive</l>
+<l n="tr">Strophios the Phokian -- ills that told on both sides</l>
+<l n="tr">To me predicting -- both of thee 'neath <placeName key="tgn,7002329">Ilion</placeName></l>
+<l n="tr">The danger, and if anarchy's mob-uproar</l>
+<l n="tr">Should overthrow thy council; since 't is born with</l>
+<l n="tr">Mortals, -- whoe'er has fallen, the more to kick him.</l>
+<l n="tr">Such an excuse, I think, no cunning carries!
+<milestone ed="p" n="887" unit="card"/></l>
+<l n="tr">As for myself -- why, of my wails the rushing</l>
+<l n="tr">Fountains are dried up: not in them a drop more!</l>
+<l n="tr">And in my late-to-bed eyes I have damage,</l>
+<l n="tr">Bewailing what concerned thee, those torch-holdings</l>
+<l n="tr">For ever unattended to. In dreams -- why,</l>
+<l n="tr">Beneath the light wing-beats o' the gnat, I woke up</l>
+<l n="tr">As he went buzzing -- sorrows that concerned thee</l>
+<l n="tr">Seeing, that filled more than their fellow-sleep-time.</l>
+<l n="tr">Now, all this having suffered, from soul grief-free</l>
+<l n="tr">I would style this man here the dog o' the stables,</l>
+<l n="tr">The saviour forestay of the ship, the high roof's</l>
+<l n="tr">Ground-prop, son sole-begotten to his father,</l>
+<l n="tr">-- Ay, land appearing to the sailors past hope,</l>
+<l n="tr">Loveliest day to see after a tempest,</l>
+<l n="tr">To the wayfaring-one athirst a well-spring,</l>
+<l n="tr">-- The joy, in short, of 'scaping all that 's -- fatal!</l>
+<l n="tr">I judge him worth addresses such as these are</l>
+<l n="tr">-- Envy stand off! -- for many those old evils</l>
+<l n="tr">We underwent. And now, to me -- dear headship! --</l>
+<l n="tr">Dismount thou from this car, not earthward setting</l>
+<l n="tr">The foot of thine, O king, that's <placeName key="tgn,7002329">Ilion</placeName>'s spoiler!</l>
+<l n="tr">Slave-maids, why tarry? -- whose the task allotted</l>
+<l n="tr">To strew the soil o' the road with carpet-spreadings.</l>
+<l n="tr">Immediately be purple-strewn the pathway,</l>
+<l n="tr">So that to home unhoped may lead him -- Justice!</l>
+<l n="tr">As for the rest, care shall -- by no sleep conquered --</l>
+<l n="tr">Dispose things -- justly (gods to aid!) appointed.
+<milestone ed="p" n="914" unit="card"/></l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">Offspring of Leda, of my household warder,</l>
+<l n="tr">Suitably to my absence hast thou spoken,</l>
+<l n="tr">For long the speech thou didst outstretch! But aptly</l>
+<l n="tr">To praise -- from others ought to go this favour.</l>
+<l n="tr">And for the rest, ---not me, in woman's fashion,</l>
+<l n="tr">Mollify, nor -- as mode of barbarous man is --</l>
+<l n="tr">To me gape forth a groundward-falling clamour!</l>
+<l n="tr">Nor, strewing it with garments, make my passage</l>
+<l n="tr">Envied! Gods, sure, with these behoves we honour:</l>
+<l n="tr">But, for a mortal on these varied beauties</l>
+<l n="tr">To walk -- to me, indeed, is nowise fear-free.</l>
+<l n="tr">I say -- as man, not god, to me do homage!</l>
+<l n="tr">Apart from foot-mats both and varied vestures,</l>
+<l n="tr">Renown is loud, and  --  not to lose one's senses,</l>
+<l n="tr">God's greatest gift. Behoves we him call happy</l>
+<l n="tr">Who has brought life to end in loved well-being.</l>
+<l n="tr">If all things I might manage thus -- brave man, I!</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Come now, this say, nor feign a feeling to me!</l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">With feeling, know indeed, I do not tamper!</l></sp>
+<sp><speaker>KLUTAIMNESTRA</speaker>
+<l n="tr">Vowed'st thou to the gods, in fear, to act thus?</l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">If any, I well knew resolve I outspoke.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">What think'st thou Priamos had done, thus victor?</l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">On varied vests -- I do think -- he had passaged.</l></sp>
+<sp><speaker>KLUTAIMNESTRA</speaker>
+<l n="tr">Then, do not, struck with awe at human censure ....</l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">Well, popular mob-outcry much avails too.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Ay, but the unenvied is not the much valued.</l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">Sure, 't is no woman's part to long for battle.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Why, to the prosperous, even suits a beating.</l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">What? thou this beating us in war dost prize too?</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Persuade thee! power, for once, grant <emph>me</emph> -- and willing!
+<milestone ed="p" n="944" unit="card"/></l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">But if this seem so to thee -- shoes, let someone</l>
+<l n="tr">Loose under, quick -- foot's serviceable carriage!</l>
+<l n="tr">And me, on these sea-products walking, may no</l>
+<l n="tr">Grudge from a distance, from the god's eye, strike at!</l>
+<l n="tr">For great shame were my strewment-spoiling -- riches</l>
+<l n="tr">Spoiling with feet, and silver-purchased textures!</l>
+<l n="tr">Of these things, thus then. But this female-stranger</l>
+<l n="tr">Tenderly take inside! Who conquers mildly</l>
+<l n="tr">God, from afar, benignantly regardeth.</l>
+<l n="tr">For, willing, no one wears a yoke that's servile:</l>
+<l n="tr">And she, of many valuables, outpicked</l>
+<l n="tr">The flower, the army's gift, myself has followed.</l>
+<l n="tr">So, -- since to hear thee, I am brought about thus, --</l>
+<l n="tr">I go into the palace -- purples treading.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">There is the sea -- and what man shall exhaust it? --</l>
+<l n="tr">Feeding much purple's worth-its-weight-in-silver</l>
+<l n="tr">Dye, ever fresh and fresh, our garments' tincture;</l>
+<l n="tr">At home, such wealth, king, we begin -- by gods' help --</l>
+<l n="tr">With having, and to lack, the household knows not.</l>
+<l n="tr">Of many garments had I vowed a treading</l>
+<l n="tr">(In oracles if fore-enjoined the household)</l>
+<l n="tr">Of this dear soul the safe-return-price scheming!</l>
+<l n="tr">For, root existing, foliage goes up houses,</l>
+<l n="tr">O'erspreading shadow against Seirios dog-star;</l>
+<l n="tr">And, thou returning to the hearth domestic,</l>
+<l n="tr">Warmth, yea, in winter dost thou show returning.</l>
+<l n="tr">And when, too, Zeus works, from the green-grape acrid,</l>
+<l n="tr">Vine -- then, already, cool in houses cometh --</l>
+<l n="tr">The perfect man his home perambulating!</l>
+<l n="tr">Zeus, Zeus Perfecter, these my prayers perfect thou!</l>
+<l n="tr">Thy care be -- yea -- of things thou mayst make perfect!</l></sp></div1>
+<div1 type="choral">
+<milestone ed="p" n="975" unit="card"/>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Wherefore to me, this fear --</l>
+<l n="tr">Groundedly stationed here</l>
+<l n="tr">Fronting my heart, the portent-watcher -- flits she?</l>
+<l n="tr">Wherefore should prophet-play</l>
+<l n="tr">The uncalled and unpaid lay,</l>
+<l n="tr">Nor -- having spat forth fear, like bad dreams -- sits she</l>
+<l n="tr">On the mind's throne beloved -- well-suasive Boldness?</l>
+<l n="tr">For time, since, by a throw of all the hands,</l>
+<l n="tr">The boat's stern-cables touched the sands,</l>
+<l n="tr">Has past from youth to oldness, --</l>
+<l n="tr">When under <placeName key="tgn,7002329">Ilion</placeName> rushed the ship-borne bands.
+<milestone ed="p" n="988" unit="card"/></l>
+<l n="tr">And from my eyes I learn --</l>
+<l n="tr">Being myself my witness -- their return.</l>
+<l n="tr">Yet, all the same, without a lyre, my soul,</l>
+<l n="tr">Itself its teacher too, chants from within</l>
+<l n="tr">Erinus' dirge, not having now the whole</l>
+<l n="tr">Of Hope's dear boldness: nor my inwards sin  --</l>
+<l n="tr">The heart that's rolled in whirls against the mind</l>
+<l n="tr">Justly presageful of a fate behind.</l>
+<l n="tr">But I pray -- things false, from my hope, may fall</l>
+<l n="tr">Into the fate that's not-fulfilled-at-all!
+<milestone ed="p" n="1001" unit="card"/></l>
+<l n="tr">Especially at least, of health that's great</l>
+<l n="tr">The term's insatiable: for, its weight</l>
+<l n="tr">-- A neighbour, with a common wall between --</l>
+<l n="tr">Ever will sickness lean;</l>
+<l n="tr">And destiny, her course pursuing straight,</l>
+<l n="tr">Has struck man's ship against a reef unseen.</l>
+<l n="tr">Now, when a portion, rather than the treasure,</l>
+<l n="tr">Fear casts from sling, with peril in right measure,</l>
+<l n="tr">It has not sunk -- the universal freight,</l>
+<l n="tr">(With misery freighted over-full)</l>
+<l n="tr">Nor has fear whelmed the hull.</l>
+<l n="tr">Then too the gift of Zeus,</l>
+<l n="tr">Two-handedly profuse,</l>
+<l n="tr">Even from the furrows' yield for yearly use</l>
+<l n="tr">Has done away with famine, the disease;
+<milestone ed="p" n="1017" unit="card"/></l>
+<l n="tr">But blood of man to earth once falling-deadly, black --</l>
+<l n="tr">In times ere these, --</l>
+<l n="tr">Who may, by singing spells, call back?</l>
+<l n="tr">Zeus had not else stopped one who rightly knew</l>
+<l n="tr">The way to bring the dead again.</l>
+<l n="tr">But, did not an appointed Fate constrain</l>
+<l n="tr">The Fate from gods, to bear no more than due,</l>
+<l n="tr">My heart, outstripping what tongue utters,</l>
+<l n="tr">Would have all out: which now, in darkness, mutters</l>
+<l n="tr">Moodily grieved, nor ever hopes to find</l>
+<l n="tr">How she a word in season may unwind</l>
+<l n="tr">From out the enkindling mind.</l></sp></div1>
+<div1 type="episode">
+<milestone ed="p" n="1035" unit="card"/>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Take thyself in, thou too -- I say, Kassandra!</l>
+<l n="tr">Since Zeus -- not angrily--in household placed thee</l>
+<l n="tr">Partaker of hand-sprinklings, with the many</l>
+<l n="tr">Slaves stationed, his the Owner's altar close to.</l>
+<l n="tr">Descend from out this car, nor be high-minded</l>
+<l n="tr">And truly they do say Alkmen&eacute;'s child once</l>
+<l n="tr">Bore being sold, slaves' barley-bread his living.</l>
+<l n="tr">If, then, necessity of this lot o'erbalance,</l>
+<l n="tr">Much is the favour of old-wealthy masters:</l>
+<l n="tr">For those who, never hoping, made fine harvest</l>
+<l n="tr">Are harsh to slaves in all things, beyond measure.</l>
+<l n="tr">Thou hast -- with us -- such usage as law warrants.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">To thee it was, she paused plain speech from speaking.</l>
+<l n="tr">Being inside the fatal nets -- obeying,</l>
+<l n="tr">Thou mayst obey: but thou mayst disobey too!</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Why, if she is not, in the swallow's fashion,</l>
+<l n="tr">Possessed of voice that's unknown and barbaric,</l>
+<l n="tr">I, with speech -- speaking in mind's scope -- persuade her.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Follow! The best -- as things now stand -- she speaks of.</l>
+<l n="tr">Obey thou, leaving this thy car-enthronement!</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Well, with this thing at door, for me no leisure</l>
+<l n="tr">To waste time: as concerns the hearth mid-navelled,</l>
+<l n="tr">Already stand the sheep for fireside slaying</l>
+<l n="tr">By those who never hoped to have such favour.</l>
+<l n="tr">If thou, then, aught of this wilt do, delay not!</l>
+<l n="tr">But if thou, being witless, tak'st no word in,</l>
+<l n="tr">Speak thou, instead of voice, with hand as <placeName key="tgn,7002554">Kars</placeName> do!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">She seems a plain interpreter in need of,</l>
+<l n="tr">The stranger! and her way -- a beast's new-captured!</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Why, she is mad, sure, -- hears her own bad senses, --</l>
+<l n="tr">Who, while she comes, leaving a town new-captured,</l>
+<l n="tr">Yet knows not how to bear the bit o' the bridle</l>
+<l n="tr">Before she has out-frothed her bloody fierceness.</l>
+<l n="tr">Not I -- throwing away more words -- will shamed be!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">But I, -- for I compassionate, -- will chafe not.</l>
+<l n="tr">Come, O unhappy one, this car vacating,</l>
+<l n="tr">Yielding to this necessity, prove yoke's use!</l></sp></div1>
+<div1 type="choral">
+<milestone ed="p" n="1072" unit="card"/>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Otototoi, Gods, Earth, --</l>
+<l n="tr">Apollon, Apollon!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Why didst thou "ototoi" concerning Loxias?</l>
+<l n="tr">Since he is none such as to suit a mourner.
+<milestone ed="p" n="1076" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Otototoi, Gods, Earth, --</l>
+<l n="tr">Apollon, Apollon!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Ill-boding here again the god invokes she</l>
+<l n="tr">-- Nowise empowered in woes to stand by helpful.
+<milestone ed="p" n="1080" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Apollon, Apollon,</l>
+<l n="tr">Guard of the ways, my destroyer!</l>
+<l n="tr">For thou hast quite, this second time, destroyed me.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">To prophesy she seems of her own evils:</l>
+<l n="tr">Remains the god-gift to the slave-soul present.
+<milestone ed="p" n="1085" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Apollon, Apollon,</l>
+<l n="tr">Guard of the ways, my destroyer!</l>
+<l n="tr">Ha, whither hast thou led me? to what roof now?</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">To the Atreidai's roof: if this thou know'st not,</l>
+<l n="tr">I tell it thee, nor this wilt thou call falsehood.
+<milestone ed="p" n="1090" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">How! How!</l>
+<l n="tr">God-hated, then! Of many a crime it knew --</l>
+<l n="tr">Self-slaying evils, halters too:</l>
+<l n="tr">Man's-shambles, blood-besprinkler of the ground!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">She seems to be good-nosed, the stranger: dog-like,</l>
+<l n="tr">She snuffs indeed the victims she will find there.
+<milestone ed="p" n="1095" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">How! How!</l>
+<l n="tr">By the witnesses here I am certain now!</l>
+<l n="tr">These children bewailing their slaughters -- flesh dressed in the fire</l>
+<l n="tr">And devoured by their sire!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Ay, we have heard of thy soothsaying glory,</l>
+<l n="tr">Doubtless: but prophets none are we in scent of!
+<milestone ed="p" n="1100" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Ah, gods, what ever does she meditate?</l>
+<l n="tr">What this new anguish great?</l>
+<l n="tr">Great in the house here she meditates ill</l>
+<l n="tr">Such as friends cannot bear, cannot cure it: and still</l>
+<l n="tr">Off stands all Resistance</l>
+<l n="tr">Afar in the distance!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Of these I witless am -- these prophesyings.</l>
+<l n="tr">But those I knew: for the whole city bruits them.
+<milestone ed="p" n="1107" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Ah, unhappy one, this thou consummatest?</l>
+<l n="tr">Thy husband, thy bed's common guest,</l>
+<l n="tr">In the bath having brightened. .. How shall I declare</l>
+<l n="tr">Consummation? It soon will be there:</l>
+<l n="tr">For hand after hand she outstretches,</l>
+<l n="tr">At life as she reaches!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Nor yet I've gone with thee! for -- after riddles --</l>
+<l n="tr">Now, in blind oracles, I feel resourceless.
+<milestone ed="p" n="1114" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Eh, eh, papai, papai,</l>
+<l n="tr">What this, I espy?</l>
+<l n="tr">Some net of Haides undoubtedly</l>
+<l n="tr">Nay, rather, the snare</l>
+<l n="tr">Is she who has share</l>
+<l n="tr">In his bed, who takes part in the murder there!</l>
+<l n="tr">But may a revolt --</l>
+<l n="tr">Unceasing assault --</l>
+<l n="tr">On the Race, raise a shout</l>
+<l n="tr">Sacrificial, about</l>
+<l n="tr">A victim -- by stoning --</l>
+<l n="tr">For murder atoning!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">What this Erinus which i' the house thou callest</l>
+<l n="tr">To raise her cry? Not me thy word enlightens!</l>
+<l n="tr">To my heart has run</l>
+<l n="tr">A drop of the crocus-dye:</l>
+<l n="tr">Which makes for those</l>
+<l n="tr">On earth by the spear that lie,</l>
+<l n="tr">A common close</l>
+<l n="tr">With life's descending sun.</l>
+<l n="tr">Swift is the curse begun!
+<milestone ed="p" n="1125" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">How! How!</l>
+<l n="tr">See -- see quick!</l>
+<l n="tr">Keep the bull from the cow!</l>
+<l n="tr">In the vesture she catching him, strikes him now</l>
+<l n="tr">With the black-horned trick,</l>
+<l n="tr">And he falls in the watery vase!</l>
+<l n="tr">Of the craft-killing cauldron I tell thee the case!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">I would not boast to be a topping critic</l>
+<l n="tr">Of oracles: but to some sort of evil</l>
+<l n="tr">I liken these. From oracles, what good speech</l>
+<l n="tr">To mortals, beside, is sent?</l>
+<l n="tr">It comes of their evils: these arts word-abounding that sing the event</l>
+<l n="tr">Bring the fear't is their office to teach.
+<milestone ed="p" n="1136" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Ah me, ah me --</l>
+<l n="tr">Of me unhappy, evil-destined fortunes!</l>
+<l n="tr">For I bewail my proper woe</l>
+<l n="tr">As, mine with his, all into one I throw.</l>
+<l n="tr">Why hast thou hither me unhappy brought?</l>
+<l n="tr">-- Unless that I should die with him -- for nought!</l>
+<l n="tr">What else was sought?</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Thou art some mind-mazed creature, god-possessed:</l>
+<l n="tr">And all about thyself dost wail</l>
+<l n="tr">A lay -- no lay!</l>
+<l n="tr">Like some brown nightingale</l>
+<l n="tr">Insatiable of noise, who -- well-away! --</l>
+<l n="tr">From her unhappy breast</l>
+<l n="tr">Keeps moaning Itus, Itus, and his life</l>
+<l n="tr">With evils, flourishing on each side, rife.
+<milestone ed="p" n="1146" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Ah me, ah me,</l>
+<l n="tr">The fate o' the nightingale, the clear resounder!</l>
+<l n="tr">For a body wing-borne have the gods cast round her,</l>
+<l n="tr">And sweet existence, from misfortunes free:</l>
+<l n="tr">But for myself remains a sundering</l>
+<l n="tr">With spear, the two-edged thing!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Whence hast thou this on-rushing god-involving pain</l>
+<l n="tr">And spasms in vain?</l>
+<l n="tr">For, things that terrify,</l>
+<l n="tr">With changing unintelligible cry</l>
+<l n="tr">Thou strikest up in tune, yet all the while</l>
+<l n="tr">After that Orthian style!</l>
+<l n="tr">Whence hast thou limits to the oracular road,</l>
+<l n="tr">That evils bode?
+<milestone ed="p" n="1156" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Ah me, the nuptials, the nuptials of Paris, the deadly to friends!</l>
+<l n="tr">Ah me, of Skamandros the draught</l>
+<l n="tr">Paternal! There once, to these ends,</l>
+<l n="tr">On thy banks was I brought,</l>
+<l n="tr">The unhappy! And now, by Kokutos and Acheron's shore</l>
+<l n="tr">I shall soon be, it seems, these my oracles singing once more!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Why this word, plain too much,</l>
+<l n="tr">Hast thou uttered? A babe might learn of such!</l>
+<l n="tr">I am struck with a bloody bite -- here under --</l>
+<l n="tr">At the fate woe-wreaking</l>
+<l n="tr">Of thee shrill shrieking:</l>
+<l n="tr">To me who hear -- a wonder!
+<milestone ed="p" n="1167" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Ah me, the toils -- the toils of the city</l>
+<l n="tr">The wholly destroyed: ah, pity,</l>
+<l n="tr">Of the sacrificings my father made</l>
+<l n="tr">In the ramparts' aid --</l>
+<l n="tr">Much slaughter of grass-fed flocks -- that afforded no cure</l>
+<l n="tr">That the city should not, as it does now, the burthen endure!</l>
+<l n="tr">But I, with the soul on fire,</l>
+<l n="tr">Soon to the earth shall cast me and expire.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">To things, on the former consequent,</l>
+<l n="tr">Again hast thou given vent:</l>
+<l n="tr">And 't is some evil-meaning fiend doth move thee,</l>
+<l n="tr">Heavily falling from above thee,</l>
+<l n="tr">To melodize thy sorrows -- else, in singing,</l>
+<l n="tr">Calamitous, death-bringing!</l>
+<l n="tr">And of all this the end</l>
+<l n="tr">I am without resource to apprehend</l></sp></div1>
+<div1 type="episode">
+<milestone ed="p" n="1178" unit="card"/>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Well then, the oracle from veils no longer</l>
+<l n="tr">Shall be outlooking, like a bride new-married:</l>
+<l n="tr">But bright it seems, against the sun's uprisings</l>
+<l n="tr">Breathing, to penetrate thee: so as, wave-like,</l>
+<l n="tr">To wash against the rays a woe much greater</l>
+<l n="tr">Than this. I will no longer teach by riddles.</l>
+<l n="tr">And witness, running with me, that of evils</l>
+<l n="tr">Done long ago, I nosing track the footstep!</l>
+<l n="tr">For, this same roof here -- never quits a Choros</l>
+<l n="tr">One-voiced, not well-tuned since no "well" it utters:</l>
+<l n="tr">And truly having drunk, to get more courage,</l>
+<l n="tr">Man's blood -- the Komos keeps within the household</l>
+<l n="tr">-- Hard to be sent outside -- of sister Furies:</l>
+<l n="tr">They hymn their hymn -- within the house close sitting --</l>
+<l n="tr">The first beginning curse: in turn spit forth at</l>
+<l n="tr">The Brother's bed, to him who spurned it hostile.</l>
+<l n="tr">Have I missed aught, or hit I like a bowman?</l>
+<l n="tr">False prophet am I, -- knock at doors, a babbler?</l>
+<l n="tr">Henceforward witness, swearing now, I know not</l>
+<l n="tr">By other's word the old sins of this household!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">And how should oath, bond honourably binding,</l>
+<l n="tr">Become thy cure? No less I wonder at thee</l>
+<l n="tr">-- That thou, beyond sea reared, a strange-tongued city</l>
+<l n="tr">Shouldst hit in speaking, just as if thou stood'st by!
+<milestone ed="p" n="1202" unit="card"/></l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Prophet Apollon put me in this office.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">What, even though a god, with longing smitten?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">At first, indeed, shame was to me to say this.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">For, more relaxed grows everyone who fares well.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">But he was athlete to me -- huge grace breathing!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Well, to the work of children, went ye law's way?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Having consented, I played false to Loxias.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Already when the wits inspired possessed of?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Already townsmen all their woes I foretold.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">How wast thou then unhurt by Loxias' anger?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">I no one aught persuaded, when I sinned thus.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">To us, at least, now sooth to say thou seemest.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Halloo, halloo, ah, evils!</l>
+<l n="tr">Again, straightforward foresight's fearful labour</l>
+<l n="tr">Whirls me, distracting with prelusive last-lays!</l>
+<l n="tr">Behold ye those there, in the household seated, --</l>
+<l n="tr">Young ones, -- of dreams approaching to the figures?</l>
+<l n="tr">Children, as if they died by their beloveds --</l>
+<l n="tr">Hands they have filled with flesh, the meal domestic --</l>
+<l n="tr">Entrails and vitals both, most piteous burthen,</l>
+<l n="tr">Plain they are holding! -- which their father tasted!</l>
+<l n="tr">For this, I say, plans punishment a certain</l>
+<l n="tr">Lion ignoble, on the bed that wallows,</l>
+<l n="tr">House-guard (ah, me!) to the returning master</l>
+<l n="tr">-- Mine, since to bear the slavish yoke behoves me!</l>
+<l n="tr">The ship's commander, <placeName key="tgn,7002329">Ilion</placeName>'s desolator,</l>
+<l n="tr">Knows not what things the tongue of the lewd she-dog</l>
+<l n="tr">Speaking, outspreading, shiny-souled, in fashion</l>
+<l n="tr">Of At&eacute; hid, will reach to, by ill fortune!</l>
+<l n="tr">Such things she dares -- the female, the male's slayer!</l>
+<l n="tr">She is . . . how calling her the hateful bite-beast</l>
+<l n="tr">May I hit the mark? Some amphisbaina, -- Skulla</l>
+<l n="tr">Housing in rocks, of mariners the mischief,</l>
+<l n="tr">Revelling Haides' mother, -- curse, no truce with,</l>
+<l n="tr">Breathing at friends! How piously she shouted,</l>
+<l n="tr">The all-courageous, as at turn of battle!</l>
+<l n="tr">She seems to joy at the back-bringing safety!</l>
+<l n="tr">Of this, too, if I nought persuade, all's one! Why?</l>
+<l n="tr">What is to be will come. And soon thou, present,</l>
+<l n="tr">"True prophet all too much" wilt pitying style me.
+<milestone ed="p" n="1242" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Thuestes' feast, indeed, on flesh of children,</l>
+<l n="tr">I went with, and I shuddered. Fear too holds me</l>
+<l n="tr">Listing what's true as life, nowise out-imaged.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">I say, thou Agamemnon's fate shalt look on.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Speak good words, O unhappy! Set mouth sleeping!</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">But Paian stands in no stead to the speech here.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Nay, if the thing be near: but never be it!</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Thou, indeed, prayest: they to kill are busy.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Of what man is it ministered, this sorrow?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">There again, wide thou look'st of my foretellings.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">For, the fulfiller's scheme I have not gone with.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">And yet too well I know the speech Hellenic.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">For Puthian oracles, thy speech, and hard too.</l></sp>
+<sp><speaker>KASSANDRA</speaker>
+<l n="tr">Papai: what fire this! and it comes upon me!</l>
+<l n="tr">Ototoi, Lukeion Apollon, ah me -- me!</l>
+<l n="tr">She, the two-footed lioness that sleeps with</l>
+<l n="tr">The wolf, in absence of the generous lion,</l>
+<l n="tr">Kills me the unhappy one: and as a poison</l>
+<l n="tr">Brewing, to put my price too in the anger,</l>
+<l n="tr">She vows, against her mate this weapon whetting</l>
+<l n="tr">To pay him back the bringing me, with slaughter.</l>
+<l n="tr">Why keep I then these things to make me laughed at,</l>
+<l n="tr">Both wands and, round my neck, oracular fillets?</l>
+<l n="tr">Thee, at least, ere my own fate will I ruin:</l>
+<l n="tr">Go, to perdition falling! Boons exchange we --</l>
+<l n="tr">Some other At&eacute; in my stead make wealthy!</l>
+<l n="tr">See there -- himself, Apollon stripping from me</l>
+<l n="tr">The oracular garment! having looked upon me</l>
+<l n="tr">-- Even in these adornments, laughed by friends at,</l>
+<l n="tr">As good as foes, i' the balance weighed: and vainly --</l>
+<l n="tr">For, called crazed stroller, -- as I had been gipsy,</l>
+<l n="tr">Beggar, unhappy, starved to death, -- I bore it.</l>
+<l n="tr">And now the Prophet -- prophet me undoing,</l>
+<l n="tr">Has led away to these so deadly fortunes!</l>
+<l n="tr">Instead of my sire's altar, waits the hack-block</l>
+<l n="tr">She struck with first warm bloody sacrificing!</l>
+<l n="tr">Yet nowise unavenged of gods will death be:</l>
+<l n="tr">For there shall come another, our avenger,</l>
+<l n="tr">The mother-slaying scion, father's doomsman:</l>
+<l n="tr">Fugitive, wanderer, from this land an exile,</l>
+<l n="tr">Back shall he come, -- for friends, copestone these curses!</l>
+<l n="tr">For there is sworn a great oath from the gods that</l>
+<l n="tr">Him shall bring hither his fallen sire's prostration.</l>
+<l n="tr">Why make I then, like an indweller, moaning?</l>
+<l n="tr">Since at the first I foresaw <placeName key="tgn,7002329">Ilion</placeName>'s city</l>
+<l n="tr">Suffering as it has suffered: and who took it,</l>
+<l n="tr">Thus by the judgment of the gods are faring.</l>
+<l n="tr">I go, will suffer, will submit to dying!</l>
+<l n="tr">But, Haides' gates -- these same I call, I speak to,</l>
+<l n="tr">And pray that on an opportune blow chancing,</l>
+<l n="tr">Without a struggle, -- blood the calm death bringing</l>
+<l n="tr">In easy outflow, -- I this eye may close up!
+<milestone ed="p" n="1295" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">O much unhappy, but, again, much learned</l>
+<l n="tr">Woman, long hast thou outstretched! But if truly</l>
+<l n="tr">Thou knowest thine own fate, how comes that, like to</l>
+<l n="tr">A god-led steer, to altar bold thou treadest?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">There's no avoidance, -- strangers, no some time more!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">He last is, anyhow, by time advantaged.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">It comes, the day: I shall by flight gain little.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">But know thou patient art from thy brave spirit!</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Such things hears no one of the happy-fortuned.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">But gloriously to die -- for man is grace, sure.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Ah, sire, for thee and for thy noble children!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">But what thing is it? What fear turns thee backwards?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Alas, alas!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Why this "Alas!" if 't is no spirit's loathing?</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Slaughter blood-dripping does the household smell of!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">How else? This scent is of hearth-sacrifices.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Such kind of steam as from a tomb is proper!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">No Surian honour to the House thou speak'st of!</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">But I will go, -- even in the household wailing</l>
+<l n="tr">My fate and Agamemnon's. Life suffice me!</l>
+<l n="tr">Ah, strangers!</l>
+<l n="tr">I cry not "ah " -- as bird at bush -- through terror</l>
+<l n="tr">Idly! to me, the dead this much bear witness:</l>
+<l n="tr">When, for me -- woman, there shall die a woman,</l>
+<l n="tr">And, for a man ill-wived, a man shall perish!</l>
+<l n="tr">This hospitality I ask as dying.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">O sufferer, thee -- thy foretold fate I pity.</l></sp>
+<sp><speaker>KASSANDRA.</speaker>
+<l n="tr">Yet once for all, to speak a speech, I fain am:</l>
+<l n="tr">No dirge, mine for myself! The sun I pray to,</l>
+<l n="tr">Fronting his last light! -- to my own avengers --</l>
+<l n="tr">That from my hateful slayers they exact too</l>
+<l n="tr">Pay for the dead slave -- easy-managed hand's work!
+<milestone ed="p" n="1331" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Alas for mortal matters! Happy-fortuned, --</l>
+<l n="tr">Why, any shade would turn them: if unhappy,</l>
+<l n="tr">By throws the wetting sponge has spoiled the picture!</l>
+<l n="tr">And more by much in mortals this I pity.</l>
+<l n="tr">The being well-to-do --</l>
+<l n="tr">Insatiate a desire of this</l>
+<l n="tr">Born with all mortals is,</l>
+<l n="tr">Nor any is there who</l>
+<l n="tr">Well-being forces off, aroints</l>
+<l n="tr">From roofs whereat a finger points,</l>
+<l n="tr">"No more come in!" exclaiming. This man, too,</l>
+<l n="tr">To take the city of Priamos did the celestials give,</l>
+<l n="tr">And, honoured by the god, he homeward comes;</l>
+<l n="tr">But now if, of the former, he shall pay</l>
+<l n="tr">The blood back, and, for those who ceased to live,</l>
+<l n="tr">Dying, for deaths in turn new punishment he dooms--</l>
+<l n="tr">Who, being mortal, would not pray</l>
+<l n="tr">With an unmischievous</l>
+<l n="tr">Daimon to have been born -- who would not, hearing thus?
+<milestone ed="p" n="1343" unit="card"/></l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">Ah me! I am struck -- a right-aimed stroke within me!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Silence! Who is it shouts "stroke" -- "right-aimedly" a wounded one?</l></sp>
+<sp><speaker>AGAMEMNON.</speaker>
+<l n="tr">Ah me! indeed again, -- a second, struck by!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">This work seems to me completed by this "Ah me" of the king's;</l>
+<l n="tr">But we somehow may together share in solid counsellings.</l></sp>
+<sp><speaker>CHOROS 1.</speaker>
+<l n="tr">I, in the first place, my opinion tell you:</l>
+<l n="tr">-- To cite the townsmen, by help-cry, to house here.</l></sp>
+<sp><speaker>CHOROS 2.</speaker>
+<l n="tr">To me, it seems we ought to fall upon them</l>
+<l n="tr">At quickest -- prove the fact by sword fresh-flowing!</l></sp>
+<sp><speaker>CHOROS 3.</speaker>
+<l n="tr">And I, of such opinion the partaker,</l>
+<l n="tr">Vote -- to do something: not to wait -- the main point!</l></sp>
+<sp><speaker>CHOROS 4.</speaker>
+<l n="tr">'T is plain to see: for they prelude as though of</l>
+<l n="tr">A tyranny the signs they gave the city.</l></sp>
+<sp><speaker>CHOROS 5.</speaker>
+<l n="tr">For we waste time; while they, -- this waiting's glory</l>
+<l n="tr">Treading to ground, -- allow the hand no slumber.</l></sp>
+<sp><speaker>CHOROS 6.</speaker>
+<l n="tr">I know not -- chancing on some plan -- to tell it:</l>
+<l n="tr">'T is for the doer to plan of the deed also.</l></sp>
+<sp><speaker>CHOROS 7.</speaker>
+<l n="tr">And I am such another: since I'm schemeless</l>
+<l n="tr">How to raise up again by words -- a dead man!</l></sp>
+<sp><speaker>CHOROS 8.</speaker>
+<l n="tr">What, and, protracting life, shall we give way thus</l>
+<l n="tr">To the disgracers of our home, these rulers?</l></sp>
+<sp><speaker>CHOROS 9.</speaker>
+<l n="tr">Why, 't is unbearable: but to die is better:</l>
+<l n="tr">For death than tyranny is the riper finish!</l></sp>
+<sp><speaker>CHOROS 10.</speaker>
+<l n="tr">What, by the testifying "Ah me" of him,</l>
+<l n="tr">Shall we prognosticate the man as perished?</l></sp>
+<sp><speaker>CHOROS 11.</speaker>
+<l n="tr">We must quite know ere speak these things concerning:</l>
+<l n="tr">For to conjecture and "quite know" are two things.</l></sp>
+<sp><speaker>CHOROS 12.</speaker>
+<l n="tr">This same to praise I from all sides abound in --</l>
+<l n="tr">Clearly to know -- Atreides, what he's doing!
+<milestone ed="p" n="1372" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Much having been before to purpose spoken,</l>
+<l n="tr">The opposite to say I shall not shamed be:</l>
+<l n="tr">For how should one, to enemies, -- in semblance,</l>
+<l n="tr">Friends, -- enmity proposing, -- sorrow's net-frame</l>
+<l n="tr">Enclose, a height superior to outleaping?</l>
+<l n="tr">To me, indeed, this struggle of old -- not mindless</l>
+<l n="tr">Of an old victory -- came: with time, I grant you!</l>
+<l n="tr">I stand where I have struck, things once accomplished:</l>
+<l n="tr">And so have done, -- and this deny I shall not, --</l>
+<l n="tr">As that his fate was nor to fly nor ward off.</l>
+<l n="tr">A wrap-round with no outlet, as for fishes,</l>
+<l n="tr">I fence about him -- the rich woe of the garment:</l>
+<l n="tr">I strike him twice, and in a double "Ah-me!"</l>
+<l n="tr">He let his limbs go -- there! And to him, fallen,</l>
+<l n="tr">The third blow add I, giving -- of Below-ground</l>
+<l n="tr">Zeus, guardian of the dead -- the votive favour.</l>
+<l n="tr">Thus in the mind of him he rages, falling,</l>
+<l n="tr">And blowing forth a brisk blood-spatter, strikes me</l>
+<l n="tr">With the dark drop of slaughterous dew -- rejoicing</l>
+<l n="tr">No less than, at the god-given dewy-comfort,</l>
+<l n="tr">The sown-stuff in its birth-throes from the calyx.</l>
+<l n="tr">Since so these things are, -- Argives, my revered here, --</l>
+<l n="tr">Ye may rejoice -- if ye rejoice: but I -- boast!</l>
+<l n="tr">If it were fit on corpse to pour libation,</l>
+<l n="tr">That would be right -- right over and above, too!</l>
+<l n="tr">The cup of evils in the house he, having</l>
+<l n="tr">Filled with such curses, himself coming drinks of.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">We wonder at thy tongue: since bold-mouthed truly</l>
+<l n="tr">Is she who in such speech boasts o'er her husband I</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Ye test me as I were a witless woman:</l>
+<l n="tr">But I -- with heart intrepid -- to you knowers</l>
+<l n="tr">Say (and thou -- if thou wilt or praise or blame me,</l>
+<l n="tr">Comes to the same) -- this man is Agamemnon,</l>
+<l n="tr">My husband, dead, the work of the right hand here,</l>
+<l n="tr">Ay, of a just artificer: so things are.</l></sp></div1>
+<div1 type="choral">
+<milestone ed="p" n="1407" unit="card"/>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">What evil, O woman, food or drink, earth-bred</l>
+<l n="tr">Or sent from the flowing sea,</l>
+<l n="tr">Of such having fed</l>
+<l n="tr">Didst thou set on thee</l>
+<l n="tr">This sacrifice</l>
+<l n="tr">And popular cries</l>
+<l n="tr">Of a curse on thy head?</l>
+<l n="tr">Off thou hast thrown him, off hast cut</l>
+<l n="tr">The man from the city: but --</l>
+<l n="tr">Off from the city thyself shalt be</l>
+<l n="tr">Cut -- to the citizens</l>
+<l n="tr">A hate immense!
+<milestone ed="p" n="1412" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Now, indeed, thou adjudgest exile to me,</l>
+<l n="tr">And citizens' hate, and to have popular curses:</l>
+<l n="tr">Nothing of this against the man here bringing,</l>
+<l n="tr">Who, no more awe-checked than as 't were a beast's fate, --</l>
+<l n="tr">With sheep abundant in the well-fleeced graze-flocks, --</l>
+<l n="tr">Sacrificed his child, -- dearest fruit of travail</l>
+<l n="tr">To me, -- as song-spell against Threkian blowings.</l>
+<l n="tr">Not him did it behove thee hence to banish</l>
+<l n="tr">-- Pollution's penalty? But hearing mzy deeds</l>
+<l n="tr">Justicer rough thou art! Now, this I tell thee:</l>
+<l n="tr">To threaten thus -- me, one prepared to have thee</l>
+<l n="tr">(On like conditions, thy hand conquering) o'er me</l>
+<l n="tr">Rule: but if God the opposite ordain us,</l>
+<l n="tr">Thou shalt learn -- late taught, certes -- to be modest.
+<milestone ed="p" n="1426" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Greatly-intending thou art:</l>
+<l n="tr">Much-mindful, too, hast thou cried</l>
+<l n="tr">(Since thy mind, with its slaughter-outpouring part,</l>
+<l n="tr">Is frantic) that over the eyes, a patch</l>
+<l n="tr">Of blood -- with blood to match --</l>
+<l n="tr">Is plain for a pride!</l>
+<l n="tr">Yet still, bereft of friends, thy fate</l>
+<l n="tr">Is -- blow with blow to expiate!</l></sp></div1>
+<div1 type="episode">
+<milestone ed="p" n="1431" unit="card"/>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">And this thou hearest -- of my oaths, just warrant!</l>
+<l n="tr">By who fulfilled things for my daughter, Justice,</l>
+<l n="tr">At&eacute;, Erinus, -- by whose help I slew him, --</l>
+<l n="tr">Not mine the fancy -- Fear will tread my palace</l>
+<l n="tr">So long as on my hearth there burns a fire,</l>
+<l n="tr">Aigisthos as before well-caring for me;</l>
+<l n="tr">Since he to me is shield, no small, of boldness.</l>
+<l n="tr">Here does he lie -- outrager of this female,</l>
+<l n="tr">Dainty of all the Chruseids under <placeName key="tgn,7002329">Ilion</placeName>;</l>
+<l n="tr">And she -- the captive, the soothsayer also</l>
+<l n="tr">And couchmate of this man, oracle-speaker,</l>
+<l n="tr">Faithful bed-fellow, -- ay, the sailors' benches</l>
+<l n="tr">They wore in common, nor unpunished did so,</l>
+<l n="tr">Since he is -- thus! While, as for her, -- swan-fashion,</l>
+<l n="tr">Her latest having chanted, -- dying wailing</l>
+<l n="tr">She lies, -- to him, a sweetheart: me she brought to --</l>
+<l n="tr">My bed's by-nicety -- the whet of dalliance.</l></sp></div1>
+<div1 type="choral">
+<milestone ed="p" n="1448" unit="card"/>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Alas, that some</l>
+<l n="tr">Fate would come</l>
+<l n="tr">Upon us in quickness --</l>
+<l n="tr">Neither much sickness</l>
+<l n="tr">Neither bed-keeping --</l>
+<l n="tr">And bear unended sleeping,</l>
+<l n="tr">Now that subdued</l>
+<l n="tr">Is our keeper, the kindest of mood!</l>
+<l n="tr">Having borne, for a woman's sake, much strife --</l>
+<l n="tr">By a woman he withered from life!
+<milestone ed="p" n="1455" unit="card"/></l>
+<l n="tr">Ah me!</l>
+<l n="tr">Law-breaking Helena who, one,</l>
+<l n="tr">Hast many, so many souls undone</l>
+<l n="tr">'Neath Troia! and now the consummated</l>
+<l n="tr">Much-memorable curse</l>
+<l n="tr">Hast thou made flower-forth, red</l>
+<l n="tr">With the blood no rains disperse,</l>
+<l n="tr">That which was then in the House --</l>
+<l n="tr">Strife all-subduing, the woe of a spouse.
+<milestone ed="p" n="1462" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Nowise, of death the fate --</l>
+<l n="tr">Burdened by these things -- supplicate!</l>
+<l n="tr">Nor on Helena turn thy wrath</l>
+<l n="tr">As the man-destroyer, as "she who hath,</l>
+<l n="tr">Being but one,</l>
+<l n="tr">Many and many a soul undone</l>
+<l n="tr">Of the men, the Danaoi" --</l>
+<l n="tr">And wrought immense annoy!
+<milestone ed="p" n="1468" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Daimon, who fallest</l>
+<l n="tr">Upon this household and the double-raced</l>
+<l n="tr">Tantalidai, a rule, minded like theirs displaced,</l>
+<l n="tr">Thou rulest me with, now,</l>
+<l n="tr">Whose heart thou gallest!</l>
+<l n="tr">And on the body, like a hateful crow,</l>
+<l n="tr">Stationed, all out of tune, his chant to chant</l>
+<l n="tr">Doth Something vaunt!
+<milestone ed="p" n="1475" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Now, of a truth, hast thou set upright</l>
+<l n="tr">Thy mouth's opinion, --</l>
+<l n="tr">Naming the Sprite,</l>
+<l n="tr">The triply gross,</l>
+<l n="tr">O'er the race that has dominion:</l>
+<l n="tr">For through him it is that Eros</l>
+<l n="tr">The carnage-licker</l>
+<l n="tr">In the belly is bred: ere ended quite</l>
+<l n="tr">Is the elder throe -- new ichor!
+<milestone ed="p" n="1481" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Certainly, great of might</l>
+<l n="tr">And heavy of wrath, the Sprite</l>
+<l n="tr">Thou tellest of, in the palace</l>
+<l n="tr">(Woe, woe!)</l>
+<l n="tr">-- An evil tale of a fate</l>
+<l n="tr">By At&eacute;'s malice</l>
+<l n="tr">Rendered insatiate!
+<milestone ed="p" n="1489" unit="card"/></l>
+<l n="tr">Oh, oh, --</l>
+<l n="tr">King, king, how shall I beweep thee?</l>
+<l n="tr">From friendly soul whatever say?</l>
+<l n="tr">Thou liest where webs of the spider o'ersweep thee</l>
+<l n="tr">In impious death, life breathing away.</l>
+<l n="tr">O me -- me!</l>
+<l n="tr">This couch, not free.</l>
+<l n="tr">By a slavish death subdued thou art,</l>
+<l n="tr">From the hand, by the two-edged dart.
+<milestone ed="p" n="1497" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Thou boastest this deed to be mine:</l>
+<l n="tr">But leave off styling me</l>
+<l n="tr">"The Agamemnonian wife! "</l>
+<l n="tr">For, showing himself in sign</l>
+<l n="tr">Of the spouse of the corpse thou dost see,</l>
+<l n="tr">Did the ancient bitter avenging-ghost</l>
+<l n="tr">Of Atreus, savage host,</l>
+<l n="tr">Pay the man here as price --</l>
+<l n="tr">A full-grown for the young one's sacrifice.
+<milestone ed="p" n="1505" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">That no cause, indeed, of this killing art thou,</l>
+<l n="tr">Who shall be witness-bearer?</l>
+<l n="tr">How shall he bear it -- how?</l>
+<l n="tr">But the sire's avenging-ghost might be in the deed a sharer.</l>
+<l n="tr">He is forced on and on</l>
+<l n="tr">By the kin-born flowing of blood,</l>
+<l n="tr">-- Black Ares: to where, having gone,</l>
+<l n="tr">He shall leave off, flowing done,</l>
+<l n="tr">At the frozen-child's-flesh food.
+<milestone ed="p" n="1513" unit="card"/></l>
+<l n="tr">King, king, how shall I beweep thee?</l>
+<l n="tr">From friendly soul whatever say?</l>
+<l n="tr">Thou liest where webs of the spider o'ersweep thee</l>
+<l n="tr">In impious death, life breathing away.</l>
+<l n="tr">O me -- me!</l>
+<l n="tr">This couch, not free!</l>
+<l n="tr">By a slavish death subdued thou art,</l>
+<l n="tr">From the hand, by the two-edged dart.
+<milestone ed="p" n="1521" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">No death "unfit for the free"</l>
+<l n="tr">Do I think this man's to be:</l>
+<l n="tr">For did not himself a slavish curse</l>
+<l n="tr">To his household decree?</l>
+<l n="tr">But the scion of him, myself did nurse --</l>
+<l n="tr">That much-bewailed Iphigeneia, he</l>
+<l n="tr">Having done well by, -- and as well, nor worse,</l>
+<l n="tr">Been done to, -- let him not in Haides loudly</l>
+<l n="tr">Bear himself proudly!</l>
+<l n="tr">Being by sword-destroying death amerced</l>
+<l n="tr">For that sword's punishment himself inflicted first.
+<milestone ed="p" n="1531" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">I at a loss am left --</l>
+<l n="tr">Of a feasible scheme of mind bereft --</l>
+<l n="tr">Where I may turn: for the house is falling:</l>
+<l n="tr">I fear the bloody crash of the rain</l>
+<l n="tr">That ruins the roof as it bursts amain:</l>
+<l n="tr">The warning-drop</l>
+<l n="tr">Has come to a stop.</l>
+<l n="tr">Destiny doth Justice whet</l>
+<l n="tr">For other deed of hurt, on other whetstones yet.
+<milestone ed="p" n="1537" unit="card"/></l>
+<l n="tr">Woe, earth, earth -- would thou hadst taken me</l>
+<l n="tr">Ere I saw the man I see,</l>
+<l n="tr">On the pallet-bed</l>
+<l n="tr">Of the silver-sided bath-vase, dead!</l>
+<l n="tr">Who is it shall bury him, who</l>
+<l n="tr">Sing his dirge? Can it be true</l>
+<l n="tr">That thou wilt dare this same to do --</l>
+<l n="tr">Having slain thy husband, thine own,</l>
+<l n="tr">To make his funeral moan:</l>
+<l n="tr">And for the soul of him, in place</l>
+<l n="tr">Of his mighty deeds, a graceless grace</l>
+<l n="tr">To wickedly institute? By whom</l>
+<l n="tr">Shall the tale of praise o'er the tomb</l>
+<l n="tr">At the god-like man be sent --</l>
+<l n="tr">From the truth of his mind as he toils intent?
+<milestone ed="p" n="1551" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">It belongs not to thee to declare</l>
+<l n="tr">This object of care!</l>
+<l n="tr">By us did he fall -- down there!</l>
+<l n="tr">Did he die -- down there! and down, no less,</l>
+<l n="tr">We will bury him there, and not beneath</l>
+<l n="tr">The wails of the household over his death:</l>
+<l n="tr">But Iphigeneia, -- with kindliness, --</l>
+<l n="tr">His daughter, -- as the case requires,</l>
+<l n="tr">Facing him full, at the rapid-flowing</l>
+<l n="tr">Passage of Groans shall -- both hands throwing</l>
+<l n="tr">Around him -- kiss that kindest of sires!
+<milestone ed="p" n="1560" unit="card"/></l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">This blame comes in the place of blame:</l>
+<l n="tr">Hard battle it is to judge each claim.</l>
+<l n="tr">"He is borne away who bears away:</l>
+<l n="tr">And the killer has all to pay."</l>
+<l n="tr">And this remains while Zeus is remaining,</l>
+<l n="tr">"The doer shall suffer in time"  --  for, such his ordaining.</l>
+<l n="tr">Who may cast out of the House its cursed brood?</l>
+<l n="tr">The race is to At&eacute; glued!
+<milestone ed="p" n="1567" unit="card"/></l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Thou hast gone into this oracle</l>
+<l n="tr">With a true result. For me, then, -- I will</l>
+<l n="tr">-- To the Daimon of the Pleisthenidai</l>
+<l n="tr">Making an oath -- with all these things comply</l>
+<l n="tr">Hard as they are to bear. For the rest --</l>
+<l n="tr">Going from out this House, a guest,</l>
+<l n="tr">May he wear some other family</l>
+<l n="tr">To nought, with the deaths of kin by kin!</l>
+<l n="tr">And, -- keeping a little part of my goods, --</l>
+<l n="tr">Wholly am I contented in</l>
+<l n="tr">Having expelled from the royal House</l>
+<l n="tr">These frenzied moods</l>
+<l n="tr">The mutually-murderous.</l></sp></div1>
+<div1 type="episode">
+<milestone ed="p" n="1577" unit="card"/>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">O light propitious of day justice-bringing!</l>
+<l n="tr">I may say truly, now, that men's avengers,</l>
+<l n="tr">The gods from high, of earth behold the sorrows --</l>
+<l n="tr">Seeing, as I have, i' the spun robes of the Erinues,</l>
+<l n="tr">This man here lying, -- sight to me how pleasant! --</l>
+<l n="tr">His father's hands' contrivances repaying.</l>
+<l n="tr">For Atreus, this land's lord, of this man father,</l>
+<l n="tr">Thuestes, my own father -- to speak clearly --</l>
+<l n="tr">His brother too, -- being i' the rule contested, --</l>
+<l n="tr">Drove forth to exile from both town and household:</l>
+<l n="tr">And, coming back, to the hearth turned, a suppliant,</l>
+<l n="tr">Wretched Thuestes found the fate assured him</l>
+<l n="tr">-- Not to die, bloodying his paternal threshold</l>
+<l n="tr">Just there: but host-wise this man's impious father</l>
+<l n="tr">Atreus, soul-keenly more than kindly, -- seeming</l>
+<l n="tr">To joyous hold a flesh-day, -- to my father</l>
+<l n="tr">Served up a meal, the flesh of his own children.</l>
+<l n="tr">The feet indeed and the hands' top divisions</l>
+<l n="tr">He hid, high up and isolated sitting:</l>
+<l n="tr">But, their unshowing parts in ignorance taking,</l>
+<l n="tr">He forthwith eats food -- as thou seest -- perdition</l>
+<l n="tr">To the race: and then, 'ware of the deed ill-omened,</l>
+<l n="tr">He shrieked O! -- falls back, vomiting, from the carnage,</l>
+<l n="tr">And fate on the Pelopidai past bearing</l>
+<l n="tr">He prays down -- putting in his curse together</l>
+<l n="tr">The kicking down o' the feast -- that so might perish</l>
+<l n="tr">The race of Pleisthenes entire: and thence is</l>
+<l n="tr">That it is given thee to see this man prostrate.</l>
+<l n="tr">And I was rightly of this slaughter stitch-man:</l>
+<l n="tr">Since me, -- being third from ten, -- with my poor father</l>
+<l n="tr">He drives out -- being then a babe in swathe-bands:</l>
+<l n="tr">But, grown up, back again has justice brought me:</l>
+<l n="tr">And of this man I got hold -- being without-doors --</l>
+<l n="tr">Fitting together the whole scheme of ill-will.</l>
+<l n="tr">So, sweet, in fine, even to die were to me,</l>
+<l n="tr">Seeing, as I have, this man i' the toils of justice!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Aigisthos, arrogance in ills I love not.</l>
+<l n="tr">Dost thou say -- willing, thou didst kill the man here,</l>
+<l n="tr">And, alone, plot this lamentable slaughter?</l>
+<l n="tr">I say -- thy head in justice will escape not</l>
+<l n="tr">The people's throwing -- know that! -- stones and curses!
+<milestone ed="p" n="1617" unit="card"/></l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">Thou such things soundest -- seated at the lower</l>
+<l n="tr">Oarage to those who rule at the ship's mid-bench?</l>
+<l n="tr">Thou shalt know, being old, how heavy is teaching</l>
+<l n="tr">To one of the like age -- bidden be modest!</l>
+<l n="tr">But chains and old age and the pangs of fasting</l>
+<l n="tr">Stand out before all else in teaching, -- prophets</l>
+<l n="tr">At souls'-cure! Dost not, seeing aught, see this too?</l>
+<l n="tr">Against goads kick not, lest tript-up thou suffer!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Woman, thou, -- of him coming new from battle</l>
+<l n="tr">Houseguard -- thy husband's bed the while disgracing, --</l>
+<l n="tr">For the Army-leader didst thou plan this fate too?</l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">These words too are of groans the prime-begetters!</l>
+<l n="tr">Truly a tongue opposed to Orpheus hast thou:</l>
+<l n="tr">Foi he led all things by his voice's grace-charm,</l>
+<l n="tr">But thou, upstirring them by these wild yelpings,</l>
+<l n="tr">Wilt lead them! Forced, thou wilt appear the tamer!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">So -- thou shalt be my king then of the Argeians --</l>
+<l n="tr">Who, not when for this man his fate thou plannedst,</l>
+<l n="tr">Daredst to do this deed -- thyself the slayer!</l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">For, to deceive him was the wife's part, certes:</l>
+<l n="tr"><emph>I</emph> was looked after -- foe, ay, old-begotten!</l>
+<l n="tr">But out of this man's wealth will I endeavour</l>
+<l n="tr">To rule the citizens: and the no-man-minder</l>
+<l n="tr">-- Him will I heavily yoke -- by no means trace-horse,</l>
+<l n="tr">A corned-up colt! but that bad friend in darkness,</l>
+<l n="tr">Famine its housemate, shall behold him gentle.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Why then, this man here, from a coward spirit,</l>
+<l n="tr">Didst not thou slay thyself? But, -- helped, -- a woman,</l>
+<l n="tr">The country's pest, and that of gods o' the country,</l>
+<l n="tr">Killed him! Orestes, where may he see light now?</l>
+<l n="tr">That coming hither back, with gracious fortune,</l>
+<l n="tr">Of both these he may be the all-conquering slayer?
+<milestone ed="p" n="1649" unit="card"/></l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">But since this to do thou thinkest -- and not talk -- thou soon shalt know!</l>
+<l n="tr">Up then, comrades dear! the proper thing to do--not distant this!</l></sp>
+<sp><speaker>CHOROS</speaker>
+<l n="tr">Up then! hilt in hold, his sword let everyone aright dispose!</l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">Ay, but I myself too, hilt in hold, do not refuse to die.</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Thou wilt die, thou say'st, to who accept it. We the chance demand.</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Nowise, O belovedest of men, may we do other ills!</l>
+<l n="tr">To have reaped away these, even, is a harvest much to me.</l>
+<l n="tr">Go, both thou and these the old men, to the homes appointed each,</l>
+<l n="tr">Ere ye suffer! It behoved one do these things just as we did:</l>
+<l n="tr">And if of these troubles there should be enough -- we may assent</l>
+<l n="tr">-- By the Daimon's heavy heel unfortunately stricken ones!</l>
+<l n="tr">So a woman's counsel hath it -- if one judge it learning-worth.</l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">But to think that these at me the idle tongue should thus o'erbloom,</l>
+<l n="tr">And throw out such words -- the Daimon's power experimenting on --</l>
+<l n="tr">And, of modest knowledge missing, -- me, the ruler, . . .</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Ne'er may this befall Argeians -- wicked man to fawn before!</l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">Anyhow, in after days, will I, yes, I, be at thee yet!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Not if hither should the Daimon make Orestes straightway come!</l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">O, I know, myself, that fugitives on hopes are pasture-fed!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Do thy deed, get fat, defiling justice, since the power is thine!</l></sp>
+<sp><speaker>AIGISTHOS.</speaker>
+<l n="tr">Know that thou shalt give me satisfaction for this folly's sake!</l></sp>
+<sp><speaker>CHOROS.</speaker>
+<l n="tr">Boast on, bearing thee audacious, like a cock his females by!</l></sp>
+<sp><speaker>KLUTAIMNESTRA.</speaker>
+<l n="tr">Have not thou respect for these same idle yelpings! I and thou</l>
+<l n="tr">Will arrange it, o'er this household ruling excellently well.
+</l></sp></div1>
+</body>
+</text>
+</TEI.2>

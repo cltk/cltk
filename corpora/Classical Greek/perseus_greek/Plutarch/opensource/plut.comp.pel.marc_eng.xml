@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Comp.Pel.Marc." type="work">Comparison of Pelopidas and Marcellus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 12Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Comp.Pel.Marc."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1917</date>
+                  </imprint>
+                  <biblScope type="volume">5</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990978</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>COMPARISON OF PELOPIDAS AND  MARCELLUS</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This is what I have thought worthy of record in what historians say about Marcellus and Pelopidas. In their natures and dispositions they were almost exactly alike, since both were valiant, laborious, passionate, and magnanimous; and there would seem to have been this difference only between them, that Marcellus committed slaughter in many cities which he reduced, while Epaminondas and Pelopidas never put any one to death after their victories, nor did they sell cities into slavery.  And we are told that, had they been present, the Thebans would not have treated the Orchomenians as they did.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>As for their achievements, those of Marcellus against the Gauls were great and astonishing, since he routed such a multitude of horse and foot with the few horsemen in his following (an action not easily found recorded of any other general), and slew the enemies' chieftain; whereas in this regard Pelopidas failed, for he set out to do the same thing, but suffered what he meant to inflict, and was slain first by the tyrant. 
+				<milestone n="3" unit="section"/>However, with these exploits of Marcellus one may compare the battles of Leuctra and Tegyra, greatest and most illustrious of actions; and we have no exploit of Marcellus accomplished by stealth and ambuscade which we can compare with what Pelopidas did in coming back from exile and slaying the tyrants in Thebes, nay, that seems to rank far higher than any other achievement of secrecy and cunning. 
+				<milestone n="4" unit="section"/>Hannibal was, it is true, a most formidable enemy for the Romans, but so, assuredly, were the Lacedaemonians in the time of Pelopidas for the Thebans, and that they were defeated by Pelopidas at Tegyra and Leuctra is an established fact; whereas Hannibal, according to Polybius,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plb. 15.11">xv. 11, 7</bibl>, where Hannibal makes this claim, in a speech to his men just before the battle of Zama (202 B.C.).</note> was not even once defeated by Marcellus, but continued to be invincible until Scipio came.  
+				<milestone n="5" unit="section"/>However, I believe, with Livy, Caesar, and Nepos, and, among Greek writers, with King Juba, that sundry defeats and routs were inflicted by Marcellus upon the troops of Hannibal, although these had no great influence upon the war; indeed, the Carthaginian would seem to have practised some ruse in these engagements. 
+				<milestone n="6" unit="section"/>But that which reasonably and fittingly called for admiration was the fact that the Romans, after the rout of so many armies, the slaughter of so many generals, and the utter confusion of the whole empire, still had the courage to face their foes.  For there was one man who filled his army again with ardour and ambition to contend with the enemy, instead of the great fear and consternation which had long oppressed them, inspiring and encouraging them not only to yield the victory reluctantly, 
+				<milestone n="7" unit="section"/>but also to dispute it with all eagerness, and this man was Marcellus.   For when their calamities had accustomed them to be satisfied whenever they escaped Hannibal by flight, he taught them to be ashamed to survive defeat, to be chagrined if they came within a little of yielding, and to be distressed if they did not win the day.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Since, then, Pelopidas was never defeated in a battle where he was in command, and Marcellus won more victories than any Roman of his day, it would seem, perhaps, that the multitude of his successes made the difficulty of conquering the one equal to the invincibility of the other.   Marcellus, it is true, took Syracuse, while Pelopidas failed to take Sparta. But I think that to have reached Sparta, and to have been the first of men to cross the Eurotas in war, was a greater achievement than the conquest of Sicily; 
+				<milestone n="2" unit="section"/>unless, indeed, it should be said that this exploit belongs rather to Epaminondas than to Pelopidas, as well as the victory at Leuctra, while Marcellus shared with no one the glory of his achievements.  For he took Syracuse all alone, and routed the Gauls without his colleague, and when no one would undertake the struggle against Hannibal, but all declined it, he took the field against him, changed the aspect of the war, and was the first leader to show daring.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>I cannot, indeed, applaud the death of either of them, nay, I am distressed and indignant at their unreasonableness in the final disaster.  And I admire Hannibal because, in battles so numerous that one would weary of counting them, he was not even wounded.    I am delighted, too, with Chrysantes, in the 
+				<q direct="unspecified">Cyropaedeia,</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Cyrop. 4.1.3">Xenophon, <title>Cyrop.</title> iv. 1, 3.</bibl>
+            </note> who, though his blade was lifted on high and he was about to smite an enemy, when the trumpet sounded a retreat, let his man go, and retired with all gentleness and decorum.    
+				<milestone n="2" unit="section"/>Pelopidas, however, was somewhat excusable, because, excited as he always was by an opportunity for battle, he was now carried away by a generous anger to seek revenge.   For the best thing is that a general should be victorious and keep his life, 
+				<q direct="unspecified">but if he must die,</q>  he should 
+				<q direct="unspecified">conclude his life with valour,</q> as Euripides says; for then he does not suffer death, but rather achieves it. 
+				<milestone n="3" unit="section"/>And besides his anger, Pelopidas saw that the consummation of his victory would be the death of the tyrant, and this not altogether unreasonably invited his effort; for it would have been hard to find another deed of prowess with so fair and glorious a promise.  But Marcellus, when no great need was pressing, and when he felt none of that ardour which in times of peril unseats the judgment, plunged heedlessly into danger, and died the death, not of a general, but of a mere skirmisher or scout, 
+				<milestone n="4" unit="section"/>having cast his five consulates, his three triumphs, and the spoils and trophies which he had taken from kings, under the feet of Iberians and Numidians who had sold their lives to the Carthaginians.   And so it came to pass that these very men were loath to accept their own success, when a Roman who excelled all others in valour, and had the greatest influence and the most splendid fame, was uselessly sacrificed among the scouts of Fregellae.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>This, however, must not be thought a denunciation of the men, but rather an indignant and outspoken protest in their own behalf against themselves and their valour, to which they uselessly sacrificed their other virtues, in that they were unsparing of their lives; as if their death affected themselves alone, and not rather their countries, friends, and allies.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>After his death, Pelopidas received burial from his allies, in whose behalf he fell; Marcellus from his enemies, by whose hands he fell.  An enviable and happy lot was the former, it is true; but better and greater than the goodwill which makes grateful return for favours done, is the hatred which admires a valour that was harassing.   For in this case it is worth alone which receives honour; whereas in the other, personal interests and needs are more regarded than excellence.
+			</p>
+      </body>
+   </text>
+</TEI.2>

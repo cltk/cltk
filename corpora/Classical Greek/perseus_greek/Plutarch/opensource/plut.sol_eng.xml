@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Sol." type="work">Solon</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;&fund.AnnCPB;</titleStmt>
+         <extent>about 84Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Sol."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">1</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990528</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/90</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Proofread by Ted Armstrong.</item>
+         </change>
+         <change>
+            <date>8/91</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Revise DTDs and recheck texts.</item>
+         </change>
+         <change>
+            <date>8/92</date>
+            <respStmt>
+               <name>DAS</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Removed highlighted text, cleaned up notes and citations,
+					and changed chapters to DIV2's.</item>
+         </change>
+         <change>
+            <date>10/22/92</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Glued all Plutarch files together,
+					put in HEAD tags to title them.</item>
+         </change>
+         <change>
+            <date>9/12/97</date>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Made conformant with TEI P3.</item>
+         </change>
+         <change>
+            <date/>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>	
+					$Log: plut.sol_eng.xml,v $
+					Revision 1.4  2010-11-30 18:28:11  balmas01
+					getting rid of angle brackets in commit comments
+
+					Revision 1.3  2010-11-19 13:47:08  balmas01
+					Normalizing quote q and lb
+
+					Revision 1.2  2009-12-15 20:52:49  rsingh04
+					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
+
+					Revision 1.1  2009/12/07 22:05:56  rsingh04
+					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
+
+					Revision 1.10  2009/08/06 17:11:24  rsingh04
+					fixed section numbers
+
+					Revision 1.9  2009/06/24 16:06:43  lcerrato
+					fixed bad bibls
+
+					Revision 1.8  2009/06/19 19:09:10  lcerrato
+					fixed bad bibls
+
+					Revision 1.7  2009/06/11 20:04:20  student
+					fixing citations - ad
+
+					Revision 1.6  2009/06/11 15:43:28  student
+					fixing citations - ad
+
+					Revision 1.5  2009/05/06 20:08:10  lcerrato
+					fixed bad bibls
+
+					Revision 1.4  2009/04/17 19:52:23  lcerrato
+					fixing bad bibls
+
+					Revision 1.3  2009/01/23 22:09:50  rsingh04
+					small fixes
+
+					Revision 1.2  2009/01/23 21:35:59  rsingh04
+					now validates and entities fixed
+
+					Revision 1.3  2001/09/28 19:42:05  lcerrato
+					fixed parsing error close quote
+					
+					Revision 1.2  2001/09/28 19:34:07  lcerrato
+					cleaned up quotes, bibls and notes
+					
+					Revision 1.1  2001/09/27 21:56:41  lcerrato
+					adding new tags for DE, ISBN, etc.
+					
+					Revision 1.4  2000/03/04 20:35:11  dasmith
+					Added separate funder entity to TEI header.
+					
+					Revision 1.3  1999/07/28 18:27:56  dasmith
+					Added text to REFSDECL.
+					
+					Revision 1.2  1999/07/09 23:15:27  textgod
+					Converted to TEI-conformant SGML.
+				</item>
+         </change>
+         <change>
+            <date>9/01</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>removed from group file, retagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>SOLON</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Didymus the grammarian, in his reply to Asclepiades on Solon's tables of law, mentions a remark of one Philocles, in which it is stated that Solon's father was Euphorion, contrary to the opinion of all others who have written about Solon.  For they all unite in saying that he was a son of Execestides, a man of moderate wealth and influence in the city, but a member of its foremost family, being descended from Codrus.
+				<milestone n="2" unit="section"/>
+				Solon's mother, according to Heracleides Ponticus, was a cousin of the mother of Peisistratus.  And the two men were at first great friends, largely because of their kinship, and largely because of the youthful beauty of Peisistratus, with whom, as some say, Solon was passionately in love.  And this may be the reason why, in later years, when they were at variance about matters of state, their enmity did not bring with it any harsh or savage feelings, but their former amenities lingered in their spirits, and preserved there,
+				
+				<quote rend="blockquote">
+					          <l>smouldering with a lingering flame of Zeus-sent fire,</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Eur. Ba. 8">Euripides, <title>Bacchae</title> 8.</bibl>
+            </note>
+				
+				the grateful memory of their love.
+				<milestone n="3" unit="section"/>
+				And that Solon was not proof against beauty in a youth, and made not so bold with Love as 
+				<q direct="unspecified">to confront him like a boxer, hand to hand,</q> may be inferred from his poems.  He also wrote a law forbidding a slave to practise gymnastics or have a boy lover, thus putting the matter in the category of honorable and dignified practices, and in a way inciting the worthy to that which he forbade the unworthy.
+				<milestone n="4" unit="section"/>
+				And it is said that Peisistratus also had a boy lover, Charmus, and that he dedicated the statue of Love in the Academy, where the runners in the sacred torch race light their torches.
+				<milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Solon, then, after his father had impaired his estate in sundry benevolent charities, as Hermippus tells us, might have found friends enough who were willing to aid him.  But he was ashamed to take from others, since he belonged to a family which had always helped others, and therefore, while still a young man, embarked in commerce.  And yet some say that he travelled to get experience and learning rather than to make money.
+				<milestone n="2" unit="section"/>
+				For he was admittedly a lover of wisdom, since even when he was well on in years he would say that he 
+				<q direct="unspecified">grew old ever learning many things</q>; and he was not an admirer of wealth, but actually says that two men are alike wealthy of whom one
+				
+				<quote rend="blockquote">
+					          <l>much silver hath,</l>
+					          <l>And gold, and wide domains of wheat-bearing soil,</l>
+					          <l>Horses and mules; while to the other only enough belongs</l>
+					          <l>To give him comfort of food, and clothes, and shoes,</l>
+					          <l>Enjoyment of child and blooming wife, when these too come,</l>
+					          <l>And only years commensurate therewith are his.</l>
+				        </quote>
+				        <note place="unspecified" anchored="yes">
+               <bibl>Solon, Frag. 24. 1-6 (Bergk)</bibl>
+            </note>
+				
+				        <milestone n="3" unit="section"/>
+				However, in another place he says:.&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Wealth I desire to have; but wrongfully to get it, I do not wish.</l>
+					          <l>Justice, even if slow, is sure.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 13. 7-8 (Bergk)</bibl>
+            </note>
+				
+				And there is no reason why a good statesman should either set his heart too much on the acquisition of superfluous wealth, or despise unduly the use of what is necessary and convenient.  In those earlier times, to use the words of Hesiod,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hes. WD 311">Hes. WD 311</bibl>
+            </note>
+				        <q direct="unspecified">work was no disgrace,</q> nor did a trade bring with it social inferiority, and the calling of a merchant was actually held in honor, since it gave him familiarity with foreign parts, friendships with foreign kings, and a large experience in affairs.
+				<milestone n="4" unit="section"/>
+				Some merchants were actually founders of great cities, as Protis, who was beloved by the Gauls along the Rhone, was of Marseilles. Thales is said to have engaged in trade, as well as Hippocrates the mathematician; and Plato defrayed the expenses of his sojourn in Egypt by the sale of oil.
+				<milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Accordingly it Solon's way of living was expensive and profuse and if in his poems, he speaks of pleasure with more freedom than becomes a philosopher, this is thought to be due to his mercantile life; he encountered manly and great dangers, and sought his reward therefor in sundry luxuries and enjoyments.
+				<milestone n="3" unit="section"/>
+				But that he classed himself among the poor rather than the rich, is clear from these verses:&mdash;<note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 15 (Bergk).</bibl>
+            </note>
+				
+				        <quote rend="blockquote">
+					          <l>For often evil men are rich, and good men poor;</l>
+					          <l>But we will not exchange with them</l>
+					          <l>Our virtue for their wealth since one abides always,</l>
+					          <l>While riches change their owners every day.</l>
+				        </quote>
+				
+				        <milestone n="3" unit="section"/>
+				And he seems to have composed his poetry at first with no serious end in view, but as amusement and diversion in his hours of leisure.  Then later, he put philosophic maxims into verse, and interwove many political teachings in his poems, not simply to record and transmit them, but because they contained justifications of his acts, and sometimes exhortations, admonitions, and rebukes for the Athenians.
+				<milestone n="4" unit="section"/>
+				Some say, too, that he attempted to reduce his laws to heroic verse before he published them, and they give us this introduction to them:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>First let us offer prayers to Zeus, the royal son of Cronus,</l>
+					          <l>That he may give these laws of ours success and fame.</l>
+				        </quote>
+				        <bibl>Solon, Fragm. 31 (Bergk)</bibl>
+				
+				In philosophy, he cultivated chiefly the domain of political ethics, like most of the wise men of the time; and in physics, he is very simple and antiquated, as is clear from the following verses:&mdash;
+				<milestone n="4" unit="section"/>
+				
+				        <quote rend="blockquote">
+					          <l>From clouds come sweeping snow and hail,</l>
+					          <l>And thunder follows on the lightning's flash.</l>
+					          <l>By winds the sea is lashed to storm, but if it be</l>
+					          <l>Unvexed, it is of all things most amenable.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 9. 1-2</bibl>; and <bibl>Fragment 12 (Bergk).</bibl>
+            </note>
+				
+				And in general, it would seem that Thales was the only wise man of the time who carried his speculations beyond the realm of the practical; the rest<note resp="ed" place="unspecified" anchored="yes">The names usually given in the list of the Seven Wise  Men are: Bias of Priene, Chilon of Sparta, Cleobulus of  Lindus, Periander of Corinth, Pittacus of Mytilene, Solon of  Athens, and Thales of Miletus.  See <bibl n="Plut. Sol. 12.4">Plut. Sol. 12.4</bibl>.</note> got the name of wisdom from their excellence as statesmen.
+				<milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>They are all said to have met together at Delphi, and again in Corinth, where Periander arranged something like a joint conference for them, and a banquet.  But what contributed still more to their honor and fame was the circuit which the tripod made among them, its passing round through all their hands, and their mutual declination of it, with generous expressions of good will.
+				<milestone n="2" unit="section"/>
+				Some Coans, as the story goes, were dragging in a net, and some strangers from Miletus bought the catch as yet unseen.  It proved to contain a golden tripod which Helen, on her voyage from Troy, is said to have thrown in there, when she called to mind a certain ancient oracle.  First the strangers had a dispute with the fishermen about the tripod, and then their cities took up the quarrel and went at last to war, whereupon the Pythian priestess of Apollo told both parties in an oracle that the tripod must be given to the wisest man.
+				<milestone n="3" unit="section"/>
+				So in the first place it was sent to Thales at Miletus, the Coans willingly bestowing upon him alone that for which they had waged war against all the Milesians together.  But Thales declared that Bias was a wiser man than he, and the tripod was sent to Bias.  From Bias, in his turn, it was dispatched to another, as wiser than he.  So it went the rounds and was sent away by each in turn, until at last it came to Thales for the second time.  Finally, it was carried from Miletus to Thebes and dedicated to Ismenian Apollo.
+				<milestone n="4" unit="section"/>
+				Theophrastus, however, says that the tripod was sent in the first place to Bias at Priene, and in the second place to Thales at Miletus, at the instance of Bias, and so passed through the hands of all the wise men until it came round again to Bias, and finally was sent to Delphi.  These, then, are the more common versions of the tale.  But some say that the gift thus passed from hand to hand was not the tripod now seen at Delphi, but a bowl sent there by Croesus; and others that it was a beaker left there by Bathycles.
+				<milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In particular we are told of private intercourse between Solon and Anacharsis, and between Solon and Thales, of which the following accounts are given.<note resp="ed" place="unspecified" anchored="yes">In <bibl n="Plut. Sol. 5">Plut. Sol. 5</bibl> and <bibl n="Plut. Sol. 6">Plut. Sol. 6</bibl>.</note> Anacharsis came to Athens, knocked at Solon's door, and said that he was a stranger who had come to make ties of friendship and hospitality with him.  On Solon's replying that it was better to make one's friendships at home, 
+				<q direct="unspecified">Well then,</q> said Anacharsis, 
+				<q direct="unspecified">do thou, who art at home, make me thy friend and guest.</q>
+				        <milestone n="2" unit="section"/>
+				So Solon, admiring the man's ready wit, received him graciously and kept him with him some time.  This was when he was already engaged in public affairs and compiling his laws.  Anacharsis, accordingly, on learning what Solon was about, laughed at him for thinking that he could check the injustice and rapacity of the citizens by written laws, which were just like spiders' webs; they would hold the weak and delicate who might be caught in their meshes, but would be torn in pieces by the rich and powerful.
+				<milestone n="3" unit="section"/>
+				To this Solon is said to have answered that men keep their agreements with each other when neither party profits by the breaking of them, and he was adapting his laws to the citizens in such a manner as to make it clear to all that the practice of justice was more advantageous than the transgression of the laws.  But the results justified the conjecture of Anacharsis rather than the hopes of Solon.  It was Anacharsis, too, who said, after attending a session of the assembly, that he was amazed to find that among the Greeks, the wise men pleaded causes, but the fools decided them.
+				<milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>On his visit to Thales at Miletus, Solon is said to have expressed astonishment that his host was wholly indifferent to marriage and the getting of children.  At the time Thales made no answer, but a few days afterwards he contrived to have a stranger say that he was just arrived after a ten days' journey from Athens.  When Solon asked what news there was at Athens, the man, who was under instructions what to say, answered:  
+				<q direct="unspecified">None other than the funeral of a young man, who was followed to the grave by the whole city.
+					<milestone n="2" unit="section"/>
+					For he was the son, as I was told, of an honored citizen who excelled all others in virtue; he was not at the funeral of his son; they told me that he had been travelling abroad for a long time.</q>  
+				        <q direct="unspecified">O the miserable man!</q> said Solon; 
+				<q direct="unspecified">pray, what was his name?</q> 
+				        <q direct="unspecified">I heard the name,</q> the man said, 
+				<q direct="unspecified">but I cannot recall it; only there was great talk of his wisdom and justice.</q>  Thus every answer heightened Solon's fears, and at last, in great distress of soul, he told his name to the stranger and asked him if it was Solon's son that was dead.
+				<milestone n="3" unit="section"/>
+				The man said it was; whereupon Solon began to beat his head and to do and say everything else that betokens a transport of grief.  But Thales took him by the hand and said, with a smile 
+				<q direct="unspecified">This it is O Solon, which keeps me from marriage and the getting of children; it overwhelms even thee, who art the most stouthearted of men.  But be not dismayed at this story, for it is not true.</q>  Such, at any rate, according to Hermippus, is the story of Pataecus, who used to boast that he had Aesop's soul.
+				<milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>However, it is irrational and ignoble to renounce the acquisition of what we want for fear of losing it; for on this principle a man cannot be gratified by the possession of wealth, or honor, or wisdom, for fear he may be deprived of them.  Indeed, even virtue, the most valuable and pleasing possession in the world, is often banished by sickness and drugs. And Thales himself, though unmarried, was nevertheless not wholly free from apprehension, unless he also avoided having friends, or relations, or country.
+				<milestone n="2" unit="section"/>
+				On the contrary, he had a son by his own adoption, as we are told, Cybisthus, his sister's son.  For the soul has in itself a capacity for affection, and loves just as naturally as it perceives, understands, and remembers. It clothes itself in this capacity, and attaches itself to those who are not akin to it, and just as if it were a house or an estate that lacks lawful heirs, this craving for affection is entered and occupied by alien and illegitimate children, or retainers, who, along with love for them, inspire anxiety and fear in their behalf.
+				<milestone n="3" unit="section"/>
+				So that you will find men of a somewhat rugged nature who argue against marriage and the begetting of children, and then, when children of their servants, or offspring of their concubines fall sick and die, these same men are racked with sorrow and lament abjectly.  Some, too, at the death even of dogs and horses, have been plunged into shameful and intolerable grief.  But others have borne the loss of noble sons without terrible sorrow or unworthy conduct, and have conformed the rest of their lives to the dictates of reason.
+				<milestone n="4" unit="section"/>
+				For it is weakness, not kindness, that brings men into endless pains and terrors when they are not trained by reason to endure the assaults of fortune.  Such men do not even enjoy what they long for when they get it, but are filled with continual pangs, tremors, and struggles by the fear of future loss.  However, we must be fortified not by poverty against deprivation of worldly goods, nor by friendlessness against loss of friends, nor by childlessness against death of children, but by reason against all adversities.  This, under present circumstances, is more than enough on this head.
+				<milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Once when the Athenians were tired out with a war which they were waging against the Megarians for the island of Salamis, they made a law that no one in future, on pain of death, should move, in writing or orally, that the city take up its contention for Salamis.  Solon could not endure the disgrace of this, and when he saw that many of the young men wanted steps taken to bring on the war, but did not dare to take those steps themselves on account of the law, he pretended to be out of his head,
+				<milestone n="2" unit="section"/>
+				and a report was given out to the city by his family that he showed signs of madness.  He then secretly composed some elegiac verses, and after rehearsing them so that he could say them by rote, he sallied out into the market-place of a sudden, with a cap upon his head.  After a large crowd had collected there, he got upon the herald's stone and recited the poem which begins:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Behold in me a herald come from lovely Salamis,</l>
+					          <l>With a song in ordered verse instead of a harangue.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">Only six more verses are preserved (<bibl>Fragments 1-3, Bergk</bibl>).  They contain reproaches of the Athenians for abandoning Salamis, and an exhortation to go and fight for it.</note>
+				
+				        <milestone n="3" unit="section"/>
+				This poem is entitled 
+				<q direct="unspecified">Salamis,</q> and contains a hundred very graceful verses.  When Solon had sung it, his friends began to praise him, and Peisistratus in particular urged and incited the citizens to obey his words.  They therefore repealed the law and renewed the war, putting Solon in command of it.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>The popular account of his campaign is as follows. Having sailed to Cape Colias with Peisistratus, he found all the women of the city there, performing the customary sacrifice to Demeter.  He therefore sent a trusty man to Salamis, who pretended to be a deserter, and bade the Megarians, if they wished to capture the principal women of Athens, to sail to Colias with him as fast as they could.
+				<milestone n="5" unit="section"/>
+				The Megarians were persuaded by him, and sent off some men in his ship.  But when Solon saw the vessel sailing back from the island, he ordered the women to withdraw, and directed those of the younger men who were still beardless, arraying themselves in the garments, head-bands, and sandals which the women had worn, and carrying concealed daggers, to sport and dance on the sea shore until the enemy had disembarked and the vessel was in their power.
+				<milestone n="6" unit="section"/>
+				This being done as he directed, the Megarians were lured on by what they saw, beached their vessel, and leapt out to attack women, as they supposed, vying with one another in speed.  The result was that not a man of them escaped, but all were slain, and the Athenians at once set sail and took possession of the island.
+				<milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Others, however, say that the island was not taken in his way, but that Solon first received this oracle from the god at Delphi:&mdash;
+				<quote rend="blockquote" type="oracle">
+					          <l>The tutelary heroes of the land where once they lived, with sacred rites</l>
+					          <l>Propitiate, whom the Asopian plain now hides in its bosom;</l>
+					          <l>There they lie buried with their faces toward the setting sun.</l>
+				        </quote> Thereupon Solon sailed by night to the island and made sacrifices to the heroes Periphemus and Cychreus.
+				<milestone n="2" unit="section"/>
+				Then he took five hundred Athenian volunteers, a decree having been made that these should be supreme in the government of the island if they took it, and setting sail with a number of fishing boats convoyed by a thirty-oared ship, he anchored off the island of Salamis, at a point of land looking towards Euboea.  But the Megarians in the city of Salamis, hearing only an uncertain report of what had happened, armed themselves hurriedly and set out for the place, at the same time dispatching a ship to spy out the enemy.
+				<milestone n="3" unit="section"/>
+				This ship came near and was captured by Solon, who put her crew in confinement.  Then he manned her with the best of his Athenians, and ordered them to sail against the city, keeping themselves as much concealed as was feasible.  At the same time, with the rest of his Athenians, he engaged the Megarians on land, and while the fight was still raging the crew of the ship succeeded in capturing the city.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Now there seems to be a confirmation of this story in certain ceremonies afterwards established. Namely, an Attic ship would approach the island in silence at first, then its crew would make an onset with shouts and cries, and one man in full armour would leap out with a shout of triumph and run to the promontory of Sciradium to inform those who were attacking by land.  Hard by that place is the temple of Enyalius<note resp="ed" place="unspecified" anchored="yes">Ares.</note> which was erected by Solon. For he conquered the Megarians, and all who were not slain in the battle were released on parole.
+				<milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Notwithstanding all this, the Megarians persisted in their opposition, and both sides inflicted and suffered many injuries in the war, so that finally they made the Lacedaemonians arbiters and judges of the strife.  Accordingly, most writers say that the fame of Homer favoured the contention of Solon; for after himself inserting a verse into the Catalogue of Ships, he read the passage at the trial thus:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Ajax from Salamis brought twelve ships,</l>
+					          <l>And bringing, stationed them near the Athenian hosts.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Il. 2.557">
+                  <title>Iliad</title>, 11. 557 f.</bibl>
+            </note>
+				
+				
+				        <milestone n="2" unit="section"/>
+				The Athenians themselves, however, think this an idle tale and say that Solon proved to the judges that Philaeus and Eurysaces, the sons of Ajax, became citizens of Athens, made over their island to them, and took up their residence in Attica, one at Brauron, and the other at Melite; and they have a township named after Philaeus, namely Philaidae, to which Peisistratus belonged.
+				<milestone n="3" unit="section"/>
+				They say, too, that Solon, wishing to refute the claims of the Megarians still further, made the point that the dead on the island of Salamis were not buried after the Megarian, but after the Athenian fashion.  For the Megarians bury their dead facing the east, but the Athenians facing the west.  However, Hereas the Megarian denies this, and says that the Megarians also turn the faces of their dead to the west.  And what is still more important than this, he says that the Athenians use one tomb for each body, whereas the Megarians (like the early inhabitants of Salamis) place three or four bodies in one tomb.
+				<milestone n="4" unit="section"/>
+				However, they say that Solon was further supported by sundry Pythian oracles, in which the god spoke of Salamis as Ionian.  This case was decided by five Spartans, Critolaidas, Amompharetus, Hypsechidas, Anaxilas, and Cleomenes.
+				<milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>These events, then, presently made Solon famous and powerful.  But he was even more admired and celebrated among the Greeks for what he said in behalf of the temple at Delphi, namely, that the Greeks must come to its relief, and not suffer the people of Cirrha to outrage the oracle, but aid the Delphians in maintaining the honor of the god. For it was by his persuasion that the Amphictyons<note resp="ed" place="unspecified" anchored="yes">The twelve people who had as common sanctuaries the temple of Apollo at Delphi and the temple of Demeter at Anthela, near Thermopylae. 429</note> undertook the war, as Aristotle, among others, testifies, in his list of the victors at the Pythian games, where he ascribes the measure to Solon.
+				<milestone n="2" unit="section"/>
+				He was not, however, appointed general for this war, as Evanthes the Samian says (according to Hermippus), for Aeschines the orator makes no such statement,<note resp="ed" place="unspecified" anchored="yes">In his speech Against Ctesiphon, <bibl n="Aeschin. 3.109">Aeschin. 3.109</bibl>.</note> and in the records of Delphi it is stated that Alcmaeon, and not Solon, commanded the Athenians.
+				<milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now the Cylonian pollution had for a long time agitated the city, ever since Megacles the archon had persuaded Cylon and his fellow conspirators, who had taken sanctuary in the temple of Athena, to come down and stand their trial.<note resp="ed" place="unspecified" anchored="yes">About 636 B.C.  Cf. <bibl n="Hdt. 5.71">Hdt. 5.71</bibl>; <bibl n="Thuc. 1.126">Thuc. 1.126</bibl>.</note> They fastened a braided thread to the image of the goddess and kept hold of it, but when they reached the shrine of the Erinyes on their way down, the thread broke of its own accord, upon which Megacles and his fellow-archons rushed to seize them, on the plea that the goddess refused them the rights of suppliants.  Those who were outside of sacred precincts were stoned to death, and those who took refuge at the altars were slaughtered there; only those were spared who made supplication to the wives of the archons.
+				<milestone n="2" unit="section"/>
+				Therefore the archons were called polluted men and were held in execration. The survivors of the followers of Cylon also recovered strength, and were forever at variance with the descendants of Megacles.  At this particular time the quarrel was at its height and the people divided between the two factions.  Solon, therefore, being now in high repute, interposed between them, along with the noblest of the Athenians, and by his entreaties and injunctions persuaded the men who were held to be polluted to submit to a trial, and to abide by the decision of three hundred jurors selected from the nobility.
+				<milestone n="3" unit="section"/>
+				Myron of Phlya conducted the prosecution, and the family of Megacles was found guilty.  Those who were alive were banished, and the bodies of the dead were dug up and cast forth beyond the borders of the country.  During these disturbances the Megarians also attacked the Athenians, who lost Nisaea, and were driven out of Salamis once more.  The city was also visited with superstitious fears and strange appearances, and the seers declared that their sacrifices indicated pollutions and defilements which demanded expiation.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Under these circumstances they summoned to their aid from Crete Epimenides of Phaestus, who is reckoned as the seventh Wise Man by some of those who refuse Periander a place in the list.<note resp="ed" place="unspecified" anchored="yes">See note on <bibl n="Plut. Sol. 3.pos=13">Plut. Sol. 3.5</bibl>, and cf. <bibl n="Aristot. Ath. Pol. 1">Aristot. Const. Ath. 1</bibl>.</note> He was reputed to be a man beloved of the gods, and endowed with a mystical and heaven-sent wisdom in religious matters.  Therefore the men of his time said that he was the son of a nymph named Balte, and called him a new Cures.<note resp="ed" place="unspecified" anchored="yes">The Curetes were Cretan priests of Idaean Zeus, who took their name from the demi-gods to whose care Rhea was said to have committed the infant Zeus.</note> On coming to Athens he made Solon his friend, assisted him in many ways, and paved the way for his legislation.
+				<milestone n="5" unit="section"/>
+				For he made the Athenians decorous and careful in their religious services, and milder in their rites of mourning, by attaching certain sacrifices immediately to their funeral ceremonies and by taking away the harsh and barbaric practices in which their women had usually indulged up to that time.  Most important of all, by sundry rites of propitiation and purification, and by sacred foundations, he hallowed and consecrated the city, and brought it to be observant of justice and more easily inclined to unanimity.  It is said that when he had seen Munychia<note resp="ed" place="unspecified" anchored="yes">The acropolis of the Peiraeus, stategically commanding not only that peninsula, but also Athens itself.</note> garrisoned by conquerors of Athens and considered it for some time, he remarked to the bystanders that man was indeed blind to the future; for if the Athenians only knew what mischiefs the place would bring upon their city,
+				<milestone n="6" unit="section"/>
+				they would devour it with their own teeth.  A similar insight into futurity is ascribed to Thales.  They say that he gave directions for his burial in an obscure and neglected quarter of the city's territory, predicting that it would one day be the market-place of Miletus. Well then, Epimenides was vastly admired by the Athenians, who offered him much money and large honors; but he asked for nothing more than a branch of the sacred olive-tree, with which he returned home.
+				<milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But the Athenians, now that the Cylonian disturbance was over and the polluted persons banished, as described,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Sol. 12.3">Plut. Sol. 12.3</bibl>.</note> relapsed into their old disputes about the form of government, the city being divided into as many parties as there were diversities in its territory.  The Hill-men favoured an extreme democracy; the Plain-men an extreme oligarchy; the Shore-men formed a third party,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 13.4">Aristotle, Const. Ath. 13.4</bibl>
+            </note> which preferred an intermediate and mixed form of government, was opposed to the other two, and prevented either from gaining the ascendancy.
+				<milestone n="2" unit="section"/>
+				At that time, too, the disparity between the rich and the poor had culminated, as it were, and the city was in an altogether perilous condition; it seemed as if the only way to settle its disorders and stop its turmoils was to establish a tyranny.  All the common people were in debt to the rich.  For they either tilled their lands for them, paying them a sixth of the increase (whence they were called Hectemoiroi and Thetes), or else they pledged their persons for debts and could be seized by their creditors, some becoming slaves at home, and others being sold into foreign countries.
+				<milestone n="3" unit="section"/>
+				Many, too, were forced to sell their own children (for there was no law against it), or go into exile, because of the cruelty of the money-lenders. But the most and sturdiest of them began to band together and exhort one another not to submit to their wrongs, but to choose a trusty man as their leader, set free the condemned debtors, divide the land anew, and make an entire change in the form of government.
+				<milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At this point, the wisest of the Athenians cast their eyes upon Solon.  They saw that he was the one man least implicated in the errors of the time; that he was neither associated with the rich in their injustice, nor involved in the necessities of the poor.  They therefore besought him to come forward publicly and put an end to the prevailing dissensions.  And yet Phanias the Lesbian writes that Solon of his own accord played a trick upon both parties in order to save the city, and secretly promised to the poor the distribution of land which they desired, and to the rich, validation of their securities.
+				<milestone n="2" unit="section"/>
+				But Solon himself says that he entered public life reluctantly, and fearing one party's greed and the other party's arrogance.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 5.3">Aristot. Const. Ath. 5.3</bibl>.</note> However, he was chosen archon<note resp="ed" place="unspecified" anchored="yes">594 B.C.</note> to succeed Philombrotus, and made mediator and legislator for the crisis, the rich accepting him readily because he was well-to-do, and the poor because he was honest.  It is also said that a certain utterance of his which was current before his election, to the effect that equality bred no war, pleased both the men of substance and those who had none; the former expecting to have equality based on worth and excellence, the latter on measure and count.
+				<milestone n="3" unit="section"/>
+				Therefore both parties were in high hopes, and their chief men persistently recommended a tyranny to Solon, and tried to persuade him to seize the city all the more confidently now that he had it completely in his power.  Many citizens, too, who belonged to neither party, seeing that it would be a laborious and difficult matter to effect a change by means of argument and law, were not reluctant to have one man, the justest and wisest of all, put at the head of the state.
+				<milestone n="4" unit="section"/>
+				Furthermore, some say that Solon got an oracle at Pytho which ran as follows:&mdash;
+				<quote rend="blockquote" type="oracle">
+					          <l>Take thy seat amidships, the pilot's task is thine;</l>
+					          <l>Perform it, many in Athens are thine allies.</l>
+				        </quote>And above all, his familial friends chid him for being averse to absolute power because of the name of tyranny, as if the virtues of him who seized it would not at once make it a lawful sovereignty. Euboea (they argued) had formerly found this true of Tynnondas, and so had the Mitylenaeans, now that they had chosen Pittacus to be their tyrant.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>None of these things shook Solon from his resolution.  To his friends he said, as we are told, that a tyranny was a lovely place, but there was no way down from it.  And in his poems he writes to Phocus:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>
+						            <q direct="unspecified">And if,</q> he says, &ldquo;I spared my land,</l>
+					          <l>My native land, and unto tyranny and violence implacable</l>
+					          <l>Did not set hand, polluting and disgracing my fair fame,</l>
+					          <l>I'm not ashamed; in this way rather shall my name be set above</l>
+					          <l>That of all other men.&rdquo;</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Solon, Frag. 32 (Bergk).</bibl>
+            </note>
+				
+				From this it is clear that even before his legislation he was in high repute.
+				<milestone n="6" unit="section"/>
+				And as for the ridicule which many heaped upon him for refusing the tyranny, he has written as follows;&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Solon was a shallow thinker and a man of counsel void;</l>
+					          <l>When the gods would give him blessings, of his own will he refused.</l>
+					          <l>When his net was full of fish, amazed, he would not pull it in,</l>
+					          <l>All for lack of spirit, and because he was bereft of sense.</l>
+					          <l>I had certainly been willing, for the power, and boundless wealth,</l>
+					          <l>And to be tyrant over Athens no more than a single day,</l>
+					          <l>Then to have a pouch flayed from me, and my lineage blotted out.<note resp="ed" place="unspecified" anchored="yes">Fragment 33 (Bergk).</note>
+               </l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Solon, Frag. 33 (Bergk).</bibl>
+            </note>
+				
+				
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Thus he represents the multitude and men of low degree as speaking of him.  However, though he rejected the tyranny, he did not administer affairs in the mildest possible manner, nor in the enactment of his laws did he show a feeble spirit, nor make concessions to the powerful, nor consult the pleasure of his electors.  Nay, where a condition was as good as it could well be, he applied no remedy, and introduced no innovation, fearing lest, after utterly confusing and confounding the city, he should be too weak to establish it again and recompose it for the best.
+				<milestone n="2" unit="section"/>
+				But those things wherein he hoped to find them open to persuasion or submissive to compulsion, these he did,
+				
+				<quote rend="blockquote">
+					          <l>Combining both force and justice together,</l>
+				        </quote>
+            <note place="unspecified" anchored="yes">
+               <bibl>Solon, Frag. 36. 14 (Bergk)</bibl>
+            </note>
+				
+				as he says himself.  Therefore when he was afterwards asked if he had enacted the best laws for the Athenians, he replied, 
+				<q direct="unspecified">The best they would receive.</q> 
+			      </p>
+         <p>Now later writers observe that the ancient Athenians used to cover up the ugliness of things with auspicious and kindly terms, giving them polite and endearing names.
+				<milestone n="3" unit="section"/>
+				Thus they called harlots 
+				<q direct="unspecified">companions,</q> taxes 
+				<q direct="unspecified">contributions,</q> the garrison of a city its 
+				<q direct="unspecified">guard,</q> and the prison a 
+				<q direct="unspecified">chamber.</q>  But Solon was the first, it would seem, to use this device, when he called his cancelling of debts a 
+				<q direct="unspecified">disburdenment.</q>  For the first of his public measures was an enactment that existing debts should be remitted, and that in future no one should lend money on the person of a borrower.
+				<milestone n="4" unit="section"/>
+				Some writers, however, and Androtion is one of them, affirm that the poor were relieved not by a cancelling of debts, but by a reduction of the interest upon them, and showed their satisfaction by giving the name of 
+				<q direct="unspecified">disburdenment</q> to this act of humanity, and to the augmentation of measures and the purchasing power of money which accompanied it.<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Aristot. Ath. Pol. 10.1">Aristot. Const. Ath. 10.1</bibl>, with Sandys' note.</note> For he made the mina to consist of a hundred drachmas, which before has contained only seventy-three, so that by paying the same amount of money, but money of a lesser value, those who had debts to discharge were greatly benefited, and those who accepted such payments were no losers.
+				<milestone n="5" unit="section"/>
+				But most writers agree that the 
+				<q direct="unspecified">disburdenment</q> was a removal of all debt, and with such the poems of Solon are more in accord For in these he proudly boasts that from the mortgaged lands
+				
+				<quote rend="blockquote">
+					          <l>He took away the record-stones that everywhere were planted</l>
+					          <l>Before, Earth was in bondage, now she is free</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 36, verses 4 f.</bibl>, with adaptation from the first person; verses 6 f. in Aristotle's citation.</note>
+				
+				And of the citizens whose persons had been seized for debt, some he brought back from foreign lands,
+				
+				<quote rend="blockquote">
+					          <l>uttering no longer Attic speech,</l>
+					          <l>So long and far their wretched wanderings</l>
+					          <l>And some who here at home in shameful servitude</l>
+					          <l>Were held</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 36, verses 9-12 (Bergk)</bibl>; verses 11-14 in Aristotle.</note>
+				he says he set free 
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>This undertaking is said to have involved him in the most vexatious experience of his life.  For when he had set out to abolish debts, and was trying to find fitting arguments and a suitable occasion for the step, he told some of his most trusted and intimate friends, namely, Conon, Cleinias, and Hipponicus, that he was not going to meddle with the land, but had determined to cancel debts.  They immediately took advantage of this confidence and anticipated Solon's decree by borrowing large sums from the wealthy and buying up great estates.
+				<milestone n="7" unit="section"/>
+				Then when the decree was published, they enjoyed the use of their properties, but refused to pay the moneys due their creditors.  This brought Solon into great condemnation and odium, as if he had not been imposed upon with the rest, but were a party to the imposition.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 1">Aristot. Const. Ath. 1</bibl>.</note> However, this charge was at once dissipated by his well-known sacrifice of five talents. For it was found that he had lent so much, and he was the first to remit this debt in accordance with his law. Some say that the sum was fifteen talents, and among them is Polyzelus the Rhodian.  But his friends were ever after called 
+				<q direct="unspecified">chreocopidae,</q> or debt- cutters.
+				<milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>He pleased neither party, however; the rich were vexed because he took away their securities for debt, and the poor still more, because he did not redistribute the land, as they had expected, nor make all men equal and alike in their way of living, as Lycurgus did.  But Lycurgus was eleventh in descent from Heracles, and had been king in Lacedaemon for many years.  He therefore had great authority, many friends, and power to support his reforms in the commonwealth.  He also employed force rather than persuasion, insomuch that he actually lost his eye thereby,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lyc. 11">Plut. Lyc. 11</bibl>.</note> and most effectually guaranteed the safety and unanimity of the city by making all its citizens neither poor nor rich.
+				<milestone n="2" unit="section"/>
+				Solon, on the contrary, could not secure this feature in his commonwealth, since he was a man of the people and of modest station; yet he in no wise acted short of his real power, relying as he did only on the wishes of the citizens and their confidence in him.  Nevertheless he gave offence to the greater part of them, who expected different results, as he himself says of them in the lines&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Then they had extravagant thoughts of me, but now, incensed,</l>
+					          <l>All look askance at me, as if I were their foe</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 34 (Bergk)</bibl>; now verses 4 f. of a fragment of nine verses cited by Aristotle (<bibl n="Aristot. Ath. Pol. 12.3">
+                  <title>Const. of Athens., xii. 3.</title>
+               </bibl>).</note>
+				
+				And yet had any other man, he says, acquired the same power,
+				
+				<quote rend="blockquote">
+					          <l>He had not held the people down, nor made an end</l>
+					          <l>Until he had confounded all, and skimmed the cream.</l>
+				        </quote>
+				
+				        <milestone n="3" unit="section"/>
+			      </p>
+         <p>Soon, however, they perceived the advantages of his measure, ceased from their private fault-finding, and offered a public sacrifice, which they called Seisactheia, or Disburdenment.  They also appointed Solon to reform the constitution and make new laws, laying no restrictions whatever upon him, but putting everything into his hands, magistracies, assemblies, courts-of-law, and councils.  He was to fix the property qualification for each of these, their numbers, and their times of meeting, abrogating and maintaining existing institutions at his pleasure
+				<milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In the first place, then, he repealed the laws of Draco, all except those concerning homicide<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 7.1">Aristot. Const Ath. 7.1</bibl>.</note> because they were too severe and their penalties too heavy.  For one penalty was assigned to almost all transgressions, namely death, so that even those convicted of idleness were put to death, and those who stole salad or fruit received the same punishment as those who committed sacrilege or murder.
+				<milestone n="2" unit="section"/>
+				Therefore Demades, in later times, made a hit when he said that Draco's laws were written not with ink, but blood.  And Draco himself, they say, being asked why he made death the penalty for most offences, replied that in his opinion the lesser ones deserved it, and for the greater ones no heavier penalty could be found
+				<milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In the second place, wishing to leave all the magistracies in the hands of the well-to-do, as they were, but to give the common people a share in the rest of the government, of which they had hitherto been deprived, Solon made an appraisement of the property of the citizens.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 7.3">Aristot. Const. Ath. 7.3</bibl> f.</note> Those who enjoyed a yearly increase of five hundred measures (wet and dry), he placed in the first class, and called them Pentakosiomedimnoi; the second class was composed of those who were able to keep a horse, or had a yearly increase of three hundred measures,
+				<milestone n="2" unit="section"/>
+				and they were called Hippada Telountes, since they paid a Knight's tax; the members of the third class, whose yearly increase amounted to two hundred measures (wet and dry together), were called Zeugitai.  All the rest were called Thetes, they were not allowed to hold any office, but took part in the administration only as members of the assembly and as jurors.  This last privilege seemed at first of no moment, but afterwards proved to be of the very highest importance, since most disputes finally came into the hands of these jurors. For even in cases which Solon assigned to the magistrates for decision, he allowed also an appeal to a popular court when any one desired it.
+				<milestone n="3" unit="section"/>
+				Besides, it is said that his laws were obscurely and ambiguously worded on purpose to enhance the power of the popular courts.  For since parties to a controversy could not get satisfaction from the laws, the result was that they always wanted jurors to decide it, and every dispute was laid before them, so that they were in a manner masters of the laws.
+				<milestone n="4" unit="section"/>
+				And he himself claims the credit for this in the following words&mdash;
+				
+				<quote rend="blockquote">
+					          <l>For to the common people I gave so much power as is sufficient,</l>
+					          <l>Neither robbing them of dignity, nor giving them too much,</l>
+					          <l>And those who had power, and were marvelously rich,</l>
+					          <l>Even for these I contrived that they suffered no harm</l>
+					          <l>I stood with a mighty shield in front of both classes,</l>
+					          <l>And suffered neither of them to prevail unjustly.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 5 (Bergk)</bibl>; <bibl n="Aristot. Ath. Pol. 12.1">Aristotle, <title>Const. of Athens.</title>, xii. 1</bibl>; cf. also <bibl n="Aristot. Ath. Pol. 9.1">ix. 1</bibl> f.</note>
+				
+				        <milestone n="5" unit="section"/>
+			      </p>
+         <p>Moreover, thinking it his duty to make still further provision for the weakness of the multitude, he gave every citizen the privilege of entering suit in behalf of one who had suffered wrong.  If a man was assaulted, and suffered violence or injury, it was the privilege of any one who had the ability and the inclination, to indict the wrong-doer and prosecute him.  The law-giver in this way rightly accustomed the citizens, as members of one body, to feel and sympathize with one another's wrongs.  And we are told of a saying of his which is consonant with this law.  Being asked, namely, what city was best to live in, 
+				<q direct="unspecified">That city</q> he replied, 
+				<q direct="unspecified">in which those who are not wronged, no less than those who are wronged, exert themselves to punish the wrongdoers.</q>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After he had established the council of the Areiopagus, consisting of those who had been archons year by year (and he himself was a member of this body since he had been archon), he observed that the common people were uneasy and bold in consequence of their release from debt, and therefore established another council besides, consisting of four hundred men, one hundred chosen from each of the four tribes.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 8.4">Aristot. Const. Ath. 8.4</bibl>.</note> These were to deliberate on public matters before the people did, and were not to allow any matter to come before the popular assembly without such previous deliberation.
+				<milestone n="2" unit="section"/>
+				Then he made the upper council a general overseer in the state, and guardian of the laws, thinking that the city with its two councils, riding as it were at double anchor, would be less tossed by the surges, and would keep its populace in greater quiet. 
+			</p>
+         <p>Now most writers say that the council of the Areiopagus, as I have stated, was established by Solon.  And their view seems to be strongly supported by the fact that Draco nowhere makes any mention whatsoever of Areiopagites, but always addresses himself to the 
+				<q direct="unspecified">ephetai</q> in cases of homicide.
+				<milestone n="3" unit="section"/>
+				Yet Solon's thirteenth table contains the eighth of his laws recorded in these very words: 
+				<q direct="unspecified">As many of the disfranchised as were made such before the archonship of Solon, shall be restored to their rights and franchises, except such as were condemned by the Areiopagus, or by the ephetai, or in the prytaneium by the kings, on charges of murder or homicide, or of seeking to establish a tyranny, and were in exile when this law was published.</q>
+				        <milestone n="4" unit="section"/>
+				This surely proves to the contrary that the council of the Areiopagus was in existence before the archonship and legislation of Solon.  For how could men have been condemned in the Areiopagus before the time of Solon, if Solon was the first to give the council of the Areiopagus its jurisdiction?  Perhaps, indeed, there is some obscurity in the document, or some omission, and the meaning is that those who had been convicted on charges within the cognizance of those who were Areiopagites and ephetai and prytanes when the law was published, should remain disfranchised while those convicted on all other charges should recover their rights and franchises.  This question, however, my reader must decide for himself.
+				<milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Among his other laws there is a very peculiar and surprising one which ordains that he shall be disfranchised who, in time of faction, takes neither side.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 7">Aristot. Const. Ath. 7.5</bibl>.</note> He wishes, probably, that a man should not be insensible or indifferent to the common weal, arranging his private affairs securely and glorying in the fact that he has no share in the distempers and distresses of his country, but should rather espouse promptly the better and more righteous cause, share its perils and give it his aid, instead of waiting in safety to see which cause prevails.
+				<milestone n="2" unit="section"/>
+				That law, too, seems absurd and ridiculous, which permits an heiress in case the man under whose power and authority she is placed by law is himself unable to consort with her, to be married by one of his next of kin.  Some, however, say that this was a wise provision against those who are unable to perform the duties of a husband, and yet, for the sake of their property, marry heiresses, and so under cover of law, do violence to nature.  For when they see that the heiress can consort with whom she pleases, they will either desist from such a marriage, or make it to their shame, and be punished for their avarice and insolence.
+				<milestone n="3" unit="section"/>
+				It is a wise provision, too, that the heiress may not choose her consort at large, but only from the kinsmen of her husband, that her offspring may be of his family and lineage.  Conformable to this, also, is the requirement that the bride eat a quince and be shut up in a chamber with the bridegroom; and that the husband of an heiress shall approach her thrice a month without fail.  For even though they have no children, still, this is a mark of esteem and affection which a man should pay to a chaste wife; it removes many of the annoyances which develop in all such cases and prevents their being altogether estranged by their differences.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>In all other marriages he prohibited dowries; the bride was to bring with her three changes of raiment, household stuff of small value, and nothing else.  For he did not wish that marriage should be a matter of profit or price, but that man and wife should dwell together for the delights of love and the getting of children.  Dionysius, indeed, when his mother asked him to give her in marriage to one of his citizens, said that, although he had broken the laws of the city by being its tyrant, he could not outrage the laws of nature by giving in marriage where age forbade. 
+				<milestone n="5" unit="section"/>
+				And so our cities should not allow this irregularity, nor tolerate which age forbids and love does not invite, which do not fulfil the function of marriage, and defeat its object.  Nay, to an old man who is marrying a young wife, any worthy magistrate or lawgiver might say what is said to Philoctetes<note resp="ed" place="unspecified" anchored="yes">In a play of this name, of uncertain authorship. See <bibl>Nauck, <title>Trag. Graec. Frag. (2)</title>, p. 841</bibl>. Plutarch cites two entire verses in <bibl n="Plut. Mor. 789a">
+                  <title>Morals</title>, p. 789a.</bibl>
+            </note>:
+				
+				<quote rend="blockquote">
+					          <l>Indeed, poor wretch, thou art in fine state for marrying!</l>
+				        </quote>
+				
+				And if he discovers a young man in the house of a rich and elderly woman, waxing fat, like a cockpartridge, in her service, he will remove him and give him to some marriageable maid that wants a husband.  Thus much, then, on this head.
+				<milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Praise is given also to that law of Solon which forbids speaking ill of the dead.  For it is piety to regard the deceased as sacred, justice to spare the absent, and good policy to rob hatred of its perpetuity.  He also forbade speaking ill of the living in temples, courts-of-law, public offices, and at festivals; the transgressor must pay three drachmas to the person injured, and two more into the public treasury.  For never to master one's anger is a mark of intemperance and lack of training; but always to do so is difficult, and for some, impossible. And a law must regard the possibilities in the case, if its maker wishes to punish a few to some purpose, and not many to no purpose.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>He was highly esteemed also for his law concerning wills.  Before his time, no will could be made, but the entire estate of the deceased must remain in his family.  Whereas he, by permitting a man who had no children to give his property to whom he wished, ranked friendship above kinship, and favour above necessity, and made a man's possessions his own property.
+				<milestone n="3" unit="section"/>
+				On the other hand, he did not permit all manner of gifts without restriction or restraint, but only those which were not made under the influence of sickness, or drugs, or imprisonment, or when a man was the victim of compulsion or yielded to the persuasions of his wife. He thought, very lightly and properly, that being persuaded into wrong was no better than being forced into it, and he placed deceit and compulsion, gratification and affliction, in one and the same category, believing that both were alike able to pervert a man's reason.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>He also subjected the public appearances of the women, their mourning and their festivals, to a law which did away with disorder and licence.  When they went out, they were not to wear more than three garments, they were not to carry more than an obol's worth of food or drink, nor a pannier more than a cubit high, and they were not to travel about by night unless they rode in a wagon with a lamp to light their way.  Laceration of the flesh by mourners, and the use of set lamentations, and the bewailing of any one at the funeral ceremonies of another, he forbade.
+				<milestone n="5" unit="section"/>
+				The sacrifice of an ox at the grave was not permitted, nor the burial with the dead of more than three changes of raiment, nor the visiting of other tombs than those of their own family, except at the time of interment.  Most of these practices are also forbidden by our laws, but ours contain the additional proviso that such offenders shall be punished by the board of censors for women, because they indulge in unmanly and effeminate extravagances of sorrow when they mourn
+				<milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Observing that the city was getting full of people who were constantly streaming into Attica from all quarters for greater security of living, and that most of the country was unfruitful and worthless, and that seafaring men are not wont to import goods for those who have nothing to give them in exchange, he turned the attention of the citizens to the arts of manufacture, and enacted a law that no son who had not been taught a trade should be compelled to support his father.
+				<milestone n="2" unit="section"/>
+				It was well enough for Lycurgus, whose city was free from swarms of strangers, and whose country was, in the words of Euripides,
+				
+				<quote rend="blockquote">
+					          <l>For many large, for twice as many more than large,</l>
+				        </quote>
+				        <note place="unspecified" anchored="yes">
+               <bibl>Euripides, unknown; Nauck, <title>Trag. Graec. Frag. (2)</title>, p. 680</bibl>
+            </note>
+				
+				and because, above all, that country was flooded with a multitude of Helots, whom it was better not to leave in idleness, but to keep down by continual hardships and toil,&mdash;it was well enough for him to set his citizens free from laborious and mechanical occupations and confine their thoughts to arms, giving them this one trade to learn and practice.
+				<milestone n="3" unit="section"/>
+				But Solon, adapting his laws to the situation, rather than the situation to his laws, and observing that the land could give but a mere subsistence to those who tilled it, and was incapable of supporting an unoccupied and leisured multitude, gave dignity to all the trades, and ordered the council of the Areiopagus to examine into every man's means of livelihood, and chastise those who had no occupation.
+				<milestone n="4" unit="section"/>
+				But that provision of his was yet more severe, which, as Heracleides Ponticus informs us, relieved the sons who were born out of wedlock from the necessity of supporting their fathers at all.  For he that avoids the honorable state of marriage, clearly takes a woman to himself not for the sake of children, but of pleasure; and he has his reward, in that he robs himself of all right to upbraid his sons for neglecting him, since he has made their very existence a reproach to them.
+				<milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But in general Solon's laws concerning women seem very absurd.  For instance, he permitted an adulterer caught in the act to be killed; but if a man committed rape upon a free woman, he was merely to be fined a hundred drachmas; and if he gained his end by persuasion, twenty drachmas, unless it were with one of those who sell themselves openly, meaning of course the courtesans.  For these go openly to those who offer them their price.
+				<milestone n="2" unit="section"/>
+				Still further, no man is allowed to sell a daughter or a sister, unless he find that she is no longer a virgin. But to punish the same offence now severely and inexorably, and now mildly and pleasantly, making the penalty a slight fine, is unreasonable; unless money was scarce in the city at that time, and the difficulty of procuring it made these monetary punishments heavy.
+				<milestone n="3" unit="section"/>
+				In the valuations of sacrificial offerings, at any rate, a sheep and a bushel of grain are reckoned at a drachma; the victor in the Isthmian games was to be paid a hundred drachmas, and the Olympic victor five hundred; the man who brought in a wolf, was given five drachmas, and for a wolf's whelp, one; the former sum, according to Demetrius the Phalerian, was the price of an ox, the latter that of a sheep.  For although the prices which Solon fixes in his sixteenth table are for choice victims, and naturally many times as great as those for ordinary ones, still, even these are low in comparison with present prices.
+				<milestone n="4" unit="section"/>
+				Now the Athenians were from of old great enemies of wolves, since their country was better for pasturage than for tillage.  And there are those who say that their four tribes were originally named, not from the sons of Ion, but from the classes into which occupations were divided; thus the warriors were called Hoplitai, the craftsmen Ergadeis; and of the remaining two, the farmers were called Geleontes, the shepherds and herdsmen Aigikoreis.<note resp="ed" place="unspecified" anchored="yes">This is a strained etymology to explain the ancient tribal names of Hopletes, Argadeis, Geleontes, and Aigikoreis, which are derived in <bibl n="Hdt. 5.66">Hdt. 5.66</bibl> from the names of the four sons of Ion.  The first has nothing to do with 
+					<q direct="unspecified">hopla,</q> arms;  nor the second with 
+					<q direct="unspecified">ergon,</q> work; nor the third with 
+					<q direct="unspecified">ge,</q> earth; nor the fourth with 
+					<q direct="unspecified">aix,</q> goat.</note>
+				        <milestone n="5" unit="section"/>
+			      </p>
+         <p>Since the country was not supplied with water by ever-flowing rivers, or lakes, or copious springs, but most of the inhabitants used wells which had been dug, he made a law that where there was a public well within a 
+				<q direct="unspecified">hippikon,</q> a distance of four furlongs, that should be used, but where the distance was greater than this, people must try to get water of their own; if, however, after digging to a depth of ten fathoms on their own land, they could not get water, then they might take it from a neighbor's well, filling a five gallon jar twice a day; for he thought it his duty to aid the needy, not to provision the idle.  
+				<milestone n="6" unit="section"/>
+				He also showed great experience in the limits which he set to the planting of trees; no one could set out a tree in a field within five feet of his neighbor's field, or, in case it was a fig-tree or an olive-tree, within nine.  For these reach out farther with their roots, and injure some trees by their proximity, taking away their nourishment, and emitting an exhalation which is sometimes noxious. He that would dig a pit or a trench, must dig it at the distance of its own depth from his neighbor's; and he that would set out hives of bees, must put them three hundred feet away from those which another had already installed.
+				<milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Of the products of the soil, he allowed oil only to be sold abroad, but forbade the exportation of others; and if any did so export, the archon was to pronounce curses upon them, or else himself pay a hundred drachmas into the public treasury.  His first table is the one which contains this law.  One cannot, therefore, wholly disbelieve those who say that the exportation of figs also was anciently forbidden, and that the one who showed up, or pointed out such exporters, was called a 
+				<q direct="unspecified">sycophant,</q> or fig-shower.  He also enacted a law concerning injuries received from beasts, according to which a dog that had bitten anybody must be delivered up with a wooden collar three cubits long fastened to it; a happy device this for promoting safety.
+				<milestone n="2" unit="section"/>
+				But the law concerning naturalized citizens is of doubtful character.  He permitted only those to be made citizens who were permanently exiled from their own country, or who removed to Athens with their entire families to ply a trade.  This he did, as we are told, not so much to drive away other foreigners, as to invite these particular ones to Athens with the full assurance of becoming citizens; he also thought that reliance could be placed both on those who had been forced to abandon their own country, and on those who had left it with a fixed purpose.
+				<milestone n="3" unit="section"/>
+				Characteristic of Solon also was his regulation of the practice of eating at the public table in the townhall, for which his word was 
+				<q direct="unspecified">parasitein.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Hence, with scornful meaning, the word parasite.</note> The same person was not allowed to eat there often, but if one whose duty it was to eat there refused, he was punished.  Solon thought the conduct of the first grasping; that of the second, contemptuous of the public interests.
+				<milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>All his laws were to have force for a hundred years, and they were written on 
+				<q direct="unspecified">axones,</q> or wooden tablets, which revolved with the oblong frames containing them.  Slight remnants of these were still preserved in the Prytaneium when I was at Athens, and they were called, according to Aristotle,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 7.1">Aristot. Const. Ath. 7.1</bibl>, with Sandys' notes.</note>
+				        <q direct="unspecified">kurbeis.</q> Cratinus, also, the comic poet, somewhere says:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>By Solon, and by Draco too I make mine oath,</l>
+					          <l>Whose kurbeis now are used to parch our barley-corns.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 94.</bibl>
+            </note>
+				
+				        <milestone n="2" unit="section"/>
+				But some say that only those tablets which relate to sacred rites and sacrifices are properly called 
+				<q direct="unspecified">kurbeis,</q> and the rest are called 
+				<q direct="unspecified">axones.</q>  However that may be, the council took a joint oath to ratify the laws of Solon, and each of the 
+				<q direct="unspecified">thesmothetai,</q> or guardians of the statutes, swore separately at the herald's stone in the market-place, vowing that if he transgressed the statutes in any way, he would dedicate at Delphi a golden statue of commensurate worth.
+				<milestone n="3" unit="section"/>
+				Observing the irregularity of the month, and that the motion of the moon does not always coincide with the rising and setting of the sun, but that often she overtakes and passes the sun on the same day, he ordered that day to be called the Old and New, assigning the portion of it which preceded the conjunction to the expiring month, and the remaining portion to the month that was just beginning.  He was thus the first, as it would seem, to understand Homer's verse,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Od. 14.162">
+                  <title>Odyssey</title>, xiv. 162</bibl>=<bibl n="Hom. Od. 19.307">xix. 307</bibl>, of the day when Odysseus would return to Ithaca.</note> which speaks of a day when
+				
+				<quote rend="blockquote">
+					          <l>This month is waning, and the next is setting in,</l>
+				        </quote>
+				
+				
+				and the day following this he called the first of the month.  After the twentieth he did not count the days by adding them to twenty, but by subtracting them from thirty, on a descending scale, like the waning of the moon.<note resp="ed" place="unspecified" anchored="yes"> Thus the twenty-first was called the tenth, the twenty-second the ninth, and so on, 
+					<q direct="unspecified">of the waning month.</q>  The twenty-ninth was the second of the waning month, the thirtieth the Old and New.</note>
+				        <milestone n="4" unit="section"/>
+				No sooner were the laws of Solon put into operation than some would come to him every day with praise or censure of them, or with advice to insert something into the documents, or take something out. Very numerous, too, were those who came to him with inquiries and questions about them, urging him to teach and make clear to them the meaning and purpose of each several item.
+				<milestone n="5" unit="section"/>
+				He saw that to do this was out of the question, and that not to do it would bring odium upon him, and wishing to be wholly rid of these perplexities and to escape from the captiousness and censoriousness of the citizens (for 
+				<q direct="unspecified">in great affairs,</q> as he says himself,<note resp="ed" place="unspecified" anchored="yes">Fragment 7 (Bergk).</note>
+				        <q direct="unspecified">it is difficult to please all</q>), he made his ownership of a  vessel an excuse for foreign travel, and set sail, after obtaining from the Athenians leave of absence for ten years.  In this time he hoped they would be accustomed to his laws.
+				<milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In the first place, then, he went to Egypt,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 11.1">Aristot. Const. Ath. 11.1</bibl>.</note> and lived, as he himself says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 28 (Bergk).</bibl>
+            </note>
+				
+				        <quote rend="blockquote">
+					          <l>Where Nile pours Forth his floods, near the Canobic shore.</l>
+				        </quote>
+				
+				He also spent some time in studies with Psenophis of Heliopolis and Sonchis of Sais, who were very learned priests.  From these, as Plato says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Tim. 22a">Plat. Tim. 22a</bibl>
+            </note> he heard the story of the lost Atlantis, and tried to introduce it in a poetical form to the Greeks.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Sol. 31.3">Plut. Sol. 31.3</bibl>; <bibl n="Plut. Sol. 32.1">Plut. Sol. 32.1</bibl> f.</note>
+				        <milestone n="2" unit="section"/>
+				Next he sailed to Cyprus, and was greatly beloved of Philocyprus, one of the kings of the island.  This prince had a small city founded by Demophon, the son of Theseus and lying near the river Clarius, in a position which was strong, but otherwise incommodious and sorry.  Solon therefore persuaded him to remove the city to the fair plain which lay below it, and make it more spacious and pleasant.
+				<milestone n="3" unit="section"/>
+				He also remained and took charge of the new city's consolidation, and helped to arrange it in the best possible manner both for convenience of living and for safety. The result was that many colonists flocked to Philocyprus, and he was the envy of the other kings. He therefore paid Solon the honor  of naming the new city after him, and called it Soli; its name had been Aipeia.
+				<milestone n="4" unit="section"/>
+				Solon himself also makes mention of this consolidation. In his elegies, namely, he addresses Philocyprus and says:&mdash;<note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 19 (Bergk).</bibl>
+            </note>
+				
+				        <quote rend="blockquote">
+					          <l>Now mayest thou long time be lord and master for the Solii here,</l>
+					          <l>Dwelling in this city thyself, and thy family after thee;</l>
+					          <l>But may I and my swift ship, as we leave this storied isle,</l>
+					          <l>Be brought upon our way in safety by Cypris of the violet crown.</l>
+					          <l>Upon this settlement of thine may she bestow favour and glory;</l>
+					          <l>And upon me an auspicious return to my fatherland.</l>
+				        </quote>
+				
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>As for his interview with Croesus, some think to prove by chronology that it is fictitious. But when a story is so famous and so well-attested, and, what is more to the point, when it comports so well with the character of Solon, and is so worthy of his magnanimity and wisdom, I do not propose to reject it out of deference to any chronological canons, so called, which thousands are to this day revising, without being able to bring their contradictions into any general agreement.
+				<milestone n="2" unit="section"/>
+				So then, they say that Solon, on visiting Sardis at the invitation of Croesus,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Hdt. 1.30">Hdt. 1.30-33</bibl>.</note> had much the same experience as an inland man who goes down for the first time to the sea.  For just as such a man thinks each successive river that he sees to be the sea, so Solon, as he passed through the court and beheld many of the king's retainers in costly apparel and moving proudly amid a throng of couriers and armed guards, thought each in turn to be Croesus, until he was brought to the king himself, who was decked out with everything in the way of precious stones, dyed raiment, and wrought gold that men deem remarkable, or extravagant, or enviable, in order that he might present a most august and gorgeous spectacle.
+				<milestone n="3" unit="section"/>
+				But when Solon, in this presence, neither showed any astonishment at what he saw, nor made any such comments upon it as Croesus had expected, but actually made it clear to all discerning eyes that he despised such vulgarity and pettiness, the king ordered his treasure chambers thrown open for the guest, and that he should be led about to behold the rest of his sumptuous equipments.  Of this there was no need, for the man himself sufficed to give Solon an understanding of his character.  However, when Solon had seen everything and had been conducted back again, Croesus asked him if he had ever known a happier man than he.
+				<milestone n="4" unit="section"/>
+				Solon said he had, and that the man was Tellus, a fellow-citizen of his own; Tellus, he went on to say, had proved himself an honest man, had left reputable sons behind him, and had closed a life which knew no serious want with a glorious display of valor in behalf of his country.  Croesus at once judged Solon to be a strange and uncouth fellow, since he did not make an abundance of gold and silver his measure of happiness, but admired the life and death of an ordinary private man more than all this display of power and sovereignty.
+				<milestone n="5" unit="section"/>
+				Notwithstanding, he asked him again whether, next to Tellus, he knew any other man more fortunate than he.  Again Solon said he did naming Cleobis and Bito, men surpassing all others in brotherly love and in dutiful affection towards their mother; for once, he said, when the car in which she was riding was delayed by the oxen, they took the yoke upon their own shoulders and brought their mother to the temple of Hera, where her countrymen called her a happy woman and her heart was rejoiced; then, after sacrifice and feasting, they laid themselves to rest, and never rose again, but were found to have died a painless and tranquil death with so great honor fresh upon them.
+				<milestone n="6" unit="section"/>
+				
+				        <q direct="unspecified">What!</q> said Croesus, who by this time was angered, 
+				<q direct="unspecified">dost thou not count us among happy men at all?</q>  Then Solon, who was unwilling to flatter him and did not wish to exasperate him further, said: 
+				<q direct="unspecified">O king of Lydia, as the Deity has given us Greeks all other blessings in moderation, so our moderation gives us a kind of wisdom which is timid, in all likelihood, and fit for common people, not one which is kingly and splendid.  This wisdom, such as it is, observing that human life is ever subject to all sorts of vicissitudes, forbids us to be puffed up by the good things we have, or to admire a man's felicity while there is still time for it to change.
+					<milestone n="7" unit="section"/>
+					For the future which is advancing upon every one is varied and uncertain, but when the Deity bestows prosperity on a man up to the end, that man we consider happy; to pronounce any one happy, however, while he is still living and running the risks of life, is like proclaiming an athlete victorious and crowning him while lie is still contending for the prize; the verdict is insecure and without authority.</q>  When he had said this, Solon departed, leaving Croesus vexed, but none the wiser for it.
+				<milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now it so happened that Aesop, the writer of fables, was in Sardis, having been summoned thither by Croesus, and receiving much honor at his hands.  He was distressed that Solon met with no kindly treatment, and said to him by way of advice: 
+				<q direct="unspecified">0 Solon, our converse with kings should be either as rare, or as pleasing as is possible.</q>  
+				        <q direct="unspecified">No, indeed.</q> said Solon, <q direct="unspecified">but either as rare or as beneficial as is possible.</q>
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>At this time, then, Croesus held Solon in a contempt like this; but afterwards he encountered Cyrus, was defeated in battle, lost his city, was taken alive and condemned to be burnt; and then, as he lay bound upon the pyre in the sight of all the Persians and of Cyrus himself, with all the reach and power of which his voice was capable, he called out thrice:(1) 
+				<q direct="unspecified">O Solon!</q> Cyrus, then, astonished at this, sent men to ask him what man or god this Solon was on whom alone he called in his extremity.
+				<milestone n="3" unit="section"/>
+				And Croesus, without  any concealment, said: 
+				<q direct="unspecified">This man was one of the sages of Greece, and I sent for him, not with any desire to hear or learn the things of which I stood in need, but in order that he might behold, and, when he left me, bear testimony to the happiness I then enjoyed, the loss of which I now see to be a greater evil than its possession was a good.  For when it was mine, the good I derived from it was matter of report and men's opinion, but its departure from me issues in terrible sufferings and irreparable calamities which are real.
+					<milestone n="4" unit="section"/>
+					And that man, conjecturing this future from what he then saw, bade me look to the end of my life, and let not insecure conjectures embolden me to be proud and insolent.</q>  When this was reported to Cyrus, since he was a wiser man than Croesus, and saw the word of Solon confirmed in the example before him, he not only released Croesus, but actually held him in honor as long as he lived.  And thus Solon had the reputation of saving one king and instructing another by means of a single saying.
+				<milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But the people of Athens were again divided into factions while Solon was away.  The Plain-men were headed by Lycurgus; the Shore-men by Megacles the son of Alcmaeon, and the Hill-men by Peisistratus.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 13.4">Aristot. Const. Ath. 13.4</bibl>.</note> Among the last was the multitude of Thetes who were the bitter enemies of the rich.  As a consequence, though the city still observed the new laws yet all were already expecting a revolution and desirous of a different form of government, not in hopes of an equality, but each party thinking to be bettered by the change, and to get the entire mastery of its opponents.
+				<milestone n="2" unit="section"/>
+				Such was the state of affairs when Solon returned to Athens.  He was revered and honored by all, but owing to his years he no longer had the strength or the ardor to speak and act in public as before.  He did, however, confer privately with the chiefs of the opposing factions, endeavoring to reconcile and harmonize them, and Peisistratus seemed to pay him more heed than the others. For Peisistratus had an insinuating and agreeable quality in his address, he was ready to help the poor and was reasonable and moderate in his enmities.
+				<milestone n="3" unit="section"/>
+				Even those virtues which nature had denied him were imitated by him so successfully that he won more confidence than those who actually possessed them. He was thought to be a cautious and order-loving man, one that prized equality above all things, and would take it ill if any one disturbed the existing order and attempted a change.  On these points, indeed, he completely deceived most people.  But Solon quickly detected his real character, and was the first to perceive his secret designs.  He did not, however, treat him as an enemy, but tried to soften and mould him by his instructions.  He actually said to him and to others that if the desire for pre- eminence could but be banished from his soul, and his eager passion for the tyranny be cured, no other man would be more naturally disposed to virtue, or a better citizen.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Thespis was now beginning to develop tragedy, and the attempt attracted most people because of its novelty, although it was not yet made a matter of competitive contest.  Solon, therefore, who was naturally fond of hearing and learning anything new, and who in his old age more than ever before indulged himself in leisurely amusement, yes, and in wine and song, went to see Thespis act in his own play, as the custom of the ancient poets was.
+				<milestone n="5" unit="section"/>
+				After the spectacle, he accosted Thespis, and asked him if he was not ashamed to tell such lies in the presence of so many people.  Thespis answered that there was no harm in talking and acting that way in play, whereupon Solon smote the ground sharply with his staff and said: 
+				<q direct="unspecified">Soon, however, if we give play of this sort so much praise and honor, we shall find it in our solemn contracts.</q>
+				        <milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now when Peisistratus, after inflicting a wound upon himself,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Hdt. 1.59">Hdt. 1.59</bibl>; <bibl n="Aristot. Ath. Pol. 14.1">Aristot. Const. Ath. 14.1</bibl>
+            </note> came into the market-place riding in a chariot, and tried to exasperate the populace with the charge that his enemies had plotted against his life on account of his political opinions and many of them greeted the charge with angry cries Solon drew near and accosted him, saying: 
+				<q direct="unspecified">0 son of Hippocrates, thou art playing the Homeric Odysseus badly; for when he disfigured himself it was to deceive his enemies<note resp="ed" place="unspecified" anchored="yes">
+                  <bibl n="Hom. Od. 4.244-264">Hom. Od. 4.244-264</bibl>
+               </note> but thou doest it to mislead thy fellow-citizens.</q>
+				        <milestone n="2" unit="section"/>
+				After this the multitude was ready to fight for Peisistratus, and a general assembly of the people was held.  Here Ariston made a motion that Peisistratus be allowed a body-guard of fifty club-bearers, but Solon formally opposed it, and said many things which were like what he has written in his poems:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Ye have regard indeed to the speech and words of a wily man.</l>
+					          <l>Yet every one of you walks with the steps of a fox,</l>
+					          <l>And in you all dwells an empty mind.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 11 (Bergk), verses 7, 5, and 6.</bibl>  Plutarch has changed the order; Bekker and Cobet restore it.</note>
+				
+				        <milestone n="3" unit="section"/>
+			      </p>
+         <p>But when he saw that the poor were tumultuously bent on gratifying Peisistratus, while the rich were fearfully slinking away from any conflict with him, he left the assembly, saying that he was wiser than the one party, and braver than the other; wiser than those who did not understand what was being done and braver than those who, though they understood it, were nevertheless afraid to oppose the tyranny.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristot. Ath. Pol. 14.2">Aristot. Const. Ath. 14.2</bibl>.</note> So the people passed the decree, and then held Peisistratus to no strict account of the number of his club-bearers, but suffered him to keep and lead about in public as many as he wished, until at last he seized the acropolis.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>When this had been done, and the city was in an uproar, Megacles<note resp="ed" place="unspecified" anchored="yes">Grandson of the Megacles who brought the taint of pollution upon the family (<bibl n="Plut. Sol. 12.1">Plut. Sol. 12.1-3</bibl>).  He had been allowed to return from banishment.</note> straightway fled, with the rest of the Alcmaeonidae.  But Solon, although he was now a very old man, and had none to support him, went nevertheless into the market-place and reasoned with the citizens, partly blaming their folly and weakness, and partly encouraging them still and exhorting them not to abandon their liberty.
+				<milestone n="5" unit="section"/>
+				Then it was, too, that he uttered the famous saying, that earlier it had been easier for them to hinder the tyranny, while it was in preparation; but now it was a greater and more glorious task to uproot and destroy it when it had been already planted and was grown. No one had the courage to side with him, however, and so he retired to his own house, took his arms, and placed them in the street in front of his door, saying: 
+				<q direct="unspecified">I have done all I can to help my country and its laws.</q>
+            <note resp="ed" place="unspecified" anchored="yes">It was for others to do the same.  Cf. <bibl n="Aristot. Ath. Pol. 14.2">Aristot. Const. Ath. 14.2</bibl>.</note>
+				        <milestone n="6" unit="section"/>
+				From that time on he lived in quiet retirement, and when his friends urged him to fly, he paid no heed to them, but kept on writing poems, in which he heaped reproaches on the Athenians:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>If now ye suffer grievously through cowardice all your own,</l>
+					          <l>Cherish no wrath against the gods for this,</l>
+					          <l>For ye yourselves increased the usurper's power by giving him a guard,</l>
+					          <l>And therefore are ye now in base subjection.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 11. 1-4 (Bergk)</bibl>
+            </note>
+				
+				
+				        <milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In view of this, many warned him that the tyrant would put him to death, and asked him on what he relied that he was so lost to all sense, to which he answered, 
+				<q direct="unspecified">My old age.</q>  However, when Peisistratus had become master of the situation, he paid such court to Solon by honoring him, showing him kindness, and inviting him to his palace, that Solon actually became his counsellor and approved of many of his acts.  For he retained most of Solon's laws, observing them first himself, and compelling his friends to do so.
+				<milestone n="2" unit="section"/>
+				For instance, he was summoned before the Areiopagus on a charge of murder, when he was already tyrant, and presented himself there to make his defence in due form, but his accuser did not put in an appearance.  He also made other laws himself, one of which provides that those who are maimed in war shall be maintained at the public charge.  But Heracleides says that even before that Solon had caused a decree to be passed to this effect in the case of Thersippus, who had been so maimed, and that Peisistratus was following his example.  Moreover, Theophrastus writes that the law against idleness, in consequence of which the country became more productive and the city more tranquil, was not made by Solon, but by Peisistratus.
+				<milestone n="3" unit="section"/>
+				Now Solon, after beginning his great work on the story or fable of the lost Atlantis, which, as he had heard from the learned men of Sais,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Sol. 26.1">Plut. Sol. 26.1</bibl>.  There is no trace of any such work of Solon's, and the attribution of it to him is probably a play of Plato's fancy.</note> particularly concerned the Athenians, abandoned it, not for lack of leisure, as Plato says, but rather because of his old age, fearing the magnitude of the task.  For that he had abundant leisure, such verses as these testify
+				
+				<quote rend="blockquote">
+					          <l>But I grow old ever learning many things;</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Sol. 2.2">chapter ii. 2.</bibl>
+            </note>
+				
+				and again,
+				
+				<quote rend="blockquote">
+					          <l>But now the works of the Cyprus-born goddess are dear to my soul,</l>
+					          <l>Of Dionysus, too, and the Muses, which impart delights to men.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Fragment 26 (Bergk)</bibl>
+            </note>
+				
+				
+				        <milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Plato, ambitious to elaborate and adorn the subject of the lost Atlantis, as if it were the soil of a fair estate unoccupied, but appropriately his by virtue of some kinship with Solon,<note resp="ed" place="unspecified" anchored="yes">Plato mentions the relationship of Critias, his maternal uncle, with Solon (<bibl n="Plat. Charm. 155a">Plat. Charm. 155a</bibl>).</note> began the work by laying out great porches, enclosures, and courtyards, such as no story, tale, or poesy ever had before. 
+				<milestone n="2" unit="section"/>
+				But he was late in beginning, and ended his life before his work.<note resp="ed" place="unspecified" anchored="yes">Plato's Critias is a splendid fragment.</note> Therefore the greater our delight in what he actually wrote, the greater is our distress in view of what he left undone. For as the Olympieium in the city of Athens, so the tale of the lost Atlantis in the wisdom of Plato is the only one among many beautiful works to remain unfinished.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Well, then, Solon lived on after Peisistratus had made himself tyrant, as Hercleides Ponticus states, a long time; but as Phanias of Eresos says, less than two years.  For it was in the archonship of Comeas<note resp="ed" place="unspecified" anchored="yes">561-60 B.C.</note> that Peisistratus began his tyranny, and Phanias says that Solon died in the archonship of Hegestratus, the successor of Comeas.
+				<milestone n="4" unit="section"/>
+				The story that his body was burned and his ashes scattered on the island of Salamis is strange enough to be altogether incredible and fabulous, and yet it is given by noteworthy authors, and even by Aristotle the philosopher.
+			</p>
+      </body>
+   </text>
+</TEI.2>

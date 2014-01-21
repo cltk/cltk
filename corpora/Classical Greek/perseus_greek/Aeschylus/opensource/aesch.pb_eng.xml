@@ -1,0 +1,844 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="PB">Prometheus Bound (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Aesch.">Aeschylus</author>
+<editor role="translator" n="Smyth">Herbert Weir Smyth, Ph. D.</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Aeschylus</author>
+<title>Aeschylus, with an English translation by Herbert Weir Smyth, Ph. D. in two volumes. 1. Prometheus Bound</title>
+<editor role="editor">Herbert Weir Smyth, Ph. D.</editor>
+<imprint>
+<pubPlace>Cambridge, MA</pubPlace>
+<publisher>Harvard University Press</publisher>
+<date>1926</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="card"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Nancy Sultan</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Nancy Sultan, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>4/2/1993</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Proofread notes.</item>
+</change>
+<change><date>09-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: aesch.pb_eng.xml,v $
+Revision 1.1  2009-10-09 19:49:17  rsingh04
+more reorganizing of texts module by collection
+
+Revision 1.1  2009/10/07 20:59:54  rsingh04
+began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+Revision 1.7  2009/06/26 17:12:35  student
+fixed Pindar bibl error - zr
+
+Revision 1.6  2009/06/22 17:33:47  student
+edited entity tags CEH
+
+Revision 1.5  2009/02/27 22:29:25  rsingh04
+fixed date, dateRange and dateStruct tags
+
+Revision 1.4  2006/02/10 21:10:04  packel
+places/dates now actually tagged
+
+Revision 1.3  2005/08/01 15:44:56  packel
+really removed item tags
+
+Revision 1.2  2005/08/01 15:32:41  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:27:11  packel
+Converted to XML
+
+Revision 1.10  2004/04/21 20:28:10  mimno
+added card 1s
+
+Revision 1.9  2003/07/01 22:14:25  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2000/03/04 20:33:49  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.7  2000/02/17 17:46:03  amahoney
+use n on sp for speeches interrupted by cardbreaks;  put cards at ends of
+such speeches after the close tag;  put sp and speaker tags on the divs
+of the choruses, which were not marked at all (but div2 closes sp, so
+we lost the speaker info)
+
+Revision 1.6  2000/02/09 23:27:27  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<stage>Enter Power and Force, bringing with them the captive Prometheus; also Hephaestus.</stage>
+<sp>
+<speaker>Power</speaker>
+<p>To earth's remotest limit we come, to the Scythian land, an untrodden solitude.  And now, Hephaestus, yours is the charge to observe the mandates laid upon you by the Father&mdash;to clamp this miscreant<milestone ed="p" n="5" unit="line"/>upon the high craggy rocks in shackles of binding adamant that cannot be broken. For your own flower,  flashing fire, source of all arts, he has purloined and bestowed upon mortal creatures.  Such is his offence; for this he is bound to make requital to the gods,<milestone ed="p" n="10" unit="line"/>so that he may learn to bear with the sovereignty of Zeus and cease his man-loving ways.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>Power and Force, for you indeed the behest of Zeus is now fulfilled, and nothing remains to stop you.  But for me&mdash;I do not have the nerve myself<milestone ed="p" n="15" unit="line"/>to bind with force a kindred god upon this rocky cleft assailed by cruel winter.  Yet, come what may, I am constrained to summon courage to this deed; for it is perilous to disregard the commandments of the Father.</p>
+<p>Lofty-minded son of Themis who counsels straight, against my will, no less than yours, I must rivet you with brazen bonds<milestone ed="p" n="20" unit="line"/>no hand can loose to this desolate crag, where neither voice nor form of mortal man shall you perceive; but, scorched by the sun's bright beams, you shall lose the fair bloom of your flesh.  And glad you shall be when spangled-robed night shall veil his brightness and<milestone ed="p" n="25" unit="line"/>when the sun shall scatter again the frost of morning.  Evermore the burden of your present ill shall wear you out; for your deliverer is not yet born.</p>
+<p>Such is the prize you have gained for your championship of man.  For, god though you are, you did not fear the wrath of the gods, but<milestone ed="p" n="30" unit="line"/>you bestowed honors upon mortal creatures beyond their due.  Therefore on this joyless rock you must stand sentinel, erect, sleepless, your knee unbent.  And many a groan and unavailing lament you shall utter; for the heart of Zeus is hard,<milestone ed="p" n="35" unit="line"/>and everyone is harsh whose power is new.<milestone ed="p" n="36" unit="card"/></p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Well, why delay and excite pity in vain?  Why do you not detest a god most hateful to the gods, since he has betrayed your prerogative to mortals?</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>A strangely potent tie is kinship, and companionship as well.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p><milestone ed="p" n="40" unit="line"/>I agree; yet to refuse to obey the commands of the Father; is this possible?  Do you not fear that more?</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>Yes, you are ever pitiless and steeped in insolence.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Yes, for it does not good to bemoan this fellow.  Stop wasting  your labor at an unprofitable task.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p><milestone ed="p" n="45" unit="line"/>Oh handicraft that I hate so much!</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Why hate it?  Since in truth your craft is in no way to blame for these present troubles.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>Nevertheless, i wish it had fallen to another's lot!</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Every job is troublesome except to be the commander of gods;<milestone ed="p" n="50" unit="line"/>no one is free except Zeus.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>I know it by this task; I cannot deny it.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Hurry then to cast the fetters about him, so that the Father does not see you loitering.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>Well, there then!  The bands are ready, as you may see.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p><milestone ed="p" n="55" unit="line"/>Cast them about his wrists and with might strike with your hammer; rivet him to the rocks.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>There!  The work is getting done and not improperly.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Strike harder, clamp him tight, leave nothing loose; for he is wondrously clever at finding a way even out of desperate straits.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p><milestone ed="p" n="60" unit="line"/>This arm, at least, is fixed permanently.<milestone ed="p" n="61" unit="card"/></p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Now rivet this one too and securely, so that he may learn, for all his cleverness, that he is a fool compared to Zeus.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>None but he could justly blame my work.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Now drive the adamantine wedge's stubborn edge straight<milestone ed="p" n="65" unit="line"/>through his chest with your full force.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>Alas, Prometheus, I groan for your sufferings.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>What! Shrinking again and groaning over the enemies of Zeus?  Take care, so that the day  does not come when  you shall grieve for yourself.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>You see a spectacle grievous for eyes to behold.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p><milestone ed="p" n="70" unit="line"/>I see this man getting his deserts. Come, cast the girths about his sides.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>I must do this;  spare me your needless ordering.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Indeed, I'll order you, yes and more&mdash;I'll hound you on.  Get down below, and ring his legs by force.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p><milestone ed="p" n="75" unit="line"/>There now!  The work's done and without much labor.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Now hammer the piercing fetters with your full force; for the appraiser of our work is severe.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>The utterance of your tongue matches your looks.</p></sp>
+<sp>
+<speaker>Power</speaker>
+<p>Be softhearted then,<milestone ed="p" n="80" unit="line"/>but do not attack my stubborn will and my harsh mood.</p></sp>
+<sp>
+<speaker>Hephaestus</speaker>
+<p>Let us be gone, since he has got the fetters on his limbs.<stage>Exit</stage></p></sp>
+<sp>
+<speaker>Power</speaker>
+    <p>There now, indulge your insolence, keep on wresting from the gods their honors to give them to creatures of a day.  Are mortals able to lighten your load of sorrow?<milestone ed="p" n="85" unit="line"/>Falsely the gods call you Prometheus,<note anchored="yes" n="85" resp="Smyth">Such etymologizing &ldquo;play&rdquo; &lpar;Pro-metheus, <emph>Fore-thought</emph>&rpar; was a serious matter to the Greeks, who found in the name of a person a significant indication of his nature or his fate. Unlike <persName><surname>Shakespeare</surname></persName>, Aeschylus saw nothing even half-humorous in such etymological analysis; and elsewhere, in playing on the names Apollo, Clytaemestra, Polynices, the <foreign lang="la">nomen</foreign> is an <foreign lang="la">omen</foreign>.</note>for you yourself need forethought to free yourself from this handiwork.<stage>Exeunt Power and Force</stage><milestone ed="p" n="88" unit="card"/></p></sp>
+<sp n="Prometheus">
+<speaker>Prometheus</speaker>
+<p>O you bright sky of heaven, you swift-winged breezes, you river-waters, and<milestone ed="p" n="90" unit="line"/>infinite laughter of the waves of ocean, O universal mother Earth , and you, all-seeing orb of the sun, to you I call! See what I, a god, endure from the gods.
+<milestone ed="p" n="95" unit="card"/></p>
+<p>Look, with what shameful torture I am racked and must wrestle<milestone ed="p" n="95" unit="line"/>throughout the countless years of time apportioned me.  Such is the ignominious bondage the new commander of the blessed has devised against me. Woe! Woe!  For present misery and misery to come I groan, not knowing where<milestone ed="p" n="100" unit="line"/>it is fated that deliverance from these sorrows shall arise.
+<milestone ed="p" n="101" unit="card"/></p>
+<p>And yet, what am I saying?  All that is to be I know full well and in advance, nor shall any affliction come upon me unforeseen.  I must bear my allotted doom as lightly as I can, knowing that<milestone ed="p" n="105" unit="line"/>the might of Necessity permits no resistance.Yet I am not able to speak nor be silent about my fate.  For it is because I bestowed good gifts on mortals that this miserable yoke of constraint has been bound upon me.  I hunted out and stored in fennel stalk the stolen<milestone ed="p" n="110" unit="line"/>source of fire that has proved a teacher to mortals in every art and a means to mighty ends.  Such is the offence for which I pay the penalty, riveted in fetters beneath the open sky.
+<milestone ed="p" n="114" unit="card"/></p>
+<p>Ha! Behold!<milestone ed="p" n="115" unit="line"/>What murmur, what scent wings to me, its source invisible, heavenly or human, or both?  Has someone come to this crag at the edge of the world to stare at my sufferings&mdash;or with what motive?  Behold me, an ill-fated god, chained,<milestone ed="p" n="120" unit="line"/>the foe of Zeus,
+<milestone ed="p" n="121" unit="card"/></p>
+<p>hated of all who enter the court of Zeus, because of my very great love for mankind.  Ha!  What's this? What may be this rustling stir of birds I hear<milestone ed="p" n="125" unit="line"/>again nearby?  The air whirs with the light rush of wings.  Whatever approaches causes me alarm.<stage>The Daughters of Oceanus enter on a winged car</stage>
+</p></sp>
+</div1>
+<milestone ed="p" n="128" unit="card"/>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Do not fear!  For our group has come in swift rivalry of wings to this crag<milestone ed="p" n="130" unit="line"/>as friend to you, having won our father's consent as best we might.  The swift-coursing breezes bore me on; for the reverberation of the clang of iron pierced the depths of our caves and drove my grave modesty away in fright;<milestone ed="p" n="135" unit="line"/>unsandalled I have hastened in a winged car.<milestone ed="p" n="136" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Prometheus</speaker>
+<p>Alas! Alas!  Offspring of fruitful Tethys and of him who with his sleepless current encircles the whole earth, children of your<milestone ed="p" n="140" unit="line"/>father Oceanus, behold, see with what fetters, upon the summit crag of this ravine, I am to hold my unenviable watch.<milestone ed="p" n="144" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I see, Prometheus;<milestone ed="p" n="145" unit="line"/>and over my eyes a mist of tears and fear spread as I saw your body withering ignominiously upon this rock in these bonds of adamant.  For there are new rulers  in heaven, and Zeus governs with<milestone ed="p" n="150" unit="line"/>lawless customs; that which was mighty before he now brings to nothing.<milestone ed="p" n="152" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Prometheus</speaker>
+<p>Oh if only he had hurled me below the earth, yes beneath Hades, the entertainer of the dead, into impassable Tartarus,<milestone ed="p" n="155" unit="line"/>and had ruthlessly fastened me in fetters no hand can loose, so that neither god nor any other might have gloated over this agony I feel! But, now, a miserable plaything of the winds, I suffer pains to delight my enemies.<milestone ed="p" n="160" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="160" unit="line"/>Who of the gods is so hard of heart as to exult in this?  Who does not sympathize with your woes&mdash;save only Zeus?  But he in malice, has set his soul inflexibly<milestone ed="p" n="165" unit="line"/>and keeps in subjection the race sprung from Uranus; nor will he stop, until he has satiated his soul or another seizes his impregnable empire by some device of guile.<milestone ed="p" n="168" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Prometheus</speaker>
+<p>Truly the day shall come when, although I am tortured in stubborn fetters,<milestone ed="p" n="170" unit="line"/>the prince of the blessed will need me to reveal the new design whereby he shall be stripped of his sceptre and his dignities.  Not by persuasion's honeyed enchantments will he charm me;<milestone ed="p" n="175" unit="line"/>and I will never, cowering before his dire threats, divulge this secret, until he releases me from my cruel bonds and provides compensation for this outrage.<milestone ed="p" n="180" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="180" unit="line"/>You are bold, and do not yield to your bitter pangs; you give too much license to your tongue.  But my soul is agitated by piercing fear, and I am in dread about your fate,<milestone ed="p" n="185" unit="line"/>wondering to what haven you must steer your ship to see an end of your voyage of sorrow.  For the heart of Cronus' son is hardened against entreaty and his ways are inexorable.<milestone ed="p" n="189" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Prometheus</speaker>
+<p>I know that Zeus is harsh and<milestone ed="p" n="190" unit="line"/>keeps justice in his own hands; but nevertheless one day his judgement will soften, when he has been crushed in the way that I know.<note anchored="yes" n="192" resp="Smyth">A veiled  allusion to the secret hinted at in l.171.</note>Then, calming down his stubborn wrath, he shall at last bond with me in union and friendship,<milestone ed="p" n="195" unit="line"/>as eager as I am to welcome him.<milestone ed="p" n="196" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus</speaker>
+<p>Unfold the whole story and tell us upon what charge Zeus has caught you and painfully punishes you with such dishonor.  Instruct us, unless, indeed, there is some harm in telling.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>It is painful to me to tell the tale,<milestone ed="p" n="200" unit="line"/>painful to keep it silent. My case is unfortunate every way.</p>
+<p>When first the heavenly powers were moved to wrath, and mutual dissension was stirred up among them&mdash;some bent on casting Cronus from his seat so Zeus, in truth, might reign; others, eager for<milestone ed="p" n="205" unit="line"/>the contrary end, that Zeus might never win mastery over the gods&mdash;it was then that I, although advising them for the best, was unable to persuade the Titans, children of Heaven and Earth; but they, disdaining counsels of craft, in the pride of their strength<milestone ed="p" n="210" unit="line"/>thought to gain the mastery without a struggle and by force.  Often my mother Themis, or Earth &lpar;though one form, she had many names&rpar;, had foretold to me the way in which the future was fated to come to pass. That it was not by brute strength nor through violence,<milestone ed="p" n="215" unit="line"/>but by guile that those who should gain the upper hand were destined to prevail.  And though I argued all this to them, they did not pay any attention to my words.  With all that before me, it seemed best that, joining with my mother, I should place myself,<milestone ed="p" n="220" unit="line"/>a welcome volunteer, on the side of Zeus; and it is by reason of my counsel that the cavernous gloom of Tartarus now hides ancient Cronus and his allies within it.  Thus I helped the tyrant of the gods<milestone ed="p" n="225" unit="line"/>and with this foul payment he has responded; for it is a disease that is somehow inherent in tyranny to have no faith in friends.</p>
+<p>However, you ask why he torments me, and this I will now make clear.</p>
+<p><milestone ed="p" n="230" unit="line"/>As soon as he had seated himself upon his father's throne, he immediately assigned to the deities their several privileges and apportioned to them their proper powers.  But of wretched mortals he took no notice, desiring to bring<milestone ed="p" n="235" unit="line"/>the whole race to an end and create a new one in its place.  Against this purpose none dared make stand except me&mdash; I only had the courage; I saved mortals so that they did not descend, blasted utterly, to the house of Hades.  This is why I am bent by such grievous tortures,<milestone ed="p" n="240" unit="line"/>painful to suffer, piteous to behold.  I who gave mortals first place in my pity, I am deemed unworthy to win this pity for myself, but am in this way mercilessly disciplined, a spectacle that shames the glory of Zeus.<milestone ed="p" n="244" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Iron-hearted and made of stone, Prometheus,<milestone ed="p" n="245" unit="line"/>is he who feels no compassion at your miseries. For myself, I would not have desired to see them; and now that I see them, I am pained in my heart.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, to my friends indeed I am a spectacle of pity.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Did you perhaps transgress even somewhat beyond this offence?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="250" unit="line"/>Yes, I caused mortals to cease foreseeing their doom.<note anchored="yes" n="250" resp="Smyth">&ldquo;Doom&rdquo; here signifies &ldquo;doom of death.&rdquo;</note></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Of what sort was the cure that you found for this affliction?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>I caused blind hopes to dwell within their breasts.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>A great benefit was this you gave to mortals.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>In addition, I gave them fire.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="255" unit="line"/>What!  Do creatures of a day now have flame-eyed fire?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, and from it they shall learn many arts.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then it was on a charge like this that Zeus&mdash;</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Torments me and in no way gives me respite from pain.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And is there no end assigned to your ordeal?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="260" unit="line"/>No, none except when it seems good to him.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>But how will it seem good to him?  What hope is there? Do you not see that you have wronged?  And yet it is not pleasant for me to talk about how you have wronged, and for you it is pain.  So, let us quit this theme; and may you seek some release from your ordeal.<milestone ed="p" n="265" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="265" unit="line"/>It is easy for him who keeps his foot free from harm to counsel and admonish him who is in misery.  I have known this all the while. Of my own will, yes, of my own will I erred&mdash;I will not deny it. By helping mortals I found suffering for myself;<milestone ed="p" n="270" unit="line"/>nevertheless I did not think I would be punished in this way&mdash;wasting away upon cliffs in mid-air, my portion this desolate and dreary crag.  And now, bewail no more my present woes; alight on the ground and listen to my<milestone ed="p" n="275" unit="line"/>oncoming fortunes so that you may be told them from end to end.   Consent, I beg you, oh consent.  Take part in the trouble of him who is now in sore distress.  In truth, affliction wanders impartially abroad and alights upon all in turn.<milestone ed="p" n="279" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Not to unwilling ears have you made this appeal,<milestone ed="p" n="280" unit="line"/>Prometheus.  And so now with light foot I will quit my swift-speeding seat and the pure air, the pathway of birds and draw near to this rugged ground; for I want to hear<milestone ed="p" n="285" unit="line"/>the whole story of your sorrows.</p></sp>
+<stage>Enter Oceanus on a winged steed</stage>
+<sp>
+<speaker>Oceanus</speaker>
+<p>I have come to the end of a long journey in my passage to you, Prometheus, guiding by my own will, without a bridle, this swift-winged bird.<milestone ed="p" n="290" unit="line"/>For your fate, you may be sure, I feel compassion.  Kinship,  I think, constrains me to this; and,  apart from blood ties, there is none to whom I should  pay greater respect than to you.<milestone ed="p" n="295" unit="line"/>You shall know this for simple truth and that it is not in me to utter vain and empty words; come, tell me; what aid can I render you?  For you shall never say that you have a friend more loyal than Oceanus.<milestone ed="p" n="300" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="300" unit="line"/>Ha!  What have we here?  So then you too have come to stare upon my sufferings?  How did you summon courage to quit the stream that bears your name and the rock-roofed caves you yourself have made and come to this land, the mother of iron? Is it that you have come<milestone ed="p" n="305" unit="line"/>to gaze upon my state and join your grief to my distress?  Look upon me here&mdash;a spectacle, the friend of Zeus, who helped him to establish his sovereign power, by what anguish I am bent by him!</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>I see, Prometheus; and I want to give you<milestone ed="p" n="310" unit="line"/>the best advice, although you yourself are wily.  Learn to know yourself and adapt  yourself to new ways; for new also is the ruler among the gods. If you hurl forth words so harsh and of such whetted edge, perhaps Zeus may hear you,<milestone ed="p" n="315" unit="line"/>though throned far off, high in the heavens, and then your present multitude of sorrows shall seem but childish sport.  Oh wretched sufferer!  Put away your wrathful mood and try to find release from these miseries.  Perhaps this advice may seem to you old and dull;<milestone ed="p" n="320" unit="line"/>but your plight, Prometheus, is only the wages of too boastful speech.  You still have not learned humility, nor do you bend before misfortune, but would rather add even more miseries to those you have.  Therefore take me as your teacher<milestone ed="p" n="325" unit="line"/>and do not add insult to injury, seeing that a harsh monarch now rules who is accountable to no one.  So now I will depart and see whether I can release you from these sufferings. And may you hold your peace and be not too blustering of speech.<milestone ed="p" n="330" unit="line"/>Or, can it be that for all your exceeding wisdom, you do not know that chastisement is inflicted on a wagging tongue?<milestone ed="p" n="332" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>I envy you because you have escaped blame for having dared to share with me in my troubles.<note anchored="yes" n="333" resp="Smyth">The reading of the MSS  can only mean that Oceanus had participated throughout in the rebellion of Prometheus; whereas, in l. 236, Prometheus expressly declares that he had no confederate in his opposition to Zeus.</note>So now leave me alone and let it not concern you. <milestone ed="p" n="335" unit="line"/>Do what you want, you cannot persuade him; for he is not easy to persuade.  Beware that you do not do yourself harm by the mission you take.</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>In truth, you are far better able to admonish others than yourself.  It is by fact, not by hearsay, that I judge.<milestone ed="p" n="340" unit="line"/>So do not hold back one who is eager to go.  For I am confident, yes, confident, that Zeus will grant me this favor, to free you from your sufferings.<milestone ed="p" n="343" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+    <p>I thank you for all this and shall never cease to thank you; in zeal you lack nothing, but do not trouble yourself; for your trouble will be vain and<milestone ed="p" n="345" unit="line"/>not helpful to me&mdash;if indeed you want to take the pain.  No, keep quiet and keep yourself clear of harm.  For even if I am in sore plight, I would not wish affliction on everyone else.  No, certainly, no! since, besides, I am distressed by the fate<milestone ed="p" n="350" unit="line"/>of my brother Atlas, who, towards the west, stands bearing on his shoulders the pillar of heaven and earth, a burden not easy for his arms to grasp.  Pity moved me, too, at the sight of the earth-born dweller of the Cilician caves curbed by violence, that destructive monster<milestone ed="p" n="355" unit="line"/>of a hundred heads, impetuous Typhon.  He withstood all the gods, hissing out terror with horrid jaws, while from his eyes lightened a hideous glare, as though he would storm by force the sovereignty of Zeus.<milestone ed="p" n="360" unit="line"/>But the unsleeping bolt of Zeus came upon him, the swooping lightning brand with breath of flame, which struck him, frightened, from his loud-mouthed boasts; then, stricken to the very heart, he was burnt to ashes and his strength blasted from him by the lightning bolt.<milestone ed="p" n="365" unit="line"/>And now, a helpless and a sprawling bulk, he lies hard by the narrows of the sea, pressed down beneath the roots of <placeName key="tgn,7003867">Aetna</placeName>; while on the topmost summit Hephaestus sits and hammers the molten ore.  There, one day, shall burst forth<milestone ed="p" n="370" unit="line"/>rivers of fire,<note anchored="yes" n="370" resp="Smyth">The eruption of <placeName key="tgn,7003867">Aetna</placeName> in <dateRange from="-479" to="-478">479/8</dateRange> B.C. is also described in a famous passage of Pindar &lpar;<bibl n="Pind. P. 1">Pind. P 1.21</bibl>, written in <date value="-470">470</date> B.C.&rpar;, which Aeschylus has here in mind.  The lyric poet dwells on the physical aspect of the eruption by day and night; the dramatist, on the damage done to the labor of the husbandman.</note>with savage jaws devouring the level fields of <placeName key="tgn,7003122">Sicily</placeName>, land of fair fruit&mdash;such boiling rage shall Typho, although charred by the blazing lightning of Zeus, send spouting forth with hot jets of appalling, fire-breathing surge.</p>
+<p><milestone ed="p" n="375" unit="line"/>But you are not inexperienced, and do not need me to teach you.  Save yourself, as you know best; while I exhaust my present lot until the time comes when the mind of Zeus shall abandon its wrath.<milestone ed="p" n="379" unit="card"/></p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>Do you not know then, Prometheus, that<milestone ed="p" n="380" unit="line"/>words are the physicians of a disordered temper?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>If one softens the soul in season, and does not hasten to reduce its swelling rage by violence.</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>What lurking mischief do you see when daring joins to zeal?  Teach me this.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="385" unit="line"/>Lost labor and thoughtless simplicity.</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>Leave me to be affected by this, since it is most advantageous, when truly wise, to be deemed a fool.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>This fault will be seen to be my own.</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>Clearly the manner of your speech orders me back home.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="390" unit="line"/>So that you won't win enmity for yourself by lamenting for me.</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>In the eyes of the one who is newly seated on his omnipotent throne?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Beware lest the time come when his heart is angered with you.</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p>Your plight, Prometheus, is my instructor.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Go away, depart, keep your present purpose.</p></sp>
+<sp>
+<speaker>Oceanus</speaker>
+<p><milestone ed="p" n="395" unit="line"/>Your urging meets my eagerness; for my four-footed winged beast fans with his wings the smooth pathway of the air; and truly he will be glad to rest his knees in his stall at home.<stage>Exit</stage><milestone ed="p" n="399" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I mourn your unfortunate fate, Prometheus.<milestone ed="p" n="400" unit="line"/>Shedding from my eyes a coursing flood of tears I wet my tender cheeks with their moist streams.  For Zeus, holding this unenviable power by self-appointed laws,<milestone ed="p" n="405" unit="line"/>displays towards the gods of old an overweening spirit.<milestone ed="p" n="407" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<p>Now the whole earth cries aloud in lamentation; . . . lament the greatness of the glory of your time-hallowed honor,<milestone ed="p" n="410" unit="line"/>the honor that was yours and your brother's; and all mortals who make their dwelling place in holy <placeName key="tgn,1000004">Asia</placeName> share the anguish of your most lamentable suffering;<milestone ed="p" n="415" unit="card"/></p></div2>
+<div2 type="strophe" n="2">
+<p><milestone ed="p" n="415" unit="line"/>And those who dwell in the land of <placeName key="tgn,7016642">Colchis</placeName>, the maidens fearless in fight; and the Scythian multitude that inhabits the most remote region of the earth bordering the Maeotic lake;<milestone ed="p" n="420" unit="card"/></p></div2>
+<div2 type="antistrophe" n="2">
+<p><milestone ed="p" n="420" unit="line"/>And the warlike flower of <placeName key="tgn,1012700">Arabia</placeName>, which hold the high-cragged citadel near the <placeName key="tgn,1108814">Caucasus</placeName>, a hostile host that roars among the sharp-pointed spears.<milestone ed="p" n="425" unit="card"/></p></div2>
+<div2 type="epode">
+<p>&lsqb;&dagger;<milestone ed="p" n="425" unit="line"/>One other Titan god before this I have seen in distress, enthralled in torment by adamantine bonds&mdash;Atlas, pre-eminent in mighty strength, who moans as he supports<milestone ed="p" n="430" unit="line"/>the vault of heaven on his back.&dagger;&rsqb;</p></div2>
+<div2 type="epode">
+<p>The waves of the sea utter a cry as they fall, the deep laments, the black abyss of Hades rumbles in response, and the streams of pure-flowing rivers<milestone ed="p" n="435" unit="line"/>lament your piteous pain.<milestone ed="p" n="436" unit="card"/></p></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Prometheus</speaker>
+<p>No, do not think it is from pride or even from wilfulness that I am silent.  Painful thoughts devour my heart as I behold myself maltreated in this way.  And yet who else but I definitely assigned<milestone ed="p" n="440" unit="line"/>their prerogatives to these upstart gods?  But I do not speak of this; for my tale would tell you nothing except what you know.  Still, listen to the miseries that beset mankind&mdash;how they were witless before and I made them have sense and endowed them with reason.<milestone ed="p" n="445" unit="line"/>I will not speak to upbraid mankind  but to set forth the friendly purpose that inspired my blessing.</p>
+<p>First of all, though they had eyes to see, they saw to no avail; they had ears, but they did not understand ; but, just as shapes in dreams, throughout their length of days,<milestone ed="p" n="450" unit="line"/>without purpose they wrought all things in confusion. They had neither knowledge of houses built of bricks and turned to face the sun nor yet of work in wood; but dwelt beneath the ground like swarming ants, in sunless caves.  They had no sign either of winter<milestone ed="p" n="455" unit="line"/>or of flowery spring or of fruitful summer, on which they could depend but managed everything without judgment, until I taught them to discern the risings of the stars and their settings, which are difficult to distinguish.</p>
+<p>Yes, and numbers, too, chiefest of sciences,<milestone ed="p" n="460" unit="line"/>I invented for them, and the combining of letters, creative mother of the Muses' arts, with which to hold all things in memory.  I, too, first brought brute beasts beneath the yoke to be subject to the collar and the pack-saddle, so that they might bear in men's stead their<milestone ed="p" n="465" unit="line"/>heaviest burdens; and  to the chariot I harnessed horses and made them obedient to the rein, to be an image of wealth and luxury. It was I and no one else who invented the mariner's flaxen-winged car that roams the sea.</p>
+<p>Wretched that I am&mdash;such are the arts I devised<milestone ed="p" n="470" unit="line"/>for mankind, yet have myself no cunning means to rid me of my present suffering.<milestone ed="p" n="472" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>You have suffered sorrow and humiliation.  You have lost your wits and have gone astray; and, like an unskilled doctor, fallen ill, you lose heart and cannot<milestone ed="p" n="475" unit="line"/>discover by which remedies to cure your own disease.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Hear the rest and you shall wonder the more at the arts and resources I devised.  This first and foremost:  if ever man fell ill, there was no defence&mdash;no healing food,<milestone ed="p" n="480" unit="line"/>no ointment, nor any drink&mdash;but for lack of medicine they wasted away, until I showed them how to mix soothing remedies with which they now ward off all their disorders.  And I marked out many ways by which they might read the future,<milestone ed="p" n="485" unit="line"/>and among dreams I first discerned which are destined to come true; and voices baffling interpretation I explained to them, and signs from chance meetings.  The flight of crook-taloned birds I distinguished clearly&mdash; which by nature are auspicious,<milestone ed="p" n="490" unit="line"/>which sinister&mdash;their various modes of life, their mutual feuds and loves, and their consortings; and the smoothness of their entrails, and what color the gall must have to please<milestone ed="p" n="495" unit="line"/>the gods, also the speckled symmetry of the liver-lobe; and the thigh-bones, wrapped in fat, and the long chine I burned and initiated mankind into an occult art.  Also I cleared their vision to discern signs from flames,which were obscure before this.<milestone ed="p" n="500" unit="line"/>Enough about these arts.  Now as to the benefits to men that lay concealed beneath the earth&mdash;bronze, iron, silver, and gold&mdash;who would claim to have discovered them before me?  No one, I know full well, unless he likes to babble idly.<milestone ed="p" n="505" unit="line"/>Hear the sum of the whole matter in the compass of one brief word&mdash;every art possessed by man comes from Prometheus.<milestone ed="p" n="507" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Do not benefit mortals beyond reason and disregard your own distress; although, I am confident that you will be freed<milestone ed="p" n="510" unit="line"/>from these bonds and will have power in no way inferior to Zeus.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Not in this way is Fate, who brings all to fulfillment, destined to complete this course.  Only when I have been bent by pangs and tortures infinite am I to escape my bondage.  Skill is weaker by far than Necessity.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="515" unit="line"/>Who then is the helmsman of Necessity?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>The three-shaped Fates and mindful Furies.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Can it be that Zeus has less power than they do?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, in that even he cannot escape what is foretold.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Why, what is fated for Zeus except to hold eternal sway?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="520" unit="line"/>This you must not learn yet; do not be over-eager.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>It is some solemn secret, surely, that you enshroud in mystery.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Think of some other subject, for it is not the proper time to speak of this.  No matter what, this must be kept concealed; for it is by safeguarding it that<milestone ed="p" n="525" unit="line"/>I am to escape my dishonorable bonds and outrage.<milestone ed="p" n="526" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>May Zeus, who apportions everything, never set his power in conflict with my will,<milestone ed="p" n="530" unit="line"/>nor may I be slow to approach the gods, with holy sacrifices of oxen slain, by the side of the ceaseless stream of Oceanus, my father;<milestone ed="p" n="535" unit="line"/>and may I not offend in speech; but may this rule abide in my heart and never fade away.<milestone ed="p" n="537" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Sweet it is to pass all the length of life amid confident hopes, feeding the heart in glad festivities.  But I shudder<milestone ed="p" n="540" unit="line"/>as I look on you, racked by infinite tortures.  You have no fear of Zeus, Prometheus, but in self-will you reverence mortals too much.<milestone ed="p" n="545" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="545" unit="line"/>Come, my friend, how mutual was your reciprocity?  Tell me, what kind of help is there in creatures of a day?  What aid?  Did you not see the helpless infirmity, no better than a dream, in which the blind<milestone ed="p" n="550" unit="line"/>generation of men is shackled? Never shall the counsels of mortal men transgress the ordering of Zeus.<milestone ed="p" n="552" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>I have learned this lesson from observing the luck, Prometheus, that has brought about your ruin.  And the difference in the song stole into my thought<milestone ed="p" n="555" unit="line"/>&mdash;this song and that, which, about your bridal bed and bath, I raised to grace your marriage, when you wooed with gifts<milestone ed="p" n="560" unit="line"/>and won my sister Hesione to be your wedded wife.<milestone ed="p" n="561" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<div2 type="anapests">
+<stage>Enter Io<note anchored="yes" n="561" resp="Smyth">In vase-paintings after the time of Aeschylus, and possibly due to his influence, Io  was often represented as wearing horns to symbolize her transformation into a heifer. The pure beast-type was the rule in earlier vases.</note></stage>
+<sp n="Io">
+<speaker>Io</speaker>
+<p>What land is this?  What people?  By what name am I to call the one I see exposed to the tempest in bonds of rock?  What offence have you committed that as punishment you are doomed to destruction?<milestone ed="p" n="565" unit="line"/>Tell me to what region of the earth I have wandered in my wretchedness?<milestone ed="p" n="566" unit="card"/></p>
+<p>Oh, oh!  Aah!  Aah! A gad-fly, phantom of earth-born Argus is stinging me again!  Keep him away, O Earth! I am fearful when I behold that myriad-eyed herdsman.  He travels onward with his crafty gaze upon me;<milestone ed="p" n="570" unit="line"/>not even in death does the earth conceal him, but passing from the shades he hounds me, the forlorn one, and drives me famished along the sands of the seashore.
+</p></sp></div2>
+</div1>
+<milestone ed="p" n="575" unit="card"/>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Io</speaker>
+<p><milestone ed="p" n="575" unit="line"/>The waxen pipe drones forth in accompaniment a clear-sounding slumberous strain. Alas, alas! Where is my far-roaming wandering course taking me?  In what, O son of Cronus, in what have you found offence so that you have bound me<milestone ed="p" n="580" unit="line"/>to this yoke of misery&mdash;aah! are you harassing a wretched maiden to frenzy by this terror of the pursuing gadfly?  Consume me with fire, or hide me in the earth, or give me to the monsters of the deep to devour; but do not grudge, O Lord, the favor that I pray for.<milestone ed="p" n="585" unit="line"/>My far-roaming wanderings have taught me enough, and I cannot discern how to escape my sufferings. Do you hear the voice of the horned virgin?<milestone ed="p" n="589" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>How can I fail to hear the maiden frenzied by the gadfly, the<milestone ed="p" n="590" unit="line"/>daughter of Inachus?  It is she who fires the heart of Zeus with passion, and now, through Hera's hate, is disciplined by force with interminable wandering.<milestone ed="p" n="593" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Io</speaker>
+<p>Why do you call my father's name? Tell me, the unfortunate maid, who you are,<milestone ed="p" n="595" unit="line"/>unhappy wretch, that you thus correctly address the miserable maiden, and have named the heaven-sent plague that wastes and stings me with its maddening goad.  Ah me!  In frenzied bounds I come,<milestone ed="p" n="600" unit="line"/>driven by torturing hunger, victim of Hera's vengeful purpose.  Who of the company of the unfortunate endures&mdash;aah! aah!&mdash;sufferings such as mine?  Oh make it clear to me<milestone ed="p" n="605" unit="line"/>what misery I am fated to suffer,  what remedy is there, what cure, for my affliction.  Reveal it, if you have the knowledge.  Oh speak, declare it to the unfortunate, wandering virgin.<milestone ed="p" n="609" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Prometheus</speaker>
+<p>I will tell you plainly all that you would like to know,<milestone ed="p" n="610" unit="line"/>not weaving riddles, but in simple language, since it is right to speak openly to friends.  Look, I whom you see am Prometheus, who gave fire to mankind.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>O you who have shown yourself a common benefactor of mankind, wretched Prometheus, why do you suffer so?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="615" unit="line"/>I have only just now finished lamenting my own calamities.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>You will not then do this favor for me?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Say what it is you wish; for you can  learn all from me.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Tell me who has bound you fast in this ravine.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Zeus by his will, Hephaestus by his hand.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p><milestone ed="p" n="620" unit="line"/>And for what offence do you pay the penalty?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>It suffices that I have made clear to you this much and no more.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>No, also tell me the end of my wandering&mdash;what time is set for wretched me.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>It would be better not to know than to know, in your case.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p><milestone ed="p" n="625" unit="line"/>I beg you, do not hide from me what I am doomed to suffer.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>No,  it is not that I do not want to grant your request.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Why then your reluctance to tell me everything?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>I am not unwilling; but I hesitate to crush your spirit.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Do not be more kind to me than I myself desire.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="630" unit="line"/>Since you insist, I must speak. Listen, then.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>No, not yet.  Grant us too a portion of the pleasure.  Let us first inquire the story of her affliction and let her with her own lips relate the events that brought horrid calamity upon her.  Then let her be instructed by you as to the toils still to come.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="635" unit="line"/>It is for you, Io, to grant them this favor, especially since they are your father's sisters.  For it is worthwhile to indulge in weeping and in wailing over evil fortunes when one is likely to win the tribute of a tear from the listener.<milestone ed="p" n="640" unit="card"/></p></sp>
+<sp>
+<speaker>Io</speaker>
+<p><milestone ed="p" n="640" unit="line"/>I do not know how to refuse you.  You shall learn in truthful speech all that you would like to know. Yet I am ashamed to tell about the storm of calamity sent by Heaven, of the marring of my form, and of the source from which it swooped upon me, wretched that I am.</p>
+<p><milestone ed="p" n="645" unit="line"/>For visions of the night, always haunting my maiden chamber, sought to beguile me with seductive words, saying: &ldquo;O damsel greatly blessed of fortune, why linger in your maidenhood so long when it is within your power to win a union of the highest?  Zeus is inflamed by passion's dart<milestone ed="p" n="650" unit="line"/>for you and is eager to unite with you in love.  Do not, my child,  spurn the bed of Zeus, but go forth to <placeName key="perseus,Lerna">Lerna</placeName>'s meadow land of pastures deep and to your father's flocks and where his cattle feed, so that the eye of Zeus may find respite from its longing.&rdquo;</p>
+<p><milestone ed="p" n="655" unit="line"/>By such dreams was I, to my distress, beset night after night, until at last I gained courage to tell my father of the dreams that haunted me.  And he sent many a messenger to <placeName key="tgn,7010770">Pytho</placeName> and <placeName key="perseus,Dodona">Dodona</placeName> so that he might discover<milestone ed="p" n="660" unit="line"/>what deed or word of his would find favor with the gods.  But they returned with report of oracles, riddling, obscure, and darkly worded.  Then at last there came an unmistakable utterance to Inachus, charging and commanding him clearly that<milestone ed="p" n="665" unit="line"/>he must thrust me forth from home and native land to roam at large to the remotest confines of the earth; and, if he would not, a fiery thunderbolt would come from Zeus that would utterly destroy his whole race.</p>
+<p>Yielding obedience to such prophetic utterances of Loxias,<milestone ed="p" n="670" unit="line"/>he drove me away and barred me from his house, against his will and mine; but the constraint of Zeus forced him to act by necessity.  Immediately my form and mind were distorted, and with horns, as you see, upon my forehead,<milestone ed="p" n="675" unit="line"/>stung by a sharp-fanged gadfly I rushed with frantic bounds to Cerchnea's sweet stream and <placeName key="perseus,Lerna">Lerna</placeName>'s spring.  But Argus, the earth-born herdsman, untempered in his rage, pursued me, peering with his many eyes upon my steps.<milestone ed="p" n="680" unit="line"/>A sudden death robbed him of life unexpectedly; while I, still tormented by the gadfly, am driven on from land to land before the heaven-sent plague.</p>
+<p>That is what happened ; and if you can declare what toils still remain,  reveal them.  Do not, from pity, seek<milestone ed="p" n="685" unit="line"/>to soothe me with untrue words ; for I consider false words to be the foulest sickness.<milestone ed="p" n="687" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Oh, ah, go away, alas!  Never, oh never, did I dream that words so strange would greet my ears;<milestone ed="p" n="690" unit="line"/>or that sufferings so grievous to look upon, yes,  and so grievous to endure, a tale of outrage, would strike my soul as if with double-pronged goad.  Alas, O Fate, O Fate,<milestone ed="p" n="695" unit="line"/>I shudder to behold the plight that has befallen Io.<milestone ed="p" n="696" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>You lament and are full of fear all too soon. Wait until you have learned the rest as well.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Proceed, tell all.  It is comforting for the sick to know clearly beforehand what pain still awaits them.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="700" unit="line"/>You gained your former request easily from me; for you first desired the story of her ordeal from her own lips.  Hear now the sequel, the sufferings this maid is fated to endure at Hera's hand.<milestone ed="p" n="705" unit="line"/>And may you, daughter of Inachus, lay to heart my words so that you may learn the end of your wanderings.</p>
+<p>First, from this spot, turn yourself toward the rising sun and make your way over untilled plains; and you shall reach the Scythian nomads, who dwell<milestone ed="p" n="710" unit="line"/>in thatched houses, perched aloft on strong-wheeled wagons and are equipped with far-darting bows. Do not approach them, but keeping your feet near the rugged shore, where the sea breaks with a roar, pass on beyond their land.  On the left hand dwell the workers in iron,<milestone ed="p" n="715" unit="line"/>the Chalybes, and you must beware of them, since they are savage and are not to be approached by strangers.  Then you shall reach the river Hybristes,<note anchored="yes" n="717" resp="Smyth"><foreign lang="greek">*(ubristh/s</foreign>, &ldquo;Violent&rdquo; from <foreign lang="greek">u(/bris</foreign>, &ldquo;violence.&rdquo;</note></p>
+<p>which does not belie its name.  Do not cross this, for it is hard to cross, until you come to <placeName key="tgn,1108814">Caucasus</placeName> itself,<milestone ed="p" n="720" unit="line"/>loftiest of mountains, where from its very brows the river pours out its might in fury.  You must pass over its crests, which neighbor the stars, and enter upon a southward course, where you shall reach the host of the Amazons, who loathe all men.  They shall in time to come<milestone ed="p" n="725" unit="line"/>inhabit Themiscyra on the Thermodon, where, fronting the sea, is Salmydessus' rugged jaw, evil host of mariners, step-mother of ships.  The Amazons will gladly guide you on your way.  Next, just at the narrow portals of the harbor, you shall reach<milestone ed="p" n="730" unit="line"/>the Cimmerian isthmus. This you must leave with stout heart and pass through the channel of Maeotis; and ever after among mankind there shall be great mention of your passing, and it shall be called after you the <placeName key="tgn,1115068">Bosporus</placeName>.<note anchored="yes" n="733" resp="Smyth"><foreign lang="greek">*Bo/sporos</foreign>, by popular etymology derived from <foreign lang="greek">bou=s</foreign> and <foreign lang="greek">po/ros</foreign>, &ldquo;passing of the cow,&rdquo;  is, according to Wecklein, a Thracian form of <foreign lang="greek">*fwsfo/ros</foreign>, &ldquo;light-bearing,&rdquo; an epithet of the goddess Hecate.  The dialectical form, once misunderstood, was then, it is conjectured, transferred from the Thracian &lpar;cp. <bibl n="Aesch. Pers. 746">Aesch. Pers. 746</bibl>&rpar; to the Crimean strait.  In the<title>Suppliants</title>Aeschylus makes Io cross the <emph>Thracian</emph> <placeName key="tgn,1115068">Bosporus</placeName>.</note>Then, leaving the soil of <placeName key="tgn,1000003">Europe</placeName>,<milestone ed="p" n="735" unit="line"/>you shall come to the Asian continent.</p>
+<p>Does it not seem to you that the tyrant of the gods is violent in all his ways?  For this god, desirous of union with this mortal maid, has imposed upon her these wanderings.  Maiden, you have gained a cruel suitor<milestone ed="p" n="740" unit="line"/>for your hand.  As to the tale you now have heard&mdash; understand that it has not even passed the introduction.<milestone ed="p" n="742" unit="card"/></p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Ah me, ah me, alas!</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>What!  You are crying and groaning again?  What will you do, I wonder, when you have learned the sufferings still in store for you?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="745" unit="line"/>What!  Can it be that you have sufferings still left to recount to her?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, a tempestuous sea of calamitous distress.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>What gain have I then in life?  Why did I not hurl myself straightaway from this rugged rock, so that I was dashed to earth and freed from<milestone ed="p" n="750" unit="line"/>all my sufferings?  It is better to die once and for all than linger out all my days in misery.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Ah, you would hardly bear my agonies to whom it is not foredoomed to die; for death would have freed me from my sufferings.<milestone ed="p" n="755" unit="line"/>But now no limit to my tribulations has been appointed until Zeus is hurled from his sovereignty.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>What!  Shall Zeus one day be hurled from his dominion?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>You would rejoice, I think, to see that happen.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Why not, since it is at the hand of Zeus that I suffer?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="760" unit="line"/>Then you may assure yourself that these things are true.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>By whom shall he be despoiled of the sceptre of his sovereignty?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>By himself and his own empty-headed purposes.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>In what way?  Oh tell me, if there be no harm in telling.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>He shall make a marriage that shall one day cause him distress.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p><milestone ed="p" n="765" unit="line"/>With a divinity or with a mortal?  If it may be told, speak out.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Why ask with whom?  I may not speak of this.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Is it by his consort that he shall be dethroned?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, since she shall bear a son mightier than his father.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>And has he no means to avert this doom?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="770" unit="line"/>No, none&mdash;except me, if I were released from bondage.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Who then is to release you against the will of Zeus?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>It is to be one of your own grandchildren.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>What did you say?  A child of mine will release you from your misery?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>The third in descent after ten generations.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p><milestone ed="p" n="775" unit="line"/>Your prophecy is not easy to understand.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, so do not seek to learn the full extent of your own sufferings.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Do not offer me a favor and then withdraw it.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>I will present you with one or other of two tales.</p></sp>
+<sp>
+<speaker>Io</speaker>
+<p>Which two?  Set them forth and offer me the choice.<milestone ed="p" n="780" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="780" unit="line"/>I am making the offer: choose whether I shall reveal the sufferings still in store for you or the one who will be my deliverer.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Consent to bestow on her one of these favors, and on me the other; do not deny me the tale.  Tell her about her further wanderings;<milestone ed="p" n="785" unit="line"/>tell me who will deliver you&mdash;for I would like to know this.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Well, since you are bent on this, I will not refuse to proclaim all that you still crave to know.  First, to you, Io, will I declare your much-vexed wandering, and may you engrave it on the recording tablets of your mind.</p>
+<p><milestone ed="p" n="790" unit="line"/>When you have crossed the stream that bounds the two continents, toward the flaming east, where the sun walks,......</p>
+<p>crossing the surging sea until you reach the Gorgonean plains of Cisthene, where  the daughters of Phorcys dwell, ancient maids,<milestone ed="p" n="795" unit="line"/>three in number, shaped like swans, possessing one eye amongst them and a single tooth; neither does the sun with his beams look down upon them, nor ever the nightly moon.  And near them are their three winged sisters, the snake-haired Gorgons, loathed of mankind,<milestone ed="p" n="800" unit="line"/>whom no one of mortal kind shall look upon and still draw breath.  Such is the peril that I bid you to guard against.  But now listen to another and a fearsome spectacle.  Beware of the sharp-beaked hounds of Zeus that do not bark, the gryphons,<milestone ed="p" n="805" unit="line"/>and the one-eyed Arimaspian folk, mounted on horses, who dwell about the flood of Pluto's<note anchored="yes" n="806" resp="Smyth"><foreign lang="greek">*plou/ton</foreign> is an abbreviation of <foreign lang="greek">*ploutodo/ths</foreign> or <foreign lang="greek">*ploutodoth/r</foreign>, &ldquo;giver of wealth&rdquo;; hence the apparent confusion with <foreign lang="greek">*plou/tos</foreign>.</note>stream that flows with gold. Do not approach them.  Then you shall come to a far-off country of a dark race that dwells by the waters of the sun, where the river Aethiop is.<milestone ed="p" n="810" unit="line"/>Follow along its banks until you reach the cataract, where, from the Bybline mountains, <placeName key="tgn,1127805">Nile</placeName> sends forth his hallowed and sweet stream.  He will conduct you on your way to the three-angled land of Nilotis, where, at last, it is ordained for you,<milestone ed="p" n="815" unit="line"/>O Io, and for your children to found your far-off colony.</p>
+<p>If anything of this is confusing to you and hard to understand, may you question me yet again, and gain a clear account; for I have more leisure than I crave.<milestone ed="p" n="819" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>If there is anything still remaining or passed over<milestone ed="p" n="820" unit="line"/>of her direful wandering that you have to tell, oh speak.  But if you have told all, grant us in turn the favor we request&mdash;you probably have it still in memory.</p></sp>
+<sp n="Prometheus">
+<speaker>Prometheus</speaker>
+<p>She has now heard the full end of her travels; yet so she may know that she has heard no vain tale from me,<milestone ed="p" n="825" unit="line"/>I will describe the toils she has endured before she came here, giving this as a sure proof of my account.</p>
+<p>Most of the weary tale I shall leave out and come to the very close of your wanderings.</p>
+<p>For when you reached the Molossian plains<milestone ed="p" n="830" unit="line"/>and the sheer ridge that encircles <placeName key="perseus,Dodona">Dodona</placeName>, where lies the prophetic seat of Thesprotian Zeus and that marvel, passing all belief, the talking oaks, by which you clearly, and in no riddling terms, were saluted as the renowned<milestone ed="p" n="835" unit="line"/>bride-to-be of Zeus &lpar;is any of this pleasing to you?&rpar;, then, stung by the gadfly, you rushed along the pathway by the shore to the great gulf of Rhea, from where you are tossed in backward-wandering course; and for all time to come a recess of the sea,<milestone ed="p" n="840" unit="line"/>be well assured, shall bear the name Ionian, as a memorial of your crossing for all mankind.</p>
+<p>These, then, are the tokens to you of my understanding, to show that it discerns more than has been made manifest.  The rest I shall declare both to you and her,<milestone ed="p" n="845" unit="line"/>returning to the track of my former tale.</p>
+<milestone ed="p" n="846" unit="card"/>
+<p>There is a city, <placeName key="tgn,1099727">Canobus</placeName>, on the extremity of the land at the very mouth and silt-bar of the <placeName key="tgn,1127805">Nile</placeName>.  There at last Zeus restores you to your senses by the mere stroke and touch of his unterrifying hand.<milestone ed="p" n="850" unit="line"/>And you shall bring forth dark Epaphus,<note anchored="yes" n="851" resp="Smyth">Epaphus, &ldquo;Touch-born,&rdquo; named from the touch &lpar;<foreign lang="greek">e)/facis</foreign>&rpar; of the hand of Zeus.  Cp. <bibl n="Aesch. Supp. 45">Aesch. Supp. 45</bibl>, <bibl n="Aesch. Supp. 48">48</bibl>.</note>thus named from the manner of Zeus' engendering; and he shall gather the fruit of all the land watered by the broad-flowing <placeName key="tgn,1127805">Nile</placeName>.  Fifth in descent from him, fifty maidens shall return to <placeName key="perseus,Argos">Argos</placeName>, not of their own<milestone ed="p" n="855" unit="line"/>free choice, but fleeing marriage with their cousin kin; while these, their hearts ablaze with passion, like falcons eagerly pursuing doves, shall come in pursuit of wedlock unlawful to pursue; but God shall grudge them enjoyment of their brides.<milestone ed="p" n="860" unit="line"/>Pelasgian soil shall offer the maids a home, when, in the watches of the night, their husbands have been slain by a deed of daring wrought by the women's murderous blows.  For each bride shall take the life of her lord, dyeing a two-edged sword in his blood&mdash;in such ways may Love come upon my enemies!<milestone ed="p" n="865" unit="line"/>However, love's desire shall charm one of the maidens not to slay her mate; rather, her resolve will lose its edge; for she will make her choice between two evil names to be called coward rather than murderess.  She it is who shall give birth in <placeName key="perseus,Argos">Argos</placeName> to a royal line&mdash;<milestone ed="p" n="870" unit="line"/>a long story is necessary to explain this clearly; of her seed, however, shall be born a man of daring, renowned with the bow, who shall deliver me from these toils.<note anchored="yes" n="873" resp="Smyth">Heracles.  Accidently wounded by the  poisoned arrow of this descendant of Io, the centaur Chiron offered himself as a substitute for Prometheus, thus fulfilling the prophecy contained in ll. 1026 ff.  In a fragment of the <title>Prometheus Unbound</title> Heracles is represented as aiming his arrow against the eagle that feasted on the body of Prometheus &lpar;l. 1022&rpar;.</note>Such is the oracle recounted to me by my mother, Titan Themis, born long ago.<milestone ed="p" n="875" unit="line"/>The manner and the means&mdash;these need lengthy speech to tell, and to learn them all would not be of any benefit.
+</p></sp>
+<milestone ed="p" n="877" unit="card"/>
+<div2 type="anapests">
+<sp>
+<speaker>Io</speaker>
+<p>Oh! Oh! Alas! Once again convulsive pain and frenzy, striking my brain, inflame me.  I am stung by the gadfly's barb,<milestone ed="p" n="880" unit="line"/>unforged by fire.  My heart knocks at my ribs in terror; my eyeballs roll wildly round and round.  I am carried out of my course by a fierce blast of madness; I've lost all mastery over my tongue,<milestone ed="p" n="885" unit="line"/>and a stream of turbid words beats recklessly against the billows of dark destruction.<stage>Exit</stage><milestone ed="p" n="887" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Ah, sage, sage indeed, was he who first pondered this truth in his mind and with his tongue gave it utterance&mdash;<milestone ed="p" n="890" unit="line"/>that to marry in one's own class is far the best&mdash;a poor man should not desire to marry among those who are pampered by riches, or who are mighty in pride of birth.<milestone ed="p" n="894" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Never, oh never,<milestone ed="p" n="895" unit="line"/>immortal Fates, may you see me the partner of the bed of Zeus,  and may I be wedded to no bridegroom who descends to me from heaven. For I shudder when I behold the loveless maidenhood of Io, cruelly crushed like this<milestone ed="p" n="900" unit="line"/>by her toilsome wanderings sent by Hera.<milestone ed="p" n="901" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>When marriage is on equal terms, in my opinion it is no cause for dread; so never may the love of the mightier gods cast on me its irresistible glance. That would indeed be a war that cannot be fought, a source of resourceless misery; and<milestone ed="p" n="905" unit="line"/>I do not know what would be my fate, for I do not see how I could escape the designs of Zeus.<milestone ed="p" n="907" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, truly, the day will come when Zeus, although stubborn of soul, shall be humbled, seeing that he plans a marriage that shall<milestone ed="p" n="910" unit="line"/>hurl him into oblivion from his sovereignty and throne; and then immediately the curse his father Cronus invoked as he fell from his ancient throne, shall be fulfilled to the uttermost.  Deliverance from such ruin no one of the gods can show him clearly except me.<milestone ed="p" n="915" unit="line"/>I know the fact and the means.  So let him sit there in his assurance, putting his trust in the crash reverberating on high and brandishing his fire-breathing bolt in his hands.  For these shall not protect him  from falling in ignominious and unendurable ruin.<milestone ed="p" n="920" unit="line"/>Such an adversary is he now preparing despite himself, a prodigy irresistible, even one who shall discover a flame mightier than the lightning and a deafening crash to outroar the thunder; a prodigy who shall shiver the trident,<milestone ed="p" n="925" unit="line"/>Poseidon's spear, that scourge of the sea and shaker of the land.<note anchored="yes" n="925" resp="Smyth">The poet adopts the legend that Poseidon was a rival with Zeus for the hand of Thetis, of whose son it had been prophesied by Themis that he should be  mightier than his father.  The prophecy was fulfilled in the person of Peleus' son, Achilles.</note>Then, wrecked upon this evil, Zeus shall learn how different it is to be a sovereign and a slave.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Surely, it is only your own desire that you utter as a curse against Zeus.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>I speak what shall be brought to pass and, moreover, my own desire.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="930" unit="line"/>Must we really look for one to gain mastery over Zeus?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Yes, and he shall bear upon his neck pangs more galling than these of mine.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>How is it that you are not afraid to utter such taunts?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Why should I fear since I am fated not to die?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>But he might inflict on you an ordeal even more bitter than this.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="935" unit="line"/>Let him, for all I care!  I am prepared for anything.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Wise are they who do homage to Necessity.<note anchored="yes" n="936" resp="Smyth">Adrasteia, &ldquo;the inescapable,&rdquo; another name of Nemesis, punished presumptuous words and excessive happiness.</note></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Worship, adore, and fawn upon whoever is your lord.  But for Zeus I care less than nothing.  Let him do his will, let him hold his power<milestone ed="p" n="940" unit="line"/>for his little day&mdash; since he will not bear sway over the gods for long. But wait, for over there I see his messenger, the servant of our new lord and master.  Certainly he has come to announce some news.<milestone ed="p" n="944" unit="card"/></p></sp>
+<stage>Enter Hermes</stage>
+<sp>
+<speaker>Hermes</speaker>
+<p>To you, the clever and crafty, bitter beyond all bitterness,<milestone ed="p" n="945" unit="line"/>who has sinned against the gods in bestowing honors upon creatures of a day&mdash;to you, thief of fire, I speak.  The Father commands that you tell what marriage you boast of, whereby he is to be hurled from power&mdash;and this, mark well, set forth in no riddling fashion,<milestone ed="p" n="950" unit="line"/>but point by point, as the case exactly stands; and do not impose upon me a double journey, Prometheus&mdash;you see Zeus is not appeased by dealings such as yours.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Bravely spoken, in truth, and swollen with pride is your speech, as befits a minion of the gods.<milestone ed="p" n="955" unit="line"/>Young you are, as young your power, and you think indeed that you inhabit heights beyond the reach of grief.  Have I not seen two sovereigns cast out from these heights?  A third, the present lord, I shall live to see  cast out in ruin most shameful and most swift.  Do you think<milestone ed="p" n="960" unit="line"/>I quail, perhaps, and cower before these upstart gods?  Far from it&mdash;no, not at all.  But scurry  back the way you came; for you shall learn nothing about which you question me.<milestone ed="p" n="964" unit="card"/></p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Yet it was by such proud wilfulness before, too,<milestone ed="p" n="965" unit="line"/>that you brought yourself to this harbor of distress.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>For your servitude, rest assured, I'd  not barter my hard lot, not I.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Better, no doubt, to serve this rock than be the trusted messenger of Father Zeus!</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="970" unit="line"/>Such is the proper style for the insolent to offer insult.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>I think you revel in your present plight.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>I revel?  Oh, I wish that I might see my enemies revelling in this way!  And you, too, I count among them.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>What!  You blame me in some way for your calamities?</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="975" unit="line"/>In one word, I hate all the gods that received good at my hands and with ill requite me wrongfully.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Your words declare you stricken with no slight madness.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Mad I may be&mdash;if it is madness to loathe one's enemies.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>You would be unbearable if you were prosperous.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="980" unit="line"/>Alas!</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>&ldquo;Alas&rdquo;?  That is a word unknown to Zeus.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>But ever-ageing Time teaches all things.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Yes, but you at least have not yet learned to keep a sober mind.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Or else I would not have addressed you, an underling.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>It seems you will answer nothing that the Father demands.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="985" unit="line"/>Yes, truly, I am his debtor and I should repay favor to him.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>You taunt  me as though, indeed, I were a child.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>And are you not a child and even more witless than a child if you expect to learn anything from me? There is no torment or device by which<milestone ed="p" n="990" unit="line"/>Zeus shall induce me to utter this until these injurious fetters are loosed.  So then, let his blazing lightning be hurled, and with the white wings of the snow and thunders of earthquake let him confound the reeling world.<milestone ed="p" n="995" unit="line"/>For nothing of this shall bend my will even to tell at whose hands he is fated to be hurled from his sovereignty.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Look  now whether this course seems to profit you.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>Long ago has this my course been foreseen and resolved.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Bend your will, perverse fool, oh bend your will at last<milestone ed="p" n="1000" unit="line"/>to wisdom in face of your present sufferings.</p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p>In vain you trouble me, as though it were a wave you try to persuade.  Never think that, through terror at the will of Zeus, I shall become womanish and, with hands upturned, aping woman's ways,<milestone ed="p" n="1005" unit="line"/>shall importune my greatly hated enemy to release me from these bonds.  I am far, far from that.<milestone ed="p" n="1007" unit="card"/></p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>I think that by speaking much I will only speak in vain; for you are not soothed nor are you softened by my entreaties.  You take the bit in your teeth like a new-harnessed<milestone ed="p" n="1010" unit="line"/>colt and struggle against the reins.  Yet it is a paltry device that prompts your vehemence, for in the foolish-minded mere self-will of itself avails less than anything at all.  But if you will not be won to belief by my words,<milestone ed="p" n="1015" unit="line"/>think of what a tempest and a towering wave of woe shall break upon you past escape.  First, the Father will shatter this jagged cliff with thunder and lightning-flame, and will entomb your frame, while the rock shall still hold you clasped in its embrace.<milestone ed="p" n="1020" unit="line"/>But when you have completed a long stretch of time, you shall come back again to the light.  Then indeed the winged hound of Zeus, the ravening eagle, coming an unbidden banqueter the whole day long, with savage appetite shall tear your body piecemeal into great rents and feast his fill<milestone ed="p" n="1025" unit="line"/>upon your liver until it is black with gnawing.</p>
+<p>Look for no term of this your agony until some god shall appear to take upon himself your woes and of his own free will descend into the sunless realm of Death and the dark deeps of Tartarus.</p>
+<p><milestone ed="p" n="1030" unit="line"/>Therefore be advised, since this is no counterfeited vaunting but utter truth; for the mouth of Zeus does not know how to utter falsehood, but will bring to pass every word.  May you consider warily and reflect, and never deem<milestone ed="p" n="1035" unit="line"/>stubbornness better than wise counsel.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>To us, at least, Hermes seems not to speak untimely; for he bids you to  lay aside your stubbornness and seek the good counsel of wisdom.  Be advised! It is shameful for the wise to persist in error.<milestone ed="p" n="1040" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="1040" unit="line"/>No news to me, in truth, is the message this fellow has proclaimed so noisily.Yet for enemy to suffer ill from enemy is no disgrace.  Therefore let the lightning's forked curl be cast upon my head and let the sky<milestone ed="p" n="1045" unit="line"/>be convulsed with thunder and the wrack of savage winds; let the hurricane shake the earth from its rooted base, and let the waves of the sea mingle with their savage surge the courses<milestone ed="p" n="1050" unit="line"/>of the stars in heaven; and let him lift me on high and hurl me down to black Tartarus with the swirling floods of stern Necessity: do what he will, me he shall never bring to death.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Such indeed are the thoughts and the words<milestone ed="p" n="1055" unit="line"/>one hears from men deranged.  Where does his prayer fall short of raving?  Where does he abate his frenzy?&mdash;But, at all events, may you who sympathize with his anguish,<milestone ed="p" n="1060" unit="line"/>withdraw in haste from this spot so that  the relentless roar of the thunder does not stun your senses.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Use some other strain and urge me to some other course in which you are likely to convince me. This utterance<milestone ed="p" n="1065" unit="line"/>in your flood of speech is, I think, past all endurance.  How do you charge me to practise baseness?  With him I am content to suffer any fate; for I have learned to detest traitors, and there is no pest<milestone ed="p" n="1070" unit="line"/>I abhor more than this.</p></sp>
+<sp>
+<speaker>Hermes</speaker>
+<p>Well then, bear my warning in memory and do not blame your fortune when you are caught in the toils of calamity; nor ever say that it was Zeus who cast you<milestone ed="p" n="1075" unit="line"/>into suffering unforeseen.  Not so, but blame yourselves.  For well forewarned, and not suddenly or secretly shall you be entangled in the inextricable net of calamity by reason of your folly.<stage>Exit</stage><milestone ed="p" n="1080" unit="card"/></p></sp>
+<sp>
+<speaker>Prometheus</speaker>
+<p><milestone ed="p" n="1080" unit="line"/>Indeed, now it has passed from word to deed&mdash;the earth rocks, the echoing thunder-peal from the depths rolls roaring past me; the fiery wreathed lightning-flashes flare forth, and whirlwinds toss the<milestone ed="p" n="1085" unit="line"/>swirling dust; the blasts of all the winds leap forth and set in hostile array their embattled strife; the sky is confounded with the deep.  Behold, this stormy turmoil advances against me visibly,<milestone ed="p" n="1090" unit="line"/>sent by Zeus to frighten me.  O holy mother mine, O you firmament that  revolves the common light of all, you see the wrongs I suffer!<stage>Amid thunder and lightning Prometheus vanishes from sight; and with him disappear the daughters of Oceanus</stage></p></sp>
+</div1></body></text>
+</TEI.2>

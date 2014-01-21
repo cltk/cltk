@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De tuenda sanitate praecepta</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Frank Cole Babbitt</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Frank Cole Babbitt</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1928</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.2.p.214"/>
+         <div1 type="section" n="intro">
+            <head>ADVICE ABOUT KEEPING WELL (DE TUENDA SANITATE PRAECEPTA) <lb/>INTRODUCTION</head>
+            <p>Plutarch had more than a casual interest in medicine, for, besides this essay
+					on keeping well, his other works abound in references to the behaviour of
+					the sick and their treatment, and the medical practices of his day. Long
+					before the time of Plutarch the art of medicine, always empirical, had been
+					put on a solid foundation, and the acute observations of Hippocrates and his
+					school had been set down in writing ; and this body of Hippocratic medical
+					writings, along with others, was in circulation, and had undoubtedly been
+					read by Plutarch. </p>
+            <p>That medicine has made very great advances since Plutarch's time is, of
+					course, self-evident; <q direct="unspecified">aseptic,</q>
+					          <q direct="unspecified">antiseptic,</q> and <q direct="unspecified">sterilize</q> are now household
+					words, and the germ theory of disease has, in recent times, shed light on
+					much which before was dark. But Plutarch is not dealing with the technical
+					side of medicine ; he is only giving some common-sense advice on rational
+					living, and much that he has to say in regard to rest, exercise, and diet is
+					in accord with the best medical practice of the present day. In fact, it is
+					doubtful if any physician would take exception to anything that Plutarch
+					advises (his advice is meant for men whose work is done with their heads
+					rather than their hands), and one might name men in public life to-day, well
+					on in years, who have followed many of his suggestions, unwittingly, no
+					doubt, but to their own advantage. </p>
+            <pb id="v.2.p.215"/>
+            <p>The essay seems, at the first glance, to be put in the form of a dialogue,
+					but it is about as much of a dialogue as Quiller-Couch's Foe-Farrell. The
+					dialogue form is merely a literary subterfuge to present an essay in a
+					slightly more attractive form, and the third person of the dialogue, only
+					occasionally recalled to the reader by the parsimonious interjection of
+					<q direct="unspecified">he said,</q> may be presumed to be Plutarch, the author. The
+					two speakers in the brief dialogue at the beginning of the essay are
+					Moschion, a physician, whom Plutarch introduces also into the Symposiacs
+					(Moralia, 658 a), and Zeuxippus, a friend of Plutarch's, who is introduced
+					also as a speaking character in two other essays of Plutarch's (Moralia, 748
+					e and 1086 c), besides being mentioned several times in other essays. </p>
+            <p>That the essay was written some time after a.d. 81 is clear from the
+					reference to the death of the Roman Emperor Titus (123 d). </p>
+            <p>The title of the essay is included in Lamprias' list of Plutarch's works, and
+					Stobaeus, in his Florilegium, has several quotations from it, sometimes with
+					a slightly different reading, but none of these readings changes the meaning
+					of the passage at all, and rarely is one to be preferred to the reading
+					found in the mss. of Plutarch (see Vol. I. Introd. p. xxi). </p>
+            <p>Indeed, the text of this essay has suffered more at the hands of modern
+					editors than from the ancient copyists, for a glance at the foot-notes
+					inBernardakis's edition will show that the gratuitous and unnecessary
+					changes introduced into the text by modern editors outnumber their
+					corrections of the minor errors in spelling, and the like, made by the
+					ancient copyists. </p>
+         </div1>
+         <pb id="v.2.p.217"/>
+         <div1 type="section" n="1">
+            <p>Moschion. So, Zeuxippus, yesterday you drove away Glaucus, the physician,
+					when he wished to join in your philosophical discussions. </p>
+            <p>Zeuxippus. No, my dear Moschion, I did not drive him away, nor did he wish to
+					join in philosophical discussion, but I avoided him and feared giving an
+					opening to a man fond of contention. In medicine the man is, as Homer <note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> xi. 514.</note> puts
+					it, Worth many others together, but he is not kindly disposed towards
+					philosophy, and there is always a certain harshness and ill-nature inherent
+					in his remarks. And just then he was coming at us full tilt, crying out,
+					even before he came near us, that it was no small or suitable task,
+					amounting in fact to a confusion of all bounds, which had been boldly
+					assumed by us in discussing a healthful manner of living. For he asserted
+					that the subjects of philosophy and medicine are as <q direct="unspecified">far
+						remote</q> from each other as <q direct="unspecified">are the boundaries of</q>
+					any <q direct="unspecified">Mysians and Phrygians</q> 
+               <note place="unspecified" anchored="yes">Proverbial; <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>, Adespota, No. 560.</note> ; and thereupon, as he had at
+					the tip of his tongue some statements of ours, which, though not very
+					carefully formulated, are certainly not without utility, he proceeded to
+					tear them to pieces. </p>
+            <p>Moschion. Well, in this and in other matters, <pb id="v.2.p.219"/> Zeuxippus,
+					I should be very glad to be your attentive listener. </p>
+            <p>Zeuxippus. That is because you, Moschion, have a natural gift for philosophy,
+					and you feel incensed at the philosopher who does not take an interest in
+					medicine, and you are indignant that such a man should imagine it more
+					becoming for him, in the eyes of mankind, to profess some knowledge of
+					geometry, logical discussion, and music, than to desire to seek out and know
+					<quote rend="blockquote">All that of evil and good may have chanced to betide in the dwelling <note place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> iv, 392.</note>
+               </quote> which
+					is his own body. And yet you will see a larger number of spectators in the
+					theatres where money to pay for admission is distributed to those who gather
+					together, as at Athens ; and of the liberal arts medicine is inferior to
+					none in elegance, distinction, and the satisfaction which it yields, and it
+					gives to its students admission to something of very great
+					importance&mdash;the preservation of their life and health.
+					Consequently, the charge of trespass ought not to lie against philosophers
+					if they discuss matters of health, but rather should they be blamed if they
+					do not consider it their duty to abolish all boundarylines altogether, and
+					to make a single field, as it were, of all honourable studies, and therein
+					to cultivate them in common, thus aiming in their discussion at both the
+					pleasant and the essential. </p>
+            <p>Moschion. Well, Zeuxippus, let us say no more about Glaucus, who is so
+					self-important that he wants to be a law unto himself, needing no help from
+					philosophy ; but do you tell us in detail the whole discussion ; or, if you
+					prefer, just those statements <note place="unspecified" anchored="yes">Homer, Od. iv. 392.</note>
+					          <pb id="v.2.p.221"/> which you first referred to as not altogether carefully
+					formulated, which you say Glaucus seized upon. </p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>Zeuxippus. Well, our companion <note place="unspecified" anchored="yes">Plutarch himself presumably.</note> asserted that he had heard somebody say that
+					keeping the hands always warm, and never allowing them to get cold, is in no
+					small measure conducive to health, and, conversely, the chilling of the
+					extremities, by concentrating the warmth in the interior of the body,
+					creates, as it were, a habit or a predisposition towards feverishness ; and
+					for a man to divert the substances in his body toward the surface, and to
+					conduct and distribute them, along with the warmth, to all parts of his body
+					, is healthful. <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 635 C.</note> If therefore we happen to be doing something with our hands
+					and using them, the motion itself brings the warmth to these parts, and
+					keeps it there ; but when not engaged in such activities we must by no means
+					allow the cold to find lodgement in our extremities. </p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>This, then, was one of the things ridiculed. The second, I think, concerned
+					the food which you people serve to the sick. For he urged that we should
+					partake of it and taste it from time to time, and get ourselves used to it
+					in time of health, and not abhor and detest such a regimen, like little
+					children, but gradually make it familiar and congenial to our appetites, so
+					that in sickness we may not be disaffected over our fare as if it were so
+					much medicine, and may not show impatience at receiving something simple,
+					unappetising, and savourless. <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 661 B.</note> For this reason, too, omitting the bath now
+					and then before going to a meal is not a thing to be avoided, nor drinking
+					only water when wine is at hand, nor drinking anything lukewarm in the
+					summer-time when there is snow on the table ; and while dismissing <pb id="v.2.p.223"/> once for all time the ostentatious and studied
+					abstinence from such things and the bragging over it, we should silently, by
+					our own selves, habituate the appetite to be obedient to expediency with all
+					serenity, and long beforehand we must rid our soul of its squeamishness in
+					times of sickness about such trifles, and its lamentation thereat, as it
+					deplores how it has been driven away from great and fond pleasures to an
+					ignoble and humiliating way of living. </p>
+            <p>Well has it been said, <q direct="unspecified">Choose the life that is best, and constant
+					habit will make it pleasant,</q> 
+               <note place="unspecified" anchored="yes">A precept of Pythagoras according to Plutarch, <hi rend="italics">Moralia</hi>, 466 F, and other writers who quote it; <hi rend="italics">cf.</hi> also <hi rend="italics">Moralia</hi>, 602 B.</note> and, in particular, it is
+					profitable for a man, experimenting with each several department of life and
+					especially with those which have to do with the practices which affect the
+					body, to inculcate a fixed habit during periods of soundest health, so thus
+					to make these things agreeable, familiar, and congenial to his nature, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Laws</hi>, p. 797 E.</note>
+					bearing in mind how some men feel and act in times of sickness, being angry
+					and fretful when hot water and gruel, or plain bread, is served to them,
+					calling these things abominable and unpleasant, and abominable and
+					hard-hearted also those who would force such things upon them. A bath has
+					proved to be the death of many men who at the outset had not much the matter
+					with them, save only that they could not and would not bear to taste food
+					unless they had first had their bath ; of whom Titus the Emperor <note place="unspecified" anchored="yes">There are varying accounts regarding the manner of Titus's death, poisoning or drowning being also alleged.</note> was one,
+					as those who attended him in his illness affirm. </p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Something, moreover, was said to this effect, that, while the less expensive
+					things are always more healthful for the body, we ought especially to guard
+					against excess in eating and drinking, and against <pb id="v.2.p.225"/> all
+					self-indulgence when we have immediately on hand some festival or a visit
+					from friends, or when we are expecting an entertainment of some king or high
+					official with its unavoidable social engagements ; and thus we should, as it
+					were, in fair weather make our body trim and buoyant against the oncoming
+					wind and wave. It is indeed a hard task, in the midst of company and good
+					cheer, to keep to moderation and one's habits and at the same time to avoid
+					the extreme disagreeableness which makes one appear offensive and tiresome
+					to the whole company. Therefore, to avoid adding fire to fire (as the
+					proverb has it),<note place="unspecified" anchored="yes">The proverb may be found in Plato's <hi rend="italics">Laws</hi>, p. 666 A, and often repeated in other writers.</note> and gorging to gorging, and strong drink to strong drink,
+					we ought with all seriousness to imitate the polite joke of Philip. It was
+					in this wise <note place="unspecified" anchored="yes">The story is repeated by Plutarch, <hi rend="italics">Moralia</hi>, 178 D, and referred to, <hi rend="italics">Moralia</hi>, 707 B.</note> : A man had invited Philip to dinner in the country, assuming
+					that he had but a few with him, but when later the host saw Philip bringing
+					a great company, no great preparations having been made, he was much
+					perturbed . Philip, becoming aware of the situation, sent word privately to
+					each of his friends to <q direct="unspecified">leave room for cake.</q> They, following
+					the advice, and looking for more to come, ate sparingly of what was before
+					them, and so the dinner was ample for all. In this manner, then, we ought to
+					prepare ourselves in anticipation of our imperative round of social
+					engagements by keeping room in the body for elaborate dishes and pastry,
+					and, I dare to say it, for indulgence in strong drink also, by bringing to
+					these things an appetite fresh and willing. </p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>If, however, such imperative occasions suddenly confront us when we are
+					overloaded and in no condition for taking part&mdash;if, for instance,
+					we receive an invitation from a high official, or guests appear, so <pb id="v.2.p.227"/> that we are constrained by a false sense of shame to
+					join company with men who are in fit condition and to drink with
+					them&mdash;then especially, in order to combat <q direct="unspecified">shame which works
+						mischief for men</q> 
+               <note place="unspecified" anchored="yes">The reference may be to Homer, <hi rend="italics">Il.</hi> xxiv. 45 (<hi rend="italics">cf.</hi> Hesiod, <hi rend="italics">Works and Days,</hi> 318).</note> (or rather I would call it shamefacedness),
+					we should summon to our defence the words which Creon speaks <note place="unspecified" anchored="yes">Euripides, <hi rend="italics">Medea</hi>, 290, quoted also in <hi rend="italics">Moralia</hi>, 530 C.</note> in the
+					tragedy : <quote rend="blockquote">'Twere better, friend, to gain your hatred now Than be
+						soft-hearted and lament anon.</quote> For to be so afraid of being thought ill-bred
+					as to plunge oneself into a pleurisy or brain-fever is proof that one is in
+					very truth ill-bred, possessed of neither sense nor the reason which knows
+					how to consort with men without the wine-glass and the savour of food.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 612 F.</note> For
+					a request to be excused, if characterized by cleverness and wit, is no less
+					agreeable than joining in the round of gaiety ; and if a man provides a
+					banquet in the same spirit in which he provides a burnt-offering which it is
+					forbidden to taste, and personally abstains when the wine-cup and the table
+					are before him, at the same time volunteering cheerfully some playful
+					allusion to himself, he will create a pleasanter impression than the man who
+					gets drunk and gormandizes for company. Of the men of earlier times he <note place="unspecified" anchored="yes">Presumable Plutarch again.</note>
+					mentioned Alexander,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plutarch's <hi rend="italics">Life of Alexander</hi>, chap. lxxv. (p. 706 C); Diodorus, xvii. 117; Athenaeus, 434 C; Arrian, <hi rend="italics">Anabasis</hi>, vii. 25. 1; Quintus Curtius, x. 4; Justin, xii. 13.</note> who, after a prolonged debauch, was ashamed to say no
+					to the challenges of Medius, and abandoned himself to a fresh round of hard
+					drinking, which cost him his life; and of the men of our time he mentioned
+					Regulus the prize-fighter. For when Titus Caesar called him to the bath at
+					daybreak, 
+					<pb id="v.2.p.229"/> he came and bathed with him, took but one drink, they
+					say, and died immediately from a stroke of apoplexy. </p>
+            <p>These are the teachings which Glaucus in derision quoted aggressively to us
+					as pedantic. The rest he was not eager to hear, nor we to tell him. But I
+					beg that you will examine each of the several statements. </p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>First there is Socrates,<note place="unspecified" anchored="yes">Xenophon, <hi rend="italics">Memorabilia</hi>, i. 3. 6; <hi rend="italics">cf.</hi> Plutarch, <hi rend="italics">Moralia</hi> 513 C, 521 E, and 661 F.</note> who, in urging us to be on our guard against such
+					things to eat as persuade us to eat when we are not hungry, and such things
+					to drink as persuade us to drink when we are not thirsty, did not absolutely
+					forbid the use of these things ; but he was instructing us to use them only
+					if we needed them, and to make the pleasure in them serve our necessity,
+					just as our statesmen do who turn to military uses their funds for
+					amusements.<note place="unspecified" anchored="yes">Perhaps a reference to Demosthenes, lix. 4, which says that in time of war all surplus funds are to be devoted to the army.</note> For that which is pleasant, in so far as it is a nutritive
+					element, is congenial to our nature, and it is by remaining still hungry
+					that we ought to get enjoyment from the necessary or the pleasant foods ;
+					but we should not stir up in ourselves a second and separate set of
+					appetites after we have appeased the usual ones. And here is another
+					consideration. Just as Socrates <note place="unspecified" anchored="yes">Xenophon, <hi rend="italics">Symposium</hi>, ii. 17-20; again referred to <hi rend="italics">infra</hi>, 130 E and <hi rend="italics">Moralia</hi>, 711 E.</note> found dancing a not unpleasant exercise,
+					so the man for whom pastry and sweets serve as a meal and as food suffers
+					less injury. But when a man has satisfied the moderate demands of his
+					nature, and has had his fill, he ought to exercise the very greatest
+					vigilance against helping himself to such things. And in such matters, while
+					we should be on guard against love of pleasure and gluttony, yet we should
+					be no less on guard against vulgarity and love of notoriety. For these
+					latter often help to persuade people to eat <pb id="v.2.p.231"/> something
+					when they are not hungry, and to drink when they are not thirsty,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Supra</hi>, 124 D.</note> by
+					suggesting utterly sordid and cheap conceits&mdash;that it is absurd not
+					to take advantage of the presence of some rare and expensive thing, as, for
+					example, sow's udder,<note place="unspecified" anchored="yes">For the cruelties practised in the preparation of this highly esteemed delicacy see Plutarch, <hi rend="italics">Moralia</hi>, 997 A.</note> Italian mushrooms, Samian cake, or snow in Egypt. For
+					things of this sort do indeed often induce people to use what is renowned
+					and rare, since they are led on by empty repute as by an attractive savour,
+					and compel their body to do its share, although it feels no need, so that
+					they may have a tale to tell to others, and may be envied for their
+					enjoyment of things so hard to obtain and so uncommon. Quite similar is
+					their behaviour toward notorious women. There are times when they repose in
+					quiet with their own wives who are both lovely and loving, but when they
+					have paid money to a Phryne or a La&iuml;s, although their body is in
+					sorry state and is inclined to shirk its task, they rouse it forthwith to
+					action, and call in licentiousness to minister to pleasure, all because of
+					empty repute. In fact, Phryne herself, in her advancing years, said that she
+					got a better price for her remnants because of her repute. </p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>It is a great marvel if we get off unscathed, when we concede to the body
+					only as much of pleasures as Nature in her need finds a place for, but still
+					more so when we battle with it vigorously to thwart its appetites, and keep
+					putting them off, and finally consent to some negotiation with such as will
+					not be denied, or, as Plato <note place="unspecified" anchored="yes">The quotation does not appear in Plato, but Plutarch is probably summing up from memory an account of a contest with the passions such as may be found, for example, in the <hi rend="italics">Phaedrus</hi>, pp. 254 ff.</note> says, <q direct="unspecified">yield when the body bites and
+						strains.</q> But when the case is reversed, 
+					<pb id="v.2.p.233"/> and the desires descend from the mind to the body and
+					force it to be subservient to the mind's emotions, and to join in their
+					excitements, there is no way to prevent their leaving as a residue the most
+					violent and serious injuries as the aftermath of feeble and evanescent
+					pleasures. Least of all ought the body to be stirred to pleasures by the
+					mind's desire, since such an origin is unnatural. Just as tickling the
+					arm-pits so affects the mind as to produce laughter which is not natural, or
+					even mild or happy, but convulsive and harsh, so whatsoever pleasures the
+					body achieves through being prodded and disturbed by the mind are deranging
+					and disturbing and foreign to Nature. Whenever, then, someone of those rare
+					and notorious means of enjoyment is afforded us, we ought to take more pride
+					in abstinence than in enjoyment, remembering that just as Simonides <note place="unspecified" anchored="yes">Repeated in more or less similar form, <hi rend="italics">Moralia</hi>, 10 F and 514 F.</note> used
+					to say that he had never been sorry for having kept silent, but many a time
+					for having spoken, so we have never been sorry either for having put a
+					dainty to one side, or for having drunk water instead of Falernian wine, but
+					the opposite ; not only ought Nature not to be forced, but if anything of
+					this sort is offered her even when she has need of it, the appetite ought to
+					be often diverted from it towards the plain and familiar food for the sake
+					of habituation and training. <quote rend="blockquote">If one must needs do wrong,</quote> are the words of
+					the Theban,<note place="unspecified" anchored="yes">Eteocles in the <hi rend="italics">Phoenissae</hi> of Euripides, i. 524; quoted by Plutarch also in <hi rend="italics">Moralia</hi>, 18 D.</note> who is not correct in saying, far best it were <quote rend="blockquote">To do it for a
+						kingdom's sake.</quote> 
+					          <pb id="v.2.p.235"/> But we can improve on this by saying that if we must
+					needs seek repute in such matters as food and drink, <q direct="unspecified">far best it
+						were</q> by continence for the sake of health. Nevertheless
+					stinginess and greediness constrain some persons, who repress and reduce
+					their desires in their own homes, to stuff themselves and enjoy themselves
+					with expensive things at others' houses as though they were engaged in
+					ruthless foraging in an enemy's country ; then they go away much indisposed,
+					and for the next day they have an attack of indigestion to pay for their
+					insatiable appetite. So Crates,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Bergk, <hi rend="italics">Poet. Lyr. Gr.</hi> ii. p. 670, Crates, No. 10 or Diels, <hi rend="italics">Poet. Phil. Frag.</hi> p. 219, Crates, No. 6</note> thinking that luxury and extravagance were
+					as much to blame as anything for the growth of civil discords and the rule
+					of despots in states, humorously advised : <quote rend="blockquote">Do not, by always making our fare
+						more ample than lentils, Throw us all into discord.</quote> And let everybody exhort
+					himself <q direct="unspecified">not to make his fare always more ample than lentils,</q>
+					and by all means not to proceed beyond cress and olives to croquettes and
+					fish, and by overeating throw <q direct="unspecified">his body into discord,</q> that is
+					to say, into derangements and diarrhoeas. For the inexpensive things keep
+					the appetite to its natural limits of moderation, but the arts of the chefs
+					and their trained helpers, and, in the words of the comic poet,<note place="unspecified" anchored="yes">Author unknown; <hi rend="italics">cf.</hi> Kock, <hi rend="italics">Com. Att. Frag.</hi> iii. p. 435.</note> 
+               <quote rend="blockquote">These
+						knavish dainties and these complex foods,</quote> are constantly advancing and
+					enlarging the bounds of enjoyment, and altering our ideas of what is good
+					for us. I do not know how it is that, while we loathe and detest women who
+					contrive philters and magic to use upon their husbands, we entrust <pb id="v.2.p.237"/> our food and provisions to hirelings and slaves to be
+					all but bewitched and drugged. If the saying of Arcesilaus <note place="unspecified" anchored="yes">Repeated by Plutarch, <hi rend="italics">Moralia</hi>, 705 E, in a slightly different form. <hi rend="italics">Cf.</hi> Aulus Gellius, iii. 5.</note> addressed to
+					the adulterous and licentious appears too bitter, to the effect that ' it
+					makes no difference whether a man practises lewdness in the front parlour or
+					in the back hall,' yet it is not without its application to our subject. For
+					in very truth, what difference does it make whether a man employ
+					aphrodisiacs to stir and excite licentiousness for the purposes of pleasure,
+					or whether he stimulate his taste by odours and sauces to require, like the
+					itch, continual scratchings and ticklings ? </p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>At some other time, then, it may be that we shall have to speak against
+					pleasures, and show what an intrinsic beauty and dignity belongs to
+					continence ; but the present discourse is on the side of many pleasures and
+					great. For diseases do not take from us and spoil for us so many of our
+					enterprises or hopes or travels or pastimes as they do of our pleasures.
+					Hence contempt for health is least profitable for those who make pleasure
+					their chief aim. For infirmities allow many persons to be philosophers, or
+					actually even generals or kings, but the pleasures and enjoyments of the
+					body in some cases do not come to life at all in time of disease, and those
+					that come to life yield but a brief part of what they properly should, and
+					even that is not pure, but contaminated with much that is foreign, and
+					marked, as it were, by the beatings of surge and storm. For it is not true
+					that In well-gorged bodies Love resides,<note place="unspecified" anchored="yes">The sentiment is probably taken from Euripides; <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>, Euripides, No. 895, and Plutarch, <hi rend="italics">Moralia</hi>, 917 B.</note> but rather in serenity and
+					calmness of the flesh does 
+					<pb id="v.2.p.239"/> love find its end in pleasure, as also do eating and
+					drinking ; and health affords to pleasures, as calm weather to the
+					halcyons,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Historia animalium</hi>, v. 8; Plutarch, <hi rend="italics">Moralia</hi>, 982 F.</note> a safe and lovely nesting and hatching of their young. Prodicus
+					seems to have put the matter very neatly in saying that fire is the best of
+					sauces <note place="unspecified" anchored="yes">Attributed to Evenus in <hi rend="italics">Moralia</hi>, 50 A 697 D, and 1010 C.</note> ; but one might more truly speak of health as being the most divine
+					and agreeable sauce. For boiled, baked, or fried foods afford no proper
+					pleasure or even gratification to those who are suffering from disease,
+					debauch, or nausea, while a clean and unspoiled appetite makes everything,
+					to a sound body, pleasant and <q direct="unspecified">eagerly craved,</q> as Homer has
+					said,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Od.</hi> viii. 164. <hi rend="italics">Cf.</hi> also 101 C <hi rend="italics">supra.</hi>
+               </note>&mdash;that is, agreeable. </p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>As Demades used to say that the Athenians, who were for making war in season
+					and out of season, never voted for peace save when wearing black, so we
+					never give a thought to a plain and restrained way of living except when
+					using enemas and poultices. But when we find ourselves in this plight we try
+					hard to stifle the thought of our wrongdoings, setting ourselves against
+					their remembrance, and, as is the way of most people who object to this or
+					that air or this or that locality as insalubrious when they say that they
+					dread travelling, we exclude our intemperance and self-indulgence from the
+					cause of our illness. Nay, we should recall how Lysimachus <note place="unspecified" anchored="yes">202 B.C.; <hi rend="italics">cf.</hi> also <hi rend="italics">Moralia</hi>, 183 E and 555 D. Lysimachus was one of the successors of Alexander the Great.</note> among the Getae
+					was constrained by thirst to surrender himself and the army with him as
+					prisoners of war, and afterwards as he drank cold water exclaimed, <q direct="unspecified">
+						My God, for what a brief pleasure have I thrown 
+						<pb id="v.2.p.241"/> away great prosperity !</q> And in the same
+					way we ought in our attacks of illness to remember that for a cold drink, an
+					ill-timed bath, or a social party, we have spoiled many of our pleasures and
+					have ruined many an honourable enterprise and delightful recreation. For the
+					sting caused by such reflections keeps the memory raw, so that, like a scar
+					that remains when the body is in health, it makes us more circumspect about
+					our way of living. For the healthy body will not, to any immoderate extent,
+					breed desires that are vehement, intractable, unwonted, and hard to
+					dispossess ; nay, we can boldly and confidently oppose the appetites which
+					would fain go beyond all bounds and assault our enjoyments, knowing that
+					their whining and whimpering is a trivial and childish manifestation, and
+					that later, when the table is removed, they will cease repining and make no
+					complaint nor feel themselves aggrieved, but, on the contrary, untainted and
+					cheerful rather than dulled and nauseated by over-indulgence, await the
+					morrow. The remark which Timotheus <note place="unspecified" anchored="yes">That this story had acquired almost a fixed phraseology in the source from which Plutarch took it may be seen by comparing this passage and Plutarch, <hi rend="italics">Moralia</hi>, 686 A, Aelian, <hi rend="italics">Varia Historia</hi>, ii. 18, Athenaeus, p. 419 d, and Cicero, <hi rend="italics">Tusculan Disputations</hi>, v. 35 (100).</note> made, the day after he had dined with
+					Plato at the Academy on the simple fare of the scholar, is in point here :
+					<q direct="unspecified">Those who dine with Plato,</q> he said, <q direct="unspecified">get on
+						pleasantly the next day also.</q> And it is reported that Alexander
+					said <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plutarch, <hi rend="italics">Moralia</hi>, 180 A, 1099 C, and <hi rend="italics">Life of Alexander</hi>, chap. xxii. (p. 677 B).</note> when he discharged the chefs of Ada that he had better ones always to
+					take with him&mdash;his night marches for breakfast, and for dinner his
+					frugal breakfast. </p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>I am not unaware that men contract fevers 
+					<pb id="v.2.p.243"/> because of fatigue and extremes of heat and cold ; but
+					just as the scents of flowers are weak by themselves, whereas, when they are
+					mixed with oil, they acquire strength and intensity, so a great mass of food
+					to start with provides substance and body, as it were, for the causes and
+					sources of disease that come from the outside. Without such material none of
+					these things would cause any trouble, but they would readily fade away and
+					be dissipated, if clear blood and an unpolluted spirit are at hand to meet
+					the disturbance ; but in a mass of superfluous food a sort of turbulent
+					sediment, as it were, is stirred up, which makes everything foul and hard to
+					manage and hard to get rid of. Therefore we must not act like those much
+					admired (!) ship-masters who for greed take on a big cargo, and thenceforth
+					are continually engaged in baling out the sea-water. So we must not stuff
+					and overload our body, and afterwards employ purgatives and injections, but
+					rather keep it all the time trim, so that, if ever it suffer depression, it
+					shall, owing to its buoyancy, bob up again like a cork. </p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>We ought to take special precautions in the case of premonitory symptoms and
+					sensations. For what Hesiod has said <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Works and Days</hi>, 104, quoted more fully <hi rend="italics">supra</hi>, 105 E.</note> of the illnesses that go hither and
+					thither assailing mankind is not true of all, that <quote rend="blockquote">Silent they go, since the
+						wisdom of Zeus has deprived them of voices,</quote> but most of them have as their
+					harbingers, forerunners, and heralds, attacks of indigestion and lassitude.
+					<q direct="unspecified">Feelings of heaviness or of fatigue,</q> says Hippocrates, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Aphorisms</hi>, ii. 5 (ed. Chartier, 38, 43, Kuhn, iii. p. 712).</note>
+					          <q direct="unspecified">when due to no external cause, 
+						<pb id="v.2.p.245"/> indicate disease,</q> since, presumably, the
+					spirit about the nerves is subjected to tension and pressure owing to
+					fullness within the body. Nevertheless, some men, although their body itself
+					all but resists and would fain drag them to their beds and their rest, are
+					led by gluttony and self-indulgence to rush off to the baths and eagerly to
+					join in the drinking-bouts, as if they were laying in provisions for a siege
+					and were fearful lest the fever seize them before they have had luncheon.
+					Others, less gross than these, are not indeed caught in this folly, but very
+					stupidly, just because they are ashamed to admit having a headache or
+					indigestion, and to keep their clothes on all day, when a crowd on their way
+					to the gymnasium invite them to come along, they get up and go, strip with
+					the others, and go through the same exercises as do those who are in sound
+					health. But as for the majority, Hope, backed by a proverb which well
+					accords with incontinence and weakness of purpose, persuades and induces
+					them to get up and go recklessly to their accustomed haunts, thinking to
+					expel and dispel wine with wine, and headache with headache.<note place="unspecified" anchored="yes">
+                  <q direct="unspecified">Similia similibus curentur.</q> The proverb as not been handed down in this form, but Plutarch may have in mind the proverb found in Pollux, ix. 120 (see Kock, <hi rend="italics">Com. Att. Frag.</hi> iii. p. 500, and his notes, especially the reference to Athenaeus, 44 a): <q direct="unspecified">Nail with nail and peg with peg</q> (a man drives out). Sligtly different versions may be found in Leutsch and Schneidewin, <hi rend="italics">Paroemiographi Graeci</hi>, ii. pp. 116 and 171.</note> Against this
+					hope should be set Cato's caution which that grand old man phrased in this
+					way <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 825 D.</note> : <q direct="unspecified">Make the great small, and abolish the small altogether
+					</q> ; also the thought that it is better to submit patiently to fasting
+					and resting with nothing to show for it, rather than to take any chances by
+					rushing pell-mell to a bath or a dinner. For if there 
+					<pb id="v.2.p.247"/> is anything the matter with us, failure to take proper
+					precaution and to put a check on ourselves will do us harm ; and if nothing
+					is the matter, it will do no harm for the body to be subjected to some
+					restrictions and cleared of some of its encumbrances. But that childish
+					person who is afraid to let his friends and servants discover that he is in
+					a state of discomfort from excessive eating or drinking, will, if he is
+					ashamed to admit having indigestion to-day, tomorrow admit having diarrhoea
+					or fever or gripes. The shame of want makes want a shame to bear,<note place="unspecified" anchored="yes">From an unknown play of Menander; <hi rend="italics">cf.</hi> Kock, <hi rend="italics">Com. Att. Frag.</hi> iii. p. 220.</note> but much
+					more is it a shame to bear indigestion, overloading, and over-fullness in a
+					body which is dragged to the bath like a rotten and leaky boat into the sea.
+					For just exactly as some persons, when they are voyaging and a storm is
+					raging, are ashamed to tarry on shore, and so they put out to sea, and then
+					are in most shameful case, shrieking and sea-sick, so those who regard it as
+					ignoble, amidst suspicious premonitory symptoms of their body, to spend one
+					day in bed, and not to take their meals at table, keep to their bed most
+					shamefully for many days, under purging and poulticing, servile and
+					attentive to physicians, asking for wine or cold water, and suffering
+					themselves to do and to utter many extravagant and ignoble things because of
+					their distress and fear. </p>
+            <p>Moreover, it is well that those who because of pleasures fail in
+					self-control, and give way to their desires or are carried away by them,
+					should be instructed and reminded that pleasures derive most of their
+					satisfaction from the body; </p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>and as the Spartans give to the cook vinegar and salt only, 
+					<pb id="v.2.p.249"/> bidding him seek whatever else he needs in the
+					slaughtered animal itself,<note place="unspecified" anchored="yes">A humorous turn is given to this custom in the anecdote related by Plutarch, <hi rend="italics">Moralia</hi>, 995 B.</note> so in the body are the best of sauces for
+					whatever is served, if so be that it is served to a body which is healthy
+					and clean. For everything of this sort is <q direct="unspecified">sweet</q> or <q direct="unspecified">
+						costly</q> irrespectively of the user and by itself, but Nature
+					decrees that it becomes <q direct="unspecified">pleasant</q> only in and in connexion
+					with the person that is pleased and is in harmony with Nature; but in those
+					who are captious or suffering from a debauch, or are in a bad way, all
+					things lose their intrinsic agreeableness and freshness. Therefore there is
+					no need to look to see whether the fish be fresh, the bread white, the bath
+					warm, or the girl shapely, but a man should look to himself to see whether
+					he be not nauseated, feculent, stale, or in any way upset. Otherwise, just
+					as drunken revellers who force their way into a house of mourning provide no
+					cheerfulness or pleasure, but only cause weeping and wailing, so in a body
+					that is in a bad condition and out of harmony with Nature, the pleasures of
+					love, elaborate food, baths and wine, when combined with such elements in
+					the body as are unsettled and tainted, set up phlegm and bile and bring on
+					an upset, besides being unduly exciting, while they yield no pleasure to
+					speak of, nor any enjoyment like what we expected. </p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>The very exact mode of living, <q direct="unspecified">exact to a hair's breadth,</q> to
+					use the popular expression,<note place="unspecified" anchored="yes">See the note on 86 A in Vol. I.</note> puts the body in a timorous and precarious
+					state, and abridges the self-respect of the soul itself, so that it comes to
+					look askance at every activity, and to no less 
+					<pb id="v.2.p.251"/> a degree at spending any time or participating at all
+					in pleasures or labours, and goes at no undertaking with readiness and
+					confidence. A man ought to handle his body like the sail of a ship, and
+					neither lower and reduce it much when no cloud is in sight, nor be slack and
+					careless in managing it when he comes to suspect something is wrong, but he
+					should rather ease the body off and lighten its load, as has already been
+					said, and not wait for indigestions and diarrhoeas, nor heightened
+					temperatures nor fits of drowsiness. And yet some people wait until a fever
+					is already at their doors and then, being as excited as if a message or a
+					summons to court had come, just manage to restrict themselves ; whereas they
+					ought, while these things are still afar off, to be cautious <quote rend="blockquote">Before the
+						storm, as though along the strand The North wind blew.<note place="unspecified" anchored="yes">Diels, <hi rend="italics">Fragmente der Vorsokratiker</hi>, ii. p. 88.</note>
+               </quote> 
+            </p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>For it is absurd to give careful heed to the croaking of ravens, the clucking
+					of hens, and <q direct="unspecified">swine m their wild excitement over bedding,</q>b as
+					Democritusc put it, making signs of winds and rains out of these, and at the
+					same time not to forestall nor take precaution against the stirrings, the
+					ups and downs, and the premonitory symptoms in the body, and not to hold
+					these to be signs of a storm that is going to take place in one's self, and
+					is just about to break. Wherefore not merely in the matter of food and
+					exercise do we need to keep watch of our body, to see whether, contrary to
+					its habits, it takes to these reluctantly and without zest, or at another
+					time is thirsty and hungry in an unnatural way, but also, in the matter of
+					sleep, to beware of lack of 
+					<pb id="v.2.p.253"/> continuity and of evenness, marked by irregularities
+					and sharp interruptions, and to beware also of the abnormal in dreams,
+					which, if so be that our visions are improper or unwonted, argues an
+					over-abundance or concretion of humours, or a disturbance of spirit within
+					us. And also the emotions of the soul have often given warning that the body
+					is perilously near disease. For instance, irrational discouragements and
+					fears take possession of people oftentimes from no apparent cause, and
+					suddenly extinguish their hopes ; in temper they become irascible, sharp,
+					and pained at trifles, and they are tearful and dismayed whenever bad
+					vapours and bitter exhalations encounter and unite with the <q direct="unspecified">
+						rotations of the soul,</q> as Plato <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Timaeus</hi>, p. 47 D.</note> has it. Therefore those to whom
+					such things happen have need to consider and to remember that, if the cause
+					is not one which concerns the spirit, it is one which concerns the body, and
+					that it needs reducing or toning down. </p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>It is very profitable when visiting sick friends to inquire of them the
+					causes of their illness, not by talking pedantically and officiously about
+					stoppages, irruptions, and trite generalities, and incidentally displaying
+					some acquaintance with medical terminology and literature, but by listening
+					in no perfunctory way to these homely and common details of overeating,
+					exposure to the sun, fatigue, sleeplessness, and especially the manner of
+					living which the man was following when he fell sick of the fever. Then,
+					like Plato, who, on his way home, was accustomed to say on the subject of
+					others' faults, <q direct="unspecified">Am not I too possibly like them ?</q> 
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 40 D, 88 E, and 463 E.</note> a man
+					ought to correct in himself the faults he observes in his neighbours, and be
+					watchful and mindful not to become involved in <pb id="v.2.p.255"/> the same
+					difficulties, and be himself compelled to take to his bed, and there give
+					voice to his yearnings for precious health, but rather, when another is
+					undergoing this experience, he will impress upon himself how valuable a
+					thing is health, and that he ought to try to preserve this by giving heed to
+					himself, and by being frugal. It is not a bad thing, either, to take a look
+					at our own way of living ; for if we have been engaged in a bout of drinking
+					and eating, or in some hardships and other irregularities, and the body
+					presents no suspicious or premonitory symptoms, nevertheless we ought to be
+					watchful of ourselves and forestall any trouble by means of rest and quiet
+					when fresh from the pleasures of love, or when fatigued ; also by drinking
+					water after the free use of wine and after social gaiety, and especially,
+					after indulging in a heavy diet of meat or multifarious foods, to eat
+					lightly, and leave no mass of superfluous residue in the body. For these
+					very things are of themselves the causes of many diseases, and they add
+					material and potency to the other causes.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 732 E.</note> Wherefore it has been very well
+					said, <q direct="unspecified">Eating not unto satiety, labouring not unto weariness, and
+						observance of chastity, are the most healthful things.</q> 
+               <note place="unspecified" anchored="yes">Probably based on Hippocrates: <hi rend="italics">cf.</hi> Hippocrates, <hi rend="italics">Epidemics</hi>, vi. 4. 20 (ed. Chartier, 9, 500, Kühn, iii. p. 605).</note> For
+					incontinence, by undermining especially the powers by which the food is
+					assimilated, causes further superfluity and overcrowding. </p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>Let us now take up each topic anew once more; and in the first place, on the
+					subject of exercises suitable for scholars, we beg to remark that one might
+					follow the example of the man who, by saying that he had nothing to write
+					for people dwelling by the sea on the subject of ships, showed clearly that
+					they were in use ; and so in the same way one <pb id="v.2.p.257"/> might say
+					that he was not writing for scholars on the subject of exercise. For it is
+					wonderful what an exercise is the daily use of the voice in speaking aloud,
+					conducing, not only to health, but also to strength&mdash;not the
+					strength of the wrestler which lays on flesh and makes the exterior solid
+					like the walls of a building, but a strength which engenders an
+					all-pervasive vigour and a real energy in the most vital and dominant parts.
+					That breathing gives strength the athletic trainers make clear in telling
+					the athletes to brace themselves against the rubbing and stop their breath
+					meantime, and keep tense the portions of the body that are being kneaded and
+					massaged. Now the voice is a movement of the breath, and if it be given
+					vigour, not in the throat, but, as it were, at its source in the lungs, it
+					increases the warmth, tones down the blood, clears out every vein, opens
+					every artery, and does not permit of any concretion or solidifying of
+					superfluous fluid like a sediment to take place in the containing organs
+					which take over and digest the food. For this reason we ought especially to
+					make ourselves habituated and used to this exercise by continual speaking,
+					or, if there be any suspicion that our body is not quite up to the mark or
+					is somewhat fatigued, then by reading aloud or declaiming. For reading
+					stands in the same relation to discussion as riding in a carriage to active
+					exercise, and as though upon the vehicle of another's words it moves softly,
+					and carries the voice gently this way and that. But discussion adds
+					contention and vehemence, as the mind joins in the encounter along with the
+					body. We must, however, be cautious about passionate and convulsive
+					vociferations. For 
+					<pb id="v.2.p.259"/> spasmodic expulsion and straining of the breath
+					produces ruptures and sprains. </p>
+            <p>After reading or discussion, before going to walk, one should make use of
+					rubbing with oil in a warm room to render the flesh supple, extending the
+					massage so far as practicable to the inward parts, and gently equalizing the
+					vital spirit and diffusing it into the extremities. Let the limits of the
+					amount of this rubbing be what is agreeable to the senses and not
+					discomforting. For the man who thus composes the inward disquiet and tension
+					in his vital spirit manages the superfluous in his body without discomfort,
+					and if unfavourable weather or some engagement prevent his going to walk, it
+					does not matter, for Nature has received her proper due. Wherefore neither
+					travelling nor stopping at an inn ought to be made an excuse for silence,
+					nor even if everybody there deride one. For where it is not disgraceful to
+					eat it is certainly not disgraceful to take exercise; nay, it is more
+					disgraceful to feel timid and embarrassed before sailors, muleteers, and
+					innkeepers, who do not deride the man who plays ball and goes through the
+					movements of sparring alone, but the man who speaks, even though in his
+					exercises he instruct, question, learn, and use his memory. Socrates said <note place="unspecified" anchored="yes">Xenophon, <hi rend="italics">Symposium, 2. 18.</hi>
+               </note>
+					that for a man's movements in dancing a room that would accommodate seven
+					persons at dinner was large enough to take exercise in, but for a man who
+					takes his exercise through singing or speaking every place affords him
+					adequate room for this exercise both when standing up and when lying down.
+					But we must observe this one caution&mdash;not to strain our voices too
+					hard
+					<pb id="v.2.p.261"/> when we are conscious of a fullness, venery, or
+					fatigue. This is the experience of many of the public speakers and sophists,
+					some of whom are led on by repute and ambition, others on account of
+					emoluments or political rivalries, to competition in excess of what is best
+					for them. Our Niger, when he was giving public lectures in Galatia, happened
+					to swallow a fish bone. But, as another sophist from abroad had made his
+					appearance and was lecturing, Niger, dreading to give the impression that he
+					had yielded to his rival, still lectured although the bone was sticking in
+					his throat; unable to bear the distress from the great and stubborn
+					inflammation that arose, he submitted to a deep incision from the outside,
+					and through the opening the bone was removed ; but the place grew sore and
+					purulent and caused his death. But comment on these matters may well be
+					postponed to a later occasion. <note place="unspecified" anchored="yes">Perhaps <hi rend="italics">infra</hi>, 135 D.</note> 
+            </p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>To take a cold bath after exercising is ostentatious and juvenile rather than
+					healthful. For the power of resistance to external influences and the
+					hardiness which it seems to create in the body really produces a more evil
+					effect on the inward parts by stopping up the pores, causing the fluids to
+					collect together, and condensing the exudations which are always wanting to
+					be released and dispersed. Besides, those who insist upon taking cold baths
+					have to make a further change into that exact and strictly ordered way of
+					living which we are trying to avoid, and they have to be always taking heed
+					not to transgress this, since every shortcoming is at once bitterly brought
+					to book. On the other hand, warm baths have much to offer by way of excuse.
+					For they do not detract so much from vigour and strength as <pb id="v.2.p.263"/> they help towards health by rendering the food yielding
+					and soft for the digestion, and by providing for the painless dispersion of
+					whatever escapes digestion, at least if it do not remain altogether crude
+					and high up, and soothing any latent feelings of fatigue. However, when
+					Nature affords us a sense of a moderate and comfortable condition in our
+					body, the bath had better be left alone. A gentle rubbing with oil beside a
+					fire is better, if the body require warming, for it can take for itself the
+					requisite amount of such warmth ; but the sun permits the use of its warmth
+					at neither higher nor lower temperature than is determined by the
+					temperature of the air. So much will suffice in regard to exercise. </p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>Coming now to the subject of food, if there be anything helpful in my earlier
+					suggestions as to how we may beguile and pacify our appetites, we must give
+					some further advice regarding what comes next; but if it be difficult to
+					manage a belly that has been set free, as it were from bondage, and to
+					wrangle with it when it has no ears to hear, as Cato <note place="unspecified" anchored="yes">The same remark is found in <hi rend="italics">Moralia</hi>, 198 D, 996 D, and <hi rend="italics">Life of M. Cato</hi>, chap. viii. (p. 340 A).</note> used to say, we must
+					contrive by means of the character of our food to make the quantity less
+					burdensome ; and of the solid and very nourishing foods, things, for
+					example, like meat and cheese, dried figs and boiled eggs, one may partake
+					if he helps himself cautiously (for it is hard work to decline all the
+					time), but should stick to the thin and light things, such as most of the
+					garden stuff, birds, and such fish as have not much fat. For it is possible
+					by partaking of these things both to gratify the appetites and not oppress
+					the body. Especially to be feared are indigestions <pb id="v.2.p.265"/>
+					arising from meats <note place="unspecified" anchored="yes">It is worth while to compare Plutarch's essays on eating meat, <hi rend="italics">Moralia</hi>, 993 A-999 B.</note> ; for they are depressing at the outset, and a
+					pernicious residue from them remains behind. It is best to accustom the body
+					not to require meat in addition to other food. For the earth yields in
+					abundance many things not only for nourishment but also for comfort and
+					enjoyment, some of which it grants to our use just as they are with no
+					trouble on our part, while others we may make savoury by all sorts of
+					combination and preparation. But since custom has become a sort of unnatural
+					second nature, our use of meat should not be for the satisfaction of
+					appetite, as is the case with wolves or lions ; but while we may put it in
+					as a sort of prop and support of our diet, we should use other foods and
+					relishes which for the body are more in accord with nature and less dulling
+					to the reasoning faculty, which, as it were, is kindled from plain and light
+					substances. </p>
+         </div1>
+         <div1 type="section" n="19">
+            <p>Of the liquids milk ought not to be used as a beverage but as a food
+					possessing solid and nourishing power. With regard to wine we ought to talk
+					as does Euripides <note place="unspecified" anchored="yes">From an unknown play: <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>, Euripides, No. 967. The sentiment is a favourite one with Euripides; <hi rend="italics">cf.</hi>, for example, <hi rend="italics">Iphigeneia at Aulis</hi>, 543-557; <hi rend="italics">Medea</hi> 627-634; <hi rend="italics">Helena</hi>, 1105.</note> with regard to Love : <quote rend="blockquote">May est thou be mine, but moderate
+						be, I pray, yet ne'er abandon me.</quote> For wine is the most beneficial of
+					beverages, the pleasantest of medicines, and the least cloying of appetizing
+					things, provided that there is a happy combination of it with the occasion
+					as well as with water. Water, not only the water that is mixed with <note place="unspecified" anchored="yes">b
+						From an unknown play: cf. Nauck, Trag. Graec. Frag., Euripides, No. 967.
+						The sentiment is a favourite one with Euripides ; cf., for example,
+						Iphigeneia at Aulis, 543-557; Medea, 627-634; Helena, 1105.</note>
+					          <pb id="v.2.p.267"/> the wine, but that which is drunk by itself in the
+					interim between the draughts of the mixture, makes the mixture more
+					innocent. One ought to accustom oneself, therefore, in the course of the
+					daily routine to partake of two or three glasses of water, thus both making
+					the potency of the wine milder, and making the drinking of water habitual
+					with the body, so that, whenever it comes to be in need of water, it may not
+					feel strange towards the drink, and refuse it. For the fact is that some
+					people feel most impelled towards wine when the drink which they most need
+					is water. For after being exposed to the sun, and again when chilled, and
+					after speaking more earnestly and thinking more intently than usual, and, in
+					general, after exertions and strivings, they think they ought to drink wine,
+					feeling that Nature requires for the body some comfort and change after
+					labours. But Nature does not require comfort, if comfort is only a name for
+					self-indulgence, but she does require a change, a change which puts the body
+					in a state midway between pleasure and pain. Therefore in such circumstances
+					there should not only be some reduction in food, but wine should be either
+					altogether eliminated or else partaken of between times very diluted and
+					practically engulfed by the drinking of water. For wine, being truculent and
+					keen, intensifies the disturbances of the body, and exacerbates and
+					irritates the contused parts, which are in need of the comfort and
+					alleviation that water best supplies. For if, in spite of the fact that we
+					are not thirsty, we drink hot water after undergoing exertion, strain, or
+					heat, we are sensible of a relaxing and soothing effect within us; for the
+					aqueous fluid is mild and does not quicken the pulse, <pb id="v.2.p.269"/>
+					whereas that of wine has great impetuosity and a potency that is not kindly
+					or humanely disposed toward recent affections. As for the acerbities and
+					bitterness which some say fasting engenders in the body , if anybody fears
+					them, or if, childlike, he thinks it a dreadful thing not to have a meal
+					served before the fever which he suspects is coming, the drinking of water
+					is a very fitting middle course. In fact we frequently make to Dionysus
+					himself offerings which include no wine, thus habituating ourselves quite
+					properly not to be always looking for strong drink. Minos, too, because of
+					grief, abolished the flute and garland from the sacrifice.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Apollodorus, <hi rend="italics">Bibliotheca</hi>, iii. 15. 7.</note> Yet we know that
+					a grieving soul is not affected either by garlands or by flute. But no one's
+					body is so strong that wine, thrust upon it when it is disturbed and
+					feverish, does it no harm. </p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>The Lydians, they say, <note place="unspecified" anchored="yes">Herodotus, i. 94.</note> in a time of famine, alternately spent one day in
+					regaling themselves with food, and the next in jollity and games of chance.
+					But in the case of a scholarly and cultivated man, on an occasion which
+					requires a later dinner than usual, a mathematical problem on hand, or some
+					pamphlet or musical instrument, will not permit him to be harried by his
+					belly ; on the contrary, he will steadily turn away and transfer his
+					thoughts from the table to these other things, and scare away his appetites,
+					like Harpies, by means of the Muses. Does not the Scythian,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plutarch, <hi rend="italics">Life of Demetrius</hi>, chap. xix. (p. 897 C).</note> while he is
+					drinking, ofttimes put his hand to his bow, and twang the string, thus
+					summoning back his senses which are being unstrung by the liquor ; and shall
+					a Greek man be afraid of those who deride him when by letters and books he
+					endeavours quietly to ease and relax an unfeeling <pb id="v.2.p.271"/> and
+					inexorable desire? When the young men described by Menander <note place="unspecified" anchored="yes">From an unknown play; <hi rend="italics">cf.</hi> Kock, <hi rend="italics">Com. Att. Frag.</hi> iii. p 183, No. 607. <hi rend="italics">Cf.</hi> also Plutarch, <hi rend="italics">Moralia</hi>, 706 B.</note> were, as they
+					were drinking, insidiously beset by the pimp, who introduced some handsome
+					and high-priced concubines, each one of them (as he says), <quote rend="blockquote">Bent down his
+						head and munched his own dessert,</quote> being on his guard and afraid to look at
+					them. But scholars have many fair and pleasant outlooks and diversions, if
+					so be they can in no other way keep under control the canine and bestial
+					element in their appetites when at table. The utterances of athletic
+					trainers and the talk of teachers of gymnastics, who assert on every
+					occasion that scholarly conversation at dinner spoils the food and makes the
+					head heavy, are to be feared only when we propose to solve the Indian
+					problem or to discuss determinants <note place="unspecified" anchored="yes">These are both thought to be logical fallacies of the type of Achilles and the tortoise, or the <q direct="unspecified">Liar.</q> 
+                  <hi rend="italics">Cf.</hi> also <hi rend="italics">Moralia</hi>, 1070 C.</note> during dinner. The leaf-bud at the top
+					of the date-palm is sweet, but they say that it brings on a violent headache
+					<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Xenophon, <hi rend="italics">Anabasis</hi>, ii. 3. 15.</note> ; and an exercise in logic is by no means a <q direct="unspecified">sweet morsel</q>
+					          <note place="unspecified" anchored="yes">From Pindar, <hi rend="italics">Frag.</hi> 124 (ed. Christ).</note> to top off a dinner, but, on the contrary, it is quite likely to bring on
+					a headache, and is extremely fatiguing as well. But if they will not allow
+					us to start any other inquiry or scholarly discussion,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi> 612 F, where this topic is treated more fully.</note> or to read while at
+					dinner any of those things which, besides being beautiful and useful,
+					contain also the element of pleasurable allurement and sweetness, we shall
+					bid them not to bother us, but to take themselves off, and in the training
+					grounds and buildings to engage in such talk with the athletes, whom they
+					have torn from their books, 
+					<pb id="v.2.p.273"/> and by accustoming them to spend the whole day in
+					jesting and scurrility, have, as the clever Ariston said, made them as
+					glossy and blockish as the pillars in a gymnasium. But as for ourselves, we
+					shall follow the advice of the physicians who recommend always to let some
+					time intervene between dinner and sleep, and not, after jumbling our
+					victuals into our body and oppressing our spirit, to hinder our digestion at
+					once with the food that is still unassimilated and fermenting, but rather to
+					provide for it some respite and relaxation ; just as those who think it is
+					the right thing to keep their bodies moving after dinner do not do this by
+					means of foot-races and strenuous boxing and wrestling, but by gentle
+					walking and decorous dancing, so we shall hold that we ought not to distract
+					our minds after dinner either with business or cares or pseudo-learned
+					disputations, which have as their goal an ostentatious or stirring rivalry.
+					But many of the problems of natural science are light and enticing, and
+					there are many stories which contain ethical considerations and the <q direct="unspecified">
+						soul's satisfaction,</q> as Homer has phrased this, and nothing
+					repellent. The spending of time over questions of history and poetry some
+					persons, not unpleasingly, have called a second repast <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi> 672 E.</note> for men of
+					scholarship and culture. There are also inoffensive stories and fables, and
+					it is less onerous to exchange opinions about a flute and a lyre than to
+					listen to the sound of the lyre and the 
+					<pb id="v.2.p.275"/> flute itself. The length of time for this is such as
+					the digestion needs to assert itself and gain the upper hand over the food
+					as it is gradually absorbed and begins to agree with us. </p>
+         </div1>
+         <div1 type="section" n="21">
+            <p>Aristotle holds <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Frag.</hi> 224 (233 in Rose's edition).</note>that walking about on the part of those who have just dined
+					revives the bodily warmth, while sleep, if they go to sleep at once,
+					smothers it; but others hold that quiet improves the digestive faculties,
+					while movement disturbs the processes of assimilation; and this has
+					persuaded some to walk about immediately after dinner, and others to remain
+					quiet. In view of the two opinions a man might appear properly to attain
+					both results who after dinner keeps his body warm and quiet, and does not
+					let his mind sink at once into sleep and idleness, but, as has been
+					previously suggested, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Supra</hi> 130 A-E.</note> lightly diverts and enlivens his spirits by talking
+					himself and listening to another on one of the numerous topics which are
+					agreeable and not acrimonious or depressing. </p>
+         </div1>
+         <div1 type="section" n="22">
+            <p>The use of emetics and cathartics, abominable <q direct="unspecified">comforts for an
+					overloaded stomach,</q> 
+               <note place="unspecified" anchored="yes">Plato, <hi rend="italics">Critias, p. 115 B.</hi>
+               </note> ought never, except under the stress of
+					great necessity, to be inaugurated, as is the way of most people, who fill
+					up their bodies for the sake of emptying them, and then empty them for the
+					sake of filling them up again, thus transgressing against nature, and are
+					vexed no less at their fullness than at their emptiness&mdash;or,
+					better, they are utterly depressed over their fullness, as being a hindrance
+					to enjoyment, but set about bringing on emptiness with the idea of making
+					room always for pleasures. The harmfulness in all this is manifest; for both
+					procedures give rise to disorders and convulsive movements in the <pb id="v.2.p.277"/> body. What is peculiarly bad in the use of an emetic is
+					that it increases and fosters an insatiate greediness. For the feelings of
+					hunger become rough and turbulent, like rivers that are interrupted in their
+					course, and they gulp the food down violently, always ravening and
+					resembling not appetites that need victuals, but inflammations that need
+					medicines and poultices. For this reason the pleasures that lay hold upon
+					such persons are swift in their action and imperfect, and attended by much
+					palpitation and agitation while being experienced, and these are succeeded
+					by distensions and sharp pains in the passages, and retention of gases,
+					which cannot wait for the natural movements, but stay in the upper part of
+					the body as in water-logged ships which require the jettisoning of their
+					cargo, not merely of their surplus. The violent disturbances lower down in
+					the bowels resulting from medication, by decomposing and liquefying the
+					existing contents, increase rather than relieve the overcrowding. Just
+					imagine that anybody , feeling much troubled at the crowd of Greeks living
+					in his city, should fill up the city with Arab and Scythian immigrants ! Yet
+					it is just this radical mistake that some people make in connexion with the
+					expulsion of the surplus of habitual and familiar foods, when they introduce
+					into the body from the outside Cnidian berries, scammony, or other
+					incongruous and drastic agents, which have more need of being purged away
+					than power of purging our nature. It is best, therefore, by moderate and
+					temperate living to make the body constantly selfsufficient and well
+					adjusted as regards filling the stomach and emptying it. </p>
+            <p>If ever absolute necessity befall us, vomiting <pb id="v.2.p.279"/> should be
+					induced without medication and a great ado, and without causing any
+					disturbance beyond merely avoiding indigestion by at once allowing the
+					excess to be peacefully ejected. Just as linen cleansed with lye and washing
+					powders wears out faster than that washed in plenty of water, so vomitings
+					with drugs maltreat and ruin the body. If the bowels are getting sluggish,
+					there is no medicine like some sorts of food that afford a mild stimulus to
+					the inclinations and gently dissolve the cause of trouble. Experience with
+					these is familiar to all, and their use is not attended by discomfort. But
+					if it will not yield to these, the drinking of water for several days, or
+					fasting, or an enema, should be tried next rather than disturbing and
+					pernicious dosing to which most people hurriedly resort, after the manner of
+					licentious women who employ drugs and instruments to produce abortion for
+					the sake of the enjoyment of conceiving again. </p>
+         </div1>
+         <div1 type="section" n="23">
+            <p>But we need say no more about this class of persons. However, to speak once
+					again of those too exact persons who interject set periods of fasting
+					according to a fixed schedule, they are wrong in teaching their nature to
+					feel a need of restraint when not in need of it, and in making necessary the
+					unnecessary retrenchment at a time which makes demand for what is
+					customarily required. It is better to apply such discipline to the body with
+					a certain freedom, and, if there be no premonitory or suspicious symptoms,
+					to keep, as has been already suggested,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Supra</hi>, 128 E.</note> our general mode of life responsive
+					to changes so as to meet whatever may befall it, and not to let it be
+					enslaved or bound to one formula of life, which has trained itself to be
+					guided by certain <pb id="v.2.p.281"/> seasons, or numbers, or schedules.
+					For it is not safe, nor easy, nor befitting a citizen or a man, but like the
+					life of an oyster or the trunk of a tree&mdash;this immutability and
+					forced compliance in the matter of food and abstinence, movement and rest;
+					it is fitting only for men who have reduced and restricted themselves to a
+					retired, idle, solitary, friendless, and inglorious life, far removed from
+					the duties of citizenship. <q direct="unspecified">No,</q> said he, <q direct="unspecified">it fits not
+						with my opinion.</q> 
+               <note place="unspecified" anchored="yes">A paraphrase of Homer, <hi rend="italics">Il.</hi> ix. 108.</note> 
+            </p>
+         </div1>
+         <div1 type="section" n="24">
+            <p>For health is not to be purchased by idleness and inactivity, which are the
+					greatest evils attendant on sickness, and the man who thinks to conserve his
+					health by uselessness and ease does not differ from him who guards his eyes
+					by not seeing, and his voice by not speaking. For a man in good health could
+					not devote himself to any better object than to numerous humane activities.
+					Least of all is it to be assumed that laziness is healthful, if it destroys
+					what health aims at; and it is not true either that inactive people are more
+					healthy. For Xenocrates did not keep in better health than Phocion, nor
+					Theophrastus than Demetrius, and the running away from every activity that
+					smacked of ambition did not help Epicurus and his followers at all to attain
+					their much-talked-of condition of perfect bodily health. But we ought, by
+					attention to other details, to preserve the natural constitution of our
+					bodies, recognizing that every life has room for both disease and health. </p>
+            <p>However, our friend said that to men in public life should be given advice
+					opposite to that which Plato <note place="unspecified" anchored="yes">Not extant in Plato's writings, but a faint suggestion of the idea may be found in <hi rend="italics">Laws</hi>, p. 643 B.</note> 
+					          <pb id="v.2.p.283"/> used to give to the young men. For the philosopher, as
+					he took his leave after the exercise, was in the habit of saying, <q direct="unspecified">Be
+						sure, my boys, that you store up the lesson of this hour of leisure for
+						some good end.</q> But we would advise those who take part in the
+					government to employ their active labours for good and necessary ends, and
+					not subject their bodies to stress on account of small and paltry matters,
+					as is the way of most people, who make themselves miserable over incidental
+					things, and wear themselves out with loss of sleep, going to this place and
+					that place, and running about, all for no useful or decent purpose, but only
+					from a spirit of insolence, envy, or rivalry against others, or in the
+					pursuit of unprofitable and empty repute. It was in special reference to
+					such people, as I think, that Demolitus said,<note place="unspecified" anchored="yes">Mullach, <hi rend="italics">Frag. Philos. Graec.</hi> i. p. 342; <hi rend="italics">cf.</hi> also Diels, <hi rend="italics">Fragmente der Vorsokratiker</hi>, ii. p. 91.</note> that, if the body were to
+					enter suit against the soul for cruel and abusive treatment, the soul would
+					not be acquitted. Perhaps, too, there is some truth in what Theophrastus
+					said,<note place="unspecified" anchored="yes">This and the preceding quotation are given in greatly amplified form in Fragment i, 2 of <hi rend="italics">De anima</hi> (vol. vii. p. 2 of Bernardakis's edition of the <hi rend="italics">Moralia</hi>).</note> in his metaphorical statement, that the soul pays a high rental to
+					the body. At any rate, the body reaps the fruit of more evils from the soul
+					than the soul from the body, inasmuch as the soul uses the body
+					unreasonably, and the body does not get the care that it deserves. For
+					whenever the soul is occupied with its own emotions, strivings, and
+					concerns, it is prodigal of the body. I do not know what possessed Jason <note place="unspecified" anchored="yes">Despot of Pherae; <hi rend="italics">cf.</hi> the note <hi rend="italics">supra</hi> on 89 C. <hi rend="italics">Cf.</hi> also for the sentiment Plutarch, <hi rend="italics">Moralia</hi>, 817 F, and Aristotle, <hi rend="italics">Rhetoric</hi>, i. 12; also <hi rend="italics">The Epistle to the Romans</hi>, iii. 8 and vi. 1.</note>
+					to say : <q direct="unspecified">We must do wrong in small ways for the sake of doing right
+						in large ways.</q> But we, with good reason, would advise the man in
+					public life to be indifferent to small things, and to take his ease and give
+					himself 
+					<pb id="v.2.p.285"/> plenty of rest while attending to them, if, when he
+					comes to honourable and important activities, he wishes to have his body not
+					worn by drudging, nor dull, nor on the point of giving out, but refreshed by
+					quiet, like a ship in the dock ; so that when the soul again points the way
+					to needful activities, it May run like weanling colt beside its dam.<note place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr. Gr.</hi>ii. p. 738, Simonides of Amorgus, No. 5; repeated in <hi rend="italics">Moralia</hi>, 84 D, 446 E, 790 F, and in a fragment quoted by Stobaeus, <hi rend="italics">Florilegium</hi>, cxv. 18.</note> 
+            </p>
+         </div1>
+         <div1 type="section" n="25">
+            <p>Therefore, when circumstances afford us opportunity, we should give ourselves
+					a chance to recuperate, and to this end we should not grudge to our body
+					either sleep or luncheon or ease, which is the mean between indulgence and
+					discomfort,<note place="unspecified" anchored="yes">An adumbration of the Aristotelian doctrine that virtue is a mean.</note> nor observe the sort of limit that most people observe whereby
+					they wear out their body, like steel that is being tempered, by the changes
+					to which they subject it; whenever the body has been strained and oppressed
+					by much hard work, it is once more softened and relaxed immoderately in
+					pleasures, and again, as the next step, while it is still flaccid and
+					relaxed from venery and wine, it is coerced into going to the Forum or to
+					Court or into some business requiring fervent and intense application.
+					Heracleitus, suffering from dropsy, bade his physician to <q direct="unspecified">bring on a
+						drought to follow the wet spell</q>;<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diels, <hi rend="italics">Fragmente der Vorsokratiker</hi>, i. pp. 67-68.</note> but most people are completely
+					in error, inasmuch as, when they are in the midst of exertions, labours, and
+					deprivations, they are most inclined to surrender their bodies to pleasures
+					to be made languid and relaxed, and then, after their pleasures, bending
+					them, as it were, into place, and stretching them tight again. 
+					<pb id="v.2.p.287"/> For Nature does not require any such form of
+					compensation in the case of the body. But, on the other hand, in the soul
+					the licentious and unmannerly element, immediately after undergoing
+					hardships, is carried away, as sailors are, by wantonness to pleasures and
+					enjoyments, and, after the pleasures, it is again coerced to tasks and
+					business ; and the result is that it does not allow Nature to attain the
+					composure and calm which she needs most, but deranges and disturbs her
+					because of this irregularity. But people who have sense are least given to
+					proffering pleasures to the body when it is busied with labours. For they
+					have absolutely no need, nor even recollection, of such things, inasmuch as
+					they are keeping their thoughts intent on the good to be accomplished by
+					their activity ; and by the joy or earnestness in their souls they
+					completely dwarf their other desires. There is a jocose remark attributed to
+					Epameinondas in regard to a good man who fell ill and died about the time of
+					the battle of Leuctra : <q direct="unspecified">Great Heavens ! How did he find time to die
+						when there was so much going on ?</q> This may be repeated with
+					truth in the case of a man who has in hand some public activity or
+					philosophic meditation: <q direct="unspecified">What time has this man now for indigestion or
+						drunkenness or carnal desires ?</q> But when such men find
+					themselves again at leisure following upon their activities, they compose
+					and rest their bodies, guarding against and avoiding useless toils, and more
+					especially unnecessary pleasures, on the ground that they are inimical to
+					Nature. </p>
+         </div1>
+         <div1 type="section" n="26">
+            <p>I have heard that Tiberius Caesar once said that a man over sixty who holds
+					out his hand to a physician is ridiculous.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 794 B; Tacitus, <hi rend="italics">Annals</hi>, vi. 46.</note> To me that seems a pretty <pb id="v.2.p.289"/> strong statement, but this does seem to be true, that
+					each person ought neither to be unacquainted with the peculiarities of his
+					own pulse (for there are many individual diversities), nor ignorant of any
+					idiosyncrasy which his body has in regard to temperature and dryness,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 735 F.</note> and
+					what things in actual practice have proved to be beneficial or detrimental
+					to it. For the man has no perception regarding himself, and is but a blind
+					and deaf tenant in his own body, who gets his knowledge of these matters
+					from another, and must inquire of his physician whether his health is better
+					in summer or winter, whether he can more easily tolerate liquid or solid
+					foods, and whether his pulse is naturally fast or slow. For it is useful and
+					easy for us to know things of this sort, since we have daily experience and
+					association with them. </p>
+            <p>In regard to food and drink it is expedient to note what kinds are wholesome
+					rather than what are pleasant, and to be better acquainted with those that
+					are good in the stomach rather than in the mouth, and those that do not
+					disturb the digestion rather than those that greatly tickle the palate. For
+					to inquire of a physician what is hard or easy for oneself to digest, and
+					what is constipating or laxative, is no less disgraceful than to inquire
+					what is sweet and what is bitter and what is sour. But nowadays people
+					correct the chefs, being expert at detecting what dish has in it more
+					sweetening or salt or sourness than is proper ; but they do not themselves
+					know what, when taken into their own bodies, will be light and painless and
+					beneficial. Therefore, a mistake is not often made in seasoning a soup at
+					their houses, but by their vile and pernicious seasoning of themselves every
+					day they provide a plentiful business <pb id="v.2.p.291"/> for the
+					physicians. Now such persons do not regard the sweetest soup as the best,
+					but they mix in also bitter and pungent flavourings ; on the other hand,
+					they inject into the body numerous cloying pleasures, partly from ignorance,
+					and partly because they do not remember that to whatever is healthful and
+					beneficial nature adds a pleasure which causes neither pain nor repentance.
+					But we must keep in mind both those things that are congenial and suitable
+					to the body, and, conversely, as changes attendant on the season occur and
+					different circumstances arise, we should, in full knowledge of the facts,
+					suitably adjust our mode of living to each. </p>
+         </div1>
+         <div1 type="section" n="27">
+            <p>Now as to various difficulties, due to observance of petty detail and to lack
+					of freedom, which most men encounter&mdash;men who are engaged in the
+					toilsome business of harvesting and caring for their crops and by sleepless
+					nights and running hither and thither bring to light the latent infirmities
+					of their bodies&mdash;there is no good reason to fear that such will be
+					experienced by scholars and men in public life, with reference to whom our
+					discussion has taken its present form ; but these must guard against another
+					and more subtle kind of pettiness that inheres in letters and learning, an
+					influence which compels them to be unsparing and careless of their body, so
+					that they oftentimes, when the body is ready to succumb, will not surrender,
+					but will force the mortal to be partner with the immortal, and the
+					earth-born with the celestial, in rivalry and achievement. Then later, to
+					quote the words of the ox to his fellow-servant the camel, who was unwilling
+					to lighten his burden : <q direct="unspecified">Well, before long you will be carrying me as
+						well as all this load</q> (as actually <pb id="v.2.p.293"/>
+					resulted when the ox fell dead).<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aesop's <hi rend="italics">Fables</hi>, No. 125.</note>And this is just what happens to the mind
+					: if it is unwilling to relax a little and give up to the body in distress
+					and need, a little later a fever or a vertigo attacks it, and it is
+					compelled to give up its books and discussions and studies, and share with
+					the body its sickness and weariness. Plato <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Timaeus</hi>, p. 88 B.</note> was right, therefore, in
+					advising that there should be no movement of the body without the mind or of
+					the mind without the body, but that we should preserve, as it were, the even
+					balance of a well-matched team ; when the body shares most in the work and
+					weariness of the mind we should repay it by giving it the most care and
+					attention, and we should feel that of the good gifts which fair and lovely
+					Health bestows the fairest is the unhampered opportunity to get and to use
+					virtue both in words and in deeds. <note place="unspecified" anchored="yes">Cf. Aesop's Fables‚Äö No. 125. b
+						Timaeus, p. 88 b.</note>
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

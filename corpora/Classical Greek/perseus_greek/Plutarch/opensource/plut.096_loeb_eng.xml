@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De tranquilitate animi</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">W. C. Helmbold</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>W. C. Helmbold</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1939</date>
+                  </imprint>
+                  <biblScope type="volume">6</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="section" n="intro">
+            <pb id="v.6.p.163"/>
+            <head>ON TRANQUILLITY OF MIND
+					(DE TRANQUILLITATE ANIMI)
+					<lb/>INTRODUCTION</head>
+            <p>
+					It is only natural that this essay should have aroused
+					curiosity and speculation about its sources, for Plutarch
+					in the very first paragraph conveys the information
+					that he has rummaged among his note-books (<foreign lang="greek">u(pomnh/mata</foreign>
+               <note resp="ed" place="unspecified" anchored="yes">Pohlens and Siefert have at times insisted that in spite of the plural there is only <hi rend="italics">one</hi> main source. This lacks all probablity.</note>) in great haste for the material necessary to
+					help his friend Paccius to composure in the midst of
+					a busy life. R. Hirzel (<hi rend="italics">Hermes</hi>, xiv. 354 if., especially
+					373 if.) attempted to show that much was drawn
+					from Democritus's <foreign lang="greek">*peri\ eu)qumi/hs</foreign>, some by way of the
+					Stoic Panaetius, who, he thought, naturally opposed
+					the Abderite's conclusions. R. Heinze (<hi rend="italics">Rheinisches
+						Museum</hi>, xlv. 497 ff.) emphasized the relation between
+					<hi rend="italics">De Tranquillitate</hi> and <hi rend="italics">De Virtute et Vitio</hi>: both go back
+					to a Stoic<note resp="ed" place="unspecified" anchored="yes">But Heinze (p. 507) admitted the possibility of some Epicurean excerpts also being used.</note> prototype and <hi rend="italics">De Tranquillitate</hi> to a model
+					which has some close relation to the Cynic Bions
+					methods of presentation, that is, probably, to Ariston
+					of Chios.<note resp="ed" place="unspecified" anchored="yes">At the same time, O. Hense (<hi rend="italics">Rheinisches Museum</hi>, xlv. 550 ff.) was attempting to trace <hi rend="italics">De Curiositate</hi> to Ariston. Readers of the <hi rend="italics">Jahresberichte</hi> should note that F. Bock (<hi rend="italics">Jbb.</hi>, clii. 1911, p. 334) has not read these articles and is, as often, a thoroughly untrustworthy guide.</note> M. Pohlenz<note resp="ed" place="unspecified" anchored="yes">See also <hi rend="italics">Zeitschrift f&uuml;r wissenschaftliche Theologie</hi>, xlviii. 95 and note.</note> (<hi rend="italics">Hermes</hi>, xi. 275 if.), on the
+					
+					<pb id="v.6.p.164"/>
+					
+					other hand, found that the source of the essay was
+					Epicurean,<note resp="ed" place="unspecified" anchored="yes">But now Pohlenz (in the Teubner ed., 1929) has become partially converted to Siefert's views, while rightly continuing to maintain some Epicurean influence. The fact that Plutarch in the last part of his work follows the <foreign lang="greek">eu)xaristi/a</foreign> to the gifts of Fortune urged by Epicurus (Fragg. 435 and 491 ed. Usener) seems to me decisive, in spite of Siefert's evasions.</note> while admitting that Plutarch added a
+					certain amount of original material to fit the personality and circumstances of the friend he was addressing. Finally, G. Siefert<note resp="ed" place="unspecified" anchored="yes">For the structure of the essay see Siefert's earlier work (<hi rend="italics">Commentationes Ienenses</hi>, vi. 1896, pp. 57-74), supplemented and corrected by Pohlenz, <hi rend="italics">l.c.</hi>
+               </note> (<hi rend="italics">Plutarchs Schrift</hi> 
+               <foreign lang="greek">*peri\ eu)qumi/as</foreign>,
+					Progr. Pforta, Naumburg, 1908) reverts to
+					Democritus and Panaetius, with particular emphasis
+					on the material illustrative of Panaetius's lost work
+					to be found in Cicero's <hi rend="italics">De Officiis</hi> and in Seneca:
+					Panaetius, who was following, not the Stoa, but
+					Democritus, is the principal source of Plutarch,
+					practically his only source.
+				</p>
+            <p>
+					Siefert's discussion, in particular, is impressive
+					as well as learned ; but I would remark that all
+					these authorities may well be right-and wrong.
+					Some of them admit that portions, at least, of the
+					essay were written, or adapted, especially to suit the
+					particular occasion for which the essay was composed.
+					Plutarch himself is not averse to naming authorities
+					here and elsewhere ; that he followed exclusively one,
+					or even two, is made very unlikely by his own
+					opening statement and by the very mixed nature of
+					his philosophical terminology.<note resp="ed" place="unspecified" anchored="yes">This conclusion bears some resemblance to that reached by H. N. Fowler (<hi rend="italics">Harvard Stud. Cl. Phil.</hi>, i. 149 ff.), whose work is called by Siefert <q direct="unspecified">noch unergiebiger</q> than the <q direct="unspecified">Biomanie</q> of the Hense-Heinze school; but Fowler was inclined to stress too mcuh the relation to Democritus and the parallels which Hirzel had urged between Seneca and Plutarch. That Seneca's <hi rend="italics">De Tranquillitate Animi</hi> goes back to an immediate original common to Plutarch's work also is extremely unlikely. Only one anecdote, one quotation, and a dozen or so commonplaces are not nearly enough to show any close relationship. And how dissimilar the two works are in treatment, design, terminology, and form (<hi rend="italics">pace</hi> Hirzel, <hi rend="italics">Der Dialog</hi>, ii. p. 28, n. 1)!</note>
+					
+				        </p>
+            <pb id="v.6.p.165"/>
+            <p>
+					Theological writers of all ages have made good use
+					of this store-house of moral precepts. Many of the
+					imitations in the works of St. Basil and of St. John
+					Chrysostom will be found listed in the Teubner
+					edition and discussed by Pohlenz (<hi rend="italics">Zeit.f. wiss. Theologie</hi>,
+					xlviii. 72-95). Jeremy Taylor, also, in <hi rend="italics">Holy Living</hi>,
+					ii. 6, has again made some pleasant borrowings and
+					paraphrases.
+				</p>
+            <p>
+					Sir Thomas Wyat's interesting translation of 1528,
+					made from the Latin of Budaeus, has been reprinted,
+					with an excellent introduction from the pen of C. R.
+					Baskervill, by the authorities of the Huntington
+					Library (Harvard University Press, 1931).
+				</p>
+            <p>
+					The ms. tradition is not good. Many passages are
+					probably hopelessly corrupt and the reconstructions
+					offered in the Teubner text and here are, at the best,
+					make-shifts. The work is No. 95 in the catalogue of
+					Lamprias.
+					
+				</p>
+         </div1>
+         <pb id="v.6.p.167"/>
+         <div1 type="section" n="1">
+            <p>
+               <hi rend="italics">From Plutarch to Parcius,<note resp="ed" place="unspecified" anchored="yes">All that is known of Paccius is inferred from the present essay.</note> health and prosperity.</hi>
+            </p>
+            <p>It was only very recently that I received your
+					letter in which you urged me to write you something
+					on tranquillity of mind, and also something on those
+					subjects in the <hi rend="italics">Timaeus</hi>
+               <note resp="ed" place="unspecified" anchored="yes">We possess a work of Plutarch entitled <hi rend="italics">De Animae Procreatione in Timaeo</hi>, but it is addressed by the writer to his sons, Autobulus and Plutarch (<hi rend="italics">Moralia</hi>, 1012 a ff.).</note> which require more careful
+					elucidation. And at the same time it chanced that
+					our friend Eros<note resp="ed" place="unspecified" anchored="yes">See 453 c, <hi rend="italics">supra</hi>.</note> was obliged to sail at once for Rome,
+					since he had received from the excellent Fundanus<note resp="ed" place="unspecified" anchored="yes">The principal speaker of <hi rend="italics">De Cohibenda Ira</hi>, 452 f, <hi rend="italics">supra</hi>.</note>
+					a letter, which, in his usual style, urged haste. But
+					since I neither had the time I might have desired to
+					meet your wishes nor could I bring myself to let the
+					friend who carne from me be seen arriving at your
+					home with hands quite empty, I gathered together
+					from my note-books those observations on tranquillity
+					of mind which I happened to have made for my own
+					use, believing that you on your part requested this
+					discourse, not for the sake of hearing a work which
+					would aim at elegance of style, but for the practical
+					use in living it might afford ; and I congratulate you
+					because, though you have commanders as your friends
+					and a reputation second to none of the forensic
+					
+					<pb id="v.6.p.169"/>
+					
+					speakers of our day, your experience has not been
+					that of Merops in the play, and because it cannot
+					be said of you, as of him, that
+					<quote rend="blockquote">The plaudits of the mob have driven you<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                     <hi rend="superscript">2</hi>, p. 606, Euripides, Frag. 778.</note>
+               </quote>
+					from those emotions given us by nature ; but you
+					continue to remember what you have often heard,
+					that an aristocratic shoe does not rid us of the gout,
+					nor an expensive ring of a hangnail, nor a diadem of
+					a headache. For what power is there in money or
+					fame or influence at court to help us to gain ease of
+					soul or an untroubled life, if it is not true that the
+					use of them is pleasant to us when we have them and
+					that we never miss them when we have them not?<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Frag. <hi rend="italics">Contra Divitias</hi>, 2 (Bernardakis, vol. vii. p. 123); Lucretius, iii. 957: <foreign lang="la">semper avet quod abest</foreign>.</note>
+					And how else can this be achieved except through
+					reason, which has been carefully trained quickly to
+					hold back the passionate and irrational part of the
+					soul when it breaks bounds, as it often does, and
+					not to allow it to flow away and be swept downstream
+					because it does not have what it wants? Therefore,
+					just as Xenophon<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cyropaedia</hi>, i. 6. 3.</note> advised that in prosperity we should
+					be particularly mindful of the gods and should honour
+					them, so that, when some need comes upon us, we
+					may invoke them with the confidence that they are
+					already well-disposed and friendly ; so also with such
+					reasonings as give help in controlling the passions :
+					wise men should give heed to them before the passions
+					arise in order that, being prepared far in advance,
+					their help may be more efficacious. For as savage
+					dogs become excited at every strange cry and are
+					soothed by the familiar voice only, so also the passions
+					of the soul, when they are raging wild, are not easily
+					
+					<pb id="v.6.p.171"/>
+					
+					allayed, unless customary and familiar arguments are
+					at hand to curb the excited passions.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>Now he<note resp="ed" place="unspecified" anchored="yes">Democritus; Diels, <hi rend="italics">Frag. d. Vorsokratiker</hi>
+                  <hi rend="superscript">5</hi>, ii. p. 132, Frag. 3; Marcus Aurelius, iv. 24; Seneca, <hi rend="italics">De Tranquillitate Animi</hi>, xiii. 1, where the statement is made that these words form the beginning of Democritus's work (see especially Siefert, <hi rend="italics">op. cit.</hi>, p. 8); <hi rend="italics">De Ira</hi>, iii. 6. 3. But Plutarch misunderstands the meaning; Democritus did not advise renouncing public life completely: <hi rend="italics">cf. Moralia</hi>, 1100 b-c. Note also the word <q direct="unspecified">many</q> in the present passage. (The following paragraph is cited by Stobaeus, vol. iii. pp. 651 f. ed. Hense.)</note> who said, <q direct="unspecified">The man who would be tranquil in his mind must not engage in many affairs,
+					either private or public,</q> first of all makes our
+					tranquillity very expensive if it is bought at the price
+					of inactivity ; it is as though he advised every sick
+					man :
+					<quote rend="blockquote">Lie still, poor wretch, and move not from your bed.<note resp="ed" place="unspecified" anchored="yes">Euripides, <hi rend="italics">Orestes</hi>, 258; quoted again 501 c, <hi rend="italics">infra</hi>, and in <hi rend="italics">Moralia</hi>, 788 f, 901 a, 1126 a; the words are addressed by Electra to Orestes, delirious after the murder of his mother, and must be taken closely with the following clause.</note>
+               </quote>
+					And yet it is true that a state of bodily stupor is a bad
+					remedy for insanity ; but no whit better as a physician of the soul is he who would relieve it of its disturbances and distress by prescribing idleness and
+					softness and the betrayal of friends and family and
+					country.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 135 b.</note>
+				        </p>
+            <p>
+					In the next place, it is also false that those who are
+					not occupied with many things are tranquil in mind.
+					For if that were true, women ought to be more
+					tranquil than men, since for the most part they keep
+					at home ; but as it is, the North Wind
+					<quote rend="blockquote">Blows not through the soft-skinned maid,</quote>
+					as Hesiod<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Works and Days</hi>, 519, where the poet adds <q direct="unspecified">who stays indoors with her dear mother.</q> 
+                  <hi rend="italics">Cf.</hi> 516 f, <hi rend="italics">infra</hi>.</note> says, yet more pain and excitement and
+					despondency than one could enumerate, caused by
+					jealousy and superstitition and ambition and vain
+					
+					<pb id="v.6.p.173"/>
+					
+					imaginings, seep into the women's quarters. And
+					though La&euml;rtes<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, i. 191.</note> lived twenty years by himself in
+					the country
+					<quote rend="blockquote">
+                  <l>With one old woman, who his food and drink
+						</l>
+                  <l>Would place beside him,</l>
+               </quote>
+					and abandoned his birthplace,<note resp="ed" place="unspecified" anchored="yes">That is, the town of Ithaca; he continued to live on the island.</note> his home, and his
+					kingship, yet he had grief as an ever-constant companion of his inactivity and dejection. And for
+					some persons, even inactivity itself often leads to
+					discontent, as in this instance :
+					<quote rend="blockquote">
+                  <l>The swift Achilles, Peleus' noble son,
+						</l>
+                  <l>Continued in his wrath beside the ships ;
+						</l>
+                  <l>Nor would he ever go to council that
+						</l>
+                  <l>Ennobles men, nor ever go to war,
+						</l>
+                  <l>But wasted away his heart, remaining there,
+						</l>
+                  <l>And always longed for tumult and for war.<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, i. 488 ff.</note>
+                  </l>
+               </quote>
+					And he himself is greatly disturbed and distressed at
+					this and says :
+					<hi rend="italics">But here I sit beside my ships,
+						<lb/>A useless burden to the earth.<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> xviii. 104.</note>
+               </hi>
+					For this reason not even Epicurus<note resp="ed" place="unspecified" anchored="yes">Usener, <hi rend="italics">Epicurea</hi>, p. 328, Frag. 555. The following passage is cited by Stobaeus, vol. iii. p. 652 ed. Hense.</note> believes that men
+					who are eager for honour and glory should lead an
+					inactive life, but that they should fulfil their natures
+					by engaging in politics and entering public life, on
+					the ground that, because of their natural dispositions,
+					they are more likely to be disturbed and harmed by
+					inactivity if they do not obtain what they desire.
+					But he is absurd in urging public life, not on those who
+					are able to undertake it, but on those who are unable
+					
+					<pb id="v.6.p.175"/>
+					
+					to lead an inactive life ; tranquillity and discontent
+					should be determined, not by the multitude or the
+					fewness of one's occupations, but by their excellence
+					or baseness ; for the omission of good acts is no less
+					vexatious and disturbing than the commission of evil
+					acts, as has been said.<note resp="ed" place="unspecified" anchored="yes">Probably by Democritus (<hi rend="italics">cf.</hi> Frag. 256), not Plutarch.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>To those who believe that one quite special kind
+					of life is free from pain, as some do the life of farmers,
+					others that of bachelors, others that of kings, the
+					words of Menander<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 79, Frag. 281 (p. 378 ed. Allinson, L.C.L.); from the <hi rend="italics">Citharistes</hi>.</note> are a sufficient reminder :
+					<quote rend="blockquote">
+                  <l>I used to think the wealthy, Phanias,
+						</l>
+                  <l>Who have no need to borrow, would not groan
+						</l>
+                  <l>Of nights, nor tossing up and down would cry
+						</l>
+                  <l>
+                  &amp;ldquo;Ah, woe is me!&amp;rdquo; but that they slept a sweet
+						</l>
+                  <l>And tranquil sleep.</l>
+               </quote>
+					He then goes on to relate that he observes that even
+					the wealthy fare the same as the poor :
+					<quote rend="blockquote">
+                  <l>Is there then kinship between life and grief?
+						</l>
+                  <l>Grief's in a famous life; with a rich life
+						</l>
+                  <l>It stays ; with a mean life it too grows old.</l>
+               </quote>
+					But like people at sea<note resp="ed" place="unspecified" anchored="yes">The rest of this chapter and the beginning of the next is cited by Stobaeus, vol. iii. p. 249 ed. Hense. It is also imitated by St. Basil, <hi rend="italics">Epistle</hi> ii. (vol. i. p. 8 ed. Deferrari, L.C.L.).</note> who are cowardly and seasick and think that they would get through this
+					voyage more comfortably if they should transfer
+					from their little boat to a ship, and then again
+					from the ship to a man-of-war ; but they accomplish
+					nothing by the changes, since they carry their nausea
+					and cowardice along with them ; so the exchange of
+					one mode of life for another does not relieve the soul
+					
+					<pb id="v.6.p.177"/>
+					
+					of those things which cause it grief and distress<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Lucretius, iii. 1057 ff.: <foreign lang="la">commutare locum quasi onus deponere possit</foreign>; Seneca, <hi rend="italics">De Tranquillitate Animi</hi>, ii. 13 f.</note>:
+					these are inexperience in affairs, unreasonableness,
+					the want of ability or knowledge to make the right
+					use of present conditions. These are the defects
+					which, like a storm at sea, torment rich and poor alike,
+					that afflict the married as well as the unmarried ;
+					because of these men avoid public life, then find their
+					life of quiet unbearable ; because of these men seek
+					advancement at court, by which, when they have
+					gained it, they are immediately bored.
+					<quote rend="blockquote">Through helplessness the sick are hard to please,<note resp="ed" place="unspecified" anchored="yes">Euripides, <hi rend="italics">Orestes</hi>, 232.</note>
+               </quote>
+					for their wives are troublesome, they grumble at the
+					doctor, they are vexed with the bed,
+					<quote rend="blockquote">Each friend that comes annoys, that goes affronts,</quote>
+					as Ion<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 743, Frag. 56.</note> has it. But later, when the disease is over
+					and a sounder disposition supervenes, health returns
+					and makes everything pleasant and agreeable<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 101 c-d.</note>: he
+					that yesterday loathed eggs and delicate cakes and
+					fine bread to-day eats eagerly and willingly of a coarse
+					loaf with olives and water-cress.
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Such contentment and change of view toward
+					every kind of life is created by reason when it has
+					been engendered within us. Alexander wept when
+					he heard Anaxarchus<note resp="ed" place="unspecified" anchored="yes">Diels, <hi rend="italics">Frag. d. Vorsokratiker</hi>
+                  <hi rend="superscript">5</hi>, ii. p. 238, A 11; this Anaxarchus accompanied Alexander to India (Diogenes Laertius, ix. 61).</note> discourse about an infinite
+					number of worlds, and when his friends inquired what
+					ailed him, <q direct="unspecified">Is it not worthy of tears,</q> he said, <q direct="unspecified">that,
+						when the number of worlds is infinite,<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> F. M. Cornford, <hi rend="italics">Cl. Quart.</hi>, xxviii. (1934), 1 ff. on <q direct="unspecified">Innumerable Worlds in Presocratic Philosophy.</q>
+                  </note> we have not
+						
+						<pb id="v.6.p.179"/>
+						
+						yet become lords of a single one?</q> But Crates,
+					though he had but a wallet and a threadbare cloak,
+					passed his whole life jesting and laughing as though
+					at a festival. It was, indeed, burdensome to Agamemnon to be lord of many men :
+					<quote rend="blockquote">
+                  <l>Agamemnon you shall know, King Atreus' son,
+						</l>
+                  <l>Whom, beyond all, Zeus cast into a mesh
+						</l>
+                  <l>Of never-ending cares<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, x. 88-89.</note>;</l>
+               </quote>
+					but Diogenes, when he was being sold at auction,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diogenes Laertius, vi. 29.</note>
+					lay down on the ground and kept mocking the
+					auctioneer; when this official bade him arise, he
+					would not, but joked and ridiculed the man, saying,
+					<q direct="unspecified">Suppose you were selling a fish?</q> And Socrates,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 607 f.</note>
+					though in prison, discoursed on philosophic themes to
+					his friends; but Phaethon, when he had mounted up
+					to heaven, wept because no one would deliver to him
+					his father's horses and chariot.
+				</p>
+            <p>
+					So, just as the shoe is turned with the foot, and not
+					the contrary, so do men's dispositions make their
+					lives like themselves. For it is not, as someone<note resp="ed" place="unspecified" anchored="yes">A Pythagorean precept, <hi rend="italics">cf. Moralia</hi>, 602 b, 47 b-c, 123 c; probably not Democritus, as Hirzel (<hi rend="italics">Hermes</hi>, xiv. 367) suggests, or Seneca, as Apelt in his translation of Plutarch supposes.</note> has
+					said, habituation which makes the best life sweet to
+					those who have chosen it, but wisdom which makes
+					the same life at once both best and sweetest. Therefore let us cleanse the fountain of tranquillity that is
+					in our own selves, in order that external things also,
+					as if our very own and friendly, may agree with us
+					when we make no harsh use of them :
+					
+					<pb id="v.6.p.181"/>
+					
+					          <quote rend="blockquote">
+                  <l>It does no good to rage at circumstance ;
+						</l>
+                  <l>Events will take their course with no regard
+						</l>
+                  <l>For us. But he who makes the best of those
+						</l>
+                  <l>Events he lights upon will not fare ill.<note resp="ed" place="unspecified" anchored="yes">Euripides, <hi rend="italics">Bellerophon</hi>, Frag. 287 (Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                        <hi rend="superscript">2</hi>, p. 446); quoted also in <hi rend="italics">De Vita et Poesi Homeri</hi>, 153 (Bernardakis, vol. vii. p. 424).</note>
+                  </l>
+               </quote>
+				        </p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Plato,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Republic</hi>, 604 c; quoted in <hi rend="italics">Moralia</hi>, 112 e-f.</note> for instance, compared life to a game of
+					dice in which we must try, not only to throw what suits
+					us best, but also, when we have thrown, to make good
+					use of whatever turns up. But with circumstances,
+					though it is not in our power to throw what we
+					please, yet it is our task, if we are wise, to accept in a
+					suitable manner whatever accrues from Fortune and
+					to assign to each event a place in which both what
+					suits us shall help us most and what is unwanted shall
+					do least harm. For those who are without skill and
+					sense as to how they should live, like sick people
+					whose bodies can endure neither heat nor cold, are
+					elated by good fortune and depressed by adversity ;
+					and they are greatly disturbed by both, or rather by
+					themselves in both and as much in what is called
+					good as in the bad. Theodorus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 378 b, 5 a; Polybius, xxxviii. 2. 8-9; see also von Scala, <hi rend="italics">Rheinisches Museum</hi>, xlv. 474 f.</note> called the Atheist,
+					used to say that he offered his discourses with his right
+					hand, but his audience received them with their left;
+					so uninstructed persons, when Fortune presents herself adroitly on their right, often gauchely substitute
+					their left hands in receiving her and cut a sorry
+					figure. But men of sense, just as bees extract
+					honey from thyme, the most pungent and the driest
+					
+					<pb id="v.6.p.183"/>
+					
+					of plants,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 32 e, 41 f; Porphyry, <hi rend="italics">De Abstinentia</hi>, iv. 20 (p. 264 ed. Nauck).</note> often in like manner draw from the most
+					unfavourable circumstances something which suits
+					them and is useful.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>This, then, we should practice and cultivate first
+					of all, like the man who threw a stone at his dog, but
+					missed her and hit his stepmother, whereupon he
+					exclaimed, <q direct="unspecified">Not so bad after all!</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 147 c.</note> For it is
+					possible to change the direction of Fortune when she
+					has given us things we do not wish. Diogenes<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diogenes Laertius, vi. 21.</note> was
+					driven into exile : <q direct="unspecified">Not so bad after all!</q> for after
+					his exile he began to lead the life of a philosopher.
+					Zeno<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> vii. 5; <hi rend="italics">cf.</hi> also <hi rend="italics">Moralia</hi>, 87 a, 603 d; Seneca, <hi rend="italics">De Tranquillitate Animi</hi>, xiv. 3; Crates, Frag. 21 A (Edmonds, <hi rend="italics">Elegy and Iambus</hi>, vol. ii. p. 66).</note> of Citium had one merchantman remaining ;
+					when he learned that this had been sunk at sea and
+					lost with all its cargo, he cried, <q direct="unspecified">Much obliged,
+						Fortune! You also drive me to the philosopher's
+						cloak.</q>
+               <note resp="ed" place="unspecified" anchored="yes">In the mss. the words <q direct="unspecified">and the Stoa</q> follow. F. H. Sandbach, <hi rend="italics">Proceedings of the Cambridge Philological Society</hi>, Nov. 7, 1929, has shown that these words are interpolated by someone, who, <q direct="unspecified">seeing that <foreign lang="greek">to\n tri/bwna</foreign> means the cynic's cloak, thought to air his knowledge that Zeno was not a Cynic but a Stoic.</q> If Zeno had made the remark our mss. credit him with, it would be <q direct="unspecified">remarkable prescience on the part of the beginning in philosophy, who was to spend many years as a pupil first of the Cynic Crates and then of other philosophers before starting his own school in the Stoa!</q>
+               </note>
+				        </p>
+            <p>
+					What, then, prevents our imitating such men as
+					these? Have you failed in your canvass for an office?
+					You will be able to live in the country and look after
+					your own affairs. Were you repulsed in wooing the
+					friendship of some great man? Your life will be free
+					from danger and trouble. Have you, again, become
+					occupied with matters which take all your time and
+					fill you with cares?
+					<quote rend="blockquote">Nor shall hot water so soften the limbs,</quote>
+					
+					          <pb id="v.6.p.185"/>
+					
+					as Pindar<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Nemean Odes</hi>, iv. 4.</note> has it, since high repute and honour conjoined with a measure of power make
+					<quote rend="blockquote">Labour pleasant and toil to be sweet toil.<note resp="ed" place="unspecified" anchored="yes">Euripides, <hi rend="italics">Bacchae</hi>, 66; <hi rend="italics">cf. Moralia</hi>, 758 c, 794 b; <hi rend="italics">Commentarii in Hesiodum</hi>, 48 (Bernardakis, vol. vii. p. 75).</note>
+               </quote>
+					Have you, by reason of slander or envy, become the
+					butt of jeers and cat-calls? The breeze is favouring
+					that bears you to the Muses and the Academy,<note resp="ed" place="unspecified" anchored="yes">The Academy was dedicated to the Muses.</note> as it
+					was for Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> for example Diogenes Laertius, iii. 19-21. When Dionysius had caused Plato to be sold into slavery, a friend ransomed him and bought for him <q direct="unspecified">the little garden in the Academy.</q>
+               </note> when he was buffeted by the storm
+					of Dionysius's friendship.
+				</p>
+            <p>
+					For this reason it will also help greatly toward
+					tranquillity of mind to observe that famous men have
+					suffered nothing at all from evils the same as yours.
+					Does childlessness, for example, vex you? Consider
+					the kings<note resp="ed" place="unspecified" anchored="yes">Others prefer to translate <q direct="unspecified">Emperors,</q> and regard the passage as proof that this essay was written during the reign of Vespasian, who was the first emperor to be succeeded by a son. I consider such an early date for this work altogether unlikely.</note> of Rome, of whom not one was able to
+					bequeath the kingdom to a son. Are you distressed
+					by your present poverty? Well, what Boeotian
+					rather than Epameinondas, what Roman rather than
+					Fabricius, would you have preferred to be? <q direct="unspecified">But
+						my wife has been seduced.</q> Have you, then, not
+					read the inscription at Delphi,
+					<quote rend="blockquote">The lord of land and sea, King Agis, put me here<note resp="ed" place="unspecified" anchored="yes">Preger, <hi rend="italics">Inscr. Graec. Metricae</hi>, p. 76, no. 87.</note>;</quote>
+					and have you not heard that Alcibiades<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Alcibiades</hi>, xxiii. 7 (203 d).</note> seduced
+					Agis's wife, Timaea, and that, whispering to her handmaids, she called her child Alcibiades? But this did
+					not prevent Agis from being the most celebrated and
+					
+					<pb id="v.6.p.187"/>
+					
+					the greatest of Greeks. Just as the licentiousness
+					of his daughter did not prevent Stilpo<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diogenes Laertius, ii. 114.</note> from leading the most cheerful life of all the philosophers
+					of his time ; on the contrary, when Metrocles reproached him, he asked, <q direct="unspecified">Is this my fault or hers?</q>
+					And when Metrocles replied, <q direct="unspecified">Her fault, but your
+						misfortune,</q> he said, <q direct="unspecified">What do you mean? Are
+							not faults also slips?</q> 
+               <q direct="unspecified">Certainly,</q> said Metrocles.
+					<q direct="unspecified">And are not slips also mischances of those who
+						have slipped?</q> Metrocles agreed. <q direct="unspecified">And are not
+							mischances also misfortunes of those whose mischances they are?</q> By this gentle and philosophic
+					argument he showed the Cynics abuse to be but
+					idle yapping.
+				</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>But most people are pained and exasperated by
+					the faults, not only of their friends and relatives, but
+					also of their enemies. For abuse and rage on their
+					part, envy and malevolence and jealousy, coupled
+					with ill-will, are the bane of those who are subject to
+					these faults, but it is fools whom they trouble and
+					exasperate-as, for example, neighbours' outbursts of
+					temper and friends' peevishness, and certain acts of
+					dishonesty on the part of state officials charged with
+					administration. By these things you yourself seem
+					to me to be disturbed as much as anybody, and like
+					the physicians to whom Sophocles<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 463 f, <hi rend="italics">supra</hi>, and the note.</note> alludes -
+					<quote rend="blockquote">With bitter drugs they purge the bitter bile -</quote>
+					so you become angry and bitter against these men
+					and suffer from their passions and infirmities ; but this
+					is irrational. For even in the execution of matters
+					committed to your personal care, most of them are in
+					fact administered, not by simple and excellent natures,
+					
+					<pb id="v.6.p.189"/>
+					
+					men naturally suited to be another's instruments, as
+					it were, but by jagged and crooked ones. Do not,
+					therefore, consider it your business to straighten
+					them out, and it would not in any case be easy to do
+					so. But if - dealing with them as being what they are
+					by nature, just as a physician uses forceps for teeth
+					and clips for wounds<note resp="ed" place="unspecified" anchored="yes">See J. S. Milne, <hi rend="italics">Surgical Instruments in Greek and Roman Times</hi>, pp. 162-163.</note> - you show yourself as gentle
+					and self-controlled as you can, you will have greater
+					pleasure in your own state of mind than distress at
+					the unpleasantness and villainy of those others,
+					and you will think that they, like dogs when
+					they bark, are but fulfilling their nature ; and no
+					longer will you unwittingly gather into this present
+					captiousness or infirmity of yours many grievances,
+					like offscourings which drain into some hollow and
+					low-lying ground,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 479 b, <hi rend="italics">infra</hi>.</note> thus letting yourself be infected
+					with the vices of others. For since some of the philosophers censure even pity that is expended upon
+					unfortunate persons, on the ground that it is good to
+					give help to our neighbours, but not to participate in
+					their sorrows nor give in to them; and, what is more
+					important, since these philosophers do not allow us,
+					when we perceive ourselves to be doing wrong and
+					to be getting into a bad state of mind, to despair or
+					be dejected, but bid us cure our vice painlessly, as we
+					should: just consider, then - how can it be anything
+					but irrational to allow ourselves to become vexed and
+					troubled because not everyone who has dealings with
+					us or approaches us is honourable and cultivated?
+					No, my dear Paccius, you must see to it that we
+					are not unwittingly taking a stand in alarm, not at the
+					
+					<pb id="v.6.p.191"/>
+					
+					general wickedness of those we encounter, but at
+					their particular wickedness to us ; so our motive
+					would be a selfish interest, not detestation of villainy.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi>, for example, 456 f, <hi rend="italics">supra</hi>.</note>
+					For excessive apprehension about public affairs and
+					unworthy appetites and desires, or, on the other
+					hand, aversions and dislikes, engender suspicions and
+					enmities toward persons who were, we think, the
+					cause of our being deprived of some desirable things
+					and of our encountering others which are unpleasant;
+					it is the man who has become accustomed to adapt
+					himself to public affairs easily and with self-control
+					who becomes the most gracious and gentle in his
+					dealings with his fellows.
+				</p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Therefore let us resume our discussion of circumstances.<note resp="ed" place="unspecified" anchored="yes">That is, the argument presented in chap. 4, <hi rend="italics">supra</hi>.</note> For just as in a fever everything we eat
+					seems bitter and unpleasant to the taste, and yet
+					when we see others taking the same food and
+					finding no displeasure in it, we no longer continue to
+					blame the food and the drink, but accuse ourselves
+					and our malady; so we shall cease blaming and being
+					disgruntled with circumstances if we see others
+					accepting the same events cheerfully and without
+					offence. And so it is conducive to tranquillity of
+					mind, in the midst of happenings which are contrary to
+					our wishes, not to overlook whatever we have that is
+					pleasant and attractive, but, mingling good with bad,
+					cause the better to outshine the worse. But as it is,
+					while we turn away our eyes<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 490 c-d, <hi rend="italics">infra</hi>, 543 e-f, 854 b-c; <hi rend="italics">Life of Demosthenes</hi>, xxii. (856 b).</note> when they are wounded
+					by too dazzling a light and refresh them with the tints
+					and hues of flowers and grass, yet we strain the
+					mind toward painful things and force it to dwell on
+					the consideration of disagreeable matters, all but
+					
+					<pb id="v.6.p.193"/>
+					
+					dragging it by compulsion away from those wThich are
+					better. And yet one might adapt here not inaptly
+					the remark addressed to the meddlesome man<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 476, ades. 359; <hi rend="italics">cf.</hi> 515 d, <hi rend="italics">infra</hi>. <hi rend="italics">Cf.</hi> Horace, <hi rend="italics">Sermones</hi>, i. 3. 25-27:
+					<foreign lang="la"> 
+					<quote rend="blockquote">
+					<l>Cum tua pervideas oculis male lippus iunctis, </l>
+					<l>cur in amicorum vitiis tam cernis acutum </l>
+					<l>quam aut aquila aut serpens Epidaurius?</l>
+                    </quote>
+                    </foreign>
+               </note>:
+					<quote rend="blockquote">
+                  <l>Why do you look so sharp on others' ills,
+						</l>
+                  <l>Malignant man, yet overlook your own?</l>
+               </quote>
+					Why do you scrutinize too keenly your own trouble,
+					my good sir, and continue to make it ever vivid and
+					fresh in your mind, but do not direct your thoughts
+					to those good things which you have? But, just
+					as cupping-glasses<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 518 b, 600 c.</note> draw the most virulent humour
+					from the flesh, so you gather together against
+					yourself the worst of your own conditions, proving
+					yourself not a whit better than the man of Chios who
+					sold excellent old wine to everyone else, but tried to
+					find sour wine for his own luncheon ; and when one
+					of his slaves was asked by the other what he had
+					left his master doing, he answered, <q direct="unspecified">Hunting bad
+						when good was at hand.</q> Most persons, in fact, do
+					pass by the excellent and palatable conditions of
+					their lot and hasten to those that are unpleasant and
+					disagreeable. Aristippus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 330 c.</note> however, was not one of
+					these, but was wise enough, like one who weighs
+					things in a balance, by weighing the bad against the
+					better, to rise above the conditions in which he
+					found himself and thus to lighten his spirits. At
+					any rate, when he had lost a fine estate, he asked one
+					of those who made a great pretence of condoling with
+					him and sharing in his ill humour at misfortune,
+					
+					<pb id="v.6.p.195"/>
+					
+					          <q direct="unspecified">Isn't it true that you have only one small bit of
+						land, while I have three farms remaining?</q> When
+					the person agreed that this was so, Aristippus said,
+					<q direct="unspecified">Should I not then rather condole with you?</q> For
+					it is the act of a madman to be distressed at what is
+					lost and not rejoice at what is saved, but like little
+					children, who, if someone takes away one of their
+					many toys, will throw away all the rest as well and
+					cry and howl; in the same way, if we are troubled
+					by Fortune in one matter, we make everything else
+					also unprofitable by lamenting and taking it hard.
+				</p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>
+               <q direct="unspecified">And what,</q> someone may say, <q direct="unspecified">do we really
+					have and what do we not have?</q> One man has
+					reputation, another a house, another a wife, another
+					a good friend. Antipater<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 246, Frag. 15; <hi rend="italics">cf. Life of Marius</hi>, xlvi. 2 (433 a); Stobaeus, vol. v. p. 1086 ed. Hense.</note> of Tarsus, on his deathbed reckoning up the good things that had fallen to
+					his lot, did not omit even the fair voyage he had from
+					Cilicia to Athens ; so we should not overlook even
+					common and ordinary things, but take some account
+					of them and be grateful that we are alive and well
+					and look upon the sun ; that there is neither war
+					nor factious strife among us, but that both the earth
+					grants cultivation and the sea fair sailing to those
+					who wish it; that we may speak or act, be silent or
+					at leisure, as we choose. These things when they
+					are present will afford us greater tranquillity of mind,
+					if we but imagine them to be absent, and remind
+					ourselves often how desirable is health to the sick, and
+					peace to those at war, and, to an unknown stranger in
+					so great a city,<note resp="ed" place="unspecified" anchored="yes">Probably Rome.</note> the acquisition of reputation and
+					
+					<pb id="v.6.p.197"/>
+					
+					friends ; and how painful it is to be deprived of these
+					things when we have once had them. For it will not
+					then be the case that we find each one of these important and valuable only when it has been lost, but
+					worthless while securely held. Our not possessing
+					it does not add value to anything, nor should we acquire these things as though they were of great worth
+					and live in fear and trembling as though for things
+					of great moment, lest we be deprived of them, and
+					yet while we have them overlook and despise them
+					as of no value : we should above all take care to use
+					them for our pleasure and enjoyment, in order that
+					we may bear their loss, if that should happen, with
+					greater moderation. But most people, as Arcesila&uuml;s
+					said, think it right to examine poems and paintings
+					and statues of others with the eyes of both the mind
+					and the body, poring over them minutely and in
+					every detail, whereas they neglect their own life,
+					which has many not unpleasing subjects for contemplation, looking ever to externals and admiring the
+					repute and the fortunes of others, as adulterers do
+					other men's wives, yet despising themselves and
+					their own possessions.
+				</p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>And yet it is also highly conducive to tranquillity of mind to examine, if possible, oneself and
+					one's fortunes, but if that is not possible, to observe
+					persons of inferior fortune, and not, as most people
+					do, compare oneself with those who are superior ; as,
+					for example, those in prison account fortunate these
+					who have been set free<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Teles, p. 43 ed. Hense.</note>; and they, men born
+					free ; and free men, citizens ; and citizens, in their
+					turn, the rich ; and the rich, satraps ; and satraps,
+					kings ; and kings, the gods, scarcely stopping short of
+					
+					<pb id="v.6.p.199"/>
+					
+					desiring the power to produce thunder and lightning.
+					Thus, through being always conscious that they lack
+					things which are beyond them, they are never grateful for what befits their station.
+					<quote rend="blockquote">
+                  <l>I want no wealth of Gyges rich in gold,
+						</l>
+                  <l>Nor have I ever envied him ; I am
+						</l>
+                  <l>Not jealous of gods' works, nor love a great
+						</l>
+                  <l>Kingdom : such things are far beyond my ken.<note resp="ed" place="unspecified" anchored="yes">Archilochus, Frag. 25 ed. Bergk and ed. Edmonds; Frag. 22 ed. Diehl.</note>
+                  </l>
+               </quote>
+					          <q direct="unspecified">But he was a Thasian,</q> one may say.<note resp="ed" place="unspecified" anchored="yes">Aristotle (<hi rend="italics">Rhetoric</hi>, iii. 17. 1418 b 31) says that Archilochus (who long resided in Thasos) speaks, not <hi rend="italics">in propria persona</hi>, but through the mouth of Charon the carpenter. Charon is, then, the Thasian, if we can believe that Plutarch drew the quotation directly from Archilochus, and not from a florilegium (<hi rend="italics">aliter</hi>, Fowler, <hi rend="italics">Harv. Stud.</hi>, i. p. 144). Plutarch probably means that one nationality is no more exempt from this vice than another, but the argument is very oddly stated.</note> Yet there
+					are others, Chians, Galatians, or Bithynians, who are
+					not content with whatever portion of either repute
+					or power among their own fellow-countrymen has
+					fallen to their lot, but weep because they do not
+					wear the patrician shoe ; yet if they do wear it, they
+					weep because they are not yet Roman praetors ; if
+					they are praetors, because they are not consuls ; and
+					if consuls, because they were proclaimed, not first,
+					but later.<note resp="ed" place="unspecified" anchored="yes">For the importance of being announced first in the <hi rend="italics">renuntiatio</hi>, see, for example, Cicero, <hi rend="italics">Pro Murena</hi>, viii. 18.</note> What is this other than collecting excuses
+					for ingratitude to Fortune in order to chastise and
+					punish oneself? But he, at least, who has a mind
+					filled with salutary thoughts, knowing that the sun
+					looks down upon countless myriads of men,
+					<quote rend="blockquote">As many of us as win the fruit of the spacious earth,<note resp="ed" place="unspecified" anchored="yes">Simonides, Frag. 5 ed. Bergk, 4 ed. Diehl, 19 ed. Edmonds, verse 17; quoted again in <hi rend="italics">Moralia</hi>, 485 c, <hi rend="italics">infra</hi>, 743 f.</note>
+               </quote>
+					if he be less famous or wealthy than some others, does
+					not sit down in sorrow and dejection, but since he
+					knows that he lives ten thousand times better and
+					
+					<pb id="v.6.p.201"/>
+					
+					more suitably than tens of thousands in so great a
+					number, he will go on his way praising his own
+					guardian spirit and his life.
+				</p>
+            <p>
+					Now at Olympia you cannot win the victory
+					by selecting competitors, but in this life circumstances permit you to take pride in your superiority
+					to many, and to be an object of envy rather than
+					envious of the others - unless, indeed, you make a
+					Briareus or a Heracles your opponent. Whenever,
+					then, you are lost in admiration of a man borne in his
+					litter as being superior to yourself, lower your eyes
+					and gaze upon the litter-bearers also ; and whenever
+					you account happy, as the man of Hellespont<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Herodotus, vii. 56: <q direct="unspecified">O Zeus, why have you taken the likeness of a Persian and changed your name to Xerxes, and now lead the whole world with you in your desire to uproot Greece? Surely you might have done all this without these means.</q>
+               </note> did,
+					that famous Xerxes crossing his bridge, look also
+					upon those who are digging through Athos<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 455 d, <hi rend="italics">supra</hi>.</note> beneath
+					the lash, and those whose ears and noses are mutilated
+					because the bridge was broken by the current. Consider also their state of mind : <hi rend="italics">they</hi> account happy
+					your life and your fortunes.
+				</p>
+            <p>
+					When Socrates<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Teles, pp. 12-13 ed. Hense; Diogenes Laertius, vi. 35 (of Diogenes).</note> heard one of his friends remark
+					how expensive the city was, saying <q direct="unspecified">Chian wine costs
+						a mina, a purple robe three minae, a half-pint of
+						honey five drachmas,</q> he took him by the hand and
+					led him to the meal-market, <q direct="unspecified">Half a peck for an
+						obol! the city is cheap</q> ; then to the olive-market,
+					<q direct="unspecified">A quart for two coppers!</q> ; then to the clothesmarket, <q direct="unspecified">A sleeveless vest for ten drachmas! the
+						city is cheap.</q> We also, therefore, whenever we hear
+					another say that our affairs are insignificant and in a
+					
+					<pb id="v.6.p.203"/>
+					
+					woeful plight because we are not consuls or governors,
+					may reply, <q direct="unspecified">Our affairs are splendid and our life is
+						enviable : we do not beg, or carry burdens, or live
+						by flattery.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>Yet since, however, through our folly we have
+					grown accustomed to live with eyes fixed on everyone
+					else rather than on ourselves, and since our nature
+					contains much envy and malice and does not rejoice
+					so much in our own blessings as it is pained by those
+					which other men possess, do not look only at the
+					splendour and notoriety of those you envy and wonder
+					at, but open and, as it were, draw aside the gaudy
+					curtain of their repute and outward appearance,
+					and get inside them, and you will see many disagreeable things and many things to vex them there.
+					Thus, when that renowned Pittacus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 461 d, <hi rend="italics">supra</hi>, of Socrates.</note> whose fame
+					for bravery and for wisdom and justice was great,
+					was entertaining some guests, his wife entered in a
+					rage and upset the table ; his guests were dismayed,
+					but Pittacus said, <q direct="unspecified">Every one of us has some
+						trouble. He that has only mine is doing very well
+						indeed.</q>
+					          <quote rend="blockquote">
+                  <l>This man's held happy in the market-place,
+						</l>
+                  <l>But when he enters home, thrice-wretched he :
+						</l>
+                  <l>His wife rules all, commands, and always fights.
+						</l>
+                  <l>His woes are more than mine, for mine are none!<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 86, Menander, Frag. 302, verses 4-7 (p. 397 ed. Allinson, L.C.L.); <hi rend="italics">cf. Moralia</hi>, 100 e.</note>
+                  </l>
+               </quote>
+					Many such evils attend wealth and repute and kingship, evils unknown to the vulgar, for ostentation
+					hinders the vision.
+					<quote rend="blockquote">
+                  <l>O happy son of Atreus, child of destiny,
+						</l>
+                  <l>Blessed with a kindly guardian spirit!<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, iii. 182.</note>
+                  </l>
+               </quote>
+					
+					          <pb id="v.6.p.205"/>
+					
+					Such felicitation comes from externals only - for his
+					arms and horses and far-flung host of warriors; but
+					against the emptiness of his glory the voice of his
+					sufferings cries out in protest from the very heart :
+					<quote rend="blockquote">
+                  <l>The son of Cronus, Zeus, entangled me
+						</l>
+                  <l>In deep infatuation,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, ii. 111, ix. 18.</note>
+                  </l>
+               </quote>
+					and
+					<quote rend="blockquote">
+                  <l>I envy you, old man ;
+						</l>
+                  <l>I envy any man whose life has passed
+						</l>
+                  <l>Free from danger, unknown and unrenowned.<note resp="ed" place="unspecified" anchored="yes">Agamemnon to his old servant: Euripides, <hi rend="italics">Iphigeneia at Aulis</hi>, 16-18.</note>
+                  </l>
+               </quote>
+					By such reflections also, then, it is possible to reduce
+					the violence of our fault-finding with fate, fault-finding which, through admiration of our neighbours'
+					lot, both debases and destroys our own.
+				</p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>Further, another matter which greatly interferes with tranquillity of mind is that we do not
+					manage our impulses, as sailors do their sails, to
+					correspond to our capacity ; in our expectations we
+					aim at things too great; then, when we fail, we blame
+					our destiny and our fortune instead of our own folly.
+					For he is not unfortunate who wishes to shoot with
+					his plough and hunt the hare with his ox, nor does
+					a malicious destiny oppose him who cannot capture
+					deer or boar with fishing creels or drag-nets ; it is
+					through folly and stupidity that such men attempt
+					the impossible. And self-love is chiefly to blame,
+					which makes men eager to be first and to be victorious
+					in everything and insatiably desirous of engaging in
+					everything. For not only do men demand to be at
+					the same time rich and learned and strong and convivial
+					
+					<pb id="v.6.p.207"/>
+					
+					spirits and good company, and friends of kings
+					and magistrates of cities, but unless they shall also
+					have dogs and horses and quails and cocks that can
+					win prizes, they are disconsolate.
+				</p>
+            <p>
+					The elder Dionysius<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 334 c, and Nachst&auml;dt's references <hi rend="italics">ad loc</hi>.</note> was not content with being
+					the greatest tyrant of his age, but because he could
+					not sing verses better than the poet Philoxenus or
+					get the better of Plato in dialectic, enraged and
+					embittered, he cast Philoxenus into the stone-quarries, and, sending Plato to Aegina, sold him into
+					slavery. Alexander<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> 58 f.</note> was not of this temper, but
+					when Crison, the famous sprinter, ran a race with
+					him and appeared to slacken his pace deliberately,
+					Alexander was very indignant. And when the
+					Homeric Achilles<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Il.</hi>, xviii. 105-106.</note> had first said,
+					<quote rend="blockquote">Of the bronze-clad Achaeans none is a match for me,</quote>
+					he did well to add,
+					<quote rend="blockquote">In war ; but in speaking others are better than I.</quote>
+					But when Megabyzus the Persian carne up to the
+					studio of Apelles<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 58 d; Zeuxis, according to Aelian, <hi rend="italics">Varia Historia</hi>, ii. 2.</note> and attempted to chatter about
+					art, Apelles shut his mouth by saying, <q direct="unspecified">As long as
+						you kept still, you seemed to be somebody because of
+						your gold and purple ; but now even these lads who
+						grind the pigments are laughing at your nonsense.</q>
+				        </p>
+            <p>
+					But some think that the Stoics<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 164, Frag. 655. <hi rend="italics">cf. Moralia</hi>, 58 e; Horace, <hi rend="italics">Sermones</hi>, i. 3. 124 ff. See also Siefert, <hi rend="italics">op. cit.</hi>, p. 54, note 2.</note> are jesting when
+					they hear that in their sect the wise man is termed
+					not only prudent and just and brave, but also an
+					
+					<pb id="v.6.p.209"/>
+					
+					orator, a poet, a general, a rich man, and a king;
+					and then they count themselves worthy of all these
+					titles, and if they fail to get them, are vexed. Yet
+					even among the gods different gods hold different
+					powers : one bears the epithet <q direct="unspecified">War-like,</q> another
+					<q direct="unspecified">Prophetic,</q> another <q direct="unspecified">Gain-bringing</q> ; and Zeus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Homer, <hi rend="italics">Il.</hi>, v. 428 ff.</note>
+					dispatches Aphrodite to marriages and nuptial
+					chambers, on the ground that she has no part in
+					deeds of war.
+				</p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>There are, indeed, some pursuits which cannot by their very nature exist together, but rather
+					are by nature opposed to each other ; for example,
+					training in rhetoric and the pursuit of mathematics
+					require a quiet life and leisure, while political
+					functions and the friendship of kings cannot succeed
+					without hard work and the full occupation of one's
+					time. And<note resp="ed" place="unspecified" anchored="yes">This passage to the beginning of the quotation from Pindar below is quoted by Stobaeus, vol. iii. p. 559 ed. Hense.</note> 
+               <q direct="unspecified">wine and indulgence in meat</q> do
+					indeed <q direct="unspecified">make the body strong and vigorous, but the
+						soul weak</q>
+               <note resp="ed" place="unspecified" anchored="yes">Words of Androcydes: <hi rend="italics">cf.</hi> Clement of Alexandria, <hi rend="italics">Stromateis</hi>, vii. 6 ed. St&auml;hlin; see also <hi rend="italics">Moralia</hi>, 995 e, Athenaeus, iv. 157 d.</note>; and unremitting care to acquire and
+					preserve money increases wealth, yet contempt and
+					disdain for it is greatly conducive to progress in
+					philosophy. Therefore not all pursuits are for everyone, but one must, obeying the Pythian<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 164 b.</note> inscription,
+					<q direct="unspecified">know one's self,</q> and then use one's self for that one
+					thing for which Nature has fitted one and not do
+					violence to nature by dragging one's self towards the
+					emulation of now one sort of life, now another.
+					
+					<pb id="v.6.p.211"/>
+					
+					          <quote rend="blockquote">
+                  <l>The horse is for the chariot;
+						</l>
+                  <l>The ox for the plough ; beside the ship most swiftly speeds the dolphin ;
+						</l>
+                  <l>And if you think to slay a boar, you must find a stout-hearted hound.<note resp="ed" place="unspecified" anchored="yes">Pindar, Frag. 234; <hi rend="italics">cf.</hi> 451 d, <hi rend="italics">supra</hi>.</note>
+                  </l>
+               </quote>
+					But that man is out of his wits who is annoyed and
+					pained that he is not at the same time both a lion
+					<quote rend="blockquote">Bred on the mountains, sure of his strength,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, vi. 130.</note>
+               </quote>
+					and a little Maltese dog cuddled in the lap of a
+					widow.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> O. Hense, <hi rend="italics">Rheinisches Museum</hi>, xlv. 549, note 1.</note> But not a whit better than he is the man
+					who wishes at the same time to be an Empedocles or
+					a Plato or a Democritus, writing about the universe
+					and the true nature of reality, and, like Euphorion, to
+					be married to a wealthy old woman, or, like Medius,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Alexander</hi>, lxxv. (706 c); <hi rend="italics">Moralia</hi>, 65 c, 124 c; Arrian, <hi rend="italics">Anabasis</hi>, vii. 225. 1.</note>
+					to be one of Alexander's boon companions and drink
+					with him ; and is vexed and grieved if he is not admired for his wealth, like Ismenias, and also for his
+					valour, like Epameinondas. We know that runners
+					are not discouraged because they do not carry off
+					wrestlers' crowns, but they exult and rejoice in their
+					own.
+					<quote rend="blockquote">Your portion is Sparta: let your crowns be for her!<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                     <hi rend="superscript">2</hi>, p. 588, Euripides, Frag. 723, from the <hi rend="italics">Telephus</hi>; <hi rend="italics">cf. Moralia</hi>, 602 b; <hi rend="italics">Paroemiographi Graeci</hi>, ii. p. 772.</note>
+               </quote> 
+					So also Solon<note resp="ed" place="unspecified" anchored="yes">Frag. 4, verses 10-12 ed. Diehl; Frag. 15, verses 2-4 ed. Edmonds; <hi rend="italics">cf. Moralia</hi>, 78 c,l 92 e, <hi rend="italics">Life of Solon</hi>, iii. (79 f).</note>:
+					
+					<pb id="v.6.p.213"/>
+					
+					          <quote rend="blockquote">
+                  <l>But we shall not exchange with them our virtue
+						</l>
+                  <l>For their wealth, since virtue is a sure possession,
+						</l>
+                  <l>But money falls now to this man, now that.</l>
+               </quote>
+					And Strato, the natural philosopher, when he heard
+					that Menedemus had many more pupils than he
+					himself had, said, <q direct="unspecified">Why be surprised if there are
+						more who wish to bathe than to be anointed for the
+						contest?</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the anecdote of Zeno, <hi rend="italics">Moralia</hi>, 78 d-e, 545 f.</note> And Aristotle,<note resp="ed" place="unspecified" anchored="yes">Frag. 664 ed. V. Rose; <hi rend="italics">cf. Moralia</hi>, 78 d, 545 a; Julian's <hi rend="italics">Letter to Themistius</hi>, 265 a (ii. p. 231 ed. Wright, L.C.L.).</note> writing to Antipater,
+					said, <q direct="unspecified">It is not Alexander alone who has the right to
+						be proud because he rules over many men, but no less
+						right to be proud have they who have true notions
+						concerning the gods.</q> For those who have such
+					lofty opinions of their own possessione will not be
+					offended by their neighbours' goods. But as it is,
+					we do not expect the vine to bear figs nor the olive
+					grapes,<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Ye shall know them by their fruits. Do men gather grapes of thorns, or figs of thistles?</q>
+               </note> but, for ourselves, if we have not at one and
+					the same time the advantages of both the wealthy
+					and the learned, of both commanders and philosophers, of both flatterers and the outspoken, of
+					both the thrifty and the lavish, we slander ourselves,
+					we are displeased, we despise ourselves as living an
+					incomplete and trivial life.
+				</p>
+            <p>
+					Furthermore, we see that Nature also admonishes
+					us ; for just as she has provided different foods for
+					different beasts and has not made them all carnivorous or seed-pickers or root-diggers, so has she
+					
+					<pb id="v.6.p.215"/>
+					
+					given to men a great variety of means for gaining
+					a livelihood,
+					<quote rend="blockquote">
+                  <l>To shepherd and ploughman and fowler and to him w hom
+						the sea
+						</l>
+                  <l>Provides with sustenance.<note resp="ed" place="unspecified" anchored="yes">Pindar, <hi rend="italics">Isthmian Odes</hi>, i. 48; <hi rend="italics">cf. Moralia</hi>, 406 c.</note>
+                  </l>
+               </quote>
+					We should, therefore, choose the calling appropriate
+					to ourselves, cultivate it diligently, let the rest alone,
+					and not prove that<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Works and Days</hi>, 25; the whole passage, to the end of the chapter, is quoted in the Munich scholia on this verse of Hesiod (Usener, <hi rend="italics">Rheinisches Museum</hi>, xxii. 592).</note> Hesiod spoke inexactly when
+					he said,
+					<quote rend="blockquote">Potter is angry with potter, joiner with joiner.</quote>
+					For not only are men jealous of fellow-craftsmen and
+					those who share the same life as themselves, but also
+					the wealthy envy the learned, the famous the rich,
+					advocates the sophists, and, by Heaven free men
+					and patricians regard with wondering admiration
+					and envy successful comedians in the theatre and
+					dancers and servants in the courts of kings ; and by
+					so doing they afford themselves no small vexation
+					and disturbance.
+				</p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>But that every man has within himself the storerooms of tranquillity and discontent, and that the jars
+					containing blessings and evils are not stored <q direct="unspecified">on the
+						threshold of Zeus,</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Homer, <hi rend="italics">Il.</hi>, xxiv. 527; <hi rend="italics">Moralia</hi>, 24 b and the note, 105 c and the note, 600 c; Plato, <hi rend="italics">Republic</hi>, 379 d; Siefert, <hi rend="italics">op. cit.</hi>, pp. 37 f. and the notes.</note> but are in the soul, is made
+					plain by the differences in men's passions. For the
+					foolish overlook and neglect good things even when
+					they are present, because their thoughts are ever
+					intent upon the future, but the wise by remembrance
+					
+					<pb id="v.6.p.217"/>
+					
+					make even those benefits that are no longer at hand
+					to be vividly existent for themselves. For the
+					present good, which allows us to touch it but for the
+					smallest portion of time and then eludes our perception, seems to fools to have no further reference
+					to us or to belong to us at all ; but like that painting
+					of a man<note resp="ed" place="unspecified" anchored="yes">Oenus or <q direct="unspecified">Sloth</q>; the painting was by Polygnotus in the Lesche at Delphi: Pausanias, x. 29. 1. <hi rend="italics">Cf.</hi> also Propertius, iv. 3. 21-22: <foreign lang="la">dignior obliquo funem qui torqueat Oeno, | aeternusque tuam pascat, aselle, famem</foreign>; Diodorus, i. 97; Pliny, <hi rend="italics">Natural History</hi>, xxxv. 137.</note> twisting rope in Hades, who permits a
+					donkey grazing near by to eat it up as he plaits it, so
+					insensible and thankless forgetfulness steals upon the
+					multitude and takes possession of them, consuming
+					every action and success, every pleasant moment of
+					leisure and companionship and enjoyment; it does
+					not allow life to become unified, when past is interwoven with present, but separating yesterday, as
+					though it were different, from to-day, and to-morrow
+					likewise, as though it were not the same as to-day,
+					forgetfulness straightway makes every event to have
+					never happened because it is never recalled. For
+					those who in the Schools do away with growth and
+					increase on the ground that Being is in a continual
+					flux, in theory make each of us a series of persons
+					different from oneself<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 392 d, 559 b.</note>; so those who do not preserve or recall by memory former events, but allow
+					them to flow away, actually make themselves deficient and empty each day and dependent upon the
+					morrow, as though what had happened last year and
+					yesterday and the day before had no relation to
+					them nor had happened to them at all.
+				</p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>This, then, is a matter disturbing to tranquillity
+					
+					<pb id="v.6.p.219"/>
+					
+					of mind ; and another, even more disturbing, arises
+					when, like flies which slip off the smooth surfaces
+					of mirrors, but stick to places which are rough or
+					scratched, men drift away from joyous and agreeable
+					matters and become entangled in the remembrance of
+					unpleasant things ; or rather, as they relate that when
+					beetles have fallen into a place at Olynthus which is
+					called <q direct="unspecified">Death-to-Beetles,</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">De Mirabilibus Auscultationibus</hi>, 120 (842 a 5 f.); Pliny, <hi rend="italics">Natural History</hi>, xi. 28. 99.</note> they are unable to get
+					out, but turn and circle about there until they die in
+					that place, so when men have slipped into brooding
+					upon their misfortunes, they do not wish to recover
+					or revive from that state. But, like colours in a
+					painting,b so in the soul it is right that we should
+					place in the foreground bright and cheerful experiences and conceal and suppress the gloomy; for to
+					wipe them out and be rid of them altogether is
+					impossible. <q direct="unspecified">For the harmony of the universe, like
+						that of a lyre or a bow, is by alternatives,</q>
+               <note resp="ed" place="unspecified" anchored="yes">Diels, <hi rend="italics">Frag. d. Vorsokratiker</hi>
+                  <hi rend="superscript">5</hi>, i. p. 162, Heracleitus, Frag. 51; <hi rend="italics">cf. Moralia</hi>, 369 b, 1026 b; <q direct="unspecified">by alternatives,</q> that is, by alternate tightening and relaxing.</note> and in
+					mortal affairs there is nothing pure and unmixed.
+					But as in music there are low notes and high notes,
+					and in grammar there are vowels and consonants, yet
+					a musician or a grammarian is not the man who dislikes
+					and avoids the one or the other, but rather the man
+					who knows how to use all and to blend them properly,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Philebus</hi>, 17 b ff.</note>
+					so also in human affairs, which contain the principles
+					of opposition to each other (since, as Euripides<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 369, Frag. 21, from the <hi rend="italics">Aeolus</hi>; quoted again in <hi rend="italics">Moralia</hi>, 25 c-d and 369 b.</note> has
+					it,
+					<quote rend="blockquote">
+                  <l>The good and bad cannot be kept apart,
+						</l>
+                  <l>But there's some blending, so that all is well),</l>
+               </quote>
+					
+					          <pb id="v.6.p.221"/>
+					
+					we should not be disheartened or despondent in
+					adversity, but like musicians who achieve harmony by
+					consistently deadening bad music with better and
+					encompassing the bad with the good, we should make
+					the blending of our life harmonious and conformable
+					to our own nature.
+					For it is not true, as Menander<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 167, Frag. 550 (p. 491 ed. Allinson).</note> says, that
+					<quote rend="blockquote">
+                  <l>By every man at birth a Spirit stands,
+						</l>
+                  <l>A guide of virtue for life's mysteries;</l>
+               </quote>
+					but rather, as Empedocles<note resp="ed" place="unspecified" anchored="yes">Diels, <hi rend="italics">Farg. d. Vorsokratiker</hi>
+                  <hi rend="superscript">5</hi>, i. pp. 360-361, Frag. 122. The names are intended to mean Earth-maiden, Sun-maiden; Discord, Harmony; Beauty, Ugliness; Swiftness, Slowness; Truth, Uncertainty.</note> affirms, two Fates, as it
+					were, or Spirits, receive in their care each one of us
+					at birth and consecrate us :
+					<quote rend="blockquote">
+                  <l>Chthonia was there and far-seeing Heliope,
+						</l>
+                  <l>And bloody Deris, grave-eyed Harmonia,
+						</l>
+                  <l>Callisto, Aeschra, Thoosa, and Denaea,
+						</l>
+                  <l>Lovely Nemertes, dark-eyed Asapheia.</l>
+               </quote>
+				        </p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>The result is that since we at our birth received the mingled seeds of each of these affections,
+					and since therefore our nature possesses much
+					unevenness, a man of sense prays for better things,
+					but expects the contrary as well, and, avoiding excess,
+					deals with both conditions. For not only does <q direct="unspecified">he
+						who has least need of the morrow,</q> as Epicurus<note resp="ed" place="unspecified" anchored="yes">Usener, <hi rend="italics">Epicurea</hi>, p. 307, Frag. 490 (p. 139 Bailey); <hi rend="italics">cf.</hi> Horace, <hi rend="italics">Epistulae</hi>, i. 4. 13-14.</note>
+					says, <q direct="unspecified">most gladly advance to meet the morrow,</q>
+					but also wealth and reputation and power and public
+					office delight most of all those who least fear their
+					
+					<pb id="v.6.p.223"/>
+					
+					opposites. For the violent desire for each of these
+					implants a most violent fear that they may not
+					remain, and so renders pleasure in them weak and
+					unstable, like a fluttering flame. But the man whom
+					Reason enables to say to Fortune without fear and
+					trembling,
+					<quote rend="blockquote">
+                  <l>Welcome to me if any good you bring ;
+						</l>
+                  <l>But if you fail, the pain is very slight,<note resp="ed" place="unspecified" anchored="yes">Perhaps a fragment of Callimachus (<hi rend="italics">cf.</hi> Frag. Anon. 371 ed. Schneider); see also Seneca, <hi rend="italics">De Tranquillitate Animi</hi>, xi. 3.</note>
+                  </l>
+               </quote>
+					his confidence and the absence of fear that their loss
+					would be unbearable cause him to make most pleasant
+					use of present advantages. For it is possible not only
+					to admire the disposition of Anaxagoras,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 463 d, <hi rend="italics">supra</hi>, and the note.</note> which made
+					him say at the death of his son, <q direct="unspecified">I knew that my
+						son was mortal,</q> but also to imitate it and to apply
+					it to every dispensation of Fortune : <q direct="unspecified">I know that my
+						wealth is temporary and insecure,</q> 
+               <q direct="unspecified">I know that those
+							who bestowed my magistracy can take it away,</q> 
+               <q direct="unspecified">I
+								know that my wife is excellent, but a woman, and that
+								my friend is but a man, by nature an animal readily
+								subject to change, as Plato<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Epistle</hi> xiii. 360 d; <hi rend="italics">cf.</hi> 463 d, <hi rend="italics">supra</hi>, and the note.</note> said.</q> For men of such
+					preparedness and of such disposition, if anything
+					unwished yet not unexpected happens, disdain sentiments like these : <q direct="unspecified">I never should have thought it,</q>
+					or <q direct="unspecified">I had hoped for other things,</q> or <q direct="unspecified">I did not
+						expect this,</q> and so do away with anything like throbbings and palpitations of the heart, and speedily restore
+					again to quiet the madness and disturbance of their
+					minds. Carneades, indeed, reminded us that in
+					matters of great importance it is the unexpected<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 449 e, <hi rend="italics">supra</hi>.</note>
+					that is completely and wholly the cause of grief and
+					
+					<pb id="v.6.p.225"/>
+					
+					dejection. For example, the kingdom of Macedonia
+					was infinitely smaller than the Roman dominion, yet
+					when Perseus lost Macedonia, both he himself bewailed his own evil genius and every one thought that
+					he had become the most unfortunate and ill-starred
+					man in the world<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi>, for example, <hi rend="italics">Life of Aemilius Paulus</hi>, xxxiv. 1-2 (273 c-e).</note>; but Aemilius, his conqueror,
+					handed over to another his supreme command of
+					practically the whole earth and sea, yet was crowned
+					and offered sacrifice and was esteemed fortunate -
+					and with good reason, for he knew that he had taken
+					a command which would have to be relinquished
+					again, whereas Perseus lost his kingdom when he had
+					not expected to do so. And well has the Poet taught
+					us how strong the effect of an unexpected happening
+					is : Odysseus, for instance, shed a tear when his
+					dog fawned upon him,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Od.</hi>, xvii. 302-304: <foreign lang="greek">a)pomo/rcato da/kru</foreign>.</note> yet when he sat beside his
+					weeping wife,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> xix. 208 ff.: quoted in 442 d, <hi rend="italics">supra</hi>, where see the note.</note> gave way to no such emotion ; for into
+					the latter situation he had come with his emotion
+					under control and fortified by reason, but he had
+					stumbled into the former without having expected it,
+					and suddenly.
+				</p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>And, to speak generally, although some of the
+					things which happen against our will do by their very
+					nature bring pain and distress, yet since it is through
+					false opinion that we learn and become accustomed
+					to be disgruntled with the greatest part of them, it is
+					not unprofitable to have the verse of Menander<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 52, Frag. 179, from the <hi rend="italics">Epitrepontes</hi>; Allinson, p. 127. The translation is that of A. M. Harmon.</note>
+					ever ready against the latter :
+					<quote rend="blockquote">No harm's been done you, if you none admit</quote>
+					
+					          <pb id="v.6.p.227"/>
+					
+					(for what, he means, if they touch neither body nor
+					soul, are such things to you as the low birth of your
+					father, or the adultery of your wife, or the deprivation
+					of a crown or of front seats,<note resp="ed" place="unspecified" anchored="yes">The <foreign lang="greek">proedri/a</foreign> was the privilege of sitting in the front seats at public games, or the theatre, or public assemblies, granted to distinguished citizens, foreigners, or magistrates.</note> since when these misfortunes are present a man is not prevented from
+					having both body and soul in the best of condition?) ;
+					and against those things which seem to pain us by
+					their very nature, as sicknesses, anxieties, and the
+					death of friends and children, we should have ready
+					that famous verse of Euripides<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 449, Frag. 300, from the <hi rend="italics">Bellerophon</hi>; <hi rend="italics">cf.</hi> Boswell's <hi rend="italics">Life of Johnson</hi>, aetat. 45 (vol. i. p. 277 ed. Hill).</note>:
+					<quote rend="blockquote">
+                  <l>Alas! - Yet why alas? Our sufferings
+						</l>
+                  <l>Are but what we mortals must endure.</l>
+               </quote>
+					For no reasoning so effectively engages the emotional
+					part of us, when it is being borne down and is
+					slipping, as that which reminds us of the common and
+					natural necessity to which man is exposed through his
+					composite and corporeal nature : it is the only hold
+					he gives to Fortune, while in his most vital and
+					important parts he stands secure.
+				</p>
+            <p>
+					When Demetrius took the Megarians' city, he asked
+					Stilpo if any of his possessions had been plundered.
+					And Stilpo said, <q direct="unspecified">I saw no one carrying off <hi rend="italics">my</hi> property.</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Virtue</q> according to <hi rend="italics">Moralia</hi>, 5 f; <q direct="unspecified">knowledge</q> in the <hi rend="italics">Life of Demetrius</hi>, ix. (893 a): <foreign lang="greek">ou)de/na ga\r ei)=don e)pista/man a)pofe/ronta</foreign>.</note> And therefore when Fortune plunders and
+					strips us of everything else, we have something
+					within ourselves of the sort that
+					<quote rend="blockquote">Achaeans could never harry or plunder.<note resp="ed" place="unspecified" anchored="yes">Adapted from Homer, <hi rend="italics">Il.</hi>, v. 484.</note>
+               </quote>
+					
+					          <pb id="v.6.p.229"/>
+					
+					Therefore<note resp="ed" place="unspecified" anchored="yes">The following passage is citd in Stobaeus, vol. ii. p. 161 ed. Wachsmuth, as from <foreign lang="greek">*plouta/rxou *peri\ fili/as</foreign>; but Patzig (<hi rend="italics">Quaest. Plutarch.</hi>, p. 34) is doubtless right in thinking that <foreign lang="greek">fili/as</foreign> is a scribal error for <foreign lang="greek">eu)qumi/as</foreign>.</note> we should not altogether debase and
+					depreciate Nature in the belief that she has nothing
+					strong, stable, and beyond the reach of Fortune, but,
+					on the contrary, since we know that the corrupt and
+					perishable part of man wherein he lies open to
+					Fortune is small, and that we ourselves are masters of
+					the better part, in which the greatest of our blessings
+					are situated - right opinions and knowledge and the
+					exercise of reason terminating in the acquisition
+					of virtue, all of which have their being inalienable and
+					indestructible - knowing all this, we should face the
+					future undaunted and confident and say to Fortune
+					what Socrates,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Apology</hi>, 30 c-d; the same form of this statement with almost the same differences from Plato's words is found in Epictetus, i. 29. 18, and the <hi rend="italics">Encheiridion</hi>, liii. 4.</note> when he was supposed to be replying
+					to his accusers, was really saying to the jury, <q direct="unspecified">Anytus
+						and Meletus are able to take away my life, but they
+						cannot hurt me.</q> Fortune, in fact, can encompass us
+					with sickness, take away our possessions, slander us
+					to people or despot; but she cannot make the good
+					and valiant and high-souled man base or cowardly,
+					mean, ignoble, or envious, nor can she deprive us of
+					that disposition, the constant presence of which is of
+					more help in facing life than is a pilot in facing the
+					sea. For a pilot cannot calm a savage wave or a
+					wind, nor can he find a harbour wherever he wishes at
+					need, nor can he await the event confidently and
+					
+					<pb id="v.6.p.231"/>
+					
+					without trembling ; as long as he has not despaired,
+					making use of his skill,
+					<quote rend="blockquote">
+                  <l>With the mainsail dropped to the lower mast
+						</l>
+                  <l>He flees from the murky sea,<note resp="ed" place="unspecified" anchored="yes">
+                        <hi rend="italics">Cf.</hi> Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi>
+                        <hi rend="superscript">2</hi>, iii. p. 730, Edmonds, <hi rend="italics">Lyra Graeca</hi>, iii. p. 474, or Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                        <hi rend="superscript">2</hi>, p. 910, ades. 377. The text is quite uncertain, though Pohlenz's interpretation seems better than any earlier one. <hi rend="italics">Cf.</hi> also <hi rend="italics">Moralia</hi>, 169 b, where the fragment is quoted in another form.</note>
+                  </l>
+               </quote>
+					whereas when the sea towers over him, he sits there
+					quaking and trembling. But the disposition of the
+					wise man yields the highest degree of calm to his
+					bodily affections, destroying by means of self-control,
+					temperate diet, and moderate exertion the conditions
+					leading to disease ; even if the beginning of some
+					evil comes from without, <q direct="unspecified">he rides it out with light
+						and well-furled sail,</q> as Asclepiades<note resp="ed" place="unspecified" anchored="yes">Asclepiades of Samos; <hi rend="italics">cf.</hi> Knox, <hi rend="italics">Choliambica</hi>, p. 270, who rewrites the line.</note> has it, just as
+					one passes through a storm. But if some great unforeseen disaster comes upon him and masters him,
+					the harbour is close at hand and he may swim away
+					from his body, as from a leaky boat.<note resp="ed" place="unspecified" anchored="yes">Apparently by suicide: <hi rend="italics">cf.</hi> the admiration Plutarch expresses for Demosthenes' suicide (<hi rend="italics">Comp. Cic. and Dem.</hi>, v. 888 c); but his position is quite different in the polemic against Epicurus, <hi rend="italics">Moralia</hi>, 1103 e.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>For it is the fear of death, not the desire for
+					life, which makes the fool dependent on his body,
+					clinging to it as Odysseus<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, xii. 432; <hi rend="italics">cf. De Anima</hi>, vi. 4 (Bernardakis, vol. vii. p. 26).</note> did to the fig-tree through
+					fear of Charybdis below,
+					<quote rend="blockquote">Where breezes let him neither stay nor sail,<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                     <hi rend="superscript">2</hi>, p. 81, Aeschylus, Frag. 250, from the <hi rend="italics">Philoctetes</hi>: Frag. 137 ed. Smyth (L.C.L.).</note>
+               </quote>
+					so that he is displeased at this and fearful of that.
+					
+					<pb id="v.6.p.233"/>
+					
+					But he who understands somehow or other the nature
+					of the soul and reflects that the change it undergoes
+					at death will be for the better, or at least not for the
+					worse, has no small provision to secure tranquillity
+					of mind for facing life - fearlessness towards death.
+					For he who can live pleasantly when the agreeable
+					and congenial part of life is in the ascendant, but
+					when alien and unnatural principles prevail, can
+					depart fearlessly, saying,
+					<quote rend="blockquote">The god himself shall free me, when I will,<note resp="ed" place="unspecified" anchored="yes">Euripides, <hi rend="italics">Bacchae</hi>, 498; <hi rend="italics">cf.</hi> Horace, <hi rend="italics">Epistulae</hi>, i. 16. 78-79: 
+					<foreign lang="la">
+					<quote rend="blockquote">                        
+                           <l><q direct="unspecified">Ipse deus simul atque volam me solvet.</q> opinor </l>
+                           <l>hoc sentit, <q direct="unspecified">moriar.</q> mors ultima linea rerum est.</l>                    
+                     </quote>
+                    </foreign>
+                  </note>
+               </quote>
+					what can we imagine might befall such a man as this
+					that would vex or trouble or disturb him? For he<note resp="ed" place="unspecified" anchored="yes">Metrodorus of Lampsacus, Frag. 49 ed. K&ouml;rte.</note>
+					who said, <q direct="unspecified">I have anticipated you, Fortune, and
+						taken from you every entry whereby you might get
+						at me,</q> encouraged himself, not with bolts or keys
+					or battlements, but by precepts and reasoning in
+					which everyone who desires may share. And one
+					must not despair or disbelieve any of these arguments,
+					but should admire and emulate them and, being filled
+					with their inspiration, make trial of oneself and observe oneself in smaller matters with a view to the
+					greater, not avoiding or rejecting from the soul the
+					care of these things, nor taking refuge in the remark,
+					<q direct="unspecified">Perhaps nothing will be more difficult than this.</q>
+					For languor and flabby softness are implanted by that
+					self-indulgence of the soul which ever occupies itself
+					with the easiest way, and retreats from the undesirable
+					to what is most pleasant. But the soul which endeavours, by study and the severe application of its
+					
+					<pb id="v.6.p.235"/>
+					
+					powers of reasoning, to form an idea of what sickness,
+					suffering, and exile really are will find much that
+					is false and empty and corrupt in what appears to
+					be difficult and fearful, as the reason shows in each
+					particular.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Cicero, <hi rend="italics">Disputationes Tusculanae</hi>, iii. 81 f.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="19">
+            <p>And yet many shudder even at the verse of
+					Menander,<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 103, Frag. 355, v. 4.</note>
+					          <quote rend="blockquote">No man alive may say, &amp;ldquo;I shall not suffer this,&amp;rdquo;
+               </quote>
+					since they do not know how much it helps in warding
+					off grief to be able by practice and study to look
+					Fortune in the face with eyes open, and not to manufacture in oneself <q direct="unspecified">smooth, soft</q>
+               <note resp="ed" place="unspecified" anchored="yes">Probably a quotation of <hi rend="italics">Od.</hi>, xxi. 151.</note> fancies, like one
+					reared in the shade of many hopes which ever yield
+					and hold firm against nothing. We can, however,
+					make this reply to Menander : <q direct="unspecified">True,
+						<quote rend="blockquote">No man alive may say, &amp;ldquo;I shall not suffer this,&amp;rdquo;
+                  </quote>
+						yet while still alive one can say, <q direct="unspecified">I will not do this : I
+							will not lie nor play the villain nor defraud nor
+							scheme.</q>
+               </q> For this is in our power and is not a
+					small, but a great help toward tranquillity of mind.
+					Even as, on the contrary again,
+					<quote rend="blockquote">My conscience, since I know I've done a dreadful deed,<note resp="ed" place="unspecified" anchored="yes">Euripides, <hi rend="italics">Orestes</hi>, 396: <hi rend="italics">cf.</hi> Diels, <hi rend="italics">Frag. d. Vorsokratiker</hi>
+                     <hi rend="superscript">5</hi>, ii. p. 199, Democritus, Frag. 264.</note>
+               </quote>
+					like<note resp="ed" place="unspecified" anchored="yes">The following passage is cited by Stobaeus, vol. iii. p. 604 ed. Hense.</note> an ulcer in the flesh, leaves behind it in the soul
+					regret which ever continues to wound and prick it.
+					For the other pangs reason does away with, but
+					
+					<pb id="v.6.p.237"/>
+					
+					regret is caused by reason itself, since the soul, together with its feeling of shame, is stung and chastised
+					by itself. For as those who shiver with ague or burn
+					with fevers are more distressed and pained than those
+					who suffer the same discomforts through heat or cold
+					from a source outside the body, so the pangs which
+					Fortune brings, coming, as it were, from a source
+					without, are lighter to bear; but that lament,
+					<quote rend="blockquote">None is to blame for this but me myself,<note resp="ed" place="unspecified" anchored="yes">Assigned by Schneider to Callimachus (Frag. anon. 372); <hi rend="italics">cf.</hi> also Teles, ed. Hense, p. 8; Sternbach, <hi rend="italics">Gnomologicum Parisinum</hi>, 331 (<hi rend="italics">Acad. Litt. Cracou.</hi>, xx. 1893). The verse was perhaps suggested by Homer, <hi rend="italics">Il.</hi>, i. 335.</note>
+               </quote>
+					which is chanted over one's errors, coming as it
+					does from within, makes the pain even heavier by
+					reason of the disgrace one feels. And so it is that no
+					costly house nor abundance of gold nor pride of race
+					nor pomp of office, no grace of language, no eloquence,
+					impart so much calm and serenity to life as does a soul
+					free from evil acts and purposes and possessing an
+					imperturbable and undefiled character as the source
+					of its life, a source whence flow fair actions<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, i. p. 50, Zeno, Frag. 203; see also <hi rend="italics">Moralia</hi>, 56 b, 100 c.</note> which
+					have both an inspired and joyous activity joined with
+					a lofty pride therein, and a memory sweeter and more
+					stable than that hope of Pindar's<note resp="ed" place="unspecified" anchored="yes">Frag. 214 Bergk, 233 Boeckh; p. 608 ed. Sandys. See also Plato, <hi rend="italics">Republic</hi>, 331 a.</note> which sustains old
+					age. For do not censers,<note resp="ed" place="unspecified" anchored="yes">On the form <foreign lang="greek">libanwtri/des</foreign> see F. Solmsen, <hi rend="italics">Rheinisches Museum</hi>, liv. 347.</note> Carneades said, even if
+					they have been completely emptied, retain their
+					
+					<pb id="v.6.p.239"/>
+					
+					fragrance for a long time,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Horace, <hi rend="italics">Epistulae</hi>, i. 2. 69:
+                  <foreign lang="la"> 
+                  <quote rend="blockquote">
+                  <l>quo semel est imbuta recens servabit odorem </l>
+                  <l>testa diu.</l>
+                  </quote>
+                 </foreign>
+               </note> and in the soul of the
+					wise man do not fair actions leave behind the remembrance of them eternally delightful and fresh,
+					by which joy in them is watered and flourishes, and
+					he comes to despise those who bewail and abuse life
+					as a land of calamities or a place of exile appointed
+					here for our souls?
+				</p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>And I am delighted with Diogenes, who, when
+					he saw his host in Sparta preparing with much ado
+					for a certain festival, said, <q direct="unspecified">Does not a good man
+						consider every day a festival?</q> And a very
+					splendid one, to be sure, if we are sound of mind.
+					For the universe is a most holy temple and most
+					worthy of a god ; into it man is introduced through
+					birth as a spectator, not of hand-made or immovable
+					images, but of those sensible representations of
+					knowable things that the divine mind, says Plato,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Timaeus</hi>, 92 c, <hi rend="italics">Epinomis</hi>, 984 a.</note> has
+					revealed, representations which have innate within
+					themselves the beginnings of life and motion, sun and
+					moon and stars, rivers which ever discharge fresh
+					water, and earth which sends forth nourishment for
+					plants and animals. Since life is a most perfect
+					initiation into these things and a ritual celebration of
+					them, it should be full of tranquillity and joy, and not
+					in the manner of the vulgar, who wait for the festivals
+					of Cronus<note resp="ed" place="unspecified" anchored="yes">The Roman Saturnalia.</note> and of Zeus and the Panathenaea and
+					other days of the kind, at which to enjoy and refresh
+					themselves, paying the wages of hired laughter to
+					mimes and dancers. It is true that we sit there on
+					
+					<pb id="v.6.p.241"/>
+					
+					those occasions decorously in reverent silence, for no
+					one wails while he is being initiated or laments as he
+					watches the Pythian games or as he drinks at the
+					festival of Cronus ; but by spending the greater part
+					of life in lamentation and heaviness of heart and
+					carking cares men shame the festivals with which the
+					god supplies us and in which he initiates us. And
+					though men delight in sweetly sounding instruments
+					and singing birds, and take pleasure in seeing animals
+					romping and frisking, and, on the contrary, are displeased when they howl and bellow and look fierce ;
+					yet though they see that their own life is unsmiling
+					and dejected and ever oppressed and afflicted by the
+					most unpleasant experiences and troubles and unending cares, they not only do not provide themselves with some alleviation or ease-from what
+					source could they do so? - but even when others urge
+					them, they do not accept a word of admonition by
+					following which they would acquiesce in the present
+					without fault-finding, remember the past with thankfulness, and meet the future without fear or suspicion,
+					with their hopes cheerful and bright.
+					
+				</p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

@@ -1,0 +1,868 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Lib.">Libation Bearers (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Aesch.">Aeschylus</author>
+<editor role="translator" n="Smyth">Herbert Weir Smyth, Ph. D.</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Aeschylus</author>
+<title>Aeschylus, with an English translation by Herbert Weir Smyth, Ph. D. in two volumes. 2. Libation Bearers</title>
+<editor role="editor">Herbert Weir Smyth, Ph. D.</editor>
+<imprint>
+<pubPlace>Cambridge, MA</pubPlace>
+<publisher>Harvard University Press</publisher>
+<date>1926</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="card"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+<language id="xoldpers">transliterated Old Persian</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>James Edrman</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by James Erdman, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>4/1/1993</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Proofread notes.</item>
+</change>
+<change><date>09-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: aesch.lib_eng.xml,v $
+Revision 1.1  2009-10-09 19:49:18  rsingh04
+more reorganizing of texts module by collection
+
+Revision 1.1  2009/10/07 20:59:53  rsingh04
+began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+Revision 1.7  2009/06/22 17:21:55  student
+edited entity tags CEH
+
+Revision 1.6  2009/05/01 20:07:22  lcerrato
+fixed bad bibls
+
+Revision 1.5  2007/03/06 20:36:11  packel
+milestone: 650 changed to 653
+
+Revision 1.4  2006/02/10 21:10:04  packel
+places/dates now actually tagged
+
+Revision 1.3  2005/08/01 15:44:56  packel
+really removed item tags
+
+Revision 1.2  2005/08/01 15:32:41  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:27:05  packel
+Converted to XML
+
+Revision 1.8  2004/04/21 20:28:10  mimno
+added card 1s
+
+Revision 1.7  2003/07/01 22:14:25  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.6  2000/03/04 20:33:49  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.5  2000/02/17 17:46:03  amahoney
+use n on sp for speeches interrupted by cardbreaks;  put cards at ends of
+such speeches after the close tag;  put sp and speaker tags on the divs
+of the choruses, which were not marked at all (but div2 closes sp, so
+we lost the speaker info)
+
+Revision 1.4  2000/02/09 23:27:27  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<stage>The tomb of Agamemnon.  Enter Orestes and Pylades</stage>
+<sp>
+<speaker>Orestes</speaker>
+<p>Hermes of the nether world, you who guard the powers that are your father's,<note anchored="yes" n="1" resp="Smyth">Hermes is invoked &lpar;1&rpar; as a god of the lower world, because he is the &ldquo;conducter of souls&rdquo; and herald between the celestial and infernal gods &lpar;l. 124&rpar;, and can thus convey Orestes' appeal to the rulers of the dead and to the spirit of his father; &lpar;2&rpar; as administrator of the powers committed to him by his father, Zeus the Saviour.  Some prefer to take <foreign lang="greek">patrw=|</foreign> not as <foreign lang="greek">patrw=|a</foreign> but as <foreign lang="greek">patrw=|e</foreign> i.e.&ldquo;god of my  fahters.&rdquo;</note> prove yourself my savior and ally, I entreat you, now that I have come to this land and returned from exile. On this mounded grave I cry out to my father to hearken, to hear me<milestone ed="p" n="5" unit="line"/> <gap desc="*"/></p>
+<p>&lsqb;Look, I bring&rsqb; a lock to Inachus<note anchored="yes" n="6" resp="Smyth">Orestes offers a lock of his hair to do honour to Inachus, the river-god of <placeName key="perseus,Argos">Argos</placeName>, because rivers were worshipped as givers of life.</note> in requital for his care, and here, a second, in token of my grief.</p>
+<p>For I was not present, father, to lament your death, nor did I stretch forth my hand to bear your corpse.</p>
+<p>What is this I see?<milestone ed="p" n="10" unit="line"/> What is this throng of women that moves in state, marked by their sable cloaks?  To what calamity should I set this down?  Is it some new sorrow that befalls our house?  Or am I right to suppose that for my  father's sake they bear these libations to appease the powers below?<milestone ed="p" n="15" unit="line"/> It can only be for this cause: for indeed I think my own sister Electra is approaching, distinguished by her bitter grief.    Oh grant me, Zeus, to avenge my father's death, and may you be my willing ally!</p>
+<p>Pylades, let us stand apart,<milestone ed="p" n="20" unit="line"/> that I may</p>
+<p>know clearly what this band of suppliant women intends.<stage>Exit Orestes and Pylades.  Enter Electra with women carrying libations.</stage><milestone ed="p" n="22" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Sent forth from the palace I have come to convey libations to the sound of sharp blows of my hands.  My cheek is marked with bloody gashes where my nails have cut fresh furrows.<milestone ed="p" n="25" unit="line"/>And yet through all my life my heart is fed with lamentation.  Rips are torn by my griefs through the linen web of my garment, torn in the cloth that covers my breast, the cloth of robes struck for the sake of my mirthless misfortunes.<milestone ed="p" n="30" unit="line"/><milestone ed="p" n="32" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>For with a hair-raising shriek, Terror, the diviner of dreams for our house, breathing wrath out of sleep, uttered a cry of terror in the dead of night from the heart of the palace,<milestone ed="p" n="35" unit="line"/>a cry that fell heavily on the women's quarter.<note anchored="yes" n="36" resp="Smyth">The language of the passage is accommodated to a double purpose: &lpar;1&rpar; to indicate an oracular deliverance on the part of the inspired prophetess at <placeName key="perseus,Delphi">Delphi</placeName>, and &lpar;2&rpar; to show the alarming nature of Clytaemestra's dream:  while certain limiting expressions &lpar;as <foreign lang="greek">a)wpo/nukton, u(/ptou</foreign>&rpar; show the points of difference.  &ldquo;Phoebus&rdquo; is used for a prophetic &ldquo;possession,&rdquo; which assails Clytaemestra as a nightmare &lpar;cp. <foreign lang="greek">baru\s pi/tnwn</foreign>&rpar;; so that her vision is itself called an <foreign lang="greek">o)neiro/mantis.</foreign></note> And the readers of these dreams, bound under pledge, cried out from the god that those beneath the earth cast furious reproaches<milestone ed="p" n="40" unit="line"/>and rage against their murderers.<milestone ed="p" n="42" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Intending to ward off evil with such a graceless grace, O mother Earth, she sends me forth, godless woman that she is.<milestone ed="p" n="45" unit="line"/>But I am afraid to utter the words she charged me to speak.  For what atonement is there for blood fallen to earth?  Ah, hearth of utter grief!  Ah, house laid low in ruin!<milestone ed="p" n="50" unit="line"/>Sunless darkness, loathed by men, enshrouds our house due to the death of its master.<milestone ed="p" n="55" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<p>The awe of majesty once unconquered, unvanquished, irresistible in war,<milestone ed="p" n="55" unit="line"/>that penetrated the ears and heart of the people, is now cast off.  But there is still fear.  And prosperity&mdash;this, among mortals, is a god and more than a god.<milestone ed="p" n="60" unit="line"/>But the balance of Justice keeps watch:  swiftly it descends on those in the light; sometimes pain waits for those who linger on the frontier of twilight; and others are claimed by strengthless night.<milestone ed="p" n="65" unit="line"/><milestone ed="p" n="66" unit="card"/></p></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Because of blood drunk up by the fostering earth, the vengeful gore lies clotted and will not dissolve away.  Soul-racking calamity distracts the guilty man till he is steeped in utter  misery.<milestone ed="p" n="70" unit="line"/><milestone ed="p" n="71" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<p>But for the violator of a bridal chamber there is no cure.  And though all streams flow in one course to cleanse the blood from a polluted hand, they rush in vain.<milestone ed="p" n="75" unit="line"/><milestone ed="p" n="75" unit="card"/></p></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>For since the gods laid constraining doom about my city and led me from my father's house to a slave's lot, it is fitting for me to govern my bitter hate, even against my will, and submit to the wishes of my masters, whether just or unjust.<milestone ed="p" n="80" unit="line"/>But I weep beneath my veil over the senseless fate of my lord, my heart chilled by secret grief.<milestone ed="p" n="84" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Electra</speaker>
+<p>You handmaidens who set our house in order, since you are here as my attendants in this rite of supplication,<milestone ed="p" n="85" unit="line"/>give me your counsel on this:  what should I say while I pour these offerings of sorrow?  How shall I find gracious words, how shall I entreat my father?  Shall I say that I bring these offerings to a loved husband from a loving wife&mdash;from my own mother?<milestone ed="p" n="90" unit="line"/>I do not have the assurance for that, nor do I know what I should say as I pour this libation onto my father's tomb.  Or shall I speak the words that men are accustomed to use: &ldquo;To those who send these honors may he return benefits&rdquo;&mdash;a gift, indeed, to match their evil?<note anchored="yes" n="95" resp="Smyth">&ldquo;Their evil&rdquo; is unexpectedly substituted for &ldquo;their good.&rdquo;  The question is ironical, since it was natural for a Greek to return evil for evil &lpar;cp. 123&rpar;.</note></p>
+<p>Or, in silence and dishonor, even as my father perished, shall I pour them out for the earth to drink<milestone ed="p" n="95" unit="line"/>and then retrace my steps, like one who carries refuse away from a rite, hurling the vessel from me with averted eyes?</p>
+<p>In this, my friends, be my fellow-counsellors.<milestone ed="p" n="100" unit="line"/>For we cherish a common hatred within our house.  Do not hide your counsel in your hearts in fear of anyone.  For the portion of fate awaits both the free man and the man enslaved by another's hand.  If you have a better course to urge, speak!<milestone ed="p" n="105" unit="line"/><milestone ed="p" n="106" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In reverence for your father's tomb, as if it were an altar, I will speak my thoughts from the heart, since you command me.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Speak, even as you revere my father's grave.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>While you pour, utter benedictions for loyal hearts.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And to whom of those dear to me should I address them?<milestone ed="p" n="110" unit="line"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>First to yourself, then to whoever hates Aegisthus.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Then for myself and for you also shall I make this prayer?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>That is for you, using your judgment, to consider now for yourself.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Then whom else should I add to our company?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Remember Orestes, though he is still away from home.<milestone ed="p" n="115" unit="line"/></p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Well said!  You have indeed admonished me thoughtfully.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>For the guilty murderers now, mindful of&mdash;</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>What should I say?  Instruct my inexperience, prescribe the form.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Pray that some divinity or some mortal may come to them&mdash;</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>As judge or as avenger, do you mean?<milestone ed="p" n="120" unit="line"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Say in plain speech, &ldquo;One who will take life for life.&rdquo;</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And is it right for me to ask this of the gods?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>How could it not be right to repay an enemy with ills?</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Supreme herald of the realm above and the realm below, O Hermes of the nether world, come to my aid, summon to me the spirits beneath the earth to hear my prayers,<milestone ed="p" n="125" unit="line"/>spirits that watch over my father's house, and Earth herself, who gives birth to all things, and having nurtured them receives their increase in turn.  And meanwhile, as I pour these lustral offerings to the dead, I invoke my father: &ldquo;Have pity both on me and on dear Orestes!<milestone ed="p" n="130" unit="line"/>How shall we rule our own house?  For now we are bartered away like vagrants by her who bore us, by her who in exchange got as her mate Aegisthus, who was her accomplice in your murder.  As for me, I am no better than a slave,<milestone ed="p" n="135" unit="line"/>Orestes is an outcast from his inheritance, while they in their insolence revel openly in the winnings of your toil.  But that Orestes may come home with good fortune I pray to you, father: Oh, hearken to me!  And as for myself, grant that I may prove far more circumspect than my mother and more reverent in deed.<milestone ed="p" n="140" unit="line"/></p>
+<p>I utter these prayers on our behalf, but I ask that your avenger appear to our foes, father, and that your killers may be killed in just retribution.  So I interrupt my prayer for good<milestone ed="p" n="145" unit="line"/>to offer them this prayer for evil.  But be a bearer of blessings for us to the upper world, with the help of the gods and Earth and Justice crowned with victory.&rdquo;<stage>She pours out the libations</stage></p>
+<p>Such are my prayers, and over them I pour out these libations.  It is right for you to crown them with lamentations,<milestone ed="p" n="150" unit="line"/>raising your voices in a chant for the dead.<milestone ed="p" n="152" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Pour forth your tears, splashing as they fall for our fallen lord, to accompany this protection against evil, this charm for the good<milestone ed="p" n="155" unit="line"/>against the loathsome pollution.  Hear me, oh hear me, my honored lord, out of the darkness of your spirit.<note anchored="yes" n="157" resp="Smyth">Or <foreign lang="greek">a)maura=s</foreign> may mean &ldquo;feeble,&rdquo; &ldquo;helpless,&rdquo; to contrast the spirit of the dead with that of the living.  But cp. 323.</note></p>
+<p>Woe, woe, woe!  Oh for a man mighty with the spear to deliver our house,<milestone ed="p" n="160" unit="line"/>an Ares, brandishing in the fight the springing Scythian bow and wielding his hilted sword in close combat.<stage>As they conclude, Electra discovers the lock of Orestes' hair</stage><milestone ed="p" n="164" unit="card"/></p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>My father has by now received the libations, which the earth has drunk.<milestone ed="p" n="165" unit="line"/>But take your share of this startling news.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Speak&mdash;but my heart is dancing with fear.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>I see here a lock cut as an offering for the tomb.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>A man's, or a deep-girt maid's?</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>That is open to conjecture&mdash;anyone may guess.<milestone ed="p" n="170" unit="line"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>How then?  Let my age be taught by your youth.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>There is no one who could have cut it but myself.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Yes, for those who ought to have mourned with a lock of hair are enemies.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And further, in appearance it is very much like&mdash;</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Whose lock?  This is what I would like to know.<milestone ed="p" n="175" unit="line"/></p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>It is very much like my own in appearance.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then can this be a secret offering from Orestes?</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>It is his curling locks that it most resembles.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>But how did he dare to come here?</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>He has merely sent this cut lock to honor his father.<milestone ed="p" n="180" unit="line"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What you say is no less a cause of tears for me, if he will never again set foot on this land.</p></sp>
+<sp n="Electra">
+<speaker>Electra</speaker>
+<p>Over my heart, too, there sweeps a surge of bitterness, and I am struck as if a sword had run me through.  From my eyes thirsty drops of a stormy flood fall unchecked at the sight of this tress.<milestone ed="p" n="185" unit="line"/>For how can I expect to find that someone else, some townsman, owns this lock?  Nor yet in truth did she clip it from her head, the murderess, my own mother,<milestone ed="p" n="190" unit="line"/>who has assumed a godless spirit regarding her children that ill accords with the name of mother.  But as for me, how am I to assent to this outright, that it adorned the head of Orestes, the dearest to me of all mortals?  No, hope is merely flattering me.<milestone ed="p" n="195" unit="card"/></p>
+<p>Ah, woe!  If only, like a messenger, it had a kind voice,<milestone ed="p" n="195" unit="line"/>so that I would not be tossed by my distracted thoughts. Rather it would plainly bid me to spurn this tress, if it was severed from a hated head.  Or if it were a kinsman's, he would share my grief as an adornment to this tomb and a tribute to my father.<milestone ed="p" n="200" unit="line"/></p>
+<p>But I invoke the gods, who know by what storms we are tossed like seafarers.  Yet if I am fated to reach safety, a great stock may come from a little seed.</p>
+<p>And look!  Another proof!  Footprints<milestone ed="p" n="205" unit="line"/>matching each other&mdash;and like my own!  Yes, here are the outlines of two sets of feet, his own and some companion's.  The heels and the imprints of the tendons agree in proportion with my own tracks.<milestone ed="p" n="210" unit="line"/>I am in torment, my brain is in a whirl!</p></sp>
+<stage>Enter Orestes</stage>
+<sp>
+<speaker>Orestes</speaker>
+<p>Give recognition to the gods that your prayers have been fulfilled, and pray that success may attend you in the future.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>What?  Have I succeeded now by the will of the gods?</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>You have come to the sight of what you have long prayed for.<milestone ed="p" n="215" unit="line"/></p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And do you know whom among mortals I was invoking?</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>I know that you are pining for Orestes.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Then how have I found an answer to my prayers?</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Here I am.  Search for no other friend than me.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>But surely, stranger, you are weaving some snare about me?<milestone ed="p" n="220" unit="line"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Then I am devising plots against myself.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>No, you wish to mock my distress.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Then my own also, if yours.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Am I then to address you as Orestes in truth?<milestone ed="p" n="225" unit="card"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Now, even though you see him in me, you are slow to learn.<milestone ed="p" n="225" unit="line"/>Yet at the sight of this tress cut in mourning, and when you were scrutinizing the footprints of my tracks, your thought took wings and you knew you had found me.  Put the lock of hair, your own brother's, in the spot it was cut from and observe how it matches the hair on my head.<milestone ed="p" n="230" unit="line"/>And see this piece of weaving, your handiwork, the strokes of the batten and the beasts in the design.  Control yourself!  Do not go mad with joy!  For I know that our nearest kin are bitter foes to us both.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>O best beloved darling of your father's house,<milestone ed="p" n="235" unit="line"/>its hope of a saving seed longed for with tears, trust in your prowess and you will win back your father's house.  O delightful eyes that have four parts of love for me:  for I must call you father;<milestone ed="p" n="240" unit="line"/>and to you falls the love I should bear my mother, whom I most rightly hate; and the love I bore my sister, victim of a pitiless sacrifice; and you were my faithful brother, bringing me your reverence.  May Might and Justice, with Zeus, supreme over all, in the third place, lend you their aid!<milestone ed="p" n="245" unit="line"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>O Zeus, O Zeus, regard our cause!  Behold the orphaned brood of a father eagle that perished in the meshes, in the coils of a fierce viper. They are utterly orphaned, gripped by the famine of hunger:<milestone ed="p" n="250" unit="line"/>for they are not grown to full strength to bring their father's quarry to the nest.  So you see both me and poor Electra here, children bereft of their father, both outcasts alike from our home.  If you destroy these nestlings of a father who made sacrifice and revered you greatly,<milestone ed="p" n="255" unit="line"/>from what like hand will you receive the homage of rich feasts?  Destroy the brood of the eagle and you cannot again send tokens that mortals will trust; nor, if this royal stock should wither utterly away, will it serve your altars on days when oxen are sacrificed.<milestone ed="p" n="260" unit="line"/>Oh foster it, and you may raise our house from low estate to great, though now it seems utterly overthrown.<milestone ed="p" n="264" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>O children, O saviors of your father's hearth, speak not so loud, dear children, in case someone should overhear<milestone ed="p" n="265" unit="line"/>and report all this to our masters merely for the sake of rumor.  May I some day see them dead in the ooze of flaming pitch!</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Surely he will not abandon me, the mighty oracle of Loxias, who urged me to brave this peril to the end<milestone ed="p" n="270" unit="line"/>and loudly proclaims calamities that chill the warmth of my heart, if I do not take vengeance on my father's murderers.  He said that, enraged by the loss of my possessions,<note anchored="yes" n="273" resp="Smyth">Tucker interprets this passage to mean &ldquo;fiercely stern with penalties not to be paid with money,&rdquo; that is, penalties demanding the death of the guilty, who may not offer money to satisfy the claims of vengeance; and thus an allusion to &ldquo;wer-gild,&rdquo; known in Homeric times.</note> I should kill them in requital just as they killed.  And he declared that otherwise<milestone ed="p" n="275" unit="line"/>I should pay the debt myself with my own life, after many grievous sufferings.  For he spoke revealing to mortals the wrath of malignant powers from underneath the earth, and telling of plagues:  leprous ulcers that mount with fierce fangs on the flesh<milestone ed="p" n="280" unit="line"/>and eat away its primal nature; and how a white down<note anchored="yes" n="282" resp="Smyth">The down upon the sore, not the temples turned white &lpar;cp. Leviticus xiii.3&rpar;.</note> should sprout up on the diseased place.  And he spoke of other assaults of the Furies that are destined to be brought to pass from paternal blood.  For the dark bolt of the infernal powers, who are stirred by kindred victims calling for vengeance, and madness, and groundless terrors out of the night, torment and harass a man, and he sees clearly, though he moves his eyebrows in the dark.<note anchored="yes" n="291" resp="Smyth">He cannot sleep through terror of the Erinyes of his murdered kin whom he has not avenged.</note><milestone ed="p" n="285" unit="line"/>And with his body marred by the brazen scourge, he is even chased in exile from his country.<milestone ed="p" n="290" unit="line"/>And the god declared that to such as these it is not allowed to have a part either in the ceremonial cup or in the cordial libation; his father's wrath, though unseen, bars him from the altar; no one receives him or lodges with him; and at last, despised by all, friendless, he perishes,<milestone ed="p" n="295" unit="line"/>shrivelled pitifully by a death that wastes him utterly away.</p>
+<p>Must I not put my trust in oracles such as these? Yet even if I do not trust them, the deed must still be done.  For many impulses conspire to one conclusion.  Besides the god's command, my keen grief for my father,<milestone ed="p" n="300" unit="line"/>and also the pinch of poverty&mdash;that my countrymen, the most renowned of mortals, who overthrew <placeName key="perseus,Troy">Troy</placeName> in the spirit of glory, should not be subjected so to a pair of women.  For he has a woman's mind, or if not, it will soon be found out.<milestone ed="p" n="305" unit="line"/><milestone ed="p" n="306" unit="card"/></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>You mighty Fates, through the power of Zeus grant fulfilment in the way to which Justice now turns.  &ldquo;For a word of hate let a word of hate be said,&rdquo;<milestone ed="p" n="310" unit="line"/>Justice cries out as she exacts the debt, &ldquo;and for a murderous stroke let a murderous stroke be paid.&rdquo;  &ldquo;Let it be done to him as he does,&rdquo; says the age-old wisdom.<milestone ed="p" n="315" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Orestes</speaker>
+<p>O father, unhappy father,<milestone ed="p" n="315" unit="line"/>by what word or deed of mine can I succeed in sailing from far away to you, where your resting-place holds you, a light to oppose your darkness?<milestone ed="p" n="320" unit="line"/>Yet a lament in honor of the Atreidae who once possessed our house is none the less a joyous service.<milestone ed="p" n="323" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>My child, the fire's ravening jaw does not overwhelm the wits of the dead man,<milestone ed="p" n="325" unit="line"/>but afterwards he reveals what stirs him.  The murdered man has his dirge; the guilty man is revealed.  Justified lament for fathers and for parents, when raised loud and strong, makes its search everywhere.<milestone ed="p" n="330" unit="line"/><milestone ed="p" n="332" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Electra</speaker>
+<p>Hear then, O father, as in turn we mourn with plentiful tears.  Look, your two children mourn you in a dirge over your tomb.<milestone ed="p" n="335" unit="line"/>As suppliants and exiles as well they have sought a haven at your sepulchre.  What of these things is good, what free of evil?  Is it not hopeless to wrestle against doom?<milestone ed="p" n="340" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>Yet heaven, if it pleases,<milestone ed="p" n="340" unit="line"/>may still turn our utterance to more joyfully sounding strains.  In place of dirges over a tomb, a song of triumph within the royal halls will welcome back a reunited friend.<note anchored="yes" n="344" resp="Smyth"><foreign lang="greek">neokra=ta,</foreign> &ldquo; newly-mixed.&rdquo;  As friendship, when begun, was pledged by a loving-cup, so Orestes, after his long absence, is to be welcomed as a new friend.</note><milestone ed="p" n="345" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Orestes</speaker>
+<p>Ah, my father, if only beneath <placeName key="tgn,7002329">Ilium</placeName>'s walls<milestone ed="p" n="345" unit="line"/>you had been slain, slashed by some Lycian spearman! Then you would have left a good name for your children in their halls, and in their maturity you would have made their lives admired by men.<milestone ed="p" n="350" unit="line"/>And in a land beyond the sea you would have found a tomb heaped high with earth, no heavy burden for your house to bear&mdash;<milestone ed="p" n="354" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>&mdash;Welcomed there below by your comrades who nobly fell,<milestone ed="p" n="355" unit="line"/>a ruler of august majesty, distinguished even beneath the earth, and minister of the mightiest, the deities who rule in the nether world.<note anchored="yes" n="359" resp="Smyth">Pluto and Proserpine.</note> For in your life you were a king of those who have the power to assign the portion of death,<note anchored="yes" n="361" resp="Smyth">He was a king of those princes who have the right to apportion life or death to their subjects.</note> and who wield the staff all mortals obey.<milestone ed="p" n="360" unit="line"/><milestone ed="p" n="363" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Electra</speaker>
+<p>No, not even beneath the walls of <placeName key="perseus,Troy">Troy</placeName>, father, would I wish you to have fallen and to be entombed beside Scamander's waters among the rest of the host slain by the spear.<milestone ed="p" n="365" unit="line"/>I wish rather that his murderers had been killed by their own loved ones, just as they killed you, so that someone in a distant land who knew nothing of these present troubles should learn of their fatal doom.<milestone ed="p" n="370" unit="line"/><milestone ed="p" n="372" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>In this, my child, your wish is better than gold.  It surpasses great good fortune, even that of the supremely blesssed;<note anchored="yes" n="377" resp="Smyth">The Hyperboreans, a fabulous people dwelling &ldquo;beyond the North wind,&rdquo; were imagined to live longer and in greater felicity than other mortals.</note> for it is easy to wish.  But now the lash of this double scourge<note anchored="yes" n="376" resp="Smyth">The &ldquo;lash of this double scourge&rdquo; refers to the appeal to the dead, lashing him to vengenace, to the beating of the head and breast, and to the stamping open the ground, which, like the invocation of the dead, were intended to arouse the nether powers.  The scourge is &ldquo;double&rdquo; &lpar;cp. <bibl n="Aesch. Ag. 647"><title>Agam.</title>647</bibl>&rpar; because the participants in the scene are the two children &lpar;l. 334&rpar; and the Chorus.</note> comes home:<milestone ed="p" n="375" unit="line"/>our cause already has its champions beneath the earth, while the hands of our loathsome opponents, though they have the mastery, are unholy.  The children have won the day.<milestone ed="p" n="380" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Orestes</speaker>
+<p>This has pierced the earth and reached your ear<note anchored="yes" n="380" resp="Smyth">The ear of Agamemnon.</note> as if it were an arrow.<milestone ed="p" n="380" unit="line"/>O Zeus, O Zeus, who send long-deferred retribution up from below onto the reckless and wicked deeds done by the hands of mortals. . . .  And yet it will be accomplished for our father's sake.<note anchored="yes" n="385" resp="Smyth">He thus justifies his &lpar;unvoiced&rpar; prayer, &ldquo;slay my mother&rdquo;</note><milestone ed="p" n="385" unit="line"/><milestone ed="p" n="386" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p>May it be mine to raise a hearty shout in triumph over the man when he is stabbed and over the woman as she perishes!  Why should I try to keep hidden what nevertheless hovers before my soul?<milestone ed="p" n="390" unit="line"/>Full against the prow of my heart wrath blows sharply in rancorous hate.<milestone ed="p" n="394" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Electra</speaker>
+<p>And when will mighty Zeus bring down his hand on them<milestone ed="p" n="395" unit="line"/>and split their heads open? Let it be a pledge to the land!  After injustice I demand justice as my right.  Hear, O Earth, and you honored powers below!<milestone ed="p" n="400" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>And it is the eternal rule that drops of blood spilled on the ground demand yet more blood.<milestone ed="p" n="400" unit="line"/>Murder cries out on the Fury, which from those killed before brings one ruin in the wake of another.<milestone ed="p" n="405" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="6">
+<sp><speaker>Orestes</speaker>
+<p>Alas, you sovereign powers of the world below,<milestone ed="p" n="405" unit="line"/>behold, you potent Curses of the slain, behold the remnants of the line of Atreus in their helpless plight, cast out from house and home in dishonor. Which way can we turn, O Zeus?<milestone ed="p" n="410" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p>But again my heart throbs as I hear this pitiful lament.<milestone ed="p" n="410" unit="line"/>At once I am devoid of hope and my viscera are darkened at the words I hear.  But when hope once again lifts and strengthens me,<milestone ed="p" n="415" unit="line"/>it puts away my distress and dawns brightly on me.<milestone ed="p" n="418" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="6">
+<sp><speaker>Electra</speaker>
+<p>To what could we more fittingly appeal than to those very miseries we have endured from the woman herself who bore us?  She may fawn upon us, but they are past all soothing.<milestone ed="p" n="420" unit="line"/>For like a fierce-hearted wolf the temper we have acquired from our mother is implacable.<milestone ed="p" n="423" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="7">
+<sp><speaker>Chorus</speaker>
+<p>On my breast I beat<note anchored="yes" n="423" resp="Smyth">At the time of Agamemnon's murder, when the women wailed with the extravagance of professional Asiatic mourners.  Here they repeat those signs of mourning.</note> an Arian<note anchored="yes" n="423" resp="Smyth"><placeName key="tgn,7002243">Aria</placeName> was a district of <placeName key="tgn,7000231">Persia</placeName>.  For &ldquo;Eranians&rdquo; &lpar;Old-Persian <foreign lang="xoldpers">ariya</foreign>&rpar; the Greeks used <foreign lang="greek">*)/arioi</foreign>; at least Herodotus says this was an ancient name of the Medes.</note> dirge in just the same fashion as a Cissian<note anchored="yes" n="423" resp="Smyth">Cissia formed part of <placeName key="tgn,7002147">Susiana</placeName>.</note> wailing woman.  With clenched fists, raining blows thick and fast, my outstretched hands<milestone ed="p" n="425" unit="line"/>could be seen descending from above, from far above, now on this side, now on that, till my battered and wretched head resounded with the strokes.<milestone ed="p" n="429" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="8">
+<sp><speaker>Electra</speaker>
+<p>Away with you, cruel and utterly brazen mother!<milestone ed="p" n="430" unit="line"/>You dared to give your husband a most cruel burial: unmourned, without lamentation, a king unattended by his people.<milestone ed="p" n="434" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="9">
+<sp><speaker>Orestes</speaker>
+<p>Ah me, your words spell utter dishonor.  Yet with the help of the gods, and with the help of my own hands, will she not atone for the dishonor she did my father?<milestone ed="p" n="435" unit="line"/>Let me only take her life, then let me die!<milestone ed="p" n="439" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="9">
+<sp><speaker>Chorus</speaker>
+<p>Yes, and I would have you know he was brutally mangled.<note anchored="yes" n="439" resp="Smyth">An allusion to the savage custom by which the extremities of the murdered man were cut off, then hung about his neck and tied together under the arm-pits &lpar;<foreign lang="greek">masxa/lai</foreign>&rpar;.  At least one object of this &ldquo;arm-pitting&rdquo; was to disable the spirit of the dead from taking vengeance on the murderer.</note> And even as she buried him in this way,<milestone ed="p" n="440" unit="line"/>she acted with intent to make the manner of his death a burden on your life past all power to bear.  You hear the story of the ignominious outrage done to your father.<milestone ed="p" n="445" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="7">
+<sp><speaker>Electra</speaker>
+<p>My father was murdered just as you say. But all the while I was kept sequestered, despised, accounted a worthless thing.<milestone ed="p" n="445" unit="line"/>Kennelled in my room as if I were a vicious cur, I gave free vent to my streaming tears, which came more readily than laughter, as in my concealment I poured out my lament in plentiful weeping.  Hear my tale and inscribe it on your heart.<milestone ed="p" n="450" unit="line"/><milestone ed="p" n="451" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="8">
+<sp><speaker>Chorus</speaker>
+<p>Yes, let it sink deep into your ears, but keep inside a quiet steadfastness of soul.  So far things are so.  But you yourself be eager to resolve what is to follow.  You must enter the contest with inflexible wrath.<milestone ed="p" n="455" unit="line"/><milestone ed="p" n="456" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="10">
+<sp><speaker>Orestes</speaker>
+<p>Father, I call on you; side with your loved ones!</p></sp>
+<sp><speaker>Electra</speaker>
+<p>And I in tears join my voice to his.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>And let all our company blend our voices to echo the prayer.  Hear!  Come to the light!  Side with us against the foe!<milestone ed="p" n="460" unit="line"/><milestone ed="p" n="461" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="10">
+<sp><speaker>Orestes</speaker>
+<p>Ares will encounter Ares; Right will encounter Right.</p></sp>
+<sp><speaker>Electra</speaker>
+<p>O you gods, judge rightly the plea of right!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>A shudder steals over me as I hear these prayers. Doom has long been waiting, but it will come in answer to those who pray.<milestone ed="p" n="465" unit="line"/><milestone ed="p" n="466" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="11">
+<sp><speaker>Chorus</speaker>
+<p>Ah, inbred trouble and bloody stroke of ruin striking a discord!  Ah, lamentable and grievous sorrows!  Ah, the unstaunched pain!<milestone ed="p" n="470" unit="line"/><milestone ed="p" n="471" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="11">
+<sp><speaker>Chorus</speaker>
+<p>Our house has a cure to heal these woes, a cure not from outside, from the hands of others, but from itself, by fierce, bloody strife.  This hymn is for the gods beneath the earth.<milestone ed="p" n="475" unit="line"/><milestone ed="p" n="476" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp><speaker>Chorus</speaker>
+<p>O you blessed powers below, hear this supplication of ours, and with a favorable will send forth to these children your aid for victory!<milestone ed="p" n="479" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Orestes</speaker>
+<p>O father, who perished by a death unbefitting a king, grant in answer to my prayer the lordship over your halls!<milestone ed="p" n="480" unit="line"/></p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And I too, father, have a like request of you: to escape when I have wrought great destruction on Aegisthus.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Yes, for then the customary funeral feasts of men would be established in your honor.  But otherwise, at the rich and savory banquet of burnt offerings made to the earth, you will be without a portion of honor.<milestone ed="p" n="485" unit="line"/></p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And I will likewise at my wedding offer libations to you out of the fullness of my inheritance from my father's house, and before all else I will hold this tomb of yours in the highest honor.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>O Earth, send up my father to watch my battle!</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>O Persephone, grant us indeed a glorious victory!<milestone ed="p" n="490" unit="line"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Father, remember the bath where you were robbed of life.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And remember how they devised a strange net to cast about you.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>You were caught, my father, in fetters forged by no smith's hand.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>And in a fabric shamefully devised.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Father, are you not roused by taunts such as these?<milestone ed="p" n="495" unit="line"/></p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>Are you not raising that dearest head of yours?</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Either send Justice to battle for those dear to you, or grant us in turn to get a similar grip<note anchored="yes" n="498" resp="Smyth">Orestes prays that, as Clytaemestra and Aegisthus had &ldquo;got grip&rdquo; of Agamemnon by deception, so he may &ldquo;get like grip&rdquo; of them and kill them.</note> on them, if indeed after defeat you would in turn win victory.</p></sp>
+<sp>
+<speaker>Electra</speaker>
+<p>So listen, father, to this last appeal of mine<milestone ed="p" n="500" unit="line"/>as you behold these fledglings crouching at your tomb. Have compassion on your offspring, on the woman and on the man as well, and let not this seed of Pelops' line be blotted out: for then, in spite of death, you are not dead.  For children are voices of salvation to a man,<milestone ed="p" n="505" unit="line"/>though he is dead; like corks, they buoy up the net, saving the flaxen cord from out of the deep.  Hear!  For your own sake we make this lament.  By honoring this plea of ours you save yourself.<milestone ed="p" n="510" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In truth you have drawn out this plea of yours to your own content in showing honor to this unlamented tomb.<milestone ed="p" n="510" unit="line"/>As for the rest, since your heart is rightly set on action, put your fortune to the test and get to your work at once.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>It will be so.  But it is in no way amiss to inquire how, from what motive, she came to send her libations,<milestone ed="p" n="515" unit="line"/>seeking too late to make amends for an irremediable deed.  They would be a sorry gift to send to the senseless dead: I cannot guess what they mean. The gifts are too paltry for her offence.  For though a man may pour out all he has in atonement for one deed of blood,<milestone ed="p" n="520" unit="line"/>it is wasted effort.  So the saying goes. If indeed you know, tell me: I wish to learn.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I know, my child, for I was there.  It was because she was shaken by dreams and wandering terrors of the night that she sent these offerings, godless woman that she is.<milestone ed="p" n="525" unit="line"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>And have you learned the nature of the dream so as to tell it properly?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>She dreamed she gave birth to a serpent: that is her own account.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>And where does the tale end, and what is its consummation?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>She laid it to rest as if it were a child, in swaddling clothes.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>What food did it crave, the newborn viper?<milestone ed="p" n="530" unit="line"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In her dream she offered it her own breast.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Surely her nipple was not unwounded by the loathsome beast?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>No: it drew in clotted blood with the milk.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Truly it is not without meaning: the vision signifies a man!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then from out of her sleep she raised a shriek and awoke appalled,<milestone ed="p" n="535" unit="line"/>and many lamps that had been blinded in the darkness flared up in the house to cheer our mistress.  Then she sent these libations for the dead in the hope that they might be  an effective cure for her distress.<milestone ed="p" n="540" unit="card"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Well then, I pray to this earth and to my father's grave that this dream may come to its fulfilment in me.<milestone ed="p" n="540" unit="line"/>As I understand it, it fits at every point.  For if the snake left the same place as I; if it was furnished with my swaddling clothes; if it sought to open its mouth to take the breast that nourished  me<milestone ed="p" n="545" unit="line"/>and mixed the sweet milk with clotted blood while she shrieked for terror at this, then surely, as she has nourished a portentous thing of horror, she must die by violence.  For I, turned serpent, am her killer, as this dream declares.<milestone ed="p" n="550" unit="line"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I choose your reading of this portent.  Let it be so.  As for the rest, give your friends their parts.  Tell some what to do, others what to leave undone.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>It is a simple story.  My sister must go inside, and I charge her to keep concealed this pact with me,<milestone ed="p" n="555" unit="line"/>so that as by craft they killed a worthy man, so by craft they may likewise be caught and perish in the very same snare, even as Loxias decreed, lord Apollo, the prophet who has never before been false.</p>
+<p>In the guise of a stranger, one fully equipped,<milestone ed="p" n="560" unit="line"/>I will come to the outer gate, and with me Pylades, whom you see here, as a guest and ally of the house. Both of us will speak the speech of <placeName key="tgn,7011022">Parnassus</placeName>, imitating the accent of a Phocian tongue.  And in case none of the keepers of the door will give us a hearty welcome<milestone ed="p" n="565" unit="line"/>on the plea that the house is afflicted with trouble by the gods, then we will wait so that anyone passing the house will consider and say: &ldquo;Why then does Aegisthus have his door shut on his suppliant, if in fact he is at home and knows?&rdquo;<milestone ed="p" n="570" unit="line"/></p>
+<p>But if I indeed pass the outermost threshold of the gate and find that man sitting on my father's throne, or if then coming face to face with me he lifts and casts down his eyes, know well: before he can even say &ldquo;Of what land is this stranger?&rdquo; I will skewer him with my swift sword and lay him dead.<milestone ed="p" n="575" unit="line"/>The fury that has no fill of slaughter shall for her third and crowning drink drink unmixed blood!</p>
+<p>Now you, Electra, keep strict watch over what happens inside the house, so that our plans may fit together well.<milestone ed="p" n="580" unit="line"/>You<stage>addressing the Chorus</stage>had best keep a discreet tongue: be silent when there is need and speak only what the occasion demands. As for the rest, I call on him<note anchored="yes" n="583" resp="Smyth">Apollo, his champion &lpar;lines 269, 558&rpar;, whose statue stood before the palace &lpar;cp.<bibl n="Aesch. Ag. 513">Aesch. Ag. 513</bibl>&rpar;.</note> to cast his glance this way and direct the contest of the sword for me.<stage>Exeunt Orestes, Pylades, and Electra</stage>
+<milestone ed="p" n="585" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Many are the horrors, dread and appalling, bred of earth,<milestone ed="p" n="585" unit="line"/>and the arms of the deep teem with hateful monsters.  Likewise between heaven and earth lights<note anchored="yes" n="590" resp="Smyth">Meteors.</note> hung high in the air draw near; and winged things and things that walk the earth<milestone ed="p" n="590" unit="line"/>can also tell of the stormy wrath of whirlwinds.<milestone ed="p" n="594" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>But who can tell of man's overweening spirit,<milestone ed="p" n="595" unit="line"/>and of the reckless passions of women hardened of soul, partners of the woes of mortals?  Inordinate passion, overmastering the female, gains a fatal victory over the wedded unions of beasts and humans alike.<milestone ed="p" n="600" unit="line"/><milestone ed="p" n="602" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Let whoever is not flighty in his wits know this, when he has learned of the device of a lit brand contrived by Thestius' heartless daughter:<note anchored="yes" n="605" resp="Smyth">When Meleager, the child of Althaea, who was daughter of Thestius, king of <placeName key="tgn,7002678">Aetolia</placeName>, and wife to Oeneus of Calydon, was a week old, the Fates appeared to the mother and declared that he would die when the brand on the hearth was consumed.  Whereupon Althaea took the brand and put it in a chest; but when Meleager, grown to youthful manhood, slew her brothers, she threw it into the fire, and her son died suddenly.</note><milestone ed="p" n="605" unit="line"/>she destroyed her own child by burning the charred brand of the same age as he when, coming from his mother's womb, he cried out, and it aged in pace with him through his life<milestone ed="p" n="610" unit="line"/>to the day decreed by fate.<milestone ed="p" n="612" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And there is in legend another murderous virgin to be loathed,<note anchored="yes" n="614" resp="Smyth">Nisus was besieged in his town of <placeName key="perseus,Megara">Megara</placeName> by Minos, king of <placeName key="tgn,7012056">Crete</placeName>.  Nisus' daughter Scylla, being in love with Minos, cut from the head of her father the purple hair on which his life depended, so that he was slain by the Cretans.</note> who ruined a loved one at the bidding of his foes,<milestone ed="p" n="615" unit="line"/>when, lured by Minos' gift, the Cretan necklace forged of gold, she with her dog's heart despoiled Nisus of his immortal lock as he drew breath in unsuspecting sleep.<milestone ed="p" n="620" unit="line"/>And Hermes<note anchored="yes" n="622" resp="Smyth">Hermes, the conductor to Hades of the souls of the dead.</note> overtook him.<milestone ed="p" n="623" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>But since I have recalled tales of pitiless afflictions, it is the right time to tell of a marriage void of love, an abomination to the house,<milestone ed="p" n="625" unit="line"/>and the plots devised by a wife's cunning against her warrior lord, against her lord revered with reason by his foes. But I honor the hearths of homes not heated by passion's fires, and in woman a spirit that shrinks from audacious deeds.<milestone ed="p" n="630" unit="line"/><milestone ed="p" n="631" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Indeed the Lemnian<note anchored="yes" n="631" resp="Smyth">The women of <placeName key="tgn,7011173">Lemnos</placeName>, jealous of Thracian slaves, killed their husbands, so that when the Argonauts visited the island they found no men.</note> holds first place among evils in story: it has long been told with groans as an abominable calamity.  Men compare each new horror to Lemnian troubles; and because of a woeful deed abhorred by the gods a race has disappeared, cast out in infamy from among mortals.<milestone ed="p" n="635" unit="line"/>For no man reveres what is hated by the gods.  Is there one of these tales I have gathered that I do not justly cite?<milestone ed="p" n="639" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>But the keen and bitter sword is near the breast and drives home its blow at the bidding of Justice.<milestone ed="p" n="640" unit="line"/>For truly the injustice of him who has unjustly transgressed the sovereign majesty of Zeus lies on the ground trampled under foot.<note anchored="yes" n="645" resp="Smyth">The translation is based on the reading <foreign lang="greek">parekba/ntos</foreign> &lpar;Stanley&rpar;; but this and all other alterations do not remove the difficulties of the original.</note><milestone ed="p" n="645" unit="line"/><milestone ed="p" n="646" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>The anvil of Justice is planted firm.  Destiny fashions her arms and forges her sword quickly, and the famed and deeply brooding Fury is bringing the son into our house, to requite at last the pollution of blood shed long ago.<milestone ed="p" n="653" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter, with attendants, Orestes and Pylades before the palace</stage>
+<sp>
+<speaker>Orestes</speaker>
+<p>Boy!  Boy!  Hear my knocking at the outer door!  Who is inside? Boy!  Boy! I say again, who is at home?  Again for the third time I call for some one to come out of the house,<milestone ed="p" n="655" unit="line"/>if by Aegisthus' will it offers welcome to strangers.</p></sp>
+<sp>
+<speaker>Servant</speaker>
+<p>Yes, yes, I hear.  Of what land is the stranger, and whence?</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Announce me to the masters of the house, for it is in fact to them that I come bearing news.  And hurry, since the chariot of night is speeding on with darkness,<milestone ed="p" n="660" unit="line"/>and it is time for wayfarers to drop anchor in some house friendly to all guests.  Tell some one to come forth who has authority over the house, the mistress in charge.  But the master would be more fitting, for then no delicacy in speaking makes words obscure:<milestone ed="p" n="665" unit="line"/>man speaks boldly to man and reveals his meaning without reserve.<stage>The Servant withdraws.  Clytaemestra appears at the door with a maid-servant in attendance</stage></p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Strangers, you have only to declare your need, for we have everything that suits this house: warm baths, beds to charm away fatigue,<milestone ed="p" n="670" unit="line"/>and the presence of honest faces.  But if there is another matter requiring graver counsel, that is the concern of men, and we will communicate with them.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>I am a stranger, a Daulian of the Phocians.  As I was on my way, carrying my pack on business of my own to <placeName key="perseus,Argos">Argos</placeName>,<milestone ed="p" n="675" unit="line"/>just as I ended my journey here,<note anchored="yes" n="676" resp="Smyth">Literally &ldquo;I have been unyoked,&rdquo; his feet being his horses.</note> a man, a stranger to me as I to him, fell in with me, and inquired about my destination and told me his.   He was Strophius, a Phocian &lpar;for as we talked I learned his name&rpar;, and he said to me, &ldquo;Stranger, since in any case you are bound for <placeName key="perseus,Argos">Argos</placeName>,<milestone ed="p" n="680" unit="line"/>keep my message in mind most faithfully and tell his parents Orestes is dead, and by no means let it escape you.  Whether his friends decide to bring him home or to bury him in the land of his sojourn, a foreigner utterly forever, convey their wishes back to me.<milestone ed="p" n="685" unit="line"/>In the meantime a bronze urn contains the ashes of a man rightly lamented.&rdquo;  This much I tell you as I heard it.  Whether by any chance I am speaking to those with whom the question rests and whose concern it is, I do not know.  But his parent should know the truth.<milestone ed="p" n="690" unit="line"/><milestone ed="p" n="691" unit="card"/></p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Oh no!  Your story spells our utter undoing.  O curse that haunts this house, so hard to wrestle down: how far forward you look!  Even what was laid well out of harm's way you bring down with your well-aimed shafts from far off, and you strip me of those I love, utterly wretched as I am.<milestone ed="p" n="695" unit="line"/>And now Orestes: he was indeed prudent in keeping his foot out of the mire of destruction, but now mark down as having abandoned us what was once the one hope in our house of a cure for its fine revelry.<note anchored="yes" n="699" resp="Smyth">Clytaemestra's outward meaning is that, with her son alive and far from the blood-stained house, she had hoped that there has been an end of the carousing of the Curses &lpar;cp.<bibl n="Aesch. Ag. 1188"><title>Agam.</title>1188</bibl>&rpar;. That hope is gone&mdash;they still hold their &ldquo;fair revelry,&rdquo; as she ironically calls it.  Her inner emotion is joy that the hope of Electra is crushed&mdash;the hope that her brother would return and end the unseemly revelry. Reading <foreign lang="greek">parou=san</foreign> &lpar;so M&rpar; <foreign lang="greek">e)ggra/fh|</foreign> the meaning is &ldquo;thou dost inscribe it &lsquo;present &rsquo; in thy list.&rdquo;</note></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>As for me, I am sure that with hosts so prosperous<milestone ed="p" n="700" unit="line"/>I would rather have been made known and welcomed for favorable news.  For where is goodwill greater than from guest to host?  Yet to my mind it would have been irreverent not to fulfill for friends a charge like this when I was bound by promise and hospitality pledged to me.<milestone ed="p" n="705" unit="line"/></p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Rest assured you will receive no less a reward than you deserve nor be the less welcome to this house: someone else might just as well have brought your message.  But it is the hour when strangers who have been travelling on a long day's journey should have their proper entertainment.<milestone ed="p" n="710" unit="line"/>
+<stage>To an attendant</stage>Conduct him to the rooms where the men are hospitably lodged, him and his attendants here and his fellow-traveller, and let them be tended to there as is proper in our house. I command you to do this as you shall be held to strict account.<milestone ed="p" n="715" unit="line"/>Meantime we will communicate this matter to the master of the house, and since we have no lack of friends we will confer on this occurrence.<milestone ed="p" n="719" unit="card"/></p></sp>
+<stage>All withdraw except the Chorus</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p>Ah, loyal handmaidens of the house, low long will it be before we display the power that lies in our mouths to do Orestes service?<milestone ed="p" n="720" unit="line"/></p>
+<p>O hallowed earth, and hallowed barrow raised high that now lies on the royal form of the commander of the fleet, now hear me, now lend me aid!<milestone ed="p" n="725" unit="line"/>Now is the hour for Persuasion with her guile to join forces with him, and for Hermes of the nether world, who works in stealth, to direct this encounter of the deadly sword.<stage>Enter Orestes' Nurse</stage><milestone ed="p" n="730" unit="card"/></p></sp>
+<sp>
+<p>Our stranger, I think, is working mischief:<milestone ed="p" n="730" unit="line"/>for over there I see Orestes' nurse all in tears.  Cilissa<note anchored="yes" n="732" resp="Smyth">Slaves were commonly named from their native country</note>! Where are you going?  Why as you set foot in the palace gate do you have a grief as an unhired companion?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>My mistress commands me to summon Aegisthus for the strangers in all haste, so that he may come and learn more clearly, from man to man, these tidings that have just arrived.<milestone ed="p" n="735" unit="line"/>Indeed, before the servants, behind eyes that feigned grief she hid her laughter over what has occurred fortunately for her.  But the news so plainly told by the strangers means utter ruin for this house.<milestone ed="p" n="740" unit="line"/>I expect that when he hears it he will rejoice in his heart to know the story. Miserable woman that I am!  How the old unbearable troubles of every sort that occurred in this house of Atreus<milestone ed="p" n="745" unit="line"/>have always made my heart ache within my breast!  But never yet have I endured a blow like this.  For all the other troubles I bore patiently, but my beloved Orestes, on whom I spent my soul, whom I took from his mother at birth and nursed,<milestone ed="p" n="750" unit="line"/>and the many and troublesome tasks, fruitless for all my enduring them, when his loud and urgent cries broke my rest....  For one must nurse the senseless thing like a dumb beast, of course one must, by following its humor.  For while it is still a baby in swaddling clothes, it has no speech at all,<milestone ed="p" n="755" unit="line"/>whether hunger moves it, or thirst perhaps, or the call of need: children's young insides work their own relief.  I would anticipate these needs.  Yet many a time, I think, having to wash the child's linen because of my own errors, laundress and nurse had the same function.<milestone ed="p" n="760" unit="line"/>It was I who, with these two handicrafts, received Orestes for his father.  And now, wretch that I am, I hear that he is dead.  But I am on my way to fetch the man who wrought destruction on our house, and he will be glad enough to hear this news.<milestone ed="p" n="765" unit="line"/><milestone ed="p" n="766" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then arrayed how does she tell him to come?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Arrayed how?  Say it again so that I may catch your meaning better.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>With his guards or perhaps unattended?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>She tells him to come with his retinue of spearmen.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Well, do not give this message to our loathed master,<milestone ed="p" n="770" unit="line"/>but with all haste and with a cheerful heart tell him to come himself, alone, so that he may be told without alarm.  For in the mouth of a messenger a crooked message is made straight.<note anchored="yes" n="773" resp="Smyth">A proverbial saying, meant for the Nurse, and not for Aegisthus: &ldquo;In passing through the mouth of its bearer a message may be changed as he pleases.&rdquo;</note></p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>What!  Are you gladdened at heart by the present news?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Why not, if Zeus at last may cause our ill wind to change?<milestone ed="p" n="775" unit="line"/></p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>But how can that be?  Orestes, the hope of our house, is gone.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Not yet; he would be a poor prophet who would so interpret.</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>What are you saying?  Do you know something beyond what has been told?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Go, deliver your message!  Do what you are asked to do! The gods take care of what they take care of.<milestone ed="p" n="780" unit="line"/></p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Well, I will go and do your bidding.  With the gods' blessing may everything turn out for the best!<stage>Exit</stage><milestone ed="p" n="783" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Now at my supplication, O Zeus, father of the Olympian gods, grant that the fortunes of our house be firmly established,<milestone ed="p" n="785" unit="line"/>so that those who rightly desire the rule of order may behold it.  Every word of mine has been uttered in justice.  O Zeus, may you safeguard it!<milestone ed="p" n="789" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="1">
+<sp><speaker>Chorus</speaker>
+<p>O Zeus, set him who is within the palace before his foes;<milestone ed="p" n="790" unit="line"/>since, if you exalt him, he will gladly pay you with double and triple recompense.<milestone ed="p" n="794" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Know that the orphaned colt of a loved one is harnessed to the chariot of distress.<milestone ed="p" n="795" unit="line"/>And by setting bounds to his course may you grant that we see him keep a steady pace through this race and win the goal in the straining stride of a gallop.<note anchored="yes" n="799" resp="Smyth">That is, let him bide his time by guarding against haste.</note><milestone ed="p" n="800" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And you who within the house inhabit the inner chamber that exults in its wealth,<milestone ed="p" n="800" unit="line"/>hear me, you gods, that feel with us!  By a fresh award redeem the blood of deeds done long ago.<milestone ed="p" n="805" unit="line"/>May aged Murder cease begetting offspring in our house!<milestone ed="p" n="806" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And you who occupy the mighty, gorgeously built cavern,<note anchored="yes" n="806" resp="Smyth">The inner sanctuary of Apollo at <placeName key="perseus,Delphi">Delphi</placeName> was a narrow cave or vault in which, over a cleft, stood a tripod covered by a slab on which the prophetess sat &lpar;Athenaeus , 701c, Strabo, ix. 641&rpar;.</note> grant that the man's house may lift up its eyes again in joy, and that with glad eyes it may behold from under its veil of gloom the radiant light of freedom.<milestone ed="p" n="810" unit="line"/><milestone ed="p" n="811" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>May Maia's son,<note anchored="yes" n="813" resp="Smyth">Hermes, the patron of guile and god of eloquence.</note> as he rightfully should, lend his aid, for no one can better sail a deed on a favoring course, when he would do so.<note anchored="yes" n="815" resp="Smyth">The bracketed line 815 reads &ldquo;And many another hidden thing he will make plain, if he desires.&rdquo;</note><milestone ed="p" n="815" unit="line"/>But by his mysterious utterance he brings darkness over men's eyes by night, and by day he is no more clear at all.<milestone ed="p" n="819" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>And then at last with a loud voice we shall sing a song of the deliverance of our house,<milestone ed="p" n="820" unit="line"/>the song that women raise when the wind sits fair, and not the shrill strain of those who mourn: &ldquo;The ship goes well.  This grows to profit for me, for me,<milestone ed="p" n="825" unit="line"/>and calamity holds off from those I love.&rdquo;<milestone ed="p" n="827" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="3">
+<sp><speaker>Chorus</speaker>
+<p>But may you with good courage, when the part of action comes, cry out loud the name &ldquo;Father&rdquo; when she exclaims &ldquo;Son,&rdquo; and accomplish the baneful but irreproachable deed.<milestone ed="p" n="830" unit="line"/><milestone ed="p" n="831" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Raise up Perseus' spirit within my breast.  And for those dear to you below the earth, and for those above, exact satisfaction for their dire wrath<milestone ed="p" n="835" unit="line"/>by working bloody ruin in our house and obliterating the guilt of murder.<note anchored="yes" n="837" resp="Smyth">Of verses 819-837 only the general sense is clear.</note><milestone ed="p" n="838" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Aegisthus</stage>
+<sp>
+<speaker>Aegisthus</speaker>
+<p>I have come not unasked but summoned by a messenger.  I heard startling news told by some strangers who have arrived, tidings far from  welcome:<milestone ed="p" n="840" unit="line"/>&mdash;that Orestes is dead.  To lay this too upon our house would be a fearful burden when it is still festering and galled by the wound inflicted by an earlier murder.  How can I believe this tale is the living truth?  Or is it merely a panic-stricken report spread by women<milestone ed="p" n="845" unit="line"/>which leaps up to die away in nothingness?  What can you tell me of this to make it plain to my mind?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>We heard the tale, it is true.  But go inside and inquire of the strangers.  The certainty of a messenger's report is nothing compared with one's own interrogation of the man himself.<milestone ed="p" n="850" unit="line"/></p></sp>
+<sp>
+<speaker>Aegisthus</speaker>
+<p>I wish to see the messenger and put him to the test again&mdash;whether he himself was present at the death or merely repeats from vague reports what he has heard.  No!  Be sure he cannot deceive a mind with eyes open.<stage>Exit</stage>
+<milestone ed="p" n="855" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>O Zeus, O Zeus, what should I say?<milestone ed="p" n="855" unit="line"/>Where shall I begin this prayer of mine, this appeal to the gods? How in my loyal zeal can I succeed in finding words to match need?  Now is the moment when the blood-stained edges of the blades that lay men low<milestone ed="p" n="860" unit="line"/>are utterly forever to destroy the house of Agamemnon.   Or else, kindling a flaming light in the cause of freedom, Orestes will win both the rule over his realm and the rich possessions of his fathers.<milestone ed="p" n="865" unit="line"/>Our gallant Orestes, with no one to assist him, is now to meet with two in such a contest.  And may it be to triumph!<milestone ed="p" n="869" unit="card"/></p></sp>
+<stage>A shriek is heard from within</stage>
+<sp>
+<speaker>Aegisthus</speaker>
+<p><stage>within</stage>Oh!  Oh!  O woe!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Ah!  Ah!  Alas!<milestone ed="p" n="870" unit="line"/>What is happening?  What is being accomplished for our house?  Let us stand apart while the matter is still unsettled so that we may be considered blameless in these ills.  For the issue of the fighting has now been decided.<stage>The Chorus withdraws to the side of the scene; then a servant of Aegisthus rushes in</stage><milestone ed="p" n="875" unit="card"/></p></sp>
+<sp>
+<speaker>Servant</speaker>
+<p>O woe, oh utter woe!  My master is slain!<milestone ed="p" n="875" unit="line"/>O woe!  I cry yet again, for the third time.  Aegisthus is no more!  Come, with all speed!  Unbar and open the women's door!  And a strong arm indeed is needed, but not to help him who is already slain: what good is there in that?<milestone ed="p" n="880" unit="line"/>Help!  Help! Am I shouting to the deaf and fruitlessly wasting my voice on people who are asleep? Where has Clytaemestra gone?  What is she doing? Her own neck, near the razor's edge, is now ready to fall beneath the stroke.</p></sp>
+<stage>Clytaemestra hurries in unattended</stage>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>What is this?  What cry for help are you raising in our house?<milestone ed="p" n="885" unit="line"/></p></sp>
+<sp>
+<speaker>Servant</speaker>
+<p>I tell you the dead are killing the living.<note anchored="yes" n="886" resp="Smyth">The Greek admits either meaning: &ldquo;the dead are killing the living man&rdquo; or &ldquo;the living man is killing the dead.&rdquo;</note></p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Ah!  Indeed I grasp the meaning of the riddle.  We are to perish by treachery, just as we committed murder.  Someone give me a battle-axe, and quickly!  Let us know if we are victors or vanquished:<milestone ed="p" n="890" unit="line"/>for I have even come to this in this wretched business.<stage>Exit Servant.  The door is opened and the corpse of Aegisthus is discovered.  Nearby stands Orestes, and at a distance Pylades</stage></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>It is you I seek.  He over there has had enough.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Oh no!  My beloved, valiant Aegisthus!  You are dead!</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>You love this man?  Then you will lie in the same grave, and you will never abandon him in death.<milestone ed="p" n="895" unit="line"/></p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Wait, my son!  Have pity, child, upon this breast at which many times while you slept you sucked with toothless gums the milk that nourished you.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Pylades, what shall I do?  Shall I spare my mother out of pity?<milestone ed="p" n="900" unit="card"/></p></sp>
+<sp>
+<speaker>Pylades</speaker>
+<p>What then will become in the future of Loxias' oracles declared at <placeName key="tgn,7010770">Pytho</placeName>, and of our sworn pact?<milestone ed="p" n="900" unit="line"/>Count all men your enemies rather than the gods.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>I judge you victor: you advise me well.<stage>To Clytaemestra</stage>Come, this way!  I mean to kill you by his very side. For while he lived, you thought him better than my father.<milestone ed="p" n="905" unit="line"/>Sleep with him in death, since you love him but hate the man you were bound to love.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>It was I who nourished you, and with you I would grow old.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>What!  Murder my father and then make your home with me?</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Fate, my child, must share the blame for this.<milestone ed="p" n="910" unit="line"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>And fate now brings this destiny to pass.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Have you no regard for a parent's curse, my son?</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>You brought me to birth and yet you cast me out to misery.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>No, surely I did not cast you out in sending you to the house of an ally.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>I was sold in disgrace, though I was born of a free father.<milestone ed="p" n="915" unit="line"/></p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Then where is the price I got for you?</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>I am ashamed to reproach you with that outright.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>But do not fail to proclaim the follies of that father of yours as well.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Do not accuse him who suffered while you sat idle at home.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>It is a grief for women to be deprived of a husband, my child.<milestone ed="p" n="920" unit="line"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Yes, but it is the husband's toil that supports them while they sit at home.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>You seem resolved, my child, to kill your mother.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>You will kill yourself, not I.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Take care: beware the hounds of wrath that avenge a mother.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>And how shall I escape my father's if I leave this undone?<milestone ed="p" n="925" unit="line"/></p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>I see that though living I mourn in vain before a tomb.<note anchored="yes" n="926" resp="Smyth">&ldquo;To wail to a tomb&rdquo; was a proverbial expression according to the Scholiast, who cites the saying, &ldquo;'tis the same thing to cry to a tomb as to a fool.&rdquo;  Here, though in strictness <foreign lang="greek">zw=sa</foreign> is added only to point the contrast with <foreign lang="greek">tu/mbon</foreign> &mdash;the sentient being with the senseless thing&mdash;it also defines the application of <foreign lang="greek">tu/mbon</foreign> to Orestes; and its insertion serves to <emph>suggest</emph> that Clytaemestra means that, though living, she is bewailing her own death.</note></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Yes, for my father's fate has marked out this destiny for you.</p></sp>
+<sp>
+<speaker>Clytaemestra</speaker>
+<p>Oh no! I myself bore and nourished this serpent!</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Yes, the terror from your dream was indeed a prophet.  You killed him whom you should not; so suffer what should not be.<milestone ed="p" n="930" unit="line"/><stage>He forces Clytaemestra within; Pylades follows</stage></p></sp>
+</div1>
+<div1 type="choral">
+<sp>
+<speaker>Chorus</speaker>
+<p>Truly I grieve even for these in their twofold downfall.  Yet since long-suffering Orestes has reached the peak of many deeds of blood, we would rather have it so, that the eye of the house should not be utterly lost.<milestone ed="p" n="935" unit="card"/></p></sp>
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>As to Priam and his sons justice came at last in crushing retribution,<milestone ed="p" n="935" unit="line"/>so to Agamemnon's house came a twofold lion, twofold slaughter.<note anchored="yes" n="937" resp="Smyth">As a &ldquo;twofold&rdquo; lion &lpar;Clytaemestra and Aegisthus&rpar; has ravaged the house, so there has been a twofold slaughter by its defenders.  There is no reference to Orestes and Pylades or to Agamemnon and Cassandra.</note> The exile, the suppliant of <placeName key="tgn,7010770">Pytho</placeName>, has fulfilled his course to the utmost, justly urged on by counsels from the gods.<milestone ed="p" n="940" unit="line"/><milestone ed="p" n="942" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Oh raise a shout of triumph over the escape of our master's house from its misery and the wasting of its wealth by two who were unclean, its grievous fortune!<milestone ed="p" n="945" unit="line"/><milestone ed="p" n="946" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>And he has come whose part is the crafty vengeance of stealthy attack, and in the battle his hand was guided by her who is in very truth daughter of Zeus, breathing murderous wrath on her foes.  We mortals aim true to the mark when we call her Justice.<note anchored="yes" n="949" resp="Smyth"><foreign lang="greek">*di/-ka</foreign> is here derived from <foreign lang="greek">*di</foreign>&lpar;<foreign lang="greek">o\s</foreign>&rpar; <foreign lang="greek">k</foreign>&lpar;<foreign lang="greek">o/r</foreign>&rpar;<foreign lang="greek">a,</foreign> &ldquo;daughter of Zeus.&rdquo;</note><milestone ed="p" n="950" unit="line"/><milestone ed="p" n="942a" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="1">
+<sp><speaker>Chorus</speaker>
+<p>&lt;Oh raise a shout of triumph over the escape of our master's house from its misery and the wasting of its wealth by two who were unclean, its grievous fortune!&gt;<milestone ed="p" n="945a" unit="line"/><milestone ed="p" n="953" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>The commands proclaimed loudly by Loxias, tenant of the mighty cavern shrine of <placeName key="tgn,7011022">Parnassus</placeName>, assail with guileless guile<milestone ed="p" n="955a" unit="line"/>the mischief now become inveterate.  May the divine word prevail that so I may not serve the wicked!<note anchored="yes" n="959" resp="Smyth">The translation is based of Hermann's text: <foreign lang="greek">kratei/tw d' e)/pos to\ qei=on to\ mh/ m' &verbar; u(pourgei=n kakoi=s.</foreign></note> It is right to revere the rule of heaven.<milestone ed="p" n="960" unit="line"/><milestone ed="p" n="961" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Look, the light has come, and I am freed from the cruel curb that restrained our household.  House, rise up!  You have lain too long prostrate on the ground.<milestone ed="p" n="966" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>But soon time that accomplishes all will pass the portals of our house,<milestone ed="p" n="965" unit="line"/>and then all pollution will be expelled from the hearth by cleansing rites that drive out calamity.  The dice of fortune will turn as they fall and lie with faces all lovely to behold, favorably disposed to whoever stays in our house.<milestone ed="p" n="970" unit="line"/><milestone ed="p" n="972" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Look, the light has come,<milestone ed="p" n="962a" unit="line"/>and I am freed from the cruel curb that restrained our household.  House, rise up!  You have lain too long prostrate on the ground.<milestone ed="p" n="973" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Orestes with the branch and wreath of a suppliant  is disclosed standing by the bodies. With him are Pylades and  attendants who display the robe of Agamemnon</stage>
+<sp>
+<speaker>Orestes</speaker>
+<p>Behold this pair, oppressors of the land, who murdered my father and ransacked my house!  They were majestic then, when they sat on their thrones,<milestone ed="p" n="975" unit="line"/>and are lovers even now, as one may judge by what has happened to them, and their oath holds true to their pledges.  Together they vowed a league of death against my unhappy father, and together they vowed to die, and they have kept their promise well.</p>
+<p>But now regard again, you who hear this account of ills,<milestone ed="p" n="980" unit="line"/>the device for binding my unhappy father, with which his hands were manacled, his feet fettered.  Spread it out!  Stand around in a circle, and display this covering for a man, that the Father may see&mdash;not mine, but he who surveys all this, the Sun&mdash;<milestone ed="p" n="985" unit="line"/>that he may see the impious work of my own mother, that he may be my witness in court that I justly pursued this death, my own mother's.  For I do not speak of Aegisthus' death: he has suffered the penalty prescribed for adulterers.<milestone ed="p" n="990" unit="line"/></p>
+<p>But she who devised this abhorrent deed against her husband, whose children she bore, a burden under her belt, a burden once dear, but now a hateful ill, as it seems: what do you think of her?  Had she been born a seasnake or a viper, I think her very touch without her bite would have caused anyone else to rot,<milestone ed="p" n="995" unit="line"/>if shamelessness and an immoral disposition could do so.<stage>He  again takes up the bloody robe</stage></p>
+<p>What name shall I give it, however tactful I may be?  A trap for a wild beast?  Or a shroud for a corpse in his bier,<note anchored="yes" n="998" resp="Smyth"><foreign lang="greek">droi/ths kataskh/nwma</foreign> also means &ldquo;curtain of a bath.&rdquo;</note> wrapped around his feet?  No, rather it is a net: you might call it a hunting net, or robes to entangle a man's feet.<milestone ed="p" n="1000" unit="line"/>This would be the kind of thing a highwayman might posses, who deceives strangers and earns his living by robbery, and with this cunning snare he might kill many men and warm his own heart greatly.</p>
+<p>May such a woman not live with me in my house!<milestone ed="p" n="1005" unit="line"/>Before that may the gods grant me to perish childless!<milestone ed="p" n="1007" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Alas!  Alas!  Sorrowful work!  You were done in by a wretched death.  Alas!  Alas!  And for the survivor also suffering blossoms.<milestone ed="p" n="1010" unit="card"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Did she do the deed or not?<milestone ed="p" n="1010" unit="line"/>No, this is my witness, dyed by Aegisthus' sword.  This is a stain of blood that helps time to spoil the many tinctures of embroidered fabric.</p>
+<p>Now at last I speak his praises.  Now at last I am present to lament him, as I address this web that wrought my father's death.<milestone ed="p" n="1015" unit="line"/>Yet I grieve for the deed and the punishment and for my whole clan.  My victory is an unenviable pollution.<milestone ed="p" n="1018" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>No mortal being shall pass his life unscathed, free from all suffering to the end.  Alas!  Alas!  One tribulation comes today, another tomorrow.<milestone ed="p" n="1020" unit="line"/><milestone ed="p" n="1021" unit="card"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>But since I would have you know, for I do not know how it will end: I think I am a charioteer driving my team far beyond the course.  For my ungoverned wits are whirling me away overmastered, and at my heart fear wishes to sing and dance to a tune of wrath.<milestone ed="p" n="1025" unit="line"/>But while I am still in my senses, I proclaim to those who hold me dear and declare that not without justice did I slay my mother, the unclean murderess of my father, and a thing loathed by the gods.</p>
+<p>And for the spells that gave me the courage for this deed I count Loxias, the prophet of <placeName key="tgn,7010770">Pytho</placeName>,<milestone ed="p" n="1030" unit="line"/>my chief source.  It was he who declared that, if I did this thing, I would be acquitted of wrongdoing.  But if I refrained&mdash;I will not name the penalty; for no bowshot could reach such a height of anguish.</p>
+<p>And now observe me, how armed with this branch and wreath I go as a suppliant, an outcast for the shedding of kindred blood, to the temple set square on the womb of the earth,<milestone ed="p" n="1035" unit="line"/>the precinct of Loxias, and to the bright fire said to be imperishable.<note anchored="yes" n="1037" resp="Smyth">In the Delphic shrine there was an undying fire.</note> To no other hearth did Loxias bid me turn.  And as to the manner in which this evil deed was wrought, I charge all men of <placeName key="perseus,Argos">Argos</placeName> in time to come to bear me witness.<milestone ed="p" n="1040" unit="line"/>I go forth a wanderer, estranged from this land, leaving this repute behind, in life or death.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And you have done well.  Therefore do not yoke your tongue to an ill-omened speech, nor let your lips give vent to evil forebodings,<milestone ed="p" n="1045" unit="line"/>since you have freed the whole realm of <placeName key="perseus,Argos">Argos</placeName> by lopping off the heads of two serpents with a fortunate stroke.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>Ah, ah!  You handmaidens, look at them there: like Gorgons, wrapped in sable garments, entwined with swarming snakes!  I can stay no longer.<milestone ed="p" n="1050" unit="line"/><milestone ed="p" n="1051" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What fantasies disturb you, dearest of sons to your father?  Wait, do not be all overcome by fear.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>To me these are no imagined troubles.  For there indeed are the hounds of wrath to avenge my mother.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>It is that the blood is still fresh on your hands;<milestone ed="p" n="1055" unit="line"/>this is the cause of the disorder that assails your wits.</p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>O lord Apollo, look!  Now they come in troops, and from their eyes they drip loathsome blood!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>There is one way to cleanse you: the touch of Loxias will set you free from this affliction.<milestone ed="p" n="1060" unit="line"/></p></sp>
+<sp>
+<speaker>Orestes</speaker>
+<p>You do not see them, but I see them.  I am pursued. I can stay no longer.<stage>Rushes out</stage></p></sp>
+<sp n="chorus">
+<speaker>Chorus</speaker>
+<p>Then may blessings go with you, and may the god watch benevolently over you and guard you with favorable fortunes!<milestone ed="p" n="1065" unit="card"/></p>
+<p>Look!  Now again, for the third time, has the tempest of this clan burst on the royal house and run its course.<milestone ed="p" n="1065" unit="line"/>First, at the beginning, came the cruel woes of children slain for food; next, the fate of a man, a king,<milestone ed="p" n="1070" unit="line"/>when the warlord of the Achaeans perished, murdered in his bath.  And now, once again, there has come from somewhere a third, a deliverer, or shall I say a doom?  Oh when will it finish its work, when will the fury of calamity, lulled to rest, find an end and cease?<milestone ed="p" n="1075" unit="line"/></p></sp>
+</div1></body></text>
+</TEI.2>

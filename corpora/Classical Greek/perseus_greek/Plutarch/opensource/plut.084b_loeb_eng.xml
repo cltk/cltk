@@ -1,0 +1,1591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>Quaestiones Graecae</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Frank Cole Babbitt</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Frank Cole Babbitt</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1936</date>
+                  </imprint>
+                  <biblScope type="volume">4</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="section" n="intro">
+            <pb id="v.4.p.174"/>
+            <head>THE GREEK QUESTIONS
+					(QUAESTIONES GRAECAE)
+					<lb/>INTRODUCTION</head>
+            <p>In the <hi rend="italics">Greek Questions</hi>, as in the <hi rend="italics">Roman Questions</hi>,
+					Plutarch endeavours to give the reason or explanation
+					of fifty-nine matters concerned with Greek life. The
+					vast majority of them are customs or names and, as
+					the explanations are usually historical, they often go
+					back to very early times. A full commentary may
+					be found in W. R. Halliday, <hi rend="italics">The Greek Questions of
+					Plutarch</hi> (Oxford, 1928), an excellent work, embodying
+					also much of the modern speculation in regard to
+					primitive religion.
+				</p>
+            <p>The sources for the information contained in this
+					essay seem to be somewhat varied, but there is little
+					doubt that Aristotle's account of the numerous <hi rend="italics">Greek
+					Constitutions</hi> was Plutarch's principal source. The
+					matter is treated at length by Halliday.
+				</p>
+            <p>J. J. Hartman (<hi rend="italics">Mnemosyne</hi>, xii. p. 216, or <hi rend="italics">De
+					Plutarcho scriptore et philosophos</hi> p. 139) is the only
+					modern scholar who has doubted the authenticity of
+					the attribution to Plutarch of this work<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">
+                     <foreign lang="la">Sed praeterea totus liber mera est doctrinae ostentatio, . . . Chaeronensi metium medico prorsus indigna</foreign>.</q>
+               </note>; the author
+					was not primarily interested in ethical matters,
+					according to Hartman, and hence cannot be Plutarch.
+					J. B. Titchener<note resp="ed" place="unspecified" anchored="yes">See <hi rend="italics">The ms. Tradition of Plutarch's Aetia Graeca and Aetia Romana</hi> (Urbana, Illinois, 1924), p. 9.</note> has promised a discussion of this
+					
+					<pb id="v.4.p.175"/>
+					
+					matter, but stylistic considerations alone seem to
+					make it uncertain whether the work is correctly
+					attributed to Plutarch.
+				</p>
+            <p>A few of the topics treated in the <hi rend="italics">Greek Questions</hi>
+					appear also in other works of Plutarch, but the
+					number naturally is not large.
+				</p>
+            <p>The ms. tradition is good; the few difficulties
+					found are generally with single words.
+				</p>
+            <p>The work is No. 166 in Lamprias's list of Plutarch's
+					works, where the title is given as <foreign lang="greek">*ai)ti/ai *(ellh/nwn</foreign>.
+				</p>
+         </div1>
+         <pb id="v.4.p.177"/>
+         <div1 type="section" n="1">
+            <p>Who were the <q direct="unspecified">dusty-feet</q> and the <q direct="unspecified">directors</q>
+					in Epidaurus?
+				</p>
+            <p>There were one hundred and eighty men who
+					directed the State. From these they used to elect
+					councillors whom they called <q direct="unspecified">directors.</q> But the
+					majority of the populace spent their life in the coun
+					try. They were called <q direct="unspecified">dusty-feet</q>
+               <note resp="ed" place="unspecified" anchored="yes">This was the serf-class liberated by the tyrants: <hi rend="italics">cf. Cambridge Ancient History</hi>, vol. iii. p. 554.</note> since, as one
+					may conjecture, they were recognized by their dust-covered feet whenever they carne down to the city.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>Who was the <q direct="unspecified">woman that rode on a donkey</q>
+					at Cumae?
+				</p>
+            <p>Any woman taken in adultery they used to bring
+					into the market-place and set her on a certam stone
+					in plain sight of everyone. In like manner they then
+					proceeded to mount her upon a donkey , and when she
+					had been led about the circuit of the entire city, she
+					was required again to take her stand upon the same
+					stone, and for the rest of her life to continue in disgrace, bearing the name <q direct="unspecified">donkey-rider.</q> After this
+					ceremony they believed that the stone was unclean
+					and they used ritually to purify it.
+				</p>
+            <p>The citizens of Cumae had also a certain office
+					called the Guards. The man who held this office
+					used to watch the prison most of the time, but he
+					
+					
+					<pb id="v.4.p.179"/>
+					
+					came to the nocturnal assemblies of the council and
+					led out the kings by the hand and kept them out,
+					until by secret ballot the council had decided on
+					their case, whether they had done wrong or no.
+				</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Who is She that Kindles the Fire (hypekkaustria)<note resp="ed" place="unspecified" anchored="yes">W. R. Halliday, in <hi rend="italics">Harvard Studies in Classical Philology</hi>, xxxvi. 165-177, suggests that <q direct="unspecified">cohen</q> (= priest) may be contained in this word.</note> among the people of Soli?
+				</p>
+            <p>This is the name which they give to the priestess of
+					Athena because she performs certain sacrifices and
+					ceremonies to avert evil.
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Who were the Forgetful Ones (<hi rend="italics">Amnemones</hi>) at
+					Cnidus, and who was the Dismisser<note resp="ed" place="unspecified" anchored="yes">Grote thus connected <hi rend="italics">aphester</hi> with the Spartan <hi rend="italics">apostater</hi> of <hi rend="italics">Life of Lycurgus</hi>, chap. vi. (43 c); but the matter is very doubtful; <hi rend="italics">cf.</hi> van Herwerden, <hi rend="italics">Lex. Supp. Graec.</hi>
+               </note> (<hi rend="italics">Aphester</hi>)?
+				</p>
+            <p>They were wont to employ sixty men chosen from
+					the nobles, and appointed for life, as overseers and
+					preliminary advisers in matters of the greatest importance. They were called the Forgetful Ones, one
+					might conjecture, because they could not be held to
+					account for their actions ; unless, indeed, it was because they were men who remembered many things.<note resp="ed" place="unspecified" anchored="yes">On the <hi rend="italics">lucus a non lucendo</hi> principle, as Halliday well suggests; or else <foreign lang="greek">a)m</foreign>-<foreign lang="greek">mnh/mones</foreign>, as van Herwerden supposes.</note>
+					He who asked them their opinions was the Dismisser.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Who are the <q direct="unspecified">good</q> among the Arcadians and
+					the Spartans?
+				</p>
+            <p>When the Spartans had come to terms with the
+					Tegeans, they made a treaty and set up in common
+					a pillar by the Alpheius. On this, among other
+					matters, was inscribed : <q direct="unspecified">The Messenians must be
+						expelled from the country ; it shall not be lawful to
+						make men good.</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 
+                  <foreign lang="greek">xrhote\ xai=re</foreign> on Greek tombstones.</note> Aristotle,<note resp="ed" place="unspecified" anchored="yes">Frag. 592 (V. Rose); <hi rend="italics">cf.</hi> 277 b-c, <hi rend="italics">supra</hi>.</note> then, in explaining
+					this, states that it means that no one shall be put
+					
+					<pb id="v.4.p.181"/>
+					
+					to death because of assistance given to the Spartan
+					party in Tegea.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>Who is <q direct="unspecified">he that selects barley</q> (<hi rend="italics">krithologos</hi>)
+					among the Opuntians?
+				</p>
+            <p>For sacrifices of very ancient origin most of the
+					Greeks used to employ barley, which the citizens
+					offered as first-fruits of the harvest. Accordingly
+					they called the officer who presided at the sacrifices
+					and brought these first-fruits the Barley-selector.
+					They had two priests : one appointed for sacrifices to
+					the gods, the other for sacrifices to the spirits.
+				</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>What were the <q direct="unspecified">floating clouds</q>?
+				</p>
+            <p>They used to call clouds <q direct="unspecified">floating</q> which particularly threatened rain and were in constant motion, as
+					Theophrastus has stated in the fourth book of his
+					<hi rend="italics">Meteorology</hi>. The passage reads thus : <q direct="unspecified">Since also
+						these floating clouds and these compact clouds, which
+						are immovable and very white in colour, exhibit a
+						certain difference of substance which is filled neither
+						with water nor with wind.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Who is the <q direct="unspecified">near-dweller</q> (<hi rend="italics">platioiketas</hi>) among
+					the Boeotians?
+				</p>
+            <p>This is the name they give in the Aeolian dialect
+					to persons who dwell in the next house or occupy
+					adjoining property, signifying that they hold land
+					near at hand. I shall add one phrase from the Edict
+					of the Guardians of the Law, although there are
+					several more . . .<note resp="ed" place="unspecified" anchored="yes">The copyist seems to have omitted the quotation.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>Who is the Consecrator (<hi rend="italics">hosioter</hi>) among the
+					Delphians and why do they call one of the months
+					<q direct="unspecified">Bysios</q>?
+					
+					
+					<pb id="v.4.p.183"/>
+					
+				        </p>
+            <p>They call the victim that is sacrificed Consecrator
+					whenever an Holy One<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 365 a, 437 a.</note> is appointed. There are five
+					Holy Ones, who hold office for life ; they do a great
+					many things with the co-operation of the oracle-interpreters and with them take part in the holy
+					rites, since they are thought to have descended from
+					Deucalion.
+				</p>
+            <p>The month <q direct="unspecified">Bysios,</q> as many think, is the month of
+					growth (<hi rend="italics">physios</hi>) ; for it begins the spring and during
+					it many plants spring up and come into bloom. But
+					this is not the truth of the matter, for Delphians do
+					not use <hi rend="italics">b</hi> in place of <hi rend="italics">ph</hi> (as Macedonians do who say
+					<q direct="unspecified">Bilip</q> and <q direct="unspecified">balacros</q> and <q direct="unspecified">Beronic&ecirc;</q>), but in
+					place of <hi rend="italics">p</hi>; thus they naturally say <q direct="unspecified">broceed</q> for
+					<q direct="unspecified">proceed</q> and <q direct="unspecified">bainful</q> for <q direct="unspecified">painful.</q> Accordingly <q direct="unspecified">Bysios</q> is <q direct="unspecified">pysios,</q> the month of oracular
+					inquiry, in which men ask questions and obtain responses from the god ; for this is the legitimate and
+					traditional procedure. In this month, then, oracles
+					used to be given and the seventh day of this month
+					they consider the birthday of the god.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> 717 d; for the connexion of the number seven with the birth of Apollo see Callimachus, <hi rend="italics">Hymn</hi> iv. 251 ff.</note> They call
+					this day the day of Many Utterances (<hi rend="italics">Polyphtho&ouml;s</hi>)
+					not because they then bake cakes (<hi rend="italics">phtho&iuml;s</hi>),<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Athenaeus, 647 d, 502 b.</note> but
+					because it is a day when many inquire of the god
+					and receive many oracles. For only recently have
+					monthly oracles been given out to inquirers ; formerly
+					the prophetic priestess was wont to give responses
+					but once a year on this day, as Callisthenes<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Jacoby, <hi rend="italics">Frag. der griech. Hist.</hi> 124 f 49.</note> and
+					Anaxandrides have recorded.
+				</p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>What is the <q direct="unspecified">sheep-escaper</q>?
+				</p>
+            <p>It is one of the small plants that grow close to the
+					
+					<pb id="v.4.p.185"/>
+					
+					ground, whose shoots the grazing animals attack,
+					cutting off the tops and injuring them and so spoiling
+					the growth. But when these plants grow up and
+					gain some size and escape injury from the flocks
+					which graze upon them, then they are called <q direct="unspecified">sheep-escapers.</q> The evidence for this is Aeschylus.<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> p. 123, Aeschylus, Frag. 447.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>Who are the <q direct="unspecified">Men repulsed by slings</q>?
+				</p>
+            <p>Men from Eretria used to inhabit the island of
+					Corcyra. But Charicrates sailed thither from Corinth
+					with an army and defeated them in war; so the
+					Eretrians embarked in their ships and sailed back
+					home. Their fellow-citizens, however, having learned
+					of the matter before their arrival, barred their return
+					to the country and prevented them from disembarking by showering upon them missiles from slings.
+					Since the exiles were unable either to persuade or to
+					overcome their fellow-citizens, who were numerous
+					and inexorable, they sailed to Thrace and occupied
+					a territory in which, according to tradition, Methon,
+					the ancestor of Orpheus, had formerly lived. So the
+					Eretrians named their city Methon&ecirc;, but they were
+					also named by their neighbours the <q direct="unspecified">Men repulsed
+						by slings.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>Who was <q direct="unspecified">Charilla</q> among the Delphians?
+				</p>
+            <p>The Delphians celebrate three festivals one after
+					the other which occur every eight<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 421 c.</note> years, the first of
+					which they call Septerion, the second Hero&iuml;s, and the
+					third Charilla.
+				</p>
+            <p>Now the Septerion seems to be a representation of
+					Apollo's fight with the Python and the flight to Temp&ecirc;
+					and pursuit that followed the battle.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 421 c.</note> Some indeed
+					
+					<pb id="v.4.p.187"/>
+					
+					affirm that Apollo fled because he desired purification as a consequence of the slaughter he had done,
+					others that he was following the wounded Python
+					as he fled along the road which we now call the Sacred
+					Way, and was only a little late for the monster's
+					death ; for he overtook him when he had just died
+					from the effects of the wound and had been buried
+					by his son, whose name, as they say, was Aix. The
+					Septerion, then, is a representation of these matters
+					or certain matters of a similar nature.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 418 a-b; Aelian, <hi rend="italics">Varia Historia</hi>, iii. 1, for this festival.</note>
+				        </p>
+            <p>The greater part of the Hero&iuml;s has a secret import which the Thyiads<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 249 e-f.</note> know ; but from the portions
+					of the rites that are performed in public one might
+					conjecture that it represents the evocation of Semele.
+				</p>
+            <p>The story of Charilla which they relate is somewhat
+					as follows : A famine following a drought oppressed
+					the Delphians, and they came to the palace of their
+					king with their wives and children and made supplication. The king gave portions of barley and
+					legumes to the more notable citizens, for there was
+					not enough for all. But when an orphaned girl, who
+					was still but a small child, approached him and importuned him, he struck her with his sandal and cast
+					the sandal in her face. But, although the girl was
+					poverty-stricken and without protectors, she was not
+					ignoble in character ; and when she had withdrawn,
+					she took off her girdle and hanged herself. As
+					the famine increased and diseases also were added
+					thereto, the prophetic priestess gave an oracle to the
+					king that he must appease Charilla, the maiden
+					who had slain herself. Accordingly, when they had
+					discovered with some difficulty that this was the name
+					of the child who had been struck, they performed
+					a certain sacrificial rite combined with purification,
+					
+					
+					<pb id="v.4.p.189"/>
+					
+					which even now they continue to perform every
+					eight years. For the king sits in state and gives a
+					portion of barley-meal and legumes to everyone,
+					alien and citizen alike, and a doll-like image of
+					Charilla is brought thither. When, accordingly, all
+					have received a portion, the king strikes the image
+					with his sandal. The leader of the Thyiads picks up
+					the image and bears it to a certain place which is full
+					of chasms ; there they tie a rope round the neck of
+					the image and bury it in the place where they buried
+					Charilla after she had hanged herself.
+				</p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>What is the <q direct="unspecified">beggar's meat</q> among the
+					Aenianians?
+				</p>
+            <p>There have been several migrations of the Aenianians. For first, when they inhabited the region
+					about the Dotian plain, they were expelled by the
+					Lapiths to Aethicia.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 297 b-c, <hi rend="italics">infra</hi>.</note> From there they proceeded
+					to take possession of the region of Molossia about
+					the river Auas, from which they received the name
+					Parauaei. After this they took possession of Cirrha.
+					There, when they had stoned to death Oenoclus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 297 b-c, <hi rend="italics">infra</hi>.</note>
+					their king, at the command of the god, they descended to the country about the Inachus, which was
+					inhabited by Inachians and Achaeans. Since an
+					oracle had declared that if the Inachians gave away
+					any part of their country, they should lose it all, and
+					that if the Aenianians received any part of the land
+					from willing givers, they should gain possession of it,
+					Temon, a notable man among the Aenianians, donned
+					rags and wallet and came to the Inachians in the
+					guise of a beggar. In scorn and mockery their king
+					gave him a clod of earth, which Temon accepted,
+					
+					<pb id="v.4.p.191"/>
+					
+					placed within his wallet, and was evidently satisfied with the gift; for he straightway withdrew
+					without asking for anything more. The Inachian
+					elders were astonished, but, recalling the oracle,
+					they went to the king and told him not to make light
+					of the fellow nor to let him get away. Temon, then,
+					perceiving their intent, hastened his flight and made
+					his escape after vowing a hecatomb to Apollo.
+				</p>
+            <p>After this affair the two kings engaged in single
+					combat, and Phemius, king of the Aenianians, observing the Inachian king, Hyperochus, advancing
+					to meet him accompanied by a dog, said that Hyperochus was acting unfairly in bringing on a second
+					combatant. But while Hyperochus was driving
+					off the dog and had his back turned, Phemius hit
+					him with a stone and killed him. The Aenianians
+					gained possession of the country, driving out the
+					Inachians together with the Achaeans, and they
+					revere that stone as sacred, and sacrifice to it and
+					cover it round about with the fat of the sacrificial
+					victim ; and whenever they pay the hecatomb to
+					Apollo, they sacrifice a bull to Zeus ; and they set
+					aside a select portion of the flesh for the descendants
+					of Temon, and this they call the <q direct="unspecified">beggar's meat.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>Who are the <q direct="unspecified">Coliadae</q> among the inhabitants of Ithaca and what is the <hi rend="italics">phagilos</hi>?
+				</p>
+            <p>After the slaughter of the suitors the relatives
+					of the dead men rose up against Odysseus; but
+					Neoptolemus was sent for by both parties to act as
+					arbiter.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Apollodorus, <hi rend="italics">Epitome</hi>, vii. 40.</note> He adjudged that Odysseus should depart
+					from the country and be exiled for homicide from
+					Cephallenia, Zacynthus, and Ithaca ; and that the
+					
+					<pb id="v.4.p.193"/>
+					
+					companions and the relatives of the suitors should
+					recompense Odysseus each year for the injuries
+					which they had done to his estate. Odysseus accordingly departed to Italy ; but the recompense he
+					formally transferred to his son, and ordered the inhabitants of Ithaca to pay it to him. The recompense consisted of barley, wine, honeycombs,
+					olive-oil, salt, and beasts for sacrifice that were older
+					than <hi rend="italics">phagiloi</hi>; according to Aristotle's<note resp="ed" place="unspecified" anchored="yes">Frag. 507 (ed. V. Rose).</note> statement,
+					a lamb is a <hi rend="italics">phagilos</hi>. Now Telemachus bestowed
+					freedom upon Eumaeus and his associates, and incorporated them among the citizens ; and the clan
+					of the Coliadae is descended from Eumaeus, and that
+					of the Bucolidae from Philoetius.<note resp="ed" place="unspecified" anchored="yes">Eumaeus was the swineherd and Philoetius the cowherd of Odysseus.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>What is <q direct="unspecified">the wooden dog</q> among the Locrians?
+				</p>
+            <p>Locrus was the son of Physcius, the son of Amphictyon. The son of Locrus and Caby&ecirc; was
+					Opus. His father quarrelled with Opus and taking
+					many of the citizens with him he went to seek an
+					oracle concerning a colony. The god told him to
+					found a city where he should chance to be bitten by a
+					wooden dog, and, as he was crossing to the other sea,
+					he trod upon a dog-brier.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Athenaeus, 70 c-d.</note> Greatly troubled by the
+					wound, he spent several days there, during which he
+					explored the country and founded the cities Physcus
+					and Oeantheia and the other cities which the so-called
+					Ozolian Locrians inhabited.
+				</p>
+            <p>Some say that the Locrians are called Ozolian
+					because of Nessus ; others say that it is because of the
+					serpent Python, since their bodies were washed up
+					
+					<pb id="v.4.p.195"/>
+					
+					by the sea and rotted away in the country of the
+					Locrians. But some say that these men wear fleeces
+					and goatskins and for the most part spend their time
+					with herds of goats, and thus became evil-smelling.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pausanias, x. 38.</note>
+					But some, on the contrary, assert that, since the
+					country has many flowers, it acquired its name from
+					sweet odour. Among these is also Archytas<note resp="ed" place="unspecified" anchored="yes">Powell, <hi rend="italics">Collectanea Alexandrina</hi>, p. 23.</note> of
+					Amphissa, for he has written thus :
+					<quote rend="blockquote">Lovely Macyna, wreathed with clusters of grapes and
+					fragrant with perfume.</quote>
+				        </p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>What is it that the Megarians call <hi rend="italics">aphabroma</hi>?
+				</p>
+            <p>When Nisus, from whom Nisaea acquired its name,
+					was king, he took a wife from Boeotia, Habrot&ecirc;,
+					daughter of Onchestus, the sister of Megareus, a
+					woman who, as it appears, was both exceptionally
+					intelligent and remarkably discreet. When she died,
+					the Megarians mourned her with one accord, and
+					Nisus, wishing that her memory and her repute should
+					be established everlastingly, ordered the women of
+					the city to wear the garment that she used to wear ;
+					and because of her he called the garment <hi rend="italics">aphabroma</hi>. Even the god seems to have furthered the
+					repute of this woman, for often, when the Megarian
+					women wished to make a change in their raiment,
+					he prevented them by an oracle.
+				</p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>What is the <q direct="unspecified">spear-friend</q>?
+				</p>
+            <p>In days of old the Megarid used to be settled
+					iri village communities with the citizens divided
+					into five groups. They were called Herae&iuml;s, Pirae&iuml;s,
+					
+					<pb id="v.4.p.197"/>
+					
+					Megareis, Cynosureis, and Tripodiscioi. Although
+					the Corinthians brought about a civil war among
+					them, for the Corinthians were ever plotting to get
+					Megara under their control, none the less, because of
+					their fair-mindedness, they conducted their wars in a
+					civilized and a kinsmanly way. For no one did any
+					harm at all to the men working in the fields, and when
+					anyone was captured, he but needed to pay a certain
+					specified ransom ; this his captors received after they
+					had set him free, and did not collect it earlier ; but
+					he who took a prisoner conducted the man to his
+					house and, after sharing with him salt and food,
+					sent him home. He, accordingly, who brought his
+					ransom, was highly regarded and continued thenceforward to be a friend of his captor ; and, as a
+					consequence of his capture by the spear, he was now
+					called <q direct="unspecified">spear-friend.</q> But any one who failed to pay
+					the ransom was held in disrepute as dishonest and
+					faithless, not only among his enemies, but also among
+					his fellow-citizens.
+				</p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>What is <q direct="unspecified">return-interest</q>?<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 304 e, <hi rend="italics">infra</hi>.</note>
+				        </p>
+            <p>When the Megarians had expelled Theagenes,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Thucydides, i. 126.</note>
+					their despot, for a short time they were sober and
+					sensible in their government. But later when the
+					popular leaders poured a full and heady draught of
+					freedom for them, as Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Republic</hi>, 562 d.</note> says, they were completely corrupted and, among their shocking acts of
+					misconduct toward the wealthy, the poor would enter
+					their homes and insist upon being entertained and
+					banqueted sumptuously. But if they did not receive
+					what they demanded, they would treat all the household with violence and insult. Finally they enacted
+					a decree whereby they received back again the
+					
+					
+					<pb id="v.4.p.199"/>
+					
+					interest which they chanced to have paid to their
+					creditors, calling the measure <q direct="unspecified">return-interest.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="19">
+            <p>Which is the Anthedon to which the utterance
+					of the prophetic priestess refers :
+					<quote rend="blockquote">Drink wine turbid with lees, since thou dwellest not
+					in Anthedon,</quote>
+					for Anthedon in Boeotia is not rich in wine?
+				</p>
+            <p>In days of old they used to call Calaureia by the
+					name of Eiren&ecirc;, from the woman Eiren&ecirc; who, as
+					legend has it, was born of Poseidon and Melantheia,
+					the daughter of the Alpheius. But later, when the
+					companions of Anthus and Hypera settled there, they
+					called the island Anthedonia and Hypereia. According to Aristotle<note resp="ed" place="unspecified" anchored="yes">Frag. 597 (ed. V. Rose); <hi rend="italics">cf.</hi> Frag. 596 and Athenaeus, 31 b-c.</note> the oracle ran as follows :
+					<quote rend="blockquote">
+                  <l>Drink wine turbid with lees, since thou dwellest not
+					in Anthedon,
+					</l>
+                  <l>No, nor in Hypera holy ; for wine without lees thou
+					didst drink there.</l>
+               </quote>
+					This, then, is Aristotle's version. But Mnasigeiton
+					says that Anthus, the brother of Hypera, disappeared
+					from home while he was still a child, and that Hypera,
+					while she was wandering about in search of him, came
+					to Pherae to the house of Acastus, where it chanced
+					that Anthus was the slave appointed to be cupbearer.
+					While they were feasting the boy recognized his
+					sister, as he was bearing her cup to her, and said
+					to her softly
+					<quote rend="blockquote">Drink wine turbid with lees, since thou dwellest not
+					in Anthedon,</quote>
+					
+					          <pb id="v.4.p.201"/>
+				        </p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>What is it that is called in Prien&ecirc; <q direct="unspecified">the darkness
+					by the Oak</q>?
+				</p>
+            <p>When the Samians and the Prienians were at war
+					with each other, on the other occasions they suffered
+					injuries and inflicted injuries to a moderate degree
+					only ; but when a great battle took place, the people
+					of Prien&ecirc; slew one thousand Samians. Six years later
+					they engaged the Milesians at a place called the
+					Oak, and lost practically all the best and the foremost
+					of their citizens. At this time also the sage Bias was
+					sent on an embassy from Prien&ecirc; to Samos and won
+					high repute. For the women of Prien&ecirc; this was a
+					cruel experience and a pitiable calamity, and it
+					became established as a curse and an oath in the
+					most important matters to swear by <q direct="unspecified">the darkness
+						by the Oak,</q> because of the fact that there their
+					sons, their fathers, and their husbands had been
+					slaughtered.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, Frag. 576 (ed. V. Rose).</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="21">
+            <p>Who are they that are called <q direct="unspecified">burners</q> among
+					the Cretans?
+				</p>
+            <p>They relate that the Tyrrhenians who, at the time
+					when they inhabited Lemnos and Imbros, carried
+					off the daughters and wives of the Athenians from
+					Brauron, later, when they had been expelled from
+					there, came to Sparta and consorted with the women
+					of the country even to the begetting of children.
+					But again, as the result of suspicions and false accusations, they were forced to leave the Spartan
+					country. With their children and wives they
+					effected a landing in Crete with Pollis and Delphus
+					as their leaders.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 247 a-f, and the note there (Vol. III. p. 496).</note> There, while they were fighting
+					
+					<pb id="v.4.p.203"/>
+					
+					the possessors of the island, they suffered many of
+					the men who had been slain in the battles to lie unburied, because at first they had no leisure to bury
+					them because of the war and the danger, and later
+					because they shrank from touching corpses that had
+					been decomposed and putrefied by the lapse of
+					time. Accordingly Foliis devised certain honours,
+					privileges, and immunities, and some of these he
+					bestowed on the priests of the gods, others upon
+					them that buried the dead. These honours he put
+					in the keeping of the spirits of the underworld in
+					order that they might continue for ever irrevocable.
+					The one class received the name of priests, and the
+					other that of <q direct="unspecified">burners.</q>
+				        </p>
+            <p>Then Pollis made a division by lot with Delphus,
+					and they governed separate and independent states ;
+					and, along with other humane provisions which they
+					enjoyed, they had freedom from the injuries which
+					the other Cretans are wont to inflict upon one
+					another through stealthy plundering and pillaging.
+					For to the Tyrrhenian communities they do no
+					injury, nor do they steal anything from them or
+					dispossess them of anything.
+				</p>
+         </div1>
+         <div1 type="section" n="22">
+            <p>What is the <q direct="unspecified">Children's Tomb</q> among the
+					Chalcidians?
+				</p>
+            <p>Cothus and Aeolus, the sons of Xuthus, carne to
+					Euboea to dwell at a time when the Aeolians possessed the greater part of the island. It had been
+					prophesied to Cothus that he should have great
+					success and get the better of his enemies if he
+					bought the land. When he had landed on the island
+					with a few men, he encountered little children playing by the sea. So he joined in their play, and
+					in a kindly spirit showed them many playthings
+					
+					
+					<pb id="v.4.p.205"/>
+					
+					from foreign lands. But when he saw that the
+					children were desirous of having them for their own,
+					he refused to give them unless he too should receive
+					some earth from the children. So they picked up
+					some from the ground and gave it to Cothus, and
+					then, taking the playthings, departed. But the
+					Aeolians discovered what had happened, arid, when
+					their enemies sailed against them, they made away
+					with the children under stress of anger and grief.
+					The children were buried beside the road which
+					leads from the city to the Euripus, and the place
+					is called the Children's Tomb.
+				</p>
+         </div1>
+         <div1 type="section" n="23">
+            <p>Who is the <q direct="unspecified">Associate-founder</q> (<hi rend="italics">mixarchagetas</hi>)
+					at Argos, and who are the <q direct="unspecified">Averters</q> (<hi rend="italics">elasioi</hi>)?
+				</p>
+            <p>They call Castor the Associate-founder, and think
+					that he is buried in Argive territory, but Poly deuces
+					they reverence as one of the Olympians. Persons
+					who have the reputed ability to turn away attacks
+					of epilepsy they call Avertere, and these are thought
+					to be of the descendants of Alexida, the daughter of
+					Amphiara&uuml;s.
+				</p>
+         </div1>
+         <div1 type="section" n="24">
+            <p>What is that which is called an <hi rend="italics">enknisma</hi> (a
+					roast) among the Argives?<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> iv. p. 498.</note>
+				        </p>
+            <p>It is the custom for those who have lost a relative
+					or an intimate friend to sacrifice to Apollo<note resp="ed" place="unspecified" anchored="yes">For <q direct="unspecified">Apollo</q> Halliday suggests with some plausibility <q direct="unspecified">Pluto</q>; but Apollo, as the god who cleanses from pollution (<foreign lang="greek">kaqa/rsios</foreign>), is almost a commonplace in Greek literature.</note> immediately after the mourning, and again thirty days later
+					to Hermes. For they believe that, just as the earth
+					receives the bodies of the dead, even so Hermes
+					receives their souls. They give barley to the priest
+					of Apollo and receive some meat of the sacrificial
+					
+					<pb id="v.4.p.207"/>
+					
+					victim ; and when they have put out their fire, since
+					they believe it to be polluted, and have relighted it
+					from the hearth of others, they proceed to roast
+					this flesh which they call <hi rend="italics">enknisma</hi>.
+				</p>
+         </div1>
+         <div1 type="section" n="25">
+            <p>What is an <hi rend="italics">alastor</hi>, an <hi rend="italics">aliterios</hi>, a <hi rend="italics">palamnaeos</hi>?
+				</p>
+            <p>We certainly must not believe those who say that
+					persons who, during a famine set a watch upon the
+					miller and plunder him are called <hi rend="italics">aliterioi</hi>.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 523 a-b.</note> But
+					he who has done unforgettable (<hi rend="italics">alesta</hi>) things,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> 418 b.</note>
+					things that will be remembered for a long time, is
+					called <hi rend="italics">alastor</hi>; and he whom it were well to avoid
+					(<hi rend="italics">aleuasthai</hi>) and to guard against because of his
+					wickedness is called <hi rend="italics">aliterios</hi>. These things, according to the statement of Socrates,<note resp="ed" place="unspecified" anchored="yes">Socrates of Argos; <hi rend="italics">cf.</hi> M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> v. p. 498.</note> they have
+					written on tablets of bronze.
+				</p>
+         </div1>
+         <div1 type="section" n="26">
+            <p>What is the intent of the custom by which
+					the maidens who serve as an escort for the men who
+					lead the bull from Aenis to Cassiopaea chant until
+					they reach the boundary,
+					<quote rend="blockquote">Never may ye return to the well-loved soil of your homeland?<note resp="ed" place="unspecified" anchored="yes">Adapted from Homer, <hi rend="italics">Od.</hi> xviii. 148 (= xix. 298).</note>
+               </quote>
+				        </p>
+            <p>When the Aenianians had been driven out of their
+					country by the Lapiths,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">cf.</hi> 293 f-294 c, <hi rend="italics">supra</hi>.</note> they dwelt first of all
+					about Aethicia, and later about Molossia and Cassiopaea. But, since they had no benefit from the
+					country, and, in addition, had to deal with ungentle
+					peoples on their borders, they came to the Cirrhaean
+					plain under the leadership of Oenoclus, their king.
+					But great droughts befell them there, and, as it is
+					related, in accordance with an oracle they stoned
+					
+					<pb id="v.4.p.209"/>
+					
+					Oenoclus.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 293 f-294 a, <hi rend="italics">supra</hi>.</note> Then they wandered on and came to
+					this country which they now possess, a goodly
+					country, productive of all manner of crops ; wherefore it is with good reason that they pray to the gods
+					that they may not return again to their ancient
+					fatherland, but may remain here in prosperity.
+				</p>
+         </div1>
+         <div1 type="section" n="27">
+            <p>Why is it that among the Rhodians a herald
+					does not enter the shrine of the hero Ocridion?
+				</p>
+            <p>Is it because Ochimus affianced his daughter
+					Cydipp&ecirc; to Ocridion? But Cercaphus, who was the
+					brother of Ochimus, was in love with the maiden and
+					persuaded the herald (for it used to be the custom
+					to use heralds to fetch the brides), when he should
+					receive Cydipp&ecirc;, to bring her to him. When this
+					had been accomplished, Cercaphus fled with the
+					maiden ; but later, when Ochimus had grown old,
+					Cercaphus returned to his home again. But the
+					custom became established among the Rhodians that
+					a herald should not approach the shrine of Ocridion
+					because of the wrong that had been done.
+				</p>
+         </div1>
+         <div1 type="section" n="28">
+            <p>Why is it that among the inhabitants of
+					Tenedos a flute-player may not enter the; shrine of
+					Tenes, nor may anyone mention Achilles' name
+					within the shrine?
+				</p>
+            <p>Is it that, when Tenes' stepmother<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Apollodorus, <hi rend="italics">Epitome</hi>, iii. 23-26, with Frazer's notes (L.C.L. vol. ii. pp. 193 ff.).</note> falsely accused
+					him of wishing to lie with her, Molpus the flute-player
+					bore false witness against him, and because of this it
+					came about that Tenes had to flee to Tenedos with
+					his sister? But as for Achilles, it is said that his
+					mother Thetis straitly forbade him to kill Tenes, since
+					
+					<pb id="v.4.p.211"/>
+					
+					Tenes was honoured by Apollo; and she commissioned
+					one of the servants to be on guard, and to remind
+					Achilles lest he should unwittingly slay Tenes. But
+					when Achilles was overrunning Tenedos and was
+					pursuing Tenes' sister, who was a beautiful maiden.
+					Tenes met him and defended his sister ; and she
+					escaped, though Tenes was slain. When he had
+					fallen. Achilles recognized him, and slew the servant because he had, although present, not reminded
+					him; and he buried Tenes where his shrine now
+					stands and neither does a flute-player enter it nor is
+					Achilles mentioned there by name.
+				</p>
+         </div1>
+         <div1 type="section" n="29">
+            <p>Who is the <q direct="unspecified">Seller</q> among the Epidamnians?
+				</p>
+            <p>The Epidamnians were neighbours of the Illyrians
+					and perceived that such of their citizens as associated
+					with the Illyrians were becoming corrupted ; and,
+					since they feared a revolution, they used to select one
+					of the most reputable of their fellow-citizens each
+					year to conduct such commercial dealings and barters.
+					This man visited the barbarians and provided them
+					with a market and an opportunity for all the citizens
+					to display what they had to sell: thus he was called
+					the <q direct="unspecified">Seller.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="30">
+            <p>What is the <q direct="unspecified">Beach of Araenus</q> in Thrace?
+				</p>
+            <p>When the Andrians and Chalcidians sailed to
+					Thrace to settle there, they jointly seized the city of
+					San&ecirc;, which was betrayed to them; but when they
+					learned that the barbarians had abandoned Acanthus,
+					they sent out two scouts. When these were approaching the city, they perceived that the enemy
+					had all fled ; so the Chalcidian ran forward to take
+					possession of the city for Chalcis, but the Andrian,
+					since he could not cover the distance so rapidly as
+					
+					
+					<pb id="v.4.p.213"/>
+					
+					his rival, hurled his spear, and when it was firmly
+					implanted in the city gates, he called out in a loud
+					voice that by his spear the city had been taken into
+					prior possession for the children of the Andrians. As
+					a result of this a dispute arose, and, without going
+					to war, they agreed to make use of Erythraeans,
+					Samians, and Parians as arbitrators concerning the
+					whole matter. But when the Erythraeans and the
+					Samians gave their vote in favour of the Andrians,
+					and the Parians in favour of the Chalcidians, the
+					Andrians, in the neighbourhood of this place, made
+					a solemn vow against the Parians that they would
+					never give a woman in marriage to the Parians nor
+					take one from them. And for this reason they called
+					the place the Beach of Araenus,<note resp="ed" place="unspecified" anchored="yes">Plutarch, or his source, imagined that this meant <q direct="unspecified">Beach of Vowing.</q>
+               </note> although it had
+					formerly been named the Serpent's Beach.
+				</p>
+         </div1>
+         <div1 type="section" n="31">
+            <p>Why is it that at the Thesmophoria the Eretrian
+					women cook their meat, not by fire, but by the
+					rays of the sun ; and why do they not call upon
+					Calligeneia?<note resp="ed" place="unspecified" anchored="yes">The name of the third and last day of this festival at Athens; probably also a cult title applied to some goddess, perhaps to Demeter.</note>
+				        </p>
+            <p>Is it because it happened that the captive women
+					whom Agamemnon was bringing home from Troy
+					were celebrating the Thesmophoria at this place,
+					but when conditions for sailing suddenly appeared
+					favourable, they put out to sea leaving behind them
+					the sacrifice uncompleted?
+				</p>
+         </div1>
+         <div1 type="section" n="32">
+            <p>Who are the Perpetual Sailors among the
+					Milesians?
+				</p>
+            <p>When the despots associated with Thoas and
+					Damasenor had been overthrown, two political parties
+					came into control of the city, one of which was called
+					Plutis, the other Cheiromacha.<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Capital and Labour.</q>
+               </note> When, accordingly,
+					the men of influence gained the upper hand and
+					
+					
+					<pb id="v.4.p.215"/>
+					
+					brought matters into the control of their party, they
+					used to deliberate about matters of the greatest
+					importance by embarking in their ships and putting
+					out to a considerable distance from the land. But
+					when they had come to a final decision, they sailed
+					back ; and because of this they acquired the appellation of Perpetual Sailors.
+				</p>
+         </div1>
+         <div1 type="section" n="33">
+            <p>Why do the Chalcidians call the neighbourhood
+					of the Beacon <q direct="unspecified">the Young Men's Club</q>?
+				</p>
+            <p>They relate that Nauplius, when he was being
+					pursued by the Achaeans, came as a suppliant to the
+					Chalcidians ; and on the one hand he defended himself in regard to the indictment brought against
+					him, and on the other hand brought a counter-charge
+					against the Achaeans. The Chalcidians had no intention of surrendering him ; but, since they were
+					afraid that he might be slain by treachery, they gave
+					him a guard of young men in the prime of their youth
+					and stationed them in this place, where they lived
+					together and at the same time served as a guard for
+					Nauplius.
+				</p>
+         </div1>
+         <div1 type="section" n="34">
+            <p>Who was the man that slew an ox for<note resp="ed" place="unspecified" anchored="yes">Possibly <q direct="unspecified">sacrificed an ox to his benefactor</q>; but an animal sacrifice to a living man seems incredible.</note> his
+					benefactor?
+				</p>
+            <p>Anchored off the island of Ithaca was a pirate
+					vessel in which there chanced to be an old man with
+					earthenware jars containing pitch. By chance a
+					ferryman of Ithaca, by name Pyrrhi as, put off to the
+					ship and rescued the old man without asking for any
+					reward, but because he had been persuaded by the
+					old man and pitied him. He did, however, accept
+					some of the jars, for the old man bade him do so.
+					But when the pirates had departed and there was
+					nothing to fear, the old man led Pyrrhias to the jars,
+					
+					
+					<pb id="v.4.p.217"/>
+					
+					and in them showed him much gold and silver mixed
+					with the pitch. So Pyrrhias, suddenly becoming
+					rich, treated the old man well in various ways, and
+					also slew an ox for him. Wherefore men make use
+					of this as a proverbial expression : <q direct="unspecified">No one but
+						Pyrrhias has slain an ox for his benefactor.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="35">
+            <p>Why was it the custom for the Bottiaean
+					maidens to chant as they danced, <q direct="unspecified">Let us go to
+						Athens<note resp="ed" place="unspecified" anchored="yes">Plutarch (<hi rend="italics">Life of Theseus</hi>, chap. xvi. p. 6 e ff.) states that his source for this is Aristotle's <hi rend="italics">Constitution of the Bottiaeans</hi> (Frag. 485 (ed. V. Rose)); <hi rend="italics">cf.</hi> Edmonds, <hi rend="italics">Lyra Graeca</hi> (in L.C.L. iii. 540).</note>
+               </q>?
+				</p>
+            <p>They relate that the Cretans in accordance with a
+					vow sent a consecrated offering of men to Delphi ;
+					but the men who had been sent, when they saw that
+					there was no abundance there, set out from Delphi
+					to found a colony. They settled first in Iapygia, but
+					later occupied this region of Thrace. There were
+					some Athenians included among them ; fer it appears
+					that Minos did not destroy the young persons whom
+					the Athenians sent him for tribute, but kept them
+					by him as servants. Accordingly, some who were
+					descended from these Athenians and had come to be
+					considered Cretans were included in this company
+					sent to Delphi. Wherefore the daughters of the
+					Bottiaeans, in remembrance of their lineage, were
+					wont to sing in their festivals, <q direct="unspecified">Let us go to Athens.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="36">
+            <p>Why is it that the women of the Eleans, when
+					they sing hymns to Dionysus, call upon him to come
+					to them <q direct="unspecified">with the foot of a bull</q>
+               <note resp="ed" place="unspecified" anchored="yes">For Dionysus as a bull <hi rend="italics">cf. e.g.</hi> Athenaeus 35 e, 38 e.</note>? The hymn<note resp="ed" place="unspecified" anchored="yes">The text is uncertain; Hartman has attempted a reconstruction in <hi rend="italics">Mnemosyne</hi>, xli. 217; <hi rend="italics">cf.</hi> also the other references in E. Diehl, <hi rend="italics">Anthologia Lyrica Graeca</hi>, ii. p. 206. <hi rend="italics">Cf.</hi> also <hi rend="italics">Moralia</hi>, 364 f; Pausanias, vi. 26. 1; Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> iii. p. 656, or Edmonds, <hi rend="italics">Lyra Graeca</hi> (L.C.L. iii. 510).</note> runs
+					as follows :
+					
+					<pb id="v.4.p.219"/>
+					
+					          <quote rend="blockquote">
+                  <l>Come, O hero Dionysus,
+					</l>
+                  <l>To thy Elean holy
+					</l>
+                  <l>Temple, with the Graces,
+					</l>
+                  <l>To thy temple
+					</l>
+                  <l>With thy bull's foot hasting.</l>
+               </quote>
+					Then they chant twice the refrain : <q direct="unspecified">O worthy bull.</q>
+				        </p>
+            <p>Is it because some address the god as <q direct="unspecified">kine-born</q>
+					or as <q direct="unspecified">bull</q>? Or by <q direct="unspecified">ox-foot</q> do they mean <q direct="unspecified">with
+						thy mighty foot</q> even as the Poet used <q direct="unspecified">ox-eyed</q>
+               <note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> i. 551 and often.</note>
+					to signify <q direct="unspecified">large-eyed,</q> and <q direct="unspecified">bully</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <foreign lang="greek">bouga/ios</foreign>, <hi rend="italics">Il.</hi> xiii. 824: <hi rend="italics">Od.</hi> xviii. 79.</note> for <q direct="unspecified">loudmouthed</q>?
+				</p>
+            <p>Or is it rather because the foot of the bull is harmless, but the part that bears horns is harmful, and
+					thus they call upon the god to come in a gentle and
+					painless manner?
+				</p>
+            <p>Or is it because many believe that the god was the
+					pioneer in both ploughing and sowing?
+				</p>
+         </div1>
+         <div1 type="section" n="37">
+            <p>Why do the people of Tanagra have before
+					their city an Achilleum, that is, a place bearing this
+					name? For it is related that Achilles actually had
+					more enmity than friendship for the city, since he
+					carried off Stratonic&ecirc;, the mother of Poemander, and
+					slew Acestor, the son of Ephippus.<note resp="ed" place="unspecified" anchored="yes">A grandson of Poemander.</note>
+				        </p>
+            <p>While the territory of Tanagra was still inhabited
+					in village communities, Poemander, the father of
+					Ephippus, had been besieged by the Achaeans in the
+					place called Stephon, because of his unwillingness
+					to join their expedition.<note resp="ed" place="unspecified" anchored="yes">Against Troy.</note> But he abandoned that
+					stronghold by night and fortified Poemandria.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pausanias, ix. 20. 1.</note>
+					
+					          <pb id="v.4.p.221"/>
+					
+					Polycrithus the master-builder, however, who was
+					present, spoke slightingly of the fortifications and, in
+					derision, leaped over the moat. Poemander was enraged and hastened to throw at him a great stone
+					which had been hidden there from ancient days, set
+					aside for use in the ritual of the Nyctelia.<note resp="ed" place="unspecified" anchored="yes">These rites resembled those of the rending and resurrection of Osiris; <hi rend="italics">cf. Moralia</hi> 367 f.</note> This stone
+					Poemander snatched up in his ignorance, and hurled.
+					He missed Polycrithus, but slew his son Leucippus. According to the law, therefore, he had to
+					depart from Boeotia and become a suppliant at a
+					stranger's hearth. But this was not easy, since the
+					Achaeans had invaded the territory of Tanagra. Accordingly he sent his son Ephippus to appeal to
+					Achilles. Ephippus, by his persuasive words, brought
+					to his father Achilles, as well as Tlepolemus, the son
+					of Heracles, and Penele&ouml;s, the son of Hippalcmas, all
+					of them interrelated. Poemander was escorted by
+					them to Chalcis, and there at the house of Elephenor
+					he was purified of the murder. Therefore he honoured
+					these heroes and set apart sacred precincts for them
+					all, and of these the precinct of Achilles has still kept
+					its name.
+				</p>
+         </div1>
+         <div1 type="section" n="38">
+            <p>Who are the <q direct="unspecified">Psoloeis</q> and who the <q direct="unspecified">Oleiae</q>
+					among the Boeotians?
+				</p>
+            <p>They relate that the daughters of Minyas, Leucipp&ecirc;
+					and Arsino&ecirc; and Alcatho&ecirc;, becoming insane, conceived a craving for human flesh, and drew lots for
+					their children.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aelian, <hi rend="italics">Varia Historia</hi>, iii. 42; Antonius Liberalis, <hi rend="italics">Metamorphoses</hi>, x. Ovid's account (<hi rend="italics">Met.</hi> iv. 1. ff.; 389 ff.) is rather different and omits the murder of Hippasus.</note> The lot fell upon Leucippe to contribute her son Hippasus to be torn to pieces, and
+					their husbands, who put on ill-favoured garments for
+					very grief and sorrow, were called <q direct="unspecified">Grimy</q> (<hi rend="italics">Psoloeis</hi>);
+					
+					<pb id="v.4.p.223"/>
+					
+					but the Minyads themselves were called <q direct="unspecified">Oleiae,</q>
+					that is to say, &lsquo;Murderesses.&rsquo; And even to-day
+					the people of Orchomenus give this name to the
+					women descended from this family ; and every year,
+					at the festival of Agrionia,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 717 a; 291 a <hi rend="italics">supra</hi>.</note> there takes place a flight
+					and pursuit of them by the priest of Dionysus with
+					sword in hand. Any one of them that he catches he
+					may kill, and in my time the priest Zo&iuml;lus killed one
+					of them. But this resulted in no benefit for the
+					people of Orchomenus ; but Zo&iuml;lus fell sick from some
+					slight sore and, when the wound had festered for a
+					long time, he died. The people of Orchomenus also
+					found themselves involved in some suits for damages
+					and adverse judgements ; wherefore they transferred
+					the priesthood from Zo&iuml;lus's family and chose the
+					best man from all the citizens to fili the office.
+				</p>
+         </div1>
+         <div1 type="section" n="39">
+            <p>Why do the Arcadians stone persons who
+					voluntarily enter the Lycaeon ; but if such persons
+					enter through ignorance, they send them away to
+					Eleutherae?
+				</p>
+            <p>Is it because they were released and set free that
+					this story gained credence, and is the expression <q direct="unspecified">to
+						Free Town</q> (<hi rend="italics">Eleutherae</hi>) of the same sort as <q direct="unspecified">to
+							the land of Sans Souci</q> and <q direct="unspecified">you will come to the
+								Seat of Satisfaction</q>?
+				</p>
+            <p>Or is it in accordance with the legend, since
+					Eleuther and Lebadus were the only sons of Lycaon
+					that had no share in the abomination prepared for
+					Zeus,<note resp="ed" place="unspecified" anchored="yes">The serving of human flesh. <hi rend="italics">Cf.</hi> Ovid, <hi rend="italics">Metamorphoses</hi>, i. 163 ff. and Frazer's note on Apollodorus, <hi rend="italics">Bibliotheca</hi> iii. 8. 1 (L.C.L. vol. i. pp. 390 ff.).</note> but instead they fled to Boeotia, and there
+					is community of citizenship between the people of
+					Lebadeia and the Arcadians, and do they accordingly
+					
+					<pb id="v.4.p.225"/>
+					
+					send away to Eleutherae those who involuntarily
+					enter the inviolate sanctuary of Zeus?
+				</p>
+            <p>Or is it as Architimus<note resp="ed" place="unspecified" anchored="yes">M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> vol. iv. p. 317.</note> relates in his <hi rend="italics">Arcadian
+					History</hi>, that certain men who entered through ignorance were handed over by the Arcadians to the
+					Phliasians, and by the Phliasians to the Megarians,
+					and, as they were being conducted from Megara to
+					Thebes, they were stopped near Eleutherae<note resp="ed" place="unspecified" anchored="yes">A town in Attica not far from the borders of Boeotia.</note> by rain
+					and thunder and other signs from heaven? Whence,
+					in fact, some assert that the place acquired the name
+					of Eleutherae.
+				</p>
+            <p>The tale, however, that no shadow is cast by a
+					person who enters the Lycaeon is not true, although
+					it has acquired widespread credence.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pausanias, viii. 38. 6; Polybius, xvi. 12. 7, whose source is Theopompus.</note> Is it because
+					the air turns to clouds, and lowers darkly upon those
+					who enter? Or is it because he that enters is condemned to death, and the followers of Pythagoras
+					declare that the spirits of the dead cast no shadow,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 564 d. See also Dante, <hi rend="italics">Purgatorio</hi>, iii. 25-30, 94-97.</note>
+					neither do they blink? Or is it because it is the sun
+					which causes shadow, but the law deprives him that
+					enters of the sunlight?
+				</p>
+            <p>This too they relate allegorically : he that enters is
+					called a <q direct="unspecified">deer.</q> Wherefore, when Cantharion the
+					Arcadian deserted to the Eleans while they were at
+					war with the Arcadians, and with his booty crossed
+					the inviolate sanctuary, even though he fled to Sparta
+					after peace had been made, the Spartans surrendered
+					him to the Arcadians, since the god ordered them to
+					give back <q direct="unspecified">the deer.</q>
+					
+					          <pb id="v.4.p.227"/>
+				        </p>
+         </div1>
+         <div1 type="section" n="40">
+            <p>Who was the hero Eunostus in Tanagra, and
+					why may no women enter his grove?
+				</p>
+            <p>Eunostus was the son of Elieus, who was the son of
+					Cephisus, and Scias. They relate that he acquired
+					his name because he was brought up by the nymph
+					Eunosta. Handsome and righteous as he was, he was
+					no less virtuous and ascetic. They say that Ochn&ecirc;,
+					his cousin, one of the daughters of Colonus, became
+					enamoured of him ; but when Eunostus repulsed her
+					advances and, after upbraiding her, departed to
+					accuse her to her brothers, the maiden forestalled
+					him by doing this very thing against him. She incited
+					her brothers, Echemus, Leon, and Bucolus, to kill
+					Eunostus, saying that he had consorted with her
+					by force. They, accordingly, lay in ambush for the
+					young man and slew him. Then Elieus put them in
+					bonds ; but Ochn&ecirc; repented, and was filled with
+					trepidation and, wishing to free herself from the
+					torments caused by her love, and also feeling pity for
+					her brothers, reported the whole truth to Elieus, and
+					he to Colonus. And when Colonus had given judgement, Ochn&ecirc;'s brothers were banished, and she
+					threw herself from a precipice, as Myrtis,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Edmonds, <hi rend="italics">Lyra Graeca</hi>, iii. p. 3.</note> the lyric
+					poetess of Anthedon, has related.
+				</p>
+            <p>But the shrine and the grove of Eunostus were
+					so strictly guarded against entry and approach by
+					women that, often, when earthquakes or droughts
+					or other signs from heaven occurred, the people
+					of Tanagra were wont to search diligently and to
+					be greatly concerned lest any woman might have
+					approached the place undetected ; and some relate,
+					among them Cleidamus, a man of prominence, that
+					Eunostus met them on his way to the sea to bathe
+					
+					<pb id="v.4.p.229"/>
+					
+					because a woman had set foot within the sacred
+					precinct. And Diocles<note resp="ed" place="unspecified" anchored="yes">M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> iii. p. 78.</note> also, in his treatise upon the
+					<hi rend="italics">Shrines of Heroes</hi>, quotes a decree of the people of
+					Tanagra concerning the matters which Cleidamus
+					reported.
+				</p>
+         </div1>
+         <div1 type="section" n="41">
+            <p>From what cause was a river in Boeotia in the
+					vicinity of Eleon called Scamander?
+				</p>
+            <p>De&iuml;machus, the son of Eleon and a companion of
+					Heracles, took part in the expedition against Troy.
+					But since, as it appears, the war was dragging on, he
+					welcomed to his quarters Glaucia, the daughter of
+					Scamander, who had fallen in love with him, and
+					got her with child ; then he himself fell in fighting
+					against the Trojans. But Glaucia, fearing detection,
+					fled for refuge, and told Heracles of her love and
+					of her association with De&iuml;machus. And he, both
+					through pity for the woman, and for j oy that the stock
+					of a brave man who was his close friend should thus
+					survive, took Glaucia oil board his fleet; and when
+					she gave birth to a son, he brought both the child and
+					the mother, and delivered them to Eleon in Boeotia.
+					The child was named Scamander, and he became the
+					king of the country; and he named the Inachus river
+					Scamander after himself, and the stream near by he
+					called Glaucia from his mother. The spring Acidusa
+					he named after his wife ; and from her he had three
+					daughters whom even to this day they honour under
+					the name of the <q direct="unspecified">Maidens.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="42">
+            <p>Whence arose the proverbial saying, <q direct="unspecified">This is
+					valid</q>?
+				</p>
+            <p>When Deinon of Tarentum, a brave soldier, was
+					
+					<pb id="v.4.p.231"/>
+					
+					general, his fellow-citizens voted to reject a certain
+					proposal of his. When the herald reported the prevailing majority, he held up his right hand and said,
+					<q direct="unspecified">But this is stronger.</q> This is Theophrastus's<note resp="ed" place="unspecified" anchored="yes">Frag. 133 (ed. Wimmer).</note>
+					version of the story ; but Apollodorus has a supplementary version, that when the herald of the
+					Tarentines proclaimed, <q direct="unspecified">These are in the majority</q>
+					Deinon said, <q direct="unspecified">But these are better !</q> and validated
+					the vote of the minority.
+				</p>
+         </div1>
+         <div1 type="section" n="43">
+            <p>For what reason was the city of the Ithacans
+					called Alalcomenae?
+				</p>
+            <p>Because Anticleia, while yet a virgin, was violated
+					by Sisyphus and conceived Odysseus. This is related
+					by several authorities<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Sophocles, <hi rend="italics">Philoctetes</hi>, 417, with Jebb's note; Frag. 567 (ed. Pearson), with the note.</note>; but Ister<note resp="ed" place="unspecified" anchored="yes">M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> i. p. 426.</note> of Alexandria in
+					his <hi rend="italics">Commentaries</hi> has in addition recorded that when
+					Anticlea had been given in marriage to La&euml;rtes and
+					was being conducted to his home, she gave birth to
+					Odysseus near the Alalcomenium in Boeotia. And
+					for this reason, as though referring the name to that
+					of a mother-city, he states that the city in Ithaca
+					acquired its name.
+				</p>
+         </div1>
+         <div1 type="section" n="44">
+            <p>Who were the <q direct="unspecified">solitary eaters</q> in Aegina?
+				</p>
+            <p>Of the Aeginetans who were engaged in the war
+					against Troy many perished in the battles there, but
+					even more were destroyed by the storm on the returnvoyage. So there were but few who survived, and
+					when their relatives had welcomed them home, and
+					observed that the other citizens were in mourning
+					and sorrow, they deemed it proper neither to rejoice
+					
+					<pb id="v.4.p.233"/>
+					
+					nor to sacrifice to the gods openly ; but secretly and
+					separately in their own houses they received with
+					feasting and good cheer those who had reached home
+					in safety. They themselves waited upon their fathers
+					and kinsmen, their brothers and relatives, and no one
+					outside the family was allowed to enter. It is, then,
+					in imitation of this that they hold a sacrifice to
+					Poseidon, which is called <hi rend="italics">thiasoi</hi>,<note resp="ed" place="unspecified" anchored="yes">Club-dinner.</note> in which they
+					feast by themselves in silence for sixteen days, and no
+					slave is present. Then, when they have celebrated
+					the Aphrodisia, they terminate the festival. For this
+					reason they are called <q direct="unspecified">solitary eaters.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="45">
+            <p>Why is it that the statue of the Labrandean
+					Zeus in Caria is fashioned holding an axe, but not a
+					sceptre or a thunderbolt?
+				</p>
+            <p>Because when Heracles had slain Hippolyt&ecirc;, together with her other arms he took her axe and gave
+					it as a present to Omphal&ecirc;. The Lydian kings who
+					succeeded Omphal&ecirc; used to carry it as a part of
+					the sacred regalia, handing it down one to the other
+					until it carne to Candaules. He deemed it of little
+					worth and gave it to one of his Companions<note resp="ed" place="unspecified" anchored="yes">Technically a Hellenistic court office, but Plutarch seems to assume such a relation in early Lydian history.</note> to carry.
+					But when Gyges<note resp="ed" place="unspecified" anchored="yes">The many ancient variants of the Gyges legend are collected and discussed by K. F. Smith, <hi rend="italics">American Jour. Phil.</hi>, 1902 pp. 261 ff., 362 ff.; 1920, pp. 1 ff.</note> revolted and was at war with
+					Candaules, Arselis carne from Mylasa with an army
+					as an ally for Gyges and slew both Candaules and his
+					Companion and brought the axe to Caria together
+					with the other spoils. He therefore constructed a
+					statue of Zeus and placed the axe in its hand, and
+					
+					<pb id="v.4.p.235"/>
+					
+					called the god Labrandeus ; for the Lydialis call the
+					axe <hi rend="italics">labrys</hi>.<note resp="ed" place="unspecified" anchored="yes">One is reminded of the many representations of the double axe on Cretan monuments.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="46">
+            <p>Why is it that the people of Tralles call vetch
+					<q direct="unspecified">purifier</q> and make particular use of it for expiations and purifications?
+				</p>
+            <p>Is it because the Leleges and Minyae in days of old
+					drove them out and took possession of their city and
+					their land, and because later the Trallians returned
+					and prevailed, and as many of the Leleges as had not
+					been slain nor had fled away, but had been left behind
+					there because of their destitution and weakness - of
+					these they took no account either of their life or of their
+					death, and they established a law that any Trallian
+					who killed a Miriyan or a Lelegian should be free
+					from pollution when he had measured out a bushel of
+					vetch to the relatives of the murdered man?
+				</p>
+         </div1>
+         <div1 type="section" n="47">
+            <p>Why is there a proverb among the Eleans <q direct="unspecified">to
+					suffer more terribly than Sambicus</q>?
+				</p>
+            <p>The story is told that a certain Sambicus, an Elean,
+					at the head of a numerous group of confederates, cut
+					many pieces from the bronze votive statues in Olympia
+					and sold them, and finally he despoiled the shrine of
+					Artemis the Guardian. This is in Elis and is called
+					the Aristarcheum. Immediately, then, after this
+					sacrilege, he was caught and tortured for a year,
+					being interrogated about each of his confederates in
+					turn ; and in this manner he died and the proverb
+					arose from his sufferings.
+					
+					<pb id="v.4.p.237"/>
+				        </p>
+         </div1>
+         <div1 type="section" n="48">
+            <p>Why at Sparta is a shrine of Odysseus built
+					near the shrine of the daughters of Leucippus?
+				</p>
+            <p>Erginus, one of the descendants of Diomedes, was
+					persuaded by Temenus to steal the Palladium from
+					Argos ; this he did with the knowledge and help
+					of Leagrus, who was one of Temenus's friends. But
+					later Leagrus became incensed at Temenus and removed to Sparta, taking the Palladium with him. The
+					Spartan kings received it eagerly, and gave it a place
+					near the shrine of the daughters of Leucippus, and
+					they sent to Delphi to obtain an oracle concerning its
+					safety and preservation. When the god gave oracle
+					that one of those who had purloined the Palladium
+					should be made its guardian, the Spartans constructed
+					there the shrine of Odysseus, especially since, because of his marriage with Penelop&ecirc;,<note resp="ed" place="unspecified" anchored="yes">The daughter of the Spartan Icarius.</note> they reckoned
+					that this hero had close relations with their city.
+				</p>
+         </div1>
+         <div1 type="section" n="49">
+            <p>Why is it the custom for the women of Chalcedon, whenever they encounter strange men, and
+					especially officials, to veil one cheek?
+				</p>
+            <p>The Chalcedonians were involved in a war against
+					the Bithyniae, to which they were provoked by all
+					kinds of reasons. When Zeipoetes became king of
+					Bithynia, the Chalcedonians, in full force and with the
+					addition of Thracian allies, devastated the country
+					with fire and sword. When Zeipoetes attacked them
+					near the so-called Phalion, they fought badly through
+					rashness and lack of discipline, and lost over eight
+					thousand soldiers. It was only because Zeipoetes
+					granted an armistice to please the Byzantines that
+					they were not completely annihilated at that time.
+					Since, then, there was a great scarcity of men
+					
+					<pb id="v.4.p.239"/>
+					
+					throughout the city, most of the women were forced
+					to consort with freedmen and resident aliens. But
+					those women who preferred to have no husband at
+					all rather than a marriage of this sort, themselves
+					conducted whatever business they needed to transact
+					with the judges or the officials, drawing aside one part
+					of the veil that covered their faces. And the married
+					women, for very shame, followed the example of
+					these, who, they felt, were better than themselves,
+					and also changed to a similar custom.
+				</p>
+         </div1>
+         <div1 type="section" n="50">
+            <p>Why is it that the Argives drive their sheep
+					to the precinct of Agenor when they wish to mate
+					them?
+				</p>
+            <p>Is it because Agenor took most excellent care of his
+					sheep and acquired more flocks than any other king?
+				</p>
+         </div1>
+         <div1 type="section" n="51">
+            <p>Why is it that Argive children in a certain
+					festival call themselves, in jest, <q direct="unspecified">Pear-throwers</q>?
+				</p>
+            <p>Is it because the first men that were led down by
+					Inachus from the mountains to the plain lived, as they
+					say, on wild pears? They also say that wild pears
+					were first discovered by the Greeks in the Peloponnesus at a time when that country was still called
+					Apia,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pausanias, ii. 5. 7; Aelian, <hi rend="italics">Varia Historia</hi>, iii. 39.</note> wherefore wild pears were named <hi rend="italics">apioi</hi>.
+				</p>
+         </div1>
+         <div1 type="section" n="52">
+            <p>What is the reason why the Eleans lead their
+					mares outside the boundaries of their country to mate
+					them with asses?<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Herodotus, iv. 30; Pausanias, v. 5. 2; 9. 2; mules were not bred in Elis because of a curse, and this, seemingly, should be the meaning here; but the corruption in the text of one word, which should have designated asses, has made the mules somewhat dubious.</note>
+				        </p>
+            <p>Is it because of all kings Oenoma&uuml;s was the most
+					fond of horses, and, since he particularly loved
+					
+					<pb id="v.4.p.241"/>
+					
+					this animal, he laid many terrible curses upon any
+					that should thus mate horses in Elis ; and it is in fear
+					of that curse that they endeavour to keep clear of it?
+				</p>
+         </div1>
+         <div1 type="section" n="53">
+            <p>Why was it the custom among the Cnossians
+					for those who borrowed money to snatch it?
+				</p>
+            <p>Was it that if they defaulted they might be liable
+					to the charge of violence, and so be punished the
+					more?
+				</p>
+         </div1>
+         <div1 type="section" n="54">
+            <p>What is the reason why in Samos they invoke
+					the Aphrodit&ecirc; of Dexicreon?
+				</p>
+            <p>Is it because a sorcerer Dexicreon, making use of
+					a rite of purification, freed the women of Samos
+					from the unbridled licentiousness in which they indulged because of their great luxury and wantonness?
+				</p>
+            <p>Or is it because Dexicreon was a shipmaster and
+					sailed to Cyprus on a trading voyage, and, when he
+					was about to freight his ship, Aphrodit&ecirc; bade him
+					put into it water and nothing else, and set sail as
+					quickly as possible? He obeyed and, putting much
+					water aboard the ship, sailed away ; after a time the
+					wind died down and the ship was becalmed in the
+					open sea. To the other merchants and shipmasters,
+					who were athirst, he sold the water and amassed
+					much money. Wherefore he fashioned an image of
+					the goddess and called it by his own name. If this
+					is really true, it appears that the goddess wished not
+					to make one man rich, but to save the lives of many
+					through one man.
+				</p>
+         </div1>
+         <div1 type="section" n="55">
+            <p>Why is it that whenever the Samians are engaged in sacrificing to Hermes the Giver of Joy they
+					allow whoever so desires to steal from them and filch
+					their clothes?
+					
+					
+					<pb id="v.4.p.243"/>
+					
+				        </p>
+            <p>Because in obedience to an oracle they changed
+					their abode from Samos to Mycal&ecirc; and supported
+					themselves by piracy there for ten years ; and after
+					this they sailed again to Samos and overcame their
+					enemies.
+				</p>
+         </div1>
+         <div1 type="section" n="56">
+            <p>From what does the place Panhaema on the
+					island of Samos derive its name?
+				</p>
+            <p>Is it because the Amazons sailed from the country
+					of the Ephesians<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pausanias, vii. 2. 7.</note> across to Samos when they were
+					endeavouring to escape from Dionysus? But he built
+					boats and crossed over and, joining battle, slew many
+					of them near this place, which the spectators in
+					amazement called Panhaema<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Allblood.</q>
+               </note> because of the vast
+					quantity of blood shed there. And of the elephants<note resp="ed" place="unspecified" anchored="yes">Wilamowitz and Halliday emend to <foreign lang="greek">e)lefa/ntwn</foreign>. This has, at first view, some plausibility, but completely lacks corroborative evidence. Nonnus, <hi rend="italics">Dionysiaca</hi>, xxvi. 326 ff. is not by any means parallel.</note>
+					some are said to have been slain near Phloeum, and
+					their bones are pointed out there ; but some relate
+					that Phloeum also was cleft by them as they uttered
+					a loud and piercing cry.
+				</p>
+         </div1>
+         <div1 type="section" n="57">
+            <p>For what reason is the great hall in Samos
+					called the Hall of Fetters?
+				</p>
+            <p>After the murder of Demoteles and the dissolution
+					of his monarchic government the Land-owners<note resp="ed" place="unspecified" anchored="yes">Thucydides, viii. 21, recounts the later struggles of the Land-owners and the People.</note> controlled the State, and at this time the Megarians
+					made an expedition against the Perinthians, who
+					were colonists of the Samians ; as it is related, they
+					brought with them fetters for their captives. When
+					the Land-owners learned of this, they dispatched aid
+					to the Perinthians with all speed, appointing nine
+					
+					<pb id="v.4.p.245"/>
+					
+					generals and manning thirty ships. Two of these
+					ships, as they were sailing out, were destroyed by a
+					thunderbolt in front of the harbour ; but the generals
+					kept on with the others, defeated the Megarians, and
+					took six hundred of them alive. Elated by their
+					victory, they conceived the proj ect of overthrowing
+					the oligarchy of the Land-owners at home. Now
+					the officials in charge of the government had provided
+					an occasion for undertaking this, by writing to the
+					generals to bring back the captive Megarians bound
+					in their own fetters. The generals, accordingly,
+					took the letter, and secretly showed it to certain
+					of the Megarians and persuaded them to join with
+					themselves and free the city. When they took
+					counsel together concerning the deed, they decided
+					to knock loose the rings that fastened the fetters, and
+					in this condition to put them on the legs of the
+					Megarians, holding them up with thongs to their
+					girdles, so that the fetters might not slip down
+					and fall off when their legs became relaxed in
+					walking. Having thus equipped the men and given
+					a sword to each, they sailed back to Samos and disembarked, and there they led the Megarians through
+					the market-place to the council-chamber, where practically all the Land-owners were sitting together.
+					Then, at a given signal, the Megarians fell upon
+					them and slew them. When the city had thus been
+					freed, they made citizens of those Megarians who
+					so desired ; and they constructed a great building
+					and dedicated the fetters there ; and from this the
+					building was called the Hall of Fetters.
+				</p>
+         </div1>
+         <div1 type="section" n="58">
+            <p>Why is it that among the Coans the priest of
+					Heracles at Antimacheia dons a woman's garb, and
+					
+					
+					<pb id="v.4.p.247"/>
+					
+					fastens upon his head a woman's head-dress before
+					he begins the sacrifice?
+				</p>
+            <p>Heracles, putting out with his six ships from Troy,
+					encountered a storm ; and when his other ships had
+					been destroyed, with the only one remaining he was
+					driven by the gale to Cos. He was cast ashore upon
+					the Laceter, as the place is called, with nothing
+					salvaged save his arms and his men. Now he
+					happened upon some sheep and asked for one ram
+					from the shepherd. This man, whose name was
+					Antagoras, was in the prime of bodily strength, and
+					bade Heracles wrestle with him ; if Heracles could
+					throw him, he might carry off the ram. And when
+					Heracles grappled with him, the Meropes came to the
+					aid of Antagoras, and the Greeks to help Heracles,
+					and they were soon engaged in a mighty battle. In
+					the struggle it is said that Heracles, being exhausted
+					by the multitude of his adversaries, fled to the house
+					of a Thracian woman ; there, disguising himself in
+					feminine garb, he managed to escape detection.
+					But later, when he had overcome the Meropes in
+					another encounter, and had been purified, he married Chalciop&ecirc; and assumed a gay-coloured raiment.
+					Wherefore the priest sacrifices on the spot where it
+					came about that the battle was fought, and bridegrooms wear feminine raiment when they welcome
+					their brides.
+				</p>
+         </div1>
+         <div1 type="section" n="59">
+            <p>Whence came the clan of <q direct="unspecified">Wagon-rollers</q>
+					among the Megarians?
+				</p>
+            <p>In the time of the unbridled democracy which
+					brought about both the return-interest<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 295 c-d, <hi rend="italics">supra</hi>.</note> and the
+					temple sacrilege, a sacred mission of Peloponnesians
+					passed through the Megarid, on its way to Delphi and
+					
+					<pb id="v.4.p.249"/>
+					
+					had encamped, as chance dictated, in their wagons,
+					with their wives and children, in Aegeiri beside the
+					lake. But the boldest spirits among the Megarians,
+					inflamed with wine, in their insolence and savagery
+					rolled back the wagons and pushed them into the
+					lake, so that many members of the mission were
+					drowned. Now because of the unsettled state of
+					their government the Megarians took no notice of
+					the crime; but the Amphictyonic Assembly, since the
+					mission was sacred, took cognizance of the matter
+					and punished some of the guilty men with banishment and others with death. The descendants of
+					these men were called <q direct="unspecified">Wagon-rollers.</q>
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De garrulitate</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">W. C. Helmbold</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>W. C. Helmbold</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1939</date>
+                  </imprint>
+                  <biblScope type="volume">6</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="section" n="intro">
+            <pb id="v.6.p.395"/>
+            <head>CONCERNING TALKATIVENESS
+					(DE GARRULITATE)
+					<lb/>INTRODUCTION</head>
+            <p>
+					This charming essay, by far the best in the volume,
+					suffers from only one defect, its length. Though
+					Plutarch again and again, by his narrative skill and
+					na&iuml;ve or unconscious humour, will delight even those
+					who have hardened their hearts against him (I mean
+					his editors), he cannot at last resist the temptation to
+					indulge in what he considered scientific analysis and
+					enlightened exhortation. He is then merely dull.
+					But, taken as a whole, the essay is surely a success,
+					and as organic and skilful a performance as any in
+					the <hi rend="italics">Moralia</hi>.
+				</p>
+            <p>
+					The work was written after <hi rend="italics">De Curiositate</hi> and
+					before <hi rend="italics">De Tranquillitate</hi>, <hi rend="italics">De Capienda ex Inimicis
+						Utilitate</hi>, and <hi rend="italics">De Laude Ipsius</hi>.<note resp="ed" place="unspecified" anchored="yes">I have thus combined the conclusions of Pohlenz, Brokate, and Hein.</note> It stands in the
+					Lamprias catalogue as No. 92.<note resp="ed" place="unspecified" anchored="yes">Mr C. B. Robinson's translation, or paraphrase, of this and several other essays in this volume, arrived too late to be of service (see <hi rend="italics">Plutarch, Selected Essays</hi>, Putnam, New York, 1937).</note>
+					
+				        </p>
+         </div1>
+         <pb id="v.6.p.397"/>
+         <div1 type="section" n="1">
+            <p>It is a troublesome and difficult task that philosophy has in hand when it undertakes to cure garrulousness. For the remedy, words of reason, requires listeners ; but the garrulous listen to nobody,
+					for they are always talking. And this is the first
+					symptom of their ailment: looseness of the tongue
+					becomes impotence of the ears.<note resp="ed" place="unspecified" anchored="yes">It suits Plutarch's humour in this passage, in which he speaks of garrulity as a disease, to invent one, and possibly two, pseudo-medical terms, <foreign lang="greek">a)sighsi/a</foreign>, <q direct="unspecified">inability to keep silent,</q> and <foreign lang="greek">a)nhkoi/+a</foreign>, <q direct="unspecified">inability to listen.</q> The figure is maintained in <foreign lang="greek">diarre/ousi</foreign> at the end of section d. Rouse suggests: <q direct="unspecified">And here is the first bad symptom in diarrhoea of the tongue - constipation of the ears.</q>
+               </note> For it is a deliberate
+					deafness, that of men who, I take it, blame Nature
+					because they have only one tongue, but two ears.b
+					If, then, Euripides<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 39 b; von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, i. p. 68, Zeno, Frag. 310.</note> was right when he said with
+					reference to the unintelligent hearer,
+					<quote rend="blockquote">
+                  <l>I could not fill a man who will not hold
+						</l>
+                  <l>My wise words flooding into unwise ears,</l>
+               </quote>
+					it would be more just to say to the garrulous man,
+					or rather about the garrulous man,
+					<quote rend="blockquote">
+                  <l>I could not fill a man who will not take
+						</l>
+                  <l>My wise words flooding into unwise ears,</l>
+               </quote>
+					or rather submerging, a man who talks to those
+					
+					<pb id="v.6.p.399"/>
+					
+					who will not listen, and will not listen when others
+					talk. For even if he does listen for a moment, when
+					his loquacity is, as it were, at ebb, the rising tide
+					immediately makes up for it many times over.
+				</p>
+            <p>
+					They give the name of Seven-voiced<note resp="ed" place="unspecified" anchored="yes">A portico on the east side of the Altis; <hi rend="italics">cf.</hi> Pausanias, v. 21. 17, Pliny, <hi rend="italics">Natural History</hi>, xxxvi. 15. 100.</note> to the
+					portico at Olympia which reverberates many times
+					from a single utterance ; and if but the least word
+					sets garrulousness in motion, straightway it echoes
+					round about on all sides,
+					<quote rend="blockquote">Touching the heart-strings never touched before.<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> 456 c, 501 a, <hi rend="italics">supra</hi>.</note>
+               </quote>
+					Indeed one might think that babbler's ears have no
+					passage bored through<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristophanes, <hi rend="italics">Thesm.</hi>, 18: <foreign lang="greek">di/khn de\ xoa/nhs w)=ta dietetrh/nato</foreign>.</note> to the soul, but only to the
+					tongue.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Philoxenus in <hi rend="italics">Gnomologium Vaticanum</hi>, 547 (<hi rend="italics">Wiener Stud.</hi>, xi. 234).</note> Consequently, while others retain what is
+					said, in talkative persons it goes right through in a
+					flux ; then they go about like empty vessels,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the proverb: <q direct="unspecified">Empty vessels make the loudest noise.</q>
+               </note> void
+					of sense, but full of noise.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>But if, however, we are resolved to leave no
+					means untried, let us say to the babbler,
+					<quote rend="blockquote">Hush, child : in silence many virtues lie,<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                     <hi rend="superscript">2</hi>, p. 147, Sophocles, Frag. 78 (Frag. 81 ed. Pearson, vol. i. p. 50), from the <hi rend="italics">Aleadae</hi>.</note>
+               </quote>
+					and among them the two first and greatest, the
+					merits of hearing and being heard ; neither of these
+					can happen to talkative persons, but even in that
+					which they desire especially they fail miserably. For
+					in other diseases of the soul,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 519 d, <hi rend="italics">infra</hi>.</note> such as love of money,
+					love of glory, love of pleasure, there is at least the
+					possibility of attaining their desires, but for babblers
+					this is very difficult: they desire listeners and cannot
+					
+					<pb id="v.6.p.401"/>
+					
+					get them, since every one runs away headlong. If
+					men are sitting in a public lounge or strolling about
+					in a portico, and see a talker coming up, they
+					quickly give each other the counter-sign to break
+					camp. And just as when silence occurs in an assemblage they say that Hermes has joined the company,
+					so when a chatterbox comes into a dinner-party or
+					social gathering, every one grows silent, not wishing
+					to furnish him a hold ; and if he begins of his own
+					accord to open his mouth,
+					<quote rend="blockquote">As when the North-wind blows along
+						A sea-beaten headland before the storm,<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> 455 a, <hi rend="superscript">supra</hi>.</note>
+               </quote>
+					suspecting that they will be tossed about and sea-sick,
+					they rise up and go out. And so it is a talker's lot
+					when travelling by land or sea, to find volunteer
+					listeners neither as table-companions nor as tentmates, but only conscripts; for the talker is at
+					you everywhere, catching your cloak, plucking your
+					beard, digging you in the ribs.
+					<quote rend="blockquote">Then are your feet of the greatest value,</quote>
+					as Archilochus<note resp="ed" place="unspecified" anchored="yes">Edmonds, <hi rend="italics">Elegy and Iambus</hi>, ii. p. 182, Frag. 132.</note> says, and on my word the wise Aristotle will agree. For when Aristotle himself was
+					annoyed by a chatterer and bored with some silly
+					stories, and the fellow kept repeating, <q direct="unspecified">Isn't it
+						wonderful, Aristotle?</q> 
+               <q direct="unspecified">There's nothing wonderful about that,</q> said Aristotle, <q direct="unspecified">but that anyone with
+							feet endures you.</q> To another man of the same
+					sort, who said after a long rigmarole, <q direct="unspecified">Poor philosopher, I've wearied you with my talk,</q> 
+               <q direct="unspecified">Heavens,
+						no!</q> said Aristotle, <q direct="unspecified">I wasn't listening.</q> In fact,
+					
+					<pb id="v.6.p.403"/>
+					
+					if chatterers force their talk upon us, the soul surrenders to them the ears to be flooded from outside,
+					but herself within unrolls thoughts of another sort and
+					follows them out by herself. Therefore talkers do
+					not find it easy to secure listeners who either pay
+					attention or believe what they say ; for just as they
+					affirm that the seed of persons too prone to lusts
+					of the flesh is barren, so is the speech of babblers
+					ineffectual and fruitless.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Lycurgus</hi>, xix. (51 e-f).</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>And yet Nature has built about none of our
+					parts so stout a stockade as about the tongue,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Commentarii in Hesiodum</hi>, 71 (Bernardakis, vol. vii. pp. 87-88).</note> having
+					placed before it as an outpost the teeth, so that when
+					reason within tightens <q direct="unspecified">the reins of silence,</q>
+               <note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, v. 226; <foreign lang="greek">sigalo/enta</foreign>, of course, means <q direct="unspecified">glossy</q> or <q direct="unspecified">shining,</q> but here it is probably used as a playful pun on <foreign lang="greek">sigh/</foreign>.</note> if
+					the tongue does not obey or restrain itself, we may
+					check its incontinence by biting it till it bleeds. For
+					Euripides<note resp="ed" place="unspecified" anchored="yes">Adapted from <hi rend="italics">Bacchae</hi>, 386, 388.</note> says that <q direct="unspecified">disaster is the end,</q> not of
+					unbolted treasuries or storerooms, but of <q direct="unspecified">unbridled
+						tongues.</q> And those who believe that storerooms
+					without doors and purses without fastenings are of
+					no use to their owners, yet keep their mouths without lock or door, maintaining as perpetual an outflow
+					as the mouth of the Black Sea, appear to regard
+					speech as the least valuable of all things. They do
+					not, therefore, meet with belief,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 519 d, <hi rend="italics">infra</hi>.</note> which is the object
+					of all speech. For this is the proper end and aim
+					of speech, to engender belief in the hearer ; but
+					chatterers are disbelieved even if they are telling the
+					truth. For as wheat shut up in a jar<note resp="ed" place="unspecified" anchored="yes">Or a <q direct="unspecified">pit,</q> perhaps; <hi rend="italics">cf. Moralia</hi>, 697 d.</note> is found to
+					have increased in quantity, but to have deteriorated
+					
+					<pb id="v.6.p.405"/>
+					
+					in quality, so when a story finds its way to a chatterer,
+					it generates a large addition of falsehood and thereby
+					destroys its credit.
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Again, every self-respecting and orderly man
+					would, I think, avoid drunkenness. For while, according to some, anger lives next door to madness,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Antiphanes, Frag. 295 (Kock, <hi rend="italics">Com. Att. Frag.</hi>, ii. p. 128): <foreign lang="greek">lu/ph mani/as o(mo/toixos ei)=nai/ moi dokei=</foreign>.</note>
+					drunkenness lives in the same house with it; or
+					rather, drunkenness is madness, shorter in duration,
+					but more culpable, because the will also is involved
+					in it.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Seneca, <hi rend="italics">Epistulae Morales</hi>, lxxxiii. 18.</note> And there is no fault so generally ascribed to
+					drunkenness as that of intemperate and unlimited
+					speech. <q direct="unspecified">For wine,</q> says the Poet,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, xiv. 463-466; <hi rend="italics">cf. Moralia</hi>, 645 a; Athenaeus, v. 179 e-f.</note>
+					          <quote rend="blockquote">
+                  <l>Urges a man to sing, though he be wise,
+						</l>
+                  <l>And stirs to merry laughter and the dance.</l>
+               </quote>
+					And what is here so very dreadful? Singing and
+					laughing and dancing? Nothing so far-
+					<quote rend="blockquote">But it lets slip some word better unsaid<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. De Vita et Poesi Homeri</hi>, 149 (Bernardakis, vol. vii. p. 421).</note>:</quote>
+					this is where the dreadful and dangerous part now
+					comes in. And perhaps the Poet has here resolved
+					the question debated by the philosophers,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Chrysippus, Frag. Mor. 644, 712 (von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. pp. 163, 179).</note> the
+					difference between being under the influence of
+					wine and being drunk, when he speaks of the former
+					as relaxation, but drunkenness as sheer folly. For
+					what is in a man's heart when he is sober is on his
+					tongue when he is drunk, as those who are given to
+					proverbs say.<note resp="ed" place="unspecified" anchored="yes">Leutsch and Schneidewin, <hi rend="italics">Paroemiographi Graeci</hi>, i. p. 313; ii. pp. 219, 687. <q direct="unspecified">N&uuml;chtern gedacht, voll gesagt.</q>
+               </note> Therefore when Bias<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the similar remark attributed to Demaratus in <hi rend="italics">Moralia</hi>, 220 a=b and to Solon in Stobaeus, vol. iii. pp. 685-686 ed. Hense.</note> kept silent at a
+					
+					<pb id="v.6.p.407"/>
+					
+					drinking-bout and was taunted with stupidity by a
+					chatterer, <q direct="unspecified">What fool,</q> said he, <q direct="unspecified">in his cups can
+						hold his tongue?</q> And when a certain man at
+					Athens was entertaining envoys from the king,<note resp="ed" place="unspecified" anchored="yes">Either Ptolemy Soter (Diogenes Laertius, vii. 24) or Antigonus (Stobaeus, iii. p. 680 ed. Hense).</note> at
+					their earnest request he made every effort to gather
+					the philosophers to meet them ; and while the rest
+					took part in the general conversation and made
+					their contributions to it, but Zeno<note resp="ed" place="unspecified" anchored="yes">Frag. 284 (von Arnim, <hi rend="italics">op. cit.</hi>, i. p. 64).</note> kept silent,
+					the strangers, pledging him courteously, said, <q direct="unspecified">And
+						what are we to tell the king about you, Zeno?</q>
+					          <q direct="unspecified">Nothing,</q> said he, <q direct="unspecified">except that there is an old
+						man at Athens who can hold his tongue at a drinking-party.</q>
+				        </p>
+            <p>
+					Thus silence is something profound and awesome
+					and sober, but drunkenness is a babbler, for it is
+					foolish and witless, and therefore loquacious also.
+					And the philosophers<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 716 f; Chrysippus, Frag. Mor. 643 (von Arnim, <hi rend="italics">op. cit.</hi>, iii. p. 163).</note> even in their very definition
+					of drunkenness say that it is intoxicated and foolish
+					talking ; thus drinking is not blamed if silence attends
+					the drinking, but it is foolish talk which converts the
+					influence of wine into drunkenness. While it is true
+					that the drunken man talks foolishness in his cups,
+					the chatterer talks foolishness on all occasions, in the
+					market-place, in the theatre, out walking, drunk or
+					sober, by day, by night. As your physician, he is
+					worse than the disease ; as your ship-mate, more
+					unpleasant than sea-sickness ; his praises are more
+					annoying than another's blame: we certainly have
+					greater pleasure in company with clever rascals than
+					with honest chatterboxes. In Sophocles,<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 312, Frag. 771 (Frag. 855 ed. Pearson, vol. iii. p. 63); <hi rend="italics">cf. Moralia</hi>, 810 b.</note> when Ajax
+					
+					<pb id="v.6.p.409"/>
+					
+					uses boisterous language, Nestor, in soothing him,
+					says in words which show his knowledge of character,
+					<quote rend="blockquote">I blame you not: ill your words, but good your deeds.</quote>
+					But these are not our feelings toward the chatterer ;
+					on the contrary, the untimeliness of his words destroys and annuls all gratitude for any deed.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Lysias once composed a speech for a litigant and
+					gave it to him. The man read it through a number
+					of times and came to Lysias in despair and said that
+					the first time he read it the speech seemed to him
+					wonderfully good, but on taking it up a second and
+					third time it appeared completely dull and ineffectual.
+					<q direct="unspecified">Well,</q> said Lysias laughing, <q direct="unspecified">isn't it only once that
+						you are going to speak it before the jurors?</q> And
+					consider the persuasiveness and charm of Lysias!
+					For he is one who, for my part,
+					<quote rend="blockquote">I say has a fair portion in the violet-tressed Muses.<note resp="ed" place="unspecified" anchored="yes">An anonymous fragment, attribtued to Sappho by Bergk (<hi rend="italics">Poet. Lyr. Gr.</hi>, iii. p. 703), to Bacchylides by Diehl (<hi rend="italics">Anthologia Lyrica</hi>, ii. p. 162); <hi rend="italics">cf.</hi> Edmonds, <hi rend="italics">Lyra Graeca</hi>, iii. p. 429.</note>
+               </quote>
+					And of the things said about the Poet this is the
+					truest - that Homer alone has survived the fastidiousness of men,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pope's <quote rend="blockquote">
+                     <l>Those oft are stratagems which error seem, </l>
+                     <l>Nor is it Homer nods, but we that dream,</l>
+                  </quote> with the judgement of Horace, <hi rend="italics">Ars Poetica</hi>, 359.</note> since he is ever new and his charm is
+					ever at its best; yet none the less, he spoke and proclaimed that famous remark about himself,
+					<quote rend="blockquote">
+                  <l>I scorn to tell
+						</l>
+                  <l>A tale again that's once been clearly told<note resp="ed" place="unspecified" anchored="yes">
+                        <hi rend="italics">Od.</hi>, xii. 452-453; <hi rend="italics">cf. Moralia</hi>, 764 a.</note>;</l>
+               </quote>
+					and he avoids and fears the satiety which lies in
+					
+					<pb id="v.6.p.411"/>
+					
+					ambush for every tale, leading his hearers from one
+					narrative to another and soothing away the ear's
+					surfeit by constant novelty. But babblers actually
+					wear out our ears by their repetitions, just as though
+					they were smudging palimpsests.<note resp="ed" place="unspecified" anchored="yes">Plutarch probably means that talkers wear out our ears by the repetitions of stale news, just as palimpsests are worn out by constant erasure. But not all points of the comparison are clear; <hi rend="italics">cf. Moralia</hi>, 779 c; Cicero, <hi rend="italics">ad Fam.</hi>, vii. 18. 2.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>Let this, then, be the first thing of which we
+					remind them - that just as wine, discovered for the
+					promotion of pleasure and good fellowship, is sometimes misused to produce discomfort and intoxication
+					by those<note resp="ed" place="unspecified" anchored="yes">Probably referring to the <foreign lang="greek">sumposi/arxos</foreign> (<hi rend="italics">cf.</hi>, for example, <hi rend="italics">Moralia</hi>, 620 a ff.), or <hi rend="italics">magister bibendi</hi>.</note> who compel others to drink it undiluted
+					in large quantities, so speech, which is the most
+					pleasant and human of social ties, is made inhuman
+					and unsocial by those who use it badly and wantonly,
+					because they offend those whom they think they
+					please, are ridiculed for their attempts at gaining
+					admiration, and are disliked because of the very
+					means they employ to gain affection. As, then, he
+					can have no share in Aphrodite who uses her girdle
+					to drive away and alienate those who seek his company, so he who arouses annoyance and hostility with
+					his speech is no friend of the Muses and a stranger
+					to art.
+				</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Now of the other affections and maladies some
+					are dangerous, some detestable, some ridiculous ; but
+					garrulousness has all these qualities at once ; for
+					babblers are derided for telling what everyone knows,
+					they are hated for bearing bad news, they run into
+					danger since they cannot refrain from revealing
+					secrets. So it is that Anacharsis,<note resp="ed" place="unspecified" anchored="yes">A Scythian of high rank, who travelled widely in the pursuit of knowledge, and visited Athens in the time of Solon, <hi rend="italics">circa</hi> 597 b.c.</note> when he had been
+					entertained and feasted at Solons house and lay
+					down to sleep, was seen to have his left hand placed
+					
+					<pb id="v.6.p.413"/>
+					
+					upon his private parts, but his right hand upon his
+					mouth ; for he believed, quite rightly, that the
+					tongue needs the stronger restraint. It would not
+					be easy, for example, to enumerate as many men
+					who have been ruined by incontinent lust as is the
+					number of cities and empires which a secret revealed
+					has brought to destruction. When Sulla<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Sulla</hi>, xiv. (460 c ff.). Athens was captured in 86 b.c.</note> was besieging Athens, he had very little time to waste in the
+					operations
+					<quote rend="blockquote">Since other labour was pressing,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, xi. 54.</note>
+               </quote>
+					Mithridates having ravaged Asia, and the party of
+					Marius being again masters in Rome. But spies
+					heard some old men in a barber's shop remarking to
+					each other that the Heptachalcon<note resp="ed" place="unspecified" anchored="yes">The position of the Heptachalcon is thought to be near the Peiraeic Gate, near which was also the hero&ouml;n of Chalcodon; see Judeich, <hi rend="italics">Topographie von Athen</hi>
+                  <hi rend="superscript">2</hi>, p. 368, note 8.</note> was unguarded
+					and that the city was in danger of being captured at
+					that point; and the spies brought word of this to
+					Sulla, who at once brought up his forces at midnight,
+					led in his army, and almost razed the city to the
+					ground, filling it with carnage and corpses so that the
+					Cerameicus ran with blood. And Sulla's anger with
+					the Athenians was due more to their words than to
+					their deeds ; for they used to revile him<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Sulla</hi>, xiii. (459 f - 460 a).</note> and
+					Metella,<note resp="ed" place="unspecified" anchored="yes">Sulla's wife.</note> leaping upon the walls and jesting,
+					<quote rend="blockquote">Sulla is a mulberry sprinkled with meal<note resp="ed" place="unspecified" anchored="yes">Referring to his complexion: blotches of red interspersed with white; <hi rend="italics">cf. Life of Sulla</hi>, ii. (451 f).</note>;</quote>
+					and with much similar idle banter they drew upon
+					themselves, as Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Laws</hi>, 935 a and 717 d; <hi rend="italics">cf.</hi> the note on 456 d, <hi rend="italics">supra</hi>.</note> says, <q direct="unspecified">a very heavy penalty
+						for the lightest of things, words.</q>
+					
+					          <pb id="v.6.p.415"/>
+				        </p>
+            <p>
+					The loquacity of one man, again, prevented Rome
+					from becoming free by the removal of Nero.<note resp="ed" place="unspecified" anchored="yes">This account differs in every way from the standard version in Tacitus, <hi rend="italics">Annals</hi>, xv. 54 ff.</note> For
+					but one night remained, after which the tyrant was
+					to die, and all preparations had been made ; but the
+					man<note resp="ed" place="unspecified" anchored="yes">Perhaps Subrius Flavus is meant (<hi rend="italics">Annals</hi>, xv. 50).</note> who was to kill him saw at the palace gates
+					when on his way to the theatre a prisoner about to
+					be led before Nero and lamenting his evil fortune.
+					He approached the prisoner and whispered to him,
+					<q direct="unspecified">Only pray, my good man, that to-day may pass by
+						and to-morrow you will be thankful to me.</q> So the
+					prisoner grasped the intended meaning, and reflecting, I suppose, that
+					<quote rend="blockquote">
+                  <l>He is a fool who leaves things close at hand
+						</l>
+                  <l>To follow what is out of reach,<note resp="ed" place="unspecified" anchored="yes">Hesiod, Frag. 219 (Frag. 18, p. 278 ed. Evelyn-White in L.C.L.; Frag. 234 ed. Kinkel) from <hi rend="italics">Eoae</hi> according to von Blumenthal, <hi rend="italics">Hermes</hi>, xlix. 319.</note>
+                  </l>
+               </quote>
+					chose the surer rather than the more just way of
+					safety. For he revealed to Nero what had been said
+					to him by the man, who was immediately seized, and
+					tortures and fire and the lash were applied to the
+					conspirator as he denied, in the face of constraint,
+					what he had revealed without constraint.
+				</p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Zeno<note resp="ed" place="unspecified" anchored="yes">Of Elea; <hi rend="italics">cf. Moralia</hi>, 1126 d, 1051 c; Diels, <hi rend="italics">Frag. d. Vorsokrat.</hi>
+                  <hi rend="superscript">5</hi>, i. p. 249, A 7; and Dougan's note on Cicero, <hi rend="italics">Tusc. Disp.</hi>, ii. 22. 52.</note> the philosopher, in order that even
+					against his will no secret should be betrayed by his
+					body when under torture, bit his tongue through and
+					spat it out at the despot.<note resp="ed" place="unspecified" anchored="yes">Called by Plutarch Demylos of Carystus.</note> And Leaena<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pausanias, i. 23. 1; Athenaeus, 596 f; Leaena means <q direct="unspecified">lioness.</q> She was Aristogeiton's mistress.</note> also has
+					a splendid reward for her self-control. She was a
+					courtesan belonging to the group led by Harmodius
+					and Aristogeiton and shared in the conspiracy against
+					
+					<pb id="v.6.p.417"/>
+					
+					the tyrants<note resp="ed" place="unspecified" anchored="yes">Hippias and Hipparchus; <hi rend="italics">cf.</hi> Thucydides, vi. 54-59; Aristotle, <hi rend="italics">Ath. Pol.</hi>, xviii. 2.</note> - with her hopes, all a woman could do ;
+					for she also had joined in the revels about that noble
+					mixing-bowl of Eros<note resp="ed" place="unspecified" anchored="yes">The motive of Love runs through the entire story: Thettalus and Harmodius's sister, Aristogeiton and Harmodius, Leaena and Aristogeiton. This was Eros's mixing-bowl.</note> and through the god had been
+					initiated into the secrets which might not be revealed.
+					When, therefore, the conspirators failed and were put
+					to death, she was questioned and commanded to
+					reveal those who still escaped detection ; but she
+					would not do so and continued steadfast, proving that
+					those men had experienced a passion not unworthy of
+					themselves in loving a woman like her. And the
+					Athenians caused a bronze lioness<note resp="ed" place="unspecified" anchored="yes">See Judeich, <hi rend="italics">op. cit.</hi>, p. 231.</note> without a tongue
+					to be made and set it up in the gates of the Acropolis,
+					representing by the spirited courage of the animal
+					Leaena's invincible character, and by its tonguelessness her power of silence in keeping a holy secret.
+				</p>
+            <p>
+					No spoken word, it is true, has ever done such
+					service as have in many instances words unspoken<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 10 e-f, 125 d; 515 a, <hi rend="italics">infra</hi>.</note>;
+					for it is possible at some later time to tell what you
+					have kept silent, but never to keep silent what once
+					has been spoken - <hi rend="italics">that</hi> has been spilled, and has
+					made its way abroad.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Horace, <hi rend="italics">Ars Poet.</hi>, 390: <foreign lang="la">nescit vox missa reverti</foreign>.</note> Hence, I think, in speaking
+					we have men as teachers, but in keeping silent we
+					have gods, and we receive from them this lesson of
+					silence at initiations into the Mysteries. And the
+					Poet f has made the most eloquent Odysseus the
+					most reticent, and also his son and his wife and his
+					nurse ; for you hear the nurse saying,<note resp="ed" place="unspecified" anchored="yes">Eurycleia; adapted from <hi rend="italics">Od.</hi>, xix. 494.</note>
+					          <quote rend="blockquote">I'll hold it safe like sturdy oak or iron.</quote>
+					
+					          <pb id="v.6.p.419"/>
+					
+					And Odysseus himself, as he sat beside Penelope,
+					<quote rend="blockquote">
+                  <l>Did pity in his heart his wife in tears,
+						</l>
+                  <l>But kept his eyes firm-fixed within their lids
+						</l>
+                  <l>Like horn or iron.<note resp="ed" place="unspecified" anchored="yes">
+                        <hi rend="italics">Od.</hi>, xix. 210-212; <hi rend="italics">cf.</hi> 442 d-e, <hi rend="italics">supra</hi>.</note>
+                  </l>
+               </quote>
+					So full of self-control was his body in every limb, and
+					Reason, with all parts in perfect obedience and submission, ordered his eyes not to weep, his tongue not
+					to utter a sound, his heart not to tremble or bark<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Od.</hi>, xx. 13, 16.</note>:
+					<quote rend="blockquote">His heart remained enduring in obedience,<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Od.</hi>, xx. 23; <hi rend="italics">cf.</hi> 453 d, <hi rend="italics">supra</hi>.</note>
+               </quote>
+					since his reason extended even to his irrational or involuntary movements and made amenable and subservient to itself<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 442 e, <hi rend="italics">supra</hi>.</note> both his breath and his blood. Of
+					such character were also most of his companions ; for
+					even when they were dragged about and dashed
+					upon the ground by the Cyclops,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Od.</hi>, ix. 289.</note> they would not
+					denounce Odysseus nor show that fire-sharpened
+					instrument prepared against the monster's eye, but
+					preferred to be eaten raw rather than to tell a
+					single word of the secret-an example of self-control
+					and loyalty which cannot be surpassed. Therefore
+					Pittacus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Commentarii in Hesiodum</hi>, 71 (Bernardakis, vol. vii. p. 88); told also of Bias in <hi rend="italics">Moralia</hi>, 38 b and 146 f.</note> did not do badly, when the king of Egypt
+					sent bini a sacrificial animal and bade him cut out
+					the fairest and foulest meat, when he cut out and
+					sent him the tongue, as being the instrument of both
+					the greatest good and the greatest evil.
+					
+					<pb id="v.6.p.421"/>
+					
+				        </p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>And Ino in Euripides,<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 486, Frag. 413. 2; <hi rend="italics">cf. Moralia</hi>, 606 a.</note> speaking out boldly
+					concerning herself, says that she knows how to be
+					<quote rend="blockquote">Silent in season, to speak where speech is safe.</quote>
+					For those who have received a noble and truly royal
+					education learn first to be silent, and then to speak.
+					For example, that famous king Antigonus,<note resp="ed" place="unspecified" anchored="yes">The One-eyed; <hi rend="italics">cf. Moralia</hi>, 182 b; <hi rend="italics">Life of Demetrius</hi>, xxviii. (902 b-c).</note> when his
+					son asked him at what hour they were to break camp,
+					said, <q direct="unspecified">What are you afraid of? That you alone may
+						not hear the trumpet?</q> This was not, surely, because he would not entrust a secret to the man to
+					whom he intended to leave his kingdom? No, he was
+					teaching his son to be self-controlled and guarded
+					about such matters. And the old Metellus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 202 a.</note> when
+					on a campaign he was asked some such question, said,
+					<q direct="unspecified">If I thought my shirt was privy to that secret, I
+						would have stripped it off and put it in the fire.</q> And
+					Eumenes,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Eumenes</hi>, vi., vii. (586 b ff.).</note> when he heard that Cr at erus was advancing, told none of his friends, but pretended that it was
+					Neoptolemi. For his soldiers despised Neoptolemus,
+					but both respected the reputation of Craterus and
+					admired his valour. No one else knew the truth, and
+					they joined battle, won the victory, killed Craterus
+					without knowing it, and only recognized him when he
+					was dead. So successfully did silence manoeuvre the
+					contest and keep hidden so formidable an opponent
+					that his friends admired Eumenes for not forewarning
+					them rather than blamed him. And even if some do
+					blame you, it is better that men should criticize you
+					when they are already saved through mistrust than
+					
+					<pb id="v.6.p.423"/>
+					
+					that they should accuse you when they are being
+					destroyed because you did trust them.
+				</p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>Yet, speaking generally, who has left himself
+					the right to speak out boldly against one who has not
+					kept silent? If the story ought not to have been
+					known, it was wrong for it to be told to another ;
+					and if you have let the secret slip from yourself and
+					yet seek to confine it to another, you have taken
+					refuge in another's good faith when you have already
+					abandoned your own. And if he turns out to be no
+					better than yourself, you are deservedly ruined ; if
+					better, you are saved beyond all expectation, since
+					you have found another more faithful on your own
+					behalf than you yourself are. <q direct="unspecified">But this man is my
+						friend.</q> Yet he has another friend, whom he will
+					likewise trust as I trust him ; and his friend, again,
+					will trust another friend. Thus, then, the story goes
+					on increasing and multiplying by link after link of incontinent betrayal. For just as the monad<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 429 a, 1012 d-f. For the indeterminate dyad, see Aristotle, <hi rend="italics">Met</hi>., 987 b 26 and 1081 a 14; A. E. Taylor, <hi rend="italics">Philosophical Studies</hi>, pp. 130 ff; and for Plutarch's understanding of the dyad see L. Robin, <hi rend="italics">La Theorie platonicienne des idees et des nombres</hi>, pp. 648-651 (Notopoulos and Fobes).</note> does not
+					pass out of its own boundaries, but remains once and
+					for all one (for which reason it is called a monad), and
+					as the dyad is the indeterminate beginning of difference (for by doubling it at once shifts from unity to
+					plurality), so a story confined to its first possessor is
+					truly secret ; but if it passes to another, it has acquired the status of rumour. The Poet,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">passim</hi>; on the formula, see the most recent discussions in <hi rend="italics">Classical Philology</hi>, xxx. 215 ff., xxxii. 59 ff., <hi rend="italics">Classical Quart.</hi>, xxx. 1-3.</note> in fact, says
+					that <q direct="unspecified">words</q> are <q direct="unspecified">winged</q> : neither when you let
+					go from your hands a winged thing is it easy to get
+					
+					<pb id="v.6.p.425"/>
+					
+					it back again,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 691, Euripides, Frag. 1044.</note> nor when a word is let slip from the
+					mouth is it possible to arrest and control it, but it is
+					borne away
+					<quote rend="blockquote">Circling on swift wings,<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 750 b; probably from the <hi rend="italics">Epodes</hi> of Archilochus, <hi rend="italics">cf.</hi> Eusebius, <hi rend="italics">Praep. Evang.</hi>, xv. 4. 5; Edmonds, <hi rend="italics">Elegy and Iambus</hi>, ii. p. 142.</note>
+               </quote>
+					and is scattered abroad from one to another. So
+					when a ship has been caught by a wind, they try to
+					check it, deadening its speed with cables and anchors,
+					but if a story runs out of harbour, so to speak, there
+					is no roadstead or anchorage for it, but, carried away
+					with a great noise and reverberation, it dashes upon
+					the man who uttered it and submerges him in some
+					great and terrible danger.
+					<quote rend="blockquote">
+                  <l>With but a little torch one might set fire
+						</l>
+                  <l>To Ida's rock ; and tell one man a tale,
+						</l>
+                  <l>Soon all the town will know.<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">op. cit.</hi>, p. 486, Euripides, Frag. 411, vv. 2-4, from the <hi rend="italics">Ino</hi>; <hi rend="italics">cf.</hi> St. James, iii. 5, 6.</note>
+                  </l>
+               </quote>
+				        </p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>The Roman Senate<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the tale of Papirius Praetextatus, Aulus Gellius, i. 23.</note> was once for many days
+					debating in strict privacy a certain secret policy ; and
+					since the matter gave rise to much uncertainty and
+					suspicion, a woman prudent in other respects, but yet
+					a woman, kept pestering her husband and persistently
+					begging to learn the secret. She vowed with imprecations upon herself that she would keep silent,
+					and wept and moaned because she was not trusted.
+					And the Roman, wishing to bring home her folly
+					by proof, said, <q direct="unspecified">Wife, you have won ; listen to
+						a terrible and portentous matter. We have been
+						informed by the priests that a lark has been seen
+						flying about with a golden helmet and a spear ; we
+						
+						<pb id="v.6.p.427"/>
+						
+						are therefore examining the portent whether it be
+						good or bad, and are in constant consultation with the
+						augurs. But do you hold your tongue.</q> So saying
+					he went off to the Forum. But his wife at once
+					seized the first maid to come into the room and beat
+					her own breast and tore her hair. <q direct="unspecified">Alas,</q> she cried,
+					<q direct="unspecified">for my husband and my country! What will become of us?</q> wishing, and in fact instructing, the
+					maid to ask, <q direct="unspecified">Why, what has happened?</q> So when
+					the maid asked the question, she told the tale and
+					added that refrain common to every babbler, <q direct="unspecified">Keep
+						this quiet and tell it to no one!</q> The little maid
+					had scarcely left her when she herself tells the tale
+					to that fellow servant who, she saw,had least to do;
+					and this servant, in turn, told it to her lover who was
+					paying a visit. WTith such speed was the story rolled
+					out<note resp="ed" place="unspecified" anchored="yes">As by the <hi rend="italics">eccyclema</hi> on the Greek stage.</note> into the Forum that it preceded its inventor :
+					he was met by an acquaintance who said, <q direct="unspecified">Have
+						you just now come down to the Forum from home?</q>
+					          <q direct="unspecified">This very moment,</q> said he. <q direct="unspecified">Then you have
+						heard nothing?</q> 
+               <q direct="unspecified">Why, is there any news?</q>
+					          <q direct="unspecified">A lark has been seen flying about with a gold
+						helmet and a spear and the magistrates are going
+						to convene the senate about the matter.</q> And the
+					husband laughed and said, <q direct="unspecified">All praise to your speed,
+						my wife! The story has even reached the Forum
+						before me!</q> So he interviewed the magistrates and
+					relieved them of their anxiety ; but, by way of punishing his wife, as soon as he entered home, he said,
+					<q direct="unspecified">Wife, you have ruined me! The secret has been
+						discovered to have been made public from my house ;
+						consequently I am to be exiled from my native land
+						because you lack self-control.</q> When she denied it
+					
+					<pb id="v.6.p.429"/>
+					
+					and said, <q direct="unspecified">What, didn't you hear it in company with
+						three hundred others?</q> 
+               <q direct="unspecified">Three hundred, nonsense!</q> said he. <q direct="unspecified">You made such a fuss that I
+							had to invent the whole story to try you out.</q> Thus
+					this man made trial of his wife cautiously and in complete safety, pouring, as it were into a leaky vessel,
+					not wine or oil, but water.<note resp="ed" place="unspecified" anchored="yes">Plutarch is probably quoting a verse, as Wilamowitz has seen: <foreign lang="greek"><quote rend="blockquote">
+                    <l>e)s a)ggei=on saqro\n </l><l>ou)k oi)=non ou)d' e)/laion a)ll' u(/dwr xe/as.</l></quote></foreign>
+               </note>
+				        </p>
+            <p>
+					But Fuivius,<note resp="ed" place="unspecified" anchored="yes">Fabius Maximus in Tacitus, <hi rend="italics">Annals</hi>, i. 5, who relates the story quite differently.</note> the friend of Caesar Augustus, heard
+					the emperor, now an old man, lamenting the desolation of his house : two of his grandsons<note resp="ed" place="unspecified" anchored="yes">Gaius and Lucius Caesar.</note> were dead,
+					and Postumius,<note resp="ed" place="unspecified" anchored="yes">Postumus Agrippa; <hi rend="italics">cf.</hi> Tacitus, <hi rend="italics">Annals</hi>, i. 3.</note> the only one surviving, was in exile
+					because of some false accusation, and thus he was
+					forced to import his wife's son<note resp="ed" place="unspecified" anchored="yes">Tiberius.</note> into the imperial
+					succession ; yet he pitied his grandson and was
+					planning to recall him from abroad. Fulvius divulged
+					what he had heard to his own wife, and she to Livia ;
+					and Livia bitterly rebuked Caesar : if he had formed
+					this design long ago, why did he not send for his
+					grandson, instead of making her an object of enmity
+					and strife to the successor to the empire. Accordingly, when Fulvius came to him in the morning, as
+					was his custom, and said, <q direct="unspecified">Hail, Caesar,</q> Caesar
+					replied, <q direct="unspecified">Farewell, Fulvius.</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Ave, Caesar</q>; <q direct="unspecified">Vale, Fulvi.</q>
+               </note> And Fulvius took
+					his meaning and went away ; going home at once,
+					he sent for his wife, <q direct="unspecified">Caesar has found out,</q> he
+					said, <q direct="unspecified">that I have not kept his secret, and therefore
+						
+						<pb id="v.6.p.431"/>
+						
+						I intend to kill myself.</q> 
+               <q direct="unspecified">It is right that you
+							should,</q> said his wife, <q direct="unspecified">since, after living with me
+								for so long a time, you have not learned to guard
+								against my incontinent tongue. But let me die first.</q>
+					And, taking the sword, she dispatched herself before
+					her husband.
+				</p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>Philippides,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 517 b, <hi rend="italics">infra</hi>; <hi rend="italics">Moralia</hi>, 183 e; <hi rend="italics">Life of Demetrius</hi>, xii. (894 d).</note> the comic poet, therefore, made
+					the right answer when King Lysimachus courteously
+					asked him, <q direct="unspecified">What is there of mine that I may share
+						with you?</q> and he replied, <q direct="unspecified">Anything you like,
+							Sire, except your secrets.</q> And to garrulousness
+					is attached also a vice no less serious than itself,
+					inquisitiveness.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 519 c, <hi rend="italics">infra</hi>.</note> For babblers wish to hear many
+					things so that they may have many things to tell.
+					And they go about tracking down and searching out
+					especially those stories that have been kept hidden
+					and are not to be revealed, storing up for their foolish
+					gossip, as it were, a second-hand stock of hucksters'
+					wares ; then, like children with a piece of ice,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Proverbia Alexandr.</hi>, i. 19 (<hi rend="italics">Paroemiographi Graeci</hi>, i. p. 324); <hi rend="italics">cf.</hi> Pearson on Sophocles, Frag. 149 (153 ed. Nauck).</note> they
+					are neither able to hold it nor willing to let it go.
+					Or rather, the secrets are like reptiles<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aesop, <hi rend="italics">Fable</hi> 97 ed. Halm.</note> which they
+					catch and place in their bosoms, yet cannot confine
+					them there, but are devoured by them ; for pipefish<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Historia Animalium</hi>, vi. 13 (567 b 23); <hi rend="italics">De Generatione Animalium</hi>, iii. 4 (755 a 33).</note> and vipers, they say, burst in giving birth, and
+					secrets, when they escape, destroy and ruin those
+					who cannot keep them.
+				</p>
+            <p>
+					Seleucus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 489 a, <hi rend="italics">supra</hi>.</note> the Victorious lost his entire army and
+					power in the battle against the Gauls ; he tore off his
+					
+					<pb id="v.6.p.433"/>
+					
+					crown with his own hands and fled on horseback with
+					three or four companions. When he had travelled
+					a long journey through winding ways and trackless
+					wilds, at length becoming desperate from lack of food
+					he approached a certain farmhouse. By chance he
+					found the master himself and begged bread and
+					water from him. And the farmer gave him lavishly
+					both these and whatever else there was in a farmstead,
+					and, while entertaining him hospitably, recognized
+					the face of the king. In his joy at the fortunate
+					chance of rendering service he could not restrain
+					himself or dissemble as did the king, who wished to
+					remain unknown, but he escorted the king to the
+					highway and, on taking leave, said, <q direct="unspecified">Fare well,
+						King Seleucus.</q> And Seleucus, stretching out his
+					right hand to him and drawing him towards himself
+					as though to kiss him, gave a sign to one of his
+					companions to cut off the man's head with a sword s
+					<quote rend="blockquote">Still speaking his head was mingled with the dust.<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, x. 457.</note>
+               </quote>
+					But if the man had remained silent at that time and
+					had mastered himself for a little while, when the king
+					later won success and regained power, he would
+					have earned, I fancy, an even larger reward for his
+					silence than for his hospitality.
+				</p>
+            <p>
+					This man, it is true, had as something of an excuse
+					for his incontinence his hopes and the friendly service
+					he had rendered ; 
+				</p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>but most talkers do not even
+					have a reason for destroying themselves. For example, people were once talking in a barber's shop
+					about how adamantine<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Dion</hi>, vii. (961 a), x. (962 b); Aelian, <hi rend="italics">Varia Historia</hi>, vi. 12.</note> and unbreakable the despotism of Dionysius was. The barber laughed and said,
+					<q direct="unspecified">Fancy your saying that about Dionysius, when I
+						
+						<pb id="v.6.p.435"/>
+						
+						have my razor at his throat every few days or so!</q>
+					When Dionysius heard this, he crucified the barber.
+				</p>
+            <p>
+					It is not strange that barbers are a talkative clan,
+					for the greatest chatterboxes stream in and sit in
+					their chairs, so that they are themselves infected
+					with the habit. It was a witty answer, for instance,
+					that King Archela&uuml;s<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 177 a.</note> gave to a loquacious barber,
+					who, as he wrapped his towel around him, asked,
+					<q direct="unspecified">How shall I cut your hair, Sire?</q> 
+               <q direct="unspecified">In silence,</q>
+					said Archela&uuml;s. And it was a barber<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Nicias</hi>, xxx. (542 d-e).</note> also who first
+					announced the great disaster of the Athenians in
+					Sicily, having learned it in the Peiraeus from a slave,
+					one of those who had escaped from the island. Then
+					the barber left his shop and hurried at full speed to
+					the city,
+					<quote rend="blockquote">Lest another might win the glory</quote>
+					of imparting the news to the city,
+					<quote rend="blockquote">and he come second.<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, xxii. 207.</note>
+               </quote>
+					A panic naturally arose and the people gathered in
+					assembly and tried to come at the origin of the
+					rumour. So the barber was brought forward and
+					questioned ; yet he did not even know the name of
+					his informant, but referred the origin to a nameless
+					and unknown person. The assembly was enraged
+					and cried out, <q direct="unspecified">Torture the cursed fellow! Put him
+						on the rack! He has fabricated and concocted this
+						tale! Who else heard it? Who believed it?</q> The
+					wheel was brought and the man was stretched upon
+					it. Meanwhile there arrived bearers of the disastrous
+					
+					<pb id="v.6.p.437"/>
+					
+					news, men who had escaped from the slaughter
+					itself. All, therefore, dispersed, each to his private
+					mourning, leaving the wretched fellow bound on the
+					wheel. But when he was set free late in the day
+					when it was already nearly evening, he asked the
+					executioner if they had also heard <q direct="unspecified">how the general,
+						Nicias, had died.</q> Such an unconquerable and
+					incorrigible evil does habit make garrulity.
+				</p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>And yet, just as those who have drunk bitter
+					and evil-smelling drugs are disgusted with the cups
+					as well, so those who bear ill tidings cause disgust and
+					hatred in those who hear them. Therefore Sophocles<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Antigone</hi>, 317-319: Creon and the Guard who brings news of the attempted burial of Polyneices are the speakers.</note>
+					has very neatly raised the question :
+					<quote rend="blockquote">
+                  <l>
+                     <hi rend="italics">Gu.</hi> Is it in ear or soul that you are stung?-
+						</l>
+                  <l>
+                     <hi rend="italics">Cr.</hi> But why seek to define where lies my pain?-
+						</l>
+                  <l>
+                     <hi rend="italics">Gu.</hi> The doer grieves your heart, I but your ears.</l>
+               </quote>
+					Be that as it may, speakers also cause pain, just as
+					doers do, but none the less there is no checking or
+					chastening a loose tongue.
+				</p>
+            <p>
+					The temple of Athena of the Brazen House at
+					Sparta was discovered to have been plundered, and
+					an empty flask was found lying inside. The large
+					crowd which had quickly formed was quite at a loss,
+					when one of the bystanders said, <q direct="unspecified">If you wish, I shall
+						tell you what occurs to me about that flask. I think
+						that the robbers, before undertaking so dangerous a
+						task, drank hemlock and brought along wine, so that,
+						if they should escape detection, by drinking the unmixed wine they might quench the poison and rid
+						themselves of its evil effects,<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 61 b, 653 a.</note> and so might get away
+						safely ; but if they should be caught, that they might
+						
+						<pb id="v.6.p.439"/>
+						
+						die an easy and painless death from the poison before
+						they should be put to the torture.</q> When he had
+					said this, the explanation appeared so very complicated and subtle that it did not seem to come from
+					fancy, but from knowledge ; and the people surrounded him and questioned him one after another,
+					<q direct="unspecified">Who are you?</q> 
+               <q direct="unspecified">Who knows you?</q> 
+               <q direct="unspecified">How
+						did you come to know this?</q> and at last he was put
+					through so thorough an examination that he confessed
+					to being one of the robbers.
+				</p>
+            <p>
+					Were not the murderers of Ibycus<note resp="ed" place="unspecified" anchored="yes">The parallel accounts are collected by Edmonds, <hi rend="italics">Lyra Graeca</hi>, ii. pp. 78 ff.</note> caught in the
+					same way? They were sitting in a theatre, and when
+					cranes came in sight, they laughed and whispered to
+					each other that the avengers of Ibycus were
+					come. Persons sitting near overheard them, and
+					since Ibycus had disappeared and now for a long time
+					had been sought, they caught at this remark and
+					reported it to the magistrates. And thus the slayers
+					were convicted and led off to prison, not punished
+					by the cranes, but compelled to confess the murder
+					by the infirmity of their own tongues, as it were
+					some Fury or spirit of vengeance. For as in the
+					body the neighbouring parts are borne by attraction toward diseased and suffering parts, so the
+					tongue of babblers, ever inflamed and throbbing,
+					draws and gathers to itself some portion of what has
+					been kept concealed and should not be revealed.
+					Therefore the tongue must be fenced in, and reason
+					must ever lie, like a barrier, in the tongue's way,
+					checking its flow and keeping it from slipping, in
+					order that we may not be thought to be less sensible
+					than geese,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 967 b.</note> of whom they relate that when from
+					
+					<pb id="v.6.p.441"/>
+					
+					Cilicia they cross Mt. Taurus, which is full of eagles,
+					they take a great stone in their mouths to serve as
+					a bolt or bridle for their scream, and pass over at
+					night unobserved.
+				</p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>Now if anyone were to ask,
+					<quote rend="blockquote">Who is the most wicked and the most abandoned man,<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 544, ades. 774.</note>
+               </quote>
+					no one would pass the traitor by and name anyone
+					else. So Euthycrates<note resp="ed" place="unspecified" anchored="yes">An error for Lasthenes; Plutarch mentions both traitors together in <hi rend="italics">Moralia</hi>, 97 d.</note> 
+               <q direct="unspecified">roofed his house with the
+						timber he got from Macedon,</q>
+               <note resp="ed" place="unspecified" anchored="yes">For Macedonia as the source of timber supply, <hi rend="italics">cf. Inscr. Graec.</hi>, i<hi rend="superscript">2</hi>. 105.</note> as Demosthenes<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">De Falsa Legatione</hi>, 265.</note>
+					says, and Philocrates<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> 229; <hi rend="italics">cf. Moralia</hi>, 668 a, 97 d.</note> received much money and
+					<q direct="unspecified">bought strumpets and fish</q>; and to Euphorbus
+					and Philagrus, who betrayed Eretria, the king<note resp="ed" place="unspecified" anchored="yes">Darius I; <hi rend="italics">cf.</hi> Herodotus, vi. 101; Pausanias, vii. 10. 2.</note> gave
+					land. But the babbler is a traitor who volunteers
+					his services without pay: he does not betray horses<note resp="ed" place="unspecified" anchored="yes">Perhaps an allusion to Dolon's betrayal of the horses of Rhesus; <hi rend="italics">cf. Il.</hi>, x. 436 ff.</note>
+					or city-walls, but divulges secrets connected with lawsuits, party strife, and political manoeuvres. No one
+					thanks him, but he himself, if he can win a hearing,
+					must owe thanks. The result is that the verse
+					directed at the man who recklessly and injudiciously
+					pours forth and squanders his own possessions,
+					<quote rend="blockquote">
+                  <l>You are not generous: it's your disease,
+						</l>
+                  <l>You love to give,<note resp="ed" place="unspecified" anchored="yes">Epicharmus, Frag. 274: Kaibel, <hi rend="italics">Com. Graec. Frag.</hi>, i. p. 142.</note>
+                  </l>
+               </quote>
+					fits the foolish talker also : <q direct="unspecified">You are no friend or
+						
+						<pb id="v.6.p.443"/>
+						
+						well-wisher in revealing this : it's your disease, you
+						love to be babbling and prating.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>But these remarks are not to be regarded as an
+					accusation against garrulity, but an attempt to cure
+					it; for we get well by the diagnosis and treatment
+					of our ailments, but the diagnosis must come first;
+					since no one can become habituated to shun or to
+					eradicate from his soul what does not distress him, and
+					we only grow distressed with our ailments when we
+					have perceived, by the exercise of reason, the injuries
+					and shame which result from them. Thus, in the
+					present instance, we perceive in the case of babblers
+					that they are hated when they wish to be liked, that
+					they cause annoyance when they wish to please,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 504 e, <hi rend="italics">supra</hi>.</note> that
+					they are laughed at when they think they are admired, that they spend their money without any gain,
+					that they wrong their friends, help their enemies, and
+					destroy themselves. Consequently this is the first
+					step in curing the disease - by the application of
+					reason to discover the shameful and painful effects
+					that result from it.
+				</p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>And the second is that we must apply our
+					reasoning powers to the effects of the opposite behaviour, always hearing and remembering and keeping close at hand the praises bestowed on reticence,
+					and the solemn, holy, and mysterious<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 504 a, 505 f, <hi rend="italics">supra</hi>.</note> character of
+					silence, remembering also that terse and pithy
+					speakers and those who can pack much sense into a
+					short speech are more admired and loved, and are
+					considered to be wiser, than these unbridled and
+					headstrong talkers. Plato,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Protagoras</hi>, 342 e.</note> in fact, commends such
+					pithy men, declaring that they are like skilful throwers
+					
+					<pb id="v.6.p.445"/>
+					
+					of the javelin, for what they say is crisp, solid, and
+					compact.<note resp="ed" place="unspecified" anchored="yes">That is, they speak, as the acontist throws, with the sure aim which puts the adversary to rout with a single cast.</note> And Lycurgus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Lycurgus</hi>, xix. (51 d-e).</note> constraining his fellowcitizens from their earliest childhood to acquire this
+					clever habit by means of silence, made them concise
+					and terse in speech. For just as the Celtiberians<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diodorus, v. 33. 4.</note>
+					make steel from iron by burying it in the earth and
+					then cleaning off the large earthy accumulation, so
+					the speech of Spartans has no dross, but being
+					disciplined by the removal of all superfluities, it is
+					tempered to complete efficiency ; for this capacity of
+					theirs for aphoristic speech and for quickness and
+					the ability to turn out a neat phrase in repartee is
+					the fruit of much silence.
+				</p>
+            <p>
+					And we must be careful to offer to chatterers
+					examples of this terseness, so that they may see how
+					charming and how effective they are. For example :
+					<q direct="unspecified">The Spartans to Philip: Dionysius in Corinth.</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Tryphon <hi rend="italics">apud</hi> Spengel, <hi rend="italics">Rhetores Graeci</hi>, iii. p. 202; Quintilian, viii. 6. 52; Dionysius the Younger upon being expelled from Syracuse (<hi rend="italics">cf. Moralia</hi>, 783 d) kept a school in Corinth. The expression is somewhat like saying, <q direct="unspecified">Remember St. Helena.</q>
+               </note>
+					And again, when Philip wrote to them, <q direct="unspecified">If I invade
+						Laconia, I shall turn you out,</q> they wrote back,
+					<q direct="unspecified">If.</q> And when King Demetrius<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Demetrius</hi>, xlii. (909 c); <hi rend="italics">Moralia</hi>, 233 e. In <hi rend="italics">Moralia</hi>, 216 b, Agis (the Younger?) makes the remark to Philip.</note> was annoyed and
+					shouted, <q direct="unspecified">Have the Spartans sent only one envoy to
+						me?</q> the envoy replied undismayed, <q direct="unspecified">One to one.</q>
+				        </p>
+            <p>
+					And among the men of old also sententious speakers
+					are admired, and upon the temple of the Pythian
+					Apollo the Amphictyons inscribed, not the Iliad and
+					the Odyssey or the paeans of Pindar, but <q direct="unspecified">Know thyself</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 408 e, 385 d, 164 b; Pausanias, x. 24. 1; Tryphon, <hi rend="italics">l.c.</hi>; Plato, <hi rend="italics">Charmides</hi>, 165 a.</note>
+					
+					          <pb id="v.6.p.447"/>
+					
+					and <q direct="unspecified">Avoid extremes</q> and <q direct="unspecified">Give a pledge
+						and mischief is at hand,</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 164 b.</note> admiring, as they did, the
+					compactness and simplicity of the expression which
+					contains within a small compass a well-forged sentiment. And is not the god himself fond of conciseness
+					and brevity in his oracles, and is he not called Loxias<note resp="ed" place="unspecified" anchored="yes">As though derived from <foreign lang="greek">loco/s</foreign>, <q direct="unspecified">slanting,</q> 
+                  <q direct="unspecified">ambiguous</q>; and see Roscher, <hi rend="italics">s.v.</hi>
+               </note>
+					because he avoids prolixity rather than obscurity?
+					And are not those who indicate by signs, without a
+					word, what must be done,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diogenes Laertius, vii. 66.</note> praised and admired
+					exceedingly? So Heracleitus,<note resp="ed" place="unspecified" anchored="yes">Diels, <hi rend="italics">Frag. d. Vorsokratiker</hi>
+                  <hi rend="superscript">5</hi>, i. p. 144, A 3 b.</note> when his fellowcitizens asked him to propose some opinion about
+					concord, mounted the platform, took a cup of cold
+					water, sprinkled it with barley-meal, stirred it with
+					penny-royal, drank it up, and departed, thus demonstrating to them that to be satisfied with whatever
+					they happen upon and not to want expensive things
+					is to keep cities in peace and concord. And Scilurus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 174 f and Nachst&auml;dt's note <hi rend="italics">ad loc.</hi>
+               </note>
+					king of the Scythians, left behind him eighty sons ;
+					when he was dying, he asked for a bundle of spearshafts and bade his sons take it and break it in pieces,
+					tied closely together as the shafts were. When they
+					gave up the task, he himself drew all the spears out
+					one by one and easily broke them in two, thus revealing that the harmony and concord of his sons was a
+					strong and invincible thing, but that their disunion
+					would be weak and unstable.
+				</p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>If anyone will but review and recollect constantly these and similar instances, he may conceivably stop taking pleasure in foolish chatter. But as
+					for me, that famous case of the slave puts me utterly
+					to shame when I reflect what immense importance it
+					
+					<pb id="v.6.p.449"/>
+					
+					is to pay attention to what is said and to be master of
+					our purpose. Pupius Piso, the orator, not wishing to
+					be troubled, ordered his slaves to speak only in
+					answer to questions and not a word more. Subsequently, wishing to pay honour to Clodius when he
+					was a magistrate, Piso gave orders that he be invited
+					to dinner and prepared what was, we may suppose, a
+					sumptuous banquet. When the hour came, the other
+					guests were present, but Clodius was still expected,
+					and Piso repeatedly sent the slave who regularly
+					carried invitations to see if Clodius was approaching.
+					And when evening came and he was finally despaired
+					of, Piso said to the slave, <q direct="unspecified">See here, did you give him
+						the invitation?</q> 
+               <q direct="unspecified">I did,</q> said the slave. <q direct="unspecified">Why
+							hasn't he come then?</q> 
+               <q direct="unspecified">Because he declined.</q>
+					          <q direct="unspecified">Then why didn't you tell me at once?</q> 
+               <q direct="unspecified">Because
+						you didn't ask me that.</q> So a Roman slave, but the
+					Athenian slave while digging will tell his master
+					<quote rend="blockquote">On what terms the truce is made,<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 473; <hi rend="italics">cf.</hi> 518 f - 519 a, <hi rend="italics">infra</hi>.</note>
+               </quote>
+					so great in all things is the force of habit. And of
+					this let us now speak.
+				</p>
+         </div1>
+         <div1 type="section" n="19">
+            <p>For it is impossible to check the babbler by
+					gripping the reins, as it were ; his disease must be
+					mastered by habituation. In the first place, then,
+					when questions are asked of neighbours, let him
+					accustom himself to remaining silent until all have
+					refused a response :
+					<quote rend="blockquote">For counsel's aim is not that of a race,<note resp="ed" place="unspecified" anchored="yes">To see who can get to the goal first.</note>
+               </quote>
+					as Sophocles<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 312, Frag. 772 (Frag. 856 ed. Pearson, vol. iii. p. 63).</note> says, nor, indeed, is this the aim of
+					
+					<pb id="v.6.p.451"/>
+					
+					speaking and answering. For in a race the victory is
+					his who comes in first; but here, if another makes a
+					sufficient answer, it is proper to join in the approval
+					and assent and so acquire the reputation of being a
+					friendly fellow. But if such an answer is not made,
+					then it is not invidious or inopportune both to point
+					out the answer others have not known and thus to fili
+					in the gap. And, in particular, let us be on our guard,
+					when someone else has been asked a question, that we
+					do not forestall him by taking the answer out of his
+					mouth. For perhaps there are other times also when
+					it is not seemly, another having been asked, to
+					shoulder him aside and volunteer ourselves, since we
+					shall seem to be casting a slur both on the man asked,
+					as being unable to furnish what is demanded of him,
+					and on the asker, as being ignorant of the source from
+					which he can get help ; and, in particular, such precipitancy and boldness in answering questions smacks
+					of insolence. For one who tries to get in the answTer
+					ahead of the man who is questioned suggests, <q direct="unspecified">What
+						do you need <hi rend="italics">him</hi> for?</q> or <q direct="unspecified">What does <hi rend="italics">he</hi> know?</q> or
+					<q direct="unspecified">When I am present, no one else should be asked
+						about these matters.</q> And yet we often ask people
+					questions, not because we need an answer, but to elicit
+					some friendly word from them, and because we wish
+					to draw them on to friendly converse, as Socrates did
+					with Theaetetus and Charmides.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Theaetetus</hi>, 143 d, <hi rend="italics">Charmides</hi>, 154 e ff.</note> So to take the
+					answer out of another's mouth, to divert another's
+					hearing and attract his attention and wrest it from
+					some other, is as bad as to run up and kiss someone
+					who wished to be kissed by somebody else, or to turn
+					toward yourself someone who was looking at another;
+					since, even if he who has been asked cannot give the
+					
+					<pb id="v.6.p.453"/>
+					
+					information, it is proper to practise restraint and
+					conform oneself to the wish of the asker and thus to
+					encounter with modesty and decorum the situation,
+					an invitation, as it were, given to another. And
+					it is also true that if persons who are asked questions
+					make mistakes in their answers, they meet with just
+					indulgence ; but he who voluntarily undertakes an
+					answer and anticipates another is unpleasant even if
+					he corrects a mistake, and if he makes a mistake
+					himself, he affords a malicious joy to one and all, and
+					becomes an object of ridicule.
+				</p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>Then the second matter for diligent practice
+					concerns our own answers ; to these the chatterer
+					must pay very close attention : in the first place, that
+					he may not inadvertently give a serious answer to
+					those who provoke him to talk merely that they may
+					insolently ridicule him.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 547 c.</note> For some persons who require no information, but merely to divert and amuse
+					themselves, devise questions and put them to men of
+					this sort to set going their foolish twaddle. Against
+					this talkers should be on their guard and not leap
+					upon a subject quickly, or as though grateful that it
+					is offered to them, but should first consider both the
+					character of the questioner and the necessity for the
+					question. And when it appears that the questioner
+					is really anxious to learn, the babbler must accustom
+					himself to stop and leave between the question and
+					the answer an interval, in which the asker may add
+					anything he wishes and he himself may reflect upon
+					his reply instead of overrunning and obscuring the
+					question by giving a long string of answers in a
+					hurry while the question is still being asked. For
+					although the Pythian priestess is accustomed to
+					
+					<pb id="v.6.p.455"/>
+					
+					deliver some oracles on the instant, even before the
+					question is put-for the god whom she serves
+					<quote rend="blockquote">Understands the dumb and hears when no man speaks<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Herodotus, i. 47.</note>-</quote>
+					yet the man who wishes to make a careful answer
+					must wait to apprehend exactly the sense and the
+					intent of him who asks the question, lest it befall, as
+					the proverb<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Paroemiographi Graeci</hi>, i. p. 28; Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 494, ades. 454.</note> has it,
+					<quote rend="blockquote">They asked for buckets, but tubs were refused.</quote>
+					In any case this ravenous hunger for talking must be
+					checked so that it may not seem as though a stream
+					which has long been pressing hard upon the tongue
+					were being gladly discharged at the instance of the
+					question. Socrates, in fact, used to control his thirst
+					in this manner-he would not allow himself to drink
+					after exercise until he had drawn up and poured out
+					the first bucketful, so that his irrational part might
+					be trained to await the time dictated by reason.
+				</p>
+         </div1>
+         <div1 type="section" n="21">
+            <p>Furthermore, there are three kinds of answers
+					to questions : the barely necessary, the polite, and
+					the superfluous. For example, if someone asks, <q direct="unspecified">Is
+						Socrates at home?</q> one person may reply, as it
+					were unwillingly and grudgingly, <q direct="unspecified">Not at home.</q>
+					And if he wishes to adopt the Laconic style, he may
+					omit the <q direct="unspecified">At home</q> and only utter the bare negative. So the Spartans, when Philip wrote to ask if
+					they would receive him into their city, wrote a large
+					<q direct="unspecified">No</q> on the paper and sent it back. Another will
+					answer more politely, <q direct="unspecified">He is not at home, but at the
+						bank,</q> and if he wants to give fuller measure may
+					
+					<pb id="v.6.p.457"/>
+					
+					add, <q direct="unspecified">waiting there for some guests.</q> But your
+					over-officious and garrulous man, particularly if he
+					happens to have read Antimachus<note resp="ed" place="unspecified" anchored="yes">The epic poet, a by-word for longwindedness: thus Catullus (95. 10) calls him <q direct="unspecified">
+                     <foreign lang="la">tumidus</foreign>.</q>
+               </note> of Colophon, will
+					say, <q direct="unspecified">He is not at home, but at the bank, waiting for
+						some Ionian guests on whose behalf he has had a
+						letter from Alcibiades who is near Miletus staying
+						with Tissaphernes,<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Life of Alcibiades</hi>, xxiv. (204 b-c).</note> the satrap of the Great King,
+						who formerly used to help the Spartans, but now is
+						attaching himself to the Athenians because of Alcibiades. For Alcibiades desires to be restored to his
+						native country and therefore is causing Tissaphernes
+						to change sides.</q> And he will run on, reciting at full
+					stretch the whole eighth book of Thucydides, and
+					deluge the questioner until, before he has done,
+					Miletus is at war again and Alcibiades exiled for the
+					second time.
+				</p>
+            <p>
+					Regarding this tendency especially, one must keep
+					talkativeness within bounds by following the question
+					step by step and circumscribing the answer within a
+					circle to which the questioner's need gives the centre
+					and the radius.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 524 e, 603 e, 776 f, 822 d, 1098 d.</note> So when Carneades,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diogenes Laertius, iv. 63; for Carneades' noisiness <hi rend="italics">cf. Moralia</hi>, 791 a-b.</note> who had not
+					yet acquired a great reputation, was disputing in a
+					gymnasium, the director sent and bade him lower his
+					voice, which was a very loud one. And when Carneades said, <q direct="unspecified">Give me something to regulate my
+						voice,</q> the director aptly rejoined, <q direct="unspecified">I am giving you
+							the person conversing with you.</q> So, in making an
+					answer, let the wishes of the questioner provide the
+					regulation.
+					
+					<pb id="v.6.p.459"/>
+					
+				        </p>
+         </div1>
+         <div1 type="section" n="22">
+            <p>Moreover, just as Socrates<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Xenophon, <hi rend="italics">Memorabilia</hi>, i. 3. 6; <hi rend="italics">Moralia</hi>, 124 d, 521 f, <hi rend="italics">infra</hi>, 661 f.</note> used to urge men
+					to be on their guard against those foods which induce
+					us to eat when we are not hungry, and against those
+					liquids which induce us to drink when we are not
+					thirsty, so it is with the babbler as regards subjects
+					for talk: those in which he takes most delight and
+					employs <hi rend="italics">
+                  <foreign lang="la">ad nauseam</foreign>
+               </hi> he should fear stoutly resist
+					when they stream in upon him. For example, military
+					men<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 546 d, 630 f ff.</note> are great tellers of war-stories, and the Poet
+					introduces Nestor<note resp="ed" place="unspecified" anchored="yes">For example, Homer, <hi rend="italics">Il.</hi>, i. 269 ff.</note> in that character, often narrating
+					his own deeds of prowess. Again, as one might expect,
+					those who have scored a victory in the law-courts or
+					have had some unexpected success at the courts of
+					governors or kings are attacked, as it were, by a
+					malady which never leaves them, by the desire to call
+					to mind and tell over and over again how they made
+					their entrance, how they were presented, how they
+					argued, how they held forth, how they confuted some
+					opponents or accusers, how they were applauded.
+					For their delight is far more loquacious than that
+					well-known insomnia in the comedy<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 48, Menander, Frag. 164 (p. 353 ed. Allinson): <q direct="unspecified">Surely of all things insomnia is the most loquacious. At any rate, it has roused me and brings me here to tell my whole life from the very beginning.</q>
+               </note>: it often fans
+					itself into new flame and makes itself ever fresh with
+					each successive telling. They are, therefore, ready to
+					slip into such subjects on any pretext. For not only
+					<quote rend="blockquote">Where one feels pain, there will he keep his hand,<note resp="ed" place="unspecified" anchored="yes">A proverb, according to Stobaeus, vol. v. p. 860 ed. Hense, where see the note. <q direct="unspecified">
+                        <foreign lang="la">Ubi dolor, ibi digitus</foreign>.</q>
+                  </note>
+               </quote>
+					but also what causes pleasure draws the voice toward
+					itself and twists the tongue from a desire to dwell
+					perpetually on the joys of remembrance. So also
+					with lovers, who chiefly occupy themselves with conversation
+					
+					<pb id="v.6.p.461"/>
+					
+					that recalls some memory of the objects of
+					their love ; and if they cannot talk to human beings,
+					they will speak of their passion to inanimate things :
+					<quote rend="blockquote">O dearest bed!</quote>
+					and
+					<quote rend="blockquote">
+                  <l>O blessed lamp, Bacchis thought you a god,
+						</l>
+                  <l>And greatest god you are if she thinks so.<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 438, ades. 151, 152.</note>
+                  </l>
+               </quote>
+				        </p>
+            <p>
+					There is, however, really not a pin's difference<note resp="ed" place="unspecified" anchored="yes">Literally <q direct="unspecified">a white line</q> on a white stone: <hi rend="italics">cf.</hi> Sophocles, Frag. 330 ed. Pearson (307 ed. Nauck) with the note; Plato, <hi rend="italics">Charmides</hi>, 154 b; <hi rend="italics">Paroemiographi Graeci</hi>, i. pp. 109, 327.</note> to
+					the chatterer what subjects may arise ; nevertheless
+					he that has a greater weakness for one class of
+					subjects than for the other should be on his guard
+					against these subjects and force himself to hold back
+					and withdraw as far as possible from them, since they
+					are always able, because of the pleasure they give,
+					to lure him on to dilate upon them. And talkers
+					have this same difficulty with those subjects in which
+					they think that they surpass all others because of
+					some experience or acquired habit. For such a
+					person, being self-centred and vain,
+					<quote rend="blockquote">
+                  <l>Will give the chief part of the day to that
+						</l>
+                  <l>In which he chances to surpass himself<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                        <hi rend="superscript">2</hi>, p. 413, Euripides, Frag. 183. 2-3, from the <hi rend="italics">Antiope</hi>; <hi rend="italics">cf. Moralia</hi>, 43 b, 622 a, 630 b.</note>:</l>
+               </quote>
+					the great reader will spend it in narrating tales, the
+					literary expert in technical discussions, the wide
+					traveller and wanderer over the face of the earth in
+					stories of foreign parts. We must, therefore, be on
+					our guard against these subjects also, since garrulity
+					is enticed by them, like a beast making for familiar
+					
+					<pb id="v.6.p.463"/>
+					
+					haunts. And Cyrus's<note resp="ed" place="unspecified" anchored="yes">Xenophon, <hi rend="italics">Cyropaedia</hi>, i.4. 4; <hi rend="italics">cf. Moralia</hi>, 632 c.</note> conduct was admirable, because he challenged his mates to match themselves
+					with him, not in those contests in which he was
+					superior, but in those in which he was less skilled
+					than they, so that he might cause no pain by surpassing them and might also have the advantage of
+					learning something. But the chatterer, on the contrary, if some topic comes up from which he can learn
+					and find out something he does not know, thrusts it
+					aside and diverts it, being unable to give even so
+					small a fee as silence, but he works steadily around
+					until he drives the conversation into the stale and
+					well-worn paths of twaddle. Just so, in my native
+					town, there was a man who chanced to have read two
+					or three books of Ephorus, and would always bore
+					everybody to death and put every dinner-party to
+					rout by invariably narrating the battle of Leuctra
+					and its sequel; so he got the nickname of <q direct="unspecified">Epameinondas.</q>
+               <note resp="ed" place="unspecified" anchored="yes">With this chapter <hi rend="italics">cf.</hi> chapters 18 and 19 of <hi rend="italics">De Laude Ipsius</hi> (<hi rend="italics">Moralia</hi>, 546 b-e) and the first part of <hi rend="italics">Quaestiones Conviv.</hi>, ii. 1 (<hi rend="italics">Moralia</hi>, 629 e - 632 c).</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="23">
+            <p>Nevertheless, this is the least of the evils, and
+					we should turn garrulity into these channels ; for
+					talkativeness will be less unpleasant when its excesses
+					are in some learned subject. Yet such persons must
+					accustom themselves to do some writing and so argue
+					all by themselves. So Antipater<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 244, Frag. 5.</note> the Stoic, since, as
+					it seems, he could not and would not come to close
+					quarters with Carneades<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aulus Gellius, xvii. 15. 1.</note> and his violent attacks
+					upon the Stoa, used to fill whole books with written
+					disputations against him, and so earned the sobriquet
+					of <q direct="unspecified">Pen-valiant.</q> But with the talker, such shadowboxing<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Laws</hi>, 830 a-c.</note>
+					
+					          <pb id="v.6.p.465"/>
+					
+					with the pen and such alarums, by keeping
+					him away from the multitude, may perhaps make him
+					less of a daily burden to his associates, just as dogs
+					that vent their anger on sticks and stones are less
+					savage to men. And it will also be very advantageous for chatterers to frequent invariably the
+					company of their superiors and elders, out of respect
+					for whose opinion they will become accustomed to
+					silence.
+				</p>
+            <p>
+					And with these exercises in habituation it is proper
+					to intermix and entwine that well-known vigilance
+					and habit of reflection, at the very moment when we
+					are about to speak and the words are hurrying to our
+					lips, <q direct="unspecified">What is this remark that is so pressing and
+						importunate? What object is my tongue panting for? What good will come of its being said
+						or what ill of its being suppressed?</q> For it is not
+					as though the remark were some oppressive weight
+					which one ought to get rid of, since it stays by you
+					all the same even if it is spoken ; when men talk, it
+					is either for their own sake, because they need something, or to benefit their hearers, or they seek to
+					ingratiate themselves with each other by seasoning
+					with the salt of conversation the pastime or business
+					in which they happen to be engaged. But if a remark is neither useful to the speaker nor of serious
+					importance to the hearers, and if pleasure or charm is
+					not in it, why is it made? For the futile and purposeless can exist in speech as well as in deeds.
+				</p>
+            <p>
+					And over and above all else we must keep at hand
+					and in our minds the saying of Simonides,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 10 f, 125 d; 505 f, <hi rend="italics">supra</hi>.</note> that he
+					had often repented of speaking, but never of holding
+					
+					<pb id="v.6.p.467"/>
+					
+					his tongue. We must remember also that practice is
+					master of all things and stronger than anything else ;
+					since people can even get rid of hiccoughs and coughs
+					by resisting them resolutely and with much pain and
+					trouble. But silence, as Hippocrates<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 90 c-d.</note> says, not only
+					prevents thirst, but also never causes sorrow and
+					suffering.
+					
+				</p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

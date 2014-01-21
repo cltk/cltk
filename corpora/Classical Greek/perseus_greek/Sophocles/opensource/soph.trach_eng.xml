@@ -1,0 +1,984 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Trach.">Trachiniae (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Soph.">Sophocles</author>
+<editor role="editor" n="Jebb">Sir Richard Jebb</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Sophocles</author>
+<title>The Trachiniae of Sophocles. Edited with introduction and notes by Sir Richard Jebb.</title>
+<editor role="editor">Sir Richard Jebb</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Cambridge University Press</publisher>
+<date>1892</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM, Scott Ettinger and Roger Travis</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Pierre Habel, John Gilbert</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Pierre Habel, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>6/95</date>
+<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
+<item>Added missing speaker tags for cards which had none.</item>
+</change>
+<change><date>08-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: soph.trach_eng.xml,v $
+Revision 1.1  2009-12-08 18:56:08  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 21:10:42  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:30:24  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:03:36  packel
+Converted to XML
+
+Revision 1.9  2004/04/21 20:42:00  mimno
+added card 1s
+
+Revision 1.8  2003/07/01 22:18:08  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.7  2000/03/04 20:35:17  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.6  2000/02/15 23:18:02  amahoney
+use n attribute on sp element to carry over the speaker name when
+the speech is interrupted by a card break;  this also requires that
+the card break at the end come after the close of the sp, not within
+
+Revision 1.5  2000/02/08 22:43:32  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<sp>
+<speaker>Deianeira</speaker>
+<p>There is a saying among men, put forth long ago, that you cannot judge a mortal's life and know whether it is good or bad until he dies.  But well I know, even before I have passed away to Hades' domain, that my life is ill-fortuned and heavy.<milestone ed="p" n="5" unit="line"/>For I, while still dwelling in the house of my father Oeneus at <placeName key="perseus,Pleuron">Pleuron</placeName>, had such fear of marriage as never any woman of <placeName key="tgn,7002678">Aetolia</placeName> had.  For my suitor was a river-god, Achelous,<milestone ed="p" n="10" unit="line"/>who in three shapes was always asking me from my father&mdash;coming now as a bull in visible form, now as a serpent, sheeny and coiled, now ox-faced with human trunk, while from his thick-shaded beard wellheads of fountain-water sprayed.<milestone ed="p" n="15" unit="line"/>In the expectation that such a suitor would get me, I was always praying in my misery that I might die, before I should ever approach that marriage-bed.</p>
+<p>But at last, to my joy, the glorious son of Zeus and Alcmena came and<milestone ed="p" n="20" unit="line"/>closed with him in combat and delivered me.  The manner of their fighting I cannot clearly recount.  I know it not, but if there be anyone who watched that sight without trembling, he might give an account of it.  But I, as I sat there, was struck with terror,<milestone ed="p" n="25" unit="line"/>lest my beauty should win me sorrow in the end.  But Zeus, Arbiter of Contests, accomplished a good ending&mdash;if indeed it was good.  For since being joined with Heracles as his chosen bride, I nourish one fear after another in my anxiety for him.  One night brings distress,<milestone ed="p" n="30" unit="line"/>and the next night, in turn, drives it out.  Children, furthermore, were born to us, whom at the time he looked at only as the farmer looks at a distant field, visiting it only once to sow seed and once to reap.  Such was the manner of his life, ever sending him<milestone ed="p" n="35" unit="line"/>to and from our home in servitude to some master.</p>
+<p>But now, when he has risen above those trials&mdash;now it is that my fear is keenest.  For ever since he slew the mighty Iphitus, we have been dwelling here in <placeName key="perseus,Trachis">Trachis</placeName>, refugees<milestone ed="p" n="40" unit="line"/>in the home of a foreign host.  But where Heracles is, no one knows.  I only know that he is gone, and has caused me sharp pain for him.  I am almost sure that he has come to some suffering.  The interval has not been brief;  rather, he is unheard from ten months already,<milestone ed="p" n="45" unit="line"/>plus another five.  Yes, there has been some terrible misfortune.  That tablet which he left with me before departing suggests it to me.  I often pray to the gods that I did not receive it to my misfortune.<milestone ed="p" n="49" unit="card"/></p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Deianeira, my mistress, many are the times already that I have<milestone ed="p" n="50" unit="line"/>observed you mourning the departure of Heracles with great weeping and lamentation.  But now&mdash;if it is proper to school the free-born with the doctrines of a slave, and if I am obliged to point out what you should do&mdash;how is it that you so abound in sons, yet<milestone ed="p" n="55" unit="line"/>you do not send one of them to seek your husband, especially Hyllus?  It would be appropriate to send him, if he cared for his father's sake that he be deemed to fare well.  Here he is now, dashing to the house in timely stride.  So if in your eyes I speak in season,<milestone ed="p" n="60" unit="line"/>you can use both my counsel and the man.<milestone ed="p" n="61" unit="card"/></p></sp>
+<stage>Enter Hyllus.</stage>
+<sp>
+<speaker>Deianeira</speaker>
+<p>My child, my son, wise words fall, it seems, from humble lips.  For this woman is a slave, but her advice is worthy of the free.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>What sort of advice, Mother?  Tell me, if I may be told.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="65" unit="line"/>It brings shame, she says, that you have not sought to learn of your father and where he is, when he has been abroad for so long.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>But I know where, if one can put any trust in rumors.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>And in what region, my child, do you hear that he has settled?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Last year, they say, through all its length,<milestone ed="p" n="70" unit="line"/>he toiled as a slave to a Lydian woman.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>If he endured even that, then one might believe any and all rumors.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Well, he has been released from that service, as I hear.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Where, then, is he reported to be now&mdash;alive, or dead?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>He is waging or yet planning a war,<milestone ed="p" n="75" unit="line"/>they say, upon <placeName key="tgn,7002677">Euboea</placeName>, the realm of Eurytus.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Are you aware, my son, that he has left with me sure oracles concerning that land?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>What are they, mother?  I do not know the oracles you mean.<milestone ed="p" n="79" unit="card"/></p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>They read that either he shall meet the end of his life,<milestone ed="p" n="80" unit="line"/>or, after taking on this contest, he shall thereafter, at least, enjoy a happy life for its duration.  And so, my child, when his fate is thus trembling in the balance, will you not go to assist him?  For we are saved,<milestone ed="p" n="85" unit="line"/>if he finds safety, or we perish along with him.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>I will go, Mother.  Had I known the substance of these prophecies, I would have long been at his side.  As it was, my father's usual good fortune did not allow me to fear for him, nor to be overly anxious.<milestone ed="p" n="90" unit="line"/>Now that I have the knowledge, I will spare no pains to learn the whole truth in this matter.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Go, then, my son.  For prosperity yields advantage even for him who learns of it late.<stage>Exeunt Hyllus, on one side, and the Nurse into the house.</stage><milestone ed="p" n="94" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<stage>Enter the Chorus on the other side.</stage><sp><speaker>Chorus</speaker>
+<p>You, to whom Night gives birth when she is vanquished and despoiled of her starry crown,<milestone ed="p" n="95" unit="line"/>and whom, as you blaze, she lays to rest, I pray you, O Sun, Sun, tell me, where is Alcmena's son, where dwells her child?  O Shining god with your bright flash,<milestone ed="p" n="100" unit="line"/>is he on the straits of the sea, or does he lean upon the twin continents?  Speak, you who surpass all in sight!<milestone ed="p" n="103" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p>For with longing heart, as I hear, Deianeira, the battle-prize, now,<milestone ed="p" n="105" unit="line"/>like some mournful bird, never rests her eyes' longing that they might be without tears, but nourishing a well-remembered fear for her husband's travels she is constantly afflicted<milestone ed="p" n="110" unit="line"/>by her anxious, widowed marriage-bed and in her misery anticipates misfortune.<milestone ed="p" n="112" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>For just as one may see billow after billow<milestone ed="p" n="115" unit="line"/>advancing and passing over the wide deep before the tireless south-wind, or the north, so the great toil of his life, stormy as the Cretan sea, now whirls back the heir of Cadmus, now exalts him.  But some god always<milestone ed="p" n="120" unit="line"/>keeps him unerring from the house of Hades.<milestone ed="p" n="122" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<stage>To Deianeira.</stage>
+<sp><speaker>Chorus</speaker>
+<p>With respect I reproach you for your weeping, but still I will speak in dissent.<milestone ed="p" n="125" unit="line"/>You must not, I say, wear away fair hope.  Remember that the all-accomplishing king, the son of Cronus, does not appoint a painless lot for mortals.  Sorrow and joy revolve to all, as the stars of the Bear<milestone ed="p" n="130" unit="line"/>move in their circling paths.<milestone ed="p" n="132" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>Starry night does not remain constant with men, nor does tribulation, nor wealth;  in a moment it is gone from us, and to another in his turn come both<milestone ed="p" n="135" unit="line"/>gladness and bereavement.  So I urge even you, our Queen, to keep these matters firmly in your outlook.  You must, for who has<milestone ed="p" n="140" unit="line"/>known Zeus to be so without care for his children?<milestone ed="p" n="141" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<sp>
+<speaker>Deianeira</speaker>
+<p>You have heard of my trouble, I would guess, and that has brought you here.  But the anguish which consumes my heart&mdash;may you never come to know it through your own experience!&mdash;to that now you are total strangers.  Yes, a young life grows in those sheltered regions<milestone ed="p" n="145" unit="line"/>of its own, and the Sun-god's heat disturbs it not, nor rain, nor any wind.  Rather it takes up a toilless existence amidst pleasure, until such time as she is called &ldquo;wife&rdquo; instead of &ldquo;maiden&rdquo;, and takes her portion of anxious thoughts in the night,<milestone ed="p" n="150" unit="line"/>fearing for husband or for children.  At that point a woman could understand the burden of my misfortunes by recalling her own experience.</p>
+<p>As a matter of fact, I have had many a trouble to weep for, but I am going to speak of one that none of the previous could equal.<milestone ed="p" n="155" unit="line"/>When lord Heracles was setting out from home on his last journey, he left in the house an ancient tablet, inscribed with signs which he had never before brought himself to explain to me when going out on one of his many labors.<milestone ed="p" n="160" unit="line"/>He had always departed as if to conquer, not to die.  But now, as if he were a doomed man, he told me what I should take for my marriage portion, and what share of their father's land he wished divided for his children.  And he fixed the time for the division, saying that, when he had been gone<milestone ed="p" n="165" unit="line"/>from our land for a year and three months, he was fated either to die at that time, or by escaping the end of the period to live thereafter an untroubled life.  That, he explained, was the fate ordained by the gods<milestone ed="p" n="170" unit="line"/>to be the end of the labors of Heracles just as, he said, the ancient oak at <placeName key="perseus,Dodona">Dodona</placeName> had once told him through the mouths of the two Peleiades.  And it is in the present time that the truth of these prophecies is coming to pass, so that they must be fulfilled.<milestone ed="p" n="175" unit="line"/>As a result I leap up from sweet sleep in fear, dear maidens, terrified at the possibility that I must remain widowed of the noblest man of all.<milestone ed="p" n="180" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Hush&mdash;no more ill-omened words!  I see a man approaching who is crowned with garlands as if for joyous news.</p></sp>
+<stage>Enter the Messenger.</stage>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="180" unit="line"/>Queen Deianeira, I shall be the first messenger to free you from fear.  Know that Alcmena's son lives and triumphs, and from battle brings the first-fruits to the gods of this land.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>What news is this, old man, that you give me?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="185" unit="line"/>That your much-admired husband will soon come to your house, revealed in his victorious might.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>From what citizen or what stranger did you learn these tidings?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>In the meadow, the summer haunt of oxen, Lichas the herald is proclaiming it to many.  From him I heard it,<milestone ed="p" n="190" unit="line"/>and dashed away so that, in all honesty, having been the first to report this news, I might profit in some way by you and win your favor.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>And why is he not here, if he is so successful?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>He does not, my lady, enjoy ease of movement.  The entire Malian populace<milestone ed="p" n="195" unit="line"/>stands about him in a circle and questions him, and he cannot move forward.  Each person is bent on learning according to his desire, and will not release the man until he has heard his pleasure.  Thus against his wishes, but in keeping with theirs, he is with them.  Yet you will soon see him face to face.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="200" unit="line"/>O Zeus, ruler of the sacred uncut meadow of Oeta, at last, though after much delay, you have given us joy!  Uplift your voices, you women within the house and you beyond our gates, since now we enjoy the brightness of this message, which has risen on us beyond my hope!<milestone ed="p" n="205" unit="card"/></p></sp>
+<div2 type="lyric">
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="205" unit="line"/>Let the brides of tomorrow raise a joyous cry for the house with shouts of triumph at the hearth.  Among them let the yell of the men go up in unison for Apollo of the bright quiver, our defender!  And at the same time,<milestone ed="p" n="210" unit="line"/>maidens, lift up a paean, cry aloud to his sister, Ortygian Artemis, huntress of deer, goddess with torch in each hand,<milestone ed="p" n="215" unit="line"/>and to the nymphs her neighbors!</p>
+<p>I am uplifted, I will not spurn the flute&mdash;O you master of my heart!  Behold, his ivy stirs me!  Euoe!<milestone ed="p" n="220" unit="line"/>Quickly it wheels me round in Bacchus's race!  Oh, oh, Paean!  Look, dear lady!  All is taking shape, plain to see, before your gaze.<milestone ed="p" n="225" unit="card"/></p></sp></div2>
+<div2 type="dialogue">
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="225" unit="line"/>I see it, dear maidens;  the sight has not escaped my watchful eyes.  I see that procession.</p></sp>
+<sp>
+<p>I bid the herald joyous welcome after his long absence!&mdash;if indeed you bring anything that gives joy.</p></sp>
+<stage>Enter Lichas, followed by captive maidens.</stage>
+<sp>
+<speaker>Lichas</speaker>
+<p>We are happy in our return, and happy in your greeting,<milestone ed="p" n="230" unit="line"/>lady, in accordance with the deed achieved.  For when a man has fair fortune, it is his right to win good welcome.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Most welcome man, tell me first what first I would know&mdash;shall I receive Heracles alive?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>I certainly left him alive and well,<milestone ed="p" n="235" unit="line"/>in vigorous health, unburdened by disease.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Where, tell me&mdash;in his ancestral land, or on barbarian soil?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>There is a headland of <placeName key="tgn,7002677">Euboea</placeName>, where to Cenaean Zeus he marks out altars and fruitful ground in tribute.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>In payment of a vow, or at the command of an oracle?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p><milestone ed="p" n="240" unit="line"/>For a vow, made when he was seeking to conquer and plunder the country of these women whom you see before you.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>And these&mdash;who are they, by the gods, and whose daughters?  They deserve pity, unless their misfortune deceives me.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>These are captives whom he<milestone ed="p" n="245" unit="line"/>selected as choice spoils for himself and for the gods when he sacked the city of Eurytus.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Was it in fact the war against that city which kept him away so long, beyond all forecast, past all count of days?<milestone ed="p" n="248" unit="card"/></p></sp>
+<sp n="Lichas">
+<speaker>Lichas</speaker>
+<p>No.  The greater part of the time he was detained in <placeName key="tgn,7016631">Lydia</placeName>, no free man, as he declares,<milestone ed="p" n="250" unit="line"/>but sold into servitude.  No offense should be taken at my tale, lady, when the deed is found to be Zeus' work.  He passed a whole year, as he himself says, a bought slave to the barbarian Omphale.  And so stung was he by the shame of it,<milestone ed="p" n="255" unit="line"/>that he bound himself by a solemn oath, swearing one day to enslave with wife and child the man who had brought that suffering upon him.  And not in vain did he speak the oath;  but, when he had been purified, he gathered a mercenary army and went against the city<milestone ed="p" n="260" unit="line"/>of Eurytus.  For, Heracles asserted, that man alone of mortals had a share in causing his suffering.  For when Heracles, a guest-friend of long standing, came to his house and hearth, Eurytus roared against him with insults of ruinous intent,<milestone ed="p" n="265" unit="line"/>saying that, although Heracles had inevitable shafts in his hands, he fell short of his own sons in the contest of the bow.  Next he shouted that Heracles was a freeman's slave, a broken hulk, and then at a banquet, when his guest was full of wine, he tossed him from his home.</p><milestone ed="p" n="270" unit="card"/>
+<p>Furious at this treatment,<milestone ed="p" n="270" unit="line"/>when afterward Iphitus came to the hill of <placeName key="perseus,Tiryns">Tiryns</placeName> on the track of horses that had strayed, Heracles seized a moment when the man's eyes were one place and his thoughts another, and hurled him from a towering summit.  But in anger at that deed, the king,<milestone ed="p" n="275" unit="line"/>the father of all, Olympian Zeus, sent him away to be sold, and did not tolerate that this once, he killed a man by guile.  Had he achieved his vengeance openly, Zeus would surely have pardoned him the righteous triumph.<milestone ed="p" n="280" unit="line"/>For the gods do not love criminal behavior either.</p>
+<p>So those men, who gloried in bitter speech, are themselves residents of Hades, all of them, and their city is enslaved.  And the women whom you see, fallen from happiness to misery,<milestone ed="p" n="285" unit="line"/>are sent here to you.  For that was your husband's command, which I, his faithful servant, perform.  As for the man himself, know that he will come, once he has made pure sacrifice to Zeus of his fathers for the sacking of the city.  After all the good news<milestone ed="p" n="290" unit="line"/>that has been told, this, indeed, is the sweetest word to hear.
+</p></sp>
+<milestone ed="p" n="291" unit="card"/>
+<sp>
+<speaker>Chorus</speaker>
+<p>Now, O Queen, your joy is plainly revealed;  part is with you, and of the rest you have foreknowledge.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Yes, how would I not rejoice with dutiful spirit, when I hear of my husband's successful venture?<milestone ed="p" n="295" unit="line"/>My rejoicing is bound to keep pace with his success.  And yet a prudent mind can see room for fear, lest he who prospers should one day stumble.  For a strange pity came over me, friends, at the sight of these ill-fated exiles,<milestone ed="p" n="300" unit="line"/>homeless and fatherless in a foreign land.  Though they were once the daughters perhaps of freeborn men, they now live the life of slaves.  O Zeus, god who turns the tide of battle, may I never see you stalking against a child of my line on any occasion;<milestone ed="p" n="305" unit="line"/>no, if you do some such thing, let it not be while I am still alive!  So great is my fear, as I look upon these girls.</p></sp>
+<sp><stage>To Iole.</stage>
+<p>Unfortunate girl, who are you?  Are you without a man, or are you a mother?  To judge by your appearance, you are untried in those roles, but someone of noble birth.<milestone ed="p" n="310" unit="line"/>Lichas, whose daughter is this stranger?  Who is her mother, who the father who begot her?  Speak;  I pity her more than all the rest, when I look at her, inasmuch as she alone knows self-control.<milestone ed="p" n="314" unit="card"/></p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Why would I know?  Why would you ask me?  Perhaps<milestone ed="p" n="315" unit="line"/>she is the offspring of not the lowest family in that land.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Can she be of the ruling family?  Was she a child of Eurytus?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>I do not know;  I did not in fact make a long investigation.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>And you do not know her name from one of her fellow captives?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>No, indeed.  In silence I completed my task.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="320" unit="line"/>Unhappy girl, tell it to me, anyway, from your own mouth.  It is indeed distressing to me not to know who you are.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>It will not, I assure you, be at all on a par with time past if she moves her lips.  She has not said a word, large or small,<milestone ed="p" n="325" unit="line"/>but has been constantly laboring with the heavy pains of her misfortune and weeping, poor girl, since she left her windswept fatherland.  Her condition is indeed bad&mdash;for her, anyway&mdash;but claims our forbearance.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Then let her be left in peace, and go beneath our roof<milestone ed="p" n="330" unit="line"/>as it pleases her.  Let her not in addition to her existing troubles take fresh grief from me;  she has enough already.  Now let us all go in, so that you may go speedily on your journey, while I make all things ready in the house.<stage>Exit Lichas, followed by the Captives, into the house.</stage><milestone ed="p" n="335" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker><stage>Coming nearer to Deianeira.</stage>
+<p><milestone ed="p" n="335" unit="line"/>Do go in, but first remain here a short while, so that you may learn, apart from these others, who they are whom you take into your home, and gain necessary knowledge of the facts which you have not heard.  For of these I am in full possession.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>What do you mean?  Why do you stay my departure?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="340" unit="line"/>Stop and listen.  My former report was not a waste of your time, and neither, I believe, will this one be.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Shall I call those others back again?  Or do you wish to speak before me and these women?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>To you and the women I can speak freely.  Never mind the others.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="345" unit="line"/>Well, they are gone.  Now let your speech signal your meaning.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>That man Lichas spoke nothing of what he just told you in strict accordance with the truth.  He was just now lying, or else he was dishonest in his earlier report.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>What do you say?  Explain to me clearly all that you mean,<milestone ed="p" n="350" unit="line"/>for I cannot understand what you said.<milestone ed="p" n="351" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>I heard this man declare, before many witnesses, that it was for the sake of this girl that Heracles overthrew Eurytus and the high towers of <placeName key="perseus,Oechalia">Oechalia</placeName>:  Eros,<milestone ed="p" n="355" unit="line"/>alone of the gods, enchanted him into doing those deeds of arms, not the toilsome servitude to Omphale in <placeName key="tgn,7016631">Lydia</placeName>, nor the death to which Iphitus was hurled.  But now the herald has thrust Eros aside and tells a different tale.  Well, when Heracles could not persuade him whose seed produced the child<milestone ed="p" n="360" unit="line"/>to give him the girl for his secret concubine, he devised some petty complaint as a pretext, and made war upon her fatherland, in which, as the herald said, that Eurytus ruled.  He killed the king, her father, and<milestone ed="p" n="365" unit="line"/>sacked her city.  And now, as you see, he makes his return, sending her to this house not without consideration, lady, and not as if she were to be a slave.  No, do not expect that;  it is not likely, if his heart has been kindled with desire.  On this account, my Queen, I resolved to reveal to you all<milestone ed="p" n="370" unit="line"/>that I had heard from that man.  Many others were listening to it, as I was, in the public place where the Trachinians were assembled, so they can convict him.  If my words are unwelcome, I am grieved;  but nevertheless I have spoken the truth.<milestone ed="p" n="375" unit="card"/></p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="375" unit="line"/>Ah, misery!  What is happening to me?  What secret plague have I welcomed beneath my roof?  Ah, me!  So, she was born without a name, as her escort swore?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>No, illustrious by name, as by birth;<milestone ed="p" n="380" unit="line"/>she is the daughter of Eurytus, and was once called Iole.  But he could say nothing of her birth, because, of course, he made no investigation.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>May destruction seize not all wrongdoers&mdash;no, only the man who practices stealthy wrongdoing that is shameful to his rank!</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="385" unit="line"/>Ah, friends, what should I do?  I am dumbstruck by this latest news!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Go and question Lichas, since he might tell the truth, if you were willing to compel him by threat of force to answer.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>I will go.  Your advice does not lack good judgment.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="390" unit="line"/>And I, shall I wait here?  Or what do you require?</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Stay here&mdash;since he is coming out from the house without my summons, but of his own accord.<milestone ed="p" n="393" unit="card"/></p></sp>
+<stage>Enter Lichas.</stage>
+<sp>
+<speaker>Lichas</speaker>
+<p>My lady, what message shall I bear to Heracles?  Instruct me, for, as you see, I am going.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="395" unit="line"/>How quickly you rush away, when your arrival had been so tardy&mdash;before we have even resumed our talk.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Well, if there is anything you must ask, I am at your service.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Will you indeed give me the honest truth?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Yes, be great Zeus my witness&mdash;in anything that I know.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="400" unit="line"/>Who is the woman, then, whom you escorted here?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>She is Euboean.  But whose offspring, I cannot say.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>You there, look at me.  To whom do you think you speak?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>And you, to what end have you asked me such a question?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Dare to answer my question, if you are sensible.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p><milestone ed="p" n="405" unit="line"/>I speak to the royal Deianeira, daughter of Oeneus, wife of Heracles and, unless my eyes deceive me, my mistress.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>The very word that I wished to hear from you&mdash;you admit that she is your mistress?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Yes, it is only right to do so.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="410" unit="line"/>Well, then, what penalty would you think it right to pay, if you should be found to be behaving wrongly towards her?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Wrongly?  What fiction have you created?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>None.  Rather it is you, to be sure, who do this.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>I am leaving&mdash;I was foolish to listen to you so long.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="415" unit="line"/>No, not until you have answered a small question.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Speak, if you require something.  You are not the silent type.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>That captive, whom you escorted into the house, you know whom I mean?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Yes.  But why do you ask?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Did you not avow that she, on whom you look as if in ignorance,<milestone ed="p" n="420" unit="line"/>was Iole, the seed of Eurytus, your captive?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>To whom on earth did I say it?  Who and where is the man who heard me say it and will be your witness?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>To many of our own citizens you said it.  In the public gathering of  Trachinians a great crowd heard this much, at least, from you.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Sure,<milestone ed="p" n="425" unit="line"/>they said they heard.  But it does not amount to the same thing to tell one's fancy and to give an accurate report.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>What do you mean, fancy!  Did you not speak on your oath when you said that you were bringing her as a bride for Heracles?</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>I?  Bringing a bride?  In the name of the gods, dear<milestone ed="p" n="430" unit="line"/>mistress, tell me who on earth this stranger is?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>I am a man who heard from your own lips that the conquest of the whole city was due to desire for this girl and that the Lydian woman did not destroy it, but the passion which arose for the girl.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Lady, send this creature away.<milestone ed="p" n="435" unit="line"/>To babble with the insane is not the mark of a sensible man.<milestone ed="p" n="436" unit="card"/></p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>No, I implore you by Zeus whose strikes lightning down along the high glens of Oeta, do not rob me of a true report!  Your words will not fall on the ears of a cruel woman, nor has she yet to learn the fate of humanity,<milestone ed="p" n="440" unit="line"/>how by our nature we are often inconstant in our pleasures.  He does not use good sense, then, who like a boxer opposes the blows of Eros.  For Eros rules the gods as he pleases, and he rules me as well&mdash;that is certain.  Why not another woman, just like me?<milestone ed="p" n="445" unit="line"/>And so I am crazed indeed, if I blame my husband because that disease has seized him or because he was seized by this woman, his partner in a thing which is no shame to them, and no wrong to me.  Impossible!  If it was from him that you learned<milestone ed="p" n="450" unit="line"/>to lie, it was not a noble lesson.  But if you are your own teacher in this, you will be seen as cruel when it is your wish to prove kind.  No, tell me the whole truth, since to a free-born man the name of liar attaches like an ugly stain.<milestone ed="p" n="455" unit="line"/>If your hope is to escape detection, that cannot come to pass:  many are those whom you told and who will inform me.  And if you are afraid, your fear is mistaken, since it is not learning the truth that would pain me.  But to know it, what is terrible in that?  Has<milestone ed="p" n="460" unit="line"/>Heracles not all by himself already mated with a multitude of other women?  And never yet has one of them come away with a harsh word or reproach from me, nor shall this girl, even if she should melt in her passion.  Indeed, I felt a profound pity when I saw her because<milestone ed="p" n="465" unit="line"/>her beauty has destroyed her life, and she, unfortunate one, has against her will devastated her fatherland and enslaved it.</p>
+<p>Well, those things must go with the wind.  But as for you, I tell you, be dishonest to others, but always speak the truth to me.<milestone ed="p" n="470" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="470" unit="line"/>Obey her good and kind advice, and hereafter you will neither have cause to complain of this lady, nor lack my thanks.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>Indeed, then, dear mistress.  Since I see that you think as mortals should think and not without good judgment, I will tell you the whole truth, and not hide it.<milestone ed="p" n="475" unit="line"/>Yes, it is just as this one says.  That terrible longing for the girl long ago shot through Heracles, and for her sake the desolate <placeName key="perseus,Oechalia">Oechalia</placeName>, her father's land, was leveled by his spear.  But he&mdash;I must say what is in his favor&mdash;<milestone ed="p" n="480" unit="line"/>he never ordered me to conceal the fact and never denied it.  Instead I, lady, fearing to wound your heart by such news, erred&mdash;if you regard this in any way an error.</p>
+<p>Since, however, you now know the whole story,<milestone ed="p" n="485" unit="line"/>for his sake and for yours equally bear with the woman, and be willing that the gentle words which you spoke about her have been spoken unalterably.  For though by the strength of his hands he is victorious in all else, Heracles has been utterly subdued by his passion for this girl.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="490" unit="line"/>My own thoughts move me to act as you advise.  Rest assured that I will not earn another affliction for myself by waging a fruitless fight against the gods.  But let us go into the house, so that you may carry him my messages and since gifts should be given in due recompense for gifts received,<milestone ed="p" n="495" unit="line"/>so that you may take these also.  It would not be right that you should go back with empty hands, after coming with such a rich cargo.<stage>Exit Lichas, the Messenger and Deianeira into the house.</stage><milestone ed="p" n="497" unit="card"/></p></sp></div2></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Great and mighty is the victory which the Cyprian queen always bears away.  I bypass the tales of the gods,<milestone ed="p" n="500" unit="line"/>and do not narrate how she beguiled the son of Cronus, and Hades, the lord of darkness, or Poseidon, shaker of the earth.  But, when this bride was to be won,<milestone ed="p" n="505" unit="line"/>who were the massive rivals that entered the contest for her nuptials?  Who stepped forward to the ordeal of battle full of blows and raising dust?<milestone ed="p" n="507" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>One was a mighty river-god, the form of a bull, high-horned and four-legged,<milestone ed="p" n="510" unit="line"/>Achelous, from Oeniadae.  The other came from <placeName key="perseus,Thebes">Thebes</placeName>, home of Bacchus, brandishing his resilient bow, his spears and club;  he was the son of Zeus.  These two then met in a mass, lusting to win a bride,<milestone ed="p" n="515" unit="line"/>and the Cyprian goddess of nuptial joy was there with them, acting as sole umpire.<milestone ed="p" n="517" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>There was clatter of fists and clang of bow and crash of a bull's horns mixed together;<milestone ed="p" n="520" unit="line"/>then there were close-locked grapplings and deadly  blows from foreheads and loud deep cries from both.  Meanwhile the delicate beauty sat on the side of a hill that could be seen from afar,<milestone ed="p" n="525" unit="line"/>awaiting the husband that would be hers.</p>
+<p>So the battle rages, as I narrate.  But the face of the bride which is the prize of the strife awaits the end in piteous anguish.  And suddenly she has left her mother,<milestone ed="p" n="530" unit="line"/>like an orphaned calf.<milestone ed="p" n="531" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<stage>Enter Deianeira.</stage>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Dear friends, while our guest is saying his farewell to the captive girls in the house, I have stolen away partly to tell you what these hands have devised,<milestone ed="p" n="535" unit="line"/>and partly to grieve over my sufferings in your company.</p>
+<p>I have received a maiden&mdash;or, I believe, no longer a maiden, but an experienced woman&mdash;into my home, just as a mariner takes on cargo, a merchandise to wreck my peace of mind.  And now we are two, a pair waiting under<milestone ed="p" n="540" unit="line"/>a single bedspread for one man's embrace.  Such is the reward that Heracles has sent me&mdash;he whom I called true and loyal&mdash;for guarding his home through all that long time.  I do not know how to be angry with him, even though he is infected with this disease.<milestone ed="p" n="545" unit="line"/>But, then again, to live with her, sharing the same marriage&mdash;what woman could endure it?  For I see that the flower of her youth is blossoming, while mine is fading.  The eyes of men love to pluck off the bloom of youth, but they turn their steps from the old.<milestone ed="p" n="550" unit="line"/>On this account I am afraid lest Heracles, in name my husband, should be the younger woman's man.</p>
+<p>But, as I said, anger brings shame to a woman of understanding.  I will tell you, my friends, the way by which I will have deliverance and relief.<milestone ed="p" n="555" unit="line"/>I had a gift, an old one given to me by a monster of long ago, and kept it hidden in a bronze urn.  While yet a girl, I took this gift from the shaggy-chested Nessus&mdash;from his lifeblood, as he lay dying.  He is the one who used to carry men<milestone ed="p" n="560" unit="line"/>in his arms for hire across the deep current of the Evenus, using no oar for conveyance, nor ship's sail.  He carried me, too, on his shoulders, when at my father's sending, I first departed with Heracles as his wife.  When I was in midstream,<milestone ed="p" n="565" unit="line"/>he touched me with lewd hands.  I shrieked, and straightaway the son of Zeus turned round and with his hands shot a feathered arrow that whistled right through his chest to the lungs.  As he passed away the monster spoke these few words:  &ldquo;Child of aged Oeneus,<milestone ed="p" n="570" unit="line"/>you will have this benefit from my ferrying, if you obey me, since you were the last whom I carried.  If you gather with your hands the blood clotted round my wound, at the place where the Hydra, <placeName key="perseus,Lerna">Lerna</placeName>'s monstrous growth, imbued the arrow with black gall,<milestone ed="p" n="575" unit="line"/>you will have a charm for the heart of Heracles, so that he will never look upon any woman and love her more than you.&rdquo;</p>
+<p>Remembering this charm, my friends&mdash;for, after his death, I had kept it carefully locked up in the house&mdash;<milestone ed="p" n="580" unit="line"/>I have imbued this robe with it, applying to it all that he instructed while he lived.  The work is finished.  May deeds of wicked daring always be far from my thoughts and from my knowledge, as I detest the women who attempt them!  But if in any way I may prevail against this girl by love-spells<milestone ed="p" n="585" unit="line"/>and the charms used on Heracles, the means to that end have been devised&mdash;unless I seem to be acting rashly.  If so, I will stop immediately.<milestone ed="p" n="588" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>On the contrary.  If there is any reason for confidence in these actions, we think that your plan is not wrong.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="590" unit="line"/>My reason for confidence is this:  there is the appearance of success in the plan.  But the proof I have not yet essayed.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Your knowledge must come after you act.  For you can have no test which is not fanciful except by making the attempt.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Well, we shall know shortly, for there I see the man<milestone ed="p" n="595" unit="line"/>already at the doors.  He will soon depart.  Only I ask that I may be well sheltered by you!   When you accomplish even shameful deeds under the cover of darkness, you will never fall into disgrace.</p></sp>
+<stage>Enter Lichas.</stage>
+<sp>
+<speaker>Lichas</speaker>
+<p>What are your instructions?  Tell me, daughter of Oeneus, for already I am tardy because of my long stay.<milestone ed="p" n="600" unit="card"/></p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="600" unit="line"/>In fact I have just been seeing to this very thing for you, Lichas, while you were addressing the foreign women in the house:  take for me this long robe, prepared by my own hand, a gift to my absent husband.  Give it to him and tell him to be sure that no man<milestone ed="p" n="605" unit="line"/>puts it on his body before him and that it not be seen by the light of the sun, nor by the sacred precinct, nor by the blaze at the hearth, until he stands conspicuous before all eyes and shows it clearly to the gods on a day for the sacrifice of bulls.<milestone ed="p" n="610" unit="line"/>For so had I vowed, that if I should ever see or hear that he had come safely home, I would dutifully adorn him with this robe and reveal him to the god as a new sacrificer in new garb.  As proof of your commission you will carry a token which he will easily recognize<milestone ed="p" n="615" unit="line"/>within the circle of this seal.</p>
+<p>Now go;  and first, observe the rule that messengers should be unwilling to act out of line, and second, see to it that my thanks may be joined to his, doubling the gratitude you earn.<milestone ed="p" n="620" unit="card"/></p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p><milestone ed="p" n="620" unit="line"/>If I practice Hermes' art of heraldry with any skill, I certainly will never slip up while doing your errand.  I will not fail to carry and present this chest in the same condition, nor to add to it the proper assurance of the reasons which you have for sending it.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>You may go now, for you know well<milestone ed="p" n="625" unit="line"/>how things are with us in the house.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>I know and will report that all is well.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>And you know, further, from your own eyes my greeting to the foreign girl, how I welcomed her warmly.</p></sp>
+<sp>
+<speaker>Lichas</speaker>
+<p>So much so that my heart was struck with joy.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="630" unit="line"/>What more, then, is there for you to tell him?  I am afraid that it would be too soon to speak of the longing on my part, before I know if I am longed for there.<stage>Exit Lichas on one side and Deianeira into the house.</stage><milestone ed="p" n="633" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>O you who dwell by the warm springs near ships' haven and rocky cliff, and you who live by<milestone ed="p" n="635" unit="line"/>the crags of Oeta!  And you dwellers by the land-locked waters of the Malian gulf, and the headland sacred to the virgin-goddess of the golden shuttle, where are the famed councils of the Greeks at the gates!<milestone ed="p" n="640" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="640" unit="line"/>Soon the glorious voice of the flute will go up for you again, sounding no bothersome, strident notes, but divine music worthy of the lyre!  For the son whom Alcmena bore to Zeus<milestone ed="p" n="645" unit="line"/>is hurrying homeward, with spoils won by supreme valor.<milestone ed="p" n="647" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>We thought him lost utterly to our land, a wanderer over sea, while we waited through twelve long months and knew nothing.<milestone ed="p" n="650" unit="line"/>She, his loving wife, miserable, was ever pining in her miserable heart, always weeping.  But now Ares, stung to rage, has freed her days from their toil.<milestone ed="p" n="655" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="655" unit="line"/>May he come, may he come!  Let him not halt the many-oared ship that carries him before he has reached this town, leaving the island altar where he is reported to be sacrificing!<milestone ed="p" n="660" unit="line"/>May he come from there full of desire, steeped in love on the pretext of the robe by Persuasion's all-powerful ointment!<milestone ed="p" n="663" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<stage>Enter Deianeira from the house.</stage>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Friends, how I fear that I may have gone too far in all that I was doing just now!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="665" unit="line"/>What has happened, Deianeira, daughter of Oeneus?</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>I do not know, but I despair that I will soon be found to have done a great wrong, when my hope was for good.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Surely it is nothing that bears on your gift to Heracles?</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Yes, it is!  So much so that I would never recommend to anybody<milestone ed="p" n="670" unit="line"/>that he be eager for action in obscurity.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Tell us the cause of your fear, if it may be told.<milestone ed="p" n="672" unit="card"/></p></sp>
+<sp n="Deianeira">
+<speaker>Deianeira</speaker>
+<p>A thing has happened, my friends, such that, if I declare it, it will be a strange marvel for you to hear.  The implement with which I was just now anointing the festal robe,<milestone ed="p" n="675" unit="line"/>a white tuft of fleecy sheep's wool, has disappeared, eaten away by no animal in the courtyard, but self-devoured and self-destroyed it crumbled down over a stone slab.  But I must tell the story at greater length, so that you may know exactly how this thing was accomplished.</p>
+<p><milestone ed="p" n="680" unit="line"/>I neglected no part of the precepts which the savage Centaur gave me when he was hurting from the bitter barb in his side;  they were in my memory, like the graven words which no hand may wash from a tablet of bronze.  Now this was his order to me, and I obeyed it:<milestone ed="p" n="685" unit="line"/>to keep this potion hidden in inmost recesses always away from fire and untouched by the sun's warm ray, until I should apply it, newly spread, where I wished.  So I had done.  And just now, when the moment for action had come, I performed the anointing secretly in the rooms of the house<milestone ed="p" n="690" unit="line"/>with a tuft of soft wool which I had plucked from a sheep of our home-flock;  then I folded up my gift, and laid it, unvisited by sunlight, within its hollow chest, as you saw.  But as I am going back into the house, I see a thing inexplicable by words and beyond the knowledge of the human mind to understand.<milestone ed="p" n="695" unit="line"/>For somehow I happened to have thrown the ball of wool, with which I had been anointing the robe, into the full blaze of the sun's rays.  As it grew warm, it ran all into confusion, and quickly crumbled to powder on the ground, like nothing in appearance so much as<milestone ed="p" n="700" unit="line"/>the morsels left by a saw's teeth when wood is cut.  It lies just so, fallen.  And from the earth, where it lay exposed, clotted foam seethes up, like the rich juice of the blue fruit from the vine of Bacchus when it is poured on the ground.</p>
+<milestone ed="p" n="705" unit="card"/>
+<p><milestone ed="p" n="705" unit="line"/>And so I am distraught, and I do not know to which side my thoughts should fall.  I only see that I have brought a terrible deed to completion.  For why or in thanks for what should the monster in his death-throes have shown good will to me, because of whom he was dying?   Impossible!  No, he was<milestone ed="p" n="710" unit="line"/>enchanting me in order to destroy the man who had shot him.  And now too late I gain the knowledge of this, when it can no longer help.  Yes, I alone&mdash;unless my outlook prove mistaken&mdash;I, miserable one, shall completely destroy him!  For I know that the arrow which made the wound harmed<milestone ed="p" n="715" unit="line"/>even the god Cheiron, and that it kills all varieties of beasts that it touches.  Since it is this same black venom in the blood that has passed out through the wound of Nessus, must it not kill Heracles also?  To my mind, at least, it must.  Nevertheless, I am resolved that, if he is to be brought down,<milestone ed="p" n="720" unit="line"/>at the same time I too will die along with him in the selfsame fall.  No woman could bear to live with a reputation for evil, if she cares above all that her nature is not evil.
+</p></sp>
+<milestone ed="p" n="723" unit="card"/>
+<sp>
+<speaker>Chorus</speaker>
+<p>Fear is necessary when terrible deeds are done, but one should not judge one's expectations before the outcome is known.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p><milestone ed="p" n="725" unit="line"/>There is no room for expectation when one's plans are bad, at least the kind of expectation which lends confidence.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And yet in the case of those whose mistakes were unwitting, men's anger is softened.  So it should be for you.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>No, such words are not for one who took part in the wrongdoing,<milestone ed="p" n="730" unit="line"/>but only for him who has no trouble at his own door.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>It would suit you to refrain from saying anything more, unless you would reveal anything to your own son.  For he is here, the one who earlier went to seek his father.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>O Mother, how I wish I could choose one of three fates for you!<milestone ed="p" n="735" unit="line"/>I wish that you no longer lived, or, if you remained, that someone else called you &ldquo;Mother&rdquo;, or that some new and kinder heart had been exchanged for your present one!</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>My son, what have I done to cause your hate?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Listen to me!  You have killed<milestone ed="p" n="740" unit="line"/>your husband, my father&mdash;my father!</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>oh, no!  What is this you have blurted out, Hyllus?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Only what cannot but be fulfilled.  For who could undo what has happened?</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>What do you mean, son?  From whom did you hear this<milestone ed="p" n="745" unit="line"/>that you charge me with a crime so awful?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>I have seen my father's overwhelming misfortune with my own eyes.  I did not learn of it by hearsay.</p></sp>
+<sp>
+<speaker>Deianeira</speaker>
+<p>Where did you find him? Where were you with him?<milestone ed="p" n="749" unit="card"/></p></sp>
+<sp n="Hyllus">
+<speaker>Hyllus</speaker>
+<p>If you need to hear, then I must tell all.<milestone ed="p" n="750" unit="line"/>After sacking the famous city of Eurytus, he went his way with the trophies and choice spoils of victory.  There is a sea-washed headland of <placeName key="tgn,7002677">Euboea</placeName>, Cape Cenaeum, where he marked out altars and a sacred grove to the Zeus of his fathers.<milestone ed="p" n="755" unit="line"/>There I first saw him, to the gratification of my desire.  He was about to make a sacrifice rich in offerings when his own herald, Lichas, came to him from home with your gift, the deadly robe, in his hands.  This he put on as you prescribed<milestone ed="p" n="760" unit="line"/>and then began his offering with twelve bulls, free from blemish, the prime of the spoil;  but altogether he brought a hundred mixed victims to the altar.  At first the miserable wretch prayed with serene soul and rejoiced in his ornate garb.<milestone ed="p" n="765" unit="line"/>But when the blood-fed flame began to blaze from the holy offerings and from the resinous pine, a sweat broke out on his skin and the tunic clung to his sides close-glued at every joint, as if by a craftsman's hand;  there came<milestone ed="p" n="770" unit="line"/>a convulsive, biting pain in his bones;  and then the venom, like that of some deadly, cruel viper, began to devour him.  At that he shouted for the ill-fated Lichas&mdash;who was in no way to blame for your crime&mdash;asking by what plots he had brought that robe.<milestone ed="p" n="775" unit="line"/>But he, unfortunate one, all-unknowing, said that he had brought your gift from you alone, just as it had been sent.  When Heracles heard it, just as a piercing spasm clutched his lungs, he caught him by the foot where the ankle bends in the socket<milestone ed="p" n="780" unit="line"/>and threw him at a surf-beaten rock in the sea, causing the white brain to ooze from his hair, when the crown of his head had been scattered and his blood with it.</p>
+<milestone ed="p" n="783" unit="card"/>
+<p>But all the people lifted up a cry of astounded grief when they saw that the one was frenzied, and the other destroyed;<milestone ed="p" n="785" unit="line"/>and no one dared to approach  the man.  For he convulsed down to the ground and up into the air as he shouted and cried out.  All around the cliffs resounded, both the steep headlands of <placeName key="tgn,7010899">Locris</placeName> and the Euboean capes.  But when he was exhausted with repeatedly<milestone ed="p" n="790" unit="line"/>throwing himself on the ground in his anguish and repeatedly shouting with howls of grief, as he dwelled on his ill-mated marriage with miserable you and his alliance with Oeneus, which, he said, he got for himself as the ruin of his life, then from out of the shrouding altar-smoke<milestone ed="p" n="795" unit="line"/>he raised his wildly-rolling eyes and saw me weeping among his many troops.  He stared at me and called me: &ldquo;O my son, come to me.  Do not fly from my trouble, not even if you have to share my death.  Come, lift me up and away and above all put me<milestone ed="p" n="800" unit="line"/>in a place where no one can see me.  But if you have pity, at least carry me in all speed away from this country so that I may not die here.&rdquo;  When he had laid this command on me, we put him onboard ship and brought him just barely to this land,<milestone ed="p" n="805" unit="line"/>while he moaned in his convulsions.  And you shall soon see him, either alive or freshly dead.</p>
+<p>Such, Mother, are the designs and deeds against my father of which you have been found guilty.  May Punishing Justice and the Erinys punish you for them!   Yes, if it be right, that is my prayer.<milestone ed="p" n="810" unit="line"/>Right it is, for to my eyes you have rejected the right by killing the best and bravest of men in all the world, whose equal you will never see again.<stage>Deianeira moves towards the house.</stage>
+</p></sp>
+<milestone ed="p" n="813" unit="card"/>
+<sp>
+<speaker>Chorus</speaker><stage>To Deianeira.</stage>
+<p>Why do you leave without a word?  Do you not know that your silence pleads your accuser's case?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p><milestone ed="p" n="815" unit="line"/>Let her leave.  May a fair wind speed her far from my sight!  Why should she falsely keep the dignity of the name &ldquo;Mother,&rdquo; when she is all unlike a mother in her deeds?  No, let her go&mdash;farewell to her.  May such delight as<milestone ed="p" n="820" unit="line"/>she gives my father become her own!<stage>Exit Deianeira into the house, followed at a distance by Hyllus.</stage><milestone ed="p" n="821" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>See, maidens, how suddenly the divine word of the old prophecy has closed upon us, which allotted this destiny:  that when the twelfth year<milestone ed="p" n="825" unit="line"/>with its full complement of months should have come to an end, it would complete the undertaking of toils for the true-born son of Zeus!  And that promise rides before a steady wind to sure fulfillment.  For how shall he who does not see the light of day<milestone ed="p" n="830" unit="line"/>ever have toilsome servitude any more in death?<milestone ed="p" n="831" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>For if the Centaur's deceitful torture smears his sides with a murderous net, where clings the venom which Death birthed and the gleaming serpent nourished,<milestone ed="p" n="835" unit="line"/>how can he look upon tomorrow's sun, when that appalling Hydra-shape grasps him?  Those murderous goads, prepared<milestone ed="p" n="840" unit="line"/>by the deceptive words of black-haired Nessus, torment him with confused thrashing and seethe on his skin.<milestone ed="p" n="841" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>In these matters this miserable lady had no apprehension, when she foresaw in the new marriage a great plague swiftly rushing upon her household.  Her own hand applied the drug.  But no doubt for the results yielded by a stranger's<milestone ed="p" n="845" unit="line"/>counsel, given at a fatal meeting&mdash;for these she despairingly groans and sheds a tender dew of thickly-falling tears.<milestone ed="p" n="850" unit="line"/>And the coming fate foreshadows a great disaster, contrived by guile.<milestone ed="p" n="852" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Our streaming tears break forth.  Ah, no!  An infection pours over him, an illness more to be pitied<milestone ed="p" n="855" unit="line"/>than any suffering that adversaries ever brought upon that glorious hero.  Ah, you dark head of the spear foremost in battle, who by your mighty point recently led that swift bride from <placeName key="perseus,Oechalia">Oechalia</placeName>'s heights!<milestone ed="p" n="860" unit="line"/>But the Cyprian goddess, ministering in silence, has been plainly proved the author of these deeds.<milestone ed="p" n="863" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<div2 type="lyric">
+<sp>
+<speaker>First Semi-Chorus</speaker>
+<p>Is it fancy, or did I just now hear some cry of grief rushing through the house?<milestone ed="p" n="865" unit="line"/>What is this?</p></sp>
+<sp>
+<speaker>Second Semi-Chorus</speaker>
+<p>It is no uncertain sound, but a wail of anguish from inside.  The house has some new trouble.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And note how strangely, with what consternation on her brow<milestone ed="p" n="870" unit="line"/>that old woman approaches to give us some news.</p></sp>
+<stage>Enter the Nurse, from the house.</stage>
+<sp>
+<speaker>Nurse</speaker>
+<p>Ah, my daughters, great, indeed, are the sorrows for us that began with the gift sent to Heracles!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Old woman, what new trouble have you to tell?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Deianeira has departed on the last<milestone ed="p" n="875" unit="line"/>of all her journeys, departed without stirring a foot.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Surely you do not mean she is dead?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>My tale is told.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Dead, the poor woman?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Again you hear me affirm it.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Poor, lost one!  Tell me, what was the manner of her death?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Oh, it was most cruel in its execution!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Speak,<milestone ed="p" n="880" unit="line"/>woman, with what end did she meet?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>She destroyed herself.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What impulse drove her?  What disease of her mind seized her on the point of its evil shaft?  How did she contrive<milestone ed="p" n="885" unit="line"/>this death upon death, accomplishing it all on her own?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>By a stroke of the sword which gives cause for mourning.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Did you witness that violent deed, poor helpless one?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>I did, yes, since I was standing close by.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="890" unit="line"/>What was it?  How was it done?  Oh, speak!</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Of her own accord she set her hand to the deed.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What are you saying?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>The certain truth.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The firstborn, the firstborn of that newly arisen bride is<milestone ed="p" n="895" unit="line"/>a great Erinys on this house!<milestone ed="p" n="896" unit="card"/></p></sp></div2>
+<div2 type="dialogue">
+<sp>
+<speaker>Nurse</speaker>
+<p>Too true.  And had you been close at hand and seen her do it, you would have pitied her even more.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And could a woman's hand dare to carry out such deeds?</p></sp>
+<sp>
+<speaker>Nurse</speaker>
+<p>Yes, with fierce daring.  You shall hear, and then you will bear me witness.<milestone ed="p" n="900" unit="line"/>When she came alone into the house and saw her son preparing a deep litter in the court, with which to go back and meet his father, she hid herself where none would see. Falling before the altars, she moaned that<milestone ed="p" n="905" unit="line"/>they were left desolate, and whenever she touched any household thing that she, poor lady, had habitually used in the past, her tears would flow.  If, as she roamed hither and thither through the house, she beheld the form of any well-loved servant, she wept in misery at the sight,<milestone ed="p" n="910" unit="line"/>crying aloud upon her own fate, and her childless existence thereafter.</p>
+<p>But when she finished this, I saw her suddenly rush into the bedchamber of Heracles.  I hid in the shadows to keep my observation secret and was watching over her<milestone ed="p" n="915" unit="line"/>when I saw her spread coverings on the bedstead of Heracles.  When she had done this, she sprang up on them and sat in the middle of the bed.  Then she broke out in warm streams of tears<milestone ed="p" n="920" unit="line"/>and said:  &ldquo;Ah, my bridal bed and bridal chamber, farewell now and for ever, since you will never more receive me in these covers as his wife.&rdquo;  She says no more, but with a vehement hand she loosens her robe where the brooch of beaten gold<milestone ed="p" n="925" unit="line"/>lies above her breasts and bares all her left side and arm.  Then I run with all my strength, and warn her son of her intent.  But even in the space between my going and our return,<milestone ed="p" n="930" unit="line"/>we find that she has driven a two-edged sword up through her side to the heart.  At that sight, her son gave a great cry.  For he knew, poor boy, that in his anger he had driven her to that action.  He had learned too late from the servants in the house<milestone ed="p" n="935" unit="line"/>that she had acted without knowledge and at the will of the monster.  Then and there the youth in his misery left no cry of grief unmade as he lamented over her, nor as he fell to kiss her lips;  he threw himself at her side, loudly moaning<milestone ed="p" n="940" unit="line"/>that he had rashly attacked her with a false accusation and weeping that he must now live orphaned of both alike, of his father and of her.</p>
+<p>Such are the fortunes of this house.  Rash, indeed, is he who reckons on tomorrow, or perchance on days beyond it.<milestone ed="p" n="945" unit="line"/>There is no tomorrow, until today is safely past.<stage>Exit the Nurse.</stage><milestone ed="p" n="947" unit="card"/></p></sp></div2></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="947" unit="line"/>Which disaster shall I bewail first? Which is more to be pitied?  In my grief I cannot decide.<milestone ed="p" n="950" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="950" unit="line"/>One sorrow may be seen in the house;  for one we wait with apprehension.  To have and to await are one and the same.<milestone ed="p" n="953" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>oh, that some strong breeze, a fair wind, might arise at our hearth<milestone ed="p" n="955" unit="line"/>to bear me far from this land, so that I might not die of terror when I look but once<milestone ed="p" n="960" unit="line"/>upon the mighty seed of Zeus!  For they say that he is approaching  the house in torments from which there is no deliverance, a wonder of unutterable woe.<milestone ed="p" n="965" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="965" unit="line"/>Ah, he was not far off, but close to us, he for whom I cried in advance, like the shrill nightingale!  Here is a foreign procession of strange men.   And in what manner, then, do they bring him?  In sorrow, as for some loved one, they tread their mournful, noiseless tread.  Ah, he is carried on in silence!<milestone ed="p" n="970" unit="line"/>Should I think that he is dead, or just asleep?<milestone ed="p" n="972" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<stage>Enter from one side an Old Man, with attendants, bearing Heracles upon a litter, and Hyllus from the house.</stage>
+<sp>
+<speaker>Hyllus</speaker>
+<p>O my father!  O my misery!  What is to become of me?  What is my best plan?  Ah!</p></sp>
+<sp>
+<speaker>Old Man</speaker>
+<stage>Whispering.</stage>
+<p>Hush, young man!  Do not rouse<milestone ed="p" n="975" unit="line"/>the cruel pain that infuriates your father!  He lives, though on the very edge.  Bite your tongue and hold it!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>What do you say, old man&mdash;is he alive?</p></sp>
+<sp>
+<speaker>Old Man</speaker>
+<p>You must not awake the slumberer!  You must not rouse and revive<milestone ed="p" n="980" unit="line"/>his fierce, recurrent infection, my son!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>But the immense weight of this misery crushes me.  My heart craves release!</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>O Zeus, in what land am I?  Among what people<milestone ed="p" n="985" unit="line"/>do I lie, tortured with unending agonies?  O me, what pain!  Oh, that accursed pest gnaws me once more!</p></sp>
+<sp>
+<speaker>Old Man</speaker>
+<p>Did I not know how much better it was that you should keep silent, instead of scattering<milestone ed="p" n="990" unit="line"/>sleep from his brain and eyes?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>No, I know no way to be patient when I witness this misery.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>O Cenaean rock, foundation of my altars, what cruel reward<milestone ed="p" n="995" unit="line"/>you have earned me for those fair offerings, O Zeus!  Ah, in what ruin you have deposited me, in what ruin!  Would that I had never looked on you to my sorrow with my eyes, never come face to face with this blooming madness, which no spell can soothe!<milestone ed="p" n="1000" unit="line"/>Where is the enchanter, where the practiced healer, save Zeus alone, who will charm this catastrophe away?  I would be amazed if I saw him from even a great distance!<milestone ed="p" n="1004" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Heracles</speaker>
+<p>Ah!<milestone ed="p" n="1005" unit="line"/>Leave me!  Leave me in my misfortune!  Leave me to sleep my last. Where, where do you touch me?  Where do you lay me?  You will kill me, you will kill me!  If there was any pain that slumbered, you have aroused it!</p>
+<p><milestone ed="p" n="1010" unit="line"/>It has seized me,&mdash;oh, the pest comes again!&mdash;What is your homeland, you men most ungrateful of all the Greeks?  I wore out my wretched days in ridding the Greeks of pests both on the deep and throughout every forest.  And now, when I am afflicted, will no man turn merciful fire or sword on me?<milestone ed="p" n="1015" unit="line"/>Oh!  Oh!  Will no one come and strike the head from this accursed body with one fierce stroke?  Ah, me!<milestone ed="p" n="1017" unit="card"/></p></sp></div2>
+<div2 type="mesode">
+<sp><speaker>Old Man</speaker>
+<p>You are the man's son, and this task exceeds my strength.  Help him, for the strength to save him is at your command,<milestone ed="p" n="1020" unit="line"/>more than mine.</p></sp>
+<sp><speaker>Hyllus</speaker>
+<p>My hands reach out to him, but no resource in myself or from another can help me make his life forget its agonies.  So strong is the destiny appointed by Zeus!<milestone ed="p" n="1024" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Heracles</speaker>
+<p>O my son, where are you?<milestone ed="p" n="1025" unit="line"/>Raise me, take hold of me here, here!  Oh, oh, my god! Again, again the cruel pest leaps, leaps up to rend me, the<milestone ed="p" n="1030" unit="line"/>wild, uncombatable plague!  O Pallas, Pallas, it tortures me again!  oh, please, my son, pity your sire!  Draw a sword&mdash;you will not be blamed for it&mdash;strike me beneath my collarbone.<milestone ed="p" n="1035" unit="line"/>Heal this pain with which your godless mother has enraged me!  So may I see her fall to ruin, exactly, just exactly, as she has destroyed me!<milestone ed="p" n="1040" unit="line"/>Sweet Hades, brother of Zeus, give me sleep, give me sleep.  Kill me in my misery by a swift-flying doom!<milestone ed="p" n="1044" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus</speaker>
+<p>I shudder, friends, to hear these sorrows<milestone ed="p" n="1045" unit="line"/>which our King suffers.  What a man is here, and what misfortunes lash at him!</p></sp>
+<sp n="Heracles">
+<speaker>Heracles</speaker>
+<p>Ah, many and hot and cruel not in name alone have been the labors of these hands, the burdens hoisted upon these shoulders!  And yet no toil ever laid on me by the bedfellow of Zeus or by the hateful Eurystheus was as harsh<milestone ed="p" n="1050" unit="line"/>as this thing which the daughter of Oeneus, fair and false, has fastened upon my back, this woven net of the Erinyes in which I perish!  Plastered to my sides, it has eaten away my inmost flesh and sucks the channels of my lungs,<milestone ed="p" n="1055" unit="line"/>making my body its home.  Already it has drunk  away my fresh lifeblood, and my whole body is wasted, conquered by these indescribable bonds.  Not spearmen on the battlefield, nor the Giants' earth-born army, nor the might of savage beasts,<milestone ed="p" n="1060" unit="line"/>not <placeName key="tgn,1000074">Hellas</placeName>, nor the land of the barbarian, nor any land which I came to purify has ever done this to me.  No, a  woman, a weak woman, born not to the strength of man, all alone has brought me down without a stroke of the sword!</p>
+<p>Son, show yourself my trueborn son,<milestone ed="p" n="1065" unit="line"/>and do not honor your mother's name above your father's.  Bring out the woman that bore you, and give her with your own hands into my hand, that I may know for certain which sight grieves you more&mdash;my tortured frame, or hers, when she suffers her just punishment!<milestone ed="p" n="1070" unit="line"/>Go, my son, be bold!  Show your pity for me, whom many might think deserving of pity&mdash;pity me moaning and weeping like a girl!  No one could say that he had ever seen this man do that before.  No, always without complaint I used to pursue my troubles.<milestone ed="p" n="1075" unit="line"/>But now in my misery I have been found a woman, instead of the man I used to be.</p>
+<milestone ed="p" n="1076" unit="card"/>
+<p>Come close, stand near your father and do examine the magnitude of the misfortune by which I suffer;  for I will uncover my suffering.  Look!  See all of you this miserable body;<milestone ed="p" n="1080" unit="line"/>see how wretched, how pitiable I am!</p>
+<p>Ah, misery!  The ruinous spasm flames again; it shoots through my sides&mdash;I must wrestle once more with that cruel, devouring plague!</p>
+<p><milestone ed="p" n="1085" unit="line"/>King Hades, receive me!  Strike me, O fire of Zeus!  Hurl down your thunderbolt, ruler, dash it, Father, upon my head!  Again the pest consumes me, it has blazed up, it has leapt to fury!  O hands, my hands,<milestone ed="p" n="1090" unit="line"/>O shoulders and chest and trusty arms, you are indeed those noted arms which once subdued with your might the dweller in <placeName key="perseus,Nemea">Nemea</placeName>, the scourge of herdsmen, the lion, a creature that no man might approach or confront;  you tamed the Lernaean Hydra,<milestone ed="p" n="1095" unit="line"/>and that monstrous army of beasts with double form, hostile, going on hoofed feet, violent, lawless, of surpassing violence;  you tamed the beast in Erymanthia, and underground the three-headed whelp of Hades, a resistless terror, offspring of the fierce Echidna;  you tamed the dragon<milestone ed="p" n="1100" unit="line"/>that guarded the golden fruit in the farthest places of the earth.  These toils and thousands more have I tasted, and no man has ever erected a trophy of victory over my hands.  But now, with joints unhinged and with flesh torn to shreds, I have become the miserable spoil of an unseen destroyer,<milestone ed="p" n="1105" unit="line"/>&mdash;I, who am called the son of noblest mother, I, who am reputed the seed of Zeus, lord of the starry sky.</p>
+<p>But you may be sure of one thing:  though I am nothing, though I cannot move a step, yet she who has done this deed shall feel my heavy hand even so.  Let her but come to me<milestone ed="p" n="1110" unit="line"/>so that she may learn to proclaim this message to all the world, that in my death, as in my life, I punished the guilty!
+</p></sp>
+<milestone ed="p" n="1112" unit="card"/>
+<sp>
+<speaker>Chorus</speaker>
+<p>Ah, unhappy <placeName key="tgn,1000074">Greece</placeName>, what mourning do I foresee for her, if she is cheated of this man!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Father, since your pause permits an answer,<milestone ed="p" n="1115" unit="line"/>hear me, diseased though you are;  I will ask you for no more than is my due.  Give yourself to me in a mood not as harsh as that to which your heart is now stung.  Otherwise you cannot learn in what circumstances you wrongly wish to triumph and wrongly show resentment.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p><milestone ed="p" n="1120" unit="line"/>Stop when you have said what it is you desire.  In this pain of mine I understand none of your many riddles.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>I come to tell you of my mother&mdash;her present circumstances and how she erred unknowingly.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>You corrupt thing!  Have you indeed mentioned her name again,<milestone ed="p" n="1125" unit="line"/>the name, &ldquo;Mother, Murderess of Father,&rdquo; in my hearing?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Yes, for her condition is such that my silence shames me.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>No, it does not shame you, when you consider her past crimes.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>You will not say so, at least in view of her deeds today.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Speak&mdash;but take care that you not be found corrupt.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p><milestone ed="p" n="1130" unit="line"/>I will speak.  She is just now dead, a new murder.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>By whose hand?  Your sinister words give a prophecy of wonder!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>She did it by her own hand, and no other's.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Ah, no!  Before she died by mine as she deserved!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Even your rage would be deflected, if you would learn the whole of it.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p><milestone ed="p" n="1135" unit="line"/>Your tale begins strangely, but tell me what you mean.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>The sum is this:  she did wrong, but with a good intent.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Did she do a good deed, corrupt traitor, when she killed your father?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>No, her plan was to apply a love-charm for your heart, when she saw your new marriage inside the house, but she missed her aim.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p><milestone ed="p" n="1140" unit="line"/>And what Trachinian is so potent a charmer?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Nessus the Centaur persuaded her long ago to inflame your desire with such a potion.<milestone ed="p" n="1143" unit="card"/></p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Ah!  Ah, misery!  I am lost, ruined, ruined!  The light of day exists for me no more!<milestone ed="p" n="1145" unit="line"/>Ah, now I understand the depth of my misfortune!  Go, my son!  Your father is no more.  Summon for me all the crop of your brothers.  Summon, too, poor Alcmena, in vain the bedfellow of Zeus, so that<milestone ed="p" n="1150" unit="line"/>you may hear my final words tell what oracles I know.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>I cannot.  Your mother is not here.  It happens that she keeps her home at <placeName key="perseus,Tiryns">Tiryns</placeName> by the sea.  Some of your children she has taken to raise with her there, and others, you will find, are dwelling in <placeName key="perseus,Thebes">Thebes</placeName>.<milestone ed="p" n="1155" unit="line"/>But we who are with you, Father, will render at your command all service that is needed.<milestone ed="p" n="1157" unit="card"/></p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Hear, then, your task.  You have come to where you will reveal what sort of man you are, who are called my son.</p>
+<p>It was foreshown to me by my father far in the past that I would<milestone ed="p" n="1160" unit="line"/>perish by no creature that had the breath of life, but by one already dead, a dweller with Hades.  So this savage Centaur in death has killed me alive, just as the divine will had been foretold.  And I will show you how<milestone ed="p" n="1165" unit="line"/>later oracles tally with the first and testify to the old prophecy.  I wrote them down for myself from the mouth of my father's oak of many tongues in the grove of the Selli, who dwell on the hills and sleep on the ground.  The tree said that, at the time which lives and now is,<milestone ed="p" n="1170" unit="line"/>my release from the toils laid upon me would be accomplished.  And I expected prosperous days, but the meaning, it seems, was only that I would die.  For toil comes no more to the dead.  Since, then, my son, those words are clearly finding their fulfillment,<milestone ed="p" n="1175" unit="line"/>you, on your part, must fight on my behalf.  You must not delay, and so sharpen my tongue, but give your consent to work with me, like one who has discovered that best of laws, the law of obedience to your father.<milestone ed="p" n="1179" unit="card"/></p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Yes, Father&mdash;though in coming to this point in our talk<milestone ed="p" n="1180" unit="line"/>I begin to have some fear&mdash;I will obey you in all your decrees.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>First of all, put your right hand in mine.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>With what purpose in mind do you so strongly urge this pledge on me?</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Give your hand at once&mdash;do not disobey me!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Here, I hold it out to you.  Nothing will be denied you.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p><milestone ed="p" n="1185" unit="line"/>Now, swear by the head of Zeus my begetter!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>To do what deed?  May this also be revealed?</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>To perform for me the task that I shall impose.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>I swear it with Zeus for witness of the oath.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>And pray that, if you break this oath, you may suffer.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p><milestone ed="p" n="1190" unit="line"/>I shall not suffer, since I will keep it.  Yet so I pray.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Good, then do you know the summit of Oeta, Zeus's sacred mountain?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>I know it.  I have often stood on that height to sacrifice.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Then, you must carry my body there after raising it up in your own hands, aided by as many of our friends as you require;<milestone ed="p" n="1195" unit="line"/>and when you have cut many a branch from the deep-rooted oak and chopped down many a sturdy wild-olive, you must lay my body on them and with a flaming pine-torch burn it.</p>
+<p>And let no tear of mourning show itself there.<milestone ed="p" n="1200" unit="line"/>No, do this without laments or tears, if you are indeed my son. But if you fail to do this, even from the world below my curse and my wrath shall await you for ever.<milestone ed="p" n="1203" unit="card"/></p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Ah, Father, what have you said?  What you have done to me!</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>I have spoken that which you must perform.  If you refuse,<milestone ed="p" n="1205" unit="line"/>then get yourself some other father, and be called my son no longer!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Ah, me!  What deeds you call on me to do, Father&mdash;that I should become your murderer, polluted with your blood!</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Not so, in truth, but healer of my sufferings, sole physician of my pain!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p><milestone ed="p" n="1210" unit="line"/>And how, by inflaming your body, shall I heal it?</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>If your fear keeps you from this one task, at least perform the rest.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>The service of carrying you will not be refused.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>And the heaping of the pyre which I have ordered?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Yes, except that I will not touch fire to it with my own hands.<milestone ed="p" n="1215" unit="line"/>All else will I do, and you will have no hindrance on my part.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Well, that much will be enough&mdash;yet add one small favor to your large benefits.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Even if it is tremendously large, it will be done.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Do you know, then, the maiden, daughter of Eurytus?</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p><milestone ed="p" n="1220" unit="line"/>You mean Iole, I would guess.<milestone ed="p" n="1221" unit="card"/></p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>You know her.  Just this is the command that I impose upon you, my son:  when I am dead, if you wish to show your piety by remembrance of your oath to your father, make this woman your wife and do not disobey your father.<milestone ed="p" n="1225" unit="line"/>Let no other but you take her who has lain close at my side.  You, my son, make that marriage-bond your own.  Obey;  for although you were obedient in great affairs, your disobedience in small ones cancels the gratitude already won.<milestone ed="p" n="1230" unit="card"/></p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p><milestone ed="p" n="1230" unit="line"/>Ah, me, it is wrong to be angry with a sick man, but who could bear to see him have thoughts like these?</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Your words show no willingness to do as I say.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Who on earth would, when she alone is to blame for my mother's death, and for your present condition besides?<milestone ed="p" n="1235" unit="line"/>Who would choose to do so, unless he were infected by avenging fiends?  It would be better, Father, that I also die, rather than live united with those whom I most detest!</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>The man will render no due respect, it seems, to my dying prayer.  No, be sure that the curse of the gods<milestone ed="p" n="1240" unit="line"/>will await you for disobeying my commands.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Ah, you will soon show, it seems, how diseased you are!</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Yes, for you stir me from my slumbering plague.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>I am miserable!  I have no way out of so many dilemmas!</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Yes, since you think it wrong to obey your begetter.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p><milestone ed="p" n="1245" unit="line"/>But must I then learn to be unholy, Father?</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>It is not unholy, if you gladden my heart.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Do you, then, command me to do this as a clear duty?</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>I do, and I call on the gods to bear me witness!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Then I will do it, and not refuse,<milestone ed="p" n="1250" unit="line"/>&mdash;calling upon the gods to witness your deed.  I can never be condemned for obeying you, Father.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Your words make a fair ending, and to them, my son, quickly add the gracious deed itself, so that you may place me on the pyre before any pain returns to tear or sting me.<milestone ed="p" n="1255" unit="line"/>Come, make haste and lift me!  This, in truth, is rest from troubles, this is the end, the last end, of Heracles!</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Nothing hinders the fulfillment of your wish, since your commandment strongly compels me, Father.<milestone ed="p" n="1259" unit="card"/></p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Come, then, before you awaken this<milestone ed="p" n="1260" unit="line"/>plague, O my hardened soul, give me a bit of steel to bind my lips like stone to stone!  Stop any cry, since the task you accomplish, though by constraint, gives cause for joy.</p></sp>
+<sp>
+<speaker>Hyllus</speaker>
+<p>Lift him, attendants!<milestone ed="p" n="1265" unit="line"/>Grant me ample forgiveness for this, but also recall the great cruelty of the gods in the deeds that are being done.  They beget children and are hailed as fathers, and yet they can let such sufferings pass before their eyes.</p>
+<p><milestone ed="p" n="1270" unit="line"/>No man foresees the future;  the present is full of mourning for us, and of shame for the powers above, and indeed of hardship beyond compare for him who endures this disaster.</p>
+<stage>To the Leader of the Chorus.</stage>
+<p><milestone ed="p" n="1275" unit="line"/>And you, maiden, do not be left at the house.  You have seen immense, shocking death, with sorrows great in number and strange.  And in all of them there is nothing that is not Zeus.</p></sp></div1>
+</body></text></TEI.2>

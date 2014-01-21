@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="work">De musica</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Pseudo-Plutarch</author>
+            <editor role="editor">Goodwin</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent>About 100Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Morals.</title>
+                  <respStmt>
+                     <resp>Translated from the Greek by several hands. Corrected and revised	by</resp>
+                     <name>William W. Goodwin, PH. D.</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Boston</pubPlace>
+                     <publisher>Little, Brown, and Company</publisher>
+                     <pubPlace>Cambridge</pubPlace>
+                     <publisher>Press Of John Wilson and son</publisher>
+                     <date>1874</date>
+                  </imprint>
+                  <biblScope type="volume">1</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>2006</date>
+            <respStmt>
+               <name>GRC</name>
+               <resp>tagging</resp>
+            </respStmt>
+            <item/>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text id="tlg-0094.002">
+      <body>
+         <pb id="v.1.p.102"/>
+         <head>Concerning Music.</head>
+         <div1 type="section" n="1">
+            <head>Onesicrates, Soterichus, Lysias.</head>
+            <p>
+					          <note place="unspecified" anchored="yes">
+                  <p>No one will attempt to <hi rend="italics">study</hi> this treatise on music, without some previous
+						knowledge of the principles of Greek music, with its various moods, scales, and
+						combinations of tetrachords. The whole subject is treated by Boeckh, <hi rend="italics">De Metris
+							Pindari</hi> (in Vol. I. 2 of his edition of Pindar); and more at length in Westphal's
+						<hi rend="italics">Harmonik und Melop&ouml;ie der Griechen</hi> (in Rossbach and Westphal's <hi rend="italics">Metrik,</hi> Vol. II. 1).</p>
+						            <p>An elementary explanation of the ordinary scale and of the names of the notes
+							(which are here retained without any attempt at translation) may be of use to the
+							reader.</p>
+						            <p>The most ancient scale is said to have had only four notes, corresponding to the
+							four strings of the tetrachord. But before Terpander's time two forms of the
+							heptachord (with seven strings) were already in use. One of these was enlarged to
+							an octachord (with eight strings) by adding the octave (called <foreign lang="greek">nh/th</foreign>). This addition
+							is ascribed to Terpander by Plutarch (&sect;28); but he is said to have been unwilling
+							to increase the number of strings permanently to eight, and to have therefore omitted
+							the string called <foreign lang="greek">tri/th,</foreign> thus reducing the octachord again to a heptachord. The notes
+							of the full octachord in this form, in the ordinary diatonic scale, are as follows:&mdash;
+							
+							<table>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">1</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">u(pa/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">e</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">2</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">parupa/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">f</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">3</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">lixano/s</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">g</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">4</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">me/sh</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">a</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">5</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">parame/sh</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">b</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">6</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">tri/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">c</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">7</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">paranh/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">d</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">8</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">nh/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">e</hi> (octave)</cell>
+                        </row>
+                     </table>
+                  </p>
+						
+						            <p>The note called <foreign lang="greek">u(pa/th</foreign> (hypate, or highest) is the lowest in tone, being named from
+							its position. So <foreign lang="greek">nh/th</foreign> or <foreign lang="greek">nea/th</foreign> or <hi rend="italics">lowest</hi>) is the highest in tone.</p>
+						            <p>The other of the two heptachords mentioned above contained the octave, but
+							omitted the <foreign lang="greek">parame/sh</foreign> and had other changes in the higher notes. The scale is as
+							follows:-
+							
+							<table>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">1</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">u(pa/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">e</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">2</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">parupa/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">f</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">3</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">lixano/s</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">g</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">4</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">me/sh</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">a</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">5</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">tri/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">b</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">6</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">paranh/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">c</hi>
+                           </cell>
+                        </row>
+                        <row role="data">
+                           <cell role="data" rows="1" cols="1">7</cell>
+                           <cell role="data" rows="1" cols="1">
+                              <foreign lang="greek">nh/th</foreign>
+                           </cell>
+                           <cell role="data" rows="1" cols="1">
+                              <hi rend="italics">d</hi>
+                           </cell>
+                        </row>
+                     </table>
+							This is not to be confounded with the reduced octachord of Terpander. This
+							heptachord includes two tetrachords so united that the lowest note of one is identical
+							with the highest note of the other; while the octachord includes two tetracllords
+							entirely separated, with each note distinct. The former connection is called
+							<foreign lang="greek">kata\ sunafh/n,</foreign> the latter <foreign lang="greek">kata\ dia/zeucin.</foreign> Of the eight notes of the octachord,
+							the first four (counting from the lowest), <foreign lang="greek">u(pa/th, parupa/th, lixano/s</foreign> and <foreign lang="greek">me/sh,</foreign> are the
+							same in the heptachord; <foreign lang="greek">parame/sh</foreign> is omitted in the heptachord; while <foreign lang="greek">tri/th, paranh/th,</foreign>
+							and <foreign lang="greek">nh/th</foreign> in the heptachord are designated as <foreign lang="greek">tri/th sunhmme/nwn, paranh/th sunhmme/nwn,</foreign> and <foreign lang="greek">nh/th sunhmme/nwn,</foreign> to distinguish them from the notes of the same
+							name in the octachord, which sometimes have the designation <foreign lang="greek">diezeugme/nwn,</foreign> but generally are written simply <foreign lang="greek">tri/th,</foreign> &amp;c.</p>
+						            <p>These simple scales were enlarged by the addition of higher and lower notes,
+							four at the bottom of the scale (i.e. before <foreign lang="greek">u(pa/th</foreign>), called <foreign lang="greek">proslambano/menos, u(pa/th u(patw=n, parupa/th u(patw=n, lixano/s u(patw=n;</foreign> and three at the top (above <foreign lang="greek">nh/th</foreign>), called <foreign lang="greek">nh/th, paranh/th, tri/th,</foreign>
+							each with the designation <foreign lang="greek">u(perbolai/wn.</foreign> The lowest three notes
+							of the ordinary octachord are here designated by <foreign lang="greek">me/swn,</foreign> when the simple names are
+							not used. Thus a scale of fifteen notes was made; and we have one of eighteen by
+							including the two classes of <foreign lang="greek">tri/th, paranh/th,</foreign> and <foreign lang="greek">nh/th</foreign> designated by <foreign lang="greek">sunhmme/nwn</foreign> and
+							<foreign lang="greek">diezeugme/nwn.</foreign>
+                  </p>
+						            <p>The harmonic intervals, discovered by Pythagoras, are the <hi rend="italics">Octave</hi> (<foreign lang="greek">dia\ pasw=n,</foreign>) with
+							its ratio of 2:1; the <hi rend="italics">Fifth</hi> (<foreign lang="greek">dia\ pe/nte</foreign>), with its ratio of 3: 2 (<foreign lang="greek">lo/gos h(mio/lios</foreign> or <hi rend="italics">Sesquialter</hi>); the <hi rend="italics">Fourth</hi> (<foreign lang="greek">dia\ tessa/rwn</foreign>), with its ratio of 4: 3 (<foreign lang="greek">lo/gos e)pi/tritos</foreign> or <hi rend="italics">Sesquilerce</hi>);
+							and the <hi rend="italics">Tone</hi> (<foreign lang="greek">to/nos</foreign>), with its ratio of 9: 8 (<foreign lang="greek">lo/gos e)po/gdoos</foreign> or <hi rend="italics">Sesquioctave</hi>). (G.)</p>
+					          </note>
+					THE wife of Phocion the just was always wont to
+					maintain that her chiefest glory consisted in the warlike
+					achievements of her husband. For my part, I am of
+					
+					<pb id="v.1.p.103"/>
+					
+					opinion that all my glory, not only that peculiar to myself,
+					but also what is common to all my familiar friends and relations, flows from the care and diligence of my master that
+					taught me learning. For the most renowned performances
+					of great commanders tend only to the preservation of some
+					few private soldiers or the safety of a single city or nation,
+					but make neither the soldiers nor the citizens nor the
+					people any thing the better. But true learning, being
+					the essence and body of felicity and the source of prudence, we find to be profitable and beneficial, not only to
+					one house or city or nation, but to all the race of men.
+					Therefore by how much the more the benefit and advantage of learning transcends the profits of military performances, by so much the more is it to be remembered and
+					mentioned, as most worthy your study and esteem.</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>For this reason, upon the second day of the Saturnalian
+				festival, the famous Onesicrates invited certain persons, the
+				best skilled in music, to a banquet; by name Soterichus
+				
+				<pb id="v.1.p.104"/>
+				
+				of Alexandria, and Lysias, one of those to whom he gave
+				a yearly pension. After all had done and the table was
+				cleared,&mdash;To dive, said he, most worthy friends, into the
+				nature and reason of the human voice is not an argument
+				proper for this merry meeting, as being a subject that
+				requires a more sober scrutiny. But because our chiefest
+				grammarians define the voice to be a percussion of the air
+				made sensible to the ear, and for that we were yesterday
+				discoursing of Grammar,&mdash;which is an art that can give
+				the voice form and shape by means of letters, and store it
+				up in the memory as a magazine,&mdash;let us consider what
+				is the next science to this which may be said to relate to
+				the voice. In my opinion, it must be music. For it is
+				one of the chiefest and most religious duties belonging to
+				man, to celebrate the praise of the Gods, who gave to him
+				alone the most excelling advantage of articulate discourse,
+				as Homer has observed in the following verses:&mdash;
+				
+				
+				<quote rend="blockquote">
+                  <l>With sacred hymns and songs that sweetly please,</l>
+					             <l>The Grecian youth all day the Gods appease;</l>
+					             <l>Their lofty paeans bright Apollo hears,</l>
+					             <l>And still the charming sounds delight his ears.</l> 
+                  <note place="unspecified" anchored="yes">
+                     <bibl>Il. I. 472.</bibl>
+                  </note>
+               </quote>
+            </p>
+            <p>Now then, you that are of the grand musical chorus,
+					tell your friends, who was the first that brought music
+					into use; what time has added for the advantage of the
+					science; who have been the most famous of its professors;
+					and lastly, for what and how far it may be beneficial to
+					mankind.</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>This the scholar propounded; to which Lysias made
+				reply. Noble Onesicrates, said he, you desire the solution
+				of a hard question, that has been by many already proposed. For of the Platonics the most, of the Peripatetic
+				philosophers the best, have made it their business to compile several treatises concerning the ancient music and the
+				reasons why it came to lose its pristine perfection. Nay,
+				
+				<pb id="v.1.p.105"/>
+				
+				the very grammarians and musicians themselves who arrived to the height of education have expended much time
+				and study upon the same subject, whence has arisen great
+				variety of discording opinions among the several writers.
+				Heraclides in his Compendium of Music asserts, that
+				Amphion, the son of Jupiter and Antiope, was the first
+				that invented playing on the harp and lyric poesy, being
+				first instructed by his father; which is confirmed by a small
+				manuscript, preserved in the city of Sicyon, wherein is set
+				down a catalogue of the priests, poets, and musicians of
+				Argos. In the same age, he tells us, Linus the Euboean
+				composed several elegies; Anthes of Anthedon in Boeotia
+				was the first author of hymns, and Pierus of Pieria the first
+				that wrote in the praise of the Muses. Philammon also, the
+				Delphian, set forth in verse a poem in honor of the nativity
+				of Latona, Diana, and Apollo, and was the first that instituted dancing about the temple of Delphi. Thamyras, of
+				Thracian extraction, had the best voice and the neatest
+				manner of singing of any of his time; so that the poets
+				feigned him to be a contender with the Muses. He is said
+				to have described in a poem the Titans' war against the
+				Gods. There was also Demodocus the Corcyraean, who is
+				said to have written the Destruction of Troy, and the Nuptials of Vulcan and Venus; and then Phemius of Ithaca
+				composed a poem, entitled The Return of those who came
+				back with Agamemnon from Troy. Not that any of these
+				stories before cited were compiled in a style like prose
+				without metre; they were rather like the poems of Stesichorus and other ancient lyric poets, who composed in
+				heroic verse and added a musical accompaniment. The
+				same Heraclides writes that Terpander, the first that instituted the lyric <hi rend="italics">nomes,</hi>
+               <note place="unspecified" anchored="yes">According to K. O. M&uuml;ller (History of Greek Literature, Chap. XII &sect; 4), the
+					<hi rend="italics">nomes</hi> were <q direct="unspecified">musical compositions of great simplicity and severity, something resembling the most ancient melodies of our church music.</q> (G.)</note> set verses of Homer as well as his
+				
+				<pb id="v.1.p.106"/>
+				
+				own to music according to each of these nomes, and sang
+				them at public trials of skill. He also was the first to give
+				names to the lyric nomes. In imitation of Terpander, Clonas, an elegiac and epic poet, first instituted nomes for
+				flute-music, and also the songs called Prosodia.<note place="unspecified" anchored="yes">
+                  <foreign lang="greek">*proso/dia</foreign> were songs sung to the music of flutes by processions, as they marched
+					to temples or altars; hence, songs of supplication. (G.)</note> And
+				Polymnestus the Colophonian in later times used the same
+				measure in his compositions.</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Now the measures appointed by these persons, noble
+				Onesicrates, in reference to such songs as are to be sung
+				to the flutes or pipes, were distinguished by these names,
+				&mdash;Apothetus, Elegiac, Comarchius, Schoenion, Cepion,
+				Tenedius, and Trimeles (or of three parts).</p>
+            <p>To these succeeding ages added another sort, which were
+					called Polymnastia. But the measures set down for those
+					that played and sung to the harp, being the invention of
+					Terpander, were much more ancient than the former. To
+					these he gave the several appellations of Boeotian, Aeolian,
+					Trochaean, the Acute, Cepion, Terpandrian, and Tetraoedian.<note place="unspecified" anchored="yes">See Rossbach and Westphal, II. 1, p. 84. (G.)</note> And Terpander made preludes to be sung to the
+					lyre in heroic verse. Besides, Timotheus testifies how that
+					the lyric nomes were anciently appropriated to epic verses.
+					For Timotheus merely intermixed the dithyrambic style
+					with the ancient nomes in heroic measure, and thus sang
+					them, that he might not seem to make too sudden an innovation upon the ancient music. But as for Terpander, he
+					seems to have been the most excellent composer to the
+					harp of his age, for he is recorded to have been four times
+					in succession a victor at the Pythian games. And certainly
+					he was one of the most ancient musicians in the world;
+					for Glaucus the Italian in his treatise of the ancient poets
+					and musicians asserts him to have lived before Archilochus,
+					affirming him to be the second next to those that first invented wind-music.</p>
+            <pb id="v.1.p.107"/>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Alexander in his Collections of Phrygia says, that
+				Olympus was the first that brought into Greece the manner of touching the strings with a quill; and next to him
+				were the Idaean Dactyli; Hyagnis was the first that sang
+				to the pipe; after him his son Marsyas, then Olympus;
+				that Terpander imitated Homer in his verses and Orpheus in his musical compositions; but that Orpheus never
+				imitated any one, since in his time there were none but
+				such as composed to the pipe, which was a manner quite
+				different from that of Orpheus. Clonas, a composer of
+				nomes for flute-music, and somewhat later than Terpander, as the Arcadians affirm, was born in Tegea or, as the
+				Boeotians allege, at Thebes. After Terpander and Clonas
+				flourished Archilochus; yet there are some writers who
+				affirm, that Ardalus the Troezenian taught the manner of
+				composing to wind-music before Clonas. There was also the
+				poet Polymnestus, the son of Meles the Colophonian, who
+				invented the Polymnestian measures. They farther write
+				that Clonas invented the nomes Apothetus and Schoenion.
+				Of Polymnestus mention is made by Pindar and Alcman,
+				both lyric poets; but of several of the lyric nomes said to
+				be instituted by Terpander they make Philammon (the ancient Delphian) author.</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>Now the music appropriated to the harp, such as it
+				was in the time of Terpander, continued in all its simplicity, till Phrynis grew into esteem. For it was not the
+				ancient custom to make lyric poems in the present style, or
+				to intermix measures and rhythms. For in each nome
+				they were careful to observe its own proper pitch; whence
+				came the expression <hi rend="italics">nome</hi> (from <foreign lang="greek">no/mos,</foreign> 
+               <hi rend="italics">law</hi>), because it was
+				unlawful to alter the pitch appointed for each one. At
+				length, falling from their devotion to the Gods, they began
+				to sing the verses of Homer and other poets. This is
+				manifest by the proems of Terpander. Then for the form
+				
+				<pb id="v.1.p.108"/>
+				
+				of the harp, it was such as Cepion, one of Terpander's
+				scholars, first caused to be made, and it was called the Asian
+				harp, because the Lesbian harpers bordering upon Asia
+				always made use of it. And it is said that Periclitus, a
+				Lesbian by birth, was the last harper who won a prize by
+				his skill, which he did at one of the Spartan festivals called
+				Carneia; but he being dead, that succession of skilful musicians, which had so long continued among the Lesbians,
+				expired. Some there are who erroneously believe that
+				Hipponax was contemporary with Terpander, when it is
+				plain that Hipponax lived after Periclitus.</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Having thus discoursed of the several nomes appropriated to the stringed as well as to the wind instruments,
+				we will now speak something in particular concerning
+				those peculiar to the wind instruments. First they say,
+				that Olympus, a Phrygian player upon the flute, invented
+				a certain nome in honor of Apollo, which he called Polycephalus,<note place="unspecified" anchored="yes">This seems to be the nome referred to by Pindar, Pyth. XII. 12, as the invention
+					of Pallas Athena. The Scholia on the passage of Pindar tell us that the goddess
+					represented it in the lamentation of the two surviving Gorgons for their sister Medusa slain by Perseus, and the hissing of the snakes which surrounded their heads,&mdash;
+					whence the name <foreign lang="greek">poluke/falos,</foreign> or <hi rend="italics">many-headed.</hi> (G.)</note> or of many heads. This Olympus, they say,
+				was descended from the first Olympus, the scholar of Marsyas, who invented several forms of composition in honor
+				of the Gods; and he, being a boy beloved of Marsyas, and
+				by him taught to play upon the flute, first brought into
+				Greece the laws of harmony. Others ascribe the Polycephalus to Crates, the scholar of Olympus; though Pratinas will have Olympus the younger to be the author of it.
+				The Harmatian nome is also said to be invented by Olympus,
+				the scholar of Marsyas. This Marsyas was by some said
+				to be called Masses; which others deny, not allowing him
+				any other name but that of Marsyas, the son of that Hyagnis
+				who invented the art of playing upon the pipe. But that
+				
+				<pb id="v.1.p.109"/>
+				
+				Olympus was the author of the Harmatian nome is plainly
+				to be seen in Glaucus's treatise of the ancient poets; and
+				that Stesichorus of Himera imitated neither Orpheus nor
+				Terpander nor Antilochus nor Thales, but Olympus, and
+				that he made use of the Harmatian nome and the dactylic
+				dance, which some rather apply to the Orthian mood, while
+				others aver it to have been the invention of the Mysians,
+				for that some of the ancient pipers were Mysians.</p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>There was also another mood in use among the ancients, called Cradias, which Hipponax says Mimnermus
+				always delighted in. For formerly they that played upon
+				the flute sang also elegies at the same time set to notes.
+				Which the description of the Panathenaea concerning the
+				musical combat makes manifest. Among the rest, Sacadas
+				of Argos set several odes and elegies to music, he himself
+				being also a good flute-player and thrice a victor at the
+				Pythian games. Of him Pindar makes mention. Now
+				whereas in the time of Polymnestus and Sacadas there
+				existed three musical moods, the Dorian, Phrygian, and
+				Lydian, it is said that Sacadas composed a strophe in every
+				one of those moods, and then taught the choruses to sing
+				the first after the Dorian manner, the second according to
+				the Phrygian, and the third after the Lydian manner; and
+				this nome was called Trimeres (or threefold) by reason of
+				the shifting of the moods, although in the Sicyonian catalogue of the poets Clonas is said to be the inventor of this
+				name.</p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>Music then received its first constitution from Terpander at Sparta. Of the second constitution, Thaletas the
+				Gortinean, Xenodamus the Cytherean, Xenocritus the Locrian, Polymnestus the Colophonian, and Sacadas the
+				Argive were deservedly acknowledged to be the authors.
+				For these, having introduced the Gymnopaediae into Lacedaemon, settled the so-called Apodeixeis (or Exhibitions)
+				
+				<pb id="v.1.p.110"/>
+				
+				among the Arcadians, and the Endymatia in Argos. Now
+				Thaletas, Xenodamus, and Xenocritus, and their scholars,
+				were poets that addicted themselves altogether to making
+				of paeans; Polymnestus was all for the Orthian or military
+				strain, and Sacadas for elegies. Others, and among the
+				rest Pratinas, affirm Xenodamus to have been a maker of
+				songs for dances (Hyporchemes), and not of paeans; and a
+				tune of Xenodamus is preserved, which plainly appears to
+				have been composed for a dance. Now that a paean differs
+				from a song made for a dance is manifest from the poems
+				of Pindar, who made both.</p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>Polymnestus also composed nomes for flute-music;
+				but in the Orthian nome he made use of his lyric vein, as
+				the students in harmony declare. But in this we cannot
+				be positive, because we have nothing of certainty concerning it from antiquity; and whether Thaletas of Crete was
+				a composer of hymns is much doubted. For Glaucus,
+				asserting Thaletas to be born after Archilochus, says that he
+				imitated the odes of Archilochus, only he made them longer,
+				and used the Paeonic and Cretic rhythm, which neither
+				Archilochus nor Orpheus nor Terpander ever did; for
+				Thaletas learned these from Olympus, and became a good
+				poet besides. As for Xenocritus the Locrian from Italy,
+				it is much questioned whether he was a maker of paeans
+				or not, as being one that always took heroic subjects with
+				dramatic action for his verses, for which reason some
+				there were who called his arguments Dithyrambic. More
+				over, Glaucus asserts Thaletas to have preceded him in
+				time.</p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>Olympus, by the report of Aristoxenus, is supposed
+				by the musicians to have been the inventor of the enharmonic species of music; for before him there was no other
+				than the diatonic and chromatic. And it is thought that
+				the invention of the enharmonic species was thus brought
+				
+				<pb id="v.1.p.111"/>
+				
+				to pass:<note place="unspecified" anchored="yes">
+                  <p>The relations of the enharmonic scale to the ordinary diatonic are thus stated
+					by Westphal (pp. 124&ndash;126), <hi rend="italics">b</hi> being here substituted for the German <hi rend="italics">h:</hi>&mdash;
+					
+					<!--<figure><head>Figure</head></figure>--></p>
+					
+					             <p>The <foreign lang="greek">d</foreign> inserted between <hi rend="italics">e</hi> and <hi rend="italics">f</hi> and between <hi rend="italics">b</hi> and <hi rend="italics">c</hi> is called <hi rend="italics">diesis,</hi> and represents
+						a quarter-tone. The section in Westphal containing this scheme will greatly aid the
+						interpretation of &sect; 11 of Plutarch. (G.)</p>
+               </note> for that Olympus before altogether composing and
+				playing in the diatonic species, and having frequent occasion to shift to the diatonic parhypate, sometimes from the
+				paramese and sometimes from the mese, skipping the diatonic lichanos, he found the beauty that appeared in the
+				new character; and thus, admiring a conjunction or scheme
+				so agreeable to proportion, he made this new species in the
+				Doric mood. For now he held no longer to what belonged
+				either to the diatonic or to the chromatic, but he was
+				already come to the enharmonic. And the first foundations
+				of enharmonic music which he laid were these: in enharmonics the first thing that appears is the spondiasmus,<note place="unspecified" anchored="yes">This is Volkmann's conjecture for <q direct="unspecified">spondee.</q> It is defined by him (according
+					to Aristides Quintilianus) as the raising of the tone through three dieses (or quartertones). (G.)</note> to
+				which none of the divisions of the tetrachord seems properly to belong, unless any one will take the more intense
+				spondiasmus to be diatonic. But he that maintained this
+				would maintain a falsehood and an absurdity in harmony;
+				a falsehood, because it would be less by a diesis than is
+				required by the leading note; an absurdity in harmony,
+				because, even if we should place the proper nature of the
+				
+				<pb id="v.1.p.112"/>
+				
+				more intense spondiasmus in the simple chromatic, it would
+				then come to pass, that two double tones would follow in
+				order, the one compounded, the other uncompounded.
+				For the thick enharmonic now used in the middle notes
+				does not seem to be the invention of the fore-mentioned
+				author. But this is more easily understood by hearing any
+				musician play in the ancient style; for then you shall find
+				the semi-tone in the middle parts to be uncompounded.</p>
+            <p>These were the beginnings of enharmonic music; afterwards the semitone was also divided, as well in the Phrygian as Lydian moods. But Olympus seems to have
+					advanced music by producing something never known or
+					heard of before, and to have gained to himself the honor
+					of being the most excellent, not only in the Grecian but in
+					all other music.</p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>Let us now proceed to rhythms; for there were
+				several varieties of these, as well in musical as in rhythmical composition. And here Terpander, among all those
+				novelties with which he adorned music, introduced an
+				elegant manner, that gave it much life. After him, beside
+				the Terpandrian, which he did not relinquish, Polymnestus
+				brought in use another of his own, retaining however the
+				former elegant manner, as did also Thaletas and Sacadas.
+				Other innovations were also made by Alkman and Stesichorus,
+				who nevertheless receded not from the ancient forms. But
+				Crexus, Timotheus, and Philoxenus, and those other poets
+				of the same age, growing more arrogant and studious of
+				novelty, affected those other manners now called Philanthropic and Thematic. For now the fewness of strings and
+				the plainness and majesty of the old music are looked upon
+				as absolutely out of date.</p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>And now, having discoursed to the best of my ability
+				of the ancient music and the first inventors of it, and how
+				succeeding ages brought it to more and more perfection, I
+				shall make an end, and give way to my friend Soterichus,
+				
+				<pb id="v.1.p.113"/>
+				
+				not only greatly skilled in music but in all the rest of the
+				sciences. For we have always labored rather on the practical than the contemplative part. Which when Lysias
+				had said, he forbare speaking any farther; but then Soterichus thus began.</p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>Most noble Onesicrates, said he, since you have
+				engaged us to speak our knowledge concerning the most
+				venerable excellencies of music, which is most pleasing to
+				the Gods, I cannot but approve the learning of our master
+				Lysias, and his great memory in reciting all the inventors
+				of the ancient music, and those who have written concerning it. But I must needs say, that he has given us this
+				account, trusting only to what he has found recorded. We
+				on the other side have not heard of any man that was the
+				inventor of the benefits of music, but of the God Apollo,
+				adorned with all manner of virtue. The flute was neither
+				the invention of Marsyas nor Olympus nor Hyagnis; nor
+				was the harp Apollo's invention only, but as a God he was
+				the inventor of all the music both of the flute and harp.
+				This is manifest from the dances and sacrifices which were
+				solemnized to Apollo, as Alcaeus and others in their hymns
+				relate. His statue also placed in the Temple of Delos
+				holds in his right hand a bow; at his left the Graces stand,
+				with every one a musical instrument in her hands, one carrying a harp, another a flute, another with a shepherd's
+				pipe set to her lips. And that this is no conceit of mine
+				appears from this, that Anticles and Ister have testified the
+				same in their commentaries upon these things. And the
+				statue is reported to be so ancient, that the artificers were
+				said to have lived in the time of Hercules. The youth
+				also that carries the Tempic laurel into Delphi is accompanied by one playing upon the flute. And the sacred
+				presents of the Hyperboreans were sent of old to Delos,
+				attended with flutes, pipes, and harps. Some have thought
+				that the God himself played upon the flute, as the best of
+				
+				<pb id="v.1.p.114"/>
+				
+				lyrics, Alcman, relates. Corinna also asserts that Apollo
+				was by Minerva taught to pipe. Venerable is therefore
+				music altogether, as being the invention of the Gods.</p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>The ancients made use of it for its worth, as they
+				did all other beneficial sciences. But our men of art, contemning its ancient majesty, instead of that manly, grave,
+				heaven-born music, so acceptable to the Gods, have brought
+				into the theatres a sort of effeminate musical tattling, mere
+				sound without substance; which Plato utterly rejects in the
+				third book of his commonwealth, refusing the Lydian harmony as fit only for lamentations. And they say that this
+				was first instituted for doleful songs. Aristoxenus, in his first
+				book of music, tells us how that Olympus sang an elegy
+				upon the death of Python in the Lydian mood, though
+				some will have Menalippides to be the author of that song.
+				Pindar, in his paean on the nuptials of Niobe, asserts that
+				the Lydian harmony was first used by Anthippus. Others
+				affirm, that Torebus was the first that made use of that
+				sort of harmony; among the rest, Dionysius the iambic
+				writer.</p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>The mixed Lydian moves the affections, and is fit
+				for tragedies. This mood, as Aristoxenus alleges, was
+				invented by Sappho, from whom the tragedians learned it
+				and joined it with the Doric. The one becomes a majestic,
+				lofty style, the other mollifies and stirs to pity; both which
+				are the properties of tragedy. The history of music, however, made Pythoclides the flute-player to be the author of
+				it; and Lysis reports that Lamprocles the Athenian, finding
+				that the diazeuxis (or separation of two tetrachords) was
+				not where almost all others thought it had been, but toward
+				the treble, made such a scheme as is now from paramese to
+				the highest hypate. But for the softer Lydian, being contrary to the mixed Lydian and like the Ionian, they say it
+				was invented by Damon the Athenian.</p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>But as for those sorts of harmony, the one being
+				
+				<pb id="v.1.p.115"/>
+				
+				sad and doleful, the other loose and effeminate, Plato deservedly rejected them, and made choice of the Dorian, as
+				more proper for sober and warlike men; not being ignorant, however (as Aristoxenus discourses in his second
+				book of music), that there might be something advantageous in the rest to a circumspect and wary commonwealth.
+				For Plato gave much attention to the art of music, as being
+				the hearer of Draco the Athenian and Metellus the Agrigentine; but considering, as we have intimated before, that
+				there was much more majesty in the Dorian mood, it was
+				that he preferred. He knew moreover that Alcman, Pindar,
+				Simonides, and Bacchylides had composed several Parthenia
+				in the Doric mood; and that several Prosodia (or supplications to the Gods), several hymns and tragical lamentations, and now and then love verses, were composed to the
+				same melody. But he contented himself with such songs
+				as were made in honor of Mars or Minerva, or else such
+				as were to be sung at solemn offerings, called Spondeia.
+				For these he thought sufficient to fortify and raise the mind
+				of a sober person; not being at all ignorant in the mean
+				time of the Lydian and Ionian, of which he knew the tragedians made use.</p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>Moreover, the ancients well understood all the sorts
+				of styles, although they used but few. For it was not their
+				ignorance that confined them to such narrow instruments
+				and so few strings; nor was it out of ignorance that Olympus and Terpander and those that came after them would
+				not admit of larger instruments and more variety of strings.
+				This is manifest from the poems of Olympus and Terpander and all those that were their imitators. For, being
+				plain and without any more than three strings, these
+				so far excelled those that were more numerously strung,
+				insomuch that none could imitate Olympus's play; and they
+				were all inferior to him when they betook themselves to
+				their polychords.</p>
+            <pb id="v.1.p.116"/>
+         </div1>
+         <div1 type="section" n="19">
+            <p>Then again, that the ancients did not through ignorance abstain from the third string in the spondaic style,
+				their use of it in play makes apparent. For had they not
+				known the use of it, they would never have struck it in
+				harmony with parhypate; but the elegancy and gravity that
+				attended the spondaic style by omitting the third string induced them to transfer the music to paranete. The same
+				reason may serve for nete; for this in play they struck in
+				concord to mese, but in discord to paranete, although in
+				song it did not seem to them proper to the slow spondaic
+				motion. And not only did they do this, but they did the
+				same with nete of the conjunct heptachords; for in play
+				they struck it in concord to mese and lichanos, and in discord
+				to paranete and parhypate;<note place="unspecified" anchored="yes">See Westphal's interpretation of this difficult and probably corrupt passage, II.
+					,p.89. (G.)</note> but in singing those touches
+				were no way allowable, as being ungrateful to the ear
+				and shaming the performer. As certain it is from the
+				Phrygians that Olympus and his followers were not ignorant of the third string; for they made use of it not only
+				in pulsation, but in their hymns to the Mother of the Gods
+				and several other Phrygian songs. Nor is it less apparent,
+				with regard to the <foreign lang="greek">u(pa/tai</foreign>, that they never abstained for
+				want of skill from that tetrachord in the Dorian mood;
+				indeed in other moods they knowingly made use of it, but
+				removed it from the Dorian mood to preserve its elegant
+				gravity.</p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>The same thing was done also by the tragedians.
+				For the tragedians have never to this day used either the
+				chromatic or the enharmonic scale; while the lyre, many
+				generations older than tragedy, used them from the very
+				beginning. Now that the chromatic was more ancient
+				than the enharmonic is plain. For we must necessarily
+				account it of greater antiquity, according to the custom and
+				use of men themselves; otherwise it cannot be said that
+				
+				<pb id="v.1.p.117"/>
+				
+				any of the differences and distinctions were ancienter
+				the one than the other. Therefore, if any one should
+				allege that Aeschylus or Phrynichus abstained from the
+				chromatic out of ignorance, would he not be thought to
+				maintain a very great absurdity? Such a one might as well
+				aver that Pancrates lay under the same blindness, who
+				avoided it in most, but made use of it in some things;
+				therefore he forebore not out of ignorance, but judgment,
+				imitating Pindar and Simonides and that which is at present
+				called the ancient manner.</p>
+         </div1>
+         <div1 type="section" n="21">
+            <p>The same may be said of Tyrtaeus the Mantinean,
+				Andreas the Corinthian, Thrasyllus the Phliasian, and
+				several others, who, as we well know, abstained by choice
+				from the chromatic, from transition, from the increased
+				number of strings, and many other common forms of
+				rhythms, tunes, diction, composition, and expression. Telephanes of Megara was so great an enemy to the pipe made
+				of reed (called syrinx), that he would not suffer the instrument maker to join it to the flute (pipe made of wood or
+				horn), and chiefly for that reason forbore to go to the Pythian games. In short, if a man should be thought to be
+				ignorant of that which he makes no use of, there would
+				be found a great number of ignorant persons in this age.
+				For we see that the admirers of the Dorian composition
+				make no use of the Antiginedian; the followers of the Antiginedian reject the Dorian; and other musicians refuse
+				to imitate Timotheus, being almost all bewitched with the
+				trifles and the idle poems of Polyidus. On the other
+				side, if we dive into the business of variety and compare
+				antiquity with the present times, we shall find there
+				was great variety then, and that frequently made use of.
+				For then the variation of rhythm was more highly esteemed,
+				and the change of their manner of play more frequent. We
+				are now lovers of fables, they were then lovers of rhythm.
+				Plain it is therefore, that the ancients did not refrain from
+				
+				<pb id="v.1.p.118"/>
+				
+				broken measures out of ignorance, but out of judgment.
+				And yet what wonder is this, when there are so many other
+				things necessary to human life which are not unknown,
+				though not made use of by those who have no occasion to
+				use them? But they are refused, and the use of them is
+				altogether neglected, as not being found proper on many
+				occasions.</p>
+         </div1>
+         <div1 type="section" n="22">
+            <p>Having already shown that Plato neither for want
+				of skill nor for ignorance blamed all the other moods and
+				casts of composition, we now proceed to show that he
+				really was skilled in harmony. For in his discourse concerning the procreation of the soul, inserted into Timaeus,
+				he has made known his great knowledge in all the sciences,
+				and of music among the rest, in this manner: <q direct="unspecified">After
+					this,</q> saith he, <q direct="unspecified">he filled up the double and treble intervals,
+						taking parts from thence, and adding them to the midst
+						between them, so that there were in every interval two middle terms.</q>
+               <note place="unspecified" anchored="yes">Plato, Timaeus, p. 36 A. See the whole passage in the treatise <hi rend="italics">Of the Procreation of the Soul as discoursed in Timaeus,</hi> Chap. XXIX. (G.)</note> This proem was the effect of his experience
+				in music, as we shall presently make out. The means
+				from whence every mean is taken are three, arithmetical,
+				enharmonical, geometrical. Of these the first exceeds and
+				is exceeded in number, the second in proportion, the third
+				neither in number nor proportion. Plato therefore, desirous
+				to show the harmony of the four elements in the soul, and
+				harmonically also to explain the reason of that mutual concord arising from discording and jarring principles, undertakes to make out two middle terms of the soul in every
+				interval, according to harmonical proportion. Thus in a
+				musical octave there happen to be two middle distances,
+				whose proportion we shall explain. As for the octaves,
+				they keep a double proportion between their two extremes.
+				For example, let the double arithmetical proportion be 6
+				and 12, this being the interval between the <foreign lang="greek">u(pa/th me/swn</foreign> and
+				
+				<pb id="v.1.p.119"/>
+				
+				the <foreign lang="greek">nh/th diezeugme/nwn;</foreign> 6 therefore and 12 being the two
+				extremes, the former note contains the number 6, and the
+				latter 12. To these are to be added the intermediate
+				numbers, to which the extremes must hold the proportion,
+				the one of one and a third, and the other of one and a
+				half. These are the numbers 8 and 9. For as 8 contains
+				one and a third of 6, so 9 contains one and a half of 6;
+				thus you have one extreme. The other is 12, containing 9
+				and a third part of 9, and 8 and half 8. These then being
+				the numbers between 6 and 12, and the interval of the
+				octave consisting of a diatessaron and diapente, it is plain
+				that the number 8 belongs to mese, and the number 9 to
+				paramese; which being so, it follows that hypate is to
+				mese as paramese to nete of the disjunct tetrachords; for it
+				is a fourth from the first term to the second of this proportion, and the same interval from the third term to the
+				fourth. The same proportion will be also found in the numbers. For as 6 is to 8, so is 8 to 12; and as 6 is to 9, so
+				is 8 to 12. For 8 is one and a third part of 6, and 12 of
+				9; while 9 is one and a half part of 6, and 12 of 8. What
+				has been said may suffice to show how great was Plato's
+				zeal and learning in the liberal sciences.</p>
+         </div1>
+         <div1 type="section" n="23">
+            <p>Now that there is something of majesty, something
+				great and divine in music, Aristotle, who was Plato's
+				scholar, thus labors to convince the world: <q direct="unspecified">Harmony,</q>
+				saith he, <q direct="unspecified">descended from heaven, and is of a divine,
+					noble, and angelic nature; but being fourfold as to its
+					efficacy, it has two means,&mdash;the one arithmetical, the
+					other enharmonical. As for its members, its dimensions,
+					and its excesses of intervals, they are best discovered by
+					number and equality of measure, the whole art being contained in two tetrachords.</q> These are his words. The
+				body of it, he saith, consists of discording parts, yet concording one with another; whose means nevertheless
+				agree according to arithmetical proportion. For the upper
+				
+				<pb id="v.1.p.120"/>
+				
+				string being fitted to the lowest in the ratio of two to one
+				produces a perfect diapason. Thus, as we said before,
+				nete consisting of twelve units, and hypate of six, the
+				paramese accords with hypate according to the sesquialter
+				proportion, and has nine units, whilst mese has eight units.
+				So that the chiefest intervals through the whole scale are
+				the diatessaron (which is the proportion of 4:3), the diapente
+				(which is the proportion of 3:2), and the diapason (which
+				is the proportion of 2:1); while the proportion of 9:8
+				appears in the interval of a tone. With the same inequalities of excess or diminution, all the extremes are
+				differenced one from another, and the means from the
+				means, either according to the quantity of the numbers
+				or the measure of geometry; which Aristotle thus explains,
+				observing that nete exceeds mese by a third part of
+				itself, and hypate is exceeded by paramese in the same
+				proportion, so that the excesses stand in proportion. For
+				by the same parts of themselves they exceed and are exceeded; that is, the extremes (nete and hypate) exceed
+				and are exceeded by mese and paramese in the same proportions, those of 4: 3 and of 3: 2. Now these excesses are
+				in what is called harmonic progression. But the distances
+				of nete from mese and of paramese from hypate, expressed
+				in numbers, are in the same proportion (12:8 &equals; 9:6); for
+				paramese exceeds mese by one-eighth of the latter. Again,
+				nete is to hypate as 2:1; paramese to hypate as 3:2; and
+				mese to hypate as 4:3. This, according to Aristotle, is the
+				natural constitution of harmony, as regards its parts and
+				its numbers.</p>
+         </div1>
+         <div1 type="section" n="21">
+            <p>But, according to natural philosophy, both harmony
+				and its parts consist of even, odd, and also even-odd.
+				Altogether it is even, as consisting of four terms; but its
+				parts and proportions are even, odd, and even-odd. So
+				nete is even, as consisting of twelve units; paramese is
+				odd, of nine; mese even, of eight; and hypate even-odd,
+				
+				<pb id="v.1.p.121"/>
+				
+				of six (i.e., 2&times;3). Whence it comes to pass, that music
+				&mdash;herself and her parts&mdash;being thus constituted as to excesses and proportion, the whole accords with the whole,
+				and also with each one of the parts.</p>
+         </div1>
+         <div1 type="section" n="25">
+            <p>But now as for the senses that are created within
+				the body, such as are of celestial and heavenly extraction,
+				and which by divine assistance affect the understanding of
+				men by means of harmony,&mdash;namely, sight and hearing,&mdash;
+				do by the very light and voice express harmony. And others
+				which are their attendants, so far as they are senses, likewise exist by harmony; for they perform none of their
+				effects without harmony; and although they are inferior
+				to the other two, they are not independent of them. Nay,
+				those two also, since they enter into human bodies at
+				the very same time with God himself, claim by reason a
+				vigorous and incomparable nature.</p>
+         </div1>
+         <div1 type="section" n="26">
+            <p>Manifest from hence therefore it is, why the ancient
+				Greeks, with more reason than others, were so careful to
+				teach their children music. For they deemed it requisite
+				by the assistance of music to form and compose the minds of
+				youth to what was decent, sober, and virtuous; believing
+				the use of music beneficially efficacious to incite to all serious actions, especially to the adventuring upon warlike
+				dangers. To which purpose they made use of pipes or
+				flutes when they advanced in battle array against their
+				enemies; like the Lacedaemonians, who upon the same occasion caused the Castorean melody to be played before
+				their battalions. Others inflamed their courage with
+				harps, playing the same sort of harmony when they went
+				to look danger in the face, as the Cretans did for a long
+				time. Others, even to our own times, continue to use the
+				trumpet. The Argives made use of flutes at their wrestling matches called Stheneia; which sort of sport was first
+				instituted in honor of Danaus, but afterwards consecrated
+				to Jupiter Sthenius, or Jupiter the Mighty. And now at
+				
+				<pb id="v.1.p.122"/>
+				
+				this day it is the custom to make use of flutes at the games
+				called Pentathla, although there is now nothing exquisite
+				or antique, nothing like what was customary among men
+				of old time, like the song composed by Hierax for this
+				very game; still, even though it is sorry stuff and nothing
+				exquisite, it is accompanied by flute-music.</p>
+         </div1>
+         <div1 type="section" n="27">
+            <p>But among the more ancient Greeks, music in
+				theatres was never known, for they employed their whole
+				musical skill in the worship of the Gods and the education of youth; at which time, there being no theatres
+				erected, music was yet confined within the walls of
+				their temples, as being that with which they worshipped
+				the supreme Deity and sang the praises of virtuous men.
+				And it is probable that the word <foreign lang="greek">qe/atron,</foreign> at a later period,
+				and <foreign lang="greek">qewrei=n</foreign> (<hi rend="italics">to behold</hi>) much earlier, were derived from <foreign lang="greek">qeo/s</foreign>
+				(<hi rend="italics">God</hi>). But in our age is such another face of new inventions, that there is not the least remembrance or care
+				of that use of music which related to education; for
+				all our musicians make it their business to court the
+				theatre Muses, and study nothing but compositions for the
+				stage.</p>
+         </div1>
+         <div1 type="section" n="28">
+            <p>But some will say, Did the ancients invent nothing
+				themselves? Yes, say I, they did invent, but their inventions were grave and decent. For they who have written the history of music attribute to Terpander the addition
+				of the Dorian nete, which before was not in use. Even
+				the whole Mixolydian mood is a new invention. Such were
+				also the Orthian manner of melody with Orthian rhythms,
+				and also the Trochaeus Semantus.<note place="unspecified" anchored="yes">See Rossbach, Griechische Rhythmik, p. 96, &sect; 23. (G.)</note> And if we believe
+				Pindar, Terpander was the inventor of the Scolion (or
+				roundelay). Archilochus also invented the rhythmic composition of the iambic trimeter, the change to rhythms of
+				different character, the melo-dramatic delivery,<note place="unspecified" anchored="yes">So Rossbach and Westphal interpret <foreign lang="greek">parakatalogh/.</foreign> Metrik, III. pp. 184, 554. (G.)</note> and the
+				
+				<pb id="v.1.p.123"/>
+				
+				accompaniment proper to each of these. He is also presumed to be the author of epodes, tetrameters, the Cretic
+				and the prosodiac rhythms, and the augmentation of the
+				heroic verse. Some make him author also of the elegiac
+				measure, as likewise of the extending the iambic to the
+				paeon epibatus, the prolonged and heroic to the prosodiac
+				and Cretic. And Archilochus is first said to have taught
+				how iambics could be partly recited to the stroke of the
+				lyre and partly sung; from him the tragedians learned it,
+				and from them Crexus took it, and made use of it in
+				dithyrambics. It is thought that he invented also playing
+				on the lyre at intervals in the song, whereas the ancients
+				played only during the singing.</p>
+         </div1>
+         <div1 type="section" n="29">
+            <p>Of the Hypolydian mood they make Polymnestus the
+				inventor, and the first that taught the lowering and raising
+				of the voice (<foreign lang="greek">e)/klusis</foreign> and <foreign lang="greek">e)kbolh/</foreign>). To the same Olympus to
+				whom they also ascribe the first invention of Grecian and
+				well-regulated nomic music they attribute likewise the
+				finding out the enharmonic music, the prosodiac measure
+				to which is composed the hymn to Mars, and the chorean
+				measure which he used in the hymns to the Mother of the
+				Gods. Some report him to be the author also of the bacchius. And every one of the ancient songs show that this
+				is so. But Lasus of Hermione, transferring the rhythms
+				to suit the dithyrambic time, and making use of an instrument with many notes, made an absolute innovation upon
+				the ancient music, by the use of more notes, and those
+				more widely distributed.</p>
+         </div1>
+         <div1 type="section" n="30">
+            <p>In like manner Menalippides the lyric poet, Philoxenus and Timotheus, all forsook the ancient music. For
+				whereas until the time of Terpander the Antissaean the
+				harp had only seven strings, he<note place="unspecified" anchored="yes">It is uncertain here to whom the pronoun <hi rend="italics">he</hi> refers. Volkmann transfers the
+					whole sentence to the end of Chap. XXIX., referring it to Lasus of Hermione. (G.)</note> added a greater number,
+				and gave its notes a wider range. The wind-music also
+				
+				<pb id="v.1.p.124"/>
+				
+				exchanged its ancient plainness for a more copious variety.
+				For in ancient times, till Menalippides the dithyrambic
+				came into request, the wind-music received salaries from
+				the poets, poetry holding the first rank and the musicians
+				being in the service of the poet. Afterwards that custom
+				grew out of date; insomuch that Pherecrates the comedian brings in Music in woman's habit, all bruised and
+				battered, and then introduces Justice asking the reason; to
+				which Music thus replies:&mdash;
+				
+				
+				<quote rend="blockquote">
+                  <l>' Tis mine to speak, thy part to hear,<note place="unspecified" anchored="yes">Music.</note>
+                  </l>
+					             <l>And therefore lend a willing ear;</l>
+					             <l>Much have I suffered, long opprest</l>
+					             <l>By Menalippides, that beast;</l>
+					             <l>He haled me from Parnassus' springs,</l>
+					             <l>And plagued me with a dozen strings.</l>
+					             <l>His rage howe'er sufficed not yet,</l>
+					             <l>To make my miseries complete.</l>
+					             <l>Cinesias, that cursed Attic,</l>
+					             <l>A mere poetical pragmatic,</l>
+					             <l>Such horrid strophes in mangled verse</l>
+					             <l>Made the unharmonious stage rehearse,</l>
+					             <l>That I, tormented with the pains</l>
+					             <l>Of cruel dithyrambic strains,</l>
+					             <l>Distorted lay, that you would swear</l>
+					             <l>The right side now the left side were.</l>
+					             <l>Nor did my miseries end here;</l>
+					             <l>For Phrynis with his whirlwind brains,</l>
+					             <l>Wringing and racking all my veins,</l>
+					             <l>Ruined me quite, while nine small wires</l>
+					             <l>With harmonies twice six he tires.</l>
+					             <l>Yet might not he so much be blamed,</l>
+					             <l>From all his errors soon reclaimed;</l>
+					             <l>But then Timotheus with his freaks</l>
+					             <l>Furrowed my face, and ploughed my cheeks.</l>
+					             <l>Say which of them so vile could be?<note place="unspecified" anchored="yes">JUSTICE.</note>
+                  </l>
+					             <l>Milesian Pyrrhias, that was he,<note place="unspecified" anchored="yes">Music.</note>
+                  </l>
+					             <l>Whose fury tortured me much more</l>
+					             <l>Than all that I have named before;</l>
+					             <l>Where'er I walk the streets alone,</l>
+					             <l>If met by him, the angry clown,</l>
+					             <l>With his twelve cat-guts strongly bound,</l>
+					             <l>He leaves me helpless on the ground.<note place="unspecified" anchored="yes">The original of this fragment of Pllerecrates may be found in Meineke's <hi rend="italics">Poet.
+						Comic. Graec. Fraqm.</hi> II. p. 326; and in Didot's edition of the same fragments,
+						p. 110. Meineke includes the verses commonly assigned to Aristophanes in the
+						extract from Pherecrates. (G.)</note>
+                  </l>
+               </quote>
+            </p>
+            <pb id="v.1.p.125"/>
+            <p>Aristophanes the comic poet, making mention of Philoxenus, complains of his introducing lyric verses among
+					the cyclic choruses, where he brings in Music thus
+					speaking:&mdash;
+					
+					
+					<quote rend="blockquote">
+                  <l>He filled me with discordant measures airy,</l>
+						            <l>Wicked Hyperbolaei and Niglari;</l>
+						            <l>And to uphold the follies of his play,</l>
+						            <l>Like a lank radish bowed me every way.</l>
+               </quote>
+					
+					Other comedians have since set forth the absurdity of those
+					who have been slicers and manglers of music.</p>
+         </div1>
+         <div1 type="section" n="31">
+            <p>Now that the right moulding or ruin of ingenuous
+				manners and civil conduct lies in a well-grounded musical
+				education, Aristoxenus has made apparent. For, of those
+				that were contemporary with him, he gives an account of
+				Telesias the Theban, who in his youth was bred up in the
+				noblest excellences of music, and moreover studied the
+				works of the most famous lyrics, Pindar, Dionysius the
+				Theban, Lamprus, Pratinas, and all the rest who were accounted most eminent; who played also to perfection upon
+				the flute, and was not a little industrious to furnish himself
+				with all those other accomplishments of learning; but being past the prime of his age, he was so bewitched with
+				the theatre's new fangles and the innovations of multiplied
+				notes, that despising those noble precepts and that solid
+				practice to which he had been educated, he betook himself to Philoxenus and Timotheus, and among those
+				delighted chiefly in such as were most depraved with
+				diversity of notes and baneful innovation. And yet, when
+				he made it his business to make verses and labor both
+				ways as well in that of Pindar as that of Philoxenus, he
+				could have no success in the latter. And the reason
+				proceeded from the truth and exactness of his first education.</p>
+         </div1>
+         <div1 type="section" n="32">
+            <p>Therefore, if it be the aim of any person to practise
+				music with skill and judgment, let him imitate the ancient
+				
+				<pb id="v.1.p.126"/>
+				
+				manner; let him also adorn it with those other sciences,
+				and make philosophy his tutor, which is sufficient to judge
+				what is iii music decent and useful. For music being generally divided into three parts, diatonic, chromatic, and
+				enharmonie, it behooves one who comes to learn music
+				to understand poetry, which uses these three parts, and to
+				know how to express his poetical inventions in proper
+				musical form.</p>
+            <p>First therefore we are to consider that all musical learning is a sort of habituation, which does not teach the
+					reason of her precepts at one and the same time to the
+					learner. Moreover, we are to understand that to such an
+					education there is not requisite an enumeration of its several divisions, but every one learns by chance what either
+					the master or scholar, according to the authority of the
+					one and the liberty of the other, has most affection for.
+					But the more prudent sort reject this chance-medley way
+					of learning, as the Lacedaemonians of old, the Mantineans, and Pallenians, who, making choice either of one
+					single method or else but very few styles, used only that
+					sort of music which they deemed most proper to regulate the inclinations of youths.</p>
+         </div1>
+         <div1 type="section" n="33">
+            <p>This will be apparent, if any one shall examine
+				every one of the parts, and see what is the subject of their
+				several contemplations. For harmony takes cognizance
+				of intervals, systems, classes of harmonious sounds, notes,
+				tones, and systematical transmutations. Farther than this
+				it goes not. And therefore it would be in vain to enquire
+				of harmony, whether the poet have rightly and (so to speak)
+				musically chosen the Dorian for the beginning, the mixed
+				Lydian and Dorian for the end, or the Hypophrygian
+				and Phrygian for the middle. For the industry of harmony reaches not to these, and it is defective in many other
+				things, as not understanding the force and extent of elegant
+				aptness and proper concinnity. Neither did ever the chromatic
+				
+				<pb id="v.1.p.127"/>
+				
+				 or enharmonic species arrive to such force of aptitude
+				as to discover the nature and genius of the poem; for that is
+				the work of the poet. It is as plain, that the sound of the
+				system is different from the sound of the descant sung in
+				the same system; which, however, does not belong to the
+				consideration of harmonical studies. There is the same to
+				be said concerning rhythms, for no rhythm can claim to itself the force of perfect aptitude. For we call a thing apt
+				and proper when we consider the nature of it. The
+				reason of this, we say, is either a certain plain and mixed
+				composure, or both; like the enharmonic species of Olympus, by him set in the Phrygian mood and mixed with the
+				paeon epibatos, which rendered the beginning of the key
+				naturally elegant in what is called the nome of Minerva.
+				For having made choice of his key and measure, he only
+				changed the paeon epibatos for the trochee, which produced his enharmonic species. However, the enharmonic
+				species and Phrygian tone remaining together with the
+				whole system, the elegancy of the character was greatly
+				altered. For that which was called harmony in the nome
+				of Minerva was quite another thing from that in the introduction. He then that has both judgment as well as skill
+				is to be accounted the most accurate musician. For he that
+				understands the Dorian mood, not being able withal to discern by his judgment what is proper to it and when it is fit
+				to be made use of, shall never know what he does; nay, he
+				shall quite mistake the nature and custom of the key.
+				Indeed it is much questioned among the Dorians themselves, whether the enharmonic composers be competent
+				judges of the Dorian songs. The same is to be said concerning the knowledge of rhythm. For he that understands
+				a paeon may not understand the proper use of it, though
+				he know the measure of which it consists. Because it is
+				much doubted among those that make use of paeons,
+				whether the bare knowledge make a man capable to determine
+				
+				<pb id="v.1.p.128"/>
+				
+				 concerning the proper use of those rhythms; or, as
+				others say, whether it aspire to presume so far. Therefore
+				it behooves that person to have two sorts of knowledge,
+				who will undertake to judge of what is proper and what
+				improper; first, of the custom and manner of elegancy for
+				which such a composition was intended, and next of those
+				things of which the composition consists. And thus, that
+				neither the bare knowledge of harmony, nor of rhythm, nor
+				of any other things that singly by themselves are but a part
+				of the whole body of music, is sufficient to judge and determine either of the one or the other, what has been already
+				said may suffice to prove.</p>
+         </div1>
+         <div1 type="section" n="34">
+            <p>[Now then, there being three species into which all
+				harmony is divided, equal in the magnitude of systems or
+				intervals and force of notes and tetrachords, we find that
+				the ancients never disputed about any more than one; for
+				they never troubled themselves with the chromatic or diatonic, but differed only about the enharmonic; and there
+				no farther than about the great interval called the diapason.
+				The further subdivision indeed caused some little variance,
+				but they nearly all agreed that harmony itself is but one.<note place="unspecified" anchored="yes">The passage in brackets is out of place here, and is generally transferred to the
+					middle of Chapter XXXVII. (G.)</note> ]
+				Therefore he must never think to be a true artist in the understanding and practice of music, who advances no farther
+				than the single knowledge of this or that particular: but
+				it behooves him to trace through all the particular members
+				of it, and so to be master of the whole body, by understanding how to mix and join all the divided members.
+				For he that understands only harmony is confined to a
+				single manner. Wherefore, in short, it is requisite that
+				the sense and understanding concur in judging the parts of
+				music; and that they should neither be too hasty, like
+				those senses which are rash and forward, nor too slow, like
+				those which are dull and heavy; though it may happen
+				
+				<pb id="v.1.p.129"/>
+				
+				sometimes, through the inequality of Nature, that the same
+				senses may be too slow and too quick at the same time.
+				Which things are to be avoided by a sense and judgment
+				that would run an equal course.</p>
+         </div1>
+         <div1 type="section" n="35">
+            <p>For there are three things at least that at the same
+				instant strike the ear,&mdash;the note, the time, and the word or
+				syllable. By the note we judge of the harmony, by the
+				time of the rhythm, and by the word of the matter or subject of the song. As these proceed forth altogether, it is
+				requisite the sense should give them entrance at the same
+				moment. But this is certain, where the sense is not able to
+				separate every one of these and consider the effects of each
+				apart, there it can never apprehend what is well or what is
+				amiss in any. First therefore let us discourse concerning
+				coherence. For it is necessary that coherence accompany
+				the discerning faculty. For judgment of good or bad is
+				not to be made from notes disjoined, broken time, and
+				shattered words, but from coherence. For there is in
+				practice a certain commixture of parts which commonly
+				are not compounded. So much as to coherence.</p>
+         </div1>
+         <div1 type="section" n="36">
+            <p>We are next to consider whether the masters of
+				music are sufficiently capable of being judges of it. Now
+				I aver the negative. For it is impossible to be a perfect
+				musician and a good judge of music by the knowledge of
+				those things that seem to be but parts of the whole body, as
+				by excellency of hand upon the instrument, or singing
+				readily at first sight, or exquisiteness of the ear, so far as
+				this extends to the understanding of harmony and time.
+				Neither does the knowledge of time and harmony, pulsation or elocution, or whatever else falls under the same
+				consideration, perfect their judgment. Now for the reasons
+				why a musician cannot gain a perfect judgment from any
+				of these, we must endeavor to make them clear. First then
+				it must be granted that, of things about which judgment is
+				to be made, some are perfect and others imperfect. Those
+				
+				<pb id="v.1.p.130"/>
+				
+				things which are perfect are the compositions in general,
+				whether sung or played, and the expression of those, whether
+				upon the instruments or by the voice, with the rest of the
+				same nature. The imperfect are the things to these appertaining, and for whose sake they are made use of. Such
+				are the parts of expression. A second reason may be
+				found in poetry, with which the case is the same. For a
+				man that hears a consort of voices or instruments can judge
+				whether they sing or play in tune, and whether the language
+				be plain or not. But every one of these are only parts of
+				instrumental and vocal expression; not the end itself, but
+				for the sake of the end. For by these and things of the
+				same nature shall the elegancy of elocution be judged,
+				whether it be proper to the poem which the performer undertakes to sing. The same is to be said of the several
+				passions expressed in the poetry.</p>
+         </div1>
+         <div1 type="section" n="37">
+            <p>The ancients now made principal account of the
+				moral impression, and therefore preferred that fashion of
+				the antique music which was grave and least affected.
+				Therefore the Argives are said to have punished deviation
+				from the ancient music, and to have imposed a fine upon
+				such as first adventured to play with more than seven strings,
+				and to introduce the Mixolydian mood.<note place="unspecified" anchored="yes">See note on Chapter XXXIV.</note> Pythagoras, that
+				grave philosopher, rejected the judging of music by the
+				senses, affirming that the virtue of music could be appreciated only by the intellect. And therefore he did not judge
+				of music by the ear, but by the harmonical proportion, and
+				thought it sufficient to fix the knowledge of music within
+				the compass of the diapason.</p>
+         </div1>
+         <div1 type="section" n="38">
+            <p>But our musicians nowadays have so utterly exploded the most noble of all the moods, which the ancients
+				greatly admired for its majesty, that hardly any among them
+				make the least account of enharmonic distances. And so
+				negligent and lazy are they grown, as to believe the enharmonic
+				
+				<pb id="v.1.p.131"/>
+				
+				 diesis to be too contemptible to fall under the apprehension of sense, and they therefore exterminate it out of
+				their compositions, deeming those to be triflers that have any
+				esteem for it or make use of the mood itself. For proof
+				of which they think they bring a most powerful argument,
+				which rather appears to be the dulness of their own senses;
+				as if whatever fled their apprehensions were to be rejected
+				as useless and of no value. And then again they urge that
+				its magnitude cannot be perceived through its concord, like
+				that of the semitone, tone, and other distances; not understanding, that at the same time they throw out the third,
+				fifth, and seventh, of which the one consists of three, the
+				other of five, and the last of seven dieses. And on the
+				same principle all the intervals that are odd should be rejected as useless, inasmuch as none of them is perceptible
+				through concord; and this would include all which by
+				means of even the smallest diesis are measured by odd
+				numbers. Whence it necessarily follows, that no division
+				of the tetrachord would be of use but that which is to be
+				measured by all even intervals, as in the syntonic diatonic,
+				and in the toniaean chromatic.</p>
+         </div1>
+         <div1 type="section" n="39">
+            <p>But these opinions are not only contrary to appearance, but repugnant one to another. For they themselves
+				chiefly make use of those divisions of tetrachords in which
+				most of the intervals are either unequal or irrational. To
+				which purpose they always soften both lichanos and paranete, and lower even some of the standing sounds by an
+				irrational interval, bringing the trite and paranete to approach them. And especially they applaud the use of
+				those systems in which most of the intervals are irrational,
+				by relaxing not only those tones which are by nature movable, but also some which are properly fixed; as it is plain
+				to those that rightly understand these things.</p>
+         </div1>
+         <div1 type="section" n="40">
+            <p>Now for the advantages that accrue to men from the
+				use of music, the famous Homer has taught it us, introducing
+				
+				<pb id="v.1.p.132"/>
+				
+				 Achilles, in the height of his fury toward Agamemnon,
+				appeased by the music which he learned from Chiron, a
+				person of great wisdom. For thus says he:&mdash;
+				
+				
+				<quote rend="blockquote">
+                  <l>Amused at ease, the god-like man they found,</l>
+					             <l>Pleased with the solemn harp's harmonious sound.</l>
+					             <l>The well-wrought harp from conquered Thebe came;</l>
+					             <l>Of polished silver was its costly frame.</l>
+					             <l>With this he soothes his angry soul, and sings</l>
+					             <l>The immortal deeds of heroes and of kings.</l> 
+                  <note place="unspecified" anchored="yes">
+                     <bibl>Il. IX. 186.</bibl>
+                  </note>
+               </quote>
+				
+				Learn, says Homer, from hence the true use of music.
+				For it became Achilles, the son of Peleus the Just, to sing
+				the famous acts and achievements of great and valiant men.
+				Also, in teaching the most proper time to make use of it, he
+				found out a profitable and pleasing pastime for one's leisure
+				hours. For Achilles, being both valiant and active, by
+				reason of the disgust he had taken against Agamemnon
+				withdrew from the war. Homer therefore thought he
+				could not do better than by the laudable incitements of music
+				and poetry to inflame the hero's courage for those achievements which he afterwards performed. And this he did,
+				calling to mind the great actions of former ages. Such
+				was then the ancient music, and such the advantages that
+				made it profitable. To which end and purpose we read
+				that Hercules, Achilles, and many others made use of it;
+				whose master, wisest Chiron, is recorded to have taught
+				not only music, but morality and physic.</p>
+         </div1>
+         <div1 type="section" n="41">
+            <p>In brief therefore, a rational person will not blame
+				the sciences themselves, if any one make use of them amiss,
+				but will adjudge such a failing to be the error of those that
+				abuse them. So that whoever he be that shall give his
+				mind to the study of music in his youth, if he meet with a
+				musical education, proper for the forming and regulating
+				his inclinations, he will be sure to applaud and embrace
+				that which is noble and generous, and to rebuke and blame
+				the contrary, as well in other things as in what belongs to
+				
+				<pb id="v.1.p.133"/>
+				
+				music. And by that means he will become clear from all
+				reproachful actions, for now having reaped the noblest
+				fruit of music, he may be of great use, not only to himself
+				but to the commonwealth; while music teaches him to abstain from every thing indecent both in word and deed, and
+				to observe decorum, temperance, and regularity.</p>
+         </div1>
+         <div1 type="section" n="42">
+            <p>Now that those cities which were governed by the
+				best laws took care always of a generous education in
+				music, many testimonies may be produced. But for us it
+				shall suffice to have instanced Terpander, who appeased a
+				sedition among the Lacedaemonians, and Thaletas the Cretan, of whom Pratinas writes that, being sent for by the
+				Lacedaemonians by advice of the oracle, he freed the city
+				from a raging pestilence. Homer tells that the Grecians
+				stopped the fury of another noisome pestilence by the
+				power and charms of the same noble science:&mdash;
+				
+				
+				<quote rend="blockquote">
+                  <l>With sacred hymns and songs that sweetly please,</l>
+					             <l>The Grecian youth all day the Gods appease.</l>
+					             <l>Their lofty paeans bright Apollo hears,</l>
+					             <l>And still the charming sounds delight his ears.</l>
+               </quote>
+				
+				These verses, most excellent master, I thought requisite to
+				add as the finishing stone to my musical discourse, which
+				were by you cited before<note place="unspecified" anchored="yes">See Section 2.</note> to show the force of harmony.
+				For indeed the chiefest and sublimest end of music is the
+				graceful return of our thanks to the Gods, and the next is
+				to purify and bring our minds to a sober and harmonious
+				temper. Thus, said Soterichus, most excellent master, I
+				have given you what may be called an encyclic discourse of
+				music.</p>
+         </div1>
+         <div1 type="section" n="43">
+            <p>Nor was Soterichus a little admired for what he had
+				spoken, as one that both by his countenance and speech
+				had shown his zeal and affection for that noble science.
+				After all, said Onesicrates, I must needs applaud this in
+				both of you, that you have kept within your own spheres
+				
+				<pb id="v.1.p.134"/>
+				
+				and observed your proper limits. For Lysias, not insisting
+				any further, undertook only to show us what was necessary
+				to the making a good hand, as being an excellent performer himself. But Soterichus has feasted us with a
+				discovery of the benefit, the theory, the force, and right
+				end of music. But one thing I think they have willingly
+				left for me to say; for I cannot think them guilty of so
+				much bashfulness that they should be ashamed to bring
+				music into banquets, where certainly, if anywhere, it cannot but be very useful, which Homer also confirms to be
+				true:&mdash;
+				
+				
+				<quote rend="blockquote">
+                  <l>Song and the merry dance, the joy of feasts.</l> 
+                  <note place="unspecified" anchored="yes">
+                     <bibl>Odyss. I. 152.</bibl>
+                  </note>
+               </quote>
+				
+				Not that I would have any one believe from these words,
+				that Homer thought music useful only for pleasure and
+				delight, there being a profounder meaning concealed in the
+				verse. For he brought in music to be present at the banquets and revels of the ancients, as believing it then to be
+				of greatest use and advantage to repel and mitigate the
+				inflaming power of the wine. To which our Aristoxenus
+				agrees, who alleges that music was introduced at banquets
+				for this reason, that as wine intemperately drunk weakens
+				both the body and mind, so music by its harmonious order
+				and symmetry assuages and reduces them to their former
+				constitution. And therefore it was that Homer reports
+				that the ancients made use of music at their solemn festivals.</p>
+         </div1>
+         <div1 type="section" n="44">
+            <p>But for all this, my most honored friends, methinks
+				you have forgot the chiefest thing of all, and that which
+				renders music most majestic. For Pythagoras, Archytas,
+				Plato, and many others of the ancient philosophers, were
+				of opinion, that there could be no motion of the world or
+				rolling of the spheres without the assistance of music, since
+				the Supreme Deity created all things harmoniously. But
+				
+				<pb id="v.1.p.135"/>
+				
+				it would be unseasonable now to enter upon such a discourse, especially at this time, when it would be absurd for
+				Music to transgress her highest and most musical office,
+				which is to give the laws and limits of time and measure
+				to all things. Therefore after he had sung a paean, and
+				offered to Saturn and his offspring, with all the other Gods
+				and the Muses, he dismissed the company.</p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

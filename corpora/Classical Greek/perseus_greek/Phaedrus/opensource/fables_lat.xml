@@ -1,0 +1,2425 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+  <teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+	<title>Fabulae Aesopiae</title>
+	<author>Phaedrus</author>   
+	<editor role="editor">L. Mueller</editor>
+&responsibility;
+      </titleStmt>
+      &Perseus.publish;
+      <sourceDesc>
+	<biblStruct>
+	  <monogr>
+	    <title>Fabulae Aesopiae</title>
+	    <author>Phaedrus, Augusti libertus</author>
+	    <editor role="editor">L. Mueller</editor>
+	    <imprint>
+	      <pubPlace>Leipzig</pubPlace>
+	      <publisher>B. G. Teubner</publisher>
+	      <date>1876</date>
+	    </imprint>
+	  </monogr>
+	</biblStruct>
+      </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+	<state unit="book"/>
+	<state n="chunk" unit="poem"/>
+	<state unit="line"/>
+      </refsDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+	<language id="la">Latin
+	</language><language id="greek">Greek
+      </language></langUsage>
+    </profileDesc>
+  </teiHeader>
+<text lang="la">
+<body>
+<div1 type="book" n="1">
+<head>Liber Primus</head>
+
+<div2 type="poem" n="prologus">
+<head>PROLOGUS</head> 
+<l>Aesopus auctor quam materiam repperit, </l>
+<l>Hanc ego polivi versibus senariis. </l>
+<l>Duplex libelli dos est: quod risum movet </l>
+<l>Et quod prudenti vitam consilio monet. </l>
+<l n="5">Calumniari si quis autem voluerit, </l>
+<l>Quod arbores loquantur, non tantum ferae, </l>
+<l>Fictis iocari nos meminerit fabulis. 
+</l></div2>
+<div2 type="poem" n="1">
+<head>Lupus et agnus.</head> 
+<l>Ad rivum eundem lupus et agnus venerant </l>
+<l>Siti compulsi; superior stabat lupus </l>
+<l>Longeque inferior agnus. Tunc fauce improba  </l>
+<l>Latro incitatus iurgii causam intulit. </l>
+<l n="5">Cur, inquit, turbulentam fecisti mihi </l>
+<l>Aquam bibenti? Laniger contra timens: </l>
+<l>Qui possum, quaeso, facere, quod quereris, lupe? </l>
+<l>A te decurrit ad meos haustus liquor. </l>
+<l>Repulsus ille veritatis viribus: </l>
+<l n="10">Ante hos sex menses male, ait, dixisti mihi. </l>
+<l>Respondit agnus: Equidem natus non eram. </l>
+<l>Pater hercle tuus, ille inquit, male dixit mihi. </l>
+<l>Atque ita correptum lacerat iniusta nece. </l>
+<l>Haec propter illos scripta est homines fabula, </l>
+<l n="15">Qui fictis causis innocentes opprimunt. 
+</l></div2>
+<div2 type="poem" n="2">
+<head>Ranae regem petierunt.</head> 
+<l>Athenae cum florerent aequis legibus, </l>
+<l>Procax libertas civitatem miscuit </l>
+<l>Frenumque solvit pristinum licentia. </l>
+<l>Hic conspiratis factionum partibus </l>
+<l n="5">Arcem tyrannus occupat Pisistratus. </l>
+<l>Cum tristem servitutem flerent Attici, </l>
+<l>(Non quia crudelis ille, sed quoniam gravis </l>
+<l>Omnino insuetis), onus et coepissent queri, </l>
+<l>Aesopus talem tum fabellam rettulit.  </l>
+<l n="10">Ranae vagantes liberis paludibus </l>
+<l>Clamore magno regem petiere a Iove, </l>
+<l>Qui dissolutos mores vi compesceret. </l>
+<l>Pater deorum risit atque illis dedit </l>
+<l>Parvum tigillum, missum quod subito vadi </l>
+<l n="15">Motu sonoque terruit pavidum genus. </l>
+<l>Hoc mersum limo cum iaceret diutius, </l>
+<l>Forte una tacite profert e stagno caput </l>
+<l>Et explorato rege cunctas evocat. </l>
+<l>Illae timore posito certatim adnatant </l>
+<l n="20">Lignumque supera turba petulans insilit. </l>
+<l>Quod cum inquinassent omni contumelia, </l>
+<l>Alium rogantes regem misere ad Iovem, </l>
+<l>Inutilis quoniam esset qui fuerat datus. </l>
+<l>Tum misit illis hydrum, qui dente aspero </l>
+<l n="25">Corripere coepit singulas. Frustra necem </l>
+<l>Fugitant inertes, vocem praecludit metus. </l>
+<l>Furtim igitur dant Mercurio mandata ad Iovem, </l>
+<l>Afflictis ut succurrat. Tunc contra deus: </l>
+<l>Quia noluistis vestrum ferre inquit bonum, </l>
+<l n="30">Malum perferte. &mdash; Vos quoque, o cives, ait,</l>
+<l>Hoc sustinete, maius ne veniat malum. 
+</l></div2>
+<div2 type="poem" n="3">
+<head>Graculus superbus et pavo.</head> 
+<l>Ne gloriari libeat alienis bonis </l>
+<l>Suoque potius habitu vitam degere, </l>
+<l>Aesopus nobis hoc exemplum prodidit.  </l>
+<l>Tumens inani graculus superbia, </l>
+<l n="5">Pennas pavoni quae deciderant sustulit </l>
+<l>Seque exornavit. Deinde contemnens suos </l>
+<l>Se inmiscuit pavonum formoso gregi. </l>
+<l>Illi inpudenti pennas eripiunt avi </l>
+<l>Fugantque rostris. Male mulcatus graculus </l>
+<l n="10">Redire maerens coepit ad proprium genus; </l>
+<l>A quo repulsus tristem sustinuit notam. </l>
+<l>Tum quidam ex illis, quos prius despexerat: </l>
+<l>Contentus nostris si fuisses sedibus </l>
+<l>Et quod natura dederat voluisses pati, </l>
+<l n="15">Nec illam expertus esses contumeliam </l>
+<l>Nec hanc repulsam tua sentiret calamitas. 
+</l></div2>
+<div2 type="poem" n="4">
+<head>Canis per fluvium carnem ferens.</head> 
+<l>Amittit merito proprium qui alienum adpetit. </l>
+<l>Canis per flumen carnem cum ferret natans, </l>
+<l>Lympharum in speculo vidit simulacrum suum, </l>
+<l>Aliamque praedam ab altero ferri putans </l>
+<l n="5">Eripere voluit; verum decepta aviditas </l>
+<l>Et quem tenebat ore dimisit cibum, </l>
+<l>Nec quem petebat potuit adeo adtingere.  
+</l></div2>
+<div2 type="poem" n="5">
+<head>Vacca, capella, ovis, et leo.</head> 
+<l>Numquam est fidelis cum potente societas: </l>
+<l>Testatur haec fabella propositum meum. </l>
+<l>Vacca et capella et patiens ovis iniuriae </l>
+<l>Socii fuere cum leone in saltibus. </l>
+<l n="5">Hi cum cepissent cervum vasti corporis, </l>
+<l>Sic est locutus, partibus factis, leo: </l>
+<l>Ego primam tollo, &dagger;nominor quia leo; </l>
+<l>Secundam, quia sum fortis, tribuetis mihi; </l>
+<l>Tum, quia plus valeo, me sequetur tertia; </l>
+<l n="10">Malo afficietur si quis quartam tetigerit. </l>
+<l>Sic totam praedam sola improbitas abstulit. 
+</l></div2>
+<div2 type="poem" n="6">
+<head>Ranae ad solem.</head> 
+<l>Vicini furis celebres vidit nuptias </l>
+<l>Aesopus et continuo narrare incipit: </l>
+<l>Uxorem quondam Sol cum vellet ducere,  </l>
+<l>Clamorem ranae sustulere ad sidera. </l>
+<l n="5">Convicio permotus quaerit Iuppiter </l>
+<l>Causam querelae. Quaedam tum stagni incola: </l>
+<l>Nunc inquit omnes unus exurit lacus </l>
+<l>Cogitque miseras arida sede emori. </l>
+<l>Quidnam futurum est, si crearit liberos? 
+</l></div2>
+<div2 type="poem" n="7">
+<head>Vulpis ad personam tragicam.</head> 
+<l>Personam tragicam forte vulpes viderat: </l>
+<l>O quanta species, inquit, cerebrum non habet! </l>
+<l>Hoc illis dictum est, quibus honorem et gloriam </l>
+<l>Fortuna tribuit, sensum communem abstulit. 
+</l></div2>
+<div2 type="poem" n="8">
+<head>Lupus et gruis.</head> 
+<l>Qui pretium meriti ab improbis desiderat, </l>
+<l>Bis peccat: primum quoniam indignos adiuvat; </l>
+<l>Impune abire deinde quia iam non potest. </l>
+<l>Os devoratum fauce cum haereret lupi, </l>
+<l n="5">Magno dolore victus coepit singulos </l>
+<l>Illicere pretio, ut illud extraherent malum. </l>
+<l>Tandem persuasa est iure iurando gruis, </l>
+<l>Gulaeque credens colli longitudinem,  </l>
+<l>Periculosam fecit medicinam lupo. </l>
+<l n="10">Pro quo cum pactum flagitaret praemium: </l>
+<l>Ingrata es inquit ore quae nostro caput </l>
+<l>Incolume abstuleris et mercedem postules. 
+</l></div2>
+<div2 type="poem" n="9">
+<head>Passer ad leporem consiliator.</head> 
+<l>Sibi non cavere et aliis consilium dare </l>
+<l>Stultum esse paucis ostendemus versibus. </l>
+<l>Oppressum ab aquila, fletus edentem graves, </l>
+<l>Leporem obiurgabat passer: Ubi pernicitas </l>
+<l n="5">Nota inquit illa est? Quid ita cessarunt pedes? </l>
+<l>Dum loquitur, ipsum accipiter necopinum rapit </l>
+<l>Questuque vano clamitantem interficit. </l>
+<l>Lepus semianimus mortis in solacio: </l>
+<l>Qui modo securus nostra irridebas mala, </l>
+<l n="10">Simili querela fata deploras tua. 
+</l></div2>
+<div2 type="poem" n="10">
+<head>Lupus et vulpes iudice simio.</head> 
+<l>Quicumque turpi fraude semel innotuit, </l>
+<l>Etiam si verum dicit, amittit fidem. </l>
+<l>Hoc attestatur brevis Aesopi fabula.  </l>
+<l>Lupus arguebat vulpem furti crimine; </l>
+<l n="5">Negabat illa se esse culpae proximam. </l>
+<l>Tunc iudex inter illos sedit simius. </l>
+<l>Uterque causam cum perorassent suam, </l>
+<l>Dixisse fertur simius sententiam: </l>
+<l>Tu non videris perdidisse quod petis; </l>
+<l n="10">Te credo surripuisse quod pulchre negas. 
+</l></div2>
+<div2 type="poem" n="11">
+<head>Asinus et leo venantes.</head> 
+<l>Virtutis expers, verbis iactans gloriam, </l>
+<l>Ignotos fallit, notis est derisui. </l>
+<l>Venari asello comite cum vellet leo, </l>
+<l>Contexit illum frutice et admonuit simul, </l>
+<l n="5">Ut insueta voce terreret feras, </l>
+<l>Fugientes ipse exciperet. Hic auritulus </l>
+<l>Clamorem subito totis tollit viribus </l>
+<l>Novoque turbat bestias miraculo. </l>
+<l>Quae dum paventes exitus notos petunt, </l>
+<l n="10">Leonis affliguntur horrendo impetu. </l>
+<l>Qui postquam caede fessus est, asinum evocat </l>
+<l>Iubetque vocem premere. Tunc ille insolens:  </l>
+<l>Qualis videtur opera tibi vocis meae? </l>
+<l>Insignis inquit sic ut, nisi nossem tuum </l>
+<l n="15">Animum genusque, simili fugissem metu. 
+</l></div2>
+<div2 type="poem" n="12">
+<head>Cervus ad fontem.</head> 
+<l>Laudatis utiliora quae contempseris </l>
+<l>Saepe inveniri haec asserit narratio.</l>
+<l>Ad fontem cervus, cum bibisset, restitit </l>
+<l>Et in liquore vidit effigiem suam. </l>
+<l n="5">Ibi dum ramosa mirans laudat cornua </l>
+<l>Crurumque nimiam tenuitatem vituperat, </l>
+<l>Venantum subito vocibus conterritus </l>
+<l>Per campum fugere coepit et cursu levi </l>
+<l>Canes elusit. Silva tum excepit ferum, </l>
+<l n="10">In qua retentis impeditus cornibus </l>
+<l>Lacerari coepit morsibus saevis canum. </l>
+<l>Tunc moriens edidisse vocem hanc dicitur: </l>
+<l>O me infelicem! qui nunc demum intellego </l>
+<l>Utilia mihi quam fuerint quae despexeram, </l>
+<l n="15">Et quae laudaram quantum luctus habuerint.  
+</l></div2>
+<div2 type="poem" n="13">
+<head>Vulpes et corvus.</head> 
+<l>Qui se laudari gaudet verbis subdolis, </l>
+<l>Fere dat poenas turpi paenitentia. </l>
+<l>Cum de fenestra corvus raptum caseum </l>
+<l>Comesse vellet, celsa residens arbore, </l>
+<l n="5">Vulpes hunc vidit, deinde sic coepit loqui: </l>
+<l>O qui tuarum, corve, pennarum est nitor! </l>
+<l>Quantum decoris corpore et vultu geris! </l>
+<l>Si vocem haberes, nulla prior ales foret. </l>
+<l>At ille stultus, dum vult vocem ostendere, </l>
+<l n="10">Emisit ore caseum, quem celeriter </l>
+<l>Dolosa vulpes avidis rapuit dentibus. </l>
+<l>Tunc demum ingemuit corvi deceptus stupor. </l>
+<l>[Hac re probatur quantum ingenium valet; </l>
+<l>Virtute semper praevalet sapientia.]  
+</l></div2>
+<div2 type="poem" n="14">
+<head>Ex sutore medicus.</head> 
+<l>Malus cum sutor inopia deperditus </l>
+<l>Medicinam ignoto facere coepisset loco </l>
+<l>Et venditaret falso antidotum nomine, </l>
+<l>Verbosis acquisivit sibi famam strophis. </l>
+<l n="5">Hic cum iaceret morbo confectus gravi </l>
+<l>Rex urbis, eius experiendi gratia </l>
+<l>Scyphum poposcit: fusa dein simulans aqua </l>
+<l>Miscere illius antidoto se toxicum, </l>
+<l>Ebibere iussit ipsum posito praemio. </l>
+<l n="10">Timore mortis ille tum confessus est </l>
+<l>Non artis ulla medicum se prudentia, </l>
+<l>Verum stupore vulgi factum nobilem. </l>
+<l>Rex advocata contione haec addidit: </l>
+<l>Quantae putatis esse vos dementiae, </l>
+<l n="15">Qui capita vestra non dubitatis credere, </l>
+<l>Cui calceandos nemo commisit pedes? </l>
+<l>Hoc pertinere vere ad illos dixerim, </l>
+<l>Quorum stultitia quaestus impudentiae est.  
+</l></div2>
+<div2 type="poem" n="15">
+<head>Asinus ad senem pastorem.</head> 
+<l>In principatu commutando saepius </l>
+<l>Nil praeter domini mores mutant pauperes. </l>
+<l>Id esse verum parva haec fabella indicat. </l>
+<l>Asellum in prato timidus pascebat senex. </l>
+<l n="5">Is hostium clamore subito territus </l>
+<l>Suadebat asino fugere, ne possent capi. </l>
+<l>At ille lentus: Quaeso, num binas mihi </l>
+<l>Clitellas impositurum victorem putas? </l>
+<l>Senex negavit. Ergo quid refert mea </l>
+<l n="10">Cui serviam clitellas cum portem meas? 
+</l></div2>
+<div2 type="poem" n="16">
+<head>Ovis, cervus, et lupus.</head> 
+<l>Fraudator homines cum advocat sponsum improbos, </l>
+<l>Non rem expedire, sed mala videre expetit. </l>
+<l>Ovem rogabat cervus modium tritici </l>
+<l>Lupo sponsore. At illa praemetuens dolum: </l>
+<l n="5">Rapere atque abire semper assuevit lupus, </l>
+<l>Tu de conspectu fugere veloci impetu; </l>
+<l>Ubi vos requiram cum dies advenerit?  
+</l></div2>
+<div2 type="poem" n="17">
+<head>Ovis, canis, et lupus.</head> 
+<l>Solent mendaces luere poenas malefici. </l>
+<l>Calumniator ab ove cum peteret canis, </l>
+<l>Quem commendasse panem se contenderet, </l>
+<l>Lupus citatus testis non unum modo </l>
+<l n="5">Deberi dixit, verum affirmavit decem. </l>
+<l>Ovis damnata falso testimonio </l>
+<l>Quod non debebat solvit. Post paucos dies </l>
+<l>Bidens iacentem in fovea conspexit lupum: </l>
+<l>Haec inquit merces fraudis a superis datur. 
+</l></div2>
+<div2 type="poem" n="18">
+<head>Mulier parturiens.</head> 
+<l>Nemo libenter recolit qui laesit locum. </l>
+<l>Instante partu mulier actis mensibus </l>
+<l>Humi iacebat flebilis gemitus ciens. </l>
+<l>Vir est hortatus, corpus lecto reciperet,  </l>
+<l n="5">Onus naturae melius quo deponeret. </l>
+<l>Minime, inquit, illo posse confido loco </l>
+<l>Malum finiri, quo conceptum est initio. 
+</l></div2>
+<div2 type="poem" n="19">
+<head>Canis parturiens.</head> 
+<l>Habent insidias hominis blanditiae mali: </l>
+<l>Quas ut vitemus versus subiecti monent. </l>
+<l>Canis parturiens cum rogasset alteram, </l>
+<l>Ut fetum in eius tugurio deponeret, </l>
+<l n="5">Facile impetravit: dein reposcenti locum </l>
+<l>Preces admovit, tempus exorans breve, </l>
+<l>Dum firmiores posset catulos ducere. </l>
+<l>Hoc quoque consumpto flagitari validius </l>
+<l>Cubile coepit. Si mihi et turbae meae </l>
+<l n="10">Par inquit esse potueris, cedam loco.  
+</l></div2>
+<div2 type="poem" n="20">
+<head>Canes famelici.</head> 
+<l>Stultum consilium non modo effectu caret, </l>
+<l>Sed ad perniciem quoque mortalis devocat. </l>
+<l>Corium depressum in fluvio viderunt canes. </l>
+<l>Id ut comesse extractum possent facilius, </l>
+<l n="5">Aquam coepere ebibere: sed rupti prius </l>
+<l>Periere quam quod petierant contingerent. 
+</l></div2>
+<div2 type="poem" n="21">
+<head>Leo senex, aper, taurus, et asinus.</head> 
+<l>Quicumque amisit dignitatem pristinam, </l>
+<l>Ignavis etiam iocus est in casu gravi. </l>
+<l>Defectus annis et desertus viribus </l>
+<l>Leo cum iaceret spiritum extremum trahens, </l>
+<l n="5">Aper fulmineis venit ad eum dentibus </l>
+<l>Et vindicavit ictu veterem iniuriam. </l>
+<l>Infestis taurus mox confodit cornibus </l>
+<l>Hostile corpus. Asinus, ut vidit ferum </l>
+<l>Impune laedi, calcibus frontem extudit. </l>
+<l n="10">At ille exspirans: Fortis indigne tuli  </l>
+<l>Mihi insultare: te, naturae dedecus, </l>
+<l>Quod ferre certe cogor bis videor mori. 
+</l></div2>
+<div2 type="poem" n="22">
+<head>Mustela et homo</head> 
+<l>Mustela ab homine prensa cum instantem necem </l>
+<l>Effugere vellet: Parce, quaeso inquit mihi, </l>
+<l>Quae tibi molestis muribus purgo domum. </l>
+<l>Respondit ille: Faceres si causa mea, </l>
+<l n="5">Gratum esset et dedissem veniam supplici. </l>
+<l>Nunc quia laboras ut fruaris reliquiis, </l>
+<l>Quas sunt rosuri, simul et ipsos devores, </l>
+<l>Noli imputare vanum beneficium mihi. </l>
+<l>Atque ita locutus improbam leto dedit. </l>
+<l n="10">Hoc in se dictum debent illi agnoscere, </l>
+<l>Quorum privata servit utilitas sibi, </l>
+<l>Et meritum inane iactant imprudentibus. 
+</l></div2>
+<div2 type="poem" n="23">
+<head>Canis fidelis.</head> 
+<l>Repente liberalis stultis gratus est, </l>
+<l>Verum peritis irritos tendit dolos.  </l>
+<l>Nocturnus cum fur panem misisset cani, </l>
+<l>Obiecto temptans an cibo posset capi: </l>
+<l n="5">Heus inquit linguam vis meam praecludere, </l>
+<l>Ne latrem pro re domini? Multum falleris. </l>
+<l>Namque ista subita me iubet benignitas </l>
+<l>Vigilare, facias ne mea culpa lucrum. 
+</l></div2>
+<div2 type="poem" n="24">
+<head>Rana rupta et bos.</head> 
+<l>Inops, potentem dum vult imitari, perit. </l>
+<l>In prato quondam rana conspexit bovem </l>
+<l>Et tacta invidia tantae magnitudinis </l>
+<l>Rugosam inflavit pellem: tum natos suos </l>
+<l n="5">Interrogavit, an bove esset latior. </l>
+<l>Illi negarunt. Rursus intendit cutem </l>
+<l>Maiore nisu et simili quaesivit modo, </l>
+<l>Quis maior esset. Illi dixerunt bovem. </l>
+<l>Novissime indignata dum vult validius </l>
+<l n="10">Inflare sese, rupto iacuit corpore. 
+</l></div2>
+<div2 type="poem" n="25">
+<head>Canes et corcodili.</head> 
+<l>Consilia qui dant prava cautis hominibus, </l>
+<l>Et perdunt operam et deridentur turpiter. </l>
+<l>Canes currentes bibere in Nilo flumine,  </l>
+<l>A corcodilis ne rapiantur, traditum est. </l>
+<l n="5">Igitur cum currens bibere coepisset canis, </l>
+<l>Sic corcodilus: Quamlibet lambe otio; </l>
+<l>Noli vereri. At ille: Facerem mehercule, </l>
+<l>Nisi esse scirem carnis te cupidum meae. 
+</l></div2>
+<div2 type="poem" n="26">
+<head>Vulpes et ciconia.</head> 
+<l>Nulli nocendum: si quis vero laeserit, </l>
+<l>Multandum simili iure fabella admonet. </l>
+<l>Vulpes ad cenam dicitur ciconiam </l>
+<l>Prior invitasse et illi in patina liquidam </l>
+<l n="5">Posuisse sorbitionem, quam nullo modo </l>
+<l>Gustare esuriens potuerit ciconia. </l>
+<l>Quae vulpem cum revocasset, intrito cibo </l>
+<l>Plenam lagonam posuit: huic rostrum inserens </l>
+<l>Satiatur ipsa et torquet convivam fame. </l>
+<l n="10">Quae cum lagonae collum frustra lamberet, </l>
+<l>Peregrinam sic locutam volucrem accepimus: </l>
+<l>Sua quisque exempla debet aequo animo pati.  
+</l></div2>
+<div2 type="poem" n="27">
+<head>Canis et thesaurus et vulturius.</head> 
+<l>&lsqb;Haec res avaris esse conveniens potest </l>
+<l>Et qui humiles nati dici locupletes student.&rsqb;</l>
+<l>Humana effodiens ossa thesaurum canis </l>
+<l>Invenit, et violarat quia Manes deos, </l>
+<l n="5">Iniecta est illi divitiarum cupiditas, </l>
+<l>Poenas ut sanctae Religioni penderet. </l>
+<l>Itaque, aurum dum custodit oblitus cibi, </l>
+<l>Fame est consumptus; quem stans vulturius super </l>
+<l>Fertur locutus: O canis, merito iaces, </l>
+<l n="10">Qui concupisti subito regales opes, </l>
+<l>Trivio conceptus, educatus stercore. 
+</l></div2>
+<div2 type="poem" n="28">
+<head>Vulpes et aquila.</head> 
+<l>Quamvis sublimes debent humiles metuere, </l>
+<l>Vindicta docili quia patet sollertiae. </l>
+<l>Vulpinos catulos aquila quondam sustulit </l>
+<l>Nidoque posuit pullis, escam ut carperent. </l>
+<l n="5">Hanc persecuta mater orare incipit, </l>
+<l>Ne tantum miserae luctum importaret sibi. </l>
+<l>Contempsit illa, tuta quippe ipso loco. </l>
+<l>Vulpes ab ara rapuit ardentem facem  </l>
+<l>Totamque flammis arborem circumdedit, </l>
+<l n="10">Hosti dolorem damno miscens sanguinis. </l>
+<l>Aquila ut periclo mortis eriperet suos </l>
+<l>Incolumes natos supplex vulpi tradidit. 
+</l></div2>
+<div2 type="poem" n="29">
+<head>Asinus inridens aprum.</head> 
+<l>Plerumque stulti risum dum captant levem, </l>
+<l>Gravi destringunt alios contumelia </l>
+<l>Et sibi nocivum concitant periculum. </l>
+<l>Asellus apro cum fuisset obvius: </l>
+<l n="5">Salve inquit frater. Ille indignans repudiat </l>
+<l>Officium et quaerit, cur sic mentiri velit. </l>
+<l>Asinus demisso pene: Similem si negas </l>
+<l>Tibi me esse, certe simile est hoc rostro tuo. </l>
+<l>Aper, cum vellet facere generosum impetum, </l>
+<l n="10">Repressit iram et: Facilis vindicta est mihi, </l>
+<l>Sed inquinari nolo ignavo sanguine. 
+</l></div2>
+<div2 type="poem" n="30">
+<head>Ranae metuentes taurorum proelia.</head> 
+<l>Humiles laborant ubi potentes dissident. </l>
+<l>Rana in palude pugnam taurorum intuens: </l>
+<l>Heu quanta nobis instat pernicies! ait. </l>
+<l>Interrogata ab alia cur hoc diceret, </l>
+<l n="5">De principatu cum illi certarent gregis  </l>
+<l>Longeque ab ipsis degerent vitam boves: </l>
+<l>Est statio separata ac diversum genus; </l>
+<l>Expulsus regno nemoris qui profugerit, </l>
+<l>Paludis in secreta veniet latibula </l>
+<l n="10">Et proculcatas obteret duro pede. </l>
+<l>Ita caput ad nostrum furor illorum pertinet. 
+</l></div2>
+<div2 type="poem" n="31">
+<head>Milvus et columbae.</head> 
+<l>Qui se committit homini tutandum improbo, </l>
+<l>Auxilia dum requirit, exitium invenit. </l>
+<l>Columbae saepe cum fugissent miluum </l>
+<l>Et celeritate pennae vitassent necem, </l>
+<l n="5">Consilium raptor vertit ad fallaciam </l>
+<l>Et genus inerme tali decepit dolo: </l>
+<l>Quare sollicitum potius aevum ducitis, </l>
+<l>Quam regem me creatis icto foedere, </l>
+<l>Qui vos ab omni tutas praestem iniuria? </l>
+<l n="10">Illae credentes tradunt sese miluo; </l>
+<l>Qui regnum adeptus coepit vesci singulas </l>
+<l>Et exercere imperium saevis unguibus. </l>
+<l>Tunc de reliquis una: Merito plectimur.  
+</l></div2></div1>
+<div1 type="book" n="2">
+<head>Liber Secundus</head> 
+<div2 type="poem" n="prologus">
+<head>Auctor.</head> 
+<l>Exemplis continetur Aesopi genus; </l>
+<l>Nec aliud quicquam per fabellas quaeritur </l>
+<l>Quam corrigatur error ut mortalium </l>
+<l>Acuatque sese diligens industria. </l>
+<l n="5">Quicumque fuerit ergo narrandi iocus, </l>
+<l>Dum capiat aurem et servet propositum suum, </l>
+<l>Re commendatur, non auctoris nomine. </l>
+<l>Equidem omni cura morem servabo senis; </l>
+<l>Sed si libuerit aliquid interponere, </l>
+<l n="10">Dictorum sensus ut delectet varietas, </l>
+<l>Bonas in partes, lector, accipias velim, </l>
+<l>Ita si rependet illi brevitas gratiam. </l>
+<l>Cuius verbosa ne sit commendatio,  </l>
+<l>Attende, cur negare cupidis debeas, </l>
+<l n="15">Modestis etiam offerre quod non petierint. 
+</l></div2>
+<div2 type="poem" n="1">
+<head>Iuvencus, leo, et praedator.</head> 
+<l>Super iuvencum stabat deiectum leo. </l>
+<l>Praedator intervenit partem postulans. </l>
+<l>Darem inquit nisi soleres per te sumere: </l>
+<l>Et improbum reiecit. Forte innoxius </l>
+<l n="5">Viator est deductus in eundem locum </l>
+<l>Feroque viso rettulit retro pedem. </l>
+<l>Cui placidus ille: Non est quod timeas ait; </l>
+<l>Et, quae debetur pars tuae modestiae, </l>
+<l>Audacter tolle. Tunc diviso tergore </l>
+<l n="10">Silvas petivit, homini ut accessum daret. </l>
+<l>Exemplum egregium prorsus et laudabile; </l>
+<l>Verum est aviditas dives et pauper pudor. 
+</l></div2>
+<div2 type="poem" n="2">
+<head>Anus diligens iuvenem, item puella.</head> 
+<l>A feminis utcumque spoliari viros, </l>
+<l>Ament, amentur, nempe exemplis discimus. </l>
+<l>Aetatis mediae quendam mulier non rudis </l>
+<l>Tenebat annos celans elegantia,  </l>
+<l n="5">Animosque eiusdem pulchra iuvenis ceperat. </l>
+<l>Ambae, videri dum volunt illi pares, </l>
+<l>Capillos homini legere coepere invicem. </l>
+<l>Qui se putaret fingi cura mulierum, </l>
+<l>Calvus repente factus est; nam funditus </l>
+<l n="10">Canos puella, nigros anus evellerat. 
+</l></div2>
+<div2 type="poem" n="3">
+<head>Aesopus ad quendam de successu improborum.</head> 
+<l>Laceratus quidam morsu vehementis canis </l>
+<l>Tinctum cruore panem misit malefico, </l>
+<l>Audierat esse quod remedium vulneris. </l>
+<l>Tunc sic Aesopus: Noli coram pluribus </l>
+<l n="5">Hoc facere canibus, ne nos vivos devorent, </l>
+<l>Cum scierint esse tale culpae praemium. </l>
+<l>Successus improborum plures allicit. 
+</l></div2>
+<div2 type="poem" n="4">
+<head>Aquila, feles, et aper.</head> 
+<l>Aquila in sublimi quercu nidum fecerat; </l>
+<l>Feles cavernam nancta in media pepererat; </l>
+<l>Sus nemoris cultrix fetum ad imam posuerat. </l>
+<l>Tum fortuitum feles contubernium </l>
+<l n="5">Fraude et scelesta sic evertit malitia. </l>
+<l>Ad nidum scandit volucris: Pernicies ait </l>
+<l>Tibi paratur, forsan et miserae mihi; </l>
+<l>Nam fodere terram quod vides cotidie  </l>
+<l>Aprum insidiosum, quercum vult evertere, </l>
+<l n="10">Ut nostram in plano facile progeniem opprimat. </l>
+<l>Terrore offuso et perturbatis sensibus </l>
+<l>Derepit ad cubile setosae suis: </l>
+<l>Magno inquit in periclo sunt nati tui; </l>
+<l>Nam, simul exieris pastum cum tenero grege, </l>
+<l n="15">Aquila est parata rapere porcellos tibi. </l>
+<l>Hunc quoque timore postquam complevit locum, </l>
+<l>Dolosa tuto condidit sese cavo. </l>
+<l>Inde evagata noctu suspenso pede, </l>
+<l>Ubi esca se replevit et prolem suam, </l>
+<l n="20">Pavorem simulans prospicit toto die. </l>
+<l>Ruinam metuens aquila ramis desidet; </l>
+<l>Aper rapinam vitans non prodit foras. </l>
+<l>Quid multa? Inedia sunt consumpti cum suis </l>
+<l>Felisque catulis largam praebuerunt dapem. </l>
+<l n="25">Quantum homo bilinguis saepe concinnet mali, </l>
+<l>Documentum habere stulta credulitas potest. 
+</l></div2>
+<div2 type="poem" n="5">
+<head>Caesar ad atriensem.</head> 
+<l>Est ardalionum quaedam Romae natio, </l>
+<l>Trepide concursans, occupata in otio,  </l>
+<l>Gratis anhelans, multa agendo nihil agens, </l>
+<l>Sibi molesta et aliis odiosissima. </l>
+<l n="5">Hanc emendare, si tamen possum, volo </l>
+<l>Vera fabella: pretium est operae attendere. </l>
+<l>Caesar Tiberius cum petens Neapolim </l>
+<l>In Misenensem villam venisset suam, </l>
+<l>Quae monte summo posita Luculli manu </l>
+<l n="10">Prospectat Siculum et perspicit Tuscum mare: </l>
+<l>Ex alticinctis unus atriensibus, </l>
+<l>Cui tunica ab umeris linteo Pelusio </l>
+<l>Erat destricta, cirris dependentibus, </l>
+<l>Perambulante laeta domino viridia, </l>
+<l n="15">Alveolo coepit ligneo conspargere </l>
+<l>Humum aestuantem, come officium iactitans, </l>
+<l>Sed deridetur. Inde notis flexibus </l>
+<l>Praecurrit alium in xystum, sedans pulverem. </l>
+<l>Agnoscit hominem Caesar remque intellegit. </l>
+<l n="20">Id ut putavit esse nescio quid boni: </l>
+<l>Heus! inquit dominus. Ille enimvero assilit, </l>
+<l>Donationis alacer certae gaudio. </l>
+<l>Tum sic iocata est tanta maiestas ducis: </l>
+<l>Non multum egisti et opera nequiquam perit: </l>
+<l n="25">Multo maioris alapae mecum veneunt.  
+</l></div2>
+<div2 type="poem" n="6">
+<head>Aquila et cornix.</head> 
+<l>Contra potentes nemo est munitus satis; </l>
+<l>Si vero accessit consiliator maleficus, </l>
+<l>Vis et nequitia quicquid oppugnant, ruit. </l>
+<l>Aquila in sublime sustulit testudinem. </l>
+<l n="5">Quae cum abdidisset cornea corpus domo </l>
+<l>Nec ullo pacto laedi posset condita, </l>
+<l>Venit per auras cornix et propter volans: </l>
+<l>Opimam sane praedam rapuisti unguibus; </l>
+<l>Sed nisi monstraro quid sit faciendum tibi, </l>
+<l n="10">Gravi nequiquam te lassabit pondere. </l>
+<l>Promissa parte suadet, ut scopulum super </l>
+<l>Altis ab astris duram illidat corticem, </l>
+<l>Qua comminuta facile vescatur cibo. </l>
+<l>Inducta verbis aquila, monitis paruit, </l>
+<l n="15">Simul et magistrae large divisit dapem. </l>
+<l>Sic tuta quae naturae fuerat munere, </l>
+<l>Impar duabus occidit tristi nece.  
+</l></div2>
+<div2 type="poem" n="7">
+<head>Muli duo et vectores.</head> 
+<l>Muli gravati sarcinis ibant duo: </l>
+<l>Unus ferebat fiscos cum pecunia, </l>
+<l>Alter tumentes multo saccos hordeo. </l>
+<l>Ille onere dives celsa cervice eminens </l>
+<l n="5">Clarumque collo iactans tintinnabulum, </l>
+<l>Comes quieto sequitur et placido gradu. </l>
+<l>Subito latrones ex insidiis advolant </l>
+<l>Interque caedem ferro mulum sauciant, </l>
+<l>Diripiunt nummos, neglegunt vile hordeum. </l>
+<l n="10">Spoliatus igitur casus cum fleret suos: </l>
+<l>Equidem inquit alter me contemptum gaudeo; </l>
+<l>Nam nil amisi nec sum laesus vulnere. </l>
+<l>Hoc argumento tuta est hominum tenuitas; </l>
+<l>Magnae periclo sunt opes obnoxiae. 
+</l></div2>
+<div2 type="poem" n="8">
+<head>Cervus ad boves.</head> 
+<l>Cervus nemorosis excitatus latibulis, </l>
+<l>Ut venatorum effugeret instantem necem,  </l>
+<l>Caeco timore proximam villam petit </l>
+<l>Et opportuno se bovili condidit. </l>
+<l n="5">Hic bos latenti: Quidnam voluisti tibi, </l>
+<l>Infelix, ultro qui ad necem cucurreris </l>
+<l>Hominumque tecto spiritum commiseris? </l>
+<l>At ille supplex: Vos modo inquit parcite; </l>
+<l>Occasione rursus erumpam data. </l>
+<l n="10">Spatium diei noctis excipiunt vices. </l>
+<l>Frondem bubulcus affert, nil ideo videt. </l>
+<l>Eunt subinde et redeunt omnes rustici, </l>
+<l>Nemo animadvertit: transit etiam vilicus, </l>
+<l>Nec ille quicquam sentit. Tum gaudens ferus </l>
+<l n="15">Bubus quietis agere coepit gratias, </l>
+<l>Hospitium adverso quod praestiterint tempore. </l>
+<l>Respondit unus: Salvum te cupimus quidem; </l>
+<l>Sed ille, qui oculos centum habet, si venerit, </l>
+<l>Magno in periclo vita vertetur tua. </l>
+<l n="20">Haec inter ipse dominus a cena redit </l>
+<l>Et quia corruptos viderat nuper boves, </l>
+<l>Accedit ad praesepe: Cur frondis parum est, </l>
+<l>Stramenta desunt? Tollere haec aranea </l>
+<l>Quantum est laboris? Dum scrutatur singula, </l>
+<l n="25">Cervi quoque alta conspicatur cornua;  </l>
+<l>Quem convocata iubet occidi familia </l>
+<l>Praedamque tollit. Haec significat fabula </l>
+<l>Dominum videre plurimum in rebus suis. 
+</l></div2>
+<div2 type="poem" n="epilogus">
+<head>Auctor</head> 
+<l>Aesopi ingenio statuam posuere Attici </l>
+<l>Servumque collocarunt aeterna in basi, </l>
+<l>Patere honoris scirent ut cuncti viam </l>
+<l>Nec generi tribui, sed virtuti gloriam. </l>
+<l n="5">Quoniam occuparat alter ne primus foret, </l>
+<l>Ne solus esset studui; quod superfuit: </l>
+<l>Nec haec invidia, verum est aemulatio. </l>
+<l>Quod si labori faverit Latium meo, </l>
+<l>Plures habebit, quos opponat Graeciae. </l>
+<l n="10">Si livor obtrectare curam voluerit, </l>
+<l>Non tamen eripiet laudis conscientiam. </l>
+<l>Si nostrum studium ad aures pervenit tuas  </l>
+<l>Et arte fictas animus sentit fabulas, </l>
+<l>Omnem querelam submovet felicitas. </l>
+<l n="15">Sin autem doctus illis occurrit labor, </l>
+<l>Sinistra quos in lucem natura extulit </l>
+<l>Nec quicquam possunt nisi meliores carpere, </l>
+<l>Fatale exitium corde durato feram, </l>
+<l>Donec fortunam criminis pudeat sui.  
+</l></div2></div1>
+<div1 type="book" n="3">
+<head>Liber Tertius</head> 
+<div2 type="poem" n="prologus">
+<head>Phaedrus ad Eutychum.</head> 
+<l>Phaedri libellos legere si desideras, </l>
+<l>Vaces oportet, Eutyche, a negotiis, </l>
+<l>Ut liber animus sentiat vim carminis. </l>
+<l>Verum inquis tanti non est ingenium tuum, </l>
+<l n="5">Momentum ut horae pereat officiis meis. </l>
+<l>Non ergo causa est manibus id tangi tuis, </l>
+<l>Quod occupatis auribus non convenit. </l>
+<l>Fortasse dices: Aliquae venient feriae, </l>
+<l>Quae me soluto pectore ad studium vocent. </l>
+<l n="10">Legesne, quaeso, potius viles nenias, </l>
+<l>Impendas curam quam rei domesticae, </l>
+<l>Reddas amicis tempora, uxori vaces, </l>
+<l>Animum relaxes, otium des corpori, </l>
+<l>Ut assuetam fortius praestes vicem? </l>
+<l n="15">Mutandum tibi propositum est ut vitae genus, </l>
+<l>Intrare si Musarum limen cogitas. </l>
+<l>Ego, quem Pierio mater enixa est iugo, </l>
+<l>In quo tonanti sancta Mnemosyne Iovi  </l>
+<l>Fecunda novies artium peperit chorum, </l>
+<l n="20">Quamvis in ipsa paene natus sim schola </l>
+<l>Curamque habendi penitus corde eraserim </l>
+<l>Et laude invicta vitam in hanc incubuerim, </l>
+<l>Fastidiose tamen in coetum recipior. </l>
+<l>Quid credis illi accidere, qui magnas opes </l>
+<l n="25">Exaggerare quaerit omni vigilia, </l>
+<l>Docto labori dulce praeponens lucrum? </l>
+<l>Sed iam quodcumque fuerit, ut dixit Sinon, </l>
+<l>Ad regem cum Dardaniae perductus foret, </l>
+<l>Librum exarabo tertium Aesopi stilo, </l>
+<l n="30">Honori et meritis dedicans illum tuis. </l>
+<l>Quem si leges, laetabor; sin autem minus, </l>
+<l>Habebunt certe quo se oblectent posteri. </l>
+<l>Nunc fabularum cur sit inventum genus, </l>
+<l>Brevi docebo. Servitus obnoxia, </l>
+<l n="35">Quia quae volebat non audebat dicere, </l>
+<l>Affectus proprios in fabellas transtulit </l>
+<l>Calumniamque fictis elusit iocis. </l>
+<l>Ego porro illius semita feci viam, </l>
+<l>Et cogitavi plura quam reliquerat, </l>
+<l n="40">In calamitatem deligens quaedam meam. </l>
+<l>Quod si accusator alius Seiano foret, </l>
+<l>Si testis alius, iudex alius denique, </l>
+<l>Dignum faterer esse me tantis malis, </l>
+<l>Nec his dolorem delenirem remediis.  </l>
+<l n="45">Suspicione si quis errabit sua </l>
+<l>Et rapiet ad se quod erit commune omnium, </l>
+<l>Stulte nudabit animi conscientiam. </l>
+<l>Huic excusatum me velim nihilo minus: </l>
+<l>Neque enim notare singulos mens est mihi, </l>
+<l n="50">Verum ipsam vitam et mores hominum ostendere. </l>
+<l>Rem me professum dicet fors aliquis gravem. </l>
+<l>Si Phryx Aesopus potuit, Anacharsis Scytha </l>
+<l>Aeternam famam condere ingenio suo: </l>
+<l>Ego, litteratae qui sum propior Graeciae, </l>
+<l n="55">Cur somno inerti deseram patriae decus? </l>
+<l>Threissa cum gens numeret auctores suos, </l>
+<l>Linoque Apollo sit parens, Musa Orpheo, </l>
+<l>Qui saxa cantu movit et domuit feras </l>
+<l>Hebrique tenuit impetus dulci mora. </l>
+<l n="60">Ergo hinc abesto, livor, ne frustra gemas, </l>
+<l>Quoniam mihi sollemnis debetur gloria. </l>
+<l>Induxi te ad legendum; sincerum mihi </l>
+<l>Candore noto reddas iudicium peto. 
+</l></div2>
+<div2 type="poem" n="1">
+<head>Anus ad amphoram.</head> 
+<l>Anus iacere vidit epotam amphoram, </l>
+<l>Adhuc Falerna faece ex testa nobili  </l>
+<l>Odorem quae iucundum late spargeret. </l>
+<l>Hunc postquam totis avida traxit naribus: </l>
+<l n="5">O suavis anima! quale te dicam bonum </l>
+<l>Antehac fuisse, tales cum sint reliquiae? </l>
+<l>Hoc quo pertineat, dicet qui me noverit. 
+</l></div2>
+<div2 type="poem" n="2">
+<head>Panthera et pastores.</head> 
+<l>Solet a despectis par referri gratia. </l>
+<l>Panthera imprudens olim in foveam decidit. </l>
+<l>Videre agrestes: alii fustes congerunt, </l>
+<l>Alii onerant saxis; quidam contra miseriti </l>
+<l n="5">Periturae quippe, quamvis nemo laederet, </l>
+<l>Misere panem ut sustineret spiritum. </l>
+<l>Nox insecuta est: abeunt securi domum, </l>
+<l>Quasi inventuri mortuam postridie. </l>
+<l>At illa, vires ut refecit languidas, </l>
+<l n="10">Veloci saltu fovea sese liberat </l>
+<l>Et in cubile concito properat gradu. </l>
+<l>Paucis diebus interpositis provolat, </l>
+<l>Pecus trucidat, ipsos pastores necat, </l>
+<l>Et cuncta vastans saevit irato impetu.  </l>
+<l n="15">Tum sibi timentes, qui ferae pepercerant, </l>
+<l>Damnum haud recusant, tantum pro vita rogant. </l>
+<l>At illa: Memini qui me saxo petierit, </l>
+<l>Qui panem dederit; vos timere absistite; </l>
+<l>Illis revertor hostis, qui me laeserunt. 
+</l></div2>
+<div2 type="poem" n="3">
+<head>Aesopus et rusticus.</head> 
+<l>Usu peritus hariolo vel doctior </l>
+<l>Vulgo esse fertur, causa sed non dicitur, </l>
+<l>Notescet quae nunc primum fabella mea. </l>
+<l>Habenti cuidam pecora pepererunt oves </l>
+<l n="5">Agnos humano capite. Monstro territus </l>
+<l>Ad consulendos currit maerens hariolos. </l>
+<l>Hic pertinere ad domini respondet caput </l>
+<l>Et avertendum victima periculum. </l>
+<l>Ille autem affirmat coniugem esse adulteram </l>
+<l n="10">Et insitivos significari liberos,  </l>
+<l>Sed expiari posse maiore hostia. </l>
+<l>Quid multa? Variis dissident sententiis </l>
+<l>Hominisque curam cura maiore aggravant. </l>
+<l>Aesopus ibi stans, naris emunctae senex, </l>
+<l n="15">Natura numquam verba cui potuit dare: </l>
+<l>Si procurare vis ostentum, rustice, </l>
+<l>Uxores inquit da tuis pastoribus. 
+</l></div2>
+<div2 type="poem" n="4">
+<head>Lanius et simius.</head> 
+<l>Pendere ad lanium quidam vidit simium, </l>
+<l>Inter reliquas merces atque obsonia; </l>
+<l>Quaesivit quidnam saperet. Tum lanius iocans: </l>
+<l>Quale inquit caput est, talis praestatur sapor. </l>
+<l n="5">Ridicule magis hoc dictum quam vere aestimo; </l>
+<l>Quando et formosos saepe inveni pessimos, </l>
+<l>Et turpi facie multos cognovi optimos. 
+</l></div2>
+<div2 type="poem" n="5">
+<head>Aesopus et petulans.</head> 
+<l>Successus ad perniciem multos devocat. </l>
+<l>Aesopo quidam petulans lapidem impegerat.  </l>
+<l>Tanto inquit melior! Assem deinde illi dedit, </l>
+<l>Sic prosecutus: Plus non habeo mehercules, </l>
+<l n="5">Sed unde accipere possis monstrabo tibi. </l>
+<l>Venit ecce dives et potens: huic similiter </l>
+<l>Impinge lapidem et dignum accipies praemium. </l>
+<l>Persuasus ille fecit quod monitus fuit; </l>
+<l>Sed spes fefellit impudentem audaciam: </l>
+<l n="10">Comprensus namque poenas persolvit cruce. 
+</l></div2>
+<div2 type="poem" n="6">
+<head>Musca et mula.</head> 
+<l>Musca in temone sedit et mulam increpans: </l>
+<l>Quam tarda es! inquit non vis citius progredi? </l>
+<l>Vide ne dolone collum compungam tibi. </l>
+<l>Respondit illa: Verbis non moveor tuis; </l>
+<l n="5">Sed istum timeo sella qui prima sedens </l>
+<l>Iugum flagello temperat lento meum </l>
+<l>Et ora frenis continet spumantibus. </l>
+<l>Quapropter aufer frivolam insolentiam; </l>
+<l>Nam et ubi tricandum et ubi sit currendum scio. </l>
+<l n="10">Hac derideri fabula merito potest, </l>
+<l>Qui sine virtute vanas exercet minas.  
+</l></div2>
+<div2 type="poem" n="7">
+<head>Lupus ad canem.</head> 
+<l>Quam dulcis sit libertas, breviter proloquar. </l>
+<l>Cani perpasto macie confectus lupus </l>
+<l>Forte occucurrit. Dein salutati invicem </l>
+<l>Ut restiterunt: Unde sic, quaeso, nites? </l>
+<l n="5">Aut quo cibo fecisti tantum corporis? </l>
+<l>Ego, qui sum longe fortior, pereo fame. </l>
+<l>Canis simpliciter: Eadem est condicio tibi, </l>
+<l>Praestare domino si par officium potes. </l>
+<l>Quod? inquit ille. Custos ut sis liminis, </l>
+<l n="10">A furibus tuearis et noctu domum. </l>
+<l>Ego vero sum paratus: nunc patior nives </l>
+<l>Imbresque in silvis asperam vitam trahens: </l>
+<l>Quanto est facilius mihi sub tecto vivere, </l>
+<l>Et otiosum largo satiari cibo? </l>
+<l n="15">Veni ergo mecum. Dum procedunt, aspicit </l>
+<l>Lupus a catena collum detritum cani. </l>
+<l>Unde hoc, amice? Nihil est. Dic sodes tamen. </l>
+<l>Quia videor acer, alligant me interdiu, </l>
+<l>Luce ut quiescam et vigilem, nox cum venerit: </l>
+<l n="20">Crepusculo solutus, qua visum est, vagor. </l>
+<l>Affertur ultro panis; de mensa sua </l>
+<l>Dat ossa dominus; frusta iactat familia </l>
+<l>Et, quod fastidit quisque, pulmentarium.  </l>
+<l>Sic sine labore venter impletur meus. </l>
+<l n="25">Age, si quo abire est animus, est licentia? </l>
+<l>Non plane est inquit. Fruere, quae laudas, canis: </l>
+<l>Regnare nolo, liber ut non sim mihi. 
+</l></div2>
+<div2 type="poem" n="8">
+<head>Soror et frater.</head> 
+<l>Praecepto monitus saepe te considera. </l>
+<l>Habebat quidam filiam turpissimam </l>
+<l>Idemque insignem pulchra facie filium. </l>
+<l>Hi, speculum in cathedra matris ut positum fuit, </l>
+<l n="5">Pueriliter ludentes forte inspexerunt. </l>
+<l>Hic se formosum iactat: illa irascitur </l>
+<l>Nec gloriantis sustinet fratris iocos, </l>
+<l>Accipiens, quid enim? cuncta in contumeliam. </l>
+<l>Ergo ad patrem decurrit laesura invicem </l>
+<l n="10">Magnaque invidia criminatur filium, </l>
+<l>Vir natus quod rem feminarum tetigerit. </l>
+<l>Amplexus ille utrumque et carpens oscula </l>
+<l>Dulcemque in ambos caritatem partiens: </l>
+<l>Cotidie inquit speculo vos uti volo: </l>
+<l n="15">Tu formam ne corrumpas nequitiae malis; </l>
+<l>Tu faciem ut istam moribus vincas bonis.  
+</l></div2>
+<div2 type="poem" n="9">
+<head>Socrates ad amicos.</head> 
+<l>Vulgare amici nomen, sed rara est fides. </l>
+<l>Cum parvas aedes sibi fundasset Socrates, </l>
+<l>(Cuius non fugio mortem, si famam assequar, </l>
+<l>Et cedo invidiae, dummodo absolvar cinis), </l>
+<l n="5">Ex populo sic nescio quis, ut fieri solet: </l>
+<l>Quaeso, tam angustam talis vir ponis domum? </l>
+<l>Utinam inquit veris hanc amicis impleam!. 
+</l></div2>
+<div2 type="poem" n="10">
+<head>Poeta</head>
+<l>Periculosum est credere et non credere. </l>
+<l>Utriusque exemplum breviter exponam rei. </l>
+<l>Hippolytus obiit, quia novercae creditum est; </l>
+<l>Cassandrae quia non creditum, ruit Ilium. </l>
+<l n="5">Ergo exploranda est veritas multum, prius </l>
+<l>Quam stulta prave iudicet sententia. </l>
+<l>Sed fabulosa ne vetustate elevem, </l>
+<l>Narrabo tibi memoria quod factum est mea. </l>
+<l>Maritus quidam cum diligeret coniugem </l>
+<l n="10">Togamque puram iam pararet filio, </l>
+<l>Seductus in secretum a liberto est suo,  </l>
+<l>Sperante heredem suffici se proximum. </l>
+<l>Qui cum de puero multa mentitus foret </l>
+<l>Et plura de flagitiis castae mulieris, </l>
+<l n="15">Adiecit id, quod sentiebat maxime </l>
+<l>Doliturum amanti, ventitare adulterum </l>
+<l>Stuproque turpi pollui famam domus. </l>
+<l>Incensus ille falso uxoris crimine </l>
+<l>Simulavit iter ad villam clamque in oppido </l>
+<l n="20">Subsedit: deinde noctu subito ianuam </l>
+<l>Intravit, recta cubiculum uxoris petens, </l>
+<l>In quo dormire mater natum iusserat, </l>
+<l>Aetatem adultam servans diligentius. </l>
+<l>Dum quaerunt lumen, dum concursant familia, </l>
+<l n="25">Irae furentis impetum non sustinens </l>
+<l>Ad lectum vadit, temptat in tenebris caput. </l>
+<l>Ut sentit tonsum, gladio pectus transigit, </l>
+<l>Nihil respiciens, dum dolorem vindicet. </l>
+<l>Lucerna allata, simul aspexit filium </l>
+<l n="30">Sanctamque uxorem dormientem cubiculo, </l>
+<l>Sopita primo quae nil somno senserat; </l>
+<l>Repraesentavit in se poenam facinoris </l>
+<l>Et ferro incubuit, quod credulitas strinxerat. </l>
+<l>Accusatores postularunt mulierem </l>
+<l n="35">Romamque pertraxerunt ad centumviros. </l>
+<l>Maligna insontem deprimit suspicio,  </l>
+<l>Quod bona possideat. Stant patroni fortiter </l>
+<l>Causam tuentes innocentis feminae. </l>
+<l>A Divo Augusto tunc petierunt iudices, </l>
+<l n="40">Ut adiuvaret iuris iurandi fidem, </l>
+<l>Quod ipsos error implicuisset criminis. </l>
+<l>Qui postquam tenebras dispulit calumniae </l>
+<l>Certumque fontem veritatis repperit: </l>
+<l>Luat inquit poenas causa libertus mali; </l>
+<l n="45">Namque orbam nato simul et privatam viro </l>
+<l>Miserandam potius quam damnandam existimo. </l>
+<l>Quod si delata perscrutatus crimina </l>
+<l>Paterfamilias esset, si mendacium </l>
+<l>Subtiliter limasset, a radicibus </l>
+<l n="50">Non evertisset scelere funesto domum. </l>
+<l>Nil spernat auris, nec tamen credat statim. </l>
+<l>Quandoquidem et illi peccant, quos minime putes, </l>
+<l>Et qui non peccant, impugnantur fraudibus. </l>
+<l>Hoc admonere simplices etiam potest, </l>
+<l n="55">Opinione alterius ne quid ponderent: </l>
+<l>Ambitio namque dissidens mortalium </l>
+<l>Aut gratiae subscribit aut odio suo. </l>
+<l>Erit ille notus quem per te cognoveris. </l>
+<l>Haec exsecutus sum propterea pluribus </l>
+<l n="60">Brevitate nimia quoniam quosdam offendimus.  
+</l></div2>
+<div2 type="poem" n="11">
+<head>Eunuchus ad improbum.</head> 
+<l>Eunuchus litigabat cum quodam improbo, </l>
+<l>Qui super obscena dicta et petulans iurgium </l>
+<l>Damnum insectatus est amissi corporis. </l>
+<l>En ait hoc unum est, cur laborem validius, </l>
+<l n="5">Integritatis testes quia desunt mihi. </l>
+<l>Sed quid fortunae, stulte, delictum arguis? </l>
+<l>Id demum est homini turpe, quod meruit pati. 
+</l></div2>
+<div2 type="poem" n="12">
+<head>Pullus ad margaritam.</head> 
+<l>In sterquilino pullus gallinaceus </l>
+<l>Dum quaerit escam, margaritam repperit. </l>
+<l>Iaces indigno quanta res inquit loco! </l>
+<l>Hoc si quis pretii cupidus vidisset tui, </l>
+<l n="5">Olim redisses ad splendorem pristinum. </l>
+<l>Ego quod te inveni, potior cui multo est cibus, </l>
+<l>Nec tibi prodesse nec mihi quicquam potest. </l>
+<l>Hoc illis narro, qui me non intellegunt.  
+</l></div2>
+<div2 type="poem" n="13">
+<head>Apes et fuci vespa iudice.</head> 
+<l>Apes in alta fecerant quercu favos: </l>
+<l>Hos fuci inertes esse dicebant suos. </l>
+<l>Lis ad forum deducta est, vespa iudice. </l>
+<l>Quae genus utrumque nosset cum pulcherrime, </l>
+<l n="5">Legem duabus hanc proposuit partibus: </l>
+<l>Non inconveniens corpus et par est color, </l>
+<l>In dubium plane res ut merito venerit. </l>
+<l>Sed ne religio peccet imprudens mea, </l>
+<l>Alvos accipite et ceris opus infundite, </l>
+<l n="10">Ut ex sapore mellis et forma favi, </l>
+<l>De quis nunc agitur, auctor horum appareat. </l>
+<l>Fuci recusant: apibus condicio placet. </l>
+<l>Tunc illa talem protulit sententiam: </l>
+<l>Apertum est quis non possit et quis fecerit. </l>
+<l n="15">Quapropter apibus fructum restituo suum. </l>
+<l>Hanc praeterissem fabulam silentio, </l>
+<l>Si pactam fuci non recusassent fidem.  
+</l></div2>
+<div2 type="poem" n="14">
+<head>De lusu et severitate.</head> 
+<l>Puerorum in turba quidam ludentem Atticus </l>
+<l>Aesopum nucibus cum vidisset, restitit </l>
+<l>Et quasi delirum risit. Quod sensit simul </l>
+<l>Derisor potius quam deridendus senex, </l>
+<l n="5">Arcum retensum posuit in media via: </l>
+<l>Heus! inquit sapiens, expedi quid fecerim. </l>
+<l>Concurrit populus. Ille se torquet diu </l>
+<l>Nec quaestionis positae causam intellegit. </l>
+<l>Novissime succumbit. Tum victor sophus: </l>
+<l n="10">Cito rumpes arcum semper si tensum habueris; </l>
+<l>At si laxaris, cum voles erit utilis. </l>
+<l>Sic lusus animo debent aliquando dari, </l>
+<l>Ad cogitandum melior ut redeat tibi. 
+</l></div2>
+<div2 type="poem" n="15">
+<head>Canis ad agnum.</head> 
+<l>Inter capellas agno balanti canis: </l>
+<l>Stulte, inquit erras; non est hic mater tua;  </l>
+<l>Ovesque segregatas ostendit procul. </l>
+<l>Non illam quaero, quae, cum libitum est, concipit, </l>
+<l n="5">Dein portat onus ignotum certis mensibus, </l>
+<l>Novissime prolapsam effundit sarcinam; </l>
+<l>Verum illam, quae me nutrit admoto ubere </l>
+<l>Fraudatque natos lacte, ne desit mihi. </l>
+<l>Tamen illa est potior quae te peperit. Non ita est. </l>
+<l n="10">Unde illa scivit niger an albus nascerer? </l>
+<l>Age porro: parere si voluisset feminam, </l>
+<l>Quid profecisset, cum crearer masculus? </l>
+<l>Beneficium sane magnum natali dedit, </l>
+<l>Ut exspectarem lanium in horas singulas! </l>
+<l n="15">Cuius potestas nulla in gignendo fuit, </l>
+<l>Cur hac sit potior quae iacentis miserita est </l>
+<l>Dulcemque sponte praestat benevolentiam? </l>
+<l>Facit parentes bonitas, non necessitas. </l>
+<l>His demonstrare voluit auctor versibus </l>
+<l n="20">Obsistere homines legibus, meritis capi. 
+</l></div2>
+<div2 type="poem" n="16">
+<head>Cicada et noctua.</head> 
+<l>Humanitati qui se non accommodat, </l>
+<l>Plerumque poenas oppetit superbiae.  </l>
+<l>Cicada acerbum noctuae convicium </l>
+<l>Faciebat, solitae victum in tenebris quaerere </l>
+<l n="5">Cavoque ramo capere somnum interdiu. </l>
+<l>Rogata est ut taceret. Multo validius </l>
+<l>Clamare occepit. Rursus admota prece </l>
+<l>Accensa magis est. Noctua ut vidit sibi </l>
+<l>Nullum esse auxilium et verba contemni sua, </l>
+<l n="10">Hac est aggressa garrulam fallacia: </l>
+<l>Dormire quia me non sinunt cantus tui, </l>
+<l>Sonare citharam quos putes Apollinis, </l>
+<l>Potare est animus nectar, quod Pallas mihi </l>
+<l>Nuper donavit; si non fastidis, veni; </l>
+<l n="15">Una bibamus. Illa, quae arebat siti, </l>
+<l>Simul cognovit vocem laudari suam, </l>
+<l>Cupide advolavit. Noctua egressa e cavo </l>
+<l>Trepidantem consectata est et leto dedit. </l>
+<l>Sic viva quod negarat tribuit mortua. 
+</l></div2>
+<div2 type="poem" n="17">
+<head>Arbores in deorum tutela.</head> 
+<l>Olim quas vellent esse in tutela sua, </l>
+<l>Divi legerunt arbores. Quercus Iovi </l>
+<l>Et myrtus Veneri placuit, Phoebo laurea,  </l>
+<l>Pinus Cybebae, populus celsa Herculi. </l>
+<l n="5">Minerva admirans, quare steriles sumerent </l>
+<l>Interrogavit. Causam dixit Iuppiter: </l>
+<l>Honorem fructu ne videamur vendere. </l>
+<l>At mehercules narrabit quod quis voluerit, </l>
+<l>Oliva nobis propter fructum est gratior. </l>
+<l n="10">Tunc sic deorum genitor atque hominum sator: </l>
+<l>O nata, merito sapiens dicere omnibus! </l>
+<l>Nisi utile est quod facimus, stulta est gloria. </l>
+<l>Nihil agere quod non prosit fabella admonet. 
+</l></div2>
+<div2 type="poem" n="18">
+<head>Pavo ad Iunonem de voce sua.</head> 
+<l>Pavo ad Iunonem venit, indigne ferens </l>
+<l>Cantus luscinii quod sibi non tribuerit; </l>
+<l>Illum esse cunctis avibus admirabilem, </l>
+<l>Se derideri simul ac vocem miserit. </l>
+<l n="5">Tunc consolandi gratia dixit dea: </l>
+<l>Sed forma vincis, vincis magnitudine; </l>
+<l>Nitor smaragdi collo praefulget tuo  </l>
+<l>Pictisque plumis gemmeam caudam explicas. </l>
+<l>Quo mi inquit mutam speciem, si vincor sono? </l>
+<l n="10">Fatorum arbitrio partes sunt vobis datae: </l>
+<l>Tibi forma, vires aquilae, luscinio melos, </l>
+<l>Augurium corvo, laeva cornici omina, </l>
+<l>Omnesque propriis sunt contentae dotibus. </l>
+<l>Noli affectare quod tibi non est datum, </l>
+<l n="15">Delusa ne spes ad querelam reccidat. 
+</l></div2>
+<div2 type="poem" n="19">
+<head>Aesopus respondet garrulo.</head> 
+<l>Aesopus domino solus cum esset familia, </l>
+<l>Parare cenam iussus est maturius. </l>
+<l>Ignem ergo quaerens aliquot lustravit domus, </l>
+<l>Tandemque invenit ubi lucernam accenderet. </l>
+<l n="5">Tum circumeunti fuerat quod iter longius </l>
+<l>Effecit brevius: namque recta per forum </l>
+<l>Coepit redire. Et quidam e turba garrulus: </l>
+<l>Aesope, medio sole quid cum lumine? </l>
+<l>Hominem inquit quaero, et abiit festinans domum. </l>
+<l n="10">Hoc si molestus ille ad animum rettulit,  </l>
+<l>Sensit profecto se hominem non visum seni, </l>
+<l>Intempestive qui occupato alluserit. 
+</l></div2>
+<div2 type="poem" n="epilogus">
+<head>Poeta.</head> 
+<l>Supersunt mihi quae scribam, sed parco sciens, </l>
+<l>Primum ne videar esse tibi molestior, </l>
+<l>Distringit quem multarum rerum varietas; </l>
+<l>Dein si quis eadem forte conari velit, </l>
+<l n="5">Habere ut possit aliquid operis residui: </l>
+<l>Quamvis materiae tanta abundet copia, </l>
+<l>Labori faber ut desit, non fabro labor. </l>
+<l>Brevitati nostrae praemium ut reddas peto </l>
+<l>Quod es pollicitus: exhibe vocis fidem. </l>
+<l n="10">Nam vita morti propior est cotidie, </l>
+<l>Et hoc minus perveniet ad me muneris, </l>
+<l>Quo plus consumet temporis dilatio. </l>
+<l>Si cito rem perages, usus fiet longior: </l>
+<l>Fruar diutius, si celerius coepero. </l>
+<l n="15">Languentis aevi dum sunt aliquae reliquiae,  </l>
+<l>Auxilio locus est: olim senio debilem </l>
+<l>Frustra adiuvare bonitas nitetur tua, </l>
+<l>Cum iam desierit esse beneficium utile </l>
+<l>Et mors vicina flagitabit debitum. </l>
+<l n="20">Stultum admovere tibi preces existimo, </l>
+<l>Proclivis ultro cum sit misericordia. </l>
+<l>Saepe impetravit veniam confessus reus: </l>
+<l>Quanto innocenti iustius debet dari? </l>
+<l>Tuae sunt partes; fuerunt aliorum prius, </l>
+<l n="25">Dein simili gyro venient aliorum vices. </l>
+<l>Decerne quod religio, quod patitur fides, </l>
+<l>Et graviter me tutare iudicio tuo. </l>
+<l>Excedit animus quem proposuit terminum; </l>
+<l>Sed difficulter continetur spiritus, </l>
+<l n="30">Integritatis qui sincerae conscius </l>
+<l>A noxiorum premitur insolentiis. </l>
+<l>Qui sint, requires; apparebunt tempore. </l>
+<l>Ego, quondam legi quam puer sententiam, </l>
+<l>Palam muttire plebeio piaculum est, </l>
+<l n="35">Dum sanitas constabit, pulchre meminero.  
+
+</l></div2></div1>
+<div1 type="book" n="4">
+<head>Liber Quartus</head> 
+<div2 type="poem" n="prologus">
+<head>Poeta ad Particulonem.</head> 
+<l>Cum destinassem operis habere terminum </l>
+<l>In hoc, ut aliis esset materiae satis, </l>
+<l>Consilium tacito corde damnavi meum. </l>
+<l>Nam si quis talis etiam tituli est appetens, </l>
+<l n="5">Quo pacto divinabit quidnam omiserim, </l>
+<l>Ut illud ipsum cupiat famae tradere, </l>
+<l>Sua cuique cum sit animi cogitatio </l>
+<l>Colorque proprius? Ergo non levitas mihi, </l>
+<l>Sed certa ratio causam scribendi dedit. </l>
+<l n="10">Quare, Particulo, quoniam caperis fabulis, </l>
+<l>(Quas Aesopias, non Aesopi, nomino,  </l>
+<l>Quia paucas ille ostendit, ego plures fero, </l>
+<l>Usus vetusto genere, sed rebus novis), </l>
+<l>Quartum libellum, cum vacarit, perleges. </l>
+<l n="15">Hunc obtrectare si volet malignitas, </l>
+<l>Imitari dum non possit, obtrectet licet. </l>
+<l>Mihi parta laus est quod tu, quod similes tui </l>
+<l>Vestras in chartas verba transfertis mea, </l>
+<l>Dignumque longa iudicatis memoria. </l>
+<l n="20">Illitteratum plausum nec desidero. 
+</l></div2>
+<div2 type="poem" n="1">
+<head>Asinus et Galli.</head> 
+<l>Qui natus est infelix, non vitam modo </l>
+<l>Tristem decurrit, verum post obitum quoque </l>
+<l>Persequitur illum dura fati miseria. </l>
+<l>Galli Cybebes circum in quaestus ducere </l>
+<l n="5">Asinum solebant baiulantem sarcinas. </l>
+<l>Is cum labore et plagis esset mortuus, </l>
+<l>Detracta pelle sibi fecerunt tympana. </l>
+<l>Rogati mox a quodam, delicio suo </l>
+<l>Quidnam fecissent, hoc locuti sunt modo: </l>
+<l n="10">Putabat se post mortem securum fore; </l>
+<l>Ecce aliae plagae congeruntur mortuo.  
+</l></div2>
+<div2 type="poem" n="2">
+<head>Poeta.</head> 
+<l>Ioculare tibi videtur, et sane levi, </l>
+<l>Dum nihil habemus maius, calamo ludimus. </l>
+<l>Sed diligenter intuere has nenias: </l>
+<l>Quantam sub titulis utilitatem reperies! </l>
+<l n="5">Non semper ea sunt quae videntur; decipit </l>
+<l>Frons prima multos: rara mens intellegit </l>
+<l>Quod interiore condidit cura angulo. </l>
+<l>Hoc ne locutus sine mercede existimer, </l>
+<l>Fabellam adiciam de mustela et muribus. </l>
+<l n="10">Mustela cum annis et senecta debilis </l>
+<l>Mures veloces non valeret assequi, </l>
+<l>Involvit se farina et obscuro loco </l>
+<l>Abiecit neglegenter. Mus escam putans </l>
+<l>Assiluit et compressus occubuit neci. </l>
+<l n="15">Alter similiter, deinde perit et tertius. </l>
+<l>Mox venit aliquot saeculis retorridus </l>
+<l>Qui saepe laqueos et muscipula effugerat; </l>
+<l>Proculque insidias cernens hostis callidi: </l>
+<l>Sic valeas inquit ut farina es quae iaces!  
+</l></div2>
+<div2 type="poem" n="3">
+<head>De vulpe et uva.</head> 
+<l>Fame coacta vulpes alta in vinea </l>
+<l>Uvam appetebat summis saliens viribus; </l>
+<l>Quam tangere ut non potuit, discedens ait: </l>
+<l>Nondum matura est; nolo acerbam sumere. </l>
+<l n="5">Qui facere quae non possunt verbis elevant, </l>
+<l>Ascribere hoc debebunt exemplum sibi. 
+</l></div2>
+<div2 type="poem" n="4">
+<head>Equus et aper.</head> 
+<l>Equus sedare solitus quo fuerat sitim, </l>
+<l>Dum sese aper volutat turbavit vadum. </l>
+<l>Hinc orta lis est. Sonipes iratus fero </l>
+<l>Auxilium petiit hominis, quem dorso levans </l>
+<l n="5">Rediit ad hostem. Iactis hunc telis eques </l>
+<l>Postquam interfecit, sic locutus traditur: </l>
+<l>Laetor tulisse auxilium me precibus tuis, </l>
+<l>Nam praedam cepi et didici quam sis utilis. </l>
+<l>Atque ita coegit frenos invitum pati. </l>
+<l n="10">Tum maestus ille: Parvae vindictam rei </l>
+<l>Dum quaero demens, servitutem repperi. </l>
+<l>Haec iracundos admonebit fabula </l>
+<l>Impune potius laedi quam dedi alteri.  
+</l></div2>
+<div2 type="poem" n="5">
+<head>Poeta.</head> 
+<l>Plus esse in uno saepe quam in turba boni, </l>
+<l>Narratione posteris tradam brevi. </l>
+<l>Quidam decedens tres reliquit filias: </l>
+<l>Unam formosam et oculis venantem viros; </l>
+<l n="5">At alteram lanificam et frugi rusticam; </l>
+<l>Devotam vino tertiam et turpissimam. </l>
+<l>Harum autem matrem fecit heredem senex </l>
+<l>Sub condicione totam ut fortunam tribus </l>
+<l>Aequaliter distribuat, sed tali modo: </l>
+<l n="10">Ni data possideant aut fruantur; tum: simul </l>
+<l>Habere res desierint, quas acceperint, </l>
+<l>Centena matri conferant sestertia. </l>
+<l>Athenas rumor implet. Mater sedula </l>
+<l>Iuris peritos consulit; nemo expedit </l>
+<l n="15">Quo pacto non possideant, quod fuerit datum, </l>
+<l>Fructumve capiant; deinde quae tulerint nihil, </l>
+<l>Quanam ratione conferant pecuniam. </l>
+<l>Postquam consumpta est temporis longi mora, </l>
+<l>Nec testamenti potuit sensus colligi, </l>
+<l n="20">Fidem advocavit iure neglecto parens. </l>
+<l>Seponit moechae vestem, mundum muliebrem, </l>
+<l>Lavationem argenteam, eunuchos, glabros; </l>
+<l>Lanificae agellos, pecora, villam, operarios, </l>
+<l>Boves, iumenta et instrumentum rusticum; </l>
+<l n="25">Potrici plenam antiquis apothecam cadis,  </l>
+<l>Domum politam et delicatos hortulos. </l>
+<l>Sic destinata dare cum vellet singulis </l>
+<l>Et approbaret populus, qui illas noverat, </l>
+<l>Aesopus media subito in turba constitit: </l>
+<l n="30">O si maneret condito sensus patri, </l>
+<l>Quam graviter ferret, quod voluntatem suam </l>
+<l>Interpretari non potuissent Attici! </l>
+<l>Rogatus deinde solvit errorem omnium: </l>
+<l>Domum et ornamenta cum venustis hortulis </l>
+<l n="35">Et vina vetera date lanificae rusticae; </l>
+<l>Vestem, uniones, pedisequos et cetera </l>
+<l>Illi assignate vitam quae luxu trahit; </l>
+<l>Agros, buvile et pecora cum pastoribus </l>
+<l>Donate moechae. Nulla poterit perpeti, </l>
+<l n="40">Ut moribus quid teneat alienum suis. </l>
+<l>Deformis cultum vendet ut vinum paret; </l>
+<l>Agros abiciet moecha ut ornatum gerat; </l>
+<l>At illa gaudens pecore et lanae dedita </l>
+<l>Quacumque summa tradet luxuriae domum. </l>
+<l n="45">Sic nulla possidebit quod fuerit datum, </l>
+<l>Et dictam matri conferent pecuniam </l>
+<l>Ex pretio rerum quas vendiderint singulae. </l>
+<l>Ita quod multorum fugit imprudentiam </l>
+<l>Unius hominis repperit sollertia.  
+</l></div2>
+<div2 type="poem" n="6">
+<head>Pugna murium et mustelarum.</head> 
+<l>Cum victi mures mustelarum exercitu </l>
+<l>(Historia quorum et in tabernis pingitur) </l>
+<l>Fugerent et artos circum trepidarent cavos, </l>
+<l>Aegre recepti tamen evaserunt necem. </l>
+<l n="5">Duces eorum, qui capitibus cornua </l>
+<l>Suis ligarant, ut conspicuum in proelio </l>
+<l>Haberent signum quod sequerentur milites, </l>
+<l>Haesere in portis suntque capti ab hostibus; </l>
+<l>Quos immolatos victor avidis dentibus </l>
+<l n="10">Capacis alvi mersit tartareo specu. </l>
+<l>Quemcumque populum tristis eventus premit, </l>
+<l>Periclitatur magnitudo principum; </l>
+<l>Minuta plebes facili praesidio latet. 
+</l></div2>
+<div2 type="poem" n="7">
+<head>Phaedrus.</head> 
+<l>Tu qui, nasute, scripta destringis mea </l>
+<l>Et hoc iocorum legere fastidis genus, </l>
+<l>Parva libellum sustine patientia, </l>
+<l>Severitatem frontis dum placo tuae </l>
+<l n="5">Et in cothurnis prodit Aesopus novis. </l>
+<l>Utinam nec umquam Pelii nemoris iugo </l>
+<l>Pinus bipenni concidisset Thessala,  </l>
+<l>Nec ad professae mortis audacem viam </l>
+<l>Fabricasset Argus opere Palladio ratem, </l>
+<l n="10">Inhospitalis prima quae ponti sinus </l>
+<l>Patefecit in perniciem Graium et barbarum! </l>
+<l>Namque et superbi luget Aeetae domus, </l>
+<l>Et regna Peliae scelere Medeae iacent, </l>
+<l>Quae saevum ingenium variis involvens modis </l>
+<l n="15">Illic per artus fratris explicuit fugam, </l>
+<l>Hic caede patris Peliadum infecit manus. </l>
+<l>Quid tibi videtur? Hoc quoque insulsum est ait </l>
+<l>Falsoque dictum; longe quia vetustior </l>
+<l>Aegaea Minos classe perdomuit freta </l>
+<l n="20">Iustoque vindicavit exemplo impetum. </l>
+<l>Quid ergo possum facere tibi, lector Cato, </l>
+<l>Si nec fabellae te iuvant nec fabulae? </l>
+<l>Noli molestus esse omnino litteris, </l>
+<l>Maiorem exhibeant ne tibi molestiam. </l>
+<l n="25">Hoc illis dictum est, qui stultitia nauseant </l>
+<l>Et ut putentur sapere caelum vituperant. 
+</l></div2>
+<div2 type="poem" n="8">
+<head>Serpens ad fabrum ferrarium.</head> 
+<l>Mordaciorem qui improbo dente appetit </l>
+<l>Hoc argumento se describi sentiat.  </l>
+<l>In officinam fabri venit vipera. </l>
+<l>Haec cum temptaret si qua res esset cibi, </l>
+<l n="5">Limam momordit. Illa contra contumax: </l>
+<l>Quid me inquit stulta, dente captas laedere, </l>
+<l>Omne assuevi ferrum quae corrodere? 
+</l></div2>
+<div2 type="poem" n="9">
+<head>Vulpes et caper.</head> 
+<l>Homo in periclum simul ac venit callidus, </l>
+<l>Reperire effugium quaerit alterius malo. </l>
+<l>Cum decidisset vulpes in puteum inscia </l>
+<l>Et altiore clauderetur margine, </l>
+<l n="5">Devenit hircus sitiens in eundem locum; </l>
+<l>Simul rogavit esset an dulcis liquor </l>
+<l>Et copiosus. Illa fraudem moliens: </l>
+<l>Descende, amice; tanta bonitas est aquae </l>
+<l>Voluptas ut satiari non possit mea. </l>
+<l n="10">Immisit se barbatus. Tum vulpecula </l>
+<l>Evasit puteo nixa celsis cornibus, </l>
+<l>Hircumque clauso liquit haerentem vado.  
+</l></div2>
+<div2 type="poem" n="10">
+<head>De vitiis hominum.</head> 
+<l>Peras imposuit Iuppiter nobis duas: </l>
+<l>Propriis repletam vitiis post tergum dedit, </l>
+<l>Alienis ante pectus suspendit gravem. </l>
+<l>Hac re videre nostra mala non possumus; </l>
+<l n="5">Alii simul delinquunt, censores sumus. 
+</l></div2>
+<div2 type="poem" n="11">
+<head>Fur et lucerna.</head> 
+<l>Lucernam fur accendit ex ara Iovis </l>
+<l>Ipsumque compilavit ad lumen suum. </l>
+<l>Onustus qui sacrilegio cum discederet, </l>
+<l>Repente vocem sancta misit Religio: </l>
+<l n="5">Malorum quamvis ista fuerint munera </l>
+<l>Mihique invisa, ut non offendar surripi, </l>
+<l>Tamen, sceleste, spiritu culpam lues, </l>
+<l>Olim cum ascriptus venerit poenae dies. </l>
+<l>Sed ne ignis noster facinori praeluceat, </l>
+<l n="10">Per quem verendos excolit pietas deos, </l>
+<l>Veto esse tale luminis commercium. </l>
+<l>Itaque hodie nec lucernam de flamma deum </l>
+<l>Nec de lucerna fas est accendi sacrum. </l>
+<l>Quot res contineat hoc argumentum utiles, </l>
+<l n="15">Non explicabit alius quam qui repperit. </l>
+<l>Significat primo saepe quos ipse alueris,  </l>
+<l>Tibi inveniri maxime contrarios; </l>
+<l>Secundum ostendit scelera non ira deum, </l>
+<l>Fatorum dicto sed puniri tempore; </l>
+<l n="20">Novissime interdicit ne cum malefico </l>
+<l>Usum bonus consociet ullius rei. 
+</l></div2>
+<div2 type="poem" n="12">
+<head>Malas esse divitias.</head> 
+<l>Opes invisae merito sunt forti viro, </l>
+<l>Quia dives arca veram laudem intercipit. </l>
+<l>Caelo receptus propter virtutem Hercules </l>
+<l>Cum gratulantes persalutasset deos, </l>
+<l n="5">Veniente Pluto, qui Fortunae est filius, </l>
+<l>Avertit oculos. Causam quaesivit pater. </l>
+<l>Odi inquit illum, quia malis amicus est </l>
+<l>Simulque obiecto cuncta corrumpit lucro. 
+</l></div2>
+<div2 type="poem" n="13">
+<head>De leone regnante.</head> 
+<l>Utilius homini nihil est quam recte loqui: </l>
+<l>Probanda cunctis est quidem sententia, </l>
+<l>Sed ad perniciem solet agi sinceritas. </l>
+<l>Cum se ferarum regem fecissit leo</l>
+<l n="5">Et aequitatis vellet famam consequi, </l>
+<l>A pristina deflexit consuetudine </l>
+<l>Atque inter illas tenui contentus cibo </l>
+<l>Sancta incorrupta iura reddebat fide. </l>
+<l>Postquam labare coepit paenitentia, </l>
+<l> <gap/>
+</l></div2>
+<div2 type="poem" n="14">
+<head>Prometheus.</head> 
+<l> <gap/></l>
+<l>A fictione veretri linguam mulieris. </l>
+<l>Affinitatem traxit inde obscenitas. 
+</l></div2>
+<div2 type="poem" n="15">
+<head>Idem.</head> 
+<l>Rogavit alter, tribadas et molles mares </l>
+<l>Quae ratio procreasset. Exposuit senex: </l>
+<l>Idem Prometheus, auctor vulgi fictilis </l>
+<l>Qui simul offendit ad fortunam frangitur, </l>
+<l n="5">Naturae partis veste quas celat pudor,  </l>
+<l>Cum separatim toto finxisset die, </l>
+<l>Aptare mox ut posset corporibus suis, </l>
+<l>Ad cenam est invitatus subito a Libero. </l>
+<l>Ubi irrigatus multo venas nectare, </l>
+<l n="10">Sero domum est reversus titubanti pede. </l>
+<l>Tum semisomno corde et errore ebrio </l>
+<l>Applicuit virginale generi masculo </l>
+<l>Et masculina membra applicuit feminis. </l>
+<l>Ita nunc libido pravo fruitur gaudio. 
+</l></div2>
+<div2 type="poem" n="16">
+<head>De capris barbatis.</head> 
+<l>Barbam capellae cum impetrassent ab Iove, </l>
+<l>Hirci maerentes indignari coeperunt </l>
+<l>Quod dignitatem feminae aequassent suam. </l>
+<l>Sinite inquit illas gloria vana frui </l>
+<l n="5">Et usurpare vestri ornatum muneris, </l>
+<l>Pares dum non sint vestrae fortitudinis. </l>
+<l>Hoc argumentum monet ut sustineas tibi </l>
+<l>Habitu esse similes qui sint virtute impares. 
+</l></div2>
+<div2 type="poem" n="17">
+<head>De fortunis hominum.</head> 
+<l>Cum de fortunis quidam quereretur suis, </l>
+<l>Aesopus finxit consolandi gratia:  </l>
+<l>Vexata saevis navis tempestatibus, </l>
+<l>Inter vectorum lacrimas et mortis metum </l>
+<l n="5">Faciem ad serenam subito ut mutatur dies, </l>
+<l>Ferri secundis tuta coepit flatibus </l>
+<l>Nimiaque nautas hilaritate extollere. </l>
+<l>Factus periclis tum gubernator sophus: </l>
+<l>Parce gaudere oportet et sensim queri, </l>
+<l n="10">Totam aeque vitam miscet dolor et gaudium. 
+</l></div2>
+<div2 type="poem" n="18">
+<head>Canum legati ad Iovem.</head> 
+<l>Canes legatos olim misere ad Iovem </l>
+<l>Melioris vitae tempus oratum suae, </l>
+<l>Ut sese eriperet hominum contumeliis, </l>
+<l>Furfuribus sibi consparsum quod panem darent </l>
+<l n="5">Fimoque turpi maximam explerent famem. </l>
+<l>Profecti sunt legati non celeri pede. </l>
+<l>Dum naribus scrutantur escam in stercore, </l>
+<l>Citati non respondent. Vix tandem invenit </l>
+<l>Eos Mercurius et turbatos attrahit. </l>
+<l n="10">Tum vero vultum magni ut viderunt Iovis, </l>
+<l>Totam timentes concacarunt regiam; </l>
+<l>Propulsi vero fustibus vadunt foras. </l>
+<l>Vetat dimitti magnus illos Iuppiter.  </l>
+<l>Mirati sibi legatos non revertier, </l>
+<l n="15">Turpe aestimantes aliquid commissum a suis, </l>
+<l>Post aliquod tempus alios ascribi iubent. </l>
+<l>Rumor legatos superiores prodidit. </l>
+<l>Timentes rursus aliquid ne simile accidat, </l>
+<l>Odore canibus anum, sed multo, replent. </l>
+<l n="20">Mandata dantur et dimittuntur statim. </l>
+<l>Adeunt. Rogantes aditum continuo impetrant. </l>
+<l>Consedit genitor tum deorum maximus </l>
+<l>Quassatque fulmen: tremere coepere omnia. </l>
+<l>Canes, confusus subito quod fuerat fragor, </l>
+<l n="25">Repente odorem mixtum cum merdis cacant. </l>
+<l>Reclamant omnes vindicandam iniuriam. </l>
+<l>Sic est locutus ante poenam Iuppiter: </l>
+<l>Legatos non est regis non dimittere, </l>
+<l>Nec est difficile poenas culpae imponere; </l>
+<l n="30">Sed hoc feretis pro iudicio praemium: </l>
+<l>Non veto dimitti, verum cruciari fame, </l>
+<l>Ne ventrem continere non possint suum. </l>
+<l>Illi autem qui miserunt vos tam futtiles </l>
+<l>Numquam carebunt hominis contumelia. </l>
+<l n="35">Ita nunc legatos exspectant et posteri </l>
+<l>Novum et venire qui videt culum olfacit.  
+</l></div2>
+<div2 type="poem" n="19">
+<head>Serpens. Misericordia nociva.</head> 
+<l>Qui fert malis auxilium post tempus dolet. </l>
+<l>Gelu rigentem quidam colubram sustulit </l>
+<l>Sinuque fovit contra se ipse misericors: </l>
+<l>Namque ut refecta est necuit hominem protinus. </l>
+<l n="5">Hanc alia cum rogaret causam facinoris, </l>
+<l>Respondit: Ne quis discat prodesse improbis. 
+</l></div2>
+<div2 type="poem" n="20">
+<head>Vulpes et draco.</head> 
+<l>Vulpes, cubile fodiens, dum terram eruit </l>
+<l>Agitque pluris altius cuniculos, </l>
+<l>Pervenit ad draconis speluncam ultimam, </l>
+<l>Custodiebat qui thesauros abditos. </l>
+<l n="5">Hunc simul aspexit: Oro ut imprudentiae </l>
+<l>Des primum veniam; deinde si pulchre vides, </l>
+<l>Quam non conveniens aurum sit vitae meae, </l>
+<l>Respondeas clementer. Quem fructum capis </l>
+<l>Hoc ex labore, quodve tantum est praemium </l>
+<l n="10">Ut careas somno et aevum in tenebris exigas? </l>
+<l>Nullum inquit ille verum hoc ab summo mihi </l>
+<l>Iove attributum est. Ergo nec sumis tibi  </l>
+<l>Nec ulli donas quicquam? Sic fatis placet. </l>
+<l>Nolo irascaris, libere si dixero: </l>
+<l n="15">Dis est iratis natus, qui est similis tibi. </l>
+<l>Abiturus illuc, quo priores abierunt, </l>
+<l>Quid mente caeca miserum torques spiritum? </l>
+<l>Tibi dico, avare, gaudium heredis tui, </l>
+<l>Qui ture superos, ipsum te fraudas cibo, </l>
+<l n="20">Qui tristis audis musicum citharae sonum, </l>
+<l>Quem tibiarum macerat iucunditas, </l>
+<l>Obsoniorum pretia cui gemitum exprimunt, </l>
+<l>Qui dum quadrantes aggeras patrimonio </l>
+<l>Caelum fatigas sordido periurio, </l>
+<l n="25">Qui circumcidis omnem impensam funeri </l>
+<l>Libitina ne quid de tuo faciat lucri. 
+</l></div2>
+<div2 type="poem" n="21">
+<head>Phaedrus.</head> 
+<l>Quid iudicare cogitet livor modo, </l>
+<l>Licet dissimulet, pulchre tamen intellego.  </l>
+<l>Quicquid putabit esse dignum memoria, </l>
+<l>Aesopi dicet; si quid minus arriserit, </l>
+<l n="5">A me contendet fictum quovis pignore. </l>
+<l>Quem volo refelli iam nunc responso meo: </l>
+<l>Sive hoc ineptum sive laudandum est opus, </l>
+<l>Invenit ille, nostra perfecit manus. </l>
+<l>Sed exsequamur coepti propositum ordinem. 
+</l></div2>
+<div2 type="poem" n="22">
+<head>De Simonide.</head> 
+<l>Homo doctus in se semper divitias habet. </l>
+<l>Simonides, qui scripsit egregium melos, </l>
+<l>Quo paupertatem sustineret facilius, </l>
+<l>Circum ire coepit urbes Asiae nobiles, </l>
+<l n="5">Mercede accepta laudem victorum canens. </l>
+<l>Hoc genere quaestus postquam locuples factus est, </l>
+<l>Redire in patriam voluit cursu pelagio; </l>
+<l>Erat autem, ut aiunt, natus in Cia insula: </l>
+<l>Ascendit navem, quam tempestas horrida </l>
+<l n="10">Simul et vetustas medio dissolvit mari. </l>
+<l>Hi zonas, illi res pretiosas colligunt,  </l>
+<l>Subsidium vitae. Quidam curiosior: </l>
+<l>Simonide, tu ex opibus nil sumis tuis? </l>
+<l>Mecum inquit mea sunt cuncta. Tunc pauci enatant, </l>
+<l n="15">Quia plures onere degravati perierant. </l>
+<l>Praedones adsunt, rapiunt, quod quisque extulit, </l>
+<l>Nudos relinquunt. Forte Clazomenae prope </l>
+<l>Antiqua fuit urbs, quam petierunt naufragi. </l>
+<l>Hic litterarum quidam studio deditus, </l>
+<l n="20">Simonidis qui saepe versus legerat </l>
+<l>Eratque absentis admirator maximus, </l>
+<l>Sermone ab ipso cognitum cupidissime </l>
+<l>Ad se recepit; veste, nummis, familia </l>
+<l>Hominem exornavit. Ceteri tabulam suam </l>
+<l n="25">Portant rogantes victum. Quos casu obvios </l>
+<l>Simonides ut vidit: Dixi, inquit, mea </l>
+<l>Mecum esse cuncta; vos quod rapuistis perit. 
+</l></div2>
+<div2 type="poem" n="23">
+<head>Mons parturiens.</head> 
+<l>Mons parturibat, gemitus immanes ciens, </l>
+<l>Eratque in terris maxima exspectatio. </l>
+<l>At ille murem peperit. &dagger;Hoc scriptum est tibi, </l>
+<l>Qui, magna cum minaris, extricas nihil.  
+</l></div2>
+<div2 type="poem" n="24">
+<head>Formica et musca.</head> 
+<p>Nihil agere quod non prosit fabella admonet. </p>
+<l>Formica et musca contendebant acriter </l>
+<l>Quae pluris esset. Musca sic coepit prior: </l>
+<l>Conferre nostris tu potes te laudibus? </l>
+<l n="5">Moror inter aras, templa perlustro omnia, </l>
+<l>Ubi immolatur, exta praegusto deum. </l>
+<l>In capite regis sedeo cum visum est mihi, </l>
+<l>Et matronarum casta delibo oscula. </l>
+<l>Laboro nihil atque optimis rebus fruor. </l>
+<l n="10">Quid horum simile tibi contingit, rustica? </l>
+<l>Est gloriosus sane convictus deum, </l>
+<l>Sed illi qui invitatur, non qui invisus est. </l>
+<l>Aras frequentas? nempe abigeris, quom venis. </l>
+<l>Reges commemoras et matronarum oscula? </l>
+<l n="15">Super etiam iactas tegere quod debet pudor. </l>
+<l>Nihil laboras? ideo, cum opus est, nil habes. </l>
+<l>Ego granum in hiemem cum studiose congero,  </l>
+<l>Te circa murum pasci video stercore. </l>
+<l>Aestate me lacessis; cum bruma est siles. </l>
+<l n="20">Mori contractam cum te cogunt frigora, </l>
+<l>Me copiosa recipit incolumem domus. </l>
+<l>Satis profecto rettudi superbiam. </l>
+<l>Fabella talis hominum discernit notas </l>
+<l>Eorum qui se falsis ornant laudibus, </l>
+<l n="25">Et quorum virtus exhibet solidum decus. 
+</l></div2>
+<div2 type="poem" n="25">
+<head>Poeta.</head> 
+<l>Quantum valerent inter homines litterae, </l>
+<l>Dixi superius: quantus nunc illis honos </l>
+<l>A superis sit tributus tradam memoriae. </l>
+<l>Simonides idem ille de quo rettuli, </l>
+<l n="5">Victori laudem cuidam pyctae ut scriberet </l>
+<l>Certo conduxit pretio, secretum petit. </l>
+<l>Exigua cum frenaret materia impetum, </l>
+<l>Usus poeta moris est licentia </l>
+<l>Atque interposuit gemina Ledae sidera, </l>
+<l n="10">Auctoritatem similis referens gloriae.  </l>
+<l>Opus approbavit; sed mercedis tertiam </l>
+<l>Accepit partem. Cum reliquum posceret: </l>
+<l>Illi inquit reddent quorum sunt laudis duae. </l>
+<l>Verum ut ne irate te dimissum sentiant, </l>
+<l n="15">Ad cenam mihi promitte; cognatos volo </l>
+<l>Hodie invitare, quorum es in numero mihi. </l>
+<l>Fraudatus quamvis et dolens iniuria, </l>
+<l>Ne male dimissam gratiam corrumperet, </l>
+<l>Promisit. Rediit hora dicta, recubuit. </l>
+<l n="20">Splendebat hilare poculis convivium, </l>
+<l>Magno apparatu laeta resonabat domus, </l>
+<l>Repente duo cum iuvenes sparsi pulvere, </l>
+<l>Sudore multo diffluentes corpora, </l>
+<l>Humanam supra formam, cuidam servulo </l>
+<l n="25">Mandant ut ad se provocet Simonidem; </l>
+<l>Illius interesse, ne faciat moram. </l>
+<l>Homo perturbatus excitat Simonidem. </l>
+<l>Unum promorat vix pedem triclinio, </l>
+<l>Ruina camerae subito oppressit ceteros; </l>
+<l n="30">Nec ulli iuvenes sunt reperti ad ianuam. </l>
+<l>Ut est vulgatus ordo narratae rei, </l>
+<l>Omnes scierunt numinum praesentiam </l>
+<l>Vati dedisse vitam mercedis loco.  
+</l></div2>
+<div2 type="poem" n="epilogus">
+<head>Poeta ad Particulonem.</head> 
+<l>Adhuc supersunt multa quae possim loqui, </l>
+<l>Et copiosa abundat rerum varietas; </l>
+<l>Sed temperatae suaves sunt argutiae, </l>
+<l>Immodicae offendunt. Quare, vir sanctissime, </l>
+<l n="5">Particulo, chartis nomen victurum meis </l>
+<l>Latinis dum manebit pretium litteris, </l>
+<l>Si non ingenium, certe brevitatem approba, </l>
+<l>Quae commendari tanto debet iustius </l>
+<l>Quanto poetae sunt molesti validius.  
+
+</l></div2></div1>
+<div1 type="book" n="5">
+<head>Liber Quintus</head> 
+
+<div2 type="poem" n="prologus">
+<head>Idem poeta.</head> 
+<l>Aesopi nomen sicubi interposuero, </l>
+<l>Cui reddidi iam pridem quicquid debui, </l>
+<l>Auctoritatis esse scito gratia: </l>
+<l>Ut quidam artifices nostro faciunt saeculo, </l>
+<l n="5">Qui pretium operibus maius inveniunt novis, </l>
+<l>Si marmori ascripserunt Praxitelen suo, </l>
+<l>Trito Myronem argento, tabulae Zeuxidem. </l>
+<l>Adeo fucatae plus vetustati favet </l>
+<l>Invidia mordax quam bonis praesentibus. </l>
+<l n="10">Sed iam ad fabellam talis exempli feror.  
+</l></div2>
+<div2 type="poem" n="1">
+<head>Demetrius rex et Menander poeta:  Quomodo saepe fallatur hominum iudicium.</head> 
+<l>Demetrius qui dictus est Phalereus, </l>
+<l>Athenas occupavit imperio improbo. </l>
+<l>Ut mos est vulgi, passim et certatim ruit,</l>
+<l>"Feliciter!" succlamans. Ipsi principes </l>
+<l n="5">Illam osculantur, qua sunt oppressi, manum, </l>
+<l>Tacite gementes tristem fortunae vicem. </l>
+<l>Quin etiam resides et sequentes otium, </l>
+<l>Ni defuisse noceat, repunt ultimi; </l>
+<l>In quis Menander, nobilis comoediis </l>
+<l n="10">Quas, ipsum ignorans, legerat Demetrius </l>
+<l>Et admiratus fuerat ingenium viri, </l>
+<l>Unguento delibutus, vestitu fluens, </l>
+<l>Veniebat gressu delicato et languido. </l>
+<l>Hunc ubi tyrannus vidit extremo agmine: </l>
+<l n="15">Quisnam cinaedus ille in conspectum meum </l>
+<l>Audet venire? Responderunt proximi: </l>
+<l>Hic est Menander scriptor. Mutatus statim: </l>
+<l>Homo inquit fieri non potest formosior.  
+</l></div2>
+<div2 type="poem" n="2">
+<head>Viatores et latro.</head> 
+<l>Duo cum incidissent in latronem milites, </l>
+<l>Unus profugit, alter autem restitit </l>
+<l>Et vindicavit sese forti dextera. </l>
+<l>Latrone exciso timidus accurrit comes </l>
+<l n="5">Stringitque gladium, dein reiecta paenula: </l>
+<l>Cedo inquit illum; iam curabo sentiat, </l>
+<l>Quos attentarit. Tunc, qui depugnaverat: </l>
+<l>Vellem istis verbis saltem adiuvisses modo; </l>
+<l>Constantior fuissem vera existimans. </l>
+<l n="10">Nunc conde ferrum et linguam pariter futtilem. </l>
+<l>Ut possis alios ignorantes fallere, </l>
+<l>Ego qui sum expertus quantis fugias viribus, </l>
+<l>Scio quam virtuti non sit credendum tuae. </l>
+<l>Illi assignari debet haec narratio </l>
+<l n="15">Qui re secunda fortis est, dubia fugax.  
+</l></div2>
+<div2 type="poem" n="3">
+<head>Calvus et musca.</head> 
+<l>Calvi momordit musca nudatum caput; </l>
+<l>Quam opprimere captans alapam sibi duxit gravem. </l>
+<l>Tunc illa irridens: Punctum volucris parvulae </l>
+<l>Voluisti morte ulcisci; quid facies tibi, </l>
+<l n="5">Iniuriae qui addideris contumeliam? </l>
+<l>Respondit: Mecum facile redeo in gratiam, </l>
+<l>Quia non fuisse mentem laedendi scio. </l>
+<l>Sed te, contempti generis animal improbum, </l>
+<l>Quae delectaris bibere humanum sanguinem, </l>
+<l n="10">Optem necare vel maiore incommodo. </l>
+<l>&dagger;Hoc argumentum veniam ei dari docet </l>
+<l>Qui casu peccat. Nam qui consilio est nocens, </l>
+<l>Illum esse quamvis dignum poena iudico.  
+</l></div2>
+<div2 type="poem" n="4">
+<head>Asinus et porcellus.</head> 
+<l>Quidam immolasset verrem cum sancto Herculi, </l>
+<l>Cui pro salute votum debebat sua, </l>
+<l>Asello iussit reliquias poni hordei. </l>
+<l>Quas aspernatus ille sic locutus est: </l>
+<l n="5">Libenter istum prorsus appeterem cibum, </l>
+<l>Nisi, qui nutritus illo est, iugulatus foret. </l>
+<l>Huius respectu fabulae deterritus </l>
+<l>Periculosum semper vitavi lucrum. </l>
+<l>Sed dicis: Qui rapuere divitias, habent. </l>
+<l n="10">Numeremus agedum qui deprensi perierunt: </l>
+<l>Maiorem turbam punitorum reperies. </l>
+<l>Paucis temeritas est bono, multis malo. 
+</l></div2>
+<div2 type="poem" n="5">
+<head>Scurra et rusticus.</head> 
+<l>Pravo favore labi mortales solent </l>
+<l>Et, pro iudicio dum stant erroris sui, </l>
+<l>Ad paenitendum rebus manifestis agi.  </l>
+<l>Facturus ludos dives quidam nobilis </l>
+<l n="5">Proposito cunctos invitavit praemio </l>
+<l>Quam quisque posset ut novitatem ostenderet. </l>
+<l>Venere artifices laudis ad certamina; </l>
+<l>Quos inter scurra, notus urbano sale, </l>
+<l>Habere dixit se genus spectaculi </l>
+<l n="10">Quod in theatro numquam prolatum foret. </l>
+<l>Dispersus rumor civitatem concitat. </l>
+<l>Paulo ante vacua turbam deficiunt loca. </l>
+<l>In scaena vero postquam solus constitit </l>
+<l>Sine apparatu, nullis adiutoribus, </l>
+<l n="15">Silentium ipsa fecit exspectatio. </l>
+<l>Ille in sinum repente demisit caput </l>
+<l>Et sic porcelli vocem est imitatus sua, </l>
+<l>Verum ut subesse pallio contenderent </l>
+<l>Et excuti iuberent. Quo facto simul </l>
+<l n="20">Nihil est repertum, multis onerant lancibus </l>
+<l>Hominemque plausu prosequuntur maximo. </l>
+<l>Hoc vidit fieri rusticus: Non mehercules </l>
+<l>Me vincet inquit, et statim professus est </l>
+<l>Idem facturum melius se postridie. </l>
+<l n="25">Fit turba maior. Iam favor mentes tenet </l>
+<l>Et derisuri, non spectaturi sedent.  </l>
+<l>Uterque prodit. Scurra degrunnit prior </l>
+<l>Movetque plausus et clamores suscitat. </l>
+<l>Tunc simulans sese vestimentis rusticus </l>
+<l n="30">Porcellum obtegere (quod faciebat scilicet, </l>
+<l>Sed, in priore quia nil compererant, latens) </l>
+<l>Pervellit aurem vero, quem celaverat, </l>
+<l>Et cum dolore vocem naturae exprimit. </l>
+<l>Acclamat populus scurram multo similius </l>
+<l n="35">Imitatum, et cogit rusticum trudi foras. </l>
+<l>At ille profert ipsum porcellum e sinu, </l>
+<l>Turpemque aperto pignore errorem probans: </l>
+<l>En hic declarat quales sitis iudices! 
+</l></div2>
+<div2 type="poem" n="6">
+<head>Calvus et quidam aeque pilis defectus.</head> 
+<l>Invenit calvus forte in trivio pectinem. </l>
+<l>Accessit alter aeque defectus pilis. </l>
+<l>Heia! inquit in commune quodcumque est lucri! </l>
+<l>Ostendit ille praedam et adiecit simul: </l>
+<l n="5">Superum voluntas favit; sed fato invido </l>
+<l>Carbonem, ut aiunt, pro thesauro invenimus. </l>
+<l>Quem spes delusit, huic querela convenit.  
+</l></div2>
+<div2 type="poem" n="7">
+<head>Princeps tibicen.</head> 
+<l>Ubi vanus animus aura captus frivola </l>
+<l>Arripuit insolentem sibi fiduciam, </l>
+<l>Facile ad derisum stulta levitas ducitur. </l>
+<l>Princeps tibicen notior paulo fuit, </l>
+<l n="5">Operam Bathyllo solitus in scaena dare. </l>
+<l>Is forte ludis (non satis memini quibus) </l>
+<l>Dum pegma rapitur, concidit casu gravi </l>
+<l>Nec opinans, et sinistram fregit tibiam, </l>
+<l>Duas cum dextras maluisset perdere. </l>
+<l n="10">Inter manus sublatus et multum gemens </l>
+<l>Domum refertur. Aliquot menses transeunt, </l>
+<l>Ad sanitatem dum venit curatio. </l>
+<l>Ut spectatorum mos est et lepidum genus, </l>
+<l>Desiderari coepit, cuius flatibus </l>
+<l n="15">Solebat excitari saltantis vigor. </l>
+<l>Erat facturus ludos quidam nobilis, </l>
+<l>Et incipiebat a se Princeps ingredi: </l>
+<l>Reducem tum adducit prece, pretio ut tantummodo </l>
+<l>Ipso ludorum ostenderet sese die. </l>
+<l n="20">Qui simul advenit, rumor de tibicine  </l>
+<l>Fremit in theatro. Quidam affirmant mortuum, </l>
+<l>Quidam in conspectum proditurum sine mora. </l>
+<l>Aulaeo misso, devolutis tonitribus </l>
+<l>Di sunt locuti more translaticio. </l>
+<l n="25">Tunc chorus ignotum modo reducto canticum </l>
+<l>Insonuit, cuius haec fuit sententia: </l>
+<l>Laetare, incolumis Roma, salvo principe! </l>
+<l>In plausus consurrectum est. Iactat basia </l>
+<l>Tibicen: gratulari fautores putat. </l>
+<l n="30">Equester ordo stultum errorem intellegit </l>
+<l>Magnoque risu canticum repeti iubet. </l>
+<l>Iteratur illud. Homo meus se in pulpito </l>
+<l>Totum prosternit. Plaudit illudens eques. </l>
+<l>Rogare populus hunc coronam existimat. </l>
+<l n="35">Ut vero cuneis notuit res omnibus, </l>
+<l>Princeps, ligato crure nivea fascia, </l>
+<l>Niveisque tunicis, niveis etiam calceis, </l>
+<l>Superbiens honore divinae domus, </l>
+<l>Ab universis capite est protrusus foras. 
+</l></div2>
+<div2 type="poem" n="8">
+<head>Tempus.</head> 
+<l>Cursu volucri, pendens in novacula, </l>
+<l>Calvus, comosa fronte, nudo corpore, </l>
+<l>(Quem si occuparis, teneas; elapsum semel </l>
+<l>Non ipse possit Iuppiter reprehendere), </l>
+<l n="5">Occasionem rerum significat brevem. </l>
+<l>Effectus impediret ne segnis mora, </l>
+<l>Finxere antiqui talem effigiem Temporis.  
+</l></div2>
+<div2 type="poem" n="9">
+<head>Taurus et vitulus.</head> 
+<l>Angusto in aditu taurus luctans cornibus </l>
+<l>Cum vix intrare posset ad praesepia, </l>
+<l>Monstrabat vitulus quo se pacto plecteret. </l>
+<l>Tace inquit ante hoc novi quam tu natus es. </l>
+<l n="5">Qui doctiorem emendat sibi dici putet. 
+</l></div2>
+<div2 type="poem" n="10">
+<head>Canis et sus et venator.</head> 
+<l>Adversus omnes fortis veloces feras </l>
+<l>Canis cum domino semper fecisset satis, </l>
+<l>Languere coepit annis ingravantibus. </l>
+<l>Aliquando obiectus hispidi pugnae suis </l>
+<l n="5">Arripuit aurem, sed cariosis dentibus </l>
+<l>Praedam dimisit. Hic tunc venator dolens </l>
+<l>Canem obiurgabat. Cui latrans contra senex: </l>
+<l>Non te destituit animus, sed vires meae. </l>
+<l>Quod fuimus laudas, si iam damnas quod sumus. </l>
+<l n="10">Hoc cur, Philete, scripserim, pulchre vides.  
+</l></div2></div1>
+<div1 type="book" n="appendix">
+<head>Appendix:  Fabulae Novae</head>
+<div2 type="poem" n="1">
+<head>Simius et vulpes:  Avarum etiam quod sibi superest non libenter dare.</head> 
+<l>Vulpem rogabat partem caudae simius, </l>
+<l>Contegere honeste posset ut nudas nates; </l>
+<l>Cui sic maligna: Longior fiat licet, </l>
+<l>Tamen illam citius per lutum et spinas traham, </l>
+<l n="5">Quam parvam quamvis partem impertiar tibi. 
+<!-- 
+<div2 type=poem n="2">
+<head>Auctor:  De his qui legunt libellum.</head> 
+<l>Hoc qualecumque est Musa quod ludit mea, 
+<l>Nequitia pariter laudat et frugalitas, 
+<l>Sed haec simpliciter; illa tacita irascitur.  
+-->
+</l></div2> 
+<div2 type="poem" n="2">
+<head>Auctor:  Non esse plus aequo petendum.</head> 
+<l>Arbitrio si natura finxisset meo </l> 
+<l>Genus mortale, longe foret instructius: </l> 
+<l>Nam cuncta nobis attribuisset commoda, </l> 
+<l>Quaecumque indulgens Fortuna animali dedit: </l> 
+<l n="5">Elephanti vires, et leonis impetum, </l> 
+<l>Cornicis aevum, gloriam tauri trucis, </l> 
+<l>Equi velocis placidam mansuetudinem, </l> 
+<l>Et adesset homini sua tamen sollertia. </l> 
+<l>Nimirum in caelo secum ridet Iuppiter, </l> 
+<l n="10">Haec qui negavit magno consilio homini, </l> 
+<l>Ne sceptrum mundi raperet nostra audacia. </l> 
+<l>Ergo contenti munere invicti Iovis </l> 
+<l>Fatalis annos decurramus temporis, </l> 
+<l>Nec plus conemur quam sinit mortalitas. 
+</l></div2> 
+
+<div2 type="poem" n="3">
+<head>Mercurius et duae mulieres:  De eodem alia fabella.</head> 
+<l>Mercurium hospitio mulieres olim duae </l>
+<l>Illiberali et sordido receperant:  </l>
+<l>Quarum una in cunis parvum habebat filium, </l>
+<l>Quaestus placebat alteri meretricius. </l>
+<l n="5">Ergo ut referret gratiam officiis parem, </l>
+<l>Abiturus et iam limen excedens ait: </l>
+<l>Deum videtis; tribuam vobis protinus </l>
+<l>Quod quaeque optarit. Mater suppliciter rogat </l>
+<l>Barbatum ut videat natum quam primum suum; </l>
+<l n="10">Moecha ut sequatur sese quicquid tetigerit. </l>
+<l>Volat Mercurius, intro redeunt mulieres. </l>
+<l>Barbatus infans ecce vagitus ciet. </l>
+<l>Id forte meretrix cum rideret validius, </l>
+<l>Nares replentur umore, ut fieri solet. </l>
+<l n="15">Emungere igitur se volens prendit manu </l>
+<l>Traxitque ad terram nasi longitudinem, </l>
+<l>Et aliam ridens ipsa ridenda exstitit. 
+</l></div2>
+<div2 type="poem" n="4">
+<head>Prometheus et Dolus:  De veritate et mendacio.</head> 
+<l>Olim Prometheus saeculi figulus novi </l>
+<l>Cura subtili Veritatem fecerat, </l>
+<l>Ut iura posset inter homines reddere.  </l>
+<l>Subito accersitus nuntio magni Iovis </l>
+<l n="5">Commendat officinam fallaci Dolo, </l>
+<l>In disciplinam nuper quem receperat. </l>
+<l>Hic studio accensus, facie simulacrum pari, </l>
+<l>Una statura, simile et membris omnibus, </l>
+<l>Dum tempus habuit, callida finxit manu. </l>
+<l n="10">Quod prope iam totum mire cum positum foret, </l>
+<l>Lutum ad faciendos illi defecit pedes. </l>
+<l>Redit magister; quo festinanter Dolus </l>
+<l>Metu turbatus in suo sedit loco. </l>
+<l>Mirans Prometheus tantam similitudinem, </l>
+<l n="15">Propriae videri voluit artis gloriam. </l>
+<l>Igitur fornaci pariter duo signa intulit; </l>
+<l>Quibus percoctis atque infuso spiritu, </l>
+<l>Modesto gressu sancta incessit Veritas; </l>
+<l>At trunca species haesit in vestigio. </l>
+<l n="20">Tunc falsa imago atque operis furtivi labor </l>
+<l>Mendacium appellatum est; quod negantibus </l>
+<l>Pedes habere facile et ipse assentio. 
+<!-- 
+<div2 type=poem n="6">
+<head>Nihil diu occultum.</head> 
+<l>Simulata interdum vitia prosunt hominibus, 
+<l>Sed tempore ipso tamen apparet veritas.  
+-->
+</l></div2> 
+<div2 type="poem" n="5">
+<head>Auctor:  Sensum aestimandum esse non verba.</head> 
+<l>Ixion quod versari narratur rota, </l> 
+<l>Volubilem Fortunam iactari docet. </l> 
+<l>Adversus altos Sisyphus montes agit </l> 
+<l>Saxum labore summo, quod de vertice </l> 
+<l n="5">Sudore semper irrito revolvitur, </l> 
+<l>Ostendit hominum sine fine esse miserias. </l> 
+<l>Quod stans in amne Tantalus medio sitit, </l> 
+<l>Avari describuntur, quos circumfluit </l> 
+<l>Usus bonorum, sed nil possunt tangere. </l> 
+<l n="10">Urnis scelestas Danaides portant aquas, </l> 
+<l>Pertusa nec complere possunt dolia; </l> 
+<l>Immo luxuriae quicquid dederis perfluet. </l> 
+<l>Novem porrectus Tityos est per iugera, </l> 
+<l>Tristi renatum suggerens poenae iecur; </l> 
+<l n="15">Quo quis maiorem possidet terrae locum, </l> 
+<l>Hoc demonstratur cura graviore affici. </l> 
+<l>Consulto involvit veritatem antiquitas, </l> 
+<l>Ut sapiens intellegeret, erraret rudis.  
+</l></div2>  
+
+<div2 type="poem" n="6">
+<head>Auctor.</head> 
+<l>Utilius nobis quid sit dic, Phoebe, obsecro, </l>
+<l>Qui Delphos et formosum Parnasum incolis. </l>
+<l>Quid hoc? sacratae vatis horrescunt comae, </l>
+<l>Tripodes moventur, mugit adytis Religio, </l>
+<l n="5">Tremuntque lauri et ipse pallescit dies. </l>
+<l>Voces resolvit icta Python numine: </l>
+<l>Audite, gentes, Delii monitus dei: </l>
+<l>Pietatem colite; vota superis reddite; </l>
+<l>Patriam, parentes, natos, castas coniuges </l>
+<l n="10">Defendite armis, hostem ferro pellite; </l>
+<l>Amicos sublevate; miseris parcite; </l>
+<l>Bonis favete, subdolis ite obviam; </l>
+<l>Delicta vindicate; &dagger;cohibete impios; </l>
+<l>Punite turpi thalamos qui violant stupro; </l>
+<l n="15">Malos cavete; nulli nimium credite. </l>
+<l>Haec elocuta concidit virgo furens: </l>
+<l>Furens profecto, nam quae dixit perdidit. 
+</l></div2>
+<div2 type="poem" n="7">
+<head>Aesopus et scriptor.</head> 
+<l>Aesopo quidam scripta recitarat mala, </l>
+<l>In quis inepte multum se iactaverat.  </l>
+<l>Scire ergo cupiens quidnam sentiret senex, </l>
+<l>Numquid tibi inquit visus sum superbior? </l>
+<l n="5">Haud vana nobis ingeni fiducia est. </l>
+<l>Confectus ille pessimo volumine: </l>
+<l>Ego inquit quod te laudas vehementer probo, </l>
+<l>Namque hoc ab alio numquam continget tibi. 
+</l></div2>
+<div2 type="poem" n="8">
+<head>Pompeius Magnus et eius miles:  Quam difficile sit hominem nosse.</head> 
+<l>Magni Pompei miles vasti corporis </l>
+<l>Fracte loquendo et ambulando molliter </l>
+<l>Famam cinaedi traxerat certissimam. </l>
+<l>Hic insidiatus nocte iumentis ducis, </l>
+<l n="5">Cum veste et auro et magno argenti pondere </l>
+<l>Avertit mulos. Factum rumor dissipat; </l>
+<l>Arguitur miles, rapitur in praetorium. </l>
+<l>Tum Magnus: Quid ais? tune me, commilito, </l>
+<l>Spoliare es ausus? Ille continuo exscreat </l>
+<l n="10">Sibi in sinistram et sputum digitis dissipat. </l>
+<l>Sic, imperator, oculi exstillescant mei, </l>
+<l>Si vidi aut tetigi. Tum vir animi simplicis </l>
+<l>Id dedecus castrorum propelli iubet, </l>
+<l>Nec cadere in illum credit tantam audaciam.  </l>
+<l n="15">Breve tempus intercessit, et fidens manu </l>
+<l>Unum e Romanis provocabat barbarus. </l>
+<l>Sibi quisque metuit; primi mussitant duces. </l>
+<l>Tandem cinaedus habitu, sed Mars viribus, </l>
+<l>Adit sedentem pro tribunali ducem, </l>
+<l n="20">Et voce molli: Licet? Enimvero eici </l>
+<l>Virum ut in re atroci Magnus stomachans imperat. </l>
+<l>Tum quidam senior ex amicis principis: </l>
+<l>Hunc ego committi satius fortunae arbitror, </l>
+<l>In quo iactura levis est, quam fortem virum, </l>
+<l n="25">Qui casu victus temeritatis te arguat. </l>
+<l>Assensit Magnus et permisit militi </l>
+<l>Prodire contra; qui mirante exercitu, </l>
+<l>Dicto celerius hostis abscidit caput </l>
+<l>Victorque rediit. His tunc Pompeius super: </l>
+<l n="30">Corona, miles, equidem te dono libens, </l>
+<l>Quia vindicasti laudem Romani imperi; </l>
+<l>Sed exstillescant oculi sic inquit mei, </l>
+<l>Turpe illud imitans ius iurandum militis, </l>
+<l>Nisi tu abstulisti sarcinas nuper meas.  
+</l></div2>
+<div2 type="poem" n="9">
+<head>Iuno, Venus et gallina.</head> 
+<l>Cum castitatem Iuno laudaret suam, </l>
+<l>Iucunditatis causam haud depellit Venus, </l>
+<l>Nullamque ut affirmaret esse illi parem, </l>
+<l>Interrogasse sic gallinam dicitur: </l>
+<l n="5">Dic sodes quanto possis satiari cibo. </l>
+<l>Respondit illa: Quicquid dederis, satis erit, </l>
+<l>Sic ut concedas pedibus aliquid scalpere. </l>
+<l>Ne scalpas inquit satis est modius tritici? </l>
+<l>Plane, immo nimium est, sed permittes scalpere? </l>
+<l n="10">Ex toto, ne quid scalpas, quid desideras? </l>
+<l>Tum denique illa fassa est naturae malum: </l>
+<l>Licet horreum mi pateat, ego scalpam tamen. </l>
+<l>Risisse Iuno dicitur Veneris iocos, </l>
+<l>Quia per gallinam denotarit feminas.  
+</l></div2>
+<div2 type="poem" n="10">
+<head>Paterfamilias et Aesopus:  Quomodo domanda sit ferox iuventus.</head> 
+<l>Paterfamilias saevum habebat filium. </l>
+<l>Hic e conspectu cum patris recesserat, </l>
+<l>Verberibus servos afficiebat plurimis </l>
+<l>Et exercebat fervidam adulescentiam. </l>
+<l n="5">Aesopus ergo narrat hoc breviter seni: </l>
+<l>Quidam iuvenco vetulum adiungebat bovem. </l>
+<l>Is cum refugiens impari collo iugum </l>
+<l>Aetatis excusaret vires languidas: </l>
+<l>Non est quod timeas, inquit illi rusticus; </l>
+<l n="10">Non ut labores dico, sed ut istum domes, </l>
+<l>Qui calce et cornu multos reddit debiles. </l>
+<l>Et tu nisi istum tecum assidue detines </l>
+<l>Feroxque ingenium comprimis clementia, </l>
+<l>Vide ne querela maior accrescat domus. </l>
+<l n="15">Atrocitati mansuetudo est remedium. 
+</l></div2>
+<div2 type="poem" n="11">
+<head>Aesopus et victor gymnicus:  Quomodo conprimatur aliquando iactantia.</head> 
+<l>Victorem forte gymnici certaminis </l>
+<l>Iactantiorem cum vidisset Phryx sophus,  </l>
+<l>Interrogavit an plus adversarius </l>
+<l>Valuisset eius. Ille: Ne istud dixeris; </l>
+<l n="5">Multo fuere vires maiores meae. </l>
+<l>Quod inquit ergo, stulte, meruisti decus, </l>
+<l>Minus valentem si vicisti fortior? </l>
+<l>Ferendus esses, forte si te diceres </l>
+<l>Superasse, melior qui fuisset viribus. 
+</l></div2>
+<div2 type="poem" n="12">
+<head>Asinus ad lyram.</head> 
+<l>Asinus iacentem vidit in prato lyram. </l>
+<l>Accessit et temptavit chordas ungula; </l>
+<l>Sonuere tactae. Bella res sed mehercules </l>
+<l>Male cessit inquit artis quia sum nescius. </l>
+<l n="5">Si repperisset aliquis hanc prudentior, </l>
+<l>Divinis aures oblectasset cantibus. </l>
+<l>Sic saepe ingenia calamitate intercidunt. 
+</l></div2>
+<div2 type="poem" n="13">
+<head>Mulier vidua et miles:  Quanta sit inconstantia et libido mulierum.</head> 
+<l>Per aliquot annos quaedam dilectum virum </l>
+<l>Amisit et sarcophago corpus condidit;  </l>
+<l>A quo revelli nullo cum posset modo </l>
+<l>Et in sepulcro lugens vitam degeret, </l>
+<l n="5">Claram assecuta est famam castae virginis. </l>
+<l>Interea fanum qui compilarant Iovis, </l>
+<l>Cruci suffixi luerunt poenas numini. </l>
+<l>Horum reliquias ne quis posset tollere, </l>
+<l>Custodes dantur milites cadaverum </l>
+<l n="10">Monumentum iuxta mulier quo se incluserat. </l>
+<l>Aliquando sitiens unus de custodibus </l>
+<l>Aquam rogavit media nocte ancillulam, </l>
+<l>Quae forte dominae tunc assistebat suae </l>
+<l>Dormitum eunti; namque lucubraverat </l>
+<l n="15">Et usque in serum vigilias perduxerat. </l>
+<l>Paulum reclusis foribus miles prospicit </l>
+<l>Videtque et aegram et facie pulchra feminam. </l>
+<l>Corruptus animus ilico succenditur </l>
+<l>Et uritur impudentis sensim cupiditas. </l>
+<l n="20">Sollers acumen mille causas invenit, </l>
+<l>Per quas videre possit illam saepius. </l>
+<l>Cotidiana capta consuetudine </l>
+<l>Paulatim facta est advenae submissior; </l>
+<l>Mox artior revinxit animum copula. </l>
+<l n="25">Hic dum consumit noctes custos diligens, </l>
+<l>Desideratum est corpus ex una cruce. </l>
+<l>Turbatus miles factum exponit mulieri. </l>
+<l>At sancta mulier: Non est quod timeas, ait, </l>
+<l>Virique corpus tradit figendum cruci,  </l>
+<l n="30">Ne subeat ille poenas neglegentiae. </l>
+<l>Sic turpitudo laudis obsedit locum. 
+</l></div2>
+<div2 type="poem" n="14">
+<head>Duo iuvenes sponsi dives et pauper:  Fortunam interdum praeter spem hominibus favere.</head> 
+<l>Unam expetebant virginem iuvenes duo; </l>
+<l>Vicit locuples genus et formam pauperis. </l>
+<l>Ut nuptiarum dictus advenit dies, </l>
+<l>Amans dolorem quia non poterat perpeti, </l>
+<l n="5">Maerens propinquos contulit se in hortulos, </l>
+<l>Quos ultra paulo villa splendida divitis </l>
+<l>Erat acceptura virginem e matris sinu, </l>
+<l>Parum ampla in urbe visa quod fuerat domus. </l>
+<l>Pompa explicatur, turba concurrit frequens, </l>
+<l n="10">Et coniugalem praebet Hymenaeus facem. </l>
+<l>Asellus autem, qui solebat pauperi </l>
+<l>Quaestum referre, stabat portae in limine. </l>
+<l>Illum puellae casu conducunt suae, </l>
+<l>Viae labores teneros ne laedant pedes. </l>
+<l n="15">Repente caelum, Veneris misericordia, </l>
+<l>Ventis movetur, intonat mundi fragor </l>
+<l>Noctemque densis horridam nimbis parat: </l>
+<l>Lux rapitur oculis et simul vis grandinis </l>
+<l>Effusa trepidos passim comites dissipat, </l>
+<l n="20">Sibi quemque cogens petere praesidium fuga. </l>
+<l>Asellus notum proximum tectum subit </l>
+<l>Et voce magna sese venisse indicat.  </l>
+<l>Procurrunt pueri, pulchram aspiciunt virginem </l>
+<l>Et admirantur: deinde domino nuntiant. </l>
+<l n="25">Inter sodales ille paucos accubans </l>
+<l>Amorem crebris avocabat poculis. </l>
+<l>Ubi nuntiatum est, recreatus gaudiis </l>
+<l>Hortante Baccho et Venere, dulces perficit </l>
+<l>Aequalitatis inter plausus nuptias. </l>
+<l n="30">Quaerunt parentes per praeconem filiam; </l>
+<l>Novus maritus coniuge amissa dolet. </l>
+<l>Quid esset actum postquam populo innotuit, </l>
+<l>Omnes favorem comprobarunt caelitum. 
+</l></div2>
+<div2 type="poem" n="15">
+<head>Aesopus et domina:  Quam noceat saepe verum dicere.</head> 
+<l>Aesopus turpi cum serviret feminae, </l>
+<l>Quae se expingendo totum intricaret diem, </l>
+<l>Vestem, uniones, aurum, argentum sumeret, </l>
+<l>Nec inveniret digito qui se tangeret: </l>
+<l n="5">Licetne paucis? inquit&mdash;Dicas.&mdash;Censeo, </l>
+<l>Quidvis efficies, cultum si deposueris.&mdash; </l>
+<l>Adeone per me videor tibi meliuscula?&mdash; </l>
+<l>Immo, nisi dederis, sponda cessabit tua. </l>
+<l>&mdash;At non cessabunt latera respondit tua, </l>
+<l n="10">Et obiurgari iussit servum garrulum. </l>
+<l>Post paulo armillam tollit fur argenteam.  </l>
+<l>Eam non apparere ut dictum est mulieri, </l>
+<l>Furore plena vocat omnes et verbera </l>
+<l>Proponit gravia, verum si non dixerint. </l>
+<l n="15">Aliis minare inquit me non falles, era; </l>
+<l>Flagris sum caesus, verum quia dixi modo. 
+</l></div2>
+<div2 type="poem" n="16">
+<head>Gallus lectica a felibus vectus:  Nimiam securitatem saepe in periculum homines ducere.</head> 
+<l>Feles habebat gallus lecticarios. </l>
+<l>Hunc gloriosum vulpes ut vidit vehi, </l>
+<l>Sic est locuta: Moneo praecaveas dolum; </l>
+<l>Istorum vultus namque si consideras, </l>
+<l n="5">Praedam portare iudices, non sarcinam. 
+<gap/></l>
+<l>Postquam esurire coepit societas fera, </l>
+<l>Discerpsit dominum et fecit partes facinoris. 
+</l></div2>
+<div2 type="poem" n="17">
+<head>Scrofa parturiens et lupus:  Faciendum prius de homine periculum, quam eius te committas fidei.</head> 
+<l>Premente partu scrofa cum gemeret iacens, </l>
+<l>Accurrit lupus et obstetricis partibus  </l>
+<l>Se posse fungi dixit, promittens opem. </l>
+<l>Quae vero nosset pectoris fraudem improbi, </l>
+<l n="5">Suspectum officium repudiavit malefici </l>
+<l>Et: Satis est inquit si recedis longius. </l>
+<l>Quod si perfidiae se commisisset lupi, </l>
+<l>Pari dolore fata deflesset sua. 
+</l></div2>
+<div2 type="poem" n="18">
+<head>Aesopus et servus profugus:  Non esse malo addendum malum.</head> 
+<l>Servus profugiens dominum naturae asperae, </l>
+<l>Aesopo occurrit notus e vicinia. </l>
+<l>Quid tu confusus?&mdash;Dicam tibi clare, pater, </l>
+<l>Hoc namque es dignus appellari nomine, </l>
+<l n="5">Tuto querela quia apud te deponitur. </l>
+<l>Plagae supersunt, desunt mihi cibaria; </l>
+<l>Subinde ad villam mittor sine viatico. </l>
+<l>Domi si cenat, totis persto noctibus, </l>
+<l>Sive est vocatus, iaceo ad lucem in semita. </l>
+<l n="10">Emerui libertatem, canus servio. </l>
+<l>Ullius essem culpae mihi si conscius, </l>
+<l>Aequo animo ferrem; numquam sum factus satur </l>
+<l>Et super infelix saevum patior dominium. </l>
+<l>Has propter causas et quas longum est promere, </l>
+<l n="15">Abire destinavi quo tulerint pedes. </l>
+<l>Ergo inquit audi: cum mali nil feceris,  </l>
+<l>Haec experiris, ut refers, incommoda; </l>
+<l>Quid si peccaris? quae te passurum putas? </l>
+<l>Tali consilio est a fuga deterritus. 
+</l></div2>
+<div2 type="poem" n="19">
+<head>Equus quadrigalis in pistrinum venumdatus:  Ferendum esse aequo animo quicquid acciderit.</head> 
+<l>Equum ex quadriga multis palmis nobilem </l>
+<l>Abegit quidam et in pistrinum vendidit. </l>
+<l>Productus ad bibendum cum foret a molis, </l>
+<l>In circum aequales ire conspexit suos, </l>
+<l n="5">Ut grata ludis redderent certamina. </l>
+<l>Lacrimis obortis: Ite felices ait; </l>
+<l>Celebrate sine me cursu sollemnem diem; </l>
+<l>Ego quo scelesta furis attraxit manus, </l>
+<l>Ibi sorte tristi fata deflebo mea. 
+</l></div2>
+<div2 type="poem" n="20">
+<head>Ursus esuriens.</head> 
+<l>Si quando in silvis urso desunt copiae, </l>
+<l>Scopulosum ad littus currit et prendens petram </l>
+<l>Pilosa crura sensim demittit vado; </l>
+<l>Quorum inter villos simul haeserunt canceres, </l>
+<l n="5">In terram abripiens excutit praedam maris  </l>
+<l>Escaque fruitur passim collecta vafer. </l>
+<l>Ergo etiam stultis acuit ingenium fames. 
+</l></div2>
+<div2 type="poem" n="21">
+<head>Viator et corvus:  Verbis saepenumero homines decipi solere.</head> 
+<l>Quidam per agros devium carpens iter </l>
+<l>Ave exaudivit et moratus paululum, </l>
+<l>Adesse ut vidit neminem, cepit gradum. </l>
+<l>Iterum salutat idem ex occulto sonus. </l>
+<l n="5">Voce hospitali confirmatus restitit, </l>
+<l>Ut quisquis esset par officium reciperet. </l>
+<l>Cum circumspectans errore haesisset diu </l>
+<l>Et perdidisset tempus aliquot milium, </l>
+<l>Ostendit sese corvus et supervolans </l>
+<l n="10">Ave usque ingessit. Tum se lusum intellegens: </l>
+<l>At male tibi sit inquit ales pessime, </l>
+<l>Qui festinantis sic detinuisti pedes. 
+</l></div2>
+<div2 type="poem" n="22">
+<head>Pastor et capella:  Nihil ita occultum esse, quod non reveletur.</head> 
+<l>Pastor capellae cornu baculo fregerat: </l>
+<l>Rogare coepit ne se domino proderet.  </l>
+<l>Quamvis indigne laesa, reticebo tamen; </l>
+<l>Sed res clamabit ipsa quid deliqueris. 
+</l></div2>
+<div2 type="poem" n="23">
+<head>Serpens et lacerta:  Ubi leonis pellis deficit, vulpinam insuendam esse, hoc est, ubi deficiunt vires, astu utendum.</head> 
+<l>Serpens lacertam forte aversam prenderat; </l>
+<l>Quam devorare patula cum vellet gula, </l>
+<l>Arripuit illa prope iacentem surculum, </l>
+<l>Et pertinaci morsu transversum tenens, </l>
+<l n="5">Avidum sollerti rictum frenavit mora. </l>
+<l>Praedam dimisit ore serpens irritam. 
+</l></div2>
+<div2 type="poem" n="24">
+<head>Cornix et ovis:  Multos lacessere debiles et cedere fortibus.</head> 
+<l>Odiosa cornix super ovem consederat; </l>
+<l>Quam dorso cum tulisset invita et diu: </l>
+<l>Hoc inquit si dentato fecisses cani, </l>
+<l>Poenas dedisses. Illa contra pessima: </l>
+<l n="5">Despicio inermes, eadem cedo fortibus; </l>
+<l>Scio quem lacessam, cui dolosa blandiar; </l>
+<l>Ideo senectam mille in annos prorogo.  
+</l></div2>
+<div2 type="poem" n="25">
+<head>Servus et dominus:  Nullum maledictum esse gravius conscientia.</head> 
+<l>Cum servus nequam Socrati malediceret, </l>
+<l>Uxorem domini qui corrupisset sui, </l>
+<l>Idque ille sciret notum circumstantibus: </l>
+<l>Places tibi inquit quia cui non debes places; </l>
+<l n="5">Sed non impune, quia cui debes non places. 
+</l></div2>
+<div2 type="poem" n="26">
+<head>Lepus et bubulcus:  Multos verbis blandos esse, pectore infideles.</head> 
+<l>Cum venatorem celeri pede fugeret lepus </l>
+<l>Et a bubulco visus veprem irreperet: </l>
+<l>Per superos oro perque spes omnes tuas, </l>
+<l>Ne me indices, bubulce; nihil umquam mali </l>
+<l n="5">Huic agro feci. Et rusticus: Ne timueris; </l>
+<l>Late securus. Iamque venator sequens: </l>
+<l>Quaeso, bubulce, numquid huc venit lepus? </l>
+<l>Venit, sed abiit hac ad laevam; et dexteram </l>
+<l>Demonstrat nutu partem. Venator citus </l>
+<l n="10">Non intellexit seque e conspectu abstulit.  </l>
+<l>Tunc sic bubulcus: Ecquid est gratum tibi, </l>
+<l>Quod te celavi? Linguae prorsus non nego </l>
+<l>Habere atque agere maximas me gratias; </l>
+<l>Verum oculis ut priveris opto perfidis. 
+</l></div2>
+<div2 type="poem" n="27">
+<head>Meretrix et iuvenis:  Multa esse nobis iocunda quae tamen sunt incommoda.</head> 
+<l>Cum blandiretur iuveni meretrix perfida, </l>
+<l>Et ille laesus multis saepe iniuriis </l>
+<l>Tamen praeberet sese facilem mulieri, </l>
+<l>Sic insidiatrix: Omnes muneribus licet </l>
+<l n="5">Contendant, ego te plurimi facio tamen. </l>
+<l>Iuvenis recordans quotiens deceptus foret: </l>
+<l>Libenter, inquit, mea lux, hanc vocem audio, </l>
+<l>Non quod fidelis, sed quod iucunda est mihi. 
+</l></div2>
+<div2 type="poem" n="28">
+<head>Fiber.</head> 
+<l>Canes effugere cum iam non possit fiber, </l>
+<l>(Graeci loquaces quem dixerunt castorem </l>
+<l>Et indiderunt bestiae nomen dei, </l>
+<l>Illi qui iactant se verborum copia),  </l>
+<l n="5">Abripere morsu fertur testiculos sibi, </l>
+<l>Quia propter illos sentiat sese peti. </l>
+<l>Divina quod ratione fieri non negem; </l>
+<l>Venator namque simul invenit remedium, </l>
+<l>Omittit ipsum persequi et vocat canes. </l>
+<l n="10">Hoc si praestare possent homines, ut suo </l>
+<l>Vellent carere, tuti posthac viverent; </l>
+<l>Haud quisquam insidias nudo faceret corpori. 
+</l></div2>
+<div2 type="poem" n="29">
+<head>Papilio et vespa:  Non praeteritam sed praesentem aspiciendam esse fortunam.</head> 
+<l>Papilio vespam praetervolitans viderat. </l>
+<l>O sortem iniquam! dum vivebant corpora, </l>
+<l>Quorum ex reliquiis animam nos accepimus, </l>
+<l>Ego eloquens in pace, fortis proeliis, </l>
+<l n="5">Arte omni princeps inter aequales fui. </l>
+<l>En cuncta: levitas putris et volito cinis! </l>
+<l>Tu qui fuisti mulus clitellarius, </l>
+<l>Quemcumque visum est laedis infixo aculeo. </l>
+<l>Et vespa dignam moribus vocem edidit: </l>
+<l n="10">Non qui fuerimus, sed qui nunc simus vide.  
+</l></div2>
+<div2 type="poem" n="30">
+<head>Terraneola et vulpes:  Pravis non esse fidem adhibendam.</head> 
+<l>Avis quam dicunt terraneolam rustici, </l>
+<l>In terra nidum quia componit scilicet, </l>
+<l>Forte occucurrit improbae vulpeculae; </l>
+<l>Qua visa, pennis altius se sustulit. </l>
+<l n="5">Salve inquit illa cur me fugisti, obsecro? </l>
+<l>Quasi non abunde sit mihi in prato cibus, </l>
+<l>Grilli, scarabaei, locustarum copia: </l>
+<l>Nihil est quod metuas: ego te multum diligo </l>
+<l>Propter quietos mores et vitam probam. </l>
+<l n="10">Respondit contra: Tu quidem bene praedicas; </l>
+<l>In campo non sum, sed par sub divo tibi. </l>
+<l>Quin sequere: salutem tibi non committo meam. 
+</l></div2>
+<div2 type="poem" n="epilogus">
+<head>Epilogus</head>
+<l>Hoc qualecumque est Musa quod ludit mea,</l>
+<l>Nequitia pariter laudat et frugalitas,</l>
+<l>Sed haec simpliciter;  illa tacite irascitur.</l></div2></div1>
+</body>
+</text>
+</TEI.2>

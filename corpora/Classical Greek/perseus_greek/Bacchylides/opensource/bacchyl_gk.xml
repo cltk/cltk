@@ -1,0 +1,1885 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersVerse PUBLIC "-//Perseus P4//DTD Perseus Verse//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersVerse.dtd" >
+%PersVerse;
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+
+<TEI.2>
+	<teiHeader status="new" type="text">		
+		<fileDesc>			
+			<titleStmt>
+				<title>Odes (Greek)</title>
+				<author>Bacchylides</author>
+				&responsibility;
+				&fund.AnnCPB;
+			</titleStmt>			
+			<extent>About 73K</extent>			
+			&Perseus.publish;			
+			<notesStmt><note anchored="yes">The text was entered in the Philippines.  Basic SGML tagging by EM</note></notesStmt>
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Bacchylides</author>
+						<title>The Poems and Fragments</title>
+						<imprint><publisher>Cambridge University Press</publisher>
+							<date>1905</date></imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>			
+		</fileDesc>		
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state unit="book"/>
+				<state unit="poem"/>
+				<!--<state unit="line"/>-->
+			</refsDecl>
+		</encodingDesc>		
+		<profileDesc>
+			<langUsage>
+				<language id="greek">Greek</language>
+				<language id="en">English</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change>
+				<date>8/14/92</date><respStmt><name>EM</name><resp>(n/a)</resp></respStmt><item>Did initial tagging, added header. Also added some strophes from Maehler that Jebb doesn't have. Ode 1, 1st 5 strophes. Ode 12, last 2 strophes.</item>
+			</change>
+			<change>
+				<date>4/93</date><respStmt><name>WPM</name><resp>(n/a)</resp></respStmt><item>Removed capital letters, filled in speaker tages in ode 18.</item>
+			</change>
+			<change>
+				<date>4/27/93</date><respStmt><name>EM</name><resp>(n/a)</resp></respStmt><item>Added most of Ode 14b, which is missing in Jebb, and which the Svarlien translation has. Edited the notes so they were full sentences.</item>
+			</change>
+			<change><date>5/27/09</date><respStmt><name>RS</name><resp>(n/a)</resp></respStmt>
+				<item>  
+					$Log: bacchyl_gk.xml,v $
+					Revision 1.1  2009-10-08 19:13:29  rsingh04
+					began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+					Revision 1.4  2009/05/27 15:55:16  rsingh04
+					added cvs log keyword
+
+				</item>
+			</change>
+		</revisionDesc>		
+	</teiHeader>
+	
+	<text><body>
+		<div1 n="Ep" type="Book"><head lang="en">Epinicians</head>
+			<div2 n="1" type="poem">
+				<head>
+					<title lang="en">Ode 1</title>
+					<persName type="winner">&lt;*)argei=w| *kei=w|</persName>
+					<seg type="race">*paidi/ *pu/kth| *)/isqmia&gt;</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>klutofo/rmigges *d?[io\s u(-</l>
+				<l>yime/dontos parqe/noi</l>
+				<l>&macr;&breve;&breve;*pi]e?ri/des</l>
+				<l>&macr;&macr;]enufai[&breve;&breve;&macr;&macr;</l>
+				<l n="5">&macr;&breve;&breve;]o?us i(/na k[&macr;</l>
+				<l>&macr;&macr;&breve;]gai/as *)isqmi/[as</l>
+				<l>&macr;&macr;&breve;]n, eu)bou/lou n?[&breve;&macr;</l>
+				<l>&macr;&breve;gam]bro\n *nhre/[os</l>
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>!&breve;!!&breve;!&macr;!] na/soio/ t' e)u+-</l>
+				<l n="10">!!&breve;!!&breve;!!] an, e)/nq?[&macr;&breve;&macr;</l>
+				<gap/>
+				<l n="13">w)= *pe/lopos lipara=s</l>
+				<l>na/sou qeo/dmatoi pu/lai</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">2 lines missing at the end of ant. 1, 2 at the beginning of ep. 1.</note>
+				<milestone n="epode 1" unit="strophe"/>
+				<l n="19">&macr;&breve;&macr;&macr;&macr;&breve;u(f' a(/r]m?asin i(/ppous</l>
+				<l n="20">oi( de\ p]e/?t?onto ![&breve;&macr;&macr;</l>
+				<l>&macr;&breve;&macr;&macr;]essin a)n[drw=n</l>
+				<l>&macr;&breve;&breve;&macr;&breve;]ton au)t[&macr;</l>
+				<l>&macr;&breve;&macr;]a)/llaisin[&macr;&macr;&macr;&breve;&macr;&macr;</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">Str., ant. and epode 3 are extremely fragmentary.</note>
+				<milestone n="str. 3" unit="strophe"/>
+				<l n="47">&breve;&breve;&macr;&macr;&macr;]n? puk[in&macr;</l>
+				<l>&breve;&breve;&macr;&macr;]goi\ ko/r?[ai</l>
+				<l>&macr;&breve;&breve;&macr;]agor&amacr;</l>
+				<l n="50">&macr;&macr;]o? meli/fronos u(/p?[nou</l>
+				<l>&macr;&breve;&breve;a(met[e/ran</l>
+				<l>&macr;&macr;&breve; a)?r]x?a?i/an po/lin</l>
+				<l>&macr;&macr;&breve;&macr;&macr;]g?oimen oi)/-</l>
+				<l>kous e)p']a)?nd?h/rois a(lo/s</l>
+				
+				<milestone n="ant. 3" unit="strophe"/>
+				<l n="55">u(po/ t' a]u)?gai=s a)eli?o?u</l>
+				<note lang="en" resp="P" type="Text" anchored="yes">6 lines at the end of ant. 3 and all of epode 3 are lost.</note>
+				<milestone n="str. 4" unit="strophe"/>
+				<gap/>
+				<l n="72">&macr;&breve;&breve;&macr;]sago/rai</l>
+				<l>&macr;&macr;*ma]k?elw\ de\ t[&breve;&macr;&macr;</l>
+				<l>&macr;&breve;fil]&amacr;la/katos,</l>
+				<l n="75">&macr;&macr;]d' e)p' eu)nah= [po/ron</l>
+				<l>&macr;&macr;]a: prosfw/nei te/ nin</l>
+				<l>&macr;&breve;&macr;]sai/nous' o)pi/:</l>
+				
+				<milestone n="ant. 4" unit="strophe"/>
+				<l>&breve;&breve;&macr;&macr;m]e\n ste/romai</l>
+				<l>&breve;&breve;a)m]fa/kei du/a|</l>
+				<l n="80">&macr;&breve;&breve;&macr;p]eni/a|</l>
+				<l>&macr;&macr;&breve;&breve;&macr;]!get[!] pa/mpa[n</l>
+				<l>&macr;&breve;&breve;&macr;&breve;&breve;]a?s</l>
+				<l>&macr;&macr;&breve;&macr;&macr;&macr;]omoi</l>
+				<note lang="en" resp="P" type="Text" anchored="yes"> 2 lines lost.</note>
+				
+				<milestone n="ep. 5" unit="strophe"/>
+				<gap/>
+				<l> &macr; &breve;]afqe[ &macr; &breve; &times; &macr; &breve; &breve; &macr; &macr;</l>
+				<l> ! ! s: trita/ta| me[&breve; &macr; &macr;</l>
+				<l>a(me/ra| *mi/nws a)r[h=|o]s</l>
+				<l>h)/luqen ai)olopru/mnois</l>
+				<l n="115">nausi\ penth/konta su\n *krhtw=n o(mi/lw|:</l>
+				
+				<milestone n="str. 6" unit="strophe"/>
+				<l>*dio\s eu)klei/ou de\ ve/ka-</l>
+				<l> ti baqu/zwnon ko/ran</l>
+				<l>*deciqe/an da/masen:</l>
+				<l> kai/ voi li/pen h(/misu law=n,</l>
+				<l n="120">a)/ndras a)rhi+fi/lous,</l>
+				<l> toi=sin polu/krhmnon xqo/na</l>
+				<l>nei/mas a)popl<seg type="sling">e/w</seg>n w)/|xet' e)s</l>
+				<l> *knwso\n i(merta\n po/lin</l>
+				
+				<milestone n="ant. 6" unit="strophe"/>
+				<l>basileu\s *eu)rwpia/das:</l>
+				<l n="125">deka/tw| d' *eu)ca/ntion</l>
+				<l>mhni\ te/]k' eu)plo/k[amos</l>
+				<l> nu/mfa fer]ekude/[i+ na/sw|</l>
+				<l> &macr; &breve; &breve; &macr;]pru/ta[nin</l>
+				<l> dn</l>
+				
+				<milestone n="ep. 6" unit="strophe"/>
+				<gap/>
+				<l n="138">a)/lla]can qu/gatres</l>
+				
+				<milestone n="str. 7" unit="strophe"/>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 1</note>
+				<l>po/l[in &macr; &macr; &macr;]n baqudei/-</l>
+				<l n="140">elon: [e)k ta=]s me\n ge/nos</l>
+				<l>e)/ple[to karte]ro/xeir</l>
+				<l> *)argei=os [&breve; &macr; &breve;] le/ontos</l>
+				<l>qumo\[n e)/xwn], o(po/te</l>
+				<l> xrei=[o/s ti sum]boloi= ma/xas,</l>
+				<l n="145">possi/[n t' e)la]fro/[s, p]atri/wn</l>
+				<l> t' ou)k [a)po/klaros k]alw=n,</l>
+				
+				<milestone n="ant. 7" unit="strophe"/>
+				<l>to/sa *pan[qei/da| kluto/]to-</l>
+				<l> cos *)apo/[llwn w)/pase]n,</l>
+				<l>a)mfi/ t' i)atori/a|</l>
+				<l n="150">cei/nwn te fila/nori tima=|:</l>
+				<l>eu)= de\ laxw\n *xari/twn</l>
+				<l> polloi=s te qaumasqei\s brota=n</l>
+				<l>ai)w=n' e)/lusen, pe/nte pai=-</l>
+				<l> das megainh/tous lipw/n.</l>
+				
+				<milestone n="ep. 7" unit="strophe"/>
+				<l n="155">tw=n e(/na voi *kroni/das</l>
+				<l> u(yi/zugos *)isqmio/nikon</l>
+				<l>qh=ken a)nt' eu)ergesia=n, liparw=n t' a)/l-</l>
+				<l>lwn stefa/nwn e)pi/moiron.</l>
+				<l>fami\ kai\ fa/sw me/giston</l>
+				<l n="160">ku=dos e)/xein a)reta/n, plou=-</l>
+				<l> tos de\ kai\ deiloi=sin a)nqrw/pwn o(milei=,</l>
+				
+				<milestone n="str. 8" unit="strophe"/>
+				<l>e)qe/lei d' au)/cein fre/nas a)n-</l>
+				<l> dro/s: o( d' eu)= e)/rdwn qeou\s</l>
+				<l>e)lpi/di kudrote/ra|</l>
+				<l n="165">sai/nei ke/ar: ei) d' u(giei/as</l>
+				<l>qnato\s e)w\n e)/laxen,</l>
+				<l> zw/ein t' a)p' oi)kei/wn e)/xei,</l>
+				<l>prw/tois e)ri/zei: panti/ toi</l>
+				<l> te/ryis a)nqrw/pwn bi/w|</l>
+				
+				<milestone n="ant. 8" unit="strophe"/>
+				<l n="170">e(/petai no/sfin ge no/swn</l>
+				<l> peni/as t' a)maxa/nou.</l>
+				<l>i)=son o(/ t' a)fneo\s i(-</l>
+				<l> mei/rei mega/lwn o(/ te mei/wn</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 2</note>
+				<l>paurote/rwn: to\ de\ pa/n-</l>
+				<l n="175">twn eu)marei=n ou)de\n gluku\</l>
+				<l>qnatoi=sin, a)ll' ai)ei\ ta\ feu/-</l>
+				<l> gonta di/zhntai kixei=n.</l>
+				
+				<milestone n="ep. 8" unit="strophe"/>
+				<l>o(/ntina koufo/tatai</l>
+				<l> qumo\n done/ousi me/rimnai,</l>
+				<l n="180">o(/sson a)\n zw/h| la/xe to/nde xro/non ti-</l>
+				<l> ma/n: a)reta\ d' e)pi/moxqos</l>
+				<l>me/n, te]leutaqei=sa d' o)rqw=s</l>
+				<l>a)ndri\ k]ai\ eu)=te qa/nh| lei/-</l>
+				<l> pei po]luzh/lwton eu)klei/as a)/galma.</l></div2>
+			
+			
+			<div2 n="2" type="poem">
+				<head>
+					<title lang="en">Ode 2</title>
+					<persName type="winner">*tw=| *au)tw=|</persName>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>a)/[i+cen a(] semnodo/teira *fh/ma</l>
+				<l>e)s *ke/on i(era/n, xaritw/-</l>
+				<l> numon fe/rous' a)ggeli/an,</l>
+				<l> o(/ti m[a/x]as qrasu/xeiros *)ar-</l>
+				<l n="5">gei=os a)/rato ni/kan:</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>kalw=n d' a)ne/mnasen, o(/s' e)n kleennw=|</l>
+				<l>au)xe/ni visqmou= zaqe/an</l>
+				<l> lipo/ntes *eu)canti/da na=-</l>
+				<l> son e)pedei/camen e(bdomh/-</l>
+				<l n="10">konta su\n stefa/noisin.</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>kalei= de\ *mou=s' au)qigenh\s</l>
+				<l> glukei=an au)lw=n kanaxa/n,</l>
+				<l> gerai/rous' e)piniki/ois</l>
+				<l> *panqei/da fi/lon ui(o/n.</l></div2>
+			
+			
+			<div2 n="3" type="poem">
+				<head>
+					<title lang="en">Ode 3</title>
+					<persName type="winner">*(ie/rwni *surakosi/w|</persName>
+					<seg type="race">*(/ippois *)olu/mpia.</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>a)ristoka/rpou *sikeli/as kre/ousan</l>
+				<l>*da/matra vioste/fano/n te kou/ran</l>
+				<l>u(/mnei, gluku/dwre *kleioi=, qoa/s t' *)o-</l>
+				<l> lumpiodro/mous *(ie/rwnos i(/ppous.</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l n="5">seu/on]to ga\r su\n u(pero/xw| te *ni/ka|</l>
+				<l>su\n *)ag]lai/+a| te par' eu)rudi/nan</l>
+				<l>*)alf<seg type="sling">eo/</seg>n, to/qi *d]einome/n<seg type="sling">eo</seg>s e)/qhkan</l>
+				<l> o)/lbion [go/non stefa/nw]n kurh=sai.</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>qro/hse de\ l[ao\s a)pei/rwn:</l>
+				<l n="10">a)= triseudai/m[wn a)nh/r,</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 3</note>
+				<l>o(\ para\ *zhno\s laxw\n</l>
+				<l> plei/starxon *(ella/nwn ge/ras</l>
+				<l>oi)=de purgwqe/nta plou=ton mh\ melam-</l>
+				<l>fare/i+ kru/ptein sko/tw|.</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l n="15">bru/ei me\n i(era\ bouqu/tois e(ortai=s,</l>
+				<l>bru/ousi filoceni/as a)guiai/:</l>
+				<l>la/mpei d' u(po\ marmarugai=s o( xruso\s</l>
+				<l> u(yidaida/ltwn tripo/dwn staqe/ntwn</l>
+				
+				<milestone n="ant. 2" unit="strophe"/>
+				<l>pa/roiqe naou=, to/qi me/giston a)/lsos</l>
+				<l n="20">*foi/bou para\ *kastali/as r(ee/qrois</l>
+				<l>*delfoi\ die/pousi. qeo/n, qeo/n tis</l>
+				<l> a)glai+ze/t<seg type="sling">w, o(</seg> ga\r a)/ristos o)/lbwn.</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l>e)pei/ pote kai\ damasi/ppou</l>
+				<l> *ludi/as a)rxage/tan,</l>
+				<l n="25">eu)=te ta\n pep[rwme/nan</l>
+				<l> *zhno\s tele[iou=sai kri/sin</l>
+				<l>*sa/rdies *persa=[n e)porqeu=nto str]atw=|,</l>
+				<l> *kroi=son o( xrusa/[oros</l>
+				
+				<milestone n="str. 3" unit="strophe"/>
+				<l>fu/lac' *)apo/llwn. [o( d' e)s a)/]elpton a)=mar</l>
+				<l n="30">molw\n polud[a/kruon] ou)k e)/melle</l>
+				<l>mi/mnein e)/ti d[oulosu/]nan: pura\n de\</l>
+				<l> xalkoteixe/os p[ropa/roi]qen au)[la=s</l>
+				
+				<milestone n="ant. 3" unit="strophe"/>
+				<l>nah/sat', e)/nqa su\[n a)lo/xw|] te kedna=|</l>
+				<l>su\n eu)ploka/mois t' e)pe/bain' a)/la[ston</l>
+				<l n="35">qugatra/si durome/nais: xe/ras d' e)s</l>
+				<l> ai)pu\n ai)qe/ra sfete/ras a)ei/ras</l>
+				
+				<milestone n="ep. 3" unit="strophe"/>
+				<l>ge/gw]nen: u(pe/rbie dai=mon,</l>
+				<l> pou= qew=n e)stin xa/ris;</l>
+				<l>pou= de\ *latoi/das a)/nac;</l>
+				<l n="40">pi/tnous]in *)alua/tta do/moi,</l>
+				<l>&macr;&breve;&macr;&times;&macr;&breve;&macr;&times;] muri/wn</l>
+				<l> &macr;&breve;&macr;&times;&macr;&breve;&macr;]n;</l>
+				
+				<milestone n="str. 4" unit="strophe"/>
+				<!-- schema is x - uu x uu u - u - x.  use two shorts instead of "resolv" for now  -->
+				<l>&times;&macr;&breve;&breve;&times;&breve;&breve;&breve;&macr;&breve;]n a)/stu,</l>
+				<l>foini/ssetai ai(/mati xruso]di/nas</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 4</note>
+				<l n="45">*paktwlo/s: a)eikeli/ws gunai=kes</l>
+				<l> e)c e)u+kti/twn mega/rwn a)/gontai:</l>
+				
+				<milestone n="ant. 4" unit="strophe"/>
+				<l>ta\ pro/sqe d' e)xqra\ fi/la: qanei=n glu/kiston.</l>
+				<l>to/s' ei)=pe, kai\ a(broba/tan ke/leusen</l>
+				<l>a(/ptein cu/linon do/mon. e)/[klag]on de\</l>
+				<l n="50">parqe/noi, fi/las t' a)na\ matri\ xei=ras</l>
+				
+				<milestone n="ep. 4" unit="strophe"/>
+				<l>e)/ballon: o( ga\r profanh\s qna-</l>
+				<l> toi=sin e)/xqistos fo/nwn:</l>
+				<l>a)ll' e)pei\ deinou= puro\s</l>
+				<l> lampro\n dia/i+[ssen me/]nos,</l>
+				<l n="55">*zeu\s e)pista/sa[s melagkeu]qe\s ne/fos</l>
+				<l> sbe/nnuen canqa\[n flo/ga.</l>
+				
+				<milestone n="str. 5" unit="strophe"/>
+				<l>a)/piston ou)de/n, o(/ ti q[ew=n me/]rimna</l>
+				<l>teu/xei: to/te *dalogenh\s *)apo/llwn</l>
+				<l>fe/rwn e)s *(uperbore/ous ge/ronta</l>
+				<l n="60">su\n tanisfu/rois kate/nasse kou/rais</l>
+				
+				<milestone n="ant. 5" unit="strophe"/>
+				<l>di) eu)se/beian, o(/ti me/gista qnatw=n.</l>
+				<l>e)s a)gaqe/an a)ne/pemye *puqw/.</l>
+				<l>o(/soi ge me\n *(ella/d' e)/xousin, ou)/ti[s,</l>
+				<l> w)= megai/nhte *(ie/rwn, qelh/sei</l>
+				
+				<milestone n="ep. 5" unit="strophe"/>
+				<l n="65">fa/m]en se/o plei/ona xruso\n</l>
+				<l> *loci/]a| pe/myai brotw=n.</l>
+				<l>eu)= le/g]ein pa/restin, o(/s-</l>
+				<l> tis mh\ fqo/nw| piai/netai,</l>
+				<l>qeofi]lh= fi/lippon a)/ndr' a)rh/i+on,</l>
+				<l n="70">teqm]i/ou ska=ptron *dio\s</l>
+				
+				<milestone n="str. 6" unit="strophe"/>
+				<l>i)oplo/]kwn te me/ro[s e)/xont]a *mousa=n:</l>
+				<l>w(s d' e)n] *male/a| pote/, [xei=ma dai/]mwn</l>
+				<l>e)p' e)/q]nos e)fa/meron a[i)=y' i(/hsi.</l>
+				<l> kai/ri]a skopei=s: brax[u\s a)/mmin ai)w/n:</l>
+				
+				<milestone n="ant. 6" unit="strophe"/>
+				<l n="75">dolo/]essa d' e)lpi\s u(p[o\ ke/ar de/duken</l>
+				<l> e)fam]eri/wn: o( d' a)/nac [*)apo/llwn</l>
+				<l>o( bouko/]los ei)=pe *fe/rh[tos ui(=i:</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 5</note>
+				<l>qnato\n eu)=nta xrh\ didu/mous a)e/cein</l>
+				
+				<milestone n="ep. 6" unit="strophe"/>
+				<l>gnw/mas, o(/ti t' au)/rion o)/y<seg type="sling">ea</seg>i</l>
+				<l n="80">mou=non a(li/ou fa/os,</l>
+				<l>xw(/ti penth/kont' e)/t<seg type="sling">ea</seg></l>
+				<l> zwa\n baqu/plouton telei=s.</l>
+				<l>o(/sia drw=n eu)/fraine qumo/n: tou=to ga\r</l>
+				<l> kerde/wn u(pe/rtaton.</l>
+				
+				<milestone n="str. 7" unit="strophe"/>
+				<l n="85">fron<seg type="sling">e/o</seg>nti suneta\ garu/w: baqu\s me\n</l>
+				<l>ai)qh\r a)mi/antos: u(/dwr de\ po/ntou</l>
+				<l>ou) sa/petai: eu)frosu/na d' o( xruso/s:</l>
+				<l> a)ndri\ d' ou) qe/mis, polio\n p[ar]e/nta</l>
+				
+				<milestone n="ant. 7" unit="strophe"/>
+				<l>gh=ras, qa/leian au)=tis a)gkomi/ssai</l>
+				<l n="90">h(/ban. a)reta=[s ge m]e\n ou) minu/qei</l>
+				<l>brotw=n a(/ma s[w/ma]ti fe/ggos, a)lla\</l>
+				<l> *mou=sa/ nin tr[e/fei]. *(ie/rwn, su\ d' o)/lbou</l>
+				
+				<milestone n="ep. 7" unit="strophe"/>
+				<l>ka/llist' e)ped[ei/c]ao qnatoi=s</l>
+				<l> a)/nqea: pra/ca[nti] d' eu)=</l>
+				<l n="95">ou) fe/rei ko/smon siw-</l>
+				<l> pa/: su\n d' a)laqei/a| kalw=n</l>
+				<l>kai\ meliglw/ssou tis u(mnh/sei xa/rin</l>
+				<l> *khi/+as a)hdo/nos.</l></div2>
+			
+			
+			<div2 n="4" type="poem">
+				<head>
+					<title lang="en">Ode 4</title>
+					<persName type="winner">*tw=| *au)tw=|</persName>
+					<seg type="race">&lt;*(/ippois&gt; *pu/qia.</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>e)/ti *surakosi/an filei=</l>
+				<l> po/lin o( xrusoko/mas *)apo/llwn,</l>
+				<l>a)stu/qemi/n q' *(ie/rwna gerai/rei:</l>
+				<l>tri/ton ga\r par' o)mfa]lo\n u(yidei/rou xqono\s</l>
+				<l n="5">*puqio/nik[os a)ei/de]tai</l>
+				<l> w)kupo/d[wn a)reta=] su\n i(/ppwn.</l>
+				<l>e/?[!!!!] a(dueph\s a)[na-</l>
+				<l>cifo/r]miggos *our[an]i/as a)le/ktwr</l>
+				<l>!!!!!!]en: a)ll' e(k[o/n]ti no/w|,</l>
+				<l n="10">!!!!!o]us e)pe/seis?en u(/mnous</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>e)/ti de\ te/]traton ei)/ tis or- </l>
+				<l> !!!!!!!]ei(/lke *di/k]as ta/lan[ton</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 6</note>
+				<l>*deinome/n<seg type="sling">eo/</seg>s k' e)gera[i/ro]men ui(o/n.</l>
+				<l>pa/resti/n nin a)gxia/lois[i *kri/s]as muxoi=s</l>
+				<l n="15">mou=non e)pixqoni/wn ta/de</l>
+				<l> mhsa/menon stefa/nois e)re/ptein</l>
+				<l>du/o t' *)olumpioni/kas</l>
+				<l>a)ei/dein. ti/ fe/rteron h)\ qeoi=sin</l>
+				<l>fi/lon e)o/nta panto[da]pw=n</l>
+				<l n="20">lagxa/nein a)/po moi=ra[n e)s]qlw=n;</l></div2>
+			
+			
+			<div2 n="5" type="poem">
+				<head>
+					<title lang="en">Ode 5</title>
+					<persName type="winner">&lt;*tw=| *au)tw=|</persName>
+					<seg type="race">*ke/lhti *olu/mpia.&gt;</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>eu)/moire *surakosi/wn</l>
+				<l> i(ppodinh/twn stratage/,</l>
+				<l>gnw/sei me\n i)ostefa/nwn</l>
+				<l> *moisa=n gluku/dwron a)/galma, tw=n ge nu=n</l>
+				<l n="5">ai)/ tis e)pixqoni/wn,</l>
+				<l> o)rqw=s: fre/na d' eu)qu/dikon</l>
+				<l>a)tre/m' a)mpau/sas merimna=n</l>
+				<l> deu=r' e)pa/qrhson no/w|,</l>
+				<l> h(=| su\n *xari/tessi baquzw/nois u(fa/nas</l>
+				<l n="10">u(/mnon a)po\ zaqe/as</l>
+				<l>na/sou ce/nos u(mete/ran pe/m-</l>
+				<l> pei kleenna\n e)s po/lin,</l>
+				<l>xrusa/mpukos *ou)rani/as klei-</l>
+				<l> no\s qera/pwn: e)qe/lei de\</l>
+				<l n="15">ga=run e)k sthq<seg type="sling">e/w</seg>n xe/wn</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>ai)nei=n *(ie/rwna. baqu\n</l>
+				<l> d' ai)qe/ra couqai=si ta/mnwn</l>
+				<l>u(you= pteru/gessi taxei/-</l>
+				<l> ais ai)eto\s eu)rua/naktos a)/ggelos</l>
+				<l n="20">*zhno\s e)risfara/gou</l>
+				<l> qarsei= kratera=| pi/sunos</l>
+				<l>i)sxu/i+, pta/ssonti d' o)/rni-</l>
+				<l> xes ligu/fqoggoi fo/bw|:</l>
+				<l>ou)/ nin korufai\ mega/las i)/sxousi gai/as,</l>
+				<l n="25">ou)d' a(lo\s a)kama/tas</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 7</note>
+				<l>duspai/pala ku/mata: nwma=-</l>
+				<l> tai d' e)n a)tru/tw| xa/ei</l>
+				<l>lepto/trixa su\n zefu/rou pnoi-</l>
+				<l> ai=sin e)/qeiran a)ri/gnw-</l>
+				<l n="30">tos met' a)nqrw/pois i)dei=n:</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>tw\s nu=n kai\ e)moi\ muri/a pa/nta| ke/leuqos</l>
+				<l> u(mete/ran a)reta\n</l>
+				<l>u(mnei=n, kuanoploka/mou q' e(/kati *ni/kas</l>
+				<l>xalkeoste/rnou t' *)/arhos,</l>
+				<l n="35">*deinome/neus a)ge/rw-</l>
+				<l> xoi pai=des: eu)= e)/rdwn de\ mh\ ka/moi qeo/s.</l>
+				<l>canqo/trixa me\n *fere/nikon</l>
+				<l> *)alfeo\n par' eu)rudi/nan</l>
+				<l> pw=lon a)ellodro/man</l>
+				<l n="40">ei)=de nika/santa xruso/paxus *)aw/s,</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>*puqw=ni/ t' e)n a)gaqe/a|:</l>
+				<l> ga=| d' e)piskh/ptwn pifau/skw:</l>
+				<l>ou)/pw nin u(po\ prote/rwn</l>
+				<l> i(/ppwn e)n a)gw=ni kate/xranen ko/nis</l>
+				<l n="45">pro\s te/los o)rnu/menon:</l>
+				<l> r(ipa=| ga\r i)/sos bore/a</l>
+				<l>o(\n kubernh/tan fula/sswn</l>
+				<l> i(/etai neo/kroton</l>
+				<l>ni/kan *(ie/rwni filocei/nw| titu/skwn.</l>
+				<l n="50">o)/lbios w(=|tini q<seg type="sling">eo\</seg>s</l>
+				<l>moi=ra/n te kalw=n e)/poren</l>
+				<l> su/n t' e)pizh/lw| tu/xa|</l>
+				<l>a)fn<seg type="sling">eo\</seg>n biota\n dia/gein: ou)</l>
+				<l> ga/r tis e)pixqoni/wn</l>
+				<l n="55">pa/nta g' eu)dai/mwn e)/fu.</l>
+				
+				<milestone n="ant. 2" unit="strophe"/>
+				<l>kai\ ma/n p]ot' e)reiyipu/lan</l>
+				<l> pai=d' a)ni/k]aton le/gousin</l>
+				<l>du=nai *dio\s] a)rgikerau/-</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 8</note>
+				<l> nou dw/mata *fersefo/nas tanisfu/rou,</l>
+				<l n="60">karxaro/donta ku/n' a)/-</l>
+				<l> cont' e)s fa/os e)c *)ai/+da,</l>
+				<l>ui(o\n a)pla/toi' *)exi/dnas:</l>
+				<l> e)/nqa dusta/nwn brotw=n</l>
+				<l>yuxa\s e)da/h para\ *kwkutou= r(ee/qrois,</l>
+				<l n="65">oi(=a/ te fu/ll' a)/nemos</l>
+				<l>*)/idas a)na\ mhlobo/tous</l>
+				<l> prw=nas a)rghsta\s donei=.</l>
+				<l>tai=sin de\ mete/prepen ei)/dw-</l>
+				<l> lon qrasume/mnonos e)g-</l>
+				<l n="70">xespa/lou *porqani/da:</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l>to\n d' w(s i)/den *)alkmh/nios qaumasto\s h(/rws</l>
+				<l> teu/xesi lampo/menon,</l>
+				<l>neura\n e)pe/base liguklaggh= korw/nas,</l>
+				<l> xalkeo/kranon d' e)/peit' e)c-</l>
+				<l n="75">ei/leto vio\n a)na-</l>
+				<l>ptu/cas fare/tras pw=ma: tw=| d' e)nanti/a</l>
+				<l>yuxa\ profa/nh *melea/grou</l>
+				<l> kai/ nin eu)= ei)dw\s prosei=pen:</l>
+				<l> ui(e\ *dio\s mega/lou,</l>
+				<l n="80">sta=qi/ t' e)n xw/ra|, gelanw/sas te qumo/n</l>
+				
+				<milestone n="str. 3" unit="strophe"/>
+				<l>mh\ tau/+sion proi/+ei</l>
+				<l> traxu\n e)k xeirw=n o)i+sto\n</l>
+				<l>yuxai=sin e)/pi fqime/nwn:</l>
+				<l> ou)/toi de/os. w(\s fa/to: qa/mbhsen d' a)/nac</l>
+				<l n="85">*)amfitruwnia/das,</l>
+				<l> ei)=pe/n te: ti/s a)qana/twn</l>
+				<l>h)\ brotw=n toiou=ton e)/rnos</l>
+				<l> qre/yen e)n poi/a| xqoni/;</l>
+				<l>ti/s d' e)/ktanen ; h)= ta/xa kalli/zwnos *(/hra</l>
+				<l n="90">kei=non e)f' a(mete/ra|</l>
+				<l>pe/myei kefala=|: ta\ de/ pou</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 9</note>
+				<l> *palla/di canqa=| me/lei.</l>
+				<l>to\n de\ prose/fa *mele/agros</l>
+				<l> dakruo/eis: xalepo\n</l>
+				<l n="95">q<seg type="sling">ew=</seg>n paratre/yai no/on</l>
+				
+				<milestone n="ant. 3" unit="strophe"/>
+				<l>a)/ndressin e)pixqoni/ois.</l>
+				<l> kai\ ga\r a)\n pla/cippos *oi)neu\s</l>
+				<l>pau=sen kalukostefa/nou</l>
+				<l> semna=s xo/lon *)arte/midos leukwle/nou</l>
+				<l n="100">lisso/menos pole/wn</l>
+				<l> t' ai)gw=n qusi/aisi path\r</l>
+				<l>kai\ bow=n foinikonw/twn:</l>
+				<l> a)ll' a)ni/katon qea\</l>
+				<l>e)/sxen xo/lon: eu)rubi/an d' e)/sseue kou/ra</l>
+				<l n="105">ka/pron a)naidoma/xan</l>
+				<l>e)s kalli/xoron *kaludw=-</l>
+				<l> n', e)/nqa plhmu/rwn sqe/nei</l>
+				<l>o)/rxous e)pe/keiren o)do/nti,</l>
+				<l>sfa/ze te mh=la, brotw=n</l>
+				<l n="110">q' o(/stis ei)sa/ntan mo/loi.</l>
+				
+				<milestone n="ep. 3" unit="strophe"/>
+				<l>tw=| de\ stugera\n dh=rin *(ella/nwn a)/ristoi</l>
+				<l> stasa/meq' e)nduke/ws</l>
+				<l>e(\c a)/mata sunexe/ws: e)pei\ de\ dai/mwn</l>
+				<l> ka/rtos *ai)twloi=s o)/recen,</l>
+				<l n="115">qa/ptomen ou(\s kate/pe-</l>
+				<l> fnen su=s e)ribru/xas e)pai/+sswn bi/a|,</l>
+				<l>*)agkai=on e)mw=n t' *)age/laon</l>
+				<l> f[e/rt]aton kednw=n a)delf<seg type="sling">ew=</seg>n,</l>
+				<l> ou(\s te/]ken e)n mega/rois</l>
+				<l n="120">patro\]s *)alqai/a perikleitoi=sin *oi)ne/os:</l>
+				
+				<milestone n="str. 4" unit="strophe"/>
+				<l>tw=n d' w)/]lese moi=r' o)loa\</l>
+				<l> pleu=na]s: ou) ga/r pw dai/+frwn</l>
+				<l>pau=sen] xo/lon a)grote/ra</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 10</note>
+				<l> *latou=s quga/thr: peri\ d' ai)/qwnos dora=s</l>
+				<l n="125">marna/meq' e)nduke/ws</l>
+				<l> *kourh=si meneptole/mois:</l>
+				<l>e)/nq' e)gw\ polloi=s su\n a)/llois</l>
+				<l> *)/ifiklon kate/ktanon</l>
+				<l>e)sqlo/n t' *)afa/rhta, qoou\s ma/trwas: ou) ga\r</l>
+				<l n="130">kartero/qumos *)/arhs</l>
+				<l>kri/nei fi/lon e)n pole/mw|:</l>
+				<l> tufla\ d' e)k xeirw=n be/lh</l>
+				<l>yuxai=s e)/pi dusmene/wn foi-</l>
+				<l> ta=| qa/nato/n te fe/rei</l>
+				<l n="135">toi=sin a)\n dai/mwn qe/lh|:</l>
+				
+				<milestone n="ant. 4" unit="strophe"/>
+				<l>tau=t' ou)k e)pilecame/na</l>
+				<l> *qesti/ou kou/ra dai/+frwn</l>
+				<l>ma/thr kako/potmos e)moi\</l>
+				<l> bou/leusen o)/leqron a)ta/rbaktos guna/:</l>
+				<l n="140">kai=e/ te daidale/as</l>
+				<l> e)k la/rnakos w)ku/moron</l>
+				<l>fitro\n a)gklau/sasa, to\n dh\</l>
+				<l> moi=r' e)pe/klwsen to/te</l>
+				<l>zwa=s o(/ron a(mete/ras e)/mmen. tu/xon me\n</l>
+				<l n="145">*dai+pu/lou *klu/menon</l>
+				<l>pai=d' a)/lkimon e)cenari/-</l>
+				<l> zwn a)mw/mhton de/mas,</l>
+				<l>pu/rgwn propa/roiqe kixh/sas:</l>
+				<l> toi\ de\ pro\s eu)ktime/nan</l>
+				<l n="150">feu=gon a)rxai/an po/lin</l>
+				
+				<milestone n="ep. 4" unit="strophe"/>
+				<l>*pleurw=na: minu/nqh de/ moi yuxa\ glukei=a,</l>
+				<l> gnw=n d' o)ligosqene/wn:</l>
+				<l>ai)ai=: pu/maton de\ pne/wn da/krusa tl[a/mwn</l>
+				<l> a)glaa\n h(/ban prolei/pwn.</l>
+				<l n="155">fasi\n a)deisibo/an</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 11</note>
+				<l> *)amfitru/wnos pai=da mou=non dh\ to/te</l>
+				<l>te/gcai ble/faron, talapenq<seg type="sling">e/o</seg>s</l>
+				<l> po/tmon oi)kti/ronta fwto/s:</l>
+				<l> kai/ nin a)meibo/menos</l>
+				<l n="160">toi=' e)/fa: qnatoi=si mh\ fu=nai fe/riston,</l>
+				
+				<milestone n="str. 5" unit="strophe"/>
+				<l>mhd' a)eli/ou prosidei=n</l>
+				<l> fe/ggos: a)ll' ou) ga/r ti/s e)stin</l>
+				<l>pra=cis ta/de murome/nois,</l>
+				<l> xrh\ kei=no le/gein o(/,ti kai\ me/llei telei=n.</l>
+				<l n="165">h)= r(a tis e)n mega/rois</l>
+				<l> *oi)nh=os a)rhi+fi/lou</l>
+				<l>e)/stin a)dmh/ta quga/trwn,</l>
+				<l> soi\ fua\n a)ligki/a;</l>
+				<l>ta/n ken lipara\n e)qe/lwn qei/man a)/koitin.</l>
+				<l n="170">to\n de\ meneptole/mou</l>
+				<l>yuxa\ prose/fa *melea/-</l>
+				<l> grou: li/pon xlwrau/xena</l>
+				<l>e)n dw/masi *dai+a/neiran,</l>
+				<l> nh=i+n e)/ti xruse/as</l>
+				<l n="175">*ku/pridos qelcimbro/tou.</l>
+				
+				<milestone n="ant. 5" unit="strophe"/>
+				<l>leukw/lene *kallio/pa,</l>
+				<l> sta=son eu)poi/hton a(/rma</l>
+				<l>au)tou=: *di/a te *kroni/dan</l>
+				<l> u(/mnhson *)olu/mpion a)rxago\n qew=n,</l>
+				<l n="180">to/n t' a)kamantoro/an</l>
+				<l> *)alf<seg type="sling">eo/</seg>n, *pe/lopo/s te bi/an,</l>
+				<l>kai\ *pi/san, e)/nq' o( kleenno\s</l>
+				<l> possi\ nika/sas dro/mw|</l>
+				<l>h)=lq]en *fere/nikos &lt; e)s &gt; eu)pu/rgous *surako/s-</l>
+				<l n="185">sas *(ie/rwni fe/rwn</l>
+				<l>eu)d]aimoni/as pe/talon.</l>
+				<l> xrh\ d' a)laqei/as xa/rin</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 12</note>
+				<l>ai)nei=n, fqo/non a)mfote/raisin</l>
+				<l> xersi\n a)pwsa/menon,</l>
+				<l n="190">ei)/ tis eu)= pra/ssoi brotw=n.</l>
+				
+				<milestone n="ep. 5" unit="strophe"/>
+				<l>*boiwto\s a)nh\r ta=|de fw/n[hsen, glukeia=n</l>
+				<l> *(hsi/odos pro/polos</l>
+				<l>*mousa=n, o(\n &lt; a)\n &gt; a)qa/natoi ti[mw=si, tou/tw|</l>
+				<l> kai\ brotw=n fh/man e(/p[esqai.</l>
+				<l n="195">pei/qomai eu)mare/ws</l>
+				<l> eu)kl<seg type="sling">e/a</seg> keleu/qou glw=ssan ou)[k e)kto\s di/kas</l>
+				<l>pe/mpein *(ie/rwni: to/qen ga\r</l>
+				<l> puqme/nes qa/llousin e)sql[w=n,</l>
+				<l> tou\s o( megistopa/twr</l>
+				<l n="200">*zeu\s a)kinh/tous e)n ei)rh/n[a| fula/ssoi.</l></div2>
+			
+			
+			<div2 n="6" type="poem">
+				<head>
+					<title lang="en">Ode 6</title>
+					<persName type="winner">*la/xwni *kei=w|</persName>
+					<seg type="race">&lt;*paidi/&gt; *stadi/ei *olu/mpia</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>*la/xwn *dio\s megi/stou</l>
+				<l>la/xe fe/rtaton po/dessi</l>
+				<l>ku=dos e)p' *)alf<seg type="sling">eou=</seg> proxoai=s[i nikw=n,</l>
+				<l>di' o(/ssa pa/roiqen</l>
+				<l n="5">a)mpelotro/fon *ke/on</l>
+				<l>a)/eisa/n pot' *)olumpi/a|</l>
+				<l> pu/c te kai\ sta/dion krateu=-</l>
+				<l> san] stefa/nois e)qei/ras</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>neani/ai bru/ontes.</l>
+				<l n="10">se\ de\ nu=n a)nacimo/lpou</l>
+				<l>*ou)rani/as u(/mnos e(/kati ni/k[as</l>
+				<l>*)aristome/neion</l>
+				<l> w)= poda/nemon te/kos,</l>
+				<l>gerai/rei prodo/mois a)oi-</l>
+				<l n="15">dai=s, o(/ti sta/dion krath/-</l>
+				<l> sas *ke/on eu)kle/i+cas.</l></div2>
+			
+			
+			<div2 n="7" type="poem">
+				<head>
+					<title lang="en">Ode 7</title>
+					<persName type="winner">*tw=| *au)tw=|</persName>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>w)= lipara\ qu/gater *xro/nou te k[ai\</l>
+				<l>*nukto/s, se\ penth/konta mhnw=n a(me/ran</l>
+				<l>e(kkaideka/tan e)n *)olump[i/a| &breve;&macr;</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 13</note>
+				<l>!!!]b?arubr[!!!!!!!!!!!!!] e(/kati</l>
+				<l n="5">!!!]i?tosaima?[</l>
+				<l>kri/nein ta[xuta=ta/ te] laiyhrw=n podw=n</l>
+				<l>*(/ellasi kai\ gui/wn a)ristalke\s sqe/nos:</l>
+				<l>w(=| de\ su\ presbu/taton nei/mh|s ge/ras</l>
+				<l>ni/kas e)p' a)nqrw/poisin eu)/docos ke/klh-</l>
+				<l n="10">tai kai\ poluzh/lwtos. *)ar[istome/nei]on</l>
+				<l>nu=n g]' e)ko/smh[sas ste]fa/n[oisi *la/xw]na</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">The rest is fragmentary.</note></div2>
+			<div2 n="8" type="poem">
+				<head>
+					<title lang="en">Ode 8</title>
+					<persName type="winner">&lsqb;*lipari/wni *kei=w|&rsqb; </persName>
+				</head>
+				<note lang="en" resp="P" type="Text" anchored="yes">The text of str. 1 is fragmentary.</note>
+				<milestone n="str. 2" unit="strophe"/>
+				<l n="17">*puqw=na/ te mhloqu/tan</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 14</note>
+				<l>u(mn<seg type="sling">e/w</seg>n *neme/an te kai\ *)isqmo/n:</l>
+				<l> ga=| d' e)piskh/ptwn xe/ra</l>
+				<l n="20">kompa/somai: su\n a)la-</l>
+				<l>qei/a| de\ pa=n la/mpei xre/os:</l>
+				<l>ou)/tis a)nqrw/pwn k[aq' *(/ella-</l>
+				<l>nas e)n a(/liki xro/nw|</l>
+				<l>pai=s <seg type="sling">e)w\</seg>n a)nh/r te p[leu=-</l>
+				<l n="25">nas e)de/cato ni/kas.</l>
+				<l>w)= *zeu= keraunegxe/s, ka[i\ e)p' a)rgu]rodi/na</l>
+				<l>o)/xqaisin *)alfeiou= te/less[as meg]alokl<seg type="sling">e/a</seg>s</l>
+				<l>q<seg type="sling">eo</seg>do/tous eu)xa/s, peri\ k[rati/ t' o)/]pa[ssa]s</l>
+				<l> glauko\n *ai)twli/dos</l>
+				<l n="30">a)/ndhm' e)lai/as</l>
+				<l>e)n *pe/lopos *frugi/ou</l>
+				<l> kleinoi=s a)e/qlois.</l></div2>
+			
+			
+			<div2 n="9" type="poem">
+				<head>
+					<title lang="en">Ode 9</title>
+					<persName type="winner">*)automh/dei *fleia/siw|</persName>
+					<seg type="race">*penta/qlw| *ne/mea</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>do/can, w)= xrusala/katoi *xa/rites,</l>
+				<l>peisi/mbroton doi/ht', e)pei\</l>
+				<l>*mousa=n ge vioblefa/rwn qei=os profa/tas</l>
+				<l>eu)/tukos *fleiou=nta/ te kai\ *nemeai/ou</l>
+				<l n="5">*zhno\s eu)qale\s pe/don</l>
+				<l>u(mnei=n, o(/qi mhlodai/+ktan</l>
+				<l>qre/yen a( leukw/lenos</l>
+				<l>*(/hra perikleitw=n a)e/qlwn</l>
+				<l>prw=ton *(hraklei= baru/fqoggon le/onta.</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l n="10">kei=[qi foi]nika/spides h(mi/qeoi</l>
+				<l>prw/tiston *)argei/wn kritoi\</l>
+				<l>a)/qlhsan e)p' *)arxemo/rw|, to\n canqoderkh\s</l>
+				<l>pe/fn' a)wteu/onta dra/kwn u(pe/roplos,</l>
+				<l>sa=ma me/llontos fo/nou.</l>
+				<l n="15">w)= moi=ra polukrate/s: ou)/ nin</l>
+				<l>pei=q' *)oi+klei/das pa/lin</l>
+				<l>stei/xein e)s eu)a/ndrous a)guia/s.</l>
+				<l>e)lpi\s a)nqrw/pwn u(fair[ei=tai no/hm]a</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>a(\ kai\ to/t' *)/adraston *tal[ai+oni/dan</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 15</note>
+				<l>pe/mpen e)s *qh/bas *polunei/kei+ pla[gktw=|] pro/cen[on.</l>
+				<l>kei/nwn a)p' eu)do/cwn a)gw/nwn</l>
+				<l> e)n *nem<seg type="sling">e/a|</seg> kleinoi\ brotw=n</l>
+				<l>oi(\ trie/tei stefa/nw|</l>
+				<l> canqa\n e)re/ywntai ko/man.</l>
+				<l n="25">*au)tomh/dei nu=n ge nika/-</l>
+				<l> santi/ nin dai/mwn e)/dwken.</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>pentae/qloisin ga\r e)ne/prepen w(s</l>
+				<l>a)/strwn diakri/nei fa/h</l>
+				<l>nukto\s dixomh/nidos eu)feggh\s sela/na:</l>
+				<l n="30">toi=os *(ella/nwn di' a)pei/rona ku/klon</l>
+				<l>fai=ne qaumasto\n de/mas,</l>
+				<l>disko\n troxoeide/a r(i/ptwn,</l>
+				<l>kai\ melamfu/llou kla/don</l>
+				<l>a)kt<seg type="sling">e/a</seg>s e)s ai)peina\n prope/mpwn</l>
+				<l n="35">ai)qe/r' e)k xeiro\s boa\n w)/trune law=n,</l>
+				
+				<milestone n="ant. 2" unit="strophe"/>
+				<l>h)\ teleutai/as a)ma/rugma pa/las:</l>
+				<l>toiw=|[d' u(perqu/]mw| s[qe/ne]i</l>
+				<l>guia[lke/a sw/]mata [pro\s g]ai/a| pela/ssas</l>
+				<l>i(/ket' [*)aswpo\]n para\ porfurodi/nan,</l>
+				<l n="40">tou= k[le/os p]a=san xqo/na</l>
+				<l>h)=lqe[n kai\] e)p' e)/sxata *nei/lou:</l>
+				<l>tai/ t' e)p' e[u)n]aei= po/rw|</l>
+				<l>oi)keu=si *qermw/dontos, e)gx<seg type="sling">e/w</seg>n</l>
+				<l>i(/stores kou=rai diwci/ppoi' *)/arhos,</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l n="45">sw=n, w)= poluzh/lwte va/nac potamw=n,</l>
+				<l>e)ggo/nwn geu/santo, kai\ u(yipu/lou *troi/as e(/dos.</l>
+				<l>stei/xei di' eu)rei/as keleu/qou</l>
+				<l> muri/a panta=| fa/tis</l>
+				<l>sa=s genea=s liparo-</l>
+				<l n="50">zw/nwn quga/trwn, a(\s qeoi\</l>
+				<l>su\n tu/xais w)/|kissan a)rxa-</l>
+				<l> gou\s a)porqh/twn a)guia=n.</l>
+				
+				<milestone n="str. 3" unit="strophe"/>
+				<l>ti/s ga\r ou)k oi)=den kuanoploka/mou</l>
+				<l>*qh/bas e)u/+dm[aton po/li]n,</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 16</note>
+				<l>h)\ ta\n megalw/nu]mon *ai)/ginan, megi/stou</l>
+				<l n="56">*zhno\s a(\ plaqei=sa le/]xei te/ken h(/rw</l>
+				<l>&macr; d?e?s?w? &macr; &macr; ou:</l>
+				<l>o(\s g]a=s basa/[noisin *)ax]aiw=n</l>
+				<l>&macr; &breve; &macr; &times; &macr; &breve; &macr;</l>
+				<l n="60">&macr; &macr; &breve; &macr; &macr; &macr; &breve; &macr; &macr;</l>
+				<l>a[&breve; &macr; &macr; &macr; &breve; e]u)/p[e]plon [</l>
+				
+				<milestone n="ant. 3" unit="strophe"/>
+				<l>h)[de\ *peira/n]an e(likoste/fa[non</l>
+				<l>k[ou/ran, o(/]sai t' a)/llai qew=n</l>
+				<l>e?[u)nai=s e)d]a/mhsan a)rignw/tois p[a]lai[ou=</l>
+				<l n="65">pai=des ai)]d?oi=ai potamou= kela/dontos:</l>
+				<l>&macr;&breve;&macr;&macr;]an po/lin</l>
+				<l>&macr;&macr;&breve;&breve;&macr;]si/ te ni/ka[s</l>
+				<l>&macr;&breve;&macr; au)]lw=n boai\</l>
+				<l>su/mfwna pnei/o]usai: me[gi/stou</l>
+				<l n="70">&macr;&breve;&macr;&macr;&macr;&breve;&macr;&macr;&macr;&breve;&macr;]a?n:</l>
+				
+				<milestone n="ep. 3" unit="strophe"/>
+				<l>&macr;&macr;&breve;&macr;&macr;&macr;&breve;&breve;&macr;&breve;]ne/os</l>
+				<l>xr]use/a[n pros]qe/nta vio/plokon eu)= ei)pei=n [ko/ran,</l>
+				<l>kai\ m]at[e/r' a)g]na/mptwn e)rw/twn</l>
+				<l>&macr; &breve; &macr; kle]ina\n broto[i=s</l>
+				<l n="75">&macr; &breve; &breve; &macr; &breve;]le/wn</l>
+				<l> &macr; &macr; &breve; &macr; &macr; &macr; &breve; &macr;</l>
+				<l>&macr; &breve; &macr; nasi]w/tan</l>
+				<l> &macr; &breve; &macr; &macr; &macr; &breve;]n u(/mnon,</l>
+				
+				<milestone n="str. 4" unit="strophe"/>
+				<l>&macr; &breve; &macr; &macr; &macr;] kai\ a)pofqime/nw|</l>
+				<l n="80">to\n pa/nt' e)s a)/t]ruton xro/non,</l>
+				<l>kai\ toi=s e)pig]ignome/nois ai)ei\ pifau/skoi</l>
+				<l>sa\n *ne]me/a| ni/kan: to/ [ge/] toi kalo\n e)/rgon</l>
+				<l>gnhsi/wn u(/mnwn tuxo\n</l>
+				<l>u(you= para\ dai/mosi kei=tai:</l>
+				<l n="85">su\n d' a)laqei/a| brotw=n</l>
+				<l>ka/lliston, ei)/p[er kai\ qa/nh| tis,</l>
+				<l>lei/petai *mousa=n [&breve;&macr;&macr;&macr; a)/qu]rma.</l>
+				
+				<milestone n="ant. 4" unit="strophe"/>
+				<l>ei)si\ d' a)nqr[w/pwn &breve;&breve;&macr;&breve;&breve;&macr;</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 17</note>
+				<l>pollai/: diakri/nei de\ q<seg type="sling">ew=</seg>n</l>
+				<l n="90">boula\ [to\ kalupto/]menon nukto\s [dno/foisin:</l>
+				<l>!]!!![&breve;&macr;&macr;&macr;&breve;]ge kai\ to\n a)rei/w</l>
+				<l>&macr;&breve;&macr;&macr;&macr;&breve;]pou.</l>
+				<l>&macr;&macr;&breve;&breve;&macr;&breve;&breve;]eu/swn</l>
+				<l>&macr;&breve;&macr;&macr;&macr;&breve;&macr;</l>
+				<l n="95">&macr;&macr;&breve;&macr;&macr;&macr;&breve; p]au/rois</l>
+				<l>a)n]dr[a/sin &macr;&macr;&breve;&macr;&macr;&macr;]i? to\ me/llon:</l>
+				
+				<milestone n="ep. 4" unit="strophe"/>
+				<l>!!]i?miw?[&macr;&macr;&breve; e)/d]wke xa/rin</l>
+				<l>k]ai\ *diwn[u/sou *kroni/das] qeoti/maton po/lin</l>
+				<l>nai/ein a)po[rqh/tous qal]eu=ntas:</l>
+				<l n="100">xruseoska/ptr[ou *dio\s</l>
+				<l>o(/s] ti kalo\n fe/[retai,</l>
+				<l> pa=s ai)]ne/oi: *timoc[e/nou</l>
+				<l>pa]idi\ su\n kw/[mois a(mar-</l>
+				<l> t[e/]o]ite pent[a/qlou ve/kati.</l></div2>
+			
+			
+			<div2 n="10" type="poem">
+				<head>
+					<title lang="en">Ode 10</title>
+					<persName type="winner">&lt;*)aglaw=| &lpar;&quest;&rpar; *)aqhnai/w|</persName>
+					<seg type="race">*dromei= *)isqmia&gt;</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>*fh/]ma, su\ g[a\]r a)[ggeli/ais qnatw=n e)p]oixnei=s</l>
+				<l>fu=]la, kai\ pa=[!&macr;&breve;&macr;&times;</l>
+				<l>!!!!!]m?ealmei?[&breve;&breve;&macr;</l>
+				<l>!!!!!]po\ keu/[&breve;&breve;&macr;&times;</l>
+				<l n="5">!!!!]nwntai [&macr;&breve;&macr;&macr;</l>
+				<l>&macr;&breve;]!!w| c[un]o/n, o(/,ti xru[se/an &breve;&breve;&macr;</l>
+				<l>o[!!!] o)fqalmoi=si *n[i/kan</l>
+				<l>p[au=l]an a)pra/ktan [!!!!![</l>
+				<l>*)a[gl]aw=| kai\ nu=n kasignh/tas a)koi/tas</l>
+				<l n="10">nasiw=tin e)ki/nhsen ligu/fqoggon me/lissan,</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>a)x]eire\s i(/n' a)qa/naton *mousa=n a)/galma</l>
+				<l>cuno\n a)nqrw/poisin ei)/h</l>
+				<l>xa/rma, tea\n a)reta\n</l>
+				<l>manu=on e)pixqoni/oisin,</l>
+				<l n="15">o(ssa/kis *ni/kas e(/kati</l>
+				<l>a)/nqesi canqa\n a)nadhsa/menos kefala\n</l>
+				<l>ku=dos eu)rei/ais *)aqa/nais</l>
+				<l>qh=kas *oi)nei/dais te do/can.</l>
+				<l>e)n *poseida=nos perikleitoi=s a)e/qlois</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 18</note>
+				<l n="20">eu)qu\s e)/ndeic]as *(/ellasin podw=n o(rma\n taxei=an:</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>deu/teron d' ou)/]roisin e)/pi stadi/ou,</l>
+				<l>qerm[a\n e)/ti] pne/wn a)/ellan,</l>
+				<l>e)/sta[: bre/xw]v? d' a)=|c' au)=te qath/rwn e)lai/w|</l>
+				<l>fa/re[' e)s eu)/qroo]n e)mpi/tnwn o(/milon,</l>
+				<l n="25">tetr[ae/likto]n e)pei\</l>
+				<l>ka/m[yen dro/]mon. *)isqmioni/kan</l>
+				<l>di/s n[in a)gk]a/rucan eu)bou/-</l>
+				<l> lwn [a)eqla/rx]wn profa=tai:</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>di\s d' e)[n *neme/]a| *kroni/da *zhno\s par' a(gno\n</l>
+				<l n="30">bwmo/[n: a( klei]na/ te *qh/ba</l>
+				<l>de/kt[o/ nin e]u)ru/xoro/n</l>
+				<l>t' *)/argo[s *sikuw/]n te kat' ai)=san:</l>
+				<l>oi(/ te *p[ella/n]an ne/montai,</l>
+				<l>a)mfi/ t' *eu)/boian pol[ula/i+o]n, oi(/ q' i(era\n</l>
+				<l n="35">na=so[n *ai)/gin]an. mateu/ei</l>
+				<l>d' a)/ll[os a)lloi/]an ke/leuqon,</l>
+				<l>a(/nti[na stei/x]wn a)rignw/toio do/cas</l>
+				<l>teu/cetai. muri/ai d' a)ndrw=n e)pista=mai pe/lontai:</l>
+				
+				<milestone n="ant. 2" unit="strophe"/>
+				<l>h)\ ga\r sofo\s h)\ *xari/twn tima=n lelogxw\s</l>
+				<l n="40">e)lpi/di xru<seg type="sling">ew|</seg> te/qalen:</l>
+				<l>h)/ tina qeupropi/an</l>
+				<l>ei)dw/s: e(/teros d' e)pi\ pa/si</l>
+				<l>poiki/lon to/con titai/nei:</l>
+				<l>oi( d' e)p' e)/rgoisi/n te kai\ a)mfi\ bow=n a)ge/lais</l>
+				<l n="45">qumo\n au)/cousin: to\ me/llon</l>
+				<l>d' a)kri/tous ti/ktei teleuta/s,</l>
+				<l>pa=| tu/xa bri/sei. to\ me\n ka/lliston, e)sqlo\n</l>
+				<l>a)/ndra pollw=n u(p' a)nqrw/pwn poluzh/lwton ei)=men:</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l>oi)=da kai\ plou/tou mega/lan du/nasin,</l>
+				<l n="50">a(\ kai\ to\n a)xrei=on ti/[qhs]i</l>
+				<l>xrhsto/n. ti/ makra\n glw=ssan i)qu/sas e)lau/nw</l>
+				<l>e)kto\s o(dou= ; pe/fatai qnatoi=si ni/kas</l>
+				<l>u(/ste]ron eu)frosu/na:</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 19</note>
+				<l>au)lw=n [de\ &breve;&macr;&breve;&breve;&macr;&macr;</l>
+				<l n="55">meign?[ut&macr;&macr;&breve;&macr;&macr;</l>
+				<l>xrh/ tin[&macr;&macr;&macr;&breve;&macr;&macr;</l></div2>
+			
+			
+			<div2 n="11" type="poem">
+				<head>
+					<title lang="en">Ode 11</title>
+					<persName type="winner">*)alexida/mw| *metapontinw=|</persName>
+					<seg type="race">*paidi/ *palaisth=|*pu/qia</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>*ni/ka [gluku/dwre, megi/stan</l>
+				<l> soi\ pat[h\r w)/passe tima\n</l>
+				<l>u(yi/zug[os *ou)ranida=n</l>
+				<l> e)n poluxru/sw| d' *)olu/mpw|</l>
+				<l n="5">*zhni\ paristame/na</l>
+				<l> kri/neis te/los a)qana/toi-</l>
+				<l> si/n te kai\ qnatoi=s a)reta=s.</l>
+				<l>e)/llaqi, [baqu]ploka/mou</l>
+				<l>kou/ra [*stugo\s o)r]qodi/kou: se/qen d' e(/kati</l>
+				<l n="10">kai\ nu=n *metapo/ntion eu)-</l>
+				<l> gui/wn [kate/x]ousi ne/wn</l>
+				<l>kw=moi/ te kai\ eu)frosu/nai q<seg type="sling">eo/</seg>timon a)/stu:</l>
+				<l>u(mneu=si de\ *puqio/nikon</l>
+				<l> pai=da qahto\n *fai/+skou.</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l n="15">i(/l<seg type="sling">ew|</seg> nin o( *dalogenh\s ui(-</l>
+				<l> o\s baquzw/noio *latou=s</l>
+				<l>de/kto blefa/rw|: pole/es</l>
+				<l> d' a)mf' *)aleci/damon a)nq<seg type="sling">e/w</seg>n</l>
+				<l>e)n pedi/w| ste/fanoi</l>
+				<l n="20">*ki/rras e)/peson kratera=s</l>
+				<l> h)=ra panni/koio pa/las:</l>
+				<l>ou)k ei)=de/ nin a)e/lios</l>
+				<l>kei/nw| ge su\n a)/mati pro\s gai/a| peso/nta.</l>
+				<l>fa/sw de\ kai\ e)n zaqe/ois</l>
+				<l n="25">a(gnou= *pe/lopos dape/dois</l>
+				<l>*)alf<seg type="sling">eo\</seg>n para\ kalliro/an, di/kas ke/leuqon</l>
+				<l>ei) mh/ tis a)pe/trapen o)rqa=s,</l>
+				<l> pagce/nw| xai/tan e)lai/a|</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>glauka=| stefanwsa/menon</l>
+				<l n="30">portitro/f[on a)\n pedi/on pa/t]ran q' i(ke/sqai.</l>
+				<l>[ou)/ ti do/los kako/frwn]</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 20</note>
+				<l>pai=d' e)n xqoni\ kallixo/rw|</l>
+				<l>poiki/lais te/xnais pe/lassen:</l>
+				<l>a)ll' h)\ qeo\s ai)/tios, h)\</l>
+				<l n="35">gnw=mai polu/plagktoi brotw=n</l>
+				<l> a)/]mersan u(pe/rtaton e)k xeirw=n ge/ras.</l>
+				<l>nu=n d' *)/artemis a)grote/ra</l>
+				<l>xrusala/katos lipara\n</l>
+				<l>h(me/]ra toco/klutos ni/kan e)/dwke.</l>
+				<l n="40">ta=| pot' *)abantia/das</l>
+				<l> bwmo\n kate/nasse polu/l-</l>
+				<l> liston eu)/peploi/ te kou=rai:</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>ta\s e)c e)ratw=n e)fo/bhsen</l>
+				<l> pagkrath\s *(/hra mela/qrwn</l>
+				<l n="45">*proi/tou, paraplh=gi fre/nas</l>
+				<l> kartera=| zeu/cas' a)na/gka|:</l>
+				<l>parqeni/a| ga\r e)/ti</l>
+				<l> yuxa=| ki/on e)s te/menos</l>
+				<l> porfurozw/noio qea=s:</l>
+				<l n="50">fa/skon de\ polu\ sfe/teron</l>
+				<l>plou/tw| profe/rein pate/ra canqa=s pare/drou</l>
+				<l>semnou= *dio\s eu)rubi/a.</l>
+				<l> tai=sin de\ xolwsame/na</l>
+				<l>sth/qessi pali/ntropon e)/mbalen no/hma:</l>
+				<l n="55">feu=gon d' o)/ros e)s tani/fullon,</l>
+				<l> smerdal<seg type="sling">e/a</seg>n fwna\n i(ei=sai,</l>
+				
+				<milestone n="ant. 2" unit="strophe"/>
+				<l>*tiru/nqion a)/stu lipou=sai</l>
+				<l> kai\ qeodma/tous a)guia/s,</l>
+				<l>h)/dh ga\r e)/tos de/katon</l>
+				<l n="60">q<seg type="sling">eo</seg>file\s lipo/ntes *)/argos</l>
+				<l>nai=on a)deisibo/ai</l>
+				<l> xalka/spides h(mi/qeoi</l>
+				<l> su\n poluzh/lw| basilei=.</l>
+				<l>nei=kos ga\r a)maima/keton</l>
+				<l n="65">blhxra=s a)ne/palto kasignhtoi=s a)p' a)rxa=s</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 21</note>
+				<l>*proi/tw| te kai\ *)akrisi/w|:</l>
+				<l> laou/s te dixostasi/ais</l>
+				<l>h)/reipon a)metrodi/kois ma/xais te lugrai=s.</l>
+				<l>li/ssonto de\ pai=das *)/abantos</l>
+				<l n="70">ga=n polu/kriqon laxo/ntas</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l>*ti/runqa to\n o(plo/teron</l>
+				<l>kti/zein, pri\n e)s a)rgale/an pesei=n a)na/gkan:</l>
+				<l>*zeu/s t' e)/qelen *kroni/das,</l>
+				<l>timw=n *danaou= genea\n</l>
+				<l n="75">kai\ diwci/ppoio *lugk<seg type="sling">e/o</seg>s,</l>
+				<l>pau=sai stugerw=n a)xe/wn.</l>
+				<l>tei=xos de\ *ku/klwpes ka/mon</l>
+				<l> e)lqo/ntes u(perfi/aloi kleina=| po/lei</l>
+				<l>ka/lliston, i(/n' a)nti/qeoi</l>
+				<l n="80">nai=on kluto\n i(ppo/boton</l>
+				<l>*)/argos h(/rwes perikleitoi\ lipo/ntes.</l>
+				<l>e)/nqen a)pessu/menai</l>
+				<l> *proi/tou kuanoplo/kamoi</l>
+				<l> feu=gon a)/dmatoi qu/gatres,</l>
+				
+				<milestone n="str. 3" unit="strophe"/>
+				<l n="85">to\n d' ei(=len a)/xos kradi/an, cei/-</l>
+				<l> na te/ nin pla=cen me/rimna:</l>
+				<l>doi/ace de\ fa/sganon a)/m-</l>
+				<l> fakes e)n ste/rnoisi pa=cai.</l>
+				<l>a)lla/ nin ai)xmofo/roi</l>
+				<l n="90">mu/qoisi/ te meilixi/ois</l>
+				<l> kai\ bi/a| xeirw=n ka/texon.</l>
+				<l>triskai/deka me\n tele/ous</l>
+				<l>mh=nas kata\ da/skion h)lu/ktazon u(/lan</l>
+				<l>feu=go/n te kat' *)arkadi/an</l>
+				<l n="95">mhlotro/fon: a)ll' o(/te dh\</l>
+				<l>*lou=son poti\ kalliro/an path\r i(/kanen,</l>
+				<l>e)/nqen xro/a niya/menos foi-</l>
+				<l> niko[krade/mnoi]o *latou=s</l>
+				
+				<milestone n="ant. 3" unit="strophe"/>
+				<l>ki/kl[h|ske qu/gatra] bow=pin,</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 22</note>
+				<l n="100">xei=ras a)ntei/nwn pro\s au)ga\s</l>
+				<l>i(ppw/keos a)eli/ou,</l>
+				<l> te/kna dusta/noio lu/ssas</l>
+				<l>pa/rfronos e)cagagei=n:</l>
+				<l> qu/sw de/ toi ei)/kosi bou=s</l>
+				<l n="105">a)/zugas foiniko/trixas.</l>
+				<l>tou= d' e)/klu' a)ristopa/tra</l>
+				<l>qhrosko/pos eu)xome/nou: piqou=sa d' *(/hran</l>
+				<l>pau=sen kalukostefa/nous</l>
+				<l> kou/ras mania=n a)qe/wn:</l>
+				<l n="110">tai\ d' au)ti/ka voi te/menos bwmo/n te teu=xon,</l>
+				<l>xrai=no/n te/ min ai(/mati mh/lwn</l>
+				<l> kai\ xorou\s i(/stan gunaikw=n.</l>
+				
+				<milestone n="ep. 3" unit="strophe"/>
+				<l>e)/nqen kai\ a)rhi+fi/lois</l>
+				<l>a)/ndressin &lt;e)s&gt; i(ppotro/fon po/lin &lt;t'&gt; *)axaioi=s</l>
+				<l n="115">e(/speo, su\n de\ tu/xa|</l>
+				<l>nai/eis *metapo/ntion, w)=</l>
+				<l>xruse/a de/spoina law=n:</l>
+				<l>a)/lsos te/ toi i(mero/en</l>
+				<l>*ka/san par' eu)/udron pro\ na-</l>
+				<l n="120">oi=' e(ssame/nwn, *pria/moi' e)pei\ xro/nw|</l>
+				<l>boulai=si qew=n maka/rwn</l>
+				<l>pe/rsan po/lin eu)ktime/nan</l>
+				<l>xalkoqwra/kwn met' *)atreida=n. dikai/as</l>
+				<l>o(/stis e)/xei fre/nas, eu(-</l>
+				<l n="125">rh/sei su\n a(/panti xro/nw|</l>
+				<l> muri/as a)lka\s *)axaiw=n.</l></div2>
+			
+			
+			<div2 n="12" type="poem">
+				<head>
+					<title lang="en">Ode 12</title>
+					<persName type="winner">*teisi/a| *)aiginh/th|i</persName>
+					<seg type="race">*palaisth=| *ne/mea</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>w(sei\ kubernh/tas sofo/s, u(mnoa/nas-</l>
+				<l> s' eu)/qune *kleioi=</l>
+				<l>nu=n fre/nas a(mete/ras,</l>
+				<l>ei) dh/ pote kai\ pa/ros: e)s ga\r o)lbi/an</l>
+				<l n="5">cei/noisi/ me po/tnia *ni/ka</l>
+				<l>na=son *ai)gi/nas a)pa/rxei</l>
+				<l>e)lqo/nta kosmh=sai qeo/dmaton po/lin:</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>ta/n t' e)n *neme/a| guialke/a mounopa/lan?</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">Lines 9-32 are missing.</note>
+				<milestone n="ant. 2" unit="strophe"/>
+				<gap/>
+				<l n="34">ceinou? [!!!!]nioi ast[&times;&macr;&breve;&macr;</l>
+				<l n="35">a)mfik[tio/n]w?n e)n a)e/qloi?[s</l>
+				<l>su\n tri[a/ko]nt' a)?glaai=sin</l>
+				<l>ni/kais [e)k]wma/sqhsan oi( mei?[&macr;&breve;&macr;,</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l>oi( d' e)n *pe/lopos z?a?qe/as</l>
+				<l>na/sou p[i]tuw/dei+ dei/ra|,</l>
+				<l n="40">oi( de\ foinikostero/pa teme/nei</l>
+				<l>*zhno\s *nem<seg type="sling">eai/</seg>ou:</l>
+				<l>!!!&lpar;!!!&rpar;] tau/tas? kai\ e)p' a)rgurodi/na</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">The rest is lost.</note></div2>
+			
+			<div2 n="13" type="poem">
+				<head>
+					<title lang="en">Ode 13</title>
+					<persName type="winner">&lt;*puqe/a| *aiginh/th|</persName>
+					<seg type="race">*pagkratiasth=|*ne/mea&gt;</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<note lang="en" resp="P" type="Text" anchored="yes">8 verses lost.</note>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 23</note>
+				<l n="8">&macr; &breve; &breve; &macr; &breve; &breve; &macr; &macr;</l>
+				<l>&macr; &breve; &breve; &macr; &breve; &breve; leiw</l>
+				<l n="10">&macr; &breve; &breve; &macr; &breve; &breve; &macr; &macr; &acute; ? e?r?[</l>
+				<l>&macr; &breve; &breve; &macr; &breve; &breve; &macr;</l>
+				<l>&macr; &macr; &breve; &macr; &macr; &macr; &breve; &macr; dan:</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">ant. 1, ep. 1, and the first ten verses of str. b, are lost.</note>
+				<milestone n="str. 2" unit="strophe"/>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 24</note>
+				<l n="44"> u(/brios u(yino/ou</l>
+				<l n="45">pau/sei, di/kas qnatoi=si krai/nwn:</l>
+				
+				<milestone n="ant. 2" unit="strophe"/>
+				<l>oi(/an tina\ du/slofon w)-</l>
+				<l> mhsta=| le/onti</l>
+				<l><milestone n="15" ed="alternate" unit="line"/>*persei/das e)fi/hsi&lt;n&gt;</l>
+				<l>xei=ra pantoi/aisi te/xnais:</l>
+				<l n="50">ou) ga\r] damasi/mbrotos ai)/qwn</l>
+				<l>xal]ko\s a)pla/tou qe/lei</l>
+				<l> xwre]i=n dia\ sw/matos, e)-</l>
+				<l><milestone n="20" ed="alternate" unit="line"/>gna/m]fqh d' o)pi/ssw</l>
+				<l>fa/sga]non: h)= pote/ fami</l>
+				<l n="55">ta=|de] peri\ stefa/noisi</l>
+				<l> pagk]rati/ou po/non *(el-</l>
+				<l> la/nessi]n i(drw/ent' e)/sesqai.</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l><milestone n="25" ed="alternate" unit="line"/>o(\s nu=n par]a\ bwmo\n a)rista/rxou *dio\s</l>
+				<l>*ni/kas e)]r[ik]ude/os a)n-</l>
+				<l n="60">deqe]i=sin a)/nq<seg type="sling">ea</seg>,</l>
+				<l>xruse/]an do/can polu/fanton e)n ai)-</l>
+				<l> w=ni] tre/fei pau/rois brotw=n</l>
+				<l><milestone n="30" ed="alternate" unit="line"/>ai)]ei/, kai\ o(/tan qana/toio</l>
+				<l> kua/n<seg type="sling">eo</seg>n ne/fos kalu/yh|, lei/petai</l>
+				<l n="65">a)qa/naton kle/os eu)= e)r-</l>
+				<l> xqe/ntos a)sfalei= su\n ai)/sa|.</l>
+				
+				<milestone n="str. 3" unit="strophe"/>
+				<l>tw=n kai\ su\ tuxw\n *neme/a|,</l>
+				<l><milestone n="35" ed="alternate" unit="line"/>*la/mpwnos ui(e/,</l>
+				<l>panqal<seg type="sling">e/w</seg>n stefa/noisin</l>
+				<l n="70">a)nqe/wn] xai/tan e)refqei/s,</l>
+				<l>!!!!!!] po/lin u(yia/guian</l>
+				<l>!!!!!!! te]ryimbro/twn</l>
+				<l>![!!!!!!!!!] a(b?[ropn]o/wn</l>
+				<l> kw/mwn patrw/|an</l>
+				<l n="75">na=son, u(pe/rbion i)sxu\n</l>
+				<l>pammaxia=n a)nafai/nwn.</l>
+				<l> w)= potamou= qu/gater</l>
+				<l><milestone n="45" ed="alternate" unit="line"/>dina=ntos *ai)/gin' h)pio/fron,</l>
+				
+				<milestone n="ant. 3" unit="strophe"/>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 25</note>
+				<l>h)= toi mega/lan [*kroni/das</l>
+				<l n="80">e)/dwke tima\n</l>
+				<l>e)n pa/ntessin [a)gw=sin,,</l>
+				<l>purso\n w(\s *(/ell[asi &macr;&times;</l>
+				<l><milestone n="50" ed="alternate" unit="line"/>fai/nwn: to/ ge so\[n kle/os ai)]nei=</l>
+				<l>kai/ tis u(yauxh\s ko/[ra,</l>
+				<l n="85">&macr;&macr;&breve;&breve;&macr;&breve;&breve;&gt;ran</l>
+				<l> po/dessi tarf<seg type="sling">e/w</seg>[s,</l>
+				<l>h)u/+te nebro\s a)penqh/s,</l>
+				<l><milestone n="55" ed="alternate" unit="line"/>a)nqemo/entas e)p' [o)/xqous</l>
+				<l> kou=fa su\n a)gxido/[mois</l>
+				<l n="90">qrw/|skous' a)gakleita[i=s e(tai/rais:</l>
+				
+				<milestone n="ep. 3" unit="strophe"/>
+				<l>tai\ de\ stefanwsa/me[nai plo/kois n]e/wn</l>
+				<l>a)nq<seg type="sling">e/w</seg>n do/nako/s t' e)[pixw-</l>
+				<l><milestone n="60" ed="alternate" unit="line"/>ri/an a)/qursin</l>
+				<l>parqe/noi me/lpousi t[eo\n kra/tos], w)=</l>
+				<l n="95">de/spoina pagce[i/nou xqono/s,</l>
+				<l>*)endai/+da te r(odo/[paxun,</l>
+				<l> a(\ t[o\n i(ppeuta\]n e)/t[ikte *phle/a</l>
+				<l><milestone n="65" ed="alternate" unit="line"/>kai\ *telamw=na [kra]t?[a]i?o/n,</l>
+				<l> *ai)akw=| meixqei=s' e)n e[u)nai=s:</l>
+				
+				<milestone n="str. 4" unit="strophe"/>
+				<l n="100">tw=n &lt;q'&gt; ui(=as a)ersima/xous,</l>
+				<l> taxu/n t' *)axill<seg type="sling">e/a</seg></l>
+				<l>eu)eid<seg type="sling">e/o</seg>s t' *)eriboi/as</l>
+				<l><milestone n="70" ed="alternate" unit="line"/>pai=d' u(pe/rqumon boa[q<seg type="sling">o/o</seg>n</l>
+				<l>*ai)/anta sakesfo/ron h(/[rw,</l>
+				<l n="105">o(/s t' e)pi\ pru/mna| staqei\s</l>
+				<l> e)/sxen qrasuka/rdion [o(r-</l>
+				<l> mai/nonta n[a=as</l>
+				<l><milestone n="75" ed="alternate" unit="line"/>qespesi/w| pu[ri\ kau=sai</l>
+				<l>*(/ektora xal[keomi/tra]n,</l>
+				<l n="110">o(ppo/te *p[hlei/+das</l>
+				<l> traxei=an [*)argei/oisi m]a=nin</l>
+				
+				<milestone n="ant. 4" unit="strophe"/>
+				<l>w)ri/nat[o, *dardani/das</l>
+				<l><milestone n="80" ed="alternate" unit="line"/>t' e)/lusen a)/[tas:</l>
+				<l>oi(\ pri\n me\n [polu/purgo]n</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 26</note>
+				<l n="115">*)ili/ou qahto\n a)/stu</l>
+				<l>ou) lei=pon, a)tuzo/menoi [de\</l>
+				<l>pt]a=sson o)cei=an ma/xan,</l>
+				<l><milestone n="85" ed="alternate" unit="line"/>eu)=t' e)n pedi/w| klone/wn</l>
+				<l> mai/noit' *)axilleu/s,</l>
+				<l n="120">laofo/non do/ru sei/wn:</l>
+				<l>a)ll' o(/te dh\ pole/moio</l>
+				<l> lh=cen i)ostefa/nou</l>
+				<l><milestone n="90" ed="alternate" unit="line"/>*nhrh=|dos a)tro/mhtos ui(o/s:</l>
+				
+				<milestone n="ep. 4" unit="strophe"/>
+				<l>w(/st' e)n kuananqe/i+ *q[ra|ki\ nauba/tas</l>
+				<l n="125">po/ntw| bore/as u(po\ ku/-</l>
+				<l> masin dai/+zei</l>
+				<l>nukto\s a)nta/sas, a)nat[ellome/na|</l>
+				<l><milestone n="95" ed="alternate" unit="line"/>lh=cen de\ su\n f<seg type="sling">ae</seg>simbro/tw|</l>
+				<l>a)oi=, sto/resen de/ te po/nton</l>
+				<l n="130">ou)ri/a: no/tou de\ ko/lp[wsan pnoa=|</l>
+				<l>i(sti/on, a(rpale/ws t' a)/-</l>
+				<l> elpton e)ci/konto xe/rson:</l>
+				
+				<milestone n="str. 5" unit="strophe"/>
+				<l>w(\s *trw=es, e)pei\ klu/on ai)-</l>
+				<l><milestone n="101" ed="alternate" unit="line"/>xmata\n *)axill<seg type="sling">e/a</seg></l>
+				<l n="135">mi/mnont' e)n klisi/h|sin</l>
+				<l>ei(/neken canqa=s gunaiko/s,</l>
+				<l>*brishi/+dos i(merogui/ou,</l>
+				<l><milestone n="105" ed="alternate" unit="line"/>q<seg type="sling">eo</seg>i=sin a)/nteinan xe/ras,</l>
+				<l> foiba\n e)sido/ntes u(pai\</l>
+				<l n="140">xeimw=nos ai)/glan:</l>
+				<l>passudi/a| de\ lipo/ntes</l>
+				<l>tei/xea *laome/dontos</l>
+				<l><milestone n="110" ed="alternate" unit="line"/>e)s pedi/on kratera\n</l>
+				<l>a)/i+can u(smi/nan fe/rontes:</l>
+				
+				<milestone n="ant. 5" unit="strophe"/>
+				<l n="145">w)=rsa/n te fo/bon *danaoi=s:</l>
+				<l> w)/trune d' *)/arhs</l>
+				<l>eu)egxh/s, *luki/wn te</l>
+				<l><milestone n="115" ed="alternate" unit="line"/>*loci/as a)/nac *)apo/llwn:</l>
+				<l>i(=co/n t' e)pi\ qi=na qala/ssas:</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 27</note>
+				<l n="150">nausi\ d' eu)pu/mnois parai\</l>
+				<l> ma/rnant', e)narizome/nwn</l>
+				<l> d' e)/r]euqe fw/twn</l>
+				<l><milestone n="120" ed="alternate" unit="line"/>ai(/ma]ti gai=a me/laina</l>
+				<l>*(ektor]e/as u(po\ xeiro/s,</l>
+				<l n="155">ph=ma m]e/g' h(miqe/ois</l>
+				<l> !!!!!] i)soq<seg type="sling">e/w</seg>n di' o(rma/n.</l>
+				
+				<milestone n="ep. 5" unit="strophe"/>
+				<l>!!!!!]rones, h)= mega/laisin e)lpi/sin</l>
+				<l><milestone n="125" ed="alternate" unit="line"/>!!!!]ontes u(perfi/alon</l>
+				<l>[&times;&macr;&breve;&macr;&macr;]</l>
+				<l n="160">!!!!]s i(ppeutai\ kuanw/pidas e)k-</l>
+				<l> &macr;&macr;&breve;&macr;&macr;&macr;] ne/as</l>
+				<l>&macr;&macr;&breve;&breve; ei)la]pi/nas t' e)n</l>
+				<l><milestone n="130" ed="alternate" unit="line"/>a(me/]r[a]is e(/cein qeo/dmaton po/lin.</l>
+				<l>me/llon a)/ra pro/teron di-</l>
+				<l n="165">na=nta foini/cein *ska/mandron,</l>
+				
+				<milestone n="str. 6" unit="strophe"/>
+				<l>qna/|skontes u(p' *ai)aki/dais</l>
+				<l> e)reiy[it]o?i/ ?[xois:</l>
+				<l><milestone n="135" ed="alternate" unit="line"/>tw=n ei) kai\ t[&breve;&breve;&macr;&macr;</l>
+				<l>h)\ baqucu/lw[i&breve;&macr;&macr;</l>
+				<note lang="en" resp="P" type="Text" anchored="yes">5 lines lost.</note>
+				<l n="175">ou) ga\r a)la[mpe/s]i nu[kto\s</l>
+				<l> pasifanh\s *)areta\</l>
+				<l> krufqei=s' a)mauro[u=tai dno/foisin,</l>
+				
+				<milestone n="ant. 6" unit="strophe"/>
+				<l>a)ll' e)/mpedon a)k[ama/ta|</l>
+				<l><milestone n="146" ed="alternate" unit="line"/>bru/ousa do/ca|</l>
+				<l n="180">strwfa=tai kata\ ga=n [te</l>
+				<l>kai\ polupla/gktan q[a/lassan.</l>
+				<l>kai\ ma\n ferekude/a n[a=son</l>
+				<l><milestone n="150" ed="alternate" unit="line"/>*ai)akou= tima=|, su\n *eu)-</l>
+				<l> klei/a| de\ filostef[a/nw|</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 28</note>
+				<l n="185">po/lin kuberna=|,</l>
+				<l>*eu)nomi/a te sao/frwn,</l>
+				<l>a(\ qali/as te le/logxen</l>
+				<l><milestone n="155" ed="alternate" unit="line"/>a)/stea/ t' eu)sebe/wn</l>
+				<l> a)ndrw=n e)n ei)rh/na| fula/ssei:</l>
+				
+				<milestone n="ep. 6" unit="strophe"/>
+				<l>ni/kan t' e)rikude/a me/lpet', w)= ne/oi,</l>
+				<l>*puq<seg type="sling">e/a</seg>, mele/tan te brotw-</l>
+				<l> fel<seg type="sling">e/a</seg> *mena/ndrou,</l>
+				<l><milestone n="160" ed="alternate" unit="line"/>ta\n e)p' *)alfeiou= te r(oai=s qama\ dh\</l>
+				<l> ti/masen a( xrusa/rmatos</l>
+				<l n="195">semna\ mega/qumos *)aqa/na,</l>
+				<l> muri/wn t' h)/dh mi/traisin a)ne/rwn</l>
+				<l>e)stefa/nwsen e)qei/ras</l>
+				<l><milestone n="165" ed="alternate" unit="line"/>e)n panella/nwn a)e/qlois.</l>
+				
+				<milestone n="str. 7" unit="strophe"/>
+				<l>ei) mh/ tina qersieph\s</l>
+				<l n="200">fqo/nos bia=tai,</l>
+				<l>ai)nei/tw sofo\n a)/ndra</l>
+				<l>su\n di/ka|. brotw=n de\ mw=mos</l>
+				<l><milestone n="170" ed="alternate" unit="line"/>pa/ntessi me/n e)stin e)p' e)/rgois:</l>
+				<l>a( d' a)laqei/a filei=</l>
+				<l n="205">nika=n, o(/ te pandama/twr</l>
+				<l> xro/nos to\ kalw=s</l>
+				<l>e)]rgme/non ai)e\n a)[e/cei:</l>
+				<l><milestone n="175" ed="alternate" unit="line"/>dusmene/wn de\ ma[tai/a</l>
+				<l> glw=ss' a)i+d]h\s min[u/qei</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">The last v. of str. 7, and the first nine of ant. 7 are lost.</note>
+				<milestone n="ant. 7" unit="strophe"/>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 29</note>
+				<l n="220">e)lpi/di qumo\n i)ai/nei:</l>
+				<l> ta=| kai\ e)gw\ pi/suno[s</l>
+				<l> foinikokrade/mnois[i *mou/sais</l>
+				
+				<milestone n="ep. 7" unit="strophe"/>
+				<l>u(/mnwn tina\ ta/nde n[eo/plokon do/sin</l>
+				<l><milestone n="191" ed="alternate" unit="line"/>fai/nw, ceni/an te [fila/-</l>
+				<l n="225">glaon gerai/rw,</l>
+				<l>ta\n e)moi\ *la/mpwn [pare/xwn xa/rin ou)</l>
+				<l> blhxra\n e)paqrh/sais t[i/ei,</l>
+				<l><milestone n="195" ed="alternate" unit="line"/>ta\n ei)/ g' e)tu/mws a)/ra *kleiw\</l>
+				<l> panqalh\s e)mai=s e)ne/stac[en frasi/n,</l>
+				<l n="230">teryiepei=s nin a)oidai\</l>
+				<l> panti\ karu/conti law=|.</l></div2>
+			
+			
+			<div2 n="14" type="poem">
+				<head>
+					<title lang="en">Ode 14</title>
+					<persName type="winner">*kleoptole/mw| *qessalw=|</persName>
+					<seg type="race">*(/ippois *petrai=a</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>eu)= me\n ei(ma/rqai para\ dai/[monos a)n-</l>
+				<l> qrw/pois a)/riston:</l>
+				<l>sumfora\ d' e)sqlo/n t' a)maldu/-</l>
+				<l> nei baru/tlatos molou=sa:</l>
+				<l n="5">ka)gat]o\n i)d' u(yifanh= te[u/-</l>
+				<l> xei k]atorqwqei=sa: tima\n</l>
+				<l> d' a)/l]los a)lloi/an e)/xei:</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>muri/]ai d' a)ndrw=n a)retai/, mi/a d' e)[k</l>
+				<l> pasa=]n pro/keitai,</l>
+				<l n="10">o(\s to\] pa\r xeiro\s kuberna=-</l>
+				<l> tai di]kai/aisi fre/nessin.</l>
+				<l>ou)/t' e)]n barupenqe/sin a(rmo/-</l>
+				<l> zei m]a/xais fo/rmiggos o)mfa\</l>
+				<l> kai\ li]guklaggei=s xoroi/,</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l n="15">ou)/t' e)]n qali/ais kanaxa\</l>
+				<l> xalk]o/ktupos: a)ll' e)f' e(ka/stw|</l>
+				<l>kairo\s] a)ndrw=n e)/rgmati ka/l-</l>
+				<l> listos: eu)= e)/rdonta de\ kai\ qeo\s o)[rqoi=.</l>
+				<l>*kleoptole/mw| de\ xa/rin</l>
+				<l n="20">nu=n xrh\ *poseida=no/s te *petrai/-</l>
+				<l> ou te/menos keladh=sai,</l>
+				<l>*purri/xou t' eu)/docon i(ppo/n[ikon ui(o/n,</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>o(\s filocei/nou te kai\ o)rqod[i/kou</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">The rest of the text is lost.&gt;</note></div2>
+			
+			<div2 n="14b" type="poem">
+				<head>
+					<title lang="en">Ode 14b</title>
+					<persName type="winner">*)aristotelei *larisai/w|</persName>
+					<seg type="race">*(/ippois !!] g?i?a</seg>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>*)esti/a xruso/qron', eu)-</l>
+				<l>do/cwn *)agaqokleada=n a(/t' a)fne![w=n</l>
+				<l>a)ndrwn me/gan o)/lbon a)e/ceis</l>
+				<l>h(me/na me/sais a)guiai=s</l>
+				<l n="5">*phneio\n a)mf' eu)w/dea *qessali/a[s</l>
+				<l>mhlotro/fou e)n gua/lois:</l>
+				<l>kei=qen kai\ *)aristote/lhs *ki/r-</l>
+				<l>ran pro\s eu)qale/a molw/n</l>
+				<l>di\s stefanw/sato *la-</l>
+				<l n="10">ri/sa[s a)naci/ppou xa/rin [</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">The rest of the ode is lost.</note></div2>
+		</div1>
+		
+		<div1 n="Dith" type="Book"><head lang="en">Dithyrambs</head>
+			<div2 n="15" type="poem">
+				<head>
+					<title lang="en">Ode 15</title>
+					<title>*)an]thnori/dai [h)\ *(ele/nh]s *)apai/thsis</title>
+				</head>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 30</note>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>*)anth/noros] a)ntiqe/ou</l>
+				<l>!!!!!!]r?a?k?o?i?t?is *)aqa/nas pro/spolos,</l>
+				<l>&times;&macr;&breve;&macr;&macr;] *palla/dos o)rsima/xou</l>
+				<l>&macr;&macr;&breve;&macr;&macr; x]ruse/as</l>
+				<l n="5">&macr;&breve;&macr;&macr;&macr;&breve; ]n *)odussei=</l>
+				<l>*lartia/|da| *menel]a/w| t' *)atrei/+da| basilei=</l>
+				<l>&macr; &breve; &macr; &macr; &macr; baqu/]zwnos *qeanw\</l>
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>&macr; &macr; &breve; &breve; &macr; &breve; &breve;]on</l>
+				<l>&times; &macr; &breve; &breve; &macr; &breve; &breve; &macr;] prosh/nepen</l>
+				<l n="10">&times; &macr; &breve; &macr; &macr; &macr; &breve; e)]u+ktime/nan</l>
+				<l>&macr; &macr; &breve; &macr; &macr; &macr; &breve; &macr;</l>
+				<l>&macr; &breve; &macr; &macr; &macr; &breve; &macr; &macr;]d?wn tuxo/ntes</l>
+				<l>&macr; &breve; &breve; &macr; &breve; &breve; &macr; &macr; &macr; &breve; &breve; &macr;] su\n qeoi=s</l>
+				<l>&macr; &breve; &macr; &macr; &macr; &breve; &macr; &macr; &macr; &breve; &macr;]ous</l>
+				<note lang="en" resp="P" type="Text" anchored="yes">7 lines are lost.</note>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l n="22">&macr; &macr; &breve;&breve; &macr; &breve;&breve; &macr;</l>
+				<l n="23">&macr; &macr; &breve;&breve; &macr; mesonu/]ktios ke/ar</l>
+				<note lang="en" resp="P" type="Text" anchored="yes">12 lines are lost.</note>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l n="36">&macr; &macr; &breve; &macr; &macr; &macr; &breve;&breve; &macr; &breve;&breve; &macr;</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 31</note>
+				<l>a)=gon, path\r d' eu)/boulos h(/rws</l>
+				<l>pa/nta sa/mainen *pria/mw| basilei=</l>
+				<l>pai/dessi/ te mu=qon *)axaiw=n.</l>
+				<l n="40">e)/nqa ka/rukes di' eu)-</l>
+				<l> rei=an po/lin o)rnu/menoi</l>
+				<l>*trw/wn a)o/llizon fa/laggas</l>
+				
+				<milestone n="str. 3" unit="strophe"/>
+				<l>deci/straton ei)s a)gora/n.</l>
+				<l>panta=| de\ die/dramen au)da/eis lo/gos:</l>
+				<l n="45">qeoi=s d' a)ni/sxontes xe/ras a)qana/tois</l>
+				<l>eu)/xonto pau/sasqai dua=n.</l>
+				<l>*mou=sa, ti/s prw=tos lo/gwn a)=rxen dikai/wn;</l>
+				<l>*pleisqeni/das *mene/laos ga/rui+ qelciepei=</l>
+				<l>fqe/gcat', eu)pe/ploisi koinw/sas *xa/rissin:</l>
+				
+				<milestone n="ant. 3" unit="strophe"/>
+				<l n="50">w)= *trw=es a)rhi/+filoi,</l>
+				<l>*zeu\s u(yime/dwn, o(\s a(/panta de/rketai,</l>
+				<l>ou)k ai)/tios qnatoi=s mega/lwn a)xe/wn,</l>
+				<l>a)ll' e)n me/sw| kei=tai kixei=n</l>
+				<l>pa=sin a)nqrw/pois *di/kan i)qei=an, a(gna=s</l>
+				<l n="55">*eu)nomi/as a)ko/louqon kai\ pinuta=s *qe/mitos:</l>
+				<l>o)lbi/wn pai=de/s nin ai(reu=ntai su/noikon.</l>
+				
+				<milestone n="ep. 3" unit="strophe"/>
+				<l>a( d' ai)o/lois ke/rdessi kai\ a)frosu/nais</l>
+				<l>e)caisi/ois qa/llous' a)qambh\s</l>
+				<l>*(/ubris, a(\ pl[ou=ton] du/nami/n te qow=s</l>
+				<l n="60">a)llo/trion w)/pasen, au)=tis</l>
+				<l>d' e)s baqu\n pe/mpei fqo/ron,</l>
+				<l> kei/na kai\ u(perfia/lous</l>
+				<l>*ga=s pai=das w)/lessen *gi/gantas.</l></div2>
+			
+			
+			<div2 n="16" type="poem">
+				<head>
+					<title lang="en">Ode 16</title>
+					<title>[*(hraklh=s]</title>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>*puq]i/ou [e)/p' ei)=m'], e)pei\</l>
+				<l>o(lk]a/d' e)/pemyen e)moi\ xruse/an</l>
+				<l>*pier]i/aqe[n e)u/+q]ronos *ou)rani/a,</l>
+				<l> poluf]a/twn ge/mousan u(/mnwn</l>
+				<l n="5">!!!!!]n? ei)/t' a)/r' e)p' a)nqemo/enti *(/ebrw|</l>
+				<l>!!!!! a)]ga/lletai h)\ dolixau/xeni ku/knw|,</l>
+				<l>o)pi\ a(]dei/+a| fre/na terpo/menos,</l>
+				<l>!!!!!!]d' i(/kh| paiho/nwn</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 32</note>
+				<l>a)/nqea pedoixnei=n,</l>
+				<l>*pu/qi' *)/apollon,</l>
+				<l n="11">to/sa xoroi\ *delfw=n</l>
+				<l>so\n kela/dhsan par' a)gakle/a nao/n.</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>pri/n ge kle/omen lipei=n</l>
+				<l>*oi)xali/an puri\ daptome/nan</l>
+				<l n="15">*)amfitruwnia/dan qrasumhde/a fw=-</l>
+				<l> q', i(/keto d' a)mfiku/mon' a)kta/n:</l>
+				<l>e)/nq' a)po\ lai/+dos eu)runefei= *khnai/w|</l>
+				<l>*zhni\ qu/en baruaxe/as e)nne/a tau/rous</l>
+				<l>du/o t' o)rsia/lw| damasi/xqoni me/l-</l>
+				<l n="20">le ko/ra| t' o)brimoderkei= a)/zuga</l>
+				<l>parqe/nw| *)aqa/na|</l>
+				<l>u(yike/ran bou=n.</l>
+				<l>to/t' a)/maxos dai/mwn</l>
+				<l>*dai+anei/ra| polu/dakrun u(/fane</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l n="25">mh=tin e)pi/fron', e)pei\</l>
+				<l>pu/qet' a)ggeli/an talapenqe/a,</l>
+				<l>*)io/lan o(/ti leukw/lenon</l>
+				<l>*dio\s ui(o\s a)tarboma/xas</l>
+				<l>a)/loxon liparo\[n p]oti\ do/mon pe/mpoi.</l>
+				<l n="30">a)= du/smoros, a)= ta/lain', oi(=on e)mh/sato:</l>
+				<l>fqo/nos eu)rubi/as nin a)pw/lesen,</l>
+				<l>dno/feo/n te ka/lumma tw=n</l>
+				<l>u(/steron e)rxome/nwn,</l>
+				<l> o(/t' e)pi\ r(odo/enti *luko/rma|</l>
+				<l n="35">de/cato *ne/ssou pa/ra daimo/nion te/r[as.</l></div2>
+			
+			
+			<div2 n="17" type="poem">
+				<head>
+					<title lang="en">Ode 17</title>
+					<title>*hi/qeoi [h)\] *qhseu/s</title>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>*kuano/prw|ra me\n nau=s mene/ktupon</l>
+				<l>*qhse/a di\s e(pta/ t' a)glaou\s a)/gousa</l>
+				<l> kou/rous *)iao/nwn</l>
+				<l>*krhtiko\n ta/mne pe/lagos:</l>
+				<l n="5">thlauge/i+ ga\r [e)n] fa/rei+</l>
+				<l> borh/i+ai pi/tnon au)=rai</l>
+				<l> kluta=s e(/kati p[o]lemai/gidos *)aqa/nas:</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 33</note>
+				<l>kni/sen te *mi/nwi+ ke/ar</l>
+				<l> i(mera/mpukos qea=s</l>
+				<l n="10">*ku/pridos ai)na\ dw=ra:</l>
+				<l> xei=ra d' ou)ke/ti parqenika=s</l>
+				<l>a)/terq' e)ra/tuen, qi/gen</l>
+				<l>de\ leuka=n parhi/+dwn:</l>
+				<l> bo/ase/ t' *)eri/boia xalko-</l>
+				<l n="15">qw/raka *pandi/onos</l>
+				<l>e)/kgonon: i)/den de\ *qhseu/s,</l>
+				<l> me/lan d' u(p' o)fru/wn</l>
+				<l>di/nasen o)/mma, kardi/an te/ voi</l>
+				<l> sxe/tlion a)/mucen a)/lgos,</l>
+				<l n="20">ei)=re/n te: *dio\s ui(e\ ferta/tou,</l>
+				<l>o(/sion ou)ke/ti tea=n</l>
+				<l> e)/sw kuberna=|s frenw=n</l>
+				<l>qumo/n: i)/sxe megalou=xon h(/rws bi/an.</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>o(/ ti me\n e)k qew=n moi=ra pagkrath\s</l>
+				<l n="25">a)/mmi kate/neuse kai\ *di/kas r(e/pei ta/-</l>
+				<l> lanton, peprwme/nan</l>
+				<l>ai)=san e)kplh/somen, o(/tan</l>
+				<l>e)/lqh|: su\ de\ barei=an ka/te-</l>
+				<l> xe mh=tin. ei) kai/ se kedna\</l>
+				<l n="30">te/ken le/xei *dio\s u(po\ kro/tafon *)/idas</l>
+				<l>migei=sa *foi/nikos e)ra-</l>
+				<l> tw/numos ko/ra brotw=n</l>
+				<l>fe/rtaton, a)lla\ ka)me\</l>
+				<l> *pitqe/os quga/thr a)fneou=</l>
+				<l n="35">plaqei=sa ponti/w| te/ken</l>
+				<l>*poseida=ni, xru/seon</l>
+				<l> te/ voi do/san i)o/plokoi</l>
+				<l> ka/lumma *nhrhi/+des.</l>
+				<l>tw= se, pole/marxe *knwsi/wn,</l>
+				<l n="40">ke/lomai polu/stonon</l>
+				<l>e)ru/ken u(/brin: ou) ga\r a)\n qeloi-</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 34</note>
+				<l>m' a)mbro/tou e)ranno\n *)aou=s</l>
+				<l>i)dei=n fa/os, e)pei/ tin' h)i+q<seg type="sling">e/w</seg>n</l>
+				<l>su\ dama/seias a)e/kon-</l>
+				<l n="45">ta: pro/sqe xeirw=n bi/an</l>
+				<l>dei/comen: ta\ d' e)pio/nta dai/mwn krinei=.</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>to/s' ei)=]pen a)re/taixmos h(/rws:</l>
+				<l> ta/fon de\ nauba/tai</l>
+				<l>fwto\s] u(pera/fanon</l>
+				<l n="50">qa/rsos: *(ali/ou te gambrw=| xolw/[sat' h)=tor,</l>
+				<l>u(/faine/ te potaini/an</l>
+				<l>mh=tin, ei)=pe/n te: megalosqene\s</l>
+				<l>*zeu= pa/ter, a)/kouson: ei)/per m[e kou/r]a</l>
+				<l>*foi/nissa leukw/lenos soi\ te/ke,</l>
+				<l n="55">nu=n pro/pemp' a)p' ou)ranou= q[oa\n</l>
+				<l>purie/qeiran a)strapa\n</l>
+				<l>sa=m' a)ri/gnwton: ei)</l>
+				<l> de\ kai\ se\ *troizhni/a seisi/xqoni</l>
+				<l> fu/teusen *ai)/qra *posei-</l>
+				<l n="60">da=ni, to/nde xru/seon</l>
+				<l>xeiro\s a)glao\n</l>
+				<l> e)/negke ko/smon &lt;e)k&gt; baqei/as a(lo/s,</l>
+				<l>dikw\n qra/sei sw=ma patro\s e)s do/mous.</l>
+				<l>ei)/seai d' ai)/ k' e)ma=s klu/h|</l>
+				<l n="65">*kro/nios eu)xa=s</l>
+				<l>a)nacibro/ntas o( pa/ntwn med<seg type="sling">e/w</seg>n.</l>
+				
+				<milestone n="str. 2" unit="strophe"/>
+				<l>klu/e d' a)/metron eu)xa\n megasqenh\s</l>
+				<l>*zeu/s, u(pe/roxo/n te *mi/nwi+ fu/teuse</l>
+				<l> tima\n fi/lw| qe/lwn</l>
+				<l n="70">paidi\ panderke/a qe/men,</l>
+				<l>a)/straye/ q': o( de\ quma/rmenon</l>
+				<l> i)dw\n te/ras pe/tase xei=ras</l>
+				<l> kluta\n e)s ai)qe/ra menepto/lemos h(/rws,</l>
+				<l>ei)=re/n te: *qhseu=, &lt;su\&gt; ta/de</l>
+				<l n="75">me\n ble/peis safh= *dio\s</l>
+				<l>dw=ra: su\ d' o)/rnu' e)s ba-</l>
+				<l> ru/bromon pe/lagos: *kroni/das</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 35</note>
+				<l>de/ toi path\r a)/nac telei=</l>
+				<l>*poseida\n u(pe/rtaton</l>
+				<l n="80">kle/os xqo/na kat' h)u/+dendron.</l>
+				<l> w(\s ei)=pe: tw=| d' ou) pa/lin</l>
+				<l>qumo\s a)neka/mptet', a)ll' eu)-</l>
+				<l> pa/ktwn e)p' i)kri/wn</l>
+				<l>staqei\s o)/rouse, po/ntio/n te/ nin</l>
+				<l n="85">de/cato qelhmo\n a)/lsos.</l>
+				<l>ta/[f]en de\ *dio\s ui(o\s e)/ndoqen</l>
+				<l>ke/ar, ke/leuse/ te kat' ou)=-</l>
+				<l> ron i)/sxen eu)dai/dalon</l>
+				<l>na=a: moi=ra d' e(te/ran e)po/rsun' o(do/n.</l>
+				
+				<milestone n="ant. 2" unit="strophe"/>
+				<l n="90">i(/eto d' w)ku/pompon do/ru: so/ei</l>
+				<l>nin borea\s e)co/pin pne/ous' a)h/ta:</l>
+				<l> tre/ssan d' *)aqanai/wn</l>
+				<l>h)i+q<seg type="sling">e/w</seg>n &lt; pa=n &gt; ge/nos, e)pei\</l>
+				<l>h(/rws qo/ren po/ntonde, ka-</l>
+				<l n="95">ta\ leiri/wn t' o)mma/twn da/-</l>
+				<l> kru x<seg type="sling">e/o</seg>n, barei=an e)pide/gmenoi a)na/gkan:</l>
+				<l>fe/ron de\ delfi=nes a(li-</l>
+				<l> naie/tai me/gan qow=s</l>
+				<l>*qhse/a patro\s i(ppi/-</l>
+				<l n="100">ou do/mon, me/garo/n te qew=n</l>
+				<l>mo/len: to/qi kluta\s i)dw\n</l>
+				<l>e)/deis' o)lbi/oio *nh-</l>
+				<l> re/os ko/ras: a)po\ ga\r a)gla-</l>
+				<l> w=n la/mpe gui/wn se/las</l>
+				<l n="105">w(=te puro/s, a)mfi\ xai/tais</l>
+				<l> de\ xruseo/plokoi</l>
+				<l>di/nhnto taini/ai: xorw=| d' e)/ter-</l>
+				<l> pon ke/ar u(groi=si possi/n:</l>
+				<l>semna/n te patro\s a)/loxon fi/lan</l>
+				<l n="110">i)/de bow=pin e)ratoi=-</l>
+				<l> sin *)amfitri/tan do/mois:</l>
+				<l>a(/ nin a)mfe/balen ai)o/lan porfu/ran,</l>
+				
+				<milestone n="ep. 2" unit="strophe"/>
+				<l>ko/maisi/ t' e)pe/qhken ou)/lais</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 36</note>
+				<l> a)memfe/a plo/kon,</l>
+				<l>to/n pote/ voi e)n ga/mw|</l>
+				<l n="116">dw=ke do/lios *)afrodi/ta r(o/dois e)remno/n.</l>
+				<l>a)/piston o(/ ti dai/mones</l>
+				<l>q<seg type="sling">e/w</seg>sin ou)de\n frenoa/rais brotoi=s:</l>
+				<l>na=a para\ lepto/prumnon fa/nh: feu=,</l>
+				<l n="120">oi(/aisin e)n fronti/si *knw/sion</l>
+				<l>e)/sxasen stratage/tan, e)pei\</l>
+				<l>mo/l' a)di/antos e)c a(lo\s</l>
+				<l>qau=ma pa/ntessi, la/m-</l>
+				<l> pe d' a)mfi\ gui/ois qew=n dw=r', a)glao/-</l>
+				<l n="125">qronoi/ te kou=rai su\n eu)-</l>
+				<l> qumi/a neokti/tw|</l>
+				<l>w)lo/lucan, e)/-</l>
+				<l> klagen de\ po/ntos: h)i/+q<seg type="sling">eo</seg>i d' e)ggu/qen</l>
+				<l>ne/oi paia/nican e)rata=| vopi/.</l>
+				<l n="130">*da/lie, xoroi=si *khi/+wn</l>
+				<l> fre/na i)anqei\s</l>
+				<l>o)/paze q<seg type="sling">eo/</seg>pompon e)sqlw=n tu/xan.</l></div2>
+			
+			
+			<div2 n="18" type="poem">
+				<head>
+					<title lang="en">Ode 18</title>
+					<title>*qhseu/s</title>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<sp><speaker>*xoro/s</speaker>
+					<l>basileu= ta=n i(era=n *)aqana=n,</l>
+					<l> tw=n a(brobi/wn a)/nac *)iw/nwn,</l>
+					<l>ti/ ne/on e)/klage xalkokw/dwn</l>
+					<l> sa/lpigc polemhi/+an a)oida/n;</l>
+					<l n="5">h)= tis a(mete/ras xqono\s</l>
+					<l> dusmenh\s o(/ri' a)mfiba/llei</l>
+					<l> strata:ge/tas a)nh/r;</l>
+					<l>h)\ lh|stai\ kakoma/xanoi</l>
+					<l>poime/nwn a)e/kati mh/lwn</l>
+					<l n="10">seu/ont' a)ge/las bi/a|;</l>
+					<l>h)\ ti/ toi kradi/an a)mu/ssei;</l>
+					<l> fqe/ggeu: doke/w ga\r ei)/ tini brotw=n</l>
+					<l>a)lki/mwn e)pikouri/an</l>
+					<l> kai\ ti\n e)/mmenai ne/wn,</l>
+					<l n="15">w)= *pandi/onos ui(e\ kai\ *kreou/sas.</l>
+					
+					<milestone n="str. 2" unit="strophe"/></sp>
+				<sp><speaker>*ai)geu/s</speaker>
+					<l>ne/]on h)=lqen dolixa\n a)mei/yas</l>
+					<note lang="en" resp="P" type="Papyr" anchored="yes">Column 37</note>
+					<l> ka=ruc posi\n *)isqmi/an ke/leuqon:</l>
+					<l>a)/fata d' e)/rga le/gei krataiou=</l>
+					<l> fwto/s: to\n u(pe/rbio/n t' e)/pefnen</l>
+					<l n="20">*si/nin, o(\s i)sxu/i+ fe/rtatos</l>
+					<l> qnatw=n h)=n, *kroni/da *lutai/ou</l>
+					<l> seisi/xqonos te/kos:</l>
+					<l>su=n t' a)ndrokto/non e)n na/pais</l>
+					<l>*kremmuw=nos, a)ta/sqalo/n te</l>
+					<l n="25">*ski/rwna kate/ktanen:</l>
+					<l>ta/n te *kerkuo/nos palai/stran</l>
+					<l> e)/sxen, *poluph/mono/s te kartera\n</l>
+					<l>sfu=ran e)ce/balen *proko/-</l>
+					<l> ptas, a)rei/onos tuxw\n</l>
+					<l n="30">fwto/s. tau=ta de/doix' o(/pa| telei=tai.</l>
+					
+					<milestone n="str. 3" unit="strophe"/></sp>
+				<sp><speaker>*xoro/s</speaker>
+					<l>ti/na d' e)/mmen po/qen a)/ndra tou=ton</l>
+					<l> le/gei, ti/na te stola\n e)/xonta;</l>
+					<l>po/tera su\n polemhi/+ois o(/-</l>
+					<l> ploisi stratia\n a)/gonta polla/n;</l>
+					<l n="35">h)\ mou=non su\n o)p.a/osin</l>
+					<l> stei/xein e)/mporon oi(=' a)la/tan</l>
+					<l> e)p' a)llodami/an,</l>
+					<l>i)sxuro/n te kai\ a)/lkimon</l>
+					<l>w(=de kai\ qrasu/n, o(/s te tou/twn</l>
+					<l n="40">a)ndrw=n kratero\n sqe/nos</l>
+					<l>e)/sxen; h)= qeo\s au)to\n o(rma=|,</l>
+					<l> di/kas a)di/koisin o)/fra mh/setai:</l>
+					<l>ou) ga\r r(a/|dion ai)e\n e)/r-</l>
+					<l> donta mh\ 'ntuxei=n kakw=|.</l>
+					<l n="45">pa/nt' e)n tw=| dolixw=| xro/nw| telei=tai.</l>
+					
+					<milestone n="str. 4" unit="strophe"/></sp>
+				<sp><speaker>*ai)geu/s</speaker>
+					<l>du/o voi fw=te mo/nous a(martei=n</l>
+					<l> le/gei, peri\ faidi/moisi d' w)/mois</l>
+					<l>ci/fos e)/xein &lt;e)lefanto/kwpon&gt;:</l>
+					<l> cestou\s de\ du/' e)n xe/ress' a)/kontas</l>
+					<note lang="en" resp="P" type="Papyr" anchored="yes">Column 38</note>
+					<l n="50">khu)/tukton kune/an *la/kai-</l>
+					<l> nan krato\s pe/ri pursoxai/tou:</l>
+					<l> ste/rnois te porfu/r<seg type="sling">eo</seg>n</l>
+					<l>xitw=n' a)/mfi, kai\ ou)/lion</l>
+					<l>*qessala\n xlamu/d': o)mma/twn de\</l>
+					<l n="55">sti/lbein a)/po *lamni/an</l>
+					<l>foi/nissan flo/ga: pai=da d' e)/mmen</l>
+					<l> prw/qhbon, a)rhi/+wn d' a)qurma/twn</l>
+					<l>memna=sqai pole/mou te kai\</l>
+					<l> xalkeoktu/pou ma/xas:</l>
+					<l n="60">di/zhsqai de\ filagla/ous *)aqa/nas.</l></sp></div2>
+			
+			
+			<div2 n="19" type="poem">
+				<head>
+					<title lang="en">Ode 19</title>
+					<title>*iw/ *)aqhnai/ois</title>
+				</head>
+				<milestone n="str. 1" unit="strophe"/>
+				<l>pa/resti muri/a ke/leuqos</l>
+				<l> a)mbrosi/wn mele/wn,</l>
+				<l>o(\s a)\n para\ *pieri/dwn la/-</l>
+				<l> xh|si dw=ra *mousa=n,</l>
+				<l n="5">i)oble/faroi/ te kai\</l>
+				<l> fereste/fanoi *xa/rites</l>
+				<l> ba/lwsin a)/mfi tima\n</l>
+				<l>u(/mnoisin: u(/faine/ nun e)n</l>
+				<l> tai=s poluhra/tois ti kleino\n</l>
+				<l n="10">o)lbi/ais *)aqa/nais,</l>
+				<l>eu)ai/nete *khi+a me/rimna.</l>
+				<l> pre/pei se ferta/tan i)/men</l>
+				<l>o(do\n para\ *kallio/pas la-</l>
+				<l> xoi=san e)/coxon ge/ras.</l>
+				<l n="15">h)=en *)/argos o(/q' i(/ppion lipou=sa</l>
+				<l>feu=ge xruse/a bou=s,</l>
+				<l>eu=rusqene/os fradai=si ferta/tou *dio/s,</l>
+				<l>*)ina/xou r(ododa/ktulos ko/ra:</l>
+				
+				<milestone n="ant. 1" unit="strophe"/>
+				<l>o(/t' *)/argon o)/mmasin ble/ponta</l>
+				<l n="20">pa/ntoqen a)kama/tois</l>
+				<l>megistoa/nassa ke/leuse</l>
+				<l> xruso/peplos *(/hra</l>
+				<l>a)/koiton a)/u+pnon <seg type="sling">e)o/</seg>n-</l>
+				<l> ta kallike/ran da/malin</l>
+				<l n="25">fula/ssen: ou)de\ *mai/as</l>
+				<l>ui(o\s du/nat' ou)/te kat' eu)-</l>
+				<l> fegge/as a(me/ras laqei=n nin</l>
+				<note lang="en" resp="P" type="Papyr" anchored="yes">Column 39</note>
+				<l> ou)/te nu/ktas a(gn[a/s.</l>
+				<l>ei)/t' ou)=n ge/net' e)[n &breve;&macr;&breve;&macr;&breve;</l>
+				<l n="30">podarke/' a)/ggelo[n *dio\s</l>
+				<l>ktanei=n to/te [*ga=s &breve;&breve;&macr;&breve;</l>
+				<l> o)brimospo/rou l[&breve;&times;</l>
+				<l>*)/argon: h)/ r(a kai\ [&macr;&breve;&macr;&breve;&macr;&breve;</l>
+				<l>a)/spetoi me/rimn[ai:</l>
+				<l n="35">h)\ *pieri/des fu/teu[san &macr;&breve;&macr;&breve;&times;</l>
+				<l>kade/wn a)na/paus[in &macr;&breve;&times;</l>
+				
+				<milestone n="ep. 1" unit="strophe"/>
+				<l>e)moi\ me\n ou)=n</l>
+				<l>a)sfale/staton a( pro[</l>
+				<l>e)pei\ par' a)nqemw/[dea</l>
+				<l n="40">*nei=lon a)fi/ket' o[i)stropla\c</l>
+				<l>*)iw\ fe/rousa pai=d[a !!!</l>
+				<l>*)/epafon: e)/nqa ni[n !!!</l>
+				<l>linosto/lwn pru/[tanin !!</l>
+				<l>u(pero/xw| bru/ont[a !!!</l>
+				<l n="45">megi/stan te qna[tw=n !!</l>
+				<l>o(/qen kai\ *)aganori/[das</l>
+				<l>e)n e(ptapu/lois[i *qh/bais</l>
+				<l>*ka/dmos *seme/l[an fu/teusen,</l>
+				<l>a(\ to\n o)rsiba/kxan</l>
+				<l n="50">ti/kten *dio/nuson, [!!!!</l>
+				<l>kai\ xorw=n stefa[nofo/rwn a)/nakta.</l></div2>
+			
+			
+			<div2 n="20" type="poem">
+				<head>
+					<title lang="en">Ode 20</title>
+					<title>*)/idas *lakedaimoni/ois</title>
+				</head>
+				<milestone n="unknown.1" unit="strophe"/>
+				<l>*spa/rta| pot' e)n e[u)ruxo/rw|</l>
+				<l>canqai\ *lakedaimon[i/wn</l>
+				<l>toio/nde me/los k[o/rai u(/mneun,</l>
+				<l>o(/t' a)/geto kallipa/[ra|on</l>
+				<l n="5">ko/ran qrasuka/r[dios *)/idas</l>
+				<l>*ma/rphssan i)o/t[!!!!</l>
+				<l>fugw\n qana/tou t[!!!!!</l>
+				<l>a)naci/alos *posei[da\n !!!!</l>
+				
+				<milestone n="unknown.9" unit="strophe"/>
+				<l>i(/ppous te/ voi i)san[e/mous</l>
+				<l n="10">*pleurw=n' e)s e)u+kt[ime/nan</l>
+				<l>xrusa/spidos ui(o\[n *)/arhos</l>
+				
+				<note lang="en" resp="P" type="Text" anchored="yes">The rest is lost.</note></div2>
+			
+		</div1>
+	</body></text></TEI.2>

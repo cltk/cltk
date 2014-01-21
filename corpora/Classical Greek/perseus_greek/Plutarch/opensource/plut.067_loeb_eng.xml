@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De liberis educandis</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Frank Cole Babbitt</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Frank Cole Babbitt</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1927</date>
+                  </imprint>
+                  <biblScope type="volume">1</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v1.p.3"/>
+         <div1 type="section" n="intro">
+            <head>THE EDUCATION OF CHILDREN (DE LIBERIS EDUCANDIS) <lb/>Introduction</head>
+            <p>It is generally believed that the essay which stands first in the collected
+					works of Plutarch cannot have been written by him. The arguments against the
+					genuineness of the essay, based both on external and internal evidence, are
+					too long to be repeated here, but they may be found in Wyttenbach's edition
+					vol. vi. pp. 29-64.</p>
+            <p>The essay, however, is interesting in itself, since it reflects in many ways
+					the educational conditions of its time. Frankly recognizing the difference
+					in natural endowments, the author insists on the great benefits which
+					inevitably come from training. Physical training is of course required, and
+					military training is held to be most important for preparing men to win in
+					battle. A knowledge of philosophy is the final goal of education.</p>
+            <p>The invectives against the indifference of parents about the education of
+					their children, and their unwillingness to pay adequate salaries so as to
+					secure men of character as teachers, may have the same familiar ring two
+					thousand years hence.</p>
+            <p>Finally, a word is added on the excesses of young men, and a warning against
+					flatterers,—suggested perhaps by Plutarch's essay devoted to that
+					subject.</p>
+            <pb id="v1.p.5"/>
+         </div1>
+         <div1 type="section" n="1">
+            <p>Let us consider what may be said of the education of free-born children, and
+					what advantages they should enjoy to give them a sound character when they
+					grow up. </p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>It is perhaps better to begin with their parentage first ; and I should
+					advise those desirous of becoming fathers of notable offspring to abstain
+					from random cohabitation with women; I mean with such women as courtesans
+					and concubines. For those who are not well-born, whether on the father's or
+					the mother's side, have an indelible disgrace in their low birth, which
+					accompanies them throughout their lives, and offers to anyone desiring to
+					use it a ready subject of reproach and insult. Wise was the poet who
+					declares: <quote rend="blockquote">The home's foundation being wrongly laid,
+						The offspring needs must be unfortunate.<note place="unspecified" anchored="yes">Euripides, <hi rend="italics">Hercules Furens</hi>, 1261.</note>
+               </quote> A
+					goodly treasure, then, is honourable birth, and such a man may speak his
+					mind freely, a thing which should be held of the highest account by those
+					who wish to have issue lawfully begotten. In the nature of things, the
+					spirits of those whose blood is base or counterfeit are constantly being
+					brought down and humbled, and quite rightly does the poet declare: <pb id="v1.p.7"/>
+					          <quote rend="blockquote">A man, though bold, is made a slave whene'er He
+						learns his mother's or his sire's disgrace.<note place="unspecified" anchored="yes">Euripides, <hi rend="italics">Hippolytus</hi>, 424.</note>
+               </quote> Children of
+					distinguished parents are, of course, correspondingly full of exultation and
+					pride. At all events, they say that Cleophantus, the son of Themistocles,
+					often declared to many persons, that whatever he desired was always agreed
+					to by the Athenian people; for whatever he wished his mother also wished;
+					whatever his mother wished Themistocles also wished; and whatever
+					Themistocles wished all the Athenians wished. It is very proper also to
+					bestow a word of praise on the Spartans for the noble spirit they showed in
+					fining their king, Archidamus, because he had permitted himself to take to
+					wife a woman short of stature, the reason they gave being that he proposed
+					to supply them not with kings but with kinglets. </p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>In this connexion we should speak of a matter which has not been overlooked
+					by our predecessors. What is this? It is that husbands who approach their
+					wives for the sake of issue should do so only when they have either not
+					taken any wine at all, or at any rate, a very moderate portion. For children
+					whose fathers have chanced to beget them in drunkenness are wont to be fond
+					of wine, and to be given to excessive drinking. Wherefore Diogenes,
+					observing an emotional and crack-brained youth, said, <q direct="unspecified">Young man, your
+						father must have been drunk when he begot you !</q> So much for my
+					views on the subject of birth. We must now speak of education. </p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>As a general statement, the same assertion may be made in regard to moral
+					excellence that we <note place="unspecified" anchored="yes">Euripides, Hippolytus, 424.</note>
+					          <pb id="v1.p.9"/> are in the habit of making in regard to the arts and
+					sciences, namely, that there must be a concurrence of three things in order
+					to produce perfectly right action, and these are: nature, reason, and habit.
+					By reason I mean the act of learning, and by habit constant practice. The
+					first beginnings come from nature, advancement from learning, the practical
+					use from continued repetition, and the culmination from all combined; but so
+					far as any one of these is wanting, the moral excellence must, to this
+					extent, be crippled. For nature without learning is a blind thing, and
+					learning without nature is an imperfect thing, and practice without both is
+					an ineffective thing. Just as in farming, first of all the soil must be
+					good, secondly, the husbandman skilful, and thirdly, the seed sound, so,
+					after the same manner, nature is like to the soil, the teacher to the
+					farmer, and the verbal counsels and precepts like to the seed. I should
+					strenuously insist that all three qualities met together and formed a
+					perfect union in the souls of those men who are celebrated among all
+					mankind,—Pythagoras, Socrates, Plato, and all who have attained an
+					ever-living fame. </p>
+            <p> Now it is a fortunate thing and a token of divine love if ever a heavenly
+					power has bestowed all these qualities on any one man ; but if anybody
+					imagines that those not endowed with natural gifts, who yet have the chance
+					to learn and to apply themselves in the right way to the attaining of
+					virtue, cannot repair the want of their nature and advance so far as in them
+					lies, let him know that he is in great, or rather total, error. For
+					indifference ruins a good natural endowment, but instruction amends a poor
+					one; easy things escape the careless, but difficult <pb id="v1.p.11"/>
+					things are conquered by careful application. One may understand how
+					effective and how productive a thing is application and hard work, if he
+					only direct his attention to many effects that are daily observed. For drops
+					of water make hollows in rocks, steel and bronze are worn away by the touch
+					of hands, and rims of chariot-wheels once bent by dint of labour, cannot, no
+					matter what be done, recover their original lines. The bent staves which
+					actors use it is impossible to straighten; indeed the unnatural shape has,
+					through labour, come to predominate over the natural. And are these the only
+					things which clearly show the potency of diligence? No, but myriads upon
+					myriads. A piece of land is good by nature, but without care it grows waste,
+					and the better it is by nature, so much the more is it spoiled by neglect if
+					it be not worked. Another piece is forbidding and rougher than land should
+					be, but, if it be tilled, straightway it produces noble crops. What trees if
+					they are neglected do not grow crooked and prove unfruitful? Yet if they
+					receive right culture, they become fruitful, and bring their fruit to
+					maturity. What bodily strength is not impaired and finally ruined by neglect
+					and luxury and ill condition? On the other hand, what weak physique does not
+					show a very great improvement in strength if men exercise and train
+					themselves? What horses if they are well broken when young do not become
+					obedient to their riders, whereas if they are left unbroken they turn out
+					stubborn and restive? Why wonder at other instances, seeing as we do that
+					many of the wildest animals are made tame and used to their labours? <pb id="v1.p.13"/> Well did the Thessalian say, when asked who were the most
+					pacific of the Thessalians, <q direct="unspecified">Those who are just returning from
+						war.</q> But why discuss the matter at length ? For character is
+					habit long continued, and if one were to call the virtues of character the
+					virtues of habit, he would not seem to go far astray. I will cite but one
+					more example on this point and then I shall desist from discussing it
+					further. Lycurgus, <note place="unspecified" anchored="yes">The story is repeated in <hi rend="italics">Moralia</hi>, 225 F.</note> the lawgiver of the Spartans, took two
+					puppies of the same litter, and reared them in quite different ways, so that
+					from the one he produced a mischievous and greedy cur, and from the other a
+					dog able to follow a scent and to hunt. And then at a time when the Spartans
+					were gathered together, he said, <q direct="unspecified">Men of Sparta, of a truth habit and
+						training and teaching and guidance in living are a great influence
+						toward engendering excellence, and I will make this evident to you at
+						once.</q> Thereupon producing the two dogs, he let them loose,
+					putting down directly in front of them a dish of food and a hare. The one
+					dog rushed after the hare, and the other made for the dish. While the
+					Spartans were as yet unable to make out what import he gave to this, and
+					with what intent he was exhibiting the dogs, he said, <q direct="unspecified">These dogs are
+						both of the same litter, but they have received a different bringing-up,
+						with the result that the one has turned out a glutton and the other a
+						hunter.</q> In regard to habits and manner of life let this suffice.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Next in order comes the subject of feeding. Mothers ought, I should say,
+					themselves to feed their infants and nurse them themselves. For they will
+					feed them with a livelier affection and greater <pb id="v1.p.15"/> care, as
+					loving them inwardly, and, according to the proverb, to their finger-tips.
+					<note place="unspecified" anchored="yes">So Cicero, <hi rend="italics">Ad fam.</hi>, i. 6 <q direct="unspecified">a teneris
+						unguiculis</q>; <hi rend="italics">cf.</hi> J. C. Rolfe in <hi rend="italics">Proceedings of Amer. Phil. Assoc.</hi>, July 1903, p.
+						55.</note> But the goodwill of foster-mothers and nursemaids is
+					insincere and forced, since they love for pay. Nature too makes clear the
+					fact that mothers should themselves nurse and feed what they have brought
+					into the world, since it is for this purpose that she has provided for every
+					animal which gives birth to young a source of food in its milk. Wise also is
+					her forethought; for she has fashioned women's breasts double, so that, if
+					there be twins, they may have a double source of nutrition. Yet apart from
+					all this, mothers would come to be more kindly disposed towards their
+					children, and more inclined to show them affection. Not unnaturally either,
+					I swear; for this fellowship in feeding is a bond that knits kindliness
+					together. Yes, even the brute beasts, when dragged away from their
+					companions in feeding, evidently miss them. <note place="unspecified" anchored="yes">From Xenophon, <hi rend="italics">Cyropaedia</hi>, ii. l. 28. <hi rend="italics">Cf.
+						Memorabilia</hi>, ii. 3. 4.</note> So, as I have said, mothers must
+					endeavour, if possible, to nurse their children themselves; but if they are
+					unable to do this, either because of bodily weakness (for such a thing can
+					happen) or because they are in haste to bear more children, yet
+					foster-mothers and nursemaids are not to be selected at random, but as good
+					ones as possible must be chosen; and, first of all, in character they must
+					be Greek. For just as it is necessary, immediately after birth, to begin to
+					mould the limbs of the children's bodies in order that these may grow
+					straight and without deformity, so, in the same fashion, it is fitting from
+					the beginning to regulate the characters of children. For youth <pb id="v1.p.17"/> is impressionable and plastic, and while such minds are
+					still tender lessons are infused deeply into them ; but anything which has
+					become hard is with difficulty softened. For just as seals leave their
+					impression in soft wax, so are lessons impressed upon the minds of children
+					while they are young. And, as it seems to me, Plato, that remarkable man,
+					quite properly advises <note place="unspecified" anchored="yes">Plato, <hi rend="italics">Republic</hi>, 377 E.</note> nurses, even in telling stories to children, not to
+					choose at random, lest haply their minds be filled at the outset with
+					foolishness and corruption. Phocylides, <note place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poetae Lyrici Graeci, ii. 448 (frag. 13).</hi>
+               </note> too, the poet, appears to give
+					admirable advice in saying : <quote rend="blockquote">Should teach while still a child The tale of
+						noble deeds.</quote> 
+            </p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>Now there is another point which should not be omitted, that in choosing the
+					younger slaves, who are to be the servants and companions of young masters,
+					those should be sought out who are, first and foremost, sound in character,
+					who are Greeks as well, and distinct of speech, so that the children may not
+					be contaminated by barbarians and persons of low character, and so take on
+					some of their commonness. The proverb-makers say, and quite to the point,
+					<q direct="unspecified">If you dwell with a lame man, you will learn to limp.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>When now they attain to an age to be put under the charge of attendants, then
+					especially great care must be taken in the appointment of these, so as not
+					to entrust one's children inadvertently to slaves taken in war or to
+					barbarians or to those who are unstable. Nowadays, the common practice of
+					many persons is more than ridiculous ; for some of their trustworthy slaves
+					they appoint to manage their farms, others they make masters of their <pb id="v1.p.19"/> ships, others their factors, others they make
+					housestewards, and some even money-lenders; but any slave whom they find to
+					be a wine-bibber and a glutton, and useless for any kind of business, to him
+					they bring their sons and put them in his charge. But the good attendant
+					ought to be a man of such nature as was Phoenix, the attendant of Achilles. </p>
+            <p> I come now to a point which is more important and weighty than anything I
+					have said so far. Teachers must be sought for the children who are free from
+					scandal in their lives, who are unimpeachable in their manners, and in
+					experience the very best that may be found. For to receive a proper
+					education is the source and root of all goodness. As husbandmen place stakes
+					beside the young plants, so do competent teachers with all care set their
+					precepts and exhortations beside the young, in order that their characters
+					may grow to be upright. Nowadays there are some fathers who deserve utter
+					contempt, who, before examining those who are going to teach, either because
+					of ignorance, or sometimes because of inexperience, hand over their children
+					to untried and untrustworthy men. And this is not so ridiculous if their
+					action is due to inexperience, but there is another case which is absurd to
+					the last degree. What is this ? Why, sometimes even with knowledge and with
+					information from others, who tell them of the inexperience and even of the
+					depravity of certain teachers, they nevertheless entrust their children to
+					them ; some yield to the flatteries of those who would please them, and
+					there are those who do it as a favour to insistent friends. Their action
+					resembles that of a person, who, if he were afflicted with bodily disease,
+					<pb id="v1.p.21"/> should reject that man who by his knowledge might be
+					able to save his life, and, as a favour to a friend, should prefer one who
+					by his inexperience might cause his death ; or again that of a person who
+					should dismiss a most excellent shipmaster, and accept the very worst
+					because of a friend's insistence. Heaven help us ! Does a man who bears the
+					name of father think more of gratifying those who ask favours than he thinks
+					of the education of his children ? And did not Socrates <note place="unspecified" anchored="yes">Plato, <hi rend="italics">Cleitophon</hi>, 407 A.</note> of old often say
+					very fittingly, that if it were in any way possible one should go up to the
+					loftiest part of the city and cry aloud, <q direct="unspecified">Men, whither is your course
+						taking you, who give all possible attention to the acquiring of money
+						but give small thought to your sons to whom ye are to leave it ?</q>
+					To this I should like to add that such fathers act nearly as one would act
+					who should give thought to his shoe but pay no regard to his foot. Many
+					fathers, however, go so far in their devotion to money as well as in
+					animosity toward their children, that in order to avoid paying a larger fee,
+					they select as teachers for their children men who are not worth any wage at
+					all—looking for ignorance, which is cheap enough. Wherefore Aristippus not
+					inelegantly, in fact very cleverly, rebuked a father who was devoid both of
+					mind and sense. For when a man asked him what fee he should require for
+					teaching his child, Aristippus replied, <q direct="unspecified">A thousand drachmas</q>
+					; but when the other exclaimed, <q direct="unspecified">Great Heavens ! what an excessive
+						demand ! I can buy a slave for a thousand,</q> Aristippus retorted,
+					<q direct="unspecified">Then you will have two slaves, your son and the one you
+						buy.</q> And, in general, 
+					<pb id="v1.p.23"/> is it not absurd for people to accustom children to take
+					their food with their right hand, and, if one puts out his left, to rebuke
+					him, and yet to take no forethought that they shall hear right and proper
+					words of instruction ? </p>
+            <p> Now I will tell what happens to these admirable fathers when they have badly
+					brought up and badly educated their sons. When their sons are enrolled in
+					the ranks of men, and disdain the sane and orderly life, and throw
+					themselves headlong into disorderly and slavish pleasures, then, when it is
+					of no use, the fathers regret that they have been false to their duty in the
+					education of their sons, being now distressed at their wrongdoing. For some
+					of them take up with flatterers and parasites, abominable men of obscure
+					origin, corrupters and spoilers of youth, and others buy the freedom of
+					courtesans and prostitutes, proud and sumptuous in expense ; still others
+					give themselves up to the pleasures of the table, while others come to wreck
+					in dice and revels, and some finally take to the wilder forms of evildoing,
+					such as adultery and bacchanalian routs, ready to pay with life itself for a
+					single pleasure. But if these men had become conversant with the higher
+					education, they perhaps would not have allowed themselves to be dominated by
+					such practices, and they would at least have become acquainted with the
+					precept <note place="unspecified" anchored="yes">The explanation may be found in the <hi rend="italics">Palatine Anthology</hi>, v. No. 301 (the <hi rend="italics">Greek Anthology</hi>, in the L.C.L. vol. i. p. 291, No. 302), or in Plutarch, <hi rend="italics">Moralia</hi>, 1044 B, or in Athenaeus, iv. 48 (p. 158 F). </note> of Diogenes, who with coarseness of speech, but with substantial
+					truth, advises and says, <q direct="unspecified">Go into any brothel to learn that there is
+						no difference between what costs money and what costs nothing.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Briefly, then, I say (an oracle one might properly 
+					<pb id="v1.p.25"/> call it, rather than advice) that, to sum up, the
+					beginning, the middle, and end in all these matters is good education and
+					proper training ; and it is this, I say, which leads on and helps towards
+					moral excellence and towards happiness. And, in comparison with this, all
+					other advantages are human, and trivial, and not worth our serious concern.
+					Good birth is a fine thing, but it is an advantage which must be credited to
+					one's ancestors. Wealth is held in esteem, but it is a chattel of fortune,
+					since oftentime she takes it away from those who possess it, and brings and
+					presents it to those who do not expect it. Besides, great wealth is the very
+					mark for those who aim their shafts at the purse— rascally slaves and
+					blackmailers ; and above all, even the vilest may possess it. Repute,
+					moreover, is imposing, but unstable. Beauty is highly prized, but
+					short-lived. Health is a valued possession, but inconstant. Strength is much
+					admired, but it falls an easy prey to disease and old age. And, in general,
+					if anybody prides himself wholly upon the strength of his body, let him know
+					that he is sadly mistaken in judgement. For how small is man's strength
+					compared with the power of other living creatures! I mean, for instance,
+					elephants and bulls and lions. But learning, of all things in this world, is
+					alone immortal and divine. Two elements in man's nature are supreme over
+					all—mind and reason. The mind exercises control over reason, and reason is
+					the servant of the mind, unassailable by fortune, impregnable to calumny,
+					uncorrupted by disease, unimpaired by old age. For the mind alone grows
+					young with increase of years, and time, which takes away all things else,
+					but adds wisdom <pb id="v1.p.27"/> to old age. War, again, like a torrent,
+					sweeps everything away and carries everything along in its current, but
+					learning alone it cannot take away. It seems to me that Stilpo, the
+					philosopher of Megara, made an answer worth recording, at the time when
+					Demetrius, having reduced the people of that city to slavery and razed its
+					buildings, asked him whether perchance he had lost anything ; but Stilpo
+					replied : <q direct="unspecified">No, indeed, for war cannot make spoil of virtue.</q>
+					In full accord and harmony with this appears the reply of Socrates.<note place="unspecified" anchored="yes">Plato, <hi rend="italics">Gorgias</hi>, 470 E; <hi rend="italics">cf.</hi> Cicero, <hi rend="italics">Tusculan Disputations</hi>, v. 12.</note> For he,
+					when someone (I think it was Gorgias) asked him what notion he had regarding
+					the great king, and whether he thought him happy, said, <q direct="unspecified">I do not
+						know how he stands in the matter of righteousness and
+						learning,</q>—his thought being that happiness depends upon these and
+					not upon accidental advantages. </p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>Just as I advise people to make nothing of more immediate importance than the
+					education of their children, so again I say they ought to cling to the
+					uncorrupted and sound education, and to withdraw their sons as far away as
+					possible from the nonsense of ostentatious public discourse. For to please
+					the multitude is to displease the wise. And Euripides bears witness to my
+					words when he says : <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Hippolytus</hi>, 986.</note> 
+               <quote rend="blockquote">I have no gift to reason with a crowd ; I'm wiser
+						with my friends and fewer folk. And this is just; since those the wise hold
+						cheap Are better tuned to speak before a crowd.</quote> I observe that those who
+					practise speaking in a way to catch the favour of the vulgar herd also turn
+					
+					<pb id="v1.p.29"/> out in general to be incontinent in their lives and fond
+					of pleasure. And this surely is to be expected ; for if, in providing
+					pleasure for others, they disregard what is honourable, they would be slow
+					to place that which is upright and sound above the gratification of their
+					own pleasures and luxurious tastes, and slow to pursue the temperate course
+					instead of the agreeable. Moreover, why should children [be taught such a
+					way of speaking] ? <note place="unspecified" anchored="yes">The lacuna in the MSS. probably had something to this effect.</note> For it is a good thing not to say or do anything at
+					random, and according to the proverb, <q direct="unspecified">Good things are hard.</q> 
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Cratylus</hi> 257 E.</note>
+					Speeches made offhand display a large measure of readiness and facility,
+					being characteristic of persons who know not where should be the beginning
+					or where the end. But, apart from all other errors, those who speak on the
+					impulse of the moment fall into a dreadful disregard of limit and into
+					loquacity. Reflexion on the other hand prevents a discourse from exceeding
+					the due limits of proportion. Pericles, <q direct="unspecified">as the story has been handed
+						down for us to hear,</q> 
+               <note place="unspecified" anchored="yes">Demosthenes, <hi rend="italics">Or.</hi> 23 (<hi rend="italics">Against Aristocrates</hi>), 66, p. 641.</note> though called upon by the people,
+					oftentimes did not heed their summons, saying that he was unprepared. <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plutarch, <hi rend="italics">Life of Pericles</hi>, chap. 7 (155 <hi rend="italics">ad fin</hi>).</note> In
+					like manner also Demosthenes, who was an ardent follower of Pericles'
+					political policy, when the Athenians called upon him to give his counsel,
+					resisted, saying, <q direct="unspecified">I have not prepared myself.</q> This, perhaps,
+					is an unauthentic and fictitious tradition; but in his speech against
+					Meidias <note place="unspecified" anchored="yes">Demosthenes, <hi rend="italics">Or.</hi> 21, (<hi rend="italics">Against Meidias</hi>), 191, p. 576.</note> he presents clearly the helpfulness of reflection. At any rate he
+					says, <q direct="unspecified">Men of Athens, I say I have given much thought 
+						<pb id="v1.p.31"/> to this matter, and I could not deny that I have also
+						rehearsed my speech to the best of my ability ; for I should be a
+						miserable wretch, if, in view of his past and present treatment of me, I
+						had paid no attention to what I was going to say to you about
+						it.</q> But I, for my part, would not assert that readiness of
+					speech is to be utterly rejected, or again that it should not be used in its
+					proper place, but that it is to be used like a drug, with caution. Indeed
+					until one arrives at man's estate I do not think it right that he should
+					speak at all offhand, but when he shall have firmly established his powers,
+					then, if the occasion invite, it is fitting for him to exercise some freedom
+					in his speech. For just as those who have been in fetters for a long time,
+					even if later they be set free, yet, because of the long-continued
+					habituation to their bonds, are not able to walk freely, and are not sure on
+					their feet, so is it with those who for a long time have kept their speech
+					under close restraint : if ever it becomes necessary to speak offhand, they
+					nevertheless keep to the same type of expression as before. But to allow
+					those who are still young to speak extempore stands responsible for the
+					worst sort of rambling talk. They tell the story of a wretched painter, who,
+					exhibiting to Apelles a painting, said, <q direct="unspecified">This I have only this moment
+						painted.</q> Whereupon Apelles replied, <q direct="unspecified">Even should you not
+							say so, yet I know that it was painted hastily, and I only wonder that
+							you have not painted more of like sort.</q>
+				        </p>
+            <p> I advise then (for I return now to my original theme) that, as one should
+					always be careful to avoid the theatrical and melodramatic style, so, on the
+					other hand, one should exercise the same caution <pb id="v1.p.33"/> to avoid
+					triviality and vulgarity in style ; for a turgid diction is unfitted for a
+					man in public life, and a barren style is too unimpressive ; but as the body
+					ought to be not merely healthy but also sturdy, so also speech should be not
+					merely free from fault but vigorous too. For the cautious is merely
+					commended, but the audacious is admired as well. It so happens that I
+					entertain the same opinion also in regard to mental disposition. For a man
+					should not be bold, on the one hand, or, on the other, pusillanimous and
+					cowering, since the one resolves itself into impudence, and the other into
+					servility. Always to pursue the middle course in everything is artistic and
+					in good taste. </p>
+            <p> While I am still dwelling upon my own opinion in regard to education, I
+					desire to say that in the first place a discourse composed of a series of
+					short sentences I regard as no small proof of lack of culture ; in the
+					second place I think that in practice such discourse soon palls, and in
+					every case it causes impatience; for monotony is in everything tiresome and
+					repellent, but variety is agreeable, as it is in everything else, as, for
+					example, in entertainments that appeal to the eye or the ear. </p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>Now the free-born child should not be allowed to go without some knowledge,
+					both through hearing and observation, of every branch also of what is called
+					general education ; yet these he should learn only incidentally, just to get
+					a taste of them, as it were (for perfection in everything is impossible),
+					but philosophy he should honour above all else. I can perhaps make my
+					opinion clear by means of a figure : for example, it is a fine thing to
+					voyage about and view many cities, but profitable to dwell <pb id="v1.p.35"/> only in the best one. And it was a clever saying of Bion, the
+					philosopher, that, just as the suitors, not being able to approach Penelope,
+					consorted with her maid-servants, so also do those who are not able to
+					attain to philosophy wear themselves to a shadow over the other kinds of
+					education which have no value. Wherefore it is necessary to make philosophy
+					as it were the head and front of all education. For as regards the care of
+					the body men have discovered two sciences, the medical and the gymnastic, of
+					which the one implants health, the other sturdiness, in the body ; but for
+					the illnesses and affections of the mind philosophy alone is the remedy. For
+					through philosophy and in company with philosophy it is possible to attain
+					knowledge of what is honourable and what is shameful, what is just and what
+					is unjust, what, in brief, is to be chosen and what to be avoided, how a man
+					must bear himself in his relations with the gods, with his parents, with his
+					elders, with the laws, with strangers, with those in authority, with
+					friends, with women, with children, with servants ; that one ought to
+					reverence the gods, to honour one's parents, to respect ones elders, to be
+					obedient to the laws, to yield to those in authority, to love one's friends,
+					to be chaste with women, to be affectionate with children, and not to be
+					overbearing with slaves; and, most important of all, not to be over joyful
+					at success or overmuch distressed at misfortune, nor to be dissolute in
+					pleasures, nor impulsive and brutish in temper. These things I regard as
+					pre-eminent among all the advantages which accrue from philosophy. For to
+					have a generous heart in prosperity shows a man, to excite no envy withal
+					shows <pb id="v1.p.37"/> a disciplined nature ; to rule pleasure by reason
+					marks the wise man, and not every man can master his passion. But I regard
+					as perfect, so far as men can be, those who are able to combine and mingle
+					political capacity with philosophy ; and I am inclined to think that these
+					are secure in the possession of two things which are of the greatest good: a
+					life useful to the world in their public position, and the calm and
+					untroubled life in their pursuit of philosophy. For there are three forms of
+					life, of which the first is the practical life, the second the contemplative
+					life, and the third the life of enjoyment. The last, which is dissolute and
+					enslaved to pleasure, is bestial and mean, but the contemplative life, which
+					falls short in practice, is not useful, while the practical life which has
+					no portion in philosophy, is without culture or taste. One must try, then,
+					as well as one can, both to take part in public life, and to lay hold of
+					philosophy so far as the opportunity is granted. Such was the life of
+					Pericles as a public man, such was Archytas of Tarentum, such was Dion of
+					Syracuse, such was Epaminondas of Thebes, of whom the next to the last was
+					the associate of Plato. </p>
+            <p> In regard to education I do not know why it is necessary to take the time to
+					say more ; but in addition to the foregoing, it is useful, or rather it is
+					necessary, not to be indifferent about acquiring the works of earlier
+					writers, but to make a collection of these, like a set of tools in farming.
+					For the corresponding tool of education is the use of books, and by their
+					means it has come to pass that we are able to study knowledge at its source.
+				</p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>It is not proper, either, to overlook the exercise <pb id="v1.p.39"/> of the
+					body, but we should send the children to the trainer's and cultivate
+					adequately this side of education with all diligence, not merely for the
+					sake of gracefulness of body but also with an eye to strength ; for
+					sturdiness of body in childhood is the foundation of a hale old age. Just as
+					in fair weather, then, one ought to prepare for storm, so also in youth one
+					should store up discipline and self-restraint as a provision for old age.
+					But the amount of bodily exercise should be so limited as not to be a drain
+					on the children and make them too tired to study; for, according to Plato, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Republic</hi>, 537 B.</note>
+					sleep and weariness are the enemies of learning. But why do I introduce this
+					subject here ? Just because I am anxious to say that which is of greater
+					importance than all the rest: it is for the contests of war that boys must
+					be practised, by exercising themselves in throwing the javelin, shooting
+					with the bow, and in hunting. <q direct="unspecified">For the goods of the vanquished
+					</q> in battle <q direct="unspecified">are prizes offered to the victors.</q> 
+               <note place="unspecified" anchored="yes">Xenophon, <hi rend="italics">Cyropaedia</hi>, ii. 3. 2.</note> War
+					has no place for a bodily condition produced by an indoor life, and a
+					slenderly built soldier accustomed to military exercises forces his way
+					through the masses of fleshy athletes. </p>
+            <p> But perchance someone may say, <q direct="unspecified">What is this ? You, who have promised
+					to give directions in regard to the education of free-born children, are
+					now evidently disregarding the education of the poor children of the
+					common people, and you acknowledge that you are offering your
+					suggestions for the rich only.</q> To these it is not difficult to
+					make reply. My dearest wish would be that my scheme 
+					<pb id="v1.p.41"/> of education should be generally useful; but if some,
+					being needy in their private circumstances, shall be unable to avail
+					themselves of my directions, let them lay the blame therefor upon fortune
+					and not upon him who gives this counsel. Even the poor must endeavour, as
+					well as they can, to provide the best education for their children, but, if
+					that be impossible, then they must avail themselves of that which is within
+					their means. I have burdened the discussion with this minor matter so as to
+					connect therewith in due order the other topics which tend toward the right
+					education of the young. </p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>This also I assert, that children ought to be led to honourable practices by
+					means of encouragement and reasoning, and most certainly not by blows or
+					ill-treatment, for it surely is agreed that these are fitting rather for
+					slaves than for the freeborn ; for so they grow numb and shudder at their
+					tasks, partly from the pain of the blows, partly from the degradation.
+					Praise and reproof are more helpful for the free-born than any sort of
+					ill-usage, since the praise incites them toward what is honourable, and
+					reproof keeps them from what is disgraceful. </p>
+            <p> But rebukes and praise should be used alternately and in a variety of ways ;
+					it is well to choose some time when the children are full of confidence to
+					put them to shame by rebuke, and then in turn to cheer them up by praises,
+					and to imitate the nurses, who, when they have made their babies cry, in
+					turn offer them the breast for comfort. Moreover in praising them it is
+					essential not to excite and puff them up, for they are made conceited and
+					spoiled by excess of praise. <pb id="v1.p.43"/>
+				        </p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>In my time I have seen fathers in whom excessive affection had become the
+					cause of no affection. What is it that I mean to say, in order that by the
+					example I give I may make my argument more luminous ? It is this : in their
+					eagerness that their children may the sooner rank first in everything, they
+					lay upon them unreasonable tasks, which the children find themselves unable
+					to perform, and so come to grief; besides, being depressed by their
+					unfortunate experiences, they do not respond to the instruction which they
+					receive. For, just as plants are nourished by moderate applications of
+					water, but are drowned by many in succession, in the same fashion the mind
+					is made to grow by properly adapted tasks, but is submerged by those which
+					are excessive. Children must be given some breathing-space from continued
+					tasks, for we must bear in mind that our whole life is divided between
+					relaxation and application. For this reason there have been created not only
+					waking hours but also sleep, not only war but also peace, not only storm but
+					also fair weather, not only periods of vigorous activity but also holidays.
+					In short, rest gives relish to labour. We may observe that this holds true
+					not merely in the case of living creatures, but also in the case of
+					inanimate things, for we unstring bows and lyres that we may be able to
+					tighten them again. The body, generally speaking, is maintained by hunger
+					and its satisfaction, and the mind by relaxation and labour. </p>
+            <p> It is right to rebuke some fathers who, after entrusting their sons to
+					attendants and masters, do not themselves take cognizance at all of their
+					instruction by means of their own eyes or their own <pb id="v1.p.45"/> ears.
+					Herein they most fail in their duty; for they ought themselves every few
+					days to test their children, and not rest their hopes upon the disposition
+					of a hired person; for even those persons will devote more attention to the
+					children if they know they must from time to time render an account. And in
+					this connexion there is point as well as wit in the remark of the groom who
+					said that nothing makes the horse so fat as the king's eye.<note place="unspecified" anchored="yes">Xenophon, <hi rend="italics">Oeconomicus</hi>, 12. 20.</note> 
+            </p>
+            <p> Above all, the memory of children should be trained and exercised ; for this
+					is, as it were, a storehouse of learning ; and it is for this reason that
+					the mythologists have made Memory the mother of the Muses, thereby
+					intimating by an allegory that there is nothing in the world like memory for
+					creating and fostering. This, then, is to be trained in either case, whether
+					one's children be naturally gifted with a good memory, or, on the contrary,
+					forgetful. For we shall thus strengthen nature's generous endowment, and
+					thus fill out her deficiency ; and while the first class of children will
+					excel others, the second class will excel their former selves. The saying of
+					Hesiod <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Works and Days</hi>, 361; <q direct="unspecified">Many a little makes a mickle.</q>
+               </note> is admirably put: <quote rend="blockquote">If even small upon the small you place And do this
+						oft, the whole will soon be great.</quote> Nor should parents forget that those
+					branches of instruction which involve memory make no small contribution, not
+					merely to education, but also to the practical activities of life ; for the
+					memory of past activities serves as a pattern of good counsel for the
+					future. </p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>Moreover, one's sons are to be kept from foul 
+					<pb id="v1.p.47"/> language ; for, according to Democritus,<note place="unspecified" anchored="yes">Diels, <hi rend="italics">Fragmete der Vorsokratiker</hi>, ii. p. 87.</note> 
+               <q direct="unspecified">A word
+						is a deed's shadow.</q> Then, too, proper measures must be taken to
+					ensure that they shall be tactful and courteous in their address ; for
+					nothing is so deservedly disliked as tactless characters. Besides, children
+					may avoid getting themselves disliked by their associates if they do not
+					prove totally unyielding in discussions. For it is a fine thing to
+					understand, not only how to gain the victory, but also how to submit to
+					defeat, in cases where victory is injurious ; for there is really such a
+					thing as a <q direct="unspecified">Cadmean victory.</q> 
+               <note place="unspecified" anchored="yes">A victory which (like a Pyrrhic victory) is disastrous to the victor. The reference is to the combat between Eteocles and Polyneices, the two sons of Oedipus. <hi rend="italics">Cf.</hi> also <hi rend="italics">Moralia</hi>, 488 A and Herodotus, i. 166.</note> As a witness of this I may
+					quote Euripides the wise, who says: <quote rend="blockquote">When of two speakers one is growing
+						wroth, Wiser is he that yields in argument.<note place="unspecified" anchored="yes">From the <hi rend="italics">Protesilaus</hi>; Nauck, <hi rend="italics">Trag. Graec. Frag., Euripides</hi>, No. 654.</note>
+               </quote> 
+            </p>
+            <p> We must now lay down some rules of conduct which the young should follow no
+					less but even more than those previously given. These are: To practise the
+					simple life, to hold the tongue in check, to conquer anger, to control the
+					hands. We must consider the importance of each of these ; and they will be
+					more intelligible if based on examples. </p>
+            <p> So, to begin with the last, some men by putting their hands to wrongful
+					gains have upset the good repute of their earlier lives. Witness the case of
+					Gylippus, <note place="unspecified" anchored="yes">The story is told in detail by Plutarch in his <hi rend="italics">Life of Lysander</hi>, chap. 16 (p. 442).</note> the Spartan, who was forced into exile because he had secretly
+					unsewed the bags of money. 
+					<pb id="v1.p.49"/>
+				        </p>
+            <p> Again, an unruffled temper is certainly the mark of a wise man. Thus
+					Socrates once, when a bold and impudent youth had kicked him, observed that
+					the bystanders were so indignant and so violently moved as to wish to follow
+					up the offender ; but he only said : <q direct="unspecified">If an ass had kicked me, should
+						you have thought it proper to kick him in return ?</q> That youth,
+					however, did not by any means get off scot-free, but as everybody jeered at
+					him, and nicknamed him <q direct="unspecified">Kicker,</q> he ended by hanging himself. </p>
+            <p> And when Aristophanes brought out the Clouds, and heaped all manner of abuse
+					upon Socrates in every possible way, one of those who had been present said
+					to Socrates, <q direct="unspecified">Are you not indignant, Socrates, that he used you as he
+						did in the play ?</q>
+					          <q direct="unspecified">No indeed,</q> he replied; <q direct="unspecified">when they break a jest upon
+						me in the theatre I feel as if I were at a big party of good
+						friends.</q> What Archytas of Tarentum and Plato did will be seen to
+					be closely akin to this. For Archytas, on his return from the war (where he
+					had been general) found his land gone to waste. He summoned his overseer and
+					said, <q direct="unspecified">You should be sorry for this, if I were not in too great a
+						temper.</q> And Plato, provoked at a gluttonous and impudent slave,
+					called his sister's son, Speusippus, and said as he withdrew, <q direct="unspecified">Beat
+						this fellow, for I am too much provoked.</q> But it may be urged
+					that such actions are difficult and hard to imitate. I know that myself. But
+					the effort must be made, by employing the actions of such men as standards
+					as far as possible, to abate a great part of our unbridled and furious
+					temper; for in other respects also we are not comparable with them either in
+					<pb id="v1.p.51"/> experience or in magnanimity. Yet we, no less than
+					they, feeling ourselves to be the high priests of God's mysteries and
+					torch-bearers of wisdom, do attempt, so far as lies in our power, to imitate
+					and to get a little taste of such conduct for ourselves. </p>
+            <p> The control of the tongue, then, still remains to be discussed of the topics
+					I suggested. If anybody has the notion that this is a slight and
+					insignificant matter, he is very far from the truth. For timely silence is a
+					wise thing, and better than any speech. And this is the reason, as it
+					appears to me, why the men of olden time established the rites of initiation
+					into the mysteries, that we, by becoming accustomed to keep silence there,
+					may transfer that fear which we learned from the divine secrets to the safe
+					keeping of the secrets of men. For, again, nobody was ever sorry because he
+					kept silent, but hundreds because they talked. Again, the word unspoken can
+					easily be uttered later; but the spoken word cannot possibly be recalled. I
+					have heard of countless men who have fallen into the greatest misfortunes
+					through intemperate speech. Of these I shall mention one or two as typical
+					and omit the rest. When Ptolemy Philadelphus married his sister Arsinoe,
+					Sotades <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Athenaeus, xiv. 13 (p. 620 F).</note> said, <quote rend="blockquote">'Tis wrong for you to try to spur that mare,</quote> and thereafter
+					he rotted in prison for many years; and so suffered condign punishment for
+					his untimely talking, and to make other men laugh he sorrowed a long time
+					himself. A story to match and couple with this, and much more dreadful, is
+					what the sophist Theocritus said and suffered. Alexander 
+					<pb id="v1.p.53"/> had bidden the Greeks to make ready crimson robes so that
+					on his return he might offer a sacrifice of thanksgiving for his victory in
+					the war against the barbarians, and all the states had to pay a polltax in
+					money, when Theocritus remarked, <q direct="unspecified">Before this I used to be in doubt,
+						but now I know for a certainty that this is Homer's ' Crimson Death.'
+					</q> 
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Il.</hi> v. 83, and elsewhere.</note> And thereby he made an enemy of Alexander. And Antigonus, king of
+					the Macedonians, who was blind of one eye, he drove to immoderate anger by
+					reproaching him with his disfigurement. For Antigonus sent his chief cook,
+					Eutropion, who had been an officer in his army, to Theocritus, and insisted
+					that Theocritus should come to him and engage him in discussion. When
+					Eutropion delivered his message to Theocritus, coming several times for the
+					purpose, the latter said, <q direct="unspecified">I know very well that you want to serve me
+						up raw to your Cyclops,</q> twitting the one for being disfigured
+					and the other for being now a cook. <q direct="unspecified">Then you shall not keep your
+						head on,</q> said Eutropion, <q direct="unspecified">but you shall pay the penalty
+							for this reckless talk and madness of yours.</q> He thereupon
+					reported the remark to the king, who sent and had Theocritus put to death. </p>
+            <p> But besides all this, we should, as a most sacred duty, accustom children to
+					speak the truth. For lying is fit for slaves only, and deserves to be hated
+					of all men, and even in decent slaves it is not to be condoned. </p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>So far I have felt no doubt or even hesitation in saying what I have said
+					about the decorous conduct and modest behaviour of the young ; but in regard
+					to the topic now to be introduced I am of two opinions and two minds, and I
+					incline now <pb id="v1.p.55"/> this way, now that, as though on a balance,
+					being unable to settle down on either side ; and a feeling of great
+					reluctance possesses me, whether to introduce or to avoid the subject. Still
+					I must venture to speak of it. What is it then ? It is the question whether
+					boys' admirers are to be permitted to associate with them and pass their
+					time with them, or whether, on the contrary, they should be kept away and
+					driven off from association with the youth. For when I have regard to those
+					uncompromising fathers, harsh and surly in their manner, who think the
+					society of admirers an intolerable outrage to their sons, I feel cautious
+					about standing as its sponsor and advocate. But again, when I think of
+					Socrates, Plato, Xenophon, Aeschines, Cebes, and that whole band of men who
+					sanctioned affection between men, and thus guided the youth onward to
+					learning, leadership, and virtuous conduct, I am of a different mind again,
+					and am inclined to emulate their example. Euripides <note place="unspecified" anchored="yes">In the <hi rend="italics">Theseus</hi>; <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag., Euripides</hi>, No. 388.</note> gives testimony in
+					their favour when he says : Among mankind another love exists, That of an
+					upright, chaste, and noble soul. Nor may we omit the remark of Plato <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Republic</hi>, 468 B.</note>
+					wherein jest and seriousness are combined. For he says that those who have
+					acquitted themselves nobly ought to have the right to kiss any fair one they
+					please. Now we ought indeed to drive away those whose desire is for mere
+					outward beauty, but to admit without reserve those who are lovers of the
+					soul. And while the sort of love prevailing at Thebes and in Elis is to be
+					avoided, as well as the so-called 
+					<pb id="v1.p.57"/> kidnapping in Crete, that which is found at Athens and in
+					Lacedaemon is to be emulated. </p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>In this matter each man may be allowed such opinion as accords with his own
+					convictions. But now that I have spoken of the orderly and decorous
+					behaviour of children, I shall next pass to the period of adolescence, and
+					say a very few words about it. I have often expressed my utter
+					disapprobation of men who have been responsible for the introduction of
+					depraved habits. For, while it is true that they have put attendants and
+					teachers in charge of their children, they nevertheless have allowed the
+					impetuosity of youth to range unrestrained, when they ought, on the
+					contrary, to have exercised greater caution and watchfulness over them when
+					they were young men than when they were children. For who is not aware that
+					the faults of children are trivial and altogether corrigible —heedlessness,
+					perhaps, towards their attendants, or deceiving and refusing to mind their
+					teachers ? But the iniquities of early manhood are often monstrous and
+					wicked—unlimited gluttony, theft of parents' money, gambling, revels,
+					drinking-bouts, love affairs with young girls, and corruption of married
+					women. The impulses of young men should therefore be kept fettered and
+					restrained by careful supervision. For life's prime is prodigal in its
+					pleasures, restive, and in need of a curb, so that parents who do not take
+					hold of the reins with firm hand at this period of life, are manifestly, by
+					their folly, giving to their sons licence for wrongdoing. Wise fathers
+					ought, therefore, especially during this time, to be vigilant and alert, and
+					to bring the young men to reason by instruction, by threats, <pb id="v1.p.59"/> by entreaties, by pointing out examples of men who
+					through love of pleasure have become involved in misfortunes, and of those
+					who, through their steadfastness, have gained for themselves approval and
+					good repute. For these two things—hope of reward and fear of punishment—are,
+					as it were, the elements of virtue. For the one renders men more eager for
+					honourable pursuits while the other makes them averse to base actions. </p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>It should be the general rule to keep the young away from any association
+					with base men ; for they carry away something of their badness. This duty
+					Pythagoras <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Athenaeus, x. 77 (p. 452 D); Iamblichus, <hi rend="italics">Protrept.</hi> chap. 21 (pp. 131-160); Diogenes Laertius, viii. 1, 17-18; and Plutarch, <hi rend="italics">Life of Numa</hi>, chap. 14 (69 C).</note> also has enjoined in the form of allegories which I shall now
+					quote and explain. For they contribute no small influence towards the
+					acquisition of virtue. For example : </p>
+            <p>
+					          <q direct="unspecified">Do not taste of black-tails <note place="unspecified" anchored="yes">The name of a fish.</note> ;</q> that is, <q direct="unspecified">Do not
+						spend your time with men of black character, because of their
+						malevolence.</q>
+				        </p>
+            <p>
+					          <q direct="unspecified">Do not step over the beam of a balance</q>; that is, one should
+					give greatest heed to justice and not transgress it. </p>
+            <p>
+					          <q direct="unspecified">Do not sit on a peck measure</q> ; as much as to say that we
+					should avoid idleness and have forethought for providing our daily bread. </p>
+            <p>
+					          <q direct="unspecified">Do not give your hand to everybody</q> ; instead of, <q direct="unspecified">Do
+						not make friends too readily.</q>
+				        </p>
+            <p>
+					          <q direct="unspecified">Do not wear a tight ring</q> ; means that one should live his
+					life unhampered, and not subject it to any bond. </p>
+            <p>
+					          <q direct="unspecified">Do not poke a fire with steel</q> ; <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the <hi rend="italics">Moralia</hi> 281 A and 354 E, and <hi rend="italics">Life of Numa</hi>, chap. 14 (69 C) where Plutarch has <q direct="unspecified">with a sword.</q>
+               </note> instead of, 
+					<pb id="v1.p.61"/>
+				        </p>
+            <p>
+					          <q direct="unspecified">Do not provoke an angry man.</q> Indeed, it is wrong to do so,
+					and we should yield to men who are in a temper. </p>
+            <p>
+					          <q direct="unspecified">Do not eat your heart</q> ; as much as to say, <q direct="unspecified">Do not
+						injure your soul by wasting it with worries.</q>
+				        </p>
+            <p>
+					          <q direct="unspecified">Abstain from beans</q> ; means that a man should keep out of
+					politics, for beans were used in earlier times for voting upon the removal
+					of magistrates from office. <note place="unspecified" anchored="yes">A form of recall (<foreign lang="greek">a)poxeirotoni/a</foreign>); <hi rend="italics">cf.</hi> Aristotle, <hi rend="italics">Constitution of Athens</hi>, chap. 61.</note> 
+            </p>
+            <p>
+               <q direct="unspecified">Do not put food into a slop-pail</q> ; signifies that it is not
+					fitting to put clever speech into a base mind. For speech is the food of
+					thought, and baseness in men makes it unclean. </p>
+            <p>
+					          <q direct="unspecified">Do not turn back on reaching the boundaries</q> ; that is, when
+					people are about to die and see the boundary of their life close at hand,
+					they should bear all this with serenity and not be faint-hearted. </p>
+            <p> I return to the subject suggested at the beginning of the chapter. As I said
+					there, the young should be kept away from every sort of base men, and most
+					of all from flatterers. Let me repeat here what I say over and over again to
+					many fathers: There is no class of persons more pernicious than flatterers,
+					nor any that more surely and quickly gives youth a nasty tumble. They
+					utterly ruin both fathers and sons, bringing to sorrow the old age of those
+					and the youth of these, and dangling pleasure as an irresistible lure to get
+					their advice taken. To sons who are to inherit wealth fathers commend
+					sobriety, flatterers drinking to excess ; fathers commend self-restraint,
+					flatterers profligacy ; fathers 
+					<pb id="v1.p.63"/> frugality, flatterers extravagance ; fathers industry,
+					flatterers indolence, saying, <q direct="unspecified">All life is but a moment. We must
+						live, not merely exist.<note place="unspecified" anchored="yes">Apparently adapted from some comedy; <hi rend="italics">cf.</hi> Kock, <hi rend="italics">Com. Att. Frag.</hi> iii. p. 643.</note> Why should we give a thought to your father's
+						threats ? He's an old twaddler with one foot already in the grave, and
+						before long we'll take his coffin on our shoulders and carry him
+						out.</q> Another of them posts a drab in the young man's path, or
+					prostitutes a married woman for him, and spoils and wastes the father's
+					provision for old age. Detestable is their whole tribe, pretenders of
+					friendship, without a vestige of honest speech, flatterers of the rich but
+					despisers of the poor, addressing themselves with instinctive art to the
+					young, grinning broadly when their patrons laugh, spurious claimants to any
+					spirit, and bastard members of human life, subsisting at the beck and nod of
+					the wealthy ; free-born by freak of fortune, but slaves by choice. Whenever
+					they are not treated with insult, they feel themselves insulted because then
+					they do not fulfil the purpose for which they are kept. So if any father is
+					concerned for the good upbringing of his children, he must drive away these
+					detestable creatures, and quite as much must he drive away schoolmates who
+					show depravity, for these also are capable of corrupting the most likely
+					natures. </p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>Now all these rules concern honour and good profit, but what follows concerns
+					human nature. Take the fathers again : I do not think they should be utterly
+					harsh and austere in their nature, but they should in many cases concede
+					some shortcomings to the younger person, and remind themselves that they
+					once were young. As physicians, by mixing bitter drugs with sweet syrups,
+					have <pb id="v1.p.65"/> found that the agreeable taste gains access for what
+					is beneficial, so fathers should combine the abruptness of their rebukes
+					with mildness, and at one time grant some licence to the desires of their
+					children, and slacken the reins a little, and then at another time draw them
+					tight again. Most desirable is it that they should bear misdeeds with
+					serenity, but if that be impossible, yet, if they be on occasion angered,
+					they should quickly cool down. For it is better that a father should be
+					quick-tempered than sullen, since a hostile and irreconcilable spirit is no
+					small proof of animosity towards one's children. It is a good thing also to
+					pretend not to know of some shortcomings, and to turn the old man's dull eye
+					and dull ear to what they do, and seeing, not to see, and, hearing, not to
+					hear, sometimes, what goes on. Our friends' shortcomings we bear with: why
+					should it be surprising that we bear with our children's ? Though our slaves
+					often suffer from a headache in the morning, we do not force them to confess
+					a debauch. <q direct="unspecified">You were niggardly once; well, now be liberal. You were
+						indignant once; well, pardon now. He tricked you once with the help of a
+						slave; restrain your anger. He once took away a yoke of cattle from the
+						field, he once came home with breath reeking from yesterday's debauch;
+						ignore it. Or smelling of perfume; <note place="unspecified" anchored="yes">Evidence that the young man had been out in mixed company.</note> do not say a word.</q> In this
+					fashion is restive youth gradually broken to harness. </p>
+         </div1>
+         <div1 type="section" n="19">
+            <p>An effort should be made to yoke in marriage those who cannot resist their
+					desires, and who are deaf to admonitions. For marriage is the most secure
+					bond for youth. One should, however, betroth to his sons women who are not
+					greatly <pb id="v1.p.67"/> above them either in birth or wealth. The maxim
+					<q direct="unspecified">Keep to your own place</q> 
+               <note place="unspecified" anchored="yes">The figure is said to be derived from the laguage of boys whipping tops. It is attributed to Pittachus by Diogenes Laertius, i. 4. 8; <hi rend="italics">cf. The Palatine Anthology</hi>, vii. 89 (in L.C.L. <hi rend="italics">The Greek Anthology</hi>, vol. ii. p. 63). A similar expression (from the race-track) may be found in Aristophanes, <hi rend="italics">Clouds</hi>, 25.</note> is wise, since those who take
+					to wife women far above themselves unwittingly become not the husbands of
+					their wives, but the slaves of their wives' dowries. </p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>I will add but little more and then conclude my suggestions. Fathers ought
+					above all, by not misbehaving and by doing as they ought to do, to make
+					themselves a manifest example to their children, so that the latter, by
+					looking at their fathers' lives as at a mirror, may be deterred from
+					disgraceful deeds and words. For those who are themselves involved in the
+					same errors as those for which they rebuke their erring sons, unwittingly
+					accuse themselves in their sons' name. If the life they lead is wholly bad,
+					they are not free to admonish even their slaves, let alone their sons.
+					Besides, they are likely to become counsellors and instructors to their sons
+					in their wrongdoing. For, wherever old men are lacking in decency, young men
+					too are sure to be most shameless. <note place="unspecified" anchored="yes">Plato, <hi rend="italics">Laws</hi>, 729 C; also cited or referred to by Plutarch, <hi rend="italics">Moralia</hi>, 71 B, 144 F and 272 C.</note> 
+            </p>
+            <p> We must endeavour, therefore, to employ every proper device for the
+					discipline of our children, emulating the example of Eurydice, who, although
+					she was an Illyrian and an utter barbarian, yet late in life took up
+					education in the interest of her children's studies. The inscription which
+					she dedicated to the Muses sufficiently attests her love for her children :
+					
+					<pb id="v1.p.69"/> 
+               <quote rend="blockquote">Eurydice of Hierapolis Made to the Muses this her
+						offering When she had gained her soul's desire to learn. Mother of young and
+						lusty sons was she, And by her diligence attained to learn Letters, wherein
+						lies buried all our lore.</quote> 
+            </p>
+            <p>Now to put into effect all the suggestions which I have given is the province
+					of prayer, perhaps, or exhortation. And even to follow zealously the
+					majority of them demands good fortune and much careful attention, but to
+					accomplish this lies within the capability of man. </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

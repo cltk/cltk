@@ -1,0 +1,1362 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Phil.">Philoctetes (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Soph.">Sophocles</author>
+<editor role="editor" n="Jebb">Sir Richard Jebb</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Sophocles</author>
+<title>The Philoctetes of Sophocles. Edited with introduction and notes by Sir Richard Jebb.</title>
+<editor role="editor">Sir Richard Jebb</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Cambridge University Press</publisher>
+<date>1898</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM, Scott Ettinger and Roger Travis</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Pierre Habel, John Gilbert</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Pierre Habel, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>6/95</date>
+<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
+<item>Added missing speaker tags for cards which had none.</item>
+</change>
+<change><date>08-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: soph.phil_eng.xml,v $
+Revision 1.1  2009-12-08 18:56:09  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 21:10:42  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:30:23  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:03:27  packel
+Converted to XML
+
+Revision 1.10  2004/04/21 20:42:00  mimno
+added card 1s
+
+Revision 1.9  2003/07/01 22:18:08  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2000/03/17 14:46:54  amahoney
+oops, this isn't Antigone
+
+Revision 1.7  2000/03/04 20:35:17  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.6  2000/02/15 23:18:02  amahoney
+use n attribute on sp element to carry over the speaker name when
+the speech is interrupted by a card break;  this also requires that
+the card break at the end come after the close of the sp, not within
+
+Revision 1.5  2000/02/08 22:43:32  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<sp>
+<speaker>Odysseus</speaker>
+<p>This is the headland of sea-washed <placeName key="tgn,7011173">Lemnos</placeName>, land untrodden by men and desolate.  It was here, child bred of the man who was the noblest of the Greeks, Neoptolemus son of Achilles, that I exposed<milestone ed="p" n="5" unit="line"/>long ago the native of Malis, Poeas' son, on the express command of the two chieftains to do so, because his foot was all running with a gnawing disease.  Neither libation nor burnt sacrifice could be attempted by us in peace, but with his wild, ill-omened cries<milestone ed="p" n="10" unit="line"/>he filled the whole camp continually with shrieking, moaning.  But what need is there to speak of that?  The time is not ripe for too many words, lest he even learn that I am here, and I so waste the whole ruse whereby I think soon to take him.<milestone ed="p" n="15" unit="line"/>Come, it is your task to serve as my ally in what remains, and to seek where in this region there is a cave with two mouths.  During cold weather it provides two seats facing the sun, while in summer a breeze wafts sleep through the tunnelled chamber.<milestone ed="p" n="20" unit="line"/>And a little below, on the left hand, perhaps, you will see water rising from a spring, if it has not failed.  Go there silently, and signal to me whether he still  dwells in this same place, or is to be found elsewhere, so that the rest of my plan may be explained by me, heard by you,<milestone ed="p" n="25" unit="line"/>and sped by the joint effort of us both.<milestone ed="p" n="26" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>King Odysseus, the completion of the task that you set me is not far off, for I believe I see a cave like that which you have described.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Above you, or below?  I do not see it.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Here, high up&mdash;and of footfalls there is not a sound.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="30" unit="line"/>See that he is not sheltered there asleep.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I see an empty dwelling, without occupants.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And is there no provision inside for human habitation?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>There is&mdash;a bed of leaves, as if for some one who makes his lodging here.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And all else is bare?  There is nothing else beneath the roof?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="35" unit="line"/>Just a cup of bare wood, the masterpiece of a sorry craftsman, and with it these tools for kindling.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>His is the store that you describe.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Ha!  Yes, and here besides are some rags drying in the sun, stained by some severe infection.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="40" unit="line"/>The man inhabits these regions, clearly, and is somewhere not far off.  How could he go far afield when his foot is maimed by that old plague?  No, he has gone out in quest of food, or of some soothing herb that he may have noted somewhere.<milestone ed="p" n="45" unit="line"/>Send your attendant, therefore, to keep watch, lest he come upon me unawares, since he would rather take me than all the Greeks together.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>The man is going, and the path will be watched.  And now, if you need anything else, say so.<stage>Exit Attendant, on the spectators' left.</stage></p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="50" unit="line"/>Son of Achilles, you must be loyal to the goals of your mission&mdash;and not with your body alone.  Should you hear some new plan unknown to you till now, you must serve it, since it is to serve that you are here.<milestone ed="p" n="54" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Then what are your orders?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>You must cheat the mind of Philoctetes by means of a story<milestone ed="p" n="55" unit="line"/>told as you converse with him.  When he asks you who and from where you are, say that you are the son of Achilles&mdash;it is not in that detail that you will cheat him.  But tell him you are sailing homeward, and have left the fleet of the Achaean warriors, after coming to hate them with unbounded hatred.<milestone ed="p" n="60" unit="line"/>Give him this reason:  when, with no other hope of taking <placeName key="tgn,7002329">Ilium</placeName>, they had summoned you by their prayers to come from home, they judged you not worthy of the arms of Achilles, not worthy to receive them&mdash;even though you had come and were claiming them by right&mdash;but instead handed them over to Odysseus.  Say what you<milestone ed="p" n="65" unit="line"/>will of me&mdash;even the vilest of vile insults.  You will not harm me at all by that.  But if you fail to do as I say, you will inflict pain on all the Argives, for if that man's bow is not seized, you can never sack the realm of Dardanus.<milestone ed="p" n="70" unit="line"/>And learn why your intercourse with him may be free from mistrust and danger, while mine cannot.  You have sailed to <placeName key="perseus,Troy">Troy</placeName> under no oath to any man, nor under any constraint.  Neither did you have any part in the earlier expedition.  I, however, can deny none of these things.  Accordingly, if he<milestone ed="p" n="75" unit="line"/>perceives me while he is still master of his bow, I am dead, and you, as my comrade, will share my doom.  No, the thing for which we must devise a ruse is just this:  how you may steal his invincible weapons.  Well I know, my son, that by nature you are not apt<milestone ed="p" n="80" unit="line"/>to utter or contrive such treachery.  Yet knowing that victory is a sweet prize to gain, steel yourself to do it.  Our honesty shall be displayed another time.  Now, however, give yourself to me for one brief, shameless day, and then for the rest of time<milestone ed="p" n="85" unit="line"/>may you be called the most righteous of all humankind.<milestone ed="p" n="86" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I abhor acting on advice, son of <placeName key="perseus,Laertes">Laertes</placeName>, which causes pain in the hearing.  It is not in my nature to achieve anything by means of evil cunning, nor was it, as I hear, in my father's.<milestone ed="p" n="90" unit="line"/>But I am ready to take the man by force and without treachery, since with the use of one foot only, he will not overcome so many of us in a struggle.  And yet I was sent to assist you and am reluctant to be called traitor.  Still I prefer, my king,<milestone ed="p" n="95" unit="line"/>to fail when doing what is honorable than to be victorious in a dishonorable manner.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Son of a father so noble, I, too, in my youth once had a slow tongue and an active hand.  But now that I have come forth to the test, I see that the tongue, not action, is what masters everything among men.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="100" unit="line"/>What, then, are your orders&mdash;apart from my lying?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I command you to take Philoctetes by deceit.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>And why by deceit rather than by persuasion?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>He will never listen;  and by force you cannot take him.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Has he strength so terrific to make him bold?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="105" unit="line"/>Yes, shafts inevitable, escorts of death.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Then one does not dare even approach him?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>No, unless he takes the man by deceit, as I prescribe.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Then you think it brings no shame to speak what is false?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>No, not if the falsehood yields deliverance.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="110" unit="line"/>And with what expression on his face will anyone dare mouth those lies?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>When what you do promises gain, it is wrong to shrink back.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>And what gain is it for me that he should come to <placeName key="perseus,Troy">Troy</placeName>?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>His arrows alone will capture <placeName key="perseus,Troy">Troy</placeName>.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Then I am not to be the conqueror, as you said?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="115" unit="line"/>Neither will you be without them, nor they without you.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>It would seem, then, that we must track them down, if things stand as you say.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Know that by doing this task, you win two rewards.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What are they?  If I knew, I would not refuse the deed.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>You will be celebrated in the same breath as clever and as noble.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="120" unit="line"/>So be it!  I will do it, and cast off all shame.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Do you remember, then, the story that I recommended?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Be sure of it, since once and for all I have consented.<milestone ed="p" n="123" unit="card"/></p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>You stay here, then, to wait for him.  Meanwhile I will go away, so as not to be observed here with you,<milestone ed="p" n="125" unit="line"/>and I will send our lookout back to your ship.  And, if in my view you seem to linger at all beyond the due time, I will send that same man back again, after disguising him as the captain of a merchant-ship, so that secrecy may be on our side.<milestone ed="p" n="130" unit="line"/>Then, son, as he tells his artful story, take whatever in his tale is from time to time helpful to you.  Now I will go to the ship, leaving matters here to you.  May escorting Hermes the Deceiver, lead us on, and divine Victory, Athena Polias, who saves me always!<stage>Exit Odysseus, on the spectators' left.</stage><milestone ed="p" n="135" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="135" unit="line"/>I am a stranger in a strange land, Master.  What must I hide, what must I reveal to a man who will be swift to suspicion?  Show me the way!  His skill excels all other skill, his wisdom has no equal, whose hands govern the godlike<milestone ed="p" n="140" unit="line"/>scepter given by Zeus.  To you, my son, that sovereign power has descended from the dawn of time.  Therefore tell me how I must serve you.<milestone ed="p" n="144" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>For the present&mdash;since perhaps you wish to see the place<milestone ed="p" n="145" unit="line"/>on the island's edge where he resides&mdash;survey it without fear.  But when the dread traveler, who has left this dwelling, returns, step forward at my signal from time to time, and try to help as the moment may require.<milestone ed="p" n="150" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="150" unit="line"/>Long have I been careful of this care, my prince:  that my eyes should be watchful for your good above all else.  And now tell me, in what manner of shelter does he keep his dwelling?  In what region is he now?  It is not inopportune for<milestone ed="p" n="155" unit="line"/>me to learn so that he may not come upon me unawares from somewhere.  In what place does he wander, or rest?  Does he plant his steps within his shelter, or abroad?<milestone ed="p" n="159" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Well, here you see his home with its two portals,<milestone ed="p" n="160" unit="line"/>his rocky cell.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And its wretched occupant, where is he gone to?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>It seems clear to me, anyway, that he is plowing his way along somewhere near here in search of food.  For I know of a report that<milestone ed="p" n="165" unit="line"/>this is his means of sustenance&mdash;a wretch wretchedly shooting prey with his feathered shafts&mdash;and that no one comes near to him to heal his misery.<milestone ed="p" n="169" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>For my part, I pity him when I think how,<milestone ed="p" n="170" unit="line"/>with no one to care for him, and seeing no companion's face, but suffering eternally alone, he is plagued by fierce disease and bewildered by each need as it arises.<milestone ed="p" n="175" unit="line"/>How, how does he endure his bitter fate?  Ah, contrivances of the gods!  Ah, unhappy tribes of mortals, whose life-portion exceeds due measure!<milestone ed="p" n="180" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="180" unit="line"/>That man&mdash;inferior in no way, probably, to any man belonging to the oldest families&mdash;lies alone without companions and stripped of all life's gifts<milestone ed="p" n="185" unit="line"/>among the dappled or shaggy beasts.  He is a man to be pitied for his torments and his hunger alike, enduring anguish that has no cure.   But to his bitter cries the mountain nymph, babbling Echo, coming from afar,<milestone ed="p" n="190" unit="line"/>gives answer.<milestone ed="p" n="191" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>No part of this is a marvel to me.  God-sent&mdash;if a man such as I may judge&mdash;are both those sufferings which attacked him from savage <placeName key="perseus,Chryse">Chryse</placeName>,<milestone ed="p" n="195" unit="line"/>and those with which he now toils untended.  Surely he toils by the plan of some god so that he may not bend against <placeName key="perseus,Troy">Troy</placeName> the invincible arrows divine, until the time be fulfilled at which, men say,<milestone ed="p" n="200" unit="line"/>by those arrows <placeName key="perseus,Troy">Troy</placeName> is fated to fall.<milestone ed="p" n="201" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Hush,boy!</p></sp>
+<sp><speaker>Neoptolemus</speaker>
+<p>What is it?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>I heard a sudden thud, one that might naturally come from a man worn by pain.  From there it came, I think&mdash;or there.<milestone ed="p" n="205" unit="line"/>It strikes, strikes hard on my ear, the sure sound of someone creeping along his way as if tortured.   I cannot miss that grievous cry of a man hard-pressed, even from afar&mdash;its tone is too clear.<milestone ed="p" n="210" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="210" unit="line"/>But listen, son&mdash;</p></sp>
+<sp><speaker>Neoptolemus</speaker>
+<p>To what?  Tell me.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>To my latest thoughts.  For he is not far from his home, but nearby.  And not with music of the flute, like a shepherd pasturing his flocks, does he come,&mdash;<milestone ed="p" n="215" unit="line"/>no&mdash;but crying out a far-sounding howl as he stumbles, perhaps, from tortuous pain, or as he scans the haven unvisited by any ship.  His cries are loud, and terrible.<milestone ed="p" n="219" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<stage>Enter Philoctetes, on the spectators' right.</stage>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>O strangers!</p>
+<p><milestone ed="p" n="220" unit="line"/>Who can you be, and from what country, that you have put into this harborless and desolate land?  What would I rightly say is your city or your ancestry?  The fashion of your equipment is Greek, and most welcome to my<milestone ed="p" n="225" unit="line"/>sight;  but it would please me to hear your voices.  And do not shrink from me in fear, or be frightened by my savage looks.  No, pity one so wretched and so lonely, a castaway, so friendless and so miserable.  Speak to me, if indeed you have come as friends.<milestone ed="p" n="230" unit="line"/>Oh, answer!  It is not right that I be disappointed by you in this request, at least, nor you by me.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Well, know first, stranger, that we are Greeks, since you desire to learn this.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>O cherished sound!  Ah, that I should truly be<milestone ed="p" n="235" unit="line"/>greeted by such a man, after so long a time!  What need, young man, has made you land here and brought you to this spot?  What business?  What wind so kind?  Speak, tell me all, so that I may know who you are.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>My birthplace is the island Scyros, and I am sailing<milestone ed="p" n="240" unit="line"/>homeward.  I am the son of Achilles, by name Neoptolemus.  Now you know everything.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>O son of a father I loved, and of soil I cherished!  Ward of aged Lycomedes, on what mission have you touched this shore?  From where are you sailing?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="245" unit="line"/>Well, since you ask, it is from <placeName key="tgn,7002329">Ilium</placeName> that I am now guiding my ship.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What?  You were certainly not our shipmate at the beginning of the expedition there.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>And did you have a part in that toil?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Then you do not know who I am?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="250" unit="line"/>How should I know one whom I have never seen before?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Then you have not even heard my name, or any rumor of those sufferings under which I have been perishing?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Be sure that I know nothing of what you ask.<milestone ed="p" n="255" unit="card"/></p></sp>
+<sp n="Philoctetes">
+<speaker>Philoctetes</speaker>
+<p>How cursed I must be, how abhorred by the gods,<milestone ed="p" n="255" unit="line"/>if not a word of my miserable condition has reached my homeland, or any Greek land at all!  Instead those men, who against the gods' laws cast me away, keep their secret and laugh, while my plague has ever flourished and grows worse!<milestone ed="p" n="260" unit="line"/>O my son, boy whose father was Achilles, here I am before you, the man of whom you have perhaps heard as lord of the bow of Heracles, Philoctetes the son of Poeas.  I am he whom the two marshalls and the Cephallenian king<milestone ed="p" n="265" unit="line"/>shamelessly hurled to this solitude which you see, when I was wasting with a fierce disease, stricken by the savage bite of the murderous serpent.  With that plague for my sole companion, boy, those men put me out<milestone ed="p" n="270" unit="line"/>here alone and left, after they landed here with their fleet from sea-washed <placeName key="perseus,Chryse">Chryse</placeName>.  Delighted they were then, when they saw me asleep after much tossing on the waves, in the shelter of a cave upon the shore, and they abandoned me, first setting out a few rags, as though for an unfortunate beggar, and a bit of food, too&mdash;<milestone ed="p" n="275" unit="line"/>a small work of charity.  But may they get what they gave me!  Can you imagine, boy, what kind of awakening I had when they had gone, and I rose from sleep that day?&mdash;what stinging tears I wept, and what miseries I bewailed when I saw that the ships with which I had sailed<milestone ed="p" n="280" unit="line"/>were all gone, and that there was no man in the place, not one to help me, not one to ease the sickness that afflicted me, when looking all around me, I could find nothing at hand, save agony&mdash;but of that a ready store?</p><milestone ed="p" n="285" unit="card"/>
+<p><milestone ed="p" n="285" unit="line"/>So time passed for me, season by season, and alone in this narrow house, I had to attend to all my wants by my own resources.  For my stomach's needs this bow provided, bringing down doves on the wing.  And whatever my string-sped arrow might strike,<milestone ed="p" n="290" unit="line"/>in pain I would crawl to it myself, dragging my wretched foot behind me.  Or, again, if water had to be fetched, or, if when the frost had spread, as often happens in winter, a bit of firewood had to be broken, I would creep out in pain and<milestone ed="p" n="295" unit="line"/>manage it.  Then fire would be lacking;  but by rubbing stone hard on stone I would at last reveal the hidden spark which preserves me from day to day.  Indeed, a roof over my head and a fire inside provides all that I want&mdash;except release from my disease.</p>
+<p><milestone ed="p" n="300" unit="line"/>Come now, son, you must understand what sort of island this is.  No mariner approaches it by choice, since there is no anchorage or port where he can find a gainful market or a kindly host.  This is not a place to which prudent men voyage.  But suppose that some one has put in against his will, for such things may often<milestone ed="p" n="305" unit="line"/>happen in the long course of a man's life.  These visitors, then, when they come, son, have compassionate words for me, and, perhaps moved by pity, they give me a little food or some clothing.<milestone ed="p" n="310" unit="line"/>But there is one thing that no one will do, whenever I mention it:  take me home in safety.  No, this is already the tenth year that I am wasted by misery from hunger and suffering, by feeding this gluttonous plague.  This is what the Atreids and the forceful Odysseus have done to me, boy.<milestone ed="p" n="315" unit="line"/>May the gods on <placeName key="tgn,7011019">Olympus</placeName> someday give them agonies as strong in requital for mine!
+</p></sp>
+<milestone ed="p" n="317" unit="card"/>
+<sp>
+<speaker>Chorus</speaker>
+<p>I believe that I, too, pity you, son of Poeas, as much as your former visitors.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>And I myself attest your accusations,<milestone ed="p" n="320" unit="line"/>for I know their truth through my own experience with the wickedness of the Atreids and the force of Odysseus.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What, do you also have a grievance against the accursed sons of Atreus, a cause for anger at some mistreatment?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>If only I might one day be allowed to fulfill my heart's rage by the deeds of my hand,<milestone ed="p" n="325" unit="line"/>so that <placeName key="perseus,Mycenae">Mycenae</placeName> might learn, and <placeName key="perseus,Sparta">Sparta</placeName>, that Scyros also is a mother of brave men!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Well said, son!  Now what is the reason that you have come complaining against them with this fierce wrath?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I will tell you&mdash;and yet it is hard to tell&mdash;<milestone ed="p" n="330" unit="line"/>the outrage that I suffered from them upon my arrival there.  For when fate decreed that Achilles should die&mdash;</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Ah, me!  Tell me no more, until I first know this&mdash;is the son of Peleus dead?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Dead&mdash;not by a mortal hand, but by a god's.<milestone ed="p" n="335" unit="line"/>He was brought down, as men say, by the arrow of Phoebus.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Well, noble alike are the slayer and the slain.  But I am at a loss to know, son, whether I should first inquire into the wrong done you, or mourn the dead.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Your own sorrows, I think, are enough<milestone ed="p" n="340" unit="line"/>for you, unhappy man, without mourning for those of your neighbor.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You speak the truth.  Therefore tell me again what happened to you, and how they wronged you.<milestone ed="p" n="343" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>They came for me in a ship elaborately ornamented, shining Odysseus, and he who fostered my father,<milestone ed="p" n="345" unit="line"/>and said&mdash;whether truly or falsely, I do not know&mdash;that since my father had perished, fate now forbade that anyone but I should take the towers of <placeName key="perseus,Troy">Troy</placeName>.  Saying that this, my friend, was how things stood, they caused me no long delay before I set sail in haste,<milestone ed="p" n="350" unit="line"/>chiefly because of my yearning for the dead, that I might look upon him before burial, since I had never seen him.  Then, besides, theirs was a fine promise, if by accompanying them I might sack the towers of <placeName key="perseus,Troy">Troy</placeName>.</p>
+<p>It was now the second day of my voyage<milestone ed="p" n="355" unit="line"/>when, sped by breeze and oar, I approached bitter Sigeum.  When I landed, straightaway the entire army thronged around me with greetings, vowing that they saw their lost Achilles once more alive.  He, though, lay ready for burial, and I, unhappy,<milestone ed="p" n="360" unit="line"/>when I had wept for him, went before long to the Atreids, to friends, as it was reasonable to suppose,&mdash;and claimed my father's arms and all else that had been his.  O, their reply was bold and shameless!  &lsquo;Seed of Achilles, you may take all else<milestone ed="p" n="365" unit="line"/>that was your father's.  But of those arms another man now is lord, the son of <placeName key="perseus,Laertes">Laertes</placeName>.&rsquo;  The tears came quick to my eyes as I sprang up in passionate anger and said in my bitterness, &lsquo;Madman!  Have you dared give my arms<milestone ed="p" n="370" unit="line"/>to another man in my place, without asking me?&rsquo;  But Odysseus&mdash;for he chanced to be at hand&mdash;said, &lsquo;Yes, boy, they awarded them as was just, since it was I who saved the arms and their master by my presence at the crucial moment.&rsquo;  Then immediately, in my fury, I began to lash at him with every kind of insult<milestone ed="p" n="375" unit="line"/>and left not one unsaid, if he was indeed to rob me of my arms.  At this point, stung by the abuse, though not given to anger, he answered,&mdash;&lsquo;You have not gone to where we have;  instead you have been absent from where you were needed.<milestone ed="p" n="380" unit="line"/>And since your tongue is so arrogant, you will never sail back to Scyros with those arms in your possession.&rsquo; In that way rebuked, in that way insulted, I sail for home, deprived of what is my own by that worst offspring of a wicked line, Odysseus.<milestone ed="p" n="385" unit="line"/>And yet I do not blame him as much as I do those in power.  For a city hangs wholly on its leaders, and so does an army, but when men shatter law and order, it is the lessons of their teachers that corrupt them.  My tale is told in full.  May he who hates the Atreids<milestone ed="p" n="390" unit="line"/>be as dear to the gods as he is to me!<milestone ed="p" n="391" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Goddess of the hills, Earth all-nourishing, mother of Zeus himself, you through whose realm the great Pactolus<milestone ed="p" n="395" unit="line"/>rolls golden sands!  There, there also, dread Mother, I called upon your name, when all the insults of the Atreids landed upon this man, when they handed over his father's armor, that sublime marvel,<milestone ed="p" n="400" unit="line"/>to the son of <placeName key="perseus,Laertes">Laertes</placeName>.  Hear it, blessed queen, who rides on bull-slaughtering lions!<milestone ed="p" n="403" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<sp>
+<speaker>Philoctetes</speaker>
+<p>It seems that you have come to me, friends, well commended by a grief that matches my own.<milestone ed="p" n="405" unit="line"/>Your story is in harmony with mine, so that I can recognize the work of the Atreids and of Odysseus.  For well I know that he would put his tongue to any base tale and to any mischief-making, if thereby he could hope to  accomplish something criminal in the end.<milestone ed="p" n="410" unit="line"/>No, that is not at all a wonder to me, but rather that the elder Ajax, if he was there, could bear to see this.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Ah, friend, he was no longer alive&mdash;I would never have been plundered like that while he lived.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What do you say?  Is he, too, dead and gone?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="415" unit="line"/>Think of him as of one who sees the sun's light no more.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Oh, no!  But the son of Tydeus, and Sisyphus' offspring that was bought by Laertes&mdash;they will not die, since they do not deserve to live!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>No, indeed, be sure of it.  On the contrary, they prosper now<milestone ed="p" n="420" unit="line"/>&mdash;yes, and greatly&mdash;in the <placeName key="tgn,5001993">Argive</placeName> army.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>And what of my brave old friend, Nestor of Pylos&mdash;is he not alive?  He often checked the crimes of those two, if not others, by his sage counsels.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>He has his own troubles now, since Antilochus,<milestone ed="p" n="425" unit="line"/>the son that was at his side, left him for Hades.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Ah, me!  These two, again, whom you have named, are men of whose death I had least wished to hear.  Gods! What are we to look for, when these men have died, but Odysseus here again lives, when<milestone ed="p" n="430" unit="line"/>in their place he should have been announced as dead?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>The man is a clever wrestler.  But even clever schemes, Philoctetes, are often blocked.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Now, by the gods, tell me&mdash;where was Patroclus when you needed him, he whom your father loved beyond all others?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="435" unit="line"/>He, too, was dead.  And in a brief maxim I would teach you this:  War takes no evil man by choice, but always the good men.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>I will attest to that, and with that very truth in mind, I will ask you how fares a man of little worth, but sharp of tongue and clever.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="440" unit="line"/>Surely the man of whom you ask is no one but Odysseus?<milestone ed="p" n="441" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>I did not mean him;  there was one Thersites, who could never be content to speak once and briefly, even though no one wanted him to speak at all.  Do you know if he is alive?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="445" unit="line"/>I never saw him, but I heard that he is still alive.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>He would be&mdash;no evil thing has ever been known to perish.  No, the gods take excellent care of their kind.  They find a strange joy in turning back from Hades all things criminal<milestone ed="p" n="450" unit="line"/>and crooked, while they are always dispatching the just and the good from life.  How am I to regard these doings?  How can I praise them, when in the very act of praising the ways of the gods, I find that the gods are evil?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I, at least, son of Oetean Poeas, will be on my guard hereafter against <placeName key="tgn,7002329">Ilium</placeName><milestone ed="p" n="455" unit="line"/>and the Atreids, and look on them only from afar.  And where the worse man is stronger than the good, where nobility goes to ruin and the vile man dominates&mdash;among such men I will never make my friends.  No, rocky Scyros shall suffice for me<milestone ed="p" n="460" unit="line"/>from now on to make me delight in my home.  Now to my ship!  And you, son of Poeas, farewell&mdash;as best you can, farewell!  May the gods free you of your disease, just as you wish!  But we must be going, so that we<milestone ed="p" n="465" unit="line"/>may set sail whenever the god permits our voyage.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Are you setting out already, son?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Yes, since opportunity bids us watch near our ship for a fair wind, rather than from afar.<milestone ed="p" n="468" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Now by your father and by your mother, son, by all that you cherish at home&mdash;<milestone ed="p" n="470" unit="line"/>I solemnly supplicate you, do not leave me alone like this, helpless amid these miseries in which I live, so harsh as you see, and so numerous as I have said!  Consider me a small side-task.  Great is<milestone ed="p" n="475" unit="line"/>your disgust, well I know, at such a cargo.  Yet bear with it all the same&mdash;to noble minds baseness is hateful, and a good deed is glorious.  If you forsake this task, you will have a stain on your honor;  but if you perform it, boy, you will win the prize of highest honor&mdash;if I return alive to Oeta's soil.<milestone ed="p" n="480" unit="line"/>Come, the trouble will not last one full day.  Endure it, take me and throw me where you will&mdash;in the hold, the prow, the stern, wherever I will least annoy my shipmates.  Say yes, by the great god of suppliants, son;<milestone ed="p" n="485" unit="line"/>be persuaded!  I supplicate you at your knees, I am an infirm wretch, and lame!  Do not leave me desolate like this, far from the paths of mankind!  No, bring me safely to your own home, or to <placeName key="tgn,7002677">Euboea</placeName>, Chalcodon's seat;<milestone ed="p" n="490" unit="line"/>and from there it will be no long journey for me to Oeta and the Trachinian heights, and fair-flowing Spercheius, so that you may show me to my beloved father, though long I have feared that he may have departed me.  For often<milestone ed="p" n="495" unit="line"/>did I summon him by means of those who came here, sending imploring prayers that he would himself send a ship and get me safely home.  But either he is dead, or else, as I think is likely, my messengers thought my concerns of little account and hurried on their homeward voyage.<milestone ed="p" n="500" unit="line"/>Now, however, since in you I have found one who can be both an escort and a messenger, save me and show me mercy, keeping in mind that all human destiny is full of the fear and the danger that prosperity may be followed by its opposite.  He who stands clear of trouble must beware of dangers,<milestone ed="p" n="505" unit="line"/>and when a man lives at ease, then it is that he must look most closely to his livelihood, lest it secretly suffer ruin.<milestone ed="p" n="507" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Have pity, my king!  He has told of a struggle with sufferings manifold and oppressive&mdash;may the like befall no friend of mine!<milestone ed="p" n="510" unit="line"/>And if, my king, you hate the hateful Atreids, then, turning their wrongdoing to this man's gain,<milestone ed="p" n="515" unit="line"/>I would take him  in your swift, well-rigged ship to the home for which he longs, and so escape the god's just wrath.<milestone ed="p" n="519" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Though now as a casual spectator you are compliant,<milestone ed="p" n="520" unit="line"/>beware lest later, when filled with his disease by its constant company, you prove no longer constant to these sentiments.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>That will not happen.  You will never have just cause to rebuke me for that!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Well, then, it would shame me if the stranger were to find<milestone ed="p" n="525" unit="line"/>me less ready than you are to toil for his good.  Come, if it pleases you, let us sail.  Let the man set out at once;  our ship, for her part, will carry him, and will not refuse.  Only may the gods give us safe passage from this land, and from here to whatever destination we choose!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="530" unit="line"/>O day of joy unsurpassed!  Most delightful man, and you good sailors!  If only I could show you in deeds what a true friend you have made in me!  Let us be going, my son, when we two have made a solemn farewell to my homeless home inside, so that you may also learn<milestone ed="p" n="535" unit="line"/>by what means I sustained my life, and how stout of heart I was born.  For I believe that the mere sight would have deterred any other man but me from enduring these sufferings.  But I have been slowly schooled by necessity to endure misery.<stage>Neoptolemus is about to follow Philoctetes into the cave.</stage></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Wait, let us listen to the two men who are coming!<milestone ed="p" n="540" unit="line"/>One is a crewman of your ship, the other a stranger.  Go in after you hear their report.</p></sp>
+<stage>Enter the Merchant, on the spectators' left, accompanied by a Sailor.</stage>
+<sp>
+<speaker>Merchant</speaker>
+<p>Son of Achilles, I asked my companion here, when he was guarding your ship with two others, to tell me where you might be found,<milestone ed="p" n="545" unit="line"/>since I have chanced upon you unexpectedly by the good fortune of coming to anchor off this very coast.  With no great company I am homeward bound on my trader's voyage from <placeName key="tgn,7002329">Ilium</placeName> to Peparethus with its cluster-laden vines, but when I heard that the sailors<milestone ed="p" n="550" unit="line"/>were all of your crew, I resolved not to continue my voyage in silence, without first giving you my news and getting the due reward.  You know nothing, I suspect, of your own affairs:  the new designs the Greeks<milestone ed="p" n="555" unit="line"/>have regarding you, and not only designs, but deeds in progress and no longer postponed.<milestone ed="p" n="557" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>The service you have done me by your forethought, sir, unless I am unworthy, will remain in my grateful thoughts.  But tell me just what the designs are that you mentioned, so that I may understand<milestone ed="p" n="560" unit="line"/>what is the strange plan of the Greeks that you know.</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>Pursuers are on the way in search of you with a fleet.  They are the aged Phoenix and the sons of Theseus.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>To bring me back by force, or through persuasion?</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>I do not know; but I have come to tell you what I did hear.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="565" unit="line"/>Are Phoenix and his comrades really so eager to do this favor for the Atreids?</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>Be sure that it is being done, and without delay.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Then why was Odysseus not ready to sail on this mission, and bring the message himself?  Or did some fear hold him back?</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p><milestone ed="p" n="570" unit="line"/>Oh, he and the son of Tydeus were readying for pursuit of another man, just as I was leaving port.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Who is this other after whom Odysseus himself was sailing?</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>There was a man. . . . But tell me first who that is over there.  And whatever you say, do speak quietly.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="575" unit="line"/>There, sir, before your eyes is the renowned Philoctetes.</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>Then do not question me further, but get yourself out of here as quickly as possible and sail away.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What is he saying, boy?  Why does the sailor traffic with you about me in these dark whispers?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="580" unit="line"/>His meaning yet eludes me.  But, whatever he will say, he must say openly&mdash;to you, me and my men here.</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>Seed of Achilles, do not stir the army's resentment against me for saying what I should not.  I receive many benefits for what services I do them, as a poor man may.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="585" unit="line"/>I am the enemy of the Atreids, and this man is my closest friend precisely because he hates them.  Since, then, you have come kindly disposed towards me, you must not hide from us any part of their plans that you have heard.</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>Beware of what you are doing, boy.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I am well aware.</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p><milestone ed="p" n="590" unit="line"/>I will hold you accountable.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Do so, but speak.<milestone ed="p" n="591" unit="card"/></p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>I will.  It is after this man that those two whom I named to you, Diomedes and forceful Odysseus, are sailing.  They are oath-bound to retrieve him, either by winning words or by overpowering might.<milestone ed="p" n="595" unit="line"/>And all the Achaeans heard this clearly from the mouth Odysseus, for his confidence of success in this action was higher than his comrade's.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>And for the sake of what did the Atreids after so long a time turn their thoughts so urgently towards this man,<milestone ed="p" n="600" unit="line"/>whom they were long since keeping an outcast?  What was the desire that came over them, or what force?  What avenging spirit sent by the gods to exact payment for evil deeds?</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>I will inform you of all that, since it seems that you have not heard.  There was a seer of noble birth,<milestone ed="p" n="605" unit="line"/>a son of Priam, called Helenus, whom that man, out on a solitary night raid&mdash;that deceitful Odysseus, whose repute is all shame and dishonor&mdash;captured.  Leading him back in bonds, he displayed him publicly to the Achaeans as his glorious prey.<milestone ed="p" n="610" unit="line"/>Helenus then prophesied for them whatever matter they asked, and, pertaining to <placeName key="perseus,Troy">Troy</placeName>, he foretold that they would never sack its towers, unless by winning words they should bring Philoctetes here from the island where he now dwells.  And, as soon as he heard the seer prophecy this, <placeName key="perseus,Laertes">Laertes</placeName>' son<milestone ed="p" n="615" unit="line"/>immediately promised that he would bring the man and show him to the Achaeans.  He thought it most likely that he would get him willingly, but, if unwilling, then by force, and he added that, were he to fail in this, whoever wished it might sever his head.<milestone ed="p" n="620" unit="line"/>You have heard everything, boy, and I advise speed for you, and for any man for whom you care.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Alas!  Has he, the utter plague, sworn to fetch me back to the Achaeans by persuasion?  For if that were to happen, I could be persuaded, when dead, to come back up<milestone ed="p" n="625" unit="line"/>from Hades into the light, as his father did!</p></sp>
+<sp>
+<speaker>Merchant</speaker>
+<p>I know nothing about that.  But for my part I must return to ship, while for you I pray that god may help you in every possible way.<stage>Exit Merchant.</stage><milestone ed="p" n="628" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Now is it not astounding, boy, that Odysseus would ever have expected by means of soft words<milestone ed="p" n="630" unit="line"/>to lead me from his ship and show me in the middle of the Greeks?  No!  I would sooner listen to that greatest and worst of my enemies, the viper which made me crippled as I am!  But there is nothing that he would not say or dare.  And now I know that he is coming here.<milestone ed="p" n="635" unit="line"/>Come, son, let us be moving, so that a wide sea may part us from the ship of Odysseus.  Let us go!  Good speed in good season brings sleep and rest when toil is finished.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Then as soon as the wind is not at our prow,<milestone ed="p" n="640" unit="line"/>we will sail.  At present it blows against us.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>The sailing is always fair, when you flee trouble.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Not so;  this weather is against them also.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>No wind stands in the way of pirates who sense a chance to steal and plunder by force.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="645" unit="line"/>Well, if you are so resolved, let us go, once you have taken from the cave whatever you need or desire most.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Yes, there are some things that I need, though the choice is not large.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What is there that will not be available on board my ship?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>I have a store of a certain herb, whereby I can always<milestone ed="p" n="650" unit="line"/>best lull this wound, until it is wholly tamed.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Fetch it, then.  Now, what else do you wish to take?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Any of these arrows that may have been forgotten, and may have slipped away from me, so that I not leave it for another to take.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Is that indeed the famous bow which you hold?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="655" unit="line"/>This, and no other, that I carry in my hand.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Is there any way that I might have a closer view of it&mdash;and handle it, and salute it as divine?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>To you alone, my son, this shall be granted, along with anything else in my power that is in your interest.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="660" unit="line"/>I do indeed crave to touch it, but my craving takes this form:  if it is lawful, I would be glad.  If not, think no more of it.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Your words are reverent, son, and your wish is lawful.  For you alone have given to my eyes the light of life and the hope of seeing the land of Oeta, of seeing<milestone ed="p" n="665" unit="line"/>my aged father and my friends;  and you alone, when I lay beneath the feet of my enemies, have lifted me beyond their reach.  Be bold.  The bow shall be yours to handle and to return to the hand that gave it, and you will be able to boast aloud that in reward for your goodness, you alone of mortals have touched it.<milestone ed="p" n="670" unit="line"/>Yes, it was by a good deed that I myself won it.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I am not sorry that I found you and have gained your friendship, since whoever knows how to render benefit for a benefit received must prove a friend more valuable than any possession.  Please, do go inside.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Agreed, and I will bring you also.<milestone ed="p" n="675" unit="line"/>My sickness craves the comfort of your presence.<stage>Philoctetes and Neoptolemus enter the cave.</stage><milestone ed="p" n="676" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I have heard a rumor, but never seen with my eyes, how the man who once approached the bed of Zeus was bound upon a<milestone ed="p" n="680" unit="line"/>swift wheel by the almighty son of Cronus.  But of no other mortal do I know, either by hearsay or by sight, that has encountered a doom so repugnant as this of Philoctetes.  For though he had wronged no one by force or thievery,<milestone ed="p" n="685" unit="line"/>but conducted himself fairly towards the fair, he was left to perish so undeservedly.  I truly marvel how&mdash;how in the world&mdash;as he listened in solitude to the breakers rushing around him,<milestone ed="p" n="690" unit="line"/>he kept his hold upon a life so full of grief.<milestone ed="p" n="691" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Here, he alone was his own neighbor, powerless to walk, with no one in the land to be his companion while he suffered&mdash;no one to whom he could cry out a lament that would be answered<milestone ed="p" n="695" unit="line"/>for the plague that gnawed his flesh and drained his blood&mdash;no one to lull with healing herbs gathered from the nourishing earth the burning blood which oozed from the ulcers of his<milestone ed="p" n="700" unit="line"/>envenomed foot, whenever the torment attacked him.  Instead he would then creep this way or that, stumbling like a child without his kind nurse, to any place from where his needs<milestone ed="p" n="705" unit="line"/>might be supplied, whenever the devouring anguish withdrew.<milestone ed="p" n="707" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>For food he did not gather the fruit of holy Earth, nor anything else that we mortals feed on by our labor,<milestone ed="p" n="710" unit="line"/>except when on occasion he obtained food to ease his hunger by means of feathered shafts from his swift-striking bow.  Ah, joyless was his life, who for ten years never knew the delight of wine,<milestone ed="p" n="715" unit="line"/>but ever directed his path towards any stagnant pool that he could find as he gazed around him.<milestone ed="p" n="718" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>But now, after those troubles, he will attain happiness and heartiness in the end<milestone ed="p" n="720" unit="line"/>because of his meeting with this son of a noble race, who after the fullness of many months carries him aboard our sea-crossing hull to his ancestral home,<milestone ed="p" n="725" unit="line"/>the haunt of Malian nymphs, and to the banks of the Spercheius in that very land where, above Oeta's heights, the hero of the brazen shield approached the gods, illuminated by his father's divine fire.<milestone ed="p" n="730" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="730" unit="line"/>Please, come on.  Why so silent with no apparent cause?  And why are you paralyzed?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Ai, ai!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What is the matter?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Nothing serious&mdash;go on, son.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Are you in pain from the disease that frequents you?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="735" unit="line"/>No, indeed no.  I think it is better now.&mdash;Gods, oh!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Why do you groan like this and call on the gods?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>That they may come to me with power to save and soothe.&mdash;Ai!  Ai!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="740" unit="line"/>What troubles you?  Speak, do not keep so silent.  It is plain enough that you are suffering somehow.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>I am destroyed, boy&mdash;I can never conceal my suffering when you are close.  Ah!  Ah!  It shoots through me, shoots straight through!  Oh, the pain,the misery!<milestone ed="p" n="745" unit="line"/>I am destroyed, boy&mdash;I am devoured!  Ah, by the gods I beg you, if you have a sword ready to hand, strike at my ankle&mdash;cut it off now!  Do not spare my life!<milestone ed="p" n="750" unit="line"/>Quick, boy, quick!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What new thing has come on you so suddenly that you wail for yourself with these loud shrieks?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You know, son.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What is it?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You know, boy.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What ails you?  I do not know.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>How could you not know?  Oh, oh!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="755" unit="line"/>Yes, terrible is the burden of your disease.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Terrible beyond telling!  Oh, pity me!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What shall I do?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Do not betray me because of fear.  This plague comes only now and then,&mdash;perhaps when she has been sated with her roamings elsewhere.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="760" unit="line"/>Ah, poor wretch!  Poor man, truly for all your sufferings!  Shall I support you, or somehow offer a helping hand?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>No, no.  But take this bow of mine&mdash;as you earlier asked of me&mdash;and keep it in your care and safe<milestone ed="p" n="765" unit="line"/>until this present bout with my disease is past.  For indeed sleep takes me as soon as this pain passes away, nor can it cease before then.   But you must allow me to sleep in peace.  And if<milestone ed="p" n="770" unit="line"/>those men come in the meantime, then by the gods I forbid you willingly or unwillingly, or by any skilled trickery, to give up this bow to them, lest you bring destruction at once on yourself and on me, who am your suppliant.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Have no fears as to my caution.  The bow shall pass<milestone ed="p" n="775" unit="line"/>into no hands but yours and mine.  Give it to me, and may good luck accompany it!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>There, take it boy.  And humble yourself before the jealous gods, so that the bow may not prove baneful for you, as it did for me and for him who owned it before me.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>O gods, grant this to the two of us!  And grant us a voyage<milestone ed="p" n="780" unit="line"/>prosperous and unimpeded, to whatever goal the god may deem right and that our mission provides!<milestone ed="p" n="782" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Futile, I fear, are your prayers, boy.  Look, once again the dark blood is oozing drop by drop from deep in the wound, and I look for worse to come.<milestone ed="p" n="785" unit="line"/>Ah, me, oh, oh!  Cursed foot, what torment you cause me!  It creeps on me, it is coming near!  Ah, misery!  Now you know my condition.  Do not flee, no!<milestone ed="p" n="790" unit="line"/>Oh, alas!  Odysseus of Cephallene, once my friend, would that this anguish might stick to you, and pierce your chest!  Ah, me!  Ah, me!  O you twin marshalls, Agamemnon, and you, Menelaus, may your flesh instead of mine<milestone ed="p" n="795" unit="line"/>nourish this plague, and for as long!  Oh, Ah, me!  O Death, Death, though I am always summoning you day after day, why do you never come?  O son, noble youth, seize me,<milestone ed="p" n="800" unit="line"/>burn me up, true friend, in that fire famed as Lemnian.  I, too, once deemed it lawful to do that very service for the son of Zeus, in return for which I received these same arms, which are now in your keeping.  What do you say, boy, what do you say?<milestone ed="p" n="805" unit="line"/>Why this silence?  Where are your thoughts, son?<milestone ed="p" n="806" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>My heart has long been aching for your load of pain.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Stop, then, and take courage;  this visitor comes sharply, but goes quickly.  Yet, I beg you, do not leave me alone.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="810" unit="line"/>Take heart, we will remain.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Will you?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Be sure of it.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Indeed, I do not think it right to put you under oath.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Rest assured;  it is not lawful for me to leave without you.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Give me your hand in pledge!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I give it&mdash;to stay.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Now take me there, over there!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Where do you mean?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Up there!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="815" unit="line"/>What is this new delirium?  Why do you gaze at the dome above us?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Let me go, let me go!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Where will you go, if I do so?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Let me go, I say!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I will not.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You will kill me, if you touch me further.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>There, then, I release you&mdash;if in fact you believe it is for the better.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Wide Earth, embrace me now on the verge of death!<milestone ed="p" n="820" unit="line"/>This pain no longer lets me stand up.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Sleep, I think, will take him before long.  See, his head sinks backward.  Yes, a sweat runs over his whole body, and a dark, hemorrhaging vein has burst from his heel.<milestone ed="p" n="825" unit="line"/>Come, friends, let us leave him in quietness, so that he may fall asleep.<milestone ed="p" n="827" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Divine Sleep, god who knows no pain, Sleep, stranger to anguish, come in favor to us, come happy, and giving happiness, great King!<milestone ed="p" n="830" unit="line"/>Keep before his eyes such light as is spread before them now.  Come to him, I pray you, come with power to heal!  Son, consider what position you will take, and to what strategy you will next direct our course.<milestone ed="p" n="835" unit="line"/>You see his condition now!  Why should we hesitate to act?  Opportunity, the umpire of all contests, often wins a great victory by one swift stroke.<milestone ed="p" n="839" unit="card"/></p></sp>
+<sp><speaker>Neoptolemus</speaker>
+<p>No, even though he hears nothing, I see that<milestone ed="p" n="840" unit="line"/>we have made this bow our quarry to no end, if we sail without him.  His must be the victor's crown.  It is he that the god commanded we bring.  It would be a foul disgrace upon us to boast of deeds in which failure and fraud had equal parts.<milestone ed="p" n="843" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Well, the god must look to that, son.  But when you answer me again,<milestone ed="p" n="845" unit="line"/>softly, please, softly whisper your words.  For sick men's restless sleep is quick to vision.  But, please, use your utmost care to win that prize,<milestone ed="p" n="850" unit="line"/>that great prize, by stealth.  For if you maintain your present purpose towards this man&mdash;you know what purpose I mean&mdash;then truly there are irremediable troubles in store, which a shrewd mind can foresee.<milestone ed="p" n="855" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="855" unit="line"/>Now, son, a fair wind blows you on your way:  sightless and helpless, the man lies stretched in darkness&mdash;sleep in the heat is sound&mdash;<milestone ed="p" n="860" unit="line"/>with no command of hands or feet, but stripped of all his powers, like one who rests with Hades.  Take note, see if your pronouncements are seasonable.  So far as my thoughts can seize the truth, boy, the best strategy is that which stirs no alarm.<milestone ed="p" n="865" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="865" unit="line"/>Quiet, I say, and do not abandon your wits&mdash;the man is opening his eyes and lifts his head.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Ah, light succeeding upon sleep!  Ah, friendly watchers, sight unlooked for even in my dreams!  I could never have expected this, son&mdash;<milestone ed="p" n="870" unit="line"/>that you would have the patience to wait so tenderly upon my sufferings by staying close beside me and helping to relieve me.  The Atreids, certainly, those valiant generals, had no heart to bear this burden so lightly.  But your nature is noble and drawn of a noble line,<milestone ed="p" n="875" unit="line"/>and so you have made little of all this, though loud cries and stenches afflicted you.  And now, since the plague seems to allow me a space of forgetfulness and peace at last, lift me up yourself and set me on my feet,<milestone ed="p" n="880" unit="line"/>so that, when the faintness releases me at length, we may set out to the ship, and not hold back our sailing.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>It pleases me to see you living unpained and breathing still, however contrary to my expectation.  For in view of your persistent sufferings,<milestone ed="p" n="885" unit="line"/>your symptoms seemed to speak of death.  But now lift yourself, or, if you prefer, these men will carry you. The labor will not be grudged, since you and I are of one mind.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Thank you, son, and help me up, as you will.<milestone ed="p" n="890" unit="line"/>Yet do not trouble your men, so that they may not suffer from the foul stench before it is necessary.  It will be trial enough for them to live on board with me.<milestone ed="p" n="893" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>So be it.  Now stand up, and take hold of me.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Do not worry, my habitual method will help me to my feet.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="895" unit="line"/>God!  What am I to do next?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What is the matter?  Where strays your speech?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I do not know where to turn my tongue when my thoughts are so confused.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Confused?  How so?  No, do not say it!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>My mind is indeed brought to that condition.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="900" unit="line"/>It cannot be that offense at my sickness has persuaded you not to take me aboard your ship?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>All is offense when a man has abandoned his true nature and does what does not suit him.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>But you, at least, are not departing from your begetter's<milestone ed="p" n="905" unit="line"/>example either in word or deed, when you help a man who is noble.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I shall be found to have no honor&mdash;this is the thought that long torments me.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Not because of your present deeds, at least.  But because of your words, I worry.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>O Zeus, what shall I do?  Must I be twice found base&mdash;by disloyal silence, as well as by shameful speech?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="910" unit="line"/>Unless I am lacking in judgment, he means to betray me, leave me behind and sail away!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Leave you?  No, not I.  Rather, to your pain, I will bring you along.  That is my torment.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What do you mean, son?  I do not understand.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="915" unit="line"/>I will conceal nothing.  You must sail to <placeName key="perseus,Troy">Troy</placeName>, back to the Achaeans and the forces of the Atreids.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Ah, no!  What have you said?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Do not wail in grief, before you understand!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Understand what?  What do you intend to do to me?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Save you, first, from this misery, and then,<milestone ed="p" n="920" unit="line"/>together with you, go and plunder <placeName key="perseus,Troy">Troy</placeName>'s plains.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>And this is your true intent?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>A harsh necessity governs these events, so do not be angered at hearing of them.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>I am destroyed&mdash;ah, misery!&mdash;betrayed!  What have you done to me, stranger?  Return my bow at once!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="925" unit="line"/>No, it is not possible.  My duty and my interest alike constrain me to obey those in power.<milestone ed="p" n="927" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You destroying fire, you utter monster, you hateful masterpiece of astounding wickedness!  What treachery you have done to me!  How thoroughly you have deceived me!  And are you, you wretch, unashamed to look at me,<milestone ed="p" n="930" unit="line"/>the suppliant who turned to you for mercy?  In taking my bow, you have robbed me of my life.  Return it, I beg you, return it, I pray you, son!  By the gods of your fathers, do not rob me of my life!  Ah, me!  He speaks to me no more.<milestone ed="p" n="935" unit="line"/>He looks away, as if he will never give it up!  O you inlets and headlands, you wild creatures of the hills who have shared my life, and you jagged cliffs, to you&mdash;for you alone hear me&mdash;to you my accustomed companions,<milestone ed="p" n="940" unit="line"/>I bewail the treacherous treatment I have received from the son of Achilles.  Although he swore to take me to my home, it is to <placeName key="perseus,Troy">Troy</placeName> that he takes me.  Although he gave me his right hand in pledge of his word, he has taken my bow, the sacred bow, once belonging to Zeus's son Heracles, and he keeps it, and wants to show it to the Argives as his own.<milestone ed="p" n="945" unit="line"/>By force he drags me away, as if he had captured a strong man, and does not see that he is cutting down a corpse, the shadow of smoke, a mere phantom.  In my strength he could not have taken me&mdash;no!&mdash;nor even in my present condition, save by deceit.  But now, because of my rotten fate, I have been tricked.  What should I do?<milestone ed="p" n="950" unit="line"/>Wait, give it back!  Now, at least, recover your true self!  What do you say?  Silence!  I am nothing!  Double-gated cave, back, back again I return to you, but now stripped and lacking the means to live.  Yes, in that chamber I will wither away alone,<milestone ed="p" n="955" unit="line"/>bringing down with that bow no winged bird, no beast that roams the hills.  Rather I myself shall die in misery, and supply a feast for those who fed me, becoming the prey of those on whom I preyed.  Ah, in requital for blood my own blood will flow,<milestone ed="p" n="960" unit="line"/>shed at the hands of a man who seemed all unknowing of evil!  May destruction seize you!&mdash;but no, not yet, not before I learn whether you will change your mind.  But if not, may you die a cruel death!<milestone ed="p" n="963" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What shall we do?  It rests with you, my king, whether we now sail, or move forward to answer his pleas.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="965" unit="line"/>A startling pity for him has come upon me&mdash;and not now for the first time, but long ago.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Show mercy, boy, for the love of the gods, and do not give men cause to reproach you for having cheated me.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Ah, no, what shall I do?  I wish I had never left<milestone ed="p" n="970" unit="line"/>Scyros, so pained am I by these doings.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You are not in and of yourself wicked, but you seem to have come to me after learning the shameless lessons of wicked masters.  Now leave such behavior to others, whom it suits, and sail from here&mdash;once you have given me back my weapons.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What shall we do, friends?</p></sp>
+<stage>Enter Odysseus with several armed attendants.</stage>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="975" unit="line"/>Traitor, what are you doing?  Come back here and surrender that bow to me!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Who is that?  Do I hear Odysseus?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Yes, Odysseus, be sure of it.  Here I am before your eyes.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Ah, me, I am sold, destroyed!  It was he, then, who entrapped me and robbed me of my arms.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="980" unit="line"/>Yes, I and no other.  I avow it.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Give back my bow, boy, give it up.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>That he shall never do, even if he wished to.  And, what is more, you must come along with it, or my men will bring you by force.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Me, you basest and boldest of scoundrels,<milestone ed="p" n="985" unit="line"/>they will take me by force?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Unless you come of your own free will.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>O <placeName key="tgn,7011173">Lemnos</placeName>, and you all-conquering flame kindled by Hephaestus, will you indeed endure it that this man should take me from your domain by force?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Zeus it is, I tell you, Zeus, who rules this land,<milestone ed="p" n="990" unit="line"/>and it is by Zeus that these actions are decreed.  I am his servant.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Hated creature, what clever pleading you devise! By sheltering yourself behind the gods, you make the gods liars.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>No, but true prophets.  Now our march must begin.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Never!</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Now, I say.  You must obey.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="995" unit="line"/>Ah, misery!  Clearly, then, my father sired me to be a slave and no free man.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Not so, but to be the peer of the best and bravest, with whom you are destined to take <placeName key="perseus,Troy">Troy</placeName> and force it to the ground.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>No, never&mdash;even if I must suffer every torment,<milestone ed="p" n="1000" unit="line"/>so long as I have this island's steep cliffs beneath me!</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>What do you plan to do?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Throw myself now from the rock and shatter my head on the rocks below!</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Quick, seize him, both of you!  Do not give him the chance!<milestone ed="p" n="1004" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>O my arms, what shames you suffer for lack of your cherished<milestone ed="p" n="1005" unit="line"/>bow, now that you are made that man's bound quarry!  And you, who cannot think one healthy or one noble thought, how stealthily you have once more ambushed and trapped me, taking this boy for your screen, because he was a stranger to me.  He is too good for your company, but worthy of mine,<milestone ed="p" n="1010" unit="line"/>since he had no thought but to execute his orders, and he already shows remorse for his own errors and for the wrongs done me.  But your corrupt mind, always on the lookout from some position of ambush, trained him well&mdash;unsuited and unwilling though he was&mdash;<milestone ed="p" n="1015" unit="line"/>to be cunning in evil.  And now, wretch, for me you plan bonds and passage from the very shore on which you had me flung away, friendless, abandoned, citiless, a corpse in the eyes of the living.  Ah!  Hades take you!  Indeed I have often so prayed for you.<milestone ed="p" n="1020" unit="line"/>But, because the gods grant me nothing that is sweet, you remain alive and you laugh, while I live miserably among countless sufferings, mocked by you and by the sons of Atreus, the two generals whom you serve on this errand.<milestone ed="p" n="1025" unit="line"/>And yet you sailed with them only when brought under their yoke by trickery and compulsion.  But me, when, to my utter ruin, I sailed of my own accord as their mate with seven ships, me they cast out of ship and honor, as you claim, while they say that it was your doing.  And now, why would you take me?  Why have me led away?  For what purpose?<milestone ed="p" n="1030" unit="line"/>I am nothing, and, as far as you were concerned, I have long been dead.  You creature abhorred by the gods, how is it that you no longer find me crippled and foul-smelling?  How, if I sail with you, can you burn sacrifices to the gods, or make libations any more?  That was your pretext for casting me away in the first place.<milestone ed="p" n="1035" unit="line"/>A cruel death for you!&mdash;and die you shall for your unjust treatment of me, if the gods care for justice.  But I know that they do care for it, since you would never have made this voyage for one so miserable, unless some god-sent goad had driven you after me.<milestone ed="p" n="1040" unit="line"/>O, fatherland, and you watchful gods, bring your vengeance, bring your vengeance on them all after so long, if at all you pity me!  Yes, my life merits pity.  Yet if I were to see those men overthrown, I would believe that I had escaped my plague.<milestone ed="p" n="1045" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1045" unit="line"/>Bitter is the stranger, and bitter his words, Odysseus.  They do not bend before the storm of his troubles.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I could say much in answer to his claims, if time allowed;  but now I can say one thing only.  What kind of man the occasion demands, that kind of man am I.<milestone ed="p" n="1050" unit="line"/>And accordingly, where the judgment at hand is of just and good men, you could find no man more pious than me.  Victory, however, is my inborn desire in every field&mdash;save with regard to you.  To you, in this case, I will gladly give way.  Yes, release him, and lay not another finger upon him.<milestone ed="p" n="1055" unit="line"/>Let him stay here.  We have no further need of you, now that we have these weapons.  For Teucer is there among our forces, well-skilled in this craft, as am I, and I believe that I can master this bow in no way worse than you, and point it with no worse a hand.<milestone ed="p" n="1060" unit="line"/>So what need is there of you?  Farewell!  Enjoy your strolls on <placeName key="tgn,7011173">Lemnos</placeName>!  We must be going.  And perhaps your onetime prize will bring me the honor which ought to have been your own.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Ah, no, what shall I do?  Are you to shine before the Argives graced with my arms?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1065" unit="line"/>Argue with me no more.  I am going.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Seed of Achilles, will you, too, grant me your voice no more, but leave without a word?</p></sp>
+<stage>To Neoptolemus.</stage>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Come on!  Do not look at him, kind and noble though you are.  Do not obliterate our good fortune.</p></sp>
+<stage>To the Chorus.</stage>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1070" unit="line"/>And will you also, friends, leave me so desolate and show me no pity?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The boy commands our ship.  Whatever he says to you, that is our answer also.</p></sp>
+<stage>To the Chorus.</stage>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I shall be told by Odysseus here that I am too<milestone ed="p" n="1075" unit="line"/>soft-hearted;  but remain here, if that one agrees, until the sailors have readied everything on board, and we have made our prayers to the gods.  In the interval, perhaps, he will obtain a better attitude towards us.  And so we two are going.<milestone ed="p" n="1080" unit="line"/>And you, when we call you, be quick to come.<stage>Exeunt Odysseus and Neoptolemus.</stage><milestone ed="p" n="1081" unit="card"/></p></sp></div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Philoctetes</speaker>
+<p>Hollow in the caverned rock, now hot, now frosty, how true it seems, then, that I was sadly fated never to leave you!<milestone ed="p" n="1085" unit="line"/>No, you will witness my death, too.  Ah, ah, me!  Sad dwelling, so long filled with the pain welling from my flesh, what will be my daily portion hereafter?<milestone ed="p" n="1090" unit="line"/>Where, from what provision, shall I, unhappy, find any hope of sustenance?  Above my head the tremulous doves will go on their way through the whistling wind.  I can stop their flight no more.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1095" unit="line"/>It was you, you, I say, doomed one, that chose this fate;  and this fortune to which you are captive comes from no other source, nor from a stronger man's compulsion.  For when in fact it was in your power to show sense,<milestone ed="p" n="1100" unit="line"/>you chose to reject the better fate, and to accept the worse.<milestone ed="p" n="1101" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Philoctetes</speaker>
+<p>Ah, miserable, miserable, then, am I, and shamed by hardship, who next must hereafter dwell in my misery here,<milestone ed="p" n="1105" unit="line"/>with no man for companion in the days to come, and waste away.  I can no longer bring food to my home, no<milestone ed="p" n="1110" unit="line"/>longer gain it by the winged weapons held in my strong hands.  But the unsuspected and stealthy fictions of a treacherous mind deceived me.  If only I could watch him, the contriver of this plot, doomed to endure my anguish for as long a time!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1115" unit="line"/>Doom, god-sent doom constrained you to suffer this, not, I tell you, any treachery to which my hand was lent.<milestone ed="p" n="1120" unit="line"/>Aim your hate-filled, baneful curse elsewhere, since I prefer that you not reject my friendship.<milestone ed="p" n="1123" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Philoctetes</speaker>
+<p>Alas!  No doubt sitting on the white ocean shore<milestone ed="p" n="1125" unit="line"/>he mocks me, brandishing the weapon that nourished my unhappy life, the weapon which no one else had carried!  Cherished bow, ah, friend forced from my loving hands,<milestone ed="p" n="1130" unit="line"/>if you have the power to feel, surely you see with pity that the comrade of Heracles will now no longer use you anymore!<milestone ed="p" n="1135" unit="line"/>Now you are handled by another, a man of craftiness; you see the shameless deceptions and the face of that hated enemy by whom countless wrongs, springing from shameless designs, have been contrived against me.  O Zeus!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1140" unit="line"/>A man must always assert what is right.  But, when he has done so, he must not let loose malignant, stinging taunts.  The man was the sole representative of the whole army, and at their mandate<milestone ed="p" n="1145" unit="line"/>he achieved a universal benefit for his friends.<milestone ed="p" n="1146" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Philoctetes</speaker>
+<p>Ah, my winged prey, and you tribes of bright-eyed creatures held by this place in its upland pastures, leap no more<milestone ed="p" n="1150" unit="line"/>in flight from your lairs, for I do not grasp in my hands those shafts which were once my strength&mdash;but now, gone, are my undoing!  Roam at will now; the place has no more terrors&mdash;for you!<milestone ed="p" n="1155" unit="line"/>The time is ripe for you to take blood for blood, to sate yourselves to your heart's desire on my discolored flesh!  Soon I will leave life, for from what source can I find the means to live?  Who can feed, as I will have to,<milestone ed="p" n="1160" unit="line"/>on the winds, when he no longer owns any of the bounty that the life-giving earth supplies?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>In the name of the gods, if you have any reverence for a friend who approaches you in all kindness, approach him!<milestone ed="p" n="1165" unit="line"/>But know this, and know it well:  it is in your power to escape this plague.  Cruel is it that you feed it with your own flesh, and that there is no way for you to learn to endure the countless torments that dwell with it.<milestone ed="p" n="1170" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1170" unit="line"/>Again, again, you have recalled the old agony to my thoughts&mdash;kindest though you are of all who have visited before!  Why have you ruined me?  What have you done to me?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>What do you mean?</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>That it was your hope to take<milestone ed="p" n="1175" unit="line"/>me to that Trojan land I abhor.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Yes, I believe that to be the best course.</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>Leave me, then&mdash;immediately!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Pleasant, pleasant, indeed, is the task you set me, and I am ready to obey.<milestone ed="p" n="1180" unit="line"/>Come, let us be going, each to his station in the ship!</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>By Zeus who hears men's curses, do not go, I implore you!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Be moderate.</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1185" unit="line"/>Friends, in the name of the gods, stay!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Why do you call?</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>Ayee, ayee!  Doom, Doom!  My suffering kills me!  Foot, my foot, what shall I do with you in the days to come?<milestone ed="p" n="1190" unit="line"/>O friends, return, come back to me!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>To do what that has a different spirit from that of your former commands?</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>There is no reason for indignation when the words of one crazed<milestone ed="p" n="1195" unit="line"/>by a storm of pain are senseless.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Come with us, then, poor man, as we bid you.</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>Never, never&mdash;of that be certain!  Not even if the lord of the fiery lightning comes to wrap me in the blaze of his thunderbolts!<milestone ed="p" n="1200" unit="line"/><placeName key="tgn,7002329">Ilium</placeName> be damned, and as many of the men before its walls as dared reject this foot of mine!  But oh, friends, grant me one wish!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>What would you ask?</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>A sword, if you can find one, or an axe, or any weapon&mdash;<milestone ed="p" n="1205" unit="line"/>please, pass it to me!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>That you may execute what scheme?</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>Mangle all this body, and sever limb from limb with my own hand!  Death, death is my thought now!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1210" unit="line"/>Why, why ever would you&mdash;</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>I am seeking my father&mdash;</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>In what land?</p></sp>
+<sp><speaker>Philoctetes</speaker>
+<p>In Hades;  he dwells in the sunlight no more.  Ah, my city, city of my fathers!  I crave to see you, unhappy man that I truly am<milestone ed="p" n="1215" unit="line"/>for leaving your sacred stream and going to help the Danaans, my enemies!  I am nothing now, nothing anymore!<stage>Exit Philoctetes into the cave.</stage><milestone ed="p" n="1218" unit="card"/></p></sp></div2></div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus</speaker>
+<p>Long ago I would have left you to go to my ship, had I not seen<milestone ed="p" n="1220" unit="line"/>Odysseus approaching, and the son of Achilles, too, coming here for us.</p></sp>
+<stage>Enter Neoptolemus and Odysseus.</stage>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Will you not tell me why you make this return journey with such eager speed?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I come to undo the mistake that I made earlier.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1225" unit="line"/>Your words alarm me&mdash;what mistake was that?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>The one I made when I obeyed you and all the army.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>What did you do that was unworthy of you?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I captured a man by disgraceful deceits and treachery.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>What man?  Oh!  Can you be planning something rash?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="1230" unit="line"/>Rash, no.  But to Poeas' son&mdash;</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>What are you going to do?  Suddenly a certain fear comes over me.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>&mdash;From whom I took this bow, back to him&mdash;</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Zeus!  What will you say?  Certainly you do not intend to give it back?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Yes, I do, because disgracefully and unjustly I got hold of it.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1235" unit="line"/>In the name of the gods, are you saying this to mock me?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>If it is mockery to speak the truth.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>What  do you mean, Neoptolemus?  What are you saying?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Must I repeat the same words twice and three times?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I would not have wished to hear them even once.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="1240" unit="line"/>Know for certain that I have nothing more to say.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>There is someone, I tell you, who will prevent your deed.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What do you mean?  Who will oppose me in this?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>The whole host of the Achaeans, and I for one.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Wise though you were born, your threats are void of wisdom.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1245" unit="line"/>And your words are not wise, nor is that which you want to do.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>And yet if they are just, they are better than wise.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And how is it just for you to give up what was won by means of my plans?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>My error was to my dishonor, and now I must try to retrieve it.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1250" unit="line"/>The army of the Achaeans causes you no fear, when you do this?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>With justice on my side, I do not tremble at the terrors you name.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>&lt;<gap desc="*"/>&gt;</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>No, not even at the threat of your hand do I yield obedience.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Then our battles shall be not with the Trojans, but with you.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>So be it, if that is what the future holds.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Do you see my right hand<milestone ed="p" n="1255" unit="line"/>clasping my sword hilt?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>You will see me do the same, and not slowly.<milestone ed="p" n="1258" unit="card"/></p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>However, I will let you be.  But I will go report this to all the army, and by them you will be punished.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>You have come to your senses.  And if you are so prudent hereafter,<milestone ed="p" n="1260" unit="line"/>perhaps you may steer clear of trouble.<stage>Odysseus feigns departure, but conceals himself nearby.</stage></p></sp>
+<sp>
+<p>But you, son of Poeas, Philoctetes, come out!  Leave the shelter of your rocky home!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker><stage>Within.</stage>
+<p>What is this disruptive cry once more rising beside my cave? Why do you call me?  What do you want of me?<stage>He appears at the mouth of the cave, and sees Neoptolemus.</stage></p>
+<p>Oh, no!  This business will bring me no good.  Have you come bringing me new misery on top of the old?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Take heart and listen to my words.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>I am afraid.  Beautiful words did me evil once before, when I believed your promises.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="1270" unit="line"/>Is there no room, then, for repentance?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You spoke just like this, when you were seeking to steal my bow&mdash;a professed friend, with my destruction in his treacherous heart.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I assure you, I am not so now.  I merely wish to know whether you have resolved to stay here and endure, or to sail with us.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1275" unit="line"/>Stop, not another word!  Whatever you may say will be said in vain.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>You are so resolved?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>More firmly, believe me, than words can say.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Well, I could have wished that you had listened to my words, but if nothing that I say will help,<milestone ed="p" n="1281" unit="line"/>then I am finished.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Yes, all your pleas will be in vain.  You will never gain my mind's good will, since first you fraudulently seized my means of life and robbed me of it, and then you have come here to admonish me, you most hateful descendant of so noble a father!<milestone ed="p" n="1285" unit="line"/>Ruin seize you all, the Atreids first, and next the son of <placeName key="perseus,Laertes">Laertes</placeName>, and you!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Speak no more curses, and instead receive these weapons from my hand.<milestone ed="p" n="1288" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What did you say?  Am I being tricked a second time?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>No, I swear it by the pure majesty of Zeus most high!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1290" unit="line"/>O welcome words&mdash;if your words are true!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>The deed will soon make it plain.  Come, stretch out your right hand and be master of your bow!<stage>As he hands the bow and arrows to Philoctetes, Odysseus suddenly appears.</stage></p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>But I forbid it, as the gods are my witnesses, in the name of the Atreids and the entire army!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1295" unit="line"/>Son, whose voice was that?  Do I hear Odysseus?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Be sure of it, and you see him at your side, who will carry you to the plains of <placeName key="perseus,Troy">Troy</placeName> by force, whether or not the son of Achilles is willing.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>But it will bring you no joy, if this arrow fly straight.<stage>Odysseus flees from the stage.</stage></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="1300" unit="line"/>Wait&mdash;by the gods, no!  Do not let it fly!</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Let go of me, in the name of the gods, dear boy!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I will not.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Alas!  Why did you take from me the chance to kill my hated enemy with my bow?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>It would have been honorable neither for me, nor for you.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1305" unit="line"/>Well, you may be sure of one thing, at least:  the army's chiefs, the lying heralds of the Greeks, though bold with words, are cowards in the fight.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Good;  the bow is yours, and you have no cause for anger or complaint against me.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1310" unit="line"/>Agreed.  You have revealed the true stock, my son, from which you spring.  You are no child of Sisyphus, but of Achilles, whose fame was the fairest when he was among the living, as it is now with the dead.<milestone ed="p" n="1314" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I delight at your praise of my father,<milestone ed="p" n="1315" unit="line"/>and of myself.  But hear what I desire to gain from you.  It is true that men are compelled to bear the fortunes given by the gods;  but when they cling to self-inflicted miseries, as you do,<milestone ed="p" n="1320" unit="line"/>no one can justly excuse or pity them.  You have become savage:  you welcome no counsellor, and if someone admonishes you, even if he speaks in all good will, you detest him and consider him an enemy who wishes you ill.  All the same I will speak to you, calling Zeus who guards oaths to witness.<milestone ed="p" n="1325" unit="line"/>And you remember these words and write them in your heart:  you suffer this plague's affliction in accordance with god-sent fate, because you came near to <placeName key="perseus,Chryse">Chryse</placeName>'s guardian, the serpent who secretly watches over her home and guards her roofless sanctuary.  Know also that you will never gain relief from this grave sickness,<milestone ed="p" n="1330" unit="line"/>as long as the sun still rises in the east and sets in the west, until of your own free will you come to the plains of <placeName key="perseus,Troy">Troy</placeName>,  find there the sons of Asclepius, our comrades,  be relieved of this infection,  and, with this bow's<milestone ed="p" n="1335" unit="line"/>aid and mine, be hailed as the sacker of <placeName key="perseus,Troy">Troy</placeName>'s towers.  How I know these things are so ordained, I will tell you.  We have a Trojan prisoner, Helenus, foremost among seers, who says plainly that all this must come to pass, and further,<milestone ed="p" n="1340" unit="line"/>that this very summer must see the complete capture of <placeName key="perseus,Troy">Troy</placeName>.  Otherwise he willingly gives himself over for execution, if these prophecies of his prove false.  Therefore, now that you understand everything, give way graciously.  It is a glorious addition to your gain to be singled out<milestone ed="p" n="1345" unit="line"/>as best of the Greeks&mdash;first, for coming into healing hands, and then for taking <placeName key="perseus,Troy">Troy</placeName> rich in tears, and so winning a matchless renown.<milestone ed="p" n="1348" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Hateful life, why, why do you keep me in the light of day, instead of letting me go to Hades' domain?<milestone ed="p" n="1350" unit="line"/>Ah, me, what shall I do?  How can I ignore this man's words, when he has advised me with good will?  But shall I yield, then?  How, after doing that, shall I, ill-fated, come into men's sight?  Whom will I be able to talk to?  You orbs that have watched my every suffering,<milestone ed="p" n="1355" unit="line"/>how could you endure to see me consorting with the sons of Atreus, who caused my ruin, or with the accursed son of <placeName key="perseus,Laertes">Laertes</placeName>?  It is not my resentment for what has already been done that stings me, rather it is the many troubles which I seem to foresee I must suffer at the hands of<milestone ed="p" n="1360" unit="line"/>these men in the future.  For when the mind of men has once mothered wrongdoing, it trains those men to be wrongdoers in all else thereafter.  And in you, too, I wonder at this.  You should never yourself revisit <placeName key="perseus,Troy">Troy</placeName>, and should prevent me from going there, seeing that those men have done you outrage<milestone ed="p" n="1365" unit="line"/>by stripping you of your father's arms &lsqb;when, in the suit for the weapons, they judged unhappy Ajax inferior to Odysseus&rsqb;.  After that, will you go to fight at their side, and compel me to do the same?  No, do not do it, son, but, as you swore to me, escort me home.  You yourself remain in Scyros, and leave those evil men to their evil doom.<milestone ed="p" n="1370" unit="line"/>So shall you win double thanks from me, as from your father, and you will not appear through your service to bad men to be like them in your nature.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Your recommendation is reasonable, but nevertheless, I wish that you would put your trust in the gods and in my words,<milestone ed="p" n="1375" unit="line"/>and sail from this land with me, your friend.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>What!  To the plains of <placeName key="perseus,Troy">Troy</placeName> and to the abhorred son of Atreus, with this miserable foot?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>No, rather to those who will free you and your pus-filled limb from pain, and will save you from your sickness.<milestone ed="p" n="1380" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1380" unit="line"/>You giver of frightening advice, what have you said?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I recognize what will be best in the end for you and for me.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Have you no shame before the gods for saying that?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Why should a man be ashamed of benefiting his friends?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Do you mean a benefit to the Atreids, or for me?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="1385" unit="line"/>For you, certainly, since I am your friend and speak in friendship.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>How can that be, when you would give me up to my enemies?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Please, sir, learn to be less defiant in misfortune.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>You will ruin me&mdash;I know it&mdash;with these words.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Not I.  But you, I say, will not understand.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1390" unit="line"/>Do I not know already that the Atreids cast me away?</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>They cast you out, yes, but look if they will not in turn restore you.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Never&mdash;if I must first consent to see <placeName key="perseus,Troy">Troy</placeName>.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What can I do, then if my pleading fails to persuade you of anything that I recommend?<milestone ed="p" n="1395" unit="line"/>The easiest course for me is to stop talking, and for you to live, just as you do now, without deliverance.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Let me bear the sufferings that are fated me.  But what you promised me with your right hand in mine&mdash;to bring me home,&mdash;that promise fulfil for me, son,<milestone ed="p" n="1400" unit="line"/>and do not delay, or remind me further of <placeName key="perseus,Troy">Troy</placeName>.  I have had my fill of grief and lamentations.<milestone ed="p" n="1402" unit="card"/></p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>If it is your will, let us go.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>O noble words!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Now lean your steps firmly upon mine.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>As far as my strength allows.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>But how shall I escape blame from the Achaeans?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Disregard it.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p><milestone ed="p" n="1405" unit="line"/>What if they ravage my country?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>I will be there&mdash;</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>And what aid will you render?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>&mdash;And with the shafts of Heracles&mdash;</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>What?</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>&mdash;I will keep them away.</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>Then say your farewell to this island, and leave with me.<milestone ed="p" n="1408" unit="card"/></p></sp>
+<stage>Heracles appears above the stage.</stage>
+<sp>
+<speaker>Heracles</speaker>
+<p>Not yet, not until you have heard my commands,<milestone ed="p" n="1410" unit="line"/>son of Poeas.  Know that your ears perceive the voice of Heracles, and that you look upon his face.  For your sake I have left my divine seat and come<milestone ed="p" n="1415" unit="line"/>to reveal to you the purposes of Zeus, and to halt the journey on which you are departing.  Hearken to my words.</p>
+<p>First I would tell you of my own fortunes&mdash;how, by toiling through and enduring so many toils to the end, I have won the glory of deathlessness, as you witness.<milestone ed="p" n="1420" unit="line"/>And for you, be sure, this fate is ordained, that through these toils of yours you will make your life far-famed.  You shall go with this man to the Trojan city, where, first, you shall be healed of your cruel sickness,<milestone ed="p" n="1425" unit="line"/>and then, chosen out as foremost among the warriors in prowess, with my bow you shall sever <placeName key="tgn,7008038">Paris</placeName>, the author of these evils, from life.  You shall sack <placeName key="perseus,Troy">Troy</placeName> and shall receive from the army the spoils of supreme valor to carry home<milestone ed="p" n="1430" unit="line"/>to the heights of your native Oeta for the delight of your father Poeas.  And whatever spoils you receive from that army, from them carry to my pyre a thank-offering for my bow.  And these counsels hold for you also, son of Achilles,<milestone ed="p" n="1435" unit="line"/>for you have not the might to subdue the Trojan realm without him, nor he without you.  Rather, like twin lions with the same quarry, each of you must guard the other's life.  For the healing of your sickness, I will send Asclepius to <placeName key="perseus,Troy">Troy</placeName>, since it is doomed to fall a second time<milestone ed="p" n="1440" unit="line"/>before my arrows.  But of this be mindful, when you plunder the land&mdash;that you show reverence towards the gods.  Do this because Father Zeus regards all else as of less account, and because Piety does not die along with mortals.  Whether they are alive or dead, their piety does not perish.<milestone ed="p" n="1445" unit="card"/></p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p><milestone ed="p" n="1445" unit="line"/>Ah, friend whose voice I have longed to hear, whose shape I see at long last, I will not disobey your commands!</p></sp>
+<sp>
+<speaker>Neoptolemus</speaker>
+<p>I, too, consent.</p></sp>
+<sp>
+<speaker>Heracles</speaker>
+<p>Then do not long delay,<milestone ed="p" n="1450" unit="line"/>for the occasion and the fair wind there at your stern urge you forward.</p></sp>
+<sp>
+<speaker>Philoctetes</speaker>
+<p>Come, then, let me hail this land as I depart.  Farewell, chamber that shared my watches.  Farewell,<milestone ed="p" n="1455" unit="line"/>nymphs of stream and meadow, and you, strong pounding of the sea-lashed cape, where often in the cavern's inmost recess my head was wetted by the south wind's blasts, and where many times the Hermaean mount sent an echo<milestone ed="p" n="1460" unit="line"/>to my sad groans in the gale of my sorrow!  But now, clear springs and Lycian fount, I am leaving you, leaving you at last, though such a hope had never buoyed me!  Farewell, sea-wrapped <placeName key="tgn,7011173">Lemnos</placeName>,<milestone ed="p" n="1465" unit="line"/>and send me off with sailing fair to my heart's content, send me to the destination appointed me by mighty Fate and the will of my friends, and by the all-taming god who has brought these things to pass.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Now let us all leave together,<milestone ed="p" n="1470" unit="line"/>once we have prayed to the nymphs of the sea to come be the guides of our safe return.</p></sp></div1>
+</body></text></TEI.2>

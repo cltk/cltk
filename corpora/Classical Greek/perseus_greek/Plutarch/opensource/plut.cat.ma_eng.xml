@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Cat.Ma." type="work">Marcus Cato</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 77 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Cat.Ma."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990536</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>2/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>MARCUS CATO</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The family of Marcus Cato, it is said, was of Tusculan origin, though he lived, previous to his career as soldier and statesman, on an inherited estate in the country of the Sabines. His ancestors commonly passed for men of no note whatever, but Cato himself extols his father, Marcus, as a brave man and good soldier. He also says that his grandfather, Cato, often won prizes for soldierly valour, and received from the state treasury, because of his bravery, the price of five horses which had been killed under him in battle. 
+				<milestone n="2" unit="section"/>The Romans used to call men who had no family distinction, but were coming into public notice through their own achievements, 
+				<q direct="unspecified">new men,</q> and such they called Cato. But he himself used to say that as far as office and distinction went, he was indeed new, but having regard to ancestral deeds of valour, he was oldest of the old. His third name was not Cato at first, but Priscus. Afterwards he got the surname of Cato for his great abilities. The Romans call a man who is wise and prudent, <emph>catus.</emph>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>As for his outward appearance, he had reddish hair, and keen grey eyes, as the author of the well known epigram ill-naturedly gives us to understand:&mdash;
+				<quote rend="blockquote">
+					          <l>Red-haired, snapper and biter, his grey eyes flashing defiance,</l>
+					          <l>Porcius, come to the shades, back will be thrust by their Queen.</l>
+				        </quote>
+				His bodily habit, since he was addicted from the very first to labour with his own hands, a temperate mode of life, and military duties, was very serviceable, and disposed alike to vigour and health. 
+				<milestone n="4" unit="section"/>His discourse,&mdash;a second body, as it were, and, for the use of a man who would live neither obscurely nor idly, an instrument with which to perform not only necessary, but also high and noble services,&mdash;this he developed and perfected in the villages and towns about Rome, where he served as advocate for all who needed him, and got the reputation of being, first a zealous pleader, and then a capable orator. Thenceforth the weight and dignity of his character revealed themselves more and more to those who had dealings with him; they saw that he was bound to be a man of great affairs, and have a leading place in the state. 
+				<milestone n="5" unit="section"/>For he not only gave his services in legal contests without fee of any sort, as it would seem, but did not appear to cherish even the repute won in such contests as his chief ambition. Nay, he was far more desirous of high repute in battles and campaigns against the enemy, and while he was yet a mere stripling, had his breast covered with honourable wounds. 
+				<milestone n="6" unit="section"/>He says himself that he made his first campaign when he was seventeen years old, at the time when Hannibal was consuming Italy with the flames of his successes.<note resp="ed" place="unspecified" anchored="yes">217 B.C.</note>
+			      </p>
+         <p>In battle, he showed himself effective of hand, sure and steadfast of foot, and of a fierce countenance. With threatening speech and harsh cries he would advance upon the foe, for he rightly thought, and tried to show others, that often-times such action terrifies the enemy more than the sword. 
+				<milestone n="7" unit="section"/>On the march, he carried his own armour on foot, while a single attendant followed in charge of his camp utensils. With this man, it is said, he was never wroth, and never scolded him when he served up a meal, nay, he actually took hold himself and assisted in most of such preparations, provided he was free from his military duties. Water was what he drank on his campaigns, except that once in a while, in a raging thirst, he would call for vinegar, or, when his strength was failing, would add a little wine.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Near his fields was the cottage which had once belonged to Manius Curius, a hero of three triumphs. To this he would often go, and the sight of the small farm and the mean dwelling led him to think of their former owner, who, though he had become the greatest of the Romans, had subdued the most warlike nations, and driven Pyrrhus out of Italy, nevertheless tilled this little patch of ground with his own hands and occupied this cottage, after three triumphs. 
+				<milestone n="2" unit="section"/>Here it was that the ambassadors of the Samnites once found him seated at his hearth cooking turnips, and offered him much gold; but he dismissed them, saying that a man whom such a meal satisfied had no need of gold, and for his part he thought that a more honourable thing than the possession of gold was the conquest of its possessors. Cato would go away with his mind full of these things, and on viewing again his own house and lands and servants and mode of life, would increase the labours of his hands and lop off his extravagancies.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>When Fabius Maximus took the city of Tarentum,<note resp="ed" place="unspecified" anchored="yes">209 B.C.</note> it chanced that Cato, who was then a mere stripling, served under him, and being lodged with a certain Nearchus, of the sect of the Pythagoreans, he was eager to know of his doctrines. When he heard this man holding forth as follows, in language which Plato also uses, condemning pleasure as 
+				<q direct="unspecified">the greatest incentive to evil,</q> and the body as 
+				<q direct="unspecified">the chief detriment to the soul, from which she can release and purify herself only by such reasonings as most do wean and divorce her from bodily sensations,</q> he fell still more in love with simplicity and restraint. 
+				<milestone n="4" unit="section"/>Further than this, it is said, he did not learn Greek till late in life, and was quite well on in years when he took to reading Greek books; then he profited in oratory somewhat from Thucydides, but more from Demosthenes. However, his writings are moderately embellished with Greek sentiments and stories, and many literal translations from the Greek have found a place among his maxims and proverbs.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>There was at Rome a certain man of the highest birth and greatest influence, who had the power to discern excellence in the bud, and the grace to cultivate it and bring it into general esteem. This man was Valerius Flaccus. He had a farm next to that of Cato, and learned from Cato's servants of their master's laborious and frugal way of living. He was amazed to hear them tell how Cato, early in the morning, went on foot to the market-place and pleaded the cases of all who wished his aid; 
+				<milestone n="2" unit="section"/>then came back to his farm, where, clad in a working blouse if it was winter, and stripped to the waist if it was summer, he wrought with his servants, then sat down with them to eat of the same bread and drink of the same wine. They told Valerius many other instances of Cato's fairness and moderation, quoting also sundry pithy sayings of his, until at last Valerius gave command that Cato be invited to dine with him. 
+				<milestone n="3" unit="section"/>After this, discovering by converse with him that his nature was gentle and polite, and needed, like a growing tree, only cultivation and room to expand, Valerius urged and at last persuaded him to engage in public life at Rome. Accordingly, taking up his abode in the city, his own efforts as an advocate at once won him admiring friends, and the favour of Valerius brought him great honour and influence, so that he was made military tribune first, and then quaestor. 
+				<milestone n="4" unit="section"/>After this, being now launched on an eminent and brilliant career, he shared the highest honours with Valerius, becoming consul with him, and afterwards censor.
+			</p>
+         <p>Of the elder statesmen, he attached himself most closely to Fabius Maximus, who was of the highest reputation and had the greatest influence, but this was more by way of setting before himself the character and life of the man as the fairest examples he could follow. 
+				<milestone n="5" unit="section"/>In the same spirit he did not hesitate to oppose the great Scipio, a youthful rival of Fabius, and thought to be envious of him. When he was sent out with Scipio as quaestor for the war in Africa,<note resp="ed" place="unspecified" anchored="yes">204 B.C.</note> he saw that the man indulged in his wonted extravagance, and lavished money without stint upon his soldiery. 
+				<milestone n="6" unit="section"/>He therefore made bold to tell him that the matter of expense was not the greatest evil to be complained of, but the fact that he was corrupting the native simplicity of his soldiers, who resorted to wanton pleasures when their pay exceeded their actual needs. Scipio replied that he had no use for a parsimonious quaestor when the winds were bearing him under full sail to the war; he owed the city an account of his achievements, not of its moneys. 
+				<milestone n="7" unit="section"/>Cato therefore left Sicily, and joined Fabius in denouncing before the Senate Scipio's waste of enormous moneys, and his boyish addiction to palaestras and theatres, as though he were not commander of an army, but master of a festival. As a result of these attacks, tribunes were sent to bring Scipio back to Rome, if the charges against him should turn out to be true. 
+				<milestone n="8" unit="section"/>Well then, Scipio convinced the tribunes that victory in war depended on the preparations made for it; showed that he could be agreeable in his intercourse with his friends when he had leisure for it, but was never led by his sociability to neglect matters of large and serious import; and sailed off for his war in Africa.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The influence which Cato's oratory won for him waxed great, and men called him a Roman Demosthenes; but his manner of life was even more talked about and noised abroad. For his oratorical ability only set before young men a goal which many already were striving eagerly to attain; but a man who wrought with his own hands, as his fathers did, and was contented with a cold breakfast, a frugal dinner, simple raiment, and a humble dwelling,&mdash;one who thought more of not wanting the superfluities of life than of possessing them,&mdash;such a man was rare. 
+				<milestone n="2" unit="section"/>The commonwealth had now grown too large to keep its primitive integrity; the sway over many realms and peoples had brought a large admixture of customs, and the adoption of examples set in modes of life of every sort. It was natural, therefore, that men should admire Cato, when they saw that, whereas other men were broken down by toils and enervated by pleasures, he was victor over both, 
+				<milestone n="3" unit="section"/>and this too, not only while he was still young and ambitious, but even in his hoary age, after consulship and triumph. Then, like some victorious athlete, he persisted in the regimen of his training, and kept his mind unaltered to the last.
+			</p>
+         <p>He tells us that he never wore clothing worth more than a hundred drachmas; that he drank, even when he was praetor or consul, the same wine as his slaves; that as for fish and meats, he would buy thirty asses' worth<note resp="ed" place="unspecified" anchored="yes">The <emph>as</emph> corresponded nearly to the English penny.</note> for his dinner from the public stalls, and even this for the city's sake, that he might not live on bread alone, but strengthen his body for military service; 
+				<milestone n="4" unit="section"/>that he once fell heir to an embroidered Babylonian robe, but sold it at once; that not a single one of his cottages had plastered walls; that he never paid more than fifteen hundred drachmas for a slave, since he did not want them to be delicately beautiful, but sturdy workers, such as grooms and herdsmen, and these he thought it his duty to sell when they got oldish, instead of feeding them when they were useless; and that in general, he thought nothing cheap that one could do without, but that what one did not need, even if it cost but a penny, was dear; also that he bought lands where crops were raised and cattle herded, not those where lawns were sprinkled and paths swept.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>These things were ascribed by some to the man's parsimony; but others condoned them in the belief that he lived in this contracted way only to correct and moderate the extravagance of others. However, for my part, I regard his treatment of his slaves like beasts of burden, using them to the uttermost, and then, when they were old, driving them off and selling them, as the mark of a very mean nature, which recognizes no tie between man and man but that of necessity. 
+				<milestone n="2" unit="section"/>And yet we know that kindness has a wider scope than justice. Law and justice we naturally apply to men alone; but when it comes to beneficence and charity, these often flow in streams from the gentle heart, like water from a copious spring, even down to dumb beasts. A kindly man will take good care of his horses even when they are worn out with age, and of his dogs, too, not only in their puppyhood, but when their old age needs nursing.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>While the Athenians were building the Parthenon, they turned loose for free and unrestricted pasturage such mules as were seen to be most persistently laborious. One of these, they say, came back to the works of its own accord, trotted along by the side of its fellows under the yoke, which were dragging the waggons up to the Acropolis, and even led the way for them, as though exhorting and inciting them on. The Athenians passed a decree that the animal be maintained at the public cost as long as it lived. 
+				<milestone n="4" unit="section"/>Then there were the mares of Cimon, with which he won three victories at Olympia; their graves are near the tombs of his family. Dogs also that have been close and constant companions of men, have often been buried with honour. Xanthippus, of olden time, gave the dog which swam along by the side of his trireme to Salamis, when the people were abandoning their city, honourable burial on the promontory which is called to this day Cynossema, or Dog's Mound.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Them. 10.6">Cf. <title>Themistocles</title> x. 6.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="5" unit="section"/>We should not treat living creatures like shoes or pots and pans, casting them aside when they are bruised and worn out with service, but, if for no other reason, for the sake of practice in kindness to our fellow men, we should accustom ourselves to mildness and gentleness in our dealings with other creatures. I certainly would not sell even an ox that had worked for me, just because he was old, much less an elderly man, removing him from his habitual place and customary life, as it were from his native land, for a paltry price, useless as he is to those who sell him and as he will be to those who buy him. 
+				<milestone n="6" unit="section"/>But Cato, exulting as it were in such things, says that he left in Spain even the horse which had carried him through his consular campaign, that he might not tax the city with the cost of its transportation. Whether, now, these things should be set down to greatness of spirit or littleness of mind, is an open question.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But in other matters, his self-restraint was beyond measure admirable. For instance, when he was in command of an army, he took for himself and his retinue not more than three Attic bushels of wheat a month, and for his beasts of burden, less than a bushel and a half of barley a day. 
+				<milestone n="2" unit="section"/>He received Sardinia as his province,<note resp="ed" place="unspecified" anchored="yes">198 B.C.</note> and whereas his predecessors were wont to charge the public treasury with their pavilions, couches, and apparel, while they oppressed the province with the cost of their large retinues of servants and friends, and of their lavish and elaborate banquets, his simple economy stood out in an incredible contrast. He made no demands whatever upon the public treasury, and made his circuit of the cities on foot, followed by a single public officer, who carried his robe and chalice for sacrifices. 
+				<milestone n="3" unit="section"/>And yet, though in such matters he showed himself mild and sparing to those under his authority, in other ways he displayed a dignity and severity which fully corresponded, for in the administration of justice he was inexorable, and in carrying out the edicts of the government was direct and masterful, so that the Roman power never inspired its subjects with greater fear or affection.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Much the same traits are revealed in the man's oratory. It was at once graceful and powerful, pleasant and compelling, facetious and severe, sententious and belligerent. So Plato says of Socrates<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Sym. 215">
+                  <title>Symposium</title>, p. 215.</bibl>
+            </note> that from the outside he impressed his associates as rude, uncouth, and wanton; but within he was full of earnestness, and of matters that moved his hearers to tears and wrung their hearts. 
+				<milestone n="2" unit="section"/>Wherefore I know not what they can mean who say that Cato's oratory most resembled that of Lysias. However, such questions must be decided by those who are more capable than I am of discerning the traits of Roman oratory, and I shall now record a few of his famous sayings, believing that men's characters are revealed much more by their speech than, as some think, by their looks.
+				<milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+				He once wished to dissuade the Roman people from insisting unseasonably upon a distribution of corn, and began his speech with these words: 
+				<q direct="unspecified">It is a hard matter, my fellow citizens, to argue with the belly, since it has no ears.</q> Again, inveighing against the prevalent extravagance, he said: 
+				<q direct="unspecified">It is a hard matter to save a city in which a fish sells for more than an ox.</q> 
+				        <milestone n="2" unit="section"/>Again, he said the Romans were like sheep; for as these are not to be persuaded one by one, but all in a body blindly follow their leaders, 
+				<q direct="unspecified">so ye,</q> he said, 
+				<q direct="unspecified">though as individuals ye would not deign to follow the counsels of certain men, when ye are got together ye suffer yourselves to be led by them.</q> Discoursing on the power of women, he said: 
+				<q direct="unspecified">All other men rule their wives; we rule all other men, and our wives rule us.</q> This, however, is a translation from the sayings of Themistocles.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Them. 18.4">
+                  <title>Themistocles</title>, xviii. 4.</bibl>
+            </note> 
+				        <milestone n="3" unit="section"/>He, finding himself much under his son's orders through the lad's mother, said: 
+				<q direct="unspecified">Wife, the Athenians rule the Hellenes, I rule the Athenians, thou rulest me, and thy son thee. Therefore let him make sparing use of that authority which makes him, child though he is, the most powerful of the Hellenes.</q>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>The Roman people, Cato said, fixed the market value not only of dyes, but also of behaviour. 
+				<q direct="unspecified">For,</q> said he, 
+				<q direct="unspecified">as dyers most affect that dye which they see pleases you, so your young men learn and practice that which wins your praise.</q> 
+				        <milestone n="5" unit="section"/>And he exhorted them, in case it was through virtue and temperance that they had become great, to make no change for the worse; but if it was through intemperance and vice, to change for the better; these had already made them great enough. Of those who were eager to hold high office frequently, he said that like men who did not know the road, they sought to be ever attended on their way by lictors, lest they go astray. 
+				<milestone n="6" unit="section"/>He censured his fellow citizens for choosing the same men over and over again to high office. 
+				<q direct="unspecified">You will be thought,</q> said he, 
+				<q direct="unspecified">not to deem your offices worth much, or else not to deem many men worthy of your offices.</q> Of one of his enemies who had the name of leading a disgraceful and disreputable life, he said: 
+				<q direct="unspecified">This man's mother holds the wish that he may survive her to be no pious prayer, but a malignant curse.</q> 
+				        <milestone n="7" unit="section"/>Pointing to a man who had sold his ancestral fields lying near the sea, he pretended to admire him, as stronger than the sea. 
+				<q direct="unspecified">This man,</q> said he, 
+				<q direct="unspecified">has drunk down with ease what the sea found it hard to wash away.</q>
+			      </p>
+         <p>When King Eumenes paid a visit to Rome, the Senate received him with extravagant honours, and the chief men of the city strove who should be most about him. But Cato clearly looked upon him with suspicion and alarm. 
+				<milestone n="8" unit="section"/>
+				        <q direct="unspecified">Surely,</q> some one said to him, 
+				<q direct="unspecified">he is an excellent man, and a friend of Rome.</q> 
+				        <q direct="unspecified">Granted,</q> said Cato, 
+				<q direct="unspecified">but the animal known as king is by nature carnivorous.</q> He said further that not one of the kings whom men so lauded was worthy of comparison with Epaminondas, or Pericles, or Themistocles, or Manius Curius, or with Hamilcar, surnamed Barcas. 
+				<milestone n="9" unit="section"/>His enemies hated him, he used to say, because he rose every day before it was light and, neglecting his own private matters, devoted his time to the public interests. He also used to say that he preferred to do right and get no thanks, rather than to do ill and get no punishment; and that he had pardon for everybody's mistakes except his own.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Romans once chose three ambassadors to Bithynia, of whom one was gouty, another had had his head trepanned, and the third was deemed a fool. Cato made merry over this, and said that the Romans were sending out an embassy which had neither feet, nor head, nor heart. 
+				<milestone n="2" unit="section"/>His aid was once solicited by Scipio, at the instance of Polybius, in behalf of the exiles from Achaia, and after a long debate upon the question in the Senate, where some favoured and some opposed their return home, Cato rose and said: 
+				<q direct="unspecified">Here we sit all day, as if we had naught else to do, debating whether some poor old Greeks shall be buried here or in Achaia.</q> 
+				        <milestone n="3" unit="section"/>The Senate voted that the men be allowed to return, and a few days afterwards Polybius tried to get admission to that body again, with a proposal that the exiles be restored to their former honours in Achaia, and asked Cato's opinion on the matter. Cato smiled and said that Polybius, as if he were another Odysseus, wanted to go back into the cave of the Cyclops for a cap and belt which he had left there.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Wise men, he said, profited more from fools than fools from wise men; for the wise shun the mistakes of fools, but fools do not imitate the successes of the wise. He said he liked to see blushes on a young man's face rather than pallor, and that he had no use for a soldier who plied his hands on the march, and his feet in battle, and whose snore was louder than his war-cry. 
+				<milestone n="5" unit="section"/>Railing at the fat knight, he said, 
+				<q direct="unspecified">Where can such a body be of service to the state, when everything between its gullet and its groins is devoted to belly?</q> A certain epicure wished to enjoy his society, but he excused himself, saying that he could not live with a man whose palate was more sensitive than his heart. As for the lover, he said his soul dwelt in the body of another. 
+				<milestone n="6" unit="section"/>And as for repentance, he said he had indulged in it himself but thrice in his whole life: once when he entrusted a secret to his wife; once when he paid ship's fare to a place instead of walking thither; and once when he remained intestate a whole day. To an old man who was steeped in iniquity he said: 
+				<q direct="unspecified">Man, old age has disgraces enough of its own; do not add to them the shame of vice.</q> 
+				        <milestone n="7" unit="section"/>To a tribune of the people who had been accused of using poison, and who was trying to force the passage of a useless bill, he said: 
+				<q direct="unspecified">Young man, I know not which is worse, to drink your mixtures, or to enact your bills.</q> And when he was reviled by a man who led a life of shameless debauchery, he said: 
+				<q direct="unspecified">I fight an unequal battle with you: you listen to abuse calmly, and utter it glibly; while for me it is unpleasant to utter it, and unusual to hear it.</q>
+			      </p>
+         <p>Such, then, is the nature of his famous sayings.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Having been elected consul<note resp="ed" place="unspecified" anchored="yes">195 B.C.</note> with Valerius Flaccus, his intimate friend, the province which the Romans call Hither Spain was allotted to his charge. Here, while he was subduing some of the tribes, and winning over others by diplomacy, a great host of Barbarians fell upon him, and threatened to drive him disgracefully out of the province. He therefore begged the neighbouring Celtiberians to become his allies. 
+				<milestone n="2" unit="section"/>On their demanding two hundred talents pay for such assistance, all his officers thought it intolerable that Romans should agree to pay Barbarians for assistance. But Cato said there was nothing terrible in it; should they be victorious, they could pay the price with the spoils taken from the enemy, and not out of their own purse, whereas, should they be vanquished, there would be nobody left either to pay or to ask the price. In this battle he was completely victorious, and the rest of his campaign was a brilliant success. 
+				<milestone n="3" unit="section"/>Polybius indeed says that in a single day the walls of all the cities on this side the river Baetis&mdash;and they were very many, and full of warlike men&mdash;were torn down at his command. And Cato himself says that he took more cities than he spent days in Spain, nor is this a mere boast, since, in fact, there were four hundred of them.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>His soldiers got large booty in this campaign, and he gave each one of them a pound of silver besides, saying that it was better to have many Romans go home with silver in their pockets than a few with gold. But in his own case, he says that no part of the booty fell to him, except what he ate and drank. 
+				<q direct="unspecified">Not that I find fault,</q> he says, 
+				<q direct="unspecified">with those who seek to profit by such a case, but I prefer to strive in bravery with the bravest, rather than in wealth with the richest, and in greed for money with the greediest.</q> 
+				        <milestone n="5" unit="section"/>And he strove to keep not only himself, but also his associates, free from all taint of gain. He had five attendants with him in the field. One of these, whose name was Paccus, bought three boys for his own account from among the public prisoners, but finding that Cato was aware of the transaction, or ever he had come into his presence, went and hanged himself. Cato sold the boys, and restored the money to the public treasury.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While Cato still tarried in Spain, Scipio the Great, who was his enemy, and wished to obstruct the current of his successes and take away from him the administration of affairs in Spain, got himself appointed his successor in command of that province. Then he set out with all the speed possible, and brought Cato's command to an end. But Cato took five cohorts of men-at-arms and five hundred horsemen as escort on his way home, and on the march subdued the tribe of the Lacetanians, and put to death six hundred deserters whom they delivered up to him. 
+				<milestone n="2" unit="section"/>Scipio was enraged at this proceeding, but Cato, treating him with mock humility, said that only then would Rome be at her greatest, when her men of high birth refused to yield the palm of virtue to men of lower rank, and when plebeians like himself contended in virtue with their superiors in birth and reputation. However, in spite of Scipio's displeasure, the Senate voted that no change whatever be made in what Cato had ordered and arranged, and so the administration of Scipio was marked by inactivity and idleness, and detracted from his own, rather than from Cato's reputation. 
+				<milestone n="3" unit="section"/>Cato, on the other hand, celebrated a triumph.<note resp="ed" place="unspecified" anchored="yes">194 B.C.</note> Most men who strive more for reputation than for virtue, when once they have attained the highest honours of consulship and triumphs, straightway adjust their future lives to the enjoyment of a pleasurable ease, and give up their public careers. But Cato did not thus remit and dismiss his virtue, nay, rather, like men first taking up the public service and all athirst for honour and reputation, he girt his loins anew, and held himself ever ready to serve his friends and fellow-citizens, either in the forum or in the field.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And so it was that he assisted Tiberius Sempronius the consul in subduing the regions in Thrace and on the Danube, acting as his ambassador; and as legionary tribune under Manius Acilius, he marched into Greece against Antiochus the Great, who gave the Romans more to fear than any man after Hannibal For he won back almost all of Seleucus Nicator's former dominions in Asia, reduced to subjection many warlike nations of Barbarians, and was eager to engage the Romans, whom he deemed the only worthy foemen left for him. 
+				<milestone n="2" unit="section"/>So he crossed into Greece with an army, making the freeing of the Greeks a specious ground for war. This they did not need at all, since they had recently been made free and independent of Philip and the Macedonians by grace of the Romans. Greece was at once a stormy sea of hopes and fears, being corrupted by her demagogues with expectations of royal bounty. 
+				<milestone n="3" unit="section"/>Accordingly, Manius sent envoys to the several cities. Most of those which were unsettled in their allegiance Titus Flamininus restrained without ado, and quieted down, as I have written in his <title>Life</title>,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Flam. 15">Chapters xv-xvii.</bibl>
+            </note> but Corinth, Patrae, and Aegium were brought over to Rome by Cato.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>He also spent much time at Athens. And we are told that a certain speech of his is extant, which he addressed to the Athenian people in Greek, declaring that he admired the virtues of the ancient Athenians, and was glad to behold a city so beautiful and grand as theirs. But this is not true. On the contrary, he dealt with the Athenians through an interpreter. He could have spoken to them directly, but he always clung to his native ways, and mocked at those who were lost in admiration of anything that was Greek. 
+				<milestone n="5" unit="section"/>For instance, he poked fun at Postumius Albinus, who wrote a history in Greek, and asked the indulgence of his readers. Cato said they might have shown him indulgence had he undertaken his task in consequence of a compulsory vote of the Amphictyonic Assembly. Moreover, he says the Athenians were astonished at the speed and pungency of his discourse. For what he himself set forth with brevity, the interpreter would repeat to them at great length and with many words; and on the whole he thought the words of the Greeks were born on their lips, but those of the Romans in their hearts.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now Antiochus had blocked up the narrow pass of Thermopylae with his army,<note resp="ed" place="unspecified" anchored="yes">191 B.C.</note> adding trenches and walls to the natural defences of the place, and sat there, thinking that he had locked the war out of Greece. And the Romans did indeed despair utterly of forcing a direct passage. But Cato, calling to mind the famous compass and circuit of the pass which the Persians had once made, took a considerable force and set out under cover of darkness. 
+				<milestone n="2" unit="section"/>They climbed the heights, but their guide, who was a prisoner of war, lost the way, and wandered about in impracticable and precipitous places until he had filled the soldiers with dreadful dejection and fear. Cato, seeing their peril, bade the rest remain quietly where they were, 
+				<milestone n="3" unit="section"/>while he himself, with a certain Lucius Manlius, an expert mountain-climber, made his way along, with great toil and hazard, in the dense darkness of a moonless night, his vision much impeded and obscured by wild olive trees and rocky peaks, until at last they came upon a path. This, they thought, led down to the enemy's camp. So they put marks and signs on some conspicuous cliffs which towered over Mount Callidromus, 
+				<milestone n="4" unit="section"/>and then made their way back again to the main body. This too they conducted to the marks and signs, struck into the path indicated by these, and started forward. But when they had gone on a little way, the path failed them, and a ravine yawned to receive them. Once more dejection and fear were rife. They did not know and could not see that they were right upon the enemy whom they sought. But presently gleams of daylight came, here and there a man thought he heard voices, and soon they actually saw a Greek outpost entrenched at the foot of the cliffs. 
+				<milestone n="5" unit="section"/>So then Cato halted his forces there, and summoned the men of Firmum to a private conference. These soldiers he had always found trusty and zealous in his service. When they had run up and stood grouped about him he said: 
+				<q direct="unspecified">I must take one of the enemy's men alive, and learn from him who they are that form this advance guard, what their number is, aid with what disposition and array their main body awaits us. 
+					<milestone n="6" unit="section"/>But the task demands the swift and bold leap of lions fearlessly rushing all unarmed upon the timorous beasts on which they prey.</q> So spake Cato, and the Firmians instantly started, just as they were, rushed down the mountain-side, and ran upon the enemy's sentinels. Falling upon them unexpectedly, they threw them all into confusion and scattered them in flight; one of them they seized, arms and all, and delivered him over to Cato. 
+				<milestone n="7" unit="section"/>From the captive Cato learned that the main force of the enemy was encamped in the pass with the king himself, and that the detachment guarding the pass over the mountains was composed of six hundred picked Aetolians. Despising their small numbers and their carelessness, he led his troops against them at once, with bray of trumpet and battle-cry, being himself first to draw his sword. But when the enemy saw his men pouring down upon them from the cliffs, they fled to the main army, and filled them all with confusion.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Meanwhile Manius also, down below, threw his whole force forward into the pass and stormed the enemy's fortifications. Antiochus, being hit in the mouth with a stone which knocked his teeth out, wheeled his horse about for very anguish. Then his army gave way everywhere before the Roman onset. 
+				<milestone n="2" unit="section"/>Although flight for them meant impracticable roads and helpless wanderings, while deep marshes and steep cliffs threatened those who slipped and fell, still, they poured along through the pass into these, crowding one another on in their fear of the enemy's deadly weapons, and so destroyed themselves.
+			</p>
+         <p>Cato, who was ever rather generous, it would seem, in his own praises, and did not hesitate to follow up his great achievements with boastings equally great, is very pompous in his account of this exploit. 
+				<milestone n="3" unit="section"/>He says that those who saw him at that time pursuing the enemy and hewing them down, felt convinced that Cato owed less to Rome than Rome to Cato; also that the consul Manius himself, flushed with victory, threw his arms about him, still flushed with his own victory, and embraced him a long time, crying out for joy that neither he himself nor the whole Roman people could fittingly requite Cato for his benefactions. 
+				<milestone n="4" unit="section"/>Immediately after the battle he was sent to Rome as the messenger of his own triumphs. He had a fair passage to Brundisium, crossed the peninsula from there to Tarentum in a single day, travelled thence four days more, and on the fifth day after landing reached Rome, where he was the first to announce the victory. He filled the city full of joy and sacrifices, and the people with the proud feeling that it was able to master every land and sea.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>These are perhaps the most remarkable features of Cato's military career. In political life, he seems to have regarded the impeachment and conviction of malefactors as a department worthy of his most zealous efforts. For he brought many prosecutions himself, assisted others in bringing theirs, and even instigated some to begin prosecutions, as for instance Petillius against Scipio. 
+				<milestone n="2" unit="section"/>That great man, however, trampled the accusations against him under foot, as the splendour of his house and his own inherent loftiness of spirit prompted him to do, and Cato, unable to secure his capital conviction, dropped the case. But he so co-operated with the accusers of Lucius, Scipio's brother, as to have him condemned to pay a large fine to the state. This debt Lucius was unable to meet, and was therefore liable to imprisonment. Indeed, it was only at the intercession of the tribunes that he was at last set free.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>We are also told that a certain young man, who had got a verdict of civil outlawry against an enemy of his dead father, was passing through the forum on the conclusion of the case, and met Cato, who greeted him and said: 
+				<q direct="unspecified">These are the sacrifices we must bring to the spirits of our parents; not lambs and kids, but the condemnations and tears of their enemies.</q> However, he himself did not go unscathed, but wherever in his political career he gave his enemies the slightest handle, he was all the while suffering prosecutions and running risk of condemnation. 
+				<milestone n="4" unit="section"/>It is said that he was defendant in nearly fifty cases, and in the last one when he was eighty-six years of age. It was in the course of this that he uttered the memorable saying: 
+				<q direct="unspecified">It is hard for one who has lived among men of one generation, to make his defence before those of another.</q> And even with this case he did not put an end to his forensic contests, but four years later, at the age of ninety, he impeached Servius Galba. 
+				<milestone n="5" unit="section"/>Indeed, it may be said, like Nestor, to have been vigorous and active among three generations. For after many political struggles with Scipio the Great, as told above, he lived to be contemporary with Scipio the Younger, who was the Elder's grandson by adoption, and the son of that Paulus Aemilius who subdued Perseus and the Macedonians.<note resp="ed" place="unspecified" anchored="yes">In the battle of Pydna, 168 B.C.</note>
+			      </p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Ten years after his consulship,<note resp="ed" place="unspecified" anchored="yes">184 B.C.</note> Cato stood for the censorship. This office towered, as it were, above every other civic honour, and was, in a way, the culmination of a political career. The variety of its powers was great, including that of examining into the lives and manners of the citizens. Its creators thought that no one should be left to his own devices and desires, without inspection and review, either in his marrying, or in the begetting of his children, or in the ordering of his daily life, or in the entertainment of his friends. 
+				<milestone n="2" unit="section"/>Nay, rather, thinking that these things revealed a man's real character more than did his public and political career, they set men in office to watch, admonish, and chastise, that no one should turn aside to wantonness and forsake his native and customary mode of life. They chose to this office one of the so-called patricians, and one of the plebeians. These officers were called censors, and they had authority to degrade a knight, or to expel a senator who led an unbridled and disorderly life. 
+				<milestone n="3" unit="section"/>They also revised the assessments of property, and arranged the citizens in lists according to their social and political classes. There were other great powers also connected with the office.
+			</p>
+         <p>Therefore, when Cato stood for it, nearly all the best known and most influential men of the senatorial party united to oppose him. The men of noble parentage among them were moved by jealousy, thinking that nobility of birth would be trampled in the mire if men of ignoble origin forced their way up to the summits of honour and power; 
+				<milestone n="4" unit="section"/>while those who were conscious of base practices and of a departure from ancestral customs, feared the severity of the man, which was sure to be harsh and inexorable in the exercise of power. Therefore, after due consultation and preparation, they put up in opposition to Cato seven candidates for the office, who sought the favour of the multitude with promises of mild conduct in office, supposing, forsooth, that it wanted to be ruled with a lax and indulgent hand. 
+				<milestone n="5" unit="section"/>Cato, on the contrary, showed no complaisance whatever, but plainly threatened wrong-doers in his speeches, and loudly cried that the city had need of a great purification. He adjured the people, if they were wise, not to choose the most agreeable physician, but the one who was most in earnest. He himself, he said, was such a physician, and so was Valerius Flaccus, of the patricians. With him as colleague, and him alone, he thought he could cut and sear to some purpose the hydra-like luxury and effeminacy of the time. As for the rest of the candidates, he saw that they were all trying to force their way into the office in order to administer it badly, since they feared those who would administer it well. 
+				<milestone n="6" unit="section"/>And so truly great was the Roman people, and so worthy of great leaders, that they did not fear Cato's rigour and haughty independence, but rejected rather those agreeable candidates who, it was believed, would do every thing to please them, and elected Flaccus to the office along with Cato.<note resp="ed" place="unspecified" anchored="yes">184 B.C.</note> To Cato they gave ear, not as to one soliciting office, but as to one already in office and issuing his decrees.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As censor, then, Cato made Lucius Valerius Flaccus, his colleague and friend, chief senator. He also expelled many members of the Senate, including Lucius Quintius. This man had been consul seven years before, and, a thing which gave him more reputation than the consulship even, was brother of the Titus Flamininus who conquered King Philip.<note resp="ed" place="unspecified" anchored="yes">At Cynoscephalae, 198 B.C.</note> 
+				        <milestone n="2" unit="section"/>The reason for his expulsion was the following. There was a youth who, ever since his boyhood, had been the favourite of Lucius. This youth Lucius kept ever about him, and took with him on his campaigns in greater honour and power than any one of his nearest friends and kinsmen had. He was once administering the affairs of his consular province, and at a certain banquet this youth, as was his wont, reclined at his side, and began to pay his flatteries to a man who, in his cups, was too easily led about. 
+				<q direct="unspecified">I love you so much,</q> he said, 
+				<q direct="unspecified">that once, when there was a gladiatorial show at home, a thing which I had never seen, I rushed away from it to join you, although my heart was set on seeing a man slaughtered.</q> 
+				        <milestone n="3" unit="section"/>
+				        <q direct="unspecified">Well, for that matter,</q> said Lucius, 
+				<q direct="unspecified">don't lie there with any grudge against me, for I will cure it.</q> Thereupon he commanded that one of the men who were lying under sentence of death be brought to the banquet, and that a lictor with an axe stand by his side. Then he asked his beloved if he wished to see the man smitten. The youth said he did, and Lucius ordered the man's head to be cut off.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>This is the version which most writers give of the affair, and so Cicero has represented Cato himself as telling the story in his dialogue 
+				<q direct="unspecified">On Old Age.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Cic. Cato fr. 12.42">
+                  <title>Cato Maior</title>, 12 ,42.</bibl>
+            </note> But Livy<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 39.42">xxxix, 42.</bibl>
+            </note> says the victim was a Gallic deserter, and that Lucius did not have the man slain by a lictor, but smote him with his own hand, and that this is the version of the story in a speech of Cato's.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>On the expulsion of Lucius from the Senate by Cato, his brother was greatly indignant, and appealed to the people, urging that Cato state his reasons for the expulsion. Cato did so, narrating the incident of the banquet. Lucius attempted to make denial, but when Cato challenged him to a formal trial of the case with a wager of money upon it, he declined. Then the justice of his punishment was recognized. 
+				<milestone n="6" unit="section"/>But once when a spectacle was given in the theatre, he passed along by the senatorial seats, and took his place as far away from them as he could. Then the people took pity upon him and shouted till they had forced him to change his seat, thus rectifying, as far as was possible, and alleviating the situation.
+			</p>
+         <p>
+				        <milestone n="7" unit="section"/>Cato expelled another senator who was thought to have good prospects for the consulship, namely, Manilius, because he embraced his wife in open day before the eyes of his daughter. For his own part, he said, he never embraced his wife unless it thundered loudly; and it was a pleasantry of his to remark that he was a happy man when it thundered.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Cato was rather bitterly censured for his treatment of Lucius, the brother of Scipio, whom, though he had achieved the honour of a triumph, he expelled from the equestrian order. He was thought to have done this as an insult to the memory of Scipio Africanus. But he was most obnoxious to the majority of his enemies because he lopped off extravagance in living. This could not be done away with outright, since most of the people were already infected and corrupted by it, and so he took a roundabout way. 
+				<milestone n="2" unit="section"/>He had all apparel, equipages, jewellery, furniture and plate, the value of which in any case exceeded fifteen hundred drachmas, assessed at ten times its worth, wishing by means of larger assessments to make the owners' taxes also larger. Then he laid a tax of three on every thousand asses thus assessed, in order that such property holders, burdened by their charges, and seeing that people of equal wealth who led modest and simple lives paid less into the public treasury, might desist from their extravagance. 
+				<milestone n="3" unit="section"/>As a result, both classes were incensed against him, both those who endured the taxes for the sake of their luxury, and those no less who put away their luxury because of the taxes. For most men think themselves robbed of their wealth if they are prevented from displaying it, and that display of it is made in the superfluities, not in the necessaries of life. This, we are told, is what most astonished Ariston the philosopher, namely, that those possessed of the superfluities of life should be counted happy, rather than those well provided with life's necessary and useful things. 
+				<milestone n="4" unit="section"/>Scopas the Thessalian, when one of his friends asked for something of his which was of no great service to him, with the remark that he asked for nothing that was necessary and useful, replied: 
+				<q direct="unspecified">And yet my wealth and happiness are based on just such useless and superfluous things.</q> Thus the desire for wealth is no natural adjunct of the soul, but is imposed upon it by the false opinions of the outside world.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, Cato paid not the slightest heed to his accusers, but grew still more strict. He cut off the pipes by which people conveyed part of the public water supply into their private houses and gardens; he upset and demolished all buildings that encroached on public land; he reduced the cost of public works to the lowest, and forced the rent of public lands to the highest possible figure. 
+				<milestone n="2" unit="section"/>All these thing brought much odium upon him. Titus Flamininus headed a party against him which induced the Senate to annul as useless the outlays and payments which he had authorised for temples and public works, and incited the boldest of the tribunes to call him to account before the people and fine him two talents. The Senate also strongly opposed the erection of the basilica which he built at the public cost below the council-house in the Forum, and which was called the Basilica Porcia.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Still, it appears that the people approved of his censorship to an amazing extent. At any rate, after erecting a statue to his honour in the temple of Health, they commemorated in the inscription upon it, not the military commands nor the triumph of Cato, but, as the inscription may be translated, the fact 
+				<q direct="unspecified">that when the Roman state was tottering to its fall, he was made censor, and by helpful guidance, wise restraints, and sound teachings, restored it again.</q> 
+				        <milestone n="4" unit="section"/>And yet, before this time he used to laugh at those who delighted in such honours, saying that, although they knew it not, their pride was based simply on the work of statuaries and painters, whereas his own images, of the most exquisite workmanship, were borne about in the hearts of his fellow citizens. And to those who expressed their amazement that many men of no fame had statues, while he had none, he used to say: 
+				<q direct="unspecified">I would much rather have men ask why I have no statue, than why I have one.</q> 
+				        <milestone n="5" unit="section"/>In short, he thought a good citizen should not even allow himself to be praised, unless such praise was beneficial to the commonwealth.
+			</p>
+         <p>And yet of all men he has heaped most praises upon himself. He tells us that men of self-indulgent lives, when rebuked for it, used to say: 
+				<q direct="unspecified">We ought not to be blamed; we are no Catos.</q> 
+				        <milestone n="6" unit="section"/>Also that those who imitated some of his practices and did it clumsily, were called 
+				<q direct="unspecified">left-handed Catos.</q> Also that the Senate looked to him in the most dangerous crises as seafarers to their helmsman, and often, if he was not present, postponed its most serious business. These boasts of his are confirmed, it is true, by other witnesses, for he had great authority in the city, alike for his life, his eloquence, and his age.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>XX, He was also a good father, a considerate husband, and a household manager of no mean talent, nor did he give only a fitful attention to this, as a matter of little or no importance. Therefore I think I ought to give suitable instances of his conduct in these relations. He married a wife who was of gentler birth than she was rich, thinking that, although the rich and the high-born may be alike given to pride, still, women of high birth have such a horror of what is disgraceful that they are more obedient to their husbands in all that is honourable. 
+				<milestone n="2" unit="section"/>He used to say that the man who struck his wife or child, laid violent hands on the holiest of holy things. Also that he thought it more praiseworthy to be a good husband than a great senator, nay, there was nothing else to admire in Socrates of old except that he was always kind and gentle in his intercourse with a shrewish wife and stupid sons. After the birth of his son, no business could be so urgent, unless it had a public character, as to prevent him from being present when his wife bathed and swaddled the babe. 
+				<milestone n="3" unit="section"/>For the mother nursed it herself, and often gave suck also to the infants of her slaves, that so they might come to cherish a brotherly affection for her son. As soon as the boy showed signs of understanding, his father took him under his own charge and taught him to read, although he had an accomplished slave, Chilo by name, who was a schoolteacher, and taught many boys. 
+				<milestone n="4" unit="section"/>Still, Cato thought it not right, as he tells us himself, that his son should be scolded by a slave, or have his ears tweaked when he was slow to learn, still less that he should be indebted to his slave for such a priceless thing as education. He was therefore himself not only the boy's reading-teacher, but his tutor in law, and his athletic trainer, and he taught his son not merely to hurl the javelin and fight in armour and ride the horse, but also to box, to endure heat and cold, and to swim lustily through the eddies and billows of the Tiber. 
+				<milestone n="5" unit="section"/>His History of Rome, as he tells us himself, he wrote out with his own hand and in large characters, that his son might have in his own home an aid to acquaintance with his country's ancient traditions. He declares that his son's presence put him on his guard against indecencies of speech as much as that of the so-called Vestal Virgins, and that he never bathed with him. This, indeed, would seem to have been a general custom with the Romans, for even fathers-in-law avoided bathing with their sons-in-law, because they were ashamed to uncover their nakedness. 
+				<milestone n="6" unit="section"/>Afterwards, however, when they had learned from the Greeks their freedom in going naked, they in their turn infected the Greeks with the practice even when women were present.
+			</p>
+         <p>So Cato wrought at the fair task of moulding and fashioning his son to virtue, finding his zeal blameless, and his spirit answering to his good natural parts. But since his body was rather too delicate to endure much hardship, he relaxed somewhat in his favour the excessive rigidity and austerity of his own mode of life. 
+				<milestone n="7" unit="section"/>But his son, although thus delicate, made a sturdy soldier, and fought brilliantly under Paulus Aemilius in the battle against Perseus.<note resp="ed" place="unspecified" anchored="yes">Pydna, 168 B.C.</note> On that occasion his sword either was smitten from his hand or slipped from his moist grasp. Distressed at this mishap, he turned to some of his companions for aid, and supported by them rushed again into the thick of the enemy. After a long and furious struggle, he succeeded in clearing the place, and found the sword at last among the many heaps of arms and dead bodies where friends and foes alike lay piled upon one another. 
+				<milestone n="8" unit="section"/>Paulus, his commander, admired the young man's exploit, and there is still extant a letter written by Cato himself to his son, in which he heaps extravagant praise upon him for this honourable zeal in recovering his sword. The young man afterwards married Tertia, a daughter of Paulus and a sister of the younger Scipio, and his admission into such a family was due no less to himself than to his father. Thus Cato's careful attention to the education of his son bore worthy fruit.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He owned many domestics, and usually bought those prisoners of war who were young and still capable of being reared and trained like whelps or colts. Not one of his slaves ever entered another man's house unless sent thither by Cato or his wife, and when such an one was asked what Cato was doing, he always answered that he did not know. 
+				<milestone n="2" unit="section"/>A slave of his was expected either to be busy about the house, or to be asleep, and he was very partial to the sleepy ones. He thought these gentler than the wakeful ones, and that those who had enjoyed the gift of sleep were better for any kind of service than those who lacked it. In the belief that his slaves were led into most mischief by their sexual passions, he stipulated that the males should consort with the females at a fixed price, but should never approach any other woman.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>At the outset, when he was still poor and in military service, he found no fault at all with what was served up to him, declaring that it was shameful for a man to quarrel with a domestic over food and drink. But afterwards, when his circumstances were improved and he used to entertain his friends and colleagues at table, no sooner was the dinner over than he would flog those slaves who had been remiss at all in preparing or serving it. 
+				<milestone n="4" unit="section"/>He was always contriving that his slaves should have feuds and dissensions among themselves; harmony among them made him suspicious and fearful of them. He had those who were suspected of some capital offence brought to trial before all their fellow servants, and, if convicted, put to death.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>However, as he applied himself more strenuously to money-getting, he came to regard agriculture as more entertaining than profitable, and invested his capital in business that was safe and sure. He bought ponds, hot springs, districts given over to fullers, pitch factories, land with natural pasture and forest, all of which brought him in large profits, and 
+				<q direct="unspecified">could not,</q> to use his own phrase, 
+				<q direct="unspecified">be ruined by Jupiter.</q> 
+				        <milestone n="6" unit="section"/>He used to loan money also in the most disreputable of all ways, namely, on ships, and his method was as follows. He required his borrowers to form a large company, and when there were fifty partners and as many ships for his security, he took one share in the company himself, and was represented by Quintio, a freedman of his, who accompanied his clients in all their ventures. 
+				<milestone n="7" unit="section"/>In this way his entire security was not imperilled, but only a small part of it, and his profits were large. He used to lend money also to those of his slaves who wished it, and they would buy boys with it, and after training and teaching them for a year, at Cato's expense, would sell them again. Many of these boys Cato would retain for himself, reckoning to the credit of the slave the highest price bid for his boy. 
+				<milestone n="8" unit="section"/>He tried to incite his son also to such economies, by saying that it was not the part of a man, but of a widow woman, to lessen his substance. But that surely was too vehement a speech of Cato's, when he went so far as to say that a man was to be admired and glorified like a god if the final inventory of his property showed that he had added to it more than he had inherited.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When he was now well on in years, there came as ambassadors from Athens to Rome,<note resp="ed" place="unspecified" anchored="yes">155 B.C.</note> Carneades the Academic, and Diogenes the Stoic philosopher, to beg the reversal of a certain decision against the Athenian people, which imposed upon them a fine of five hundred talents. The people of Oropus had brought the suit, the Athenians had let the case go by default, and the Sicyonians had pronounced judgment against them. 
+				<milestone n="2" unit="section"/>Upon the arrival of these philosophers, the most studious of the city's youth hastened to wait upon them, and became their devoted and admiring listeners. The charm of Carneades especially, which had boundless power, and a fame not inferior to its power, won large and sympathetic audiences and filled the city, like a rushing mighty wind, with the noise of his praises. 
+				<milestone n="3" unit="section"/>Report spread far and wide that a Greek of amazing talent, who disarmed all opposition by the magic of his eloquence, had infused a tremendous passion into the youth of the city, in consequence of which they forsook their other pleasures and pursuits and were 
+				<q direct="unspecified">possessed</q> about philosophy. The other Romans were pleased at this, and glad to see their young men lay hold of Greek culture and consort with such admirable men. 
+				<milestone n="4" unit="section"/>But Cato, at the very outset, when this zeal for discussion came pouring into the city, was distressed, fearing lest the young men, by giving this direction to their ambition, should come to love a reputation based on mere words more than one achieved by martial deeds. And when the fame of the visiting philosophers rose yet higher in the city, and their first speeches before the Senate were interpreted, at his own instance and request, by so conspicuous a man as Gaius Acilius, Cato determined, on some decent pretext or other, to rid and purge the city of them all. 
+				<milestone n="5" unit="section"/>So he rose in the Senate and censured the magistrates for keeping in such long suspense an embassy composed of men who could easily secure anything they wished, so persuasive were they. 
+				<q direct="unspecified">We ought,</q> he said, 
+				<q direct="unspecified">to make up our minds one way or another, and vote on what the embassy proposes, in order that these men may return to their schools and lecture to the sons of Greece, while the youth of Rome give ear to their laws and magistrates, as heretofore.</q>
+			      </p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This he did, not, as some think, out of personal hostility to Carneades, but because he was wholly averse to philosophy, and made mock of all Greek culture and training, out of patriotic zeal. He says, for instance, that Socrates was a mighty prattler, who attempted, as best he could, to be his country's tyrant, by abolishing its customs, and by enticing his fellow citizens into opinions contrary to the laws. 
+				<milestone n="2" unit="section"/>He made fun of the school of Isocrates, declaring that his pupils kept on studying with him till they were old men, as if they were to practise their arts and plead their cases before Minos in Hades. And seeking to prejudice his son against Greek culture, he indulges in an utterance all too rash for his years, declaring, in the tone of a prophet or a seer, that Rome would lose her empire when she had become infected with Greek letters. 
+				<milestone n="3" unit="section"/>But time has certainly shown the emptiness of this ill-boding speech of his, for while the city was at the zenith of its empire, she made every form of Greek learning and culture her own.
+			</p>
+         <p>It was not only Greek philosophers that he hated, but he was also suspicious of Greeks who practised medicine at Rome. He had heard, it would seem, of Hippocrates' reply when the Great King of Persia consulted him, with the promise of a fee of many talents, namely, that he would never put his skill at the service of Barbarians who were enemies of Greece. 
+				<milestone n="4" unit="section"/>He said all Greek physicians had taken a similar oath, and urged his son to beware of them all. He himself, he said, had written a book of recipes, which he followed in the treatment and regimen of any who were sick in his family. He never required his patients to fast, but fed them on greens, or bits of duck, pigeon, or hare. Such a diet, he said, was light and good for sick people, except that it often causes dreams. By following such treatment and regimen he said he had good health himself, and kept his family in good health.
+			</p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such presumption on his part seems not to have gone unpunished, for he lost his wife and his son. He himself was well confirmed in bodily health and vigour, and long withstood the assaults of age. Even when an old man he was prone to indulge his sexual appetite, and at last married a wife when he was long past the marrying age. This was the way it came about. After the death of his wife, he married his son to the daughter of Aemilius Paulus, the sister of Scipio, but he himself, in his widowhood, took solace with a slave girl who secretly visited his bed. 
+				<milestone n="2" unit="section"/>Of course, in a small house with a young married woman in it, the matter was discovered, and once, when the girl seemed to flaunt her way rather too boldly to his chamber, the old man could not help noticing that his son, although he said nothing, looked very sour, and turned away. Perceiving that the thing displeased his children, Cato did not upbraid or blame them at all, but as he was going down in his usual way to the forum with his clients, called out with a loud voice to a certain Salonius, who had been one of his under-secretaries, and was now in his train, asking him if he had found a good husband for his young daughter. 
+				<milestone n="3" unit="section"/>The man said he had not, and would not do so without first consulting his patron. 
+				<q direct="unspecified">Well then,</q> said Cato, 
+				<q direct="unspecified">I have found a suitable son-in-law for you, unless indeed his age should be displeasing; in other ways no fault can be found with him, but he is a very old man.</q> Salonius at once bade him take the matter in charge and give the maid to the man of his choice, since she was a dependant of his and in need of his kind services. Then Cato, without any more ado, said that he asked the damsel to wife for himself. 
+				<milestone n="4" unit="section"/>At first, as was natural, the proposal amazed the man, who counted Cato far past marriage, and himself far beneath alliance with a house of consular dignity and triumphal honours; but when he saw that Cato was in earnest, he gladly accepted his proposal, and as soon as they reached the forum the banns were published.
+			</p>
+         <p>While the marriage was in hand, Cato's son, accompanied by his friends, asked his father if it was because he had any complaint to make against him that he was now foisting a step-mother upon him. 
+				<milestone n="5" unit="section"/>
+				        <q direct="unspecified">Heaven forbid I my son,</q> cried Cato, 
+				<q direct="unspecified">all your conduct towards me has been admirable, and I have no fault to find with you; but I desire to bless myself and my country with more such sons.</q> However, they say that this sentiment was uttered long before by Peisistratus, the tyrant of Athens, who gave his grown up sans a step-mother in the person of Timonassa of Argolis, by  whom he is said to have had Iophon and Thessalus. 
+				<milestone n="6" unit="section"/>Of this second marriage a son was born to Cato, who was named Salonius, after his mother's father. But his elder son died in the praetorship. Cato often speaks of him in his books as a brave and worthy man, and is said to have borne his loss with all the equanimity of a philosopher, remitting not a whit because of it his ardour in the public service. 
+				<milestone n="7" unit="section"/>For he was not, like Lucius Lucullus and Metellus Pius in after times, too enfeebled by old age to serve the people, regarding the service of the state as a burdensome duty; nor did he, like Scipio Africanus before him, because of envious attacks upon his reputation, turn his back upon the people and make leisure his end and aim for the rest of his life; 
+				<milestone n="8" unit="section"/>but rather, as someone persuaded Dionysius to regard his sovereignty as his fairest winding-sheet, so he held public service to be the fairest privilege of old age. For recreation and amusement, when he had leisure therefor, he resorted to the writing of books and to farming.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He composed speeches, then, on all sorts of subjects, and histories, and as for farming, he followed it in earnest when he was young and poor,&mdash;indeed, he says he then had only two ways of getting money, farming and frugality,&mdash;but in later life he was only a theoretical and fancy farmer. He also composed a book on farming<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Cato Agr. 1.1">
+                  <title>De re rustica.</title>
+               </bibl>
+            </note> in which he actually gave recipes for making cakes and preserving fruit, so ambitious was he to be superior and peculiar in everything. 
+				<milestone n="2" unit="section"/>The dinners, too, which he gave in the country, were quite plentiful. He always asked in congenial country neighbours, and made merry with them, and not only did those of his own age find in him an agreeable and much desired companion, but also the young. For he was a man of large experience, who had read and heard much that was well worth repeating. 
+				<milestone n="3" unit="section"/>He held the table to be the very best promoter of friendship, and at his own, the conversation turned much to the praise of honourable and worthy citizens, greatly to the neglect of those who were worthless and base. About such Cato suffered no tabletalk, either by way of praise or blame.
+			</p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The last of his public services is supposed to have been the destruction of Carthage. It was Scipio the Younger who actually brought the task to completion,<note resp="ed" place="unspecified" anchored="yes">146 B.C.</note> but it was largely in consequence of the advice and counsel of Cato that the Romans undertook the war. It was on this wise. Cato was sent<note resp="ed" place="unspecified" anchored="yes">150 B.C.</note> on an embassy to the Carthaginians and Masinissa the Numidian, who were at war with one another, to inquire into the grounds of their quarrel. Masinissa had been a friend of the Roman people from the first, and the Carthaginians had entered into treaty relations with Rome after the defeat which the elder Scipio had given them. The treaty deprived them of their empire, and imposed a grievous money tribute upon them. 
+				<milestone n="2" unit="section"/>Cato, however, found the city by no means in a poor and lowly state, as the Romans supposed, but rather teeming with vigorous fighting men, overflowing with enormous wealth, filled with arms of every sort and with military supplies, and not a little puffed up by all this. He therefore thought it no time for the Romans to be ordering and arranging the affairs of Masinissa and the Numidians, but that unless they should repress a city which had always been their malignant foe, now that its power was so incredibly grown, they would be involved again in dangers as great as before. 
+				<milestone n="3" unit="section"/>Accordingly, he returned with speed to Rome, and advised the Senate that the former calamitous defeats of the Carthaginians had diminished not so much their power as their foolhardiness, and were likely to render them in the end not weaker, but more expert in war; their present contest with Numidia was but a prelude to a contest with Rome, while peace and treaty were mere names wherewith to cover their postponement of war till a fit occasion offered.
+			</p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In addition to this, it is said that Cato contrived to drop a Libyan fig in the Senate, as he shook out the folds of his toga, and then, as the senators admired its size and beauty, said that the country where it grew was only three days' sail from Rome. And in one thing he was even more savage, namely, in adding to his vote on any question whatsoever these words: 
+				<q direct="unspecified">In my opinion, Carthage must be destroyed.</q> Publius Scipio Nasica, on the contrary, when called upon for his vote, always ended his speech with this declaration: 
+				<q direct="unspecified">In my opinion, Carthage must be spared.</q> 
+				        <milestone n="2" unit="section"/>He saw, probably, that the Roman people, in its wantonness, was already guilty of many excesses, and in the pride of its prosperity, spurned the control of the Senate, and forcibly dragged the whole state with it, whithersoever its mad desires inclined it. He wished, therefore, that the fear of Carthage should abide, to curb the boldness of the multitude like a bridle, believing her not strong enough to conquer Rome, nor yet weak enough to be despised. 
+				<milestone n="3" unit="section"/>But this was precisely what Cato dreaded, when the Roman people was inebriated and staggering with its power, to have a city which had always been great, and was now but sobered and chastened by its calamities, for ever threatening them. Such external threats to their sovereignty ought to be done away with altogether, he thought, that they might be free to devise a cure for their domestic failings.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>In this way Cato is said to have brought to pass the third and last war against Carthage,<note resp="ed" place="unspecified" anchored="yes">151-146 B.C.</note> but it had no sooner begun than he died,<note resp="ed" place="unspecified" anchored="yes">149 B.C.</note> having first prophesied of the man who was destined to end it. This man was then young, but as tribune in the army, he was giving proofs of judgment and daring in his engagements with the enemy. Tidings of this came to Rome, and Cato is said to have cried on hearing them:&mdash;
+				<quote rend="blockquote">
+					          <l>Only he has wits, but the rest are fluttering shadows.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Od. 10.495">
+                  <title>Odyssey</title>, x. 495.</bibl>
+            </note> 
+				        <milestone n="5" unit="section"/>
+				This utterance of Cato's, Scipio speedily confirmed by his deeds. Cato left one son by his second wife, whose surname, as we have already remarked, was Salonius; and one grandson by the son who died before him. Salonius died in the praetorship, but the son whom he left, Marcus, came to be consul. This Marcus was the grandfather of Cato the philosopher, who was the best and most illustrious man of his time.
+			</p>
+      </body>
+   </text>
+</TEI.2>

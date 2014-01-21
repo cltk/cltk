@@ -1,0 +1,1960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>Vitae decem oratorum</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Harold North Fowler</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Harold North Fowler</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1936</date>
+                  </imprint>
+                  <biblScope type="volume">10</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="chapter" n="intro">
+            <pb id="v.10.p.342"/>
+            <head>LIVES OF THE TEN ORATORS (VITAE DECEM ORATORUM) <lb/>INTRODUCTION</head>
+            <p>
+					At some time in the second century before Christ
+					ten Attic orators were selected, probably by Apollodorus of Pergamum, as the orators whose speeches
+					were most worthy of preservation and study, and
+					this <q direct="unspecified">Canon</q> of the Ten Attic Orators was generally
+					accepted. The <hi rend="italics">Lives</hi> of these orators which are
+					contained in manuscripts of Plutarch's <hi rend="italics">Moralia</hi> were
+					certainly not written by Plutarch. They are altogether lacking in the charm which characterizes
+					Plutarch's careful and elaborate style. Facts are
+					stated one after another with little variety and with
+					little or no distinction between mere anecdotes and
+					matters of real importance ; but the <hi rend="italics">Lives</hi> are of
+					interest on account of their subject matter.
+				</p>
+            <p>
+					The <q direct="unspecified">decrees</q> appended to the <hi rend="italics">Lives</hi> are, except
+					in some details, fairly accurate copies of official
+					documents (see F. Ladek, <hi rend="italics">Wiener Studien</hi>, xiii., 1891,
+					pp. Ill ff.). The two which are concerned with
+					Demosthenes and his family are not really decrees,
+					but petitions addressed to the Senate, copies of
+					which were undoubtedly kept among the official
+					records at Athens, whereas the third - that in honour
+					of Lycurgus - is a decree of the people. A large part
+					of the inscription recording this decree has been
+					found and is published in the <hi rend="italics">Inscriptiones Graecae</hi>, ii.
+					No. 240 (editio minor, ii. No. 457), Dittenberger,
+					
+					<pb id="v.10.p.343"/>
+					
+					          <hi rend="italics">Sylloge Inscriptionum Graecarum</hi>, third edition, No. 326.
+					The text which has been handed down in the manuscripts of Plutarch varies somewhat from that of the
+					inscription, but hardly more than is to be expected.
+					It may well be that whoever appended the <q direct="unspecified">decrees</q>
+					to the <hi rend="italics">Lives</hi> of the orators derived them, not directly
+					from inscriptions or other official documents, but (as
+					suggested by B. Keil in <hi rend="italics">Hermes</hi>, xxx. pp. 210 ff.) from
+					the work of Heliodorus <hi rend="italics">On Monuments</hi>.
+				</p>
+            <p>
+					The <hi rend="italics">Lives</hi>, with the <q direct="unspecified">decrees,</q> are published by
+					Anton Westermann in his <hi rend="italics">Biographi Graeci</hi> (1833 and
+					1845).
+				</p>
+         </div1>
+         <pb id="v.10.p.345"/>
+         <div1 type="chapter" n="1">
+            <head>I. ANTIPHON</head>
+            <p>
+					Antiphon was the son of Sophilus, and his deme
+					was Rhamnus. He was a pupil of his father (for his
+					father was a sophist, and it is said that Alcibiades
+					as a boy attended his school), and having acquired
+					power in speaking - as some think, through his own
+					natural ability - he entered upon a public career.
+					And he set up a school and had his disagreement with
+					Socrates on the subject of words, not in a contentious
+					spirit, but for the sake of argument, as Xenophon
+					has narrated in his <hi rend="italics">Memoirs</hi>.<note resp="ed" place="unspecified" anchored="yes">Xenophon, <hi rend="italics">Memorabilia</hi>, i. 6.</note> And he wrote some
+					speeches for citizens who wanted them for their
+					suits in the law-courts, being the first who practised
+					this profession, as some say. At any rate no legal
+					oration is extant of any of those who lived before
+					his time, nor of his contemporaries either, because
+					the custom of speech-writing had not yet arisen ;
+					there is none by Themistocles, Aristeides, or Pericles,
+					although the times afforded them many opportunities
+					and also occasions when such speeches were needed.
+					And it was not for lack of ability that they refrained
+					from such speech-writing, as is evident from what
+					is said by the historians about each of the abovementioned orators. Yet all those whom we are able
+					to record as having practised this kind of speeches,
+					going back to the earliest occurrence, will be found
+					
+					<pb id="v.10.p.347"/>
+					
+					
+					to have followed Antiphon when he was already old;
+					I mean such as Alcibiades, Critias, Lysias, and
+					Archinus. He was also the first to publish rules of
+					the art of oratory, being of sharp intellect, and for
+					this reason he was nicknamed Nestor.
+				</p>
+            <p>
+					And Caecilius, in the treatise he compiled about
+					him, conjectures from the terms in which Antiphon
+					is praised in the work of the historian Thucydides
+					that he was the latter's teacher.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Thucydides, viii. 68 <foreign lang="greek">a)nh\r *)aqhnai/wn tw=n kaq' e(auto\n a)reth=| te ou)deno\s deu/teros kai\ kra/tistos e)nqumhqh=nai geno/menos kai\ a(\ gnoi/h ei)pei=n</foreign>, <q direct="unspecified">a man inferior to none of the Athenians of his own day in force of character, and one who had proved himself most able both to formulate a plan and to set forth his conclusions in speech</q> (Smith's translation, L.C.L.).</note> In his speeches
+					he is accurate and persuasive, clever in invention,
+					ingenious in handling perplexing cases; he attacks
+					unexpectedly, and he addresses his arguments to
+					both the laws and the emotions, aiming especially at
+					propriety. He was born at the time of the Persian
+					wars and of the sophist Gorgias, who was somewhat
+					older than he ; and his life extended until the destruction of the democracy by the Four Hundred,<note resp="ed" place="unspecified" anchored="yes">In 411 b.c. when for some four months an oligarchy ruled Athens.</note>
+					in causing which he seems himself to have had a
+					part, at one time by being trierarch<note resp="ed" place="unspecified" anchored="yes">The duty of fitting out ships for the navy devolved upon wealthy citizens, who were then called trierarchs.</note> of two ships, at
+					another by being general<note resp="ed" place="unspecified" anchored="yes">Antiphon was a common name at Athens in the fifth century. Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed. i. pp. 93 ff., distinguishes, in addition to the orator: (1) a patriotic and worthy citizen (Xenophon, <hi rend="italics">Hell.</hi> ii. 3. 40) in defence of whose daughter Lysias wrote a speech, and to whom the military activities belong which are here ascribed to the orator; (2) the tragic poet who was put to death by Dionysius of Syracuse (Aristotle, <hi rend="italics">Rhet.</hi> ii. 6. p. 1385 a 9); (3) Antiphon the sophist (Xenophon, <hi rend="italics">Mem.</hi> i. 6. 5; Diog. Laert. ii. 5. 25), who is probably the one who practised mental healing at Corinth; (4) the son of Pyrilampus (Plato, <hi rend="italics">Parmenides</hi>, 127 a); (5) the son of Lysonides (<hi rend="italics">Moralia</hi>, 833 a); and (6) an Antiphon derided by Aristophanes (<hi rend="italics">Wasps</hi>, 1270), as a starveling. The Pseudo-Plutarch has evidently fused several of these personalities with that of the orator.</note> and gaining many victories
+					in battle and winning important alliances for the
+					Four Hundred, by arming the men of military age,
+					
+					<pb id="v.10.p.349"/>
+					
+					
+					by manning sixty triremes, and by being on every
+					occasion their envoy to Lacedaemon at the time
+					when E&euml;tioneia had been fortified.<note resp="ed" place="unspecified" anchored="yes">E&euml;tioneia, the mole which formed the northern side of the great Harbour of Peiraeus, was fortified by the Four Hundred in order to command the entrance.</note> And after the
+					overthrow of the Four Hundred he was indicted along
+					with Archeptolemus, one of the Four Hundred, was
+					found guilty, subjected to the punishments prescribed for traitors, thrown out unburied, and inscribed along with his descendants in the list of the
+					disfranchised. But some tell us that he was put to
+					death by the Thirty,<note resp="ed" place="unspecified" anchored="yes">In 404 b.c., when Athens was occupied by the Lacedaemonians, a body of Thirty men was appointed to revise the constitution. They seized all power and ruled ruthlessly until overthrown in May 403 b.c.</note> as Lysias says in his speech
+					in defence of Antiphon's daughter ; for he had a
+					daughter whom Callaeschrus claimed in marriage by
+					legal process. And that he was put to death by the
+					Thirty is told also by Theopompus in the fifteenth
+					book of his <hi rend="italics">Philippics</hi>
+               <note resp="ed" place="unspecified" anchored="yes">M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> i. p. 300.</note>; but that must have been
+					another Antiphon, the son of Lysidonides, whom
+					Cratinus also, in his play <hi rend="italics">The Flask</hi>, mentions as a
+					rascal; for how could a man who had died previously
+					and had been put to death by the Four Hundred be
+					living again in the time of the Thirty ? But there is
+					also another story of his death : that he sailed as
+					envoy to Syracuse when the tyranny of Dionysius
+					the First was at its height, and at a convivial gathering the question arose what bronze was the best ;
+					then when most of the guests disagreed, he said
+					that bronze was the best from which the statues of
+					Harmodius and Aristogeiton were made ; and when
+					Dionysius heard this, suspecting that the remark
+					
+					<pb id="v.10.p.351"/>
+					
+					
+					was intended to encourage an attack upon himself,
+					he ordered that Antiphon be put to death. But
+					others say that he was angry because Antiphon made
+					fun of his tragedies.
+				</p>
+            <p>
+					There are current sixty orations ascribed to this
+					orator, twenty-five of which Caecilius says are
+					spurious. He is ridiculed as a lover of money by
+					Plato in his <hi rend="italics">Peisander</hi>.<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi> i. p. 629, no. 103.</note> And he is said to have
+					written tragedies both by himself and in collaboration
+					with the tyrant Dionysius. But while he was still
+					busy with poetry he invented a method of curing
+					distress, just as physicians have a treatment for those
+					who are ill; and at Corinth, fitting up a room near
+					the market-place, he wrote on the door that he
+					could cure by words those who were in distress ; and
+					by asking questions and finding out the causes of
+					their condition he consoled those in trouble. But
+					thinking this art was unworthy of him he turned to
+					oratory. There are some who ascribe also to Antiphon the book <hi rend="italics">On Poets</hi> by Glaucus of Rhegium.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> ii. p. 23.</note>
+					His most admired orations are the one concerning
+					Herodes, that against Erasistratus about the peacocks, that on the Indictment, which he wrote in his
+					own defence, and that against the general Demosthenes for moving an illegal measure. He wrote
+					also a speech against the general Hippocrates and
+					caused him to be convicted by default.
+				</p>
+            <p>
+					Caecilius has appended a decree passed in the
+					archonship of Theopompus,<note resp="ed" place="unspecified" anchored="yes">411-410 b.c. Caecilius derived his text of the decree from Craterus's collection of decrees. See Harpocration, <hi rend="italics">s.v.</hi> 
+                  <foreign lang="greek">*)/andrwn</foreign> and Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., i. p. 99.</note> the year in which the
+					
+					<pb id="v.10.p.353"/>
+					
+					
+					Four Hundred were overthrown, according to which
+					the senate voted the trial of Antiphon :
+					<quote rend="blockquote">Voted by the senate on the twenty-first day of the
+					prytany. Demonicus of Alopec&ecirc; was secretary, Philostratus
+					of Pallen&ecirc; was president. Andron moved in regard to
+					the men whom the generals denounce for acting to the
+					detriment of the State of the Athenians while serving as
+					envoys to Lacedaemon and for sailing from the camp
+					in a ship of the enemy and for having passed by land
+					through Deceleia, namely Archeptolemus, Onomacles, and
+					Antiphon, that they be arrested and brought before the
+					court for trial. And the generals, with those members of
+					the senate whom they shall co-opt to the number of ten, are
+					directed to produce them in court, that they may be present
+					at the trial. And the Thesmothetae<note resp="ed" place="unspecified" anchored="yes">Six of the annually elected archons; their duties were to administer the courts of justice.</note> shall summon them
+					to-morrow, and when the summonses have been returned
+					to the court, they shall propose that the chosen prosecutors
+					and the generals and others, if anyone so desire, shall accuse
+					them of treason; and whomsoever the court may convict, he
+					shall be treated in accordance with the law which has been
+					passed relating to traitors.</quote>
+				        </p>
+            <p>
+					Under this enactment the judgement is written :
+					<quote rend="blockquote">Archeptolemus, son of Hippodamus, of Agryle, and
+					Antiphon, son of Sophilus, of Rhamnus, both being present,
+					were found guilty of treason. The sentence passed upon
+					them was that they be handed over to the Eleven for execution,
+					that their belongings be confiscated and ten per cent thereof
+					be given to the Goddess, that their houses be torn down and
+					boundary-stones be set up on their sites with the inscription
+					&amp;ldquo;Land of Archeptolemus and Antiphon the two traitors&amp;rdquo;;
+					and that the two demarchs make a declaration of their
+					
+					<pb id="v.10.p.355"/>
+					
+					
+					property; and that it be forbidden to bury Archeptolemus
+					and Antiphon at Athens or in any place ruled by the
+					Athenians; and that Archeptolemus and Antiphon be
+					attainted, and also their descendants legitimate and illegitimate ; and that if anyone shall adopt any descendant of
+					Archeptolemus or Antiphon, he who so adopts shall be
+					attainted ; and that this be inscribed on a bronze tablet,
+					which shall be set up where the decrees relating to Phrynichus
+					are placed.</quote>
+				        </p>
+         </div1>
+         <div1 type="chapter" n="2">
+            <head>II. ANDOCIDES</head>
+            <p>
+					Andocides was the son of Leogoras, son of that
+					Andocides who once made peace between the
+					Lacedaemonians and the Athenians<note resp="ed" place="unspecified" anchored="yes">The Thirty Years' Peace, by the terms of which Athens gave up Megara and its ports in 446-445 b.c.</note>; he was as
+					regards his deme a Cydathenian or a Thorian<note resp="ed" place="unspecified" anchored="yes">See note <hi rend="italics">d</hi> below for the source of this error.</note> and
+					was descended from nobles, and even, according to
+					Hellanicus,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> i. p. 55, no. 78.</note> from Hermes ; for the race of heralds
+					traces its origin to him. On this account, too, he
+					was once chosen along with Glaucon to go with
+					twenty ships to aid the Corcyraeans who were embroiled with the Corinthians.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Thucydides, i. 51, who seems to have been the source of this error. The colleague of Glaucon on this expedition was Dracontides, son of Leogoras of Thurae, and not Andocides, who at the time, 433 b.c., was too young. See <hi rend="italics">I. G.</hi> i. 295 (ed. min.), and Kirchner, <hi rend="italics">Prosopographia Attica</hi>, 828 and 4551.</note> And after this he
+					was accused of impiety as being one of those who
+					mutilated the Hermae<note resp="ed" place="unspecified" anchored="yes">The Hermae, square pillars surmounted by the head of the god Hermes, stood before the doors of Athenian houses. In 415 b.c., just as the great expedition against Sicily was about to sail, these Hermae were systematically mutilated in the night by unknown persons.</note> and as profaning the mysteries of Demeter [because at an earlier time he was
+					
+					<pb id="v.10.p.357"/>
+					
+					
+					dissipated and in a nocturnal revel had broken one
+					of the images of the god, and when he was indicted
+					refused to surrender the slave whom his accusers
+					were looking for, so that he gained a bad name and
+					was suspected and accused in the second suit also,
+					which was brought shortly after the expedition went
+					to Sicily, when the Corinthians sent in men from
+					Leontini and Egesta and, as the Athenians hesitated
+					about aiding them privately, they mutilated the
+					Hermae about the market-place, as Cratippus says,
+					and profaned the mysteries besides]. At his trial
+					on these charges he was acquitted on condition that
+					he should inform against the wrongdoers. He
+					exerted himself greatly and discovered those who
+					were guilty of the sacrilege, among whom he informed against his own father. And he brought
+					about the conviction and death of all the others, but
+					saved his father, although he had already been put
+					in prison, by promising that he would be of great
+					service to the city. And he kept his promise ; for
+					Leogoras caused the conviction of many men who
+					were embezzling public funds and committing other
+					misdeeds. And for these reasons he was acquitted
+					of the charge.
+				</p>
+            <p>
+					But Andocides, since his reputation in public life
+					was not good, took to merchandising and became a
+					friend of the Cypriote kings and many other men of
+					note, at which time he abducted a girl of Athenian
+					birth, daughter of Aristeides and his own niece,
+					without the knowledge of her family, and sent her as
+					
+					<pb id="v.10.p.359"/>
+					
+					
+					a gift to the King of Cyprus. Then, when he was to be
+					brought to trial for this, he stole her back again from
+					Cyprus and was caught and put in prison by the king ;
+					but he ran away and came back to Athens at the
+					time when the Four Hundred were in control of
+					affairs. He was put in prison by them, but escaped,
+					and again, when the oligarchy was overthrown, he
+					. . . was banished from the city after the Thirty had
+					taken over the government. He spent the period
+					of his exile in Elis, but when Thrasybulus and his
+					band returned,<note resp="ed" place="unspecified" anchored="yes">In the summer of 404 b.c. thirty men had been appointed to draw up laws and manage the state temporarily. Thrasybulus seized the hill-fortress of Phyl&ecirc; in December and maintained his position against two attacks by the Thirty. In May 403 Thrasybulus and his followers seized Peiraeus. In September the Thirty were overthrown and the democracy re-established.</note> he also returned to the city. He
+					was sent to Lacedaemon to negotiate a peace, but
+					was suspected of wrongdoing<note resp="ed" place="unspecified" anchored="yes">The nature of the accusation cannot be determined. See Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., pp. 293 ff. The oration <hi rend="italics">On the Peace</hi>, delivered between 393 and 390 b.c., deals with the terms proposed by the mission in which Andocides participated.</note> and banished. He
+					gives information about all this in the speeches
+					which he wrote ; for some of them he composed in
+					his defence in the matter of the mysteries, and others
+					when he was asking to be allowed to return home.
+					There is also extant his speech <hi rend="italics">On the Indictment</hi>,
+					also the Defence against Phaeax and the speech <hi rend="italics">On
+					the Peace</hi>. He flourished at the same time as
+					Socrates the philosopher ; the date of his birth was
+					the seventy-eighth Olympiad, when Theogenides
+					was archon<note resp="ed" place="unspecified" anchored="yes">468-467 b.c. This date, however, is based upon a false reckoning, and from the orator's own statements he could not have been born much before 440. See Blass, <hi rend="italics">ibid.</hi> i. p. 283, and Kirchner, <hi rend="italics">Prosop. Att.</hi> 828.</note> at Athens, so that he was about ten
+					years older<note resp="ed" place="unspecified" anchored="yes">The numeral is an emendation.</note> than Lysias. The Hermes called the
+					
+					<pb id="v.10.p.361"/>
+					
+					
+					Hermes of Andocides is named after him. It is a
+					dedication of the tribe Aegeis and is called Hermes
+					of Andocides because Andocides lived near it. He
+					himself supplied the chorus for his tribe<note resp="ed" place="unspecified" anchored="yes">A decree of the tribe Pandionis in which the orator is named among the victorious choregi is extant, <hi rend="italics">I. G.</hi> ii. 1138 (ed. min.); it was with a chorus of boys at the Dionysia.</note> when it was
+					competing in a dithyrambic contest, and he gained
+					the victory, for which he set up a tripod on a high
+					spot opposite the limestone Silenus. He is simple
+					and free from artifice in his orations, plain and employing no figures of speech.
+				</p>
+         </div1>
+         <div1 type="chapter" n="3">
+            <head>III. LYSIAS</head>
+            <p>
+					Lysias was the son of Cephalus, grandson of
+					Lysanias, and great-grandson of Cephalus. His
+					father was by birth a Syracusan but moved to Athens
+					because he wished to live in that city and also because
+					Pericles, son of Xanthippus, persuaded him to do so,
+					as he was a personal friend of Pericles and they were
+					connected by ties of hospitality, and he was a man of
+					great wealth. But some say that he moved because
+					he was banished from Syracuse when Gelo was
+					tyrant. Lysias was born at Athens in the archonship
+					of the Philocles<note resp="ed" place="unspecified" anchored="yes">459-458 b.c.</note> who succeeded Phrasicles,<note resp="ed" place="unspecified" anchored="yes">The archon in 460-459 b.c. was Phrasicleides, not Phrasicles.</note> in the
+					second year of the eightieth Olympiad, and at first he
+					was a schoolmate of the most prominent Athenians ;
+					but when the city sent the colony to Sybaris, which
+					was afterwards renamed Thurii, he went out with his
+					eldest brother Polemarchus (for he had two others,
+					
+					<pb id="v.10.p.363"/>
+					
+					
+					Euthydemus and Brachyllus), their father being
+					already dead, to share in the allotment of land.<note resp="ed" place="unspecified" anchored="yes">The scene of Plato's <hi rend="italics">Republic</hi> is laid at the house of Cephalus. The dialogue is not historical, and its imagined date cannot be fixed, but it seems to show that Plato knew Cephalus and his sons, see Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., i. p. 341.</note> This
+					was in the archonship of Praxiteles,<note resp="ed" place="unspecified" anchored="yes">444-443 b.c.</note> and he was then
+					fifteen years old. He remained there, was instructed
+					by the Syracusans Teisias and Nicias, acquired a
+					house, had a share of the allotment, and was a citizen
+					for thirty-three years, until Cleocritus was archon
+					at Athens.<note resp="ed" place="unspecified" anchored="yes">413-412 b.c. The ninety-second Olympiad is the date of the archonship of another Callias, 406-405 b.c.</note> But in the next year, when Callias was
+					archon,<note resp="ed" place="unspecified" anchored="yes">The dates given by our author for events in the life of Lysias are consistent (see also 835 a above, and 836 f below, <hi rend="italics">cf.</hi> also Dion. Hal. <hi rend="italics">Isocrates</hi>, i.), on the assumption that he went to Thurii when the colony was founded, in 444 b.c. But if that is correct, his activity as a writer of speeches to be delivered in the Athenian courts would not begin until his fifty-seventh year. Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., i. p. 345, after stating the evidence, comes to the conclusion that Lysias was born at Athens probably about 446 b.c., the only certain date being his age (fifteen years), when he went to Thurii, and his treutn to Athens in 413-412 b.c. or the year following. It is quite possible that he did not go to Thurii until some years after the foundation of the colony. The latest of his extant speeches may be dated about 380 b.c., so that we may believe that he died not long after that date.</note> in the ninety-second Olympiad, when the
+					misfortunes in Sicily<note resp="ed" place="unspecified" anchored="yes">The great expedition which the Athenians had sent out in 415 b.c. expecting to conquer Sicily was utterly annihilated in the autumn of 413 b.c.</note> had happened to the Athenians
+					and unrest had arisen among the allies in general and
+					especially those who dwelt in Italy, he was accused of
+					favouring Athens and, with three hundred others, was
+					banished. Arriving at Athens in the archonship of
+					the Callias<note resp="ed" place="unspeciifed" anchored="yes">412-411 b.c.</note> who succeeded Cleocritus, when the Four
+					Hundred already had possession of the city,<note resp="ed" place="unspecified" anchored="yes">Summer of 411 b.c.</note> he remained
+					
+					<pb id="v.10.p.365"/>
+					
+					
+					there. But when the battle of Aegospotami<note resp="ed" place="unspecified" anchored="yes">405 b.c. The Athenian fleet was destroyed by the Lacedaemonians, which virtually ended the Peloponnesian War.</note>
+					had taken place and the Thirty had taken possession
+					of the city,<note resp="ed" place="unspecified" anchored="yes">404 b.c.</note> he was banished after having been there
+					seven years. He was deprived of his property and
+					lost his brother Polemarchus, but he himself escaped
+					from the house in which he was kept to be executed
+					(for it had two doors)<note resp="ed" place="unspecified" anchored="yes">See Lysias, xii. (<hi rend="italics">Against Eratosthenes</hi>) 15.</note> and lived at Megara. But
+					when the men at Phyle<note resp="ed" place="unspecified" anchored="yes">Thrasybulus and his followers, May 303 b.c. After these exiles seized Periaeus, there was a period of confusion until the democracy was re-established and Eucleides made archon for the year 403-402 b.c.</note> set about their return to
+					Athens, he was seen to be more helpful than anyone
+					else, since he supplied two thousand drachmas and
+					two hundred shields and, when sent with Hermas,
+					hired three hundred mercenaries and persuaded
+					Thrasydaeus of Elis, who had become his guest-friend,
+					to give two talents. For these services Thrasybulus,
+					after the restoration of the exiles to the city and
+					in the period of anarchy<note resp="ed" place="unspecified" anchored="yes">The Athenians termed any period an <q direct="unspecified">anarchy</q> in which no archon could be elected because of party strife.</note> before Eucleides, proposed a grant of citizenship for him, and the popular assembly ratified the grant, but when Archinus
+					had him up for illegality because it had not been
+					previously voted by the senate,<note resp="ed" place="unspecified" anchored="yes">The Senate or Council of Five Hundred prepared the business for the Popular Assembly, which could not legally vote upon any measure not previously adopted by the Senate.</note> the enactment was
+					declared void. And after losing his citizenship in
+					this way, he lived the rest of his life at Athens with all
+					the rights of citizenship except the vote and eligibility to office, and died there at the age of eightythree years or, as some say, seventy-six or, as others
+					
+					<pb id="v.10.p.367"/>
+					
+					
+					say, over eighty ; and he lived to see Demosthenes
+					as a youth. They say he was born in the archonship
+					of Philocles.
+				</p>
+            <p>
+					Four hundred and twenty-five orations attributed
+					to him are current. Of these Dionysius and Caecilius
+					and their school say that two hundred and thirtythree are genuine, and he is said to have lost his case
+					with only two of them. There is also his speech in
+					support of the enactment against which Archinus
+					brought suit and deprived him of citizenship, and
+					another against the Thirty. He was very persuasive
+					and concise and produced most of his speeches for
+					private clients. There are also Textbooks of Rhetoric
+					prepared by him, and Public Addresses, Letters and
+					Eulogies, Funeral Speeches, Love Speeches, and a
+					Defence of Socrates addressed to the judges.<note resp="ed" place="unspecified" anchored="yes">Cicero, <hi rend="italics">De Oratore</hi>, i. 231, and Diogenes Laertius, ii. 20, 40, say that Lysias composed an oration in defence of Socrates, and offered it to him, but Socrates refused it. A speech in defence of Socrates (<foreign lang="greek">u(pe\r *swkra/tous pro\s *polukra/thn</foreign>) is mentioned several times by the scholiast on Aristeides. It was composed probably some years after the death of Socrates, as an epideictic oration in reply to a similar speech against Socrates by the sophist Polycrates. This is doubtless the speech which Cicero and Diogenes wrongly believed to have been composed for use in the actual trial of Socrates. See Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., i. p. 351.</note> In
+					the matter of his diction he appears to be easy,
+					although in fact he is hard to imitate.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Dionysius of Halicarnassus, <foreign lang="greek">*)arxai/wn kri/sis</foreign>, v. 1 <foreign lang="greek">a)nagignwsko/menon me\n eu)/kolon nomi/zesqai xalepo\n de\ eu(ri/skesqai zhlou=n peirwme/nois</foreign>, <q direct="unspecified">when read he is considered easy, but is found to be difficult by any who try to imitate him.</q>
+               </note> Demosthenes
+					in his speech against Neaera<note resp="ed" place="unspecified" anchored="yes">Demosthenes, Or. lix. 21.</note> says that he was
+					in love with Metaneira, a fellow-slave with Neaera;
+					but later he married the daughter of his brother
+					Brachyllus. Plato also mentions him in the <hi rend="italics">Phaedrus</hi>
+               <note resp="ed" place="unspecified" anchored="yes">Plato, <hi rend="italics">Phaedrus</hi>, 279 a.</note>
+					as an able speaker and older than Isocrates. Moreover Philiscus, a pupil of Isocrates and comrade of
+					
+					<pb id="v.10.p.369"/>
+					
+					
+					Lysias, composed an elegiac poem to him, from
+					which it is plain that he was earlier in years, which
+					is indicated also by what Plato said. The verses
+					are as follows :
+					<quote rend="blockquote">
+                  <l>Now, O Calliope's daughter endowed with great eloquence,
+					Phrontis,
+					</l>
+                  <l>Show if thy wisdom is aught, if thou hast anything new.
+					</l>
+                  <l>Him who is altered and changed to another form, him who
+					in other
+					</l>
+                  <l>Orders and manners of life hath a new body assumed,
+					</l>
+                  <l>Thou must bring forth some herald of virtue to celebrate:
+					Lysis<note resp="ed" place="unspecified" anchored="yes">Lysis, because the word Lysias is inadmissible in the Greek metre. Wyttenbach suggests that the verses were really written in honour of Lysis the Pythagorean.</note>
+					             </l>
+                  <l>Gone to the dead and the gloom, there an immortal to
+					dwell;
+					</l>
+                  <l>One who will show unto all the love of my soul for my
+					comrade,
+					</l>
+                  <l>Show, too, the worth of the dead unto the whole of
+					mankind.<note resp="ed" place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr Graec.</hi> ii. p. 640. Bergk rightly says that this is only part of a longer poem. The fragment does not indicate that Lysias was older than Isocrates, but some such statement may have been contained in a later part of the poem.</note>
+                  </l>
+               </quote>
+					He also wrote two speeches for Iphicrates, one against
+					Harmodius, the other for use in accusing Timothe&uuml;s
+					of treason, with both of which he won his case ; but
+					when Iphicrates accepted the responsibility for the
+					actions of Timothe&uuml;s,<note resp="ed" place="unspecified" anchored="yes">In 355 b.c. Iphicrates and Timothe&uuml;s, Athenian generals who had been unsuccessful, were accused by their colleague, Chares, of treason. Although Iphicrates accepted full responsibility, he was acquitted, but Timothe&uuml;s was fined one hundred talents, which he could not pay. He left Athens and soon died.</note> assuming at the rendering of
+					accounts the accusation for treason, he defended himself with the speech by Lysias ; and he himself was
+					acquitted, but Timothe&uuml;s was very heavily fined.
+					And at the Olympic festival also he read a very great
+					oration urging that the Greeks make peace with one
+					another and overthrow Dionysius.<note resp="ed" place="unspecified" anchored="yes">Only a fragment (Or. xxxiii.) of this is extant.</note>
+					
+				        </p>
+         </div1>
+         <pb id="v.10.p.371"/>
+         <div1 type="chapter" n="4">
+            <head>IV. ISOCRATES</head>
+            <p>
+					Isocrates was the son of Theodorus of Erchia, a
+					citizen of the middle class, an owner of slaves who
+					made flutes, through whom he gained a competence,
+					so that he paid for a public chorus<note resp="ed" place="unspecified" anchored="yes">Wealthy Athenians performed in turn special services to the state called <q direct="unspecified">liturgies.</q> The most expensive of these was the choregy, which involved the payment, training, and equipment of a chorus for a lyrical or dramatic performance.</note> and gave his
+					children an education<note resp="ed" place="unspecified" anchored="yes">See Isocrates, <hi rend="italics">On the Exchange of Property</hi> (Or. xv.), 161.</note> (for he had other sons, Telesippus and Diomnestus, and also a daughter), and
+					hence he is ridiculed on account of the flutes by
+					Aristophanes and Strattis. Isocrates was born in
+					the eighty-sixth Olympiad, in the archonship of
+					Lysimachus<note resp="ed" place="unspecified" anchored="yes">436-435 b.c.</note> of Myrrhinus, being twenty-two years
+					younger than Lysias and seven years older than
+					Plato.<note resp="ed" place="unspecified" anchored="yes">Plato was born in 428-427 b.c. Lysias, according to this statement, in 459-458. But see note on 835 d above.</note> In his boyhood he was as well educated as
+					any Athenian, for he attended the lectures of Prodicus of Ceos, Gorgias of Leontini, Teisias of Syracuse,
+					and the orator Theramenes ; and when the lastnamed was in danger of being arrested by the Thirty
+					and had fled for safety to the altar of Hestia Boulaea,<note resp="ed" place="unspecified" anchored="yes">The sanctuary of this Goddess of the Senate's Hearth was in or near the Prytaneum, which was somewhere on the northern slope of the Acropolis.</note>
+					everyone else was terrified, but Isocrates alone arose
+					to speak in his aid; and at first he was silent for a long
+					time, then afterwards he was urged to be silent by
+					Theramenes himself, who said that his misfortune
+					would be more painful if any of his friends should
+					share it. And it is said that certain rhetorical teachings of Theramenes - those which go under the name
+					of Boton - were of use to Isocrates when he was
+					
+					<pb id="v.10.p.373"/>
+					
+					
+					falsely accused in the courts. But when he became
+					a man he kept away from political affairs, since he had
+					a weak voice and a timid disposition<note resp="ed" place="unspecified" anchored="yes">See Isocrates, <hi rend="italics">Philip</hi> (Or. v.), 81; <hi rend="italics">Panathenaic</hi> (Or. xii.), 9.</note> and had lost his
+					inherited property in the war against the Lacedaemonians. It is evident that he composed speeches
+					for others, but he delivered only one, that on the
+					Exchange of Property. He set up a school and turned
+					to philosophy and to writing out the results of his
+					thinking, and he composed his Festival Oration<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">i.e.</hi> the <hi rend="italics">Panegyric</hi>, delivered at Olympia.</note> and
+					some others of an advisory nature, some of which he
+					delivered himself and some of which he prepared for
+					others to deliver, hoping that in this way he might
+					lead the Greeks to think as they ought. But when
+					he failed of his purpose he gave up that sort of thing
+					and became the head of a school, at first, as some say,
+					at Chios, where he had nine pupils. That was the
+					time when, as he saw the tuition fees counted out,
+					he burst into tears and said, <q direct="unspecified">Now I recognize that I
+						have sold myself to these people.</q> He would carry
+					on conversation with all who desired it and was the
+					first to make a distinction between contentious
+					speeches and those of a political character, to which
+					latter he devoted himself. And he also instituted at
+					Chios public offices and the same constitution which
+					existed in his native city. He made more money
+					than any other sophist, so that he was even a trierarch.<note resp="ed" place="unspecified" anchored="yes">The trierarchy was one of the <q direct="unspecified">liturgies</q> which wealthy citizens were obliged to perform. Being trierarch thus showed wealth.</note>
+				        </p>
+            <p>
+					His pupils numbered about one hundred, including
+					among many others Timothe&uuml;s, son of Conon, with
+					
+					<pb id="v.10.p.375"/>
+					
+					
+					whom he visited many cities ; and he composed the
+					letters which Timothe&uuml;s sent to the Athenians, on
+					account of which Timothe&uuml;s presented him with a
+					talent out of the sum remaining after the relief
+					of Samos.<note resp="ed" place="unspecified" anchored="yes">365 b.c.</note> Pupils of his were also Theopompus<note resp="ed" place="unspecified" anchored="yes">The text of Photius reads Xenophon the son of Gryllus and Theopompus.</note> of
+					Chios, Ephorus of Cumae, Asclepiades who compiled the arguments of tragedies, and Theodectas of
+					Phaselis, who afterwards wrote tragedies and whose
+					monument stood as you go to the Bean-market along
+					the Sacred Way which leads to Eleusis ; it is now in
+					ruins. There, too, were set up statues of the famous
+					poets along with his ; of these only the poet Homer
+					exists now. And Leodamas the Athenian and
+					Lacritus the Athenian law-maker and, as some say,
+					Hypereides and Isaeus were his pupils. And they
+					say that while he was still teaching oratory Demosthenes came to him eager to learn and said that he
+					could not pay the thousand drachmas which he asked
+					as tuition fee, but would give two hundred for one
+					fifth of the instruction ; whereupon Isocrates replied :
+					<q direct="unspecified">We do not cut our instruction into bits, Demosthenes, but just as people sell fine fish whole, so, if
+						you wish to be my pupil, I will sell you my course
+						whole.</q>
+				        </p>
+            <p>
+					He died in the archonship of Chaerondas<note resp="ed" place="unspecified" anchored="yes">338-337 b.c.</note> after
+					hearing in the palaestra of Hippocrates the news of
+					
+					<pb id="v.10.p.377"/>
+					
+					
+					the battle of Chaeroneia;<note resp="ed" place="unspecified" anchored="yes">This popular sotry of Isocrates' death is given also by Lucian (?), <hi rend="italics">Macrobioi</hi> 23, Pausanias, i. 18. 8, and Plutarch, 838 below. It is made famous by Milton in his tenth sonnet: <quote rend="blockquote">
+                     <l>. . . as that dishonest victory </l>
+                     <l>At Chaeronea, fatal to liberty, </l>
+                     <l>Killed by report that old man eloquent</l>
+                  </quote>
+                  <p/>But Isocrates himself, at the end of his third letter, writes to Philip: <q direct="unspecified">But I am grateful to old age for this thing only, that it has continued my life to this point, so that of the things which I meditated in my youth and undertook to write in my <hi rend="italics">Panegyric Oration</hi> and in that which I sent to you, I now see some being accomplished through your deeds and hope that others will be accomplished.</q> Apparently he was well pleased with Philip's success. See Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., ii. p. 97.</note> and he removed himself
+					from life by abstaining from food for four days. Just
+					before the end he declaimed the opening lines of
+					three dramas of Euripides :
+					<quote rend="blockquote">
+                  <l>Dana&uuml;s of fifty daughters fair the sire,<note resp="ed" place="unspecified" anchored="yes">From the <hi rend="italics">Archela&uuml;s</hi>; Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> p. 427, no. 228.</note>
+					             </l>
+                  <l>Pelops the Tantalid to Pisa came,<note resp="ed" place="unspecified" anchored="yes">
+                        <hi rend="italics">Iphigeneia in Tauris</hi>, 1.</note>
+					             </l>
+                  <l>Once Sidon's city Cadmus having left.<note resp="ed" place="unspecified" anchored="yes">From the <hi rend="italics">Phrixus</hi>; Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> p. 627, no. 819. Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., ii. p. 97, thinks these lines enumerate three intrusions of foreigners into Greece. The fourth - not mentioned - would then be that of the Macedonians under Philip.</note>
+                  </l>
+               </quote>
+					He died at the age of ninety-eight or, as some say,
+					one hundred years, for he could not endure the sight
+					of Greece enslaved four times.<note resp="ed" place="unspecified" anchored="yes">Under the Athenian empire in the fifth century, by the Spartans after the Peloponnesian War, by the Thebans under Epameinondas, and by the Macedonians. All these Isocrates himself had seen. But see note <hi rend="italics">d</hi> above.</note> A year (or, as some
+					say, four years) before his end he wrote the Panathenaic Oration;<note resp="ed" place="unspecified" anchored="yes">In L.C.L. Isocrates, vol. ii. pp. 368 ff.</note> and for the composition of the
+					Festival Oration he took ten (but some say fifteen)
+					years. This, they say, he derived from the speeches
+					of Gorgias of Leontini and Lysias. The speech on the
+					Exchange of Property<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> pp. 181 ff. If anyone proposed that a certain man be obliged to perform one of the <q direct="unspecified">liturgies</q> which were required of wealthy Athenians, the man of whom this was required could challenge the proposer to an exchange of properties, which might transfer the obligation.</note> he wrote at the age of eighty-two years, and those against Philip shortly before
+					his death. When he was an old man he adopted
+					
+					<pb id="v.10.p.379"/>
+					
+					
+					Aphareus, the youngest of the three sons of Plathan&ecirc;,
+					daughter of the orator Hippias. He acquired ample
+					wealth, for he not only collected money from his
+					pupils, but he also received from Nicocles, king of
+					Cyprus, who was the son of Evagoras, twenty talents
+					for the oration written in his honour. On account
+					of his wealth he was envied and was proposed three
+					times as trierarch. Twice he alleged illness and was
+					exempted by petitions presented by his son, but the
+					third time he undertook the duty and spent no small
+					sum. To a father who said that he gave his son only
+					a slave as companion he said, <q direct="unspecified">Go your ways, then,
+						for you will have two slaves instead of one.</q> He
+					took part also in the competition offered by Artemisia
+					in honour of Maussolus,<note resp="ed" place="unspecified" anchored="yes">Mausolus, ruler of Halicarnassus, died in 353 b.c. His widow, Artemisia, caused eulogies to be written in competition by Greek orators and completed the magnificent tomb which he had, apparently, begun. This magnificent building - the Mausoleum - was designed by Greek architects and decorated by famous Greek sculptors. The remains of the sculpture include portrait statues of Maussolus and Artemisia and are among the most highly prized possessions of the British Museum.</note> but his Eulogy is not extant.
+					He wrote also a Eulogy of Helen and a speech called
+					the Areopagitic. He departed this life some say on
+					the ninth day of his abstention from food, others
+					on the fourth day at the time of the funeral of those
+					who fell at Chaeroneia. His son Aphareus also wrote
+					speeches. Isocrates was buried with his family near
+					Cynosarges<note resp="ed" place="unspecified" anchored="yes">Cynosarges was a region in Athens in which was a great gymnasium.</note> on the left side of the hill-he himself, his father Theodorus, and his mother ; and her
+					sister Anaco, the orator's aunt, and his adopted son
+					Aphareus, and his cousin Socrates, son of Anaco
+					
+					<pb id="v.10.p.381"/>
+					
+					
+					Isocrates' mother's sister, and his brother Theodorus
+					who had the same name as his father, and his grandsons, the sons of his adopted son Aphareus, Aphareus
+					and his father Theodorus, and the latter's wife
+					Plathan&ecirc;, mother of the adopted son Aphareus.
+					And over them there were six tablets which do not
+					now exist. On the monument of Isocrates himself
+					was a column thirty cubits high, on which was a siren
+					seven cubits high as a symbol; but this exists no
+					longer. There was also a tablet near by with poets
+					and his instructors on it, among whom was Gorgias
+					gazing into an astrological sphere and Isocrates
+					standing beside him. There is also a bronze statue
+					of him, dedicated by Timothe&uuml;s, son of Conon, at
+					Eleusis in front of the vestibule. It bears this
+					inscription :
+					<quote rend="blockquote">
+                  <l>Here to the goddesses twain Timothe&uuml;s giveth this statue
+					</l>
+                  <l>Tribute to friend and to sage, image of Isocrates.</l>
+               </quote>
+					It is a work of Leochares.
+				</p>
+            <p>
+					Sixty orations are current under his name, of which
+					twenty-five are genuine according to Dionysius,
+					twenty-eight according to Caecilius, and the rest are
+					spurious. He was averse to public declamation, so
+					much so that once, when three persons came to hear
+					him, he retained two but let the third go, telling him
+					to come the next day, since now the lecture-room had
+					a full audience. And he used to say to his pupils that
+					he himself gave instruction for ten minas, but would
+					give ten thousand to anyone who would teach him
+					self-confidence and a pleasant voice. And when he
+					
+					<pb id="v.10.p.383"/>
+					
+					
+					was asked how he, not being a good speaker himself,
+					could make others so, he replied that whetstones
+					cannot themselves cut, but make iron fit to do so.
+					Some say that he also wrote textbooks of oratory,
+					others that in his teaching he made use of practice,
+					not of method. He never demanded a fee from a
+					fellow-citizen. When his pupils went to meetings of
+					the assembly, he told them to report to him what was
+					said there. He was greatly grieved by the death of
+					Socrates, and the next day he appeared in black
+					clothing. And again, when someone asked him
+					<q direct="unspecified">What is oratory?</q> he said, <q direct="unspecified">the art of making
+						small things great and great things small.</q> And
+					once when he was a guest at a banquet in the house
+					of Nicocreon, despot of Cyprus, and some of those
+					present urged him to discourse, he said, <q direct="unspecified">for subjects
+						in which I am competent this is not the time ; in the
+						subjects for which this is the time I am not competent.</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 613 a.</note> When he saw the tragic poet Sophocles
+					amorously following a boy, he said, <q direct="unspecified">Sophocles, we
+						must not only keep our hands to ourselves, but our
+						eyes as well.</q>
+               <note resp="ed" place="unspecified" anchored="yes">Attributed to Pericles by Plutarch, <hi rend="italics">Life of Pericles</hi>, chap. viii., and Cicero, <hi rend="italics">De Officiis</hi>, i. 40. 144.</note> And when Ephorus of Cumae had
+					left his school without learning anything and had been
+					sent back by his father with a second tuition-fee, he
+					called him in fun Diphorus (Twice-bringer) ; he took,
+					however, great pains with him and even suggested to
+					him the subject of his work.<note resp="ed" place="unspecified" anchored="yes">The great work of Ephorus was a history of the world (primarily of Greece) from the return of the Heracleidae to the siege of Perinthus in 340 b.c. From this work Plutarch and others derived much of their information. Ephorus was born early in the fourth century and died about 320 b.c.</note> He showred himself
+					also prone to sexual indulgence ; he used an additional mattress beside him on his bed and kept his
+					
+					<pb id="v.10.p.385"/>
+					
+					
+					pillow wet with saffron. And when he was young he
+					did not marry, but in his old age he kept a mistress
+					named Lagisc&ecirc;, by whom he had a daughter who died
+					unmarried at twelve years of age. Then he married
+					the daughter of the orator Hippias, Plathan&ecirc;, who
+					had three sons, one of whom, Aphareus, as has been
+					said above, he adopted. This Aphareus dedicated a
+					bronze statue of him near the Olympieium on a
+					column with the inscription :
+					<quote rend="blockquote">
+                  <l>Aphareus set up this statue his father Isocrates' image,
+					</l>
+                  <l>Sacred to Zeus, to exalt gods and his ancestors' worth.<note resp="ed" place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> ii. p. 329. The column and statue existed in the time of Pausanias (Paus. i. 18. 8). A bust in the Villa Albani in Rome may be a late copy of the head of this statue or, more probably, since Leochares was a famous sculptor, of the statue at Eleusis mentioned above.</note>
+                  </l>
+               </quote>
+					And it is said that he rode a horse in a race when he
+					was still a boy ; for a bronze figure of him as a boy
+					riding a horse is set up on the Acropolis in the ballground of the Arrhephoroi,<note resp="ed" place="unspecified" anchored="yes">This seems to have been situated near the north-west wall of the Acropolis, west of the Erechtheum: <hi rend="italics">cf.</hi> Judeich, <hi rend="italics">Topographie von Athen</hi>
+                  <hi rend="super">2</hi>, p. 283. Two maidens were chosen each year to carry the peplos at the Panathenaic festival and were called Arrephoroi.</note> as some have said. In all
+					his life but two lawsuits were brought against him :
+					first when Megacleides challenged him to an exchange
+					of property.<note resp="ed" place="unspecified" anchored="yes">See note on 837 f.</note> He did not appear in court in this suit,
+					because he was ill, but sent his son Aphareus and won
+					his case. The second suit was when Lysimachus
+					challenged him to exchange property in connexion
+					with the trierarchy ; and this case he lost and performed the trierarchy. There was also a painted
+					portrait of him in the Pompeium.<note resp="ed" place="unspecified" anchored="yes">The Pompeium was just inside the Dipylon gate, at which point the processions began. It was the storehouse for objects used in processions.</note> Aphareus wrote
+					speeches, both juridical and deliberative, but not
+					many. He also composed about thirty-seven tragedies, but the authorship of tw o of them is contested.
+					
+					<pb id="v.10.p.387"/>
+					
+					
+					Beginning in the archonship of Lysistratus<note resp="ed" place="unspecified" anchored="yes">369-368 b.c.</note> he presented in the twenty-eight years to the archonship of
+					Sosigenes<note resp="ed" place="unspecified" anchored="yes">342-341 b.c.</note> six series of dramas at the City Dionysia
+					and won the prize twice, Dionysius as his manager,<note resp="ed" place="unspecified" anchored="yes">When a poet (<foreign lang="greek">dida/skalos</foreign>) wished to avoid the labour of presenting a play he could delegate the management to a hypodidascalus, another poet experienced in such matters. We have many instances of this practice in the didascalic notices, notably in the case of Aristophanes.</note>
+					and, other poets managing, he presented two other
+					series at the Lenaean festival.<note resp="ed" place="unspecified" anchored="yes">The City or Greater Dionysia were celebrated in March, the Rural or Lesser Dionysia in the various demes of Attica in December, and the Lenaean festival in December. At all of these dramas were performed, but new tragedies were not produced at the Rural Dionysia, and for a time the same was true of the Lenaean festival. A series of dramas comprised three tragedies and a satyr drama. The two prizes of Aphareus are recorded in an inscription, <hi rend="italics">I.G.</hi> ii.<hi rend="super">2</hi> 2325 <hi rend="italics">b</hi> (ed. min.).</note> There were statues
+					of the mother of Isocrates and Theodorus and of her
+					sister Anaco set up on the Acropolis ; of these the
+					statue of the mother is now placed, with a changed
+					inscription,<note resp="ed" place="unspecified" anchored="yes">Statues erected to honour one person were not infrequently transferred to another by changing the inscriptions. Dio Chrysostom in his <hi rend="italics">Oration to the Rhodians</hi> condemns this practice.</note> near that of Hygieia, but the statue of
+					Anaco is gone. She had two sons, Alexander by
+					Coenus, and Sosicles by Lysias.
+				</p>
+         </div1>
+         <div1 type="chapter" n="5">
+            <head>V. ISAEUS</head>
+            <p>
+					Isaeus was a Chalcidian by birth, but came to
+					Athens and went to school [to Isocrates. He resembled] Lysias<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Dion. Hal. <hi rend="italics">De Isaeo Iudicium</hi>, 2 <foreign lang="greek">xarakth=ra de\ *lusi/ou kata\ to\ plei=ston e)zh/lwse</foreign>, <q direct="unspecified">he emulated in the highest degree the character of Lysias.</q>
+               </note> in his melodious diction and in his
+					skilful arrangement and treatment of the subject
+					matter in his speeches, so that unless a person were
+					thoroughly familiar with their particular styles,
+					he could not easily tell to which of the two orators
+					
+					<pb id="v.10.p.389"/>
+					
+					
+					many of the speeches belong. He was in his prime
+					after the Peloponnesian War, as may be inferred
+					from his speeches, and lived until the reign of
+					Philip. He taught Demosthenes,<note resp="ed" place="unspecified" anchored="yes">See below, Demosthenes, 844 b.</note> not at his school,
+					but privately, for ten thousand drachmas, whereby
+					he acquired great distinction. And he himself composed for Demosthenes the speeches against his
+					guardians, as some said. He has left behind him
+					sixty-four speeches, fifty of which are genuine, and
+					some rules of rhetoric of his own. He was also the
+					first to give artistic form to his speech<note resp="ed" place="unspecified" anchored="yes">Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., ii. p. 499, interprets this as referring to figures of thought (construing <foreign lang="greek">th\n dia/noian</foreign> with <foreign lang="greek">sxhmati/zein</foreign>). <hi rend="italics">Cf.</hi> 835 b <hi rend="italics">supra</hi> 
+                  <foreign lang="greek">a)sxhma/tistos</foreign> of Andocides.</note> and to turn
+					his attention to the urbane style of the orator ; in
+					which Demosthenes has closely imitated him. Theopompus the comic playwright mentions him<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Kock, <hi rend="italics">Com. Att. Frag.</hi> i. p. 737, no. 18.</note> in the
+					<hi rend="italics">Theseus</hi>.
+				</p>
+         </div1>
+         <div1 type="chapter" n="6">
+            <head>VI. AESCHINES</head>
+            <p>
+					Aeschines was the son of Atrometus,<note resp="ed" place="unspecified" anchored="yes">A catalogue of the tribe Oeneis, <hi rend="italics">I.G.</hi>
+                  <hi rend="super">2</hi> 2408, gives his full name: <foreign lang="greek">*)atro/mhtos *ai)sxi/nou *koqoki/dhs</foreign>. It gives also the name of Aeschines' son <foreign lang="greek">*)atro/mhtos</foreign>.</note> who was
+					exiled in the time of the Thirty and helped to restore
+					the democracy, and of Glaucothea. He belonged to
+					the deme of the Cothocidae and was not of distinguished family or great wealth. When he was young
+					and physically strong he worked hard in the gymnasia ; and afterwards, since he had a clear voice, he
+					practised tragedy; and according to Demosthenes<note resp="ed" place="unspecified" anchored="yes">Demosthenes, xviii. 261; xix. 246. The festivals in question are those held in the small towns of Attica. Aristodemus was one of the most noted tragic actors of his time. Born at Metapontum, he was granted Athenian citizenship and was one of the envoys (among whom were Aeschines, Demosthenes, and Philocrates) who made the peace of Philocrates with Philip in 346 b.c.</note>
+					he was for a long time under-secretary and regularly
+					played as a third-rate actor with Aristodemus at the
+					
+					<pb id="v.10.p.391"/>
+					
+					
+					Dionysiac festivals,<note resp="ed" place="unspecified" anchored="yes">More accurately in Photius, the dramatic festivals held in the small towns of Attica. For the ancient accounts of Aeschines' career as an actor see O'Connor, <hi rend="italics">Actors and Acting in Ancient Greece</hi>, pp. 74 ff. Kelly Rees, <hi rend="italics">The Rule of Three Actors in the Classical Greek Drama</hi>, pp. 31 ff., has shown that the term <q direct="unspecified">tritagonist</q> was invented by Demosthenes as an opprobrious epithet and it is applied in antiquity to not other actor than Aeschines; also that it meant, not <q direct="unspecified">actor of third-rate roles,</q> but <q direct="unspecified">third-rate actor</q>; <hi rend="italics">cf.</hi> Bekker, <hi rend="italics">Anecdota</hi>, p. 309. 31 <foreign lang="greek">a)dokimw/tatos tw=n u(pokritw=n, e)n th=| trith| ta/cei katariqmou/menos</foreign>.</note> repeating the old tragedies<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Old tragedies</q> are those which had been performed in Athens before.</note> in
+					his spare time. And while still a child he helped his
+					father to teach letters, and as a young man he served
+					in the patrol of the frontiers. After studying with
+					Isocrates and Plato, as some say, but with Leodamas
+					according to Caecilius,<note resp="ed" place="unspecified" anchored="yes">But see below, 840 e, where the more probable statement is made that he had no teacher. <hi rend="italics">Cf.</hi> the anonymous <hi rend="italics">Life of Aeschines</hi>, 13, Quintilian, ii. 17. 12, and Blass, <hi rend="italics">Die attische Beredsamkeit</hi>, 2nd ed., iii. p. 157.</note> he was prominent in public
+					life in the party opposed to that of Demosthenes, and
+					was sent on many embassies, among them the one
+					to Philip concerning the peace.<note resp="ed" place="unspecified" anchored="yes">Aeschines was sent in 347 and 346 b.c. on two embassies to Philip concerning peace. The second is probably the one especially referred to here. In his orations <hi rend="italics">On the Peace</hi> (346 b.c.) and <hi rend="italics">On the False Legation</hi> (343 b.c.) Demosthenes attacks Aeschines and his colleagues.</note> For this he was
+					accused by Demosthenes of having destroyed the
+					Phocian nation and moreover of having stirred up
+					war between the Amphissians, who were building
+					the harbour when he was chosen as delegate to the
+					Amphictyonic Council, and the Amphictyons ; as a
+					result of which the Amphictyons turned to Philip
+					for protection, and he, assisted by Aeschines, took
+					matters in hand and conquered Phocis. But through
+					the aid of Eubulus, son of Spintharus, of the deme of
+					Probalinthus, who had influence with the people, he
+					was acquitted by thirty votes ; but some say that
+					though the orators composed their speeches, yet
+					
+					<pb id="v.10.p.393"/>
+					
+					
+					the suit never came to trial because the battle of
+					Chaeroneia intervened.<note resp="ed" place="unspecified" anchored="yes">The author's extreme brevity reduces to two sentences the events of about eight years. The acquittal of Aeschines took place in 343 b.c.</note> At a later time, when Philip
+					was dead and Alexander was crossing over to Asia, he
+					brought a suit against Ctesiphon for illegal conduct in
+					proposing the honours for Demosthenes; and when he
+					did not receive one-fifth of the votes cast, he went into
+					exile at Rhodes, not being willing to pay a fine of a
+					thousand drachmas for his defeat.<note resp="ed" place="unspecified" anchored="yes">Anyone who brought a suit against another for proposing a measure forbidden by law was subject to a fine and was debarred from bringing any similar suit if he received less than one-fifth of the votes cast by the dicasts.</note> But some say that
+					he was further punished by disfranchisement and did
+					not leave the city of his own accord, and that he went
+					to Alexander at Ephesus. During the confusion following Alexander's death he sailed to Rhodes, set up a
+					school there, and taught. He read to the Rhodians
+					his oration against Ctesiphon as an exhibition of his
+					powers, and when they all wondered that after
+					delivering that speech he had lost his case, <q direct="unspecified">You
+						would not wonder, Rhodians,</q> he said, <q direct="unspecified">if you had
+							heard Demosthenes speak in reply to it.</q> And he
+					left a school behind him there, called the Rhodian
+					school. Then he sailed to Samos and not long after,
+					while lingering on that island, died. He had an
+					excellent voice, as is clear from what Demosthenes
+					says<note resp="ed" place="unspecified" anchored="yes">Demosthenes, xviii. (<hi rend="italics">On the Crown</hi>) 259, 308.</note> and from the oration of Demochares.
+				</p>
+            <p>
+					Four orations are current under his name : that
+					<hi rend="italics">Against Timarchus</hi>, that <hi rend="italics">On the False Legation</hi>,<note resp="ed" place="unspecified" anchored="yes">In L.C.L. Aeschines, pp. 15 ff.</note> and
+					that <hi rend="italics">Against Ctesiphon</hi>,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> pp. 303 ff.</note> and these alone are genuine,
+					since the one entitled the <hi rend="italics">Delian Oration</hi> is not
+					by Aeschines ; for he was, to be sure, appointed
+					associate advocate in the trial relating to the sanctuary
+					
+					<pb id="v.10.p.395"/>
+					
+					
+					at Delos, but he did not deliver the speech ; for
+					Hypereides was elected in his place, as Demosthenes
+					says.<note resp="ed" place="unspecified" anchored="yes">Demosthenes, xviii. (<hi rend="italics">On the Crown</hi>) p. 271, 134.</note> He had, as he himself says,<note resp="ed" place="unspecified" anchored="yes">Aeschines, <hi rend="italics">On the False Legation</hi>, 149.</note> two brothers,
+					Aphobetus and Philochares. He was the first to
+					bring to the Athenians the news of the victory at
+					Tamynae, for which he was crowned a second time.
+				</p>
+            <p>
+					Some have said that Aeschines did not study under
+					any teachers, but rose from the under-clerkship in the
+					courts, which he held at that time. And they say
+					that his first speech before the people was against
+					Philip, by which he gained such reputation as to be
+					chosen envoy to the Arcadians ; and when he came
+					to them he raised the ten thousand troops with which
+					to oppose Philip. He also prosecuted for unchastity
+					Timarchus, who gave up the defence and hanged
+					himself, as Demosthenes says somewhere.<note resp="ed" place="unspecified" anchored="yes">Demosthenes xix. (<hi rend="italics">On the False Legation</hi>) 2 and 285.</note> He was
+					elected envoy to Philip with Ctesiphon and Demosthenes to treat for peace, on which occasion he was
+					more successful than Demosthenes ; and the second
+					time, when he was one of ten,<note resp="ed" place="unspecified" anchored="yes">Aeschines, <hi rend="italics">On the False Legation</hi>, 178.</note> he confirmed the peace
+					with oaths, was tried for it, and was acquitted, as has
+					been said above.
+				</p>
+         </div1>
+         <div1 type="chapter" n="7">
+            <head>VII. LYCURGUS</head>
+            <p>
+					Lycurgus was the son of Lycophron and grandson of the Lycurgus whom the Thirty Tyrants put to
+					death, his execution being brought about by Aristodemus
+					
+					<pb id="v.10.p.397"/>
+					
+					
+					of Bat&ecirc;, who also, after having been one of the
+					Hellenotamiae,<note resp="ed" place="unspecified" anchored="yes">The Hellenotamiae were a board of ten members who collected and administered the tribute paid to Athens by the members of the Delian Confederacy.</note> was banished under the democracy.
+					Lycurgus was of the deme of the Butadae and the
+					family of the Eteobutadae. He attended the
+					lectures of Plato the philosopher and at first devoted
+					himself to philosophy ; then, after being a pupil of
+					the orator Isocrates, he had a notable public career
+					both as a speaker and as a man of action, and he was
+					also entrusted with the management of the finances
+					of the State ; for he was made treasurer for three
+					periods of four years<note resp="ed" place="unspecified" anchored="yes">338-326 b.c. The title of his office is not known. No regular office so extensive as this is mentioned in Aristotle's <hi rend="italics">Constitution of Athens</hi>. He may have been in charge of the theoric fund or the military fund, or both, by virtue of a special commission, which in the next generation became a regular office; see Ferguson, <hi rend="italics">Hellenistic Athens</hi>, p. 10, Tarn, <hi rend="italics">Cambridge Ancient History</hi>, vi. p. 441. The period meant may be the quinquennium.</note> in charge of fourteen thousand
+					talents, or, as some say (and among them the man
+					who proposed the vote of honours for him,<note resp="ed" place="unspecified" anchored="yes">See Decree III, below, 852.</note> Stratocles
+					the orator), eighteen thousand, six hundred and
+					fifty.<note resp="ed" place="unspecified" anchored="yes">Roughly equivalent to £3,026,000 or $15,130,000, or more at present values.</note> He was elected in his own person the first
+					time, but afterwards he entered the name of one of
+					his friends, though he himself administered the office,
+					because a law had previously been introduced forbidding anyone elected treasurer of the public funds
+					to hold the office more than four years ; and he was
+					always intent upon the public business summer and
+					winter. When he was elected to provide munitions
+					of war he restored many edifices in the city, he
+					provided four hundred triremes for the people, he constructed the gymnasium in the Lyceum and planted
+					trees in it, he built the palaestra and finished the
+					Dionysiac theatre when he was the commissioner
+					in charge of that work.<note resp="ed" place="unspecified" anchored="yes">Probably while he was in control of the finances. <hi rend="italics">Cf.</hi> D&ouml;rpfeld and Reisch, <hi rend="italics">Das griechische Theater</hi>, pp. 39 f.</note> He took care of two hundred
+					
+					<pb id="v.10.p.399"/>
+					
+					
+					and fifty talents entrusted to him on deposit by
+					private persons, he provided for the city objects of
+					gold and silver for use in processions and golden
+					Victories, and many buildings which came into his
+					hands half-finished he completed, among them the
+					ship-sheds and the arsenal. And he put the foundation-walls round the Panathenaic stadium. This he
+					accomplished, and also the levelling of the ravine,
+					because a certain Deinias who owned this plot of
+					land gave it to the city when Lycurgus suggested to
+					him that he make the gift.
+				</p>
+            <p>
+					He was charged also with guarding the city and
+					arresting malefactors, whom he drove out entirely,
+					so that some of the sophists said that Lycurgus
+					signed warrants against evil-doers with a pen dipped,
+					not in ink, but in death. And therefore, when King
+					Alexander demanded his surrender, the people did
+					not give him up. When Philip was carrying on the
+					second war with the Athenians, Lycurgus went as
+					envoy with Polyeuctus and Demosthenes to the
+					Peloponnesus and to some other States. Throughout
+					his life he was always highly esteemed among the
+					Athenians and considered a just man, so that in the
+					courts of law the word of Lycurgus was regarded as
+					a help to anyone requiring an advocate.
+				</p>
+            <p>
+					He also introduced laws : the law relating to
+					comic actors, that a competitive performance be held
+					on the festival of Pots<note resp="ed" place="unspecified" anchored="yes">The third day of the Anthesteria, the thirteenth day of the month Anthesterium.</note> and that the victor's name
+					
+					<pb id="v.10.p.401"/>
+					
+					
+					be inscribed as eligible for the City Dionysia,<note resp="ed" place="unspecified" anchored="yes">The <foreign lang="greek">tragw|doi/</foreign> and <foreign lang="greek">kwmw|doi/</foreign> alone were eligible to be chosen by lot as protagonists for the tragedies and comedies to be presented at the City Dionysia, the subordinate roles being assigned to plain <foreign lang="greek">u(pokritai/</foreign>. Prior to the passage of the law of Lycurgus those only were eligible who had previously won a victory at the City Dionysia. The effect of the law of Lycurgus was, therefore, to increase the number of thos efrom whom the archon could choose a <foreign lang="greek">kwmw|do/s</foreign> for each of the five comedies to be presented. See Rohde, <hi rend="italics">Rheinisches Museum</hi>, xxxviii. p. 276, and J. B. O'Connor, <hi rend="italics">Chapters in the History of Actors and Acting</hi>, pp. 57 ff.</note>
+					which had not been permitted before, and thus he
+					revived a contest which had fallen out of use ; the
+					law that bronze statues of the poets Aeschylus,
+					Sophocles, and Euripides be erected, that their
+					tragedies be written out and kept in a public depository, and that the clerk of the State read them to the
+					actors who were to perform their plays for comparison of the texts and that it be unlawful to depart
+					from the authorized text in acting ; a third law that
+					no Athenian or foreign resident of Athens should be
+					permitted to buy from among captives a person of free
+					birth to be a slave without the consent of his former
+					master<note resp="ed" place="unspecified" anchored="yes">Prisoners of war were usually auctioned off into slavery regardless of their previous condition. If such a captive could prove his free birth through the testimony of the man who owned him when taken captive, he could not under this new law be purchased by any Athenian for slavery, <hi rend="italics">cf.</hi> M. H. E., Meier, <hi rend="italics">Comment. de vita Lycurgi</hi>, xxxix. ff.</note>; furthermore, that a festival of Poseidon
+					should be held in Peiraeus, consisting of no fewer than
+					three cyclic choruses, that not less than ten minas be
+					given to the victors, eight to those ranked second by
+					the judges, and six to those ranked third; furthermore, that no woman should go to Eleusis<note resp="ed" place="unspecified" anchored="yes">This refers to the great annual procession to Eleusis in the celebration of the mysteries of Demeter and Persephon&ecirc;.</note> in a carriage, lest the women of the people appear inferior to
+					the rich, and if any woman should be caught doing
+					this, she should pay a fine of six thousand drachmas.
+					His own wife disobeyed, the informers caught her
+					in the act, and he gave them a talent; and at a later
+					time, wrhen accused of this in the popular assembly,
+					
+					<pb id="v.10.p.403"/>
+					
+					
+					he said, <q direct="unspecified">At any rate I am found to have been the
+						giver, not the receiver.</q>
+               <note resp="ed" place="unspecified" anchored="yes">The story may well be apocryphal. The saying of Lycurgus, repeated by Plutarch in his <hi rend="italics">Comp. of Nicias and Crassus</hi>, 3, is not there connected with the Eleusis incident; and Aelian, <hi rend="italics">Var. Hist.</hi> xiii. 24, expressly states that the statesman's wife paid a fine after legal condemnation, not a bribe to the informer.</note> And once when a taxcollector laid hands on Xenocrates the philosopher
+					and Lycurgus met him as he was leading him away
+					to enforce payment of his tax as a resident alien,<note resp="ed" place="unspecified" anchored="yes">The tax was twelve drachmas.</note>
+					he brought his walking-stick down on the tax-collector's head, set Xenocrates free, and shut the
+					other man up in prison for improper conduct. As he
+					was generally commended for his act, Xenocrates,
+					happening to meet Lycurgus's children some days
+					later, said <q direct="unspecified">I have repaid your father quickly for the
+						favour he did me, boys ; for he is widely commended
+						for coming to my assistance.</q>
+				        </p>
+            <p>
+					He also proposed decrees,<note resp="ed" place="unspecified" anchored="yes">Several decrees moved by him are extant, <hi rend="italics">e.g. I.G.</hi> ii.<hi rend="super">2</hi> 337, 338.</note> making use of a certain
+					Olynthian named Eucleides, who was an expert in
+					decrees. And although he was well-to-do, he wore
+					one and the same cloak winter and summer and put
+					on sandals only on days when they wTere necessary.
+					He studied night and day, since he had no natural
+					gift for extemporaneous speaking, and he lay on a
+					cot with only a sheepskin and a pillow on it, so that
+					he might wake up easily and study. When someone
+					found fault with him for paying money to sophists
+					although he made words his profession, he replied
+					that if anyone would promise to make his sons better,
+					he would pay him, not thousands only, but half his
+					property. He was an outspoken speaker on account
+					of his good birth. Once, indeed, when the Athenians
+					
+					<pb id="v.10.p.405"/>
+					
+					
+					were showing dissent as he was speaking, he burst
+					out with : <q direct="unspecified">O Corcyraean whip, how ma ly talents
+						you are worth!</q>
+               <note resp="ed" place="unspecified" anchored="yes">The Corcyraean whip was especially stinging, and the orator's outbreak means: <q direct="unspecified">I would give a great deal to use a cat-o'-nine-tails on you people.</q>
+               </note> And when they were proclaiming
+					Alexander a god, <q direct="unspecified">What sort of god,</q> he said, <q direct="unspecified">is
+						he when those who <hi rend="italics">come out</hi> of his temple have to
+						sprinkle themselves with holy water?</q> After his
+					death his sons were handed over to the eleven executioners on the accusation of Menesaechmus, the
+					indictment being written by Thrasycles; but when
+					Demosthenes, who was at that time in exile, wrote
+					a letter to the Athenians<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Demosthenes, <hi rend="italics">Epistle</hi> iii., and Aeschines, <hi rend="italics">Epistle</hi> xii. 14.</note> saying that their reputation was suffering because of Lycurgus's sons, they
+					changed their mind and released them, Democles,
+					a pupil of Theophrastus, speaking in their defence.
+					He himself and some of his descendants were buried
+					at public expense ; and their monuments are opposite
+					the Paeonian Athena in the garden of the philosopher
+					Melanthius<note resp="ed" place="unspecified" anchored="yes">Judeich, <hi rend="italics">Topogr. v. Athen</hi>
+                  <hi rend="super">2</hi>, p. 409, conjectures that the garden of Melanthius was in the neighbourhood of the Academy.</note>; they are in the form of tables, and
+					those of Lycurgus and his children have inscriptions
+					and are still preserved in our day. His greatest
+					achievement was the raising of the State revenue to
+					twelve hundred talents when it had previously been
+					sixty. When he was at the point of death he gave
+					orders that he be carried to the temple of the Great
+					Mother and into the Bouleuterion,<note resp="ed" place="unspecified" anchored="yes">The Bouleuterion was the meeting-place of the Boul&ecirc; or Senate; the foundations of this and of the temple of the Great Mother have recently been found on the west side of the Agora. See T. L. Shear, <hi rend="italics">Hesperia</hi>, iv. pp. 349 ff.</note> as he wished
+					to give an accounting for his public acts ; and when
+					no one had the face to accuse him except Menesaechmus, he freed himself from his false accusations,
+					
+					<pb id="v.10.p.407"/>
+					
+					
+					was carried to his house, and died,<note resp="ed" place="unspecified" anchored="yes">His death occurred about 324 b.c.</note> having been considered a honourable man throughout his whole life,
+					and highly praised for his speeches. He never was
+					convicted, though many brought accusations against
+					him.
+				</p>
+            <p>
+					He had three children by Callisto, the daughter of
+					Habron and sister of Callias the son of Habron of the
+					deme Bat&ecirc;, the one who was treasurer of military
+					funds in the archonship of Charondas.<note resp="ed" place="unspecified" anchored="yes">338-337 b.c.</note> Deinarchus,
+					in his speech against Pistius, tells about this connexion
+					by marriage. He left three sons, Habron, Lycurgus,
+					and Lycophron, of whom Habron and Lycurgus died
+					without issue. However, Habron at any rate had
+					a distinguished public career before he died ; but
+					Lycophron married Callistomach&ecirc;, daughter of
+					Philippus of Aexon&ecirc;, and had a daughter Callisto.
+					She was married to Cleombrotus of Acharnae, son
+					of Deinocrates, to whom she bore a son Lycophron,
+					who was adopted by his grandfather Lycophron and
+					died without issue. After Lycophron's death Socrates
+					married Callisto and had a son Symmachus. Symmachus had a son Aristonymus, he a son Charmides,
+					and Charmides a daughter Philippa. Her son by
+					Lysander was Medeius, who became an expounder
+					of rites,<note resp="ed" place="unspecified" anchored="yes">At Eleusis in connexion with the Eleusinian Mysteries.</note> being of the family of the Eumolpidae. He
+					and Timothea, daughter of Glaucus, had three
+					children, Laodameia and Medeius, who held the
+					priestship of Poseidon-Erechtheus, and Philippa, who
+					afterwards became priestess of Athena ; but before
+					that Diocles of Melit&ecirc; married her, and their son was
+					the Diocles who was general in command of the
+					heavy-armed force. He married Hedist&ecirc;, daughter
+					
+					<pb id="v.10.p.409"/>
+					
+					
+					of Habron, and bad two children, Philippides and
+					Nicostrata. Themistocles, the Torch-bearer,<note resp="ed" place="unspecified" anchored="yes">The Torch-bearer was an important functionary in the Eleusinian Mysteries. The office was hereditary.</note> son of
+					Theophrastus, married Nicostrata and had two sons,
+					Theophrastus and Diocles. He also organized the
+					priesthood of Poseidon-Erechtheus.
+				</p>
+            <p>
+					Fifteen speeches of the orator are current.<note resp="ed" place="unspecified" anchored="yes">Of these only the speech against Leocrates has come down to us.</note> He
+					was crowned by the people many times and was
+					honoured with statues. A bronze statue<note resp="ed" place="unspecified" anchored="yes">The inscription on the base of this statue is probably preserved in <hi rend="italics">I.G.</hi> ii.<hi rend="super">2</hi> 3776. Another statue stood not far from the Prytaneium; <hi rend="italics">cf.</hi> Pausanius, i. 8. 2.</note> of him
+					stands in the Cerameicus, set up in accordance with
+					a decree passed in the archonship of Anaxicrates,<note resp="ed" place="unspecified" anchored="yes">307-306 b.c. See the Decree below, 851 ff.</note>
+					in which year Lycurgus and his eldest descendant
+					were granted maintenance in the Prytaneum by the
+					same decree. After Lycurgus died his eldest son,
+					Lycophron, brought a suit for the grant. Lycurgus
+					spoke also many times on religious matters, bringing
+					suit against Autolycus the Areopagite, Lysicles the
+					general, Demades the son of Demeas, Menesaechmus,
+					and many others, and he caused them all to be
+					convicted. He also brought Diphilus to trial, who
+					removed from the silver mines the rock props which
+					supported the weight above and made himself rich
+					from them contrary to the law ; and though the
+					penalty for this was death, Lycurgus brought about
+					his conviction, and from the confiscated estate distributed fifty drachmas to every citizen, since the
+					total sum collected was one hundred and sixty
+					talents or, as some say, he distributed a mina to each
+					
+					<pb id="v.10.p.411"/>
+					
+					
+					citizen.<note resp="ed" place="unspecified" anchored="yes">The drachma was worth, in silver, about 9d. or 18 cents, the mina 100 drachmas, the talent 60 minas. The sums mentioned are therefore roughly equivalent to £1 : 16s. ($9), £40,960 ($172,800), and £3 : 12 s. ($18), but the fluctuations in the value of modern currencies render such calculations very inexact. See Decree III. below, 851 f-852 e.</note> He it was who called Aristogeiton, Leocrates, and Autolycus to account for cowardice.
+					Lycurgus was nicknamed <q direct="unspecified">Ibis,</q>
+					          <quote rend="blockquote">An ibis for Lycurgus, for Chaerephon a bat.<note resp="ed" place="unspecified" anchored="yes">Aristophanes, <hi rend="italics">Birds</hi>, 1296 and scholium. But it was the grandfather of the orator and statesman to whom Aristophanes referred.</note>
+               </quote>
+					His family was derived ultimately from Erechtheus,
+					the son of Gaea and Poseidon, but in the nearest
+					generations from Lycomedes and Lycurgus, whom the
+					people honoured with funerals at the public expense ;
+					and this succession from father to son of those of the
+					family who have been priests of Poseidon exists on a
+					complete tablet which has been set up in the Erechtheum, painted by Ismenias the Chalcidian ; and
+					there are wooden statues of Lycurgus and his sons
+					Habron, Lycurgus, and Lycophron, made by Timarchus and Cephisodotus, the sons of Praxiteles. But
+					the tablet was put up by his son Habron, who received the priesthood by inheritance and handed it
+					over to his brother Lycophron ; and that is why
+					Habron is represented as handing Lycophron the
+					trident. And Lycurgus had a record made of all his
+					acts as a public official and set it up on a tablet, for
+					all men to see who wished, in front of the palaestra
+					that he had built; no one, however, could convict
+					him of embezzlement. He made the motion to crown
+					Neoptolemus the son of Anticles and to set up a
+					statue of him because he had promised to gild the
+					
+					<pb id="v.10.p.413"/>
+					
+					
+					altar of Apollo<note resp="ed" place="unspecified" anchored="yes">This altar may have stood in front of the temple of Apollo Patro&uuml;s; <hi rend="italics">cf.</hi> Judeich, <hi rend="italics">Topographie von Athen</hi>
+                  <hi rend="super">2</hi>, p. 345, n. 4.</note> in the Market-place in accordance
+					with the God's prophecy. He also moved a decree
+					granting honours to Diotimus, son of Diopeithes, of
+					the deme Euonymus, in the archonship of Ctesicles.<note resp="ed" place="unspecified" anchored="yes">334-333 b.c.</note>
+				        </p>
+         </div1>
+         <div1 type="chapter" n="8">
+            <head>VIII. DEMOSTHENES</head>
+            <p>
+					Demosthenes, son of Demosthenes and Cleobul&ecirc;
+					daughter of Gylon, was of the deme Paeania. He
+					was left an orphan at the age of seven years<note resp="ed" place="unspecified" anchored="yes">He was born in 384 b.c.; <hi rend="italics">cf.</hi> Orations xxx. 15 and xxi. 154.</note> by his
+					father, along with his five-year-old sister, and lived
+					during his minority with his mother. Some say that
+					he went to school to Isocrates, but most authorities
+					say that he went to Isaeus of Chalcis, who was a
+					pupil of Isocrates living in Athens. He imitated
+					Thucydides and also the philosopher Plato, whose
+					instruction, some say, he followed with especial zeal.
+					But Hegesias of Magnesia says that he asked his
+					attendant to let him hear Callistratus of Aphidna,
+					son of Empedus, a noted orator who had been a commander of cavalry and had set up the altar to Hermes-of-the-Market<note resp="ed" place="unspecified" anchored="yes">The bronze Hermes Agoraios was <foreign lang="greek">e)n me/sh| th=| a(gora=|</foreign> (schol. Aristoph. <hi rend="italics">Eq.</hi> 297; <hi rend="italics">cf.</hi> Paus. i. 15. 1) and <foreign lang="greek">para\ th\n poiki/lhn</foreign> (Lucian, <hi rend="italics">Iup. Trag.</hi> 33).</note> and was about to address the popular
+					assembly; and Demosthenes, when he had heard
+					him speak, fell in love with oratory. Demosthenes
+					heard him, it is true, for only a short time, as long
+					as Callistratus remained in Athens ; but when he
+					had been banished to Thrace and Demosthenes had
+					finished his service as ephebe,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">i.e.</hi> at the age of twenty. This service, designed to be a training for citizenship, lasted two years.</note> he went over to Isocrates
+					
+					<pb id="v.10.p.415"/>
+					
+					
+					and Plato ; then he took Isaeus into his house
+					and for four years exerted himself to imitate his
+					speeches. But Ctesibius says in his work <hi rend="italics">On Philosophy</hi> that through Callias of Syracuse he obtained
+					the speeches of Zethus of Amphipolis and through
+					Charicles of Carystus those of Alcidamas and that he
+					studied them thoroughly.
+				</p>
+            <p>
+					When he attained his majority, because he received from his guardians less than was right, he
+					brought them to trial for their administration, in the
+					archonship of Timocrates.<note resp="ed" place="unspecified" anchored="yes">364-363 b.c.</note> There were three of
+					them : Aphobus, Therippides, and Demophon or
+					Demeas, and he accused the last-named especially,
+					since he was his mother's brother.<note resp="ed" place="unspecified" anchored="yes">This is incorrect. The author seems to have confused Demophon and his father Demeas. Demosthenes accused Aphobus chiefly, and Aphobus was his cousin, not his uncle. <hi rend="italics">Cf.</hi> Demosthenes, xxix. (<hi rend="italics">Against Aphobus for False Witness</hi>) 59, also 6 and 20; xxviii. (<hi rend="italics">Against Aphobus</hi> II.) 15; xxvii. (<hi rend="italics">Against Aphobus</hi> I.) 4.</note> He fixed the
+					penalty in each suit at ten talents, and he obtained
+					conviction of all three defendants ; but he exacted no
+					part of the penalty, for he let them off, some for money
+					and some as an act of grace. When Aristophon<note resp="ed" place="unspecified" anchored="yes">Aristophon, a second-rate but influential politician, was especially active in the decade preceding the choregia of Demosthenes, but no connexion can be perceived between his retirement and Demosthenes' choregia. He lived to be nearly 100 years old (<foreign lang="greek">h)/dh</foreign>).</note> at
+					last on account of age resigned political leadership,
+					Demosthenes was even made choregus.<note resp="ed" place="unspecified" anchored="yes">An indication of Demosthenes' restored fortune. The choregus was a wealthy man who equipped the chorus for dramas and superintended its training.</note> And wThen
+					Meidias of the deme of Anagyros struck him as he
+					was performing his duties in the theatre as choregus,
+					he sued him for the act, but on receipt of three
+					thousand drachmas he dropped the suit. They say
+					that when he was still a young man he withdrew into
+					a cave and studied there, shaving half of his head to
+					keep himself from going out; also that he slept on a
+					
+					<pb id="v.10.p.417"/>
+					
+					
+					narrow bed in order to get up quickly, and that since
+					he could not pronounce the sound of R he learned
+					to do so by hard work, and since in declaiming for
+					practice he made an awkward movement with his
+					shoulder, he put an end to the habit by fastening a
+					spit or, as some say, a dagger from the ceiling to
+					make him through fear keep his shoulder motionless.
+					They say, too, that as he progressed in his ability to
+					speak he had a mirror made as large as himself and
+					kept his eyes on it while practising, that he might
+					correct his faults ; and that he used to go down to
+					the shore at Phalerum and address his remarks to
+					the roar of the waves, that he might not be disconcerted if the people should ever make a disturbance ; and that because he was short of breath
+					he paid Neoptolemus the actor ten thousand drachmas
+					to teach him to speak whole paragraphs without
+					taking breath.
+				</p>
+            <p>
+					And when he entered upon political life, finding that
+					the public men of the city were divided into two
+					parties, one favouring Philip and the other addressing
+					the populace in defence of liberty, he enrolled himself
+					among those opposed to Philip and always constantly
+					advised the people to support the cause of those
+					peoples which were in danger of being subjected by
+					Philip, in which policy he was associated with
+					Hypereides, Nausicles, Polyeuctus, and Diotimus ;
+					and thus he also brought the Thebans, Euboeans,
+					Corcyraeans, Corinthians, Boeotians, and many others
+					into alliance with the Athenians. Once he was hissed
+					out of the assembly and was walking home feeling
+					discouraged ; but Eunomus of the deme Thria, who
+					was already an old man, happened to meet him and
+					encouraged him, and more than anyone else the actor
+					
+					
+					<pb id="v.10.p.419"/>
+					
+					
+					Andronicus,<note resp="ed" place="unspecified" anchored="yes">A tragic actor of the first part of the fourth century b.c. See O'Connor, <hi rend="italics">Chapters in the History of Actors and Acting in Ancient Greece</hi>, p. 78. Plutarch, <hi rend="italics">Life of Demosthenes</hi>, chap. vii. assigns to Satyrus about the same relation to the orator's training as is here assigned to Andronicus.</note> by telling him that his words were
+					excellent but that his delivery was deficient, and
+					then Andronicus declaimed from memory the speech
+					which Demosthenes had delivered in the assembly ;
+					whereupon Demosthenes was convinced and put himself in the hands of Andronicus. Therefore when
+					someone asked him what was the first thing in oratory,
+					he replied <q direct="unspecified">Delivery,</q> and what the second,
+					<q direct="unspecified">Delivery,</q> and the third, <q direct="unspecified">Delivery.</q>
+               <note resp="ed" place="unspecified" anchored="yes">On the meaning, broader than that of our <q direct="unspecified">delivery,</q> in Greek rhetoric see Aristotle, <hi rend="italics">Rhetoric</hi>, iii., <hi rend="italics">ad init.</hi>
+               </note> And when
+					he spoke again in the assemblies he was hissed for
+					some new-fangled expressions, so that Antiphanes
+					and Timocles made fun of him in their comedies,
+					<quote rend="blockquote">By earth, by founts, by rivers, and by floods,<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi> ii. p. 128, no. 296. For Demosthenes' metrical oath here parodied see <hi rend="italics">Life of Demosthenes</hi>, chap. vii.</note>
+               </quote>
+					for it was by swearing in this way that he had caused
+					an uproar in the assembly. He used also to swear by
+					Asclepius, putting the accent on the third syllable
+					from the end, though it is properly on the final
+					syllable ; and he offered, a proof that he was right, for
+					he said that the god was <q direct="unspecified">mild</q> (<hi rend="italics">epios</hi>). For this
+					also he often provoked a clamour from the audience.
+					But by going to school to Eubulides the Milesian
+					philosopher he corrected all his faults. Once when
+					he was at the Olympic festival and heard Lamachus
+					of Tereina reading a eulogy of Philip and Alexander
+					fand decrying the Thebans and Olynthians, he stood
+					up and quoted the words of the ancient poets testifying to the glorious deeds of the Thebans and Olynthians,
+					
+					<pb id="v.10.p.421"/>
+					
+					
+					with the result that Lamachus was silenced
+					and fled from the festival. And Philip said to those
+					who reported to him the public speeches of Demosthenes against him, <q direct="unspecified">I myself, if I had heard
+						Demosthenes speak, would have elected the man
+						general to carry on the war against me.</q> And Philip
+					used to say that Demosthenes' speeches were like
+					soldiers because of their warlike power, but those of
+					Isocrates were like athletes, because they afforded
+					pleasure like that of a show.
+				</p>
+            <p>
+					When he was thirty-seven years old, reckoning
+					from the archonship of Dexitheus<note resp="ed" place="unspecified" anchored="yes">385-384 b.c.</note> to that of Callimachus,<note resp="ed" place="unspecified" anchored="yes">349-348 b.c.</note> who was in office when an embassy came from
+					the Olynthians asking for help because they were
+					being hard pressed by Philip in the war, he persuaded
+					the Athenians to send the help ; but in the following
+					year, in which Plato died,<note resp="ed" place="unspecified" anchored="yes">348-347 b.c.</note> Philip overthrew the
+					Olynthians. Xenophon, the follower of Socrates,
+					knew him either in his youth or in his prime ; for
+					Xenophon's <hi rend="italics">Hellenica</hi> ended with the battle of
+					Mantineia and the archonship of Charicles,<note resp="ed" place="unspecified" anchored="yes">363-362 b.c.</note> and
+					Demosthenes had already before that time, in the
+					archonship of Timocrates,<note resp="ed" place="unspecified" anchored="yes">324-323 b.c.</note> caused the conviction of
+					his guardians. When Aeschines fled after his condemnation,<note resp="ed" place="unspecified" anchored="yes">Aeschines brought a suit on grounds of illegality against Ctesiphon, who proposed in 336 b.c. that Demosthenes be honoured by the city with a golden crown. The case was tried in 330 b.c., when Aeschines delivered his oration <hi rend="italics">Against Ctesiphon</hi> and Demosthenes his oration <hi rend="italics">On the Crown</hi>. Aeschines received less than one-fifth of the votes of the dicasts, and was therefore condemned to pay a fine of 1000 drachmas and to forfeit the right to bring any similar suit.</note> he followed him on horseback, and
+					Aeschines, thinking he was arresting him, fell at his
+					feet and covered his head, but Demosthenes raised
+					him up, encouraged him, and gave him a talent of
+					silver. And he advised the people to support a force
+					
+					<pb id="v.10.p.423"/>
+					
+					
+					of mercenaries at Thasos, and sailed out as commander
+					of a trireme on that occasion. After he had been in
+					charge of the food supply he was accused of embezzlement but was acquitted. When Philip had taken
+					Elateia Demosthenes himself went out with those
+					who fought at Chaeroneia,<note resp="ed" place="unspecified" anchored="yes">In 338 b.c., when Philip destroyed the independence of Greece.</note> on which occasion it
+					appears that he deserted his post, and that, as he was
+					running away, a bramble-bush caught his cloak,
+					whereupon he turned and said, <q direct="unspecified">Take me alive.</q>
+					And he had as a device on his shield the words <q direct="unspecified">With
+						good fortune.</q>
+               <note resp="ed" place="unspecified" anchored="yes">Apparently a jest in connexion with the story of his cowardice.</note> However, he delivered the funeral
+					address for those who fell.<note resp="ed" place="unspecified" anchored="yes">This indicates that he had not disgraced himself.</note> And after that, directing
+					his efforts to the improvement of the city and being
+					elected commissioner in charge of the fortifications,
+					he contributed out of his own pocket the funds expended, amounting to one hundred minae ; he also
+					presented ten thousand drachmas<note resp="ed" place="unspecified" anchored="yes">On these contributions <hi rend="italics">cf.</hi> Aeschines, iii. (<hi rend="italics">Against Ctesiphon</hi>) 17, and Demosthenes, xviii. (<hi rend="italics">On the Crown</hi>) 118.</note> for sacred envoys,<note resp="ed" place="unspecified" anchored="yes">Delegations sent to sacred places to attend festivals and the like.</note>
+					and he made a cruise in a trireme to the allied cities
+					collecting money. For these activities he was
+					crowned many times, on earlier occasions on motions
+					offered by Demomeles, Aristonicus, and Hypereides
+					with golden crowns, and the last time on the motion
+					of Ctesiphon ; and when the decree granting this
+					honour was attacked as illegal by Diodotus and
+					Aeschines, he was so successful in his defence that the
+					accuser did not receive one-fifth of the votes.
+				</p>
+            <p>
+					And at a later time, when Alexander was campaigning in Asia and Harpalus<note resp="ed" place="unspecified" anchored="yes">Harpalus, treasurer of Alexander, embezzled a large sum and fled first to Tarsus, then, in 324 b.c., to Greece.</note> came fleeing to Athens
+					
+					<pb id="v.10.p.425"/>
+					
+					
+					with money, at first Demosthenes kept him from
+					being admitted, but after he had entered the harbour,
+					Demosthenes accepted one thousand darics and
+					changed his attitude, and when the Athenians wished
+					to surrender the man to Antipater, he spoke against
+					it and made a motion that Harpalus deposit the money
+					on the Acropolis without even stating the amount to
+					the people ; and although Harpalus stated that he
+					had brought with him seven hundred talents, that
+					which was taken up to the Acropolis was found to
+					amount to only three hundred and fifty or a little
+					more, as Philochorus says. And after this, when
+					Harpalus escaped from the prison in which he was
+					being kept until a representative of Alexander should
+					arrive, and had gone to Crete or, as some say, to
+					Taenarum in Laconia, Demosthenes was accused of
+					bribe-taking and of having this reason for not mentioning the amount of the money taken up or the
+					carelessness of the guard. He was brought to trial
+					by Hypereides, Pytheas, Menesaechmus, Himeraeus,
+					and Patrocles, and they obtained his conviction by
+					the Senate of the Areopagus ; and after his conviction he went into exile, not being able to pay back
+					five times the amount (he was accused of having
+					accepted thirty talents), or, as some say, he did not
+					wait for the trial. After this time the Athenians
+					sent Polyeuctus as envoy to the commonwealth of the
+					Arcadians in order to detach them from their alliance
+					with the Macedonians, and when Polyeuctus was
+					unable to persuade them, Demosthenes appeared to
+					help him and did persuade them. For this he was
+					admired, and after some time he was permitted to
+					return, a decree in his favour having been passed
+					
+					<pb id="v.10.p.427"/>
+					
+					
+					and a trireme dispatched to bring him. When the
+					Athenians passed a decree proposed by his cousin
+					Demon of Paeania that he should use the thirty
+					talents which he owed in adorning the altar of Zeus
+					the Saviour at Peiraeus and should then be absolved,
+					he returned on those conditions to public life.
+				</p>
+            <p>
+					When Antipater was shut up in Lamia by the
+					Greeks, and the Athenians were making thankofferings for the good news, he said to his friend
+					Agesistratus that he did not agree with the rest about
+					these matters, <q direct="unspecified">for,</q> he said, <q direct="unspecified">I know that the
+						Greeks have both the knowledge and the strength
+						for a stadium dash<note resp="ed" place="unspecified" anchored="yes">A stadium was about equal to a furlong and was the usual short-distance run. The <hi rend="italics">dolichos</hi> was twenty stadia.</note> in warfare, but cannot hold out
+						for a long-distance run.</q> When Antipater had taken
+					Pharsalus and threatened to besiege the Athenians
+					unless they surrendered the orators, Demosthenes
+					left the city and fled first to Aegina to sit as suppliant
+					in the sanctuary of Aeacus, but was frightened and
+					changed over to Calauria; and when the Athenians
+					voted to surrender the orators including himself, he
+					took his seat as a suppliant there in the temple of
+					Poseidon. And when Archias,<note resp="ed" place="unspecified" anchored="yes">This Archias was a tragic actor recorded as victor at the Lenaea <hi rend="italics">circa</hi> 330 b.c. in <hi rend="italics">I.G.</hi> ii.<hi rend="super">2</hi> 2325 n. Plutarch, <hi rend="italics">Life of Demosthenes</hi>, chap. xxviii. names several other prominent Athenians <q direct="unspecified">hunted down</q> by him, among them Hypereides. <hi rend="italics">Cf.</hi> p. 441 below. Another version of Demosthenes' retort to Archias is given <hi rend="italics">ibid.</hi> 29.</note> nicknamed <q direct="unspecified">ExileHunter,</q> who had been a pupil of the orator Anaximenes, came to fetch him and urged him to leave his
+					sanctuary, indicating that Antipater would receive
+					him as a friend, he said, <q direct="unspecified">Your acting in tragedy was
+						not convincing to me, nor will your advice be convincing now</q> ; and when Archias tried to use force,
+					the authorities of the city prevented him, and Demosthenes
+					
+					<pb id="v.10.p.429"/>
+					
+					
+					said, <q direct="unspecified">I took refuge in Calauria, not to save
+						my life, but to convict the Macedonians of using force
+						even against the sanctuaries of the gods,</q> and asking
+					for writing materials he wrote - so Demetrius of
+					Magnesia says - the distich which was later inscribed
+					by the Athenians upon his statue :
+					<quote rend="blockquote">
+                  <l>Had you possessed but the strength, Demosthenes, like to
+					your spirit;
+					</l>
+                  <l>Never would Macedon's war Greece to submission have
+					brought.<note resp="ed" place="unspecified" anchored="yes">See Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> ii. p. 331.</note>
+                  </l>
+               </quote>
+					The statue, a work of Polyeuctus, is placed near the
+					Roped-off Enclosure<note resp="ed" place="unspecified" anchored="yes">This was a large area in the Market Place which was enclosed at ostracisms, and perhaps at other times, within a barrier of rope for the better control of the popular assembly. Since the contiguous altar of the Twelve Gods has recently (<hi rend="italics">vide</hi> Shear in <hi rend="italics">Hesperia</hi>, iv. pp. 355 ff.) been uncovered in the northern part of the Agora, this enclosure can no longer, with Judeich (<hi rend="italics">Topographie von Athen</hi>
+                  <hi rend="super">2</hi>, p. 250), be placed in the south-west area, on the slopes of the Areopagus.</note> and the altar of the Twelve
+					Gods. But according to some authorities he was
+					found to have written <q direct="unspecified">Demosthenes to Antipater,
+						greeting.</q>
+               <note resp="ed" place="unspecified" anchored="yes">These were the words usually employed at the beginning of letters.</note> Philochorus<note resp="ed" place="unspecified" anchored="yes">M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> i. p. 407.</note> says that he died by
+					drinking poison, but Satyrus the historian says that
+					the pen with which he began to write the letter was
+					poisoned, and he died by sucking it; and Eratosthenes says that for a long time he wore a poisoned
+					bracelet on his arm through fear of the Macedonians.
+					There are those who say that he died by holding his
+					breath, but others assert that it was by sucking poison
+					from his seal ring. He lived, according to those who
+					give the higher number, seventy years, according to
+					those who giye the lower, sixty-seven. He was active
+					in politics twenty-two years.
+					
+					<pb id="v.10.p.431"/>
+					
+				        </p>
+            <p>
+					When Philip died,<note resp="ed" place="unspecified" anchored="yes">336 b.c.</note> Demosthenes came out from
+					his house dressed in a white garment, in spite of the
+					fact that his daughter had lately died, thus showing his joy at the death of the Macedonian.<note resp="ed" place="unspecified" anchored="yes">See <hi rend="italics">Life of Demosthenes</hi>, chap. xxii.</note> He
+					also assisted the Thebans when they were at war
+					with Alexander, and he always encouraged the rest
+					of the Greeks ; for which reason Alexander after
+					razing Thebes demanded him of the Athenians and
+					threatened them if they should refuse to surrender
+					him. And when Alexander was making war on the
+					Persians and called upon the Athenians for a naval
+					force, he spoke against it, saying that it was not clear
+					whether Alexander would not employ the force
+					against those who furnished it.
+				</p>
+            <p>
+					He left two sons by one wife of noble family,
+					daughter of a certain Heliodorus ; and he had one
+					daughter who died unmarried while still a child. He
+					had also a sister to whom and her husband Laches of
+					Leucono&euml; his nephew Demochares was born, a man
+					both brave in war and inferior to none in political
+					speeches. There is a statue of him in the Prytaneum,<note resp="ed" place="unspecified" anchored="yes">The Prytaneum was the building in which the Prytanes who formed the executive committee of the Senate held their meetings. Maintenance in the Prytaneum was often voted in recognition of service to the state.</note>
+					the first on the right as you go in towards the hearth,
+					wearing both a cloak and a sword ; for he is said to
+					have worn this costume in addressing the people when
+					Antipater was demanding the surrender of the
+					orators. At a later time the Athenians voted maintenance in the Prytaneum to the relatives of Demosthenes and erected to him after his death the statue
+					in the Market-place,<note resp="ed" place="unspecified" anchored="yes">See above, 847 a.</note> in the archonship of Gorgias.<note resp="ed" place="unspecified" anchored="yes">280-279 b.c.</note>
+					The grants to him were requested by his nephew
+					
+					<pb id="v.10.p.433"/>
+					
+					
+					Demochares, for whom in turn his son Laches, son
+					of Demochares, of Leucono&ecirc;, asked in the archonship
+					of Pytharatus,<note resp="ed" place="unspecified" anchored="yes">271-270 b.c.</note> the tenth year after, for grants
+					extending to the erection of the statue in the Market-place, maintenance in the Prytaneum for Demochares
+					and his eldest descendant in perpetuity, and front
+					seats at all competitive spectacles. And the decrees
+					in favour of both are inscribed, but the statue of
+					Demochares mentioned above was transferred to the
+					Prytaneum.
+				</p>
+            <p>
+					Sixty-five genuine speeches of Demosthenes are
+					current. Some say that he lived a dissolute life,
+					wearing women's clothes and indulging in revels on
+					every occasion, on which account he was nicknamed
+					Batalus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aeschines, i. (<hi rend="italics">Against Timarchus</hi>) 131. The nickname is also said to refer to his stammering.</note>; but others say that this was a diminutive
+					derived from the name of his nurse and was given to
+					him in reproach. And Diogenes the Cynic, seeing
+					him once in a tavern looking ashamed and trying to
+					withdraw from sight, said, <q direct="unspecified">The more you withdraw,
+						the more you will be in the tavern.</q> And he jeered
+					at him, saying that in his speeches he was a Scythian,
+					but in battle a city man. He received money from
+					Ephialtes also, one of the politicians, who had been
+					on an embassy to the King of Persia and came
+					secretly bringing funds for distribution among the
+					politicians for the purpose of stirring up the war
+					against Philip ; and they say that he received a
+					private bribe of three thousand darics from the King.
+					He arrested a certain Anaxilas of Oreus, who had been
+					a guest-friend of his, subjected him to torture as a
+					spy, and when he confessed nothing proposed a decree
+					
+					<pb id="v.10.p.435"/>
+					
+					
+					that he be handed over to the executioners. And
+					once when he was being prevented by the Athenians
+					from speaking in the assembly, he said that he only
+					wished to speak briefly to them, and when they became silent he said, <q direct="unspecified">A young man in the summer
+						time hired an ass to go from the city to Megara.
+						When noon came and the sun was blazing fiercely,
+						both he and the owner of the ass wished to lie down
+						in its shadow. Each tried to prevent the other from
+						so doing, the owner maintaining that he had rented
+						him the ass, not its shadow, and the one who had hired
+						the ass that he had complete rights in him.</q> When
+					he had said this, he began to go away ; and when the
+					Athenians stopped him and asked him to tell the rest
+					of the tale, he said, <q direct="unspecified">You are willing to listen when
+						I speak about the shadow of an ass,<note resp="ed" place="unspecified" anchored="yes">
+                     <q direct="unspecified">An ass's shadow</q> was proverbial for things utterly trivial.</note> but when I speak
+						of serious matters, you refuse.</q> Once when Polus
+					the actor told him that he received a talent as pay
+					for acting two days, he replied, <q direct="unspecified">And I five talents
+						for being silent one day.</q> And when his voice failed
+					in the assembly and the people jeered at him, he said
+					<q direct="unspecified">It is actors who should be judged by their voices,
+						but statesmen by their opinions.</q> And when Epicles
+					rebuked him for always preparing his speeches, he
+					said, <q direct="unspecified">I should be ashamed to speak off-hand to such
+						a great people.</q> They say that he never put out his
+					lamp until he was fifty years old - polishing his
+					speeches. And he says himself that he was a waterdrinker.<note resp="ed" place="unspecified" anchored="yes">Demosthenes, vi. (<hi rend="italics">Second Philippic</hi>) 30; xix. (<hi rend="italics">False Legation</hi>) 46.</note> Lysias the orator was acquainted with
+					him, and Isocrates saw him engaged in public affairs
+					until the battle of Chaeroneia, as did some of the
+					Socratic philosophers. He delivered most of his
+					
+					<pb id="v.10.p.437"/>
+					
+					
+					speeches extemporaneously, as he was well endowed
+					for that by nature.<note resp="ed" place="unspecified" anchored="yes">This does not agree with what has been said above about his preparing all his speeches.</note> The first who moved that he be
+					crowned with a crown of gold was Aristonicus of
+					Anagyrus, son of Nicophanes, but Diondas prevented
+					it by an affidavit.
+				</p>
+         </div1>
+         <div1 type="chapter" n="9">
+            <head>IX. HYPEREIDES</head>
+            <p>
+					Hypereides was the son of Glaucippus and grandson of Dionysius, of the deme of Collyt&ecirc;. He had a
+					son, Glaucippus, named after his grandfather, who
+					was an orator and writer of speeches.<note resp="ed" place="unspecified" anchored="yes">In the Athenian courts of law the parties to a suit were obliged to speak in person, therefore those who were not sure of their own ability hired others to write their speeches, which they learned by heart and delivered.</note> He in turn
+					had a son Alphinous. After being a pupil of the
+					philosopher Plato, along with Lycurgus, and of the
+					orator Isocrates, Hypereides entered upon public life
+					at Athens at the time when Alexander was interfering in the affairs of Greece. And he spoke in
+					opposition to him concerning the generals whose
+					surrender he demanded of the Athenians and concerning the triremes. He also advised against
+					disbanding the mercenary force at Taenarum under
+					the command of Chares, since he was well disposed
+					towards that general. At first he pleaded in suits at
+					law in return for a fee. And since he was believed to
+					have shared the Persian funds<note resp="ed" place="unspecified" anchored="yes">The comic poets of the time were very free with such insinuations, <hi rend="italics">e.g.</hi> Timocles in his <hi rend="italics">Delos</hi> (Kock, <hi rend="italics">Com. Att. Frag.</hi> ii. p. 432) mentions both Demosthenes and Hypereides.</note> with Ephialtes, and
+					was elected trierarch when Philip was besieging
+					Byzantium, he was sent out to aid the Byzantines ;
+					and in that year he bore the expense of a chorus,<note resp="ed" place="unspecified" anchored="yes">Such offices or <q direct="unspecified">liturgies</q> were imposed upon wealthy men only, and the fact that he undertook one may have led to the belief that he partook of the Persian funds, or that belief may have led to the imposition of the offices.</note>
+					
+					          <pb id="v.10.p.439"/>
+					
+					
+					when others were released from all contributions to the
+					public service. He also proposed honours for Demosthenes, and when suit was brought by Diondas on the
+					ground that the decree was contrary to law, he was
+					acquitted. Although he was a friend of Demosthenes, Lysicles, Lycurgus, and their associates, he
+					did not remain so to the end ; but when Lysicles and
+					Lycurgus were dead and Demosthenes was being
+					tried for receiving bribes from Harpalus, he was
+					chosen from all the orators (for he alone was unbribed)
+					and brought the accusation against him. And when
+					he was brought to trial by Aristogeiton for illegal
+					conduct in proposing a decree after the battle of
+					Chaeroneia to grant citizenship to the resident aliens,
+					to set the slaves free, and to put the sacred objects,
+					the children, and the women in Peiraeus for safekeeping, he was acquitted. And when certain
+					persons blame d him for having disregarded many laws
+					in his decree, he said, <q direct="unspecified">The shields of the Macedonians cast a shadow<note resp="ed" place="unspecified" anchored="yes">The shadow of the shields made him fail to see the laws (taking <foreign lang="greek">parido/nta</foreign> literally).</note> over my eyes,</q> and <q direct="unspecified">It was
+						not I, but the battle of Chaeroneia, that proposed the
+						decree.</q> After this, however, Philip was frightened
+					and granted permission to remove the bodies of the
+					slain, though before that he had refused it to the
+					heralds who came from Lebadeia. Later, however,
+					after the battle of Crannon,<note resp="ed" place="unspecified" anchored="yes">After the death of Alexander the Great the Greeks revolted, but they lacked leadership, and when they were defeated in an engagement at Crannon, Thessaly, in August 322 b.c., the Greek states came to terms separately with Antipater.</note> when his surrender was
+					demanded by Antipater and the people was on the
+					point of surrendering him, he fled from the city to
+					Aegina along with those against whom decrees had
+					been passed. Here he met Demosthenes and excused
+					
+					<pb id="v.10.p.441"/>
+					
+					
+					himself for his disagreement with him. After leaving
+					Aegina he was seized forcibly by Archias,<note resp="ed" place="unspecified" anchored="yes">See above, p. 427, note <hi rend="italics">b</hi>.</note> nicknamed
+					<q direct="unspecified">The Exile-Hunter</q> (a Thurian by birth, at first an
+					actor, but at that time an assistant of Antipater), in
+					the temple of Poseidon<note resp="ed" place="unspecified" anchored="yes">At Hermion&ecirc;.</note> while clinging to the statue
+					of the god. He was brought to Antipater at Corinth,
+					and when put to the torture he bit off his tongue that
+					he might not be able to utter any secrets of his native
+					city. And in this way he died, on the ninth day of the
+					month of Pyanepsion. But Hermippus<note resp="ed" place="unspecified" anchored="yes">M&uuml;ller, <hi rend="italics">Frag. Hist. Graec.</hi> i. p. 50.</note> says that he
+					went to Macedonia, where his tongue was cut out and
+					he was thrown out unburied, and that Alphinous, who
+					was his cousin (or, as some say, the son of his son
+					Glaucippus), obtained possession of the body by the
+					aid of a physician named Philopeithes, burned it and
+					brought the bones to Athens to his relatives contrary
+					to the decrees of the Athenians and the Macedonians;
+					for they had ordered, not only that he be exiled, but
+					that he be not even buried in his own country. And
+					others say that he died at Cleonae after being brought
+					there with the rest, where his tongue was cut out and
+					he perished in the manner related above ; and that
+					his relatives obtained the bones and buried them with
+					his ancestors before the gates of the Hippades,<note resp="ed" place="unspecified" anchored="yes">At Athens, probably south-east from the Acropolis.</note> as
+					Heliodorus says in the third book of his work <hi rend="italics">On
+					Monuments</hi>. But now the monument has fallen in
+					ruins and cannot be identified.
+				</p>
+            <p>
+					He is said to have excelled all in addressing the
+					people ; and by some critics he is ranked above
+					Demosthenes. Seventy-seven speeches are current
+					
+					<pb id="v.10.p.443"/>
+					
+					
+					under his name, fifty-two of which are genuine.<note resp="ed" place="unspecified" anchored="yes">Only small fragments of these were preserved until, at various times in the nineteenth century, six more or less complete orations were discovered in Egyptian papyrus manuscripts.</note> He
+					was also very prone to sexual indulgence, so that he
+					turned his son out of the house and brought in
+					Myrrhina, the most expensive prostitute, kept Aristagora in Peiraeus, and at his own estate in Eleusis kept
+					the Theban girl Phila, whom he had ransomed for
+					twenty minas. He used to walk in the Fish-market
+					every day.<note resp="ed" place="unspecified" anchored="yes">Another comic gibe against a public man supposed to be a gourmand. Athenaeus viii. 341 ff. quotes from the <hi rend="italics">Delos</hi> and <hi rend="italics">Icarians</hi> of Timocles gossip of this kind against Hypereides.</note> And, as it is indeed reasonable to
+					suppose, it was because he had been intimate also
+					with Phryn&ecirc;<note resp="ed" place="unspecified" anchored="yes">The traditional text is certainly corrupt; <hi rend="italics">cf.</hi> critical notes. The inference seems to have been drawn from the orator's amatory record that his advocacy of Phryn&ecirc; at her famous trial was due to an intimacy with her. An advocate was never <q direct="unspecified">examined with</q> the defendant.</note> the courtesan that when she was on
+					trial for impiety he became her advocate ; for he
+					makes this plain himself at the beginning of his
+					speech.<note resp="ed" place="unspecified" anchored="yes">Explained by Athenaeus xiii. 590 d <foreign lang="greek">e)n tw=| u(pe\r *fru/nhs lo/gw| *(uperei/dhs o(mologw=n e)ra=n th=s gunaiko/s</foreign>. Hypereides' speech was translated into Latin by Messala Corvinus (Quintilian x. 5. 2).</note> And when she was likely to be found
+					guilty, he led the woman out into the middle of the
+					court and, tearing off her clothes, displayed her
+					breasts. When the judges saw her beauty, she was
+					acquitted.<note resp="ed" place="unspecified" anchored="yes">This version is foudn also in Athenaeus xiii. 590 e, but the comic poet Poseidippus in his <hi rend="italics">Ephesian Lady</hi> (<hi rend="italics">ibid.</hi> 591 e; Kock, <hi rend="italics">Com. Att. Frag.</hi> iii. p. 339) attributes Phryn&ecirc;'s acquittal to her own arts.</note> He quietly compiled accusations against
+					Demosthenes and the fact became known ; for once,
+					when he was ill, Demosthenes came to his house to
+					visit him and found him with the document against
+					himself in his hand ; and when Demosthenes was
+					angry, Hypereides said, <q direct="unspecified">It will do you no harm
+						while you are my friend, but if you become my
+						enemy, it will prevent your doing anything against
+						
+						<pb id="v.10.p.445"/>
+						
+						me.</q> He also proposed a decree conferring honours
+					upon Iolas, who was supposed to have given Alexander
+					the poison.<note resp="ed" place="unspecified" anchored="yes">The belief that Alexander died of poison was apparently unfounded.</note> He took part with Leosthenes in the
+					Lamian War<note resp="ed" place="unspecified" anchored="yes">In 323-322 b.c. after Alexander's death, when the Greeks under Leosthenes besieged the Macedonian Antipater in Lamia near Thermopylae. A large part of Hypereides' funeral oration is preserved.</note> and delivered the funeral oration for
+					the fallen in marvellous fashion. When Philip was
+					preparing to sail against Euboea, and the Athenians
+					were afraid, he assembled forty triremes by private
+					contributions, and in his own name and his son's he
+					gave two triremes, the first contribution made. And
+					when a dispute arose with the Delians as to which
+					people should have control of the sanctuary, although
+					Aeschines was chosen Athenian advocate, the senate
+					of the Areopagus elected Hypereides ; and his speech
+					is the one entitled <hi rend="italics">The Delian</hi>. He was also an envoy
+					to the Rhodians. And when envoys came from
+					Antipater and praised their sender as a good man, in
+					replying to them he said, <q direct="unspecified">We know that he is good,
+						but we do not want a good master.</q> It is said that
+					in addressing the public he did not employ the
+					actor's art, that he merely related the facts of the case
+					and did not bore the jurors even with these. He was
+					sent also to the Eleans to defend the athlete Callippus against the charge of having used corruption in
+					the contest, and he won his case; but when he
+					brought a suit against the grant of a gift for Phocion,
+					which Meidias, son of Meidias, of the deme Anagyros,
+					proposed in the archonship of Xenias,<note resp="ed" place="unspecified" anchored="yes">An archon Xenias is unknown. Euxenippus, suggested by Schafer, was archon in 305-304 b.c., but Hypereides was then dead. Possibly the archon Archias, 346-345 b.c., is intended, in which case the gift for Phocion may have had some connexion with the battle of Tamynae.</note> on the twentyfourth day of Gamelion, he was defeated.
+					
+				</p>
+         </div1>
+         <pb id="v.10.p.447"/>
+         <div1 type="chapter" n="10">
+            <head>X. DEINARCHUS</head>
+            <p>
+					Deinarchus, son of Socrates or Sostratus, an
+					Athenian according to some, but, as others think, a
+					Corinthian, came to Athens while still young at the
+					time when Alexander was invading Asia,<note resp="ed" place="unspecified" anchored="yes">334-323 b.c.</note> settled
+					there, and became a pupil of Theophrastus, who had
+					succeeded Aristotle as head of his School<note resp="ed" place="unspecified" anchored="yes">The Lyceum, <hi rend="italics">i.e.</hi> the Peripatetic School.</note>; but he
+					also attended the lectures of Demetrius of Phalerum.
+					He took part most actively in public affairs after the
+					death of Antipater,<note resp="ed" place="unspecified" anchored="yes">318 b.c.</note> since some of the public men
+					had been put to death and the rest were in exile.
+					Since he became a friend of Cassander he prospered
+					exceedingly through the fees he charged for the
+					speeches which he wrote for those who requested his
+					services ; and he had as his opponents the most
+					distinguished public men, although he did not speak
+					before the popular assembly (for he was unable to
+					do so<note resp="ed" place="unspecified" anchored="yes">If he was a Corinthian by birth, he would be debarred from such speaking.</note>); but he merely wrote speeches for their
+					opponents. And when Harpalus absconded he composed many speeches against those who were accused
+					of having accepted bribes from him, and these he
+					furnished to their accusers. But at a later time he
+					was accused of having dealings with Antipater and
+					Cassander in connexion with their occupation of
+					Munichia when it was garrisoned by Antigonus and
+					Demetrius in the archonship of Anaxicrates,<note resp="ed" place="unspecified" anchored="yes">307-306 b.c.</note> whereupon he turned most of his property into cash and
+					went into exile at Chalcis. And after living in exile
+					about fifteen years and amassing considerable wealth,
+					he returned, his restoration, and at the same time
+					
+					<pb id="v.10.p.449"/>
+					
+					
+					that of the other exiles, having been effected by
+					Theophrastus and his friends. He lodged at the
+					house of a friend of his named Proxenus and lost his
+					money, when he was already an old man and his
+					eyes were weak, and when Proxenus refused to investigate the matter<note resp="ed" place="unspecified" anchored="yes">Evidently Deinarchus suspected theft or fraud.</note> he brought a suit against him,
+					and then for the first time he spoke in a court of law.
+					His speech is extant, too.<note resp="ed" place="unspecified" anchored="yes">Only a fragment of this speech is extant.</note> There are sixty-four
+					speeches of his extant which are regarded as genuine ;
+					of these some are handed down as by Aristogeiton.
+					He was a zealous follower of Hypereides or, as
+					some say on account of his emotional and vehement
+					qualities, of Demosthenes. He certainly is an imitator
+					of the latter's figures of speech.
+				</p>
+         </div1>
+         <div1 type="chapter" n="11">
+            <head>DECREES<note resp="ed" place="unspecified" anchored="yes">On the following documents, called in the manuscripts <q direct="unspecified">Decrees,</q> see the Introduction to these <hi rend="italics">Lives</hi>, p. 342 above.</note> I</head>
+            <p>
+					Demochares<note resp="ed" place="unspecified" anchored="yes">Apparently the son of the Laches, son of Demochares, mentioned above, 847 d, that is, the orator's nephew.</note> of Leucono&ecirc;, son of Laches, asks for
+					Demosthenes of Paeania, son of Demosthenes, the grant of
+					a bronze statue in the Market-place and maintenance in
+					the Prytaneum and the privilege of front seats at the public
+					spectacles for him and for the eldest of his descendants in
+					perpetuity, because he has shown himself as a public benefactor and counsellor, and has brought about many benefits
+					for the people of the Athenians, not only having relinquished
+					his property for the common weal but also having contributed
+					eight talents and a trireme when the people freed Euboea,
+					and another trireme when Cephisodorus sailed to the Hellespont, and another when Chares and Phocion were sent as
+					generals to Byzantium by the vote of the popular assembly,
+					and having ransomed many of those who were taken prisoners
+					
+					<pb id="v.10.p.451"/>
+					
+					
+					by Philip at Pydna, Methon&ecirc;, and Olynthus,<note resp="ed" place="unspecified" anchored="yes">356, 353, and 348 b.c.</note> and having
+					contributed the expense of a chorus of men because when
+					the members of the tribe of Pandionis failed to furnish this
+					chorus, he contributed the money and, besides, furnished
+					arms to the citizens who lacked them ; and when elected
+					Commissioner of the Fortifications by the popular assembly
+					he supplied the money for the work, himself contributing
+					three talents in addition to the cost of two trenches about
+					the Peiraeus, which he dug as his contribution. And after
+					the battle of Chaeroneia he contributed a talent, and in the
+					scarcity of food he contributed a talent for the food-supply.
+					And because, through persuasion, benefactions, and the
+					advice by which he moved them, he brought into alliance with
+					the people the Thebans, Euboeans, Corinthians, Megarians,
+					Achaeans, Locrians, Byzantines, and Messenians and gained
+					troops for the people and its allies, namely ten thousand
+					foot, one thousand horse, and a contribution of money which
+					he as envoy persuaded the allies to give for the war - more
+					than five hundred talents - and because he prevented the
+					Peloponnesians from going to the aid of the Boeotians, giving
+					money and going in person as envoy. And he advised the
+					people to adopt many other excellent measures, and of all his
+					contemporaries he performed the best public actions in the
+					cause of liberty and democracy. And having been exiled by
+					the oligarchy when the democracy had been destroyed, and
+					having died at Calauria on account of his devotion to the
+					democracy, when soldiers were sent against him by Antipater,
+					persisting in his loyalty and devotion to the democracy and
+					neither surrendering to its enemies nor doing anything in his
+					time of danger that was unworthy of the democracy.
+				</p>
+         </div1>
+         <div1 type="chapter" n="12">
+            <head>DECREES II</head>
+            <p>
+					Archon Pytharatus,<note resp="ed" place="unspecified" anchored="yes">271-270 b.c. See above, pp. 431 f., where the same facts are given.</note> Laches, son of Demochares, of
+					Leucono&ecirc;, asks from the senate and people of the Athenians
+					
+					<pb id="v.10.p.453"/>
+					
+					
+					for Demochares, son of Laches, of Leucono&ecirc;, a grant of a
+					bronze statue in the Market-place, and maintenance in the
+					Prytaneum for him and the eldest of his descendants in
+					perpetuity, and the privilege of a front seat at all public
+					spectacles, because he proved himself a benefactor and a good
+					counsellor to the people of the Athenians and benefited the
+					people as follows: He was a good ambassador, proposer
+					of legislation, and statesman [. . . , and he superintended]
+					the building of the walls and the preparation of armour,
+					missiles, and engines of war, he fortified the city at the time
+					of the four years' war<note resp="ed" place="unspecified" anchored="yes">294-290 b.c. The war ended with the surrender of Athens to Demetrius Poliorcetes.</note> and made peace, truce, and alliance
+					with the Boeotians, in return for which he was banished by
+					those who overthrew the democracy. When he was recalled
+					by the people in the archonship of Diocles,<note resp="ed" place="unspecified" anchored="yes">288-287 b.c.</note> he first reduced
+					the expenses of the administration and was sparing of the
+					public resources; he went as envoy to Lysimachus and
+					secured for the people thirty talents of silver and again one
+					hundred more ; he proposed the sending of an embassy to
+					Ptolemy in Egypt, and those who took part in it brought
+					back for the people fifty talents of silver; he was envoy to
+					Antipater and secured twenty talents of silver which he
+					brought to Eleusis for the people. He won the assent of the
+					people to all these measures and accomplished them ; he was
+					exiled for the sake of the democracy, he took no part in any
+					oligarchy, he held no office after the democracy had been
+					overthrown, and he was the only Athenian of those who were
+					engaged in public life in his time who never plotted to alter
+					the government of the country by changing it to a form other
+					than democracy; he made the decisions of the courts, the
+					laws, the courts, and property, safe for all Athenians by
+					the policy he pursued, and he never did anything adverse to
+					the democracy by word or deed.
+					
+				</p>
+         </div1>
+         <pb id="v.10.p.455"/>
+         <div1 type="chapter" n="13">
+            <head>DECREES III</head>
+            <p>
+					Lycophron, son of Lycurgus, of the deme Butadae, presented in writing a claim for maintenance in the Prytaneum
+					for himself in accordance with the gift presented by the
+					people to Lycurgus of the deme Butadae. In the archonship
+					of Anaxicrates,<note resp="ed" place="unspecified" anchored="yes">307-306 b.c. Much of the substance of this document is contained in the <hi rend="italics">Life</hi> of Lycurgus, see pp. 395 ff. above.</note> in the sixth prytany, that of the tribe
+					Antiochis, Stratocles, son of Euthydemus, of the deme
+					Diomeia, made the following motion: Whereas Lycurgus,
+					son of Lycophron, of the deme Butadae, having inherited
+					from early times from his ancestors that loyalty to the
+					democracy which has been peculiar to his family, and the
+					progenitors of Lycurgus, Lycomedes and Lycurgus, were
+					not only honoured by the people during their lives, but also
+					after their death the people granted them for their courage
+					and virtue public burials in the Cerameicus ; and whereas
+					Lycurgus himself during his public career made many
+					excellent laws for his country, and when he was treasurer of
+					the public revenues of the city for three periods of four years
+					distributed from the public revenue eighteen thousand nine
+					hundred talents ; and having received in trust large funds
+					from private citizens, from which he made loans previously
+					agreed upon in order to meet the exigencies of the city
+					and the people, in all six hundred and fifty talents ; and,
+					because he was believed to have administered all these funds
+					justly, was often crowned by the State ; and whereas when
+					chosen by the people he brought together large sums of
+					money upon the Acropolis, providing adornment for the
+					Goddess, solid gold Victories, gold and silver vessels for the
+					processions, and ornaments of gold for one hundred basket-carriers,<note resp="ed" place="unspecified" anchored="yes">Maidens of good birth who carried baskets of offerings in the processions.</note> and when chosen to be in charge of the equipment for
+					the war he brought to the Acropolis many pieces of armour
+					and fifty thousand missiles and fitted out four hundred
+					triremes ready to set sail, providing the equipment for some
+					of them and causing some to be built from the beginning;
+					
+					<pb id="v.10.p.457"/>
+					
+					
+					and besides all this he finished the ship-sheds and the arsenal,
+					which were half done when they came into his hands, and
+					completed the Panathenaic stadium and erected the gymnasium at the Lyceum, and adorned the city with many
+					other edifices. And when King Alexander, after overthrowing all Asia, assumed to give orders to all the Greeks in
+					common and demanded that Lycurgus be surrendered because
+					he was acting in opposition to him, the city did not surrender
+					him in spite of fear of Alexander. And although he had
+					many times submitted his accounts while the city was free
+					and had a democratic form of government, he never was
+					convicted of wrongdoing or of taking bribes through all his
+					career. Therefore, that all may know that those who choose
+					to act justly in public life in behalf of democracy and freedom
+					are held in the highest esteem while living and receive after
+					death enduring gratitude: With good Fortune: Be it resolved
+					by the people to commend Lycurgus, son of Lycophron, of
+					the deme Butadae, for his virtue and justice, and to set up
+					a bronze statue of him in the Market-place, only not in
+					any place where the law forbids its erection, and to grant
+					maintenance in the Prytaneum to the eldest descendant of
+					Lycurgus for all time, and that all his decrees be valid, and
+					that the secretary of the people inscribe them on stone
+					tablets arid place them on the Acropolis near the dedicatory
+					offerings; and that the treasurer of the people give for
+					inscribing the tablets fifty drachmas from the funds expended
+					by the people for decrees.
+					
+				</p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

@@ -1,0 +1,1443 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="IA">Iphigenia in Aulis</title>
+<title type="sub">Machine readable text</title>
+<author n="Eur.">Euripides</author>
+<editor role="translator">E. P. Coleridge</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Euripides</author>
+<title>The Plays of Euripides, translated by E. P. Coleridge. Volume II</title>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>George Bell and Sons</publisher>
+<date>1891</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1988</date>
+<respStmt><name>Judith Nelson</name><resp>tagging</resp></respStmt>
+<item>Basic SGML tagging</item>
+</change>
+<change><date>6/95</date>
+<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
+<item>Added speaker tags where needed.</item>
+</change>
+<change><date>16-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: eur.ia_eng.xml,v $
+Revision 1.1  2009-11-23 18:46:35  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 21:10:18  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 21:15:27  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:34:15  packel
+Converted to XML
+
+Revision 1.7  2004/04/21 20:27:28  mimno
+added card 1s
+
+Revision 1.6  2003/07/01 22:16:11  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.5  2000/03/04 20:34:33  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.4  2000/02/16 21:38:16  amahoney
+bring up to p3, including use of n attribute on sp when a cardbreak
+comes within a speech, and moving milestones out of speeches
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<castList>
+<castItem type="role"><role>Agamemnon</role></castItem>
+<castItem type="role"><role>Old man</role></castItem>
+<castItem type="role"><role>Chorus</role></castItem>
+<castItem type="role"><role>Menelaus</role></castItem>
+<castItem type="role"><role>Messenger</role></castItem>
+<castItem type="role"><role>Chorus of <placeName key="tgn,5001993">Argive</placeName> men</role></castItem>
+<castItem type="role"><role>Clytemnestra</role></castItem>
+<castItem type="role"><role>Iphigenia</role></castItem>
+<castItem type="role"><role>Achilles</role></castItem>
+<castItem type="role"><role>Second Messenger</role></castItem>
+</castList>
+
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<sp n="Agamemnon">
+<speaker>Agamemnon</speaker>
+<p>Leda, the daughter of Thestius, had three children, maidens, <milestone ed="p" n="50" unit="line"/> Phoebe, Clytemnestra my wife, and Helen; the foremost of the favored sons of <placeName key="tgn,1000074">Hellas</placeName> came to woo Helen; but terrible threats of spilling his rival's blood were uttered by each of them, if he should fail to win the girl. <milestone ed="p" n="55" unit="line"/> Now the matter filled Tyndareus, her father, with perplexity, whether to give her or not, how he might best succeed. This thought occurred to him: the suitors should swear to each other and join right hands and pour libations <milestone ed="p" n="60" unit="line"/> with burnt-sacrifice, binding themselves by this curse: whoever wins the child of Tyndareus for wife, they will assist that man, in case a rival takes her from his house and goes his way, robbing her husband of his rights; and march against that man in armed array and raze his city to the ground, <milestone ed="p" n="65" unit="line"/> Hellene no less than barbarian. Now when they had once pledged their word and old Tyndareus with no small cleverness had beguiled them by his shrewd device, he allowed his daughter to choose from among her suitors the one towards whom the sweet breezes of Aphrodite might carry her. <milestone ed="p" n="70" unit="line"/> Her choice fell on Menelaus; would she had never taken him! Then there came to <placeName key="tgn,7011065">Lacedaemon</placeName> from the Phrygians the man who, <placeName key="tgn,5001993">Argive</placeName> legend says, judged the goddesses' dispute; in robes of gorgeous hue, ablaze with gold, in true barbaric pomp; <milestone ed="p" n="75" unit="line"/> and he, finding Menelaus gone from home, carried Helen off, in mutual desire, to his steading on Ida. Goaded to frenzy, Menelaus flew through <placeName key="tgn,1000074">Hellas</placeName>, invoking the ancient oath exacted by Tyndareus and declaring the duty of helping the injured husband.
+</p>
+<milestone ed="p" n="80" unit="card"/>
+<p><milestone ed="p" n="80" unit="line"/> And so the Hellenes, brandishing their spears and donning their harness, came here to the narrow straits of <placeName key="perseus,Aulis">Aulis</placeName> with armaments of ships and troops, with many horses and chariots, and they chose me to captain them all for the sake of Menelaus, <milestone ed="p" n="85" unit="line"/> since I was his brother. Would that some other had gained that distinction instead of me! But after the army was gathered and come together, we still remained at <placeName key="perseus,Aulis">Aulis</placeName> weatherbound. In our perplexity, we asked Calchas, the seer, <milestone ed="p" n="90" unit="line"/> and he answered that we should sacrifice my own child Iphigenia to Artemis, whose home is in this land, and we would sail and sack the Phrygians' capital &lsqb;if we sacrificed her, but if we did not, these things would not happen&rsqb;. When I heard this, I commanded Talthybius <milestone ed="p" n="95" unit="line"/> with loud proclamation to disband the whole army, as I could never bear to slay my daughter. Whereupon my brother, bringing every argument to bear, persuaded me at last to face the crime; so I wrote in a folded scroll and sent to my wife, <milestone ed="p" n="100" unit="line"/> bidding her despatch our daughter to me on the pretence of wedding Achilles, at the same time magnifying his exalted rank and saying that he refused to sail with the Achaeans, unless a bride of our lineage should go to <placeName key="perseus,Phthia">Phthia</placeName>. Yes, this was the inducement I offered my wife, <milestone ed="p" n="105" unit="line"/> &lsqb;inventing, as I did, a sham marriage for the maiden. Of all the Achaeans we alone know the real truth, Calchas, Odysseus, Menelaus and myself; but that which I then decided wrongly, I now rightly countermand again in this scroll, which you, old man, have found me <milestone ed="p" n="110" unit="line"/> opening and resealing beneath the shade of night. Up now and away with this missive to <placeName key="perseus,Argos">Argos</placeName>, and I will tell you by word of mouth all that is written here, the contents of the folded scroll, for you are loyal to my wife and house.&rsqb;
+</p>
+<milestone ed="p" n="1" unit="card"/>
+<p>Old man, come here and stand before my dwelling.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>I come; what new schemes now, king Agamemnon?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Will you hurry?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>I am hurrying. It is little enough sleep old age allows me <milestone ed="p" n="5" unit="line"/> and keenly it watches over my eyes.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>What can that star be, steering its course there?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Sirius, still shooting over the zenith on his way near the Pleiads' sevenfold track.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>The birds are still at any rate <milestone ed="p" n="10" unit="line"/> and the sea is calm, hushed are the winds, and silence broods over the Euripus.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Then why are you outside your tent, why so restless, my lord Agamemnon? All is yet quiet here in <placeName key="perseus,Aulis">Aulis</placeName>, <milestone ed="p" n="15" unit="line"/> the watch on the walls is not yet astir. Let us go in.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I envy you, old man, yes, and every man who leads a life secure, unknown and unrenowned; but little I envy those in office.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p><milestone ed="p" n="20" unit="line"/> And yet it is there that we place the be-all and end-all of existence</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Yes, but that is where the danger comes; and ambition, sweet though it seems, brings sorrow with its near approach. At one time the unsatisfied claims of the gods <milestone ed="p" n="25" unit="line"/> upset our life, at another the numerous peevish fancies of our subjects shatter it.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>I do not like these sentiments in one who is a chief. It was not to enjoy all blessings that <milestone ed="p" n="30" unit="line"/> Atreus begot you, Agamemnon; but you must experience joy and sorrow alike, mortal as you are. Even though you like it not, this is what the gods decree. But you, after letting your taper spread its light abroad, <milestone ed="p" n="35" unit="line"/> write the letter which is still in your hands and then erase the same words again, sealing and reopening the tablet, then flinging it to the ground with floods <milestone ed="p" n="40" unit="line"/> of tears, and leaving nothing undone in your aimless behavior to stamp you mad. What is it that troubles you? what news is there affecting you, king? Come, share with me your story; <milestone ed="p" n="45" unit="line"/> you will be telling it to a loyal and trusty heart ; for Tyndareus sent me that day to form part of your wife's dowry and to wait upon the bride with loyalty.<milestone ed="p" n="115" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="115" unit="line"/> &ldquo;Daughter of Leda, in addition to my first letter, I am sending you word &mdash;.&rdquo;</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Say on and make it plain, that what my tongue utters may accord with what you have written.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>&ldquo;Not to despatch your daughter to <milestone ed="p" n="120" unit="line"/> <placeName key="tgn,7002677">Euboea</placeName>'s deep-gulfed wing, to the waveless bay of <placeName key="perseus,Aulis">Aulis</placeName>, for after all we will celebrate our child's wedding at another time.&rdquo;</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>And how will Achilles, cheated of his bride, <milestone ed="p" n="125" unit="line"/> curb the fury of his indignation against you and your wife? Here also is a danger. Make clear what you are saying.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>It is his name, not himself that Achilles is lending, knowing nothing of the marriage or of my scheming <milestone ed="p" n="130" unit="line"/> or my professed readiness to betroth my daughter to him for a husband's embrace.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>A dreadful venture yours, king Agamemnon, you that, by promise of your daughter's hand to the son of the goddess, <milestone ed="p" n="135" unit="line"/> were bringing the maid here to be sacrificed for the Danaids.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Ah me! I am utterly distraught; alas! bewilderment comes over me. Away! hurry your steps, <milestone ed="p" n="140" unit="line"/> yielding nothing to old age.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>I will make haste, king.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Do not sit down by woodland fountains; scorn the witcheries of sleep.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Hush!<note anchored="yes" resp="Coleridge">The old man cuts short Agamemnon's warnings, as being an un-called-for reflection on his own loyalty.</note></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>And when you pass any place where roads diverge, <milestone ed="p" n="145" unit="line"/> cast your eyes all round, taking heed that no mule-wagon eacape you, passing by on rolling wheels, bearing my child to the ships of the Danaids.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>It shall be so.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Start then from the bolted gates, <milestone ed="p" n="150" unit="line"/> and if you meet the escort, start them back again, and drive at full speed to the abodes of the Cyclopes.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>But tell me, how shall my message find credit with your wife or child?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="155" unit="line"/> Preserve the seal which you bear on this tablet. Away! Already the dawn is growing grey, lighting the lamp of day and the fire of the sun's four steeds; <milestone ed="p" n="160" unit="line"/> help me in my trouble. <stage>Exit Old man.</stage></p>
+<p>No mortal is prosperous or happy to the last, for no one was ever born to a painless life.<stage>Exit Agamemnon.</stage>
+</p></sp>
+</div1>
+<milestone ed="p" n="164" unit="card"/>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>To the sandy beach <milestone ed="p" n="165" unit="line"/> of sea-coast <placeName key="perseus,Aulis">Aulis</placeName> I have come after a voyage through the tides of narrow Euripus, leaving <placeName key="perseus,Chalcis">Chalcis</placeName>, my city which feeds the waters <milestone ed="p" n="170" unit="line"/> of far-famed Arethusa near the sea, so that I might behold the army of the Achaeans and the ships rowed by those godlike heroes; for our husbands tell us <milestone ed="p" n="175" unit="line"/> that fair-haired Menelaus and high-born Agamemnon are leading them to <placeName key="perseus,Troy">Troy</placeName> on a thousand ships in quest of Helen, whom <placeName key="tgn,7008038">Paris</placeName> the herdsman <milestone ed="p" n="180" unit="line"/> carried off from the banks of reedy Eurotas, his gift from Aphrodite, when that queen of <placeName key="tgn,1000112">Cyprus</placeName> entered beauty's contest with Hera and Pallas at the gushing fountain.<milestone ed="p" n="185" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="185" unit="line"/> Through the grove of Artemis, rich with sacrifice, I sped my course, my cheek stained with red from maiden modesty, in my eagerness to see the soldiers' camp, <milestone ed="p" n="190" unit="line"/> the tents of the mail-clad Danaids, and their crowd of horses. I saw two met together in council; one was Aias, son of Oileus; the other Aias, son of Telamon, crown of glory to the men of <placeName key="tgn,7002340">Salamis</placeName>; <milestone ed="p" n="195" unit="line"/> and I saw Protesilaus and Palamedes, sprung from the son of Poseidon, sitting there amusing themselves with intricate figures at checkers; Diomedes too <milestone ed="p" n="200" unit="line"/> at his favorite sport of hurling quoits; and Meriones, Ares' son, a marvel to mankind, stood at his side; likewise I beheld the son of Laertes, who came from his island hills, and with him Nireus, <milestone ed="p" n="205" unit="line"/> handsomest of the Achaeans.<milestone ed="p" n="206" unit="card"/></p></sp></div2>
+<div2 type="mesode">
+<sp><speaker>Chorus</speaker>
+<p>Achilles next, that nimble runner, swift on his feet as the wind, whom Thetis bore and Chiron trained, I saw <milestone ed="p" n="210" unit="line"/> upon the beach, racing in full armor along the shingle, and straining every nerve to beat a team of four horses, <milestone ed="p" n="215" unit="line"/> as he sped round the track on foot; and Eumelus, the grandson of Pheres, their driver, was shouting when I saw him, goading on his lovely steeds, <milestone ed="p" n="220" unit="line"/> with their bits of chased gold-work; the center pair, that bore the yoke, had dappled coats picked out with white, while the tracehorses, on the outside, facing the turning-post in the course, <milestone ed="p" n="225" unit="line"/> were bays with spotted fetlocks. Close beside them Peleus' son leapt on his way, in all his harness, keeping abreast <milestone ed="p" n="230" unit="line"/> the rail by the axle-box.<milestone ed="p" n="231" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Next I sought the countless fleet, a wonder to behold, that I might fill my girlish eyes with gazing, a sweet delight. <milestone ed="p" n="235" unit="line"/> The warlike Myrmidons from <placeName key="perseus,Phthia">Phthia</placeName> held the right wing with fifty swift cruisers, upon whose sterns, right at the ends, stood Nereid goddesses <milestone ed="p" n="240" unit="line"/> in golden effigy, the ensign of Achilles' armament.<milestone ed="p" n="242" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Near these were moored the <placeName key="tgn,5001993">Argive</placeName> ships in equal numbers, over which Mecisteus' <milestone ed="p" n="245" unit="line"/> son, whom Talaus his grandfather reared, and Sthenelus, son of Capaneus, were in command; next in order, Theseus' son was stationed at the head of sixty ships from <placeName key="tgn,7002681">Attica</placeName>, having the goddess <milestone ed="p" n="250" unit="line"/> Pallas set in a winged chariot drawn by steeds with solid hoof, a lucky sight for mariners.<milestone ed="p" n="253" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Then I saw <placeName key="tgn,7002683">Boeotia</placeName>'s fleet of fifty sails <milestone ed="p" n="255" unit="line"/> decked with ensigns; these had Cadmus at the stern holding a golden dragon at the beaks of the vessels, and earth-born Leitus <milestone ed="p" n="260" unit="line"/> was their admiral. And there were ships from <placeName key="tgn,4003963">Phocis</placeName>; and from <placeName key="tgn,7010899">Locris</placeName> came the son of Oileus with an equal contingent, leaving famed Thronium's citadel.<milestone ed="p" n="265" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="265" unit="line"/> And from <placeName key="perseus,Mycenae">Mycenae</placeName>, the Cyclopes' town, Atreus' son sent a hundred well-manned galleys, and Adrastos was with him in command, as friend with friend, <milestone ed="p" n="270" unit="line"/> that <placeName key="tgn,1000074">Hellas</placeName> might exact vengeance on the one who had fled her home to wed a foreigner. Also I saw upon Gerenian Nestor's prows from <placeName key="perseus,Pylos">Pylos</placeName> <milestone ed="p" n="275" unit="line"/> the ensign of his neighbour Alpheus, four-footed like a bull.<milestone ed="p" n="277" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Moreover there was a squadron of twelve Aenianian sail under King Gouneus; and then near them <milestone ed="p" n="280" unit="line"/> the lords of Elis, whom all the people named Epeians; and Eurytus was lord of these; Iikewise he led the Taphian warriors with the white oar-blades, the subjects of Meges, <milestone ed="p" n="285" unit="line"/> son of Phyleus, who had left the isles of the Echinades, where sailors cannot land.<milestone ed="p" n="288" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Lastly, Aias, reared in <placeName key="tgn,7002340">Salamis</placeName>, <milestone ed="p" n="290" unit="line"/> was joining his right wing to the left of those near whom he was posed, closing the line with his outermost ships, twelve barques obedient to the helm, as I heard and then <milestone ed="p" n="295" unit="line"/> saw the crews; the one who brings his barbaric boats to grapple Aias shall obtain no safe return. There I saw <milestone ed="p" n="300" unit="line"/> the naval armament, but some things I heard at home about the gathered army, of which I still have a recollection.<milestone ed="p" n="303" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Old man</speaker>
+<stage>as Menelaus wrests a letter from him.</stage><p>Strange daring yours, Menelaus, where you have no right.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Stand back! You carry loyalty to your master too far.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p><milestone ed="p" n="305" unit="line"/> The very reproach you have for me is to my credit.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>You shall rue it, if you meddle in matters that do not concern you.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>You had no right to open a letter, which I was carrying.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>No, nor you to be carrying sorrow to all <placeName key="tgn,1000074">Hellas</placeName>.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Argue that point with others, but surrender that letter to me.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="310" unit="line"/> I shall not let go.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Nor will I let loose my hold.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Why then, this staff of mine will be dabbling your head with blood before long.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>To die in my master's cause would be a noble death.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Let go! you are too wordy for a slave.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<stage>seeing Agamemnon approaching</stage><p>Master, he is wronging me; he snatched <milestone ed="p" n="315" unit="line"/> your letter violently from my grasp, Agamemnon, and will not heed the claims of right.<milestone ed="p" n="317" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Ah! what is this uproar at the gates, this indecent brawling?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>My tale, not his, has the better right to be spoken.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>You, Menelaus! what quarrel do you have with this man, why are you dragging him here? <stage>Exit ATTENDANT.</stage></p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="320" unit="line"/> Look me in the face! May that be the prelude to my story.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Shall I, the son of Atreus, close my eyes from fear?<note anchored="yes" resp="Coleridge">The point lies in the play on the name <foreign lang="greek">*)atreu/s</foreign>, i.e., &ldquo;the fearless,&rdquo; &ldquo;shall I the son of fearlessness, fear, etc.?&rdquo;</note></p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Do you see this tablet, the bearer of a shameful message?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I see it, yes; now, you first of all surrender it.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>No, not till I have shown its contents to all the army.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="325" unit="line"/> What! have you broken the seal and  know already what you should never have known?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Yes, I opened it and know to your sorrow the secret machinations of your heart.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Where did you get it? O gods! what shameless heart you have!</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>I was awaiting your daughter's arrival at the camp in <placeName key="perseus,Argos">Argos</placeName>.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>What right have you to watch my doings? is not this a proof of shamelessness?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="330" unit="line"/> My wish to do it gave the spur, for I am no slave to you.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Infamous! Am I not to be allowed the management of my own house?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>No, for you think crooked thoughts, one thing now, another formerly, and something different presently.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Most exquisite refining on evil themes! A hateful thing the tongue of cleverness!</p></sp>
+<sp n="Menelaus">
+<speaker>Menelaus</speaker>
+<p>Yes, but a mind unstable is an unjust possession, disloyal to friends. <milestone ed="p" n="335" unit="line"/> Now I am anxious to test you, and do not seek from rage to turn aside from the truth, nor will I on my part overstrain the case. Do you remember when you were all eagerness to captain the Danaids against <placeName key="perseus,Troy">Troy</placeName>, making a pretence of declining, though eager for it in your heart; how humble you were then, taking each man by the hand <milestone ed="p" n="340" unit="line"/> and keeping open doors for every fellow-townsman who cared to enter, affording each in turn chance to speak with you, even though some did not wish it, seeking by these methods to purchase popularity from all bidders? Then when you had secured the command, there came a change over your manners; you were no longer so cordial as before to former friends, <milestone ed="p" n="345" unit="line"/> but hard of access, seldom to be found at home. But the man of real worth ought not to change his manners in the hour of prosperity, but should then show himself most staunch to friends, when his own good fortune can help them most effectually.
+</p>
+<milestone ed="p" n="349" unit="card"/>
+<p>This was the first cause I had to reprove you, for it was here I first discovered your villainy; <milestone ed="p" n="350" unit="line"/> but afterwards, when you came to <placeName key="perseus,Aulis">Aulis</placeName> with all the gathered hosts of <placeName key="tgn,1000074">Hellas</placeName>, you were of no account; no! the want of a favorable breeze filled you with consternation at the chance dealt out by the gods. Then the Danaids began demanding that you should send the fleet away instead of vainly toiling on at <placeName key="perseus,Aulis">Aulis</placeName>; what dismay and confusion was then depicted in your looks, to think that you, with a thousand <milestone ed="p" n="355" unit="line"/> ships at your command, had not occupied the plains of Priam with your armies! And you would ask my counsel, &ldquo;What am I to do? What scheme can I devise, where find one?&rdquo;&mdash;to save yourself being stripped of your command and losing your fair fame. Next when Calchas bade you offer your daughter in sacrifice to Artemis, declaring that the Danaids should then sail, you were overjoyed, <milestone ed="p" n="360" unit="line"/> and gladly undertook to offer the girl, and of your own accord&mdash;never allege compulsion&mdash;you are sending word to your wife to despatch your daughter here on pretence of wedding Achilles. And after all you turn round and have been caught casting your letter to this effect: &ldquo;I will no longer be my daughter's murderer.&rdquo; Exactly so! <milestone ed="p" n="365" unit="line"/> This is the same air that heard you say it. Countless others have done the same; they make an effort while in power, and then retire dishonorably, sometimes owing to the senselessness of the citizens, sometimes deservedly, because they are too feeble of themselves to maintain their watch upon the state. <milestone ed="p" n="370" unit="line"/> For my part, I am more sorry for our unhappy <placeName key="tgn,1000074">Hellas</placeName>, whose purpose was to read these worthless foreigners a lesson, while now she will let them escape and mock her, thanks to you and your daughter. May I never appoint a man to rule my country or lead its warriors because of his courage! Sense is what the general must have; <milestone ed="p" n="375" unit="line"/> since any man, with ordinary intelligence, can govern a state.<milestone ed="p" n="376" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>For brothers to come to words and blows, whenever they disagree, is terrible.<milestone ed="p" n="378" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I wish to rebuke you in turn, briefly, not lifting my eyes too high shamelessly, but in more sober fashion, <milestone ed="p" n="380" unit="line"/> as a brother; for it is a good man's way to be considerate. Tell me, why this burst of fury, these bloodshot eyes? who wrongs you? what is it you want? are you longing to have a virtuous wife? <placeName key="tgn,1131671">WeIl</placeName>, I cannot supply you; for she, whom you once had, was ill-controlled by you. Am I then, a man who never went astray, to suffer for your sins? <milestone ed="p" n="385" unit="line"/> or is it my popularity that galls you? No! it is the longing you have to keep a beautiful woman in your embrace, casting reason and honor to the winds. A bad man's pleasures are like himself. Am I mad, if I change to wiser counsels, after previously deciding amiss? Yours is the madness rather in wishing to recover <milestone ed="p" n="390" unit="line"/> a wicked wife, once you had lost her&mdash;a stroke of heaven-sent luck. Those foolish suitors swore that oath to Tyndareus in their longing to wed; but Hope was the goddess that led them on, I think, and she it was that brought it about rather than you and your strength. So take the field with them; they are ready for it in the folly of their hearts; for the deity is not without insight, but is able to discern <milestone ed="p" n="395" unit="line"/> where oaths have been wrongly pledged or forcibly extorted. I will not slay my children, nor shall your interests be prospered by justice in your vengeance for a worthless wife, while I am left wasting, night and day, in sorrow for what I did to one of my own flesh and blood, contrary to all law and justice. <milestone ed="p" n="400" unit="line"/> Here is your answer shortly given, clear and easy to understand; and if you will not come to your senses, I shall do the best for myself.<milestone ed="p" n="402" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>This differs from your previous declaration, but there is good in it, your child's reprieve.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Ah me, how sad my lot! I have no friends then after all.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="405" unit="line"/> Friends you have, if you do not seek their destruction.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Where will you find any proof that you are sprung from the same father as I?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>It is your moderation, not your madness, that I share by nature.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Friends should sympathize with friends in sorrow.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Claim my help by kindly service, not by paining me.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="410" unit="line"/> So you have no mind to share this trouble with <placeName key="tgn,1000074">Hellas</placeName>?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>No, <placeName key="tgn,1000074">Hellas</placeName> is diseased like you, according to some god's design. </p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Go boast of your scepter, after betraying your own brother! while I will seek some different means and other friends.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<stage>entering hurriedly.</stage><p>Agamemnon, lord of <placeName key="tgn,1000074">Hellas</placeName>! <milestone ed="p" n="415" unit="line"/> I have come and bring you your daughter, whom you call Iphigenia in your home; and her mother, your wife Clytemnestra, is with her, and the child Orestes, a sight to gladden you after your long absence from your home; <milestone ed="p" n="420" unit="line"/> but they had been travelling long and far, they are now resting their tender feet at the waters of a fair spring, they and their horses, for we turned these loose in the grassy meadow to browse their fill. But I have come as their forerunner to prepare you for their reception; <milestone ed="p" n="425" unit="line"/> for the army knows already of your daughter's arrival, so quickly did the rumor spread; and all the people are running together to the sight, that they may see your child; for Fortune's favorites enjoy world-wide fame and have all eyes fixed on them. <milestone ed="p" n="430" unit="line"/> Some say: &ldquo;Is it a wedding, or what is happening? or has king Agamemnon from fond yearning summoned his daughter here?&rdquo; From others you would have heard: &ldquo;They are presenting the maiden to Artemis, queen of <placeName key="perseus,Aulis">Aulis</placeName>, previous to marriage; who can the bridegroom be, that is to lead her home?&rdquo;</p>
+<p><milestone ed="p" n="435" unit="line"/> Come, then, begin the rites, that is the next step, by getting the baskets ready; crown your heads&mdash;you too, lord Menelaus; prepare the wedding hymn; let flutes sound throughout the tents with noise of dancer's feet; for this is a happy day, that has come for the maid.<milestone ed="p" n="440" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="440" unit="line"/> You have my thanks; now go within; for the rest it will be well, as Fate proceeds. <stage>Exit Messenger.</stage></p>
+<p>Ah, woe is me! unhappy wretch, what can I say? where shall I begin? To what cruel straits have I been plunged! A god has outwitted me, proving far cleverer <milestone ed="p" n="445" unit="line"/> than any cunning of mine. What an advantage humble birth possesses! for it is easy for her sons to weep and tell out all their sorrows; while to the high-born man come these same sorrows, but we heve dignity <milestone ed="p" n="450" unit="line"/> throned over our life and are the people's slaves. I, for instance, am ashamed to weep, and no less ashamed, poor wretch, to check my tears at the dreadful pass to which I am brought.</p>
+<p>Enough; what am I to tell my wife? <milestone ed="p" n="455" unit="line"/> how shall I welcome her? with what face meet her? for she too has undone me by coming uninvited in this my hour of sorrow; yet it was only natural she should come with her daughter to prepare the bride and perform the fondest duties, where she will discover my villainy. <milestone ed="p" n="460" unit="line"/> And for this poor maid&mdash;why maid? Death, it seems, will soon make her his bride&mdash;how I pity her! Thus will she plead to me, I think: &ldquo;My father, will you slay me? May you yourself make such a marriage, and whoever is a friend to you!&rdquo; <milestone ed="p" n="465" unit="line"/> While Orestes, from his station near us, will cry in childish accents, inarticulate, yet fraught with meaning. Alas! to what utter ruin <placeName key="tgn,7008038">Paris</placeName>, the son of Priam, the cause of these troubles, has brought me by his union with Helen!</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>I pity her myself, as a woman who is a stranger <milestone ed="p" n="470" unit="line"/> may grieve for the misfortunes of royalty.<milestone ed="p" n="471" unit="card"/></p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<stage>offering his hand.</stage><p>Your hand, brother! let me grasp it.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I give it; yours is the victory, mine the sorrow.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>By Pelops our reputed grandsire and Atreus our father, <milestone ed="p" n="475" unit="line"/> I swear to tell you the truth from my heart, without any covert purpose, but only what I think. The sight of you in tears made me pity you, and in return I shed a tear for you myself; I withdraw from my former proposals, <milestone ed="p" n="480" unit="line"/> ceasing to be a cause of fear to you; yes, and I will put myself in your present position; and I counsel you, do not slay your child or prefer my interests to yours; for it is not just that you should grieve, while I am glad, or that your children should die, while mine still see the light of day. <milestone ed="p" n="485" unit="line"/> What is it, after all, I seek? If I am set on marriage, could I not find a bride as choice elsewhere? Was I to lose a brother&mdash;the last I should have lost&mdash;to win a Helen, getting bad for good? I was mad, impetuous as a youth, till I perceived, <milestone ed="p" n="490" unit="line"/> on closer view, what slaying children really meant. Moreover I am filled with compassion for the hapless maiden, doomed to bleed that I may wed, when I reflect that we are kin. What has your daughter to do with Helen?</p>
+<p><milestone ed="p" n="495" unit="line"/> Let the army be disbanded and leave <placeName key="perseus,Aulis">Aulis</placeName>; dry those streaming eyes, brother, and do not provoke me to tears. Whatever concern you have in oracles that affect your child, let it be none of mine; into your hands I resign my share. <milestone ed="p" n="500" unit="line"/> A sudden change, you'll say, from my dread proposals? A natural course for me; affection for my brother caused the change. These are the ways of a man not devoid of virtue, to pursue on each occasion what is best.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>A generous speech, worthy of Tantalus, the son of Zeus; <milestone ed="p" n="505" unit="line"/> you do not shame your ancestry.<milestone ed="p" n="506" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I thank you, Menelaus, for this unexpected suggestion; it is an honorable proposal, worthy of you. Sometimes love, sometimes the selfishness of their families, causes a quarrel between brothers; I loathe <milestone ed="p" n="510" unit="line"/> a relationship of this kind which is bitterness to both. But it is useless, for circumstances compel me to carry out the murderous sacrifice of my daughter.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>How so? who will compel you to slay your own?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>The whole Achaean army here assembled.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="515" unit="line"/> Not if you send her back to <placeName key="perseus,Argos">Argos</placeName>.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I might do that unnoticed, but there will be another thing I cannot.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>What is that? You must not fear the mob too much.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Calchas will tell the <placeName key="tgn,5001993">Argive</placeName> army his oracles.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Not if he should die before that&mdash;an easy matter.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="520" unit="line"/> The whole tribe of seers is a curse with its ambition.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Yes, and good for nothing and useless, when among us.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Has the thought, which is rising in my mind, no terrors for you?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>How can I understand your meaning, unless you declare it?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>The son of Sisyphus knows all.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="525" unit="line"/> Odysseus cannot possibly hurt us.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>He was ever shifty by nature, siding with the mob.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>True, he is enslaved by the love of popularity, a fearful evil.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Don't you think, then, he will arise among the Argives and tell them the oracles that Calchas delivered, <milestone ed="p" n="530" unit="line"/> saying of me that I undertook to offer Artemis a victim, and after all am proving false? Then, when he has carried the army away with him, he will bid the Argives slay us and sacrifice the girl; and if I escape to <placeName key="perseus,Argos">Argos</placeName>, they will come and destroy the place, <milestone ed="p" n="535" unit="line"/> razing it to the ground, Cyclopean walls and all. That is my trouble. Woe is me! to what perplexities the gods have brought me at this pass! Take one precaution for me, Menelaus, as you go through the army, that Clytemnestra does not learn this, <milestone ed="p" n="540" unit="line"/> till I have taken my child and devoted her to death, that my affliction may be attended with the fewest tears. <stage>Turning to the Chorus.</stage> And you, foreign women, keep silence. <stage>Exit Menelaus.</stage><milestone ed="p" n="543" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe">
+<sp><speaker>Chorus</speaker>
+<p>Happy are they who find the goddess come in moderate might, sharing with self-restraint <milestone ed="p" n="545" unit="line"/> in Aphrodite's gift of marriage and enjoying calm and rest from frenzied passions, where the Love-god, golden-haired, stretches his charmed bow with twin arrows, <milestone ed="p" n="550" unit="line"/> and one is aimed at happiness, the other at life's confusion. O lady Cypris, queen of beauty! far from my bridal bower I ban the last. Be mine delight in moderation <milestone ed="p" n="555" unit="line"/> and pure desires, and may I have a share in love, but shun excess!<milestone ed="p" n="558" unit="card"/></p></sp></div2>
+<div2 type="antistrophe">
+<sp><speaker>Chorus</speaker>
+<p>Men's natures vary, and their habits differ, <milestone ed="p" n="560" unit="line"/> but virtue is always manifest. Likewise the training that come of education conduces greatly to virtue; for not only is modesty wisdom, but it has also the rare grace <milestone ed="p" n="565" unit="line"/> of seeing by its better judgment what is right; whereby a glory, ever young, is shed over life by reputation. A great thing it is to hunt virtue, for women when they love <milestone ed="p" n="570" unit="line"/> secretly; while in men, an inborn sense of order, shown in countless ways, adds to a city's greatness.<milestone ed="p" n="573" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>You came, O <placeName key="tgn,7008038">Paris</placeName>, to the place where you were reared to herd the cows <milestone ed="p" n="575" unit="line"/> among the white heifers of Ida, piping in foreign strain and breathing on your reeds an echo of the Phrygian airs <placeName key="tgn,7011019">Olympus</placeName> played. Full-uddered cows were browsing at the spot <milestone ed="p" n="580" unit="line"/> where that verdict between goddesses was awaiting you&mdash;the cause of your going to <placeName key="tgn,1000074">Hellas</placeName> to stand before the ivory palace, kindling love in Helen's <milestone ed="p" n="585" unit="line"/> entranced eyes and feeling its flutter in your own breast; from which the fiend of strife brought <placeName key="tgn,1000074">Hellas</placeName> with her spear and ships to the towers of <placeName key="perseus,Troy">Troy</placeName>.<milestone ed="p" n="590" unit="card"/> </p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus of Argive men</speaker>
+<p><milestone ed="p" n="590" unit="line"/> Oh! great is the bliss the great enjoy. Behold Iphigenia, the king's child, my lady, and Clytemnestra, the daughter of Tyndareus; how proud their lineage! <milestone ed="p" n="595" unit="line"/> how high their pinnacle of fortune! These mighty ones, whom wealth attends, are very gods in the eyes of less favored folk.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Let us stand here, maidens of <placeName key="perseus,Chalcis">Chalcis</placeName>, and lift the queen from her chariot <milestone ed="p" n="600" unit="line"/> to the ground without stumbling, supporting her gently in our arms, with kind intent, that the renowned daughter of Agamemnon, just arrived, may feel no fear; strangers ourselves, let us avoid anything that may disturb <milestone ed="p" n="605" unit="line"/> or frighten the strangers from <placeName key="perseus,Argos">Argos</placeName>.<milestone ed="p" n="607" unit="card"/></p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I take this as a lucky omen, your kindness and auspicious greeting, and have good hope that it is to a happy marriage <milestone ed="p" n="610" unit="line"/> I conduct the bride. <stage>To attendants.</stage> Take from the chariot the dowry I am bringing for my daughter and convey it within with careful heed.</p>
+<p>My daughter, leave the horse-drawn chariot, planting your faltering footstep delicately. <stage>To the Chorus.</stage> <milestone ed="p" n="615" unit="line"/> Young women, take her in your arms and lift her from the chariot, and let one of you give me the support of her hand, that I may quit my seat in the carriage with fitting grace. Some of you stand at the horses' heads; <milestone ed="p" n="620" unit="line"/> for the horse has a timid eye, easily frightened; here, take this child Orestes, son of Agamemnon, baby as he still is.</p>
+<p>What! sleeping, little one, tired out by your ride in the chariot? Awake to bless your sister's wedding; for you, my gallant boy, <milestone ed="p" n="625" unit="line"/> shall get by this marriage a kinsman gallant as yourself, the Nereid's godlike offspring. Come here to your mother, my daughter, Iphigenia, and seat yourself beside me, and stationed near show my happiness to these strangers; <milestone ed="p" n="630" unit="line"/> yes, come here and welcome the father you love so dearly.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Do not be angry with me, mother, if I run from your side and throw myself on my father's breast.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Hail! my honored lord, king Agamemnon! we have obeyed your commands and have come.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="635" unit="line"/> &lsqb;O my father! I long to outrun others and embrace you after this long while;&rsqb; for I yearn to see your face; do not be angry with me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>You may do so, daughter; for of all the children I have borne, you have always loved your father best.<milestone ed="p" n="640" unit="card"/></p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<stage>throwing herself into Agamemnon's arms.</stage><p><milestone ed="p" n="640" unit="line"/> I see you, father, joyfully after a long time.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>And I, your father, see you; your words do equal duty for both of us.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>All hail, father! you did well in bringing me here to you.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I know not how I am to say yes or no to that, my child.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Ah! how wildly you are looking, spite of your joy at seeing me.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="645" unit="line"/> A man has many cares when he is king and general too.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Be mine, all mine today; do not turn to moody thoughts.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Why so I am, all yours today; I have no other thought.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Then smooth your knitted brow, unbend and smile.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>See! my child, my joy at seeing you is even as it is.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="650" unit="line"/> And do you then have tears streaming from your eyes?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Yes, for long is the absence from each other, that awaits us.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>I do not know, dear father, I do not know of what you are speaking.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>You are moving my pity all the more by speaking so sensibly.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>My words shall turn to senselessness if that will cheer you more.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="655" unit="line"/> Alas! this silence is too much. You have my thanks.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Stay with your children at home, father.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>My own wish! But to my sorrow I may not</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Ruin seize their wars and the woes of Menelaus!</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>First will that, which has been my life-long ruin, bring ruin to others.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="660" unit="line"/> How long you were absent in the bays of <placeName key="perseus,Aulis">Aulis</placeName>!</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Yes, and there is still a hindrance to my sending the army forward.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Where do men say the Phrygians live, father?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>In a land where I wish <placeName key="tgn,7008038">Paris</placeName>, the son of Priam, never had dwelt.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>It is a long voyage you are bound on, father, after you leave me.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="665" unit="line"/> You will meet your father again, my daughter.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Ah! would it were seemly for you to take me as a fellow voyager!</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>You too have a voyage to make to a haven where you will remember your father.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Shall I sail there with my mother or alone?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>All alone, without father or mother.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="670" unit="line"/> What! have you found me a new home, father?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Enough of this! it is not for girls to know such things.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Please hurry home from <placeName key="perseus,Troy">Troy</placeName>, father, as soon as you have triumphed there.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>There is a sacrifice I have first to offer here.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Yes, it is your duty to heed religion with aid of holy rites.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="675" unit="line"/> You will witness it, for you will be standing near the libations.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Am I to lead the dance then round the altar, father?<milestone ed="p" n="677" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I count you happier than myself because you know nothing. Go within&mdash;it is wrong for maidens to be seen&mdash;after you have given me your hand and a kiss, <milestone ed="p" n="680" unit="line"/> on the eve of your lengthy sojourn far from your father's side. Breast, cheek, and golden hair! ah, how grievous you have found Helen and the Phrygians' city! I can speak no more; the tears come welling to my eyes, the moment I touch you. <milestone ed="p" n="685" unit="line"/> Go into the house. <stage>Exit Iphigenia. Agamemnon turns to Clytemnestra.</stage> I beg your pardon, daughter of Leda, if I showed excessive grief at the thought of giving my daughter to Achilles; for though we are sending her to taste of bliss, still it wrings a parent's heart, when he, the father who has toiled so hard for them, <milestone ed="p" n="690" unit="line"/> commits his children to the homes of strangers.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I am not so senseless; But I think I will go through this as well, when I lead the girl from the chamber to the sound of the marriage hymn; so I do not chide you; but custom will combine with time to make the smart grow less. <milestone ed="p" n="695" unit="line"/> As for him, to whom you have betrothed our daughter, I know his name, it is true, but want to learn his lineage and the land of his birth.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>There was one <placeName key="tgn,7011087">Aegina</placeName>, the daughter of Asopus.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Who wedded her? Some mortal or a god?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Zeus, and she bore Aeacus, the prince of Oenone.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="700" unit="line"/> What son of Aeacus secured his father's halls?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Peleus, who wedded the daughter of Nereus.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>With the god's consent, or when he had taken her in spite of gods?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Zeus betrothed her, and her guardian gave consent.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Where did he marry her? in the billows of the sea?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="705" unit="line"/> In Chiron's home, at sacred <placeName key="tgn,4008379">Pelion</placeName>'s foot.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What! the abode ascribed to the race of Centaurs?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>It was there the gods celebrated the marriage feast of Peleus.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Did Thetis or his father train Achilles?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Chiron brought him up, to prevent his learning the ways of the wicked.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="710" unit="line"/> Ah! wise the teacher, still wiser the one who gave his son.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Such is the future husband of your daughter.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>A blameless lord; but what city in <placeName key="tgn,1000074">Hellas</placeName> is his?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>He dwells on the banks of the river Apidanus, in the borders of <placeName key="perseus,Phthia">Phthia</placeName>.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Will you convey our daughter there?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="715" unit="line"/> He who takes her to himself will see to that.<milestone ed="p" n="716" unit="card"/></p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Happiness attend the pair! Which day will he marry her?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>As soon as the full moon comes to give its blessing</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Have you already offered the goddess a sacrifice to usher in the maiden's marriage?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I am about to do so; that is the very thing I was engaged in.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="720" unit="line"/> And then will you celebrate the marriage feast afterwards?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Yes, when I have offered a sacrifice required by the gods of me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>But where am I to make ready the feast for the women?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Here beside our gallant Argive ships.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Finely here! but still I must; good come of it for all that!</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="725" unit="line"/> Do you know what to do, lady? Then obey me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>In what matter? for I was ever accustomed to obey you.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Here, where the bridegroom is, I will&mdash;</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Which of my duties will you perform in the mother's absence?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Give your child away with help of Danaids.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="730" unit="line"/> And where am I to be then?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Go to <placeName key="perseus,Argos">Argos</placeName>, and take care of your unwedded daughters.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>And leave my child? Then who will raise her bridal torch?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I will provide the proper wedding torch.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>That is not the custom; but you think lightly of these things.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="735" unit="line"/> It is not good for you to be alone among a soldier-crowd.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>It is good that a mother should give her own child away.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Yes, and that those maidens at home should not be left alone.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>They are well guarded in their maiden bowers.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Obey.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>No, by the goddess-queen of <placeName key="perseus,Argos">Argos</placeName>! <milestone ed="p" n="740" unit="line"/> Go, manage matters out of doors; but in the house it is my place to decide &lsqb;what is proper for maidens at their wedding&rsqb;.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Woe is me! my efforts are baffled; I am disappointed in my hope, anxious as I was to get my wife out of sight; foiled at every point, <milestone ed="p" n="745" unit="line"/> I form my plots and subtle schemes against my best-beloved. But I will go, in spite of all, with Calchas the priest, to inquire the goddess's good pleasure, fraught with ill-luck as it is to me, and with trouble to <placeName key="tgn,1000074">Hellas</placeName>. He who is wise should keep in his house <milestone ed="p" n="750" unit="line"/> a good and useful wife or none at all.<milestone ed="p" n="751" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe">
+<sp><speaker>Chorus</speaker>
+<p>The Hellenes' gathered army will come in arms aboard their ships to Simois with its silver eddies, <milestone ed="p" n="755" unit="line"/> to <placeName key="tgn,7002329">Ilium</placeName>, the plain of <placeName key="perseus,Troy">Troy</placeName> beloved by Phoebus; where Cassandra, I am told, wildly tosses her golden tresses, wreathed with crown of green laurel, <milestone ed="p" n="760" unit="line"/> whenever the god's resistless prophecies inspire her.<milestone ed="p" n="762" unit="card"/></p></sp></div2>
+<div2 type="antistrophe">
+<sp><speaker>Chorus</speaker>
+<p>And on the towers of <placeName key="perseus,Troy">Troy</placeName> and round her walls shall Trojans stand, when sea-borne troops <milestone ed="p" n="765" unit="line"/> with brazen shields row in on shapely ships to the channels of the Simois, eager to take Helen, the sister of that heavenly pair whom Zeus begot, from Priam, and bear her back to <placeName key="tgn,1000074">Hellas</placeName> by toil <milestone ed="p" n="770" unit="line"/> of Achaean shields and spears.<milestone ed="p" n="773" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>The son of Atreus, encircling <placeName key="tgn,7016140">Pergamus</placeName>, the Phrygians' town, with murderous war <milestone ed="p" n="775" unit="line"/> around her stone-built towers, dragging <placeName key="tgn,7008038">Paris</placeName>'s head backward to cut his throat and sacking the city from roof to base, shall be a cause of many tears to maids and <milestone ed="p" n="780" unit="line"/> Priam's wife. And Helen, the daughter of Zeus, shall weep in bitter grief because she left her lord. Never may there appear to me or to my children's children <milestone ed="p" n="785" unit="line"/> the prospect which the wealthy Lydian ladies and <placeName key="tgn,7002613">Phrygia</placeName>'s brides will have as at their looms they converse: <milestone ed="p" n="790" unit="line"/> &ldquo;Tell me, who will pluck me away from my ruined country, tightening his grasp on lovely tresses till the tears flow? it is all through you, the offspring of the long-necked swan; if indeed it is a true report <milestone ed="p" n="795" unit="line"/> that Leda bore you to a winged bird, when Zeus transformed himself there, or whether, in the tablets of the poets, fables have carried these tales to men's ears <milestone ed="p" n="800" unit="line"/> idly, out of season.&rdquo;<milestone ed="p" n="801" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Achilles</speaker>
+<p>Where is <placeName key="tgn,7002733">Achaea</placeName>'s general? Which of his servants will announce to him that Achilles, the son of Peleus, is at his gates seeking him? For this delay at the Euripus is not the same for all of us; <milestone ed="p" n="805" unit="line"/> there are some, for instance, who, bing still unwed, have left their houses desolate and are idling here upon the beach, while others are married but without children; so strange the longing for this expedition that has fallen on their hearts by the will of the gods. <milestone ed="p" n="810" unit="line"/> My own just plea I must declare, and whoever else has any wish will speak for himself. Though I have left Pharsalia , and Peleus, still I linger here by reason of these light breezes at the Euripus, restraining my Myrmidons, while they are always pressing on me, <milestone ed="p" n="815" unit="line"/> saying: &ldquo;Why do we tarry, Achilles? how much longer must we count the days to the start for <placeName key="tgn,7002329">Ilium</placeName>? do something if you are so minded; or lead home your men, and do not wait for the tardy action of these Atridae.&rdquo;</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Hail to you, son of the Nereid goddess! I heard your voice <milestone ed="p" n="820" unit="line"/> from within the tent and came forth.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>O modesty revered! who can this lady be whom I behold, so richly dowered with beauty's gifts?</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>No wonder you do not know me, seeing I am one you have never before set eyes on; I praise your reverent address to modesty.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="825" unit="line"/> Who are you, and why have you come to the mustering of the Danaids&mdash;you, a woman, to a fenced camp of men?</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I am the daughter of Leda; my name is Clytemnestra; and my husband king Agamemnon.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Well and shortly answered on all important points, <milestone ed="p" n="830" unit="line"/> but it is shameful for me to stand talking to women.<milestone ed="p" n="831" unit="card"/></p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Stay; why seek to escape? give me your hand, a prelude to a happy marriage.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>What is it you say? I give you my hand? To lay a finger where I have no right, I could never meet Agamemnon's eye.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="835" unit="line"/> The best of rights you have, seeing it is my child you will wed, O son of the sea-goddess, daughter of Nereus.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>What wedding do you speak of? Words fail me, lady; can your wits have gone astray and are you inventing this?</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>All men are naturally shy in the presence of new relations, <milestone ed="p" n="840" unit="line"/> when these remind them of their wedding.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Lady, I have never courted your daughter, nor have the sons of Atreus ever mentioned marriage to me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What can it mean? Your turn now to marvel at my words, for yours are very strange to me.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="845" unit="line"/> Hazard a guess; that we can both do in this matter; for it may be we are both correct in our statements.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What! have I suffered such indignity? The marriage I am courting has no reality it seems; I am ashmed of it.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Some one perhaps has made a mock of you and me; <milestone ed="p" n="850" unit="line"/> pay no heed to it; make light of it.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Farewell; I can no longer face you with unfaltering eyes, after being made a liar and suffering undeservedly.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>It is &ldquo;farewell&rdquo; I bid you too, lady; and I go within the tent to seek your husband.<milestone ed="p" n="855" unit="card"/></p></sp>
+<sp>
+<speaker>Old man</speaker>
+<stage>calling through the tent door.</stage>
+<p><milestone ed="p" n="855" unit="line"/> Stranger of the race of Aeacus, stay awhile! Ho there! I mean you, O goddess-born, and you, daughter of Leda.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Who is it calling through the half-opened door? What fear his voice betrays!</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>A slave; of that I am not proud, for fortune does not permit it.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Whose slave are you? not mine; for mine and Agamemnon's goods are separate.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p><milestone ed="p" n="860" unit="line"/> I belong to this lady who stands before the tent, a gift to her from Tyndareus her father.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>I am waiting; tell me, if you are desirous, why you have stopped me.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Are you really all alone here at the door?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>To us alone will you address yourself; come forth from the king's tent.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<stage>coming out.</stage><p>O Fortune and my own foresight, preserve whom I desire!</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="865" unit="line"/> That speech will save them in the future; it has a certain pompous air.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Delay not for the sake of touching my right hand, if there is anything that you would say to me.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Well, you know my character and my devotion to you and your children.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I know you have grown old in the service of my house.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Likewise you know it was in your dowry king Agamemnon received me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="870" unit="line"/> Yes, you came to <placeName key="perseus,Argos">Argos</placeName> with me, and have been mine this long time past.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>True; and I bear all goodwill to you, less to your husband.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Come, come, unfold whatever you have to say.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Her father, he that begot her, is on the point of slaying your daughter with his own hand.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>How? That for your story, old man! you are mad.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p><milestone ed="p" n="875" unit="line"/> Severing with a sword the hapless girl's white throat.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Ah, alas for me! Does my husband happen to have gone mad?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>No; he is sane, except where you and your daughter are concerned; there he is mad.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What is his reason? what vengeful fiend impels him?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Oracles, at least so Calchas says, in order that the army may start&mdash;</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="880" unit="line"/> Where? Alas for me, and for the one her father is going to kill!</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>To the halls of Dardanus, that Menelaus may recover Helen.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>So Helen's return then was fated to affect Iphigenia?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>You know all; her father is about to offer your child to Artemis.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>But that marriage&mdash;what pretext had it for bringing me from home?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p><milestone ed="p" n="885" unit="line"/> An inducement to you to bring your daughter cheerfully, to wed her to Achilles.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>On a deadly errand have you come, my daughter, both you, and I, your mother.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>Piteous the lot of both of you, and dreadful Agamemnon's venture.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Alas, I am undone; my eyes can no longer hold their tears.</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>If the loss of children is painful, shed your tears.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="890" unit="line"/> From where, old man, do you say you had this news?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>I had started to carry you a letter referring to the former writing.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Forbidding or combining to urge my bringing the child to her death?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p>No, forbidding it, for your lord was then in his sober senses.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>How comes it then, if you were really bringing me a letter, that you do not now deliver it into my hands?</p></sp>
+<sp>
+<speaker>Old man</speaker>
+<p><milestone ed="p" n="895" unit="line"/> Menelaus snatched it from me, he who caused this trouble.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Do you hear that, son of Peleus, the Nereid's child?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>I have been listening to the tale of your sufferings, and I do not bear my own lightly.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>They will slay my child; they have tricked her with your marriage.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Like you I blame your lord, nor do I view it with mere indifference.<milestone ed="p" n="900" unit="card"/></p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="900" unit="line"/> No longer will I let shame prevent my kneeling to you, a mortal to one goddess-born; why do I affect reserve? whose interests should I consult before my child's? <stage>Throwing herself before Achilles.</stage> Oh! help me, goddess-born, in my sore distress, and her that was called your bride, in vain, it is true, yet called she was. <milestone ed="p" n="905" unit="line"/> For you it was I wreathed her head and led her forth as if to marriage, but now it is to slaughter I am bringing her. On you will come reproach because you did not help her; for though not wedded to her, yet were you the loving husband of my hapless girl in name at any rate. By your beard, your right hand, and mother too I do implore you; <milestone ed="p" n="910" unit="line"/> for your name it was that worked my ruin, and you are bound to stand by that. Except your knees I have no altar to fly to; and not a friend stands at my side. You have heard the cruel abandoned scheme of Agamemnon; and I, a woman, have come, as you see, to a camp of lawless sailor-folk, bold in evil's cause, <milestone ed="p" n="915" unit="line"/> though useful when they wish; Now if you boldly stretch forth your arm in my behalf, our safety is assured; but if not, we are lost.<milestone ed="p" n="917" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>A strange thing is motherhood, carrying with it a potent spell, in which all share, so that for their children's sake they will endure affliction.</p></sp>
+<sp n="Achilles">
+<speaker>Achilles</speaker>
+<p>My proud spirit is stirred to range aloft, butI have learned to grieve in misfortune <milestone ed="p" n="920" unit="line"/> and rejoice in high prosperity with equal moderation. For these are the men who can count on ordering all their life rightly by wisdom's rules. True, there are cases where it is pleasant not to be too wise, <milestone ed="p" n="925" unit="line"/> but there are others, where some store of wisdom helps. Brought up in godly Chiron's halls myself, I learned to keep a single heart; and provided the Atridae lead well, I will obey them; but when they cease from that, no more will I obey; <milestone ed="p" n="930" unit="line"/> no, but here and in <placeName key="perseus,Troy">Troy</placeName> I will show the freedom of my nature, and, as far as in me lies, do honor to Ares with my spear. You, lady, who have suffered so cruelly from your nearest and dearest, I will, by every effort in a young man's power, set right, investing you with that amount of pity <milestone ed="p" n="935" unit="line"/> and never shall your daughter, after being once called my bride, die by her father's hand; for I will not lend myself to your husband's subtle tricks; no! for it will be my name that kills your child, although it does not wield the sword. Your own husband <milestone ed="p" n="940" unit="line"/> is the actual cause, but I shall no longer be guiltless, if, because of me and my marriage, this maiden perishes, she that has suffered past endurance and been the victim of affronts most strangely undeserved.
+</p>
+<milestone ed="p" n="944" unit="card"/>
+<p>So am I made the poorest wretch in <placeName key="perseus,Argos">Argos</placeName>; <milestone ed="p" n="945" unit="line"/> I a thing of nothing, and Menelaus counting for a man! No son of Peleus I, but the issue of a vengeful fiend, if my name shall serve your husband for the murder. No! by Nereus, who begot my mother Thetis, in his home amid the flowing waves, <milestone ed="p" n="950" unit="line"/> never shall king Agamemnon touch your daughter, no! not even to the laying of a finger-tip upon her robe; or Sipylus<note anchored="yes" resp="Coleridge">A mountain in <placeName key="tgn,7001294">Lycia</placeName>, near which was shown the grave of Tantalus, the ancestor of the Atridae; the town of the same name was swallowed up in very early times by an earthquake.</note>, that frontier town of barbarism, the cradle of those chieftains' line, will be henceforth a city indeed, while <placeName key="perseus,Phthia">Phthia</placeName>'s name will nowhere find mention. <milestone ed="p" n="955" unit="line"/> Calchas, the seer, shall rue beginning the sacrifice with his barley-meal and lustral water. Why, what is a seer? A man who with luck tells the truth sometimes, with frequent falsehoods, but when his luck deserts him, collapses then and there.</p>
+<p>It is not to secure a bride that I have spoken thus&mdash;there are maids unnumbered <milestone ed="p" n="960" unit="line"/> eager to have my love&mdash;no! but king Agamemnon has put an insult on me; he should have asked my leave to use my name as a means to catch the child, for it was I chiefly who induced Clytemnestra to betroth her daughter to me; <milestone ed="p" n="965" unit="line"/> I would had yielded this to <placeName key="tgn,1000074">Hellas</placeName>, if that was where our going to <placeName key="tgn,7002329">Ilium</placeName> broke down; I would never have refused to further my fellow soldiers' common interest. But as it is, I am as nothing in the eyes of those chieftains, and little they care of treating me well or ill. <milestone ed="p" n="970" unit="line"/> My sword shall soon know if any one is to snatch your daughter from me, for then will I make it reek with the bloody stains of slaughter, before it reach <placeName key="tgn,7002613">Phrygia</placeName>. Calm yourself then; as a god in his might I appeared to you, without being so, but such will I show myself for all that.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p><milestone ed="p" n="975" unit="line"/> Son of Peleus, your words are alike worthy of you and that sea-born deity, the holy goddess.</p></sp>
+<sp n="Clytemnestra">
+<speaker>Clytemnestra</speaker>
+<p>Ah! would I could find words to utter your praise without excess, and yet not lose the graciousness of it by stinting it; for when the good are praised, they have some sort of  feeling <milestone ed="p" n="980" unit="line"/> of hatred for those who in their praise exceed the mean. But I am ashamed of intruding a tale of woe, since my affliction touches myself alone and you are not affected by troubles of mine; but still it looks well for the man of worth to assist the unfortunate, even when he is not connected with then. <milestone ed="p" n="985" unit="line"/> Therefore pity us, for our suffering cries for pity; in the first place, I have harbored an idle hope, in thinking to have you marry my daughter; and next, perhaps, the slaying of my child will be to you an evil omen in your wooing hereafter, against which you must guard yourself. <milestone ed="p" n="990" unit="line"/> Your words were good, both first and last; for if you will it so, my daughter will be saved.
+</p>
+<milestone ed="p" n="992" unit="card"/>
+<p>Will you have her clasp your knees as a suppliant? it is no maid's part; yet if it seems good to you, why, come she shall with the modest look of free-born maid; <milestone ed="p" n="995" unit="line"/> but if I shall obtain the same end from you without her coming then let her abide within, for there is dignity in her reserve; still reserve must only go as far as the case allows.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Do not bring your daughter out for me to see, lady, nor let us incur the reproach of the ignorant; <milestone ed="p" n="1000" unit="line"/> for an army, when gathered together without domestic duties to employ it, loves the evil gossip of malicious tongues. After all, should you both supplicate me, you will attain a like result as if I had never been supplicated; for I am myself engaged in a mighty struggle to rid you of your troubles. <milestone ed="p" n="1005" unit="line"/> One thing be sure you have heard; I will not tell a lie; if I do that or idly mock you, may I die, but live if I preserve the girl.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Bless you for always helping the distressed!</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Hearken then to me, that the matter may succeed.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1010" unit="line"/> What is your proposal? for hear you I must.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Let us once more urge her father to a better frame of mind.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>He is something of a coward, and fears the army too much.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Still argument overthrows argument.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Cold hope indeed; but tell me what I must do.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="1015" unit="line"/> Supplicate him first not to slay his children; and if he is stubborn, come to me. For if he consents to your request, my intervention need go no further, since this consent insures your safety. I too shall show myself in a better light to my friend, <milestone ed="p" n="1020" unit="line"/> and the army will not blame me, if I arrange the matter by reason rather than force; while, should things turn out well, the result will prove satisfactory both to you and your friends, even without my interference.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>How sensibly you speak! I must act as seems best to you; <milestone ed="p" n="1025" unit="line"/> but should I fail of my object, where am I to see you again, where? Must I turn my wretched steps and find you ready to champion my distress?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>I will keep watch to guard you, where occasion calls, that none may see you passing through the army of Danaids <milestone ed="p" n="1030" unit="line"/> with that scared look. Do not shame your father's house; for Tyndareus does not deserve not to be ill spoken of, being a mighty man in <placeName key="tgn,1000074">Hellas</placeName>.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>It will be so. Command me; I must play the slave to you. If there are gods, you for your righteous dealing <milestone ed="p" n="1035" unit="line"/> will find them favorable; if there are none, what need to toil? <stage>Exeunt Achilles and Clytemnestra.</stage><milestone ed="p" n="1036" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe">
+<sp><speaker>Chorus</speaker>
+<p>What wedding-hymn was that which raised its strains to the sound of Libyan flutes, to the music of the dancer's lyre, and the note of the pipe of reeds? <milestone ed="p" n="1040" unit="line"/> It was on the day <placeName key="tgn,7002729">Pieria</placeName>'s lovely-haired choir came over the slopes of <placeName key="tgn,4008379">Pelion</placeName> to the wedding of Peleus, beating the ground with print of golden sandals at the banquet of the gods, <milestone ed="p" n="1045" unit="line"/> and hymning in dulcet strains the praise of Thetis and the son of Aeacus, over the Centaurs' hill, down woods of <placeName key="tgn,4008379">Pelion</placeName>. There was the Dardanian boy, <milestone ed="p" n="1050" unit="line"/> dainty morsel of Zeus' bed, drawing off the wine he mixed in the depths of golden bowls, Ganymede the Phrygian; while, along the gleaming sand, <milestone ed="p" n="1055" unit="line"/> the fifty daughters of Nereus graced the marriage with their dancing, circling in a mazy ring.<milestone ed="p" n="1058" unit="card"/></p></sp></div2>
+<div2 type="antistrophe">
+<sp><speaker>Chorus</speaker>
+<p>The revel-rout of Centaurs came too, mounted on horses, to the feast of the gods and the mixing-bowl of Bacchus, <milestone ed="p" n="1060" unit="line"/> leaning on fir-trees, with wreaths of green foliage round their heads; and Chiron cried loudly: &ldquo;Daughter of Nereus, you shall bear a son, a dazzling light to <placeName key="tgn,7001399">Thessaly</placeName>;&rdquo; and the prophet, <milestone ed="p" n="1065" unit="line"/> skilled in arts inspired by Phoebus, gave his name; &rdquo;for he shall come with an army of Myrmidon spearmen to the famous land of Priam, <milestone ed="p" n="1070" unit="line"/> to set it in a blaze, his body cased in a suit of golden mail forged by Hephaestus, a gift from his goddess-mother, from Thetis who bore him.&rdquo; <milestone ed="p" n="1075" unit="line"/> Then the gods shed a blessing on the marriage of the high-born bride, who was first of Nereus' daughters, and on the wedding of Peleus.<milestone ed="p" n="1080" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1080" unit="line"/> But the Argives will crown you, wreathing the lovely tresses of your hair, like a pure, dappled heifer brought from some rocky cave, and staining with blood your human throat; <milestone ed="p" n="1085" unit="line"/> though you were never reared among the piping and whistling of herdsmen, but at your mother's side, to be decked as the bride of a son of Inachus. Where now does the face of modesty <milestone ed="p" n="1090" unit="line"/> or virtue have any strength? seeing that godlessness holds sway, and virtue is neglected by men and thrust behind them, <milestone ed="p" n="1095" unit="line"/> lawlessness over law prevailing, and mortals no longer making common cause to keep the jealousy of gods from reaching them.<milestone ed="p" n="1098" unit="card"/></p></sp></div2>
+</div1>
+ <div1 type="episode">
+<sp>
+<speaker>Clytemnestra</speaker>
+<stage>reappearing from the tent.</stage>
+<p>I have come from the tent to look out for my husband, who went away and left its shelter long ago; <milestone ed="p" n="1100" unit="line"/> while my poor child, hearing of the death her father designs for her, is in tears, uttering in many keys her piteous lamentation. <stage>Catching sight of Agamamnon.</stage> It seems I was speaking of one not far away; for there is Agamemnon, <milestone ed="p" n="1105" unit="line"/> who will soon be detected in the commission of a crime against his own child.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Daughter of Leda, it is lucky I have found you outside the tent, to discuss with you in our daughter's absence subjects not suited for the ears of maidens on the eve of marriage.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What critical moment is it that you are seizing?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1110" unit="line"/> Send the maiden out to join her father, for the lustral water stands there ready, and barley-meal to scatter with the hand on the cleansing flame, and heifers to be slain  before the marriage, in honor of the goddess &lsqb;Artemis, their black blood spouting from them&rsqb;.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1115" unit="line"/> Though the words you use are good, I do not know how I am to name your deeds in terms of praise. Come forth, my daughter; well you know what is in your father's mind; take the child Orestes, your brother, and bring him with you in the folds of your robe. <milestone ed="p" n="1120" unit="line"/> Behold! she comes, in obedience to your summons. I will speak the rest for her and for myself.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>My child, why do you weep and no longer look cheerfully? why are you fixing your eyes upon the ground and holding your robe before them? </p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Ah! with which of my woes shall I begin? <milestone ed="p" n="1125" unit="line"/> for I may treat them all as first, or put them last or midway, anywhere.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>What is it? I find you all alike, confusion and alarm in every eye.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>My husband, answer frankly the questions I ask you. </p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1130" unit="line"/> There is no necessity to order me; I am willing to be questioned.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Do you mean to slay your child and mine?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<stage>starting.</stage><p>Ha! these are heartless words, unwarranted suspicions!</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Peace! answer me that question first.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Put a fair question and you shall have a fair answer.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1135" unit="line"/> I have no other questions to put; give me no other answers.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>O fate revered, O destiny, and my fortune!</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Yes, and mine and hers too; the three share one bad fortune.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Whom have I injured?</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Do you ask this question? A thought like that itself amounts to tboughtlessness.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1140" unit="line"/> Ruined! my secret betrayed! </p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I know all; I have heard what you are bent on doing to me. Your very silence and those frequent groans are a confession; do not tire yourself by telling it.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>See, I am silent; for why should I tell you a falsehood, <milestone ed="p" n="1145" unit="line"/> and add effrontery to misfortune?<milestone ed="p" n="1146" unit="card"/></p></sp>
+<sp n="Clytemnestra">
+<speaker>Clytemnestra</speaker>
+<p>Well, now listen; for I will unfold my meaning and no longer employ dark riddles. In the first place&mdash;to reproach you first with this&mdash;it was not of my own free will but by force that you took and wed me, <milestone ed="p" n="1150" unit="line"/> after slaying Tantalus, my former husband, and dashing my baby on the ground when you had torn him from my breast with brutal violence. Then those two sons of Zeus, who were my brothers, came flashing on horseback to war with you;<milestone ed="p" n="1155" unit="line"/> but Tyndareus, my old father, rescued you because of your suppliant prayers, and you in turn had me to wife.</p>
+<p>Once I was reconciled to you upon this footing, you will bear me witness I have been a blameless wife to you and your family, chaste in love, <milestone ed="p" n="1160" unit="line"/> an honor to your house, that so your coming in might be with joy and your going out with gladness. And it is seldom a man secures a wife like this, though the getting of a worthless woman Is no rarity. Besides three daughters, of one of whom you are heartlessly depriving me, <milestone ed="p" n="1165" unit="line"/> I am the mother of this son of yours. If anyone asks you your reason for slaying her, tell me, what will you say? or must I say it for you? &ldquo;It is that Menelaus may recover Helen.&rdquo; An honorable exchange, indeed, to pay a wicked woman's price in children's lives! <milestone ed="p" n="1170" unit="line"/> It is buying what we most detest with what we hold most dear. Again, if you go forth with the army, leaving me in your halls and are long absent at <placeName key="perseus,Troy">Troy</placeName>, what will my feelings be at home, do you think? when I behold each vacant chair <milestone ed="p" n="1175" unit="line"/> and her chamber now deserted, and then sit down alone in tears, making ceaseless lamentation for her, &ldquo;Ah! my child, he that begot you has slain you himself, he and no one else, nor are was it by another's hand, leaving behind him such a return to his home.&rdquo; <milestone ed="p" n="1180" unit="line"/> For it needs now only a trifling pretext for me and the daughters remaining to give you the reception it is right you should receive. I adjure you by the gods, do not compel me to sin against you, or sin yourself.
+</p>
+<milestone ed="p" n="1185" unit="card"/>
+<p><milestone ed="p" n="1185" unit="line"/> Well; suppose you sacrifice the child; what prayer will you utter, when it is done? what will the blessing be that you will invoke upon yourself as you are slaying our daughter? An ill returning, seeing the disgrace that speeds your going forth? Is it right that I should pray for any luck to attend you? Surely we should deem the gods devoid of sense, <milestone ed="p" n="1190" unit="line"/> if we harbored a kindly feeling towards murder? Shall you embrace your children on your coming back to <placeName key="perseus,Argos">Argos</placeName>? No, you have no right. Will any child of yours ever face you, if you have surrendered one of them to death? Has this ever entered into your calculations, or does your one duty consist <milestone ed="p" n="1195" unit="line"/> in carrying a scepter about and marching at the head of an army? When you might have made this fair proposal among the Argives; &ldquo;Is it your wish, Achaeans, to sail for <placeName key="tgn,7002613">Phrygia</placeName>'s shores? Why then, cast lots whose daughter has to die.&rdquo; For that would have been a fair course for you to pursue, instead of picking out <milestone ed="p" n="1200" unit="line"/> your own child for the victim and presenting her to the Danaids; or Menelaus, as it was his concern, should have slain <placeName key="perseus,Hermione">Hermione</placeName> for her mother. As it is, I, who still am true to your bed, must lose my child; while she, who went astray, <milestone ed="p" n="1205" unit="line"/> will return with her daughter, and live in happiness at <placeName key="perseus,Sparta">Sparta</placeName>. If I am wrong in my words, answer me; but if they have been fairly urged, do not slay your child, who is mine too, and you will be wise.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Hearken to her, Agamemnon, for to join in saving your children's lives is surely a noble deed; <milestone ed="p" n="1210" unit="line"/> no one will deny this.<milestone ed="p" n="1211" unit="card"/></p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>If I had the eloquence of Orpheus, my father, to move the rocks by chanted spells to follow me, or to charm by speaking anyone I wished, I would have resorted to it. But as it is, I'll bring my tears&mdash;the only art I know; <milestone ed="p" n="1215" unit="line"/> for that I might attempt. And about your knees, as a suppliant, I twine my limbs&mdash;these limbs your wife here bore. Do not destroy me before my time, for it is sweet to look upon the light, and do not force me to visit scenes below. <milestone ed="p" n="1220" unit="line"/> I was the first to call you father, you the first to call me child; I was the first to sit upon your knee and give and take the fond caress. And this was what you would saythen: &ldquo;Shall I see you, my child, living a happy prosperous life <milestone ed="p" n="1225" unit="line"/> in a husband's home one day, in a manner worthy of myself?&rdquo; And I in my turn would ask, as I hung about your beard, where I now am clinging, &ldquo;What then will I do for you? Shall I be giving you a glad reception in my halls, father, <milestone ed="p" n="1230" unit="line"/> in your old age, repaying all your anxious care in rearing me?&rdquo; I remember all we said, it is you who have forgotten and now would take my life. By Pelops, I entreat you spare me, by your father Atreus and my mother here, who suffers now a second time the pangs <milestone ed="p" n="1235" unit="line"/> she felt before when bearing me! What have I to do with the marriage of <placeName key="tgn,7008038">Paris</placeName> and Helen? Why is his coming to prove my ruin, father? Look upon me; bestow one glance, one kiss, that this at least I may carry to my death <milestone ed="p" n="1240" unit="line"/> as a memorial of you, though you do not heed my pleading.</p> <p><stage>holding up the baby Orestes.</stage> Feeble ally though you are, brother, to your loved ones, yet add your tears to mine and entreat our father for your sister's life; even in babies there is a natural sense of evil. <milestone ed="p" n="1245" unit="line"/> O father, see this speechless supplication made to you; pity me; have mercy on my tender years! Yes, by your beard we two fond hearts implore your pity, the one a baby, a full-grown maid the other. By summing all my pleas in one, I will prevail in what I say: <milestone ed="p" n="1250" unit="line"/> to gaze upon the light is man's most cherished gift; that life below is nothingness, and whoever longs for death is mad. Better live a life of woe than die a death of glory!</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Ah, wretched Helen! Great is the struggle that has come sons to the of Atreus and their children, thanks to you and those marriages of yours.<milestone ed="p" n="1255" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1255" unit="line"/> While loving my own children, I yet understand what should move my pity and what should not; I would be a madman otherwise. It is terrible for me to bring myself to this, nor is it less terrible to refuse, daughter; for I must do this. You see the vastness of that naval army, <milestone ed="p" n="1260" unit="line"/> and the numbers of bronze-clad warriors from Hellas, who can neither make their way to <placeName key="tgn,7002329">Ilium</placeName>'s towers nor raze the far-famed citadel of <placeName key="perseus,Troy">Troy</placeName>, unless I offer you according to the word of Calchas the seer. Some mad desire possesses the army of <placeName key="tgn,1000074">Hellas</placeName> <milestone ed="p" n="1265" unit="line"/> to sail at once to the land of the barbarians, and put a stop to the rape of wives from <placeName key="tgn,1000074">Hellas</placeName>, and they will slay my daughter in <placeName key="perseus,Argos">Argos</placeName> as well as you and me, if I disregard the goddess's commands. It is not Menelaus who has enslaved me to him, child, <milestone ed="p" n="1270" unit="line"/> nor have I followed his wish; no, it is <placeName key="tgn,1000074">Hellas</placeName>, for whom I must sacrifice you whether I will or not; to this necessity I bow my head; for her freedom must be preserved, as far as any help of yours daughter, or mine can go; or they, who are the sons of <placeName key="tgn,1000074">Hellas</placeName>, must be <milestone ed="p" n="1275" unit="line"/> pillaged of their wives by barbarian robbery.<stage>Exit Agamemnon.</stage><milestone ed="p" n="1276" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="lyric">
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>My child! oh, foreign women! Alas for me, for your death! Your father escapes, surrendering you to Hades.</p></sp>
+<sp n="Iphigenia">
+<speaker>Iphigenia</speaker>
+<p>Alas for me, mother! for the same <milestone ed="p" n="1280" unit="line"/> lament has fallen to both of us in our fortune. No more for me the light of day! no more these beams of the sun! Oh, oh! that snow-beat glen in <placeName key="tgn,7002613">Phrygia</placeName> and the hills of Ida, <milestone ed="p" n="1285" unit="line"/> where Priam once exposed a tender baby, torn from his mother's arms to meet a deadly doom, <placeName key="tgn,7008038">Paris</placeName>, called the child of Ida <milestone ed="p" n="1290" unit="line"/> in the Phrygians' town. Would that he never had settled Alexander, the herdsman reared among the herds, beside that water crystal-clear, where are fountains <milestone ed="p" n="1295" unit="line"/> of the Nymphs and their meadow rich with blooming flowers, where hyacinths and rose-buds blow for goddesses to gather! Here one day <milestone ed="p" n="1300" unit="line"/> came Pallas and Cypris of the subtle heart, Hera too and Hermes messenger of Zeus; Cypris, proud of the longing she causes, <milestone ed="p" n="1305" unit="line"/> Pallas of her prowess; and Hera of her royal marriage with king Zeus; to decide a hateful strife about their beauty; but it is my death, <milestone ed="p" n="1310" unit="line"/> maidens, bringing, it is true, glory to the Danaids, that Artemis has received as an offering, before they begin the voyage to <placeName key="tgn,7002329">Ilium</placeName>.
+</p>
+<milestone ed="p" n="1313" unit="card"/>
+<p>O mother, mother! he that begot me to this life of sorrow has gone and left me all alone. <milestone ed="p" n="1315" unit="line"/> Ah! woe is me! a bitter, bitter sight for me was Helen, evil Helen! to me now doomed to bleed and die, slaughtered by an impious father! I wish this <placeName key="perseus,Aulis">Aulis</placeName> had never received <milestone ed="p" n="1320" unit="line"/> in its havens here the stems of their bronze-beaked ships, the fleet which was speeding them to <placeName key="perseus,Troy">Troy</placeName>; and would that Zeus had never breathed on the Euripus a wind to stop the expedition, tempering, as he does, <milestone ed="p" n="1325" unit="line"/> a different breeze to different men, so that some have joy in setting sail, and sorrow some, and others hard constraint, to make some start and others prepare and others delay! <milestone ed="p" n="1330" unit="line"/> Full of trouble then, it seems, is the race of mortals, full of trouble indeed; and it is Fate's decree that man should find distress. Woe! woe to you, you child of Tyndareus, <milestone ed="p" n="1335" unit="line"/> for the suffering and anguish sore, which you are causing the Danaids!<milestone ed="p" n="1336" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>I pity you for your cruel fate&mdash;a fate I would you never had met!<milestone ed="p" n="1338" unit="card"/></p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>O mother that bore me! I see a throng of men approaching.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>It is the goddess' son you see, child, for whom you came here.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<stage>calling into the tent.</stage><p><milestone ed="p" n="1340" unit="line"/> Open the tent-door to me, servants, that I may hide myself</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Why seek to escape, my child?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>I am ashamed to face Achilles.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>But why?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>The luckless ending to our marriage causes me to feel abashed.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>No time for affectation now in face of what has happened. Stay then; reserve will do no good, if we may profit.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="1345" unit="line"/> Daughter of Leda, lady of sorrows!</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>No misnomer that.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>A fearful cry is heard among the Argives.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What is it? tell me.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>It concerns your child.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>An evil omen for your words.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>They say her sacrifice is necessary.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>And is there no one to say a word against them?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Indeed I was in some danger myself from the tumult. </p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>In danger of what, stranger?.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="1350" unit="line"/> Of being stoned.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Surely not for trying to save my daughter?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>The very reason.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Who would have dared to lay a finger on you?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>All the men of <placeName key="tgn,1000074">Hellas</placeName>.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Were not your Myrmidon warriors at your side?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>They were the first who turned against me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>My child! we are lost, it seems.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>They taunted me as the man whom marriage had enslaved.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>And what did you answer them?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="1355" unit="line"/> Not to kill the one I meant to wed&mdash;</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Justly so.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>The wife her father promised me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Yes, and sent to fetch from <placeName key="perseus,Argos">Argos</placeName>.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>But I was overcome by clamorous cries.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Truly the mob is a dire mischief.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>But I will help you for all that.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Will you really fight them single-handed?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Do you see these warriors here, carrying my arms?</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Bless you for your kind intent!</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="1360" unit="line"/> Well, I shall be blessed.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Then my child will not be slaughtered now?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>No, not with my consent at any rate.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>But will any of them come to lay hands on the maid?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Thousands of them, with Odysseus at their head.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>The son of Sisyphus?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>The very same.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Acting for himself or by the army's order?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>By their choice&mdash;and his own.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>An evil choice indeed, to stain his hands in blood.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p><milestone ed="p" n="1365" unit="line"/> But I will hold him back.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Will he seize and bear her off against her will?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Yes, by her golden hair no doubt.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What must I do, when it comes to that?</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Keep hold of your daughter.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Be sure that she shall not be slain, as far as that that can help her.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Believe me, it will come to this.</p></sp>
+<sp n="Iphigenia">
+<speaker>Iphigenia</speaker>
+<p>Mother, hear me while I speak, for I see that you are angry with your husband <milestone ed="p" n="1370" unit="line"/> to no purpose; it is hard for us to persist in impossibilities. Our thanks are due to this stranger for his ready help; but you must also see to it that he is not reproached by the army, leaving us no better off and himself involved in trouble.
+</p>
+<milestone ed="p" n="1374" unit="card"/>
+<p>Listen, mother; hear what thoughts have passed across my mind. <milestone ed="p" n="1375" unit="line"/> I am resolved to die; and this I want to do with honor, dismissing from me what is mean. Towards this now, mother turn your thoughts, and with me weigh how well I speak; to me the whole of mighty <placeName key="tgn,1000074">Hellas</placeName> looks; on me the passage over the sea depends; on me the sack of <placeName key="perseus,Troy">Troy</placeName>; <milestone ed="p" n="1380" unit="line"/> and in my power it lies to check henceforth barbarian raids on happy <placeName key="tgn,1000074">Hellas</placeName>, if ever in the days to come they seek to seize her women, when once they have atoned by death for the violation of Helen's marriage by <placeName key="tgn,7008038">Paris</placeName>. All this deliverance will my death insure, and my fame for setting <placeName key="tgn,1000074">Hellas</placeName> free will be a happy one. <milestone ed="p" n="1385" unit="line"/> Besides, I have no right at all to cling too fondly to my life; for you did not bear me for myself alone, but as a public blessing to all <placeName key="tgn,1000074">Hellas</placeName>. What! shall countless warriors, armed with shields, those myriads sitting at the oar, find courage to attack the foe and die for <placeName key="tgn,1000074">Hellas</placeName>, because their fatherland is wronged, <milestone ed="p" n="1390" unit="line"/> and my one life prevent all this? What kind of justice is that? could I find a word in answer? Now let us turn to that other point. It is not right that this man should enter into battle with all <placeName key="perseus,Argos">Argos</placeName> or be slain for a woman's sake. Better a single man should see the light than ten thousand women. <milestone ed="p" n="1395" unit="line"/> If Artemis has decided to take my body, am I, a mortal, to thwart the goddess? no, that is impossible. I give my body to <placeName key="tgn,1000074">Hellas</placeName>; sacrifice it and make an utter end of <placeName key="perseus,Troy">Troy</placeName>. This is my enduring monument; marriage, motherhood, and fame&mdash;all these is it to me. <milestone ed="p" n="1400" unit="line"/> And it is right, mother, that Hellenes should rule barbarians, but not barbarians Hellenes, those being slaves, while these are free.<milestone ed="p" n="1402" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>You play a noble part, maiden; but the whims of Fate and the goddess are diseased.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Daughter of Agamemnon! some god was bent <milestone ed="p" n="1405" unit="line"/> on blessing me, if I could have won you for my wife. In you I consider <placeName key="tgn,1000074">Hellas</placeName> happy, and you in <placeName key="tgn,1000074">Hellas</placeName>; for this that you have said is good and worthy of your fatherland; since you, abandonIng a strife with heavenly powers, which are too strong for you, have fairly weighed advantages and needs. <milestone ed="p" n="1410" unit="line"/> But now that I have looked into your noble nature, I feel still more a fond desire to win you for my bride. Look to it; for I want to serve you and receive you in my halls; and, Thetis be my witness, how I grieve to think I shall not save your life by doing battle with the Danaids. <milestone ed="p" n="1415" unit="line"/> Reflect, I say; a dreadful ill is death.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>This I say, without regard to anyone. Enough that the daughter of Tyndareus is causing wars and bloodshed by her beauty; then be not slain yourself, stranger, nor seek to slay another on my account; <milestone ed="p" n="1420" unit="line"/> but let me, if I can, save <placeName key="tgn,1000074">Hellas</placeName>.</p></sp>
+<sp>
+<speaker>Achilles</speaker>
+<p>Heroic spirit! I can say no more to this, since you are so minded; for yours is a noble resolve; why should not one speak the truth? Yet I will speak, for you will perhaps change your mind; <milestone ed="p" n="1425" unit="line"/> &lsqb;that you may know then what my offer is,&rsqb; I will go and place these arms of mine near the altar, resolved not to permit your death but to prevent; for brave as you are at sight of the knife held at your throat, you will soon avail yourself of what I said. <milestone ed="p" n="1430" unit="line"/> So I will not let you perish through any thoughtlessness of yours, but will go to the goddess with these arms and await your arrival there. <stage>Exit Achilles.</stage><milestone ed="p" n="1433" unit="card"/></p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Mother, why so silent, your eyes wet with tears?</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I have reason, woe is me! to be sad at heart.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="1435" unit="line"/> Stop; do not make me a coward; here in one thing obey me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Tell me, my child, for at my hands you shall never suffer injury.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Cut not off the tresses of your hair for me, nor clothe yourself in sable garb.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Why, my child, what is it you have said? When I have lost you?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="1440" unit="line"/> You wll not lose me; I am saved and you renowned, as far as I can make you.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>How so? Must I not mourn your death?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>By no means, for I shall have no tomb heaped over me.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What then? It is death, not the tomb, that is rightly mourned.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>The altar of the goddess, Zeus's daughter, will be my tomb.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1445" unit="line"/> Well, my child, I will let you persuade me, for you speak well.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Yes, as one who prospers and does <placeName key="tgn,1000074">Hellas</placeName> service.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>What message shall I carry to your sisters?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Do not put mourning raiment on them either.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>But is there no fond message I can give the maidens from you? </p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="1450" unit="line"/> Yes, my farewell words; and promise me to rear Orestes to manhood.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Press him to your bosom; it is your last look.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>O you that are most dear to me! you have helped your friends as you had means.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Is there anything I can do in <placeName key="perseus,Argos">Argos</placeName> to please you?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Yes, do not hate my father, your own husband.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1455" unit="line"/> Fearful are the trials through which he has to go because of you.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>It was against his will he ruined me for the sake of <placeName key="tgn,1000074">Hellas</placeName>.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Ah! but he employed base treachery, unworthy of Atreus.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Who will escort me from here, before my hair is torn?</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I will go with you&mdash;</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>No, not you; that is not well saidl.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1460" unit="line"/> Clinging to your robes.</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Be persuaded by me, mother, stay here; for this is the better way both for me and you; but let one of these attendants of my father conduct me to the meadow of Artemis, where I shall be sacrificed.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Are you gone from me, my child?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Yes, and with no chance of ever returning.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1465" unit="line"/> Leaving your mother?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>Yes, as you see, undeservedly.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Hold! do not leave me!</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>I cannot let you shed a tear. <stage>To the Chorus.</stage> May it be yours, maidens, to hymn in joyous strains Artemis, the child of Zeus, for my hard lot; and let the order for a solemn hush go forth to the Danaids. <milestone ed="p" n="1470" unit="line"/> Begin the sacrifice with the baskets, let the fire blaze for the purifying meal of sprinkling, and my father pace from left to right about the altar; for I come to bestow on <placeName key="tgn,1000074">Hellas</placeName> safety crowned with victory.<milestone ed="p" n="1475" unit="card"/></p></sp>
+<div2 type="lyric">
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="1475" unit="line"/> Lead me away, the destroyer of <placeName key="tgn,7002329">Ilium</placeName>'s town and the Phrygians; give me wreaths to cast about me; bring them here; here are my tresses to crown; bring lustral water too. <milestone ed="p" n="1480" unit="line"/> Dance to Artemis, queen Artemis the blest, around her shrine and altar; for by the blood of my sacrifice I will blot out the oracle, <milestone ed="p" n="1485" unit="line"/> if it must be. O mother, lady revered! I will, not give you my tears; <milestone ed="p" n="1490" unit="line"/> for at the holy rites it is not fitting. Sing with me, maidens, sing the praises of Artemis, whose temple faces <placeName key="perseus,Chalcis">Chalcis</placeName>, <milestone ed="p" n="1495" unit="line"/> where angry spearmen madly chafe, here in the narrow havens of <placeName key="perseus,Aulis">Aulis</placeName>, because of me. O Pelasgia, land of my birth, and <placeName key="perseus,Mycenae">Mycenae</placeName>, my home!<milestone ed="p" n="1500" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1500" unit="line"/> Is it on Perseus' citadel you call, that town Cyclopean workmen built?</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p>To be a light to <placeName key="tgn,1000074">Hellas</placeName> did you rear me, and so I do not say No to death.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>You are right; no fear that fame will ever desert you!</p></sp>
+<sp>
+<speaker>Iphigenia</speaker>
+<p><milestone ed="p" n="1505" unit="line"/> Hail to you, bright lamp of day and light of Zeus! A different life, a different lot is henceforth mine. Farewell I bid you, light beloved! <stage>Exit Iphigenia.</stage>.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1510" unit="line"/> Behold the maiden on her way, the destroyer of <placeName key="tgn,7002329">Ilium</placeName>'s town and the Phrygians, with garlands twined about her head, and drops of lustral water on her, soon to be sprinkled with her gushing blood <milestone ed="p" n="1515" unit="line"/> the altar of a murderous goddess, when her shapely neck is severed. For you fair streams of a father's pouring and lustral waters are in store, for you <placeName key="tgn,7002733">Achaea</placeName>'s army is waiting, eager <milestone ed="p" n="1520" unit="line"/> to reach the citadel of <placeName key="tgn,7002329">Ilium</placeName>. But let us celebrate Artemis, the daughter of Zeus, queen among the gods, as if upon some happy chance. O lady revered, delighting in human <milestone ed="p" n="1525" unit="line"/> sacrifice, send on its way to <placeName key="tgn,7002613">Phrygia</placeName>'s land the army of the Hellenes, to <placeName key="perseus,Troy">Troy</placeName>'s abodes of guile, and grant that Agamemnon may wreathe his head with deathless fame, <milestone ed="p" n="1530" unit="line"/> a crown of fairest glory for the spearmen of <placeName key="tgn,1000074">Hellas</placeName>.<milestone ed="p" n="1532" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Come forth, O Clytemnestra, daughter of Tyndareus, from the tent, to hear my news.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>I heard your voice and have come <milestone ed="p" n="1535" unit="line"/> in sad dismay and fearful dread, not sure but what you have arrived with tidings of some fresh trouble for me besides the present woe.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>No, rather I want to unfold to you a strange and marvellous story about your child.</p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p>Do not delay, then, but speak at once.</p></sp>
+<sp n="Messenger">
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="1540" unit="line"/> Dear mistress, you shall learn all clearly; from the outset will I tell it, unless my memory fails me somewhat and confuses my tongue in its account. As soon as we reached the grove of Artemis, the child of Zeus, and the flowery meadows, <milestone ed="p" n="1545" unit="line"/> where the Achaean troops were gathered, bringing your daughter with us, at once the Argive army began assembling; but when king Agamemnon saw the maiden on her way to the grove to be sacrificed, he gave one groan, and, turning away his face, let the tears burst <milestone ed="p" n="1550" unit="line"/> from his eyes, as he held his robe before them. But the maid, standing close by her father, spoke thus: &ldquo;O my father, here I am; willingly I offer my body for my country and all <placeName key="tgn,1000074">Hellas</placeName>, <milestone ed="p" n="1555" unit="line"/> that you may lead me to the altar of the goddess and sacrifice me, since this is Heaven's ordinance. May good luck be yours for any help that I afford! and may you obtain the victor's gift and come again to the land of your fathers. So then let none of the Argives lay hands on me, <milestone ed="p" n="1560" unit="line"/> for I will bravely yield my neck without a word.&rdquo;</p>
+<p>She spoke; and each man marvelled, as he heard the maiden's brave speech. But in the midst Talthybius stood up, for this was his duty, and bade the army refrain from word or deed; <milestone ed="p" n="1565" unit="line"/> and Calchas, the seer, drawing a sharp sword from its scabbard laid it in a basket of beaten gold, and crowned the maiden's head. Then the son of Peleus, taking the basket and with it lustral water in his hand, ran round the altar of the goddess <milestone ed="p" n="1570" unit="line"/> uttering these words: &ldquo;O Artemis, you child of Zeus, slayer of wild beasts, that wheel your dazzling light amid the gloom, accept this sacrifice which we, the army of the Achaeans and Agamemnon with us, offer to you, pure blood from a beautiful maiden's neck; <milestone ed="p" n="1575" unit="line"/> and grant us safe sailing for our ships and the sack of <placeName key="perseus,Troy">Troy</placeName>'s towers by our spears.&rdquo; Meanwhile the sons of Atreus and all the army stood looking on the ground.
+</p>
+<milestone ed="p" n="1578" unit="card"/>
+<p>&lsqb;But the priest, seizing his knife, offered up a prayer and was closely scanning the maiden's throat to see where he should strike. <milestone ed="p" n="1580" unit="line"/> It was no slight sorrow filled my heart, as I stood by with bowed head; when there was a sudden miracle! Each one of us distinctly heard the sound of a blow, but none saw the spot where the maiden vanished. The priest cried out, and all the army took up the cry <milestone ed="p" n="1585" unit="line"/> at the sight of a marvel all unlooked for, due to some god's agency, and passing all belief, although it was seen; for there upon the ground lay a deer of immense size, magnificent to see, gasping out her life, with whose blood the altar of the goddess was thoroughly bedewed. <milestone ed="p" n="1590" unit="line"/> Then spoke Calchas thus&mdash;his joy you can imagine&mdash;&ldquo;You captains of this leagued Achaean army, do you see this victim, which the goddess has set before her altar, a mountain-roaming deer? This is more welcome to her by far than the maid, <milestone ed="p" n="1595" unit="line"/> that she may not defile her altar by shedding noble blood. Gladlyshe has accepted it, and is granting us a prosperous voyage for our attack on <placeName key="tgn,7002329">Ilium</placeName>. Therefore take heart, sailors, each man of you, and away to your ships, for today <milestone ed="p" n="1600" unit="line"/> we must leave the hollow bays of <placeName key="perseus,Aulis">Aulis</placeName> and cross the <placeName key="tgn,7002675">Aegean</placeName> main.&rdquo; Then, when the sacrifice was wholly burnt to ashes in the blazing flame, he offered such prayers as were fitting, that the army might win return; but Agamemnon sends me to tell you this, <milestone ed="p" n="1605" unit="line"/> and say what heaven-sent luck is his, and how he has secured undying fame throughout the length of <placeName key="tgn,1000074">Hellas</placeName>. Now I was there myself and speak as an eyewitness; without a doubt your child flew away to the gods. A truce then to your sorrowing, and cease to be angry with your husband; <milestone ed="p" n="1610" unit="line"/> for the gods' ways with man are not what we expect, and those whom they love, they keep safe; yes, for this day has seen your daughter dead and living.</p></sp>
+<stage>Exit Messenger.</stage>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p> What joy to hear these tidings from the messenger! He tells you your child is living still, among the gods.<milestone ed="p" n="1615" unit="card"/></p></sp>
+<sp>
+<speaker>Clytemnestra</speaker>
+<p><milestone ed="p" n="1615" unit="line"/>Which of the gods, my child, has stolen you? How am I to address you? How can I be sure that this is not an idle tale told to cheer me, to make me cease my piteous lamentation for you?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>See! king Agamemnon approaches, <milestone ed="p" n="1620" unit="line"/> to confirm this story for you.<milestone ed="p" n="1621" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Lady, we may be counted happy, as far as concerns our daughter; for in truth she has fellowship with gods. But you must take this tender child and start for home, for the army is looking now to sail. <milestone ed="p" n="1625" unit="line"/> Fare you well! it is long before I shall greet you on my return from <placeName key="perseus,Troy">Troy</placeName>.; may it be well with you!<milestone ed="p" n="1627" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Son of Atreus, start for <placeName key="tgn,7002613">Phrygia</placeName>'s land with joy and so return, I pray, after taking from <placeName key="tgn,7002329">Troy</placeName> her fairest spoils.&rsqb;</p></sp></div2>
+</div1></body>
+</text></TEI.2>

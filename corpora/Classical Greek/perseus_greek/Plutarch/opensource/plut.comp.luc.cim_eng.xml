@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Comp.Luc.Cim." type="work">Comparison of Lucullus and Cimon</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 12Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Comp.Luc.Cim."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990536</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>3/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>COMPARISON OF LUCULLUS AND CIMON</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>One might deem Lucullus especially happy in his end, from the fact that he died before that constitutional change had come, which fate was already contriving by means of the civil wars. His country was in a distempered state when he laid down his life, but still she was free. And in this respect, more than any other, he is like Cimon. 
+				<milestone n="2" unit="section"/>For Cimon also died before Greece was confounded, and while she was at the acme of her power. He died, however, in the field, and at the head of an army, not exhausted or of a wandering mind, nor yet making feastings and revellings the crowning prize for arms and campaigns and trophies. Plato<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Rep. 363">
+                  <title>Republic</title>, ii. p. 363.</bibl>
+            </note> banters the followers of Orpheus for declaring that for those who have lived rightly, there is laid up in Hades a treasure of everlasting intoxication. 
+				<milestone n="3" unit="section"/>Leisure, no doubt, and quiet, and the pursuit of pleasantly speculative learning, furnish a most fitting solace for a man of years who has retired from wars and politics. But to divert fair achievements to pleasure as their final end, and then to sport and wanton at the head of Aphrodite's train, as a sequel to wars and fightings, was not worthy of the noble Academy, nor yet of one who would follow Xenocrates, but rather of one who leaned towards Epicurus. 
+				<milestone n="4" unit="section"/>And this is the more astonishing, because, contrariwise, Cimon seems to have been of ill repute and unrestrained in his youth, while Lucullus was disciplined and sober. Better, surely, is the man in whom the change is for the better; for it argues a more wholesome nature when its evil withers and its good ripens.
+			</p>
+         <p>And further, though both alike were wealthy, they did not make a like use of their wealth. 
+				<milestone n="5" unit="section"/>There is no comparing the south wall of the Acropolis, which was completed with the moneys brought home by Cimon, with the palaces and sea-washed Belvideres at Neapolis, which Lucullus built out of the spoils of the Barbarians. Nor can the table of Cimon be likened to that of Lucullus; the one was democratic and charitable, the other sumptuous and oriental. 
+				<milestone n="6" unit="section"/>The one, at slight outlay, gave daily sustenance to many; the other, at large cost, was prepared for a few luxurious livers. It may be said, indeed, that the difference in state was due to the difference in time. For it is at least possible that Cimon also, if he had retired after his active campaigns to an old age which knew neither war nor politics, might have led an even more ostentatious and pleasure-loving life. He was fond of wine and given to display, and his relations with women, as I have said before,<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Cim. 4.8">
+                  <title>Cimon</title>, iv. 8.</bibl>
+            </note> were scandalous. 
+				<milestone n="7" unit="section"/>But success in strenuous achievement, affording as it does a higher pleasure, gives public-spirited and ambitious natures no time to indulge the baser appetites, which are forgotten. At any rate, if Lucullus also had ended his days in active military command, not even the most carping and censorious spirit, I think, could have brought accusation against him. Thus much concerning their manner of life.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In war, it is plain that both were good fighters, both on land and sea. But just as those athletes who win crowns in wrestling and the pancratium on a single day are called, by custom, 
+				<q direct="unspecified">Victors-extraordinary,</q> so Cimon, who in a single day crowned Greece with the trophies of a land and sea victory, may justly have a certain pre-eminence among generals. 
+				<milestone n="2" unit="section"/>And further, it was his country which conferred imperial power upon Lucullus, whereas Cimon conferred it upon his. The one added his foreign conquests to a country which already ruled her allies; the other found his country obeying others, and gave her command over her allies and victory over her foreign foes, by defeating the Persians and driving them from the sea, and by persuading the Lacedaemonians voluntarily relinquish the command. 
+				<milestone n="3" unit="section"/>Granted that it is the most important task of a leader to secure prompt obedience through good will, Lucullus was despised by his own soldiers, while Cimon was admired by the allies. His soldiers deserted the one; the allies came over to the other. The one came back home abandoned by those whom he commanded when he set out; the other was sent out with allies to do the commands of others, but before he sailed home he himself gave commands to those allies, having successfully secured for his city three of the most difficult objects at once, namely, peace with the enemy, leadership of the allies, and concord with the Lacedaemonians.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Again, both attempted to subvert great empires and to subdue all Asia, and both left their work unfinished: Cimon through ill fortune pure and simple, for he died at the head of his army and at the height of his success; but Lucullus one cannot altogether acquit of blame, whether he was ignorant of, or would not attend to the grievances and complaints among his soldiery, in consequence of which he became so bitterly hated. 
+				<milestone n="5" unit="section"/>Or perhaps this has its counterpart in the life of Cimon, for he was brought to trial by his fellow citizens and finally ostracised, in order that for ten years, as Plato says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Gorg. 516">
+                  <title>Gorgias</title>, p. 516.</bibl>
+            </note> they might not hear his voice. For aristocratic natures are little in accord with the multitude, and seldom please it, but by so often using force to rectify its aberrations, they vex and annoy it, just as physicians' bandages vex and annoy, although they bring the dislocated members into their natural position. Perhaps, then, both come off about alike on this count.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Lucullus was much the greater in war. He was the first Roman to cross the Taurus with an army; he passed the Tigris and captured and burned the royal cities of Asia,&mdash;Tigranocerta Cabira, Sinop&mdash;, and Nisibis, before the eyes of their kings; 
+				<milestone n="2" unit="section"/>he made his own the regions to the north as far as the Phasis, to the east as far as Media, and to the south as far as the Red Sea, through the assistance of the Arabian kings; he annihilated the forces of the hostile kings, and failed only in the capture of their persons, since like wild beasts they fled away into deserts and trackless and impenetrable forests. 
+				<milestone n="3" unit="section"/>Strong proof of his superiority is seen in this, that the Persians, since they had suffered no great harm at the hands of Cimon, straightway arrayed themselves against the Greeks, and overwhelmed and destroyed that large force of theirs in Egypt;<note resp="ed" place="unspecified" anchored="yes">454 B.C. See <bibl n="Thuc. 1.109">Thucydides, i. 109 f.</bibl>
+            </note> whereas, after Lucullus, Tigranes and Mithridates availed nothing: the latter, already weak and disabled by his first struggles, did not once dare to show Pompey his forces outside their camp, but fled away to the Bosporus, and there put an end to his life; 
+				<milestone n="4" unit="section"/>as for Tigranes, he hastened to throw himself, while unrobed and unarmed, at the feet of Pompey, and taking the diadem from off his head, laid it there upon the ground, flattering Pompey thus not with his own exploits, but with those for which Lucullus had celebrated a triumph. At any rate, he was as much delighted to get back the insignia of his royalty as though he had been robbed of them before. Greater therefore is the general, as is the athlete, who hands over his antagonist to his successor in a weaker plight.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>Moreover, and still further, Cimon made his onsets when the power of the king had been broken, and the pride of the Persians humbled by great defeats and incessant routs at the hands of Themistocles, Pausanias, and Leotychides, and easily conquered the bodies of men whose spirits had been defeated beforehand and lay prone. But when Tigranes encountered Lucullus, he had known no defeat in many battles, and was in exultant mood. 
+				<milestone n="6" unit="section"/>In point of numbers also, those who were overpowered by Cimon are not worthy of comparison with those who united against Lucullus. Therefore, one who takes everything into consideration finds it hard to reach a decision. Heaven seems to have been kindly disposed to both, directing the one as to what he must perform, and the other as to what he must avoid. Both, therefore, may be said to have received the vote of the gods as noble and god-like natures.
+			</p>
+      </body>
+   </text>
+</TEI.2>

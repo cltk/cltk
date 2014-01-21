@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Them." type="work">Themistocles</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;&fund.AnnCPB;</titleStmt>
+         <extent>about 84Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Them."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990536</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/90</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Proofread by Ted Armstrong.</item>
+         </change>
+         <change>
+            <date>8/91</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Revise DTDs and recheck texts.</item>
+         </change>
+         <change>
+            <date>8/92</date>
+            <respStmt>
+               <name>DAS</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Removed highlighted text, cleaned up notes and citations,
+					and changed chapters to DIV2's.</item>
+         </change>
+         <change>
+            <date>10/22/92</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Glued all Plutarch files together,
+					put in HEAD tags to title them.</item>
+         </change>
+         <change>
+            <date>9/12/97</date>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Made conformant with TEI P3.</item>
+         </change>
+         <change>
+            <date/>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>	
+					$Log: plut.them_eng.xml,v $
+					Revision 1.4  2010-11-30 18:17:43  balmas01
+					escaping angle brackets in commi comment
+
+					Revision 1.3  2010-11-19 13:47:10  balmas01
+					Normalizing &lt;quote&gt;&lt;q&gt; and &lt;lb&gt;
+
+					Revision 1.2  2009-12-15 20:52:49  rsingh04
+					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
+
+					Revision 1.1  2009/12/07 22:05:57  rsingh04
+					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
+
+					Revision 1.3  2009/01/23 22:09:51  rsingh04
+					small fixes
+
+					Revision 1.2  2009/01/23 21:36:00  rsingh04
+					now validates and entities fixed
+
+					Revision 1.2  2001/09/28 19:34:07  lcerrato
+					cleaned up quotes, bibls and notes
+					
+					Revision 1.1  2001/09/27 21:56:41  lcerrato
+					adding new tags for DE, ISBN, etc.
+					
+					Revision 1.4  2000/03/04 20:35:11  dasmith
+					Added separate funder entity to TEI header.
+					
+					Revision 1.3  1999/07/28 18:27:56  dasmith
+					Added text to REFSDECL.
+					
+					Revision 1.2  1999/07/09 23:15:27  textgod
+					Converted to TEI-conformant SGML.
+				</item>
+         </change>
+         <change>
+            <date>9/01</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>removed from group file, retagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>THEMISTOCLES</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In the case of Themistocles,<note resp="ed" place="unspecified" anchored="yes">It is probable that one or more introductory paragraphs of this biography have been lost.</note> his family was too obscure to further his reputation.  His father was Neocles,&mdash;no very conspicuous man at Athens,&mdash;a Phrearrhian by deme, of the tribe Leontis; and on his mother's side he was an alien, as her epitaph testifies:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Abrotonon was I, and a woman of Thrace, yet I brought forth</l>
+					          <l>That great light of the Greeks,&mdash;know! 'twas Themistocles.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Athenaeus xiii. p. 576.</bibl>
+            </note>
+				
+				        <milestone n="2" unit="section"/>
+				Phanias, however, writes that the mother of Themistocles was not a Thracian, but a Carian woman, and that her name was not Abrotonon, but Euterpe.  And Neanthes actually adds the name of her city in Caria,&mdash;Halicarnassus. 
+			</p>
+         <p>It was for the reason given, and because the aliens were wont to frequent Cynosarges,&mdash;this is a place outside the gates, a gymnasium of Heracles; for he too was not a legitimate god, but had something alien about him, from the fact that his mother was a mortal,&mdash;that Themistocles sought to induce certain well-born youths to go out to Cynosarges and exercise with him; and by his success in this bit of cunning he is thought to have removed the distinction between aliens and legitimates.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>However, it is clear that he was connected with the family of the Lycomidae, for he caused the chapel shrine at Phlya, which belonged to the Lycomidae, and had been burned by the Barbarians, to be restored at his own costs and adorned with frescoes, as Simonides has stated.
+				<milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>However lowly his birth, it is agreed on all hands that while yet a boy he was impetuous, by nature sagacious, and by election enterprising and prone to public life.  In times of relaxation and leisure, when absolved from his lessons, he would not play nor indulge his ease, as the rest of the boys did, but would be found composing and rehearsing to himself mock speeches.  These speeches would be
+				<milestone n="2" unit="section"/>
+				in accusation or defence of some boy or other. Wherefore his teacher was wont to say to him: 
+				<q direct="unspecified">My boy, thou wilt be nothing insignificant, but something great, of a surety, either for good or evil.</q> Moreover, when he was set to study, those branches which aimed at the formation of character, or ministered to any gratification or grace of a liberal sort, he would learn reluctantly and sluggishly; and to all that was said for the cultivation of sagacity or practical efficiency, he clearly showed an indifference far beyond his years, as though he put his confidence in his natural gifts alone.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Thus it came about that, in after life, at entertainments of a so-called liberal and polite nature, when he was taunted by men of reputed culture, he was forced to defend himself rather rudely, saying that tuning the lyre and handling the harp were no accomplishments of his, but rather taking in hand a city that was small and inglorious and making it glorious and great.  And yet Stesimbrotus says that Themistocles was a pupil of Anaxagoras, and a disciple of Melissus the physicist; but he is careless in his chronology. It was Pericles, a much younger man than Themistocles, whom Melissus opposed at the siege of Samos,<note resp="ed" place="unspecified" anchored="yes"> 440 B.C.</note> and with whom Anaxagoras was intimate.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Rather, then, might one side with those who say that Themistocles was a disciple of Mnesiphilus the Phrearrhian, a man who was neither a rhetorician nor one of the so-called physical philosophers, but a cultivator of what was then called 
+				<q direct="unspecified">sophia</q> or wisdom, although it was really nothing more than cleverness in politics and practical sagacity.  Mnesiphilus received this 
+				<q direct="unspecified">sophia,</q> and handed it down, as though it were the doctrine of a sect, in unbroken tradition from Solon.  His successors blended it with forensic arts, and shifted its application from public affairs to language, and were dubbed 
+				<q direct="unspecified">sophists.</q>  It was this man, then, to whom Themistocles resorted at the very beginning of his public life.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>But in the first essays of his youth he was uneven and unstable, since he gave his natural impulses free course, which, without due address and training, rush to violent extremes in the objects of their pursuit, and often degenerate; as he himself in later life confessed, when he said that even the wildest colts made very good horses, if only they got the proper breaking and training.
+				<milestone n="6" unit="section"/>
+				What some story-makers add to this, however, to the effect that his father disinherited him, and his mother took her own life for very grief at her son's ill-fame, this I think is false.  And, in just the opposite vein, there are some who say that his father fondly tried to divert him from public life, pointing out to him old triremes on the sea-shore, all wrecked and neglected, and intimating that the people treated their leaders in like fashion when these were past service.
+				<milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Speedily, however, as it seems, and while he was still in all the ardor of youth, public affairs laid their grasp upon Themistocles, and his impulse to win reputation got strong mastery over him.  Wherefore, from the very beginning, in his desire to be first, he boldly encountered the enmity of men who had power and were already first in the city, especially that of Aristides the son of Lysimachus, who was always his opponent.  And yet it is thought that his enmity with this man had an altogether puerile beginning.  They were both lovers of the beautiful Stesilaus, a native of Ceos, as Ariston the philosopher has recorded, and thenceforward they continued to be rivals in public life also.
+				<milestone n="2" unit="section"/>
+				However, the dissimilarity in their lives and characters is likely to have increased their variance.  Aristides was gentle by nature, and a conservative in character.  He engaged in public life, not to win favour or reputation, but to secure the best results consistent with safety and righteousness, and so he was compelled, since Themistocles stirred the people up to many novel enterprises and introduced great innovations, to oppose him often, and to take a firm stand against his increasing influence.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>It is said, indeed, that Themistocles was so carried away by his desire for reputation, and such an ambitious lover of great deeds, that though he was still a young man when the battle with the Barbarians at Marathon<note resp="ed" place="unspecified" anchored="yes"> 490 B.C.</note> was fought and the generalship of Miltiades was in everybody's mouth, he was seen thereafter to be wrapped in his own thoughts for the most part, and was sleepless o' nights, and refused invitations to his customary drinking parties,
+				<milestone n="4" unit="section"/>
+				and said to those who put wondering questions to him concerning his change of life that the trophy of Miltiades would not suffer him to sleep.  Now the rest of his countrymen thought that the defeat of the Barbarians at Marathon was the end of the war; but Themistocles thought it to be only the beginning of greater contests, and for these he anointed himself, as it were, to be the champion of all Hellas, and put his city into training, because, while it was yet afar off, he expected the evil that was to come.
+				<milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>And so, in the first place, whereas the Athenians were wont to divide up among themselves the revenue coming from the silver mines at Laureium, he, and he alone, dared to come before the people with a motion that this division be given up, and that with these moneys triremes be constructed for the war against Aegina.<note resp="ed" place="unspecified" anchored="yes"> 484-483 B.C.</note> This was the fiercest war then troubling Hellas, and the islanders controlled the sea, owing to the number of their ships.
+				<milestone n="2" unit="section"/>
+				Wherefore all the more easily did Themistocles carry his point, not by trying to terrify the citizens with dreadful pictures of Darius or the Persians&mdash;these were too far away and inspired no very serious fear of their coming, but by making opportune use of the bitter jealousy which they cherished toward Aegina in order to secure the armament he desired.  The result was that with those moneys they built a hundred triremes, with which they actually fought at Salamis<note resp="ed" place="unspecified" anchored="yes"> 480 B.C.</note> against Xerxes.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>And after this, by luring the city on gradually and turning its progress toward the sea, urging that with their infantry they were no match even for their nearest neighbors, but that with the power they would get from their ships they could not only repel the Barbarians but also take the lead in Hellas, he made them, instead of 
+				<q direct="unspecified">steadfast hoplites</q>&mdash;to quote Plato's words,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Laws 4.706">Plat. Laws 4.706</bibl>
+            </note> sea-tossed mariners, and brought down upon himself this accusation: 
+				<q direct="unspecified">Themistocles robbed his fellow-citizens of spear and shield, and degraded the people of Athens to the rowing-pad and the oar.</q>  And this he accomplished in triumph over the public opposition of Miltiades, as Stesimbrotus relates.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Now, whether by accomplishing this he did injury to the integrity and purity of public life or not, let the philosopher rather investigate.  But that the salvation which the Hellenes achieved at that time came from the sea, and that it was those very triremes which restored again the fallen city of Athens, Xerxes himself bore witness, not to speak of other proofs.  For though his infantry remained intact, he took to flight after the defeat of his ships, because he thought he was not a match for the Hellenes, and he left Mardonius behind, as it seems to me, rather to obstruct their pursuit than to subdue them.
+				<milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Some say that Themistocles was an eager money-maker because of his liberality; for since he was fond of entertaining, and lavished money splendidly on his guests, he required a generous budget.  Others, on the contrary, denounce his great stinginess and parsimony, claiming that he used to sell the very food sent in to him as a gift.
+				<milestone n="2" unit="section"/>
+				When Philides the horse-breeder was asked by him for a colt and would not give it, Themistocles threatened speedily to make his house a wooden horse; thereby darkly intimating that he would stir up accusations against him in his own family, and lawsuits between the man and those of his own household. 
+			</p>
+         <p>In his ambition he surpassed all men.  For instance, while he was still young and obscure, he prevailed upon Epicles of Hermione, a harpist who was eagerly sought after by the Athenians, to practise at his house, because he was ambitious that many should seek out his dwelling and come often to see him.
+				<milestone n="3" unit="section"/>
+				Again, on going to Olympia, he tried to rival Cimon in his banquets and booths and other brilliant appointments, so that he displeased the Hellenes. For Cimon was young and of a great house, and they thought they must allow him in such extravagances; but Themistocles had not yet become famous, and was thought to be seeking to elevate himself unduly without adequate means, and so was charged with ostentation.
+				<milestone n="4" unit="section"/>
+				And still again, as choregus, or theatrical manager, he won a victory with tragedies, although even at that early time this contest was conducted with great eagerness and  ambition and set up a tablet commemorating his victory with the following inscription: 
+				<q direct="unspecified">Themistocles the Phrearrhian was Choregus; Phrynichus was Poet; Adeimantus was Archon.</q>
+            <note resp="ed" place="unspecified" anchored="yes"> 476 B.C.</note>
+			      </p>
+         <p>However, he was on good terms with the common folk, partly because he could call off-hand the name of every citizen, and partly because he rendered the service of a safe and impartial arbitrator in cases of private obligation and settlement out of court; and so he once said to Simonides of Ceos, who had made an improper request from him when he was magistrate: 
+				<q direct="unspecified">You would not be a good poet if you should sing contrary to the measure; nor I a clever magistrate if I should show favour contrary to the law.</q>
+				        <milestone n="5" unit="section"/>
+				And once again he banteringly said to Simonides that it was nonsense for him to abuse the Corinthians, who dwelt in a great and fair city, while he had portrait figures made of himself, who was of such an ugly countenance.  And so he grew in power, and pleased the common folk, and finally headed a successful faction and got Aristides removed by ostracism.<note resp="ed" place="unspecified" anchored="yes"> 483-482 B.C.</note>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At last, when the Mede was descending upon Hellas and the Athenians were deliberating who should be their general, all the rest, they say, voluntarily renounced their claims to the generalship, so panic-stricken were they at the danger; but Epicydes, the son of Euphemides, a popular leader who was powerful in speech but effeminate in spirit and open to bribes, set out to get the office, and was likely to prevail in the election; so Themistocles, fearing lest matters should go to utter ruin in case the leadership fell to such a man, bribed and bought off the ambition of Epicydes.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Praise is given to his treatment of the linguist in the company of those who were sent by the King to command earth and water as tokens of submission: this interpreter he caused to be arrested, and had him put to death by special decree, because he dared to prostitute the speech of Hellas to Barbarian stipulations.
+				<milestone n="3" unit="section"/>
+				Also to his treatment of Arthmius of Zeleia: on motion of Themistocles this man was entered on the list of the disfranchised, with his children and his family, because he brought the gold of the Medes and offered it to the Hellenes.  But the greatest of all his achievements was his putting a stop to Hellenic wars, and reconciling Hellenic cities with one another, persuading them to postpone their mutual hatreds because of the foreign war. To which end, they say, Cheileos the Arcadian most seconded his efforts.
+				<milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>On assuming the command, he straightway went to work to embark the citizens on their triremes, and tried to persuade them to leave their city behind them and go as far as possible away from Hellas to meet the Barbarians by sea.  But many opposed this plan, and so he led forth a large army to the vale of Tempe, along with the Lacedaemonians, in order to make a stand there in defence of Thessaly, which was not yet at that time supposed to be medizing.
+				<milestone n="2" unit="section"/>
+				But soon the army came back from this position without accomplishing anything, the Thessalians went over to the side of the King, and everything was medizing as far as Boeotia, so that at last the Athenians were more kindly disposed to the naval policy of Themistocles, and he was sent with a fleet to Artemisium, to watch the narrows. 
+			</p>
+         <p>It was at this place that the Hellenes urged Eurybiades and the Lacedaemonians to take the lead, but the Athenians, since in the number of their ships they surpassed all the rest put together, disdained to follow others,
+				<milestone n="3" unit="section"/>
+				&mdash;a peril which Themistocles at once comprehended.  He surrendered his own command to Eurybiades, and tried to mollify the Athenians with the promise that if they would show themselves brave men in the war, he would induce the Hellenes to yield a willing obedience to them thereafter. Therefore he is thought to have been the man most instrumental in achieving the salvation of Hellas, and foremost in leading the Athenians up to the high repute of surpassing their foes in valor and their allies in magnanimity.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Now Eurybiades, on the arrival of the Barbarian armament at Aphetae, was terrified at the number of ships that faced him, and, learning that two hundred ships more were sailing around above Sciathus to cut off his retreat, desired to proceed by the shortest route down into Hellas, to get into touch with Peloponnesus and encompass his fleet with his infantry forces there, because he thought the power of the King altogether invincible by sea.  Therefore the Euboeans, fearing lest the Hellenes abandon them to their fate, held secret conference with Themistocles, and sent Pelagon to him with large sums of money.
+				<milestone n="5" unit="section"/>
+				This money he took, as Herodotus relates,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 8.5">Hdt. 8.5</bibl>
+            </note> and gave to Eurybiades.
+			</p>
+         <p>Meeting with most opposition among his fellow-citizens from Architeles, who was captain on the sacred state galley, and who, because he had no money to pay the wages of his sailors, was eager to sail off home, Themistocles incited his crew all the more against him, so that they made a rush upon him and snatched away his dinner.
+				<milestone n="6" unit="section"/>
+				Then, while Architeles was feeling dejected and indignant over this, Themistocles sent him a dinner of bread and meat in a box at the bottom of which he had put a talent of silver, and bade him dine without delay, and on the morrow satisfy his crew; otherwise he said he would denounce him publicly as the receiver of money from the enemy.  At any rate, such is the story of Phanias the Lesbian.
+				<milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>The battles which were fought at that time with the ships of the Barbarians in the narrows were not decisive of the main issue, it is true, but they were of the greatest service to the Hellenes in giving them experience, since they were thus taught by actual achievements in the face of danger that neither multitudes of ships nor brilliantly decorated figure-heads nor boastful shouts or barbarous battle-hymns have any terror for men who know how to come to close quarters and dare to fight there; but that they must despise all such things, rush upon the very persons of their foes, grapple with them, and fight it out to the bitter end.
+				<milestone n="2" unit="section"/>
+				Of this Pindar seems to have been well aware when he said of the battle of Artemisium:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Where Athenians' valiant sons set in radiance eternal</l>
+					          <l>Liberty's corner-stone.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Bergk, Frag. 77.</bibl>
+            </note>
+				
+				For verily the foundation of victory is courage. 
+			</p>
+         <p>Artemisium is a part of Euboea above Hestiaea,&mdash;a sea-beach stretching away to the north,&mdash;and just about opposite to it lies Olizon, in the territory once subject to Philoctetes.  It has a small temple of Artemis surnamed Proseoea, which is surrounded by trees and enclosed by upright slabs of white marble.  This stone, when you rub it with your hand, gives off the color and the odor of saffron.
+				<milestone n="3" unit="section"/>
+				On one of these slabs the following elegy was inscribed:&mdash;
+				
+				<quote rend="blockquote" type="inscription">
+					          <l>Nations of all sorts of men from Asia's boundaries coming,</l>
+					          <l>Sons of the Athenians once, here on this arm of the sea,</l>
+					          <l>Whelmed in a battle of ships, and the host of the Medes was destroyed;</l>
+					          <l>These are the tokens thereof, built for the Maid Artemis.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Bergk, <title>Poet. Lyr. Graeci</title>, iii.4  p. 480.</bibl>
+            </note>
+				
+				And a place is pointed out on the shore, with sea sand all about it, which supplies from its depths a dark ashen powder, apparently the product of fire, and here they are thought to have burned their wrecks and dead bodies.
+				<milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>However, when they learned by messengers from Thermopylae to Artemisium that Leonidas was slain and that Xerxes was master of the pass, they withdrew further down into Hellas, the Athenians bringing up the extreme rear because of their valor, and greatly elated by their achievements. As Themistocles sailed along the coasts, wherever he saw places at which the enemy must necessarily put in for shelter and supplies, be inscribed conspicuous writings on stones,
+				<milestone n="2" unit="section"/>
+				some of which he found to his hand there by chance, and some he himself caused to be set near the inviting anchorages and watering places.  In these writings he solemnly enjoined upon the Ionians, if it were possible, to come over to the side of the Athenians, who were their ancestors, and who were risking all in behalf of their freedom; but if they could not do this, to damage the Barbarian cause in battle, and bring confusion among them.  By this means he hoped either to fetch the Ionians over to his side, or to confound them by bringing the Barbarians into suspicion of them.
+				<milestone n="3" unit="section"/>
+				Although Xerxes had made a raid up through Doris into Phocis, and was burning the cities of the Phocians, the Hellenes gave them no succour.  The Athenians, it is true, begged them to go up into Boeotia against the enemy, and make a stand there in defence of Attica, as they themselves had gone up by sea to Artemisium in defence of others.  But no one listened to their appeals.  All clung fast to the Peloponnesus, and were eager to collect all the forces inside the Isthmus, and were building a rampart across the Isthmus from sea to sea.
+				<milestone n="4" unit="section"/>
+				Then the Athenians were seized alike with rage at this betrayal, and with sullen dejection at their utter isolation.  Of fighting alone with an army of so many myriads they could not seriously think; and as for the only thing left them to do in their emergency, namely, to give up their city and stick to their ships, most of them were distressed at the thought, saying that they neither wanted victory nor understood what safety could mean if they abandoned to the enemy the shrines of their gods and the sepulchres of their fathers.
+				<milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Then indeed it was that Themistocles, despairing of bringing the multitude over to his views by any human reasonings, set up machinery, as it were, to introduce the gods to them as a theatrical manager would for a tragedy, and brought to bear upon them signs from heaven and oracles.  As a sign from heaven he took the behavior of the serpent, which is held to have disappeared about that time from the sacred enclosure on the Acropolis. When the priests found that the daily offerings made to it were left whole and untouched, they proclaimed to the multitude,&mdash;Themistocles putting the story into their mouths,&mdash;that the goddess had abandoned her city and was showing them their way to the sea.
+				<milestone n="2" unit="section"/>
+				Moreover, with the well-known oracle<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 7.141">Hdt. 7.141</bibl>
+            </note> he tried again to win the people over to his views, saying that its 
+				<q direct="unspecified">wooden wall</q> meant nothing else than their fleet; and that the god in this oracle called Salamis 
+				<q direct="unspecified">divine,</q> not 
+				<q direct="unspecified">dreadful</q> nor 
+				<q direct="unspecified">cruel,</q> for the very reason that the island would sometime give its name to a great piece of good fortune for the Hellenes.  At last his opinion prevailed, and so he introduced a bill providing that the city be entrusted for safe keeping 
+				<q direct="unspecified">to Athena the patroness of Athens,</q> but that all the men of military age embark on the triremes, after finding for their children, wives, and servants, such safety as each best could.
+				<milestone n="3" unit="section"/>
+				Upon the passage of this bill, most of the Athenians bestowed their children and wives in Troezen, where the Troezenians very eagerly welcomed them.  They actually voted to support them at the public cost, allowing two obols daily to each family, and to permit the boys to pluck of the vintage fruit everywhere, and besides to hire teachers for them.  The bill was introduced by a man whose name was Nicagoras.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Since the Athenians had no public moneys in hand, it was the Senate of Areiopagus, according to Aristotle, which provided each of the men who embarked with eight drachmas, and so was most instrumental in manning the triremes; but Cleidemus represents this too as the result of an artifice of Themistocles.  He says that when the Athenians were going down to the Piraeus and abandoning their city, the Gorgon's head was lost from the image of the goddess; and then Themistocles, pretending to search for it, and ransacking everything, thereby discovered an abundance of money hidden away in the baggage, which had only to be confiscated, and the crews of the ships were well provided with rations and wages.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>When the entire city was thus putting out to sea, the sight provoked pity in some, and in others astonishment at the hardihood of the step; for they were sending off their families in one direction, while they themselves, unmoved by the lamentations and tears and embraces of their loved ones, were crossing over to the island where the enemy was to be fought.  Besides, many who were left behind on account of their great age invited pity also, and much affecting fondness was shown by the tame domestic animals, which ran along with yearning cries of distress by the side of their masters as they embarked.
+				<milestone n="6" unit="section"/>
+				A story is told of one of these, the dog of Xanthippus the father of Pericles, how he could not endure to be abandoned by his master, and so sprang into the sea, swam across the strait by the side of his master's trireme, and staggered out on Salamis, only to faint and die straightway.  They say that the spot which is pointed out to this day as 
+				<q direct="unspecified">Dog's Mound</q> is his tomb.
+				<milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>These were surely great achievements of Themistocles, but there was a greater still to come. When he saw that the citizens yearned for Aristides, and feared lest out of wrath he might join himself to the Barbarian and so subvert the cause of Hellas,&mdash;he had been ostracized before the war in consequence of political defeat at the hands of Themistocles,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Them. 5">Plut. Them. 5</bibl> fin.</note>&mdash;he introduced a bill providing that those who had been removed for a time be permitted to return home and devote their best powers to the service of Hellas along with the other citizens.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>When Eurybiades, who had the command of the fleet on account of the superior claims of Sparta, but who was faint-hearted in time of danger, wished to hoist sail and make for the Isthmus, where the infantry also of the Peloponnesians had been assembled, it was Themistocles who spoke against it, and it was then, they say, that these memorable sayings of his were uttered.  When Eurybiades said to him, 
+				<q direct="unspecified">Themistocles, at the games those who start too soon get a caning,</q> 
+				        <q direct="unspecified">Yes,</q> said Themistocles, 
+				<q direct="unspecified">but those who lag behind get no crown.</q>
+				        <milestone n="3" unit="section"/>
+				And when Eurybiades lifted up his staff as though to smite him, Themistocles said: 
+				<q direct="unspecified">Smite, but hear me.</q>  Then Eurybiades was struck with admiration at his calmness, and bade him speak, and Themistocles tried to bring him back to his own position.  But on a certain one saying that a man without a city had no business to advise men who still had cities of their own to abandon and betray them, Themistocles addressed his speech with emphasis to him, saying:
+				<milestone n="4" unit="section"/>
+				
+				        <q direct="unspecified">It is true, thou wretch, that we have left behind us our houses and our city walls, not deeming it meet for the sake of such lifeless things to be in subjection; but we still have a city, the greatest in Hellas, our two hundred triremes, which now are ready to aid you if you choose to be saved by them; but if you go off and betray us for the second time, straightway many a Hellene will learn that the Athenians have won for themselves a city that is free and a territory that is far better than the one they cast aside.</q>
+				        <milestone n="5" unit="section"/>
+				When Themistocles said this, Eurybiades began to reflect, and was seized with fear lest the Athenians go away and abandon him.  And again, when the Eretrian tried to argue somewhat against him, 
+				<q direct="unspecified">Indeed !</q> said he, 
+				<q direct="unspecified">what argument can ye make about war, who, like the cuttle-fish, have a long pouch in the place where your heart ought to be?</q>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Some tell the story that while Themistocles was thus speaking from off the deck of his ship, an owl was seen to fly through the fleet from the right and alight in his rigging; wherefore his hearers espoused his opinion most eagerly and prepared to do battle with their ships.
+				<milestone n="2" unit="section"/>
+				But soon the enemy's armament beset the coast of Attica down to the haven of Phalerum, so as to hide from view the neighboring shores; then the King in person with his infantry came down to the sea, so that he could be seen with all his hosts; and presently, in view of this junction of hostile forces, the words of Themistocles ebbed out of the minds of the Hellenes, and the Peloponnesians again turned their eyes wistfully towards the Isthmus and were vexed if any one spake of any other course; nay, they actually decided to withdraw from their position in the night, and orders for the voyage were issued to the pilots.
+				<milestone n="3" unit="section"/>
+				Such was the crisis when Themistocles, distressed to think that the Hellenes should abandon the advantages to be had from the narrowness of the straits where they lay united, and break up into detachments by cities, planned and concocted the famous affair of Sicinnus. 
+			</p>
+         <p>This Sicinnus was of Persian stock, a prisoner of war, but devoted to Themistocles, and the paedagogue of his children.
+				<milestone n="4" unit="section"/>
+				This man was sent to Xerxes secretly with orders to say: 
+				<q direct="unspecified">Themistocles the Athenian general elects the King's cause, and is the first one to announce to him that the Hellenes are trying to slip away, and urgently bids him not to suffer them to escape, but, while they are in confusion and separated from their infantry, to set upon them and destroy their naval power.</q>
+				        <milestone n="5" unit="section"/>
+				Xerxes received this as the message of one who wished him well, and was delighted, and at once issued positive orders to the captains of his ships to man the main body of the fleet at their leisure, but with two hundred ships to put to sea at once, and encompass the strait round about on every side, including the islands in their line of blockade, that not one of the enemy might escape.
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>While this was going on, Aristides the son of Lysimachus, who was the first to perceive it, came to the tent of Themistocles, who was no friend of his, nay through whom he had even been ostracized, as I have said; and when Themistocles came forth from the tent, Aristides told him how the enemy surrounded them.  Themistocles, knowing the tried nobility of the man, and filled with admiration for his coming at that time, told him all about the Sicinnus matter, and besought him to join in this desperate attempt to keep the Hellenes where they were,&mdash;admitting that he had the greater credit with them,&mdash;in order that they might make their sea-fight in the narrows.
+				<milestone n="7" unit="section"/>
+				Aristides, accordingly, after bestowing praise upon Themistocles for his stratagem, went round to the other generals and trierarchs inciting them on to battle.  And while they were still incredulous in spite of all, a Tenian trireme appeared, a deserter from the enemy, in command of Panaetius, and told how the enemy surrounded them, so that with a courage born of necessity the Hellenes set out to confront the danger.
+				<milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At break of day, Xerxes was seated on a high place and overlooking the disposition of his armament.  This place was, according to Phanodemus, above the Heracleium, where only a narrow passage separates the island from Attica; but according to Acestodorus, it was in the border-land of Megara, above the so-called 
+				<q direct="unspecified">Horns.</q>  Here a gilded throne had been set for him at his command, and many secretaries stationed near at hand, whose task it was to make due record of all that was done in the battle.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>But Themistocles was sacrificing alongside the admiral's trireme.  There three prisoners of war were brought to him, of visage most beautiful to behold, conspicuously adorned with raiment and with gold.  They were said to be the sons of Sandauce, the King's sister, and Artayctus.  When Euphrantides the seer caught sight of them, since at one and that same moment a great and glaring flame shot up from the sacrificial victim and a sneeze gave forth its good omen on the right, he clasped Themistocles by the hand and bade him consecrate the youths, and sacrifice them all to Dionysus Carnivorous, with prayers of supplication; for on this wise would the Hellenes have a saving victory.
+				<milestone n="3" unit="section"/>
+				Themistocles was terrified, feeling that the word of the seer was monstrous and shocking; but the multitude, who, as is wont to be the case in great struggles and severe crises, looked for safety rather from unreasonable than from reasonable measures, invoked the god with one voice, dragged the prisoners to the altar, and compelled the fulfillment of the sacrifice, as the seer commanded.  At any rate, this is what Phanias the Lesbian says, and he was a philosopher, and well acquainted with historical literature.
+				<milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>As regards the number of the Barbarian ships, Aeschylus the poet, in his tragedy of 
+				<q direct="unspecified">The Persians,</q> as though from personal and positive knowledge, says this:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>But Xerxes, and I surely know, had a thousand ships</l>
+					          <l>In number under him; those of surpassing speed</l>
+					          <l>Were twice five score beside and seven; so stands the count.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aesch. Pers. 341">Verses 341-343 (Dindorf)</bibl>
+            </note>
+				
+				The Attic ships were one hundred and eighty in number, and each had eighteen men to fight upon the decks, of whom four were archers and the rest men-at-arms.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Themistocles is thought to have divined the best time for fighting with no less success than the best place, inasmuch as he took care not to send his triremes bow on against the Barbarian vessels until the hour of the day had come which always brought the breeze fresh from the sea and a swell rolling through the strait.  This breeze wrought no harm to the Hellenic ships, since they lay low in the water and were rather small; but for the Barbarian ships, with their towering sterns and lofty decks and sluggish movements in getting under way, it was fatal, since it smote them and slewed them round broadside to the Hellenes, who set upon them sharply, keeping their eyes on Themistocles, because they thought he saw best what was to be done,
+				<milestone n="3" unit="section"/>
+				and because confronting him was the admiral of Xerxes, Ariamenes, who being on a great ship, kept shooting arrows and javelins as though from a city wall,&mdash;brave man that he was, by far the strongest and most just of the King's brothers.  It was upon him that Ameinias the Deceleian and Socles the Paeanian bore down,&mdash;they being together on one ship,&mdash;and as the two ships struck each other bow on, crashed together, and hung fast by their bronze beaks, he tried to board their trireme; but they faced him, smote him with their spears, and hurled him into the sea.  His body, as it drifted about with other wreckage, was recognized by Artemisia, who had it carried to Xerxes.
+				<milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At this stage of the struggle they say that a great light flamed out from Eleusis, and an echoing cry filled the Thriasian plain down to the sea, as of multitudes of men together conducting the mystic Iacchus in procession.  Then out of the shouting throng a cloud seemed to lift itself slowly from the earth, pass out seawards, and settle down upon the triremes.  Others fancied they saw apparitions and shapes of armed men coming from Aegina with their hands stretched out to protect the Hellenic triremes. These, they conjectured, were the Aeacidae, who had been prayerfully invoked before the battle to come to their aid.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 8.64">Hdt. 8.64</bibl>
+            </note>
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>Now the first man to capture an enemy's ship was Lycomedes, an Athenian captain, who cut off its figure-head and dedicated it to Apollo the Laurel-bearer at Phlya.  Then the rest, put on an equality in numbers with their foes, because the Barbarians had to attack them by detachments in the narrow strait and so ran foul of one another, routed them, though they resisted till the evening drew on, and thus 
+				<q direct="unspecified">bore away,</q> as Simonides says,<note resp="ed" place="unspecified" anchored="yes"> Bergk, Poet. Lyr. Graeci, iii&amp;44 p. 423.</note>
+				        <q direct="unspecified">that fair and notorious victory, than which no more brilliant exploit was ever performed upon the sea, either by Hellenes or Barbarians, through the manly valor and common ardor of all who fought their ships, but through the clever judgment of Themistocles.</q>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After the sea-fight, Xerxes, still furious at his failure, undertook to carry moles out into the sea on which he could lead his infantry across to Salamis against the Hellenes, damming up the intervening strait.  But Themistocles, merely by way of sounding Aristides, proposed, as though he were in earnest, to sail with the fleet to the Hellespont and break the span of boats there, 
+				<q direct="unspecified">in order,</q> said he, 
+				<q direct="unspecified">that we may capture Asia in Europe.</q>
+				        <milestone n="2" unit="section"/>
+				Aristides, however, was displeased with the scheme and said: 
+				<q direct="unspecified">Now indeed the Barbarian with whom we have fought consults his ease and pleasure, but should we shut up in Hellas and bring under fearful compulsion a man who is lord of such vast forces, he will no longer sit under a golden parasol to view the spectacle of the battle at his ease, but he will dare all things, and, superintending everything in person, because of his peril, will rectify his previous remissness and take better counsel for the highest issues thus at stake.
+					<milestone n="3" unit="section"/>
+					We must not, then,</q> said he, 
+				<q direct="unspecified">tear down the bridge that is already there, Themistocles, nay rather, we must build another alongside it, if that be possible, and cast the fellow out of Europe in a hurry.</q>  
+				        <q direct="unspecified">Well, then,</q> said Themistocles, 
+				<q direct="unspecified">if that is what is thought for the best, it is high time for us all to be studying and inventing a way to get him out of Hellas by the speediest route.</q>
+				        <milestone n="4" unit="section"/>
+			      </p>
+         <p>As soon as this policy had been adopted, he sent a certain royal eunuch whom he discovered among the prisoners of war, by name Arnaces, with orders to tell the King that the Hellenes had decided, since their fleet now controlled the sea, to sail up into the Hellespont, where the strait was spanned, and destroy the bridge; but that Themistocles, out of regard for the King, urged him to hasten into home waters and fetch his forces across; he himself, he said, would cause the allies all sorts of delays and postponements in their pursuit.
+				<milestone n="5" unit="section"/>
+				No sooner did the Barbarian hear this than he was seized with exceeding fear and speedily began his retreat.  This thoughtful prudence on the part of Themistocles and Aristides was afterwards justified by the campaign with Mardonius, since, although they fought at Plataea with the merest fraction of the armies of Xerxes, they yet staked their all upon the issue.
+				<milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Among the cities, now, Herodotus<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 8.93">Hdt. 8.93</bibl>
+            </note> says that Aegina bore away the prize of valor; but among individuals, all virtually awarded the first place to Themistocles, though their envy made them unwilling to do this directly.  For when the generals withdrew to the Isthmus and solemnly voted on this question, taking their ballots from the very altar of the god there, each one declared for himself as first in valor, but for Themistocles as second after himself.  Then the Lacedaemonians brought him down to Sparta, and while they gave Eurybiades the prize for valor, to him they gave one for wisdom,&mdash;a crown of olive in each case,&mdash;and they presented him with the best chariot there was in the city, and sent three hundred picked youth along with him to serve as his escort to the boundary.
+				<milestone n="2" unit="section"/>
+				And it is said that when the next Olympic festival was celebrated, and Themistocles entered the stadium, the audience neglected the contestants all day long to gaze on him, and pointed him out with admiring applause to visiting strangers, so that he too was delighted, and confessed to his friends that he was now reaping in full measure the harvest of his toils in behalf of Hellas.
+				<milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>And indeed he was by nature very fond of honor, if we may judge from his memorable sayings and doings.  When, for example, the city had chosen him to be admiral, he would not perform any public or private business at its proper time, but would postpone the immediate duty to the day on which he was to set sail, in order that then, because he did many things all at once and had meetings with all sorts of men, he might be thought to be some great personage and very powerful.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Surveying once the dead bodies of the Barbarians which had been cast up along the sea, he saw that they were decked with golden bracelets and collars, and yet passed on by them himself, while to a friend who followed he pointed them out and said: 
+				<q direct="unspecified">Help thyself, thou art not Themistocles.</q>  Again, to one who had once been a beauty, Antiphates, and who had at that time treated him disdainfully, but afterwards courted him because of the reputation he had got, 
+				<q direct="unspecified">Young man,</q> said he, 
+				<q direct="unspecified">'tis late, 'tis true, but both of us have come to our senses.</q>
+				        <milestone n="3" unit="section"/>
+				Also he used to say of the Athenians that they did not really honor and admire him for himself, but treated him for all the world like a plane-tree, running under his branches for shelter when it stormed, but when they had fair weather all about them, plucking and docking him.  And when he was told by the Seriphian that it was not due to himself that he had got reputation, but to his city, 
+				<q direct="unspecified">True,</q> said he, 
+				<q direct="unspecified">but neither should I, had I been a Seriphian, have achieved reputation, nor wouldst thou, hadst thou been an Athenian.</q>
+				        <milestone n="4" unit="section"/>
+			      </p>
+         <p>Again, when one of his fellow-generals who thought he had done some vast service to the city, grew bold with Themistocles, and began to compare his own services with his, 
+				<q direct="unspecified">With the Festival-day,</q> said he, 
+				<q direct="unspecified">the Day After once began a contention, saying: 'Thou art full of occupations and wearisome, but when I come, all enjoy at their leisure what has been richly provided beforehand'; to which the Festival-day replied: 'True, but had I not come first, thou hadst not come at all.'  So now,</q> said he, 
+				<q direct="unspecified">had I not come at that day of Salamis, where would thou and thy colleagues be now?</q>
+				        <milestone n="5" unit="section"/>
+				Of his son, who lorded it over his mother, and through her over himself, he said, jestingly, that the boy was the most powerful of all the Hellenes; for the Hellenes were commanded by the Athenians, the Athenians by himself, himself by the boy's mother, and the mother by her boy.  Again, with the desire to be somewhat peculiar in all that he did, when he offered a certain estate for sale, he bade proclamation to be made that it had an excellent neighbor into the bargain.  Of two suitors for his daughter's hand, he chose the likely man in preference to the rich man, saying that he wanted a man without money rather than money without a man.  Such were his striking sayings.
+				<milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After the great achievements now described, he straightway undertook to rebuild and fortify the city,&mdash;as Theopompus relates, by bribing the Spartan Ephors not to oppose the project; but as the majority say, by hoodwinking them.  He came with this object to Sparta, ostensibly on an embassy, and when the Spartans brought up the charge that the Athenians were fortifying their city, and Polyarchus was sent expressly from Aegina with the same accusation,
+				<milestone n="2" unit="section"/>
+				he denied that it was so, and bade them send men to Athens to see for themselves, not only because this delay would secure time for the building of the wall, but also because he wished the Athenians to hold these envoys as hostages for his own person.  And this was what actually happened. When the Lacedaemonians found out the truth they did him no harm, but concealed their displeasure and sent him away. 
+			</p>
+         <p>After this he equipped the Piraeus, because he had noticed the favorable shape of its harbors, and wished to attach the whole city to the sea; thus in a certain manner counteracting the policies of the ancient Athenian kings.
+				<milestone n="3" unit="section"/>
+				For they, as it is said, in their efforts to draw the citizens away from the sea and accustom them to live not by navigation but by agriculture, disseminated the story about Athena, how when Poseidon was contending with her for possession of the country, she displayed the sacred olive-tree of the Acropolis to the judges, and so won the day.  But Themistocles did not, as Aristophanes<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristoph. Kn. 815">Aristoph. Kn. 815</bibl>
+            </note> the comic poet says, 
+				<q direct="unspecified">knead the Piraeus on to the city,</q> nay, he fastened the city to the Piraeus, and the land to the sea.
+				<milestone n="4" unit="section"/>
+				And so it was that he increased the privileges of the common people as against the nobles, and filled them with boldness, since the controlling power came now into the hands of skippers and boatswains and pilots.  Therefore it was, too, that the bema in Pnyx, which had stood so as to look off toward the sea, was afterwards turned by the thirty tyrants so as to look inland, because they thought that maritime empire was the mother of democracy, and that oligarchy was less distasteful to tillers of the soil.
+				<milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But Themistocles cherished yet greater designs even for securing the naval supremacy.  When the fleet of the Hellenes, after the departure of Xerxes, had put in at Pagasae and was wintering there, he made a harangue before the Athenians, in which he said that he had a certain scheme in mind which would be useful and salutary for them, but which could not be broached in public.
+				<milestone n="2" unit="section"/>
+				So the Athenians bade him impart it to Aristides alone, and if he should approve of it, to put it into execution.  Themistocles accordingly told Aristides that he purposed to burn the fleet of the Hellenes where it lay; but Aristides addressed the people, and said of the scheme which Themistocles purposed to carry out, that none could be either more advantageous or more iniquitous.  The Athenians therefore ordered Themistocles to give it up.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>At the Amphictyonic or Holy Alliance conventions, the Lacedaemonians introduced motions that all cities be excluded from the Alliance which had not taken part in fighting against the Mede.  So Themistocles, fearing lest, if they should succeed in excluding the Thessalians and the Argives and the Thebans too from the convention, they would control the votes completely and carry through their own wishes, spoke in behalf of the protesting cities,
+				<milestone n="4" unit="section"/>
+				and changed the sentiments of the delegates by showing that only thirty-one cities had taken part in the war, and that the most of these were altogether small; it would be intolerable, then, if the rest of Hellas should be excluded and the convention be at the mercy of the two or three largest cities.  It was for this reason particularly that he became obnoxious to the Lacedaemonians, and they therefore tried to advance Cimon in public favour, making him the political rival of Themistocles.
+				<milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>He made himself hateful to the allies also, by sailing round to the islands and trying to exact money from them.  When, for instance, he demanded money of the Andrians, Herodotus<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 8.111">Hdt. 8.111</bibl>
+            </note> says he made a speech to them and got reply as follows: he said he came escorting two gods, Persuasion and Compulsion; and they replied that they already had two great gods, Penury and Powerlessness, who hindered them from giving him money.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Timocreon, the lyric poet of Rhodes, assailed Themistocles very bitterly in a song, to the effect that for bribes he had secured the restoration of other exiles, but had abandoned him, though a host and a friend, and all for money.  The song runs thus:&mdash;<note resp="ed" place="unspecified" anchored="yes"> No attempt is made in the translations of Timocreon to imitate the meter of the original.</note>
+				        <quote rend="blockquote">
+					          <l>Come, if thou praisest Pausanias, or if Xanthippus,</l>
+					          <l>Or if Leotychidas, then I shall praise Aristides,</l>
+					          <l>The one best man of all</l>
+					          <l>Who came from sacred Athens; since Leto loathes Themistocles,
+						<milestone n="3" unit="section"/>
+               </l>
+					          <l>The liar, cheat, and traitor, who, though Timocreon was his host,</l>
+					          <l>By knavish moneys was induced not to bring him back</l>
+					          <l>Into his native Ialysus,</l>
+					          <l>But took three talents of silver and went cruising off,&mdash;to perdition,</l>
+					          <l>Restoring some exiles unjustly, chasing some away, and slaying some,</l>
+					          <l>Gorged with moneys; yet at the</l>
+					          <l>Isthmus he played ridiculous host with the stale meats set before his guests;</l>
+					          <l>Who ate thereof and prayed Heaven 'no happy return of the day for Themistocles!'</l>
+				        </quote>
+				        <milestone n="4" unit="section"/>
+				Much more wanton and extravagant was the raillery which Timocreon indulged in against Themistocles after the latter's own exile and condemnation.  Then he composed the song beginning:&mdash;
+				<quote rend="blockquote">
+					          <l>O Muse grant that this song</l>
+					          <l>Be famed throughout all Hellas,</l>
+					          <l>As it is meet and just.</l>
+				        </quote>It is said that Timocreon was sent into exile on a charge of Medizing, and that Themistocles concurred in the vote of condemnation.
+				<milestone n="5" unit="section"/>
+				Accordingly, when Themistocles also was accused of Medizing, Timocreon composed these lines upon him:&mdash;
+				<quote rend="blockquote">
+					          <l>Not Timocreon alone, then, made compacts with the Medes,</l>
+					          <l>But there are other wretches too; not I alone am brushless,</l>
+					          <l>There are other foxes too.</l>
+				        </quote>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>And at last, when even his fellow-citizens were led by their jealousy of his greatness to welcome such slanders against him, he was forced to allude to his own achievements when he addressed the Assembly, till he became tiresome thereby, and he once said to the malcontents: 
+				<q direct="unspecified">Why are ye vexed that the same men should often benefit you?</q> He offended the multitude also by building the temple of Artemis, whom he surnamed Aristoboule, or Best Counsellor, intimating thus that it was he who had given the best counsel to the city and to the Hellenes.
+				<milestone n="2" unit="section"/>
+				This temple he established near his house in Melite, where now the public officers cast out the bodies of those who have been put to death, and carry forth the garments and the nooses of those who have dispatched themselves by hanging. A portrait-statue of Themistocles stood in this temple of Aristoboule down to my time, from which he appears to have been a man not only of heroic spirit, but also of heroic presence.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Well then, they visited him with ostracism,<note resp="ed" place="unspecified" anchored="yes"> About 472 B.C.</note> curtailing his dignity and pre-eminence, as they were wont to do in the case of all whom they thought to have oppressive power, and to be incommensurate with true democratic equality.  For ostracism was not a penalty, but a way of pacifying and alleviating that jealousy which delights to humble the eminent, breathing out its malice into this disfranchisement.
+				<milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After he had been thus banished from the city, and while he was sojourning at Argos, circumstances connected with the death of Pausanias gave his enemies at Athens ground for proceeding against him.  The one who actually brought in the indictment against him for treason was Leobotes the son of Alcmeon, of the deme Agraule, but the Spartans supported him in the accusation.  Pausanias, while engaged in his grand scheme of treachery, at first kept it concealed from Themistocles;
+				<milestone n="2" unit="section"/>
+				but when he saw him thus banished from his state and in great bitterness of spirit, he made bold to invite him into partnership in his own undertakings, showing him a letter he had received from the king, and inciting him against the Hellenes as a base and thankless people.  Themistocles rejected the solicitation of Pausanias, and utterly refused the proffered partnership; and yet he disclosed the propositions to no one, nor did he even give information of the treacherous scheme, because he expected either that Pausanias would give it up of his own accord, or that in some other way he would be found out, since he was so irrationally grasping after such strange and desperate objects.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>And so it was that, when Pausanias had been put to death, certain letters and documents regarding these matters were discovered which cast suspicion on Themistocles.  The Lacedaemonians cried him down, and his envious fellow-citizens denounced him, though he was not present to plead his cause, but defended himself in writing, making particular use of earlier accusations brought against him.
+				<milestone n="4" unit="section"/>
+				Since he was once slanderously accused by his enemies before his fellow-citizens&mdash;so he wrote, as one who ever sought to rule, but had no natural bent nor even the desire to be ruled, he could never have sold himself with Hellas to Barbarians, much less to foemen.  The people, however, were over-persuaded by his accusers, and sent men with orders to arrest him and bring him up in custody to stand trial before a Congress of Hellenes.
+				<milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But he heard of this in advance, and crossed over to Corcyra, where he had been recognized as a public benefactor of the city.  For he had served as arbiter in a dispute between them and the Corinthians, and settled the quarrel by deciding that the Corinthians should pay an indemnity of twenty talents, and administer Leucas as a common colony of both cities.  Thence he fled to Epirus, and being pursued by the Athenians and Lacedaemonians, he threw himself upon grievous and desperate chances of escape by taking refuge with Admetus, who was king of the Molossians,
+				<milestone n="2" unit="section"/>
+				and who, since he had once asked some favour of the Athenians and had been insultingly refused it by Themistocles, then at the height of his political influence, was angry with him ever after, and made it plain that he would take vengeance on him if he caught him.  But in the desperate fortune of that time Themistocles was more afraid of kindred and recent jealousy than of an anger that was of long standing and royal, and promptly cast himself upon the king's mercy, making himself the suppliant of Admetus in a way quite peculiar and extraordinary.
+				<milestone n="3" unit="section"/>
+				That is to say, he took the young son of the king in his arms and threw himself down at the hearth; a form of supplication which the Molossians regarded as most sacred, and as almost the only one that might not be refused. Some, it is true, say that it was Phthia, the wife of the king, who suggested this form of supplication to Themistocles, and that she seated her son on the hearth with him; and certain others that Admetus himself, in order that he might give a religious sanction to the necessity that was upon him of not surrendering the man, arranged beforehand and solemnly rehearsed with him the supplication scene.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Thither his wife and children were privily removed from Athens and sent to him by Epicrates of the deme Acharnae, who, for this deed, was afterwards convicted by Cimon and put to death, as Stesimbrotus relates.  Then, somehow or other, Stesimbrotus forgets this, or makes Themistocles forget it, and says he sailed to Sicily and demanded from Hiero the tyrant the hand of his daughter in marriage, promising as an incentive that he would make the Hellenes subject to his sway; but that Hiero repulsed him, and so he set sail for Asia.
+				<milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But it is not likely that this was so.  For Theophrastus, in his work 
+				<q direct="unspecified">On Royalty,</q> tells how, when Hiero sent horses to compete at Olympia, and set up a sort of booth there with very costly decorations, Themistocles made a speech among the assembled Hellenes, urging them to tear down the booth of the tyrant and prevent his horses from competing.
+				<milestone n="2" unit="section"/>
+				And Thucydides<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 1.137">Thuc. 1.137</bibl>
+            </note> says that he made his way across the country to the sea, and set sail from Pydna, no one of the passengers knowing who he was until, when the vessel had been carried by a storm to Naxos, to which the Athenians at that time were laying siege,<note resp="ed" place="unspecified" anchored="yes"> About 469 B.C.</note> he was terrified, and disclosed himself to the master and the captain of the ship, and partly by entreaties, partly by threats, actually declaring that he would denounce and vilify them to the Athenians as having taken him on board at the start in no ignorance but under bribes,&mdash;in this way compelled them to sail by and make the coast of Asia.
+				<milestone n="3" unit="section"/>
+				Of his property, much was secretly abstracted for him by his friends and sent across the sea to Asia; but the sum total of that which was brought to light and confiscated amounted to one hundred talents, according to Theopompus,&mdash;Theophrastus says eighty,&mdash;and yet Themistocles did not possess the worth of three talents before he entered political life.
+				<milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After landing at Cyme, and learning that many people on the coast were watching to seize him, and especially Ergoteles and Pythodorus,&mdash;for the chase was a lucrative one to such as were fond of getting gain from any and every source, since two hundred talents had been publicly set upon his head by the King,&mdash;he fled to Aegae, a little Aeolic citadel.  Here no one knew him except his host Nicogenes, the wealthiest man in Aeolia, and well acquainted with the magnates of the interior.
+				<milestone n="2" unit="section"/>
+				With him he remained in hiding for a few days.  During this time, after the dinner which followed a certain sacrifice, Olbius, the paedagogue of the children of Nicogenes, becoming rapt and inspired, lifted up his voice and uttered the following verse:&mdash;
+				<quote rend="blockquote">
+					          <l>Night shall speak, and night instruct thee, night shall give thee victory.</l>
+				        </quote>
+				And in the night that followed, Themistocles, as he lay in bed, thought he saw in a dream that a serpent wound itself along over his body and crept up to his neck,
+				<milestone n="3" unit="section"/>
+				then became an eagle as soon as it touched his face, enveloped him with its wings and lifted him on high and bore him a long distance, when there appeared as it were a golden herald's wand, on which it set him securely down, freed from helpless terror and distress. 
+			</p>
+         <p>However that may be, he was sent on his way by Nicogenes, who devised the following scheme for his safety.  Most barbarous nations, and the Persians in particular, are savage and harsh in their jealous watchfulness over their women.
+				<milestone n="4" unit="section"/>
+				Not only their wedded wives, but also their boughten slaves and concubines are strictly guarded, so that they are seen by no outsiders, but live at home in complete seclusion, and even on their journeys are carried in tents closely hung round about with curtains and set upon four-wheeled wagons.  Such a vehicle was made ready for Themistocles, and safely ensconced in this he made his journey, while his attendants replied in every case to those who met them with enquiries, that they were conducting a Hellenic woman, fair but frail, to one of the King's courtiers.
+				<milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now Thucydides<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 1.137">Thuc. 1.137</bibl>
+            </note> and Charon of Lampsacus relate that Xerxes was dead, and that it was his son Artaxerxes with whom Themistocles had his interview; but Ephorus and Dinon and Clitarchus and Heracleides and yet more besides have it that it was Xerxes to whom he came.  With the chronological data Thucydides seems to me more in accord, although these are by no means securely established.
+				<milestone n="2" unit="section"/>
+				Be that as it may, Themistocles, thus at the threshold of the dreadful ordeal, had audience first with Artabanus the Chiliarch, or Grand Vizier, and said that he was a Hellene, and that he desired to have an audience with the King on matters which were of the highest importance and for which the monarch entertained the most lively concern. Whereupon the Chiliarch replied: 
+				<q direct="unspecified">O Stranger, men's customs differ; different people honor different practices; but all honor the exaltation and maintenance of their own peculiar ways.
+					<milestone n="3" unit="section"/>
+					Now you Hellenes are said to admire liberty and equality above all things; but in our eyes, among many fair customs, this is the fairest of all, to honor the King, and to pay obeisance to him as the image of that god who is the preserver of all things.  If, then, thou approvest our practice and wilt pay obeisance, it is in thy power to behold and address the King; but if thou art otherwise minded, it will be needful for thee to employ messengers to him in thy stead, for it is not a custom of this country that the King give ear to a man who has not paid him obeisance.</q>
+				        <milestone n="4" unit="section"/>
+				When Themistocles heard this, he said to him: 
+				<q direct="unspecified">Nay, but I am come, Artabanus, to augment the King's fame and power, and I will not only myself observe your customs, since such is the pleasure of the god who exalts the Persians, but I will induce more men than do so now to pay obeisance to the King.  Therefore let this matter by no means stand in the way of the words I wish to speak to him.</q>
+				        <milestone n="5" unit="section"/>
+				
+				        <q direct="unspecified">And what Hellene,</q> said Artabanus, 
+				<q direct="unspecified">shall I say thou art who hast thus come?  Verily, thou dost not seem to be a man of ordinary understanding.</q>  And Themistocles said: 
+				<q direct="unspecified">This, Artabanus, no one may learn before the King.</q> 
+			      </p>
+         <p>So indeed Phanias says, and Eratosthenes, in his book 
+				<q direct="unspecified">On Wealth,</q> adds the statement that it was through a woman of Eretria, whom the Chiliarch had to wife, that Themistocles obtained interview and conference with him.
+				<milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>That may or may not be so.  But when he was led into the presence of the King and had made him obeisance, and was standing in silence, the King ordered the interpreter to ask him who he was, and, on the interpreter's asking, he said: 
+				<q direct="unspecified">I who thus come to thee, O King, am Themistocles the Athenian, an exile, pursued by the Hellenes; and to me the Persians are indebted for many ills, but for more blessings, since I hindered the pursuit of the Hellenes, at a time when Hellas was brought into safety, and the salvation of my own home gave me an opportunity for showing some favour also to you.
+					<milestone n="2" unit="section"/>
+					Now, therefore, I may look for any sequel to my present calamities, and I come prepared to receive the favour of one who benevolently offers reconciliation, or to deprecate the anger of one who cherishes the remembrance of injuries.  But do thou take my foes to witness for the good I wrought the Persians, and now use my misfortunes for the display of thy virtue rather than for the satisfaction of thine anger.  For it is a suppliant of thine whom thou wilt save, but an enemy of the Hellenes whom thou wilt destroy.</q>
+				        <milestone n="3" unit="section"/>
+				After these words Themistocles spoke of divine portents in his favour, enlarging upon the vision which he saw at the house of Nicogenes, and the oracle of Dodonaean Zeus, how when he was bidden by it to proceed to the namesake of the god, he had concluded that he was thereby sent to him, since both were actually 
+				<q direct="unspecified">Great Kings,</q> and were so addressed. 
+			</p>
+         <p>On hearing this the Persian made no direct reply to him, although struck with admiration at the boldness of his spirit;
+				<milestone n="4" unit="section"/>
+				but in converse with his friends it is said that he congratulated himself over what he called the greatest good fortune, and prayed Arimanius ever to give his enemies such minds as to drive their best men away from them; and then sacrificed to the gods, and straightway betook himself to his cups; and in the night, in the midst of his slumbers, for very joy called out thrice: 
+				<q direct="unspecified">I have Themistocles the Athenian.</q>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At daybreak he called his friends together and bade Themistocles to be introduced, who expected no favorable outcome, because he saw that the guards at the gates, when they learned the name of him who was going in, were bitterly disposed and spoke insultingly to him.  And besides, Roxanes the Chiliarch, when Themistocles came along opposite him,&mdash;the King being seated and the rest hushed in silence,&mdash;said in an angry undertone: 
+				<q direct="unspecified">Thou subtle serpent of Hellas, the King's good genius hath brought thee hither.</q>
+				        <milestone n="2" unit="section"/>
+				However, when he had come into the King's presence, and had once more paid him obeisance, the King welcomed him and spake him kindly, and said he already owed him two hundred talents, for since he had delivered himself up it was only just that he himself should receive the reward proclaimed for his captor.  And he promised him much more besides, and bade him take heart, and gave him leave to say whatever he wished concerning the affairs of Hellas, with all frankness of speech.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>But Themistocles made answer that the speech of man was like embroidered tapestries, since like them this too had to be extended in order to display its patterns, but when it was rolled up it concealed and distorted them.  Wherefore he had need of time. The King at once showed his pleasure at this comparison by bidding him take time, and so Themistocles asked for a year, and in that time he learned the Persian language sufficiently to have interviews with the King by himself without interpreters.
+				<milestone n="4" unit="section"/>
+				Outsiders thought these conferences concerned Hellenic matters merely; but since about that time many innovations were introduced by the King at court and among his favorites, the magnates became jealous of Themistocles, on the ground that he had made bold to use his freedom of speech with the King to their harm.  For the honors he enjoyed were far beyond those paid to other foreigners; nay, he actually took part in the King's hunts and in his household diversions, so far that he even had access to the queen-mother and became intimate with her, and at the King's bidding heard expositions also of the Magian lore.
+				<milestone n="5" unit="section"/>
+				And when Demaratus the Spartan, being bidden to ask a gift, asked that he might ride in state through Sardis, wearing his tiara upright after the manner of the Persian kings, Mithropaustes the King's cousin said, touching the tiara of Demaratus: 
+				<q direct="unspecified">This tiara of thine hath no brains to cover; indeed thou wilt not be Zeus merely because thou graspest the thunderbolt.</q>
+				        <milestone n="6" unit="section"/>
+				The King also repulsed Demaratus in anger at his request, and was minded to be inexorable towards him, and yet Themistocles begged and obtained a reconciliation with him. 
+			</p>
+         <p>And it is said that later kings also, in whose reigns Persia and Hellas came into closer relations, as often as they asked for a Hellene to advise them, promised him in writing, every one, that he should be more influential at court than Themistocles.
+				<milestone n="7" unit="section"/>
+				And Themistocles himself, they say, now become great and courted by many, said to his children, when a splendid table was once set for him: 
+				<q direct="unspecified">My children, we should now have been undone, had we not been undone before.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 1.138">Thuc. 1.138</bibl>
+            </note> Three cities, as most writers say, were given him for bread, wine, and meat, namely: Magnesia, Lampsacus, and Myus; and two others are added by Neanthes of Cyzicus and by Phanias, namely: Percote and Palaescepsis; these for his bedding and raiment.
+				<milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now as he was going down to the sea on his commission to deal with Hellenic affairs, a Persian, Epixyes by name, satrap of Upper Phrygia, plotted against his life, having for a long time kept certain Pisidians in readiness to slay him whenever he should reach the village called Lion's Head, and take up his night's quarters there.  But while Themistocles was asleep at midday before, it is said that the Mother of the Gods<note resp="ed" place="unspecified" anchored="yes"> Rhea, or Cybele, Magna Mater, called also Dindymene, from Mount Dindymon, in Phrygia.</note> appeared to him in a dream and said: 
+				<q direct="unspecified">O Themistocles, shun a head of lions, that thou mayest not encounter a lion.  And for this service to thee, I demand of thee Mnesiptolema to be my handmaid.</q>
+				        <milestone n="2" unit="section"/>
+				Much disturbed, of course, Themistocles, with a prayer of acknowledgment to the goddess, forsook the highway, made a circuit by another route, and passing by that place, at last, as night came on, took up his quarters. 
+			</p>
+         <p>Now, since one of the beasts of burden which carried the equipage of his tent had fallen into the river, the servants of Themistocles hung up the curtains which had got wet, and were drying them out.  The Pisidians, at this juncture, sword in hand, made their approach, and since they could not see distinctly by the light of the moon what it was that was being dried, they thought it was the tent of Themistocles, and that they would find him reposing inside.
+				<milestone n="3" unit="section"/>
+				But when they drew near and lifted up the hanging, they were fallen upon by the guards and apprehended.  Thus Themistocles escaped the peril, and because he was amazed at the epiphany of the goddess, he built a temple in Magnesia in honor of Dindymene, and made his daughter Mnesiptolema her priestess.
+				<milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>When he had come to Sardis and was viewing at his leisure the temples built there and the multitude of their dedicatory offerings, and saw in the temple of the Mother the so-called Water-carrier,&mdash;a maid in bronze, two cubits high, which he himself, when he was water commissioner at Athens, had caused to be made and dedicated from the fines he exacted of those whom he convicted of stealing and tapping the public water,&mdash;whether it was because he felt some chagrin at the capture of the offering, or because he wished to show the Athenians what honor and power he had in the King's service, he addressed a proposition to the Lydian satrap and asked him to restore the maid to Athens.
+				<milestone n="2" unit="section"/>
+				But the Barbarian was incensed and threatened to write a letter to the King about it; whereat Themistocles was afraid, and so had recourse to the women's chambers, and, by winning the favour of the satrap's concubines with money, succeeded in assuaging his anger.  Thereafter he behaved more circumspectly, fearing now even the jealousy of the Barbarians.  For he did not wander about over Asia, as Theopompus says, but had a house in Magnesia, and gathered in large gifts, and was honored like the noblest Persians, and so lived on for a long time without concern, because the King paid no heed at all to Hellenic affairs, owing to his occupation with the state of the interior.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>But when Egypt revolted with Athenian aid,<note resp="ed" place="unspecified" anchored="yes"> 459 B.C.</note> and Hellenic triremes sailed up as far as Cyprus and Cilicia, and Cimon's mastery of the sea forced the King to resist the efforts of the Hellenes and to hinder their hostile growth; and when at last forces began to be moved, and generals were despatched hither and thither, and messages came down to Themistocles saying that the King commanded him to make good his promises by applying himself to the Hellenic problem,
+				<milestone n="4" unit="section"/>
+				then, neither embittered by anything like anger against his former fellow-citizens, nor lifted up by the great honor and power he was to have in the war, but possibly thinking his task not even approachable, both because Hellas had other great generals at the time, and especially because Cimon was so marvelously successful in his campaigns; yet most of all out of regard for the reputation of his own achievements and the trophies of those early days; having decided that his best course was to put a fitting end to his life,
+				<milestone n="5" unit="section"/>
+				he made a sacrifice to the gods, then called his friends together, gave them a farewell clasp of his hand, and, as the current story goes, drank bull's blood, or as some say, took a quick poison, and so died in Magnesia, in the sixty-fifth year of his life,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 1.138">Thuc. 1.138</bibl>
+            </note> most of which had been spent in political leadership.  They say that the King, on learning the cause and the manner of his death, admired the man yet more, and continued to treat his friends and kindred with kindness.
+				<milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Themistocles left three sons by Archippe, the daughter of Lysander, of the deme Alopece, namely: Archeptolis, Polyeuctus and Cleophantus, the last of whom Plato the philosopher mentions as a capital horseman, but good for nothing else.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Meno 93">Plat. Meno 93</bibl>
+            </note> One of his two oldest sons, Neocles, died in boyhood from the bite of a horse, and Diocles was adopted by his grandfather Lysander.
+				<milestone n="2" unit="section"/>
+				He had several daughters, of whom Mnesiptolema, born of his second wife, became the wife of Archeptolis her half-brother, Italia of Panthoides the Chian, and Sybaris of Nicomedes the Athenian.  Nicomache was given in marriage by her brothers to Phrasicles, the nephew of Themistocles, who sailed to Magnesia after his uncle's death, and who also took charge of Asia, the youngest of all the children.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>The Magnesians have a splendid tomb of Themistocles in their market place; and with regard to his remains, Andocides is worthy of no attention when he says, in his Address to his Associates, that the Athenians stole away those remains and scattered them abroad, for he is trying by his lies to incite the oligarchs against the people; and Phylarchus, too, when, as if in a tragedy, he all but erects a theatrical machine for this story, and brings into the action a certain Neocles, forsooth, and Demopolis, sons of Themistocles, wishes merely to stir up tumultuous emotion; his tale even an ordinary person must know is fabricated.
+				<milestone n="4" unit="section"/>
+				Diodorus the Topographer, in his work 
+				<q direct="unspecified">On Tombs,</q> says, by conjecture rather than from actual knowledge, that near the large harbor of the Piraeus a sort of elbow juts out from the promontory opposite Alcimus, and that as you round this and come inside where the water of the sea is still, there is a basement of goodly size, and that the altar-like structure upon this is the tomb of Themistocles.
+				<milestone n="5" unit="section"/>
+				And he thinks that the comic poet Plato is a witness in favour of his view when he says:&mdash;
+				<quote rend="blockquote">
+					          <l>Thy tomb is mounded in a fair and sightly place;</l>
+					          <l>The merchantmen shall ever hail it with glad cry;</l>
+					          <l>It shall behold those outward, and those inwardbound,</l>
+					          <l>And all the emulous rivalry of racing ships.</l>
+				        </quote>
+			      </p>
+         <p>For the lineal descendants of Themistocles there were also certain dignities maintained in Magnesia down to my time, and the revenues of these were enjoyed by a Themistocles of Athens who was my intimate and friend in the school of Ammonius the philosopher.
+			</p>
+      </body>
+   </text>
+</TEI.2>

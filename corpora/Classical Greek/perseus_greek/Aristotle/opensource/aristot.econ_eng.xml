@@ -1,0 +1,1201 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+
+<TEI.2>
+	<teiHeader status="new" type="text">
+		<fileDesc>
+			<titleStmt>
+				<title> Economics (English). Machine readable text</title>
+				<author>Aristotle</author> &responsibility; &fund.AnnCPB; </titleStmt>
+			<extent>About 91Kb</extent> &Perseus.publish; <notesStmt>
+				<note anchored="yes">Text was scanned at St. Olaf Spring, 1992.</note>
+			</notesStmt>
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Aristotle</author>
+						<title>Aristotle in 23 Volumes, Vol. 18, translated by G.C. Armstrong.</title>
+
+						<imprint>
+							<publisher>Cambridge, MA, Harvard University Press; London, William
+                                Heinemann Ltd.</publisher>
+							<date>1935</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state unit="book"/>
+				<state unit="section"/>
+			</refsDecl>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language id="en">English </language>
+				<language id="greek">Greek </language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change>
+				<date>June, 1993</date>
+				<respStmt>
+					<name>wpm</name>
+					<resp>(n/a)</resp>
+				</respStmt>
+				<item>Tagged in conformance with Prose.e dtd.</item>
+			</change>
+			<change>
+				<date>7/27, 1993</date>
+				<respStmt>
+					<name>em</name>
+					<resp>(n/a)</resp>
+				</respStmt>
+				<item>Put Bekker line 1 milestone tags at the beginning of each section so that the
+                    incoming list creator would work. Changed RREFDECL.</item>
+			</change>
+			<change>
+				<date>5/27/09</date>
+				<respStmt>
+					<name>RS</name>
+					<resp>(n/a)</resp>
+				</respStmt>
+				<item>  
+        			$Log: aristot.econ_eng.xml,v $
+        			Revision 1.2  2010-06-16 19:18:48  rsingh04
+        			cleaned up bad place tags in a few texts and cleaned up the document format
+
+        			Revision 1.1  2009/10/09 19:49:17  rsingh04
+        			more reorganizing of texts module by collection
+
+        			Revision 1.1  2009/10/08 19:12:41  rsingh04
+        			began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+        			Revision 1.11  2009/07/15 17:52:35  student
+        			edited entity tags CEH
+
+        			Revision 1.10  2009/07/15 17:50:40  student
+        			edited entity tags CEH
+
+        			Revision 1.9  2009/05/27 15:55:14  rsingh04
+        			added cvs log keyword
+
+        		</item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	<text>
+
+		<body>
+			<div1 type="Book" n="1">
+				<p>
+                    <milestone n="1343a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/><milestone ed="P" unit="para"/><milestone ed="P" n="1.1" unit="Loeb chap"/> Between Housecraft (the art of governing a Household or Home) and Statecraft
+                    (the art of governing a Nation) there are differences corresponding to those
+                    between the two kinds of community over which they severally preside. There is,
+                    however, this further difference: that whereas the government of a nation is in
+                    many hands, a household has but a single ruler.<milestone ed="P" unit="para"/>Now some arts are divided into two separate branches, one concerned with the
+                    making of an object&mdash;for example a lyre or a flute&mdash;and the
+                    other with its use when made. Statecraft on the other hand shows us how to build
+                    up a nation from its beginning, as well as how to order rightly a nation that
+                    already exists; from which we infer that Housecraft also tells us first how to
+                    acquire a household and then how to conduct its affairs.<milestone ed="P" unit="para"/><milestone ed="P" n="1.2" unit="Loeb chap"/> By a Nation we
+                    mean an assemblage of houses, lands, and property sufficient to enable the
+                    inhabitants to lead a civilized life. This is proved by the fact that when such
+                    a life is no longer possible for them, the tie itself which unites them is
+                    dissolved. Moreover, it is with such a life in view that the association is
+                    originally formed; and the object for which a thing exists and has come into
+                    being is in fact the very essence of that particular thing.<milestone ed="P" unit="para"/>From this definition of a Nation, it is evident that the art of
+                    Housecraft is older than that of Statecraft, since the Household, which it
+                    creates, is older; being a component part of the Nation created by
+                        Statecraft.<milestone ed="P" unit="para"/>Accordingly we must consider the
+                    nature of Housecraft, and what the Household, which it creates, actually
+                        is.<milestone ed="P" unit="para"/><milestone ed="P" n="2.1" unit="Loeb chap"/> The component parts of a household are (l) human beings, and (2) goods and
+                    chattels. And as households are no exception to the rule that the nature of a
+                    thing is first studied in its barest and simplest form,<milestone ed="Bekker" n="20" unit="line"/>we will follow Hesiod and begin by postulating
+                    "Homestead first, and a woman; a plough-ox hardy to furrow." For the steading
+                    takes precedence among our physical necessities, and the woman among our free
+                    associates. It is, therefore, one of the tasks of Homecraft to set in order the
+                    relation between man and woman; in other words, to see that it is what it ought
+                    to be.<milestone ed="P" unit="para"/><milestone ed="P" n="2.2" unit="Loeb chap"/> Of occupations attendant on our goods and chattels, those come first which
+                    are natural. Among these precedence is given to the one which cultivates the
+                    land; those like mining, which extract wealth from it, take the second place.
+                    Agriculture is the most honest of all such occupations; seeing that the wealth
+                    it brings is not derived from other men. Herein it is distinguished from trade
+                    and the wage-earning employments, which acquire wealth from others by their
+                    consent; and from war, which wrings it from them perforce. It is also a natural
+                    occupation; since by Nature's appointment all creatures receive sustenance from
+                    their mother, <milestone n="1343b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>and mankind like the rest from their common mother the
+                        earth.<milestone ed="P" unit="para"/><milestone ed="P" n="2.3" unit="Loeb chap"/> And besides all this, agriculture contributes notably to
+                    the making of a manly character; because, unlike the mechanical arts, it does
+                    not cripple and weaken the bodies of those engaged in it, but inures them to
+                    exposure and toil and invigorates them to face the perils of war. For the
+                    farmer's possessions, unlike those of other men, lie outside the city's
+                        defences.<milestone ed="P" unit="para"/><milestone ed="P" n="3.1" unit="Loeb chap"/> When we turn our attention to the human part of the
+                    household, it is the woman who makes the first claim upon it; &lt;for the
+                    natural comes first, as we have said,&gt; and nothing is more natural than
+                    the tie between female and male. For we have elsewhere laid down the
+                    premiss<note resp="Loeb" anchored="yes">Cf. <bibl n="Aristot. Pol. 1.1252a.1">Aristot. Pol. 1.1</bibl>.</note> that Nature is intent on multiplying severally her types;
+                    and this is true of every animal in particular. Neither the female, however, can
+                    effect this without the male, nor the male without the female; whence the union
+                    of the sexes has of necessity arisen.<milestone ed="P" unit="para"/><milestone ed="P" n="3.2" unit="Loeb chap"/> Now among the lower animals, this union is
+                    irrational in character; it exists merely for the purpose of procreation, and
+                    lasts only so long as the parents are occupied in producing their brood. In tame
+                    animals, on the other hand, and those which possess a greater share of
+                    intelligence, it has assumed a more complex form; for in their case we see more
+                    examples of mutual help, goodwill, and co-operation. <milestone ed="P" n="3.3" unit="Loeb chap"/> It is, however, in the human species that this complexity
+                    is most marked; since the co-operation between woman and man aims not merely at
+                    existence, but at a happy <milestone ed="Bekker" n="20" unit="line"/>existence.
+                    Nor do mankind beget children merely to pay the service they owe to Nature, but
+                    also that they may themselves receive a benefit; for the toil they undergo while
+                    they are strong and their offspring is still weak is repaid by that offspring
+                    when it in turn is grown strong and the parents by reason of age are
+                        weak.<milestone ed="P" unit="para"/><milestone ed="P" n="3.4" unit="Loeb chap"/> At the same time Nature, by this cycle of changes,
+                    fulfills her purpose of perpetuating existence; preserving the type when she is
+                    unable to preserve the individual.<note resp="Loeb" anchored="yes">Cf. <bibl n="Aristot. GA 731b">Aristot. De Gen. An. 731b.</bibl></note> And so
+                    with this purpose in view Divine Providence has fashioned the nature of man and
+                    of woman for their partnership. For they are distinguished from each other by
+                    the possession of faculties not adapted in every case to the same tasks, but in
+                    some cases for opposite ones, though contributing to the same end. For
+                    Providence made man stronger and woman weaker, <milestone n="1344a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>so that he in
+                    virtue of his manly prowess may be more ready to defend the home, and she, by
+                    reason of her timid nature, more ready to keep watch over it; and while he
+                    brings in fresh supplies from without, she may keep safe what lies within. In
+                    handicrafts again, woman was given a sedentary patience, though denied stamina
+                    for endurance of exposure; while man, though inferior to her in quiet
+                    employments, is endowed with vigor for every active occupation. In the
+                    production of children both share alike; but each makes a different contribution
+                    to their upbringing. It is the mother who nurtures, and the father who
+                        educates.<milestone ed="P" unit="para"/><milestone ed="P" n="4.1" unit="Loeb chap"/> We begin then with the rules that should govern a man's
+                    treatment of his wife. And the first of these forbids him to do her wrong; for
+                    if he observes this, he is not likely himself to suffer wrong at her hands. As
+                    the Pythagoreans declare, even the common rule or custom of mankind thus
+                    ordains, forbidding all wrong to a wife as stringently as though she were a
+                    suppliant whom one has raised from the hearthstone. And a man does wrong to his
+                    wife when he associates with other women.<milestone ed="P" unit="para"/><milestone ed="P" n="4.2" unit="Loeb chap"/> As regards the intercourse of
+                    marriage, wives should neither importune their husbands, nor be restless in
+                    their absence; but a man should accustom his wife to be content whether he is at
+                    home or away. Good also is the advice of Hesiod: <cit>
+                        <quote type="verse">
+                            <l met="dactylic">Take thee a maiden to wife, and teach her ways of
+                                discretion.</l>
+                        </quote>
+                        <bibl n="Hes. WD 699">Hes. WD 699</bibl>
+                    </cit> For differences of ways and habits are little conducive to
+                        affection.<milestone ed="P" unit="para"/><milestone ed="P" n="4.3" unit="Loeb chap"/> As regards adornment: it is not well<milestone ed="Bekker" n="20" unit="line"/>that souls should approach one another in
+                    borrowed plumes, nor is it well in the case of bodies. Intercourse which depends
+                    &lt;for its charm&gt; upon outward adornment differs in no respect from
+                    that of figures on the stage in their conventional attire.<milestone ed="P" unit="para"/><milestone ed="P" n="5.1" unit="Loeb chap"/> Of property, the
+                    first and most indispensable kind is that which is also best and most amenable
+                    to Housecraft; and this is the human chattel. Our first step therefore must be
+                    to procure good slaves. Of slaves there are two kinds; those in positions of
+                    trust, and the laborers. And since it is matter of experience that the character
+                    of the young can be moulded by training, when we require to charge slaves with
+                    tasks befitting the free, we have not only to procure the slaves, but to bring
+                    them up &lt;for the trust&gt;.<milestone ed="P" unit="para"/><milestone ed="P" n="5.2" unit="Loeb chap"/> In our intercourse with slaves we must
+                    neither suffer them to be insolent nor treat them with cruelty. A share of honor
+                    should be given to those who are doing more of a freeman's work, and abundance
+                    of food to those who are laboring with their hands. And whereas the use of wine
+                    renders even free men insolent, so that in many countries they too refrain from
+                    it&mdash;as, for instance, the Carthaginians do when they are on
+                    campaign&mdash;it follows that we must either deny wine to slaves
+                    altogether, or reserve it for rare occasions.<milestone ed="P" unit="para"/><milestone ed="P" n="5.3" unit="Loeb chap"/> We may apportion to our
+                    slaves (1) work, (2) chastisement, and (3) food. If men are given food, but no
+                    chastisement nor any work, they become insolent. <milestone n="1344b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>If they are made
+                    to work, and are chastised, but stinted of their food, such treatment is
+                    oppressive, and saps their strength. The remaining alternative, therefore, is to
+                    give them work, and a sufficiency of food. Unless we pay men, we cannot control
+                    them; and food is a slave's pay.<milestone ed="P" unit="para"/>Slaves, again,
+                    are no exception to the rule that men become worse when better conduct is not
+                    followed by better treatment, but virtue and vice remain alike unrewarded.
+                        <milestone ed="P" n="5.4" unit="Loeb chap"/> Accordingly we must keep watch
+                    over our workers, suiting our dispensations and indulgences to their desert;
+                    whether it be food or clothing, leisure or chastisement that we are
+                    apportioning. Both in theory and in practice we must take for our model a
+                    physician's freedom in prescribing his medicines; observing at the same time
+                    that food differs from medicine in that it requires to be constantly
+                        administered.<milestone ed="P" unit="para"/><milestone ed="P" n="5.5" unit="Loeb chap"/> The best laborers will be furnished by those races of
+                    mankind which are neither wholly spiritless nor yet overbold. Each extreme has
+                    its vice; the spiritless cannot endure hard labor, and the high-spirited will
+                    not readily brook control.<milestone ed="P" unit="para"/><milestone ed="P" n="5.6" unit="Loeb chap"/> Every slave should have before his eyes a
+                    definite goal or term of his labor. To set the prize of freedom before him is
+                    both just and expedient; since having a prize to work for, and a time defined
+                    for its attainment, he will put his heart into his labors. We should, moreover,
+                    take hostages &lt;for our slaves' fidelity&gt; by allowing them to beget
+                    children; and avoid the practice of purchasing many slaves of the same
+                    nationality, as men avoid doing in towns. We should also keep festivals and give
+                    treats, more on the slaves account than on that of the freemen;<milestone ed="Bekker" n="20" unit="line"/>since the free have a fuller share in those
+                    enjoyments for the sake of which these institutions exist.<milestone ed="P" unit="para"/><milestone ed="P" n="6.1" unit="Loeb chap"/> There are four
+                    qualities which the head of a household must possess in dealing with his
+                    property. Firstly, he must have the faculty of acquiring, and secondly that of
+                    preserving what he has acquired; otherwise there is no more benefit in acquiring
+                    than in baling with a colander, or in the proverbial wine-jar with a hole in the
+                    bottom. Thirdly and fourthly, he must know how to improve his property, and how
+                    to make use of it; since these are the ends for which the powers of acquisition
+                    and of preservation are sought.<milestone ed="P" unit="para"/><milestone ed="P" n="6.2" unit="Loeb chap"/> Everything we possess should be duly classified ;
+                    and the amount of our productive property exceed that of the unproductive.
+                    Produce should be so employed that we do not risk all our possessions at once.
+                    For the safe keeping of our property, we shall do well to adopt the Persian and
+                    Laconian systems. Athenian housecraft has, however, some advantages. The
+                    Athenian buys immediately with the produce of his sales, and the smaller
+                    households keep no idle deposits in store.<milestone ed="P" unit="para"/><milestone ed="P" n="6.3" unit="Loeb chap"/> Under the Persian system, the
+                    master himself undertook the entire disposition and supervision of the
+                    household, following the practice which
+                    Dion used to remark in Dionysius. No one, indeed, takes the same
+                    care of another's property as of his own; so that, as far as is possible,
+                        <milestone n="1345a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>each man ought to attend to his affairs in person. We may
+                    commend also a pair of sayings, one attributed to a Persian and the other to a
+                    Libyan. The former on being asked what best conditions a horse, replied "His
+                    master's eye."<note resp="Loeb" anchored="yes">Cf. <bibl n="Xen. Ec.                         12">Xen. Ec.
+                        12</bibl>.</note> The Libyan, when asked what kind of manure is best,
+                    answered "The master's footprints."<milestone ed="P" unit="para"/><milestone ed="P" n="6.4" unit="Loeb chap"/> The master and mistress should, therefore,
+                    give personal supervision, each to his or her special department of the
+                    household work. In small households, an occasional inspection will suffice; in
+                    estates managed through stewards, inspections must be frequent. For in
+                    stewardship as in other matters there can be no good copy without a good
+                    example; and if the master and mistress do not attend diligently to their
+                    estate, their deputies will certainly not do so.<milestone ed="P" unit="para"/><milestone ed="P" n="6.5" unit="Loeb chap"/> Moreover, as such habits are
+                    both commendable for moral reasons and also conducive to good management, the
+                    master and mistress will do well to rise earlier than their servants and to
+                    retire later; to treat their home as a city, and never leave it unguarded; nor
+                    ever, by night or by day, to postpone a task which ought to be done. Rising
+                    before daylight is also to be commended; it is a healthy habit, and gives more
+                    time for the management of the household as well as for liberal
+                        studies.<milestone ed="P" unit="para"/><milestone ed="P" n="6.6" unit="Loeb chap"/> We have remarked that on small holdings the Athenian
+                    method of disposing of the produce is advantageous.<milestone ed="Bekker" n="20" unit="line"/>On large estates, after the amount for the year's or the
+                    month's outlay has been set apart, it should be handed to the overseers; and so
+                    also with implements, whether for daily or for occasional use. In addition, an
+                    inspection of implements and stores should be made periodically, so that
+                    remainders and deficiencies may alike be noted.<milestone ed="P" unit="para"/><milestone ed="P" n="6.7" unit="Loeb chap"/> In constructing a homestead,
+                    we have to provide for the stock which it is to shelter, and for its health and
+                    well-being. Providing for the stock involves questions such as these: What type
+                    of building is best for the storage of crops and of clothing? How are we to
+                    store the dry crops, and how the moist ones? Of the other stock, how is the
+                    living to be housed, and how the dead? and what accommodation are we to make for
+                    slaves and free, for women and men, for foreigners and fellow-citizens? For
+                    well-being and health, again, the homestead should be airy in summer, and sunny
+                    in winter.<milestone ed="P" unit="para"/><milestone ed="P" n="6.8" unit="Loeb chap"/> A homestead possessing these qualities would be longer
+                    than it is deep; and its main front would face the south. On large estates,
+                    moreover, it seems worth while to instal as porter a man incapable of other
+                    work, to keep his eye on what passes in and out. <milestone n="1345b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>That implements
+                    may be ready for use, the Laconian practice should be followed. Each should be
+                    kept in its own place; thus it will always be to hand, and not require
+                seeking.</p>
+			</div1>
+			<div1 type="Book" n="2">
+				<p>
+                    <milestone n="1345b" unit="section"/><milestone ed="Bekker" n="7" unit="line"/><milestone ed="P" unit="para"/><milestone ed="P" n="1.1" unit="Loeb chap"/>Right administration of a household demands in the first place familiarity
+                    with the sphere of one's action<note resp="Loeb" anchored="yes">Or, "the
+                        localities wherein we work."</note>; in the second Place, good natural
+                    endowments; and in the third, an uprights and industrious way of life. For the
+                    lack of any one of these qualifications will involve many a failure in the task
+                    one takes in hand.<milestone ed="P" unit="para"/>Of such administrations there
+                    are four main types, under which all others may be classified. We have the
+                    administration of a king; of the governors under him; of a free state; and of a
+                    private citizen.<milestone ed="P" unit="para"/><milestone ed="P" n="1.2" unit="Loeb chap"/> Of these, that of a king is the most extensive, yet at
+                    the same time the simplest. A governor's office is also very extensive, but
+                    divided into a great variety of departments. The administration of a free state
+                    is again very varied, but it is the easiest to conduct; while that, of a private
+                    individual presents the like variety, but within limits which are narrowest of
+                    all. For the most part, all four will of necessity cover the same ground; we
+                    will, however, take them in turn, and see what is especially characteristic of
+                        each.<milestone ed="P" unit="para"/>Taking first the royal administration,
+                    we see that while theoretically its power is unlimited,<milestone ed="Bekker" n="20" unit="line"/>it is in practice concerned with four departments,
+                    namely currency, exports, imports, and expenditure.<milestone ed="P" unit="para"/><milestone ed="P" n="1.3" unit="Loeb chap"/> Taking these severally, I
+                    assign to that of currency the seasonable regulation of prices; to imports and
+                    exports, the profitable disposition, at any given time, of the dues received
+                    from provincial governors; and to expenditure, the reduction of outgoings as
+                    occasion may serve, and the question of meeting expenses by currency or by
+                        commodities.<milestone ed="P" unit="para"/><milestone ed="P" n="1.4" unit="Loeb chap"/> The second kind of administration, that of the governor,
+                    is concerned with six different classes of revenue; those, namely, arising from
+                    agriculture, from the special products of the country, from markets, from taxes,
+                    from cattle, and from other sources.<milestone ed="P" unit="para"/>Taking these
+                    in turn, the first and most important of them is revenue from agriculture, which
+                    some call tithe and some produce-tax.<note resp="Loeb" anchored="yes">Boeckh
+                        translates <foreign lang="greek">E)KFO/RION</foreign> "Grundsteuer." But how
+                        then does it differ from <foreign lang="greek">TW=N KATA\ GH=N
+                        TELW=N</foreign> below?</note> The second is that from special products; in
+                    one place gold, in another silver, in another copper, and so on. Third in
+                    importance is revenue from markets, <milestone n="1346a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>and fourth that which arises
+                    from taxes on land and on sales. In the fifth place we have revenue from cattle,
+                    called tithe or first-fruits; and in the sixth, revenue from other sources,
+                    which we term poll-tax, or tax on industry.<milestone ed="P" unit="para"/><milestone ed="P" n="1.5" unit="Loeb chap"/> Of our third kind of
+                    administration, that of a free state, the most important revenue is that arising
+                    from the special products of the country. Next follows revenue from markets and
+                    occupations; and finally that from every-day transactions.<note resp="Loeb" anchored="yes">Or (understanding <foreign lang="greek">LEITOURGIW=N</foreign>) "regular public services." </note>
+                    <milestone ed="P" unit="para"/><milestone ed="P" n="1.6" unit="Loeb chap"/>
+                    Fourthly and lastly, we must consider the administration of a private citizen.
+                    It is difficult to reduce this to rules owing to the necessary variety of its
+                    aims; yet it is the most limited of the four, because both revenues and expenses
+                    are &lt;comparatively&gt; small. Taking its revenues in turn, the chief
+                    are those from agriculture; next in importance, those from other every-day
+                    occupations; while third comes interest on money. Apart from all these, there is
+                    a matter common to all kinds of administration which is best considered at this
+                    particular point, and deserves more than cursory attention. This is the
+                    importance of keeping expenditure within the limits of revenue.<milestone ed="P" unit="para"/><milestone ed="P" n="1.7" unit="Loeb chap"/> Having thus
+                    enumerated the divisions of our subject, we must next consider whether the
+                    province or the free state with which we are concerned is able to produce all
+                    the forms of revenue we have just detailed<milestone ed="Bekker" n="20" unit="line"/>or at least the chief of them; &lt;and this being
+                    known&gt; must make the best use of what we have. Next we must inquire what
+                    kinds of revenue, at present wholly lacking, are yet potentially existent; what
+                    kinds, though now small, may with care be increased, and how far certain items
+                    of present expenditure may without prejudice to the commonwealth be
+                        diminished.<milestone ed="P" unit="para"/><milestone ed="P" n="1.8" unit="Loeb chap"/> Having spoken thus of administrations and their various
+                    departments, we have further proceeded to collect such instances as we deemed
+                    noteworthy of the means adopted by certain statesmen in times past for the
+                    replenishment of the treasury, and also of their skill in administration. These
+                    anecdotes &lt;which follow&gt;, seemed to us by no means lacking in
+                    utility; being capable from time to time of application by others to the
+                    business they themselves have in hand.<milestone ed="P" unit="para"/><milestone ed="P" n="2.1" unit="Loeb chap"/> Cypselus of <placeName key="perseus,Corinth">Corinth</placeName> had made a vow that if he became
+                    master of the city, he would offer to Zeus the entire property of the
+                    Corinthians. Accordingly he commanded them to make a return of their
+                    possessions; <milestone n="1346b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>which done, he took from each a tenth part, and told them to
+                    employ the remainder in trading. A year later, he repeated the process. And so
+                    in ten years' time it came to pass that Cypselus received the entire amount
+                    which he had dedicated; while the Corinthians on their part had replaced all
+                    that they had paid him.<milestone ed="P" unit="para"/><milestone ed="P" n="2.2" unit="Loeb chap"/> Lygdamis of <placeName key="perseus,Naxos City">Naxos</placeName>, after driving into exile a party of the inhabitants, found
+                    that no one would give him a fair price for their property. He therefore sold it
+                    to the exiled owners. The exiles had left behind them a number of works of art
+                    destined for temple offerings, which lay in certain workshops in an unfinished
+                    condition. These Lygdamis proceeded to sell to the exiles and whoso else would
+                    buy them; allowing each purchaser to have his name engraved on the
+                        offering.<milestone ed="P" unit="para"/><milestone ed="P" n="2.3" unit="Loeb chap"/> The people of <placeName key="perseus,Byzantium">Byzantium</placeName>, being in need of funds, sold such dedicated lands as
+                    belonged to the State; those under crops, for a term of years, and those
+                    uncultivated, in perpetuity. In like manner they sold lands appropriated to
+                    religious celebrations or ancestral cults, not excepting those that were on
+                    private estates<note resp="Loeb" anchored="yes">See <bibl n="Lys. 7">Lys. 7</bibl>,
+                        the seventh Speech of the Athenian orator Lysias.</note>; for the owners of
+                    the surrounding land were ready to give a high price for them. To the
+                    dispossessed celebrants &lt;they assigned&gt; such other public lands
+                    surrounding the gymnasium, the agora, or the harbor,<milestone ed="Bekker" n="20" unit="line"/>as belonged to the State. Moreover they claimed as
+                    public property all open spaces where anything was sold, together with the
+                    sea-fisheries, the traffic in salt, and the trade of professional conjurors,
+                    soothsayers, charm-sellers, and the like; exacting from all these one-third of
+                    their gains. The right of changing money they sold to a single bank, whose
+                    proprietor was given a monopoly of the sale and purchase of coin, protected
+                    under penalty of confiscation.<milestone ed="P" unit="para"/>And whereas
+                    previously the rights of citizenship were by law confined to those whose parents
+                    were both citizens, lack of funds, induced them to offer citizenship to him who
+                    had one citizen parent on payment of the sum of thirty minae.<note resp="Loeb" anchored="yes">A mina of silver (1 lb. 5 oz. avoirdupois) was coined into
+                        100 drachmae, each being an artisan's ordinary daily wage.</note>
+                    <milestone ed="P" unit="para"/>On another occasion, when food and funds were
+                    both scarce, they called home all vessels that were trading in the <placeName key="tgn,7016619">Pontus</placeName>. On the merchants protesting, they were
+                    at length allowed to trade on payment of a tithe of their profits. This tax of
+                    10 per cent was also extended to purchases of every kind. <milestone n="1347a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/><milestone ed="P" unit="para"/>It happened that certain aliens residing in the city had lent
+                    money on the security of citizens' property. As these aliens did not possess the
+                    right of holding such property, the people offered to recognize the title of
+                    anyone who chose to pay into the treasury one third of the amount
+                        secured.<milestone ed="P" unit="para"/><milestone ed="P" n="2.4" unit="Loeb chap"/> Hippias of <placeName key="perseus,Athens">Athens</placeName> offered for sale upper stories that projected over the
+                    public streets,<note resp="Loeb" anchored="yes">Cf. Goethe,<title>Warheit und
+                            Dichtung</title>, Book I. "In Frankfurt, as in several ancient cities,
+                        those who had erected wooden buildings had sought to obtain more room by
+                        allowing the first and higher floors to overhang in the street. . . . At
+                        last a law was carried that in all entirely new houses the first floor alone
+                        should project; above that, the wall should be perpendicular." The poet's
+                        father, wishing to rebuild his house without sacrifice of floor-space,
+                        underpinned the upper stories and renewed the building piecemeal from below.
+                        Cf. also 14.</note> together with flights of steps, railings, and doors that
+                    opened outwards. The owners of the buildings bought them, and in this way a
+                    large sum of money was collected.<milestone ed="P" unit="para"/>He also called
+                        in<note resp="Loeb" anchored="yes">Lit. "rendered invalid." </note> the
+                    existing currency, promising to pay the holders at a fixed rate. But when they
+                    came to receive the new mintage, he reissued the old coins.<milestone ed="P" unit="para"/>Those who were expecting to equip a war-vessel or preside over
+                    a tribe or train a chorus or undertake the expense of some other public service
+                    of the kind, he allowed, if they chose, to commute the service for a moderate
+                    sum, and to be enrolled on the list of those who had performed it.<milestone ed="P" unit="para"/>Moreover, whenever a citizen died, the priestess of the
+                    temple of Athena on the Acropolis<note resp="Loeb" anchored="yes">This was the
+                        public treasury, like the Temple of Saturnus at <placeName key="perseus,Rome">Rome</placeName>.</note> was to receive one quart
+                    measure of barley, one of wheat, and a silver obolus.<note resp="Loeb" anchored="yes">1/6 of the drachma. See 3 above.</note> And when a child was
+                    born, the father paid the same dues.<milestone ed="P" unit="para"/><milestone ed="P" n="2.5" unit="Loeb chap"/> The Athenian colonists at <placeName key="perseus,Potidaia">Potidaea</placeName>, being in need of funds for the war,
+                    agreed that all should make a return of their property for assessment of
+                        tax.<milestone ed="Bekker" n="20" unit="line"/>But instead of each returning
+                    the entire amount to his own parish, properties were to be assessed separately,
+                    each in its own locality, so that the poor might propose a reduced assessment;
+                    while those without any &lt;landed&gt; property were assessed at two
+                    minae a head. On these assessments each man paid the State the full amount of
+                    the war-tax.<milestone ed="P" unit="para"/><milestone ed="P" n="2.6" unit="Loeb chap"/> The city of <placeName key="perseus,Antissa">Antissa</placeName> had been accustomed to celebrate the festival of Dionysus
+                    with great magnificence. Year by year<note resp="Loeb" anchored="yes">Or "All
+                        through the year." </note> great provision was made for the occasion, and
+                    costly sacrifices were prepared. Now one year the city found itself in need of
+                    funds; and shortly before the festival, on the proposal of a citizen named
+                    Sosipolis, the people after vowing that they would next year offer to Dionysus a
+                    double amount, collected all that had been provided and sold it. In this way
+                    they realized a large sum of money to meet their necessity.<milestone ed="P" unit="para"/><milestone ed="P" n="2.7" unit="Loeb chap"/> On one occasion
+                    the people of <placeName key="perseus,Lampsakos">Lampsacus</placeName> were expecting
+                    to be attacked by a large fleet of triremes.<note resp="Loeb" anchored="yes">War-ships, each propelled by some 174 rowers ranked in three tiers.</note>
+                    The price of barley meal being then four drachmae for a bushel and a half, they
+                    instructed the retailers to sell it at six drachmae. Oil, which was at three
+                    drachmae for six pints, was to be sold at four drachmae and a half, and wine and
+                    other commodities at a proportionate increase. In this way the retailer got the
+                    original price, <milestone n="1347b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>while the State took the addition and filled its
+                        treasury.<milestone ed="P" unit="para"/><milestone ed="P" n="2.8" unit="Loeb chap"/> The people of <placeName key="tgn,7018769">Heraclea</placeName>, being about to dispatch a fleet of forty ships against
+                    the lords of <placeName key="tgn,1115068">Bosporus</placeName>, were at a loss
+                    for the necessary funds. They therefore bought up all the merchants' stock of
+                    corn and oil and wine and other marketable commodities, agreeing to pay at a
+                    future date. The merchants were well satisfied that they had disposed of their
+                    cargoes without breaking bulk; and the people, advancing two months' pay to
+                    their armament, sent along with it a fleet of merchant-vessels laden with the
+                    commodities, every ship being in charge of a public official. When the
+                    expedition reached its goal, the men purchased from these officials all they
+                    needed. In this way, the money was collected before the leaders again paid their
+                    men; so that the same payment sufficed until the expedition returned
+                        home.<milestone ed="P" unit="para"/><milestone ed="P" n="2.9" unit="Loeb chap"/> When the Samians entreated the Lacedaemonians for money
+                    to enable them to return to their country, the Lacedaemonians passed a
+                    resolution that they and their servants and their beasts of burden should go
+                    without food for one day; and that the expense each one thus saved should be
+                    given to the Samians.<milestone ed="Bekker" n="20" unit="line"/><milestone ed="P" unit="para"/><milestone ed="P" n="2.10" unit="Loeb chap"/> The people
+                    of <placeName key="perseus,Chalcedon">Chalcedon</placeName> had a large number
+                    of mercenary troops in their city, to whom they could not pay the wages they
+                    owed. Accordingly they made proclamation that anyone, either citizen or alien,
+                    who had right of reprisal against any city or individual, and wished to exercise
+                    it, should have his name entered on a list. A large number of names was
+                    enrolled, and the people thus obtained a specious pretext for exercising
+                    reprisal upon ships that were passing on their way to the <placeName key="tgn,7016619">Pontus</placeName>. They accordingly arrested the ships
+                    and fixed a period within which they would consider any claims that might be
+                    made in respect of them. Having now a large fund in hand, they paid off the
+                    mercenaries, and set up a tribunal to decide the claims; and those whose goods
+                    had been unjustly seized were compensated out of the revenues of the
+                        state.<milestone ed="P" unit="para"/><milestone ed="P" n="2.11" unit="Loeb chap"/> At <placeName key="perseus,Cyzicus">Cyzicus</placeName>,
+                    civil strife broke out between the democratic and oligarchic parties. The former
+                    proved victorious, and the rich citizens were placed under arrest. But as the
+                    city owed money to its troops, a resolution was passed that the lives of those
+                    under arrest should be spared, and that they should be allowed to depart into
+                    exile on paying a sum of money to the state.<milestone ed="P" unit="para"/><milestone ed="P" n="2.12" unit="Loeb chap"/> At <placeName key="perseus,Chios City">Chios</placeName> there was a law that all debts should be
+                    entered on a public register. Being in need of funds, <milestone n="1348a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>the people
+                    resolved that debtors should pay their debts into the treasury, and that the
+                    state should meet the creditors' interest out of its revenues until its former
+                    prosperity returned.<milestone ed="P" unit="para"/><milestone ed="P" n="2.13" unit="Loeb chap"/> Mausolus lord of <placeName key="tgn,7002358">Caria</placeName> received from the King of <placeName key="tgn,7000231">Persia</placeName><note resp="Loeb" anchored="yes">Probably Artaxerxes II.
+                        who reigned <dateRange from="-405" to="-359">405</dateRange>-359
+                    B.C.</note> a demand for tribute. Therefore he summoned the wealthiest men in
+                    his dominion, and told them that the King was asking for the tribute, and he had
+                    not the means of paying it. Men whom he had previously suborned at once came
+                    forward and declared what each was ready to contribute. With this example before
+                    them, they who were wealthier than these, partly in shame and partly in alarm,
+                    promised and paid much larger sums than the others.<milestone ed="P" unit="para"/>Being again in lack of funds, Mausolus summoned a public meeting of the people
+                    of Mylassa and told them that the King of <placeName key="tgn,7000231">Persia</placeName> was preparing to attack him; and that Mylassa his capital
+                    city was unfortified. He therefore bade the citizens contribute each as
+                    liberally as he could, saying that what they now paid in would afford security
+                    to the rest of their possessions. By these means he obtained large
+                    contributions. But though he kept the money, he declared that heaven, for the
+                    present, forbade the building of the walls.<milestone ed="P" unit="para"/><milestone ed="P" n="2.14" unit="Loeb chap"/> Condalus, who was a
+                    lieutenant-governor under Mausolus, whenever on his progress through the country
+                    he was presented with a sheep,<milestone ed="Bekker" n="20" unit="line"/>a pig,
+                    or a calf, had a record made of the donor's name and of the date. He then bade
+                    the man take the beast home and keep it until he should again pass that way.
+                    After what he considered a sufficient interval, he would demand the beast
+                    together with such profits as he reckoned it had produced. All trees, too, which
+                    projected over the king's highway, or fell thereon, he sold as profits accruing
+                    to the State.<milestone ed="P" unit="para"/>When one of his soldiers died, he
+                    charged a drachma for the right of passing the body through the gates. This was
+                    not only a source of revenue, but a check on the commanders, who were thus
+                    prevented from falsifying the date of the man's death.<milestone ed="P" unit="para"/>Noticing that the Lycians were fond of wearing their hair long,
+                    Condalus proclaimed that a dispatch had arrived from the King ordering him to
+                    send hair to make forelocks for his horses; and that Mausolus had therefore
+                    instructed him to shave their heads. However, if they would pay him a fixed sum
+                    per head, he would send to <placeName key="tgn,1000074">Greece</placeName> for
+                    hair. They were glad to comply with his demand, and a large sum was collected,
+                    the number of those taxed being great.<milestone ed="P" unit="para"/><milestone ed="P" n="2.15" unit="Loeb chap"/> Aristoteles of <placeName key="tgn,7011266">Rhodes</placeName>,<note resp="Loeb" anchored="yes">Mentioned by Proclus in his commentary on the <title>Timaeus</title> of
+                        Plato. A coin of <placeName key="tgn,7018000">Phocaea</placeName> is extant
+                        bearing the name.</note> when governor of <placeName key="tgn,7018000">Phocaea</placeName>, found himself in need of funds. Noticing that there
+                    were at <placeName key="tgn,7018000">Phocaea</placeName> two opposing parties,
+                    he held a secret conference with one of them, <milestone n="1348b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>at which he
+                    declared that the other party was offering him money if he would favor their
+                    pretensions; that he, however, preferred to receive from those now before him,
+                    and to entrust to them the administration of the city. On hearing this, they
+                    immediately contributed the money he asked, and gave it him. Thereupon he told
+                    the other party what he had received from them; and they in turn promised him at
+                    least an equal amount. Having thus taken the money of both factions, he effected
+                    a reconciliation between them.<milestone ed="P" unit="para"/>He also observed
+                    that there were many law-suits pending between the citizens, and that they had
+                    grave and long-standing plaints against one another which had arisen in course
+                    of war. He therefore appointed a tribunal, and made proclamation that all who
+                    failed to appear before it within a stated period should lose the right to a
+                    legal decision of their outstanding claims. Then, by taking into his own hands
+                    the court-fees for a number of suits, and also those appeal-cases which involved
+                    penalties, and receiving [through others] money from both sides, he obtained
+                    altogether a very considerable sum.<milestone ed="P" unit="para"/><milestone ed="P" n="2.16" unit="Loeb chap"/> The people of Clazomenae, suffering from
+                    dearth of grain and scarcity of funds, passed a resolution that any private
+                    citizens who had stores of oil should lend it to the State at
+                        interest;<milestone ed="Bekker" n="20" unit="line"/>this being a produce
+                    which their land bears in abundance. The loan arranged, they hired vessels and
+                    sent them to the depots whence they obtained their grain, &lt;and bought a
+                    consignment&gt; on security of the value of the oil.<milestone ed="P" unit="para"/>The same people, owing their mercenaries twenty talents of pay
+                    and being unable to find it, were giving the leaders of the troop four talents
+                    of interest each year. But failing to reduce the capital debt, and committed to
+                    this fruitless drain on their revenue, they struck an iron coinage of twenty
+                    talents, bearing the face-value of the silver. This they distributed
+                    proportionately among the wealthiest citizens, and received from them silver to
+                    the same amount. Through this expedient, the private citizens possessed a
+                    currency which was good for their daily needs, and the state was relieved of its
+                    debt. Next, they proceeded to pay interest out of revenue to those who had
+                    advanced the silver; and little by little distributed repayment among them,
+                    recalling at the same time the currency of iron.<note resp="Loeb" anchored="yes"><bibl n="Plut. Lyc. 1.1">Plut. Lycurgus</bibl> speaks of an iron
+                        currency at <placeName key="perseus,Sparta">Sparta</placeName>, and <bibl n="Sen. Ben. 1.1">Seneca De beneficiis</bibl> of a leather one. These,
+                        not being exchangeable abroad, threw the nation upon its own resources and
+                        prevented the import of luxuries.</note>
+                    <milestone ed="P" unit="para"/><milestone ed="P" n="2.17" unit="Loeb chap"/> The
+                    people of Selybria had a law, passed in time of famine, which forbade the export
+                    of grain. On one occasion, however, they were in need of funds; and as they
+                    possessed large stores of grain, they passed a resolution that citizens should
+                    deliver up their corn to the state at the regular fixed price, <milestone n="1349a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>each
+                    retaining for himself a year's supply. They then granted right of export to any
+                    who desired it, fixing what they deemed a suitable price.<milestone ed="P" unit="para"/><milestone ed="P" n="2.18" unit="Loeb chap"/> At <placeName key="perseus,Abydos,Mysia">Abydos</placeName> civil strife had caused the land to
+                    remain uncultivated; while the resident aliens, to whom the city was already
+                    indebted, refused to make any further advances. A resolution was accordingly
+                    passed that anyone who would might lend money to enable the farmers to cultivate
+                    their land, on the understanding that the lender had the first claim on its
+                    produce; others taking from what was then left.<milestone ed="P" unit="para"/><milestone ed="P" n="2.19" unit="Loeb chap"/> The people of <placeName key="perseus,Ephesos">Ephesus</placeName>, being in need of funds, passed a law
+                    forbidding their women to wear gold, and ordering them to lend the State what
+                    gold they had in their possession.<milestone ed="P" unit="para"/>They also
+                    offered to any citizen who was willing to pay a fixed sum the right of having
+                    his name inscribed on a certain pillar of their temple<note resp="Loeb" anchored="yes">This temple, dedicated to Artemis, was restored with great
+                        magnificence after its destruction by fire in <date value="-356">356</date>
+                        B.C. For its fame see <bibl n="Acts 19">Acts 19</bibl>. Portions of the
+                        sculptured pillars are to be seen in the British Museum.</note> as the donor
+                        thereof.<milestone ed="P" unit="para"/><milestone ed="P" n="2.20" unit="Loeb chap"/> Dionysius of <placeName key="perseus,Syracuse">Syracuse</placeName>, being desirous of collecting funds, called a public
+                    assembly, and declared that Demeter had appeared to him, and bade him convey all
+                    the women's ornaments into her temple. That he himself had done so with the
+                    ornaments of his own household; and the others must now follow his example, and
+                    thereby avoid any visitation of the goddess's anger. Anyone who failed to comply
+                    would, he declared, be guilty of sacrilege.<milestone ed="Bekker" n="20" unit="line"/>Through fear of the goddess as well as of the despot, all the
+                    citizens brought in whatever they had. Then Dionysius, after sacrificing to the
+                    goddess, removed the ornaments to his own treasury as a loan which he had
+                    borrowed from her. As time went on, the women again appeared with precious
+                    ornaments. Dionysius thereupon issued a decree that any woman who desired to
+                    wear gold should make an offering of a fixed amount in the temple.<milestone ed="P" unit="para"/>Intending to build a fleet of triremes, Dionysius knew
+                    that he should require funds for the purpose. He therefore called an assembly
+                    and declared that a certain city was offered to him by traitors, and he needed
+                    money to pay them. The citizens therefore must contribute two staters
+                        apiece.<note resp="Loeb" anchored="yes">The stater was a Persian gold coin
+                        worth 20 drachmae. (See 3.) </note> The money was paid; but after two or
+                    three days, Dionysius, pretending that the plot had failed, thanked the citizens
+                    and returned to each his contribution. In this way he won the confidence of the
+                    citizens; so that when he again asked for money, they contributed in the
+                    expectation that they would receive it back. But this time he kept it for
+                    building the fleet.<milestone ed="P" unit="para"/>On another occasion being in
+                    straits for silver he minted a coinage of tin, and summoning a public assembly,
+                    spoke at length in its favor. The citizens perforce voted that everyone should
+                    regard as silver, and not as tin, whatever he received. <milestone n="1349b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/><milestone ed="P" unit="para"/>Again being in need of funds, he requested the citizens to
+                    contribute. On their declaring that they had not the wherewithal, he brought out
+                    the furnishings of his palace and offered them for sale, pretending to be
+                    compelled through lack of money. At the sale, he had a list made of the articles
+                    and their purchasers; and when they had all paid, he commanded every one to
+                    bring back the article he had bought.<milestone ed="P" unit="para"/>Finding that
+                    because of his imposts the citizens were ceasing to rear sheep and cattle, he
+                    made proclamation that he needed no more money until a certain
+                    &lt;date&gt;; so that those who now became possessed of any stock would
+                    not be liable to taxation. A large number of citizens lost no time in acquiring
+                    a quantity of sheep and cattle, on the understanding that they would be free of
+                    impost. But Dionysius, when he thought the fitting time was come, had them all
+                    valued and imposed a tax. The citizens were angry at being thus deceived, and
+                    proceeded to kill and sell their beasts. On Dionysius's making a decree that
+                    only such beasts should be slain as were needed each day, the owners retorted by
+                    offering their animals as sacrifices; whereupon the despot forbade the sacrifice
+                    of female beasts.<milestone ed="P" unit="para"/>Once more funds were lacking,
+                    and Dionysius ordered a list to be made for him of all houses whose heirs were
+                    orphan. Having obtained a complete list, he made use of the orphans' property
+                    until each should come of age.<milestone ed="P" unit="para"/>After the capture
+                    of <placeName key="perseus,Rhegion">Rhegium</placeName>, he summoned a meeting of
+                    the citizens, and told them why he had a good right to sell them as
+                        slaves.<milestone ed="Bekker" n="20" unit="line"/>If, however, they would
+                    pay him the expenses of the war and three minae<note resp="Loeb" anchored="yes">See 3.</note> a head besides, he would release them. The people of
+                    <placeName key="perseus,Rhegion">Rhegium</placeName> brought forth all their
+                    hoards; the poor borrowed from the wealthier and from the foreigners resident in
+                    the city; and so the amount demanded was paid. But though he received this money
+                    from them, none the less he sold them all for slaves, having succeeded
+                    &lt;by his trick&gt; in bringing to light the hoarded goods which they
+                    had previously concealed.<milestone ed="P" unit="para"/>On another occasion he
+                    had borrowed money from the citizens, promising to repay it. On their demanding
+                    its return, he bade each bring him, under pain of death, whatever silver he
+                    possessed. This silver when brought he coined into drachmae each bearing the
+                    face value of two: with these he repaid the &lt;previous&gt; debt and
+                    also what had just been brought in.<milestone ed="P" unit="para"/>He also made a
+                    raid on Tyrrhenia with a hundred ships, and rifled the temple of Leucothea of a
+                    large amount of gold and silver, besides a quantity of works of art. But being
+                    aware that his sailors too had taken much plunder, <milestone n="1350a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>he made
+                    proclamation that each should bring him, under pain of death, one-half of what
+                    he had; the remainder of their takings they might keep. On the understanding
+                    that if they brought in half their plunder they would retain the rest in
+                    security, they obeyed. But when Dionysius had got the treasure into his hands,
+                    he commanded them to bring him the other half as well.<milestone ed="P" unit="para"/><milestone ed="P" n="2.21" unit="Loeb chap"/> The people of
+                    Mende used to meet the expenses of administration from harbor and other duties,
+                    but refrained from collecting the imposts on land and on houses. They kept,
+                    however, a register of the owners, and when the state was in need of funds, they
+                    collected the arrears. Meanwhile the owners had the advantage of trafficking
+                    with their whole property undiminished by any payment of percentages.<milestone ed="P" unit="para"/>The same city being at war with <placeName key="perseus,Olynthus">Olynthus</placeName> and needing funds, passed a
+                    resolution that all the slaves they possessed, with the exception of one male
+                    and one female apiece, should be sold on behalf of the State, which was thus
+                    enabled to raise a loan from private citizens.<note resp="Loeb" anchored="yes">Or: "that citizens should sell to the state what slaves they possessed . .
+                        . as the equivalent of a loan from private persons to the city &lt;of
+                        the slaves' value&gt;." </note>
+                    <milestone ed="P" unit="para"/><milestone ed="P" n="2.22" unit="Loeb chap"/>
+                    Callistratus, when in <placeName key="tgn,7006667">Macedonia</placeName>, caused
+                    the harbor-dues, which were usually sold for twenty talents, to produce twice as
+                    much. For noticing that only the wealthier men were accustomed to buy them
+                    because the sureties for the twenty talents were obliged to show talent for
+                        talent,<milestone ed="Bekker" n="20" unit="line"/>he issued a proclamation
+                    that anyone might buy the dues on furnishing securities for one-third of the
+                    amount, or as much more as could be procured in each case.<milestone ed="P" unit="para"/><milestone ed="P" n="2.23" unit="Loeb chap"/> Timotheus of
+                        <placeName key="perseus,Athens">Athens</placeName> during his campaign
+                    against <placeName key="perseus,Olynthus">Olynthus</placeName> was short of
+                    silver, and issued to his men a copper coinage instead. On their complaining, he
+                    told them that all the merchants and retailers would accept it in lieu of
+                    silver. But the merchants he instructed to buy in turn with the copper they
+                    received such produce of the land as was for sale, as well as any booty brought
+                    to them; such copper as remained on their hands he would exchange for
+                        silver.<milestone ed="P" unit="para"/>During the campaign of <placeName key="perseus,Corcyra City">Corcyra</placeName><note resp="Loeb" anchored="yes">Apparently in <date value="-375">375</date> B.C. See the end of Xenophon's
+                            fifth Book of<title>Hellenica</title><bibl n="Xen. Hell. 5">Xen. Hell. 5</bibl>.</note>
+                    this same Timotheus was reduced to sore straits. His men demanded their pay;
+                    refused to obey his orders; and declared they would desert to the enemy.
+                    Accordingly he summoned a meeting and told them that the stormy weather was
+                    delaying the arrival of the silver he expected; meanwhile, as he had on hand
+                    such abundance of provisions, he would charge them nothing for the three months'
+                    ration of grain already advanced. <milestone n="1350b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>The men, unable to believe that
+                    Timotheus would have sacrificed so large a sum to them unless he was in truth
+                    expecting the money, made no further claim for pay until he had completed his
+                        dispositions.<milestone ed="P" unit="para"/>At the siege of <placeName key="perseus,Samos City">Samos</placeName>,<note resp="Loeb" anchored="yes">In
+                            <date value="-366">366</date> B.C.</note> Timotheus sold the crops and
+                    other country property to the besieged Samians themselves, and thus obtained
+                    plenty of money to pay his men. But finding the camp was short of provisions
+                    owing to the arrival of reinforcements, he forbade the sale of milled corn, or
+                    of any measure less than 1 1/2 bushels of corn or 8 1/2 gallons of wine or oil.
+                    Accordingly the officers bought supplies wholesale and issued them to their men;
+                    the reinforcements thenceforth brought their own provisions, and sold any
+                    surplus on their departure. In this way the needs of the soldiers were
+                    satisfactorily met.<milestone ed="P" unit="para"/><milestone ed="P" n="2.24" unit="Loeb chap"/> Didales the Persian was able to provide for the daily
+                    needs of his mercenaries from the enemy's country; but had no coined money to
+                    give them. When their pay became due, and they demanded it, he had recourse to
+                    the following trick.<milestone ed="Bekker" n="20" unit="line"/>He called a
+                    meeting, and told the men that he had plenty of money, but that it was stored in
+                    a certain fortress, which he named. He then broke up his encampment and marched
+                    in that direction. On reaching the neighborhood of the fortress, he himself went
+                    on ahead, and entering the place seized all the silver vessels in the temples.
+                    He then loaded his mules in such a way that this plate was exposed, thus
+                    suggesting that silver formed the entire load; and so continued his march. The
+                    soldiers, beholding the plate and supposing that they convoyed a full load of
+                    silver, were cheered by the expectation of their pay. They were informed however
+                    by Didales that they would have to take it to <placeName key="tgn,7002339">Amisus</placeName> to be coined&mdash;a journey of many days, and in
+                    the winter season. And during all this time, he continued to employ the army
+                    without giving it more than its necessary rations.<milestone ed="P" unit="para"/>Moreover, all the craftsmen in the army, and the hucksters who traded with the
+                    soldiers by barter, were under his personal control, and enjoyed a complete
+                        monopoly.<milestone ed="P" unit="para"/><milestone ed="P" n="2.25" unit="Loeb chap"/> When <placeName key="perseus,Taos">Taos</placeName>,<note resp="Loeb" anchored="yes">Called Tachos (<foreign lang="greek">*TAXW/S</foreign>) by Xenophon and Plutarch. Perhaps that form should be
+                        restored here. (Bonitz and Susemihl.) The name recurs in 37.</note> king of
+                        <placeName key="tgn,7016833">Egypt</placeName>, needed funds for an
+                    expedition he was making, Chabrias of <placeName key="perseus,Athens">Athens</placeName> advised him to inform the priests that to save expense it
+                    was necessary to suppress some of the temples together with the majority of the
+                    attendant priests. <milestone n="1351a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>On hearing this, each priesthood, being anxious to retain
+                    their own temple, offered him money from their private possessions &lt;as
+                    well as from the temple funds&gt;. When the king had thus received money
+                    from them all, Chabrias bade him tell the priests to spend on the temple-service
+                    and on their own maintenance one-tenth of what they formerly spent, and lend him
+                    the remainder until he had made peace with the King &lt;of <placeName key="tgn,7000231">Persia</placeName>&gt;.<milestone ed="P" unit="para"/>Moreover, each inhabitant was to contribute a stated proportion of his
+                    household and personal possessions; and when grain was sold, buyer and seller
+                    were each to contribute, apart from the price, one obol per artabe<note resp="Loeb" anchored="yes">The artabe was a Persian measure containing
+                        nearly 50 quarts. The obol was 1/6 of a drachma of silver.</note>; while a
+                    tax of one tenth was to be imposed on profits arising from ships and workshops
+                    and other sources of gain.<milestone ed="P" unit="para"/>Again, when <placeName key="perseus,Taos">Taos</placeName> was on the point of setting out from
+                        <placeName key="tgn,7016833">Egypt</placeName>, Chabrias advised him to make
+                    requisition of all uncoined gold and silver in the possession of the
+                    inhabitants; and when most of them complied, he bade the king make use of the
+                    bullion, and refer the lenders to the governors of his provinces for
+                    compensation out of the taxes.<milestone ed="P" unit="para"/><milestone ed="P" n="2.26" unit="Loeb chap"/> Iphicrates of <placeName key="perseus,Athens">Athens</placeName> provided Cotys with money for a force which he had
+                    collected in the following manner.<milestone ed="Bekker" n="20" unit="line"/>He
+                    bade him order &lt;each&gt; of his subjects to sow for him a piece of
+                    land bearing 4 1/2 bushels. A large quantity of grain was thus gathered, from
+                    the price of which, when brought to the depots on the coast, the king obtained
+                    as much money as he wanted.<milestone ed="P" unit="para"/><milestone ed="P" n="2.27" unit="Loeb chap"/> Cotys of <placeName key="tgn,7002756">Thrace</placeName> asked the people of Peirinthus for a loan to enable him to
+                    raise an army. On their refusing, he begged them at any rate to let him have
+                    some of their citizens to garrison certain fortresses, and release for active
+                    service the men who were there on duty. They readily complied, thinking thus to
+                    obtain control of the fortresses. But Cotys placed in custody the men they sent,
+                    and told the citizens that they might have them back when they had sent him the
+                    amount of the loan he desired.<milestone ed="P" unit="para"/><milestone ed="P" n="2.28" unit="Loeb chap"/> Mentor of <placeName key="tgn,7011265">Rhodes</placeName>, after taking Hermias prisoner and seizing his fortresses,
+                    left in their various districts the officials appointed by him. By this means he
+                    restored their confidence, so that they all took again to themselves the
+                    property they had hidden or had sent secretly out of the country. Then Mentor
+                    arrested them and stripped them of all they had. <milestone n="1351b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/><milestone ed="P" unit="para"/><milestone ed="P" n="2.29" unit="Loeb chap"/> Memnon of
+                    <placeName key="tgn,7011265">Rhodes</placeName>, on making himself master of
+                    <placeName key="perseus,Lampsakos">Lampsacus</placeName>, found he was in need of
+                    funds. He therefore assessed upon the wealthiest inhabitants a quantity of
+                    silver, telling them that they should recover it from the other citizens. But
+                    when the other citizens made their contributions, Memnon said they must lend him
+                    this money also, fixing a certain date for its repayment.<milestone ed="P" unit="para"/>Again being in need of funds, he asked for a contribution, to
+                    be recovered, as he said, from the city revenues. The citizens complied,
+                    thinking that they would speedily reimburse themselves. But when the revenue
+                    payments came in, he declared that he must have these also, and would repay the
+                    lenders subsequently with interest.<milestone ed="P" unit="para"/>His mercenary
+                    troops he requested to forgo six days' pay and rations each year, on the plea
+                    that on those days they were neither on garrison duty nor on the march nor did
+                    they incur any expense. (He referred to the days omitted from alternate
+                        months.<note resp="Loeb" anchored="yes">As the moon's cycle is completed in
+                        29 1/2 days, it was customary to alternate "hollow" months of 29 days with
+                        the "full" months of 30 days. Memnon paid his men by the month, but deducted
+                        a day's pay every "hollow" month.</note>) <milestone ed="P" unit="para"/>Moreover, being accustomed previously to issue his men's rations of corn on
+                    the second day of the month, in the first month he postponed the distribution
+                    for three days, and in the second month for five; proceeding in this fashion
+                    until at length it took place on the last day of the month.<milestone ed="P" unit="para"/><milestone ed="P" n="2.30" unit="Loeb chap"/> Charidemus of
+                    Oreus, being in occupation of certain fortress-towns in <placeName key="tgn,5004216">Aeolis</placeName>,<milestone ed="Bekker" n="20" unit="line"/>and threatened with an attack by Artabazus,<note resp="Loeb" anchored="yes">For the circumstances, and a (hostile) account of this
+                        commander's adventures, see Demosthenes,<title>Against
+                            Aristocrates</title><bibl n="Dem. 23">Dem. 23</bibl>.</note> was in need of
+                    money to pay his troops. After their first contributions, the inhabitants
+                    declared they had no more to give. Charidemus then issued a proclamation to the
+                    town he deemed wealthiest, bidding the inhabitants send away to another fortress
+                    all the coin and valuables they possessed, under convoy which he would provide.
+                    He himself openly set the example with his own goods, and prevailed on them to
+                    comply. But when he had conducted them a little way out of the town, he made an
+                    inventory of their goods, took all he wanted, and led them home again.<milestone ed="P" unit="para"/>He had also issued a proclamation in the cities he
+                    governed forbidding anyone to keep arms in his house, under pain of a stated
+                    fine. At first, however, he took no care to enforce it, nor did he make any
+                    inquisition; so that the people treated his proclamation as nugatory, and made
+                    no attempt to get rid of what arms each possessed. Then Charidemus unexpectedly
+                    ordered a search to be made from house to house, and exacted the penalty from
+                    those who were found in possession of arms.<milestone ed="P" unit="para"/><milestone ed="P" n="2.31" unit="Loeb chap"/> A Macedonian named
+                    Philoxenus, who was governor of <placeName key="tgn,7002358">Caria</placeName>,
+                    being in need of funds proclaimed that he intended to celebrate the festival of
+                    Dionysus. <milestone n="1352a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>The wealthiest inhabitants were selected to provide the
+                    choruses, and were informed what they were expected to furnish. Noticing their
+                    disinclination, Philoxenus sent to them privately and asked what they would give
+                    to be relieved of the duty. They told him they were prepared to pay a much
+                    larger sum than they expected to spend &lt;on the choruses&gt; in order
+                    to avoid the trouble and the interruption of their business. Philoxenus accepted
+                    their offers, and proceeded to enrol a second levy. These also paid; and at last
+                    he received what he desired from each company.<milestone ed="P" unit="para"/><milestone ed="P" n="2.32" unit="Loeb chap"/> Euaises the Syrian, when
+                    governor of <placeName key="tgn,7016833">Egypt</placeName>, received information
+                    that the local governors were meditating rebellion. He therefore summoned them
+                    to the palace and proceeded to hang them all, sending word to their relations
+                    that they were in prison. These accordingly made offers, each on behalf of his
+                    own kinsman, seeking by payment to secure their release. Euaises agreed to
+                    accept a certain sum for each, and when it had been paid returned to the
+                    relations the dead body.<milestone ed="P" unit="para"/><milestone ed="P" n="2.33" unit="Loeb chap"/> While Cleomenes of <placeName key="perseus,Alexandria">Alexandria</placeName> was governor of <placeName key="tgn,7016833">Egypt</placeName>,<note resp="Loeb" anchored="yes">Cf.
+                            <bibl n="Dem. 56">Dem. 56</bibl>: "Cleomenes . . . from the time that he
+                        received the government, has done immense mischief to your state, and still
+                        more to the rest of <placeName key="tgn,1000074">Greece</placeName>, by
+                        buying up corn for resale and keeping it at his own price" (
+                            Kennedy's translation).</note> at a time
+                    when there was some scarcity in the land, but elsewhere a grievous famine, he
+                    forbade the export of grain. On the local governors representing<milestone ed="Bekker" n="20" unit="line"/>that if there were no export of grain they
+                    would be unable to pay in their taxes, he allowed the export, but laid a heavy
+                    duty on the corn. By this means he obtained a large amount of duty from a small
+                    amount of export, and at the same time deprived the officials of their
+                        excuse.<milestone ed="P" unit="para"/>When Cleomenes was making a progress
+                    by water through the province where the crocodile is worshipped, one of his
+                    servants was carried off. Accordingly, summoning the priests, he told them that
+                    he intended to retaliate on the crocodiles for this unprovoked aggression; and
+                    gave orders for a battue. The priests, to save the credit of their god,
+                    collected all the gold they could, and succeeded in putting an end to the
+                        pursuit.<milestone ed="P" unit="para"/>King Alexander had given Cleomenes
+                    command to establish a town near the island of <placeName key="tgn,7015484">Pharus</placeName>, and to transfer thither the market hitherto held at
+                        <placeName key="tgn,1001079">Canopus</placeName>. Sailing therefore to
+                        <placeName key="tgn,1001079">Canopus</placeName> he informed the priests and
+                    the men of property there that he was come to remove them. The priests and
+                    residents thereupon contributed money to induce him to leave their market where
+                    it was. He took what they offered, and departed; but afterwards returned, when
+                    all was ready to build the town, <milestone n="1352b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>and proceeded to demand an excessive sum;
+                    which represented, he said, the difference the change of site would make to him.
+                    They however declared themselves unable to pay it, and were accordingly
+                        removed.<milestone ed="P" unit="para"/>On another occasion he sent an agent
+                    to make a certain purchase for him. Learning that the agent had made a good
+                    bargain, but intended to charge him a high price, he proceeded to inform the
+                    man's associates that he had been told he had purchased the goods at an
+                    excessive price, and that therefore he did not intend to recognize the
+                    transaction; denouncing at the same time with feigned anger the fellow's
+                    stupidity. They on hearing this asked him not to believe what was said against
+                    the agent until he himself arrived and rendered his account. On the man's
+                    arrival, his associates told him what Cleomenes had said. He, desirous of
+                    winning their approval as well as that of Cleomenes, debited the latter with the
+                    actual price he had given.<milestone ed="P" unit="para"/>At a time when the
+                    price of grain in <placeName key="tgn,7016833">Egypt</placeName> was ten
+                    drachmae &lt;a measure&gt; ,<note resp="Loeb" anchored="yes">If the
+                        measure intended is the Attic medimnos , it is 1 1/2 bushels. The Persian
+                        artabe may however be meant, which was equal to 1 medimnos and 1/16th. In
+                        either case the price is very high compared with 3 drachmae per medimnos,
+                        the price at <placeName key="perseus,Athens">Athens</placeName> in <date value="-390">390</date> B.C. Yet <bibl n="Plb. 9.44">Polybius
+                        9.44</bibl> says that at <placeName key="perseus,Rome">Rome</placeName>
+                        during the war with Hannibal (210) corn was sold for fifteen drachmae per
+                        medimnos. As a contrast cf. what the same author says of the fertility of
+                        Gallia Cisalpina, where in time of peace this same measure of wheat was sold
+                        for four obols, and of barley for two. See note on 25.</note> Cleomenes sent
+                    for the growers and asked them at what price they would contract to supply him
+                    with their produce. On their quoting a price lower than what they were charging
+                    the merchants, he offered them the full price they were accustomed to receive
+                    from others; and taking over the entire supply,<milestone ed="Bekker" n="20" unit="line"/>sold it at a fixed rate of thirty-two drachmae &lt;for the
+                    same measure&gt;.<milestone ed="P" unit="para"/>He also sent for the
+                    priests, and told them that the expenditure on the temples was very unevenly
+                    distributed in the country; and that some of these, together with the majority
+                    of the attendant priests, must accordingly be suppressed. The priests, supposing
+                    him to be in earnest, and wishing each to secure the continuance of his own
+                    temple and office, gave him money individually from their private possessions as
+                    well as collectively from the temple funds.<note resp="Loeb" anchored="yes">Cf.
+                        25.</note>
+                    <milestone ed="P" unit="para"/><milestone ed="P" n="2.34" unit="Loeb chap"/>
+                    Antimenes of Rhodes, who was appointed by Alexander superintendent of highways
+                    in the province of <placeName key="tgn,7002626">Babylon</placeName>, adopted the
+                    following means of raising funds. An ancient law of the country imposed a tax of
+                    one-tenth on all imports; but this had fallen into total abeyance. Antimenes
+                    kept a watch for all governors and soldiers whose arrival was expected, and upon
+                    the many ambassadors and craftsmen who were invited to the city, but brought
+                    with them others who dwelt there unofficially; and also upon the multitude of
+                    presents that were brought &lt;to these persons&gt; , on which he
+                    exacted the legal tax of a tenth.<milestone ed="P" unit="para"/>Another
+                    expedient was this. He invited the owners of any slaves in the camp to register
+                    them at whatever value they desired, undertaking at the same time to pay him
+                    eight drachmae a year. If the slave ran away, the owner was to recover the
+                    registered value. <milestone n="1353a" unit="section"/><milestone ed="Bekker" n="1" unit="line"/>Many slaves were thus registered, and a large sum of
+                    money was paid &lt;in premiums&gt;. And when a slave ran away, Antimenes
+                    instructed the governor of the &lt;province&gt; where the camp lay
+                    either to recover the man or to pay his master his value.<milestone ed="P" unit="para"/><milestone ed="P" n="2.35" unit="Loeb chap"/> Ophellas of
+                        <placeName key="perseus,Olynthus">Olynthus</placeName> appointed an officer
+                    to superintend the revenues of the Province of <placeName key="tgn,7001308">Athribis</placeName>. The local governors came to him, and told him they
+                    were willing to pay a much larger amount in taxes; but asked him to remove the
+                    present superintendent. Ophellas inquired if they were really able to pay what
+                    they promised; and on their assuring him that they were, left the superintendent
+                    in office and instructed him to demand from them the amount of tax which they
+                    themselves had assessed. And so, without being chargeable either with
+                    discountenancing the officer he had appointed, or with taxing the governors
+                    beyond their own estimate, he obtained from the latter many times his previous
+                        revenue.<milestone ed="P" unit="para"/><milestone ed="P" n="2.36" unit="Loeb chap"/> Pythocles the Athenian recommended his fellow-countrymen
+                    that the State should take over from private citizens the lead obtained from the
+                    mines of <placeName key="perseus,Laurion">Laurium</placeName><note resp="Loeb" anchored="yes">These silver mines were state property; but mining rights
+                        therein were let to private citizens. Lead and silver were found in the same
+                        ore and had to be separated. The weight of the lead is not specified: it may
+                        have been a talent of 80 lbs. See Boeckh, <title>Staatshaushaltung der
+                            Athener</title>; and <bibl n="Xen. Ways 1">Xen. Ways</bibl>.</note> at the price
+                    of two drachmae &lt;per talent&gt; which they were asking, and should
+                    itself sell it at the fixed price of six drachmae.<milestone ed="P" unit="para"/><milestone ed="P" n="2.37" unit="Loeb chap"/> Chabrias had levied crews
+                        for<milestone ed="Bekker" n="20" unit="line"/>a hundred and twenty ships to
+                    serve King Taos.<note resp="Loeb" anchored="yes">See 25.</note> Finding that
+                    Taos needed only sixty ships, he gave the crews of the superfluous sixty their
+                    choice between providing those who were to serve with two months' rations, and
+                    themselves taking their place. Desiring to remain at their business, they gave
+                    what he demanded.<milestone ed="P" unit="para"/><milestone ed="P" n="2.38" unit="Loeb chap"/> Antimenes bade the governors of the provinces replenish,
+                    in accordance with the law of the country, the magazines along the royal
+                    highways. Whenever an army passed through the country or any other body of men
+                    unaccompanied by the king, he sent an officer to sell them the contents of the
+                    magazines. <milestone n="1353b" unit="section"/><milestone ed="Bekker" n="1" unit="line"/><milestone ed="P" unit="para"/><milestone ed="P" n="2.39" unit="Loeb chap"/> Cleomenes, as the beginning of the month approached when
+                    his soldiers' allowance became due, deliberately sailed away down the river; and
+                    not till the month was advanced did he return and distribute the allowance. For
+                    the coming month, he omitted the distribution altogether until the following
+                    month began. Thus the men were quieted by the recent distribution, and
+                    Cleomenes, passing over a month each year, docked his troops of a month's
+                        pay.<note resp="Loeb" anchored="yes"><foreign lang="greek">SITARXI/A</foreign> (corn allowance) and <foreign lang="greek">MISQO/S</foreign> (pay) here seem to be identified; possibly because in a
+                        land where grain was readily purchasable the former was given in money. Cf.
+                        23, 29.</note>
+                    <milestone ed="P" unit="para"/><milestone ed="P" n="2.40" unit="Loeb chap"/>
+                    Stabelbius, king of the Mysians, lacking pay to give his troops, summoned a
+                    meeting of the officers, and declared that he no longer needed the private
+                    soldiers, but only the officers. When he required troops, he would entrust a sum
+                    of money to each officer and send him to collect mercenaries; but that meanwhile
+                    he preferred to give the officers the pay he would otherwise have to give the
+                    men. Accordingly he bade each dismiss the men who were on his own muster-roll.
+                    The officers, scenting a source of gain for themselves, dismissed their men, as
+                    they were bidden. Shortly afterwards, Stabelbius called them together and
+                    informed them that a conductor without his chorus and an officer without his men
+                    were alike useless; wherefore let them depart from his country.<milestone ed="Bekker" n="20" unit="line"/><milestone ed="P" unit="para"/><milestone ed="P" n="2.41" unit="Loeb chap"/> When Dionysius was making a tour of the
+                    temples, wherever he saw a gold or silver table set, he bade them fill a cup "in
+                    honor of the good spirit,"<note resp="Loeb" anchored="yes">Cf. <bibl n="Cic. N.D. 3.3.4">Cic. De natura deorum 3.3.4</bibl> and <bibl n="Ath. 15.693">Athenaeus Deipnosophistae 15.693</bibl>.</note> and then
+                    had the table carried away. Wherever, again, he saw a precious bowl set before
+                    one of the images, he would order its removal, with the words" I accept it." He
+                    also stripped the images of their golden raiment and garlands, and declaring he
+                    would give them lighter and more fragrant wear, arrayed them in robes of white
+                    &lt;linen&gt; and garlands of white socks.</p>
+			</div1>
+			<div1 type="Book" n="3">
+				<p>
+                    <milestone n="1" unit="section"/><milestone ed="Rose" n="1" unit="line"/><milestone ed="P" unit="para"/>A good wife should be the mistress of her
+                    home, having under her care all that is within it, according to the rules we
+                    have laid down. She should allow none to enter without her husband's knowledge,
+                    dreading above all things the gossip of gadding women, which tends to poison the
+                    soul. She alone should have knowledge of what happens within, whilst if any harm
+                    is wrought by those from without, her husband will bear the blame. She must
+                    exercise control of the money spent on such festivities as her husband has
+                    approved, keeping, moreover, within the limit set by law upon expenditure,
+                    dress, and ornament;<milestone ed="Rose" n="10" unit="line"/>and remembering
+                    that beauty depends not on costliness of raiment, nor does abundance of gold so
+                    conduce to the praise of a woman as self-control in all that she does, and her
+                    inclination towards an honorable and well-ordered life.<note resp="Loeb" anchored="yes">Cf. <bibl n="1 Peter 3.3.4">1 Peter 3.3.4</bibl>.</note> For
+                    such adornment of the soul as this is in truth ever a thing to be envied, and a
+                    far surer warrant for the payment, to the woman herself in her old age and to
+                    her children after her, of the due meed of praise.<milestone ed="P" unit="para"/>This, then, is the province over which a woman should be minded to bear an
+                    orderly rule; for it seems not fitting that a man should know all that passes
+                    within the house. But in all other matters, let it be her aim to obey her
+                    husband; giving no heed to public affairs, nor desiring any part in arranging
+                    the marriages of her children.<milestone ed="p" n="20" unit="card"/><milestone ed="Rose" n="20" unit="line"/>Rather, when the time shall come to give or
+                    receive in marriage sons or daughters, let her even then hearken to her husband
+                    in all respects, and agreeing with him obey his behest; considering that it is
+                    less unseemly for him to deal with a matter within the house than it is for her
+                    to pry into those outside its walls. Nay, it is fitting that a woman of
+                    well-ordered life should consider that her husband's uses are as laws appointed
+                    for her own life by divine will, along with the marriage state and the fortune
+                    she shares. If she endures them with patience and gentleness, she will rule her
+                    home with ease; otherwise, not so easily. Wherefore not only when her husband is
+                    in prosperity<milestone ed="Rose" n="30" unit="line"/>and good report does it
+                    beseem her to be in modest agreement with him, and to render him the service he
+                    wills, but also in times of adversity. If, through sickness or fault of
+                    judgement, his good fortune fails, then must she show her quality,<note resp="Loeb" anchored="yes">Or (if manifestam esse represents <foreign lang="greek">DHLONO/TI</foreign>) "then plainly it is her part to
+                        encourage . . . and to yield . . ." </note> encouraging him ever with words
+                    of cheer and yielding him obedience in all fitting ways; only let her do nothing
+                    base or unworthy of herself, or remember any wrong her husband may have done her
+                    through distress of mind. Let her refrain from all complaint, nor charge him
+                    with the wrong, but rather attribute everything of this kind to sickness or
+                    ignorance or accidental errors. For the more sedulous her service herein, the
+                    fuller will be his gratitude<milestone ed="p" n="40" unit="card"/><milestone ed="Rose" n="40" unit="line"/>when he is restored, and freed from his
+                    trouble; and if she has failed to obey him when he commanded aught that is
+                    amiss, the deeper will be his recognition &lt;of her loyalty&gt; when
+                    health returns. Wherefore, whilst careful to avoid such &lt;misplaced
+                    obedience&gt;, in other respects she will serve him more assiduously than if
+                    she had been a bondwoman bought and taken home. For he has indeed bought her
+                    with a great price&mdash;with partnership in his life and in the procreation
+                    of children; than which things nought could be greater or more divine. And
+                    besides all this, the wife who had only lived in company with a fortunate
+                    husband would not have had the like opportunity to show her true quality. For
+                    though there be no small merit in a right and noble use of prosperity, still the
+                    right endurance of adversity justly receives an honor greater by far.<milestone ed="Rose" n="50" unit="line"/>For only a great soul can live in the midst of
+                    trouble and wrong without itself committing any base act. And so, while praying
+                    that her husband may be spared adversity, if trouble should come it beseems the
+                    wife to consider that here a good woman wins her highest praise. Let her bethink
+                    herself how Alcestis would never have attained such renown nor Penelope have
+                    deserved all the high praises bestowed on her had not their husbands known
+                    adversity; whereas the troubles of Admetus and Ulysses have obtained for their
+                    wives a reputation that shall never die. For because in time of distress they
+                    proved themselves faithful and dutiful to their husbands, the gods have bestowed
+                    on them the honor they deserved. To find partners in prosperity is easy
+                        enough;<milestone ed="Rose" n="60" unit="line"/>but only the best women are
+                    ready to share in adversity. For all these reasons it is fitting that a woman
+                    should &lt;in time of adversity&gt; pay her husband an honor greater by
+                    far, nor feel shame on his account even when, as Orpheus says,<quote>Holy health
+                        of soul, and wealth, the child of a brave spirit, companion him no
+                        more.</quote><milestone ed="p" n="65" unit="card"/>
+                    <milestone n="2" unit="section"/><milestone ed="P" unit="para"/>Such then is the
+                    pattern of the rules and ways of living which a good wife will observe. And the
+                    rules which a good husband will follow in treatment of his wife will be similar;
+                    seeing that she has entered his home like a suppliant from without, and is
+                    pledged to be the partner of his life and parenthood; and that the offspring she
+                    leaves behind her will bear the names of their parents, her name as well as his.
+                    And what could be more divine than this, or more desired by a man of sound
+                        mind,<milestone ed="Rose" n="70" unit="line"/>than to beget by a noble and
+                    honored wife children who shall be the most loyal supporters and discreet
+                    guardians of their parents in old age, and the preservers of the whole house?
+                    Rightly reared by father and mother, children will grow up virtuous, as those
+                    who have treated them piously and righteously deserve that they should; but
+                    &lt;parents&gt; who observe not these precepts will be losers thereby.
+                    For unless parents have given their children an example how to live, the
+                    children in their turn will be able to offer a fair and specious excuse
+                    &lt;for undutifulness&gt;. Such parents will risk being rejected by
+                    their offspring for their evil lives, and thus bringing destruction upon their
+                    own heads.<milestone ed="P" unit="para"/>Wherefore his wife's training should be
+                    the object of a man's unstinting care;<milestone ed="Rose" n="80" unit="line"/>that so far as is possible their children may spring from the noblest of
+                    stock. For the tiller of the soil spares no pains to sow his seed in the most
+                    fertile and best cultivated land, looking thus to obtain the fairest fruits; and
+                    to save it from devastation is ready, if such be his lot, to fall in conflict
+                    with his foes; a death which men crown with the highest of praise. Seeing, then,
+                    that such care is lavished on the body's food, surely every care should be taken
+                    on behalf of our own children's mother and nurse, in whom is implanted the seed
+                    from which there springs a living soul. For it is only by this means that each
+                    mortal, successively produced, participates in immortality; and that petitions
+                    and prayers continue to be offered to ancestral gods.<milestone ed="Rose" n="90" unit="line"/>So that he who thinks lightly of this<note resp="Loeb" anchored="yes">i.e., the procreation of children.</note> would seem also to
+                    be slighting the gods. For their sake then, in whose presence he offered
+                    sacrifice and led his wife home, promising to honor her far above all others
+                    saving his parents, &lt;a man must have care for wife and
+                        children&gt;.<milestone ed="P" unit="para"/>Now a virtuous wife is best
+                    honored when she sees that her husband is faithful to her, and has no preference
+                    for another woman; but before all others loves and trusts her and holds her as
+                    his own. And so much the more will the woman seek to be what he accounts her. If
+                    she perceives that her husband's affection for her is faithful and righteous,
+                    she too will be faithful and righteous towards him.<milestone ed="Rose" n="100" unit="line"/>Wherefore a man of sound mind ought not to forget what honors
+                    are proper to his parents or what fittingly belong to his wife and children; so
+                    that rendering to each and all their own, he may obey the law of men and of
+                    gods. For the deprivation we feel most of all is that of the special honor which
+                    is our due; nor will abundant gifts of what belongs to others be welcome to him
+                    who is dispossessed of his own. Now to a wife nothing is of more value, nothing
+                    more rightfully her own, than honored and faithful partnership with her husband.
+                    Wherefore it befits not a man of sound mind to bestow his person promiscuously,
+                    or have random intercourse with women; for otherwise the base-born will share in
+                    the rights of his lawful children,<milestone ed="Rose" n="110" unit="line"/>and
+                    his wife will be robbed of her honor due, and shame be attached to his
+                        sons.<milestone ed="p" n="111" unit="card"/>
+                    <milestone n="3" unit="section"/><milestone ed="P" unit="para"/>To all these
+                    matters, therefore, a man should give heed. And it is fitting that he should
+                    approach his wife in honorable wise, full of self-restraint and awe; and in his
+                    conversation with her, should use only the words of a right-minded man,
+                    suggesting only such acts as are themselves lawful and honorable; treating her
+                    with much self-restraint and trust,<note resp="Loeb" anchored="yes">Or
+                        "loyalty." </note> and passing over any trivial or unintentional errors she
+                    has committed. And if through ignorance she has done wrong, he should advise her
+                    of it without threatening, in a courteous and modest manner. Indifference
+                    &lt;to her faults&gt; and harsh reproof &lt;of them&gt;, he must
+                    alike avoid. Between a courtesan and her lover, such tempers are allowed their
+                        course;<milestone ed="Rose" n="120" unit="line"/>between a free woman and
+                    her lawful spouse there should be a reverent and modest mingling of love and
+                    fear. For of fear there are two kinds. The fear which virtuous and honorable
+                    sons feel towards their fathers, and loyal citizens towards right-minded rulers,
+                    has for its companions reverence and modesty; but the other kind, felt by slaves
+                    for masters and by subjects for despots who treat them with injustice and wrong,
+                    is associated with hostility and hatred.<milestone ed="P" unit="para"/>By
+                    choosing the better of all these alternatives a husband should secure the
+                    agreement, loyalty, and devotion of his wife, so that whether he himself is
+                    present or not, there may be no difference in her attitude towards him, since
+                    she realizes that they are alike guardians of the common interests; and so when
+                    he is away she may feel that to her no man is kinder <milestone ed="Rose" n="130" unit="line"/>or more virtuous or more truly hers than her own
+                        husband.<milestone ed="p" n="131" unit="card"/>And &lt;a good
+                    wife&gt; will make this manifest from the beginning by her unfailing regard
+                    for the common welfare, novice though she be in such matters. And if the husband
+                    learns first to master himself, he will thereby become his wife's best guide in
+                    all the affairs of life, and will teach her to follow his example. For Homer
+                    pays no honor either to affection or to fear apart from the shame or modesty
+                    that shrinks from evil. Everywhere he bids affection be coupled with
+                    self-control and shame; whilst the fear he commends is such as Helen owns when
+                    she thus addresses Priam: "Beloved sire of my lord, it is fitting that I fear
+                    thee and dread thee and revere"<note resp="Loeb" anchored="yes"><bibl n="Hom.                         Il. 3.172">Hom.
+                            Il. 3.172</bibl>:<quote type="verse">
+                            <l met="dactylic">
+                                <foreign lang="greek">AI)DOI=O/S TE/ MOI/ E)SSI, FI/LE E(KURE/,
+                                    DEINO/S TE</foreign>
+                            </l>
+                        </quote>..</note>; meaning that her love for him is mingled with fear and
+                    modest shame. And again, Ulysses speaks to Nausicaa in this manner:<milestone ed="Rose" n="140" unit="line"/> "Thou, lady, dost fill me with wonder and
+                    with fear."<note resp="Loeb" anchored="yes"><bibl n="Hom. Od. 6.168">Hom. Od. 6.168</bibl>
+                        (like the young palm-tree at <placeName key="perseus,Delos">Delos</placeName>): <quote type="verse">
+                            <l met="dactylic">
+                                <foreign lang="greek">W(S SE/, GU/NAI, A)/GAMAI/ TE TE/QHPA/ TE
+                                    DEI/DIA/ T' AI)NW=S</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">GOU/NWN A(/YASQAI</foreign>
+                            </l>
+                        </quote>. . .</note> For Homer believes that this is the feeling of a
+                    &lt;good&gt; husband and wife for one another, and that if they so feel,
+                    it will be well with them both. For none ever loves or admires or fears in this
+                    shamefaced way one of baser character; but such are the feelings towards one
+                    another of nobler souls and those by nature good; or of the inferior toward
+                    those they know to be their betters. Feeling thus toward Penelope, Ulysses
+                    remained faithful to her in his wanderings; whereas Agamemnon did wrong to his
+                    wife for the sake of Chryseis, declaring in open assembly that a base captive
+                    woman, and of alien race besides, was in no wise inferior to Clytemnestra in
+                    womanly excellence.<note resp="Loeb" anchored="yes"><bibl n="Hom. Il. 1.113">Hom. Il.
+                        1.113</bibl>: <quote type="verse">
+                            <l met="dactylic">
+                                <foreign lang="greek">KAI\ GA/R R(A *KLUTAIMNH/STRHS
+                                PROBE/BOULA,</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">KOURIDI/HS A)LO/XOU, E)PEI\ OU)/ E(QE/N E)STI
+                                    XEREI/WN,</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">OU) DE/MAS OU)DE\ FUH/N, OU)/T' A)\R FRE/NAS
+                                    OU)/TE TI E)/RGA</foreign>
+                            </l>
+                        </quote>.</note><milestone ed="p" n="150" unit="card"/><milestone ed="Rose" n="150" unit="line"/>This was ill spoken of the mother of his children; nor
+                    was his connection with the other a righteous one. How could it be, when he had
+                    but recently compelled her to be his concubine, and before he had any experience
+                    of her behavior to him? Ulysses on the other hand, when the daughter of
+                        Atlas<note resp="Loeb" anchored="yes">Calypso. See <bibl n="Hom. Od. 5.136">Hom. Od.
+                            5.136, 203ff.</bibl></note> besought him to share her bed and board, and
+                    promised him immortality and everlasting happiness, could not bring himself even
+                    for the sake of immortality to betray the kindness and love and loyalty of his
+                    wife, deeming immortality purchased by unrighteousness to be the worst of all
+                    punishments.<note resp="Loeb" anchored="yes">Cf. <bibl n="Plat. Gorg.                         472">Plat. Gorg.
+                            472ff.</bibl></note> For it was only to save his comrades that he
+                    yielded his person to Circe; and in answer to her he even declared that in his
+                    eyes nothing could be more lovely than his native isle, rugged though it
+                        were;<milestone ed="Rose" n="160" unit="line"/>and prayed that he might die,
+                    if only he might look upon his mortal wife and son.<note resp="Loeb" anchored="yes">Cf. <bibl n="Hom. Od. 9.26">Hom. Od. 9.26ff.</bibl>.</note> So firmly did
+                    he keep troth with his wife; and received in return from her the like
+                        loyalty.<note resp="Loeb" anchored="yes">With this chapter cf. the poem of
+                        Simon Dach (<date value="1648">1648</date>) translated by Longfellow as
+                        "Annie of Tharaw."</note><milestone ed="p" n="162" unit="card"/>
+                    <milestone n="4" unit="section"/><milestone ed="P" unit="para"/>Once again, in
+                    the words addressed by Ulysses to Nausicaa<note resp="Loeb" anchored="yes"><bibl n="P">Hom. Od. 6.180ff.</bibl>: <quote type="verse">
+                            <l met="dactylic">
+                                <foreign lang="greek">SOI\ DE\ QEOI\ TO/SA DOI=EN O(/SA FRESI\
+                                    SH=|SI MENOINA=|S,</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">A)/NDRA TE KAI\ OI)=KON KAI\ O(MOFROSU/NHN
+                                    O)PA/SEIAN</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">E)SQLH/N: OU) ME\N GA\R TOU= GE KREI=SSON KAI\
+                                    A)/REION,</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">H)\ O(/Q' O(MOFRONE/ONTE NOH/MASIN OI)=KON
+                                    E)/XHTON</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">A)NH\R H)DE\ GUNH/: PO/LL' A)/LGEA
+                                    DUSMENE/ESSIN,</foreign>
+                            </l>
+                            <l>
+                                <foreign lang="greek">XA/RMATA D' EU)MENE/TH|SI: MA/LISTA DE/ T'
+                                    E)/KLUON AU)TOI/</foreign>
+                            </l>
+                        </quote>.</note> the poet makes clear the great honor in which he holds the
+                    virtuous companionship of man and wife in marriage. There he prays the gods to
+                    grant her a husband and a home; and between herself and her husband, precious
+                    unity of mind; provided that such unity be for righteous ends. For, says he,
+                    there is no greater blessing on earth than when husband and wife rule their home
+                    in harmony of mind and will. Moreover it is evident from this that the unity
+                    which the poet commends<milestone ed="Rose" n="170" unit="line"/>is no mutual
+                    subservience in each other's vices, but one that is rightfully allied with
+                    wisdom and understanding; for this is the meaning of the words "rule the house
+                    in &lt;harmony of&gt; mind." And he goes on to say that wherever such a
+                    love is found between man and wife, it is a cause of sore distress to those who
+                    hate them and of delight to those that love them; while the truth of his words
+                    is most of all acknowledged by the happy pair.<note resp="Loeb" anchored="yes">The Greek, as cited above, is <foreign lang="greek">MA/LISTA DE/ T'
+                            E)/KLUON AU)TOI/</foreign>, "and themselves best know their own case."
+                    </note> For when wife and husband are agreed about the best things in life, of
+                    necessity the friends of each will also be mutually agreed; and the strength
+                    which the pair gain from their unity will make them formidable to their enemies
+                    and helpful to their own. But when discord reigns between them, their friends
+                    too will disagree and become in consequence enfeebled, while the pair themselves
+                    will suffer most of all.<milestone ed="p" n="180" unit="card"/><milestone ed="Rose" n="180" unit="line"/><milestone ed="P" unit="para"/>In all these
+                    precepts it is clear that the poet is teaching husband and wife to dissuade one
+                    another from whatever is evil and dishonorable, while unselfishly furthering to
+                    the best of their power one another's honorable and righteous aims. In the first
+                    place they will strive to perform all duty towards their parents, the husband
+                    towards those of his wife no less than towards his own, and she in her turn
+                    towards his. Their next duties are towards their children, their friends, their
+                    estate, and their entire household which they will treat as a common possession;
+                    each vying with the other in the effort to contribute most to the common
+                    welfare, and to excel in virtue and righteousness; laying aside arrogance, and
+                    ruling with justice in a kindly and unassuming spirit.<milestone ed="Rose" n="190" unit="line"/>And so at length, when they reach old age, and are
+                    freed from the duty of providing for others and from preoccupation with the
+                    pleasures and desires of youth, they will be able to give answer also to their
+                    children, if question arise whether child or parent<note resp="Loeb" anchored="yes">Or "which of their parents." </note> has contributed more
+                    good things to the common household store; and will be well assured that
+                    whatsoever of evil has befallen them is due to fortune, and whatsoever of good,
+                    to their own virtue. One who comes victorious through such question wins from
+                    heaven, as Pindar says,<note resp="Loeb" anchored="yes">A mistranslation of the
+                        following words, cited by <bibl n="Plat. Rep. 331a">Plat. Rep. 331a</bibl>: <cit>
+                            <quote type="verse">
+                                <l met="lyric">
+                                    <foreign lang="greek">GLUKEI=A/ OI( KARDI/AN A)TA/LLOISA
+                                        GHROTRO/FOS SUNAOREI=</foreign>
+                                </l>
+                                <l>
+                                    <foreign lang="greek">E)LPI/S, A(\ MA/LISTA QNATW=N</foreign>
+                                </l>
+                                <l>
+                                    <foreign lang="greek">POLU/STROFON GNW/MAN KUBERNA=|</foreign>
+                                </l>
+                            </quote>
+                            <bibl n="Pind. Fr. 214">Pind. Frag. 214 (Loeb)</bibl>
+                        </cit>, "the old age (of a righteous man) is sustained by a pleasant
+                        companion that cherishes his heart; even by Hope, who more than aught else
+                        guides the wayward mind of mortals." </note> his chiefest reward; for "hope,
+                    and a soul filled with fair thoughts are supreme in the manifold mind of
+                    mortals" ; and next, from his children the good fortune of being sustained by
+                    them in his old age. And therefore it behoves us to preserve throughout our
+                    lives a righteous attitude towards all gods and mortal men, to each
+                    individually, and to all in common<note resp="Loeb" anchored="yes">Or "both as
+                        individuals and as members of a community." </note>;<milestone ed="Rose" n="200" unit="line"/>and not least towards our own wives and children and
+                    parents.</p>
+			</div1>
+		</body>
+	</text>
+</TEI.2>

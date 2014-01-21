@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Lyc." type="work">Lycurgus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 94 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Lyc."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">1</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990528</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>LYCURGUS</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Concerning Lycurgus the lawgiver, in general, nothing can be said which is not disputed, since indeed there are different accounts of his birth, his travels, his death, and above all, of his work as lawmaker and statesman; and there is least agreement among historians as to the times in which the man lived. Some say that he flourished at the same time with Iphitus, and in concert with him established the Olympic truce. Among these is Aristotle the philosopher, and he alleges as proof the discus at Olympia on which an inscription preserves the name of Lycurgus.<note resp="ed" place="unspecified" anchored="yes">As joining with Iphitus in founding, or reviving, the Olympic games, in 776 B.C., the date assigned to the first recorded victory. Cf. <bibl n="Paus. 5.4.5">Pausanias, v. 4, 5 f.</bibl>; <bibl n="Paus. 5.20.1">20, 1.</bibl> A stay of hostilities was observed all over Greece during the festival.</note> 
+				        <milestone n="2" unit="section"/>But those who compute the time by the successions of kings at Sparta, like Eratosthenes and Apollodorus, prove that Lycurgus was many years earlier than the first Olympiad.<note resp="ed" place="unspecified" anchored="yes">776-73 B.C.</note> And Timaeus conjectures that there were two Lycurgus at Sparta, at different times, and that to one of them the achievements of both were ascribed, owing to his greater fame; he thinks also that the elder of the two lived not far from the times of Homer, and some assert that he actually met Homer face to face. 
+				<milestone n="3" unit="section"/>Xenophon, also,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Const. Lac. 10.8">
+                  <title>Reip. Lac.</title> x. 8.</bibl> 
+					          <q direct="unspecified">Lycurgus is said to have lived in the times of the Heracleidae.</q>
+            </note> makes an impression of simplicity in the passage where he says that Lycurgus lived in the time of the Heracleidae. For in lineage, of course, the latest of the Spartan kings were also Heracleidae; but Xenophon apparently wishes to use the name Heracleidae of the first and more immediate descendants of Heracles, so famous in story.
+			</p>
+         <p>However, although the history of these times is such a maze, I shall try, in presenting my narrative, to follow those authors who are least contradicted, or who have the most notable witnesses for what they have written about the man. 
+				<milestone n="4" unit="section"/>For instance, Simonides the poet says that Lycurgus was not the son of Eunomus, but that both Lycurgus and Eunomus were sons of Prytanis; whereas most writers give a different genealogy, as follows: Aristodemus begat Procles, Procles begat So&uuml;s, So&uuml;s begat Eurypon, and he begat Prytanis, from whom sprang Eunomus, and from Eunomus Polydectes by a first wife, and Lycurgus, who was a younger son by a second wife, Dionassa, as Dieutychidas has written, making Lycurgus sixth from Procles, and eleventh from Heracles.<note resp="ed" place="unspecified" anchored="yes">Aristodemus, from whose twin sons Eurysthenes and Procles the elder and younger royal lines at Sparta (the Agids and Eurypontids) were descended, was the son of Aristomachus, the son of Cleodaeus, the son of Hyllus, the son of Heracles. See <bibl n="Paus. 3.1.1">Pausanias, iii. 1-10</bibl>; <bibl n="Hdt. 7.204">Herodotus, vii. 204</bibl> and<bibl n="Hdt. 8.131"> viii. 131</bibl>.</note>
+			      </p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Of these ancestors of Lycurgus, So&uuml;s was most famous, under whom the Spartans made the Helots their slaves, and acquired by conquest from the Arcadians a large additional tract of land.  It is also related of this So&uuml;s that when he was besieged by the Cleitorians in a rough and waterless place, he agreed to surrender to them the land which he had conquered if he himself and all his men with him should drink from the adjacent spring. 
+				<milestone n="2" unit="section"/>After the oaths to this agreement were taken, he assembled his men and offered his kingdom to the one who should not drink; no one of them, however, could forbear, but all of them drank, whereupon So&uuml;s himself went down last of all to the water, sprinkled his face merely, while the enemy were still at hand to see, and then marched away and retained his territory, on the plea that all had not drunk.
+			</p>
+         <p>But although on these grounds he was held in great admiration, his royal line was not named from him, but were called Eurypontids from his son, because Eurypon appears to have been the first king to relax the excessive absolutism of his sway, seeking favour and popularity with the multitude. 
+				<milestone n="3" unit="section"/>But in consequence of such relaxation the people grew hold, and succeeding kings were some of them hated for trying to force their way with the multitude, and some were brought low by their desire for favour or through weakness, so that lawlessness and confusion prevailed at Sparta for a long time; and it was owing to this that the father of Lycurgus, a reigning king, lost his life. For as he was trying to separate some rioters, he was stabbed to death with a butcher's knife, leaving the kingdom to his elder son, Polydectes.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Polydectes also died soon afterwards, and then, as was generally thought, the kingdom devolved upon Lycurgus; and until his brother's wife was known to be with child, he was king. But as soon as he learned of this, he declared that the kingdom belonged to her offspring, if it should be male, and himself administered the government only as guardian. Now the guardians of fatherless kings are called 
+				<q direct="unspecified">prodikoi</q> by the Lacedaemonians. 
+				<milestone n="2" unit="section"/>Presently, however, the woman made secret overtures to him, proposing to destroy her unborn babe on condition that he would marry her when he was a king of Sparta; and although he detested her character, he did not reject her proposition, but pretended to approve and accept it. He told her, however, that she need not use drugs to produce a miscarriage, thereby injuring her health and endangering her life, for he would see to it himself that as soon as her child was born it should be put out of the way. 
+				<milestone n="3" unit="section"/>In this manner he managed to bring the woman to her full time, and when he learned that she was in labour, he sent attendants and watchers for her delivery, with orders, if a girl should be born, to hand it over to the women, but if a boy, to bring it to him, no matter what he was doing. And it came to pass that as he was at supper with the chief magistrates, a male child was born, and his servants brought the little boy to him. 
+				<milestone n="4" unit="section"/>He took it in his arms, as we are told, and said to those who were at table with him, 
+				<q direct="unspecified">A king is born unto you, O men of Sparta;</q> then he laid it down in the royal seat and named it Charila&uuml;s, or <emph>People's Joy</emph>, because all present were filled with joy, admiring as they did his lofty spirit and his righteousness. And so he was king only eight months in all. But on other accounts also he was revered by his fellow-citizens, and more than those who obeyed him because he was guardian of the king and had royal power in his hands, were those who clave to him for his virtues and were ready and willing to do his bidding.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>There was a party, however, which envied him and sought to impede the growing power of so young a man, especially the kinsmen and friends of the queen-mother, who thought she had been treated with insolence. Her brother, Leonidas, actually railed at Lycurgus once quite boldly, assuring him that he knew well that Lycurgus would one day be king, thereby promoting suspicion and paving the way for the accusation, in case any thing happened to the king, that he had plotted against his life. Some such talk was set in circulation by the queen-mother also, in consequence of which Lycurgus was sorely troubled and fearful of what might be in store for him. He therefore determined to avoid suspicion by travelling abroad, and to continue his wanderings until his nephew should come of age and beget a son to succeed him on the throne.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>With this purpose, he set sail, and came first to Crete. Here he studied the Various forms of government and made the acquaintance of their most distinguished men. Of some things he heartily approved, and adopted some of their laws, that he might carry them home with him and put them in use; for some things he had only contempt. One of the men regarded there as wise statesmen was Thales, whom Lycurgus persuaded, out of favour and friendship, to go on a mission to Sparta. Now Thales passed as a lyric poet, and screened himself behind this art, but in reality he did the work of one of the mightiest lawgivers. 
+				<milestone n="2" unit="section"/>For his odes were so many exhortations to obedience and harmony, and their measured rhythms were permeated with ordered tranquillity, so that those who listened to them were insensibly softened in their dispositions, insomuch that they renounced the mutual hatreds which were so rife at that time, and dwelt together in a common pursuit of what was high and noble. Thales, therefore, after a fashion, was a forerunner in Sparta of Lycurgus and his discipline.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>From Crete, Lycurgus sailed to Asia, with the desire, as we are told, of comparing with the Cretan civilization, which was simple and severe, that of the Ionians, which was extravagant and luxurious, just as a physician compares with healthy bodies those which are unsound and sickly; he could then study the difference in their modes of life and forms of government. 
+				<milestone n="4" unit="section"/>There too, as it would appear, he made his first acquaintance with the poems of Homer, which were preserved among the posterity of Creophylus; and when he saw that the political and disciplinary lessons contained in them were worthy of no less serious attention than the incentives to pleasure and license which they supplied, he eagerly copied and compiled them in order to take them home with him. For these epics already had a certain faint reputation among the Greeks, and a few were in possession of certain portions of them, as the poems were carried here and there by chance; but Lycurgus was the very first to make them really known.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>The Aegyptians think that Lycurgus visited them also, and so ardently admired their separation of the military from the other classes of society that he transferred it to Sparta, and by removing mechanics and artisans from participation in the government, made his civil polity really refined and pure. At any rate, this assertion of the Aegyptians is confirmed by some Greek historians. 
+				<milestone n="6" unit="section"/>But that Lycurgus visited Libya and Iberia also, and that he wandered over India and had conferences with the Gymnosophists, no one has stated, so far as I know, except Aristocrates the son of Hipparchus, the Spartan.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Lacedaemonians missed Lycurgus sorely, and sent for him many times. They felt that their kings were such in name and station merely, but in everything else were nothing better than their subjects, while in him there was a nature fitted to lead, and a power to make men follow him. However, not even the kings were averse to having him at home, but hoped that in his presence their subjects would treat them with less insolence. Returning, then, to a people thus disposed, he at once undertook to change the existing order of things and revolutionize the civil polity. 
+				<milestone n="2" unit="section"/>He was convinced that a partial change of the laws would be of no avail whatsoever, but that he must proceed as a physician would with a patient who was debilitated and full of all sorts of diseases; he must reduce and alter the existing temperament by means of drugs and purges, and introduce a new and different regimen. 
+				<milestone n="3" unit="section"/>Full of this determination, he first made a journey to Delphi, and after sacrificing to the god and consulting the oracle, he returned with that famous response in which the Pythian priestess addressed him as 
+				<q direct="unspecified">beloved of the gods, and rather god than man,</q> and said that the god had granted his prayer for good laws, and promised him a constitution which should be the best in the world.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Thus encouraged, he tried to bring the chief men of Sparta over to his side, and exhorted them to put their hands to the work with him, explaining his designs secretly to his friends at first, then little by little engaging more and uniting them to attempt the task. And when the time for action came, he ordered thirty of the chief men to go armed into the market-place at break of day, to strike consternation and terror into those of the opposite party. The names of twenty of the most eminent among them have been recorded by Hermippus; but the man who had the largest share in all the undertakings of Lycurgus and cooperated with him in the enactment of his laws, bore the name of Arthmiadas. 
+				<milestone n="5" unit="section"/>When the tumult began, King Charila&uuml;s, fearing that the whole affair was a conspiracy against himself, fled for refuge to the Brazen House<note resp="ed" place="unspecified" anchored="yes">A temple of Athena.</note> but he was soon convinced of his error, and having exacted oaths for his safety from the agitators, left his place of refuge, and even joined them in their enterprise, being of a gentle and yielding disposition, so much so, indeed, that Archela&uuml;s, his royal colleague, is said to have remarked to those who were extolling the young king, 
+				<q direct="unspecified">How can Charila&uuml;s be a good man, when he has no severity even for the bad?</q>
+			      </p>
+         <p>
+				        <milestone n="6" unit="section"/>Among the many innovations which Lycurgus made, the first and most important was his institution of a senate, or Council of Elders, which, as Plato says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Laws 691e">Laws, p. 691 e.</bibl>
+            </note> by being blended with the 
+				<q direct="unspecified">feverish</q> government of the kings, and by having an equal vote with them in matters of the highest importance, brought safety and due moderation into counsels of state. For before this the civil polity was veering and unsteady, inclining at one time to follow the kings towards tyranny, and at another to follow the multitude towards democracy; 
+				<milestone n="7" unit="section"/>but now, by making the power of the senate a sort of ballast for the ship of state and putting her on a steady keel, it achieved the safest and the most orderly arrangement, since the twenty-eight senators always took the side of the kings when it was a question of curbing democracy, and, on the other hand, always strengthened the people to withstand the encroachments of tyranny. The number of the senators was fixed at twenty-eight because, according to Aristotle, two of the thirty original associates of Lycurgus abandoned the enterprise from lack of courage. 
+				<milestone n="8" unit="section"/>But Sphaerus says that this was originally the number of those who shared the confidence of Lycurgus Possibly there is some virtue in this number being made up of seven multiplied by four, apart from the fact that, being equal to the sum of its own factors, it is the next perfect number after six. But in my own opinion, Lycurgus made the senators of just that number in order that the total might be thirty when the two kings were added to the eight and twenty.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>So eager was Lycurgus for the establishment of this form of government, that he obtained an oracle from Delphi about it, which they call a 
+				<q direct="unspecified">rhetra.</q> And this is the way it runs: 
+				<q direct="unspecified">When thou hast built a temple to Zeus Syllanius and Athena Syllania, divided the people into &lsquo;phylai&rsquo; and into &lsquo;obai,&rsquo; and established a senate of thirty members, including the &lsquo;archagetai,&rsquo; then from time to time &lsquo;appellazein&rsquo; between Babyca and Cnacion<note resp="ed" place="unspecified" anchored="yes">Probably names of small tributaries of the river Eurotas.</note> and there introduce and rescind measures; but the people must have the deciding voice and the power.</q> 
+				        <milestone n="2" unit="section"/>In these clauses, the 
+				<q direct="unspecified">phylai</q> and the 
+				<q direct="unspecified">obai</q> refer to divisions and distributions of the people into <emph>clans</emph> and <emph>phratries</emph>, or <emph>brotherhoods</emph>; by 
+				<q direct="unspecified">archagetai</q> the <emph>kings</emph> are designated, and 
+				<q direct="unspecified">apellazein</q> means <emph>to assemble</emph> the people, with a reference to <emph>Apollo</emph>, the Pythian god, who was the source and author of the polity. The Babyca is now called Cheimarrus, and the Cnacion Oenus; but Aristotle says that Cnacion is a river, and Babyca a bridge. 
+				<milestone n="3" unit="section"/>Between these they held their assemblies, having neither halls nor any other kind of building for the purpose. For by such things Lycurgus thought good counsel was not promoted, but rather discouraged, since the serious purposes of an assembly were rendered foolish and futile by vain thoughts, as they gazed upon statues and paintings, or scenic embellishments, or extravagantly decorated roofs of council halls. When the multitude was thus assembled, no one of them was permitted to make a motion, but the motion laid before them by the senators and kings could be accepted or rejected by the people. 
+				<milestone n="4" unit="section"/>Afterwards, however, when the people by additions and subtractions perverted and distorted the sense of motions laid before them, Kings Polydorus and Theopompus inserted this clause into the rhetra: 
+				<q direct="unspecified">But if the people should adopt a distorted motion, the senators and kings shall have power of adjournment</q>; that is, should not ratify the vote, but dismiss outright and dissolve the session, on the ground that it was perverting and changing the motion contrary to the best interests of the state. And they were actually able to persuade the city that the god authorized this addition to the rhetra, as Tyrtaeus reminds us in these verses:&mdash;
+				<quote rend="blockquote">
+					          <l>Phoebus Apollo's the mandate was which they brought from Pytho,</l>
+					          <l>Voicing the will of the god, nor were his words unfulfilled:</l>
+					          <l>Sway in the council and honours divine belong to the princes</l>
+					          <l>Under whose care has been set Sparta's city of charm;</l>
+					          <l>Second to them are the elders, and next come the men of the people</l>
+					          <l>Duly confirming by vote unperverted decrees.</l>
+				        </quote>
+			      </p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Although Lycurgus thus tempered his civil polity, nevertheless the oligarchical element in it was still unmixed and dominant, and his successors, seeing it 
+				<q direct="unspecified">swelling and foaming,</q> as Plato says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Laws 692a">Laws, p. 692 a.</bibl>
+            </note> 
+				        <q direct="unspecified">imposed as it were a curb upon it, namely, the power of the ephors.</q> It was about a hundred and thirty years after Lycurgus that the first ephors, Elatus and his colleagues, were appointed, in the reign of Theopompus. 
+				<milestone n="2" unit="section"/>This king, they say, on being reviled by his wife because the royal power, when he handed it over to his sons, would be less than when he received it, said: 
+				<q direct="unspecified">Nay, but greater, in that it will last longer.</q> And in fact, by renouncing excessive claims and freeing itself from jealous hate, royalty at Sparta escaped its perils, so that the Spartan kings did not experience the fate which the Messenians and Argives inflicted upon their kings, who were unwilling to yield at all or remit their power in favour of the people. And this brings into the clearest light the wisdom and foresight of Lycurgus, when we contrast the factions and misgovernment of the peoples and kings of Messenia and Argos, who were kinsmen and neighbours of the Spartans. 
+				<milestone n="3" unit="section"/>They were on an equality with the Spartans in the beginning, and in the allotment of territory were thought to be even better off than they, and yet their prosperity did not last long, but what with the insolent temper of their kings and the unreasonableness of their peoples, their established institutions were confounded, and they made it clear that it was in very truth a divine blessing which the Spartans had enjoyed in the man who framed and tempered their civil polity for them. These events, however, were of later date.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>A second, and a very bold political measure of Lycurgus, in his redistribution of the land. For there was a dreadful inequality in this regard, the city was heavily burdened with indigent and helpless people, and wealth was wholly concentrated in the hands of a few. Determined, therefore, to banish insolence and envy and crime and luxury, and those yet more deep-seated and afflictive diseases of the state, poverty and wealth, 
+				<milestone n="2" unit="section"/>he persuaded his fellow-citizens to make one parcel of all their territory and divide it up anew, and to live with one another on a basis of entire uniformity and equality in the means of subsistence, seeking pre-eminence through virtue alone, assured that there was no other difference or inequality between man and man than that which was established by blame for base actions and praise for good ones.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Suiting the deed to the word, he distributed the rest of the Laconian land among the 
+				<q direct="unspecified">perioeci,</q> or free provincials, in thirty thousand lots, and that which belonged to the city of Sparta, in nine thousand lots, to as many genuine Spartans. But some say that Lycurgus distributed only six thousand lots among the Spartans, and that three thousand were afterwards added by Polydorus; others still, that Polydorus added half of the nine thousand to the half distributed by Lycurgus. 
+				<milestone n="4" unit="section"/>The lot of each was large enough to produce annually seventy bushels of barley for a man and twelve for his wife, with a proportionate amount of wine and oil. Lycurgus thought that a lot of this size would be sufficient for them, since they needed sustenance enough to promote vigour and health of body, and nothing else. And it is said that on returning from a journey some time afterwards, as he traversed the land just after the harvest, and saw the heaps of grain standing parallel and equal to one another, he smiled, and said to them that were by: 
+				<q direct="unspecified">All Laconia looks like a family estate newly divided among many brothers.</q>
+			      </p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Next, he undertook to divide up their movable property also, in order that every vestige of unevenness and inequality might be removed; and when he saw that they could not bear to have it taken from them directly, he took another course, and overcame their avarice by political devices. In the first place, he withdrew all gold and silver money from currency, and ordained the use of iron money only. Then to a great weight and mass of this he gave a trifling value, so that ten minas' worth<note resp="ed" place="unspecified" anchored="yes">About £ 40, or $200.</note> required a large store-room in the house, and a yoke of cattle to transport it. 
+				<milestone n="2" unit="section"/>When this money obtained currency, many sorts of iniquity went into exile from Lacedaemon. For who would steal, or receive as a bribe, or rob, or plunder that which could neither be concealed, nor possessed with satisfaction, nay, nor even cut to pieces with any profit? For vinegar was used, as we are told, to quench the red-hot iron, robbing it of its temper and making it worthless for any other purpose, when once it had become brittle and hard to work.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>In the next place, he banished the unnecessary and superfluous arts. And even without such banishment most of them would have departed with the old coinage, since there was no sale for their products. For the iron money could not be carried into the rest of Greece, nor had it any value there, but was rather held in ridicule. It was not possible, therefore, to buy any foreign wares or bric-&agrave;-brac; no merchant-seamen brought freight into their harbours; no rhetoric teacher set foot on Laconian soil, no vagabond soothsayer, no keeper of harlots, no gold- or silver-smith, since there was no money there. 
+				<milestone n="4" unit="section"/>But luxury, thus gradually deprived of that which stimulated and supported it, died away of itself, and men of large possessions had no advantage over the poor, because their wealth found no public outlet, but had to be stored up at home in idleness. In this way it came about that such common and necessary utensils as bedsteads, chairs, and tables were most excellently made among them, and the Laconian 
+				<q direct="unspecified">kothon,</q> or drinking-cup, was in very high repute for usefulness among soldiers in active service, as Critias tells us. 
+				<milestone n="5" unit="section"/>For its colour concealed the disagreeable appearance of the water which they were often compelled to drink, and its curving lips caught the muddy sediment and held it inside, so that only the purer part reached the mouth of the drinker. For all this they had to thank their lawgiver; since their artisans were now freed from useless tasks, and displayed the beauty of their workmanship in objects of constant and necessary use.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>With a view to attack luxury still more and remove the thirst for wealth, he introduced his third and most exquisite political device, namely, the institution of common messes, so that they might eat with one another in companies, of common and specified foods, and not take their meals at home, reclining on costly couches at costly tables, delivering themselves into the hands of servants and cooks to be fattened in the dark, like voracious animals, 
+				<milestone n="2" unit="section"/>and ruining not only their characters but also their bodies, by surrendering them to every desire and all sorts of surfeit, which call for long sleeps, hot baths, abundant rest, and, as it were, daily nursing and tending. This was surely a great achievement, but it was a still greater one to make wealth "an object of no desire," as Theophrastus says, and even 
+				<q direct="unspecified">unwealth,</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Mor. 527b">Morals, p. 527 b.</bibl>
+            </note> by this community of meals and simplicity of diet. 
+				<milestone n="3" unit="section"/>For the rich man could neither use nor enjoy nor even see or display his abundant means, when he went to the same meal as the poor man; so that it was in Sparta alone, of all the cities under the sun, that men could have that far-famed sight, a Plutus blind, and lying as lifeless and motionless as a picture. For the rich could not even dine beforehand at home and then go to the common mess with full stomachs, but the rest kept careful watch of him who did not eat and drink with them, and reviled him as a weakling, and one too effeminate for the common diet.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was due, therefore, to this last political device above all, that the wealthy citizens were incensed against Lycurgus, and banding together against him, denounced him publicly with angry shouts and cries; finally many pelted him with stones, so that he ran from the market-place. He succeeded in reaching sanctuary before the rest laid hands on him; but one young man, Alcander, otherwise no mean nature, but hasty and passionate, pressed hard upon him, and as he turned about, smote him with his staff and put out one of his eyes. 
+				<milestone n="2" unit="section"/>Lycurgus, however, was far from yielding in consequence of this calamity, but confronted his countrymen, and showed them his face besmeared with blood and his eye destroyed. Whereupon they were so filled with shame and sorrow at the sight, that they placed Alcander in his hands, and conducted him to his house with sympathetic indignation. Lycurgus commended them for their conduct, and dismissed them, but took Alcander into the house with him, where he did the youth no harm by word or deed, but after sending away his customary servants and attendants, ordered him to minister to his wants. 
+				<milestone n="3" unit="section"/>The youth, who was of a noble disposition, did as he was commanded, without any words, and abiding thus with Lycurgus, and sharing his daily life, he came to know the gentleness of the man, the calmness of his spirit, the rigid simplicity of his habits, and his unwearied industry. He thus became a devoted follower of Lycurgus, and used to tell his intimates and friends that the man was not harsh nor self-willed, as he had supposed, but the mildest and gentlest of them all. 
+				<milestone n="4" unit="section"/>Such, then, was the chastisement of this young man, and such the penalty laid upon him, namely, to become, instead of a wild and impetuous youth, a most decorous and discreet man. Lycurgus, moreover, in memory of his misfortune, built a temple to Athena Optilitis, so called from 
+				<q direct="unspecified">optilus,</q> which is the local Doric word for <emph>eye</emph>.  Some writers, however, of whom one is Dioscorides, who wrote a treatise on the Spartan civil polity, say that although Lycurgus was struck in the eye, his eye was not blinded, but he built the temple to the goddess as a thank-offering for its healing. Be that as it may, the Spartan practice of carrying staves into their assemblies was abandoned after this unfortunate accident.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As for the public messes, the Cretans call them 
+				<q direct="unspecified">andreia,</q> but the Lacedaemonians, 
+				<q direct="unspecified">phiditia,</q> either because they are conducive to <emph>friendship</emph> and friendliness, 
+				<q direct="unspecified">phiditia</q> being equivalent to 
+				<q direct="unspecified">philitia</q>; or because they accustom men to simplicity and <emph>thrift</emph>, for which their word is 
+				<q direct="unspecified">pheido.</q> But it is quite possible, as some say, that the first letter of the word 
+				<q direct="unspecified">phiditia</q> has been added to it, making 
+				<q direct="unspecified">phiditia</q> out of 
+				<q direct="unspecified">editia,</q> which refers merely to meals and <emph>eating</emph>. 
+				<milestone n="2" unit="section"/>They met in companies of fifteen, a few more or less, and each one of the mess-mates contributed monthly a bushel of barley-meal, eight gallons of wine, five pounds of cheese, two and a half pounds of figs, and in addition to this, a very small sum of money for such relishes as flesh and fish. Besides this, whenever any one made a sacrifice of first fruits, or brought home game from the hunt, he sent a portion to his mess. For whenever any one was belated by a sacrifice or the chase, he was allowed to sup at home, but the rest had to be at the mess. 
+				<milestone n="3" unit="section"/>For a long time this custom of eating at common mess-tables was rigidly observed. For instance, when King Agis, on returning from an expedition in which he had been victorious over the Athenians, wished to sup at home with his wife, and sent for his rations, the polemarchs<note resp="ed" place="unspecified" anchored="yes">At Sparta, military commanders under the kings.</note> refused to send them to him; and when on the following day his anger led him to omit the customary sacrifice, they laid a fine upon him.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Boys also used to come to these public messes, as if they were attending schools of sobriety; there they would listen to political discussions and see instructive models of liberal breeding. There they themselves also became accustomed to sport and jest without scurrility, and to endure jesting without displeasure. Indeed, it seems to have been especially characteristic of a Spartan to endure jesting; but if any one could not bear up under it, he had only to ask it, and the jester ceased. 
+				<milestone n="5" unit="section"/>As each one came in, the eldest of the company pointed to the door and said to him: 
+				<q direct="unspecified">Through that door no word goes forth outside.</q> And they say that a candidate for membership in one of these messes underwent the following ordeal. Each of the mess-mates took in his hand a bit of soft bread, and when a servant came along with a bowl upon his head, then they cast it into this without a word, like a ballot, leaving it just as it was if he approved of the candidate, but if he disapproved, squeezing it tight in his hand first. 
+				<milestone n="6" unit="section"/>For the flattened piece of bread had the force of a perforated, or negative, ballot. And if one such is found in the bowl, the candidate is not admitted to the mess, because they wish all its members to be congenial. The candidate thus rejected is said to have been 
+				<q direct="unspecified">caddished,</q> for 
+				<q direct="unspecified">caddichus</q>
+            <note resp="ed" place="unspecified" anchored="yes">Or 
+					<q direct="unspecified">caddos,</q> from which the verb in the Greek text is formed.</note> is the name of the bowl into which they cast the pieces of bread. Of their dishes, the black broth is held in the highest esteem, so that the elderly men do not even ask for a bit of meat, but leave it for the young men, while they themselves have the broth poured out for their meals. 
+				<milestone n="7" unit="section"/>And it is said that one of the kings of Pontus actually bought a Spartan cook for the sake of having this broth, and then, when he tasted it, disliked it; whereupon the cook said: 
+				<q direct="unspecified">O King, those who relish this broth must first have bathed in the river Eurotas.</q> After drinking moderately, they go off home without a torch; for they are not allowed to walk with a light, either on this or any other occasion, that they may accustom themselves to marching boldly and without fear in the darkness of night. Such, then, is the fashion of their common messes.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>None of his laws were put into writing by Lycurgus, indeed, one of the so-called 
+				<q direct="unspecified">rhetras</q> forbids it. For he thought that if the most important and binding principles which conduce to the prosperity and virtue of a city were implanted in the habits and training of its citizens, they would remain unchanged and secure, having a stronger bond than compulsion in the fixed purposes imparted to the young by education, which performs the office of a law-giver for every one of them. 
+				<milestone n="2" unit="section"/>And as for minor matters, such as business contracts, and cases where the needs vary from time to time, it was better, as he thought, not to hamper them by written constraints or fixed usages, but to suffer them, as occasion demanded, to receive such modifications as educated men should determine. Indeed, he assigned the function of law-making wholly and entirely to education.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>One of his rhetras accordingly, as I have said, prohibited the use of written laws. Another was directed against extravagance, ordaining that every house should have its roof fashioned by the axe, and its doors by the saw only, and by no other tool. For, as in later times Epaminondas is reported to have said at his own table, that such a meal did not comport with treachery, so Lycurgus was the first to see clearly that such a house does not comport with luxury and extravagance. 
+				<milestone n="4" unit="section"/>Nor is any man so vulgar and senseless as to introduce into a simple and common house silver-footed couches, purple coverlets, gold drinking-cups, and all the extravagance which goes along with these, but one must of necessity adapt and proportion his couch to his house, his coverlets to his couch, and to this the rest of his supplies and equipment. 
+				<milestone n="5" unit="section"/>It was because he was used to this simplicity that Leotychides the Elder, as we are told, when he was dining in Corinth, and saw the roof of the house adorned with costly panellings, asked his host if trees grew square in that country.
+			</p>
+         <p>A third rhetra of Lycurgus is mentioned, which forbids making frequent expeditions against the same enemies, in order not to accustom such enemies to frequent defence of themselves, which would make them warlike. 
+				<milestone n="6" unit="section"/>And this was the special grievance which they had against King Agesila&uuml;s in later times, namely, that by his continual and frequent incursions and expeditions into Boeotia he rendered the Thebans a match for the Lacedaemonians. And therefore, when Antalcidas saw the king wounded, he said: 
+				<q direct="unspecified">This is a fine tuition-fee which thou art getting from the Thebans, for teaching them how to fight, when they did not wish to do it, and did not know how.</q> Such ordinances as these were called 
+				<q direct="unspecified">rhetras</q> by Lycurgus, implying that they came from the god and were oracles.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the matter of education, which he regarded as the greatest and noblest task of the law-giver, he began at the very source, by carefully regulating marriages and births. For it is not true that, as Aristotle says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristot. Pol. 2.1263a">Pol. ii. 6, 8.</bibl>
+            </note> he tried to bring the women under proper restraint, but desisted, because he could not overcome the great licence and power which the women enjoyed on account of the many expeditions in which their husbands were engaged. During these the men were indeed obliged to leave their wives in sole control at home, and for this reason paid them greater deference than was their due, and gave them the title of Mistress. But even to the women Lycurgus paid all possible attention. 
+				<milestone n="2" unit="section"/>He made the maidens exercise their bodies in running, wrestling, casting the discus, and hurling the javelin, in order that the fruit of their wombs might have vigorous root in vigorous bodies and come to better maturity, and that they themselves might come with vigour to the fulness of their times, and struggle successfully and easily with the pangs of child-birth. He freed them from softness and delicacy and all effeminacy by accustoming the maidens no less than the youths to wear tunics only in processions, and at certain festivals to dance and sing when the young men were present as spectators. 
+				<milestone n="3" unit="section"/>There they sometimes even mocked and railed good-naturedly at any youth who had misbehaved himself; and again they would sing the praises of those who had shown themselves worthy, and so inspire the young men with great ambition and ardour. For he who was thus extolled for his valour and held in honour among the maidens, went away exalted by their praises; while the sting of their playful raillery was no less sharp than that of serious admonitions, especially as the kings and senators, together with the rest of the citizens, were all present at the spectacle.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Nor was there anything disgraceful in this scant clothing of the maidens, for modesty attended them, and wantonness was banished; nay, rather, it produced in them habits of simplicity and an ardent desire for health and beauty of body. It gave also to woman-kind a taste of lofty sentiment, for they felt that they too had a place in the arena of bravery and ambition. Wherefore they were led to think and speak as Gorgo, the wife of Leonidas, is said to have done. When some foreign woman, as it would seem, said to her: 
+				<q direct="unspecified">You Spartan women are the only ones who rule their men,</q>" she answered: 
+				<q direct="unspecified">Yes, we are the only ones that give birth to men.</q>
+			      </p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Moreover, there were incentives to marriage in these things,&mdash;I mean such things as the appearance of the maidens without much clothing in processions and athletic contests where young men were looking on, for these were drawn on by necessity, 
+				<q direct="unspecified">not geometrical, but the sort of necessity which lovers know,</q> as Plato says.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Rep. 458d">Republic, p. 458 d.</bibl>
+            </note> Nor was this all; Lycurgus also put a kind of public stigma upon confirmed bachelors. They were excluded from the sight of the young men and maidens at their exercises, and in winter the magistrates ordered them to march round the market-place in their tunics only, 
+				<milestone n="2" unit="section"/>and as they marched, they sang a certain song about themselves, and its burden was that they were justly punished for disobeying the laws. Besides this, they were deprived of the honour and gracious attentions which the young men habitually paid to their elders. Therefore there was no one to find fault with what was said to Dercyllidas, reputable general though he was. As he entered a company, namely, one of the younger men would not offer him his seat, but said: 
+				<q direct="unspecified">Indeed, thou hast begotten no son who will one day give his seat to me.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>For their marriages the women were carried off by force, not when they were small and unfit for wedlock, but when they were in full bloom and wholly ripe. After the woman was thus carried off the bride's-maid, so called, took her in charge, cut her hair off close to the head, put a man's cloak and sandals on her, and laid her down on a pallet, on the floor, alone, in the dark. Then the bride-groom, not flown with wine nor enfeebled by excesses, but composed and sober, after supping at his public mess-table as usual, slipped stealthily into the room where the bride lay, loosed her virgin's zone, and bore her in his arms to the marriage-bed. 
+				<milestone n="4" unit="section"/>Then, after spending a short time with his bride, he went away composedly to his usual quarters, there to sleep with the other young men. And so he continued to do from that time on, spending his days with his comrades, and sleeping with them at night, but visiting his bride by stealth and with every precaution, full of dread and fear lest any of her household should be aware of his visits, his bride also contriving and conspiring with him that they might have stolen interviews as occasion offered. 
+				<milestone n="5" unit="section"/>And this they did not for a short time only, but long enough for some of them to become fathers before they had looked upon their own wives by daylight. Such interviews not only brought into exercise self-restraint and moderation, but united husbands and wives when their bodies were full of creative energy and their affections new and fresh, not when they were sated and dulled by unrestricted intercourse; and there was always left behind in their hearts some residual spark of mutual longing and delight.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>After giving marriage such traits of reserve and decorum, he none the less freed men from the empty and womanish passion of jealous possession, by making it honourable for them, while keeping the marriage relation free from all wanton irregularities, to share with other worthy men in the begetting of children, laughing to scorn those who regard such common privileges as intolerable, and resort to murder and war rather than grant them. 
+				<milestone n="7" unit="section"/>For example, an elderly man with a young wife, if he looked with favour and esteem on some fair and noble young man, might introduce him to her, and adopt her offspring by such a noble father as his own.  And again, a worthy man who admired some woman for the fine children that she bore her husband and the modesty of her behaviour as a wife, might enjoy her favours, if her husband would consent, thus planting, as it were, in a soil of beautiful fruitage, and begetting for himself noble sons, who would have the blood of noble men in their veins. 
+				<milestone n="8" unit="section"/>For in the first place, Lycurgus did not regard sons as the peculiar property of their fathers, but rather as the common property of the state, and therefore would not have his citizens spring from random parentage, but from the best there was. In the second place, he saw much folly and vanity in what other peoples enacted for the regulation of these matters; in the breeding of dogs and horses they insist on having the best sires which money or favour can secure, but they keep their wives under lock and key, demanding that they have children by none but themselves, even though they be foolish, or infirm, or diseased; 
+				<milestone n="9" unit="section"/>as though children of bad stock did not show their badness to those first who possessed and reared them, and children of good stock, contrariwise, their goodness. The freedom which thus prevailed at that time in marriage relations was aimed at physical and political well-being, and was far removed from the licentiousness which was afterwards attributed to their women, so much so that adultery was wholly unknown among them. 
+				<milestone n="10" unit="section"/>And a saying is reported of one Geradas,<note resp="ed" place="unspecified" anchored="yes">The name is Geradatas in <bibl n="Plut. Mor. 228c">Morals, p. 228 c</bibl> (Apophtheg. Lacon, 20).</note> a Spartan of very ancient type, who, on being asked by a stranger what the punishment for adulterers was among them, answered: 
+				<q direct="unspecified">Stranger, there is no adulterer among us.</q> 
+				        <q direct="unspecified">Suppose, then,</q> replied the stranger, 
+				<q direct="unspecified">there should be one.</q> 
+				        <q direct="unspecified">A bull,</q> said Geradas, 
+				<q direct="unspecified">would be his forfeit, a bull so large that it could stretch over Mount Ta&yuml;getus and drink from the river Eurotas.</q> Then the stranger was astonished and said: 
+				<q direct="unspecified">But how could there be a bull so large?</q> To which Geradas replied, with a smile: 
+				<q direct="unspecified">But how could there be an adulterer in Sparta?</q> Such, then, are the accounts we find of their marriages.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Offspring was not reared at the will of the father, but was taken and carried by him to a place called Lesche, where the elders of the tribes officially examined the infant, and if it was well-built and sturdy, they ordered the father to rear it, and assigned it one of the nine thousand lots of land; but if it was ill-born and deformed, they sent it to the so-called Apothetae, a chasm-like place at the foot of Mount Ta&yuml;getus, 
+				<milestone n="2" unit="section"/>in the conviction that the life of that which nature had not well equipped at the very beginning for health and strength, was of no advantage either to itself or the state. On the same principle, the women used to bathe their new-born babes not with water, but with wine, thus making a sort of test of their constitutions. For it is said that epileptic and sickly infants are thrown into convulsions by the strong wine and loose their senses, while the healthy ones are rather tempered by it, like steel, and given a firm habit of body. 
+				<milestone n="3" unit="section"/>Their nurses, too, exercised great care and skill; they reared infants without swaddling-bands, and thus left their limbs and figures free to develop; besides, they taught them to be contented and happy, not dainty about their food, nor fearful of the dark, nor afraid to be left alone, nor given to contemptible peevishness and whimpering. This is the reason why foreigners sometimes bought Spartan nurses for their children. Amycla, for instance, the nurse of the Athenian Alcibiades, is said to have been a Spartan.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Alc. 1.2">Alcibiades, i. 2.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>And yet Alcibiades, as Plato says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Alc. 1 122b">Alcibiades I. p. 122 b.</bibl>
+            </note> had for a tutor, set over him by Pericles, one Zopyrus, who was just a common slave. But Lycurgus would not put the sons of Spartans in charge of purchased or hired tutors, nor was it lawful for every father to rear or train his son as he pleased, but as soon as they were seven years old, Lycurgus ordered them all to be taken by the state and enrolled in companies, where they were put under the same discipline and nurture, and so became accustomed to share one another's sports and studies. 
+				<milestone n="5" unit="section"/>The boy who excelled in judgement and was most courageous in fighting, was made captain of his company; on him the rest all kept their eyes, obeying his orders, and submitting to his punishments, so that their boyish training was a practice of obedience. Besides, the elderly men used to watch their sports, and by ever and anon egging them on to mimic battles and disputes, learned accurately how each one of them was naturally disposed when it was a question of boldness and aggressiveness in their struggles.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>Of reading and writing, they learned only enough to serve their turn; all the rest of their training was calculated to make them obey commands well, endure hardships, and conquer in battle. Therefore, as they grew in age, their bodily exercise was increased; their heads were close-clipped, and they were accustomed to going bare-foot, and to playing for the most part without clothes. When they were twelve years old, they no longer had tunics to wear, received one cloak a year, had hard, dry flesh, and knew little of baths and ointments; only on certain days of the year, and few at that, did they indulge in such amenities. 
+				<milestone n="7" unit="section"/>They slept together, in troops and companies, on pallet-beds which they collected for themselves, breaking off with their hands&mdash;no knives allowed&mdash;the tops of the rushes which grew along the river Eurotas. In the winter-time, they added to the stuff of these pallets the so-called 
+				<q direct="unspecified">lycophon,</q> or <emph>thistle-down</emph>, which was thought to have warmth in it.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the boys reached this age, they were favoured with the society of lovers from among the reputable young men. The elderly men also kept close watch of them, coming more frequently to their places of exercise, and observing their contests of strength and wit, not cursorily, but with the idea that they were all in a sense the fathers and tutors and governors of all the boys. In this way, at every fitting time and in every place, the boy who went wrong had someone to admonish and chastise him. 
+				<milestone n="2" unit="section"/>Nor was this all; one of the noblest and best men of the city was appointed paedonome, or inspector of the boys, and under his directions the boys, in their several companies, put themselves under the command of the most prudent and warlike of the so called Eirens. This was the name given to those who had been for two years out of the class of boys, and Melleirens, or <emph>Would-be Eirens</emph>, was the name for the oldest of the boys. This eiren, then, a youth of twenty years, commands his subordinates in their mimic battles, and in doors makes them serve him at his meals. 
+				<milestone n="3" unit="section"/>He commissions the larger ones to fetch wood, and the smaller ones potherbs. And they steal what they fetch, some of them entering the gardens, and others creeping right slyly and cautiously into the public messes of the men; but if a boy is caught stealing, he is soundly flogged, as a careless and unskilful thief. They steal, too, whatever food they can, and learn to be adept in setting upon people when asleep or off their guard. 
+				<milestone n="4" unit="section"/>But the boy who is caught gets a flogging and must go hungry. For the meals allowed them are scanty, in order that they may take into their own hands the fight against hunger, and so be forced into boldness and cunning.
+			</p>
+         <p>This is the main object of their spare diet; a secondary one is to make them grow tall. For it contributes to height of stature when the vitality is not impeded and hindered by a mass of nourishment which forces it into thickness and width, but ascends of its own lightness, and when the body grows freely and easily. 
+				<milestone n="5" unit="section"/>The same tiling seems also to conduce to beauty of form; for lean and meagre habits yield more readily to the force of articulation, whereas the gross and over-fed are so heavy as to resist it. Just so, we may be sure, women who take physic while they are pregnant, bear children which are lean, it may be, but well-shaped and fine, because the lightness of the parent matter makes it more susceptible to moulding. However, the reason for this I must leave for others to investigate.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The boys make such a serious matter of their stealing, that one of them, as the story goes, who was carrying concealed under his cloak a young fox which he had stolen, suffered the animal to tear out his bowels with its teeth and claws, and died rather than have his theft detected. And even this story gains credence from what their youths now endure, many of whom I have seen expiring under the lash at the altar of Artemis Orthia.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>The eiren, as he reclined after supper, would order one of the boys to sing a song, and to another would put a question requiring a careful and deliberate answer, as, for instance, 
+				<q direct="unspecified">Who is the best man in the city?</q> or, 
+				<q direct="unspecified">What thinkest thou of this man's conduct?</q> In this way the boys were accustomed to pass right judgements and interest themselves at the very outset in the conduct of the citizens. For if one of them was asked who was a good citizen, or who an infamous one, and had no answer to make, he was judged to have a torpid spirit, and one that would not aspire to excellence. 
+				<milestone n="3" unit="section"/>And the answer must not only have reasons and proof given for it, but also be couched in very brief and concise language, and the one who gave a faulty answer was punished with a bite in the thumb from the eiren. Often-times, too, the eiren punished the boys in the presence of the elders and magistrates, thus showing whether his punishments were reasonable and proper or not. While he was punishing them, he suffered no restraint, but after the boys were gone, he was brought to an account if his punishments were harsher than was necessary, or, on the other hand, too mild and gentle.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>The boys' lovers also shared with them in their honour or disgrace; and it is said that one of them was once fined by the magistrates because his favourite boy had let an ungenerous cry escape him while he was fighting. Moreover, though this sort of love was so approved among them that even the maidens found lovers in good and noble women, still, there was no jealous rivalry in it, but those who fixed their affections on the same boys made this rather a foundation for friendship with one another, and persevered in common efforts to make their loved one as noble as possible.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The boys were also taught to use a discourse which combined pungency with grace, and condensed much observation into a few words. His iron money, indeed, Lycurgus made of large weight and small value, as I have observed,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Lyc. 9.1">Chapter ix. 1.</bibl>
+            </note> but the current coin of discourse he adapted to the expression of deep and abundant meaning with simple and brief diction, by contriving that the general habit of silence should make the boys sententious and correct in their answers. For as sexual incontinence generally produces unfruitfulness and sterility, so intemperance in talking makes discourse empty and vapid. 
+				<milestone n="2" unit="section"/>King Agis, accordingly, when a certain Athenian decried the Spartan swords for being so short, and said that jugglers on the stage easily swallowed them, replied: 
+				<q direct="unspecified">And yet we certainly reach our enemies with these daggers.</q> And I observe that although the speech also of the Spartans seems short, yet it certainly reaches the point, and arrests the thought of the listener.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>And indeed Lycurgus himself seems to have been short and sententious in his speech, if we may judge from his recorded sayings; that, for instance, on forms of government, to one who demanded the establishment of democracy in the city: 
+				<q direct="unspecified">Go thou,</q> said he, 
+				<q direct="unspecified">and first establish democracy in thy household.</q> That, again, to one who inquired why he ordained such small and inexpensive sacrifices: 
+				<q direct="unspecified">That we may never omit,</q> said he, 
+				<q direct="unspecified">to honour the gods.</q> 
+				        <milestone n="4" unit="section"/>Again, in the matter of athletic contests, he allowed the citizens to engage only in those where there was no stretching forth of hands.<note resp="ed" place="unspecified" anchored="yes">After the manner of men begging their conquerors to spare their lives.</note> There are also handed down similar answers which he made by letter to his fellow-citizens. When they asked how they could ward off an invasion of enemies, he answered: 
+				<q direct="unspecified">By remaining poor, and by not desiring to be greater the one than the other.</q> And when they asked about fortifying their city, he answered: 
+				<q direct="unspecified">A city will be well fortified which is surrounded by brave men and not by bricks.</q> Now regarding these and similar letters, belief and scepticism are alike difficult.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Of their aversion to long speeches, the following apophthegms are proof. King Leonidas, when a certain one discoursed with him out of all season on matters of great concern, said: 
+				<q direct="unspecified">My friend, the matter urges, but not the time.</q> Charila&uuml;s, the nephew of Lycurgus, when asked why his uncle had made so few laws, answered: 
+				<q direct="unspecified">Men of few words need few laws.</q> 
+				        <milestone n="2" unit="section"/>Archidamidas, when certain ones found fault with Hecataeus the Sophist for saying nothing after being admitted to their public mess, answered: 
+				<q direct="unspecified">He who knows how, knows also when to speak.</q> Instances of the pungent sayings not devoid of grace, of which I spoke,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Lyc. 19.1">Chapter xix. 1.</bibl>
+            </note> are the following. Demaratus, when a troublesome fellow was pestering him with ill-timed questions, and especially with the oft repeated query who was the best of the Spartans, answered at last: 
+				<q direct="unspecified">He who is least like thee.</q> 
+				        <milestone n="3" unit="section"/>And Agis, when certain ones were praising the Eleians for their just and honourable conduct of the Olympic games, said: 
+				<q direct="unspecified">And what great matter is it for the Eleians to practise righteousness one day in five years?</q> And Theopompus, when a stranger kept saying, as he showed him kindness, that in his own city he was called a lover of Sparta, remarked: 
+				<q direct="unspecified">My good Sir, it were better for thee to be called a lover of thine own city.</q> 
+				        <milestone n="4" unit="section"/>And Pleistoanax, the son of Pausanias, when an Athenian orator declared that the Lacedaemonians had no learning, said: 
+				<q direct="unspecified">True, we are indeed the only Hellenes who have learned no evil from you.</q> And Archidamus, when some one asked him how many Spartans there were, replied: 
+				<q direct="unspecified">Enough, good Sir, to keep evil men away.</q>
+			      </p>
+         <p>
+				        <milestone n="5" unit="section"/>And even from their jests it is possible to judge of their character. For it was their wont never to talk at random, and to Jet slip no speech which did not have some thought or other worth serious attention. For instance, when one of them was invited to hear a man imitate the nightingale, he said: 
+				<q direct="unspecified">I have heard the bird herself.</q> And another, on reading the epitaph:&mdash;
+				<quote rend="blockquote">
+					          <l>Tyranny's fires they were trying to quench when panoplied Ares</l>
+					          <l>Slew them; Selinus looked down from her gates on their death,</l>
+				        </quote>said: 
+				<q direct="unspecified">The men deserved to die; they should have let the fires burn out entirely.</q> 
+				        <milestone n="6" unit="section"/>And a youth, when some one promised to give him game-cocks that would die fighting, said, 
+				<q direct="unspecified">Don't do that, but give me some of the kind that kill fighting.</q> Another, seeing men seated on stools in a privy, said: 
+				<q direct="unspecified">May I never sit where I cannot give place to an elder.</q> The character of their apophthegms, then, was such as to justify the remark that love of wisdom rather than love of bodily exercise was the special characteristic of a Spartan.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Nor was their training in music and poetry any less serious a concern than the emulous purity of their speech, nay, their very songs had a stimulus that roused the spirit and awoke enthusiastic and effectual effort; the style of them was simple and unaffected, and their themes were serious and edifying. They were for the most part praises of men who had died for Sparta, calling them blessed and happy; censure of men who had played the coward, picturing their grievous and ill-starred life; and such promises and boasts of valour as befitted the different ages. 
+				<milestone n="2" unit="section"/>Of the last, it may not be amiss to cite one, by way of illustration. They had three choirs at their festivals, corresponding to the three ages, and the choir of old men would sing first:&mdash;
+				<quote rend="blockquote">
+					          <l>We once did deeds of prowess and were strong young men.</l>
+				        </quote>Then the choir of young men would respond:&mdash;
+				<quote rend="blockquote">
+					          <l>We are so now, and if you wish, behold and see.</l>
+				        </quote>And then the third choir, that of the boys, would sing:&mdash;
+				<quote rend="blockquote">
+					          <l>We shall be sometime mightier men by far than both.</l>
+				        </quote>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>In short, if one studies the poetry of Sparta, of which some specimens were still extant in my time, and makes himself familiar with the marching songs which they used, to the accompaniment of the flute, when charging upon their foes, he will conclude that Terpander and Pindar were right in associating valour with music. The former writes thus of the Lacedaemonians:&mdash;
+				<quote rend="blockquote">
+					          <l>Flourish there both the spear of the brave and the Muse's clear message,</l>
+					          <l>Justice, too, walks the broad streets&mdash;.</l>
+				        </quote>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>And Pindar says:&mdash;<note resp="ed" place="unspecified" anchored="yes">Fragment 199, Bergk, Poet. Lyr. Gr. i.4 p. 448.</note>
+				        <quote rend="blockquote">
+					          <l>There are councils of Elders,</l>
+					          <l>And young men's conquering spears,</l>
+					          <l>And dances, the Muse, and joyousness.</l>
+				        </quote>The Spartans are thus shown to be at the same time most musical and most warlike;
+				<quote rend="blockquote">
+					          <l>In equal poise to match the sword hangs the sweet art of the harpist,</l>
+				        </quote>as their poet says. For just before their battles, the king sacrificed to the Muses, reminding his warriors, as it would seem, of their training, and of the firm decisions they had made, in order that they might be prompt to face the dread issue, and might perform such martial deeds as would be worthy of some record.<note resp="ed" place="unspecified" anchored="yes">The Greek of this sentence is obscure, and the translation doubtful.</note>
+			      </p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In time of war, too, they relaxed the severity of the young men's discipline, and permitted them to beautify their hair and ornament their arms and clothing, rejoicing to see them, like horses, prance and neigh for the contest. Therefore they wore their hair long as soon as they ceased to be youths, and particularly in times of danger they took pains to have it glossy and well-combed, remembering a certain saying of Lycurgus, that a fine head of hair made the handsome more comely still, and the ugly more terrible. 
+				<milestone n="2" unit="section"/>Their bodily exercises, too, were less rigorous during their campaigns, and in other ways their young warriors were allowed a regimen which was less curtailed and rigid, so that they were the only men in the world with whom war brought a respite in the training for war. And when at last they were drawn up in battle array and the enemy was at hand, the king sacrificed the customary she-goat, commanded all the warriors to set garlands upon their heads, and ordered the pipers to pipe the strains of the hymn to Castor; 
+				<milestone n="3" unit="section"/>then he himself led off in a marching paean, and it was a sight equally grand and terrifying when they marched in step with the rhythm of the flute, without any gap in their line of battle, and with no confusion in their souls, but calmly and cheerfully moving with the strains of their hymn into the deadly fight. Neither fear nor excessive fury is likely to possess men so disposed, but rather a firm purpose full of hope and courage, believing as they do that Heaven is their ally.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>The king marched against the enemy in close companionship with one who had been crowned victor in the great games. And they tell of a certain Spartan who refused to be bought off from a contest at Olympia by large sums of money, and after a long struggle outwrestled his antagonist. When some one said to him then: 
+				<q direct="unspecified">What advantage, O Spartan, hast thou got from thy victory?</q> he answered, with a smile: 
+				<q direct="unspecified">I shall stand in front of my king when I fight our enemies.</q> 
+				        <milestone n="5" unit="section"/>When they had conquered and routed an enemy, they pursued him far enough to make their victory secure by his flight, and then at once retired, thinking it ignoble and unworthy of a Hellene to hew men to pieces who had given up the fight and abandoned the field. And this was not only a noble and magnanimous policy, but it was also useful. For their antagonists, knowing that they slew those who resisted them, but showed mercy to those who yielded to them, were apt to think flight more advantageous than resistance.
+			</p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Hippias the Sophist says that Lycurgus himself was very well versed in war and took part in many campaigns, and Philostephanus attributes to him the arrangement of the Spartan cavalry by 
+				<q direct="unspecified">oulamoi,</q> explaining that the 
+				<q direct="unspecified">oulamos,</q> as constituted by him, was a troop of fifty horsemen in a square formation. But Demetrius the Phalerean says he engaged in no warlike undertakings, and established his constitution in a time of peace. 
+				<milestone n="2" unit="section"/>And indeed the design of the Olympic truce would seem to bespeak a man of gentleness, and predisposed to peace. And yet there are some who say, as Hermippus reminds us, that at the outset Lycurgus had nothing whatever to do with Iphitus and his enterprise, but happened to come that way by chance, and be a spectator at the games; that he heard behind him, however, what seemed to be a human voice, chiding him and expressing amazement that he did not urge his fellow-citizens to take part in the great festival; and since, on turning round, he did not see the speaker anywhere, he concluded that the voice was from heaven, and therefore betook himself to Iphitus, and assisted him in giving the festival a more notable arrangement and a more enduring basis.
+			</p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The training of the Spartans lasted into the years of full maturity. No man was allowed to live as he pleased, but in their city, as in a military encampment, they always had a prescribed regimen and employment in public service, considering that they belonged entirely to their country and not to themselves, watching over the boys, if no other duty was laid upon them, and either teaching them some useful thing, or learning it themselves from their elders. 
+				<milestone n="2" unit="section"/>For one of the noble and blessed privileges which Lycurgus provided for his fellow-citizens, was abundance of leisure, since he forbade their engaging in any mechanical art whatsoever, and as for money-making, with its laborious efforts to amass wealth, there was no need of it at all, since wealth awakened no envy and brought no honour. 
+				<milestone n="3" unit="section"/>Besides, the Helots tilled their ground for them, and paid them the produce mentioned above.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Lyc. 8.4">Chapter viii. 4.</bibl>
+            </note> Therefore it was that one of them who was sojourning at Athens when the courts were in session, and learned that a certain Athenian had been fined for idleness and was going home in great distress of mind and attended on his way by sympathetic and sorrowing friends, begged the bystanders to show him the man who had been fined for living like a freeman. 
+				<milestone n="4" unit="section"/>So servile a thing did they regard the devotion to the mechanical arts and to money-making. And law-suits, of course, vanished from among them with their gold and silver coinage, for they knew neither greed nor want, but equality in well-being was established there, and easy living based on simple wants. Choral dances and feasts and festivals and hunting and bodily exercise and social converse occupied their whole time, when they were not on a military expedition.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Those who were under thirty years of age did not go into the market-place at all, but had their household wants supplied at the hands of their kinsfolk and lovers. And it was disreputable for the elderly men to be continually seen loitering there, instead of spending the greater part of the day in the places of exercise that are called 
+				<q direct="unspecified">leschai.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Places where men assembled for conversation.</note>  For if they gathered in these, they spent their time suitably with one another, making no allusions to the problems of money-making or of exchange, 
+				<milestone n="2" unit="section"/>nay, they were chiefly occupied there in praising some noble action or censuring some base one, with jesting and laughter which made the path to instruction and correction easy and natural. For not even Lycurgus himself was immoderately severe; indeed, Sosibius tells us that he actually dedicated a little statue of Laughter, and introduced seasonable jesting into their drinking parties and like diversions, to sweeten, as it were, their hardships and meagre fare.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>In a word, he trained his fellow-citizens to have neither the wish nor the ability to live for themselves; but like bees they were to make themselves always integral parts of the whole community, clustering together about their leader, almost beside themselves with enthusiasm and noble ambition, and to belong wholly to their country. This idea can be traced also in some of their utterances. 
+				<milestone n="4" unit="section"/>For instance, Paedaretus, when he failed to be chosen among the three hundred best men, went away with a very glad countenance, as if rejoicing that the city had three hundred better men than himself. And again, Polycratidas, one of an embassy to the generals of the Persian king, on being asked by them whether the embassy was there in a private or a public capacity, replied: 
+				<q direct="unspecified">If we succeed, in a public capacity; if we fail, in a private.</q> 
+				        <milestone n="5" unit="section"/>Again, Argileonis, the mother of Brasidas, when some Amphipolitans who had come to Sparta paid her a visit, asked them if Brasidas had died nobly and in a manner worthy of Sparta. Then they greatly extolled the man and said that Sparta had not such another, to which she answered: 
+				<q direct="unspecified">Say not so, Strangers; Brasidas was noble and brave, but Sparta has many better men than he.</q>
+			      </p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The senators were at first appointed by Lycurgus himself, as I have said,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Lyc. 5.7">Chapter v. 7. f.</bibl>
+            </note> from those who shared his counsels; but afterwards he arranged that any vacancy caused by death should be filled by the man elected as most deserving out of those above sixty years of age. And of all the contests in the world this would seem to have been the greatest and the most hotly disputed. For it was not the swiftest of the swift, nor the strongest of the strong, but the best and wisest of the good and wise who was to be elected, and have for the rest of his life, as a victor's prize for excellence, what I may call the supreme power in the state, lord as he was of life and death, honour and dishonour, and all the greatest issues of life. 
+				<milestone n="2" unit="section"/>The election was made in the following manner. An assembly of the people having been convened, chosen men were shut up in a room near by so that they could neither see nor be seen, but only hear the shouts of the assembly. For as in other matters, so here, the cries of the assembly decided between the competitors. These did not appear in a body, but each one was introduced separately, as the lot fell, and passed silently through the assembly. 
+				<milestone n="3" unit="section"/>Then the secluded judges, who had writing-tablets with them, recorded in each case the loudness of the shouting, not knowing for whom it was given, but only that he was introduced first, second, or third, and so on. Whoever was greeted with the most and loudest shouting, him they declared elected. The victor then set a wreath upon his head and visited in order the temples of the gods. He was followed by great numbers of young men, who praised and extolled him, as well as by many women, who celebrated his excellence in songs, and dwelt on the happiness of his life. 
+				<milestone n="4" unit="section"/>Each of his relations and friends set a repast before him, saying: 
+				<q direct="unspecified">The city honours thee with this table.</q> When he had finished his circuit, he went off to his mess-table. Here he fared in other ways as usual, but a second portion of food was set before him, which he took and put by. After the supper was over, the women who were related to him being now assembled at the door of the mess-hall, he called to him the one whom he most esteemed and gave her the portion he had saved, saying that he had received it as a meed of excellence, and as such gave it to her. Upon this, she too was lauded by the rest of the women and escorted by them to her home.
+			</p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Furthermore, Lycurgus made most excellent regulations in the matter of their burials. To begin with, he did away with all superstitious terror by allowing them to bury their dead within the city, and to have memorials of them near the sacred places, thus making the youth familiar with such sights and accustomed to them, so that they were not confounded by them, and had no horror of death as polluting those who touched a corpse or walked among graves. In the second place, he permitted nothing to be buried with the dead; they simply covered the body with a scarlet robe and olive leaves when they laid it away. 
+				<milestone n="2" unit="section"/>To inscribe the name of the dead upon the tomb was not allowed, unless it were that of a man who had fallen in war, or that of a woman who had died in sacred office. He set apart only a short time for mourning, eleven days; on the twelfth, they were to sacrifice to Demeter and cease their sorrowing. Indeed, nothing was left untouched and neglected, but with all the necessary details of life he blended some commendation of virtue or rebuke of vice; and he filled the city full of good examples, whose continual presence and society must of necessity exercise a controlling and moulding influence upon those who were walking the path of honour.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>This was the reason why he did not permit them to live abroad at their pleasure and wander in strange lands, assuming foreign habits and imitating the lives of peoples who were without training and lived under different forms of government. Nay more, he actually drove away from the city the multitudes which streamed in there for no useful purpose, not because he feared they might become imitators of his form of government and learn useful lessons in virtue, as Thucydides says,<note resp="ed" place="unspecified" anchored="yes">In the Funeral Oration of Pericles,<bibl n="Thuc. 2.39.1"> ii. 39, 1.</bibl>
+            </note> but rather that they might not become in any wise teachers of evil. For along with strange people, strange doctrines must come in; 
+				<milestone n="4" unit="section"/>and novel doctrines bring novel decisions, from which there must arise many feelings and resolutions which destroy the harmony of the existing political order. Therefore he thought it more necessary to keep bad manners and customs from invading and filling the city than it was to keep out infectious diseases.
+			</p>
+         <p>
+				        <milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now in all this there is no trace of injustice or arrogance, which some attribute to the laws of Lycurgus, declaring them efficacious in producing valour, but defective in producing righteousness. The so-called 
+				<q direct="unspecified">krupteia,</q> or <emph>secret service</emph>, of the Spartans, if this be really one of the institutions of Lycurgus, as Aristotle says it was, may have given Plato also<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Laws 630d">Laws, p. 630 d.</bibl>
+            </note> this opinion of the man and his civil polity. 
+				<milestone n="2" unit="section"/>This secret service was of the following nature. The magistrates from time to time sent out into the country at large the most discreet of the young warriors, equipped only with daggers and such supplies as were necessary. In the day time they scattered into obscure and out of the way places, where they hid themselves and lay quiet; but in the night they came down into the highways and killed every Helot whom they caught. 
+				<milestone n="3" unit="section"/>Oftentimes, too, they actually traversed the fields where Helots were working and slew the sturdiest and best of them. So, too, Thucydides, in his history of the Peloponnesian war,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 4.80">iv. 80.</bibl>
+            </note> tells us that the Helots who had been judged by the Spartans to be superior in bravery, set wreaths upon their heads in token of their emancipation, and visited the temples of the gods in procession, but a little while afterwards all disappeared, more than two thousand of them, in such a way that no man was able to say, either then or afterwards, how they came by their deaths. 
+				<milestone n="4" unit="section"/>And Aristotle in particular says also that the ephors, as soon as they came into office, made formal declaration of war upon the Helots, in order that there might be no impiety in slaying them.And in other ways also they were harsh and cruel to the Helots. For instance, they would force them to drink too much strong wine, and then introduce them into their public messes, to show the young men what a thing drunkenness was. They also ordered them to sing songs and dance dances that were low and ridiculous, but to let the nobler kind alone. 
+				<milestone n="5" unit="section"/>And therefore in later times, they say, when the Thebans made their expedition into Laconia,<note resp="ed" place="unspecified" anchored="yes">Under Epaminondas, 369 B.C.</note> they ordered the Helots whom they captured to sing the songs of Terpander, Alcman, and Spendon the Spartan; but they declined to do so, on the plea that their masters did not allow it, thus proving the correctness of the saying: 
+				<q direct="unspecified">In Sparta the freeman is more a freeman than anywhere else in the world, and the slave more a slave.</q> 
+				        <milestone n="6" unit="section"/>However, in my opinion, such cruelties were first practised by the Spartans in later times, particularly after the great earthquake,<note resp="ed" place="unspecified" anchored="yes">464 B.C. Cf. Plutarch's <bibl n="Plut. Cim. 16">Cimon, xvi.</bibl>
+            </note> when the Helots and Messenians together rose up against them, wrought the widest devastation in their territory, and brought their city into the greatest peril. I certainly cannot ascribe to Lycurgus so abominable a measure as the 
+				<q direct="unspecified">krupteia,</q> judging of his character from his mildness and justice in all other instances. To this the voice of the god also bore witness.<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Lyc. 5.3">chapter v. 3.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When his principal institutions were at last firmly fixed in the customs of the people, and his civil polity had sufficient growth and strength to support and preserve itself, just as Plato says<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Tim. 37c">Timaeus, p. 37 c.</bibl>
+            </note> that Deity was rejoiced to see His universe come into being and make its first motion, so Lycurgus was filled with joyful satisfaction in the magnitude and beauty of his system of laws, now that it was in operation and moving along its pathway. He therefore ardently desired, so far as human forethought could accomplish the task, to make it immortal, and let it go down unchanged to future ages. 
+				<milestone n="2" unit="section"/>Accordingly, he assembled the whole people, and told them that the provisions already made were sufficiently adapted to promote the prosperity and virtue of the state, but that something of the greatest weight and importance remained, which he could not lay before them until he had consulted the god at Delphi. They must therefore abide by the established laws and make no change nor alteration in them until he came back from Delphi in person; then he would do whatsoever the god thought best. 
+				<milestone n="3" unit="section"/>When they all agreed to this and bade him set out on his journey, he exacted an oath from the kings and the senators, and afterwards from the rest of the citizens, that they would abide by the established polity and observe it until Lycurgus should come back; then he set out for Delphi.
+			</p>
+         <p>On reaching the oracle, he sacrificed to the god, and asked if the laws which he had established were good, and sufficient to promote a city's prosperity and virtue. 
+				<milestone n="4" unit="section"/>Apollo answered that the laws which he had established were good, and that the city would continue to be held in highest honour while it kept to the polity of Lycurgus. This oracle Lycurgus wrote down, and sent it to Sparta. But for his own part, he sacrificed again to the god, took affectionate leave of his friends and of his son, and resolved never to release his fellow-citizens from their oath, but of his own accord to put an end to his life where he was. He had reached an age in which life was not yet a burden, and death no longer a terror; when he and his friends, moreover, appeared to be sufficiently prosperous and happy. 
+				<milestone n="5" unit="section"/>He therefore abstained from food till he died, considering that even the death of a statesman should be of service to the state, and the ending of his life not void of effect, but recognized as a virtuous deed. As for himself, since he had wrought out fully the noblest tasks, the end of life would actually be a consummation of his good fortune and happiness; and as for his fellow-citizens, he would make his death the guardian, as it were, of all the blessings he had secured for them during his life, since they had sworn to observe and maintain his polity until he should return. 
+				<milestone n="6" unit="section"/>And he was not deceived in his expectations, so long did his city have the first rank in Hellas for good government and reputation, observing as she did for five hundred years the laws of Lycurgus, in which no one of the fourteen kings who followed him made any change, down to Agis the son of Archidamus. For the institution of the ephors did not weaken, but rather strengthened the civil polity, and though it was thought to have been done in the interests of the people, it really made the aristocracy more powerful.
+			</p>
+         <p>
+				        <milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But in the reign or Agis, gold and silver money first flowed into Sparta, and with money, greed and a desire for wealth prevailed through the agency of Lysander, who, though incorruptible himself, filled his country with the love of riches and with luxury, by bringing home gold and silver from the war, and thus subverting the laws of Lycurgus. 
+				<milestone n="2" unit="section"/>While these remained in force, Sparta led the life, not of a city under a constitution, but of an individual man under training and full of wisdom. Nay rather, as the poets weave their tales of Heracles, how with his club and lion's skin he traversed the world chastising lawless and savage tyrants, so we may say that Sparta, simply with the dispatch-staff and cloak of her envoys, kept Hellas in willing and glad obedience, put down illegal oligarchies and tyrannies in the different states, arbitrated wars, and quelled seditions, often without so much as moving a single shield, but merely sending one ambassador, whose commands all at once obeyed, just as bees, when their leader appears, swarm together and array themselves about him. Such a surplus fund of good government and justice did the city enjoy.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Wherefore, I for one am amazed at those who declare that the Lacedaemonians knew how to obey, but did not understand how to command, and quote with approval the story of King Theopompus, who, when some one said that Sparta was safe and secure because her kings knew how to command, replied: 
+				<q direct="unspecified">Nay, rather because her citizens know how to obey.</q> 
+				        <milestone n="4" unit="section"/>For men will not consent to obey those who have not the ability to rule, but obedience is a lesson to be learned from a commander. For a good leader makes good followers, and just as the final attainment of the art of horsemanship is to make a horse gentle and tractable, so it is the task of the science of government to implant obedience in men. And the Lacedaemonians implanted in the rest of the Greeks not only a willingness to obey, but a desire to be their followers and subjects. 
+				<milestone n="5" unit="section"/>People did not send requests to them for ships, or money, or hoplites, but for a single Spartan commander; and when they got him, they treated him with honour and reverence, as the Sicilians treated Gylippus; the Chalcidians, Brasidas; and all the Greeks resident in Asia, Lysander, Callicratidas, and Agesila&uuml;s. These men, wherever they came, were styled regulators and chasteners of peoples and magistrates, and the city of Sparta from which they came was regarded as a teacher of well-ordered private life and settled civil polity. 
+				<milestone n="6" unit="section"/>To this position of Sparta Stratonicus would seem to have mockingly alluded when, in jest, he proposed a law that the Athenians should conduct mysteries and processions, and that the Eleians should preside at games, since herein lay their special excellence, but that the Lacedaemonians should be cudgelled if the others did amiss.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lyc. 18.4">chapter xviii. 4.</bibl>
+            </note> This was a joke; but Antisthenes the Socratic, when he saw the Thebans in high feather after the battle of Leuctra,<note resp="ed" place="unspecified" anchored="yes">In 371 B.C., when the Thebans under Epaminondas broke the supremacy of Sparta.</note> said in all seriousness that they were just like little boys strutting about because they had thrashed their tutor.
+			</p>
+         <p>
+				        <milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was not, however, the chief design of Lycurgus then to leave his city in command over a great many others, but he thought that the happiness of an entire city, like that of a single individual, depended on the prevalence of virtue and concord within its own borders. The aim, therefore, of all his arrangements and adjustments was to make his people free-minded, self-sufficing, and moderate in all their ways, and to keep them so as long as possible. 
+				<milestone n="2" unit="section"/>His design for a civil polity was adopted by Plato, Diogenes, Zeno, and by all those who have won approval for their treatises on this subject, although they left behind them only writings and words. Lycurgus, on the other hand, produced not writings and words, but an actual polity which was beyond imitation, and because he gave, to those who maintain that the much talked of natural disposition to wisdom exists only in theory, an example of an entire city given to the love of wisdom, his fame rightly transcended that of all who ever founded polities among the Greeks. 
+				<milestone n="3" unit="section"/>Therefore Aristotle says that the honours paid him in Sparta were less than he deserved, although he enjoys the highest honours there. For he has a temple, and sacrifices are offered to him yearly as to a god. It is also said that when his remains were brought home, his tomb was struck by lightning, and that this hardly happened to any other eminent man after him except Euripides, who died and was buried at Arethusa in Macedonia. The lovers of Euripides therefore regard it as a great testimony in his favour that he alone experienced after death what had earlier befallen a man who was most holy and beloved of the gods.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Some say that Lycurgus died in Cirrha; Apollothemis, that he was brought to Elis and died there; Timaeus and Aristoxenus, that he ended his days in Crete; and Aristoxenus adds that his tomb is shown by the Cretans in the district of Pergamus, near the public highway. It is also said that he left an only son, Antiorus, on whose death without issue, the family became extinct. 
+				<milestone n="5" unit="section"/>His friends and relations, however, instituted a periodical assembly in his memory, which continued to be held for many ages, and they called the days on which they came together, Lycurgidae. Aristocrates the son of Hipparchus says that the friends of Lycurgus, after his death in Crete, burned his body and scattered the ashes into the sea, and that this was done at his request, and because he wished to prevent his remains from ever being carried to Sparta, lest the people there should change his polity, on the plea that he had come back, and that they were therefore released from their oaths. This, then, is what I have to say about Lycurgus.
+			</p>
+      </body>
+   </text>
+</TEI.2>

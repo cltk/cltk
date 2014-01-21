@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Art." type="work">Artaxerxes</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 73Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Art."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1926</date>
+                  </imprint>
+                  <biblScope type="volume">11</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991141</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>ARTAXERXES</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The first Artaxerxes,<note resp="ed" place="unspecified" anchored="yes">Artaxerxes I. 465-425 B.C. The parallel form Artaxerxes has become fixed in English.</note> preeminent among the kings of Persia for gentleness and magnanimity, was surnamed Longimanus, because his right hand was longer than his left, and was the son of Xerxes; the second Artaxerxes,<note resp="ed" place="unspecified" anchored="yes">Artaxerxes II. 404-362 B.C.</note> the subject of this Life, was surnamed Memor, or <emph>Mindful</emph>, and was the grandson of the first by his daughter Parysatis. For Dareius<note resp="ed" place="unspecified" anchored="yes">Dareius II. 424-404 B.C.</note> and Parysatis had four sons&mdash;an eldest, Artaxerxes, and next to him Cyrus, and after these Ostanes and Oxathres. 
+				<milestone n="2" unit="section"/>Cyrus took his name from Cyrus of old,<note resp="ed" place="unspecified" anchored="yes">Cyrus the Elder, 559-529 B.C.</note> who, as they say, was named from the sun; for 
+				<q direct="unspecified">Cyrus</q> is the Persian word for <emph>sun</emph>. Artaxerxes was at first called Arsicas; although Deinon gives the name as Oarses. But it is unlikely that Ctesias, even if be has put into his work a perfect farrago of extravagant and incredible tales, should be ignorant of the name of the king at whose court he lived as physician to the king's wife and mother and children.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now Cyrus, from his very earliest years, was high-strung and impetuous, but Artaxerxes seemed gentler in everything and naturally milder in his impulses. His wife, a beautiful and excellent woman, he married in compliance with his parents' bidding, and kept her in defiance of them; for after the king had put her brother to death, he wished to kill her also. 
+				<milestone n="2" unit="section"/>But Arsicas, throwing himself at his mother's feet and supplicating her with many tears, at last obtained her promise that his wife should neither be killed nor separated from him. But the mother had more love for Cyrus, and wished that he should succeed to the throne. Therefore, when his father was now lying sick, Cyrus was summoned home from the sea-coast, and went up in full hope that by his mother's efforts he had been designated as successor to the kingdom. 
+				<milestone n="3" unit="section"/>For Parysatis had a specious argument (the same that Xerxes the Elder employed on the advice of Demaratus<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Hdt. 7.3">Herodotus, vii. 3.</bibl>
+            </note>), to the effect that she had borne Arsicas to Dareius when he was in private station, but Cyrus when he was a king. However, she could not prevail, but the elder son was declared king, under the new name of Artaxerxes, while Cyrus remained satrap of Lydia and commander of the forces in the maritime provinces.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 1.1.1">Xenophon, <title>Anab.</title> i. 1, 1 ff.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>A little while after the death of Dareius, the new king made an expedition to Pasargadae, that he might receive the royal initiation at the hands of the Persian priests. Here there is a sanctuary of a warlike goddess whom one might conjecture to be Athena. 
+				<milestone n="2" unit="section"/>Into this sanctuary the candidate for initiation must pass, and after laying aside his own proper robe, must put on that which Cyrus the Elder used to wear before he became king then he must eat of a cake of figs, chew some turpentine-wood, and drink a cup of sour milk. Whatever else is done besides this is unknown to outsiders. 
+				<milestone n="3" unit="section"/>As Artaxerxes was about to perform these rites, Tissaphernes brought to him a certain priest who had conducted Cyrus through the customary discipline for boys, had taught him the wisdom of the Magi, and was thought to be more distressed than any one in Persia because his pupil had not been declared king. For this reason, too, his accusation against Cyrus won credence. 
+				<milestone n="4" unit="section"/>And he accused him of planning to lie in wait for the king in the sanctuary until he should put off his garment, and then to fall upon him and kill him. Some say that Cyrus was arrested in consequence of this false charge, others that he actually made his way into the sanctuary and hid himself there, and was delivered into custody by the priest. 
+				<milestone n="5" unit="section"/>But now, as he was about to be put to death, his mother clasped him in her arms, twined her tresses about him, pressed his neck against her own, and by much lamentation and entreaty prevailed upon the king to spare him, and sent him back to the sea-coast. Here he was not satisfied with the office assigned to him, nor mindful of his release, but only of his arrest; and his anger made him more eager than before to secure the kingdom.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Some say that he revolted from the king because his allowance did not suffice for his daily meals, which is absurd. For had no other resource been his, still, his mother was resource enough, who gave freely from her own wealth all that he wished to take and use. And that he had wealth is proved by the mercenary troops that were maintained for him in many places by his friends and connections, as Xenophon tells us.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Anab. 1.1.6">Anab. i. 1, 6-11.</bibl>
+            </note> For he did not bring these together into one body, since he was still trying to conceal his preparations, but in one place and another, and on many pretexts, he kept recruiting-agents. 
+				<milestone n="2" unit="section"/>And as for the king's suspicions, his mother, who was at court, tried to remove them, and Cyrus himself would always write in a submissive vein, sometimes asking favours from him, and sometimes making countercharges against Tissaphernes as if his eager contention were against him.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>There was, too, a certain dilatoriness in the nature of the king, which most people took for clemency. Moreover, in the beginning he appeared to be altogether emulous of the gentleness of the Artaxerxes whose name he bore, showing himself very agreeable in intercourse, and bestowing greater honours and favours than were really deserved, while from all his punishments he took away the element of insult or vindictive pleasure, and in his acceptance and bestowal of favours appeared no less gracious and kindly to the givers than to the recipients. 
+				<milestone n="4" unit="section"/>For there was no gift so small that he did not accept it with alacrity; indeed, when a certain Omisus brought him a single pomegranate of surpassing size, he said: 
+				<q direct="unspecified">By Mithra, this man would speedily make a city great instead of small were he entrusted with it.</q>
+			      </p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Once when he was on a journey and various people were presenting him with various things, a labouring man, who could find nothing else at the moment, ran to the river, and, taking some of the water in his hands, offered it to him; at which Artaxerxes was so pleased that he sent him a goblet of gold and a thousand darics. To Eucleidas the Lacedaemonian, who would often say bold and impudent things to him, he sent this word by his officer of the guard: 
+				<q direct="unspecified">It is in thy power to say what thou pleasest, but it is in mine both to say and to do.</q> 
+				        <milestone n="2" unit="section"/>Again, when he was hunting once and Teribazus pointed out that the king's coat was rent, he asked him what was to be done. And when Teribazus replied, 
+				<q direct="unspecified">Put on another for thyself, but give this one to me,</q> the king did so, saying, 
+				<q direct="unspecified">I give this to thee, Teribazus, but I forbid thee to wear it.</q> Teribazus gave no heed to this command (being not a bad man, but rather light-headed and witless), and at once put on the king's coat, and decked himself with golden necklaces and women's ornaments of royal splendour. Everybody was indignant at this (for it was a forbidden thing); but the king merely laughed, and said: 
+				<q direct="unspecified">I permit thee to wear the trinkets as a woman, and the robe as a madman.</q> 
+				        <milestone n="3" unit="section"/>Again, no one shared the table of a Persian king except his mother or his wedded wife, the wife sitting below him, the mother above him; but Artaxerxes invited to the same table with him his brothers Ostanes and Oxathres, although they were his juniors. But what gratified the Persians most of all was the sight of his wife Stateira's carriage, which always appeared with its curtains up, and thus permitted the women of the people to approach and greet the queen. This made her beloved of the common folk.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Nevertheless, restless and factious men thought that affairs demanded Cyrus, a man who had a brilliant spirit, surpassing skill in war, and great love for his friends; and that the magnitude of the empire required a king of lofty purpose and ambition. 
+				<milestone n="2" unit="section"/>Accordingly, Cyrus relied quite as much upon the people of the interior as upon those of his own province and command, when he began the war. He also wrote to the Lacedaemonians, inviting them to aid him and send him men, and promising that he would give to those who came, if they were footmen, horses; if they were horsemen, chariots and pairs; if they had farms, he would give them villages; if they had villages, cities; and the pay of the soldiers should not be counted, but measured out. 
+				<milestone n="3" unit="section"/>Moreover, along with much high-sounding talk about himself, he said he carried a sturdier heart than his brother, was more of a philosopher, better versed in the wisdom of the Magi, and could drink and carry more wine than he. His brother, he said, was too effeminate and cowardly either to sit his horse in a hunt, or his throne in a time of peril. The Lacedaemonians, accordingly, sent a dispatch-roll to Clearchus ordering him to give Cyrus every assistance.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 1.1.9">Xenophon, <title>Anab.</title> i. 1, 9</bibl>; <bibl n="Xen. Anab. 1.2.21">2, 21</bibl>; <bibl n="Xen. Anab. 1.4.3">4, 3.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>So Cyrus marched up against the king with a large force of Barbarians and nearly thirteen thousand Greek mercenaries,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 1.7.10">Xenophon, <title>Anab.</title> i. 7, 10</bibl>, where the force of Barbarians is said to have numbered one hundred thousand.</note> alleging one pretext after another for his expedition. But the real object of it was not long concealed, for Tissaphernes went in person to the king and informed him of it. Then there was a great commotion at the court, Parysatis being most blamed for the war, and her friends undergoing suspicion and accusation. 
+				<milestone n="5" unit="section"/>And above all was she vexed by Stateira, who was greatly distressed at the war, and kept crying: 
+				<q direct="unspecified">Where now are those pledges of thine? And where are the entreaties by which thou didst rescue the man who had plotted against the life of his brother, only to involve us in war and calamity?</q> Therefore Parysatis hated Stateira, and being naturally of a harsh temper and savage in her wrath and resentment, she plotted to kill her. 
+				<milestone n="6" unit="section"/>Deinon says that her plot was carried out during the war. Ctesias, however, says that it was accomplished afterwards, and neither is it likely that he was ignorant of the time since he was at the scene of action, nor had he any occasion, in his narrative of the deed, to change the time of it on purpose, however often his story turns aside from the truth into fable and romance. I shall therefore give the event the place which he has assigned to it.<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Art. 19.1">chap. xix.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As Cyrus proceeded on his march, rumours and reports kept coming to his ears that the king had decided not to give battle at once, and was not desirous of coming to close quarters with him, but rather of waiting in Persia until his forces should assemble there from all parts. For he had run a trench, ten fathoms in width and as many in depth, four hundred furlongs through the plain; and yet he allowed Cyrus to cross this and to come within a short distance of Babylon itself.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 1.7.14">Xenophon, <title>Anab.</title> i. 7, 14-17.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>And it was Teribazus, as we are told, who first plucked up courage to tell the king that he ought not to shun a battle, nor to retire from Media and Babylon, as well as Susa, and hide himself in Persia, when he had a force many times as numerous as that of the enemy, and countless satraps and generals who surpassed Cyrus in wisdom and military skill. The king therefore determined to fight the issue out as soon as possible.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>So, to begin with, by his sudden appearance with an army of nine hundred thousand men in brilliant array, he so terrified and confounded the enemy, who were marching along in loose order and without arms because of their boldness and contempt for the king, that Cyrus could with difficulty bring them into battle array amid much tumult and shouting; and again, by leading his forces up slowly and in silence, he filled the Greeks with amazement at his good discipline, since they had expected in so vast a host random shouting, and leaping, with great confusion and dissipation of their lines. 
+				<milestone n="4" unit="section"/>Besides this, he did well to draw up in front of his own line, and over against the Greeks, the mightiest of his scythe-bearing chariots, in order that by the force of their charge they might cut to pieces the ranks of the Greeks before they had come to close quarters.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, since many writers have reported to us this battle, and since Xenophon<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Anab. 1.8">
+                  <title>Anab.</title> i. 8.</bibl>
+            </note> brings it all but before our eyes, and by the vigour of his description makes his reader always a participant in the emotions and perils of the struggle, as though it belonged, not to the past, but to the present, it would be folly to describe it again, except so far as he has passed over things worthy of mention. 
+				<milestone n="2" unit="section"/>The place, then, where the armies were drawn up, is called Cunaxa, and it is five hundred furlongs distant from Babylon. And we are told that Cyrus, before the battle, when Clearchus besought him to remain behind the combatants and not risk his life, replied: 
+				<q direct="unspecified">What sayest thou, Clearchus? Dost thou bid me, who am reaching out for a kingdom, to be unworthy of a kingdom?</q> 
+				        <milestone n="3" unit="section"/>It was a great mistake for Cyrus to plunge headlong into the midst of the fray, instead of trying to avoid its dangers; but it was no less a mistake, nay, even a greater one, for Clearchus to refuse to array his Greeks over against the king, and to keep his right wing close to the river, that he might not be surrounded. For if he sought safety above everything else and made it his chief object to avoid losses, it had been best for him to stay at home. 
+				<milestone n="4" unit="section"/>But he had marched ten thousand furlongs up from the sea-coast under arms, with no compulsion upon him, but in order that he might place Cyrus upon the royal throne; and then, in looking about for a place and position which would enable him, not to save his leader and employer, but to fight safely and as he pleased, he was like one who, through fear of instant peril, had cast aside the plans made for general success and abandoned the object of the expedition. 
+				<milestone n="5" unit="section"/>For had the Greeks charged upon the forces arrayed about the king, not a man of them would have stood his ground; and had these been routed and the king either slain or put to flight, Cyrus would have won by his victory, not only safety, but a kingdom. This is clear from the course of the action. Therefore the caution of Clearchus rather than the temerity of Cyrus must be held responsible for the ruin of Cyrus and his cause. 
+				<milestone n="6" unit="section"/>For if the king himself had sought out a place to array the Greeks in which their attack would be least injurious to him, he could have found no other than that which was most remote from himself and his immediate following, since he himself did not know that his forces had been defeated there, and Cyrus could take no advantage at all of the victory of Clearchus, because he was cut down too soon. 
+				<milestone n="7" unit="section"/>And yet Cyrus well knew what was for the best, and ordered Clearchus to take his position accordingly in the centre. But Clearchus, after telling Cyrus he would see to it that the best was done, ruined everything.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For the Greeks were victorious to their hearts' content over the Barbarians, and went forward a very great distance in pursuit of them; but Cyrus, riding a horse that was high-bred, but fierce and hard to guide (his name was Pasacas, as Ctesias tells us), was met in full course by Artagerses, commander of the Cadusians, who cried with a loud voice: 
+				<milestone n="2" unit="section"/>
+				        <q direct="unspecified">O thou who disgracest the name of Cyrus, that noblest name among the Persians, thou most unjust and senseless of men, thou art come with evil Greeks on an evil journey after the good things of the Persians, and thou hopest to slay thine own brother and thy master, who hath a million servants that are better men than thou. And thou shalt at once have proof of this; for thou shalt lose thine own head here before thou hast seen the face of the king.</q> 
+				        <milestone n="3" unit="section"/>With these words he hurled his spear at Cyrus. But the breastplate of Cyrus stoutly resisted, and its wearer was not wounded, though he reeled under the shock of the mighty blow. Then, as Artagerses turned his horse away, Cyrus hurled his spear and hit him, and drove its head through his neck past the collar-bone.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Thus Artagerses died at the hands of Cyrus, as nearly all writers are agreed in saying; but as regards the death of Cyrus himself, since Xenophon makes simple and brief mention of it,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Anab. 1.8.26">
+                  <title>Anab.</title>, I. viii. 26 f.</bibl>
+            </note> because he was not present himself when it happened, there is no objection perhaps to my recounting, first what Deinon says about it, and then what Ctesias says.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, Deinon says that after Artagerses had fallen, Cyrus charged furiously into those drawn up in front of the king, and wounded the king's horse, and that the king fell to the ground; but Teribazus quickly mounted him upon another horse, saying, 
+				<q direct="unspecified">O king, remember this day, for it deserves not to be forgotten</q>; whereupon Cyrus again plunged in and dismounted Artaxerxes. 
+				<milestone n="2" unit="section"/>But at his third assault, the king, being enraged, and saying to those who were with him that death was better, rode out against Cyrus, who was rashly and impetuously rushing upon the missiles of his opponents. The king himself hit him with a spear, and he was hit by the attendants of the king. 
+				<milestone n="3" unit="section"/>Thus Cyrus fell, as some say, by a wound at the hands of the king, but as sundry others have it, from the blow of a Carian, who was rewarded by the king for this exploit with the privilege of always carrying a golden cock upon his spear in front of the line during an expedition; for the Persians call the Carians themselves cocks, because of the crests with which they adorn their helmets.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But the narrative of Ctesias, to give it in a much-abbreviated form, is something as follows. After he had slain Artagerses, Cyrus rode against the king himself, and the king against him, both without a word. But Ariaeus, the friend of Cyrus, was beforehand in hurling his spear at the king, though he did not wound him. And the king, casting his spear at Cyrus, did not hit him, but struck and killed Satiphernes, a trusted friend of Cyrus and a man of noble birth. 
+				<milestone n="2" unit="section"/>But Cyrus threw his spear at the king and wounded him in the breast through the cuirass, so that the weapon sank in two fingers deep, and the king fell from his horse with the blow. Amid the ensuing confusion and flight of his immediate followers, the king rose to his feet, and with a few companions among whom also was Ctesias, took possession of a certain hill near by and remained there quietly; but Cyrus, enveloped by his enemies, was borne on a long distance by his spirited horse, and since it was now dark, his enemies did not recognize him and his friends could not find him. 
+				<milestone n="3" unit="section"/>But lifted up by his victory, and full of impetuosity and confidence, he rode on through his foes, crying out, 
+				<q direct="unspecified">Clear the way, ye beggars!</q> Thus he cried out many times, in Persian, and they cleared the way, and made him their obeisance. But the turban of Cyrus fell from his head, and a young Persian, Mithridates by name, running to his side, smote him with his spear in the temple, near the eye, not knowing who he was. 
+				<milestone n="4" unit="section"/>Much blood gushed from the wound, and Cyrus, stunned and giddy, fell to the ground. His horse escaped and wandered about the field, but the horse's saddle-cloth, which had slipped off, was captured by the attendant of the man who had struck Cyrus, and it was soaked with blood. Then, as Cyrus was slowly and with difficulty recovering from the blow, a few eunuchs who were at hand tried to put him upon another horse and bring him to a place of safety. 
+				<milestone n="5" unit="section"/>But since he was unable to ride and desired to go on his own feet, they supported him and led him along. His head was heavy and he reeled to and fro, but he thought he was victorious because he heard the fugitives saluting Cyrus as king and begging him to spare them. Meanwhile some Caunians&mdash;low and poverty-stricken men who followed the king's army to do menial service&mdash;chanced to join the party about Cyrus, supposing them to be friends. But when at last they perceived that the tunics over their breastplates were of a purple colour, whereas all the king's people wore white ones, they knew that they were enemies. Accordingly, one of them, not knowing who Cyrus was, ventured to smite him from behind with his spear. The vein in the ham of Cyrus was ruptured and he fell, and at the same time struck his wounded temple against a stone, and so died. Such is the story of Ctesias, in which, as with a blunt sword, he is long in killing Cyrus, but kills him at last.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Cyrus was now dead, Artasyras, the king's Eye,<note resp="ed" place="unspecified" anchored="yes">A confidential officer of high rank, a Superintendent of the Realm.</note> chanced to pass by on horseback, and recognizing the eunuchs as they lamented, he asked the trustiest of them, 
+				<q direct="unspecified">Who is this man, Pariscas, by whom thou sittest mourning?</q> And Pariscas answered: 
+				<q direct="unspecified">O Artasyras, dost thou not see Cyrus dead?</q> Astonished at this, then, Artasyras bade the eunuch be of good courage and guard the dead body, but he himself went in hot haste to Artaxerxes 
+				<milestone n="2" unit="section"/>(who had already given up his cause for lost, and besides was physically in a wretched plight from thirst and from his wound), and joyfully told him that with his own eyes he had seen Cyrus dead. At first the king promptly set out to go in person to the place, and ordered Artasyras to conduct him thither; but since there was much talk about the Greeks, and it was feared that they were pursuing and conquering and making themselves masters everywhere, he decided to send a larger company to see where Cyrus lay. So thirty men were sent, with torches. 
+				<milestone n="3" unit="section"/>Meanwhile, since the king was almost dead with thirst, Satibarzanes the eunuch ran about in quest of a drink for him; for the place had no water, and the camp was far away. At last, then, he came upon one of those low Caunians, who had vile and polluted water in a wretched skin, about two quarts in all: this he took, brought it to the king, and gave it to him. After the king had drunk it all off, the eunuch asked him if he was not altogether disgusted with the drink. 
+				<milestone n="4" unit="section"/>But the king swore by the gods that he had never drunk wine, or the lightest and purest water, with so much pleasure. 
+				<q direct="unspecified">Therefore,</q> said the king, 
+				<q direct="unspecified">if I should be unable to find and reward the man who gave thee this drink, I pray the gods to make him rich and happy.</q>
+			      </p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And now the thirty messengers came riding up with joy and exultation in their faces, announcing to the king his unexpected good fortune. Presently, too, he was encouraged by the number of men who flocked back to him and formed in battle array, and so he came down from the hill under the light of many torches. 
+				<milestone n="2" unit="section"/>And after he had halted at the dead body of Cyrus, and its right hand and head had been cut off (in accordance with a law of the Persians), he ordered the head to be brought to him; and grasping it by the hair, which was long and bushy, he showed it to those who were still wavering and disposed to fly. These were amazed, and made obeisance to the king, so that very soon seventy thousand men were about him and marched back with him to their camp. 
+				<milestone n="3" unit="section"/>He had marched out to the battle, as Ctesias says, with four hundred thousand men. But Deinon and Xenophon say that the army which fought under him was much larger. As to the number of his dead, Ctesias says that it was reported to Artaxerxes as nine thousand, but that he himself thought the slain no fewer than twenty thousand. This matter, then, is in dispute. But it is certainly a glaring falsehood on the part of Ctesias to say that he was sent to the Greeks along with Phalinus the Zacynthian and certain others. 
+				<milestone n="4" unit="section"/>For Xenophon knew that Ctesias was in attendance upon the king, since he makes mention of him and had evidently read his works; if, then, Ctesias had come to the Greeks and served as an interpreter in so momentous a colloquy, Xenophon would not have left him nameless and named only Phalinus the Zacynthian.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Anab. 2.1.7">
+                  <title>Anab.</title> ii. 1. 7-23.</bibl>
+            </note> The truth is that Ctesias, being prodigiously ambitious, as it would seem, and none the less partial to Sparta and to Clearchus, always allows considerable space in his narrative for himself, and there he will say many fine things about Clearchus and Sparta.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After the battle, the king sent the largest and most beautiful gifts to the son of that Artagerses who fell at the hands of Cyrus; he also gave generous rewards to Ctesias and others, and when he had found out the Caunian who had given him the skin of water, he raised him from obscurity and poverty to honour and wealth. There was much watchful care also in his punishment of those who had gone wrong. 
+				<milestone n="2" unit="section"/>For example, in the case of Arbaces, a Mede, who had run away to Cyrus during the battle, and, when Cyrus fell, had changed back again, the king pronounced him guilty, not of treachery, nor even of malice, but of cowardice and weakness, and ordered him to take a naked harlot astride his neck and carry her about in the market-place for a whole day. And in the case of another man, who, besides going over to the enemy, had lyingly boasted that he had slain two of them, the king ordered that his tongue should be pierced with three needles. 
+				<milestone n="3" unit="section"/>Moreover, believing, and wishing all men to think, and say, that he had killed Cyrus with his own hand, he sent gifts to Mithridates, the one who first hit Cyrus, and ordered the bearers of the gifts to say: 
+				<q direct="unspecified">This is thy reward from the king because thou didst find and bring to him the trappings of the horse of Cyrus.</q> Again, when the Carian, from whom Cyrus received the blow in the ham which brought him down, asked that he also should receive a gift, the king ordered its bearers to say: 
+				<q direct="unspecified">The king gives thee these things as a second prize for good tidings; for Artasyras came first, and after him thou didst come, with tidings of the death of Cyrus.</q> 
+				        <milestone n="4" unit="section"/>Now, Mithridates went away without a word, although he was vexed; but the wretched Carian, in his folly, gave way to a common feeling. That is, he was corrupted, it would seem, by the good things which he had, and led by them to aspire at once to things beyond his reach, so that he would not deign to take the gifts as a reward for good tidings, but was indignant, calling men to witness and crying in loud tones that it was he himself, and no one else, who had killed Cyrus, and that he was unjustly robbed of his glory. When the king heard of this, he was vehemently angry and gave orders that the man should be beheaded. 
+				<milestone n="5" unit="section"/>Whereupon the king's mother, who was present, said to him: 
+				<q direct="unspecified">O King, do not let this accursed Carian off so easily, but leave him to me, and he shall receive the fitting reward for his daring words.</q> So the king consigned the man to Parysatis, who ordered the executioners to take him and rack him on the wheel for ten days, then to gouge out his eyes, and finally to drop molten brass into his ears until he died.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Mithridates also came to a miserable end a little while after, owing to the same folly. For being invited to a banquet at which eunuchs of the king and of the queen-mother were present, he came decked out with raiment and gold which he had received from the king. 
+				<milestone n="2" unit="section"/>And when the company were at their cups, the chief eunuch of Parysatis said to him: 
+				<q direct="unspecified">Mithridates, how beautiful this raiment is which the king gave thee, and how beautiful the collars and bracelets! Costly, too, is thy scimitar. Verily the king has made thee happy in the admiring eyes of all men.</q> Then Mithridates, now flushed with wine, replied: 
+				<q direct="unspecified">Sparamizes, what do these things amount to? Surely my services to the king on that day were worthy of greater and more beautiful gifts.</q> 
+				        <milestone n="3" unit="section"/>Here Sparamizes smiled at him and said: 
+				<q direct="unspecified">There's no grudging them to thee, Mithridates; but since, according to the Greek maxim, there is truth in wine, what great or brilliant exploit was it, my good fellow, to find a horse's trappings that had slipped off and bring them to the king?</q> In saying this, Sparamizes was not ignorant of the truth, but he wished to unveil Mithridates to the company, and therefore slyly stirred up his vanity when wine had made him talkative and robbed him of self-control. 
+				<milestone n="4" unit="section"/>Accordingly, Mithridates threw away constraint and said: 
+				<q direct="unspecified">Ye may talk as ye please about horse-trappings and such nonsense; but I declare to you explicitly that Cyrus was slain by this hand of mine; for I did not, like Artagerses, make a futile and an idle cast of spear, but I narrowly missed his eye, struck him in the temple, pierced it, and brought the man down; and it was of that wound that he died.</q> 
+				        <milestone n="5" unit="section"/>The rest of the company, then, who already saw the end of Mithridates and his hapless fate, bowed their faces towards the ground; and their host said: 
+				<q direct="unspecified">My good Mithridates, let us eat and drink now, revering the good genius of the king, and let us waive discourse that is too weighty for us.</q>
+			      </p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Afterwards the eunuch told the matter to Parysatis, and she to the king; and the king was incensed, as being openly convicted of falsehood, and likely to forfeit the fairest and most pleasing feature of his victory. For he wished that all Barbarians and all Greeks should be fully persuaded that when he and his brother had charged and grappled with each other, he had given and received a blow, being only wounded himself, but killing his brother. He therefore gave orders that Mithridates should be put to death by the torture of the boats.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>Now, this torture of the boats is as follows. Two boats are taken, which are so made as to fit over one another closely; in one of these the victim is laid, flat upon his back; then the other is laid over the first and carefully adjusted, so that the victim's head, hands, and feet are left projecting, while the rest of his body is completely covered up. Then they give him food to eat, and if he refuse it, they force him to take it by pricking his eyes. After he has eaten, they give him a mixture of milk and honey to drink, pouring it into his mouth, and also deluge his face with it. 
+				<milestone n="3" unit="section"/>Then they keep his eyes always turned towards the sun, and a swarm of flies settles down upon his face and hides it completely. And since inside the boats he does what must needs be done when men eat and drink, worms and maggots seethe up from the corruption and rottenness of the excrement, devouring his body, and eating their way into his vitals. 
+				<milestone n="4" unit="section"/>For when at last the man is clearly dead and the upper boat has been removed, his flesh is seen to have been consumed away, while about his entrails swarms of such animals as I have mentioned are clinging fast and eating. In this way Mithridates was slowly consumed for seventeen days, and at last died.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And now there was one mark left for the vengeance of Parysatis&mdash;the man who had cut off the head and right hand of Cyrus, Masabates, an eunuch of the king. Against this man, then, since he himself gave her no chance to get at him, Parysatis concocted a plot of the following sort. 
+				<milestone n="2" unit="section"/>She was in general an ingenious woman, and greatly addicted to playing at dice. For this reason she frequently played at dice with the king before the war, and after the war was over and she had been reconciled with him, she did not try to avoid his friendly overtures, but actually joined in his diversions, and took part in his amours by her cooperation and presence, and, in a word, left very little of the king for Stateira's use and society. For she hated Stateira above all others, and wished to have the chief influence herself. 
+				<milestone n="3" unit="section"/>So, one day, finding Artaxerxes trying to amuse himself in a vacant hour, she challenged him to play at dice for a thousand darics, allowed him to win the game, and paid the money down. Then, pretending to be chagrined at her loss and to seek revenge, she challenged the king to play a second game, with an eunuch for the stake, and the king consented. 
+				<milestone n="4" unit="section"/>They agreed that both might reserve five of their most trusty eunuchs, but that from the rest the loser must give whichever one the winner might select, and on these conditions played their game. Parysatis took the matter much to heart and was in great earnest with her playing, and since the dice also fell in her favour, she won the game, and selected Masabates; for he was not among those who had been excepted. 
+				<milestone n="5" unit="section"/>And before the king suspected her design, she put the eunuch in the hands of the executioners, who were ordered to flay him alive, to set up his body slantwise on three stakes, and to nail up his skin to a fourth. This was done, and when the king was bitterly incensed at her, she said to him, with a mocking laugh: "
+				<q direct="unspecified">What a blessed simpleton thou art, to be incensed on account of a wretched old eunuch, when I, who have diced away a thousand darics, accept my loss without a word.</q> 
+				        <milestone n="6" unit="section"/>So the king, although sorry that he had been deceived, kept quiet in the matter, but Stateira openly opposed Parysatis in other things, and above all was angry with her because, for the sake of Cyrus, she was cruelly and lawlessly putting to death eunuchs and others who were faithful to the king.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, when Clearchus and his fellow-generals had been completely deceived by Tissaphernes,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 2.5.1">Xenophon, <title>Anab.</title> ii. 5.</bibl>
+            </note> and, contrary to solemn oaths, had been seized and sent up to the king in chains, Ctesias tells us that he was asked by Clearchus to provide him with a comb. Clearchus got the comb and dressed his hair, and being pleased at the service rendered, gave Ctesias his ring as a token of friendship which he might show to his kindred and friends in Sparta; and the device in the seal was a group of dancing Caryatides. 
+				<milestone n="2" unit="section"/>Moreover, as Ctesias says, the provisions sent to Clearchus were seized by the soldiers in captivity with him, who consumed them freely and gave only a small part of them to Clearchus. This hardship also Ctesias says he remedied, by getting more provisions sent to Clearchus, and a separate supply given to the soldiers; and these services he says he rendered and performed to please Parysatis, and at her suggestion. 
+				<milestone n="3" unit="section"/>He says further that a flitch of bacon was sent to Clearchus every day to supplement his rations, and that Clearchus earnestly advised him that he ought to bury a small knife in the meat and send it to him thus hidden away, and not allow his fate to be determined by the cruelty of the king; but he was afraid, and would not consent to do this. The king, Ctesias says, at the solicitation of his mother, agreed and swore not to kill Clearchus; but he was won back again by Stateira, and put all the generals to death except Menon. 
+				<milestone n="4" unit="section"/>It was because of this, Ctesias says, that Parysatis plotted against the life of Stateira and prepared the poison for her. But it is an unlikely story, and one that gives an absurd motive for her course, to say that Parysatis thus risked and wrought a dreadful deed because of Clearchus, and dared to kill the king's lawful wife, who was the mother by him of children reared for the throne. 
+				<milestone n="5" unit="section"/>Nay, it is quite evident that he adds this sensational detail out of regard for the memory of Clearchus. For he says that after the generals had been put to death, the rest of them were torn by dogs and birds, but that in the case of Clearchus, a blast of wind carried a great mass of earth and heaped it in a mound which covered his body; upon this some dates fell here and there, and in a short time a wonderful grove of trees sprang up and overshadowed the place, so that even the king was sorely repentant, believing that in Clearchus he had killed a man whom the gods loved.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Parysatis, accordingly, who from the outset had a lurking hatred and jealousy of Stateira, saw that her own influence with the king was based on feelings of respect and honour, while that of Stateira was grounded fast and strong in love and confidence; she therefore plotted against her life and played for what she thought the highest stake. 
+				<milestone n="2" unit="section"/>She had a trusted maidservant named Gigis, who had most influence with her and assisted her in preparing the poison, according to Deinon, although Ctesias says she was merely privy to the deed, and that against her will. The poison was actually given by a man named Belitaras, according to Ctesias; Deinon gives his name as Melantas. After a period of dissension and suspicion, the two women<note resp="ed" place="unspecified" anchored="yes">i.e., Parysatis and Stateira.</note> had begun again to meet and eat with one another, although their mutual fear and caution led them to partake of the same dishes served by the same hands. 
+				<milestone n="3" unit="section"/>Now, there is a little Persian bird which has no excrement, but is all full of fat inside; and the creature is thought to live upon air and dew; the name of it is 
+				<q direct="unspecified">rhyntaces.</q> It was a bird of this species, according to Ctesias, that Parysatis cut in two with a little knife smeared with poison on one side, thus wiping the poison off upon one part only of the bird; the undefiled and wholesome part she then put into her own mouth and ate, but gave to Stateira the poisoned part. 
+				<milestone n="4" unit="section"/>Deinon, however, says it was not Parysatis, but Melantas who cut the bird with the knife and placed the flesh that was poisoned before Stateira. Be that as it may, the woman died, in convulsions and great suffering, and she comprehended the evil that had befallen her, and brought the king to suspect his mother, whose fierce and implacable nature he knew. 
+				<milestone n="5" unit="section"/>The king, therefore, at once set out upon the inquest, arrested the servants and table-attendants of his mother, and put them on the rack. Gigis, however, Parysatis kept for a long time at home with her, and would not give her up at the king's demand. But after a while Gigis herself begged to be dismissed to her own home by night. The king learned of this, set an ambush for her, seized her, and condemned her to death. 
+				<milestone n="6" unit="section"/>Now, the legal mode of death for prisoners in Persia is as follows. There is a broad stone, and on this the head of the culprit is placed; and then with another stone they smite and pound until they crush the face and head to pulp. It was in this manner, then, that Gigis died; but Parysatis was not further rebuked or harmed by Artaxerxes, except that he sent her off to Babylon, in accordance with her wish, saying that as long as she lived he himself would not see Babylon. Such was the state of the king's domestic affairs.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, the king was no less eager to capture the Greeks who had come up with Cyrus than he had been to conquer Cyrus and preserve his throne. Nevertheless, he could not capture them, but though they had lost Cyrus their leader and their own commanders, they rescued themselves from his very palace, as one might say, thus proving clearly to the world that the empire of the Persians and their king abounded in gold and luxury and women, but in all else was an empty vaunt. 
+				<milestone n="2" unit="section"/>Therefore all Greece took heart and despised the Barbarians, and the Lacedaemonians in particular thought it strange if now at least they could not rescue the Greeks that dwelt in Asia from servitude, and put a stop to their outrageous treatment at the hands of the Persians. The war they waged was at first conducted by Thimbron, and then by Dercyllidas, but since they accomplished nothing worthy of note, they at last put the conduct of the war in the hands of their king, Agesila&uuml;s. 
+				<milestone n="3" unit="section"/>He crossed over to Asia with a fleet, went to work at once, won great fame, defeated Tissaphernes in a pitched battle, and set the Greek cities in revolt. This being the case, Artaxerxes considered how he must carry on the war with Agesila&uuml;s, and sent Timocreon the Rhodian into Greece with a great sum of money, bidding him use it for the corruption of the most influential men in the cities there, and for stirring up the Greeks to make war upon Sparta. 
+				<milestone n="4" unit="section"/>Timocrates did as he was bidden, the most important cities conspired together against Sparta, Peloponnesus was in a turmoil, and the Spartan magistrates summoned Agesila&uuml;s home from Asia. It was at this time, as we are told, and as he was going home, that Agesila&uuml;s said to his friends; 
+				<q direct="unspecified">The king has driven me out of Asia with thirty thousand archers</q>; for the Persian coin has the figure of an archer stamped upon it.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Ages. 15.6.">
+                  <title>Agesila&uuml;s</title>, xv. 6. </bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The king also expelled the Lacedaemonians from the sea, employing Conon the Athenian as his commander along with Pharnabazus. For Conon passed the time at Cyprus, after the sea-fight at Aegospotami,<note resp="ed" place="unspecified" anchored="yes">405. B.C. Cf. the <bibl n="Plut. Alc. 37.2">
+                  <title>Alcibiades</title> xxxvii. 2.</bibl>
+            </note> not satisfied with mere safety, but awaiting a reversal in the course of affairs, as he would a change of wind at sea. 
+				<milestone n="2" unit="section"/>And seeing that his own plans needed a military force, and the king's force needed a sagacious leader, he wrote a letter to the king explaining his purposes. This letter he ordered the bearer, if possible, to give the king by the hand of Zeno the Cretan or Polycritus the Mendaean (Zeno was a teacher of dancing, and Polycritus was a physician); but if these were not at court, by the hand of Ctesias the physician. 
+				<milestone n="3" unit="section"/>And it is said that Ctesias, on receiving the letter, added to the suggestions which Conon made to the king a request to send Ctesias also to him, as likely to be of service in matters on the sea-coast. Ctesias, however, says that the king of his own accord conferred upon him this new duty.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>But after Artaxerxes, by the sea-fight which Pharnabazus and Conon won for him off Cnidus, had stripped the Lacedaemonians of their power on the sea, he brought the whole of Greece into dependence upon him, so that he dictated to the Greeks the celebrated peace called the Peace of Antalcidas.<note resp="ed" place="unspecified" anchored="yes">In 387 B.C. Cf. the <bibl n="Plut. Ages. 23.1">
+                  <title>Agesila&uuml;s</title>, xxiii. 1. ff.</bibl>
+            </note> 
+				        <milestone n="5" unit="section"/>Now Antalcidas was a Spartan, son of Leon, and acting in the interests of the king he induced the Lacedaemonians to surrender to the king all the Greek cities of Asia, and all the islands adjacent to Asia, to possess them on payment of tribute; and peace was thus established among the Greeks, if the mockery and betrayal of Greece can be called peace, a peace than which no war ever brought a more inglorious consummation to the defeated.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For this reason Artaxerxes, although he always held other Spartans in abomination, and considered them, as Deinon tells us, the most shameless of all mankind, showed great affection for Antalcidas when he came up to Persia. On one occasion he actually took a wreath of flowers, dipped it in the most costly ointment, and sent it to Antalcidas after supper; and all men wondered at the kindness.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Pel. 30.4">
+                  <title>Pelopidas</title>, xxx. 4. </bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>But Antalcidas was a fit person, as it would seem, to be exquisitely treated and to receive such a wreath, now that he had danced away among the Persians the fair fame of Leonidas and Callicratidas. For Agesila&uuml;s, as it would appear, when someone said to him: 
+				<q direct="unspecified">Alas for Greece, now that the Spartans are medizing,</q> replied, 
+				<q direct="unspecified">Are not the Medes the rather spartanizing?</q> However, the wittiness of the speech could not remove the shame of the deed, and the Spartans lost their supremacy in the disastrous battle of Leuctra,<note resp="ed" place="unspecified" anchored="yes">In 371 B.C. Cf. the <bibl n="Plut. Ages. 28.5">
+                  <title>Agesila&uuml;s</title>, xxviii. 5. </bibl>
+            </note> though the glory of Sparta had been lost before that by this treaty.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>So long, then, as Sparta kept the first place in Greece, Artaxerxes treated Antalcidas as his guest and called him his friend; but after the Spartans had been defeated at Leuctra, they fell so low as to beg for money, and sent Agesila&uuml;s to Egypt, while Antalcidas went up to Artaxerxes to ask him to supply the wants of the Lacedaemonians. 
+				<milestone n="4" unit="section"/>The king, however, so neglected and slighted and rejected him that, when he came back home, being railed at by his enemies, and being in fear of the ephors, he starved himself to death.
+			</p>
+         <p>Ismenias the Theban also, and Pelopidas, who had just been victorious in the battle of Leuctra, went up to the king.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Pel. 30.1">
+                  <title>Pelopidas</title>, xxx. 1-3.</bibl>
+            </note> Pelopidas did nothing to disgrace himself; but Ismenias, when ordered to make the obeisance to the king, threw his ring down on the ground in front of him, and then stooped and picked it up, thus giving men to think that he was making the obeisance. 
+				<milestone n="5" unit="section"/>With Timagoras the Athenian, however, who sent to him by his secretary, Beluris, a secret message in writing, the king was so pleased that he gave him ten thousand darics, and eighty milk cows to follow in his train because he was sick and required cow's milk; and besides, he sent him a couch, with bedding for it, and servants to make the bed (on the ground that the Greeks had not learned the art of making beds), and bearers to carry him down to the sea-coast, enfeebled as he was. 
+				<milestone n="6" unit="section"/>Moreover, during his presence at court, he used to send him a most splendid supper, so that Ostanes, the brother of the king, said: 
+				<q direct="unspecified">Timagoras, remember this table; it is no slight return which thou must make for such an array.</q> Now this was a reproach for his treachery rather than a reminder of the king's favour. At any rate, for his venality, Timagoras was condemned to death by the Athenians.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Pel. 30.6">
+                  <title>Pelopidas</title>, xxx. 6 f.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But there was one thing by which Artaxerxes gladdened the hearts of the Greeks, in return for all the evils which he wrought them, and that was his putting Tissaphernes to death, their most hated and malicious enemy.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Ages. 10.3">
+                  <title>Agesila&uuml;s</title>, x. 3 f.</bibl>
+            </note> And he put him to death in consequence of accusations against him which were seconded by Parysatis. For the king did not long persist in his wrath against his mother, but was reconciled with her and summoned her to court, since he had that she had intellect and a lofty spirit worthy of a queen, and since there was no longer any ground for their suspecting and injuring one another if they were together. 
+				<milestone n="2" unit="section"/>After this she consulted the king's pleasure in all things, and by approving of everything that he did, acquired influence with him and achieved all her ends. She perceived that the king was desperately in love with one of his two daughters, Atossa, and that, chiefly on his mother's account, he was trying to conceal and restrain his passion, although some say that he had already had secret intercourse with the girl. 
+				<milestone n="3" unit="section"/>When, accordingly, Parysatis became suspicious of the matter, she showed the girl more affection than before, and would speak to Artaxerxes in praise of her beauty and her disposition, saying that she was truly royal and magnificent. At last, then, she persuaded the king to marry the girl and proclaim her his lawful wife, ignoring the opinions and laws of the Greeks, and regarding himself as appointed by Heaven to be a law unto the Persians and an arbitrator of good and evil. 
+				<milestone n="4" unit="section"/>Some, however, say, and among them is Heracleides of Cym&eacute;, that Artaxerxes married, not one of his daughters only, but also a second, Amestris, of whom we shall speak a little later.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Art. 27.4">Chap. xxvii. 4.</bibl>
+            </note> Atossa, however, was so beloved by her father as his consort, that when her body was covered with leprosy he was not offended at this in the least, 
+				<milestone n="5" unit="section"/>but offered prayers to Hera in her behalf, making his obeisance and clutching the earth before this goddess as he did before no other; while his satraps and friends, at his command, sent the goddess so many gifts that the sixteen furlongs between her sanctuary and the royal palace were filled with gold and silver and purple and horses.
+			</p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the war which Pharnabazus and Iphicrates conducted for him against Egypt he was unsuccessful, owing to the dissensions of these commanders; against the Cadusians, therefore, he made an expedition in person, with three hundred thousand footmen and ten thousand horse. But the country which he penetrated was rough and hard to traverse, abounded in mists, and produced no grains, although its pears and apples and other such tree-fruits supported a warlike and courageous population. 
+				<milestone n="2" unit="section"/>Unawares, therefore, he became involved in great distress and peril. For no food was to be got in the country or imported from outside, and they could only butcher their beasts of burden, so that an ass's head was scarcely to be bought for sixty drachmas. Moreover, the royal banquets were abandoned; and of their horses only a few were left, the rest having been consumed for food.
+			</p>
+         <p>Here it was that Teribazus, a man whose bravery often set him in a leading place, but whose levity as often cast him down, so that at this time he was in disgrace and overlooked, saved the king and his army. 
+				<milestone n="3" unit="section"/>For the Cadusians had two kings, and each of them encamped separately. So Teribazus, after an interview with Artaxerxes in which he told him what he purposed to do, went himself to one of the Cadusian kings, and sent his son secretly to the other. Each envoy, then, deceived his man, telling him that the other king was sending an embassy to Artaxerxes to secure friendship and alliance for himself alone: he should, therefore, if he were wise, have an interview with Artaxerxes before the other did, and he himself would help him all he could. 
+				<milestone n="4" unit="section"/>Both kings were persuaded by this argument, and each thinking that he was anticipating the other, one sent his envoys along with Teribazus, and the other with the son of Teribazus. But matters were delayed, and suspicions and calumnies against Teribazus came to the ears of Artaxerxes; he himself also was ill at ease, and repented him of having put confidence in Teribazus, and gave occasion to his rivals to malign him. 
+				<milestone n="5" unit="section"/>But at last Teribazus came, and his son came too, both bringing their Cadusian envoys, and a peace was ratified with both kings; whereupon Teribazus, now a great and splendid personage, set out for home with the king. And the king now made it plain that cowardice and effeminacy are not always due to luxury and extravagance, as most people suppose, but to a base and ignoble nature under the sway of evil doctrines. 
+				<milestone n="6" unit="section"/>For neither gold nor robe of state nor the twelve thousand talents' worth of adornment which always enveloped the person of the king prevented him from undergoing toils and hardships like an ordinary soldier; nay, with his quiver girt upon him and his shield on his arm he marched in person at the head of his troops, over precipitous mountain roads, abandoning his horse, so that the rest of the army had wings given them and felt their burdens lightened when they saw his ardour and vigour; for he made daily marches of two hundred furlongs and more.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>At length he came down to a royal halting-place which had admirable parks in elaborate cultivation, although the region round about was bare and treeless; and since it was cold, he gave permission to his soldiers to cut the trees of the park for wood, sparing neither pine nor cypress. 
+				<milestone n="2" unit="section"/>And when they hesitated and were inclined to spare the trees on account of their great size and beauty, he took an axe himself and cut down the largest and most beautiful tree. After this the men provided themselves with wood, and making many fires, passed the night in comfort. Nevertheless, he lost many and brave men, and almost all his horses before he reached home. 
+				<milestone n="3" unit="section"/>And now, thinking that his subjects despised him because of the disastrous failure of his expedition, he was suspicious of his chief men; many of these he put to death in anger, and more out of fear. For it is cowardly fear in a tyrant that leads to most bloodshed; but bold confidence makes him gracious and mild and unsuspicious. So also among wild beasts, those that are refractory and hardest to tame are timorous and fearful, whereas the nobler sorts are led by their courage to put more confidence in men, and do not reject friendly advances.
+			</p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Artaxerxes, being now advanced in years, perceived that his sons were forming rival parties among his friends and chief men with reference to the royal succession. For the conservatives thought it right that, as he himself had received the royal power by virtue of seniority, in like manner he should leave it to Dareius. But his youngest son, Ochus, who was of an impetuous and violent disposition, not only had many adherents among the courtiers, but hoped for most success in winning over his father through the aid of Atossa. 
+				<milestone n="2" unit="section"/>For he sought to gain Atossa's favour by promising that she should be his wife and share the throne with him after the death of his father. And there was a report that even while his father was alive Ochus had secret relations with Atossa. But Artaxerxes was ignorant of this; and wishing to shatter at once the hopes of Ochus, that he might not venture upon the same course as Cyrus and so involve the kingdom anew in wars and contests, he proclaimed Dareius, then fifty years of age, his successor to the throne, and gave him permission to wear the upright 
+				<q direct="unspecified">kitanis,</q> as the tiara was called. 
+				<milestone n="3" unit="section"/>Now, there was a custom among the Persians that the one appointed to the royal succession should ask a boon, and that the one who appointed him should give whatever was asked, if it was within his power. Accordingly, Dareius asked for Aspasia, who had been the special favourite of Cyrus, and was then a concubine of the king. She was a native of Phocaea, in Ionia, born of free parents, and fittingly educated. 
+				<milestone n="4" unit="section"/>Once when Cyrus was at supper she was led in to him along with other women. The rest of the women took the seats given them, and when Cyrus proceeded to sport and dally and jest with them, showed no displeasure at his friendly advances. But Aspasia stood by her couch in silence, and would not obey when Cyrus called her; and when his chamberlains would have led her to him, she said: 
+				<q direct="unspecified">Verily, whosoever lays his hands upon me shall rue the day.</q> The guests therefore thought her a graceless and rude creature. 
+				<milestone n="5" unit="section"/>But Cyrus was delighted, and laughed, and said to the man who had brought the women: 
+				<q direct="unspecified">Dost thou not see at once that this is the only free and unperverted woman thou hast brought me?</q> From this time on he was devoted to her, and loved her above all women, and called her The Wise. She was taken prisoner when Cyrus fell in the battle at Cunaxa and his camp was plundered.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 1.10.2">Xenophon, <title>Anab.</title> i. 10. 2</bibl>; <bibl n="Plut. Per. 24.7">Plutarch, <title>Pericles</title>, xxiv. 7.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This was the woman for whom Dareius asked, and he gave offence thereby to his father; for the Barbarian folk are terribly jealous in all that pertains to the pleasures of love, so that it is death for a man, not only to come up and touch one of the royal concubines, but even in journeying to go along past the waggons on which they are conveyed. 
+				<milestone n="2" unit="section"/>And yet there was Atossa, whom the king passionately loved and had made his wife contrary to the law, and he kept three hundred and sixty concubines also, who were of surpassing beauty. However, since he had been asked for Aspasia, he said that she was a free woman, and bade his son take her if she was willing, but not to constrain her against her wishes. So Aspasia was summoned, and contrary to the hopes of the king, chose Dareius. And the king gave her to Dareius under constraint of the custom that prevailed, but a little while after he had given her, he took her away again. 
+				<milestone n="3" unit="section"/>That is, he appointed her a priestess of the Artemis of Ecbatana, who bears the name of Ana&iuml;tis, in order that she might remain chaste for the rest of her life, thinking that in this way he would inflict a punishment upon his son which was not grievous, but actually quite within bounds and tinctured with pleasantry. The resentment of Dareius, however, knew no bounds, either because he was deeply stirred by his passion for Aspasia, or because he thought that he had been insulted and mocked by his father.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>And now Teribazus, who became aware of the prince's feelings, sought to embitter him still more, finding in his grievance a counterpart of his own, which was as follows. The king had several daughters, and promised to give Apama in marriage to Pharnabazus, Rhodogune to Orontes, and Amestris to Teribazus. He kept his promise to the other two, but broke his word to Teribazus and married Amestris himself, betrothing in her stead to Teribazus his youngest daughter, Atossa. 
+				<milestone n="5" unit="section"/>But soon he fell enamoured of Atossa also and married her, as has been said,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Art. 23.2">Chap. xxiii. 2 ff.</bibl>
+            </note> and then Teribazus became a downright foe to him. Teribazus was at no time of a stable disposition, but uneven and precipitate. And so, when he would be at one time in highest favour, and at another would find himself in disgrace and spurned aside, he could not bear either change of fortune with equanimity, hut if he was held in honour his vanity made him offensive, and when he fell from favour he was not humble or quiet, but harsh and ferocious.
+			</p>
+         <p>
+				        <milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, it was adding fire to fire when Teribazus attached himself to the young prince and was forever telling him that the tiara standing upright on the head<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Art. 26.2">chap. xxvi. 2. </bibl>
+            </note> was of no use to those who did not seek by their own efforts to stand upright in affairs of state, and that he was very foolish if, when his brother was insinuating himself into affairs of state by way of the harem, and his father was of a nature so fickle and insecure, he could suppose that the succession to the throne was securely his. 
+				<milestone n="2" unit="section"/>Surely he whom regard for a Greek courtesan had led to violate the inviolable custom of the Persians, could not be trusted to abide by his agreements in the most important matters. Moreover, he said it was not the same thing for Ochus not to get the kingdom and for Dareius to be deprived of it; for no one would hinder Ochus from living happily in private station, but Dareius had been declared king, and must needs be king or not live at all.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Now, perhaps it is generally true, as Sophocles says,<note resp="ed" place="unspecified" anchored="yes">From an unknown play, Nauck, <title>Trag. Graec. Frag.2</title>, p. 315.</note> that&mdash;
+				<quote rend="blockquote">
+					          <l>Swiftly doth persuasion unto evil conduct make</l>
+					          <l>its way;</l>
+            </quote>
+				for smooth and downward sloping is the passage to what a man desires, and most men desire the bad through inexperience and ignorance of the good. However, it was the greatness of the empire and the fear which Dareius felt towards Ochus that paved the way for Teribazus although, since Aspasia had been taken away, the Cyprus-born goddess of love was not altogether without influence in the case.
+			</p>
+         <p>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, Dareius put himself in the hands of Teribazus; and presently, when many were in the conspiracy, an eunuch made known to the king the plot and the manner of it, having accurate knowledge that the conspirators had resolved to enter the king's chamber by night and kill him in his bed. When Artaxerxes heard the eunuch's story, he thought it a grave matter to neglect the information and ignore so great a peril, and a graver still to believe it without any proof. 
+				<milestone n="2" unit="section"/>He therefore acted on this wise. He charged the eunuch to attend closely upon the conspirators; meanwhile he himself cut away the wall of his chamber behind the bed, put a doorway there, and covered the door with a hanging. Then, when the appointed hour was at hand and the eunuch told him the exact time, he kept his bed amid did not rise from it until he saw the faces of his assailants and recognised each man clearly. 
+				<milestone n="3" unit="section"/>But when he saw them advancing upon him with drawn swords, he quickly drew aside the hanging, retired into the inner chamber, closed the door with a slam, and raised a cry. The murderers accordingly, having been seen by the king, and having accomplished nothing, fled back through the door by which they had come, and told Teribazus and his friends to be off since their plot was known. 
+				<milestone n="4" unit="section"/>The rest, then, were dispersed and fled; but Teribazus slew many of the king's guards as they sought to arrest him, and at last was smitten by a spear at long range, and fell. Dareius, together with his children, was brought to the king, who consigned him to the royal judges for trial. The king was not present in person at the trial, but others brought in the indictment. However, the king ordered clerks to take down in writing the opinion of each judge and bring them all to him. 
+				<milestone n="5" unit="section"/>All the judges were of one opinion and condemned Dareius to death, whereupon the servants of the king seized him and led him away into a chamber near by, whither the executioner was summoned. The executioner came, with a sharp knife in his hand, wherewith the heads of condemned persons are cut off; but when he saw Dareius, he was confounded, and retired towards the door with averted gaze, declaring that he could not and would not take the life of a king. 
+				<milestone n="6" unit="section"/>But since the judges outside the door plied him with threats and commands, he turned back, arid with one hand clutching Dareius by the hair, dragged him to the ground, and cut off his head with the knife.
+			</p>
+         <p>Some say, however, that the trial was held in the presence of the king, and that Dareius, when he was overwhelmed by the proofs, fell upon his face and begged and sued for mercy; 
+				<milestone n="7" unit="section"/>but Artaxerxes rose up in anger, drew his scimitar, and smote him till he had killed him; then, going forth into court, he made obeisance to the sun and said: 
+				<q direct="unspecified">Depart in joy and peace, ye Persians, and say to all whom ye meet that those who contrived impious and unlawful things have been punished by great Oromasdes.</q>
+			      </p>
+         <p>
+				        <milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such, then, was the end of the conspiracy. And now Ochus was sanguine in the hopes with which Atossa inspired him, but he was still afraid of Ariaspes, the only legitimate son of the king remaining, and also of Arsames among the illegitimate sons. For Ariaspes, not because he was older than Ochus, but because he was mild and straightforward and humane, was deemed by the Persians worthy to be their king; Arsames, however, was thought to have wisdom, and the fact that he was especially dear to his father was not unknown to Ochus. 
+				<milestone n="2" unit="section"/>Accordingly, he plotted against the lives of both, and being at once wily and bloody-minded, he brought the cruelty of his nature into play against Arsames, but his villainy and craft against Ariaspes. For he secretly sent to Ariaspes eunuchs and friends of the king, who constantly brought him word of sundry threatening and terrifying utterances implying that his father had determined to put him to a cruel and shameful death. 
+				<milestone n="3" unit="section"/>Since they pretended that these daily reports of theirs were secrets of state, and declared, now that the king was delaying in the matter, and now that he was on the point of acting, they so terrified the prince, and filled his mind with so great trepidation, confusion, and despair, that he drank a deadly poison which he had prepared, and thus rid himself of life. 
+				<milestone n="4" unit="section"/>When the king was informed of the manner of his death, he bewailed his son. He also suspected what had caused his death, but being unable by reason of his age to search out and convict the guilty one, he was still more well-affectioned towards Arsames, and clearly made him his chief support and confidant. Wherefore Ochus would not postpone his design, but set Arpates, a son of Teribazus, to the task and by his hand slew the prince. 
+				<milestone n="5" unit="section"/>Now Artaxerxes, by reason of his age, was already hovering between life and death; and when the sad fate of Arsames came to his ears, he could not hold out even a little while, but straightway expired of grief and despair. He had lived ninety-four years, and had been king sixty-two, and had the reputation of being gentle and fond of his subjects; though this was chiefly due to his son Ochus, who surpassed all men in cruelty and bloodguiltiness.
+			</p>
+         <p/>
+      </body>
+   </text>
+</TEI.2>

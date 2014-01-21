@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>An vitiositas ad infelicitatem sufficia</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">W. C. Helmbold</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>W. C. Helmbold</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1939</date>
+                  </imprint>
+                  <biblScope type="volume">6</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="section" n="intro">
+            <pb id="v.6.p.361"/>
+            <head>WHETHER VICE BE SUFFICIENT
+					TO CAUSE UNHAPPINESS
+					(AN VITIOSITAS AD FELICITATEM
+					SUFFICIAT)
+					<lb/>INTRODUCTION</head>
+            <p>
+					Again we have a fragment, mutilated at the beginning
+					and the end.<note resp="ed" place="unspecified" anchored="yes">There may, in addition, be a lacuna between chapters 1 and 2.</note> The attribution to Plutarch has been
+					questioned by D&uuml;bner, Hense,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Teletea</hi>, p. lxxxix., note.</note> Naber, and Hartman,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">De Plutarcho</hi>, pp. 249-253.</note> but on insufficient grounds, which have, in the
+					main, been explained away by Siefert,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Commentationes Ienenses</hi>, 1896, pp. 110-119.</note> who has also
+					analysed the structure of the work and the Plutarchean parallels. Wilamowitz,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Hermes</hi>, xl. 161-165.</note> on the other hand,
+					believed this and the following fragment to be scraps
+					of the same dialogue : I follow Pohlenz in rejecting
+					this view.<note resp="ed" place="unspecified" anchored="yes">Similarly Usener, <hi rend="italics">Fleckeisens Jahrb.</hi>, cxxxix. 381, believed this treatise to be a fragment of the work mentioned in the Lamprias catalogue as No. 84: <foreign lang="greek">*)ammw/nios h)\ peri\ tou= mh\ h(de/ws th=| kaki/a| sunei=nai</foreign>.</note>
+				        </p>
+            <p>
+					The text is not good, and the work is not mentioned
+					in the Lamprias catalogue.
+					
+				</p>
+         </div1>
+         <pb id="v.6.p.363"/>
+         <div1 type="section" n="1">
+            <p>...<note resp="ed" place="unspecified" anchored="yes">This passage is tantalizing, not only because so much is lost of the text, and because the text is so corrupt, but chiefly because since the discovery of the Claremont fragments of Euripides' <hi rend="italics">Pha&euml;thon</hi> we may perceive that this play, of whose ingenious plot we now know a good deal, colours the whole of the opening passage. In the play Pha&euml;thon, declining to accept marriage with the goddess to whom his mother Clymene wished to marry him, speaks the first verse quoted; and there are probably further quotations from the play in the second sentence (<foreign lang="greek">pollh=s dia\ te/fras, a)lla\ purkai+a=s tinos</foreign>). It is quite possible that Pha&euml;thon himself swears that he will go through <q direct="unspecified">heaps of cinders</q> rather than marry the goddess; and in the play there is in fact a <q direct="unspecified">royal conflagration</q> when the Sun's treasure-house burns (see Nauck, p. 601). But it cannot be too strongly insisted that the text is very corrupt and that the restorations here adopted can claim only an approximation to the truth.</note> He will not submit to (such a marriage)<note resp="ed" place="unspecified" anchored="yes">Conjecturally supplied.</note>
+					          <quote rend="blockquote">His body bartered for the dower's sake,</quote>
+					as Euripides<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 606, Frag. 775, from the <hi rend="italics">Pha&euml;thon</hi>; <hi rend="italics">cf. Moralia</hi>, 13 f; Plautus, <hi rend="italics">Asinaria</hi>, 87.</note> says ; but he has only a slight and
+					precarious reason for being envied. For this man (it
+					were better)<note resp="ed" place="unspecified" anchored="yes">Conjecturally supplied.</note> to make his journey, not <q direct="unspecified">through
+						heaps of hot cinders,</q> but <q direct="unspecified">through a royal conflagration,</q> as it were, and surrounded by flames,
+					panting and full of terror and drenched with sweat,
+					and so to perish, though (his mother)<note resp="ed" place="unspecified" anchored="yes">Conjecturally supplied.</note> had offered to
+					him such a wealth as Tantalus had, which he was
+					too busy to enjoy. For while that Sicyonian horsebreeder was a wise man, who gave to the king
+					
+					<pb id="v.6.p.365"/>
+					
+					of the Achaeans, Agamemnon, a swift mare as a
+					gift,
+					<quote rend="blockquote">
+                  <l>That he might not follow him to wind-swept Troy,
+						</l>
+                  <l>But stay at home and take his pleasure,<note resp="ed" place="unspecified" anchored="yes">Adapted from Homer, <hi rend="italics">Il.</hi>, xxiii. 297-298; Echepolus is the Sicyonian referred to. <hi rend="italics">Cf. Moralia</hi>, 32 f.</note>
+                  </l>
+               </quote>
+					surrendering himself to the enjoyment of deep riches
+					and to unmolested ease ; yet modern courtiers who
+					are looked upon as men of affairs, though no one
+					summons them, of their own accord push their way
+					headlong into courts and official escorts and toilsome
+					bivouacs that they may get a horse or a brooch or
+					some such piece of good fortune.
+					<quote rend="blockquote">
+                  <l>His wife, rending both cheeks, was left behind
+						</l>
+                  <l>In Phylace, and his half-finished home,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, ii. 700-701.</note>
+                  </l>
+               </quote>
+					while he himself is swept about and wanders afar,
+					worn out by one hope after another and constantly
+					insulted ; and even if he obtains any of his desires,
+					yet, whirled about and made giddy by Fortune's ropedance, he seeks to make his descent and considers
+					happy those who live in obscurity and safety, whereas
+					they so regard him as they look up at him soaring
+					above their heads.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>Vice makes all men completely miserable, since
+					as a creator of unhappiness it is clothed with absolute
+					power, for it has no need of either instruments or
+					ministers. But whereas despots, when they desire
+					to make miserable those whom they punish, maintain
+					executioners and torturers, or devise branding-irons
+					
+					<pb id="v.6.p.367"/>
+					
+					and wedges<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aeschylus, <hi rend="italics">Prometheus</hi>, 64-65: <foreign lang="greek"><quote rend="blockquote"><l>
+                     a)damanti/nou nu=n sfhno\s au)q/dh gna/qon </l><l>ste/rnwn diampa\c passa/leu' e)rrwme/nws.</l></quote></foreign>
+               </note>; vice, without any apparatus, when it
+					has joined itself to the soul, crushes and overthrows it,
+					and filis the man with grief and lamentation, dejection and remorse. And this is the proof : many are
+					silent under mutilation and endure scourging and
+					being tortured by the wedge at the hands of masters
+					or tyrants without uttering a cry, whenever by the
+					application of reason the soul abates the pain and by
+					main force, as it were, checks and represses it<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Cicero, <hi rend="italics">Tusc. Disp.</hi>, ii. 22. 53 ff.</note>; but
+					you cannot order anger to be quiet nor grief to be
+					silent, nor can you persuade a man possessed by fear
+					to stand his ground, nor one suffering from remorse
+					not to cry out or tear his hair or smite his thigh. So
+					much more violent is vice than either fire or sword.
+				</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Cities, as we know, when they give public notice
+					of intent to let contracts for the building of temples
+					or colossal statues, listen to the proposals of artists
+					competing for the commission and bringing in their
+					estimates and models,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi>, for example, Richter, <hi rend="italics">Greek Sculptors</hi>, p. 230: <q direct="unspecified">A model of the pediment figures must have preceded the beginning of their execution.</q>
+               </note> and then choose the man who
+					will do the same work with the least expense and
+					better than the others and more quickly. Come,
+					then, let us suppose that we also give public proclamation of intent to contract for making a life
+					wretched, and that Fortune and Vice come to get
+					the commission in a rival spirit. Fortune is provided
+					with all manner of instruments and costly apparatus
+					to render a life miserable and wretched ; she brings in
+					her train frightful robberies and wars, the foul bloodthirstiness
+					
+					<pb id="v.6.p.369"/>
+					
+					of tyrants, and storms at sea and thunder
+					from the sky ; she compounds hemlock, she carries
+					swords, she levies informers, she kindles fevers, she
+					claps on fetters, and builds prison-enclosures (and yet
+					the greater part of these belong to Vice rather than
+					to Fortune, but let us suppose them all Fortune's).
+					And let Vice stand by quite unarmed, needing no
+					external aid against the man, and let her ask Fortune
+					how she intends to make man wretched and dejected:
+					<quote rend="blockquote">
+                  <quote rend="blockquote">
+                     <l>Fortune,
+						</l>
+                     <l>Do you threaten poverty? Metrocles laughs at you,<note resp="ed" place="unspecified" anchored="yes">H. Richards has seen that this is probably a verse from comedy.</note>
+                     </l>
+                  </quote>
+						Metrocles, who in winter slept among the sheep and
+						in summer in the gateways of sacred precincts, yet
+						challenged to vie with him in happiness the king of
+						the Persians who winters in Babylon and summers in
+						Media.<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 604 c; Xenophon, <hi rend="italics">Cyropaedia</hi>, viii. 6. 22.</note> Do you bring on slavery and chains and the
+						auction block? Diogenes<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Diogenes Laertius, vi. 29. 74; Epictetus, iv. 1. 116.</note> despises you, for when
+						he was being sold by pirates, he cried out with the
+						voice of an auctioneer, &amp;ldquo;Who wants to buy a master?&amp;rdquo;
+						Do you mix a cup of poison? Did you not present
+						this to Socrates<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Phaedo</hi>, 117 b-c.</note> also? And cheerfully and calmly,
+						without trembling or changing either colour or posture, he drained it with great cheerfulness ; and as
+						he died the living esteemed him happy,<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 607 f.</note> believing
+						that &amp;ldquo;not even in Hades would he be without some
+							god-given portion.&amp;rdquo;
+                  <note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Phaedo</hi>, 58 e; Xenophon, <hi rend="italics">Apology</hi>, 32.</note> And as for your fire, Decius<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 310 a-b.</note> 
+						the Roman general anticipated it, when he built a
+						
+						<pb id="v.6.p.371"/>
+						
+						funeral pyre between the camps and, to fulfil a vow,
+						sacrificed himself to Saturn on behalf of Rome's
+						supremacy. And among the Indians, loving and
+						chaste wives strive and contend with one another for
+						the fire, and the wife who wins the honour of being
+						consumed together with her dead husband is hymned
+						as happy by the others.<note resp="ed" place="unspecified" anchored="yes">This reference to Suttee is of great interest. It is probably derived ultimately from Megasthenes' account of the Maurya Empire of the 3rd centure b.c. See, for example, Rawlinson, <hi rend="italics">India and the Western World</hi> (Cambridge University Press, 1916), p. 59.</note> And of the wise men in that
+						part of the world, not one is considered enviable or
+						happy, if, while he yet lives and is sane and healthy,
+						he does not separate by fire his soul from his body
+						and emerge pure from the flesh, with the mortal part
+						washed away. Or will you reduce a man from
+						splendid wealth and house and table and lavish living
+						to a threadbare cloak and wallet and begging of his
+						daily bread? These things were the beginning of
+						happiness for Diogenes, of freedom and repute for
+						Crates. But will you nail him to a cross or impale
+						him on a stake? And what does Theodorus<note resp="ed" place="unspecified" anchored="yes">The Cyrenaic, called <q direct="unspecified">The Atheist,</q>, philosopher of the late 4th century b.c.; <hi rend="italics">cf. Moralia</hi>, 606 b; Teles ed. Hense, p. 31; Cicero, <hi rend="italics">Tusc. Disp.</hi>, i. 43. 102; Valerius Maximus, vi. 2, Ext. 3; Seneca, <hi rend="italics">De Tranquillitate</hi>, xiv. 3; <hi rend="italics">Wien. Stud.</hi>, ix. 204.</note> care
+						whether he rots above ground or beneath? Among
+						the Scythians<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Herodotus, iv. 71-72.</note> such is the manner of happy burial;
+						and among the Hyrcanians<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Porphyry, <hi rend="italics">De Abstinentia</hi>, iv. 21; Sextus Empiricus, <hi rend="italics">Hypotyposes</hi>, iii. 227; Cicero, <hi rend="italics">Tusc. Disp.</hi>, i. 45. 108.</note> dogs, among the Bactrians birds, devour, in accordance with the laws,
+						the bodies of men, when these have met a happy end.</quote>
+				        </p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Whom, then, do these things make wretched?
+					The unmanly and irrational, the unpracticed and untrained, those who retain from childhood their notions
+					unchanged. Therefore Fortune is not a producer of
+					
+					
+					<pb id="v.6.p.373"/>
+					
+					perfect unhappiness if she does not have Vice to
+					co-operate with her. For as a thread saws through
+					the bone that has been soaked in ashes and vinegar,
+					and as men bend and fashion ivory when it has been
+					made soft and pliable by beer, but cannot do so
+					otherwise, so Fortune, falling upon that which is of
+					itself ill-affected and soft as the result of Vice, gouges
+					it out and inj ures it. And just as the Parthian poison,<note resp="ed" place="unspecified" anchored="yes">Nothing is known about either a Parthian juice (<foreign lang="greek">o)po/s</foreign>), or a Parthian poison (<foreign lang="greek">i)o/s</foreign>).</note>
+					though harmful to no one else nor injurious to those
+					who touch it and carry it about, if it is merely brought
+					into the presence of wounded men, it straightway
+					destroys them, since they receive its effluence because
+					of their previous susceptibility ; so he who is liable to
+					have his soul crushed by Fortune must have within
+					himself some festering wound of his own in order that
+					it may make whatever befalls him from without
+					pitiful and lamentable.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Is, then, Vice such a thing that it needs Fortune's
+					help to produce unhappiness? How can that be?
+					Vice does not raise up a rough and stormy sea, she
+					does not gird the skirts of lonely mountains with
+					ambushes of robbers along the way, she does not
+					make clouds of hail to burst on fruitful plains, she
+					does not bring in a Meletus or an Anytus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 475 e, <hi rend="italics">supra</hi>.</note> or a
+					Callixenus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Xenophon, <hi rend="italics">Hellenica</hi>, i. 7. 8. ff.</note> as accusers, she does not take away
+					wealth, she does not debar from the praetorship, in
+					order to make men unhappy. Yet she dismays men
+					
+					<pb id="v.6.p.375"/>
+					
+					who are rich, prosperous, and heirs to fortunes ; on
+					land and on sea she insinuates herself into them and
+					clings to them, sinking deep into them through evil
+					lusts, firing them with anger, crushing them with
+					superstitious fears, shattering them with the eyes...<note resp="ed" place="unspecified" anchored="yes">The interpretation of this last phrase is quite uncertain: perhaps <q direct="unspecified">tearing them to pieces with envy,</q> or <q direct="unspecified">making them ridiculous with envy.</q>
+               </note>
+					
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

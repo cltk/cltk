@@ -1,0 +1,1063 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Ant.">Antigone (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Soph.">Sophocles</author>
+<editor role="editor" n="Jebb">Sir Richard Jebb</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Sophocles</author>
+<title>The Antigone of Sophocles. Edited with introduction and notes by Sir Richard Jebb.</title>
+<editor role="editor">Sir Richard Jebb</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Cambridge University Press</publisher>
+<date>1891</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM, Scott Ettinger and Roger Travis</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Pierre Habel, John Gilbert</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Pierre Habel, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>6/95</date>
+<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
+<item>Added missing speaker tags for cards which had none.</item>
+</change>
+<change><date>08-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: soph.ant_eng.xml,v $
+Revision 1.1  2009-12-08 18:56:08  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 21:10:42  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:30:23  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:02:54  packel
+Converted to XML
+
+Revision 1.10  2004/04/21 20:41:59  mimno
+added card 1s
+
+Revision 1.9  2003/07/01 22:18:08  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2000/03/04 20:35:17  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.7  2000/02/15 23:18:01  amahoney
+use n attribute on sp element to carry over the speaker name when
+the speech is interrupted by a card break;  this also requires that
+the card break at the end come after the close of the sp, not within
+
+Revision 1.6  2000/02/08 22:43:32  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<sp>
+<speaker>Antigone</speaker>
+<p>Ismene, my sister, true child of my own mother, do you know any evil out of all the evils bequeathed by Oedipus that Zeus will not fulfil for the two of us in our lifetime?  There is nothing&mdash;no pain, no ruin,<milestone ed="p" n="5" unit="line"/>no shame, nor dishonor&mdash;that I have not seen in your sufferings and mine.  And now what is this new edict that they say the general has just decreed to all the city?  Do you know anything?  Have you heard?  Or does it escape you that<milestone ed="p" n="10" unit="line"/>evils from our enemies are on the march against our friends?</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>To me no word of our friends, Antigone, either bringing joy or bringing pain has come since we two were robbed of our two brothers who died in one day by a double blow.<milestone ed="p" n="15" unit="line"/>And since the <placeName key="tgn,5001993">Argive</placeName> army has fled during this night, I have learned nothing further, whether better fortune is mine, or further ruin.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>I knew it well, so I was trying to bring you outside the courtyard gates to this end, that you alone might hear.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p><milestone ed="p" n="20" unit="line"/>Hear what?  It is clear that you are brooding on some dark news.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Why not?  Has not Creon destined our brothers, the one to honored burial, the other to unburied shame?  Eteocles, they say, with due observance of right and custom, he has laid in the earth<milestone ed="p" n="25" unit="line"/>for his honor among the dead below.  As for the poor corpse of Polyneices, however, they say that an edict has been published to the townsmen that no one shall bury him or mourn him, but instead leave him unwept, unentombed, for the birds a pleasing store<milestone ed="p" n="30" unit="line"/>as they look to satisfy their hunger.  Such, it is said, is the edict that the good Creon has laid down for you and for me&mdash;yes, for me&mdash;and it is said that he is coming here to proclaim it for the certain knowledge of those who do not already know.  They say that he does not conduct this business lightly,<milestone ed="p" n="35" unit="line"/>but whoever performs any of these rites, for him the fate appointed is death by public stoning among the entire city.  This is how things stand for you, and so you will soon show your nature, whether you are noble-minded, or the corrupt daughter of a noble line.<milestone ed="p" n="39" unit="card"/></p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Poor sister, if things have come to this, what would I<milestone ed="p" n="40" unit="line"/>profit by loosening or tightening this knot?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Consider whether you will share the toil and the task.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>What are you hazarding?  What do you intend?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Will you join your hand to mine in order to lift his corpse?</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>You plan to bury him&mdash;when it is forbidden to the city?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="45" unit="line"/>Yes, he is my brother, and yours too, even if you wish it otherwise.  I will never be convicted of betraying him.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Hard girl!  Even when Creon has forbidden it?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>No, he has no right to keep me from my own.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Ah, no!  Think, sister, how our father<milestone ed="p" n="50" unit="line"/>perished in hatred and infamy, when, because of the crimes that he himself detected, he smashed both his eyes with self-blinding hand;  then his mother-wife, two names in one, with a twisted noose destroyed her life;<milestone ed="p" n="55" unit="line"/>lastly, our two brothers in a single day, both unhappy murderers of their own flesh and blood, worked with mutual hands their common doom.  And now we, in turn&mdash;we two who have been left all alone&mdash;consider how much more miserably we will be destroyed, if in defiance of the law<milestone ed="p" n="60" unit="line"/>we transgress against an autocrat's decree or his powers.  No, we must remember, first, that ours is a woman's nature, and accordingly not suited to battles against men;  and next, that we are ruled by the more powerful, so that we must obey in these things and in things even more stinging.<milestone ed="p" n="65" unit="line"/>I, therefore, will ask those below for pardon, since I am forced to this, and will obey those who have come to authority.  It is foolish to do what is fruitless.<milestone ed="p" n="69" unit="card"/></p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>I would not encourage you&mdash;no, nor, even if you were willing later,<milestone ed="p" n="70" unit="line"/>would I welcome you as my partner in this action.  No, be the sort that pleases you.  I will bury him&mdash;it would honor me to die while doing that.  I shall rest with him, loved one with loved one, a pious criminal.  For the time is greater<milestone ed="p" n="75" unit="line"/>that I must serve the dead than the living, since in that world I will rest forever.  But if you so choose, continue to dishonor what the gods in honor have established.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>I do them no dishonor.  But to act in violation of the citizens' will&mdash;of that I am by nature incapable.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="80" unit="line"/>You can make that your pretext!  Regardless, I will go now to heap a tomb over the brother I love.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Oh no, unhappy sister!  I fear for you!</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Do not tremble for me.  Straighten out your own destiny.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Then at least disclose the deed to no one before you do it.<milestone ed="p" n="85" unit="line"/>Conceal it, instead, in secrecy&mdash;and so, too, will I.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Go on!  Denounce it!  You will be far more hated for your silence, if you fail to proclaim these things to everyone.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>You have a hot heart for chilling deeds.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>I know that I please those whom I am most bound to please.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p><milestone ed="p" n="90" unit="line"/>Yes, if you will also have the power.  But you crave the impossible.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Why then, when my strength fails, I will have finished.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>An impossible hunt should not be tried in the first place.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>If you mean that, you will have my hatred, and you will be subject to punishment as the enemy of the dead.<milestone ed="p" n="95" unit="line"/>But leave me and the foolish plan I have authored to suffer this terrible thing, for I will not suffer anything so terrible that my death will lack honor.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Go, then, if you so decide.  And of this be sure:  though your path is foolish, to your loved ones your love is straight and true.<stage>Exit Antigone on the spectators' left.  Ismene exits into the palace.</stage><milestone ed="p" n="100" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<stage>Enter the Chorus on the right.</stage><sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="100" unit="line"/>Shaft of the sun, fairest light of all that have dawned on <placeName key="perseus,Thebes">Thebes</placeName> of the seven gates, you have shone forth at last, eye of golden day, advancing over Dirce's streams!<milestone ed="p" n="105" unit="line"/>You have goaded with a sharper bit the warrior of the white shield, who came from <placeName key="perseus,Argos">Argos</placeName> in full armor, driving him to headlong retreat.<milestone ed="p" n="110" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker><p><milestone ed="p" n="110" unit="line"/>He set out against our land because of the strife-filled claims of Polyneices, and like a screaming eagle he flew over into our land, covered by his snow-white wing,<milestone ed="p" n="115" unit="line"/>with a mass of weapons and crested helmets.<milestone ed="p" n="117" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="117" unit="line"/>He paused above our dwellings;  he gaped around our sevenfold portals with spears thirsting for blood;  but he left<milestone ed="p" n="120" unit="line"/>before his jaws were ever glutted with our gore, or before the Fire-god's pine-fed flame had seized our crown of towers.<milestone ed="p" n="125" unit="line"/>So fierce was the crash of battle swelling about his back, a match too hard to win for the rival of the dragon.<milestone ed="p" n="127" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker><p><milestone ed="p" n="127" unit="line"/>For Zeus detests above all the boasts of a proud tongue.  And when he saw them advancing in a swollen flood,<milestone ed="p" n="130" unit="line"/>arrogant their clanging gold, he dashed with brandished fire one who was already starting to shout victory when he had reached our ramparts.<milestone ed="p" n="134" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="134" unit="line"/>Staggered, he fell to the earth with a crash,<milestone ed="p" n="135" unit="line"/>torch in hand, a man possessed by the frenzy of the mad attack, who just now was raging against us with the blasts of his tempestuous hate.  But his threats did not fare as he had hoped, and to the other enemies mighty Ares dispensed each their own dooms with hard blows,<milestone ed="p" n="140" unit="line"/>Ares, our mighty ally at the turning-point.<milestone ed="p" n="141" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker><p><milestone ed="p" n="141" unit="line"/>For the seven captains, stationed against an equal number at the seven gates, left behind their brazen arms in tribute to Zeus the turner of battle&mdash;all but the accursed pair who, born of one father and one<milestone ed="p" n="145" unit="line"/>mother, set against each other their spears, both victorious, and who now share in a common death.<milestone ed="p" n="148" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="148" unit="line"/>But since Victory whose name is glory has come to us, smiling in joy equal to the joy of chariot-rich <placeName key="perseus,Thebes">Thebes</placeName>,<milestone ed="p" n="150" unit="line"/>let us make for ourselves forgetfulness after the recent wars, and visit all the temples of the gods with night-long dance and song.  And may Bacchus, who shakes the earth of <placeName key="perseus,Thebes">Thebes</placeName>, rule our dancing!<milestone ed="p" n="155" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker><p><milestone ed="p" n="155" unit="line"/>But look, the king of the land is coming here, Creon, the son of Menoeceus, our new ruler in accordance with the new circumstances fated by the gods.  What policy is he setting in motion,<milestone ed="p" n="160" unit="line"/>that he has proposed this special conference of elders, and summoned it by a general mandate?<milestone ed="p" n="162" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Creon, with two attendants.</stage>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="162" unit="line"/>My fellow citizens!  First, the gods, after tossing the fate of our city on wild waves, have once more righted it.  Second, I have ordered you through my messengers to come here<milestone ed="p" n="165" unit="line"/>apart from all the rest, because I knew, first of all, how constant was your reverence for the power of the throne of Laius;  how, again, you were reverent, when Oedipus was guiding our city;  and lastly, how, when he was dead, you still maintained loyal thoughts towards his children.<milestone ed="p" n="170" unit="line"/>Since, then, these latter have fallen in one day by a twofold doom&mdash;each striking, each struck, both with the stain of a brother's murder&mdash;I now possess all the power and the throne according to my kinship with the dead.<milestone ed="p" n="175" unit="line"/>Now, it is impossible to know fully any man's character, will, or judgment, until he has been proved by the test of rule and law-giving.  For if anyone who directs the entire city does not cling to the best and wisest plans,<milestone ed="p" n="180" unit="line"/>but because of some fear keeps his lips locked, then, in my judgment, he is and has long been the most cowardly traitor.  And if any man thinks a friend more important than his fatherland, that man, I say, is of no account.  Zeus, god who sees all things always, be my witness&mdash;<milestone ed="p" n="185" unit="line"/>I would not be silent if I saw ruin, instead of safety, marching upon the citizens.  Nor would I ever make a man who is hostile to my country a friend to myself, because I know this, that our country is the ship that bears us safe, and that only when<milestone ed="p" n="190" unit="line"/>we sail her on a straight course can we make true friends.  Such are the rules by which I strengthen this city.  Akin to these is the edict which I have now published to the citizenry concerning the sons of Oedipus:  Eteocles, who fell fighting<milestone ed="p" n="195" unit="line"/>in behalf of our city and who excelled all in battle, they shall entomb and heap up every sacred offering that descends to the noblest of the dead below.  But as for his brother, Polyneices, I mean, who on his return from exile wanted to burn to the ground<milestone ed="p" n="200" unit="line"/>the city of his fathers and his race's gods, and wanted to feed on kindred blood and lead the remnant into slavery&mdash;it has been proclaimed to the city that no one shall give him funeral honors or lamentation,<milestone ed="p" n="205" unit="line"/>but all must leave him unburied and a sight of shame, with his body there for birds and dogs to eat.  This is my will, and never will I allow the traitor to stand in honor before the just.  But whoever has good will to <placeName key="perseus,Thebes">Thebes</placeName>,<milestone ed="p" n="210" unit="line"/>he shall be honored by me in death as in life.<milestone ed="p" n="211" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>That is your will, Creon, towards this city's enemy and its friend.  And the power is yours, I believe, to make use of every law whatsoever, both concerning the dead and all us who live.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="215" unit="line"/>See, then, that you be guardians of my commands.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Lay the weight of this task on some younger man.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>That is not what I meant&mdash;the guards for the corpse are already in place.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then what is this other command that you would give?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>That you not give way to the breakers of my commands.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="220" unit="line"/>There is no one so foolish as to crave death.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>I assure you, that is the wage for disobedience.  Yet by just the hope of it, money has many times corrupted men.</p></sp>
+<stage>Enter Guard.</stage>
+<sp>
+<speaker>Guard</speaker>
+<p>My king, I will not say that I arrive breathless because of speed, or from the action of a swift foot.<milestone ed="p" n="225" unit="line"/>For often I brought myself to a stop because of my thoughts, and wheeled round in my path to return.  My mind was telling me many things:  &ldquo;Fool, why do you go to where your arrival will mean your punishment?&rdquo;  &ldquo;Idiot, are you dallying again?  If Creon learns it from another, must you not suffer for it?&rdquo;<milestone ed="p" n="230" unit="line"/>So debating, I made my way unhurriedly, slow, and thus a short road was made long.  At last, however, the view prevailed that I should come here&mdash;to you.  Even if my report brings no good, still will I tell you,<milestone ed="p" n="235" unit="line"/>since I come with a good grip on one hope, that I can suffer nothing except what is my fate.<milestone ed="p" n="237" unit="card"/></p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>And what is it that so disheartens you?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>I want to tell you first about myself&mdash;I did not do the deed, nor did I see the doer,<milestone ed="p" n="240" unit="line"/>so it would be wrong that I should come to any harm.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Like a bowman you aim well at your target from a distance, and all around you hedge yourself off well from the deed.  It is clear that you have some unheard-of thing to tell.</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>That I do, for terrible news imposes great hesitation.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Then tell it, will you, and so unburdened go away?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p><milestone ed="p" n="245" unit="line"/>Well, here it is.  The corpse&mdash;some one has just given it burial and disappeared after sprinkling thirsty dust on the flesh and performing the other rites that piety demands.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What are you saying?  What man dared do this?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>I do not know.  For there was no scar of a pickax to be seen there,<milestone ed="p" n="250" unit="line"/>no earth thrown up by a mattock.  The ground was hard and dry, unbroken, not rolled over by wheels.  The doer was someone who left no trace.  When the first day-watchman showed it to us, a discomforting amazement fell on us all.<milestone ed="p" n="255" unit="line"/>The dead man was veiled from us&mdash;not shut within a tomb, but a light cover of dust was on him, as if put there by the hand of one who shunned a curse.  And no sign was visible that any beast of prey or any dog had approached or torn him.  Then evil words flew thick and loud among us,<milestone ed="p" n="260" unit="line"/>guard accusing guard.  It would even have come to blows in the end, nor was there anyone there to prevent it:  every man was the culprit, and no one was plainly guilty, while all disclaimed knowledge of the act.  We were ready to take red-hot iron in our hands,<milestone ed="p" n="265" unit="line"/>to walk through fire and to swear oaths by the gods that we had neither done the deed, nor shared knowledge of the planning or the doing.  At last, when our investigating got us nowhere, someone spoke up and made us all bend our faces<milestone ed="p" n="270" unit="line"/>in fear towards the earth.  For we did not know how we could argue with him, nor yet prosper, if we did what he said.  His argument was that the deed must be reported to you and not hidden.  This view prevailed, and so it was that<milestone ed="p" n="275" unit="line"/>the lot doomed miserable me to win this prize.  So here I stand, as unwelcome to you as I am unwilling, I well know.  For no man delights in the bearer of bad news.<milestone ed="p" n="278" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>My king, my thoughts have long been deliberating whether this deed is somehow the work of gods?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="280" unit="line"/>Quiet, before your words truly fill me with rage, so that you not be found at the same time foolish as well as old.  You say what is intolerable when you claim that the gods have concern for that corpse.  Was it in high esteem for his benefactions<milestone ed="p" n="285" unit="line"/>that they sought to hide him, when he had come to burn their columned shrines, their sacred treasures and their land, and scatter its laws to the winds?  Or do you see the gods honoring the wicked?  It cannot be.  No!  From the very first<milestone ed="p" n="290" unit="line"/>certain men of the city were chafing at this edict and muttering against me, tossing their heads in secret, and they did not keep their necks duly under the yoke in submission to me.  By those men, I am certain, they were led astray and bribed to do this deed.<milestone ed="p" n="295" unit="line"/>Nothing so evil as money ever grew to be current among men.  This destroys cities, this drives men from their homes, this trains and warps honest minds to set themselves to works of shame,<milestone ed="p" n="300" unit="line"/>this teaches people to practise villainies, and to know every act of unholiness.  But all the men who did this job for hire have made sure that, sooner or later, they shall suffer the punishment.  Now, as Zeus still has my reverence, know this well&mdash;<milestone ed="p" n="305" unit="line"/>I tell you on my oath.  If you do not find the very hand that made this burial, and reveal him before my eyes, mere death shall not suffice for you, not before, hung up alive, you have made this outrage plain,<milestone ed="p" n="310" unit="line"/>so that hereafter you may thieve with better knowledge of where your money should be received from, and learn that it is best not to be fond of money-making from any and every source.  For you will find that ill-gotten gains bring more men to ruin than to safety.<milestone ed="p" n="315" unit="card"/></p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p><milestone ed="p" n="315" unit="line"/>Will you allow me to speak?  Or shall I just turn and go?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Do you not know even now how much your voice sickens me?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>Is the pain in your ears, or in your soul?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>And why would you define the seat of my pain?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>He who did it hurts your heart, but I, your ears.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="320" unit="line"/>God!  How plain it is that you are a born babbler.</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>Perhaps, but never the author of this action.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Yes, and what is more, you sold your life for silver.</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>Ah!  It is truly sad when the judge judges wrong .</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Expound on &ldquo;judgment&rdquo; as you will.  But, if you fail to<milestone ed="p" n="325" unit="line"/>show me the perpetrators of these crimes, you will avow that money basely earned wreaks sorrows.<stage>Exit Creon.</stage></p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>Well, may the man be found!  That would be best.  But, whether he be caught or not&mdash;for fortune must decide that&mdash;I assure you that you will not see me come here again.<milestone ed="p" n="330" unit="line"/>Saved just now beyond hope and belief, I owe the gods great thanks.<stage>Exit the Guard.</stage><milestone ed="p" n="332" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="332" unit="line"/>Wonders are many, and none is more wonderful than man.<milestone ed="p" n="335" unit="line"/>This power spans the sea, even when it surges white before the gales of the south-wind, and makes a path under swells that threaten to engulf him.  Earth, too, the eldest of the gods, the immortal, the unwearied,<milestone ed="p" n="340" unit="line"/>he wears away to his own ends, turning the soil with the offspring of horses as the plows weave to and fro year after year.<milestone ed="p" n="343" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="343" unit="line"/>The light-hearted tribe of birds<milestone ed="p" n="345" unit="line"/>and the clans of wild beasts and the sea-brood of the deep he snares in the meshes of his twisted nets, and he leads them captive, very-skilled man.  He masters by his arts<milestone ed="p" n="350" unit="line"/>the beast who dwells in the wilds and roams the hills.  He tames the shaggy-maned horse, putting the yoke upon its neck, and tames the tireless mountain bull.<milestone ed="p" n="354" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="354" unit="line"/>Speech and thought fast as the<milestone ed="p" n="355" unit="line"/>wind and the moods that give order to a city he has taught himself, and how to flee the arrows of the inhospitable frost under clear skies and the arrows of the storming rain.<milestone ed="p" n="360" unit="line"/>He has resource for everything.  Lacking resource in nothing he strides towards what must come.  From Death alone he shall procure no escape, but from baffling diseases he has devised flights.<milestone ed="p" n="365" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="365" unit="line"/>Possessing resourceful skill, a subtlety beyond expectation he moves now to evil, now to good.  When he honors the laws of the land and the justice of the gods to which he is bound by oath,<milestone ed="p" n="370" unit="line"/>his city prospers.  But banned from his city is he who, thanks to his rashness, couples with disgrace.  Never may he share my home,<milestone ed="p" n="375" unit="line"/>never think my thoughts, who does these things!<milestone ed="p" n="376" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<stage>Enter the Guard, on the spectators' left, leading in Antigone.</stage>
+<sp>
+<speaker>Chorus</speaker><p><milestone ed="p" n="376" unit="line"/>What marvel sent by the gods is this?&mdash;I am bewildered!  I know her.  How can I deny that this girl is Antigone?  O unhappy child<milestone ed="p" n="380" unit="line"/>of your unhappy father, of Oedipus!  What can this mean?  What!  Surely they are not bringing you captive for disobeying the King's laws and being caught in lunacy?<milestone ed="p" n="384" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Guard</speaker>
+<p>Here is she, the one who did the deed.<milestone ed="p" n="385" unit="line"/>We caught this one burying him.  Where is Creon?</p></sp>
+<stage>Enter Creon from the palace.</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p>There, he is coming from the house again at our need.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What is it?  What has happened that makes my coming timely?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>My king, there is nothing that a man can rightly swear he will not do.  For second thought belies one's first intent.<milestone ed="p" n="390" unit="line"/>I could have vowed that I would not ever come here again, because of your threats by which I had just been storm-tossed.  But since this joy that exceeds and oversteps my hopes can be compared in fulness to no other pleasure, I am back&mdash;though it is contrary to my sworn oath&mdash;<milestone ed="p" n="395" unit="line"/>bringing this girl who was caught giving burial honors to the dead.  This time there was no casting of lots.  No, this piece of luck has fallen to me, and me alone.  And now, my king, as it pleases you, take her yourself, question her and convict her.  But justice would see me<milestone ed="p" n="400" unit="line"/>released free and clear from this trouble.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Your prisoner here&mdash;how and where did you take her?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>She was burying the man.  You know all there is to tell.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Are you clear and sure about what you are saying?</p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>I am.  I saw her burying the corpse that you<milestone ed="p" n="405" unit="line"/>had forbidden to bury.  Is that plain and sufficient?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>And how was she observed?  How taken in the act?<milestone ed="p" n="407" unit="card"/></p></sp>
+<sp>
+<speaker>Guard</speaker>
+<p>It happened like this.  When we had come to the place with those fierce threats of yours still in our ears, we swept away all the dust that covered<milestone ed="p" n="410" unit="line"/>the corpse and bared the damp body well.  We then sat down on the brow of the hill to windward, fleeing the smell from him, lest it strike us.  Each man was wide awake and kept his neighbor alert with torrents of threats, if any one should be careless of this task.<milestone ed="p" n="415" unit="line"/>So time passed, until the disk of the sun stood bright in mid-sky and the heat began to burn.  And then suddenly a whirlwind lifted from the earth a storm of dust, a trouble in the sky, and it filled the plain, marring all the foliage of its woods.<milestone ed="p" n="420" unit="line"/>Soon the wide air was choked with it.  We closed our eyes, and endured the plague from the gods.  When, after a long while, this storm had passed, the girl was seen, and she wailed aloud with the sharp cry of a grieving bird, as when inside her empty<milestone ed="p" n="425" unit="line"/>nest she sees the bed stripped of its nestlings.  So she, too, when she saw the corpse bare, broke into a cry of lamentation and cursed with harsh curses those who had done it.  Immediately she took thirsty dust in her hands,<milestone ed="p" n="430" unit="line"/>and from a pitcher of beaten bronze held high she crowned the dead with thrice-poured libations.  We rushed forward when we saw it, and at once closed upon our quarry, who was not at all dismayed.  We then charged her with her past and present doings,<milestone ed="p" n="435" unit="line"/>but she made no denial of anything&mdash;at once to my joy and to my pain.  For to have escaped from trouble one's self gives the greatest joy, but it stings to lead friends to evil.  Naturally, though, all such things are<milestone ed="p" n="440" unit="line"/>of less account to me than my own safety.<milestone ed="p" n="441" unit="card"/></p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You, you with your face bent to the ground, do you admit, or deny that you did this?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>I declare it and make no denial.</p></sp>
+<sp>
+<speaker>Creon</speaker><stage>To the Guard.</stage>
+<p>You can take yourself wherever you please,<milestone ed="p" n="445" unit="line"/>free and clear of a heavy charge.<stage>Exit Guard.</stage></p></sp>
+<sp><stage>To Antigone.</stage>
+<p>You, however, tell me&mdash;not at length, but briefly&mdash;did you know that an edict had forbidden this?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>I knew it.  How could I not?  It was public.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>And even so you dared overstep that law?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="450" unit="line"/>Yes, since it was not Zeus that published me that edict, and since not of that kind are the laws which Justice who dwells with the gods below established among men.  Nor did I think that your decrees were of such force, that a mortal could override the unwritten<milestone ed="p" n="455" unit="line"/>and unfailing statutes given us by the gods.  For their life is not of today or yesterday, but for all time, and no man knows when they were first put forth.  Not for fear of any man's pride was I about to owe a penalty to the gods for breaking these.<milestone ed="p" n="460" unit="line"/>Die I must, that I knew well &lpar;how could I not?&rpar;.  That is true even without your edicts.  But if I am to die before my time, I count that a gain.  When anyone lives as I do, surrounded by evils, how can he not carry off gain by dying?<milestone ed="p" n="465" unit="line"/>So for me to meet this doom is a grief of no account.  But if I had endured that my mother's son should in death lie an unburied corpse, that would have grieved me.  Yet for this, I am not grieved.  And if my present actions are foolish in your sight,<milestone ed="p" n="470" unit="line"/>it may be that it is a fool who accuses me of folly.<milestone ed="p" n="471" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>She shows herself the wild offspring of a wild father, and does not know how to bend before troubles.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Yet remember that over-hard spirits most often collapse.  It is the stiffest iron, baked to<milestone ed="p" n="475" unit="line"/>utter hardness in the fire, that you most often see snapped and shivered.  And I have witnessed horses with great spirit disciplined by a small bit.  For there is no place for pride, when one is his neighbors' slave.<milestone ed="p" n="480" unit="line"/>This girl was already practiced in outrage when she overstepped the published laws.  And, that done, this now is a second outrage, that she glories in it and exults in her deed.  In truth, then, I am no man, but she is,<milestone ed="p" n="485" unit="line"/>if this victory rests with her and brings no penalty.  No!  Whether she is my sister's child, or nearer to me in blood than any of my kin that worship Zeus at the altar of our house, she and her sister will not escape a doom most harsh.  For in truth<milestone ed="p" n="490" unit="line"/>I charge that other with an equal share in the plotting of this burial.  Call her out!  I saw her inside just now, raving, and not in control of her wits.  Before the deed, the mind frequently is convicted of stealthy crimes when conspirators are plotting depravity in the dark.<milestone ed="p" n="495" unit="line"/>But, truly, I detest it, too, when one who has been caught in treachery then seeks to make the crime a glory.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>What more do you want than to capture and kill me?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>I want nothing else.  Having that, I have everything.<milestone ed="p" n="499" unit="card"/></p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Why then do you wait?  In none of your maxims<milestone ed="p" n="500" unit="line"/>is there anything that pleases me&mdash;and may there never be!  Similarly to you as well my views must be displeasing.  And yet, how could I have won a nobler glory than by giving burial to my own brother?  All here would admit that they approve,<milestone ed="p" n="505" unit="line"/>if fear did not grip their tongues.  But tyranny, blest with so much else, has the power to do and say whatever it pleases.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You alone out of all these Thebans see it that way.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>They do, too, but for you they hold their tongues.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="510" unit="line"/>Are you not ashamed that your beliefs differ from theirs?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>No, there is nothing shameful in respecting your own flesh and blood.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Was not he your brother too, who died in the opposite cause?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>A brother by the same mother and the same father.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Why, then, do you pay a service that is disrespectful to him?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="515" unit="line"/>The dead man will not support you in that.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Yes, he will, if you honor him equally with the wicked one.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>It was his brother, not his slave, who died.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>But he died ravaging this land, while he fell in its defense.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Hades craves these rites, nevertheless.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="520" unit="line"/>But the good man craves a portion not equal to the evil's.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Who knows but that these actions are pure to those below?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You do not love someone you have hated, not even after death.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>It is not my nature to join in hate, but in love.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Then, go down to hell and love them<milestone ed="p" n="525" unit="line"/>if you must.  While I live, no woman will rule me.<milestone ed="p" n="526" unit="card"/></p></sp>
+<div2 type="anapests">
+<stage>Enter Ismene from the house, led in by two attendants.</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p>Look, here comes Ismene from the palace, shedding the tears of a loving sister.  A cloud over her eyes mars her red-flushed face,<milestone ed="p" n="530" unit="line"/>and it breaks into rain on her comely cheek.<milestone ed="p" n="531" unit="card"/></p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You who were lurking like a viper in my own house and secretly gulping up my life's blood, while I was oblivious that I was nurturing two plagues, two revolutions against my throne&mdash;tell me now, will you also affirm<milestone ed="p" n="535" unit="line"/>your share in this burial, or will you forswear all knowledge of it?</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>I performed the deed&mdash;as long as she concurs&mdash;and I share and carry the burden of guilt.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>No, justice will not permit you to do this, since you were not willing to help with the deed, nor did I give you a part in it.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p><milestone ed="p" n="540" unit="line"/>But now with this sea of troubles around you, I am not ashamed to sail in a sea of suffering at your side.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>As to whose deed it is, Hades and the dead are witnesses.  A friend in words is not the type of friend I love.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>No, sister, do not strip me of death's honor,<milestone ed="p" n="545" unit="line"/>but let me die with you and make due consecration to the dead.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Do not share my death.  Do not claim deeds to which you did not put your hand.  My death will suffice.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>And how can I cherish life, once I am deprived of you?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Ask Creon.  Your concern is for him.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p><milestone ed="p" n="550" unit="line"/>Why do you torture me like this, when it does not help you?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>No, if I mock you, it is to my own pain that I do so.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Tell me, how can I help you, even now?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Save yourself.  I do not grudge your escape.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Ah, misery!  Will I fall short of sharing your fate?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="555" unit="line"/>Your choice was to live, it was mine to die.<milestone ed="p" n="556" unit="card"/></p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>At least your choice was not made without my protests.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>One world approved your wisdom, another approved mine.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Nevertheless, the offense is identical for both of us.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Take heart!  You live.  But my life has long been<milestone ed="p" n="560" unit="line"/>in Death's hands so that I might serve the dead.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>One of these maidens, I declare, has just revealed her foolishness; the other has displayed it from the moment of her birth.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Yes, Creon.  Whatever amount of reason nature may have given them does not remain with those in dire straits, but goes astray.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="565" unit="line"/>Yours did, I know, when you chose dire actions with dire allies.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>What life would there be for me alone, without her presence?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Do not speak of her &ldquo;presence&rdquo;.  She lives no longer.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>What?  You will kill your own son's bride?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Why not?  There are other fields for him to plough.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p><milestone ed="p" n="570" unit="line"/>But not fitted to him as she was.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>I abhor an evil wife for my son.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Haemon, dearest!  How your father wrongs you!</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Enough!  Enough of you and of your marriage!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Will you really cheat your son of this girl?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="575" unit="line"/>Death it is who will end these bridals for me.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then it seems that it is resolved that she will die.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Resolved, yes, for you and by me.<stage>To the two Attendants.</stage>No more delay!  Servants, take them inside!  Hereafter they must be women, and not left at large.<milestone ed="p" n="580" unit="line"/>For it is known that even the brave seek to flee, when they see Death now closing on their life.<stage>Exeunt Attendants, guarding Antigone and Ismene.  Creon remains.</stage><milestone ed="p" n="583" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="583" unit="line"/>Blest are those whose days have not tasted of evil.  For when a house has once been shaken by the gods,<milestone ed="p" n="585" unit="line"/>no form of ruin is lacking, but it spreads over the bulk of the race, just as, when the surge is driven over the darkness of the deep by the fierce breath of Thracian sea-winds,<milestone ed="p" n="590" unit="line"/>it rolls up the black sand from the depths, and the wind-beaten headlands that front the blows of the storm give out a mournful roar.<milestone ed="p" n="593" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="593" unit="line"/>I see that the ancient sorrows of the house of the Labdacids<milestone ed="p" n="595" unit="line"/>are heaped upon the sorrows of the dead.  Each generation does not set its race free, but some god hurls it down and the race has no release.  For now that dazzling ray of hope that had been spread<milestone ed="p" n="600" unit="line"/>over the last roots in the house of Oedipus&mdash;that hope, in its turn, the blood-stained dust of the gods infernal and mindlessness in speech and frenzy at the mind cuts down.<milestone ed="p" n="605" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="605" unit="line"/>Your power, great Zeus&mdash;what human overstepping can check it?  Yours is power that neither Sleep, the all-ensnaring, nor the untiring months of the gods can defeat.  Unaged through time,<milestone ed="p" n="610" unit="line"/>you rule by your power and dwell thereby in the brilliant splendor of <placeName key="tgn,7011019">Olympus</placeName>.  And through the future, both near and distant, as through the past, shall this law prevail:  nothing that is vast comes to the life of mortals without ruin.<milestone ed="p" n="615" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="615" unit="line"/>See how that hope whose wanderings are so wide truly is a benefit to many men, but to an equal number it is a false lure of light-headed desires.  The deception comes to one who is wholly unawares until he burns his foot on a hot fire.<milestone ed="p" n="620" unit="line"/>For with wisdom did someone once reveal the maxim, now famous, that evil at one time or another seems good, to him whose mind a god leads to ruin.<milestone ed="p" n="625" unit="line"/>But for the briefest moment such a man fares free of destruction.<milestone ed="p" n="626" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<stage>Enter Haemon.</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="626" unit="line"/>But here is Haemon, the last of your offspring.  Does he come grieving for the doom of Antigone, his promised bride,<milestone ed="p" n="630" unit="line"/>and bitter for the deceived hope of their marriage?<milestone ed="p" n="631" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Creon</speaker>
+<p>We will soon know better than seers could tell us.&mdash;My son, can it be that after hearing the final judgment concerning your betrothed, you have come in rage against your father?  Or do I have your loyalty, act how I may?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p><milestone ed="p" n="635" unit="line"/>Father, I am yours, and you keep me upright with precepts good for me&mdash;precepts I shall follow.  No marriage will be deemed by me more important than your good guidance.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="640" unit="line"/>Yes, my son, this is the spirit you should maintain in your heart&mdash;to stand behind your father's will in all things.  It is for this that men pray:  to sire and raise in their homes children who are obedient, that they may requite their father's enemy with evil and honor his friend, just as their father does.<milestone ed="p" n="645" unit="line"/>But the man who begets unhelpful children&mdash;what would you say that he has sown except miseries for himself and abundant exultation for his enemies?  Never, then, my son, banish your reason for pleasure on account of a woman,<milestone ed="p" n="650" unit="line"/>knowing that this embrace soon becomes cold and brittle&mdash;an evil woman to share your bed and home.  For what wound could strike deeper than a false friend?  No, spit her out as if she were an enemy, let her go find a husband in Hades.<milestone ed="p" n="655" unit="line"/>For since I caught her alone of all the city in open defiance, I will not make myself a liar to my city.  I will kill her.  So let her call on Zeus who protects kindred blood.  If I am to foster my own kin to spurn order,<milestone ed="p" n="660" unit="line"/>surely I will do the same for outsiders.  For whoever shows his excellence in the case of his own household will be found righteous in his city as well.  But if anyone oversteps and does violence to the laws, or thinks to dictate to those in power,<milestone ed="p" n="665" unit="line"/>such a one will never win praise from me.  No, whomever the city may appoint, that man must be obeyed in matters small and great and in matters just and unjust.  And I would feel confident that such a man would be a fine ruler no less than a good and willing subject,<milestone ed="p" n="670" unit="line"/>and that beneath a hail of spears he would stand his ground where posted, a loyal and brave comrade in the battle line.  But there is no evil worse than disobedience.  This destroys cities;  this overturns homes;  this breaks<milestone ed="p" n="675" unit="line"/>the ranks of allied spears into headlong rout.  But the lives of men who prosper upright, of these obedience has saved the greatest part.  Therefore we must defend those who respect order, and in no way can we let a woman defeat us.  It is better to fall from power, if it is fated, by a man's hand,<milestone ed="p" n="680" unit="line"/>than that we be called weaker than women.<milestone ed="p" n="681" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>To us, unless our years have stolen our wit, you seem to say what you say wisely.</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>Father, the gods implant reason in men, the highest of all things that we call our own.<milestone ed="p" n="685" unit="line"/>For my part, to state how you are wrong to say those things is beyond my power and my desire, although another man, too, might have a useful thought.  In any case, it is my natural duty to watch on your behalf all that men say, or do, or find to blame.<milestone ed="p" n="690" unit="line"/>For dread of your glance forbids the ordinary citizen to speak such words as would offend your ear.  But I can hear these murmurs in the dark, how the city moans for this girl, saying:  &ldquo;No woman ever merited death less&mdash;<milestone ed="p" n="695" unit="line"/>none ever died so shamefully for deeds so glorious as hers, who, when her own brother had fallen in bloody battle, would not leave him unburied to be devoured by savage dogs, or by any bird.  Does she not deserve to receive golden honor?&rdquo;<milestone ed="p" n="700" unit="line"/>Such is the rumor shrouded in darkness that silently spreads.  For me, father, no treasure is more precious than your prosperity.  What, indeed, is a nobler ornament for children than the fair fame of a thriving father, or for a father than that of his children?<milestone ed="p" n="705" unit="line"/>Do not, then, bear one mood only in yourself:  do not think that your word and no other, must be right.  For if any man thinks that he alone is wise&mdash;that in speech or in mind he has no peer&mdash;such a soul, when laid open, is always found empty.<milestone ed="p" n="710" unit="line"/>No, even when a man is wise, it brings him no shame to learn many things, and not to be too rigid.  You see how the trees that stand beside the torrential streams created by a winter storm yield to it and save their branches, while the stiff and rigid perish root and all?<milestone ed="p" n="715" unit="line"/>And in the same way the pilot who keeps the sheet of his sail taut and never slackens it, upsets his boat, and voyages thereafter with his decking underwater.  Father, give way and allow a change from your rage.  For if even from me, a younger man, a worthy thought may be supplied,<milestone ed="p" n="720" unit="line"/>by far the best thing, I believe, would be for men to be all-wise by nature.  Otherwise&mdash;since most often it does not turn out that way&mdash;it is good to learn in addition from those who advise you well.<milestone ed="p" n="724" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>My king, it is right, if he speaks something appropriate, that you should learn from him<milestone ed="p" n="725" unit="line"/>and that you, in turn, Haemon, should learn from your father.  On both sides there have been wise words.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Men of my age&mdash;are we, then, to be schooled in wisdom by men of his?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>Not in anything that is not right.  But if I am young, you should look to my conduct, not to my years.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="730" unit="line"/>Is it worthy conduct to honor disrupters?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>I could not urge anyone to show respect for the wicked.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>And is she not in the grasp of that disease?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>All the people of this city of <placeName key="perseus,Thebes">Thebes</placeName> deny it.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Shall <placeName key="perseus,Thebes">Thebes</placeName> prescribe to me how I must rule?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p><milestone ed="p" n="735" unit="line"/>See, there, how you have spoken so much like a child.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Am I to rule this land by the will of another than myself?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>That is no city, which belongs to one man.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Does not the city by tradition belong to the man in power?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>You would make a fine monarch in a desert.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="740" unit="line"/>This boy seems to be fighting on the side of the woman.</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>If you are a woman, for, to be sure, my concern is for you.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You traitor, attacking your father, accusing him!</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>Because I see you making a mistake and committing injustice.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Am I making a mistake when I respect my own prerogatives?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p><milestone ed="p" n="745" unit="line"/>Yes.  You do not respect them, when you trample on the gods' honors.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Polluted creature, submitting to a woman!</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>You will never catch me submitting to shamelessness.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You do.  Your every word, after all, pleads her case.</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>And yours, and mine, and that of gods below.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="750" unit="line"/>You can never marry her, not while she is still alive.</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>Then she will die, and in death destroy another.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What!  Does your audacity run to open threats?</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>How is it a threat to speak against empty plans?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You will regret your unwise instructions in wisdom.</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p><milestone ed="p" n="755" unit="line"/>If you were not my father, I would have called you insane.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You woman's slave, do not try to cajole me.</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>Do you want to have your say and then have done without a reply?<milestone ed="p" n="758" unit="card"/></p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Is that so?  By Olympus above&mdash;know this well&mdash;you will have no joy for taunting me over and above your censures.<milestone ed="p" n="760" unit="line"/>Bring out that hated thing, so that with him looking on she may die right now in her bridegroom's presence and at his side!</p></sp>
+<sp>
+<speaker>Haemon</speaker>
+<p>No, not at my side will she die&mdash;do not ever imagine it.  Nor shall you ever look at me and set eyes on my face again.<milestone ed="p" n="765" unit="line"/>Indulge in your madness now with whomever of your friends can endure it.<stage>Exit Haemon.</stage></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The man is gone, King Creon, in anger and haste.  A young mind is fierce when stung.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Let him do&mdash;no!&mdash;let him plan something more immense than befits a man.  Farewell to him!  Still he will not save these two girls from death.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="770" unit="line"/>Then the pair of them, you really intend to kill them both?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Not the one who did not put her hands to the burial.  You are right.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And by what mode of death do you mean to kill the other?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>I will take her where the path is deserted, unvisited by men, and entomb her alive in a rocky vault,<milestone ed="p" n="775" unit="line"/>setting out a ration of food, but only as much as piety requires so that all the city may escape defilement.  And praying there to Hades, the only god she worships, perhaps she will obtain immunity from death, or else will learn, at last, even this late,<milestone ed="p" n="780" unit="line"/>that it is fruitless labor to revere the dead.<stage>Exit Creon.</stage><milestone ed="p" n="781" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="781" unit="line"/>Love, the unconquered in battle, Love, you who descend upon riches, and watch the night through on a girl's soft cheek,<milestone ed="p" n="785" unit="line"/>you roam over the sea and among the homes of men in the wilds.  Neither can any immortal escape you,<milestone ed="p" n="790" unit="line"/>nor any man whose life lasts for a day.  He who has known you is driven to madness.<milestone ed="p" n="791" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="791" unit="line"/>You seize the minds of just men and drag them to injustice, to their ruin.  You it is who have incited this conflict of men whose flesh and blood are one.<milestone ed="p" n="795" unit="line"/>But victory belongs to radiant Desire swelling from the eyes of the sweet-bedded bride.  Desire sits enthroned in power beside the mighty laws.<milestone ed="p" n="800" unit="line"/>For in all this divine Aphrodite plays her irresistible game.<milestone ed="p" n="801" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<stage>Enter Antigone under guard from the palace.</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="801" unit="line"/>But now, witnessing this, I too am carried beyond the bounds of loyalty.  The power fails me to keep back my streaming tears any longer, when I see Antigone making her way to the chamber where all are laid to rest,<milestone ed="p" n="805" unit="line"/>now her bridal chamber.<milestone ed="p" n="806" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="806" unit="line"/>Citizens of my fatherland, see me setting out on my last journey, looking at my last sunlight,<milestone ed="p" n="810" unit="line"/>and never again.  No, Hades who lays all to rest leads me living to <placeName key="tgn,1120946">Acheron</placeName>'s shore, though I have not had my due portion of the chant that brings the bride, nor has any hymn been mine<milestone ed="p" n="815" unit="line"/>for the crowning of marriage.  Instead the lord of <placeName key="tgn,1120946">Acheron</placeName> will be my groom.<milestone ed="p" n="817" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="817" unit="line"/>Then in glory and with praise you depart to that deep place of the dead, neither struck by wasting sickness,<milestone ed="p" n="820" unit="line"/>nor having won the wages of the sword.  No, guided by your own laws and still alive, unlike any mortal before, you will descend to Hades.<milestone ed="p" n="823" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="823" unit="line"/>I have heard with my own ears how our Phrygian guest, the daughter of Tantalus, perished<milestone ed="p" n="825" unit="line"/>in so much suffering on steep Sipylus&mdash;how, like clinging ivy, the sprouting stone subdued her.  And the rains, as men tell, do not leave her melting form, nor does the snow,<milestone ed="p" n="830" unit="line"/>but beneath her weeping lids she dampens her collar.  Most like hers is the god-sent fate that leads me to my rest.<milestone ed="p" n="834" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="834" unit="line"/>Yet she was a goddess, as you know, and the offspring of gods,<milestone ed="p" n="835" unit="line"/>while we are mortals and mortal-born.  Still it is a great thing for a woman who has died to have it said of her that she shared the lot of the godlike in her life, and afterwards, in death.<milestone ed="p" n="839" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="839" unit="line"/>Ah, you mock me!  In the name of our fathers' gods,<milestone ed="p" n="840" unit="line"/>why do you not wait to abuse me until after I have gone, and not to my face, O my city, and you, her wealthy citizens?  Ah, spring of Dirce, and you holy ground of <placeName key="perseus,Thebes">Thebes</placeName> whose chariots are many,<milestone ed="p" n="845" unit="line"/>you, at least, will bear me witness how unwept by loved ones, and by what laws I go to the rock-closed prison of my unheard-of tomb!  Ah, misery!<milestone ed="p" n="850" unit="line"/>I have no home among men or with the shades, no home with the living or with the dead.<milestone ed="p" n="853" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="853" unit="line"/>You have rushed headlong to the far limits of daring, and against the high throne of Justice<milestone ed="p" n="855" unit="line"/>you have fallen, my daughter, fallen heavily.  But in this ordeal you are paying for some paternal crime.<milestone ed="p" n="858" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="858" unit="line"/>You have touched on my most bitter thought<milestone ed="p" n="860" unit="line"/>and moved my ever-renewed pity for my father and for the entire doom ordained for us, the famed house of Labdacus.  Oh, the horrors of our mother's bed!  Oh, the slumbers of the wretched mother at the side<milestone ed="p" n="865" unit="line"/>of her own son, my own father!  What manner of parents gave me my miserable being!  It is to them that I go like this, accursed and unwed, to share their home.<milestone ed="p" n="870" unit="line"/>Ah, my brother, the marriage you made was doomed, and by dying you killed me still alive!<milestone ed="p" n="872" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="872" unit="line"/>Your pious action shows a certain reverence, but an offence against power can no way be tolerated by him who has power in his keeping.<milestone ed="p" n="875" unit="line"/>Your self-willed disposition is what has destroyed you.<milestone ed="p" n="876" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="876" unit="line"/>Unwept, unfriended, without marriage-song, I am led in misery on this journey that cannot be put off.  No longer is it permitted me, unhappy girl,<milestone ed="p" n="880" unit="line"/>to look up at this sacred eye of the burning sun.  But for my fate no tear is shed, no friend moans in sorrow.<milestone ed="p" n="883" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Creon.</stage>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="883" unit="line"/>Do you not know that dirges and wailing before death would never be given up, if it were allowed to make them freely?<milestone ed="p" n="885" unit="line"/>Take her away&mdash;now!  And when you have enshrouded her, as I proclaimed, in her covered tomb, leave her alone, deserted&mdash;let her decide whether she wishes to die or to live entombed in such a home.  It makes no difference, since our hands are clean so far as regards this girl.<milestone ed="p" n="890" unit="line"/>But no matter what, she will be stripped of her home here above.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Tomb, bridal-chamber, deep-dug eternal prison where I go to find my own, whom in the greatest numbers destruction has seized and Persephone has welcomed among the dead!<milestone ed="p" n="895" unit="line"/>Last of them all and in by far the most shameful circumstances, I will descend, even before the fated term of my life is spent.  But I cherish strong hopes that I will arrive welcome to my father, and pleasant to you, Mother, and welcome, dear brother, to you.<milestone ed="p" n="900" unit="line"/>For, when each of you died, with my own hands I washed and dressed you and poured drink-offerings at your graves.  But now, Polyneices, it is for tending your corpse that I win such reward as this. &lsqb;And yet I honored you rightly, as the wise understand.<milestone ed="p" n="905" unit="line"/>Never, if I had been a mother of children, or if a husband had been rotting after death, would I have taken that burden upon myself in violation of the citizens' will.  For the sake of what law, you ask, do I say that?  A husband lost, another might have been found,<milestone ed="p" n="910" unit="line"/>and if bereft of a child, there could be a second from some other man.  But when father and mother are hidden in  Hades, no brother could ever bloom for me again.  Such was the law whereby I held you first in honor, but for that Creon judged me guilty of wrongdoing<milestone ed="p" n="915" unit="line"/>and of dreadful outrage, dear brother!  And now he leads me thus in his hands' strong grasp, when I have enjoyed no marriage bed or bridal song and have not received any portion of marriage or the nurture of children.  But deserted by friends,<milestone ed="p" n="920" unit="line"/>in misery I go living to the hollow graves of the dead.&rsqb;  What law of the gods have I transgressed?  Why should I look to the gods anymore?  What ally should I call out to, when by my reverence I have earned a name for irreverence?<milestone ed="p" n="925" unit="line"/>Well, then, if these events please the gods, once I have suffered my doom I will come to know my guilt.  But if the guilt lies with my judges, I could wish for them no greater evils than they inflict unjustly on me.<milestone ed="p" n="929" unit="card"/></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>Still the same tempest of the soul<milestone ed="p" n="930" unit="line"/>grips this girl with the same fierce gusts.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Then because of this her guards will have reason to lament their slowness.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Ah, no!  That command verges close on death.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="935" unit="line"/>I cannot console you with any hope that your doom is not to be fulfilled in that way.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>O city of my fathers, land of <placeName key="perseus,Thebes">Thebes</placeName>, and you gods, our ancestors!  I am led away now; there is no more delay!<milestone ed="p" n="940" unit="line"/>Look at me, you who are <placeName key="perseus,Thebes">Thebes</placeName>' lords&mdash;look at the only remaining daughter of the house of your kings.  See what I suffer, and at whose hands, because I revered reverence!<stage>Antigone is led away by the guards.</stage><milestone ed="p" n="944" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="944" unit="line"/>So too endured Danae in her beauty to change<milestone ed="p" n="945" unit="line"/>the light of the sky for brass-bound walls, and in that chamber, both burial and bridal, she was held in strict confinement.  And yet was she of esteemed lineage, my daughter,<milestone ed="p" n="950" unit="line"/>and guarded a deposit of the seed of Zeus that had fallen in a golden rain.  But dreadful is the mysterious power of fate&mdash;there is no deliverance from it by wealth or by war, by towered city, or dark, sea-beaten ships.<milestone ed="p" n="955" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="955" unit="line"/>And Dryas's son, the Edonian king swift to rage, was tamed in recompense for his frenzied insults, when, by the will of Dionysus, he was shut in a rocky prison.  There the fierce and swelling force of his madness trickled away.<milestone ed="p" n="960" unit="line"/>That man came to know the god whom in his frenzy he had provoked with mockeries.  For he had sought to quell the god-inspired women and the Bacchanalian fire,<milestone ed="p" n="965" unit="line"/>and he angered the Muses who love the flute.<milestone ed="p" n="966" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="966" unit="line"/>And by the waters of the Dark Rocks, the waters of the twofold sea, are the shores of <placeName key="tgn,1115068">Bosporus</placeName> and the Thracian city Salmydessus,<milestone ed="p" n="970" unit="line"/>where Ares, neighbor of that city, saw the accursed, blinding wound inflicted on the two sons of Phineus by his savage wife.  It was a wound that brought darkness to the hollows, making them crave vengeance<milestone ed="p" n="975" unit="line"/>for the eyes she crushed with her bloody hands and with her shuttle for a dagger.<milestone ed="p" n="977" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="977" unit="line"/>Wasting away in their misery, they bewailed their miserable suffering<milestone ed="p" n="980" unit="line"/>and their birth from their mother stripped of her marriage.  But she traced her descent from the ancient line of the Erechtheids, and in far-distant caves she was raised amidst her father's gusts.  She was the child of Boreas,<milestone ed="p" n="985" unit="line"/>running swift as horses over the steep hills, a daughter of gods. Yet she, too, was assailed by the long-lived Fates, my child.<milestone ed="p" n="988" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Teiresias, led by a boy, on the spectators' right.</stage>
+<sp>
+<speaker>Teiresias</speaker>
+<p><milestone ed="p" n="988" unit="line"/>Princes of <placeName key="perseus,Thebes">Thebes</placeName>, we have come on a shared journey, two scouting the way by the eyes of one.<milestone ed="p" n="990" unit="line"/>For this is the method of travel for the blind, using a guide.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What is it, old Teiresias?  What is your news?</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>I will tell you.  You, obey the seer.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>It was not my habit before, at any rate, to stand apart from your will.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Therefore you captained this city on an upright course.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="995" unit="line"/>I have felt and can attest your benefits.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Realize that once more now you are poised on fortune's razor-edge.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What do you mean?  I shudder to hear you!</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>You will understand, when you hear the signs revealed by my art.  As I took my place on my old seat of augury<milestone ed="p" n="1000" unit="line"/>where all birds regularly gather for me, I heard an unintelligible voice among them:  they were screaming in dire frenzy that made their language foreign to me.  I realized that they were ripping each other with their talons, murderously&mdash;the rush of their wings did not lack meaning.<milestone ed="p" n="1005" unit="line"/>Quickly, in fear, I tried burnt-sacrifice on a duly-kindled altar, but from my offerings Hephaestus did not blaze.  Instead juice that had sweated from the thigh-flesh trickled out onto the embers and smoked and sputtered;<milestone ed="p" n="1010" unit="line"/>the gall was scattered high up in the air;  and the streaming thighs lay bared of the fat that had been wrapped around them.  Such was the failure of the rites that yielded no sign, as I learned from this boy.  For he is my guide, as I am guide to others.<milestone ed="p" n="1015" unit="line"/>And it is your will that is the source of the sickness now afflicting the city.  For the altars of our city and our hearths have one and all been tainted by the birds and dogs with the carrion taken from the sadly fallen son of Oedipus.  And so the gods no more accept prayer and sacrifice at our hands,<milestone ed="p" n="1020" unit="line"/>or the burning of thigh-meat, nor does any bird sound out clear signs in its shrill cries, for they have tasted the fatness of a slain man's blood.  Think, therefore, on these things, my son.  All men are liable to err.<milestone ed="p" n="1025" unit="line"/>But when an error is made, that man is no longer unwise or unblessed who heals the evil into which he has fallen and does not remain stubborn.  Self-will, we know, invites the charge of foolishness.  Concede the claim of the dead.  Do not kick at the fallen.<milestone ed="p" n="1030" unit="line"/>What prowess is it to kill the dead all over again?  I have considered for your good, and what I advise is good.  The sweetest thing is to learn from a good advisor when his advice is to your profit.<milestone ed="p" n="1033" unit="card"/></p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Old man, you all shoot your arrows at me, like archers at their mark, and I am not safe<milestone ed="p" n="1035" unit="line"/>even from the plottings of the seer's divine art, but by their tribe I have long been bought and sold and made their merchandise.  Turn your profits, make your deals for the white gold of <placeName key="perseus,Sardis">Sardis</placeName> and the gold of <placeName key="tgn,7000198">India</placeName>, if it pleases you, but you shall not cover that man with a grave,<milestone ed="p" n="1040" unit="line"/>not even if the eagles of Zeus wish to snatch and carry him to be devoured at the god's throne.  No, not even then, for fear of that defilement will I permit his burial, since I know with certainty that no mortal has the power to defile the gods.<milestone ed="p" n="1045" unit="line"/>But even the exceedingly clever, old Teiresias, falls with a shameful fall, when they couch shameful thoughts in fine phrasing for profit's sake.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Alas!  Does any man know, does any consider&mdash;</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What is this?  What universal truth are you announcing?</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p><milestone ed="p" n="1050" unit="line"/>&mdash;by how much the most precious of our possessions is the power to reason wisely?</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>By as much, I think, as senselessness is the greatest affliction.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Yet you came into being full of that disease.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>I have no desire to trade insults with the seer.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Yet that is what you do in saying that I prophesy falsely.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="1055" unit="line"/>Yes, for the prophet-clan was ever fond of money.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>And the race sprung from tyrants loves shameful gain.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Do you know that you ramble so about your king?</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>I am aware, since through me you have saved this city.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>You are a wise seer, but fond of doing injustice.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p><milestone ed="p" n="1060" unit="line"/>You will stir me to utter the dire secret in my soul.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Out with it!  But only if it is not for gain that you speak it.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Indeed, I think I speak without mention of gain&mdash;where you are concerned.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Be certain that you will not trade in my will.<milestone ed="p" n="1064" unit="card"/></p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Then know, yes, know it well!  You will not live through many more<milestone ed="p" n="1065" unit="line"/>courses of the sun's swift chariot, before you will give in return one sprung from your own loins, a corpse in requital for corpses.  For you have thrust below one of those of the upper air and irreverently lodged a living soul in the grave,<milestone ed="p" n="1070" unit="line"/>while you detain in this world that which belongs to the infernal gods, a corpse unburied, unmourned, unholy.  In the dead you have no part, nor do the gods above, but in this you do them violence.  For these crimes the avenging destroyers,<milestone ed="p" n="1075" unit="line"/>the Furies of Hades and of the gods, lie in ambush for you, waiting to seize you in these same sufferings.  And look closely if I tell you this with a silvered palm.  A time not long to be delayed will reveal in your house wailing over men and over women.<milestone ed="p" n="1080" unit="line"/>All the cities are stirred up in hostility, whose mangled corpses the dogs, or the wild beasts or some winged bird buried, carrying an unholy stench to the city that held each man's hearth.  There, now, are arrows for your heart, since you provoke me,<milestone ed="p" n="1085" unit="line"/>launched at you, archer-like, in my anger.  They fly true&mdash;you cannot run from their burning sting.  Boy, lead me home, so that he may launch his rage against younger men, and learn to keep a quieter tongue<milestone ed="p" n="1090" unit="line"/>and a better mind within his breast than he now bears.<stage>Exit Teiresias.</stage><milestone ed="p" n="1091" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The man is gone, my king, leaving dire prophecies behind.  And for all the time that I have had this hair on my head, now white, once dark, I know that he has never been a false prophet to our city.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="1095" unit="line"/>I, too, know it well, and my mind is troubled.  To yield is terrible, but, to resist, to strike my pride with ruin&mdash;this, too, inspires terror.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The moment, Creon, requires that you reason wisely.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What should I do, then?  Speak, and I will obey.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1100" unit="line"/>Go and free the girl from her hollowed chamber.  Then raise a tomb for the unburied dead.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>And you recommend this?  You think that I should yield?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Yes, my king, and with all possible speed.  For harms sent from the gods swiftly cut short the follies of men.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p><milestone ed="p" n="1105" unit="line"/>Ah, it is a struggle, but I depart from my heart's resolve and obey.  We must not wage vain wars with necessity.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Go, do these things and do not leave their performance to others.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>Right away I will go.  Go, go, my servants, each and all of you!  Take axes in your hands,<milestone ed="p" n="1110" unit="line"/>and hurry to that place there in view!  But since my judgment has taken this turn, I will be there to set her free, as I myself confined her.  I am held by the fear that it is best to keep the established laws to life's very end.<milestone ed="p" n="1115" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1115" unit="line"/>God of many names, glory of the Cadmeian bride and offspring of loud-thundering Zeus, you who watch over far-famed <placeName key="tgn,1000080">Italy</placeName> and reign<milestone ed="p" n="1120" unit="line"/>in the valleys of Eleusinian Deo where all find welcome!  O Bacchus, denizen of <placeName key="perseus,Thebes">Thebes</placeName>, the mother-city of your Bacchants, dweller by the wet stream of Ismenus on the soil<milestone ed="p" n="1125" unit="line"/>of the sowing of the savage dragon's teeth!<milestone ed="p" n="1126" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1126" unit="line"/>The smoky glare of torches sees you above the cliffs of the twin peaks, where the Corycian nymphs move inspired by your godhead,<milestone ed="p" n="1130" unit="line"/>and Castalia's stream sees you, too.  The ivy-mantled slopes of <placeName key="perseus,Nysa">Nysa</placeName>'s hills and the shore green with many-clustered vines send you, when accompanied by the cries of your divine words,<milestone ed="p" n="1135" unit="line"/>you visit the avenues of <placeName key="perseus,Thebes">Thebes</placeName>.<milestone ed="p" n="1137" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1137" unit="line"/><placeName key="perseus,Thebes">Thebes</placeName> of all cities you hold foremost in honor, together with your lightning-struck mother.<milestone ed="p" n="1140" unit="line"/>And now when the whole city is held subject to a violent plague, come, we ask, with purifying feet over steep <placeName key="tgn,7011022">Parnassus</placeName>,<milestone ed="p" n="1145" unit="line"/>or over the groaning straits!<milestone ed="p" n="1146" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1146" unit="line"/>O Leader of the chorus of the stars whose breath is fire, overseer of the chants in the night, son begotten of Zeus,<milestone ed="p" n="1150" unit="line"/>appear, my king, with your attendant Thyiads, who in night-long frenzy dance and sing you as Iacchus the Giver!<milestone ed="p" n="1155" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Messenger, on the spectators' left.</stage>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="1155" unit="line"/>Neighbors of the house of Cadmus and of Amphion, there is no station of human life that I would ever praise or blame as being settled.  Fortune sets upright and Fortune sinks the lucky and unlucky from day to day,<milestone ed="p" n="1160" unit="line"/>and no one can prophesy to men concerning the order that has just been established.  For Creon, as I saw it, was once blest:  he had saved this land of Cadmus from its enemies;  and having won sole and total dominion in the land, he guided it on a straight course and flourished in his noble crop of children.<milestone ed="p" n="1165" unit="line"/>And now all this has been lost.  When a man has forfeited his pleasures, I do not reckon his existence as life, but consider him just a breathing corpse.  Heap up riches in your house, if you wish!  Live with a tyrant's pomp!  But if there is no joy<milestone ed="p" n="1170" unit="line"/>along with all of that, I would not pay even the shadow of smoke for all the rest, compared with joy.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What is this new grief for our princes that you have come to report?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>They are dead, and the living are guilty of the deaths.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Who is the murderer?  Who the murdered?  Tell us.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="1175" unit="line"/>Haemon is dead&mdash;his blood was shed by no strange hand.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Was it his father's, or his own ?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>He did it by his own, enraged with his father for the murder.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Ah, prophet, how true, then, you have proved your word!</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Knowing that these things are so, you must consider the rest.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1180" unit="line"/>Wait, I see the unhappy Eurydice, Creon's wife, nearby.  She comes from the house either knowing of her son, or merely by chance.<milestone ed="p" n="1183" unit="card"/></p></sp>
+<stage>Enter Eurydice.</stage>
+<sp>
+<speaker>Eurydice</speaker>
+<p>People of <placeName key="tgn,7011071">Thebes</placeName>, I heard your words as I was on my way to the gates to address divine Pallas with my prayers.<milestone ed="p" n="1185" unit="line"/>At one and the same time I was loosening the bolts of the gate to open it, and the sound of a blow to our house struck my ear.  In terror I sank back into the arms of my handmaids, and my senses fled.<milestone ed="p" n="1190" unit="line"/>But repeat what your news was, for I shall hear it with ears that are no strangers to sorrow.</p></sp>
+<sp n="Messenger">
+<speaker>Messenger</speaker>
+<p>Dear mistress, I will tell what I witnessed and leave no word of the truth unspoken.  For what good would it do that should I soothe you with words in which I must later be found false?<milestone ed="p" n="1195" unit="line"/>The truth is always best.  I attended your husband as his guide to the furthest part of the plain, where unpitied the body of Polyneices, torn by dogs, still lay.  After we had prayed to the goddess of the roads<milestone ed="p" n="1200" unit="line"/>and to Pluto to restrain their anger in mercy, we washed him with pure washing, and with freshly-plucked boughs we burned what remains there were.  Lastly we heaped a high-mounded tomb of his native earth.  Afterwards we turned away to enter the maiden's stoney-bedded<milestone ed="p" n="1205" unit="line"/>bridal chamber, the caverned mansion of Hades' bride.  From a distance, one of us servants heard a voice of loud wailing near that bride's unwept bed and came to tell our master Creon.  And as the King moved closer and closer, obscure signs rising from a bitter cry surrounded him&mdash;<milestone ed="p" n="1210" unit="line"/>he groaned and said in bitter lament, &ldquo;Ah, misery, am I now the prophet of evil?  Am I going on the path most lined with grief of all that I have walked before?  My son's voice greets me.  Go, my servants,<milestone ed="p" n="1215" unit="line"/>hurry closer, and when you have reached the tomb, enter the opening where the stones of the mound have been torn away, up to the cell's very mouth.  See if it is Haemon's voice that I recognize, or if I am cheated by the gods.&rdquo;</p><milestone ed="p" n="1219" unit="card"/>
+<p>This search, at our desperate master's word,<milestone ed="p" n="1220" unit="line"/>we went to make, and in the furthest part of the tomb we saw her hanging by the neck, fastened by a halter of fine linen threads, while he was embracing her with arms thrown around her waist, bewailing the loss of his bride to the spirits below, as well as his father's deeds, and his grief-filled marriage.<milestone ed="p" n="1225" unit="line"/>But his father, when he saw him, cried aloud with a dreadful cry and went in and called to him with a voice of wailing:  &ldquo;Ah, unhappy boy, what have you done!  What plan have you seized on?  By what misfortune have you lost your reason?<milestone ed="p" n="1230" unit="line"/>Come out, my son, I pray you, I beg you!&rdquo;  But the boy glared at him with savage eyes, spat in his face, and without a word in response drew his twin-edged sword.  As his father rushed out in flight, he missed his aim.  Then the ill-fated boy was enraged with himself<milestone ed="p" n="1235" unit="line"/>and straightway stretched himself over his sword and drove it, half its length, into his side.  Still conscious, he clasped the maiden in his faint embrace, and, as he gasped, he shot onto her pale cheek a swift stream of oozing blood.<milestone ed="p" n="1240" unit="line"/>Corpse enfolding corpse he lay, having won his marriage rites, poor boy, not here, but in Hades' palace, and having shown to mankind by how much the failure to reason wisely is the most severe of all afflictions assigned to man.<stage>Eurydice departs into the house.</stage>
+</p></sp>
+<milestone ed="p" n="1244" unit="card"/>
+<sp>
+<speaker>Chorus</speaker>
+<p>What would you infer from this?  The lady<milestone ed="p" n="1245" unit="line"/>has turned back and gone without a word, either for good or for evil.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>I, too, am startled.  Still I am nourished by the hope that at the grave news of her son she thinks it unworthy to make her laments before the city, but in the shelter of her home will set her handmaids to mourn the house's grief.<milestone ed="p" n="1250" unit="line"/>For she is not unhabituated to discretion, that she should err.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I do not know.  But to me, in any case, a silence too strict seems to promise trouble just as much as a fruitless abundance of weeping.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>I will find out whether she is not, in fact, hiding some repressed plan in the darkness of her passionate heart.<milestone ed="p" n="1255" unit="line"/>I will go in, since you are right&mdash;in an excess of silence, too, there may be trouble.<stage>Exit Messenger.</stage><milestone ed="p" n="1257" unit="card"/></p></sp>
+<div2 type="anapests">
+<stage>Enter Creon, attended and carrying the shrouded body of Haemon, on the spectators' left.</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p>Look, here is the King himself approaching, his hands grasping a monument plainly signing that his&mdash;if we may say it&mdash;and no one else's,<milestone ed="p" n="1260" unit="line"/>was the madness of this error.<milestone ed="p" n="1261" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Creon</speaker>
+<p><milestone ed="p" n="1261" unit="line"/>Ah, the blunders of an unthinking mind, blunders of rigidity, yielding death!  Oh, you witnesses of the killers and the killed, both of one family!<milestone ed="p" n="1265" unit="line"/>What misery arises from my reasonings!  Haemon, you have died after a young life, youngest and last of my sons!  O God!  You have departed not by your foolishness, but by my own!<milestone ed="p" n="1270" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1270" unit="line"/>Ah, how late you seem to see the right!</p></sp>
+<sp><speaker>Creon</speaker>
+<p>God, I have mastered the bitter lesson!  But then, then, I think, some god struck me on my head with a crushing weight, and drove me into savage paths,<milestone ed="p" n="1275" unit="line"/>&mdash;ah!&mdash;and overthrew my joy to be trampled on!  Ah, the labors men must toil through!<milestone ed="p" n="1278" unit="card"/></p>
+<stage>Enter the Messenger from the house.</stage></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="1278" unit="line"/>My master, you have come, I think, like one whose hands are not empty, but who has a ready store:  first, you carry that burden visible in your arms;<milestone ed="p" n="1280" unit="line"/>second, you will soon look upon further sufferings inside your house.<milestone ed="p" n="1281" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Creon</speaker>
+<p>What worse suffering is still to follow upon these sufferings?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Your wife is dead, true mother of that corpse, poor lady, by wounds newly cut.<milestone ed="p" n="1284" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Creon</speaker>
+<p><milestone ed="p" n="1284" unit="line"/>O harbor of Hades, hard to purify!<milestone ed="p" n="1285" unit="line"/>Why, why do you ruin me?  Herald of evil, of grief, what word do you say?  Ah, you have done in a dead man anew!  What are you saying, boy?  What is this you report to me<milestone ed="p" n="1290" unit="line"/>God no!&mdash;what new slaughter, my wife's doom, is heaped upon this ruin?<milestone ed="p" n="1293" unit="card"/></p>
+<stage>The doors of the palace are opened, and the corpse of Eurydice is disclosed.</stage></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The sight is at hand.  It is no longer hidden inside.<milestone ed="p" n="1294" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Creon</speaker>
+<p>Ah, misery!<milestone ed="p" n="1295" unit="line"/>There I see a new, a second evil!  What destiny, ah, what, can still await me?  I have just now taken my son in my arms, and now I see another corpse before me!<milestone ed="p" n="1300" unit="line"/>Oh, tormented mother!  Oh, my son!</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="1301" unit="line"/>By the altar, with a sharp-whetted sword, she struck until her eyes went slack and dark.  Before that she bewailed the noble fate of Megareus who died earlier, and then the fate of this boy, and also, with her last breath,<milestone ed="p" n="1305" unit="line"/>she called down evil fortune upon you, the slayer of her sons.<milestone ed="p" n="1306" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Creon</speaker>
+<p><milestone ed="p" n="1306" unit="line"/>Ah, no!  I tremble with fear.  Why does no one strike me full on my chest with a two-edged sword?<milestone ed="p" n="1310" unit="line"/>I am miserable&mdash;ah&mdash;and bathed in miserable anguish!</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Yes, because you were accused of responsibility for both this son's death, and the other's, by her whose corpse you see.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>What was the manner of the violent deed by which she departed?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="1315" unit="line"/>Her own hand struck her to the heart upon learning her son's sharply-lamented fate.<milestone ed="p" n="1317" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Creon</speaker>
+<p><milestone ed="p" n="1317" unit="line"/>Ah this guilt can never be fastened onto any other mortal so as to remove my own!  It was I, yes, I, who killed you, I the wretch.<milestone ed="p" n="1320" unit="line"/>I admit the truth.  Lead me away, my servants, lead me from here with all haste, who am no more than a dead man!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1325" unit="line"/>The course you recommend is to your gain, if there can be gain amidst evil.  What is briefest is best, when trouble lies at your feet.<milestone ed="p" n="1328" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Creon</speaker>
+<p><milestone ed="p" n="1328" unit="line"/>Let it come, let it appear, that fairest of fates for me, that brings my final day,<milestone ed="p" n="1330" unit="line"/>the fate supreme!  Oh, let it come, so that I may never see tomorrow's light!<milestone ed="p" n="1334" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1334" unit="line"/>These things are in the future.  We must see to present affairs.<milestone ed="p" n="1335" unit="line"/>Fulfillment of these things rests in the hands where it should rest.</p></sp>
+<sp>
+<speaker>Creon</speaker>
+<p>All that I crave was summed in that prayer.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then pray no more; for mortals have no release from destined misfortune.<milestone ed="p" n="1339" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Creon</speaker>
+<p><milestone ed="p" n="1339" unit="line"/>Lead me away, I beg you, a rash, useless man.<milestone ed="p" n="1340" unit="line"/>I have murdered you, son, unwittingly, and you, too, my wife&mdash;the misery!  I do not know which way I should look, or where I should seek support.  All is<milestone ed="p" n="1345" unit="line"/>amiss that is in my hands, and, again, a crushing fate has leapt upon my head.<milestone ed="p" n="1347" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<div2 type="anapests">
+<stage>As Creon is being conducted into the house, the Chorus Leader speaks the closing verses.</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1347" unit="line"/>Wisdom is provided as the chief part of happiness, and our dealings with the gods must be in no way unholy.  The great words of arrogant men have to make repayment with great blows, and in old age teach wisdom.</p></sp></div2>
+</div1>
+</body></text>
+</TEI.2>

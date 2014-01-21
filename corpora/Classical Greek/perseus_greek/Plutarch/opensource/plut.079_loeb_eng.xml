@@ -1,0 +1,1582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>Septem sapientium convivium</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Frank Cole Babbitt</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Frank Cole Babbitt</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1928</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.2.p.346"/>
+         <div1 type="section" n="intro">
+            <head>THE DINNER OF THE SEVEN WISE MEN (SEPTEM SAPIENTIUM CONVIVIUM) <lb/>INTRODUCTION</head>
+            <p>Plutarch's account of the dinner of the seven wise men is a literary tour de
+					force. Both Plato and Xenophon had composed similar accounts of such
+					gatherings in their own time, and Plutarch himself has recorded in detail in
+					his Symposiacs (or TableTalks) much of the conversation which was heard at
+					such gatherings in his day. This is comparatively an easy task, but in the
+					account of the dinner of the seven wise men Plutarch, who lived several
+					centuries after Plato and Xenophon, deliberately set himself to compose an
+					account of a meeting of people who lived a couple of centuries before Plato
+					and Xenophon&mdash;at the dawn, almost, of authentic Greek history.
+					There was a tradition, recorded by Plato in the Protagoras (p. 343 a) and by
+					other writers, that the seven wise men had met at Delphi in connexion with
+					the dedication of the two famous inscriptions on the temple of Apollo there,
+					and there was an added tradition that they had later been entertained by
+					Periander at Corinth. Besides this, many sayings of the wise men were
+					traditionally current. With this material at hand, Plutarch composed his
+					imaginative account of the dinner, adding other characters such as
+					Neiloxenus and Aesop, and giving it a more intimate touch by introducing the
+					feminine element in the persons of Melissa and <pb id="v.2.p.347"/> Eumetis
+					; and at the end, for good measure, he added an elaboration of the familiar
+					story of Arion's rescue by dolphins, already well known from the account of
+					Herodotus (i. 24) and of other writers ; and this is capped by a few more
+					dolphins. </p>
+            <p>The title (<foreign lang="greek">*sumpo/sion tw=n e(pta\ sofw=n</foreign>)
+					stands as No. 110 in the catalogue of Lamprias, and the essay is
+					occasionally quoted or referred to by later Greek writers. </p>
+            <p>Plutarch names, as the seven wise men, Thales, Bias, Pittacus, Solon, Chilon,
+					Cleobulus, and Anacharsis. Plato (Protagoras, 343 a) puts Myson in place of
+					Anacharsis, and in other lists Periander is found in his stead. Pherecydes,
+					Epimenides, and Peisistratus are the other candidates for a place in the
+					list. </p>
+         </div1>
+         <pb id="v.2.p.349"/>
+         <div1 type="section" n="1">
+            <p>It seems fairly certain, Nicarchus, that the lapse of time will bring about
+					much obscurity and complete uncertainty regarding actual events, if at the
+					present time, in the case of events so fresh and recent, false accounts that
+					have been concocted obtain credence. For, in the first place, the dinner was
+					not a dinner of the Seven alone, as you and your friends have been told, but
+					of more than twice that number, including myself ; for I was on intimate
+					terms with Periander by virtue of my profession,<note place="unspecified" anchored="yes">He was apparently a seer versed in ritual purification; see <hi rend="italics">infra</hi>, 149 D.</note> and I was also the host of
+					Thales, for he stayed at my house by command of Periander. In the second
+					place, your informant, whoever he was, did not report the conversation
+					correctly; apparently he was not one of those at the dinner. However, since
+					there is nothing that demands my attention just now, and old age is too
+					untrustworthy to warrant postponing the narration, I will begin at the
+					beginning, and tell you, without any omissions, the story which you all seem
+					eager to hear. </p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>Periander had arranged for the entertainment, not in the city but in the
+					dining-hall in the vicinity of Lechaeum, close by the shrine of Aphrodite,
+					in whose honour the sacrifice was offered that day. For Periander, ever
+					since his mother's love-affair which <pb id="v.2.p.351"/> had led to her
+					self-destruction,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Parthenius, <hi rend="italics">Love-affairs</hi>, 17.</note> had offered no sacrifice to Aphrodite, but now, for the
+					first time, owing to certain dreams of Melissa's, he had set about honouring
+					and conciliating the goddess. </p>
+            <p>For each of the invited guests a carriage and pair, fashionably caparisoned,
+					was brought to the door ; for it was summer-time, and the whole length of
+					the street even to the water's edge was one mass of dust and confusion by
+					reason of the great crowd of vehicles and people. Thales, however, when he
+					saw the equipage at the door, smiled and dismissed it. And so we set out on
+					foot, leaving the road and going through the fields in a leisurely fashion,
+					and with us two was Neiloxenus of Naucratis, an able man, who had been on
+					terms of intimacy with Solon and Thales and their group in Egypt. He, as it
+					happened, had been sent a second time on a mission to Bias, the reason for
+					which he did not know, save only that he suspected that he was bringing for
+					Bias a second problem sealed up in a packet. His instructions were, that if
+					Bias should give up trying to solve it, he should show the packet to the
+					wisest among the Greeks. </p>
+            <p>
+               <q direct="unspecified">It is a piece of good fortune for me,</q> said Neiloxenus, <q direct="unspecified">
+					to have found you all together here, and, as you see, I am bringing the
+					packet with me to the dinner</q> ; and at the same time he showed
+					it to us. </p>
+            <p>Thales began to laugh, and said, <q direct="unspecified">If it is anything bad, go to Priene <note place="unspecified" anchored="yes">The home of Bias.</note>
+					again ! For Bias will have a solution for this, just as he had his own
+					solution of the first problem.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">What,</q> said I, <q direct="unspecified">was the first problem ?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">The king,</q> said he, <q direct="unspecified">sent to Bias an animal for <pb id="v.2.p.353"/> sacrifice, with instructions to take out and send
+					back to him the worst and best portion of the meat. And our friend's
+					neat and clever solution was, to take out the tongue and send it to
+					him,<note place="unspecified" anchored="yes">The same story is told in <hi rend="italics">Moralia</hi> 38 B; in 506 C, and in Plutarch's <hi rend="italics">Comment. on Hesiod</hi>, 71 (<hi rend="italics">Works ad Days</hi>, 719), the same story is told of Pittacus.</note> with the result that he is now manifestly in high repute and
+					esteem.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Not for this alone,</q> said Neiloxenus, <q direct="unspecified">but he does not
+					try to avoid, as the rest of you do, being a friend of kings and being
+					called such. In your case, for instance, the king finds much to admire
+					in you, and in particular he was immensely pleased with your method of
+					measuring the pyramid, because, without making any ado or asking for any
+					instrument, you simply set your walking-stick upright at the edge of the
+					shadow which the pyramid cast, and, two triangles being formed by the
+					intercepting of the sun's rays, you demonstrated that the height of the
+					pyramid bore the same relation to the length of the stick as the one
+					shadow to the other.<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Pliny, <hi rend="italics">Natural History</hi>, xxxvi. 17 (82).</note> But, as I said, you have been unjustly accused of
+					having an animosity against kings, and certain offensive pronouncements
+					of yours regarding despots have been reported to him. For example, he
+					was told that, when you were asked by Molpagoras the Ionian what was the
+					most paradoxical thing you had ever seen, you replied, 'A despot that
+					lived to be old.'<note place="unspecified" anchored="yes">Specifically ascribed to Thales by Plutarch, <hi rend="italics">Moralia</hi>, 578 D; <hi rend="italics">cf.</hi> also <hi rend="italics">infra</hi>, 152 A.</note> And again he was told that on a certain convivial
+					occasion there was a discussion about animals, and you maintained that
+					of the wild animals the worst was the despot, and of the tame the
+					flatterer.<note place="unspecified" anchored="yes">Ascribed to Bias by Plutarch, <hi rend="italics">Moralia</hi>, 61 C.</note> Now kings, although they would make out that they are
+					altogether different from despots, do not take kindly to such
+					remarks.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">But the fact is,</q> said Thales, <q direct="unspecified">that Pittacus is
+					responsible for that statement, which was once made in jest with
+					reference to Myrsilus. But, as for myself, <pb id="v.2.p.355"/> I should
+					be amazed to see,</q> he continued, <q direct="unspecified">not a despot but a pilot
+						that lived to be old. However, so far as concerns transferring this from
+						the one to the other, my feeling is exactly that of the young man who
+						threw a stone at his dog, but hit his stepmother, whereupon he
+						exclaimed, ' Not so bad after all! ' <note place="unspecified" anchored="yes">The same story is found in <hi rend="italics">Moralia</hi>, 467 C.</note> This is the reason why I regarded
+						Solon as very wise in refusing to accept the position of despot.<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Plutarch, <hi rend="italics">Life of Solon</hi>, chaps. xiv. and xv. (pp. 85 D-86 B).</note> And as
+						for your friend Pittacus, if he had never addressed himself to the task
+						of ruling single-handed, he would not have said that ' it is hard to be
+						good.' <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Protagoras</hi>, 339 A; Bergk, <hi rend="italics">Poet. Lyr. Gr.</hi> iii. p. 385 Simonides, No. 5.</note> But Periander, apparently, in spite of his being afflicted with
+						despotism as with an inherited disease, is making fair progress towards
+						recovery <note place="unspecified" anchored="yes">The usual tradition (<hi rend="italics">e.g.</hi> Herodotus, v. 92) is that Periander grew worse rather than better.</note> by keeping wholesome company&mdash;at least up to the
+						present time&mdash; and by bringing about conferences with men of
+						sense, and by refusing to entertain the suggestions offered by my
+						fellow-citizen Thrasybulus about lopping off the topmost.<note place="unspecified" anchored="yes">The story is familiar in other connexions also; Roman tradition, for example, makes Tarquinius Superbus give this advice to his son (Livy, i. 54).</note> Indeed, a
+						despot who desires to rule slaves rather than men is not unlike a farmer
+						who is willing to gather in a harvest of darnel and rest-harrow rather
+						than of wheat and barley. For the exercise of dominion possesses one
+						advantage to set against its many disadvantages, and this is the honour
+						and glory of it, if rulers rule over good men by being better than they,
+						and are thought to surpass their subjects in greatness. But rulers that
+						are content with safety without honour ought to rule over a lot of
+						sheep, horses, and cattle, and not over men. But enough of this,</q>
+					he continued, <q direct="unspecified">for our visitor here has precipitated us into a
+						conversation that is quite inappropriate, since 
+						<pb id="v.2.p.357"/> he has not been careful to bring up topics and
+						questions suitable for persons on their way to dinner. Do you not
+						honestly believe that, as some preparation is necessary on the part of
+						the man who is to be host, there should also be some preparation on the
+						part of him who is to be a guest at dinner ? People in Sybaris, as it
+						appears, have their invitations to women presented a year in advance so
+						as to afford them plenty of time to provide themselves with clothes and
+						jewellery to wear when they come to dinner <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Athenaeus, 521 C.</note> ; but I am of the opinion
+						that the genuine preparation on the part of the man who is to be the
+						right kind of guest at dinner requires even a longer time, inasmuch as
+						it is more difficult to discover the fitting adornment for character
+						than the superfluous and useless adornment for the body. In fact, the
+						man of sense who comes to dinner does not betake himself there just to
+						fill himself up as though he were a sort of pot, but to take some part,
+						be it serious or humorous, and to listen and to talk regarding this or
+						that topic as the occasion suggests it to the company, if their
+						association together is to be pleasant. <note place="unspecified" anchored="yes">A similar thought is found in <hi rend="italics">Moralia</hi>, 660 B.</note> Now an unsavoury dish can be
+						declined, and, if the wine be poor, one may find refuge with the
+						water-sprites ; but a guest at dinner who gives the others a headache,
+						and is churlish and uncivil, ruins and spoils the enjoyment of any wines
+						and viands or of any girl's music ; nor is there any ready means by
+						which one can spew out this sort of unsavouriness, but with some persons
+						their mutual dislike lasts for their entire lifetime&mdash;stale
+						dregs, as it were, of some insult or fit of temper which was called into
+						being over wine. Wherefore Chilon showed most excellent judgement when
+						he received his invitation yesterday, <pb id="v.2.p.359"/> in not
+						agreeing to come until he had learned the name of every person invited.
+						For he said that men must put up with an inconsiderate companion on
+						shipboard or under the same tent, if necessity compels them to travel or
+						to serve in the army, but that to trust to luck regarding the people one
+						is to be associated with at table is not the mark of a man of sense.<note place="unspecified" anchored="yes">Plutarch expands this thought in <hi rend="italics">Moralia</hi>, 708 D&gt;</note>
+						Now the skeleton which in Egypt they are wont, with fair reason, to
+						bring in and expose at their parties, urging the guests to remember that
+						what it is now, they soon shall be, although it is an ungracious and
+						unseasonable companion to be introduced at a merry-making, yet has a
+						certain timeliness, even if it does not incline the guests to drinking
+						and enjoyment, but rather to a mutual friendliness and affection, and if
+						it urges upon them that life, which is short in point of time, should
+						not be made long by evil conduct.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Engaging in such discourse as this along the way, we arrived at the house.
+					Thales did not care to bathe, for we had already had a rub-down. So he
+					visited and inspected the race-tracks, the trainingquarters of the athletes,
+					and the beautifully kept park along the shore ; not that he was ever greatly
+					impressed by anything of the sort, but so that he should not seem to show
+					disdain or contempt for Periander's ambitious designs. As for the other
+					guests, each one, after enjoying a rub-down or a bath, was conducted by the
+					servants to the diningroom through the open colonnade. </p>
+            <p>Anacharsis was seated in the colonnade, and in front of him stood a girl who
+					was parting his hair with her hands. This girl ran to Thales in a most
+					open-hearted way, whereupon he kissed her <pb id="v.2.p.361"/> and said
+					laughingly, <q direct="unspecified">Go on and make our visitor beautiful, so that we may not
+						find him terrifying and savage in his looks, when he is, in reality,
+						most civilized.</q>
+				        </p>
+            <p>When I inquired about the girl and asked who she was, he replied, <q direct="unspecified">
+					Have you not heard of the wise and far-famed Eumetis ? Really, though,
+					that is only her father's name for her, and most people call her
+					Cleobulina after her father.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">I am sure,</q> said Neiloxenus, <q direct="unspecified">that when you speak so
+					highly of the maiden you must have reference to the cleverness and skill
+					that she shows in her riddles ; for it is a fact that some of her
+					conundrums have even found their way to Egypt.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">No indeed,</q> said Thales, <q direct="unspecified">for these she uses like dice as
+					a means of occasional amusement, and risks an encounter with all comers.
+					But she is also possessed of wonderful sense, a statesman's mind, and an
+					amiable character, and she has influence with her father so that his
+					government of the citizens has become milder and more popular.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Yes,</q> said Neiloxenus, <q direct="unspecified">that must be apparent to
+					anybody who observes her simplicity and lack of affectation. But what is
+					the reason for her loving attentions to Anacharsis ?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Because,</q> replied Thales, <q direct="unspecified">he is a man of sound sense
+					and great learning, and he has generously and readily imparted to her
+					the system of diet and purging which the Scythians employ in treating
+					their sick. And I venture to think that at this very moment, while she
+					is bestowing this affectionate attention on the man, she is gaining some
+					knowledge through further conversation with him.</q>
+				        </p>
+            <p>We were already near the dining-room when <pb id="v.2.p.363"/> Alexidemus of
+					Miletus met us. He was a son of the despot Thrasybulus, but born out of
+					wedlock. He was coming out in a state of great agitation, angrily talking to
+					himself, but saying nothing that was intelligible to us. When he saw Thales
+					he recovered himself a little, stopped, and exclaimed, <q direct="unspecified">What an
+						insult ! To think that Periander should behave so toward us ! Why, he
+						simply would not hear of my going away when I was bent on going, but
+						begged me to stay over for the dinner ; and then when I came he assigned
+						to me an ignominious place, setting Aeolians, and men from the islands,
+						and what not, above Thrasybulus. For it is plain that in my person he
+						wishes to offer insult to Thrasybulus, who delegated me to come, and to
+						put him low down to show that he purposely ignores him.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">So then,</q> said Thales, <q direct="unspecified">as the Egyptians say of the
+					stars, when they gain or lose altitude in their courses, that they are
+					growing better or worse than they were before, do you fear that the
+					obscuration and degradation affecting you because of your place at table
+					will be brought about in a similar way ? And you will be contemptible
+					when compared with the Spartan <note place="unspecified" anchored="yes">A remark to like effect is assigned to Agesilaus in <hi rend="italics">Moralia</hi>, 208 D, and to Damonidas in <hi rend="italics">Moralia</hi>, 219 E. The idea is also credited to Aristippus by Diogenes Laertius, ii. 73.</note> who in a chorus was put by the director
+					in the very last place, whereupon he exclaimed, 'Good ! You have found
+					out how this may be made a place of honour.' When we have taken our
+					places,</q> continued Thales, <q direct="unspecified">we ought not to try to
+						discover who has been placed above us, but rather how we may be
+						thoroughly agreeable to those placed with us, by trying at once to
+						discover in them something that may serve to initiate and keep up
+						friendship, and, better yet, by harbouring no discontent but an open
+						satisfaction in being placed next to such persons as <pb id="v.2.p.365"/> these. For, in every case, a man that objects to his place at table
+						is objecting to his neighbour rather than to his host, and he makes
+						himself hateful to both.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">All this,</q> said Alexidemus, <q direct="unspecified">is merely talk that means
+					nothing. As a matter of fact, I observe that all you wise men too make
+					it your aim in life to have honour shown you</q> ; and with that he
+					passed by us and departed. </p>
+            <p>Thales, in answer to our look of astonishment at the man's extraordinary
+					conduct, said, <q direct="unspecified">A crazy fellow, and uncouth by nature ; as an
+						instance, when he was still a boy, some especially fine perfume was
+						brought to Thrasybulus, and this the youngster emptied into a big
+						wine-cooler, and on top of it poured strong wine, and drank it off, thus
+						creating enmity instead of friendship for Thrasybulus.</q>
+				        </p>
+            <p>Just then a servant made his way to us and said, <q direct="unspecified">Periander bids you,
+					and Thales too, to take your friend here with you and inspect something
+					which has just now been brought to him, to determine whether its birth
+					is of no import whatever, or whether it is a sign and portent; at any
+					rate, he himself seemed to be greatly agitated, feeling that it was a
+					pollution and blot upon his solemn festival.</q> With these words he
+					conducted us to one of the rooms off the garden. Here a youth, a herdsman
+					apparently, beardless as yet, and not bad-looking withal, unfolded a piece
+					of leather, and showed us a newly-born creature which he asserted was the
+					offspring of a mare. Its upper parts as far as the neck and arms were of
+					human form, and the sound of its crying was just like that of newly-born
+					infants, but the rest of its body was that of a horse. Neiloxenus merely
+					exclaimed, <q direct="unspecified">God save us,</q> and turned his face away ; <pb id="v.2.p.367"/> but Thales fixed his gaze upon the youth for a long
+					time, and then, with a smile (for he was in the habit of joking with me
+					about my profession), said, <q direct="unspecified">No doubt, Diocles, you are minded to set
+						in operation your ritual of atonement, and to trouble the gods who
+						deliver us from evil, since you must feel that something terrible and
+						momentous has befallen ?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Why not ?</q> said I, <q direct="unspecified">since this thing is a sign of
+					strife and discord, Thales, and I fear that it may go so far as to
+					affect even marriage and offspring, because, even before we have made
+					full atonement for the first fault that moved the goddess to wrath, she
+					plainly shows us, as you see, that there is a second.</q>
+				        </p>
+            <p>To this Thales made no answer, but withdrew, laughing all the while.
+					Periander met us at the door, and inquired about what we had seen ;
+					whereupon Thales left me and took his hand, saying, <q direct="unspecified">Whatever Diocles
+						bids you do you will carry out at your own convenience, but my
+						recommendation to you is that you should not employ such young men as
+						keepers of horses, or else that you should provide wives for
+						them.</q> 
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Phaedrus, <hi rend="italics">Fabulae</hi> iii. 3.</note> 
+            </p>
+            <p>It seemed to me that Periander, on hearing his words, was mightily pleased,
+					for he burst out laughing and embraced Thales most affectionately. <q direct="unspecified">I
+						think, Diocles,</q> said Thales, <q direct="unspecified">that the sign has already
+							had its fulfilment, for you see what a bad thing has happened to us in
+							that Alexidemus would not dine with us !</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>When we had entered the dining-room, Thales, in a louder voice than usual,
+					said, <q direct="unspecified">Where is the place at table to which the man objected ?
+					</q> And when its position was pointed out to him he made his way to it,
+					and placed himself and us there, at the same <pb id="v.2.p.369"/> time
+					remarking, <q direct="unspecified">Why, I would have given money to share the same table
+						with Ardalus.</q> This Ardalus was from Troezene, a flute-player and
+					a priest of the Ardalian Muses, whose worship his forefather, Ardalus of
+					Troezene, had established.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pausanias, ii. 31. 3.</note> 
+            </p>
+            <p>Aesop too, as it happened, having been sent by Croesus only a short time
+					before on a mission both to Periander and to the god at Delphi, was present
+					at the dinner, seated on a low chair next to Solon, who occupied the place
+					just above. Aesop said <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> No. 140 in the collection of fables that passes under the name of Aesop.</note> : <q direct="unspecified">A Lydian mule caught sight of his own
+						image reflected in a river, and, suddenly struck with admiration at the
+						beauty and great size of his body, tossed his mane and started to run
+						like a horse, but then, recalling that his sire was an ass, he soon
+						stopped his running, and gave up his pride and animation.</q>
+				        </p>
+            <p>Whereupon Chilon, dropping into Laconian dialect, remarked, <q direct="unspecified">It's slow
+					ye are, and ye're running on like the mule.</q>
+				        </p>
+            <p>Just then Melissa came in and took her place on the couch next to Periander,
+					but Eumetis sat during the dinner. Then Thales, addressing himself to me (my
+					place was just above that of Bias), said,<q direct="unspecified">Diocles, why do you not
+						tell Bias at once that our guest from Naucratis has again come to him
+						with a king's problems, so that he may hear them stated while he is
+						sober and circumspect ?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Hear that!</q> said Bias; <q direct="unspecified">this man has been trying for a
+					long time to terrify me with such adjurations; but I know that Dionysus,
+					besides being clever in other ways, is called the ' solver ' by virtue
+					of wisdom, so I have no fears that if I become <note place="unspecified" anchored="yes">Cf. No. 140 in
+						the collection of fables that passes under the name of Aesop.</note>
+					             <pb id="v.2.p.371"/> filled with his spirit <note place="unspecified" anchored="yes">Dionysus was the god of wine.</note> I shall compete with less
+					courage.</q>
+				        </p>
+            <p>In such repartee as this did those men indulge while dining ; but to me, as I
+					was noticing that the dinner was plainer than usual, there came the thought
+					that the entertainment and invitation of wise and good men involves no
+					expense, but rather curtails expense, since it does away with over-elaborate
+					viands and imported perfumes and sweetmeats and the serving of costly wines,
+					all of which were in fairly free use every day with Periander in his royal
+					position and wealth and circumstance. But on this occasion he tried to make
+					an impression on the men by simplicity and restraint in expenditure. Nor was
+					this limited to these other matters, but he also made his wife put aside and
+					out of sight her usual elaborate attire, and present herself inexpensively
+					and modestly attired. </p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>After the tables had been cleared away, and garlands distributed by Melissa,
+					and we had poured libations, and the flute-girl, after playing a brief
+					accompaniment for our libations, had withdrawn, then Ardalus, addressing
+					Anacharsis, inquired if there were flute-girls among the Scythians. </p>
+            <p>He answered on the spur of the moment, <q direct="unspecified">No, nor grape-vines
+					either,</q>
+				        </p>
+            <p>When Ardalus again said,<q direct="unspecified">But the Scythians must have gods,</q> he
+					replied, <q direct="unspecified">Certainly, they have gods who understand the language of
+						men ; they are not like the Greeks, who, although they think they
+						converse better than the Scythians, yet believe that the gods have more
+						pleasure in listening to the sounds produced by bits of bone and
+						wood.</q>
+				        </p>
+            <p>Thereupon Aesop said, <q direct="unspecified">I would have you know, <pb id="v.2.p.373"/> my
+					friend, that the modern flute-makers have given up the use of bones from
+					fawns, and use bones from asses, asserting that the latter have a better
+					sound. This fact underlies the riddle <note place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> ii. p. 440, Cleobulina, No. 3. The restoration of Bernardakis here adopted is found in the <hi rend="italics">editio minor.</hi>
+                  </note> which Cleobulina made in regard
+					to the Phrygian flute : Full on my ear with a horn-bearing shin did a
+					dead donkey smite me. So we may well be astonished that the ass, which
+					otherwise is most gross and unmelodious, yet provides us with a bone
+					which is most fine and melodious.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">That, without question,</q> said Neiloxenus, <q direct="unspecified">is the
+					reason for the complaint which the people of Busiris make against us of
+					Naucratis ; for we are already using asses' bones for our flutes. But
+					for them even to hear a trumpet is a sin, because they think it sounds
+					like the bray of an ass ; and you know, of course, that an ass is
+					treated with contumely by the Egyptians on account of Typhon. <note place="unspecified" anchored="yes">The Egyptian god Set presumably, a malignant deity, who was sometimes represented with features of an ass. <hi rend="italics">Cf.</hi> for example, O. Gruppe, <hi rend="italics">Griechische Mythologie und Religionsgeschichte</hi>, pp. 102 and 409. <hi rend="italics">Cf.</hi> also Plutarch, <hi rend="italics">Moralia</hi>, 362 F, where the present statements are slightly expanded.</note>
+               </q>
+				        </p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>There was a pause in the conversation, and Periander, noticing that
+					Neiloxenus wanted to begin his remarks, but was hesitating, said, <q direct="unspecified">I
+						am inclined to commend both states and rulers that take up the business
+						of strangers first and of their own citizens afterwards ; and now it
+						seems to me that we should for a few minutes put a check on our own
+						words, which are, as it were, in their own land where they are well
+						known, and grant audience, as in a legislative sitting, to the royal
+						communication from Egypt, which our excellent friend Neiloxenus has
+						
+						<pb id="v.2.p.375"/> come to bring to Bias, and which Bias wishes to
+						consider with all of us together.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Indeed,</q> said Bias, <q direct="unspecified">in what place or company would a
+					man more readily take the risk, if he must, of answering such questions,
+					especially since the king has given instructions to begin with me, and
+					after that the matter is to come round to all the rest of you?</q>
+				        </p>
+            <p>As he said this Neiloxenus offered him the packet, but Bias bade him by all
+					means to open it and read it aloud. The contents of the letter were to this
+					effect: </p>
+            <p>&ldquo; Amasis, king of the Egyptians, to Bias, wisest of the Greeks. </p>
+            <p>
+					          <q direct="unspecified">The king of the Ethiopians is engaged in a contest in wisdom against
+						me. Repeatedly vanquished in all else, he has crowned his efforts by
+						framing an extraordinary and awful demand, bidding me to drink up the
+						ocean. My reward, if I find a solution, is to have many villages and
+						cities of his, and if I do not, I am to withdraw from the towns lying
+						about Elephantine. I beg therefore that you will consider the question,
+						and send back Neiloxenus without delay. And whatever is right for your
+						friends or citizens to receive from us shall meet with no let or
+						hindrance on my part.</q>
+				        </p>
+            <p>After this had been read Bias did not wait long, but, after a few minutes of
+					abstraction and a few words with Cleobulus, whose place was near his, he
+					said, <q direct="unspecified">What is this, my friend from Naucratis ? Do you mean to say
+						that Amasis, who is king of so many people and possessed of such an
+						excellent great country, will be willing, for the consideration of some
+						insignificant and miserable villages, to drink up the ocean ?</q>
+					          <pb id="v.2.p.377"/>
+				        </p>
+            <p>Neiloxenus answered with a laugh, <q direct="unspecified">Assume that he is willing, and
+					consider what is possible for him to do.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Well, then,</q> said Bias, <q direct="unspecified">let him tell the Ethiopian to
+					stop the rivers which are now emptying into the ocean depths, while he
+					himself is engaged in drinking up the ocean that now is; for this is the
+					ocean with which the demand is concerned, and not the one which is to
+					be.</q>
+				        </p>
+            <p>As soon as Bias had said these words, Neiloxenus, for very joy, hastened to
+					embrace and kiss him. The rest of the company also commended the answer, and
+					expressed their satisfaction with it, and then Chilon said with a laugh,
+					<q direct="unspecified">My friend, before the ocean disappears entirely in consequence
+						of being drunk up, I beg that you sail back to your home in Naucratis
+						and take word to Amasis not to be trying to find out how to make way
+						with so much bitter brine, but rather how to render his government
+						potable and sweet to his subjects ; for in these matters Bias is most
+						adept and a most competent instructor, and if Amasis will only learn
+						them from him, he will have no further need of his golden foot-tub to
+						impress the Egyptians,<note place="unspecified" anchored="yes">The story of Amasis's low birth and his rise to power is told by Herodotus, ii. 172.</note> but they will all show regard and affection for
+						him if he is good, even though he be shown to be in his birth ten
+						thousand times more lowly than at present.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Yes, indeed,</q> said Periander, <q direct="unspecified">it surely is right and
+					proper that we all contribute an offering of this sort to the king, '
+					each man in his turn,' as Homer <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Odyssey</hi>, xiii. 14.</note> has said. For to him these extra items
+					would be more valuable than the burden of his mission, and as profitable
+					for ourselves as anything could be.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Chilon thereupon said that it was only right that <pb id="v.2.p.379"/> Solon
+					should take the lead in speaking on this subject, not merely because he was
+					most advanced in years and was occupying the place of honour, but because he
+					held the greatest and most perfect position as a ruler by getting the
+					Athenians to accept his laws. Thereupon Neiloxenus quietly remarked to me,
+					<q direct="unspecified">It is certain, Diocles, that a good many things come to be
+						believed quite contrary to fact, and most people take delight in
+						fabricating out of their own minds unwarranted tales about wise men, and
+						in readily accepting such tales from others. Such, for instance, was the
+						report, which was brought to us in Egypt, in regard to Chilon, to the
+						effect that he had broken off his friendship and his hospitable
+						relations with Solon because Solon asserted that laws are subject to
+						revision.</q> 
+               <note place="unspecified" anchored="yes">The earlier Athenian laws, which Solon changed, as Lycurgus changed the laws of Sparta. Those who would emend the passage would make it refer to Solon's own laws, but it should be remembered that Solon only desired that the Athenians should try out his laws for a certain length of time, and it is inconceivable that Solon with his great practical wisdom should not realize that his own laws might later need revision.</note> 
+            </p>
+            <p>
+               <q direct="unspecified">The story is ridiculous,</q> said I; <q direct="unspecified">for in such case
+					Chilon ought first to renounce Lycurgus and all his laws, for Lycurgus
+					revised completely the Spartan constitution.</q>
+				        </p>
+            <p>Solon then, after a moment's delay, said, <q direct="unspecified">In my opinion either a
+					king, or a despot, would best gain repute if out of a monarchy he should
+					organize a democracy for his people.</q>
+				        </p>
+            <p>Next Bias said, <q direct="unspecified">If he should be the very first to conform to his
+					country's laws.</q>
+				        </p>
+            <p>Following him Thales said that he accounted it happiness for a ruler to reach
+					old age and die a natural death. 
+					<pb id="v.2.p.381"/>
+				        </p>
+            <p>Fourth, Anacharsis said, <q direct="unspecified">If only he have sound sense.</q>
+				        </p>
+            <p>Fifth, Cleobulus, <q direct="unspecified">If he trust none of his associates.</q>
+				        </p>
+            <p>Sixth, Pittacus, <q direct="unspecified">If the ruler should manage to make his subjects fear,
+					not him, but for him.</q> 
+               <note place="unspecified" anchored="yes">Plutarch cites a concrete case in his <hi rend="italics">Life of Aratus</hi>, chap. xxv. (p. 1039 A).</note> 
+            </p>
+            <p>Chilon followed by saying that a ruler's thoughts should never be the
+					thoughts of a mortal, but of an immortal always. </p>
+            <p>When these sentiments had been expressed, we insisted that Periander himself
+					should also say something. And he, not very cheerful, but with a hard set
+					face, said, <q direct="unspecified">Well, I may add my view, that the opinions expressed,
+						taken as a whole, practically divorce any man possessed of sense from
+						being a ruler.</q>
+				        </p>
+            <p>Whereupon Aesop, as though taking us to task, said, <q direct="unspecified">You ought, then,
+					to have carried out this discussion by yourselves, and not, while
+					professing to be counsellors and friends, to have made yourselves
+					complainants against rulers.</q>
+				        </p>
+            <p>Solon then, laying his hand on Aesop's head and smiling the while, said,
+					<q direct="unspecified">Don't you think that anyone could make a ruler more moderate and
+						a despot more reasonable if he could persuade them that it is better not
+						to rule than to rule ?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Who,</q> he replied, <q direct="unspecified">would believe you in this matter in
+					preference to the god who said, according to the oracle referring to
+					you, 
+					<pb id="v.2.p.383"/> Blessed the city that hears the command of one
+					herald only?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Yet it is a fact,</q> said Solon, <q direct="unspecified">that even now the
+					Athenians hearken to one herald and ruler only, and that one, the law,
+					under their democratic constitution. You are clever in understanding
+					ravens and jackdaws, but you have no true ear for the voice of equality,
+					but think that, according to the god, the city which hearkens to one man
+					fares the best, whereas in a social gathering you regard it as a virtue
+					to have everybody talk and on every sort of subject.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Yes,</q> said Aesop, <q direct="unspecified">that is because you have not yet
+					written a law that slaves <note place="unspecified" anchored="yes">Aesop, now received as an equal among people of the highest standing, had been a slave in his earlier years, and does not hesitate to joke about the fact.</note> shall not get drunk, which would be a similar
+					law to fit this case, as at Athens you wrote a law that slaves shall not
+					have any love-affair and shall not rub down like athletes.</q> 
+               <note place="unspecified" anchored="yes">A reason for the prohibition is given in Plutarch's <hi rend="italics">Life of Solon</hi>, chap. i. (p. 79 A).</note> 
+            </p>
+            <p>Solon laughed at this and Cleodorus the physician said, <q direct="unspecified">Nevertheless
+					rubbing down dry is similar to talking when soaked with wine in that it
+					is most agreeable.</q>
+				        </p>
+            <p>And Chilon, interrupting, said, <q direct="unspecified">The more reason then for refraining
+					from it.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">I could swear,</q> said Aesop, speaking again, <q direct="unspecified">that
+					Thales appeared to bid a man to grow old as fast as possible.</q> 
+               <note place="unspecified" anchored="yes">So as to obtain happiness; Aesop twists Thales' remark made a few moments before (<hi rend="italics">supra</hi>, 152 A).</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Periander at this burst out laughing, and said, <q direct="unspecified">We are fittingly
+					punished, Aesop, for becoming involved in other subjects before
+					introducing all of those from Amasis, to which we gave precedence. I
+					beg, Neiloxenus, that you will look at the rest of 
+					<pb id="v.2.p.385"/> the letter and take advantage of the fact that the
+					men are all here together.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Well, in truth,</q> said Neiloxenus, <q direct="unspecified">the demand of the
+					Ethiopian can hardly be called anything but a ' depressing cryptic
+					dispatch,' <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> ii. p. 708, Archilochus, No. 89. The reference is to a well-known form of cipher message in use among the Spartans. A narrow leather thong was wrapped around a cylinder, and on the surface thus formed the message was written. When the thong was received it was applied to a duplicate cylinder kept by the recipient, and so the message was read.</note> to borrow a phrase from Archilochus, but your friend Amasis
+					is more civilized and cultivated in proposing such questions; for he
+					bade the king name the oldest thing, the most beautiful, the greatest,
+					the wisest, the most common, and besides these, as I can attest, to name
+					also the most helpful thing and the most harmful, and the strongest and
+					the easiest.</q>
+				        </p>
+            <p>
+					          <q direct="unspecified">Did the Ethiopian king give an answer and a solution for each of
+						these questions ?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Yes, in his way,</q> said Neiloxenus, &ldquo; but you must
+					judge for yourselves when you hear his answers. For my king holds it to be a
+					very important matter not to be caught impugning the answers falsely ; and
+					likewise, if the respondent is making any slip in these, he would not have
+					this pass unquestioned. I will read the answers of the Ethiopian as he gave
+					them: </p>
+            <p>(a) ' What is the oldest thing ? ' ' Time.' </p>
+            <p>(b) ' What is the greatest ? ' ' The universe.' </p>
+            <p>(c) ' What is the wisest ? ' ' Truth.' </p>
+            <p>(d) ' What is the most beautiful ? ' ' Light.' </p>
+            <p>(e) ' What is most common ? ' ' Death.' </p>
+            <p>(f) ' What is most helpful ?' ' God.' </p>
+            <p>(g) ' What is most harmful ? ' ' An evil spirit.' 
+					<pb id="v.2.p.387"/>
+				        </p>
+            <p>(h) ' What is strongest ? ' ' Fortune.' </p>
+            <p>(i) ' What is easiest ? ' ' Pleasure.' &rdquo; </p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>After this second reading, there was silence for a time, and then Thales
+					asked Neiloxenus if Amasis had approved the answers. When Neiloxenus replied
+					that Amasis had accepted some, but was much dissatisfied with others, Thales
+					said, &ldquo;As a matter of fact there is not a thing in them that
+					cannot be impugned, but they all contain gross errors and evidences of
+					ignorance. For instance, in the very first one, how can time be the oldest
+					thing if a part of it is past, a part present, and a part future ? <note place="unspecified" anchored="yes">Plutarch, <hi rend="italics">Moralia</hi>, 1081 C-1082 D, argues at some length about the Stoic conception of time.</note> For the
+					time which is to come would clearly be younger than events and persons that
+					now are. And to hold that truth is wisdom seems to me no different from
+					declaring that light is the eye. If he thought the light beautiful, as it
+					really is, how did he come to overlook the sun itself ? Among the others the
+					answer about gods and evil spirits evinces boldness and daring, but the one
+					about Fortune contains much bad logic ; for Fortune would not be so fickle
+					about abiding with one if it were the mightiest and strongest thing in
+					existence. Nor is death, in fact, the most common thing; for it does not
+					affect the living.<note place="unspecified" anchored="yes">Probably an adaptation of one of Epicurus's <q direct="unspecified">leading principles</q> 
+                  <foreign lang="greek">o( qa/natos ou)de\n pro\s h(ma=s</foreign>, <q direct="unspecified">death is nothing to us,</q> who are alive. <hi rend="italics">Cf.</hi> Diogenes Laertius, x. 129, and Plutarch, <hi rend="italics">Moralia</hi>, 37 A.</note> But, to avoid giving the impression of merely passing
+					judgement upon the statements of others, let us compare answers of our own
+					with his. And I offer myself as the first, if Neiloxenus so desires, to be
+					questioned on each topic ; and taking the questions 
+					<pb id="v.2.p.389"/> in the order given,<note place="unspecified" anchored="yes">Either Thales or a copyist has transposed (<hi rend="italics">c</hi>) and (<hi rend="italics">d</hi>).</note>a I will repeat them, together with
+					my answers <note place="unspecified" anchored="yes">Most of these sentiments are attributed to Thales in works of other authors, as wel as in other places in the <hi rend="italics">Moralia</hi>. It may suffice here to refer, for example, to Diogenes Laertius, i. 35. The two numbered (<hi rend="italics">f</hi>) and (<hi rend="italics">g</hi>) are rather suggestive of the Stoic school of philosophy.</note> : </p>
+            <p>(a) ' What is the oldest thing?' 'God,'&rdquo; said Thales,
+					&ldquo;'for God is something that has no beginning.' </p>
+            <p>(b) ' What is greatest ? ' ' Space ; for while the universe contains within
+					it all else, this contains the universe.' </p>
+            <p>(c) ' What is most beautiful ? ' . ' The Universe ; for everything that is
+					ordered as it should be is a part of it.' </p>
+            <p>(d) 'What is wisest?' 'Time; for it has discovered some things already, and
+					shall discover all the rest.' </p>
+            <p>(e) ' What is most common ? ' ' Hope ; for those who have nothing else have
+					that ever with them.' </p>
+            <p>(f) ' What is most helpful ?' ' Virtue ; for it makes everything else helpful
+					by putting it to a good use.' </p>
+            <p>(g) ' What is most harmful ? ' ' Vice ; for it harms the greatest number of
+					things by its presence.' </p>
+            <p>(h) ' What is strongest?' 'Necessity; for that alone is insuperable.' </p>
+            <p>(i) 'What is easiest?' 'To follow Nature's course ; because people often
+					weary of pleasures.' &rdquo; </p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>When all had expressed their satisfaction with Thales, Cleodorus said,
+					<q direct="unspecified">Asking and answering such questions is all right for kings. But
+						the barbarian who would have Amasis drink up the ocean to do him honour
+						needed the terse retort which Pittacus used to Alyattes, when the latter
+						wrote and sent an overbearing command to the Lesbians. The only answer
+						
+						<pb id="v.2.p.391"/> he made was to tell Alyattes to eat onions and hot
+						bread.</q>
+               <note place="unspecified" anchored="yes">
+                  <foreign lang="greek">)/*ison tw=| klai/ein</foreign> was the old explanation; that is, <q direct="unspecified">weep,</q> or <q direct="unspecified">go hang.</q>
+               </note>
+            </p>
+            <p>Periander now entered into the conversation, and said, <q direct="unspecified">Nevertheless
+					it is a fact, Cleodorus, that the ancient Greeks also had a habit of
+					propounding such perplexing questions to one another. For we have the
+					story that the most famous poets among the wise men of that time
+					gathered at Chalcis to attend the funeral of Amphidamas. Now Amphidamas
+					was a warrior who had given much trouble to the Eretrians, and had
+					fallen in one of the battles for the possession of the Lelantine plain.
+					But since the verses composed by the poets made the decision a difficult
+					and troublesome matter because they were so evenly matched, and since
+					the repute of the contestants, Homer and Hesiod, caused the judges much
+					perplexity as well as embarrassment, the poets resorted to questionings
+					of this sort, and Homer, as Lesches asserts,<note place="unspecified" anchored="yes">Some MSS. make Lesches propound the question, and other traditions make Hesiod the questioner, to whom Homer replies. <hi rend="italics">Cf.</hi> note <hi rend="italics">c</hi> below.</note> propounded this : Tell me,
+					O Muse, of events which never have happened aforetime, Nor in the future
+					shall ever betide, and Hesiod answered quite off-hand : When round Zeus
+					in his tomb rush the steeds with galloping hoof-beats, Crashing car
+					against car, as they eagerly run for a trophy. And for this it is said
+					that he gained the greatest admiration and won the tripod.</q> 
+               <note place="unspecified" anchored="yes">It is of interest to compare the long and variant account given in the <hi rend="italics">Contest of Homer and Hesiod</hi>, a work of the second century A.D. which is usually included at the end of editions of Hesiod, also in the 5th vol. of the edition of Homer in the Oxford Classical Texts.</note> 
+            </p>
+            <p>
+               <q direct="unspecified">But what difference is there,</q> said Cleodorus, <q direct="unspecified">between
+					things like this and Eumetis's riddles ? 
+					<pb id="v.2.p.393"/> Perhaps it is not unbecoming for her to amuse
+					herself and to weave these as other girls weave girdles and hair-nets,
+					and to propound them to women, but the idea that men of sense should
+					take them at all seriously is ridiculous.</q>
+				        </p>
+            <p>Eumetis, to judge by her appearance, would have liked to give him an answer,
+					but restrained herself with all modesty, and her face was covered with
+					blushes. But Aesop, as though he would take her part, said, <q direct="unspecified">Is it
+						not then even more ridiculous not to be able to solve these ? Take, for
+						instance, the one which she propounded to us a few minutes before
+						dinner: Sooth I have seen a man with fire fasten bronze on another. <note place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> ii. p. 440, Cleobulina, No. 1.</note>
+						Could you tell me what this is ?</q>
+				        </p>
+            <p>
+               <q direct="unspecified">No,</q> said Cleodorus, <q direct="unspecified">and I don't want to be told,
+					either.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Yet it is a fact,</q> said Aesop,<q direct="unspecified">that nobody knows this
+					more perfectly than you, or does it better, either ; and if you deny
+					this, I have cupping-glasses to testify to it.</q>
+				        </p>
+            <p>At this Cleodorus laughed ; for of all the physicians of his time he was most
+					given to the use of cuppingglasses, and it was largely owing to him that
+					this form of treatment has come to have such repute. </p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>Mnesiphilus the Athenian, <note place="unspecified" anchored="yes">Mnesiphilus, according to Plutarch, <hi rend="italics">Life of Themistocles</hi>, chap. ii. (p. 112 D), handed down the political wisdom of Solon to Themistocles. At any rate Herodotus, viii. 57, represents Mnesiphilus as advising Themistocles against withdrawing the Greek fleet from Salamis. <hi rend="italics">Cf.</hi> also Plutarch, <hi rend="italics">Moralia</hi>, 869 D-E.</note> a warm friend and admirer of Solon's, said,
+					<q direct="unspecified">I think it is no more than fair, Periander, that the
+						conversation, like the wine, should not be apportioned on the basis of
+						wealth or rank, but equally to all, as in a democracy, and that
+						
+						<pb id="v.2.p.395"/> it should be general. Now in what has just been
+						said dealing with dominion and kingdom, we who live under a popular
+						government have no part. Therefore I think that at this time each of you
+						ought to contribute an opinion on the subject of republican government,
+						beginning again with Solon.</q>
+				        </p>
+            <p>It was accordingly agreed to do this, and Solon began by saying, <q direct="unspecified">But
+					you, Mnesiphilus, as well as all the rest of the Athenians, have heard
+					the opinion which I hold regarding government. However, if you wish to
+					hear it again now, I think that a State succeeds best, and most
+					effectively perpetuates democracy, in which persons uninjured by a
+					crime, no less than the injured person, prosecute the criminal and get
+					him punished.</q>
+				        </p>
+            <p>Second was Bias, who said that the most excellent democracy was that in which
+					the people stood in as much fear of the law as of a despot. </p>
+            <p>Following him Thales said that it was the one having citizens neither too
+					rich nor too poor. </p>
+            <p>After him Anacharsis said that it was the one in which, all else being held
+					in equal esteem, what is better is determined by virtue and what is worse by
+					vice. </p>
+            <p>Fifth, Cleobulus said that a people was most righteous whose public men
+					dreaded censure more than they dreaded the law. </p>
+            <p>Sixth, Pittacus said that it was where bad men are not allowed to hold
+					office, and good men are not allowed to refuse it. </p>
+            <p>Chilon, turning to the other side,<note place="unspecified" anchored="yes">Chilon, a rather strict Spartan (<hi rend="italics">cf.</hi> 152 D <hi rend="italics">supra</hi>), is impatient of opinions which suggest that the attitude of the people is more important than the law.</note> declared that the 
+					<pb id="v.2.p.397"/> best government is that which gives greatest heed to
+					laws and least heed to those who talk about them. </p>
+            <p>Finally, Periander once more concluded the discussion with the decisive
+					remark, that they all seemed to him to approve a democracy which was most
+					like an aristocracy. </p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>When this discussion had come to an end, I said that it seemed to me to be
+					only fair that these men should tell us how a house should be managed.
+					<q direct="unspecified">For,</q> said I, <q direct="unspecified">but few persons are in control of
+						kingdoms and states, whereas we all have to do with a hearth and
+						home,</q>
+				        </p>
+            <p>Aesop laughed and said, <q direct="unspecified">Not all, if you include also Anacharsis in
+					our number; for not only has he no home, but he takes an immense pride
+					in being homeless and in using a wagon, after the manner in which they
+					say the sun makes his rounds in a chariot, occupying now one place and
+					now another in the heavens.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">And that, I would have you know,</q> said Anacharsis, <q direct="unspecified">is
+					precisely the reason why he solely or pre-eminently of all the gods is
+					free and independent, and rules over all and is ruled by none, but is
+					king, and holds the reins. Only you seem to have no conception of his
+					chariot, how surpassing it is in beauty, and wondrous in size ; else you
+					would not, even in jest, have humorously compared it to ours. It seems
+					to me, Aesop, that your idea of a home is limited to these protective
+					coverings made of mortar, wood, and tiles, just as if you were to regard
+					a snail's shell, and not the creature itself, as a snail. Quite
+					naturally, then, Solon gave you occasion to laugh, because, when he had
+					looked over Croesus's house with its costly furnishings, he did not
+					instantly <pb id="v.2.p.399"/> declare that the owner led a happy and
+					blessed existence therein, for the good reason that he wished to have a
+					look at the good within Croesus rather than at his good surroundings. <note place="unspecified" anchored="yes">Herodotus, i. 30. Plutarch, <hi rend="italics">Life of Solon</hi>, chap xxviii. (p. 94 C), represents Aesop as being present on this occasion.</note>
+					But you, apparently, do not remember your own fox.<note place="unspecified" anchored="yes">No. 159 in the collection of fables that passes under the name of Aesop; repeated also by Plutarch, <hi rend="italics">Moralia</hi>, 500 C.</note> For the fox, having
+					entered into a contest with the leopard to determine which was the more
+					ingeniously coloured, insisted it was but fair that the judge should
+					note carefully what was within her, for there she said she should show
+					herself more ingenious. But you go about, inspecting the works of
+					carpenters and stonemasons, and regarding them as a home, and not the
+					inward and personal possessions of each man, his children, his partner
+					in marriage, his friends, and servants ; and though it be in an ant-hill
+					or a bird's nest, yet if these are possessed of sense and discretion,
+					and the head of the family shares with them all his worldly goods, he
+					dwells in a goodly and a happy home. This then,<q direct="unspecified">said he,</q>
+					is my answer to Aesop's insinuation, and my contribution to Diocles. And
+					now it is but right that each of the others should disclose his own
+					opinion.</q>
+				        </p>
+            <p>Thereupon Solon said that the best home seemed to him to be where no
+					injustice is attached to the acquisition of property, no distrust to keeping
+					it, and no repentance to spending it. </p>
+            <p>Bias said, <q direct="unspecified">It is the home in which the head of the household, because
+					of his own self, maintains the same character that he maintains outside
+					of it because of the law.</q>
+				        </p>
+            <p>Thales said, <q direct="unspecified">The home in which it is possible for the head of the
+					household to have the greatest leisure.</q>
+					          <pb id="v.2.p.401"/>
+				        </p>
+            <p>Cleobulus said, <q direct="unspecified">If the head of the household have more who love him
+					than fear him.</q>
+				        </p>
+            <p>Pittacus said that the best home is that which needs nothing superfluous, and
+					lacks nothing necessary. </p>
+            <p>Chilon said that the home ought to be most like to a State ruled by a king ;
+					and then he added that Lycurgus said to the man who urged him to establish a
+					democracy in the State, <q direct="unspecified">Do you first create a democracy in your own
+						house.</q> 
+               <note place="unspecified" anchored="yes">Repeated in <hi rend="italics">Moralia</hi>, 189 E, 228 D, and <hi rend="italics">Life of Lycurgus</hi>, chap. xix. (p. 52 A).</note> 
+            </p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>When this discussion had come to its end, Eumetis withdrew, accompanied by
+					Melissa. Then Periander drank to Chilon in a big beaker, and Chilon did the
+					same to Bias, whereupon Ardalus arose, and addressing himself to Aesop,
+					said, <q direct="unspecified">Won't you send the cup over here to us, seeing that these
+						people are sending it to and fro to one another as though it were the
+						beaker of Bathycles,<note place="unspecified" anchored="yes">Bathycles in his will left his beaker to the most helpful of the wise men. It was given to Thales, and he passed it on to another of the wise men, who in turn gave it to another until finally it came back to Thales again, and he dedicated it to Apollo. <hi rend="italics">Cf.</hi> Diogenes Laertius, i. 28, and Plutarch, <hi rend="italics">Life of Solon</hi>, chap. iv. (p. 80 E).</note> and are not giving anybody else a chance at it
+						?</q>
+				        </p>
+            <p>And Aesop said, <q direct="unspecified">But this cup is not democratic either, since it has
+					been resting all the time by Solon only.</q>
+				        </p>
+            <p>Thereupon Pittacus, addressing Mnesiphilus, asked why Solon did not drink,
+					but by his testimony was discrediting the verses in which he had written <note place="unspecified" anchored="yes">Plutarch quotes these lines also in <hi rend="italics">Moralia</hi>, 751 E, and <hi rend="italics">Life of Solon</hi>, chap. xxxi. (p. 96 E); <hi rend="italics">cf.</hi> Bergk, <hi rend="italics">Poet. Lyr. Gr.</hi> ii. p. 430, Solon, No. 26.</note>
+					
+					          <pb id="v.2.p.403"/> 
+               <quote rend="blockquote">Give me the tasks of the Cyprus-born goddess and Lord
+						Dionysus, Yea, and the Muses besides; tasks which bring cheer among men.</quote> 
+            </p>
+            <p>Before the other could reply Anacharsis hastened to say, <q direct="unspecified">He is afraid
+					of you, Pittacus, and that harsh law of yours in which you have
+					decreed,' If any man commit any offence when drunk, his penalty shall be
+					double that prescribed for the sober.'</q> 
+               <note place="unspecified" anchored="yes">Pittacus's law is often referred to; for example, Aristotle, <hi rend="italics">Politics</hi>, ii. 12, 13; <hi rend="italics">Nicomachean Ethics</hi>, iii. 5, 8.</note> 
+            </p>
+            <p>And Pittacus said, <q direct="unspecified">But you at any rate showed such insolent disregard
+					for the law, that last year, at the house of Alcaeus's brother, you were
+					the first to get drunk and you demanded as a prize a wreath of
+					victory.</q> 
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Athenaeus, 437 f.</note> 
+            </p>
+            <p>
+               <q direct="unspecified">And why not ?</q> said Anacharsis. <q direct="unspecified">Prizes were offered
+					for the man who drank the most, and I was the first'to get drunk; why
+					should I not have demanded the reward of my victory ? Else do you
+					instruct me as to what is the aim in drinking much strong wine other
+					than to get drunk.</q>
+				        </p>
+            <p>When Pittacus laughed at this, Aesop told the following story : <q direct="unspecified">A wolf
+					seeing some shepherds in a shelter eating a sheep, came near to them and
+					said, ' What an uproar you would make if I were doing that!'</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Aesop,</q> said Chilon, <q direct="unspecified">has very properly defended
+					himself, for a few moments ago <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Supra</hi>, 150 B.</note> he had his mouth stopped by us, and
+					now, later, he sees that others have taken the words out of
+					Mnesiphilus's mouth ; for it was Mnesiphilus who was asked for a
+					rejoinder in defence of Solon.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">And I speak,</q> said Mnesiphilus, <q direct="unspecified">with full
+					<pb id="v.2.p.405"/> knowledge that it is Solon's opinion that the task
+					of every art and faculty, both human and divine, is the thing that is
+					produced rather than the means employed in its production, and the end
+					itself rather than the means that contribute to that end. For a weaver,
+					I imagine, would hold that his task was a cloak or a mantle rather than
+					the arrangement of shuttle-rods or the hanging of loom weights ; and so
+					a smith would regard the welding of iron or the tempering of an axe
+					rather than any one of the things that have to be done for this purpose,
+					such as blowing up the fire or getting ready a flux. Even more would an
+					architect find fault with us, if we should declare that his task is not
+					a temple or a house, but to bore timbers and mix mortar. And the Muses
+					would most assuredly feel aggrieved, if we should regard as their task a
+					lyre or flutes, and not the development of the characters and the
+					soothing of the emotions of those who make use of songs and melodies.
+					And so again the task of Aphrodite is not carnal intercourse, nor is
+					that of Dionysus strong drink and wine, but rather the friendly feeling,
+					the longing, the association, and the intimacy, one with another, which
+					they create in us through these agencies. These are what Solon calls '
+					tasks divine,' and these he says he loves and pursues above all else,
+					now that he has become an old man. And Aphrodite is the artisan who
+					creates concord and friendship between men and women, for through their
+					bodies, under the influence of pleasure, she at the same time unites and
+					welds together their souls.<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 769 A.</note> And in the case of the majority of people,
+					who are not altogether intimate or too well known to one another,
+					Dionysus softens and relaxes their characters with wine, as in <pb id="v.2.p.407"/> a fire, and so provides some means for beginning a
+					union and friendship with one another. However, when such men as you,
+					whom Periander has invited here, come together, I think there is nothing
+					for the wine-cup or ladle to accomplish, but the Muses set discourse in
+					the midst before all, a non-intoxicating bowl as it were, containing a
+					maximum of pleasure in jest and seriousness combined ; and with this
+					they awaken and foster and dispense friendliness, allowing the ' ladle,'
+					for the most part, to lie untouched ' atop of the bowl'&mdash;a
+					thing which Hesiod <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Works and Days</hi>, 744.</note> would prohibit in a company of men better able to
+					drink than to converse. As a matter of fact,<q direct="unspecified">he continued,
+					</q> as nearly as I can make out, among the men of olden time the
+					practice of drinking healths was not in vogue, since each man drank one
+					' goblet,' as Homer <note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> iv. 262.</note> has said, that is a measured quantity, and later,
+					like Ajax,<note place="unspecified" anchored="yes">Plutarch seems to have made a natural slip in referring this to Ajax, when, in fact, Homer records this of Odysseus (<hi rend="italics">Od.</hi> viii. 475); Ajax, of course, was the great eater, as witness <hi rend="italics">Il.</hi> vii. 321, where Agamemnon favours Ajax with the sirloin and tenderloin entire. <hi rend="italics">Cf.</hi> also Athenaeus, 14 a.</note> shared a portion with his neighbour.</q>
+				        </p>
+            <p>When Mnesiphilus had said this, Chersias the poet <note place="unspecified" anchored="yes">From Orchomenos in Boeotia; he is known only from this essay and Pausanias, ix. 38, 9-10, where two lines of his (?) are quoted.</note> (having been already
+					absolved from the charge against him, and recently reconciled with Periander
+					at Chilon's solicitation) said, <q direct="unspecified">Is it to be inferred, then, that
+						Zeus used to pour out the drink for the gods also in measured quantity,
+						as Agamemnon did for his nobles, when the gods, dining with Zeus, drank
+						to one another ?</q>
+				        </p>
+            <p>And Cleodorus said, <q direct="unspecified">But, Chersias, if certain doves <note place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>xii. 62.</note> bring to Zeus
+					his ambrosia, as you poets say, and with 
+					<pb id="v.2.p.409"/> great difficulty hardly manage to fly over the '
+					clashing rocks,' do you not believe that his nectar is hard for him to
+					get and scarce, so that he is sparing of it, and doles it out charily to
+					each god ?</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>
+               <q direct="unspecified">Possibly,</q> said Chersias, <q direct="unspecified">but since talk of household
+					management has come up again, who among you will tell us about what was
+					omitted? The topic omitted was, I think, the acquisition of some measure
+					of property which shall be sufficient in itself and adequate.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">But,</q> said Cleobulus, <q direct="unspecified">for the wise the law has given
+					the measure, but with reference to those of the baser sort I will tell a
+					story of my daughter's which she told her brother. She said that the
+					moon wanted her mother to weave for her a garment to fit her measure ;
+					and the mother said, ' How can I weave it to fit your measure? For now I
+					see you full and round, and at another time crescent-shaped, and at
+					still another but little more than half your full size.' And in the same
+					way you see, my dear Chersias, there is no measure of possessions that
+					can be applied to a foolish and worthless man. Sometimes he is one man
+					and sometimes another in his needs, which vary according to his desires
+					and fortunes ; he is like Aesop's dog, who, as our friend here says, in
+					the winter-time curled up as closely as possible because he was so cold,
+					and was minded to build himself a house, but when summer returned again,
+					and he had stretched himself out to sleep, he appeared to himself so big
+					that he thought it was neither a necessary nor a small task to construct
+					a house large enough to contain him. Have you not often noticed also,
+					Chersias,</q> he continued, <q direct="unspecified">those detestable people who at
+						one time restrict themselves to utterly small <pb id="v.2.p.411"/>
+						limits as though they purposed to live the simple Spartan life, and at
+						another time they think that, unless they have everything possessed by
+						all private persons and kings as well, they shall die of want ?</q>
+				        </p>
+            <p>As Chersias lapsed into silence, Cleodorus took up the conversation and said,
+					<q direct="unspecified">But we see that the possessions which even you wise men have are
+						distributed by unequal measure, if you be compared one with
+						another.</q>
+				        </p>
+            <p>And Cleobulus said, <q direct="unspecified">Yes, for the law, my good sir, like a weaver,
+					assigns to each one of us so much as is fitting, reasonable, and
+					suitable. And you, using reason as your law in prescribing diet,
+					regimen, and drugs for the sick, do not apportion an equal amount to
+					each one, but the proper amount in all cases.</q>
+				        </p>
+            <p>Ardalus then joined in and said, <q direct="unspecified">Well, then, is there some law which
+					commands that comrade of all of you, Solon's foreign friend, Epimenides,
+					to abstain from all other kinds of food, and by taking into his mouth a
+					bit of the potent ' no-hunger,' <note place="unspecified" anchored="yes">A recipe (probably forged) for making this compound may be found in Tzetzes' scholium on Hesiod, <hi rend="italics">Works and Days</hi>, 41.</note> which he himself compounds, to go all
+					day without luncheon and dinner ?</q>
+				        </p>
+            <p>This remark arrested the attention of the whole company, and Thales said
+					jestingly that Epimenides showed good sense in not wishing to have the
+					trouble of grinding his grain and cooking for himself like Pittacus. <q direct="unspecified">
+						For,</q> said he, <q direct="unspecified">when I was at Eresus, I heard the woman at
+							whose house I stayed singing at the mill: <quote rend="blockquote">Grind, mill, grind; Yes, for
+								Pittacus used to grind King of great Mytilene.</quote>
+                  <note place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> iii. p. 673.</note>
+               </q> 
+					          <pb id="v.2.p.413"/>
+				        </p>
+            <p>Solon said that he was surprised at Ardalus if he had not read the
+					regulations governing the manner of living of the man in question, which are
+					given in writing in Hesiod's verses. For Hesiod is the one who first sowed
+					in the mind of Epimenides the seeds of this form of nourishment, inasmuch as
+					it was he who taught that one should seek to find <quote rend="blockquote">How in mallow and asphodel
+						lies an immense advantage.<note place="unspecified" anchored="yes">Hesiod, <hi rend="italics">Works and Days</hi>, 41.</note>
+               </quote> 
+            </p>
+            <p>
+               <q direct="unspecified">Do you really think,</q> said Periander, <q direct="unspecified">that Hesiod ever
+					had any such idea in mind ? Do you not rather think that, since he was
+					always sounding the praises of frugality, he was also summoning us to
+					the simplest of dishes as being the most pleasant ? For the mallow is
+					good eating, and the stalk of the asphodel is luscious ; but these
+					no-hunger and nothirst drugs (for they are drugs rather than foods), I
+					understand, include in their composition a sweet gum and a cheese found
+					among barbarian peoples, and a great many seeds of a sort hard to
+					procure. How, then, can we concede to Hesiod his <quote rend="blockquote">Rudder on high in the
+						smoke<note place="unspecified" anchored="yes">Hesiod, <hi rend="italics">Works and Days</hi>, 45, 46; quoted also in <hi rend="italics">Moralia</hi>, 527 B. <hi rend="italics">Cf.</hi> also Hesiod, <hi rend="italics">Works and Days</hi>, 629.</note>
+                  </quote> suspended, and <quote rend="blockquote">All the labours of oxen and stout-toiling mules be
+							abolished,<note place="unspecified" anchored="yes">Hesiod, <hi rend="italics">Works and Days</hi>, 45, 46; quoted also in <hi rend="italics">Moralia</hi>, 527 B. <hi rend="italics">Cf.</hi> also Hesiod, <hi rend="italics">Works and Days</hi>, 629.</note>
+                  </quote> if there is to be need of all this preparation ? I am
+					surprised at your friend from abroad, Solon, if, when he was recently
+					carrying out his great purification for the people of Delos,<note place="unspecified" anchored="yes">Does Plutarch connect Epimenides with the purification of Delos by Peisistratus (Herodotus, i. 67; Thucydides iii. 107)?</note> he did not
+					note the memorials and examples of the earliest forms of food being
+					brought into the temple there, including, among other 
+					<pb id="v.2.p.415"/> inexpensive and self-propagated foods, mallow and
+					asphodel, whose plainness and simplicity it is most likely that Hesiod
+					recommends to us.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Not merely that,</q> said Anacharsis, <q direct="unspecified">but both are
+					commended as herbs that contribute to health also in greatest
+					measure.</q>
+				        </p>
+            <p>
+               <q direct="unspecified">You are quite right,</q> said Cleodorus; <q direct="unspecified">for it is clear
+					that Hesiod has knowledge of medicine, since there is no lack of
+					attention or experience shown in what he has to say about the daily
+					course of life,<note place="unspecified" anchored="yes">Hesiod, <hi rend="italics">Works and Days</hi>, 405-821.</note> mixing wine,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> 368-9; 744-5 may be referred to.</note> the great value of water,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> 595, 737-741.</note> bathing,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> 736-741, 753.</note>
+					women,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> 373-5, 699-705.</note> the proper time for intercourse,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> 735-6, 812.</note> and the way in which infants
+					should sit.<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> 750-2.</note> ' But it seems to me that Aesop with better right than
+					Epimenides can declare himself the pupil of Hesiod. For the words of the
+					hawk to the nightingale<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> 203.</note> first suggested to Aesop the idea of this
+					beautiful and ingenious wisdom uttered by many different tongues. But I
+					should be glad to listen to Solon ; for it is likely that he, having
+					been associated with Epimenides for along time at Athens,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Plutarch's <hi rend="italics">Life of Solon</hi>, chap. xii. (p. 84 C).</note> has learned
+					what experience of his or what sophistical argument induced him to
+					resort to such a course of living.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>Solon said, <q direct="unspecified">What need was there to ask him this ? For it is plain
+					that the next best thing to the greatest and highest of all good is to
+					require the minimum amount of food; or is it not the general opinion
+					that the greatest good is to require no food at all?</q>j </p>
+            <p>
+               <q direct="unspecified">Not mine by any means,</q> said Cleodorus, <q direct="unspecified">if I must tell
+					what lies in my mind, especially as a table 
+					<pb id="v.2.p.417"/> stands here now, which they do away with when food
+					is done away with, and it is an altar of the gods of friendship and
+					hospitality. And as Thales says that, if the earth be done away with,
+					confusion will possess the universe, so this is the dissolution of the
+					household. For when the table is done away with, there go with it all
+					these other things : the altar fire on the hearth, the hearth itself,
+					wine-bowls, all entertainment and hospitality,&mdash;the most humane
+					and the first acts of communion between man and man; rather is all real
+					living abolished, if so be that living is a spending of time by man
+					which involves carrying on a series of activities,<note place="unspecified" anchored="yes">A Stoic definition; <hi rend="italics">cf.</hi> Porphyry quoted by Stobaeus, <hi rend="italics">Eclogae ethicae</hi>, ii. p. 201 (272), vol. ii. p. 140 of Meineke's edition.</note> most of which are
+					called for by the need of food and its procurement. And a dreadful
+					situation ensues, my friend, regarding agriculture itself. For let
+					agriculture be destroyed, and it leaves us our earth again unsightly and
+					unclean, filled with unfruitful forests and with streams sweeping on
+					unchecked, all owing to man's inaction. And with the destruction of
+					agriculture goes also the destruction of all arts and crafts which she
+					initiates, and for which she supplies the basis and the material ; and
+					these all come to naught if she vanishes from the earth. Abolished too
+					are the honours paid to the gods, since men will have but little
+					gratitude to the Sun, and still less to the Moon, for merely light and
+					warmth. Where will there be an altar or where a sacrifice offered to
+					Zeus who sends the rain, or to Demeter who initiates the ploughing, or
+					to Poseidon who watches over the tender crops ? How shall Dionysus be
+					the giver of delights, if we shall require none of the gifts which he
+					gives ? What shall we offer as a sacrifice or libation, and what shall
+					we dedicate as first-fruits ? All this means the over <pb id="v.2.p.419"/> turning and confusion of our highest concerns. To cling to every form
+					of pleasure is utterly irrational, but to avoid every form of pleasure
+					is utterly insensate. Let it be granted that there exist some other
+					superior pleasures for the soul to enjoy, yet it is not possible to
+					discover a way for the body to attain a pleasure more justifiable than
+					that which comes from eating and drinking, and this is a fact which no
+					man can have failed to observe ; for this pleasure men put forward
+					openly before all, and share together banquets and table, whereas their
+					carnal delights they veil behind the screen of night and deep darkness,
+					feeling that to share this pleasure openly is shameless and bestial, as
+					it is also not to share the other.</q> 
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 654 D and 1089 A.</note> 
+            </p>
+            <p>I took up the conversation as Cleodorus left off, and said, <q direct="unspecified">But there
+					is another point you do not mention, that we banish sleep along with
+					food ; and with no sleep there can be no dream, and our most ancient and
+					respected form of divination is gone for ever. Life will have a
+					monotonous sameness, and we might say that the encasement of the soul in
+					the body will lack all purpose and effect. The most, and the most
+					important, of the bodily organs, tongue, teeth, stomach, and liver, are
+					provided as instruments of nutrition, no one of them is inactive, nor is
+					it framed for any other form of usefulness. So he who has no need of
+					food has no need of a body either ; and that again would mean having no
+					need of himself! For it is with a body that each one of us exists. This
+					then,</q> said I, <q direct="unspecified">makes up the contributions which we offer
+						to the belly ; and if Solon or anybody else desires to impeach them in
+						any way, we will listen.</q>
+					          <pb id="v.2.p.421"/>
+				        </p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>
+               <q direct="unspecified">Certainly,</q> said Solon, &ldquo;let us not show ourselves
+					to be less discriminating than the Egyptians, who cut open the dead body and
+					expose it to the sun, and then cast certain parts of it into the river, and
+					perform their offices on the rest of the body, feeling that this part has
+					now at last been made clean. For this, in truth, it is which constitutes the
+					pollution of our flesh and its bowels of Hell, as it were, teeming with
+					frightful streams and wind, intermingled with burning fire and corpses.<note place="unspecified" anchored="yes">This somewhat exaggerated description of the digestive tract is probably influenced by Homer <hi rend="italics">Od.</hi> x. 513 and ix. 157, and <hi rend="italics">Il.</hi> i. 52 and viii. 13.</note> For
+					no living man feeds upon another living creature ; nay, we put to death the
+					animate creatures and destroy these things that grow in the ground, which
+					also are partakers in life, in that they absorb food, and increase in size ;
+					and herein we do wrong. For anything that is changed from what it was by
+					nature into something else is destroyed, and it undergoes utter corruption
+					that it may become the food of another.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Lucretius, <hi rend="italics">De rerum natura</hi>, iii. 701 ff.</note> But to refrain entirely from eating
+					meat, as they record of Orpheus <note place="unspecified" anchored="yes">Orpheus is said to have abstained from animal food (Euripides, <hi rend="italics">Hippolytus</hi>, 992; Plato, <hi rend="italics">Laws</hi>, p. 782 C).</note> of old, is rather a quibble than a way of
+					avoiding wrong in regard to food. The one way of avoidance and of keeping
+					oneself pure, from the point of view of righteousness, is to become
+					sufficient unto oneself and to need nothing from any other source. But in
+					the case of man or beast for whom God has made his own secure existence
+					impossible without his doing injury to another, it may be said that in the
+					nature which God has inflicted upon him lies the source of wrong. Would it
+					not, then, be right and fair, my friend, in order to cut out injustice, to
+					cut out also bowels and stomach and liver, which afford us no perception or
+					craving for anything noble, but are 
+					<pb id="v.2.p.423"/> like cooking utensils, such as choppers and kettles,
+					and, in another respect, like a baker's outfit, ovens and dough-containers
+					and kneading-bowls ? Indeed, in the case of most people, one can see that
+					their soul is absolutely confined in the darkness of the body as in a mill,
+					making its endless rounds in its concern over its need of food; just as we
+					ourselves, only a few minutes ago, as a matter of course, neither saw nor
+					listened to one another, but each one was bending down, enslaved to his need
+					of food. But now that the tables have been removed, we have, as you see,
+					been made free, and, with garlands on, we are spending our time in
+					conversation and in the enjoyment of one another's society, and we have the
+					leisure to do this now that we have come to require no more food for a time.
+					Assuming, then, that the state in which we find ourselves at the present
+					moment will persist without interruption throughout our whole life, shall we
+					not always have leisure to enjoy one another's society, having no fear of
+					poverty and no knowledge of what wealth is ? For craving for the superfluous
+					follows close upon the use of necessities, and soon becomes a settled habit, </p>
+            <p>
+					          <q direct="unspecified">But Cleodorus imagines that there ought to be food, so that there may
+						be tables and wine-bowls and sacrifices to Demeter and the Daughter.
+						Then let the next man argue that it is but right and proper that there
+						be battles and war, so that we may have fortifications and dockyards and
+						arsenals, and may offer sacrifice to celebrate the slaying of an hundred
+						foemen,<note place="unspecified" anchored="yes">The explanation may be found in Pausanias, iv. 19; <hi rend="italics">cf.</hi> also Plutarch, <hi rend="italics">Moralia</hi>, 660 F and <hi rend="italics">Life of Romulus</hi>, chap. xxv. (p. 33 D).</note> as they say is the custom among the Messenians. Still another
+						man, I imagine, may enter 
+						<pb id="v.2.p.425"/> tain a violent hatred against health; for it will
+						be a terrible thing if nobody is ill, and there is no longer any use for
+						a soft bed or couch, and we shall not offer sacrifice to Asclepius or
+						the averting deities, and the profession of medicine together with its
+						numerous instruments and remedies shall be consigned to inglorious
+						desuetude and contempt. Yet, what difference is there between this sort
+						of reasoning and the other ? The fact is that food is taken as a remedy
+						for hunger, and all who use food in a prescribed way are said to be
+						giving themselves treatment, not with the thought they are doing
+						something pleasant and grateful, but that this is necessary to comply
+						with Nature's imperative demand. Indeed, it is possible to enumerate
+						more pains than pleasures derived from food ; or rather may it be said
+						that the pleasure affects but a very limited area in the body, and lasts
+						for no long time; but as for the ugly and painful experiences crowded
+						upon us by the bother and discomfort which wait upon digestion, what
+						need to tell their number ? I think that Homer <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Il.</hi> v. 341.</note> had their very number
+						in view when, in the case of the gods, he finds an argument to prove
+						that they do not die in the fact that they do not live by food : <quote rend="blockquote">Since
+							they eat no bread and drink no wine brightly sparkling, Therefore their
+							bodies are bloodless, and they are called the Immortals.</quote> He intimates by
+						this that food is not only an element conducive to life, but that it is
+						also conducive to death. For it is from this source that diseases come,
+						thriving on the very same food as men's bodies,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 731 D, where the same idea is put in different words.</note> which find no less ill
+						in fulness than in fasting. For oftentimes it is harder work to use up
+						and again to <pb id="v.2.p.427"/> distribute food, after it has been
+						taken into the body, than it was to procure it and get it together in
+						the first place. But just as the Danaids would be at a loss to know what
+						kind of life and occupation they should follow if they should be
+						relieved of their drudgery in trying to fill the great jar, so we are at
+						a loss to know, if perchance we should have the opportunity to cease
+						from heaping into this relentless flesh of ours all the multitudinous
+						products of land and sea, what we shall do, since, owing to lack of
+						acquaintance with noble things, we now content ourselves with the life
+						conditioned on necessities. Just as men who have been slaves, when they
+						are set free, do for themselves on their own account those very things
+						which they used to do in service to their masters,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Porphyry, <hi rend="italics">De abstinentia</hi>, iii. 27.</note> so the soul now
+						supports the body with much toil and trouble, but if it be relieved of
+						its drudgery, it will quite naturally maintain itself in its new freedom
+						and live with an eye to itself and the truth, since there will be
+						nothing to distract or divert it.</q>
+				        </p>
+            <p>This then, Nicarchus, is what was said on the subject of food. </p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>While Solon was still speaking, Gorgus, Periander's brother, came in; for it
+					happened that, in consequence of certain oracles, he had been sent to
+					Taenarum, in charge of a sacred mission to offer due sacrifice to Poseidon.
+					After we had greeted him, and Periander had embraced and kissed him, Gorgus
+					sat down beside his brother on the couch, and gave him a report intended
+					apparently for him alone, and he, as he listened, seemed much affected at
+					the story ; for he appeared in some ways troubled, in some ways indignant,
+					and oftentimes incredulous, <pb id="v.2.p.429"/> and then again amazed.
+					Finally with a laugh he said to us, <q direct="unspecified">In the circumstances I should
+						like to tell the news which I have just heard, but I hesitate, since I
+						heard Thales say once that what is probable one should tell, but what is
+						impossible one should shroud in silence.</q>
+				        </p>
+            <p>Thereupon Bias, interrupting, said, <q direct="unspecified">But Thales is responsible also
+					for this sage remark, that one should not believe enemies even about
+					things believable, and should believe friends even about things
+					unbelievable ; the name 'enemies' he assigned, I think, to the wicked
+					and foolish, and ' friends ' to the good and sensible. And so,
+					Gorgus,</q> he continued, <q direct="unspecified">it should be told to all, or
+						rather, to compete with those newly invented dithyrambs,<note place="unspecified" anchored="yes">Probably a covert reference to Arion as the inventor of the dithyramb (Herodotus, i. 23).</note> there should
+						be heard the stronger notes of the story which your arrival has brought
+						to us.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>Gorgus then told us that his offering of the sacrifice had taken three days,
+					and on the last day there was a dance and merry-making, lasting the whole
+					night long, down by the shore. The moon was shining bright upon the sea;
+					there was no wind, but a perfect calm and stillness, when, afar off, was
+					seen a ripple coming towards land close by the promontory, attended by some
+					foam and much noise from its rapid movement, so that they all ran down in
+					amazement to the place where it was coming to shore. Before they could guess
+					what was bearing down upon them so rapidly, dolphins were seen, some forming
+					a dense encircling line, others leading the way to the smoothest part of the
+					shore, and still others behind, forming, as it were, a rear-guard. In their
+					midst, 
+					<pb id="v.2.p.431"/> uplifted above the sea, was a mass like a man's body
+					being borne along, but indistinct and ill-defined, until the dolphins drew
+					near together, and with one accord came close to the shore, and deposited on
+					land a human being, in whom was still the breath of life and power to move ;
+					then they themselves put forth again towards the promontory leaping even
+					higher than before, and sporting and frolicking apparently for joy. <q direct="unspecified">
+						Many of us,</q> continued Gorgus, &ldquo; were panic-stricken,
+					and fled from the sea-shore, but a few, including myself, grew bold enough
+					to draw near, and they recognized Arion the harper, who pronounced his own
+					name himself, and was easily recognizable by his dress ; for he happened to
+					be clad in the ceremonial robes which he had worn when he played and sang. </p>
+            <p>&ldquo;We accordingly conducted him to a tent, since there was really
+					nothing the matter with him, save that he seemed somewhat unstrung and
+					wearied by the swiftness and rush of his ride, and we heard from him a
+					story, incredible to all men except to us who with our own eyes had seen its
+					conclusion. Arion said that some time ago he had resolved to leave Italy,
+					and the receipt of a letter from Periander had only stimulated his desire
+					the more, and when a Corinthian merchant-vessel appeared there, he had at
+					once embarked and sailed away from that land. For three days they were
+					favoured by a moderate breeze, and there came over Arion the feeling that
+					the sailors were plotting to make away with him, and later he learned from
+					the pilot, who secretly gave him the information, that they were resolved to
+					do the deed that night. Helpless and at his wits' end, he put into execution
+					an impulse, divinely inspired, to adorn <pb id="v.2.p.433"/> his person, and
+					to take for his shroud, while he was still living, the elaborate attire
+					which he wore at competitions, and to sing a final song to life as he ended
+					it, and not to prove himself in this respect less generous than the swans.
+					Accordingly he made himself ready, and, first saying that he was possessed
+					by a desire to sing through one of his songs&mdash;the ode to Pythian
+					Apollo&mdash;as a supplication for the safety of himself and the ship
+					and all on board, he took his stand beside the bulwark at the stern, and,
+					after a prelude invoking the gods of the sea, he began the ode. He had not
+					even half finished it as the sun was sinking into the sea and the
+					Peloponnesus becoming visible. The sailors therefore waited no longer for
+					the night-time, but advanced to the murderous deed ; whereupon Arion, seeing
+					knives bared and the pilot already covering up his face, ran back and threw
+					himself as far away from the ship as possible. But before his body was
+					entirely submerged, dolphins swam beneath him, and he was borne upward, full
+					of doubt and uncertainty and confusion at first. But when he began to feel
+					at ease in being carried in this manner, and saw many dolphins gathering
+					around him in a friendly way, and relieving one another as though such
+					service in alternation were obligatory and incumbent upon all, and the sight
+					of the ship left far behind gave a means to measure their speed, there came
+					into his thoughts, as he said, not so much a feeling of fear in the face of
+					death, or a desire to live, as a proud longing to be saved that he might be
+					shown to be a man loved by the gods, and that he might gain a sure opinion
+					regarding them. At the same time, observing that the sky was dotted with
+					stars, and the moon was rising bright and clear, <pb id="v.2.p.435"/> while
+					the sea everywhere was without a wave as if a path were being opened for
+					their course, he bethought himself that the eye of Justice is not a single
+					eye only,<note place="unspecified" anchored="yes">Possibly a reference to a line of an unknown tragedian found in <hi rend="italics">Moralia</hi>, 1124 F.</note> but through all these eyes of hers God watches in every direction
+					the deeds that are done here and there both on land and on the sea. By these
+					reflections, he said, the weariness and heaviness which he was already
+					beginning to feel in his body were relieved, and when at the last, as the
+					jutting promontory, rugged and lofty, appeared in their path, they rounded
+					it with great caution, and skirted close to the land as if they were
+					bringing a boat safely into harbour, then he fully realized that his rescue
+					had been guided by God's hand. </p>
+            <p>
+               <q direct="unspecified">When Arion had told all this,</q> continued Gorgus, <q direct="unspecified">I
+					asked him where he thought the ship would make harbour ; and he replied
+					that it would surely come to Corinth, but its arrival would be much
+					later ; for he thought that after he had thrown himself overboard in the
+					evening, he had been carried a distance of not less than fifty or more
+					miles, and a calm had fallen immediately.</q> Gorgus went on to say
+					that he had ascertained the name of the captain and of the pilot, and the
+					ship's emblem, and had sent out boats and soldiers to the landing-places to
+					keep strict watch ; moreover, he had brought Arion with him, carefully
+					concealed, so that the guilty ones might not gain any premature information
+					of his rescue from death, and make good their escape; and in fact the whole
+					affair seemed like an event divinely directed, for his men were here just as
+					he arrived, and he learned that the ship had been seized, and the traders
+					and sailors arrested. <pb id="v.2.p.437"/>
+				        </p>
+         </div1>
+         <div1 type="section" n="19">
+            <p>Accordingly Periander bade Gorgus to withdraw at once, and have these men put
+					into prison where nobody should have access to them or tell them that Arion
+					had been rescued. </p>
+            <p>
+               <q direct="unspecified">Well! well!</q> said Aesop, <q direct="unspecified">you all make fun of my
+					jackdaws and crows if they talk with one another, and yet dolphins
+					indulge in such pranks as this !</q>
+				        </p>
+            <p>
+               <q direct="unspecified">Let's change the subject, Aesop,</q> said I to him ; <q direct="unspecified">more
+					than a thousand years have elapsed since this dolphin story has been
+					believed and committed to writing in Greek lands, even from the days of
+					Ino and Athamas.</q> 
+               <note place="unspecified" anchored="yes">Ino also threw herself into the sea when the crazed Athamas was about to kill her, and was metamorphosed into the sea-goddess Leucothea.</note> 
+            </p>
+            <p>Solon here entered the conversation: <q direct="unspecified">Well, Diocles, let it be granted
+					that these things are near to the gods and far beyond us ; but what
+					happened to Hesiod is human and within our ken. Very likely you have
+					heard the story.</q>
+               <note place="unspecified" anchored="yes">The story is referred to as early as Thucydides (iii. 96), and seems to have received some embellishments later. Of the many references to the story (which may be found in Wyttenbach's note on the passage) perhaps the most interesting is in the <hi rend="italics">Contest of Homer and Hesiod</hi>, lines 215-254 of Allen's edition (in the Oxford Classical Texts, 1912), which also assigns names to the persons concerned in it.</note> 
+            </p>
+            <p>
+               <q direct="unspecified">No, I have not,</q> said I. </p>
+            <p>
+					          <q direct="unspecified">Well, it is really worth hearing, and so here it is. A man from
+						Miletus, it seems, with whom Hesiod shared lodging and entertainment in
+						Locris, had secret relations with the daughter of the man who
+						entertained them; and when he was detected, Hesiod fell under suspicion
+						of having known about the misconduct from the outset, and of having
+						helped to conceal it, although he was in nowise guilty, but only the
+						innocent victim of a fit of anger and prejudice. For the girl's brothers
+						killed him, lying in wait for him in the vicinity of the temple of
+						Nemean Zeus in Locris, and with him they killed his servant whose name
+						was Troilus. The dead bodies were
+						<pb id="v.2.p.439"/> shoved out into the sea, and the body of Troilus,
+						borne out into the current of the river Daphnus, was caught on a
+						wave-washed rock projecting a little above the sea-level; and even to
+						this day the rock is called Troilus. The body of Hesiod, as soon as it
+						left the land, was taken up by a company of dolphins, who conveyed it to
+						Rhium hard by Molycreia.<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi> 984 D.</note> It happened that the Locrians' periodic Rhian
+						sacrifice and festal gathering was being held then, which even nowadays
+						they celebrate in a noteworthy manner at that place. When the body was
+						seen being carried towards them, they were naturally filled with
+						astonishment, and ran down to the shore ; recognizing the corpse, which
+						was still fresh, they held all else to be of secondary importance in
+						comparison with investigating the murder, on account of the repute of
+						Hesiod. This they quickly accomplished, discovered the murderers, sank
+						them alive in the sea, and razed their house to the ground. Hesiod was
+						buried near the temple of Nemean Zeus ; most foreigners do not know
+						about his grave, but it has been kept concealed, because, as they say,
+						it was sought for by the people of Orchomenos, who wished, in accordance
+						with an oracle, to recover the remains and bury them in their own land.
+						If, therefore, dolphins show such a tender and humane interest in the
+						dead, it is even more likely that they should give aid to the living,
+						and especially if they are charmed by the sound of flutes or some songs
+						or other. For we are all well aware of the fact that these creatures
+						delight in music and follow after it, and swim along beside men who are
+						rowing to the accompaniment of song and flute in a calm, and they enjoy
+						travelling in this way.<note place="unspecified" anchored="yes">These were common beliefs in ancient times as is attested by many writers. It may suffice here to refer only to Plutarch <hi rend="italics">Moralia</hi>, 704 F and 984 A-985 C.</note> They take delight <pb id="v.2.p.441"/> also in
+						children's swimming, and vie with them in diving.<note place="unspecified" anchored="yes">See preceiding note on page 438.</note> For this reason they
+						profit also by an unwritten law of immunity ; for nobody hunts them or
+						injures them except when they get into the fishermen's nets, and do
+						havoc with the catch, and then they are punished with a whipping like
+						naughty children. I remember also hearing from some men of Lesbos that
+						the rescue of a certain maiden from the sea was effected by a dolphin,
+						but, as I am not sure of the various details, it is only right that
+						Pittacus, who does know them, should relate the tale.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>Pittacus thereupon said that it was a famous story,<note place="unspecified" anchored="yes">The story is briefly mentioned by Plutarch, <hi rend="italics">Moralia</hi>, 984 E, and is given in full with some variations by Athenaeus, 466 C, who quotes as his authority Anticleides an Athenian.</note> and one mentioned by
+					many, to this effect. An oracle had been given to those who were setting out
+					to found a colony in Lesbos that when their voyage should bring them to a
+					reef which is called <q direct="unspecified">Midland,</q> then they should cast into the
+					sea at that place a bull as an offering to Poseidon, and to Amphitrite and
+					the Nymphs of the sea a living virgin. The commanders were seven in number,
+					all kings, and the eighth was Echela&uuml;s, designated by the oracle at
+					Delphi to head the colony, although he was young and still unmarried. The
+					seven, or as many as had unmarried daughters, cast lots, and the lot fell
+					upon the daughter of Smintheus. Her they adorned with fine raiment and
+					golden ornaments as they arrived opposite the spot, and purposed, as soon as
+					they had offered prayer, to cast her into the sea. It happened that one of
+					the company on board, a young man of no mean origin as it seems, was in love
+					with her. His name, according to a tradition still preserved, was 
+					<pb id="v.2.p.443"/> Enalus. He, conceiving a despairing desire to help the
+					maiden in her present misfortune, at the critical moment hurriedly clasped
+					her in his arms, and threw himself with her into the sea. Straightway a
+					rumour spread, having no sure foundation, but nevertheless carrying
+					conviction to many in the community, regarding their safety and rescue.
+					Later, as they say, Enalus appeared in Lesbos, and told how they had been
+					borne by dolphins through the sea, and put ashore unharmed on the mainland.
+					Other things he related more miraculous even than this, which astonished and
+					fascinated the crowd, and he gave good grounds for believing them all by a
+					deed which he did ; for when a towering wave precipitated itself on the
+					shores of the island, and the people were in a state of terror, he, all by
+					himself, went to meet the sea, and cuttlefish followed him to the shrine of
+					Poseidon, the biggest of which brought a stone <note place="unspecified" anchored="yes">Athenaeus (466 C) says a golden cup was brought out of the sea by Enalus.</note> with him, and this stone
+					Enalus took and dedicated there, and this we call Enalus. <q direct="unspecified">And in
+						general,</q> he continued, <q direct="unspecified">if a man realizes a difference
+							between the impossible and the unfamiliar, and between false reasoning
+							and false opinion, such a man, Chilon, who would neither believe nor
+							disbelieve at haphazard, would be most observant of the precept,' Avoid
+							extremes,' as you have enjoined.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="21">
+            <p>Following him Anacharsis said that as Thales had set forth the excellent
+					hypothesis that soul exists in all the most dominant and most important
+					parts of the universe, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diels, <hi rend="italics">Fragmente der Vorsokratiker</hi>, vol i. p. 12 (A 22).</note> there is no proper ground for wonder that the most
+					excellent things are brought <note place="unspecified" anchored="yes">Athenaeus (466 c) says a golden cup was
+						brought out of the sea by Enalus. b Cf. Diels, Fragmente der
+						Vorsokratiker, vol. i. p. 12</note>
+					          <pb id="v.2.p.445"/> to pass by the will of God. <q direct="unspecified">For the
+						body,</q> he continued, <q direct="unspecified">is the soul's instrument, and the
+							soul is God's instrument; <note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf. Moralia</hi>, 404 B.</note> and just as the body has many movements of
+							its own, but the most, and most excellent, from the soul, so the soul
+							performs some actions by its own instinct, but in others it yields
+							itself to God's use for Him to direct it and turn it in whatsoever
+							course He may desire, since it is the most adaptable of all instruments.
+							For it is a dreadful mistake to assume that, on the one hand, fire is
+							God's instrument, and wind and water also, and clouds and rain, by means
+							of which He preserves and fosters many a thing, and ruins and destroys
+							many another, but that, on the other hand, He never as yet makes any use
+							whatever of living creatures to accomplish any one of His purposes. Nay,
+							it is far more likely that the living, being dependent on God's power,
+							serve Him and are responsive to His movements even more than bows are
+							responsive to the Scythians or lyres and flutes to the Greeks.</q>
+				        </p>
+            <p>Thereupon the poet Chersias cited, among the eases of persons who had been
+					saved when their plight seemed hopeless, the case of Cypselus,<note place="unspecified" anchored="yes">The story is found in Herodotus, v. 92.</note> the father
+					of Periander, who, when he was a new-born babe, smiled at the men who had
+					been sent to make away with him, and they turned away. And when again they
+					changed their minds, they sought for him and found him not, for he had been
+					put away in a chest by his mother. It was because of this that Cypselus
+					constructed the building at Delphi, firmly believing that the god had at
+					that time stopped his crying so that he might escape the notice of those who
+					were searching for him. </p>
+            <p>And Pittacus, addressing Periander, said, <q direct="unspecified">Chersias <pb id="v.2.p.447"/> certainly did well to mention the building, for I have often desired,
+					Periander, to ask you the reason for those frogs, and what is their
+					significance, carved as they are in such numbers about the base of the
+					palm-tree,<note place="unspecified" anchored="yes">The frogs and the palm-tree are mentioned also in <hi rend="italics">Moralia</hi>, 399 F.</note> and what relation they have to the god or to the
+					dedicator.</q>
+				        </p>
+            <p>Periander bade him ask Chersias, for Chersias, he said, knew and was present
+					when Cypselus consecrated the building ; but Chersias said with a smile,
+					<q direct="unspecified">No, I will not tell until I learn from our friends here what
+						significance they give to the precepts, <note place="unspecified" anchored="yes">For information about these famous precepts reference may be made to Plato, <hi rend="italics">Protagoras</hi>, p. 343 B, and <hi rend="italics">Charmides</hi>, p. 165 A; Aristotle, <hi rend="italics">Rhetoric</hi>, ii. 12, 14: Pausanias, x. 24. 1; Plutarch, <hi rend="italics">Moralia</hi>, 116 C, 385 D, and 511 B, and <hi rend="italics">De vita et poesi Homeri</hi>, 151.</note> 'Avoid extremes' and 'Know
+						thyself,' and, in particular, that one which has kept many from
+						marrying, and many from trusting, and some even from speaking, and this
+						is it: ' Give a pledge, and mischief attends.'</q>
+				        </p>
+            <p>
+               <q direct="unspecified">What need of us to tell you that ?</q> said Pittacus; <q direct="unspecified">
+					since for this long time you have been praising the stories which Aesop
+					has composed touching each of them, as it seems.</q>
+				        </p>
+            <p>And Aesop said, <q direct="unspecified">Only when Chersias is poking fun at me ; but when he
+					is serious he points to Homer as their inventor, and says that Hector
+					'knew himself' because he attacked all the others, but Only with Ajax,
+					Telamon's son, he avoided a conflict.<note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> xi. 542 (<hi rend="italics">Moralia</hi>, 24 C).</note> And Odysseus, he says, gives
+					praise to ' Avoid extremes ' when he enjoins 
+					<pb id="v.2.p.449"/> 
+                  <quote rend="blockquote">Son of Tydeus, praise me not too much nor chide
+						me.<note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> x. 249 (<hi rend="italics">Moralia</hi>, 57 E)</note>
+                  </quote> And as for the pledge, other people think that Homer vilifies it as
+					a worthless and futile thing when he says, <quote rend="blockquote">Worthless are pledges of
+						worthless folk to accept at their pledging;<note place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, viii. 351.</note>
+                  </quote> but Chersias here asserts
+					that Mischief was hurled from heaven by Zeus because she was present at
+					the pledge which Zeus gave when he was befooled in regard to the birth
+					of Heracles.</q> 
+               <note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> xix. 91-131.</note> 
+            </p>
+            <p>Solon here put in his word: <q direct="unspecified">Well, then, we should have faith in the
+					very great wisdom of Homer who also says,<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Ibid.</hi> vii. 282 and 293.</note> 
+                  <quote rend="blockquote">Night-time advances apace:
+						'tis well to pay heed to the night-time.</quote> So, if it please the company,
+					let us offer a libation to the Muses and Poseidon and Amphitrite, and be
+					going.</q>
+				        </p>
+            <p>And thus, Nicarchus, the party came to an end. <note place="unspecified" anchored="yes">Homer, Il. x. 249
+					(Moralia, 57 e) b Homer, Od. viii. 351. c Homer, Il. xix. 91-131. d
+					Ibid. vii. 282 and 293.</note>
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

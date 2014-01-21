@@ -1,0 +1,2116 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersVerse PUBLIC "-//Perseus P4//DTD Perseus Verse//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersVerse.dtd" >
+%PersVerse;
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title>Hymns and Epigrams</title>
+				<author>Callimachus</author>
+				&responsibility;
+				&fund.Tufts;
+			</titleStmt>
+			&Perseus.publish;
+			
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<title>Hymns and Epigrams</title>
+						<author>Callimachus</author>
+						<editor role="editor">Ulrich von Wilamowitz-Moellendorff</editor>
+						<imprint>
+							<pubPlace>Berlin</pubPlace>
+							<publisher>Weidmann</publisher>
+							<date>1897</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		
+		<encodingDesc>
+			<editorialDecl>
+				<correction method="silent" status="medium">&Perseus.DE;</correction>
+			</editorialDecl>
+			<refsDecl n="text=intro" doctype="TEI.2">
+				<state unit="text"/>
+				<state n="chunk" unit="section"/>
+			</refsDecl>
+			<refsDecl n="text=hymns" doctype="TEI.2">
+				<state unit="text"/>
+				<state n="chunk" unit="poem"/>
+				<state unit="line"/>
+			</refsDecl>
+			<refsDecl n="text=epigrams" doctype="TEI.2">
+				<state unit="text"/>
+				<state n="chunk" unit="poem"/>
+				<state unit="line"/>
+			</refsDecl>
+		</encodingDesc>
+		
+		<profileDesc>
+			<langUsage>
+				<language id="greek">Greek</language>
+				<language id="en">English</language>
+				<language id="la">Latin</language>
+				<language id="de">German</language>
+				<language id="fr">French</language>
+				<language id="it">Italian</language>
+			</langUsage>
+		</profileDesc>
+		
+		<revisionDesc>
+			<change><date>23-Jul-02</date>
+				<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+				<item>Initial markup
+				</item>
+			</change>
+			<change><date>5/27/09</date><respStmt><name>RS</name><resp>(n/a)</resp></respStmt>
+				<item>  
+					$Log: callimachus.xml,v $
+					Revision 1.1  2009-10-09 19:49:34  rsingh04
+					more reorganizing of texts module by collection
+
+					Revision 1.3  2009/05/27 16:39:10  rsingh04
+					added/fixed cvs log keyword
+
+				</item>
+			</change>
+		</revisionDesc>
+		
+	</teiHeader>
+	<text>
+		<group>
+			<text lang="la" n="intro">
+				<body>
+					<pb n="5"/>
+					<head>Praefatio novae editionis</head>
+					<div1 type="section" n="1">
+						<p>Anno 1882 Callimachi carmina edideram duplici consilio
+							ductus, et ut in plurium manus venirent ex ingentibus quibus
+							inclusa erant voluminibus soluta, et ut legerentur a doctis
+							Meinekii et Schneideri interpolationibus purgata. utrumque
+							mihi videor effecisse. tamen cum exhaustis fere md exemplis
+							iteranda esset editio, opus a fundamentis instaurandum erat.
+							novis enim subsidiis repertis evenit ut et unicus codex, ad
+							quem hymni exigendi sunt, multo tutius restitui posset, et
+							omnis Callimacheorum carminum memoria rectius aestimari.
+							quodsi neque in ipsis versibus multa novata sunt (antiqua
+							vero haud pauca postliminio restituta), neque archetypi
+							species in adnotatione alia apparet, intellegentes quidem iudices
+							aliud expectaturos fuisse non existimo. quippe nulla esset ars
+							nostra, si auctis recensionis subsidiis tantum erroris convinceremur.
+							neque antiquum consilium mutare placuit, etsi aliter
+							agendum esset, quo facetior vidererer et scire plus quam ceteri.
+							profecto, si more saeculi pro philologia colerem mataeoponiam,
+							cui deae paleis et scorea fit, ingentem rursus componerem
+							librum, gloriarer numero codicum ad recensionem adhibitorum,
+							stemmata necterem etiam editionum, artem typographi apices
+							litterarum a librariis deformatos imitari iuberem, disceptarem
+							quis quid primus secundus tertius vidisset praetervidisset grammaticorum:
+							sic efficerem ut ne Momus quidem <foreign lang="greek">me/ga kako/n</foreign>
+							non laudaturus esset. at enim Callimachus Momum abire
+							iussit ubi Invidia habitat, neque ego umquam tam iniquorum
+							numinum morsus timui, timeo laudes. utinam Homerus tandem
+							aliquando hymnos suos videat a mataeoponia vindicatos.
+						</p></div1>
+					<div1 type="section" n="2">
+						<p>Callimachum carmina ut quodque composuerat singula in
+							publicum emisisse consentaneum est. utrum vero ipse eadem
+							collecta et in libros digesta ediderit, an diu post auctoris mortem
+							ab aliis collecta sint (quod veteribus lyricis et inter Alexandrinos
+							<pb n="6"/>poetas Theocrito accidit) ignoramus. sed quo tempore
+							grammatica studia noviciis quoque poetis admoveri videmus,
+							certus est carminum ordo per genera in libros digestorum,
+							ita tamen ut non numeris sed generibus significentur libri,
+							ex. gr. <foreign lang="greek">e)pigra/mmata, me/lh, i)/amboi</foreign> (Aetiorum tantum plures
+							libri sunt, incertum an ab ipso poeta dispositi); subinde etiam
+							proprio nomine singula carmina appellantur, haud aliter atque
+							Pindari Simonidisve <foreign lang="greek">ei)/dh</foreign> aut Theocriti <foreign lang="greek">ei)du/llia.</foreign> qua in editione
+							primus locus hymnis datus erat, sicut veterum lyricorum <foreign lang="greek">ta\
+								pro\s qeou\s</foreign> carmina in editionibus agmen ducere solent. neque
+							dubitandum est quin Theo Epaphroditus alii, quos in nobilioribus
+							Callimachi carminibus illustrandis operam collocasse
+							constat, hymnos quoque tractaverint. vergente aetate, exolescente
+							sensim et poesi et eruditione, magis etiam Alexandrinorum
+							poetarum, qui e noviciis classici tum facti erant, studium
+							colebatur. princeps Christianae poeseos Gregorius, schola Nonniana,
+							epigrammatographi aetatis Iustinianeae vix quemquam
+							studiosius lectitare aut imitari solent quam Callimachum.<note anchored="yes" lang="la">Ita factum est ut multi versus etiam hymnorum in scriptis grammaticis
+								laudati ad nos pervenirent. quorum usus in emendatione perexiguus
+								est: unde discendum, quam lubricum sit fragmenta emendare.
+								aliquotiens etiam imitatorum versus testimonii loco erant laudandi, quod
+								multo saepius faciendum fuisset, si traditam lectionem firmare in animo
+								fuisset; quod perraro feci, maxime ut proprium errorem castigarem.</note> tum
+							fere, quarto quintove opinor saeculo, Sallustius grammaticus
+							editionem paravit aliquot Callimachi librorum, fortasse ultimam,
+							certe eam quae sola erat duratura. eidem Sallustio
+							Sophoclis quam tenemus editionem debemus, in cuius scholiis
+							studium Callimachi apertum est. hominem fuisse compilatorem
+							nec nisi pro saeculi more eruditum consentaneum est. saeculo
+							nono cum bona studia paene intermortua inter Graecos renovarentur,
+							poesis non tanta quidem fecit incrementa quam
+							philosophia rhetorica historia, emergebat tamen etiam Callimachus,
+							atque editionem Sallustianam Hecalae, fortasse etiam
+							Aetiorum, Suidas et Etymologici auctor usurpaverunt. quod
+							cum iam exploratum sit<note anchored="yes" lang="la">Cf. R. Reitzenstein Ind. lect. Rostock. 1890/91, 91/92. G&ouml;tting.
+								Nachr. 1893, 731.</note>, omnis illorum temporum memoria
+							diligenter excutienda est, ecquid Callimachei nobis subministrare
+							possit.<note anchored="yes" lang="la">Aetiis usus est qui Pausaniae codici cuidam nonnulla adscripsit,
+								cf. Herm. 29, 244, quem saeculo sexto fuisse minime demonstravit Reitzenstein
+								ibidem 236. Aetia item noverat qui Anth. Pal. 7, 154 scholion
+								addidit (fg. 13<hi rend="sup">b</hi>). ex Hecala vocabulum adscripsit quidam in margine nobilissimi
+								Apolegetarum codicis Parisini (fg. 66<hi rend="sup">h</hi>). f. 419 traditur inter
+								rara scholia in margine Thucydidis Vaticani (Cur. Thucyd. 4). scholio
+								Gregorii Nazianzeni genuina lectio hymn. 2, 112 debetur. f. 422 cum
+								poetae nomine apud Simocattam et inter recentissima Euripidis Vaticani
+								scholia (ad Hipp. 402) legitur. possum plura addere, sed disceptanda
+								haec erunt in nova fragmentorum editione. Tzetzes et Eustathius Callimachum
+								non iam habuerunt.</note> cuius multa adeo carmina superstitia fuisse epigramma
+							<pb n="7"/>docet huic etiam libro praefixum, quod ars metrica ad
+							illa fere tempora referri iubet.
+						</p>
+						<p>Quod carmen is homo transcripsit cui debemus, quod
+							primus certe Callimachi liber non interiit. composuit ille
+							hymnorum syllogam Homeri Callimachi Orphei Procli, atque
+							cum sex Callimachi hymnis etiam scholiorum Sallustianorum
+							quamvis exilia collectioni suae inseruit excerpta. Orphei Proclique
+							hymnorum memoria nondum satis explorata est, videtur
+							autem ex hoc uno archetypo pendere. Homeri hymnos continuit
+							etiam Iliadis ille codex Mosquensis, e quo fraude Christiani
+							de Matthaei evulsi Lugudunum Batavorum devenerunt.
+							Iliadem codicis Mosquensis commentario BT instructam esse
+							constat, hymni grammaticorum curae nullum tenent vestigium.
+							qui cum in multo antiquioribus locupletioribusque editionis BT
+							libris non legantur, in Mosquensem recepti esse videntur ex
+							hymnorum sylloga etiamtum integriore.
+						</p></div1>
+					<div1 type="section" n="3">
+						<p>Huius igitur syllogae seris temporibus factae is codex ad
+							quem unum Callimachi omnis, Homeri praeter Mosquensem
+							omnis memoria redit compluribus locis tantum damnum perpessus
+							erat, ut versus versuumve partes legi non iam possent.
+							quarum lacunarum ope effectum est Homeri versus in quaque
+							pagina fuisse xxxvi; Callimachi eae quae solae in censum
+							veniunt lacunae 4, 177, 199 versibus tantum xxiii distant, sed
+							in eadem pagina scholium omnium amplissimum fuit de Galatarum
+							interitu. apparet haec haud male conspirare, sed inepte
+							ludere censendus esset siquis archetypi paginas dimetiri conaretur.
+							codex non solum scriptus erat minusculis litteris sed e
+							tali codice descriptus. 4, 138 <foreign lang="greek">n</foreign> in <foreign lang="greek">i</foreign> abiit, 4, 30 in principio
+							<foreign lang="greek">h</foreign> in <foreign lang="greek">x,</foreign> 1, 87 <foreign lang="greek">r</foreign> in <foreign lang="greek">o.</foreign> ni mirum rho capite magno cauda
+							praelonga infra versum ad proximam litteram producta exaratum
+							erat.<note anchored="yes" lang="la">Similiter apographi A scriba 3, 59 <foreign lang="greek">gerraisth=ras</foreign> quod in archetypo
+								erat <foreign lang="greek">georaisth=ras</foreign> scripsit.</note> item 4, 10 cum in codice nostrorum archetypo
+							litterae evanidae essent, alli <foreign lang="greek">kauri,</foreign> alii <foreign lang="greek">kauqi,</foreign> alii <foreign lang="greek">kanqi</foreign> legerunt,
+							quod non nisi in minusculis litteris fieri poterat. tam recenti
+							aetati convenit, quod iota mutum modo in versu locum suum
+							tenebat (vix e mente librarii, qui 6, 61 <foreign lang="greek">a)nagkai/ai</foreign> circumflexo
+							<pb n="8"/>accentu e dativo singularis nominativum pluralis reddidit), modo
+							infra versum reiciebatur, modo omittebatur. qualia cum nihil
+							omnino docere possint neglexi. neque adeo stultus sum ut
+							mera vitia, velut <foreign lang="greek">*kra/qin,</foreign> aut adiaphora, velut <foreign lang="greek">mh\ de/,</foreign> curem.
+							sed orthographia atque prosodia cum ad Sallustium, h. e. ad
+							probam grammaticorum <foreign lang="greek">para/dosin</foreign> redeat, minime fuit neglegenda.
+							Callimachus quidem neque vocabula distinxerat neque
+							prosodiam legentibus praescripserat, quod utinam memoria
+							tenerent critici. itaque nos in omni vocabulo scribendo grammaticorum
+							doctrinam sectamur, quibus servire quidem ignavum
+							est, sed eosdem deserere, antequam falsi damnati sint, parum
+							cautum. reliqui igitur <foreign lang="greek">r</foreign> ut vocalem produceret geminatum,
+							<foreign lang="greek">e)/ddeisan, au)= e)ru/ontes.</foreign> pagum Atticum a salinis <foreign lang="greek">*(ala\s</foreign> denominatum
+							esse constat: sed <foreign lang="greek">*)ala/s</foreign> 3, 173 non tantum archetypus
+							aut Sallustius pronuntiari voluerunt, sed pronuntiare
+							didicerat Statius Theb. 12, 620, atque grammatici <foreign lang="greek">dasu/nein</foreign>
+							iubentes alterum usum fuisse ultro testantur (Steph. Byz. s. v.);
+							fuerint qui ad <foreign lang="greek">a)la=sqai</foreign> nomen referrent, neque Callimachus
+							tam docte errare non poterat. <foreign lang="greek">i(h/</foreign> autem spiritu aspero eum
+							protulisse et testatur Sallustius 2, 21, et originatio interiectionis
+							2, 103. non concluderem ubivis ita pronuntiasse Callimachum:
+							neque enim ea scribendi constantia, quae pueris
+							nostris inculcatur nec tantum ludimagistris liberalis eruditionis
+							summa videtur, Graecis tanto opere cordi erat. multoque minus
+							nos nisi ipsis verba damus in omnibus Alexandrinorum usum
+							definire possumus. veluti <foreign lang="greek">*ei)lei/quia</foreign> an <foreign lang="greek">*ei)lh/quia</foreign> Callimacho
+							magis placuerit nemo scit; quid quod scribere ei licebat
+							modo hoc modo illud, ut alterum in calamum veniret. itaque
+							archetypum secutus sum. notum est <foreign lang="greek">hi</foreign> et <foreign lang="greek">ei</foreign> saeculo tertio
+							promiscue scribi, atque in Lycophrone tam saepe <foreign lang="greek">ei</foreign> traditum
+							accepimus, ut omni mutatione abstinendum sit. vereor igitur,
+							ut Callimacho ipsi Homerica, h. e. antiquior, orthographia debeatur,
+							quam archetypus offert; cum tamen nullis artibus ultra
+							Sallustium ascendere possimus, unum quod obstrepebat exemplum
+							(4, 7) mutavi. nam 4, 234 Callimachus <foreign lang="greek">ke</foreign> cum futuro
+							coniungere studebat Homerice haud secus quam 4, 229. cui
+							nostra aoristi Homerici cognitio non est obtrudenda.<note anchored="yes" lang="la">4, 135 cum <foreign lang="greek">bale/ein</foreign> et <foreign lang="greek">a)pokru/yai</foreign> iungit, discendum est <foreign lang="greek">bale/ein</foreign>
+								ei fuisse aoristum, neque ad eum pertinet, quod nos futurum praelaturi
+								essemus. magis mirabile vitium <foreign lang="greek">ei)so/ke e)ke/kleto</foreign> 4, 150 confusis dorico
+								<foreign lang="greek">o(/ka</foreign> = <foreign lang="greek">o(/te</foreign> et Homerico <foreign lang="greek">o(/ ke</foreign> = <foreign lang="greek">o(\ a)/n</foreign> = <foreign lang="greek">o(/ ka.</foreign> quod tolli vetant imitatores.</note> omnino
+							arduum est vetustae linguae imitationi terminos circumscribere,
+							et quamquam istos facile ridemus, qui Callimachum
+							<pb n="9"/>vapulare iubent, quia nostras sermonis Homerici grammaticas
+							non legit (etiamsi enim legere potuisset, libertatem poetae
+							non debebat prodere), est sane ubi in edendis carminibus
+							haesites quae obsoleti sermonis sonos reddere studeant. veluti
+							secundae declinationis plurativos dativos in <foreign lang="greek">ois</foreign> exire, nisi longiorem
+							formam versus postulat, satis certo colligitur, item
+							primae declinationis legitimam formam esse <foreign lang="greek">-hisi</foreign> et saepe ante
+							vocalem elidi, binis dativis coniunctis <foreign lang="greek">ais</foreign> admitti, admitti etiam
+							in exitu versus. sed ne <foreign lang="greek">ais</foreign> quidem solitarium excludi corruptela
+							maxime docet 4, 298; <foreign lang="greek">-his,</foreign> quod in Homerum sensim
+							gliscens linguae mutatio invexit (constat nunc Thasi quidem
+							re vera fuisse hanc formam) expellere non licere videbit qui
+							3, 100 recte perpenderit. itaque quam cautissime poteram egi,
+							sed verum me in omnibus assecutum esse minime spondeo. difficilior
+							etiam Doris<note anchored="yes" lang="la">Epigrammatum memoria omnino parum certa est, maxime in eis
+								carminibus (sunt autem, pace Reitzensteinii dicam, permulta) quae Callimachus
+								composuit ut tumulis aut donariis inscriberentur. sed etiam in elegidiis
+								praeter legitimam dialectum subinde Doris admissa est, neque semper
+								causam perspicimus. adde quod dialectos ad arbitrium temperare atque
+								adeo miscere saeculum tertium coepit. itaque multa semper incerta manebunt.
+								prospiciendum tamen, ne aures legentium sonis confusis laedantur.</note>, cum in archetypo valde obscurata tradatur
+							(restituere coepit iam Politianus, qui ex. gr. 5, 5 <foreign lang="greek">pok' *)aqanai/a</foreign>
+							iam dedit, sed inane erat talia ad certum referre auctorem)
+							neque Callimachus sibi constitit (e lyrica enim poesi aeolismos
+							admisit, velut <foreign lang="greek">fe/roisa,</foreign> ex epica <foreign lang="greek">ou</foreign> pro legitimo <foreign lang="greek">w,</foreign> velut
+							<foreign lang="greek">poulu/</foreign>) neque ipsa lingua ad certam formam in litteris fuerat
+							deducta. itaque nonnulla ad arbitrium necessario constituenda
+							sunt: utrum <foreign lang="greek">*poseida/wna</foreign> an <foreign lang="greek">*potei/dawna</foreign> aut Callimachus
+							aut Sallustius dederint, me ignorare fateor; praetuli nunc <foreign lang="greek">*pos.</foreign>
+							et quia traditum est (quamquam nulla haec est auctoritas) et
+							quia vere doricum tantum <foreign lang="greek">*poteida=na</foreign> esset. accentus dedi
+							quos monstrabat archetypus, Sallustianos nimirum: Callimacheos
+							non quaeret nisi ignorantissimus quisque. haec atque talia
+							editori potius quam lectori taedium facessunt; quae diligenter
+							tractavi, sicut grammaticum docet, sed velim ne obliviscamur
+							tantum non <foreign lang="greek">a)dia/fora</foreign> esse, quod quidem ad Callimachum.
+							hoc loco de eis multa verba feci, ut appareret, quantum fidei
+							unico libro tribuenda esset, qui nobis hymnos tradidit.
+						</p></div1>
+					<div1 type="section" n="4">
+						<p>At periit hic archetypus, perierunt omnia ex eo ipso descripta
+							exempla. hoc olim dixi, aliter plerique senserunt in
+							Homero, hoc nunc liquido constat. nam quattuor optimos
+							codices, in quibus Homeri etiam magis quam Callimachi salus
+							<pb n="10"/>posita est, non fratres esse, sed binos duorum fratrum filios
+							de Homero recte exposuit Ericus Bethe Herm. 28, 535. auctor
+							huius stirpis in Homero quidem videri potest fuisse ipse archetypus;
+							in Callimacho vero tam saepe quattuor librorum archetypus
+							a duabus quas statim tractabo familiis dissidet, ut proclive
+							sit pro archetypo apographon archetypi longe optimum
+							eum dicere. quod tamen non facio. probabilius enim duco
+							fuisse archetypum in manibus viri docti qui describend&iacute;s vendendisque
+							libris Graecis quaestum faceret, hunc duo aut etiam
+							plura apographa confecisse, modo inter se, modo cum archetypo
+							collata, atque ita accidisse ut ex hac officina compluria
+							prodirent exempla inter se cognata, conspirantia etiam in vitiis
+							quibusdam levioribus, dissidentia in lacunosis maxime locis,
+							quos ut cum archetypo identidem conferret ipsa difficultas
+							scribam cogebat. itaque in gravissimis quidem locis codices
+							superstites antestari necesse est, ceteroquin vero vetere signo E
+							communem eorum archetypum significari tamquam ab archetypis
+							ceterarum familiarum diversum, cuius tamen longe maior
+							auctoritas sit quam illarum alterius utrius. quattuor autem
+							quos dixi codices, quorum ope E restituitur, hi sunt.
+						</p>
+						<p>Matritensis bibl. nation. N 24 (m), quem Constantinus
+							Lascaris Mediolani peritissime exaravit anno 1464, glossasque
+							partim nunc evanidas intra versus minio pinxit, dum scripta
+							sua relegit, paucas emendationes sive ex exemplari suo sive
+							e coniectura addidit. mihi hunc librum contulit Ricardus
+							Wuensch v. d. ita et de Callimacho et de me bene meritus.
+						</p>
+						<p>Gemellus huius libri est Mutinensis bibl. Est. iii E 11 (q),
+							quem annis 1873. 74 contuli. scripsit Georgius Valla Placentinus
+							(&dagger; 1499), fideliter, sed non tam perite quam Lascaris
+							Matritensem.
+						</p>
+						<p>Gemelli rursus sunt qui his duobus auctoritate non cedunt
+							<hi rend="ital">p</hi> et <hi rend="ital">d. p</hi> Parisinus est suppl. Gr. 1095, olim S. Petri Perusinus<note anchored="yes" lang="la">Codicem gravissimum primus ad Callimachum emendandum advocavit
+								Constantinus comes Nigra (<title lang="it">Inni di Callimaco su Diana e sui
+									Lauacri di Pallade, Torino</title> 1892). vir excellentissimus, qui Graecas
+								patriasque Musas non deserit, dum orator Italiae in aula Austriaca constitutus
+								paci ac saluti orbis terrarum prospicit, etiam aliis nominibus de
+								Callimachi memoria optime meritus est.</note>,
+							in quo hymnorum sylloga Iliadem excipit, cui Ps. Plutarchi
+							de Homero libellus prolegomenorum loco additus est.
+							scriba, quem Graecum non fuisse <foreign lang="greek">*troezh=nos</foreign> ostendit, quod
+							in scholio 4, 41 semel ei excidit, laudem elegantiae et probitatis
+							unam quaesivit. doctus nec erat nec videri volebat; itaque
+							<pb n="11"/>ab emendando se continuit, glossas parvas una cum textu
+							descripsit, longiora scholia pleraque omisit, calami errores perraro
+							correxit. interierunt folio uno evulso 3, 66&mdash;145. contuli
+							codicem spectata bibliothecae Parisinae liberalitate Gottingam
+							missum.
+						</p>
+						<p>Huius igitur codicis gemellus Laurentianus 32, 45 (d) est,
+							qui Callimachum anno 1495 etiamtum continere dicebatur,
+							quo tempore inter libros bibliothecae Mediceae privatae erat 111,
+							antea 53 (Piccolomini <title lang="it">condizioni e vicende della bibblioteca Medicea
+								privata</title> p. 72). sed probabile est eo ipso tempore iam evulsum
+							fuisse Callimachum (direpta scilicet per turbas et seditionem
+							populi a fratre Savonarola excitati Mediceorum bibliotheca)
+							et prelis traditum, ut describeretur editio princeps a Iano
+							Lascari, ut ferunt, anno 1494 parata. quo factum est, ut
+							codex periret, editio autem eius loco habenda esset.<note anchored="yes" lang="la">Cf. Nigra p. 46. ipse hanc editionem non vidi, sufficiebant
+								enim quae olim Blomfield, nuper Nigra excerpserunt, praestoque erat
+								apographi Taurinensis collatio.</note> quod
+							vulgatae lectionis semper mansit fundamentum nec per se infirmum
+							et multis Lascaris emendationibus ornatum, quas nunc
+							auctoris nomine efferre aequum mihi visum est.
+						</p></div1>
+					<div1 type="section" n="5">
+						<p>Fuerant, uti par est, olim etiam plura libri E apographa,
+							quorum unum Angelus Politianus in principe hymni quinti
+							editione reddidit, quam a. 1489 primum Miscellaneis suis inseruit.<note anchored="yes" lang="la">Cf. Nigra p. 42.</note>
+							qui codex epigramma hymnis praefixum continebat,
+							idque emendatius quam Parisinus, in quo solo nunc legitur.
+							item ad E redit Parisinus 2763 (e), cui Pohlius Meinekius
+							Schneiderus multum necessario tribuebant, nunc propter solas
+							emendationes aliquot commemorandus.<note anchored="yes" lang="la">Multum ei etiamnunc debetur in scholiis, quorum recensionem
+								ego facere nolui. <hi rend="ital">p</hi> et <hi rend="ital">q</hi> Nigra proposuit, et <hi rend="ital">p</hi> ego quoque contuli.
+								verendum est, ne in libris vilibus, e quibus Schneiderus multa sumpsit,
+								interpolationes insint, veluti 1, 10 si fidem haberet <foreign lang="greek">o)/ros *)arkadi/as to\
+									*parra/sion,</foreign> corruptela codicis <foreign lang="greek">*parnasi/h</foreign> scholio esset recentior: at in
+								<hi rend="ital">p q</hi> est <foreign lang="greek">o)/ros *)arkadi/as o( *parnasso/s.</foreign> futuro editori praeterea colligenda
+								sunt scholia Sallustii et antiquiorum grammaticorum in lexicis dispersa.
+								qui de scholiis Callimacheis dissertationem edidit H. Reineke (Halis 1888)
+								diligentiae laude non privandus est, sed parum praestitit, cum nemo eum
+								docuisset, qua via et ratione talia tractanda essent.</note>
+						</p>
+						<p>Alterum apographon archetypi (A) id est quod plurimi fecit
+							Otto Schneider, cui compluria exempla contulerat H. Keilius,
+							inter quae unus eminet Vaticanus 1691 (a). librarius e sylloga
+							hymnorum Callimachum tantum et Orpheum sumpsit et cum
+							Apollonio Rhodio (qui ad Laurent. 32, 9 redit) coniunxit. invenerat
+							<pb n="12"/>autem archetypum lectu iam multo difficiliorem, ita ut permulta
+							omitteret, solus unam litteram <foreign lang="greek">p</foreign> 6, 23 servaret. est
+							sane huic apographo sua virtus, sed cum E nequaquam comparanda.
+						</p></div1>
+					<div1 type="section" n="6">
+						<p>Contra spem sed gratissimum mihi accidit, ut tertio apographo
+							invento multo certius iam liceret de ipso archetypo
+							referre. huius (F) exempla duo sunt gemella, codex Athous
+							Laurae 587 (r), cuius conlationem industriae Caroli Fredrich
+							debeo, qui mea gratia montem sacrum adiit, comi patrum
+							venerabilium hospitio acceptus; alter codex Ambrosianus est
+							B 98, a Keilio in Schneideri usum conlatus. ego olim Ambrosianum
+							reieceram tamquam mixtis E et A lectionibus
+							contaminatum, neque aliter in Homero sensit G. Hollander.
+							aliter sentiendum esse liquido constaret, si Athous re vera
+							saeculo xiv scriptus esset, sicut fertur. quod ex unius versus
+							imagine quam Fredrich delineavit neque negare neque affirmare
+							audeo, probabilius autem videtur, librum saeculo xv sicut ceteros
+							in Italia scriptum esse. at pater qui huic cum Ambrosiano
+							communis est iam ante E, quamquam ab homine neque
+							religioso neque docto, ex archetypo descriptus est, eoque
+							nomine magni habendus. quod ut appareret atque omnino
+							recensionis meae rationes examinari possent, de eis versibus
+							hoc loco explicatius agere constitui, quorum lectio in archetypo
+							maxime obscura erat. 4, 255 <foreign lang="greek">a)/eisan</foreign> F: <foreign lang="greek">h)/eisan</foreign> <hi rend="ital">pd,</hi>
+							<foreign lang="greek">e)/bhsan</foreign> <hi rend="ital">mq,</hi> om. <hi rend="ital">A.</hi> 5, 78 <foreign lang="greek">qemita/</foreign> F: <foreign lang="greek">qe/mides</foreign> E, om. A <hi rend="ital">q.</hi>
+						</p>
+						<p>107 <foreign lang="greek">po/ssa</foreign> F Lascaris: <foreign lang="greek">o(/ssa</foreign> pm<hi rend="sup">2</hi> Politianus, <foreign lang="greek">pa=ssa</foreign> qm<hi rend="sup">1</hi>,
+							om. A. 108 <foreign lang="greek">po/ssa</foreign> F <hi rend="ital">pd:</hi> <foreign lang="greek">o(/ssa</foreign> <hi rend="ital">m<hi rend="sup">2</hi></hi> Politianus, <foreign lang="greek">pa/ssa</foreign> <hi rend="ital">q,</hi> om.
+							A <hi rend="ital">m<hi rend="sup">1</hi>.</hi> 128 <foreign lang="greek">dwsw= kai\ bio/tou te/rma poluxro/nion</foreign> F Lascaris
+							Politianus: <foreign lang="greek">d. de\ boiwtou= t. p.</foreign> <hi rend="ital">p,</hi> <foreign lang="greek">dwsw= kai\ . . . . poluxro/nion</foreign>
+							<hi rend="ital">q<hi rend="sup">1</hi>,</hi> <foreign lang="greek">de\ bio/tou te/rma</foreign> <hi rend="ital">q<hi rend="sup">2</hi>,</hi> . . . <foreign lang="greek">kai\ . . . poluxro/nion</foreign> <hi rend="ital">m<hi rend="sup">1</hi>,</hi>
+							supplet <hi rend="ital">m<hi rend="sup">2</hi>;</hi> tantum <foreign lang="greek">poluxro/nion</foreign> A. 136 <foreign lang="greek">yeu/dea . . . . ai
+								quga/thr</foreign> F (<foreign lang="greek">ai(</foreign> <hi rend="ital">r</hi> deteriores <foreign lang="greek">a(</foreign> <hi rend="ital">f</hi>); nihil nisi <foreign lang="greek">quga/thr</foreign> E, om. A
+							<hi rend="ital">m<hi rend="sup">1</hi> q<hi rend="sup">1</hi>.</hi> 6, 13 <foreign lang="greek">die/bas</foreign> F: <foreign lang="greek">die/benen</foreign> <hi rend="ital">p,</hi> <foreign lang="greek">die/bainen</foreign> Lasc., <foreign lang="greek">dh\</foreign> <hi rend="ital">m,</hi>
+							om. <hi rend="ital">q,</hi> <foreign lang="greek">di</foreign> omisso reliquo versu <hi rend="ital">A.</hi> 15 <foreign lang="greek">tri\s d' e)pi\ kallixo/roio
+								xama/dis e)kaqi/ssao frhti/</foreign> F dett.: in <foreign lang="greek">kalli</foreign> exit <hi rend="ital">Adp,</hi>
+							in <foreign lang="greek">e)pi/</foreign> <hi rend="ital">mq,</hi> <foreign lang="greek">kalli/xoron fre/ar e)kalei=to e)n *)eleusi=ni</foreign> Schol.
+							6, 17 <foreign lang="greek">dhoi=</foreign> F Lascaris: <foreign lang="greek">dih=</foreign> <hi rend="ital">p,</hi> <foreign lang="greek">dhou=s</foreign> <hi rend="ital">mq,</hi> <foreign lang="greek">d</foreign> . . A. 18 <foreign lang="greek">e)a/n
+								dota</foreign> (<hi rend="ital">f,</hi> <foreign lang="greek">e)a\n do/ta</foreign> <hi rend="ital">r,</hi> <foreign lang="greek">e(ado/ta</foreign> Draco Strat. p. 43) <foreign lang="greek">te/qmia dw=ke</foreign>
+							<hi rend="ital">F:</hi> <foreign lang="greek">e(ado/</foreign> &mdash; <hi rend="ital">d</hi> <foreign lang="greek">e)</foreign>-<hi rend="ital">p,</hi> <foreign lang="greek">e(a</foreign> <hi rend="ital">q<hi rend="sup">2</hi>,</hi> om. A <hi rend="ital">mq<hi rend="sup">1</hi>.</hi> 22 <foreign lang="greek">u(perbasi/as a)leei/nhi</foreign>
+							<hi rend="ital">F</hi> Schol. <hi rend="ital">q:</hi> <foreign lang="greek">u(perbasi/as</foreign> <hi rend="ital">pd,</hi> <foreign lang="greek">u(perba</foreign>-<hi rend="ital">A,</hi> <foreign lang="greek">u(per</foreign>-<hi rend="ital">q<hi rend="sup">2</hi>,</hi> om.
+							<hi rend="ital">mq<hi rend="sup">1</hi>,</hi> 23 initio <foreign lang="greek">p</foreign> A: om. EF, in fine <foreign lang="greek">i)de/sqai</foreign> <hi rend="ital">pd</hi> dett.: om.
+							AF <hi rend="ital">mq.</hi> 86 <foreign lang="greek">a)miqrei=</foreign> Ruhnken, <foreign lang="greek">a)riqmei=</foreign> Lascaris: <foreign lang="greek">a)mi</foreign> <hi rend="ital">Ap,</hi>
+							<foreign lang="greek">a)m</foreign>-<hi rend="ital">q, m<hi rend="sup">2</hi></hi> in rasura <foreign lang="greek">e)/bosken, a)me/lgei</foreign> F. 118 <foreign lang="greek">a)/sate</foreign> F: om.
+							<pb n="13"/>AE. plurimos locos, in quibus EF verba servant ab A omissa
+							praetereo. sed haec opinor sufficiunt, ut F recte aestimetur.
+							minime liber est interpolatione; ego certe regium puerum
+							Erysichthonem numerasse non mulsisse greges suos credo,
+							6, 86. sed etiam E interpolavit <foreign lang="greek">qe/mides</foreign> 5, 78. alia facile
+							poterant suppleri, sed mirum quod nulla ceteroquin ex F recipienda
+							est emendatio, atque <foreign lang="greek">a)/isate</foreign> 6, 118, quod olim sprevi,
+							meo <foreign lang="greek">a)/rxete</foreign> propter tempus praestat, cum <foreign lang="greek">e)pifqe/gcasqe</foreign>
+							sequatur. neque displicere potest quod virgines cantu salutare
+							deam iubentur, nuptae <foreign lang="greek">xai=re</foreign> tantum clamare. cardo autem
+							vertitur in versu 6, 15, quem item tamquam interpolatum contempseram.
+							quod me fecisse nunc erubesco. nam <foreign lang="greek">frhti/</foreign>
+							dativus non interpolatorem, sed Callimachum prodit auctorem,
+							quippe qui propria inventa repetere soleat. laudatur enim in
+							Clementis scholiis versus item de Cerere compositus <foreign lang="greek">*kallixo/rwi
+								d' e)pi\ frhti\ kaqe/zeto paido\s a)/pustos</foreign> (fgm. 403),
+							quem frustra hic inserebat Naekius. scholia autem Clementis,
+							servata in uno Apologetarum codice Parisino eiusque apographo
+							Mutinensi, vix poterat excribere interpolator. porro tribreve
+							<foreign lang="greek">xama/dis</foreign> ultimam in arsi producere a vera Callimachi arte
+							non recedit (cf. 2, 19, 4, 83, de quarto pede 4, 263). denique
+							<foreign lang="greek">e)kaqi/ssao,</foreign> <gloss>consedisti</gloss>, a grammatica non potest vituperari;
+							transitivum <foreign lang="greek">e)kaqi/ssato</foreign> eodem versus loco est 3, 233. quae
+							cum ita esse animadvertissem, et restitui quae praeiudicio ductus
+							abieceram et ad reconcinnandum archetypum apographon F
+							constanter advocavi.
+						</p></div1>
+					<div1 type="section" n="7">
+						<p>Huius quoque recensionis plura olim fuerunt exempla,
+							neque infitior fieri posse ut quartum adeo apographon ex ipso
+							fuerit sumptum archetypo. nam in libris recentissimis, quales
+							sunt Vaticanus 1379 (I a Schneidero signatus), Vindobonensis 318
+							(G), qui Meinekium decepit, Vossianus 49, aegre definitur utrum
+							e duabus familiis contaminati sint, an adeo ad quartum redeant
+							apographum. neque vero si definiri posset, ulli usui foret. addo
+							tamen e codice Vaticani simili anonymum Bernensem, de quo
+							Ricardus Reitzenstein Herm. 26, 308 rettulit, Byzantinum de
+							scriptis Callimachi epigramma sumpsisse. alii libri manuscripti
+							plane abiciendi sunt, cum ex editione Florentina pendeant.
+							e quibus unum, qui Augustae Taurinorum adservatur
+							n. 281 insignitus, ut conferret ab I. Graeven impetravi: sunt
+							enim in margine adscriptae emendationes haud paucae, quibus
+							patefit, quanta fuerit saec. xvi et artis vere Graecae cognitio
+							et inveniendi sollertia.
+						</p>
+						<p>Meum erat codicum sordes iterum perquirere: legentibus
+							<pb n="14"/>easdem proponere nefas duco. at de archetypo, libro minime
+							sordido, plene referre et debui et volui. quod plerumque
+							facillimum erat, dissentiente uno apographo, consentientibus
+							duobus, sive complurium singula exempla idem peccaverant.
+							ubicumque haesitabam, ut legentes ipsi iudicare possent curavi,
+							sed nugas procul habendas duxi, quae prudentem non iuvant, imprudenti
+							nocent. dico itacismos potissimum et sigma semel
+							vel bis scriptum, quae neque ad intellegendam sententiam
+							neque ad pronuntianda verba pertinere scribis iure videbantur.
+							cuius generis pauca exempla hoc loco proponere e re visum
+							est. 1, 87 <foreign lang="greek">noh/sh|</foreign> Lasc. aliquot exempla A, <foreign lang="greek">noh/sei</foreign> <hi rend="ital">F, a, mp,</hi>
+							utrumque <hi rend="ital">q.</hi> 88 <foreign lang="greek">noh/sh</foreign> et <foreign lang="greek">ei</foreign> <hi rend="ital">q</hi> dett. fieri igitur potest ut 87 in
+							archetypo aliquid fuerit, fortasse ab ipso scriba, correctum. 2, 48
+							<foreign lang="greek">*)amfrussw=|</foreign> <hi rend="ital">E,</hi> <foreign lang="greek">*)amfrusw=|</foreign> <hi rend="ital">F</hi> Lascar., <foreign lang="greek">*)ambrussw=|</foreign> <hi rend="ital">A.</hi> 2, 91
+							<foreign lang="greek">*murtou/sshs</foreign> <hi rend="ital">p q m f:</hi> <foreign lang="greek">murtou/shs</foreign> A Lasc. <hi rend="ital">r.</hi> 3, 61 <foreign lang="greek">moxqh/seian</foreign>
+							<hi rend="ital">F</hi> Lasc.: <foreign lang="greek">moxqi/seian</foreign> <hi rend="ital">A,</hi> <foreign lang="greek">moxqi/sseian</foreign> <hi rend="ital">E.</hi> 4, 15 <foreign lang="greek">e)nna/ssanto</foreign> <hi rend="ital">q:</hi>
+							<foreign lang="greek">e)na/ss.</foreign> <hi rend="ital">m.</hi> <foreign lang="greek">e)nna/santo</foreign> <hi rend="ital">F A p d.</hi> 4, 33 <foreign lang="greek">w)/xlisse</foreign> <hi rend="ital">E:</hi> <foreign lang="greek">w)/xlise</foreign> <hi rend="ital">AF.</hi>
+							<foreign lang="greek">ku/lise</foreign> <hi rend="ital">F:</hi> <foreign lang="greek">ku/lisse</foreign> <hi rend="ital">AE.</hi> 4, 246 <foreign lang="greek">e)xari/ssato</foreign> <hi rend="ital">m q d r:</hi> <foreign lang="greek">e)xari/sato</foreign>
+							<hi rend="ital">a p f.</hi> 4, 262 <foreign lang="greek">e)ko/mhse</foreign> <hi rend="ital">A:</hi> <foreign lang="greek">e)ko/mise</foreign> <hi rend="ital">F,</hi> <foreign lang="greek">e)ko/misse</foreign> <hi rend="ital">E.</hi> 5, 70
+							<foreign lang="greek">lusam.</foreign> <hi rend="ital">Fa:</hi> <foreign lang="greek">lussam.</foreign> <hi rend="ital">E,</hi> alia exempla apogr. <hi rend="ital">A.</hi> 5, 121 <foreign lang="greek">e)ssom.</foreign>
+							<hi rend="ital">F</hi> Lasc.: <foreign lang="greek">e)som.</foreign> <hi rend="ital">AE.</hi> addo nonulla alius generis, sed non minus
+							pusilla. 1, 82 <foreign lang="greek">poli/essi</foreign> <hi rend="ital">m p d r:</hi> <foreign lang="greek">ptol.</foreign> <hi rend="ital">A q f.</hi> 2, 80 <foreign lang="greek">polu/llite</foreign>
+							<hi rend="ital">A m</hi> Lasc.: <foreign lang="greek">polu/lliste</foreign> <hi rend="ital">F q p.</hi> 3, 161 <foreign lang="greek">a)rotrio/wnti</foreign> <hi rend="ital">A m r:</hi> <foreign lang="greek">a)rotriw=nti</foreign>
+							<hi rend="ital">p q f,</hi> <foreign lang="greek">a)rotria/onti</foreign> Lasc. (h. e. <foreign lang="greek">a)rotriw=nti</foreign> <hi rend="ital">d</hi>). 6, 12
+							<foreign lang="greek">poulum.</foreign> <hi rend="ital">Ar</hi> Lasc.: <foreign lang="greek">polum.</foreign> <hi rend="ital">Ef.</hi> exhausta esse credo quaecumque
+							quispiam in adnotatione commemoranda fuisse possit dicere:
+							ad Callimachum quidquam pertinere nemo sanus opinabitur.
+						</p>
+						<p>O. Schneider cum comperisset Ioannem Aurispam 1423 hymnorum
+							syllogam e Graecia Venetias asportasse<note anchored="yes" lang="la">Non fuit ullum iter quod codicum coemendorum causa in Graeciam
+								susceptum esset magis felix. attulit Athenaei unicum codicem,
+								Laurentianum Aeschyli Sophoclis Apollonii, Venetos Homeri (A), Cassii
+								Dionis, Xenophontis (511?), Platonis (T?) alia. cf. van Heusde in praef.
+								Agamemnonis Aeschyleae, Dindorf. praef. Aesch. ed. 5. Schneider Call. I
+								p. vii. opus est ut in librorum Aurispae fata peculiariter inquiratur.</note>, Fr. Philelphum
+							paullo post item Callimachi Orpheique hymnos possedisse, A fuisse
+							Aurispae, E Philelphi coniecit. quam coniecturam cum frustra
+							sperassem tacite me posse de medio tollere, nunc aio et omnino
+							in mera opinatione sitam esse et manifesto falsam, siquidem E
+							integram syllogam, A Orpheum Callimachumque continet. et A
+							manifesto in Italia demum Apollonii Argonautica addidit, unde
+							sequitur archetypum ipsum in Italiam venisse. iam cum Aurispa
+							primus totam syllogam se habere professus sit, apparet veri
+							<pb n="15"/>simillimam esse coniecturam, qua hunc dixi hymnorum sospitatorem;
+							conveniunt quae nunc de E libris exponere potui.
+							at F, antiquissimum apographon, cuius unum in Atho monte
+							adservatur exemplum, si quis statuere mavult in oriente iam
+							antequam ab Aurispa tolleretur archetypus descriptum esse, non
+							potest refutari. quod examinata codicum litteratura, excussa
+							saeculi xv historia litteraria explorent quibus illa cordi sunt.
+							de Callimachi recensione ne novis quidem apographis repertis
+							quidquam quod momentum faciat credo explorari posse.
+						</p>
+						<p>Emendatione perraro opus est, et hona pleraque iam
+							saeculo xvi dextre administrata sunt. quod ut rectius etiam
+							quam antea intellexerim multasque e paucis quas protuleram
+							coniecturis eiecerim, debeo etiam meis studiis, sed gratias ex
+							animo ago Iohanni Vahlen, qui cum alibi tum in lectionum
+							Berolinensium duobus prooemiis (1889 et 89/90) et in actis
+							academicis (1895. 96) de his carminibus egit, rogatosque volo
+							lectores, ut etiam ea diligenter perpendant, quibus ut obtemperarem
+							a me non impetravi. contra ex eis quae complures de
+							re metrica Callimachi disputaverunt nihil fateor me didicisse.
+							sciebam enim, quod isti inviti docent, tamquam in re et incerta
+							et levissima in augmento syllabico distinguendo paradosin
+							sequendam esse. unum quem admiseram errorem, quod vocalem
+							ante vocalem corripi posse in trochaeo primo pentametri
+							negaveram refutarunt G. Wentzel (Genethliac. Gott. 22) et
+							I. Lucas (Studia Theognidea 59); idem ipse intellexeram. de
+							verborum usu diligenter egit F. de Ian (de Callimacho Homeri
+							interprete Argentorati 1893) unumque adeo versum luculenter
+							emendavit; neque plane inutilis fuit farrago indigesta quam
+							F. Kuiper nuper corrasit (Studia Callimachea I Luguduni Bat. 96).
+							quid autem hymnis suis Callimachus efficere voluisset, quo tempore,
+							quibus sacris singula carmina scripsisset, multi eruditissime
+							simul et audacissime demonstratum ierunt. de quibus
+							rebus mihi quoque suavissimum esset disputare; habere me
+							quae dicam sciunt qui scholis interfuerunt quibus artem Callimachi
+							illustrare saepius conatus sum. quae ne perscriberem
+							aut in publicum ederem aliis negotiis adhuc praepeditus sum,
+							neque quicquam promittere audeo.
+						</p></div1>
+					<div1 type="section" n="8">
+						<p>Epigrammata cum alibi tum in Anthologia servata hymnis
+							addi solent. quem morem secutus sum, ne ordine quidem
+							quamvis perverso mutato, adscriptis Meinekii numeris. qui
+							cum carmina recentiorum erroribus ad Callimachum relata expulisset,
+							mihi duo tantum erant reicienda in libro Palatino
+							perperam lemmate <foreign lang="greek">tou= au)tou=</foreign> instructa (3 = AP vii 318, quod
+							<pb n="16"/>Hegesippum 320 exprimit, et 36 = AP vii 454, de quo dixi
+							Herm. xii 346), dubito etiam de 57 = AP vi 150, quod carminum
+							Callimacheorum seriei adhaeret <foreign lang="greek">kata\ stoixei=on</foreign> dispositae
+							et hexametro in grave monosyllabum exeunte aures
+							laedit. in adnotando parcus fui. contuli tamen pleraque carmina
+							cum codice Palatino, ut viderem, num vera excerpsisset
+							Carolus Haeberlin, qui mihi collationem tradiderat dum in
+							Technopaegniis conferendis eum adiuvo. vidi eum somniasse.
+							doleo autem quod ad suavissima carmina emendanda non solum
+							nihil novi adferre poteram, sed etiam de pluribus quam antea
+							locis me desperavisse confitendum erat.
+						</p>
+						<p>Scribebam Gottingae <date value="1896-12-21">a. d. xii Kal. Ian. 1897.</date>
+							<pb n="17"/></p></div1>
+				</body>
+			</text>
+			
+			<text lang="greek" n="hymns">
+				<body>
+					<head>*(/Umnoi</head>
+					<div1 type="poem" n="1">
+						<head>ei)s *di/a.</head>
+						<l>*zhno\s e)/oi ti/ ken a)/llo para\ spondh=isin a)ei/dein</l>
+						<l>lw/ion h)\ qeo\n au)to/n, a)ei\ me/gan, ai)e\n a)/nakta,</l>
+						<l>*phlago/nwn e)lath=ra, dikaspo/lon ou)rani/dhisi;</l>
+						<l rend="indent">pw=s kai/ min, *diktai=on a)ei/somen h)e\ *lukai=on;</l>
+						<l n="5">e)n doih=i ma/la qumo/s, e)pei\ ge/nos a)mfh/riston.</l>
+						<l>*zeu= de\ me\n *)idai/oisin e)n ou)/resi/ fasi gene/sqai,</l>
+						<l>*zeu= de\ d' e)n *)arkadi/hi: po/teroi, pa/ter, e)yeu/santo;</l>
+						<l>"*krh=tes a)ei\ yeu=stai": kai\ ga\r ta/fon, w)= a)/na, sei=o</l>
+						<l>*krh=tes e)tekth/nanto: su\ d' ou) qa/nes, e)ssi\ ga\r ai)ei/.</l>
+						<l n="10">e)n de/ se *parrasi/hi *(rei/h te/ken, h(=xi ma/lista</l>
+						<l>e)/sken o)/ros qa/mnoisi periskepe/s &lpar;e)/nqen o( xw=ros</l>
+						<l>i(ero/s, ou)de/ ti/ min kexrhme/non *ei)leiqui/hs</l>
+						<l>e(rpeto\n ou)de\ gunh\ e)pimi/sgetai, a)lla/ e( *(rei/hs</l>
+						<l>w)gu/gion kale/ousi lexw/ion *)apidanh=es&rpar;:</l>
+						<l n="15">e)/nqa s' e)pei\ mh/thr mega/lwn a)peqh/kato ko/lpwn,</l>
+						<l>au)ti/ka di/zhto r(o/on u(/datos w(=i ke to/koio</l>
+						<l>lu/mata xutlw/saito teo\n d' e)ni\ xrw=ta loe/ssai.</l>
+						<l>*la/dwn a)ll' ou)/pw me/gas e)/rreen ou)d' *)eru/manqos,</l>
+						<l>leuko/tatos potamw=n, e)/ti d' a)/broxos h)=en a(/pasa</l>
+						<l n="20">*)arkadi/h: me/llen de\ ma/l' eu)/udros kale/esqai</l>
+						<l>au)=tis: e)pei\ thmo/sde, *(re/h o(/t' e)lu/sato mi/trhn,</l>
+						<l>h)= polla\s e)fu/perqe sarwni/das u(gro\s *)ia/wn</l>
+						<l>h)/eiren, polla\s de\ *me/las w)/kxhsen a(ma/cas,</l>
+						<l>polla\ de\ *kari/wnos a)/nw dierou= per e)o/ntos</l>
+						<l n="25">i)luou\s e)ba/lonto kinw/peta, ni/sseto d' a)nh/r
+							<pb n="18"/></l>
+						<l>pezo\s u(pe\r *kra=qi/n te polu/stio/n te *metw/phn</l>
+						<l>diyale/os: to\ de\ pollo\n u(/dwr u(po\ possi\n e)/keito.</l>
+						<l>kai/ r(' u(p' a)mhxani/hs sxome/nh fa/to po/tnia *(rei/h</l>
+						<l>'*gai=a fi/lh te/ke kai\ su/: teai\ d' w)di=nes e)lafrai/.'</l>
+						<l n="30">ei)=pe kai\ a)ntanu/sasa qeh\ me/gan u(yo/qi ph=xun</l>
+						<l>plh=cen o)/ros skh/ptrwi: to\ de/ oi( di/xa poulu\ die/sth,</l>
+						<l>e)k d' e)/xeen me/ga xeu=ma: to/qi xro/a faidru/nasa</l>
+						<l>w)=na teo\n spei/rwse, *ne/dhi de/ se dw=ke komi/zein</l>
+						<l>keuqmo\n e)/sw *krhtai=on, i(/na kru/fa paideu/oio,</l>
+						<l n="35">presbuta/thi *numfe/wn, ai(/ min to/te maiw/santo</l>
+						<l>prwti/sth geneh\ meta/ ge *stu/ga te *filu/rhn te.</l>
+						<l>ou)d' a(li/hn a)pe/teise qeh\ xa/rin, a)lla\ to\ xeu=ma</l>
+						<l>kei=no *ne/dhn o)no/mhne: to\ me/n poqi poulu\ kat' au)to/</l>
+						<l>*kaukw/nwn ptoli/eqron, d *le/preion pefa/tistai,</l>
+						<l n="40">sumfe/retai *nhrh=i, palaio/taton de/ min u(/dwr</l>
+						<l>ui(wnoi\ pi/nousi *lukaoni/hs a)/rktoio.</l>
+						<l>eu)=te *qena\s a)pe/leipen e)pi\ *knwsoi=o fe/rousa</l>
+						<l>*zeu= pa/ter h( *nu/mfh se &lpar;*qenai\ d' e)/san e)ggu/qi *knwsou=&rpar;,</l>
+						<l>touta/ki toi pe/se dai=mon a)/p' o)mfalo/s: e)/nqen e)kei=no</l>
+						<l n="45">*)omfa/lion mete/peita pe/don kale/ousi *ku/dwnes.</l>
+						<l>*zeu= se\ de\ *kurba/ntwn e(ta/rai prosephxu/nanto</l>
+						<l>*diktai=ai *meli/ai, de\ d' e)koi/misen *)adrh/steia</l>
+						<l>li/knwi e)ni\ xruse/wi, su\ d' e)qh/sao pi/ona mazo/n</l>
+						<l>ai)go\s *)amalqei/hs, e)pi\ de\ gluku\ khri/on e)/brws.</l>
+						<l n="50">ge/nto ga\r e)capinai=a *panakri/dos e)/rga meli/sshs</l>
+						<l>*)idai/ois e)n o)/ressi, ta/ te klei/ousi *pa/nakra.</l>
+						<l>ou)=la de\ *kou/rhte/s se peri\ pru/lin w)rxh/santo</l>
+						<l>teu/xea peplh/gontes, i(/na *kro/nos ou)/asin h)xh/n</l>
+						<l>a)spi/dos ei)sai+/oi kai\ mh/ seo kouri/zontos.
+							<milestone n="55" unit="card"/></l>
+						<l n="55" rend="indent">kala\ me\n h)e/ceu, kala\ d' e)/trafes ou)ra/nie *zeu=,</l>
+						<l>o)cu\ d' a)nh/bhsas, taxinoi\ de/ toi h)=lqon i)/ouloi.
+							<pb n="19"/></l>
+						<l>a)ll' e)/ti paidno\s e)w\n e)fra/ssao pa/nta te/leia:</l>
+						<l>tw=i toi kai\ gnwtoi\ proterhgene/es per e)o/ntes</l>
+						<l>ou)rano\n ou)k e)me/ghran e)/xein e)pidai/sion oi)=kon.</l>
+						<l n="60">dhnaioi\ d' ou) pa/mpan a)lhqe/es h)=san a)oidoi/:</l>
+						<l>fa/nto pa/lon *kroni/dhisi dia/trixa dw/mata nei=mai:</l>
+						<l>ti/s de/ k' e)p' ou)lu/mpwi te kai\ a)/idi klh=ron e)ru/ssai,</l>
+						<l>ds ma/la mh\ neni/hlos; e)p' i)sai/hi ga\r e)/oike</l>
+						<l>ph/lasqai: ta\ de\ to/sson o(/son dia\ plei=ston e)/xousi.</l>
+						<l n="65">yeudoi/mhn a)i/ontos a(/ ken pepi/qoien a)kouh/n.</l>
+						<l>ou)/ se qew=n e)ssh=na pa/loi qe/san, e)/rga de\ xeirw=n,</l>
+						<l>sh/ te bi/h to/ te ka/rtos, o(\ kai\ pe/las ei(/sao di/frou.</l>
+						<l>qh/kao d' oi)wnw=n me/g' u(pei/roxon a)ggeliw/thn</l>
+						<l>sw=n tera/wn: a(/ t' e)moi=si fi/lois e)nde/cia fai/nois.</l>
+						<l n="70">ei(/leo d' ai)zhw=n o(/ ti fe/rtaton: ou) su/ ge nhw=n</l>
+						<l>e)mpera/mous, ou)k a)/ndra sake/spalon, ou) me\n a)oido/n:</l>
+						<l>a)lla\ ta\ me\n maka/ressin o)li/zosin au)=qi parh=kas</l>
+						<l>a)/lla me/lein e(te/roisi, su\ d' e)ce/leo ptolia/rxous</l>
+						<l>au)tou/s, w(=n u(po\ xei=ra gewmo/ros, w(=n i)/dris ai)xmh=s,</l>
+						<l n="75">w(=n e)re/ths, w(=n pa/nta: ti/ d' ou) krate/ontos u(p' i)sxu/n;</l>
+						<l>au)ti/ka xalkh=as me\n u(dei/omen *(hfai/stoio,</l>
+						<l>teuxhsta\s d' *)/arhos, e)pakth=ras de\ *xitw/nhs</l>
+						<l>*)arte/midos, *foi/bou de\ lu/rhs eu)= ei)do/tas oi)/mous:</l>
+						<l>"e)k de\ *dio\s basilh=es": e)pi\ xqono\s ou)de\n a)na/ktwn</l>
+						<l n="80">qeio/teron: tw=i kai/ sfe teh\n e)kri/nao la/cin.</l>
+						<l>dw=kas de\ ptoli/eqra fulasse/men, i(/zeo d' au)to\s</l>
+						<l>a)/krhis' e)n poli/essin, e)po/yios oi(/ te di/khisi</l>
+						<l>lao\n u(po\ skolih=is' oi(/ t' e)/mpalin i)qu/nousin:</l>
+						<l>e)n de\ r(uhfeni/hn e)/bale/s sfisin, e)n d' a(/lis o)/lbon:</l>
+						<l n="85">pa=si me/n, ou) ma/la d' i)=son. e)/oike de\ tekmh/rasqai</l>
+						<l>h(mete/rwi mede/onti: peripro\ ga\r eu)ru\ be/bhken.</l>
+						<l>e(spe/rios kei=no/s ge telei= ta/ ken h)=ri noh/shi:</l>
+						<l>e(spe/rios ta\ me/gista, ta\ mei/ona d', eu)=te noh/shi.</l>
+						<l>oi(\ de\ ta\ me\n pleiw=ni, ta\ d' ou)x e(ni/, tw=n d' a)po\ pa/mpan
+							<pb n="20"/></l>
+						<l n="90">au)to\s a)/nhn e)ko/lousas, e)ne/klassas de\ menoinh/n.</l>
+						<l rend="indent">xai=re me/ga *kroni/dh panupe/rtate, dw=tor e)a/wn,</l>
+						<l>dw=tor a)phmoni/hs. tea\ d' e)/rgmata ti/s ken a)ei/doi;</l>
+						<l>ou) ge/net', ou)k e)/stai: ti/s kai\ *dio\s e)/rgmat' a)ei/sei;</l>
+						<l>xai=re pa/ter, xai=r' au)=qi: di/dou d' a)reth/n t' a)/feno/s te.</l>
+						<l n="95">ou)/t' a)reth=s a)/ter o)/lbos e)pi/statai a)/ndras a)e/cein</l>
+						<l>ou)/t' a)reth\ a)fe/noio: di/dou d' a)reth/n te kai\ o)/lbon.
+							<pb n="21"/></l></div1>
+					<div1 type="poem" n="2">
+						<head>ei)s *apo/llwna.</head>
+						<l>*oi(=on o( tw)po/llwnos e)sei/sato da/fninos o(/rphc,</l>
+						<l>oi(=a d' o(/lon to\ me/laqron: e(ka\s e(ka\s o(/stis a)litro/s.</l>
+						<l>kai\ dh/ pou ta\ qu/retra kalw=i podi\ *foi=bos a)ra/ssei:</l>
+						<l>ou)x o(ra/ais; e)pe/neusen o( *dh/lios h(du/ ti foi=nic</l>
+						<l n="5">e)capi/nhs, o( de\ ku/knos e)n h)e/ri kalo\n a)ei/dei.</l>
+						<l>au)toi\ nu=n katoxh=es a)nakli/nesqe pula/wn,</l>
+						<l>au)tai\ de\ klhi=des: o( ga\r qeo\s ou)k e)/ti makrh/n.</l>
+						<l>oi( de\ ne/oi molph/n te kai\ e)s xoro\n e)ntu/nesqe.</l>
+						<l>w(po/llwn ou) panti\ faei/netai, a)ll' o(/ tis e)sqlo/s:</l>
+						<l n="10">o(/s min i)/dhi, me/gas ou(=tos, o(\s ou)k i)/de, lito\s e)kei=nos.</l>
+						<l>o)yo/meq', w)= *(eka/erge, kai\ e)sso/meq' ou)/pote litoi/.</l>
+						<l>mh/te siwphlh\n ki/qarin mh/t' a)/yofon i)/xnos</l>
+						<l>tou= *foi/bou tou\s pai=das e)/xein e)pidhmh/santos,</l>
+						<l>ei) tele/ein me/llousi ga/mon polih/n te kerei=sqai,</l>
+						<l n="15">e(sth/cein de\ to\ tei=xos e)p' a)rxai/oisi qeme/qlois.</l>
+						<l>h)gasa/mhn tou\s pai=das, e)pei\ xe/lus ou)ke/t' a)ergo/s.</l>
+						<l>eu)fhmei=t' a)i/ontes e)p' *)apo/llwnos a)oidh=i.</l>
+						<l>eu)fhmei= kai\ po/ntos, o(/te klei/ousin a)oidoi/</l>
+						<l>h)\ ki/qarin h)\ to/ca, *lukwre/os e)/ntea *foi/bou.</l>
+						<l n="20">ou)de\ *qe/tis *)axilh=a kinu/retai ai)/lina mh/thr,</l>
+						<l>o(ppo/q' i(h\ paih=on i(h\ paih=on a)kou/shi.</l>
+						<l>kai\ me\n o( dakruo/eis a)naba/lletai a)/lgea pe/tros,</l>
+						<l>o(/stis e)ni\ *frugi/hi diero\s li/qos e)sth/riktai,</l>
+						<l>ma/rmaron a)nti\ gunaiko\s o)izuro/n ti xanou/shs.
+							<pb n="22"/></l>
+						<l n="25">i(h\ i(h\ fqe/ggesqe: kako\n maka/ressin e)ri/zein.</l>
+						<l>o(\s ma/xetai maka/ressin, e)mw=i basilh=i ma/xoito:</l>
+						<l>o(/stis e)mw=i basilh=i, kai\ *)apo/llwni ma/xoito.</l>
+						<l>to\n xoro\n w(po/llwn, o(/ ti oi( kata\ qumo\n a)ei/dei,</l>
+						<l>timh/sei: du/natai ga/r, e)pei\ *dii\ decio\s h(=stai.</l>
+						<l n="30">ou)d' o( xoro\s to\n *foi=bon e)f' e(\n mo/non h)=mar a)ei/sei,</l>
+						<l>e)/sti ga\r eu)/umnos: ti/s a)\n ou) r(e/a *foi=bon a)ei/doi;</l>
+						<l rend="indent">xru/sea tw)po/llwni to/ t' e)nduto\n h(/ t' e)piporpi/s</l>
+						<l>h(/ te lu/rh to/ t' a)/emma to\ *lu/ktion h(/ te fare/trh,</l>
+						<l>xru/sea kai\ ta\ pe/dila: polu/xrusos ga\r *)apo/llwn.</l>
+						<l n="35">kai\ de\ polukte/anos: *puqw=ni/ ke tekmh/raio.</l>
+						<l>kai\ me\n a)ei\ kalo\s kai\ a)ei\ ne/os: ou)/pote *foi/bou</l>
+						<l>qhlei/his' ou)d' o(/sson e)pi\ xno/os h)=lqe pareiai=s.</l>
+						<l>ai( de\ ko/mai quo/enta pe/dwi lei/bousin e)/laia.</l>
+						<l>ou) li/pos *)apo/llwnos a)posta/zousin e)/qeirai,</l>
+						<l n="40">a)ll' au)th\n pana/keian: e)n a)/stei+ d' w)=i ken e)kei=nai</l>
+						<l>prw=kes e)/raze pe/swsin a)kh/ria pa/nt' e)ge/nonto.</l>
+						<l rend="indent">te/xnhi d' a)mfilafh\s ou)/ tis to/son o(/sson *)apo/llwn:</l>
+						<l>kei=nos o)isteuth\n e)/lax' a)ne/ra, kei=nos a)oido/n</l>
+						<l>&lpar;*foi/bwi ga\r kai\ to/con e)pitre/petai kai\ a)oidh/&rpar;,</l>
+						<l n="45">kei/nou de\ qriai\ kai\ ma/nties: e)k de/ nu *foi/bou</l>
+						<l>i)htroi\ deda/asin a)na/blhsin qana/toio.
+							<milestone n="47" unit="card"/></l>
+						<l rend="indent">*foi=bon kai\ *no/mion kiklh/skomen e)ce/ti kei/nou,</l>
+						<l>e)co/t' e)p' *)amfrussw=i zeugi/tidas e)/trefen i(/ppous</l>
+						<l>h)iqe/ou u(p' e)/rwti kekaume/nos *)admh/toio.</l>
+						<l n="50">r(ei=a/ ke boubo/sion tele/qoi ple/on, ou)de/ ken ai)=ges</l>
+						<l>deu/ointo brefe/wn e)pimhla/des h(=isin *)apo/llwn</l>
+						<l>boskome/nhis' o)fqalmo\n e)ph/gagen: ou)d' a)ga/laktes</l>
+						<l>oi)/ies ou)d' a)/kuqoi, pa=sai de/ ken ei)=en u(/parnoi,</l>
+						<l>h( de/ ke mounoto/kos didumhto/kos ai)=ya ge/noito.</l>
+						<l n="55" rend="indent">*foi/bwi d' e(spo/menoi po/lias diemetrh/santo</l>
+						<l>a)/nqrwpoi: *foi=bos ga\r a)ei\ poli/essi filhdei=</l>
+						<l>ktizome/nhis', au)to\s de\ qemei/lia *foi=bos u(fai/nei.
+							<pb n="23"/></l>
+						<l>tetrae/ths ta\ prw=ta qemei/lia *foi=bos e)/phce</l>
+						<l>kalh=i e)n *)ortugi/hi perihge/os e)ggu/qi li/mnhs.</l>
+						<l n="60">*)/artemis a)grw/ssousa karh/ata sunexe\s ai)gw=n</l>
+						<l>*kunqia/dwn fore/esken, o(\ d' e)/pleke bwmo\n *)apo/llwn.</l>
+						<l>dei/mato me\n kera/essin e)de/qlia, ph=ce de\ bwmo\n</l>
+						<l>e)k kera/wn, keraou\s de\ pe/ric u(peba/lleto toi/xous.</l>
+						<l>w(=d' e)/maqen ta\ prw=ta qemei/lia *foi=bos e)gei/rein.</l>
+						<l n="65">*foi=bos kai\ baqu/geion e)mh\n po/lin e)/frase *ba/ttwi</l>
+						<l>kai\ *libu/hn e)sio/nti ko/rac h(gh/sato law=i</l>
+						<l>decio\s oi)kisth=ri kai\ w)/mose tei/xea dw/sein</l>
+						<l>h(mete/rois basileu=sin: a)ei\ d' eu)/orkos *)apo/llwn.</l>
+						<l>w)/pollon, polloi/ se *bohdro/mion kale/ousi,</l>
+						<l n="70">polloi\ de\ *kla/rion, pa/nth de/ toi ou)/noma poulu/:</l>
+						<l>au)ta\r e)gw\ *karnei=on: e)moi\ patrw/ion ou(/tw.</l>
+						<l>*spa/rth toi *karnei=e to\ dh\ prw/tiston e)/deqlon,</l>
+						<l>deu/teron au)= *qh/rh, tri/tato/n ge me\n a)/stu *kurh/nhs.</l>
+						<l>e)k me/n se *spa/rths e(/kton ge/nos *oi)dipo/dao</l>
+						<l n="75">h)/gage *qhrai/hn e)s a)po/ktisin: e)k de/ se *qh/rhs</l>
+						<l>ou)=los *)aristote/lhs *)asbusti/di pa/rqeto gai/hi,</l>
+						<l>dei=me de/ toi ma/la kalo\n a)na/ktoron, e)n de\ po/lhi</l>
+						<l>qh=ke telesfori/hn e)peth/sion, h(=i e)ni\ polloi/</l>
+						<l>u(sta/tion pi/ptousin e)p' i)sxi/on, w)= a)/na, tau=roi.</l>
+						<l n="80">i(h\ i(h\ *karnei=e polu/llite, sei=o de\ bwmoi/</l>
+						<l>a)/nqea me\n fore/ousin e)n ei)/ari to/ssa per *(=wrai</l>
+						<l>poiki/l' a)gineu=si zefu/rou pnei/ontos e)e/rshn,</l>
+						<l>xei/mati de\ kro/kon h(du/n: a)ei\ de/ toi a)e/naon pu=r,</l>
+						<l>ou)de/ pote xqizo\n peribo/sketai a)/nqraka te/frh.</l>
+						<l n="85">h)= r(' e)xa/rh me/ga *foi=bos, o(/te zwsth=res *)enuou=s</l>
+						<l>a)ne/res w)rxh/santo meta\ canqh=isi *libu/ssais,</l>
+						<l>te/qmiai eu)=te/ sfin *karneia/des h)/luqon w(=rai.</l>
+						<l>oi(\ d' ou)/pw phgh=isi *ku/rhs e)du/nanto pela/ssai</l>
+						<l>*dwrie/es, pukinh=n de\ na/pais *)/azilin e)/naion.</l>
+						<l n="90">tou\s me\n a)/nac i)/den au)to/s, e(h=i d' e)pedei/cato nu/mfhi
+							<pb n="24"/></l>
+						<l>sta\s e)pi\ *murtou/sshs keratw/deos, h(=xi le/onta</l>
+						<l>*(uyhi\s kate/pefne bow=n si/nin *eu)rupu/loio.</l>
+						<l>ou) kei/nou xoro\n ei)=de qew/teron a)/llon *)apo/llwn,</l>
+						<l>ou)de\ po/lei to/s' e)/neimen o)fe/lsima, to/ssa *kurh/nhi,</l>
+						<l n="95">mnwo/menos prote/rhs a(rpaktu/os. ou)de\ me\n au)toi/</l>
+						<l>*battia/dai *foi/boio ple/on qeo\n a)/llon e)/teisan.</l>
+						<l>i(h\ i(h\ paih=on a)kou/omen, ou(/neka tou=to</l>
+						<l>*delfo/s toi prw/tiston e)fu/mnion eu(/reto lao/s,</l>
+						<l>h)=mos e(khboli/hn xruse/wn e)pedei/knuso to/cwn.</l>
+						<l n="100">*puqw/ toi katio/nti sunh/nteto daimo/nios qh/r,</l>
+						<l>ai)no\s o)/fis. to\n me\n su\ kath/nares a)/llon e)p' a)/llwi</l>
+						<l>ba/llwn w)ku\n o)isto/n, e)phu/thse de\ lao/s,</l>
+						<l>'i(h\ i(h\ paih=on, i(/ei be/los, eu)qu/ se mh/thr</l>
+						<l>gei/nat' a)osshth=ra': to\ d' e)ce/ti kei=qen a)ei/dhi.</l>
+						<l n="105">o( *fqo/nos *)apo/llwnos e)p' ou)/ata la/qrios ei)=pen</l>
+						<l>'ou)k a)/gamai to\n a)oido\n o(\s ou)d' o(/sa po/ntos a)ei/dei'.</l>
+						<l>to\n *fqo/non w(po/llwn podi/ t' h)/lasen w(=de/ t' e)/eipen:</l>
+						<l>'*)assuri/ou potamoi=o me/gas r(o/os, a)lla\ ta\ polla/</l>
+						<l>lu/mata gh=s kai\ pollo\n e)f' u(/dati surfeto\n e(/lkei.</l>
+						<l n="110">*dhoi= d' ou)k a)po\ panto\s u(/dwr fore/ousi me/lissai,</l>
+						<l>a)ll' h(/tis kaqarh/ te kai\ a)xra/antos a)ne/rpei</l>
+						<l>pi/dakos e)c i(erh=s o)li/gh liba\s a)/kron a)/wton'.</l>
+						<l>xai=rs a)/nac: o( de\ *mw=mos, i(/n' o( *fqo/nos, e)/nqa ne/oito.
+							<pb n="25"/></l></div1>
+					<div1 type="poem" n="3">
+						<head>ei)s *)/artemin.</head>
+						<l>*)/artemin &lpar;ou) ga\r e)lafro\n a)eido/ntessi laqe/sqai&rpar;</l>
+						<l>u(mne/omen, th=i to/ca lagwboli/ai te me/lontai</l>
+						<l>kai\ xoro\s a)mfilafh\s kai\ e)n ou)/resin e(yia/asqai,</l>
+						<l>a)/rxmenoi, w(s o(/te patro\s e)fezome/nh gona/tessi</l>
+						<l n="5">pai=s e)/ti kouri/zousa ta/de prose/eipe gonh=a</l>
+						<l>'do/s moi parqeni/hn ai)w/nion a)/ppa fula/ssein,</l>
+						<l>kai\ poluwnumi/hn, i(/na mh/ moi *foi=bos e)ri/zhi.</l>
+						<l>do\s d' i)ou\s kai\ to/ca &mdash; e)/a pa/ter, ou)/ se fare/trhn</l>
+						<l>ou)d' ai)te/w me/ga to/con: e)moi\ *ku/klwpes o)istou\s</l>
+						<l n="10">au)ti/ka texnh/sontai, e)moi\ d' eu)kampe\s a)/emma:</l>
+						<l>a)lla\ faesfori/hn te kai\ e)s go/nu me/xri xitw=na</l>
+						<l>zw/nnusqai legnwto/n, i(/n' a)/gria qhri/a kai/nw.</l>
+						<l>do\s de/ moi e(ch/konta xori/tidas *)wkeani/nas,</l>
+						<l>pa/sas ei)ne/teas, pa/sas e)/ti pai=das a)mi/trous.</l>
+						<l n="15">do\s de/ moi a)mfipo/lous *)amnisi/das ei)/kosi nu/mfas,</l>
+						<l>ai(/ te/ moi e)ndromi/das te kai/, o(ppo/te mhke/ti lu/gkas</l>
+						<l>mh/t' e)la/fous ba/lloimi, qoou\s ku/nas eu)= kome/oien,</l>
+						<l>do\s de/ moi ou)/rea pa/nta: po/lin de/ moi h(/ntina nei=mon</l>
+						<l>h(/ntina lh=is: sparno\n ga\r o(/t' *)/artemis a)/stu ka/teisin:</l>
+						<l n="20">ou)/resin oi)kh/sw, po/lesin d' e)pimei/comai a)ndrw=n</l>
+						<l>mou=non o(/t' o)cei/hisin u(p' w)di/nessi gunai=kes</l>
+						<l>teiro/menai kale/ousi bohqo/on, h(=isi/ me *moi=rai</l>
+						<l>geinome/nhn to\ prw=ton e)peklh/rwsan a)rh/gein,</l>
+						<l>o(/tti me kai\ ti/ktousa kai\ ou)k h)/lghse fe/rousa
+							<pb n="26"/></l>
+						<l n="25">mh/thr, a)ll' a)moghti\ fi/lwn a)peqh/kato gui/wn'.</l>
+						<l>w(\s h( pai=s ei)pou=sa geneia/dos h)/qele patro\s</l>
+						<l>a(/yasqai, polla\s de\ ma/thn e)tanu/ssato xei=ras,</l>
+						<l>me/xris i(/na yau/seie. path\r d' e)pe/neuse gela/ssas,</l>
+						<l>fh= de\ katarre/zwn 'o(/te moi toiau=ta qe/ainai</l>
+						<l n="30">ti/ktoien, tutqo/n ken e)gw\ zhlh/monos *(/hrhs</l>
+						<l>xwome/nhs a)le/goimi. fe/reu te/kos o(/ss' e)qelhmo/s</l>
+						<l>ai)ti/zeis, kai\ d' a)/lla path\r e)/ti mei/zona dw/sei.</l>
+						<l>tri\s de/ka toi ptoli/eqra kai\ ou)x e(/na pu/rgon o)pa/ssw,</l>
+						<l>tri\s de/ka toi ptoli/eqra, ta\ mh\ qeo\n a)/llon a)e/cein</l>
+						<l n="35">ei)/setai a)lla\ mo/nhn se\ kai\ *)arte/midos kale/esqai:</l>
+						<l>polla\s de\ cunh=i po/lias diametrh/sasqai</l>
+						<l>messo/gews nh/sous te: kai\ e)n pa/shisin e)/sontai</l>
+						<l>*)arte/midos bwmoi/ te kai\ a)/lsea. kai\ me\n a)guiai=s</l>
+						<l>e)/sshi kai\ lime/nessin e)pi/skopos'. w(\s o(\ me\n ei)pw\n</l>
+						<l n="40">mu=qon e)pekrh/hne karh/ati. bai=ne de\ kou/rh</l>
+						<l>leuko\n e)pi\ *krhtai=on o)/ros kekomhme/non u(/lhi:</l>
+						<l>e)/nqen e)p' *)wkeano/n: pole/as d' e)pele/cato nu/mfas,</l>
+						<l>[pa/sas ei)ne/teas, pa/sas e)/ti pai=das a)mi/trous.]</l>
+						<l>xai=re de\ *kai/ratos potamo\s me/ga, xai=re de\ *thqu/s,</l>
+						<l n="45">ou(/neka qugate/ras *lhtwi/di pe/mpon a)morbou/s.
+							<milestone n="46" unit="card"/></l>
+						<l rend="indent">au)=qi de\ *ku/klwpas meteki/aqe: tou\s me\n e)/tetme</l>
+						<l>nh/swi e)ni\ *lipa/rhi &lpar;*lipa/rh ne/on, a)lla\ to/t' e)/sken</l>
+						<l>ou)/noma/ oi( *meligouni/s&rpar; e)p' a)/kmosin *(hfai/stoio</l>
+						<l>e(stao/tas peri\ mu/dron: e)pei/geto ga\r me/ga e)/rgon:</l>
+						<l n="50">i(ppei/hn tetu/konto *poseida/wni poti/strhn.</l>
+						<l>ai( nu/mfai d' e)/ddeisan, o(/pws i)/don ai)na\ pe/lwra</l>
+						<l>prho/sin &dagger;o)ssei/oisin e)oiko/ta, pa=si d' u(p' o)fru/n</l>
+						<l>fa/ea mouno/glhna sa/kei i)/sa tetraboei/wi</l>
+						<l>deino\n u(poglau/ssonta, kai\ o(ppo/te dou=pon a)/kousan</l>
+						<l n="55">a)/kmonos h)xh/santos e)pi\ me/ga poulu/ t' a)/hma</l>
+						<l>fusa/wn au)tw=n te baru\n sto/non: au)=e ga\r *ai)/tnh,
+							<pb n="27"/></l>
+						<l>au)=e de\ *trinaki/h, *sikanw=n e(/dos, au)=e de\ gei/twn</l>
+						<l>*)itali/h, mega/lhn de\ boh\n e)pi\ *ku/rnos a)u/tei,</l>
+						<l>eu)=q' oi(/ ge rr(aisth=ras a)eira/menoi u(pe\r w)/mwn</l>
+						<l n="60">h)\ xalko\n zei/onta kamino/qen h)e\ si/dhron</l>
+						<l>a)mboladi\s tetupo/ntes e)pi\ me/ga moxqh/seian.</l>
+						<l>tw=i sfe/as ou)k e)ta/lassan a)khde/es *)wkeani=nai</l>
+						<l>ou)/t' a)/nthn i)de/ein ou)/te ktu/pon ou)/asi de/xqai.</l>
+						<l>ou) ne/mesis: kei/nous ge kai\ ai( ma/la mhke/ti tutqai/</l>
+						<l n="65">ou)de/pot' a)frikti\ maka/rwn o(ro/wsi qu/gatres.</l>
+						<l>a)ll' o(/te koura/wn tis a)peiqe/a mhte/ri teu/xoi,</l>
+						<l>mh/thr me\n *ku/klwpas e(h=i e)pi\ paidi\ kalistrei=,</l>
+						<l>*)/arghn h)\ *stero/phn: o(\ de\ dw/matos e)k muxa/toio</l>
+						<l>e)/rxetai *(ermei/hs spodih=i kexrime/nos ai)qh=i:</l>
+						<l n="70">au)ti/ka th\n kou/rhn mormu/ssetai, h(\ de\ tekou/shs</l>
+						<l>du/nei e)/sw ko/lpous qeme/nh e)pi\ fa/esi xei=ras.</l>
+						<l>kou=ra su\ de\ prote/rw per, e)/ti trie/thros e)ou=sa,</l>
+						<l>eu)=t' e)/molen *lhtw/ se met' a)gkali/dessi fe/rousa,</l>
+						<l>*(hfai/stou kale/ontos o(/pws o)pth/ria doi/h,</l>
+						<l n="75">*bro/ntew/ se stibaroi=sin e)fessame/nou gona/tessi,</l>
+						<l>sth/qeos e)k mega/lou lasi/hs e)dra/cao xai/ths,</l>
+						<l>w)/loyas de\ bi/hifi: to\ d' a)/trixon ei)se/ti kai\ nu=n</l>
+						<l>messa/tion ste/rnoio me/nei me/ros, w(s o(/te ko/rshi</l>
+						<l>fwto\s e)nidruqei=sa ko/mhn e)penei/mat' a)lw/phc.</l>
+						<l n="80">tw=i ma/la qarsale/h sfe ta/de prosele/cao th=mos</l>
+						<l>'*ku/klwpes kh)moi/ ti *kudw/nion ei) d' a)/ge to/con</l>
+						<l>h)d' i)ou\s koi/lhn te kataklhi=da bele/mnwn</l>
+						<l>teu/cate: kai\ ga\r e)gw\ *lhtwia\s w(/sper *)apo/llwn.</l>
+						<l>ai) de/ k' e)gw\ to/cois monio\n da/kos h)/ ti pe/lwron</l>
+						<l n="85">qhri/on a)greu/sw, to\ de/ ken *ku/klwpes e)/doien'.</l>
+						<l>e)/nnepes: oi(\ d' e)te/lessan: a)/far d' w(pli/ssao dai=mon.
+							<milestone n="87" unit="card"/></l>
+						<l rend="indent">ai)=ya d' e)pi\ sku/lakas pa/lin h)/ies: i(/keo d' au)=lin</l>
+						<l>*)arkadikh\n e)/pi *pano/s. o(\ de\ kre/a lugko\s e)/tamne</l>
+						<l>*mainali/hs, i(/na oi( toka/des ku/nes ei)=dar e)/doien.
+							<pb n="28"/></l>
+						<l n="90">ti\n d' o( geneih/ths du/o me\n ku/nas h(/misu phgou/s</l>
+						<l>trei=s de\ parouai/ous e(/na d' ai)o/lon, oi(/ r(a le/ontas</l>
+						<l>au)tou\s au)= e)ru/ontas, o(/te dra/cainto dera/wn,</l>
+						<l>ei(=lkon e)/ti zw/ontas e)p' au)li/on, e(pta\ d' e)/dwke</l>
+						<l>qa/ssonas au)ra/wn *kunosouri/das, ai(/ r(a diw=cai</l>
+						<l n="95">w)/kistai nebrou/s te kai\ ou) mu/onta lagwo/n,</l>
+						<l>kai\ koi/thn e)la/foio kai\ u(/strixos e)/nqa kaliai/</l>
+						<l>shmh=nai, kai\ zorko\s e)p' i)/xnion h(gh/sasqai.</l>
+						<l>e)/nqen a)perxome/nh &lpar;meta\ kai\ ku/nes e)sseu/onto&rpar;</l>
+						<l>eu(=res e)pi\ promolh=is' o)/reos tou= *parrasi/oio</l>
+						<l n="100">skairou/sas e)la/fous, me/ga ti xre/os: ai(\ me\n e)p' o)/xqhis</l>
+						<l>ai)e\n e)boukole/onto melamyh/fidos a)nau/rou,</l>
+						<l>ma/ssones h)\ tau=roi, kera/wn d' a)pela/mpeto xruso/s:</l>
+						<l>e)capi/nhs d' e)/tafe/s te kai\ o(\n poti\ qumo\n e)/eipes</l>
+						<l>'tou=to/ ken *)arte/midos prwta/grion a)/cion ei)/h'.</l>
+						<l n="105">pe/nt' e)/san ai( pa=sai: pi/suras d' e(/les w)=ka qe/ousa</l>
+						<l>no/sfi kunodromi/hs, i(/na toi qoo\n a(/rma fe/rwsi.</l>
+						<l>th\n de\ mi/an *kela/dontos u(pe\r potamoi=o fugou=san</l>
+						<l>*(/hrhs e)nnesi/hisin, a)e/qlion *(hraklh=i</l>
+						<l>u(/steron o(/fra ge/noito, pa/gos *keru/neios e)/dekto.</l>
+						<l n="110" rend="indent">*)/artemi *parqeni/h *tituokto/ne, xru/sea me/n toi</l>
+						<l>e)/ntea kai\ zw/nh, xru/seon d' e)zeu/cao di/fron,</l>
+						<l>e)n d' e)ba/leu xru/seia qeh\ kema/dessi xalina/.</l>
+						<l>pou= de/ se to\ prw=ton kero/eis o)/xos h)/rcat' a)ei/rein;</l>
+						<l>*ai(/mwi e)pi\ *qrh/iki, to/qen bore/ao kata=ic</l>
+						<l n="115">e)/rxetai a)xlai/noisi dusae/a krumo\n a)/gousa.</l>
+						<l>pou= d' e)/tames peu/khn, a)po\ de\ flogo\s h(/yao poi/hs;</l>
+						<l>*musw=i e)n *ou)lu/mpwi, fa/eos d' e)ne/hkas a)utmh/n</l>
+						<l>a)sbe/stou, to/ r(a patro\s a)posta/zousi keraunoi/.</l>
+						<l>possa/ki d' a)rgure/oio qeh\ peirh/sao to/cou;</l>
+						<l n="120">prw=ton e)pi\ ptele/hn, to\ de\ deu/teron h(=kas e)pi\ dru=n,</l>
+						<l>to\ tri/ton au)=t' e)pi\ qh=ra. to\ te/traton ou)ke/t' e)pi\ dru=n,</l>
+						<l><gap/>
+							<milestone n="122" unit="card"/>
+							<pb n="29"/></l>
+						<l>a)lla/ min ei)s a)di/kwn e)/bales po/lin, oi(/ te peri\ sfe/as</l>
+						<l>oi(/ te peri\ cei/nous a)lith/mona polla\ te/leskon,</l>
+						<l>sxe/tlioi: oi(=s tu/nh xaleph\n e)mma/ceai o)rgh/n:</l>
+						<l n="125">kth/nea/ fin loimo\s katabo/sketai, e)/rga de\ pa/xnh,</l>
+						<l>kei/rontai de\ ge/rontes e)f' ui(a/sin, ai( de\ gunai=kes</l>
+						<l>h)\ blhtai\ qnh/iskousi lexwi/des h)e\ fugou=sai</l>
+						<l>ti/ktousin tw=n ou)de\n e)pi\ sfuro\n o)rqo\n a)ne/sth.</l>
+						<l>oi(=s de/ ken eu)meidh/s te kai\ i(/laos au)ga/sshai,</l>
+						<l n="130">kei/nois eu)= me\n a)/roura fe/rei sta/xun, eu)= de\ gene/qlh</l>
+						<l>tetrapo/dwn, eu)= d' o)/lbos a)e/cetai: ou)d' e)pi\ sh=ma</l>
+						<l>e)/rxontai plh\n eu)=te poluxro/nio/n ti fe/rwsin:</l>
+						<l>ou)de\ dixostasi/h trw/ei ge/nos, h(/ te kai\ eu)= per</l>
+						<l>oi)/kous e(sthw=tas e)si/nato: tai\ de\ quwro/n</l>
+						<l n="135">ei)na/teres galo/wi te mi/an pe/ri di/fra ti/qentai.</l>
+						<l>po/tnia, tw=n ei)/h me\n e)moi\ fi/los o(/stis a)lhqh/s,</l>
+						<l>ei)/hn d' au)to/s, a)/nassa, me/loi de/ moi ai)e\n a)oidh/:</l>
+						<l>th=i e)/ni me\n *lhtou=s ga/mos e)/ssetai, e)n de\ su\ pollh/,</l>
+						<l>e)n de\ kai\ *)apo/llwn, e)n d' oi(/ seo pa/ntes a)/eqloi,</l>
+						<l n="140">e)n de\ ku/nes kai\ to/ca kai\ a)/ntuges, ai(/ te/ se r(ei=a</l>
+						<l>qhhth\n fore/ousin, o(/t' e)s *dio\s oi)=kon e)lau/neis.</l>
+						<l>e)/nqa toi a)ntio/wntes e)ni\ promolh=isi de/xontai</l>
+						<l>o(/pla me\n *(ermei/hs *)akakh/sios, au)ta\r *)apo/llwn</l>
+						<l>qhri/on o(/tti fe/rhisqa: pa/roiqe/ ge/, pri/n per i(ke/sqai</l>
+						<l n="145">kartero\n *)alkei+/dhn: nu=n d' ou)ke/ti tou=ton a)/eqlon</l>
+						<l>*foi=bos e)/xei, toi=os ga\r a)ei\ *tiru/nqios a)/kmwn</l>
+						<l>e(/sthke pro\ pule/wn potide/gmenos, ei)/ ti fe/rousa</l>
+						<l>nei=ai pi=on e)/desma: qeoi\ d' e)pi\ pa/ntes e)kei/nwi</l>
+						<l>a)/llhkton gelo/wsi, ma/lista de\ penqerh\ au)th/,</l>
+						<l n="150">tau=ron o(/t' e)k di/froio ma/la me/gan h)\ o(/ ge xlou/nhn</l>
+						<l>ka/pron o)pisqidi/oio fe/roi podo\s a)spai/ronta:</l>
+						<l>kerdale/wi mu/qwi se qeh\ ma/la tw=ide pinu/skei</l>
+						<l>"ba/lle kakou\s e)pi\ qh=ras, i(/na qnhtoi/ se bohqo/n</l>
+						<l>w(s e)me\ kiklh/skwsin. e)/a pro/kas h)de\ lagwou/s
+							<pb n="30"/></l>
+						<l n="155">ou)/rea bo/skesqai: ti/ ke/ min pro/kes h)e\ lagwoi/</l>
+						<l>r(e/ceian; su/es e)/rga, su/es futa\ lumai/nontai.</l>
+						<l>kai\ bo/es a)nqrw/poisi kako\n me/ga: ba/ll' e)pi\ kai\ tou/s."</l>
+						<l>w(\s e)/nepen, taxino\s de\ me/gan peri\ qh=ra ponei=to.</l>
+						<l>ou) ga\r o(/ ge *frugi/hi per u(po\ drui\ gui=a qewqei/s</l>
+						<l n="160">pau/sat' a)dhfagi/hs: e)/ti oi( pa/ra nhdu\s e)kei/nh,</l>
+						<l>th=i pot' a)rotrio/wnti sunh/nteto *qeioda/manti.</l>
+						<l>soi\ d' *)amnisia/des me\n u(po\ zeu/glhfi luqei/sas</l>
+						<l>yh/xousin kema/das, para\ de/ sfisi poulu\ ne/mesqai</l>
+						<l>*(/hrhs e)k leimw=nos a)mhsa/menai fore/ousin</l>
+						<l n="165">w)ku/qoon tripe/thlon, o(\ kai\ *dio\s i(/ppoi e)/dousin:</l>
+						<l>e)n kai\ xrusei/as u(polhni/das e)plh/santo</l>
+						<l>u(/datos, o)/fr' e)la/foisi poto\n quma/rmenon ei)/h.</l>
+						<l>au)th\ d' e)s patro\s do/mon e)/rxeai: oi(\ de/ s' e)f' e(/drhn</l>
+						<l>pa/ntes o(mw=s kale/ousi: su\ d' *)apo/llwni pari/zeis.
+							<milestone n="170" unit="card"/></l>
+						<l n="170" rend="indent">h(ni/ka d' ai( nu/mfai se xorw=i e)/ni kuklw/sontai</l>
+						<l>a)gxo/qi phga/wn *ai)gupti/ou *)inwpoi=o</l>
+						<l>h)\ *pita/nhs &lpar;kai\ ga\r *pita/nh se/qen&rpar; h)\ e)ni\ *li/mnais,</l>
+						<l>h)\ i(/na dai=mon *)ala\s *)arafhni/das oi)kh/sousa</l>
+						<l>h)=lqes a)po\ *skuqi/hs, a)po\ d' ei)/pao te/qmia *tau/rwn,</l>
+						<l n="175">mh\ neio\n thmou=tos e)mai\ bo/es ei(/neka misqou=</l>
+						<l>tetra/guon te/mnoien u(p' a)llotri/wi a)roth=ri:</l>
+						<l>h)= ga/r ken guiai/ te kai\ au)xe/na kekmhui=ai</l>
+						<l>ko/pron e)/pi proge/nointo, kai\ ei) *stumfaii/des ei)=en</l>
+						<l>ei)naetizo/menai keraelke/es, ai(\ me/g' a)/ristai</l>
+						<l n="180">te/mnein w)=lka baqei=an: e)pei\ qeo\s ou)/pot' e)kei=non</l>
+						<l>h)=lqe par' *)he/lios kalo\n xoro/n, a)lla\ qeh=tai</l>
+						<l>di/fron e)pisth/sas, ta\ de\ fa/ea mhku/nontai.</l>
+						<l rend="indent">ti/s de/ nu/ toi nh/swn, poi=on d' o)/ros eu)/ade plei=ston,</l>
+						<l>ti/s de\ limh/n, poi/h de\ po/lis; ti/na d' e)/coxa numfe/wn</l>
+						<l n="185">fi/lao, kai\ poi/as h(rwi/das e)/sxes e(tai/ras;</l>
+						<l>ei)pe\ qeh\ su\ me\n a)/mmin, e)gw\ d' e(te/roisin a)ei/sw.</l>
+						<l>nh/swn me\n *doli/xh, poli/wn de/ toi eu)/ade *pe/rgh,
+							<pb n="31"/></l>
+						<l>*thu/geton d' o)re/wn, lime/nes ge me\n *eu)ri/poio.</l>
+						<l>e)/coxa d' a)lla/wn *gortuni/da fi/lao nu/mfhn,</l>
+						<l n="190">e)llofo/non *brito/martin e)u/skopon: h(=s pote *mi/nws</l>
+						<l>ptoihqei\s u(p' e)/rwti kate/dramen ou)/rea *krh/ths.</l>
+						<l>h(\ d' o(te\ me\n lasi/hisin u(po\ drusi\ kru/pteto nu/mfh,</l>
+						<l>a)/llote d' ei(amenh=isin: o(\ d' e)nne/a mh=nas e)foi/ta</l>
+						<l>pai/pala/ te krhmnou/s te kai\ ou)k a)ne/pause diwktu/n,</l>
+						<l n="195">me/sf' o(/te marptome/nh kai\ dh\ sxedo\n h(/lato po/nton</l>
+						<l>prho/nos e)c u(pa/toio kai\ e)/nqoren ei)s a(lih/wn</l>
+						<l>di/ktua, ta/ sf' e)sa/wsan: o(/qen mete/peita *ku/dwnes</l>
+						<l>nu/mfhn me\n *di/ktunan, o)/ros d' o(/qen h(/lato nu/mfh</l>
+						<l>*diktai=on kale/ousin, a)nesth/santo de\ bwmou/s</l>
+						<l n="200">i(era/ te r(e/zousi: to\ de\ ste/fos h)/mati kei/nwi</l>
+						<l>h)\ pi/tus h)\ sxi=nos, mu/rtoio de\ xei=res a)/qiktoi:</l>
+						<l>dh\ to/te ga\r pe/ploisin e)ne/sxeto mu/rsinos o)/zos</l>
+						<l>th=s kou/rhs, o(/t' e)/feugen: o(/qen me/ga xw/sato mu/rtwi.</l>
+						<l>*ou)=pi a)/nass' eu)w=pi faesfo/re, kai\ de\ se\ kei/nhn</l>
+						<l n="205">*krhtae/es kale/ousin e)pwnumi/hn a)po\ nu/mfhs.</l>
+						<l>kai\ mh\n *kurh/nhn e(tari/ssao, th=i pot' e)/dwkas</l>
+						<l>au)th\ qhrhth=re du/w ku/ne, toi=s e)/ni kou/rh</l>
+						<l>*(uyhi\s para\ tu/mbon *)iw/lkion e)/mmor' a)e/qlou.</l>
+						<l>kai\ *kefa/lou canqh\n a)/loxon *dhioni/dao</l>
+						<l n="210">po/tnia sh\n o(mo/qhron e)qh/kao: kai\ de\ se\ fasi/</l>
+						<l>kalh\n *)anti/kleian i)/son fae/essi filh=sai,</l>
+						<l>ai(\ prw=tai qoa\ to/ca kai\ a)mf' w)/moisi fare/tras</l>
+						<l>i)odo/kous e)fo/rhsan: a)su/llwtoi de/ fin w)=moi</l>
+						<l>deciteroi\ kai\ gumno\s a)ei\ parefai/neto mazo/s.</l>
+						<l n="215">h)/inhsas d' e)/ti pa/gxu podorrw/rhn *)atala/nthn,</l>
+						<l>kou/rhn *)iasi/oio suokto/non *)arkasi/dao,</l>
+						<l>kai/ e( kunhlasi/hn te kai\ eu)stoxi/hn e)di/dacas.</l>
+						<l>ou)/ min e)pi/klhtoi *kaludwni/ou a)greuth=res</l>
+						<l>me/mfontai ka/proio: ta\ ga\r shmh/ia ni/khs</l>
+						<l n="220">*)arkadi/hn ei)sh=lqen, e)/xei d' e)/ti qhro\s o)do/ntas:
+							<pb n="32"/></l>
+						<l>ou)de\ me\n *(ulai=o/n te kai\ a)/frona *(roi=kon e)/olpa</l>
+						<l>ou)de/ per e)xqai/rontas e)n *)/aidi mwmh/sasqai</l>
+						<l>toco/tin: ou) ga/r sfin lago/nes sunepiyeu/sontai,</l>
+						<l>ta/wn *mainali/h na=en fo/nwi a)krw/reia.
+							<milestone n="225" unit="card"/></l>
+						<l n="225" rend="indent">po/tnia poulume/laqre polu/ptoli xai=re *xitw/nh</l>
+						<l>*milh/twi e)pi/dhme: se\ ga\r poih/sato *nhleu/s</l>
+						<l>h(gemo/nhn, o(/te nhusi\n a)nh/geto *kekropi/hqen.</l>
+						<l>*xhsia\s *)imbrasi/h prwto/qrone, soi\ d' *)agame/mnwn</l>
+						<l>phda/lion nho\s sfete/rhs e)gka/tqeto nhw=i</l>
+						<l n="230">mei/lion a)ploi+/hs, o(/te oi( kate/dhsas a)h/tas,</l>
+						<l>*teukrw=n h(ni/ka nh=es *)axaii/des a)/stea kh/dein</l>
+						<l>e)/pleon a)mf' *(ele/nhi *(ramnousi/di qumwqei=sai.</l>
+						<l>h)= me/n toi *proi=to/s ge du/w e)kaqi/ssato nhou/s,</l>
+						<l>a)/llon me\n *kori/hs, o(/ti oi( sunele/cao kou/ras</l>
+						<l n="235">ou)/rea plazome/nas *)azh/nia, to\n d' e)ni\ *lou/sois</l>
+						<l>*(hme/rhi, ou(/neka qumo\n a)p' a)/grion ei(/leo pai/dwn.</l>
+						<l>soi\ kai\ *)amazoni/des pole/mou e)piqumh/teirai</l>
+						<l>e)/n pote parrali/hi *)efe/swi bre/tas i(dru/santo</l>
+						<l>fhgw=i u(po\ pre/mnwi, te/lesen de/ toi i(ero\n *(ippw/:</l>
+						<l n="240">au)tai\ d', *ou)=pi a)/nassa, peri\ pru/lin w)rxh/santo</l>
+						<l>prw=ta me\n e)n sake/essin e)no/plion, au)=qi de\ ku/klwi</l>
+						<l>sthsa/menai xoro\n eu)ru/n: u(ph/eisan de\ li/geiai</l>
+						<l>leptale/on su/rigges, i(/na r(h/sswsin o(marth=i</l>
+						<l>&lpar;ou) ga/r pw ne/breia di' o)ste/a tetrh/nanto,</l>
+						<l n="245">e)/rgon *)aqhnai/hs e)la/fwi kako/n&rpar;: e)/drame d' h)xw/</l>
+						<l>*sa/rdias e)/s te nomo\n *bereku/nqion. ai(\ de\ po/dessin</l>
+						<l>ou)=la katekrota/lizon, e)peyo/feon de\ fare/trai.</l>
+						<l>kei=no de/ toi mete/peita peri\ bre/tas eu)ru\ qe/meilon</l>
+						<l>dwmh/qh, tou= d' ou)/ti qew/teron o)/yetai h)w/s</l>
+						<l n="250">ou)d' a)fneio/teron: r(e/a ken *puqw=na pare/lqoi.</l>
+						<l>tw=i r(a kai\ h)lai/nwn a)lapace/men h)pei/lhse</l>
+						<l>*lu/gdamis u(bristh/s: e)pi\ de\ strato\n i(pphmolgw=n</l>
+						<l>h)/gage *kimmeri/wn yama/qwi i)/son, oi(/ r(a par' au)to/n
+							<pb n="33"/></l>
+						<l>keklime/noi nai/ousi boo\s po/ron *)inaxiw/nhs.</l>
+						<l n="255">a)= deilo\s basile/wn, o(/son h)/liten: ou) ga\r e)/mellen</l>
+						<l>ou)/t' au)to\s *skuqi/hnde palimpete\s ou)/te tis a)/llos</l>
+						<l>o(/sswn e)n leimw=ni *kau+stri/wi e)/stan a(/mazai</l>
+						<l>nosth/sein: *)efe/sou ga\r a)ei\ tea\ to/ca pro/keitai.</l>
+						<l rend="indent">po/tnia *mounixi/h limenosko/pe, xai=re *ferai/h.</l>
+						<l n="260">mh/ tis a)timh/shi th\n *)/artemin &lpar;ou)de\ ga\r *oi)nei=</l>
+						<l>bwmo\n a)tima/ssanti kaloi\ po/lin h)=lqon a)gw=nes&rpar;,</l>
+						<l>mhd' e)lafhboli/hn mhd' eu)stoxi/hn e)ridai/nein</l>
+						<l>&lpar;ou)de\ ga\r *)atrei+/dhs o)li/gwi e)/pi ko/mpase misqw=i&rpar;,</l>
+						<l>mhde/ tina mna=sqai th\n parqe/non &lpar;ou)de\ ga\r *)=wtos,</l>
+						<l n="265">ou)de\ me\n *)wari/wn a)gaqo\n ga/mon e)mnh/steusan&rpar;,</l>
+						<l>mhde\ xoro\n feu/gein e)niau/sion &lpar;ou)de\ ga\r *(ippw/</l>
+						<l>a)klautei\ peri\ bwmo\n a)pei/pato kuklw/sasqai&rpar;:</l>
+						<l>xai=re me/ga krei/ousa kai\ eu)a/nthson a)oidh=i.
+							<pb/></l></div1>
+					<div1 type="poem" n="4">
+						<head>ei)s *dh=lon.</head>
+						<l>*th\n i(erh/n, w)= qume/, ti/na xro/non h)\ po/t' a)ei/seis</l>
+						<l>*dh=lon, *)apo/llwnos kourotro/fon; h)= me\n a(/pasai</l>
+						<l>*kukla/des, ai(\ nh/swn i(erw/tatai ei)n a(li\ kei=ntai,</l>
+						<l>eu)/umnoi: *dh=los d' e)qe/lei ta\ prw=ta fe/resqai</l>
+						<l n="5">e)k *mouse/wn, o(/ti *foi=bon a)oida/wn mede/onta</l>
+						<l>lou=se/ te kai\ spei/rwse kai\ w(s qeo\n h)/inese prw/th.</l>
+						<l>w(s *mou=sai to\n a)oido\n o(\ mh\ *pi/mpleian a)ei/shi</l>
+						<l>e)/xqousin, tw\s *foi=bos o(/tis *dh/loio la/qhtai.</l>
+						<l>*dh/lwi nu=n oi)/mhs a)poda/ssomai, w(s a)\n *)apo/llwn</l>
+						<l n="10">*ku/nqios ai)nh/shi me fi/lhs a)le/gonta tiqh/nhs.</l>
+						<l rend="indent">kei/nh d' h)nemo/essa kai\ a)/tropos oi(=a/ q' a(liplh/c</l>
+						<l>ai)qui/his kai\ ma=llon e)pi/dromos h)e/per i(/ppois</l>
+						<l>po/ntwi e)nesth/riktai: o(\ d' a)mfi/ e( poulu\s e(li/sswn</l>
+						<l>*)ikari/ou pollh\n a)poma/ssetai u(/datos a)/xnhn:</l>
+						<l n="15">tw=i sfe kai\ i)xqubolh=es a(li/plooi e)nna/ssanto.</l>
+						<l>a)lla/ oi( ou) nemeshto\n e)ni\ prw/thisi le/gesqai,</l>
+						<l>o(ppo/t' e)s *)wkeano/n te kai\ e)s *tithni/da *thqu/n</l>
+						<l>nh=soi a)olli/zontai, a)ei\ d' e)/carxos o(deu/ei.</l>
+						<l>h(\ d' o)/piqen *foi/nissa met' i)/xnia *ku/rnos o)phdei=</l>
+						<l n="20">ou)k o)noth\ kai\ *ma/kris *)abantia\s *)ellopih/wn</l>
+						<l>*sardw/ q' i(mero/essa kai\ h(\n e)penh/cato *ku/pris</l>
+						<l>e)c u(/datos ta\ prw=ta, saoi= de/ min a)nt' e)piba/qrwn.</l>
+						<l>kei=nai me\n pu/rgoisi periskepe/essin e)rumnai/,</l>
+						<l>*dh=los d' *)apo/llwni: ti/ de\ stibarw/teron e(/rkos;
+							<pb n="35"/></l>
+						<l n="25">tei/xea me\n kai\ la=es u(pai\ r(iph=s ke pe/soien</l>
+						<l>*strumoni/ou bore/ao: qeo\s d' a)ei\ a)stufe/liktos:</l>
+						<l>*dh=le fi/lh, toi=o/s se bohqo/os a)mfibe/bhken.</l>
+						<l>ei) de\ li/hn pole/es se peritroxo/wsin a)oidai/,</l>
+						<l>poi/hi e)niple/cw se; ti/ toi qumh=res a)kou=sai;</l>
+						<l n="30">h)\ w(s ta\ prw/tista me/gas qeo\s ou)/rea qei/nwn</l>
+						<l>a)/ori triglw/xini, to/ oi( *telxi=nes e)/teucan,</l>
+						<l>nh/sous ei)nali/as ei)rga/zeto, ne/rqe d' e)la/ssas</l>
+						<l>e)k nea/twn w)/xlisse kai\ ei)seku/lise qala/sshi;</l>
+						<l>kai\ ta\s me\n kata\ busso/n, i(/n' h)pei/roio la/qwntai,</l>
+						<l n="35">prumno/qen e)rri/zwse: se\ d' ou)k e)/qliyen a)na/gkh,</l>
+						<l>a)ll' a)/fetos pela/gessin e)pe/plees, ou)/noma d' h)=n toi</l>
+						<l>*)asteri/h to\ palaio/n, e)pei\ baqu\n h(/lao ta/fron</l>
+						<l>ou)rano/qen feu/gousa *dio\s ga/mon a)ste/ri i)/sh.</l>
+						<l>to/fra me\n ou)/pw toi xruse/h e)pemi/sgeto *lhtw/,</l>
+						<l n="40">to/fra d' e)/t' *)asteri/h su\ kai\ ou)de/pw e)/kleo *dh=los.</l>
+						<l>polla/ki se *troizh=nos a)po\ ca/nqoio poli/xnhs</l>
+						<l>e)rxo/menoi *)efu/rhnde *sarwnikou= e)/ndoqi ko/lpou</l>
+						<l>nau=tai e)peske/yanto, kai\ e)c *)efu/rhs a)nio/ntes</l>
+						<l>oi(\ me\n e)/t' ou)k i)/don au)=qi, su\ de\ steinoi=o par' o)cu/n</l>
+						<l n="45">e)/drames *eu)ri/poio po/ron kanaxhda\ r(e/ontos,</l>
+						<l>*xalkidikh=s d' au)th=mar a)nhname/nh a(lo\s u(/dwr</l>
+						<l>me/sf' e)s *)aqhnai/wn prosenh/cao *sou/nion a)/kron</l>
+						<l>h)\ *xi/on h)\ nh/soio dia/broxon u(/dati masto/n</l>
+						<l>*parqeni/hs &lpar;ou)/pw ga\r e)/hn *sa/mos&rpar;, h(=xi/ se nu/mfai</l>
+						<l n="50">gei/tones *)agkai/ou *mukalhssi/des e)cei/nissan.</l>
+						<l>h(ni/ka d' *)apo/llwni gene/qlion ou)=das u(pe/sxes,</l>
+						<l>tou=to/ toi a)nthmoibo\n a(li/plooi ou)/nom' e)/qento,</l>
+						<l>ou(/neken ou)ke/t' a)/dhlos e)pe/plees, a)ll' e)ni\ po/ntou</l>
+						<l>ku/masin *ai)gai/oio podw=n e)neqh/kao r(i/zas.</l>
+						<l n="55">ou)d' *(/hrhn kote/ousan u(pe/tresas: h(\ me\n a(pa/sais</l>
+						<l>deino\n e)pebrwma=to lexwi/sin ai(\ *dii\ pai=das
+							<pb n="36"/></l>
+						<l>e)ce/feron, *lhtoi= de\ diakrido/n, ou(/neka mou/nh</l>
+						<l>*zhni\ tekei=n h)/melle filai/teron *)/areos ui(=a.</l>
+						<l>tw=i r(a kai\ au)th\ me\n skopih\n e)/xen ai)qe/ros ei)/sw</l>
+						<l n="60">sperxome/nh me/ga dh/ ti kai\ ou) fato/n, ei)=rge de\ *lhtw/</l>
+						<l>teirome/nhn w)di=si: du/w de/ oi( ei(/ato frouroi/</l>
+						<l>gai=an e)popteu/ontes, o(\ me\n pe/don h)pei/roio</l>
+						<l>h(/menos u(yhlh=s korufh=s e)/pi *qrh/ikos *ai(/mou</l>
+						<l>qou=ros *)/arhs e)fu/lasse su\n e)/ntesi, tw\ de/ oi( i(/ppw</l>
+						<l n="65">e(pta/muxon bore/ao para\ spe/os hu)li/zonto:</l>
+						<l>h(\ d' e)pi\ nhsa/wn e(te/rh skopo\s eu)reia/wn</l>
+						<l>h(=sto ko/rh *qau/mantos e)pai+/casa *mi/manti.</l>
+						<l>e)/nq' oi(\ me\n poli/essin o(/sais e)peba/lleto *lhtw/</l>
+						<l>mi/mnon a)peilhth=res, a)petrw/pwn de\ de/xesqai.
+							<milestone n="70" unit="card"/></l>
+						<l n="70">feu=ge me\n *)arkadi/h, feu=gen d' o)/ros i(ero\n *au)/ghs</l>
+						<l>*parqe/nion, feu=gen d' o( ge/rwn meto/pisqe *feneio/s.</l>
+						<l>feu=ge d' o(/lh *pelophi\s o(/sh parake/klitai *)isqmw=i,</l>
+						<l>e)/mplhn *ai)gialou= ge kai\ *)/argeos: ou) ga\r e)kei/nas</l>
+						<l>a)trapitou\s e)pa/thsen, e)pei\ la/xen *)/inaxon *(/hrh.</l>
+						<l n="75">feu=ge kai\ *)aoni/h to\n e(/na dro/mon, ai(\ d' e)fe/ponto</l>
+						<l>*di/rkh te *strofi/h te melamyh/fidos e)/xousai</l>
+						<l>*)ismhnou= xe/ra patro/s, o(\ d' ei(/peto pollo\n o)/pisqen</l>
+						<l>*)aswpo\s baru/gounos, e)pei\ pepa/lakto keraunw=i.</l>
+						<l>h(\ d' u(podinhqei=sa xorou= a)pepau/sato nu/mfh</l>
+						<l n="80">au)to/xqwn *meli/h kai\ u(po/xloon e)/sxe pareih/n</l>
+						<l>h(/likos a)sqmai/nousa peri\ druo/s, w(s i)/de xai/thn</l>
+						<l>seiome/nhn *(elikw=nos. e)mai\ qeai/, ei)/pate *mou=sai,</l>
+						<l>h)= r(' e)teo\n e)ge/nonto to/te dru/es h(ni/ka *nu/mfai;</l>
+						<l>"*nu/mfai me\n xai/rousin, o(/te dru/as o)/mbros a)e/cei,</l>
+						<l n="85">*nu/mfai d' au)= klai/ousin, o(/te drusi\n ou)ke/ti fu/lla".</l>
+						<l>tai=s me\n e)/t' *)apo/llwn u(poko/lpios ai)na\ xolw/qh,</l>
+						<l>fqe/gcato d' ou)k a)te/leston a)peilh/sas e)pi\ *qh/bhi:</l>
+						<l>*(qh/bh ti/pte ta/laina to\n au)ti/ka po/tmon e)le/gxeis;</l>
+						<l>mh/pw mh/ m' a)e/konta bia/zeo manteu/esqai.
+							<pb n="37"/></l>
+						<l n="90">ou)/pw moi *puqw=ni me/lei tripodh/ios e(/drh,</l>
+						<l>ou)de/ ti/ pw te/qnhken o)/fis me/gas, a)ll' e)/ti kei=no</l>
+						<l>qhri/on ai)noge/neion a)po\ *pleistoi=o kaqe/rpon</l>
+						<l>*parnhso\n nifo/enta periste/fei e)nne/a ku/klois:</l>
+						<l>a)ll' e)/mphs e)re/w ti torw/teron h)\ a)po\ da/fnhs.</l>
+						<l n="95">feu=ge pro/sw: taxino/s se kixh/somai ai(/mati lou/swn</l>
+						<l>to/con e)mo/n: su\ de\ te/kna kakoglw/ssoio gunaiko/s</l>
+						<l>e)/llaxes. ou) su/ g' e)mei=o fi/lh trofo\s ou)de\ *kiqairw/n</l>
+						<l>e)/ssetai: eu)age/wn de\ kai\ eu)age/essi meloi/mhn'.</l>
+						<l>w(\s a)/r' e)/fh. *lhtw\ de\ meta/tropos au)=tis e)xw/rei.</l>
+						<l n="100">a)ll' o(/t' *)axaiia/des min a)phrnh/santo po/lhes</l>
+						<l>e)rxome/nhn, *(eli/kh te *poseida/wnos e(tai/rh</l>
+						<l>*bou=ra/ te *decamenoi=o boo/stasis *oi)kia/dao,</l>
+						<l>a)/y d' e)pi\ *qessali/hn po/das e)/trepe, feu=ge d' *)/anauros</l>
+						<l>kai\ mega/lh *la/risa kai\ ai( *xeirwni/des a)/krai,</l>
+						<l n="105">feu=ge de\ kai\ *phneio\s e(lisso/menos dia\ *tempe/wn:</l>
+						<l>*/hrh soi\ d' e)/ti th=mos a)nhlee\s h)=tor e)/keito</l>
+						<l>ou)de\ katekla/sqhs te kai\ w)/iktisas, h(ni/ka ph/xeis</l>
+						<l>a)mfote/rous o)re/gousa ma/thn e)fqe/gcato toi=a</l>
+						<l>'*nu/mfai *qessali/des, potamou= ge/nos, ei)/pate patri/</l>
+						<l n="110">koimh=sai me/ga xeu=ma: periple/casqe genei/wi</l>
+						<l>lisso/menai ta\ *zhno\s e)n u(/dati te/kna teke/sqai.</l>
+						<l>*phneie\ *fqiw=ta, ti/ nu=n a)ne/moisin e)ri/zeis;</l>
+						<l>w)= pa/ter, ou) mh\n i(/ppon a)e/qlion a)mfibe/bhkas.</l>
+						<l>h)= r(a/ toi w(=d' ai)ei\ taxinoi\ po/des, h)\ e)p' e)mei=o</l>
+						<l n="115">mou=noi e)lafri/zousi, pepoi/hsai de\ pe/tesqai</l>
+						<l>sh/meron e)capi/nhs;' o(\ d' a)nh/koos. 'w)= e)mo\n a)/xqos,</l>
+						<l>poi= se fe/rw; me/leoi ga\r a)peirh/kasi te/nontes.</l>
+						<l>*ph/lion w)= *filu/rhs numfh/ion, a)lla\ su\ mei=non,</l>
+						<l>mei=non, e)pei\ kai\ qh=res e)n ou)/resi polla/ki sei=o</l>
+						<l n="120">w)moto/kous w)di=nas a)phrei/santo le/ainai.'</l>
+						<l>th\n d' a)/ra kai\ *phneio\s a)mei/beto da/krua lei/bwn</l>
+						<l>'lhtoi=, *)anagkai/h mega/lh qeo/s. ou) ga\r e)/gwge
+							<pb n="38"/></l>
+						<l>po/tnia sa\s w)di=nas a)nai/nomai &lpar;oi)=da kai\ a)/llas</l>
+						<l>lousame/nas a)p' e)mei=o lexwi/das&rpar;: a)lla/ moi *(/hrh</l>
+						<l n="125">dayile\s h)pei/lhsen. a)pau/gasai, oi(=os e)/fedros</l>
+						<l>ou)/reos e)c u(pa/tou skopih\n e)/xei, o(/s ke/ me r(ei=a</l>
+						<l>busso/qen e)ceru/seie. ti/ mh/somai; h)\ a)pole/sqai</l>
+						<l>h(du/ ti/ toi *phneio/n; i)/tw peprwme/non h)=mar:</l>
+						<l>tlh/somai ei(/neka sei=o kai\ ei) me/lloimi r(oa/wn</l>
+						<l n="130">diyale/hn a)/mpwtin e)/xwn ai)w/nion e)/rrein</l>
+						<l>kai\ mo/nos e)n potamoi=sin a)timo/tatos kale/esqai.</l>
+						<l>h)ni/d' e)gw/: ti/ perissa/; ka/lei mo/non *ei)lh/quian.'</l>
+						<l>ei)=pe kai\ h)rw/hse me/gan r(o/on. a)lla/ oi( *)/arhs</l>
+						<l>*paggai/ou proqe/lumna karh/ata me/llen a)ei/ras</l>
+						<l n="135">e)mbale/ein di/nhisin, a)pokru/yai de\ r(e/eqra:</l>
+						<l>u(yo/qe d' e)smara/ghse kai\ a)spi/da tu/yen a)kwkh=i</l>
+						<l>dou/ratos: h(\ d' e)le/licen e)no/plion: e)/treme d' *)/osshs</l>
+						<l>ou)/rea kai\ pedi/on *krannw/nion ai(/ te dusaei=s</l>
+						<l>e)sxatiai\ *pi/ndoio, fo/bwi d' w)rxh/sato pa=sa</l>
+						<l n="140">*qessali/h: toi=os ga\r a)p' a)spi/dos e)/bramen h)=xos.
+							<milestone n="141" unit="card"/></l>
+						<l>w(s d' o(po/t' *ai)tnai/ou o)/reos puri\ tufome/noio</l>
+						<l>sei/ontai muxa\ pa/nta katoudai/oio gi/gantos</l>
+						<l>ei)s e(te/rhn *briarh=os e)pwmi/da kinume/noio,</l>
+						<l>qerma/strai te bre/mousin u(f' *(hfai/stoio pura/grhs</l>
+						<l n="145">e)/rga q' o(mou=, deino\n de\ puri/kmhtoi/ te le/bhtes</l>
+						<l>kai\ tri/podes pi/ptontes e)p' a)llh/lois i)axeu=si:</l>
+						<l>th=mos e)/gent' a)/rabos sa/keos to/sos eu)ku/kloio:</l>
+						<l>*phneio\s d' ou)k au)=tis e)xa/zeto, mi/mne d' o(moi/ws</l>
+						<l>kartero\s w(s ta\ prw=ta, qoa\s d' e)sth/sato di/nas,</l>
+						<l n="150">ei)so/ke oi( *koihi\s e)ke/kleto 'sw/izeo xai/rwn,</l>
+						<l>sw/izeo: mh\ su/ g' e)mei=o pa/qhis kako\n ei(/neka th=sde</l>
+						<l>a)nt' e)lehmosu/nhs, xa/ritos de/ toi e)/sset' a)moibh/'.</l>
+						<l>h)= kai\ polla\ pa/roiqen e)pei\ ka/men e)/stixe nh/sous</l>
+						<l>ei)nali/as: ai(\ d' ou)/ min e)perxome/nhn e)de/xonto,
+							<pb n="39"/></l>
+						<l n="155">ou) liparo\n nh/essin *)exina/des o(/rmon e)/xousai,</l>
+						<l>ou)d' h(/tis *ke/rkura filoceinwta/th a)/llwn,</l>
+						<l>*)=iris e)pei\ pa/shisin e)f' u(yhloi=o *mi/mantos</l>
+						<l>sperxome/nh ma/la pollo\n a)pe/trapen: ai(\ d' u(p' o)moklh=s</l>
+						<l>pansudi/hi fobe/onto kata\ rr(o/on h(/ntina te/tmoi.</l>
+						<l n="160">w)gugi/hn dh)/peita *ko/wn, *merophi/da nh=son,</l>
+						<l>i(/keto, *xalkio/phs i(ero\n muxo\n h(rwi/nhs.</l>
+						<l>a)lla/ e( paido\s e)/ruken e)/pos to/de 'mh\ su/ ge mh=ter</l>
+						<l>th=i me te/kois. ou)/t' ou)=n e)pime/mfomai ou)de\ megai/rw</l>
+						<l>nh=son, e)pei\ liparh/ te kai\ eu)/botos, ei)/ nu/ tis a)/llh:</l>
+						<l n="165">a)lla/ oi( e)k *moire/wn tis o)feilo/menos qeo\s a)/llos</l>
+						<l>e)sti/, *sawth/rwn u(/paton ge/nos: w(=i u(po\ mi/trhn</l>
+						<l>i(/cetai ou)k a)e/kousa *makhdo/ni koirane/esqai</l>
+						<l>a)mfote/rh meso/geia kai\ ai(\ pela/gessi ka/qhntai,</l>
+						<l>me/xris o(/pou pera/th te kai\ o(ppo/qen w)ke/es i(/ppoi</l>
+						<l n="170">*)he/lion fore/ousin: o(\ d' ei)/setai h)/qea patro/s.
+							<milestone n="171" unit="card"/></l>
+						<l>kai/ nu/ pote cuno/s tis e)leu/setai a)/mmin a)/eqlos</l>
+						<l>u(/steron, o(ppo/t' a)\n oi(\ me\n e)f' *(ellh/nessi ma/xairan</l>
+						<l>barbarikh\n kai\ *kelto\n a)nasth/santes *)/arha</l>
+						<l>o)yi/gonoi *tith=nes a)f' e(spe/rou e)sxato/wntos</l>
+						<l n="175">r(w/swntai nifa/dessin e)oiko/tes h)\ i)sa/riqmoi</l>
+						<l>tei/resin, h(ni/ka plei=sta kat' h)e/ra boukole/ontai,</l>
+						<l>frou/ria kai\ <gap/></l>
+						<l>kai\ pedi/a *krissai=a kai\ h)/peiroi <gap/></l>
+						<l>a)mfiperistei/nwntai, i)/dwsi de\ pi/ona kapno\n</l>
+						<l n="180">gei/tonos ai)qome/noio, kai\ ou)ke/ti mou=non a)kouh=i,</l>
+						<l>a)ll' h)/dh para\ nho\n a)pauga/zwntai &dagger; fa/lagges</l>
+						<l>dusmene/wn, h)/dh de\ para\ tripo/dessin e)mei=o</l>
+						<l>fa/sgana kai\ zwsth=ras a)naide/as e)xqome/nas te</l>
+						<l>a)spi/das, ai(\ *gala/thisi kakh\n o(do\n a)/froni fu/lwi</l>
+						<l n="185">sth/sontai: te/wn ai(\ me\n e)moi\ ge/ras, ai(\ d' e)pi\ *nei/lwi</l>
+						<l>e)n puri\ tou\s fore/ontas a)popneu/santas i)dou=sai
+							<pb n="40"/></l>
+						<l>kei/sontai basilh=os a)e/qlia polla\ kamo/ntos.</l>
+						<l>e)sso/mene *ptolemai=e, ta/ toi manth/ia fai/nw.</l>
+						<l>ai)nh/seis me/ga dh/ ti to\n ei)se/ti gaste/ri ma/ntin</l>
+						<l n="190">u(/steron h)/mata pa/nta: su\ de\ cumba/lleo mh=ter:</l>
+						<l>e)/sti dieidome/nh tis e)n u(/dati nh/sos a)raih/,</l>
+						<l>plazome/nh pela/gessi: po/des de/ oi( ou)x e(ni\ xw/rwi,</l>
+						<l>a)lla\ palirroi/hi e)pinh/xetai a)nqe/rikos w(/s,</l>
+						<l>e)/nqa no/tos, e)/nq' eu)=ros, o(/ph fore/hisi qa/lassa.</l>
+						<l n="195">th=i me fe/rois: kei/nhn ga\r e)leu/seai ei)s e)qe/lousan.'</l>
+						<l>ai(\ me\n to/ssa le/gontos a)pe/trexon ei)n a(li\ nh=soi:</l>
+						<l>*)asteri/h filo/molpe, su\ d' *eu)boi/hqe kath/ieis,</l>
+						<l>*kukla/das o)yome/nh perihge/as, ou)/ ti palaio/n,</l>
+						<l>a)ll' e)/ti toi meto/pisqe *gerai/stion ei(/peto fu=kos:</l>
+						<l n="200"><gap/></l>
+						<l><gap/> flecas e)pei\ perikai/eo puri/,</l>
+						<l>tlh/mon' u(p' w)di/nessi barunome/nhn o(ro/wsa:</l>
+						<l>'*(/hrh tou=to/ me r(e/con o(/ toi fi/lon: ou) ga/r a)peila\s</l>
+						<l>u(mete/ras e)fu/laca: pe/ra, pe/ra ei)s e)me\ *lhtoi='.</l>
+						<l n="205">e)/nnepes: h(\ d' a)rhto\n a)/lhs a)pepau/sato lugrh=s,</l>
+						<l>e(/zeto d' *)inwpoi=o para\ rr(o/on, o(/nte ba/qiston</l>
+						<l>gai=a to/t' e)cani/hsin, o(/te plh/qonti r(ee/qrwi</l>
+						<l>*nei=los a)po\ krhmnoi=o kate/rxetai *ai)qioph=os:</l>
+						<l>lu/sato de\ zw/nhn, a)po\ d' e)kli/qh e)/mpalin w)/mois</l>
+						<l n="210">foi/nikos poti\ pre/mnon a)mhxani/hs u(po\ lugrh=s</l>
+						<l>teirome/nh: no/tios de\ dia\ xroo\s e)/rreen i(drw/s.</l>
+						<l>ei)=pe d' a)lusqmai/nousa 'ti/ mhte/ra kou=re baru/neis;</l>
+						<l>au(/th toi fi/le nh=sos e)piplw/ousa qala/sshi.</l>
+						<l>gei/neo, gei/neo kou=re kai\ h)/pios e)/ciqi ko/lpou'.</l>
+						<l n="215">nu/mfa *dio\s baru/qume, su\ d' ou)k a)/r' e)/melles a)/pustos</l>
+						<l>dh\n e)/menai: toi/h se prose/dramen a)ggeliw=tis,</l>
+						<l>ei)=pe d' e)/t' a)sqmai/nousa, fo/bwi d' a)nemi/sgeto mu=qos,</l>
+						<l>'*(/hrh timhe/ssa, polu\ prou)/xousa qea/wn</l>
+						<l>sh\ me\n e)gw/, sa\ de\ pa/nta, su\ de\ krei/ousa ka/qhsai
+							<pb n="41"/></l>
+						<l n="220">gnhsi/h *ou)lu/mpoio, kai\ ou) xe/ra dei/dimen a)/llhn</l>
+						<l>qhlute/rhn, su\ d' a)/nassa to\n ai)/tion ei)/seai o)rgh=s.</l>
+						<l>*lhtw/ toi mi/trhn a)nalu/etai e)/ndoqi nh/sou.
+							<milestone n="223" unit="card"/></l>
+						<l>a)/llai me\n pa=sai/ min a)pe/stugon ou)d' e)de/xonto:</l>
+						<l>*)asteri/h d' o)nomasti\ parerxome/nhn e)ka/lessen,</l>
+						<l n="225">*)asteri/h, po/ntoio kako\n sa/ron: oi)=sqa kai\ au)th/.</l>
+						<l>a)lla\ fi/lh, du/nasai ga/r, a)mu/nein po/tnia dou/lois</l>
+						<l>u(mete/rois, oi(\ sei=o pe/don pate/ousin e)fetmh=i'.</l>
+						<l>h)= kai\ u(po\ xru/seion e)de/qlion i(=ze ku/wn w(/s,</l>
+						<l>*)arte/midos h(/tis te, qoh=s o(/te pau/setai a)/grhs,</l>
+						<l n="230">i(/zei qhrh/teira par' i)/xnesin, ou)/ata d' au)th=s</l>
+						<l>o)rqa\ ma/l', ai)e\n e(toi=ma qeh=s u(pode/xqai o)moklh/n:</l>
+						<l>th=i i)ke/lh *qau/mantos u(po\ qro/non i(/zeto kou/rh.</l>
+						<l>kei/nh d' ou)de/pote sfete/rhs e)pilh/qetai e(/drhs,</l>
+						<l>ou)d' o(/te oi( lhqai=on e)pi\ ptero\n u(/pnos e)rei/sei,</l>
+						<l n="235">a)ll' au)tou= mega/loio poti\ glwxi=na qro/noio</l>
+						<l>tutqo\n a)pokli/nasa karh/ata le/xrios eu(/dei.</l>
+						<l>ou)de/ pote zw/nhn a)nalu/etai ou)de\ taxei/as</l>
+						<l>e)ndromi/das, mh/ oi(/ ti kai\ ai)fni/dion e)/pos ei)/phi</l>
+						<l>despo/tis. h(\ d' a)legeino\n a)lasth/sasa proshu/da</l>
+						<l n="240">'ou(/tw nu=n, w)= *zhno\s o)nei/dea, kai\ game/oisqe</l>
+						<l>la/qria kai\ ti/ktoite kekrumme/na, mhd' o(/qi deilai/</l>
+						<l>dustoke/es moge/ousin a)letri/des, a)ll' o(/qi fw=kai</l>
+						<l>ei)na/liai ti/ktousin, e)ni\ spila/dessin e)rh/mois.</l>
+						<l>*)asteri/hi d' ou)de/n ti baru/nomai ei(/neka th=sde</l>
+						<l n="245">a)mplaki/hs, ou)d' e)/stin o(/pws a)poqu/mia r(e/cw:</l>
+						<l>to/ssa de/w: ma/la ga/r te kakw=s e)xari/ssato *lhtoi=:</l>
+						<l>a)lla/ min e)/kpaglo/n ti sebi/zomai, ou(/nek' e)mei=o</l>
+						<l>de/mnion ou)k e)pa/thse, *dio\s d' a)nqei/leto po/nton'.</l>
+						<l>h(\ me\n e)/fh: ku/knoi de\ qeou= me/lpontes a)/ozoi</l>
+						<l n="250">*mhio/nion *paktwlo\n e)kuklw/santo lipo/ntes</l>
+						<l>e(bdoma/kis peri\ *dh=lon, e)ph/eisan de\ loxei/hi</l>
+						<l>*mousa/wn o)/rniqes, a)oido/tatoi petehnw=n:
+							<pb n="42"/></l>
+						<l>e)/nqen o( pai=s tossa/sde lu/rhi e)nedh/sato xorda/s</l>
+						<l>u(/steron, o(ssa/ki ku/knoi e)p' w)di/nessin a)/eisan.</l>
+						<l n="255">o)/gdoon ou)ke/t' a)/eisan, o(\ d' e)/kqoren, ai(\ d' e)pi\ makro\n</l>
+						<l>nu/mfai *dhlia/des, potamou= ge/nos a)rxai/oio,</l>
+						<l>ei)=pan *)eleiqui/hs i(ero\n me/los, au)ti/ka d' ai)qh/r</l>
+						<l>xa/lkeos a)nth/xhse diaprusi/hn o)lolugh/n,</l>
+						<l>ou)d' *(/hrh neme/shsen, e)pei\ xo/lon e)ce/leto *zeu/s.</l>
+						<l n="260">xru/sea/ toi to/te pa/nta qemei/lia gei/neto *dh=le,</l>
+						<l>xrusw=i de\ troxo/essa panh/meros e)/rree li/mnh,</l>
+						<l>xru/seion d' e)ko/mhse gene/qlion e)/rnos e)lai/hs,</l>
+						<l>xrusw=i de\ plh/mure baqu\s *)inwpo\s e(lixqei/s.</l>
+						<l>au)th\ de\ xruse/oio a)p' ou)/deos ei(/leo pai=da,</l>
+						<l n="265">e)n d' e)ba/leu ko/lpoisin, e)/pos d' e)fqe/gcao toi=on</l>
+						<l>"w)= mega/lh polu/bwme polu/ptoli polla\ fe/rousa,</l>
+						<l>pi/ones h)/peiroi/ te kai\ ai(\ perinai/ete nh=soi:</l>
+						<l>au(/th e)gw\ toih/de: dush/rotos, a)ll' a)p' e)mei=o</l>
+						<l>*dh/lios *)apo/llwn keklh/setai, ou)de/ tis a)/llh</l>
+						<l n="270">gaia/wn tosso/nde qew=i pefilh/setai a)/llwi,</l>
+						<l>ou) *kerxni\s krei/onti *poseida/wni *lexai/ou,</l>
+						<l>ou) pa/gos *(ermei/hi *kullh/nios, ou) *dii\ *krh/th,</l>
+						<l>w(s e)gw\ *)apo/llwni: kai\ e)/ssomai ou)ke/ti plagkth/".</l>
+						<l>w(=de su\ me\n kate/lecas: o(\ de\ gluku\n e)/spase mazo/n.
+							<milestone n="275" unit="card"/></l>
+						<l n="275" rend="indent">tw=i kai\ nhsa/wn a(giwta/th e)ce/ti kei/nou</l>
+						<l>klh/zhi, *)apo/llwnos kourotro/fos: ou)de/ s' *)enuw/</l>
+						<l>ou)d' *)ai/dhs ou)d' i(/ppoi e)pistei/bousin *)/arhos:</l>
+						<l>a)lla/ toi a)mfietei=s dekathfo/roi ai)e\n a)parxai/</l>
+						<l>pe/mpontai, pa=sai de\ xorou\s a)na/gousi po/lhes,</l>
+						<l n="280">ai(/ te pro\s h)oi/hn ai(/ q' e(/speron ai(/ t' a)na\ me/sshn</l>
+						<l>klh/rous e)sth/santo, kai\ oi(\ kaqu/perqe borei/hs</l>
+						<l>oi)ki/a qino\s e)/xousi, poluxroniw/taton ai(=ma.</l>
+						<l>oi(\ me/n toi kala/mhn te kai\ i(era\ dra/gmata prw=toi</l>
+						<l>a)staxu/wn fore/ousin: a(\ *dwdw/nhqi *pelasgoi/
+							<pb n="43"/></l>
+						<l n="285">thlo/qen e)kbai/nonta polu\ prw/tista de/xontai,</l>
+						<l>ghlexe/es qera/pontes a)sigh/toio le/bhtos:</l>
+						<l>deu/teron *(iero\n a)/stu kai\ ou)/rea *mhli/dos ai)/hs</l>
+						<l>e)/rxontai: kei=qen de\ diaplw/ousin *)aba/ntwn</l>
+						<l>ei)s a)gaqo\n pedi/on *lhla/ntion: ou)d' e)/ti makro/s</l>
+						<l n="290">o( plo/os *eu)boi/hqen, e)pei\ se/o gei/tones o(/rmoi.</l>
+						<l>prw=tai/ toi ta/d' e)/neikan a)po\ canqw=n *)arimaspw=n</l>
+						<l>*ou)=pi/s te *locw/ te kai\ eu)ai/wn *(ekae/rgh,</l>
+						<l>qugate/res *bore/ao, kai\ a)/rsenes oi(\ to/t' a)/ristoi</l>
+						<l>h)iqe/wn: ou)d' oi(/ ge palimpete\s oi)/kad' i(/konto,</l>
+						<l n="295">eu)/moiroi d' e)ge/nonto, kai\ a)kle/es ou)/pot' e)kei=noi.</l>
+						<l>h)= toi *dhlia/des me/n, o(/t' eu)h/xhs u(me/naios</l>
+						<l>h)/qea koura/wn mormu/ssetai, h(/lika xai/thn</l>
+						<l>parqenikai=s, pai=des de\ qe/ros to\ prw=ton i)ou/lwn</l>
+						<l>a)/rsenes h)iqe/oisin a)parxo/menoi fore/ousin.</l>
+						<l n="300" rend="indent">*)asteri/h quo/essa, se\ me\n peri/ t' a)mfi/ te nh=soi</l>
+						<l>ku/klon e)poih/santo kai\ w(s xoro\n a)mfeba/lonto:</l>
+						<l>ou)/te siwphlh\n ou)/t' a)/yofon ou)=los e)qei/rais</l>
+						<l>*(/esperos, a)ll' ai)ei/ se katable/pei a)mfibo/hton.</l>
+						<l>oi(\ me\n u(paei/dousi no/mon *luki/oio ge/rontos,</l>
+						<l n="305">o(/n toi a)po\ *ca/nqoio qeopro/pos h)/gagen *)wlh/n:</l>
+						<l>ai(\ de\ podi\ plh/ssousi xori/tides a)sfale\s ou)=das.</l>
+						<l>dh\ to/te kai\ stefa/noisi baru/netai i(ro\n a)/galma</l>
+						<l>*ku/pridos a)rxai/hs a)rih/koon, h(/n pote *qhseu/s</l>
+						<l>ei(/sato su\n pai/dessin, o(/te *krh/thqen a)ne/plei.</l>
+						<l n="310">oi(\ xalepo\n mu/khma kai\ a)/grion ui(=a fugo/ntes</l>
+						<l>*pasifa/hs kai\ gnampto\n e(/dos skoliou= laburi/nqou</l>
+						<l>po/tnia so\n peri\ bwmo\n e)geirome/nou kiqarismou=</l>
+						<l>ku/klion w)rxh/santo, xorou= d' h(gh/sato *qhseu/s.</l>
+						<l>e)/nqen a)eizw/onta qewri/dos i(era\ *foi/bwi</l>
+						<l n="315">*kekropi/dai pe/mpousi, toph/ia nho\s e)kei/nhs.</l>
+						<l rend="indent">*)asteri/h polu/bwme polu/llite, ti/s de/ se nau/ths</l>
+						<l>e)/mporos *ai)gai/oio parh/luqe nhi\ qeou/shi;
+							<pb n="44"/></l>
+						<l>ou)x ou/tw mega/loi min e)pipnei/ousin a)h=tai,</l>
+						<l>xreiw\ d' o(/tti ta/xiston a)/gei plo/on, a)lla\ ta\ lai/fh</l>
+						<l n="320">w)ke/es e)stei/lanto kai\ ou) pa/lin au)=tis e)/bhsan,</l>
+						<l>pri\n mega/lh se/o bwmo\n u(po\ plhgh=isin e(li/cai</l>
+						<l>r(hsso/menon kai\ pre/mnon o)dakta/sai a(gno\n e)lai/hs</l>
+						<l>xei=ras a)postre/yantas: a(\ *dhlia\s eu(/reto nu/mfh</l>
+						<l>pai/gnia kouri/zonti kai\ *)apo/llwni gelastu/n.</l>
+						<l n="325" rend="indent">i(sti/h w)= nh/swn eu)e/stie xai=re me\n au)th/,</l>
+						<l>xai/roi d' *)apo/llwn te kai\ h(\n e)loxeu/sao *lhtw/.
+							<pb n="45"/></l></div1>
+					<div1 type="poem" n="5">
+						<head>ei)s *loutra/ th=s *palla/dos.</head>
+						<l>*/ossai lwtroxo/oi ta=s *palla/dos e)/cite pa=sai,</l>
+						<l rend="indent">e)/cite: ta=n i(/ppwn a)/rti fruassomena=n</l>
+						<l>ta=n i(era=n e)sa/kousa, kai\ a( qeo\s eu)/tukos e(/rpein:</l>
+						<l rend="indent">sou=sqe/ nun, w)= canqai/ sou=sqe *pelasgia/des.</l>
+						<l n="5">ou)/pok' *)aqanai/a mega/lws a)peni/yato pa/xeis</l>
+						<l rend="indent">pri\n ko/nin i(ppeia=n e)cela/sai lago/nwn,</l>
+						<l>ou)d' o(/ka dh\ lu/qrwi pepalagme/na pa/nta fe/roisa</l>
+						<l rend="indent">teu/xea tw=n a)di/kwn h)=nq' a)po\ ghgene/wn,</l>
+						<l>a)lla\ polu\ pra/tiston u(f' a(/rmatos au)xe/nas i(/ppwn</l>
+						<l n="10" rend="indent">lusame/na pagai=s e)/klusen *)wkeanw=</l>
+						<l>i(drw= kai\ r(aqa/miggas, e)foi/basen de\ page/nta</l>
+						<l rend="indent">pa/nta xalinofa/gwn a)fro\n a)po\ stoma/twn.</l>
+						<l>w)= i)/t' *)axaiia/des, kai\ mh\ mu/ra mhd' a)laba/strws</l>
+						<l rend="indent">&lpar;suri/ggwn a)i/w fqo/ggon u(paconi/wn&rpar;,</l>
+						<l n="15">mh\ mu/ra lwtroxo/oi ta=i *palla/di mhd' a)laba/strws</l>
+						<l rend="indent">&lpar;ou) ga\r *)aqanai/a xri/mata meikta\ filei=&rpar;</l>
+						<l>oi)/sete mhde\ ka/toptron: a)ei\ kalo\n o)/mma to\ th/nas</l>
+						<l rend="indent">ou)d' o(/ka ta\n *)/idai *fru\c e)di/kazen e)/rin,</l>
+						<l>ou)/t' e)s o)rei/xalkon mega/la qeo\s ou)/te *simou=ntos</l>
+						<l n="20" rend="indent">e)/bleyen di/nan e)s diafainome/nan:</l>
+						<l>ou)d' */hra: *ku/pris de\ diauge/a xalko\n e(loi=sa</l>
+						<l rend="indent">polla/ki ta\n au)ta\n di\s mete/qhke ko/man:</l>
+						<l>a(\ de/, di\s e(ch/konta diaqre/casa diau/lws,</l>
+						<l rend="indent">oi(=a par' *eu)rw/tai toi\ *lakedaimo/nioi
+							<pb n="46"/></l>
+						<l n="25">a)ste/res, e)mpera/mws e)netri/yato lita\ baloi=sa</l>
+						<l rend="indent">xri/mata, ta=s i)di/as e)/kgona futalia=s:</l>
+						<l>w)= kw=rai, to\ d' e)/reuqos a)ne/drame, prw/ion oi(/an</l>
+						<l rend="indent">h)\ r(o/don h)\ si/bdas ko/kkos e)/xei xroi+/an.</l>
+						<l>tw=i kai\ nu=n a)/rsen ti komi/cate mw=non e)/laion,</l>
+						<l n="30" rend="indent">w(=i *ka/stwr, w(=i kai\ xri/etai *(hrakle/hs:</l>
+						<l>oi)/sete kai\ kte/na oi( pagxru/seon, w(s a)po\ xai/tan</l>
+						<l rend="indent">pe/chtai, liparo\n smasame/na plo/kamon.</l>
+						<l>e)/ciq' *)aqanai/a: pa/ra toi kataqu/mios i)/la,</l>
+						<l rend="indent">parqenikai\ mega/lwn pai=des *)arestorida=n:</l>
+						<l n="35">w)qa/na, fe/retai de\ kai\ a( *diomh/deos a)spi/s,</l>
+						<l rend="indent">w(s e)/qos *)argei/wn tou=to palaio/teron:</l>
+						<l> <gap extent="2 vv"/></l>
+						<l>*eu)mh/dhs e)di/dace, tei\n kexarisme/nos i(reu/s:</l>
+						<l rend="indent">o(/s poka bwleuto\n gnou\s e)pi/ oi( qa/naton</l>
+						<l>da=mon e(toima/zonta fuga=i teo\n i(ro\n a)/galma</l>
+						<l n="40" rend="indent">w)/ixet' e)/xwn, *krei=on d' ei)s o)/ros w)iki/sato:</l>
+						<l>*krei=on o)/ros: se\ de\ dai=mon a)porrw/gessin e)/qhken</l>
+						<l rend="indent">e)n pe/trais, ai(=s nu=n ou)/noma *pallati/des.</l>
+						<l>e)/ciq' *)aqanai/a perse/ptoli xruseoph/lhc,</l>
+						<l rend="indent">i(/ppwn kai\ sake/wn a(dome/na pata/gwi.</l>
+						<l n="45">sa/meron u(drofo/roi mh\ ba/ptete &mdash; sa/meron *)/argos</l>
+						<l rend="indent">pi/net' a)po\ krana=n mhd' a)po\ tw= potamw=,</l>
+						<l>sa/meron ai( dw=lai ta\s ka/lpidas h)\ 's *fusa/deian</l>
+						<l rend="indent">h)\ e)s *)amumw/nan oi)/sete ta\n *danaw=.</l>
+						<l>kai\ ga\r dh\ xrusw=i te kai\ a)/nqesin u(/data mei/cas</l>
+						<l n="50" rend="indent">h(cei= forbai/wn *)/inaxos e)c o)re/wn</l>
+						<l>ta)qa/nai to\ loetro\n a)/gwn kalo/n. a)lla\ *pelasge/
+							<pb n="47"/></l>
+						<l rend="indent">fra/zeo mh\ ou)k e)qe/lwn ta\n basi/leian i)/dhis.</l>
+						<l>o(/s ken i)/dhi gumna\n ta\n *palla/da ta\n poliou=xon,</l>
+						<l rend="indent">tw)=rgos e)soyei=tai tou=to panusta/tion.</l>
+						<l n="55">po/tni' *)aqanai/a tu\ me\n e)/ciqi: me/sfa d' e)gw/ ti</l>
+						<l rend="indent">tai=sd' e)re/w. mu=qos d' ou)k e)mo/s, a)ll' e(te/rwn.</l>
+						<l>pai=des, *)aqanai/a nu/mfan mi/an e)/n poka *qh/bais</l>
+						<l rend="indent">poulu/ ti kai\ pe/ri dh\ fi/lato ta=n e(tara=n,</l>
+						<l>mate/ra *teiresi/ao, kai\ ou)/poka xwri\s e)/gento:</l>
+						<l n="60" rend="indent">a)lla\ kai\ a)rxai/wn eu)=t' e)pi\ *qespie/wn</l>
+						<l>&macr;&breve;&breve;&macr;&breve;&breve;&macr;&breve; h)\ ei)s *(ali/arton e)lau/noi</l>
+						<l rend="indent">i(/ppws, *boiwtw=n e)/rga dierxome/na,</l>
+						<l>h)\' pi\ *korwnei/as, i(/na oi( tequwme/non a)/lsos</l>
+						<l rend="indent">kai\ bwmoi\ potamw=i kei=nt' e)pi\ *kourali/wi:</l>
+						<l n="65">polla/kis a( dai/mwn nin e(w= e)peba/sato di/frw,</l>
+						<l rend="indent">ou)d' o)/aroi numfa=n ou)de\ xorostasi/ai</l>
+						<l>a(dei=ai tele/qeskon, o(/k' ou)x a(gei=to *xariklw/:</l>
+						<l rend="indent">a)ll' e)/ti kai\ th/nan da/krua po/ll' e)/menen,</l>
+						<l>kai/per *)aqanai/ai kataqu/mion e)/ssan e(tai/ran.</l>
+						<l n="70" rend="indent">dh/ poka ga\r pe/plwn lusome/na pero/nas</l>
+						<l>i(/ppw e)pi\ kra/nai *(elikwni/di kala\ r(eoi/sai</l>
+						<l rend="indent">lw=nto: mesambrina\ d' ei)=x' o)/ros a(suxi/a.</l>
+						<l>a)mfo/terai lw/onto, mesambrinai\ d' e)/san w(=rai,</l>
+						<l rend="indent">polla\ d' a(suxi/a th=no katei=xen o)/ros.
+							<milestone n="75" unit="card"/></l>
+						<l n="75">*teiresi/as d' e)/ti mw=nos a(ma= kusi\n a)/rti ge/neia</l>
+						<l rend="indent">perka/zwn i(ero\n xw=ron a)nestre/feto:</l>
+						<l>diya/sas d' a)/fato/n ti poti\ rr(o/on h)/luqe kra/nas,</l>
+						<l rend="indent">sxe/tlios: ou)k e)qe/lwn d' ei)=de ta\ mh\ qemita/:</l>
+						<l>to\n de\ xolwsame/na per o(/mws prose/fasen *)aqa/na</l>
+						<l n="80" rend="indent">'ti/s se, to\n o)fqalmw\s ou)ke/t' a)poiso/menon,</l>
+						<l>w)= *eu)hrei/da, xalepa\n o(do\n a)/gage dai/mwn;'</l>
+						<l rend="indent">a(\ me\n e)/fa, paido\s d' o)/mmata nu\c e)/laben.
+							<pb n="48"/></l>
+						<l>e(sta/kh d' a)/fqoggos, e)ko/llasan ga\r a)ni=ai</l>
+						<l rend="indent">gw/nata kai\ fwna\n e)/sxen a)mhxani/a.</l>
+						<l n="85">a( nu/mfa d' e)bo/ase 'ti/ moi to\n kw=ron e)/recas</l>
+						<l rend="indent">po/tnia; toiau=tai dai/mones e)ste) fi/lai;</l>
+						<l>o)/mmata/ moi tw= paido\s a)fei/leo. te/knon a)/laste</l>
+						<l rend="indent">ei)=des *)aqanai/as sth/qea kai\ lago/nas,</l>
+						<l>a)ll' ou)k a)e/lion pa/lin o)/yeai. w)= e)me\ deila/n,</l>
+						<l n="90" rend="indent">w)= o)/ros, w)= *(elikw\n ou)ke/ti moi parite/,</l>
+						<l>h)= mega/l' a)nt' o)li/gwn e)pra/cao: do/rkas o)le/ssas</l>
+						<l rend="indent">kai\ pro/kas ou) polla\s fa/ea paido\s e)/xeis.'</l>
+						<l>&dagger; a( me\n a)mfote/raisi fi/lon peri\ pai=da laboi=sa</l>
+						<l rend="indent">&dagger; ma/thr me\n goera=n oi)=ton a)hdoni/dwn</l>
+						<l n="95">a)=ge baru\ klai/oisa, qea\ d' e)le/hsen e(tai/ran</l>
+						<l rend="indent">kai/ nin *)aqanai/a pro\s to/d' e)/lecen e)/pos</l>
+						<l>'di=a gu/nai meta\ pa/nta baleu= pa/lin o(/ssa di' o)rga/n</l>
+						<l rend="indent">ei)=pas: e)gw\ d' ou)/ toi te/knon e)/qhk' a)lao/n.</l>
+						<l>ou) ga\r *)aqanai/ai glukero\n pe/lei o)/mmata pai/dwn</l>
+						<l n="100" rend="indent">a(rpa/zein: *kro/nioi d' w(=de le/gonti no/moi:</l>
+						<l>o(/s ke tin' a)qana/twn, o(/ka mh\ qeo\s au)to\s e(/lhtai,</l>
+						<l rend="indent">a)qrh/shi, misqw= tou=ton i)dei=n mega/lw.</l>
+						<l>di=a gu/nai, to\ me\n ou) palina/greton au)=qi ge/noito</l>
+						<l rend="indent">e)/rgon: e)pei\ moira=n w(=d' e)pe/nhse li/na,</l>
+						<l n="105">a(ni/ka to\ pra=to/n nin e)gei/nao: nu=n de\ komi/zeu,</l>
+						<l rend="indent">w)= *eu)hrei/da, te/lqos o)feilo/menon.</l>
+						<l>po/ssa me\n a( *kadmhi\s e)s u(/steron e)/mpura kausei=,</l>
+						<l rend="indent">po/ssa d' *)aristai=os, to\n mo/non eu)xo/menoi</l>
+						<l>pai=da, to\n a(bata\n *)aktai/ona, tuflo\n i)de/sqai.</l>
+						<l n="110" rend="indent">kai\ th=nos mega/las su/ndromos *)ate/midos</l>
+						<l>e)ssei=t': a)ll' ou)k au)to\n o(/ te dro/mos ai(/ t' e)n o)/ressi</l>
+						<l rend="indent">r(useu=ntai cunai\ ta=mos e(kaboli/ai,
+							<pb n="49"/></l>
+						<l>o(p po/ka kou)k e)qe/lwn per i)/dhi xari/enta loetra/</l>
+						<l n="115" rend="indent">dai/monos: a)ll' au)tai\ to\n pri\n a)/nakta ku/nes</l>
+						<l>touta/ki deipnhseu=nti: ta\ d' ui(e/os o)ste/a ma/thr</l>
+						<l rend="indent">lecei=tai drumw\s pa/ntas e)perxome/na:</l>
+						<l>o)lbi/stan e)re/ei se kai\ eu)ai/wna gene/sqai,</l>
+						<l rend="indent">e)c o)re/wn a)lao\n pai=d' a)podecame/nan.</l>
+						<l>w)= e(ta/ra, tw=i mh/ ti minu/reo: tw=ide ga\r a)/lla</l>
+						<l n="120" rend="indent">teu= xa/rin e)c e)me/qen polla\ meneu=nti ge/ra.</l>
+						<l>ma/ntin e)pei\ qhsw= nin a)oi/dimon e)ssome/noisin,</l>
+						<l rend="indent">h)= me/ga tw=n a)/llwn dh/ ti perisso/teron,</l>
+						<l>gnwsei=tai d' o)/rnixas, o(\s ai)/sios oi(/ te pe/tontai</l>
+						<l rend="indent">h)/liqa kai\ poi/wn ou)k a)gaqai\ pte/ruges.</l>
+						<l n="125">polla\ de\ *boiwtoi=si qeopro/pa, polla\ de\ *ka/dmwi</l>
+						<l rend="indent">xrhsei=, kai\ mega/lois u(/stera *labdaki/dais.</l>
+						<l>dwsw= kai\ me/ga ba/ktron, o(/ oi( po/das e)s de/on a)cei=,</l>
+						<l rend="indent">dwsw= kai\ bio/tw te/rma poluxro/nion.</l>
+						<l>kai\ mo/nos, eu)=te qa/nhi, pepnume/nos e)n neku/essi</l>
+						<l n="130" rend="indent">foitasei=, mega/lwi ti/mios *(agesi/lai.</l>
+						<l>w(\s fame/na kate/neuse: to\ d' e)ntele/s w(=i k' e)/pi neu/shi</l>
+						<l rend="indent">*palla/s, e)pei\ mw/nai *zeu\s to/ ge qugate/rwn</l>
+						<l>dw=ken *)aqanai/ai, patrw/ia pa/nta fe/resqai,</l>
+						<l rend="indent">lwtroxo/oi, ma/thr d' ou)/tis e)/tikte qea/n,</l>
+						<l n="135">a)lla\ *dio\s korufa/. korufa\ *dio\s ou)k e)pineu/ei</l>
+						<l rend="indent">yeu/dea                     ai quga/thr.</l>
+						<l>e)/rxet' *)aqanai/a nu=n a)treke/s: a)lla\ de/xesqe</l>
+						<l rend="indent">ta\n qeo/n, w)= kw=rai, tw)=rgon o(/sais me/letai,</l>
+						<l>su/n t' eu)agori/ai su/n t' eu)/gmasi su/n t' o)lolugai=s.</l>
+						<l n="140" rend="indent">xai=re qea/, ka/deu d' *)/argeos *)inaxi/w.</l>
+						<l>xai=re kai\ e)cela/oisa, kai\ e)s pa/lin au)=tis e)la/ssais</l>
+						<l rend="indent">i(/ppws, kai\ *danaw=n kla=ron a(/panta sa/w.
+							<pb/></l></div1>
+					<div1 type="poem" n="6">
+						<head>ei)s *dh/mhtra.</head>
+						<l>*tw= kala/qw katio/ntos e)pifqe/gcasqe gunai=kes</l>
+						<l>'*da/mater me/ga xai=re polu/trofe poulume/dimne'.</l>
+						<l>to\n ka/laqon katio/nta xamai\ qasei=sqe be/baloi,</l>
+						<l>mhd' a)po\ tw= te/geos mhd' u(yo/qen au)ga/sshsqe</l>
+						<l n="5">mh\ pai=s mhde\ guna\ mhd' a(\ katexeu/ato xai/tan,</l>
+						<l>mhd' o(/k' a)f' au(ale/wn stoma/twn ptu/wmes a)/pastoi.</l>
+						<l>*(/esperos e)k nefe/wn e)ske/yato &lpar;pani/ka nei=tai;&rpar;,</l>
+						<l>*(/esperos, o(/ste piei=n *dama/tera mw=nos e)/peisen,</l>
+						<l>a(rpagi/mas o(/k' a)/pusta mete/stixen i)/xnia kw/ras.</l>
+						<l n="10">po/tnia pw=s se du/nanto po/des fe/ren e)/st' e)pi\ duqma/s,</l>
+						<l>e)/st' e)pi\ tw\s me/lanas kai\ o(/pa ta\ xru/sea ma=la;</l>
+						<l>ou) pi/es ou)d' a)/r' e)/des th=non xro/non ou)de\ loe/ssa.</l>
+						<l>tri\s me\n dh\ die/bas *)axelw/ion a)rgurodi/nan,</l>
+						<l>tossa/ki d' a)ena/wn potamw=n e)pe/rasas e(/kaston,</l>
+						<l n="15">tri\s d' e)pi\ *kallixo/rwi xama/dis e)kaqi/ssao frhti/</l>
+						<l>au)stale/a a)/poto/s te kai\ ou) fa/ges ou)de\ loe/ssa.</l>
+						<l>mh\ mh\ tau=ta le/gwmes a(\ da/kruon a)/gage *dhoi=:</l>
+						<l>ka/llion, w(s poli/essin e(ado/ta te/qmia dw=ke:</l>
+						<l>ka/llion, w(s kala/man te kai\ i(era\ dra/gmata pra/ta</l>
+						<l n="20">a)staxu/wn a)pe/koye kai\ e)n bo/as h(=ke path=sai,</l>
+						<l>a(ni/ka *tripto/lemos a)gaqa\n e)dida/sketo te/xnan:</l>
+						<l>ka/llion, w(s &lpar;i(/na kai/ tis u(perbasi/as a)le/htai&rpar;
+							<pb n="51"/></l>
+						<l>p <gap/> i)de/sqai</l>
+						<l rend="indent">*ou)/pw ta\n *knidi/an, e)/ti *dw/tion i(ro\n e)/naion,</l>
+						<l n="25">tei= d' au)ta=i kalo\n a)/lsos e)poih/santo *pelasgoi/</l>
+						<l>de/ndresin a)mfilafe/s: dia/ ken mo/lis h)=nqen o)isto/s:</l>
+						<l>e)n pi/tus, e)n mega/lai ptele/ai e)/san, e)n de\ kai\ o)/xnai,</l>
+						<l>e)n de\ kala\ gluku/mala: to\ d' w(/st' a)le/ktrinon u(/dwr</l>
+						<l>e)c a)mara=n a)ne/que. qea\ d' e)pemai/neto xw/rwi</l>
+						<l n="30">o(/sson *)eleusi=ni, *trio/pai q' o(/son o(kko/son *)/ennai.</l>
+						<l>a)ll' o(/ka *triopi/daisin o( decio\s a)/xqeto dai/mwn,</l>
+						<l>touta/kis a( xei/rwn *)erusi/xqonos a(/yato bwla/:</l>
+						<l>seu/at' e)/xwn qera/pontas e)ei/kosi, pa/ntas e)n a)kma=i,</l>
+						<l>pa/ntas d' a)ndrogi/gantas o(/lan po/lin a)rki/os a)=rai,</l>
+						<l n="35">a)mfo/teron pele/kessi kai\ a)ci/naisin o(pli/ssas</l>
+						<l>e)s de\ to\ ta=s *da/matros a)naide/es e)/dramon a)/lsos.</l>
+						<l>h)=s de/ tis ai)/geiros, me/ga de/ndreon ai)qe/ri ku=ron,</l>
+						<l>tw=i e)/pi tai\ nu/mfai poti\ tw)/ndion e(yio/wnto,</l>
+						<l>a(\ pra/ta plagei=sa kako\n me/los i)/axen a)/llais.</l>
+						<l n="40">a)/isqeto *dama/thr o(/ti oi( cu/lon i(ero\n a)/lgei,</l>
+						<l>ei)=pe de\ xwsame/na 'ti/s moi kala\ de/ndrea ko/ptei;'</l>
+						<l>au)ti/ka *niki/ppai, ta\n oi( po/lis a)ra/teiran</l>
+						<l>damosi/an e)/stasan, e)ei/sato, ge/nto de\ xeiri/</l>
+						<l>ste/mmata kai\ ma/kwna, katwmadi/an d' e)/xe klai=da.</l>
+						<l n="45">fa= de\ parayu/xoisa kako\n kai\ a)naide/a fw=ta</l>
+						<l>'te/knon, o(/tis ta\ qeoi=sin a)neime/na de/ndrea ko/pteis,</l>
+						<l>te/knon e)li/nuson, te/knon polu/qeste tokeu=si,</l>
+						<l>pau/eo kai\ qera/pontas a)po/trepe, mh/ ti xalefqh=i</l>
+						<l>po/tnia *dama/thr, ta=s i(ero\n e)kkerai+/zeis'.</l>
+						<l n="50">ta\n d' a)/r' u(poble/yas xalepw/teron h)e\ kunago\n</l>
+						<l>w)/resin e)n *tmari/oisin u(poble/pei a)/ndra le/aina</l>
+						<l>w)moto/kos, ta=s fanti\ pe/lein blosurw/taton o)/mma,</l>
+						<l>'xa/zeu' e)/fa 'mh/ toi pe/lekun me/gan e)n xroi+\ pacw=.
+							<pb n="52"/></l>
+						<l>tau=ta d' e)mo\n qhsei= stegano\n do/mon, w(=i e)/ni dai=tas</l>
+						<l n="55">ai)e\n e)moi=s e(ta/roisin a)/dhn qumare/as a)cw=.'</l>
+						<l>ei(=pen o( pai=s, *ne/mesis de\ kaka\n e)gra/yato fwna/n.</l>
+						<l>*dama/thr d' a)/fato/n ti kote/ssato, ei)/sato d' a( qeu/s:</l>
+						<l>i)/qmata me\n xe/rsw, kefala\ de/ oi( a(/yat' *)olu/mpw.</l>
+						<l>oi(\ me\n a)/r' h(miqnh=tes, e)pei\ ta\n po/tnian ei)=don,</l>
+						<l n="60">e)capi/nas a)po/rousan e)ni\ drusi\ xalko\n a)fe/ntes.</l>
+						<l>a(\ d' a)/llws me\n e)/asen, a)nagkai/ai ga\r e(/ponto</l>
+						<l>despotika\n u(po\ xei=ra, baru\n d' a)pamei/yat' a)/nakta</l>
+						<l>'nai\ nai/, teu/xeo dw=ma ku/on ku/on w(=i e)/ni dai=tas</l>
+						<l>poihsei=s: qaminai\ ga\r e)s u(/steron ei)lapi/nai toi.'</l>
+						<l n="65">a(\ me\n to/ss' ei)poi=s' *)erusi/xqoni teu=xe ponhra/.
+							<milestone n="66" unit="card"/></l>
+						<l>au)ti/ka oi( xalepo/n te kai\ a)/grion e)/mbale limo/n</l>
+						<l>ai)/qwna kratero/n, mega/lai d' e)streu/geto nou/swi.</l>
+						<l>sxe/tlios, o(/ssa pa/saito to/swn e)/xen i(/meros au)=tis.</l>
+						<l>ei)/kati dai=ta pe/nonto, duw/deka d' oi)=non a)/fusson:</l>
+						<l n="70">to/ssa *diw/nuson ga\r a(\ kai\ *da/matra xale/ptei:</l>
+						<l>&dagger; kai\ ga\r ta=i *da/matri sunwrgi/sqh *dio/nusos.</l>
+						<l>ou)/te nin ei)s e)ra/nws ou)/te cundei/pnia pe/mpon</l>
+						<l>ai)do/menoi gone/es, proxana\ d' eu(ri/sketo pa=sa.</l>
+						<l>h)=nqon *)itwnia/dos nin *)aqanai/as e)p' a)/eqla</l>
+						<l n="75">*)ormeni/dai kale/ontes: a)p' w)=n a)rnh/sato ma/thr</l>
+						<l>'ou)k e)/ndoi, xqizo\s ga\r e)pi\ *krannw=na be/bake</l>
+						<l>te/lqos a)paithsw=n e(kato\n bo/as'. h)=nqe *polucw/,</l>
+						<l>ma/thr *)aktori/wnos, e)pei\ ga/mon a)/rtue paidi/,</l>
+						<l>a)mfo/teron *trio/pan te kai\ ui(e/a kiklh/skoisa.</l>
+						<l n="80">ta\n de\ guna\ baru/qumos a)mei/beto da/kru xe/oisa</l>
+						<l>'nei=tai/ toi *trio/pas, *)erusi/xqona d' h)/lase ka/pros</l>
+						<l>*pi/ndon a)n' eu)a/gkeian, d d' e)nne/a fa/ea kei=tai'.</l>
+						<l>deilai/a filo/tekne, ti/ d' ou)k e)yeu/sao, ma=ter;</l>
+						<l>dai/nuen ei)lapi/nan tis: 'e)n a)llotri/ois *)erusi/xqwn'.</l>
+						<l n="85">a)/geto/ tis nu/mfan: '*)erusi/xqona di/skos e)/tuyen,'
+							<pb n="53"/></l>
+						<l>h)\ 'e)/pes' e)c i(/ppwn', h)\ 'e)n *)/oqrui+ poi/mni' a)miqrei='.</l>
+						<l>e)ndo/muxos dh)/peita pana/meros ei)lapinasta/s</l>
+						<l>h)/sqie muri/a pa/nta: kaka\ d' e)ca/lleto gasth/r</l>
+						<l>ai)ei\ ma=llon e)/donti, ta\ d' e)s buqo\n oi(=a qala/ssas</l>
+						<l n="90">a)lema/tws a)xa/rista kate/rreen ei)/data pa/nta.</l>
+						<l>w(s de\ *mi/manti xiw/n, w(s a)eli/wi e)/ni plaggw/n,</l>
+						<l>kai\ tou/twn &dagger; e)/ti mei=zon e)ta/keto me/sf' e)pi\ neura/s:</l>
+						<l>deilai/wi i)=ne/s te kai\ o)ste/a mw=non e)/leifqen.</l>
+						<l>klai=e me\n a( ma/thr, baru\ d' e)/stenon ai( du/' a)delfai/</l>
+						<l n="95">xw( masto\s to\n e)/pwne kai\ ai( de/ka polla/ki dw=lai.</l>
+						<l>kai\ d' au)to\s *trio/pas poliai=s e)pi\ xei=ras e)/balle,</l>
+						<l>toi=a to\n ou)k a)i/onta *poseida/wna kalistre/wn:</l>
+						<l>'yeudopa/twr i)de\ to/nde teou= tri/ton, ei)/per e)gw\ me/n</l>
+						<l>seu= te kai\ *ai)oli/dos *kana/kas ge/nos, au)ta\r e)mei=o</l>
+						<l n="100">tou=to to\ dei/laion ge/neto bre/fos: ai)/qe ga\r au)to/n</l>
+						<l>blhto\n u(p' *)apo/llwnos e)mai\ xe/res e)ktere/ican:</l>
+						<l>nu=n de\ kaka\ bou/brwstis e)n o)fqalmoi=si ka/qhtai.</l>
+						<l>h)/ oi( a)po/stason xalepa\n no/son h)e/ nin au)to/s</l>
+						<l>bo/ske labw/n: a(mai\ ga\r a)peirh/kanti tra/pezai.</l>
+						<l n="105">xh=rai me\n ma/ndrai, keneai\ de/ moi au)/lies h)/dh</l>
+						<l>tetrapo/dwn, h)/dh ga\r a)parnh/santo ma/geiroi.'</l>
+						<l>a)lla\ kai\ ou)rh=as megala=n u(pe/lusan a(maca=n,</l>
+						<l>kai\ ta\n bw=n e)/fagen, ta\n *(esti/ai e)/trefe ma/thr,</l>
+						<l>kai\ to\n a)eqlofo/ron kai\ to\n polemh/ion i(/ppon,</l>
+						<l n="110">kai\ ta\n ai)/louron, ta\n e)/treme qhri/a mikka/.</l>
+						<l>me/sf' o(/ka me\n *trio/pao do/mois e)/ni xrh/mata kei=to,</l>
+						<l>mw=noi a)/r' oi)kei=oi qa/lamoi kako\n h)pi/stanto.</l>
+						<l>a)ll' o(/ka to\n baqu\n oi)=kon a)nech/ranan o)do/ntes,</l>
+						<l>kai\ to/x' o( tw= basilh=os e)ni\ trio/doisi kaqh=sto</l>
+						<l n="115">ai)ti/zwn a)ko/lws te kai\ e)/kbola lu/mata daito/s.</l>
+						<l>*da/mater, mh\ th=nos e)mi\n fi/los, o(/s toi a)pexqh/s,</l>
+						<l>ei)/h mhd' o(mo/toixos: e)moi\ kakogei/tones e)xqroi/.
+							<pb n="54"/></l>
+						<l rend="indent">a)/isate parqenikai/, kai\ e)pifqe/gcasqe tekoi=sai</l>
+						<l>*(da/mater me/ga xai=re polu/trofe poulume/dimne'.</l>
+						<l n="120">xw)s ai( to\n ka/laqon leuko/trixes i(/ppoi a)/gonti</l>
+						<l>te/ssares, w(\s a(mi\n mega/la qeo\s eu)rua/nassa</l>
+						<l>leuko\n e)/ar, leuko\n de\ qe/ros kai\ xei=ma fe/roisa</l>
+						<l>h(cei= kai\ fqino/pwron, e)/tos d' ei)s a)/llo fulacei=.</l>
+						<l>w(s d' a)pedi/lwtoi kai\ a)na/mpukes a)/stu pateu=mes,</l>
+						<l n="125">w(\s po/das, w(\s kefala\s panaphre/as e(/comes ai)ei/.</l>
+						<l>w(s d' ai( liknofo/roi xrusw= ple/a li/kna fe/ronti,</l>
+						<l>w(\s a(me\s to\n xruso\n a)feide/a pasai/mesqa.</l>
+						<l>me/sfa ta\ ta=s po/lios prutanh/ia ta\s a)tele/stws,</l>
+						<l>ta\s de\ telesfore/as poti\ ta\n qeo\n a)/xris o(martei=n,</l>
+						<l n="130">ai(/tines e(ch/konta katw/terai: ai( de\ barei=ai</l>
+						<l>xa)/tis *)eleiqui/ai tei/nei xe/ra xa)/tis e)n a)/lgei,</l>
+						<l>w(\s a(/lis, w(s au)ta=n i(kano\n go/nu: tai=si de\ *dhw/</l>
+						<l>dwsei= pa/nt' e)pi/mesta kai\ w(s poti\ nao\n i(/kwntai.</l>
+						<l rend="indent">xai=re qea\ kai\ ta/nde sa/w po/lin e)/n q' o(monoi/ai</l>
+						<l n="135">e)/n t' eu)hpeli/ai, fe/re d' a)gro/qi no/stima pa/nta:</l>
+						<l>fe/rbe bo/as, fe/re ma=la, fe/re sta/xun, oi)=se qerismo/n,</l>
+						<l>fe/rbe kai\ ei)ra/nan, i(/n' o(\s a)/rose th=nos a)ma/shi.</l>
+						<l>i(/laqi/ moi tri/lliste me/ga krei/oisa qea/wn.
+							<pb n="55"/></l></div1>
+				</body>
+			</text>
+			
+			<text lang="greek" n="epigrams">
+				<body>
+					<head>*epigra/mmata.</head>
+					<div1 type="poem" n="1">
+						<l>*cei=nos *)atarnei/ths tis a)nh/reto *pittako\n ou(/tw</l>
+						<l rend="indent">to\n *mutilhnai=on, pai=da to\n *(urra/dion:</l>
+						<l>'a)/tta ge/ron, doio/s me kalei= ga/mos: h( mi/a me\n dh/</l>
+						<l rend="indent">nu/mfh kai\ plou/twi kai\ geneh=i kat' e)me/,</l>
+						<l n="5">h( d' e(te/rh probe/bhke: ti/ lw/ion; ei) d' a)/ge su/m moi</l>
+						<l rend="indent">bou/leuson, pote/rhn ei)s u(me/naion a)/gw.'</l>
+						<l>ei)=pen: o( de\ ski/pwna, gerontiko\n o(/plon, a)ei/ras,</l>
+						<l rend="indent">'h)ni/de, kei=noi/ toi pa=n e)re/ousin e)/pos.'</l>
+						<l>oi(\ d' a)/r' u(po\ plhgh=isi qoa\s be/mbikas e)/xontes</l>
+						<l n="10" rend="indent">e)/strefon eu)rei/hi pai=des e)ni\ trio/dwi.</l>
+						<l>'kei/nwn e)/rxeo' fhsi\ 'met' i)/xnia'. xw) me\n e)pe/sth</l>
+						<l rend="indent">plhsi/on: oi(\ d' e)/legon: 'th\n kata\ sauto\n e)/la'.</l>
+						<l>tau=t' a)i/wn d( cei=nos e)\fei/sato mei/zonos oi)/kou</l>
+						<l rend="indent">dra/casqai pai/dwn klhdo/ni sunqe/menos.</l>
+						<l n="15">th\n d' o)li/ghn w(s kei=nos e)s oi)ki/on h)/geto nu/mfhn,</l>
+						<l rend="indent">ou(/tw kai\ su/, *di/wn, th\n kata\ sauto\n e)/la.</l></div1>
+					<div1 type="poem" n="2">
+						<l>*ei)=pe/ tis *(hra/kleite teo\n mo/ron, e)s de/ me da/kru</l>
+						<l rend="indent">h)/gagen, e)mnh/sqhn d' o(ssa/kis a)mfo/teroi</l>
+						<l>h(/lion e)n le/sxhi katedu/samen: a)l\la\ su\ me/n pou</l>
+						<l rend="indent">cei=n' '*alikarnhseu= tetra/palai spodih/:</l>
+						<l n="5">ai( de\ teai\ zw/ousin a)hdo/nes, h(=isin o( pa/ntwn</l>
+						<l rend="indent">a(rpakth\s *)ai/dhs ou)k e)pi\ xei=ra balei=.
+							<pb n="56"/></l></div1>
+					<div1 type="poem" n="4">
+						<l>*ti/mwn, ou) ga\r e)/t' e)ssi/, ti/ toi, sko/tos h)\ fa/os e)xqro/n;</l>
+						<l rend="indent">'to\ sko/tos: u(me/wn ga\r plei/ones ei)n *)ai/dhi'.</l></div1>
+					<div1 type="poem" n="5">
+						<l>*ko/gxos e)gw\ *zefuri=ti pa/lai te/ras: a)lla\ su\ nu=n me</l>
+						<l rend="indent">*ku/pri *selhnai/hs a)/nqema prw=ton e)/xeis,</l>
+						<l>nauti/los o(\s pela/gessin e)pe/pleon, ei) me\n a)h=tai,</l>
+						<l rend="indent">tei/nas oi)kei/wn lai=fos a)po\ proto/nwn,</l>
+						<l n="5">ei) de\ *galhnai/h, liparh\ qeo/s, ou)=los e)re/sswn</l>
+						<l rend="indent">possi/ nin, w(/st' e)/rgwi tou)/noma sumfe/retai,</l>
+						<l>e)/st' e)/peson para\ qi=nas *)iouli/das, o)/fra ge/nwmai</l>
+						<l rend="indent">soi\ to\ peri/skepton pai/gnion, *)arsino/h,</l>
+						<l>mhde/ moi e)n qala/mhisin e)/q' w(s pa/ros, ei)mi\ ga\r a)/pnous,</l>
+						<l n="10" rend="indent">ti/kthtai noterh=is' w)/eon a(lkuoni/s.</l>
+						<l>*kleini/ou a)lla\ qugatri\ di/dou xa/rin, oi)=de ga\r e)sqla/</l>
+						<l rend="indent">r(e/zein kai\ *smu/rnhs e)sti\n a)p' *ai)oli/dos.</l></div1>
+					<div1 type="poem" n="6">
+						<l>*tou= *sami/ou po/nos ei)mi\ do/mwi pote\ qei=on a)oido/n:</l>
+						<l rend="indent">decame/nou, klei/w d' *eu)/ruton, o(/ss' e)/paqen,</l>
+						<l>kai\ canqh\n *)io/leian, *(omh/reion de\ kaleu=mai</l>
+						<l rend="indent">gra/mma: *krewfu/lwi, *zeu= fi/le, tou=to me/ga.</l></div1>
+					<div1 type="poem" n="7">
+						<l>*)=hlqe *qeai/thtos kaqarh\n o(do/n. ei) d' e)pi\ kisso/n</l>
+						<l rend="indent">to\n teo\n ou)x au(/th, *ba/kxe, ke/leuqos a)/gei:</l>
+						<l>a)/llwn me\n kh/rukes e)pi\ braxu\n ou)/noma kairo/n</l>
+						<l rend="indent">fqe/gcontai, kei/nou d' *(ella\s a)ei\ sofi/hn.
+							<pb n="57"/></l></div1>
+					<div1 type="poem" n="8">
+						<l>*mikrh/ tis *dio/nuse kala\ prh/ssonti poihth=i</l>
+						<l rend="indent">r(h=sis: o(\ me\n 'nikw=' fhsi\ to\ makro/taton,</l>
+						<l>w(=i de\ su\ mh\ pneu/shis e)pide/cios, h)/n tis e)/rhtai</l>
+						<l rend="indent">'pw=s e)/bales'; fhsi/ 'sklhra\ ta\ gigno/mena'.</l>
+						<l n="5">tw=i mermhri/canti ta\ mh\)/ ndika tou=to ge/noito</l>
+						<l rend="indent">tou)=pos: e)moi\ d', w)=nac, h( braxusullabi/h.</l></div1>
+					<div1 type="poem" n="9">
+						<l>*th=ide *sa/wn o( *di/kwnos *)aka/nqios i(ero\n u(/pnon</l>
+						<l rend="indent">koima=tai: qnh/iskein mh\ le/ge tou\s a)gaqou/s.</l></div1>
+					<div1 type="poem" n="10">
+						<l>*(hn di/zhi *ti/marxon e)n *)/aidos, o)/fra pu/qhai</l>
+						<l rend="indent">h)/ ti peri\ yuxh=s h)\ pa/li pw=s e)/seai,</l>
+						<l>di/zhsqai fulh=s *ptolemai/dos ui(e/a patro/s</l>
+						<l rend="indent">*pausani/ou: dh/eis d' au)to\n e)n eu)sebe/wn.</l></div1>
+					<div1 type="poem" n="11">
+						<l>*su/ntomos h)=n o( cei=nos, o(\ kai\ sti/xos ou) makra\ le/cwn</l>
+						<l rend="indent">'*qh=ris *)aristai/ou *krh/s' e)p' e)moi\ dolixo/s.</l></div1>
+					<div1 type="poem" n="12">
+						<l>*ku/zikon h)\n e)/lqhis, o)li/gos po/nos *(ippako\n eu(rei=n</l>
+						<l rend="indent">kai\ *didu/mhn: a)fanh\s ou)/ ti ga\r h( geneh/.</l>
+						<l>kai/ sfin a)nihro\n me\n e)rei=s e)/pos, e)/mpa de\ le/cai</l>
+						<l rend="indent">tou=q', o(/ti to\n kei/nwn w(=d' e)pe/xw *kriti/hn.</l></div1>
+					<div1 type="poem" n="13">
+						<l>'*h r(' u(po\ soi\ *xari/das a)napau/etai; 'ei) to\n *)ari/mma</l>
+						<l rend="indent">tou= *kurhnai/ou pai=da le/geis, u(p' e)moi/.'
+							<pb n="58"/></l>
+						<l>w)= *xari/da, ti/ ta\ ne/rqe; 'polu\ sko/tos'. ai( d' a)/nodoi ti/;</l>
+						<l rend="indent">'yeu=dos'. o( de\ *plou/twn; 'mu=qos'. a)pwlo/meqa.</l>
+						<l n="5">'ou(=tos e)mo\s lo/gos u)/mmin a)lhqino/s: ei) de\ to\n h(du/n</l>
+						<l rend="indent">bou/lei, *pellai/ou bou=s me/gas ei)n *)ai/dhi.</l></div1>
+					<div1 type="poem" n="14">
+						<l>*dai/mona ti/s d' eu)= oi)=de to\n *au)/rion; a(ni/ka kai\ de/</l>
+						<l rend="indent">*xa/rmi to\n o)fqalmoi=s xqizo\n e)n a(mete/rois</l>
+						<l>ta=i e(te/rai klau/santes e)qa/ptomen: ou)de\n e)kei/nou</l>
+						<l rend="indent">ei)=de path\r *diofw=n xrh=m' a)niaro/teron.</l></div1>
+					<div1 type="poem" n="15">
+						<l>'*timono/h.' ti/s d' e)ssi/; ma\ dai/monas, ou)/ s' a)\n e)pe/gnwn,</l>
+						<l rend="indent">ei) mh\ *timoqe/ou patro\s e)ph=n o)/noma</l>
+						<l>sth/lhi kai\ *mh/qumna, teh\ po/lis. h)= me/ga fhmi/</l>
+						<l rend="indent">xh=ron a)nia=sqai so\n po/sin *eu)qume/nh.</l></div1>
+					<div1 type="poem" n="16">
+						<l>*krhqi/da th\n polu/muqon e)pistame/nhn kala\ pai/zein</l>
+						<l rend="indent">di/zhntai *sami/wn polla/ki qugate/res,</l>
+						<l>h(di/sthn sune/riqon a)ei\ la/lon: h(\ d' a)pobri/zei</l>
+						<l rend="indent">e)nqa/de to\n pa/sais u(/pnon o)feilo/menon.</l></div1>
+					<div1 type="poem" n="17">
+						<l>*)/wfele mhd' e)ge/nonto qoai\ ne/es: ou) ga\r a)\n h(mei=s</l>
+						<l rend="indent">pai=da *dioklei/dou *sw/polin e)ste/nomen.</l>
+						<l>nu=n d' o(\ me\n ei)n a(li/ pou fe/retai ne/kus, a)nti\ d' e)kei/nou</l>
+						<l rend="indent">ou)/noma kai\ keneo\n sh=ma parerxo/meqa.</l></div1>
+					<div1 type="poem" n="18">
+						<l>*na/cios ou)k e)pi\ gh=s e)/qanen *lu/kos, a)ll' e)ni\ po/ntwi</l>
+						<l rend="indent">nau=n a(/ma kai\ yuxh\n ei)=den a)pollume/nhn,
+							<pb n="59"/></l>
+						<l>e)/mporos *ai)gi/nhqen o(/t' e)/plee. xw)\ me\n e)n u(grh=i</l>
+						<l rend="indent">nekro/s, e)gw\ d' a)/llws ou)/noma tu/mbos e)/xwn</l>
+						<l n="5">khru/ssw pana/lhqes e)/pos to/de 'feu=ge qala/sshi</l>
+						<l rend="indent">summi/sgein e)ri/fwn nauti/le duome/nwn'.</l></div1>
+					<div1 type="poem" n="19">
+						<l>*dwdeke/th to\n pai=da path\r a)pe/qhke *fi/lippos</l>
+						<l rend="indent">e)nqa/de th\n pollh\n e)lpi/da *nikote/lhn.</l></div1>
+					<div1 type="poem" n="20">
+						<l>*)hw=ioi *mela/nippon e)qa/ptomen, h)eli/ou de/</l>
+						<l rend="indent">duome/nou *basilw\ ka/tqane parqenikh/</l>
+						<l>au)toxeri/: zw/ein ga\r a)delfeo\n e)n puri\ qei=sa</l>
+						<l rend="indent">ou)k e)/tlh. di/dumon d' oi)=kos e)pei=de kako/n</l>
+						<l n="5">patro\s *)aristi/ppoio, kath/fhsen de\ *kurh/nh</l>
+						<l rend="indent">pa=sa to\n eu)/teknon xh=ron i)dou=sa do/mon.</l></div1>
+					<div1 type="poem" n="21">
+						<l>*/ostis e)mo\n para\ sh=ma fe/reis po/da, *kallima/xou me</l>
+						<l rend="indent">i)/sqi *kurhnai/ou pai=da/ te kai\ geneth/n.</l>
+						<l>ei)dei/hs d' a)/mfw ken: o(\ me/n kote patri/dos o(/plwn</l>
+						<l rend="indent">h)=rcen, o(\ d' h)/eisen kre/ssona baskani/hs:</l>
+						<l n="5">ou) ne/mesis: *mou=sai ga\r o(/sous i)/don o)/mmati pai=das</l>
+						<l rend="indent">mh\ locw=i, poliou\s ou)k a)pe/qento fi/lous.</l>
+						<l>* * *</l></div1>
+					<div1 type="poem" n="22">
+						<l>*)astaki/dhn to\n *krh=ta to\n ai)po/lon h(/rpase *nu/mfh</l>
+						<l rend="indent">e)c o)/reos, kai\ nu=n i(ero\s *)astaki/dhs.</l>
+						<l>ou)ke/ti *diktai/hisin u(po\ drusi/n, ou)ke/ti *da/fnin</l>
+						<l rend="indent">poime/nes, *)astaki/dhn d' ai)e\n a)eiso/meqa.
+							<pb n="60"/></l></div1>
+					<div1 type="poem" n="23">
+						<l>*ei)/pas '*(/hlie xai=re' *kleo/mbrotos *(wmbrakiw/ths</l>
+						<l rend="indent">h(/lat' a)f' u(yhlou= tei/xeos ei)s *)ai/dhn,</l>
+						<l>a)/cion ou)de\n i)dw\n qana/tou kako/n, a)lla\ *pla/twnos</l>
+						<l rend="indent">e(\n to\ peri\ yuxh=s gra/mm' a)naleca/menos.</l></div1>
+					<div1 type="poem" n="24">
+						<l>*/hrws *ai)eti/wnos e)pi/staqmos *)amfipoli/tew</l>
+						<l rend="indent">i(/drumai mikrw=i mikro\s e)pi\ proqu/rwi</l>
+						<l>loco\n o)/fin kai\ mou=non e)/xwn ci/fos: a)ndri\ &dagger; ipeiwi</l>
+						<l rend="indent">qumwqei\s pezo\n ka)me\ parwiki/sato.</l></div1>
+					<div1 type="poem" n="25">
+						<l>*)/wmose *kalli/gnwtos *)iwni/di mh/pot' e)kei/nhs</l>
+						<l rend="indent">e(/cein mh/te fi/lon kre/ssona mh/te fi/lhn.</l>
+						<l>w)/mosen: a)lla\ le/gousin a)lhqe/a tou\s e)n e)/rwti</l>
+						<l rend="indent">o(/rkous mh\ du/nein ou)/at' e)s a)qana/twn.</l>
+						<l n="5">nu=n d' o(\ me\n a)rsenikw=i qe/retai puri/: th=s de\ talai/nhs</l>
+						<l rend="indent">nu/mfhs w(s *megare/wn ou) lo/gos ou)d' a)riqmo/s.</l></div1>
+					<div1 type="poem" n="26">
+						<l>*ei)=xon a)po\ smikrw=n o)li/gon bi/on ou)/te ti deino/n</l>
+						<l rend="indent">r(e/zwn ou)/t' a)dike/wn ou)de/na. *gai=a fi/lh,</l>
+						<l>*miku/los ei)/ ti ponhro\n e)ph/inesa, mh/te su\ kou/fh</l>
+						<l rend="indent">gi/neo mh/q' i(/lew dai/mones oi(/ m' e)/xete.</l></div1>
+					<div1 type="poem" n="27">
+						<l>*(hsio/dou to/ t' a)/eisma kai\ o( tro/pos: ou) to\n a)oido/n</l>
+						<l rend="indent">e)/sxaton, a)ll' o)kne/w mh\ to\ melixro/taton
+							<pb n="61"/></l>
+						<l>tw=n e)pe/wn o( *soleu\s a)pema/cato: xai/rete leptai/</l>
+						<l rend="indent">r(h/sies, *)arh/tou su/mbolon a)grupni/hs.</l></div1>
+					<div1 type="poem" n="28">
+						<l>*)exqai/rw to\ poi/hma to\ kukliko/n, ou)de\ keleu/qwi</l>
+						<l rend="indent">xai/rw ti/s pollou\s w(=de kai\ w(=de fe/rei,</l>
+						<l>mise/w kai\ peri/foiton e)rw/menon, ou)d' a)po\ krh/nhs</l>
+						<l rend="indent">pi/nw: sikxai/nw pa/nta ta\ dhmo/sia.</l>
+						<l n="5">*lusani/h su\ de\ naixi\ kalo\s kalo/s &mdash; a)lla\ pri\n ei)pei=n</l>
+						<l rend="indent">tou=to safw=s, *)hxw/ fhsi/ tis 'a)/llos e)/xei'.</l></div1>
+					<div1 type="poem" n="29">
+						<l>*)/egxei kai\ pa/lin ei)pe\ '*diokle/os'. ou)d' *)axelw=ios</l>
+						<l rend="indent">kei/nou tw=n i(erw=n ai)sqa/netai kua/qwn.</l>
+						<l>kalo\s o( pai=s *)axelw=ie li/hn kalo/s, ei) de/ tis ou)xi/</l>
+						<l rend="indent">fhsi/n &mdash; e)pistai/mhn mou=nos e)gw\ ta\ kala/.</l></div1>
+					<div1 type="poem" n="30">
+						<l>*qessalike\ *kleo/nike ta/lan, ta/lan, ou) ma\ to\n o)cu/n</l>
+						<l rend="indent">h(/lion, ou)k e)/gnwn: sxe/tlie pou= ge/gonas;</l>
+						<l>o)ste/a soi\ kai\ mou=non e)/ti tri/xes: h)= r(a/ se dai/mwn</l>
+						<l rend="indent">ou(mo\s e)/xei, xaleph=i d' h)/nteo qeumori/hi;</l>
+						<l n="5">e)/gnwn\: *eu)ci/qeo/s se sunh/rpase, kai\ su\ ga\r e)lqw/n</l>
+						<l rend="indent">to\n kalo/n, w)= moxqh/r', e)/blepes a)mfote/rois.</l></div1>
+					<div1 type="poem" n="31">
+						<l>*(wgreuth\s *)epi/kudes e)n ou)/resi pa/nta lagwo/n</l>
+						<l rend="indent">difa=i kai\ pa/shs i)/xnia dorkali/dos</l>
+						<l>stei/bhi kai\ nifetw=i kexarhme/nos, h)\n de/ tis ei)/phi</l>
+						<l rend="indent">'th=, to/de be/blhtai qhri/on' ou)k e)/laben.
+							<pb n="62"/></l>
+						<l>xou)mo\s e)/rws toio/sde: ta\ ga\r feu/gonta diw/kein</l>
+						<l rend="indent">oi)=de, ta\ d' e)n me/sswi kei/mena parpe/tetai.</l></div1>
+					<div1 type="poem" n="32">
+						<l>*oi)=d' o(/ti mou plou/tou keneai\ xe/res, a)lla\ *me/nippe</l>
+						<l rend="indent">mh\ le/ge pro\s *xari/twn tou)mo\n o)/neiron e)moi/.</l>
+						<l>a)lge/w th\n dia\ panto\s e)/pos to/de pikro\n a)kou/wn:</l>
+						<l rend="indent">nai\ fi/le, tw=n para\ sou= tou=t' a)nerasto/taton.</l></div1>
+					<div1 type="poem" n="33">
+						<l>*)/artemi ti\n to/d' a)/galma *filhrati\s ei(/sato th=ide:</l>
+						<l rend="indent">a)lla\ su\ me\n de/cai po/tnia, th\n de\ sa/w.</l></div1>
+					<div1 type="poem" n="34">
+						<l>*ti/n me leonta/gx' w)=na suokto/ne fh/ginon o)/zon</l>
+						<l rend="indent">qh=ke 'ti/s'; *)arxi=nos 'poi=os'; o( *krh/s 'de/xomai'.</l></div1>
+					<div1 type="poem" n="35">
+						<l>*battia/dew para\ sh=ma fe/reis po/das eu)= me\n a)oidh/n</l>
+						<l rend="indent">ei)do/tos, eu)= d' oi)/nwi kai/ria suggela/sai.</l></div1>
+					<div1 type="poem" n="37">
+						<l rend="indent">*(o *lu/ktios *menoi/tas</l>
+						<l rend="indent">ta\ to/ca tau=t' e)peipw/n</l>
+						<l rend="indent">e)/qhke 'th=, ke/ras toi</l>
+						<l rend="indent">di/dwmi kai\ fare/trhn</l>
+						<l rend="indent">*sa/rapi: tou\s d' o)istou/s</l>
+						<l rend="indent">e)/xousin '*esperi=tai'.
+							<pb n="63"/></l></div1>
+					<div1 type="poem" n="38">
+						<l rend="indent">*ta\ dw=ra ta)frodi/thi</l>
+						<l>*si=mon h( peri/foitos, ei)ko/n' au(th=s,</l>
+						<l rend="indent">e)/qhke, th/n te mi/trhn</l>
+						<l>&dagger; h(ma=s tou\s e)fi/lhse to/n te pa=na</l>
+						<l n="5" rend="indent">&dagger; kai\ tou\s au)tou\s o(rh=i ta/laina qa/rsous.</l></div1>
+					<div1 type="poem" n="39">
+						<l rend="indent">*dh/mhtri th=i *pulai/hi,</l>
+						<l rend="indent">th=i tou=ton ou(k *pelasgw=n</l>
+						<l>*)akri/sios to\n nho\n e)dei/mato, tau=q' o( *naukrati/ths</l>
+						<l rend="indent">kai\ th=i ka/tw qugatri/</l>
+						<l n="5" rend="indent">ta\ dw=ra *timo/dhmos</l>
+						<l>ei(/sato tw=n kerde/wn dekateu/mata: kai\ ga\r eu)/caq' ou(/tws.</l></div1>
+					<div1 type="poem" n="40">
+						<l>*(iere/h *dh/mhtros e)gw/ pote kai\ pa/lin *kabei/rwn,</l>
+						<l rend="indent">w)=ner, kai\ mete/peita *dindumh/nhs</l>
+						<l>h( grh=us geno/mhn, h( nu=n ko/nis, h( *no . . . . .</l>
+						<l rend="indent">pollw=n prostasi/h ne/wn gunaikw=n.</l>
+						<l n="5">kai/ moi te/xn' e)ge/nonto du/' a)/rsena, kh)pe/mus' e)kei/nwn</l>
+						<l rend="indent">eu)gh/rws e)ni\ xersi/n: e(/rpe xai/rwn.</l></div1>
+					<div1 type="poem" n="41">
+						<l>*(/hmisu/ meu yuxh=s e)/ti to\ pne/on, h(/misu d' ou)k oi)=d'</l>
+						<l rend="indent">ei)/t' *)/eros ei)/t' *)ai/dhs h(/rpase, plh\n a)fane/s.</l>
+						<l>h)= r(a/ tin' e)s pai/dwn pa/lin w)/ixeto; kai\ me\n a)pei=pon</l>
+						<l rend="indent">polla/ki 'th\n drh=stin mh\ u(pode/xesqe ne/oi'.</l>
+						<l n="5">&dagger; oukisunifhson: e)kei=se ga\r h( liqo/leustos</l>
+						<l rend="indent">kei/nh kai\ du/serws oi)=d' o(/ti pou stre/fetai.
+							<pb n="64"/></l></div1>
+					<div1 type="poem" n="42">
+						<l>*ei) me\n e(kw\n *)arxi=n' e)pekw/masa, muri/a me/mfou,</l>
+						<l rend="indent">ei) d' a)/kwn h(/kw, th\n prope/teian e)/a.</l>
+						<l>*akrhtos kai\ *)/erws m' h)na/gkasan, w(=n o(\ me\n au)tw=n</l>
+						<l rend="indent">ei(=lken, o(\ d' ou)k ei)/a th\n prope/teian e)a=n.</l>
+						<l n="5">e)lqw\n d' ou)k e)bo/hsa, ti/s h)\ ti/nos, a)ll' e)fi/lhsa</l>
+						<l rend="indent">th\n flih/n: ei) tou=t' e)/st' a)di/khm', a)dike/w.</l></div1>
+					<div1 type="poem" n="43">
+						<l>*/elkos e)/xwn o( cei=nos e)la/nqanen: w(s a)nihro/n</l>
+						<l rend="indent">pneu=ma dia\ sthqe/wn &lpar;ei)=des;&rpar; a)nhga/geto,</l>
+						<l>to\ tri/ton h(ni/k' e)/pine, ta\ de\ r(o/da fulloboleu=nta</l>
+						<l rend="indent">tw)ndro\s a)po\ stefa/nwn pa/nt' e)ge/nonto xamai/:</l>
+						<l n="5">w)/pthtai me/ga dh/ ti: ma\ dai/monas ou)k a)po\ r(usmou=</l>
+						<l rend="indent">ei)ka/zw, fwro\s d' i)/xnia fw\r e)/maqon.</l></div1>
+					<div1 type="poem" n="44">
+						<l>*)/esti ti nai\ to\n *pa=na kekrumme/non, e)/sti ti tau/thi</l>
+						<l rend="indent">nai\ ma\ *diw/nuson pu=r u(po\ th=i spodi/hi:</l>
+						<l>ou) qarse/w: mh\ dh/ me peri/pleke. polla/ki lh/qei</l>
+						<l rend="indent">toi=xon u(potrw/gwn h(su/xios potamo/s:</l>
+						<l n="5">tw=i kai\ nu=n dei/doika, *mene/cene, mh/ me pareisdu/s</l>
+						<l rend="indent">ou(=tos &dagger; o(seigarnhs ei)s to\n e)/rwta ba/lhi.</l></div1>
+					<div1 type="poem" n="45">
+						<l>'*lhfqh/sei, peri/feuge *mene/krates' ei)=pa *panh/mou</l>
+						<l rend="indent">ei)ka/di, kai\ *lw/iou th=i ti/ni; th=i deka/thi
+							<pb n="65"/></l>
+						<l>h)=lqen o( bou=s u(p' a)/rotron e(kou/sios. eu)= g', e)mo\s *(ermh=s,</l>
+						<l rend="indent">eu)= g', e)mo/s: ou) para\ ta\s ei)/kosi memfo/meqa.</l></div1>
+					<div1 type="poem" n="46">
+						<l>*ws a)gaqa\n *polu/famos a)neu/reto ta\n e)paoida/n</l>
+						<l rend="indent">tw)rame/nwi: nai\ *ga=n, ou)k a)maqh\s o( *ku/klwy:</l>
+						<l>ai( *mou=sai to\n e)/rwta katisxai/nonti *fi/lippe:</l>
+						<l rend="indent">h)= panake\s pa/ntwn fa/rmakon a( sofi/a.</l>
+						<l n="5">tou=to, doke/w, xa) limo\s e)/xei mo/=non e)s ta\ ponhra/</l>
+						<l rend="indent">tw)gaqo/n: e)kko/ptei ta\n filo/paida no/son.</l>
+						<l>e)/sq' a(mi\n &dagger; xa)kasta\s a)fei/dea potto\n *)/erwta</l>
+						<l rend="indent">tou=t' ei)=pai 'kei/reu ta\ ptera\ paida/rion,</l>
+						<l>ou)d' o(/son a)tta/rago/n tu dedoi/kames': ai( ga\r e)pwidai/</l>
+						<l n="10" rend="indent">oi)/koi tw= xalepw= trau/matos a)mfo/terai.</l></div1>
+					<div1 type="poem" n="47">
+						<l>*th\n a(li/hn *eu)/dhmos, a)f' h(=s a(/la lito\n e)pe/sqwn</l>
+						<l rend="indent">xeimw=nas mega/lous e)ce/fugen dane/wn,</l>
+						<l>qh=ke qeoi=s *samo/qrhici le/gwn o(/ti th/nde kat' eu)xh/n,</l>
+						<l rend="indent">w)= mega/loi, swqei\s e)c a(lo\s w(=d' e)/qeto.</l></div1>
+					<div1 type="poem" n="48">
+						<l>*eu)maqi/hn h)itei=to didou\s e)me\ *si=mos o( *mi/kkou</l>
+						<l rend="indent">tai=s *mou/sais: ai(\ de\ *glau=kos o(/kws e)/dosan</l>
+						<l>a)nt' o)li/gou me/ga dw=ron. e)gw\ d' a)na\ th=ide kexhnw/s</l>
+						<l rend="indent">kei=mai tou= *sami/ou diplo/on o( tragiko/s</l>
+						<l n="5">paidari/wn *dio/nusos e)ph/koos: oi(\ de\ le/gousin</l>
+						<l rend="indent">'i(ero\s d( plo/kamos' tou)mo\n o)/neiar e)moi/.
+							<pb n="66"/></l></div1>
+					<div1 type="poem" n="49">
+						<l>*th=s *)agora/nakto/s me le/ge ce/ne kwmiko\n o)/ntws</l>
+						<l rend="indent">a)gkei=sqai ni/khs ma/rtura tou= *(rodi/ou</l>
+						<l>*pa/mfilon, ou) me\n e)/rwti dedagme/non, h(/misu d' o)pth=i</l>
+						<l rend="indent">i)sxa/di kai\ lu/xnois *)/isidos ei)do/menon.</l></div1>
+					<div1 type="poem" n="50">
+						<l>*th\n *frugi/hn *ai)/sxrhn, a)gaqo\n ga/la, pa=sin e)n e)sqloi=s</l>
+						<l rend="indent">*mi/kkos kai\ zwh\n ou)=san e)ghroko/mei</l>
+						<l>kai\ fqime/nhn a)ne/qhken, e)pessome/noisin o(ra=sqai,</l>
+						<l rend="indent">h( grh=us mastw=n w(s a)pe/xei xa/ritas.</l></div1>
+					<div1 type="poem" n="51">
+						<l>*te/ssares ai( *xa/rites, poti\ ga\r mi/a tai=s trisi\ th/nais</l>
+						<l rend="indent">a)/rti potepla/sqh kh)/ti mu/roisi notei=.</l>
+						<l>eu)ai/wn e)n pa=sin a)ri/zalos *bereni/ka,</l>
+						<l rend="indent">a(=s a)/ter ou)d' au)tai\ tai\ *xa/rites *xa/rites.</l></div1>
+					<div1 type="poem" n="52">
+						<l>*to\n to\ kalo\n melaneu=nta *qeo/kriton, ei) me\n e)/m' e)/xqei,</l>
+						<l rend="indent">tetra/ki misoi/hs, ei) de\ filei=, file/ois:</l>
+						<l>naixi\ pro\s eu)xai/tew *ganumh/deos, ou)ra/nie *zeu=:</l>
+						<l rend="indent">kai\ su/ pot' h)ra/sqhs &mdash; ou)ke/ti makra\ le/gw.</l></div1>
+					<div1 type="poem" n="53">
+						<l>*kai\ pa/lin *ei)lh/quia *lukaini/dos e)lqe\ kaleu/shs</l>
+						<l rend="indent">eu)/loxos w)di/nwn w(=de su\n eu)toki/hi,</l>
+						<l>w(s to/de nu=n me/n, a)/nassa, ko/rhs u(/per, a)nti\ de\ paido/s</l>
+						<l rend="indent">u(/steron eu)w/dhs a)/llo ti nho\s e)/xoi.</l></div1>
+					<div1 type="poem" n="54">
+						<l>*to\ xre/os w(s a)pe/xeis *)asklh/pie, to\ pro\ gunaiko/s</l>
+						<l rend="indent">*dhmodi/khs *)ake/swn w)/felen eu)ca/menos,
+							<pb n="67"/></l>
+						<l>ginw/skein, h)/n d' a)=ra la/qhi kai/ &dagger; min a)paith=is,</l>
+						<l rend="indent">fhsi\ pare/cesqai maeturi/hn o( pi/nac.</l></div1>
+					<div1 type="poem" n="55">
+						<l>*tw=i me *kanwpi/tai *kalli/stion ei)/kosi mu/cais</l>
+						<l rend="indent">plou/sion a( *kriti/ou lu/xnon e)/qhke qew=i</l>
+						<l>eu)came/na peri\ paido\s *)apelli/dos: e)s d' e)ma\ fe/ggh</l>
+						<l rend="indent">a)qrh/sas fa/seis '*(/espere pw=s e)/peses'.</l></div1>
+					<div1 type="poem" n="56">
+						<l>*fhsi\n o(/ me sth/sas *eu)ai/netos &lpar;ou) ga\r e)/gwge</l>
+						<l rend="indent">ginw/skw&rpar; ni/khs a)nni/ me th=s i)di/hs</l>
+						<l>a)gkei=sqai xa/lkeion a)le/ktora *tundari/dhisi:</l>
+						<l rend="indent">pisteu/w *fai/drou paidi\ *filoceni/dew.</l></div1>
+					<div1 type="poem" n="57">
+						<l>*)inaxi/hs e(/sthken e)n *)/isidos h( *qa/lew pai=s</l>
+						<l rend="indent">*ai)sxuli\s *ei)rh/nhs mhtro\s u(posxesi/hi.</l></div1>
+					<div1 type="poem" n="58">
+						<l>*ti/s, ce/nos w)= nauhge/; *leo/ntixos e)nq:a/de nekro/n</l>
+						<l rend="indent">eu(=re/ s' e)p' ai)gialou= xw=se/ te tw=ide ta/fwi</l>
+						<l>dakru/sas e)pi/khron e(o\n bi/on: ou)de\ ga\r au)to/s</l>
+						<l rend="indent">h(/suxon, ai)qui/hi d' i)=sa qalassoporei=.</l></div1>
+					<div1 type="poem" n="59">
+						<l>*eu)dai/mwn o(/ti ta)/lla manei\s w(rxai=os *)ore/stas,</l>
+						<l rend="indent">&dagger; leukaretanman ou)k e)ma/nh mani/an</l>
+						<l>ou)d' e)/lab' e)ce/tasin tw= *fwke/os a(/tis e)le/gxei</l>
+						<l rend="indent">to\n fi/lon, &dagger; a)llaix' e(\n dra=m' e)di/dace mo/non:
+							<pb n="68"/></l>
+						<l n="5">h)= ta/xa ka to\n e(tai=ron a)pw/lese tou=to poh/sas &mdash;</l>
+						<l rend="indent">kh)gw\ tw\s pollw\s ou)ke/t' e)/xw *pula/das.</l></div1>
+					<div1 type="poem" n="60">
+						<l>*oi(/tines *)alei/oio pare/rpete sh=ma *ki/mwnos,</l>
+						<l rend="indent">i)/ste to\n *(ippai/ou pai=da parerxo/menoi.</l></div1>
+					<div1 type="poem" n="61">
+						<l>*ai)/nie, kai\ su\ ga\r w(=de, *mene/krates, ou)k e)pi\ poulu/</l>
+						<l rend="indent">h)=sqa: ti/ de/, cei/nwn lw=iste, kateirga/sato;</l>
+						<l>h)= r(a to\ kai\ *ke/ntauron; 'o(/ moi peprwme/nos u(/pnos</l>
+						<l rend="indent">h)=lqen, o( de\ tlh/mwn oi)=nos e)/xei pro/fasin'.</l></div1>
+					<div1 type="poem" n="62">
+						<l>*kunqia/des qarsei=te, ta\ ga\r tou= *krhto\s *)exe/mma</l>
+						<l rend="indent">kei=tai e)n *)ortugi/hi to/ca par' *)arte/midi,</l>
+						<l>oi(=s u(me/wn e)ke/nwsen o)/ros me/ga: nu=n de\ pe/pautai,</l>
+						<l rend="indent">ai)=ges, e)pei\ sponda\s h( qeo\s ei)rga/sato.</l></div1>
+					<div1 type="poem" n="63">
+						<l>*ou(/tws u(pnw/sais *kwnw/pion, w(s e)me\ poiei=s</l>
+						<l rend="indent">koima=sqai yuxroi=s toi=sde para\ proqu/rois.</l>
+						<l>ou(/tws u(pnw/sais a)dikwta/th, w(s to\n e)rasth/n</l>
+						<l rend="indent">koimi/zeis, e)le/ou d' ou)d' o)/nar h)nti/asas.</l>
+						<l n="5">gei/tones oi)ktei/rousi, su\ d' ou)d' o)/nar. h( polih\ de/</l>
+						<l rend="indent">au)ti/k' a)namnh/sei tau=ta/ se pa/nta ko/mh.</l></div1>
+				</body>
+			</text>
+		</group>
+	</text>
+</TEI.2>

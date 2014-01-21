@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Publ." type="work">Publicola</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 60 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Publ."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">1</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990528</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>PUBLICOLA</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such was Solon, and with him we compare Publicola, to whom the Roman people gave this surname later as a mark of honour. Before that he was called Publius Valerius, and was reputed to be a descendant of that ancient Valerius who was most instrumental in making the Romans and the Sabines one people instead of enemies; for it was he more than anyone else that persuaded their kings to come together, and settled their differences. 
+				<milestone n="2" unit="section"/>Such being his lineage, Valerius, as we are told, while Rome was still a kingdom, was conspicuous for his eloquence and wealth, always employing the one with integrity and boldness in the service of justice, while with the other he gave liberal and kindly aid to the poor and needy. It was therefore clear that, should Rome become a democracy, he would at once be one of its foremost men.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Now Tarquinius Superbus had not acquired his power honourably, but by the violation of divine and human laws; nor did he exercise it in kingly fashion, but after the manner of an insolent and haughty tyrant. The people therefore hated him, resented his oppressions, and found occasion for revolt in the fate of Lucretia, who made away with herself after violence had been done to her. Lucius Brutus, engaging in the revolution, came to Valerius first of all, and with his most zealous assistance drove out the kings.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 1.58">Livy, i. 58 f.</bibl>; <bibl n="Liv. 2.2.11">ii. 2, 11.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>Then, as long as the people was likely to elect one man as their commander in place of the king, Valerius acquiesced, thinking it more fitting that Brutus should have the office, because he had led the way to freedom. But the very name of monarchy was odious to the people, who thought that it would be less vexatious to submit to an authority which was divided, and therefore proposed and demanded that two men should be elected to the highest office. Then Valerius, who hoped that he would be chosen next to Brutus, and would be consul with him, was disappointed. 
+				<milestone n="5" unit="section"/>For against the wishes of Brutus, Tarquinius Collatinus, the husband of Lucretia, was elected as his colleague,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 1.60.4">Livy, i. 60, 4.</bibl>
+            </note> instead of Valerius. He was a man of no greater excellence than Valerius, but the influential citizens were afraid of the kings, who were still putting forth many efforts outside, and trying to appease resentment inside the city, and they therefore desired to have as their commander the most pronounced enemy of the royal family, believing that he would make no concessions to them.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Valerius, accordingly, vexed that his desire to do his utmost for his country should be doubted, merely because he had received no private injury at the hands of the tyrants, withdrew from the senate, gave up his practice as an advocate, and abandoned entirely his public activities. This caused anxious remark among the multitude. They feared lest, in his wrath, he should attach himself to the royal exiles, and subvert the established order of the city, which was in a dangerous pass. 
+				<milestone n="2" unit="section"/>But when Brutus, who had his suspicions of certain others also, desired the senators to take a sacrificial oath, and set a day for the ceremony, Valerius went down with a glad countenance into the forum, and was the first to take oath that he would make no submission or concession to the Tarquins, but would fight with all his might in defence of freedom. This pleased the senate and inspired the consuls with courage. And his actions speedily confirmed his oath. 
+				<milestone n="3" unit="section"/>For envoys came from Tarquin bringing letters calculated to seduce the people, and specious words by which they thought the multitude were most likely to be corrupted, coming as they did from a king who seemed to have humbled himself, and to ask only moderate terms. These envoys the consuls thought should be brought before the assembled people, but Valerius would not suffer it. He was unalterably opposed to giving poor men, who considered war a greater burden than tyranny, occasions and excuses for revolution.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, other envoys came announcing that Tarquin abdicated his throne and ceased to wage war upon the city, but demanded for himself, his friends, and his kinsmen, their moneys and effects,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.3.5">Livy, ii. 3, 5.</bibl>
+            </note> wherewith to maintain themselves in exile. Many were inclined to grant this favour, and Collatinus in particular joined in advocating it, but Brutus, a man of harsh and unyielding temper ran forth into the forum and denounced his colleague as a traitor, because he would bestow the means for waging war and maintaining tyranny on men to whom it were a terrible mistake to vote even a bare subsistence in exile. 
+				<milestone n="2" unit="section"/>And when an assembly of the citizens was held, the first to speak among them was Caius Minucius, a private man, who exhorted Brutus and advised the Romans to see to it that the treasures fought with them against the tyrants, rather than with the tyrants against them. However, the Romans decided that, since they had the liberty for which they were at war, they would not sacrifice peace for the sake of wealth, but cast this also out along with the tyrants.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.4.3">Livy, ii. 4, 3.</bibl>
+            </note>
+			      </p>
+         <p>Now the wealth, of course, was of very slight consequence to Tarquin, but the demand for it was at once a test of the people's disposition and a means of instigating treachery among them. 
+				<milestone n="3" unit="section"/>And it was with this that the envoys busied themselves, making the property merely a pretext for remaining in the city, and saying that they were selling part of it, and reserving part, and sending part of it away. At last they succeeded in corrupting two of the noble families of Rome, that of the Aquillii, which had three senators, and that of the Vitellii, which had two. All these, by the mother's side, were nephews of Collatinus the consul, and besides, the Vitellii were related in another manner to Brutus. 
+				<milestone n="4" unit="section"/>For Brutus had married a sister of theirs, and she had borne him several sons. Two of these, who had come to manhood, and were their near kindred and close companions, the Vitellii won over and persuaded to join the plot for betraying the city, to ally themselves with the great family and the royal expectations of the Tarquins, and rid themselves of the stupidity and cruelty of their father. For they gave the name of cruelty to that father's inexorable treatment of criminals, and as for his stupidity, he had for a long time, as it appears, feigned and assumed this, to insure his safety from the cruel designs of the tyrants, and afterwards the surname of Brutus, which had been given him for it, clung to him.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When, accordingly, the youths had been persuaded and held conference with the Aquillii, it was decided that all the conspirators should swear a great and dreadful oath, pouring in libation the blood of a slain man, and touching his entrails. For this purpose they met at the house of the Aquillii.<note resp="ed" place="unspecified" anchored="yes">At the house of the Vitellii, according to <bibl n="Liv. 2.4.5">Livy, ii. 4, 5.</bibl>
+            </note> Now the room in which the ceremony was to be held was, as was natural, dark and somewhat desolate. Without their knowing it, therefore, a slave named Vindicius had concealed himself therein, not with design, or with any inkling of what was to happen there; 
+				<milestone n="2" unit="section"/>he merely chanced to be there, and when they came in with anxious haste, he was afraid to be seen by them, and hid himself behind a chest that lay there, so that he saw what they did, and heard what they resolved upon. Their decision was to kill the consuls, and when they had written letters to Tarquin to this effect, they gave them to his envoys, who were living there as guests of the Aquillii, and were then present at the conspiracy.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Their business transacted, the conspirators departed, and then Vindicius stole secretly away from the house. He knew not what use to make of what had befallen him, but was at a loss, considering it a dreadful thing, as it really was, to arraign the sons of Brutus before their father, or the nephews of Collatinus before their uncle, on the most abominable charges, and yet believing that no Roman in a private station could be entrusted with such important secrets. 
+				<milestone n="4" unit="section"/>The last thing that he could do, however, was to hold his peace, and driven on by his knowledge of the affair, he made his way somehow to Valerius, attracted especially by the affable and kindly ways of the man.<note resp="ed" place="unspecified" anchored="yes">Vindicius laid the matter before the consuls, according to <bibl n="Liv. 2.4.6">Livy, ii. 4, 6.</bibl>
+            </note> For he was easily accessible to all the needy, always kept open house, and never refused to hear or help one of the lowly.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, when Vindicius came to him and told him the whole story, in the presence of his brother Marcus only, and of his wife, Valerius was struck with consternation and fear, and would not now let the man go, but shut him up in a room and set his own wife to guard the door. Then he ordered his brother to surround the royal residence, seize the letters, if possible, and take the servants into custody. He himself, with the numerous clients and friends who were always about him, and with a large company of retainers, went to the house of the Aquillii, who were not at home. 
+				<milestone n="2" unit="section"/>Therefore, to the surprise of everybody, he forced the door, and came upon the letters lying in the quarters where the envoys were lodging. Meantime the Aquillii came up in hot haste, joined battle at the door, and sought to take away time letters. But Valerius and his party resisted the attack, threw their togas about their opponents' necks, and after much struggling on both sides, at last succeeded in pushing them through the streets into the forum. The same success was had at time royal residence, where Marcus laid hands on other letters which were to be conveyed away in the baggage, seized as many of the king's people as he could, and haled them to the forum.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the consuls had quieted the tumult, Valerius ordered Vindicius to be brought from his house, the denunciation was made, the letters were read aloud, and the accused had no courage to reply. Most of the people held their peace for very sorrow, but a few spoke of exile as a penalty, wishing to do Brutus a kindness. They were also somewhat encouraged to hope by the tears of Collatinus and the silence of Valerius. But Brutus, calling each of his sons by name, said: 
+				<q direct="unspecified">Come, Titus, come Tiberius, why do ye not defend yourselves against this denunciation?</q> 
+				        <milestone n="2" unit="section"/>But when they made no answer, though he put his question to them thrice, he turned to the lictors and said: 
+				<q direct="unspecified">It is yours now to do the rest.</q> These straightway seized the young men, tore off their togas, bound their hands behind their backs, and scourged their bodies with their rods. 
+				<milestone n="3" unit="section"/>The rest could not endure to look upon the sight, but it is said that the father neither turned his gaze away, nor allowed any pity to soften the stern wrath that sat upon his countenance, but watched the dreadful punishment of his sons until the lictors threw them on the ground and cut off their heads with the axe. Then he rose and went away, after committing the other culprits to the judgement of his colleague.<note resp="ed" place="unspecified" anchored="yes">With this account, compare <bibl n="Liv. 2.5.5">Livy, ii. 5, 5-9.</bibl> Brutus looked on 
+					<q direct="unspecified">
+                  <q lang="la" direct="unspecified">eminente animo patrio inter publicae poenae ministerium</q>.</q>
+            </note> He had done a deed which it is difficult for one either to praise or blame sufficiently. 
+				<milestone n="4" unit="section"/>For either the loftiness of his virtue made his spirit incapable of suffering, or else the magnitude of his suffering made it insensible to pain. In neither case was his act a trivial one, or natural to a man, but either god-like or brutish. However, it is right that our verdict should accord with the reputation of the man, rather than that his virtue should be discredited through weakness in the judge. For the Romans think that the work of Romulus in building the city was not so great as that of Brutus in founding and establishing its form of government.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After Brutus had left the forum at this time, for a long while consternation, horror, and silence prevailed among all who remained, as they thought of what had been done. But soon the weakness and hesitation of Collatinus gave the Aquillii fresh courage; they demanded time in which to make their defence, and the surrender of Vindicius to them, since he was their slave, and ought not to be in the hands of their accusers. 
+				<milestone n="2" unit="section"/>Collatinus was willing to grant this request, and was about to dissolve the assembly with this understanding; but Valerius was neither able to surrender the slave, who had mingled with the throng about him, nor would he suffer the people to release the traitors and withdraw. So at last he seized the persons of the Aquillii and summoned Brutus to the scene, crying aloud that Collatinus was acting shamefully in laying upon his colleague the necessity of killing his own sons, and then thinking it necessary for himself to bestow upon their wives the lives of his country's betrayers and foes. 
+				<milestone n="3" unit="section"/>The consul was indignant at this, and ordered that Vindicius should be taken away, whereupon the lictors pushed their way through the crowd, seized the man, and beat those who tried to rescue him. Then Valerius and his friends stood forth in the man's defence, while the people shouted for Brutus to come. He turned back, therefore, and came, and when silence had been made for him, said that for his sons, he himself sufficed as judge, but he would leave time fate of the other traitors to the votes of the citizens, who were free, and any one who wished might speak and try to persuade the people. However, by this time there was no need of oratory, but a vote was taken which unanimously condemned the men, and they were beheaded.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Collatinus, as it would seem, was already under some suspicion on account of his relationship to the royal family, and the second of his names also was hateful to time people, who loathed the sound of Tarquin. But after these recent events, he saw that he was altogether obnoxious, and therefore resigned his office and withdrew secretly from the city.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.2.3">Livy, ii. 2, 3-10.</bibl>
+            </note> A new election was consequently held, and Valerius was triumphantly declared consul, thus receiving a worthy reward for his zeal. 
+				<milestone n="5" unit="section"/>In this reward he thought that Vindicius ought to share, and therefore had a decree passed which made him, first of all freedmen, a citizen of Rome, and entitled him to vote with any curia in which he chose to be enrolled. Other freedmen received the right of suffrage in much later times from Appius,<note resp="ed" place="unspecified" anchored="yes">Appius Claudius Caecus, censor in 312 B.C.</note> who thus courted popularity. And from this Vindicius, as they say, a perfect manumission is to this day called 
+				<q direct="unspecified">
+               <foreign lang="la">vindicta</foreign>.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.5.10">Livy, ii. 5,10.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, the property of the royal family was given to the Romans to plunder, and their house and palace were razed to the ground. But the pleasantest part of the field of Mars, which had belonged to Tarquin, was dedicated to that god. Now it chanced that it had just been reaped, and the grain still lay upon the ground; but since the field had been consecrated, they thought it not right to thresh it or use it in any way. They therefore with one accord carried the sheaves to the river and cast them in. 
+				<milestone n="2" unit="section"/>In like manner also they cast in the trees which had been cut, and left the place wholly untilled and barren for the god of war. The quantities of stuff thus heaped together were not borne along by the current very far, but the advanced portions stopped and accumulated at the shallows which they encountered. The portions that followed these could not get through them, but impinged upon them and blended inextricably with them, and time aggregation was made increasingly firm and fast by the action of the stream. 
+				<milestone n="3" unit="section"/>For this brought along great quantities of mud, the addition of which increased the size and cohesion of the mass. And besides, the impacts of the current were not rude, but with a gentle pressure pushed and moulded everything together. Owing to its size and position the mass acquired fresh size, and an extent sufficient to receive most of what was brought down by the river. It is now a sacred island over against the city, containing temples of the gods and covered walks,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.5.1">Livy, ii. 5, 1-4.</bibl>
+            </note> and is called in the Latin tongue 
+				<q direct="unspecified">
+               <foreign lang="la">Inter duos pontes</foreign>.</q>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>Some, however, say that this did not happen when the field of Tarquin was consecrated, but in later times, when Tarquinia devoted another field adjacent to this. Now Tarquinia was a holy virgin, one of the Vestals, and received great honours for this act, among which was this, that of all women her testimony alone should be received. The people also voted her permission to marry, but she did not avail herself of it. This is how the thing happened, as the tale runs.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Tarquin, despairing of attempts to regain his throne by treachery, was eagerly welcomed by the Tuscans,<note resp="ed" place="unspecified" anchored="yes">By the people of Veii and Tarquinii, according to <bibl n="Liv. 2.6.4">Livy, ii. 6, 4 f.</bibl>
+            </note> who set out to restore him with a great force. The consuls led the Romans out to meet them, and arrayed their forces in certain sacred precincts, one of which was called the Arsian grove, the other the Aesuvian meadow. When the engagement began, Aruns the son of Tarquin and Brutus the Roman consul encountered each other. 
+				<milestone n="2" unit="section"/>It was not by chance, but both were driven on by hatred and wrath, the one to attack a tyrant and foe of his country, the other to avenge himself on the author of his exile. They urged their horses to the combat, but since they engaged with fury rather than calculation, they were reckless of themselves, and fell by one another's hands. The battle which had such a dreadful beginning ended no less disastrously; the armies, after inflicting and suffering equal losses, were separated by a tempest.<note resp="ed" place="unspecified" anchored="yes">According to <bibl n="Liv. 2.7.1">Livy (ii. 7, 1),</bibl> the Tuscans departed in terror after the battle.</note>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>Valerius was therefore in perplexity, not knowing what the issue of the battle was, but seeing his soldiers as much disheartened by their own losses as they were encouraged by those of their enemies. So undistinguishable and equal was the slaughter on both sides. Each army, however was more convinced of defeat by the near sight of its own dead, than it could be of victory by conjecturing those of the enemy. 
+				<milestone n="4" unit="section"/>But when such a night came on as must needs follow such a battle, and both camps were quiet, they say that the grove was shaken, and a loud voice issued from it declaring that the Tuscans had lost one man more in the battle than the Romans. The utterance was manifestly from some god,<note resp="ed" place="unspecified" anchored="yes">Silvanus, as Livy tells the tale (<bibl n="Liv. 2.7.2">ii. 7, 2</bibl>).</note> for at once the Romans were inspired by it to loud shouts of courage, while the Tuscans were panic-stricken, abandoned their camp in confusion, and were for the most part dispersed. 
+				<milestone n="5" unit="section"/>As for those that remained, a little less than five thousand in number, the Romans fell upon them, took them prisoners, and plundered the camp. And when the dead on both sides were numbered, those of the enemy were found to be eleven thousand and three hundred, and those of the Romans as many less one.
+			</p>
+         <p>It is said that this battle was fought on the last day of February. Valerius celebrated a triumph for it, being the first consul to drive into the city on a four-horse chariot. 
+				<milestone n="6" unit="section"/>And the proceeding afforded a spectacle which was imposing and magnificent, not odious and offensive to the spectators, as some say; otherwise it would not have been continued with such ardour and emulation for countless years. The people were also pleased with the honours which Valerius bestowed upon his colleague at the funeral ceremonies. 
+				<milestone n="7" unit="section"/>He even delivered a funeral oration in his honour, which was so admired by the Romans and won such favour that from that time on, when their great and good men died, encomiums were pronounced upon them by the most distinguished citizens. And this funeral oration of his is said to have been earlier than any among the Greeks, unless Anaximenes the orator is right in saying that the custom originated with Solon.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But that which the rather displeased and offended the people in Valerius was this. Brutus, whom they regarded as the father of their liberties, would not consent to rule alone, but once and again chose a colleague to rule with him. 
+				<q direct="unspecified">But this Valerius,</q> they said, 
+				<q direct="unspecified">in concentrating all power upon himself, is not a successor to the consulate of Brutus, to which he has no right, but to time tyranny of Tarquin. 
+					<milestone n="2" unit="section"/>Yet why should he extol Brutus in words, while in deeds he imitates Tarquin, descending to the forum alone, escorted by all the rods and axes together, from a house no less stately than the royal house which he demolished?</q> For, as a matter of fact, Valerius was living in a very splendid house on the so-called Velia.<note resp="ed" place="unspecified" anchored="yes">An eminence of the Palatine hill.</note> It hung high over the forum, commanded a view of all that passed there, and was surrounded by steeps and hard to get at, so that when he came down from it the spectacle was a lofty one, and the pomp of his procession worthy of a king. 
+				<milestone n="3" unit="section"/>Accordingly, Valerius showed what a good thing it is for men in power and high station to have ears which are open to frankness and truth instead of flattery. For when he heard from his friends, who spared him no detail, that he was thought by time multitude to be transgressing, he was not obstinate nor exasperated, but quickly got together a large force of workmen, and while it was still night tore the house down, and razed it all to the ground. 
+				<milestone n="4" unit="section"/>In the morning, therefore, the Romans saw what had happened, and came flocking together. They were moved to love and admiration by the man's magnanimity, but were distressed for the house, and mourned for its stately beauty, as if it had been human, now that envy had unjustly compassed its destruction. They were also distressed for their ruler, who, like a homeless man, was now sharing the homes of others. For Valerius was received into the houses of his friends until the people gave him a site and built him a house, of more modest dimensions than the one he had lived in before, where now stands the temple of Vica Pota,<note resp="ed" place="unspecified" anchored="yes">Victress Possessor, a name of the goddess of victory, whose temple was at the foot of the Velia (<bibl n="Liv. 2.7.12">Livy, ii. 7, 12</bibl>). According to Livy, Valerius was building the house on the Velia, but in order to allay the people's jealousy, brought the materials to the foot of the hill, and built the house there.</note> so-called.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>Wishing now to make not only himself but also the government, instead of formidable, submissive and agreeable to the multitude, he removed the axes from the lictors' rods, and when he came into the assembly, inclined and lowered the rods themselves to the people, emphasizing the majesty of the democracy. This custom the consuls observe to this day. 
+				<milestone n="6" unit="section"/>And before the multitude were aware of it he had succeeded, not by humbling himself, as they thought, but by checking and removing their envious feelings through such moderation on his part, in adding to his real influence over them just as much as he had seemed to take away from his authority, and the people submitted to him with pleasure and bore his yoke willingly. They therefore called him Publicola,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.8.1">Livy, ii. 8, 1.</bibl>
+            </note> a name which signifies <emph>people-cherisher</emph>. This name prevailed over the older names which he had borne, and it is the name which I shall use for him in the remainder of this Life.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For he permitted any who wished to enter the lists and sue for the consulship. But before the installation of his colleague, not knowing who he would be, but fearing an opposition due to some jealousy or ignorance, he used his sole authority for the enactment of his best and most important measures. In the first place, he filled up the senate, which was much reduced in numbers; for some had long before been put to death by Tarquin, and others had recently fallen in the battle with the Tuscans. 
+				<milestone n="2" unit="section"/>Those who were enrolled in this body by him amounted, they say, to a hundred and sixty-four. After this he enacted several laws, one of which especially strengthened the position of the commons by allowing a defendant to appeal to the people from the judgement of the consuls. A second made it a capital offence to assume a magistracy which the people had not bestowed. 
+				<milestone n="3" unit="section"/>A third, following these, came to the relief of the poor; it lifted the taxes from the citizens, so that all engaged more zealously in manufactures and commerce. And the one which was enacted against disobedience to the consuls was thought to be no less popular in its character, and to be in the interest of the many rather than of the powerful. 
+				<milestone n="4" unit="section"/>For the fine which it imposed on disobedience was only the worth of five oxen and two sheep. Now the value of a sheep was ten obols and that of an ox, a hundred, for the Romans at that time did not use much coined money, but their wealth consisted in flocks and herds. Therefore to this day they call their substance 
+				<q direct="unspecified">
+               <foreign lang="la">peculium</foreign>,</q> from 
+				<q direct="unspecified">
+               <foreign lang="la">pecus</foreign>,</q> 
+            <emph>cattle</emph>; and their oldest coins are stamped with time figure of an ox, a sheep, or a hog. And they actually gave their own sons such surnames as Suillius, Bubulcus, Caprarius, and Porcius; the last two from 
+				<q direct="unspecified">
+               <foreign lang="la">capra</foreign>
+            </q> and 
+				<q direct="unspecified">
+               <foreign lang="la">porcus</foreign>,</q> their words for <emph>goat</emph> and <emph>pig</emph>.<note resp="ed" place="unspecified" anchored="yes">The first two from forms of 
+					<q direct="unspecified">sus,</q> 
+               <emph>swine</emph>, and 
+					<q direct="unspecified">bos,</q> 
+               <emph>ox</emph>.</note>
+			      </p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But although in these particulars he showed himself a popular and moderate lawgiver, in the case of an immoderate offence he made the penalty severe. For he enacted a law by which any one who sought to make himself tyrant might be slain without trial, and the slayer should be free from blood-guiltiness if he produced proofs of the crime. For although it is impossible for one who attempts so great a task to escape all notice, it is not impossible for him to do so long enough to make himself too powerful to be brought to trial, which trial his very crime precludes. He therefore gave any one who was able to do so the privilege of anticipating the culprit's trial.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>He also received praise for his law concerning the public treasury. When it was necessary for the citizens to contribute from their substance means for carrying on the war, he was unwilling to assume the administration of it himself, or to allow his friends to do so, or, indeed, to have the public moneys brought into any private house. He therefore made the temple of Saturn a treasury, as it is to this day, and gave the people the privilege of appointing two young men as quaestors, or treasurers. 
+				<milestone n="3" unit="section"/>The first to be thus appointed were Publius Veturius and Marcus Minucius, and large sums of money were collected. For one hundred and thirty thousand names were on the assessment lists, orphans and widows being excused from the contribution.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cam. 2.2">Camillus, ii. 2.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>This matter regulated, he caused Lucretius, the father of Lucretia, to be appointed his colleague in the consulship.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.8.1">Livy, ii. 8, 1-4.</bibl>
+            </note> To him he yielded the precedence, as the elder man, and committed to him the so-called 
+				<q direct="unspecified">
+               <foreign lang="la">fasces</foreign>,</q> a privilege of seniority which has continued from that day to this. But Lucretius died a few days afterwards, and in a new election Marcus Horatius was chosen consul, and shared the office with Publicola for the remainder of the year.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While Tarquin was stirring up in Tuscany another war against the Romans, a thing of great portent is said to have happened. When Tarquin was still king, and had all but completed the temple of Jupiter Capitolinus, either in consequence of an oracle, or else of his own good pleasure, he commissioned certain Tuscan craftsmen of Veii to place upon its roof a chariot of terra cotta. Soon after this he was driven from his throne. 
+				<milestone n="2" unit="section"/>The Tuscans, however, modelled the chariot and put it in a furnace for firing, but the clay did not contract and shrink in the fire, as it usually does, when its moisture evaporates. Instead of this, it expanded and swelled and took on such size, strength, and hardness, that it could with difficulty be removed, even after the roof of the furnace had been taken off and its sides torn away. 
+				<milestone n="3" unit="section"/>To the seers, accordingly, this seemed a divine portent of prosperity and power for those who should possess the chariot, and the people of Veii determined not to give it up. When the Romans asked for it, they were told that it belonged to the Tarquins, not to those who had expelled the Tarquins. But a few days afterwards there were chariot races at Veii. Here the usual exciting spectacles were witnessed, but when the charioteer, with his garland on his head, was quietly driving his victorious chariot out of the race-course, 
+				<milestone n="4" unit="section"/>his horses took a sudden fright, upon no apparent occasion, but either by some divine ordering or by merest chance, and dashed off at the top of their speed towards Rome, charioteer and all. It was of no use for him to rein them in or try to calm them with his voice; he was whirled helplessly along until they reached the Capitol and threw him out there, at the gate now called Ratumena. The Veientines were amazed and terrified at this occurrence, and permitted the workmen to deliver their chariot.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The temple of Jupiter Capitolinus had been vowed by Tarquin, the son of Demaratus, when he was at war with the Sabines, but it was actually built by Tarquinius Superbus, the son, or grandson, of him who vowed it. He did not, however, get so far as to consecrate it, but was driven out before it was quite completed. Accordingly, now that it was completely finished and had received all time ornaments that belonged to it, Publicola was ambitious to consecrate it. 
+				<milestone n="2" unit="section"/>But this excited the jealousy of many of the nobility. They could better brook his other honours, to which, as legislator and military commander, he had a rightful claim. But this one they thought he ought not to have, since it was more appropriate for others, and therefore they encouraged and incited Horatius to claim the privilege to consecrating the temple. At a time, then, when Publicola was necessarily absent on military service, they got a vote passed that Horatius should perform the consecration, and conducted him up to the Capitol, feeling that they could not have gained their point had Publicola been in the city. 
+				<milestone n="3" unit="section"/>Some, however, say that Publicola was designated by lot, against his inclination, for the expedition, and Horatius for the consecration.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.8.6">Livy, ii. 8, 6-8.</bibl>
+            </note> And it is possible to infer how the matter stood between them from what happened at the consecration. It was the Ides of September, a day which nearly coincides with the full moon of the Attic month Metageitnion; 
+				<milestone n="4" unit="section"/>the people were all assembled on the Capitol, silence had been proclaimed, and Horatius, after performing the other ceremonies and laying hold upon the door of the temple, as the custom is, was pronouncing the usual words of consecration. But just then Marcus, the brother of Publicola, who had long been standing by the door and was watching his opportunity, said: 
+				<q direct="unspecified">O Consul, thy son lies dead of sickness in the camp.</q> 
+				        <milestone n="5" unit="section"/>This distressed all who heard it; But Horatius, not at all disturbed, merely said: 
+				<q direct="unspecified">Cast forth the dead then whither ye please, for I take no mourning upon me,</q> and finished his consecration. Now the announcement was not true, but Marcus thought by his falsehood to deter Horatius from his duty. Wonderful, therefore, was the firm poise of the man, whether he at once saw through the deceit, or believed the story without letting it overcome him.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.8.6">Livy, ii. 8, 6-8.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/> XV. A similar fortune seems to have attended the dedication of the second temple. The first, as I have said, was built by Tarquin, but consecrated by Horatius; this was destroyed by fire during the civil wars.<note resp="ed" place="unspecified" anchored="yes">83 B.C.</note> The second temple was built by Sulla, but Catulus was commissioned to consecrate it,<note resp="ed" place="unspecified" anchored="yes">69 B.C.</note> after the death of Sulla. 
+				<milestone n="2" unit="section"/>This temple, too was destroyed, during the troublous times of Vitellius,<note resp="ed" place="unspecified" anchored="yes">69 A.D.</note> and Vespasian began and completely finished the third, with the good fortune that attended him in all his undertakings. He lived to see it completed, and did not live to see it destroyed, as it was soon after; and in dying before his work was destroyed he was just so much more fortunate than Sulla, who died before his was consecrated. For upon time death of Vespasian the Capitol was burned.<note resp="ed" place="unspecified" anchored="yes">80 A.D.</note>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>The fourth temple, which is now standing on the same site as the others, was both completed and consecrated by Domitian. It is said that Tarquin expended upon its foundations forty thousand pounds of silver. But time greatest wealth now attributed to any private citizen of Rome would not pay the cost of the gilding alone of the present temple, which was more than twelve thousand talents.<note resp="ed" place="unspecified" anchored="yes">For purposes of comparison a talent may be reckoned as worth £250, or $1200.</note> 
+				        <milestone n="4" unit="section"/>Its pillars are of Pentelic marble,<note resp="ed" place="unspecified" anchored="yes">Pentel&eacute; was an Attic deme on the N.E. edge of the Athenian plain, near which excellent marble was quarried from the mountain. This was called Brilessus in earlier times, then Pentelicus.</note> and their thickness was once most happily proportioned to their length; for we saw them at Athens. But when they were recut and scraped at Rome, they did not gain as much in polish as they lost in symmetry and beauty, and they now look too slender and thin. 
+				<milestone n="5" unit="section"/>However, if anyone who is amazed at the costliness of the Capitol had seen a single colonnade in the palace of Domitian, or a basilica or a bath, or the apartments for his concubines, then, as Epicharmus says to the spendthrift,
+				<quote rend="blockquote">
+					          <l>'Tis not beneficent thou art; thou art diseased; thy mania is to give,</l>
+				        </quote>so he would have been moved to say to Domitian: 
+				<q direct="unspecified">'Tis not pious, nor nobly ambitious that thou art; thou art diseased; thy mania is to build; like the famous Midas, thou desirest that every thing become gold and stone at thy touch.</q> So much, then, on this head.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But to return to Tarquin, after the great battle in which he lost his son in a duel with Brutus, he fled for refuge to Clusium, and became a suppliant of Lars Porsena, the most powerful king in Italy, who was thought also to be a man of worth and noble ambitions. He promised Tarquin his aid and assistance. So in the first place he sent to Rome and ordered them to receive Tarquin as their king. Then when the Romans refused, he declared war upon them, proclaimed the time and place of his attack, and marched thither with a great force.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.9">Livy, ii. 9.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>Publicola was chosen consul for the second time, in his absence, and Titus Lucretius as his colleague. Returning, therefore, to Rome, and wishing, in the first place, to surpass Porsena in the loftiness of his spirit, he built the city of Sigliuria, although his adversary was already near at hand. After he had fortified it at great expense, he sent to it a colony of seven hundred men, indicating that he had no concern or fear about the war. 
+				<milestone n="3" unit="section"/>However, a sharp assault was made upon its wall by Porsena, and its garrison was driven out. They fled to Rome, where the pursuing enemy almost followed them into the city. But Publicola promptly sallied out to their aid in front of the gate, joined battle by the river side with the enemy, who pressed on in great numbers, and held out against them until he was desperately wounded and carried bodily out of the battle. 
+				<milestone n="4" unit="section"/>The same fate overtook Lucretius, his colleague, also, so that dismay fell upon the Romans, and they fled for safety towards the city. But as the enemy were forcing their way onto the wooden bridge, Rome was in danger of being taken by storm. Horatius Cocles,<note resp="ed" place="unspecified" anchored="yes">The exploit of Horatius is much more dramatically narrated by <bibl n="Liv. 2.10">Livy (ii. 10).</bibl>
+            </note> however, first, and with him two of the most illustrious men of the city, Herminius and Lartius, defended the wooden bridge against them. 
+				<milestone n="5" unit="section"/>Horatius had been given his surname of Cocles because he had lost one of his eyes in the wars. Some, however, say that his nose was flat and sunken, so that there was nothing to separate his eyes, and his eye-brows ran together, and that for this reason the multitude wished to call him Cyclops, but by a slip of the tongue the name of Cocles became generally prevalent instead. 
+				<milestone n="6" unit="section"/>This Cocles, standing at the head of the bridge, kept the enemy back until his companions had cut the bridge in two behind him. Then, all accoutred as he was, he plunged into the river and swam across to the other side, in spite of a wound in the buttocks from a Tuscan spear. 
+				<milestone n="7" unit="section"/>Publicola, out of admiration for his valour, proposed that every Roman should at once contribute for him as much provision as each consumed in a day, and that afterwards he should be given as much land as he could plough round in a day. Besides this, they set up a bronze statue of him in the temple of Vulcan, to console him with honour for the lameness consequent upon his wound.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While Porsena was closely investing the city, a famine afflicted the Romans,<note resp="ed" place="unspecified" anchored="yes">Cf. Livy, ii. 12, 1.</note> and another Tuscan army on its own account invaded their territory. Publicola, who was now consul for the third time, thought that Porsena must be met by a quiet and watchful resistance within the city; but he sallied out upon the other Tuscan army, engaged it, routed it, and slew five thousand of them.
+			</p>
+         <p>The story of Mucius has been often and variously told, but I must give it as it seems most credible to me.<note resp="ed" place="unspecified" anchored="yes">Plutarch's version is far less coherent and dramatic than <bibl n="Liv. 2.12">Livy's (ii. 12).</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>He was a man endowed with every virtue, but most excellent in war. Designing to kill Porsena, he stole into his camp, wearing a Tuscan habit, and using a speech to correspond. After walking around the tribunal where the king was sitting within others, not knowing him certainly, and fearing to inquire about him, he drew his sword and slew that one of the group whom he thought most likely to be the king. 
+				<milestone n="3" unit="section"/>Upon this he was seized, and was being questioned, when a sort of pan containing live coals was brought to Porsena, who was about to offer sacrifice. Mucius held his right hand over the flames and, while the flesh was burning, stood looking at Porsena with a bold and steadfast countenance, until the king was overcome within admiration and released him, and handed him back his sword, reaching it down to him from the tribunal. Mucius stretched out his left hand and took it (on which account, they say, he received the surname of Scaevola, which means <emph>Left-handed</emph>). 
+				<milestone n="4" unit="section"/>Then he said that although he had conquered the fear which Porsena inspired, he was vanquished by the nobility which he displayed, and would reveal out of gratitude what he would not have disclosed under compulsion. 
+				<q direct="unspecified">Three hundred Romans, then,</q> said he, 
+				<q direct="unspecified">with the same resolution as mine, are now prowling, about in thy camp and watching their opportunity. I was chosen by lot to make the first attempt upon thee, and I am not distressed at what has happened, so noble is the man whom I failed to kill, and so worthy to be a friend rather than an enemy of the Romans.</q> 
+				        <milestone n="5" unit="section"/>On hearing this, Porsena believed it to be true, and felt more inclined to come to terms, not so much, I suppose, through fear of the three hundred, as out of wondering admiration for the lofty spirit and bravery of the Romans.<note resp="ed" place="unspecified" anchored="yes">According to <bibl n="Liv. 2.13.1">Livy (ii. 13, 1-5)</bibl>, Porsena was so terrified by the disclosures of Mucius, that he made propositions of peace to the Romans.</note>
+			      </p>
+         <p>All other writers agree in giving this Mucius the surname of Scaevola, but Athenodorus, the son of Sandon, in his book addressed to Octavia, the sister of Augustus Caesar, says that his surname was Postumus.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Publicola himself, moreover, thinking that Porsena would be more valuable as a friend and ally of time city than he was dangerous as its enemy, did not shrink from making the king an arbitrator in his dispute with Tarquin but often boldly challenged Tarquin to do so, confident of proving that he was the basest of men and justly deprived of his kingdom. And when Tarquin gave him a rough answer, saying that he would make no man his judge, least of all Porsena, 
+				<milestone n="2" unit="section"/>seeing that he was swerving from his alliance with him, Porsena was displeased and perceived the weakness of his cause. His son Aruns also pleaded earnestly with him in behalf of the Romans. Consequently, he put an end to his war against them, on condition that they gave up the territory of Tuscany which they had taken, sent back their prisoners of war, and received back their deserters. In confirmation of these conditions, the Romans gave as hostages ten young men from their noblest families, and as many maidens, of whom Valeria, a daughter of Publicola, was one.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After these stipulations had been carried out, and when Porsena had already remitted all his warlike preparations through his confidence in the treaty, these Roman maidens went down to the river to bathe, at a place where the curving bank formed a bay and kept the water especially still and free from waves. As they saw no guard near, nor any one else passing by or crossing the stream, they were seized with a desire to swim away, notwithstanding the depth and whirl of the strong current. 
+				<milestone n="2" unit="section"/>And some say that one of them, named Cloelia, crossed the stream on horseback, exhorting and encouraging the rest as they swam. But when they were come in safety to Publicola, he bestowed no admiration or affection upon them, but was distressed because he would be thought less true to his word than Porsena, and because the daring exploit of the maidens would be called a base fraud on the part of the Romans. He seized them, therefore, and sent them back again to Porsena. 
+				<milestone n="3" unit="section"/>But Tarquin and his men got timely intelligence of this, set an ambush for the convoy of the maidens, and attacked them in superior numbers as they passed along. The party attacked defended themselves, nevertheless, and Valeria, the daughter of Publicola, darted through the combatants and fled, and with the help of three attendants who broke through the crowd with her, made good her escape. The rest of the maidens were mingled with the combatants and in peril of their lives. But Aruns, the son of Porsena, learning of the affair, came with all speed to their assistance, put their enemies to flight, and rescued the Romans.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>When Porsena saw the maidens thus brought back, he asked for the one who had begun the enterprise and encouraged the rest in it. And when he heard Cloelia named as the one, he looked upon her with a gracious and beaming countenance, and ordering one of the royal horses to be brought, all fittingly caparisoned, he made her a present of it. Those who say that Cloelia, and Cloelia alone, crossed the river on horseback, produce this fact in evidence. 
+				<milestone n="5" unit="section"/>Others dispute the inference, and say that the Tuscan merely honoured in this way the maiden's courage. But an equestrian statue of her stands by the Via Sacra, as you go to the Palatine, though some say it represents not Cloelia, but Valeria.<note resp="ed" place="unspecified" anchored="yes">According to Livy, who gives a very different version of the Cloelia episode (<bibl n="Liv. 2.13.6">ii. 13, 6-11</bibl>), the maidens were incited by the example of Mucius to their display of courage, in memory of which the Romans erected at the top of the Via Sacra an equestrian statue, 
+					<q direct="unspecified">
+                  <foreign lang="la">virgo insidens equo</foreign>.</q>
+            </note>
+			      </p>
+         <p>Porsena, thus reconciled with the Romans, gave the city many proofs of his magnanimity. In particular, he ordered his Tuscan soldiers, 
+				<milestone n="6" unit="section"/>when they evacuated their camp, to take within them their arms only, and nothing else, leaving it full of abundant provisions and all sorts of valuables, which he turned over to the Romans. Therefore it is that down to this very day, when there is a sale of public property, Porsena's goods are cried first, and thus the man's kindness is honoured within perpetual remembrance. Moreover, a bronze statue of him used to stand near the senate-house, of simple and archaic workmanship.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.14.1">Livy, ii. 14, 1-4.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, when the Sabines invaded the Roman territory, Marcus Valerius, a brother of Publicola, was made consul, and with him Postumius Tubertus. Inasmuch as the most important steps were taken with the advice and assistance of Publicola, Marcus was victorious in two great battles, and in the second of them, without losing a single Roman, slew thirteen thousand of the enemy.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 2.16.1">Livy, ii. 16, 1.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>Besides the triumphs, he also obtained the honour of a house built for him at the public charge on the Palatine. And whereas the doors of other houses at that time opened inwards into the vestibule, they made the outer door of his house, and of his alone, to open outwards, in order that by this concession he might be constantly partaking of public honour.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>They say that all Greek doors used to open outwards in this way, and the conclusion is drawn from their comedies, where those who are about to go out of a house beat noisily on the inside of their own doors, in order that persons passing by or standing in front of them may hear, and not be taken by surprise when the doors open out into the street.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the following year Publicola was consul again, for the fourth time, when there was expectation of a war within the Sabines and Latins combined.<note resp="ed" place="unspecified" anchored="yes">Livy gives a very brief account of this war (<bibl n="Liv. 2.16.2">ii. 16, 2-6</bibl>).</note> At the same time also a sort of superstitious terror seized upon the city because all the women who were pregnant were delivered of imperfect offspring, and all births were premature. Wherefore by direction of the Sibylline books, Publicola made propitiatory sacrifices to Pluto, and renewed certain games that had been recommended by Apollo, and after he had thus made the city more cheerful in its mopes and expectations from the gods, he turned his attention to what it feared from men. For their enemies were plainly making great preparations and a powerful league against them.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>Now there was among the Sabines one Appius Clausus,<note resp="ed" place="unspecified" anchored="yes">Attius Clausus among the Sabines, Appius Claudius among the Romans, according to <bibl n="Liv. 2.16.4">Livy, ii. 16, 4.</bibl>
+            </note> a man whose wealth made him powerful, as his personal prowess made him illustrious, but who was most eminent for his lofty character and for his great eloquence. He could not, however, escape the fate of all great men, but was an object of jealous hate, and when he tried to stop the war, those who hated him charged him within trying to increase the power of Rome, with a view to making himself tyrant and master of his own country. 
+				<milestone n="3" unit="section"/>Perceiving that the multitude gave a ready ear to these stories, and that he himself was obnoxious to the war party and the military, he feared the issue, but with a large and powerful coterie of friends and kinsmen to defend him, continued his opposition. This made the Sabines put off and delay the war.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Publicola, accordingly, making it his business not only to know about these matters, but also to foment and promote the faction, kept some of his followers employed in bringing to Clausus from him such messages as this: 
+				<q direct="unspecified">Publicola thinks thee too worthy and just a man to inflict any evil upon thy fellow citizens in self-defence, even though thou art wronged by them. But if thou wishest, for thine own safety, to change thine allegiance and flee from those who hate thee, he will receive thee with public and private honours which are worthy of thine own excellence and the splendour of Rome.</q> 
+				        <milestone n="5" unit="section"/>On repeated consideration of the matter, this course seemed to Clausus the best that was open to him; he therefore summoned his friends, who in like manner persuaded many more, to join him, and taking five thousand families from their homes, wives and children included, the most peaceful folk among the Sabines, of gentle and sedate lives, he led them to Rome. Publicola knew beforehand of their coming, and gave them an eager and a kindly welcome, admitting them to all rights and privileges. 
+				<milestone n="6" unit="section"/>For he at once incorporated the families in the Roman state, and gave each one two acres of land on the river Anio. To Clausus, however, he gave twenty-five acres of land, and enrolled him among the senators. This was the beginning of a political power which he used so wisely that he mounted to the highest dignity and acquired great influence. The Claudian family, which is descended from him, is no less illustrious than any in Rome.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Though the schism among the Sabines was thus removed by the emigration of these men, their popular leaders would not suffer them to settle down into quiet, but complained bitterly that Clausus, by becoming an exile and an enemy, should bring to pass what he could not effect by his persuasions at home namely, that Rome pay no penalty for her outrages. Setting out, therefore, within a large army, they encamped near Fidenae, and placed two thousand men-at-arms in ambush just outside of Rome in wooded hollows. Their intention was that a few of their horsemen, as soon as it was day, should boldly ravage the country. 
+				<milestone n="2" unit="section"/>But these had been ordered, whenever they approached the city and were attacked, to retire gradually until they had drawn the enemy into the ambuscade. That very day Publicola learned of this plan from deserters, and took measures accordingly, dividing up his forces. Postumius Balbus, his son-in-law, while it was yet evening went out with three thousand men-at-arms, occupied the hills under which the Sabines were lying in ambush, and kept the enemy under observation; 
+				<milestone n="3" unit="section"/>Lucretius, his colleague, retaining in the city the lightest armed and most impetuous troops, was ordered to attack the enemy's horsemen as they ravaged the country; he himself took the rest of the army and encircled the enemy in their camp. Favoured by a heavy fog, at break of day Postumius, with loud shouts, fell upon the ambuscade from the heights, while Lucretius hurled his troops upon the horsemen when they rode towards the city, and Publicola attacked the camp of the enemy. 
+				<milestone n="4" unit="section"/>At all points, then, the Sabines were worsted and undone. Whenever they were, they made no defence, but fled, and the Romans straightway slew them. The very hopes they placed in one another proved most fatal to them. For each party, supposing that the other was safe, had no thought of in holding their ground and fighting, 
+				<milestone n="5" unit="section"/>but those in the camp ran towards those in the ambuscade, while these, on their part, ran to those in the camp, so that fugitives encountered fugitives, and found those needing succour from whom they expected succour themselves. And all the Sabines would have perished, had not the neighboring city of Fidenae afforded a refuge to some, especially to those who fled from the camp when it was captured. All who did not gain this city were either slain or brought back to Rome as prisoners.
+			</p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This success the Romans, although they were wont to attribute all such great events to the influence of the gods, considered to be the work of their general alone. And the first thing his soldiers were heard to say was that Publicola had delivered their enemies into their hands lame, blind, and all but imprisoned, to be dispatched by their swords. Great wealth also accrued to the people from the spoils and prisoners.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>But Publicola, immediately after celebrating his triumph and handing the city over to the consuls appointed to succeed him, died. So far as it can possibly be achieved by men who are regarded as honourable and good, he had brought his life to perfection. The people, as if they had done nothing to show their esteem for him while he was alive, but owed him every homage, decreed that his body should be buried at the public charge, and that every man should contribute a quadrans towards the honour. 
+				<milestone n="3" unit="section"/>The women also, by private agreement amongst themselves, mourned a whole year for him, with a mourning which was honourable and enviable.<note resp="ed" place="unspecified" anchored="yes">
+					          <q direct="unspecified">In the following year, Agrippa Menemus and P. Postumius being consuls, P. Valerius, by universal consent the foremost Roman in the arts of war and peace, died, in the height of his glory, but so poor that means to defray his funeral expenses were lacking. He was therefore buried at the public charge, and the matrons mourned for him as they had done for Brutus</q> (<bibl n="Liv. 2.16.7">Livy, ii. 16, 7</bibl>).</note> He was buried, too, by express vote of the citizens, within the city, near the so-called Velia,<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Publ. 10.2"> chapter x. 2.</bibl>
+            </note> and all his family were to have privilege of burial there. Now, however, none of the family is actually buried there, but the body is carried thither and set down, and some one takes a burning torch and molds it under the bier for an instant, and then takes it away, attesting by this act that the deceased has the right of burial there, but relinquishes the honour. After this the body is borne away.
+			</p>
+      </body>
+   </text>
+</TEI.2>

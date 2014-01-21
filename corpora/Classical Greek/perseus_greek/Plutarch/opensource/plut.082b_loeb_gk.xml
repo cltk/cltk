@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>Lacaenarum Apophthegmata</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Frank Cole Babbitt</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Frank Cole Babbitt</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1931</date>
+                  </imprint>
+                  <biblScope type="volume">3</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="stephpage" n="chunk"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.3.p.454"/>
+         <milestone unit="stephpage" id="stephpage-240c" n="240c"/>
+         <div1 type="chapter">
+            <head>*)argilewni/dos<note resp="ed" place="unspecified" anchored="yes">The title, <foreign lang="greek">lakainwn apofqegmata</foreign>, and the headings, <foreign lang="greek">argilewnidos</foreign>, etc., are almost always omitted in the mss.</note></head>
+            <div2 type="section" n="1">
+               <p>*)argilewni\s h( *brasi/dou mh/thr, teleuth/santos au)th=| tou= ui(ou=, w(s parageno/menoi/ tines tw=n *)amfipolitw=n ei)s *spa/rthn h(=kon pro\s au)th\n h)rw/thsen
+ei) kalw=s kai\ a)ci/ws th=s *spa/rths o( ui(o\s e)teleu/ta: megaluno/ntwn d'
+e)kei=non kai\ lego/ntwn a)/riston e)n toi=s toiou/tois e)/rgois a(pa/ntwn *lakedaimoni/wn ei)=nai, ei)=pen, <q>w)= ce/noi, kalo\s me\n h)=n ka)gaqo\s o( pai=s mou, pollou\s d' a)/ndras *lakedai/mwn e)/xei
+<milestone unit="stephpage" id="stephpage-240d" n="240d"/> th/nw ka/rronas.</q> 
+               </p>
+            </div2>
+         </div1>
+         <div1 type="chapter">
+            <head>*gorgou=s</head>
+            <div2 type="section" n="1">
+               <p>*gorgw\ basile/ws *kleome/nous quga/thr,
+*)aristago/rou tou= *milhsi/ou parakalou=ntos au)to\n e)pi\ to\n pro\s basile/a po/lemon u(pe\r
+*)iw/nwn kai\
+u(pisxnoume/nou xrhma/twn plh=qos kai\ o(/sw| a)nte/lege plei/ona prostiqe/ntos, <q>katafqerei= se,</q> e)/fh, <q>w)= pa/ter, to\ cenu/llion, e)a\n mh\ ta/xion au)to\n th=s oi)ki/as e)kba/lh|s.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="2">
+               <p>prosta/cantos de/ pote au)th=| tou=; patro\s
+dou=nai/ tini si=ton ei)s misqou= lo/gon kai\ prostiqe/ntos,
+<q>e)di/dace ga/r me to\n oi)=non xrhsto\n poiei=n,</q> 
+                  <q>
+                     <pb id="v.3.p.456"/>
+ou)kou=n, w)= pa/ter,</q> e)/fh, <q>o(\ t' oi)=nos plei/wn
+<milestone unit="stephpage" id="stephpage-240e" n="240e"/> e)kpoqh/setai kai\ oi( pi/nontes qruptikw/teroi kai\ xei/rones genh/sontai. '</q> '</p>
+            </div2>
+            <div2 type="section" n="3">
+               <p>to\n d' *)aristago/ran u(po/ tinos tw=n oi)ketw=n u(podou/menon qeasame/nh, <q>pa/ter,</q> e)/fh, <q>o( ce/nos
+xei=ras ou)k e)/xei.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="4">
+               <p>ce/nou de/ tinos malakw=s kai\ sxolh=|<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">kai\ sxolh=|</foreign> (or <foreign lang="greek">sxolh=|</foreign>)] <foreign lang="greek">stolh\n</foreign> Stephanus, perhaps rightly.</note>
+prosagago/ntos, parwsame/nh au)to/n, <q>ou)k a)/pei e)nteu=qen,</q> ei)=pen, <q>ou)de\<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">ou)de\</foreign> Bernardakis: <foreign lang="greek">ou)/te</foreign>.</note> ta\ th=s gunaiko\s duna/menos;</q>n</p>
+            </div2>
+            <div2 type="section" n="5">
+               <p>e)rwthqei=sa de\ u(po/ tinos *)attikh=s, <q>dia\
+ti/ u(mei=s a)/rxete mo/nai tw=n a)ndrw=n ai( *la/kainai<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">*la/kainai</foreign>, the usual form: <foreign lang="greek">la/kwnai</foreign>.</note>;</q> 
+                  <q>o(/ti,</q> e)/fh,
+<q>kai\ ti/ktomen mo/nai a)/ndras.</q>
+               </p>
+            </div2>
+            <div2 type="section" n="6">
+               <p>*protrepome/nh de\ to\n a)/ndra *lewni/dan e)cio/nta ei)s *qermopu/las a)/cion th=s *spa/rths fanh=nai,
+h)rw/ta ti/ xrh\ pra/ttein o( de\ e)/fh, <q>a)gaqo\n gamei=n
+kai\ a)gaqa\ ti/ktein.</q>
+               </p>
+            </div2>
+         </div1>
+         <div1 type="chapter">
+            <head>*gurtia/dos</head>
+            <div2 type="section" n="1">
+               <p>*gurtia/s, *)akrota/tou pote\ tou= qugatridou= au)th=s e)/k tinos tw=n pai/dwn ma/xhs polla\s plhga\s labo/ntos kai\ a)penexqe/ntos oi)/kade w(s teqnhko/tos, klaio/ntwn tw=n oi)kei/wn te kai\ gnwri/mwn, <q>ou)
+siwph/sete;</q>
+                  <milestone unit="stephpage" id="stephpage-240f" n="240f"/> e)/fh: e)/deice ga\r oi(/ou ai(/matos h)=n &rdquo;:
+kai\ ou)k e)/fh dei=n tou\s a)gaqou\s boa=n a)ll' i)atreu/esqai.
+</p>
+            </div2>
+            <pb id="v.3.p.458"/>
+            <div2 type="section" n="2">
+               <p>o(/te a)/ggelos h)=lqen e)k *krh/ths to\n *)akrota/tou qa/naton a)pagge/llwn, <q>ou)k e)/mellen,</q> e)/fh,
+<q>pro\s tou\s polemi/ous h(/kwn h)\ au)to\s u(p' e)kei/nwn
+a)poqanei=sqai h)\ katakanei=n<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">katakanei=n</foreign> F.C.B.: <foreign lang="greek">katakai/nein</foreign>.</note> e)kei/nous; h(/dion d' a)kou/ein o(/ti a)pe/qane kai\ e(auth=s kai\ th=s po/lews a)ci/ws kai\ tw=n progo/nwn, h)\ ei) e)/zh to\n a(/panta xro/non kako\s w)/n.</q>
+               </p>
+            </div2>
+         </div1>
+         <div1 type="chapter">
+            <head><hi rend="uppercase">*damatri/as</hi></head>
+            <div2 type="section" n="1">
+               <p>*damatri/a to\n ui(o\n deilo\n kai\ a)na/cion e(auth=s<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">e(autou=</foreign> in some mss.</note>
+a)kou/sasa, parageno/menon a)nei=le: to\ d' e)pi/gramma
+e)p' au)th=s to/de,
+<quote rend="blockquote">
+                     <l>to\n paraba/nta no/mous *dama/trion e)/ktane ma/thr
+</l>
+                     <l>a( *lakedaimoni/a to\n *lakedaimo/nion.</l>
+                  </quote>
+               </p>
+            </div2>
+         </div1>
+         <milestone unit="stephpage" id="stephpage-241a" n="241a"/>
+         <div1 type="chapter">
+            <head>*lakainw=n a)dh/lwn</head>
+            <div2 type="section" n="1">
+               <p>e(te/ra *la/kaina to\n ui(o\n lipotakth/santa<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">lipotakth/santa</foreign>, the preferred form: <foreign lang="greek">leipotakth/santa</foreign>.</note> w(s a)na/cion th=s patri/dos a)nei=len, ei)pou=sa, <q>ou)k e)mo\n
+to\ fi/tuma.</q> e)f' h(=s to\ e)pi/gramma to/de,
+<quote rend="blockquote">
+                     <l>e)/rre kako\n fi/tuma dia\ sko/tos, ou(= dia\ mi=sos
+</l>
+                     <l>*eu)rw/tas deilai=s mhd' e)la/foisi r(e/oi.
+</l>
+                     <l> a)xrei=on skula/keuma, kaka\ meri/s, e)/rre poq' *(/aidan,
+</l>
+                     <l> e)/rre: to\ mh\ *spa/rtas a)/cion ou)d' e)/tekon.
+</l>
+                  </quote>
+               </p>
+            </div2>
+            <pb id="v.3.p.460"/>
+            <div2 type="section" n="2">
+               <p>a)/llh a)kou/sasa to\n ui(o\n e)n parata/cei peso/nta e)/fh,
+                <quote rend="blockquote">
+                     <l>deiloi\ klaie/sqwsan e)gw\ de/ se, te/knon, a)/dakrus</l>
+                     <l> qa/ptw<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">qa/ptw</foreign> S. A. Naber and Hartman: <foreign lang="greek">kai\ i(lara\ qa/ptw</foreign>. Pantazides would omit <foreign lang="greek">kai\ e)mo\n kai\</foreign> to accomplish the same result, but <hi rend="italics">cf.</hi> 235 a.</note> to\n kai\ e)mo\n kai\ *lakedaimo/nion.</l>
+                  </quote> 
+               </p>
+            </div2>
+            <div2 type="section" n="3">
+               <p>a)kou/sasa/ tis to\n ui(o\n sesw|sme/non kai\ pefeugo/ta e)k tw=n 
+polemi/wn, gra/fei au)tw=|, <q>kaka\ fa/ma teu kakke/xutai: 
+h)\ tau/tan nu=n<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">nun</foreign> Hatzidakis: <foreign lang="greek">nu=n</foreign>.</note> 
+e)/kniyai h)\ mh\ e)/so.</q>
+               </p>
+            </div2>
+            <milestone unit="stephpage" id="stephpage-241b" n="241b"/>
+            <div2 type="section" n="4">
+               <p>a)/llh, tw=n ui(w=n fugo/ntwn e)k ma/xhs kai\ paragenome/nwn w(s au)th/n, <q>pou=,<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">pou=</foreign>] <foreign lang="greek">poi=</foreign> Stobaeus, <hi rend="italics">Florilegium</hi>, cviii. 83.</note></q> fhsi/n, <q>h(/kete drapeteu/santes, kaka\ a)ndra/poda; h)\ deu=ro o(/qen e)ce/dute kataduso/menoi;</q> a)nasurame/nh kai\ e)pidei/casa<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">e)pidei/casa</foreign>] <foreign lang="greek">dei/casa</foreign> <hi rend="italics">ibid</hi>.</note> au)toi=s.</p>
+            </div2>
+            <div2 type="section" n="5">
+               <p>prosa/gonta/ tis to\n ui(o\n qeasame/nh e)pu/qeto,
+<q>ti/ pra/ttei h( patri/s;</q> ei)po/ntos de/, <q>pa/ntes
+a)polw/lasi,</q> kerami/da a)/rasa e)pafh=ken au)tw=| kai\ 
+a)nei=len, ei)pou=sa, <q>se\ ou)=n kaka/ggelon e)/pemyan h(mi=n;</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="6">
+               <p>dihgoume/nou tino\s th=| mhtri\ gennai=on qa/naton tou= a)delfou=, 
+<q>ei)=t' ou)k ai)sxro/n,</q> ei)=pe, <q>th=s toiau/ths 
+sunodi/as a)potuxei=n;</q>
+               </p>
+            </div2>
+            <milestone unit="stephpage" id="stephpage-241c" n="241c"/>
+            <div2 type="section" n="7">
+               <p>e)kpe/myasa/ tis tou\s ui(ou\s au(th=s pe/nte o)/ntas e)pi\ po/lemon, e)n toi=s proastei/ois ei(sth/kei karadokou=sa ti/ e)k th=s ma/xhs a)pobh/soito: w(s
+de\
+parageno/meno/s tis puqome/nh| a)ph/ggeile tou\s pai=das a(/pantas teteleuthke/nai, <q>a)ll' ou) tou=to
+<pb id="v.3.p.462"/> e)puqo/mhn,</q> ei)=pe, <q>kako\n a)ndra/podon, a)lla\ ti/ pra/ttei h( patri/s.</q> fh/santos de\ o(/ti nika=|, <q>a)sme/nh toi/nun,</q> ei)=pe, <q>de/xomai kai\ to\n tw=n pai/dwn qa/naton.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="8">
+               <p>*qa/ptousa/ tis to\n ui(o/n, w(s grai+/dion eu)tele\s proselqo\n au)th=|, <q>w)= gu/nai, ta=s tu/xas,</q> ei)=pe, <q>nh\.
+tw\ siw/ a)lla\ ta=s kala=s g',</q> e)/fh: <q>kai\ ga\r au)to\n
+ou(= e(/neken e)/tekon, i(/n' u(pe\r ta=s *spa/rtas a)poqa/nh|,
+<milestone unit="stephpage" id="stephpage-241d" n="241d"/> tou=to/ moi sune/bh.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="9">
+               <p>*semnunome/nhs gunaiko/s tinos *)iwnikh=s e)pi/ tini tw=n e(auth=s u(fasma/twn o)/nti polutelei=, *la/kaina e)pidei/casa tou\s te/ttaras ui(ou\s o)/ntas kosmiwta/tous, toiau=ta, e)/fh, dei= ei)=nai ta\ th=s kalh=s kai\ a)gaqh=s gunaiko\s e)/rga kai\ e)pi\ tou/tois e)pai/resqai kai\ megalauxei=n. </p>
+            </div2>
+            <div2 type="section" n="10">
+               <p>a)/llh a)kou/sasa peri\ tou= ui(ou=, w(s kakw=s e)pi\ th=s ce/nhs a)nastre/foito, e)/graye, <q>kaka/ teu<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">teu</foreign> Valckenaer as in no. 3 <hi rend="italics">supra</hi> (241 a) and Stobaeus, <hi rend="italics">Florilegium</hi>, cviii. 83: <foreign lang="greek">toi</foreign>.</note> fa/ma kakke/xutai: tau/tan a)pw/qeu<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">a)pw/qeu</foreign> Hatzidakis (<hi rend="italics">cf.</hi> Cicero, <hi rend="italics">Ad Atticum</hi>, xiv. 22): <foreign lang="greek">a)po/qeu</foreign>.</note> h)\ mh\ e)/so.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="11">
+               <p>paraplhsi/ws de\ kai\ *xi/wn fuga/des e)lqo/ntes 
+ei)s *spa/rthn polla\ *paidarh/tou<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">*paidarh/tou</foreign>, -<foreign lang="greek">tw|</foreign>] <foreign lang="greek">*pedari/tou</foreign>, -<foreign lang="greek">tw|</foreign> is perhaps the correct spelling; <hi rend="italics">cf.</hi> Thucydides, viii. 28.</note> kathgo/roun
+metapemfame/nh <milestone unit="stephpage" id="stephpage-241e" n="241e"/> de\ au)tou\s h( mh/thr au)tou= *teleuti/a kai\ 
+a)kou/sasa w(=n e)neka/loun, e)pei\ e)do/kei au)th=|
+a(marta/nein o( ui(o/s, e)pe/steilen, <q>a(
+   ma/thr *paidarh/tw|<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">*paidarh/tou</foreign>, -<foreign lang="greek">tw|</foreign>] <foreign lang="greek">*pedari/tou</foreign>, -<foreign lang="greek">tw|</foreign> is perhaps the correct spelling; <hi rend="italics">cf.</hi> Thucydides, viii. 28.</note>:
+h)\ belti/ona pra=sse h)\ au)=qi me/ne, a)pognou\s ta\n e)s *spa/rtan swthri/an.</q> 
+               </p>
+            </div2>
+            <pb id="v.3.p.464"/>
+            <div2 type="section" n="12">
+               <p>e(te/ra e)p' a)dikh/mati tw=| paidi\ krinome/nw|,
+<q>te/knon,</q> ei)=pen, <q>h)\ ta=s ai)ti/as h)\ seauto\n tou= zh=n a)po/luson.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="13">
+               <p>a)/llh xwlo\n ui(o\n e)pi\ para/tacin prope/mpousa, <q>te/knon,</q> ei)=pe, <q>kata\ bh=ma th=s a)reth=s me/mnhso.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="14">
+               <p>a)/llh, tou= paido\s au)th=| a)fikome/nou a)po\ parata/cews tetrwme/nou to\n po/da kai\ sfo/dra
+<milestone unit="stephpage" id="stephpage-241f" n="241f"/> a)lgou=ntos, <q>e)a\n th=s a)reth=s,</q> ei)=pe, <q>me/mnh|, w)= te/knon, kai\ a)/ponos e)/sh| kai\ qarrh/seis.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="15">
+               <p>*la/kwn trwqei\s e)n pole/mw| kai\ badi/zein mh\ duna/menos, tetrapodisti\ w(/deuen. ai)sxunome/nw| d' au)tw=| ei)=nai<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">ei)=nai</foreign> F.C.B., <foreign lang="greek">e)pi\ tw=|</foreign> Wyttenbach: <foreign lang="greek">e)n</foreign>.</note> geloi/w| h( mh/thr, <q>kai\ po/sw| be/ltion,
+w)= te/knon,</q> ei)=pe, <q>ma=llon e)pi\ th=| a)ndrei/a| geghqe/nai h)\ ai)sxu/nesqai e)pi\ ge/lwti a)noh/tw|;</q>n</p>
+            </div2>
+            <div2 type="section" n="16">
+               <p>a)/llh prosanadidou=sa tw=| paidi\ th\n a)spi/da kai\ parakeleuome/nh, <q>te/knon,</q> e)/fh, <q>h)\ ta\n h)\
+e)pi\ ta=s.</q>
+               </p>
+            </div2>
+            <div2 type="section" n="17">
+               <p>a)/llh proi+o/nti tw=| ui(w=| e)pi\ po/lemon
+a)nadidou=sa th\n a)spi/da, <q>tau/thn,</q> e)/fh, <q>o( path/r soi a)ei\ e)/sw|ze: kai\ su\ ou)=n h)\ tau/thn sw=|ze h)\ mh\
+e)/so.</q>
+               </p>
+            </div2>
+            <div2 type="section" n="18">
+               <p>a)/llh pro\s to\n ui(o\n le/gonta mikro\n e)/xein
+to\ ci/fos ei)=pe, <q>kai\ bh=ma pro/sqes.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="19">
+               <milestone unit="stephpage" id="stephpage-242a" n="242a"/>
+               <p>a)/llh a)kou/sasa, o(/ti o( ui(o\s au)th=s e)n
+parata/cei a)ndragaqh/sas a)pe/qanen, <q>e)mo\s ga\r h)=n,</q> 
+                  <pb id="v.3.p.466"/> 
+ei)=pe. peri\ de\ tou= e(te/rou<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">tou= e(te/rou</foreign>] <foreign lang="greek">tou e(te/rou</foreign> Wyttenbach, but <hi rend="italics">cf.</hi> no. 1 <hi rend="italics">supra</hi> (241 a).</note> puqome/nh o(/ti
+a)podeilia/sas sw/|zetai, <q>ou) ga\r h)=n e)mo/s,</q> e)/fh.</p>
+            </div2>
+            <div2 type="section" n="20">
+               <p>e(te/ra a)kou/sasa teqna/na to\n ui(o\n e)n
+ma/xh| kaqa/per e)te/takto <q>ka/tqete<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">ka/tqete</foreign>] <foreign lang="greek">qa/ptete</foreign> S. A. Naber.</note> au)to/n,</q> e)/fh,
+<q>a)naplhrwsa/tw de\ th\n e)kei/nou ta/cin o( a)delfo/s.</q>
+               </p>
+            </div2>
+            <div2 type="section" n="21">
+               <p>a)/llh pomph\n telou=sa pa/ndhmon h)/kousen e)pi\ th=s parata/cews nika=n to\n ui(o/n, e)k de\ tw=n
+trauma/twn pollw=n genome/nwn qnh/skein. ou)
+perielome/nh ou)=n to\n ste/fanon, a)lla\ semnunqei=sa pro\s ta\s plhsi/on ei)=pen, <q>w(s pollw=| ka/llion, w)= fi/lai,
+<milestone unit="stephpage" id="stephpage-242b" n="242b"/> e)sti\n e)n parata/cei nikw=nta teleuta=n h)\ ta\ *)olu/mpia
+perigigno/menon zh=n.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="22">
+               <p>dihgoume/nou tino\s th=| a)delfh=| gennai=on
+qa/naton tou= paido\s au)th=s, e)kei/nh ei)=pen o(/ti <q>o(/son
+e)p' e)kei/nw| ge/ghqa, tosou=ton e)pi\ soi\ a)/xqomai, e)nare/tou sunodi/as a)poleifqe/nti.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="23">
+               <p>*lakai/nh| tis prose/pemyen, ei) fqora=|
+sunepineu/ei. h( d' e)/fh, <q>pai=s me\n ou)=sa e)/maqon tw=| patri\ pei/qesqai, kai\ tou=to e)/praca: gunh\ de\ genome/nh tw=| a)ndri/: ei) ou)=n di/kaia/ me parakalei=, tou/tw| fanero\n poihsa/tw prw=ton.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="24">
+               <p>parqe/nos penixra\ e)rwthqei=sa ti/na di/dwsi
+tw=| gamou=nti proi=ka, <q>th\n pa/trion,</q> e)/fh, <q>swfrosu/nhn.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="25">
+               <milestone unit="stephpage" id="stephpage-242c" n="242c"/>
+               <p>*la/kaina e)rwthqei=sa ei) ta)ndri\<note resp="ed" place="unspecified" anchored="yes"><foreign lang="greek">ta)ndri\</foreign> A. Platt as in <hi rend="italics">Moralia</hi>, 140 c: <foreign lang="greek">a)ndri\</foreign> mss.</note> proselh/luqen,
+<q>ou)k e)gw/,</q> ei)=pen, <q>a)ll' o( a)nh\r e)moi/.
+</q>
+               </p>
+            </div2>
+            <pb id="v.3.p.468"/>
+            <div2 type="section" n="26">
+               <p>kru/fa tis diaparqeneuqei=sa kai\ diafqei/rasa
+to\ bre/fos ou(/tws e)nekarte/rhse mhdemi/an proenegkame/nh fwnh/n, w(/ste kai\ to\n pate/ra kai\ a)/llous plhsi/on o)/ntas laqei=n a)pokuh/sasa: to\ ga\r me/geqos tw=n a)lghdo/nwn th=| eu)sxhmosu/nh| to\ a)/sxhmon prospeso\n e)ni/khse.</p>
+            </div2>
+            <div2 type="section" n="27">
+               <p>*la/kaina pipraskome/nh kai\ e)rwtwme/nh ti/ e)pi/statai, e)/fh, <q>pista\ h)=men.</q> 
+               </p>
+            </div2>
+            <div2 type="section" n="28">
+               <p>a)/llh ai)xmalwteuqei=sa kai\ e)rwtwme/nh paraplhsi/ws, <q>eu)= oi)kei=n oi)=kon,</q> e)/fh.</p>
+            </div2>
+            <div2 type="section" n="29">
+               <p>e)rwthqei=sa/ tis u(po/ tinos, ei) e)/stai a)gaqh/, a)\n au)th\n a)gora/sh|, ei)=pe, 
+<q>ka)\n mh\ a)gora/sh|s.</q>
+               </p>
+            </div2>
+            <div2 type="section" n="30">
+               <milestone unit="stephpage" id="stephpage-242d" n="242d"/>
+               <p>a)/llh pipraskome/nh, tou= kh/rukos
+punqanome/nou ti/ e)pi/statai, <q>e)leuqe/ra,</q> ei)=pen, <q>h)=men.</q>
+nw(s de\ o( w)nhsa/menos prose/tatte/ tina au)th=| ou)x
+a(rmo/zonta e)leuqe/ra|, ei)pou=sa, <q>oi)mw/ch| fqonh/sas seautw=| toiou/tou kth/matos,</q> e)ch/gagen e(auth/n.</p>
+            </div2>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

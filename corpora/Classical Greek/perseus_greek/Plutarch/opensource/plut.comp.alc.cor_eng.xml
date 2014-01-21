@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Comp.Alc.Cor." type="work">Comparison of Alcibiades and Coriolanus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about17 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Comp.Alc.Cor."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1916</date>
+                  </imprint>
+                  <biblScope type="volume">4</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990897</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>11/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>COMPARISON OF ALCIBIADES AND CORIOLANUS</head>
+         <p> 
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now that all the deeds of these men are set forth, so far as we consider them worthy of recollection and record, it is plain that their military careers do not incline the balance either way very decidedly.  For both alike gave many signal proofs of daring and valour as soldiers, as well as of skill and foresight as commanders; 
+				<milestone n="2" unit="section"/>except that some may give the preference to Alcibiades, because he was continually successful and victorious in many struggles by sea, as well as by land, and declare him therefore the more consummate general.  It is certainly true of each that, when he was at home and in command, he always conducted his country's cause with manifest success, and, contrariwise, inflicted even more manifest injury upon it when he went over to the enemy. 
+				<milestone n="3" unit="section"/>As statesmen, if the exceeding wantonness of Alcibiades, and the stain of dissoluteness and vulgarity upon all his efforts to win the favour of the multitude, won the loathing of sober-minded citizens, it was equally true that the utter ungraciousness of Marcius, together with his pride and oligarchical demeanour, won the hatred of the Roman people.  
+				<milestone n="4" unit="section"/>Neither course, then, is to be approved; although the man who seeks to win the people by his favours is less blameworthy than those who heap insults on the multitude, in order to avoid the appearance of trying to win them.  For it is a disgrace to flatter the people for the sake of power; but to get power by acts of terror, violence, and oppression, is not only a disgrace, it is also an injustice.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, that Marcius is usually thought to have been rather simple in his nature, and straightforward, while Alcibiades was unscrupulous in his public acts, and false, is very clear. And Alcibiades is particularly denounced for the malicious deceit by which he cheated the Lacedaemonian ambassadors, as Thucydides relates,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 5.45">V. 45</bibl>; cf. <bibl n="Plut. Nic. 10">Plutarch's <title>Nicias</title>, x.</bibl>; <bibl n="Plut. Alc. 14">
+                  <title>Alcibiades</title>, xiv</bibl>.</note> and put an end to the peace. 
+				<milestone n="2" unit="section"/>But this policy of his, although it did plunge the city again into war, made it nevertheless strong and formidable, by reason of the alliance with Mantinea and Argos which Alcibiades secured for it.  And yet Marcius himself also used deceit to stir up war between the Romans and Volscians, when he brought a false charge against the visitors to the games, as Dionysius relates;<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Cor. 26.2">
+                  <title>Coriolanus</title>, xxvi. 2</bibl>; <bibl n="D.H. 8.2">Dionysius Hal., <title>Antiq. Rom.</title> viii. 2.</bibl>
+            </note> and the motive for his action makes it the worse of the two. 
+				<milestone n="3" unit="section"/>For he was not influenced by ambition, or by rivalry in a political struggle, as Alcibiades was, but simply gave way to his anger, from which passion, as Dion says, 
+				<q direct="unspecified">no one ever gets a grateful return,</q> and threw many districts of Italy into confusion, and needlessly sacrificed many innocent cities to his rage against his country. It is true, indeed, that Alcibiades also, through his anger, was the cause of great calamities to his countrymen. 
+				<milestone n="4" unit="section"/>But just as soon as he saw that they were repentant, he showed them his goodwill, and after he had been driven away a second time, he did not exult over the mistakes of their generals, nor look with  indifference upon their bad and perilous plans, but did precisely what Aristides is so highly praised for doing to Themistocles: he came to the men who were then in command, although they were not his friends, and told them plainly what they ought to do. 
+				<milestone n="5" unit="section"/>Marcius, however, in the first place, did injury to his whole city, although he had not been injured by the whole of it, but the best and strongest part of it shared his wrongs and his distress; in the second place, by resisting and not yielding to the many embassies and supplications with which his countrymen tried to heal his single wrath and folly, he made it clear that he had undertaken a fierce and implacable war for the overthrow and destruction of his country, not that he might recover and regain it. 
+				<milestone n="6" unit="section"/>Further, in this point it may be said there was a difference between them, namely, that Alcibiades, when he went over to the side of the Athenians, was moved by fear and hatred of the Spartans, who were plotting to take his life; whereas it was dishonourable for Marcius to leave the Volscians in the lurch when they were treating him with perfect fairness. For he was appointed their leader, 
+				<milestone n="7" unit="section"/>and had the greatest credit and influence among them, unlike Alcibiades, whom the Lacedaemonians misused rather than used, who wandered about aimlessly in their city, and again was tossed to and fro in their camp, and at last threw himself into the hands of Tissaphernes; unless, indeed, he was all the while paying him court in order that the Athens to which he longed to return might not be utterly destroyed.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Furthermore, in the matter of money, we are told that Alcibiades often got it ill by taking bribes, and spent it ill in luxury and dissipation; whereas Marcius could not be persuaded to take it even when it was offered to him as an honour by his commanders.
+				And for this reason he was especially odious to the multitude in the disputes with the people concerning debts, because they saw that it was not for gain, but out of insolence and scorn, that he acted despitefully towards the poor.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>Antipater, writing in one of his letters about the death of Aristotle the philosopher,<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Comp. Aristid. Cat. 2.4">
+                  <title>Comparison of Aristides and Cato</title>, ii. 4.</bibl>
+            </note> says: 
+				<q direct="unspecified">In addition to all his other gifts, the man had also that of persuasion</q>; and the absence of this gift in Marcius made his great deeds and virtues obnoxious to the very men whom they benefited, since they could not endure the arrogant pride of the man, and that self-will which is, as Plato says,<note resp="ed" place="unspecified" anchored="yes">See <title>Coriolanus</title>, xv. 4.</note> 
+				        <q direct="unspecified">the companion of solitude.</q> Alcibiades, on the contrary, understood how to treat in a friendly manner those who met him, arid we cannot wonder that when he was successful his fame was attended with goodwill and honour, and flowered luxuriantly, since some of his errors even had often charm and felicity.
+				<milestone n="3" unit="section"/>This was the reason why, in spite of the great and frequent harm done by him to the city, he was nevertheless many times appointed leader and general; while Marcius, when he stood for an office which was his due in view of his valorous achievements, was defeated. And so it was that the one could not make himself hated by his countrymen, even when he was doing them harm; while the other was after all not beloved, even while he was admired.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For Marcius did not, as a commander, obtain any great successes for his city, but only for his enemies against his country; whereas Alcibiades was often of service to the Athenians, both as a private soldier and as a commander.  When he was at home, he mastered his adversaries to his heart's content; it was when he was absent that their calumnies prevailed. 
+				<milestone n="2" unit="section"/>Marcius, on the  contrary, was with  the Romans when they condemned him, and with the Volscians when they slew him. The deed was not in accordance with justice or right, it is true, and yet his own acts supplied an excuse for it, because, after rejecting the terms of peace publicly offered, and suffering himself to be persuaded by the private solicitations of the women, he did not put an end to hostilities, but allowed the war to continue, while he threw away for ever its golden opportunity.
+				<milestone n="3" unit="section"/>For he should have won the consent of those who had put their trust in him, before retiring from his position, if he had the highest regard for their just claims upon him. If, on the other hand, he cared nothing for the Volscians, but was prosecuting the war merely to satisfy his own anger, and then stopped it abruptly, the honourable course had been, not to spare his country for his mother's sake, but his mother together with his country; since his mother and his wife were part and parcel of the native city which he was besieging.
+				<milestone n="4" unit="section"/>But after giving harsh treatment to public supplications, entreaties of embassies, and prayers of priests, then to concede his withdrawal as a favour to his mother, was not so much an honour to that mother, as it was a dishonor to his country, which was thus saved by the pitiful intercession of a single woman, and held unworthy of salvation for its own sake.  Surely the favour was invidious, and harsh, and really no favour at all, and unacceptable to both parties; for he retired without listening to the persuasions of his antagonists, and without gaining the consent of his comrades-in-arms.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>The cause of all this lay in his unsociable, very overweening, and self-willed disposition, which of itself is offensive to most people, and when combined with an ambitious spirit, becomes altogether savage and implacable.  Such men pay no court to the multitude, professing not to want their honours, and then are vexed if they do not get them.  Certainly there was no tendency to importune or court the favour of the multitude in men like Metellus, Aristides, and Epaminondas; 
+				<milestone n="6" unit="section"/>but owing to their genuine contempt for what a people has the power to give and take away, though they were repeatedly ostracised, defeated at elections, and condemned in courts of justice, they cherished no anger against their countrymen for their ingratitude, but showed them kindness again when they repented, and were reconciled with them when they asked it.  Surely he who least courts the people's favour, ought least to resent their neglect, since vexation over failure to receive their honours is most apt to spring from an excessive longing after them.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Well, then, Alcibiades would not deny that he rejoiced to be honoured, and was displeased to be overlooked, and he therefore tried to be agreeable and pleasant to his associates; but the overweening pride of Marcius would not suffer him to pay court to those who had the power to honour and advance him, while his ambition made him feel angry and hurt when he was neglected.  
+				<milestone n="2" unit="section"/>These are the blame-worthy traits in the man, but all the rest are brilliant. And for his temperance and superiority to wealth he deserves to be compared with the best and purest of the Greeks, not with Alcibiades, who, in these regards, was the most unscrupulous of men, and the most careless of the claims of honour.
+			</p>
+      </body>
+   </text>
+</TEI.2>

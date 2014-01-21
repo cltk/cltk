@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Fab." type="work">Fabius Maximus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 74 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Fab."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1916</date>
+                  </imprint>
+                  <biblScope type="volume">3</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990722</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>FABIUS MAXIMUS</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such were the memorable things in the career of Pericles, as we have received them, and now let us change the course of our narrative and tell of Fabius. It was a nymph, they say, or a woman native to the country, according to others, who consorted with Hercules by the river Tiber, and became by him the mother of Fabius, the founder of the family of the Fabii, which was a large one, and of high repute in Rome. 
+				<milestone n="2" unit="section"/>But some writers state that the first members of the family were called Fodii in ancient times, from their practice of taking wild beasts in pitfalls. For down to the present time 
+				<q direct="unspecified">
+               <foreign lang="la">fossae</foreign>
+            </q> is the Latin for <emph>ditches</emph>, and 
+				<q direct="unspecified">
+               <foreign lang="la">fodere</foreign>
+            </q> for <emph>to dig</emph>. In course of time, by a change of two letters, they were called Fabii. This family produced many great men, and from Rullus, the greatest of them, and on this account called Maximus by the Romans, the Fabius Maximus of whom we now write was fourth in descent.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>He had the surname of Verrucosus from a physical peculiarity, namely, a small wart growing above his lip and that of Ovicula, which signifies <emph>Lambkin</emph>, was given him because of the gentleness and gravity of his nature when he was yet a child. Indeed, the calmness and silence of his demeanour, the great caution with which he indulged in childish pleasures, the slowness and difficulty with which he learned his lessons, and his contented submissivness in dealing with his comrades, led those who knew him superficially to suspect him of something like foolishness and stupidity. Only a few discerned the inexorable firmness in the depth of his soul, and the magnanimous and leonine qualities of his nature. 
+				<milestone n="4" unit="section"/>But soon, as time went on and he was roused by the demands of active life, he made it clear even to the multitude that his seeming lack of energy was only lack of passion, that his caution was prudence, and that his never being quick nor even easy to move made him always steadfast and sure. He saw that the conduct of the state was a great task, and that wars must be many; he therefore trained his body for the wars (nature's own armour, as it were), and his speech as an instrument of persuasion with the people, giving it a form right well befitting his manner of life. 
+				<milestone n="5" unit="section"/>For it had no affectation, nor any empty, forensic grace, but an import of peculiar dignity, rendered weighty by an abundance of maxims. These, they say, most resembled those which Thucydides employs. And a speech of his is actually preserved, which was pronounced by him before the people in eulogy of his son,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Cic. Cato fr. 4">Cicero, <title>Cato Maior</title>, 4.</bibl>
+            </note> who died consul.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The first<note resp="ed" place="unspecified" anchored="yes">233 B.C.</note> of the five consulships in which he served brought him the honour of a triumph over the Ligurians. These were defeated by him in battle, with heavy loss, and retired into the Alps, where they ceased plundering and harrying the parts of Italy next to them. 
+				<milestone n="2" unit="section"/>But Hannibal now burst into Italy,<note resp="ed" place="unspecified" anchored="yes">218 B.C.</note> and was at first victorious in battle at the river Trebia. Then he marched through Tuscany, ravaging the country, and smote Rome with dire consternation and fear. Signs and portents occurred, some familiar to the Romans, like peals of thunder, others wholly strange and quite extraordinary. 
+				<milestone n="3" unit="section"/>For instance, it was said that shields sweated blood, that ears of corn were cut at Antium with blood upon them, that blazing, fiery stones fell from on high, and that the people of Falerii saw the heavens open and many tablets fall down and scatter themselves abroad, and that on one of these was written in letters plain to see, 
+				<q direct="unspecified">Mars now brandisheth his weapons.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <q lang="la" direct="unspecified">Mauors telum suum concutit</q> (<bibl n="Liv. 22.1">Livy, xxii. 1.</bibl>)</note> 
+				        <milestone n="4" unit="section"/>The consul, Gaius Flaminius, was daunted by none of these things, for he was a man of a fiery and ambitious nature, and besides, he was elated by great successes which he had won before this, in a manner contrary to all expectation. He had, namely, although the senate dissented from his plan, and his colleague violently opposed it, joined battle with the Gauls and defeated them. Fabius also was less disturbed by the signs and portents, because he thought it would be absurd, although they had great effect upon many. 
+				<milestone n="5" unit="section"/>But when he learned how few in number the enemy were, and how great was their lack of resources, he exhorted the Romans to bide their time, and not to give battle to a man who wielded an army trained by many contests for this very issue, but to send aid to their allies, to keep their subject cities well in hand, and to suffer the culminating vigour of Hannibal to sink and expire of itself, like a flame that flares up from scant and slight material.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Flaminius, however, was not persuaded, but declared that he would not suffer the war to be brought near Rome, and that he would not, like Camillus of old, fight in the city for the city's defence. Accordingly, he ordered the tribunes to lead the army forth. But as Flaminius himself sprang upon his horse, for no apparent reason, and unaccountably, the animal was seized with quivering fright, and he was thrown and fell head foremost to the ground. Nevertheless, he in no wise desisted from his purpose, but since he had set out at the beginning to face Hannibal, drew up his forces near the lake called Thrasymen&eacute;<note resp="ed" place="unspecified" anchored="yes">Tarsimene, <bibl n="Plb. 3.82">Polybius, iii. 82</bibl>; Trasimenus, <bibl n="Liv. 22.4">Livy, xxii. 4.</bibl>
+            </note> in Tuscany.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>When the soldiers of both armies had engaged, at the very crisis of the battle, an earthquake occurred, by which cities were overthrown, rivers diverted from their channels, and fragments of cliffs torn away. And yet, although the disaster was so violent, no one of the combatants noticed it at all. 
+				<milestone n="3" unit="section"/>Flaminius himself, then, while displaying many deeds of daring and prowess, fell, and round about him the flower of his army. The rest were routed with much slaughter. Fifteen thousand were cut to pieces, and as many more taken prisoners. The body of Flaminius, to which Hannibal was eager to give honourable burial because of his valour, could not be found among the dead, but disappeared, no one ever knowing how.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Now of the defeat sustained at the Trebia,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Fab. 2.2">chapter ii. 2.</bibl>
+            </note> neither the general who wrote nor the messenger who was sent with the tidings gave a straightforward account, the victory being falsely declared uncertain and doubtful; but as soon as Pomponius the praetor heard of this second defeat, he called an assembly of the people, faced it, and without roundabout or deceptive phrases, but in downright fashion, said: 
+				<q direct="unspecified">Men of Rome, we have been beaten in a great battle; our army has been cut to pieces; our consul, Flaminius, is dead. Take ye therefore counsel for your own salvation and safety.</q> 
+				        <milestone n="5" unit="section"/>This speech of his fell like a tempest upon the great sea of people before him, and threw the city into commotion, nor could deliberate reasoning hold its own and stay the general consternation. But all were brought at last to be of one mind, namely, that the situation demanded a sole and absolute authority, which they call a dictatorship, and a man who would wield this authority with energy and without fear; 
+				<milestone n="6" unit="section"/>that Fabius Maximus, and he alone, was such a man, having a spirit and a dignity of character that fully matched the greatness of the office, and being moreover at the time of life when bodily vigour still suffices to carry out the counsels of the mind, and courage is tempered with prudence.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, this course was adopted, and Fabius was appointed dictator.<note resp="ed" place="unspecified" anchored="yes">In the absence of a consul, who alone could appoint a dictator, the people made Fabius pro-dictator (<bibl n="Liv. 22.8">Livy, xxii. 8.&amp;</bibl>rpar;.</note> He himself appointed Marcus Minucius to be his Master of Horse, and then at once asked permission of the senate to use a horse himself when in the field. For this was not his right, but was forbidden by an ancient law, either because the Romans placed their greatest strength in their infantry, and for this reason thought that their commander ought to be with the phalanx and not leave it; or because they wished, since the power of the office in all other respects is as great as that of a tyrant, that in this point at least the dictator should be plainly dependent on the people. 
+				<milestone n="2" unit="section"/>However, Fabius himself was minded to show forth at once the magnitude and grandeur of his office, that the citizens might be more submissive and obedient to his commands. He therefore appeared in public attended by a united band of twenty-four lictors with their fasces,<note resp="ed" place="unspecified" anchored="yes">Each consul was allowed twelve.</note> and when the remaining consul was coming to meet him, sent his adjutant to him with orders to dismiss his lictors, lay aside the insignia of his office, and meet him as a private person.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>After this, he began with the gods, which is the fairest of all beginnings, and showed the people that the recent disaster was due to the neglect and scorn with which their general had treated religious rites, and not to the cowardice of those who fought under him. He thus induced them, instead of fearing their enemies, to propitiate and honour the gods. It was not that he filled them with superstition, but rather that he emboldened their valour with piety, allaying and removing the fear which their enemies inspired, with hopes of aid from the gods. 
+				<milestone n="4" unit="section"/>At this time, moreover, many of the so-called Sibylline books, containing secrets of service to the state, were consulted, and it is said that some of the oracular sayings therein preserved corresponded with the fortunes and events of the time. What was thus ascertained, however, could not be made public, but the dictator, in the presence of all the people, vowed to sacrifice to the gods an entire year's increase in goats, swine, sheep, and cattle, that is, all that Italy's mountains, plains, rivers, and meadows should breed in the coming spring.<note resp="ed" place="unspecified" anchored="yes">
+               <foreign lang="la">Ver sacrum</foreign> (<bibl n="Liv. 22.10">Livy xxii. 10</bibl>).</note> He likewise vowed to celebrate a musical and dramatic festival in honour of the gods, which should cost three hundred and thirty-three sestertia, plus three hundred and thirty-three denarii, plus one third of a denarius. 
+				<milestone n="5" unit="section"/>This sum, in Greek money, amounts to eighty-three thousand five hundred and eighty-three drachmas, plus two obols. Now the reason for the exact prescription to this particular number is hard to give, unless it was thereby desired to laud the power of the number three, as being a perfect number by nature, the first of odd numbers, the beginning of quantity, and as containing in itself the first differences and the elements of every number mingled and blended together.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>By thus fixing the thoughts of the people upon their relations with Heaven, Fabius made them more cheerful regarding the future. But he himself put all his hopes of victory in himself, believing that Heaven bestowed success by reason of wisdom and valour, and turned his attentions to Hannibal. He did not purpose to fight out the issue with him, but wished, having plenty of time, money, and men, to wear out and consume gradually his culminating vigour, his scanty resources, and his small army. 
+				<milestone n="2" unit="section"/>Therefore, always pitching his camp in hilly regions so as to be out of reach of the enemy's cavalry, he hung threateningly over them. If they sat still, he too kept quiet; but if they moved, he would fetch a circuit down from the heights and show himself just far enough away to avoid being forced to fight against his will, and yet near enough to make his very delays inspire the enemy with the fear that he was going to give battle at last. But for merely consuming time in this way he was generally despised by his countrymen, and roundly abused even in his own camp. Much more did his enemies think him a man of no courage and a mere nobody,&mdash;all except Hannibal. 
+				<milestone n="3" unit="section"/>He, and he alone, comprehended the cleverness of his antagonist, and the style of warfare which he had adopted. He therefore made up his mind that by every possible device and constraint his foe must be induced to fight, or else the Carthaginians were undone, since they were unable to use their weapons, in which they were superior, but were slowly losing and expending to no purpose their men and moneys, in which they were inferior. He therefore resorted to every species of strategic trick and artifice, and tried them all, seeking, like a clever athlete, to get a hold upon his adversary. Now he would attack Fabius directly, now he would seek to throw his forces into confusion, and now he would try to lead him off every whither, in his desire to divorce him from his safe, defensive plans.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>But the purpose of Fabius, confident of a favourable issue, remained consistent and unchangeable. He was annoyed, however, by his Master of Horse, Minucius, who was eager to fight all out of season, and over bold, and who sought to win a following in the army, which he filled with mad impetuosity and empty hopes. The soldiers railed at Fabius and scornfully called him Hannibal's pedagogue; but Minucius they considered a great man, and a general worthy of Rome. 
+				<milestone n="5" unit="section"/>All the more therefore did he indulge his arrogance and boldness, and scoffed at their encampments on the heights, where, as he said, the dictator was always arranging beautiful theatres for their spectacle of Italy laid waste with fire and sword. And he would ask the friends of Fabius whether he was taking his army up into heaven, having lost all hope of earth, or whether he wrapped himself in clouds and mists merely to run away from the enemy. 
+				<milestone n="6" unit="section"/>When his friends reported this to Fabius, and advised him to do away with the opprobrium by risking battle, 
+				<q direct="unspecified">In that case, surely,</q> said he, 
+				<q direct="unspecified">I should be a greater coward than I am now held to be, if through fear of abusive jests I should abandon my fixed plans. And verily the fear which one exercises in behalf of his country is not shameful; but to be frightened from one's course by the opinions of men, and by their slanderous censures, that marks a man unworthy of so high an office as this, who makes himself the slave of the fools over whom he is in duty bound to be lord and master.</q>
+			      </p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, Hannibal fell into a grievous error. He wished to draw his army off some distance beyond Fabius, and occupy plains affording pasturage. He therefore ordered his native guides to conduct him, immediately after supper, into the district of Casinum. But they did not hear the name correctly, owing to his foreign way of pronouncing it, and promptly hurried his forces to the edge of Campania, into the city and district of Casilinum, through the midst of which flows a dividing river, called Vulturnus by the Romans. 
+				<milestone n="2" unit="section"/>The region is otherwise encompassed by mountains, but a narrow defile opens out towards the sea, in the vicinity of which it becomes marshy, from the overflow of the river, has high sand-heaps, and terminates in a beach where there is no anchorage because of the dashing waves. While Hannibal was descending into this valley, Fabius, taking advantage of his acquaintance with the ways, marched round him, and blocked up the narrow outlet with a detachment of four thousand heavy infantry. The rest of his army he posted to advantage on the remaining heights, while with the lightest and readiest of his troops he fell upon the enemy's rear-guard, threw their whole army into confusion, and slew about eight hundred of them. 
+				<milestone n="3" unit="section"/>Hannibal now perceived the mistake in his position, and its peril, and crucified the native guides who were responsible for it. He wished to effect a retreat, but despaired of dislodging his enemies by direct attack from the passes of which they were masters. All his men, moreover, were disheartened and fearful, thinking that they were surrounded on all sides by difficulties from which there was no escape. He therefore determined to cheat his enemies by a trick, the nature of which was as follows.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>He gave orders to take about two thousand of the cattle which they had captured, fasten to each of their horns a torch consisting of a bundle of withes or faggots, and then, in the night, at a given signal, to light the torches and drive the cattle towards the passes, along the defiles guarded by the enemy. As soon as his orders had been obeyed, he decamped with the rest of his army, in the darkness which had now come, and led it slowly along. 
+				<milestone n="5" unit="section"/>The cattle, as long as the fire was slight, and consumed only the wood, went on quietly, as they were driven, towards the slopes of the mountains, and the shepherds and herdsmen who looked down from the heights were amazed at the flames gleaming on the tips of their horns. They thought an army was marching in close array by the light of many torches. 
+				<milestone n="6" unit="section"/>But when the horns had been burned down to the roots, and the live flesh felt the flames, and the cattle, at the pain, shook and tossed their heads, and so covered one another with quantities of fire, then they kept no order in their going, but, in terror and anguish, went dashing down the mountains, their foreheads and tails ablaze, and setting fire also to much of the forest through which they fled. 
+				<milestone n="7" unit="section"/>It was, of course, a fearful spectacle to the Romans guarding the passes. For the flames seemed to come from torches in the hands of men who were running hither and thither with them. They were therefore in great commotion and fear, believing that the enemy were advancing upon them from all quarters and surrounding them on every side. Therefore they had not the courage to hold their posts, but withdrew to the main body of their army on the heights, and abandoned the defiles. Instantly the light-armed troops of Hannibal came up and took possession of the passes, and the rest of his forces presently joined them without any fear, although heavily encumbered with much spoil.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was still night when Fabius became aware of the ruse, for some of the cattle, in their random flight, were captured by his men; but he was afraid of ambushes in the darkness, and so kept still, with his forces under arms. When it was day, however, he pursued the enemy, and hung upon their rear-guard, and there was hand-to-hand fighting over difficult around and much tumult and confusion. At last Hannibal sent back from his van a body of Spaniards,&mdash;nimble, light-footed men, and good mountaineers, who fell upon the heavy-armed Roman infantry, cut many of them to pieces,<note resp="ed" place="unspecified" anchored="yes">One thousand, according to <bibl n="Plb. 3.94">Polybius, iii. 94.</bibl>
+            </note> and forced Fabius to turn back. 
+				<milestone n="2" unit="section"/>And now more than ever was Fabius the mark for scorn and abuse. He had renounced all bold and open fighting, with the idea of conquering Hannibal by the exercise of superior judgment and foresight, and now he was clearly vanquished himself by these very qualities in his foe, and out-generalled.
+			</p>
+         <p>Hannibal, moreover, wishing to inflame still more the wrath of the Romans against Fabius, On coming to his fields, gave orders to burn and destroy everything else, but had these spared, and these alone.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Per. 33.2">Pericles, xxxiii. 2.</bibl>
+            </note> He also set a guard over them, which suffered no harm to be done them, and nothing to be taken from them. 
+				<milestone n="3" unit="section"/>When this was reported at Rome, it brought more odium upon Fabius. The tribunes of the people also kept up a constant denunciation of him, chiefly at the instigation and behest of Metilius not that Metilius hated Fabius, but he was a kinsman of Minucius, the Master of Horse, and thought that slander of the one meant honour and fame for the other. The senate also was in an angry mood, and found particular fault with Fabius for the terms he had made with Hannibal concerning the prisoners of war. 
+				<milestone n="4" unit="section"/>They had agreed between them to exchange the captives man for man, and if either party had more than the other, the one who recovered these was to pay two hundred and fifty drachmas per man. Accordingly, after the exchange of man for man was made, it was found that Hannibal still had two hundred and forty Romans left. The senate decided not to send the ransom money for these, and found fault with Fabius for trying, in a manner unbecoming and unprofitable to the state, to recover men whose cowardice had made them a prey to the enemy. 
+				<milestone n="5" unit="section"/>When Fabius heard of this, he bore the resentment of his fellow-citizens with equanimity, but since he had no money, and could not harbour the thought of cheating Hannibal and abandoning his countrymen to their fate, he sent his son to Rome with orders to sell his fields<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Fab. 7.2">chapter vii. 2.</bibl>
+            </note> and bring the money to him at once, at camp. The young man sold the estates and quickly made his return, whereupon Fabius sent the ransom money to Hannibal and got back the prisoners of war. Many of these afterwards offered to pay him the price of their ransom, but in no case did he take it, remitting it rather for all.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this he was summoned to Rome by the priests to assist in sundry sacrifices, and put his forces in charge of Minucius, who was not to give battle, nor engage the enemy in any way. Such were not only the commands of Fabius as dictator, but also his reiterated counsels and requests. To all these Minucius gave little heed, and straightway began to threaten the enemy. 
+				<milestone n="2" unit="section"/>One day he noticed that Hannibal had sent the larger part of his army off to forage, whereupon he attacked the residue, drove them headlong inside their trenches, slew many of .them, and inspired them all with the fear of being held in siege by him. When Hannibal's forces were reunited in their camp, Minucius effected a safe retreat, thereby filling himself with measureless boastfulness and his soldiery with boldness. 
+				<milestone n="3" unit="section"/>An exaggerated version of the affair speedily made its way to Rome, and Fabius, when he heard it, said he was more afraid of the success of Minucius than he would be of his failure. But the people were exalted in spirit and joyfully ran to a meeting in the forum. There Metilius their tribune mounted the rostra and harangued them, extolling Minucius, but denouncing Fabius, not as a weakling merely, nor yet as a coward, but actually as a traitor. 
+				<milestone n="4" unit="section"/>He also included in his accusations the ablest and foremost men of the state besides. They had brought on the war at the outset, he said, in order to crush the people, and had at once flung the city into the hands of a man with sole and absolute authority, that he might, by his dilatory work, give Hannibal an assured position and time to reinforce himself with another army from Libya, on the plea that he had Italy in his power.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Then Fabius came forward to speak, but wasted no time on a defence of himself against the tribune. He simply said that the sacrifices and sacred rites must be performed as quickly as possible, so that he might proceed to the army and punish Minucius for engaging the enemy contrary to his orders. Thereupon a great commotion spread swiftly through the people; they realized the peril that threatened Minucius. For the dictator has the power to imprison and put to death without trial, and they thought that the wrath of Fabius, provoked in a man of his great gentleness, would be severe and implacable. 
+				<milestone n="2" unit="section"/>Wherefore they were all terrified and held their peace, excepting only Metilius. He enjoyed immunity of person as tribune of the people (for this is the only magistracy which is not robbed of its power by the election of a dictator; it abides when the rest are abolished<note resp="ed" place="unspecified" anchored="yes">See Polybius, iii. 87.</note>), and vehemently charged and prayed the people not to abandon Minucius, nor permit him to suffer the fate which Manlius Torquatus inflicted upon his son, whom he beheaded although crowned with laurel for the greatest prowess,<note resp="ed" place="unspecified" anchored="yes">The son had disobeyed consular orders and engaged in single combat with a Latin, in the great battle at the foot of Vesuvius, 340 B.C.</note> but to strip Fabius of his tyrant's power and entrust the state to one who was able and willing to save it.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>The rabble were moved by such utterances. They did not dare to force Fabius to resign his sovereignty, unpopular as he was, but they voted that Minucius should have an equal share in the command, and should conduct the war with the same powers as the dictator,&mdash;a thing which had not happened before in Rome. A little while afterwards, it is true, it happened again, namely, after the disaster at Cannae.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Fab. 16">chapter xvi.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>At that time Marcus Junius the dictator was in the field, and at home it became necessary that the senate should be filled up, since many senators had perished in the battle. They therefore elected Fabius Buteo a second dictator. But he, after acting in that capacity and choosing the men to fill up the senate, at once dismissed his lictors, eluded his escort, plunged into the crowd, and straightway went up and down the forum arranging some business matter of his own and engaging in affairs like a private citizen.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now that they had invested Minucius with the same powers as the dictator, the people supposed that the latter would feel shorn of strength and altogether humble, but they did not estimate the man aright. For he did not regard their mistake as his own calamity, but was like Diogenes the wise man, who, when some one said to him, 
+				<q direct="unspecified">These folk are ridiculing you,</q> said, 
+				<q direct="unspecified">But I am not ridiculed.</q> He held that only those are ridiculed who are confounded by such treatment and yield their ground. 
+				<milestone n="2" unit="section"/>So Fabius endured the situation calmly and easily, so far as it affected himself, thereby confirming the axiom of philosophy that a sincerely good man can neither be insulted nor dishonoured. But because it affected the state, he was distressed by the folly of the multitude. They had given opportunities to a man with a diseased military ambition, 
+				<milestone n="3" unit="section"/>and fearful lest this man, utterly crazed by his empty glory and prestige, should bring about some great disaster before he could be checked, he set out in all secrecy from the city. When he reached the camp, he found that Minucius was no longer to be endured. He was harsh in his manner, puffed up with conceit, and demanded the sole command in his due turn. This Fabius would not grant, feeling that the sole command of a part of the army was better than the command of the whole in his turn. 
+				<milestone n="4" unit="section"/>The first and fourth legions he therefore took himself and gave the second and third to Minucius, the allied forces also being equally divided between them. When Minucius put on lofty airs and exulted because the majesty of the highest and greatest office in the state had been lowered and insulted on his account, Fabius reminded him that his contention was not with Fabius, but rather, were he wise, with Hannibal. 
+				<milestone n="5" unit="section"/>If, however, he was bent on rivalry with his colleague in office, he must see to it that the man who had been triumphantly honoured by his fellow-citizens should not be proved more careless of their salvation and safety than the man who had been ingloriously outraged by them.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Minucius regarded all this as an old man's dissimulation, and taking the forces allotted to him, went into camp apart by himself,<note resp="ed" place="unspecified" anchored="yes">A mile and a half from Fabius, according to <bibl n="Plb. 3.103">Polybius, iii. 103.</bibl>
+            </note> while Hannibal, not unaware of what was going on, kept a watchful eye on everything. Now there was a hill between him and the Romans which could be occupied with no difficulty, and which, if occupied, would be a strong site for a camp and in every way sufficient. The plain round about, when viewed from a distance, was perfectly smooth and level, but really had sundry small ditches and other hollow places in it. 
+				<milestone n="2" unit="section"/>For this reason, though it would have been very easy for him to get possession of the hill by stealth, Hannibal had not cared to do so, but had left it standing between the two armies in the hope that it might bring on a battle. But when he saw Minucius separated from Fabius, in the night he scattered bodies of his soldiers among the ditches and hollows,<note resp="ed" place="unspecified" anchored="yes">Five thousand horsemen and footmen, according to <bibl n="Liv. 22.28">Livy, xxii. 28</bibl>; five thousand light-armed and other infantry, and five hundred cavalry, according to <bibl n="Plb. 3.104">Polybius, iii. 104.</bibl>
+            </note> and at break of day, with no attempt at concealment, sent a few to occupy the hill, that he might seduce Minucius into an engagement for it.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>And this actually came to pass. First Minucius sent out his light-armed troops, then his horsemen, and finally, when he saw Hannibal coming to the support of his troops on the hill, he descended into the plain with all his forces in battle array. In a fierce battle he sustained the discharge of missiles from the hill, coming to close quarters with the enemy there and holding his advantage, until Hannibal, seeing that his enemy was happily deceived and was exposing the rear of his line of battle to the troops who had been placed in ambush, raised the signal. 
+				<milestone n="4" unit="section"/>At this his men rose up on all sides, attacked with loud cries, and slew their foes who were in the rear ranks. Then indescribable confusion and fright took possession of the Romans. Minucius himself felt all his courage shattered, and looked anxiously now to one and now to another of his commanders, no one of whom dared to hold his ground, nay, all urged their men to flight, and a fatal flight too. For the Numidians, now masters of the situation, galloped round the plain and slew them as they scattered themselves about.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now that the Romans were in such an evil pass, Fabius was not unaware of their peril. He had anticipated the result, as it would seem, and had his forces drawn up under arms, wisely learning the progress of events not from messengers, but by his own observations in front of his camp. Accordingly, when he saw the army of Minucius surrounded and confounded, and when their cries, as they fell upon his ears, showed him that they no longer stood their ground, but were already panic-stricken and routed, 
+				<milestone n="2" unit="section"/>he smote his thigh, and with a deep groan said to the bystanders: 
+				<q direct="unspecified">Hercules! how much sooner than I expected, but later than his own rash eagerness demanded, has Minucius destroyed himself!</q> Then ordering the standards to be swiftly advanced and the army to follow, he called out with a loud voice:
+				<q direct="unspecified">Now, my soldiers, let every man be mindful of Marcus Minucius and press on to his aid; for he is a brilliant man, and a lover of his country. And if his ardent desire to drive away the enemy has led him into any error, we will charge him with it later.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>Well then, as soon as he appeared upon the scene, he routed and dispersed the Numidians who were galloping about in the plain. Then he made against those who were attacking the rear of the Romans under Minucius, and slew those whom he encountered. But the rest of them, ere they were cut off and surrounded in their own turn, as the Romans had been by them, gave way and fled. 
+				<milestone n="4" unit="section"/>Then Hannibal, seeing the turn affairs had taken, and Fabius, with a vigour beyond his years, ploughing his way through the combatants up to Minucius on the hill, put an end to the battle, signalled a retreat, and led his Carthaginians back to their camp, the Romans also being glad of a respite. It is said that as Hannibal withdrew, he addressed to his friends some such pleasantry as this about Fabius: 
+				<q direct="unspecified">Verily, did I not often prophesy to you that the cloud which we saw hovering above the heights would one day burst upon us in a drenching and furious storm?</q>
+			      </p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>XIII After the battle, Fabius despoiled all of the enemy whom he had slain, and withdrew to his camp, without indulging in a single haughty or invidious word about his colleague. And Minucius, assembling his own army, said to them: 
+				<q direct="unspecified">Fellow-soldiers, to avoid all mistakes in the conduct of great enterprises is beyond man's powers; but when a mistake has once been made, to use his reverses as lessons for the future is the part of a brave and sensible man. 
+					<milestone n="2" unit="section"/>I therefore confess that while I have some slight cause of complaint against fortune, I have larger grounds for praising her. For what I could not learn in all the time that preceded it, I have been taught in the brief space of a single day, and I now perceive that I am not able to command others myself, but need to be under the command of another, and that I have all the while been ambitious to prevail over men of whom to be outdone were better. Now in all other matters the dictator is your leader, but in the rendering of thanks to him I myself will take the lead, and will show myself first in following his advice and doing his bidding.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>After these words, he ordered the eagles to be raised and all to follow them, and led the way to the camp of Fabius. When he had entered this, he proceeded to the general's tent, while all were lost in wonder. When Fabius came forth, Minucius had the standards planted in front of him, and addressed him with a loud voice as Father, while his soldiers greeted the soldiers of Fabius as Patrons, the name by which freedmen address those who have set them free. 
+				<milestone n="4" unit="section"/>When quiet prevailed, Minucius said: 
+				<q direct="unspecified">Dictator, you have on this day won two victories, one over Hannibal through your valour, and one over your colleague through your wisdom and kindness. By the first you saved our lives, and by the second you taught us a great lesson, vanquished as we were by our enemy to our shame, and by you to our honour and safety. 
+					<milestone n="5" unit="section"/>I call you by the excellent name of Father, because there is no more honourable name which I can use; and yet a father's kindness is not so great as this kindness bestowed by you. My father did but beget me, while to you I owe not only my own salvation, but also that of all these men of mine.</q> So saying, he embraced Fabius and kissed him, and the soldiers on both sides in like manner embraced and kissed each other, so that the camp was filled with joy and tears of rejoicing.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, Fabius laid down his office, and consuls were again appointed. The first of these maintained the style of warfare which Fabius had ordained. They avoided a pitched battle with Hannibal, but gave aid and succour to their allies, and prevented their falling away. But when Terentius Varro was elevated to the consulship, a man whose birth was obscure and whose life was conspicuous for servile flattery of the people and for rashness, it was clear that in his inexperience and temerity he would stake the entire issue upon the hazard of a single throw. 
+				<milestone n="2" unit="section"/>For he used to shout in the assemblies that the war would continue as long as the city employed men like Fabius as its generals; but that he himself would conquer the enemy the very day he saw them. And not only did he make such speeches, but he also assembled and enrolled a larger force than the Romans had ever employed against any enemy. Eighty-eight thousand men were arrayed for battle, to the great terror of Fabius and all sensible Romans. For they thought their city could not recover if she lost so many men in the prime of life.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Now, Paulus Aemilius was the colleague of Terentius, a man of experience in many wars, but not acceptable to the people, and crushed in spirit by a fine which they had imposed upon him. Therefore Fabius tried to rouse and encourage him to restrain the madness of his colleague, showing him that he must struggle to save his country not so much from Hannibal as from Terentius. The latter, he said, was eager to fight because he did not see where his strength lay; the former, because he saw his own weakness. 
+				<milestone n="4" unit="section"/>
+				        <q direct="unspecified">But,</q> said he, 
+				<q direct="unspecified">it is to me, O Paulus, that more credence should be given in regard to Hannibal's affairs, and I solemnly assure you that, if no one shall give him battle this year, the ,man will remain in Italy only to perish, or will leave it in flight, since even now, when he is thought to be victorious and to be master of the country, not one of his enemies has come over to his side, and not even so much as the third part of the force which he brought from home is still left.</q> 
+				        <milestone n="5" unit="section"/>To this Paulus is said to have answered: 
+				<q direct="unspecified">If I consult my own interests, O Fabius, it is better for me to encounter the spears of the enemy than to face again the votes of my fellow-citizens. But if the state is in such a pass, I will try to be a good general in your opinion, rather than in that of all the rest who so forcibly oppose you.</q> With this determination, Paulus went forth to the war.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Terentius, insisting on his right to command a day in turn, and then encamping over against Hannibal by the river Aufidus amid the town called Cannae, at break of day put out the signal for battle,&mdash;a scarlet tunic displayed above the general's tent. At this event the Carthaginians were confounded at first, seeing the boldness of the Roman general and the number of his army, which was more than double their own. 
+				<milestone n="2" unit="section"/>But Hannibal ordered his forces to arm for battle, while he himself; with a few companions, rode to the top of a gently sloping ridge, from which he watched his enemies as they formed in battle array. When one of his companions, named Gisco, a man of his own rank, remarked that the number of the enemy amazed him, Hannibal put on a serious look and said: 
+				<q direct="unspecified">Gisco, another thing has escaped your notice which is more amazing still.</q> And when Gisco asked what it was, 
+				<q direct="unspecified">It is the fact,</q> said he, 
+				<q direct="unspecified">that in all this multitude there is no one who is called Gisco.</q> 
+				        <milestone n="3" unit="section"/>The jest took them all by surprise and set them laughing, and as they made their way down from the ridge, they reported the pleasantry to all who met them, so that great numbers were laughing heartily, and Hannibal's escort could not even recover themselves. The sight of this infused courage into the Carthaginians. They reasoned that their general must have a mighty contempt for the enemy if he laughed and jested so in the presence of danger.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the battle Hannibal practiced a double strategy. In the first place, he took advantage of the ground to put the wind at his back. This wind came down like a fiery hurricane, and raised a huge cloud of dust from the exposed and sandy plains and drove it over the Carthaginian lines hard into the faces of the Romans, who turned away to avoid it, and so fell into confusion. 
+				<milestone n="2" unit="section"/>In the second place, he formed his troops as follows: the sturdiest and most warlike part of his force he stationed on either side of the centre, and manned the centre itself with his poorest soldiers, intending to use this as a wedge jutting out far in advance of the rest of his line. But orders were given to the picked troops, when the Romans should have cut the troops in the centre to pieces, pursued them hotly as they retreated and formed a deep hollow, and so got within their enemy's line of battle,&mdash;then to turn sharply from either side, smite them on the flanks, and envelop them by closing in upon their rear. 
+				<milestone n="3" unit="section"/>And it was this which seems to have produced time greatest slaughter. For the centre gave way and was followed by the Romans in pursuit, Hannibal's line of battle thus changing its shape into that of a crescent; and the commanders of the picked troops on his wings wheeled them swiftly to left and right and fell upon the exposed sides of their enemy, all of whom, except those who retired before they were surrounded, were then overwhelmed and destroyed.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>It is said, further, that a strange calamity befell the Roman cavalry also. The horse of Paulus, as it appears, was wounded and threw his rider off, and one after another of his attendants dismounted and sought to defend the consul on foot. When the horsemen saw this, supposing that a general order had been given, they all dismounted and engaged the enemy on foot. On seeing this, Hannibal said: 
+				<q direct="unspecified">This is more to my wish than if they had been handed over to me in fetters.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <q lang="la" direct="unspecified">Quam mallem vinctos mihi traderet.</q> 
+               <bibl n="Liv. 22.49">Livy, xxii. 49.</bibl>
+            </note> 
+				        <milestone n="5" unit="section"/>But such particulars as these may be found in the detailed histories of the war.
+			</p>
+         <p>As for the consuls, Varro galloped off with a few followers to the city of Venusia, but Paulus, caught in the deep surges of that panic flight and covered with many missiles which hung in his wounds, weighed down in body and spirit by so vast a misfortune, sat down, leaning against a stone, and waiting for an enemy to dispatch him. 
+				<milestone n="6" unit="section"/>His head and face were so profusely smeared with blood that few could recognize him; even his friends and retainers passed him by without knowing him. Only Cornelius Lentulus, a young man of the patrician order, saw who he was, and leaping from his horse, led him to Paulus and besought the consul to take him and save himself for the sake of his fellow-citizens, who now more than ever needed a brave commander. 
+				<milestone n="7" unit="section"/>But Paulus rejected this prayer, and forced the youth, all tears, to mount his horse again, and then rose up and clasped his hand and said: 
+				<q direct="unspecified">Lentulus, tell Fabius Maximus, and be thyself a witness to what thou tellest, that Paulus Aemilius was true to his precepts up to the end, and broke not one of the agreements made with him, but was vanquished first by Varro, and then by Hannibal.</q> 
+				        <milestone n="8" unit="section"/>With such injunctions, he sent Lentulus away, then threw himself into the midst of the slaughter and perished. And it is said that fifty thousand Romans fell in that battle, that four thousand were taken alive, and that after the battle there were captured in both consular camps no less than ten thousand.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In view of such a complete success, Hannibal's friends urged him to follow up his good fortune and dash into their city on the heels of the flying enemy, assuring him in that case that on the fifth day after his victory he would sup on the Capitol. It is not easy to say what consideration turned him from this course, nay, it would rather seem that his evil genius, or some divinity, interposed to inspire him with the hesitation and timidity which he now showed. Wherefore, as they say, Barca, the Carthaginian, said to him angrily: 
+				<q direct="unspecified">Thou canst win a victory, but thy victory thou canst not use.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <foreign lang="la">Tum Maharbal: 
+					<q direct="unspecified">Non omnia nimirum eidem di dedere: vincere scis, Hannibal, victoria uti nescis.</q>
+               </foreign> 
+               <bibl n="Liv. 22.51">Livy, xxii. 51.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>And yet his victory wrought a great change in his circumstances. Before the battle, he had not a city, not a trading-place, not a sea-port in Italy, and could with difficulty barely supply his army with provisions by foraging, since he had no secure base of supplies for the war, but wandered hither and thither with his army as if it were a great horde of robbers. After the battle, however, he brought almost all Italy under his sway. 
+				<milestone n="3" unit="section"/>Most of its peoples, and the largest of them too, came over to him of their own accord, and Capua, which is the most considerable city after Rome, attached herself firmly to his cause.
+			</p>
+         <p>Not only, then, does it work great mischief, as Euripides says, to put friends to the test, but also prudent generals. For that which was called cowardice and sluggishness in Fabius before the battle, immediately after the battle was thought to be no mere human calculation, nay, rather, a divine and marvellous intelligence, since it looked so far into the future and foretold a disaster which could hardly be believed by those who experienced it. 
+				<milestone n="4" unit="section"/>In him, therefore, Rome at once placed her last hopes; to his wisdom she fled for refuge as to temple and altar, believing that it was first and chiefly due to his prudence that he still remained a city, and was not utterly broken up, as in the troublous times of the Gallic invasion. 
+				<milestone n="5" unit="section"/>For he who, in times of apparent security, appeared cautious and irresolute, then, when all were plunged in boundless grief and helpless confusion, was the only man to walk the city with calm step, composed countenance, and gracious address, checking effeminate lamentation, and preventing those from assembling together who were eager to make public their common complaints. He persuaded the senate to convene, heartened up the magistrates, and was himself the strength and power of every magistracy, since all looked to him for guidance.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, he put guards at the gates, in order to keep the frightened throng from abandoning the city, and set limits of time and place to the mourning for the dead, ordering any who wished to indulge in lamentation, to do so at home for a period of thirty days; after that, all mourning must cease and the city be purified of such rites. 
+				<milestone n="2" unit="section"/>And since the festival of Ceres fell within these days, it was deemed better to remit entirely the sacrifices and the procession, rather than to emphasize the magnitude of their calamity by the small number and the dejection of the participants. For the gods' delight is in honours paid them by the fortunate. 
+				<milestone n="3" unit="section"/>However, all the rites which the augurs advocated for the propitiation of the gods, or to avert inauspicious omens, were duly performed. And besides, Pictor, a kinsman of Fabius, was sent to consult the oracle at Delphi; and when two of the vestal virgins were found to have been corrupted, one of them was buried alive, according to the custom,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Num. 10.4">Numa, x. 4 ff.</bibl>
+            </note> and the other slew herself.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>But most of all was the gentle dignity of the city to be admired in this, that when Varro, the consul, came back from his flight, as one would come back from a most ill-starred and disgraceful experience, in humility and dejection, the senate and the whole people met him at the gates with a welcome. 
+				<milestone n="5" unit="section"/>The magistrates and the chief men of the senate, of whom Fabius was one, praised him, as soon as quiet was restored, because he had not despaired of the city after so great a misfortune, but was at hand to assume the reins of government, and to employ the laws and his fellow-citizens in accomplishing the salvation which lay within their power.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When they learned that Hannibal, after the battle, had turned aside into the other parts of Italy, they plucked up courage and sent out commanders with armies. The most illustrious of these were Fabius Maximus and Claudius Marcellus, men who were similarly admired for directly opposite characters. 
+				<milestone n="2" unit="section"/>The latter, as has been stated in his Life,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Marc. 1">Chapter i.</bibl>
+            </note> was a man of splendid and impetuous actions, with an arm of ready vigour, and by nature like the men whom Homer is wont to call 
+				<q direct="unspecified">fond of battle,</q> and 
+				<q direct="unspecified">eager for the fray.</q> He therefore conducted his first engagements in the venturesome and reckless style of warfare which met the daring of such a man as Hannibal with an equal daring. 
+				<milestone n="3" unit="section"/>Fabius, on the contrary, clung to his first and famous convictions, and looked to see Hannibal, if only no one fought with him or harassed him, become his own worst enemy, wear himself out in the war, and speedily lose his high efficiency, like an athlete whose bodily powers have been overtaxed and exhausted. It was for these reasons, as Poseidonius says, that the Romans called Fabius their buckler, and Marcellus their sword, and that the mingling of the firm steadfastness of the one with the versatility of the other proved the salvation of Rome. 
+				<milestone n="4" unit="section"/>By his frequent encounters with Marcellus, whose course was like that of a swiftly-flowing river, Hannibal saw his forces shaken and swept away; while by Fabius, whose course was slow, noiseless, and unceasing in its stealthy hostility, they were imperceptibly worn away and consumed. And finally he was brought to such a pass that he was worn out with fighting Marcellus, and afraid of Fabius when not fighting.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>For it was with these two men that he fought almost all the time, as they held the offices of praetor, pro-consul, or consul; and each of them was consul five times. However, when Marcellus was serving as consul for the fifth time, Hannibal led him into an ambush and slew him<note resp="ed" place="unspecified" anchored="yes">In Lucania, 208 B.C. Cf. the <bibl n="Plut. Marc. 29">Marcellus, xxix.</bibl>
+            </note>; but he had no success against Fabius, although he frequently brought all sorts of deceitful tests to bear upon him. Once, it is true, he did deceive the man, and came near giving him a disastrous overthrow. 
+				<milestone n="6" unit="section"/>He composed and sent to Fabius letters purporting to come from the chief men of Metapontum, assuring him that their city would be surrendered to him if he should come there, and that those who were contriving the surrender only waited for him to come and show himself in the neighbourhood. These letters moved Fabius to action, and he proposed to take a part of his force and set out by night. Then he got unfavourable auspices and was turned from his purpose by them, and in a little while it was discovered that the letters which had come to him were cunning forgeries by Hannibal, who had laid an ambush for him near the city. This escape, however, may be laid to the favour of the gods.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Fabius thought that the revolts of the cities and the agitations of the allies ought to be restrained and discountenanced rather by mild and gentle measures, without testing every suspicion and showing harshness in every case to the suspected. It is said, for instance, that when he learned about a Marsian soldier, eminent among the allies for valour and high birth, who had been talking with some of the soldiers in the camp about deserting to the enemy, 
+				<milestone n="2" unit="section"/>he was not incensed with him, but admitted frankly that he had been unduly neglected; so far, he said, this was the fault of the commanders, who distributed their honours by favour rather than for valour, but in the future it would be the man's own fault if he did not come to him and tell him when he wanted anything. These words were followed by the gift of a warhorse and by other signal rewards for bravery, and from that time on there was no more faithful and zealous man in the service. 
+				<milestone n="3" unit="section"/>Fabius thought it hard that, whereas the trainers of horses and dogs relied upon care and intimacy and feeding rather than on goads and heavy collars for the removal of the animal's obstinacy, anger, and discontent, the commander of men should not base the most of his discipline on kindness and gentleness, but show more harshness and violence in his treatment of them than farmers in their treatment of wild fig-trees, wild pear-trees, and wild olive-trees, which they reclaim and domesticate till they bear luscious olives, pears, and figs.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Accordingly, when another soldier, a Lucanian, was reported by his officers as frequently quitting his post and roaming away from the camp, Fabius asked them what kind of a man they knew him to be in other respects. All testified that such another soldier could not easily be found, and rehearsed sundry exploits of his wherein he had shown conspicuous bravery. Fabius therefore inquired into the cause of the man's irregularity, and discovered that he was deeply in love with a maid, and risked his life in long journeys from the camp every time he visited her. 
+				<milestone n="5" unit="section"/>Accordingly, without the man's knowledge, Fabius sent and arrested the girl and hid her in his own tent. Then he called the Lucanian to him privately and said: 
+				<q direct="unspecified">It is well known that, contrary to Roman custom and law, you often pass the night away from camp; but it is also well known that you have done good service in the past. Your transgressions shall therefore be atoned for by your deeds of valour, but for the future I shall put another person in charge over you.</q> 
+				        <milestone n="6" unit="section"/>Then, to the soldier's amazement, he led the girl forth and put her in his hands, saying: 
+				<q direct="unspecified">This person pledges herself that you will hereafter remain in camp with us, and you will now show plainly whether or not you left us for some other and base purpose, making this maid and your love for her a mere pretext.</q> Such is the story which is told about this matter.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The city of Tarentum, which had been lost to the Romans by treachery,<note resp="ed" place="unspecified" anchored="yes">212 B.C.</note> Fabius recovered in the following manner.<note resp="ed" place="unspecified" anchored="yes">209 B.C.</note> There was a young man of Tarentum in his army, and he had a sister who was very faithfully and affectionately disposed towards him. With this woman the commander of the forces set by Hannibal to guard the city, a Bruttian, was deeply enamoured, and the circumstance led her brother to hope that he could accomplish something by means of it. He therefore joined his sister in Tarentum, ostensibly as a deserter from the Romans, though he was really sent into the city by Fabius, who was privy to his scheme. 
+				<milestone n="2" unit="section"/>Some days passed, accordingly, during which the Bruttian remained at home, since the woman thought that her amour was unknown to her brother. Then her brother had the following words with her: 
+				<q direct="unspecified">I would have you know that a story was very current out there in the Roman camp that you have interviews with a man high in authority. Who is this man? For if he is, as they say, a man of repute, and illustrious for his valour, war, that confounder of all things, makes very little account of race. Nothing is disgraceful if it is done under compulsion, nay, we may count it rare good fortune, at a time when right is weak, to find might very gentle with us.</q> 
+				        <milestone n="3" unit="section"/>Thereupon the woman sent for her Bruttian and made her brother acquainted with him. The Barbarian's confidence was soon gained, since the brother fostered his passion and plainly induced the sister to be more complacent and submissive to him than before, so that it was not difficult, the man being a lover and a mercenary as well, to change his allegiance, in anticipation of the large gifts which it was promised that he should receive from Fabius.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>This is the way the story is usually told.<note resp="ed" place="unspecified" anchored="yes">So, substantially, by <bibl n="Liv. 27.15">Livy, xxvii. 15.</bibl>
+            </note> But some writers say that the woman by whom the Bruttian was won over, was not a Tarentine, but a Bruttian, and a concubine of Fabius, and that when she learned that the commander of the Bruttian garrison was a fellow-countryman and an acquaintance of hers, she told Fabius, held a conference with the man beneath the walls of the city, and won him completely over.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While this plot was under way, Fabius schemed to draw Hannibal away from the neighbourhood, and therefore gave orders to the garrison at Rhegium to overrun Bruttium and take Caulonia by storm. This garrison numbered eight thousand, most of them deserters, and the refuse of the soldiers sent home from Sicily in disgrace by Marcellus, men whose loss would least afflict and injure Rome. 
+				<milestone n="2" unit="section"/>Fabius expected that by casting these forces, like a bait, in front of Hannibal, he would draw him away from Tarentum. And this was what actually happened. For Hannibal immediately swept thither in pursuit with his army. But five days after Fabius had laid siege to Tarentum, the youth who, with his sister, had come to an understanding with the Bruttian commander in the city, canine to him by night. He had seen and knew precisely the spot at which the Bruttian was watching with time purpose of handing the city over to its assailants. 
+				<milestone n="3" unit="section"/>Fabius, however, would not suffer his enterprise to depend wholly upon the betrayal of the city. While, therefore, he himself led a detachment quietly to the appointed spot, the rest of his army attacked the walls by land and sea, with great shouting and tumult, until most of the Tarentines had run to the aid of those who were defending them. Then the Bruttian gave Fabius the signal, and he scaled the walls and got the mastery of the city.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>At this point, however, Fabius seems to have been overcome by his ambition, for he ordered his men to put the Bruttians first of all to the sword, that his possession of the city might not be known to be due to treachery. He not only failed to prevent this knowledge, but incurred also the reproach of perfidy and cruelty. Many of the Tarentines also were slain, thirty thousand of them were sold into slavery, their city was plundered by the Roman army, and three thousand talents were thereby brought into the public treasury. 
+				<milestone n="5" unit="section"/>While everything else was carried off as plunder, it is said that the accountant asked Fabius what his orders were concerning the gods, for so he called their pictures and statues; and that Fabius answered: 
+				<q direct="unspecified">Let us leave their angered gods for the Tarentines.</q> 
+				        <milestone n="6" unit="section"/>However, he removed the colossal statue of Heracles from Tarentum, and set it up on the Capitol, and near it an equestrian statue of himself, in bronze. He thus appeared far more eccentric in these matters than Marcellus, nay rather, the mild and humane conduct of Marcellus was thus made to seem altogether admirable by contrast, as has been written in his Life.<note resp="ed" place="unspecified" anchored="yes">Chapter xxi. Marcellus had enriched Rome with works of Greek art taken from Syracuse in 212 B.C. Livy's opinion is rather different from Plutarch's: <q lang="la" direct="unspecified">sed maiore animo generis eius praeda abstinuit Fabius quam Marcellus,</q> 
+               <bibl n="Liv. 27.16">xxvii. 16.</bibl> Fabius killed the people but spared their gods; Marcellus spared the people but took their gods.</note>
+			      </p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It is said that Hannibal had got within five miles of Tarentum when it fell, and that openly he merely remarked: 
+				<q direct="unspecified">It appears, then, that the Romans have another Hannibal, for we have lost Tarentum even as we took it</q>; but that in private he was then for the first time led to confess to his friends that he had long seen the difficulty, and now saw the impossibility of their mastering Italy with their present forces. 
+				<milestone n="2" unit="section"/>For this success, Fabius celebrated a second triumph more splendid than his first, since he was contending with Hannibal like a clever athlete, and easily baffling all his undertakings, now that his hugs and grips no longer had their old time vigour. For his forces were partly enervated by luxury and wealth,<note resp="ed" place="unspecified" anchored="yes">In 216-215 B.C. Hannibal made the opulent city of Capua his winter quarters.</note> and partly blunted, as it were, and worn out by their unremitting struggles.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Now there was a certain Marcus Livius, who commanded the garrison of Tarentum when Hannibal got the city to revolt. He occupied the citadel, however, and was not dislodged from this position, but held it until the Romans again got the upper hand of the Tarentines. This man was vexed by the honours paid to Fabius, and once, carried away by his jealousy and ambition, said to the senate that it was not Fabius, but himself, who should be credited with the capture of Tarentum. At this Fabius laughed, and said: 
+				<q direct="unspecified">You are right; had you not lost the city, I had not taken it.</q>
+			      </p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Among the other marks of high favour which the Romans conferred upon Fabius, they made his son Fabius consul.<note resp="ed" place="unspecified" anchored="yes">213 B.C.</note> When this son had entered upon his office and was arranging some matter pertaining to the war, his father, either by reason of his age and weakness, or because he was putting his son to the test, mounted his horse and rode towards him through the throng of bystanders. The young man caught sight of his father at a distance and would not suffer what he did, but sent a lictor with orders for him to dismount and come to the consul on foot if he had any need of his offices. 
+				<milestone n="2" unit="section"/>All the rest were offended at this command, and implied by their silent gaze at Fabius that this treatment of him was unworthy of his high position. But Fabius himself sprang quickly from his horse, almost ran to his son, and embraced him affectionately. 
+				<q direct="unspecified">My son,</q> he said, 
+				<q direct="unspecified">you are right in thought and act. You understand what a people has made you its officer, and what a high office you have received from them. It was in this spirit that our fathers and we ourselves have exalted Rome, a spirit which makes parents and children ever secondary to our country's good.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+					          <q direct="unspecified">
+                  <foreign lang="la">Experiri volui, fili, satin scires consultem te esse.</foreign>
+               </q> 
+               <bibl n="Liv. 24.44">Livy, xxiv. 44.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>And of a truth it is reported of the great-grandfather of our Fabius, that though he had the greatest reputation and influence in Rome, and though he had himself been consul five times and had celebrated the most splendid triumphs for time greatest wars, he nevertheless, when his son was consul, went forth to war within him as his lieutenant,<note resp="ed" place="unspecified" anchored="yes">292 B.C.</note> and in the triumph that followed, while the son entered the city on a four-horse chariot, the father followed on horseback with the rest of the train, exulting in the fact that, though he was master of his son, and was the greatest of the citizens both in name and in fact, he yet put himself beneath the law and its official. However, this was not the only admirable thing about him.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>But the son of our Fabius, as it happened, died, and this affliction he bore with equanimity, like a wise man and a good father. The funeral oration, which is pronounced at the obsequies of illustrious men by some kinsman, he delivered himself from his place in the forum, and then wrote out the speech and published it.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Fab. 1.5">chapter i. 5.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But now Cornelius Scipio was sent into Spain, where he not only conquered the Carthaginians in many battles, and drove them out of the country, but also won over a multitude of nations, and took great cities with splendid spoils, so that, on his return to Rome, he enjoyed an incomparable favour and fame, and was made consul.<note resp="ed" place="unspecified" anchored="yes">205 B.C.</note> Perceiving that the people demanded and expected a great achievement from him, 
+				<milestone n="2" unit="section"/>he regarded the hand to hand struggle within Hannibal there in Italy as very antiquated and senile policy, and purposed to fill Libya at once, and thine territory of Carthage itself, with Roman arms and soldiery, and ravage them, and thus to transfer the war from Italy thither. To this policy he urged the people with all his soul. But just at this point Fabius tried to fill the city with all sorts of fear. They were hurrying, he said, under the guidance of a foolhardy young man, into the remotest and greatest peril, 
+				<milestone n="3" unit="section"/>and he spared neither word nor deed which he thought might deter the citizens from this course. He brought the senate over to his views; but the people thought that he attacked Scipio through jealousy of his success, and that he was afraid lest, if Scipio performed some great and glorious exploit and either put an end to the war entirely or removed it out of Italy, his own failure to end the war after all these years would be attributed to sloth and cowardice.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Now it is likely that Fabius began this opposition out of his great caution and prudence, in fear of the danger, which was great; but that he grew more violent and went to greater lengths in his opposition out of ambition and rivalry, in an attempt to check the rising influence of Scipio. For he even tried to persuade Crassus, Scipio's colleague in the consulship, not to surrender the command of the army and not to yield to Scipio, but to proceed in person against Carthage, if that policy were adopted. He also prevented the granting of moneys for the war. 
+				<milestone n="5" unit="section"/>As for moneys, since he was obliged to provide them for himself, Scipio collected them on his private account from time cities of Etruria, which were devotedly attached to him; and as for Crassus, it was partly his nature, which was not contentious, but gentle, that kept him at home, and partly also a religious custom, for he was pontifex maximus, or High Priest.
+			</p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, Fabius took another way to oppose Scipio, and tried to hinder and restrain the young men who were eager to serve under him, crying out in sessions of the senate and the assembly that it was not Scipio himself only who was running away from Hannibal, but that he was sailing off from Italy with her reserve forces, playing upon the hopes of her young men, and persuading them to abandon their parents, their wives, and their city, although the enemy still sat at her gates, masterful and undefeated. 
+				<milestone n="2" unit="section"/>And verily he frightened the Romans with these speeches, and they decreed that Scipio should employ only the forces which were then in Sicily, and take with him only three hundred of the men who had been with him in Spain,&mdash;men who had served him faithfully. In this course, at any rate, Fabius seems to have been influenced by his own cautious temper.
+			</p>
+         <p>But as soon as Scipio had crossed into Africa, tidings were brought<note resp="ed" place="unspecified" anchored="yes">204 B.C.</note> to Rome of wonderful achievements and of exploits transcendent in magnitude and splendour. These reports were confirmed by abundant spoils which followed them; 
+				<milestone n="3" unit="section"/>the king of Numidia was taken captive; two of the enemy's camps were at once destroyed by fire, and in them a great number of men, arms, and horses; embassies were sent from Carthage to Hannibal urgently calling upon him to give up his fruitless hopes in Italy and come to the aid of his native city;<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Liv. 30.19">Livy, xxx. 19.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>and when every tongue in Rome was dwelling on the theme of Scipios successes, then Fabius demanded that a successor should be sent out to replace him. He gave no other reason, but urged the well remembered maxim that it was dangerous to entrust such vast interests to the fortune of a single man, since it was difficult for the same man to have good fortune always. By this course he gave offence now to many, who thought him a captious and malicious man, or one whose old age had robbed him utterly of courage and confidence, so that he was immoderately in awe of Hannibal. 
+				<milestone n="5" unit="section"/>For not even after Hannibal and his army had sailed away from Italy<note resp="ed" place="unspecified" anchored="yes">203 B.C.</note> would he suffer the rejoicing and fresh courage of the citizens to be undisturbed and assured, but then even more than ever he insisted that the city was running into extremest peril and that her affairs were in a dangerous plight. For Hannibal, he said, would fall upon them with all the greater effect in Africa at the gates of Carthage, and Scipio would be confronted within an army yet warm with the blood of many importers, dictators, and consuls. Consequently, the city was once more confounded by these speeches, and although the war had been removed to Africa, they thought its terrors were nearer Rome.
+			</p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But shortly afterward Scipio utterly defeated Hannibal himself in battle, humbled and trod under foot the pride of fallen Carthage, restored to his fellow-citizens a joy that surpassed all their hopes, and in very truth 
+				<q direct="unspecified">righted once more</q> the ship of their supremacy, which had been 
+				<q direct="unspecified">shaken in a heavy surge.</q> Fabius Maximus, however, did not live to see the end of the war, minor did he even hear of Hannibal's defeat, nor behold the great and assured prosperity of the country, but at about the time when Hannibal set sail from Italy, he fell sick and died.<note resp="ed" place="unspecified" anchored="yes">203 B.C. Cf. <bibl n="Liv. 30.26">Livy, xxx. 26.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>Epaminondas, it is true, was buried by the Thebans at the public cost, because of the poverty in which he died, for it is said that nothing was found in his house after his death except a piece of iron money. Fabius, however, was not buried by the Romans at the public charge, but each private citizen contributed the smallest coin in his possession, not because his poverty called for their aid, but because the people felt that it was burying a father, whose death thus received honour and regard befitting his life.
+			</p>
+      </body>
+   </text>
+</TEI.2>

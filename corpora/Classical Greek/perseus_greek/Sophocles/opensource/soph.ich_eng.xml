@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Tracking Satyrs</title>
+<author n="Soph.">Sophocles</author>
+<editor role="translator">Anne Mahoney</editor>
+&responsibility;
+&fund.Tufts;
+</titleStmt>
+<extent>About 35Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<bibl>
+<author>Sophocles</author>
+<title>Tracking Satyrs (Ichneutae)</title>
+<editor role="translator">Anne Mahoney</editor>
+</bibl>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>29-Oct-00</date><respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>Initial text, adapted from Walker
+$Log: soph.ich_eng.xml,v $
+Revision 1.1  2009-12-08 18:56:08  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.2  2006/02/10 21:10:42  packel
+places/dates now actually tagged
+
+Revision 1.1  2005/07/25 15:03:06  packel
+Converted to XML
+
+Revision 1.4  2004/04/21 20:42:00  mimno
+added card 1s
+
+Revision 1.3  2003/07/01 22:18:08  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.2  2001/01/02 14:48:53  amahoney
+move credits for editors to filedesc proper so they'll show in pulldown
+
+Revision 1.1  2000/12/29 22:58:38  amahoney
+the translation is ready to go
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<front>
+<div type="introduction">
+<p>The <title>Tracking Satyrs</title> is a substantial fragment of a satyr play by Sophocles, discovered at <placeName key="tgn,7001267">Oxyrhynchus</placeName> in <placeName key="tgn,7016833">Egypt</placeName> in <date value="1907">1907</date>.  We have some 400 lines of a play that was probably about 800 lines long.  The plot is the same as that of the <bibl n="HH 4"><title>Homeric Hymn to Hermes</title></bibl>:  Apollo's cows have been stolen, and the culprit turns out to be his newborn brother Hermes.</p>
+<p>This translation is adapted from <bibl><title>The Ichneutae of Sophocles</title>, Richard Johnson Walker, London:  1919</bibl>.  Walker established his own text for the fragment, filling in many of the gaps.  I have occasionally adopted his supplements, but have basically translated the text of the first publication of the play, <bibl><title>Oxyrhynchus Papyri 9</title>, no. 1174, ed. Arthur S. Hunt, London:  1912.</bibl>
+
+<castList><head>Who's Who in the Play</head>
+<castItem type="role"><role>Apollo </role><roleDesc>son of Zeus and god of prophecy</roleDesc></castItem>
+<castItem type="role"><role>Silenus </role><roleDesc>father of the satyrs</roleDesc></castItem>
+<castItem type="role"><role>Cyllene </role><roleDesc>a nymph</roleDesc></castItem>
+<castItem type="role"><role>Hermes </role><roleDesc>newborn son of Zeus;  he does not appear in the fragment we have, but must have showed up before the play was over</roleDesc></castItem>
+<castItem type="role"><role>Chorus </role><roleDesc>of satyrs</roleDesc></castItem>
+</castList></p>
+</div>
+</front>
+<body>
+<div1 type="text">
+<milestone ed="p" n="1" unit="card"/>
+<stage>The scene is outdoors.  There is a cave upstage center (represented by the skene door).  Enter Apollo, right.<note anchored="yes" resp="aem">There are no stage directions in the texts of Greek plays;  translators normally add them for the convenience of the modern reader.  Apollo could appear on the roof of the skene building, like Athena in <bibl n="Soph. Aj."><title>Ajax</title></bibl>, or could enter in the usual way from the wings.</note></stage>
+<sp><speaker>Apollo</speaker>
+<p>I, Apollo, proclaim to all gods and all mortal men<note anchored="yes" resp="aem">This speech is rather fragmentary.  I have followed Walker's heavily-supplemented text.  The main ideas are clear, but the details are missing.</note>:  I shall give a golden basin to whoever can bring back my cattle from far away.  <milestone n="10" unit="line"/>It is quite unpleasant to me that they are gone, all of them:  cows, calves, heifers.  They are all gone, and I look in vain for their tracks, while they wander far from their own mangers.  I never thought that any of the gods or of men, whose lives are like a single day, would dare do such a thing.  Since I found out about this, shocked as I was, I have been seeking them, and I have proclaimed the deed <milestone n="20" unit="line"/>so that no god or mortal men could be unaware of it.  I am beside myself.  I have gone to visit the whole nation of the Locrians, those who inhabit Opus, those in Ozolis, those in Knemis by the Cephisus.  I have gone to <placeName key="tgn,7002678">Aetolia</placeName> and to Acarnanian Argos.  From there I came to the grove of Zeus at <placeName key="perseus,Dodona">Dodona</placeName>, shaded by leaves of prophecy.  I then hastened to the fruitful plains of <placeName key="tgn,7001399">Thessaly</placeName> <milestone n="30" unit="line"/>and the wealthy cities of <placeName key="tgn,7002683">Boeotia</placeName>.  And then I came to <placeName key="tgn,7002681">Attica</placeName>, to holy <placeName key="perseus,Athens">Athens</placeName>, but I see my cows nowhere.  <milestone n="2" unit="column"/>Then I came to Dorian Argos and the nearby hill.  From there I came, in one leap, to the Stymphalian Lake and Mount Cyllene, hard to climb.  I speak to the forest:  if any shepherd or any rustic or any charcoal-burner is here, <milestone n="40" unit="line"/>or any saytr from the mountains, child of the river-nymphs, I announce these things to one and all.  Whoever can capture the one who stole the cattle of Apollo Paean, his is the reward that stands  here.
+<stage>Enter Silenus, left.<note anchored="yes" resp="aem">Silenus is the father of the satyrs and serves almost as a chorus-leader.</note></stage></p></sp>
+<sp><speaker>Silenus</speaker>
+<p>As soon as I heard you shouting your proclamation, I came as fast as an old man can, because I want to help you out, Phoebus Apollo, <milestone n="50" unit="line"/>and perhaps I can hunt up your cattle.  Then a messenger will announce my golden reward.  I will tell my children to look carefully, if you really do mean to do what you've promised.</p></sp>
+<sp><speaker>Apollo</speaker>
+<p>I will indeed;  only confirm your promise.</p></sp>
+<sp><speaker>Silenus</speaker>
+<p>I will bring you back your cattle;  but you confirm the reward.</p></sp>
+<sp><speaker>Apollo</speaker>
+<p>Whoever finds them will have it;  it is ready at hand.</p></sp>
+<sp><speaker>Silenus</speaker>
+<p><gap/>seek<gap/></p></sp>
+<sp><speaker>Apollo</speaker>
+<p><gap/>
+<milestone n="3" unit="column"/></p></sp>
+<sp><speaker>Silenus</speaker>
+<p><milestone n="60" unit="line"/><note anchored="yes" place="inline" resp="aem">missing line</note></p></sp>
+<sp><speaker>Apollo</speaker>
+<p><gap/></p></sp>
+<sp><speaker>Silenus</speaker>
+<p>What?  What are you saying?</p></sp>
+<sp><speaker>Apollo</speaker>
+<p>I say that you, and all the race of your children, will be free. <stage>Exit Apollo, right.</stage>
+
+<milestone n="64" unit="card"/>
+<stage>Enter the chorus of satyrs, by the left parodos.  They sing excitedly.<note anchored="yes" resp="aem">We recognize their excitement from the meter, which is dochmiac.</note></stage></p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Come, come here, see if you can find the footprints of the lost cattle.  Apapapay!<note anchored="yes" resp="aem">An inarticulate shout;  the Satyrs make various non-verbal noises throughout the play.</note>  Oh, oh, listen, I tell you!  Get the thief! <gap/> underground <gap/> <milestone n="70" unit="line"/>finish the job <gap/> my old father.  How can we find out the secret thefts in the night?  <gap/> if I did meet <gap/> free life for my father.  <gap/> So may the dear god bring an end to my labors, as he has shown us the extraordinary excellence of his gold.
+<milestone n="79" unit="card"/></p></sp>
+<sp><speaker>Silenus</speaker> <stage>(Speaking.)</stage>
+<p>Oh gods, Fortune and the god who leads in the straight way, grant me success as I race out to seek out the prey, the spoil, and the booty:  the cattle stolen from Phoebus.  If there is anyone who has seen them, or heard about them, he would become my friend by telling me, and he would help me to help lord Phoebus.  But if someone does not tell what he knows, <milestone n="4" unit="column"/>his reward will be the god's disapproval.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Hey, <gap/>, <milestone n="90" unit="line"/>, and not <gap/></p></sp>
+<sp><speaker>Silenus</speaker>
+<p>Does anyone say, or does anyone know, where the cattle are?<note anchored="yes" resp="aem">From Walker's supplements</note>  It seems that I must begin the search.  Come, all of you, track them by their scent, if there is any trace left anywhere.  Bent over, crouching to the ground, be guided by the scent.  Carry out your search this way and bring it to a worthy fulfilment.
+<milestone n="100" unit="card"/>
+<milestone n="100" unit="line"/>
+<stage>Exit Silenus.  The satyrs divide into two groups and begin sniffing around the stage.</stage></p></sp>
+<sp><speaker>Semi-chorus A</speaker>
+<p>Oh god, oh god, oh god, oh god:  aha!  We seem to have it.  Stand still, don't move.</p></sp>
+<sp><speaker>Semi-chorus B</speaker>
+<p>There they are:  the marks of the cattle.</p></sp>
+<sp><speaker>Semi-chorus A</speaker>
+<p>Quiet!  Some god is taking them to a new home.</p></sp>
+<sp><speaker>Semi-chorus B</speaker>
+<p>What should we do, my friend?  Do we have to get them out?</p></sp>
+<sp><speaker>Semi-chorus A</speaker>
+<p>Why?  Do you think they're in here?</p></sp>
+<sp><speaker>Semi-chorus B</speaker>
+<p>Definitely.  All the signs say so clearly.</p></sp>
+<sp><speaker>Semi-chorus A</speaker>
+<p>Look!  Here's the same hoof mark again.</p></sp>
+<sp><speaker>Semi-chorus B</speaker>
+<p>Look at that!  <milestone n="110" unit="line"/>They measure out to exactly the same size.</p></sp>
+<sp><speaker>Semi-chorus A</speaker>
+<p>Make way, and <gap/> <milestone n="5" unit="column"/> if you hear any sound from the cattle.</p></sp>
+<sp><speaker>Semi-chorus B</speaker>
+<p>I don't yet hear their voices clearly.  But these tracks and footprints are obviously those of the cattle.</p></sp>
+<sp><speaker>Semi-chorus A</speaker>
+<p>Hey!  As Zeus is my witness, the tracks turn around and go <emph>backward</emph>.  Look at them.  <milestone n="120" unit="line"/>Why is that?  Why would their line wheel around?  The front is turned to the back, and they're all tangled up together.  The cowherd must have been awfully confused.
+<milestone n="124" unit="card"/></p></sp>
+<sp><speaker>Silenus</speaker>
+<p>What kind of a way to hunt is that, bent over and leaning down to the ground?  Where are you going?  I don't understand.  You're lying there like a hedgehog fallen on the ground, or an ape sticking his head forward and having a temper tantrum.  What's this?  Where on earth did you learn this, and how?  <milestone n="130" unit="line"/>Tell me, because I certainly don't understand what you're doing.</p></sp>
+<sp><speaker>Chorus</speaker><note anchored="yes">The two halves of the chorus have merged again and speak as a group.</note>
+<p>Ooh, ooh, ooh, ooh!
+<stage>The chorus are still squealing as he starts to speak.</stage></p></sp>
+<sp><speaker>Silenus</speaker>
+<p>What are you "ooh-ooh"-ing for?  What are you afraid of?  What do you see?  What frightful thing are you looking at?  Why are you carrying on like bacchantes?  Is there a hawk nearby?  <stage>From offstage, we hear a lyre being tuned.  Since the player is in fact Hermes, it sounds divine, but no mortal has ever heard this instrument before, and the satyrs are terrified.  They abruptly stop squealing.</stage> Do you want to know what it was?  Why are you so quiet, when you were just now babbling away?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Be quiet!</p></sp>
+<sp><speaker>Silenus</speaker>
+<p>What is it over there that you're trying to get away from?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Listen!
+<milestone n="6" unit="column"/></p></sp>
+<sp><speaker>Silenus</speaker>
+<p>I'll listen. <stage>He pauses for a moment, listening.</stage>  But I don't hear any sound.
+<milestone n="140" unit="line"/></p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Do what I say!</p></sp>
+<sp><speaker>Silenus</speaker>
+<p>No one is helping me with this hunt.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Listen just a moment, will you?  When we went over there we were assaulted by a noise like no one ever heard before.
+<milestone n="145" unit="card"/></p></sp>
+<sp><speaker>Silenus</speaker>
+<p>Why are you running away, afraid of a noise?  You wretched beasts, with your filthy bodies all smeared with wax, seeing terrors in every shadow, scared of everything!   You're gutless, and careless, <milestone n="150" unit="line"/>and servile.  You're nothing but body and tongue and voice.  You trust to words and flee from actions.  Worst of animals, how did you ever come to have a father like me?  There are lots of monuments to my courage, when I was young, songs sung at every household's wedding feast.  I was never put to flight, never afraid, and I didn't quiver at noises made by animals up on the mountains.  Instead, I accomplished great things with my spear.  That brilliant spear is now besmirched by you, <milestone n="160" unit="line"/>because some new sound from the shepherds has frightened you, like the babies you are, and you've given up on the golden wealth that Phoebus said he was offering to you, to say nothing of freedom, which he also offered <milestone n="7" unit="column"/>to you and to me.  You've put all that away and gone to sleep.  Unless you get back to work tracking those cows and their cowherd, wherever they are, you'll be making noises of your own for your cowardice.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Father, walk beside me, <milestone n="170" unit="line"/>so you'll know whether I'm really a coward.  If you're here, you'll know first hand, not through rumors.</p></sp>
+<sp><speaker>Silenus</speaker>
+<p>I will approach this sound with you, and I will call out and whistle as I'd call a dog.  You, line up three by three, and I will go beside you and get you straightened out again.
+<milestone n="176" unit="card"/></p></sp>
+<sp><speaker>Chorus</speaker> <stage>Perhaps separate satyrs sing the various lines of this song.  With Silenus, they approach the cave, upstage, jostling, confused, and squabbling.  The lyre-noises resume.</stage>
+<p>Ooh, ooh, ooh, ssh, ssh, aah, aah!  Say what you're working on.</p>
+<p>Why did you shout and scream?  It's pointless.  And why were you suspicious of me?  Who's holding back in our first task?</p>
+<p><milestone n="180" unit="line"/>You are.  He came, he came.</p>
+<p>You are mine;  lead the way.</p>
+<p>This way, ho!  Who is the <gap/>?</p>
+<p>The dragon, the wrinkled one <gap/></p>
+<p>Goddess of fair winds, <gap/> you were beside me, drunk<gap/></p>
+<p>Whatever bring<gap/> set on top of it <gap/></p>
+<p>the way which <gap/> warlike</p>
+<p><milestone n="190" unit="line"/>Follow me, this way! <milestone n="8" unit="column"/>To the cows, to the task <gap/></p>
+<p><gap/>so he doesn't drop the saffron <gap/></p>
+<p>You see something beautiful <gap/> and the good <gap/> lawful <gap/></p>
+<p>Follow me <gap/></p>
+<p>Oppopopoy!  Hey, filthy polluted one!  <gap/> As soon as you get away from here, you'll be set free and <gap/></p>
+<p><milestone n="200" unit="line"/>But don't get lost <gap/> Come on, straight ahead, this way.  Now we've got the crook.
+
+<milestone n="203" unit="card"/></p>
+<p>Father, why are you quiet?  Isn't what we're saying true?  Aren't you listening?  Or are you deafened by the noise?</p></sp>
+<sp><speaker>Silenus</speaker><p><placeName key="tgn,7017509">Shush</placeName>!  What is it?</p></sp>
+<sp><speaker>Chorus</speaker><p>I'm getting out of here!</p></sp>
+<sp><speaker>Silenus</speaker><p>Stay, if you can.</p></sp>
+<sp><speaker>Chorus</speaker><p>No way.  But you go ahead:  you keep looking and track down the cows, any way you want to, and take the gold <gap/> unless the biggest <gap/> time.</p></sp>
+<sp><speaker>Silenus</speaker>
+<p><milestone n="210" unit="line"/>No, I won't leave you, nor sneak away from the work, before we know for sure what's going on in there.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><stage>Addressing the source of the noise</stage>Hey! You in there! <gap/> voice <gap/> <milestone n="9" unit="column"/> reward <gap/> you will be happy at home.  <stage>To Silenus</stage>He's not coming out.  <stage>To the noise-maker again.</stage> But I'll force you out, making the ground rumble with my swift leaps and kicks, <milestone n="220" unit="line"/>so you'll listen, even if you're altogether deaf.
+<milestone n="221" unit="card"/>
+<stage>Cyllene emerges from the cave.<note anchored="yes" resp="aem">Cyllene is a mountain in <placeName key="tgn,7002735">Arcadia</placeName>, associated with Hermes.  Here she is personified as a nymph, as natural features often are in Greek poetry.</note></stage></p></sp>
+<sp><speaker>Cyllene</speaker>
+<p>Satyrs, why have you rushed up here making all this noise, on this mountain covered with green woods full of animals?  Have you got yourselves a new job?  You used to bring joy to your master<note anchored="yes" resp="aem">Dionysus</note>, who would put on a fawn skin and carry a thyrsus in his hands.  You would dance around the god shouting "Evoe," along with the nymphs, who are his family, and a crowd of children.  But now I don't know what you're doing.  Where is this whirlwind <milestone n="230" unit="line"/>of new craziness taking you?  I heard something odd:  first, nearby, orders like you'd give to hunting dogs when they get near a wild animal's den in a thicket;  then, at the same time, <gap/> stretched out from the mouth to the thief <gap/>.  Then <gap/> announcement <gap/>.  After that they went away, feet stomping, and a confused sound came from nearby.  It would be different if <gap/> <milestone n="240" unit="line"/> So I heard the sounds of wrong notes <gap/> you sick <gap/> you did to a nymph that had nothing to do with it?
+<milestone n="10" unit="column"/>
+<milestone n="243" unit="card"/></p></sp>
+<sp><speaker>Chorus</speaker><stage>They sing.</stage>
+<p>Deep-girdled nymph, don't be angry.  No one's starting a war with you, nor has any unfriendly or trifling word touched my tongue.  Please don't threaten me, but graciously tell me what I need:  who is it <milestone n="250" unit="line"/>who seems to speak in a wonderful, inspired voice from below the earth?
+<milestone n="251" unit="card"/></p></sp>
+<sp><speaker>Cyllene</speaker> <stage>Speaking.</stage>
+<p>That's better:  you sound gentler now.  You would learn more by hunting rather than from a coward's great deeds or a nymph's ordeal.  I won't put up with your loud, quarrelsome words.  But calm down and tell me what it is you need.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Mighty Cyllene, lady of this land, I'll tell you in a moment why I've come.  <milestone n="260" unit="line"/>But first tell us about that scraping noise and who's making it.</p></sp>
+<sp><speaker>Cyllene</speaker>
+<p>First of all, understand this:  if you say one word of what I'm about to tell you, you'll be in trouble.  This business is a secret even among the gods, so that no news of it may come to Hera.  You see, Zeus came secretly to Atlas's house <milestone n="11" unit="column"/><milestone n="270" unit="line"/><gap/> to the deep-girdled goddess <note anchored="yes" resp="aem"><placeName key="tgn,1049816">Maia</placeName>, daughter of Atlas</note> <gap/> and in a cave begot a single son.  I am bringing him up myself, for his mother's strength is shaken by sickness as if by a storm.  So I stay by his crib and take care of his food and drink and rest, all day and all night.  He grows, day by day, in a very unusual way, and I'm astounded and afraid.  It's not even six days since he was born, <milestone n="280" unit="line"/>and he already stands as tall as a young man.  His growth spurt hasn't wasted any time coming.  That's the kind of child that's in my treasure-house.  His father has ensured he would be difficult to find.</p>
+<p>He has a hidden machine that makes the sound you're asking about, that so surprised you.  It's a box full of pleasure that he made in just one day from a dead animal he found, and he's down there shaking it.
+<milestone n="290" unit="card"/>
+<milestone n="290" unit="line"/></p></sp>
+<sp><speaker>Chorus</speaker> <stage>Singing.<note anchored="yes">This may be an antistrophe to match the strophe at l. 243, but it is too fragmentary to tell.</note></stage>
+<p><gap/>unspeakable <gap/> child <gap/> of a cow <note anchored="yes" resp="aem">Or "of a shout"?</note> <gap/> amazed <gap/> prey <gap/> speaking voice <gap/> <milestone n="12" unit="column"/> to make such sounds from a dead animal.
+<milestone n="298" unit="card"/></p></sp>
+<sp><speaker>Cyllene</speaker><p>Don't be so skeptical:  for a goddess is speaking trusty words to you.<note anchored="yes" resp="aem">This passage, to line 292, is in iambic tetrameters acatalectic, a very unusual meter for dialogue.  The parabasis-speech in an Old Comedy is always in tetrameters, but always catalectic (iambic, trochaic, or anapestic).  Trochaic tetrameters catalectic are fairly common in tragedy for excited scenes.  There are no other acatalectic iambic tetrameters in extant complete plays, though they appear in at least one other fragmentary satyr play.  We don't know why this scene is in this particular meter.</note></p></sp>
+<sp><speaker>Chorus</speaker><p><milestone n="300" unit="line"/>How should I believe that a dead animal's voice can roar like that?</p></sp>
+<sp><speaker>Cyllene</speaker><p>Believe it:  it speaks now it's dead, though it had no voice when it was alive.</p></sp>
+<sp><speaker>Chorus</speaker><p>What did it look like?  Long, curved, short?</p></sp>
+<sp><speaker>Cyllene</speaker><p>Short, like a pitcher, and covered with a colorful hide.</p></sp>
+<sp><speaker>Chorus</speaker><p>Was it like a cat, or rather a leopard?</p></sp>
+<sp><speaker>Cyllene</speaker><p>In between, really:  it's round with short legs.</p></sp>
+<sp><speaker>Chorus</speaker><p>Closer to a ferret, then, or a crab?</p></sp>
+<sp><speaker>Cyllene</speaker><p>No, that's not it;  try something else.</p></sp>
+<sp><speaker>Chorus</speaker><p>Is it like one of the horned beetles that live on <placeName key="tgn,7003867">Aetna</placeName>?</p></sp>
+<sp><speaker>Cyllene</speaker><p>Now you're getting closer to the beast</p></sp>
+<sp><speaker>Chorus</speaker><p><milestone n="310" unit="line"/>And which part makes the sound, the inside or the outside?</p></sp>
+<sp><speaker>Cyllene</speaker><p><gap/>first cousin to a potsherd.</p></sp>
+<sp><speaker>Chorus</speaker><p>What name do you call it?  Tell me, if you know any more.</p></sp>
+<sp><speaker>Cyllene</speaker><p>The boy calls the animal a "tortoise" and the instrument a "lyre."</p></sp>
+<sp><speaker>Chorus</speaker><p><gap/>property<gap/>
+<note anchored="yes" place="inline" resp="aem">Several fragmentary lines follow, and a couple of lines are lost.</note></p></sp>
+<sp><speaker>Cyllene</speaker><p><gap/><milestone n="13" unit="column"/>and this is his only consolation or cure for sorrow.  He enjoys idly singing along;  he coaxes Aeolian tunes from the lyre.  Thus the boy made himself a voice from a dead animal.
+<milestone n="329" unit="card"/></p></sp>
+<sp><speaker>Chorus</speaker> <stage>Singing;  this strophe has an antistrophe at 371.</stage>
+<p>A loud voice extends over the place, <milestone n="330" unit="line"/>flitting around like a bee over the flowers.  As for the other matter, I am getting closer.  Know this, goddess:  whoever contrived this is none other than the thief.  But don't be angry or upset that I say this.
+<milestone n="338" unit="card"/></p></sp>
+<sp><speaker>Cyllene</speaker><p>What delusion has come over you?  Who are you blaming as a thief?</p></sp>
+<sp><speaker>Chorus</speaker><p>Not you, by Zeus;  I don't want to upset you, my lady.</p></sp>
+<sp><speaker>Cyllene</speaker><p><milestone n="340" unit="line"/>Surely you're not calling the son of Zeus a thief?</p></sp>
+<sp><speaker>Chorus</speaker><p><gap/>this very theft.</p></sp>
+<sp><speaker>Cyllene</speaker><p><gap/>if what you say is true.</p></sp>
+<sp><speaker>Chorus</speaker><p><gap/>I speak truth.  <gap/> stolen <gap/> the cattle <gap/> it fits <gap/> cut
+<note anchored="yes" place="inline" resp="aem">Two or three lines are lost here.</note>
+<milestone n="14" unit="column"/>
+<milestone n="352" unit="card"/></p></sp>
+<sp><speaker>Cyllene</speaker>
+<p><gap/>I understand finally <gap/> laughing at my foolishness <gap/> nothing, delight for the child.  You can be reassured about me from now on, and laugh at me if you get some joy or profit from it.  But do not mock the son of Zeus, making childish remarks about the child.  <milestone n="360" unit="line"/>For he did not inherit a thief's nature from his father, nor does thievery hold sway in his mother's family.  If there <emph>is</emph> any theft here, look for a poor man as your thief;  but this boy's house is hardly poor.  Consider his family, and fit bad deeds to bad men;  it's hardly appropriate to him.  But you are always a child, even though you're a young man and your beard grows on your face like a goat's.  Stop stretching up your smooth bald head for caresses.  I tell you this:  if you think the gods are foolish or laughable, <milestone n="370" unit="line"/>you will soon be crying.
+<milestone n="371" unit="card"/></p></sp>
+<sp><speaker>Chorus</speaker><stage>Singing;  this is the antistrophe corresponding to the strophe at 329.</stage>
+<p>Turn and twist the words however you want, to find a clever story.  You won't convince me that the sewn-together hides are any others than the ones from the stolen cows of Loxias<note anchored="yes" resp="aem">A title for Apollo</note>.  Don't try to turn me aside.
+<milestone n="15" unit="column"/>
+<milestone n="378" unit="card"/>
+<note anchored="yes" place="inline" resp="aem">There are a couple of lines missing.</note></p></sp>
+<sp><speaker>Chorus</speaker><p>Because Zeus <gap/></p></sp>
+<sp><speaker>Cyllene</speaker><p><milestone n="380" unit="line"/>The child is no thief.</p></sp>
+<sp><speaker>Chorus</speaker><p>If he does bad things, then he is bad.</p></sp>
+<sp><speaker>Cyllene</speaker><p>I don't like to hear bad things about Zeus's son.</p></sp>
+<sp><speaker>Chorus</speaker><p>But if it's the truth, then I have to say it.</p></sp>
+<sp><speaker>Cyllene</speaker><p>Don't say <gap/>
+<note anchored="yes" place="inline" resp="aem">Here follow about 8 lines of which we have only the initial letters.</note></p></sp>
+<sp><speaker>Cyllene</speaker><p>Where are the cattle pastured?</p></sp>
+<sp><speaker>Chorus</speaker><p>Most of them now <gap/></p></sp>
+<sp><speaker>Cyllene</speaker><p>Who has them, wretch? Who <gap/></p></sp>
+<sp><speaker>Chorus</speaker><p>The boy has closed them up inside.</p></sp>
+<sp><speaker>Cyllene</speaker><p>Stop saying bad things about Zeus's son!</p></sp>
+<sp><speaker>Chorus</speaker><p><milestone n="400" unit="line"/>I would stop, if someone would bring out the cattle.</p></sp>
+<sp><speaker>Cyllene</speaker><p>You're choking me, you and those cows of yours.</p></sp>
+<sp><speaker>Chorus</speaker><p><gap/>left <gap/> drive them out <gap/>
+<milestone n="16" unit="column"/>
+<note anchored="yes" place="inline" resp="aem">One whole column of the papyrus is missing, perhaps more.</note>
+<milestone n="17" unit="column"/></p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Hey!  Oh!  <gap/> what she said <gap/> he didn't <gap/></p></sp>
+<sp><speaker>Silenus</speaker> <stage>Silenus has come back, and Cyllene has presumably left.</stage> <p>Hey! <gap/></p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Oh Loxias, <gap/> of the cows <gap/></p></sp>
+<sp><speaker>Apollo</speaker> <stage>Apollo probably enters in response to the chorus's calls.</stage>
+<p><gap/> cows <gap/> reward <gap/> free <gap/>
+<note anchored="yes" place="inline" resp="aem">The fragment ends here.  From the <bibl n="HH 4"><title>Homeric Hymn to Hermes</title></bibl>, we can assume that Apollo and Hermes have a scene together, ending with the restoration of the cattle to their rightful owner.  Hermes also gives Apollo the lyre, which is his instrument forever after.</note></p></sp>
+</div1>
+</body>
+</text>
+</TEI.2>

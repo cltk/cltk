@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>Bruta animalia ratione uti</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Harold Cherniss and William C. Helmbold</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Harold Cherniss and William C. Helmbold</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1957</date>
+                  </imprint>
+                  <biblScope type="volume">12</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="section" n="intro">
+            <head>BEASTS ARE RATIONAL (BRUTA ANIMALIA RATIONE UTI) <lb/> INTRODUCTION</head>
+            <pb id="v.12.p.489"/>
+            <p>
+					Many will find this little <hi rend="italics">jeu d'esprit</hi> as pleasant
+					reading as anything in Plutarch. In part, this may
+					be due to its (perhaps accidental) brevity ; but its
+					originality and freshness are undeniable. These
+					qualities have, to be sure, puzzled a number of
+					scholars who are still disputing whether the sources
+					are principally Epicurean or Peripatetic or Cynic.
+					Nothing quite like it is known elsewhere,<note resp="ed" place="unspecified" anchored="yes">But talking animals were not new (Hirzel, <hi rend="italics">Der Dialog</hi>, i, p. 338 f.).</note> which sad
+					lack baffles the <hi rend="italics">Quellenforscher</hi>. So, rather than allow
+					a touch of spontaneous imagination to Plutarch, it
+					has been confidently asserted that the dialogue must
+					come from the school of Menippus, or be an attempt
+					to turn the tables on Polystratus, and so on.
+				</p>
+            <p>
+					Everything must have a source (if only the author's
+					ingenuity) and the source here, so far as it can be
+					predicated with any certainty, is the tenth book of
+					the <hi rend="italics">Odyssey</hi> seen through the humorous eyes of a
+					young Boeotian.<note resp="ed" place="unspecified" anchored="yes">So the sensible Hirzel (<hi rend="italics">op. cit.</hi> ii, p. 131); see also Hartman, <hi rend="italics">De Plutarcho</hi>, p. 576. Stylometry, however, does not encourage the view that this is an early work (Sandbach, <hi rend="italics">Class. Quart.</hi> xxxiii, p. 196).</note> We have here, then, a Boeotian
+					
+					<pb id="v.12.p.490"/>
+					
+					pig instructing the favourite of Athena.<note resp="ed" place="unspecified" anchored="yes">Plutarch actually quotes the proverb in his <hi rend="italics">Life of Demosthenes</hi>, xi. 5 (851 b) and <hi rend="italics">Mor.</hi> 803 d, but does not seem to realize its possible application here. See the note on 995 f <hi rend="italics">infra</hi>.</note> It was once
+					fashionable to assert, or imply, that since Plutarch
+					was once a young Boeotian himself, matters could
+					not be so simple, nor could he be the author. But
+					the climate of scholarship is, perhaps, changing.
+					There are few of Plutarch's admirers who will not
+					claim this lively work for one of his more admirable
+					achievements, written, perhaps, when he was quite
+					young.
+				</p>
+            <p>
+					Even if the authorship is accepted without hesitation, there is little else that is certain except that
+					the Stoics are constantly under attack, though rather
+					less directly than in the preceding dialogue. There
+					is grave doubt about the title : is it no. 127 or no.
+					135 in the Lamprias Catalogue ? Or, as it has become popular to call it, is it really the <hi rend="italics">Gryllus</hi>?<note resp="ed" place="unspecified" anchored="yes">Ziegler (<hi rend="italics">RE, s.v.</hi> 
+                  <q direct="unspecified">Plutarchos,</q> 743) says that <hi rend="italics">Gryllus</hi> is impossible in spite of the Platonic examples, but appears to admit <hi rend="italics">Ammonius</hi> (no. 84 in the Lamprias Catalogue).</note>
+					There are a number of troublesome lacunae ; the
+					work, as it stands, ends suddenly with a gay witticism instead of being continued to a more conventional termination.<note resp="ed" place="unspecified" anchored="yes">See the last note on 992 e <hi rend="italics">infra</hi>.</note> It is only too likely that the
+					more mature Plutarch would have gone on and on ;
+					but what would the clever young man who concocted
+					this conceit have done?<note resp="ed" place="unspecified" anchored="yes">Curiously enough, Xenophon is the most famous son of the historical Gryllus and he is said to have been once a prisoner in Boeotia (Philostratus, <hi rend="italics">Vit. Soph.</hi> 12).</note>
+				        </p>
+            <p>
+					For once, there is a good translation, or paraphrase,
+					the German one of Bruno Snell in his <hi rend="italics">Plutarch</hi>
+					
+					          <pb id="v.12.p.491"/>
+					
+					(Z&uuml;rich, 1948), though this version gives almost too
+					exciting an impression of vivacity and wit by omitting
+					the more tiresome sections.
+				</p>
+            <p>
+					Those interested in Gryllus' remarks on the indecent ways in which men pervert animals to their
+					taste will find a sympathetic exposition in E. G.
+					Boulenger's <hi rend="italics">Animal Mysteries</hi> (London, 1927).
+					
+					
+				</p>
+         </div1>
+         <pb id="v.12.p.493"/>
+         <div1 type="section" n="1">
+            <p>(The speakers in the dialogue are Odysseus,
+					Circe, and Gryllus.)
+				</p>
+            <p>Odysseus. These facts,<note resp="ed" place="unspecified" anchored="yes">For the beginning <hi rend="italics">cf.</hi> Horace, <hi rend="italics">Sat.</hi> ii. 5. 1: <quote rend="blockquote">
+                     &amp;ldquo;
+                        <foreign lang="la">Haec quoque, Teresia, praeter narrata . . .,</foreign>
+                     &amp;rdquo;
+                  </quote> a form which is assumed to go back to Menippus.</note> Circe, I believe I have
+					learned and shall not forget them ; yet I should be
+					happy to learn from you further whether there are
+					any Greeks among those whom you have changed
+					from the shape of men into wolves and lions.
+				</p>
+            <p>
+					Circe. Quite a few, beloved Odysseus. But what
+					is your reason for asking this question ?
+				</p>
+            <p>
+					Odysseus. It is, I swear, because it would bring
+					me noble glory among the Greeks if by your favour
+					I should restore comrades of mine to their original
+					humanity and not allow them to grow old in the
+					unnatural guise of beasts, leading an existence that
+					is so piteous and shameful.
+				</p>
+            <p>
+					Circe. Here's a lad who finds it appropriate that
+					not only himself and his companions, but even total
+					strangers should, through his stupidity, find his ambition their ruin.
+				</p>
+            <p>
+					Odysseus. This is a new potion<note resp="ed" place="unspecified" anchored="yes">By which she transformed men into beasts: <hi rend="italics">Odyssey</hi>, x. 236.</note> of words that you
+					are stirring and drugging for me, Circe. It will certainly
+					
+					<pb id="v.12.p.495"/>
+					
+					transform me literally into a beast if I am to
+					take your word for it that changing from beast to man
+					spells ruin.
+				</p>
+            <p>
+					Circe. Haven't you already worked a stranger
+					magic than this on yourself? You who refused an
+					ageless, immortal life at my side and would struggle
+					through a thousand new dangers to a woman who is
+					mortal and, I can assure you, no longer so very
+					young - and this for no object other than to make
+					yourself more gaped at and renowned than you
+					already are, pursuing an empty phantom instead of
+					what is truly good.
+				</p>
+            <p>
+					Odysseus. All right, let it be as you say, Circe.
+					Why must we quarrel again and again about the
+					same matters ? Now please just grant me the favour
+					of letting the men go free.
+				</p>
+            <p>
+					Circe. By the Black Goddess,<note resp="ed" place="unspecified" anchored="yes">Hecate, goddess of black magic, who was invoked for such functions at least from the time of Euripides' <hi rend="italics">Medea</hi> (394 ff.).</note> it's not so simple
+					as that. These creatures are no run of the mill. You
+					must ask them first if they are willing. If they say
+					no, my hero, you'll have to argue with them and
+					convince them. And if you don't, and they win the
+					argument, then you must be content with having
+					exercised poor judgement about yourself and your
+					friends.
+				</p>
+            <p>
+					Odysseus. Dear lady, why are you making fun of
+					me ? How can they argue with me or I with them
+					so long as they are asses and hogs and lions ?
+				</p>
+            <p>
+					Circe. Courage, courage, my ambitious friend.
+					I'll see to it that you shall find them both receptive
+					and responsive. Or rather, one of the number will
+					be enough to thrust and parry for them all. Presto !
+					You may talk with this one.
+					
+					<pb id="v.12.p.497"/>
+					
+				        </p>
+            <p>
+					Odysseus. And how am I to address him, Circe?
+					Who in the world was he?<note resp="ed" place="unspecified" anchored="yes">After the Homeric formula, <hi rend="italics">e.g., Odyssey</hi>, x. 325.</note>
+				        </p>
+            <p>
+					Circe. What's that to do with the issue ? Call
+					him Gryllus,<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Grunter,</q> 
+                  <q direct="unspecified">swine.</q>
+               </note> if you like. I'll retire now to avoid any
+					suggestion that he is arguing against his own convictions to curry favour with me.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>Gryllus. Hello, Odysseus.
+				</p>
+            <p>
+					Odysseus. And you too, Gryllus, for heaven's sake !
+				</p>
+            <p>
+					Gryllus. What do you want to ask ?
+				</p>
+            <p>
+					Odysseus. Since I am aware that you have been
+					men, I feel sorry for all of you in your present plight;
+					yet it is only natural that I should be more concerned
+					for those of you who were Greeks before you fell into
+					this misfortune. So now I have asked Circe to remove
+					the spell from any Greek who chooses and restore
+					him to his original shape and let him go back home
+					with us.
+				</p>
+            <p>
+					Gryllus. Stop, Odysseus ! Not a word more !
+					You see, we don't any of us think much of you either,
+					for evidently it was a farce, that talk of your cleverness and your fame as one whose intelligence far
+					surpassed the rest - a man who boggles at the simple
+					matter of changing from worse to better because he
+					hasn't considered the matter. For just as children
+					dread the doctor's doses<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Lucretius, iv. 11 ff.; Plato, <hi rend="italics">Laws</hi>, 720 a. If one takes <hi rend="italics">Laws</hi>, 646 c literally, there was some reason for fear.</note> and run from lessons, the
+					very things that, by changing them from invalids
+					and fools, will make them healthier and wiser, just
+					so you have shied away from the change from one
+					shape to another. At this very moment you are not
+					only living in fear and trembling as a companion of
+					
+					<pb id="v.12.p.499"/>
+					
+					Circe, frightened that she may, before you know it,
+					turn you into a pig or a wolf, but you are also trying
+					to persuade us, who live in an abundance of good
+					things, to abandon them, and with them the lady
+					who provides them, and sail away with you, when we
+					have again become men, the most unfortunate of all
+					creatures!
+				</p>
+            <p>
+					Odysseus. To me, Gryllus, you seem to have lost
+					not only your shape, but your intelligence also under
+					the influence of that drug. You have become infected with strange and completely perverted notions. Or was it rather an inclination to swinishness
+					that conjured you into this shape?<note resp="ed" place="unspecified" anchored="yes">That is, you were always a swine. It is only your shape that is altered.</note>
+				        </p>
+            <p>
+					Gryllus. Neither of these, king of the Cephallenians.<note resp="ed" place="unspecified" anchored="yes">After Homer, <hi rend="italics">Iliad</hi>, ii. 631; <hi rend="italics">Odyssey</hi>, xxiv. 378; or, taking the pun, <q direct="unspecified">King of Brains,</q> 
+                  <q direct="unspecified">Mastermind.</q>
+               </note> But if it is your pleasure to discuss the
+					matter instead of hurling abuse, I shall quickly make
+					you see that we are right to prefer our present life in
+					place of the former one, now that we have tried both.
+				</p>
+            <p>
+					Odysseus. Go on. I should like to hear you.
+				</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Gryllus. And I, in that case, to instruct you.
+					Let us begin with the virtues, which, we note, inspire
+					you with pride ; for you rate yourselves as far superior
+					to animals<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 962 a <hi rend="italics">supra</hi>; on the virtues of animals see Aristotle, <hi rend="italics">Historia Animal.</hi> i. 1 (488 f. 12 ff.); Plato, <hi rend="italics">Laches</hi>, 196 e; <hi rend="italics">al</hi>.</note> in justice and wisdom and courage and
+					all the rest of them. But answer me this, wisest of
+					men! Once I heard you telling Circe about the land
+					of the Cyclopes,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Odyssey</hi>, ix. 108 ff.</note> that though it is not ploughed at
+					all nor does anyone sow there, yet it is naturally so
+					fertile and fecund that it produces spontaneously
+					
+					<pb id="v.12.p.501"/>
+					
+					every kind of crops. Do you, then, rate this land
+					higher than rugged, goat-pasturing Ithaca,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Odyssey</hi>, xiii. 242 ff.; <hi rend="italics">cf.</hi> iv. 606.</note> which
+					barely yields the tiller a meagre, churlish, trifling
+					crop after great efforts and much toil? And see
+					that you don't lose your temper and give me a
+					patriotic answer that isn't what you really believe.
+				</p>
+            <p>
+					Odysseus. I have no need to lie ; for though I love
+					and cherish my native soil more, the other wins my
+					approval and admiration.
+				</p>
+            <p>
+					Gryllus. Then this, we shall say, is the situation :
+					the wisest of men thinks fit to commend and approve
+					one thing while he loves and prefers another. Now
+					I assume that your answer applies to the spiritual
+					field also, for the situation is the same as with the
+					land<note resp="ed" place="unspecified" anchored="yes">The principle <hi rend="italics">ubi bene, ibi patria</hi>: Pacuvius, frag. 380 (Warmington, <hi rend="italics">Remains of Old Latin</hi>, ii. p. 303); Aristophanes, <hi rend="italics">Plutus</hi>, 1151; Cicero, <hi rend="italics">Tusc. Disp.</hi> v. 37, 108; Appian, <hi rend="italics">B.C.</hi> ii. 8. 50.</note>: that spiritual soil is better which produces a
+					harvest of virtue as a spontaneous crop without toil.
+				</p>
+            <p>
+					Odysseus. Yes, this too you may assume.
+				</p>
+            <p>
+					Gryllus. At this moment, then, you are conceding
+					the point that the soul of beasts has a greater natural
+					capacity and perfection for the generation of virtue ;
+					for without command or instruction, <q direct="unspecified">unsown and
+						unploughed,</q> as it were, it naturally brings forth and
+					develops such virtue as is proper in each case.
+				</p>
+            <p>
+					Odysseus. And what sort of virtue, Gryllus, is ever
+					found in beasts ?
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Gryllus. Ask rather what sort of virtue is not
+					found in them more than in the wisest of men ? Take
+					first, if you please, courage, in which you take great
+					pride, not even pretending to blush when you are
+					called <q direct="unspecified">valiant</q> and <q direct="unspecified">sacker of cities.</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Iliad</hi>, ii. 278.</note> Yet you,
+					
+					<pb id="v.12.p.503"/>
+					
+					you villain, are the man who by tricks and frauds
+					have led astray men who knew only a straightforward,
+					noble style of war and were unversed in deceit and
+					lies ; while on your freedom from scruple you confer
+					the name of the virtue that is least compatible with
+					such nefariousness. Wild beasts, however, you will
+					observe, are guileless and artless in their struggles,
+					whether against one another or against you, and
+					conduct their battles with unmistakably naked
+					courage under the impulse of genuine valour. No
+					edict summons them, nor do they fear a writ of
+					desertion. No, it is their nature to flee subjection ;
+					with a stout heart they maintain an indomitable
+					spirit to the very end. Nor are they conquered even
+					when physically overpowered ; they never give up
+					in their hearts, even while perishing in the fray. In
+					many cases, when beasts are dying, their valour
+					withdraws together with the fighting spirit to some
+					point where it is concentrated in one member and
+					resists the slayer with convulsive movements and
+					fierce anger<note resp="ed" place="unspecified" anchored="yes">Like eels or snakes whose tails continue to twitch long after they are dead.</note> until, like a fire, it is completely extinguished and departs.
+				</p>
+            <p>
+					Beasts never beg or sue for pity or acknowledge
+					defeat: lion is never slave to lion, or horse to horse
+					through cowardice, as man is to man when he
+					unprotestingly accepts the name whose root is
+					cowardice.<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Slavery</q> (<hi rend="italics">douleia</hi>) as though derived from <q direct="unspecified">cowardice</q> (<hi rend="italics">deilia</hi>).</note> And when men have subdued beasts by
+					snares and tricks, such of them as are full grown
+					refuse food and endure the pangs of thirst until they
+					
+					<pb id="v.12.p.505"/>
+					
+					induce and embrace death in place of slavery.<note resp="ed" place="unspecified" anchored="yes">They also refuse to breed in captivity: Pliny, <hi rend="italics">Nat. Hist.</hi> x. 182; <hi rend="italics">al</hi>.</note> But
+					nestlings and cubs, which by reason of age are tender
+					and docile, are offered many beguiling allurements
+					and enticements that act as drugs. These give them
+					a taste for unnatural pleasures and modes of life, and
+					in time make them spiritless to the point where they
+					accept and submit to their so-called <q direct="unspecified">taming,</q> which
+					is really an emasculation of their fighting spirit.
+				</p>
+            <p>
+					These facts make it perfectly obvious that bravery
+					is an innate characteristic of beasts, while in human
+					beings an independent spirit is actually contrary to
+					nature. The point that best proves this, gentle
+					Odysseus, is the fact that in beasts valour is naturally
+					equal in both sexes<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the Cynic doctrine in Diogenes Laertius, vi. 12: virtue is the same for women as for men.</note> and the female is in no way
+					inferior to the male. She takes her part both in the
+					struggle for existence and in the defence of her brood.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Laws</hi>, 814 b.</note>
+					You have heard, I suppose, of the sow of Crommyon<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Theseus</hi>, 9 (4 d-e), which gives a rationalizing version of the story and converts the sow Phaea into a female bandit of the same name. See also Frazer on Apollodorus, <hi rend="italics">Epitome</hi> i. 1 (L.C.L., vol. ii, p. 129); Plato, <hi rend="italics">Laches</hi>, 196 e.</note>
+					which, though a female beast, caused so much trouble
+					to Theseus. That famous Sphinx<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Frazer on Apollodorus, <hi rend="italics">Library</hi>, iii. 5. 8 (L.C.L., vol. i, p. 347).</note> would have got
+					no good of her wisdom as she sat on the heights of
+					Mt. Phicium, weaving her riddles and puzzles, if she
+					had not continued to surpass the Thebans greatly in
+					power and courage. Somewhere thereabouts lived
+					also the Teumesian<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Frazer on Pausanias, ix. 19. 1.</note> vixen, a <q direct="unspecified">thing atrocious</q>
+               <note resp="ed" place="unspecified" anchored="yes">Presumably a quotation which has not been identified.</note>;
+					and not far away, they say, was the Pythoness who
+					
+					<pb id="v.12.p.507"/>
+					
+					fought with Apollo for the oracle at Delphi.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 293 c, 421 c; Frazer on Apollodorus, i. 4. 1 (L.C.L., vol. i, p. 27).</note> Your
+					king<note resp="ed" place="unspecified" anchored="yes">Agamemnon (<hi rend="italics">Iliad</hi>, xxiii. 295-299).</note> received Aethe<note resp="ed" place="unspecified" anchored="yes">A racing mare.</note> from the Sicyonian<note resp="ed" place="unspecified" anchored="yes">Echepolus.</note> as a
+					recompense for excusing him from military service,
+					making a very wise choice when he preferred a fine,
+					spirited mare to a cowardly man. You yourself have
+					often observed in panthers and lionesses that the
+					female in no way yields to the male in spirit and
+					valour. Yet, while you are off at the wars, your wife
+					sits at home by the fire and troubles herself not so
+					much as a swallow to ward off those who come against
+					herself and her home - and this though she is a
+					Spartan born and bred.<note resp="ed" place="unspecified" anchored="yes">As a daughter of Icarius, the brother of Tyndare&uuml;s, she was a first cousin of Helen.</note> So why should I go on to
+					mention Carian or Maeonian women?<note resp="ed" place="unspecified" anchored="yes">Extreme examples of female lassitude, when even the Spartan Penelope is hopeless by Gryllus' high standards.</note> Surely from
+					what has been said it is perfectly obvious that men
+					have no natural claim to courage<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Epicurus, frag. 517 (Usener).</note>; if they did,
+					women would have just as great a portion of valour.
+					It follows that your practice of courage is brought
+					about by legal compulsion, which is neither voluntary
+					nor intentional, but in subservience to custom and
+					censure and moulded by extraneous beliefs and arguments.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aelian, <hi rend="italics">De Natura Animal.</hi> vi. 1.</note> When you face toils and dangers, you do so
+					not because you are courageous, but because you are
+					more afraid of some alternative.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Lucan, vii. 104 f.: <q direct="unspecified">
+                     <foreign lang="la">Multos in summa pericula misit | venturi timor ipse mali.</foreign>
+                  </q>
+               </note> For just as that
+					one of your companions who is the first to board ship
+					stands up to the light oar, not because he thinks
+					nothing of it, but because he fears and shuns the
+					heavier one<note resp="ed" place="unspecified" anchored="yes">He chooses the light oar, not because it is a mere nothing to work, but because he dreads the heavier one.</note>; just so he who accepts the lash to
+					
+					<pb id="v.12.p.509"/>
+					
+					escape the sword, or meets a foe in battle rather than
+					be tortured or killed, does so not from courage to face
+					the one situation, but from fear of the other. So it is
+					clear that all your courage is merely the cowardice
+					of prudence and all your valour merely fear that has
+					the good sense to escape one course by taking
+					another.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Phaedo</hi>, 68 d.</note> And, to sum up, if you think that you are
+					better in courage than beasts, why do your poets call
+					the doughtiest fighters <q direct="unspecified">wolf-minded</q>
+               <note resp="ed" place="unspecified" anchored="yes">In Homer (<hi rend="italics">Iliad</hi>, xv. 430) and elsewhere used only as a proper name. Plutarch's source is probably the lost Epic Cycle.</note> and <q direct="unspecified">lion-hearted</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Iliad</hi>, v. 639; vii. 228; of Odysseus himself in <hi rend="italics">Odyssey</hi>, iv. 724.</note> and <q direct="unspecified">like a boar in valour,</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Iliad</hi>, iv. 253.</note> though no
+						poet ever called a lion <q direct="unspecified">man-hearted</q> or a boar
+					<q direct="unspecified">like a man in valour</q>? But, I imagine, just as when
+					those who are swift are called <q direct="unspecified">wind-footed</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Iliad</hi>, ii. 786 and often (of Iris).</note> and
+					those who are handsome are called <q direct="unspecified">godlike,</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Iliad</hi>, iii. 16 and often.</note> there
+					is exaggeration in the imagery ; just so the poets
+					bring in a higher ideal when they compare mighty
+					warriors to something else. And the reason is that
+					the spirit of anger is, as it were, the tempering or
+					the cutting edge of courage. Now beasts use this
+					undiluted in their contests, whereas you men have
+					it mixed with calculation, as wine with water, so that
+					it is displaced in the presence of danger and fails you
+					when you need it most. Some of you even declare
+					that anger should not enter at all into fighting, but
+					be dismissed in order to make use of sober calculation<note resp="ed" place="unspecified" anchored="yes">For the calculation of fear see Plato, <hi rend="italics">Laws</hi>, 644 d.</note>; their contention is correct so far as selfpreservation goes, but is disgracefully false as regards
+					valorous defence. For surely it is absurd for you to
+					find fault with Nature because she did not equip
+					
+					<pb id="v.12.p.511"/>
+					
+					your bodies with natural stings, or place fighting
+					tusks among your teeth, or give you nails like curved
+					claws,<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Comparative anatomy teaches us that man resembles frugivorous animals in everything, and carnivorous in nothing; he has neither claws wherewith to seize his prey, nor distinct and pointed teeth to tear the living fibre</q> (Shelley, <hi rend="italics">A Vindication of Natural Diet</hi>; see the introduction to the following essay). For some modern remarks <hi rend="italics">cf.</hi> Boulenger, <hi rend="italics">Animal Mysteries</hi>, p. 196.</note> while you yourselves remove or curb the
+					emotional instrument that Nature has given.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Odysseus. Bless me, Gryllus, you must once
+					have been a very clever sophist,<note resp="ed" place="unspecified" anchored="yes">Gryllus acknowledges the truth of this soft impeachment later on, 989 b, <hi rend="italics">infra</hi>.</note> one may judge,
+					since even as things are, and speaking from your
+					swinishness, you can attack the subject with such
+					fervent ardour. But why have you failed to discuss
+					temperance, the next in order ?
+				</p>
+            <p>
+					Gryllus. Because I thought that you would first
+					wish to take exception to what I have said. But
+					you are eager to hear about temperance since you
+					are the husband of a model of chastity and believe
+					that you yourself have given a proof of self-control
+					by rejecting the embraces of Circe. And in this you
+					are no more continent than any of the beasts ; for
+					neither do they desire to consort with their betters,
+					but pursue both pleasure and love with mates of like
+					species. So it is no wonder that, like the Mendesian<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Herodotus, ii. 46; Strabo xvii. 19; and contrast Aelian, <hi rend="italics">De Natura Animal.</hi> vii. 19.</note>
+					goat in Egypt which, when shut up with many
+					beautiful women, is said not to be eager to consort
+					with them, but is far more excited about nannies,
+					you likewise are contented with the kind of love that
+					is familiar to you and, being a mortal, are not eager
+					to sleep with a goddess. As for the chastity of
+					Penelope, the cawing of countless crows will pour
+					laughter and contempt upon it; for every crow, if
+					her mate dies, remains a widow, not merely for a
+					
+					<pb id="v.12.p.513"/>
+					
+					short time, but for nine generations of men.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 415 c and the note there.</note> It
+					follows that your fair Penelope is nine times inferior
+					in chastity to any crow you please.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>Now since you are not unaware that I am a
+					sophist, let me marshal my arguments in some order
+					by defining temperance and analysing the desires
+					according to their kinds. Temperance,<note resp="ed" place="unspecified" anchored="yes">See Epicurus, frag. 456 (Usener); contrast Aristotle, <hi rend="italics">Nic. Ethics</hi> iii. 10 ff. (1117 b 23 ff.); [Plato], <hi rend="italics">Def.</hi> 411 e; <hi rend="italics">al.</hi> For the temperance of animals see Aristotle, <hi rend="italics">De Gen. Animal.</hi> i. 4 (717 a 27).</note> then, is a curtailment and an ordering of the desires that eliminate those that are extraneous or superfluous and
+					discipline in modest and timely fashion those that
+					are essential.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 127 a, 584 d f.</note> You can, of course, observe countless
+					differences in the desires<note resp="ed" place="unspecified" anchored="yes">There is probably a short lacuna at this point.</note> . . . and the desire to
+					eat and drink is at once natural and essential, while
+					the pleasures of love, which, though they find their
+					origin in nature, yet may be forgone and discarded
+					without much inconvenience, have been called
+					natural, but not essential. But there are desires of
+					another kind, neither essential nor natural, that are
+					imported in a deluge from without as a result of
+					your inane illusions and because you lack true culture.
+					So great is their multitude that the natural desires
+					are, every one of them, all but overwhelmed, as
+					though an alien rabble were overpowering the native
+					citizenry. But beasts have souls completely inaccessible and closed to these adventitious passions and
+					live their lives as free from empty illusions as though
+					they dwelt far from the sea.<note resp="ed" place="unspecified" anchored="yes">See Plato, <hi rend="italics">Laws</hi>, 704 e ff. (and Shorey, <hi rend="italics">What Plato Said, ad loc.</hi> p. 630): the sea is the symbol of mischievous foreign influence. <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Politics</hi>, 1327 a 11 ff.</note> They fall short in the
+					matter of delicate and luxurious living, but solidly
+					
+					<pb id="v.12.p.515"/>
+					
+					protect their sobriety and the better regulation of
+					their desires since those that dwell within them are
+					neither numerous nor alien.
+				</p>
+            <p>
+					Certainly there was a time when I myself, no less
+					than you now, was dazzled by gold and held it to be
+					an incomparable possession ; so likewise I was caught
+					by the lure of silver and ivory and the man who had
+					most property of this sort seemed to me to be a
+					blissful favourite of the gods, whether he was a
+					Phrygian or a Carian, one more villainous than
+					Dolon<note resp="ed" place="unspecified" anchored="yes">See <hi rend="italics">Iliad</hi>, x, where Dolon betrays Troy.</note> or more unfortunate than Priam.<note resp="ed" place="unspecified" anchored="yes">See especially his speech, <hi rend="italics">Iliad</hi>, xxii. 38-76.</note> In that
+					situation, constantly activated<note resp="ed" place="unspecified" anchored="yes">Like a puppet on strings.</note> by these desires, I
+					reaped no joy or pleasure from the other things of
+					life, which I had sufficiently and to spare. I grumbled
+					at my life, finding myself destitute of the most important things and a loser in the lottery of fortune.
+					This is the reason why, as I recall, when I saw you
+					once in Crete tricked out in holiday attire, it was not
+					your intellect or your virtue that I envied, but the
+					softness of the elegantly woven garment and the
+					beautiful wool of your purple cloak that I admired and
+					gaped at (the clasp, I believe, was of gold and had
+					some frivolity worked on it in exquisitely fine intaglio). I followed you about as enchanted as a woman.
+					But now I am rid and purified of all those empty illusions.<note resp="ed" place="unspecified" anchored="yes">Man alone has luxury: Pliny, <hi rend="italics">Nat. Hist.</hi> vii. 5.</note> I have no eyes for gold and silver and can
+					pass them by just like any common stone ; and as for
+					your fine robes and tapestries, I swear there's nothing
+					sweeter for me to rest in when I'm full than deep,
+					
+					<pb id="v.12.p.517"/>
+					
+					soft mud.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aelian, <hi rend="italics">De Natura Animal.</hi> v. 45.</note> None, then, of such adventitious desires
+					has a place in our souls; our life for the most part is
+					controlled by the essential desires and pleasures. As
+					for those that are non-essential, but merely natural,
+					we resort to them without either irregularity or excess.
+				</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Let us, in fact, first describe these pleasures.
+					Our pleasure in fragrant substances, those that by
+					their nature stimulate our sense of smell, besides the
+					fact that our enjoyment of this is simple and costs
+					nothing, also contributes to utility by providing a
+					way for us to tell good food from bad. For the
+					tongue is said to be, and is, a judge of what is sweet
+					or bitter or sour, when liquid flavours combine and fuse
+					with the organ of taste; but our sense of smell, even
+					before we taste, is a judge that can much more
+					critically distinguish the quality of each article of
+					food than any royal taster<note resp="ed" place="unspecified" anchored="yes">The servant who pretasted the dishes at a king's table to make certain that none of them was poisoned; <hi rend="italics">cf.</hi> Athenaeus, 171 b ff. On the <hi rend="italics">collegium praegustatorum</hi> at Rome see Furneaux on Tacitus, <hi rend="italics">Annals</hi>, xii. 66. 5 and <hi rend="italics">Class. Phil.</hi> xxvii, p. 160.</note> in the world. It admits
+					what is proper, rejects what is alien, and will not let
+					it touch or give pain to the taste, but informs on and
+					denounces what is bad before any harm is done. And
+					in other respects smell is no nuisance to us, as it is to
+					you, forcing you to collect and mix together incense
+					of one kind or another and cinnamon<note resp="ed" place="unspecified" anchored="yes">The aromatic bark of various species of <hi rend="italics">Cinnamomum</hi>, especially <hi rend="italics">C. zeylanicum</hi> Breyne, imported from India.</note> and nard<note resp="ed" place="unspecified" anchored="yes">As an impot from north-eastern India (probably meant here), the rootstock of spikenard, <hi rend="italics">Nardostachys jatamansi</hi> DC.</note>
+					and malobathrum<note resp="ed" place="unspecified" anchored="yes">The leaves of a plant of uncertain identity that grew in the Far East, perhaps Indian patchouli, <hi rend="italics">Pogostemon Patchouly</hi> Pellet., or perhaps a type of cinnamon; <hi rend="italics">cf.</hi> Pliny, <hi rend="italics">Nat. Hist.</hi> xxiii. 93.</note> and Arabian aromatic reeds,<note resp="ed" place="unspecified" anchored="yes">Probably here sweet flag, <hi rend="italics">Acorus calamus</hi> L.</note>
+					with the aid of a formidable dyer's or witch's art, of
+					the sort to which you give the name of unguentation,
+					
+					<pb id="v.12.p.519"/>
+					
+					thus buying at a great price an effeminate, emasculating luxury which has absolutely no real use. Yet,
+					though such is its nature, it has depraved not only
+					every woman, but lately the greater part of men as
+					well, so that they refuse to sleep even with their own
+					wives unless they come to bed reeking with myrrh
+					and scented powders.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pliny's frequent and indignant remarks, <hi rend="italics">e.g. Nat. Hist.</hi> xii. 29 and 83; also Seneca, <hi rend="italics">Qu. Nat.</hi> vii. 30-31.</note> But sows attract boars and
+					nannies bucks and other female creatures their consorts by means of their own special odours ; scented,
+					as they are, with pure dew and grassy meadows, they
+					are attracted to the nuptial union by mutual affection.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 493 f; Plato, <hi rend="italics">Laws</hi>, 840 d; Oppian, <hi rend="italics">Cyn.</hi> i. 378.</note> The females are not coy and do not cloak
+					their desires with deceits or trickeries or denials ;
+					nor do the males, driven on by the sting of mad lust,
+					purchase the act of procreation by money or toil or
+					servitude. No ! Both parties celebrate at the
+					proper time a love without deceit or hire, a love
+					which in the season of spring<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Pliny, <hi rend="italics">Nat. Hist.</hi> x. 171; Philo, 48 (p. 123); Aelian, <hi rend="italics">De Natura Animal.</hi> ix. 63; Oppian, <hi rend="italics">Hal.</hi> i. 473 ff.</note> awakens, like the
+					burgeoning of plants and trees, the desire of animals,
+					and then immediately extinguishes it. Neither does
+					the female continue to receive the male after she has
+					conceived, nor does the male attempt her.<note resp="ed" place="unspecified" anchored="yes">But see Oppian, <hi rend="italics">Cyn.</hi> iii. 146 ff.</note> So slight
+					and feeble is the regard we have for pleasure : our
+					whole concern is with Nature. Whence it comes
+					about that to this very day the desires of beasts have
+					encompassed no homosexual mating.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Laws</hi>, 836 c; but see Pliny, <hi rend="italics">Nat. Hist.</hi> x. 166; Aelian, <hi rend="italics">De Natura Animal.</hi> xv. 11; <hi rend="italics">Varia Hist.</hi> i. 15; <hi rend="italics">al.</hi>
+               </note> But you have
+					a fair amount of such trafficking among your high
+					and mighty nobility, to say nothing of the baser
+					
+					<pb id="v.12.p.521"/>
+					
+					sort. Agamemnon<note resp="ed" place="unspecified" anchored="yes">See Barber and Butler on Propertius, iii. 7. 21.</note> came to Boeotia hunting for
+					Argynnus, who tried to elude him, and slandering
+					the sea and winds<note resp="ed" place="unspecified" anchored="yes">Probably a brief lacuna should be assumed.</note> . . . then he gave his noble self
+					a noble bath in Lake Copa&iuml;s to drown his passion
+					there and get rid of his desire. Just so Heracles,<note resp="ed" place="unspecified" anchored="yes">The story of Hylas is related by Theocritus, xiii, Apollonius Rhodius, i. 1207-1272, Propertius, i, 20; <hi rend="italics">al.</hi>
+               </note>
+					pursuing a beardless lad, lagged behind the other
+					heroes<note resp="ed" place="unspecified" anchored="yes">The Argonauts.</note> and deserted the expedition. On the
+					Rotunda of Ptoian Apollo<note resp="ed" place="unspecified" anchored="yes">The famous shrine in Boeotia.</note> one of your men secretly
+					inscribed FAIR IS ACHILLES<note resp="ed" place="unspecified" anchored="yes">On the formula see Robinson and Fluck, <q direct="unspecified">Greek Love Names</q> (<hi rend="italics">Johns Hopkins Archaeol. Stud.</hi> xxiii, 1937).</note> - when Achilles already
+					had a son. And I hear that the inscription is still in
+					place.<note resp="ed" place="unspecified" anchored="yes">Reiske acutely observes that this is presumably an annotation of Plutarch himself, speaking not from Gryllus' character, but from his own. Since Odysseus, Achilles, and Gryllus were contemporaries, it would hardly be surprising that the inscription should still be there. And if it were, how would Gryllus know?</note> But a cock that mounts another for the lack
+					of a female is burned alive because some prophet or
+					seer declares that such an event is an important and
+					terrible omen. On this basis even men themselves
+					acknowledge that beasts have a better claim to
+					temperance and the non-violation of nature in their
+					pleasures. Not even Nature, with Law for her ally,
+					can keep within bounds the unchastened vice of
+					your hearts ; but as though swept by the current of
+					their lusts beyond the barrier at many points, men
+					do such deeds as wantonly outrage Nature, upset her
+					order, and confuse her distinctions. For men have,
+					in fact, attempted to consort with goats<note resp="ed" place="unspecified" anchored="yes">See Gow on Theocritus, i. 86; Bergen Evans, <hi rend="italics">op. cit.</hi> 101 f., and on the <q direct="unspecified">vileness</q> of animals, p. 173. For the general problem see, <hi rend="italics">e.g.</hi>, J. Rosenbaum, <hi rend="italics">Geschichte der Lustseuche im Altertume</hi> (Berlin, 1904), pp. 274 ff.</note> and sows
+					and mares, and women have gone mad with lust for
+					
+					<pb id="v.12.p.523"/>
+					
+					male beasts. From such unions your Minotaurs<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Frazer on Apollodorus, iii. 1. 4 (L.C.L., vol. i, pp. 305-307); Philo, 66 (p. 131).</note>
+					and Aegipans,<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Goat Pans</q>; <hi rend="italics">cf.</hi> Hyginus, fable 155; Mela, i. 8. 48.</note> and, I suppose, your Sphinxes<note resp="ed" place="unspecified" anchored="yes">See Frazer on Apollodorus, iii. 5. 8 (L.C.L., vol. i, p. 347).</note> and
+					Centaurs<note resp="ed" place="unspecified" anchored="yes">See Frazer on Apollodorus, <hi rend="italics">Epitome</hi>, i. 20 (L.C.L., vol. ii, p. 148); <hi rend="italics">Oxford Classical Dictionary, s.v.</hi> 
+                  <q direct="unspecified">Centaurs.</q>
+               </note> have arisen. Yet it is through hunger
+					that dogs have occasionally eaten a man ; and birds
+					have tasted of human flesh through necessity ; but
+					no beast has ever attempted a human body for lustful
+					reasons.<note resp="ed" place="unspecified" anchored="yes">But see, <hi rend="italics">e.g.</hi>, Aelian, <hi rend="italics">De Natura Animal.</hi> xv. 14.</note> But the beasts I have mentioned and many
+					others have been victims of the violent and lawless
+					lusts of man.
+				</p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Though men are so vile and incontinent where
+					the desires I have spoken of are concerned, they can
+					be proved to be even more so in the case of essential
+					desires, being here far inferior to animals in temperance.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Philo, 47 (p. 122).</note> These are the desires for food and drink, in
+					which we beasts always take our pleasure along with
+					some sort of utility ; whereas you, in your pursuit
+					of pleasure rather than natural nourishment, are
+					punished by many serious ailments which, welling
+					up from one single source, the surfeit of your bodies,
+					fill you with all manner of flatulence that is difficult
+					to purge.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 131 f.</note> In the first place each species of animal
+					has one single food proper to it, grass or some root
+					or fruit. Those that are carnivorous resort to no
+					other kind of nourishment, nor do they deprive those
+					weaker than themselves of sustenance ; but the lion
+					lets the deer, and the wolf lets the sheep, feed in its
+					natural pasture. But man in his pleasures is led
+					
+					<pb id="v.12.p.525"/>
+					
+					astray by gluttony to everything edible<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 964 f <hi rend="italics">supra</hi>; and with the whole passage <hi rend="italics">cf.</hi> the impressive proem to the seventh book of Pliny's <hi rend="italics">Natural History</hi>.</note>; he tries
+					and tastes everything as if he had not yet come to
+					recognize what is suitable and proper for him ; alone
+					of all creatures he is omnivorous.<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Man is the only animal liable to the disease of a continuously insatiable appetite.</q> Pliny, <hi rend="italics">Nat. Hist.</hi> xi. 283; <hi rend="italics">cf.</hi> Philo, 62 (p. 136); Lucan, iv. 373-381; <hi rend="italics">al.</hi>
+               </note>
+				        </p>
+            <p>
+					In the first place his eating of flesh is caused by no
+					lack of means or methods,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 993 d <hi rend="italics">infra</hi>.</note> for he can always in
+					season harvest and garner and gather in such a
+					succession of plants and grains as will all but tire
+					him out with their abundance ; but driven on by
+					luxurious desires and satiety with merely essential
+					nourishment, he pursues illicit food, made unclean
+					by the slaughter of beasts ; and he does this in a
+					much more cruel way than the most savage beasts
+					of prey. Blood and gore and raw flesh are the proper
+					diet of kite and wolf and snake ; to man they are an
+					appetizer.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 993 d, 995 c <hi rend="italics">infra</hi>.</note> Then, too, man makes use of every kind
+					of food and does not, like beasts, abstain from most
+					kinds and consequently make war on a few only that
+					he must have for food. In a word, nothing that flies
+					or swims or moves on land has escaped your so-called
+					civilized and hospitable tables.
+				</p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>Well, then. It is admitted that you use animals
+					as appetizers to sweeten your fare.<note resp="ed" place="unspecified" anchored="yes">Or <q direct="unspecified">as supplementary food to make your basic fare more agreeable</q> (Andrews).</note> Why, therefore<note resp="ed" place="unspecified" anchored="yes">There is probably a considerable lacuna at this point; it is indicated in one of the mss. The sense may perhaps be: <q direct="unspecified">Why, in providing yourselves with meat for your luxurious living, have you invented a special art whose practitioners make cookery their sole study? Animal intelligence, on the contrary,</q> etc.</note>
+					. . . Animal intelligence, on the contrary, allows no
+					room for useless and pointless arts ; and in the case
+					of essential ones, we do not make one man with constant
+					
+					<pb id="v.12.p.527"/>
+					
+					study cling to one department of knowledge
+					and rivet him jealously to that; nor do we receive
+					our arts as alien products or pay to be taught them.
+					Our intelligence produces them on the spot unaided,
+					as its own congenital and legitimate skills. I have
+					heard that in Egypt<note resp="ed" place="unspecified" anchored="yes">This curious statement may come from a misreading of Herodotus, ii. 84.</note> everyone is a physician ; and
+					in the case of beasts each one is not only his own
+					specialist in medicine, but also in the providing of
+					food, in warfare and hunting as well as in self-defence
+					and music, in so far as any kind of animal has a
+					natural gift for it. From whom have we swine
+					learned, when we are sick, to resort to rivers to catch
+					crabs? Who taught tortoises to devour marjoram
+					after eating the snake?<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 974 b <hi rend="italics">supra</hi> and the note.</note> And who instructed Cretan
+					goats,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 974 d <hi rend="italics">supra</hi> and the note.</note> when they are pierced by an arrow, to look
+					for dittany, after eating which the arrowhead falls
+					out ? For if you speak the truth and say that Nature
+					is their teacher, you are elevating the intelligence
+					of animals to the most sovereign and wisest of first
+					principles. If you do not think that it should be
+					called either reason or intelligence, it is high time
+					for you to cast about for some fairer and even more
+					honourable term to describe it, since certainly the
+					faculty that it brings to bear in action is better and
+					more remarkable.<note resp="ed" place="unspecified" anchored="yes">That is, <q direct="unspecified">better</q> than human intelligence.</note> It is no uninstructed or untrained
+					faculty, but rather self-taught and self-sufficient - 
+					and not for lack of strength. It is just because of
+					the health and completeness of its native virtue that
+					it is indifferent to the contributions to its intelligence
+					supplied by the lore of others. Such animals, at any
+					rate, as man for amusement or easy living induces to
+					
+					<pb id="v.12.p.529"/>
+					
+					accept instruction and training have understanding
+					to grasp what they are taught even when it goes
+					contrary to their physical endowment, so superior
+					are their mental powers. I say nothing of puppies
+					that are trained as hunters, or colts schooled to keep
+					time in their gait,<note resp="ed" place="unspecified" anchored="yes">Like our trotters or pacers.</note> or crows that are taught to talk,
+					or dogs, to jump through revolving hoops. In the
+					theatres horses and steers go through an exact routine
+					in which they lie down or dance or hold a precarious
+					pose or perform movements not at all easy even for
+					men<note resp="ed" place="unspecified" anchored="yes">A somewhat similar performance of elephants is described in Philo, 27 (pp. 113 f.).</note>; and they remember what they have been
+					taught, these exhibitions of docility which are not in
+					the least useful for anything else. If you are doubtful
+					that we can learn arts, then let me tell you that we
+					can even teach them. When partridges<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 971 c <hi rend="italics">supra</hi>; <hi rend="italics">Mor.</hi> 494 e and the note.</note> are making
+					their escape, they accustom their fledglings to hide
+					by falling on their backs and holding a lump of earth
+					over themselves with their claws. You can observe
+					storks on the roof, the adults showing the art of
+					flying to the young as they make their trial flights.<note resp="ed" place="unspecified" anchored="yes">In Aelian, <hi rend="italics">De Natura Animal.</hi> viii. 22 will be found the tale of a stork who did not learn in time.</note>
+					Nightingales<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 973 b <hi rend="italics">supra</hi>.</note> set the example for their young to
+					sing ; while nestlings that are caught young and
+					brought up by human care are poorer singers, as
+					though they had left the care of their teacher too
+					early.<note resp="ed" place="unspecified" anchored="yes">There is probably a long lacuna at this point.</note> . . . and since I have entered into this new
+					body of mine, I marvel at those arguments by which
+					the sophists<note resp="ed" place="unspecified" anchored="yes">Probably the Stoics are meant (by anachronism).</note> brought me to consider all creatures
+					except man irrational and senseless.
+				</p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>Odysseus. So now, Gryllus, you are transformed.
+					
+					<pb id="v.12.p.531"/>
+					
+					Do you attribute reason even to the sheep
+					and the ass ?
+				</p>
+            <p>
+					Gryllus. From even these, dearest Odysseus, it
+					is perfectly possible to gather that animals have a
+					natural endowment of reason and intellect. For just
+					as one tree is not more nor less inanimate than
+					another, but they are all in the same state of insensibility, since none is endowed with soul, in the
+					same way one animal would not be thought to be
+					more sluggish or indocile mentally than another if
+					they did not all possess reason and intellect to some
+					degree - though some have a greater or less proportion than others. Please note that cases of dullness
+					and stupidity in some animals are demonstrated by
+					the cleverness and sharpness of others - as when you
+					compare an ass and a sheep with a fox or a wolf or a
+					bee. It is like comparing Polyphemus to you or that
+					dunce Coroebus<note resp="ed" place="unspecified" anchored="yes">For Haupt's fine correction (<hi rend="italics">Hermes</hi>, vi, p. 4 = <hi rend="italics">Opuscula</hi>, iii, p. 552) <hi rend="italics">cf.</hi> Leutsch and Schneidewin, <hi rend="italics">Paroemiographi Graeci</hi>, i. 101 (Zenobius, iv. 58); Lucian, <hi rend="italics">Philopseudis</hi>, 3. Coroebus was proverbially so stupid that he tried to count the waves of the sea.</note> to your grandfather Autolycus.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Odyssey</hi>, xix. 394 ff.: Autolycus surpassed all men <q direct="unspecified">in thefts and perjury,</q> a gift of Hermes.</note> I
+					scarcely believe that there is such a spread between
+					one animal and another as there is between man and
+					man in the matter of judgement and reasoning and
+					memory.
+				</p>
+            <p>
+					Odysseus. But consider, Gryllus : is it not a fearful
+					piece of violence to grant reason to creatures that
+					have no inherent knowledge of God?
+					
+					<pb id="v.12.p.533"/>
+					
+				        </p>
+            <p>
+					Gryllus. Then shall we deny, Odysseus, that so
+					wise and remarkable a man as you had Sisyphus for
+					a father?<note resp="ed" place="unspecified" anchored="yes">Most critics (and very emphatically Ziegler) believe that the end, perhaps quite a long continuation, is lost; but Reiske ingeniously supposes Gryllus' final answer to mean: <q direct="unspecified">If those who do not know God cannot possess reason, then you, wise Odysseus, can scarcely be descended from such a notorious atheist as Sisyphus.</q> (For Sisyphus' famous assertion that <q direct="unspecified">the gods are only a utilitarian invention</q> see Critias, <hi rend="italics">Sisyphus</hi>, frag. 1: Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> pp. 771 f.). <p/>There would, then, be no further point in prolonging the discussion; and no doubt by this time Odysseus has changed his mind about the desirability of any further metamorphosis of his interlocutor, since the last argument touches him nearly. Sisyphus was said by some to be his real father (<hi rend="italics">Mor.</hi> 301 d). <p/>Others, however, believe that some discussion of further virtues, such as natural piety, must have followed; and perhaps the account closed with a consideration of justice. But would Odysseus have been convinced (<hi rend="italics">cf.</hi> 986 b)? Or is this as good a place as any to end? Plutarch used no stage directions, so that, as in the classical Platonic dialogues, when the characters stop speaking, the discussion is over and we are left to draw our own conclusions. The undoubted fact, however, that the work is mutilated in several other places allows us to leave the question open.</note>
+					
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

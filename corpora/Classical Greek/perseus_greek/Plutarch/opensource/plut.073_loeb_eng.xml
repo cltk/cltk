@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De amicorum multitudine</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Frank Cole Babbitt</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Frank Cole Babbitt</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1928</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.2.p.45"/>
+         <div1 type="section" n="intro">
+            <head>ON HAVING MANY FRIENDS (DE AMICORUM MULTITUDINE) <lb/>INTRODUCTION</head>
+            <p> Plutarch's essay on friendship may possibly have been offered on some
+					occasion as a lecture, but there is nothing to prove or disprove this
+					assumption. From what we know of Plutarch's relations to his friends we can
+					well believe that he was singularly happy in his friendships, and hence well
+					fitted to speak on the subject. He was familiar, too, with the literature
+					dealing with friendship, and the result is an essay well worth reading.
+					Cicero's essay on friendship (De amicitia) may profitably be compared with
+					Plutarch's. </p>
+            <p> Two or three emendations of a more radical nature have been adopted in the
+					text, in the effort to make it intelligible: for example, in 96 a the
+					translation probably gives the right sense of the passage, as Wyttenbach
+					seemed to see, but whether the emendation is right is more doubtful. Even
+					more doubtful is Paton's <foreign lang="greek">prosentei/nein</foreign>,
+					based on an even more dubious emendation of <foreign lang="greek">e)ntei/nasqai</foreign> in the quotation from Euripides ; for Plutarch
+					would not be apt to refer to an aorist middle by a present active form. In
+					these matters Plutarch was more careful than Paton. </p>
+         </div1>
+         <pb id="v.2.p.47"/>
+         <div1 type="section" n="1">
+            <p>Meno,<note place="unspecified" anchored="yes">Plato, <hi rend="italics">Meno</hi> 71 E.</note> the Thessalian, who felt that he had had a good training in debating,
+					and, to quote Empedocles' familiar expression, was <quote rend="blockquote">Haunting the lofty
+						heights of wisdom, <note place="unspecified" anchored="yes">From a longer fragment; <hi rend="italics">cf.</hi> Diels, <hi rend="italics">Fragmente der Vorsokratiker</hi>, i. p. 225.</note>
+               </quote> was asked by Socrates what virtue is ; and when he
+					replied impulsively and promptly that there is a virtue appropriate to a
+					child and to an old man, to a grown man and to a woman, to a public official
+					and to a private citizen, to a master and to a servant, Socrates exclaimed,
+					<q direct="unspecified">A fine answer ! for when asked for one virtue you have stirred
+						up a whole swarm of virtues,</q>
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi> 441 B.</note> inferring, not badly, that it was
+					because the man knew not a single virtue that he was naming so many. And
+					might not we also be subject to ridicule because we, who are not yet in
+					secure possession of one friendship, are afraid that we may unwittingly
+					become involved in a multitude of friendships ? We hardly differ at all from
+					a man who, being maimed or blind, is afraid that he may become a Briareus of
+					the hundred hands or an Argus all-seeing. And yet we commend above measure
+					
+					<pb id="v.2.p.49"/> the youth in Menander's play <note place="unspecified" anchored="yes">The <hi rend="italics">Epiclerus</hi>. Kock, <hi rend="italics">Com. Attic. Frag.</hi> iii., Menander, No. 554. See also Plutarch, <hi rend="italics">Moralia</hi>, 479 C, where four lines of the play are quoted, and Allinson, <hi rend="italics">Menander</hi> (in the L.C.L.), p. 493.</note> who says that any man
+					counts it a marvellous good thing <quote rend="blockquote">If he but have the shadow of a friend.</quote>
+				        </p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>One thing which stands out among many others, as particularly antagonistic to
+					our acquisition of friendship, is the craving for numerous friends, which is
+					like that of licentious women, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Lucian, <hi rend="italics">Tozaris</hi>, 37.</note> for because of our frequent intimacies with
+					many different persons we cannot keep our hold on our earlier associates,
+					who are neglected and drift away. A better comparison, perhaps, is the
+					nursling of Hypsipyle, who seated himself in the meadow, and <quote rend="blockquote">One after
+						another caught up Handfuls of flowers with joyful heart, But with
+						childhood's yearning unsated.<note place="unspecified" anchored="yes">Presumably from the <hi rend="italics">Hypsipyle</hi> of Euripides, <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag.,</hi> Euripides, No. 754. <hi rend="italics">Cf.</hi> also Plutarch, <hi rend="italics">Moralia</hi>, 661 F.</note>
+               </quote> So it is with all of us : because anything
+					new attracts us but soon palls on us, it is always the recent and freshly
+					blooming friend that allures us and makes us change our minds, even while we
+					are busy with many beginnings of friendship and intimacy at the same time,
+					which go but little further, since, in our longing for the person we pursue,
+					we pass over the one already within our grasp. </p>
+            <p> In the first place, then, let us begin at the hearthstone, as the saying is,
+					with the story of men's lives which history <note place="unspecified" anchored="yes">Plutarch is considering Greek history only.</note> has left us regarding steadfast
+					friends, and let us take as witness and counsellor in our discussion the
+					long and distant ages in which are mentioned, as paired in the bond of
+					friendship, Theseus and Peiritho&uuml;s, Achilles and Patroclus, 
+					<pb id="v.2.p.51"/> Orestes and Pylades, Phintias and Damon, Epameinondas
+					and Pelopidas. For friendship is a creature that seeks a companion ; it is
+					not like cattle and crows that flock and herd together, and to look upon
+					one's friend as another self and to call him <q direct="unspecified">brother</q> as
+					though to suggest <q direct="unspecified">th'other,</q> is nothing but a way of using
+					duality as a measure of friendship. It is impossible to acquire either many
+					slaves or many friends with little coin. What then is the coin of friendship
+					? It is goodwill and graciousness combined with virtue, than which nature
+					has nothing more rare. It follows, then, that a strong mutual friendship
+					with many persons is impossible, but, just as rivers whose waters are
+					divided among many branches and channels flow weak and thin, so affection,
+					naturally strong in a soul, if portioned out among many persons becomes
+					utterly enfeebled. This is the reason why, in the case of animals, love for
+					their young is more strongly implanted by nature in those that give birth to
+					but one at a time ; and Homer's <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Iliad</hi>, ix. 482; <hi rend="italics">Odyssey</hi>, xvi. 19.</note> name for a beloved son is <q direct="unspecified">the only
+						one, child of our eld,</q> that is to say, born to parents who
+					neither have nor can ever have another child. </p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>We do not maintain that our friend should be <q direct="unspecified">the only one,</q>
+					but along with others let there be some <q direct="unspecified">child of our eld</q>
+					and <q direct="unspecified">late-begotten,</q> as it were, who has consumed with us in
+					the course of time the proverbial bushel of salt, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 482 B; Cicero, <hi rend="italics">De amicitia</hi>, 19 (67); Aristotle, <hi rend="italics">Eth. Nicom.</hi> viii. 3.</note> not as is the fashion
+					nowadays, by which many get the name of friend by drinking a single glass
+					together, or by playing ball or gambling together, or by spending a night
+					under the same roof, and so pick up a friendship from inn, gymnasium, or
+					market-place. </p>
+            <pb id="v.2.p.53"/>
+            <p> In the houses of rich men and rulers, the people see a noisy throng of
+					visitors offering their greetings and shaking hands and playing the part of
+					armed retainers, and they think that those who have so many friends must be
+					happy. Yet they can see a far greater number of flies in those persons'
+					kitchens. But the flies do not stay on after the good food is gone, nor the
+					retainers after their patron's usefulness is gone. But true friendship seeks
+					after three things above all else: virtue as a good thing, intimacy as a
+					pleasant thing, and usefulness as a necessary thing, for a man ought to use
+					judgement before accepting a friend, and to enjoy being with him and to use
+					him when in need of him, and all these things stand in the way of one's
+					having many friends ; but most in the way is the first (which is the most
+					important)&mdash;the approval through judgement. Therefore we must, in
+					the first place, consider whether it is possible in a brief period of time
+					to test dancers who are to dance together, or rowers who are to pull
+					together, or servants who are to be guardians of property or attendants of
+					children, let alone the testing of a multitude of friends who are to strip
+					for a general contest with every kind of fortune, each one of whom <quote rend="blockquote">Puts his
+						successes with the common store, And shares in bad luck, too, without
+						distress.<note place="unspecified" anchored="yes">Author unknown; <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>, Adespota, No. 366.</note>
+               </quote> For no ship is launched upon the sea to meet so many storms, nor
+					do men, when they erect protecting walls for strongholds, and dams and moles
+					for harbours, anticipate perils so numerous and so great as those from which
+					friendship, rightly and surely tried, <pb id="v.2.p.55"/> promises a refuge
+					and protection. But when some thrust their friendship upon us without being
+					tried, and are found to be like bad coins when put to the test, <quote rend="blockquote">Those who
+						are bereft rejoice, And those who have them pray for some escape.<note place="unspecified" anchored="yes">From some play of Sophocles; it is cited again by Plutarch in <hi rend="italics">Moralia</hi>, 768 E; <hi rend="italics">cf.</hi>Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>, Sophocles, No. 779.</note>
+               </quote> But here
+					is the difficulty&mdash;that it is not easy to escape or to put aside an
+					unsatisfactory friendship ; but as harmful and disquieting food can neither
+					be retained without causing pain and injury, nor ejected in the form in
+					which it was taken in, but only as a disgusting and repulsive mess, so an
+					unprincipled friend either causes pain and intense discomfort by his
+					continued association, or else with accompanying enmity and hostility is
+					forcibly ejected like bile. </p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>We ought therefore not to accept readily chance acquaintances, or attach
+					ourselves to them, nor ought we to make friends of those who seek after us,
+					but rather we should seek after those who are worthy of friendship. For one
+					should by no means take what can be easily taken. In fact we step over or
+					thrust aside bramble and brier, which seize hold upon us, and make our way
+					onward to the olive and the vine.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 709 E.</note> Thus it is always an excellent thing not
+					to make an intimate acquaintance of the man who is ready with his embraces,
+					but rather, of our own motion, to embrace those of whom we approve as worthy
+					of our attention and useful to us. </p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Just as Zeuxis,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plutarch, <hi rend="italics">Life of Pericles</hi>, chap. xiii. (p. 159 D).</note> when some persons charged him with painting slowly, retorted
+					by saying, <q direct="unspecified">Yes, it takes me a long time, for it is to last
+						long,</q> so it is necessary to preserve friendship and intimacy by
+					
+					<pb id="v.2.p.57"/> adopting them only after spending a long time in passing
+					judgement upon them. Is it, then, true that while it is not easy to pass
+					judgement on a large number of friends, yet it is easy to associate with a
+					large number at the same time, or is this also impossible ? Now it is a fact
+					that the enjoyment of friendship lies in its intimacy, and the pleasantest
+					part of it is found in association and daily companionship: <quote rend="blockquote">Never in life
+						again shall we take counsel together Sitting apart from our comrades.<note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> xxiii. 77; the words are spoken by the ghost of Patroclus to Achilles.</note>
+               </quote> And
+					in regard to Odysseus, Menelaus says : <quote rend="blockquote">Else there were nothing Which could
+						have parted us twain in the midst of our love and enjoyment; No, not till
+						Death's dark cloud had wrapped its shadow around us.<note place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> iv. 178; Plutarch quoted the first two lines in <hi rend="italics">Moralia</hi>, 54 F.</note>
+               </quote> Now what is commonly
+					called having a multitude of friends apparently produces the opposite
+					result. For friendship draws persons together and unites them and keeps them
+					united in a close fellowship by means of continual association and mutual
+					acts of kindness&mdash; Just as the fig-juice fastens the white milk
+					firmly and binds it, as Empedocles <note place="unspecified" anchored="yes">Probably adapted by Empedocles from Homer, <hi rend="italics">Il.</hi>v. 902; <hi rend="italics">cf.</hi>Diels, <hi rend="italics">Fragmente der Vorsokratiker</hi>, i. p. 239.</note> puts it (for such is the unity and
+					consolidation that true friendship desires to effect) ; but, on the other
+					hand, having a multitude of friends causes disunion, separation, and
+					divergence, since, by calling one hither and thither, and transferring one's
+					attention now to this person, now to that, it does not permit any blending
+					or close attachment of goodwill to take place in the intimacy which moulds
+					itself about friendship and takes enduring <pb id="v.2.p.59"/> form. This at
+					once suggests also the inequality there must be and embarrassment about
+					rendering services, since the very useful elements in friendship are
+					rendered practically useless by having many friends. For <quote rend="blockquote">In divers men
+						solicitude excites conduct diverse.<note place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> iii. p. 721, Adespota, No. 99.</note>
+               </quote> For neither do our natures tend in the
+					same direction as our impulses, nor do we, day in and day out, meet with the
+					same sort of fortune ; and the occasions which prompt our various actions,
+					like the winds, help some friends on their way, and are adverse to others.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>But if all our friends want the same things at the same time, it is hard to
+					satisfy all, in either their counsels, their public life, their ambitions,
+					or their dispensing of hospitality. And if at one and the same time they
+					chance to be occupied in diverse activities and experiences, and call upon
+					us at the same instant, one to join him on a voyage to foreign parts,
+					another to help him in defending a suit, another to sit with him as judge,
+					another to help him in managing his buying and selling, another to help him
+					to celebrate his wedding, another to mourn with him at a funeral, <note place="unspecified" anchored="yes">The language here seems to be an amplification of Aristotle, <hi rend="italics">Ethica Nicom.</hi> ix. 10.</note> The city
+					is with burning incense filled; Full too of joyous hymns and doleful groans <note place="unspecified" anchored="yes">Sophocles, <hi rend="italics">Oedipus Tyrannus</hi>, 4; cited by Plutarch also in <hi rend="italics">Moralia</hi>, 169 D, 445 D, and 623 C.</note>
+					is the possession of a host of friends. It is impossible to be with them
+					all, and unnatural to be with none, and yet to do a service to one alone,
+					and thus to offend many, is a source of vexation; For fond affection does
+					not brook neglect.<note place="unspecified" anchored="yes">A line from Menander, cited also in <hi rend="italics">Moralia</hi>, 491 C; <hi rend="italics">cf.</hi> Kock, <hi rend="italics">Com. Attic. Frag.</hi> iii. p. 213.</note> 
+				        </p>
+            <pb id="v.2.p.61"/>
+            <p> Yet people are more tolerant of acts of negligence and remissness on the
+					part of their friends, and they accept from them without anger such excuses
+					as <q direct="unspecified">I forgot,</q>
+					          <q direct="unspecified">I didn't know.</q> But the man who says, <q direct="unspecified">I did not appear
+						with you when your case was in court, for I was appearing with another
+						friend,</q> and <q direct="unspecified">I did not come and see you when you had
+							fever, for I was busy helping so-and-so to entertain some
+							friends,</q> thus alleging, as the reason for his inattention, his
+					attention to others, does not absolve himself from blame, but only
+					aggravates the trouble by arousing jealousy. But most people, apparently,
+					look at the possession of a host of friends merely from the point of view of
+					what such friendships are able to bestow, and overlook what these demand in
+					return, forgetting that he who accepts the services of many for his needs
+					must in turn render like service to many in their need. Therefore, just as
+					Briareus in purveying for fifty bellies with an hundred hands had no
+					advantage over us who manage one stomach with what two hands provide, so in
+					making use of many friends is involved also serving many, and sharing in
+					their anxieties, preoccupations, and troubles. For no credence is to be
+					given to Euripides <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Hippolytus</hi>, 253.</note> when he says: <quote rend="blockquote">In the friendship which mortals with each
+						other form Moderation should rule, and it never should reach To the soul's
+						inmost marrow; and easy to loose Should the spells ever be that are laid on
+						the mind So to thrust them aside or to draw them close,</quote> thus easing off
+					one's friendship or hauling it close according to exigencies, like the sheet
+					of a ship's sail. But let us, my dear Euripides, turn the application
+					<note place="unspecified" anchored="yes">Hippolytus, 253.</note>
+					          <pb id="v.2.p.63"/> of this advice to our enmities, and advise the use of
+					<q direct="unspecified">moderation</q> in our disagreements, <q direct="unspecified">not reaching the
+						soul's inmost marrow,</q> and that hatred, anger, complainings, and
+					suspicions be <q direct="unspecified">easy to loose,</q> and commend rather to us the
+					Pythagorean <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, vol. i. 12 E and the note.</note> maxim, <q direct="unspecified">not to clasp hands with many</q>; that is,
+					not to make many friends nor to welcome a common and indiscriminate
+					friendship, or even a friendship with one person, if the coming of any
+					friendship into one's life brings with it many afflictions, wherein refusal
+					to share the other's anxieties, burdens, toils, and dangers is altogether
+					intolerable for free-born and generous persons. </p>
+            <p> There is truth in the remark of the wise Chilon,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 86 C, and Aulus Gellius, i. 3.</note> who, in answer to the man
+					who boasted of having no enemy, said, <q direct="unspecified">The chances are that you have
+						no friend either.</q> For enmities follow close upon friendships,
+					and are interwoven with them, inasmuch as </p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>it is impossible for a friend not to share his friend's wrongs or disrepute
+					or disfavour ; for a man's enemies at once look with suspicion and hatred
+					upon his friend, and oftentimes his other friends are envious and jealous,
+					and try to get him away. As the oracle given to Timesias <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the story told of Timesias by Plutarch, <hi rend="italics">Moralia</hi>, 812 A.</note> about his colony
+					prophesied: <quote rend="blockquote">Soon shall your swarms of honey-bees turn out to be hornets,</quote> so,
+					in like manner, men who seek for a swarm of friends unwittingly run afoul of
+					hornets' nests of enemies. Besides, the resentment of an enemy and the
+					gratitude of a friend do not weigh equally in the <note place="unspecified" anchored="yes">Cf. Moralia, 86 c,
+						and Aulus Gellius, i. 3. c Cf. the story told of Timesias by Plutarch,
+						Moralia, 812 a.</note>
+					          <pb id="v.2.p.65"/> balance. See what treatment Alexander meted out to the
+					friends and family of Philotas and Parmenio, Dionysius those of Dion, Nero
+					those of Plautus,<note place="unspecified" anchored="yes">Rubellius Plautus; <hi rend="italics">cf.</hi> Tacitus, <hi rend="italics">Annals</hi>, xiv. 57 ff., and Dio Cassius, lxii. 14.</note> and Tiberius those of Sejanus, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Tacitus, <hi rend="italics">Annals</hi>, v. 7 ff., and Dio Cassius, lviii. 11-12.</note> torturing and killing
+					them. For as the golden crown and the robe of Creon's daughter did not help
+					Creon,<note place="unspecified" anchored="yes">Euripides, <hi rend="italics">Medea</hi>, 1136 ff.</note> but, as he suddenly ran to her and clasped her in his arms, the
+					fire, fastening upon him, burned him up and destroyed him as well as his
+					daughter, so some persons without deriving any benefit from their friends'
+					good fortunes, perish with them in their misfortunes. This is the experience
+					especially of men of culture and refinement, as Theseus, for example, shared
+					with Peiritho&uuml;s his punishment and imprisonment, <quote rend="blockquote">Yoked fast in
+						duty's bonds not forged by man,<note place="unspecified" anchored="yes">A line of Euripides, probably from the <hi rend="italics">Peirithoüs</hi>, cited by Plutarch also in <hi rend="italics">Moralia</hi>, 482 A, 533 A, and 763 F. <hi rend="italics">Cf.</hi> Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>, Euripides, No. 595.</note>
+               </quote> and Thucydides <note place="unspecified" anchored="yes">Thucydides, ii. 51.</note> asserts that in the
+					pestilence those who had the highest claim to virtue perished with their
+					friends who were ill; for they did not spare themselves in going, as they
+					did, to visit those who had claims on their friendship. </p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>For these reasons it is not a fit thing to be thus unsparing of our virtue,
+					uniting and intertwining it now with one and now with another, but rather
+					only with those who are qualified to keep up the same participation, that is
+					to say, those who are able, in a like manner, to love and participate. For
+					herein plainly is the greatest obstacle of all to having a multitude of
+					friends, in that friendship comes into
+					<pb id="v.2.p.67"/> being through likeness. Indeed, if even the brute beasts
+					are made to mate with others unlike themselves only by forcible compulsion,
+					and crouch aside, and show resentment as they try to escape from each other,
+					while with animals of their own race and kind they consort with mutual
+					satisfaction, and welcome the participation with a ready goodwill, how then
+					is it possible for friendship to be engendered in differing characters,
+					unlike feelings, and lives which hold to other principles ? It is true that
+					the harmony produced on harp and lyre gets its consonance through tones of
+					dissonant pitch, a likeness being somehow engendered between the higher and
+					the lower notes ; but in our friendship's consonance and harmony there must
+					be no element unlike, uneven, or unequal, but all must be alike to engender
+					agreement in words, counsels, opinions, and feelings, and it must be as if
+					one soul were apportioned among two or more bodies. </p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>What man is there, then, so indefatigable, so changeable, so universally
+					adaptable, that he can assimilate and accommodate himself to many persons,
+					without deriding the advice of Theognis <note place="unspecified" anchored="yes">Verses 215-6, cited by Plutarch also in <hi rend="italics">Moralia</hi>, 916 C and 978 E.</note> when he says : <quote rend="blockquote">Copy this trait of
+						the cuttle-fish, which changes its colour So as to seem to the eye like to
+						the rock where it clings ?</quote> However, the changes in the cuttle-fish have no
+					depth, but are wholly on the surface, which, owing to its closeness or
+					looseness of texture, takes up the emanations from objects which come near
+					to it; 
+					<pb id="v.2.p.69"/> whereas friendships seek to effect a thorough-going
+					likeness in characters, feelings, language, pursuits, and dispositions. Such
+					varied adaptation were the task of a Proteus,<note place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> iv. 383 ff.; Virgil, <hi rend="italics">Georgics</hi>, iv. 387 ff.</note> not fortunate and not at all
+					scrupulous, who by magic can change himself often on the very instant from
+					one character to another, reading books with the scholarly, rolling in the
+					dust with wrestlers, following the hunt with sportsmen, getting drunk with
+					topers, and taking part in the canvass of politicians, possessing no firmly
+					founded character of his own. And as the natural philosophers say of the
+					formless and colourless substance and material which is the underlying basis
+					of everything and of itself turns into everything, that it is now in a state
+					of combustion, now liquefied, at another time aeriform, and then again
+					solid, so the possession of a multitude of friends will necessarily have, as
+					its underlying basis, a soul that is very impressionable, versatile, pliant,
+					and readily changeable. But friendship seeks for a fixed and steadfast
+					character which does not shift about, but continues in one place and in one
+					intimacy. For this reason a steadfast friend is something rare and hard to
+					find. <note place="unspecified" anchored="yes">Homer, Od. iv. 383 ff; Virgil, Georgics, iv. 387 ff.</note>
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

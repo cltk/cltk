@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Comp.Tim.Aem." type="work">Comparison of Timoleon and Aemilius</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Comp.Tim.Aem."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1918</date>
+                  </imprint>
+                  <biblScope type="volume">6</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991095</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>03/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="p.458"/>
+         <div1 type="chapter" n="1">
+            <p>
+               <milestone unit="section" n="1"/>toiou/twn de\ tw=n kata\ th\n i(stori/an o)/ntwn, dh=lon w(s ou)k e)/xei polla\s diafora\s ou)de\ a)nomoio/thtas h( su/gkrisis. 
+oi(/ te ga\r po/lemoi pro\s e)ndo/cous gego/nasin a)mfote/rois a)ntagwnista/s, tw=| me\n *makedo/nas, tw=| de\ *karxhdoni/ous, ai(/ te ni=kai peribo/htoi, tou= me\n e(lo/ntos *makedoni/an 
+<pb id="p.460"/>
+kai\ th\n a)p' *)antigo/nou diadoxh\n e)n e(bdo/mw| 
+basilei= katapau/santos, tou= de\ ta\s turanni/das 
+pa/sas a)nelo/ntos e)k *sikeli/as kai\ th\n nh=son 
+e)leuqerw/santos: 
+ei) mh\ nh\ *di/a bou/loito/ tis 
+paregxeirei=n w(s *ai)mi/lios me\n e)rrwme/nw| *persei= 
+<milestone unit="section" n="2"/>kai\ *(rwmai/ous nenikhko/ti, *timole/wn de\ *dionusi/w| panta/pasin a)peirhko/ti kai\ katatetrimme/nw| sune/pese, kai\ pa/lin u(pe\r *timole/ontos, 
+o(/ti pollou\s me\n tura/nnous, mega/lhn de\ th\n *karxhdoni/wn du/namin a)po\ th=s tuxou/shs stratia=s e)ni/khsen, ou)x w(/sper *ai)mi/lios a)ndra/sin e)mpeiropole/mois kai\ memaqhko/sin a)/rxesqai xrw/menos, a)lla\ misqofo/rois ou)=si kai\ stratiw/tais a)ta/ktois, pro\s h(donh\n ei)qisme/nois strateu/esqai. 
+ta\
+ga\r a)p'  ou)k i)/shs paraskeuh=s i)/sa katorqw/mata tw=| strathgw=| th\n ai)ti/an periti/qhsi. </p>
+         </div1>
+         <div1 type="chapter" n="2">
+            <p>
+               <milestone unit="section" n="1"/>kaqarw=n ou)=n kai\ dikai/wn e)n toi=s pra/gmasin a)mfote/rwn gegono/twn, *ai)mi/lios me\n u(po\ tw=n no/mwn kai\ th=s patri/dos ou(/tws e)/oiken eu)qu\s a)fike/sqai pareskeuasme/nos, *timole/wn de\ toiou=ton au)to\s e(auto\n pare/sxe, 
+tou/tou tekmh/rion o(/ti *(rwmai=oi me\n o(malw=s e)n tw=| to/te xro/nw| pa/ntes h)=san eu)/taktoi kai\ u(poxei/rioi toi=s e)qismoi=s kai\ tou\s no/mous dedio/tes kai\ tou\s poli/tas, *(ellh/nwn de\ ou)dei\s h(gemw/n e)stin ou)de\ strathgo/s o(\s ou) diefqa/rh to/te *sikeli/as a(ya/menos e)/cw *di/wnos, 
+<milestone unit="section" n="2"/>
+kai/toi *di/wna polloi\ monarxi/as o)re/gesqai kai\ basilei/an tina\ *lakwnikh\n o)neiropolei=n u(peno/oun. *ti/maios de\ kai\ *gu/lippon a)klew=s 
+<pb id="paris.1624.277"/> fhsi kai\ a)ti/mws a)pope/myai *surakousi/ous, filoplouti/an au(tou= kai\ a)plhsti/an e)n th=| strathgi/a| 
+<pb id="p.462"/>
+kategnwko/tas. 
+a(\ de\
+*fa/rac o( *spartia/ths kai\ *ka/llippos. o( *)aqhnai=os e)lpi/santes a)/rcein *sikeli/as pareno/mhsan kai\ parespo/ndhsan, u(po\ pollw=n a)nage/graptai. 
+<milestone unit="section" n="3"/>
+kai/toi ti/nes h)\ phli/kwn ku/rioi pragma/twn o)/ntes ou(=toi toiau=ta h)/lpisan; w(=n o( me\n e)kpeptwko/ta *surakousw=n e)qera/peue *dionu/sion, *ka/llippos de\ ei(=s h)=n tw=n peri\ *di/wna cenagw=n. 
+a)lla\ *timole/wn ai)thsame/nois kai\ dehqei=sin au)tokra/twr pemfqei\s *surakousi/ois, kai\ du/namin ou) zhtei=n a)ll' e)/xein o)fei/lwn h(\n e)/labe boulome/nwn kai\ dido/ntwn, pe/ras e)poih/sato th=s au(tou= strathgi/as kai\ a)rxh=s th\n tw=n parano/mwn a)rxo/ntwn kata/lusin. 
+</p>
+            <p>
+               <milestone unit="section" n="4"/>
+e)kei=no me/ntoi tou= *ai)mili/ou qaumasto/n, o(/ti thlikau/thn basilei/an katastreya/menos ou)de\ draxmh=| mei/zona th\n ou)si/an e)poi/hsen, ou)de\ ei)=den ou)de\ h(/yato tw=n xrhma/twn, kai/toi polla\ dou\s e(te/rois kai\ dwrhsa/menos. 
+ou)
+le/gw de\ o(/ti *timole/wn mempto/s e)stin oi)ki/an te kalh\n labw\n kai\ xwri/on: ou) ga\r to\ labei=n e)k toiou/twn ai)sxro/n, a)lla\ to\ mh\ labei=n krei=tton kai\ periousi/a th=s a)reth=s, e)n oi(=s e)/cestin e)pideiknume/nhs to\ mh\ deo/menon: 
+</p>
+            <p>
+               <milestone unit="section" n="5"/>
+e)pei\ de/, w(s sw/matos r(i=gos h)\ qa/lpos fe/rein duname/nou to\ pro\s a)mfote/ras eu)= pefuko\s o(mou= ta\s metabola\s r(wmalew/teron, ou(/tw yuxh=s a)/kratos eu)rwsti/a kai\ i)sxu/s, h(\n ou)/te to\ eu)tuxei=n u(/brei qru/ptei kai\ a)ni/hsin ou)/te sumforai\ tapeinou=si, fai/netai teleio/teros o( *ai)mi/lios, e)n xaleph=| 
+<pb id="p.464"/>
+tu/xh| kai\ pa/qei mega/lw| tw=| peri\ tou\s pai=das ou)de/n ti mikro/teros ou)de\ a)semno/teros h)\ dia\ tw=n eu)tuxhma/twn o(raqei/s: 
+<milestone unit="section" n="6"/>*timole/wn de\ gennai=a pra/cas peri\ to\n a)delfo\n ou)k a)nte/sxe tw=| logismw=| pro\s to\ pa/qos, a)lla\ metanoi/a| kai\ lu/ph| tapeinwqei\s e)tw=n ei)/kosi to\ bh=ma kai\ th\n a)gora\n i)dei=n ou)x u(pe/meine. 
+dei= de\ ta\ ai)sxra\ feu/gein kai\ ai)dei=sqai, to\ de\ pro\s pa=san a)doci/an eu)labe\s e)pieikou=s me\n h)/qous kai\ a(palou=, me/geqos de\ ou)k e)/xontos. </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

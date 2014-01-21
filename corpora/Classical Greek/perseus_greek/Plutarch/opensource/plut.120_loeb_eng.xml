@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De vitando aere alieno</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Harold North Fowler</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Harold North Fowler</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1936</date>
+                  </imprint>
+                  <biblScope type="volume">10</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.10.p.315"/>
+         <div1 type="section" n="intro">
+            <head>THAT WE OUGHT NOT TO BORROW (DE VITANDO AERE ALIENO)
+					<lb/>INTRODUCTION</head>
+            <p>
+					This brief essay consists of repeated warnings, enlivened by numerous examples and anecdotes, against
+					running into debt. There is nothing to indicate that
+					it was delivered as a lecture, but it would probably
+					have been interesting to an audience of Plutarch's
+					time, and may have been written with an audience
+					in mind. It contains no profound or original doctrines, but is simply an agreeable presentation of
+					somewhat commonplace thoughts - rather learned,
+					rather literary, rather sensible, and, to the modern
+					reader, rather amusing.
+				</p>
+         </div1>
+         <pb id="v.10.p.317"/>
+         <div1 type="section" n="1">
+            <p>Plato in the <hi rend="italics">Laws</hi>
+               <note resp="ed" place="unspecified" anchored="yes">Plato, <hi rend="italics">Laws</hi>, 844 b.</note> forbids people to take any
+					water from a neighbour's land unless they have dug
+					on their own land down to a layer of potter's clay,
+					as it is called, and found that the place will not produce a flow of water ; for the potter's clay, being
+					by nature oily and solid, holds back the water that
+					reaches it and does not let it through ; but, he says,
+					those shall have a share of others' water who cannot
+					get any of their own, for the law gives relief to those
+					in want. Ought there not, then, to be a law about
+					money also, that people shall not borrow from others
+					or resort to other people's springs who have not first
+					examined their resources at home and brought together, as from little trickles, what is useful and
+					necessary to themselves ? But now, because of
+					their luxury and effeminacy or their extravagance,
+					they make no use of what is their own, though they
+					possess it, but take from others at a high rate of
+					interest, though they have no need of doing so.
+					There is strong evidence of this : loans are not
+					made to people in need, but to those who wish to
+					acquire some superfluity for themselves. And a
+					man produces a witness and a surety to aver that,
+					
+					<pb id="v.10.p.319"/>
+					
+					
+					since the man has property, he deserves credit,
+					whereas, since he has it, he ought not to be
+					borrowing.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>Why do you pay court to the banker or broker ?
+					Borrow of your own table<note resp="ed" place="unspecified" anchored="yes">The Greek word means <hi rend="italics">bank</hi>, as well as <hi rend="italics">table</hi>.</note>; you have drinking-cups,
+					silver dishes, <hi rend="italics">bonbonnieres</hi>. Pawn these for your
+					needs. Beautiful Aulis or Tenedos will adorn your
+					table in their stead with pottery that is cleaner than
+					the silver ware ; it does not have the heavy, disagreeable smell of interest defiling every day like
+					rust the surface of your extravagance, nor will it
+					keep reminding you of the first of the month and the
+					new moon,<note resp="ed" place="unspecified" anchored="yes">That interest was due on the first of the month is amply attested. <hi rend="italics">Cf.</hi> Aristophanes, <hi rend="italics">Clouds</hi>, 17, 1134, Horace, <hi rend="italics">Satires</hi>, i. 3. 87 (<hi rend="italics">tristes kalendae</hi>), for the detestation of the day.</note> which, though really the holiest day of the
+					month, the money-lenders have made accursed and
+					detested. For as to those who, instead of selling
+					their belongings, give them as security, not even the
+					God of Property could save them. They are ashamed
+					to accept a price, but not ashamed to pay interest on
+					what is their own. And yet the great Pericles made
+					the ornaments of the Goddess, which weighed forty
+					talents of refined gold,<note resp="ed" place="unspecified" anchored="yes">Thucydides, ii. 13.</note> so that they could be taken
+					off, <q direct="unspecified">in order,</q> he said, <q direct="unspecified">that we may use it for the
+						expenses of the war, and then pay back an equal
+						amount.</q> And so let us likewise, when we are, as
+					it were, besieged by our needs, refuse to admit the
+					garrison of a money-lender, our enemy, or to allow
+					our property to be sold into slavery. No, let us preserve our liberty by taking off what is useless from
+					our table, our bed, our vehicles, and our daily expenses, intending to pay it back if we are fortunate.
+				</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Now the Roman women gave their ornaments as
+					an offering to Pythian Apollo and from them made the
+					
+					<pb id="v.10.p.321"/>
+					
+					
+					golden bowl which was sent to Delphi; and the
+					women of Carthage shore their heads and gave their
+					hair to make ropes for the tension of machines and
+					instruments<note resp="ed" place="unspecified" anchored="yes">Beginning with the fourth century b.c. the ancients employed various machines to hurl projectiles. They are commonly called catapults (<foreign lang="greek">katape/lths</foreign>). Their power lay in the elasticity of wooden beams which were bent by means of ropes rendered taut by twisting, whence the Latin name <hi rend="italics">tormentum</hi>. The story is found in Appian, viii. 13. 93.</note> in defence of their native city. But
+					we, ashamed to be independent, enslave ourselves
+					by mortgages and notes, when we ought to limit and
+					restrict ourselves to actual necessities and from the
+					proceeds of the breaking up or the sale of useless
+					superfluities to found a sanctuary of Liberty for ourselves, our children, and our wives. The goddess
+					Artemis at Ephesus grants to debtors when they take
+					refuge in her sanctuary protection and safety from
+					their debts, but the protecting and inviolable sanctuary of Frugality is everywhere wide open to sensible
+					men, offering them a joyous and honourable expanse
+					of plentiful leisure. For just as the Pythian prophetess b in the time of the Persian wars told the Athenians
+					that the God offered them a wooden wall, and they,
+					giving up their land, their city, their possessions,
+					and their houses, took refuge in their ships for the
+					sake of liberty, so to us God offers a wooden table, a
+					pottery dish, and a coarse cloak if we wish to live as
+					free men.
+					<quote rend="blockquote">Do not abide the attack of the horsemen,<note resp="ed" place="unspecified" anchored="yes">Herodotus, vii. 141. The quotation is from the oracle in hexameters delivered to the Athenians by the priestess at Delphi when the Persians invaded Attica in 480 b.c. before the battle of Salamis.</note>
+               </quote>
+					nor of yoked chariots adorned with horn or silver,
+					which rapid interest overtakes and outruns. No,
+					make use of any chance donkey or nag and flee from
+					your enemy and tyrant, the money-lender, who does
+					
+					<pb id="v.10.p.323"/>
+					
+					
+					not, like the Persian, demand earth and water, but
+					attacks your liberty and brings suit against your
+					honour. If you will not pay him, he duns you ; if
+					you have funds, he won't accept payment; if you sell,
+					he beats down the price ; if you will not sell, he forces
+					you to do so ; if you sue him, he meets you in court;
+					if you take your oath, he orders you to do so ; if you
+					go to his door, he shuts it in your face ; if you stay at
+					home, he installs himself there and keeps knocking
+					at your door.
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>For what good did Solon do the Athenians when
+					he put an end to giving one's person as security for
+					debt ? For debtors are slaves to all the men who
+					ruin them, or rather not to them either (for what
+					would be so terrible in that ?), but to outrageous,
+					barbarous, and savage slaves, like those who Plato
+					says<note resp="ed" place="unspecified" anchored="yes">Plato, <hi rend="italics">Republic</hi>, 615 e.</note> stand in Hades as fiery avengers and executioners over those who have been impious in life.
+					For these money-lenders make the market-place a
+					place of the damned for the wretched debtors ; like
+					vultures they devour and flay them, <q direct="unspecified">entering into
+						their entrails,</q>
+               <note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> xi. 578.</note> or in other instances they stand
+					over them and inflict on them the tortures of
+					Tantalus by preventing them from tasting their own
+					produce which they reap and harvest. And as
+					Dareius sent Datis and Artaphernes against Athens
+					with chains and fetters in their hands for their captives, in similar fashion these men, bringing against
+					Greece jars full of signatures and notes as fetters,
+					march against and through the cities, not, like Triptolemus, sowing beneficent grain, but planting roots of
+					debts, roots productive of much toil and much interest
+					and hard to escape from, which, as they sprout and
+					shoot up round about, press down and strangle the
+					
+					
+					<pb id="v.10.p.325"/>
+					
+					
+					cities. They say that hares at one and the same
+					time give birth to one litter, suckle another, and
+					conceive again ; but the loans of these barbarous
+					rascals give birth to interest before conception<note resp="ed" place="unspecified" anchored="yes">There is here, and also above and below, a play on the word <foreign lang="greek">to/kos</foreign>, which means <q direct="unspecified">offspring</q> and also <q direct="unspecified">interest,</q> the offspring of debt.</note>;
+					for while they are giving they immediately demand
+					payment, while they lay money down they take it
+					up, and they lend what they receive for money lent.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>There is a saying among the Messenians,
+					<quote rend="blockquote">Pylos there is before Pylos, and Pylos, a third, there is also,<note resp="ed" place="unspecified" anchored="yes">Strabo, viii. 7, p. 339; Aristophanes, <hi rend="italics">Knights</hi>, 1059.</note>
+               </quote>
+					but as to the money-lenders we may say
+					<quote rend="blockquote">Int'rest there is before int'rest, and int'rest a third there is
+					also.</quote>
+					And then they make a laughing-stock forsooth of the
+					scientists, who say that nothing arises out of nothing;
+					for with these men interest arises out of that
+					which has as yet no being or existence. And they
+					think it is a disgrace to be a tax-collector, which
+					the law allows ; for they themselves lend money
+					contrary to law, collecting taxes from their debtors,
+					or rather, if the truth is to be told, cheating them in
+					the act of lending ; for he who receives less than
+					the face value of his note is cheated. And yet the
+					Persians regard lying as the second among wrongdoings and being in debt as the first<note resp="ed" place="unspecified" anchored="yes">Herodotus, i. 138, puts lying first and debt second.</note>; for lying is
+					often practised by debtors ; but money-lenders lie
+					more than debtors and cheat in their ledgers, when
+					they write that they give so-and-so much to so-and-so,
+					though they really give less ; and the cause of their
+					lie is avarice, not necessity or want, but insatiable
+					
+					<pb id="v.10.p.327"/>
+					
+					
+					greed, which in the end brings neither enjoyment
+					nor profit to them and ruin to those whom they
+					wrong. For they do not till the fields which they
+					take from their debtors, nor do they live in their
+					houses after evicting them, nor do they eat at their
+					tables or wear their clothes, but they ruin one man
+					first, then hunt a second, using the other as bait.
+					For the savage practice spreads like fire, growing
+					by the ruin and destruction of those who fall into
+					it, consuming one after another. And the moneylender who fans and feeds this fire to the ruin of
+					many men gains nothing, except that from time to
+					time he can take his account-books and read how
+					many men he has sold out, how many he has driven
+					from their homes, and, in general, the sources from
+					which his hoard of money, rolling in and piling up,
+					has made such gains.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>And do not think that I say this because I
+					have declared war against the money-lenders;
+					<quote rend="blockquote">Ne'er have they harried my cattle, nor ever made off with
+					my horses<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> i. 154.</note>;</quote>
+					but that I am pointing out to those who are too
+					ready to become borrowers how much disgrace and
+					servility there is in the practice and that borrowing
+					is an act of extreme folly and weakness. Have you
+					money? Do not borrow, for you are not in need.
+					Have you no money ? Do not borrow, for you will
+					not be able to pay. Let us look at each of these
+					two alternatives separately. Cato once said to an
+					old man who was behaving wickedly : <q direct="unspecified">Sir, when
+						old age has so many evils of its own, why do you add
+						to them the disgrace of wickedness ?</q> Therefore in
+					your own case do not heap up upon poverty, which
+					has many attendant evils, the perplexities which
+					
+					
+					<pb id="v.10.p.329"/>
+					
+					
+					arise from borrowing and owing, and do not deprive
+					poverty of the only advantage which it possesses
+					over wealth, namely freedom from care ; since by
+					so doing you will incur the derision of the proverb,
+					<quote rend="blockquote">I am unable to carry the goat, put the ox then upon me.<note resp="ed" place="unspecified" anchored="yes">
+                     <hi rend="italics">Paroemiographi Graeci</hi>, ii. 592.</note>
+               </quote>
+					Being unable to carry the burden of poverty you
+					put the money-lender upon your back, a burden difficult for even the rich to bear. <q direct="unspecified">How, then, am I
+						to live ?</q> Do you ask this, when you have hands
+					and feet and a voice, when you are a man capable
+					of loving and being loved, of doing favours and being
+					grateful for them ? Live by teaching letters, by
+					leading children to school, by being a door-keeper,
+					by working as a sailor or a boatman ; none of these
+					is so disgraceful or disagreeable as hearing the order
+					<q direct="unspecified">Pay up.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>The well-known Roman Rutilius went up to
+					Musonius and said, <q direct="unspecified">Musonius, Zeus the Saviour,
+						whom you imitate and emulate, is no borrower</q> ;
+					and Musonius answered with a smile, <q direct="unspecified">He is no
+						lender, either.</q> For Rutilius, who was himself a
+					lender, was finding fault with Musonius for borrowing. This is an example of the vanity of the Stoics ;
+					for why should you bring in Zeus the Saviour, when
+					you can use as examples things that are here before
+					your eyes ? Swallows do not borrow, ants do not
+					borrow, creatures upon which nature has bestowed
+					neither hands, reason, nor art; but men, with their
+					superior intellect, support through their ingenuity
+					horses, dogs, partridges, hares, and jackdaws in
+					addition to themselves. Why, then, have you come
+					to the poor opinion of yourself, that you are less
+					
+					<pb id="v.10.p.331"/>
+					
+					
+					persuasive than a jackdaw, more dumb than a
+					partridge, less well-born than a dog, so that you can
+					obtain no help from any human being by waiting
+					on him, entertaining him, guarding him, or fighting
+					for him ? Do you not see how many opportunities
+					are offered on land and on the sea ?
+					<quote rend="blockquote">Lo, even Miccylus I beheld,<note resp="ed" place="unspecified" anchored="yes">Crates, Frag. 6, Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> ed. 4, ii. p. 366. The last three words occur also in Homer, <hi rend="italics">Od.</hi> xii. 257.</note>
+               </quote>
+					says Crates,
+					<quote rend="blockquote">
+                  <l>Carding the wool, and his wife too carding the wool along
+					with him,
+					</l>
+                  <l>Striving in terrible conflict to 'scape from the onslaught of
+					famine.</l>
+               </quote>
+					King Antigonus asked Cleanthes, when he met him
+					in Athens after not seeing him for a while, <q direct="unspecified">Are
+						you still grinding corn, Cleanthes?</q> 
+               <q direct="unspecified">Yes, Your
+							Majesty,</q> he replied ; <q direct="unspecified">I do it in order not to be
+								a deserter from Zeno's instruction, nor from philosophy either.</q> What a great spirit the man had
+					who came from the mill and the kneading-trough,
+					and with the hand which ground the flour and
+					baked the bread wrote about the gods, the moon,
+					the stars, and the sun ! But to us such labours seem
+					slavish. And therefore, in order to be free, we
+					contract debts and pay court to men who are
+					ruiners of homes, we act as bodyguard to them, dine
+					them, make them presents, and pay them tribute,
+					not because of our poverty (for no one lends to
+					poor men), but because of our extravagance. For
+					if we were content with the necessaries of life,
+					
+					<pb id="v.10.p.333"/>
+					
+					
+					the race of money-lenders would be as non-existent
+					as that of Centaurs and Gorgons ; but luxury produced money-lenders just as it did goldsmiths, silversmiths, perfumers, and dyers in gay colours ; for
+					our debts are incurred, not to pay for bread or wine,
+					but for country-seats, slaves, mules, banquet-halls,
+					and tables, and because we give shows to the cities
+					with unrestrained expenditure, contending in fruitless and thankless rivalries. But the man who is
+					once involved remains a debtor all his life, exchanging, like a horse that has once been bridled, one
+					rider for another. And there is no escape to those
+					former pastures and meadows, but they wander
+					like the spirits described by Empedocles, who have
+					been expelled by the gods and thrown out from
+					heaven:
+					<quote rend="blockquote">
+                  <l>Into the waves of the sea they are driv'n by the might of the
+					ether;
+					</l>
+                  <l>Then on the floor of the earth the sea vomits them ; earth
+					then ejects them
+					</l>
+                  <l>Into the untiring sun's rays; and he hurls them to eddying
+					ether.<note resp="ed" place="unspecified" anchored="yes">Mullach, <hi rend="italics">Frag. Phil. Graec.</hi> i. p. 2, vss. 32 ff.; quoted also in <hi rend="italics">Moralia</hi>, 361 c.</note>
+                  </l>
+               </quote>
+					And so <q direct="unspecified">one after another takes over</q>
+               <note resp="ed" place="unspecified" anchored="yes">Mullach, <hi rend="italics">ibid.</hi> vs. 35.</note> the borrower, first a usurer or broker of Corinth, then one
+					of Patrae, then an Athenian, until, attacked on all
+					sides by all of them, he is dissolved and chopped up
+					into the small change of interest payments. For
+					just as a man who has fallen into the mire must
+					either get up or stay where he is, but he who turns
+					and rolls over covers his wet and drenched person
+					with more dirt; so in their transfers and changes
+					of loans, by assuming additional interest payments
+					
+					<pb id="v.10.p.335"/>
+					
+					
+					and plastering themselves with them,<note resp="ed" place="unspecified" anchored="yes">Evidently the man in debt is supposed to borrow from one lender in order to pay another.</note> they weigh
+					themselves down more and more ; and they are
+					much like persons ill with cholera, who do not accept
+					treatment, but vomit up the prescribed medicine
+					and then continue constantly to collect more disease.
+					Similarly these borrowers refuse to be purged, and
+					always, at every season of the year, when painfully
+					and with convulsions they cough up the interest
+					while another payment immediately accrues and
+					presses upon them, they suffer a fresh attack of
+					nausea and headache. What they ought to do is
+					to get rid of debts and become healthy and free
+					again.
+				</p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>From now on my words are addressed to those
+					who are more well-to-do and accustomed to a softer
+					way of living, those who say <q direct="unspecified">Am I, then, to be
+						without slaves, without hearth and home?</q>, as if a
+					sick man who is swollen up with dropsy should say
+					to his physician <q direct="unspecified">Am I, then, to be made thin and
+						empty?</q> Why not, to make you get well ? And
+					so you should do without slaves, that you may not
+					be a slave yourself, and without property, that you
+					may not be the property of another. Hear the tale
+					of the vultures : One of them had an attack of
+					vomiting and said he was spewing out bowels, but
+					the other, who was there, said <q direct="unspecified">What harm is there
+						in that ? For you are not spewing out your own
+						bowels, but those of the corpse we tore to pieces
+						a little while ago.</q> So any man in debt sells, not
+					his own plot of land, nor his own house, but those
+					of his creditor whom by law he has made their
+					owner. <q direct="unspecified">Not so, by Zeus,</q> he says ; <q direct="unspecified">why, my father
+						left me this field.</q> Yes, and your father left you
+					your liberty and your civil rights, which you ought
+					
+					
+					<pb id="v.10.p.337"/>
+					
+					
+					to value more. So, too, he who begat you made
+					your foot and your hand, but when it is mortified,
+					you pay a surgeon for cutting it off. Calypso clothed
+					Odysseus in her garment, <q direct="unspecified">putting fragrant raiment
+						upon him</q>
+               <note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> v. 264.</note> that breathed of her divine person,
+					as a gift and a memento of her love ; but when he
+					was capsized and engulfed by the waves and could
+					hardly keep himself up since the garment had become soaked and heavy, he took it off and threw it
+					from him, then, binding a wimple about his naked
+					breast,
+					<quote rend="blockquote">Long-shore he swam looking landward,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> v. 439.</note>
+               </quote>
+					and when he reached safety he had no lack of garment or food. Well, then, is it not a tempest that
+					arises about debtors when the lender after a while
+					comes up to them saying <q direct="unspecified">Pay</q> ?
+					<quote rend="blockquote">
+                  <l>Thus having spoken he gathered the clouds and stirred up
+					the great waters ;
+					</l>
+                  <l>East wind and South wind and West with furious blasts
+					raged together,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> v. 291, 292.</note>
+                  </l>
+               </quote>
+					as interest rolled up upon interest; and the debtor,
+					overwhelmed, continues to clutch them as they weigh
+					him down, for he cannot swim away and escape ;
+					no, he sinks down to the bottom and disappears
+					along with the friends who have endorsed his notes.
+					Crates the Theban, when he was not pressed for
+					payment and did not even owe anything, because
+					he disliked the mere administration of property,
+					its cares and distractions, abandoned an estate
+					valued at eight talents and, donning cloak and
+					wallet, took refuge in philosophy and poverty.
+					Anaxagoras also left his land to be grazed over by
+					
+					<pb id="v.10.p.339"/>
+					
+					
+					sheep.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Himerius, <hi rend="italics">Eclogues</hi>, iii. 18.</note> But what need is there of mentioning these
+					men, when Philoxenus the lyric poet, who shared
+					in the allotment of lands in a colony in Sicily, which
+					ensured him a livelihood and a household furnished
+					with abundant resources, when he saw that luxury,
+					indulgence in a life of pleasure, and lack of culture
+					were prevalent there, said, <q direct="unspecified">By the Gods, these
+						good things shall not make me lose myself; I will
+						rather lose them,</q> and leaving his allotment to
+					others, he sailed away. But people in debt are
+					content to be dunned, mulcted of tribute, enslaved,
+					and cheated ; they endure, like Phineus, to feed
+					winged harpies which carry off their food and devour
+					it, buying their grain, not at the proper season, but
+					before it is harvested, and purchasing the oil before
+					the olives have been plucked. And <q direct="unspecified">I have wine,</q>
+					says the borrower, <q direct="unspecified">at such and such a price,</q> and
+					he gives his note for its value ; but the cluster still
+					hangs clinging on the vine and waiting for the rising
+					of Arcturus.
+				</p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

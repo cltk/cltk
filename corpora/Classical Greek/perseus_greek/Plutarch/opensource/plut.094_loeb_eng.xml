@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De virtute morali</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">W. C. Helmbold</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>W. C. Helmbold</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1939</date>
+                  </imprint>
+                  <biblScope type="volume">6</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="section" n="intro">
+            <pb id="v.6.p.16"/>
+            <head>ON MORAL VIRTUE
+					(DE VIRTUTE MORALI)
+					<lb/>INTRODUCTION</head>
+            <p>
+					If the present essay is the work of Plutarch,<note resp="ed" place="unspecified" anchored="yes">The only recent attempt, that of Hartman, to show that it is not, relies on the looseness of the reasoning, the tediousness of the argumentation, and the absence of anything that might be called structure. But all three of these are by no means unusual in admittedly genuine works. The language and phraseology appear to the present editor, at any rate, to be Plutarchean.</note> we
+					may, perhaps, be surprised at the diffuseness with
+					which the author permits himself to wander at leisure
+					over the preserves of Aristotelian psychology, while
+					almost completely neglecting the promises made in
+					such high-sounding terms in his first sentence. The
+					purpose of the essay is apparently to refute certain
+					tenets of Stoic psychology, and these are, to be sure,
+					attacked with some spirit, but at such length and
+					with so little attention to logic or to their intended
+					meaning, that complete success is not to be expected. The point which is continually belaboured
+					is that there <hi rend="italics">are</hi> two parts of the soul, the Rational
+					and the Irrational; for Moral Virtue to arise, the
+					Rational must control the Irrational. So much our
+					author has gleaned from Aristotle and to this he
+					adds very little; nor can he apply his vast reading
+					in poetry and philosophy with much effect to the
+					demolition of Stoic dogma, which he appears in
+					several points to have misunderstood. On the whole,
+					
+					<pb id="v.6.p.17"/>
+					
+					whether from the standpoint of popular or from that
+					of serious philosophy, this is one of the least successful
+					of Plutarch's works.<note resp="ed" place="unspecified" anchored="yes">But Hartman's words are no doubt too harsh: <q direct="unspecified">
+                     <foreign lang="la">Multo...Chaeronensi indignior hic libellus, quem, ut ad finem perlegas quantum tibi est taedii devorandum!</foreign>
+                  </q>
+               </note>
+				        </p>
+            <p>
+					A word on the terminology is necessary : Aristotelian usage is probably intended throughout the
+					greater part of the w ork. I have, therefore, followed
+					most English Aristotelians in my rendering of many
+					terms, with <foreign lang="greek">du/namis</foreign> 
+               <q direct="unspecified">capacity</q> or <q direct="unspecified">faculty</q> or
+					<q direct="unspecified">power,</q> 
+               <foreign lang="greek">fro/nhsis</foreign> 
+               <q direct="unspecified">prudence,</q> and the like. <foreign lang="greek">e(/cis</foreign>
+					I have rendered <q direct="unspecified">acquired state,</q> but <foreign lang="greek">pa/qos</foreign> and
+					its forms and derivatives I have translated <q direct="unspecified">emotions,</q> 
+               <q direct="unspecified">passions,</q> 
+               <q direct="unspecified">experiences,</q> according to my
+					interpretation of the context.<note resp="ed" place="unspecified" anchored="yes">See Mr. H. Rackham's very just remarks in the preface to his recent (L.C.L., 1935) edition of the <hi rend="italics">Atheniensium Respublica</hi>.</note>
+				        </p>
+            <p>
+					It is interesting to notice that Pope in the <hi rend="italics">Essay
+						on Man</hi> (ii. 51 if.) has apparently drawn his philosophy
+					from Plutarch's diluted Aristotelianism rather than
+					from the fountain head.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> T. Sinko (<hi rend="italics">Eos</hi>, xv. 1909, pp. 119-122), who further holds this essay to be the product of Plutarch's youth, comparing the more mature attitude toward the passions to be found in <hi rend="italics">De Cohibenda Ira</hi> and <hi rend="italics">De Tranquillitate Animi</hi>.</note>
+				        </p>
+            <p>
+					The ms. tradition is fairly good. The work has been
+					well edited by Mr. Pohlenz in the Teubner series ;
+					from this edition most of the critical notes and the
+					parallel passages have been taken.
+				</p>
+            <p>
+					The work is No. 72 in Lamprias's catalogue of
+					Plutarch's writings.
+					
+				</p>
+         </div1>
+         <pb id="v.6.p.19"/>
+         <div1 type="section" n="1">
+            <p>It is my purpose to speak of that virtue which is
+					called <q direct="unspecified">moral</q> and reputed to be so, which differs
+					from contemplative virtue chiefly in that it has as
+					its material the emotions of the soul and as its form
+					reason, and to inquire what its essential nature is and
+					how, by its nature, it subsists ; whether, also, that
+					part of the soul which receives it is equipped with its
+					own reason, or does but share in the reason of some
+					other part; and if the latter, whether it does this
+					after the manner of elements that are mingled with
+					what is better than themselves, or rather, whether
+					this portion of the soul is guided and governed by
+					another part and in this sense may be said to
+					share in that governing part's power. For that it is
+					possible for virtue also to have come into being and
+					to remain entirely independent of matter and free
+					from all admixture with it, I think is quite obvious.
+					It is better, however, to run summarily through the
+					opinions of the philosophers holding opposing views,
+					not so much for the sake of inquiring into them as
+					that my own opinions may become clearer and more
+					firmly established when those of the philosophers in
+					question have been presented.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>In the first place, Menedemus of Eretria deprived the virtues of both plurality and differences by
+					asserting that virtue is but one, though it goes under
+					
+					
+					<pb id="v.6.p.21"/>
+					
+					many names : the same thing is meant by temperance and courage and justice, as is the case with
+					<q direct="unspecified">mortal</q> and <q direct="unspecified">man.</q> And Ariston of Chios<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, i. p. 86.</note> himself also made virtue but one in its essential nature
+					and called it health ; but in its relative aspect he
+					made certain distinctions and multiplied virtues, just
+					as though one should wish to call our sight <q direct="unspecified">white-sight</q> when it is applied to white objects, or <q direct="unspecified">black-sight</q>when applied to black objects, or anything else
+					of the sort. For instance virtue, when it considers
+					what we must do or avoid, is called prudence<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> for example, Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, vi. 6. 1: prudence is <q direct="unspecified">concerned only with things which admit of variation.</q>
+               </note>; when
+					it controls our desires and lays down for them the
+					limitations of moderation and seasonableness in our
+					pleasures, it is called temperance ; when it has to do
+					with men's relations to one another and their commercial dealings, it is called justice - just as a knife is
+					one and the same knife, though it cuts now one thing,
+					now another, or as a fire retains its single nature
+					though it operates upon different substances. Moreover it appears likely that Zeno<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, i. p. 48; <hi rend="italics">cf.</hi> also <hi rend="italics">Moralia</hi>, 97 e and 1034 c.</note> of Citium also
+					inclines in some measure to this opinion, for he defines
+					prudence as justice when it is concerned with what
+					must be rendered to others as their due, as temperance when concerned with what must be chosen or
+					avoided, as fortitude when concerned with what must
+					be endured ; and those who defend Zeno postulate
+					that in these definitions he uses the word prudence in
+					the sense of knowledge. Chrysippus,<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 59.</note> however, by
+					his opinion that corresponding to each several quality
+					a virtue is formed by its own distinctive attribute of
+					quality, unwittingly stirred up a <q direct="unspecified">swarm of virtues,</q>
+					
+					          <pb id="v.6.p.23"/>
+					
+					as Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Meno</hi>, 72 a; <hi rend="italics">cf. Moralia</hi>, 93 b.</note> has it, which were not familiar nor even
+					known ; for as from the adjective <q direct="unspecified">brave</q> he derived <q direct="unspecified">bravery,</q> from <q direct="unspecified">mild</q> 
+               <q direct="unspecified">mildness,</q> and
+					<q direct="unspecified">justice</q> from <q direct="unspecified">just,</q> so from <q direct="unspecified">charming</q> he
+					derived <q direct="unspecified">charmingnesses,</q> from <q direct="unspecified">virtuous</q> 
+               <q direct="unspecified">virtuousnesses,</q> from <q direct="unspecified">great</q> 
+               <q direct="unspecified">greatnesses,</q> from
+					<q direct="unspecified">honourable</q> 
+               <q direct="unspecified">honourablenesses,</q> postulating also
+					the other qualities of the same sort, dexterousnesses,
+					approachablenesses, adroitnesses, as virtues, and
+					thus filled philosophy, which needed nothing of the
+					sort, with many uncouth names.
+				</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Yet all of these men agree<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, i. pp. 49, 50: iii. p. 111.</note> in supposing
+					virtue to be a certain disposition of the governing
+					portion of the soul and a faculty engendered by
+					reason, or rather to be itself reason which is in accord
+					with virtue and is firm and unshaken. They also
+					think that the passionate and irrational part of the
+					soul is not distinguished from the rational by any
+					difference or by its nature, but is the same part,
+					which, indeed, they term intelligence and the governing part; it is, they say, wholly transformed and
+					changes both during its emotional states and in the
+					alterations brought about in accordance with an
+					acquired disposition or condition and thus becomes
+					both vice and virtue ; it contains nothing irrational
+					within itself, but is called irrational whenever, by the
+					overmastering power of our impulses, which have
+					become strong and prevail, it is hurried on to something outrageous which contravenes the convictions
+					of reason.<note resp="ed" place="unspecified" anchored="yes">For the phrase <hi rend="italics">cf.</hi> Plato, <hi rend="italics">Parmenides</hi>, 141 d: Marcus Aurelius, ii. 5.</note> Passion, in fact, according to them, is a
+					vicious and intemperate reason, formed from an evil
+					
+					<pb id="v.6.p.25"/>
+					
+					and perverse judgement which has acquired additional violence and strength.
+				</p>
+            <p>
+					But it seems to have eluded all these philosophers
+					in what way each of us is truly two-fold and composite.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 943 a and 1083 c.</note> For that other two-fold nature of ours they
+					have not discerned, but merely the more obvious one,
+					the blend of soul and body. But that there is some
+					element of composition, some two-fold nature and
+					dissimilarity of the very soul within itself, since the
+					irrational, as though it were another substance, is
+					mingled and joined with reason by some compulsion
+					of Nature-this, it is likely, was not unknown even
+					to Pythagoras, if we may judge by the mans
+					enthusiasm for the study of music, which he introduced to enchant and assuage the soul,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Euthydemus</hi>, 290 a.</note> perceiving
+					that the soul has not every part of itself in subjection to discipline and study, and that not every part
+					can be changed from vice by reason, but that the
+					several parts have need of some other kind of persuasion to co-operate with them, to mould them, and
+					to tame them, if they are not to be utterly intractable and obstinate to the teaching of philosophy.
+				</p>
+            <p>
+					Plato,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Timaeus</hi>, 35 a ff.; <hi rend="italics">cf.</hi> also the treatise <hi rend="italics">De Animae Procreatione in Timaeo</hi> (<hi rend="italics">Moralia</hi>, 1012 b ff.).</note> however, comprehended clearly, firmly, and
+					without reservation both that the soul of this universe
+					of ours is not simple nor uncompounded nor uniform,
+					but that, being compounded of the potentialities of
+					sameness and otherness, in one part it is ever governed
+					in uniformity and revolves in but one and the same
+					order, which maintains control, yet in another part it
+					is split into movements and circles which go in contrariety to each other and wander about, thus giving
+					
+					<pb id="v.6.p.27"/>
+					
+					rise to the beginnings of differentiation and change
+					and dissimilarity in those things which come into being
+					and pass away on earth ; and also that the soul of
+					man,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Timaeus</hi>, 69 c ff.</note> since it is a portion or a copy of the soul of the
+					Universe and is joined together on principles and in
+					proportions corresponding to those which govern the
+					Universe,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Themistius, <hi rend="italics">Paraphrasis Aristotelis de Anima</hi>, i. 5 (p. 59 ed. Spengel).</note> is not simple nor subj ect to similar emotions,
+					but has as one part the intelligent and rational, whose
+					natural duty it is to govern and rule the individual,
+					and as another part the passionate and irrational, the
+					variable and disorderly, which has need of a director.
+					This second part is again subdivided into two parts,
+					one of which, by nature ever willing to consort with
+					the body and to serve the body, is called the appetitive ; the other, which sometimes joins forces with
+					this part and sometimes lends strength and vigour to
+					reason, is called the spirited part. And Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Republic</hi>, 435 a ff.</note> shows
+					this differentiation chiefly by the opposition of the
+					reasoning and intelligent part to the appetitive part
+					and the spirited part, since it is by the very fact that
+					these last are different that they are frequently disobedient and quarrel with the better part.
+				</p>
+            <p>
+					Aristotle<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi>448 a, <hi rend="italics">infra</hi>, and the note.</note> at first made use of these principles to a
+					very great extent, as is obvious from his writings.
+					But later<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. De Anima</hi>, iii. 9 (432 a 25); <hi rend="italics">Magna Moralia</hi>, i. 1 (1182 a 24); <hi rend="italics">Ethica Eudemia</hi>, ii. 1. 15 (1219 b 28); <hi rend="italics">Ethica Nicomachea</hi>, i. 13. 9 (1102 a 29); Iamblichus, <hi rend="italics">Protrepticus</hi>, 7 (p. 41 ed. Pistelli).</note> he assigned the spirited to the appetitive
+					part, on the ground that anger is a sort of appetite
+					
+					<pb id="v.6.p.29"/>
+					
+					and desire to cause pain in requital<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">De Anima</hi>, i. 1 (403 a 30); Seneca, <hi rend="italics">De Ira</hi>, i. 3. 3.</note>; to the end,
+					however, he continued to treat the passionate and
+					irrational part as distinct from the rational, not
+					because this part is wholly irrational, as is the perceptive part of the soul, or the nutritive and vegetative
+					part (for these parts are completely unsubmissive
+					and deaf to reason and, so to speak, mere off-shoots
+					of our flesh and wholly attached to the body), but
+					though the passionate part is wanting in reason
+					and has no reason of its own, yet otherwise it is
+					by nature fitted to heed the rational and intelligent
+					part, to turn toward it, to yield to it, to conform itself
+					thereto, if it is not completely corrupted by foolish
+					pleasure and a life of no restraint.
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Those who wonder how it is that this part is
+					irrational, yet subservient to reason, do not seem to
+					me to reflect thoroughly upon the power of reason,
+					<quote rend="blockquote">How great it is, how far it penetrates,<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                     <hi rend="superscript">2</hi>, p. 648, Euripides, Frag. 898.</note>
+               </quote>
+					through its mastery and guidance, not by harsh and
+					inflexible methods, but by flexible ones, which have a
+					quality of yielding and submitting to the rein which
+					is more effective than any possible constraint or
+					violence. For, to be sure, even our breathing, our
+					sinews and bones, and the other parts of the body,
+					though they are irrational, yet when an impulse
+					comes, with reason shaking the reins, as it were, they
+					all grow taut and are drawn together in ready
+					obedience. So, when a man purposes to run, his feet
+					are keyed for action ; if he purposes to throw or to
+					grasp, his hands fall to their business. And most
+					
+					<pb id="v.6.p.31"/>
+					
+					excellently does the Poet<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, xix. 208-212; <hi rend="italics">cf. Moralia</hi>, 475 a, 506 a=b, and <hi rend="italics">De Vita et Poesi Homeri</hi>, 135 (Bernardakis, vol. vii. p. 409).</note> portray in the following
+					words the sympathy and conformity of the irrational
+					with reason :
+					<quote rend="blockquote">
+                  <l>Thus were her fair cheeks wet with tears, as she
+						</l>
+                  <l>Wept for her lord, though he sat by. In heart
+						</l>
+                  <l>Odysseus pitied his lamenting wife,
+						</l>
+                  <l>But kept his eyes firm-fixed within their lids
+						</l>
+                  <l>Like horn or iron : with guile he hid his tears.
+						</l>
+                  <l>Under such subjection to his judgement did he keep
+						</l>
+                  <l>his breathing and his blood and his tears.</l>
+               </quote>
+				        </p>
+            <p>
+					An evident proof of this is also the shrinking and
+					withdrawal of the private parts, which hold their
+					peace and remain quiet in the presence of such
+					beautiful maidens and youths as neither reason nor
+					law allows us to touch. This is particularly the case
+					with those who first fall in love and then hear that
+					they have unwittingly become enamoured of a sister
+					or a daughter ; for lust cowers as reason asserts itself
+					and, at the same time, the body brings its parts into
+					decent conformity with the judgement. Indeed,
+					very often with foods and meat, when men have
+					partaken of them with gusto, if they then perceive
+					or come to know that they have eaten something
+					unclean or unlawful, not only is this judgement of
+					theirs attended by displeasure and remorse, but the
+					body itself, revolted and sharing the mind's disgust,
+					falls a prey to the retchings and vomitings of
+					nausea.
+				</p>
+            <p>
+					But I fear that I shall be thought to be rounding
+					out my discourse with instances which are altogether
+					seductive and exotic, if I recount in full how harps and
+					
+					<pb id="v.6.p.33"/>
+					
+					lyres, pipes and flutes, and all the other harmonious
+					and consonant instruments which musical art has
+					devised, void of soul though they be, accord in songs
+					of both joy and grief, in stately measures and dissolute tunes, with human experiences, reproducing the
+					judgements, the experiences, and the morals of those
+					who use them. And yet they say that even Zeno<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, i. p. 67; <hi rend="italics">cf.</hi> also <hi rend="italics">Moralia</hi>, 1029 e.</note>
+					on his way to the theatre when Amoebeus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Life of Aratus</hi>, xvii. (1034 e); Athenaeus, xiv. 623 d; Aelian, <hi rend="italics">Varia Historia</hi>, iii. 30.</note> was singing to the lyre, remarked to his pupils, <q direct="unspecified">Come, let us
+						observe what harmony and music gut and sinew,
+						wood and bone, send forth when they partake of
+						reason, proportion, and order.</q>
+				        </p>
+            <p>
+					But, letting these subjects pass, I would gladly
+					learn from my opponents whether, when they see
+					dogs, horses, and domestic birds, through habituation,
+					breeding, and teaching, uttering intelligible sounds
+					and moving and assuming postures in subordination
+					to reason, and acting in a manner conformable to due
+					proportion and our advantage ; and when they hear
+					Homer declaring that Achilles
+					<quote rend="blockquote">Urged on both horses and men<note resp="ed" place="unspecified" anchored="yes">Adapted from <hi rend="italics">Il.</hi>, xvi. 167.</note>
+               </quote>
+					to battle - whether, I say, they still wonder and are
+					in doubt that the element in us which is spirited and
+					appetitive and experiences pain and pleasure, does,
+					by its very nature, harken to the intelligence, and is
+					affected and harmoniously disposed by its agency, and
+					does not dwell apart from the intelligence, nor is it
+					separated therefrom, nor moulded from without the
+					body, nor formed by any extraneous violence or
+					
+					<pb id="v.6.p.35"/>
+					
+					blows, but that by its nature it is dependent upon the
+					intelligence and is always in association with it and
+					nurtured together with it and influenced by familiar
+					intercourse.
+				</p>
+            <p>
+					Therefore, also, ethical, or moral, virtue (<hi rend="italics">ethos</hi>) is
+					well named,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 3 a, 551 e; Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, ii. 1. 1 (1103 a 17).</note> for ethical virtue is, to but sketch the
+					subject, a quality of the irrational, and it is so named
+					because the irrational, being formed by reason, acquires this quality and differentiation by habit (<hi rend="italics">ethos</hi>),
+					since reason does not wish to eradicate passion completely (for that would be neither possible<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 452 b, <hi rend="italics">infra</hi>.</note> nor
+					expedient), but puts upon it some limitation and
+					order and implants the ethical virtues, which are not
+					the absence of passion but a due proportion and
+					measure therein ; and reason implants them by using
+					prudence to develop the capacity for passion into a
+					good acquired disposition. For these three things
+					the soul is said to possess<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, ii. 5 (1105 b 19); Stobaeus, <hi rend="italics">Eclogae</hi>, ii. 7. 20 (vol. ii. p. 139 ed. Wachsmuth).</note>: capacity, passion,
+					acquired state. Now capacity<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">The capacities are the faculties in virtue of which we can be said to be liable to the emotions, for example, capable of feeling anger or fear [mss. read pain] or pity.</q> (Aristotle, <hi rend="italics">l.c.</hi>, Rackham's translation adapted.)</note> is the starting-point,
+					or raw material, of passion, as, for instance, irascibility, bashfulness, temerity. And passion is a kind
+					of stirring or movement of the capacity, as anger,
+					shame, boldness. And finally, the acquired state is
+					a settled force and condition of the capacity of the
+					irrational, this settled condition being bred by habit
+					and becoming on the one hand vice, if the passion
+					has been educated badly, but virtue, if educated
+					excellently by reason.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>But inasmuch as philosophers do not make
+					virtue as a whole a mean nor apply to it the
+					term <q direct="unspecified">moral,</q> we must discuss the difference, starting with first principles. Now in this world things
+					
+					<pb id="v.6.p.37"/>
+					
+					are of two sorts, some of them existing absolutely,
+					others in some relation to us. Things that exist
+					absolutely are earth, heavens, stars, sea ; things that
+					exist in relation to us are good and evil, things desirable and to be avoided, things pleasant and painful.
+					Now reason<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, vi. 1. 5 (1139 a 7).</note> contemplates both of these, but when
+					it is concerned merely with things which exist absolutely, it is called scientific and contemplative ; and
+					when it is engaged with those things which exist in
+					relation to us, it is called deliberative and practical.
+					The virtue of the latter activity is called prudence,
+					that of the former wisdom ; and prudence differs from
+					wisdom in that when the contemplative faculty is
+					occupied in a certain active relationship with the
+					practical and passionate, prudence comes to subsist in
+					accordance with reason. Therefore prudence<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> iii. 3. 4-9 (1112 a 21); vi. 5. 3-6 (1140 a 31); contrast also <hi rend="italics">Moralia</hi>, 97 e-f.</note> has
+					need of chance, but wisdom has no need of it, nor yet
+					of deliberation, to attain its proper end ; for wisdom is
+					concerned with things that remain ever the same and
+					unchanging. And just as the geometer does not
+					deliberate whether the triangle has its internal angles
+					equal to two right angles, but knows it to be true (for
+					deliberation concerns matters that are now one way,
+					now another, not things that are sure and immutable),
+					just so the contemplative mind has its activity concerning first principles, things that are permanent
+					and have ever one nature incapable of mutation, and
+					so has no occasion for deliberation. But prudence
+					must often come down among things that are
+					material and are full of error and confusion ; it has
+					to move in the realm of chance ; to deliberate where
+					
+					<pb id="v.6.p.39"/>
+					
+					the case is doubtful; and then at last to reduce
+					deliberation to practice in activities in which decisions are both accompanied by and influenced by
+					the irrational, whose impulsion they, as a matter of
+					fact, need. The impulsion of passion springs from
+					moral virtue ; but it needs reason to keep it within
+					moderate bounds and to prevent its exceeding or
+					falling short of its proper season. For it is indeed
+					true that the passionate and irrational moves sometimes too violently and swiftly, at other times
+					more weakly and slothfully than the case demands.
+					Therefore everything that we ever do can succeed
+					but in one way, while it may fail in many ways<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, ii. 6. 14 (1106 b 28).</note>:
+					for to hit the mark there is but one single, uncomplicated, way, yet it can be missed in several ways,
+					according to whether we exceed the mean, or fall
+					short of it. This, then, is the natural task of
+					practical reason : to eliminate both the defects and
+					the excesses of the passions. For wherever, through
+					infirmity and weakness, or fear and hesitation, the
+					impulsion yields too soon and prematurely forsakes
+					the good,<note resp="ed" place="unspecified" anchored="yes">The good is the mean.</note> there practical reason comes on the
+					scene to incite and rekindle the impulsion; and
+					where, again, the impulsion is borne beyond proper
+					bounds, flowing powerfully and in disorder, there
+					practical reason removes its violence and checks
+					it. And thus by limiting the movement of the
+					passions reason implants in the irrational the moral
+					virtues, which are means between deficiency and
+					excess. For we must not declare that every virtue
+					comes into being by the observance of a mean,
+					but, on the one hand, wisdom, being without any
+					
+					<pb id="v.6.p.41"/>
+					
+					need of the irrational and arising in the activity
+					of the mind, pure and uncontaminated by passion,
+					is, as it were, a self-sufficing perfection and power<note resp="ed" place="unspecified" anchored="yes">Some would render, more naturally, <q direct="unspecified">extreme and potentiality</q>; but, in Plutarch's view, neither <q direct="unspecified">extreme</q> nor <q direct="unspecified">potentiality</q> could be called <q direct="unspecified">self-sufficing.</q>
+               </note>
+					of reason, by which the most divine and blessed
+					element of knowledge becomes possible for us ;
+					on the other hand, that virtue which is necessary
+					to us because of our physical limitations, and
+					needs, by Heaven, for its practical ends the service
+					of the passions as its instrument, so to speak,
+					and is not a destruction nor abolition of the irrational in the soul, but an ordering and regulation thereof, is an extreme as regards its power
+					and quality, but as regards its quantity it is a
+					mean, since it does away with what is excessive and
+					deficient.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>But since a <q direct="unspecified">mean</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, ii. 6. 4-9 (1106 a 24).</note> is capable of various interpretations (for that which is a compound is a mean
+					between the simple uncompounded substances, as
+					grey is of white and black ; and that which contains
+					and is contained is a mean between the contained and
+					the container, as eight of twelve and four ; and that
+					which partakes of neither of the extremes is a mean,
+					as the indifferent is a mean between good and bad),
+					in none of these ways can virtue be called a mean, for
+					it is not a mixture of the vices, nor, encompassing
+					what falls short of due measure, is it encompassed by
+					that which is in excess of it ; nor is it entirely exempt
+					from the impulses of the passions, wherein are found
+					excess and deficiency. But it is a mean, and is said
+					to be so, in a sense very like that which obtains in
+					musical sounds and harmonies. For there the mean
+					or mese, a properly-pitched note<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 1007 e ff., 1014 c, and 451 f, <hi rend="italics">infra</hi>.</note> like the <hi rend="italics">neti</hi> and
+					
+					<pb id="v.6.p.43"/>
+					
+					the <hi rend="italics">hypat&ecirc;</hi>,<note resp="ed" place="unspecified" anchored="yes">The highest and lowest sounds of the heptachord; presumably the <hi rend="italics">mes&ecirc;</hi> is the fourth note of a scale of seven.</note> escapes the sharp highness of the one
+					and the heavy deepness of the other ; so virtue,
+					being an activity and faculty concerned with the
+					irrational, does away with the remissions and overstrainings of the impulse and its excesses and defects
+					altogether, and reduces each passion to moderation
+					and faultlessness. So, for instance, they declare
+					courage<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, ii. 7. 2-4 (1107 a 33); Stobaeus, <hi rend="italics">Eclogae</hi>, ii. 7. 20 (vol. ii. p. 141 ed. Wachsmuth).</note> to be a mean between cowardice and rashness, of which the former is a defect, the latter an
+					excess, of the spirited part of the soul; so, likewise,
+					liberality is a mean between parsimony and prodigality, and gentleness between insensibility and
+					cruelty ; and temperance itself and justice are means,
+					the latter distributing to itself in contracts neither
+					more nor less than what is due, the former ever
+					regulating the desires to a mean between lack of
+					feeling and intemperance.
+				</p>
+            <p>
+					In this last instance, indeed, the irrational seems,
+					with particular clearness, to allow us to observe the
+					difference between itself and the rational, and to
+					show that passion is essentially quite a different thing
+					from reason. For self-control<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, vii. 9. 6 (1151 b 33).</note> would not differ from
+					temperance, nor incontinence from intemperance, as
+					regards the pleasures and desires, if it were the same
+					part of the soul that we naturally use for desiring as
+					for forming judgements. But the fact is that temperance belongs to the sphere where reason guides and
+					manages the passionate element, like a gentle animal
+					obedient to the reins, making it yielding in its desires
+					and willingly receptive of moderation and propriety;
+					
+					<pb id="v.6.p.45"/>
+					
+					but the self-controlled man, while he does indeed
+					direct his desire by the strength and mastery of
+					reason, yet does so not without pain, nor by persuasion, but as it plunges sideways and resists, as
+					though with blow and curb, he forcibly subdues it and
+					holds it in, being the while himself full of internal
+					struggle and turmoil. Such a conflict Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Phaedrus</hi>, 253 c ff.</note> portrays
+					in his simile of the horses of the soul, where the worse
+					horse struggles against his better yoke-fellow and at
+					the same time disconcerts the charioteer, who is ever
+					forced to hold out against him and with might and
+					main to rein him in,
+					<quote rend="blockquote">Lest he let fall from his hands the crimson thongs,</quote>
+					as Simonides<note resp="ed" place="unspecified" anchored="yes">Frag. 17 (ed. Bergk and ed. Diehl); Frag. 48 (ed. Edmonds, <hi rend="italics">Lyra Graeca</hi>, ii. p. 311).</note> has it. That is the reason why they
+					do not account self-control even a virtue<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Ethica Nicomachea</hi>, iv. 9. 8 (1128 b 33): it is rather <q direct="unspecified">a mixture of virtue and vice.</q>
+               </note> in the
+					absolute sense, but less than virtue. For it is not
+					a mean which has been produced by the harmony of
+					the worse with the better, nor has the excess of
+					passion in it been eliminated, nor has the desiderative
+					part of the soul become obedient and compliant to
+					the intelligent part, but is vexed and causes vexation
+					and is confined by compulsion and, though living with
+					reason, lives as in a state of rebellion against it,
+					hostile and inimical:
+					<quote rend="blockquote">
+                  <l>The city reeks with burning incense, rings
+						</l>
+                  <l>Alike with prayers for health and cries of woe<note resp="ed" place="unspecified" anchored="yes">Sophocles, <hi rend="italics">Oedipus Tyrannus</hi>, 4-5; quoted also in <hi rend="italics">Moralia</hi>, 95 c, 169 d, 623 c.</note>
+                  </l>
+               </quote>
+					even so is the soul of the self-controlled man because
+					of its lack of consistency and its conflict. And on the
+					same grounds they hold that incontinence also is
+					
+					<pb id="v.6.p.47"/>
+					
+					something less than a vice, but that intemperance is a
+					full-fledged vice. For intemperance possesses both an
+					evil passion and an evil reason ; under the influence
+					of the former, it is incited by desire to shameful
+					conduct; under the influence of the latter, which,
+					since its judgement is evil, is enlisted with the desires,
+					intemperance loses even the perception of its errors.
+					But incontinence,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 705 c-e.</note> with the aid of reason, preserves
+					its power of judgement intact, yet by its passions,
+					which are stronger than its reason, it is swept along
+					against its judgement. That is why incontinence
+					differs from intemperance, for in it reason is worsted
+					by passion, whereas with intemperance reason does
+					not even fight; in the case of incontinence reason
+					argues against the desires as it follows them, whereas with intemperance reason guides them and is
+					their advocate ; it is characteristic of intemperance
+					that its reason shares joyfully in the sins committed,
+					whereas with incontinence the reason shares in them,
+					but with reluctance ; with intemperance, reason is
+					willingly swept along into shameful conduct, whereas
+					with incontinence, it betrays honour unwillingly.
+				</p>
+            <p>
+					So also the difference between them is not less
+					manifest in their words than in their actions. These
+					are, for instance, the sayings of intemperate persons :
+					<quote rend="blockquote">
+                  <l>What pleasure can there be, what joy, without
+						</l>
+                  <l>The golden Aphrodite? May I die
+						</l>
+                  <l>When things like these no longer comfort me.<note resp="ed" place="unspecified" anchored="yes">Mimnermus, Frag. 1, vv. 1-2 (ed. Bergk and ed. Diehl); Edmonds, <hi rend="italics">Elegy and Iambic</hi>, i. p. 89.</note>
+                  </l>
+               </quote>
+					And another says,
+					<quote rend="blockquote">
+                  <l>To eat, to drink, to have one's way in love<note resp="ed" place="unspecified" anchored="yes">Alexis, Frag. 271 ed. Kock, vv. 4-5; the whole fragment is quoted in <hi rend="italics">Moralia</hi>, 21 d.</note>:
+						</l>
+                  <l>All other things I call accessory,</l>
+               </quote>
+					
+					          <pb id="v.6.p.49"/>
+					
+					as though with all his soul he were acquiescing in
+					pleasures and were being subverted thereby. Not
+					less than these does he<note resp="ed" place="unspecified" anchored="yes">Kock, <hi rend="italics">Com. Att. Frag.</hi>, iii. p. 450, ades. 217.</note> who says
+					<quote rend="blockquote">Leave me to die, for that is best for me,</quote>
+					have his judgement suffering with the same ailment
+					as his passions.
+				</p>
+            <p>
+					But the sayings of incontinence are otherwise and
+					different:
+					<quote rend="blockquote">A mind I have, but Nature forces me<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                     <hi rend="superscript">2</hi> p. 634, Euripides, Frag. 840 = Aeschylus, Frag. 262 ed. Smyth (L.C.L.).</note>;</quote>
+					and
+					<quote rend="blockquote">
+                  <l>Alas I from God this evil comes to men
+						</l>
+                  <l>When, knowing what is good, they do it not<note resp="ed" place="unspecified" anchored="yes">Euripides, Frag. 841; quoted also in <hi rend="italics">Moralia</hi>, 33 e. <hi rend="italics">Cf.</hi> St. Paul's <hi rend="italics">Epistle to the Romans</hi>, vii. 19, in the King James Version; Ovid, <hi rend="italics">Metamorphoses</hi>, vii. 21: <foreign lang="la">video meliora proboque, | deteriora sequor</foreign>.</note>;</l>
+               </quote>
+					and
+					<quote rend="blockquote">
+                  <l>The spirit yields and can resist no more,
+						</l>
+                  <l>Like anchor-hook in sand amid the surge.<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                        <hi rend="superscript">2</hi>, p. 911, ades. 379; quoted also in <hi rend="italics">Moralia</hi>, 782 d. Some ascribe this and the following quotation to Euripides.</note>
+                  </l>
+               </quote>
+					Here not inaptly the poet terms <q direct="unspecified">an anchor-hook in
+						sand</q> that which is not under the control of reason,
+					nor firmly fixed, but surrenders its judgement to
+					the loose and soft part of the soul. Very close to
+					this imagery are also those famous lines<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                  <hi rend="superscript">2</hi>, p. 911, ades. 380.</note>:
+					<quote rend="blockquote">
+                  <l>I, like some ship, am tied by ropes to shore,
+						</l>
+                  <l>And when winds blow, our cables do not hold.</l>
+               </quote>
+					For here the poet calls <q direct="unspecified">cables</q> the judgements
+					which resist shameful conduct and then are broken
+					
+					<pb id="v.6.p.51"/>
+					
+					by passion, as by a great gust of wind. Truly the
+					intemperate man is swept along to his pleasures
+					by his desires with sails full-spread and delivers
+					himself over to them and steers his course directly
+					thither; whereas the course of the incontinent
+					man zigzags here and there, as he strives to
+					emerge from his passion and to stave it off and is
+					yet swept down and shipwrecked on the reef of
+					shameful conduct. Just as Timon<note resp="ed" place="unspecified" anchored="yes">Frag. 9 (ed. Wachsmuth, p. 106); portions are quoted again in <hi rend="italics">Moralia</hi>, 529 a and 705 d; <hi rend="italics">cf.</hi> also Diels, <hi rend="italics">Frag. d. Vorsokratiker</hi>
+                  <hi rend="superscript">5</hi>, ii. p. 238.</note> used to lampoon
+					Anaxarchus :
+					<quote rend="blockquote">
+                  <l>The Cynic might of Anaxarchus seemed
+						</l>
+                  <l>Steadfast and bold, wherever he wished, to spring;
+						</l>
+                  <l>Well did he know the truth, they said, and yet
+						</l>
+                  <l>Was bad : for Nature smote him with desire
+						</l>
+                  <l>And led him back from truth - 'twas Nature's dart,
+						</l>
+                  <l>Before whom trembles many a Sophist heart.</l>
+               </quote>
+					For neither is the wise man continent, though he is
+					temperate, nor is the fool incontinent, though he
+					is intemperate. For the wise man takes pleasure in
+					what is honourable, but the fool is not vexed by
+					shamefulness. Incontinence, therefore, is the mark
+					of a sophistic soul, which has, indeed, reason, but
+					reason which cannot stand firm by its own just
+					decisions.
+				</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Such, then, are the differences between incontinence and intemperance ; and again between continence and temperance, these differences being the
+					counterpart of the former. For continence is not yet
+					free from remorse and pain and indignation ; but in
+					the soul of the temperate man there is serenity on all
+					occasions, freedom from violent changes, and sanity,
+					by which the irrational is harmonized and blended
+					
+					<pb id="v.6.p.53"/>
+					
+					with reason, when this is equipped with great persuasion and a wonderful gentleness. And you would
+					say, as you looked at the man,
+					<quote rend="blockquote">
+                  <l>Then, indeed, ceased the gale ; a windless calm
+						</l>
+                  <l>Arose ; some god had laid the waves to rest,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi>, xii. 168.</note>
+                  </l>
+               </quote>
+					since by reason the violent, raging, and furious
+					movements of the desires had been quenched and
+					those movements which Nature absolutely requires
+					had been made sympathetic, submissive, friendly,
+					and, when the man chose a course of action, willing
+					to co-operate, so that they did not outstrip the
+					dictates of reason, nor fall short of them, nor misbehave, nor disobey, but so that every impulse was
+					easily led
+					<quote rend="blockquote">As new-weaned foal beside his mother runs,<note resp="ed" place="unspecified" anchored="yes">Semonides, Frag. 5; <hi rend="italics">cf. Moralia</hi>, 84 d 136 a, 790 f, 997 d; Bernardakis, vol. vii. p. 150 (=Stobaeus, vol. v. p. 1024 ed. Hense).</note>
+               </quote>
+					and confirmed the remark of Xenocrates<note resp="ed" place="unspecified" anchored="yes">Frag. 3; <hi rend="italics">cf. Moralia</hi>, 1124 e.</note> about
+					true philosophers, that they alone do willingly what
+					all others do unwillingly because of the law, even as
+					dogs by a blow and cats by a noise are turned from
+					their pleasures and regard with suspicion the danger
+					that threatens them.
+				</p>
+            <p>
+					It is quite obvious, then, that there is in the soul
+					a perception of some such distinction and difference
+					as regards the desires, as though some force were
+					fighting against them and contradicting them. But
+					some affirm<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 111.</note> that passion is not essentially different
+					from reason, nor is there quarrelling between the
+					
+					<pb id="v.6.p.55"/>
+					
+					two and factious strife, but only a conversion of
+					one and the same reason to its two aspects ; this
+					escapes our notice by reason of the suddenness
+					and swiftness of the change, for we do not perceive
+					that it is the same part of the soul with which we
+					naturally desire and change to aversion, are angry
+					and afraid, are swept along by pleasure to shameful
+					conduct, and then, when the soul itself is being
+					swept away, recover ourselves again. In fact, they
+					say, desire and anger and fear and all such things are
+					but perverse opinions and judgements, which do not
+					arise in one certain part of the soul, but are inclinations and yieldings, assents and impulses of the whole
+					directive faculty and, in a word, certain activities
+					which may in a moment be changed this way or that,
+					just as the sudden assaults of children<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 458 d, <hi rend="italics">infra</hi>.</note> have an
+					impetuosity and violence that is precarious and
+					inconstant because of children's weakness.
+				</p>
+            <p>
+					But this doctrine is, in the first place, contrary to
+					the clear evidence of our perceptions. For no one
+					ever perceives in himself a change from desiring to
+					judging, nor again a change from judging to desiring ;
+					nor does the lover cease loving when he reasons that
+					he must restrain his love and fight against it, and
+					then give up again the process of reasoning and
+					judging when he is softened by desire and yields to
+					love ; but both while by reason he still continues to
+					oppose passion, he continues in the passion, and
+					again, when mastered by passion, he plainly sees his
+					error by the light of reason : and neither through
+					passion has he done away with reason, nor through
+					reason is he rid of passion, but being borne back and
+					forth from one to the other he lies between them and
+					
+					<pb id="v.6.p.57"/>
+					
+					participates in both. For those who assume now
+					that desire becomes the controlling faculty, now that
+					it is reason which arrays itself against desire, are in
+					the same position as those who assume the hunter
+					and the beast to be not two,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Emerson, <hi rend="italics">Brahma</hi>: <quote rend="blockquote">
+                     <l>If the red slayer think he slays, </l>
+                     <l>Or if the slain think he is slain, </l>
+                     <l>They know not well the subtle ways </l>
+                     <l>I keep, and pass, and turn again.</l>
+                  </quote>
+               </note> but one and the same
+					body which, by a change, is now the beast, and
+					now becomes the hunter. For just as those persons
+					overlook something quite plain, so these testify
+					against the evidence of perception, which tells us
+					that we have in these cases, not a changing of some
+					one thing, but two things struggling and fighting
+					against one another.
+				</p>
+            <p>
+					          <q direct="unspecified">What then?</q> they object. <q direct="unspecified">Is it not true that
+						man's deliberative faculty also is often divided and
+						distracted toward contrary opinions regarding what is
+						expedient, but that it is yet one and the same?</q>
+					          <q direct="unspecified">Quite so,</q> we shall say, <q direct="unspecified">but the process is not
+						parallel.</q> For the intellectual part of the soul does not
+					here oppose itself,but, using one and the same faculty,
+					applies itself to different lines of reasoning ; or rather,
+					there is but one single reason, which functions on
+					things essentially different, as though on different
+					matters. Therefore neither is pain present in reasoning where passion is absent, nor are men forced, as it
+					were, to choose a course contrary to reason, unless
+					indeed some emotion is furtively attached, as it were,
+					to one pan of the balances. This, in fact, happens
+					often : when it is not reasoning that opposes reasoning, but ambition or contentiousness or the pursuit of
+					
+					<pb id="v.6.p.59"/>
+					
+					favour or jealousy or fear that opposes, we think it is
+					a difference between two reasons, as in the verse<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi>, vii. 93.</note>:
+					<quote rend="blockquote">To refuse they were ashamed, but feared to accept;</quote>
+					and this :
+					<quote rend="blockquote">
+                  <l>To die is dreadful, yet it brings fair fame ;
+						</l>
+                  <l>Not to die is craven, yet there's pleasure there.<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi>
+                        <hi rend="superscript">2</hi>, p. 638, Euripides, Frag. 854.</note>
+                  </l>
+               </quote>
+					And in the judgement of suits concerning business
+					affairs the passions rush in unawares and cause the
+					greatest waste of time. So also in the councils of
+					kings those who speak to obtain favour are not
+					advocating one or the other of two decisions, but are
+					submitting to some emotion which is contrary to their
+					calculation of what is expedient. Therefore in
+					aristocratic states the magistrates do not allow
+					political speakers to make passionate harangues, for
+					reason, if not influenced by passion, inclines to a just
+					balance toward what is right; but if passion intervenes, the part of the soul that feels pleasure and
+					pain fights and opposes the part which forms judgements and deliberates. Otherwise, why is it that in
+					philosophical speculations no feeling of pain is present
+					when, under the influence of those who hold different
+					opinions, we change our views again and again, but
+					that Aristotle<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> W. Jaeger, <hi rend="italics">Hermes</hi>, lxiv. 22 f.; Eusebius, <hi rend="italics">Praepar. Evang.</hi>, xiv. 6. 9, where Cephisodorus attacks the young Aristotle by an onslaught on the Platonic Ideas, <foreign lang="greek">oi)hqei\s kata\ *pla/twna to\n *)aristote/lhn filosofei=n</foreign>. See also 442 b, <hi rend="italics">supra</hi>.</note> himself and Democritus and Chrysippus have recanted without any dismay or pain, and
+					even with pleasure, some of the dogmas they previously held? It is because passion has set up no
+					opposition to the contemplative and scientific part
+					of the soul and the irrational part remains quiet and
+					
+					<pb id="v.6.p.61"/>
+					
+					does not meddle with these matters. Therefore
+					reason, as soon as the truth appears, dismisses the
+					false and gladly inclines toward the truth ; for it is in
+					reason, not in its opposite, that the faculty resides
+					which yields to persuasion and, through persuasion,
+					changes opinion. But with most people, their deliberations, judgements, and decisions which are to be
+					converted into action are in a state of emotion and
+					therefore offer obstructions and difficulties to the path
+					of reason, for reason is checked and confused by the
+					irrational, which, with some emotion of pleasure or
+					fear, pain or desire, rises up to oppose it. In such
+					cases the senses make the decision, since they have
+					contact with both; and if, in fact, one gains the
+					mastery, it does not destroy the other, but forces it
+					to comply and drags it along resisting. For the
+					lover who admonishes himself<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 71 a, and Euripides, Frag. 665 there cited.</note> uses reason against
+					his passion, since they both exist at the same time
+					in his soul, as it were pressing with his hand the
+					other member, which is inflamed, and clearly perceiving that there are two distinct forces and that
+					they are at variance. On the other hand, in those
+					deliberations and speculations where passion is absent
+					(and these are the sort in which the contemplative
+					faculty most commonly engages), if they be equally
+					balanced, no judgement has taken place, but merely
+					a perplexity has arisen, which is a rest or suspension
+					of intellectual activity brought about by opposing
+					probabilities ; but if the inclination falls to either
+					side, the winning opinion has cancelled the other,
+					with the result that there is no pain nor any
+					opposition left. In general, when it appears that
+					reason is opposing reason, there is no perception of
+					them as two distinct things, but as a single thing
+					
+					
+					<pb id="v.6.p.63"/>
+					
+					which arises in different impressions made upon the
+					senses. Yet when there is a struggle against reason
+					on the part of the irrational, which, by its very
+					nature, can neither conquer nor be conquered without pain, straightway the irrational splits the soul in
+					two by its battling and makes the distinction between
+					the two perfectly obvious.
+				</p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>It is not only from their dissension, however, but
+					no less from their agreement, that one can perceive
+					that the source of passion is essentially different from
+					that of reason. For since it is equally possible to love
+					a noble youth, well-formed by nature for virtue, and
+					to love an evil and profligate one, and since it happens
+					that one both becomes angry irrationally against
+					one's own children or parents, and angry justly on
+					behalf of parents and children against enemies and
+					despots ; just as in the one case there is perception of
+					struggle and dissension of passion against reason, so
+					in the other there is perception of persuasion and
+					agreement on the part of passion, which inclines the
+					scales, as it were, in favour of reason and increases its
+					power. Yet again, when a good man has lawfully
+					married a wife, his intention is to treat her respectfully
+					and consort with her honourably and soberly ; but as
+					time goes on, his intimacy with her has given birth to
+					passion, when he perceives that his love and affection
+					increases by the exercise of his reason. So again,
+					when young men happen upon cultivated teachers,
+					they follow them and admire them at first because of
+					their usefulness ; but later they come to feel affection
+					for them also, and in place of familiar companions and
+					pupils they are called lovers and are actually so.
+					The same thing happens also in people's relations to
+					good magistrates in cities and good neighbours and
+					
+					
+					<pb id="v.6.p.65"/>
+					
+					relatives by marriage ; for in the beginning they
+					dutifully associate with one another from some consideration of usefulness, but later they are carried
+					unconsciously into genuine affection, reason drawing
+					along, and aiding in the persuasion of, the passionate
+					element. Is it not obvious that he<note resp="ed" place="unspecified" anchored="yes">Phaedra is the speaker: Euripides, <hi rend="italics">Hippolytus</hi>, 385-386.</note> who said,
+					<quote rend="blockquote">
+                  <l>And modesty. Two kinds there are : the one
+						</l>
+                  <l>Not bad, the other burdening our homes,</l>
+               </quote>
+					has perceived in himself that this emotion often
+					follows the lead of reason and is arrayed at reason's
+					side, but often, contrary to reason, by hesitations and
+					delays ruins opportunities and actions?
+				</p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>But my opponents, though forced to concede in
+					a manner these arguments because of their obvious
+					truth, yet persist in calling shame <q direct="unspecified">modesty,</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 529 d; von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 107.</note> pleasure <q direct="unspecified">joy,</q> and fears <q direct="unspecified">precautions.</q> No one would
+					blame them for this euphemism if they would but call
+					these same emotions by these soft names when they
+					attach themselves to reason, and call them by those
+					harsher names when the emotions oppose and offer
+					violence to reason. But when, convicted by their
+					tears and tremblings and changes of colour, in place
+					of grief and fear they call these emotions <q direct="unspecified">compunctions</q> and <q direct="unspecified">perplexities</q> and gloss over the desires
+					with the term <q direct="unspecified">eagernesses,</q> they seem to be devising casuistic, not philosophic, shifts and escapes
+					from reality through the medium of fancy names.
+				</p>
+            <p>
+					And yet these very men,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> iii. pp. 105-108.</note> to cite another instance,
+					call those <q direct="unspecified">joys,</q> 
+               <q direct="unspecified">volitions,</q> and <q direct="unspecified">precautions</q> of
+					
+					<pb id="v.6.p.67"/>
+					
+					theirs <q direct="unspecified">right sensibilities to emotion,</q> not <q direct="unspecified">insensibilities,</q> in this case using the terms correctly. For
+					a <q direct="unspecified">right sensibility</q> arises when reason does not
+					destroy the emotion, but composes and sets it in
+					order in the souls of temperate persons. But what
+					it is that happens in the case of evil and incontinent persons when, though their judgement tells
+					them to love father and mother in place of a
+					favourite or mistress, they cannot do this ; yet when
+					their judgement bids them to love courtesan and
+					flatterer, they immediately do that very thing?
+					For if emotion and judgement were one, love and
+					hate would follow upon our judgement of what we
+					ought to love and hate ; but as it is, the contrary
+					happens : with some judgements the emotion joins
+					forces, others it disregards. Therefore even these
+					very men<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 93.</note> affirm, since the evidence forces them to
+					do so, that not every judgement is an emotion, but
+					only that which sets in motion a violent and excessive
+					impulse, thereby acknowledging that in us the faculty
+					of judging and the faculty of feeling emotion are
+					different, in the sense that the one is that which sets
+					in motion, the other that which is moved. And
+					Chrysippus himself in many places, by defining endurance and continence as states which follow the convictions of reason, is obviously forced by the evidence
+					to acknowledge that that within us which follows is
+					different from that which it follows when persuaded,
+					or, on the other hand, fights against when it is not
+					persuaded.
+				</p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>Now if, by positing<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> iii. p. 119.</note> that all errors and faults
+					are equal, they are in some other way overlooking
+					the truth, this present discourse is not the proper
+					occasion to confute them ; but in the case of the
+					
+					
+					<pb id="v.6.p.69"/>
+					
+					emotions they certainly appear to be in opposition to
+					reason and contrary to plain evidence. For, according to them, every emotion is an error, and every one
+					who grieves or fears or desires is guilty of error. Yet
+					there are seen to be great differences in the emotions
+					according to their greater or lesser intensity. For
+					who would declare that Dolon's<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Homer, <hi rend="italics">Il.</hi>, x. 374 ff.; <hi rend="italics">Moralia</hi>, 76 a.</note> fear was no greater
+					than that of Ajax,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Il.</hi>, xi. 547; <hi rend="italics">De Vita et Poesi Hmeri</hi>, 135 (Bernardakis, vol. vii. p. 409).</note> who <q direct="unspecified">often faced about</q> and
+					departed slowly from the midst of his enemies,
+					<q direct="unspecified">scarcely changing knee for knee</q>? Or that the
+					grief of Alexander,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> for the slaying of Cleitus by Alexander Plutarch's <hi rend="italics">Life of Alexander</hi>, li.; and for Alexander's grief <hi rend="italics">ibid.</hi> lii. (694 d-e).</note> who attempted to kill himself
+					because of Cleitus, was equal to Plato's grief for the
+					death of Socrates? For griefs are increased immoderately by unpredictable circumstances,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 463 d, <hi rend="italics">infra</hi>; 474 e-f, <hi rend="italics">infra</hi> (Carneades).</note> and an
+					unexpected occurrence is more painful than one quite
+					likely to happen; if, for instance, one should expect
+					to see someone in prosperity and honour and then
+					should learn that he had been cruelly tortured, as
+					Parmenion<note resp="ed" place="unspecified" anchored="yes">Philotas, the son of Alexander's general Parmenion, was suddenly executed on suspicion of conspiracy; <hi rend="italics">cf. Life of Alexander</hi>, xlix. (693 b).</note> did of Philotas. And who would affirm
+					that the rage of Nicocreon against Anaxarchus<note resp="ed" place="unspecified" anchored="yes">A friend of Alexander who insulted Nicocreon, tyrant of Cyprus, so markedly that the latter took his revenge after Alexander's death; <hi rend="italics">cf.</hi> Diogenes Laertius, ix. 58-59.</note>
+					was equal to that of Magas<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 458 a, <hi rend="italics">infra</hi>; see Hartman, <hi rend="italics">De Plutarcho</hi>, p. 205, for the absurdity of this comparison.</note> against Philemon,
+					though they had both been reviled by their opponents? For Nicocreon with iron pestles ground
+					Anaxarchus to powder, but Magas merely ordered
+					the public executioner to place his naked blade on
+					Philemon's neck and then to let him go. That is the
+					
+					<pb id="v.6.p.71"/>
+					
+					reason why Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Republic</hi>, 411 b; contrast <hi rend="italics">Moralia</hi>, 457 b-c, <hi rend="italics">infra</hi>.</note> also called anger <q direct="unspecified">sinews of the
+						soul</q> on the ground that it is intensified by harshness
+					and relaxed by gentleness.
+				</p>
+            <p>
+					So to elude these and similar difficulties my opponents<note resp="ed" place="unspecified" anchored="yes">The Stoics, as generally throughout the essay; <hi rend="italics">cf.</hi> von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 119.</note> deny that these intensities and violences of
+					the emotions come into existence in accordance with
+					the judgement, in which lies the liability to error ;
+					but maintain that the irritations, contractions, and
+					diffusions admit of increase and diminution through
+					the operations of the irrational element. Yet there
+					obviously are differences in judgements also ; for
+					some adjudge poverty not to be an evil, others to be
+					a great evil, still others to be the greatest evil, so that
+					they even hurl themselves down from precipices<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 165 a, 1039 f, 1069 d; Theognis, 173-178, and the references cited by Edmonds, <hi rend="italics">Elegy and Iambus</hi>, i. p. 249, note 5.</note> or
+					throw themselves into the sea. Some think death to
+					be an evil merely because it deprives them of the
+					good things of life, others because there are eternal
+					torments and horrible punishments beneath the earth.
+					By some the health of the body is cherished because
+					it is in accordance with Nature and useful, to others
+					it appears the greatest good in the world ; for neither
+					do they value
+					<quote rend="blockquote">Joy in wealth or children,</quote>
+					nor
+					<quote rend="blockquote">In that kingly rule that makes man like to gods<note resp="ed" place="unspecified" anchored="yes">Ariphron, <hi rend="italics">Paean to Health</hi>, vv. 3-4 (Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi>, iii. p. 597, or Edmonds, <hi rend="italics">Lyra Graeca</hi>, iii. p. 401); <hi rend="italics">cf. Moralia</hi>, 497 a, <hi rend="italics">infra</hi>.</note>
+               </quote>
+					in comparison therewith ; and finally they think even
+					virtue to be useless and unprofitable if health be not
+					
+					<pb id="v.6.p.73"/>
+					
+					present. Hence it plainly appears that some make a
+					greater, some a lesser, error in their judgements also.
+				</p>
+            <p>
+					This doctrine, however, need not be confuted at
+					present, but that other point maybe assumed from this
+					discussion: that my opponents themselves also concede
+					that the irrational part is essentially different from
+					judgement, the irrational, in accordance with which
+					they say that emotion becomes greater and more
+					violent ; their contention is concerning the name and
+					the expression, but they really surrender the point at
+					issue to those who assert that the passionate and
+					irrational element is different from the reasoning and
+					judging. In his book <hi rend="italics">On the Failure to Lead a Consistent Life</hi> Chrysippus<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 94; the title was interpreted by Xylander as <hi rend="italics">De Dissensione Partium Animi</hi>.</note> has said, <q direct="unspecified">Anger is a blind
+						thing : often it prevents our seeing obvious matters,
+						and often it obscures matters which are already apprehended</q> ; and, proceeding a little further, he says,
+					<q direct="unspecified">For the passions, when once raised, drive out the
+						processes of reasoning and all things that appear
+						otherwise than they would have them be, and push
+						forward with violence to actions contrary to reason.</q>
+					He then uses as evidence the words of Menander<note resp="ed" place="unspecified" anchored="yes">Frag. 567, Kock, <hi rend="italics">Comic. Att. Frag.</hi>, iii. p. 173 (Allinson, p. 497).</note>:
+					<quote rend="blockquote">
+                  <l>Ah woe, alas for me! Where ever were
+						</l>
+                  <l>My wits awandering in my body then
+						</l>
+                  <l>When I made choice to do not this, but that?</l>
+               </quote>
+					And again, Chrysippus proceeds to say that every
+					rational creature is so disposed by nature as to use
+					reason in all things and to be governed by it ; yet
+					often reason is rejected when we are under the impulse of some other more violent force. Thus in this
+					
+					<pb id="v.6.p.75"/>
+					
+					passage he plainly acknowledges what conclusion is
+					to be drawn from the difference which exists between
+					passion and reason.
+				</p>
+            <p>
+					Why, it would be ridiculous, as Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Republic</hi>, 430 e.</note> says, for
+					a man to say that he is now better than himself
+					and again worse than himself, and sometimes master
+					of himself and sometimes not. 
+				</p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>For how is it
+					possible for the same man to be both better and
+					worse than himself, or to be master of himself and
+					at the same time be mastered, if in some way or
+					other each man were not by nature double and had
+					not both the worse and the better within himself?
+					This being the case, he who holds the worse in subjection to the better is Iself-controlled and better than
+					himself, but he who permits the better part to follow
+					and be in subjection to the intemperate and irrational
+					part of his soul is called worse than himself and incontinent and in a state contrary to Nature.
+				</p>
+            <p>
+					For, in accordance with Nature, it is proper that
+					reason, which is divine, should lead and rule the
+					irrational, which derives its origin directly from the
+					body to which Nature has designed that it should bear
+					a resemblance and share in the body's passions and
+					be contaminated by it, since it has entered into the
+					body and has become merged with it; that this is so
+					is shown by our impulses,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Timaeus</hi>, 86 b.</note> which arise and are set in
+					motion toward corporeal objects and become violent
+					or relax in keeping with the changes of the body.
+					For this reason young men are swift and impetuous
+					and fiery in their appetites, and stung by madness, as
+					it were, through the abundance and heat of their
+					blood ; but in old men the source of desire, which is
+					seated about the liver,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi> 71 a.</note> is in the process of being
+					extinguished and becoming small and weak, whereas
+					
+					
+					<pb id="v.6.p.77"/>
+					
+					reason increases more and more in vigour as the
+					passionate element fades away together with the body.
+					And this, of course, is what determines the natures
+					of wild beasts also as regards the passions. For it
+					is not, I presume, by the rightness or wrongness of
+					their opinions that some of them oppose apparent
+					dangers with valour and impetuousness whereas others
+					have helpless flutterings and fears in their souls ; but
+					the faculties which control the blood, the breath, and
+					the body in general cause the difference in their
+					affections, since the emotional part springs up from
+					the flesh as from a root and carries with it its quality
+					and composition. But that in man his body is
+					affected and moved together with the impulses of his
+					passions is proved by his paleness<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. De Libidine et Aegritudine</hi>, 6 (Bernardakis, vol. vii. p. 5).</note> and blushing, his
+					trembling and palpitations of the heart, and again by
+					his cheerful and relaxed expression when in hope and
+					expectation of pleasures. But whenever the intellect
+					acts, not accompanied by emotion but by itself alone,
+					the body remains in repose and at rest, neither sharing
+					nor partaking in the activity of the mind, so long as the
+					body does not have to deal with the emotional element
+					or include the irrational in such activity. Consequently,
+					this fact also makes it plain that there are two parts
+					within us which differ from each other in their
+					faculties.
+				</p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>And in general, both as my opponents<note resp="ed" place="unspecified" anchored="yes">The Stoics; <hi rend="italics">cf.</hi> von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, ii. p. 150.</note> themselves admit and as is quite obvious, in this world some
+					things are governed by an acquired disposition, others
+					by a natural one, some by an irrational soul, others
+					by a rational and intellectual one ; and in practically
+					
+					<pb id="v.6.p.79"/>
+					
+					all these things man participates and he is subject
+					to all the differences I have mentioned. For he is
+					controlled by his acquired disposition, nurtured by
+					his natural disposition, and makes use of reason and
+					intellect. He has, therefore, some portion of the
+					irrational also and has innate within him the mainspring of emotion, not as an adventitious accessory,
+					but as a necessary part of his being, which should
+					never be done away with entirely, but must needs
+					have careful tending and education. Therefore the
+					work of reason is not Thracian, not like that of Lycurgus<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 15 d-e. Lycurgus, king of Thrace, angered with Dionysus, cut down the vines; <hi rend="italics">cf.</hi> Apollodorus, <hi rend="italics">Bibliotheca</hi>, iii. 5. 1, with Frazer's notes (L.C.L., vol. i. pp. 327 ff.).</note> - to cut down<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 529 b-c.</note> and destroy the helpful
+					elements of emotion together with the harmful, but to
+					do as the god<note resp="ed" place="unspecified" anchored="yes">Poseidon: <hi rend="italics">cf. Moralia</hi>, 158 d, 730 d.</note> who watches over crops and the god<note resp="ed" place="unspecified" anchored="yes">Dionysus: <hi rend="italics">cf. Moralia</hi>, 994 a; both Poseidon and Dionysus are said to be lords of <foreign lang="greek">th=s u(gra=s kai\ goni/mou a)rxh=s</foreign> in <hi rend="italics">Moralia</hi>, 675 f. Poseidon's functions as a god of vegetation are perhaps to be derived from his position as god of fresh streams and fountains; see Farnell, <hi rend="italics">Cults of the Greek States</hi>, iv. p. 6.</note>
+					who guards the vine do - to lop off the wild growth
+					and to clip away excessive luxuriance, and then to
+					cultivate and to dispose for use the serviceable remainder. For neither do those who fear drunkenness
+					pour out their wine upon the ground,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Laws</hi>, 773 d.</note> nor do those
+					who fear passion eradicate the disturbing element,
+					but both temper<note resp="ed" place="unspecified" anchored="yes">See Hartman, <hi rend="italics">De Plutarcho</hi>, pp. 203 f., for criticism of the ellipsis. Plutarch's meaning is, of course, that wine is tempered by water, and passion by reason.</note> what they fear. It is, in fact, the
+					rebellious kicking and plunging of oxen and horses
+					that men do away with, not their movements and
+					activities ; even so reason makes use of the emotions
+					when they have been subdued and are tame, and
+					does not hamstring<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 449 f, <hi rend="italics">supra</hi>.</note> nor altogether excise that part
+					of the soul which should be its servant. For
+					
+					<pb id="v.6.p.81"/>
+					
+					          <quote rend="blockquote">The horse is meet for the chariot,</quote>
+					as Pindar<note resp="ed" place="unspecified" anchored="yes">Frag. 234 ed. Bergk; 258 ed. Boeckh (p. 611 ed. Sandys); the quotation is given more fully in 472 c, <hi rend="italics">infra</hi>.</note> says,
+					<quote rend="blockquote">
+                  <l>the ox for the plough ;
+						</l>
+                  <l>But if you think to slay a boar, you must find a stout-hearted hound.</l>
+               </quote>
+					Yet much more useful than these beasts are the whole
+					brood of passions when they are present in the service
+					of reason and help to intensify the virtues : anger,
+					if it be moderate, will assist courage, and hatred of evil
+					will aid justice, and righteous indignation<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. p. 100, 1. 37.</note> will oppose
+					those who are prosperous beyond their deserts when
+					their souls are inflamed with folly and insolence<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Laws</hi>, 716 a.</note> and
+					they need to be checked. For who, even if he so
+					wished, could separate or sever from friendship a
+					natural propensity toward affection, from humaneness pity, and from true benevolence the mutual
+					participation in joy and grief? And if those err who
+					discard love entirely because love may bring madness,
+					neither are they right who blame commerce because
+					it may beget covetousness ; on the contrary, what
+					they do is somewhat like the action of those who would
+					abolish running because one may chance to stumble,
+					or shooting<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 459 d, <hi rend="italics">infra</hi>.</note> because one may overshoot the mark, and
+					dislike any singing at all because some sing off key.
+					For as in the realm of sound musical art produces consonance, not by doing away with the deep low and
+					the shrill high notes<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 444 e-f, <hi rend="italics">supra</hi>.</note>; and in the case of the body, medical art produces health, not by the removal of heat
+					and coldness, but by the proportionately quantitative
+					
+					<pb id="v.6.p.83"/>
+					
+					admixture of the two ; so in the soul moral virtue is
+					produced when equity and moderation are engendered
+					by reason in the emotional faculties and activities.
+					For a soul possessed of excessive pain or joy or fear is
+					like a swollen and feverish body; it is not so, however,
+					if the joy or pain or fear be moderate. And Homer<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Il.</hi>, xiii. 284; <hi rend="italics">cf. De Vita et Poesi Homeri</hi>, 135 (Bernardakis, vol. vii. p. 408).</note>
+					in his admirable words,
+					<quote rend="blockquote">
+                  <l>A valiant man will never change his hue,
+						</l>
+                  <l>Nor will his fear be over-great,</l>
+               </quote>
+					does not abolish fear, but excessive fear, in order
+					that the valiant man may have not foolhardiness but
+					courage, not audacity but daring. In his pleasures,
+					therefore, a man must rid himself of excessive desire,
+					and in punishing wrong, of excessive hatred of evil:
+					for in this way he will be, in the former case, not
+					insensible but temperate, and in the latter case, just,
+					not savage nor cruel. But if the passions could in
+					reality be entirely done away with,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 443 c, <hi rend="italics">supra</hi>.</note> in many persons
+					reason would be too inactive and dulled, like a pilot
+					when the wind dies down. It is surely this truth
+					that the legislators also have perceived when they
+					try to put into their constitutions the emotions of
+					ambition and emulation as regards the citizens'
+					relations to each other, but in relation to the enemy
+					try to rouse and increase their spirited and fighting
+					qualities with trumpets and pipes.<note resp="ed" place="unspecified" anchored="yes">Contrast 458 e, <hi rend="italics">infra</hi>.</note> For it is not in
+					poetry only that, as Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Phaedrus</hi>, 245 a; <hi rend="italics">cf. Ion</hi>, 533 a ff.</note> says, he who is inspired
+					and possessed by the Muses renders ridiculous the
+					
+					<pb id="v.6.p.85"/>
+					
+					man who is an artist equipped with exact knowledge
+					of technique, but in battles also the passionate and
+					inspired is irresistible and invincible. This quality it
+					is that Homer says the gods instil into men :
+					<quote rend="blockquote">
+                  <l>So did he speak and breathed great might
+						</l>
+                  <l>Into the shepherd of the people<note resp="ed" place="unspecified" anchored="yes">
+                        <hi rend="italics">Il.</hi>, xv. 262: Apollo to Hector.</note>;</l>
+               </quote>
+					and
+					<quote rend="blockquote">
+                  <l>Not without some god does he
+						</l>
+                  <l>These deeds of madness<note resp="ed" place="unspecified" anchored="yes">
+                        <hi rend="italics">Il.</hi>, v. 185; of Diomedes.</note>;</l>
+               </quote>
+					as though the gods were adding passion as an incitement or a vehicle to reason.
+				</p>
+            <p>
+					Indeed we may see these very opponents of mine
+					often inciting young men with praise and often chastising them with admonitions; and of these, in the
+					first case pleasure is the consequence, in the second
+					pain (in fact, admonition and rebuke engender repentance and shame, of which the first is a kind of pain,
+					the second a kind of fear<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> von Arnim, <hi rend="italics">Stoic. Vet. Frag.</hi>, iii. pp. 98 f.</note>) ; and of these methods
+					they make particular use to improve their charges.
+					As Diogenes<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Archidamus's remark on Charillus, <hi rend="italics">Moralia</hi>, 55 e, 218 b, 537 d.</note> also remarked, when Plato was being
+					praised, <q direct="unspecified">What is there so august about one who has
+						spent so much time talking philosophy, yet has never
+						caused anyone pain?</q> For surely studies could not
+					so properly be called, to use Xenocrates'<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diogenes Laertius, iv. 10.</note> words, the
+					<q direct="unspecified">grips of philosophy,</q> as could the emotions of young
+					men : shame, desire, repentance, pleasure, pain,
+					ambition. On these if reason and law obtain a suitable and salutary grip, they efficaciously set the young
+					man upon the path that he should take. Therefore the
+					
+					<pb id="v.6.p.87"/>
+					
+					Spartan<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 439 f, <hi rend="italics">supra</hi>; Plato, <hi rend="italics">Laws</hi>, 653 b-c.</note> tutor was not wide of the mark when he
+					said that he intended to make a boy entrusted to him
+					delight in honourable and be vexed at dishonourable
+					things. Than this saying there can be shown no
+					greater nor fairer end of such education as befits a
+					free-born child.
+				</p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

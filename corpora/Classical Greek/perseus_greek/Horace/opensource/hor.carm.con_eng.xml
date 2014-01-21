@@ -1,0 +1,3154 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersVerse PUBLIC "-//Perseus P4//DTD Perseus Verse//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersVerse.dtd" >
+%PersVerse;
+]>
+<TEI.2>
+  <teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+	<title>Odes</title>
+	<title type="sub">Machine readable text</title>
+	<author n="Hor.">Q. Horatius Flaccus (Horace)</author>
+	<editor role="editor" n="Conington">John Conington</editor>
+&responsibility;
+&fund.NEH;
+      </titleStmt>
+      <extent>about 140Kb</extent>
+	&Perseus.publish;
+      <sourceDesc>
+	<biblStruct>
+	  <monogr>
+	    <author>Horace</author>
+	    <title>The Odes and Carmen Saeculare of Horace</title>
+	    <respStmt>
+	      <name>John Conington</name>
+	      <resp>trans.</resp>
+	    </respStmt>
+	    <imprint>
+	      <pubPlace>London</pubPlace>
+	      <publisher>George Bell and Sons</publisher>
+	      <date>1882</date>
+	    </imprint>
+	  </monogr>
+	</biblStruct>
+      </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+	<step delim="." refunit="book" from="DESCENDANT (1 DIV1 N %1)"/>
+	<step refunit="poem" from="DESCENDANT (1 DIV2 N %2)"/>
+      </refsDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+	<language id="en">English
+      </language></langUsage>
+    </profileDesc>
+    <revisionDesc>
+      <change><date>10/24/97</date>
+	<respStmt><name>WM</name><resp>ed.</resp></respStmt>
+	<item>Scanned by KD; proofread and tagged public domain text by WM. Notes: three ways of indenting lines (NB not the rhyme scheme) used by the translator are indicated in the DIV2 tag as "Meter": ab (elegy--one big LG), aaab (Sapphic), abba (Swedish rock) where the b line is indented. I used an entity expression &amp;*smcap; to indicate small capital letters. There remain the CS and xlator's notes from this edition, but tmw is another day. Odes 2.5 and 3.20 were not xlated.</item></change>
+      <change><date>4 August 1999</date>
+	<respStmt><name>David Smith</name><resp>ed.</resp></respStmt>
+	<item>
+$Log: hor.carm.con_eng.xml,v $
+Revision 1.1  2009-11-24 20:08:27  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.5  2009/06/19 17:14:09  rsingh04
+removed place name references to Neath
+
+Revision 1.4  2008/11/14 21:23:21  lcerrato
+fixed author name for consistent sorting
+
+Revision 1.3  2006/02/10 20:50:22  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:12:23  packel
+removed stray item tags
+
+	Revision 1.1  2005/07/25 14:37:16  packel
+	Converted to XML
+	
+Revision 1.3  2003/07/01 22:17:02  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.2  2000/03/04 20:34:37  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.1  1999/08/04 19:12:34  textgod
+Added to repository.
+
+
+</item>
+      </change>
+    </revisionDesc>
+  </teiHeader>
+
+
+<text><body>
+
+<div1 type="Book" n="1">
+<div2 type="Poem" n="1" met="abba">
+<lg type="stanza"><l>Maecenas, born of monarch ancestors,</l>
+<l>The shield at once and glory of my life!</l>
+<l>There are who joy them in the Olympic strife</l>
+<l>And love the dust they gather in the course;</l></lg>
+<lg><l>The goal by hot wheels shunn'd, the famous prize,</l>
+<l>Exalt them to the gods that rule mankind;</l>
+<l>This joys, if rabbles fickle as the wind</l>
+<l>Through triple grade of honours bid him rise,</l></lg>
+<lg><l>That, if his granary has stored away</l>
+<l>Of <placeName key="tgn,1000172">Libya</placeName>'s thousand floors the yield entire;</l>
+<l>The man who digs his field as did his sire,</l>
+<l>With honest pride, no Attalus may sway</l></lg>
+<lg><l>By proffer'd wealth to tempt Myrtoan seas,</l>
+<l>The timorous captain of a Cyprian bark.</l>
+<l>The winds that make Icarian billows dark</l>
+<l>The merchant fears, and hugs the rural ease</l></lg>
+<lg><l>Of his own village home; but soon, ashamed</l>
+<l>Of penury, he refits his batter'd craft.</l>
+<l>There is, who thinks no scorn of Massic draught,</l>
+<l>Who robs the daylight of an hour unblamed,</l></lg>
+<lg><l>Now stretch'd beneath the arbute on the sward,</l>
+<l>Now by some gentle river's sacred spring;</l>
+<l>Some love the camp, the clarion's joyous ring,</l>
+<l>And battle, by the mother's soul abhorr'd.</l></lg>
+<lg><l>See, patient waiting in the clear keen air,</l>
+<l>The hunter, thoughtless of his delicate bride,</l>
+<l>Whether the trusty hounds a stag have eyed,</l>
+<l>Or the fierce Marsian boar has burst the snare.</l></lg>
+<lg><l>To me the artist's meed, the ivy wreath</l>
+<l>Is very heaven: me the sweet cool of woods,</l>
+<l>Where Satyrs frolic with the Nymphs, secludes</l>
+<l>From rabble rout, so but Euterpe's breath</l></lg>
+<lg><l>Fail not the flute, nor Polyhymnia fly</l>
+<l>Averse from stringing new the Lesbian lyre.</l>
+<l>O, write my name among that minstrel choir,</l>
+<l>And my proud head shall strike upon the sky!</l></lg></div2>
+<div2 type="Poem" n="2" met="aaab">
+<lg><l>Enough of snow and hail at last</l>
+<l>The sire has sent in vengeance down:</l>
+<l>His bolts, at his own temple cast,</l>
+<l>Appall'd the town,</l></lg>
+<lg><l>Appall'd the lands, lest <placeName key="perseus,Pyrrha">Pyrrha</placeName>'s time</l>
+<l>Return, with all its monstrous sights,</l>
+<l>When Proteus led his flocks to climb</l>
+<l>The flatten'd heights,</l></lg>
+<lg><l>When fish were in the elm-tops caught,</l>
+<l>Where once the stock-dove wont to bide,</l>
+<l>And does were floating, all distraught,</l>
+<l>Adown the tide.</l></lg>
+<lg><l>Old <placeName key="tgn,1130786">Tiber</placeName>, hurl'd in tumult back</l>
+<l>From mingling with the Etruscan main,</l>
+<l>Has threaten'd Numa's court with wrack</l>
+<l>And Vesta's fane.</l></lg>
+<lg><l>Roused by his <placeName key="tgn,5001986">Ilia</placeName>'s plaintive woes,</l>
+<l>He vows revenge for guiltless blood,</l>
+<l>And, spite of Jove, his banks o'erflows,</l>
+<l>Uxorious flood.</l></lg>
+<lg><l>Yes, Fame shall tell of civic steel</l>
+<l>That better Persian lives had spilt,</l>
+<l>To youths, whose minish'd numbers feel</l>
+<l>Their parents' guilt.</l></lg>
+<lg><l>What god shall <placeName key="perseus,Rome">Rome</placeName> invoke to stay</l>
+<l>Her fall? Can suppliance overbear</l>
+<l>The ear of Vesta, turn'd away</l>
+<l>From chant and prayer?</l></lg>
+<lg><l>Who comes, commission'd to atone</l>
+<l>For crime like ours? at length appear,</l>
+<l>A cloud round thy bright shoulders thrown,</l>
+<l>Apollo seer!</l></lg>
+<lg><l>Or Venus, laughter-loving dame,</l>
+<l>Round whom gay Loves and Pleasures fly;</l>
+<l>Or thou, if slighted sons may claim</l>
+<l>A parent's eye,</l></lg>
+<lg><l>O weary with thy long, long game,</l>
+<l>Who lov'st fierce shouts and helmets bright,</l>
+<l>And Moorish warrior's glance of flame</l>
+<l>Or e'er he smite!</l></lg>
+<lg><l>Or <placeName key="tgn,1049816">Maia</placeName>'s son, if now awhile</l>
+<l>In youthful guise we see thee here,</l>
+<l>Caesar's avenger&mdash;such the style</l>
+<l>Thou deign'st to bear;</l></lg>
+<lg><l>Late be thy journey home, and long</l>
+<l>Thy sojourn with <placeName key="perseus,Rome">Rome</placeName>'s family;</l>
+<l>Nor let thy wrath at our great wrong</l>
+<l>Lend wings to fly.</l></lg>
+<lg><l>Here take our homage, Chief and Sire;</l>
+<l>Here wreathe with bay thy conquering brow,</l>
+<l>And bid the prancing <placeName key="tgn,1045322">Mede</placeName> retire,</l>
+<l>Our Caesar thou!</l></lg></div2>
+<div2 type="Poem" n="3" met="ab">
+<lg><l>Thus may <placeName key="tgn,1000112">Cyprus</placeName>' heavenly queen,</l>
+<l>Thus Helen's brethren, stars of brightest sheen,</l>
+<l>Guide thee!  May the sire of wind</l>
+<l>Each truant gale, save only Zephyr, bind!</l>
+<l>So do thou, fair ship, that ow'st</l>
+<l>Virgil, thy precious freight, to Attic coast,</l>
+<l>Safe restore thy loan and whole,</l>
+<l>And save from death the partner of my soul!</l>
+<l>Oak and brass of triple fold</l>
+<l>Encompass'd sure that heart, which first made bold</l>
+<l>To the raging sea to trust</l>
+<l>A fragile bark, nor fear'd the Afric gust</l>
+<l>With its Northern mates at strife,</l>
+<l>Nor Hyads' frown, nor South-wind fury-rife,</l>
+<l>Mightiest power that <placeName key="perseus,Hadria">Hadria</placeName> knows,</l>
+<l>Wills he the waves to madden or compose.</l>
+<l>What had Death in store to awe</l>
+<l>Those eyes, that huge sea-beasts unmelting saw,</l>
+<l>Saw the swelling of the surge,</l>
+<l>And high Ceraunian cliffs, the seaman's scourge?</l>
+<l>Heaven's high providence in vain</l>
+<l>Has sever'd countries with the estranging main,</l>
+<l>If our vessels ne'ertheless</l>
+<l>With reckless plunge that sacred bar transgress.</l>
+<l>Daring all, their goal to win,</l>
+<l>Men tread forbidden ground, and rush on sin:</l>
+<l>Daring all, Prometheus play'd</l>
+<l>His wily game, and fire to man convey'd;</l>
+<l>Soon as fire was stolen away,</l>
+<l>Pale Fever's stranger host and wan Decay</l>
+<l>Swept o'er earth's polluted face,</l>
+<l>And slow Fate quicken'd Death's once halting pace.</l>
+<l>Daedalus the void air tried</l>
+<l>On wings, to humankind by Heaven denied;</l>
+<l><placeName key="tgn,1120946">Acheron</placeName>'s bar gave way with ease</l>
+<l>Before the arm of labouring Hercules.</l>
+<l>Nought is there for man too high;</l>
+<l>Our impious folly e'en would climb the sky,</l>
+<l>Braves the dweller on the steep,</l>
+<l>Nor lets the bolts of heavenly vengeance sleep.</l></lg></div2>
+<div2 type="Poem" n="4" met="ab">
+<lg><l>The touch of Zephyr and of Spring has loosen'd Winter's thrall;</l>
+<l>The well-dried keels are wheel'd again to sea:</l>
+<l>The ploughman cares not for his fire, nor cattle for their stall,</l>
+<l>And frost no more is whitening all the lea.</l>
+<l>Now Cytherea leads the dance, the bright moon overhead;</l>
+<l>The Graces and the Nymphs, together knit,</l>
+<l>With rhythmic feet the meadow beat, while <placeName key="tgn,1050339">Vulcan</placeName>, fiery red,</l>
+<l>Heats the Cyclopian forge in <placeName key="tgn,7003867">Aetna</placeName>'s pit.</l>
+<l>'Tis now the time to wreathe the brow with branch of myrtle green,</l>
+<l>Or flowers, just opening to the vernal breeze;</l>
+<l>Now Faunus claims his sacrifice among the shady treen,</l>
+<l>Lambkin or kidling, which soe'er he please.</l>
+<l>Pale Death, impartial, walks his round: he knocks at cottage-gate</l>
+<l>And palace-portal.  Sestius, child of bliss!</l>
+<l>How should a mortal's hopes be long, when short his being's date?</l>
+<l>Lo here! the fabulous ghosts, the dark abyss,</l>
+<l>The void of the Plutonian hall, where soon as e'er you go,</l>
+<l>No more for you shall leap the auspicious die</l>
+<l>To seat you on the throne of wine; no more your breast shall glow</l>
+<l>For Lycidas, the star of every eye.</l></lg></div2>
+<div2 type="Poem" n="5" met="aaab">
+<lg><l>What slender youth, besprinkled with perfume,</l>
+<l>Courts you on roses in some grotto's shade?</l>
+<l>Fair <placeName key="perseus,Pyrrha">Pyrrha</placeName>, say, for whom</l>
+<l>Your yellow hair you braid,</l></lg>
+<lg><l>So trim, so simple! Ah! how oft shall he</l>
+<l>Lament that faith can fail, that gods can change,</l>
+<l>Viewing the rough black sea</l>
+<l>With eyes to tempests strange,</l></lg>
+<lg><l>Who now is basking in your golden smile,</l>
+<l>And dreams of you still fancy-free, still kind,</l>
+<l>Poor fool, nor knows the guile</l>
+<l>Of the deceitful wind!</l></lg>
+<lg><l>Woe to the eyes you dazzle without cloud</l>
+<l>Untried! For me, they show in yonder fane</l>
+<l>My dripping garments, vow'd</l>
+<l>To Him who curbs the main.</l></lg></div2>
+<div2 type="Poem" n="6" met="aaab">
+<lg><l>Not I, but Varius:&mdash;he, of Homer's brood</l>
+<l>A tuneful swan, shall bear you on his wing,</l>
+<l>Your tale of trophies, won by field or flood,</l>
+<l>Mighty alike to sing.</l></lg>
+<lg><l>Not mine such themes, Agrippa; no, nor mine</l>
+<l>To chant the Wrath that fill'd Pelides' breast,</l>
+<l>Nor dark Ulysses' wanderings o'er the brine,</l>
+<l>Nor Pelops' house unblest.</l></lg>
+<lg><l>Vast were the task, I feeble; inborn shame,</l>
+<l>And she, who makes the peaceful lyre submit,</l>
+<l>Forbid me to impair great Caesar's fame</l>
+<l>And yours by my weak wit.</l></lg>
+<lg><l>But who may fitly sing of Mars array'd</l>
+<l>In adamant mail, or Merion, black with dust</l>
+<l>Of <placeName key="tgn,7014164">Troy</placeName>, or Tydeus' son by <placeName key="tgn,2565867">Pallas</placeName>' aid</l>
+<l>Strong against gods to thrust?</l></lg>
+<lg><l>Feasts are my theme, my warriors maidens fair,</l>
+<l>Who with pared nails encounter youths in fight;</l>
+<l>Be Fancy free or caught in Cupid's snare,</l>
+<l>Her temper still is light.</l></lg></div2>
+<div2 type="Poem" n="7" met="ab">
+<lg><l>Let others <placeName key="tgn,2616128">Rhodes</placeName> or <placeName key="tgn,7002672">Mytilene</placeName> sing,</l>
+<l>Or <placeName key="tgn,7002499">Ephesus</placeName>, or <placeName key="tgn,7010734">Corinth</placeName>, set between</l>
+<l>Two seas, or <placeName key="perseus,Thebes">Thebes</placeName>, or <placeName key="perseus,Delphi">Delphi</placeName>, for its king</l>
+<l>Each famous, or Thessalian Tempe green;</l>
+<l>There are who make chaste Pallas' virgin tower</l>
+<l>The daily burden of unending song,</l>
+<l>And search for wreaths the olive's rifled bower:</l>
+<l>The praise of Juno sounds from many a tongue,</l>
+<l>Telling of <placeName key="perseus,Argos">Argos</placeName>' steeds, <placeName key="perseus,Mycenae">Mycenae</placeName>'s gold.</l>
+<l>For me stern <placeName key="perseus,Sparta">Sparta</placeName> forges no such spell,</l>
+<l>No, nor Larissa's plain of richest mould,</l>
+<l>As bright Albunea echoing from her cell.</l>
+<l>O headlong Anio!  O Tiburnian groves,</l>
+<l>And orchards saturate with shifting streams!</l>
+<l>Look how the clear fresh south from heaven removes</l>
+<l>The tempest, nor with rain perpetual teems!</l>
+<l>You too be wise, my Plancus: life's worst cloud</l>
+<l>Will melt in air, by mellow wine allay'd,</l>
+<l>Dwell you in camps, with glittering banners proud,</l>
+<l>Or 'neath your <placeName key="perseus,Tibur">Tibur</placeName>'s canopy of shade.</l>
+<l>When Teucer fled before his father's frown</l>
+<l>From <placeName key="tgn,7002340">Salamis</placeName>, they say his temples deep</l>
+<l>He dipp'd in wine, then wreath'd with poplar crown,</l>
+<l>And bade his comrades lay their grief to sleep:</l>
+<l>&ldquo;Where Fortune bears us, than my sire more kind,</l>
+<l>There let us go, my own, my gallant crew.</l>
+<l>'Tis Teucer leads, 'tis Teucer breathes the wind;</l>
+<l>No more despair; Apollo's word is true.</l>
+<l>Another <placeName key="tgn,7002340">Salamis</placeName> in kindlier air</l>
+<l>Shall yet arise.  Hearts, that have borne with me</l>
+<l>Worse buffets! drown today in wine your care;</l>
+<l>To-morrow we recross the wide, wide sea!&rdquo;</l></lg></div2>
+<div2 type="Poem" n="8" met="ab">
+<lg><l><placeName key="tgn,7016631">Lydia</placeName>, by all above,</l>
+<l>Why bear so hard on <placeName key="perseus,Sybaris">Sybaris</placeName>, to ruin him with love?</l>
+<l>What change has made him shun</l>
+<l>The playing-ground, who once so well could bear the dust and sun?</l>
+<l>Why does he never sit</l>
+<l>On horseback in his company, nor with uneven bit</l>
+<l>His Gallic courser tame?</l>
+<l>Why dreads he yellow <placeName key="tgn,1130786">Tiber</placeName>, as 'twould sully that fair frame?</l>
+<l>Like poison loathes the oil,</l>
+<l>His arms no longer black and blue with honourable toil,</l>
+<l>He who erewhile was known</l>
+<l>For quoit or javelin oft and oft beyond the limit thrown?</l>
+<l>Why skulks he, as they say</l>
+<l>Did Thetis' son before the dawn of <placeName key="tgn,7002329">Ilion</placeName>'s fatal day,</l>
+<l>For fear the manly dress</l>
+<l>Should fling him into danger's arms, amid the</l>
+<l>Lycian press?</l></lg></div2>
+<div2 type="Poem" n="9" met="ab">
+<lg><l>See, how it stands, one pile of snow,</l>
+<l>Soracte! 'neath the pressure yield</l>
+<l>Its groaning woods; the torrents' flow</l>
+<l>With clear sharp ice is all congeal'd.</l>
+<l>Heap high the logs, and melt the cold,</l>
+<l>Good Thaliarch; draw the wine we ask,</l>
+<l>That mellower vintage, four-year-old,</l>
+<l>From out the cellar'd <placeName key="tgn,7021127">Sabine</placeName> cask.</l>
+<l>The future trust with Jove; when he</l>
+<l>Has still'd the warring tempests' roar</l>
+<l>On the vex'd deep, the cypress-tree</l>
+<l>And aged ash are rock'd no more.</l>
+<l>O, ask not what the morn will bring,</l>
+<l>But count as gain each day that chance</l>
+<l>May give you; sport in life's young spring,</l>
+<l>Nor scorn sweet love, nor merry dance,</l>
+<l>While years are green, while sullen eld</l>
+<l>Is distant.  Now the walk, the game,</l>
+<l>The whisper'd talk at sunset held,</l>
+<l>Each in its hour, prefer their claim.</l>
+<l>Sweet too the laugh, whose feign'd alarm</l>
+<l>The hiding-place of beauty tells,</l>
+<l>The token, ravish'd from the arm</l>
+<l>Or finger, that but ill rebels.</l></lg></div2>
+<div2 type="Poem" n="10" met="aaab">
+<lg><l>Grandson of Atlas, wise of tongue,</l>
+<l>O Mercury, whose wit could tame</l>
+<l>Man's savage youth by power of song</l>
+<l>And plastic game!</l></lg>
+<lg><l>Thee sing I, herald of the sky,</l>
+<l>Who gav'st the lyre its music sweet,</l>
+<l>Hiding whate'er might please thine eye</l>
+<l>In frolic cheat.</l></lg>
+<lg><l>See, threatening thee, poor guileless child,</l>
+<l>Apollo claims, in angry tone,</l>
+<l>His cattle;&mdash;all at once he smiled,</l>
+<l>His quiver gone.</l></lg>
+<lg><l>Strong in thy guidance, Hector's sire</l>
+<l>Escaped the Atridae, pass'd between</l>
+<l>Thessalian tents and warders' fire,</l>
+<l>Of all unseen,</l></lg>
+<lg><l>Thou lay'st unspotted souls to rest;</l>
+<l>Thy golden rod pale spectres know;</l>
+<l>Blest power! by all thy brethren blest,</l>
+<l>Above, below!</l></lg></div2>
+<div2 type="Poem" n="11" met="ab">
+<lg><l>Ask not ('tis forbidden knowledge), what our destined term of years,</l>
+<l>Mine and yours; nor scan the tables of your Babylonish seers.</l>
+<l>Better far to bear the future, my Leuconoe, like the past,</l>
+<l>Whether Jove has many winters yet to give, or this our last;</l>
+<l><emph>This</emph>, that makes the Tyrrhene billows spend their strength against the shore.</l>
+<l>Strain your wine and prove your wisdom; life is short; should hope be more?</l>
+<l>In the moment of our talking, envious time has ebb'd away.</l>
+<l>Seize the present; trust tomorrow e'en as little as you may.</l></lg></div2>
+<div2 type="Poem" n="12" met="aaab">
+<lg><l>What man, what hero, <placeName key="tgn,2244631">Clio</placeName> sweet,</l>
+<l>On harp or flute wilt thou proclaim?</l>
+<l>What god shall echo's voice repeat</l>
+<l>In mocking game</l></lg>
+<lg><l>To <placeName key="tgn,2003822">Helicon</placeName>'s sequester'd shade,</l>
+<l>Or Pindus, or on <placeName key="tgn,7011635">Haemus</placeName> chill,</l>
+<l>Where once the hurrying woods obey'd</l>
+<l>The minstrel's will,</l></lg>
+<lg><l>Who, by his mother's gift of song,</l>
+<l>Held the fleet stream, the rapid breeze,</l>
+<l>And led with blandishment along</l>
+<l>The listening trees?</l></lg>
+<lg><l>Whom praise we first? the sire on high,</l>
+<l>Who gods and men unerring guides,</l>
+<l>Who rules the sea, the earth, the sky,</l>
+<l>Their times and tides.</l></lg>
+<lg><l>No mightier birth may he beget;</l>
+<l>No like, no second has he known;</l>
+<l>Yet nearest to her sire's is set</l>
+<l><placeName key="tgn,2070580">Minerva</placeName>'s throne.</l></lg>
+<lg><l>Nor yet shall <placeName key="tgn,2097807">Bacchus</placeName> pass unsaid,</l>
+<l>Bold warrior, nor the virgin foe</l>
+<l>Of savage beasts, nor Phoebus, dread</l>
+<l>With deadly bow.</l></lg>
+<lg><l>Alcides too shall be my theme,</l>
+<l>And Leda's twins, for horses he,</l>
+<l>He famed for boxing; soon as gleam</l>
+<l>Their stars at sea,</l></lg>
+<lg><l>The lash'd spray trickles from the steep,</l>
+<l>The wind sinks down, the storm-cloud flies,</l>
+<l>The threatening billow on the deep</l>
+<l>Obedient lies.</l></lg>
+<lg><l>Shall now Quirinus take his turn,</l>
+<l>Or quiet <placeName key="tgn,2033144">Numa</placeName>, or the state</l>
+<l>Proud Tarquin held, or <placeName key="tgn,2226609">Cato</placeName> stern,</l>
+<l>By death made great?</l></lg>
+<lg><l>Ay, Regulus and the Scaurian name,</l>
+<l>And Paullus, who at <placeName key="tgn,7009090">Cannae</placeName> gave</l>
+<l>His glorious soul, fair record claim,</l>
+<l>For all were brave.</l></lg>
+<lg><l>Thee, Furius, and Fabricius, thee,</l>
+<l>Rough Curius too, with untrimm'd beard,</l>
+<l>Your sires' transmitted poverty</l>
+<l>To conquest rear'd.</l></lg>
+<lg><l><placeName key="tgn,7013998">Marcellus</placeName>' fame, its up-growth hid,</l>
+<l>Springs like a tree; great <placeName key="tgn,2008628">Julius</placeName>' light</l>
+<l>Shines, like the radiant moon amid</l>
+<l>The lamps of night.</l></lg>
+<lg><l>Dread Sire and Guardian of man's race,</l>
+<l>To thee, O Jove, the Fates assign</l>
+<l>Our Caesar's charge; his power and place</l>
+<l>Be next to thine.</l></lg>
+<lg><l>Whether the Parthian, threatening <placeName key="tgn,7013962">Rome</placeName>,</l>
+<l>His eagles scatter to the wind.</l>
+<l>Or follow to their eastern home</l>
+<l>Cathay and Ind,</l></lg>
+<lg><l>Thy second let him rule below</l>
+<l>Thy car shall shake the realms above;</l>
+<l>Thy vengeful bolts shall overthrow</l>
+<l>Each guilty grove.</l></lg></div2>
+<div2 type="Poem" n="13" met="ab">
+<lg><l>Telephus&mdash;you praise him still,</l>
+<l>His waxen arms, his rosy-tinted neck;</l>
+<l>Ah! and all the while I thrill</l>
+<l>With jealous pangs I cannot, cannot check</l>
+<l>See, my colour comes and goes,</l>
+<l>My poor heart flutters, <placeName key="tgn,7016631">Lydia</placeName>, and the dew,</l>
+<l>Down my cheek soft stealing, shows</l>
+<l>What lingering torments rack me through and through.</l>
+<l>Oh, 'tis agony te see</l>
+<l>Those snowwhite shoulders scarr'd in drunken fray,</l>
+<l>Or those ruby lips, where he</l>
+<l>Has left strange marks, that show how rough his play!</l>
+<l>Never, never look to find</l>
+<l>A faithful heart in him whose rage can harm</l>
+<l>Sweetest lips, which <placeName key="tgn,2094077">Venus</placeName> kind</l>
+<l>Has tinctured with her quintessential charm.</l>
+<l>Happy, happy; happy they</l>
+<l>Whose living love, untroubled by all strife,</l>
+<l>Binds them till the last sad day,</l>
+<l>Nor parts asunder but with parting life!</l></lg></div2>
+<div2 type="Poem" n="14" met="aaab">
+<lg><l>O luckless bark! new waves will force you back</l>
+<l>To sea.  O, haste to make the haven yours!</l>
+<l>E'en now, a helpless wrack,</l>
+<l>You drift, despoil'd of oars;</l></lg>
+<lg><l>The Afric gale has dealt your mast a wound;</l>
+<l>Your sailyards groan, nor can your keel sustain,</l>
+<l>Till lash'd with cables round,</l>
+<l>A more imperious main.</l></lg>
+<lg><l>Your canvass hangs in ribbons, rent and torn;</l>
+<l>No gods are left to pray to in fresh need.</l>
+<l>A pine of <placeName key="tgn,7016619">Pontus</placeName> born</l>
+<l>Of noble forest breed,</l></lg>
+<lg><l>You boast your name and lineage&mdash;madly blind</l>
+<l>Can painted timbers quell a seaman's fear?</l>
+<l>Beware! or else the wind</l>
+<l>Makes you its mock and jeer.</l></lg>
+<lg><l>Your trouble late made sick this heart of mine,</l>
+<l>And still I love you, still am ill at ease.</l>
+<l>O, shun the sea, where shine</l>
+<l>The thick-sown <placeName key="tgn,7011270">Cyclades</placeName>!</l></lg></div2>
+<div2 type="Poem" n="15" met="aaab">
+<lg><l>When the false swain was hurrying o'er the deep</l>
+<l>His Spartan hostess in the Idaean bark,</l>
+<l>Old Nereus laid the unwilling winds asleep,</l>
+<l>That all to Fate might hark,</l></lg>
+<lg><l>Speaking through him:&mdash;&ldquo;Home in ill hour you take</l>
+<l>A prize whom <placeName key="tgn,1000074">Greece</placeName> shall claim with troops untold,</l>
+<l>Leagued by an oath your marriage tie to break</l>
+<l>And Priam's kingdom old.</l></lg>
+<lg><l>Alas! what deaths you launch on Dardan realm!</l>
+<l>What tolls are waiting, man and horse to tire!</l>
+<l>See! Pallas trims her aegis and her helm,</l>
+<l>Her chariot and her ire.</l></lg>
+<lg><l>Vainly shall you; in Venus' favour strong,</l>
+<l>Your tresses comb, and for your dames divide</l>
+<l>On peaceful lyre the several parts of song;</l>
+<l>Vainly in chamber hide</l></lg>
+<lg><l>From spears and Gnossian arrows, barb'd with fate,</l>
+<l>And battle's din, and Ajax in the chase</l>
+<l>Unconquer'd; those adulterous locks, though late,</l>
+<l>Shall gory dust deface.</l></lg>
+<lg><l>Hark! 'tis the death-cry of your race! look back!</l>
+<l>Ulysses comes, and Pylian Nestor grey;</l>
+<l>See! Salaminian Teucer on your track,</l>
+<l>And Sthenelus, in the fray</l></lg>
+<lg><l>Versed, or with whip and rein, should need require,</l>
+<l>No laggard.  Merion too your eyes shall know</l>
+<l>From far. Tydides, fiercer than his sire,</l>
+<l>Pursues you, all aglow;</l></lg>
+<lg><l>Him, as the stag forgets to graze for fright,</l>
+<l>Seeing the wolf at distance in the glade,</l>
+<l>And flies, high panting, you shall fly, despite</l>
+<l>Boasts to your leman made.</l></lg>
+<lg><l>What though Achilles' wrathful fleet postpone</l>
+<l>The day of doom to <placeName key="perseus,Troy">Troy</placeName> and <placeName key="perseus,Troy">Troy</placeName>'s proud dames,</l>
+<l>Her towers shall fall, the number'd winters flown,</l>
+<l>Wrapp'd in Achaenan flames.&rdquo;</l></lg></div2>
+<div2 type="Poem" n="16" met="ab">
+<lg><l>O lovelier than the lovely dame</l>
+<l>That bore you, sentence as you please</l>
+<l>Those scurril verses, be it flame</l>
+<l>Your vengeance craves, or Hadrian seas.</l>
+<l>Not Cybele, nor he that haunts</l>
+<l>Rich <placeName key="tgn,7010770">Pytho</placeName>, worse the brain confounds,</l>
+<l>Not Bacchus, nor the Corybants</l>
+<l>Clash their loud gongs with fiercer sounds</l>
+<l>Than savage wrath; nor sword nor spear</l>
+<l>Appals it, no, nor ocean's frown,</l>
+<l>Nor ravening fire, nor <placeName key="tgn,1125260">Jupiter</placeName></l>
+<l>In hideous ruin crashing down.</l>
+<l>Prometheus, forced, they say, to add</l>
+<l>To his prime clay some favourite part</l>
+<l>From every kind, took lion mad,</l>
+<l>And lodged its gall in man's poor heart.</l>
+<l>'Twas wrath that laid Thyestes low;</l>
+<l>'Tis wrath that oft destruction calls</l>
+<l>On cities, and invites the foe</l>
+<l>To drive his plough o'er ruin'd walls.</l>
+<l>Then calm your spirit; I can tell</l>
+<l>How once, when youth in all my veins</l>
+<l>Was glowing, blind with rage, I fell</l>
+<l>On friend and foe in ribald strains.</l>
+<l>Come, let me change my sour for sweet,</l>
+<l>And smile complacent as before:</l>
+<l>Hear me my palinode repeat,</l>
+<l>And give me back your heart once more.</l></lg></div2>
+<div2 type="Poem" n="17" met="ab">
+<lg><l>The pleasures of Lucretilis</l>
+<l>Tempt Faunus from his Grecian seat;</l>
+<l>He keeps my little goats in bliss</l>
+<l>Apart from wind, and rain, and heat.</l>
+<l>In safety rambling o'er the sward</l>
+<l>For arbutes and for thyme they peer,</l>
+<l>The ladies of the unfragrant lord,</l>
+<l>Nor vipers, green with venom, fear,</l>
+<l>Nor savage wolves, of Mars' own breed,</l>
+<l>My <placeName key="perseus,Tyndaris">Tyndaris</placeName>, while <placeName key="tgn,1047264">Ustica</placeName>'s dell</l>
+<l>Is vocal with the silvan reed,</l>
+<l>And music thrills the limestone fell.</l>
+<l>Heaven is my guardian; heaven approves</l>
+<l>A blameless life, by song made sweet;</l>
+<l>Come hither, and the fields and groves</l>
+<l>Their horn shall empty at your feet.</l>
+<l>Here, shelter'd by a friendiy tree,</l>
+<l>In Teian measures you shall sing</l>
+<l>Bright Circe and Penelope,</l>
+<l>Love-smitten both by one sharp sting.</l>
+<l>Here shall you quaff beneath the shade</l>
+<l>Sweet Lesbian draughts that injure none,</l>
+<l>Nor fear lest Mars the realm invade</l>
+<l>Of Semele's Thyonian son,</l>
+<l>Lest Cyrus on a foe too weak</l>
+<l>Lay the rude hand of wild excess,</l>
+<l>His passion on your chaplet wreak,</l>
+<l>Or spoil your undeserving dress.</l></lg></div2>
+<div2 type="Poem" n="18" met="ab">
+<lg><l>Varus, are your trees in planting? put in none before the vine,</l>
+<l>In the rich domain of <placeName key="perseus,Tibur">Tibur</placeName>, by the walls of Catilus;</l>
+<l>There's a power above that hampers all that sober brains design,</l>
+<l>And the troubles man is heir to thus are quell'd, and only thus.</l>
+<l>Who can talk of want or warfare when the wine is in his head,</l>
+<l>Not of thee, good father Bacchus, and of Venus fair and bright?</l>
+<l>But should any dream of licence, there's a lesson may be read,</l>
+<l>How 'twas wine that drove the Centaurs with the Lapithae to fight.</l>
+<l>And the Thracians too may warn us; truth and falsehood, good and ill,</l>
+<l>How they mix them, when the wine-god's hand is heavy on them laid!</l>
+<l>Never, never, gracious Bacchus, may I move thee 'gainst thy will,</l>
+<l>Or uncover what is hidden in the verdure of thy shade!</l>
+<l>Silence thou thy savage cymbals, and the Berecyntine horn;</l>
+<l>In their train Self-love still follows, dully, desperately blind,</l>
+<l>And Vain-glory, towering upwards in its emptyheaded scorn,</l>
+<l>And the Faith that keeps no secrets, with a window in its mind.</l></lg></div2>
+<div2 type="Poem" n="19" met="ab">
+<lg><l>Cupid's mother, cruel dame,</l>
+<l>And Semele's Theban boy, and Licence bold,</l>
+<l>Bid me kindle into flame</l>
+<l>This heart, by waning passion now left cold.</l>
+<l>O, the charms of Glycera,</l>
+<l>That hue, more dazzling than the Parian stone!</l>
+<l>O, that sweet tormenting play,</l>
+<l>That too fair face, that blinds when look'd upon!</l>
+<l>Venus comes in all her might,</l>
+<l>Quits <placeName key="tgn,1000112">Cyprus</placeName> for my heart, nor lets me tell</l>
+<l>Of the Parthian, bold in flight,</l>
+<l>Nor Scythian hordes, nor aught that breaks her spell.</l>
+<l>Heap the grassy altar up,</l>
+<l>Bring vervain, boys, and sacred frankincense;</l>
+<l>Fill the sacrificial cup;</l>
+<l>A victim's blood will soothe her vehemence.</l></lg></div2>
+<div2 type="Poem" n="20" met="aaab">
+<lg><l>Not large my cups, nor rich my cheer,</l>
+<l>This <placeName key="tgn,7021127">Sabine</placeName> wine, which erst I seal'd,</l>
+<l>That day the applauding theatre</l>
+<l>Your welcome peal'd,</l></lg>
+<lg><l>Dear knight Maecenas! as 'twere fain</l>
+<l>That your paternal river's banks,</l>
+<l>And <placeName key="tgn,7001168">Vatican</placeName>, in sportive strain,</l>
+<l>Should echo thanks.</l></lg>
+<lg><l>For you Calenian grapes are press'd,</l>
+<l>And Caecuban; these cups of mine</l>
+<l>Falernum's bounty ne'er has bless'd,</l>
+<l>Nor Formian vine.</l></lg></div2>
+<div2 type="Poem" n="21" met="21">
+<lg><l>Of Dian's praises, tender maidens, tell;</l>
+<l>Of Cynthus' unshorn god, young striplings, sing;</l>
+<l>And bright <placeName key="tgn,2013536">Latona</placeName>, well</l>
+<l>Beloved of Heaven's high king.</l></lg>
+<lg><l>Sing her that streams and silvan foliage loves,</l>
+<l>Whate'er on Algidus' chill brow is seen,</l>
+<l>In Erymanthian groves</l>
+<l>Dark-leaved, or Cragus green.</l></lg>
+<lg><l>Sing <placeName key="tgn,7014367">Tempe</placeName> too, glad youths, in strain as loud,</l>
+<l>And Phoebus' birthplace, and that shoulder fair,</l>
+<l>His golden quiver proud</l>
+<l>And brother's lyre to bear.</l></lg>
+<lg><l>His arm shall banish Hunger, Plague, and War</l>
+<l>To <placeName key="tgn,7000231">Persia</placeName> and to <placeName key="tgn,7008653">Britain</placeName>'s coast, away</l>
+<l>From <placeName key="perseus,Rome">Rome</placeName> and Caesar far,</l>
+<l>If you have zeal to pray.</l></lg></div2>
+<div2 type="Poem" n="22" met="aaab">
+<lg><l>No need of Moorish archer's craft</l>
+<l>To guard the pure and stainless liver;</l>
+<l>He wants not, Fuscus, poison'd shaft</l>
+<l>To store his quiver,</l></lg>
+<lg><l>Whether he traverse Libyan shoals,</l>
+<l>Or <placeName key="tgn,1108814">Caucasus</placeName>, forlorn and horrent,</l>
+<l>Or lands where far <placeName key="tgn,7002541">Hydaspes</placeName> rolls</l>
+<l>His fabled torrent.</l></lg>
+<lg><l>A wolf, while roaming trouble-free</l>
+<l>In <placeName key="tgn,7021127">Sabine</placeName> wood, as fancy led me,</l>
+<l>Unarm'd I sang my Lalage,</l>
+<l>Beheld, and fled me.</l></lg>
+<lg><l>Dire monster! in her broad oak woods</l>
+<l>Fierce Daunia fosters none such other,</l>
+<l>Nor <placeName key="tgn,1094266">Juba</placeName>'s land, of lion broods</l>
+<l>The thirsty mother.</l></lg>
+<lg><l>Place me where on the ice-bound plain</l>
+<l>No tree is cheer'd by summer breezes,</l>
+<l>Where Jove descends in sleety rain</l>
+<l>Or sullen freezes;</l></lg>
+<lg><l>Place me where none can live for heat,</l>
+<l>'Neath Phoebus' very chariot plant me,</l>
+<l>That smile so sweet, that voice so sweet,</l>
+<l>Shall still enchant me.</l></lg></div2>
+<div2 type="Poem" n="23" met="aaab">
+<lg><l>You fly me, Chloe, as o'er trackless hills</l>
+<l>A young fawn runs her timorous dam to find,</l>
+<l>Whom empty terror thrills</l>
+<l>Of woods and whispering wind.</l></lg>
+<lg><l>Whether 'tis Spring's first shiver, faintly heard</l>
+<l>Through the light leaves, or lizards in the brake</l>
+<l>The rustling thorns have stirr'd,</l>
+<l>Her heart, her knees, they quake.</l></lg>
+<lg><l>Yet I, who chase you, no grim lion am,</l>
+<l>No tiger fell, to crush you in my gripe:</l>
+<l>Come, learn to leave your dam.</l>
+<l>For lover's kisses ripe.</l></lg></div2>
+<div2 type="Poem" n="24" met="aaab">
+<lg><l>Why blush to let our tears unmeasured fall</l>
+<l>For one so dear?  Begin the mournful stave,</l>
+<l>Melpomene, to whom the sire of all</l>
+<l>Sweet voice with music gave.</l></lg>
+<lg><l>And sleeps he then the heavy sleep of death,</l>
+<l>Quintilius?  Piety, twin sister dear</l>
+<l>Of Justice! naked Truth! unsullied Faith!</l>
+<l>When will ye find his peer?</l></lg>
+<lg><l>By many a good man wept, Quintilius dies;</l>
+<l>By none than you, my Virgil, trulier wept:</l>
+<l>Devout in vain, you chide the faithless skies,</l>
+<l>Asking your loan ill-kept.</l></lg>
+<lg><l>No, though more suasive than the bard of <placeName key="tgn,7002756">Thrace</placeName></l>
+<l>You swept the lyre that trees were fain to hear,</l>
+<l>Ne'er should the blood revisit his pale face</l>
+<l>Whom once with wand severe</l></lg>
+<lg><l>Mercury has folded with the sons of night,</l>
+<l>Untaught to prayer Fate's prison to unseal.</l>
+<l>Ah, heavy grief! but patience makes more light</l>
+<l>What sorrow may not heal.</l></lg></div2>
+<div2 type="Poem" n="26" met="ab">
+<lg><l>The Muses love me: fear and grief,</l>
+<l>The winds may blow them to the sea;</l>
+<l>Who quail before the wintry chief</l>
+<l>Of <placeName key="tgn,6005315">Scythia</placeName>'s realm, is nought to me.</l>
+<l>What cloud o'er Tiridates lowers,</l>
+<l>I care not, I.  O, nymph divine</l>
+<l>Of virgin springs, with sunniest flowers</l>
+<l>A chaplet for my <placeName key="tgn,7010893">Lamia</placeName> twine,</l>
+<l>Pimplea sweet! my praise were vain</l>
+<l>Without thee.  String this maiden lyre,</l>
+<l>Attune for him the Lesbian strain,</l>
+<l>O goddess, with thy sister quire!</l></lg></div2>
+<div2 type="Poem" n="27" met="ab">
+<lg><l>What, fight with cups that should give joy?</l>
+<l>'Tis barbarous; leave such savage ways</l>
+<l>To Thracians. Bacchus, shamefaced boy,</l>
+<l>Is blushing at your bloody frays.</l>
+<l>The Median sabre! lights and wine!</l>
+<l>Was stranger contrast ever seen?</l>
+<l>Cease, cease this brawling, comrades mine,</l>
+<l>And still upon your elbows lean.</l>
+<l>Well, shall I take a toper's part</l>
+<l>Of fierce Falernian? let our guest,</l>
+<l>Megilla's brother, say what dart</l>
+<l>Gave the death-wound that makes him blest.</l>
+<l>He hesitates? no other hire</l>
+<l>Shall tempt my sober brains.  Whate'er</l>
+<l>The goddess tames you, no base fire</l>
+<l>She kindles; 'tis some gentle fair</l>
+<l>Allures you still.  Come, tell me truth,</l>
+<l>And trust my honour&mdash;That the name?</l>
+<l>That wild Charybdis yours?  Poor youth!</l>
+<l>O, you deserved a better flame!</l>
+<l>What wizard, what Thessalian spell,</l>
+<l>What god can save you, hamper'd thus?</l>
+<l>To cope with this Chimaera fell</l>
+<l>Would task another Pegasus.</l></lg></div2>
+<div2 type="Poem" n="28" met="ab">
+<lg><l>The sea, the earth, the innumerable sand,</l>
+<l>Archytas, thou couldst measure; now, alas!</l>
+<l>A little dust on Matine shore has spann'd</l>
+<l>That soaring spirit; vain it was to pass</l>
+<l>The gates of heaven, and send thy soul in quest</l>
+<l>O'er air's wide realms; for thou hadst yet to die.</l>
+<l>Ay, dead is Pelops' father, heaven's own guest,</l>
+<l>And old Tithonus, rapt from earth to sky,</l>
+<l>And Minos, made the council-friend of Jove;</l>
+<l>And Panthus' son has yielded up his breath</l>
+<l>Once more, though down he pluck'd the shield, to prove</l>
+<l>His prowess under <placeName key="perseus,Troy">Troy</placeName>, and bade grim death</l>
+<l>O'er skin and nerves alone exert its power,</l>
+<l>Not he, you grant, in nature meanly read.</l>
+<l>Yes, all &ldquo;await the inevitable hour;&rdquo;</l>
+<l>The downward journey all one day must tread.</l>
+<l>Some bleed, to glut the war-god's savage eyes;</l>
+<l>Fate meets the sailor from the hungry brine;</l>
+<l>Youth jostles age in funeral obsequies;</l>
+<l>Each brow in turn is touch'd by Proserpine.</l>
+<l>Me, too, Orion's mate, the Southern blast,</l>
+<l>Whelm'd in deep death beneath the Illyrian wave.</l>
+<l>But grudge not, sailor, of driven sand to cast</l>
+<l>A handful on my head, that owns no grave.</l>
+<l>So, though the eastern tempests loudly threat</l>
+<l>Hesperia's main, may green <placeName key="perseus,Venusia">Venusia</placeName>'s crown</l>
+<l>Be stripp'd, while you lie warm; may blessings yet</l>
+<l>Stream from <placeName key="tgn,7004100">Tarentum</placeName>'s guard, great Neptune, down,</l>
+<l>And gracious Jove, into your open lap!</l>
+<l>What!  shrink you not from crime whose punishment</l>
+<l>Falls on your innocent children? it may hap</l>
+<l>Imperious Fate will make yourself repent.</l>
+<l>My prayers shall reach the avengers of all wrong;</l>
+<l>No expiations shall the curse unbind.</l>
+<l>Great though your haste, I would not task you long;</l>
+<l>Thrice sprinkle dust, then scud before the wind.</l></lg></div2>
+<div2 type="Poem" n="29" met="ab">
+<lg><l>Your heart on Arab wealth is set,</l>
+<l>Good Iccius: you would try your steel</l>
+<l>On <placeName key="tgn,7016796">Saba</placeName>'s kings, unconquerd yet,</l>
+<l>And make the <placeName key="tgn,1045322">Mede</placeName> your fetters feel.</l>
+<l>Come, tell me what barbarian fair</l>
+<l>Will serve you now, her bridegroom slain?</l>
+<l>What page from court with essenced hair</l>
+<l>Will tender you the bowl you drain,</l>
+<l>Well skill'd to bend the Serian bow</l>
+<l>His father carried? Who shall say</l>
+<l>That rivers may not uphill flow,</l>
+<l>And <placeName key="tgn,1130786">Tiber</placeName>'s self return one day,</l>
+<l>If you would change Panaetius' works,</l>
+<l>That costly purchase, and the clan</l>
+<l>Of Socrates, for shields and dirks,</l>
+<l>Whom once we thought a saner man?</l></lg></div2>
+<div2 type="Poem" n="30" met="aaab">
+<lg><l>Come, Cnidian, Paphian Venus, come,</l>
+<l>Thy well-beloved <placeName key="tgn,1000112">Cyprus</placeName> spurn,</l>
+<l>Haste, where for thee in Glycera's home</l>
+<l>Sweet odours burn.</l></lg>
+<lg><l>Bring too thy Cupid, glowing warm,</l>
+<l>Graces and Nymphs, unzoned and free,</l>
+<l>And Youth, that lacking thee lacks charm,</l>
+<l>And Mercury.</l></lg></div2>
+<div2 type="Poem" n="31" met="ab">
+<lg><l>What blessing shall the bard entreat</l>
+<l>The god he hallows, as he pours</l>
+<l>The winecup? Not the mounds of wheat</l>
+<l>That load Sardinian threshing floors;</l>
+<l>Not Indian gold or ivory&mdash;no,</l>
+<l>Nor flocks that o'er <placeName key="tgn,7007850">Calabria</placeName> stray,</l>
+<l>Nor fields that Liris, still and slow,</l>
+<l>Is eating, unperceived, away.</l>
+<l>Let those whose fate allows them train</l>
+<l>Calenum's vine; let trader bold</l>
+<l>From golden cups rich liquor drain</l>
+<l>For wares of <placeName key="tgn,1000140">Syria</placeName> bought and sold,</l>
+<l>Heaven's favourite, sooth, for thrice a year</l>
+<l>He comes and goes across the brine</l>
+<l>Undamaged.  I in plenty here</l>
+<l>On endives, mallows, succory dine.</l>
+<l>O grant me, Phoebus, calm content,</l>
+<l>Strength unimpaird, a mind entire,</l>
+<l>Old age without dishonour spent,</l>
+<l>Nor unbefriended by the lyre!</l></lg></div2>
+<div2 type="Poem" n="32" met="aaab">
+<lg><l>They call;&mdash;if aught in shady dell</l>
+<l>We twain have warbled, to remain</l>
+<l>Long months or years, now breathe, my shell,</l>
+<l>A Roman strain,</l></lg>
+<lg><l>Thou, strung by <placeName key="tgn,7002672">Lesbos</placeName>' minstrel hand,</l>
+<l>The bard, who 'mid the clash of steel,</l>
+<l>Or haply mooring to the strand</l>
+<l>His batter'd keel,</l></lg>
+<lg><l>Of Bacchus and the Muses sung,</l>
+<l>And Cupid, still at Venus' side,</l>
+<l>And Lycus, beautiful and young,</l>
+<l>Dark-hair'd, dark-eyed.</l></lg>
+<lg><l>O sweetest lyre, to Phoebus dear,</l>
+<l>Delight of Jove's high festival,</l>
+<l>Blest balm in trouble, hail and hear</l>
+<l>Whene'er I call!</l></lg></div2>
+<div2 type="Poem" n="33" met="aaab">
+<lg><l>What, Albius! why this passionate despair</l>
+<l>For cruel Glycera? why melt your voice</l>
+<l>In dolorous strains, because the perjured fair</l>
+<l>Has made a younger choice?</l></lg>
+<lg><l>See, narrow-brow'd Lycoris, how she glows</l>
+<l>For Cyrus!  Cyrus turns away his head</l>
+<l>To Pholoe's frown; but sooner gentle roes</l>
+<l>Apulian wolves shall wed,</l></lg>
+<lg><l>Than Pholoe to so mean a conqueror strike:</l>
+<l>So Venus wills it; 'neath her brazen yoke</l>
+<l>She loves to couple forms and minds unlike,</l>
+<l>All for a heartless joke.</l></lg>
+<lg><l>For me sweet Love had forged a milder spell;</l>
+<l>But Myrtale still kept me her fond slave,</l>
+<l>More stormy she than the tempestuous swell</l>
+<l>That crests <placeName key="tgn,7007850">Calabria</placeName>'s wave.</l></lg></div2>
+<div2 type="Poem" n="34" met="ab">
+<lg><l>My prayers were scant, my offerings few,</l>
+<l>While witless wisdom fool'd my mind;</l>
+<l>But now I trim my sails anew,</l>
+<l>And trace the course I left behind.</l>
+<l>For lo! the sire of heaven on high,</l>
+<l>By whose fierce bolts the clouds are riven,</l>
+<l>Today through an unclouded sky</l>
+<l>His thundering steeds and car has driven.</l>
+<l>E'en now dull earth and wandering floods,</l>
+<l>And Atlas' limitary range,</l>
+<l>And Styx, and Taenarus' dark abodes</l>
+<l>Are reeling.  He can lowliest change</l>
+<l>And loftiest; bring the mighty down</l>
+<l>And lift the weak; with whirring flight</l>
+<l>Comes Fortune, plucks the monarch's crown,</l>
+<l>And decks therewith some meaner wight.</l></lg></div2>
+<div2 type="Poem" n="35" met="ab">
+<lg><l>Lady of <placeName key="perseus,Antium">Antium</placeName>, grave and stern!</l>
+<l>O Goddess, who canst lift the low</l>
+<l>To high estate, and sudden turn</l>
+<l>A triumph to a funeral show!</l>
+<l>Thee the poor hind that tills the soil</l>
+<l>Implores; their queen they own in thee,</l>
+<l>Who in Bithynian vessel toil</l>
+<l>Amid the vex'd Carpathian sea.</l>
+<l>Thee Dacians fierce, and Scythian hordes,</l>
+<l>Peoples and towns, and <placeName key="perseus,Rome">Rome</placeName>, their head,</l>
+<l>And mothers of barbarian lords,</l>
+<l>And tyrants in their purple dread,</l>
+<l>Lest, spurn'd by thee in scorn, should fall</l>
+<l>The state's tall prop, lest crowds on fire</l>
+<l>To arms, to arms! the loiterers call,</l>
+<l>And thrones be tumbled in the mire.</l>
+<l>Necessity precedes thee still</l>
+<l>With hard fierce eyes and heavy tramp:</l>
+<l>Her hand the nails and wedges fill,</l>
+<l>The molten lead and stubborn clamp.</l>
+<l>Hope, precious Truth in garb of white,</l>
+<l>Attend thee still, nor quit thy side</l>
+<l>When with changed robes thou tak'st thy flight</l>
+<l>In anger from the homes of pride.</l>
+<l>Then the false herd, the faithless fair,</l>
+<l>Start backward; when the wine runs dry.</l>
+<l>The jocund guests, too light to bear</l>
+<l>An equal yoke, asunder fly.</l>
+<l>O shield our Caesar as he goes</l>
+<l>To furthest <placeName key="tgn,7008653">Britain</placeName>, and his band,</l>
+<l><placeName key="perseus,Rome">Rome</placeName>'s harvest! Send on Eastern foes</l>
+<l>Their fear, and on the <placeName key="tgn,7016791">Red Sea</placeName> strand!</l>
+<l>O wounds that scarce have ceased to run!</l>
+<l>O brother's blood!  O iron time!</l>
+<l>What horror have we left undone?</l>
+<l>Has conscience shrunk from aught of crime?</l>
+<l>What shrine has rapine held in awe?</l>
+<l>What altar spared?  O haste and beat</l>
+<l>The blunted steel we yet may draw</l>
+<l>On Arab and on Massagete!</l></lg></div2>
+<div2 type="Poem" n="36" met="ab">
+<lg><l>Bid the lyre and cittern play;</l>
+<l>Enkindle incense, shed the victim's gore;</l>
+<l>Heaven has watch'd o'er Numida,</l>
+<l>And brings him safe from far <placeName key="tgn,1000095">Hispania</placeName>'s shore.</l>
+<l>Now, returning, he bestows</l>
+<l>On each dear comrade all the love he can;</l>
+<l>But to <placeName key="perseus,Lamia">Lamia</placeName> most he owes,</l>
+<l>By whose sweet side he grew from boy to man.</l>
+<l>Note we in our calendar</l>
+<l>This festal day with whitest mark from <placeName key="tgn,7012056">Crete</placeName>:</l>
+<l>Let it flow, the old wine-jar,</l>
+<l>And ply to Salian time your restless feet.</l>
+<l>Damalis tosses off her wine,</l>
+<l>But Bassus sure must prove her match tonight.</l>
+<l>Give us roses all to twine,</l>
+<l>And parsley green, and lilies deathly white.</l>
+<l>Every melting eye will rest</l>
+<l>On Damalis' lovely face; but none may part</l>
+<l>Damalis from our new-found guest;</l>
+<l>She clings, and clings, like ivy, round his heart.</l></lg></div2>
+<div2 type="Poem" n="37" met="ab">
+<lg><l>Now drink we deep, now featly tread</l>
+<l>A measure; now before each shrine</l>
+<l>With Salian feasts the table spread;</l>
+<l>The time invites us, comrades mine.</l>
+<l>'Twas shame to broach, before today,</l>
+<l>The Caecuban, while <placeName key="tgn,7016833">Egypt</placeName>'s dame</l>
+<l>Threaten'd our power in dust to lay</l>
+<l>And wrap the Capitol in flame,</l>
+<l>Girt with her foul emasculate throng,</l>
+<l>By Fortune's sweet new wine befool'd,</l>
+<l>In hope's ungovern'd weakness strong</l>
+<l>To hope for all; but soon she cool'd,</l>
+<l>To see one ship from burning 'scape;</l>
+<l>Great Caesar taught her dizzy brain,</l>
+<l>Made mad by Mareotic grape,</l>
+<l>To feel the sobering truth of pain,</l>
+<l>And gave her chase from <placeName key="tgn,1000080">Italy</placeName>,</l>
+<l>As after doves fierce falcons speed,</l>
+<l>As hunters 'neath Haemonia's sky</l>
+<l>Chase the tired hare, so might he lead</l>
+<l>The fiend enchain'd; she sought to die</l>
+<l>More nobly, nor with woman's dread</l>
+<l>Quail'd at the steel, nor timorously</l>
+<l>In her fleet ships to covert fled.</l>
+<l>Amid her ruin'd halls she stood</l>
+<l>Unblench'd, and fearless to the end</l>
+<l>Grasp'd the fell snakes, that all her blood</l>
+<l>Might with the cold black venom blend,</l>
+<l>Death's purpose flushing in her face;</l>
+<l>Nor to our ships the glory gave,</l>
+<l>That she, no vulgar dame, should grace</l>
+<l>A triumph, crownless, and a slave.</l></lg></div2>
+<div2 type="Poem" n="38" met="aaab">
+<lg><l>No Persian cumber, boy, for me;</l>
+<l>I hate your garlands linden-plaited;</l>
+<l>Leave winter's rose where on the tree</l>
+<l>It hangs belated.</l></lg>
+<lg><l>Wreath me plain myrtle; never think</l>
+<l>Plain myrtle either's wear unfitting,</l>
+<l>Yours as you wait, mine as I drink</l>
+<l>In vine-bower sitting.</l></lg></div2></div1>
+<div1 type="Book" n="2">
+<div2 type="Poem" n="1" met="ab">
+<lg><l>The broils that from Metellus date,</l>
+<l>The secret springs, the dark intrigues,</l>
+<l>The freaks of Fortune, and the great</l>
+<l>Confederate in disastrous leagues,</l>
+<l>And arms with uncleansed slaughter red,</l>
+<l>A work of danger and distrust,</l>
+<l>You treat, as one on fire should tread</l>
+<l>Scarce hid by treacherous ashen crust.</l>
+<l>Let Tragedy's stern muse be mute</l>
+<l>Awhile; and when your order'd page</l>
+<l>Has told <placeName key="perseus,Rome">Rome</placeName>'s tale, that buskin'd foot</l>
+<l>Again shall mount the Attic stage,</l>
+<l>Pollio, the pale defendant's shield,</l>
+<l>In deep debate the senate's stay,</l>
+<l>The hero of Dalmatic field</l>
+<l>By Triumph crown'd with deathless bay.</l>
+<l>E'en now with trumpet's threatening blare</l>
+<l>You thrill our ears; the clarion brays;</l>
+<l>The lightnings of the armour scare</l>
+<l>The steed, and daunt the rider's gaze.</l>
+<l>Methinks I hear of leaders proud</l>
+<l>With no uncomely dust distain'd,</l>
+<l>And all the world by conquest bow'd,</l>
+<l>And only Cato's soul unchain'd.</l>
+<l>Yes, Juno and the powers on high</l>
+<l>That left their Afric to its doom,</l>
+<l>Have led the victors' progeny</l>
+<l>As victims to Jugurtha's tomb.</l>
+<l>What field, by Latian blood-drops fed,</l>
+<l>Proclaims not the unnatural deeds</l>
+<l>It buries, and the earthquake dread</l>
+<l>Whose distant thunder shook the Medes?</l>
+<l>What gulf, what river has not seen</l>
+<l>Those sights of sorrow? nay, what sea</l>
+<l>Has Daunian carnage yet left green?</l>
+<l>What coast from Roman blood is free?</l>
+<l>But pause, gay Muse, nor leave your play</l>
+<l>Another Cean dirge to sing;</l>
+<l>With me to Venus' bower away,</l>
+<l>And there attune a lighter string.</l></lg></div2>
+<div2 type="Poem" n="2" met="aaab">
+<lg><l>The silver, Sallust, shows not fair</l>
+<l>While buried in the greedy mine:</l>
+<l>You love it not till moderate wear</l>
+<l>Have given it shine.</l></lg>
+<lg><l>Honour to Proculeius!  he</l>
+<l>To brethren play'd a father's part;</l>
+<l>Fame shall embalm through years to be</l>
+<l>That noble heart.</l></lg>
+<lg><l>Who curbs a greedy soul may boast</l>
+<l>More power than if his broad-based throne</l>
+<l>Bridged <placeName key="tgn,1000172">Libya</placeName>'s sea, and either coast</l>
+<l>Were all his own.</l></lg>
+<lg><l>Indulgence bids the dropsy grow;</l>
+<l>Who fain would quench the palate's flame</l>
+<l>Must rescue from the watery foe</l>
+<l>The pale weak frame.</l></lg>
+<lg><l>Phraates, throned where Cyrus sate,</l>
+<l>May count for blest with vulgar herds,</l>
+<l>But not with Virtue; soon or late</l>
+<l>From lying words</l></lg>
+<lg><l>She weans men's lips; for him she keeps</l>
+<l>The crown, the purple, and the bays,</l>
+<l>Who dares to look on treasure-heaps</l>
+<l>With unblench'd gaze.</l></lg></div2>
+<div2 type="Poem" n="3" met="ab">
+<lg><l>An equal mind, when storms o'ercloud,</l>
+<l>Maintain, nor 'neath a brighter sky</l>
+<l>Let pleasure make your heart too proud,</l>
+<l>O Dellius, Dellius! sure te die,</l>
+<l>Whether in gloom you spend each year,</l>
+<l>Or through long holydays at ease</l>
+<l>In grassy nook your spirit cheer</l>
+<l>With old Falernian vintages,</l>
+<l>Where poplar pale, and pine-tree high</l>
+<l>Their hospitable shadows spread</l>
+<l>Entwined, and panting waters try</l>
+<l>To hurry down their zigzag bed.</l>
+<l>Bring wine and scents, and roses' bloom,</l>
+<l>Too brief, alas! to that sweet place;</l>
+<l>While life, and fortune, and the loom</l>
+<l>Of the Three Sisters yield you grace.</l>
+<l>Soon must you leave the woods you buy,</l>
+<l>Your villa, wash'd by <placeName key="tgn,1130786">Tiber</placeName>'s flow,</l>
+<l>Leave,&mdash;and your treasures, heap'd so high,</l>
+<l>Your reckless heir will level low.</l>
+<l>Whether from <placeName key="perseus,Argos">Argos</placeName>' founder born</l>
+<l>In wealth you lived beneath the sun,</l>
+<l>Or nursed in beggary and scorn,</l>
+<l>You fall to Death, who pities none.</l>
+<l>One way all travel; the dark urn</l>
+<l>Shakes each man's lot, that soon or late</l>
+<l>Will force him, hopeless of return,</l>
+<l>On board the exile-ship of Fate.</l></lg></div2>
+<div2 type="Poem" n="4" met="aaab">
+<lg><l>Why, Xanthias, blush to own you love</l>
+<l>Your slave? Briseis, long ago,</l>
+<l>A captive, could Achilles move</l>
+<l>With breast of snow.</l></lg>
+<lg><l>Tecmessa's charms enslaved her lord,</l>
+<l>Stout Ajax, heir of Telamon;</l>
+<l>Atrides, in his pride, adored</l>
+<l>The maid he won,</l></lg>
+<lg><l>When <placeName key="perseus,Troy">Troy</placeName> to <placeName key="tgn,7001399">Thessaly</placeName> gave way,</l>
+<l>And Hector's all too quick decease</l>
+<l>Made <placeName key="tgn,7016140">Pergamus</placeName> an easier prey</l>
+<l>To wearied <placeName key="tgn,1000074">Greece</placeName>.</l></lg>
+<lg><l>What if, as auburn Phyllis' mate,</l>
+<l>You graft yourself on regal stem?</l>
+<l>Oh yes! be sure her sires were great;</l>
+<l>She weeps for them.</l></lg>
+<lg><l>Believe me, from no rascal scum</l>
+<l>Your charmer sprang; so true a flame,</l>
+<l>Such hate of greed, could never come</l>
+<l>From vulgar dame.</l></lg>
+<lg><l>With honest fervour I commend</l>
+<l>Those lips, those eyes; you need not fear</l>
+<l>A rival, hurrying on to end</l>
+<l>His fortieth year.</l></lg></div2>
+<div2 type="Poem" n="6" met="aaab">
+<lg><l>Septimius, who with me would brave</l>
+<l>Far <placeName key="tgn,7007512">Gades</placeName>, and Cantabrian land</l>
+<l>Untamed by <placeName key="perseus,Rome">Rome</placeName>, and Moorish wave</l>
+<l>That whirls the sand;</l></lg>
+<lg><l>Fair <placeName key="perseus,Tibur">Tibur</placeName>, town of <placeName key="tgn,5001993">Argive</placeName> kings,</l>
+<l>There would I end my days serene,</l>
+<l>At rest from seas and travellings,</l>
+<l>And service seen.</l></lg>
+<lg><l>Should angry Fate those wishes foil,</l>
+<l>Then let me seek Galesus, sweet</l>
+<l>To skin-clad sheep, and that rich soil,</l>
+<l>The Spartan's seat.</l></lg>
+<lg><l>O, what can match the green recess,</l>
+<l>Whose honey not to Hybla yields,</l>
+<l>Whose olives vie with those that bless</l>
+<l><placeName key="perseus,Venafrum">Venafrum</placeName>'s fields?</l></lg>
+<lg><l>Long springs, mild winters glad that spot</l>
+<l>By Jove's good grace, and <placeName key="tgn,7010744">Aulon</placeName>, dear</l>
+<l>To fruitful Bacchus, envies not</l>
+<l>Falernian cheer.</l></lg>
+<lg><l>That spot, those happy heights desire</l>
+<l>Our sojourn; there, when life shall end,</l>
+<l>Your tear shall dew my yet warm pyre,</l>
+<l>Your bard and friend.</l></lg></div2>
+<div2 type="Poem" n="7" met="ab">
+<lg><l>O, oft with me in troublous time</l>
+<l>Involved, when Brutus warr'd in <placeName key="tgn,1000074">Greece</placeName>,</l>
+<l>Who gives you back to your own clime</l>
+<l>And your own gods, a man of peace,</l>
+<l>Pompey, the earliest friend I knew,</l>
+<l>With whom I oft cut short the hours</l>
+<l>With wine, my hair bright bathed in dew</l>
+<l>Of Syrian oils, and wreathed with flowers?</l>
+<l>With you I shared <placeName key="perseus,Philippi">Philippi</placeName>'s rout,</l>
+<l>Unseemly parted from my shield,</l>
+<l>When Valour fell, and warriors stout</l>
+<l>Were tumbled on the inglorious field:</l>
+<l>But I was saved by Mercury,</l>
+<l>Wrapp'd in thick mist, yet trembling sore,</l>
+<l>While you to that tempestuous sea</l>
+<l>Were swept by battle's tide once more.</l>
+<l>Come, pay to Jove the feast you owe;</l>
+<l>Lay down those limbs, with warfare spent,</l>
+<l>Beneath my laurel; nor be slow</l>
+<l>To drain my cask; for you 'twas meant.</l>
+<l>Lethe's true draught is Massic wine;</l>
+<l>Fill high the goblet; pour out free</l>
+<l>Rich streams of unguent.  Who will twine</l>
+<l>The hasty wreath from myrtle-tree</l>
+<l>Or parsley?  Whom will Venus seat</l>
+<l>Chairman of cups? Are Bacchants sane?</l>
+<l>Then I'll be sober.  O, 'tis sweet</l>
+<l>To fool, when friends come home again!</l></lg></div2>
+<div2 type="Poem" n="8" met="aaab">
+<lg><l>Had chastisement for perjured truth,</l>
+<l>Barine, mark'd you with a curse&mdash;</l>
+<l>Did one wry nail, or one black tooth,</l>
+<l>But make you worse&mdash;</l></lg>
+<lg><l>I'd trust you; but, when plighted lies</l>
+<l>Have pledged you deepest, lovelier far</l>
+<l>You sparkle forth, of all young eyes</l>
+<l>The ruling star.</l></lg>
+<lg><l>'Tis gain to mock your mother's bones,</l>
+<l>And night's still signs, and all the sky,</l>
+<l>And gods, that on their glorious thrones</l>
+<l>Chill Death defy.</l></lg>
+<lg><l>Ay, Venus smiles; the pure nymphs smile,</l>
+<l>And Cupid, tyrant-lord of hearts,</l>
+<l>Sharpening on bloody stone the while</l>
+<l>His fiery darts.</l></lg>
+<lg><l>New captives fill the nets you weave;</l>
+<l>New slaves are bred; and those before,</l>
+<l>Though oft they threaten, never leave</l>
+<l>Your godless door.</l></lg>
+<lg><l>The mother dreads you for her son,</l>
+<l>The thrifty sire, the new-wed bride,</l>
+<l>Lest, lured by you, her precious one</l>
+<l>Should leave her side.</l></lg></div2>
+<div2 type="Poem" n="9" met="ab">
+<lg><l>The rain, it rains not every day</l>
+<l>On the soak'd meads; the Caspian main</l>
+<l>Not always feels the unequal sway</l>
+<l>Of storms, nor on <placeName key="tgn,7006651">Armenia</placeName>'s plain,</l>
+<l>Dear Valgius, lies the cold dull snow</l>
+<l>Through all the year; nor northwinds keen</l>
+<l>Upon Garganian oakwoods blow,</l>
+<l>And strip the ashes of their green.</l>
+<l>You still with tearful tones pursue</l>
+<l>Your lost, lost Mystes; Hesper sees</l>
+<l>Your passion when he brings the dew,</l>
+<l>And when before the sun he flees.</l>
+<l>Yet not for loved Antilochus</l>
+<l>Grey Nestor wasted all his years</l>
+<l>In grief; nor o'er young Troilus</l>
+<l>His parents' and his sisters' tears</l>
+<l>For ever flow'd.  At length have done</l>
+<l>With these soft sorrows; rather tell</l>
+<l>Of Caesar's trophies newly won,</l>
+<l>And hoar Niphates' icy fell,</l>
+<l>And Medus' flood, 'mid conquer'd tribes</l>
+<l>Rolling a less presumptuous tide,</l>
+<l>And Scythians taught, as <placeName key="perseus,Rome">Rome</placeName> prescribes,</l>
+<l>Henceforth o'er narrower steppes to ride.</l></lg></div2>
+<div2 type="Poem" n="10" met="aaab">
+<lg><l>Licinius, trust a seaman's lore:</l>
+<l>Steer not too boldly to the deep,</l>
+<l>Nor, fearing storms, by treacherous shore</l>
+<l>Too closely creep.</l></lg>
+<lg><l>Who makes the golden mean his guide,</l>
+<l>Shuns miser's cabin, foul and dark,</l>
+<l>Shuns gilded roofs, where pomp and pride</l>
+<l>Are envy's mark.</l></lg>
+<lg><l>With fiercer blasts the pine's dim height</l>
+<l>Is rock'd; proud towers with heavier fall</l>
+<l>Crash to the ground; and thunders smite</l>
+<l>The mountains tall.</l></lg>
+<lg><l>In sadness hope, in gladness fear</l>
+<l>'Gainst coming change will fortify</l>
+<l>Your breast. The storms that Jupiter</l>
+<l>Sweeps o'er the sky</l></lg>
+<lg><l>He chases.  Why should rain today</l>
+<l>Bring rain tomorrow? Python's foe</l>
+<l>Is pleased sometimes his lyre to play,</l>
+<l>Nor bends his bow.</l></lg>
+<lg><l>Be brave in trouble; meet distress</l>
+<l>With dauntless front; but when the gale</l>
+<l>Too prosperous blows, be wise no less,</l>
+<l>And shorten sail.</l></lg></div2>
+<div2 type="Poem" n="11" met="ab">
+<lg><l>O ask not what those sons of war,</l>
+<l>Cantabrian, Scythian, each intend,</l>
+<l>Disjoin'd from us by <placeName key="perseus,Hadria">Hadria</placeName>'s bar,</l>
+<l>Nor puzzle, Quintius, how to spend</l>
+<l>A life so simple.  Youth removes,</l>
+<l>And Beauty too; and hoar Decay</l>
+<l>Drives out the wanton tribe of Loves</l>
+<l>And Sleep, that came or night or day.</l>
+<l>The sweet spring-flowers not always keep</l>
+<l>Their bloom, nor moonlight shines the same</l>
+<l>Each evening. Why with thoughts too deep</l>
+<l>O'ertask a mind of mortal frame?</l>
+<l>Why not, just thrown at careless ease</l>
+<l>'Neath plane or pine, our locks of grey</l>
+<l>Perfumed with Syrian essences</l>
+<l>And wreathed with roses, while we may,</l>
+<l>Lie drinking? Bacchus puts to shame</l>
+<l>The cares that waste us.  Where's the slave</l>
+<l>To quench the fierce Falernian's flame</l>
+<l>With water from the passing wave?</l>
+<l>Who'll coax coy Lyde from her home?</l>
+<l>Go, bid her take her ivory lyre,</l>
+<l>The runaway, and haste to come,</l>
+<l>Her wild hair bound with Spartan tire.</l></lg></div2>
+<div2 type="Poem" n="12" met="aaab">
+<lg><l>The weary war where fierce <placeName key="tgn,7017511">Numantia</placeName> bled,</l>
+<l>Fell Hannibal, the swoln Sicilian main</l>
+<l>Purpled with Punic blood&mdash;not mine to wed</l>
+<l>These to the lyre's soft strain,</l></lg>
+<lg><l>Nor cruel Lapithae, nor, mad with wine,</l>
+<l>Centaurs, nor, by Herculean arm o'ercome,</l>
+<l>The earth-born youth, whose terrors dimm'd the shine</l>
+<l>Of the resplendent dome</l></lg>
+<lg><l>Of ancient Saturn.  You, Maecenas, best</l>
+<l>In pictured prose of Caesar's warrior feats</l>
+<l>Will tell, and captive kings with haughty crest</l>
+<l>Led through the Roman streets.</l></lg>
+<lg><l>On me the Muse has laid her charge to tell</l>
+<l>Of your Licymnia's voice, the lustrous hue</l>
+<l>Of her bright eye, her heart that beats so well</l>
+<l>To mutual passion true:</l></lg>
+<lg><l>How nought she does but lends her added grace,</l>
+<l>Whether she dance, or join in bantering play,</l>
+<l>Or with soft arms the maiden choir embrace</l>
+<l>On great Diana's day.</l></lg>
+<lg><l>Say, would you change for all the wealth possest</l>
+<l>By rich Achaemenes or <placeName key="tgn,7002613">Phrygia</placeName>'s heir,</l>
+<l>Or the full stores of Araby the blest,</l>
+<l>One lock of her dear hair,</l></lg>
+<lg><l>While to your burning lips she bends her neck,</l>
+<l>Or with kind cruelty denies the due</l>
+<l>She means you not to beg for, but to take,</l>
+<l>Or snatches it from you?</l></lg></div2>
+<div2 type="Poem" n="13" met="ab">
+<lg><l>Black day he chose for planting thee,</l>
+<l>Accurst he rear'd thee from the ground,</l>
+<l>The bane of children yet to be,</l>
+<l>The scandal of the village round.</l>
+<l>His father's throat the monster press'd</l>
+<l>Beside, and on his hearthstone spilt,</l>
+<l>I ween, the blood of midnight guest;</l>
+<l>Black Colchian drugs, whate'er of guilt</l>
+<l>Is hatch'd on earth, he dealt in all&mdash;</l>
+<l>Who planted in my rural stead</l>
+<l>Thee, fatal wood, thee, sure to fall</l>
+<l>Upon thy blameless master's head.</l>
+<l>The dangers of the hour! no thought</l>
+<l>We give them; Punic seaman's fear</l>
+<l>Is all of <placeName key="tgn,1115068">Bosporus</placeName>, nor aught</l>
+<l>Reeks he of pitfalls otherwhere;</l>
+<l>The soldier fears the mask'd retreat</l>
+<l>Of <placeName key="tgn,7016768">Parthia</placeName>; <placeName key="tgn,7016768">Parthia</placeName> dreads the thrall</l>
+<l>Of <placeName key="perseus,Rome">Rome</placeName>; but Death with noiseless feet</l>
+<l>Has stolen and will steal on all.</l>
+<l>How near dark Pluto's court I stood,</l>
+<l>And Aeacus' judicial throne,</l>
+<l>The blest seclusion of the good,</l>
+<l>And Sappho, with sweet lyric moan</l>
+<l>Bewailing her ungentle sex,</l>
+<l>And thee, Alcaeus, louder far</l>
+<l>Chanting thy tale of woful wrecks,</l>
+<l>Of woful exile, woful war!</l>
+<l>In sacred awe the silent dead</l>
+<l>Attend on each: but when the song</l>
+<l>Of combat tells and tyrants fled,</l>
+<l>Keen ears, press'd shoulders, closer throng.</l>
+<l>What marvel, when at those sweet airs</l>
+<l>The hundred-headed beast spell-bound</l>
+<l>Each black ear droops, and Furies' hairs</l>
+<l>Uncoil their serpents at the sound?</l>
+<l>Prometheus too and Pelops' sire</l>
+<l>In listening lose the sense of woe;</l>
+<l>Orion hearkens to the lyre,</l>
+<l>And lets the lynx and lion go.</l></lg></div2>
+<div2 type="Poem" n="14" met="ab">
+<lg><l>Ah, Postumus! they fleet away,</l>
+<l>Our years, nor piety one hour</l>
+<l>Can win from wrinkles and decay,</l>
+<l>And Death's indomitable power;</l>
+<l>Not though three hundred bullocks flame</l>
+<l>Each year, to soothe the tearless king</l>
+<l>Who holds huge Geryon's triple frame</l>
+<l>And Tityos in his watery ring,</l>
+<l>That circling flood, which all must stem,</l>
+<l>Who eat the fruits that Nature yields,</l>
+<l>Wearers of haughtiest diadem,</l>
+<l>Or humblest tillers of the fields.</l>
+<l>In vain we shun war's contact red</l>
+<l>Or storm-tost spray of Hadrian main:</l>
+<l>In vain, the season through, we dread</l>
+<l>For our frail lives Scirocco's bane.</l>
+<l>Cocytus' black and stagnant ooze</l>
+<l>Must welcome you, and Danaus' seed</l>
+<l>Ill-famed, and ancient Sisyphus</l>
+<l>To never-ending toil decreed.</l>
+<l>Your land, your house, your lovely bride</l>
+<l>Must lose you; of your cherish'd trees</l>
+<l>None to its fleeting master's side</l>
+<l>Will cleave, but those sad cypresses.</l>
+<l>Your heir, a larger soul, will drain</l>
+<l>The hundred-padlock'd Caecuban,</l>
+<l>And richer spilth the pavement stain</l>
+<l>Than e'er at pontiff's supper ran.</l></lg></div2>
+<div2 type="Poem" n="15" met="ab">
+<lg><l>Few roods of ground the piles we raise</l>
+<l>Will leave to plough; ponds wider spread</l>
+<l>Than Lucrine lake will meet the gaze</l>
+<l>On every side; the plane unwed</l>
+<l>Will top the elm; the violet-bed,</l>
+<l>The myrtle, each delicious sweet,</l>
+<l>On olive-grounds their scent will shed,</l>
+<l>Where once were fruit-trees yielding meat;</l>
+<l>Thick bays will screen the midday range</l>
+<l>Of fiercest suns.  Not such the rule</l>
+<l>Of Romulus, and Cato sage,</l>
+<l>And all the bearded, good old school.</l>
+<l>Each Roman's wealth was little worth,</l>
+<l>His country's much; no colonnade</l>
+<l>For private pleasance wooed the North</l>
+<l>With cool &ldquo;prolixity of shade.&rdquo;</l>
+<l>None might the casual sod disdain</l>
+<l>To roof his home; a town alone,</l>
+<l>At public charge, a sacred fane</l>
+<l>Were honour'd with the pomp of stone.</l></lg></div2>
+<div2 type="Poem" n="16" met="aaab">
+<lg><l>For ease, in wide <placeName key="tgn,7002675">Aegean</placeName> caught,</l>
+<l>The sailor prays, when clouds are hiding</l>
+<l>The moon, nor shines of starlight aught</l>
+<l>For seaman's guiding:</l></lg>
+<lg><l>For ease the <placeName key="tgn,1045322">Mede</placeName>, with quiver gay:</l>
+<l>For ease rude <placeName key="tgn,7002756">Thrace</placeName>, in battle cruel:</l>
+<l>Can purple buy it, Grosphus? Nay,</l>
+<l>Nor gold, nor jewel.</l></lg>
+<lg><l>No pomp, no lictor clears the way</l>
+<l>'Mid rabble-routs of troublous feelings,</l>
+<l>Nor quells the cares that sport and play</l>
+<l>Round gilded ceilings.</l></lg>
+<lg><l>More happy he whose modest board</l>
+<l>His father's well-worn silver brightens;</l>
+<l>No fear, nor lust for sordid hoard,</l>
+<l>His light sleep frightens.</l></lg>
+<lg><l>Why bend our bows of little span?</l>
+<l>Why change our homes for regions under</l>
+<l>Another sun? What exiled man</l>
+<l>From self can sunder?</l></lg>
+<lg><l>Care climbs the bark, and trims the sail,</l>
+<l>Curst fiend! nor troops of horse can 'scape her,</l>
+<l>More swift than stag, more swift than gale</l>
+<l>That drives the vapour.</l></lg>
+<lg><l>Blest in the present, look not forth</l>
+<l>On ills beyond, but soothe each bitter</l>
+<l>With slow, calm smile.  No suns on earth</l>
+<l>Unclouded glitter.</l></lg>
+<lg><l>Achilles' light was quench'd at noon;</l>
+<l>A long decay Tithonus minish'd;</l>
+<l>My hours, it may be, yet will run</l>
+<l>When yours are flnish'd.</l></lg>
+<lg><l>For you Sicilian heifers low,</l>
+<l>Bleat countless flocks; for you are neighing</l>
+<l>Proud coursers; Afric purples glow</l>
+<l>For your arraying</l></lg>
+<lg><l>With double dyes; a small domain,</l>
+<l>The soul that breathed in Grecian harping,</l>
+<l>My portion these; and high disdain</l>
+<l>Of ribald carping.</l></lg></div2>
+<div2 type="Poem" n="17" met="ab">
+<lg><l>Why rend my heart with that sad sigh?</l>
+<l>It cannot please the gods or me</l>
+<l>That you, Maecenas, first should die,</l>
+<l>My pillar of prosperity.</l>
+<l>Ah! should I lose one half my soul</l>
+<l>Untimely, can the other stay</l>
+<l>Behind it?  Life that is not whole,</l>
+<l>Is <emph>that</emph> as sweet?  The self-same day</l>
+<l>Shall crush us twain; no idle oath</l>
+<l>Has Horace sworn; whene'er you go,</l>
+<l>We both will travel, travel both</l>
+<l>The last dark journey down below.</l>
+<l>No, not Chimaera's fiery breath,</l>
+<l>Nor Gyas, could he rise again,</l>
+<l>Shall part us; Justice, strong as death,</l>
+<l>So wills it; so the Fates ordain.</l>
+<l>Whether 'twas Libra saw me born</l>
+<l>Or angry Scorpio, lord malign</l>
+<l>Of natal hour, or Capricorn,</l>
+<l>The tyrant of the western brine,</l>
+<l>Our planets sure with concord strange</l>
+<l>Are blended.  You by Jove's blest power</l>
+<l>Were snatch'd from out the baleful range</l>
+<l>Of Saturn, and the evil hour</l>
+<l>Was stay'd, when rapturous benches full</l>
+<l>Three times the auspicious thunder peal'd;</l>
+<l>Me the curst trunk, that smote my skull,</l>
+<l>Had slain; but Faunus, strong to shield</l>
+<l>The friends of Mercury, check'd the blow</l>
+<l>In mid descent.  Be sure to pay</l>
+<l>The victims and the fane you owe;</l>
+<l>Your bard a humbler lamb will slay.</l></lg></div2>
+<div2 type="Poem" n="18" met="ab">
+<lg><l>Carven ivory have I none</l>
+<l>No golden cornice in my dwelling shines;</l>
+<l>Pillars choice of Libyan stone</l>
+<l>Upbear no architrave from Attic mines;</l>
+<l>'Twas not mine to enter in</l>
+<l>To Attalus' broad realms, an unknown heir,</l>
+<l>Nor for me fair clients spin</l>
+<l>Laconian purples for their patron's wear.</l>
+<l>Truth is mine, and Genius mine;</l>
+<l>The rich man comes, and knocks at my low door:</l>
+<l>Favour'd thus, I ne'er repine,</l>
+<l>Nor weary out indulgent Heaven for more:</l>
+<l>In my <placeName key="tgn,7021127">Sabine</placeName> homestead blest,</l>
+<l>Why should I further tax a generous friend?</l>
+<l>Suns are hurrying suns a-west,</l>
+<l>And newborn moons make speed to meet their end.</l>
+<l><emph>You</emph> have hands to square and hew</l>
+<l>Vast marble-blocks, hard on your day of doom,</l>
+<l>Ever building mansions new,</l>
+<l>Nor thinking of the mansion of the tomb.</l>
+<l>Now you press on ocean's bound,</l>
+<l>Where waves on <placeName key="tgn,7004516">Baiae</placeName> beat, as earth were scant;</l>
+<l>Now absorb your neighbour's ground,</l>
+<l>And tear his landmarks up, your own to plant.</l>
+<l>Hedges set round clients' farms</l>
+<l>Your avarice tramples; see, the outcasts fly,</l>
+<l>Wife and husband, in their arms</l>
+<l>Their fathers' gods, their squalid family.</l>
+<l>Yet no hall that wealth e'er plann'd</l>
+<l>Waits you more surely than the wider room</l>
+<l>Traced by Death's yet greedier hand.</l>
+<l>Why strain so far? you cannot leap the tomb.</l>
+<l>Earth removes the impartial sod</l>
+<l>Alike for beggar and for monarch's child:</l>
+<l>Nor the slave of Hell's dark god</l>
+<l>Convey'd Prometheus back, with bribe beguiled.</l>
+<l>Pelops he and Pelops' sire</l>
+<l>Holds, spite of pride, in close captivity;</l>
+<l>Beggars, who of labour tire,</l>
+<l>Call'd or uncall'd, he hears and sets them free.</l></lg></div2>
+<div2 type="Poem" n="19" met="ab">
+<lg><l><placeName key="tgn,2097807">Bacchus</placeName> I saw in mountain glades</l>
+<l>Retired (believe it, after years!)</l>
+<l>Teaching his strains to Dryad maids,</l>
+<l>While goat-hoof'd satyrs prick'd their ears.</l>
+<l>Evoe! my eyes with terror glare;</l>
+<l>My heart is revelling with the god;</l>
+<l>'Tis madness!  Evoe! spare, O spare,</l>
+<l>Dread wielder of the ivied rod!</l>
+<l>Yes, I may sing the Thyiad crew,</l>
+<l>The stream of wine, the sparkling rills</l>
+<l>That run with milk, and honey-dew</l>
+<l>That from the hollow trunk distils;</l>
+<l>And I may sing thy consort's crown,</l>
+<l>New set in heaven, and Pentheus' hall</l>
+<l>With ruthless ruin thundering down,</l>
+<l>And proud Lycurgus' funeral.</l>
+<l>Thou turn'st the rivers, thou the sea;</l>
+<l>Thou, on far summits, moist with wine,</l>
+<l>Thy Bacchants' tresses harmlessly</l>
+<l>Dost knot with living serpent-twine.</l>
+<l>Thou, when the giants, threatening wrack,</l>
+<l>Were clambering up Jove's citadel,</l>
+<l>Didst hurl o'erweening Rhoetus back,</l>
+<l>In tooth and claw a lion fell.</l>
+<l>Who knew thy feats in dance and play</l>
+<l>Deem'd thee belike for war's rough game</l>
+<l>Unmeet: but peace and battle-fray</l>
+<l>Found thee, their centre, still the same.</l>
+<l>Grim Cerberus wagg'd his tail to see</l>
+<l>Thy golden horn, nor dreamd of wrong.</l>
+<l>But gently fawning, follow'd thee,</l>
+<l>And lick'd thy feet with triple tongue.</l></lg></div2>
+<div2 type="Poem" n="20" met="ab">
+<lg><l>No vulgar wing, nor weakly plied,</l>
+<l>Shall bear me through the liquid sky;</l>
+<l>A two-form'd bard, no more to bide</l>
+<l>Within the range of envy's eye</l>
+<l>'Mid haunts of men.  I, all ungraced</l>
+<l>By gentle blood, I, whom you call</l>
+<l>Your friend, Maecenas, shall not taste</l>
+<l>Of death, nor chafe in Lethe's thrall.</l>
+<l>E'en now a rougher skin expands</l>
+<l>Along my legs: above I change</l>
+<l>To a white bird; and o'er my hands</l>
+<l>And shoulders grows a plumage strange:</l>
+<l>Fleeter than Icarus, see me float</l>
+<l>O'er Bosporus, singing as I go,</l>
+<l>And o'er Gaetulian sands remote,</l>
+<l>And Hyperborean fields of snow;</l>
+<l>By Dacian horde, that masks its fear</l>
+<l>Of Marsic steel, shall I be known,</l>
+<l>And furthest Scythian: <placeName key="tgn,1000095">Spain</placeName> shall hear</l>
+<l>My warbling, and the banks of <placeName key="tgn,7023890">Rhone</placeName>.</l>
+<l>No dirges for my fancied death;</l>
+<l>No weak lament, no mournful stave;</l>
+<l>All clamorous grief were waste of breath,</l>
+<l>And vain the tribute of a grave.</l></lg></div2></div1>
+<div1 type="Book" n="3">
+<div2 type="Poem" n="1" met="ab">
+<lg><l>Bid the unhallow'd crowd avaunt!</l>
+<l>Keep holy silence; strains unknown</l>
+<l>Till now, the Muses' hierophant,</l>
+<l>I sing to youths and maids alone.</l>
+<l>Kings o'er their flocks the sceptre wield;</l>
+<l>E'en kings beneath Jove's sceptre bow:</l>
+<l>Victor in giant battle-field,</l>
+<l>He moves all nature with his brow.</l>
+<l>This man his planted walks extends</l>
+<l>Beyond his peers; an older name</l>
+<l>One to the people's choice commends;</l>
+<l>One boasts a more unsullied fame;</l>
+<l>One plumes him on a larger crowd</l>
+<l>Of clients. What are great or small?</l>
+<l>Death takes the mean man with the proud;</l>
+<l>The fatal urn has room for all.</l>
+<l>When guilty Pomp the drawn sword sees</l>
+<l>Hung o'er her, richest feasts in vain</l>
+<l>Strain their sweet juice her taste to please;</l>
+<l>No lutes, no singing birds again</l>
+<l>Will bring her sleep.  Sleep knows no pride;</l>
+<l>It scorns not cots of village hinds,</l>
+<l>Nor shadow-trembling river-side,</l>
+<l>Nor <placeName key="tgn,7014367">Tempe</placeName>, stirr'd by western winds.</l>
+<l>Who, having competence, has all,</l>
+<l>The tumult of the sea defies,</l>
+<l>Nor fears Arcturus' angry fall,</l>
+<l>Nor fears the Kid-star's sullen rise,</l>
+<l>Though hail-storms on the vineyard beat,</l>
+<l>Though crops deceive, though trees complain,</l>
+<l>One while of showers, one while of heat,</l>
+<l>One while of winter's barbarous reign.</l>
+<l>Fish feel the narrowing of the main</l>
+<l>From sunken piles, while on the strand</l>
+<l>Contractors with their busy train</l>
+<l>Let down huge stones, and lords of land</l>
+<l>Affect the sea: but fierce Alarm</l>
+<l>Can clamber to the master's side:</l>
+<l>Black Cares can up ihe galley swarm,</l>
+<l>And close behind the horseman ride.</l>
+<l>If Phrygian marbles soothe not pain,</l>
+<l>Nor star-bright purple's costliest wear,</l>
+<l>Nor vines of true Falernian strain,</l>
+<l>Nor Achaemenian spices rare,</l>
+<l>Why with rich gate and pillard range</l>
+<l>Upbuild new mansions, twice as high,</l>
+<l>Or why my <placeName key="tgn,7021127">Sabine</placeName> vale exchange</l>
+<l>For more laborious luxury?</l></lg></div2>
+<div2 type="Poem" n="2" met="ab">
+<lg><l>To suffer hardness with good cheer,</l>
+<l>In sternest school of warfare bred,</l>
+<l>Our youth should learn; let steed and spear</l>
+<l>Make him one day the Parthian's dread;</l>
+<l>Cold skies, keen perils, brace his life.</l>
+<l>Methinks I see from rampired town</l>
+<l>Some battling tyrant's matron wife,</l>
+<l>Some maiden, look in terror down,&mdash;</l>
+<l>&ldquo;Ah, my dear lord, untrain'd in war!</l>
+<l>O tempt not the infuriate mood</l>
+<l>Of that fell lion I see! from far</l>
+<l>He plunges through a tide of blood!&ldquo;</l>
+<l>What joy, for fatherland to die!</l>
+<l>Death's darts e'en flying feet o'ertake,</l>
+<l>Nor spare a recreant chivalry,</l>
+<l>A back that cowers, or loins that quake.</l>
+<l>True Virtue never knows defeat:</l>
+<l><emph>Her</emph> robes she keeps unsullied still,</l>
+<l>Nor takes, nor quits, <emph>her</emph> curule seat</l>
+<l>To please a people's veering will.</l>
+<l>True Virtue opens heaven to worth:</l>
+<l>She makes the way she does not find:</l>
+<l>The vulgar crowd, the humid earth,</l>
+<l>Her soaring pinion leaves behind.</l>
+<l>Seal'd lips have blessings sure to come:</l>
+<l>Who drags <placeName key="tgn,7011134">Eleusis</placeName>' rite today,</l>
+<l>That man shall never share my home,</l>
+<l>Or join my voyage: roofs give way</l>
+<l>And boats are wreck'd: true men and thieves</l>
+<l>Neglected Justice oft confounds:</l>
+<l>Though Vengeance halt, she seldom leaves</l>
+<l>The wretch whose flying steps she hounds.</l></lg></div2>
+<div2 type="Poem" n="3" met="ab">
+<lg><l>The man of firm and righteous will,</l>
+<l>No rabble, clamorous for the wrong,</l>
+<l>No tyrant's brow, whose frown may kill,</l>
+<l>Can shake the strength that makes him strong:</l>
+<l>Not winds, that chafe the sea they sway,</l>
+<l>Nor Jove's right hand, with lightning red:</l>
+<l>Should Nature's pillar'd frame give way,</l>
+<l>That wreck would strike one fearless head.</l>
+<l>Pollux and roving <placeName key="tgn,2086286">Hercules</placeName></l>
+<l>Thus won their way to Heaven's proud steep,</l>
+<l>'Mid whom Augustus, couch'd at ease,</l>
+<l>Dyes his red lips with nectar deep.</l>
+<l>For this, great <placeName key="tgn,2097807">Bacchus</placeName>, tigers drew</l>
+<l>Thy glorious car, untaught to slave</l>
+<l>In harness: thus Quirinus flew</l>
+<l>On <placeName key="tgn,2090583">Mars</placeName>' wing'd steeds from Acheron's wave,</l>
+<l>When <placeName key="tgn,2075297">Juno</placeName> spoke with Heaven's assent:</l>
+<l>&ldquo;O <placeName key="tgn,7002329">Ilium</placeName>, <placeName key="tgn,7002329">Ilium</placeName>, wretched town!</l>
+<l>The judge accurst, incontinent,</l>
+<l>And stranger dame have dragg'd thee down.</l>
+<l>Pallas and I, since Priam's sire</l>
+<l>Denied the gods his pledged reward,</l>
+<l>Had doom'd them all to sword and fire,</l>
+<l>The people and their perjured lord.</l>
+<l>No more the adulterous guest can charm</l>
+<l>The Spartan queen: the house forsworn</l>
+<l>No more repels by Hector's arm</l>
+<l>My warriors, baffled and outworn:</l>
+<l>Hush'd is the war our strife made long:</l>
+<l>I welcome now, my hatred o'er,</l>
+<l>A grandson in the child of wrong,</l>
+<l>Him whom the Trojan priestess bore.</l>
+<l>Receive him, Mars! the gates of flame</l>
+<l>May open: let him taste forgiven</l>
+<l>The nectar, and enrol his name</l>
+<l>Among the peaceful ranks of Heaven.</l>
+<l>Let the wide waters sever still</l>
+<l><placeName key="tgn,7002329">Ilium</placeName> and <placeName key="perseus,Rome">Rome</placeName>, the exiled race</l>
+<l>May reign and prosper where they will:</l>
+<l>So but in <placeName key="tgn,7008038">Paris</placeName>' burial-place</l>
+<l>The cattle sport, the wild beasts hide</l>
+<l>Their cubs, the Capitol may stand</l>
+<l>All bright, and <placeName key="perseus,Rome">Rome</placeName> in warlike pride</l>
+<l>O'er Media stretch a conqueror's hand.</l>
+<l>Aye, let her scatter far and wide</l>
+<l>Her terror, where tbe land-lock'd waves</l>
+<l><placeName key="tgn,1000003">Europe</placeName> from Afric's shore divide,</l>
+<l>Where swelling <placeName key="tgn,1127805">Nile</placeName> the corn-field laves&mdash;</l>
+<l>Of strength more potent to disdain</l>
+<l>Hid gold, best buried in the mine,</l>
+<l>Than gather it with hand profane,</l>
+<l>That for man's greed would rob a shrine.</l>
+<l>Whate'er the bound to earth ordain'd,</l>
+<l>There let her reach the arm of power,</l>
+<l>Travelling, where raves the fire unrein'd,</l>
+<l>And where the storm-cloud and the shower.</l>
+<l>Yet, warlike Roman, know thy doom,</l>
+<l>Nor, drunken with a conqueror's joy,</l>
+<l>Or blind with duteous zeal, presume</l>
+<l>To build again ancestral <placeName key="perseus,Troy">Troy</placeName>.</l>
+<l>Should <placeName key="perseus,Troy">Troy</placeName> revive to hateful life,</l>
+<l>Her star again should set in gore,</l>
+<l>While I, Jove's sister and his wife,</l>
+<l>To victory led my host once more.</l>
+<l>Though Phoebus thrice in brazen mail</l>
+<l>Should case her towers, they thrice should fall,</l>
+<l>Storm'd by my Greeks: thrice wives should wail</l>
+<l>Husband and son, themselves in thrall.&rdquo;&mdash;</l>
+<l>Such thunders from the lyre of love!</l>
+<l>Back, wayward Muse! refrain, refrain</l>
+<l>To tell the talk of gods above,</l>
+<l>And dwarf high themes in puny strain.</l></lg></div2>
+<div2 type="Poem" n="4" met="ab">
+<lg><l>Come down, Calliope, from above:</l>
+<l>Breathe on the pipe a strain of fire:</l>
+<l>Or if a graver note thou love,</l>
+<l>With Phoebus' cittern and his lyre.</l>
+<l>You hear her? or is this the play</l>
+<l>Of fond illusion? Hark! meseems</l>
+<l>Through gardens of the good I stray,</l>
+<l>'Mid murmuring gales and purling streams.</l>
+<l>Me, as I lay on Vultur's steep,</l>
+<l>A truant past <placeName key="tgn,7010380">Apulia</placeName>'s bound,</l>
+<l>O'ertired, poor child, with play and sleep,</l>
+<l>With living green the stock-doves crown'd&mdash;</l>
+<l>A legend, nay, a miracle,</l>
+<l>By Acherontia's nestlings told,</l>
+<l>By all in Bantine glade that dwell,</l>
+<l>Or till the rich Forentan mould.</l>
+<l>&ldquo;Bears, vipers, spared him as he lay,</l>
+<l>The sacred garland deck'd his hair,</l>
+<l>The myrtle blended with the bay:</l>
+<l>The child's inspired: the gods were there.&rdquo;</l>
+<l>Your grace, sweet Muses, shields me still</l>
+<l>On <placeName key="tgn,7021127">Sabine</placeName> heights, or lets me range</l>
+<l>Where cool <placeName key="perseus,Praeneste">Praeneste</placeName>, <placeName key="perseus,Tibur">Tibur</placeName>'s hill,</l>
+<l>Or liquid <placeName key="perseus,Baiae">Baiae</placeName> proffers change.</l>
+<l>Me to your springs, your dances true,</l>
+<l><placeName key="tgn,7010789">Philippi</placeName> bore not to the ground,</l>
+<l>Nor the doom'd tree in falling slew,</l>
+<l>Nor billowy Palinurus drown'd.</l>
+<l>Grant me your presence, blithe and fain</l>
+<l>Mad <placeName key="tgn,1115068">Bosporus</placeName> shall my bark explore;</l>
+<l>My foot shall tread the sandy plain</l>
+<l>That glows beside Assyria's shore;</l>
+<l>'Mid Briton tribes, the stranger's foe,</l>
+<l>And Spaniards, drunk with horses' blood,</l>
+<l>And quiver'd Scythians, will I go</l>
+<l>Unharm'd, and look on <placeName key="tgn,1123466">Tanais</placeName>' flood.</l>
+<l>When Caesar's self in peaceful town</l>
+<l>The weary veteran's home has made,</l>
+<l>You bid him lay his helmet down</l>
+<l>And rest in your Pierian shade.</l>
+<l>Mild thoughts you plant, and joy to see</l>
+<l>Mild thoughts take root.  The nations know</l>
+<l>How with descending thunder he</l>
+<l>The impious Titans hurl'd below,</l>
+<l>Who rules dull earth and stormy seas,</l>
+<l>And towns of men, and realms of pain,</l>
+<l>And gods, and mortal companies,</l>
+<l>Alone, impartial in his reign.</l>
+<l>Yet Jove had fear'd the giant rush,</l>
+<l>Their upraised arms, their port of pride,</l>
+<l>And the twin brethren bent to push</l>
+<l>Huge <placeName key="tgn,4008379">Pelion</placeName> up <placeName key="tgn,7011019">Olympus</placeName>' side.</l>
+<l>But Typhon, Mimas, what could these,</l>
+<l>Or what Porphyrion's stalwart scorn,</l>
+<l>Rhoetus, or he whose spears were trees,</l>
+<l>Enceladus, from earth uptorn,</l>
+<l>As on they rush'd in mad career</l>
+<l>'Gainst Pallas' shield? Here met the foe</l>
+<l>Fierce <placeName key="tgn,1050339">Vulcan</placeName>, queenly Juno here,</l>
+<l>And he who ne'er shall quit his bow,</l>
+<l>Who laves in clear Castalian flood</l>
+<l>His locks, and loves the leafy growth</l>
+<l>Of <placeName key="tgn,7001294">Lycia</placeName> next his native wood,</l>
+<l>The Delian and the Pataran both.</l>
+<l>Strength, mindless, falls by its own weight;</l>
+<l>Strength, mix'd with mind, is made more strong</l>
+<l>By the just gods, who surely hate</l>
+<l>The strength whose thoughts are set on wrong.</l>
+<l>Let hundred-handed Gyas bear</l>
+<l>His witness, and Orion known</l>
+<l>Tempter of Dian, chaste and fair,</l>
+<l>By Dian's maiden dart o'erthrown.</l>
+<l>Hurl'd on the monstrous shapes she bred,</l>
+<l>Earth groans, and mourns her children thrust</l>
+<l>To Orcus; <placeName key="tgn,7003867">Aetna</placeName>'s weight of lead</l>
+<l>Keeps down the fire that breaks its crust;</l>
+<l>Still sits the bird on Tityos' breast,</l>
+<l>The warder of Unlawful love;</l>
+<l>Still suffers lewd Pirithous, prest</l>
+<l>By massive chains no hand may move.</l></lg></div2>
+<div2 type="Poem" n="5" met="ab">
+<lg><l>Jove rules in heaven, his thunder shows;</l>
+<l>Henceforth Augustus earth shall own</l>
+<l>Her present god, now Briton foes</l>
+<l>And Persians bow before his throne.</l>
+<l>Has Crassus' soldier ta'en to wife</l>
+<l>A base barbarian, and grown grey</l>
+<l>(Woe, for a nation's tainted life!)</l>
+<l>Earning his foemen-kinsmen's pay,</l>
+<l>His king, forsooth, a <placeName key="tgn,1045322">Mede</placeName>, his sire</l>
+<l>A Marsian? can he name forget,</l>
+<l>Gown, sacred shield, undying fire,</l>
+<l>And Jove and <placeName key="perseus,Rome">Rome</placeName> are standing yet?</l>
+<l>'Twas this that Regulus foresaw,</l>
+<l>What time he spurn'd the foul disgrace</l>
+<l>Of peace, whose precedent would draw</l>
+<l>Destruction on an unborn race,</l>
+<l>Should aught but death the prisoner's chain</l>
+<l>Unrivet. &ldquo;I have seen,&rdquo; he said,</l>
+<l>&ldquo;<placeName key="perseus,Rome">Rome</placeName>'s eagle in a Punic fane,</l>
+<l>And armour, ne'er a blood-drop shed,</l>
+<l>Stripp'd from the soldier; I have seen</l>
+<l>Free sons of <placeName key="perseus,Rome">Rome</placeName> with arms fast tied;</l>
+<l>The fields we spoil'd with corn are green,</l>
+<l>And <placeName key="perseus,Carthage">Carthage</placeName> opes her portals wide.</l>
+<l>The warrior, sure, redeem'd by gold,</l>
+<l>Will fight the bolder! Aye, you heap</l>
+<l>On baseness loss.  The hues of old</l>
+<l>Revisit not the wool we steep;</l>
+<l>And genuine worth, expell'd by fear,</l>
+<l>Returns not to the worthless slave.</l>
+<l>Break but her meshes, will the deer</l>
+<l>Assail you? then will he be brave</l>
+<l>Who once to faithless foes has knelt;</l>
+<l>Yes, <placeName key="perseus,Carthage">Carthage</placeName> yet his spear will fly,</l>
+<l>Who with bound arms the cord has felt,</l>
+<l>The coward, and has fear'd to die.</l>
+<l>He knows not, he, how life is won;</l>
+<l>Thinks war, like peace, a thing of trade!</l>
+<l>Great art thou, <placeName key="perseus,Carthage">Carthage</placeName>! mate the sun,</l>
+<l>While <placeName key="tgn,1000080">Italy</placeName> in dust is laid!&rdquo;</l>
+<l>His wife's pure kiss he waved aside,</l>
+<l>And prattling boys, as one disgraced,</l>
+<l>They tell us, and with manly pride</l>
+<l>Stern on the ground his visage placed.</l>
+<l>With counsel thus ne'er else aread</l>
+<l>He nerved the fathers' weak intent,</l>
+<l>And, girt by friends that mourn'd him, sped</l>
+<l>Into illustrious banishment.</l>
+<l>Well witting what the torturer's art</l>
+<l>Design'd him, with like unconcern</l>
+<l>The press of kin he push'd apart</l>
+<l>And crowds encumbering his return,</l>
+<l>As though, some tedious business o'er</l>
+<l>Of clients' court, his journey lay</l>
+<l>Towards <placeName key="perseus,Venafrum">Venafrum</placeName>'s grassy floor,</l>
+<l>Or Sparta-built <placeName key="tgn,7004100">Tarentum</placeName>'s bay.</l></lg></div2>
+<div2 type="Poem" n="6" met="ab">
+<lg><l>Your fathers' guilt you still must pay,</l>
+<l>Till, Roman, you restore each shrine,</l>
+<l>Each temple, 'mouldering in decay,</l>
+<l>And smoke-grimed statue, scarce divine.</l>
+<l>Revering Heaven, you rule below;</l>
+<l>Be that your base, your coping still;</l>
+<l>'Tis Heaven neglected bids o'erflow</l>
+<l>The measure of Italian ill.</l>
+<l>Now Pacorus and Monaeses twice</l>
+<l>Have given our unblest arms the foil;</l>
+<l>Their necklaces, of mean device;</l>
+<l>Smiling they deck with Roman spoil.</l>
+<l>Our city, torn by faction's throes,</l>
+<l>Dacian and Ethiop well-nigh razed,</l>
+<l>These with their dreadful navy, those</l>
+<l>For archer-prowess rather praised.</l>
+<l>An evil age erewhile debased</l>
+<l>The marriage-bed, the race, the home;</l>
+<l>Thence rose the flood whose waters waste</l>
+<l>The nation and the name of <placeName key="perseus,Rome">Rome</placeName>.</l>
+<l>Not such their birth, who stain'd for us</l>
+<l>The sea with Punic carnage red,</l>
+<l>Smote Pyrrhus, smote Antiochus,</l>
+<l>And Hannibal, the Roman's dread.</l>
+<l>Theirs was a hardy soldier-brood,</l>
+<l>Inured all day the land to till</l>
+<l>With <placeName key="tgn,7021127">Sabine</placeName> spade, then shoulder wood</l>
+<l>Hewn at a stern old mother's will,</l>
+<l>When sunset lengthen'd from each height</l>
+<l>The shadows, and unyoked the steer,</l>
+<l>Restoring in its westward flight</l>
+<l>The hour to toilworn travail dear.</l>
+<l>What has not cankering Time made worse?</l>
+<l>Viler than grandsires, sires beget</l>
+<l>Ourselves, yet baser, soon to curse</l>
+<l>The world with offspring baser yet.</l></lg></div2>
+<div2 type="Poem" n="7" met="aaab">
+<lg><l>Why weep for him whom sweet Favonian airs</l>
+<l>Will waft next spring, Asteria, back to you,</l>
+<l>Rich with <placeName key="tgn,7016608">Bithynia</placeName>'s wares,</l>
+<l>A lover fond and true,</l></lg>
+<lg><l>Your Gyges? He, detain'd by stormy stress</l>
+<l>At Oricum, about the Goat-star's rise,</l>
+<l>Cold, wakeful, comfortless,</l>
+<l>The long night weeping lies.</l></lg>
+<lg><l>Meantime his lovesick hostess' messenger</l>
+<l>Talks of the flames that waste poor Chloe's heart</l>
+<l>(Flames lit for you, not her!)</l>
+<l>With a besieger's art;</l></lg>
+<lg><l>Shows how a treacherous woman's lying breath</l>
+<l>Once on a time on trustful Proetus won</l>
+<l>To doom to early death</l>
+<l>Too chaste Bellerophon;</l></lg>
+<lg><l>Warns him of Peleus' peril, all but slain</l>
+<l>For virtuous scorn of fair Hippolyta,</l>
+<l>And tells again each tale</l>
+<l>That e'er led heart astray.</l></lg>
+<lg><l>In vain; for deafer than Icarian seas</l>
+<l>He hears, untainted yet. But, lady fair,</l>
+<l>What if Enipeus please</l>
+<l>Your listless eye? beware!</l></lg>
+<lg><l>Though true it be that none with surer seat</l>
+<l>O'er Mars's grassy turf is seen to ride,</l>
+<l>Nor any swims so fleet</l>
+<l>Adown the Tuscan tide,</l></lg>
+<lg><l>Yet keep each evening door and window barr'd;</l>
+<l>Look not abroad when music strikes up shrill,</l>
+<l>And though he call you hard,</l>
+<l>Remain obdurate still.</l></lg></div2>
+<div2 type="Poem" n="8" met="aaab">
+<lg><l>The first of March! a man unwed!</l>
+<l>What can these flowers, this censer mean?</l>
+<l>Or what these embers, glowing red</l>
+<l>On sods of green?</l></lg>
+<lg><l><emph>You</emph> ask, in either language skill'd!</l>
+<l>A feast I vow'd to Bacchus free,</l>
+<l>A white he-goat, when all but kill'd</l>
+<l>By falling tree.</l></lg>
+<lg><l>So, when that holyday comes round,</l>
+<l>It sees me still the rosin clear</l>
+<l>From this my wine-jar, first embrown'd</l>
+<l>In Tullus' year.</l></lg>
+<lg><l>Come, crush one hundred cups for life</l>
+<l>Preserved, Maecenas; keep till day</l>
+<l>The candles lit; let noise and strife</l>
+<l>Be far away.</l></lg>
+<lg><l>Lay down that load of state-concern;</l>
+<l>The Dacian hosts are all o'erthrown;</l>
+<l>The <placeName key="tgn,1045322">Mede</placeName>, that sought our overturn,</l>
+<l>Now seeks his own;</l></lg>
+<lg><l>A servant now, our ancient foe,</l>
+<l>The Spaniard, wears at last our chain;</l>
+<l>The Scythian half unbends his bow</l>
+<l>And quits the plain.</l></lg>
+<lg><l>Then fret not lest the state should ail;</l>
+<l>A private man such thoughts may spare;</l>
+<l>Enjoy the present hour's regale,</l>
+<l>And banish care.</l></lg></div2>
+<div2 type="Poem" n="9" met="ab">
+<sp><speaker>Horace</speaker>
+<l>While I had power to bless you,</l>
+<l>Nor any round that neck his arms did fling</l>
+<l>More privileged to caress you,</l>
+<l>Happier was Horace than the Persian king.</l></sp>
+<sp><speaker>Lydia</speaker><l>While you for none were pining</l>
+<l>Sorer, nor Lydia after Chloe came,</l>
+<l>Lydia, her peers outshining,</l>
+<l>Might match her own with Ilia's Roman fame.</l></sp>
+<sp><speaker>Horace</speaker><l>Now Chloe is my treasure,</l>
+<l>Whose voice, whose touch, can make sweet music flow:</l>
+<l>For her I'd die with pleasure,</l>
+<l>Would Fate but spare the dear survivor so.</l></sp>
+<sp><speaker>Lydia</speaker><l>I love my own fond lover,</l>
+<l>Young <placeName key="tgn,7009002">Calais</placeName>, son of Thurian Ornytus:</l>
+<l>For him I'd die twice over,</l>
+<l>Would Fate but spare the sweet survivor thus.</l></sp>
+<sp><speaker>Horace</speaker><l>What now, if Love returning</l>
+<l>Should pair us 'neath his brazen yoke once more,</l>
+<l>And, bright-hair'd Chloe spurning,</l>
+<l>Horace to off-cast Lydia ope his door?</l></sp>
+<sp><speaker>Lydia</speaker><l>Though he is fairer, milder,</l>
+<l>Than starlight, you lighter than bark of tree,</l>
+<l>Than stormy <placeName key="tgn,7008301">Hadria</placeName> wilder,</l>
+<l>With you to live, to die, were bliss for me.</l></sp></div2>
+<div2 type="Poem" n="10" met="aaab">
+<lg><l>Ah Lyce! though your drink were <placeName key="tgn,1123466">Tanais</placeName>,</l>
+<l>Your husband some rude savage, you would weep</l>
+<l>To leave me shivering, on a night like this,</l>
+<l>Where storms their watches keep.</l></lg>
+<lg><l>Hark! how your door is creaking! how the grove</l>
+<l>In your fair courtyard, while the wild winds blow,</l>
+<l>Wails in accord! with what transparence Jove</l>
+<l>Is glazing the driven snow!</l></lg>
+<lg><l>Cease that proud temper: Venus loves it not:</l>
+<l>The rope may break, the wheel may backward turn:</l>
+<l>Begetting you, no Tuscan sire begot</l>
+<l>Penelope the stern.</l></lg>
+<lg><l>O, though no gift, no &ldquo;prevalence of prayer,&rdquo;</l>
+<l>Nor lovers' paleness deep as violet,</l>
+<l>Nor husband, smit with a Pierian fair,</l>
+<l>Move you, have pity yet!</l></lg>
+<lg><l>O harder e'en than toughest heart of oak,</l>
+<l>Deafer than uncharm'd snake to suppliant moans!</l>
+<l>This side, I warn you, will not always brook</l>
+<l>Rain-water and cold stones.</l></lg></div2>
+<div2 type="Poem" n="11" met="aaab">
+<lg><l>Come, Mercury, by whose minstrel spell</l>
+<l>Amphion raised the Theban stones,</l>
+<l>Come, with thy seven sweet strings, my shell,</l>
+<l>Thy &ldquo;diverse tones,&rdquo;</l></lg>
+<lg><l>Nor vocal once nor pleasant, now</l>
+<l>To rich man's board and temple dear:</l>
+<l>Put forth thy power, till Lyde bow</l>
+<l>Her stubborn ear.</l></lg>
+<lg><l>She, like a three-year colt unbroke,</l>
+<l>Is frisking o'er the spacious plain,</l>
+<l>Too shy to bear a lover's yoke,</l>
+<l>A husband's rein.</l></lg>
+<lg><l>The wood, the tiger, at thy call</l>
+<l>Have follow'd: thou caust rivers stay:</l>
+<l>The monstrous guard of Pluto's hall</l>
+<l>To thee gave way,</l></lg>
+<lg><l>Grim Cerberus, round whose Gorgon head</l>
+<l>A hundred snakes are hissing death,</l>
+<l>Whose triple jaws black venom shed,</l>
+<l>And sickening breath.</l></lg>
+<lg><l>Ixion too and Tityos smooth'd</l>
+<l>Their rugged brows: the urn stood dry</l>
+<l>One hour, while Danaus' maids were sooth'd</l>
+<l>With minstrelsy.</l></lg>
+<lg><l>Let Lyde hear those maidens' guilt,</l>
+<l>Their famous doom, the ceaseless drain</l>
+<l>Of outpour'd water, ever spilt,</l>
+<l>And all the pain</l></lg>
+<lg><l>Reserved for sinners, e'en when dead:</l>
+<l>Those impious hands, (could crime do more?)</l>
+<l>Those impious hands had hearts to shed</l>
+<l>Their bridegrooms' gore!</l></lg>
+<lg><l>One only, true to Hymen's flame,</l>
+<l>Was traitress to her sire forsworn:</l>
+<l>That splendid falsehood lights her name</l>
+<l>Through times unborn.</l></lg>
+<lg><l>&ldquo;Wake!&rdquo; to her youthful spouse she cried,</l>
+<l>&ldquo;Wake! or you yet may sleep too well:</l>
+<l>Fly&mdash;from the father of your bride,</l>
+<l>Her sisters fell:</l></lg>
+<lg><l>They, as she-lions bullocks rend,</l>
+<l>Tear each her victim: I, less hard</l>
+<l>Than these, will slay you not, poor friend,</l>
+<l>Nor hold in ward:</l></lg>
+<lg><l>Me let my sire in fetters lay</l>
+<l>For mercy to my husband shown:</l>
+<l>Me let him ship far hence away,</l>
+<l>To climes unknown.</l></lg>
+<lg><l>Go; speed your flight o'er land and wave,</l>
+<l>While Night and Venus shield you; go</l>
+<l>Be blest: and on my tomb engrave</l>
+<l>This tale of woe.&rdquo;</l></lg></div2>
+<div2 type="Poem" n="12" met="ab">
+<lg><l>How unhappy are the maidens who with Cupid may not play,</l>
+<l>Who may never touch the wine-cup, but must tremble all the day</l>
+<l>At an uncle, and the scourging of his tongue!</l>
+<l>Neobule, there's a robber takes your needle and your thread,</l>
+<l>Lets the lessons of Minerva run no longer in your head;</l>
+<l>It is <placeName key="tgn,7002660">Hebrus</placeName>, the athletic and the young!</l>
+<l>O, to see him when anointed he is plunging in the flood!</l>
+<l>What a seat he has on horseback! was Bellerophon's as good?</l>
+<l>As a boxer, as a runner, past compare!</l>
+<l>When the deer are flying blindly all the open country o'er,</l>
+<l>He can aim and he can hit them; he can steal upon the boar,</l>
+<l>As it couches in the thicket unaware.</l></lg></div2>
+<div2 type="Poem" n="13" met="aaab">
+<lg><l>Bandusia's fount, in clearness crystalline,</l>
+<l>O worthy of the wine, the flowers we vow!</l>
+<l>Tomorrow shall be thine</l>
+<l>A kid, whose crescent brow</l></lg>
+<lg><l>Is sprouting all for love and victory.</l>
+<l>In vain: his warm red blood, so early stirr'd.</l>
+<l>Thy gelid stream shall dye,</l>
+<l>Child of the wanton herd.</l></lg>
+<lg><l>Thee the fierce Sirian star, to madness fired,</l>
+<l>Forbears to touch: sweet cool thy waters yield</l>
+<l>To ox with ploughing tired,</l>
+<l>And lazy sheep afield.</l></lg>
+<lg><l>Thou too one day shalt win proud eminence</l>
+<l>'Mid honour'd founts, while I the ilex sing</l>
+<l>Crowning the cavern, whence</l>
+<l>Thy babbling wavelets spring.</l></lg></div2>
+<div2 type="Poem" n="14" met="aaab">
+<lg><l>Our Hercules, they told us, <placeName key="perseus,Rome">Rome</placeName>,</l>
+<l>Had sought the laurel Death bestows:</l>
+<l>Now Glory brings him conqueror home</l>
+<l>From Spaniard foes.</l></lg>
+<lg><l>Proud of her spouse, the imperial fair</l>
+<l>Must thank the gods that shield from death;</l>
+<l>His sister too:&mdash;let matrons wear</l>
+<l>The suppliant wreath</l></lg>
+<lg><l>For daughters and for sons restored:</l>
+<l>Ye youths and damsels newly wed,</l>
+<l>Let decent awe restrain each word</l>
+<l>Best left unsaid.</l></lg>
+<lg><l>This day, true holyday to me,</l>
+<l>Shall banish care: I will not fear</l>
+<l>Rude broils or bloody death to see,</l>
+<l>While Caesar's here.</l></lg>
+<lg><l>Quick, boy, the chaplets and the nard,</l>
+<l>And wine, that knew the Marsian war,</l>
+<l>If roving Spartacus have spared</l>
+<l>A single jar.</l></lg>
+<lg><l>And bid Neaera come and trill,</l>
+<l>Her bright locks bound with careless art:</l>
+<l>If her rough porter cross your will,</l>
+<l>Why then depart.</l></lg>
+<lg><l>Soon palls the taste for noise and fray,</l>
+<l>When hair is white and leaves are sere:</l>
+<l>How had I fired in life's warm May,</l>
+<l>In Plancus' year!</l></lg></div2>
+<div2 type="Poem" n="15" met="ab">
+<lg><l>Wife of Ibycus the poor,</l>
+<l>Let aged scandals have at length their bound:</l>
+<l>Give your graceless doings o'er,</l>
+<l>Ripe as you are for going underground.</l>
+<l>You the maidens' dance to lead,</l>
+<l>And cast your gloom upon those beaming stars!</l>
+<l>Daughter Pholoe may succeed,</l>
+<l>But mother Chloris what she touches mars.</l>
+<l>Young men's homes your daughter storms,</l>
+<l>Like Thyiad, madden'd by the cymbals' beat:</l>
+<l>Nothus' love her bosom warms:</l>
+<l>She gambols like a fawn with silver feet.</l>
+<l>Yours should be the wool that grows</l>
+<l>By fair Luceria, not the merry lute:</l>
+<l>Flowers beseem not wither'd brows,.</l>
+<l>Nor wither'd lips with emptied wine-jars suit.</l></lg></div2>
+<div2 type="Poem" n="16" met="aaab">
+<lg><l>Full well had Danae been secured, in truth,</l>
+<l>By oaken portals, and a brazen tower,</l>
+<l>And savage watch-dogs, from the roving youth</l>
+<l>That prowl at midnight's hour:</l></lg>
+<lg><l>But Jove and Venus mock'd with gay disdain</l>
+<l>The jealous warder of that close stronghold:</l>
+<l>The way, they knew, must soon be smooth and plain</l>
+<l>When gods could change to gold.</l></lg>
+<lg><l>Gold, gold can pass the tyrant's sentinel,</l>
+<l>Can shiver rocks with more resistless blow</l>
+<l>Than is the thunder's.  <placeName key="perseus,Argos">Argos</placeName>' prophet fell,</l>
+<l>He and his house laid low,</l></lg>
+<lg><l>And all for gain.  The man of <placeName key="tgn,7002715">Macedon</placeName></l>
+<l>Cleft gates of cities, rival kings o'erthrew</l>
+<l>By force of gifts: their cunning snares have won</l>
+<l>Rude captains and their crew.</l></lg>
+<lg><l>As riches grow, care follows: men repine</l>
+<l>And thirst for more.  No lofty crest I raise:</l>
+<l>Wisdom that thought forbids, Maecenas mine,</l>
+<l>The knightly order's praise.</l></lg>
+<lg><l>He that denies himself shall gain the more</l>
+<l>From bounteous Heaven. I strip me of my pride,</l>
+<l>Desert the rich man's standard, and pass o'er</l>
+<l>To bare Contentment's side,</l></lg>
+<lg><l>More proud as lord of what the great despise</l>
+<l>Than if the wheat thresh'd on <placeName key="tgn,7010380">Apulia</placeName>'s floor</l>
+<l>I hoarded all in my huge granaries,</l>
+<l>'Mid vast possessions poor.</l></lg>
+<lg><l>A clear fresh stream, a little field o'ergrown</l>
+<l>With shady trees, a crop that ne'er deceives,</l>
+<l>Pass, though men know it not, their wealth, that own</l>
+<l>All Afric's golden sheaves.</l></lg>
+<lg><l>Though no Calabrian bees their honey yield</l>
+<l>For me, nor mellowing sleeps the god of wine</l>
+<l>In Formian jar, nor in <placeName key="tgn,1000070">Gaul</placeName>'s pasture-field</l>
+<l>The wool grows long and fine,</l></lg>
+<lg><l>Yet Poverty ne'er comes to break my peace;</l>
+<l>If more I craved, you would not more refuse.</l>
+<l>Desiring less, I better shall increase</l>
+<l>My tiny revenues,</l></lg>
+<lg><l>Than if to Alyattes' wide domains</l>
+<l>I join'd the realms of Mygdon.  Great desires</l>
+<l>Sort with great wants. 'Tis best, when prayer obtains</l>
+<l>No more than life requires.</l></lg></div2>
+<div2 type="Poem" n="17" met="ab">
+<lg><l>Aelius, of Lamus' ancient name</l>
+<l>(For since from that high parentage</l>
+<l>The prehistoric Lamias came</l>
+<l>And all who fill the storied page,</l>
+<l>No doubt you trace your line from him,</l>
+<l>Who stretch'd his sway o'er <placeName key="perseus,Formiae">Formiae</placeName>,</l>
+<l>And Liris, whose still waters swim</l>
+<l>Whore green <placeName key="tgn,7002660">Marica</placeName> skirts the sea,</l>
+<l>Lord of broad realms), an eastern gale</l>
+<l>Will blow to-morrow, and bestrew</l>
+<l>The shore with weeds, with leaves the vale,</l>
+<l>If rain's old prophet tell me true,</l>
+<l>The raven.  Gather, while 'tis fine,</l>
+<l>Your wood; tomorrow shall be gay</l>
+<l>With smoking pig and streaming wine,</l>
+<l>And lord and slave keep holyday.</l></lg></div2>
+<div2 type="Poem" n="18" met="aaab">
+<lg><l>O wont the flying Nymphs to woo,</l>
+<l>Good Faunus, through my sunny farm</l>
+<l>Pass gently, gently pass, nor do</l>
+<l>My younglings harm.</l></lg>
+<lg><l>Each year, thou know'st, a kid must die</l>
+<l>For thee; nor lacks the wine's full stream</l>
+<l>To Venus' mate, the bowl; and high</l>
+<l>The altars steam.</l></lg>
+<lg><l>Sure as December's Nones appear,</l>
+<l>All o'er the grass the cattle play;</l>
+<l>The village, with the lazy steer,</l>
+<l>Keeps holyday.</l></lg>
+<lg><l>Wolves rove among the fearless sheep;</l>
+<l>The woods for thee their foliage strow;</l>
+<l>The delver loves on earth to leap,</l>
+<l>His ancient foe.</l></lg></div2>
+<div2 type="Poem" n="19" met="ab">
+<lg><l>What the time from Inachus</l>
+<l>To Codrus, who in patriot battle fell,</l>
+<l>Who were sprung from Aeacus,</l>
+<l>And how men fought at <placeName key="tgn,7002329">Ilion</placeName>,&mdash;this you tell.</l>
+<l>What the wines of <placeName key="tgn,7002670">Chios</placeName> cost,</l>
+<l>Who with due heat our water can allay,</l>
+<l>What the hour, and who the host</l>
+<l>To give us house-room,&mdash;this you will not say</l>
+<l>Ho, there! wine to moonrise, wine</l>
+<l>To midnight, wine to our new augur too!</l>
+<l>Nine to three or three to nine,</l>
+<l>As each man pleases, makes proportion true.</l>
+<l>Who the uneven Muses loves,</l>
+<l>Will fire his dizzy brain with three times three;</l>
+<l>Three once told the Grace approves;</l>
+<l>She with her two bright sisters, gay and free,</l>
+<l>Shrinks, as maiden should, from strife:</l>
+<l>But I'm for madness.  What has dull'd the fire</l>
+<l>Of the Berecyntian fife?</l>
+<l>Why hangs the flute in silence with the lyre?</l>
+<l>Out on niggard-handed boys!</l>
+<l>Rain showers of roses; let old Lycus hear,</l>
+<l>Envious churl, our senseless noise,</l>
+<l>And she, our neighbour, his ill-sorted fere.</l>
+<l>You with your bright clustering hair,</l>
+<l>Your beauty, Telephus, like evening's sky,</l>
+<l>Rhoda loves, as young, as fair;</l>
+<l>I for my Glycera slowly, slowly die.</l></lg></div2>
+<div2 type="Poem" n="21" met="ab">
+<lg><l>O born in Manlius' year with me,</l>
+<l>Whate'er you bring us, plaint or jest,</l>
+<l>Or passion and wild revelry,</l>
+<l>Or, like a gentle wine-jar, rest;</l>
+<l>Howe'er men call your Massic juice,</l>
+<l>Its broaching claims a festal day;</l>
+<l>Come then; Corvinus bids produce</l>
+<l>A mellower wine, and I obey.</l>
+<l>Though steep'd in all Socratic lore</l>
+<l>He will not slight you; do not fear.</l>
+<l>They say old Cato o'er and o'er</l>
+<l>With wine his honest heart would cheer.</l>
+<l>Tough wits to your mild torture yield</l>
+<l>Their treasures; you unlock the soul</l>
+<l>Of wisdom and its stores conceal'd,</l>
+<l>Arm'd with Lyaeus' kind control.</l>
+<l>'Tis yours the drooping heart to heal;</l>
+<l>Your strength uplifts the poor man's horn;</l>
+<l>Inspired by you, the soldier's steel,</l>
+<l>The monarch's crown, he laughs to scorn,</l>
+<l><placeName key="tgn,2032614">Liber</placeName> and <placeName key="tgn,2108237">Venus</placeName>, wills she so,</l>
+<l>And sister Graces, ne'er unknit,</l>
+<l>And living lamps shall see you flow</l>
+<l>Till stars before the sunrise flit.</l></lg></div2>
+<div2 type="Poem" n="22" met="aaab">
+<lg><l>Guardian of hill and woodland, Maid,</l>
+<l>Who to young wives in childbirth's hour</l>
+<l>Thrice call'd, vouchsafest sovereign aid,</l>
+<l>O three-form'd power!</l></lg>
+<lg><l>This pine that shades my cot be thine;</l>
+<l>Here will I slay, as years come round,</l>
+<l>A youngling boar, whose tusks design</l>
+<l>The side-long wound.</l></lg></div2>
+<div2 type="Poem" n="23" met="ab">
+<lg><l>If, Phidyle, your hands you lift</l>
+<l>To heaven, as each new moon is born,</l>
+<l>Soothing your <placeName key="tgn,1018972">Lares</placeName> with the gift</l>
+<l>Of slaughter'd swine, and spice, and corn,</l>
+<l>Ne'er shall Scirocco's bane assail</l>
+<l>Your vines, nor mildew blast your wheat.</l>
+<l>Ne'er shall your tender younglings fail</l>
+<l>In autumn, when the fruits are sweet.</l>
+<l>The destined victim 'mid the snows</l>
+<l>Of Algidus in oakwoods fed,</l>
+<l>Or where the <placeName key="tgn,2127955">Alban</placeName> herbage grows,</l>
+<l>Shall dye the pontiff's axes red;</l>
+<l>No need of butcher'd sheep for you</l>
+<l>To make your homely prayers prevail;</l>
+<l>Give but your little gods their due,</l>
+<l>The rosemary twined with myrtle frail.</l>
+<l>The sprinkled salt, the votive meal,</l>
+<l>As soon their favour will regain,</l>
+<l>Let but the hand be pure and leal,</l>
+<l>As all the pomp of heifers slain.</l></lg></div2>
+<div2 type="Poem" n="24" met="ab">
+<lg><l>Though your buried wealth surpass</l>
+<l>The unsunn'd gold of Ind or Araby,</l>
+<l>Though with many a ponderous mass</l>
+<l>You crowd the <placeName key="tgn,2072785">Tuscan</placeName> and Apulian sea,</l>
+<l>Let Necessity but drive</l>
+<l>Her wedge of adamant into that proud head,</l>
+<l>Vainly battling will you strive</l>
+<l>To 'scape Death's noose, or rid your soul of dread.</l>
+<l>Better life the Scythians lead,</l>
+<l>Trailing on waggon wheels their wandering home,</l>
+<l>Or the hardy Getan breed,</l>
+<l>As o'er their vast unmeasured steppes they roam;</l>
+<l>Free the crops that bless their soil;</l>
+<l>Their tillage wearies after one year's space;</l>
+<l>Each in turn fulfils his toil;</l>
+<l>His period o'er, another takes his place.</l>
+<l>There the step-dame keeps her hand</l>
+<l>From guilty plots, from blood of orphans clean;</l>
+<l>There no downed wives command</l>
+<l>Their feeble lords, or on adulterers lean.</l>
+<l>Theirs are dowries not of gold,</l>
+<l>Their parents' worth, their own pure chastity,</l>
+<l>True to one, to others cold;</l>
+<l>They dare not sin, or, if they dare, they die.</l>
+<l>O, whoe'er has heart and head</l>
+<l>To stay our plague of blood, our civic brawls,</l>
+<l>Would he that his name be read</l>
+<l>&ldquo;Father of <placeName key="tgn,7013962">Rome</placeName>&rdquo; on lofty pedestals,</l>
+<l>Let him chain this lawless will,</l>
+<l>And be our children's hero! cursed spite!</l>
+<l>Living worth we envy still,</l>
+<l>Then seek it with strain'd eyes, when snatch'd from sight.</l>
+<l>What can sad laments avail</l>
+<l>Unless sharp justice kill the taint of sin?</l>
+<l>What can laws, that needs must fail</l>
+<l>Shorn of the aid of manners form'd within,</l>
+<l>If the merchant turns not back</l>
+<l>From the fierce heats that round the tropic glow,</l>
+<l>Turns not from the regions black</l>
+<l>With northern winds, and hard with frozen snow;</l>
+<l>Sailors override the wave,</l>
+<l>While guilty poverty, more fear'd than vice.</l>
+<l>Bids us crime and suffering brave,</l>
+<l>And shuns the ascent of virtue's precipice?</l>
+<l>Let the Capitolian fane,</l>
+<l>The favour'd goal of yon vociferous crowd,</l>
+<l>Aye, or let the nearest main</l>
+<l>Receive our gold, our jewels rich and proud:</l>
+<l>Slay we thus the cause of crime,</l>
+<l>If yet we would repent and choose the good:</l>
+<l>Ours the task to take in time</l>
+<l>This baleful lust, and crush it in the bud.</l>
+<l>Ours to mould our weakling sons</l>
+<l>To nobler sentiment and manlier deed:</l>
+<l>Now the noble's first-born shuns</l>
+<l>The perilous chase, nor learns to sit his steed:</l>
+<l>Set him to the unlawful dice,</l>
+<l>Or Grecian hoop, how skilfully he plays!</l>
+<l>While his sire, mature in vice,</l>
+<l>A friend, a partner, or a guest betrays,</l>
+<l>Hurrying, for an heir so base,</l>
+<l>To gather riches.  Money, root of ill,</l>
+<l>Doubt it not, still grows apace:</l>
+<l>Yet the scant heap has somewhat lacking still.</l></lg></div2>
+<div2 type="Poem" n="25" met="ab">
+<lg><l>Whither, <placeName key="tgn,2097807">Bacchus</placeName>, tear'st thou me.</l>
+<l>FiIl'd with thy strength? What dens, what forests these,</l>
+<l>Thus in wildering race I see?</l>
+<l>What cave shall hearken to my melodies,</l>
+<l>Tuned to tell of Caesar's praise</l>
+<l>And throne him high the heavenly ranks among?</l>
+<l>Sweet and strange shall be my lays,</l>
+<l>A tale till now by poet voice unsung.</l>
+<l>As the <placeName key="tgn,7009171">Evian</placeName> on the height,</l>
+<l>Roused from her sleep, looks wonderingly abroad,</l>
+<l>Looks on <placeName key="tgn,7002756">Thrace</placeName> with snow-drifts white,</l>
+<l>And Rhodope by barbarous footstep trod,</l>
+<l>So my truant eyes admire</l>
+<l>The banks, the desolate forests.  O great King</l>
+<l>Who the Naiads dost inspire,</l>
+<l>And Bacchants, strong from earth huge trees to wring!</l>
+<l>Not a lowly strain is mine,</l>
+<l>No mere man's utterance.  O, 'tis venture sweet</l>
+<l>Thee to follow, God of wine,</l>
+<l>Making the vine-branch round thy temples meet!</l></lg></div2>
+<div2 type="Poem" n="26" met="ab">
+<lg><l>For ladies' love I late was fit,</l>
+<l>And good success my warfare blest,</l>
+<l>But now my arms, my lyre I quit,</l>
+<l>And hang them up to rust or rest.</l>
+<l>Here, where arising from the sea</l>
+<l>Stands Venus, lay the load at last,</l>
+<l>Links, crowbars, and artillery,</l>
+<l>Threatening all doors that dared be fast.</l>
+<l>O Goddess! <placeName key="tgn,1000112">Cyprus</placeName> owns thy sway,</l>
+<l>And <placeName key="tgn,7001186">Memphis</placeName>, far from Thracian snow;</l>
+<l>Raise high thy lash, and deal me, pray,</l>
+<l>That haughty Chloe just one blow!</l></lg></div2>
+<div2 type="Poem" n="27" met="aaab">
+<lg><l>When guilt goes forth, let lapwings shrill,</l>
+<l>And dogs and foxes great with young,</l>
+<l>And wolves from far Lanuvian hill,</l>
+<l>Give clamorous tongue:</l></lg>
+<lg><l>Across the roadway dart the snake,</l>
+<l>Frightening, like arrow loosed from string,</l>
+<l>The horses.  I, for friendship's sake,</l>
+<l>Watching each wing,</l></lg>
+<lg><l>Ere to his haunt, the stagnant marsh,</l>
+<l>The harbinger of tempest flies,</l>
+<l>Will call the raven, croaking harsh,</l>
+<l>From eastern skies.</l></lg>
+<lg><l>Farewell!&mdash;and wheresoe'er you go,</l>
+<l>My Galatea, think of me:</l>
+<l>Let lefthand pie and roving crow</l>
+<l>Still leave you free.</l></lg>
+<lg><l>But mark with what a front of fear</l>
+<l>Orion lowers.  Ah! well I know</l>
+<l>How <placeName key="perseus,Hadria">Hadria</placeName> glooms, how falsely clear</l>
+<l>The west-winds blow.</l></lg>
+<lg><l>Let foemen's wives and children feel</l>
+<l>The gathering south-wind's angry roar,</l>
+<l>The black wave's crash, the thunder-peal,</l>
+<l>The quivering shore.</l></lg>
+<lg><l>So to the bull Europa gave</l>
+<l>Her beauteous form, and when she saw</l>
+<l>The monstrous deep, the yawning grave,</l>
+<l>Grew pale with awe.</l></lg>
+<lg><l>That morn of meadow-flowers she thought,</l>
+<l>Weaving a crown the nymphs to please:</l>
+<l>That gloomy night she look'd on nought</l>
+<l>But stars and seas.</l></lg>
+<lg><l>Then, as in hundred-citied <placeName key="tgn,7012056">Crete</placeName></l>
+<l>She landed,&mdash;&ldquo;O my sire!&rdquo; she said,</l>
+<l>&ldquo;O childly duty! passion's heat</l>
+<l>Has struck thee dead.</l></lg>
+<lg><l>Whence came I? death, for maiden's shame,</l>
+<l>Were little.  Do I wake to weep</l>
+<l>My sin? or am I pure of blame,</l>
+<l>And is it sleep</l></lg>
+<lg><l>From dreamland brings a form to trick</l>
+<l>My senses? Which was best? to go</l>
+<l>Over the long, long waves, or pick</l>
+<l>The flowers in blow?</l></lg>
+<lg><l>O, were that monster made my prize,</l>
+<l>How would I strive to wound that brow,</l>
+<l>How tear those horns, my frantic eyes</l>
+<l>Adored but now!</l></lg>
+<lg><l>Shameless I left my father's home;</l>
+<l>Shameless I cheat the expectant grave;</l>
+<l>O heaven, that naked I might roam</l>
+<l>In lions' cave!</l></lg>
+<lg><l>Now, ere decay my bloom devour</l>
+<l>Or thin the richness of my blood,</l>
+<l>Fain would I fall in youth's first flower,</l>
+<l>The tigers' food.</l></lg>
+<lg><l>Hark! 'tis my father&mdash;&lsquo;Worthless one!</l>
+<l>What, yet alive? the oak is nigh.</l>
+<l>'Twas well you kept your maiden zone,</l>
+<l>The noose to tie.</l></lg>
+<lg><l>Or if your choice be that rude pike,</l>
+<l>New barb'd with death, leap down and ask</l>
+<l>The wind to bear you.  Would you like</l>
+<l>The bondmaid's task,</l></lg>
+<lg><l>You, child of kings, a master's toy,</l>
+<l>A mistress' slave?&rsquo;&rdquo; Beside her, lo!</l>
+<l>Stood Venus smiling, and her boy</l>
+<l>With unstrung bow.</l></lg>
+<lg><l>Then, when her laughter ceased, &ldquo;Have done</l>
+<l>With fume and fret,&rdquo; she cried, &ldquo;my fair;</l>
+<l>That odious bull will give you soon</l>
+<l>His horns to tear.</l></lg>
+<lg><l>You know not you are Jove's own dame:</l>
+<l>Away with sobbing; be resign'd</l>
+<l>To greatness: you shall give your name</l>
+<l>To half mankind.&rdquo;</l></lg></div2>
+<div2 type="Poem" n="28" met="ab">
+<lg><l>Neptune's feast-day! what should man</l>
+<l>Think first of doing? Lyde mine, be bold,</l>
+<l>Broach the treasured Caecuban,</l>
+<l>And batter Wisdom in her own stronghold.</l>
+<l>Now the noon has pass'd the full,</l>
+<l>Yet sure you deem swift Time has made a halt,</l>
+<l>Tardy as you are to pull</l>
+<l>Old Bibulus' wine-jar from its sleepy vault.</l>
+<l>I will take my turn and sing</l>
+<l>Neptune and Nereus' train with locks of green;</l>
+<l>You shall warble to the string</l>
+<l><placeName key="tgn,2013536">Latona</placeName> and her <placeName key="tgn,2056258">Cynthia</placeName>'s arrowy sheen.</l>
+<l>Hers our latest song, who sways</l>
+<l><placeName key="tgn,5003757">Cnidos</placeName> and Cyclads, and to <placeName key="tgn,7002373">Paphos</placeName> goes</l>
+<l>With her swans, on holydays;</l>
+<l>Night too shall claim the homage music owes.</l></lg></div2>
+<div2 type="Poem" n="29" met="ab">
+<lg><l>Heir of Tyrrhenian kings, for you</l>
+<l>A mellow cask, unbroach'd as yet,</l>
+<l>Maecenas mine, and roses new,</l>
+<l>And fresh-drawn oil your locks to wet,</l>
+<l>Are waiting here.  Delay not still,</l>
+<l>Nor gaze on <placeName key="perseus,Tibur">Tibur</placeName>, never dried,</l>
+<l>And sloping Aesule, and the hill</l>
+<l>Of Telegon the parricide.</l>
+<l>O leave that pomp that can but tire,</l>
+<l>Those piles, among the clouds at home;</l>
+<l>Cease for a moment to admire</l>
+<l>The smoke, the wealth, the noise of <placeName key="perseus,Rome">Rome</placeName>!</l>
+<l>In change e'en luxury finds a zest:</l>
+<l>The poor man's supper, neat, but spare,</l>
+<l>With no gay couch to seat the guest,</l>
+<l>Has smooth'd the rugged brow of care.</l>
+<l>Now glows the Ethiop maiden's sire;</l>
+<l>Now Procyon rages all ablaze;</l>
+<l>The Lion maddens in his ire,</l>
+<l>As suns bring back the sultry days:</l>
+<l>The shepherd with his weary sheep</l>
+<l>Seeks out the streamlet and the trees,</l>
+<l>Silvanus' lair: the still banks sleep</l>
+<l>Untroubled by the wandering breeze.</l>
+<l>You ponder on imperial schemes,</l>
+<l>And o'er the city's danger brood:</l>
+<l>Bactrian and Serian haunt your dreams,</l>
+<l>And <placeName key="tgn,1123466">Tanais</placeName>, toss'd by inward feud.</l>
+<l>The issue of the time to be</l>
+<l>Heaven wisely hides in blackest night,</l>
+<l>And laughs, should man's anxiety</l>
+<l>Transgress the bounds of man's short sight.</l>
+<l>Control the present: all beside</l>
+<l>Flows like a river seaward borne,</l>
+<l>Now rolling on its placid tide,</l>
+<l>Now whirling massy trunks uptorn,</l>
+<l>And waveworn crags, and farms, and stock,</l>
+<l>In chaos blent, while hill and wood</l>
+<l>Reverberate to the enormous shock,</l>
+<l>When savage rains the tranquil flood</l>
+<l>Have stirr'd to madness.  Happy he,</l>
+<l>Self-centred, who each night can say,</l>
+<l>&ldquo;My life is lived: the morn may see</l>
+<l>A clouded or a sunny day:</l>
+<l>That rests with Jove: but what is gone,</l>
+<l>He will not, cannot turn to nought;</l>
+<l>Nor cancel, as a thing undone,</l>
+<l>What once the flying hour has brought.&rdquo;</l>
+<l>Fortune, who loves her cruel game,</l>
+<l>Still bent upon some heartless whim,</l>
+<l>Shifts her caresses, fickle dame,</l>
+<l>Now kind to me, and now to him:</l>
+<l>She stays; 'tis well: but let her shake</l>
+<l>Those wings, her presents I resign,</l>
+<l>Cloak me in native worth, and take</l>
+<l>Chaste Poverty undower'd for mine.</l>
+<l>Though storms around my vessel rave,</l>
+<l>I will not fall to craven prayers,</l>
+<l>Nor bargain by my vows to save</l>
+<l>My Cyprian and Sidonian wares,</l>
+<l>Else added to the insatiate main.</l>
+<l>Then through the wild <placeName key="tgn,7002675">Aegean</placeName> roar</l>
+<l>The breezes and the Brethren Twain</l>
+<l>Shall waft my little boat ashore.</l></lg></div2>
+<div2 type="Poem" n="30" met="abba">
+<lg><l>And now 'tis done: more durable than brass</l>
+<l>My monument shall he, and raise its head</l>
+<l>O'er royal pyramids: it shall not dread</l>
+<l>Corroding rain or angry Boreas,</l></lg>
+<lg><l>Nor the long lapse of immemorial time.</l>
+<l>I shall not wholly die: large residue</l>
+<l>Shall 'scape the queen of funerals.  Ever new</l>
+<l>My after fame shall grow, while pontiffs climb</l></lg>
+<lg><l>With silent maids the Capitolian height.</l>
+<l>&ldquo;Born,&rdquo; men will say, &ldquo;where Aufidus is loud,</l>
+<l>Where Daunus, scant of streams, beneath him bow'd</l>
+<l>The rustic tribes, from dimness he wax'd bright,</l></lg>
+<lg><l>First of his race to wed the Aeolian lay</l>
+<l>To notes of <placeName key="tgn,1000080">Italy</placeName>.&rdquo;  Put glory on,</l>
+<l>My own Melpomene, by genius won,</l>
+<l>And crown me of thy grace with Delphic bay.</l></lg></div2></div1>
+<div1 type="Book" n="4">
+<div2 type="Poem" n="1" met="ab">
+<lg><l>Yet again thou wak'st the flame</l>
+<l>That long had slumber'd!  Spare me, Venus, spare!</l>
+<l>Trust me, I am not the same</l>
+<l>As in the reign of Cinara, kind and fair.</l>
+<l>Cease thy softening spells to prove</l>
+<l>On this old heart, by fifty years made hard,</l>
+<l>Cruel Mother of sweet Love!</l>
+<l>Haste, where gay youth solicits thy regard.</l>
+<l>With thy purple cygnets fly</l>
+<l>To Paullus' door, a seasonable guest;</l>
+<l>There within hold revelry,</l>
+<l>There light thy flame in that congenial breast.</l>
+<l>He, with birth and beauty graced,</l>
+<l>The trembling client's champion, ne'er tongue-tied,</l>
+<l>Master of each manly taste,</l>
+<l>Shall bear thy conquering banners far and wide.</l>
+<l>Let him smile in triumph gay,</l>
+<l>True heart, victorious over lavish hand,</l>
+<l>By the Alban lake that day</l>
+<l>'Neath citron roof all marble shalt thou stand:</l>
+<l>Incense there and fragrant spice</l>
+<l>With odorous fumes thy nostrils shall salute;</l>
+<l>Blended notes thine ear entice,</l>
+<l>The lyre, the pipe, the Berecyntine flute:</l>
+<l>Graceful youths and maidens bright</l>
+<l>Shall twice a day thy tuneful praise resound,</l>
+<l>While their feet, so fair and white,</l>
+<l>In Salian measure three times beat the ground.</l>
+<l>I can relish love no more,</l>
+<l>Nor flattering hopes that tell me hearts are true,</l>
+<l>Nor the revel's loud uproar,</l>
+<l>Nor fresh-wreathed flowerets, bathed in vernal dew.</l>
+<l>Ah! but why, my Ligurine,</l>
+<l>Steal trickling tear-drops down my wasted cheek?</l>
+<l>Wherefore halts this tongue of mine,</l>
+<l>So eloquent once, so faltering now and weak?</l>
+<l>Now I hold you in my chain,</l>
+<l>And clasp you close, all in a nightly dream;</l>
+<l>Now, still dreaming, o'er the plain</l>
+<l>I chase you; now, ah cruel! down the stream.</l></lg></div2>
+<div2 type="Poem" n="2" met="aaab">
+<lg><l>Who fain at Pindar's flight would aim,</l>
+<l>On waxen wings, Iulus, he</l>
+<l>Soars heavenward, doom'd to give his name</l>
+<l>To some new sea.</l></lg>
+<lg><l>Pindar, like torrent from the steep</l>
+<l>Which, swollen with rain, its banks o'erflows,</l>
+<l>With mouth unfathomably deep,</l>
+<l>Foams, thunders, glows,</l></lg>
+<lg><l>All worthy of Apollo's bay,</l>
+<l>Whether in dithyrambic roll</l>
+<l>Pouring new words he burst away</l>
+<l>Beyond control,</l></lg>
+<lg><l>Or gods and god-born heroes tell,</l>
+<l>Whose arm with righteous death could tame</l>
+<l>Grim Centaurs, tame Chimaeras fell,</l>
+<l>Out-breathing flame,</l></lg>
+<lg><l>Or bid the boxer or the steed</l>
+<l>In deathless pride of victory live,</l>
+<l>And dower them with a nobler meed</l>
+<l>Than sculptors give,</l></lg>
+<lg><l>Or mourn the bridegroom early torn</l>
+<l>From his young bride, and set on high</l>
+<l>Strength, courage, virtue's golden morn,</l>
+<l>Too good to die.</l></lg>
+<lg><l>Antonius! yes, the winds blow free,</l>
+<l>When Dirce's swan ascends the skies,</l>
+<l>To waft him.  I, like Matine bee,</l>
+<l>In act and guise,</l></lg>
+<lg><l>That culls its sweets through toilsome hours,</l>
+<l>Am roaming <placeName key="perseus,Tibur">Tibur</placeName>'s banks along,</l>
+<l>And fashioning with puny powers</l>
+<l>A laboured song.</l></lg>
+<lg><l>Your Muse shall sing in loftier strain</l>
+<l>How Caesar climbs the sacred height,</l>
+<l>The fierce Sygambrians in his train,</l>
+<l>With laurel dight,</l></lg>
+<lg><l>Than whom the Fates ne'er gave mankind</l>
+<l>A richer treasure or more dear,</l>
+<l>Nor shall, though earth again should find</l>
+<l>The golden year.</l></lg>
+<lg><l>Your Muse shall tell of public sports,</l>
+<l>And holyday, and votive feast,</l>
+<l>For Caesar's sake, and brawling courts</l>
+<l>Where strife has ceased.</l></lg>
+<lg><l>Then, if my voice can aught avail,</l>
+<l>Grateful for him our prayers have won,</l>
+<l>My song shall echo, &ldquo;Hail, all hail,</l>
+<l>Auspicious Sun!&rdquo;</l></lg>
+<lg><l>There as you move, &ldquo;Ho! Triumph, ho!</l>
+<l>Great Triumph!&rdquo; once and yet again</l>
+<l>All <placeName key="perseus,Rome">Rome</placeName> shall cry, and spices strow</l>
+<l>Before your train.</l></lg>
+<lg><l>Ten bulls, ten kine, your debt discharge:</l>
+<l>A calf new-wean'd from parent cow,</l>
+<l>Battening on pastures rich and large,</l>
+<l>Shall quit my vow.</l></lg>
+<lg><l>Like moon just dawning on the night</l>
+<l>The crescent honours of his head;</l>
+<l>One dapple spot of snowy white,</l>
+<l>The rest all red.</l></lg></div2>
+<div2 type="Poem" n="3" met="ab">
+<lg><l>He whom thou, Melpomene,</l>
+<l>Hast welcomed with thy smile, in life arriving,</l>
+<l>Ne'er by boxer's skill shall be</l>
+<l>Renown'd abroad, for Isthmian mastery striving;</l>
+<l>Him shall never fiery steed</l>
+<l>Draw in Achaean car a conqueror seated;</l>
+<l>Him shall never martial deed</l>
+<l>Show, crown'd with bay, after proud kings defeated,</l>
+<l>Climbing Capitolian steep:</l>
+<l>But the cool streams that make green <placeName key="perseus,Tibur">Tibur</placeName> flourish,</l>
+<l>And the tangled forest deep,</l>
+<l>On soft Aeolian airs his fame shall nourish.</l>
+<l><placeName key="perseus,Rome">Rome</placeName>, of cities first and best,</l>
+<l>Deigns by her sons' according voice to hail me</l>
+<l>Fellow-bard of poets blest,</l>
+<l>And faint and fainter envy's growls assail me.</l>
+<l>Goddess, whose Pierian art</l>
+<l>The lyre's sweet sounds can modulate and measure,</l>
+<l>Who to dumb fish canst impart</l>
+<l>The music of the swan, if such thy pleasure:</l>
+<l>O, 'tis all of thy dear grace</l>
+<l>That every finger points me out in going</l>
+<l>Lyrist of the Roman race;</l>
+<l>Breath, power to charm, if mine, are thy bestowing!</l></lg></div2>
+<div2 type="Poem" n="4" met="ab">
+<lg><l>E'en as the lightning's minister,</l>
+<l>Whom Jove o'er all the feather'd breed</l>
+<l>Made sovereign, having proved him sure</l>
+<l>Erewhile on auburn Ganymede;</l>
+<l>Stirr'd by warm youth and inborn power,</l>
+<l>He quits the nest with timorous wing,</l>
+<l>For winter's storms have ceased to lower,</l>
+<l>And zephyrs of returuing spring</l>
+<l>Tempt him to launch on unknown skies</l>
+<l>Next on the fold he stoops downright;</l>
+<l>Last on resisting serpents flies,</l>
+<l>Athirst for foray and for flight:</l>
+<l>As tender kidling on the grass</l>
+<l>Espies, uplooking from her food,</l>
+<l>A lion's whelp, and knows, alas!</l>
+<l>Those new-set teeth shall drink her blood:</l>
+<l>So look'd the Raetian mountaineers</l>
+<l>On Drusus:&mdash;whence in every field</l>
+<l>They learn'd through immemorial years</l>
+<l>The Amazonian axe to wield,</l>
+<l>I ask not now: not all of truth</l>
+<l>We seekers find: enough to know</l>
+<l>The wisdom of the princely youth</l>
+<l>Has taught our erst victorious foe</l>
+<l>What prowess dwells in boyish hearts</l>
+<l>Rear'd in the shrine of a pure home,</l>
+<l>What strength Augustus' love imparts</l>
+<l>To Nero's seed, the hope of <placeName key="perseus,Rome">Rome</placeName>.</l>
+<l>Good sons and brave good sires approve:</l>
+<l>Strong bullocks, fiery colts, attest</l>
+<l>Their fathers' worth, nor weakling dove</l>
+<l>Is hatch'd in savage eagle's nest.</l>
+<l>But care draws forth the power within,</l>
+<l>And cultured minds are strong for good:</l>
+<l>Let manners fail, the plague of sin</l>
+<l>Taints e'en the course of gentle blood.</l>
+<l>How great thy debt to Nero's race,</l>
+<l>O <placeName key="perseus,Rome">Rome</placeName>, let red Metaurus say,</l>
+<l>Slain Hasdrubal, and victory's grace</l>
+<l>First granted on that glorious day</l>
+<l>Which chased the clouds, and show'd the sun,</l>
+<l>When Hannibal o'er <placeName key="tgn,1000080">Italy</placeName></l>
+<l>Ran, as swift flames o'er pine-woods run,</l>
+<l>Or Eurus o'er <placeName key="tgn,7003122">Sicilia</placeName>'s sea.</l>
+<l>Henceforth, by fortune aiding toil,</l>
+<l><placeName key="perseus,Rome">Rome</placeName>'s prowess grew: her fanes, laid waste</l>
+<l>By Punic sacrilege and spoil,</l>
+<l>Beheld at length their gods replaced.</l>
+<l>Then the false Libyan own'd his doom:&mdash;</l>
+<l>&ldquo;Weak deer, the wolves' predestined prey,</l>
+<l>Blindly we rush on foes, from whom</l>
+<l>'Twere triumph won to steal away.</l>
+<l>That race which, strong from <placeName key="tgn,7002329">Ilion</placeName>'s fires,</l>
+<l>Its gods, on Tuscan waters tost,</l>
+<l>Its sons, its venerable sires,</l>
+<l>Bore to Ausonia's citied coast;</l>
+<l>That race, like oak by axes shorn</l>
+<l>On Algidus with dark leaves rife,</l>
+<l>Laughs carnage, havoc, all to scorn,</l>
+<l>And draws new spirit from the knife.</l>
+<l>Not the lopp'd Hydra task'd so sore</l>
+<l>Alcides, chafing at the foil:</l>
+<l>No pest so fell was born of yore</l>
+<l>From Colchian or from Theban soil.</l>
+<l>Plunged in the deep, it mounts to sight</l>
+<l>More splendid: grappled, it will quell</l>
+<l>Unbroken powers, and fight a fight</l>
+<l>Whose story widow'd wives shall tell.</l>
+<l>No heralds shall my deeds proclaim</l>
+<l>To <placeName key="perseus,Carthage">Carthage</placeName> now: lost, lost is all:</l>
+<l>A nation's hope, a nation's name,</l>
+<l>They died with dying Hasdrubal.&rdquo;</l>
+<l>What will not Claudian hands achieve?</l>
+<l>Jove's favour is their guiding star,</l>
+<l>And watchful potencies unweave</l>
+<l>For them the tangled paths of war.</l></lg></div2>
+<div2 type="Poem" n="5" met="aaab">
+<lg><l>Best guardian of <placeName key="perseus,Rome">Rome</placeName>'s people, dearest boon</l>
+<l>Of a kind Heaven, thou lingerest all too long:</l>
+<l>Thou bad'st thy senate look to meet thee soon:</l>
+<l>Do not thy promise wrong.</l></lg>
+<lg><l>Restore, dear chief, the light thou tak'st away:</l>
+<l>Ah! when, like spring, that gracious mien of thine</l>
+<l>Dawns on thy <placeName key="perseus,Rome">Rome</placeName>, more gently glides the day,</l>
+<l>And suns serener shine.</l></lg>
+<lg><l>See her whose darling child a long year past</l>
+<l>Has dwelt beyond the wild Carpathian foam;</l>
+<l>That long year o'er, the envious southern blast</l>
+<l>Still bars him from his home:</l></lg>
+<lg><l>Weeping and praying to the shore she clings,</l>
+<l>Nor ever thence her straining eyesight turns:</l>
+<l>So, smit by loyal passion's restless stings,</l>
+<l><placeName key="perseus,Rome">Rome</placeName> for her Caesar yearns.</l></lg>
+<lg><l>In safety range the cattle o'er the mead:</l>
+<l>Sweet Peace, soft Plenty, swell the golden grain:</l>
+<l>O'er unvex'd seas the sailors blithely speed:</l>
+<l>Fair Honour shrinks from stain:</l></lg>
+<lg><l>No guilty lusts the shrine of home defile:</l>
+<l>Cleansed is the hand without, the heart within:</l>
+<l>The father's features in his children smile</l>
+<l>Swift vengeance follows sin.</l></lg>
+<lg><l>Who fears the Parthian or the Scythian horde,</l>
+<l>Or the rank growth that German forests yield,</l>
+<l>While Caesar lives? who trembles at the sword</l>
+<l>The fierce Iberians wield?</l></lg>
+<lg><l>In his own hills each labours down the day,</l>
+<l>Teaching the vine to clasp the widow'd tree:</l>
+<l>Then to his cups again, where, feasting gay,</l>
+<l>He hails his god in thee.</l></lg>
+<lg><l>A household power, adored with prayers and wine,</l>
+<l>Thou reign'st auspicious o'er his hour of ease:</l>
+<l>Thus grateful <placeName key="tgn,1000074">Greece</placeName> her Castor made divine,</l>
+<l>And her great Hercules.</l></lg>
+<lg><l>Ah! be it thine long holydays to give</l>
+<l>To thy Hesperia! thus, dear chief, we pray</l>
+<l>At sober sunrise; thus at mellow eve,</l>
+<l>When ocean hides the day.</l></lg></div2>
+<div2 type="Poem" n="6" met="aaab">
+<lg><l>Thou who didst make thy vengeful might</l>
+<l>To Niobe and Tityos known,</l>
+<l>And Peleus' son, when <placeName key="perseus,Troy">Troy</placeName>'s tall height</l>
+<l>Was nigh his own,</l></lg>
+<lg><l>Victorious else, for thee no peer,</l>
+<l>Though, strong in his sea-parent's power,</l>
+<l>He shook with that tremendous spear</l>
+<l>The Dardan tower.</l></lg>
+<lg><l>He, like a pine by axes sped,</l>
+<l>Or cypress sway'd by angry gust,</l>
+<l>Fell ruining, and laid his head</l>
+<l>In Trojan dust.</l></lg>
+<lg><l>Not his to lie in covert pent</l>
+<l>Of the false steed, and sudden fall</l>
+<l>On Priam's ill-starr'd merriment</l>
+<l>In bower and hail:</l></lg>
+<lg><l>His ruthless arm in broad bare day</l>
+<l>The infant from the breast had torn,</l>
+<l>Nay, given to flame, ah, well a way!</l>
+<l>The babe unborn:</l></lg>
+<lg><l>But, won by Venus' voice and thine,</l>
+<l>Relenting Jove Aeneas will'd</l>
+<l>With other omens more benign</l>
+<l>New walls to build.</l></lg>
+<lg><l>Sweet tuner of the Grecian lyre,</l>
+<l>Whose locks are laved in <placeName key="tgn,7002633">Xanthus</placeName>' dews,</l>
+<l>Blooming Agyieus! help, inspire</l>
+<l>My Daunian Muse!</l></lg>
+<lg><l>'Tis Phoebus, Phoebus gifts my tongue</l>
+<l>With minstrel art and minstrel fires:</l>
+<l>Come, noble youths and maidens sprung</l>
+<l>From noble sires,</l></lg>
+<lg><l>Blest in your Dian's guardian smile,</l>
+<l>Whose shafts the flying silvans stay,</l>
+<l>Come, foot the Lesbian measure, while</l>
+<l>The lyre I play:</l></lg>
+<lg><l>Sing of <placeName key="tgn,2013536">Latona</placeName>'s glorious boy,</l>
+<l>Sing of night's queen with crescent horn,</l>
+<l>Who wings the fleeting months with joy,</l>
+<l>And swells the corn.</l></lg>
+<lg><l>And happy brides shall say, &ldquo;'Twas mine,</l>
+<l>When years the cyclic season brought,</l>
+<l>To chant the festal hymn divine</l>
+<l>By <name>Horace</name> taught.&rdquo;</l></lg></div2>
+<div2 type="Poem" n="7" met="ab">
+<lg><l>The snow is fled: the trees their leaves put on,</l>
+<l>The fields their green:</l>
+<l>Earth owns the change, and rivers lessening run</l>
+<l>Their banks between.</l>
+<l>Naked the Nymphs and Graces in the meads</l>
+<l>The dance essay:</l>
+<l>&ldquo;No 'scaping death&rdquo; proclaims the year, that speeds</l>
+<l>This sweet spring day.</l>
+<l>Frosts yield to zephyrs; Summer drives out Spring,</l>
+<l>To vanish, when</l>
+<l>Rich Autumn sheds his fruits; round wheels the ring,&mdash;</l>
+<l>Winter again!</l>
+<l>Yet the swift moons repair Heaven's detriment:</l>
+<l>We, soon as thrust</l>
+<l>Where good Aeneas, Tullus, Ancus went,</l>
+<l>What are we? dust.</l>
+<l>Can Hope assure you one more day to live</l>
+<l>From powers above?</l>
+<l>You rescue from your heir whate'er you give</l>
+<l>The self you love.</l>
+<l>When life is o'er, and Minos has rehearsed</l>
+<l>The grand last doom,</l>
+<l>Not birth, nor eloquence, nor worth, shall burst</l>
+<l>Torquatus' tomb.</l>
+<l>Not Dian's self can chaste Hippolytus</l>
+<l>To life recall,</l>
+<l>Nor Theseus free his loved Pirithous</l>
+<l>From Lethe's thrall.</l></lg></div2>
+<div2 type="Poem" n="8" met="abba">
+<lg><l>Ah Censorinus! to my comrades true</l>
+<l>Rich cups, rare bronzes, gladly would I send:</l>
+<l>Choice tripods from <placeName key="perseus,Olympia">Olympia</placeName> on each friend</l>
+<l>Would I confer, choicer on none than you,</l></lg>
+<lg><l>Had but my fate such gems of art bestow'd</l>
+<l>As cunning Scopas or Parrhasius wrought,</l>
+<l>This with the brush, that with the chisel taught</l>
+<l>To image now a mortal, now a god.</l></lg>
+<lg><l>But these are not my riches: your desire</l>
+<l>Such luxury craves not, and your means disdain:</l>
+<l>A poet's strain you love; a poet's strain</l>
+<l>Accept, and learn the value of the lyre.</l></lg>
+<lg><l>Not public gravings on a marble base,</l>
+<l>Whence comes a second life to men of might</l>
+<l>E'en in the tomb: not Hannibal's swift flight,</l>
+<l>Nor those fierce threats flung back into his face,</l></lg>
+<lg><l>Not impious <placeName key="perseus,Carthage">Carthage</placeName> in its last red blaze,</l>
+<l>In clearer light sets forth his spotless fame,</l>
+<l>Who from crush'd Afric took away&mdash;a name,</l>
+<l>Than rude <placeName key="tgn,7007850">Calabria</placeName>'s tributary lays.</l></lg>
+<lg><l>Let silence hide the good your hand has wrought,</l>
+<l>Farewell, reward! Had blank oblivion's power</l>
+<l>Dimm'd the bright deeds of Romulus, at this hour,</l>
+<l>Despite his sire and mother, he were nought.</l></lg>
+<lg><l>Thus Aeacus has 'scaped the Stygian wave,</l>
+<l>By grace of poets and their silver tongue,</l>
+<l>Henceforth to live the happy isles among.</l>
+<l>No, trust the Muse: she opes the good man's grave,</l></lg>
+<lg><l>And lifts him to the gods.  So Hercules,</l>
+<l>His labours o'er, sits at the board of Jove:</l>
+<l>So Tyndareus' offspring shine as stars above,</l>
+<l>Saving lorn vessels from the yawning seas:</l></lg>
+<lg><l>So Bacchus, with the vine-wreath round his hair,</l>
+<l>Gives prosperous issue to his votary's prayer.</l></lg></div2>
+<div2 type="Poem" n="9" met="ab">
+<lg><l>Think not those strains can e'er expire,</l>
+<l>Which, cradled 'mid the echoing roar</l>
+<l>Of <placeName key="tgn,1128017">Aufidus</placeName>, to <placeName key="tgn,7003080">Latium</placeName>'s lyre</l>
+<l>I sing with arts unknown before.</l>
+<l>Though Homer fill the foremost throne,</l>
+<l>Yet grave Stesichorus still can please,</l>
+<l>And fierce Alcaeus holds his own</l>
+<l>With Pindar and Simonides.</l>
+<l>The songs of <placeName key="perseus,Teos">Teos</placeName> are not mute,</l>
+<l>And Sappho's love is breathing still:</l>
+<l>She told her secret to the lute,</l>
+<l>And yet its chords with passion thrill.</l>
+<l>Not <placeName key="perseus,Sparta">Sparta</placeName>'s queen alone was fired</l>
+<l>By broider'd robe and braided tress,</l>
+<l>And all the splendours that attired</l>
+<l>Her lover's guilty loveliness:</l>
+<l>Not only Teucer to the field</l>
+<l>His arrows brought, nor <placeName key="tgn,7002329">Ilion</placeName></l>
+<l>Beneath a single conqueror reel'd:</l>
+<l>Not <placeName key="tgn,7012056">Crete</placeName>'s majestic lord alone,</l>
+<l>Or Sthenelus, earn'd the Muses' crown:</l>
+<l>Not Hector first for child and wife,</l>
+<l>Or brave Deiphobus, laid down</l>
+<l>The burden of a manly life.</l>
+<l>Before Atrides men were brave:</l>
+<l>But ah! oblivion, dark and long,</l>
+<l>Has lock'd them in a tearless grave,</l>
+<l>For lack of consecrating song.</l>
+<l>'Twixt worth and baseness, lapp'd in death,</l>
+<l>What difference? You shall ne'er be dumb,</l>
+<l>While strains of mine have voice and breath:</l>
+<l>The dull neglect of days to come</l>
+<l>Those hard-won honours shall not blight:</l>
+<l>No, Lollius, no: a soul is yours,</l>
+<l>Clear-sighted, keen, alike upright</l>
+<l>When fortune smiles, and when she lowers:</l>
+<l>To greed and rapine still severe,</l>
+<l>Spurning the gain men find so sweet:</l>
+<l>A consul, not of one brief year,</l>
+<l>But oft as on the judgment-seat</l>
+<l>You bend the expedient to the right,</l>
+<l>Turn haughty eyes from bribes away,</l>
+<l>Or bear your banners through the fight,</l>
+<l>Scattering the foeman's firm array.</l>
+<l>The lord of boundless revenues,</l>
+<l>Salute not him as happy: no,</l>
+<l>Call him the happy, who can use</l>
+<l>The bounty that the gods bestow,</l>
+<l>Can bear the load of poverty,</l>
+<l>And tremble not at death, but sin:</l>
+<l>No recreant he when called to die</l>
+<l>In cause of country or of kin.</l></lg></div2>
+<div2 type="Poem" n="11" met="aaab">
+<lg><l>Here is a cask of <placeName key="tgn,1031727">Alban</placeName>, more</l>
+<l>Than nine years old: here grows for you</l>
+<l>Green parsley, Phyllis, and good store</l>
+<l>Of ivy too</l></lg>
+<lg><l>(Wreathed ivy suits your hair, you know):</l>
+<l>The plate shines bright: the altar, strew'd</l>
+<l>With vervain, hungers for the flow</l>
+<l>Of lambkin's blood.</l></lg>
+<lg><l>There's stir among the serving folk;</l>
+<l>They bustle, bustle, boy and girl;</l>
+<l>The flickering flames send up the smoke</l>
+<l>In many a curl.</l></lg>
+<lg><l>But why, you ask, this special cheer?</l>
+<l>We celebrate the feast of Ides,</l>
+<l>Which April's month, to Venus dear,</l>
+<l>In twain divides.</l></lg>
+<lg><l>O, 'tis a day for reverence,</l>
+<l>E'en my own birthday scarce so dear,</l>
+<l>For my Maecenas counts from thence</l>
+<l>Each added year.</l></lg>
+<lg><l>'Tis Telephus that you'd bewitch:</l>
+<l>But he is of a high degree;</l>
+<l>Bound to a lady fair and rich,</l>
+<l>He is not free.</l></lg>
+<lg><l>O think of Phaethon half burn'd,</l>
+<l>And moderate your passion's greed:</l>
+<l>Think how Bellerophon was spurn'd</l>
+<l>By his wing'd steed.</l></lg>
+<lg><l>So learn to look for partners meet,</l>
+<l>Shun lofty things, nor raise your aims</l>
+<l>Above your fortune. Come then, sweet,</l>
+<l>My last of flames</l></lg>
+<lg><l>(For never shall another fair</l>
+<l>Enslave me), learn a tune, to sing</l>
+<l>With that dear voice: to music care</l>
+<l>Shall yield its sting.</l></lg></div2>
+<div2 type="Poem" n="12" met="aaab">
+<lg><l>The gales of <placeName key="tgn,7002756">Thrace</placeName>, that hush the unquiet sea,</l>
+<l>Spring's comrades, on the bellying canvas blow:</l>
+<l>Clogg'd earth and brawling streams alike are free</l>
+<l>From winter's weight of snow.</l></lg>
+<lg><l>Wailing her Itys in that sad, sad strain,</l>
+<l>Builds the poor bird, reproach to after time</l>
+<l>Of Cecrops' house, for bloody vengeance ta'en</l>
+<l>On foul barbaric crime.</l></lg>
+<lg><l>The keepers of fat lambkins chant their loves</l>
+<l>To silvan reeds, all in the grassy lea,</l>
+<l>And pleasure Him who tends the flocks and groves</l>
+<l>Of dark-leaved Arcady.</l></lg>
+<lg><l>It is a thirsty season, Virgil mine:</l>
+<l>But would you taste the grape's Calenian juice,</l>
+<l>Client of noble youths, to earn your wine</l>
+<l>Some nard you must produce.</l></lg>
+<lg><l>A tiny box of nard shall bring to light</l>
+<l>The cask that in Sulpician cellar lies:</l>
+<l>O, it can give new hopes, so fresh and bright,</l>
+<l>And gladden gloomy eyes.</l></lg>
+<lg><l>You take the bait? then come without delay</l>
+<l>And bring your ware: be sure, 'tis not my plan</l>
+<l>To let you drain my liquor and not pay,</l>
+<l>As might some wealthy man.</l></lg>
+<lg><l>Come, quit those covetous thoughts, those knitted brows,</l>
+<l>Think on the last black embers, while you may,</l>
+<l>And be for once unwise.  When time allows,</l>
+<l>'Tis sweet the fool to play.</l></lg></div2>
+<div2 type="Poem" n="13" met="aaab">
+<lg><l>The gods have heard, the gods have heard my prayer;</l>
+<l>Yes, Lyce! you are growing old, and still</l>
+<l>You struggle to look fair;</l>
+<l>You drink, and dance, and trill</l></lg>
+<lg><l>Your songs to youthful Love, in accents weak</l>
+<l>With wine, and age, and passion. Youthful Love!</l>
+<l>He dwells in <placeName key="tgn,5003424">Chia</placeName>'s cheek,</l>
+<l>And hears her harp-strings move.</l></lg>
+<lg><l>Rude boy, he flies like lightning o'er the heath</l>
+<l>Past wither'd trees like you; you're wrinkled now;</l>
+<l>The white has left your teeth</l>
+<l>And settled on your brow.</l></lg>
+<lg><l>Your Coan silks, your jewels bright as stars,</l>
+<l>Ah no! they bring not back the days of old,</l>
+<l>In public calendars</l>
+<l>By flying Time enroll'd.</l></lg>
+<lg><l>Where now that beauty? where those movements? where</l>
+<l>That colour? what of her, of her is left,</l>
+<l>Who, breathing Love's own air,</l>
+<l>Me of myself bereft,</l></lg>
+<lg><l>Who reign'd in Cinara's stead, a fair, fair face,</l>
+<l>Queen of sweet arts? but Fate to Cinara gave</l>
+<l>A life of little space;</l>
+<l>And now she cheats the grave</l></lg>
+<lg><l>Of Lyce, spared to raven's length of days,</l>
+<l>That youth may see, with laughter and disgust,</l>
+<l>A fire-brand, once ablaze,</l>
+<l>Now smouldering in grey dust.</l></lg></div2>
+<div2 type="Poem" n="14" met="ab">
+<lg><l>What honours can a grateful <placeName key="perseus,Rome">Rome</placeName>,</l>
+<l>A grateful senate, Caesar, give</l>
+<l>To make thy worth through days to come</l>
+<l>Emblazon'd on our records live,</l>
+<l>Mightiest of chieftains whomsoe'er</l>
+<l>The sun beholds from heaven on high?</l>
+<l>They know thee now, thy strength in war,</l>
+<l>Those unsubdued Vindelici.</l>
+<l>Thine was the sword that Drusus drew,</l>
+<l>When on the Breunian hordes he fell,</l>
+<l>And storm'd the fierce Genaunian crew</l>
+<l>E'en in their Alpine citadel,</l>
+<l>And paid them back their debt twice told</l>
+<l>'Twas then the elder Nero came</l>
+<l>To conflict, and in ruin roll'd</l>
+<l>Stout Raetian kernes of giant frame.</l>
+<l>O, 'twas a gallant sight to see</l>
+<l>The shocks that beat upon the brave</l>
+<l>Who chose to perish and be free!</l>
+<l>As south winds scourge the rebel wave</l>
+<l>When through rent clouds the Pleiads weep,</l>
+<l>So keen his force to smite, and smite</l>
+<l>The foe, or make his charger leap</l>
+<l>Through the red furnace of the fight.</l>
+<l>Thus Daunia's ancient river fares,</l>
+<l>Proud <placeName key="tgn,1128017">Aufidus</placeName>, with bull-like horn,</l>
+<l>When swoln with choler he prepares</l>
+<l>A deluge for the fields of corn.</l>
+<l>So Claudius charged and overthrew</l>
+<l>The grim barbarian's mail-clad host,</l>
+<l>The foremost and the hindmost slew,</l>
+<l>And conquer'd all, and nothing lost.</l>
+<l>The force, the forethought, were thine own,</l>
+<l>Thine own the gods.  The selfsame day</l>
+<l>When, port and palace open thrown,</l>
+<l>Low at thy footstool <placeName key="tgn,7016833">Egypt</placeName> lay,</l>
+<l>That selfsame day, three lustres gone,</l>
+<l>Another victory to thine hand</l>
+<l>Was given; another field was won</l>
+<l>By grace of Caesar's high command.</l>
+<l>Thee Spanish tribes, unused to yield,</l>
+<l><placeName key="tgn,1045322">Mede</placeName>, Indian, Scyth that knows no home,</l>
+<l>Acknowledge, sword at once and shield</l>
+<l>Of <placeName key="tgn,1000080">Italy</placeName> and queenly <placeName key="perseus,Rome">Rome</placeName>.</l>
+<l>Ister to thee, and <placeName key="tgn,1123466">Tanais</placeName> fleet,</l>
+<l>And <placeName key="tgn,1127805">Nile</placeName> that will not tell his birth,</l>
+<l>To thee the monstrous seas that beat</l>
+<l>On <placeName key="tgn,7008653">Britain</placeName>'s coast, the end of earth,</l>
+<l>To thee the proud Iberians bow,</l>
+<l>And Gauls, that scorn from death to flee;</l>
+<l>The fierce Sygambrian bends his brow,</l>
+<l>And drops his arms to worship thee.</l></lg></div2>
+<div2 type="Poem" n="15" met="ab">
+<lg><l>Of battles fought I fain had told,</l>
+<l>And conquer'd towns, when Phoebus smote</l>
+<l>His harp-string: &ldquo;Sooth, 'twere over-bold.</l>
+<l>To tempt wide seas in that frail boat.&rdquo;</l>
+<l>Thy age, great Caesar, has restored</l>
+<l>To squalid fields the plenteous grain,</l>
+<l>Given back to <placeName key="perseus,Rome">Rome</placeName>'s almighty Lord</l>
+<l>Our standards, torn from Parthian fane,</l>
+<l>Has closed Quirinian Janus' gate,</l>
+<l>Wild passion's erring walk controll'd,</l>
+<l>Heal'd the foul plague-spot of the state,</l>
+<l>And brought again the life of old,</l>
+<l>Life, by whose healthful power increased</l>
+<l>The glorious name of <placeName key="tgn,7003080">Latium</placeName> spread</l>
+<l>To where the sun illumes the east</l>
+<l>From where he seeks his western bed.</l>
+<l>While Caesar rules, no civil strife</l>
+<l>Shall break our rest, nor violence rude,</l>
+<l>Nor rage, that whets the slaughtering knife</l>
+<l>And plunges wretched towns in feud.</l>
+<l>The sons of <placeName key="tgn,7012913">Danube</placeName> shall not scorn</l>
+<l>The Julian edicts; no, nor they</l>
+<l>By <placeName key="tgn,1123466">Tanais</placeName>' distant river horn,</l>
+<l>Nor <placeName key="tgn,7000231">Persia</placeName>, <placeName key="tgn,6005315">Scythia</placeName>, or Cathay.</l>
+<l>And we on feast and working-tide,</l>
+<l>While Bacchus' bounties freely flow,</l>
+<l>Our wives and children at our side,</l>
+<l>First paying Heaven the prayers we owe,</l>
+<l>Shall sing of chiefs whose deeds are done,</l>
+<l>As wont our sires, to flute or shell,</l>
+<l>And <placeName key="tgn,7002329">Troy</placeName>, Anchises, and the son</l>
+<l>Of Venus on our tongues shall dwell.</l></lg></div2></div1>
+</body></text></TEI.2>
