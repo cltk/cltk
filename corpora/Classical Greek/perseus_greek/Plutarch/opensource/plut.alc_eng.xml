@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Alc." type="work">Alcibiades</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;&fund.AnnCPB;</titleStmt>
+         <extent>about 112Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Alc."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1916</date>
+                  </imprint>
+                  <biblScope type="volume">4</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990897</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/90</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Proofread by Ted Armstrong.</item>
+         </change>
+         <change>
+            <date>8/91</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Revise DTDs and recheck texts.</item>
+         </change>
+         <change>
+            <date>8/92</date>
+            <respStmt>
+               <name>DAS</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Removed highlighted text, cleaned up notes and citations,
+					and changed chapters to DIV2's.</item>
+         </change>
+         <change>
+            <date>10/22/92</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Glued all Plutarch files together,
+					put in HEAD tags to title them.</item>
+         </change>
+         <change>
+            <date>9/12/97</date>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Made conformant with TEI P3.</item>
+         </change>
+         <change>
+            <date/>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>	
+					$Log: plut.alc_eng.xml,v $
+					Revision 1.5  2010-11-30 18:28:12  balmas01
+					getting rid of angle brackets in commit comments
+
+					Revision 1.4  2010-11-19 13:47:01  balmas01
+					Normalizing quote q and lb
+
+					Revision 1.3  2010-09-08 21:00:13  rsingh04
+					cleanup
+
+					Revision 1.2  2009/12/15 20:52:49  rsingh04
+					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
+
+					Revision 1.1  2009/12/07 22:05:55  rsingh04
+					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
+
+					Revision 1.7  2009/08/06 17:11:24  rsingh04
+					fixed section numbers
+
+					Revision 1.6  2009/07/30 16:58:53  student
+					fixed bibl errors - zr
+
+					Revision 1.5  2009/06/12 21:03:43  lcerrato
+					fixed bad bibls
+
+					Revision 1.4  2009/06/10 20:56:40  student
+					fixing citations - ad
+
+					Revision 1.3  2009/01/23 22:09:50  rsingh04
+					small fixes
+
+					Revision 1.2  2009/01/21 22:20:02  rsingh04
+					now validates and entities fixed
+
+					Revision 1.3  2001/09/28 19:38:18  lcerrato
+					fixed tagging error
+					
+					Revision 1.2  2001/09/28 19:34:06  lcerrato
+					cleaned up quotes, bibls and notes
+					
+					Revision 1.1  2001/09/27 21:56:40  lcerrato
+					adding new tags for DE, ISBN, etc.
+					
+					Revision 1.4  2000/03/04 20:35:11  dasmith
+					Added separate funder entity to TEI header.
+					
+					Revision 1.3  1999/07/28 18:27:56  dasmith
+					Added text to REFSDECL.
+					
+					Revision 1.2  1999/07/09 23:15:27  textgod
+					Converted to TEI-conformant SGML.</item>
+         </change>
+         <change>
+            <date>9/01</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>removed from group file, retagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>ALCIBIADES</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The family of Alcibiades, it is thought, may be traced back to Eurysaces,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Alc. 1 121a">Plat. Alc. 1 121</bibl>
+            </note> the son of Aias, as its founder; and on his mother's side he was an Alcmaeonid, being the son of Deinomache, the daughter of Megacles.  His father, Cleinias, fitted out a trireme at his own cost and fought it gloriously at Artemisium.<note resp="ed" place="unspecified" anchored="yes">480 B.C.</note> He was afterwards slain at Coroneia,<note resp="ed" place="unspecified" anchored="yes">447 B.C.</note> fighting the Boeotians, and Alcibiades was therefore reared as the ward of Pericles and Ariphron, the sons of Xanthippus, his near kinsmen.<note resp="ed" place="unspecified" anchored="yes">They were first cousins, once removed.</note>
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>It is said, and with good reason, that the favour and affection which Socrates showed him contributed not a little to his reputation.  Certain it is that Nicias, Demosthenes, Lamachus, Phormio, Thrasybulus, and Theramenes were prominent men, and his contemporaries, and yet we cannot so much as name the mother of any one of them; whereas, in the case of Alcibiades, we even know that his nurse, who was a Spartan woman, was called Amycla, and his tutor Zopyrus.  The one fact is mentioned by Antisthenes, the other by Plato.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Alc. 1 122b">Plat. Alc. 1 122</bibl>
+            </note>
+				        <milestone n="3" unit="section"/>
+			      </p>
+         <p>As regards the beauty of Alcibiades, it is perhaps unnecessary to say aught, except that it flowered out with each successive season of his bodily growth, and made him, alike in boyhood, youth and manhood, lovely and pleasant.  The saying of Euripides,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Ael. VH 13.4">Aelian Var. Hist. 13.4</bibl>
+            </note> that 
+				<q direct="unspecified">beauty's autumn, too, is beautiful,</q> is not always true.  But it was certainly the case with Alcibiades, as with few besides, because of his excellent natural parts.
+				<milestone n="4" unit="section"/>
+				Even the lisp that he had became his speech, they say, and made his talk persuasive and full of charm. Aristophanes notices this lisp of his in the verses wherein he ridicules Theorus:&mdash;
+				<q direct="unspecified">
+					          <sp>
+                  <speaker>Sosias</speaker>
+                  <l>Then Alcibiades said to me with a lisp, said he,</l>
+                  <l>&lsquo;Cwemahk Theocwus?  What a cwaven's head he has!&rsquo;</l>
+               </sp>
+					          <sp>
+                  <speaker>Xanthias</speaker>
+                  <l>That lisp of Alcibiades hit the mark for once!</l>
+               </sp>
+				        </q>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristoph. Wasps 44">
+                  <title>Wasps</title>, 44 ff</bibl>. The 
+					<q direct="unspecified">lisp</q> of Alcibiades turned his r's into l's, and the play is on the Greek words <foreign lang="greek">ko/rac</foreign>, 
+					<q direct="unspecified">raven</q>, and <foreign lang="greek">ko/lac</foreign>, 
+					<q direct="unspecified">flatterer</q> or 
+					<q direct="unspecified">craven</q>.</note>
+				
+				And Archippus, ridiculing the son of Alcibiades, says: 
+				<quote rend="blockquote">He walks with utter wantonness, trailing his long robe behind him, that he may be thought the very picture of his father, yes,
+				
+					<l>He slants his neck awry, and overworks the lisp.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title>, i. p. 688</bibl>
+            </note>
+				
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>His character, in later life, displayed many inconsistencies and marked changes, as was natural amid his vast undertakings and varied fortunes.  He was naturally a man of many strong passions, the mightiest of which were the love of rivalry and the love of preeminence.  This is clear from the stories recorded of his boyhood.
+				<milestone n="2" unit="section"/>
+				He was once hard pressed in wrestling, and to save himself from getting a fall, set his teeth in his opponent's arms, where they clutched him, and was like to have bitten through them.  His adversary, letting go his hold, cried: 
+				<q direct="unspecified">You bite, Alcibiades, as women do!</q>  
+				        <q direct="unspecified">Not I,</q> said Alcibiades, 
+				<q direct="unspecified">but as lions do.</q> While still a small boy, he was playing knucklebones in the narrow street, and just as it was his turn to throw, a heavy-laden wagon came along.
+				<milestone n="3" unit="section"/>
+				In the first place, he bade the driver halt, since his cast lay right in the path of the wagon.  The driver, however, was a boorish fellow, and paid no heed to him, but drove his team along.  Whereupon, while the other boys scattered out of the way, Alcibiades threw himself flat on his face in front of the team, stretched himself out at full length, and bade the driver go on if he pleased.  At this the fellow pulled up his beasts sharply, in terror; the spectators, too, were affrighted, and ran with shouts to help the boy.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>At school, he usually paid due heed to his teachers, but he refused to play the flute, holding it to be an ignoble and illiberal thing. The use of the plectrum and the lyre, he argued, wrought no havoc with the bearing and appearance which were becoming to a gentleman; but let a man go to blowing on a flute, and even his own kinsmen could scarcely recognize his features.
+				<milestone n="5" unit="section"/>
+				Moreover, the lyre blended its tones with the voice or song of its master; whereas the flute closed and barricaded the mouth, robbing its master both of voice and speech.  
+				<q direct="unspecified">Flutes, then,</q> said he, 
+				<q direct="unspecified">for the sons of Thebes; they know not how to converse.  But we Athenians, as our fathers say, have Athena for foundress and Apollo for patron, one of whom cast the flute away in disgust, and the other flayed the presumptuous flute-player.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Athena threw away the flute because she saw her puffed and swollen cheeks reflected in the water of a spring.  Marsyas the satyr was vanquished by Apollo in a musical contest, and was flayed alive.</note>
+				        <milestone n="6" unit="section"/>
+				Thus, half in jest and half in earnest, Alcibiades emancipated himself from this discipline, and the rest of the boys as well.  For word soon made its way to them that Alcibiades loathed the art of flute-playing and scoffed at its disciples, and rightly, too.  Wherefore the flute was dropped entirely from the programme of a liberal education and was altogether despised.
+				<milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Among the calumnies which Antiphon<note resp="ed" place="unspecified" anchored="yes">An abusive oration of Antiphon the Rhamnusian against  Alcibiades, cited in Athenaeus, p. 525b, was probably a fabrication and falsely attributed to him.  It is not extant.</note> heaps upon him it is recorded that, when he was a boy, he ran away from home to Democrates, one of his lovers, and that Ariphron was all for having him proclaimed by town crier as a castaway.  But Pericles would not suffer it.  
+				<q direct="unspecified">If he is dead,</q> said he, 
+				<q direct="unspecified">we shall know it only a day the sooner for the proclamation; whereas, if he is alive, he will, in consequence of it, be as good as dead for the rest of his life.</q>  Antiphon says also that with a blow of his stick he slew one of his attendants in the palaestra of Sibyrtius.  But these things are perhaps unworthy of belief, coming as they do from one who admits that he hated Alcibiades, and abused him accordingly.
+				<milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>It was not long before many men of high birth clustered about him and paid him their attentions.  Most of them were plainly smitten with his brilliant youthful beauty and fondly courted him. But it was the love which Socrates had for him that  bore strong testimony to the boy's native excellence and good parts.  These Socrates saw radiantly manifest in his outward person, and, fearful of the influence upon him of wealth and rank and the throng of citizens, foreigners and allies who sought to preempt his affections by flattery and favour, he was fain to protect him, and not suffer such a fair flowering plant to cast its native fruit to perdition.
+				<milestone n="2" unit="section"/>
+				For there is no man whom Fortune so envelops and compasses about with the so-called good things of life that he cannot be reached by the bold and caustic reasonings of philosophy, and pierced to the heart.  And so it was that Alcibiades, although he was pampered from the very first, and was prevented by the companions who sought only to please him from giving ear to one who would instruct and train him, nevertheless, through the goodness of his parts, at last saw all that was in Socrates, and clave to him, putting away his rich and famous lovers.
+				<milestone n="3" unit="section"/>
+				And speedily, from choosing such an associate, and giving ear to the words of a lover who was in the chase for no unmanly pleasures, and begged no kisses and embraces, but sought to expose the weakness of his soul and rebuke his vain and foolish pride,
+				<quote rend="blockquote">
+					          <l>
+						            <q direct="unspecified">He crouched, though warrior bird, like slave, with drooping wings.</q>
+               </l>
+            </quote>
+            <note resp="ed" place="unspecified" anchored="yes">The iamibc trimeter is of unknown authorship.</note>
+				And he came to think that the work of Socrates was really a kind of provision of the gods for the care and salvation of youth.
+				<milestone n="4" unit="section"/>
+				Thus, by despising himself, admiring his friend, loving that friend's kindly solicitude and revering his excellence, he insensibly acquired an 
+				<q direct="unspecified">image of love,</q> as Plato says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Phaedrus 255">Plat. Phaedrus 255</bibl>
+            </note>
+				        <q direct="unspecified">to match love,</q> and all were amazed to see him eating, exercising, and tenting with Socrates,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plat. Sym. 219e">Plat. Sym. 219e</bibl>
+            </note> while he was harsh and stubborn with the rest of his lovers.  Some of these he actually treated with the greatest insolence, as, for example, Anytus, the son of Anthemion.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>This man was a lover of his, who, entertaining some friends, asked Alcibiades also to the dinner.  Alcibiades declined the invitation, but after having drunk deep at home with some friends, went in revel rout to the house of Anytus, took his stand at the door of the men's chamber, and, observing the tables full of gold and silver beakers, ordered his slaves to take half of them and carry them home for him.  He did not deign to go in, but played this prank and was off.  The guests were naturally indignant, and declared that Alcibiades had treated Anytus with gross and overweening insolence.  
+				<q direct="unspecified">Not so,</q> said Anytus, 
+				<q direct="unspecified">but with moderation and kindness; he might have taken all there were: he has left us half.</q>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>He treated the rest of his lovers also after this fashion.  There was one man, however, a resident alien, as they say, and not possessed of much, who sold all that he had, and brought the hundred staters which he got for it to Alcibiades, begging him to accept them.  Alcibiades burst out laughing with delight at this, and invited the man to dinner.  After feasting him and showing him every kindness, he gave him back his gold, and charged him on the morrow to compete with the farmers of the public revenues and outbid them all.
+				<milestone n="2" unit="section"/>
+				The man protested, because the purchase demanded a capital of many talents; but Alcibiades threatened to have him scourged if he did not do it, because he cherished some private grudge against the ordinary contractors.  In the morning, accordingly, the alien went into the market place and increased the usual bid for the public lands by a talent.  The contractors clustered angrily about him and bade him name his surety, supposing that he could find none.  The man was confounded and began to draw back, when Alcibiades, standing afar off, cried to the magistrates: 
+				<q direct="unspecified">put my name down; he is a friend of mine; I will be his surety.</q>
+				        <milestone n="3" unit="section"/>
+				When the contractors heard this, they were at their wit's end, for they were in the habit of paying what they owed on a first purchase with the profits of a second, and saw no way out of their difficulty.  Accordingly, they besought the man to withdraw his bid, and offered him money so to do; but Alcibiades would not suffer him to take less than a talent.  On their offering the man the talent, he bade him take it and withdraw.  To this lover he was of service in such a way.
+				<milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But the love of Socrates, though it had many powerful rivals, somehow mastered Alcibiades.  For he was of good natural parts, and the words of his teacher took hold of him and wrung his heart and brought tears to his eyes.  But sometimes he would surrender himself to the flatterers who tempted him with many pleasures, and slip away from Socrates, and suffer himself to be actually hunted down by him like a runaway slave. And yet he feared and reverenced Socrates alone, and despised the rest of his lovers.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>It was Cleanthes who said that any one beloved of him must be 
+				<q direct="unspecified">downed,</q> as wrestlers say, by the ears alone, though offering to rival lovers many other 
+				<q direct="unspecified">holds</q> which he himself would scorn to take,&mdash;meaning the various lusts of the body.  And Alcibiades was certainly prone to be led away into pleasure.  That 
+				<q direct="unspecified">lawless self-indulgence</q> of his, of which Thucydides speaks,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 6.15.4">Thuc. 6.15.4</bibl>
+            </note> leads one to suspect this.
+				<milestone n="3" unit="section"/>
+				However, it was rather his love of distinction and love of fame to which his corrupters appealed, and thereby plunged him all too soon into ways of pre-sumptuous scheming, persuading him that he had only to enter public life, and he would straightway cast into total eclipse the ordinary generals and public leaders, and not only that, he would even surpass Pericles in power and reputation among the Hellenes.
+				<milestone n="4" unit="section"/>
+				Accordingly, just as iron, which has been softened in the fire, is hardened again by cold water, and has its particles compacted together, so Alcibiades, whenever Socrates found him filled with vanity and wantonness, was reduced to shape by the Master's discourse, and rendered humble and cautious. He learned how great were his deficiencies and how incomplete his excellence.
+				<milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Once, as he was getting on past boyhood, he accosted a school-teacher, and asked him for a book of Homer.  The teacher replied that he had nothing of Homer's, whereupon Alcibiades fetched him a blow with his fist, and went his way.  Another teacher said he had a Homer which he had corrected himself.  
+				<q direct="unspecified">What!</q> said Alcibiades, 
+				<q direct="unspecified">are you teaching boys to read when you are competent to edit Homer?  You should be training young men.</q>
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>He once wished to see Pericles, and went to his house.  But he was told that Pericles could not see him; he was studying how to render his accounts to the Athenians.  
+				<q direct="unspecified">Were it not better for him,</q> said Alcibiades, as he went away, 
+				<q direct="unspecified">to study how not to render his accounts to the Athenians?</q>
+			      </p>
+         <p>While still a stripling, he served as a soldier in the campaign of Potidaea,<note resp="ed" place="unspecified" anchored="yes">432-431 B.C.  Cf. <bibl n="Plut. Nic. 4.4">Plut. Nic. 4.4</bibl>.</note> and had Socrates for his tentmate and comrade in action.
+				<milestone n="3" unit="section"/>
+				A fierce battle took place, wherein both of them distinguished themselves; but when Alcibiades fell wounded, it was Socrates who stood over him and defended him, and with the most conspicuous bravery saved him, armour and all.  The prize of valor fell to Socrates, of course, on the justest calculation; but the generals, owing to the high position of Alcibiades, were manifestly anxious to give him the glory of it. Socrates, therefore, wishing to increase his pupil's honorable ambitions, led all the rest in bearing witness to his bravery, and in begging that the crown and the suit of armour be given to him.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>On another occasion, in the rout of the Athenians which followed the battle of Delium,<note resp="ed" place="unspecified" anchored="yes">424 B.C.  Cf. <bibl n="Plat. Sym. 221a">Plat. Sym. 221a</bibl>
+            </note> Alcibiades, on horseback, saw Socrates retreating on foot with a small company, and would not pass him by, but rode by his side and defended him, though the enemy were pressing them hard and slaying many.  This, however, was a later incident.
+				<milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>He once gave Hipponicus a blow with his fist&mdash;Hipponicus, the father of Callias, a man of great reputation and influence owing to his wealth and family&mdash;not that he had any quarrel with him, or was a prey to anger, but simply for the joke of the thing, on a wager with some companions.  The wanton deed was soon noised about the city, and everybody was indignant, as was natural.  Early the next morning Alcibiades went to the house of Hipponicus, knocked at his door, and on being shown into his presence, laid off the cloak he wore and bade Hipponicus scourge and chastise him as he would.
+				<milestone n="2" unit="section"/>
+				But Hipponicus put away his wrath and forgave him, and afterwards gave him his daughter Hipparete to wife.
+			</p>
+         <p>Some say, however, that it was not Hipponicus, but Callias, his son, who gave Hipparete to Alcibiades, with a dowry of ten talents; and that afterwards, when she became a mother, Alcibiades exacted another ten talents besides, on the plea that this was the agreement, should children be born.  And Callias was so afraid of the scheming of Alcibiades to get his wealth, that he made public proffer to the people of his property and house in case it should befall him to die without lineal heirs.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Hipparete was a decorous and affectionate wife, but being distressed because her husband would consort with courtesans, native and foreign, she left his house and went to live with her brother. Alcibiades did not mind this, but continued his wanton ways, and so she had to put in her plea for divorce to the magistrate, and that not by proxy, but in her own person.
+				<milestone n="4" unit="section"/>
+				On her appearing publicly to do this, as the law required, Alcibiades came up and seized her and carried her off home with him through the market place, no man daring to oppose him or take her from him.  She lived with him, moreover, until her death, but she died shortly after this, when Alcibiades was on a voyage to Ephesus.
+				<milestone n="5" unit="section"/>
+				Such violence as this was not thought lawless or cruel at all.  Indeed, the law prescribes that the wife who would separate from her husband shall go to court in person, to this very end, it would seem, that the husband may have a chance to meet and gain possession of her.
+				<milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Possessing a dog of wonderful size and beauty, which had cost him seventy minas,<note resp="ed" place="unspecified" anchored="yes">i.e. 7000 drachmas, or francs.</note> he had its tail cut off, and a beautiful tail it was, too.  His comrades chid him for this, and declared that everybody was furious about the dog and abusive of its owner. But Alcibiades burst out laughing and said: 
+				<q direct="unspecified">That's just what I want; I want Athens to talk about this, that it may say nothing worse about me.</q>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>His first entrance into public life, they say, was connected with a contribution of money to the state, and was not of design.  He was passing by when the Athenians were applauding in their assembly, and asked the reason for the applause. On being told that a contribution of money to the state was going on, he went forward to the bema and made a contribution himself.  The crowd clapped their hands and shouted for joy&mdash;so much so that Alcibiades forgot all about the quail which he was carrying in his cloak, and the bird flew away in a fright.  Thereupon the Athenians shouted all the more, and many of them sprang to help him hunt the bird.  The one who caught it and gave it back to him was Antiochus, the sea captain, who became in consequence a great favorite with Alcibiades.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 5.4">Plut. Nic. 5.4-6</bibl>
+            </note>
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>Though great doors to public service were opened to him by his birth, his wealth, and his personal bravery in battle; and though he had many friends and followers, he thought that nothing should give him more influence with the people than the charm of his discourse.  And that he was a powerful speaker, not only do the comic poets testify, but also the most powerful of orators himself,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Dem. 21.145">Dem. 21.145</bibl>
+            </note> who says, in his speech 
+				<q direct="unspecified">Against Meidias,</q> that Alcibiades was a most able speaker in addition to his other gifts.
+				<milestone n="3" unit="section"/>
+				And if we are to trust Theophrastus, the most versatile and learned of the philosophers, Alcibiades was of all men the most capable of discovering and understanding what was required in a given case.  But since he strove to find not only the proper thing to say, but also the proper words and phrases in which to say it; and since in this last regard he was not a man of large resources he would often stumble in the midst of his speech, come to a stop, and pause a while, a particular phrase eluding him.  Then he would resume, and proceed with all the caution in the world.
+				<milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>His breeds of horses were famous the world over, and so was the number of his racing-chariots. No one else ever entered seven of these at the Olympic games&mdash;neither commoner nor king&mdash;but he alone.  And his coming off first, second, and fourth victor (as Thucydides says;<note resp="ed" place="unspecified" anchored="yes">In a speech of Alcibiades, <bibl n="Thuc. 6.16.2">Thuc. 6.16.2</bibl>.</note> third, according to Euripides), transcends in the splendor of its renown all that ambition can aspire to in this field. 
+				<milestone n="2" unit="section"/>
+				The ode of Euripides<note resp="ed" place="unspecified" anchored="yes">An Epinikion, or hymn of victory, like the extant odes of Pindar.</note> to which I refer runs thus:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Thee will I sing, O child of Cleinias;</l>
+					          <l>A fair thing is victory, but fairest is what no other Hellene has achieved,</l>
+					          <l>To run first, and second, and third in the contest of racing-chariots,</l>
+					          <l>And to come off unwearied, and, wreathed with the olive of Zeus,</l>
+					          <l>To furnish theme for herald's proclamation.</l>
+				        </quote>
+				
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Moreover, this splendor of his at Olympia was made even more conspicuous by the emulous rivalry of the cities in his behalf.  The Ephesians equipped him with a tent of magnificent adornment; the Chians furnished him with provender for his horses and with innumerable animals for sacrifice; the Lesbians with wine and other provisions for his unstinted entertainment of the multitude.  However, a grave calumny&mdash;or malpractice on his part&mdash;connected with this rivalry was even more in the mouths of men.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>It is said, namely, that there was at Athens one Diomedes, a reputable man, a friend of Alcibiades, and eagerly desirous of winning a victory at Olympia. He learned that there was a racing-chariot at Argos which was the property of that city, and knowing that Alcibiades had many friends and was very influential there, got him to buy the chariot.
+				<milestone n="3" unit="section"/>
+				Alcibiades bought it for his friend, and then entered it in the racing lists as his own, bidding Diomedes go hang.  Diomedes was full of indignation, and called on gods and men to witness his wrongs.  It appears also that a law-suit arose over this matter, and a speech was written by Isocrates<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Isoc. 16">Isoc. 16</bibl>, <title>De bigis.</title>
+            </note> for the son of Alcibiades 
+				<q direct="unspecified">Concerning the Team of Horses.</q>  In this speech, however it is Tisias, not Diomedes, who is the plaintiff.
+				<milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>On entering public life, though still a mere stripling, he immediately humbled all the other popular leaders except Phaeax, the son of Erasistratus, and Nicias, the son of Niceratus.  These men made him fight hard for what he won.  Nicias was already of mature years, and had the reputation of being a most excellent general; but Phaeax, like himself, was just beginning his career, and, though of illustrious parentage, was inferior to him in other ways, and particularly as a public speaker.
+				<milestone n="2" unit="section"/>
+				He seemed affable and winning in private conversation rather than capable of conducting public debates. In fact, he was, as Eupolis says, <note resp="ed" place="unspecified" anchored="yes">In his <title>Demes</title> (<bibl>Kock, <title>Com. Att. Frag.</title> i. p. 281</bibl>)</note>
+				
+				        <quote rend="blockquote">
+					          <l>
+						            <q direct="unspecified">A prince of talkers, but in speaking most incapable.</q>
+               </l>
+            </quote>
+				
+				And there is extant a certain speech written by Phaeax<note resp="ed" place="unspecified" anchored="yes">This has come down to us among the orations of Andocides (<bibl n="Andoc. 4">Andoc. 4</bibl>).  It is clearly a fictitious speech, put by its unknown author into the mouth of Phaeax (cf <bibl n="Andoc. 4.2">Andoc. 4.2</bibl> and 41).</note>
+				        <q direct="unspecified">Against Alcibiades,</q> wherein, among other things, it is written that the city's numerous ceremonial utensils of gold and silver were all used by Alcibiades at his regular table as though they were his own.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Now there was a certain Hyperbolus, of the deme Perithoedae, whom Thucydides mentions<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 8.73.3">Thuc. 8.73.3</bibl>
+            </note> as a base fellow, and who afforded all the comic poets, without any exception, constant material for jokes in their plays.  But he was unmoved by abuse, and insensible to it, owing to his contempt of public opinion. This feeling some call courage and valor, but it is really mere shamelessness and folly.  No one liked him, but the people often made use of him when they were eager to besmirch and calumniate men of rank and station.
+				<milestone n="4" unit="section"/>
+				Accordingly, at the time of which I speak, persuaded by this man, they were about to exercise the vote of ostracism, by which they cripple and banish whatever man from time to time may have too much reputation and influence in the city to please them, assuaging thus their envy rather than their fear. When it was clear that the ostracism would fall on one of three men&mdash;Phaeax, Alcibiades, or Nicias&mdash;Alcibiades had a conference with Nicias, united their two parties into one and turned the vote of ostracism upon Hyperbolus.
+			</p>
+         <p>Some say, however, that it was not Nicias, but Phaeax, with whom Alcibiades had the conference which resulted in winning over that leader's party and banishing Hyperbolus, who could have had no inkling of his fate.
+				<milestone n="5" unit="section"/>
+				For no worthless or disreputable fellow had ever before fallen under this condemnation of ostracism.  As Plato, the comic poet, has somewhere said, in speaking of Hyperbolus,
+				
+				<quote rend="blockquote">
+					          <l>And yet he suffered worthy fate for men of old;</l>
+					          <l>A fate unworthy though of him and of his brands.</l>
+					          <l>For such as he the ostrakon was ne'er devised.</l>
+				        </quote>
+				
+				However, the facts which have been ascertained about this case have been stated more at length elsewhere.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 11">Plut. Nic. 11</bibl>
+            </note>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Alcibiades was sore distressed to see Nicias no less admired by his enemies than honored by his fellow-citizens. For although Alcibiades was resident consul for the Lacedaemonians at Athens, and had ministered to their men who had been taken prisoners at Pylos,<note resp="ed" place="unspecified" anchored="yes">In 425 B.C.  Cf. <bibl n="Plut. Nic. 7">Plut. Nic. 7-8</bibl>
+            </note>
+				        <milestone n="2" unit="section"/>
+				still, they felt that it was chiefly due to Nicias that they had obtained peace and the final surrender of those men, and so they lavished their regard upon him.  And Hellenes everywhere said that it was Pericles who had plunged them into war, but Nicias who had delivered them out of it, and most men called the peace the 
+				<q direct="unspecified">Peace of Nicias.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Ratified in 421 B.C.  Cf. <bibl n="Plut. Nic. 9">Plut. Nic. 9</bibl>
+            </note> Alcibiades was therefore distressed beyond measure, and in his envy planned a violation of the solemn treaty.
+				<milestone n="3" unit="section"/>
+				To begin with, he saw that the Argives hated and feared the Spartans and sought to be rid of them.  So he secretly held out hopes to them of an alliance with Athens, and encouraged them, by conferences with the chief men of their popular party, not to fear nor yield to the Lacedaemonians, but to look to Athens and await her action, since she was now all but repentant, and desirous of abandoning the peace which she had made with Sparta.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>And again, when the Lacedaemonians made a separate alliance with the Boeotians, and delivered up Panactum to the Athenians not intact, as they were bound to do by the treaty, but dismantled, he took advantage of the Athenians' wrath at this to embitter them yet more.  He raised a tumult in the assembly against Nicias, and slandered him with accusations all too plausible.
+				<milestone n="5" unit="section"/>
+				Nicias himself, he said, when he was general, had refused to capture the enemy's men who were cut off on the island of Sphacteria, and when others had captured them, he had released and given them back to the Lacedaemonians, whose favour he sought; and then he did not persuade those same Lacedaemonians, tried friend of theirs as he was, not to make separate alliance with the Boeotians or even with the Corinthians, and yet whenever any Hellenes wished to be friends and allies of Athens, he tried to prevent it, unless it were the good pleasure of the Lacedaemonians.
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>Nicias was reduced to great straits by all this, but just then, by rare good fortune as it were, an embassy came from Sparta, with reasonable proposals to begin on, and with assurances that they came with full powers to adopt any additional terms that were conciliatory and just. The council received them favorably, and the people were to hold an assembly on the following day for their reception. But Alcibiades feared a peaceful outcome, and managed to secure a private conference with the embassy.
+				<milestone n="7" unit="section"/>
+				When they were convened he said to them:  
+				<q direct="unspecified">What is the matter with you, men of Sparta?  Why are you blind to the fact that the council is always moderate and courteous towards those who have dealings with it, while the people's assembly is haughty and has great ambitions?  If you say to them that you are come with unlimited powers, they will lay their commands and compulsions upon you without any feeling.  Come now, put away such simplicity as this, and if you wish to get moderate terms from the Athenians, and to suffer no compulsion at their hands which you cannot yourselves approve, then discuss with them what would be a just settlement of your case, assuring them that you have not full powers to act.  I will cooperate with you, out of my regard for the Lacedaemonians.</q>
+				        <milestone n="8" unit="section"/>
+				After this speech he gave them his oath, and so seduced them wholly away from the influence of Nicias.  They trusted him implicitly, admired his cleverness and sagacity, and thought him no ordinary man.
+			</p>
+         <p>On the following day the people convened in assembly, and the embassy was introduced to them.  On being asked by Alcibiades, in the most courteous tone, with what powers they had come, they replied that they were not come with full and independent powers.
+				<milestone n="9" unit="section"/>
+				At once, then, Alcibiades assailed them with angry shouts, as though he were the injured party, not they, calling them faithless and fickle men, who were come on no sound errand whatever.  The council was indignant, the assembly was enraged, and Nicias was filled with consternation and shame at the men's change of front.  He was unaware of the deceitful trick which had been played upon him.<note resp="ed" place="unspecified" anchored="yes">This parliamentary trick of Alcibiades is related also in <bibl n="Plut. Nic. 10">Plut. Nic. 10</bibl>.</note>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this fiasco on the part of the Lacedaemonians Alcibiades was appointed general, and straightway brought the Argives, Mantineans, and Eleans into alliance with Athens.<note resp="ed" place="unspecified" anchored="yes">420 B.C.</note> The manner of this achievement of his no one approved, but the effect of it was great.  It divided and agitated almost all Peloponnesus; it arrayed against the Lacedaemonians at Mantinea<note resp="ed" place="unspecified" anchored="yes">418 B.C.</note> so many warlike shields upon a single day; it set at farthest remove from Athens the struggle, with all its risks, in which, when the Lacedaemonians conquered, their victory brought them no great advantage, whereas, had they been defeated, the very existence of Sparta would have been at stake.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>After this battle of Mantinea, the oligarchs of Argos, 
+				<q direct="unspecified">The Thousand,</q> set out at once to depose the popular party and make the city subject to themselves; and the Lacedaemonians came and deposed the democracy.  But the populace took up arms again and got the upper hand.<note resp="ed" place="unspecified" anchored="yes">417 B.C.</note> Then Alcibiades came and made the people's victory secure.  He also persuaded them to run long walls down to the sea, and so to attach their city completely to the naval dominion of Athens.
+				<milestone n="3" unit="section"/>
+				He actually brought carpenters and masons from Athens, and displayed all manner of zeal, thus winning favour and power for himself no less than for his city.  In like manner he persuaded the people of Patrae to attach their city to the sea by long walls.<note resp="ed" place="unspecified" anchored="yes">419 B.C.</note> Thereupon some one said to the Patrensians: 
+				<q direct="unspecified">Athens will swallow you up!</q>  
+				        <q direct="unspecified">Perhaps so,</q> said Alcibiades, 
+				<q direct="unspecified">but you will go slowly, and feet first; whereas Sparta will swallow you head first, and at one gulp.</q>
+				        <milestone n="4" unit="section"/>
+			      </p>
+         <p>However, he counselled the Athenians to assert dominion on land also, and to maintain in very deed the oath regularly propounded to their young warriors in the sanctuary of Agraulus.  They take oath that they will regard wheat, barley, the vine, and the olive as the natural boundaries of Attica, and they are thus trained to consider as their own all the habitable and fruitful earth.
+				<milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But all this statecraft and eloquence and lofty purpose and cleverness was attended with great luxuriousness of life, with wanton drunkenness and lewdness, with effeminacy in dress,&mdash;he would trail long purple robes through the market place,&mdash;and with prodigal expenditures.  He would have the decks of his triremes cut away that he might sleep more softly, his bedding being slung on cords rather than spread on the hard planks.  He had a golden shield made for himself, bearing no ancestral device,
+				<milestone n="2" unit="section"/>
+				but an Eros armed with a thunderbolt. The reputable men of the city looked on all these things with loathing and indignation, and feared his contemptuous and lawless spirit.  They thought such conduct as his tyrant-like and monstrous.  How the common folk felt towards him has been well set forth by Aristophanes<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristoph. Frogs 1425">
+                  <title>Frogs</title>, 1425</bibl>; <bibl n="Aristoph. Frogs 1431">1431-1432</bibl>.</note> in these words:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>
+						            <q direct="unspecified">It yearns for him, and hates him too, but wants him back;</q>
+               </l>
+            </quote>
+				and again, veiling a yet greater severity in his metaphor:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>A lion is not to be reared within the state;</l>
+					          <l>But, once you've reared him up, consult his every mood.</l>
+				        </quote>
+				
+				        <milestone n="3" unit="section"/>
+				And indeed, his voluntary contributions of money, his support of public exhibitions, his unsurpassed munificence towards the city, the glory of his ancestry, the power of his eloquence, the comeliness and vigor of his person, together with his experience and prowess in war, made the Athenians lenient and tolerant towards everything else; they were forever giving the mildest of names to his transgressions, calling them the product of youthful spirits and ambition.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>For instance, he once imprisoned the painter Agatharchus in his house until he had adorned it with paintings for him, and then dismissed his captive with a handsome present.  And when Taureas was supporting a rival exhibition, he gave him a box on the ear, so eager was he for the victory.  And he picked out a woman from among the prisoners of Melos to be his mistress, and reared a son she bore him.
+				<milestone n="5" unit="section"/>
+				This was an instance of what they called his kindness of heart, but the execution of all the grown men of Melos<note resp="ed" place="unspecified" anchored="yes">In the summer of 416.  Cf. <bibl n="Thuc. 5.116.2-4">Thuc. 5.116.2-4</bibl>.</note> was chiefly due to him, since he supported the decree therefor.
+			</p>
+         <p>Aristophon painted Nemea<note resp="ed" place="unspecified" anchored="yes">A personification of the district of Nemea, in the games of which Alcibiades had been victorious.  Cf. <bibl n="Paus. 1.22.7">Paus. 1.22.7</bibl>, with Frazer's notes.</note> with Alcibiades seated in her arms; whereat the people were delighted, and ran in crowds to see the picture.  But the elders were indignant at this too; they said it smacked of tyranny and lawlessness.  And it would seem that Archestratus, in his verdict on the painting, did not go wide of the mark when he said that Hellas could not endure more than one Alcibiades.
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>Timon the misanthrope once saw Alcibiades, after a successful day, being publicly escorted home from the assembly.  He did not pass him by nor avoid him, as his custom was with others, but met him and greeted him, saying: 
+				<q direct="unspecified">It's well you're growing so, my child; you'll grow big enough to ruin all this rabble.</q>  At this some laughed, and some railed, and some gave much heed to the saying. So undecided was public opinion about Alcibiades, by reason of the unevenness of his nature.
+				<milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>On Sicily the Athenians had cast longing eyes even while Pericles was living; and after his death they actually tried to lay hands upon it.  The lesser expeditions which they sent thither from time to time, ostensibly for the aid and comfort of their allies on the island who were being wronged by the Syracusans, they regarded merely as stepping stones to the greater expedition of conquest.
+				<milestone n="2" unit="section"/>
+				But the man who finally fanned this desire of theirs into flame, and persuaded them not to attempt the island any more in part and little by little, but to sail thither with a great armament and subdue it utterly, was Alcibiades; he persuaded the people to have great hopes, and he himself had greater aspirations still. Such were his hopes that he regarded Sicily as a mere beginning, and not, like the rest, as an end of the expedition.
+				<milestone n="3" unit="section"/>
+				So while Nicias was trying to divert the people from the capture of Syracuse as an undertaking too difficult for them, Alcibiades was dreaming of Carthage and Libya, and, after winning these, of at once encompassing Italy and Peloponnesus.  He almost regarded Sicily as the ways and means provided for his greater war.  The young men were at once carried away on the wings of such hopes, and their elders kept recounting in their ears many wonderful things about the projected expedition.  Many were they who sat in the palaestras and lounging-places mapping out in the sand the shape of Sicily and the position of Libya and Carthage.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 12.1">Plut. Nic. 12.1-2</bibl>.</note>
+				        <milestone n="4" unit="section"/>
+			      </p>
+         <p>Socrates the philosopher, however, and Meton the astrologer, are said to have had no hopes that any good would come to the city from this expedition; Socrates, as it is likely, because he got an inkling of the future from the divine guide who was his familiar. Meton&mdash;whether his fear of the future arose from mere calculation or from his use of some sort of divination&mdash;feigned madness, and seizing a blazing torch, was like to have set fire to his own house.
+				<milestone n="5" unit="section"/>
+				Some say, however, that Meton made no pretence of madness, but actually did burn his house down in the night, and then, in the morning, came before the people begging and praying that, in view of his great calamity, his son might be released from the expedition.  At any rate, he succeeded in cheating his fellow citizens, and obtained his desire.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 13.5">Plut. Nic. 13.5-6</bibl>
+            </note>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Nicias was elected general against his will, and he was anxious to avoid the command most of all because of his fellow commander.  For it had seemed to the Athenians that the war would go on better if they did not send out Alcibiades unblended, but rather tempered his rash daring with the prudent forethought of Nicias.  As for the third general, Lamachus, though advanced in years, he was thought, age notwithstanding, to be no less fiery than Alcibiades, and quite as fond of taking risks in battle.
+				<milestone n="2" unit="section"/>
+				During the deliberations of the people on the extent and character of the armament, Nicias again tried to oppose their wishes and put a stop to the war.  But Alcibiades answered all his arguments and carried the day, and then Demostratus, the orator, formally moved that the generals have full and independent powers in the matter of the armament and of the whole war.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 12.3">Plut. Nic. 12.3-4</bibl>
+            </note>
+			      </p>
+         <p>After the people had adopted this motion and all things were made ready for the departure of the fleet, there were some unpropitious signs and portents, especially in connection with the festival, namely, the Adonia.
+				<milestone n="3" unit="section"/>
+				This fell at that time, and little images like dead folk carried forth to burial were in many places exposed to view by the women, who mimicked burial rites, beat their breasts, and sang dirges.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 13.2">Plut. Nic. 13.2</bibl>, 7.</note> Moreover, the mutilation of the Hermae, most of which, in a single night, had their faces and forms disfigured, confounded the hearts of many, even among those who usually set small store by such things.  It was said, it is true, that Corinthians had done the deed, Syracuse being a colony of theirs, in the hope that such portents would check or stop the war.
+				<milestone n="4" unit="section"/>
+				The multitude, however, were not moved by this reasoning, nor by that of those who thought the affair no terrible sign at all, but rather one of the common effects of strong wine, when dissolute youth, in mere sport, are carried away into wanton acts.  They looked on the occurrence with wrath and fear, thinking it the sign of a bold and dangerous conspiracy.  They therefore scrutinized keenly every suspicious circumstance, the council and the assembly convening for this purpose many times within a few days.
+				<milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>During this time Androcles, the popular leader, produced sundry aliens and slaves who accused Alcibiades and his friends of mutilating other sacred images, and of making a parody of the mysteries of Eleusis in a drunken revel.  They said that one Theodorus played the part of the Herald, Pulytion that of the Torch-bearer, and Alcibiades that of the High Priest, and that the rest of his companions were there in the role of initiates, and were dubbed Mystae.
+				<milestone n="2" unit="section"/>
+				Such indeed was the purport of the impeachment which Thessalus, the son of Cimon, brought in to the assembly, impeaching Alcibiades for impiety towards the Eleusinian goddesses.  The people were exasperated, and felt bitterly towards Alcibiades, and Androcles, who was his mortal enemy, egged them on.  At first Alcibiades was confounded.
+				<milestone n="3" unit="section"/>
+				But perceiving that all the seamen and soldiers who were going to sail for Sicily were friendly to him, and hearing that the Argive and Mantinean men-at-arms, a thousand in number, declared plainly that it was all because of Alcibiades that they were making their long expedition across the seas, and that if any wrong should be done him they would at once abandon it, he took courage, and insisted on an immediate opportunity to defend himself before the people.  His enemies were now in their turn dejected; they feared lest the people should be too lenient in their judgement of him because they needed him so much.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Accordingly, they devised that certain orators who were not looked upon as enemies of Alcibiades, but who really hated him no less than his avowed foes, should rise in the assembly and say that it was absurd, when a general had been appointed, with full powers, over such a vast force, and when his armament and allies were all assembled, to destroy his beckoning opportunity by casting lots for jurors and measuring out time for the case.  
+				<q direct="unspecified">Nay,</q> they said, 
+				<q direct="unspecified">let him sail now, and Heaven be with him!  But when the war is over, then let him come and make his defence.  The laws will be the same then as now.</q>
+				        <milestone n="5" unit="section"/>
+				Of course the malice in this postponement did not escape Alcibiades.  He declared in the assembly that it was a terrible misfortune to be sent off at the head of such a vast force with his case still in suspense, leaving behind him vague accusations and slanders; he ought to be put to death if he did not refute them; but if he did refute them and prove his innocence, he ought to proceed against the enemy without any fear of the public informers at home.
+				<milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>He could not carry his point, however, but was ordered to set sail.  So he put to sea<note resp="ed" place="unspecified" anchored="yes">About the middle of the summer of 415 B.C.</note> along with his fellow generals, having not much fewer than one hundred and forty triremes; fifty-one hundred men-at-arms; about thirteen hundred archers, slingers, and light-armed folk; and the rest of his equipment to correspond.
+				<milestone n="2" unit="section"/>
+				On reaching Italy and taking Rhegium, he proposed a plan for the conduct of the war.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 14.3">Plut. Nic. 14.3</bibl>
+            </note> Nicias opposed it, but Lamachus approved it, and so he sailed to Sicily.  He secured the allegiance of Catana, but accomplished nothing further, since he was presently summoned home by the Athenians to stand his trial.
+			</p>
+         <p>At first, as I have said,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Nic. 19.1">Plut. Nic. 19.1</bibl>
+            </note> sundry vague suspicions and calumnies against Alcibiades were advanced by aliens and slaves.
+				<milestone n="3" unit="section"/>
+				Afterwards, during his absence, his enemies went to work more vigorously.  They brought the outrage upon the Hermae and upon the Eleusinian mysteries under one and the same design; both, they said, were fruits of a conspiracy to subvert the government, and so all who were accused of any complicity whatsoever therein were cast into prison without trial.  The people were provoked with themselves for not bringing Alcibiades to trial and judgment at the time on such grave charges,
+				<milestone n="4" unit="section"/>
+				and any kinsman or friend or comrade of his who fell foul of their wrath against him, found them exceedingly severe.  Thucydides neglected to mention<note resp="ed" place="unspecified" anchored="yes">In <bibl n="Thuc. 6.53.2">Thuc. 6.53.2</bibl>.</note> the informers by name, but others give their names as Diocleides and Teucer.  For instance, Phrynichus the comic poet<note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 385.</bibl>
+            </note>  referred to them thus:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Look out too, dearest Hermes, not to get a fall,</l>
+					          <l>And mar your looks, and so equip with calumny</l>
+					          <l>Another Diocleides bent on wreaking harm.</l>
+				        </quote>
+				And the Hermes replies:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>I'm on the watch; there's Teucer, too; I would not give</l>
+					          <l>A prize for tattling to an alien of his guilt.</l>
+				        </quote>
+				
+				        <milestone n="5" unit="section"/>
+			      </p>
+         <p>And yet there was nothing sure or steadfast in the statements of the informers.  One of them, indeed, was asked how he recognized the faces of the Hermae-defacers, and replied, 
+				<q direct="unspecified">By the light of the moon.</q>  This vitiated his whole story, since there was no moon at all when the deed was done. Sensible men were troubled thereat, but even this did not soften the people's feeling towards the slanderous stories.  As they had set out to do in the beginning, so they continued, haling and casting into prison any one who was denounced.
+				<milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Among those thus held in bonds and imprisonment for trial was Andocides the orator, whom Hellanicus the historian included among the descendants of Odysseus.  He was held to be a foe to popular government, and an oligarch, but what most made him suspected of the mutilation of the Hermae, was the tall Hermes which stood near his house, a dedication of the Aegeid tribe.
+				<milestone n="2" unit="section"/>
+				This was almost the only one among the very few statues of like prominence to remain unharmed.  For this reason it is called to this day the Hermes of Andocides.  Everybody gives it that name, in spite of the adverse testimony of its inscription.
+			</p>
+         <p>Now it happened that, of all those lying in prison with him under the same charge, Andocides became most intimate and friendly with a man named Timaeus, of less repute than himself, it is true, but of great sagacity and daring.
+				<milestone n="3" unit="section"/>
+				This man persuaded Andocides to turn state's evidence against himself and a few others.  If he confessed,&mdash;so the man argued,&mdash;he would have immunity from punishment by decree of the people; whereas the result of the trial, while uncertain in all cases, was most to be dreaded in that of influential men like himself.  It was better to save his life by a false confession of crime, than to die a shameful death under a false charge of that crime. One who had an eye to the general welfare of the community might well abandon to their fate a few dubious characters, if he could thereby save a multitude of good men from the wrath of the people.
+				<milestone n="4" unit="section"/>
+				By such arguments of Timaeus, Andocides was at last persuaded to bear witness against himself and others.  He himself received the immunity from punishment which had been decreed; but all those whom he named, excepting such as took to flight, were put to death, and Andocides added to their number some of his own household servants, that he might the better be believed.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>Still, the people did not lay aside all their wrath at this point, but rather, now that they were done with the Hermae-defacers, as if their passion had all the more opportunity to vent itself, they dashed like a torrent against Alcibiades, and finally dispatched the Salaminian state-galley to fetch him home.  They shrewdly gave its officers explicit command not to use violence, nor to seize his person, but with all moderation of speech to bid him accompany them home to stand his trial and satisfy the people.
+				<milestone n="6" unit="section"/>
+				For they were afraid that their army, in an enemy's land, would be full of tumult and mutiny at the summons.  And Alcibiades might easily have effected this had he wished.  For the men were cast down at his departure, and expected that the war, under the conduct of Nicias, would be drawn out to a great length by delays and inactivity, now that their goad to action had been taken away. Lamachus, it is true, was a good soldier and a brave man; but he lacked authority and prestige because he was poor.
+				<milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Alcibiades had no sooner sailed away than he robbed the Athenians of Messana.<note resp="ed" place="unspecified" anchored="yes">In September, 415 B.C.</note>
+			      </p>
+         <p>There was a party there who were on the point of surrendering the city to the Athenians, but Alcibiades knew them, and gave the clearest information of their design to the friends of Syracuse in the city, and so brought the thing to naught.  Arrived at Thurii, he left his trireme and hid himself so as to escape all quest.
+				<milestone n="2" unit="section"/>
+				When some one recognized him and asked, 
+				<q direct="unspecified">Can you not trust your country, Alcibiades?</q>  
+				        <q direct="unspecified">In all else,</q> he said, 
+				<q direct="unspecified">but in the matter of life I wouldn't trust even my own mother not to mistake a black for a white ballot when she cast her vote.</q>  And when he afterwards heard that the city had condemned him to death, 
+				<q direct="unspecified">I'll show them,</q> he said, 
+				<q direct="unspecified">that I'm alive.</q>
+				        <milestone n="3" unit="section"/>
+			      </p>
+         <p>His impeachment is on record, and runs as follows: 
+				<q direct="unspecified">Thessalus, son of Cimon, of the deme Laciadae, impeaches Alcibiades, son of Cleinias, of the deme Scambonidae, for committing crime against the goddesses of Eleusis, Demeter and Cora, by mimicking the mysteries and showing them forth to his companions in his own house, wearing a robe such as the High Priest wears when he shows forth the sacred secrets to the initiates, and calling himself High Priest, Pulytion Torch-bearer, and Theodorus, of the deme Phegaea, Herald, and hailing the rest of his companions as Mystae and Epoptae, contrary to the laws and institutions of the Eumolpidae, Heralds, and Priests of Eleusis.</q>
+				        <milestone n="4" unit="section"/>
+				His case went by default, his property was confiscated, and besides that, it was also decreed that his name should be publicly cursed by all priests and priestesses.  Theano, the daughter of Menon, of the deme Agraule, they say, was the only one who refused to obey this decree.  She declared that she was a praying, not a cursing priestess.
+				<milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>When these great judgments and condemnations were passed upon Alcibiades, he was tarrying in Argos, for as soon as he had made his escape from Thurii, he passed over into Peloponnesus. But fearing his foes there, and renouncing his country altogether, he sent to the Spartans, demanding immunity and confidence, and promising to render them aid and service greater than all the harm he had previously done them as an enemy.
+				<milestone n="2" unit="section"/>
+				The Spartans granted this request and received him among them.  No sooner was he come than he zealously brought one thing to pass: they had been delaying and postponing assistance to Syracuse; he roused and incited them to send Gylippus thither for a commander, and to crush the force which Athens had there.  A second thing he did was to get them to stir up the war against Athens at home; and the third, and most important of all, to induce them to fortify Deceleia.<note resp="ed" place="unspecified" anchored="yes">A mountain citadel of Attica, about fourteen miles from Athens towards Boeotia, commanding the Athenian plain and the shortest  routes to Euboea and Boeotia.  It was occupied by the Spartans in the spring of 413 B.C.</note> This more than anything else wrought ruin and destruction to his native city.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>At Sparta, he was held in high repute publicly, and privately was no less admired.  The multitude was brought under his influence, and was actually bewitched, by his assumption of the Spartan mode of life. When they saw him with his hair untrimmed, taking cold baths, on terms of intimacy with their coarse bread, and supping black porridge, they could scarcely trust their eyes, and doubted whether such a man as he now was had ever had a cook in his own house, had even so much as looked upon a perfumer, or endured the touch of Milesian wool.
+				<milestone n="4" unit="section"/>
+				He had, as they say, one power which transcended all others, and proved an implement of his chase for men: that of assimilating and adapting himself to the pursuits and lives of others, thereby assuming more violent changes than the chameleon.  That animal, however, as it is said, is utterly unable to assume one color, namely, white; but Alcibiades could associate with good and bad alike, and found naught that he could not imitate and practice.
+				<milestone n="5" unit="section"/>
+				In Sparta, he was all for bodily training, simplicity of life, and severity of countenance; in Ionia, for luxurious ease and pleasure; in Thrace for drinking deep; in Thessaly, for riding hard; and when he was thrown with Tissaphernes the satrap, he outdid even Persian magnificence in his pomp and lavishness. It was not that he could so easily pass entirely from one manner of man to another, nor that he actually underwent in every case a change in his real character; but when he saw that his natural manners were likely to be annoying to his associates, he was quick to assume any counterfeit exterior which might in each case be suitable for them.
+				<milestone n="6" unit="section"/>
+				At all events, in Sparta, so far as the outside was concerned, it was possible to say of him, 
+				<q direct="unspecified">&lsquo;No child of Achilles he, but Achilles himself,&rsquo;<note resp="ed" place="unspecified" anchored="yes">The first part of the passage in quotation marks is an  adaptation of an iambic trimeter by some unknown poet, which Plutarch uses entire in <bibl>Plut. Morals 51c</bibl>.  Cf. Nauck, <title>Trag. Graec. Frag.</title> (2) p. 907.</note> such a man as Lycurgus trained</q>; but judging by what he actually felt and did, one might have cried with the poet, 
+				<q direct="unspecified">'Tis the selfsame woman still!</q>
+            <note resp="ed" place="unspecified" anchored="yes">Electra, of Helen, in <bibl n="Eur. Orest. 129">Eur. Orest. 129</bibl>.</note>
+				        <milestone n="7" unit="section"/>
+			      </p>
+         <p>For while Agis the king was away on his campaigns, Alcibiades corrupted Timaea his wife, so that she was with child by him and made no denial of it.  When she had given birth to a male child, it was called Leotychides in public, but in private the name which the boy's mother whispered to her friends and attendants was Alcibiades.  Such was the passion that possessed the woman.  But he, in his mocking way, said he had not done this thing for a wanton insult, nor at the behest of mere pleasure, but in order that descendants of his might be kings of the Lacedaemonians.
+				<milestone n="8" unit="section"/>
+				Such being the state of things, there were many to tell the tale to Agis, and he believed it, more especially owing to the lapse of time.  There had been an earthquake, and he had run in terror out of his chamber and the arms of his wife, and then for ten months had had no further intercourse with her.  And since Leotychides had been born at the end of this period, Agis declared that he was no child of his.  For this reason Leotychides was afterwards refused the royal succession.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lys. 22.4">Plut. Lys. 22.4-6</bibl>
+            </note>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After the Athenian disaster in Sicily,<note resp="ed" place="unspecified" anchored="yes">With these words the two years which had elapsed since the flight of Alcibiades (<bibl n="Plut. Alc. 22">Plut. Alc. 22</bibl>) are passed over, so far as the Sicilian expedition is concerned.  They are covered by the narrative of <bibl n="Plut. Nic. 15">Plut. Nic. 15</bibl> foll.</note> the Chians, Lesbians, and Cyzicenes sent embassies at the same time to Sparta, to discuss a revolt from Athens.  But though the Boeotians supported the appeal of the Lesbians, and Pharnabazus that of the Cyzicenes, the Spartans, under the persuasion of Alcibiades, elected to help the Chians first of all. Alcibiades actually set sail in person and brought almost all Ionia to revolt, and, in constant association with the Lacedaemonian generals, wrought injury to the Athenians.
+				<milestone n="2" unit="section"/>
+				But Agis was hostile to him because of the wrong he had suffered as a husand, and he was also vexed at the repute in which Alcibiades stood; for most of the successes won were due to him, as report had it.  The most influential and ambitious of the other Spartans also were already envious and tired of him, and soon grew strong enough to induce the magistrates at home to send out orders to Ionia that he be put to death.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>His stealthy discovery of this put him on his guard, and while in all their undertakings he took part with the  Lacedaemonians, he sedulously avoided coming into their hands.  Then, resorting to Tissaphernes, the King's satrap, for safety, he was soon first and foremost in that grandee's favour.
+				<milestone n="4" unit="section"/>
+				For his versatility and surpassing cleverness were the admiration of the Barbarian, who was no straightforward man himself, but malicious and fond of evil company.  And indeed no disposition could resist and no nature escape Alcibiades, so full of grace was his daily life and conversation.  Even those who feared and hated him felt a rare and winning charm in his society and presence.
+				<milestone n="5" unit="section"/>
+				And thus it was that Tissaphernes, though otherwise the most ardent of the Persians in his hatred of the Hellenes, so completely surrendered to the flatteries of Alcibiades as to outdo him in reciprocal flatteries. Indeed, the most beautiful park he had, both for its refreshing waters and grateful lawns, with resorts and retreats decked out in regal and extravagant fashion, he named Alcibiades; everyone always called it by that name.
+				<milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Alcibiades now abandoned the cause of the Spartans, since he distrusted them and feared Agis, and began to malign and slander them to Tissaphernes.  He advised him not to aid them very generously, and yet not to put down the Athenians completely, but rather by niggardly assistance to straiten and gradually wear out both, and so make them easy victims for the King when they had weakened and exhausted each other.
+				<milestone n="2" unit="section"/>
+				Tissaphernes was easily persuaded, and all men saw that he loved and admired his new adviser, so that Alcibiades was looked up to by the Hellenes on both sides, and the Athenians repented themselves of the sentence they had passed upon him, now that they were suffering for it.  Alcibiades himself also was presently burdened with the fear that if his native city were altogether destroyed, he might come into the power of the Lacedaemonians, who hated him.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>At this time<note resp="ed" place="unspecified" anchored="yes">During the winter of 412-411 B.C.</note> almost all the forces of Athens were at Samos.  From this island as their naval base of operations they were trying to win back some of their Ionian allies who had revolted, and were watching others who were disaffected.  After a fashion they still managed to cope with their enemies on the sea, but they were afraid of Tissaphernes and of the fleet of one hundred and fifty Phoenician triremes which was said to be all but at hand; if this once came up, no hope of safety was left for their city.
+				<milestone n="4" unit="section"/>
+				Alcibiades was aware of this, and sent secret messages to the influential Athenians at Samos, in which he held out the hope that he might bring Tissaphernes over to be their friend.  He did not seek, he said, the favour of the multitude, nor trust them, but rather that of the aristocrats, in case they would venture to show themselves men, put a stop to the insolence of the people, take the direction of affairs into their own hands, and save their cause and city.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>Now the rest of the aristocrats were much inclined to Alcibiades.  But one of the generals, Phrynichus, of the deme Deirades, suspected (what was really the case) that Alcibiades had no more use for an oligarchy than for a democracy, but merely sought in one way or another a recall from exile, and therefore inveighed against the people merely to court betimes the favour of the aristocrats, and ingratiate himself with them.  He therefore opposed him.  When his opinion had been overborne and he was now become an open enemy of Alcibiades, he sent a secret message to Astyochus, the enemy's naval commander bidding him beware of Alcibiades and arrest him, for that he was playing a double game.
+				<milestone n="6" unit="section"/>
+				But without his knowing it, it was a case of traitor dealing with traitor. For Astyochus was much in awe of Tissaphernes, and seeing that Alcibiades had great power with the satrap, he disclosed the message of Phrynichus to them both.  Alcibiades at once sent men to Samos to denounce Phrynichus.  All the Athenians there were incensed and banded themselves together against Phrynichus, who, seeing no other escape from his predicament, attempted to cure one evil by another and a greater.
+				<milestone n="7" unit="section"/>
+				He sent again to Astyochus, chiding him indeed for his disclosure of the former message, but announcing that he stood ready to deliver into his hands the fleet and army of the Athenians.
+			</p>
+         <p>However, this treachery of Phrynichus did not harm the Athenians at all, because of the fresh treachery of Astyochus.  This second message of Phrynichus also he delivered to Alcibiades.
+				<milestone n="8" unit="section"/>
+				But Phrynichus knew all the while that he would do so, and expected a second denunciation from Alcibiades. So he got the start of him by telling the Athenians himself that the enemy were going to attack them, and advising them to have their ships manned and their camp fortified.
+				<milestone n="9" unit="section"/>
+				The Athenians were busy doing this when again a letter came from Alcibiades bidding them beware of Phrynichus, since he had offered to betray their fleet to the enemy.  This letter they disbelieved at the time, supposing that Alcibiades, who must know perfectly the equipment and purposes of the enemy, had used his knowledge in order to calumniate Phrynichus falsely.
+				<milestone n="10" unit="section"/>
+				Afterwards,<note resp="ed" place="unspecified" anchored="yes">In the summer of 411 B.C., Phrynichus having been deposed from his command at Samos, and showing himself and ardent supporter of the revolutionary Four Hundred at Athens.</note> however, when Hermon,<note resp="ed" place="unspecified" anchored="yes">The name is wrong, and has crept into the story by an error which can be traced.  Hermon was 
+					<q direct="unspecified">commander of the frontier guard stationed at Munychia.</q> (<bibl n="Thuc. 8.92.5">Thuc. 8.92.5</bibl>).</note> one of the frontier guard, had smitten Phrynichus with a dagger and slain him in the open market-place, the Athenians tried the case of the dead man, found him guilty of treachery, and awarded crowns to Hermon and his accomplices.
+				<milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But at Samos the friends of Alcibiades soon got the upper hand, and sent Peisander to Athens to change the form of government.  He was to encourage the leading men to overthrow the democracy and take control of affairs, with the plea that on these terms alone would Alcibiades make Tissaphernes their friend and ally.  This was the pretence and this the pretext of those who established the oligarchy at Athens.
+				<milestone n="2" unit="section"/>
+				But as soon as the so-called Five Thousand (they were really only four hundred) got the power and took control of affairs, they at once neglected Alcibiades entirely, and waged the war with less vigor, partly because they distrusted the citizens, who still looked askance at the new form of government, and partly because  they thought that the Lacedaemonians, who always looked with favour on an oligarchy, would be more lenient towards them.
+				<milestone n="3" unit="section"/>
+				The popular party in the city was constrained by fear to keep quiet, because many of those who openly opposed the Four Hundred had been slain.  But when the army in Samos learned what had been done at home, they were enraged, and were eager to sail forthwith to the Piraeus, and sending for Alcibiades, they appointed him general, and bade him lead them in putting dwn the tyrants.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>An ordinary man, thus suddenly raised to great power by the favour of the multitude, would have been full of complaisance, thinking that he must at once gratify them in all things and oppose them in nothing, since they had made him, instead of a wandering exile, leader and general of such a fleet and of so large an armed force.  But Alcibiades, as became a great leader, felt that he must oppose them in their career of blind fury, and prevented them from making a fatal mistake.  Therefore in this instance, at least, he was the manifest salvation of the city.
+				<milestone n="5" unit="section"/>
+				For had they sailed off home, their enemies might at once have occupied all Ionia, the Hellespont without a battle, and the islands, while Athenians were fighting Athenians and making their own city the seat of war.  Such a war Alcibiades, more than any other one man, prevented, not only persuading and instructing the multitude together, but also, taking them man by man, supplicating some and constraining others.
+				<milestone n="6" unit="section"/>
+				He had a helper, too, in Thrasybulus of Steiris,<note resp="ed" place="unspecified" anchored="yes">This illustrious commander, the son of Lycus, is to be distinguished from Thrasybulus, the son of Thraso (<bibl n="Plut. Nic. 6.1">Plut. Nic. 6.1</bibl>).</note> who went along with him and did the shouting; for he had, it is said, the biggest voice of all the Athenians.
+			</p>
+         <p>A second honorable proceeding of Alcibiades was his promising to bring over to their side the Phoenician ships which the King had sent out and the Lacedaemonians were expecting,-or at least to see that those expectations were not realized,&mdash;and his sailing off swiftly on this errand.
+				<milestone n="7" unit="section"/>
+				The ships were actually seen off Aspendus, but Tissaphernes did not bring them up, and thereby played the Lacedaemonians false.  Alcibiades, however, was credited with this diversion of the ships by both parties, and especially by the Lacedaemonians.  The charge was that he instructed the Barbarian to suffer the Hellenes to destroy one another.  For it was perfectly clear that the side to which such a naval force attached itself would rob the other altogether of the control of the sea.
+				<milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this the Four Hundred were overthrown,<note resp="ed" place="unspecified" anchored="yes">They usurped the power in June, of 411 B.C.; they fell in September of the same year.</note> the friends of Alcibiades now zealously assisting the party of the people.  Then the city willingly ordered Alcibiades to come back home. But he thought he must not return with empty hands and without achievement, through the pity and favour of the multitude, but rather in a blaze of glory.  So, to begin with, he set sail with a small fleet from Samos and cruised off Cnidus and Cos.
+				<milestone n="2" unit="section"/>
+				There he heard that Mindarus the Spartan admiral had sailed off to the Hellespont with his entire fleet, followed by the Athenians, and so he hastened to the assistance of their generals.  By chance he came up, with his eighteen triremes, at just that critical point when both parties, having joined battle with all their ships off Abydos, and sharing almost equally in victory and defeat until evening, were locked in a great struggle.
+				<milestone n="3" unit="section"/>
+				The appearance of Alcibiades inspired both sides with a false opinion of his coming: the enemy were emboldened and the Athenians were confounded.  But he quickly hoisted Athenian colors on his flagship and darted straight upon the victorious and pursuing Peloponnesians. Routing them, he drove them to land, and following hard after them, rammed and shattered their ships.  Their crews swam ashore, and here Pharnabazus came to their aid with his infantry and fought along the beach in defence of their ships.
+				<milestone n="4" unit="section"/>
+				But finally the Athenians captured thirty of them, rescued their own, and erected a trophy of victory.
+			</p>
+         <p>Taking advantage of a success so brilliant as this, and ambitious to display himself at once before Tissaphernes, Alcibiades supplied himself with gifts of hospitality and friendship and proceeded, at the head of an imperial retinue, to visit the satrap.
+				<milestone n="5" unit="section"/>
+				His reception, however, was not what he expected. Tissaphernes had for a long time been accused by the Lacedaemonians to the King, and being in fear of the King's condemnation, it seemed to him that Alcibiades had come in the nick of time.  So he arrested him and shut him up in Sardis, hoping that such an outrage upon him as this would dispel the calumnies of the Spartans.
+				<milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After the lapse of thirty days Alcibiades ran away from his guards, got a horse from some one or other, and made his escape to Clazomenae.  To repay Tissaphernes, he alleged that he had escaped with that satrap's connivance, and so brought additional calumny upon him.  He himself sailed to the camp of the Athenians,<note resp="ed" place="unspecified" anchored="yes">Early in the spring of 410 B.C.  The Athenians were at Cardia, a city of the Thracian Chersonese.</note> where he learned that Mindarus, along with Pharnabazus, was in Cyzicus.
+				<milestone n="2" unit="section"/>
+				Thereupon he roused the spirits of the soldiers, declaring that they must now do sea-fighting and land-fighting and even siege-fighting, too, against their enemies, for poverty stared them in the face unless they were victorious in every way.  He then manned his ships and made his way to Proconnesus, giving orders at once to seize all small trading craft and keep them under guard, that the enemy might get no warning of his approach from any source so ever.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Now it chanced that copious rain fell all of a sudden, and thunder-peals and darkness cooperated with him in concealing his design.  Indeed, not only did he elude the enemy, but even the Athenians themselves had already given up all expectation of fighting, when he suddenly ordered them aboard ship and put out to sea.  After a little the darkness cleared away, and the Peloponnesian ships were seen hovering off the harbor of Cyzicus.
+				<milestone n="4" unit="section"/>
+				Fearing then lest they catch sight of the full extent of his array and take refuge ashore, he ordered his fellow-commanders to sail slowly and so remain in the rear, while he himself, with only forty ships, hove in sight and challenged the foe to battle.  The Peloponnesians were utterly deceived, and scorning what they deemed the small numbers of their enemy, put out to meet them, and closed at once with them in a grappling fight. Presently, while the battle was raging, the Athenian reserves bore down upon their foe, who were panic stricken and took to flight.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>Then Alcibiades with twenty of his best ships broke though their line, put to shore, and disembarking his crews, attacked his enemy as they fled from their ships, and slew many of them.  Mindarus and Pharnabazus, who came to their aid, he overwhelmed; Mindarus was slain fighting sturdily, but Pharnabazus made his escape.
+				<milestone n="6" unit="section"/>
+				Many were the dead bodies and the arms of which the Athenians became masters, and they captured all their enemy's ships. Then they also stormed Cyzicus, which Pharnabazus abandoned to its fate, and the Peloponnesians in it were annihilated.  Thus the Athenians not only had the Hellespont under their sure control, but even drove the Lacedaemonians at a stroke from the rest of the sea.  A dispatch was captured announcing the disaster to the ephors in true laconic style: 
+				<q direct="unspecified">Our ships are lost; Mindarus is gone; our men are starving; we know not what to do.</q>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But the soldiers of Alcibiades were now so elated and filled with pride that they disdained longer to mingle with the rest of the army, since it had often been conquered, while they were unconquered.  For not long before this,<note resp="ed" place="unspecified" anchored="yes">During the summer of 410 B.C., after the victory of Cyzicus.</note> Thrasyllus had suffered a reverse at Ephesus, and the Ephesians had erected their bronze trophy of victory, to the disgrace of the Athenians.
+				<milestone n="2" unit="section"/>
+				This was what the soldiers of Alcibiades cast in the teeth of Thrasyllus' men, vaunting themselves and their general, and refusing to share either training or quarters in camp with them.  But when Pharnabazus with much cavalry and infantry attacked the forces of Thrasyllus, who had made a raid into the territory of Abydos, Alcibiades sallied out to their aid, routed Pharnabazus, and pursued him till nightfall, along with Thrasyllus.  Thus the two factions were blended, and returned to their camp with mutual friendliness and delight.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>On the following day Alcibiades set up a trophy of victory and plundered the territory of Pharnabazus, no one venturing to defend it.  He even captured some priests and priestesses, but let them go without ransom.  On setting out to attack Chalcedon, which had revolted from Athens and received a Lacedaemonian garrison and governor, he heard that its citizens had collected all their goods and chattels out of the country and committed them for safe keeping to the Bithynians, who were their friends.  So he marched to the confines of Bithynia with his army, and sent on a herald with accusations and demands. The Bithynians, in terror, gave up the booty to him, and made a treaty of friendship.
+				<milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>While Chalcedon was being walled in from sea to sea,<note resp="ed" place="unspecified" anchored="yes">In the spring of 409 B.C.</note> Pharnabazus came to raise the siege, and at the same time Hippocrates, the Spartan governor, led his forces out of the city and attacked the Athenians.  But Alcibiades arrayed his army so as to face both enemies at once, put Pharnabazus to shameful flight, and slew Hippocrates together with many of his vanquished men.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Then he sailed in person into the Hellespont and levied moneys there.  He also captured Selymbria, where he exposed himself beyond all bounds.  For there was a party in the city which offered to surrender it to him, and they had agreed with him upon the signal of a lighted torch displayed at midnight. But they were forced to give this signal before the appointed time, through fear of one of the conspirators, who suddenly changed his mind.  So the torch was displayed before his army was ready; but Alcibiades took about thirty men and ran to the walls, bidding the rest of his force follow with all speed.
+				<milestone n="3" unit="section"/>
+				The gate was thrown open for him and he rushed into the city, his thirty men-at-arms reinforced by twenty targeteers, but he saw at once that the Selymbrians were advancing in battle array to attack him.  In resistance he saw no safety, and for flight, undefeated as he was in all his campaigns down to that day, he had too much spirit.  He therefore bade the trumpet signal silence, and then ordered formal proclamation to be made that Selymbria must not bear arms against Athens.
+				<milestone n="4" unit="section"/>
+				This proclamation made some of the Selymbrians less eager for battle, if, as they supposed, their enemies were all inside the walls; and others were mollified by hopes of a peaceful settlement. While they were thus parleying with one another, up came the army of Alcibiades.  Judging now, as was really the case, that the Selymbrians were disposed for peace, he was afraid that his Thracian soldiers might plunder the city.
+				<milestone n="5" unit="section"/>
+				There were many of these, and they were zealous in their service, through the favour and good will they bore Alcibiades.  Accordingly, he sent them all out of the city, and then, at the plea of the Selymbrians, did their city no injury whatever, but merely took a sum of money from it, set a garrison in it, and went his way.
+				<milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Meanwhile the Athenian generals who were besieging Chalcedon made peace with Pharnabazus on condition that they receive a sum of money, that Chalcedon be subject again to Athens, that the territories of Pharnabazus be not ravaged, and that the said Pharnabazus furnish safe escort for an Athenian embassy to the King.
+				<milestone n="2" unit="section"/>
+				Accordingly, when Alcibiades came back from Selymbria, Pharnabazus demanded that he too take oath to the treaty; but Alcibiades refused to do so until Pharnabazus had taken his oath to it.
+			</p>
+         <p>After the oaths had been taken, he went up against Byzantium, which was in revolt against  Athens, and compassed the city with a wall.<note resp="ed" place="unspecified" anchored="yes">During the winter of 409-408 B.C.</note> But after Anaxilaus, Lycurgus, and certain men besides had agreed to surrender the city to him on condition that it be not plundered, he spread abroad the story that threatening complications in Ionia called him away.  Then he sailed off in broad daylight with all his ships;
+				<milestone n="3" unit="section"/>
+				but in the night time stealthily returned.  He disembarked with the men-at-arms under his own command, and stationed himself quietly within reach of the city's walls.  His fleet, meanwhile, sailed to the harbor, and forcing its way in with much shouting and tumult and din, terrified the Byzantians by the unexpectedness of its attack, while it gave the party of Athens in the city a chance to admit Alcibiades in all security, since everybody had hurried off to the harbor and the fleet.
+				<milestone n="4" unit="section"/>
+				However, the day was not won without a battle. The Peloponnesians, Boeotians and Megarians who were in garrison at Byzantium routed the ships' crews and drove them back on board again.  Then, perceiving that the Athenians were inside the city, they formed in battle array and advanced to attack them. A fierce battle followed, but Alcibiades was victorious with the right wing, as well as Theramenes with the left, and they took prisoners no less than three hundred of the enemy who survived.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>Not a man of the Byzantians was put to death or sent into exile after the battle, for it was on these conditions that the men who surrendered the city had acted, and this was the agreement with them; they exacted no special grace for themselves. Therefore it was that when Anaxilaus was prosecuted at Sparta for treachery, his words showed clearly that his deeds had not been disgraceful.  He said that he was not a Lacedaemonian, but a Byzantian, and it was not Sparta that was in peril.  Considering therefore the case of Byzantium, he saw that the city was walled up, that no help could make its way in,
+				<milestone n="6" unit="section"/>
+				and that the provisions already in the city were being consumed by Peloponnesians and Boeotians, while the Byzantians were starving, together with their wives and children.  He had, therefore, not betrayed the city to its enemies, but set it free from war and its horrors, therein imitating the noblest Lacedaemonians, in whose eyes the one unqualifiedly honorable and righteous thing is their country's good.  The Lacedaemonians, on hearing this, were moved with sincere respect, and acquitted the men.
+				<milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But Alcibiades, yearning at last to see his home, and still more desirous of being seen by his fellow citizens, now that he had conquered their enemies so many times, set sail.<note resp="ed" place="unspecified" anchored="yes">From Samos, in the spring of 408 B.C.</note> His Attic triremes were adorned all round with many shields and spoils of war; many that he had captured in battle were towed along in his wake; and still more numerous were the figure-heads he carried of triremes which had been overwhelmed and destroyed by him. There were not less than two hundred of these all together.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Duris the Samian, who claims that he was a descendant of Alcibiades, gives some additional details.  He says that the oarsmen of Alcibiades rowed to the music of a flute blown by Chrysogonus the Pythian victor; that they kept time to a rhythmic call from the lips of Callipides the tragic actor; that both these artists were arrayed in the long tunics, flowing robes, and other adornment of their profession; and that the commander's ship put into harbors with a sail of purple hue, as though, after a drinking bout, he were off on a revel.
+				<milestone n="3" unit="section"/>
+				But neither Theopompus, nor Ephorus, nor Xenophon mentions these things, nor is it likely that Alcibiades put on such airs for the Athenians, to whom he was returning after he had suffered exile and many great adversities.  Nay, he was in actual fear as he put into the harbor, and once in, he did not leave his trireme until, as he stood on deck, he caught sight of his cousin Euryptolemus on shore, with many other friends and kinsmen, and heard their cries of welcome.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>When he landed, however, people did not deign so much as to look at the other generals whom they met, but ran in throngs to Alcibiades with shouts of welcome, escorting him on his way, and putting wreaths on his head as they could get to him, while those who could not come to him for the throng, gazed at him from afar, the elderly men pointing him out to the young.  Much sorrow, too, was mingled with the city's joy, as men called to mind their former misfortunes and compared them with their present good fortune, counting it certain that they had neither lost Sicily,
+				<milestone n="5" unit="section"/>
+				nor had any other great expectation of theirs miscarried if they had only left Alcibiades at the head of that enterprise and the armament therefor.  For now he had taken the city when she was almost banished from the sea, when on land she was hardly mistress of her own suburbs, and when factions raged within her walls, and had raised her up from this wretched and lowly plight, not only restoring her dominion over the sea, but actually rendering her victorious over her enemies everywhere on land.
+				<milestone n="33" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now the decree for his recall had been passed before this,<note resp="ed" place="unspecified" anchored="yes">Nearly three years before, in the late autumn of 411 B.C., after the overthrow of the Four Hundred.</note> on motion of Critias, the son of Callaeschrus, as Critias himself has written in his elegies, where he reminds Alcibiades of the favour in these words:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Mine was the motion that brought thee back; I made it in public;</l>
+					          <l>Words and writing were mine; this the task I performed;</l>
+					          <l>Signet and seal of words that were mine give warrant as follows.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Bergk, <title>Poet. Lyr. Graeci</title>, ii.(4) pp. 279 ff.</bibl>
+            </note>
+				
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>At this time,<note resp="ed" place="unspecified" anchored="yes">In the early summer of 408 B.C.</note> therefore, the people had only to meet in assembly, and Alcibiades addressed them.  He lamented and bewailed his own lot, but had only little and moderate blame to lay upon the people. The entire mischief he ascribed to a certain evil fortune and envious genius of his own.  Then he descanted at great length upon the vain hopes which their enemies were cherishing, and wrought his hearers up to courage.  At last they crowned him with crowns of gold, and elected him general with sole powers by land and sea.
+				<milestone n="3" unit="section"/>
+				They voted also that his property be restored to him, and that the Eumolpidae and Heralds revoke the curses wherewith they had cursed him at the command of the people. The others revoked their curses, but Theodorus the High Priest said: 
+				<q direct="unspecified">Nay, I invoked no evil upon him if he does no wrong to the city.</q>
+				        <milestone n="34" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But while Alcibiades was thus prospering brilliantly, some were nevertheless disturbed at the particular season of his return.  For he had put into harbor on the very day when the Plynteria of the goddess Athena were being celebrated. The Praxiergidae celebrate these rites on the twenty-fifth day of Thargelion in strict secrecy, removing the robes of the goddess and covering up her image.  Wherefore the Athenians regard this day as the unluckiest of all days for business of any sort.
+				<milestone n="2" unit="section"/>
+				The goddess, therefore, did not appear to welcome Alcibiades with kindly favour and good will, but rather to veil herself from him and repel him.  However, all things fell out as he wished, and one hundred triremes were manned for service, with which he was minded to sail off again; but a great and laudable ambition took possession of him and detained him there until the Eleusinian mysteries.
+				<milestone n="3" unit="section"/>
+				Ever since Deceleia had been fortified, and the enemy, by their presence there, commanded the approaches to Eleusis, the festal rite had been celebrated with no splendor at all, being conducted by sea.  Sacrifices, choral dances, and many of the sacred ceremonies usually held on the road, when Iacchus is conducted forth from Athens to Eleusis, had of necessity been omitted.
+				<milestone n="4" unit="section"/>
+				Accordingly, it seemed to Alcibiades that it would be a fine thing, enhancing his holiness in the eyes of the gods and his good repute in the minds of men, to restore its traditional fashion to the sacred festival by escorting the rite with his infantry along past the enemy by land.  He would thus either thwart and humble Agis, if the king kept entirely quiet, or would fight a fight that was sacred and approved by the gods, in behalf of the greatest and holiest interests, in full sight of his native city, and with all his fellow citizens eye-witnesses of his valor.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>When he had determined upon this course and made known his design to the Eumolpidae and Heralds, he stationed sentries on the heights, sent out an advance-guard at break of day, and then took the priests, mystae, and mystagogues, encompassed them with his men-at-arms, and led them over the road to Eleusis in decorous and silent array.  So august and devout was the spectacle which, as general he thus displayed, that he was hailed by those who were not unfriendly to him as High Priest, rather, and Mystagogue.
+				<milestone n="6" unit="section"/>
+				No enemy dared to attack him, and he conducted the procession safely back to the city.  At this he was exalted in spirit himself, and exalted his army with the feeling that it was irresistible and invincible under his command. People of the humbler and poorer sort he so captivated by his leadership that they were filled with an amazing passion to have him for their tyrant, and some proposed it, and actually came to him in solicitation of it.  He was to rise superior to envy, abolish decrees and laws, and stop the mouths of the babblers who were so fatal to the life of the city, that he might bear an absolute sway and act without fear of the public informer.
+				<milestone n="35" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>What thoughts he himself had about a tyranny, is uncertain.  But the most influential citizens were afraid of it, and therefore anxious that he should sail away as soon as he could.  They even voted him, besides everything else, the colleagues of his own choosing.  Setting sail,<note resp="ed" place="unspecified" anchored="yes">Towards the end of October, 408 B.C.</note> therefore, with his one hundred ships, and assaulting Andros, he conquered the islanders in battle, as well as the Lacedaemonians who were there, but he did not capture the city.  This was the first of the fresh charges brought against him by his enemies.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>And it would seem that if ever a man was ruined by his own exalted reputation, that man was Alcibiades.  His continuous successes gave him such repute for unbounded daring and sagacity, that when he failed in anything, men suspected his inclination; they would not believe in his inability.  Were he only inclined to do a thing, they thought, naught could escape him.  So they expected to hear that the Chians also had been taken, along with the rest of Ionia.
+				<milestone n="3" unit="section"/>
+				They were therefore incensed to hear that he had not accomplished everything at once and speedily, to meet their wishes.  They did not stop to consider his lack of money.  This compelled him, since he was fighting men who had an almoner of bounty in the Great King, to leave his camp frequently and sail off in quest of money for rations and wages. The final and prevailing charge against him was due to this necessity.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Lysander, who had been sent out as admiral by the Lacedaemonians, paid his sailors four obols a day instead of three, out of the moneys he received from Cyrus; while Alcibiades, already hard put to it to pay even his three obols, was forced to sail for Caria to levy money.  The man whom he left in charge of his fleet, Antiochus,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Nic. 10.1">Plut. Nic. 10.1</bibl>.</note> was a brave captain, but otherwise a foolish and low-lived fellow.
+				<milestone n="5" unit="section"/>
+				Although he had received explicit commands from Alcibiades not to hazard a general engagement even though the enemy sailed out to meet him, he showed such wanton contempt of them as to man his own trireme and one other and stand for Ephesus, indulging in many shamelessly insulting gestures and cries as he cruised past the prows of the enemy's ships.
+				<milestone n="6" unit="section"/>
+				At first Lysander put out with a few ships only, and gave him chase.  Then, when the Athenians came to the aid of Antiochus, Lysander put out with his whole fleet, won the day, slew Antiochus himself, captured many ships and men, and set up a trophy of victory.  As soon as Alcibiades heard of this, he came back to Samos, put out to sea with his whole armament, and challenged Lysander to battle.  But Lysander was satisfied with his victory, and would not put out to meet him.
+				<milestone n="36" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>There were those who hated Alcibiades in the camp, and of these Thrasybulus,<note resp="ed" place="unspecified" anchored="yes">Not the illustrious commander (<bibl n="Plut. Nic. 26.6">Plut. Nic. 26.6</bibl>), who was the son of Lycus.</note> the son of Thraso, his particular enemy, set sail for Athens to denounce him.  He stirred up the city against him by declaring to the people that it was Alcibiades who had ruined their cause and lost their ships by his wanton conduct in office. He had handed over&mdash;so Thrasybulus said&mdash;the duties of commander to men who won his confidence merely by drinking deep and reeling off sailors' yarns,
+				<milestone n="2" unit="section"/>
+				in order that he himself might be free to cruise about collecting moneys and committing excesses of drunkenness and revelry with courtesans of Abydos and Ionia, and this while the enemy's fleet lay close to him.  His enemies also found ground for accusation against him in the fortress which he had constructed in Thrace, near Bisanthe.  It was to serve, they said, as a refuge for him in case he either could not or would not live at home.
+				<milestone n="3" unit="section"/>
+				The Athenians were persuaded, and chose other generals in his place, thus displaying their anger and ill-will towards him.  On learning this, Alcibiades was afraid, and departed from the camp altogether, and assembling mercenary troops made war on his own account against the Thracians who acknowledge no king.  He got together much money from his captives, and at the same time afforded security from barbarian inroads to the Hellenes on the neighboring frontier.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Tydeus, Menander, and Adeimantus, the generals, who had all the ships which the Athenians could finally muster in station at Aegospotami,<note resp="ed" place="unspecified" anchored="yes">With these words Plutarch's story leaps over the events of two and a half years, from the spring of 407 to the autumn of 405 B.C.</note> were wont to sail out at daybreak against Lysander, who lay with his fleet at Lampsacus, and challenge him to battle.  Then they would sail back again, to spend the rest of the day in disorder and unconcern, since, forsooth, they despised their enemy.
+				<milestone n="5" unit="section"/>
+				Alcibiades, who was near at hand,<note resp="ed" place="unspecified" anchored="yes">In his stronghold near Pactye (<bibl n="Xen. Hell. 2.1.25">Xen. Hell. 2.1.25</bibl>).</note> could not see such conduct with calmness or indifference, but rode up on horseback and read the generals a lesson.  He said their anchorage was a bad one; the place had no harbor and no city, but they had to get their supplies from Sestos, a long way off; and they permitted their crews, whenever they were on land, to wander and scatter about at their own sweet wills, while there lay at anchor over against them an armament which was trained to do everything silently at a word of absolute command.
+				<milestone n="37" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In spite of what Alcibiades said, and in spite of his advice to change their station to Sestos, the generals paid no heed.  Tydeus actually insulted him by bidding him begone. he was not general now, but others.  So Alcibiades departed, suspecting that some treachery was on foot among them.  He told his acquaintances who were escorting him out of the camp that, had he not been so grievously insulted by the generals, within a few days he would have forced the Lacedaemonians to engage them whether they wished to do so or not, or else lose their ships.
+				<milestone n="2" unit="section"/>
+				Some thought that what he said was arrant boasting; but others that it was likely, since he had merely to bring up his numerous Thracian javelineers and horsemen to assault by land and confound the enemy's camp.
+			</p>
+         <p>However, that he saw only too well the errors of the Athenians the event soon testified.  Lysander suddenly and unexpectedly fell upon them, and only eight of their triremes escaped with Conon; the rest, something less than two hundred, were captured and taken away.
+				<milestone n="3" unit="section"/>
+				Three thousand of their crews were taken alive and executed by Lysander.  In a short time<note resp="ed" place="unspecified" anchored="yes">In the spring of 404 B.C., some eight months later.</note> he also captured Athens, burned her ships, and tore down her long walls.
+			</p>
+         <p>Alcibiades now feared the Lacedaemonians, who were supreme on land and sea, and betook himself into Bithynia, taking booty of every sort with him, but leaving even more behind him in the fortress where he had been living.
+				<milestone n="4" unit="section"/>
+				In Bithynia he again lost much of his substance, being plundered by the Thracians there, and so he determined to go up to the court of Artaxerxes.  He thought to show himself not inferior to Themistocles if the King made trial of his services, and superior in his pretext for offering them.  For it was not to be against his fellow countrymen, as in the case of that great man, but in behalf of his country that he would assist the King and beg him to furnish forces against a common enemy.  Thinking that Pharnabazus could best give him facilities for safely making this journey up to the King, he went to him in Phrygia, and continued there with him, paying him court and receiving marks of honor from him.
+				<milestone n="38" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>The Athenians were greatly depressed at the loss of their supremacy.  But when Lysander robbed them of their freedom too, and handed the city over to thirty men, then, their cause being lost, their eyes were opened to the course they would not take when salvation was yet in their power. They sorrowfully rehearsed all their mistakes and follies, the greatest of which they considered to be their second outburst of wrath against Alcibiades.
+				<milestone n="2" unit="section"/>
+				He had been cast aside for no fault of his own; but they got angry because a subordinate of his lost a few ships disgracefully, and then they themselves, more disgracefully still, robbed the city of its ablest and most experienced general.  And yet, in spite of their present plight, a vague hope still prevailed that the cause of Athens was not wholly lost so long as Alcibiades was alive.  He had not, in times past, been satisfied to live his exile's life in idleness and quiet; nor now, if his means allowed, would he tolerate the insolence of the Lacedaemonians and the madness of the Thirty.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>It was not strange that the multitude indulged in such dreams, when even the Thirty were moved to anxious thought and inquiry, and made the greatest account of what Alcibiades was planning and doing. Finally, Critias tried to make it clear to Lysander that as long as Athens was a democracy the Lacedaemonians could not have safe rule over Hellas;
+				<milestone n="4" unit="section"/>
+				and that Athens, even though she were very peacefully and well disposed towards oligarchy, would not be suffered, while Alcibiades was alive, to remain undisturbed in her present condition.  However, Lysander was not persuaded by these arguments until a dispatch-roll came from the authorities at home bidding him put Alcibiades out of the way; either because they too were alarmed at the vigor and enterprise of the man, or because they were trying to gratify Agis.
+				<milestone n="39" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Accordingly, Lysander sent to Pharnabazus and bade him do this thing, and Pharnabazus commissioned Magaeus, his brother, and Sousamithras, his uncle, to perform the deed.  At that time Alcibiades was living in a certain village of Phrygia, where he had Timandra the courtesan with him, and in his sleep he had the following vision.
+				<milestone n="2" unit="section"/>
+				He thought he had the courtesan's garments upon him, and that she was holding his head in her arms while she adorned his face like a woman's with paints and pigments.  Others say that in his sleep he saw Magaeus' followers cutting off his head and his body burning. All agree in saying that he had the vision not long before his death.
+			</p>
+         <p>The party sent to kill him did not dare to enter his house, but surrounded it and set it on fire.
+				<milestone n="3" unit="section"/>
+				When Alcibiades was aware of this, he gathered together most of the garments and bedding in the house and cast them on the fire.  Then, wrapping his cloak about his left arm, and drawing his sword with his right, he dashed out, unscathed by the fire, before the garments were in flames, and scattered the Barbarians, who ran at the mere sight of him.  Not a man stood ground against him, or came to close quarters with him, but all held aloof and shot him with javelins and arrows.
+				<milestone n="4" unit="section"/>
+				Thus he fell, and when the Barbarians were gone, Timandra took up his dead body, covered and wrapped it in her own garments, and gave it such brilliant and honorable burial as she could provide.
+			</p>
+         <p>This Timandra, they say, was the mother of that Lais who was called the Corinthian, although she was a prisoner of war from Hyccara, a small city of Sicily.<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Nic. 15.4">Plut. Nic. 15.4</bibl>.</note>
+				        <milestone n="5" unit="section"/>
+				But some, while agreeing in all other details of the death of Alcibiades with what I have written, say that it was not Pharnabazus who was the cause of it, nor Lysander, nor the Lacedaemonians, but Alcibiades himself.  He had corrupted a girl belonging to a certain well known family, and had her with him; and it was the brothers of this girl who, taking his wanton insolence much to heart, set fire by night to the house where he was living, and shot him down, as has been described, when he dashed out through the fire.
+			</p>
+      </body>
+   </text>
+</TEI.2>

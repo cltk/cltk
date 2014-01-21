@@ -1,0 +1,2748 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersVerse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersVerse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>The Fables of Phaedrus</title>
+<author>Phaedrus</author>
+<editor role="transl">Christopher Smart</editor>
+&responsibility;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Fables of Phaedrus Translated into English Verse</title>
+<author>Phaedrus</author>
+<editor role="transl">Christopher Smart, A. M.</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons, Ltd.</publisher>
+<date>1913</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="book"/>
+<state n="chunk" unit="poem"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date></date>
+<respStmt><name></name><resp>markup</resp></respStmt>
+<item>
+$Log: fables.smart_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:35  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 20:50:44  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:20:51  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:56:59  packel
+Converted to XML
+
+Revision 1.5  2003/07/01 22:17:26  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.4  2001/08/28 19:02:54  amahoney
+fix some OCR errors
+
+Revision 1.3  2001/08/28 18:54:41  amahoney
+fix the headers
+
+Revision 1.2  2001/08/24 21:32:21  amahoney
+put on translator-line-number markers
+
+Revision 1.1  2001/08/24 21:18:43  amahoney
+translation to go with the Latin
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+<text lang="en">
+<body>
+<div1 type="book" n="1">
+<div2 type="poem" n="prologus">
+<head>Prologue.</head>
+<l n="tr">WHAT from the founder <placeName key="tgn,2318967">Esop</placeName> fell,</l>
+<l n="tr">In neat familiar verse I tell:</l>
+<l n="tr">Twofold's the genius of the page,</l>
+<l n="tr">To make you smile and make you sage.</l>
+<l n="tr">But if the critics we displease,</l>
+<l n="tr">By wrangling brutes and talking trees,</l>
+<l n="tr">Let them remember, ere they blame,</l>
+<l n="tr">We're working neither sin nor shame;</l>
+<l n="tr">'Tis but a play to form the youth</l>
+<l n="tr">By fiction, in the cause of truth.
+</l></div2>
+<div2 type="poem" n="1">
+<head>The Wolf and the Lamb</head>
+
+<l n="tr">BY thirst incited; to the brook</l>
+<l n="tr">The Wolf and Lamb themselves betook.</l>
+<l n="tr">The Wolf high up the current drank,</l>
+<l n="tr">The Lamb far lower down the bank.</l>
+<l n="tr">Then, bent his ravenous maw to cram,</l>
+<l n="tr">The Wolf took umbrage at the Lamb.</l>
+<l n="tr">"How dare you trouble all the flood,</l>
+<l n="tr">And mingle my good drink with mud?"</l>
+<l n="tr">"Sir," says the Lambkin, sore afraid,</l>
+<l n="tr">"How should I act, as you upbraid?</l>
+<l n="tr">The thing you mention cannot be,</l>
+<l n="tr">The stream descends from you to me."</l>
+<l n="tr">Abash'd by facts, says he, " I know</l>
+<l n="tr">'Tis now exact six months ago</l>
+<l n="tr">You strove my honest fame to blot"-</l>
+<l n="tr">"Six months ago, sir, I was not."</l>
+<l n="tr">"Then 'twas th' old ram thy sire," he cried,</l>
+<l n="tr">And so he tore him, till he died.</l>
+<l n="tr">To those this fable I address</l>
+<l n="tr">Who are determined to oppress,</l>
+<l n="tr">And trump up any false pretence,</l>
+<l n="tr">But they will injure innocence.
+</l></div2>
+<div2 type="poem" n="2">
+<head>The Frogs Desiring a King</head>
+
+<l n="tr">With equal laws when <placeName key="tgn,7001393">Athens</placeName> throve,</l>
+<l n="tr">The petulance of freedom drove</l>
+<l n="tr">Their state to license, which overthrew</l>
+<l n="tr">Those just restraints of old they knew.</l>
+<l n="tr">Hence, as a factious discontent</l>
+<l n="tr">Through every rank and order went,</l>
+<l n="tr">Pisistratus the tyrant form'd</l>
+<l n="tr">A party, and the fort he storm'd:</l>
+<l n="tr">Which yoke, while all bemoaned in grief</l>
+<l n="tr">(Not that he was a cruel chief,</l>
+<l n="tr">But they unused to be controlled)</l>
+<l n="tr">Then <placeName key="tgn,2318967">Esop</placeName> thus his fable told:</l>
+<l n="tr">The Frogs, a freeborn people made,</l>
+<l n="tr">From out their marsh with clamor pray'd</l>
+<l n="tr">That Jove a monarch would assign</l>
+<l n="tr">With power their manners to refine.</l>
+<l n="tr">The sovereign smiled, and on their bog</l>
+<l n="tr">Bent his petitioners a log,</l>
+<l n="tr">Which, as it dash'd upon the place,</l>
+<l n="tr">At first alarm'd the tim'rous race.</l>
+<l n="tr">But ere it long had lain to cool,</l>
+<l n="tr">One slily peep'd out of the pool,</l>
+<l n="tr">And finding it a king in jest,</l>
+<l n="tr">He boldly summoned all the rest.</l>
+<l n="tr">Now, void of fear, the tribe advance,</l>
+<l n="tr">And on the timber leap'd and danced,</l>
+<l n="tr">And having let their fury loose,</l>
+<l n="tr">In gross affronts and rank abuse,</l>
+<l n="tr">Of Jove they sought another king,</l>
+<l n="tr">For useless was this wooden thing.</l>
+<l n="tr">Then he a water-snake empower'd,</l>
+<l n="tr">Who one by one their race devoured.</l>
+<l n="tr">They try to make escape in vain,</l>
+<l n="tr">Nor, dumb through fear, can they complain.</l>
+<l n="tr">By stealth they Mercury depute,</l>
+<l n="tr">That Jove would once more hear their suit,</l>
+<l n="tr">And send their sinking state to save;</l>
+<l n="tr">But he in wrath this answer gave:</l>
+<l n="tr">"You scorn'd the good king that you had,</l>
+<l n="tr">And therefore you shall bear the bad."</l>
+<l n="tr">Ye likewise, 0 Athenian friends,</l>
+<l n="tr">Convinced to what impatience tends,</l>
+<l n="tr">Though slavery be no common curse,</l>
+<l n="tr">Be still, for fear of worse and worse.
+</l></div2>
+<div2 type="poem" n="3">
+<head>The Vain Jackdaw</head>
+
+<l n="tr">Lest any one himself should plume,</l>
+<l n="tr">And on his neighbour's worth presume;</l>
+<l n="tr">But still let Nature's garb prevail-</l>
+<l n="tr"><placeName key="tgn,2318967">Esop</placeName> has left this little tale:</l>
+<l n="tr">A Daw, ambitious and absurd,</l>
+<l n="tr">Pick'd up the quills of Juno's bird;</l>
+<l n="tr">And, with the gorgeous spoil adorn'd,</l>
+<l n="tr">All his own sable brethren scorn'd,</l>
+<l n="tr">And join'd the peacocks-who in scoff</l>
+<l n="tr">Stripp'd the bold thief; and drove him off</l>
+<l n="tr">The Daw, thus roughly handled, went</l>
+<l n="tr">To his own kind in discontent:</l>
+<l n="tr">But they in turn contemn the spark,</l>
+<l n="tr">And brand with many a shameful mark.</l>
+<l n="tr">Then one he formerly disdain'd,</l>
+<l n="tr">"Had you," said he, "at home remain'd--</l>
+<l n="tr">Content with Nature's ways and will,</l>
+<l n="tr">You had not felt the peacock's bill;</l>
+<l n="tr">Nor 'mongst the birds of your own dress</l>
+<l n="tr">Had been deserted in distress."
+</l></div2>
+<div2 type="poem" n="4">
+<head>The Dog in the River.</head>
+<l n="tr">The churl that wants another's fare</l>
+<l n="tr">Deserves at least to lose his share.</l>
+<l n="tr">As through the stream a Dog convey'd</l>
+<l n="tr">A piece of meat, he spied his shade</l>
+<l n="tr">In the clear mirror of the flood,</l>
+<l n="tr">And thinking it was flesh and blood,</l>
+<l n="tr">Snapp'd to deprive him of the treat:-</l>
+<l n="tr">But mark the glutton's self-defeat,</l>
+<l n="tr">Miss'd both another's and his own,</l>
+<l n="tr">Both shade and substance, beef and bone.
+</l></div2>
+<div2 type="poem" n="5">
+<head>The Heifer, Goat, Sheep, and Lion.</head>
+<l n="tr">A partnership with men in power</l>
+<l n="tr">We cannot build upon an hour.</l>
+<l n="tr">This Fable proves the fact too true:</l>
+<l n="tr">An Heifer, Goat, and harmless Ewe,</l>
+<l n="tr">Were with the Lion as allies,</l>
+<l n="tr">To raise in desert woods supplies.</l>
+<l n="tr">There, when they jointly had the luck</l>
+<l n="tr">To take a most enormous buck,</l>
+<l n="tr">The Lion first the parts disposed,</l>
+<l n="tr">And then his royal will disclosed.</l>
+<l n="tr">" The first, as Lion hight, I crave;</l>
+<l n="tr">The next you yield to me, as brave;</l>
+<l n="tr">The third is my peculiar due,</l>
+<l n="tr">As being stronger far than you;</l>
+<l n="tr">The fourth you likewise will renounce,</l>
+<l n="tr">For him that touches, I shall trounce."</l>
+<l n="tr">Thus rank unrighteousness and force</l>
+<l n="tr">Seized all the prey without remorse.
+</l></div2>
+<div2 type="poem" n="6">
+<head>The Frogs and Sun</head>
+
+<l n="tr">When <placeName key="tgn,2318967">Esop</placeName> saw, with inward grief,</l>
+<l n="tr">The nuptials of a neighboring thief,</l>
+<l n="tr">He thus his narrative begun:</l>
+<l n="tr">Of old 'twas rumor'd that the Sun</l>
+<l n="tr">Would take a wife: with hideous cries</l>
+<l n="tr">The quer'lous Frogs alarm'd the skies.</l>
+<l n="tr">Moved at their murmurs, Jove inquired</l>
+<l n="tr">What was the thing that they desired?</l>
+<l n="tr">When thus a tenant of the lake,</l>
+<l n="tr">In terror, for his brethren spake:</l>
+<l n="tr">"Ev'n now one Sun too much is found,</l>
+<l n="tr">And dries up all the pools around,</l>
+<l n="tr">Till we thy creatures perish here;</l>
+<l n="tr">But oh, how dreadfully severe,</l>
+<l n="tr">Should he at length be made a sire,</l>
+<l n="tr">And propagate a race of fire !"
+</l></div2>
+<div2 type="poem" n="7">
+<head>The Fox and the Tragic Mask</head>
+
+<l n="tr">A Fox beheld a Mask- "0 rare</l>
+<l n="tr">The headpiece, if but brains were there !"</l>
+<l n="tr">This holds-whene'er the Fates dispense</l>
+<l n="tr">Pomp, pow'r, and everything but sense.
+</l></div2>
+<div2 type="poem" n="8">
+<head>The Wolf and Crane</head>
+
+<l n="tr">Who for his merit seeks a price</l>
+<l n="tr">From men of violence and vice,</l>
+<l n="tr">Is twice a fool-first so declared,</l>
+<l n="tr">As for the worthless he has cared;</l>
+<l n="tr">Then after all, his honest aim</l>
+<l n="tr">Must end in punishment and shame.</l>
+<l n="tr">A bone the Wolf devoured in haste,</l>
+<l n="tr">Stuck in his greedy throat so fast,</l>
+<l n="tr">That, tortured with the pain, he roar'd,</l>
+<l n="tr">And ev'ry beast around implored,</l>
+<l n="tr">That who a remedy could find</l>
+<l n="tr">Should have a premium to his mind.</l>
+<l n="tr">A Crane was wrought upon to trust</l>
+<l n="tr">His oath at length-and down she thrust</l>
+<l n="tr">Her neck into his throat impure,</l>
+<l n="tr">And so perform'd a desp'rate cure.</l>
+<l n="tr">At which, when she desired her fee,</l>
+<l n="tr">"You base, ungrateful minx," says he,</l>
+<l n="tr">"Whom I so kind forbore to kill,</l>
+<l n="tr">And now, forsooth, you'd bring your bill!"
+</l></div2>
+<div2 type="poem" n="9">
+<head>The Hare and the Sparrow</head>
+<l n="tr">Still to give cautions, as a friend,</l>
+<l n="tr">And not one's own affairs attend,</l>
+<l n="tr">Is but impertinent and vain,</l>
+<l n="tr">As these few verses will explain.</l>
+<l n="tr">A Sparrow taunted at a Hare</l>
+<l n="tr">Caught by an eagle high in air,</l>
+<l n="tr">And screaming loud-- "Where now," says she,</l>
+<l n="tr">" Is your renown'd velocity ?</l>
+<l n="tr">Why loiter'd your much boasted speed?"</l>
+<l n="tr">Just as she spake, an hungry glede</l>
+<l n="tr">Did on th' injurious railer fall,</l>
+<l n="tr">Nor could her cries avail at all.</l>
+<l n="tr">The Hare, with its expiring breath,</l>
+<l n="tr">Thus said: " See comfort ev'n in death!</l>
+<l n="tr">She that derided my distress</l>
+<l n="tr">Must now deplore her own no less."
+</l></div2>
+<div2 type="poem" n="10">
+<head>The Wolf and Fox, with the Ape for Judge</head>
+<l n="tr">Whoe'er by practice indiscreet</l>
+<l n="tr">Has pass'd for a notorious cheat,</l>
+<l n="tr">Will shortly find his credit fail,</l>
+<l n="tr">Though he speak truth, says <placeName key="tgn,2318967">Esop</placeName>'s tale.</l>
+<l n="tr">The Wolf the Fox for theft arraigned;</l>
+<l n="tr">The Fox her innocence maintained:</l>
+<l n="tr">The Ape, as umpire, takes his seat;</l>
+<l n="tr">Each pleads his cause with skill and heat.</l>
+<l n="tr">Then thus the Ape, with aspect grave,</l>
+<l n="tr">The sentence from the hustings gave:</l>
+<l n="tr">"For you, Sir Wolf, I do descry</l>
+<l n="tr">That all your losses are a lie-</l>
+<l n="tr">And you, with negatives so stout,</l>
+<l n="tr">0 Fox! have stolen the goods no doubt."
+</l></div2>
+<div2 type="poem" n="11">
+<head>The Ass and the Lion Hunting</head>
+
+<l n="tr">A coward, full of pompous speech,</l>
+<l n="tr">The ignorant may overreach;</l>
+<l n="tr">But is the laughing-stock of those</l>
+<l n="tr">Who know how far his valor goes.</l>
+<l n="tr">Once on a time it came to pass,</l>
+<l n="tr">The Lion hunted with the Ass,</l>
+<l n="tr">Whom hiding in the thickest shade</l>
+<l n="tr">He there proposed should lend him aid,</l>
+<l n="tr">By trumpeting so strange a bray,</l>
+<l n="tr">That all the beasts he should dismay,</l>
+<l n="tr">And drive them o'er the desert heath</l>
+<l n="tr">Into the lurking Lion's teeth.</l>
+<l n="tr">Proud of the task, the long-ear'd loon</l>
+<l n="tr">Struck up such an outrageous tune,</l>
+<l n="tr">That 'twas a miracle to hear-</l>
+<l n="tr">The beasts forsake their haunts with fear,</l>
+<l n="tr">And in the Lion's fangs expired:</l>
+<l n="tr">Who, being now with slaughter tired,</l>
+<l n="tr">Call'd out the Ass, whose noise he stops.</l>
+<l n="tr">The Ass, parading from the copse,</l>
+<l n="tr">Cried out with most conceited scoff,</l>
+<l n="tr">"How did my music-piece go off?</l>
+<l n="tr">So well-were not thy courage known,</l>
+<l n="tr">Their terror had been all my own!"
+</l></div2>
+<div2 type="poem" n="12">
+<head>The Stag at the Fountain</head>
+
+<l n="tr">FULL often what you now despise</l>
+<l n="tr">Proves better than the things you prize;</l>
+<l n="tr">Let <placeName key="tgn,2318967">Esop</placeName>'s narrative decide:</l>
+<l n="tr">A Stag beheld, with conscious pride,</l>
+<l n="tr">(As at the fountain-head he stood)</l>
+<l n="tr">His image in the silver flood,</l>
+<l n="tr">And there extols his branching horns,</l>
+<l n="tr">While his poor spindle-shanks he scorns-</l>
+<l n="tr">But, lo! he hears the hunter's cries,</l>
+<l n="tr">And, frightened, o'er the champaign flies--</l>
+<l n="tr">His swiftness baffles the pursuit:</l>
+<l n="tr">At length a wood receives the brute,</l>
+<l n="tr">And by his horns entangled there,</l>
+<l n="tr">The pack began his flesh to tear:</l>
+<l n="tr">Then dying thus he wail'd his fate:</l>
+<l n="tr">"Unhappy me! and wise too late!</l>
+<l n="tr">How useful what I did disdain!</l>
+<l n="tr">How grievous that which made me vain!
+</l></div2>
+<div2 type="poem" n="13">
+<head>The Fox and the Crow</head>
+
+<l n="tr">His folly in repentance ends,</l>
+<l n="tr">Who, to a flatt'ring knave attends.</l>
+<l n="tr">A Crow, her hanger to appease,</l>
+<l n="tr">Had from a window stolen some cheese,</l>
+<l n="tr">And sitting on a lofty pine</l>
+<l n="tr">In state, was just about to dine.</l>
+<l n="tr">This, when a Fox observed below,</l>
+<l n="tr">He thus harangued the foolish Crow:</l>
+<l n="tr">" Lady, how beauteous to the view</l>
+<l n="tr">Those glossy plumes of sable hue!</l>
+<l n="tr">Thy features how divinely fair!</l>
+<l n="tr">With what a shape, and what an air!</l>
+<l n="tr">Could you but frame your voice to sing,</l>
+<l n="tr">You'd have no rival on the wing.'</l>
+<l n="tr">But she, now willing to display</l>
+<l n="tr">Her talents in the vocal way,</l>
+<l n="tr">Let go the cheese of luscious taste,</l>
+<l n="tr">Which Renard seized with greedy haste.</l>
+<l n="tr">The grudging dupe now sees at last</l>
+<l n="tr">That for her folly she must fast.
+</l></div2>
+<div2 type="poem" n="14">
+<head>The Cobbler Turned Doctor</head>
+
+<l n="tr">A bankrupt Cobbler, poor and lean,</l>
+<l n="tr">(No bungler e'er was half so mean)</l>
+<l n="tr">Went to a foreign place, and there</l>
+<l n="tr">Began his med'cines to prepare;</l>
+<l n="tr">But one of more especial note</l>
+<l n="tr">He call'd his sovereign antidote;</l>
+<l n="tr">And by his technical bombast</l>
+<l n="tr">Contrived to raise a name at last.</l>
+<l n="tr">It happen'd that the king was sick,</l>
+<l n="tr">Who, willing to detect the trick,</l>
+<l n="tr">Call'd for some water in an ewer,</l>
+<l n="tr">Poison in which he feign'd to pour</l>
+<l n="tr">The antidote was likewise mix'd;</l>
+<l n="tr">He then upon th' empiric fix'd</l>
+<l n="tr">To take the medicated cup,</l>
+<l n="tr">And, for a premium, drink it up</l>
+<l n="tr">The quack, through dread of death, confessed</l>
+<l n="tr">That he was of no skill possessed;</l>
+<l n="tr">But all this great and glorious job</l>
+<l n="tr">Was made of nonsense and the mob.</l>
+<l n="tr">Then did the king his peers convoke,</l>
+<l n="tr">And thus unto th' assembly spoke:</l>
+<l n="tr">" My lords and gentlemen, I rate</l>
+<l n="tr">Your folly as inordinate,</l>
+<l n="tr">Who trust your heads into his hand,</l>
+<l n="tr">Where no one had his heels japann'd."--</l>
+<l n="tr">This story their attention craves</l>
+<l n="tr">Whose weakness is the prey of knaves.
+</l></div2>
+<div2 type="poem" n="15">
+<head>The Sapient Ass</head>
+
+<l n="tr">In all the changes of a state,</l>
+<l n="tr">The poor are the most fortunate,</l>
+<l n="tr">Who, save the name of him they call</l>
+<l n="tr">Their king, can find no odds at all.</l>
+<l n="tr">The truth of this you now may read-</l>
+<l n="tr">A fearful old man in a mead,</l>
+<l n="tr">While leading of his Ass about,</l>
+<l n="tr">Was startled at the sudden shout</l>
+<l n="tr">Of enemies approaching nigh.</l>
+<l n="tr">He then advised the Ass to fly,</l>
+<l n="tr">"Lest we be taken in the place:"</l>
+<l n="tr">But loth at all to mend his pace,</l>
+<l n="tr">"Pray, will the conqueror," quoth Jack,</l>
+<l n="tr">"With double panniers load my back ?"</l>
+<l n="tr">"No," says the man. "If that's the thing,"</l>
+<l n="tr">Cries he, "I care not who is king."
+</l></div2>
+<div2 type="poem" n="16">
+<head>The Sheep, the Stag, and the Wolf</head>
+<l n="tr">When one rogue would another get</l>
+<l n="tr">For surety in a case of debt,</l>
+<l n="tr">'Tis not the thing t' accept the terms,</l>
+<l n="tr">But dread th' event-the tale affirms.</l>
+<l n="tr">A Stag approached the Sheep, to treat</l>
+<l n="tr">For one good bushel of her wheat.</l>
+<l n="tr">"The honest Wolf will give his bond."</l>
+<l n="tr">At which, beginning to despond,</l>
+<l n="tr">"The Wolf (cries she) 's a vagrant bite,</l>
+<l n="tr">And you are quickly out of sight;</l>
+<l n="tr">Where shall I find or him or you</l>
+<l n="tr">Upon the day the debt is due ?"
+</l></div2>
+<div2 type="poem" n="17">
+<head>The Sheep, the Dog, and the Wolf.</head>
+<l n="tr">Liars are liable to rue</l>
+<l n="tr">The mischief they 're so prone to do.</l>
+<l n="tr">The Sheep a Dog unjustly dunn'd</l>
+<l n="tr">One loaf directly to refund,</l>
+<l n="tr">Which he the Dog to the said Sheep</l>
+<l n="tr">Had given in confidence to keep.</l>
+<l n="tr">The Wolf was summoned, and he swore</l>
+<l n="tr">It was not one, but ten or more.</l>
+<l n="tr">The Sheep was therefore cast at law</l>
+<l n="tr">To pay for things she never saw.</l>
+<l n="tr">But, lo! ere many days ensued,</l>
+<l n="tr">Dead in a ditch the Wolf she view'd:</l>
+<l n="tr">"This, this," she cried, "is Heaven's decree</l>
+<l n="tr">Of justice on a wretch like thee."
+</l></div2>
+<div2 type="poem" n="18">
+<head>(mulier Parturiens)</head>
+<p>Not here translated.
+</p></div2>
+<div2 type="poem" n="19">
+<head>The Bitch and Her Puppies</head>
+
+<l n="tr">Bad men have speeches smooth and fair,</l>
+<l n="tr">Of which, that we should be aware,</l>
+<l n="tr">And such designing villains thwart,</l>
+<l n="tr">The underwritten lines exhort.</l>
+<l n="tr">A Bitch besought one of her kin</l>
+<l n="tr">For room to put her Puppies in:</l>
+<l n="tr">She, loth to say her neighbour nay,</l>
+<l n="tr">Directly lent both hole and hay.</l>
+<l n="tr">But asking to be repossessed,</l>
+<l n="tr">For longer time the former press'd,</l>
+<l n="tr">Until her Puppies gathered strength,</l>
+<l n="tr">Which second lease expired at length;</l>
+<l n="tr">And when, abused at such a rate,</l>
+<l n="tr">The lender grew importunate,</l>
+<l n="tr">"The place," quoth she, " I will resign</l>
+<l n="tr">When you 're a match for me and mine.'
+</l></div2>
+<div2 type="poem" n="20">
+<head>The Hungry Dogs</head>
+<l n="tr">A stupid plan that fools project,</l>
+<l n="tr">Not only will not take effect,</l>
+<l n="tr">ut proves destructive in the end</l>
+<l n="tr">To those that bungle and pretend.</l>
+<l n="tr">Some hungry Dogs beheld an hide</l>
+<l n="tr">Deep sunk beneath the crystal tide,</l>
+<l n="tr">Which, that they might extract for food,</l>
+<l n="tr">They strove to drink up all the flood;</l>
+<l n="tr">But bursten in the desp'rate deed,</l>
+<l n="tr">They perish'd, ere they could succeed.
+</l></div2>
+<div2 type="poem" n="21">
+<head>The Old Lion</head>
+
+<l n="tr">Whoever, to his honor's cost,</l>
+<l n="tr">His pristine dignity has lost,</l>
+<l n="tr">Is the fool's jest and coward's scorn,</l>
+<l n="tr">When once deserted and forlorn.</l>
+<l n="tr">With years enfeebled and decay'd,</l>
+<l n="tr">A Lion gasping hard was laid:</l>
+<l n="tr">Then came, with furious tusk, a boar,</l>
+<l n="tr">To vindicate his wrongs of yore:</l>
+<l n="tr">The hull was next in hostile spite,</l>
+<l n="tr">With goring horn his foe to smite:</l>
+<l n="tr">At length the ass himself, secure</l>
+<l n="tr">That now impunity was sure,</l>
+<l n="tr">His blow too insolently deals,</l>
+<l n="tr">And kicks his forehead with his heel.</l>
+<l n="tr">Then thus the Lion, as he died:</l>
+<l n="tr">"'Twas hard to bear the brave," he cried;</l>
+<l n="tr">But to be trampled on by thee</l>
+<l n="tr">Is Nature's last indignity;</l>
+<l n="tr">And thou, 0 despicable thing,</l>
+<l n="tr">Giv'st death at least a double sting."
+</l></div2>
+<div2 type="poem" n="22">
+<head>The Man and the Weasel</head>
+
+<l n="tr">A Weasel, by a person caught,</l>
+<l n="tr">And willing to get off; besought</l>
+<l n="tr">The man to spare. "Be not severe</l>
+<l n="tr">On him that keeps your pantry clear</l>
+<l n="tr">"This were," says he, "a work of price,</l>
+<l n="tr">Of those intolerable mice."</l>
+<l n="tr">If done entirely for my sake,</l>
+<l n="tr">And good had been the plea you make:</l>
+<l n="tr">But since, with all these pains and care,</l>
+<l n="tr">You seize yourself the dainty fare</l>
+<l n="tr">On which those vermin used to fall,</l>
+<l n="tr">And then devour the mice and all,</l>
+<l n="tr">Urge not a benefit in vain."</l>
+<l n="tr">This said, the miscreant was slain.</l>
+<l n="tr">The satire here those chaps will own,</l>
+<l n="tr">Who, useful to themselves alone,</l>
+<l n="tr">And bustling for a private end,</l>
+<l n="tr">Would boast the merit of a friend.
+</l></div2>
+<div2 type="poem" n="23">
+<head>The Faithful House-dog</head>
+
+<l n="tr">A Man that's gen'rous all at once</l>
+<l n="tr">May dupe a novice or a dunce;</l>
+<l n="tr">But to no purpose are the snares</l>
+<l n="tr">He for the knowing ones prepares.</l>
+<l n="tr">When late at night a felon tried</l>
+<l n="tr">To bribe a Dog with food, he cried,</l>
+<l n="tr">"What ho ! do you attempt to stop</l>
+<l n="tr">The mouth of him that guards the shop?</l>
+<l n="tr">You're mightily mistaken, sir,</l>
+<l n="tr">For this strange kindness is a spur,</l>
+<l n="tr">To make me double all my din,</l>
+<l n="tr">Lest such a scoundrel should come in."
+</l></div2>
+<div2 type="poem" n="24">
+<head>The Proud Frog</head>
+
+<l n="tr">When poor men to expenses run,</l>
+<l n="tr">And ape their betters, they 're undone.</l>
+<l n="tr">An Ox the Frog a-grazing view'd,</l>
+<l n="tr">And envying his magnitude,</l>
+<l n="tr">She puffs her wrinkled skin, and tries</l>
+<l n="tr">To vie with his enormous size:</l>
+<l n="tr">Then asks her young to own at least</l>
+<l n="tr">That she was bigger than the beast.</l>
+<l n="tr">They answer, No. With might and main</l>
+<l n="tr">She swells and strains, and swells again.</l>
+<l n="tr">"Now for it, who has got the day ?"</l>
+<l n="tr">The Ox is larger still, they say.</l>
+<l n="tr">At length, with more and more ado,</l>
+<l n="tr">She raged and puffed, and burst in two.
+</l></div2>
+<div2 type="poem" n="25">
+<head>The Dog and the Crocodile</head>
+
+<l n="tr">Who give bad precepts to the wise,</l>
+<l n="tr">And cautious men with guile advise,</l>
+<l n="tr">Not only lose their toil and time,</l>
+<l n="tr">But slip into sarcastic rhyme.</l>
+<l n="tr">The dogs that are about the <placeName key="tgn,1127805">Nile</placeName>,</l>
+<l n="tr">Through terror of the Crocodile,</l>
+<l n="tr">Are therefore said to drink and run.</l>
+<l n="tr">It happen'd on a day, that one,</l>
+<l n="tr">As scamp'ring by the river side,</l>
+<l n="tr">Was by the Crocodile espied:</l>
+<l n="tr">"Sir, at your leisure drink, nor fear</l>
+<l n="tr">The least design or treach'ry here."</l>
+<l n="tr">"That," says the Dog, "ma'm, would I do</l>
+<l n="tr">With all my heart, and thank you too,</l>
+<l n="tr">But as you can on dog's flesh dine,</l>
+<l n="tr">You shall not taste a bit of mine."
+</l></div2>
+<div2 type="poem" n="26">
+<head>The Fox and the Stork</head>
+
+<l n="tr">One should do injury to none;</l>
+<l n="tr">But he that has th' assault begun,</l>
+<l n="tr">Ought, says the fabulist, to find</l>
+<l n="tr">The dread of being served in kind,</l>
+<l n="tr">A Fox, to sup within his cave</l>
+<l n="tr">The Stork an invitation gave,</l>
+<l n="tr">Where, in a shallow dish, was pour'd</l>
+<l n="tr">Some broth, which he himself devoured;</l>
+<l n="tr">While the poor hungry Stork was fain</l>
+<l n="tr">Inevitably to abstain.</l>
+<l n="tr">The Stork, in turn, the Fox invites,</l>
+<l n="tr">And brings her liver and her lights</l>
+<l n="tr">Ina ta 11 flagon, finely minced,</l>
+<l n="tr">And thrusting in her beak, convinced</l>
+<l n="tr">The Fox that he in grief must fast,</l>
+<l n="tr">While she enjoy'd the rich repast.</l>
+<l n="tr">Then, as in vain he lick'd the neck,</l>
+<l n="tr">The Stork was heard her guest to check,       -</l>
+<l n="tr">' That every one the fruits should bear</l>
+<l n="tr">Of their example, is but fair."
+</l></div2>
+<div2 type="poem" n="27">
+<head>The Dog, Treasure, and Vulture.</head>
+<l n="tr">A Dog, while scratching up the ground,</l>
+<l n="tr">'Mongst human bones a treasure found;</l>
+<l n="tr">But as his sacrilege was great,</l>
+<l n="tr">To covet riches was his fate,</l>
+<l n="tr">And punishment of his offence;</l>
+<l n="tr">He therefore never stirr'd from thence,</l>
+<l n="tr">But both in hunger and the cold,</l>
+<l n="tr">With anxious care he watch'd the gold,</l>
+<l n="tr">Till wholly negligent of food,</l>
+<l n="tr">A ling'ring death at length ensued.</l>
+<l n="tr">Upon his corse a Vulture stood,</l>
+<l n="tr">And thus descanted :-" It is good,</l>
+<l n="tr">O Dog, that there thou liest bereaved</l>
+<l n="tr">Who in the highway wast conceived,</l>
+<l n="tr">And on a scurvy dunghill bred,</l>
+<l n="tr">Hadst royal riches in thy head."
+</l></div2>
+<div2 type="poem" n="28">
+<head>The Fox and Eagle</head>
+
+<l n="tr">Howe'er exalted in your sphere,</l>
+<l n="tr">There's something from the mean to fear</l>
+<l n="tr">For, if their property you wrong,</l>
+<l n="tr">The poor's revenge is quick and strong</l>
+<l n="tr">When on a time an Eagle stole</l>
+<l n="tr">The cubs from out a Fox's hole,</l>
+<l n="tr">And bore them to her young away,</l>
+<l n="tr">That they might feast upon the prey</l>
+<l n="tr">The dam pursues the winged thief,</l>
+<l n="tr">And deprecates so great a grief;</l>
+<l n="tr">But safe upon the lofty tree,</l>
+<l n="tr">The Eagle scorn'd the Fox's plea.</l>
+<l n="tr">With that the Fox perceived at hand</l>
+<l n="tr">An altar, whence she snatched a brand,</l>
+<l n="tr">And compassing with flames the wood,</l>
+<l n="tr">Put her in terror for her brood.</l>
+<l n="tr">She therefore, lest her house should burn,</l>
+<l n="tr">Submissive did the cubs return.
+</l></div2>
+<div2 type="poem" n="29">
+<head>The Donkey and the Boar</head>
+<p>Not here translated
+</p></div2>
+<div2 type="poem" n="30">
+<head>The Frogs and Bulls</head>
+
+<l n="tr">Men of low life are in distress</l>
+<l n="tr">When great ones enmity profess.</l>
+<l n="tr">There was a Bull-fight in the fen,</l>
+<l n="tr">A Frog cried out in trouble then,</l>
+<l n="tr">"Oh, what perdition on our race!"</l>
+<l n="tr">"How," says another, "can the case</l>
+<l n="tr">Be quite so desp'rate as you've said?</l>
+<l n="tr">For they're contending who is head,</l>
+<l n="tr">And lead a life from us disjoin'd,</l>
+<l n="tr">Of sep'rate station, diverse kind."-</l>
+<l n="tr">" But he, who worsted shall retire,</l>
+<l n="tr">Will come into this lowland mire,</l>
+<l n="tr">And with his hoof dash out our brains</l>
+<l n="tr">Wherefore their rage to us pertains."
+</l></div2>
+<div2 type="poem" n="31">
+<head>The Kite and the Doves</head>
+
+<l n="tr">He that would have the wicked reign,</l>
+<l n="tr">Instead of help will find his bane.</l>
+<l n="tr">The Doves had oft escaped the Kite,</l>
+<l n="tr">By their celerity of flight;</l>
+<l n="tr">The ruffian then to coz'nage stoop'd,</l>
+<l n="tr">And thus the tim'rous race he duped:</l>
+<l n="tr">"Why do you lead a life of fear,</l>
+<l n="tr">Rather than my proposals hear ?</l>
+<l n="tr">Elect me for your king, and I</l>
+<l n="tr">Will all your race indemnify."</l>
+<l n="tr">They foolishly the Kite believed,</l>
+<l n="tr">Who having now the pow'r received,</l>
+<l n="tr">Began upon the Doves to prey,</l>
+<l n="tr">And exercise tyrannic sway.</l>
+<l n="tr">"Justly," says one who yet remain'd,</l>
+<l n="tr">" We die the death ourselves ordained."
+</l></div2></div1>
+<div1 type="book" n="2">
+<div2 type="poem" n="prologus">
+<head>Prologue</head>
+<l n="tr">THE way of writing <placeName key="tgn,2318967">Esop</placeName> chose,</l>
+<l n="tr">Sound doctrine by example shows;</l>
+<l n="tr">For nothing by these tales is meant</l>
+<l n="tr">So much as that the bad repent;</l>
+<l n="tr">And by the pattern that is set,</l>
+<l n="tr">Due diligence itself should whet.</l>
+<l n="tr">Wherefore, whatever arch conceit</l>
+<l n="tr">You in our narratives shall meet</l>
+<l n="tr">(If with the critic's ear it take,</l>
+<l n="tr">And for some special purpose make),</l>
+<l n="tr">Aspires by real use to fame,</l>
+<l n="tr">Rather than from an author's name.</l>
+<l n="tr">In fact, with all the care I can,</l>
+<l n="tr">I shall abide my <placeName key="tgn,2318967">Esop</placeName>'s plan:</l>
+<l n="tr">But if at times I intersperse</l>
+<l n="tr">My own materials in the verse,</l>
+<l n="tr">That sweet variety may please</l>
+<l n="tr">The fancy, and attention ease;</l>
+<l n="tr">Receive it in a friendly way;</l>
+<l n="tr">Which grace I purpose to repay</l>
+<l n="tr">By this consciousness of my song;</l>
+<l n="tr">Whose praises, lest they be too long,</l>
+<l n="tr">Attend, why you should stint the sneak,</l>
+<l n="tr">But give the modest, ere they seek.
+</l></div2>
+<div2 type="poem" n="1">
+<head>The Judicious Lion</head>
+
+<l n="tr">A Lion on the carcass stood</l>
+<l n="tr">Of a young heifer in the wood;</l>
+<l n="tr">A robber that was passing there,</l>
+<l n="tr">Came up, and ask'd him for a share.</l>
+<l n="tr">"A share," says he, "you should receive,</l>
+<l n="tr">But that you seldom ask our leave</l>
+<l n="tr">For things so handily removed."</l>
+<l n="tr">At which the ruffian was reproved.</l>
+<l n="tr">It happen'd that the selfsame day</l>
+<l n="tr">A modest pilgrim came that way,</l>
+<l n="tr">And when he saw the Lion, fled:</l>
+<l n="tr">Says he, " There is no cause of dread,</l>
+<l n="tr">In gentle tone-take you the chine,</l>
+<l n="tr">Which to your merit I assign."-</l>
+<l n="tr">Then having parted what he slew,</l>
+<l n="tr">To favour his approach withdrew.</l>
+<l n="tr">A great example, worthy praise,</l>
+<l n="tr">But not much copied now-a-days!</l>
+<l n="tr">For churls have coffers that o'erflow,</l>
+<l n="tr">And sheepish worth is poor and low.
+</l></div2>
+<div2 type="poem" n="2">
+<head>The Bald-pate Dupe</head>
+
+<l n="tr">Fondling or fondled-any how-</l>
+<l n="tr">(Examples of all times allow)</l>
+<l n="tr">That men by women must be fleeced.</l>
+<l n="tr">A dame, whose years were well increased,</l>
+<l n="tr">But skill'd t' affect a youthful mien,</l>
+<l n="tr">Was a staid husband's empress queen;</l>
+<l n="tr">Who yet sequestered halt his heart</l>
+<l n="tr">For a young damsel, brisk and smart.</l>
+<l n="tr">They, while each wanted to attach</l>
+<l n="tr">Themselves to him, and seem his match,</l>
+<l n="tr">Began to tamper with his hair.</l>
+<l n="tr">He, pleased with their officious care,</l>
+<l n="tr">Was on a sudden made a coot;</l>
+<l n="tr">For the young strumpet, branch and root,</l>
+<l n="tr">Stripp'd of the hoary hairs his crown,</l>
+<l n="tr">E'en as th' old cat grubb'd up the brown.
+</l></div2>
+<div2 type="poem" n="3">
+<head>The Man and the Dog</head>
+
+<l n="tr">Torn by a Cur, a man was led</l>
+<l n="tr">To throw the snappish thief some bread</l>
+<l n="tr">Dipt in the blood, which, he was told,</l>
+<l n="tr">Had been a remedy of old.</l>
+<l n="tr">Then <placeName key="tgn,2318967">Esop</placeName> thus: - "Forbear to show</l>
+<l n="tr">A pack of dogs the thing you do,</l>
+<l n="tr">Lest they should soon devour us quite,</l>
+<l n="tr">When thus rewarded as they bite."</l>
+<l n="tr">One wicked miscreant's success</l>
+<l n="tr">Makes many more the trade profess.
+</l></div2>
+<div2 type="poem" n="4">
+<head>The Eagle, the Cat, and the Sow.</head>
+<l n="tr">An Eagle built upon an oak</l>
+<l n="tr">A Cat and kittens had bespoke</l>
+<l n="tr">A hole about the middle bough;</l>
+<l n="tr">And underneath a woodland Sow</l>
+<l n="tr">Had placed her pigs upon the ground.</l>
+<l n="tr">Then treacherous Puss a method found</l>
+<l n="tr">To overthrow, for her own good,</l>
+<l n="tr">The peace of this chance neighbourhood</l>
+<l n="tr">First to the Eagle she ascends-</l>
+<l n="tr">" Perdition on your head impends,</l>
+<l n="tr">And, far too probable, on mine;</l>
+<l n="tr">For you observe that grubbing Swine</l>
+<l n="tr">Still works the tree to overset,</l>
+<l n="tr">Us and our young with ease to get."</l>
+<l n="tr">Thus having filled the Eagle's pate</l>
+<l n="tr">With consternation very great,</l>
+<l n="tr">Down creeps she to the Sow below;</l>
+<l n="tr">" The Eagle is your deadly foe,</l>
+<l n="tr">And is determined not to spare</l>
+<l n="tr">Your pigs, when you shall take the air.</l>
+<l n="tr">Here too a terror being spread,</l>
+<l n="tr">By what this tattling gossip said,</l>
+<l n="tr">She slily to her kittens stole,</l>
+<l n="tr">And rested snug within her hole.</l>
+<l n="tr">Sneaking from thence with silent treai</l>
+<l n="tr">By night her family she fed,</l>
+<l n="tr">But look'd out sharply all the day,</l>
+<l n="tr">Affecting terror and dismay.</l>
+<l n="tr">The Eagle lest the tree should fall,</l>
+<l n="tr">Keeps to the boughs, nor stirs at all;</l>
+<l n="tr">And anxious for her grunting race,</l>
+<l n="tr">The Sow is loth to quit her place.</l>
+<l n="tr">In short, they and their young ones starve</l>
+<l n="tr">And leave a prey for Puss to carve.</l>
+<l n="tr">Hence warn'd ye credulous and young,</l>
+<l n="tr">Be cautious of a double tongue.
+</l></div2>
+<div2 type="poem" n="5">
+<head>Caesar and His Slave</head>
+<l n="tr">There is in town a certain set</l>
+<l n="tr">Of mortals, ever in a sweat,</l>
+<l n="tr">Who idly bustling here and there,</l>
+<l n="tr">Have never any time to spare,</l>
+<l n="tr">While upon nothing they discuss</l>
+<l n="tr">With heat, and most outrageous fuss,</l>
+<l n="tr">Plague to themselves, and to the rest</l>
+<l n="tr">A most intolerable pest.</l>
+<l n="tr">I will correct this stupid clan</l>
+<l n="tr">Of busy-bodies, if I can,</l>
+<l n="tr">By a true story; lend an ear,</l>
+<l n="tr">'Tis worth a trifler's time to hear.</l>
+<l n="tr">Tiberius Caesar, in his way</l>
+<l n="tr">To <placeName key="tgn,7004474">Naples</placeName>, on a certain day</l>
+<l n="tr">Came to his own Misenian seat,</l>
+<l n="tr">(Of old Lucullus's retreat,)</l>
+<l n="tr">Which from the mountain top surveys</l>
+<l n="tr">Two seas, by looking different ways.</l>
+<l n="tr">Here a shrewd slave began to cringe</l>
+<l n="tr">With dapper coat and sash of fringe,</l>
+<l n="tr">And, as his master walk'd between</l>
+<l n="tr">The trees upon the tufted green,</l>
+<l n="tr">Finding the weather very hot,</l>
+<l n="tr">Officiates with his wat'ring-pot;</l>
+<l n="tr">And still attending through the glade,</l>
+<l n="tr">Is ostentatious of his aid.</l>
+<l n="tr">Caesar turns to another row,</l>
+<l n="tr">Where neither sun nor rain could go;</l>
+<l n="tr">He, for the nearest cut he knows,</l>
+<l n="tr">Is still before with pot and rose.</l>
+<l n="tr">Caesar observes him twist and shift,</l>
+<l n="tr">And understands the fellow's drift;</l>
+<l n="tr">" Here, you sir," says th' imperial lord</l>
+<l n="tr">The bustler, hoping a reward,</l>
+<l n="tr">Runs skipping up. The chief in jest</l>
+<l n="tr">Thus the poor jackanapes address'd</l>
+<l n="tr">"As here is no great matter done,</l>
+<l n="tr">Small is the premium you have won:</l>
+<l n="tr">The cuffs that make a servant free,</l>
+<l n="tr">Are for a better man than thee."
+</l></div2>
+<div2 type="poem" n="6">
+<head>The Eagle, Carrion Crow, and Tortoise.</head>
+<l n="tr">No soul can warrant life or right,</l>
+<l n="tr">Secure from men of lawless might;</l>
+<l n="tr">But if a knave's advice assist,</l>
+<l n="tr">'Gainst fraud and force what can exist ?</l>
+<l n="tr">An Eagle on a Tortoise fell,</l>
+<l n="tr">And mounting bore him by the shell:</l>
+<l n="tr">She with her house her body screens,</l>
+<l n="tr">Nor can be hurt by any means.</l>
+<l n="tr">A Carrion Crow came by that way,</l>
+<l n="tr">" You've got," says she, " a luscious prey;</l>
+<l n="tr">But soon its weight will make you rue,</l>
+<l n="tr">Unless I show you what to do."</l>
+<l n="tr">The captor promising a share,</l>
+<l n="tr">She bids her from the upper air</l>
+<l n="tr">To dash the shell against a rock,</l>
+<l n="tr">Which would be sever'd by the shock.</l>
+<l n="tr">The Eagle follows her behest,</l>
+<l n="tr">Then feasts on turtle with his guest.</l>
+<l n="tr">Thus she, whom Nature made so strong,</l>
+<l n="tr">And safe against external wrong,</l>
+<l n="tr">No match for force, and its allies,</l>
+<l n="tr">To cruel death a victim dies.
+</l></div2>
+<div2 type="poem" n="7">
+<head>The Mules and Robbers</head>
+
+<l n="tr">Two laden Mules were on the road-</l>
+<l n="tr">A charge of money was bestowed</l>
+<l n="tr">Upon the one, the other bore</l>
+<l n="tr">Some sacks of barley. He before.</l>
+<l n="tr">Proud of his freight, begun to swell,</l>
+<l n="tr">Stretch'd out his neck, and shook his bell</l>
+<l n="tr">The poor one, with an easy pace,</l>
+<l n="tr">Came on behind a little space,</l>
+<l n="tr">When on a sudden, from the wood</l>
+<l n="tr">A gang of thieves before them stood;</l>
+<l n="tr">And, while the muleteers engage,</l>
+<l n="tr">Wound the poor creature in their rage</l>
+<l n="tr">Eager they seize the golden prize,</l>
+<l n="tr">But the vile barley-bags despise.</l>
+<l n="tr">The plunder'd mule was all forlorn,</l>
+<l n="tr">The other thank'd them for their scorn:</l>
+<l n="tr">" 'Tis now my turn the head to toss,</l>
+<l n="tr">Sustaining neither wound nor loss."</l>
+<l n="tr">The low estate's from peril clear,</l>
+<l n="tr">But wealthy men have much to fear.
+</l></div2>
+<div2 type="poem" n="8">
+<head>The Stag and the Oxen</head>
+
+<l n="tr">A Stag unharbour'd by the hounds</l>
+<l n="tr">Forth from his woodland covert bounds,</l>
+<l n="tr">And blind with terror, at th' alarm</l>
+<l n="tr">Of death, makes to a neighboring farm;</l>
+<l n="tr">There snug conceals him in some straw,</l>
+<l n="tr">Which in an ox's stall he saw.</l>
+<l n="tr">"Wretch that thou art !" a bullock cried,</l>
+<l n="tr">"That com'st within this place to hide;</l>
+<l n="tr">By trusting man you are undone,</l>
+<l n="tr">And into sure destruction run."</l>
+<l n="tr">But he with suppliant voice replies:</l>
+<l n="tr">" Do you but wink with both your eyes,</l>
+<l n="tr">I soon shall my occasions shape,</l>
+<l n="tr">To make from hence a fair escape."</l>
+<l n="tr">The day is spent, the night succeeds,</l>
+<l n="tr">The herdsman comes, the cattle feeds,</l>
+<l n="tr">But nothing sees-then to and fro</l>
+<l n="tr">Time after time the servants go;</l>
+<l n="tr">Yet not a soul perceives the case.</l>
+<l n="tr">The steward passes by the place,</l>
+<l n="tr">Himself no wiser than the rest.</l>
+<l n="tr">The joyful Stag his thanks addressed</l>
+<l n="tr">To all the Oxen, that he there</l>
+<l n="tr">Had found a refuge in despair.</l>
+<l n="tr">"We wish you well," an Ox returned,</l>
+<l n="tr">"But for your life are still concern'd,</l>
+<l n="tr">For if old Argus come, no doubt,</l>
+<l n="tr">His hundred eyes will find you out."</l>
+<l n="tr">Scarce had the speaker made an end,</l>
+<l n="tr">When from the supper of a friend</l>
+<l n="tr">The master enters at the door,</l>
+<l n="tr">And, seeing that the steers were poor</l>
+<l n="tr">Of late, advances to the rack.</l>
+<l n="tr">"Why were the fellow's hands so slack ?</l>
+<l n="tr">Here's hardly any straw at all,</l>
+<l n="tr">Brush down those cobwebs from the wall</l>
+<l n="tr">Pray how much labour would it ask ?"</l>
+<l n="tr">While thus he undertakes the task,</l>
+<l n="tr">To dust, and rummage by degrees,</l>
+<l n="tr">The Stag's exalted horns he sees:</l>
+<l n="tr">Then calling all his folks around,</l>
+<l n="tr">He lays him breathless on the ground.</l>
+<l n="tr">The master, as the tale declares,</l>
+<l n="tr">Looks sharpest to his own affairs
+</l></div2>
+<div2 type="poem" n="epilogus">
+<head>Epilogue</head>
+<l n="tr">A STATUE of great cost and fame</l>
+<l n="tr">Th' Athenians raised to <placeName key="tgn,2318967">Esop</placeName>'s name,</l>
+<l n="tr">Him setting on th' the eternal base,</l>
+<l n="tr">Whom servile rank could not disgrace;</l>
+<l n="tr">That they might teach to all makind</l>
+<l n="tr">The way to honor's unconfined,</l>
+<l n="tr">That glory's due to rising worth,</l>
+<l n="tr">And not alone to pomp and birth.</l>
+<l n="tr">Since then another seized the post</l>
+<l n="tr">Lest I priority should boast,</l>
+<l n="tr">This pow'r and praise was yet my own,</l>
+<l n="tr">That he should not excel alone:</l>
+<l n="tr">Nor is this Envy's jealous ire,</l>
+<l n="tr">But Emulation's genuine fire.</l>
+<l n="tr">And if <placeName key="perseus,Rome">Rome</placeName> should approve my piece,</l>
+<l n="tr">She'll soon have more to rival <placeName key="tgn,1000074">Greece</placeName>.</l>
+<l n="tr">But should th' invidious town declare</l>
+<l n="tr">Against my plodding over-care,</l>
+<l n="tr">They cannot take away, nor hurt</l>
+<l n="tr">Th' internal conscience of desert.</l>
+<l n="tr">If these my studies reach their aim,</l>
+<l n="tr">And, reader, your attention claim,</l>
+<l n="tr">If your perception fully weighs</l>
+<l n="tr">The drift of these my labour'd lays;</l>
+<l n="tr">Then such success precludes complaint.</l>
+<l n="tr">But if the Picture which I paint</l>
+<l n="tr">Should happen to attract their sight,</l>
+<l n="tr">Whom luckless Nature brought to light,</l>
+<l n="tr">Who scorn the labours of a man,</l>
+<l n="tr">And when they carp do all they can;</l>
+<l n="tr">Yet must this fatal cause to mourn</l>
+<l n="tr">With all its bitterness be borne,</l>
+<l n="tr">Till fortune be ashamed of days,</l>
+<l n="tr">When genius fails, and int'rest sways.
+</l></div2></div1>
+<div1 type="book" n="3">
+<div2 type="poem" n="prologus">
+<head>Prologue, To Eutychus.</head>
+<l n="tr">THE tales of Phaedrus would you read,</l>
+<l n="tr">O Eutychus, you must be freed</l>
+<l n="tr">From business, that the mind unbent</l>
+<l n="tr">May take the author's full intent.</l>
+<l n="tr">You urge that this poetic turn</l>
+<l n="tr">Of mine is not of such concern,</l>
+<l n="tr">As with your time to interfere</l>
+<l n="tr">A moment's space: 'tis therefore clear</l>
+<l n="tr">For those essays you have no call,</l>
+<l n="tr">Which suit not your affairs at all</l>
+<l n="tr">A time may come, perhaps you'll say,</l>
+<l n="tr">That I shall make a holiday,</l>
+<l n="tr">And have my vacant thoughts at large,</l>
+<l n="tr">The student's office to discharge-</l>
+<l n="tr">And can you such vile stuff peruse,</l>
+<l n="tr">Rather than serve domestic views,</l>
+<l n="tr">Return the visits of a friend,</l>
+<l n="tr">Or with your wife your leisure spend,</l>
+<l n="tr">Relax your mind, your limbs relieve,</l>
+<l n="tr">And for new toil new strength receive ?</l>
+<l n="tr">From wordly cares you must estrange</l>
+<l n="tr">Your thoughts, and feel a perfect change,</l>
+<l n="tr">If to <placeName key="tgn,7011022">Parnassus</placeName> you repair,</l>
+<l n="tr">And seek for your admission there,</l>
+<l n="tr">Me-(whom a Grecian mother bore</l>
+<l n="tr">On Hill Pierian, where of yore</l>
+<l n="tr">Mnemosyne in love divine</l>
+<l n="tr">Brought forth to Jove the tuneful Nine.</l>
+<l n="tr">Though sprung where genius reign'd with art</l>
+<l n="tr">I grubb'd up av'rice from my heart,</l>
+<l n="tr">And rather for applause than pay,</l>
+<l n="tr">Embrace the literary way)</l>
+<l n="tr">Yet as a writer and a wit,</l>
+<l n="tr">With some abatements they admit.</l>
+<l n="tr">What is his case then, do you think,</l>
+<l n="tr">Who toils for wealth nor sleeps a wink.</l>
+<l n="tr">Preferring to the pleasing pain</l>
+<l n="tr">Of composition sordid gain ?</l>
+<l n="tr">But hap what will (as Sinon said,</l>
+<l n="tr">When to king Priam he was led),</l>
+<l n="tr">I book the third shall now fulfil,</l>
+<l n="tr">With Aesop for my master still;</l>
+<l n="tr">Which book I dedicate to you,</l>
+<l n="tr">As both to worth and honour due</l>
+<l n="tr">Pleased, if you read-if not, content</l>
+<l n="tr">As conscious of a sure event,</l>
+<l n="tr">That these my fables shall remain,</l>
+<l n="tr">And after-ages entertain.</l>
+<l n="tr">In a few words I now propose</l>
+<l n="tr">To point from whence the Fable rose.</l>
+<l n="tr">A servitude was all along</l>
+<l n="tr">Exposed to most oppressive wrong,</l>
+<l n="tr">The suff'rer therefore did not dare</l>
+<l n="tr">His heart's true dictates to declare;</l>
+<l n="tr">But couch'd his meaning in the veil</l>
+<l n="tr">Of many an allegoric tale,</l>
+<l n="tr">And jesting with a moral aim,</l>
+<l n="tr">Eluded all offence and blame.</l>
+<l n="tr">This is the path that I pursue,</l>
+<l n="tr">Inventing more than AEsop knew;</l>
+<l n="tr">And certain topics by-the-by,</l>
+<l n="tr">To my own hindrence did I try.</l>
+<l n="tr">But was there any of mankind,</l>
+<l n="tr">Besides Sejanus, so inclined,</l>
+<l n="tr">Who was alone to work my fall,</l>
+<l n="tr">Informer, witness, judge and all;</l>
+<l n="tr">I would confess the slander true,</l>
+<l n="tr">And own such hardships were my due;</l>
+<l n="tr">Nor would I fly, my grief to ease,</l>
+<l n="tr">To such poor lenitives as these.</l>
+<l n="tr">If any through suspicion errs,</l>
+<l n="tr">And to himself alone refers,</l>
+<l n="tr">What was design'd for thousands more</l>
+<l n="tr">He 'll show too plainly, where he's sore</l>
+<l n="tr">Yet ev'n from such I crave excuse,</l>
+<l n="tr">For (far from personal abuse)</l>
+<l n="tr">My verse in gen'ral would put down</l>
+<l n="tr">True life and manners of the town.</l>
+<l n="tr">But here, perhaps, some one will ask</l>
+<l n="tr">Why I, forsooth, embraced this task ?</l>
+<l n="tr">If <placeName key="tgn,2318967">Esop</placeName>, though a Phrygian, rose,</l>
+<l n="tr">And ev'n derived from Scythian snows;</l>
+<l n="tr">If Anacharsis could devise</l>
+<l n="tr">By wit to gain th' immortal prize;</l>
+<l n="tr">Shall I, who to learn'd <placeName key="tgn,1000074">Greece</placeName> belong,</l>
+<l n="tr">Neglect her honour and her song,</l>
+<l n="tr">And by dull sloth myself disgrace ?</l>
+<l n="tr">Since we can reckon up in <placeName key="tgn,7002756">Thrace</placeName>,</l>
+<l n="tr">The authors that have sweetest sung,</l>
+<l n="tr">Where Linus from Apollo sprung;</l>
+<l n="tr">And he whose mother was a muse,</l>
+<l n="tr">Whose voice could tenderness infuse</l>
+<l n="tr">To solid rocks, strange monsters quell'd,</l>
+<l n="tr">And <placeName key="tgn,7002660">Hebrus</placeName> in his course withheld.</l>
+<l n="tr">Envy, stand clear, or thou shalt rue</l>
+<l n="tr">Th' attack, for glory is my due.</l>
+<l n="tr">Thus having wrought upon your ear,</l>
+<l n="tr">I beg that you would be sincere,</l>
+<l n="tr">And in the poet's cause avow</l>
+<l n="tr">That candor, all the world allow.
+</l></div2>
+<div2 type="poem" n="1">
+<head>The Old Woman and Empty Cask</head>
+<l n="tr">An ancient dame a firkin sees,</l>
+<l n="tr">In which the rich Falernian lees</l>
+<l n="tr">Send from the nobly tinctured shell</l>
+<l n="tr">A rare and most delicious smell!</l>
+<l n="tr">There when a season she had clung</l>
+<l n="tr">With greedy nostrils to the bung,</l>
+<l n="tr">"O spirit exquisitely sweet !"</l>
+<l n="tr">She cried, "how perfectly complete</l>
+<l n="tr">Were you of old, and at the best,</l>
+<l n="tr">When ev'n your dregs have such a zest !"</l>
+<l n="tr">They'll see the drift of this my rhyme,</l>
+<l n="tr">Who knew the author in his prime.
+</l></div2>
+<div2 type="poem" n="2">
+<head>The Panther and Shepherds</head>
+
+<l n="tr">Their scorn comes home to them again</l>
+<l n="tr">Who treat the wretched with disdain.</l>
+<l n="tr">A careless Panther long ago</l>
+<l n="tr">Fell in a pit, which overthrow</l>
+<l n="tr">The Shepherds all around alarm'd;</l>
+<l n="tr">When some themselves with cudgels arm'd;</l>
+<l n="tr">Others threw stones upon its head;</l>
+<l n="tr">But some in pity sent her bread,</l>
+<l n="tr">As death was not the creature's due.</l>
+<l n="tr">The night came on - the hostile crew</l>
+<l n="tr">Went home, not doubting in the way</l>
+<l n="tr">To find the Panther dead next day.</l>
+<l n="tr">But she, recovering of her strength,</l>
+<l n="tr">Sprang from the pit and fled at length.</l>
+<l n="tr">But rushing in a little space</l>
+<l n="tr">From forth her den upon the place,</l>
+<l n="tr">She tears the flock, the Shepherd slays,</l>
+<l n="tr">And all the region round dismays.</l>
+<l n="tr">Then they began to be afraid</l>
+<l n="tr">Who spared the beast and lent their aid;</l>
+<l n="tr">They reck not of the loss, but make</l>
+<l n="tr">Their pray'r for life, when thus she spake:</l>
+<l n="tr">"I well remember them that threw</l>
+<l n="tr">The stones, and well remember you</l>
+<l n="tr">Who gave me bread -- desist to fear,</l>
+<l n="tr">For 'twas the oppressor brought me here."
+</l></div2>
+<div2 type="poem" n="3">
+<head>Aesop and the Country Man</head>
+<p>Not here translated.
+</p></div2>
+<div2 type="poem" n="4">
+<head>The Ape's Head.</head>
+<l n="tr">A certain person, as he stood</l>
+<l n="tr">Within the shambles buying food,</l>
+<l n="tr">Amongst the other kitchen fare</l>
+<l n="tr">Beheld an Ape suspended there;</l>
+<l n="tr">And asking how 'twould taste, when dress'd,</l>
+<l n="tr">The butcher shook his head in jest;</l>
+<l n="tr">"If for such prog your fancy is,</l>
+<l n="tr">Judge of the flavour by the phiz."</l>
+<l n="tr">This speech was not so true as keen,</l>
+<l n="tr">For I in life have often seen</l>
+<l n="tr">Good features with a wicked heart,</l>
+<l n="tr">And plainness acting virtue's part.
+</l></div2>
+<div2 type="poem" n="5">
+<head><placeName key="tgn,2318967">Esop</placeName> and the Insolent Fellow</head>
+
+<l n="tr">Fools from success perdition meet.</l>
+<l n="tr">An idle wretch about the street</l>
+<l n="tr">At <placeName key="tgn,2318967">Esop</placeName> threw a stone in rage.</l>
+<l n="tr">" So much the better," quoth the sage,</l>
+<l n="tr">And gives three farthings for the job;</l>
+<l n="tr">" I've no more money in my fob;</l>
+<l n="tr">But if you 'll follow my advice,</l>
+<l n="tr">More shall be levied in a trice."</l>
+<l n="tr">It happen'd that the selfsame hour</l>
+<l n="tr">Came by a man of wealth and pow'r.</l>
+<l n="tr">" There, throw your pellet at my lord,</l>
+<l n="tr">And you shall have a sure reward!"</l>
+<l n="tr">The fellow did as he was told;</l>
+<l n="tr">But mark the downfall of the bold;</l>
+<l n="tr">His hopes are baulk'd, and, lo! he gains</l>
+<l n="tr">A rope and gibbet for his pains.'
+</l></div2>
+<div2 type="poem" n="6">
+<head>The Fly and the Mule</head>
+
+<l n="tr">A Fly that sat upon the beam</l>
+<l n="tr">Rated the Mule: " Why, sure you dream ?</l>
+<l n="tr">" Pray get on faster with the cart</l>
+<l n="tr">Or I shall sting you till you smart!"</l>
+<l n="tr">She answers: " All this talk I hear</l>
+<l n="tr">With small attention, but must fear</l>
+<l n="tr">Him who upon the box sustains</l>
+<l n="tr">The pliant whip, and holds the reins.</l>
+<l n="tr">Cease then your pertness-for I know</l>
+<l n="tr">When to give back, and when to go."</l>
+<l n="tr">This tale derides the talking crew,</l>
+<l n="tr">Whose empty threats are all they do.
+</l></div2>
+<div2 type="poem" n="7">
+<head>The Dog and the Wolf</head>
+
+<l n="tr">I will, as briefly as I may,</l>
+<l n="tr">The sweets of liberty display.</l>
+<l n="tr">A Wolf half famish'd, chanced to see</l>
+<l n="tr">A Dog, as fat as dog could be:</l>
+<l n="tr">For one day meeting on the road,</l>
+<l n="tr">They mutual compliments bestowed:</l>
+<l n="tr">" Prithee," says Isgrim, faint and weak,</l>
+<l n="tr">"How came you so well fed and sleek ?</l>
+<l n="tr">I starve, though stronger of the two."</l>
+<l n="tr">" It will be just as well with you,"</l>
+<l n="tr">The Dog quite cool and frank replied,</l>
+<l n="tr">"If with my master you'll abide."</l>
+<l n="tr">"For what ?" "Why merely to attend,</l>
+<l n="tr">And from night thieves the door defend."</l>
+<l n="tr">" I gladly will accept the post,</l>
+<l n="tr">What! shall I bear with snow and frost</l>
+<l n="tr">And all this rough inclement plight,</l>
+<l n="tr">Rather than have a home at night,</l>
+<l n="tr">And feed on plenty at my ease ?"</l>
+<l n="tr">" Come, then, with me "-the Wolf agrees.</l>
+<l n="tr">But as they went the mark he found,</l>
+<l n="tr">Where the Dog's collar had been bound:</l>
+<l n="tr">"What's this, my friend ?" "Why, nothing." "Nay,</l>
+<l n="tr">Be more explicit, sir, I pray."</l>
+<l n="tr">" I'm somewhat fierce and apt to bite,</l>
+<l n="tr">Therefore they hold me pretty tight,</l>
+<l n="tr">That in the day-time I may sleep,</l>
+<l n="tr">And night by night my vigils keep.</l>
+<l n="tr">At eveningtide they let me out,</l>
+<l n="tr">And then I freely walk about:</l>
+<l n="tr">Bread comes without a care of mine.</l>
+<l n="tr">I from my master's table dine;</l>
+<l n="tr">The servants throw me many a scrap,</l>
+<l n="tr">With choice of pot-liquor to lap;</l>
+<l n="tr">So, I've my bellyful, you find."</l>
+<l n="tr">"But can you go where you've a mind?"</l>
+<l n="tr">"Not always, to be flat and plain."</l>
+<l n="tr">"Then, Dog, enjoy your post again,</l>
+<l n="tr">For to remain this servile thing,</l>
+<l n="tr">Old Isgrim would not be a king."
+</l></div2>
+<div2 type="poem" n="8">
+<head>The Brother and Sister</head>
+
+<l n="tr">Warn'd by our council, oft beware,</l>
+<l n="tr">And look into yourself with care.</l>
+<l n="tr">There was a certain father had</l>
+<l n="tr">A homely girl and comely lad.</l>
+<l n="tr">These being at their childish play</l>
+<l n="tr">Within their mother's room one day,</l>
+<l n="tr">A looking-glass was in the chair,</l>
+<l n="tr">And they beheld their faces there.</l>
+<l n="tr">The boy grows prouder as he looks;</l>
+<l n="tr">The girl is in a rage, nor brooks</l>
+<l n="tr">Her boasting brother's jests and sneers,</l>
+<l n="tr">Affronted at each word she hears:</l>
+<l n="tr">Then to her father down she flies,</l>
+<l n="tr">Arid urges all she can devise</l>
+<l n="tr">Against the boy, who could presume</l>
+<l n="tr">To meddle in a lady's room.</l>
+<l n="tr">At which, embracing each in turn,</l>
+<l n="tr">With most affectionate concern,</l>
+<l n="tr">" My dears," he says, " ye may not pass</l>
+<l n="tr">A day without this useful glass;</l>
+<l n="tr">You, lest you spoil a pretty face,</l>
+<l n="tr">By doing things to your disgrace;</l>
+<l n="tr">You, by good conduct to correct</l>
+<l n="tr">Your form, and beautify defect."
+</l></div2>
+<div2 type="poem" n="9">
+<head>A Saying of Socrates</head>
+<l n="tr">Though common be the name of friend,</l>
+<l n="tr">Few can to faithfulness pretend,</l>
+<l n="tr">That Socrates (whose cruel case,</l>
+<l n="tr">I'd freely for his fame embrace,</l>
+<l n="tr">And living any envy bear</l>
+<l n="tr">To leave my character so fair)</l>
+<l n="tr">Was building of a little cot,</l>
+<l n="tr">When some one, standing on the spot,</l>
+<l n="tr">Ask'd, as the folks are apt to do,</l>
+<l n="tr">" How comes so great a man as you</l>
+<l n="tr">Content with such a little hole ?"-</l>
+<l n="tr">"I wish," says he, "with all my soul</l>
+<l n="tr">That this same little house I build</l>
+<l n="tr">Was with true friends completely fill'd."
+</l></div2>
+<div2 type="poem" n="10">
+<head>Of Doubt and Credulity</head>
+
+<l n="tr">'Tis frequently of bad event</l>
+<l n="tr">To give or to withhold assent.</l>
+<l n="tr">Two cases will th' affair explain-</l>
+<l n="tr">The good Hippolytus was slain;</l>
+<l n="tr">In that his stepdame credit found,</l>
+<l n="tr">And <placeName key="tgn,7014164">Troy</placeName> was levell d with the ground;</l>
+<l n="tr">Because <placeName key="tgn,2087009">Cassandra</placeName>'s prescious care</l>
+<l n="tr">Sought, but obtain'd no credence there.</l>
+<l n="tr">The facts should then be very strong,</l>
+<l n="tr">Lest the weak judge determine wrong:</l>
+<l n="tr">But that I may not make too free</l>
+<l n="tr">With fabulous antiquity,</l>
+<l n="tr">I now a curious tale shall tell,</l>
+<l n="tr">Which I myself remember well.</l>
+<l n="tr">An honest man, that loved his wife,</l>
+<l n="tr">Was introducing into life</l>
+<l n="tr">A son upon the man's estate.</l>
+<l n="tr">One day a servant (whom, of late,</l>
+<l n="tr">He with his freedom had endu'd)</l>
+<l n="tr">Took him aside, and being shrewd,</l>
+<l n="tr">Supposed that he might be his heir</l>
+<l n="tr">When he'd divulged the whole affair.</l>
+<l n="tr">Much did he lie against the youth,</l>
+<l n="tr">But more against the matron's truth:</l>
+<l n="tr">And hinted that, which worst of all</l>
+<l n="tr">Was sure a lover's heart to gall,</l>
+<l n="tr">The visits of a lusty rake,</l>
+<l n="tr">And honour of his house at stake.</l>
+<l n="tr">He at this scandal taking heat,</l>
+<l n="tr">Pretends a journey to his seat;</l>
+<l n="tr">But stopp'd at hand, while it was light,</l>
+<l n="tr">Where, on a sudden, and by night,</l>
+<l n="tr">He to his wife's apartment sped,</l>
+<l n="tr">Where she had put the lad to bed,</l>
+<l n="tr">As watchful of his youthful bloom.</l>
+<l n="tr">While now they're running to the room,</l>
+<l n="tr">And seek a light in haste, the sire,</l>
+<l n="tr">No longer stifling of his ire,</l>
+<l n="tr">Flies to the couch, where grouping round,</l>
+<l n="tr">A head, but newly shaved, he found;</l>
+<l n="tr">Then, as alone, he vengeance breath'd,</l>
+<l n="tr">The sword within his bosom sheath'd-</l>
+<l n="tr">The candle entering, when he spied</l>
+<l n="tr">The bleeding youth, and by his side</l>
+<l n="tr">The spotless dame, who being fast</l>
+<l n="tr">Asleep, knew nothing that had pass'd,</l>
+<l n="tr">Instant in utmost grief involved,</l>
+<l n="tr">He vengeance for himself resolved;</l>
+<l n="tr">And on that very weapon flew,</l>
+<l n="tr">Which his too cred'lous fury drew.</l>
+<l n="tr">Th' accusers take the woman straight,</l>
+<l n="tr">And drag to the centumvirate;</l>
+<l n="tr">Th' ill-natured world directly built</l>
+<l n="tr">A strong suspicion of her guilts,</l>
+<l n="tr">As she th' estate was to enjoy-</l>
+<l n="tr">The lawyers all their skill employ;</l>
+<l n="tr">And a great spirit those exert</l>
+<l n="tr">Who most her innocence assert.</l>
+<l n="tr">The judges then to Caesar pray'd</l>
+<l n="tr">That he would lend his special aid;</l>
+<l n="tr">Who, as they acted upon oath,</l>
+<l n="tr">Declared themselves extremely loth</l>
+<l n="tr">To close this intricate affair</l>
+<l n="tr">He, taking then himself the chair,</l>
+<l n="tr">The clouds of calumny displaced.</l>
+<l n="tr">And Truth up to her fountain traced.</l>
+<l n="tr">" Let the freedman to vengeance go,</l>
+<l n="tr">The cause of all this scene of woe:</l>
+<l n="tr">For the poor widow, thus undone,</l>
+<l n="tr">Deprived of husband and of son,</l>
+<l n="tr">To pity has a greater plea</l>
+<l n="tr">Than condemnation, I decree-</l>
+<l n="tr">But if the man, with caution due,</l>
+<l n="tr">Had rather blamed than listen'd to</l>
+<l n="tr">The vile accuser, and his lie</l>
+<l n="tr">Had strictly search'd with Reason's eye,</l>
+<l n="tr">This desp'rate guilt he had not known,</l>
+<l n="tr">Nor branch and root his house o'erthrown."</l>
+<l n="tr">Nor wholly scorn, nor yet attend</l>
+<l n="tr">Too much at what the tatlers vend,</l>
+<l n="tr">Because there's many a sad neglect.</l>
+<l n="tr">Where you have little to suspect;</l>
+<l n="tr">And treacherous persons will attaint</l>
+<l n="tr">Men, against whom there's no complaint.</l>
+<l n="tr">Hence simple folks too may be taught</l>
+<l n="tr">How to form judgments as they ought,</l>
+<l n="tr">And not see with another's glass;</l>
+<l n="tr">For things are come to such a pass,</l>
+<l n="tr">That love and hate work diff'rent ways</l>
+<l n="tr">As int'rest or ambition sways.</l>
+<l n="tr">Them you may know, in them confide,</l>
+<l n="tr">Whom by experience you have tried.</l>
+<l n="tr">Thus have I made a long amends</l>
+<l n="tr">For that brief style which some offends.
+</l></div2>
+<div2 type="poem" n="11">
+<head>(eunuchus Ad Improbum)</head>
+<p>Not here translated.
+</p></div2>
+<div2 type="poem" n="12">
+<head>The Cock and the Pearl</head>
+
+<l n="tr">A Cock, while scratching all around,</l>
+<l n="tr">A Pearl upon the dunghill found:</l>
+<l n="tr">"O splendid thing in foul disgrace,</l>
+<l n="tr">Had there been any in the place</l>
+<l n="tr">That saw and knew thy worth when sold,</l>
+<l n="tr">Ere this thou hadst been set in gold.</l>
+<l n="tr">But I, who rather would have got</l>
+<l n="tr">A corn of barley, heed thee not;</l>
+<l n="tr">No service can there render'd be</l>
+<l n="tr">From me to you, and you to me."</l>
+<l n="tr">I write this tale to them alone</l>
+<l n="tr">To whom in vain my pearls are thrown.
+</l></div2>
+<div2 type="poem" n="13">
+<head>The Bees and the Drone</head>
+
+<l n="tr">Up in a lofty oak the Bees</l>
+<l n="tr">Had made their honey-combs: but these</l>
+<l n="tr">The Drones asserted they had wrought.</l>
+<l n="tr">Then to the bar the cause was brought</l>
+<l n="tr">Before the wasp, a learned chief,</l>
+<l n="tr">Who well might argue either brief,</l>
+<l n="tr">As of a middle nature made.</l>
+<l n="tr">He therefore to both parties said:</l>
+<l n="tr">"You're not dissimilar in size,</l>
+<l n="tr">And each with each your color vies,</l>
+<l n="tr">That there's a doubt concerning both:</l>
+<l n="tr">But, lest I err, upon my oath,</l>
+<l n="tr">'Hives for yourselves directly choose,</l>
+<l n="tr">And in the wax the work infuse,</l>
+<l n="tr">That, from the flavor and the form,</l>
+<l n="tr">We may point out the genuine swarm."</l>
+<l n="tr">The Drones refuse, the Bees agree-</l>
+<l n="tr">Then thus did Justice Wasp decree:</l>
+<l n="tr">" Who can, and who cannot, is plain,</l>
+<l n="tr">So take, ye Bees, your combs again."</l>
+<l n="tr">This narrative had been suppress'd</l>
+<l n="tr">Had not the Drones refused the test.
+</l></div2>
+<div2 type="poem" n="14">
+<head><placeName key="tgn,2318967">Esop</placeName> Playing</head>
+
+<l n="tr">As Esop was with boys at play,</l>
+<l n="tr">And had his nuts as well as they,</l>
+<l n="tr">A grave Athenian, passing by,</l>
+<l n="tr">Cast on the sage a scornful eye,</l>
+<l n="tr">As on a dotard quite bereaved:</l>
+<l n="tr">Which, when the moralist perceived,</l>
+<l n="tr">(Rather himself a wit profess'd</l>
+<l n="tr">Than the poor subject of a jest)</l>
+<l n="tr">Into the public way he flung</l>
+<l n="tr">A bow that he had just unstrung:</l>
+<l n="tr">There solve, thou conjurer," he cries,</l>
+<l n="tr">"The problem, that before thee lies."</l>
+<l n="tr">The people throng; he racks his brain,</l>
+<l n="tr">Nor can the thing enjoin'd explain.</l>
+<l n="tr">At last he gives it up-the seer</l>
+<l n="tr">Thus then in triumph made it clear:</l>
+<l n="tr">" As the tough bow exerts its spring,</l>
+<l n="tr">A constant tension breaks the string;</l>
+<l n="tr">But if 'tis let at seasons loose,</l>
+<l n="tr">You may depend upon its use."</l>
+<l n="tr">Thus recreative sports and play</l>
+<l n="tr">Are good upon a holiday,</l>
+<l n="tr">And with more spirit they'll pursue</l>
+<l n="tr">The studies which they shall renew.
+</l></div2>
+<div2 type="poem" n="15">
+<head>The Dog and the Lamb</head>
+
+<l n="tr">A Dog bespoke a sucking Lamb,</l>
+<l n="tr">That used a she-goat as her dam,</l>
+<l n="tr">" You little fool, why, how you baa!</l>
+<l n="tr">This goat is not your own mamma :"</l>
+<l n="tr">Then pointed to a distant mead,</l>
+<l n="tr">Where several sheep were put to feed.</l>
+<l n="tr">" I ask not," says the Lamb, "for her</l>
+<l n="tr">Who had me first at Nature's spur,</l>
+<l n="tr">And bore me for a time about,</l>
+<l n="tr">Then, like a fardel, threw me out;</l>
+<l n="tr">But her that is content to bilk</l>
+<l n="tr">Her own dear kids, to give me milk."</l>
+<l n="tr">" Yet she that yean'd you sure," says Tray,</l>
+<l n="tr">" Should be preferr'd"--  I tell thee nay---</l>
+<l n="tr">Whence could she know that what she hid</l>
+<l n="tr">Was black or white ?-but grant she did--</l>
+<l n="tr">I being thus a male begot</l>
+<l n="tr">'Twas no great favor, since my lot</l>
+<l n="tr">Was hour by hour, throughout my life,</l>
+<l n="tr">To dread the butcher and his knife.</l>
+<l n="tr">Why should I therefore give my voice</l>
+<l n="tr">For her who had no pow'r or choice</l>
+<l n="tr">In my production, and not cleave</l>
+<l n="tr">To her so ready to relieve,</l>
+<l n="tr">When she beheld me left alone,</l>
+<l n="tr">And has such sweet indulgence shown ?"</l>
+<l n="tr">Kind deeds parental love proclaim</l>
+<l n="tr">Not mere necessity and name.
+</l></div2>
+<div2 type="poem" n="16">
+<head><placeName key="tgn,2563571">The Owl</placeName> and the <placeName key="tgn,2099341">Grasshopper</placeName></head>
+
+<l n="tr">Those who will not the forms obey</l>
+<l n="tr">To be obliging in their way,</l>
+<l n="tr">Must often punishment abide</l>
+<l n="tr">For their ill-nature, and their pride.</l>
+<l n="tr">A <placeName key="tgn,2099341">Grasshopper</placeName>, in rank ill-will,</l>
+<l n="tr">Was very loud and very shrill</l>
+<l n="tr">Against a sapient Owl's repose,</l>
+<l n="tr">Who was compelled by day to doze</l>
+<l n="tr">Within a hollow oak's retreat,</l>
+<l n="tr">As wont by night to quest for meat--</l>
+<l n="tr">She is desired to hold her peace.</l>
+<l n="tr">But at the word her cries increase;</l>
+<l n="tr">Again requested to abate</l>
+<l n="tr">Her noise, she's more importunate.</l>
+<l n="tr"><placeName key="tgn,2563571">The Owl</placeName> perceiving no redress,</l>
+<l n="tr">And that her words were less and less</l>
+<l n="tr">Accounted of, no longer pray'd,</l>
+<l n="tr">But thus an artifice essay'd:</l>
+<l n="tr">" Since 'tis impossible to nod,</l>
+<l n="tr">While harping like the Delphian god,</l>
+<l n="tr">You charm our ears, stead of a nap,</l>
+<l n="tr">A batch of nectar will I tap,</l>
+<l n="tr">Which lately from <placeName key="tgn,2080793">Minerva</placeName> came;</l>
+<l n="tr">Now if you do not scorn the same,</l>
+<l n="tr">Together let us bumpers ply."</l>
+<l n="tr">The <placeName key="tgn,2099341">Grasshopper</placeName>, extremely dry,</l>
+<l n="tr">And, finding she had hit the key</l>
+<l n="tr">That gain'd applause, approach'd with glee;</l>
+<l n="tr">At which the Owl upon her flew,</l>
+<l n="tr">And quick the trembling vixen slew.</l>
+<l n="tr">Thus by her death she was adjudged</l>
+<l n="tr">To give what in her life she grudged.
+</l></div2>
+<div2 type="poem" n="17">
+<head>The Trees Protected</head>
+
+<l n="tr">The gods took certain trees (th' affair</l>
+<l n="tr">Was some time since) into their care.</l>
+<l n="tr">The oak was best approved by Jove,</l>
+<l n="tr">The myrtle by the queen of love;</l>
+<l n="tr">The god of music and the day</l>
+<l n="tr">Vouchsafed to patronise the bay;</l>
+<l n="tr">The pine Cybele chanced to please,</l>
+<l n="tr">And the tall poplar <placeName key="tgn,2086286">Hercules</placeName>.</l>
+<l n="tr"><placeName key="tgn,2070580">Minerva</placeName> upon this inquired</l>
+<l n="tr">Why they all barren trees admired ?</l>
+<l n="tr">" The cause," says <placeName key="tgn,2019952">Jupiter</placeName>, "is plain,</l>
+<l n="tr">Lest we give honour up for gain."</l>
+<l n="tr">" Let every one their fancy suit,</l>
+<l n="tr">I choose the olive for its fruit."</l>
+<l n="tr">The sire of gods and men replies,</l>
+<l n="tr">" Daughter, thou shalt be reckon'd wise</l>
+<l n="tr">By all the world, and justly too;</l>
+<l n="tr">For whatsover things we do,</l>
+<l n="tr">If not a life of useful days,</l>
+<l n="tr">How vain is all pretence to praise !"</l>
+<l n="tr">Whate'er experiments you try,</l>
+<l n="tr">Have some advantage in your eye.
+</l></div2>
+<div2 type="poem" n="18">
+<head><placeName key="tgn,2075297">Juno</placeName> and the Peacock</head>
+
+<l n="tr">Her favorite bird to Juno came,</l>
+<l n="tr">And was in dudgeon at the dame,</l>
+<l n="tr">That she had not attuned her throat</l>
+<l n="tr">With Philomela's matchless note;</l>
+<l n="tr">" She is the wonder of all ears;</l>
+<l n="tr">But when I speak the audience sneers</l>
+<l n="tr">The goddess to the bird replied,</l>
+<l n="tr">(Willing to have him pacified,)</l>
+<l n="tr">" You are above the rest endued</l>
+<l n="tr">With beauty and with magnitude;</l>
+<l n="tr">Your neck the emerald's gloss outvie?,</l>
+<l n="tr">And what a blaze of gemmeous dies</l>
+<l n="tr">Shines from the plumage of your tail!"</l>
+<l n="tr">" All this dumb show will not avail,"</l>
+<l n="tr">Cries he, "if I'm surpass'd in voice."</l>
+<l n="tr">" The fates entirely have the choice</l>
+<l n="tr">Of all the lots-fair form is yours;</l>
+<l n="tr">The eagle's strength his prey secures;</l>
+<l n="tr">The nightingale can sing an ode;</l>
+<l n="tr">The crow and raven may forebode:</l>
+<l n="tr">All these in sheer contentment crave</l>
+<l n="tr">No other voice than Nature gave."</l>
+<l n="tr">By affectation be not sway'd,</l>
+<l n="tr">Where Nature has not lent her aid;</l>
+<l n="tr">Nor to that flattering hope attend,</l>
+<l n="tr">Which must in disappointment end.
+</l></div2>
+<div2 type="poem" n="19">
+<head><placeName key="tgn,2318967">Esop</placeName> and the Importunate Fellow</head>
+
+<l n="tr"><placeName key="tgn,2318967">Esop</placeName> (no other slave at hand)</l>
+<l n="tr">Received himself his lord's command</l>
+<l n="tr">An early supper to provide.</l>
+<l n="tr">From house to house he therefore tried</l>
+<l n="tr">To beg the favor of a light;</l>
+<l n="tr">At length he hit upon the right.</l>
+<l n="tr">But as when first he sallied out</l>
+<l n="tr">He made his tour quite round about,</l>
+<l n="tr">On his return he took a race</l>
+<l n="tr">Directly, cross the market-place:</l>
+<l n="tr">When thus a talkative buffoon,</l>
+<l n="tr">" <placeName key="tgn,2318967">Esop</placeName>, what means this light at noon ?'</l>
+<l n="tr">He answer'd briefly, as he ran,</l>
+<l n="tr">"Fellow, I'm looking for a man."</l>
+<l n="tr">Now if this jackanapes had weighed</l>
+<l n="tr">The true intent of what was said,</l>
+<l n="tr">He'd found that <placeName key="tgn,2318967">Esop</placeName> had no sense</l>
+<l n="tr">Of manhood in impertinence.
+</l></div2>
+<div2 type="poem" n="epilogus">
+<head>The Poet</head>
+<p>Not here translated
+</p></div2></div1>
+<div1 type="book" n="4">
+<div2 type="poem" n="prologus">
+<head>Prologue: To Particulo</head>
+<p>Not here translated
+</p></div2>
+<div2 type="poem" n="1">
+<head>The Ass and Priests of Cybele</head>
+
+<l n="tr">The luckless wretch that's born to woe</l>
+<l n="tr">Must all his life affliction know-</l>
+<l n="tr">And harder still, his cruel fate</l>
+<l n="tr">Will on his very ashes wait,</l>
+<l n="tr">Cybele's priests, in quest of bread,</l>
+<l n="tr">An Ass about the village led,</l>
+<l n="tr">With things for sale from door to door;</l>
+<l n="tr">Till work'd and beaten more and more,</l>
+<l n="tr">At length, when the poor creature died,</l>
+<l n="tr">They made them drums out of his hide.</l>
+<l n="tr">Then question'd "how it came to pass</l>
+<l n="tr">They thus could serve ther darling Ass ?"</l>
+<l n="tr">The answer was, " He thought of peace</l>
+<l n="tr">In death, and that his toils would cease;</l>
+<l n="tr">But see his mis'ry knows no bounds,</l>
+<l n="tr">Still with our blows his back resounds."
+</l></div2>
+<div2 type="poem" n="2">
+<head>The Poet</head>
+<div3 type="section" n="a">
+<head>Prologue</head>
+<l n="tr">To you, who 've graver things bespoke,</l>
+<l n="tr">This seems no better than a joke,</l>
+<l n="tr">And light for mere amusement made;</l>
+<l n="tr">Yet still we drive the scribbling trade,</l>
+<l n="tr">And from the pen our pleasure find,</l>
+<l n="tr">When we've no greater things to mind.</l>
+<l n="tr">Yet if you look with care intense,</l>
+<l n="tr">These tales your toil shall recompense;</l>
+<l n="tr">Appearance is not always true,</l>
+<l n="tr">And thousands err by such a view.</l>
+<l n="tr">'Tis a choice spirit that has pried</l>
+<l n="tr">Where clean contrivance chose to hide;</l>
+<l n="tr">That this is not at random said,</l>
+<l n="tr">I shall produce upon this head</l>
+<l n="tr">A fable of an arch device,</l>
+<l n="tr">About the Weasel and the Mice.
+</l></div3>
+<div3 type="section" n="b">
+<head>The Weasel and Mice</head>
+
+<l n="tr">A Weasel, worn with years, and lame,</l>
+<l n="tr">That could not overtake its game,</l>
+<l n="tr">Now with the nimble Mice to deal,</l>
+<l n="tr">Disguised herself with barley meal;</l>
+<l n="tr">Then negligent her limbs she spread</l>
+<l n="tr">In a sly nook, and lay for dead.</l>
+<l n="tr">A Mouse that thought she there might feed,</l>
+<l n="tr">Leapt up, and perish'd in the deed;</l>
+<l n="tr">A second in like manner died;</l>
+<l n="tr">A third, and sundry more beside:</l>
+<l n="tr">Then comes the brindled Mouse, a chap</l>
+<l n="tr">That oft escaped both snare and trap,</l>
+<l n="tr">And seeing how the trick was played,</l>
+<l n="tr">Thus to his crafty foe he said:-</l>
+<l n="tr">"So may'st thou prosper day and night,</l>
+<l n="tr">As thou art not an errant bite."
+</l></div3></div2>
+<div2 type="poem" n="3">
+<head>The Fox and the Grapes</head>
+
+<l n="tr">An hungry Fox with fierce attack</l>
+<l n="tr">Sprang on a Vine, but tumbled back,</l>
+<l n="tr">Nor could attain the point in view,</l>
+<l n="tr">So near the sky the bunches grew.</l>
+<l n="tr">As he went off, "They're scurvy stuff,"</l>
+<l n="tr">Says he, "and not half ripe enough--</l>
+<l n="tr">And I 've more rev'rence for my tripes</l>
+<l n="tr">Than to torment them with the gripes."</l>
+<l n="tr">For those this tale is very pat</l>
+<l n="tr">Who lessen what they can't come at.
+</l></div2>
+<div2 type="poem" n="4">
+<head>The Horse and Boar</head>
+
+<l n="tr">A Wild-Boar wallow'd in the flood,</l>
+<l n="tr">And troubled all the stream with mud,</l>
+<l n="tr">Just where a horse to drink repair'd-</l>
+<l n="tr">He therefore having war declared,</l>
+<l n="tr">Sought man's alliance for the fight,</l>
+<l n="tr">And bore upon his back the knight;</l>
+<l n="tr">Who being skill'd his darts to throw,</l>
+<l n="tr">Despatched the Wild-Boar at a blow.</l>
+<l n="tr">Then to the steed the victor said,</l>
+<l n="tr">" I'm glad you came to me for aid,</l>
+<l n="tr">For taught how useful you can be,</l>
+<l n="tr">I've got at once a spoil and thee."</l>
+<l n="tr">On which the fields he made him quit,</l>
+<l n="tr">To feel the spur and champ the bit.</l>
+<l n="tr">Then he his sorrow thus express'd:</l>
+<l n="tr">"I needs must have my wrongs redress'd,</l>
+<l n="tr">And making tyrant man the judge,</l>
+<l n="tr">Must all my life become a drudge."</l>
+<l n="tr">This tale the passionate may warn,</l>
+<l n="tr">To bear with any kind of scorn;</l>
+<l n="tr">And rather all complaint withdraw</l>
+<l n="tr">Than either go to war or law.
+</l></div2>
+<div2 type="poem" n="5">
+<head><placeName key="tgn,2318967">Esop</placeName> and the Will</head>
+
+<l n="tr">That one man sometimes is more shrewd</l>
+<l n="tr">Than a stupendous multitude,</l>
+<l n="tr">To after-times I shall rehearse</l>
+<l n="tr">In my concise familiar verse.</l>
+<l n="tr">A certain man on his decease,</l>
+<l n="tr">Left his three girls so much a-piece:</l>
+<l n="tr">The first was beautiful and frail,</l>
+<l n="tr">With eyes still hunting for the male;</l>
+<l n="tr">The second giv'n to spin and card,</l>
+<l n="tr">A country housewife working hard;</l>
+<l n="tr">The third but very ill to pass,</l>
+<l n="tr">A homely slut, that loved her glas.</l>
+<l n="tr">The dying man had left his wife</l>
+<l n="tr">Executrix, and for her life</l>
+<l n="tr">Sole tenant, if she should fulfil</l>
+<l n="tr">These strange provisos of his will:</l>
+<l n="tr">" That she should give th' estate in fee</l>
+<l n="tr">In equal portions to the three;</l>
+<l n="tr">But in such sort, that this bequest</l>
+<l n="tr">Should not be holden or possess'd;</l>
+<l n="tr">Then soon as they should be bereav'n</l>
+<l n="tr">Of all the substance that was giv'n,</l>
+<l n="tr">They must for their good mother's ease</l>
+<l n="tr">Make up an hundred sesterces."</l>
+<l n="tr">This spread through <placeName key="perseus,Athens">Athens</placeName> in a trice;</l>
+<l n="tr">The prudent widow takes advice.</l>
+<l n="tr">But not a lawyer could unfold</l>
+<l n="tr">How they should neither have nor hold</l>
+<l n="tr">The very things that they were left.</l>
+<l n="tr">Besides, when once they were bereft,</l>
+<l n="tr">How they from nothing should confer</l>
+<l n="tr">The money that was due to her.</l>
+<l n="tr">When a long time was spent in vain,</l>
+<l n="tr">And no one could the will explain,</l>
+<l n="tr">She left the counsellors unfeed,</l>
+<l n="tr">And thus of her own self decreed:</l>
+<l n="tr">The minstrels, trinkets, plate, and dres,</l>
+<l n="tr">She gave the Lady to possess.</l>
+<l n="tr">Then Mrs. Notable she stocks</l>
+<l n="tr">With all the fields, the kine and flocks:</l>
+<l n="tr">The workmen, farm, with a supply</l>
+<l n="tr">Of all the tools of husbandry.</l>
+<l n="tr">Last, to the Guzzler she consigns</l>
+<l n="tr">The cellar stored with good old wine,</l>
+<l n="tr">A handsome house to see a friend,</l>
+<l n="tr">With pleasant gardens at the end.</l>
+<l n="tr">Thus as she strove th' affair to close,</l>
+<l n="tr">By giving each the things they chose,</l>
+<l n="tr">And those that knew them every one</l>
+<l n="tr">Highly applauded what was done</l>
+<l n="tr"><placeName key="tgn,2318967">Esop</placeName> arose, and thus address'd</l>
+<l n="tr">The crowd that to his presence pressed:</l>
+<l n="tr">"O that the dead could yet perceive!</l>
+<l n="tr">How would the prudent father grieve,</l>
+<l n="tr">That all th' Athenians had not skill</l>
+<l n="tr">Enough to understand his will!</l>
+<l n="tr">Then at their joint request he solved</l>
+<l n="tr">That error, which had all involved.</l>
+<l n="tr">" The gardens, house, and wine vaults too,</l>
+<l n="tr">Give to the spinster as her due;</l>
+<l n="tr">The clothes, the jewels, and such ware,</l>
+<l n="tr">Be all the tippling lady's share;</l>
+<l n="tr">The fields, the barns, and flocks of sheep,</l>
+<l n="tr">Give the gay courtesan to keep.</l>
+<l n="tr">Not one will bear the very touch</l>
+<l n="tr">Of things that thwart their tastes so much '</l>
+<l n="tr">The slut to fill her cellar straight</l>
+<l n="tr">Her wardrobe will evacuate;</l>
+<l n="tr">The lady soon will sell her farms,</l>
+<l n="tr">For garments to set off her charms;</l>
+<l n="tr">But she that loves the flocks and kine</l>
+<l n="tr">Will alienate her stores of wine,</l>
+<l n="tr">Her rustic genius to employ.</l>
+<l n="tr">Thus none their portions shall enjoy,</l>
+<l n="tr">And from the money each has made</l>
+<l n="tr">Their mother shall be duly paid."</l>
+<l n="tr">Thus one man by his wit disclosed</l>
+<l n="tr">The point that had so many posed.
+</l></div2>
+<div2 type="poem" n="6">
+<head>The Battle of the Mice and Weasels</head>
+
+<l n="tr">The routed Mice upon a day</l>
+<l n="tr">Fled from the Weasels in array;</l>
+<l n="tr">But in the hurry of the flight,</l>
+<l n="tr">What with their weakness and their fright</l>
+<l n="tr">Each scarce could get into his cave :</l>
+<l n="tr">Howe'er, at last their lives they save.</l>
+<l n="tr">But their commanders (who had tied</l>
+<l n="tr">Horns to their heads in martial pride,</l>
+<l n="tr">Which as a signal they design'd</l>
+<l n="tr">For non-commission'd mice to mind)</l>
+<l n="tr">Stick in the entrance as they go,</l>
+<l n="tr">And there are taken by the foe,</l>
+<l n="tr">Who, greedy of the victim, gluts</l>
+<l n="tr">With mouse-flesh his ungodly guts.</l>
+<l n="tr">Each great and national distress</l>
+<l n="tr">Must chiefly mighty men oppress;</l>
+<l n="tr">While folks subordinate and poor</l>
+<l n="tr">Are by their littleness secure.
+</l></div2>
+<div2 type="poem" n="7">
+<head>Phaedrus To the Cavillers</head>
+
+<l n="tr">Thou that against my tales inveigh'st,</l>
+<l n="tr">As much too pleasant for thy taste;</l>
+<l n="tr">Egregious critic, cease to scoff</l>
+<l n="tr">While for a time I play you off,</l>
+<l n="tr">And strive to soothe your puny rage.</l>
+<l n="tr">As <placeName key="tgn,2318967">Esop</placeName> comes upon the stage,</l>
+<l n="tr">And dress'd entirely new in <placeName key="perseus,Rome">Rome</placeName>,</l>
+<l n="tr">Thus enters with the tragic plume.-</l>
+<l n="tr">" O that the fair Thessalian pine</l>
+<l n="tr">Had never felt the wrath divine,</l>
+<l n="tr">And fearless of the axe's wound,</l>
+<l n="tr">Had still the Pelian mountain crown'd!</l>
+<l n="tr">That Argus by Palladian aid</l>
+<l n="tr">Had ne'er the adventurous vessel made;</l>
+<l n="tr">In which at first, without dismay,</l>
+<l n="tr">Death's bold professors won their way,</l>
+<l n="tr">In which th' inhospitable main</l>
+<l n="tr">Was first laid open for the bane</l>
+<l n="tr">Of Grecians and barbarians too.</l>
+<l n="tr">Which made the proud AEetas rue,</l>
+<l n="tr">And whence Medea's crimes to nought</l>
+<l n="tr">The house and reign of Pelias brought.</l>
+<l n="tr">She-while in various forms she tries</l>
+<l n="tr">Her furious spirit to disguise,</l>
+<l n="tr">At one place in her flight bestow'd</l>
+<l n="tr">Her brother's limbs upon the road;</l>
+<l n="tr">And at another could betray</l>
+<l n="tr">The daughters their own sire to slay.</l>
+<l n="tr">How think you now ?-What arrant trash</l>
+<l n="tr">And our assertions much too rash!-</l>
+<l n="tr">Since prior to th' <placeName key="tgn,7002675">AEgean</placeName> fleet</l>
+<l n="tr">Did Minos piracy defeat,</l>
+<l n="tr">And made adventures on the sea.</l>
+<l n="tr">How then shall you and I agree ?</l>
+<l n="tr">Since, stern as Cato's self, you hate</l>
+<l n="tr">All tales alike, both small and great.</l>
+<l n="tr">Plague not too much the man of parts;</l>
+<l n="tr">For he that does it surely smarts.-</l>
+<l n="tr">This threat is to the fools, that squeam</l>
+<l n="tr">At every thing of good esteem;</l>
+<l n="tr">And that they may to taste pretend,</l>
+<l n="tr">Ev'n heaven itself will discommend.
+</l></div2>
+<div2 type="poem" n="8">
+<head>The Viper and the File</head>
+
+<l n="tr">He that a greater biter bites,</l>
+<l n="tr">His folly on himself requites,</l>
+<l n="tr">As we shall manifest forthwith.-</l>
+<l n="tr">There was a hovel of a smith,</l>
+<l n="tr">Where a poor Viper chanced to steal,</l>
+<l n="tr">And being greedy of a meal,</l>
+<l n="tr">When she had seized upon a file,</l>
+<l n="tr">Was answer'd in this rugged style:</l>
+<l n="tr">" Why do you think, 0 stupid snake!</l>
+<l n="tr">On me your usual meal to make,</l>
+<l n="tr">Who've sharper teeth than thine by far,</l>
+<l n="tr">And can corrode an iron bar ?"
+</l></div2>
+<div2 type="poem" n="9">
+<head>The Fox and the Goat</head>
+
+<l n="tr">A crafty knave will make escape,</l>
+<l n="tr">When once he gets into a scrape,</l>
+<l n="tr">Still meditating self-defence,</l>
+<l n="tr">At any other man's expense.</l>
+<l n="tr">A Fox by some disaster fell</l>
+<l n="tr">Into a deep and fenced well:</l>
+<l n="tr">A thirsty Goat came down in haste,</l>
+<l n="tr">And ask'd about the water's taste,</l>
+<l n="tr">If it was plentiful and sweet ?</l>
+<l n="tr">At which the Fox, in rank deceit,</l>
+<l n="tr">" So great the solace of the run,</l>
+<l n="tr">I thought I never should have done.</l>
+<l n="tr">Be quick, my friend, your sorrows drown,"</l>
+<l n="tr">This said, the silly Goat comes down.</l>
+<l n="tr">The subtle Fox herself avails,</l>
+<l n="tr">And by his horns the mound she scales,</l>
+<l n="tr">And leaves the Goat in all the mire,</l>
+<l n="tr">To gratify his heart's desire.
+</l></div2>
+<div2 type="poem" n="10">
+<head>The Two Bags</head>
+
+<l n="tr">Great Jove, in his paternal care,</l>
+<l n="tr">Has giv'n a man two Bags to bear;</l>
+<l n="tr">That which his own default contains</l>
+<l n="tr">Behind his back unseen remains;</l>
+<l n="tr">But that which others' vice attests</l>
+<l n="tr">Swags full in view before our breasts.</l>
+<l n="tr">Hence we're inevitably blind,</l>
+<l n="tr">Relating to the Bag behind;</l>
+<l n="tr">But when our neighbours misdemean,</l>
+<l n="tr">Our censures are exceeding keen.
+</l></div2>
+<div2 type="poem" n="11">
+<head>The Sacrilegious Thief</head>
+
+<l n="tr">A villain to Jove's altar came</l>
+<l n="tr">To light his candle in the flame,</l>
+<l n="tr">And robb'd the god in dead of night,</l>
+<l n="tr">By his own consecrated light:</l>
+<l n="tr">Then thus an awful voice was sent,</l>
+<l n="tr">As with the sacrilege he went:</l>
+<l n="tr">"Though all this gold and silver plate</l>
+<l n="tr">As gifts of evil men I hate;</l>
+<l n="tr">And their removal from the fane</l>
+<l n="tr">Can cause the Deity no pain;</l>
+<l n="tr">Yet, caitiff, at th' appointed time</l>
+<l n="tr">Thy life shall answer for thy crime.</l>
+<l n="tr">But, for the future, lest this blaLe,</l>
+<l n="tr">At which the pious pray and praise,</l>
+<l n="tr">Should guide the wicked, I decree</l>
+<l n="tr">That no such intercourse there be."</l>
+<l n="tr">Hence to this day all men decline</l>
+<l n="tr">To light their candle at the shrine;</l>
+<l n="tr">Nor from a candle e'er presume</l>
+<l n="tr">The holy light to re-illume.</l>
+<l n="tr">How many things are here contained,</l>
+<l n="tr">By him alone can be explain'd</l>
+<l n="tr">Who could this useful tale invent.</l>
+<l n="tr">In the first place, herein is meant,</l>
+<l n="tr">That they are often most your foes</l>
+<l n="tr">Who from your fost'ring hand arose.</l>
+<l n="tr">Next, that the harden'd villain's fate</l>
+<l n="tr">Is not from wrath precipitate,</l>
+<l n="tr">But rather at a destined hour.</l>
+<l n="tr">Lastly, we're charg'd with all our pow'r,</l>
+<l n="tr">To keep ourselves, by care intense,</l>
+<l n="tr">From all connexions with offence.
+</l></div2>
+<div2 type="poem" n="12">
+<head>Hercules and Plutus</head>
+
+<l n="tr">Wealth by the brave is justly scorn'd,</l>
+<l n="tr">Since men are from the truth suborn'd,</l>
+<l n="tr">And a full chest perverts their ways</l>
+<l n="tr">From giving or deserving praise.</l>
+<l n="tr">When Hercules, for matchless worth,</l>
+<l n="tr">Was taken up to heav'n from earth,</l>
+<l n="tr">As in their turns to all the crowd</l>
+<l n="tr">Of gratulating gods he bow'd,</l>
+<l n="tr">When Plutus, Fortune's son, he spies,</l>
+<l n="tr">He from his face averts his eyes.</l>
+<l n="tr">Jove ask'd the cause of this disgust:</l>
+<l n="tr">"I hate him, as he is unjust,</l>
+<l n="tr">To wicked men the most inclined,</l>
+<l n="tr">And grand corrupter of mankind."
+</l></div2>
+<div2 type="poem" n="13">
+<head>The Lion King</head>
+<p>Not here translated
+</p></div2>
+<div2 type="poem" n="14">
+<head>Prometheus</head>
+<p>Not here translated
+</p></div2>
+<div2 type="poem" n="15">
+<head>Prometheus</head>
+<p>Not here translated
+</p></div2>
+<div2 type="poem" n="16">
+<head>The He-goats and She-goats</head>
+
+<l n="tr">When the She-Goats from Jove obtain'd</l>
+<l n="tr">A beard, th' indignant Males complain'd,</l>
+<l n="tr">That females by this near approach</l>
+<l n="tr">Would on their gravity encroach.</l>
+<l n="tr">"Suffer, my sapient friends," says he,</l>
+<l n="tr">"Their eminence in this degree,</l>
+<l n="tr">And bear their beard's most graceful length,</l>
+<l n="tr">As they can never have your strength."</l>
+<l n="tr">Warn'd by this little tale, agree</l>
+<l n="tr">With men in gen'ral form'd like thee</l>
+<l n="tr">While you by virtue still exceed,</l>
+<l n="tr">And in the spirit take the lead.
+</l></div2>
+<div2 type="poem" n="17">
+<head>The Pilot and Sailors</head>
+
+<l n="tr">On hearing a poor man lament</l>
+<l n="tr">His worldly thoughts in discontent,</l>
+<l n="tr"><placeName key="tgn,2318967">Esop</placeName> this tale began to write,</l>
+<l n="tr">For consolation and delight.</l>
+<l n="tr">The ship by furious tempests tossed,</l>
+<l n="tr">The Mariners gave all for lost;</l>
+<l n="tr">But midst their tears and dread, the scene</l>
+<l n="tr">Is changed at once, and all serene.</l>
+<l n="tr">The wind is fair, the vessel speeds,</l>
+<l n="tr">The Sailors' boisterous joy exceeds:</l>
+<l n="tr">The Pilot then, by peril wise,</l>
+<l n="tr">Was prompted to philosophise.</l>
+<l n="tr">"'Tis right to put a due restraint</l>
+<l n="tr">On joy, and to retard complaint,</l>
+<l n="tr">Because alternate hope and fright</l>
+<l n="tr">Make up our lives of black and white."
+</l></div2>
+<div2 type="poem" n="18">
+<head>The Dogs' Ambassador To Jove</head>
+<p>Not here translated
+</p></div2>
+<div2 type="poem" n="19">
+<head>The Man and the Adder</head>
+
+<l n="tr">He, that malicious men relieves,</l>
+<l n="tr">His folly in a season grieves.</l>
+<l n="tr">A Man, against himself humane,</l>
+<l n="tr">Took up an Adder, that had lain</l>
+<l n="tr">And stiffen'd in the frosty air,</l>
+<l n="tr">And in his bosom placed with care,</l>
+<l n="tr">Where she with speed recovering breath,</l>
+<l n="tr">Her benefactor stung to death.</l>
+<l n="tr">Another Adder near the place,</l>
+<l n="tr">On asking why she was so base,</l>
+<l n="tr">Was told, " 'Tis others to dissuade</l>
+<l n="tr">From giving wickedness their aid."
+</l></div2>
+<div2 type="poem" n="20">
+<head>The Fox and the Dragon</head>
+
+<l n="tr">A Fox was throwing up the soil,</l>
+<l n="tr">And while with his assiduous toil</l>
+<l n="tr">He burrow'd deep into the ground,</l>
+<l n="tr">A Dragon in his den he found,</l>
+<l n="tr">A-watching hidden treasure there,</l>
+<l n="tr">Whom seeing, Renard speaks him fair:</l>
+<l n="tr">" First, for your pardon I apply</l>
+<l n="tr">For breaking on your privacy;</l>
+<l n="tr">Then, as you very plainly see</l>
+<l n="tr">That gold is of no use to me,</l>
+<l n="tr">Your gentle leave let me obtain</l>
+<l n="tr">To ask you, what can be the gain</l>
+<l n="tr">Of all this care, and what the fruit,</l>
+<l n="tr">That you should not with sleep recruit</l>
+<l n="tr">Your spirits, but your life consume</l>
+<l n="tr">Thus in an everlasting gloom ?"</l>
+<l n="tr">"'Tis not my profit here to stay,"</l>
+<l n="tr">He cries; " but I must Jove obey."</l>
+<l n="tr">"What! will you therefore nothing take</l>
+<l n="tr">Yourself, nor others welcome make ?"</l>
+<l n="tr">"Ev'n so the fates decree." - "Then, sir,</l>
+<l n="tr">Have patience, whilst I do aver</l>
+<l n="tr">That he who like affections knows</l>
+<l n="tr">Is born with all the gods his foes.</l>
+<l n="tr">Since to that place you needs must speed,</l>
+<l n="tr">Where all your ancestors precede,</l>
+<l n="tr">Why in the blindness of your heart</l>
+<l n="tr">Do you torment your noble part ?"</l>
+<l n="tr">All this to thee do I indite,</l>
+<l n="tr">Thou grudging churl, thy heir's delight,</l>
+<l n="tr">Who robb'st the gods of incense due,</l>
+<l n="tr">Thyself of food and raiment too;</l>
+<l n="tr">Who hear'st the harp with sullen mien,</l>
+<l n="tr">To whom the piper gives the spleen;</l>
+<l n="tr">Who'rt full of heavy groans and sighs</l>
+<l n="tr">When in their price provisions rise;</l>
+<l n="tr">Who with thy frauds heaven's patience tire</l>
+<l n="tr">To make thy heap a little higher,</l>
+<l n="tr">And, lest death thank thee, in thy will</l>
+<l n="tr">Hast tax'd the undertaker's bill.
+</l></div2>
+<div2 type="poem" n="21">
+<head>Phaedrus, On His Fables.</head>
+<l n="tr">What certain envious hearts intend</l>
+<l n="tr">I very clearly comprehend,</l>
+<l n="tr">Let them dissemble e'er so much.-.</l>
+<l n="tr">When they perceive the master's touch,</l>
+<l n="tr">And find 'tis likely to endure,</l>
+<l n="tr">They'll say 'tis <placeName key="tgn,2318967">Esop</placeName> to be sure-</l>
+<l n="tr">But what appears of mean design,</l>
+<l n="tr">At any rate they'll vouch for mine.</l>
+<l n="tr">These in a word I would refute:</l>
+<l n="tr">Whether of great or no repute,</l>
+<l n="tr">What sprung from <placeName key="tgn,2318967">Esop</placeName>'s fertile thought</l>
+<l n="tr">This hand has to perfection brought;</l>
+<l n="tr">But waiving things to our distaste,</l>
+<l n="tr">Let's to the destined period haste.
+</l></div2>
+<div2 type="poem" n="22">
+<head>The Shipwreck of Simonides</head>
+
+<l n="tr">A man, whose learned worth is known,</l>
+<l n="tr">Has always riches of his own.</l>
+<l n="tr">Simonides, who was the head</l>
+<l n="tr">Of lyric bards, yet wrote for bread,</l>
+<l n="tr">His circuit took through every town</l>
+<l n="tr">In <placeName key="tgn,1000004">Asia</placeName> of the first renown,</l>
+<l n="tr">The praise of heroes to rehearse,</l>
+<l n="tr">Who gave him money for his verse.</l>
+<l n="tr">When by this trade much wealth was earn'd,</l>
+<l n="tr">Homewards by shipping he return'd</l>
+<l n="tr">(A Cean born, as some suppose):</l>
+<l n="tr">On board he went, a tempest rose,</l>
+<l n="tr">Which shook th' old ship to that degree,</l>
+<l n="tr">She founder'd soon as out at sea.</l>
+<l n="tr">Some purses, some their jewels tie</l>
+<l n="tr">About them for a sure supply;</l>
+<l n="tr">But one more curious, ask'd the seer,</l>
+<l n="tr">"Poet, have you got nothing here ?"</l>
+<l n="tr">"My all," says he, "is what I am."-</l>
+<l n="tr">On this some few for safety swam</l>
+<l n="tr">(For most o'erburden'd by their goods,</l>
+<l n="tr">Were smother'd in the whelming floods).</l>
+<l n="tr">The spoilers came, the wealth demand,</l>
+<l n="tr">And leave them naked on the strand.</l>
+<l n="tr">It happen'd for the shipwreck'd crew</l>
+<l n="tr">An ancient city was in view,</l>
+<l n="tr">By name Clazomena, in which</l>
+<l n="tr">There lived a scholar learned and rich,</l>
+<l n="tr">Who often read, his cares to ease,</l>
+<l n="tr">The verses of Simonides,</l>
+<l n="tr">And was a vast admirer grown</l>
+<l n="tr">Of this great poet, though unknown.</l>
+<l n="tr">Him by his converse when he traced,</l>
+<l n="tr">He with much heartiness embraced,</l>
+<l n="tr">And soon equipp'd the bard anew,</l>
+<l n="tr">With servants, clothes, and money too</l>
+<l n="tr">The rest benevolence implored,</l>
+<l n="tr">With case depicted on a board:</l>
+<l n="tr">Which when Simonides espied,</l>
+<l n="tr">"I plainly told you all," he cried,</l>
+<l n="tr">"That all my wealth was in myself;</l>
+<l n="tr">As for your chattels and your pelf.</l>
+<l n="tr">On which ye did so much depend,</l>
+<l n="tr">They're come to nothing in the end."
+</l></div2>
+<div2 type="poem" n="23">
+<head>The Mountain in Labor</head>
+
+<l n="tr">The Mountain labor'd, groaning loud,</l>
+<l n="tr">On which a num'rous gaping crowd</l>
+<l n="tr">Of noodles came to see the sight,</l>
+<l n="tr">When, lo ! a mouse was brought to light!</l>
+<l n="tr">This tale 's for men of swagg'ring cast,</l>
+<l n="tr">Whose threats, voluminous and vast,</l>
+<l n="tr">With all their verse and all their prose,</l>
+<l n="tr">Can make but little on 't, God knows.
+</l></div2>
+<div2 type="poem" n="24">
+<head>The Ant and the Fly</head>
+
+<l n="tr">An Ant and Fly had sharp dispute</l>
+<l n="tr">Which creature was of most repute;</l>
+<l n="tr">When thus began the flaunting Fly:</l>
+<l n="tr">"Are you so laudible as I ?</l>
+<l n="tr">I, ere the sacrifice is carved,</l>
+<l n="tr">Precede the gods; first come, first served--</l>
+<l n="tr">Before the altar take my place,</l>
+<l n="tr">And in all temples show my face,</l>
+<l n="tr">Whene'er I please I set me down</l>
+<l n="tr">Upon the head that wears a crown.</l>
+<l n="tr">I with impunity can taste</l>
+<l n="tr">The kiss of matrons fair and chaste,</l>
+<l n="tr">And pleasure without labor claim-</l>
+<l n="tr">Say, trollop, canst thou do the same ?"</l>
+<l n="tr">"The feasts of gods are glorious fare,</l>
+<l n="tr">No doubt, to those who're welcome there;</l>
+<l n="tr">But not for such detested things.-</l>
+<l n="tr">You talk of matron's lips and kings;</l>
+<l n="tr">I, who with wakeful care and pains</l>
+<l n="tr">Against the winter hoard my grains,</l>
+<l n="tr">Thee feeding upon ordure view.-</l>
+<l n="tr">The altars you frequent, 'tis true;</l>
+<l n="tr">But still are driv'n away from thence,</l>
+<l n="tr">And elsewhere, as of much offence.</l>
+<l n="tr">A life of toil you will not lead,</l>
+<l n="tr">And so have nothing when you need.</l>
+<l n="tr">Besides all this, you talk with pride</l>
+<l n="tr">Of things that modesty should hide.</l>
+<l n="tr">You plague me here, while days increase,</l>
+<l n="tr">But when the winter comes you cease.</l>
+<l n="tr">Me, when the cold thy life bereaves,</l>
+<l n="tr">A plenteous magazine receives.</l>
+<l n="tr">I think I need no more advance</l>
+<l n="tr">To cure you of your arrogance."</l>
+<l n="tr">The tenor of this tale infers</l>
+<l n="tr">Two very diff'rent characters;</l>
+<l n="tr">Of men self-praised and falsely vain,</l>
+<l n="tr">And men of real worth in grain.
+</l></div2>
+<div2 type="poem" n="25">
+<head>The Escape of Simonides</head>
+
+<l n="tr">Th' attention letters can engage,</l>
+<l n="tr">Ev'n from a base degenerate age,</l>
+<l n="tr">I've shown before; and now shall show</l>
+<l n="tr">Their lustre in another view,</l>
+<l n="tr">And tell a memorable tale,</l>
+<l n="tr">How much they can with heav'n prevail,</l>
+<l n="tr">Simonides, the very same</l>
+<l n="tr">We lately had a call to name,</l>
+<l n="tr">Agreed for such a sum to blaze</l>
+<l n="tr">A certain famous champion's praise.</l>
+<l n="tr">He therefore a retirement sought,</l>
+<l n="tr">But found the theme on which he wrote</l>
+<l n="tr">So scanty, he was forced to use</l>
+<l n="tr">Th' accustomed license of the muse,</l>
+<l n="tr">And introduced and praise bestow'd</l>
+<l n="tr">On Leda's sons to raise his ode;</l>
+<l n="tr">With these the rather making free,</l>
+<l n="tr">As heroes in the same degree.</l>
+<l n="tr">He warranted his work, and yet</l>
+<l n="tr">Could but one third of payment get.</l>
+<l n="tr">Upon demanding all the due,</l>
+<l n="tr">" Let them," says he, "pay t' other two,</l>
+<l n="tr">Who take two places in the song;</l>
+<l n="tr">But lest you think I do you wrong</l>
+<l n="tr">And part in dudgeon-I invite</l>
+<l n="tr">Your company to sup this night,</l>
+<l n="tr">For then my friends and kin I see,</l>
+<l n="tr">'Mongst which I choose to reckon thee."</l>
+<l n="tr">Choused and chagrined, yet shunning blame,</l>
+<l n="tr">He promised, set the hour, and came;</l>
+<l n="tr">As fearful lest a favour spurn'd</l>
+<l n="tr">Should to an open breach be turn'd.</l>
+<l n="tr">The splendid banquet shone with plate,</l>
+<l n="tr">And preparations full of state</l>
+<l n="tr">Made the glad house with clamors roar-</l>
+<l n="tr">When on a sudden at the door</l>
+<l n="tr">Two youths, with sweat and dust besmear'd,</l>
+<l n="tr">Above the human form appear'd,</l>
+<l n="tr">And charged forthwith a little scout</l>
+<l n="tr">To bid Simonides come out,</l>
+<l n="tr">That 'twas his interest not to stay.-</l>
+<l n="tr">The slave, in trouble and dismay,</l>
+<l n="tr">Roused from his seat the feasting bard,</l>
+<l n="tr">Who scarce had stirr'd a single yard</l>
+<l n="tr">Before the room at once fell in,</l>
+<l n="tr">And crushed the champion and his kin.</l>
+<l n="tr">No youths before the door are found.-</l>
+<l n="tr">The thing soon spread the country round;</l>
+<l n="tr">And when each circumstance was weighed,</l>
+<l n="tr">They knew the gods that visit made,</l>
+<l n="tr">And saved the poet's life in lieu</l>
+<l n="tr">Of those two-thirds which yet were due.
+</l></div2>
+<div2 type="poem" n="epilogus">
+<head>Epilogue To Eutychus.</head>
+<l n="tr">I yet have stock in hand to spare,</l>
+<l n="tr">And could write on-but will forbear-</l>
+<l n="tr">First, lest I tire a friend, whose state</l>
+<l n="tr">And avocations are so great:</l>
+<l n="tr">And then, if other pens should try</l>
+<l n="tr">This morals cheme as well as I,</l>
+<l n="tr">They may have something to pursue:--</l>
+<l n="tr">Yet if the spacious field we view,</l>
+<l n="tr">More men are wanting for the plan,</l>
+<l n="tr">Rather than matter for the man.</l>
+<l n="tr">Now for that prize I make my plea</l>
+<l n="tr">You promised to my brevity.</l>
+<l n="tr">Keep your kind word; for life, my friend,</l>
+<l n="tr">Is daily nearer to its end;</l>
+<l n="tr">And I shall share your love the less</l>
+<l n="tr">The longer you your hand repress:</l>
+<l n="tr">The sooner you the boon insure,</l>
+<l n="tr">The more the tenure must endure;</l>
+<l n="tr">And if I quick possession take,</l>
+<l n="tr">The greater profit must I make,</l>
+<l n="tr">While yet declining age subsists,</l>
+<l n="tr">A room for friendly aid exists.</l>
+<l n="tr">Anon with tasteless years grown weak,</l>
+<l n="tr">In vain benevolence will seek</l>
+<l n="tr">To do me good-when Death at hand</l>
+<l n="tr">Shall come and urge his last demand.</l>
+<l n="tr">'Tis folly, you'll be apt to say,</l>
+<l n="tr">A thousand times to beg and pray</l>
+<l n="tr">Of one with so much worth and sense,</l>
+<l n="tr">Whose gen'rous bounty is propense.</l>
+<l n="tr">If e'er a miscreant succeeds,</l>
+<l n="tr">By fair confession of his deeds,</l>
+<l n="tr">An innocent offender's case</l>
+<l n="tr">Is far more worthy of your grace.</l>
+<l n="tr">You for example sake begin,</l>
+<l n="tr">Then others to the lure you'll win,</l>
+<l n="tr">And in rotation more and more</l>
+<l n="tr">Will soon communicate their stoic.</l>
+<l n="tr">Consider in your mind how far</l>
+<l n="tr">At stake your word and honour are;</l>
+<l n="tr">And let your closing the debate</l>
+<l n="tr">By what I may congratulate.</l>
+<l n="tr">I have been guilty of excess</l>
+<l n="tr">Beyond my thought in this address</l>
+<l n="tr">But 'tis not easy to refrain</l>
+<l n="tr">A spirit work'd up to disdain</l>
+<l n="tr">By wretches insolent and vile,</l>
+<l n="tr">With a clear conscience all the while.</l>
+<l n="tr">You'll ask me, sir, at whom I hint-</l>
+<l n="tr">In time they may appear in print.</l>
+<l n="tr">But give me leave to cite a phrase</l>
+<l n="tr">I met with in my boyish days.</l>
+<l n="tr">"'Tis dangerous for the mean and low</l>
+<l n="tr">Too plain their grievances to show."</l>
+<l n="tr">This is advice I shall retain</l>
+<l n="tr">While life and sanity remain.
+</l></div2></div1>
+<div1 type="book" n="5">
+<div2 type="poem" n="prologus">
+<head>Prologue, To Particulo</head>
+<l n="tr">WHEN I resolved my hand to stay</l>
+<l n="tr">For this, that others might have play,</l>
+<l n="tr">On reconsidering of my part</l>
+<l n="tr">I soon recanted in my heart:</l>
+<l n="tr">For if a rival should arise,</l>
+<l n="tr">How can he possibly devise</l>
+<l n="tr">The things that I have let alone,</l>
+<l n="tr">Since each man's fancy is his own,</l>
+<l n="tr">And likewise colouring of the piece ?"-</l>
+<l n="tr">It was not therefore mere caprice,</l>
+<l n="tr">But strong reflection made me write:</l>
+<l n="tr">Wherefore since you in tales delight,</l>
+<l n="tr">Which I, in justice, after all,</l>
+<l n="tr">Not <placeName key="tgn,2318967">Esop</placeName>'s, but Esopian call;</l>
+<l n="tr">Since he invented but a few;</l>
+<l n="tr">I more, and some entirely new,</l>
+<l n="tr">Keeping indeed the ancient style,</l>
+<l n="tr">With fresh materials all the while.</l>
+<l n="tr">As at your leisure you peruse</l>
+<l n="tr">The fourth collection of my muse,</l>
+<l n="tr">That you may not be at a stand,</l>
+<l n="tr">A fifth shall shortly come to hand;</l>
+<l n="tr">'Gainst which, if as against the rest,</l>
+<l n="tr">Malignant cavillers protest,</l>
+<l n="tr">Let them carp on, and make it plain</l>
+<l n="tr">They carp at what they can't attain.</l>
+<l n="tr">My fame's secure, since I can show</l>
+<l n="tr">How men of eminence like you</l>
+<l n="tr">My little book transcribe and quote,</l>
+<l n="tr">As like to live of classic note.</l>
+<l n="tr">It is th' ambition of my pen</l>
+<l n="tr">To win th' applause of learned men.
+</l></div2>
+<div2 type="poem" n="1">
+<head>Demetrius and Menander</head>
+
+<l n="tr">If <placeName key="tgn,2318967">Esop</placeName>'s name at any time</l>
+<l n="tr">I bring into this measured rhyme,</l>
+<l n="tr">To whom I've paid whate'er I owe,</l>
+<l n="tr">Let all men by these presents know.</l>
+<l n="tr">I with th' old fabulist make free,</l>
+<l n="tr">To strengthen my authority.</l>
+<l n="tr">As certain sculptors of the age,</l>
+<l n="tr">The more attention to engage,</l>
+<l n="tr">And raise their price, the curious please,</l>
+<l n="tr">By forging of Praxiteles;</l>
+<l n="tr">And in like manner they purloin</l>
+<l n="tr">A Myro to their silver coin.</l>
+<l n="tr">'Tis thus our fables we can smoke,</l>
+<l n="tr">As pictures for their age bespoke:</l>
+<l n="tr">For biting envy, in disgust</l>
+<l n="tr">To new improvements, favors rust;</l>
+<l n="tr">But now a tale comes in of course,</l>
+<l n="tr">Which these assertions will enforce.</l>
+<l n="tr">Demetrius, who was justly call'd</l>
+<l n="tr">The tyrant, got himself install'd,</l>
+<l n="tr">And held o'er <placeName key="perseus,Athens">Athens</placeName> impious sway.</l>
+<l n="tr">The crowd, as ever is the way,</l>
+<l n="tr">Came, eager rushing far and wide,</l>
+<l n="tr">And, "Fortunate event!" they cried.</l>
+<l n="tr">The nobles came, the throne address'd'</l>
+<l n="tr">The hand by which they were oppress'd</l>
+<l n="tr">They meekly kiss'd, with inward stings</l>
+<l n="tr">Of anguish for the face of things.</l>
+<l n="tr">The idlers also, with the tribe</l>
+<l n="tr">Of those who to themselves prescribe</l>
+<l n="tr">Their ease and pleasure, in the end</l>
+<l n="tr">Came sneaking, lest they should offend.</l>
+<l n="tr">Amongst this troop Menander hies,</l>
+<l n="tr">So famous for his comedies</l>
+<l n="tr">(Him, though he was not known by sight,</l>
+<l n="tr">The tyrant read with great delight,</l>
+<l n="tr">Struck with the genius of the bard.)</l>
+<l n="tr">In flowing robes bedaub'd with nard,</l>
+<l n="tr">And saunt'ring tread he came along,</l>
+<l n="tr">Whom, at the bottom of the throng,</l>
+<l n="tr">When Phalereus beheld, he said:</l>
+<l n="tr">" How dares that fribble show his head</l>
+<l n="tr">In this our presence ?" he was told-</l>
+<l n="tr">" It is Menander you behold."</l>
+<l n="tr">Then, changed at once from fierce to bland,</l>
+<l n="tr">He call'd, and took him by the hand.
+</l></div2>
+<div2 type="poem" n="2">
+<head>The Thief and the Travellrs</head>
+
+<l n="tr">Two men equipp'd were on their way;</l>
+<l n="tr">One fearful; one without dismay,</l>
+<l n="tr">An able fencer. As they went,</l>
+<l n="tr">A robber came with black intent;</l>
+<l n="tr">Demanding, upon pain of death,</l>
+<l n="tr">Their gold and silver in a breath.</l>
+<l n="tr">At which the man of spirit drew,</l>
+<l n="tr">And instantly disarm'd and slew</l>
+<l n="tr">The Thief, his honor to maintain.</l>
+<l n="tr">Soon as the rogue was fairly slain,</l>
+<l n="tr">The tim'rous chap began to puff,</l>
+<l n="tr">And drew his sword, and stripp'd in buff-</l>
+<l n="tr">"Leave me alone with him! stand back!</l>
+<l n="tr">I'll teach him whom he should attack."</l>
+<l n="tr">Then he who fought, " I wish, my friend,</l>
+<l n="tr">But now you'd had such words to lend;</l>
+<l n="tr">I might have been confirm'd the more,</l>
+<l n="tr">Supposing truth to all you swore;</l>
+<l n="tr">Then put your weapon in the sheath,</l>
+<l n="tr">And keep your tongue within your teeth,</l>
+<l n="tr">Though you may play an actor's part</l>
+<l n="tr">On them who do not know your heart,</l>
+<l n="tr">I, who have seen this very day</l>
+<l n="tr">How lustily you ran away,</l>
+<l n="tr">Experience when one comes to blows</l>
+<l n="tr">How far your resolution goes."</l>
+<l n="tr">This narrative to those I tell</l>
+<l n="tr">Who stand their ground when all is well;</l>
+<l n="tr">But in the hour of pressing need</l>
+<l n="tr">Abash'd, most shamefully recede.
+</l></div2>
+<div2 type="poem" n="3">
+<head>The Bald Man and the Fly</head>
+
+<l n="tr">As on his head she chanced to sit,</l>
+<l n="tr">A Man's bald pate a Gadfly bit;</l>
+<l n="tr">He, prompt to crush the little foe,</l>
+<l n="tr">Dealt on himself a grievous blow:</l>
+<l n="tr">At which the Fly, deriding said,</l>
+<l n="tr">" You that would strike an insect dead</l>
+<l n="tr">For one slight sting, in wrath so strict,</l>
+<l n="tr">What punishment will you inflict</l>
+<l n="tr">Upon yourself, who was so blunt</l>
+<l n="tr">To do yourself this gross affront ?"-</l>
+<l n="tr">"0," says the party, "as for me,</l>
+<l n="tr">I with myself can soon agree.</l>
+<l n="tr">The spirit of th' intention's all;</l>
+<l n="tr">But thou, detested cannibal!</l>
+<l n="tr">Blood-sucker! to have thee secured</l>
+<l n="tr">More would I gladly have endured."</l>
+<l n="tr">What by this moral tale is meant</l>
+<l n="tr">Is-those who wrong not with intent</l>
+<l n="tr">Are venial; but to those that do</l>
+<l n="tr">Severity, I think, is due.
+</l></div2>
+<div2 type="poem" n="4">
+<head>The Man and the Ass</head>
+
+<l n="tr">A certain Man, when he had made</l>
+<l n="tr">A sacrifice, for special aid</l>
+<l n="tr">To Hercules, and killed a swine,</l>
+<l n="tr">Did for his Ass's share assign</l>
+<l n="tr">All the remainder of the corn;</l>
+<l n="tr">But he, rejecting it with scorn,</l>
+<l n="tr">Thus said: "I gladly would partake-</l>
+<l n="tr">But apprehend that life's at stake;</l>
+<l n="tr">For he you fatted up and fed</l>
+<l n="tr">With store of this, is stuck and dead."</l>
+<l n="tr">Struck with the import of this tale,</l>
+<l n="tr">I have succeeded to prevail</l>
+<l n="tr">Upon my passions, and abstain,</l>
+<l n="tr">From peril of immod'rate gain.</l>
+<l n="tr">But, you will say, those that have come</l>
+<l n="tr">Unjustly by a handsome sum,</l>
+<l n="tr">Upon the pillage still subsist-</l>
+<l n="tr">Why, if we reckon up the list,</l>
+<l n="tr">You'll find by far the major part</l>
+<l n="tr">Have been conducted in the cart:</l>
+<l n="tr">Temerity for some may do,</l>
+<l n="tr">But many more their rashness rue.
+</l></div2>
+<div2 type="poem" n="5">
+<head>The Buffoon and Country-fellow</head>
+
+<l n="tr">In ev'ry age, in each profession,</l>
+<l n="tr">Men err the most by prepossession;</l>
+<l n="tr">But when the thing is clearly shown,</l>
+<l n="tr">Is fairly urged, and fully known,</l>
+<l n="tr">We soon applaud what we deride.</l>
+<l n="tr">And penitence succeeds to pride.</l>
+<l n="tr">A certain noble, on a day,</l>
+<l n="tr">Having a mind to show away,</l>
+<l n="tr">Invited by reward the mimes</l>
+<l n="tr">And play'rs and tumblers of the times,</l>
+<l n="tr">And built a large commodious stage</l>
+<l n="tr">For the choice spirits of the age:</l>
+<l n="tr">But, above all, amongst the rest</l>
+<l n="tr">There came a genius who profess'd</l>
+<l n="tr">To have a curious trick in store</l>
+<l n="tr">That never was performed before.</l>
+<l n="tr">Through all the town this soon got air,</l>
+<l n="tr">And the whole house was like a fair;</l>
+<l n="tr">But soon his entry as he made,</l>
+<l n="tr">Without a prompter or parade,</l>
+<l n="tr">'Twas all expectance and suspense,</l>
+<l n="tr">And silence gagg'd the audience.</l>
+<l n="tr">He, stooping down and looking big,</l>
+<l n="tr">So wondrous well took off a pig,</l>
+<l n="tr">All swore 'twas serious, and no joke,</l>
+<l n="tr">For that, or underneath his cloak</l>
+<l n="tr">He had concealed some grunting elf,</l>
+<l n="tr">Or was a real hog himself</l>
+<l n="tr">A search was made-no pig was found-</l>
+<l n="tr">With thund'ring claps the seats resound,</l>
+<l n="tr">And pit, and box, and gall'ries roar</l>
+<l n="tr">With--" 0 rare! bravo !" and " encore."</l>
+<l n="tr">Old Roger Grouse, a country clown,</l>
+<l n="tr">Who yet knew something of the town,</l>
+<l n="tr">Beheld the mimic of his whim,</l>
+<l n="tr">And on the morrow challenged him</l>
+<l n="tr">Declaring to each beau and belle</l>
+<l n="tr">That he this grunter would excel.</l>
+<l n="tr">The morrow came-the crowd was greater--</l>
+<l n="tr">But prejudice and rank ill-nature</l>
+<l n="tr">Usurp'd the minds of men and wenches,</l>
+<l n="tr">Who came to hiss and break the benches.</l>
+<l n="tr">The mimic took his usual station,</l>
+<l n="tr">And squeak'd with general approbation;</l>
+<l n="tr">Again "Encore! encore!" they cry-</l>
+<l n="tr">" 'Tis quite the thing, 'tis very high."</l>
+<l n="tr">Old Grouse conceal'd, amidst this racket,</l>
+<l n="tr">A real pig beneath his jacket-</l>
+<l n="tr">Then forth he came, and with his nail</l>
+<l n="tr">He pinch'd the urchin by the tail.</l>
+<l n="tr">The tortured pig, from out his throat,</l>
+<l n="tr">Produced the genuine nat'ral note.</l>
+<l n="tr">All bellow'd out 'twas very sad!</l>
+<l n="tr">Sure never stuff was half so bad.</l>
+<l n="tr">" That like a pig!" each cried in scoff;</l>
+<l n="tr">"Pshaw! nonsense! blockhead! off! off! off!"</l>
+<l n="tr">The mimic was extoll'd, and Grouse</l>
+<l n="tr">Was hiss'd, and catcall'd from the house.</l>
+<l n="tr">" Soft ye, a word before I go,"</l>
+<l n="tr">Quoth honest Hodge; and stooping low,</l>
+<l n="tr">Produced the pig, and thus aloud</l>
+<l n="tr">Bespoke the stupid partial crowd:</l>
+<l n="tr">"Behold, and learn from this poor cratur,</l>
+<l n="tr">How much you critics know of natur!"</l>
+<div3 type="envoi">
+<head>To Particulo</head>
+<l n="tr">As yet my muse is not to seek,</l>
+<l n="tr">But can from fresh materials speak;</l>
+<l n="tr">And our poetic fountain springs</l>
+<l n="tr">With rich variety of things.</l>
+<l n="tr">But you're for sallies short and sweet;</l>
+<l n="tr">Long tales their purposes defeat.</l>
+<l n="tr">Wherefore, thou worthiest, best of men,</l>
+<l n="tr">Particulo, for whom my pen</l>
+<l n="tr">Immortal honour will insure,</l>
+<l n="tr">Long as a rev'rence shall endure</l>
+<l n="tr">For Roman learning-if this strain</l>
+<l n="tr">Cannot your approbation gain,</l>
+<l n="tr">Yet, yet my brevity admire,</l>
+<l n="tr">Which may the more to praise aspire,</l>
+<l n="tr">The more our poets now-a-days</l>
+<l n="tr">Are tedious in their lifeless lays.
+</l></div3></div2>
+<div2 type="poem" n="6">
+<head>The Two Bald Men</head>
+
+<l n="tr">As on his way a Bald-pate went,</l>
+<l n="tr">He found a comb by accident;</l>
+<l n="tr">Another, with a head as bare,</l>
+<l n="tr">Pursued, and hollow'd for a share.</l>
+<l n="tr">The first produced the prize, and cried,</l>
+<l n="tr">" Good Providence was on our side;</l>
+<l n="tr">But by the strange caprice of Fate,</l>
+<l n="tr">We 're to no purpose fortunate;</l>
+<l n="tr">And, as the proverb says, have found</l>
+<l n="tr">A hobnail, for a hundred pound."</l>
+<l n="tr">They by this tale may be relieved</l>
+<l n="tr">Whose sanguine hopes have been deceived.
+</l></div2>
+<div2 type="poem" n="7">
+<head>Prince the Piper</head>
+
+<l n="tr">A little, friv'lous, abject mind,</l>
+<l n="tr">Pleased with the rabble, puff'd with wind,</l>
+<l n="tr">When once, as fast as pride presumes,</l>
+<l n="tr">Itself with vanity it plumes,</l>
+<l n="tr">Is by fond lightness brought with ease</l>
+<l n="tr">To any ridicule you please.</l>
+<l n="tr">One Prince, a piper to the play,</l>
+<l n="tr">Was rather noted in his way,</l>
+<l n="tr">As call'd upon to show his art,</l>
+<l n="tr">Whene'er Bathyllus did his part,</l>
+<l n="tr">He being at a certain fair,</l>
+<l n="tr">(I do not well remember where,)</l>
+<l n="tr">While they pull'd down the booth in haste,</l>
+<l n="tr">Not taking heed, his leg displaced,</l>
+<l n="tr">He from the scaffold fell so hard-</l>
+<l n="tr">(Would he his pipes had rather marr'd!</l>
+<l n="tr">Though they, poor fellow! were to him</l>
+<l n="tr">As dear almost as life and limb).</l>
+<l n="tr">Borne by the kind officious crowd,</l>
+<l n="tr">Home he's conducted, groaning loud.</l>
+<l n="tr">Some months elapsed before he found</l>
+<l n="tr">Himself recover'd of his wound:</l>
+<l n="tr">Meantime, according to their way,</l>
+<l n="tr">The droll frequenters of the play</l>
+<l n="tr">Had a great miss of him, whose touch</l>
+<l n="tr">The dancers' spirits raised so much.</l>
+<l n="tr">A certain man of high renown</l>
+<l n="tr">Was just preparing for the town</l>
+<l n="tr">Some games the mob to entertain,</l>
+<l n="tr">When Prince began to walk again;</l>
+<l n="tr">Whom, what with bribes and pray'rs, his grace?</l>
+<l n="tr">Prevail'd upon to show his face</l>
+<l n="tr">In this performance, by all means-</l>
+<l n="tr">And while he waits behind the scenes,</l>
+<l n="tr">A rumour through the house is spread,</l>
+<l n="tr">By certain, that "the piper's dead."</l>
+<l n="tr">Others cried out, "The man is here,</l>
+<l n="tr">And will immediately appear."</l>
+<l n="tr">The curtain draws, the lightnings flash,</l>
+<l n="tr">The gods speak out their usual trash.</l>
+<l n="tr">An ode, not to the Piper known,</l>
+<l n="tr">Was to the chorus leader shown,</l>
+<l n="tr">Which he was order'd to repeat,</l>
+<l n="tr">And which was closed with this conceit--</l>
+<l n="tr">"Receive with joy, O loyal <placeName key="tgn,7013962">Rome</placeName>,</l>
+<l n="tr">Thy Prince just rescued from his tomb."</l>
+<l n="tr">They all at once stand up and clap,</l>
+<l n="tr">At which my most facetious chap</l>
+<l n="tr">Kisses his hand, and scrapes and bows</l>
+<l n="tr">To his good patrons in the house.</l>
+<l n="tr">First the equestrian order smoke</l>
+<l n="tr">The fool's mistake, and high in joke,</l>
+<l n="tr">Command the song to be encored;</l>
+<l n="tr">Which ended, flat upon the board</l>
+<l n="tr">The <placeName key="tgn,2091960">Piper</placeName> falls, the knights acclaim;</l>
+<l n="tr">The people think that Prince's aim</l>
+<l n="tr">Is for a crown of bays at least.</l>
+<l n="tr">Now all the seats perceived the jest,</l>
+<l n="tr">And with his bandage white as snow,</l>
+<l n="tr">White frock, white pumps, a perfect beauty</l>
+<l n="tr">Proud of the feats he had achieved,</l>
+<l n="tr">And these high honours he received,</l>
+<l n="tr">With one unanimous huzza,</l>
+<l n="tr">Poor Prince was kick'd out of the play.
+</l></div2>
+<div2 type="poem" n="8">
+<head>Opportunity</head>
+
+<l n="tr">Bald, naked, of a human shape,</l>
+<l n="tr">With fleet wings ready to escape,</l>
+<l n="tr">Upon a razor's edge his toes,</l>
+<l n="tr">And lock that on his forehead grows-</l>
+<l n="tr">Him hold, when seized, for goodness' sake</l>
+<l n="tr">For Jove himself cannot retake</l>
+<l n="tr">The fugitive when once he's gone.</l>
+<l n="tr">The picture that we here have drawn</l>
+<l n="tr">Is Opportunity so brief.-</l>
+<l n="tr">The ancients, in a bas-relief,</l>
+<l n="tr">Thus made an effigy of Time,</l>
+<l n="tr">That every one might use their prime;</l>
+<l n="tr">Nor e'er impede, by dull delay,</l>
+<l n="tr">Th' effectual business of to-day.
+</l></div2>
+<div2 type="poem" n="9">
+<head>The Bull and the Calf</head>
+
+<l n="tr">A Bull was struggling to secure</l>
+<l n="tr">His passage at a narrow door,</l>
+<l n="tr">And scarce could reach the rack of hay,</l>
+<l n="tr">His horns so much were in his way.</l>
+<l n="tr">A Calf officious, fain would show</l>
+<l n="tr">How he might twist himself and go.</l>
+<l n="tr">"Hold thou thy prate; all this," says he,</l>
+<l n="tr">Ere thou wert calved was known to me."</l>
+<l n="tr">He, that a wiser man by half</l>
+<l n="tr">Would teach, may think himself this Calf.
+</l></div2>
+<div2 type="poem" n="10">
+<head>The Old Dog and the Huntsman</head>
+
+<l n="tr">A Dog, that time and often tried,</l>
+<l n="tr">His master always satisfied;</l>
+<l n="tr">And whensoever he assail'd,</l>
+<l n="tr">Against the forest-beasts prevail'd</l>
+<l n="tr">Both by activity and strength,,</l>
+<l n="tr">Through years began to flag at length</l>
+<l n="tr">One day, when hounded at a boar,</l>
+<l n="tr">His ear he seized, as heretofore;</l>
+<l n="tr">But with his teeth, decay'd and old,</l>
+<l n="tr">Could not succeed to keep his hold.</l>
+<l n="tr">A t which the huntsman, much concern'd,</l>
+<l n="tr">The vet'ran huff'd, who thus return'd:</l>
+<l n="tr">" My resolution and my aim,</l>
+<l n="tr">Though not my strength, are still the same;</l>
+<l n="tr">For what I am if I am chid,</l>
+<l n="tr">Praise what I was, and what I did."</l>
+<l n="tr">Philetus, you the drift perceive</l>
+<l n="tr">Of this, with which I take my leave.</l></div2></div1>
+</body>
+</text>
+</TEI.2>

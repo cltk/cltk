@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>Ad principem ineruditum</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Harold North Fowler</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Harold North Fowler</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1936</date>
+                  </imprint>
+                  <biblScope type="volume">10</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.10.p.51"/>
+         <div1>
+            <head>TO AN UNEDUCATED RULER (AD PRINCIPEM INERUDITUM)
+					<lb/>INTRODUCTION</head>
+            <p>The brief essay To an Uneducated Ruler may have
+					formed part of a lecture, or it may, as its traditional
+					title suggests, have been composed as a letter to
+					some person in authority. There is nothing in it
+					to prove either assumption. No striking or unusual precepts or doctrines are here promulgated,
+					but the essay is enlivened by a few interesting tales
+					and, considering its brevity, by a somewhat unusual
+					number of rather elaborate similes. As usual
+					Plutarch depends upon earlier writers for most of his
+					material. The ending is so abrupt as to warrant the
+					belief that the essay, in its present form, is only a
+					fragment.</p>
+         </div1>
+         <pb id="v.10.p.53"/>
+         <div1 type="section" n="1">
+            <p>Plato was asked by the Cyrenaeans<note resp="ed" place="unspecified" anchored="yes">That Plato in his extensive travels visited Cyrene is attested by Diogenes Laertius, <hi rend="italics">Vit. Phil.</hi> iii. 6.</note> to compose a
+					set of laws and leave it for them and to give them a
+					well-ordered government; but he refused, saying
+					that it was difficult to make laws for the Cyrenaeans
+					because they were so prosperous.
+					<quote rend="blockquote">For nothing is so haughty</quote>
+					harsh, and ungovernable
+					<quote rend="blockquote">by nature as a man,<note resp="ed" place="unspecified" anchored="yes">A quotation from some tragic poet; see Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> p. 617.</note>
+               </quote>
+					when he possesses what he regards as prosperity.
+					And that is why it is difficult to give advice to rulers
+					in matters of government, for they are afraid to
+					accept reason as a ruler over them, lest it curtail the
+					advantage of their power by making them slaves to
+					duty. For they are not familiar with the saying of
+					Theopompus, the King of Sparta who first made the
+					Ephors<note resp="ed" place="unspecified" anchored="yes">The five Ephors at Sparta, representing the five local tribes, were in charge of civil law and public order. Whether they were established by Lycurgus or by Theopompus (about 757 b.c. or later) is uncertain. In the sixth and fifth centuries b.c. they seem to have had more power than the kings.</note> associates of the Kings ; then, when his
+					wife reproached him because he would hand down
+					to his children a less powerful office than that which
+					he had received he said : <q direct="unspecified">Nay, more powerful
+						rather, inasmuch as it is more secure.</q> For by
+					giving up that which was excessive and absolute in
+					
+					<pb id="v.10.p.55"/>
+					
+					
+					it he avoided both the envy and the danger. And
+					yet Theopompus, by diverting to a different body
+					the vast stream of his royal authority, deprived
+					himself of as much as he gave to others. But when
+					philosophical reason derived from philosophy has
+					been established as the ruler's coadjutor and guardian, it removes the hazardous element from his power,
+					as a surgeon removes that which threatens a patient's
+					health and leaves that which is sound.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>But most kings and rulers are so foolish as to
+					act like unskilful sculptors, who think their colossal
+					figures look large and imposing if they are modelled
+					with their feet far apart, their muscles tense, and
+					their mouths wide open. For these rulers seem by
+					heaviness of voice, harshness of expression, truculence of manner, and unsociability in their way of
+					living to be imitating the dignity and majesty of
+					the princely station, although in fact they are not
+					at all different from colossal statues which have a
+					heroic and godlike form on the outside, but inside
+					are full of clay, stone, and lead, - except that in the
+					case of the statues the weight of those substances
+					keeps them permanently upright without leaning,
+					whereas uneducated generals and rulers are often
+					rocked and capsized by the ignorance within them ;
+					for since the foundation upon which they have built
+					up their lofty power is not laid straight, they lean
+					with it and lose their balance. But just as a rule,
+					if it is made rigid and inflexible, makes other
+					things straight when they are fitted to it and laid
+					alongside it, in like manner the sovereign must first
+					gain command of himself, must regulate his own soul
+					and establish his own character, then make his subjects
+					
+					<pb id="v.10.p.57"/>
+					
+					
+					fit his pattern. For one who is falling cannot
+					hold others up, nor can one who is ignorant teach,
+					nor the uncultivated impart culture, nor the disorderly make order, nor can he rule who is under
+					no rule. But most people foolishly believe that the
+					first advantage of ruling is freedom from being ruled.
+					And indeed the King of the Persians used to think
+					that everyone was a slave except his own wife,
+					whose master he ought to have been most of all.
+				</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Who, then, shall rule the ruler ? The
+					<quote rend="blockquote">
+                  <l>Law, the king of all,
+					</l>
+                  <l>Both mortals and immortals,</l>
+               </quote>
+					as Pindar<note resp="ed" place="unspecified" anchored="yes">Bergk-Schroeder, p. 458, no. 169 [151]; Sandys, p. 602, no. 169 (L.C.L.). Quoted by Plato, <hi rend="italics">Gorg.</hi> 484 b, <hi rend="italics">Laws</hi>, 690 b.</note> says - not law written outside him in books
+					or on wooden tablets<note resp="ed" place="unspecified" anchored="yes">A reference to the original tablets of Solon's laws. See <hi rend="italics">Moralia</hi>, 779 b and note <hi rend="italics">b</hi>, p. 46 above.</note> or the like, but reason endowed
+					with life within him, always abiding with him and
+					watching over him and never leaving his soul without
+					its leadership. For example, the King of the Persians
+					had one of his chamberlains assigned to the special
+					duty of entering his chamber in the morning and saying to him : <q direct="unspecified">Arise, O King, and consider matters
+						which the great Oromasdes<note resp="ed" place="unspecified" anchored="yes">Oromasdes is the Greek form of Ormaszd, Auramasda, or Ahura Mazda, the great god of the Persians.</note> wished you to consider.</q> But the educated and wise ruler has within
+					him the voice which always thus speaks to him and
+					exhorts him. Indeed Polemo said that love was
+					<q direct="unspecified">the service of the gods for the care and preservation
+						of the young</q> ; one might more truly say that rulers
+					serve god for the care and preservation of men, in
+					
+					<pb id="v.10.p.59"/>
+					
+					
+					order that of the glorious gifts which the gods give
+					to men they may distribute some and safeguard
+					others.
+					<quote rend="blockquote">
+                  <l>Dost thou behold this lofty, boundless sky
+					</l>
+                  <l>Which holds the earth enwrapped in soft embrace?<note resp="ed" place="unspecified" anchored="yes">Euripides, unknown drama, Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> p. 663. The following line is <foreign lang="greek">tou=ton no/mize *zh=na, to/nd' h(gou= *qeo/n</foreign>, <q direct="unspecified">Believe that this is Zeus, consider this thy God.</q> Cicero translates this line in <hi rend="italics">De Natura Deorum</hi>, ii. 25. 65.</note>
+                  </l>
+               </quote>
+					The sky sends down the beginnings of the appropriate seeds, and the earth causes them to sprout up ;
+					some are made to grow by showers and some by
+					winds, and some by the warmth of stars and moon ;
+					but it is the sun which adorns all things and mingles
+					in all things what men call the <q direct="unspecified">love charm</q> which
+					is derived from himself. But these gifts and blessings, so excellent and so great, which the gods
+					bestow cannot be rightly enjoyed nor used without
+					law and justice and a ruler. Now justice is the aim
+					and end of law, but law is the work of the ruler, and
+					the ruler is the image of God who orders all things.
+					Such a ruler needs no Pheidias nor Polycleitus nor
+					Myron to model him, but by his virtue he forms himself in the likeness of God and thus creates a statue
+					most delightful of all to behold and most worthy
+					of divinity. Now just as in the heavens God has
+					established as a most beautiful image of himself the
+					sun and the moon, so in states a ruler
+					<quote rend="blockquote">
+                  <l>who in God's likeness
+					</l>
+                  <l>Righteous decisions upholds,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Od.</hi> xix. 109 and 111.</note>
+                  </l>
+               </quote>
+					that is to say, one who, possessing god's wisdom,
+					establishes, as his likeness and luminary, intelligence
+					in place of sceptre or thunderbolt or trident, with
+					which attributes some rulers represent themselves
+					
+					<pb id="v.10.p.61"/>
+					
+					
+					in sculpture and painting, thus causing their folly
+					to arouse hostile feelings, because they claim what
+					they cannot attain. For God visits his wrath
+					upon those who imitate his thunders, lightnings,
+					and sunbeams, but with those who emulate his
+					virtue and make themselves like unto his goodness
+					and mercy he is well pleased and therefore causes
+					them to prosper and gives them a share of his own
+					equity, justice, truth, and gentleness, than which
+					nothing is more divine, - nor fire, nor light, nor the
+					course of the sun, nor the risings and settings of the
+					stars, nor eternity and immortality. For God enjoys
+					felicity, not through the length of his life, but through
+					the ruling quality of his virtue; for this is divine; and
+					excellent also is that part of virtue which submits to
+					rule.
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Now it is true that Anaxarchus, trying to console Alexander in his agony of mind over his killing
+					of Cleitus, said that the reason why Justice and
+					Right are seated by the side<note resp="ed" place="unspecified" anchored="yes">Just as at Athens the archons had their <hi rend="italics">paredroi</hi> who aided them in the performance of some of their functions, so here Justice and Right are called the <hi rend="italics">paredroi</hi> of Zeus.</note> of Zeus is that men
+					may consider every act of a king as righteous and just;
+					but neither correct nor helpful were the means he
+					took in endeavouring to heal the king's remorse
+					for his sin, by encouraging him to further acts of
+					the same sort. But if a guess about this matter
+					is proper, I should say that Zeus does not have
+					Justice to sit beside him, but is himself Justice
+					and Right and the oldest and most perfect of laws ;
+					but the ancients state it in that way in their
+					writings and teachings, to imply that without
+					Justice not even Zeus can rule well. <q direct="unspecified">She is a
+						virgin,</q> according to Hesiod,<note resp="ed" place="unspecified" anchored="yes">Hesiod, <hi rend="italics">Works and Days</hi>, 256-257 <foreign lang="greek">h( de/ te parqe/nos e)sti *di/kh, *dio\s e)kgegaui=a kudrh/ t' ai)doi/h te qew=n, oi(\ *)/olumpon e)/xousin</foreign>. <q direct="unspecified">And there is Virgin Justice, the daughter of Zeus, who is honoured and reverenced among the gods who dwell on Olympus</q> (tr. H. G. Evelyn White in L.C.L.).</note> uncorrupted, dwelling
+					
+					<pb id="v.10.p.63"/>
+					
+					
+					with reverence, self-restraint, and helpfulness ; and
+					therefore kings are called <q direct="unspecified">reverend,</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">e.g.</hi> Homer, <hi rend="italics">Il.</hi> iv. 402.</note> for it is
+					fitting that those be most revered who have least to
+					fear. But the ruler should have more fear of doing
+					than of suffering evil ; for the former is the cause of
+					the latter ; and that kind of fear on the part of the
+					ruler is humane and not ignoble to be afraid on
+					behalf of his subjects lest they may without his
+					knowledge suffer harm,
+					<quote rend="blockquote">
+                  <l>Just as the dogs keep their watch, toiling hard for the
+					flocks in the sheepfold,
+					</l>
+                  <l>When they have heard a ferocious wild beast,<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> x. 183-184.</note>
+                  </l>
+               </quote>
+					not for their own sake but for the sake of those whom
+					they are guarding. Epameinondas, when all the
+					Thebans crowded to a certain festival and gave
+					themselves up utterly to drink, went alone and
+					patrolled the armouries and the walls, saying that
+					he was keeping sober and awake that the others
+					might be free to be drunk and asleep. And Cato
+					at Utica issued a proclamation to send all the other
+					survivors of the defeat to the seashore ; he saw
+					them aboard ship, prayed that they might have a
+					good voyage, then returned home and killed himself ; thereby teaching us in whose behalf the ruler
+					ought to feel fear and what the ruler ought to
+					despise. But Clearchus, tyrant of Pontus, used to
+					crawl into a chest like a snake and sleep there, and
+					Aristodemus of Argos would mount to an upper
+					room entered by a trap-door, then put his bed on
+					the door and sleep in it with his mistress ; and the
+					girl's mother would take the ladder away from below
+					and set it up again in the morning. How do you
+					
+					<pb id="v.10.p.65"/>
+					
+					
+					imagine he must have shuddered at the theatre,
+					the city hall, the senate - chamber, the convivial
+					feast, he who had made his bedchamber a prison
+					cell ? For in reality kings fear for their subjects,
+					but tyrants fear their subjects ; and therefore they
+					increase their fear as they increase their power,
+					for when they have more subjects they have more
+					men to fear.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>For it is neither probable nor fitting that god
+					is, as some philosophers say, mingled with matter,
+					which is altogether passive, and with things, which
+					are subject to countless necessities, chances, and
+					changes. On the contrary, somewhere up above
+					in contact with that nature which, in accordance with
+					the same principles, remains always as it is, established, as Plato<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Phaedrus</hi>, 254 b.</note> says, upon pedestals of holiness,
+					proceeding in accordance with nature in his straight
+					course, he reaches his goal.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Laws</hi>, 716 a.</note> And as the sun, his
+					most beautiful image, appears in the heavens as his
+					mirrored likeness to those who are able to see him
+					in it, just so he has established in states the light
+					of justice and of knowledge of himself as an image
+					which the blessed and the wise copy with the help
+					of philosophy, modelling themselves after the most
+					beautiful of all things. But nothing implants this
+					disposition in men except the teachings of philosophy, to keep us from having the same experience
+					as Alexander, who, seeing Diogenes at Corinth,
+					admiring him for his natural gifts, and being astonished by his spirit and greatness, said : <q direct="unspecified">If I
+						were not Alexander, I should be Diogenes,</q> by
+					
+					<pb id="v.10.p.67"/>
+					
+					
+					which he almost said that he was weighed down by
+					his good fortune, glory, and power which kept him
+					from virtue and left him no leisure, and that he
+					envied the cynic's cloak and wallet because Diogenes
+					was invincible and secure against capture by means
+					of these, not, as he was himself, by means of arms,
+					horses, and pikes. So by being a philosopher he was
+					able to become Diogenes in disposition and yet to
+					remain Alexander in outward fortunes, and to become all the more Diogenes because he was Alexander, since for his great ship of fortune, tossed by
+					high winds and surging sea, he needed heavy ballast
+					and a great pilot.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>For in weak and lowly private persons folly is
+					combined with lack of power and, therefore, results
+					in no wrongdoing, just as in bad dreams a feeling of
+					distress disturbs the spirit, and it cannot rouse itself
+					in accordance with its desires ; but power when
+					wickedness is added to it brings increased vigour to
+					the passions. For the saying of Dionysius is true;
+					he said, namely, that he enjoyed his power most when
+					he did quickly what he wished. There is indeed
+					great danger that he who can do what he wishes
+					may wish what he ought not to do :
+					<quote rend="blockquote">Straightway then was the word, and the deed was forthwith accomplished.<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> xix. 242.</note>
+               </quote>
+					Wickedness, when by reason of power it possesses
+					rapid speed, forces every passion to emerge, making
+					of anger murder, of love adultery, of covetousness
+					confiscation.
+					
+					<pb id="v.10.p.69"/>
+					
+					
+					          <quote rend="blockquote">Straightway then was the word,</quote>
+						and the offender is done away with ; suspicion arises,
+					the man who is slandered is put to death. But as
+					the physicists say that the lightning breaks forth later
+					than the thunder, as the flowing of blood is later
+					than the wound, but is seen sooner, since the hearing
+					waits for the sound, whereas the sight goes to meet
+					the light; so in governments punishments come
+					before the accusations and convictions are pronounced
+					before the proofs are given.
+					<quote rend="blockquote">
+                  <l>For now the spirit yields and holds no longer firm,
+					</l>
+                  <l>As yields the anchor's fluke in sand when waves are high,<note resp="ed" place="unspecified" anchored="yes">From a work of an unknown tragic poet; see Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> p. 911, no. 379; <hi rend="italics">cf. Moralia</hi>, 446 a.</note>
+                  </l>
+               </quote>
+					unless the weight of reason presses upon power and
+					holds it down, and the ruler imitates the sun, which,
+					when it mounts up in the northern sky and reaches
+					its greatest altitude, has the least motion, thus by
+					greater slowness ensuring the safety of its course.
+				</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Nor is it possible in positions of power for vices
+					to be concealed. Epileptics, if they go up to a high
+					place and move about, grow dizzy and reel, which
+					makes their disease evident, and just so Fortune by
+					such things as riches, reputations, or offices exalts
+					uneducated and uncultured men a little and then, as
+					soon as they have risen high, gives them a conspicuous
+					fall; or, to use a better simile, just as in a number
+					of vessels you could not tell which is whole and
+					which is defective, but when you pour liquid into
+					them the leak appears, just so corrupt souls cannot
+					contain power, but leak out in acts of desire, anger,
+					imposture, and bad taste. But what is the use of
+					
+					<pb id="v.10.p.71"/>
+					
+					
+					saying these things, when even the slightest short-comings in men of conspicuous reputation are made
+					the subject of calumny ? Too much wine caused
+					slander against Cimon, too much sleep against Scipio,
+					Lucullus was ill spoken of because his dinners were
+					too expensive . . .
+					
+				</p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

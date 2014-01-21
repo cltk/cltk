@@ -1,0 +1,1156 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Ba.">Bacchae</title>
+<title type="sub">Machine readable text</title>
+<author n="Eur.">Euripides</author>
+<editor role="editor">T. A. Buckley</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Euripides</author>
+<title>The Tragedies of Euripides, translated by T. A. Buckley. Bacchae</title>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>Henry G. Bohn</publisher>
+<date>1850</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1988</date>
+<respStmt><name>Judith Nelson</name><resp>tagging</resp></respStmt>
+<item>Basic SGML tagging</item>
+</change>
+<change><date>1988?</date>
+<respStmt><name>Alex Sens</name><resp>tagging</resp></respStmt>
+<item>Text modernized</item>
+</change>
+<change><date>6/95</date>
+<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
+<item>Added speaker tags where needed.</item>
+</change>
+<change><date>10/98</date>
+<respStmt><name>Bill Merrill</name><resp>ed.</resp></respStmt>
+<item>Fixed cardbreak at 73</item>
+</change>
+<change><date>14-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: eur.ba_eng.xml,v $
+Revision 1.1  2009-11-23 18:46:35  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 21:10:16  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 21:15:27  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:33:27  packel
+Converted to XML
+
+Revision 1.10  2004/04/21 20:27:26  mimno
+added card 1s
+
+Revision 1.9  2003/07/01 22:16:09  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2000/03/04 20:34:31  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.7  2000/02/16 22:01:28  amahoney
+use n attribute on sp for speeches interrupted by card breaks, and
+move card milestone out of the end of such speeches
+
+Revision 1.6  2000/02/14 22:21:47  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<castList>
+<castItem type="role"><role>Dionysus</role></castItem>
+<castItem type="role"><role>Chorus</role></castItem>
+<castItem type="role"><role>Teiresias</role></castItem>
+<castItem type="role"><role>Kadmos</role></castItem>
+<castItem type="role"><role>Pentheus</role></castItem>
+<castItem type="role"><role>Servant</role></castItem>
+<castItem type="role"><role>Messenger</role></castItem>
+<castItem type="role"><role>Second Messenger</role></castItem>
+<castItem type="role"><role>Agave</role></castItem>
+</castList>
+
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<sp n="Dionysus">
+<speaker>Dionysus</speaker>
+<p>I, the son of Zeus, have come to this land of the Thebans&mdash;Dionysus, whom once Semele, Kadmos' daughter, bore, delivered by a lightning-bearing flame. And having taken a mortal form instead of a god's, <milestone ed="p" n="5" unit="line"/> I am here at the fountains of Dirke and the water of Ismenus. And I see the tomb of my thunder-stricken mother here near the palace, and the remnants of her house, smouldering with the still living flame of Zeus' fire, the everlasting insult of Hera against my mother. <milestone ed="p" n="10" unit="line"/> I praise Kadmos, who has made this place hallowed, the shrine of his daughter; and I have covered it all around with the cluster-bearing leaf of the vine.</p>
+<p>I have left the wealthy lands of the Lydians and Phrygians, the sun-parched plains of the Persians, <milestone ed="p" n="15" unit="line"/> and the Bactrian walls, and have passed over the wintry land of the Medes, and blessed <placeName key="tgn,1012700">Arabia</placeName>, and all of <placeName key="tgn,1000004">Asia</placeName> which lies along the coast of the salt sea with its beautifully-towered cities full of Hellenes and barbarians mingled together; <milestone ed="p" n="20" unit="line"/> and I have come to this Hellene city first, having already set those other lands to dance and established my mysteries there, so that I might be a deity manifest among men. In this land of <placeName key="tgn,1000074">Hellas</placeName>, I have first excited <placeName key="perseus,Thebes">Thebes</placeName> to my cry, fitting a fawn-skin to my body and <milestone ed="p" n="25" unit="line"/> taking a thyrsos in my hand, a weapon of ivy. For my mother's sisters, the ones who least should, claimed that I, Dionysus, was not the child of Zeus, but that Semele had conceived a child from a mortal father and then ascribed the sin of her bed to Zeus, <milestone ed="p" n="30" unit="line"/> a trick of Kadmos', for which they boasted that Zeus killed her, because she had told a false tale about her marriage. Therefore I have goaded them from the house in frenzy, and they dwell in the mountains, out of their wits; and I have compelled them to wear the outfit of my mysteries. <milestone ed="p" n="35" unit="line"/> And all the female offspring of <placeName key="perseus,Thebes">Thebes</placeName>, as many as are women, I have driven maddened from the house, and they, mingled with the daughters of Kadmos, sit on roofless rocks beneath green pines. For this city must learn, even if it is unwilling, <milestone ed="p" n="40" unit="line"/> that it is not initiated into my Bacchic rites, and that I plead the case of my mother, Semele, in appearing manifest to mortals as a divinity whom she bore to Zeus.</p>
+<milestone ed="p" n="43" unit="card"/>
+<p>Now Kadmos has given his honor and power to Pentheus, his daughter's son, <milestone ed="p" n="45" unit="line"/> who fights against the gods as far as I am concerned and drives me away from sacrifices, and in his prayers makes no mention of me, for which I will show him and all the Thebans that I was born a god. And when I have set matters here right, I will move on to another land, <milestone ed="p" n="50" unit="line"/> revealing myself. But if ever the city of <placeName key="perseus,Thebes">Thebes</placeName> should in anger seek to drive the the Bacchae down from the mountains with arms, I, the general of the Maenads, will join battle with them. On which account I have changed my form to a mortal one and altered my shape into the nature of a man. <milestone ed="p" n="55" unit="line"/> But, you women who have left Tmolus, the bulwark of <placeName key="tgn,7016631">Lydia</placeName>, my sacred band, whom I have brought from among the barbarians as assistants and companions to me, take your drums, native instruments of the city of the Phrygians, the invention of mother Rhea and myself, <milestone ed="p" n="60" unit="line"/> and going about this palace of Pentheus beat them, so that Kadmos' city may see. I myself will go to the folds of Kithairon, where the Bacchae are, to share in their dances.
+</p></sp>
+</div1>
+<milestone ed="p" n="64" unit="card"/>
+<div1 type="choral">
+<div2 type="lyric">
+<sp>
+<speaker>Chorus</speaker>
+<p>From the land of <placeName key="tgn,1000004">Asia</placeName>, <milestone ed="p" n="65" unit="line"/> having left sacred Tmolus, I am swift to perform for Bromius my sweet labor and toil easily borne, celebrating the god Bacchus<note anchored="yes" resp="Buckley">Lit. shouting the ritual cry <foreign lang="greek">eu)oi=</foreign>.</note>. Who is in the way? Who is in the way? Who? Let him get out of the way indoors, and let everyone keep his mouth pure <note anchored="yes" resp="Buckley">E. R. Dodds takes this passage &ldquo;Let everyone come outside being sure to keep his mouth pure&rdquo;. He does not believe that there should be a full stop after the third <foreign lang="greek">ti/s</foreign>.</note>, <milestone ed="p" n="70" unit="line"/> speaking propitious things. For I will celebrate Dionysus with hymns according to eternal custom.<milestone ed="p" n="73" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Blessed is he who, being fortunate and knowing the rites of the gods, keeps his life pure and <milestone ed="p" n="75" unit="line"/> has his soul initiated into the Bacchic revels, dancing in inspired frenzy over the mountains with holy purifications, and who, revering the mysteries of great mother Kybele, <milestone ed="p" n="80" unit="line"/> brandishing the thyrsos, garlanded with ivy, serves Dionysus.</p>
+<p>Go, Bacchae, go, Bacchae, escorting the god Bromius, child of a god, <milestone ed="p" n="85" unit="line"/> from the Phrygian mountains to the broad streets of Hellas&mdash;Bromius,<milestone ed="p" n="88" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Whom once, in the compulsion of birth pains, <milestone ed="p" n="90" unit="line"/> the thunder of Zeus flying upon her, his mother cast from her womb, leaving life by the stroke of a thunderbolt. Immediately Zeus, Kronos' son, <milestone ed="p" n="95" unit="line"/> received him in a chamber fit for birth, and having covered him in his thigh shut him up with golden clasps, hidden from Hera.</p>
+<p>And he brought forth, when the Fates <milestone ed="p" n="100" unit="line"/> had perfected him, the bull-horned god, and he crowned him with crowns of snakes, for which reason Maenads cloak their wild prey over their locks.<milestone ed="p" n="105" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="105" unit="line"/> O <placeName key="perseus,Thebes">Thebes</placeName>, nurse of Semele, crown yourself with ivy, flourish, flourish with the verdant yew bearing sweet fruit, and crown yourself in honor of Bacchus with branches of oak <milestone ed="p" n="110" unit="line"/> or pine. Adorn your garments of spotted fawn-skin with fleeces of white sheep, and sport in holy games with insolent thyrsoi <note anchored="yes" resp="Buckley">The thyrsos is a staff that is crowned with ivy and that is sacred to Dionysus and an emblem of his worship.</note>. At once all the earth will dance&mdash;<milestone ed="p" n="115" unit="line"/> whoever leads the sacred band is Bromius&mdash;to the mountain, to the mountain, where the crowd of women waits, goaded away from their weaving by Dionysus.<milestone ed="p" n="120" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="120" unit="line"/> O secret chamber of the Kouretes and you holy Cretan caves, parents to Zeus, where the Korybantes with triple helmet invented for me in their caves this circle, <milestone ed="p" n="125" unit="line"/> covered with stretched hide; and in their excited revelry they mingled it with the sweet-voiced breath of Phrygian pipes and handed it over to mother Rhea, resounding with the sweet songs of the Bacchae; <milestone ed="p" n="130" unit="line"/> nearby, raving Satyrs were fulfilling the rites of the mother goddess, and they joined it to the dances of the biennial festivals, in which Dionysus rejoices.<milestone ed="p" n="135" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="135" unit="line"/>He is sweet in the mountains <note anchored="yes" resp="Buckley">cf. Dodds, ad loc.</note>, whenever after the running dance he falls on the ground, wearing the sacred garment of fawn skin, hunting the blood of the slain goat, a raw-eaten delight, rushing to the <milestone ed="p" n="140" unit="line"/> Phrygian, the Lydian mountains, and the leader of the dance is Bromius, evoe! <note anchored="yes" resp="Buckley">A ritual cry of delight.</note> The plain flows with milk, it flows with wine, it flows with the nectar of bees. <milestone ed="p" n="145" unit="line"/> The Bacchic one, raising the flaming torch of pine on his thyrsos, like the smoke of Syrian incense, darts about, arousing the wanderers with his racing and dancing, agitating them with his shouts, <milestone ed="p" n="150" unit="line"/> casting his rich locks into the air. And among the Maenad cries his voice rings deep: <note anchored="yes" resp="Buckley">This last phrase taken verbatim from Dodds, ad loc.</note> &ldquo;Go, Bacchae, go, Bacchae, with the luxury of Tmolus that flows with gold, <milestone ed="p" n="155" unit="line"/> sing of Dionysus, beneath the heavy beat of drums, celebrating in delight the god of delight with Phrygian shouts and cries, <milestone ed="p" n="160" unit="line"/> when the sweet-sounding sacred pipe sounds a sacred playful tune suited <milestone ed="p" n="165" unit="line"/> to the wanderers, to the mountain, to the mountain!&rdquo; And the Bacchante, rejoicing like a foal with its grazing mother, rouses her swift foot in a gamboling dance.<milestone ed="p" n="170" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Teiresias</speaker>
+<p><milestone ed="p" n="170" unit="line"/> Who is at the gates? Call from the house Kadmos, son of Agenor, who leaving the city of <placeName key="tgn,7002861">Sidon</placeName> built this towering city of the Thebans. Let someone go and announce that Teiresias is looking for him. He knows why I have come and <milestone ed="p" n="175" unit="line"/> what agreement I, an old man, have made with him, older still: to twine the thyrsoi, to wear fawn-skins, and to crown our heads with ivy branches.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Dearest friend, for inside the house I heard and recognized your wise voice, the voice of a wise man;<milestone ed="p" n="180" unit="line"/> I have come prepared with this equipment of the god. For we must extol him, the child of my daughter, &lsqb;Dionysus, who has appeared as a god to men&rsqb; as much as is in our power. Where must I dance, where set my feet <milestone ed="p" n="185" unit="line"/> and shake my grey head? Show me the way, Teiresias, one old man leading another; for you are wise. And so I shall never tire night or day striking the ground with the thyrsos. Gladly I have forgotten that I am old.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Then you and I have the same feelings, <milestone ed="p" n="190" unit="line"/> for I too feel young and will try to dance.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Then will we go to the mountain in a chariot?</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>But then the god would not have equal honor.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>I, an old man, will lead you, an old man, like a pupil.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>The god will lead us there without trouble.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p><milestone ed="p" n="195" unit="line"/> Are we the only ones in the city who will dance in Bacchus' honor?</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Yes, for we alone think rightly, the rest wrongly.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>The delay is long; come, take hold of my hand.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>Here, take hold, and join your hand with mine.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Having been born mortal I do not scorn the gods.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p><milestone ed="p" n="200" unit="line"/> We mortals have no cleverness in the eyes of the the gods.<note anchored="yes" resp="Buckley">Dodds admits that the text, as it appears in <placeName key="tgn,2532811">Murray</placeName>, should be translated this way, but feels that the line should mean &ldquo;nor do we use cleverness on the gods&rdquo; or something similar. He argues for another reading that would allow this.</note> Our ancestral traditions, and those which we have held throughout our lives, no argument will overturn, not even if some craftiness should be discovered by the depths of our wits. <note anchored="yes" resp="Buckley">This translation, though literal, fudges on the meaning: a)krai\ fre/nes must mean something like &ldquo;best&rdquo; or &ldquo;most subtle minds.&rdquo;</note> Will anyone say that I do not respect old age, <milestone ed="p" n="205" unit="line"/> being about to dance with my head covered in ivy? No, for the god has made no distinction as to whether it is right for men young or old to dance, but wishes to have common honors from all and to be extolled, setting no one apart.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p><milestone ed="p" n="210" unit="line"/> Since you do not see this light, Teiresias, I will be your interpreter. Pentheus, child of Echion, to whom I gave control of this land, is coming here to the house now in haste. How fluttered he is! What new matter will he tell us?<milestone ed="p" n="215" unit="card"/></p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="215" unit="line"/> I happened to be at a distance from this land, when I heard of strange evils throughout this city, that the women have left our homes in contrived Bacchic rites, and rush about in the shadowy mountains, honoring with dances <milestone ed="p" n="220" unit="line"/> this new deity Dionysus, whoever he is. I hear that mixing-bowls stand full in the midst of their assemblies, and that they each creep off different ways into secrecy to serve the beds of men, on the pretext that they are Maenads worshipping; <milestone ed="p" n="225" unit="line"/> but they consider Aphrodite before Bacchus.</p>
+<p>As many of them as I have caught, servants keep in the public strongholds with their hands bound, and as many as are absent I will hunt from the mountains, &lsqb;I mean Ino and Agave, who bore me to Echion, and <milestone ed="p" n="230" unit="line"/> Autonoe, the mother of Actaeon.&rsqb; And having bound them in iron fetters, I will soon stop them from this ill-working revelry. And they say that some stranger has come, a sorcerer, a conjuror from the Lydian land, <milestone ed="p" n="235" unit="line"/> fragrant in hair with golden curls, having in his eyes the wine-dark graces of Aphrodite. He is with the young girls day and night, alluring them with joyful mysteries. If I catch him within this house, <milestone ed="p" n="240" unit="line"/> I will stop him from making a noise with the thyrsos and shaking his hair, by cutting his head off.</p>
+<p>That one claims that Dionysus is a god, claims that he was once stitched into the thigh of Zeus&mdash;Dionysus, who was burnt up with his mother by the flame of lightning, <milestone ed="p" n="245" unit="line"/> because she had falsely claimed a marriage with Zeus. Is this not worthy of a terrible death by hanging, for a stranger to insult me with these insults, whoever he is?</p>
+<p>But here is another wonder&mdash;I see Teiresias the soothsayer in dappled fawn-skins <milestone ed="p" n="250" unit="line"/> and my mother's father&mdash;a great absurdity&mdash;raging about with a thyrsos. I shrink, father, from seeing your old age devoid of sense. Won't you cast away the ivy? Grandfather, will you not free your hand of the thyrsos? <milestone ed="p" n="255" unit="line"/> You persuaded him to this, Teiresias. Do you wish, by introducing another new god to men, to examine birds and receive rewards for sacrifices? If your gray old age did not defend you, you would sit in chains in the midst of the Bacchae, <milestone ed="p" n="260" unit="line"/> for introducing wicked rites. For where women have the delight of the grape-cluster at a feast, I say that none of their rites is healthy any longer.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Oh, what impiety! O stranger, do you not reverence the gods and Kadmos who sowed the earth-born crop? <milestone ed="p" n="265" unit="line"/> Do you, the child of Echion, bring shame to your race?<milestone ed="p" n="266" unit="card"/></p></sp>
+<sp n="Teiresias">
+<speaker>Teiresias</speaker>
+<p> Whenever a wise man takes a good occasion for his speech, it is not a great task to speak well. You have a rapid tongue as though you were sensible, but there is no sense in your words. <milestone ed="p" n="270" unit="line"/> A man powerful in his boldness, one capable of speaking well, becomes a bad citizen in his lack of sense. This new god, whom you ridicule, I am unable to express how great he will be throughout <placeName key="tgn,1000074">Hellas</placeName>. For two things, young man, <milestone ed="p" n="275" unit="line"/> are first among men: the goddess Demeter&mdash;she is the earth, but call her whatever name you wish; she nourishes mortals with dry food; but he who came afterwards, the offspring of Semele, discovered a match to it, the liquid drink of the grape, and introduced it <milestone ed="p" n="280" unit="line"/> to mortals. It releases wretched mortals from grief, whenever they are filled with the stream of the vine, and gives them sleep, a means of forgetting their daily troubles, nor is there another cure for hardships. He who is a god is poured out in offerings to the gods, <milestone ed="p" n="285" unit="line"/> so that by his means men may have good things.</p>
+<p>And do you laugh at him, because he was sewn up in Zeus' thigh? I will teach you that this is well: when Zeus snatched him out of the lighting-flame, and led the child as a god to <placeName key="tgn,7011019">Olympus</placeName>, <milestone ed="p" n="290" unit="line"/> Hera wished to banish him from the sky, but Zeus, as a god, had a counter-contrivance. Having broken a part of the air which surrounds the earth, he gave this to Hera as a pledge &lt;protecting the real&gt; <note anchored="yes" resp="Buckley">A line of text has apparently been lost here.</note>Dionysus from her hostility. But in time, <milestone ed="p" n="295" unit="line"/> mortals say that he was nourished in the thigh of Zeus, changing the word, because a god he had served as a hostage for the goddess Hera, and composing the story. <note anchored="yes" resp="Buckley">The account given in lines 292f. of the development of this legend is based on the similarity between the Greek words for hostage &lpar;<foreign lang="greek">o(/mhros</foreign>&rpar; and thigh &lpar;<foreign lang="greek">mhro/s</foreign>&rpar;.</note></p>
+<milestone ed="p" n="298" unit="card"/>
+<p>But this god is a prophet&mdash;for Bacchic revelry and madness have in them much prophetic skill. <milestone ed="p" n="300" unit="line"/> For whenever the god enters a body in full force, he makes the frantic to foretell the future. He also possesses a share of Ares' nature. For terror sometimes flutters an army under arms and in its ranks before it even touches a spear; <milestone ed="p" n="305" unit="line"/> and this too is a frenzy from Dionysus. You will see him also on the rocks of <placeName key="perseus,Delphi">Delphi</placeName>, bounding with torches through the highland of two peaks, leaping and shaking the Bacchic branch, mighty throughout <placeName key="tgn,1000074">Hellas</placeName>. But believe me, Pentheus; <milestone ed="p" n="310" unit="line"/>do not boast that sovereignty has power among men, nor, even if you think so, and your mind is diseased, believe that you are being at all wise. Receive the god into your land, pour libations to him, celebrate the Bacchic rites, and garland your head.</p>
+<p>Dionysus will not compel women <milestone ed="p" n="315" unit="line"/> to be modest in regard to Aphrodite, but in nature &lsqb;modesty dwells always&rsqb; you must look for that. For she who is modest will not be corrupted in Bacchic revelry. Do you see? You rejoice whenever many people are at your gates, <milestone ed="p" n="320" unit="line"/> and the city extols the name of Pentheus. He too, I think, delights in being honored. Kadmos, whom you mock, and I will crown our heads with ivy and dance, a gray yoke-team but still we must dance; <milestone ed="p" n="325" unit="line"/> and I will not be persuaded by your words to fight against the god. For you are mad in a most grievous way, and you will not be cured by drugs, nor are you sick without them.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Old man, you do not shame Phoebus with your words, and honoring Dionysus, a great god, you are prudent.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p><milestone ed="p" n="330" unit="line"/> My child, Teiresias has advised you well. Dwell with us, not apart from the laws. For now you flit about and have thoughts without thinking. Even if, as you say, he is not a god, call him one; and tell a glorious falsehood, <milestone ed="p" n="335" unit="line"/> so that Semele might seem to have borne a god, and honor might come to all our race. You see the wretched fate of Actaeon, who was torn apart in the meadows by the blood-thirsty hounds he had raised, <milestone ed="p" n="340" unit="line"/> having boasted that he was superior in the hunt to Artemis. May you not suffer this. Come, let me crown your head with ivy; honor the god along with us.<milestone ed="p" n="343" unit="card"/></p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Don't lay a hand on me! Go off and hold your revels, but don't wipe your foolishness off on me. I will seek the punishment of this <milestone ed="p" n="345" unit="line"/> teacher of your folly. Let someone go quickly to the seat where he watches the flights of birds, upset and overturn it with levers, turning everything upside down; <milestone ed="p" n="350" unit="line"/> and release his garlands to the winds and storms. In this way I will especially wound him. And some of you hunt throughout the city for this effeminate stranger, who introduces a new disease to women and pollutes our beds. <milestone ed="p" n="355" unit="line"/> If you catch him, bring him here bound, so that he might suffer as punishment a death by stoning, having seen a bitter Bacchic revelry in <placeName key="perseus,Thebes">Thebes</placeName>.</p></sp>
+<sp>
+<speaker>Teiresias</speaker>
+<p>O wretched man, how little you know what you are saying! You are mad now, and even before you were out of your wits. <milestone ed="p" n="360" unit="line"/> Let us go, Kadmos, and entreat the god, on behalf of him, though he is savage, and on behalf of the city, to do no ill. But follow me with the ivy-clad staff, and try to support my body, and I will try to support yours; <milestone ed="p" n="365" unit="line"/> it would be shameful for two old men to fall down. But let that pass, for we must serve Bacchus, the son of Zeus. Beware lest Pentheus bring trouble to your house, Kadmos; I do not speak in prophecy, but judging from the state of things; for a foolish man speaks foolishness.<milestone ed="p" n="370" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="370" unit="line"/> Holiness, queen of the gods, Holiness, who bear your golden wings along the earth, do you hear these words from Pentheus? Do you hear his unholy <milestone ed="p" n="375" unit="line"/> insolence against Bromius, the child of Semele, the first deity of the gods at the banquets where guests wear beautiful garlands? He holds this office, to join in dances, <milestone ed="p" n="380" unit="line"/> to laugh with the flute, and to bring an end to cares, whenever the delight of the grape comes at the feasts of the gods, and in ivy-bearing banquets <milestone ed="p" n="385" unit="line"/> the goblet sheds sleep over men.<milestone ed="p" n="386" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Misfortune is the result of unbridled mouths and lawless folly; but the life of quiet <milestone ed="p" n="390" unit="line"/> and wisdom remain unshaken and hold houses together. Though they dwell far off in the heavens the gods see the deeds of mortals. <milestone ed="p" n="395" unit="line"/> But cleverness is not wisdom, nor is thinking on things unfit for mortals. Life is short, and on this account the one who pursues great things does not achieve that which is present. In my opinion, <milestone ed="p" n="400" unit="line"/> these are the ways of mad and ill-advised men.<milestone ed="p" n="402" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Would that I could go to <placeName key="tgn,1000112">Cyprus</placeName>, the island of Aphrodite, where the Loves, who soothe <milestone ed="p" n="405" unit="line"/> mortals' hearts, dwell, and to <placeName key="tgn,7002373">Paphos</placeName>, fertilized without rain by the streams of a foreign river flowing with a hundred mouths. Lead me there, Bromius, Bromius, god of joy who leads the Bacchae, <milestone ed="p" n="410" unit="line"/> to <placeName key="tgn,7002729">Pieria</placeName>, beautiful seat of the Muses, the holy slope of <placeName key="tgn,7011019">Olympus</placeName>. There are the Graces, there is Desire; there it is <milestone ed="p" n="415" unit="line"/> lawful for the Bacchae to celebrate their rites.<milestone ed="p" n="417" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>The god, the son of Zeus, delights in banquets, and loves Peace, giver of riches, <milestone ed="p" n="420" unit="line"/> goddess who nourishes youths. To the blessed and to the less fortunate, he gives an equal pleasure from wine that banishes grief. He hates the one who does not care about this: <milestone ed="p" n="425" unit="line"/> to lead a happy life by day and friendly <note anchored="yes" resp="Buckley">&ldquo;Because the Dionysiac <foreign lang="greek">i(era/</foreign> take place <foreign lang="greek">nu/ktwr ta\ polla/</foreign> &lpar;486&rpar;&rdquo; Dodds, ad loc.</note> night and to keep his wise mind and intellect away from over-curious men. <milestone ed="p" n="430" unit="line"/> What the common people think and adopt, that would I accept.<milestone ed="p" n="434" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter a servant</stage>
+<sp>
+<speaker>Servant</speaker>
+<p>Pentheus, we are here, having caught this prey <milestone ed="p" n="435" unit="line"/> for which you sent us, nor have we set out in vain. This beast was docile in our hands and did not withdraw in flight, but yielded not unwillingly. He did not turn pale or change the wine-dark complexion of his cheek, but laughed and allowed us to bind him and lead him away. <milestone ed="p" n="440" unit="line"/> He remained still, making my work easy, and I in shame said: &ldquo;Stranger, I do not lead you away willingly, but by order of Pentheus, who sent me.&rdquo;</p>
+<p>And the Bacchae whom you shut up, whom you carried off and bound in the chains of the public prison, <milestone ed="p" n="445" unit="line"/> are set loose and gone, and are gamboling in the meadows, invoking Bromius as their god. Of their own accord, the chains were loosed from their feet and keys opened the doors without human hand. This man has come to <placeName key="perseus,Thebes">Thebes</placeName> <milestone ed="p" n="450" unit="line"/> full of many wonders. You must take care of the rest.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Release his hands, for caught in the nets he is not so swift as to escape me. But your body is not ill-formed, stranger, for women's purposes, for which reason you have come to <placeName key="perseus,Thebes">Thebes</placeName>. <milestone ed="p" n="455" unit="line"/> For your hair is long, not through wrestling, scattered over your cheeks, full of desire; and you have a white skin from careful preparation, hunting after Aphrodite by your beauty not exposed to strokes of the sun, but beneath the shade. <milestone ed="p" n="460" unit="line"/> First then tell me who your family is.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I can tell you this easily, without boasting. I suppose you are familiar with flowery Tmolus.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I know of it; it surrounds the city of <placeName key="perseus,Sardis">Sardis</placeName>.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I am from there, and <placeName key="tgn,7016631">Lydia</placeName> is my fatherland.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="465" unit="line"/> Why do you bring these rites to <placeName key="tgn,1000074">Hellas</placeName>?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Dionysus, the child of Zeus, sent me.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Is there a Zeus who breeds new gods there?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>No, but the one who married Semele here.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Did he compel you at night, or in your sight?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="470" unit="line"/> Seeing me just as I saw him, he gave me sacred rites.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>What appearance do your rites have?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>They can not be told to mortals uninitiated in Bacchic revelry.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>And do they have any profit to those who sacrifice?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>It is not lawful for you to hear, but they are worth knowing.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="475" unit="line"/> You have counterfeited this well, so that I desire to hear.<milestone ed="p" n="476" unit="card"/></p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>The rites are hostile to whoever practices impiety.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Are you saying that you saw clearly what the god was like?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>He was as he chose; I did not order this.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Again you diverted my question well, speaking mere nonsense.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="480" unit="line"/> One will seem to be foolish if he speaks wisely to an ignorant man.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Did you come here first, bringing the god?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>All the barbarians celebrate these rites.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Yes, for they are far more foolish than Hellenes.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>In this at any rate they are wiser; but their laws are different.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="485" unit="line"/> Do you perform the rites by night or by day?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Mostly by night; darkness conveys awe.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>This is treacherous towards women, and unsound.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Even during the day someone may devise what is shameful.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>You must pay the penalty for your evil contrivances.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="490" unit="line"/> And you for your ignorance and impiety toward the god.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>How bold the Bacchant is, and not unpracticed in speaking!</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Tell me what I must suffer; what harm will you do to me?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>First I will cut off your delicate hair.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>My hair is sacred. I am growing it for the god.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="495" unit="line"/> Next give me this thyrsos from your hands.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Take it from me yourself. I bear it as the ensign of Dionysus.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>We will guard your body within, in prison.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>The god himself will release me, whenever I want.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Yes, when you call him, standing among the Bacchae.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="500" unit="line"/> Even now he see my sufferings from close by.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Where is he? He is not visible to my eyes.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Near me; but you, being impious, do not see him.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<stage>To attendants</stage>
+<p>Seize him; he insults me and <placeName key="perseus,Thebes">Thebes</placeName>!</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I warn you not to bind me, since I am in my senses and you are not.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="505" unit="line"/> And I, more masterful than you, bid them to bind you.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You do not know why you live, or what you are doing, or who you are.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I am Pentheus, son of Echion and Agave.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You are well-suited to be miserable in your name.<note anchored="yes" resp="Buckley">Punning on <foreign lang="greek">pe/nqos</foreign>, grief.</note></p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Go.</p>
+<stage>To attendants</stage>
+<p>Shut him up near the horse <milestone ed="p" n="510" unit="line"/> stable, so that he may see only darkness.</p>
+<stage>To Dionysus</stage>
+<p>Dance there; and as for these women whom you have led here as accomplices to your crimes, we will either sell them or, stopping their hands from this noise and beating of skins, I will keep them as slaves at the loom.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="515" unit="line"/> I will go, for I need not suffer that which is not necessary. But Dionysus, who you claim does not exist, will pursue you for these insults. For in injuring us, you put him in bonds.<milestone ed="p" n="519" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe">
+<sp><speaker>Chorus</speaker>
+<p> . . . Daughter of Achelous, <milestone ed="p" n="520" unit="line"/> venerable Dirce, happy virgin, you once received the child of Zeus in your streams, when Zeus his father snatched him up from the immortal fire and saved him in his thigh, <milestone ed="p" n="525" unit="line"/> crying out: &ldquo;Go, Dithyrambus, enter this my male womb. I will make you illustrious, Bacchus, in <placeName key="perseus,Thebes">Thebes</placeName>, so that they will call you by this name.&rdquo; <milestone ed="p" n="530" unit="line"/> But you, blessed Dirce, reject me with my garland-bearing company about you. Why do you refuse me, why do you flee me? I swear by the cluster-bearing <milestone ed="p" n="535" unit="line"/> delight of Dionysus' vine that you will have a care for Bromius.<milestone ed="p" n="537" unit="card"/></p></sp></div2>
+<div2 type="antistrophe">
+<sp><speaker>Chorus</speaker>
+<p>What rage, what rage does the earth-born race show, and Pentheus, <milestone ed="p" n="540" unit="line"/> once descended from a serpent&mdash;Pentheus, whom earth-born Echion bore, a fierce monster, not a mortal man, but like a bloody giant, hostile to the gods. <milestone ed="p" n="545" unit="line"/> He will soon bind me, the hand-maid of Bromius, in chains, and he already holds my fellow-reveler within the house, hidden in a dark prison. <milestone ed="p" n="550" unit="line"/> Do you see this, O Dionysus, son of Zeus, your priests in the dangers of restraint? Come, lord, down from <placeName key="tgn,7011019">Olympus</placeName>, brandishing your golden thyrsos, <milestone ed="p" n="555" unit="line"/> and restrain the insolence of the blood-thirsty man.<milestone ed="p" n="556" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>Where on <placeName key="perseus,Nysa">Nysa</placeName>, which nourishes wild beasts, or on Corycian heights, do you lead with your thyrsos the bands of revelers? <milestone ed="p" n="560" unit="line"/> Perhaps in the deep-wooded lairs of <placeName key="tgn,7011019">Olympus</placeName>, where Orpheus once playing the lyre drew together trees by his songs, drew together the beasts of the fields. <milestone ed="p" n="565" unit="line"/> Blessed <placeName key="tgn,7002729">Pieria</placeName>, the Joyful one reveres you and will come to lead the dance in revelry; having crossed the swiftly flowing <placeName key="tgn,7015932">Axius</placeName> he will bring the <milestone ed="p" n="570" unit="line"/> whirling Maenads, leaving Lydias, giver of wealth to mortals, the father who they say fertilizes the land of beautiful horses with <milestone ed="p" n="575" unit="line"/> fairest streams.<milestone ed="p" n="576" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Dionysus</speaker>
+<stage>within</stage>
+<p>Io! Hear my voice, hear it, Io Bacchae, Io Bacchae!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Who is here, who? From what quarter did the voice of the Joyful one summon me?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="580" unit="line"/> Io! Io! I say again; it is I, the child of Zeus and Semele.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Io! Io! Master, master! Come now to our company, Bromius.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="585" unit="line"/> Shake the world's plain, lady Earthquake!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Oh! Oh! Soon the palace of Pentheus will be shaken in ruin.</p>
+<p><note anchored="yes" resp="Buckley">The following lines are probably delivered by individual chorus members.</note>
+&mdash;Dionysus is in the halls. <milestone ed="p" n="590" unit="line"/> Revere him.</p>
+<p>&mdash;We revere him!</p>
+<p>&mdash;Did you see these stone lintels on the pillars falling apart? Bromius cries out in victory indoors.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Light the fiery lamp of lightning! <milestone ed="p" n="595" unit="line"/> Burn, burn Pentheus' home!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Oh! Oh! Do you not see the the fire, do you not perceive, about the sacred tomb of Semele, the flame that Zeus' thunderbolt left? <milestone ed="p" n="600" unit="line"/> Cast on the ground your trembling bodies, Maenads, cast them down, for our lord, Zeus' son, is coming against this palace, turning everything upside down.<milestone ed="p" n="604" unit="card"/></p></sp>
+<stage> Enter Dionysus</stage>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Barbarian women, have you fallen on the ground <milestone ed="p" n="605" unit="line"/> so stricken with fear? You have, so it seems, felt Bacchus shaking the house of Pentheus. But get up and take courage, putting a stop to your trembling.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Oh greatest light for us in our joyful revelry, how happy I am to see you&mdash;I who was alone and desolate before.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="610" unit="line"/> Did you despair when I was sent to fall into Pentheus' dark dungeon?</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>How not? Who was my guardian, if you met with misfortune? But how were you freed, having met with an impious man?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>By myself I saved myself easily, without trouble.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p><milestone ed="p" n="615" unit="line"/> Did he not tie your hands in binding knots?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>In this too I mocked him, for, thinking to bind me, he neither touched nor handled me, but fed on hope. He found a bull by the stable where he took and shut me up, and threw shackles around its knees and hooves, <milestone ed="p" n="620" unit="line"/> breathing out fury, dripping sweat from his body, gnashing his teeth in his lips. But I, being near, sitting quietly, looked on. Meanwhile, Bacchus came and shook the house and kindled a flame on his mother's tomb. When Pentheus saw this, thinking that the house was burning, <milestone ed="p" n="625" unit="line"/> he ran here and there, calling to the slaves to bring water, and every servant was at work, toiling in vain.</p>
+<p>Then he let this labor drop, as I had escaped, and snatching a dark sword rushed into the house. Then Bromius, so it seems to me&mdash;I speak my opinion&mdash;<milestone ed="p" n="630" unit="line"/> created a phantom in the courtyard. Pentheus rushed at it headlong, stabbing at the shining air, as though slaughtering me. Besides this, Bacchus inflicted other damage on him: he knocked his house to the ground, and everything was shattered into pieces, while he saw my bitter chains. From fatigue, <milestone ed="p" n="635" unit="line"/> dropping his sword, he is exhausted. For he, a man, dared to join battle with a god. Now I have quietly left the house and come to you, with no thought of Pentheus.</p>
+<p>But I think&mdash;at any rate I hear the tramping of feet inside&mdash;he will soon come to the front of the house. What will he say after this? <milestone ed="p" n="640" unit="line"/> I shall easily bear him, even if he comes boasting greatly. For it is the part of a wise man to practice restrained good temper.<milestone ed="p" n="642" unit="card"/></p></sp>
+<stage>Enter Pentheus</stage>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I have suffered terrible things; the stranger, who was recently constrained in bonds, has escaped me. Ah! <milestone ed="p" n="645" unit="line"/> Here is the man. What is this? How do you appear in front of my house, having come out?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Stop, and put a stop to your anger.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>How have you escaped your chains and come outside?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Did I not say&mdash;or did you not hear&mdash;that some one would deliver me?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="650" unit="line"/> Who? You are always introducing strange explanations.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>He who produces the rich-clustering vine for mortals.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>&lt;<gap desc="*"/>&gt;</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You reproach Dionysus for what is his glory.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I order you to close up all the towers around.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Why? Do gods not pass over walls too?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="655" unit="line"/> You are wise, wise at least in all save what you should be wise in.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I was born wise in all that I should be.</p>
+<stage>Enter a messenger</stage>
+<p>Listen first to the words of this man, who has come from the mountain to bring you some message. I will await you, I will not try to escape.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="660" unit="line"/> Pentheus, ruler of this land of <placeName key="perseus,Thebes">Thebes</placeName>, I have come from Kithairon, where the bright flakes of white snow never melt.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>What important news do you come to bring?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Having seen the holy Bacchae, who <milestone ed="p" n="665" unit="line"/> goaded to madness have darted from this land with their fair feet, I have come to tell you and the city, lord, that they are doing terrible things, beyond marvel. I wish to hear whether I should tell you in free speech the situation there or whether I should repress my report, <milestone ed="p" n="670" unit="line"/> for I fear, lord, the quickness of your mood, your keen temper and your too imperious disposition.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Speak, as you will have immunity from me in any case. For it is not right to be angry with the just. The more you tell me terrible things about the Bacchae, <milestone ed="p" n="675" unit="line"/> the more I will punish this one here who taught the women these tricks.<milestone ed="p" n="677" unit="card"/></p></sp>
+<sp n="Messenger">
+<speaker>Messenger</speaker>
+<p>The herds of grazing cattle were just climbing up the hill, at the time when the sun sends forth its rays, warming the earth. <milestone ed="p" n="680" unit="line"/> I saw three companies of dancing women, one of which Autonoe led, the second your mother Agave, and the third Ino. All were asleep, their bodies relaxed, some resting their backs against pine foliage, <milestone ed="p" n="685" unit="line"/> others laying their heads at random on the oak leaves, modestly, not as you say drunk with the goblet and the sound of the flute, hunting out Aphrodite through the woods in solitude.</p>
+<p>Your mother raised a cry, <milestone ed="p" n="690" unit="line"/> standing up in the midst of the Bacchae, to wake their bodies from sleep, when she heard the lowing of the horned cattle. And they, casting off refreshing sleep from their eyes, sprang upright, a marvel of orderliness to behold, old, young, and still unmarried virgins. <milestone ed="p" n="695" unit="line"/> First they let their hair loose over their shoulders, and secured their fawn-skins, as many of them as had released the fastenings of their knots, girding the dappled hides with serpents licking their jaws. And some, holding in their arms a gazelle or wild <milestone ed="p" n="700" unit="line"/> wolf-pup, gave them white milk, as many as had abandoned their new-born infants and had their breasts still swollen. They put on garlands of ivy, and oak, and flowering yew. One took her thyrsos and struck it against a rock, <milestone ed="p" n="705" unit="line"/> from which a dewy stream of water sprang forth. Another let her thyrsos strike the ground, and there the god sent forth a fountain of wine. All who desired the white drink scratched the earth with the tips of their fingers and obtained streams of milk; <milestone ed="p" n="710" unit="line"/> and a sweet flow of honey dripped from their ivy thyrsoi; so that, had you been present and seen this, you would have approached with prayers the god whom you now blame.</p>
+<p>We herdsmen and shepherds gathered in order to <milestone ed="p" n="715" unit="line"/> debate with one another concerning what strange and amazing things they were doing. Some one, a wanderer about the city and practised in speaking, said to us all: &ldquo;You who inhabit the holy plains of the mountains, do you wish to hunt <milestone ed="p" n="720" unit="line"/> Pentheus' mother Agave out from the Bacchic revelry and do the king a favor?&rdquo; We thought he spoke well, and lay down in ambush, hiding ourselves in the foliage of bushes. They, at the appointed hour, began to wave the thyrsos in their revelries, <milestone ed="p" n="725" unit="line"/> calling on Iacchus, the son of Zeus, Bromius, with united voice. The whole mountain revelled along with them and the beasts, and nothing was unmoved by their running.</p>
+<milestone ed="p" n="728" unit="card"/>
+<p>Agave happened to be leaping near me, and I sprang forth, wanting to snatch her, <milestone ed="p" n="730" unit="line"/> abandoning the ambush where I had hidden myself. But she cried out: &ldquo;O my fleet hounds, we are hunted by these men; but follow me! follow armed with your thyrsoi in your hands!&rdquo;</p>
+<p>We fled and escaped <milestone ed="p" n="735" unit="line"/> from being torn apart by the Bacchae, but they, with unarmed hands, sprang on the heifers browsing the grass. and you might see one rending asunder a fatted lowing calf, while others tore apart cows. <milestone ed="p" n="740" unit="line"/> You might see ribs or cloven hooves tossed here and there; caught in the trees they dripped, dabbled in gore. Bulls who before were fierce, and showed their fury with their horns, stumbled to the ground, <milestone ed="p" n="745" unit="line"/> dragged down by countless young hands. The garment of flesh was torn apart faster then you could blink your royal eyes. And like birds raised in their course, they proceeded along the level plains, which by the streams of the Asopus <milestone ed="p" n="750" unit="line"/> produce the bountiful Theban crop. And falling like soldiers upon Hysiae and Erythrae, towns situated below the rock of Kithairon, they turned everything upside down. They were snatching children from their homes; <milestone ed="p" n="755" unit="line"/> and whatever they put on their shoulders, whether bronze or iron, was not held on by bonds, nor did it fall to the ground. They carried fire on their locks, but it did not burn them. Some people in rage took up arms, being plundered by the Bacchae, <milestone ed="p" n="760" unit="line"/> and the sight of this was terrible to behold, lord. For their pointed spears drew no blood, but the women, hurling the thyrsoi from their hands, kept wounding them and turned them to flight&mdash;women did this to men, not without the help of some god. <milestone ed="p" n="765" unit="line"/> And they returned where they had come from, to the very fountains which the god had sent forth for them, and washed off the blood, and snakes cleaned the drops from the women's cheeks with their tongues.</p>
+<p>Receive this god then, whoever he is, <milestone ed="p" n="770" unit="line"/> into this city, master. For he is great in other respects, and they say this too of him, as I hear, that he gives to mortals the vine that puts an end to grief. Without wine there is no longer Aphrodite or any other pleasant thing for men.
+</p></sp>
+<milestone ed="p" n="775" unit="card"/>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p><milestone ed="p" n="775" unit="line"/> I fear to speak freely to the king, but I will speak nevertheless: Dionysus is inferior to none of the gods.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Already like fire does this insolence of the Bacchae blaze up, a great reproach for the Hellenes. <milestone ed="p" n="780" unit="line"/> But we must not hesitate. Go to the Electran gates, bid all the shield-bearers and riders of swift-footed horses to assemble, as well as all who brandish the light shield and pluck bowstrings with their hands, so that we can make an assault against <milestone ed="p" n="785" unit="line"/> the Bacchae. For it is indeed too much if we suffer what we are suffering at the hands of women.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Pentheus, though you hear my words, you obey not at all. Though I suffer ill at your hands, still I say that it is not right for you to raise arms against a god, <milestone ed="p" n="790" unit="line"/> but to remain calm. Bromius will not allow you to remove the Bacchae from the joyful mountains.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Do not instruct me, but be content in your escape from prison. Or shall I bring punishment upon you again?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I would sacrifice to the god rather <milestone ed="p" n="795" unit="line"/> than kick against his spurs in anger, a mortal against a god.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I will sacrifice, making a great slaughter of the women, as they deserve, in the glens of Kithairon.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You will all flee. And it will be a source of shame that you turn your bronze shields away from the thyrsoi of the Bacchae.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="800" unit="line"/> This stranger with whom I am locked together is impossible, and neither suffering nor doing will he be quiet.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>My friend, there is still opportunity to arrange these things well.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Doing what? Being a slave to my slaves?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Without weapons I will bring the women here.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="805" unit="line"/> Alas! You are contriving this as a trick against me.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>What sort, if I wish to save you by my contrivances?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>You have devised this together, so that you may have your revelry forever.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I certainly did&mdash;that is so&mdash;with the god.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<stage>To a servant</stage>
+<p>Bring me my armor. <stage>To Dionysus</stage> And you, stop speaking.<milestone ed="p" n="810" unit="card"/></p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="810" unit="line"/> Ah! Do you wish to see them sitting together in the mountains?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Certainly. I'd give an enormous amount of gold for that.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Why do you desire this so badly?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I would be sorry to see them in their drunkenness.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="815" unit="line"/> But would you see gladly what is grievous to you?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>To be sure, sitting quietly under the pines.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>But they will track you down, even if you go in secret.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>You are right: I will go openly.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Shall I guide you? Will you attempt the journey?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="820" unit="line"/> Lead me as quickly as possible. I grudge you the time.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Put linen clothes on your body then.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>What is this? Shall I then, instead of a man, be reckoned among the women?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Lest they kill you if you are seen there as a man.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Again you speak correctly: how wise you have been all along!</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="825" unit="line"/> Dionysus taught me these things fully.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>How can your advice to me be well carried out?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I will go inside and dress you.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>In what clothing? Female? But shame holds me back.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Are you no longer eager to view the maenads?</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="830" unit="line"/> What clothing do you bid me to put on my body?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>I will spread out hair at length on your head.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>What is the second part of my outfit?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>A robe down to your feet. And you will wear a headband.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>And what else will you add to this for me?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="835" unit="line"/> A thyrsos in your hand, and a dappled fawn-skin.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I could not put on a woman's dress.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>But you will shed blood if you join battle with the Bacchae.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>True. We must go first and spy.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>This is at any rate wiser than hunting trouble with trouble.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="840" unit="line"/> And how will I go through the city without being seen by the Thebans?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>We will go on deserted roads. I will lead you.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Anything is better than to be mocked by the Bacchae. We two will go into the house . . . and I will consider what seems best.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>It will be so; in any case I am ready.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="845" unit="line"/> I will go in. For either I will go bearing arms, or I will obey your counsels.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Women, the man is caught in our net. He will go to the Bacchae, where he will pay the penalty with his death. Dionysus, now it is your job; for you are not far off. <milestone ed="p" n="850" unit="line"/> Let us punish him. First drive him out of his wits, send upon him a dizzying madness, since if he is of sound mind he will not consent to wear women's clothing, but driven out of his senses he will put it on. I want him to be a source of laughter to the Thebans, led through the city in <milestone ed="p" n="855" unit="line"/> women's guise after making such terrible threats in the past. But now I will go to fit on Pentheus the dress he will wear to the house of Hades, slaughtered by his mother's hands. He will recognize the son of Zeus, <milestone ed="p" n="860" unit="line"/> Dionysus, who is in fact a god, the most terrible and yet most mild to men.<milestone ed="p" n="862" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe">
+<sp><speaker>Chorus</speaker>
+<p>Shall I move my white foot in the night-long dance, aroused to a frenzy, <milestone ed="p" n="865" unit="line"/> throwing my head to the dewy air, like a fawn sporting in the green pleasures of the meadow, when it has escaped a fearful chase beyond the watchers <milestone ed="p" n="870" unit="line"/> over the well-woven nets, and the hunter hastens his dogs on their course with his call, while she, with great exertion and a storm-swift running, rushes along the plain by the river, rejoicing <milestone ed="p" n="875" unit="line"/> in the solitude apart from men and in the thickets of the shady-foliaged woods.</p>
+<p>What is wisdom? Or what greater honor do the gods give to mortals than to hold one's hand <milestone ed="p" n="880" unit="line"/> in strength over the head of enemies? What is good is always dear.<milestone ed="p" n="882" unit="card"/></p></sp></div2>
+<div2 type="antistrophe">
+<sp><speaker>Chorus</speaker>
+<p>Divine strength is roused with difficulty, but still is sure. It chastises those mortals <milestone ed="p" n="885" unit="line"/> who honor folly and those who in their insanity do not extol the gods. The gods cunningly conceal the long pace of time and <milestone ed="p" n="890" unit="line"/> hunt the impious. For it is not right to determine or plan anything beyond the laws. For it is a light expense to hold that whatever is divine has power, <milestone ed="p" n="895" unit="line"/> and that which has been law for a long time is eternal and has its origin in nature.</p>
+<p>What is wisdom? Or what greater honor do the gods give to mortals than to hold one's hand <milestone ed="p" n="900" unit="line"/> in strength over the head of enemies? What is good is always dear.<milestone ed="p" n="902" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>Happy is he <note anchored="yes" resp="Buckley">The archaic sound of the English &ldquo;happy is he...&rdquo;, with its implicit echo of the beatitudes from the Sermon on the Mount, is appropriate here, for the chorus is describing beatitudes of a kind &lpar;though not strictly religious beatitudes&rpar; as appear at 73ff.</note> who has fled a storm on the sea, and reached harbor. Happy too is he who has overcome his hardships. <milestone ed="p" n="905" unit="line"/> One surpass another in different ways, in wealth or power. There are innumerable hopes to innumerable men, and some result in wealth to mortals, while others fail. <milestone ed="p" n="910" unit="line"/> But I call him blessed whose life is happy day to day.<milestone ed="p" n="912" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Dionysus</speaker>
+<p>You who are eager to see what you ought not and hasty in pursuit of what ought not to be pursued&mdash;I mean you, Pentheus, come forth before the house, be seen by me, <milestone ed="p" n="915" unit="line"/> wearing the clothing of a woman, of an inspired maenad, a spy upon your mother and her company.</p>
+<stage>Pentheus emerges.</stage>
+<p>In appearance you are like one of Kadmos' daughters.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Oh look! I think I see two suns, and twin <placeName key="perseus,Thebes">Thebes</placeName>, the seven-gated city. <milestone ed="p" n="920" unit="line"/> And you seem to lead me, being like a bull and horns seem to grow on your head. But were you ever before a beast? For you have certainly now become a bull.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>The god accompanies us, now at truce with us, though formerly not propitious. Now you see what you should see.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="925" unit="line"/> How do I look? Don't I have the posture of Ino, or of my mother Agave?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Looking at you I think I see them. But this lock of your hair has come out of place, not the way I arranged it under your headband.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="930" unit="line"/> I displaced it indoors, shaking my head forwards and backwards and practising my Bacchic revelry.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>But I who ought to wait on you will re-arrange it. Hold up your head.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Here, you arrange it; for I depend on you, indeed.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="935" unit="line"/> Your girdle has come loose, and the pleats of your gown do not extend regularly down around your ankles.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>At least on my right leg, I believe they don't. But on this side the robe sits well around the back of my leg.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You will surely consider me the best of your friends, <milestone ed="p" n="940" unit="line"/> when contrary to your expectation you see the Bacchae acting modestly.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>But shall I be more like a maenad holding the thyrsos in my right hand, or in my left?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You must hold it in your right hand and raise your right foot in unison with it. I praise you for having changed your mind.<milestone ed="p" n="945" unit="card"/></p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p><milestone ed="p" n="945" unit="line"/> Could I carry on my shoulders the glens of Kithairon, Bacchae and all?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You could if you were willing. The state of mind you had before was unsound, but now you think as you ought.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Shall we bring levers? Or shall I draw them up with my hands, <milestone ed="p" n="950" unit="line"/> putting a shoulder or arm under the mountain-tops?</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>But don't destroy the seats of the Nymphs and the places where Pan plays his pipes.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Well said. The women are not to be taken by force; I will hide in the pines.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="955" unit="line"/> You will hide yourself as you should be hidden, coming as a crafty spy on the Maenads.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Oh, yes! I imagine that like birds they are in the bushes held in the sweetest grips of love.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You have been sent as a guard against this very event. <milestone ed="p" n="960" unit="line"/> Perhaps you will catch them, if you yourself are not caught before.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Bring me through the midst of the Theban land. I am the only man of them who dares to perform this deed.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You alone bear the burden for this city, you alone. Therefore the labors which are proper await you. <milestone ed="p" n="965" unit="line"/> Follow me. I am your saving guide: another will lead you down from there.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>Yes, my mother.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>And you will be remarkable to all.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I am going for this reason.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You will return here being carried&mdash;</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>You talk of a delicacy for me.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>In the arms of your mother.</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>You will force me to luxury.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="970" unit="line"/> Yes indeed, such luxury!</p></sp>
+<sp>
+<speaker>Pentheus</speaker>
+<p>I will get what I deserve.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>You are terrible, terrible, and you go to terrible sufferings, so that you will find a renown reaching to heaven. Reach out your hands, Agave, and you too, her sisters, daughters of Kadmos. I lead this young man <milestone ed="p" n="975" unit="line"/> to a great contest, and Bromius and I will be the victors. The rest the matter itself will show.<milestone ed="p" n="977" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe">
+<sp><speaker>Chorus</speaker>
+<p>Go to the mountain, go, fleet hounds of Madness, where the daughters of Kadmos hold their company, and drive them raving <milestone ed="p" n="980" unit="line"/> against the mad spy on the Maenads, the one dressed in women's attire. His mother will be the first to see him from a smooth rock or crag, as he lies in ambush, and she will cry out to the maenads: <milestone ed="p" n="985" unit="line"/> &ldquo;Who is this seeker of the mountain-going Kadmeans who has come to the mountain, to the mountain, Bacchae? Who bore him? For he was not born from a woman's blood, but is the offspring of some lioness <milestone ed="p" n="990" unit="line"/> or of Libyan Gorgons.</p>
+<p>Let manifest justice go forth, let it go with sword in hand, slaying through the throat <milestone ed="p" n="995" unit="line"/> this godless, lawless, unjust, earth-born offspring of Echion.<milestone ed="p" n="997" unit="card"/></p></sp></div2>
+<div2 type="antistrophe">
+<sp><speaker>Chorus</speaker>
+<p>Whoever with wicked mind and unjust rage regarding your rites, Bacchus, and those of your mother, comes with raving heart <milestone ed="p" n="1000" unit="line"/> and mad disposition violently to overcome by force what is invincible&mdash;death is the discipline for his purposes, accepting no excuses when the affairs of the gods are concerned; to act like a mortal&mdash;this is a life that is free from pain. <note anchored="yes" resp="Buckley">The text and meaning of these and the following lines are highly uncertain. The above translation is based on the paraphrase that <placeName key="tgn,2532811">Murray</placeName> includes in his apparatus &ldquo;qui iniuste etc. &lpar;v. 997&rpar;, ei sententiarum castigatrix in rebus divinis indeprecabilis <placeName key="tgn,7012606">Mors</placeName> est&rdquo;.</note>
+<milestone ed="p" n="1005" unit="line"/> I do not envy wisdom, but rejoice in hunting it. But other things are great and manifest. Oh, for life to flow towards the good, to be pure and pious day and night, and to honor the gods, <milestone ed="p" n="1010" unit="line"/> banishing customs that are outside of justice.</p>
+<p>Let manifest justice go forth, let it go with sword in hand, slaying through the throat <milestone ed="p" n="1015" unit="line"/> this godless, lawless, unjust, earth-born offspring of Echion.<milestone ed="p" n="1017" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>Appear as a bull or many-headed serpent or raging lion to see. <milestone ed="p" n="1020" unit="line"/> Go, Bacchus, with smiling face throw a deadly noose around the hunter of the Bacchae as he falls beneath the flock of Maenads.<milestone ed="p" n="1024" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Second Messenger</speaker>
+<p>Oh house once fortunate in <placeName key="tgn,1000074">Hellas</placeName>, <milestone ed="p" n="1025" unit="line"/> house of the Sidonian old man who once sowed in the ground the earth-born harvest of the serpent Ophis, how I groan for you, though I am a slave, but still &lsqb;the masters' affairs are a concern to good servants&rsqb;.<note anchored="yes" resp="Buckley">This line is most likely interpolated from Eur. Med. 54</note>.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>What is it? Do you bring some news from the Bacchae?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="1030" unit="line"/> Pentheus, the child of Echion, is dead.</p></sp>
+<stage>sung</stage>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Lord Bacchus, truly you appear to be a great god.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>What do you mean? Why have you said this? Do you rejoice at the misfortunes of my master, woman?</p></sp>
+<stage>sung</stage>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>I, a foreign woman, rejoice with foreign songs; <milestone ed="p" n="1035" unit="line"/> for no longer do I cower in fear of chains.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Do you think <placeName key="perseus,Thebes">Thebes</placeName> so lacking in men?</p></sp>
+<stage>sung</stage>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Dionysus, Dionysus, not <placeName key="perseus,Thebes">Thebes</placeName>, holds my allegiance.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>You may be forgiven, but still it is not good <milestone ed="p" n="1040" unit="line"/> to rejoice at troubles once they have actually taken place, women.</p></sp>
+<stage>sung</stage>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>Tell me, speak, what kind of a death did he die, the unjust man who did unjust things?<milestone ed="p" n="1043" unit="card"/></p></sp>
+<sp n="Messenger">
+<speaker>Messenger</speaker>
+<p>When we left the dwellings of the Theban land and crossed the streams of Asopus, <milestone ed="p" n="1045" unit="line"/> we began to ascend the heights of Kithairon, Pentheus and I&mdash;for I was following my master&mdash;and the stranger who was our guide to the sight. First we sat in a grassy vale, <milestone ed="p" n="1050" unit="line"/> keeping our feet and voices quiet, so that we might see them without being seen. There was a little valley surounded by precipices, irrigated with streams, shaded by pine trees, where the Maenads were sitting, their hands busy with delightful labors. Some of them were crowning again <milestone ed="p" n="1055" unit="line"/> the worn thyrsos, making it leafy with ivy, while some, like colts freed from the painted yoke, were singing a Bacchic melody to one another. And the unhappy Pentheus said, not seeing the crowd of women: &ldquo;Stranger, <milestone ed="p" n="1060" unit="line"/> from where we are standing I cannot see these false Maenads. But on the hill, ascending a lofty pine, I might view properly the shameful acts of the Maenads.&rdquo;</p>
+<p>And then I saw the stranger perform a marvelous deed. For seizing hold of the lofty top-most branch of the pine tree, <milestone ed="p" n="1065" unit="line"/> he pulled it down, pulled it, pulled it to the dark earth. It was bent just as a bow or a curved wheel, when it is marked out by a compass, describes a circular course <note anchored="yes" resp="Buckley">The sense of the text here is not clear. The translation &lpar;which follows Dodds&rpar; assumes that the &ldquo;curved wheel&rdquo; is not a hollow circle connected to the hub by spokes, but a single piece of wood which has been cut into the shape of a circle. In the action described, a peg &lpar;<foreign lang="greek">to/rnos</foreign>&rpar; is fixed into the center of the word-section. A string with a piece of chalk on one end is then attached to the peg, and the chalk, held tight against the string, is able to mark out an even circle. The bending of the tree thus resembles the circular path taken by the chalk.</note>: in this way the stranger drew the mountain bough with his hands and bent it to the earth, doing no mortal's deed. <milestone ed="p" n="1070" unit="line"/> He sat Pentheus down on the pine branch, and let it go upright through his hands steadily, taking care not to shake him off. The pine stood firmly upright into the sky, with my master seated on its back. <milestone ed="p" n="1075" unit="line"/> He was seen by the Maenads more than he saw them, for sitting on high he was all but apparent, and the stranger was no longer anywhere to be seen, when a voice, Dionysus as I guess, cried out from the air: &ldquo;Young women, <milestone ed="p" n="1080" unit="line"/> I bring the one who has made you and me and my rites a laughing-stock. Now punish him!&rdquo; And as he said this a light of holy fire was placed between heaven and earth.<milestone ed="p" n="1084" unit="card"/></p>
+<p>The air became quiet and the woody glen <milestone ed="p" n="1085" unit="line"/> kept its leaves silent, nor would you have heard the sounds of animals. But they, not having heard the sound clearly, stood upright and looked all around. He repeated his order, and when the daughters of Kadmos recognized the clear command of Bacchus, <milestone ed="p" n="1090" unit="line"/> they rushed forth, swift as a dove, running with eager speed of feet, his mother Agave, and her sisters, and all the Bacchae. They leapt through the torrent-streaming valley and mountain cliffs, frantic with the inspiration of the god. <milestone ed="p" n="1095" unit="line"/> When they saw my master sitting in the pine, first they climbed a rock towering opposite the tree and began to hurl at him boulders violently thrown. Some aimed with pine branches and other women hurled their thyrsoi through the air <milestone ed="p" n="1100" unit="line"/> at Pentheus, a sad target indeed. But they did not reach him, for the wretched man, caught with no way out, sat at a height too great for their eagerness. Finally like lightning they smashed oak branches and began to tear up the roots of the tree with ironless levers. <milestone ed="p" n="1105" unit="line"/> When they did not succeed in their toils, Agave said: &ldquo;Come, standing round in a circle, each seize a branch, Maenads, so that we may catch the beast who has climbed aloft, and so that he does not make public the secret dances of the god.&rdquo; They applied countless hands <milestone ed="p" n="1110" unit="line"/> to the pine and dragged it up from the earth. Pentheus fell crashing to the ground from his lofty seat, wailing greatly: for he knew he was in terrible trouble.</p>
+<milestone ed="p" n="1114" unit="card"/>
+<p>His mother, as priestess, began the slaughter, <milestone ed="p" n="1115" unit="line"/> and fell upon him. He threw the headband from his head so that the wretched Agave might recognize and not kill him. Touching her cheek, he said: &ldquo;It is I, mother, your son, Pentheus, whom you bore in the house of Echion. <milestone ed="p" n="1120" unit="line"/> Pity me, mother, and do not kill me, your child, for my sins.&rdquo;</p>
+<p>But she, foaming at the mouth and twisting her eyes all about, not thinking as she ought, was possessed by Bacchus, and he did not persuade her. <milestone ed="p" n="1125" unit="line"/> Seizing his left arm at the elbow and propping her foot against the unfortunate man's side, she tore out his shoulder, not by her own strength, but the god gave facility to her hands. Ino began to work on the other side, <milestone ed="p" n="1130" unit="line"/> tearing his flesh, while Autonoe and the whole crowd of the Bacchae pressed on. All were making noise together, he groaning as much as he had life left in him, while they shouted in victory. One of them bore his arm, another a foot, boot and all. His ribs were stripped bare <milestone ed="p" n="1135" unit="line"/> from their tearings. The whole band, hands bloodied, were playing a game of catch with Pentheus' flesh.</p>
+<p>His body lies in different places, part under the rugged rocks, part in the deep foliage of the woods, not easy to be sought. His miserable head, <milestone ed="p" n="1140" unit="line"/> which his mother happened to take in her hands, she fixed on the end of a thyrsos and carries through the midst of Kithairon like that of a savage lion, leaving her sisters among the Maenads' dances. She is coming inside these walls, preening herself <milestone ed="p" n="1145" unit="line"/> on the ill-fated prey, calling Bacchus her fellow hunter, her accomplice in the chase, the glorious victor&mdash;in whose service she wins a triumph of tears.</p>
+<p>And as for me, I will depart out of the way of this calamity before Agave reaches the house. <milestone ed="p" n="1150" unit="line"/> Soundness of mind and reverence for the affairs of the gods is best; and this, I think, is the wisest possession for those mortals who adopt it.
+</p></sp>
+</div1>
+<milestone ed="p" n="1153" unit="card"/>
+<div1 type="choral">
+<div2 type="lyric">
+<sp>
+<speaker>Chorus</speaker>
+<p>Let us honor Bacchus with the dance, let us raise a shout for what has befallen <milestone ed="p" n="1155" unit="line"/> Pentheus, descendant of the serpent, who assumed female attire and the wand, the beautiful thyrsos&mdash;certain death&mdash;and a bull was the leader of his calamity. <milestone ed="p" n="1160" unit="line"/> Kadmean Bacchae, you have accomplished a glorious victory, but one that brings woe and tears. It is a noble contest to cover one's dripping hands with the blood of one's own son.<milestone ed="p" n="1165" unit="card"/></p>
+</sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p><milestone ed="p" n="1165" unit="line"/>But, for I see Pentheus' mother Agave coming home, her eyes contorted, receive the revel of the god of joy!<milestone ed="p" n="1168" unit="card"/></p></sp></div2>
+<div2 type="strophe">
+<stage>Enter Agave</stage>
+<sp><speaker>Agave</speaker>
+<p>Asian Bacchae&mdash;</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Why do you excite me, oh?</p></sp>
+<sp><speaker>Agave</speaker>
+<p>I am bringing home from the mountain a <milestone ed="p" n="1170" unit="line"/> freshly cut tendril to the house, blessed prey.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>I see it and will accept you as a fellow reveler.</p></sp>
+<sp><speaker>Agave</speaker>
+<p>I caught this young wild lion cub without snares, <milestone ed="p" n="1175" unit="line"/> as you can see.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>From what desert?</p></sp>
+<sp><speaker>Agave</speaker>
+<p>Kithairon&mdash;</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Kithairon?</p></sp>
+<sp><speaker>Agave</speaker>
+<p>slew him.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Who struck him?</p></sp>
+<sp><speaker>Agave</speaker>
+<p>The honor is mine first. <milestone ed="p" n="1180" unit="line"/> I am called blessed Agave in the revels.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Who else?</p></sp>
+<sp><speaker>Agave</speaker>
+<p>Kadmos'&mdash;</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Kadmos' what?</p></sp>
+<sp><speaker>Agave</speaker>
+<p>His other offspring took hold of this beast after me, after me. This is a lucky catch!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>&lt;<gap desc="*"/>&gt;</p>
+<milestone ed="p" n="1184" unit="card"/></sp></div2>
+<div2 type="antistrophe">
+<sp><speaker>Agave</speaker>
+<p>Share in the feast then.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>What? I share in the feast, wretched woman?</p></sp>
+<sp><speaker>Agave</speaker>
+<p><milestone ed="p" n="1185" unit="line"/> The bull is young; his cheek is just growing downy under his soft-haired crest.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Yes, his hair looks like a wild beast's.</p></sp>
+<sp><speaker>Agave</speaker>
+<p>Bacchus, a wise huntsman, <milestone ed="p" n="1190" unit="line"/> wisely set the Maenads against this beast.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Our lord is a hunter.</p></sp>
+<sp><speaker>Agave</speaker>
+<p>Do you praise me?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>I praise you.</p></sp>
+<sp><speaker>Agave</speaker>
+<p>Soon the Kadmeans&mdash;</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1195" unit="line"/> And your son Pentheus, too&mdash;</p></sp>
+<sp><speaker>Agave</speaker>
+<p>Will praise his mother who has caught this lion-like prey.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Extraordinary.</p></sp>
+<sp><speaker>Agave</speaker>
+<p>And extraordinarily caught.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Are you proud?</p></sp>
+<sp><speaker>Agave</speaker>
+<p>I am delighted, for I have performed great&mdash;yes, great&mdash;and notable deeds on this hunt.<milestone ed="p" n="1200" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus Leader</speaker>
+<p><milestone ed="p" n="1200" unit="line"/> Now show the citizens, wretched woman, the booty which you have brought in victory.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>You who dwell in this fair-towered city of the Theban land, come to see this prey which we the daughters of Kadmos hunted down, <milestone ed="p" n="1205" unit="line"/> not with thonged Thessalian javelins, or with nets, but with the fingers of our white arms. And then should huntsmen boast and use in vain the work of spear-makers? But we caught and <milestone ed="p" n="1210" unit="line"/> tore apart the limbs of this beast with our very own hands. Where is my old father? Let him approach. And where is my son Pentheus? Let him take a ladder and raise its steps against the house so that he can fasten to the triglyphs this <milestone ed="p" n="1215" unit="line"/> lion's head which I have captured and brought here.</p></sp>
+<stage>Enter Kadmos and his servants, carrying the remains of Pentheus' body</stage>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Follow me, carrying the miserable burden of Pentheus, follow me, slaves, before the house; exhausted from countless searches, I am bringing his body, for I discovered it in the folds of Kithairon, <milestone ed="p" n="1220" unit="line"/> torn apart; I picked up nothing in the same place, and it was lying in the woods where discovery was difficult. For some one told me of my daughters' bold deeds, when I had already come within the walls of the city on my return from the Bacchae with old Teiresias. <milestone ed="p" n="1225" unit="line"/> I turned back to the mountain and now bring here my child who was killed by the Maenads. For I saw Autonoe, who once bore Actaeon to Aristaeus, and Ino with her, still mad in the thicket, wretched creatures. <milestone ed="p" n="1230" unit="line"/> But some one told me that Agave was coming here with Bacchic foot, and this was correct, for I see her&mdash;no happy sight!</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Father, you may make a great boast, that you have born daughters the best by far of all <milestone ed="p" n="1235" unit="line"/> mortals. I mean all of us, but myself especially, who have left my shuttle at the loom and gone on to greater things, to catch wild animals with my two hands. And having taken him, I carry these spoils of honor in my arms, as you see, <milestone ed="p" n="1240" unit="line"/> so that they may hang from your house. You father, receive them in your hands. Preening yourself in my catch, call your friends to a feast. For you are blessed, blessed, now that we have performed these deeds.<milestone ed="p" n="1244" unit="card"/></p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>O grief beyond measuring, one which I cannot stand to see, <milestone ed="p" n="1245" unit="line"/> that you have performed murder with miserable hands. Having cast down a fine sacrificial victim to the gods, you invite <placeName key="perseus,Thebes">Thebes</placeName> and me to a banquet. Alas, first for your troubles, then for my own. How justly, yet too severely, <milestone ed="p" n="1250" unit="line"/> lord Bromius the god has destroyed us, though he is a member of our own family.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>How morose and sullen in its countenance is man's old age! I hope that my son is a good hunter, taking after his mother's ways, when he goes after wild beasts <milestone ed="p" n="1255" unit="line"/> together with the young men of <placeName key="perseus,Thebes">Thebes</placeName>. But all he can do is fight with the gods. You must admonish him, father. Who will call him here to my sight, so that he may see how lucky I am?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Alas, alas! When you realize what you have done <milestone ed="p" n="1260" unit="line"/> you will suffer a terrible pain. But if you remain forever in the state you are in now, though hardly fortunate, you will not imagine that you are unfortunate.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>But what of these matters is not right, or what is painful?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>First cast your eye up to this sky.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p><milestone ed="p" n="1265" unit="line"/> All right; why do you tell me to look at it?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Is it still the same, or does it appear to have changed?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>It is brighter than before and more translucent.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Is your soul still quivering?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>I don't understand your words. I have become somehow <milestone ed="p" n="1270" unit="line"/> sobered, changing from my former state of mind.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Can you hear and respond clearly?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Yes, for I forget what we said before, father.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>To whose house did you come in marriage?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>You gave me, as they say, to Echion, the sown man.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p><milestone ed="p" n="1275" unit="line"/> What son did you bear to your husband in the house?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Pentheus, from my union with his father.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Whose head do you hold in your hands?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>A lion's, as they who hunted him down said.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Examine it correctly then; it takes but little effort to see.<milestone ed="p" n="1280" unit="card"/></p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p><milestone ed="p" n="1280" unit="line"/> Ah! What do I see? What is this that I carry in my hands?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Look at it and learn more clearly.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>I see the greatest grief, wretched that I am.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Does it seem to you to be like a lion?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>No, but I, wretched, hold the head of Pentheus.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p><milestone ed="p" n="1285" unit="line"/> Yes, much lamented before you recognized him.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Who killed him? How did he come into my hands?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Miserable truth, how inopportunely you arrive!</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Tell me. My heart leaps at what is to come.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>You and your sisters killed him.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p><milestone ed="p" n="1290" unit="line"/> Where did he die? Was it here at home, or in what place?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Where formerly dogs divided Actaeon among themselves.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>And why did this ill-fated man go to Kithairon?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>He went to mock the god and your revelry.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>But in what way did we go there?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p><milestone ed="p" n="1295" unit="line"/> You were mad, and the whole city was frantic with Bacchus.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Dionysus destroyed us&mdash;now I understand.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Being insulted with insolence, for you did not consider him a god.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>And where is the body of my dearest child, father?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>I have traced it with difficulty and brought it back.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p><milestone ed="p" n="1300" unit="line"/> Are its joints laid properly together?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>&lt;<gap desc="*"/>&gt;</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>What part did Pentheus have in my folly?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>He, like you, did not revere the god, who therefore joined all in one ruin, both you and this one here, and thus destroyed the house and me, <milestone ed="p" n="1305" unit="line"/>, who am bereft of my male children and see this offspring of your womb, wretched woman, most miserably and shamefully slain. He was the hope of our line&mdash;you, child, who supported the house, son of my daughter, <milestone ed="p" n="1310" unit="line"/> an object of fear to the city; seeing you, no one wished to insult the old man, for you would have given a worthy punishment. But now I, great Kadmos, who sowed and reaped <milestone ed="p" n="1315" unit="line"/> a most glorious crop, the Theban people, will be banished from the house without honor. Dearest of men&mdash;for though you are dead I still count you among my dearest, child&mdash;no longer will you embrace me, calling me grandfather, touching my chin with your hand, child, and <milestone ed="p" n="1320" unit="line"/> saying: &ldquo;Who wrongs you, old man, who dishonors you? Who vexes and troubles your heart? Tell me, father, so that I can punish the one who does you wrong.&rdquo; But now I am miserable, while you are wretched, your mother is pitiful, and wretched too are your relatives. <milestone ed="p" n="1325" unit="line"/> If anyone scorns the gods, let him look to the death of this man and acknowledge them.</p></sp>
+<sp>
+<speaker>Chorus Leader</speaker>
+<p>I grieve for you, Kadmos. Your daughter's child has a punishment deserved indeed, but grievous to you.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Father, for you see how much my situation has changed ...<gap desc="*"/><milestone ed="p" n="1330" unit="card"/></p></sp>
+<stage>To Kadmos</stage>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="1330" unit="line"/> . . . changing your form, you will become a dragon, and your wife, Harmonia, Ares' daughter, whom you though mortal held in marriage, will be turned into a beast, and will receive in exchange the form of a serpent. And as the oracle of Zeus says, you will drive along with your wife a chariot of heifers, ruling over barbarians. <milestone ed="p" n="1335" unit="line"/> You will sack many cities with a force of countless numbers. And when they plunder the oracle of Apollo, they will have a miserable return, but Ares will protect you and Harmonia and will settle your life in the land of the blessed.</p>
+<p><milestone ed="p" n="1340" unit="line"/> That is what I, Dionysus, born not from a mortal father, but from Zeus, say. And if you had known how to be wise when you did not wish to be, you would have acquired Zeus' son as an ally, and would now be happy.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Dionysus, we beseech you, we have acted injustly.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p><milestone ed="p" n="1345" unit="line"/> You have learned it too late; you did not know it when you should have.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Now we know, but you go too far against us.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Yes, for I, a god by birth, was insulted by you.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Gods should not resemble mortals in their anger.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>My father Zeus approved this long ago.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p><milestone ed="p" n="1350" unit="line"/> Alas! A miserable exile has been decreed for us, old man.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Why then do you delay what must necessarily be?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Child, what a terrible disaster we have all come to&mdash;unhappy you, your sisters, and unhappy me. I shall reach a foreign land <milestone ed="p" n="1355" unit="line"/> as an aged immigrant. Still it is foretold that I shall bring into <placeName key="tgn,1000074">Hellas</placeName> a motley barbarian army. Leading their spears, I, having the fierce nature of a serpent, will bring my wife Harmonia, daughter of Ares, to the altars and tombs of <placeName key="tgn,1000074">Hellas</placeName>. <milestone ed="p" n="1360" unit="line"/> I will neither rest from my troubles in my misery, nor will I sail over the downward flowing <placeName key="tgn,1120946">Acheron</placeName> and be at peace.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>O father, I will go into exile deprived of you.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Why do you embrace me with your hands, child, <milestone ed="p" n="1365" unit="line"/> like a swan for its exhausted gray-haired parent?</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>For where can I turn, banished from my father-land?</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>I do not know, child; your father is a poor ally.<milestone ed="p" n="1368" unit="card"/></p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Farewell, house, farewell, city of my forefathers. In misfortune I leave you, <milestone ed="p" n="1370" unit="line"/> a fugitive from my chamber.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Go now, child, to the land of Aristaeus . . . <gap desc="*"/></p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>I grieve for you, father.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>And I for you, child, and I weep for your sisters.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Terribly indeed has <milestone ed="p" n="1375" unit="line"/> lord Dionysus brought this misery to your home.</p></sp>
+<sp>
+<speaker>Dionysus</speaker>
+<p>Yes, for I suffered terrible things at your hands, with my name not honored in <placeName key="perseus,Thebes">Thebes</placeName>.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Farewell, my father.</p></sp>
+<sp>
+<speaker>Kadmos</speaker>
+<p>Farewell, unhappy <milestone ed="p" n="1380" unit="line"/> daughter; and yet you cannot easily fare well.</p></sp>
+<sp>
+<speaker>Agave</speaker>
+<p>Lead me, escorts, where I may take my pitiful sisters as companions to my exile. May I go where accursed Kithairon may not see me, <milestone ed="p" n="1385" unit="line"/> nor I see Kithairon with my eyes, nor where a memorial of a thyrsos has been dedicated; let these concern other Bacchae.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Many are the forms of divine things, and the gods bring to pass many things unexpectedly; <milestone ed="p" n="1390" unit="line"/> what is expected has not been accomplished, but the god has found out a means for doing things unthought of. So too has this event turned out.</p></sp>
+</div1></body></text>
+</TEI.2>

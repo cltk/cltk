@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Comp.Per.Fab." type="work">Comparison of Pericles and Fabius Maximus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 12Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Comp.Per.Fab."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1916</date>
+                  </imprint>
+                  <biblScope type="volume">3</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990722</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>COMPARISON OF PERICLES AND FABIUS MAXIMUS</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such is the story of these men's lives, and since both left behind them many examples of civil as well as military excellence, let us consider, in the first place, the matter of their military achievements. Pericles was at the head of his people when its prosperity was greatest, when its own strength was at the full, and its imperial power culminating. Apparently, therefore, it was the general good fortune and vigour that kept him free from stumbling and falling, 
+				<milestone n="2" unit="section"/>whereas the achievements of Fabius, who took charge of his city at times of the greatest disgrace and misfortune, did not maintain her safely in her prosperity, but rather lifted her out of disaster into a better state. And besides, the victories of Cimon, and the trophies of Myronides and Leocrates, and the many great successes of Tolmides, made it the privilege of Pericles, during his administration, to enrich the city with holidays and public festivals, rather than to enlarge and protect her dominion by war. 
+				<milestone n="3" unit="section"/>Fabius, on the contrary, whose eyes beheld many disgraceful defeats, many cruel deaths of imperators and generals, lakes and plains and forests filled with slain armies, and rivers flowing with blood and slaughter to the sea, put helping and supporting hands to his city, and by his firm and independent course, prevented her from utter exhaustion through the disasters brought upon her by others. 
+				<milestone n="4" unit="section"/>And yet it would appear to be not so difficult a task to manage a city when she is humbled by adversity and rendered obedient to wisdom by necessity, as it is to bridle a people which is exalted by prosperity and swollen with insolence and boldness, which is precisely the way in which Pericles governed Athens. Still, the magnitude and multitude of evils which afflicted the Romans revealed the steadfast purpose and the greatness of the man who was not confounded by them, and would not abandon his own principles of action.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Over against the capture of Samos by Pericles, it is fair to set the taking of Tarentum by Fabius, and against Euboea, the cities of Campania (Capua itself was reduced by the consuls Fulvius and Appius). In open and regular battle, Fabius seems to have won no victory except that for which he celebrated his first triumph<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Fab. 2.1"/>chapter ii. 1.</note>; whereas Pericles set up nine trophies for his wars on land and sea. 
+				<milestone n="2" unit="section"/>However, no such exploit is recorded of Pericles as that by which Fabius snatched Minucius from the hands of Hannibal, and preserved an entire Roman army; the deed was certainly a noble one, and showed a combination of valour, wisdom, and kindness alike. So, on the other hand, no such defeat is recorded of Pericles as that which Fabius suffered when he was outwitted by Hannibal's stratagem of the oxen; he had his enemy imprisoned in the narrow defile which he had entered of his own accord and accidentally, but let him slip away unnoticed in the night, force his way out when day came, take advantage of his adversary's delays, and so conquer his captor. 
+				<milestone n="3" unit="section"/>And if it is the part of a good general not only to improve the present, but also to judge correctly of the future, then Pericles was such a general, for the war which the Athenians were waging came to an end as he had foreknown and foretold; for they undertook too much and lost their empire. But it was contrary to the principles of Fabius that the Romans sent Scipio against Carthage and were completely victorious, not through the favour of fortune, but through the wisdom and valour of the general who utterly conquered their enemies. 
+				<milestone n="4" unit="section"/>Therefore the very disasters of his country bear witness to the sagacity of Pericles; while the successes of the Romans proved that Fabius was completely in the wrong. And it is just as great a failing in a general to involve himself in disaster from want of foresight, as it is to throw away an opportunity for success from want of confidence. Inexperience, it would seem, is to blame in each case, which both engenders rashness in a man, and robs a man of courage. So much for their military abilities.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As for their statesmanship, the Peloponnesian war was a ground of great complaint against Pericles. For it is said to have been brought on by his contention that no concession should be made to Sparta. I think, however, that not even Fabius Maximus would have made any concessions to Carthage, but would have nobly undergone the peril needful to maintain the Roman supremacy. Nevertheless, the courteous and gentle conduct of Fabius towards Minucius contrasts forcibly with the factious opposition of Pericles to Cimon and Thucydides, who were both good and true men and of the highest birth, and yet were subjected by him to ostracism and banishment. 
+				<milestone n="2" unit="section"/>But Pericles had greater influence and power than Fabius. For this reason he did not suffer any other general to bring misfortune upon the city by his evil counsels, except that Tolmides broke away from his guidance, carried through by main force a plan for attacking Boeotia, and met with disaster; but the rest all attached themselves submissively to his opinion, owing to the greatness of his influence. 
+				<milestone n="3" unit="section"/>Fabius, on the other hand, though sure and unerring in his own conduct of affairs, seems to have fallen short through his inability to restrain others. Surely the Romans would not have suffered so many disasters if Fabius had been as influential with them as Pericles was at Athens.
+			</p>
+         <p>And further, as regards their freedom from mercenary views, Pericles displayed it by never taking any gifts at all; Fabius by his liberality to the needy, when he ransomed at his own costs his captured soldiers. 
+				<milestone n="4" unit="section"/>Albeit the amount of his property was not great, but about six talents. And Pericles, though he had opportunities, owing to his authority and influence, to enrich himself from obsequious allies and kings beyond all possible estimates, nevertheless kept himself pre-eminently superior to bribes and free from corruption.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>By the side of the great public works, the temples, and the stately edifices, with which Pericles adorned Athens, all Rome's attempts at splendour down to the times of the Caesars, taken together, are not worthy to be considered, nay, the one had a towering pre-eminence above the other, both in grandeur of design, and grandeur of execution, which precludes comparison.
+			</p>
+      </body>
+   </text>
+</TEI.2>

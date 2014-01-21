@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Rom." type="work">Romulus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 94Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Rom."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">1</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990528</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/97</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+         <change>
+            <date>10/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>fixed note tags and checked them</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>ROMULUS</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>From whom, and for what reason the great name of Rome, so famous among mankind, was given to that city, writers are not agreed. Some say that the Pelasgians, after wandering over most of the habitable earth and subduing most of mankind, settled down on that site, and that from their <emph>strength</emph> in war they called their city Rome. 
+				<milestone n="2" unit="section"/>Others say that at the taking of Troy some of its people escaped, found sailing vessels, were driven by storms upon the coast of Tuscany, and came to anchor in the river Tiber; that here, while their women were perplexed and distressed at thought of the sea, one of them, who was held to be of superior birth and the greatest understanding, and whose name was Roma, proposed that they should burn the ships<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Verg. A. 5.604">Cf. <title>Aeneid</title>, v. 604-699.</bibl>
+            </note>; 
+				<milestone n="3" unit="section"/>that when this was done, the men were angry at first, but afterwards, when they had settled of necessity on the Palatine, seeing themselves in a little while more prosperous than they had hoped, since they found the country good and the neighbours made them welcome, they paid high honours to Roma, and actually named the city after her, since she had been the occasion of their founding it. 
+				<milestone n="4" unit="section"/>And from that time on, they say, it has been customary for the women to salute their kinsmen and husbands with a kiss; for those women, after they had burned the ships, made use of such tender salutations as they supplicated their husbands and sought to appease their wrath.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Others again say that the Roma who gave her name to the city was a daughter of Italus and Leucaria, or, in another account, of Telephus the son of Heracles; and that she was married to Aeneas, or, in another version, to Ascanius the son of Aeneas. Some tell us that it was Romanus, a son of Odysseus and Circe, who colonized the city; others that it was Romus, who was sent from Troy by Diomedes the son of Emathion; and others still that it was Romis, tyrant of the Latins, after he had driven out the Tuscans, who passed from Thessaly into Lydia, and from Lydia into Italy. Moreover, even those writers who declare, in accordance with the most authentic tradition, that it was Romulus who gave his name to the city, do not agree about his lineage. 
+				<milestone n="2" unit="section"/>For some say that he was a son of Aeneas and Dexithea the daughter of Phorbas, and was brought to Italy in his infancy, along with his brother Romus; that the rest of the vessels were destroyed in the swollen river, but the one in which the boys were was gently directed to a grassy bank, where they were unexpectedly saved, and the place was called Roma from them. 
+				<milestone n="3" unit="section"/>Others say it was Roma, a daughter of the Trojan woman I have mentioned, who was wedded to Latinus the son of Telemachus and bore him Romulus; others that Aemilia, the daughter of Aeneas and Lavinia, bore him to Mars; and others still rehearse what is altogether fabulous concerning his origin. For instance, they say that Tarchetius, king of the Albans, who was most lawless and cruel, was visited with a strange phantom in his house, namely, a phallus rising out of the hearth and remaining there many days. 
+				<milestone n="4" unit="section"/>Now there was an oracle of Tethys in Tuscany, from which there was brought to Tarchetius a response that a virgin must have intercourse with this phantom, and she should bear a son most illustrious for his valour, and of surpassing good fortune and strength. Tarchetius, accordingly, told the prophecy to one of his daughters, and bade her consort with the phantom; but she disdained to do so, and sent a handmaid in to it. 
+				<milestone n="5" unit="section"/>When Tarchetius learned of this, he was wroth, and seized both the maidens, purposing to put them to death.  But the goddess Hestia appeared to him in his sleep and forbade him the murder. He therefore imposed upon the maidens the weaving of a certain web in their imprisonment, assuring them that when they had finished the weaving of it, they should then be given in marriage. By day, then, these maidens wove, but by night other maidens, at the command of Tarchetius, unravelled their web. And when the handmaid became the mother of twin children by the phantom, Tarchetius gave them to a certain Teratius with orders to destroy them. 
+				<milestone n="6" unit="section"/>This man, however, carried them to the river-side and laid them down there. Then a she-wolf visited the babes and gave them suck, while all sorts of birds brought morsels of food and put them into their mouths, until a cow-herd spied them, conquered his amazement, ventured to come to them, and took the children home with him. Thus they were saved, and when they were grown up, they set upon Tarchetius and overcame him. At any rate, this is what a certain Promathion says, who compiled a history of Italy.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But the story which has the widest credence and the greatest number of vouchers was first published among the Greeks, in its principal details, by Diodes of Peparethus, and Fabius Pictor follows him in most points. Here again there are variations in the story, but its general outline is as follows. 
+				<milestone n="2" unit="section"/>The descendants of Aeneas reigned as kings in Alba, and the succession devolved at length upon two brothers, Numitor and Amulius.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.3">Cf. Livy, i. 3.</bibl>
+            </note> Amulius divided the whole inheritance into two parts, setting the treasures and the gold which had been brought from Troy over against the kingdom, and Numitor chose the kingdom. Amulius, then, in possession of the treasure, and made more powerful by it than Numitor, easily took the kingdom away from his brother, and fearing lest that brother's daughter should have children, made her a priestess of Vesta, bound to live unwedded and a virgin all her days. 
+				<milestone n="3" unit="section"/>Her name is variously given as Ilia, or Rhea, or Silvia. Not long after this, she was discovered to be with child, contrary to the established law for the Vestals.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.4.1">Cf. Livy, i. 4, 1-5.</bibl>
+            </note>  She did not, however, suffer the capital punishment which was her due, because the king's daughter, Antho, interceded successfully in her behalf, but she was kept in solitary confinement, that she might not be delivered without the knowledge of Amulius. Delivered she was of two boys, and their size and beauty were more than human. 
+				<milestone n="4" unit="section"/>Wherefore Amulius was all the more afraid, and ordered a servant to take the boys and cast them away. This servant's name was Faustulus, according to some, but others give this name to the man who took the boys up. Obeying the king's orders, the servant put the babes into a trough and went down towards the river, purposing to cast them in; but when he saw that the stream was much swollen and violent, he was afraid to go close up to it, and setting his burden down near the bank, went his way. 
+				<milestone n="5" unit="section"/>Then the overflow of the swollen river took and bore up the trough, floating it gently along, and carried it down to a fairly smooth spot which is now called Kermalus, but formerly Germanus, perhaps because brothers are called 
+				<q direct="unspecified">germani.</q>
+			      </p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now there was a wild fig-tree hard by, which they called Ruminalis, either from Romulus, as is generally thought, or because cud-chewing, or <emph>ruminating</emph>, animals spent the noon-tide there for the sake of the shade, or best of all, from the suckling of the babes there; for the ancient Romans called the <emph>teat</emph> 
+				        <q direct="unspecified">ruma,</q> and a certain goddess, who is thought to preside over the rearing of young children, is still called Rumilia, in sacrificing to whom no wine is used, and libations of milk are poured over her victims. 
+				<milestone n="2" unit="section"/>Here, then, the babes lay, and the she-wolf of story here gave them suck,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.4.6">Cf. Livy, i. 4, 6-7.</bibl>
+            </note> and a woodpecker came to help in feeding them and to watch over them. Now these creatures are considered sacred to Mars, and the woodpecker is held in especial veneration and honour by the Latins, and this was the chief reason why the mother was believed when she declared that Mars was the father of her babes. And yet it is said that she was deceived into doing this, and was really deflowered by Amulius himself, who came to her in armour and ravished her.  
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>But some say that the name of the children's nurse, by its ambiguity, deflected the story into the realm of the fabulous. For the Latins not only called she-wolves 
+				<q direct="unspecified">lupae,</q> but also women of loose character, and such a woman was the wife of Faustulus, the foster-father of the infants, Acca Larentia by name. Yet the Romans sacrifice also to her, and in the month of April the priest of Mars pours libations in her honour, and the festival is called Larentalia.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>They pay honours also to another Larentia, for the following reason. The keeper of the temple of Hercules, being at a loss for something to do, as it seems, proposed to the god a game of dice, with the understanding that if he won it himself, he should get some valuable present from the god; but if he lost, he would furnish the god with a bounteous repast and a lovely woman to keep him company for the night. 
+				<milestone n="2" unit="section"/>On these terms the dice were thrown, first for the god, then for himself, when it appeared that he had lost. Wishing to keep faith, and thinking it right to abide by the contract, he prepared a banquet for the god, and engaging Larentia, who was then in the bloom of her beauty, but not yet famous,<note resp="ed" place="unspecified" anchored="yes">In <bibl n="Plut. Mor. 273a">
+                  <title>Morals</title>, p. 273 a</bibl>, she is called a public courtezan.</note> he feasted her in the temple, where he had spread a couch, and after the supper locked her in, assured of course that the god would take possession of her. 
+				<milestone n="3" unit="section"/>And verily it is said that the god did visit the woman, and bade her go early in the morning to the forum, salute the first man who met her, and make him her friend. She was met, accordingly, by one of the citizens who was well on in years and possessed of considerable property, but childless, and unmarried all his life, by name Tarrutius. 
+				<milestone n="4" unit="section"/>This man took Larentia to his bed and loved her well, and at his death left her heir to many and fair possessions, most of which she bequeathed to the people. And it is said that when she was now famous and regarded as the beloved of a god, she disappeared at the spot where the former Larentia also lies buried. 
+				<milestone n="5" unit="section"/>This spot is now called Velabrum, because when the river overflowed, as it often did, they used to cross it at about this point in <emph>ferry-boats</emph>, to go to the forum, and their word for ferry is 
+				<q direct="unspecified">velatura.</q> But some say that it is socalled because from that point on, the street leading to the Hippodrome<note resp="ed" place="unspecified" anchored="yes">That is, the Circus Maximus.</note> from the forum is covered over with <emph>sails</emph> by the givers of a public spectacle, and the Roman word for sail is 
+				<q direct="unspecified">velum.</q> It is for these reasons that honours are paid to this second Larentia amongst the Romans.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As for the babes, they were taken up and reared by Faustulus, a swineherd of Amulius, and no man knew of it; or, as some say with a closer approach to probability, Numitor did know of it, and secretly aided the foster-parents in their task. And it is said that the boys were taken to Gabii to learn letters and the other branches of knowledge which are meet for those of noble birth. 
+				<milestone n="2" unit="section"/>Moreover, we are told that they were named, from 
+				<q direct="unspecified">ruma,</q> the Latin word for <emph>teat</emph>,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 4.1">Cf. chapter iv. 1.</bibl>
+            </note> Romulus and Romus (or Remus), because they were seen sucking the wild beast. Well, the noble size and beauty of their bodies, even when they were infants, betokened their natural disposition; and when they grew up, they were both of them courageous and manly, with spirits which courted apparent danger, and a daring which nothing could terrify. But Romulus seemed to exercise his judgement more, and to have political sagacity, while in his intercourse with their neighbours in matters pertaining to herding and hunting, he gave them the impression that he was born to command rather than to obey. 
+				<milestone n="3" unit="section"/>With their equals or inferiors they were therefore on friendly terms, but they looked down upon the overseers, bailiffs, and chief herdsmen of the king, believing them to be no better men than themselves, and disregarded both their threats and their anger. They also applied themselves to generous occupations and pursuits, not esteeming sloth and idleness generous, but rather bodily exercise, hunting, running, driving off robbers, capturing thieves, and rescuing the oppressed from violence. For these things, indeed, they were famous far and near.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When a quarrel arose between the herdsmen of Numitor and Amulius,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.5.3">Cf. Livy, i. 5, 3 ff.</bibl>
+            </note> and some of the latter's cattle were driven off, the brothers would not suffer it, but fell upon the robbers, put them to flight, and intercepted most of the booty. To the displeasure of Numitor they gave little heed, but collected and took into their company many needy men and many slaves, exhibiting thus the beginnings of seditious boldness and temper. 
+				<milestone n="2" unit="section"/>But once when Romulus was busily engaged in some sacrifice, being fond of sacrifices and of divination, the herdsmen of Numitor fell in with Remus as he was walking with few companions, and a battle ensued. After blows and wounds given and received on both sides, the herdsmen of Numitor prevailed and took Remus prisoner, who was then carried before Numitor and denounced. Numitor himself did not punish his prisoner, because he was in fear of his brother Amulius, who was severe, but went to Amulius and asked for justice, since he was his brother, and had been insulted by the royal servants. 
+				<milestone n="3" unit="section"/>The people of Alba, too, were incensed, and thought that Numitor had been undeservedly outraged. Amulius was therefore induced to hand Remus over to Numitor himself, to treat him as he saw fit.
+			</p>
+         <p>When Numitor came home, after getting Remus into his hands, he was amazed at the young man's complete superiority in stature and strength of body, and perceiving by his countenance that the boldness and vigour of his soul were unsubdued and unharmed by his present circumstances, 
+				<milestone n="4" unit="section"/>and hearing that his acts and deeds corresponded with his looks, but chiefly, as it would seem, because a divinity was aiding and assisting in the inauguration of great events, he grasped the truth by a happy conjecture, and asked him who he was and what were the circumstances of his birth, while his gentle voice and kindly look inspired the youth with confidence and hope. 
+				<milestone n="5" unit="section"/>Then Remus boldly said: 
+				<q direct="unspecified">Indeed, I will hide nothing from thee; for thou seemest to be more like a king than Amulius; thou hearest and weighest before punishing, but he surrenders men without a trial. Formerly we believed ourselves (my twin brother and I) children of Faustulus and Larentia, servants of the king; but since being accused and slandered before thee and brought in peril of our lives, we hear great things concerning ourselves; whether they are true or not, our present danger is likely to decide. 
+					<milestone n="6" unit="section"/>Our birth is said to have been secret, and our nursing and nurture as infants stranger still. We were cast out to birds of prey and wild beasts, only to be nourished by them,&mdash;by the dugs of a she-wolf and the morsels of a woodpecker, as we lay in a little trough by the side of the great river. The trough still exists and is kept safe, and its bronze girdles are engraved with letters now almost effaced, which may perhaps hereafter prove unavailing tokens of recognition for our parents, 
+					<milestone n="7" unit="section"/>when we are dead and gone.</q>
+			      </p>
+         <p>Then Numitor, hearing these words, and conjecturing the time which had elapsed from the young man's looks, welcomed the hope that flattered him, and thought how he might talk with his daughter concerning these matters in a secret interview; for she was still kept in the closest custody.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Faustulus, on hearing that Remus had been seized and delivered up to Numitor, called upon Romulus to go to his aid, and then told him clearly the particulars of their birth; before this also he had hinted at the matter darkly, and revealed enough to give them ambitious thoughts when they dwelt upon it. He himself took the trough and went to see Numitor, full of anxious fear lest he might not be in season. 
+				<milestone n="2" unit="section"/>Naturally enough, the guards at the king's gate were suspicious of him, and when he was scrutinized by them and made confused replies to their questions, he was found to be concealing the trough in his cloak. Now by chance there was among the guards one of those who had taken the boys to cast them into the river, and were concerned in their exposure. This man, now seeing the trough, and recognizing it by its make and inscription, conceived a suspicion of the truth, and without any delay told the matter to the king, and brought the man before him to be examined. 
+				<milestone n="3" unit="section"/>In these dire and pressing straits, Faustulus did not entirely hold his own, nor yet was his secret wholly forced from him. He admitted that the boys were alive and well, but said they lived at a distance from Alba as herdsmen; he himself was carrying the trough to Ilia, who had often yearned to see and handle it, in confirmation of her hope for her children.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>As, then, men naturally fare who are confounded, and act with fear or in a passion, so it fell out that Amulius fared. For he sent in all haste an excellent man and a friend of Numitor's, with orders to learn from Numitor whether any report had come to him of the children's being alive. 
+				<milestone n="5" unit="section"/>When, accordingly, the man was come, and beheld Remus almost in the affectionate embraces of Numitor, he confirmed them in their confident hope, and entreated them to proceed at once to action, promptly joining their party himself and furthering their cause. And the opportunity admitted of no delay, even had they wished it; for Romulus was now close at hand, and many of the citizens who hated and feared Amulius were running forth to join him. 
+				<milestone n="6" unit="section"/>He was also leading a large force with him, divided into companies of a hundred men, each company headed by a man who bore aloft a handful of hay and shrubs tied round a pole (the Latin word for <emph>handful</emph> is 
+				<q direct="unspecified">manipulus,</q> and hence in their armies they still call the men in such companies 
+				<q direct="unspecified">manipulares.</q>). And when Remus incited the citizens within the city to revolt, and at the same time Romulus attacked from without, the tyrant, without taking a single step or making any plan for his own safety, from sheer perplexity and confusion, was seized and put to death.
+			</p>
+         <p>
+				        <milestone n="7" unit="section"/>Although most of these particulars are related by Fabius and Diodes of Peparethus, who seems to have been the first to publish a 
+				<q direct="unspecified">Founding of Rome,</q> some are suspicious of their fictitious and fabulous quality; but we should not be incredulous when we see what a poet fortune sometimes is, and when we reflect that the Roman state would not have attained to its present power, had it not been of a divine origin, and one which was attended by great marvels.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Amulius being now dead, and matters settled in the city, the brothers were neither willing to live in Alba, unless as its rulers, nor to be its rulers while their grandfather was alive. Having therefore restored the government to him and paid fitting honours to their mother, they resolved to dwell by themselves, and to found a city in the region where, at the first, they were nourished and sustained;<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.6.3">Cf. Livy, i. 6, 3 f.</bibl>
+            </note> this surely seems a most fitting reason for their course. 
+				<milestone n="2" unit="section"/>But perhaps it was necessary, now that many slaves and fugitives gathered about them. either to disperse these and have no following at all, or else to dwell apart with them. For that the residents of Alba would not consent to give the fugitives the privilege of intermarriage with them, nor even receive them as fellow-citizens, is clear, in the first place, from the rape of the Sabine women,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 14">See chapter xiv.</bibl>
+            </note> which was not a deed of wanton daring, but one of necessity, owing to the lack of marriages by consent; for they certainly honoured the women, when they had carried them off, beyond measure. 
+				<milestone n="3" unit="section"/>And in the second place, when their city was first founded, they made a sanctuary of refuge for all fugitives,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.8.5">Cf. Livy, i. 8, 5 f.</bibl>
+            </note> which they called the sanctuary of the God of Asylum. There they received all who came, delivering none up, neither slave to masters, nor debtor to creditors, nor murderer to magistrates, but declaring it to be in obedience to an oracle from Delphi that they made the asylum secure for all men. Therefore the city was soon full of people, for they say that the first houses numbered no more than a thousand. This, however, was later.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>But when they set out to establish their city, a dispute at once arose concerning the site. Romulus, accordingly, built Roma Quadrata (which means <emph>square</emph>),and wished to have the city on that site; but Remus laid out a strong precinct on the Aventine hill, which was named from him Remonium, but now is called Rignarium. 
+				<milestone n="5" unit="section"/>Agreeing to settle their quarrel by the flight of birds of omen,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.7.1">Cf. Livy, i. 7, 1.</bibl>
+            </note> and taking their seats on the ground apart from one another, six vultures, they say, were seen by Remus, and twice that number by Romulus. Some, however, say that whereas Remus truly saw his six, Romulus lied about his twelve, but that when Remus came to him, then he did see the twelve. Hence it is that at the present time also the Romans chiefly regard vultures when they take auguries from the flight of birds.
+			</p>
+         <p>Herodorus Ponticus relates that Hercules also was glad to see a vulture present itself when he was upon an exploit. 
+				<milestone n="6" unit="section"/>For it is the least harmful of all creatures, injures no grain, fruit-tree, or cattle, and lives on carrion. But it does not kill or maltreat anything that has life, and as for birds, it will not touch them even when they are dead, since they are of its own species. But eagles, owls, and hawks smite their own kind when alive, and kill them. And yet, in the words of Aeschylus:&mdash;<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aesch. Supp. 226">
+                  <title>Suppliants</title>, 226 (Dindorf).</bibl>
+            </note>
+				        <quote rend="blockquote">
+					          <l>How shall a bird that preys on fellow bird be clean?</l>
+				        </quote>
+				        <milestone n="7" unit="section"/>Besides, other birds are, so to speak, always in our eyes, and let themselves be seen continually; but the vulture is a rare sight, and it is not easy to come upon a vulture's young, nay, some men have been led into a strange suspicion that the birds come from some other and foreign land to visit us here, so rare and intermittent is their appearance, which soothsayers think should be true of what does not present itself naturally, nor spontaneously, but by a divine sending.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Remus knew of the deceit, he was enraged,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.7.2">Cf. Livy, i. 7, 2.</bibl>
+            </note> and as Romulus was digging a trench where his city's wall was to run, he ridiculed some parts of the work, and obstructed others. At last, when he leaped across it, he was smitten (by Romulus himself, as some say; according to others, by Celer, one of his companions), and fell dead there. 
+				<milestone n="2" unit="section"/>Faustulus also fell in the battle, as well as Pleistinus, who was a brother of Faustulus, and assisted him in rearing Romulus and Remus. Celer, at any rate, betook himself to Tuscany, and from him the Romans call such as are swift and speedy, 
+				<q direct="unspecified">celeres.</q>  Quintus Metellus, for instance, when his father died, took only a few days to provide gladiatorial contests in his honour, and the people were so amazed at his speed in preparing them that they gave him the surname of Celer.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Romulus buried Remus, together with his foster-fathers, in the Remonia,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 9.4">See chapter ix. 4.</bibl>
+            </note> and then set himself to building his city, after summoning from Tuscany men who prescribed all the details in accordance with certain sacred ordinances and writings, and taught them to him as in a religious rite. A circular trench was dug around what is now the Comitium,<note resp="ed" place="unspecified" anchored="yes">A space adjoining the forum where the people met in assembly. The <foreign lang="la">mundus</foreign>, or augural centre of the city, was really on thePalatine.</note> and in this were deposited first-fruits of all things the use of which was sanctioned by custom as good and by nature as necessary; and finally, every man brought a small portion of the soil of his native land, and these were cast in among the first-fruits and mingled with them. 
+				<milestone n="2" unit="section"/>They call this trench, as they do the heavens, by the name of 
+				<q direct="unspecified">mundus.</q> Then, taking this as a centre, they marked out the city in a circle round it. And the founder, having shod a plough with a brazen ploughshare, and having yoked to it a bull and a cow, himself drove a deep furrow round the boundary lines, while those who followed after him had to turn the clods, which the plough threw up, inwards towards the city, and suffer no clod to lie turned outwards. 
+				<milestone n="3" unit="section"/>With this line they mark out the course of the wall, and it is called, by contraction, 
+				<q direct="unspecified">pomerium,</q> that is 
+				<q direct="unspecified">post murum,</q> 
+            <emph>behind</emph> or <emph>next the wall.</emph>  And where they purposed to put in a gate, there they took the share out of the ground, lifted the plough over, and left a vacant space. And this is the reason why they regard all the wall as sacred except the gates; but if they held the gates sacred, it would not be possible, without religious scruples, to bring into and send out of the city things which are necessary, and yet unclean.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now it is agreed that the city was founded on the twenty-first of April, and this day the Romans celebrate with a festival, calling it the birthday of their country. And at first, as it is said, they sacrificed no living creature at that festival, but thought they ought to keep it pure and without stain of blood, since it commemorated the birth of their country. However, even before the founding of the city, they had a pastoral festival on that day, and called it Parilia.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>At the present time, indeed, there is no agreement between the Roman and Greek months, but they say that the day on which Romulus founded his city was precisely the thirtieth of the month, and that on that day there was a conjunction of the sun and moon, with an eclipse, which they think was the one seen by Antimachus, the epic poet of Teos, in the third year of the sixth Olympiad.<note resp="ed" place="unspecified" anchored="yes">754 B.C.</note> 
+				        <milestone n="3" unit="section"/>And in the times of Varro the philosopher, a Roman who was most deeply versed in history, there lived Tarutius, a companion of his, who, besides being a philosopher and a mathematician, had applied himself to the art of casting nativities, in order to indulge a speculative turn of mind, and was thought to excel in it. 
+				<milestone n="4" unit="section"/>To this man Varro gave the problem of fixing the day and hour of the birth of Romulus, making his deductions from the conjunctions of events reported in the man's life, just as the solutions of geometrical problems are derived; for the same science, he said, must be capable not only of foretelling a man's life when the time of his birth is known, but also, from the given facts of his life, of hunting out the time of his birth. 
+				<milestone n="5" unit="section"/>This task, then Tarutius performed, and when he had taken a survey of the man's experiences and achievements, and had brought together the time of his life, the manner of his death, and all such details, he very courageously and bravely declared that Romulus was conceived in his mother's womb in the first year of the second Olympiad,<note resp="ed" place="unspecified" anchored="yes">772 B.C.</note> in the month Choeac of the Egyptian calendar, on the twenty-third day, and in the third hour, when the sun was totally eclipsed; and that he was born in the month Thoth, on the twenty-first day, at sunrise; 
+				<milestone n="6" unit="section"/>and that Rome was founded by him on the ninth day of the month Pharmuthi, between the second and third hour: for it is thought that a city's fortune, as well as that of a man, has a decisive time, which may be known by the position of the stars at its very origin. These and similar speculations will perhaps attract readers by their novelty and extravagance, rather than offend them by their fabulous character.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the city was built, in the first place, Romulus divided all the multitude that were of age to bear arms into military companies, each company consisting of three thousand footmen and three hundred horsemen. Such a company was called a 
+				<q direct="unspecified">legion,</q> because the warlike were <emph>selected</emph> out of all. In the second place, he treated the remainder as a people, and this multitude was called 
+				<q direct="unspecified">populus</q>; a hundred of them, who were the most eminent, he appointed to be councillors, calling the individuals themselves 
+				<q direct="unspecified">patricians,</q> and their body a 
+				<q direct="unspecified">senate.</q> 
+				        <milestone n="2" unit="section"/>Now the word 
+				<q direct="unspecified">senate</q> means literally a Council of Elders, and the councillors were called 
+				<q direct="unspecified">patricians,</q> as some say, because they were <emph>fathers</emph> of lawful children<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.8.7">Cf. Livy, i. 8, 7.</bibl>
+            </note>; or rather, according to others, because they could tell who their own <emph>fathers</emph> were, which not many could do of those who first streamed into the city; according to others still, from 
+				<q direct="unspecified">patronage,</q> which was their word for the protection of inferiors, and is so to this day; and they suppose that a certain Patron, one of those who came to Italy with Evander, was a protector and defender of the poor and needy, and left his own name in the word which designates such activity. 
+				<milestone n="3" unit="section"/>But the most reasonable opinion for any one to hold is that Romulus thought it the duty of the foremost and most influential citizens to watch over the more lowly with <emph>fatherly</emph> care and concern, while he taught the multitude not to fear their superiors nor be vexed at their honours, but to exercise goodwill towards them, considering them and addressing them as <emph>fathers</emph>, whence their name of Patricii. 
+				<milestone n="4" unit="section"/>For down to the present time foreign peoples call the members of their senate 
+				<q direct="unspecified">chief men,</q> but the Romans themselves call them 
+				<q direct="unspecified">conscript fathers,</q> using that name which has the greatest dignity and honour, and awakens the least envy. At first, then, they called them simply 
+				<q direct="unspecified">fathers,</q> but later, when more had been added to their number, they addressed them as 
+				<q direct="unspecified">conscript fathers.</q> 
+				        <milestone n="5" unit="section"/>By this more imposing title Romulus distinguished the senate from the commonalty, and in other ways, too, he separated the nobles from the multitude, calling the one 
+				<q direct="unspecified">patrons,</q> that is to say, protectors, and the other 
+				<q direct="unspecified">clients,</q> that is to say, dependants. At the same time he inspired both classes with an astonishing goodwill towards each other, and one which became the basis of important rights and privileges. For the patrons advised their clients in matters of custom, and represented them in courts of justice, in short, were their counsellors and friends in all things; 
+				<milestone n="6" unit="section"/>while the clients were devoted to their patrons, not only holding them in honour, but actually, in cases of poverty, helping them to dower their daughters and pay their debts. And there was neither any law nor any magistrate that could compel a patron to bear witness against a client, or a client against a patron. But in later times, while all other rights and privileges remained in force, the taking of money by those of high degree from the more lowly was held to be disgraceful and ungenerous. So much, then, on these topics.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was in the fourth month after the founding of the city, as Fabius writes, that the rape of the Sabine women was perpetrated.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.9">Cf. Livy, i. 9.</bibl>
+            </note>  And some say that Romulus himself, being naturally fond of war, and being persuaded by sundry oracles, too, that it was the destiny of Rome to be nourished and increased by wars till she became the greatest of cities, thereby merely began unprovoked hostilities against the Sabines; for he did not take many maidens, but thirty only, since what he wanted was war rather than marriages. 
+				<milestone n="2" unit="section"/>But this is not likely. On the contrary, seeing his city filling up at once with aliens, few of whom had wives, while the greater part of them, being a mixed rabble of needy and obscure persons, were looked down upon and expected to have no strong cohesion; and hoping to make the outrage an occasion for some sort of blending and fellowship with the Sabines after their women had been kindly entreated, he set his hand to the task, and in the following manner.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>First a report was spread abroad by him that he had discovered an altar of a certain god hidden underground. They called this god Consus, and he was either a god of <emph>counsel</emph> (for 
+				<q direct="unspecified">consilium</q> is still their word for <emph>counsel</emph>, and they call their chief magistrates 
+				<q direct="unspecified">consuls,</q> that is to say, <emph>counsellors</emph>), or an equestrian Neptune. For the altar is in the Circus Maximus, and is invisible at all other times, but at the chariot-races it is uncovered. 
+				<milestone n="4" unit="section"/>Some, however, simply say that since counsel is secret and unseen, it is not unreasonable that an altar to the god of counsel should be hidden underground.<note resp="ed" place="unspecified" anchored="yes">The altar was kept buried in the earth to signify thesecret processes of nature in the production of crops and vegetation. For Consus was an ancient Italian god of agriculture.</note>  Now when this altar was discovered, Romulus appointed by proclamation a splendid sacrifice upon it, with games, and a spectacle open to all people. And many were the people who came together, while he himself sat in front, among his chief men, clad in purple. 
+				<milestone n="5" unit="section"/>The signal that the time had come for the onslaught was to be his rising and folding his cloak and then throwing it round him again. Armed with swords, then, many of his followers kept their eyes intently upon him, and when the signal was given, drew their swords, rushed in with shouts, and ravished away the daughters of the Sabines, but permitted and encouraged the men themselves to escape. 
+				<milestone n="6" unit="section"/>Some say that only thirty maidens were seized, and that from these the Curiae<note resp="ed" place="unspecified" anchored="yes">The thirty divisions into which the three ancient Roman tribes were divided for political and ceremonial purposes. <bibl n="Liv. 1.13.6">Cf. Livy, i. 13, 6 f.</bibl>
+            </note> were named; but Valerius Antias puts the number at five hundred and twenty-seven, and Juba at six hundred and eighty-three, all maidens. And this was the strongest defence which Romulus could make, namely, that they took only one married woman, Hersilia, and her by mistake, since they did not commit the rape out of wantonness, nor even with a desire to do mischief, but with the fixed purpose of uniting and blending the two peoples in the strongest bonds. 
+				<milestone n="7" unit="section"/>As for this Hersilia, some say that she was married to Hostilius, a most eminent Roman, and others, to Romulus himself, and that she also bore him children: one daughter, Prima, so called from the order of birth, and one son only, whom Romulus named Aollius, from the great <emph>concourse</emph>
+            <note resp="ed" place="unspecified" anchored="yes">A Greek etymology connecting the name with <foreign lang="greek">a)ollh/s</foreign>, <emph>in throngs.</emph>
+            </note> of citizens under him, but later ages Avillius. However, Zenodotus of Troezen, who gives us this account, is contradicted by many.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Among those who ravished away the maidens at that time, it chanced, they say, that certain men of meaner sort were dragging along a damsel who far surpassed the rest in beauty and stature; and when some men of superior rank met them and tried to rob them of their prize, they cried out that they were conducting the girl to Talasius, a young man, but one of excellent repute. 
+				<milestone n="2" unit="section"/>The other party, then, on hearing this, shouted and clapped their hands in approval, and some of them actually turned back and accompanied them, out of good will and favour to Talasius, shouting his name as they went along. Hence, indeed, down to the present time, Talasius is the nuptial cry of the Romans, as Hymenaeus is of the Greeks; for they say that Talasius was fortunate in his wife.
+			</p>
+         <p>But Sextius Sulla, the Carthaginian, a man who lacks neither learning nor charm, told me that Talasius was the word which Romulus gave as a watchword for the rape. 
+				<milestone n="3" unit="section"/>All those, therefore, who took the maidens away, shouted 
+				<q direct="unspecified">Talasius !</q> and on this account the custom now prevails at marriages. But most writers are of the opinion&mdash;and Juba is one of them&mdash;that the cry is an exhortation and incitement to industry and 
+				<q direct="unspecified">talasia,</q> as the Greeks call <emph>spinning</emph>, Italian words having not yet at that time entirely submerged the Greek. Now if this is right, and the Romans did at that time use the word 
+				<q direct="unspecified">talasia</q> for <emph>spinning</emph>, as we do, then a more credible reason for the custom might be conjectured as follows. 
+				<milestone n="4" unit="section"/>When the Sabines, after their war against the Romans, were reconciled with them, it was agreed that their women should perform no other tasks for their husbands than those which were connected with spinning. It was customary, therefore, at subsequent marriages, for those who gave the bride away, or escorted her to her new home, or simply looked on, to cry 
+				<q direct="unspecified">Talasius!</q> merrily, in testimony that the woman was led home for no other task than that of spinning. 
+				<milestone n="5" unit="section"/>And it continues to be a custom down to the present time that the bride shall not of herself cross the threshold into her new home, but be lifted up and carried in, because the Sabine women were carried in by force, and did not go in of their own accord. And some say also that the custom of parting the bride's hair with the head of a spear is a reminder that the first marriage was attended with war and fighting; on which topic I have spoken more fully in my 
+				<q direct="unspecified">Roman Questions.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Mor. 285c">
+                  <title>Morals</title>, p. 285 c (Question 87).</bibl>
+            </note>
+			      </p>
+         <p>Leaving such matters aside, the rape was committed on the eighteenth day of the month once called Sextilis, but now, August, on which day the festival of the Consualia<note resp="ed" place="unspecified" anchored="yes">A harvest festival named from Consus. <bibl n="Plut. Rom. 14.3">See chapter xiv. 3.</bibl>
+            </note> is celebrated.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now the Sabines were a numerous and warlike people, and dwelt in unwalled villages, thinking that it behoved them, since they were Lacedaemonians colonists, to be bold and fearless. 
+				<milestone n="2" unit="section"/>Nevertheless, seeing themselves bound by precious hostages, and fearing for their daughters, they sent ambassadors with reasonable and moderate demands, namely, that Romulus should give back to them their maidens, disavow his deed of violence, and then, by persuasion and legal enactment, establish a friendly relationship between the two peoples. But Romulus would not surrender the maidens, and demanded that the Sabines should allow community of marriage with the Romans, whereupon they all held long deliberations and made extensive preparations for war. 
+				<milestone n="3" unit="section"/>But there was one exception. Acron, king of the Caeninenses, a man of courageous spirit and skilled in war, had been suspicious of the daring deeds of Romulus from the beginning, and now that this violence had been done the women, thinking him a menace to all peoples, and intolerable unless chastised, at once rose up in arms, and with a great force advanced against him.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.10">Cf. Livy, i. 10.</bibl>
+            </note>
+				        <milestone n="4" unit="section"/>Romulus also marched out to meet him. But when they were face to face and had surveyed each other, they challenged mutually to single combat before battle, while their armies remained quiet under arms. Romulus, then, after making a vow that if he should conquer and overthrow his adversary, he would carry home the man's armour and dedicate it in person to Jupiter, not only conquered and overthrew him, but also routed his army in the battle which followed, and took his city as well. To the captured citizens, however, he did no harm beyond ordering them to tear down their dwellings and accompany him to Rome, where, he promised them, they should be citizens on equal terms with the rest.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>Now this, more than anything else, was what gave increase to Rome: she always united and incorporated with herself those whom she conquered. But Romulus, after considering how he might perform his vow in a manner most acceptable to Jupiter and accompany the performance with a spectacle most pleasing to the citizens, cut down a monstrous oak that grew in the camp, hewed it into the shape of a trophy, and fitted and fastened to it the armour of Acron, each piece in its due order. 
+				<milestone n="6" unit="section"/>Then he himself, girding his raiment about him and wreathing his flowing locks with laurel, set the trophy on his right shoulder, where it was held erect, and began a triumphal march, leading off in a paean of victory which his army sang as it followed under arms, and being received by the citizens with joyful amazement. This procession was the origin and model of all subsequent triumphs, and the trophy was styled a dedication to Jupiter Feretrius, so named from the Roman word 
+				<q direct="unspecified">ferire,</q> 
+            <emph>to smite;</emph> for Romulus vowed to <emph>smite</emph> his foe and overthrow him. 
+				<milestone n="7" unit="section"/>And such spoils were called 
+				<q direct="unspecified">opima,</q> because as Varro says, 
+				<q direct="unspecified">opes</q> is the Roman word for <emph>richness;</emph> but it would be more plausible to say that they were so called from the <emph>deed of valour</emph> involved, since 
+				<q direct="unspecified">opus</q> is the Roman word for <emph>deed</emph> or <emph>exploit.</emph> And only to a general who with his own hand has performed the exploit of slaying an opposing general, has the privilege of dedicating the 
+				<q direct="unspecified">spolia opima</q> been granted.
+			</p>
+         <p>Furthermore, only three Roman leaders have attained this honour: Romulus first, for slaying Acron the Caeninensian; next, Cornelius Cossus, for killing Tolumnius the Tuscan<note resp="ed" place="unspecified" anchored="yes">In 436 B.C., according to <bibl n="Liv. 4.19.1">Livy, iv. 19, 1-5.</bibl>
+            </note> and lastly, Claudius Marcellus, for overpowering Britomartus, king of the Gauls.<note resp="ed" place="unspecified" anchored="yes">In 222 B.C. <bibl n="Plut. Marc. 7">See Plutarch's <title>Marcellus</title>, vii.</bibl>
+            </note>
+				        <milestone n="8" unit="section"/>Cossus indeed, and Marcellus, already used a four-horse chariot for their entrance into the city, carrying the trophies themselves, but Dionysius<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="D.H. 2.34">
+                  <title>Antiq. Rom.</title> ii. 34.</bibl>
+            </note> is incorrect in saying that Romulus used a chariot. For it is matter of history that Tarquin, the son of Demaratus, was first of the kings to lift triumphs up to such pomp and ceremony, although others say that Publicola was first to celebrate a triumph riding on a chariot.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Publ. 9.5">Cf. <title>Publicola</title>, ix. 5.</bibl>
+            </note>  And the statues of Romulus bearing the trophies are, as may be seen in Rome, all on foot.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After the capture of the Caeninensians, while the rest of the Sabines were still busy with their preparations, the people of Fidenae, Crustumerium, and Antemnae banded together against the Romans,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.11">Cf. Livy, i. 11.</bibl>
+            </note> and in a battle which ensued, they were likewise defeated, and surrendered to Romulus their cities to be seized, their territory to be divided, and themselves to be transported to Rome. Romulus distributed among the citizens all the territory thus acquired, excepting that which belonged to the parents of the ravished maidens; this he suffered its owners to keep for themselves.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>At this the rest of the Sabines were enraged, and after appointing Tatius their general, marched upon Rome. The city was difficult of access, having as its fortress the present Capitol, on which a guard had been stationed, with Tarpeius as its captain,&mdash; not Tarpeia, a maiden, as some say, thereby making Romulus a simpleton. But Tarpeia, a daughter of the commander, betrayed the citadel to the Sabines, having set her heart on the golden armlets which she saw them wearing, and she asked as payment for her treachery that which they wore on their left arms. 
+				<milestone n="3" unit="section"/>Tatius agreed to this, whereupon she opened one of the gates by night and let the Sabines in. Antigonus was not alone, then, in saying that he loved men who offered to betray, but hated those who had betrayed; nor yet Caesar, in saying of the Thracian Rhoemetalces, that he loved treachery but hated a traitor; but this is a very general feeling towards the base on the part of those who need their services, just as they need certain wild creatures for their venom and gall; for while they feel the need of them, they put up with them, but abhor their vileness when they have obtained from them what they want. 
+				<milestone n="4" unit="section"/>This, too, was the feeling which Tatius then had towards Tarpeia, when he ordered his Sabines, mindful of their agreement, not to begrudge the girl anything they wore on their left arms. And he was first to take from his arm not only his armlet, but at the same time his shield, and cast them upon her. All his men followed his example, and the girl was smitten by the gold and buried under the shields, and died from the number and weight of them. 
+				<milestone n="5" unit="section"/>And Tarpeius also was convicted of treason when prosecuted by Romulus, as, according to Juba, Sulpicius Galba relates. Of those who write differently about Tarpeia, they are worthy of no belief at all who say that she was a daughter of Tatius, the leader of the Sabines, and was living with Romulus under compulsion, and acted and suffered as she did, at her father's behest; of these, Antigonus is one. And Simylus the poet is altogether absurd in supposing that Tarpeia betrayed the Capitol, not to the Sabines, but to the Gauls, because she had fallen in love with their king. These are his words:&mdash;
+				<quote rend="blockquote">
+					          <l>And Tarpeia, who dwelt hard by the Capitolian steep,</l>
+					          <l>Became the destroyer of the walls of Rome;</l>
+					          <l>She longed to be the wedded wife of the Gallic chieftain,</l>
+					          <l>And betrayed the homes of her fathers.</l>
+				        </quote> And a little after, speaking of her death:&mdash;
+				<quote rend="blockquote">
+					          <l>Her the Boni and the myriad tribes of Gauls</l>
+					          <l>Did not, exulting, cast amid the currents of the Po;</l>
+					          <l>But hurled the shields from their belligerent arms</l>
+					          <l>Upon the hateful maid, and made their ornament her doom.</l>
+				        </quote>
+			      </p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, Tarpeia was buried there, and the hill was called from her Tarpcius, until King Tarquin dedicated the place to Jupiter, when her bones were removed and the name of Tarpeia died out, except that a cliff on the Capitol is still called the Tarpeian Rock, from which they hurl male-factors.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>The citadel thus occupied by the Sabines,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.12">Cf. Livy, i. 12.</bibl>
+            </note> Romulus angrily challenged them to battle, and Tatius was bold enough to accept, since he saw that the Sabines, if worsted, had a strong place of retreat. For the intervening space, in which they were to join battle, being surrounded by many hills, seemed to impose upon both parties a sharp and grievous contest, owing to the difficulties of the field, where flight and pursuit must be narrowly confined and short. 
+				<milestone n="3" unit="section"/>It happened, too, since the river had overflowed not many days before, that a deep and blind slime had been left in the valley where the forum is now.  Wherefore it was not apparent to the eye, nor yet easy to avoid, and besides it was soft beneath the surface and dangerous. On to this the Sabines were ignorantly rushing, when a piece of good fortune befell them. 
+				<milestone n="4" unit="section"/>Curtius, a conspicuous man among them, eager for glory and high design, was advancing on horseback far in front of the rest, when his horse sank in the gulf of mud. For some time he tried to drive him out, with blows and cries of encouragement, but since it was impossible, he abandoned his horse and saved himself. Accordingly, the place to this day is called from him 
+				<q direct="unspecified">lacus Curtius.</q> But the Sabines, having avoided this peril, fought a sturdy fight, and one which was indecisive, although many fell, among whom was Hostilius. 
+				<milestone n="5" unit="section"/>This man, they say, was husband of Hersilia<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 14.6">Cf. chapter xiv. 6. f.</bibl>
+            </note> and grandfather to the Hostilius who was king after Numa. Afterwards many conflicts raged within a short time, as might be expected, but one is most memorable, namely the last, in which Romulus was hit on the head with a stone and almost fell to the ground, abandoning his resistance to the Sabines. The Romans thereupon gave way and began to fly to the Palatine, now that they were repulsed from the plain. 
+				<milestone n="6" unit="section"/>But presently Romulus, recovering from his blow, wished to stem the tide of fugitives and renew the battle, and called upon them with a loud voice to stand and fight. But as the waves of flight encompassed him and no man dared to face about, he stretched his hands towards heaven and prayed Jupiter to stay his army and not suffer the Roman cause to fall, but to restore it. 
+				<milestone n="7" unit="section"/>No sooner was his prayer ended than many stopped out of reverence for their king, and courage returned to the fugitives. They made their first stand, then, where now is the temple of Jupiter Stator, which epithet might be interpreted as <emph>Stayer.</emph> Then they closed their ranks again and drove the Sabines back to where the so-called Regia<note resp="ed" place="unspecified" anchored="yes">In historical times, the house of the Pontifex Maximus.  <bibl n="Plut. Num. 14.1">See <title>Numa</title>, xiv. 1.</bibl>
+            </note> now stands, and the temple of Vesta.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Here, as they were preparing to renew the battle, they were checked by a sight that was wonderful to behold and a spectacle that passes description.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.13">Cf. Livy, i. 13.</bibl>
+            </note> The ravished daughters of the Sabines were seen rushing from every direction, with shouts and lamentations, through the armed men and the dead bodies, as if in a frenzy of possession, up to their husbands and their fathers, some carrying young children in their arms, some veiled in their dishevelled hair, and all calling with the most endearing names now upon the Sabines and now upon the Romans. 
+				<milestone n="2" unit="section"/>So then both armies were moved to compassion, and drew apart to give the women place between the lines of battle; sorrow ran through all the ranks, and abundant pity was stirred by the sight of the women, and still more by their words, which began with argument and reproach, and ended with supplication and entreaty. 
+				<milestone n="3" unit="section"/>
+				        <q direct="unspecified">Wherein, pray (they said), have we done you wrong or harm, that we must suffer in the past, and must still suffer now, such cruel evils? We were violently and lawlessly ravished away by those to whom we now belong, but though thus ravished, we were neglected by our brethren and fathers and kinsmen until time had united us by the strongest ties with those whom we had most hated, and made us now fear for those who had treated us with violence and lawlessness, when they go to battle, and mourn for them when they are slain. 
+					<milestone n="4" unit="section"/>For ye did not come to avenge us upon our ravishers while we were still maidens, but now ye would tear wives from their husbands and mothers from their children, and the succour wherewith ye would now succour us, wretched women that we are, is more pitiful than your former neglect and abandonment of us. Such is the love which we have here enjoyed, such the compassion shown to us by you. Even if ye were fighting on other grounds, it were meet that ye should cease for our sakes, now that ye are become fathers-in-law and grandsires and have family ties among your enemies. 
+					<milestone n="5" unit="section"/>If, however, the war is on our behalf, carry us away with your sons-in-law and their children, and so restore to us our fathers and kindred, but do not rob us of our children and husbands. Let us not, we beseech you, become prisoners of war again.</q>
+			      </p>
+         <p>Many such appeals were made by Hersilia, and the other women added their entreaties, until a truce was made and the leaders held a conference. 
+				<milestone n="6" unit="section"/>Meanwhile the women brought their husbands and their children and presented them to their fathers and brothers; they also carried food and drink to those that wanted, and bore the wounded to their homes for tender nursing; here they also made it evident that they were mistresses of their own households, and that their husbands were attentive to them and showed them all honour with good will. 
+				<milestone n="7" unit="section"/>Thereupon agreements were made that such women as wished to do so might continue to live with their husbands, exempt, as aforesaid,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 15.4">Cf. chapter xv. 4.</bibl>
+            </note> from all labour and all drudgery except spinning; also that the city should be inhabited by Romans and Sabines in common; and that the city should be called Rome, from Romulus, but all its citizens Quirites, from the native city of Tatius<note resp="ed" place="unspecified" anchored="yes">Cures, a Sabine town.</note>; and that Romulus and Tatius should be joint kings and leaders of the army. The place where these agreements were made is to this day called Comitium, from the Roman word 
+				<q direct="unspecified">conire,</q> or 
+				<q direct="unspecified">coire,</q> 
+            <emph>to  come together.</emph>
+			      </p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The city thus doubled in its numbers, a hundred of the Sabines were added by election to the Patricii,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 13.1">Cf. chapter xiii. 1.</bibl>
+            </note> and the legions were enlarged to six thousand footmen and six hundred horsemen.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 13.1">Cf. chapter xiii. 1.</bibl>
+            </note>  The people, too, were arranged in three bodies, the first called Ramnenses, from Romulus; the second Tatienses, from Tatius; and the third Lucerenses, from the <emph>grove</emph> into which many betook themselves for refuge, when a general asylum was offered,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 9.3">Cf. chapter ix. 3.</bibl>
+            </note> and then became citizens. Now the Roman word for <emph>grove</emph> is 
+				<q direct="unspecified">lucus.</q> 
+				        <milestone n="2" unit="section"/>That these bodies were three in number, their very name testifies, for to this day they call them <emph>tribes</emph>, and their chief officers, <emph>tribunes.</emph> And each tribe had ten phratries, or brotherhoods, which, as some say, were named after the thirty Sabine women;<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 14.6">Cf. chapter xiv. 6.</bibl>
+            </note> but this seems to be false, since many of them bear the names of places. 
+				<milestone n="3" unit="section"/>However, they did make many other concessions to the women, to do them honour, some of which are as follow: to give them the right of way when walking; not to utter any indecent word in the presence of a woman; that no man should be seen naked by them, or else that he be liable to prosecution before the judges of homicide; and that their children should wear a sort of necklace, the 
+				<q direct="unspecified">bulla,</q> so called from its shape (which was that of a <emph>bubble)</emph>, and a robe bordered with purple.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>The two kings did not at once hold council in common with one another, but each at first sat with his own hundred councillors apart, then afterwards they united them all into one body, as at the present time. Tatius dwelt where now is the temple of Moneta, and Romulus beside the so-called Steps of Fair Shore;<note resp="ed" place="unspecified" anchored="yes">The Greek text is probably corrupt. The 
+					<q direct="unspecified">scalae Caci</q> or <emph>Steps of Cacus</emph> must be meant.</note> these are near the descent into the Circus Maximus from the Palatine. 
+				<milestone n="5" unit="section"/>There also, it is said, grew the sacred cornel-tree, of which the following tale is told. Romulus, once, in trial of his strength, cast thither from the Aventine hill a spear, the shaft of which was made of cornel-wood; the head of the spear sank deep into the ground, and no one had strength to pull it up, though many tried, but the earth, which was fertile, cherished the wooden shaft, and sent up shoots from it, and produced a cornel-trunk of good size. Those who came after Romulus preserved this with religious care as one of the most sacred objects, and walled it in.  
+				<milestone n="6" unit="section"/>And if any visitor thought that it was not green nor flourishing, but likely to wither away and die, he immediately proclaimed it loudly to all he met, and these, as though helping to save a house on fire, would cry 
+				<q direct="unspecified">Water! Water!</q> and run together from all sides carrying full buckets to the place. But when Caius Caesar, as they say, was repairing the steps about the enclosure, and the workmen dug here and there in the neighbourhood, the roots were inadvertently destroyed and the tree withered away.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Sabines, then, adopted the Roman months, about which I have written sufficiently in my Life of Numa. <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Num. 18">Chapters xviii.</bibl> and <bibl n="Plut. Num. 19">xix.</bibl>
+            </note> Romulus, on the other hand, made use of their oblong shields, and changed his own armour and that of the Romans, who before that carried round shields of the Argive pattern. Feasts and sacrifices they shared with one another, not discarding any which the two peoples had observed before, but instituting other new ones. One of these is the Matronalia, which was bestowed upon the women to commemorate their putting a stop to the war; and another is the Carmentalia. 
+				<milestone n="2" unit="section"/>This Carmenta is thought by some to be a Fate presiding over human birth, and for this reason she is honoured by mothers. Others, however, say that the wife of Evander the Arcadian,<note resp="ed" place="unspecified" anchored="yes">Cf. Plutarch's <title>Roman Questions</title>, 56 (<bibl n="Plut. Mor. 278b">
+                  <title>Morals</title>, p. 278 b, c)</bibl>, and <bibl n="Liv. 1.7.8">Livy, i. 7. 8.</bibl>
+            </note> who was a prophetess and inspired to utter oracles in verse, was therefore surnamed Carmenta, since 
+				<q direct="unspecified">carmina</q> is their word for <emph>verses</emph>, her own proper name being Nicostrate. As to her own name there is general agreement, but some more probably interpret Carmenta as meaning <emph>bereft of mind</emph>, because of her ecstasies under inspiration, since 
+				<q direct="unspecified">carere</q> is the Roman word for <emph>to be bereft</emph>, and 
+				<q direct="unspecified">mens</q> for <emph>mind.</emph> 
+				        <milestone n="3" unit="section"/>Of the Parilia I have spoken before.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 12.1">Chapter xii. 1.</bibl>
+            </note>  As for the Lupercalia, judging by the time of its celebration, it would seem to be a feast of purification, for it is observed on the inauspicious days<note resp="ed" place="unspecified" anchored="yes">
+					          <q direct="unspecified">Dies nefasti.</q>
+            </note> of the month of February, which name can be interpreted to mean <emph>purification</emph>, and the very day of the feast was anciently called Febrata. But the name of the festival has the meaning of the Greek 
+				<q direct="unspecified">Lycaea,</q> or <emph>feast of wolves</emph>, which makes it seem of great antiquity and derived from the Arcadians in the following of Evander.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.5.1">Cf. Livy, 1. 5, 1-2.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>Indeed, this meaning of the name is commonly accepted; for it can be connected with the she-wolf of story. And besides, we see that the Luperci<note resp="ed" place="unspecified" anchored="yes">Priests of Faunus, the Roman Pan.</note> begin their course around the city at that point where Romulus is said to have been exposed. However, the actual ceremonies of the festival are such that the reason for the name is hard to guess. For the priests slaughter goats, and then, after two youths of noble birth have been brought to them, some of them touch their foreheads with a bloody knife, and others wipe the stain off at once with wool dipped in milk. 
+				<milestone n="5" unit="section"/>The youths must laugh after their foreheads are wiped. After this they cut the goats' skins into strips and run about, with nothing on but a girdle, striking all who meet them with the thongs,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Ant. 12.1">Cf. Plutarch's <title>Antony</title>, xii. 1.</bibl>
+            </note> and young married women do not try to avoid their blows, fancying that they promote conception and easy child-birth. A peculiarity of the festival is that the Luperci sacrifice a dog also.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>A certain Butas, who wrote fabulous explanations of Roman customs in elegiac verse, says that Romulus and Remus, after their victory over Amulius, ran exultantly to the spot where, when they were babes, the she-wolf gave them suck, and that the festival is conducted in imitation of this action, and that the two youths of noble birth run
+				<quote rend="blockquote">
+					          <l>Smiting all those whom they meet, as once with brandished weapons,</l>
+					          <l>Down from Alba's heights, Remus and Romulus ran.</l>
+				        </quote> And that the bloody sword is applied to their foreheads as a symbol of the peril and slaughter of that day, while the cleansing of their foreheads with milk is in remembrance of the nourishment which the babes received. 
+				<milestone n="7" unit="section"/>But Caius Acilius writes that before the founding of the city Romulus and his brother once lost their flocks, and after praying to Faunus, ran forth in quest of them naked, that they might not be impeded by sweat; and that this is the reason why the Luperci run about naked. If the sacrifice is a purification, one might say that the dog is sacrificed as being a suitable victim for such rites, 
+				<milestone n="8" unit="section"/>since the Greeks, in their rites of purification, carry forth puppies for burial, and in many places make use of the rites called 
+				<q direct="unspecified">periskulakismoi;</q>
+            <note resp="ed" place="unspecified" anchored="yes">Sacrifices where puppies were killed and carried about.</note> and if these rites are performed in grateful remembrance of the she-wolf that nourished and preserved Romulus, it is not without reason that the dog is slain, since it is an enemy to wolves, unless, indeed, the animal is thus punished for annoying the Luperci when they run about.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It is said also that Romulus first introduced the consecration of fire, and appointed holy virgins to guard it, called Vestals. Others attribute this institution to Numa,<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Num. 9">
+                  <title>Numa</title>, chapters ix.</bibl> and <bibl n="Plut. Num. 10">x.</bibl>
+            </note> although admitting that Romulus was in other ways eminently religious, and they say further that he was a diviner, and carried for purposes of divination the so-called 
+				<q direct="unspecified">lituus,</q> a crooked staff with which those who take auguries from the flight of birds mark out the regions of the heavens. 
+				<milestone n="2" unit="section"/>This staff, which was carefully preserved on the Palatine, is said to have disappeared when the city was taken at the time of the Gallic invasion; afterwards, however, when the Barbarians had been expelled, it was found under deep ashes unharmed by the fire, although everything about it was completely destroyed.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Cam. 32.4">Cf. <title>Camillus</title>, xxxii. 4-5.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>He also enacted certain laws, and among them one of severity, which forbids a wife to leave her husband, but permits a husband to put away his wife for using poisons, for substituting children, and for adultery; but if a man for any other reason sends his wife away, the law prescribes that half his substance shall belong to his wife, and the other half be consecrate to Ceres; and whosoever puts away his wife, shall make a sacrifice to the gods of the lower world. 
+				<milestone n="4" unit="section"/>It is also a peculiar thing that Romulus ordained no penalty for parricides, but called all murder parricide, looking upon one as abominable, and upon the other as impossible. And for many ages his judgement of such a crime seemed to have been right, for no one did any such deed at Rome for almost six hundred years; but after the war with Hannibal, Lucius Hostius is reported to have been the first parricide. So much, then, may suffice concerning these matters.
+			</p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the fifth year of the reign of Tatius, some retainers and kinsmen of his, falling in with ambassadors from Laurentum on their way to Rome, attempted to rob them of their money,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.14.1">Cf. Livy, i. 14, 1-3.</bibl>
+            </note> and when they would not stand and deliver, slew them. It was a bold and dreadful crime, and Romulus thought its perpetrators ought to be punished at once, but Tatius tried to put off and turn aside the course of justice. 
+				<milestone n="2" unit="section"/>This was the sole occasion of open variance between them; in all other matters they acted in the utmost concert and administered affairs with unanimity. The friends of the slain ambassadors, shut out as they were from all lawful redress, through the efforts of Tatius, fell upon him as he was sacrificing with Romulus at Lavinium, and killed him, but escorted Romulus on his way with loud praises of his justice. 
+				<milestone n="3" unit="section"/>Romulus brought the body of Tatius home and gave it honourable burial, and it lies near the so-called Armilustrium, on the Aventine hill; but he took no steps whatsoever to bring his murderers to justice. And some historians write that the city of Laurentum, in terror, delivered up the murderers of Tatius, but that Romulus let them go, saying that murder had been requited with murder. 
+				<milestone n="4" unit="section"/>This led some to say and suspect that he was glad to be rid of his colleague, but it caused no disturbance in the government, nor did it lead the Sabines into faction, nay, some through the good-will they had for him, others through their fear of his power, and others because they regarded him as a benevolent god, all continued to hold him in reverence to the end.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>Romulus was held in reverence also by many foreign peoples, and the earlier Latins sent ambassadors and established friendship and alliance with him. Fidenae, a neighbouring city to Rome, he took,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.14.4">Cf. Livy, i.14. 4-11.</bibl>
+            </note> as some say, by sending his horsemen of a sudden with orders to cut away the pivots of the gates, and then appearing himself unexpectedly; 
+				<milestone n="6" unit="section"/>but others say that the men of Fidenae first made an incursion, driving off booty and devastating the territory and outskirts of the city, and that Romulus set an ambush for them, killed many of them, and took their city. He did not, however, destroy or raze it to the ground, but made it a colony of Rome, and sent thither twenty-five hundred colonists, on the Ides of April.
+			</p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, a plague fell upon the land, bringing sudden death without previous sickness upon the people, and afflicting the crops with unfruitfulness and the cattle with barrenness. There was a rain of blood also in the city, so that many superstitious fears were added to their unavoidable sufferings. And when similar calamities visited the people of Laurentum, all agreed at once that it was the miscarriage of justice for the death of Tatius and the slain ambassadors which brought the wrath of heaven down upon both cities. 
+				<milestone n="2" unit="section"/>The murderers, therefore, were delivered up on both sides and punished, and the mischief visibly abated. Romulus also purified the cities with lustral rites, which they say are celebrated to this day at the Ferentine gate.
+			</p>
+         <p>But before the pestilence had ceased, the people of Cameria attacked the Romans and overran their territory, thinking them incapable of defending themselves by reason of their distress. 
+				<milestone n="3" unit="section"/>Romulus therefore at once marched against them, overcame them in battle, and killed six thousand of them. He also took their city, transplanted half of the survivors to Rome, and sent to Cameria as colonists from Rome twice the number he had left there, and this on the first of August. So many citizens had he to spare after dwelling in Rome less than sixteen years. Among other spoils he brought also a bronze four-horse chariot from Cameria, and dedicated it in the temple of Vulcan. For it he had a statue made of himself, with a figure of Victory crowning him.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Roman state thus gathering strength, its weaker neighbours submitted to it, and were satisfied to be let alone; but the powerful ones, out of fear and jealousy, thought they ought not to tolerate, but resist and check the growing power of Romulus. And of the Tuscans, the people of Veii, who possessed much territory and dwelt in a great city, were the first to begin war<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.15.1">Cf. Livy, i. 15. 1-5.</bibl>
+            </note> with a demand for Fidenae, which they said belonged to them. 
+				<milestone n="2" unit="section"/>Now this was not only unjust, it was actually ridiculous, that they, who had not come to the aid of the people of Fidenae when they were in the perils of war, but suffered them to perish, then demanded their houses and land from those who had come into possession of them. Accordingly, Romulus gave them contemptuous answers, upon which they divided themselves into two armies, attacked Fidenae with one, and confronted Romulus with the other. Before Fidenae, then, they overpowered two thousand Romans and slew them; but they were defeated by Romulus with a loss of eight thousand men. 
+				<milestone n="3" unit="section"/>Once more a battle was fought near Fidenae, and here all agree that the victory was chiefly due to Romulus himself, who displayed every possible combination of skill and bravery, and seemed endowed with strength and swiftness far beyond the lot of man. But there is a statement made by some writers which is altogether fabulous, nay rather, wholly incredible, namely, that of the fourteen thousand Tuscans who fell in this battle, more than half were slain by Romulus with his own hand; for even the Messenians seem to have been boastfully extravagant in saying that Aristomenes thrice offered sacrifice for a hundred Lacedaemonian enemies slain.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>After the rout of the enemy, Romulus suffered the survivors to escape, and moved upon their city itself. But they could not hold out after so great a reverse, and suing for peace, made a treaty of friendship for a hundred years, giving up a large portion of their territory, called Septempagium, or the <emph>Seven Districts</emph>, abandoning their salt-works along the river, and delivering up fifty of their chief men as hostages. 
+				<milestone n="5" unit="section"/>Romulus also celebrated a triumph for this victory on the Ides of October, having in his train, besides many other captives, the leader of the Veientes, an elderly man, who seems to have conducted the campaign unwisely, and without the experience to be expected of his years. Wherefore to this very day, in offering a sacrifice for victory, they lead an old man through the forum to the Capitol, wearing a boy's toga with a bulla attached to it, while the herald cries: 
+				<q direct="unspecified">Sardians for sale!</q> For the Tuscans are said to be colonists from Sardis, and Veii is a Tuscan city.
+			</p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This was the last war waged by Romulus. Afterwards, like many, nay, like almost all men who have been lifted by great and unexpected strokes of good fortune to power and dignity, even he was emboldened by his achievements to take on a haughtier hearing to renounce his popular ways, and to change to the ways of a monarch, which were made hateful and vexatious first by the state which he assumed. 
+				<milestone n="2" unit="section"/>For he dressed in a scarlet tunic, and wore over it a toga bordered with purple, and sat on a recumbent throne when he gave audience. And he had always about him some young men called Celeres, from their <emph>swiftness</emph> in doing service.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Rom. 10.2">Cf. chapter x. 2;</bibl> and <bibl n="Liv. 1.15.8">Livy, i. 15, 8.</bibl>
+            </note> Others, too, went before him with staves, keeping off the populace, and they were girt with thongs, with which to bind at once those whom he ordered to be bound.
+			</p>
+         <p>
+            <emph>To bind</emph>, in the Latin language, was formerly 
+				<q direct="unspecified">ligare,</q> though now it is 
+				<q direct="unspecified">alligare</q>; whence the wand-bearers are called 
+				<q direct="unspecified">lictores,</q> and the wands themselves 
+				<q direct="unspecified">bacula,</q> from the use, in the time of Romulus, of 
+				<q direct="unspecified">bakteriai,</q> which is the Greek word for <emph>staves.</emph>
+            <note resp="ed" place="unspecified" anchored="yes">For this assumed use of Greek words by the Romans, <bibl n="Plut. Rom. 15.3">cf. chapter xv. 3.</bibl>
+            </note> But it is likely that the 
+				<q direct="unspecified">c</q> in the word 
+				<q direct="unspecified">lictores,</q> as now used, has been added, and that the word was formerly 
+				<q direct="unspecified">litores,</q> which is the Greek 
+				<q direct="unspecified">leitourgoi,</q> meaning <emph>public servants.</emph> For the Greeks still call a public hall 
+				<q direct="unspecified">leiton,</q> and the people 
+				<q direct="unspecified">laos.</q>
+            <note resp="ed" place="unspecified" anchored="yes">For this assumed use of Greek words by the Romans, cf. <bibl n="Plut. Rom. 15. 3">Plut. Rom. 15.3.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But when his grandfather Numitor died in Alba, and its throne devolved upon Romulus, he courted the favour of the people by putting the government in their hands, and appointed an annual ruler for the Albans. In this way he taught the influential men at Rome also to seek after a form of government which was independent and without a king, where all in turn were subjects and rulers. For by this time not even the so-called patricians had any share in the administration of affairs, but a name and garb of honour was all that was left them, and they assembled in their council-chamber more from custom than for giving advice. 
+				<milestone n="2" unit="section"/>Once there, they listened in silence to the commands of the king, and went away with this advantage only over the multitude, that they learned earlier what he had decreed. The rest of his proceedings were of lesser importance; but when of his own motion merely he divided the territory acquired in war among his soldiers, and gave back their hostages to the Veientes, without the consent or wish of the patricians, he was thought to be insulting their senate outright. 
+				<milestone n="3" unit="section"/>Wherefore suspicion and calumny fell upon that body when he disappeared unaccountably a short time after. He disappeared on the Nones of July, as they now call the month, then Quintilis, leaving no certain account nor even any generally accepted tradition of his death, aside from the date of it, which I have just given. For on that day many ceremonies are still performed which bear a likeness to what then came to pass.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Nor need we wonder at this uncertainty, since although Scipio Africanus died at home after dinner, there is no convincing proof of the manner of his end, but some say that he passed away naturally, being of a sickly habit, some that he died of poison administered by his own hand, and some that his enemies broke into his house at night and smothered him. 
+				<milestone n="5" unit="section"/>And yet Scipio's dead body lay exposed for all to see, and all who beheld it formed therefrom some suspicion and conjecture of what had happened to it; whereas Romulus disappeared suddenly, and no portion of his body or fragment of his clothing remained to be seen. But some conjectured that the senators, convened in the temple of Vulcan, fell upon him and slew him, then cut his body in pieces, put each a portion into the folds of his robe, and so carried it away. 
+				<milestone n="6" unit="section"/>Others think that it was neither in the temple of Vulcan nor when the senators alone were present that he disappeared, but that he was holding an assembly of the people outside the city near the so-called Goat's Marsh,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.16.1">Cf. Livy, i. 16, 1-4.</bibl>
+            </note> when suddenly strange and unaccountable disorders with incredible changes filled the air; the light of the sun failed, and night came down upon them, not with peace and quiet, but with awful peals of thunder and furious blasts driving rain from every quarter, 
+				<milestone n="7" unit="section"/>during which the multitude dispersed and fled, but the nobles gathered closely together; and when the storm had ceased, and the sun shone out, and the multitude, now gathered together again in the same place as before, anxiously sought for their king, the nobles would not suffer them to inquire into his disappearance nor busy themselves about it, but exhorted them all to honour and revere Romulus, since he had been caught up into heaven, and was to be a benevolent god for them instead of a good king. 
+				<milestone n="8" unit="section"/>The multitude, accordingly, believing this and rejoicing in it, went away to worship him with good hopes of his favour; but there were some, it is said, who tested the matter in a bitter and hostile spirit, and confounded the patricians with the accusation of imposing a silly tale upon the people, and of being themselves the murderers of the king.
+			</p>
+         <p>
+				        <milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>At this pass, then, it is said that one of the patricians, a man of noblest birth, and of the most reputable character, a trusted and intimate friend also of Romulus himself, and one of the colonists from Alba, Julius Proculus by name,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Liv. 1.16.5">Cf. Livy, i. 16, 5-8.</bibl>
+            </note> went into the forum and solemnly swore by the most sacred emblems before all the people that, as he was travelling on the road, he had seen Romulus coming to meet him, fair and stately to the eye as never before, and arrayed in bright and shining armour. 
+				<milestone n="2" unit="section"/>He himself, then, affrighted at the sight, had said:  
+				<q direct="unspecified">O King, what possessed thee, or what purpose hadst thou, that thou hast left us patricians a prey to unjust and wicked accusations, and the whole city sorrowing without end at the loss of its father?</q> Whereupon Romulus had replied: 
+				<q direct="unspecified">It was the pleasure of the gods, 0 Proculus, from whom I came, that I should be with mankind only a short time, and that after founding a city destined to be the greatest on earth for empire and glory, I should dwell again in heaven. So farewell, and tell the Romans that if they practise self-restraint, and add to it valour, they will reach the utmost heights of human power. And I will be your propitious deity, Quirinus.</q> 
+				        <milestone n="3" unit="section"/>These things seemed to the Romans worthy of belief, from the character of the man who related them, and from the oath which he had taken; moreover, some influence from heaven also, akin to inspiration, laid hold upon their emotions, for no man contradicted Proculus, but all put aside suspicion and calumny and prayed to Quirinus, and honoured him as a god.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Now this is like the fables which the Greeks tell about Aristeas of Proconnesus<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 4.14">Cf. Herodotus, iv. 14 f.</bibl>
+            </note> and Cleomedes of Astypaleia.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Paus. 9.6">Cf. Pausanias, ix. 6 ff.</bibl>
+            </note>  For they say that Aristeas died in a fuller's shop, and that when his friends came to fetch away his body, it had vanished out of sight; and presently certain travellers returning from abroad said they had met Aristeas journeying towards Croton. Cleomedes also, who was of gigantic strength and stature, of uncontrolled temper, and like a mad man, is said to have done many deeds of violence, and finally, in a school for boys, he smote with his fist the pillar which supported the roof, broke it in two, and brought down the house. 
+				<milestone n="5" unit="section"/>The boys were killed, and Cleomedes, being pursued, took refuge in a great chest, closed the lid down, and held it so fast that many men with their united strength could not pull it up; but when they broke the chest to pieces, the man was not to be found, alive or dead. In their dismay, then, they sent messengers to consult the oracle at Delphi, and the Pythian priestess gave them this answer:&mdash;
+				<quote rend="blockquote">
+					          <l>Last of the heroes he, Cleomedes, Astypalaean</l>
+				        </quote> 
+				        <milestone n="6" unit="section"/>It is said also that the body of Alcmene disappeared, as they were carrying her forth for burial, and a stone was seen lying on the bier instead. In short, many such fables are told by writers who improbably ascribe divinity to the mortal features in human nature, as well as to the divine.
+			</p>
+         <p>At any rate, to reject entirely the divinity of human virtue, were impious and base; but to mix heaven with earth is foolish. Let us therefore take the safe course and grant, with Pindar,<note resp="ed" place="unspecified" anchored="yes">Fragment 131, Bergk, <title>Poet. Lyr. Gr.</title> i.4 p. 427.</note> that 
+				<quote rend="blockquote">
+					          <l>Our bodies all must follow death's supreme behest,</l>
+					          <l>But something living still survives, an image of life, for this alone</l>
+					          <l>Comes from the gods.</l>
+				        </quote> 
+				        <milestone n="7" unit="section"/>Yes, it comes from them, and to them it returns, not with its body, but only when it is most completely separated and set free from the body, and becomes altogether pure, fleshless, and undefiled. For 
+				<q direct="unspecified">a dry soul is best,</q> according to Heracleitus,<note resp="ed" place="unspecified" anchored="yes">Fragment 74 (Bywater, <title>Heracliti Ephesii reliquiae</title>, p. 30).</note> and it flies from the body as lightning flashes from a cloud. But the soul which is contaminated with body, and surfeited with body, like a damp and heavy exhalation, is slow to release itself and slow to rise towards its source. 
+				<milestone n="8" unit="section"/>We must not, therefore, violate nature by sending the bodies of good men with their souls to heaven, but implicitly believe that their virtues and their souls, in accordance with nature and divine justice, ascend from men to heroes, from heroes to demi-gods, and from demi-gods, after they have been made pure and holy, as in the final rites of initiation, and have freed themselves from mortality and sense, to gods, not by civic law, but in very truth and according to right reason, thus achieving the fairest and most blessed consummation.
+			</p>
+         <p>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>To the surname of Quirinus bestowed on Romulus, some give the meaning of <emph>Mars</emph>, others that of <emph>Citizen</emph> because the citizens were called Quirites; but others say that the ancients called the <emph>spear-head</emph> (or the whole <emph>spear)</emph> 
+				        <q direct="unspecified">quiris,</q> and gave the epithet Quiritis to the Juno whose statue leans upon a spear, and the name Mars to a spear consecrated in the Regia, and a spear as a prize to those who performed great exploits in war; and that Romulus was therefore called Quirinus as a <emph>martial</emph>, or <emph>spear-wielding</emph>, god. 
+				<milestone n="2" unit="section"/>However that may be, a temple in his honour is built on the hill called Quirinalis after him, and the day on which he vanished is called People's Flight, and Capratine Nones, because they go out of the city and sacrifice at the Goat's Marsh; and 
+				<q direct="unspecified">capra</q> is their word for <emph>she-goat.</emph> And as they go forth to the sacrifice, they shout out many local names, like Marcus, Lucius, and Caius, in imitation of the way in which, on the day when Romulus disappeared, they called upon one another in fear and confusion.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Some, however, say that this imitation is not one of flight, but of haste and eagerness, and explain it as referring to the following occasion. After the Gauls had captured Rome and been driven out by Camillus, and when the city was still too weak to recover itself readily, an expedition was made against it by many of the Latins, under the command of Livius Postumius. This general stationed his army not far from Rome, and sent a herald with the message that the Latins wished to renew their ancient relationship and affinity with the Romans, by fresh intermarriages between the two peoples. 
+				<milestone n="4" unit="section"/>If, therefore, the Romans would send them a goodly number of virgins and their widows, they should have peace and friendship, such as they had formerly made with the Sabines on the like terms. On hearing this message, the Romans hesitated between going to war, which they feared, and the surrender of their women, which they thought no more desirable than to have them captured. But while they were in this perplexity, a serving-maid called Philotis (or, as some say, Tutola) advised them to do neither, but by the use of a stratagem to escape alike the war and the giving of hostages. 
+				<milestone n="5" unit="section"/>Now the stratagem was this, that they should send to the enemy Philotis herself, and with her other comely serving-maids arrayed like free-born women; then in the night Philotis was to display a signal-fire, at which the Romans were to come in arms and deal with their enemies while asleep. This was done, with the approval of the Latins, and Philotis displayed the signal-fire from a certain wild fig-tree, screening it behind with coverlets and draperies, so that its light was unseen by the enemy, but visible to the Romans. 
+				<milestone n="6" unit="section"/>When, accordingly, they beheld it, they sallied forth at once in great haste, and because of their haste calling upon one another many times at the gates. They fell upon their enemies when they least expected it and mastered them, and now celebrate this festival in memory of their victory. And the Nones on which it falls are called Capratine from the <emph>wild fig-tree</emph>, the Roman name for which is 
+				<q direct="unspecified">caprificus,</q> and they feast the women outside the city in booths made of fig-tree boughs. Then the serving-maids run about in companies and play, after which they strike and throw stones at one another, in token that on that earlier day they assisted the Romans and shared with them in their battle.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Cam. 33">Cf. <title>Camillus</title>, xxxiii.</bibl>
+            </note>
+				        <milestone n="7" unit="section"/>These details are accepted by many historians, but their calling out one another's names in the day time, and their marching out to the Goat's Marsh as for sacrifice, seem to be more consonant with the former story, unless, to be sure, both actions happened to take place on the same day in different periods. Romulus is said to have been fifty-four years of age, and in the thirty-eighth year of his reign when he disappeared from among men.
+			</p>
+      </body>
+   </text>
+</TEI.2>

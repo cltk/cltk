@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Cleom." type="work">Cleomenes</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 86Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Cleom."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1921</date>
+                  </imprint>
+                  <biblScope type="volume">10</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991133</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>CLEOMENES</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Upon the death of Agis<note resp="ed" place="unspecified" anchored="yes">About 241 B.C.</note> his brother Archidamus at once took to flight, and thus escaped arrest at the hands of Leonidas; but his wife, who had an infant son, was taken from her home by Leonidas and compelled to marry his son Cleomenes. Cleomenes was too young for marriage, but Leonidas was unwilling to have Agiatis marry anyone else. For she was heir to the great estate of her father Gylippus, in youthful beauty she far surpassed the other women of Greece, and she had an excellent disposition. 
+				<milestone n="2" unit="section"/>Therefore she begged most earnestly, we are told, that she should not be forced into this marriage, but after she was united to Cleomenes, though she hated Leonidas, to the young man himself she was a good and affectionate wife. And he, as soon as Agiatis was his, became passionately fond of her, and in a way sympathized with her devotion to the memory of Agis, so that he would often ask her about the career of Agis, and listen attentively as she told of the plans and purposes which Agis had formed.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>And, besides, Cleomenes was aspiring and magnanimous, and no less prone by nature than Agis to self-restraint and simplicity. He had not, however, the scrupulous and gentle nature for which Agis was remarkable, and his natural courage was always goading him on, as it were, and fiercely impelling him towards that which in any case appeared to be the honourable course. He thought it a most excellent thing to rule over willing subjects, but a good thing also to subdue such subjects as were disobedient, and force them towards the better goal.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Of course, then, the condition of the city was not pleasing to him. The citizens had been lulled to sleep by idleness and pleasure; the king was willing to let all public business go, provided that no one thwarted his desire for luxurious living in the midst of his wealth; the public interests were neglected, while every man was eagerly intent upon his own private gain; and as for practice in arms, self-restraint in the young, hardiness, and equality, it was even dangerous to speak of these now that Agis was dead and gone.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>It is said also that Cleomenes studied philosophy when he was still a stripling, after Sphaerus of Borysthenis had made a voyage to Sparta and busied himself sedulously there with the youth and young men. Sphaerus had become one of the leading disciples of' Zeno of Citium, and it would appear that he admired the manly nature of Cleomenes and increased the fires of his high ambition. 
+				<milestone n="3" unit="section"/>For Leonidas of old, as we are told, when asked what manner of poet he thought Tyrtaeus to be, replied; 
+				<q direct="unspecified">A good one to inflame the souls of young men.</q> And indeed they were filled with divine inspiration by his poems, and in battle were prodigal of their lives. However, for great and impetuous natures the Stoic doctrines are somewhat misleading and dangerous, although when they permeate a deep and gentle character, they redound most to its proper good.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But at the death of Leonidas<note resp="ed" place="unspecified" anchored="yes">In 235 B.C. Cleomenes was then about twenty-four years of age.</note> Cleomenes came to the throne, and saw that the citizens were by that time altogether degenerate. The rich neglected the common interests for their own private pleasure and aggrandizement; the common people, because of their wretched state at home, had lost all readiness for war and all ambition to maintain the ancient Spartan discipline; and he himself, Cleomenes, was king only in name, while the whole power was in the hands of the ephors. 
+				<milestone n="2" unit="section"/>He therefore at once determined to stir up and change the existing order of things, and as he had a friend, Xenares, who had been his lover (or <emph>inspirer</emph>, as the Spartans say), he would make trial of his sentiments by inquiring in detail what sort of a king Agis had been, and in what way and with what assistants he had entered upon the course of action so fatal to him. At first Xenares was quite glad to recall those matters, and rehearsed the events at length and in detail; 
+				<milestone n="3" unit="section"/>but when it was apparent that Cleomenes took an unusual interest in the story, and was profoundly stirred by the innovations of Agis, and wished to hear about him over and over again, Xenares rebuked him angrily, calling him unsound in mind, and finally stopped visiting and conversing with him. To no one, however, did he tell the reason of their variance, but merely said that Cleomenes understood it.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>And so Cleomenes, finding Xenares averse, and thinking that everybody else was of like mind with him, began to arrange his project all by himself. And because he thought that he could better bring about his reforms in time of war than in the midst of peace, he embroiled the state with the Achaeans, who were themselves giving grounds for complaint. For Aratus, the most powerful man among the Achaeans, was from the outset desirous of bringing all the Peloponnesians into one confederation, and this was the end pursued by him during his many generalships and his long political activity, 
+				<milestone n="5" unit="section"/>since he was of the opinion that in this way alone would they be safe from the attacks of their enemies without. Nearly all the other Peloponnesians adopted his views, but the Lacedaemonians, the Eleians, and the Arcadians who sided with the Lacedaemonians held aloof. Therefore, as soon as Leonidas was dead, Aratus began to harass the Arcadians, and ravaged the territories of those especially who were adjacent to Achaea. His object was to put the Lacedaemonians to the test, and he despised Cleomenes as a young and inexperienced man.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Upon this, the ephors began operations by sending Cleomenes to occupy the precinct of Athena at Belbina. This commands an entrance into Laconia, and was at that time a subject of litigation with the Megalopolitans. After Cleomenes had occupied and fortified this place, Aratus made no public protest, but led out his forces one night and tried to surprise Tegea and Orchomenus. 
+				<milestone n="2" unit="section"/>Those who were to betray the places to him, however, played the coward, and Aratus withdrew, thinking that his attempt had escaped notice. But Cleomenes wrote him an ironical letter, inquiring, as from a friend, whither he had marched out in the night. Aratus wrote back that hearing of Cleomenes' intention to fortify Belbina he had gone down there to prevent it. Whereupon Cleomenes sent back word again that he believed this story to be true; 
+				<q direct="unspecified">but those torches and ladders,</q> said he, 
+				<q direct="unspecified">if it is all one to thee, tell me for what purpose thou hadst them with thee.</q> 
+				        <milestone n="3" unit="section"/>Aratus burst out laughing at the jest, and inquired what manner of youth this was. Whereupon Damocrates, the Lacedaemonian exile, replied: 
+				<q direct="unspecified">If thou hast designs upon the Lacedaemonians, see that thou hastenest, before this young cock grows his spurs.</q>
+			      </p>
+         <p>After this, when Cleomenes with a few horsemen and three hundred foot-soldiers was making an expedition in Arcadia, the ephors, fearing the issue of the war, ordered him to come back home. 
+				<milestone n="4" unit="section"/>After he had returned, however, Aratus seized Caphyae, and the ephors sent Cleomenes forth again. He seized Methydrium and overran the territory of Argolis, whereupon the Achaeans marched out with twenty thousand foot-soldiers and a thousand horsemen under Aristomachus as general. Cleomenes met them at Pallantium and offered battle, 
+				<milestone n="5" unit="section"/>but Aratus, in fear of this boldness, would not suffer his general to hazard the issue, and retired. For this he was reproached by the Achaeans, and jeered at and despised by the Lacedaemonians, who were less than five thousand strong. Cleomenes was therefore greatly lifted up in spirit and began to show a hold front to the citizens; and he would often remind them of one of their ancient kings<note resp="ed" place="unspecified" anchored="yes">Agis II. (427-398 B.C.); cf. the <bibl n="Plut. Mor. 190c">
+                  <title>Morals</title>, pp. 190c</bibl>; <bibl n="Plut. Mor. 215d">215d.</bibl>
+            </note> who said, and not idly either, 
+				<q direct="unspecified">The Lacedaemonians are wont to ask, not how many, but where, their enemies are.</q>
+			      </p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, he went to the aid of the Eleians, upon whom the Achaeans were making war, and falling upon the Achaeans near Mt. Lycaeum, as they were withdrawing, he put their entire army to panic flight, slew great numbers of them, and took many prisoners, so that even Aratus was widely reported among the Greeks to be dead. But Aratus, making the best use of his opportunity, immediately after this defeat marched to Mantineia, and to everybody's surprise captured and held the city. 
+				<milestone n="2" unit="section"/>At this the Lacedaemonians were altogether disheartened and opposed any further expedition on the part of Cleomenes. He therefore determined to summon from Messene the brother of Agis, Archidamus,<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Cleom. 1.1">chapter i. 1.</bibl>
+            </note> who was the rightful king from the other royal house, thinking that the power of the ephors would be diminished if the royal power were restored to its full strength so as to counterbalance it. 
+				<milestone n="3" unit="section"/>But those who had formerly murdered Agis comprehended this design, and fearing that they would pay the penalty for their crime if Archidamus was restored, they did indeed receive him when he came secretly into the city, and assisted in his restoration, but immediately put him to death. Cleomenes may have been opposed to this, as Phylarchus thinks, or perhaps he was persuaded by his friends to abandon the hapless man to his murderers. For the greater part of the blame attached itself to them, since they were thought to have constrained Cleomenes.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, having determined to attempt at once his reforms in the state, Cleomenes bribed the ephors to send him on an expedition. He also won the favour of large numbers of the citizens with the help of his mother Cratesicleia, who assisted him liberally in providing ways and means, and shared his ambitions. It is even said that although she had no desire to marry again, for the sake of her son she took a husband who was foremost among the citizens in reputation and influence. 
+				<milestone n="2" unit="section"/>So Cleomenes led forth his forces and occupied Leuctra, a stronghold of Megalopolis. The Achaeans, under the command of Aratus, came swiftly to the aid of their allies against him, and Cleomenes, after drawing up his forces under the very walls of the city, was worsted at one point. But Aratus would not permit the Achaeans to cross a certain deep ravine, and brought his pursuit to a stop. 
+				<milestone n="3" unit="section"/>Lydiadas the Megalopolitan, however, chafing at this, dashed on with the horsemen under his command, and pursuing the enemy into a place full of vines, ditches, and walls, had his ranks broken and thrown into disorder thereby, and began to fall into difficulties. Cleomenes, observing this, sent against him his Tarentines and Cretans, at whose hands Lydiadas, defending himself sturdily, fell. At this the Lacedaemonians took courage and with a shout fell upon the Achaeans and routed their entire army. 
+				<milestone n="4" unit="section"/>Great numbers of them were slain, and their bodies Cleomenes restored at the enemy's request; but the body of Lydiadas he asked to have brought to him, arrayed it in a purple robe and put a crown upon the head, and then sent it back to the gates of Megalopolis. This was the Lydiadas who renounced the tyranny, gave back to the citizens their freedom, and attached the city to the Achaean league.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, Cleomenes, being now greatly elated, and persuaded that if he could keep the control of things entirely in his own hands during the war with the Achaeans, he would easily obtain the mastery, began to instruct his mother's husband, Megistono&uuml;s, that they must needs get rid of the ephors, put the property of the citizens into a common stock, and rouse and incite the Spartans, thus put upon their old footing of equality, to assume the supremacy in Greece. Megistono&uuml;s was convinced, and enlisted in the cause two or three of his friends besides.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>Now, it came to pass about that time that one of the ephors, who was sleeping in the precinct of Pasipha&euml;, had an astonishing dream. He dreamed that in the place where the ephors were wont to sit for the prosecution of business, one chair only stood, but the other four had been taken away; and that in his amazement at this a voice came to him from the temple saying that this was better for Sparta. 
+				<milestone n="3" unit="section"/>This dream the ephor related to Cleomenes, who at first was much disturbed, and thought that the other had some suspicion of his design and was making trial of him; but when he was convinced that the relater spoke the truth, his courage revived. So taking all the citizens who, as he suspected, would be most opposed to his designs, he seized Heraea and Alsaea, two cities belonging to the Achaean league, introduced supplies of food into Orchomenus, and encamped by Mantineia, 
+				<milestone n="4" unit="section"/>from whence he made long marches up and down the land, and utterly wore out the Lacedaemonians, so that it was at their own request that he left most of them in Arcadia, while with his mercenaries he himself set out for Sparta. On the march he imparted his design to those whom he believed to be most favourably disposed to him, and went forward slowly, that he might fall upon the ephors while they were at supper.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the city was close at hand, he sent Eurycleidas to the mess-table of the ephors, ostensibly to carry some message of the king from the army; but Therycion, Phoebis, and two of the Helots, who had been bred up along with Cleomenes<note resp="ed" place="unspecified" anchored="yes">Such Helot companions afterwards became freemen, and sometimes even citizens in Sparta.</note> (they call them 
+				<q direct="unspecified">mothakes</q>), followed after with a few soldiers. These in, while Eurycleidas was still making his report to the ephors, ran in upon them with drawn swords and smote them. 
+				<milestone n="2" unit="section"/>The first of them, Agylaeus, on receiving the blow, fell and lay still as though dead; but afterwards he quietly pulled himself together, dragged himself out of the room, and crept unobserved into a little building which was a temple of Fear. Usually it was closed, but at this time it chanced to be open. Into this building he betook himself and locked the door. But the other four were slain, and also about ten of those who came to their aid. For the people who kept quiet were not killed, nor were those who wished to leave the city prevented. And even Agylaeus was spared when he came out of the temple next day.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, the Lacedaemonians have temples of Death, Laughter, and that sort of thing, as well as of Fear. And they pay honours to Fear, not as they do to the powers which they try to avert because they think them baleful, but because they believe that fear is the chief support of their civil polity. 
+				<milestone n="2" unit="section"/>For this reason, too, when the ephors enter upon their office, as Aristotle says, they issue a proclamation commanding all men to shave their moustaches, and to obey the laws, that these may not be severe upon them. They insist upon the shaving of the moustache, I think, in order that they may accustom the young men to obedience in the most trifling matters. 
+				<milestone n="3" unit="section"/>And the men of old, in my opinion, did not regard bravery as a lack of fear, but as fear of reproach and dread of disgrace. For the men who feel most dread of the laws have most courage in facing their enemies; and those shun death least who most fear ill fame. 
+				<milestone n="4" unit="section"/>Therefore it has been well said<note resp="ed" place="unspecified" anchored="yes">By Stasinus of Cyprus. Cf. <bibl n="Plat. Euthyph. 12a">Plato, <title>Euthyphro</title>, 12a</bibl>; Kinkel, <title>Ep. Graec. Frag.</title> i. p. 30.</note>:
+			</p>
+         <p>
+            <quote rend="blockquote">
+				           <l>. . . for where dread is, there also is reverence.</l>
+			         </quote>
+				And Homer says<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Il. 3.172">
+                  <title>Iliad</title>,  iii. 172</bibl>, Helen to Priam.</note>:
+			</p>
+         <p>
+            <quote rend="blockquote">
+				           <l>Revered art thou by me, dear father-in-law, and </l>
+				           <l>dreaded too;</l>
+			         </quote>
+			      </p>
+         <p>and
+			</p>
+         <p>
+            <quote rend="blockquote">
+				           <l>Without a word, in dread of their leaders.<note resp="ed" place="unspecified" anchored="yes">
+                     <bibl n="Hom. Il. 4.431">
+                        <title>Iliad</title>, iv. 431</bibl>, of the Achaeans marshalled for battle.</note>
+               </l>
+			         </quote>
+			      </p>
+         <p>For by the multitude reverence is most apt to be felt towards those whom they also fear. For this reason, too, the Lacedaemonians erected a temple to Fear alongside the mess-hall of the ephors, after they had endowed this magistracy with almost absolute powers.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And now to resume; Cleomenes, when day came, published a list of eighty citizens who must go into exile, and removed all the ephoral chairs except one; in this he purposed to sit himself for the transaction of public business. Then he called a general assembly and made a defence of his proceedings. He said that Lycurgus had blended the powers of senate and kings, and that for a long time the state was administered in this way and had no need of other officials. 
+				<milestone n="2" unit="section"/>But later, when the Messenian war proved to be long, the kings, since their campaigns abroad left them no time to administer justice themselves, chose out some of their friends and left them behind to serve the citizens in their stead. These were called ephors, or guardians, and as a matter of fact they continued at first to be assistants of the kings, but then gradually diverted the power into their own hands, and so, ere men were aware, established a magistracy of their own. 
+				<milestone n="3" unit="section"/>As proof of this, Cleomenes cited the fact that down to that day, when the ephors summoned a king to appear before them, he refused to go at the first summons, and at the second, but at the third rose up and went to them; and he said that the one who first added weight to the office, and extended its powers, Asteropus, was ephor many generations later. As long, then, he said, as the ephors kept within bounds, it had been better to bear with them; but when with their assumed power they subverted the ancient form of government to such an extent as to drive away some kings, put others to death without trial, and threaten such as desired to behold again in Sparta her fairest and most divinely appointed constitution, it was not to be endured. 
+				<milestone n="4" unit="section"/>If, then, it had been possible without bloodshed to rid Sparta of her imported curses, namely luxury and extravagance, and debts and usury, and those elder evils than these, namely, poverty and wealth, he would have thought himself the most fortunate king in the world to have cured the disease of his country like a wise physician, without pain; but as it was, he said, in support of the necessity that had been laid upon him, he could cite Lycurgus, who, though he was neither king nor magistrate, but a private person attempting to act as king, proceeded with an armed retinue into the market-place, so that Charillus the king took fright and fled for refuge to an altar. 
+				<milestone n="5" unit="section"/>That king, however, Cleomenes said, since he was an excellent man and a lover of his country, speedily concurred in the measures of Lycurgus and accepted the change of constitution; still, as a matter of fact Lycurgus by his own acts bore witness to the difficulty of changing a constitution without violence and fear. To these, Cleomenes said, he had himself resorted with the greatest moderation, for he had but put out of the way the men who were opposed to the salvation of Sparta. 
+				<milestone n="6" unit="section"/>For all the rest, he said, the whole land should be common property, debtors should be set free from their debts, and foreigners should be examined and rated, in order that the strongest of them might be made Spartan citizens and help to preserve the state by their arms. 
+				<q direct="unspecified">In this way,</q> he said, 
+				<q direct="unspecified">we shall cease to behold Sparta the booty of Aetolians and Illyrians through lack of men to defend her.</q>
+			      </p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, to begin with, Cleomenes himself placed his property in the common stock, as did Megistono&lt;*&gt;s his step-father and every one of his friends besides; next, all the rest of the citizens did the same, and the land was parcelled out. Cleomenes also assigned a portion of land to each man who had been exiled by him, and promised to bring them all home after matters had become quiet. 
+				<milestone n="2" unit="section"/>Then he filled up the body of citizens with the most promising of the free provincials, and thus raised a body of four thousand men-at-arms, whom he taught to use a long pike, held in both hands, instead of a short spear, and to carry their shields by a strap instead of by a fixed handle. Next he devoted himself to the training of the young men and to the 
+				<q direct="unspecified">agoge,</q> or ancient discipline, most of the details of which Sphaerus, who was then in Sparta, helped him in arranging. And quickly was the proper system of bodily training and public messes resumed, a few out of necessity, but most with a willing spirit, subjecting themselves to the old Spartan regime with all its simplicity. 
+				<milestone n="3" unit="section"/>And yet, desiring to give the name of absolute power a less offensive sound, he associated with himself in royal power his brother Eucleidas. And this was the only time when the Spartans had two kings from the same house.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Learning that Aratus and the Achaeans believed that this revolution had jeopardized his position, and therefore did not think that he would venture forth outside of Sparta, or leave the city while it was still in the suspense of so great an agitation, he thought it a fine and helpful thing to make a display of the ready zeal of his army to his enemies. 
+				<milestone n="2" unit="section"/>Accordingly, he invaded the territory of Megalopolis, collected large booty, and devastated the country far and wide. And finally arresting a company of actors who were passing through the country from Messen&eacute;, he built a theatre in the enemy's territory, instituted a contest for a prize of forty minae, and sat spectator for a whole day; not that he felt the need of' a spectacle, but in exultant mockery, as it were, of his enemies, and to show to the world by his contempt for them that he held complete control of affairs, with something, as it were, to spare. 
+				<milestone n="3" unit="section"/>For at other times, the Spartan alone of Greek or Macedonian armies had no players in attendance, no jugglers, no dancing-girls, no harpists, but was free from every kind of licence, scurrility, and general festivity; while for the most part the young men practised themselves and the elder men taught them, and for amusement, when their work was over, they had recourse to their wonted pleasantries and the interchange of Spartan witticisms. Of what great advantage this sort of amusement is, I have told in my Life of Lycurgus.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Cleom. 12.1">Chapter xii.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In all these matters Cleomenes was himself a teacher. His own manner of life was simple, plain, and no more pretentious than that of the common man, and it was a pattern of self-restraint for all. This gave him a great advantage in his dealings with the other Greeks. For when men had to do with the other kings, they were not so much awed by their wealth and extravagance as they were filled with loathing for their haughtiness and pomp as they gave offensive and harsh answers to their auditors; 
+				<milestone n="2" unit="section"/>but when men came to Cleomenes, who was a real as well as a titled king, and then saw no profusion of purple robes or shawls about him, and no array of couches and litters; when they saw, too, that he did not make the work of his petitioners grievous and slow by employing a throng of messengers and door-keepers or by requiring written memorials, but came in person, just as he happened to be dressed, to answer the salutations of his visitors, conversing at length with those who needed his services and devoting time cheerfully and kindly to them, they were charmed and completely won over, and declared that he alone was a descendant of Heracles.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>His usual supper was held in a room which had only three couches, and was very circumscribed and Spartan; but if he was entertaining ambassadors or guest-friends, two more couches would be brought in, and the servants would make the table a trifle more brilliant, not with sauces or sweetmeats, but with more generous dishes and a kindlier wine. And indeed he censured one of his friends, when he heard that in entertaining guest-friends he had set before them the black soup and barley-bread of the public mess-tables; 
+				<q direct="unspecified">for,</q> said he, 
+				<q direct="unspecified">in these matters and before foreigners we must not be too strictly Spartan.</q> 
+				        <milestone n="4" unit="section"/>After the table had been removed, a tripod would be brought in on which were a bronze mixer full of wine, two silver bowels holding a pint apiece, and drinking cups of silver, few all told, from which he who wished might drink; but no one had a cup forced upon him. Music there was none, nor was any such addition desired; for Cleomenes entertained the company himself by his conversation, now asking questions, now telling stories, and his discourse was not unpleasantly serious, but had a sportiveness that charmed and was free from rudeness. 
+				<milestone n="5" unit="section"/>For the hunt which all the other kings made for men, ensnaring them with gifts and bribes and corrupting them, Cleomenes considered unskillful and unjust. In his eyes it was the noblest method, and one most fit for a king, to win over his visitors and attach them to himself by an intercourse and conversation which awakened pleasure and confidence. For he felt that a hireling differed from a friend in nothing except that the one was captured by a man's character and conversation, the other by a man's money.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>To begin with, then, the Mantineians invited him to help them, and after he had made his way into the city by night, they expelled the Achaean garrison and put themselves in his hands. Cleomenes restored to them their laws and constitution, and on the same day marched away to Tegea. Then, shortly afterwards, he fetched a compass through Arcadia and marched down upon the Achaean city of Pherae. His desire was either to fight a battle with the Achaeans, or to bring Aratus into disrepute for running away and abandoning the country to him. For although Hyperbatas was general at that time, Aratus had the entire power in the Achaean league. 
+				<milestone n="2" unit="section"/>Moreover, after the Achaeans had marched out with all their forces and pitched their camp at Dymae, near the Hecatombaeum, Cleomenes came up against them. He did not think it well, however, to pitch his own camp between the city of Dymae, which was hostile, and the army of the Achaeans, and therefore boldly challenged the Achaeans and forced them to engage. He was completely victorious, routed their phalanx, slew many of them in the battle, and took many prisoners also. Then he went up against Langon, drove out the Achaean garrison, and restored the city to the Eleians.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Achaeans having been thus utterly overwhelmed, Aratus, who was wont to be their general every other year, refused the office and declined to listen to their invitations and prayers; thus unwisely, when the ship of state was in a heavy storm, handing over the helm to another and abandoning the post of authority. Cleomenes, on the other hand, at the first was thought to impose moderate terms upon the Achaean embassy, but afterwards he sent other envoys and bade them hand over to him the leadership among the Greeks, assuring them that on other points he would not quarrel with them, but would at once restore to them their captives and their strongholds.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Arat. 38.5">
+                  <title>Aratus</title>,  xxxviii.  5f.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>The Achaeans were willing to settle matters on these terms, and invited Cleomenes to come to Lerna, where they were about to hold their assembly. But it fell out that Cleomenes, who had made a strenuous march and then too soon had drunk water, brought up a great quantity of blood and lost his speech. For this reason he sent back to the Achaeans the most prominent men among their captives, but postponed the conference and went back home to Sparta.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This ruined the cause of Greece, at a time when she was still able in some way or other to recover from her grievous plight and escape Macedonian greed and insolence. For Aratus (whether it was through distrust and fear of Cleomenes, or because he envied the king his unlooked for success, and thought it a terrible thing after three and thirty years of leadership to have his own fame and power stripped from him by an upstart of a young man, 
+				<milestone n="2" unit="section"/>and the authority taken over in a cause which he himself had built up and controlled for so long a time), in the first place tried to force the Achaeans aside and hinder their purpose; but when they paid no heed to him in their consternation at the daring spirit of Cleomenes, but actually saw justice in the demands of the Lacedaemonians, who were seeking to restore the Peloponnesus to its ancient status, 
+				<milestone n="3" unit="section"/>Aratus took a step which would have been unmeet for any Greek to take, but was most shameful for him and most unworthy of his career as soldier and statesman. For he invited Antigonus into Greece and filled the Peloponnesus with Macedonians, whom he himself had driven out of Peloponnesus when, as a young man, he delivered Acrocorinthus from their power<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Arat. 16.1">
+                  <title>Aratus</title>, xvi. ff.</bibl>
+            </note>-he who had incurred the suspicion and hostility of all the reigning kings, and of this very Antigonus had said countless evil things in the commentaries which he left behind him. 
+				<milestone n="4" unit="section"/>And still, though he had incurred many hardships and dangers in behalf of Athens, as he says himself, in order that the city might be set free from its garrison of Macedonians, he afterwards brought these Macedonians, under arms, into his own country and into his own home; aye, even into the apartments of his women;<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Arat. 49.1">
+                  <title>Aratus</title>,  xlix. 1.</bibl>
+            </note> but he would not consent that the man who was a descendant of Heracles and king of Sparta, and was seeking to bring its ancient polity, now like a decadent moody, back again to that restrained and Dorian law and life which Lycurgus had instituted, should be entitled leader of Sicyon and Tritaea. 
+				<milestone n="5" unit="section"/>Instead of this, to avoid the Spartan barley-bread and short-cloak, and the most dreadful of the evils for which he denounced Cleomenes, namely, abolition of wealth and restoration of poverty, he cast himself and all Achaea down before a diadem, a purple robe, Macedonians, and oriental behests. And that he might not be thought to obey Cleomenes, he offered sacrifices to Antigonus and sang paeans himself, with a garland on his head, in praise of a man who was far gone with consumption.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>I write this, however, not with any desire to denounce Aratus, for in many ways he was a true Greek and a great one, but out of pity for the weakness of human nature, which, even in characters so notably disposed towards excellence, cannot produce a nobility that is free from blame.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the Achaeans came to Argos again for the conference, and Cleomenes had come down from Tegea, everyone had a strong hope that they would come to an agreement. But Aratus, since the most important questions between him and Antigonus had already been settled, and because he was afraid that Cleomenes would carry all his points by either winning over or constraining the multitude, demanded that Cleomenes, after receiving three hundred hostages, should come into the city alone for his conference with them, or else should come with his army as far as the gymnasium outside the city called Cyllarabium, and treat with them there. 
+				<milestone n="2" unit="section"/>When Cleomenes heard this, he declared that he had been wronged; for he ought to have been told of this when the conference was first proposed, and not be distrusted and driven away now, when he had come to their very doors. Then, after writing a letter to the Achaeans on the matter, most of which was denunciation of Aratus, and after Aratus on his part had abused him at great length to the multitude, Cleomenes broke camp with all speed and sent a herald to declare war upon the Achaeans, not to Argos, but to Aegium, in order, as Aratus says, that he might anticipate their preparations for defence.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Arat. 39.1">
+                  <title>Aratus</title>,  xxxix.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>Now, there had been agitation among the Achaeans, and their cities were eager for revolt, the common people expecting division of land and abolition of debts, and the leading men in many cases being dissatisfied with Aratus, and some of them also enraged at him for bringing Macedonians into Peloponnesus. Therefore Cleomenes, encouraged by these conditions, invaded Achaea. First, he took Pellen&eacute; by a sudden assault, and drove out the Achaean garrison; next, he brought over to his cause Pheneus and Pentelcium. 
+				<milestone n="4" unit="section"/>Presently the Achaeans, who were afraid that some treachery was afoot in Corinth and Sicyon, sent their horsemen and their mercenaries out of Argos to keep watch over those cities, while they themselves went down to Argos and began celebrating the Nemean games. So Cleomenes, expecting, as was the case, that while the throng was holding festival and the city was full of spectators, his unexpected approach would be more apt to cause confusion, led his army by night up to the walls, 
+				<milestone n="5" unit="section"/>occupied the region about the Aspis overlooking the theatre, a region which was rugged and hard to come at, and so terrified the inhabitants that not a man of them thought of defence, but they accepted a garrison and gave twenty citizens as hostages, agreeing to become allies of the Lacedaemonians, and to give Cleomenes the chief command.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This greatly increased the reputation and power of Cleomenes. For the ancient kings of Sparta, in spite of numerous efforts, were not able to secure the abiding allegiance of Argos; and the most formidable of generals, Pyrrhus, although he fought his way into the city, could not hold it, but was slain there, and a great part of his army perished with him.<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Pyrrh. 32.1">
+                  <title>Pyrrhus</title>, xxxii. ff.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>Therefore men admired the swiftness and intelligence of Cleomenes; and those who before this had mocked at him for imitating, as they said, Solon and Lycurgus in the abolition of debts and the equalization of property, were now altogether convinced that this imitation was the cause of the change in the Spartans. 
+				<milestone n="3" unit="section"/>For these were formerly in so low a state and so unable to help themselves, that Aetolians invaded Laconia and took away fifty thousand slaves. It was at this time, we are told, that one of the elder Spartans remarked that the enemy had helped Sparta by lightening her burden. 
+				<milestone n="4" unit="section"/>But now only a little time had elapsed, and they had as yet barely resumed their native customs and reentered the track of their famous discipline, when, as if before the very eyes of Lycurgus and with his cooperation, they gave abundant proof of valour and obedience to authority, by recovering the leadership of Hellas for Sparta and making all Peloponnesus their own again.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Thus Argos was taken by Cleomenes, and immediately afterwards Cleonae and Phlius came over to him. When this happened, Aratus was at Corinth, holding a judicial examination of those who were reputed to favour the Spartan cause. The unexpected tidings threw him into consternation, and perceiving that the city was leaning towards Cleomenes and wished to be rid of the Achaeans, he summoned the citizens into the council-hall, and then slipped away unnoticed to the city gate. There his horse was brought to him, and mounting it he fled to Sicyon. 
+				<milestone n="2" unit="section"/>The Corinthians were so eager to get to Cleomenes at Argos that, as Aratus says, all their horses were ruined. Aratus says also that Cleomenes upbraided the Corinthians for not seizing him, but letting him escape; however, Megistono&uuml;s came to him, he says, bringing from Cleomenes a request for the surrender of Acrocorinthus (which was held by an Achaean garrison) and an offer of a large sum of money for it; to which he replied that he did not control affairs, but rather affairs controlled him. This is what Aratus writes.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>But Cleomenes, marching up from Argos and taking over Troezen, Epidaurus, and Hermion&eacute;, came to Corinth. Its citadel he blockaded, since the Achaeans would not abandon it, and after summoning the friends and stewards of Aratus, ordered them to take the house and property of Aratus into their charge and management. 
+				<milestone n="4" unit="section"/>Then he sent Tritymallus the Messenian once more to Aratus, proposing that Acrocorinthus should be garrisoned by Achaeans and Lacedaemonians together, and promising Aratus personally double the stipend which he was receiving from King Ptolemy.<note resp="ed" place="unspecified" anchored="yes">Ptolemy III., surnamed Euergetes, king of Egypt 247-222 B.C.  See the <bibl n="Plut. Arat. 41.3">
+                  <title>Aratus</title>, xli. 3.</bibl>
+            </note> Aratus, however, would not listen to the proposition, but sent his son to Antigonus along with the other hostages, and persuaded the Achaeans to vote the surrender of Acrocorinthus to Antigonus. Therefore Cleomenes invaded the territory of Sicyon and ravaged it, and accepted the property of Aratus when the Corinthians voted it to him as a gift.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Antigonus with a large force was crossing the mountain-range of Geraneia, Cleomenes thought it more advisable to fortify thoroughly, not the Isthmus, but the Oneian range of hills, and to wear out the Macedonians by a war of posts and positions, rather than to engage in formal battle with their disciplined phalanx. He carried out this plan, and thereby threw Antigonus into straits. 
+				<milestone n="2" unit="section"/>For he had not a sufficient store of provisions, and it was no easy matter to force his passage while Cleomenes sat entrenched. Moreover, when he attempted to slip past his enemy in the night by way of Lechaeum, he was driven out and lost some of his soldiers. Therefore Cleomenes was altogether encouraged, and his men, elated by their victory, betook themselves to supper; but Antigonus was dejected, since he was shut up by necessity to difficult plans. 
+				<milestone n="3" unit="section"/>For he was planning to march off to the promontory of the Heraeum, and from there to put his army across to Sicyon in transports&mdash;an undertaking requiring much time and extraordinary preparations. But when it was already towards evening, there came to him from Argos by sea some friends of Aratus, who summoned him to the city, on the ground that the Argives were ready to revolt from Cleomenes. The author of the revolt was Aristotle; and the multitude were easy to persuade, being incensed because Cleomenes had not brought about the abolition of debts which they expected. 
+				<milestone n="4" unit="section"/>Accordingly, Aratus took fifteen hundred soldiers from Antigonus and sailed to Epidaurus. Aristotle, however, did not await his coming, but at the head of the citizens made an attack upon the garrison of the citadel; and Timoxenus came to his aid from Sicyon with the Achaean army.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was about midnight when Cleomenes heard of these things, and summoning Megistono&uuml;s, he angrily ordered him to go at once to Argos with assistance; for it was Megistono&uuml;s who had given him most assurances of the fidelity of the Argives, and had thereby prevented him from expelling the suspected citizens. After sending off Megistono&uuml;s, then, with two thousand soldiers, he himself kept watch upon Antigonus and tried to encourage the Corinthians, telling them that there was no great trouble at Argos, but only a slight disturbance made by a few men. 
+				<milestone n="2" unit="section"/>However, when Megistono&uuml;s, who had made his way into Argos, was slain in battle, and the garrison held out with difficulty and kept sending frequent messengers to Cleomenes, he was afraid that if the enemy made themselves masters of Argos and shut up the passes, they might ravage at will the Laconian territory and lay siege to Sparta, which he had left without defenders. He therefore led his army away from Corinth. 
+				<milestone n="3" unit="section"/>This city was at once lost to him, for Antigonus entered it and set a garrison there; but Cleomenes, on reaching Argos, made an attempt to scale the walls, and with this in view drive his forces together from their march, and cutting his way through the tunnels running under the Aspis, or citadel, he made the ascent and effected a junction with his garrison inside, which was still holding out against the Achaeans. He actually got possession of some portions of the city by using scaling-ladders, and cleared the streets of the enemy by bringing his Cretan archers into action. 
+				<milestone n="4" unit="section"/>But when he saw Antigonus with his phalanx descending from the heights into the plain, and his horsemen already streaming into the city, he gave up trying to master it; and gathering all his troops about him he made his way safely down from the citadel and withdrew along past the city wall. He had made the greatest possible conquests in the briefest possible time, and had come within a little of making himself master of all Peloponnesus by a single march through it, but had quickly lost everything again. For sonic of his allies left him at once, and others after a little while handed their cities over to Antigonus.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such was the result of his expedition, and he was leading his army home, when, as it was already evening and he was near Tegea, messengers from Sparta came with tidings of a fresh and even greater calamity, the death of his wife. It was because of her that even in his most successful campaigns he could not endure to the end, but would continually be coming home to Sparta, out of love for Agiatis and in supreme devotion to her. 
+				<milestone n="2" unit="section"/>Of course, then, he was smitten with grief, as was natural for a young man who had lost a most beautiful and most sensible wife, but he did not allow his suffering to shame or betray the loftiness of his thought or the greatness of his spirit. He maintained his usual speech, dress, and bearing, gave the customary orders to his captains, and took thought for the safety of Tegea. 
+				<milestone n="3" unit="section"/>Next morning he returned to Sparta, and after duly mourning his loss with his mother and children at home, he at once engaged in the measures which he planned for the public good.
+			</p>
+         <p>Now, Ptolemy the king of Egypt promised him aid and assistance, but demanded his mother and his children as hostages. For a long time, therefore, he was ashamed to tell his mother, and though he often went to her and was at the very point of letting her know, he held his peace, so that she on her part became suspicious and enquired of his friends whether there was not something which he wished to impart to her but hesitated to do so. 
+				<milestone n="4" unit="section"/>Finally, when Cleomenes plucked up courage to speak of the matter, his mother burst into a hearty laugh and said: 
+				<q direct="unspecified">Was this the thing which thou wast often of a mind to tell me but lost thy courage? Make haste, put me on board a vessel, and send this frail body wheresoever thou thinkest it will be of most use to Sparta, before old age destroys it sitting idly here.</q>
+			      </p>
+         <p>
+				        <milestone n="5" unit="section"/>Accordingly, when all things were ready, they came to Taenarus by land, while the army escorted them under arms. And as Cratesicleia was about to embark, she drew Cleomenes aside by himself into the temple of Poseidon, and after embracing and kissing him in his anguish and deep trouble, said: 
+				<milestone n="6" unit="section"/>
+				        <q direct="unspecified">Come, O king of the Lacedaemonians, when we go forth let no one see us weeping or doing anything unworthy of Sparta. For this lies in our power, and this alone; but as for the issues of fortune, we shall have what the Deity may grant.</q> After saying this, she composed her countenance and proceeded to the ship with her little grandson, and bade the captain put to sea with all speed. 
+				<milestone n="7" unit="section"/>And when she was come to Egypt, and learned that Ptolemy was entertaining embassies and proposals from Antigonus, and heard that although the Achaeans invited Cleomenes to make terms with them, he was afraid on her account to end the war without the consent of Ptolemy, she sent word to him that he must do what was fitting and advantageous for Sparta, and not, because of one old woman and a little boy, be ever in fear of Ptolemy. Such, then, as we are told, was the bearing of Cratesicleia in her misfortunes.
+			</p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After Antigonus had taken Tegea by siege, and had surprised Orchomenus and Mantineia, Cleomenes, now reduced to the narrow confines of Laconia, set free those of the Helots who could pay down five Attic minas (thereby raising a sum of five hundred talents), armed two thousand of them in Macedonian fashion as an offset to the White Shields of Antigonus, and planned an undertaking which was great and entirely unexpected. 
+				<milestone n="2" unit="section"/>Megalopolis was at that time of itself fully as large and strong as Sparta, and could have assistance from the Achaeans and from Antigonus; for Antigonus was encamped near by, and it was thought that the Megalopolitans were chiefly responsible for his being called in by the Achaeans. 
+				<milestone n="3" unit="section"/>This city Cleomenes planned to snatch away (for nothing else could better describe the speed and unexpectedness of his famous achievement), and ordering his men to take five days' rations, he led them forth to Sellasia, as though he would ravage the territory of Argos. But from there he descended into the territory of Megalopolis, and after giving his men their supper at the Rhoeteium, he marched at once by way of Helicus against the city itself. 
+				<milestone n="4" unit="section"/>When he was not far away he dispatched Panteus with two divisions of Lacedaemonians, ordering him to seize a portion of the wall between two towers which he had learned was the most unprotected part of the walls of Megalopolis, while he himself with the rest of his army followed slowly after. Panteus found not only that particular spot, but also a great part of the wall, undefended, and at once tore down some portions of it, undermining others, and slaying all the defenders whom he encountered. Cleomenes promptly joined him, and before the Megalopolitans were aware of it, he was inside the city with his army.
+			</p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>At last the disaster became clear to the citizens, and some of them at once fled the city, taking with them what property they could lay hands on, while others banded together under arms, resisting and assaulting the enemy. These they were not strong enough to eject from the city, but they afforded a safe escape to the citizens who wished to flee, so that not more than a thousand persons were taken in the place all the rest, together with their wives and children, succeeded in escaping to Messene. 
+				<milestone n="2" unit="section"/>Moreover, the greater part of those who tried to save the city by fighting got off alive; but a few of them, all told, were captured, among whom were Lysandridas and Thearidas, men of the greatest reputation and influence in Megalopolis. Therefore the soldiers had no sooner seized them than they brought them to Cleomenes. Then Lysandridas, when he saw Cleomenes from afar, cried out with a loud voice and said: 
+				<q direct="unspecified">It is in thy power now, O king of the Lacedaemonians, to display an action fairer and more worthy of a king than any that has preceded it, and thereby win men's highest esteem.</q> 
+				        <milestone n="3" unit="section"/>But Cleomenes, conjecturing what the speaker wished, said: 
+				<q direct="unspecified">What meanest thou, Lysandridas? Thou surely canst not bid me give your city back again to you.</q> To which Lysandridas replied: 
+				<q direct="unspecified">Indeed, that is just what I mean, and I advise thee in thine own interests not to destroy so great a city, hut to fill it with friends and allies who are trusty and true by giving back to the Megalopolitans their native city and becoming the preserver of so large a people.</q> 
+				        <milestone n="4" unit="section"/>Accordingly, after a short silence, Cleomenes said: 
+				<q direct="unspecified">It is difficult to believe that all this will happen, but with us let what makes for good repute always carry the day, rather than what brings gain.</q> And with these words he sent the two men off to Messene attended by a herald from himself, offering to give back their city to the Megalopolitans on condition that they renounce the Achaean cause and be his friends and allies.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>However, although Cleomenes made this benevolent and humane offer, Philopoemen would not allow the Megalopolitans to break their pledges to the Achaeans, but denounced Cleomenes on the ground that he sought, not so much to give their city back to its citizens, as rather to get the citizens with their city<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Phil. 5.1">
+                  <title>Philopoemen</title>, v.</bibl>
+            </note>; then he drove Thearidas and Lysandridas out of Messene. This was that Philopoemen who afterwards became the leader of the Achaeans and won the greatest fame among the Greeks, as I have written in his own Life.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When tidings of these things were brought to Cleomenes, although he had taken strict care that the city should be inviolate and unharmed, so that no one took even the least thing without being detected, he was now so incensed and embittered that he plundered it, and sent its statues and pictures off to Sparta; then, after completely demolishing most and the largest portions of the city, he marched back towards home, being in fear of Antigonus and the Achaeans. 
+				<milestone n="2" unit="section"/>But these did nothing. For they were holding a general assembly at Aegium; and here Aratus, after mounting the bema, wept for a long time, holding his mantle before his face; and when his audience was amazed and bade him speak, he told them that Megalopolis had been destroyed by Cleomenes. Then the assembly at once broke up, the Achaeans being filled with consternation at the swiftness and magnitude of the calamity. 
+				<milestone n="3" unit="section"/>Antigonus at first attempted to give aid, but afterwards, since his forces came up to him but slowly from their winter quarters, he ordered them to remain where they were, while he himself proceeded to Argos, having only a few soldiers with him.
+			</p>
+         <p>And this was the reason why the next attempt of Cleomenes, which was thought to be a deed of extravagant and frantic daring, was really made with great forethought, as Polybius says.<note resp="ed" place="unspecified" anchored="yes">
+				           <q direct="unspecified">Most people thought this a hazardous and foolhardy step; but those who were capable of judging regarded the measure as at once safe and prudent</q> (<bibl n="Plb. 2.64">ii. 64, 1</bibl>).</note> 
+				        <milestone n="4" unit="section"/>For Cleomenes knew that the Macedonians were dispersed among the cities in their winter quarters, and that Antigonus had only a few mercenaries with him at Argos, where he was spending the winter with his friends. Cleomenes therefore invaded the territory of Argos, calculating that Antigonus would either be shamed into fighting and would be overpowered, or, in case he did not venture to fight, would incur odium among the Argives. And this was what actually came to pass. For while Cleomenes was wasting the country and robbing it of all that was there, 
+				<milestone n="5" unit="section"/>the Argives, in distress, kept thronging the doors of the king and calling upon him with loud voices either to fight or yield the leadership to his betters. But Antigonus, as became a prudent general, considering that disgrace lay in taking unreasonable risks and throwing away his security, rather than in being abused by the outside rabble, would not go forth from the city, but stood by his previous plans. So Cleomenes came up to the very walls of the city with his army, wrought insolent havoc, and then withdrew unmolested.
+			</p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>A little later, however, hearing that Antigonus had advanced to Tegea with intent to invade Laconia from that city, Cleomenes quickly took his soldiers, marched past the enemy by a different route, and at daybreak appeared suddenly before the city of Argos, ravaging the plain and destroying the grain, not cutting this down, as usual, with sickles and knives, but beating it down with great pieces of wood fashioned like spear-shafts. These his soldiers plied as if in sport, while passing by, and with no effort at all they would crush and ruin all the crop. 
+				<milestone n="2" unit="section"/>When, however, they were come to the Cyllarabis and attempted to set the gymnasium on fire, Cleomenes stopped them, feeling that his work at Megalopolis had been done to satisfy his anger rather than his honour.
+			</p>
+         <p>As for Antigonus, in the first place he went back at once to Argos, and then occupied the hills and all the passes with outposts. But Cleomenes pretended to despise and ignore all this, and sent heralds to the king demanding the keys to the Heraeum, that he might offer sacrifice to the goddess before he went away. 
+				<milestone n="3" unit="section"/>Then, after this jest and mockery, and after sacrificing to the goddess under the walls of the temple, which was closed, he led his army off to Phlius. From thence, after expelling the garrison of Oligyrtus, he marched past Orchomenus, not only infusing high spirits and courage into its citizens, but also leading his enemies to think him a man capable of leadership and worthy to wield great power. 
+				<milestone n="4" unit="section"/>For he drew his resources from but a single city, and yet waged war against the Macedonian power, all the Peloponnesians, and the treasures of a king together, and not only kept Laconia inviolate, but actually ravaged his enemies' territory and took cities of great size; and men thought this a proof of no ordinary ability and largeness of purpose.
+			</p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But he who first declared that money is the sinews of affairs would seem to have spoken with special reference to the affairs of war. And Demades, when the Athenians once ordered that their triremes should be launched and manned, but had no money, said: 
+				<q direct="unspecified">Dough must be moistened before it is kneaded.</q> it is said also that Archidamus of old, towards the beginning of the Peloponnesian war, when the allies ordered their contributions for the war to be fixed, said: 
+				<q direct="unspecified">War has no fixed rations.</q>
+            <note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Crass. 2.7">
+                  <title>Crassus</title>, ii. 7.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>And indeed, just as athletes who have taken a full course of training, in time bear down and overpower those who are merely graceful and skilful, so also did Antigonus, who engaged in the war with large resources, wear out and prostrate Cleomenes, who could only meagerly and with difficulty provide pay for his mercenaries and sustenance for his citizen-soldiers. 
+				<milestone n="3" unit="section"/>And yet in all other respects, certainly, time was on the side of Cleomenes; for affairs at home demanded the presence of Antigonus. During his absence Barbarians had been overrunning and devastating Macedonia, and at this particular time a large army of Illyrians from the interior had burst in, and in consequence of their ravages the Macedonians summoned Antigonus home. Their letters came within a little of reaching him before the decisive battle. If they had so reached him, he would at once have gone away and left the Achaeans to their own devices. 
+				<milestone n="4" unit="section"/>But Fortune, who decides the most important affairs by a narrow margin, favoured him with so slight a preponderance in the scale of opportunity and power, that no sooner had the battle at Sellasia been fought, where Cleomenes lost his army and his city, than the messengers summoning Antigonus arrived. And this more than anything else made the misfortune of Cleomenes to be greatly pitied. 
+				<milestone n="5" unit="section"/>For if he could have held out only two days, and continued his defensive tactics, he would not have needed to fight a battle, but the Macedonians would have gone away and he could have made his own terms with the Achaeans. But now, as I said before, his lack of resources forced him to stake the whole issue on a battle where, as Polybius says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plb. 2.65">
+                  <title>Hist.</title> ii. 65. 2</bibl> and <bibl n="Plb. 2.65">7</bibl>. The battle of Sellasia was fought in June of 221 B.C.</note> he could oppose only twenty thousand men to thirty thousand.
+			</p>
+         <p>
+				        <milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He showed himself an admirable general in the hour of peril, his fellow countrymen gave him spirited support, and even his mercenaries fought ill a praiseworthy manner, but he was overwhelmed by the superior character of his enemies' armour and the weight of their heavy-armed phalanx. Phylarchus, however, says that there was treachery also, and that this was chiefly what ruined Cleomenes. 
+				<milestone n="2" unit="section"/>For Antigonus ordered his Illyrians and Acarnanians to go round by a secret way and envelope the other wing, which Eucleidas, the brother of Cleomenes, commanded, and then led out the rest of his forces to battle; and when Cleomenes, from his post of observation, could nowhere see the arms of the Illyrians and Acarnanians, he was afraid that Antigonus was using them for some such purpose. 
+				<milestone n="3" unit="section"/>He therefore called Damoteles, the commander of the secret service contingent,<note resp="ed" place="unspecified" anchored="yes">A rural police with the special duty of watching the Helots, or slave population.</note> and ordered him to observe and find out how matters stood in the rear and on the flanks of his array. But Damoteles (who had previously been bribed, as we are told, by Antigonus) told him to have no concern about flanks and rear, for all was well there, but to give his attention to those who assailed him in front, and repulse them. So Cleomenes, putting faith in what he was told, advanced upon Antigonus, 
+				<milestone n="4" unit="section"/>and by the sweeping onset of his Spartans drove back the phalanx of the Macedonians for about five furlongs, and followed after them victoriously. Then, after Eucleidas with the other wing had been encircled, he came to a stop, and seeing their peril, said; 
+				<q direct="unspecified">I have lost thee, my dearest brother, I have lost thee, thou noble heart, thou great example to Spartan boys, thou theme for a song to Spartan wives!</q> 
+				        <milestone n="5" unit="section"/>After Eucleidas and his forces had in this way been cut to pieces, and the enemy, after their victory there, were coming on against the other wing, Cleomenes, seeing that his soldiers were in disorder and no longer had courage to stand their ground, took measures for his own safety. Many of his mercenaries fell, as we are told, and all the Spartans, six thousand in number, except two hundred.
+			</p>
+         <p>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Cleomenes came to the city, he advised the citizens who met him to receive Antigonus; as for himself, he said he would do whatever promised to be best for Sparta, whether it called for his life or death. Then, seeing the women running up to those who had escaped with him, relieving them of their arms, 
+				<milestone n="2" unit="section"/>and bringing drink to them, he went into his own house. Here his concubine, a free woman of Megalopolis whom he had taken to himself after the death of his wife, came to him, as was her wont upon his return from the field, and wished to minister to him; but he would neither drink, though he was faint with thirst, nor sit down, though he was worn out. Instead, all in armour as he was, he put his arm aslant against one of the pillars of the house, dropped his face upon his forearm, and after resting himself in this way for a short time, 
+				<milestone n="3" unit="section"/>and running over in his thoughts all possible plans, he set out with his friends for Gythium. There he went on board of vessels provided for this very purpose and put to sea.
+			</p>
+         <p>
+				        <milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Antigonus marched up and took the city without resistance. He treated the Lacedaemonians humanely, and did not insult or mock the dignity of Sparta, but restored her laws and constitution,<note resp="ed" place="unspecified" anchored="yes">As they were before the reforms of Cleomenes.</note> sacrificed to the gods, and went away on the third day. For he learned that there was a great war in Macedonia and that the Barbarians were ravaging the country. Moreover, his disease was already ill full possession of him, having developed into a quick consumption and an acute catarrh. 
+				<milestone n="2" unit="section"/>He did not, however, give up, but had strength left for his conflicts at home, so that he won a very great victory, slew a prodigious number of the Barbarians, and died gloriously, having broken a blood-vessel (as it is likely, and as Phylarchus says by the very shout that he raised on the field of battle. And in the schools of philosophy one used to hear the story that after his victory he shouted for joy, 
+				<q direct="unspecified">O happy day!</q> and then brought up a quantity of blood, fell into a high fever, and so died. So much concerning Antigonus.
+			</p>
+         <p>
+				        <milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As for Cleomenes, he sailed from Cythera to Aegialia, another island, and put in there. As he was about to cross from thence to Cyrene, one of his friends, Therycion by name, a man who brought a large spirit to the conduct of affairs and was always somewhat lofty in his speech and grandiloquent, came to him privately and said: 
+				<q direct="unspecified">The noblest death, O King, a death in battle, we have put away from us; 
+					<milestone n="2" unit="section"/>and yet all men heard us declare that Antigonus should not pass the king of Sparta except over his dead body. But a death that is second in virtue and glory is now still in our power. Whither do we unreasoningly sail, fleeing an evil that is near and pursuing one that is afar off? For if it is not shameful that the descendants of Heracles should be in subjection to the successors of Philip and Alexander, we shall spare ourselves a long voyage by surrendering to Antigonus, who is likely to surpass Ptolemy as much as Macedonians surpass Egyptians. 
+					<milestone n="3" unit="section"/>But if we cannot consent to be ruled by those who have conquered us in arms, wily should we make him our master who has not defeated us, thus showing ourselves inferior to two instead of one by running away from Antigonus and joining the flatterers of Ptolemy? Or, shall we say that it is on thy mother's account that we come to Egypt? Surely thou wilt make a noble spectacle for her, and one to awaken envy, when she displays her son to the wives of Ptolemy, a captive instead of a king, and a runaway. 
+					<milestone n="4" unit="section"/>Let us rather, while we are still masters of our own swords and can gaze upon the land of Laconia, here rid ourselves of Fortune's yoke, and make our peace with those who at Sellasia died in defence of Sparta, instead of sitting idly down in Egypt and asking every now and then whom Antigonus has left as satrap of Lacedaemon.</q>
+			      </p>
+         <p>Such were the words of Therycion, and to them Cleomenes replied: 
+				<q direct="unspecified">It is the easiest possible step thou urgest, wretched man, and one that any man may take, this dying; and dost thou think thyself brave when thou art making a flight more shameful than the one preceding it? 
+					<milestone n="5" unit="section"/>Better men than we have given in to their enemies before this, having been betrayed by Fortune or overwhelmed by numbers. But he who in the face of toils and hardships, or of the censorious judgments of men, gives up the fight, is vanquished by his own weakness. For a self-inflicted death ought to be, not flight from action, but an action in itself. For it is shameful to die, as well as to live, for one's self alone. And yet it is to this that thou now invitest me in thine eagerness to be rid of present troubles, though beyond that thou wilt effect nothing that is honourable or useful. 
+					<milestone n="6" unit="section"/>I, however, think it right that neither thou nor I should abandon our hopes for our country; when these abandon us, death will be very easy if we wish it.</q>
+			      </p>
+         <p>To this Therycion made no reply, but as soon as he got an opportunity to leave Cleomenes, he turned aside along the sea-beach and slew himself.
+			</p>
+         <p>
+				        <milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Cleomenes, putting to sea from Aegiala, landed in Libya, and travelled through the King's country to Alexandria. After coming into the presence of Ptolemy, at first he met with only ordinary and moderate kindness from him; but when he had given proof of his sentiments and shown himself to be a man of good sense, and when, in his daily intercourse, his Laconian simplicity retained the charm which a free spirit imparts, while he in no wise brought shame upon his noble birth or suffered the blows of Fortune to bow him down, but showed himself more winning than those whose conversation sought only to please and flatter, 
+				<milestone n="2" unit="section"/>then Ptolemy was filled with great respect for him, and deeply repented that he had neglected such a man and abandoned him to Antigonus, who had thereby won great glory and power. Ptolemy therefore sought to regain Cleomenes by honours and kindnesses, and kept encouraging him with assurances that he would send him back to Greece with ships and treasure and restore him to his kingdom. 
+				<milestone n="3" unit="section"/>He also gave him an annual pension of twenty-four talents. With this money Cleomenes maintained himself and his friends in a simple and modest manner, and spent the greater part in good offices and contributions to the refugees from Greece who were in Egypt.
+			</p>
+         <p>
+				        <milestone n="33" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Well, then, the elder Ptolemy<note resp="ed" place="unspecified" anchored="yes">Ptolemy III., surnamed Euergetes, died in 220 B.C., and was followed by Ptolemy IV., surnamed Philopator.</note> died before sending Cleomenes off as he had promised; and since the court at once plunged into excessive wantonness and drunkenness, and women wielded the power, the affairs of Cleomenes were neglected. 
+				<milestone n="2" unit="section"/>For the king himself was so corrupted in spirit by wine and women that, in his soberest and most serious moments, he would celebrate religious rites and act the mountebank in his palace,timbrel in hand, while the most important affairs of the government were managed by Agathocleia, the mistress of the king, and Oenanthe her mother, who was a bawd. 
+				<milestone n="3" unit="section"/>But in spite of all this, at the outset Cleomenes seemed to be of some use. For Ptolemy was afraid of his brother Magas, believing that Magas had a strong following among the soldiers owing to his mother's influence, and he therefore took Cleomenes into his following and gave him a place in his privy council, all the while plotting to kill his brother. But Cleomenes, although all other counsellors urged the king to take this step, alone advised against it, saying that it were better, were it possible, to get the king more brothers to increase the security and stability of his affairs. 
+				<milestone n="4" unit="section"/>And when Sosibius, who had the most influence among the king's ministers, declared that they could not be sure of the mercenaries as long as Magas was alive, Cleomenes bade him have no concern on that point at least; for more than three thousand of the mercenaries were Peloponnesians and attached to himself, and if he but gave them a nod they would readily come to his side in arms. 
+				<milestone n="5" unit="section"/>At the time this speech won for Cleomenes no little faith in his good will and belief in his strength; but afterwards, when Ptolemy's weakness intensified his cowardice, and, as is wont to happen where there is no sound judgment, His best course seemed to him to lie in fearing everybody and distrusting all men, it led the courtiers to be afraid of Cleomenes, on the ground that he had a strong following among the mercenaries; 
+				<milestone n="6" unit="section"/>and many of them were heard to say: 
+				<q direct="unspecified">There goes the lion up and down along these sheep.</q> And such, in fact, he clearly was among the courtiers, eyeing with quiet contempt and closely watching what was going on.
+			</p>
+         <p>
+				        <milestone n="34" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For ships, therefore, and an army, he gave up asking; but on learning that Antigonus was dead<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cleom. 30.2">chapter xxx. 2.</bibl>
+            </note> and that the Achaeans were involved in a war with the Aetolians, and that affairs yearned and called for him now that Peloponnesus was rent asunder and in confusion, he demanded to be sent away with his friends merely; 
+				<milestone n="2" unit="section"/>but he could persuade no one. The king would not give him a hearing, but was absorbed with women and Dionysiac routs and revels; and Sosibius, the prime minister and chief counsellor, thought that if Cleomenes remained against his will he might be hard to manage, indeed, and an object of fear, but that if he were sent away he would make some bold attempt, being a man of large undertakings, and one who had been an eye-witness of the distempers of the realm. 
+				<milestone n="3" unit="section"/>For not even gifts would soften him, but just as the sacred bull Apis, though living in plenty and believed to be having a luxurious time, feels a desire for the life that was his by nature, for coursings without restraint, and leaps and bounds, and is manifestly disgusted with his treatment at the hands of the priests, so Cleomenes took no pleasure in his life of ease and luxury,
+				<quote rend="blockquote">
+					          <l>but kept pining away in his dear heart,</l>
+				        </quote>
+				like Achilles,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Il. 1.491">
+                  <title>Iliad</title>, i. 491 f.</bibl>
+            </note>
+				        <quote rend="blockquote">
+					          <l>As he lingered there, and kept yearning for war-cry and battle.</l>
+				        </quote>
+			      </p>
+         <p>
+				        <milestone n="35" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While matters stood thus with him, Nicagoras the Messenian came to Alexandria, a man who hated Cleomenes, but pretended to be a friend. He had at one time sold Cleomenes a fine estate, and owing to the constant demands of war upon the king, as it would seem, had not received the money for it. And so now, when Cleomenes, who chanced to be taking a walk along the quay, saw Nicagoras landing from his vessel, he greeted him heartily and asked what errand brought him to Egypt. 
+				<milestone n="2" unit="section"/>Nicagoras returned his greeting in a friendly manner, and said that he was bringing horses for the king, some fine ones for use in war. At this, Cleomenes gave a laugh and said: 
+				<q direct="unspecified">I could wish that thou hadst rather brought sambuca-girls and catamites; for these now most interest the king.</q> At the time Nicagoras merely smiled; but a few days later he reminded Cleomenes of the estate, and asked that now at any rate he might get the money for it, saying that he would not have troubled him about the matter if he had not met with a considerable loss in the disposition of his cargo; 
+				<milestone n="3" unit="section"/>and when Cleomenes declared that he had nothing left of the moneys that had been given him, Nicagoras was vexed, and reported to Sosibius the pleasantry of Cleomenes. Sosibius was glad to get even this matter, but he desired to have some larger accusation with which to exasperate the king, and therefore persuaded Nicagoras to write and leave behind him a letter accusing Cleomenes of planning, in case he got triremes and soldiers from Ptolemy, to seize Cyrene. 
+				<milestone n="4" unit="section"/>So Nicagoras wrote a letter to this effect and sailed away; and Sosibius, after four days had passed, brought the letter to Ptolemy, pretending that he had just received it, and so exasperated the young man that it was decided to remove Cleomenes into a large house, and while treating him in other ways just as before, to prevent his egress.
+			</p>
+         <p>
+				        <milestone n="36" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Even this usage was grievous to Cleomenes, but his hopes for the future received a greater shock from the following incident. Ptolemy the son of Chrysermus, a friend of King Ptolemy, had all the while been on friendly terms with Cleomenes, and they were quite intimate and outspoken with one another. 
+				<milestone n="2" unit="section"/>This Ptolemy, then, now that Cleomenes begged a visit from him, came and conversed in a reasonable way with him, seeking to remove his suspicions and excusing the conduct of the king; but when he was leaving the house and did not perceive that Cleomenes was following on behind him as far as the doors, he bitterly reproached the guards for the careless and easy watch they kept upon a great wild beast that was so hard to keep. 
+				<milestone n="3" unit="section"/>Cleomenes heard this with his own ears, and without Ptolemy's being aware of his presence went back and told his friends. At once, then, they all abandoned the hopes they had been cherishing and wrathfully determined to avenge themselves on Ptolemy for his injustice and insolence, and die in a manner worthy of Sparta, instead of waiting like sacrificial victims to be first fattened and then smitten down. 
+				<milestone n="4" unit="section"/>For it was an intolerable thing that Cleomenes, after scorning to come to terms with Antigonus, a man who fought well and wrought much, should sit idly down and await the leisure of a begging-priest of a king, who, as soon as he could lay aside his timbrel and stop his dancing, would slay him.
+			</p>
+         <p>
+				        <milestone n="37" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such being their resolve, and Ptolemy, as chance would have it, making a visit to Canopus, in the first place word was sent about that Cleomenes had been set free by the king; and next, in view of a custom which the king had of sending presents and a banquet to those who were going to be released from imprisonment, the friends of Cleomenes in the city prepared and sent in to him an abundance of such things, thus completely deceiving the guards, who thought the king had sent them. 
+				<milestone n="2" unit="section"/>For Cleomenes made a sacrifice and gave the guards a bountiful share of his provisions, and then took his place at table with garlands on his head and feasted with his friends. We are told, too, that he set out upon his enterprise sooner than he had intended, because he learned that a slave who was privy to it had passed the night outside in company with a mistress. So fearing that his plans would be revealed, when noon came and he perceived that his guards were sleeping off their wine, he put on his tunic, opened the seam over his right shoulder, and with drawn sword sprang forth, accompanied by his friends, who were likewise arrayed, thirteen in number. 
+				<milestone n="3" unit="section"/>Hippitas, who was lame, joined in making the first onset with all his soul, but when he saw that he was a hindrance to the progress of his companions, he bade them kill him, and not ruin the enterprise by waiting for a useless fellow. As it chanced, however, an Alexandrine was leading a horse past the doors, so they seized the animal, put whippets on its back, and then rushed at full speed through the narrow streets of the city, summoning the throng to win their freedom. 
+				<milestone n="4" unit="section"/>These had enough courage, as it would seem, to admire and praise the daring of Cleomenes, but not a man was bold enough to follow and help him.
+			</p>
+         <p>Well, then, as Ptolemy the son of Chrysermus was coming out of the palace, three of them straightway fell upon him and slew him; and as another Ptolemy, who had the city in his charge, was driving towards them in a chariot, they rushed to meet him, scattered his servants and mercenaries, dragged him from his chariot, and slew him. 
+				<milestone n="5" unit="section"/>Then they proceeded to the citadel, purposing to break open the prison and avail themselves of the multitude of prisoners. But the guards were too quick for them and barred the way securely, so that Cleomenes, baffled in this attempt also, roamed up and down through the city, not a man joining with him but everybody filled with fear and flying from him. 
+				<milestone n="6" unit="section"/>So, then, he desisted from his attempt, and saying to his friends, 
+				<q direct="unspecified">It is no wonder, after all, that women rule over men who run away from freedom,</q> he called upon them all to die in a manner worthy of their king and their past achievements. So Hippitas first, at his own request, was smitten down by one of the younger men, then each of the others calmly and cheerfully slew himself, except Panteus, the man who led the way in the capture of Megalopolis.<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Cleom. 23.4">chapter xxiii. 4.</bibl>
+            </note> 
+				        <milestone n="7" unit="section"/>He had once been the king's favourite, because in his youth he was most fair, and in his young manhood most amenable to the Spartan discipline; and now his orders were to wait until the king and the rest of the band were dead, and then to die himself. At last all the rest lay prostrate on the ground, and Panteus, going up to each one in turn and pricking him with his sword, sought to discover whether any spark of life remained. When he pricked Cleomenes in the ankle and saw that his face twitched, he kissed him, and then sat down by his side; at last the end came, and after embracing the king's dead body, he slew himself upon it.
+			</p>
+         <p>
+				        <milestone n="38" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Such, then, was the end of Cleomenes who had been for sixteen years king of Sparta, and had shown himself the man whom I have described. The report of his death spread over the entire city, and Cratesicleia, although she was a woman of noble spirit, lost her composure in view of the magnitude of her misfortunes, and throwing her arms about the children of Cleomenes, wailed and lamented. 
+				<milestone n="2" unit="section"/>But the elder of the two boys, forestalling all prevention, sprang away and threw himself headlong from the roof; he was badly injured, but did not die, and was taken up crying out resentfully because he was not permitted to end his life.
+			</p>
+         <p>But Ptolemy, when he learned of these things, gave orders that the body of Cleomenes should be flayed and hung up, and that his children, his mother, and the women that were with her, should be killed. 
+				<milestone n="3" unit="section"/>Among these women was the wife of Panteus, most noble and beautiful to look upon. The pair were still but lately married, and their misfortunes came upon them in the hey-day of their love. Her parents, indeed, would not permit her to sail away with Panteus immediately, although she wished to do so, but shut her up and kept her under constraint; 
+				<milestone n="4" unit="section"/>a little later, however, she procured herself a horse and a small sum of money, ran away by night, made all speed to Taenarum, and there embarked upon a ship bound for Egypt. She was conveyed to her husband, and with him bore their life in a strange land without complaint and cheerfully. She it was who now took the hand of Cratesicleia as she was led forth by the soldiers, held up her robe for her, and bade her be of good courage. And Cratesicleia herself was not one whit dismayed at death, but asked one favour only, that she might die before the children died. 
+				<milestone n="5" unit="section"/>However, when they were come to the place of execution, first the children were slain before her eyes, and then Cratesicleia herself was slain, making but this one cry at sorrows so great: 
+				<q direct="unspecified">O children, whither are ye gone?</q> Then the wife of Panteus, girding up her robe, vigorous and stately woman that she was, ministered to each of the dying women calmly and without a word, and laid them out for burial as well as she could. 
+				<milestone n="6" unit="section"/>And finally, after all were cared for, she arrayed herself; let down the robes from about her neck, and suffering no one besides the executioner to come near or look upon her, bravely met her end, and had no need of anyone to array or cover up her body after death. Thus her decorum of spirit attended her in death, and she maintained to the end that watchful care of her body which she had set over it in life.
+			</p>
+         <p>
+				        <milestone n="39" unit="chapter"/>
+				        <milestone n="1" unit="section"/>So, then, Sparta, bringing her women's tragedy into emulous competition with that of her men, showed the world that in the last extremity Virtue cannot be outraged by Fortune. And a few days afterwards those who were keeping watch upon the body of Cleomenes where it hung, saw a serpent of great size coiling itself about the head and hiding away the face so that no ravening bird of prey could light upon it. 
+				<milestone n="2" unit="section"/>In consequence of this, the king was seized with superstitious fear, and thus gave the women occasion for various rites of purification, since they felt that a man had been taken off who was of a superior nature and beloved of the gods. And the Alexandrians actually worshipped him, coming frequently to the spot and addressing Cleomenes as a hero and a child of the gods; but at last the wiser men among them put a stop to this by explaining that, 
+				<milestone n="3" unit="section"/>as putrefying oxen breed bees, and horses wasps, and as beetles are generated in asses which are in the like condition of decay, so human bodies, when the juices about the marrow collect together and coagulate, produce serpents. And it was because they observed this that the ancients associated the serpent more than any other animal with heroes.
+			</p>
+      </body>
+   </text>
+</TEI.2>

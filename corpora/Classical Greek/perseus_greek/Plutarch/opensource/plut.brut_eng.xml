@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Brut." type="work">Brutus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 116 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Brut."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1918</date>
+                  </imprint>
+                  <biblScope type="volume">6</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991095</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>6/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>BRUTUS</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Marcus Brutus was a descendant of that Junius Brutus whose bronze statue, with a drawn sword in its hand, was erected by the ancient Romans on the Capitol among those of their kings, in token that he was most resolute in dethroning the Tarquins. But that Brutus, like the tempered steel of swords, had a disposition which was hard by nature and not softened by letters, so that his wrath against the tyrants drove him upon the dreadful act of slaying his sons;<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Publ. 6.1">
+                  <title>Publicola</title>, chapter vi.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>whereas this Brutus, of whom I now write, modified his disposition by means of the training and culture which philosophy gives, and stimulated a nature which was sedate and mild by active enterprises, and thus seems to have been most harmoniously attempered for the practice of virtue. As a consequence, even those who hated him on account of his conspiracy against Caesar ascribed whatever was noble in the undertaking to Brutus, but laid the more distressing features of what was done to the charge of Cassius, who was a kinsman of Brutus, indeed, and his friend, but not so simple and sincere in his character. 
+				<milestone n="3" unit="section"/>Servilia, the mother of Brutus, traced her lineage back to Servilius Ahala, who, when Spurius Maelius was seditiously plotting to usurp absolute power, took a dagger under his arm, went into the forum, drew nigh the man, as if intending to confer privately with him, and when he inclined his head to listen, stabbed him to death.<note resp="ed" place="unspecified" anchored="yes">In 439 B.C. Cf. <bibl n="Liv. 4.13.1">Livy, iv. 13 f.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>This, at all events, is generally admitted; but as to the lineage of Brutus by his father's side, those who display great hatred and malevolence towards him because of the murder of Caesar deny that it goes back to that Brutus who expelled the Tarquins, since no offspring was left to him when he had slain his sons. The ancestor of Brutus, they say, was a plebeian, son of a steward by the name of Brutus, and had only recently risen to office. 
+				<milestone n="5" unit="section"/>Poseidonius the philosopher, however, says that the two sons of Brutus who were of age perished according to the story, but that a third son was left, an infant, from whom the family descended. He says, moreover, that there were certainly illustrious men of this house in his own day, some of whom called attention to their likeness in form and features to the statue of Brutus. Thus much, then, on this head.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Servilia, the mother of Brutus, was a sister of Cato the philosopher, and Brutus had a higher esteem for him than for any other Roman, Cato being his uncle and afterwards becoming his father-in-law. There was practically no Greek philosopher with whom Brutus was unacquainted or unfamiliar, but he devoted himself particularly to the disciples of Plato. 
+				<milestone n="2" unit="section"/>To the New and Middle Academy, as they are called, he was not very partial, but clung to the Old. He was therefore always an admirer of Antiochus of Ascalon, whose brother Aristus he had made his friend and housemate, a man who in learning was inferior to many philosophers, but who in good sense and gentleness vied with the foremost. 
+				<milestone n="3" unit="section"/>Empylus also, who is often mentioned by Brutus himself in his letters, and also by his friends, as a housemate of his, was a rhetorician, and has left a brief but excellent account of the assassination of Caesar, entitled 
+				<q direct="unspecified">Brutus.</q>
+			      </p>
+         <p>In Latin, now, Brutus was sufficiently trained for narrative or pleading; but in Greek he affected the brevity of the apophthegm and the Spartan, of which he sometimes gives a striking example in his letters 
+				<milestone n="4" unit="section"/>For instance, when he had already embarked upon the war, he wrote to the Pergamenians: 
+				<q direct="unspecified">I hear that ye have given money to Dolabella; if ye gave it willingly confess that ye have wronged me; if unwillingly, prove it by giving willingly to me.</q> Again, to the Samians: 
+				<q direct="unspecified">Your counsels are paltry, your subsidies slow; what, think ye, will be the end of this?</q> 
+				        <milestone n="5" unit="section"/>And in another letter: 
+				<q direct="unspecified">The Xanthians ignored my benefactions, and have made their country a grave for their madness; but the Patareans entrusted themselves to me, and now enjoy their freedom in all its fullness. It is in your power also to choose the decision of the Patareans or the fate of the Xanthians.</q> Such, then, is the style of his remarkable letters.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While he was still a youth, he made a journey to Cyprus with his uncle Cato, who was sent out against Ptolemy.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cat. Mi. 34.1">
+                  <title>Cato the Younger</title>, chapters xxxiv.</bibl>, <bibl n="Plut. Cat. Mi. 36.1">xxxvi.</bibl>
+            </note> And when Ptolemy made away with himself, Cato, who was himself obliged to tarry a while in Rhodes, had already dispatched one of his friends, Canidius, to take charge of the king's treasures; but fearing that he would not refrain from theft, he wrote to Brutus bidding him sail with all speed to Cyprus from Pamphylia, where he was recruiting his health after a severe sickness. 
+				<milestone n="2" unit="section"/>Brutus set sail, but very much against his will, both because he had regard for Canidius, whom he thought to have been ignominiously discarded by Cato, and because on general grounds he considered such painstaking attention to administrative affairs to be illiberal and unworthy of himself as a young man addicted to letters. However, he applied himself to this task also, and won Cato's praise, and after converting the king's property into money, took most of the treasure and set sail for Rome.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Here, when the state was rent by factions, Pompey and Caesar appealing to arms and the supreme power being confounded, Brutus was expected to choose the side of Caesar, since his father had been put to death a while before at the instigation of Pompey;<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Pomp. 16.1">
+                  <title>Pompey</title>, chapter xvi.</bibl>
+            </note> but thinking it his duty to put the public good above his own, and holding that Pompey's grounds for going to war were better than Caesar's, he attached himself to Pompey. 
+				<milestone n="2" unit="section"/>And yet before this he would not even speak to Pompey when he met him, considering it a great abomination to converse with the murderer of his father; now, however, looking upon him as his country's ruler, he put himself under his orders, and set sail for Cilicia as legate with Sestius, to whom the province had been allotted. 
+				<milestone n="3" unit="section"/>But since there was nothing of importance for him to do there, and since Pompey and Caesar were now about to meet in a supreme struggle, he came of his own accord into Macedonia to share the danger. It was then, they say, that Pompey was so filled with delight and admiration that he rose from his seat as Brutus approached, and in the sight of all embraced him as a superior. During the campaign, for whatever part of the day he was not with Pompey, he busied himself with books and literature, not only the rest of the time, but even before the great battle.<note resp="ed" place="unspecified" anchored="yes">At Pharsalus in Thessaly, in August of 48 B.C.</note> 
+				        <milestone n="4" unit="section"/>It was the height of summer, the heat was great (since they had encamped in marshy regions), and they that carried the tent of Brutus were slow in coming. But though he was thus all worn out, and though it was almost noon before he anointed himself and took a little food, nevertheless, while the rest were either sleeping or occupied with anxious thoughts about the future, he himself was busy until evening in making and writing out a compend of Polybius.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It is said, moreover, that Caesar also was concerned for his safety, and ordered his officers not to kill Brutus in the battle, but to spare him, and take him prisoner if he gave himself up voluntarily, and if he persisted in fighting against capture, to let him alone and do him no violence; and that Caesar did this out of regard for Servilia, the mother of Brutus. 
+				<milestone n="2" unit="section"/>For while he was still a young man, as it seems, Caesar had been intimate with Servilia, who was madly in love with him, and he had some grounds for believing that Brutus, who was born at about the time when her passion was in full blaze, was his own son. It is said also that when the great conspiracy of Catiline, which came near overthrowing the city, had come to the ears of the senate, Cato and Caesar, who were of different opinions about the matter, were standing side by side, and just then a little note was handed to Caesar from outside, which he read quietly. But Cato cried out that Caesar was outrageously receiving letters of instruction from the enemy. 
+				<milestone n="3" unit="section"/>At this, a great tumult arose, and Caesar gave the missive, just as it was, to Cato. Cato found, when he read it, that it was a wanton bit of writing from his sister Servilia, and throwing it to Caesar with the words 
+				<q direct="unspecified">Take it, thou sot,</q> turned again to the business under discussion.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cat. Mi. 24.1">
+                  <title>Cato the Younger</title>, xxiv. 1 f.</bibl>
+            </note> So notorious was Servilia's passion for Caesar.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After the defeat at Pharsalus, when Pompey had made his escape to the sea and his camp was besieged, Brutus went out unnoticed by a gate leading to a place that was marshy and full of water and reeds, and made his way safely by night to Larissa. 
+				<milestone n="2" unit="section"/>From thence he wrote to Caesar, who was delighted at his safe escape, and bade him come to him, and not only pardoned him, but actually made him a highly honoured companion. Now, since no one could tell whither Pompey was fleeing, and all were in great perplexity, Caesar took a long walk with Brutus alone, and sounded him on the subject. Certain considerations advanced by Brutus made his opinion concerning Pompey's flight seem the best, and Caesar therefore renounced all other courses and hastened towards Egypt. 
+				<milestone n="3" unit="section"/>But as for Pompey, he put in at Egypt, as Brutus conjectured, and there met his doom; as for Caesar, however, Brutus tried to soften him towards Cassius also. He also served as advocate for the king of Africa,<note resp="ed" place="unspecified" anchored="yes">Probably an error, either of Plutarch's, or of the MSS. In 47 B.C. Brutus pleaded unsuccessfully before Caesar the cause of Deiotarus, king of Galatia. Cora&euml;s would read <foreign lang="greek">*galatw=n</foreign> for <foreign lang="greek">*libu/wn</foreign>.</note> and though he lost the case, owing to the magnitude of the accusations against his client, still, by supplications and entreaties in his behalf he saved much of his kingdom for him. 
+				<milestone n="4" unit="section"/>And it is said that Caesar, when he first heard Brutus speak in public, said to his friends: 
+				<q direct="unspecified">I know not what this young man wants, but all that he wants he wants very much.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Cic. Att. 14.1.2">Cicero <title>ad Att.</title> xiv. 1, 2.</bibl>
+            </note> For the weight of his character, and the fact that no one found it easy to make him listen to appeals for favour, but that he accomplished his ends by reasoning and the adoption of noble principles, made his efforts, whithersoever directed, powerful and efficacious. 
+				<milestone n="5" unit="section"/>No flattery could induce him to grant an unjust petition, and that inability to withstand shameless importunity, which some call timidity, he regarded as most disgraceful in a great man, and he was wont to say that those who were unable to refuse anything, in his opinion, must have been corrupted in their youth.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>When Caesar was about to cross over into Africa against Cato and Scipio, he put Brutus in charge of Cisalpine Gaul, to the great good-fortune of the province; for while the other provinces, owing to the insolence and rapacity of their governors, were plundered as though they had been conquered in war, to the people of his province Brutus meant relief and consolation even for their former misfortunes. 
+				<milestone n="7" unit="section"/>And he attached the gratitude of all to Caesar, so that, after Caesar's return, and as he traversed Italy, he found the cities under Brutus a most pleasing sight, as well as Brutus himself, who enhanced his honour and was a delightful companion.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now that there were several praetorships to be had, it was expected that the one of greatest dignity, that is, the praetorship of the city, would fall either to Brutus or to Cassius; and some say that the two men, who were already slightly at variance for other reasons, were still more estranged by this circumstance, although they were relatives, since Cassius was the husband of Junia, a sister of Brutus. 
+				<milestone n="2" unit="section"/>But others say that this rivalry was the work of Caesar, who secretly favoured the hopes of each until, thus induced and incited, they entered into competition with one another. Brutus, however, made the contest supported only by his fair fame and his virtue, as against many brilliant and spirited exploits of Cassius in the Parthian war.<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Crass. 18.1">
+                  <title>Crassus</title>, xviii. ff.</bibl>
+            </note> 
+				        <milestone n="3" unit="section"/>But Caesar, after hearing the claims of each, said, in council with his friends: 
+				<q direct="unspecified">Cassius makes the juster plea, but Brutus must have the first praetorship.</q> So Cassius was appointed to another praetorship, but he was not so grateful for what he got as he was angry over what he had lost.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>And in all other ways, too, Brutus had as large a share in Caesar's power as he wished. Indeed, had he wished it, he might have been first among Caesar's friends and exercised the greatest power; but the party of Cassius drew him away from such a course. Not that he was reconciled to Cassius himself as yet, after their struggle for honours, but he gave ear to the friends of Cassius, who urged him not to suffer himself to be charmed and softened by Caesar, but rather to flee the tyrant's kindnesses and favours, for these were shown to him, not to reward his virtue, but to root out his vigour and his haughty spirit.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, even Caesar was not wholly without suspicion, nor free from the effects of accusations against Brutus, but, while he feared his high spirit, his great repute, and his friends, he had faith in his character. Once, when he was told that Antony and Dolabella were plotting revolution, he said it was not the fat and long-haired fellows that troubled him, but those pale and lean ones;<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Caes. 62.5">
+                  <title>Caesar</title>, lxii. 5.</bibl>
+            </note> meaning Brutus and Cassius. 
+				<milestone n="2" unit="section"/>And again, when certain ones were accusing Brutus to him, and urging him to be on his guard against him, he laid his hand upon his breast and said: 
+				<q direct="unspecified">What? Think ye not that Brutus can wait for this poor flesh?</q> implying that no one besides Brutus was fit to succeed him in such great power. And verily it appears that Brutus might have been first in the city with none to dispute him, could he have endured for a little while to be second to Caesar, suffering his power to wane and the fame of his successes to wither. 
+				<milestone n="3" unit="section"/>But Cassius, a man of violent temper, and rather a hater of Caesar on his own private account than a hater of tyranny on public grounds, fired him up and urged him on. Brutus, it is said, objected to the rule, but Cassius hated the ruler, and among other charges which he brought against him was that of taking away some lions which Cassius had provided when he was about to be aedile; the beasts had been left at Megara, and when the city was taken by Calenus,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Caes. 43.1">
+                  <title>Caesar</title>, xliii. 1.</bibl>
+            </note> Caesar appropriated them. 
+				<milestone n="4" unit="section"/>And the beasts are said to have brought great calamity upon the Megarians. For these, just as their city was captured, drew back the bolts and loosened the fetters that confined the animals, in order that they might obstruct the oncoming foe, but they rushed among the unarmed citizens themselves and preyed upon them as they ran hither and thither, so that even to the enemy the sight was a pitiful one.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the case of Cassius, then, they say this was the chief reason for his plotting against Caesar; but it is not so. For from the outset there was in the nature of Cassius great hostility and bitterness towards the whole race of tyrants, as he showed when he was still a boy and went to the same school with Faustus the son of Sulla. For when Faustus blustered among the boys and bragged about his father's absolute power, Cassius sprang up and gave him a thrashing. 
+				<milestone n="2" unit="section"/>The guardians and relatives of Faustus wished to carry the matter into court, but Pompey forbade it, and after bringing the two boys together, questioned them both about the matter. Then, as the story goes, Cassius said: 
+				<q direct="unspecified">Come now, Faustus, have the courage to utter in this man's presence that speech which angered me, and I will smash your face again.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>Such was Cassius; but Brutus was exhorted and incited to the undertaking by many arguments from his comrades, and by many utterances and writings from his fellow citizens. For instance, on the statue of his ancestor, the Brutus who overthrew the power of the kings, there was written: 
+				<q direct="unspecified">O that we had thee now, Brutus!</q> and 
+				<q direct="unspecified">O that Brutus were alive!</q> Besides, the praetorial tribunal of Brutus himself was daily found covered with such writings as these: 
+				<q direct="unspecified">Brutus, art thou asleep?</q> and 
+				<q direct="unspecified">Thou art not really Brutus.</q> 
+				        <milestone n="4" unit="section"/>These things were brought about by the flatterers of Caesar, who, among other invidious honours which they invented for him, actually put crowns upon his statues by night, hoping to induce the multitude to address him as king instead of dictator. But the contrary came to pass, as I have written fully in my Life of Caesar.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Caes. 61.1">Chapter lxi.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Moreover, when Cassius sought to induce his friends to conspire against Caesar, they all agreed to do so if Brutus took the lead, arguing that the undertaking demanded, not violence nor daring, but the reputation of a man like him, who should consecrate the victim, as it were, and ensure by the mere fact of his participation the justice of the sacrifice; otherwise they would be more timid in doing the deed and more suspected after they had done it, since men would say that Brutus would not have declined the task if the purpose of it had been honourable. 
+				<milestone n="2" unit="section"/>After reflecting on this, Cassius made Brutus his first visit since the quarrel above mentioned,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Brut. 7.1">Chapter vii. 1-3.</bibl>
+            </note> and when they were again on a friendly footing, asked him whether he had made up his mind to attend the meeting of the senate on the Calends of March; for it had come to his ears, he said, that Caesar's friends would then move to have him made king. When Brutus answered that he should not attend, 
+				<q direct="unspecified">What, then,</q> said Cassius, 
+				<q direct="unspecified">if we should be summoned?</q> 
+				        <q direct="unspecified">It would at once be my duty,</q> said Brutus, 
+				<q direct="unspecified">not to hold my peace, but to defend my country and die in behalf of liberty.</q> 
+				        <milestone n="3" unit="section"/>Then Cassius, elated, said: 
+				<q direct="unspecified">But what Roman will consent to have thee die in such defence? Dost thou not know thyself Brutus? Or dost thou think that thy tribunal was covered with inscriptions by weavers and hucksters, and not by the foremost and most influential citizens? From their other praetors they demand gifts and spectacles and gladiatorial combats; but from thee, as a debt thou owest to thy lineage, the abolition of the tyranny;
+					<milestone n="4" unit="section"/>and they are ready and willing to suffer anything in thy behalf, if thou showest thyself to be what they expect and demand.</q> After this, he embraced Brutus and kissed him, and thus reconciled they betook themselves to their friends.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>There was a certain Caius Ligarius<note resp="ed" place="unspecified" anchored="yes">He is called Quintus Ligarius in the <bibl n="Plut. Cic. 39.5">
+                  <title>Cicero</title>, xxxix. 5.</bibl>
+            </note> among the friends of Pompey, who had been denounced as such, but pardoned by Caesar. This man, cherishing no gratitude for his pardon, but rather offended by the power which had put his life in jeopardy, was an enemy of Caesar, and one of the most familiar friends of Brutus. Once, when this man was sick, Brutus came to see him, and said: 
+				<q direct="unspecified">O Ligarius, what a time this is to be sick!</q> Ligarius at once raised himself on his elbow, clasped Brutus by the hand, and said: 
+				<q direct="unspecified">Nay, Brutus, if thou hast a purpose worthy of thyself, I am well.</q>
+			      </p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, they secretly tested the sentiments of well known men in whom they had confidence, selecting not only from their intimates, but all whom they knew to be bold, brave, and contemptuous of death. 
+				<milestone n="2" unit="section"/>For this reason, too, they kept their plans a secret from Cicero, although he was foremost among them, not only for the confidence, but also for the good will which he inspired. They feared that the caution which time and old age had brought him, combined with his natural timidity, and further, his habit of calculating all the details of every enterprise so as to ensure the utmost safety, would blunt the edge of their ardour at a crisis which demanded speed. 
+				<milestone n="3" unit="section"/>Besides, Brutus also passed by, among his other friends, Statilius the Epicurean and Favonius the devoted follower of Cato. The reason was that some time before he had put them to a very similar test by the round-about method of a philosophical discussion, when Favonius had answered that civil war was worse than illegal monarchy; and Statilius had declared that it did not become a wise and sensible man to be thrown into turmoil and peril for the sake of feeble and foolish folk. Labeo, however, who was present, argued against them both. 
+				<milestone n="4" unit="section"/>At that time, on the ground that the question was rather difficult and hard to decide, Brutus held his peace, but afterwards imparted his purpose to Labeo, who readily concurred in it. Then it was decided to bring over to their cause the other Brutus, surnamed Albinus;<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Caes. 64.1">
+                  <title>Caesar</title>, chapter lxiv.</bibl>
+            </note> in other ways he was not an enterprising nor even a courageous man, but the large number of gladiators whom he was maintaining for the Roman spectacles made him powerful, and he had Caesar's confidence. 
+				<milestone n="5" unit="section"/>When Cassius and Labeo discussed the matter with him, he would make no answer; but he had a private interview by himself with Brutus, and on learning that he was leader of the enterprise, readily agreed to co-operate. The most and best of the rest also were won over by the reputation in which Brutus stood. 
+				<milestone n="6" unit="section"/>And although they exchanged neither oaths nor sacred pledges, they all kept the undertaking so much to themselves and were so secret in carrying it out together that, although it was foretold by the gods in prophecies and oracles and sacrificial omens,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Caes. 63.1">
+                  <title>Caesar</title>, chapter lxiii.</bibl>
+            </note> no one would believe in it.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now Brutus, since he had made the foremost men of Rome for dignity, family, and virtue, dependent on himself, and since he understood all the danger involved, in public tried to keep his thoughts to himself and under control ; but at home, and at night, he was not the same man. Sometimes, in spite of himself, his anxious thoughts would rouse him out of sleep, and sometimes, when he was more than ever immersed in calculation and beset with perplexities, his wife, who slept by his side, perceived that he was full of unwonted trouble, and was revolving in his mind some difficult and complicated plan.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>Porcia, as has been said, was a daughter of Cato, and when Brutus, who was her cousin, took her to wife, she was not a virgin; she was, however, still very young, and had by her deceased husband<note resp="ed" place="unspecified" anchored="yes">Marcus Calpurnius Bibulus, colleague of Caesar in the consulship of 59 B.C.</note> a little son whose name was Bibulus. A small book containing memoirs of Brutus was written by him, and is still extant. 
+				<milestone n="3" unit="section"/>Porcia, being of an affectionate nature, fond of her husband, and full of sensible pride, did not try to question her husband about his secrets until she had put herself to the following test. She took a little knife, such as barbers use to cut the finger nails, and after banishing all her attendants from her chamber, made a deep gash in her thigh, so that there was a copious flow of blood, and after a little while violent pains and chills and fever followed from the wound. 
+				<milestone n="4" unit="section"/>Seeing that Brutus was disturbed and greatly distressed, in the height of her anguish she spoke to him thus: 
+				<q direct="unspecified">Brutus, I am Cato's daughter, and I was brought into thy house, not, like a mere concubine, to share thy bed and board merely, but to be a partner in thy joys, and a partner in thy troubles. Thou, indeed, art faultless as a husband; but how can I show thee any grateful service if I am to share neither thy secret suffering nor the anxiety which craves a loyal confidant? 
+					<milestone n="5" unit="section"/>I know that woman's nature is thought too weak to endure a secret; but good rearing and excellent companionship go far towards strengthening the character, and it is my happy lot to be both the daughter of Cato and the wife of Brutus. Before this I put less confidence in these advantages, but now I know that I am superior even to pain.</q> 
+				        <milestone n="6" unit="section"/>Thus having spoken, she showed him her wound and explained her test; whereupon Brutus, amazed, and lifting his hands to heaven, prayed that he might succeed in his undertaking and thus show himself a worthy husband of Porcia. Then he sought to restore his wife.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>A meeting of the senate having been called, to which it was expected that Caesar would come, they determined to make their attempt there; for they could then gather together in numbers without exciting suspicion, and would have all the best and foremost men in one place, who, once the great deed was done, would straightway espouse the cause of liberty. 
+				<milestone n="2" unit="section"/>It was thought, too, that the place of meeting was providentially in their favour; for it was one of the porticoes about the theatre, containing a session-room in which stood a statue of Pompey. This statue the city had erected in his honour when he adorned that place with the porticoes and the theatre.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Pomp. 40.5">
+                  <title>Pompey</title>, xl. 5.</bibl>
+            </note> Hither, then, the senate was summoned about the middle of March<note resp="ed" place="unspecified" anchored="yes">March 15, 44 B.C.</note> (the Romans call the day the Ides of March), so that some heavenly power seemed to be conducting Caesar to Pompey's vengeance.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>When the day came, Brutus girt on a dagger, to the knowledge of his wife alone, and went forth, while the rest assembled at the house of Cassius and conducted his son, who was about to assume what was called the 
+				<q direct="unspecified">
+               <foreign lang="la">toga virilis</foreign>,</q> down to the forum. Thence they all hastened to the portico of Pompey and waited there, expecting that Caesar would straight-way come to the meeting of the senate. 
+				<milestone n="4" unit="section"/>There any one who knew what was about to happen would have been above all things astonished at the indifference and composure of the men on the brink of this terrible crisis. Many of them were praetors and therefore obliged to perform the duties of their office, wherein they not only listened calmly to those who had petitions to offer or quarrels to compose, as if they had ample time, but also took pains to give their verdicts in every case with accuracy and judgment. 
+				<milestone n="5" unit="section"/>And when a certain man who was unwilling to submit to the verdict of Brutus appealed to Caesar with loud cries and attestations, Brutus turned his gaze upon the bystanders and said: 
+				<q direct="unspecified">Caesar does not prevent me from acting according to the laws, nor will he prevent me.</q>
+			      </p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And yet many things occurred to surprise and disturb them. First and foremost, though the day was advancing, Caesar delayed his coming, being detained at home by his wife because his omens were unpropitious,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Caes. 63.5">
+                  <title>Caesar</title>, lxiii. 5.</bibl>
+            </note> and prevented from going forth by the soothsayers. 
+				<milestone n="2" unit="section"/>In the second place, some one came up to Casca, one of the conspirators, took him by the hand, and said: 
+				<q direct="unspecified">You hid the secret from us, Casca, but Brutus has told me everything.</q> And when Casca was dumb with amazement, the man burst out laughing and said: 
+				<q direct="unspecified">How did you get so rich on a sudden, my good fellow, as to stand for the aedilesilip?</q> So near did Casca come, in the mistake caused by the man's ambiguity, to disclosing the secret. 
+				<milestone n="3" unit="section"/>Moreover, Brutus and Cassius were greeted more warmly than, usual by Popilius Laenas, a senator, who then whispered quietly to them: 
+				<q direct="unspecified">I join you in praying for the accomplishment of what you have in mind, and exhort you not to delay, for the matter is on men's tongues.</q> Having said this, he went away, leaving them full of suspicion that their undertaking had become known.
+			</p>
+         <p>At this juncture, too, a messenger from his house came running to Brutus with the tidings that his wife was dead. 
+				<milestone n="4" unit="section"/>For Porcia, being distressed about what was impending and unable to bear the weight of her anxiety, could with difficulty keep herself at home, and at every noise or cry, like women in the Bacchic frenzy, she would rush forth and ask every messenger who came in from the forum how Brutus was faring, and kept sending out others continually. 
+				<milestone n="5" unit="section"/>Finally, as the time grew long, her bodily powers could no longer endure the strain, but were relaxed and enfeebled as her perplexities threatened to drive her mad. She had not time to go to her chamber, but just as she was, sitting in the midst of her servants, she was overwhelmed with faintness and helpless stupor, her colour fled, and her speech was utterly stayed. 
+				<milestone n="6" unit="section"/>Her maids shrieked at the sight, and since the neighbours came running in a crowd to the door, a report speedily went forth and a story was spread abroad that she was dead. However, she revived in a short time, came to herself, and was cared for by her women; but Brutus, though he was confounded, naturally, by the startling tale, nevertheless did not abandon his public duty, nor was he driven by his affliction to dwell on his private concerns.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And now word was brought that Caesar was coming, borne on a litter. For in consequence of the dejection caused by his omens, he had determined not to sanction any important business at that time, but to postpone it, under pretext of indisposition. As he descended from his litter, Popilius Laenas, who, a little while before, had wished Brutus success in his enterprise, hurried up to him and conversed with him for some time, and Caesar stood and listened to him. 
+				<milestone n="2" unit="section"/>The conspirators (for so they shall be called) could not hear what he said, but judging from their suspicions that what he told Caesar was a revelation of their plot, they were disconcerted in their plans, and mutually agreed by looks which passed between them that they must not await arrest, but at once dispatch themselves. 
+				<milestone n="3" unit="section"/>Cassius and some others, indeed, had already grasped the handles of the daggers beneath their robes and were about to draw them, when Brutus observed from the mien of Laenas that he was asking eagerly for something and not denouncing anyone. Brutus said nothing, because many were about him who were not in the plot, but by the cheerfulness of his countenance gave courage to Cassius and his friends. 
+				<milestone n="4" unit="section"/>And after a little while Laenas kissed Caesar's hand and withdrew. He had made it clear that it was in his own behalf and on something which closely concerned himself that he had consulted Caesar.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the senate had preceded Caesar into the session-room, the rest of the conspirators stationed themselves about Caesar's chair, as if they intended to have some conference with him, and Cassius is said to have turned his face towards the statue of Pompey and to have invoked it, as if it had understanding; but Trebonius drew Antony into conversation at the door and kept him outside.<note resp="ed" place="unspecified" anchored="yes">In <bibl n="Plut. Caes. 66.3">
+                  <title>Caesar</title>, lxvi. 3</bibl>, Brutus Albinus is incorrectly said to have detained Antony in conversation. Cf. <bibl n="App. BC 2.16.117">Appian, <title>B.C.</title> ii. 117</bibl>, and Cicero's letter to Trebonius (<bibl n="Cic. Fam. 10.28">
+                  <title>Epist.</title> x. 28</bibl>).</note> 
+				        <milestone n="2" unit="section"/>As Caesar entered, the senate rose in his honour, but as soon as he was seated the conspirators surrounded him in a body, putting forward Tullius Cimber of their number with a plea in behalf of his brother, who was in exile. The others all joined in his plea, and clasping Caesar's hands, kissed his breast and his head. At first, Caesar merely rejected their pleas, and then, when they would not desist, tried to free himself from them by force. At this, Tullius tore Caesar's robe from his shoulders with both hands, and Casca, who stood behind him, drew his dagger and gave him the first stab, not a deep one, near the shoulder. 
+				<milestone n="3" unit="section"/>Caesar caught the handle of the dagger and cried out loudly in Latin: 
+				<q direct="unspecified">Impious Casca, what doest thou?</q> Then Casca, addressing his brother in Greek, bade him come to his aid. And now Caesar had received many blows and was looking about and seeking to force his way through his assailants, when he saw Brutus setting upon him with drawn dagger. At this, he dropped the hand of Casca which he had seized, covered his head with his robe, and resigned himself to the dagger-strokes. 
+				<milestone n="4" unit="section"/>The conspirators, crowding eagerly about the body, and plying their many daggers, wounded one another, so that Brutus also got a wound in the hand as he sought to take part in the murder, and all were covered with blood.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Caesar thus slain, Brutus went out into the middle of the session-room and tried to speak, and would have detained the senators there with encouraging words; but they fled in terror and confusion, and there was a tumultuous crowding at the door, although no one pressed upon them in pursuit. For it had been firmly decided not to kill any one else, but to summon all to the enjoyment of liberty. 
+				<milestone n="2" unit="section"/>All the rest of the conspirators, indeed, when they were discussing their enterprise, had been minded to kill Antony as well as Caesar, since he was a lawless man and in favour of a monarchy, and had acquired strength by familiar association with the soldiery; and particularly because to his natural arrogance and ambition he had added the dignity of the consulship, and was at that time a colleague of Caesar. But Brutus opposed the plan, insisting in the first place on a just course, and besides, holding out a hope of a change of heart in Antony. 
+				<milestone n="3" unit="section"/>For he would not give up the belief that Antony, who was a man of good parts, ambitious, and a lover of fame, if once Caesar were out of the way, would assist his country in attaining her liberty, when their example had induced him to follow emulously the nobler course. Thus Antony's life was saved by Brutus; but in the fear which then reigned, he put on a plebeian dress and took to flight.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>And now Brutus and his associates went up to the Capitol, their hands smeared with blood, and displaying their naked daggers they exhorted the citizens to assert their liberty. At first, then, there were cries of terror, and the tumult was increased by wild hurryings to and fro which succeeded the disaster; but since there were no further murders and no plundering of property, the senators and many of the common people took heart and went up to the men on the Capitol. 
+				<milestone n="5" unit="section"/>When the multitude was assembled there, Brutus made a speech calculated to win the people and befitting the occasion. The audience applauding his words and crying out to him to come down from the Capitol, the conspirators took heart and went down into the forum. The rest of them followed along in one another's company, but Brutus was surrounded by many eminent citizens, escorted with great honour down from the citadel, and placed on the rostra. 
+				<milestone n="6" unit="section"/>At sight of him the multitude, although it was a mixed rabble and prepared to raise a disturbance, was struck with awe, and awaited the issue in decorous silence. Also when he came forward to speak, all paid quiet attention to his words; but that all were not pleased with what had been done was made manifest when Cinna began to speak and to denounce Caesar. The multitude broke into a rage and reviled Cinna so bitterly that time conspirators withdrew again to the Capitol. 
+				<milestone n="7" unit="section"/>There Brutus, who feared that they would be besieged, sent away the most eminent of those who had come up with them, not deeming it right that they should incur the danger too, since they had no share in the guilt.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, on the following day the senate met in the temple of Tellus, and Antony, Plancus, and Cicero spoke in favour of amnesty and concord. It was then voted not only that the conspirators should have immunity, but also that the consuls should lay before the people a measure to pay them honours. After passing these votes, the senate broke up. 
+				<milestone n="2" unit="section"/>Then, when Antony had sent his son to the Capitol as a hostage, Brutus and his associates came down, and there were salutations and greetings for all without discrimination. Cassius was taken home and entertained by Antony, Brutus by Lepidus, and the rest by their several comrades or friends. Early next morning the senate assembled again 
+				<milestone n="3" unit="section"/>In the first place, they gave a vote of thanks to Antony for having stopped an incipient civil war; next, they passed a vote of commendation for the followers of Brutus who were present; and finally, they distributed the provinces. It was voted that Brutus should have Crete, Cassius Africa, Trebonius Asia, Cimber Bithynia, and the other Brutus Cisalpine Gaul.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, the subjects of Caesar's will and of his burial came up for discussion. Antony demanded that the will should be read publicly, and that the body should be carried forth to burial, not secretly, nor without honours, lest this also should exasperate the people. Cassius, indeed, vehemently opposed these measures, but Brutus yielded and agreed to them, thus making a second mistake, as it was thought. 
+				<milestone n="2" unit="section"/>For by sparing Antony's life as he had done he incurred the charge of raising up against the conspirators a bitter and formidable foe; and now, in allowing Caesar's funeral rites to be conducted as Antony demanded, he committed a fatal error. For, in the first place, when it was found that the will of Caesar gave to every single Roman seventy-five drachmas, and left to the people his gardens beyond the Tiber, where now stands a temple of Fortune, an astonishing kindliness and yearning for Caesar seized the citizens; 
+				<milestone n="3" unit="section"/>and in the second place, after Caesar's body had been brought to the forum, Antony pronounced the customary eulogy, and when he saw that the multitude were moved by his words, changed his tone to one of compassion, and taking the robe of Caesar, all bloody as it was, unfolded it to view, pointing out the many places in which it had been pierced and Caesar wounded. All further orderly procedure was at an end, of course; 
+				<milestone n="4" unit="section"/>some cried out to kill the murderers, and others, as formerly in the case of Clodius the demagogue,<note resp="ed" place="unspecified" anchored="yes">Clodius was killed in a street-brawl with Milo, 52 B.C. Cf. <bibl n="Plut. Cic. 25.1">
+                  <title>Cicero</title>, xxv. 1.</bibl>
+            </note> dragged from the shops the benches and tables, piled them upon one another, and thus erected a huge pyre; on this they placed Caesar's body, and in the midst of many sanctuaries, asylums, and holy places, burned it. Moreover, when the fire blazed up, people rushed up from all sides, snatched up half-burnt brands, and ran round to the houses of Caesar's slayers to set them on fire.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>These men, indeed, having previously barricaded themselves well, repelled the danger; but there was a certain Cinna, a poet, who had no share in the crime, but was actually a friend of Caesar's. This man dreamed that he was invited to supper by Caesar and declined to go, but that Caesar besought and constrained him, and finally took him by the hand and led him into a yawning and darksome place, whither he followed unwilling and bewildered. 
+				<milestone n="6" unit="section"/>After having this vision, he fell into a fever which lasted all night; but in the morning, nevertheless, when the funeral rites were held over Caesar's body, he was ashamed not to be present, and went out into the crowd when it was already becoming savage. He was seen, however, and being thought to be, not the Cinna that he really was, but the one who had recently reviled Caesar before the assembled people, he was torn in pieces.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This incident more than anything else, except, perhaps, Antony's change of heart, frightened Brutus and his adherents, and they withdrew from the city. At first they spent some time in Antium, with the idea of returning to Rome when the people's wrath had passed its climax and subsided. This they thought would readily come to pass, since multitudes are fickle and impetuous, and, besides, they had the senate in their favour, which let those who tore Cinna to pieces go unpunished, and yet tried to seek out and arrest those who had assaulted the houses of the conspirators. 
+				<milestone n="2" unit="section"/>Already, too, the people were disturbed because Antony was assuming almost absolute power, and they longed for Brutus; it was also expected that he would be present in person and conduct the spectacles which it was his duty as praetor to furnish. But Brutus learned that many of the veteran soldiers of Caesar who had received land and cities from their commander, were now plotting against his life and in small bands streaming in to the city. He therefore had not the courage to come. The people, however, had their spectacles, in spite of his absence, and these were very lavishly and magnificently appointed. 
+				<milestone n="3" unit="section"/>For Brutus had purchased a great number of wild beasts, and now gave orders that not one should be sold or left behind, but that all should be used; and he himself went down to Naples and conferred with a very large number of actors; and regarding Canutius, an actor who enjoyed great fame, he wrote to his friends that they should persuade him to go to Rome; for no Greek could properly be compelled to go. He wrote also to Cicero, begging him by all means to attend the spectacles.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Matters were at such a pass when a fresh turn was given to them by the arrival of the young Caesar. He was a son of Caesar's niece, but had been formally adopted by him, and left his heir. 
+				<milestone n="2" unit="section"/>He was pursuing his studies at Apollonia when Caesar was killed, and had been awaiting him there after his determination to march at once against the Parthians. As soon as he learned of Caesar's fate, he came to Rome, and as a first step towards winning the favour of the people, assumed the name of Caesar and distributed to the citizens the money which had been left them by his will. Thus he deposed Antony from popular favour, and by a lavish use of money assembled and got together many of Caesar's veteran soldiers. 
+				<milestone n="3" unit="section"/>When Cicero was led by his hatred of Antony to take the side of Octavius Caesar, Brutus rebuked him severely, writing that Cicero did not object to a despot as such, but only feared a despot who hated him, and that when he declared in his letters and speeches that Octavius was a worthy man, his policy meant the choice of a kindly slavery. 
+				<q direct="unspecified">Our ancestors, however,</q> said he, 
+				<q direct="unspecified">could not endure even gentle despots.</q> 
+				        <milestone n="4" unit="section"/>As for himself, he had not as yet definitely decided, he said, either for war or for peace, but on one thing only was he determined, and that was not to be a slave; and he was amazed, he said, that Cicero dreaded a civil war with all its perils, but was not afraid of a shameful and inglorious peace, and that, as a reward for driving Antony from the tyranny, he asked the privilege of making Octavius tyrant.
+			</p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Thus, then, did Brutus express himself in his first letters to Cicero. But already one faction was forming about Octavius, and another about Antony, and the soldiers, as though for sale at auction, flocked to the highest bidder. Altogether despairing, therefore, of the state, Brutus determined to abandon Italy, and came by land through Lucania to Elea by the sea. 
+				<milestone n="2" unit="section"/>As Porcia was about to return thence to Rome, she tried to conceal her distress, but a certain painting betrayed her, in spite of her noble spirit hitherto. Its subject was Greek, &mdash;Andromache bidding farewell to Hector; she was taking from his arms their little son, while her eyes were fixed upon her husband. 
+				<milestone n="3" unit="section"/>When Porcia saw this, the image of her own sorrow presented by it caused her to burst into tears, and she would visit it many times a day and weep before it. And when Acilius, one of the friends of Brutus, recited the verses containing Andromache's words to Hector,
+				<quote rend="blockquote">
+					          <l>But, Hector, thou to me art father and honoured mother</l>
+					          <l>And brother; my tender husband, too, art thou,</l>
+				        </quote>
+				        <milestone n="4" unit="section"/>
+				Brutus smiled and said: 
+				<quote rend="blockquote">But I, certainly, have no mind to address Porcia in the words of Hector,
+					
+					<l>&lsquo;Ply loom and distaff and give orders to thy maids,&rsquo;</l>
+					          <note resp="ed" place="unspecified" anchored="yes">
+                  <bibl n="Hom. Il. 6.429">
+                     <title>Iliad</title>, vi. 429 f.</bibl>; <bibl n="Hom. Il. 6.491">491</bibl>.</note> for though her body is not strong enough to perform such heroic tasks as men do, still, in spirit she is valiant in defence of her country, just as we are.</quote> This story is told by Porcia's son, Bibulus.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Brut. 13.2">chapter xiii. 2.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>From thence Brutus put to sea and sailed for Athens. Here the people welcomed him eagerly and extolled him in public decrees. He dwelt with a certain guest-friend, attended the lectures of Theomnestus the Academic and Cratippus the Peripatetic, discussed philosophy with them, and was thought to be wholly given up to literary pursuits. 
+				<milestone n="2" unit="section"/>But without any one's suspecting it, he was getting ready for war. For he sent Herostratus into Macedonia, desiring to win over the commanders of the armies there, and he united in his service all the young Romans who were studying at Athens. One of these was Cicero's son, on whom he bestows high praise, declaring that whether awake or asleep and dreaming, he was amazed to find him of such a noble spirit and such a hater of tyranny.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Afterwards he began to act openly, and having learned that Roman transports full of treasure were approaching from Asia, and that an accomplished and well-known man was in command of them, he went to meet him at Carystus. After conferring with him and persuading him to hand over the transports, he prepared an entertainment of unusual splendour; for it was Brutus's birthday. 
+				<milestone n="4" unit="section"/>Accordingly, when they were come to their wine, and were pledging 
+				<q direct="unspecified">Victory to Brutus,</q> and 
+				<q direct="unspecified">Liberty to the Romans,</q> wishing to animate them still more, Brutus called for a larger beaker, and then, when he had received it, without any ostensible reason, recited this verse:&mdash;
+				<quote rend="blockquote">
+					          <l>&mdash;But I am slain by baleful Fate and Leto's son.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">Patroclus to Hector, <bibl n="Hom. Il. 16.849">
+                  <title>Iliad</title>, xvi. 849</bibl>. Leto's son was Apollo, and the name was thought to mean <emph>Destroyer</emph>.</note>
+				        <milestone n="5" unit="section"/>
+				And still further, in addition to this, historians tell us that when he was going out to fight his last battle at Philippi, the watchword which he gave out to his soldiers was 
+				<q direct="unspecified">Apollo.</q> Therefore they conclude that when he recited that verse, it also was a presage of his calamity.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, Antistius<note resp="ed" place="unspecified" anchored="yes">A mistake for Appuleius (<bibl n="Cic. Phil. 10.24">Cicero, <title>Philippics</title>, x. 11</bibl>; <bibl n="App. BC 3.8.63">Appian, <title>B.C.</title> iii. 63</bibl>), who was quaestor in Asia.</note> gave him five hundred thousand drachmas from the moneys which he was personally taking to Italy, and all Pompey's soldiers who were still wandering about Thessaly gladly flocked to his standard. He also took from Cinna five hundred horsemen that he was conducting to Dolabella in Asia. 
+				<milestone n="2" unit="section"/>Then sailing to Demetrias, whence great quantities of arms, which the elder Caesar had ordered to be made for his Parthian war, were being conducted to Antony, he took possession of them. After Hortensius the praetor had delivered up Macedonia to him, and while all the surrounding kings and potentates were uniting on his side, word was brought that Caius, the brother of Antony, had crossed over from Italy and was marching directly to join the forces under Vatinius in Epidamnus and Apollonia. 
+				<milestone n="3" unit="section"/>Wishing, therefore, to anticipate his arrival and capture these forces, Brutus suddenly set out with the forces under him and marched through regions difficult of passage, in snow storms, and far in advance of his provision-train. Accordingly, when he had nearly reached Epidamnus, fatigue and cold gave him the distemper called 
+				<q direct="unspecified">boulimia,</q> This attacks more especially men and beasts toiling through snow;<note resp="ed" place="unspecified" anchored="yes">As it did the 
+					<q direct="unspecified">Ten Thousand</q> in Armenia (<bibl n="Xen. Anab. 4.5.7">Xenophon, <title>Anab.</title> iv. 5, 7 f.</bibl>).</note> 
+				        <milestone n="4" unit="section"/>whether it is that the vital heat, being wholly shut up within the body by the cold that surrounds and thickens it, consumes its nourishment completely, or that a keen and subtle vapour arising from the melting snow pierces the body and destroys its heat as it issues forth. For the sweat of the body seems to be produced by its heat, and this is extinguished by the cold which meets it at the surface. But I have discussed this matter more at length elsewhere.<note resp="ed" place="unspecified" anchored="yes">Cf., for example, <bibl n="Plut. Mor. 691">
+                  <title>Morals</title>, pp. 691 f.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, since Brutus was faint, and since not one of his soldiers had anything in the shape of food, his attendants were obliged to have recourse to their enemies, and going down to the gate of the city they asked the sentinels for bread. These, when they heard of the mishap of Brutus, came to him themselves, bringing food and drink. Wherefore Brutus, when the city had surrendered to him, treated not only these men humanely, but also all the other citizens for their sake.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>When Caius Antonius drew near Apollonia, he summoned the soldiers who were in the vicinity. These, however, went to Brutus, and Caius perceived also that the people of Apollonia favoured the cause of Brutus. He therefore left the city behind and set out for Buthrotum. To begin with, he lost three cohorts on the march, which were cut to pieces by Brutus; next, when he tried to force the positions near Byllis which his opponents had earlier occupied, and joined battle, he was defeated by Cicero. 
+				<milestone n="3" unit="section"/>For Brutus employed this young man as general, and won many successes through him. When, however, he came upon Caius in marshy regions and with his forces widely scattered, Brutus would not permit his men to attack them, but rode about giving orders to spare them, in the belief that they would soon be his own. And this actually came to pass. For they surrendered themselves and their general, so that now Brutus had a large force about him. 
+				<milestone n="4" unit="section"/>For a long time, then, he held Caius in honour, and would not deprive him of the insignia of his command, although, as we are told, Cicero and many others besides wrote to him from Rome and urged him to put the man to death. However, when Cams began to hold secret communications with the officers of Brutus, and incited a revolt, Brutus put him on board a ship and kept him under guard. 
+				<milestone n="5" unit="section"/>And when the soldiers who had been corrupted by Caius withdrew to Apollonia and invited Brutus to come to them there, he told them this was not a Roman custom, but that they must come themselves to their commander and seek to avert his wrath at their transgressions. And when they came and asked his pardon, he granted it.
+			</p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But as he was about to cross into Asia, tidings came to him of the change that had taken place at Rome. For Octavius Caesar had been strengthened by the senate against Antony, and after ejecting his rival from Italy, was himself now an object of fear, soliciting the consulship illegally, and maintaining large armies, of which the city had no need. 
+				<milestone n="2" unit="section"/>But when he saw that even the senate was displeased at this and turned their eyes abroad to Brutus, confirming him in command of his provinces by their vote, he became afraid. So he sent and invited Antony to become his friend, and then, stationing his forces about the city, secured the consulship, although he was still a mere youth, being in his twentieth year, as he himself has stated in his Commentaries. 
+				<milestone n="3" unit="section"/>Straightway, then, he brought indictments for murder against Brutus and his associates, accusing them of having slain the first magistrate of the city without a trial. He appointed Lucius Cornificius to be prosecutor of Brutus, and Marcus Agrippa of Cassius. Accordingly, their cases went by default, the jurors voting under compulsion. 
+				<milestone n="4" unit="section"/>And it is said that when the herald on the rostra pronounced the customary summons for Brutus to appear, the multitude groaned audibly, while the better classes bowed their heads in silence; and that Publius Silicius was seen to burst into tears, and was for this reason soon afterwards put on the list of the proscribed. 
+				<milestone n="5" unit="section"/>After this, the three men, Octavius, Antony, and Lepidus, were reconciled with one another distributed the provinces among themselves, and sentenced to death by proscription two hundred men. Among those put to death was Cicero.
+			</p>
+         <p>
+				        <milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, when tidings of these events were brought to Macedonia, Brutus felt compelled to write to Hortensius commanding him to kill Caius Antonius, on the plea that he was thus avenging Cicero and Brutus Albinus, one of whom was his friend, and the other his kinsman. For this reason, at a later time, when Antony had captured Hortensius at the battle of Philippi, he slew him on the tomb of his brother. 
+				<milestone n="2" unit="section"/>Brutus, however, says that he felt more shame at the cause of Cicero's death than grief at the event itself, and threw the blame upon his friends at Rome. He said their servitude was due to themselves rather than to their tyrants, and that they consented to be eyewitnesses of things of which they ought not even to hear.
+			</p>
+         <p>He now crossed into Asia with his army,<note resp="ed" place="unspecified" anchored="yes">About the middle of 43 B.C.</note> which was already a splendid one, and equipped a fleet in Bithynia and at Cyzicus, while he himself, proceeding by land, settled the affairs of the cities and gave audiences to the potentates of the country. 
+				<milestone n="3" unit="section"/>He also sent to Cassius in Syria, recalling him from his expedition to Egypt; for it was not to win empire for themselves, he said, but to give liberty to their country, that they were wandering about and collecting forces with which to overthrow the tyrants; they must therefore keep their purpose carefully in mind and not get far removed from Italy, but rather hasten thither and give aid to their countrymen.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Cassius obeyed, and as he was returning, Brutus went to meet him. Their interview at Smyrna was the first they had had since they parted at Piraeus and set out, the one for Syria, the other for Macedonia. They therefore derived great pleasure and courage from the forces which each now had. 
+				<milestone n="5" unit="section"/>For they had set out from Italy like the most wretched of exiles, without money, without arms, having not a ship equipped with oars, not a single soldier, not a city; but before very long they had met, having a fleet, an army of foot and horse, and money, which made them worthy antagonists in the struggle for supremacy at Rome.
+			</p>
+         <p>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, Cassius was desirous that Brutus and he should have equal honour, but Brutus forestalled this by coming to him generally, since he was an older man and unable to endure the same amount of hardship. Cassius had the reputation of being an able soldier, but harsh in his anger, and with an authority based largely on fear, although with his familiars he was rather prone to laughter and fond of banter. 
+				<milestone n="2" unit="section"/>But the virtues of Brutus, as we are told, made him beloved by the multitude, adored by his friends, admired by the nobility, and not hated even by his enemies. For he was remarkably gentle and large-minded, free from all anger, pleasurable indulgence, and greed, and kept his purpose erect and unbending in, defence of what was honourable and just. 
+				<milestone n="3" unit="section"/>And the strongest reason for the favour and fame which he achieved was the confidence felt in his principles. For no one had expected that Pompey the Great, if he overthrew Caesar, would insist on dismissing his forces in obedience to the laws, but all thought that he would continue to retain his power, appeasing the people by using the name of consulship or dictatorship or some other less obnoxious form of government. 
+				<milestone n="4" unit="section"/>And now it was thought that Cassius, vehement and passionate man that he was, and often swept from the path of justice by his passion for gain, was incurring the perils of wars and wanderings principally to establish some great power for himself, and not liberty for his countrymen. For the men of a still earlier time than Pompey and Cassius, men like Cinna and Marius and Carbo, made their country the booty or prize round which they fought, and they all but confessed that they waged war to establish a tyranny. 
+				<milestone n="5" unit="section"/>But Brutus, we are told, was not accused even by his enemies of such a departure from his principles; nay, Antony at least, in the hearing of many, declared that in his opinion Brutus was the only conspirator against Caesar who was impelled by the splendour and by what seemed to him the nobility of the enterprise, whereas the rest banded together against the man because they envied and hated him. 
+				<milestone n="6" unit="section"/>Wherefore Brutus relied not so much on his armies as on his virtuous cause, as is clear from his letters. When he was already nearing the perilous crisis, he wrote to Atticus that his cause had the fairest outlook that fortune could bestow, for he would either conquer and give liberty to the Roman people, or die and be freed from slavery; and that amid the general security and safety of their lot one thing only was uncertain, namely, whether they were to live as freemen or die. 
+				<milestone n="7" unit="section"/>He says also that Mark Antony was paying a fitting penalty for his folly, since, when it was in his power to be numbered with such men as Brutus and Cassius and Cato, he had given himself to Octavius as a mere appendage; and that if he should not now be defeated with him, in a little while he would be fighting him. Herein, then, he seems to have been an excellent prophet.
+			</p>
+         <p>
+				        <milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>At the time when they were in Smyrna, Brutus asked Cassius to give him a part of the large treasure which he had collected, since he had expended what he had himself in building a fleet large enough to give them control of all the Mediterranean. The friends of Cassius, then, tried to dissuade him from giving anything to Brutus, arguing that it was not right that what he was keeping by his frugality and getting together at the price of men's hatred should be taken by Brutus for the winning of popular favour and the gratification of his soldiers. However, Cassius gave him a third of the whole amount. 
+				<milestone n="2" unit="section"/>Then they parted again for their respective undertakings. Cassius took Rhodes, but managed matters there with undue rigour, and that too though he had replied to those who hailed him, when he entered the city, as their lord and king, 
+				<q direct="unspecified">Neither lord nor king, but, chastiser and slayer of your lord and king.</q> Brutus, on his part, demanded money and soldiers from the Lycians. 
+				<milestone n="3" unit="section"/>But Naucrates, the popular leader, persuaded the cities to revolt, and the inhabitants occupied certain commanding hills in order to prevent the passage of Brutus. Brutus, therefore, in the first place, sent horsemen against them while they were at breakfast, and these slew six hundred of them; next, he took their strongholds and villages, but dismissed all his captives without ransom, in order that he might win the people over by kindness. 
+				<milestone n="4" unit="section"/>They were obstinate, however, feeding their anger upon their injuries, and despising his clemency and kindness, until he drove the most warlike of them into Xanthus and laid siege to the city. They tried to escape by swimming under the surface of the river which flowed past the city. But they were caught in nets which were let down deep across the channel; the tops of these had bells attached to them which indicated at once when any one was entangled. 
+				<milestone n="5" unit="section"/>Then the Xanthians made a sally by night and set fire to some of the siege- engines, but they were perceived by the Romans and driven back to their walls; and when a brisk wind fanned the flames back towards the battlements and some of the adjoining houses took fire, Brutus, fearing for the safety of the city, ordered his men to assist in putting out the fire.
+			</p>
+         <p>
+				        <milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But the Lycians were suddenly possessed by a dreadful and indescribable impulse to madness, which can be likened best to a passion for death. At any rate, all ages of them, freemen and slaves with their wives and children, shot missiles from the walls at the enemy who were helping them to combat the flames, and with their own hands brought up reeds and wood and all manner of combustibles, and so spread the fire over the city, feeding it with all sorts of material and increasing its strength and fury in every way. 
+				<milestone n="2" unit="section"/>When the flames had darted forth and encircled the city on all sides, and blazed out mightily, Brutus, distressed at what was going on, rode round outside the city in his eagerness to help, and with outstretched hands begged the Xanthians to spare and save their city. 
+				<milestone n="3" unit="section"/>No one heeded him, however, but all sought in every way to destroy themselves, men and women alike; nay, even the little children with shouts and shrieks either leaped into the fire, or threw themselves headlong from the walls, or cast themselves beneath their fathers' swords, baring their throats and begging to be smitten. After the city had been thus destroyed, a woman was seen dangling in a noose; she had a dead child fastened to her neck, and with a blazing torch was trying to set fire to her dwelling. 
+				<milestone n="4" unit="section"/>So tragic was the spectacle that Brutus could not bear to see it, and burst into tears on hearing of it; he also proclaimed a prize for any soldier who should succeed in saving the life of a Lycian. But there were only a hundred and fifty, we are told, who did not escape such preservation. 
+				<milestone n="5" unit="section"/>So then the Xanthians, after long lapse of time, as though fulfilling a period set by fate for their destruction, had the boldness to renew the calamity of their ancestors; for these too, in the time of the Persian wars, had likewise burned down their city and destroyed themselves.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Hdt. 1.176">Herodotus, i. 176.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Brutus saw that the city of Patara was holding out strongly against him, he hesitated to attack it, and was in perplexity, fearing that it would be afflicted with the same madness; but as he held some of its women prisoners of war, he released them without ransom. They were the wives and daughters of prominent men, and by rehearsing the praises of Brutus, calling him a man of the greatest moderation and justice, they persuaded them to yield and surrender their city. 
+				<milestone n="2" unit="section"/>Consequently all the rest of the Lycians came and entrusted themselves to him, and found that his goodness and kindness exceeded their hopes. For whereas Cassius, about the same time, compelled the Rhodians individually to pay in to him all the gold and silver they possessed (thus accumulating about eight hundred talents), and fined the city as a whole five hundred talents more, Brutus exacted only a hundred and fifty talents from the Lycians, and, without doing them any other injury, set out with his army for Ionia.
+			</p>
+         <p>
+				        <milestone n="33" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Many were his memorable achievements in meting out rewards or punishments to those who deserved them, but I shall here describe only that in which both he himself and the chief men of Rome took especial pleasure. When Pompey the Great, after he had been stripped of his great power by Caesar, put in as a fugitive at Pelusium in Egypt, the guardians of the boy king were holding a council with their friends, at which opinions differed. 
+				<milestone n="2" unit="section"/>Some thought they should receive Pompey, others that they should repulse him from Egypt. But a certain Theodotus, of Chios, who was attached to the king as a paid teacher of rhetoric, and was at this time deemed worthy of a place in the council for lack of better men, declared that both were wrong, both those who would admit and those who would reject Pompey; 
+				<milestone n="3" unit="section"/>for there was but one advantageous course in view of the circumstances, and that was to receive him and put him to death. And he added, as he closed his speech, 
+				<q direct="unspecified">A dead man does not bite.</q> The council adopted his opinion, and Pompey the Great lay dead, an example of the unexpected and incredible in human life, and it was the work of Theodotus and his clever rhetoric, as that sophist himself was wont to say with boasting.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Pomp. 77.1">
+                  <title>Pompey</title>, chapters lxxvii.-lxxx.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>A little while afterwards, however, when Caesar came, the other wretches paid the penalty for their crime and perished wretchedly; as for Theodotus, after borrowing from Fortune enough time for a wandering, destitute, and inglorious life, he did not escape the notice of Brutus, who at this time traversed Asia, but was brought to him and punished, and won more fame for his death than for his life.
+			</p>
+         <p>
+				        <milestone n="34" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Brutus now summoned Cassius to Sardis,<note resp="ed" place="unspecified" anchored="yes">In the early part of 42 B.C.</note> as he drew near, went to meet him with his friends; and the whole army, in full array, saluted them both as Imperators. But, as is wont to be the case in great undertakings where there are many friends and commanders, mutual charges and accusations had passed between them, and therefore, immediately after their march and before they did anything else, they met in a room by themselves. The doors were locked, and, with no one by, they indulged in fault-finding first, then in rebukes and denunciations. 
+				<milestone n="2" unit="section"/>After this, they were swept along into passionate speeches and tears, and their friends, amazed at the harshness and intensity of their anger, feared some untoward result; they were, however, forbidden to approach. But Marcus Favonius, who had become a devotee of Cato, and was more impetuous and frenzied than reasonable in his pursuit of philosophy, tried to go in to them, and was prevented by their servants. 
+				<milestone n="3" unit="section"/>It was no easy matter, however, to stop Favonius when he sprang to do anything, for he was always vehement and rash. The fact that he was a Roman senator was of no importance in his eyes, and by the 
+				<q direct="unspecified">cynical</q> boldness of his speech he often took away its offensiveness, and therefore men put up with his impertinence as a joke. And so at this time he forced his way through the bystanders and entered the room, reciting in an affected voice the verses wherein Homer<note resp="ed" place="unspecified" anchored="yes">
+               <title>Iliad, i. 259.</title>
+            </note> represents Nestor as saying:&mdash;
+				<quote rend="blockquote">
+					          <l>But do ye harken to me, for ye both are younger than I am,</l>
+				        </quote>
+				and so forth. 
+				<milestone n="4" unit="section"/>At this Cassius burst out laughing; but Brutus drove Favonius out of the room, calling him a mere dog, and a counterfeit Cynic.<note resp="ed" place="unspecified" anchored="yes">A follower of Antisthenes was called a 
+					<q direct="unspecified">Cynic,</q> or <emph>dog-like</emph>, probably from the coarse and brutal manners affected by the school.</note> However, at the time, this incident put an end to their quarrel, and they separated at once. Furthermore, Cassius gave a supper, to which Brutus invited his friends. And as the guests were already taking their places at the feast, Favonius came, fresh from his bath. Brutus protested that he had come without an invitation, and ordered the servants to conduct him to the uppermost couch; but Favonius forced his way past them and reclined upon the central one. And over the wine mirth and jest abounded, seasoned with wit and philosophy.
+			</p>
+         <p>
+				        <milestone n="35" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But on the following day Lucius Pella, a Roman who had been praetor and had enjoyed the confidence of Brutus, being denounced by the Sardians as an embezzler of the public moneys, was condemned by Brutus and disgraced; and the matter vexed Cassius beyond measure. For a few days before, when two friends of his had been convicted of the same misdeeds, he had privately admonished them but publicly acquitted them, and continued to employ them. 
+				<milestone n="2" unit="section"/>He therefore found fault with Brutus on the ground that he was too observant of law and justice at a time which demanded a policy of kindness. But Brutus bade him remember the Ides of March, on which they had slain Caesar, not because he was himself plundering everybody, but because he enabled others to do this; 
+				<milestone n="3" unit="section"/>since, if there is any good excuse for neglecting justice, it had been better for us to endure the friends of Caesar than to suffer our own to do wrong. 
+				<q direct="unspecified">For in the one case,</q> said he, 
+				<q direct="unspecified">we should have had the reputation of cowardice merely; but now, in addition to our toils and perils, we are deemed unjust.</q> Such were the principles of Brutus.
+			</p>
+         <p>
+				        <milestone n="36" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When they were about to cross over from Asia, Brutus is said to have had a great sign. He was naturally wakeful, and by practice and self-restraint had reduced his hours of sleep to few, never lying down by day, and by night only when he could transact no business nor converse with any one, since all had gone to rest. 
+				<milestone n="2" unit="section"/>At this time, however, when the war was begun and he had in his hands the conduct of a life and death struggle, and was anxiously forecasting the future, he would first doze a little in the evening after eating, and then would spend the rest of the night on urgent business. But whenever he had fully met the demands of such business in shorter time, he would read a book until the third watch, at which hour the centurions and tribunes usually came to him. 
+				<milestone n="3" unit="section"/>Once, accordingly, when he was about to take his army across from Asia, it was very late at night, his tent was dimly lighted, and all the camp was wrapped in silence. Then, as he was meditating and reflecting, he thought he heard some one coming into the tent. He turned his eyes towards the entrance and beheld a strange and dreadful apparition, a monstrous and fearful shape standing silently by his side. 
+				<milestone n="4" unit="section"/>Plucking up courage to question it, 
+				<q direct="unspecified">Who art thou,</q> said he, 
+				<q direct="unspecified">of gods or men, and what is thine errand with me?</q> Then the phantom answered: 
+				<q direct="unspecified">I am thy evil genius, Brutus, and thou shalt see me at Philippi.</q> And Brutus, undisturbed, said: 
+				<q direct="unspecified">I shall see thee.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Caes. 69.5">
+                  <title>Caesar</title>, lxix. 5-7.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="37" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the shape had disappeared, Brutus called his servants; but they declared that they had neither heard any words nor seen any apparition, and so he watched the night out. As soon as it was day, however, he sought out Cassius and told him of the apparition. Cassius, who belonged to the school of Epicurus, and was in the habit of taking issue on such topics with Brutus, said: 
+				<q direct="unspecified">This is our doctrine, Brutus, that we do not really feel or see everything, but perception by the senses is a pliant and deceitful thing, and besides, the intelligence is very keen to change and transform the thing perceived into any and every shape from one which has no real existence. 
+					<milestone n="2" unit="section"/>An impression on the senses is like wax, and the soul of man, in which the plastic material and the plastic power alike exist, can very easily shape and embellish it at pleasure. This is clear from the transformations which occur in dreams, where slight initial material is transformed by the imagination into all sorts of emotions and shapes. The imagination is by nature in perpetual motion, and this motion which it has is fancy, or thought. 
+					<milestone n="3" unit="section"/>In thy case, too, the body is worn with hardships and this condition naturally excites and perverts the intelligence. As for genii, it is incredible either that they exist, or, if they do exist, that they have the appearance or the speech of men, or a power that extends to us. For my part, I could wish it were so, in order that not only our men-at-arms, and horses, and ships, which are so numerous, but also the assistance of the gods might give us courage, conducting as we do the fairest and holiest enterprises.</q> With such discourse did Cassius seek to calm Brutus.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Furthermore, as the soldiers were embarking, two eagles perched upon the foremost standards and were borne along with them, and they kept the army company, being fed by the soldiers, as far as Philippi. There, only one day before the battle, they flew away.
+			</p>
+         <p>
+				        <milestone n="38" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Most of the peoples encountered on the march Brutus had already brought into subjection; and now, whatever city or potentate had been omitted, they won them all over, and advanced as far as the Thasian sea. There Norbanus and his army were encamped, at what were called The Narrows, and near Symbolum; but they surrounded him and compelled him to withdraw and abandon his positions. 
+				<milestone n="2" unit="section"/>They almost captured his forces, too, since Octavius was delayed by sickness; and they would have done so had not Antony come to his aid with such astonishing swiftness that Brutus could not believe in it. Octavius came, however, ten days later, and encamped over against Brutus, while Antony faced Cassius.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>The plains between the armies the Romans call Campi Philippi, and Roman forces of such size had never before encountered one another. In numbers the army of Brutus was much inferior to that of Octavius, but in the splendid decoration of its arms it presented a wonderful sight. For most of their armour was covered with gold and silver, with which Brutus had lavishly supplied them, although in other matters he accustomed his officers to adopt a temperate and restricted regimen. 
+				<milestone n="4" unit="section"/>But he thought that the wealth which they held in their hands and wore upon their persons gave additional spirit to the more ambitious, and made the covetous even more warlike, since they clung to their armour as so much treasure.
+			</p>
+         <p>
+				        <milestone n="39" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Octavius and Antony now made a lustration<note resp="ed" place="unspecified" anchored="yes">A solemn review, with ceremonies of purification.</note> of their armies in their camps, and then distributed a little meal and five drachmas to every man for a sacrifice; but Brutus and Cassius, despising their enemies' poverty or parsimony, first made lustration of their armies in the open field, as the custom is, and then distributed great numbers of cattle for sacrifice among their cohorts, and fifty drachmas to every soldier, and thus, in the goodwill and zeal of their forces, they were at an advantage. 
+				<milestone n="2" unit="section"/>However, it was thought that Cassius had a baleful sign during the lustration; for the lictor brought him his wreath turned upside down. And it is said that before this, also, in a procession at some festival, a golden Victory belonging to Cassius, which was being borne along, fell to the ground, its bearer having slipped. 
+				<milestone n="3" unit="section"/>And besides, many carrion birds hovered over the camp daily, and swarms of bees were seen clustering at a certain place inside the camp; this place the soothsayers shut off from the rest of the camp, in order to avert by their rites the superstitious fears which were gradually carrying even Cassius himself away from his Epicurean doctrines, and which had altogether subjugated his soldiers.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>For these reasons Cassius was not eager to have the issue decided by battle at present, but thought it best to protract the war, since they were strong financially, although inferior in the number of their arms and men. Brutus, however, even before this had been anxious to have the issue decided by the speediest of hazards, that he might either restore freedom to his country, or relieve mankind of calamitous expenditures and requisitions for military service. 
+				<milestone n="5" unit="section"/>At this time, too, he saw that his horsemen were successful and victorious in the preliminary skirmishes, and was therefore lifted up in spirit. Besides, sundry desertions to the enemy, and suspicions and assertions that others would follow, brought many of the friends of Cassius in the council over to the side of Brutus. 
+				<milestone n="6" unit="section"/>But one of the friends of Brutus, Atillius, opposed his wishes, and urged delay till winter at least was past. And when Brutus asked him how he thought he would be better off another year, 
+				<q direct="unspecified">If in no other way,</q> said Atillius, 
+				<q direct="unspecified">I shall have lived longer.</q> At this answer Cassius was vexed, and the rest also were not a little annoyed by Atillius. So it was presently decided to give battle on the next day.
+			</p>
+         <p>
+				        <milestone n="40" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Brutus was full of hopefulness at supper, and after engaging in philosophical discussion, went to rest; but Cassius, as Messala tells us, supped in private with a few of his intimates, and was seen to be silent and pensive, contrary to his usual nature. When supper was over, he grasped Messala's hand warmly, and, speaking in Greek, as was his custom when he would show affection, said: 
+				<milestone n="2" unit="section"/>
+				        <q direct="unspecified">I call thee to witness, Messala, that I am in the same plight as Pompey the Great, in that I am forced to hazard the fate of my country on the issue of a single battle. With good courage, however, let us fix our waiting eyes on Fortune, of whom, even though our counsels be infirm, it is not right that we should be distrustful.</q> With these last words to him, Messala says, Cassius embraced him; and he had already invited him to supper on the following day, which was his birthday.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>As soon as it was day, a scarlet tunic, the signal for battle, was displayed before the camps of Brutus and Cassius, and they themselves came together into the space between their armies Here Cassius said: 
+				<q direct="unspecified">May we be victorious, Brutus, and ever afterwards share a mutual prosperity; but since the most important of human affairs are most uncertain, and since, if the battle goes contrary to our wishes, we shall not easily see one another again, what is thy feeling about flight and death?</q> 
+				        <milestone n="4" unit="section"/>And Brutus made answer: 
+				<q direct="unspecified">When I was a young man, Cassius, and without experience of the world, I was led, I know not how, to speak too rashly for a philosopher. I blamed Cato for making away with himself, on the ground that it was impious and unmanly to yield to one's evil genius, not accepting fearlessly whatever befalls, but running away. 
+					<milestone n="5" unit="section"/>In my present fortunes, however, I am become of a different mind; and if God does not decide the present issue in our favour, do not ask once more to put fresh hopes and preparations to the test, but I will go hence with words of praise for Fortune; on the Ides of March I gave my own life to my country, and since their, for her sake, I have lived another life of liberty and glory.</q> At these words Cassius smiled, and after embracing Brutus, said: 
+				<q direct="unspecified">Thus minded, let us go against the enemy; for either we shall be victorious, or we shall not fear the victors.</q>
+			      </p>
+         <p>
+				        <milestone n="6" unit="section"/>After this, they conferred together about the order of battle in the presence of their friends. And Brutus asked Cassius that he might have command of the right wing himself, although his years and experience made this post seem more appropriate for Cassius. However, Cassius not only granted him this favour, but also ordered Messala with the most warlike of the legions to take position on the right. Brutus at once led out his horsemen magnificently equipped, and with no less promptness put his infantry also in array.
+			</p>
+         <p>
+				        <milestone n="41" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The soldiers of Antony were engaged in running trenches from the marshes, at which they were encamped, into the plain, thus cutting off Cassius from access to the sea. Octavius was quietly watching the course of events,&mdash;not being present in person, owing to sickness, but his forces for him; they had no expectation at all that their enemies would give battle, but thought they would merely sally out against the works and with light missiles and clamorous cries try to disturb the workers in the trenches. 
+				<milestone n="2" unit="section"/>So paying no attention to their opponents, they were amazed at the loud and confused outcries which came to them from the trenches. At this point, while tickets with the watchword written upon them were being carried to his officers from Brutus, and while Brutus himself was riding along past the legions and encouraging them, few of his men succeeded in hearing the watchword as it was passed along, but most of them, without waiting for it, with one impulse and with one war-cry, rushed upon the enemy.
+				<milestone n="3" unit="section"/> This disorder threw the legions out of line and touch with one another, and first that of Messala, then those that had been drawn up with it, went beyond the left wing of Octavius; they had only a brief contact with its outermost lines, and slew only a few men, but outflanked it and burst into their camp. 
+				<milestone n="4" unit="section"/>And Octavius, as he himself tells us in his Commentaries, in consequence of a vision which visited one of his friends, Marcus Artorius, and ordered that Octavius should rise up from his bed and depart from the camp, barely succeeded in having himself carried forth, and was thought to have been slain. For his litter, when empty, was pierced by the javelins and spears of his enemies. Those who were taken prisoners in the camp were slaughtered, and two thousand Lacedaemonians who had recently come as auxiliaries were cut to pieces along with them.
+			</p>
+         <p>
+				        <milestone n="42" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The legions of Brutus which had not outflanked the forces of Octavius, but engaged them in battle, easily routed them in their confusion and cut to pieces three legions at close quarters; then they dashed into their camp with the fugitives, borne on by the impetus of their victory and carrying Brutus with them. But here the vanquished saw an opportunity of which the victors were not aware; 
+				<milestone n="2" unit="section"/>for they charged upon the broken and exposed parts of their opponents' line, from which the right wing had been drawn away in pursuit. The centre did not yield to them, but fought them vigorously; the left wing, however, owing to their disorder and ignorance of what had happened, they routed and pursued into their camp, which they sacked. Neither of the generals was with his men; 
+				<milestone n="3" unit="section"/>for Antony, we are told, turned aside from the attack at the outset and withdrew into the marsh, and Octavius was nowhere to be seen after he had forsaken his camp; indeed, sundry soldiers declared that they had slain him, showing Brutus their bloody swords and describing his youthful appearance. But presently the centre drove back their opponents with great slaughter, and it appeared that Brutus was completely victorious, as Cassius was completely defeated. 
+				<milestone n="4" unit="section"/>And one thing alone brought ruin to their cause, namely, that Brutus thought Cassius victorious and did not go to his aid, while Cassius thought Brutus dead and did not wait for his aid; since Messala considers it a certain proof of the victory that he captured three eagles and many standards from the enemy, while they took nothing.
+			</p>
+         <p>As Brutus was returning from his victory, the camp of Caesar having been already destroyed, he was amazed not to see the tent of Cassius towering above the others, as usual, nor the other tents in their wonted place; for most of them had been demolished at once when the enemy burst in. 
+				<milestone n="5" unit="section"/>But the sharper sighted among his companions told him they could see many helmets gleaming, and many silver breast-plates moving about in the camp of Cassius; they did not think that either the number or the armour was that of the garrison left behind; however, they said, there were not so many dead bodies visible there as might have been expected if so many legions had been overwhelmed. 
+				<milestone n="6" unit="section"/>This was what first made Brutus aware of the calamity; and leaving a guard in the captured camp of the enemy, he called his men back from the pursuit and united his forces with the purpose of assisting Cassius.
+			</p>
+         <p>
+				        <milestone n="43" unit="chapter"/>
+				        <milestone n="1" unit="section"/>With Cassius matters had gone as follows. He had been disturbed to see the first sally of the troops of Brutus, which was made without watch-word or command, and when, being victorious, they rushed at once after booty and spoil, with no thought for the envelopment of the enemy, he was vexed at the way things were going. 
+				<milestone n="2" unit="section"/>Besides, exercising his command with hesitation and delay rather than with readiness and decision, he was enveloped by the enemy's right wing. His horsemen at once broke away in flight towards the sea, and seeing his infantry also around he tried to rally them.  He snatched the standard from a standard-bearer who was in flight, and planted it in the ground before him, although not even his body-guard were inclined to hold together any more. 
+				<milestone n="3" unit="section"/>Thus, then, under compulsion, he withdrew with a few followers to a lull overlooking the plain. But he himself could see nothing, or next to nothing, of the sacking of his camp, for his vision was weak; the horsemen about him, however, saw a great troop riding up which Brutus had sent. But Cassius conjectured that they were enemies, and in pursuit of him. Nevertheless, he sent out one of those who were with him, Titinius, to reconnoitre. 
+				<milestone n="4" unit="section"/>The horsemen spied this man as he came towards them, and when they saw that he was a trusted friend of Cassius, his intimates, shouting for joy, leaped from their horses and embraced him warmly, while the rest rode round him with shouts and clashing of arms, thus, in their boundless joy, working the greatest mischief.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>For Cassius thought that Titinius was actually taken by the enemy, and with the words <q direct="unspecified">My love of life has brought me to the pass of seeing a friend seized by the enemy,</q> he withdrew into an empty tent, forcing along with him one of his freedmen, Pindarus, whom, after the disaster which befell Crassus,<note resp="ed" place="unspecified" anchored="yes">Cassius had been quaestor for Crassus on the disastrous Parthian expedition in 53 B.C. (<bibl>
+                  <title>Crassus</title>, xviii. 5</bibl>).</note> he used to keep in readiness for this emergency. 
+				<milestone n="6" unit="section"/>From the Parthians, indeed, he had made his escape; but now, drawing his robes up over his face and laying bare his neck, he offered it to the sword. For his head was found severed from his body. Pindarus, however, no man saw after the bloody deed, and therefore some have thought that he slew his master unbidden. 
+				<milestone n="7" unit="section"/>A little later it became evident who the horsemen were, and Titinius, whom they had crowned with garlands, came up to report to Cassius. But when the lamentable cries of his distressed and weeping friends made known to him the grievous fate of his general and his error, he drew his sword, reproached himself bitterly for his slowness, and slew himself.
+			</p>
+         <p>
+				        <milestone n="44" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Brutus learned of the defeat of Cassius, he rode towards him, but heard of his death when he was already near his camp. He mourned over the body, and called Cassius 
+				<q direct="unspecified">the last of the Romans,</q> implying that such an exalted spirit could no longer arise in the city. Then he decked the body for burial and sent it to Thasos, in order that the funeral rites might not disturb the camp. 
+				<milestone n="2" unit="section"/>He himself, however, assembled the soldiers of Cassius and comforted them; and seeing that they were deprived of all the necessaries of life, he promised them two thousand drachmas the man, to make good what they had lost. They were encouraged by his words and amazed at the largeness of his gift; and they sent him on his way with shouts, exalting him as the only one of the four commanders who had not been defeated in the battle. 
+				<milestone n="3" unit="section"/>And the results bore witness that his confidence in a victory in the battle was well grounded; for with a few legions he routed all those opposed to him. And if he had employed them all in fighting, and if the most of them had not passed by the enemy and set upon the enemy's possessions, it would seem that his victors' must have been complete.
+			</p>
+         <p>
+				        <milestone n="45" unit="chapter"/>
+				        <milestone n="1" unit="section"/>There fell on his side eight thousand men, including the camp servants whom Brutus called Briges;<note resp="ed" place="unspecified" anchored="yes">The name of a Thracian tribe (<bibl n="Hdt. 7.73">Herodotus, vii. 73</bibl>).</note> but the enemy, in the opinion of Messala, lost more than twice as many. They were therefore the more dejected of the two, until an attendant of Cassius, named Demetrius, came to Antony in the evening, bringing the robes and the sword which he had taken at once from the dead body. 
+				<milestone n="2" unit="section"/>This encouraged them so much that at break of day they led their forces out arrayed for battle. But both the camps over which Brutus had command were in dangerous straits. His own was filled with prisoners of war and required a heavy guard; while that of Cassius was dissatisfied with the change of commanders, and besides, as vanquished men, they were full of hatred and jealousy towards those who had been victorious Brutus therefore decided to put his army in array, but to refrain from battle. 
+				<milestone n="3" unit="section"/>Moreover, the multitude of slaves among his captives were found suspiciously moving about among the men-at-arms, and he ordered them to be put to death; of the freemen, however, he released some, declaring that they had more truly been captured by his enemies, in whose hands they were prisoners and slaves, while with him they were freemen and citizens; and when he saw that his friends and officers were implacably hostile to them, he saved their lives by hiding them and helping them to escape.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Among the prisoners there was a certain Volumnius, an actor, and Saculio, a buffoon, to whom Brutus paid no attention; but the friends of Brutus brought them forward and denounced them for not refraining even now from insolent and mocking speeches to them. Brutus had nothing to say, being concerned about other matters, but Messala Corvinus gave his opinion that they should be publicly flogged and then sent back naked to the enemy's generals, in order to let these know what sort of boon companions they required on their campaigns. 
+				<milestone n="5" unit="section"/>At this some of the bystanders burst out laughing, but Publius Casca, the one who first smote Caesar, said: 
+				<q direct="unspecified">It is not meet for us to celebrate the funeral rites of Cassius with jests and mirth; and thou, Brutus, wilt show what esteem thou hast for the memory of that general according as thou punishest or shieldest those who will abuse and revile him.</q> To this Brutus, in high dudgeon, said: 
+				<q direct="unspecified">Why, then, do ye enquire of me, Casca, instead of doing what seems best to you?</q> This answer was taken to be a condemnation of the poor wretches, and they were led off and put to death.
+			</p>
+         <p>
+				        <milestone n="46" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, he gave the soldiers their promised rewards, and after gently chiding them for not getting the watchword and for rushing upon the enemy without command and in great disorder, he promised that if they now fought well, he would turn over to them two cities for plunder and booty, Thessalonica and Lacedaemon. 
+				<milestone n="2" unit="section"/>This is the only accusation in the life of Brutus against which no defence can be made, even though Antony and Octavius practised far greater cruelty than this in rewarding their soldiers, and drove her ancient inhabitants out of almost the whole of Italy, in order that their followers might get land and cities to which they had no right. 
+				<milestone n="3" unit="section"/>But in their minds conquest and dominion were the end and object of the war; whereas Brutus had such a reputation for virtue with the multitude that he was not permitted either to conquer or to gain safety except with honour and justice, especially now that Cassius was dead, who was accused of leading Brutus with him into some acts of violence. 
+				<milestone n="4" unit="section"/>But just as sailors, when their rudder has been shattered, try to fit and fasten other timbers in its place, striving to meet their needs, not well, indeed, but as best they can, so Brutus, not having in his great army and dangerous plight a general who was equal to the emergency, was forced to employ such as he had, and to do and say many things which they approved. 
+				<milestone n="5" unit="section"/>And so he decided to do whatever they thought would make the soldiers of Cassius better men. For these were very intractable; their lack of a leader made them bold in camp, while their defeat made them afraid to face the enemy.
+			</p>
+         <p>
+				        <milestone n="47" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Octavius and Antony were no better off; they were scantily provisioned, and the low site of their camp made them expect a grievous winter. For they were huddled together on the edge of marshes, and the autumn rains which fell after the battle kept filling their tents with mud and water that froze at once, so cold was the weather. 
+				<milestone n="2" unit="section"/>Moreover, while they were in this plight, word came to them of the disaster which had befallen them at sea. For a large force which was being brought from Italy by command of Octavius was attacked by the ships of Brutus and destroyed, and the small remnant of them that escaped their enemies were driven by hunger to subsist upon the sails and tackle of their ships. On hearing of this, they were eager to have the issue decided by battle before Brutus learned what great good fortune had come to him. For it happened that the conflicts on sea and land were decided on one and the same day. 
+				<milestone n="3" unit="section"/>But by some chance, rather than by the fault of his naval commanders, Brutus was ignorant of their success until twenty days afterwards. Otherwise he would not have proceeded to a second battle, since his army was supplied with provisions for a long time, and he was posted in an advantageous position, so that his camp did not suffer from wintry weather, and on the side towards the enemy was almost impregnable, while his secure mastery of the sea and the victory of the land forces under his own command had put him in high hopes and spirits.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>But since, as it would seem, the government of Rome could no longer be a democracy, and a monarchy was necessary, Heaven, wishing to remove from the scene the only man who stood in the way of him who was able to be sole master, cut off from Brutus the knowledge of that good fortune, although it very nearly reached him in time; for only one day before the battle which he was about to fight, late in the day, a certain Clodius deserted from the enemy, and brought word that Octavius had learned of the destruction of his fleet and was therefore eager for a decisive struggle. 
+				<milestone n="5" unit="section"/>The man found no credence for his story, nor did he even come into the presence of Brutus, but was altogether despised; it was thought that either he had heard an idle tale, or was bringing false tidings in order to win favour.
+			</p>
+         <p>
+				        <milestone n="48" unit="chapter"/>
+				        <milestone n="1" unit="section"/>On that night, they say, the phantom visited Brutus again,<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Plut. Brut. 36.1">chapter xxxvi.</bibl>
+            </note> manifesting the same appearance as before, but went away without a word. Publius Volumnius, however, a philosopher, and a companion of Brutus in all his campaigns, makes no mention of this omen, but says that the foremost standard was covered with bees; and that of its own accord the arm of one of the officers sweated oil of roses, and though they often rubbed and wiped it off it was of no avail. 
+				<milestone n="2" unit="section"/>He says also that just before the battle itself two eagles fought a pitched battle with one another in the space between the camps, and as all were gazing at them, while an incredible silence reigned over the plain, the eagle towards Brutus gave up the fight and fled. And the story of the Ethiopian is well known, who, as the gate of the camp was thrown open, met the standard-bearer, and was cut to pieces by the soldiers, who thought his appearance ominous.
+			</p>
+         <p>
+				        <milestone n="49" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After Brutus had led out his forces in battle array and stationed them over against the enemy, he waited a long time; for as he was reviewing his troops he became suspicious of some of them, and heard them accused of treachery; he saw, too, that his horsemen were not very eager to begin the battle, but always waited to see what the infantry did. 
+				<milestone n="2" unit="section"/>Then, of a sudden, a man who was a good soldier and had been conspicuously honoured for his bravery by Brutus, rode out of the ranks and went over to the enemy; his name was Camulatus. The sight of this gave Brutus great distress; and partly from anger, partly because he was afraid of greater treachery and desertion, he led at once against the enemy, at about three o'clock in the afternoon. 
+				<milestone n="3" unit="section"/>With the part under his own immediate command he was victorious, and advanced, pressing hard upon the retreating left wing of the enemy; his cavalry, too, dashed forward along with the infantry and fell upon a disordered foe; the other wing, however, which was extended by its commanders to prevent their being surrounded by the enemy, to whom they were inferior in numbers, was thus weakened in the centre and could not hold out against their opponents, but fled first. 
+				<milestone n="4" unit="section"/>After cutting their way through this wing, the enemy at once enveloped Brutus. He himself displayed all the valour possible in a soldier and commander, contending with judgment and personal prowess for victory in the terrible crisis; but that which was an advantage for him in the former battle was a detriment to him now. For in the former battle the conquered wing of the enemy had been at once destroyed, but when the soldiers of Cassius were routed, only few of them were slain, and those who then escaped, rendered fearful now by their former defeat, filled the greater part of his army with dejection and confusion. 
+				<milestone n="5" unit="section"/>Here Marcus the son of Cato also, fighting among the bravest and noblest young men, was overpowered, but would not yield nor fly, but plying his sword, and declaring that he was Marcus Cato and Marcus Cato's son, fell dead upon the many enemies whom he had slain.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cat. Mi. 73.3">
+                  <title>Cato the Younger</title>, lxxiii. 3.</bibl>
+            </note> The bravest of the rest fell also, risking their lives in defence of Brutus.
+			</p>
+         <p>
+				        <milestone n="50" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, there was a certain Lucilius, a brave man, among the comrades of Brutus.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Ant. 69.1">
+                  <title>Antony</title>, lxix. 1.</bibl>
+            </note> This man, seeing some barbarian horsemen ignoring all others in their pursuit and riding impetuously after Brutus, determined at the risk of his life to stop them. So falling behind a little, he told them that he was Brutus. The Barbarians believed him because he asked them to conduct him to Antony, pretending to be afraid of Octavius but to have no fear of Antony. 
+				<milestone n="2" unit="section"/>They were delighted with their unexpected prize, and thinking themselves amazingly fortunate, led Lucilius along in the darkness which had now fallen, after sending ahead some messengers to Antony. Antony himself was pleased, of course, and set out to meet the escort, and all the rest also who learned that Brutus was being brought in alive flocked together, some thinking him to be pitied for his misfortune, others that he was unworthy of his fame in thus allowing his love of life to make him a prey of Barbarians. 
+				<milestone n="3" unit="section"/>When they were near, however, Antony paused, at a loss to know how he ought to receive Brutus; but Lucilius, as he was brought for ward, said with great boldness: 
+				<q direct="unspecified">Marcus Brutus, O Antony, no foe has taken or can take; may fortune not so far prevail over virtue! Nay, he will be found living, or possibly even lying dead as becomes him. 
+					<milestone n="4" unit="section"/>It is by cheating these soldiers of thine that I am come, and I am ready to suffer for it any fatal penalty.</q> When Lucilius had thus spoken and all were in amazement, Antony turned to his conductors and said: 
+				<q direct="unspecified">I suppose, my fellow soldiers, you are vexed at your mistake and think that you have been flouted; 
+					<milestone n="5" unit="section"/>but be assured that you have taken a better prey than that you sought. For you sought an enemy, but you come bringing me a friend. Since, by the gods, I know not how I could have treated Brutus, had he come into my hands alive; but such men as this I would have my friends rather than my enemies.</q> With these words he embraced Lucilius, and for the time being put him in charge of one of his friends, but ever afterwards found in him a sure and trusty helper.
+			</p>
+         <p>
+				        <milestone n="51" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Brutus, after crossing a brook which ran among trees and had precipitous banks, would go no further, since it was already dark, but sat down in a hollow place with a great rock in front of it, having a few officers and friends about him. First, he turned his eyes to the heavens, which were studded with stars, and recited two verses, one of which Volumnius has recorded:&mdash;
+				<quote rend="blockquote">
+					          <l>O Zeus, do not forget the author of these ills!</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Eur. Med. 332">Euripides, <title>Medeia</title>, 334</bibl> (Kirchhoff).</note>
+				the other Volumnius says he has forgotten. 
+				<milestone n="2" unit="section"/>Then, after a little, he called the name of each of his comrades who had fallen in the battle to defend him, groaning most heavily at the mention of Flavius and Labeo. Labeo was his legate,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Brut. 12.3">chapter xii. 3 ff.</bibl>
+            </note> and Flavius his chief of engineers. At this point, someone who was thirsty himself and saw that Brutus was thirsty too, took a helmet and ran down to the river. 
+				<milestone n="3" unit="section"/>Then a noise fell upon their ears from the opposite direction, and Volumnius went forth to reconnoitre, and with him Dardanus his shield-bearer. After a little while, however, they returned, and asked about the water to drink. Whereupon, with a very expressive smile, Brutus said to Volumnius: 
+				<q direct="unspecified">It is drunk up; but another draught shall be fetched for you.</q> Then the same man who had brought the first was sent for more, but he ran the risk of being captured by the enemy, was wounded, and with difficulty came off safe. 
+				<milestone n="4" unit="section"/>Now, since Brutus conjectured that not many of his men had been killed in the battle, Statyllius<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cat. Mi. 65.4">
+                  <title>Cato the Younger</title>, lxv. 4 f.</bibl>; <bibl n="Plut. Cat. Mi. 73.4">lxxiii. 4.</bibl>
+            </note> promised him that after cutting his way through the enemy (there was no other way), he would reconnoitre the camp, raise a blazing torch if he found things there in safety, and then come back to him. Accordingly, the blazing torch was raised, since Statyllius succeeded in reaching the camp; but after a long time had passed and he did not return, Brutus said: 
+				<q direct="unspecified">If Statyllius is alive, he will come back.</q> But it so happened that he fell in with the enemy on his way back, and was slain.
+			</p>
+         <p>
+				        <milestone n="52" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As the night advanced, Brutus turned, just as he sat, towards his servant Cleitus, and talked with him. And when Cleitus wept and made no answer, Brutus next drew Dardanus his shield-bearer aside and had some private conversation with him. Finally, he spoke to Volumnius himself in Greek, reminding him of their student life, and begged him to grasp his sword with him and help him drive home the blow. 
+				<milestone n="2" unit="section"/>And when Volumnius refused, and the rest likewise, and some one said they must not tarry but fly, Brutus rose and said: 
+				<q direct="unspecified">By all means must we fly; not with our feet, however, but with our hands.</q> Then, after clasping each by the hand, with a very cheerful countenance he said he rejoiced with exceeding joy that not one of his friends had proved false to him, and as for Fortune, he blamed her only for his country's sake; 
+				<milestone n="3" unit="section"/>himself he regarded as more to be envied than his conquerors, not yesterday and the day before merely, but even now, since he was leaving behind him a reputation for virtue, which those who surpassed in arms or wealth would not do; since the world would believe that base and unjust men who put to death the good and just were unfit to rule. 
+				<milestone n="4" unit="section"/>Then, after earnestly entreating them to save themselves, he withdrew a little way in the company of two or three friends, among whom was Strato, who had been his intimate since they studied rhetoric together. This man he placed nearest to himself, and then, grasping with both hands the hilt of his naked sword, he fell upon it and died. 
+				<milestone n="5" unit="section"/>Some, however, say that it was not Brutus himself, but Strato, who at his very urgent request, and with averted eyes, held the sword in front of him, upon which he fell with such force that it passed quite through his breast and brought him instant death.<note resp="ed" place="unspecified" anchored="yes">The battles at Philippi occurred in 42 B.C., and Brutus was forty-three years of age when he died.</note>
+			      </p>
+         <p>
+				        <milestone n="53" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As for this Strato, Messala, the comrade of Brutus, after a reconciliation with Octavius, once found occasion to introduce him to his new master, and said, with a burst of tears: 
+				<q direct="unspecified">This is the man, O Caesar, who did the last kind office for my dear Brutus.</q> Accordingly, Strato was kindly received by Octavius, who, in his subsequent labours, and especially at the battle of Actium, found him, as well as other Greeks, a brave partisan. 
+				<milestone n="2" unit="section"/>And it is said that Messala himself was once praised by Octavius because, though at Philippi he had been most hostile to him and Antony for the sake of Brutus, at Actium he had been a most zealous adherent of his; whereupon Messala said: 
+				<q direct="unspecified">Indeed, O Caesar, I have ever been on the better and juster side.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>When Antony found Brutus lying dead, he ordered the body to be wrapped in the most costly of his own robes, and afterwards, on hearing that the robe had been stolen, put the thief to death. The ashes of Brutus he sent home to his mother Servilia.<note resp="ed" place="unspecified" anchored="yes">Suetonius (<title>Divus Augustus</title>, 13) says that the head of Brutus was sent to Rome to be thrown at the feet of Caesar's statue.</note> 
+				        <milestone n="4" unit="section"/>As for Porcia, the wife of Brutus, Nicola&uuml;s the philosopher, as well as Valerius Maximus,<note resp="ed" place="unspecified" anchored="yes">
+               <title>De factis mem.</title> iv. 6, 5.</note> relates that she now desired to die, but was opposed by all her friends, who kept strict watch upon her; wherefore she snatched up live coals from the fire, swallowed them, kept her mouth fast closed, and thus made away with herself. 
+				<milestone n="5" unit="section"/>And yet there is extant a letter of Brutus to his friends in which he chides them with regard to Porcia and laments her fate, because she was neglected by them and therefore driven by illness to prefer death to life. It would seem, then, that Nicola&uuml;s was mistaken in the time of her death, since her distemper, her love for Brutus, and the manner of her death, are also indicated in the letter, If, indeed, it is a genuine one.
+			</p>
+      </body>
+   </text>
+</TEI.2>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Comp.Lys.Sull." type="work">Comparison of Lysander and Sulla</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 17 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Comp.Per.Fab."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1916</date>
+                  </imprint>
+                  <biblScope type="volume">4</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990897</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>12/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>COMPARISON OF LYSANDER AND SULLA</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+				And now since we have completed this Life also, let us come at once to the Comparison. In this respect, then, they were alike, namely, that both were founders of their own greatness; but it was a peculiar virtue in Lysander that he obtained all his high offices with the consent of his fellow-citizens, and when affairs were in a sound condition; he did not force anything from them against their will, nor did he acquire any power which was contrary to the laws.
+				<milestone n="2" unit="section"/>
+				        <quote rend="blockquote">
+					          <l>But in a time of sedition, the base man too is in honour,</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">A proverb in hexameter verse, attributed to Callimachus of Alexandria. Plutarch uses it also in the <bibl n="Plut. Nic. 11.3">
+                  <title>Nicias</title>, xi. 3</bibl>, and in , <bibl n="Plut. Mor. 479a">
+                  <title>Morals</title> p. 479a</bibl>.</note>
+				and so in Rome at that time, since the people was corrupt and their government in a distempered state, men of various origin rose to power. And it was no wonder that Sulla held sway, when such men as Glaucia and Saturninus drove such men as Metellus from the city, when sons of consuls were butchered in assemblies, when silver and gold purchased arms and men to wield them, and laws were enacted with fire and sword in defiance of all opposition. 
+				<milestone n="3" unit="section"/>Now I do not blame the man who, in such a state of affairs, forced his way to supreme power; but I cannot regard his becoming first man, when the city was in such an evil plight, as a proof that he was also the best man. Whereas Lysander, since Sparta was at the height of good government and sobriety when she sent him forth upon the greatest commands and undertakings, was virtually decided to be first of her first men, and best of her best. 
+				<milestone n="4" unit="section"/>Lysander, therefore, though he often surrendered his power into the hands of his fellow-citizens, as often received it back again, since the honour accorded to virtue continued to rank highest in the state; but Sulla, when he had once been chosen leader of an army, remained in arms for ten years together, making himself now consul, and now dictator, but always being a usurper.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It is true, indeed, that Lysander attempted, as I have said, to change the form of government, but it was by milder and more legal methods than Sulla's; by persuasion, namely, not by force of arms, nor by subverting everything at once, as Sulla did, but by amending merely the appointment of the kings. And it seemed but natural justice, in a way, that the best of the best should rule in a city which had the leadership in Hellas by virtue of his excellence, and not of his noble birth. 
+				<milestone n="2" unit="section"/>For just as a hunter looks for a dog, and not the whelp of a certain bitch, and a horseman for a horse, and not the foal of a certain mare (for what if the foal should prove to be a mule?), so the statesman makes an utter mistake if he enquires, not what sort of a man the ruler is, but from whom he is descended. And indeed the Spartans themselves deposed some of their kings, for the reason that they were not kingly men, but insignificant nobodies. And if vice, even in one of ancient family, is dishonourable, then it must be virtue itself, and not good birth, that makes virtue honourable.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Moreover, the acts of injustice which one wrought, were in behalf of his friends; while the other's extended to his friends. For it is generally agreed that Lysander committed the most of his transgressions for the sake of his comrades, and that most of his massacres were perpetrated to maintain their power and sovereignty; 
+				<milestone n="4" unit="section"/>but Sulla cut down the number of Pompey's soldiers out of jealousy, and tried to take away from Dolabella the naval command which he had given him, and when Lucretius Ofella sued for the consulship as a reward for many great services, ordered him to be slain before his eyes, causing all men to regard him with fear and horror because of his murdering his dearest friends.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Still further, in their pursuit of riches and pleasures we discover that the purpose of one was more befitting a commander, that of the other more characteristic of a tyrant. For Lysander appears to have perpetrated no act of wantonness or youthful folly while he enjoyed such great authority and power, nay, if ever man did, he avoided the praise and reproach of the proverb: 
+				<q direct="unspecified">Lions at home, but foxes abroad</q>; so sober, Spartan, and restrained was the way of life which he everywhere manifested. 
+				<milestone n="2" unit="section"/>But Sulla allowed neither the poverty of his youth to set bounds to his desire; nor the years of his old age, but continued to introduce marriage and sumptuary laws for the citizens, while he himself was living in lewdness and adultery, as Sallust says. In these courses he so beggared and emptied the city of her wealth that he sold to allied and friendly cities their freedom and independence for money, although he was daily confiscating and selling at public auction the wealthiest and greatest estates. 
+				<milestone n="3" unit="section"/>Nay, there was no measuring what he lavishly squandered and threw away upon his flatterers. For what calculation or economy could be expected in his convivial associations and delights, when, on a public occasion, with the people standing about, at the sale of a large property, he ordered the crier to knock it down to one of his friends at a nominal price, and when another bidder raised the price and the crier announced the advance, he flew into a rage, saying: 
+				<q direct="unspecified">It is a dreadful wrong, my dear citizens, and a piece of usurpation, that I cannot dispose of my own spoils as I wish.</q> 
+				        <milestone n="4" unit="section"/>But Lysander sent home for public use even the presents which had been given to him along with the rest of his spoils. Not that I commend what he did; for he, perhaps, by his acquisition of money for Sparta, injured her more than Sulla injured Rome by robbing her of it; but I offer this as a proof of the man's indifference to riches. 
+				<milestone n="5" unit="section"/>Moreover, each had a peculiar experience with his own city. Sulla, who knew no restraint in his extravagance, tried to bring the citizens into ways of sobriety; while Lysander filled his city with the passions to which he himself was a stranger. The former erred, therefore, in falling below the standard of his own laws; the latter, in causing the citizens to fall below his own standard, since he taught Sparta to want what he himself had learned not to want. Such was their influence as statesmen.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But as regards contests in war, achievements in generalship, number of trophies, and magnitude of dangers encountered, Sulla is beyond compare. Lysander, it is true, won two victories in as many naval battles; and I will add to his exploits his siege of Athens, which was really not a great affair, although the reputation of it was most brilliant. 
+				<milestone n="2" unit="section"/>What occurred in Boeotia and at Haliartus, was due, perhaps, to a certain evil fortune; but it looks as though he was injudicious in not waiting for the large forces of the king, which had all but arrived from Plataea, instead of allowing his resentment and ambition to lead him into an inopportune assault upon the walls, with the result that an inconsiderable and random body of men sallied out and overwhelmed him. For he received his death wound, not as Cleombrotus did, at Leuctra, standing firm against the enemy's onsets, nor as Cyrus did, or Epaminondas, rallying his men and assuring the victory to them; these all died the death of kings and generals. 
+				<milestone n="3" unit="section"/>But Lysander threw away his life in gloriously, like a common targeteer or skirmisher, and bore witness to the wisdom of the ancient Spartans in avoiding assaults on walled cities, where not only an ordinary man, but even a child or a woman may chance to smite and slay the mightiest warrior, as Achilles, they say, was slain by Paris at the gates.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>In Sulla's case, at any rate, it is no easy matter even to enumerate the pitched battles which he won and the myriads of enemies whom he slew; Rome itself he captured twice, and he took the Piraeus of Athens, not by famine, as Lysander did, but by a series of great battles, after he had driven Archela&uuml;s from the land to the sea. It is important, too, that we consider the character of their antagonists. For I think it was the merest child's play to win a sea-fight against Antiochius, Alcibiades' pilot, or to outwit Philocles, the Athenian demagogue,
+				<quote rend="blockquote">
+					          <l>Inglorious foe, whose only weapon is a sharpened tongue;<note resp="ed" place="unspecified" anchored="yes">An iambic trimeter of unknown authorship (Nauck, <title>Trag. Graec. Frag.</title>2 p. 921).</note>
+               </l>
+				        </quote>
+				such men as these Mithridates would not have deigned to compare with his groom, nor Marius with his lictor. 
+				<milestone n="5" unit="section"/>But of the dynasts, consuls, generals, and demagogues who lifted themselves against Sulla, to pass by the rest, who among the Romans was more formidable than Marius? who among the kings was more powerful than Mithridates? who among the Italians was more warlike than Lamponius and Telesinus? And yet Sulla banished the first of these, subdued the second, and slew the others.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But what is of more weight, in my opinion, than any thing yet mentioned, Lysander achieved all his successes with the co-operation of the authorities at home; whereas Sulla, though he was overpowered by a hostile faction, and an exile, at a time when his wife was being driven from home, his house being demolished, and his friends being slain, when he himself, too, was confronting countless myriads of enemies in Boeotia and risking his life for his country, set up his trophy of victory; 
+				<milestone n="2" unit="section"/>and not even when Mithridates offered him an alliance and forces to wield against his enemies at Rome, would he make any concession whatsoever, or show him kindness even; nay, he would not so much as greet him or give him his hand, until he heard him say personally that he would relinquish Asia, hand over his ships, and restore Bithynia and Cappadocia to their rightful kings. 
+				<milestone n="3" unit="section"/>No act of Sulla's whatsoever appears more honourable than this, or due to a loftier spirit, because he set the public interests before his own, and, like dogs of noble breed, did not relax his bite or let go his hold until his adversary had yielded, and then only did he set out to avenge his own private wrongs. 
+				<milestone n="4" unit="section"/>And besides all this, their treatment of Athens is of some weight in a comparison of their characters. Sulla, after taking the city, although it had fought against him to support the power and supremacy of Mithridates, restored her to freedom and independence; whereas Lysander, although she had fallen from such a great supremacy and empire, showed her no pity, but took away her democratic form of government, and appointed most savage and lawless men to be her tyrants.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>We may now consider whether we shall err very much from the truth in pronouncing our verdict that Sulla won the more successes, while Lysander had the fewer failings; and in giving to the one the preeminence in self-control and moderation, to the other, in generalship and valour.
+			</p>
+      </body>
+   </text>
+</TEI.2>

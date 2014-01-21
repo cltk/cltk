@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Phil." type="work">Philopoemen</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 60 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Phil."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1921</date>
+                  </imprint>
+                  <biblScope type="volume">10</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991133</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/00</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>PHILOPOEMEN</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Cleander was a man of the highest lineage and greatest influence among the citizens of Mantineia, but he met with reverses and was exiled from his native city. He then betook himself to Megalopolis, chiefly because of Craugis, the father of Philopoemen, a man in every way illustrious, and attached to him by ties of personal friendship. 
+				<milestone n="2" unit="section"/>As long as Craugis lived, Cleander's wants were all supplied, and when Craugis died, Cleander, wishing to requite him for his hospitality, undertook the rearing of his orphan son, just as Homer says that Achilles was reared by Phoenix,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Hom. Il. 9.438">
+                  <title>Iliad</title>, ix. 438 ff.</bibl>
+            </note> so that the boy's character took on from the very outset a noble and kingly mould and growth. But as soon as Philopoemen had ceased to be a boy, Ecdemus and Megalophanes, of Megalopolis, were put in charge of him.<note resp="ed" place="unspecified" anchored="yes">A brief biography of Philopoemen may be found in <bibl n="Paus. 8.49">Pausanias, viii. 49-51</bibl>. It agrees, in the main, with that of Plutarch. Philopoemen was born about 252 B.C.</note> They had been comrades of Arcesila&uuml;s at the Academy, and beyond all men of their day had brought philosophy to bear upon political action and affairs of state. 
+				<milestone n="3" unit="section"/>They freed their own native city from tyranny, by secretly procuring men to kill Aristodemus; they joined with Aratus in expelling Nicocles the tyrant of Sicyon;<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Arat. 2.1">
+                  <title>Aratus</title>, ii.</bibl>-<bibl n="Plut. Arat. 10.1">x.</bibl>
+            </note> and at the request of the people of Cyrene, whose city was full of confusion and political distemper, they sailed thither, introduced law and order, and arranged matters in the city most happily. 
+				<milestone n="4" unit="section"/>They themselves, however, counted the education of Philopoemen also among their many achievements, believing that their philosophical teachings had made him a common benefit to Greece. For since he was the child, as it were, of her late old age and succeeded to the virtues of her ancient commanders, Greece loved him surpassingly, and as his reputation grew, increased his power. And a certain Roman, in praising him, called him the last of the Greeks,<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Arat. 24.2">
+                  <title>Aratus</title>, xxiv. 2.</bibl>
+            </note> implying that Greece produced no great man after him, nor one worthy of her.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In looks he was not, as some suppose, ill-favoured; for a statue of him is still to be seen at Delphi; and the mistake of his Megarian hostess was due, as we are told, to a certain indifference and simplicity on his part. This woman, learning that the general of the Achaeans was coming to her house, in great confusion set about preparing supper; besides, her husband chanced to be away from home. 
+				<milestone n="2" unit="section"/>Just then Philopoemen came in, wearing a simple soldier's cloak, and the woman, thinking him to be one of his servants who had been sent on in advance, invited him to help her in her housework. So Philopoemen at once threw off his cloak and fell to splitting wood. Then his host came in, and seeing him thus employed, said: 
+				<q direct="unspecified">What does this mean, Philopoemen?</q> 
+				        <q direct="unspecified">What else,</q> said Philopoemen in broad Doric, 
+				<q direct="unspecified">than that I am paying a penalty for my ill looks?</q> 
+				        <milestone n="3" unit="section"/>And once Titus Flamininus, making fun of certain parts of his figure, said: 
+				<q direct="unspecified">Philopoemen, what fine arms and legs thou hast; but belly thou hast not</q>; for Philopoemen was quite slender at the waist. This piece of fun, however, was aimed the rather at his resources. For though he had excellent men-at-arms and horsemen, he was often at a loss for money. However, these stories are told of Philopoemen in the schools of philosophy.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But the love of distinction which marked his character was not altogether free from contentiousness nor devoid of anger; and although he desired to pattern himself most of all after Epaminondas, it was the energy, sagacity, and indifference to money in Epaminondas which he strenuously imitated, while his proneness to anger and contentiousness made him unable to maintain that great leader's mildness, gravity, and urbanity in political disputes, so that he was thought to be endowed with military rather than with civic virtues. 
+				<milestone n="2" unit="section"/>For from his very boyhood he was fond of a soldier's life, and readily learned the lessons which were useful for this, such as those in heavy-armed fighting and horsemanship. He was also thought to be a good wrestler, but when some of his friends and directors urged him to take up athletics, he asked them if athletics would not be injurious to his military training. 
+				<milestone n="3" unit="section"/>They told him (arid it was the truth) that the habit of body and mode of life for athlete and soldier were totally different, and particularly that their diet and training were not the same, since the one required much sleep, continuous surfeit of food, and fixed periods of activity and repose, in order to preserve or improve their condition, which the slightest influence or the least departure from routine is apt to change for the worse; whereas the soldier ought to be conversant with all sorts of irregularity and all sorts of inequality, 
+				<milestone n="4" unit="section"/>and above all should accustom himself to endure lack of food easily, and as easily lack of sleep. On hearing this, Philopoemen not only shunned athletics himself and derided them, but also in later times as a commander banished from the army all forms of them, with every possible mark of reproach and dishonour, on the ground that they rendered useless for the inevitable struggle of battle men who would otherwise be most serviceable.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And when, set free from teachers and tutors, he took part in the incursions into Spartan territory which his fellow-citizens made for the sake of booty and plunder, he accustomed himself to march first as they went out, but last as they came back. And when he had leisure, he would give his body hard exercise in hunting, thus rendering it agile and at the same time sturdy, or in cultivating the soil. 
+				<milestone n="2" unit="section"/>For he had a fine farm twenty furlongs from the city. To this he would go every day after dinner or after supper, and would throw himself down upon an ordinary pallet-bed, like anyone of his labourers, to sleep for the night. Then, early in the morning, he would rise and go to work along with his vine-dressers or his herdsmen, after which he would go back again to the city and busy himself about public matters with his friends or with the magistrates.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>As for what he got from his campaigning, he used to spend it on horses, or armour, or the ransoming of captives; but his own property he sought to increase by agriculture, which is the justest way to make money. Nor did he practise agriculture merely as a side issue, but he held that the man who purposed to keep his hands from the property of others ought by all means to have property of his own. He also listened to the discourses and applied himself to the writings of philosophers&mdash;not all of them, but those whom he thought helpful to him in his progress towards virtue. 
+				<milestone n="4" unit="section"/>And as for the poems of Homer, whatever in them was thought by him to rouse and stimulate the activities of the soul which made for valour, to this he would apply himself. Among other writings, however, he was most of all devoted to the 
+				<q direct="unspecified">Tactics</q> of Evangelus, and was familiar with the histories of Alexander, thinking that literature was conducive to action, unless it were prosecuted merely to while away the time and afford themes for fruitless small talk. 
+				<milestone n="5" unit="section"/>Indeed, he would ignore the charts and diagrams for the illustration of tactical principles, and get his proofs and make his studies on the ground itself. The ways in which places slope to meet one another, and level plains come to an abrupt end, and all the vicissitudes and shapes of a phalanx when it is elongated and contracted again in the vicinity of ravines or ditches or narrow defiles, these he would investigate by himself as he wandered about, and discuss them with his companions. 
+				<milestone n="6" unit="section"/>For it would seem that he brought more zeal than was necessary to the study of military science, setting his affections on war as affording a most manifold basis for the practice of virtue, and despising as unsuccessful men those who left it to others.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He was now thirty years of age, when Cleomenes, King of the Lacedaemonians, suddenly attacked Megalopolis by night, forced the guard, made his way into the city, and occupied the market-place. Philopoemen came to the help of the citizens, but had not force enough to drive the enemy out, although he fought with vigour and daring. He did, however, steal the citizens out of the city, as it were, by attacking their pursuers and drawing Cleomenes against himself, so that with the greatest difficulty he got away last of all, after losing his horse and receiving a wound. 
+				<milestone n="2" unit="section"/>Moreover, when Cleomenes sent to them at Messene, whither they had gone, and offered to give them back their city with its valuables and their territory, Philopoemen, seeing that the citizens would be glad to accept the offer and were eager to go back home, opposed and dissuaded them from it, showing them that Cleomenes was not so much offering to restore their city as he was trying to win over to himself its citizens, that so he might have the city also more securely in his possession; for he would not be able, Philopoemen said, to remain there and guard empty houses and walls, but the solitude would force him to abandon these also. By this speech Philopoemen diverted the citizens from their purpose, but furnished Cleomenes with an excuse for devastating and demolishing the greater part of the city and marching off loaded with booty.<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Cleom. 24.1">
+                  <title>Cleomenes</title>, xxiv.</bibl>
+            </note>
+			      </p>
+         <p> 
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+				Soon, however, Antigonus the king marched with the Achaeans to give aid against Cleomenes, and finding that his enemy was occupying the heights and passes about Sellasia, he drew up his forces near by with the purpose of attacking him and forcing a passage.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Cleom. 27.1">
+                  <title>Cleomenes</title>, xxvii.</bibl> and <bibl n="Plut. Cleom. 28.1">xxviii.</bibl>  The battle of Sellasia was fought in 221 B.C.</note> Philopoemen was stationed among the Macedonian cavalry with his own fellow-citizens,<note resp="ed" place="unspecified" anchored="yes">According to <bibl n="Plb. 2.66">Polybius ii. 66. 7</bibl>, a thousand Achaeans and as many Megalopolitans were stationed with the Macedonian cavalry.</note> and had as a support the Illyrians, a large body of good fighters, who closed up the line of battle. 
+				<milestone n="2" unit="section"/>They had been ordered to lie quietly in reserve until, from the other wing, a signal should be made by the king with a scarlet coat stretched upon a spear. But the Illyrians, at the command of their officers, tried to force back the Lacedaemonians, while the Achaeans, as they had been ordered to do, kept quietly waiting at their post. Therefore Eucleidas, the brother of Cleomenes, who noticed the gap thus made in the enemies' line, quickly sent round the most agile of his light-armed troops, with orders to attack the Illyrians in the rear and rout them, now that they had lost touch with the cavalry.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>These orders were carried out, and the light-armed troops were driving the Illyrians before them in confusion, when Philopoemen perceived that it would be no great task to attack the light-armed troops, and that the occasion prompted this step. At first he pointed this out to the king's officers. Then, when they were not to be persuaded by him, but looked down upon him as a madman (since his reputation was not yet great enough to justify his being entrusted with so important a manoeuvre), he took matters into his own hands, formed his fellow-citizens into a wedge, and charged upon the enemy. 
+				<milestone n="4" unit="section"/>At first the light-armed troops were thrown into confusion, then put to rout with great slaughter. And now Philopoemen, wishing to encourage still further the king's troops and bring them swiftly upon the enemy thus thrown into disorder, quitted his horse, and with grievous difficulty forced his way along on foot, in his horseman's breastplate and heavy equipment, towards ground that was irregular and full of water-courses and ravines. Here he had both his thighs pierced through by a thonged javelin. The wound was not fatal, though severe, and the head of the weapon came out on the other side. 
+				<milestone n="5" unit="section"/>At first, then, he was held fast as by a fetter, and was altogether helpless; for the fastening of the thong made it difficult to draw the weapon back through the wound. But since those about him hesitated to attempt this, and since, now that the battle was at its hottest, the ardour of his ambition made him impatient to join in the struggle, by moving his legs backward and forward he broke the shaft of the weapon in two in the middle, and then ordered each fragment to be drawn out separately. 
+				<milestone n="6" unit="section"/>Thus set free, he drew his sword and made his way through the front ranks against the enemy, thereby greatly animating the combatants and inspiring them with a desire to emulate his valour. After his victory, therefore, Antigonus put his Macedonians to the question, and asked them why, without his orders, they had brought the cavalry into action. 
+				<milestone n="7" unit="section"/>They defended themselves by saying that they had been forced against their will to attack the enemy, because a young man of Megalopolis had first led a charge against them. At this, Antigonus gave a laugh and said: 
+				<q direct="unspecified">Well, then, that young man behaved like a great commander.</q>
+			      </p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This naturally brought Philopoemen into high repute. Antigonus was eager that he should take service under him, and offered him command and pay. These Philopoemen declined, chiefly because he well knew that it was naturally unpleasant and hard for him to be under another man's orders. Not wishing, however, to be inactive and idle, for the sake of training and practice in war he sailed to Crete in search of military service. 
+				<milestone n="2" unit="section"/>In Crete he practised himself for a long time among men who were not only warlike and versed in many kinds of warfare, but also still moderate and restrained in their ways of living, and he came back to the Achaeans with such distinction that they at once made him commander of their cavalry.<note resp="ed" place="unspecified" anchored="yes">For the year 209-208 B.C.</note> 
+				        <milestone n="3" unit="section"/>But he found that the horsemen whom he was to command used worthless animals acquired at random, whenever a campaign was to be undertaken; that they shirked most campaigns themselves, and sent others out in their places; that they were all characterized by a shocking lack of experience, together with its resultant cowardice; and that their commanders always overlooked these things because the knights had the greatest power and influence among the Achaeans and the chief voice in the assignment of rewards and punishments. 
+				<milestone n="4" unit="section"/>Philopoemen, however, did not yield or give way to them. He went round to the different cities and roused the spirit of ambition in each young man individually, punished those who needed compulsion, introduced drills, parades, and competitive contests in places where there would be large bodies of spectators and thus in a short time inspired them all with an astonishing vigour and zeal, 
+				<milestone n="5" unit="section"/>and, what is of the greatest importance in tactics, rendered them agile and swift in wheeling and deploying by squadrons, and in wheeling and turning by single trooper, making the dexterity shown by the whole mass in its evolutions to be like that of a single person moved by an impulse from within.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>Moreover, in the fierce battle which they fought at the river Larissus against Aetolians and Eleians, the commander of the Eleian cavalry, Damophantus, rode out from the ranks and charged upon Philopoemen. But Philopoemen received his onset, was first to drive home a spear-thrust, and threw Damophantus to the ground. 
+				<milestone n="7" unit="section"/>Their leader fallen, the enemy at once took to flight, and Philopoemen was in high renown, as one who yielded to none of the young men in personal prowess, and to none of the elder men in sagacity, but both in fighting and in commanding was most capable.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The commonwealth of the Achaeans was first raised to dignity and power by Aratus, who consolidated it when it was feeble and disrupted, and inaugurated an Hellenic and humane form of government. Then, just as in running waters, after a few small particles have begun to take a fixed position, others presently are swept against the first, adhere and cling to them, and thus form a fixed and solid mass by mutual support, 
+				<milestone n="2" unit="section"/>so the Achaeans, at a time when Greece was weak and easily dissolved and drifting along by individual cities, first united themselves together, and then, by receiving into their number some of the cities round about which they had aided and assisted in shaking off their tyrants, and by uniting others with themselves in a harmonious civil polity, they purposed to form the Peloponnesus into a single political body and one power. 
+				<milestone n="3" unit="section"/>As long, however, as Aratus lived, they were dependent for the most part on Macedonian armies, paying court to Ptolemy, and then again to Antigonus and Philip, all of whom busied themselves in the affairs of Greece. But when Philopoemen was advanced to leadership among them,<note resp="ed" place="unspecified" anchored="yes">In 207 B.C.; Aratus had died in 213.</note> they were at last capable of contending alone with their most powerful neighbours, and ceased to rely upon foreign protectors. 
+				<milestone n="4" unit="section"/>Aratus, indeed, who was thought to be too sluggish for warlike contests, accomplished most of his undertakings by conference, urbanity, and royal friendships, as I have written in his Life<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Arat. 10.1">
+                  <title>Aratus</title>, x.</bibl>
+            </note> whereas Philopoemen, who was a good warrior and effective with his weapons, besides proving himself fortunate and successful in his very first battles, increased not only the power but also the courage of the Achaeans, who were accustomed to be victorious under him and to win success in most of their contests.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the first place, however, he changed the faulty practice of the Achaeans in drawing up and arming their soldiers. For they used bucklers which were easily carried because they were so light, and yet were too narrow to protect the body; and spears which were much shorter than the Macedonian pike. For this reason they were effective in fighting at a long distance, because they were so lightly armed, but when they came to close quarters with the enemy they were at a disadvantage. 
+				<milestone n="2" unit="section"/>Moreover, a division of line and formation into cohorts was not customary with them, and since they employed a solid phalanx without either levelled line of spears or wall of interlocking shields such as the Macedonian phalanx presented, they were easily dislodged and scattered. Philopoemen showed them all this, and persuaded them to adopt long pike and heavy shield instead of spear and buckler, to protect their bodies with helmets and breastplates and greaves, and to practise stationary and steadfast fighting instead of the nimble movements of light-armed troops. 
+				<milestone n="3" unit="section"/>After he had persuaded those of military age to arm themselves in this manner, in the first place he inspired them with confidence that they had thus become invincible, and then made most excellent reforms in their luxurious and extravagant ways of living. For it was not possible to remove altogether their empty and idle emulation from a people long addicted to it. 
+				<milestone n="4" unit="section"/>They were fond of costly apparel, the coverings of their couches were dyed purple, and they vied with one another in banquets and table array. But he made a beginning by diverting their love of show from what was unnecessary to what was serviceable and honourable, and speedily persuaded and incited them all to check their daily expenditures upon bodily wants, and to find their chief adornment in military and warlike equipments. 
+				<milestone n="5" unit="section"/>And so one might have seen the workshops filled with goblets and Therycleian plate<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Aem. 33.2">
+                  <title>Aemilius Paulus</title>, xxxiii. 2.</bibl>
+            </note> which were being broken up, with breastplates being gilded, with shields and bridles being silvered over, while in the places of exercise colts were being broken in and young men were learning the use of heavy armour, and in the hands of women there were helmets and plumes for dyeing, and horsemen's tunics or soldiers' cloaks for embroidering. 
+				<milestone n="6" unit="section"/>The sight of all this increased men's courage, called forth their energies, and made them venturesome and ready to incur dangers. 
+				<milestone n="7" unit="section"/>For extravagance in other objects of display induces luxury and implants effeminacy in those who use them, since something like a pricking and tickling of the senses breaks down serious purpose; but when it is seen in the trappings of war it strengthens and exalts the spirit, just as Homer represented Achilles, when his new armour was laid down near him, as exulting at the sight and all on fire to get to work with it.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Il. 19.15">
+                  <title>Iliad</title>, xix. 15 ff.</bibl>
+            </note>
+			      </p>
+         <p>After he had thus arrayed and adorned the young men, Philopoemen exercised and drilled them, and they eagerly and emulously obeyed his instructions. 
+				<milestone n="8" unit="section"/>For the new order of battle pleased them wonderfully, since it seemed to secure a close array that could not be broken; and the armour which they used became light and manageable for them, since they wore or grasped it with delight because of its beauty and splendour, and wished to get into action with it and fight a decisive battle with their enemies as soon as possible.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>At this time the Achaeans were carrying on war with Machanidas the tyrant of Sparta, who, relying upon his large and strong forces, was scheming to get control of the whole Peloponnesus. Accordingly, when word came that the tyrant had invaded the territory of Mantineia, Philopoemen quickly led his army out against him. They drew up in battle array near the city, both parties having many mercenaries and almost all their citizen soldiery. 
+				<milestone n="2" unit="section"/>When battle was joined, Machanidas with his mercenaries routed the javelineers and Tarantines who had been stationed in front of the Achaean line, and then, instead of advancing directly against the main body of the enemy and breaking up their close array, he dashed off in pursuit of the fugitives, and so passed by the phalanx of the Achaeans, which remained drawn up in position. 
+				<milestone n="3" unit="section"/>Then Philopoemen, although so great a disaster had occurred at the outset and his cause was thought to be utterly lost and ruined, professed to ignore and make light of it, and seeing what a great mistake the enemy had made by going off in pursuit, thus breaking away from his phalanx and leaving a vacant space there, did not oppose or resist their chase after the fugitives, but let them pass him by and make a great gap. 
+				<milestone n="4" unit="section"/>Then he led straight against the Lacedaemonian heavy-armed, seeing that their phalanx had been left exposed, and fell upon them in a flank attack, while their commander was away and they were not expecting to fight; for they thought they were victorious and getting the upper hand altogether, since they saw Machanidas pursuing. 
+				<milestone n="5" unit="section"/>After Philopoemen had routed these with great slaughter (more than four thousand of them are said to have fallen), he set out against Machanidas, who was returning with his mercenaries from the pursuit. But a broad and deep ditch stretched between them, along which the two leaders rode opposite each other, one wishing to get across and escape, the other to prevent this. 
+				<milestone n="6" unit="section"/>The spectacle was not that of two commanders fighting, but that of a powerful hunter attacking a wild beast that has been forced to turn at bay, and Philopoemen was the hunter. And now the tyrant's horse, which was vigorous and high-spirited and felt the bloody spurs in his sides, essayed to make the leap across, and striking against the edge of the ditch with his breast, was struggling with his fore-feet to extricate himself. 
+				<milestone n="7" unit="section"/>At this point Simmias and Polyaenus, who were always at Philopoemen's side when he was fighting and protected him with their shields, rode up both at the same time and levelled their spears at the horse. But Philopoemen was before them in attacking Machanidas, and seeing that the tyrant's horse was lifting its head up in front of its rider's body, he gave his own horse a little swerve to one side, and then, clasping his spear firmly in the middle, pushed it home with all his weight and overturned his enemy. 
+				<milestone n="8" unit="section"/>This is the attitude in which he is represented by a bronze statue set up at Delphi by the Achaeans, who admired especially both his deed of prowess and his generalship on that day.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Moreover, we are told that at the celebration of the Nemean games,<note resp="ed" place="unspecified" anchored="yes">In the summer of 205 B.C.</note> when he was general of the Achaeans for the second time and had recently won his victory at Mantineia,<note resp="ed" place="unspecified" anchored="yes">In the spring of 206 B.C.</note> but was at leisure the while on account of the festival, Philopoemen in the first place displayed before the assembled Greeks his phalanx, with its splendid array, and performing its tactical evolutions, as it was wont to do, with speed and vigour. 
+				<milestone n="2" unit="section"/>Then, while the minstrels were contending for the prize, he came into the theatre with his young men. They wore their soldiers' cloaks and their purple tunics, were all in the prime of their strength and of the same age, and showed not only great respect for their commander, but also that high spirit which young men have after many honourable contests. And just as they made their entrance it chanced that Pylades the minstrel was chanting the opening verse of the <title>Persians</title> of Timotheus&mdash;
+				<quote rend="blockquote">
+					          <l>Glorious the crown of freedom which he fashioneth for Hellas</l>
+				        </quote>;
+				<milestone n="3" unit="section"/>
+				whereupon, as the splendid voice of the singer fitly sustained the majesty of the poet's words, all the spectators turned their eyes upon Philopoemen and gave him glad applause; for in their hopes the Greeks were recovering their ancient dignity, and in their courage they were making the nearest approach to the high spirit of their fathers.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But when it came to perils and battles, just as young horses long for their accustomed riders, and if they have others on their backs, are shy and wild, so the Achaean army, when someone other than Philopoemen was commander-in-chief,<note resp="ed" place="unspecified" anchored="yes">As a rule, the same man could not be general of the Achaean league two years in succession.</note> would be out of heart, would keep looking eagerly for him, and if he but came in sight, would at once be alert and efficient because of the courage he inspired. For they perceived that he was the one general whom their enemies were unable to face, and whose name and fame they feared, as was evident from what they did. 
+				<milestone n="2" unit="section"/>For Philip the king of Macedon, thinking that if Philopoemen could be got out of the way the Achaeans would again submit abjectly to his sway, secretly sent men to Argos who were to assassinate him; but the plot became known, and Philip was utterly condemned and hated among the Greeks. 
+				<milestone n="3" unit="section"/>Again, the Boeotians were besieging Megara and had hopes of its speedy capture, when suddenly a report reached their ears (and it was a false report) that Philopoemen was coming to the aid of the besieged and was close at hand; so they abandoned their scaling-ladders, which were already planted against the walls of the city, and fled away. 
+				<milestone n="4" unit="section"/>And once again, when Nabis, who succeeded Machanidas as tyrant of Sparta, suddenly seized Messene, it chanced that Philopoemen was out of office and had no force under his command; but since Lysippus, the commander-in-chief of the Achaeans, could not be persuaded by him to go to the rescue of the Messenians, because, as he said, the city was utterly lost now that the enemy were inside, Philopoemen himself went to their rescue, taking with him his fellow-citizens of Megalopolis, who did not wait for any law or commission, but followed the man whom nature had made superior as though he were always in command. 
+				<milestone n="5" unit="section"/>And when Nabis heard that Philopoemen was already close at hand, he did not wait for him to come up, although he was encamped in the city, but stole out by an opposite gate and led his forces off as fast as he could, thinking that he would be fortunate if he should escape; and he did escape, and Messene was set free.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>All these things, then, made for the honour of Philopoemen; but his going away to Crete again at the request of the Gortynians, who wanted him to be their general in their war, brought calumny upon him, and it was said that when his native city was at war with Nabis, he was away, either to avoid fighting or to show kindness out of all season to others. And yet so continuously were the Megalopolitans under hostile attack all that time that they lived upon their walls and planted their grain in the streets, since their fields were ravaged and the enemy were encamped almost in their gates. 
+				<milestone n="2" unit="section"/>Philopoemen, however, was waging war in Crete all that while, and serving as general across the sea, and so afforded his enemies a chance to accuse him of running away from the war at home. But there were some who said that since the Achaeans chose other men as their generals and Philopoemen was without public office, he merely put the leisure which belonged to him at the service of the Gortynians when they asked him to be their leader. 
+				<milestone n="3" unit="section"/>For he was averse to inactivity, and wished to keep his skill as a commander in war, like any other possession, all the while in use and exercise. And he made this evident by what he once said about King Ptolemy. When certain persons were extolling that monarch because he carefully drilled his army day by day, and carefully and laboriously exercised himself in arms, 
+				<q direct="unspecified">And yet who,</q> said Philopoemen, 
+				<q direct="unspecified">can admire a king of his years for always practising but never performing anything?</q>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>The Megalopolitans, nevertheless, were displeased at this absence, and looking upon it in the light of a betrayal, undertook to make him an exile; but the Achaeans prevented this by sending to Megalopolis Aristaenus, their commander-in-chief, who, although politically at variance with Philopoemen, would not suffer sentence of condemnation to be passed upon him. 
+				<milestone n="5" unit="section"/>In consequence of this displeasure, Philopoemen was ignored by his fellow-citizens, and therefore induced many of their outlying villages to secede from them, instructing them to say that they did not belong to the city and were not under their rule; and when they made this plea, he openly supported them in their contention and helped them to raise a faction against the city in the assembly of the Achaeans. This, however, was at a later time.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>In Crete he waged war in the service of the Gortynians; not the straightforward and honourable warfare of a Peloponnesian and Arcadian, but one in which he adopted the Cretan practices, and turning their tricks and wiles and stolen marches and ambuscades against themselves, speedily showed them that they were children opposing foolish and vain mischievousness to genuine military experience.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Having thus won admiration, and having come back to Peloponnesus with a brilliant reputation from his exploits in Crete, he found that Philip had been defeated and subdued by Titus Flamininus,<note resp="ed" place="unspecified" anchored="yes">In the battle of Cynoscephalae, 197 B.C.  See the <bibl n="Plut. Flam. 13.1">
+                  <title>Flamininus</title>, xiii.</bibl>
+            </note> and that the Achaeans and the Romans were waging war upon Nabis. He was at once chosen general against Nabis, and by hazarding the issue on a naval battle would seem to have fared as Epaminondas once did, since he fought on the sea in a manner which fell far short of his great reputation. 
+				<milestone n="2" unit="section"/>Epaminondas, however, as some say, was reluctant to give his fellow-citizens a taste of the advantages accruing from naval superiority, in order that they might not surprise him by becoming, instead of 
+				<q direct="unspecified">steadfast hoplites,</q> to use Plato's words,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Laws 706">
+                  <title>Laws</title>, iv. p. 706</bibl>. Cf. the <bibl n="Plut. Them. 4.3">
+                  <title>Themistocles</title>, iv. 3.</bibl>
+            </note> degenerate mariners; and therefore he purposely came back from Asia and the islands without achieving anything<note resp="ed" place="unspecified" anchored="yes">In 364 B.C., two years before his death, Epaminondas successfully inaugurated a naval policy for Thebes, which enabled her to cope with Athens on the sea.</note> 
+				        <milestone n="3" unit="section"/>Philopoemen, on the other hand, was persuaded that his skill in handling land forces would suffice to give him success in fighting also on the sea, and therefore learned to his cost how large a part of superior excellence consists in practice, and how much additional power it gives to men who have accustomed themselves to all methods of fighting. For not only was he worsted in the sea-fight, owing to his lack of experience, but he actually launched an old but famous ship after forty years of disuse, and manned her, the result being that her seams took in water and her crew came into peril of their lives.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Understanding that in consequence of this disaster his enemies despised him, thinking that he had altogether given up activity on the sea, and that they were insolently besieging Gythium, he promptly sailed against them when they did not expect it and were careless because of their victory. He landed his soldiers by night and led them to the attack, set fire to the enemy's tents, burned down his camp, and slew many of his men. 
+				<milestone n="5" unit="section"/>A few days afterward, as he was marching through a rough country, Nabis came suddenly upon him and threw the Achaeans into a fright; they despaired of saving themselves from a position which was difficult and already commanded by the enemy. But Philopoemen waited a little while, surveyed the nature of the ground, and then demonstrated that skill in drawing up an army is the crowning feature in the art of war. For by changing his order of battle a little and adapting it to the present exigency, with no confusion and no trouble he evaded the difficulty, and charging upon the enemy put them to utter rout. 
+				<milestone n="6" unit="section"/>Then, observing that they were not fleeing towards the city, but scattering themselves hither and thither through the region (which was woody, entirely surrounded by hills, and impracticable for cavalry owing to water-courses and ravines), he checked his pursuit and encamped while it was still light. But judging that the enemy after their flight would steal back to the city by ones and twos under cover of the night, he placed large numbers of his Achaeans armed with swords in ambush among the water-courses and hills about the city. 
+				<milestone n="7" unit="section"/>Here very many of the followers of Nabis met their death; for since they did not make their return in a body, but as the chances of flight disposed them severally, they fell into the hands of their enemies and were caught like birds about the city.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In consequence of this exploit Philopoemen was beloved by the Greeks and conspicuously honoured by them in their theatres, thus giving secret umbrage to Titus Flamininus, who was an ambitious man. For as Roman consul he thought himself more worthy of the Achaeans' admiration than a man of Arcadia, and he considered that his benefactions far exceeded those of Philopoemen, since by a single proclamation he had set free all those parts of Greece which had been subject to Philip and the Macedonians.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Flam. 10.1">
+                  <title>Flamininus</title>, chapter x.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="2" unit="section"/>After this Flamininus made peace with Nabis,<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Flam. 9.5">
+                  <title>Flamininus</title>, ix. 5.</bibl>
+            </note> and Nabis was treacherously put to death by the Aetolians.<note resp="ed" place="unspecified" anchored="yes">In 192 B.C. Nabis had called in the Aetolians to help him against the Achaeans and Romans (<bibl n="Liv. 35.35">Livy, xxxv. 35-37</bibl>).</note> Sparta was therefore in a state of confusion, and Philopoemen, seizing his opportunity, fell upon the city with an armed force, and partly by compulsion, partly by persuasion, brought it over to his purposes and made it a member of the Achaean league. 
+				<milestone n="3" unit="section"/>This achievement brought him an amazing repute among the Achaeans, since through his efforts they had acquired a city of so great dignity and power (and indeed it was no slight matter that Sparta had become a member of the Achaean league); moreover, Philopoemen carried with him the principal men among the Spartans, who hoped to have in him a guardian of their liberties. 
+				<milestone n="4" unit="section"/>Therefore, after they had confiscated the house and property of Nabis and obtained thereby a hundred and twenty talents, they Voted to make a present of the money to Philopoemen, and to send an embassy to Megalopolis on the matter. Here, indeed, it became perfectly clear that Philopoemen not only seemed to be, but actually was, a most excellent man.<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Arist. 3.4">
+                  <title>Aristides</title>, iii. 4.</bibl> 
+            </note> For, to begin with, no Spartan was willing to confer with a man of his character about the acceptance of a gift, but they were all so reluctant and afraid to do it that they entrusted the business to a guest-friend of his, Timola&uuml;s. 
+				<milestone n="5" unit="section"/>And in the second place, Timola&uuml;s himself, when he came to Megalopolis, having been entertained at the house of Philopoemen, and having learned thoroughly how dignified he was in his converse with others, how simple his ways of living, and how his character was nowhere to be approached and much less easy to be overcome by bribes, held his peace about the gift of money, and after giving some other excuse for his visit to him, went back home. And when he was sent a second time on the same errand, he did as before. 
+				<milestone n="6" unit="section"/>On his third visit, however, he at last got so far as to acquaint Philopoemen with the earnest desire of his city. Then Philopoemen, who was pleased by what he heard, went in person to Sparta, and counselled the people there not to try to bribe good men who were their friends, and by whose virtues they could profit without payment of money, but rather to buy up and corrupt the bad men who were ruining the city by their factious conduct in the assembly, to the end that such might have their mouths stopped in consequence of their venality, and so he less annoying to their fellow-citizens; for it was better, he said, to take away freedom of speech from their enemies rather than from their friends. Such was his splendid spirit in matters of money.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Soon, however, Diophanes, the general of the Achaean league, hearing that the Lacedaemonians were once more agitating for a change, determined to punish them, and the Lacedaemonians determining upon war, were throwing the Peloponnesus into confusion. Here Philopoemen tried to mollify Diophanes and put a stop to his wrath, showing him what the occasion demanded, and that since King Antiochus and the Romans were hovering about in Greece with armies so great, it behoved the general of the league to pay attention to them, and not to stir up domestic troubles, but even to be somewhat oblivious to the transgressions of his colleagues. 
+				<milestone n="2" unit="section"/>Diophanes, however, paid no heed to this advice, but invaded Laconia along with Titus Flamininus, and marched directly upon the city of Sparta. Incensed at this, Philopoemen ventured upon an act which was not lawful, nor even exactly just, but great and prompted by a great spirit. He went on past them into Sparta, and, private man though he was, shut out therefrom both the general of the Achaean league and the Roman consul, put an end to the disorders in the city, and brought the Lacedaemonians back again into the league, as they were at the outset.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>At a later time, however, when he had some ground for accusation against the Lacedaemonians, as general of the league<note resp="ed" place="unspecified" anchored="yes">Philopoemen was for the sixth time general in 188 B.C.</note> Philopoemen brought back its exiles to the city, and put to death eighty Spartans, according to Polybius,<note resp="ed" place="unspecified" anchored="yes">In a passage not extant. Livy gives the same number (<bibl n="Liv. 38.33">xxxviii. 33</bibl>).</note> or according to Aristocrates, three hundred and fifty. 
+				<milestone n="4" unit="section"/>He also tore down the walls of the city, and cutting off a large part of its territory, annexed it to Megalopolis; moreover, in the case of those who had been made citizens of Sparta by the tyrants, he removed them all into Achaia, with the exception of three thousand who would not obey him and were unwilling to go away from Sparta. These he sold into slavery, and then, as if in mockery of their fate, erected a portico in Megalopolis with the money which they brought. 
+				<milestone n="5" unit="section"/>And now, glutting his anger at the Lacedaemonians and unworthily trampling upon them in their misery, he treated their constitution in the most cruel and most lawless fashion. For he took away and abolished the system of training which Lycurgus had instituted, and compelled their boys and their young men to adopt the Achaean in place of their hereditary discipline, being convinced that while they were under the laws of Lycurgus they would never be humble.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>For the time being, then, owing to their great calamities, the Spartans suffered Philopoemen to cut away, as it were, the sinews of their city, and became tractable and submissive; but a while afterwards,<note resp="ed" place="unspecified" anchored="yes">In 184 B.C. (<bibl n="Liv. 39.34">Livy, xxxix. 34</bibl>).</note> having obtained permission from the Romans, they abandoned the Achaean polity, and resumed and re-established that which had come down from their fathers, so far as was possible after their many misfortunes and great degeneration.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the Romans went to war with Antiochus in Greece,<note resp="ed" place="unspecified" anchored="yes">In 191 B.C. Cf. the <bibl n="Plut. Flam. 15.1">
+                  <title>Flamininus</title>, xv.</bibl>
+            </note> Philopoemen was without command, and seeing that Antiochus himself was sitting idly down in Chalcis and spending his time in a courtship and marriage which were not suited to his years,<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Flam. 16.1">
+                  <title>Flamininus</title>,  xvi. i.</bibl>
+            </note> while his Syrian troops, in great disorder and without leaders, were wandering about among the cities and living luxuriously, he was distressed because he was not general of the Achaeans at that time, and kept saying that he begrudged the Romans their victory. 
+				<q direct="unspecified">For if I had been general,</q> he said, 
+				<q direct="unspecified">I would have cut off all these fellows in their taverns.</q> 
+				        <milestone n="2" unit="section"/>But soon the Romans, after conquering Antiochus, applied themselves more closely to the affairs of Greece. They encompassed the Achaean league with their power, since the popular leaders gradually inclined to their support; their strength, under the guidance of the heavenly powers, grew great in all directions; and the consummation was near to which the fortunes of Greece must come in their allotted revolution. Here Philopoemen, like a good helmsman contending against a high sea, was in some points compelled to give in and yield to the times; but in most he continued his opposition, arid tried to draw to the support of freedom the men who were powerful in speech or action.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Aristaenus the Megalopolitan<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phil. 13.4">chapter xiii. 4.</bibl>
+            </note> was a man of the greatest influence among the Achaeans, but he always paid court to the Romans and thought that the Achaeans ought not to oppose or displease them in any way. As this man was once speaking in the assembly, we are told that Philopoemen listened to him a while in silent indignation, but at last, overcome by anger, said to him: 
+				<q direct="unspecified">My man, why art thou eager to behold the fated end of Greece?</q> 
+				        <milestone n="4" unit="section"/>Again, Manius, the Roman consul, after his victory over Antiochus, asked the Achaeans to permit the exiles from Sparta to go back home, and Titus Flamininus joined Manius in making this request. But Philopoemen successfully opposed the request, not out of hostility to the exiles, but from a desire that they should owe this favour to himself and the Achaeans, and not to Flamininus and the Romans; indeed, as general for the following year he restored the exiles to their city.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phil. 13.3">chapter xiii. 3.</bibl>
+            </note> To such a degree did his lofty spirit lead him to strive and contend against men in power.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But being now seventy years of age, and for the eighth time general of the Achaeans,<note resp="ed" place="unspecified" anchored="yes">In 182 B.C.  Plutarch passes over the years 187-183, during which the Achaean league and Philopoemen came increasingly into collision with the Roman power.</note> he hoped not only to pass that year of office without war, but also that affairs would permit him to spend the rest of his life in peace and quiet. For as our diseases seem to lose their virulence as our bodily strength declines, so among the Greek cities the spirit of contention lapsed as their power waned. 
+				<milestone n="2" unit="section"/>Nevertheless, some divine displeasure threw him down, like an all but victorious runner, at the very goal of his life. For it is recorded that at some conference, when others present were lavishing praise upon one who was reputed to be a redoubtable general, Philopoemen contemptuously said: 
+				<q direct="unspecified">Yet why should any account be made of this man, who has been taken alive by his enemies?</q> 
+				        <milestone n="3" unit="section"/>And a few days afterwards Deinocrates the Messenian, a man who had a private quarrel with Philopoemen<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Flam. 17.3">
+                  <title>Flamininus</title>,  xvii. 3.</bibl>
+            </note> and was obnoxious to everybody else because of his baseness and unbridled life, induced Messene to  revolt from the Achaean league, and was reported about to seize the village called Colonis. Philopoemen at the time lay sick of a fever at Argos, but on learning these facts, he hastened to Megalopolis in a single day, a journey of more than four hundred furlongs. 
+				<milestone n="4" unit="section"/>From there he at once set out for the rescue, taking with him the horsemen. These were the city's most prominent men, but altogether young, and serving as volunteers under Philopoemen out of good will and admiration for him. They rode off towards Messene and encountered Deinocrates, who came to meet them at Evander's hill. 
+				<milestone n="5" unit="section"/>Him they put to flight; but the five hundred men who were guarding the open country of Messene suddenly attacked them, and when those who had before been worsted saw this, they collected together along the hills. Then Philopoemen, fearing that he would be enveloped, and trying to spare his horsemen, withdrew over difficult ground, bringing up the rear himself and frequently riding out against the enemy, and trying to draw their attacks entirely upon himself. They did not venture, however, to return his attacks, but merely shouted and threatened his flanks. 
+				<milestone n="6" unit="section"/>Withdrawing from the line frequently, then, to spare his young men, and sending them one by one into safety, before he was aware of it he was left alone among numerous enemies. Even then no one ventured to come to close quarters with him, but he was pelted with missiles from a distance and forced upon rocky and precipitous places, so that he had difficulty in managing his horse and kept tearing him with the spur. 
+				<milestone n="7" unit="section"/>His age, owing to his generous exercise, was not burdensome, and in no way impeded his escape; but at that time his body was enfeebled by sickness and worn out with a long journey, so that he was heavy and stiff, and at length his horse stumbled and threw him to the ground. His fall was a heavy one and his head was hurt, and he lay for a long time speechless, so that his enemies thought him dead and tried to turn his body over and strip it of its armour. 
+				<milestone n="8" unit="section"/>But when he raised his head and opened his eyes, they threw themselves in a throng upon him, tied his hands behind his back, and led him away, treating with great insolence and contumely a man who could never have even dreamed that he would suffer such a fate at the hands of Deinocrates.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The people of Messene, wonderfully elated at the news, gathered in throngs at the gates. But when they saw Philopoemen dragged along in a manner unworthy of his fame and of his former exploits and trophies, most of them were struck with pity and felt sympathy for him, so that they actually shed tears and spoke with bitterness of the inconstancy and vanity of human greatness. 
+				<milestone n="2" unit="section"/>And so, little by little, many were led to say humanely that they ought to remember his former benefactions, and especially how he had restored to them their freedom by expelling the tyrant Nabis. But there were a few who, to gratify Deinocrates, urged that the captive should be tortured and put to death as a stern and implacable enemy, and one more than ever to be feared by Deinocrates himself in case he made his escape after having been taken prisoner and loaded with insults by him. 
+				<milestone n="3" unit="section"/>However, they carried Philopoemen into the Thesaurus, as it was called, a subterranean chamber which admitted neither air nor light from outside and had no door, but was closed by dragging a huge stone in front of it. Here they placed him, and after planting the stone against it, set a guard of armed men round about.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Meanwhile the horsemen of the Achaeans recovered themselves after their flight, and when Philopoemen was nowhere to be seen, but was thought to be dead, they stood for a long time calling aloud upon their leader and reproaching one another for having won an unlawful and shameful safety by abandoning to the enemy their general, who had been prodigal of his life for their sakes. 
+				<milestone n="5" unit="section"/>Then they went forward in a body, and by diligent effort learned of his capture, and sent word of it to the cities of the Achaeans. The Achaeans felt that they had suffered a great calamity, and determined to send an embassy and demand Philopoemen from the Messenians, while they themselves prepared an expedition against the city.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Achaeans, then, were thus engaged. But Deinocrates, who feared that delay was the one thing most likely to save Philopoemen, and wished to forestall the efforts of the Achaeans, when night came on and the multitude of Messene had dispersed, opened the prison and sent in a public official with poison, ordering him to give it to Philopoemen and to stand by his side until he had drunk it. 
+				<milestone n="2" unit="section"/>Now, Philopoemen was lying down wrapped in his soldier's cloak, not sleeping, but overwhelmed with trouble and grief. When, however, he saw a light and a man standing by him holding the cup of poison, he pulled himself together as much as his weakness permitted and sat up. Then taking the cup he asked the man if he had heard anything about the horsemen, and particularly about Lycortas, 
+				<milestone n="3" unit="section"/>and on being told by him that the greater part of them had escaped, he nodded his head, and with a kindly look at the man said to him: 
+				<q direct="unspecified">That is good news, if we have not wholly lost.</q> Without another word and even without a sigh he drained the cup and laid himself down again. He did not give the poison much to do, but breathed his last speedily, so weak was he.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, when the report of his death reached the Achaeans, their cities were filled with general dejection and grief, and the men of military age, together with the members of the council, assembled at Megalopolis. With no delay whatsoever they proceeded to take revenge. They chose Lycortas general, invaded Messenia, and ravaged the country, until the Messenians with one consent received them into their city. 
+				<milestone n="2" unit="section"/>Deinocrates anticipated their vengeance by making away with himself, but all the others who had voted to put Philopoemen to death they slew, and as for those who would have had him tortured also, these Lycortas seized and held for a more excruciating death. Then they burned Philopoemen's body, collected his ashes in an urn, and set out for home, not in loose or promiscuous order, but with a blending of triumphal procession and funeral rites. 
+				<milestone n="3" unit="section"/>For their heads were wreathed with garlands while their eyes were full of tears, and they led their foes along with them in chains. The urn itself, almost hidden from sight by a multitude of fillets and wreaths, was borne by Polybius, the son of the Achaean general, and about him were the chief men of the Achaeans. The soldiers followed after, in full armour themselves, and with their horses decorated; they were neither dejected in view of their great affliction nor exultant over their victory. 
+				<milestone n="4" unit="section"/>Moreover, the people from the cities and villages on the way came to meet them, as if receiving Philopoemen on his return from an expedition; they laid their hands upon his urn, and accompanied him to Megalopolis. And so when they had been joined by the old men and by the women and children, a lamentation at once spread through the entire army and into the city, which longed for the presence of Philopoemen and was grievously cast down at his death, feeling that with him it had lost its supremacy among the Achaeans.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>He was buried, then, as was fitting, with conspicuous honours, and at his tomb the captive Messenians were stoned to death. Many statues of him were erected and many honours decreed him by the cities. All these a Roman, in the disastrous days of Greece following the fall of Corinth,<note resp="ed" place="unspecified" anchored="yes">In 146 B.C., at the close of Rome's war with the Achaean league.</note> attempted to have removed, and he attacked the memory of Philopoemen himself, accusing him, as if still alive, of having been a malevolent enemy of the Romans. 
+				<milestone n="6" unit="section"/>After the proposal had been discussed and Polybius had spoken in opposition to Philopoemen's detractor, neither Mummius nor the members of the commission<note resp="ed" place="unspecified" anchored="yes">A commission of ten, appointed by the Roman senate to settle the affairs of Greece. It was before this body that Philopoemen's memory was attacked and defended.</note> would consent that the honours paid to an illustrious man should be obliterated, although he had made no little opposition to Flamininus and Manius. These judges distinguished, as it would appear, between virtue and necessity, between honour and advantage. They rightly and fitly considered that benefactors ought always to receive reward and gratitude from their beneficiaries, and good men honour from the good.
+			</p>
+         <p>So much concerning Philopoemen.
+			</p>
+         <p/>
+      </body>
+   </text>
+</TEI.2>

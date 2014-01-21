@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De superstitione</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Frank Cole Babbitt</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Frank Cole Babbitt</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1928</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="eng">English</language>
+            <language id="greek">Greek</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.2.p.452"/>
+         <div1 type="section" n="intro">
+            <head>SUPERSTITION (DE SUPERSTITIONE) <lb/>INTRODUCTION</head>
+            <p> Plutarch's essay on Superstition is, in the main, an attempt to prove that
+					superstition is worse than atheism. Its somewhat impassioned tone savours
+					more of the emotional sermon than of the carefully reasoned discourse, and
+					suggests that it was originally prepared for public presentation. </p>
+            <p>Wyttenbach was disturbed because in the catalogue of Lamprias, in which this
+					essay is No. 155, the title is given as <foreign lang="greek">*peri\
+						deisidaimoni/as pro\s *)epi/koupon</foreign>, and he thought that this
+					title might refer to some other treatise of Plutarch. The explanation is so
+					simple that the only surprising thing is that it should have escaped a man
+					of Wyttenbach's acumen. On the first page of the essay are the words,
+					<q direct="unspecified">the universe . . . atoms and void . . . assumption is
+						false.</q> Then, as now, librarians and reviewers looked at the
+					first page, and reached their conclusions ; so it was only natural that the
+					compiler of the catalogue should conclude that the rest of the book was
+					equally hostile to Epicurus. On the other hand, this affords interesting
+					evidence that the compiler of the catalogue of Lamprias probably had a copy
+					of Plutarch's works before him when he drew up his list. </p>
+            <p>The ms. tradition of this essay is better than of many others, and one ms.
+					(D) has preserved many <pb id="v.2.p.453"/> excellent readings.a Only one
+					passage, a quotation (170 b), presents serious difficulty, and of this
+					Professor Goodwin remarked: <q direct="unspecified">As to the original Greek, hardly a word
+						can be made out with certainty.</q>
+				        </p>
+            <p>Mention should be made of a separate edition and a parallel English
+					translation of this essay in a book entitled <q direct="unspecified">
+                  <foreign lang="greek">*peri\ deisidaimoni/as</foreign>. Plutarchus and Theophrastus on
+						Superstition with various appendices and a life of Plutarchus. Printed
+						a.d. 1828. (Privately) printed by Julian Hibbert . . . Kentish
+						Town.</q> The translation is very literal, but is sometimes an
+					improvement on that of William Baxter in the translation of Plutarch by
+					<q direct="unspecified">Several Hands</q> (London, 1684-94). Intimate and amusing
+					is the preface of the author, who, in his notes, admits that he has never
+					read Plato, but ends his preface with these words : <q direct="unspecified">I terminate this
+						my Preface by consigning all ' Greek Scholars ' to the special care of
+						Beelzebub.</q>
+				        </p>
+            <p>A spirited defence of this essay (if any defence is needed) may be found in
+					John Oakesmith's The Religion of Plutarch (London, 1902), chap. ix. pp. 179
+					ff. <note place="unspecified" anchored="yes">In spite of the fact that Pohlenz in his preface to Vol. I.
+						(Leipzig, 1925) of the Moralia (p. xiv) uses these words: <q direct="unspecified">
+							Codicem Paris D e recensione libidinosissima ortum</q>! Paton,
+						who edited this essay, accepts the readings of D a good part of the
+						time, and his edition would have been more intelligible had he accepted
+						them more often.</note>
+				        </p>
+         </div1>
+         <pb id="v.2.p.455"/>
+         <div1 type="section" n="1">
+            <p>Ignorance and blindness in regard to the gods divides itself at the very
+					beginning into two streams, of which the one produces in hardened
+					characters, as it were in stubborn soils, atheism, and the other in tender
+					characters, as in moist soils, produces superstition.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plutarch, <hi rend="italics">Life of
+						Alexander</hi>, chap. lxxv. (p. 706 B) and <hi rend="italics">Life
+							of Camillus</hi>, chap. vi. (p. 132 C).</note> Every false
+					judgement, and especially concerning these matters, is a mischievous thing ;
+					but where emotion also enters, it is most mischievous. For every emotion is
+					likely to be a delusion that rankles ; and just as dislocations of the
+					joints accompanied by lacerations are hardest to deal with, so also is it
+					with derangements of the soul accompanied by emotion. </p>
+            <p>A man thinks that in the beginning the universe was created out of atoms and
+					void. <note place="unspecified" anchored="yes">Aimed at the theories of Epicurus, and possibly of
+						Democritus.</note> His assumption is false, but it causes no sore, no
+					throbbing, no agitating pain. </p>
+            <p>A man assumes that wealth is the greatest good. This falsehood contains
+					venom, it feeds upon his soul, distracts him, does not allow him to sleep,
+					fills him with stinging desires, pushes him over precipices, chokes him, and
+					takes from him his freedom of speech. </p>
+            <p>Again, some people think that virtue and vice are corporeal.<note place="unspecified" anchored="yes">Aimed at
+					the Stoics, who referred all qualities to the body. Cf. Plutarch, <hi rend="italics">Moralia</hi>, 1084 A.</note> This piece of ignorance
+					is disgraceful, <pb id="v.2.p.457"/> perhaps, but it is not worthy of
+					wailings or lamentations. But consider judgements and assumptions that are
+					like this : <quote rend="blockquote">Poor virtue ! A mere name thou art, I
+						find, But I did practise thee as real !<note place="unspecified" anchored="yes">Author unknown; <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec.
+							Frag.</hi> p. 910, Adespota, No. 374.</note>
+               </quote> and thereby
+					I gave up wrongdoing which is productive of wealth, and licentiousness which
+					begets every sort of pleasure. These it is right and proper that we pity,
+					and at the same time loathe, because their presence engenders many
+					distempers and emotions, like maggots and grubs, in men's souls. </p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>To come now to our subject: atheism, which is a sorry judgement that there is
+					nothing blessed or incorruptible, seems, by disbelief in the Divinity, to
+					lead finally to a kind of utter indifference, and the end which it achieves
+					in not believing in the existence of gods is not to fear them. But, on the
+					other hand, superstition, as the very name (dread of deities) indicates, is
+					an emotional idea and an assumption productive of a fear which utterly
+					humbles and crushes a man, for he thinks that there are gods, but that they
+					are the cause of pain and injury. In fact, the atheist, apparently, is
+					unmoved regarding the Divinity, whereas the superstitious man is moved as he
+					ought not to be, and his mind is thus perverted. For in the one man
+					ignorance engenders disbelief in the One who can help him, and on the other
+					it bestows the added idea that He causes injury. Whence it follows that
+					atheism is falsified reason, and superstition is an emotion engendered from
+					false reason. </p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Clear it is that all distempers and emotions of the soul are disgraceful, but
+					in some of them are to <pb id="v.2.p.459"/> be found pride, loftiness, and
+					exaltation, owing to their uplifting power ; and no one of them, we might
+					say, is destitute of an impulse to activity. But this general complaint may
+					be made against every one of the emotions, that by their urgings to be up
+					and doing they press hard upon the reasoning power and strain it. But fear
+					alone, lacking no less in boldness than in power to reason, keeps its
+					irrationality impotent, helpless, and hopeless. It is on this ground that
+					the power of fear to tie down the soul, and at the same time to keep it
+					awake, has come to be named both terror and awe.<note place="unspecified" anchored="yes">The derivations of
+						<q direct="unspecified">terror</q> from <q direct="unspecified">tie,</q> and <q direct="unspecified">awe</q> from <q direct="unspecified">awake</q> are not more fanciful than
+						those in which Plutarch indulges.</note>
+            </p>
+            <p>Of all kinds of fear the most impotent and helpless is superstitious fear. No
+					fear of the sea has he who does not sail upon it, nor of war he who does not
+					serve in the army, nor of highwaymen he who stays at home, nor of a
+					blackmailer he who is poor, nor of envy he who holds no office, nor of
+					earthquake he who is in Gaul,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aristotle,
+						<hi rend="italics">Ethica Nicomachea</hi>, iii. 7, and Pliny, <hi rend="italics">Natural History</hi>, ii. 80 (195).</note> nor of the
+					lightning-stroke he who is in Ethiopia; but he who fears the gods fears all
+					things, earth and sea, air and sky, darkness and light, sound and silence,
+					and a dream. Slaves in their sleep forget their masters, sleep makes light
+					the chains of prisoners, and the inflammations surrounding wounds, the
+					savage gnawing of ulcers in the flesh, and tormenting pains are removed from
+					those who are fallen asleep : Dear soothing balm of sleep to help my ill,
+					How sweet thy coming in mine hour of need.<note place="unspecified" anchored="yes">Euripides, <hi rend="italics">Orestes</hi>, 211-12.</note> Superstition does not
+					give one a right to say this; <pb id="v.2.p.461"/> for superstition alone
+					makes no truce with sleep, and never gives the soul a chance to recover its
+					breath and courage by putting aside its bitter and despondent notions
+					regarding God ; but, as it were in the place of torment of the impious, so
+					in the sleep of the superstitious their malady calls up fearful images, and
+					horrible apparitions and divers forms of punishment, and, by keeping the
+					unhappy soul on the rack, chases it away from sleep by its dreams, lashed
+					and punished by its own self as if by another, and forced to comply with
+					dreadful and extraordinary behests. When, later, such persons arise from
+					their beds, they do not contemn nor ridicule these things, nor realize that
+					not one of the things that agitated them was really true, but, trying to
+					escape the shadow of a delusion that has nothing bad at the bottom, during
+					their waking hours they delude and waste and agitate themselves, putting
+					themselves into the hands of conjurors and impostors who say to them :
+					<quote rend="blockquote">If a vision in sleep is the cause of your fear
+						And the troop of dire Hecate felt to be near,<note place="unspecified" anchored="yes">Author unknown; <hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag. Graec.
+							Frag.</hi> p. 910, Adespota, No. 375.</note>
+               </quote> then call
+					in the old crone who performs magic purifications, dip yourself in the
+					ocean, and sit down on the ground and spend the whole day there, <quote rend="blockquote">Greeks from barbarians finding evil ways !
+						<note place="unspecified" anchored="yes">Euripides, <hi rend="italics">The Trojan Women</hi>,
+							764.</note>
+               </quote> because of superstition, such as smearing with
+					mud, wallowing in filth, immersions, casting oneself down with face to the
+					ground, disgraceful besieging of the gods, and uncouth prostrations. <q direct="unspecified">
+						To sing with the mouth aright</q> was the injunction given to the
+					harp-players by those who thought to preserve the good old forms of music;
+					and we hold it to be <pb id="v.2.p.463"/> meet to pray to the gods with the
+					mouth straight and aright, and not to inspect the tongue laid upon the
+					sacrificial offering to see that it be clean and straight, and, at the same
+					time, by distorting and sullying one's own tongue with strange names and
+					barbarous phrases, to disgrace and transgress the god-given ancestral
+					dignity of our religion. </p>
+            <p>Nor is there lack of humour in what the comic poet <note place="unspecified" anchored="yes">Probably some poet
+					of the new Comedy; <hi rend="italics">cf.</hi> Kock, <hi rend="italics">Com. Att. Frag.</hi> iii. p. 438.</note> has somewhere said with
+					reference to those who cover their bedsteads with gold and silver : <quote rend="blockquote">The one free gift the gods bestow on us. Our sleep,
+						why make its cost to you so much ?</quote> But to the superstitious man
+					it is possible to say, <q direct="unspecified">The gift of sleep which the gods bestow on us
+						as a time of forgetfulness and respite from our ills ; why do you make
+						this an everlastingly painful torturechamber for yourself, since your
+						unhappy soul cannot run away to some other sleep ?</q> Heracleitus
+					<note place="unspecified" anchored="yes">Diels, <hi rend="italics">Fragmenta der Vorsokratiker</hi>, i. p.
+						95.</note> says that people awake enjoy one world in common, but of
+					those who are fallen asleep each roams about in a world of his own. But the
+					superstitious man enjoys no world in common with the rest of mankind ; for
+					neither when awake does he use his intelligence, nor when fallen asleep is
+					he freed from his agitation, but his reasoning power is sunk in dreams, his
+					fear is ever wakeful, and there is no way of escape or removal. </p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>A despot much feared in Samos was Polycrates, as was Periander in Corinth,
+					but nobody feared these men after he had removed to a free State governed by
+					its own people. But as for the man who fears <pb id="v.2.p.465"/> the rule
+					of the gods as a sullen and inexorable despotism, where can he remove
+					himself, where can he flee, what country can he find without gods, or what
+					sea ? Into what part of the universe shall you steal away and hide yourself,
+					poor wretch, and believe that you have escaped God ? There is a law even for
+					slaves who have given up all hope of freedom, that they may demand a sale,
+					and thus exchange their present master for one more mild. But superstition
+					grants no such exchange ; and to find a god whom he shall not fear is
+					impossible for him who fears the gods of his fathers and his kin, who
+					shudders at his saviours, and trembles with terror at those gentle gods from
+					whom we ask wealth, welfare, peace, concord, and success in our best efforts
+					in speech and action. </p>
+            <p>Then again these same persons hold slavery to be a misfortune, and say,
+					<quote rend="blockquote">For man or woman 'tis disaster dire Sudden to
+						be enslaved, and masters harsh To get.<note place="unspecified" anchored="yes">From an unknown tragic poet;
+							<hi rend="italics">cf.</hi> Nauck, <hi rend="italics">Trag.
+								Graec. Frag.</hi> p. 910, Adespota, No. 376.</note>
+               </quote> But
+					how much more dire, think you, is the lot of those for whom there is no
+					escape, no running away, no chance to revolt ? For a slave there is an altar
+					to which he can flee, and there are many of our shrines where even robbers
+					may find sanctuary, and men who are fleeing from the enemy, if once they lay
+					hold upon a statue of a god, or a temple, take courage again. These are the
+					very things that most inspire a shuddering fear and dread in the
+					superstitious man, and yet it is in them that those who are in fear of the
+					most dreadful fate place their hopes. Do not drag the superstitious man <pb id="v.2.p.467"/> away from his shrines, for it is in them that he
+					suffers punishment and retribution. </p>
+            <p>What need to speak at length ? <q direct="unspecified">In death is the end of life for all
+					men,</q>
+               <note place="unspecified" anchored="yes">From Demosthenes, Or. xviii. (<hi rend="italics">On
+						the Crown)</hi>, 97; quoted again in <hi rend="italics">Moralia</hi>, 333 C.</note> but not the end of superstition ; for
+					superstition transcends the limits of life into the far beyond, making fear
+					to endure longer than life, and connecting with death the thought of undying
+					evils, and holding fast to the opinion, at the moment of ceasing from
+					trouble, that now is the beginning of those that never cease. The abysmal
+					gates of the nether world swing open, rivers of fire and offshoots of the
+					Styx are mingled together, darkness is crowded with spectres of many
+					fantastic shapes which beset their victim with grim visages and piteous
+					voices, and, besides these, judges and torturers and yawning gulfs and deep
+					recesses teeming with unnumbered woes. Thus unhappy superstition, by its
+					excess of caution in trying to avoid everything suggestive of dread,
+					unwittingly subjects itself to every sort of dread. </p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>Nothing of this kind attaches to atheism, but its ignorance is distressing,
+					and to see amiss or not to see at all in matters of such importance is a
+					great misfortune for the soul; for it is as if the soul had suffered the
+					extinction of the brightest and most dominant of its many eyes, the
+					conception of God. But superstition is attended by emotion, as has already
+					been said, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Supra</hi>, 165 B.</note> and by sore
+					distress and disturbance and mental enslavement from the very beginning.
+					Plato <note place="unspecified" anchored="yes">Adapted freely from the <hi rend="italics">Timaeus</hi>, p. 47
+						D.</note> says that music, the creator of <pb id="v.2.p.469"/> harmony
+					and order, was given to mankind by the gods not for the sake of pampering
+					them or tickling their ears, but so that whatever in a man's body is
+					disturbing and errant, affecting the cycles and concords of his soul, and in
+					many instances, for lack of culture and refinement, waxing wanton because of
+					licentiousness and error, music should, in its own way, disengage and bring
+					round and restore to its proper place again. <quote rend="blockquote">Whatsoever things there be Which by Zeus are not held dear,</quote>
+					says Pindar,<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Pythian Odes</hi>, i. 13 (25); quoted
+						also in <hi rend="italics">Moralia</hi>, 746 B and 1095 E.</note>
+					          <quote rend="blockquote">In affrighted panic flee When the Muses' voice they
+						hear.</quote> In fact they become provoked and angry ; and tigers, they
+					say, surrounded by the sound of beaten drums go utterly mad, and get so
+					excited that they end by tearing themselves to pieces.<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 144 D.</note> There is less harm,
+					therefore, for those who, as the result of deafness or impairment of
+					hearing, have a feeling of indifference and insensibility toward music.
+					Teiresias laboured under a misfortune in not being able to see his children
+					or his intimate friends, but greater was the misfortune of Athamas <note place="unspecified" anchored="yes">All
+						these were victims of a god-sent madness.</note> and Agave,<note place="unspecified" anchored="yes">All
+							these were victims of a god-sent madness.</note> who saw them as lions
+					and deer ; and for Heracles<note place="unspecified" anchored="yes">All these were victims of a god-sent
+						madness.</note> in his madness it would undoubtedly have been better
+					neither to see his sons, nor to realize that they were present, than to
+					treat his nearest and dearest as enemies. </p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>What then ? Does it not seem to you that the feeling of the atheists compared
+					with the superstitious presents just such a difference? The former do not
+					see the gods at all, the latter think that they do exist and are evil. The
+					former disregard them, the latter conceive their kindliness to be frightful,
+					<pb id="v.2.p.471"/> their fatherly solicitude to be despotic, their
+					loving care to be injurious, their slowness to anger to be savage and
+					brutal. Then again such persons give credence to workers in metal stone, or
+					wax, who make their images of gods in the likeness of human beings,<note place="unspecified" anchored="yes">Or,
+						as given in most MSS., <q direct="unspecified">that the bodies of the gods are like the bodies
+						of men.</q>
+               </note> and they have such images fashioned, and dress them up,
+					and worship them. But they hold in contempt philosophers and statesmen, who
+					try to prove that the majesty of God is associated with goodness,
+					magnanimity, kindliness, and solicitude. So the atheists have more than
+					enough of indifference and distrust of the Beings who can help them, whereas
+					the superstitious experience equal agitation and fear towards the things
+					that can help them. Or, in fine, atheism is an indifferent feeling towards
+					the Deity, which has no notion of the good, and superstition is a multitude
+					of differing feelings with an underlying notion that the good is evil. For
+					the superstitious fear the gods, and flee to the gods for help; they flatter
+					them and assail them with abuse, pray to them and blame them. It is the
+					common lot of mankind not to enjoy continual good fortune in all things.
+					<quote rend="blockquote">Age and illness not their lot, Toil and labour
+						they know not, 'Scaped is Acheron's loud strait,</quote> says Pindar
+					<note place="unspecified" anchored="yes">
+                  <hi rend="italics">Frag.</hi> 143 (ed. Christ). Cited by
+						Plutarch again in <hi rend="italics">Moralia</hi>, 763 C and 1075
+						A.</note> of the gods, but human experiences and actions are linked with
+					chance circumstances which move now in one course and now in another. </p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Come now, observe the atheist in circumstances not desired by him, and take
+					note of his attitude. If he be moderate in general, you will note that he
+					takes <pb id="v.2.p.473"/> his present fortune without a word, and tries to
+					procure for himself means of help and comfort; but if he be given to
+					impatience or violent emotion, you will note that he directs all his
+					complaints against Fortune and Chance, and exclaims that nothing comes about
+					according to right or as the result of providence, but that the course of
+					all human affairs is confusion and disorder, and that they are all being
+					turned topsy-turvy. This, however, is not the way of the superstitious man;
+					but if even the slightest ill befall him, he sits down and proceeds to
+					construct, on the basis of his trouble, a fabric of harsh, momentous, and
+					practically unavoidable experiences which he must undergo, and he also loads
+					himself with fears and frights, suspicions and trepidations, and all this he
+					bitterly assails with every sort of lamentation and moaning. For he puts the
+					responsibility for his lot upon no man nor upon Fortune nor upon occasion
+					nor upon himself, but lays the responsibility for everything upon God, and
+					says that from that source a heaven-sent stream of mischief has come upon
+					him with full force ; and he imagines that it is not because he is unlucky,
+					but because he is hateful to the gods, that he is being punished by the
+					gods, and that the penalty he pays and all that he is undergoing are
+					deserved because of his own conduct. </p>
+            <p>The atheist, when he is ill, takes into account and calls to mind the times
+					when he has eaten too much or drunk too much wine, also irregularities in
+					his daily life, or instances of over-fatigue or unaccustomed changes of air
+					or locality ; and again when he has given offence in administering office,
+					and has encountered disrepute with the masses or calumny with <pb id="v.2.p.475"/> a ruler, he looks to find the reason in himself and his
+					own surroundings : <quote rend="blockquote">Where did I err, and what have I
+						done ? What duty of mine was neglected ? <note place="unspecified" anchored="yes">Pythagoras, <hi rend="italics">Carmina aurea</hi>, 42; quoted again in <hi rend="italics">Moralia</hi>, 515 F.</note>
+               </quote> But in the
+					estimation of the superstitious man, every indisposition of his body, loss
+					of property, deaths of children, or mishaps and failures in public life are
+					classed as <q direct="unspecified">afflictions of God</q> or <q direct="unspecified">attacks of an evil
+						spirit.</q> 
+               <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Cicero, <hi rend="italics">Tusculan Disputations</hi>, iii. 29 (72).</note> For this reason he has no heart to relieve the
+					situation or undo its effects, or to find some remedy for it or to take a
+					strong stand against it, lest he seem to fight against God and to rebel at
+					his punishment; but when he is ill the physician is ejected from the house,
+					and when he is in grief the door is shut on the philosopher who would advise
+					and comfort him. <q direct="unspecified">Oh, sir,</q> he says, <q direct="unspecified">leave me to pay
+						my penalty, impious wretch that I am, accursed, and hateful to the gods
+						and all the heavenly host.</q> 
+               <note place="unspecified" anchored="yes">Perhaps the language was suggested by the words in Sophocles, <hi rend="italics">Oedipus Tyrannus</hi>, 1340.</note> 
+            </p>
+            <p>It is possible in the case of a man unconvinced of the existence of gods,
+					when he is in grief and great distress in other ways, to wipe away a tear,
+					cut his hair, and take off his cloak ; but what words can you address to the
+					superstitious man, or in what way shall you help him ? He sits outside his
+					house with sackcloth on and filthy rags about him ; and oftentimes he rolls
+					naked in the mire as he confesses divers sins and errors of
+					his&mdash;eating this or drinking that, or walking in a path forbidden
+					by his conscience. But if he is very fortunate, and but mildly yoked with
+					
+					<pb id="v.2.p.477"/> superstition, he sits in his house, subjecting himself
+					to fumigation, and smearing himself with mud, and the old crones, as Bion
+					says, <q direct="unspecified">bring whatever chance directs and hang and fasten it on him as
+						on a peg.</q>
+				        </p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Tiribazus, they say, when an attempt was made by the Persians to arrest him,
+					drew his sword, being a man of great strength, and fought desperately. But
+					when the men protested and cried out that they were arresting him by the
+					King's command, he instantly threw down his sword and held out his hands to
+					be bound. <note place="unspecified" anchored="yes">Plutarch, in his <hi rend="italics">Life of Artaxerxes</hi>, chap. xxix. (p. 1026 C), represents Tiribazus as fighting to the end, but this may have bee on another occasion.</note> Is not what actually happens just like this ? The rest of men
+					fight desperately against misfortunes, and force their way through
+					difficulties, contriving for themselves means to escape and avert things
+					undesired ; but the superstitious man, without a word from anybody, says all
+					to himself, <q direct="unspecified">This you have to undergo, poor soul, by the dispensation
+						of Providence and by God's command,</q> and casts away all hope,
+					gives himself up, runs away, and repulses those who would help him. </p>
+            <p>Many ills of no great moment are made to result fatally by men's
+					superstition. Midas of old, dispirited and disturbed, as it appears, as the
+					result of some dreams, reached such a state of mind that he committed
+					suicide by drinking bull's blood. <note place="unspecified" anchored="yes">Plutarch, in trying to be a physician of the soul to cure superstition, has here unwittingly turned homeopath. <hi rend="italics">Cf.</hi> B. Perrin's note on chap. xxxi. (p. 128 A) of the Life of Themistocles in <hi rend="italics">Plutarch's Themistocles and Aristides</hi> (New York, 1901), page 256. To the references there given should be added Nicander, <hi rend="italics">Alexipharmaca</hi>, 312.</note> And Aristodemus, king of the Messenians
+					in the war against the Spartans, when dogs howled like wolves, and
+					quitch-grass began to grow around his ancestral 
+					<pb id="v.2.p.479"/> hearth, and the seers were alarmed by these signs, lost
+					heart and hope by his forebodings, and slew himself by his own hand.<note place="unspecified" anchored="yes">Other portents which disheartened Aristodemus are related by Pausanias, iv. 13.</note> It
+					would perhaps have been the best thing in the world for Nicias, general of
+					the Athenians, to have got rid of his superstition in the same way as Midas
+					and Aristodemus,rather than to be affrighted at the shadow on the moon in
+					eclipse and sit inactive while the enemy's wall was being built around him,
+					and later to fall into their hands together with forty thousand men, who
+					were either slain or captured alive, and himself meet an inglorious end.<note place="unspecified" anchored="yes">The details regarding Nicias are to be found in Thucydides, vii. 35-87, and in Plutarch's <hi rend="italics">Life of Nicias</hi>, chap. xxiii. (p. 538 D) ff.</note>
+					For the obstruction of light caused by the earth's coming between sun and
+					moon is nothing frightful, nor is the meeting of a shadow with the moon at
+					the proper time in its revolutions anything frightful, but frightful is the
+					darkness of superstition falling upon man, and confounding and blinding his
+					power to reason in circumstances that most loudly demand the power to
+					reason. <quote rend="blockquote">Glaucus, see, the mighty ocean Even now with billows roars, Round
+						about the Gyrian summits Sheer in air a dark cloud soars, Sign of storm . .
+						. ;<note place="unspecified" anchored="yes">A fragment from Archilochus; <hi rend="italics">cf.</hi> Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> ii. p. 696, Archilochus, No. 54.</note>
+               </quote> when the pilot sees this, he prays that he may escape the storm, and
+					calls upon the Saviours,<note place="unspecified" anchored="yes">Castor and Pollux.</note> but while he is praying he throws the helm over,
+					lowers the yard, and 
+					<pb id="v.2.p.481"/> 
+               <quote rend="blockquote">Furling the big main sail, Hastens to make his escape
+						Out from the murky sea.<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi> iii. p. 730; Plutarch, <hi rend="italics">Moralia</hi>, 475 F, and Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> p. 910, Adespota, No. 377.</note>
+               </quote> Hesiod advises <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Works and Days</hi>, 465-8.</note> that the farmer before ploughing
+					and sowing should Pray to Zeus of the world below and to holy Demeter with
+					his hand on the plough-handle ; and Homer says <note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> vii. 193 ff.</note> that Ajax, as he was about
+					to engage in single combat with Hector, bade the Greeks pray to the gods for
+					him, and then, while they were praying, donned his armour; and when
+					Agamemnon enjoined <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Ibid.</hi>ii. 382.</note> on the fighting men, <quote rend="blockquote">See that each spear is well
+						sharpened, and each man's shield in good order,</quote> at the same time he asked in
+					prayer from Zeus, <quote rend="blockquote">
+						Grant that I raze to the level of earth the palace of
+						Priam;<note place="unspecified" anchored="yes">Adapted from Homer, <hi rend="italics">Il.</hi> ii. 413-414.</note>
+               </quote> for God is brave hope, not cowardly excuse. But the Jews, <note place="unspecified" anchored="yes">Perhaps the reference is to the capture of Jerusalem by Pompey in 63 B.C. (<hi rend="italics">cf.</hi> Dio Cassius, xxxvii. 16), or possibly to its capture by Antony in 28 B.C. (<hi rend="italics">cf.</hi> Dio Cassius, xlix. 22). <hi rend="italics">Cf.</hi> also Josephus, <hi rend="italics">Antiquitates Jud.</hi> xii. 6. 2, and 1 Maccabees, ii. 32 ff.</note> because
+					it was the Sabbath day, sat in their places immovable, while the enemy were
+					planting ladders against the walls and capturing the defences, and they did
+					not get up, but remained there, fast bound in the toils of superstition as
+					in one great net. </p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>Such are the characteristics of superstition in undesired and critical (as
+					they are called) circumstances and occasions, but it is not one bit better
+					than atheism even under pleasurable conditions. The pleasantest things that
+					men enjoy are festal 
+					<pb id="v.2.p.483"/> days and banquets at the temples, initiations and
+					mystie rites, and prayer and adoration of the gods. Note that the atheist on
+					these occasions gives way to insane and sardonic laughter at such
+					ceremonies, and remarks aside to his cronies that people must cherish a vain
+					and silly conceit to think that these rites are performed in honour of the
+					gods ; but with him no harm is done save this. On the other hand the
+					superstitious man, much as he desires it, is not able to rejoice or be glad
+					: <quote rend="blockquote">The city is with burning incense filled; Full too of joyous hymns and
+						doleful groans <note place="unspecified" anchored="yes">Sophocles, <hi rend="italics">Oedipus Tyrannus</hi>, 4; quoted also in <hi rend="italics">Moralia</hi>, 95 C, 445 D, and 623 C.</note>
+               </quote> is the soul of the superstitious man. When the garland is on
+					his head he turns pale, he offers sacrifice and feels afraid, he prays with
+					quavering voice, with trembling hands he sprinkles incense, and, in a word,
+					proves how foolish are the words of Pythagoras, <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Moralia</hi>, 413 B.</note> who said that we reach our
+					best when we draw near to the gods. For that is the time when the
+					superstitious fare most miserably and wretchedly, for they approach the
+					halls or temples of the gods as they would approach bears' dens or snakes'
+					holes or the haunts of monsters of the deep. </p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>Hence it occurs to me to wonder at those who say that atheism is impiety, and
+					do not say the same of superstition. Yet Anaxagoras was brought to trial for
+					impiety on the ground that he had said the sun is a stone ; but nobody has
+					called the Cimmerians impious because they do not believe even in the
+					existence of the sun at all. <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Homer, <hi rend="italics">Od.</hi> xi. 13-19. </note> What say you ? The 
+					<pb id="v.2.p.485"/> man who does not believe in the existence of the gods
+					is unholy ? And is not he who believes in such gods as the superstitious
+					believe in a partner to opinions far more unholy ? Why, for my part, I
+					should prefer that men should say about me that I have never been born at
+					all, and there is no Plutarch, rather than that they should say <q direct="unspecified">
+						Plutarch is an inconstant fickle person, quick-tempered, vindictive over
+						little accidents, pained at trifles. If you invite others to dinner and
+						leave him out, or if you haven't the time and don't go to call on him,
+						or fail to speak to him when you see him, he will set his teeth into
+						your body and bite it through, or he will get hold of your little child
+						and beat him to death, or he will turn the beast that he owns into your
+						crops and spoil your harvest</q> 
+               <note place="unspecified" anchored="yes">Probably a covert reference to Artemis who sent the Calydonian boar to ravage the fields; Homer, <hi rend="italics">Il.</hi> ix. 533 ff.</note> 
+            </p>
+            <p>When Timotheus, in a song at Athens, spoke of Artemis as <quote rend="blockquote">Ecstatic Bacchic
+					frantic fanatic,<note place="unspecified" anchored="yes">Bergk, <hi rend="italics">Poet. Lyr. Graec.</hi>, iii. p. 620, Timotheus, No. 1; <hi rend="italics">cf.</hi> Plutarch, <hi rend="italics">Moralia</hi>, 22 A.</note>
+               </quote> Cinesias, the song-writer, standing up in his place among
+					the audience, exclaimed, <q direct="unspecified">May you have a daughter like that!</q>
+					It is a fact that the superstitious make assumptions like that, and even
+					worse than that, about Artemis : If hasting in fear from a hanging corpse,
+					If near to a woman in childbirth pain, If come from a house where the dead
+					are mourned, Polluted you entered the holy shrine, Or if from the triple
+					cross-roads come 
+					<pb id="v.2.p.487"/> 
+               <quote rend="blockquote">Drawn to the place by cleansing rites For the part you
+						bear to the guilty one.<note place="unspecified" anchored="yes">
+                     <hi rend="italics">Cf.</hi> Bergk, <hi rend="italics">Poet. Lyr. Gr.</hi> iii. p. 680; Lobeck, <hi rend="italics">Aglaophamus</hi>, p. 633, and Wilamowitz-Moellendorff, <hi rend="italics">Lesebuch</hi> (berli, 1902), p. 336.</note>
+               </quote> 
+            </p>
+            <p>And they think no more reasonably than this about Apollo and about Hera and
+					about Aphrodite. For they tremble at all of these and dread them. And yet
+					what did Niobe say regarding Leto that was So irreverent as is the belief
+					which superstition has fixed in the minds of the unthinking regarding the
+					goddess, that, because she was derided, she required that the unhappy
+					woman's <quote rend="blockquote">Daughters six that she bore and six sons in the prime of young
+						manhood <note place="unspecified" anchored="yes">Adapted from Homer, <hi rend="italics">Il.</hi> xxiv. 604.</note>
+               </quote> be shot dead ? So insatiable was she in doing harm to others, and
+					so implacable ! For if it were really true that the goddess cherishes anger,
+					and hates wickedness, and is hurt at being ill spoken of, and does not laugh
+					at man's ignorance and blindness, but feels indignation thereat, she ought
+					to require the death of those who falsely impute to her such savagery and
+					bitterness, and tell and write such stories. At any rate, we bring forward
+					the bitterness of Hecuba as something barbaric and savage when she says, <quote rend="blockquote">I
+						wish I might eat up his liver, Biting it 'tween my teeth.<note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> xxiv. 212.</note>
+               </quote> And yet of the
+					Syrian goddess <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi>, for example, Athenaeus, 346 d, or Kock, <hi rend="italics">Com. Attic. Frag.</hi> iii. p. 167, Menander, No. 544.</note> the superstitious 
+					<pb id="v.2.p.489"/> believe that if anybody eats sprats or anchovies, she
+					will gnaw through the bones of his shins, inflame his body with sores, and
+					dissolve his liver. </p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>Is it, then, an unholy thing to speak meanly of the gods, but not unholy to
+					have a mean opinion of them ? Or does the opinion of him who speaks malignly
+					make his utterance improper ? It is a fact that we hold up malign speaking
+					as a sign of animosity, and those who speak ill of us we regard as enemies,
+					since we feel that they must also think ill of us. You see what kind of
+					thoughts the superstitious have about the gods ; they assume that the gods
+					are rash, faithless, fickle, vengeful, cruel, and easily offended ; and, as
+					a result, the superstitious man is bound to hate and fear the gods. Why not,
+					since he thinks that the worst of his ills are due to them, and will be due
+					to them in the future ? As he hates and fears the gods, he is an enemy to
+					them. And yet, though he dreads them, he worships them and sacrifices to
+					them and besieges their shrines ; and this is nothing surprising ; for it is
+					equally true that men give welcome to despots, and pay court to them, and
+					erect golden statues in their honour, but in their hearts they hate them and
+					<q direct="unspecified">shake the head.</q> 
+               <note place="unspecified" anchored="yes">Sophocles, <hi rend="italics">Antigone</hi>, 291.</note> Hermola&uuml;s <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plutarch, <hi rend="italics">Life of Alexander</hi>, chap. lv. (p. 696 C).</note> attended upon
+					Alexander, Pausanias <note place="unspecified" anchored="yes">It is said that Pausanias later helped to kill Philip. <hi rend="italics">Cf.</hi> Aristotle, <hi rend="italics">Politics</hi>, v. 10; Diodorus Siculus, xv. 94-95; Aelian, <hi rend="italics">Varia Historia</hi>, iii. 45; Valerius Maximus, i. 8, ext. 9.</note> served as bodyguard for Philip, and Chaerea <note place="unspecified" anchored="yes">Cassius Chaerea fomented the conspiracy which resulted in the death of Caligula; <hi rend="italics">cf.</hi> Tacitus, <hi rend="italics">Annals</hi>, i. 32; Suetonius, <hi rend="italics">Caligula</hi>, 56-58.</note> for Gaius
+					Caligula, yet each one of these must have said as he followed along : Verily
+					I would have vengeance if only my strength were sufficient. <note place="unspecified" anchored="yes">Homer, <hi rend="italics">Il.</hi> xxii. 20.</note>
+					          <pb id="v.2.p.491"/>
+				        </p>
+            <p>The atheist thinks there are no gods ; the superstitious man wishes there
+					were none, but believes in them against his will; for he is afraid not to
+					believe. And yet, as Tantalus would be glad indeed to get out from under the
+					rock suspended above his head, so the superstitious man would be glad to
+					escape his fear by which he feels oppressed no less than Tantalus by his
+					rock, and he would call the condition of the atheist happy because it is a
+					state of freedom. But, as things are, the atheist has neither part nor lot
+					in superstition, whereas the superstitious man by preference would be an
+					atheist, but is too weak to hold the opinion about the gods which he wishes
+					to hold. </p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>Moreover, the atheist has no part in causing superstition, but superstition
+					provides the seed from which atheism springs, and when atheism has taken
+					root, superstition supplies it with a defence, not a true one or a fair one,
+					but one not destitute of some speciousness. For it is not because these
+					people saw in the heavens anything to find fault with, or anything not
+					harmonious or well-ordered in the stars or seasons, or in the revolutions of
+					the moon or in the movements of the sun around the earth, <q direct="unspecified">artisans
+						of day and night,</q> 
+               <note place="unspecified" anchored="yes">Adapted from Plato, <hi rend="italics">Timaeus</hi>, p. 40 C. Plutarch quotes the phrase more accurately in <hi rend="italics">Moralia</hi>, 937 E, 938 E, and 1006.</note> or in the feeding and growth of living
+					creatures, or in the sowing and harvesting of crops, as the result of which
+					they decided against the idea of a God in the universe; but the ridiculous
+					actions and emotions of superstition, its words and gestures, magic charms
+					and spells, rushing about and beating of drums, impure purifications and
+					dirty sanctifications, barbarous and outlandish penances and mortifications
+					at the shrines&mdash;all these give occasion to some to say that it were
+					better there should be no gods at all than gods who accept with <pb id="v.2.p.493"/> pleasure such forms of worship, and are so overbearing,
+					so petty, and so easily offended. </p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>Would it not then have been better for those Gauls <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Caesar, <hi rend="italics">Gallic War</hi>, vi. 16 and Strabo, iv. 4. 5.</note> and Scythians <note place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Herodotus, iv. 70-72.</note> to have
+					had absolutely no conception, no vision, no tradition, regarding the gods,
+					than to believe in the existence of gods who take delight in the blood of
+					human sacrifice and hold this to be the most perfect offering and holy rite
+					? Again, would it not have been far better for the Carthaginians to have
+					taken Critias or Diagoras <note place="unspecified" anchored="yes">Both Critias and Diagoras were famous atheists of antiquity. <hi rend="italics">Cf.</hi> Sextus Empiricus, <hi rend="italics">Adersus Mathematicos</hi>, ix. 54; Plutarch, <hi rend="italics">Moralia</hi>, 880 D, 1075 A.</note> to draw up their law-code at the very beginning,
+					and so not to believe in any divine power or god, rather than to offer such
+					sacrifices as they used to offer to Cronos? <note place="unspecified" anchored="yes">Plutarch says (<hi rend="italics">Moralia</hi>, 175 A and 522 A) that the practice was stopped by Gelon, tyrant of Syracuse, after his victory oer the Carthaginians in 480 B.C. But <hi rend="italics">cf.</hi> Diodorus, xx. 14, which suggests that the practice was later revived. Cronos here is, of course, the Greek equivalent of Phoenician El (Hebrew Moloch or Baal). <hi rend="italics">Cf.</hi> G. F. Moore in the <hi rend="italics">Journal of Biblical Lit.</hi> xvi. (1897), p. 161.</note> These were not in the manner
+					that Empedocles describes <note place="unspecified" anchored="yes">Diels, <hi rend="italics">Fragmente der Vorsokratiker</hi>, i. p. 275.</note> in his attack on those who sacrifice living
+					creatures : <quote rend="blockquote">Changed in form is the son beloved of his father so pious, Who
+						on the altar lays him and slays him. What folly !</quote> No, but with full
+					knowledge and understanding they themselves offered up their own children,
+					and those who had no children would buy little ones from poor people and cut
+					their throats as if they were so many lambs or young birds ; meanwhile the
+					mother stood by without a tear or moan ; but should she utter a single moan
+					or let fall a single tear, she had to forfeit the money, <note place="unspecified" anchored="yes">Since the bad omen of her conduct would nullify the good effect of the sacrifice.</note> and her child was
+					sacrificed nevertheless ; and the whole area before the statue was filled
+					with a loud noise of flutes and drums so that the cries of wailing should
+					not reach the ears of the people. Yet, 
+					<pb id="v.2.p.495"/> if Typhons or Giants were ruling over us after they had
+					expelled the gods, with what sort of sacrifices would they be pleased, or
+					what other holy rites would they require? Amestris, the wife of Xerxes,
+					caused twelve human beings to be buried alive <note place="unspecified" anchored="yes">Herodotus, vii. 114; but compare iii. 35.</note> as an offering in her behalf
+					to propitiate Hades, of whom Plato says <note place="unspecified" anchored="yes">The reference is probably to Plato, <hi rend="italics">Cratylus</hi>, pp. 403 A-404B, where are repeated the popular etymologies of Pluto from <foreign lang="greek">plou=tos</foreign> (wealth), and Hades from <foreign lang="greek">pa/nta ta\ kala\ ei)de/nai</foreign> (all-knowing of good).</note> that it is because he is humane and
+					wise and rich, and controls the souls of the dead by persuasion and reason,
+					that he has come to be called by this name. Xenophanes, the natural
+					philosopher, seeing the Egyptians beating their breasts and wailing at their
+					festivals, gave them a very proper suggestion: <q direct="unspecified">If these beings are
+						gods,</q> said he, <q direct="unspecified">do not bewail them; and if they are men,
+							do not offer sacrifices to them.</q> 
+               <note place="unspecified" anchored="yes">The saying is quoted also in <hi rend="italics">Moralia</hi>, 379 B and 763 C, and referred to in 228 E, <hi rend="italics">cf.</hi> also Aristotle, <hi rend="italics">Rhetoric</hi>, ii. 23, 27.</note> 
+            </p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>But there is no infirmity comprehending such a multitude of errors and
+					emotions, and involving opinions so contradictory, or rather antagonistic,
+					as that of superstition. We must try, therefore, to escape it in some way
+					which is both safe and expedient, and not be like people who incautiously
+					and blindly run hither and thither to escape from an attack of robbers or
+					wild beasts, or from a fire, and rush into trackless places that contain
+					pitfalls and precipices. For thus it is that some persons, in trying to
+					escape superstition, rush into a rough and hardened atheism, thus
+					overleaping true religion which lies between. <note place="unspecified" anchored="yes">An application of the Aristotelian doctrine that virtue is the mean between two extremes (vices).</note> 
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title>Virtues and Vices</title>
+				<title type="sub">Machine readable text</title>
+				<author>Aristotle</author>
+				<editor role="editor">I. Bekker</editor>
+	&responsibility;
+	&fund.AnnCPB;
+      </titleStmt>
+	&Perseus.publish;
+      <sourceDesc>
+				<bibl>	  <title>ed. I. Bekker, Aristotle's Opera, vol. 2</title>
+	  <publisher>Berlin, Reimer</publisher>
+	  <date>1831</date>
+        </bibl>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state delim=" " n="chunk" unit="bekker page"/>
+				<state unit="bekker line"/>
+			</refsDecl>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language id="greek">Greek
+      </language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change>
+				<date>1992</date>
+				<respStmt>
+					<name>staff</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>Text was scanned at St. Olaf Spring, 1992.</item>
+			</change>
+			<change>
+				<date>Spring 1993</date>
+				<respStmt>
+					<name>JN</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>Tagged in conformance with Prose.g dtd.</item>
+			</change>
+			<change>
+				<date>31-Jan-00</date>
+				<respStmt>
+					<name>AEM</name>
+					<resp>ed.</resp>
+				</respStmt>
+				<item>convert to P3
+$Log: aristot.vir_gk.xml,v $
+Revision 1.3  2010-06-16 19:18:48  rsingh04
+cleaned up bad place tags in a few texts and cleaned up the document format
+
+Revision 1.2  2009/12/04 19:31:58  lcerrato
+fixed typo Vir. 1251b a)ge/neis to a)ge/neia
+
+Revision 1.1  2009/10/08 19:10:18  rsingh04
+began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+Revision 1.1  2005/07/25 14:29:23  packel
+Converted to XML
+
+Revision 1.10  2005/03/31 20:44:00  mimno
+Bekker pages are milestones
+
+Revision 1.9  2003/07/01 22:14:38  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2000/03/04 20:33:58  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.7  2000/02/01 00:58:29  dasmith
+Use LB for Bekker lines.
+
+Revision 1.6  2000/01/31 19:56:14  dasmith
+Use MILESTONEs for citation.
+
+Revision 1.5  2000/01/31 17:50:42  amahoney
+make title the same in both versions (virtues and vices both plural),
+and convert to P3 while I'm in there (since it's so small)
+
+      </item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+
+	<text>
+		<body>
+			<milestone n="1249a" unit="bekker page"/>
+			<milestone n="26" unit="bekker line"/>
+			<p>e)paineta\ me/n e)sti ta\ kala/, yekta\ de\ ta\ ai)sxra/. kai\ tw=n me\n kalw=n h(gou=ntai ai( a)retai/, tw=n d' ai)sxrw=n ai( kaki/ai. e)paineta\ d' e)sti\ kai\ ta\ ai)/tia tw=n a)retw=n kai\ ta\ parepo/mena tai=s a)retai=s kai\ ta\ gino/mena a)p' au)tw=n kai\ <milestone n="30" unit="bekker line"/>ta\ e)/rga au)tw=n, yekta\ de\ ta\ e)nanti/a. trimerou=s de\ th=s yuxh=s lambanome/nhs kata\ *pla/twna, tou= me\n logistikou=
+				
+				<milestone n="1249b" unit="bekker page"/><milestone n="26" unit="bekker line"/>a)reth/ e)stin h( fro/nhsis, tou= de\ qumoeidou=s h(/ te prao/ths kai\ h( a)ndrei/a, tou= de\ e)piqumhtikou= h(/ te swfrosu/nh kai\ h( e)gkra/teia, o(/lhs de\ th=s yuxh=s h(/ te dikaiosu/nh kai\ h( e)leuqerio/ths kai\ h( megaloyuxi/a. kaki/a d' e)sti\ tou= me\n <milestone n="30" unit="bekker line"/>logistikou= h( a)frosu/nh, tou= de\ qumoeidou=s h(/ te o)rgilo/ths kai\ h( deili/a, tou= de\ e)piqumhtikou= h(/ te a)kolasi/a kai\ h(
+				
+				<milestone n="1250a" unit="bekker page"/><milestone n="1" unit="bekker line"/>a)kra/teia, o(/lhs de\ th=s yuxh=s h(/ te a)diki/a kai\ a)neleuqerio/ths kai\ mikroyuxi/a. </p>
+			<p>e)/sti de\ fro/nhsis me\n a)reth\ tou= logistikou=, paraskeuastikh\ tw=n pro\s eu)daimoni/an sunteino/ntwn. prao/ths d' <milestone n="5" unit="bekker line"/>e)sti\n a)reth\ tou= qumoeidou=s, kaq' h(\n u(po\ o)rgh=s gi/nontai duski/nhtoi. a)ndrei/a d' e)sti\n a)reth\ tou= qumoeidou=s, kaq' h(\n duse/kplhktoi/ ei)sin u(po\ fo/bwn tw=n peri\ qa/naton. swfrosu/nh d' e)sti\n a)reth\ tou= e)piqumhtikou=, kaq' h(\n a)no/rektoi gi/nontai peri\ ta\s a)polau/seis tw=n fau/lwn h(donw=n. e)gkra/teia <milestone n="10" unit="bekker line"/>d' e)sti\n a)reth\ tou= e)piqumhtikou=, kaq' h(\n kate/xousi tw=| logismw=| th\n e)piqumi/an o(rmw=san e)pi\ ta\s fau/las h(dona/s. dikaiosu/nh d' e)sti\n a)reth\ yuxh=s dianemhtikh\ tou= kat' a)ci/an. e)leuqerio/ths d' e)sti\n a)reth\ yuxh=s eu)da/panos ei)s ta\ kala/. megaloyuxi/a d' e)sti\n a)reth\ yuxh=s, kaq' h(\n du/natai fe/rein <milestone n="15" unit="bekker line"/>eu)tuxi/an kai\ a)tuxi/an kai\ timh\n kai\ a)timi/an. </p>
+			<p>a)frosu/nh d' e)sti\ kaki/a tou= logistikou=, ai)ti/a tou= zh=n kakw=s. o)rgilo/ths d' e)sti\ kaki/a tou= qumoeidou=s, kaq' h(\n eu)ki/nhtoi gi/nontai pro\s o)rgh/n. deili/a d' e)sti\ kaki/a tou= qumoeidou=s, kaq' h(\n e)kplh/ttontai u(po\ fo/bwn, kai\ ma/lista <milestone n="20" unit="bekker line"/>tw=n peri\ qa/naton. a)kolasi/a d' e)sti\ kaki/a tou= e)piqumhtikou=, kaq' h(\n ai(rou=ntai ta\s fau/las h(dona/s. &lsqb;peri\ me\n th=s a)kratei/as ou)de/n: ou(/tw de\ su\ du/nasai o(ri/zein.&rsqb; a)kra/teia d' e)sti\ kaki/a tou= e)piqumhtikou=, kaq' h(\n parasu/rousi th=| a)logi/a| th\n e)piqumi/an w)qou=san e)pi\ ta\s tw=n fau/lwn h(donw=n a)polau/seis. <milestone n="25" unit="bekker line"/>a)diki/a d' e)sti\ kaki/a yuxh=s, kaq' h(\n pleonektikoi\ gi/nontai para\ th\n a)ci/an. a)neleuqeri/a d' e)sti\ kaki/a yuxh=s, kaq' h(\n o)re/gontai tou= pantaxo/qen ke/rdous. mikroyuxi/a d' e)sti\ kaki/a yuxh=s, kaq' h(\n a)du/natoi/ ei)si fe/rein eu)tuxi/an kai\ a)tuxi/an kai\ timh\n kai\ a)timi/an. <milestone n="30" unit="bekker line"/></p>
+			<p>th=s de\ fronh/sew/s e)sti to\ bouleu/sasqai, to\ kri=nai ta\ a)gaqa\ kai\ ta\ kaka\ kai\ pa/nta ta\ e)n tw=| bi/w| ai(reta\ kai\ feukta/, to\ xrh=sqai pa=si kalw=s toi=s u(pa/rxousin a)gaqoi=s, to\ o(milh=sai o)rqw=s, to\ sunidei=n tou\s kairou/s, to\ a)gxi/nws xrh/sasqai kai\ lo/gw| kai\ e)/rgw|, to\ th\n e)mpeiri/an e)/xein <milestone n="35" unit="bekker line"/>tw=n xrhsi/mwn pa/ntwn. h( mnh/mh de\ kai\ e)mpeiri/a kai\ a)gxi/noia h)/toi a)po\ th=s fronh/sews e(ka/sth au)tw=n e)sti/n, h)\ pare/petai th=| fronh/sei: h)\ ta\ me\n au)tw=n oi(=on sunai/tia th=s fronh/sew/s e)sti, kaqa/per e)mpeiri/a kai\ h( mnh/mh, ta\ de\ oi(=on me/rh au)th=s, oi(=on eu)bouli/a kai\ a)gxi/noia. prao/thtos <milestone n="40" unit="bekker line"/>d' e)sti\ to\ du/nasqai fe/rein metri/ws e)gklh/mata kai\ o)ligwri/as, kai\ to\ mh\ taxe/ws o(rma=n e)pi\ ta\s timwri/as, kai\ to\ mh\ eu)ki/nhton ei)=nai pro\s ta\s o)rga/s, a)/pikron de\ tw=| h)/qei kai\ a)filo/neikon, e)/xonta to\ h)remai=on e)n th=| yuxh=| kai\ sta/simon. a)ndrei/as d' e)sti\ to\ duse/kplhkton u(po\ fo/bwn <milestone n="45" unit="bekker line"/>tw=n peri\ qa/naton, kai\ to\ eu)qarsh= e)n toi=s deinoi=s, kai\ to\ 
+				
+				<milestone n="1250b" unit="bekker page"/><milestone n="1" unit="bekker line"/>eu)/tolmon pro\s tou\s kindu/nous, kai\ to\ ma=llon ai(rei=sqai teqna/nai kalw=s h)\ ai)sxrw=s swqh=nai, kai\ to\ ni/khs ai)/tion ei)=nai. e)/ti de\ a)ndrei/as e)sti\ kai\ to\ ponei=n kai\ karterei=n kai\ ai(rei=sqai a)ndragaqi/zesqai. pare/petai de\ th=| a)ndrei/a| kai\ <milestone n="5" unit="bekker line"/>h( eu)tolmi/a kai\ h( eu)yuxi/a kai\ to\ qa/rsos kai\ to\ qra/sos, e)/ti de\ kai\ h( filoponi/a kai\ h( karteri/a. swfrosu/nhs d' e)sti\ to\ mh\ qauma/zein ta\s a)polau/seis tw=n swmatikw=n h(donw=n, kai\ to\ ei)=nai pa/shs a)polau/sews ai)sxra=s h(donh=s a)no/rekton, kai\ to\ fobei=sqai kai\ th\n dikai/an a)/deian, kai\ <milestone n="10" unit="bekker line"/>to\ teta/sqai peri\ to\n bi/on o(moi/ws e)/n te mikroi=s kai\ mega/lois. pare/petai de\ th=| swfrosu/nh| eu)taci/a, kosmio/ths, ai)dw/s, eu)la/beia. e)gkratei/as d' e)sti\ to\ du/nasqai katasxei=n tw=| logismw=| th\n e)piqumi/an o(rmw=san e)pi\ fau/las a)polau/seis kai\ h(dona/s, kai\ to\ karterei=n, kai\ to\ u(pomonhtiko\n <milestone n="15" unit="bekker line"/>ei)=nai th=s kata\ fu/sin e)ndei/as kai\ lu/phs. dikaiosu/nhs d' e)sti\ to\ dianemhtiko\n ei)=nai tou= kat' a)ci/an, kai\ sw/zein ta\ pa/tria e)/qh kai\ ta\ no/mima, kai\ to\ sw/zein tou\s gegramme/nous no/mous, kai\ to\ a)lhqeu/ein e)n tw=| diafe/ronti, kai\ to\ diafula/ttein ta\s o(mologi/as. e)/sti de\ prw/th tw=n dikaiosunw=n <milestone n="20" unit="bekker line"/>pro\s tou\s qeou/s, ei)=ta pro\s dai/monas, ei)=ta pro\s patri/da kai\ gonei=s, ei)=ta pro\s tou\s katoixome/nous: e)n oi(=s e)sti\n h( eu)se/beia, h)/toi me/ros ou)=sa dikaiosu/nhs h)\ parakolouqou=sa. a)kolouqei= de\ th=| dikaiosu/nh| kai\ o(sio/ths kai\ a)lh/qeia kai\ h( pi/stis kai\ h( misoponhri/a. e)leuqerio/thtos d' e)sti\ <milestone n="25" unit="bekker line"/>to\ proetiko\n ei)=nai xrhma/twn ei)s ta\ e)paineta/, kai\ dayilh= e)pi\ tw=| ei)s ta\ de/onta a)nalwqh=nai, kai\ to\ bohqhtiko\n ei)=nai e)n tw=| diafo/rw|, kai\ to\ mh\ labei=n o(/qen mh\ dei=. e)/sti de\ o( e)leuqe/rios kai\ peri\ e)sqh=ta kaqaro\s kai\ peri\ oi)/khsin, kai\ kataskeuastiko\s tw=n perittw=n kai\ kalw=n kai\ <milestone n="30" unit="bekker line"/>diagwgh\n e)xo/ntwn h(dei=an a)/neu tou= lusitelou=ntos, kai\ qreptiko\s tw=n zw/|wn tw=n i)/dion e)xo/ntwn ti h)\ qaumasto/n. a)kolouqei= de\ th=| e)leuqerio/thti tou= h)/qous u(gro/ths kai\ eu)agwgi/a kai\ filanqrwpi/a kai\ to\ ei)=nai e)lehtiko\n kai\ filo/filon kai\ filo/cenon kai\ filo/kalon. megaloyuxi/as d' e)sti\ <milestone n="35" unit="bekker line"/>to\ kalw=s e)negkei=n kai\ eu)tuxi/an kai\ a)tuxi/an kai\ timh\n kai\ a)timi/an, kai\ to\ qauma/zein mh/te trufh\n mh/te qerapei/an mh/te e)cousi/an mh/te ta\s ni/kas ta\s e)nagwni/ous, e)/xein de/ ti ba/qos th=s yuxh=s kai\ me/geqos. e)/sti de\ megalo/yuxos ou)/q' o( to\ zh=n peri\ pollou= poiou/menos ou)/q' o( filo/zwos. <milestone n="40" unit="bekker line"/>a(plou=s de\ tw=| h)/qei kai\ gennai=os, a)dikei=sqai duna/menos, kai\ ou) timwrhtiko/s. a)kolouqei= de\ th=| megaloyuxi/a| a(plo/ths kai\ a)lh/qeia. </p>
+			<p>a)frosu/nhs d' e)sti\ to\ kri/nein kakw=s ta\ pra/gmata, to\ bouleu/sasqai kakw=s, to\ o(milh=sai kakw=s, to\ xrh/sasqai <milestone n="45" unit="bekker line"/>kakw=s toi=s parou=sin a)gaqoi=s, to\ yeudw=s doca/zein
+				
+				<milestone n="1251a" unit="bekker page"/><milestone n="1" unit="bekker line"/>peri\ tw=n ei)s to\n bi/on kalw=n kai\ a)gaqw=n.parakolouqei= de\ th=| a)frosu/nh| a)peiri/a, a)maqi/a, a)krasi/a, e)paristero/ths, a)mnhmosu/nh. o)rgilo/thtos d' e)sti\n ei)/dh tri/a, a)kroxoli/a pikri/a baruqumi/a. e)/sti de\ tou= o)rgi/lou mh\ du/nasqai fe/rein <milestone n="5" unit="bekker line"/>mh/te ta\s mikra\s o)ligwrh/seis mh/te e)lattw/seis, ei)=nai de\ kolastiko\n kai\ timwrhtiko\n kai\ eu)ki/nhton pro\s o)rgh\n kai\ u(po\ e)/rgou kai\ u(po\ lo/gou tou= tuxo/ntos. a)kolouqei= de\ th=| o)rgilo/thti to\ parocuntiko\n tou= h)/qous kai\ eu)meta/bolon, kai\ h( pikrologi/a, kai\ to\ e)pi\ mikroi=s lupei=sqai, kai\ to\ tau=ta <milestone n="10" unit="bekker line"/>pa/sxein taxe/ws kai\ para\ braxu\n kairo/n. deili/as d' e)sti\ to\ u(po\ tw=n tuxo/ntwn fo/bwn eu)ki/nhton ei)=nai, kai\ ma/lista tw=n peri\ qa/naton kai\ ta\s swmatika\s phrw/seis, kai\ to\ u(polamba/nein krei=tton ei)=nai o(pwsou=n swqh=nai h)\ teleuth=sai kalw=s. a)kolouqei= de\ th=| deili/a| malaki/a, a)nandri/a, <milestone n="15" unit="bekker line"/>a)poni/a, filoyuxi/a. u(/pesti de/ tis eu)la/beia kai\ to\ a)filo/neikon tou= h)/qous. a)kolasi/as d' e)sti\ to\ ai(rei=sqai ta\s a)polau/seis tw=n h(donw=n tw=n blaberw=n kai\ ai)sxrw=n, kai\ to\ u(polamba/nein eu)daimonei=n ma/lista tou\s e)n tai=s toiau/tais h(donai=s o)/ntas, kai\ to\ filoge/loion ei)=nai kai\ to\ filoskw/pthn <milestone n="20" unit="bekker line"/>kai\ fileutra/pelon, kai\ to\ r(a|diourgo\n ei)=nai e)n toi=s lo/gois kai\ e)n toi=s e)/rgois. a)kolouqei= de\ th=| a)kolasi/a| a)taci/a, a)nai/deia, a)kosmi/a, trufh/, r(a|qumi/a, a)me/leia, o)ligwri/a, e)/klusis. a)krasi/as d' e)sti\ to\ kwlu/ontos tou= logismou= ta\s a)polau/seis tw=n h(donw=n ai(rei=sqai, kai\ to\ u(polamba/nonta <milestone n="25" unit="bekker line"/>krei=tton ei)=nai mh\ metasxei=n me\n au)tw=n, mete/xein de\ mhde\n h(=tton, kai\ to\ oi)/esqai me\n dei=n pra/ttein kai\ ta\ kala\ kai\ ta\ sumfe/ronta, a)fi/stasqai de\ au)tw=n dia\ ta\s h(dona/s. a)kolouqei= de\ th=| a)krasi/a| malaki/a kai\ metame/leia kai\ ta\ plei=sta tau)ta\ a(\ kai\ th=| a)kolasi/a|. <milestone n="30" unit="bekker line"/></p>
+			<p>a)diki/as d' e)sti\n ei)/dh tri/a, a)se/beia pleoneci/a u(/bris. a)se/beia me\n h( peri\ qeou\s plhmme/leia kai\ peri\ dai/monas h)\ kai\ peri\ tou\s katoixome/nous, kai\ peri\ gonei=s kai\ peri\ patri/da: pleoneci/a de\ peri\ ta\ sumbo/laia, para\ th\n a)ci/an ai(roume/nh to\ dia/foron: u(/bris de/, kaq' h(\n ta\s h(dona\s au(toi=s <milestone n="35" unit="bekker line"/>paraskeua/zousin, ei)s o)/neidos a)gago/ntes e(te/rous, o(/qen *eu)/hnos peri\ au)th=s le/gei <quote><lg type="trimeter"><l>h(/tis kerdai/nous' ou)de\n o(/mws a)dikei=.</l></lg></quote> e)/sti de\ th=s a)diki/as to\ parabai/nein ta\ pa/tria e)/qh kai\ ta\ no/mima, kai\ to\ a)peiqei=n toi=s no/mois kai\ toi=s a)/rxousi, to\
+				
+				<milestone n="1251b" unit="bekker page"/><milestone n="1" unit="bekker line"/>yeu/desqai, to\ e)piorkei=n, to\ parabai/nein ta\s o(mologi/as kai\ ta\s pi/steis. a)kolouqei= de\ th=| a)diki/a| sukofanti/a, a)lazonei/a, filanqrwpi/a prospoi/htos, kakoh/qeia, panourgi/a. a)neleuqeri/as d' e)sti\n ei)/dh tri/a, ai)sxrokerdi/a feidwli/a <milestone n="5" unit="bekker line"/>kimbei/a. ai)sxrokerdi/a me/n, kaq' h(\n kerdai/nein zhtou=si pantaxo/qen, kai\ to\ ke/rdos th=s ai)sxu/nhs peri\ plei/onos poiou=ntai: feidwli/a d' e)sti\ kaq' h(\n a)da/panoi gi/nontai tw=n xrhma/twn ei)s to\ de/on: kimbei/a d' e)sti\ kaq' h(\n dapanw=si me/n, kata\ mikro\n de\ kai\ kakw=s, kai\ ple/on bla/ptontai <milestone n="10" unit="bekker line"/>tw=| mh\ kata\ kairo\n poiei=sqai to\ dia/foron. e)/sti de\ th=s a)neleuqeri/as to\ peri\ plei/stou poiei=sqai xrh/mata, kai\ to\ mhde\n o)/neidos h(gei=sqai tw=n poiou/ntwn to\ ke/rdos, bi/os qhtiko\s kai\ doulopreph\s kai\ r(uparo/s, filotimi/as kai\ e)leuqeri/as a)llo/trios. a)kolouqei= de\ th=| a)neleuqerio/thti mikrologi/a, <milestone n="15" unit="bekker line"/>baruqumi/a kai\ mikroyuxi/a, tapeino/ths, a)metri/a, a)ge/neia, misanqrwpi/a. mikroyuxi/as d' e)sti\ to\ mh/te timh\n mh/te a)timi/an mh/te eu)tuxi/an mh/te a)tuxi/an du/nasqai fe/rein, a)lla\ timw/menon me\n xaunou=sqai, mikra\ de\ eu)tuxh/santa u(pecai/resqai, a)timi/an de\ mhde\ th\n e)laxi/sthn <milestone n="20" unit="bekker line"/>e)negkei=n du/nasqai, a)po/teugma d' a)/thn kai\ a)tuxi/an kri/nein mega/lhn, o)du/resqai d' e)pi\ pa=si kai\ dusforei=n. e)/ti de\ toiou=to/s e)stin o( mikro/yuxos oi(=os pa/nta ta\ o)ligwrh/mata kalei=n u(/brin kai\ a)timi/an, kai\ ta\ di' a)/gnoian h)\ lh/qhn gigno/mena. a)kolouqei= de\ th=| mikroyuxi/a| mikrologi/a, <milestone n="25" unit="bekker line"/>memyimoiri/a, duselpisti/a, tapeino/ths. </p>
+			<p>kaqo/lou de\ th=s me\n a)reth=s e)sti\ to\ poiei=n spoudai/an th\n dia/qesin peri\ th\n yuxh/n, h)remai/ais kai\ tetagme/nais kinh/sesi xrwme/nhn, sumfwnou=san kata\ pa/nta ta\ me/rh: dio\ kai\ dokei= para/deigma politei/as a)gaqh=s ei)=nai yuxh=s <milestone n="30" unit="bekker line"/>spoudai/a dia/qesis. e)/sti de\ a)reth=s kai\ to\ eu)ergetei=n tou\s a)ci/ous, kai\ to\ filei=n tou\s a)gaqou/s, kai\ to\ mh/te kolastiko\n ei)=nai mh/te timwrhtiko/n, a)lla\ i(/lewn kai\ eu)meniko\n kai\ suggnwmoniko/n. a)kolouqei= de\ th=| a)reth=| xrhsto/ths, e)piei/keia, eu)gnwmosu/nh, e)lpi\s a)gaqh/. e)/ti de\ kai\ ta\ toiau=ta oi(=on <milestone n="35" unit="bekker line"/>fi/loikon ei)=nai kai\ filo/filon, file/tairon, filo/cenon, fila/nqrwpon kai\ filo/kalon: a(\ dh\ pa/nta tw=n e)painoume/nwn e)sti/n. th=s de\ kaki/as e)sti\ ta\ e)nanti/a.</p>
+		</body>
+	</text>
+</TEI.2>

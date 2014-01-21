@@ -1,0 +1,760 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Seven">Seven Against <placeName key="tgn,7011071">Thebes</placeName> (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Aesch.">Aeschylus</author>
+<editor role="translator" n="Smyth">Herbert Weir Smyth, Ph. D.</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Aeschylus</author>
+<title>Aeschylus, with an English translation by Herbert Weir Smyth, Ph. D. in two volumes. 1. Seven Against Thebes</title>
+<editor role="editor">Herbert Weir Smyth, Ph. D.</editor>
+<imprint>
+<pubPlace>Cambridge, MA</pubPlace>
+<publisher>Harvard University Press</publisher>
+<date>1926</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="card"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Pierre Habel</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Pierre Habel, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>11/91</date>
+<respStmt><name>Pierre Habel</name><resp>ed.</resp></respStmt>
+<item>re-edited the translation.</item>
+</change>
+<change><date>11/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>11/91</date>
+<respStmt><name>Bill Merrill</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's comments, revalidated.</item>
+</change>
+<change><date>3/17/93</date>
+<respStmt><name>Bill Merrill</name><resp>ed.</resp></respStmt>
+<item>moved Eteocles speech at 710 into previous div.</item>
+</change>
+<change><date>4/5/1993</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Proofread notes.</item>
+</change>
+<change><date>10/98</date>
+<respStmt><name>Bill Merrill</name><resp>ed.</resp></respStmt>
+<item>Fixed card breaks at 149, 158.</item>
+</change>
+<change><date>09-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: aesch.seven_eng.xml,v $
+Revision 1.1  2009-10-09 19:49:17  rsingh04
+more reorganizing of texts module by collection
+
+Revision 1.1  2009/10/07 20:59:53  rsingh04
+began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+Revision 1.5  2009/06/22 17:59:13  student
+edited entity tags CEH
+
+Revision 1.4  2006/02/10 21:10:04  packel
+places/dates now actually tagged
+
+Revision 1.3  2005/08/01 15:44:56  packel
+really removed item tags
+
+Revision 1.2  2005/08/01 15:32:41  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:27:23  packel
+Converted to XML
+
+Revision 1.9  2004/04/21 20:28:10  mimno
+added card 1s
+
+Revision 1.8  2003/07/01 22:14:25  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.7  2000/03/04 20:33:49  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.6  2000/02/17 17:46:03  amahoney
+use n on sp for speeches interrupted by cardbreaks;  put cards at ends of
+such speeches after the close tag;  put sp and speaker tags on the divs
+of the choruses, which were not marked at all (but div2 closes sp, so
+we lost the speaker info)
+
+Revision 1.5  2000/02/09 23:27:27  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<stage>A large gathering of citizens of Thebes.  Enter Eteocles with attendants.</stage>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Men of Cadmus's city, he who guards from the stern the concerns of the State and guides its helm with eyes untouched by sleep must speak to the point.  For if we succeed, the responsibility is heaven's;<milestone ed="p" n="5" unit="line"/>but if&mdash;may it not happen&mdash;disaster is our lot, Eteocles would be the one name shouted many times throughout the city in the citizens' resounding uproars and laments.  From these evils may Zeus the Defender, upholding his name, shield the city of the Cadmeans!</p>
+<p><milestone ed="p" n="10" unit="line"/>But now you&mdash;both he who is still short of his youthful prime, and he who, though past his prime, still strengthens the abundant growth of his body, and every man still in his prime, as is fitting&mdash;you must aid the State and<milestone ed="p" n="15" unit="line"/>the altars of your homeland's gods so that their honors may never be obliterated.  You must aid, too, your children, and Mother Earth, your beloved nurse.  For welcoming all the distress of your childhood, when you were young and crept upon her kind soil, she raised you to inhabit her and bear the shield,<milestone ed="p" n="20" unit="line"/>and to prove yourselves faithful in this time of need.  And so, until today, God has been favorably inclined, for though we have long been under siege, the war has gone well for the most part through the gods' will.  But now, as the seer, the herdsman of birds, informs us,<milestone ed="p" n="25" unit="line"/>using his ears and his mind to understand with unerring skill the prophetic birds unaided by sacrificial fire&mdash;he, master of such prophecy, declares that the greatest <placeName key="tgn,5001993">Argive</placeName> attack is being planned in night assembly and that they will make plans to capture our city.<milestone ed="p" n="30" unit="line"/>Hurry each of you to the battlements and the gates of our towered walls! Rush with all your armor! Fill the parapets and take your positions on the platforms of the towers.  Stand your ground bravely where the gates open out,<milestone ed="p" n="35" unit="line"/>and do not be afraid of this crowd of foreigners. God will bring it to a good end.</p>
+<p>I myself have dispatched scouts and men to observe their army, and I am confident that their going is not in vain.  Once I have heard their report, I will not be taken by any trickery.<milestone ed="p" n="39" unit="card"/></p></sp>
+<stage>Enter a Scout.</stage>
+<sp>
+<speaker>Scout</speaker>
+<p>Eteocles, mighty prince of the Cadmeans,<milestone ed="p" n="40" unit="line"/>I have returned with a sure report of the army outside the walls; I myself am an eyewitness of their actions.  Seven warriors, fierce regiment-commanders, slaughtered a bull over a black shield, and then touching the bull's gore with their hands they swore an oath<milestone ed="p" n="45" unit="line"/>by Ares, by Enyo,<note anchored="yes" n="45" resp="Smyth">Enyo is a personification of war, and hence sometimes called the mother or the daughter of Ares.</note> and by Rout who delights in blood, that either they will level the city and sack the Cadmeans' town by force, or will in death smear this soil with their blood.  And on Adrastus' chariot they were placing remembrances of themselves<milestone ed="p" n="50" unit="line"/>for their parents at home, and were shedding tears while so doing, but no piteous wailing escaped their lips.  For their iron- hearted spirit heaved, blazing with courage, as of lions with war in their eyes.  Your knowledge of these things was not delayed by fearfulness;<milestone ed="p" n="55" unit="line"/>for I left them casting lots to decide how each commander, his post assigned by chance, would lead his regiment against the gates.  Therefore, choose the bravest men of the city and station them quickly at the outlets of the gates.  For nearby already the <placeName key="tgn,5001993">Argive</placeName> army in full armor 
+<milestone ed="p" n="60" unit="line"/>is advancing in a flurry of dust, and glistening foam splatters the plain in drops from the horses' pantings.  So you, like the careful helmsman of a ship, secure the city before Ares' blasts storm down upon it; for the wave of their army now crashes over the dry land.<milestone ed="p" n="65" unit="line"/>Seize the first opportune moment for doing this.  For all else, I, on my part, will keep a reliable eye on the lookout, and you, by learning from my certain report what happens beyond the gates, shall remain unharmed.<stage>Exit.</stage></p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>O Zeus and Earth, and gods that guard our city,<milestone ed="p" n="70" unit="line"/>and Curse,<note anchored="yes" n="70" resp="Smyth">The curse pronounced by Oedipus against his two sons (cp. 785 ff.) is a daemonic power, here identified with the vengeance it calls into being.</note> potent agent of my father's vengeance, do not destroy my city, ripping it up from its foundations, captive of the enemy, a city that speaks in <placeName key="tgn,1000074">Greece</placeName>'s tongue, and do not destroy our hearths and homes.<milestone ed="p" n="75" unit="line"/>May they never hold the free land and city of Cadmus beneath the yoke of slavery! Be our protection! I am certain that what I ask is in our common interest; for a State that prospers pays honors to its gods.<stage>Exit Eteocles, with citizens.  The Chorus enters in fearful agitation.</stage><milestone ed="p" n="78" unit="card"/></p></sp>
+<div2 type="lyric">
+<sp>
+<speaker>Chorus</speaker>
+<p>In terror I wail loud cries of sorrow.  Their army is let loose!  Leaving camp,<milestone ed="p" n="80" unit="line"/>&mdash;look!&mdash;the mounted throng floods swiftly ahead.  The dust whirling in the air tells me this is so&mdash;its message is speechless, yet clear and true.</p>
+<p>And now the plains of my native land under the blows of hooves send a roar to my ears; the sound flies<milestone ed="p" n="85" unit="line"/>and rumbles like a resistless torrent crashing down a mountainside.</p>
+<p>Ah, ah, you gods and goddesses, raise your war cry over our walls to drive away the onrushing evil!</p>
+<p>The army of the white shield,<milestone ed="p" n="90" unit="line"/>ready for battle, rushes at full speed against the city.</p>
+<p>Who then will rescue us, which of the gods or goddesses will help?</p>
+<p>Or shall I fall in supplication at the feet<milestone ed="p" n="95" unit="line"/>of our ancestral gods' statues?</p>
+<p>Ah, blessed gods, firmly enthroned, the time has come to hold fast to your statues.  Why do we delay, who are much to be lamented?<milestone ed="p" n="100" unit="line"/>Do you hear the clash of shields, or does it escape you? When, if not now, shall we place sacred robes and wreaths on the statues to accompany our prayers?</p>
+<p>I see the clash&mdash;it is not the clatter of a single spear.  What will you do? Will you betray<milestone ed="p" n="105" unit="line"/>your own land, Ares, where you have dwelt since long ago?  God of the golden helmet, look, look upon the city that you once cherished!<milestone ed="p" n="109" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Oh come all you gods who guard our city and its land!<milestone ed="p" n="110" unit="line"/>See this suppliant band of maidens praying to be saved from slavery.  A torrent of men, their helmet plumes tossing, crashes around the city,<milestone ed="p" n="115" unit="line"/>sped on by the blasts of Ares.  No! Father Zeus, all-accomplishing, fend from us altogether capture at the hands of the enemy.</p>
+<p><milestone ed="p" n="120" unit="line"/>The Argives encircle the citadel of Cadmus.  Terror of their weapons of war shakes us, as the bridles in the horse's jaws rattle the sound of death.  Seven bold captains, conspicuous among the army<milestone ed="p" n="125" unit="line"/>in spear-wielding harnesses, at the seven gates&lt;<gap desc="*"/>&gt; take their stand each according to his lot.<milestone ed="p" n="128" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Pallas, Zeus-born power delighting in battle, prove yourself the savior of the city!<milestone ed="p" n="130" unit="line"/>And you, lord of steeds, ruler of the deep, Poseidon, with your fish-striking weapon grant us release from our fears, grant us release!</p>
+<p><milestone ed="p" n="135" unit="line"/>You too, Ares&mdash;pity us!&mdash;guard the city named for Cadmus and make evident your closeness<note anchored="yes" n="139" resp="Smyth"><foreign lang="greek">kh=dos</foreign> means both &ldquo;kinship&rdquo; and &ldquo;care.&rdquo; The wife of Cadmus was Harmonia, daughter of Ares and Aphrodite.</note> to us!<milestone ed="p" n="140" unit="line"/>And Cypris, you who are the first mother of our race, defend us who are sprung from your blood.  We come to you, crying out in prayers for your divine ears.</p>
+<p><milestone ed="p" n="145" unit="line"/>And you, Apollo, lord of the Wolf,<note anchored="yes" n="145" resp="Smyth">See the note on <bibl n="Aesch. Supp. 686">Aesch. Suppl. &gt;686</bibl>.</note> be a wolf to the enemy force and give them groan for groan!</p>
+<p>You too, maiden child of Leto, ready your bow!<milestone ed="p" n="149" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Ah! Ah!<milestone ed="p" n="150" unit="line"/>I hear the rattle of chariots encircling the town.  O lady Hera! The hubs are creaking beneath the axles' load.  Beloved Artemis!<milestone ed="p" n="155" unit="line"/>The air rages at the shaking of spears! What is happening to our city? What will the future bring? And where does God finally lead us?<milestone ed="p" n="158" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Ah! Ah! A hail of stones strikes our battlements from afar.  O beloved Apollo!<milestone ed="p" n="160" unit="line"/>There is the clang of bronze-bound shields at the gates.  O son of Zeus, in whom dwells the sacred power to decide in battle war's outcome! And you, blessed queen Onca,<note anchored="yes" n="164" resp="Smyth">Onca, the name of a Phoenician goddess, is identified with Athena (cp. 1. 487).</note> on behalf of the city,<milestone ed="p" n="165" unit="line"/>defend your seven- gated home!<milestone ed="p" n="166" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>All-powerful divinities, you gods and goddesses who wield the power to guard the towers of our land, do not betray our city that now toils under the spear<milestone ed="p" n="170" unit="line"/>to an alien-tongued army.  Hear us, hear, as is right, the prayers we maidens offer with outstretched hands.<milestone ed="p" n="174" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Beloved spirits,<milestone ed="p" n="175" unit="line"/>encompass the city to deliver it from ruin and show that you love it.  Consider the people's offerings, and as you consider, help us.<milestone ed="p" n="180" unit="line"/>Remember, I beg, our city's worship, rich in sacrifice..<milestone ed="p" n="181" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Eteocles</speaker>
+<p>You intolerable things! I ask you, is this the best way to save the city? Does it hearten our army here besieged,<milestone ed="p" n="185" unit="line"/>when you fall before the images of the gods that guard the city and shout and shriek&mdash;behavior that moderate people despise? May I never share my home with the female race, neither in time of evil nor in pleasant prosperity! When things go well for her, her boldness is unbearable,<milestone ed="p" n="190" unit="line"/>but when she is afraid, she is an even greater evil for home and city.  So now your cries as you rushed here and there in panicked flight have rattled the citizens into dispirited cowardice.  The cause of the enemy outside our gates is excellently strengthened by your behavior, while we inside are ruined by our own people.<milestone ed="p" n="195" unit="line"/>This is the sort of trouble you will have if you dwell with women.  Now if anyone fails to obey my authority&mdash;whether man or woman or something in between&mdash;a sentence of death will be decreed for him and by no means whatsoever will he escape destruction by stoning at the people's hands.<milestone ed="p" n="200" unit="line"/>It is for the man to take care of business outside the house; let no woman make decrees in those matters.  Keep inside and do no harm! Do you hear me or not? Am I speaking to the deaf?<milestone ed="p" n="203" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Dear son of Oedipus, I grew afraid when I heard the clatter of the crashing chariots,<milestone ed="p" n="205" unit="line"/>when the hubs screamed as they whirled around the wheel, and when I heard the sound of the steering gear, fire-forged bits, in the horses' mouths.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Well, then, has a helmsman ever found a way to safety by fleeing from stern to prow,<milestone ed="p" n="210" unit="line"/>when his ship is foundering in high seas?<milestone ed="p" n="211" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>But trusting in the gods I came in haste to their ancient statues, when the deadly blizzard of falling stones thundered against the gates.  Just then I set out in fear to pray to the Blessed Ones<milestone ed="p" n="215" unit="line"/>that they spread their protection over the city.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Pray that the rampart withstand the enemy spear.  Yes, the outcome is in the gods' hands&mdash;but then, it is said that the gods of a captured city abandon it.<milestone ed="p" n="219" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Never so long as I live may this divine assembly abandon us,<milestone ed="p" n="220" unit="line"/>nor may I live to see the city overrun and the army seizing it with hostile fire!</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>When you invoke the gods, do not be ill-advised.  For Obedience is<milestone ed="p" n="225" unit="line"/>the mother of Success, wife of Salvation&mdash;as the saying goes.<milestone ed="p" n="226" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>So she is, but the power of god is supreme, and often in bad times it raises the helpless man out of harsh misery even when stormclouds are lowering over his eyes.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p><milestone ed="p" n="230" unit="line"/>It is the man's duty to offer victims and sacrifices to the gods when they test their enemy; your duty is to be silent and to remain inside the house.<milestone ed="p" n="233" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>By the will of the gods we inhabit an unconquered city, and the rampart withstands the enemy throng.<milestone ed="p" n="235" unit="line"/>What indignation makes you resent this?</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>I do not begrudge your honor of the divine race; but lest you make the citizens cowardly, be calm and do not be overly fearful.<milestone ed="p" n="239" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>When I heard the strange and jumbled clashes,<milestone ed="p" n="240" unit="line"/>I came in trembling fear to this citadel, our seat of worship.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>If, then, you hear that men are dying or wounded, do not seize on the news with loud wailing.  For this is the food of Ares, human blood.<milestone ed="p" n="245" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="245" unit="line"/>Oh, but I hear horses snorting!</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Hear them, then, but not too clearly.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The city groans from deep in the earth, as though we are surrounded.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Surely it is enough that I am making plans for this?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I am terrified&mdash;the crashing at the gates is increasing.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p><milestone ed="p" n="250" unit="line"/>Won't you be silent, and speak none of this throughout the city?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Divine company, do not betray our fortifications!</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Damn you! Will you not endure these events in silence?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Gods of our city! Do not let my fate be slavery!</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>You would enslave both me and all the city.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="255" unit="line"/>Almighty Zeus, turn your missile against the enemy!</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>O Zeus, what a breed you have made for us in women!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>A breed steeped in misery, just like men whose city is captured.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Why are your words ill-omened, when you still grasp the gods' statues?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In my weakness fear controls my tongue.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p><milestone ed="p" n="260" unit="line"/>If only you would grant my plea for a small service.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Please state it as quickly as possible, and I will quickly know what to do.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Be silent, wretched woman; do not terrify your own men.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I am silent.  I will suffer what is destined together with the others.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>I welcome this sentiment of yours over what you said before.<milestone ed="p" n="265" unit="line"/>And in addition, keep your distance from the gods' images and make a stronger prayer, that the gods fight on our side.  And once you have heard my prayers, then sing the victory song, the sacred cry of joy and goodwill, our Greek ritual of shouting in tribute,<milestone ed="p" n="270" unit="line"/>that brings courage to our friends and dissolves fear of the enemy.</p>
+<p>And now<stage>Here Eteocles makes his vow.</stage> to the gods who guard our city's land, both those who dwell in the plain and those who watch over its meeting-place, to Dirce's springs and the waters of Ismenus, I vow that, if things go well and the city is saved,<milestone ed="p" n="275" unit="line"/>the citizens shall redden the gods' altars with the blood of sheep and sacrifice bulls to the gods&mdash;this is my vow&mdash;and offer trophies, while I will crown their holy temples with the spoil of the enemy's spear-pierced garments.</p>
+<p><milestone ed="p" n="280" unit="line"/>Make this kind of prayer to the gods, without your previous lamentation, nor with wild and useless panting; for you will not escape your destiny any the more.  As for me, I will go station six men, with me as the seventh, as champions to oppose the enemy in proud fashion<milestone ed="p" n="285" unit="line"/>at the seven exits in the wall, even before speedy messengers or swift-rushing reports arrive and inflame us with urgent need.<stage>Exit.</stage><milestone ed="p" n="288" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I heed him, but through terror my heart finds no repose.<milestone ed="p" n="290" unit="line"/>Anxieties border upon my heart and kindle my fear of the army surrounding our walls, as a trembling dove fears for her children in the nest because of snakes that are dangerous bed-fellows.<milestone ed="p" n="295" unit="line"/>For against our fortifications some are advancing with all their men, all in formation.  Ah, what will become of me? Others are hurling jagged boulders<milestone ed="p" n="300" unit="line"/>at the citizens on all sides.  O Gods born of Zeus, by every means rescue our city and people, sprung from Cadmus!<milestone ed="p" n="304" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>What more fertile plain will you find in place of ours,<milestone ed="p" n="305" unit="line"/>if you abandon to the enemy this deep-soiled land and the water of Dirce which is the most nourishing of the streams that earth-encircling Poseidon<milestone ed="p" n="310" unit="line"/>and Tethys' children pour forth? Therefore, divine guardians of the city, hurl murderous destruction on the men outside our walls<milestone ed="p" n="315" unit="line"/>and panic that makes them throw away their weapons, and so win glory for these citizens.  Defend the city and remain in possession of your home and throne<milestone ed="p" n="320" unit="line"/>in answer to our shrill, wailing prayers!<milestone ed="p" n="321" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>It is a great cause for grief to hurl a primeval city to Hades in this way, quarry and slave of the spear, ravaged shamefully in the dusty ashes by an <placeName key="tgn,5001993">Argive</placeName> man through divine will.<milestone ed="p" n="325" unit="line"/>And grief, too, to let the women be led away captive&mdash;ah me!&mdash;young and old, dragged by the hair, like horses, with their cloaks torn off them.<milestone ed="p" n="330" unit="line"/>A city, emptied, shouts out as the human booty perishes with mingled cries.  A heavy fate, indeed, my fear anticipates.<milestone ed="p" n="333" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>It is a lamentable thing that modest girls should be plucked unripe, before the customary rites, and should make<milestone ed="p" n="335" unit="line"/>a loathsome journey from their homes.  What? I declare that the dead will do better than the captives; for when a city is subdued&mdash;ah, ah!&mdash;many and miserable are its sufferings.<milestone ed="p" n="340" unit="line"/>Man drags off man, or kills, or sets fires; the whole city is defiled with smoke.  Mad Ares storms, subduing the people and polluting reverence.<milestone ed="p" n="345" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="345" unit="line"/>Tumults swell through the town, and against it a towering net is advancing.  Man falls before man beneath the spear.  Sobs and wails over gore-covered babes, just nursed at their mothers' breasts,<milestone ed="p" n="350" unit="line"/>resound.  Rape and pillage of those fleeing through the city are the deeds of one's own blood.  Plunderer joins up with plunderer; the empty-handed calls to the empty-handed, wishing to have a partner,<milestone ed="p" n="355" unit="line"/>each greedy for neither less nor equal share.  Reason exists for imagining what will come after this.<milestone ed="p" n="357" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>The earth's varied fruits, fallen to the ground, give pain, a bitter sight for the maid-servants.<milestone ed="p" n="360" unit="line"/>In jumbled confusion the abundant gifts of earth are carried away by reckless looting waves.  Young women, enslaved, suffer a new evil: a bed of misery, prize of the conquering enemy's spear, as though of a prospering husband&mdash;<milestone ed="p" n="365" unit="line"/>they can expect the coming of the nightly rite, which gives aid to tears and anguish!<note anchored="yes" n="368" resp="Smyth">In this highly condensed passage, contrasted with the note of the misery of an enforced union is an undertone of the happiness of a marriage of love. <foreign lang="greek">a)ndro/s</foreign> is at once &ldquo;man&rdquo; and &ldquo;husband,&rdquo; <foreign lang="greek">te/los</foreign> &ldquo;rite&rdquo; and &ldquo;consummation,&rdquo; <foreign lang="greek">e)lpi/s</foreign> &ldquo;expectation&rdquo; of sorrow and joy.</note><milestone ed="p" n="369" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>The Scout is seen approaching from one side; Eteocles from the other.</stage>
+<sp>
+<speaker>LEADER OF THE FIRST HALF-CHORUS</speaker>
+<p>The scout, I believe,<milestone ed="p" n="370" unit="line"/>is bringing some fresh news of the army to us, my friends, since the joints of his legs are hastily speeding as they carry him on his mission.</p></sp>
+<sp>
+<speaker>LEADER OF THE SECOND HALF-CHORUS</speaker>
+<p>And, indeed, here is our lord himself, the son of Oedipus, at the right moment to hear the messenger's report.  Haste makes his stride uneven, too.</p></sp>
+<sp>
+<speaker>Scout</speaker>
+<p><milestone ed="p" n="375" unit="line"/>It is with certain knowledge that I will give my account of the enemy's actions, how each man according to lot has been posted at the gates.  Tydeus is already storming opposite the Proetid gates; but the seer will not allow him to ford the Ismenus because the omens from the sacrifices are not favorable.<milestone ed="p" n="380" unit="line"/>Yet Tydeus, raging and eager for battle, shouts like a serpent hissing at high noon, and lashes skilled Oecles' son, with the taunt that he cringes in cowardice before death and battle.  With such cries he shakes three overshadowing plumes,<milestone ed="p" n="385" unit="line"/>his helmet's mane, while from under his shield, bells forged of bronze therein ring out a fearsome clang.  He has this haughty symbol on his shield: a well-crafted sky, ablaze with stars, and the brightness of the full moon shining in the center of the shield,<milestone ed="p" n="390" unit="line"/>the moon that is the most revered of the stars, the eye of night.  Raving so in his arrogant armor, he shouts beside the river-bank, craving battle, like some charger that fiercely champs at the bit as he waits in eagerness for the trumpet's war-cry.<milestone ed="p" n="395" unit="line"/>Whom will you send against him? Who will be capable of standing as our champion at the Proetid gate when its bars are loosened?</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>I would not tremble before any mere ornaments on a man.  Nor can signs and symbols wound and kill&mdash;crests and bell have no bite without the spear.<milestone ed="p" n="400" unit="line"/>And regarding this "night" which you describe on his shield, sparkling with heaven's stars&mdash;perhaps the folly of it might yield to one some prophetic understanding.  For should night fall on this man's eyes as he dies, then to its bearer this arrogant symbol<milestone ed="p" n="405" unit="line"/>would prove rightly and justly named; and it is against himself that he will have prophesied this outrageous violence.  Now as for me, against Tydeus I will station the trusty son of Astacus as defender of this gate, since he is full noble and<milestone ed="p" n="410" unit="line"/>reveres the throne of Honor and detests proud speech.  He is slow to act disgracefully, and he has no cowardly nature.  His race springs from the men sown of the dragon's teeth, from one of those whom Ares spared, and so Melanippus is truly born of our land.  Ares will decide the outcome with a throw of the dice;<milestone ed="p" n="415" unit="line"/>but Justice, his kin by blood, indeed sends this man forth to keep the enemy spear from the mother that gave him birth.<stage>Exit Melanippus.</stage><milestone ed="p" n="417" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>May the gods grant success to our champion, since he rises up in a just cause, to battle for his city! But I shudder<milestone ed="p" n="420" unit="line"/>to watch the bloody deaths of men cut down for the sake of their own people.<milestone ed="p" n="422" unit="card"/></p></sp>
+<sp>
+<speaker>Scout</speaker>
+<p>Yes, may the gods so grant success to this man.  Capaneus is stationed at the Electran gates, another giant of a man, greater than the one described before.<milestone ed="p" n="425" unit="line"/>But his boast is too proud for a mere human, and he makes terrifying threats against our battlements&mdash;which, I hope, chance will not fulfil! For he says he will utterly destroy the city with god's will or without it, and that not even conflict with Zeus, though it should fall before him in the plain, will stand in his way.<milestone ed="p" n="430" unit="line"/>The god's lightning and thunderbolts he compares to midday heat.  For his shield's symbol he has a man without armor bearing fire, and the torch, his weapon, blazes in his hands; and in golden letters he says &ldquo;I will burn the city.&rdquo;<milestone ed="p" n="435" unit="line"/>Against such a man make your dispatch&mdash;who will meet him in combat, who will stand firm without trembling before his boasts?</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Here too gain follows with interest from gain.<note anchored="yes" n="437" resp="Smyth">Tydeus' insolence (l. 387) was &ldquo;gain&rdquo; to our cause; to it is now added that of Capaneus, which is like money put out at interest (<foreign lang="greek">to/kos</foreign>).</note> The tongue proves in the end to be an unerring accuser of men's wicked thoughts.<milestone ed="p" n="440" unit="line"/>Capaneus makes his threats, ready to act, irreverent toward the gods, and giving his tongue full exercise in wicked glee, he, though a mere mortal, sends a loud and swollen boast to Zeus in heaven.  But I trust that the fire-bearing thunderbolt will justly come to him,<milestone ed="p" n="445" unit="line"/>and when it comes it will not be anything like the sun's mid-day heat.  And against him, even though he is a big talker, a man of fiery spirit, mighty Polyphontes, is stationed, a dependable sentinel<milestone ed="p" n="450" unit="line"/>with the good will of guardian Artemis and the other gods.  Now tell me about another one allotted to other gates!<stage>Exit Polyphontes.</stage><milestone ed="p" n="452" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Death to him who exults so arrogantly over the city! May the thunderbolt stop him before he leaps into my home<milestone ed="p" n="455" unit="line"/>and plunders me from my maiden chambers with his outrageous spear!<milestone ed="p" n="457" unit="card"/></p></sp>
+<sp>
+<speaker>Scout</speaker>
+<p>Now I will tell you about the man who next drew station at the gates.  The third lot leaped out of the upturned bronze helmet for Eteoclus,<milestone ed="p" n="460" unit="line"/>to hurl his band against the Neistan gates.  He whirls his horses as they snort through their bridles, eager to fall against the gate.  Their muzzles whistle in a barbarian way, filled with the breath of their haughty nostrils.<milestone ed="p" n="465" unit="line"/>His shield is decorated in great style: an armored man climbs a ladder's rungs to mount an enemy tower that he wants to destroy.  This one, too, shouts in syllables of written letters that even Ares could not hurl him from the battlements.<milestone ed="p" n="470" unit="line"/>Send a dependable opponent against this man, too, to keep the yoke of slavery from our city.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>I would send this man here, and with good fortune.<stage>Exit Megareus.</stage>Indeed, he has already been sent, his only boast in his hands, Megareus, Creon's seed, of the race of the sown- men.<milestone ed="p" n="475" unit="line"/>He will not withdraw from the gate in fear of the thunder of the horses' furious snorting; but either he will die and pay the earth the full price of his nurture, or will capture two men and the city on the shield, and then adorn his father's house with the spoils.<milestone ed="p" n="480" unit="line"/>Tell me about another's boasts and do not begrudge me the full tale!<milestone ed="p" n="481" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>O champion of my home, I pray that this man will have good fortune, and that there will be bad fortune for his enemies.  As they boast too much against the city in their frenzied mind,<milestone ed="p" n="485" unit="line"/>so, too, may Zeus the Requiter look on them in anger!<milestone ed="p" n="486" unit="card"/></p></sp>
+<sp>
+<speaker>Scout</speaker>
+<p>Another, the fourth, has the gate near Onca Athena and takes his stand with a shout, Hippomedon, tremendous in form and figure.  I shuddered in fear as he spun a huge disk&mdash;the circle of his shield, I mean&mdash;<milestone ed="p" n="490" unit="line"/>I cannot deny it.  The symbol-maker who put the design on his shield was no lowly craftsman: the symbol is Typhon, spitting out of his fire-breathing mouth a dark, thick smoke, the darting sister of fire.<milestone ed="p" n="495" unit="line"/>And the rim of the hollow-bellied shield is fastened all around with snaky braids.  The warrior himself has raised the war-cry and, inspired by Ares he raves for battle like a maenad, with a look to inspire fear.  We must put up a good defense against the assault of such a man,<milestone ed="p" n="500" unit="line"/>for already Rout is boasting of victory at the gate.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>First Onca Pallas, who dwells near the city, close by the gate, and who loathes outrageousness in a man, will fend him off like a dangerous snake away from nestlings.  Moreover, Hyperbius, Oenops' trusty son,<milestone ed="p" n="505" unit="line"/>is chosen to match him, man to man, as he is eager to search out his fate in the crisis that chance has wrought&mdash;neither in form, nor spirit nor in the wielding of his arms does he bear reproach.  Hermes<note anchored="yes" n="508" resp="Smyth">Hermes presided over contests and lots.</note> has appropriately pitted them against each other.  For the man is hostile to the man he faces in battle,<milestone ed="p" n="510" unit="line"/>and the gods on their shields also meet as enemies.  The one has fire-breathing Typhon, while father Zeus stands upright on Hyperbius' shield, his lightening bolt aflame in his hand.  And no one yet has seen Zeus conquered.<milestone ed="p" n="515" unit="line"/>Such then is the favor of the divine powers: we are with the victors, they with the vanquished, if Zeus in fact proves stronger in battle than Typhon.  And it is likely that the mortal adversaries will fare as do their gods; and so, in accordance with the symbol,<milestone ed="p" n="520" unit="line"/>Zeus will be a savior for Hyperbius since he resides on his shield.<stage>Exit Hyperbius.</stage><milestone ed="p" n="521" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>I am sure that Zeus' antagonist, since he has on his shield the unloved form of an earth-born deity, an image hated by both mortals and the long-lived gods,<milestone ed="p" n="525" unit="line"/>will drop his head in death before the gate.<milestone ed="p" n="526" unit="card"/></p></sp>
+<sp>
+<speaker>Scout</speaker>
+    <p>Let it be so! Next I describe the fifth man who is stationed at the fifth, the Northern gate opposite the tomb of Amphion, Zeus's son.  He swears by his spear which, in his confidence, he holds more to be revered than a god<milestone ed="p" n="530" unit="line"/>and more precious than his eyes, that he will sack the city of the Cadmeans in spite of Zeus.  He says this, the beautiful child of a mountain-bred mother&mdash;a warrior, half man, half boy, and his beard's first growth is just now advancing on his cheeks,<milestone ed="p" n="535" unit="line"/> his youth in first bloom, thick, upspringing hair.  But now he makes his advance with a savage heart and a terrifying look, not at all like the maidens he's named for.<note anchored="yes" n="536" resp="Smyth">Parthenopaeus &ldquo;maiden-faced.&rdquo; His mother Atalanta dwelt on Mt. Maenalus in <placeName key="tgn,7002735">Arcadia</placeName>.</note>Nor does he take his stand at the gate unboasting, but wields our city's shame on his bronze-forged<milestone ed="p" n="540" unit="line"/>shield, his body's circular defence, on which the Sphinx who eats men raw is cleverly fastened with bolts, her body embossed and gleaming.  She carries under her a single Cadmean, so that against this man chiefly our missiles will be hurled.<milestone ed="p" n="545" unit="line"/>He does not seem to have come to do any petty trading in the battle, nor to shame the making of his long journey&mdash;he is Parthenopaeus of <placeName key="tgn,7002735">Arcadia</placeName>.  Such is the man, and aiming to make full payment for the fine support given him in <placeName key="perseus,Argos">Argos</placeName>, his adopted land, he now threatens our fortifications&mdash;may God not fulfil his threats!</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p><milestone ed="p" n="550" unit="line"/>If only they would get from the gods what they wish for, because of those unholy boasts of theirs, then surely they would perish in utter ruin and misery.  There is a man for this one, too, whom you name an Arcadian, a man who does not boast, but who knows the thing to do&mdash;<milestone ed="p" n="555" unit="line"/>Actor, brother of him I named before.  He will not allow words that lack deeds to overrun his gate and increase fear, nor will he let in a man who carries on his hostile shield the image of the ravenous, detested beast.<milestone ed="p" n="560" unit="line"/>That beast outside his shield will blame the man who carries her into the gate, when she has taken a heavy beating beneath the city's walls.  If the gods are willing, what I speak may prove true!<stage>Exit Actor.</stage><milestone ed="p" n="563" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>His words penetrate to my heart, my hair stands on end<milestone ed="p" n="565" unit="line"/>as I hear the loud threats of these loud-boasting, impious men.  May the gods destroy them here in our land!<milestone ed="p" n="568" unit="card"/></p></sp>
+<sp>
+<speaker>Scout</speaker>
+<p>The sixth man I will name is of the highest moderation and a seer brave in combat, mighty Amphiaraus.<milestone ed="p" n="570" unit="line"/>Stationed at the Homoloid gate, he repeatedly rebukes mighty Tydeus with evil names &ldquo;Murderer, maker of unrest in the city, principal teacher of evils to the Argives, summoner of vengeance's Curse, servant of Slaughter,<milestone ed="p" n="575" unit="line"/>counselor to Adrastus in these evil plans.&rdquo; And next, with eyes looking upward, he addressed your own brother, mighty Polynices who shares your blood, and called him by name, dwelling twice upon its latter part.<note anchored="yes" n="579" resp="Smyth">Polynices &ldquo;much-strife&rdquo; (<foreign lang="greek">polu/ nei=kos</foreign>). <foreign lang="greek">e)ndatou/menos</foreign>, literally &ldquo;separating,&rdquo; i.e. dwelling with emphasis on each separate part of the name.</note> These were his words:<milestone ed="p" n="580" unit="line"/>&ldquo;Will such a deed as this be pleasing to the gods, fine to hear of and to relate to those in the future&mdash;that you sacked the city of your ancestors and your native gods and launched a foreign army against them?  What justice is it to drain dry the font of your existence?<note anchored="yes" n="584" resp="Smyth"><foreign lang="greek">mhtro\s phgh/</foreign> strictly means &ldquo;source, which consists in a mother.&rdquo; Having used this expression for &ldquo;mother, who is the source of life,&rdquo; the poet accommodates the verb to the literal sense of <foreign lang="greek">phgh/</foreign> rather than use a verb of slaying which would have suited the personal object.</note><milestone ed="p" n="585" unit="line"/>And how shall your fatherland, captured by the spear for the sake of your ambition, be won over to your cause? As for me, I will enrich this earth, a seer interred beneath enemy soil.  Let us fight! I anticipate no dishonorable death.&rdquo;<milestone ed="p" n="590" unit="line"/>So the seer spoke as untroubled he held his all-bronze shield.  No symbol was fixed to his shield's circle.  For he does not wish to appear the bravest, but to be the bravest, as he harvests the fruit of his mind's deep furrow, where his careful resolutions grow.<milestone ed="p" n="595" unit="line"/>I advise you to send wise and brave opponents against him.  He who reveres the gods is to be feared.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p> Ah, the pity of fate's omen when it makes a just man associate with the irreverent! In all things, nothing is more evil<milestone ed="p" n="600" unit="line"/>than evil partnership. Its fruit should not be gathered in: the field of recklessness yields a harvest of death.  For it may be that a pious man, embarked shipboard with sailors hot for some crime, perishes along with the sort of men hated by the gods;<milestone ed="p" n="605" unit="line"/>or, a man, though upright himself, when among fellow-citizens who hate all strangers and neglect the gods, may fall undeserving into the same trap as they, and be subdued, struck by the scourge of God that strikes all alike.</p>
+    <p>Just so the seer, Oecles' son,<milestone ed="p" n="610" unit="line"/>although a moderate, just, noble, reverent man and a great prophet, mixes with impious, rash-talking men against his own judgment, men stretching out in a procession that is long to retrace,<note anchored="yes" n="614" resp="Smyth">The march of the army from distant <placeName key="perseus,Argos">Argos</placeName> is compared to a lengthened-out procession.</note> and, if it is Zeus's will, he will be be dragged down in ruin along with them.</p>
+<p><milestone ed="p" n="615" unit="line"/>So then, I expect that he will not even charge the gates: not because he lacks courage or is weak-willed, but because he knows that he must meet his end in battle, if the prophecies of Loxias are to come to fruition&mdash;the god usually either holds silent or speaks to the point.<milestone ed="p" n="620" unit="line"/>Just the same, I will station a man against him, mighty Lasthenes, a gate-keeper who hates foreigners.  He has the wisdom of an old man, but his body is at its prime: his eyes are quick, and he does not let his hand delay for his spear to seize what is left exposed by the shield.<milestone ed="p" n="625" unit="line"/>Still it is God's gift when mortals succeed.<stage>Exit Lasthenes.</stage><milestone ed="p" n="626" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Gods, hear our just prayers and fulfil them, that the city may have good fortune! Turn aside the evils suffered in war onto those who invade our land! May Zeus strike them<milestone ed="p" n="630" unit="line"/>with his thunderbolt outside the walls and slay them!<milestone ed="p" n="631" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Scout</speaker>
+<p>Last I will tell of the seventh champion, him at the seventh gate,<note anchored="yes" n="8631" resp="Smyth">The ominous &ldquo;seventh&rdquo; is substituted for &ldquo;the Highest&rdquo; (<foreign lang="greek">*(/uyistai</foreign>).</note> your own brother, and of what fate he prays for and calls down on the city.  His prayer is that after he mounts the battlements and is proclaimed king in the land,<milestone ed="p" n="635" unit="line"/>and shouts the paian in triumph over its capture, he may then meet you in combat, and once he kills you, that he may perish at your side, or, if you survive, make you pay with banishment in the same way as you dishonored him with exile.  Mighty Polynices shouts such threats and<milestone ed="p" n="640" unit="line"/>invokes his native gods, the gods of his fatherland, to watch over his prayers in every way.  He holds a shield, a perfect circle, newly-made, with a double symbol cleverly fastened on it:<milestone ed="p" n="645" unit="line"/>a woman modestly walking in the fore leads a man in arms made, it appears, of hammered gold.  She claims to be Justice, as the lettering indicates, &ldquo;I will bring this man back and he will have his city and move freely in his father's halls.&rdquo;</p>
+<p>Such are the inventions fixed to their shields.<milestone ed="p" n="650" unit="line"/>&lsqb;Quickly determine yourself whom you think it best to send.&rsqb; Know that you will find no fault with me in the substance of my report, but you yourself determine on what course to pilot the city.<stage>Exit.</stage></p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>O my family sired by Oedipus, steeped in tears,<milestone ed="p" n="655" unit="line"/> driven to madness by the gods and by the gods detested! Ah, now indeed our father's curses are brought to fulfillment.  But neither weeping nor wailing is proper for me now, lest a grief even harder to bear is brought to life.  As for him whose name is so very fitting, Polynices, we shall know soon enough what the symbol on his shield will accomplish,<milestone ed="p" n="660" unit="line"/>whether the babbling letters shaped in gold on his shield, together with his mind's wanderings, will bring him back.  If Justice, Zeus's maiden daughter, were attending his actions and his thoughts, this might be so.  But as it is, neither when he escaped the darkness of his mother's womb,<milestone ed="p" n="665" unit="line"/>nor in childhood, nor at any point in his early manhood, nor when the beard first thickened on his cheek, did Justice acknowledge him and consider him worthy.  And even now I do not think that she is standing by his side to aid the destruction of his fatherland.<milestone ed="p" n="670" unit="line"/>Indeed, Justice would truly be false to her name, if she should ally herself with a man so utterly audacious in his plans.  Trusting in this fact I will go and stand against him&mdash;I myself in person.  Who else has a more just claim? Commander against commander, brother against brother,<milestone ed="p" n="675" unit="line"/>enemy against enemy, I will take my stand. Quick, bring my greaves to protect against spears and stones!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>No, son of Oedipus, most dear of our men, do not be like in temperament to him who is called by such an evil name. It is enough that Cadmeans<milestone ed="p" n="680" unit="line"/>are advancing to close combat with Argives.  That bloodshed can be expiated.  But when men of the same blood kill each other as you desire, the pollution from this act never grows old.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>If indeed a man should suffer evil, let it be without dishonor, since that is the only benefit for the dead.<milestone ed="p" n="685" unit="line"/>But you cannot speak of any glory for happenings that are at once evil and held in dishonor.<milestone ed="p" n="686" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>For what are you so eager, child? Do not let mad lust for battle fill your soul and carry you away.  Reject this evil passion while it is still young.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Since God hastens the deed so urgently,<milestone ed="p" n="690" unit="line"/>let the whole race of Laius, hated by Phoebus, be swept on the wind to Cocytus' destined flood!<milestone ed="p" n="692" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>A savage desire eats away at you, drives you to murder, blood-sacrifice proscribed by divine law, whose only fruit is bitterness.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p><milestone ed="p" n="695" unit="line"/>True, my own beloved father's hateful, ruinous curse hovers before my dry, unweeping eyes, and informs me of benefit preceding subsequent death.<note anchored="yes" n="697" resp="Smyth">Literally &ldquo;gain coming before death that comes later.&rdquo; The curse whispers &ldquo;slay him, then be slain yourself.&rdquo;</note><milestone ed="p" n="698" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>No, do not let yourself be driven to it.  You will not be called a coward if you retain life nobly.  Will not the avenging Erinys in her dark aegis<milestone ed="p" n="700" unit="line"/>leave your house, when the gods receive sacrifice from your hands?</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>The gods, it seems, have already banished us from their care, yet they admire the grace we offer them when we perish.  So then, why should we cringe and shy away from deadly fate?<milestone ed="p" n="705" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="705" unit="line"/>It is only at this moment that death stands close by you, for the divine spirit may change its purpose even after a long time and come on a gentler wind.  But now it still seethes.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Yes, the curses of Oedipus have made it seethe in fury.<milestone ed="p" n="710" unit="line"/>Too true were the phantoms in my sleeping visions, predicting the division of our father's wealth!<milestone ed="p" n="712" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus</speaker>
+<p>Obey us women, although you do not like to.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>Recommend something that can be accomplished; your request need not be lengthy.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Do not yourself take the road to the seventh gate!</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p><milestone ed="p" n="715" unit="line"/>Let me assure you, you will not blunt my sharpened purpose with words.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And yet any victory, even a cowardly one, is nonetheless held in honor by God.</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>A soldier must not embrace that maxim.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>But are you willing to harvest the blood of your own brother?</p></sp>
+<sp>
+<speaker>Eteocles</speaker>
+<p>When it is the gods who give you evils, you cannot flee them.<stage>Exit.</stage><milestone ed="p" n="720" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="720" unit="line"/>I shudder in terror at the goddess who lays ruin to homes, a goddess unlike other divinities, who is an unerring omen of evil to come.  I shudder that the Erinys invoked by the father's prayer will fulfil the over-wrathful
+<milestone ed="p" n="725" unit="line"/>curses that Oedipus spoke in madness.  This strife that will destroy his sons drives the Erinys to fulfillment.<milestone ed="p" n="727" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>A stranger distributes their inheritance, a Chalybian immigrant from <placeName key="tgn,6005315">Scythia</placeName>, a bitter divider of wealth,<milestone ed="p" n="730" unit="line"/>savage-hearted iron that apportions land for them to dwell in, as much as they can occupy in death when they have lost their share in these wide plains.<milestone ed="p" n="734" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>But when both have died, each killing<milestone ed="p" n="735" unit="line"/>the other in mutual slaughter, and the earth's dust has swallowed the black streams of their blood, who could offer sacrifice that might make purification? Who could cleanse them of their pollution?<milestone ed="p" n="740" unit="line"/>O, the new troubles of this house mixed with its evils of before!<milestone ed="p" n="742" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Indeed I speak of the ancient transgression, now swift in its retribution.  It remains even into the third generation,<milestone ed="p" n="745" unit="line"/>ever since Laius&mdash;in defiance of Apollo who, at his Pythian oracle at the earth's center, said three times that the king would save his city if he died without offspring&mdash;<milestone ed="p" n="750" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="750" unit="line"/>Ever since he, overcome by the thoughtlessness of his longing, fathered his own death, the parricide Oedipus, who sowed his mother's sacred field, where he was nurtured,<milestone ed="p" n="755" unit="line"/>and endured a bloody crop.  Madness united the frenzied bridal pair.<milestone ed="p" n="758" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Now it is as if a sea of evils pushes its swell onward.  As one wave sinks, the sea raises up another,<milestone ed="p" n="760" unit="line"/>triple-crested, which crashes around the city's stern.  In between a narrow defense stretches&mdash;no wider than a wall.  I fear that the city will be overthrown along with its kings.<milestone ed="p" n="765" unit="line"/><milestone ed="p" n="766" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>For the compensation is heavy when curses uttered long ago are fulfilled, and once the deadly curse has come into existence, it does not pass away.  When the fortune of seafaring merchants has grown too great,<milestone ed="p" n="770" unit="line"/>it must be thrown overboard.<milestone ed="p" n="772" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>For whom have the gods and divinities that share their altar and the thronging assembly of men ever admired<milestone ed="p" n="775" unit="line"/>so much as they honored Oedipus then, when he removed that deadly, man-seizing plague from our land?<milestone ed="p" n="778" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p>But when, his sanity regained, he grew miserable in his wretched<milestone ed="p" n="780" unit="line"/>marriage, then carried away by his grief and with maddened heart he accomplished a double evil.  With the hand that killed his father he struck out his eyes, which were dearer to him than his children.<milestone ed="p" n="785" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="785" unit="line"/>Next he launched brutal, wrathful words against the sons he had bred&mdash;ah! curses from a bitter tongue&mdash;that wielding iron in their hands they would one day divide his property.<milestone ed="p" n="790" unit="line"/>So now I tremble in fear that the swift-running Erinys will bring this to fulfillment.<milestone ed="p" n="792" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Messenger.</stage>
+<sp>
+<speaker>Messenger</speaker>
+<p>Take heart, you daughters who were nurtured by your mother.  Our city has escaped the yoke of slavery; the boasts of the powerful men have fallen to the ground.<milestone ed="p" n="795" unit="line"/>The city enjoys fair weather and has taken on no water even though it has been buffeted by many waves.  The walls hold, and we have fortified the gates with champions fully capable in single-handed combat.  For the most part all is well, at six of the gates.<milestone ed="p" n="800" unit="line"/>But lord Apollo, the reverend leader of the seventh,<note anchored="yes" n="800" resp="Smyth">An obscure designation of Apollo, often referred to the tradition that he was born on the seventh day.  The adjective looks like a military title, but divisions of seven were unknown.</note> took for himself the seventh gate, accomplishing upon the children of Oedipus the ancient follies of Laius.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What novel happening will further affect the city?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>The city is saved, but the kings born of the same seed&mdash;</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="805" unit="line"/>Who? What did you say? I am out of my mind with fear of your report.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Control yourself now and listen.  The sons of Oedipus&mdash;</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Ah, miserable me, I am prophet of these evils.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>In truth, beyond all question, struck down in the dust&mdash;</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Are they lying out there? This is hard to bear, but say it just the same.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="810" unit="line"/>The men are dead, murdered by their very own hands.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Then with hands so fraternal did they each kill the other together?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Yes, so all too equal was their destiny to them both.  All alone, in truth, it consumes the ill-fated family.  We have cause in this for joy and tears&mdash;<milestone ed="p" n="815" unit="line"/>the one because the city fares well, the other because the leaders, the two generals, have divided the whole of their property with hammered Scythian steel.  They will possess only that land they take in burial, swept away as they were in accordance with their father's curses.<milestone ed="p" n="820" unit="line"/>&lsqb;The city is saved, but through their mutual murder the earth has drunk the blood of the two kings born of the same seed.&rsqb;<stage>Exit.</stage><milestone ed="p" n="822" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>O great Zeus and the divine powers that guard our city, you who indeed protect these walls of Cadmus,<milestone ed="p" n="825" unit="line"/>should I rejoice and shout in triumph for the unharmed safety of the city, or should I lament our leaders in war,<milestone ed="p" n="830" unit="line"/> now wretched, ill-fated and childless?  Indeed, in exact accordance with their name and as &ldquo;men of much strife,&rdquo; they have perished through their impious intent.<milestone ed="p" n="833" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>O black curse on the family, Oedipus' curse, now brought to fulfillment! A chill of horror falls about my heart.<milestone ed="p" n="835" unit="line"/>In frenzy like a maenad I make my song for the grave as I hear of their corpses dripping with blood, how they died through the workings of cruel fate.  This song of the spear, sung to the flute, is indeed born of an ill omen.<note anchored="yes" n="839" resp="Smyth">This passage has also been taken to deprecate as inauspicious the previous ode (720 ff.) because it was sung during the combat of the brothers: &ldquo;It was for a tomb I framed my song when, inspired by frenzy, I heard (prophetically) . . . Ill-omened, indeed, the contest of the spear to such an accompaniment.&rdquo;</note><milestone ed="p" n="840" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="840" unit="line"/>The curseful utterance of their father has done its work and not fallen short.  Laius' plans, made in disobedience, have kept their force.  I am anxious for our city; divine decrees do not lose their edge.<stage>The funeral procession with the bodies of the brothers comes into view.</stage></p></sp></div2>
+<div2 type="anapests">
+<sp n="Chorus">
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="845" unit="line"/>O bringers of immense grief, you have done in this a deed beyond belief, yet lamentable troubles have indeed come.</p>
+<milestone ed="p" n="848" unit="card"/>
+<p>The events are self-evident; the messenger's report is plain to see.  Twofold is our distress&mdash;double disaster<milestone ed="p" n="850" unit="line"/>of kindred murder, this double suffering has come to fulfillment.  What shall I say? What else indeed than that sorrow born of sorrows surround this house's hearth?</p>
+    <p>But sail upon the wind of lamentation, my friends,<milestone ed="p" n="855" unit="line"/>and about your head row with your hands' rapid stroke in conveyance of the dead,<note anchored="yes" n="855" resp="Smyth">As the souls of the brothers are now being conveyed across Acheron in Charon's boat, the Chorus in imagination aid their passage by the ritual of mourning.  Their song of lamentation stands for the wind, the beating of their heads by their hands are the strokes of the oars.  Contrasted with the grim vessel that transports all spirits to the sunless land of Hades, is the ship that goes to the festival at <placeName key="perseus,Delos">Delos</placeName>, the &ldquo;clearly-seen&rdquo; island, the land of Apollo, god of light and health.</note> that stroke which always causes the sacred slack-sailed, black-clothed ship to pass over Acheron to the unseen land where Apollo does not walk,<milestone ed="p" n="860" unit="line"/>the sunless land that receives all men.</p>
+<p>But here come Antigone and Ismene to do their bitter duty, the dirge over their brothers both.  With all sincerity, I think, will they<milestone ed="p" n="865" unit="line"/>pour forth their fitting grief from their lovely, deep-bosomed breasts.  But it is right for us, before their singing, to cry out the awful hymn of the Erinys and thereafter<milestone ed="p" n="870" unit="line"/>sing the hated victory song of Hades.</p>
+<p>Ah, sisters most unfortunate in your kin of all women who clasp their girdle about their robes, I weep, I groan, and there is no feigning in the shrill cries that come straight from my heart.
+</p></sp>
+<milestone ed="p" n="875" unit="card"/></div2>
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="875" unit="line"/>Ah, pity you senseless men, whom friends could not persuade and evils could not wear down! To your misery you have captured your father's house with the spear.</p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>To their misery, indeed,<milestone ed="p" n="880" unit="line"/>they found a miserable death in the outrage done their house.<milestone ed="p" n="881" unit="card"/></p>
+<p>Ah, you brothers who were poised to cast over the walls of your home and looked&mdash;to your sorrow&mdash;for sole rule, now you have been<milestone ed="p" n="885" unit="line"/>reconciled by the iron sword.</p>
+<p>The great Erinys of your father Oedipus has fulfilled it all truly.<milestone ed="p" n="888" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Pierced through your left sides, pierced indeed&mdash;<milestone ed="p" n="890" unit="line"/>through those sides that were born from one womb! Ah, strange ones! Ah, the curses that demand death for death!</p>
+<p><milestone ed="p" n="895" unit="line"/>Right through, as you say, were they struck, with blows to house and body by an unspeakable wrath and by the doom, called down by their father's curse, which they shared without discord.<milestone ed="p" n="900" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="900" unit="line"/>Groaning spreads throughout the city, too: the walls groan; the land that loves its sons groans.  But for those who come after them there remains their property, on which account the strife<milestone ed="p" n="905" unit="line"/>of those terrible-fated men came to fulfillment in death.</p>
+<p>In their haste to anger they apportioned their property so that each has an equal share.  To those who loved them their reconciler is not blameless,<milestone ed="p" n="910" unit="line"/>nor is Ares agreeable.<milestone ed="p" n="911" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Under strokes of iron they are come to this, and under strokes of iron there await them&mdash;what, one might perhaps ask&mdash;shares in their father's tomb.<note anchored="yes" n="914" resp="Smyth">As the brothers were to divide the substance of their dead father, their equal inheritance was the tomb. <foreign lang="greek">laxai/</foreign> means both &ldquo;apportioning of possessions&rdquo; and &ldquo;digging.&rdquo;</note></p>
+<p><milestone ed="p" n="915" unit="line"/>Our shrill, heart-rending wail goes with them&mdash;product of lamentation and pain felt of its own accord&mdash;a wail from a distressed mind, joyless, pouring forth tears from a heart<milestone ed="p" n="920" unit="line"/>that wastes away as I weep for these two princes.<milestone ed="p" n="922" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Over these poor men it can be said that they did much to harm our citizens and also the ranks of all the foreigners<milestone ed="p" n="925" unit="line"/>who died in abundance in the fighting.</p>
+<p>Ill-fated beyond all women who are called by the name of mother is she who bore them.  After she made her own child her own husband,<milestone ed="p" n="930" unit="line"/>she gave birth to these sons, who have thus ended their lives with kindred hands giving death for death.<milestone ed="p" n="933" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Of the same seed, in truth, they were utterly destroyed in unloving divisions,<milestone ed="p" n="935" unit="line"/>in maddened discord, in the ending of their strife.</p>
+<p>Their hatred has ceased.  Their life has been mingled in the blood-soaked earth.  Now truly their blood is one.<milestone ed="p" n="940" unit="line"/>Ruthless is that which resolved their strife, the stranger from across the sea, sharpened iron rushed from the fire.  Ruthless, too, was Ares, the cruel divider of their property, who made their father's curses come true.<milestone ed="p" n="945" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="945" unit="line"/>They hold in misery their allotted portion of god-given sorrows.  Beneath their corpses there will be boundless wealth of earth.</p>
+<p>Ah, you have wreathed<milestone ed="p" n="950" unit="line"/>your race with many troubles! In the final outcome the Curses have raised their piercing cry, now that the family is turned to flight in all directions.  A trophy to Ruin now stands at the gate<milestone ed="p" n="955" unit="line"/>where they struck each other and where, having conquered them both, the divine power stayed its hand.<milestone ed="p" n="957" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>The following antiphonal dirge is sung by the two sisters&mdash;Antigone standing by the bier of Polynices, Ismene by that of Eteocles.</stage>
+<sp>
+<speaker>Antigone</speaker>
+<p>You were struck as you struck.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>You died as you killed.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>By the spear you killed&mdash;</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>By the spear you died&mdash;</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="960" unit="line"/>Your deed made you wretched.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>You suffering made you wretched.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Let the lament come.</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p>Let the tears come.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>You are laid out for mourning&mdash;</p></sp>
+<sp>
+<speaker>Ismene</speaker>
+<p><milestone ed="p" n="965" unit="line"/>Though you did the killing.<milestone ed="p" n="966" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Antigone</speaker>
+<p>Ah me!</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Ah me!</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>My heart is mad with wailing.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>My heart groans within me.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>Ah, the grief, brother all-lamentable.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p><milestone ed="p" n="970" unit="line"/>And you also, brother all-wretched.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>You perished at the hands of your nearest and dearest.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>And you killed your nearest and dearest.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>Twofold to tell of&mdash;</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Twofold to look upon&mdash;</p></sp>
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="975" unit="line"/>Are these sorrows so close to those.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Fraternal sorrows stand close by fraternal sorrows.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>O Fate, giver of grievous troubles, and awful shade of Oedipus, black Erinys, you are indeed a mighty force.<milestone ed="p" n="980" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="980" unit="line"/>Ah, me</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Ah, me</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>Sorrows hard to behold&mdash;</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>He showed me when he returned from exile.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>But he made no return after he had killed.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>He was saved, but lost his life.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="985" unit="line"/>He lost it, all too truly.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>And took this one's life away.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>Wretched family!</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Wretched suffering!</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>Kindred sorrows full of groans!</p></sp>
+<sp><speaker>Ismene</speaker>
+<p><milestone ed="p" n="990" unit="line"/>Sorrows steeped in tripled griefs.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>O Fate, giver of grievous troubles, and awful shade of Oedipus, black Erinys, you are indeed a mighty force.<milestone ed="p" n="994" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Antigone</speaker>
+<p>Now you know of the Erinys by experience&mdash;</p></sp>
+<sp><speaker>Ismene</speaker>
+<p><milestone ed="p" n="995" unit="line"/>And you are made aware no later&mdash;</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>When you came back to our city,</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Yes, to face him with your spear.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>A tale of destruction!</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Destruction to look upon!</p></sp>
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="1000" unit="line"/>Oh, the grief&mdash;</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Oh, the evils&mdash;</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>For home and land.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Above all for me,</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>And more also for me.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p><milestone ed="p" n="1005" unit="line"/>Ah I pity your grievous suffering, my king.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>Pity for you both, most lamentable of all men.</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>You were possessed by delusion.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p>Where shall we lay them in the earth?</p></sp>
+<sp><speaker>Ismene</speaker>
+<p>Ah, where their honor is greatest.</p></sp>
+<sp><speaker>Antigone</speaker>
+<p><milestone ed="p" n="1010" unit="line"/>To lie beside their father, a cause for him of sorrow.<milestone ed="p" n="1011" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter a Herald.</stage>
+<sp>
+<speaker>Herald</speaker>
+<p>It is my duty to announce the will and decrees of the council on behalf of the people of this our Cadmean city.</p>
+<p>It is decreed, first, that Eteocles here, on account of his goodwill towards the city, is to be buried in a kindly grave in its soil;<milestone ed="p" n="1015" unit="line"/>for hating the enemy he chose death in the city and driven by piety towards his ancestral shrines, he died without reproach where it is an honor for the young to die.  This is how I was commanded to speak regarding him.  But as for his brother, it is decreed that this corpse of Polyneices<milestone ed="p" n="1020" unit="line"/>is to be cast out of the city unburied to be torn by dogs, since he would have been the destroyer of the land of the Cadmeans, if one of the gods had not used his brother's spear to prevent him.  Even in death he will retain the stain of his guilt against his fathers' gods, whom he dishonored<milestone ed="p" n="1025" unit="line"/>when he launched a foreign army against the city to take it.  For this reason it is decreed that he will receive his reward by being buried without honor beneath the winged birds; and that no labor of the hands shall attend him by building up a burial mound nor shall anyone offer him reverence in shrill-sung laments.  <milestone ed="p" n="1030" unit="line"/>He is to be refused the honor of being carried in funeral procession by his loved ones.  Such is the decree of the Cadmean authorities.<milestone ed="p" n="1032" unit="card"/></p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>I at least will say something to the rulers of the Cadmeans: even if no one else is willing to share in burying him, I will bury him alone and risk the peril<milestone ed="p" n="1035" unit="line"/>of burying my own brother.  Nor am I ashamed to act in defiant opposition to the rulers of the city.  A thing to be held in awe is the common womb from which we were born, of a wretched mother and unfortunate father.  Therefore, my soul, willingly share his evils, even though they are unwilling,<milestone ed="p" n="1040" unit="line"/>and live in kindred spirit with the dead.  No hollow-bellied wolves will tear his flesh&mdash;let no one &ldquo;decree&rdquo; that! Even though I am a woman, I will myself find the means to give him burial and a grave,<milestone ed="p" n="1045" unit="line"/>carrying the earth in the fold of my linen robe.  With my own hands I will cover him over&mdash;let no one &ldquo;decree&rdquo; it otherwise.  Take heart, I will have the means to do it.<milestone ed="p" n="1048" unit="card"/></p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>I forbid you to act thus in violation of the city.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>I forbid you to make useless proclamations to me.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p><milestone ed="p" n="1050" unit="line"/>And yet a citizenry that has escaped evil can be harsh.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Let it be harsh! This man will not be unburied.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>What! Will you honor with burial a man whom the city detests?</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>For a long time now the gods have ceased to hold him in honor.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>No, he was honored until he put this land in jeopardy.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p><milestone ed="p" n="1055" unit="line"/>He suffered evil and gave evil in return.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>But this act was against all the citizens, not only one man.</p></sp>
+<sp>
+<speaker>Antigone</speaker>
+<p>Discord is the last of the gods to close an argument.  I will bury him.  Put an end to your big talk.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>Well then, follow your own rash plan, but I forbid it.<stage>Exit.</stage></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>Ah, misery!<milestone ed="p" n="1060" unit="line"/>O Erinyes, far-famed destroyers of families, goddesses of death who have thus laid ruin to the family of Oedipus, digging it up from the roots! What will happen to me? What should I do? What plan shall I devise?  How can I have the heart neither to weep for you<milestone ed="p" n="1065" unit="line"/>nor escort you to your tomb? But I am afraid and turn away in terror of the citizens.  You, at least, Eteocles, will have many mourners, while he, wretched man, departs without lamentation<milestone ed="p" n="1070" unit="line"/>and has a dirge sung only by one sister.  Now who could comply with that?</p></sp>
+<sp>
+<speaker>First Half-Chorus</speaker>
+<p>Let the city take action or not take action against those who lament for Polynices.  We, at all events, will go and<milestone ed="p" n="1075" unit="line"/> bury him with her, following the funeral procession.  For this grief is shared by all our race, and the city approves as just different things at different times.</p></sp>
+<sp>
+<speaker>Second Half-Chorus</speaker>
+<p>We will go with this other corpse, as the city and justice, too,  approves.<milestone ed="p" n="1080" unit="line"/>For after the blessed gods and powerful Zeus, he it was who saved the city of the Cadmeans from being capsized and flooded by a wave of foreign men&mdash;he beyond all others.<stage>Exeunt omnes.</stage></p></sp></div2>
+</div1></body></text>
+</TEI.2>

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Cim." type="work">Cimon</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;<funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+         </titleStmt>
+         <extent>about 64Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Cim."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990536</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/90</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Proofread by Ted Armstrong.</item>
+         </change>
+         <change>
+            <date>8/91</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Revise DTDs and recheck texts.</item>
+         </change>
+         <change>
+            <date>8/92</date>
+            <respStmt>
+               <name>DAS</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Removed highlighted text, cleaned up notes and citations,
+					and changed chapters to DIV2's.</item>
+         </change>
+         <change>
+            <date>10/22/92</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Glued all Plutarch files together,
+					put in HEAD tags to title them.</item>
+         </change>
+         <change>
+            <date>9/12/97</date>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Made conformant with TEI P3.</item>
+         </change>
+         <change>
+            <date/>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>	
+					$Log: plut.cim_eng.xml,v $
+					Revision 1.4  2010-11-30 18:28:11  balmas01
+					getting rid of angle brackets in commit comments
+
+					Revision 1.3  2010-11-19 13:47:01  balmas01
+					Normalizing quote q and lb
+
+					Revision 1.2  2009-12-15 20:52:49  rsingh04
+					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
+
+					Revision 1.1  2009/12/07 22:05:56  rsingh04
+					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
+
+					Revision 1.4  2009/06/19 19:09:10  lcerrato
+					fixed bad bibls
+
+					Revision 1.3  2009/01/23 22:09:51  rsingh04
+					small fixes
+
+					Revision 1.2  2009/01/21 22:20:01  rsingh04
+					now validates and entities fixed
+
+					Revision 1.2  2001/09/28 19:34:07  lcerrato
+					cleaned up quotes, bibls and notes
+					
+					Revision 1.1  2001/09/27 21:56:40  lcerrato
+					adding new tags for DE, ISBN, etc.
+					
+					Revision 1.4  2000/03/04 20:35:11  dasmith
+					Added separate funder entity to TEI header.
+					
+					Revision 1.3  1999/07/28 18:27:56  dasmith
+					Added text to REFSDECL.
+					
+					Revision 1.2  1999/07/09 23:15:27  textgod
+					Converted to TEI-conformant SGML.
+				</item>
+         </change>
+         <change>
+            <date>9/01</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>removed from group file, retagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>CIMON</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Peripoltas the seer, who conducted King Opheltas with his subjects from Thessaly into Boeotia, left a posterity there which was in high repute for many generations.  The greater part of them settled in Chaeroneia, which was the first city they won from the Barbarians.  Now the most of this posterity were naturally men of war and courage, and so were consumed away in the Persian invasions and the contests with the Gauls, because they did not spare themselves.
+				<milestone n="2" unit="section"/>
+				There remained, however, an orphan boy, Damon by name, Peripoltas by surname, who far surpassed his fellows in beauty of body and in vigor of spirit, though otherwise he was untrained and of a harsh disposition. 
+			</p>
+         <p>With this Damon, just passed out of boy's estate, the Roman commander of a cohort that was wintering in Chaeroneia fell enamored, and since he could not win him over by solicitations and presents, he was plainly bent on violence, seeing that our native city was at that time in sorry plight, and neglected because of her smallness and poverty.
+				<milestone n="3" unit="section"/>
+				Violence was just what Damon feared, and since the solicitation itself had enraged him, he plotted against the man, and enlisted against him sundry companions,&mdash;a few only, that they might escape notice.  There were sixteen of them in all, who smeared their faces with soot one might, heated themselves with wine, and at daybreak fell upon the Roman while he was sacrificing in the market-place, slew him, together with many of his followers, and departed the city.
+				<milestone n="4" unit="section"/>
+				During the commotion which followed, the council of Chaeroneia met and condemned the murderers to death, and this was the defence which the city afterwards made to its Roman rulers.  But in the evening, while the magistrates were dining together, as the custom is, Damon and his men burst into the town hall, slew them, and again fled the city.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>Now about that time<note resp="ed" place="unspecified" anchored="yes"> 74 B.C. (?)</note> it chanced that Lucius Lucullus passed that way, on some errand, with an army.  Halting on his march and investigating matters while they were still fresh in mind, he found that the city was in no wise to blame, but rather had itself also suffered wrong.
+				<milestone n="6" unit="section"/>
+				So he took its garrison of soldiers and led them away with him.  Then Damon, who was ravaging the country with predatory forays and threatening the city, was induced by embassies and conciliatory decrees of the citizens to return, and was appointed gymnasiarch.  But soon, as he was anointing himself in the vapor-bath, he was slain.  And because for a long while thereafter certain phantoms appeared in the place, and groans were heard there, as our Fathers tell us, the door of the vapor-bath was walled up, and to this present time the neighbors think it the source of alarming sights and sounds.
+				<milestone n="7" unit="section"/>
+				Descendants of Damon's family (and some are still living, especially near Stiris in Phocis, Aeolians in speech) are called 
+				<q direct="unspecified">Asbolomeni,</q> or 
+				<q direct="unspecified">Besooted,</q> because Damon smeared himself with soot before he went forth to do his deed of murder.
+				<milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But the Orchomenians, who were neighbors and rivals of the Chaeroneians, hired a Roman informer to cite the city by name, as though it were an individual person, and prosecute it for the murder of the Roman soldiers who had been slain by Damon.  The trial was held before the praetor of Macedonia (the Romans were not yet sending praetors to Greece),
+				<milestone n="2" unit="section"/>
+				and the city's advocates invoked the testimony of Lucullus.  Lucullus, when the praetor wrote to him, testified to the truth of the matter, and so the city escaped capital condemnation.  Accordingly, the people who at that time were saved by him erected a marble statue of Lucullus in the market-place beside that of Dionysus. And we, though many generations removed from him, think that his favour extends even down to us who are now living;
+				<milestone n="3" unit="section"/>
+				and since we believe that a portrait, which reveals character and disposition is far more beautiful than one which merely copies form and feature, we shall incorporate this man's deeds into our parallel lives, and we shall rehearse them truly.  The mere mention of them is sufficient favour to show him; and as a return for his truthful testimony he himself surely would not deign to accept a false and garbled narrative of his career.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>We demand of those who would paint fair and graceful features that, in case of any slight imperfection therein, they shall neither wholly omit it nor yet emphasize it, because the one course makes the portrait ugly and the other unlike its original.  In like manner, since it is difficult, nay rather perhaps impossible, to represent a man's life as stainless and pure, in its fair chapters we must round out the truth into fullest semblance;
+				<milestone n="5" unit="section"/>
+				but those transgressions and follies by which, owing to passion, perhaps, or political compulsion, a man's career is sullied, we must regard rather as shortcomings in some particular excellence than as the vile products of positive baseness, and we must not all too zealously delineate them in our history, and superfluously too, but treat them as though we were tenderly defending human nature for producing no character which is absolutely good and indisputably set towards virtue.
+				<milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>On looking about for some one to compare with Lucullus, we decided that it must be Cimon. Both were men of war, and of brilliant exploits against the Barbarians, and yet they were mild and beneficent statesmen, in that they gave their countries unusual respite from civil strifes, though each one of them set up martial trophies and won victories that were famous.
+				<milestone n="2" unit="section"/>
+				No Hellene before Cimon and no Roman before Lucullus carried his wars into such remote lands, if we leave out of our account the exploits of Heracles and Dionysus, and whatever credible deeds of Perseus against the Aethiopians or Medes and Armenians, or of Jason, have been brought down in the memory of man from those early times to our own.
+				<milestone n="3" unit="section"/>
+				Common also in a way to both their careers was the incompleteness of their campaigns. Each crushed, but neither gave the death blow to his antagonist.  But more than all else, the lavish ease which marked their entertainments and hospitalities, as well as the ardour and laxity of their way of living, was conspicuous alike in both.  Possibly we may omit still other resemblances, but it will not be hard to gather them directly from our story.
+				<milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Cimon was the son of Miltiades by Hegesipyle, a woman of Thracian stock, daughter of King Olorus, as it is stated in the poems of Archelaus and Melanthius addressed to Cimon himself.  That explains how it was that the father of Thucydides the historian&mdash;and Thucydides was connected with the family of Cimon&mdash;was also an Olorus, who referred his name back to that of the common ancestor, and also how it was that Thucydides had gold mines in Thrace.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 4.105">Thuc. 4.105</bibl>
+            </note>
+				        <milestone n="2" unit="section"/>
+				And it is said that Thucydides died in Skapte Hyle, a place in Thrace, having been murdered there; but his remains were brought to Attica, and his monument is shown among those of Cimon's family, hard by the tomb of Elpinice, Cimon's sister.  However, Thucydides belonged to the deme of Halimus, the family of Miltiades to that of Laciadae.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Now Miltiades, who had been condemned to pay a fine of fifty talents and confined till payment should be made, died in prison, and Cimon, thus left a mere stripling with his sister who was a young girl and unmarried, was of no account in the city at first.  He had the bad name of being dissolute and bibulous, and of taking after his grandfather Cimon, who, they say, because of his simplicity, was dubbed Coalemus, or Booby.
+				<milestone n="4" unit="section"/>
+				And Stesimbrotus the Thasian, who was of about Cimon's time, says that he acquired no literary education, nor any other liberal and distinctively Hellenic accomplishment; that he lacked entirely the Attic cleverness and fluency of speech; that in his outward bearing there was much nobility and truthfulness; that the fashion of the man's spirit was rather Peloponnesian,
+				
+				<quote rend="blockquote">
+					          <l>Plain, unadorned, in a great crisis brave and true,</l>
+				        </quote>
+				
+				as Euripides says of Heracles,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Nauck, <title>Trag. Graec. Frag.</title>, 473.</bibl>
+            </note>, a citation which we may add to what Stesimbrotus wrote.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>While he was still a youth he was accused of improper intercourse with his sister.  And indeed in other cases too they say that Elpinice was not very decorous, but that she had improper relations also with Polygnotus the painter, and that it was for this reason that, in the Peisianacteum, as it was then called, but now the Painted Colonnade, when he was painting the Trojan women, he made the features of Laodice a portrait of Elpinice.
+				<milestone n="6" unit="section"/>
+				Now Polygnotus was not a mere artisan, and did not paint the stoa for a contract price, but gratis, out of zeal for the welfare of the city, as the historians relate, and as Melanthius the poet testifies after this fashion:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>He at his own lavish outlay the gods' great fanes, and the market</l>
+					          <l>Named Cecropia, adorned; demigods' valor his theme.</l>
+				        </quote>
+				
+				        <milestone n="7" unit="section"/>
+			      </p>
+         <p>Still, there are some who say that Elpinice did not live with Cimon in secret intercourse, but openly rather, as his wedded wife, because, on account of her poverty, she could not get a husband worthy of her high lineage; but that when Callias, a wealthy Athenian, fell in love with her, and offered to pay into the state treasury the fine which had been imposed upon her father, she consented herself, and Cimon freely gave Elpinice to Callias to wife.
+				<milestone n="8" unit="section"/>
+			      </p>
+         <p>However, it is perfectly apparent that Cimon was given to the love of women.  Asteria, of a Salaminian family, and a certain Mnestra are mentioned by the poet Melanthius, in a sportive elegy addressed to Cimon, as wooed and won by him.
+				<milestone n="9" unit="section"/>
+				And it is clear that he was even too passionately attached to his lawful wife, Isodice, the daughter of Euryptolemus and grand-daughter of Megacles, and that he was too sorely afflicted at her death, if we may judge from the elegy addressed to him for the mitigation of his grief.  This was composed by the naturalist Archelaus, as Panaetius the philosopher thinks, and his conjecture is chronologically possible.
+				<milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>All other traits of Cimon's character were admirable and noble.  Neither in daring was he inferior to Miltiades, nor in sagacity to Themistocles, and it is admitted that he was a juster man than either, and that while not one whit behind them in the good qualities of a soldier, he was inconceivably their superior in those of a statesman, even when he was still young and untried in war.
+				<milestone n="2" unit="section"/>
+				When the Medes made their invasion, and Themistocles was trying to persuade the people to give up their city, abandon their country, make a stand with their fleet off Salamis, and fight the issue at sea, most men were terrified at the boldness of the scheme; but lo! Cimon was first to act, and with a gay mien led a procession of his companions through the Cerameicus up to the Acropolis, to dedicate to the goddess there the horse's bridle which he carried in his hands, signifying thus that what the city needed then was not knightly prowess but sea-fighters.
+				<milestone n="3" unit="section"/>
+				After he had dedicated his bridle, he took one of the shields which were hung up about the temple, addressed his prayers to the goddess, and went down to the sea, whereat many were first made to take heart. 
+			</p>
+         <p>He was also of no mean presence, as Ion the poet says, but tall and stately, with an abundant and curly head of hair.  And since he displayed brilliant and heroic qualities in the actual struggle at Salamis,<note resp="ed" place="unspecified" anchored="yes"> 480 B.C.</note> he soon acquired reputation and good will in the city. Many thronged to him and besought him to purpose and perform at once what would be worthy of Marathon.
+				<milestone n="4" unit="section"/>
+				So when he entered politics the people gladly welcomed him, and promoted him, since they were full to surfeit of Themistocles, to the highest honors and offices in the city, for he was engaging and attractive to the common folk by reason of his gentleness and artlessness.  But it was Aristides, son of Lysimachus, who more than any one else furthered his career, for he saw the fine features of his character, and made him, as it were, a foil to the cleverness and daring of Themistocles.
+				<milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After the flight of the Medes from Hellas, Cimon was sent out as a commander,<note resp="ed" place="unspecified" anchored="yes"> 478-477 B.C.</note> before the Athenians had obtained their empire of the sea, and while they were still under the leadership of Pausanias and the Lacedaemonians.  During this campaign, the citizen-soldiers he furnished on expeditions were always admirably disciplined and far more zealous than any others;
+				<milestone n="2" unit="section"/>
+				and again, while Pausanias was holding treasonable conference with the Barbarians, writing letters to the King, treating the allies with harsh arrogance, and displaying much wantonness of power and silly pretension, Cimon received with mildness those who brought their wrongs to him, treated them humanely, and so, before men were aware of it, secured the leadership of Hellas, not by force of arms, but by virtue of his address and character.
+				<milestone n="3" unit="section"/>
+				For most of the allies, because they could not endure the severity and disdain of Pausanias, attached themselves to Cimon and Aristides, who had no sooner won this following than they sent also to the Ephors and told them, since Sparta had lost her prestige and Hellas was in confusion, to recall Pausanias.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>It is said that a maiden of Byzantium, of excellent parentage, Cleonice by name, was summoned by Pausanias for a purpose that would disgrace her. Her parents influenced by constraint and fear, abandoned their daughter to her fate, and she, after requesting the attendants before his chamber to remove the light, in darkness and silence at length drew near the couch on which Pausanias was asleep, but accidentally stumbled against the lamp-holder and upset it.
+				<milestone n="5" unit="section"/>
+				Pausanias, startled by the noise, drew the dagger which lay at his side, with the idea that some enemy was upon him, and smote and felled the maiden.  After her death in consequence of the blow, she gave Pausanias no peace, but kept coming into his sleep by night in phantom form, wrathfully uttering this verse:&mdash;
+				<quote rend="blockquote">
+					          <l>Draw thou nigh to thy doom; 'tis evil for men to be wanton.</l>
+				        </quote>
+				At this outrage the allies were beyond measure incensed, and joined Cimon in forcing Pausanias to give up the city.
+				<milestone n="6" unit="section"/>
+				Driven from Byzantium, and still harassed by the phantom, as the story goes, he had recourse to the ghost-oracle of Heracleia, and summoning up the spirit of Cleonice, besought her to forgo her wrath.  She came into his presence and said that he would soon cease from his troubles on coming to Sparta, thus darkly intimating, as it seems, his impending death.  At any rate, this tale is told by many.
+				<milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But Cimon, now that the allies had attached themselves to him, took command of them and sailed to Thrace,<note resp="ed" place="unspecified" anchored="yes"> 476-475 B.C.</note> for he heard that men of rank among the Persians and kinsmen of the King held possession of Eion, a city on the banks of the Strymon, and were harassing the Hellenes in that vicinity.
+				<milestone n="2" unit="section"/>
+				First he defeated the Persians themselves in battle and shut them up in the city; then he expelled from their homes above the Strymon the Thracians from whom the Persians had been getting provisions, put the whole country under guard, and brought the besieged to such straits that Butes, the King's general, gave up the struggle, set fire to the city, and destroyed with it his family, his treasures, and himself.
+				<milestone n="3" unit="section"/>
+				And so it was that though Cimon took the city, he gained no other memorable advantage thereby, since most of its treasures had been burned up with the Barbarians; but the surrounding territory was very fertile and fair, and this he turned over to the Athenians for occupation.  Wherefore the people permitted him to dedicate the stone <title>Hermae</title>, on the first of which is the inscription:&mdash;
+				<milestone n="4" unit="section"/>
+				        <quote rend="blockquote" type="inscription">
+					          <l>Valorous-hearted as well were they who at Eion fighting,</l>
+					          <l>Facing the sons of the Medes, Strymon's current beside,</l>
+					          <l>Fiery famine arrayed, and gore-flecked Ares, against them,</l>
+					          <l>Thus first finding for foes that grim exit,&mdash;despair;</l>
+            </quote>
+				and on the second:&mdash;
+				<quote rend="blockquote" type="inscription">
+					          <l>Unto their leaders reward by Athenians thus hath been given;</l>
+					          <l>Benefits won such return, valorous deeds of the brave.</l>
+					          <l>All the more strong at the sight will the men of the future be eager,</l>
+					          <l>Fighting for commonwealth, war's dread strife to maintain;</l>
+            </quote>
+				        <milestone n="5" unit="section"/>
+				and on the third:&mdash;
+				<quote rend="blockquote" type="inscription">
+					          <l>With the Atridae of old, from this our city, Menestheus</l>
+					          <l>Led his men to the plain Trojan called and divine.</l>
+					          <l>He, once Homer asserted, among well-armoured Achaeans,</l>
+					          <l>Marshaller was of the fight, best of them all who had come.</l>
+					          <l>Thus there is naught unseemly in giving that name to Athenians;</l>
+					          <l>Marshallers they both of war and of the vigor of men.</l>
+            </quote>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Although these inscriptions nowhere mentioned Cimon by name, his contemporaries held them to be a surpassing honor for him.  Neither Themistocles nor Miltiades achieved any such, nay, when the latter asked for a 
+				crown of olive merely, Sophanes the Deceleian rose up in the midst of the assembly and protested.  His speech was ungracious, but it pleased the people of that day.  
+				<q direct="unspecified">When,</q> said he, 
+				<q direct="unspecified">thou hast fought out alone a victory over the Barbarians, then demand to be honored alone.</q>
+				        <milestone n="2" unit="section"/>
+				Why, then, were the people so excessively pleased with the achievement of Cimon?  Perhaps it was because when the others were their generals they were trying to repel their enemies and so avert disaster; but when he led them they were enabled to ravage the land of their enemies with incursions of their own, and acquired fresh territories for settlement, not only Eion itself, but also Amphipolis.
+				<milestone n="3" unit="section"/>
+				They settled Scyros too, which Cimon seized for the following reason.  Dolopians were living on the island, but they were poor tillers of the soil. So they practised piracy on the high sea from of old, and finally did not withhold their hands even from those who put into their ports and had dealings with them, but robbed some Thessalian merchants who had cast anchor at Ctesium, and threw them into prison.
+				<milestone n="4" unit="section"/>
+				When these men had escaped from bondage and won their suit against the city at the Amphictyonic assembly, the people of Scyros were not willing to make restitution, but called on those who actually held the plunder to give it back.  The robbers, in terror, sent a letter to Cimon, urging him to come with his fleet to seize the city, and they would give it up to him.
+				<milestone n="5" unit="section"/>
+				In this manner Cimon got possession of the island, drove out the Dolopians and made the Aegean a free sea. 
+			</p>
+         <p>On learning that the ancient Theseus, son of Aegeus, had fled in exile from Athens to Scyros, but had been treacherously put to death there, through fear, by Lycomedes the king, Cimon eagerly sought to discover his grave.
+				<milestone n="6" unit="section"/>
+				For the Athenians had once received an oracle bidding them bring back the bones of Theseus to the city and honor him as became a hero, but they knew not where he lay buried, since the Scyrians would not admit the truth of the story, nor permit any search to be made.  Now, however, Cimon set to work with great ardour, discovered at last the hallowed spot, had the bones bestowed in his own trireme, and with general pomp and show brought them back to the hero's own country after an absence of about four hundred years.  This was the chief reason why the people took kindly to him.
+				<milestone n="7" unit="section"/>
+			      </p>
+         <p>But they also cherished in kindly remembrance of him that decision of his in the tragic contests which became so famous.  When Sophocles, still a young man, entered the lists with his first plays, Apsephion the Archon, seeing that the spirit of rivalry and partisanship ran high among the spectators, did not appoint the judges of the contest as usual by lot, but when Cimon and his fellow-generals advanced into the theater and made the customary libation to the god, he would not suffer them to depart, but forced them to take the oath and sit as judges, being ten in all, one from each tribe.
+				<milestone n="8" unit="section"/>
+				So, then, the contest, even because of the unusual dignity of the judges, was more animated than ever before.  But Sophocles came off victorious and it is said that Aeschylus, in great distress and indignation thereat, lingered only a little while at Athens, and then went off in anger to Sicily.  There he died also, and is buried near Gela.
+				<milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Ion says that, coming from Chios to Athens as a mere stripling, he was once a fellow-guest with Cimon at a dinner given by Laomedon, and that over the wine the hero was invited to sing, and did sing very agreeably, and was praised by the guests as a cleverer man than Themistocles.  That hero, they said, declared that he had not learned to sing, nor even to play the lyre, but knew how to make a city great and rich.<note resp="ed" place="unspecified" anchored="yes"> Cf. <bibl n="Plut. Them. 2.3">Plut. Them. 2.3</bibl>.</note>
+				        <milestone n="2" unit="section"/>
+				Next, Ion says, as was natural over the cups, the conversation drifted to the exploits of Cimon, and as his greatest deeds were being recounted, the hero himself dwelt at length on one particular stratagem which he thought his shrewdest.  Once, he said, when the Athenians and their allies had taken many barbarian prisoners at Sestos and Byzantium and turned them over to him for distribution, he put into one lot the persons of the captives, and into another the rich adornments of their bodies, and his distribution was blamed as unequal.
+				<milestone n="3" unit="section"/>
+				But he bade the allies choose one of the lots, and the Athenians would be content with whichever one they left.  So, on the advice of Herophytus the Samian to choose Persian wealth rather than Persians, the Allies took the rich adornments for themselves, and left the prisoners for the Athenians.  At the time Cimon came off with the reputation of being a ridiculous distributor, since the allies had their gold anklets and armlets and collars and jackets and purple robes to display, while the Athenians got only naked bodies ill-trained for labour.
+				<milestone n="4" unit="section"/>
+				But a little while after, the friends and kinsmen of the captives came down from Phrygia and Lydia and ransomed every one  of them at a great price, so that Cimon had four months' pay and rations for his fleet, and besides that, much gold from the ransoms was left over for the city.
+				<milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>And since he was already wealthy, Cimon lavished the revenues from his campaign, which he was thought to have won with honor from the enemy, to his still greater honor, on his fellow-citizens.  He took away the fences from his fields, that strangers and needy citizens might have it in their power to take fearlessly of the fruits of the land; and every day he gave a dinner at his house&mdash;simple, it is true, but sufficient for many, to which any poor man who wished came in, and so received a maintenance which cost him no effort and left him free to devote himself solely to public affairs.
+				<milestone n="2" unit="section"/>
+				But Aristotle says<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristot. Ath. Pol. 27.3">Aristot. Const. Ath. 27.3</bibl>
+            </note> that it was not for all Athenians, but only for his own demesmen, the Laciadae, that he provided a free dinner.  He was constantly attended by young comrades in fine attire, each one of whom, whenever an elderly citizen in needy array came up, was ready to exchange raiment with him.  The practice made a deep impression.
+				<milestone n="3" unit="section"/>
+				These same followers also carried with them a generous sum of money, and going up to poor men of finer quality in the market-place, they would quietly thrust small change into their hands.  To such generosity as this Cratinus seems to have referred in his <title>Archilochi</title>, with the words:&mdash;
+				<milestone n="4" unit="section"/>
+				        <quote rend="blockquote">
+					          <l>Yes, I too hoped, Metrobius, I, the public scribe,</l>
+					          <l>Along with man divine, the rarest host that lives,</l>
+					          <l>In every way the best of all Hellenic men,</l>
+					          <l>With Cimon, feasting out in joy a sleek old age,</l>
+					          <l>To while away the remnant of my life.  But he</l>
+					          <l>Has gone before and left me.</l>
+				        </quote>
+				
+				        <milestone n="5" unit="section"/>
+				And again, Georgias the Leontine says that Cimon made money that he might spend it, and spent it that he might he honored for it.  And Critias, one of the thirty tyrants, prays in his elegies that he may have
+				
+				<quote rend="blockquote">
+					          <l>the wealth of the Scopadae, the great-mindedness of Cimon,</l>
+					          <l>and the victories of Arcesilaus of Lacedaemon.</l>
+				        </quote>
+				
+			      </p>
+         <p>And yet we know that Lichas the Spartan became famous among the Hellenes for no other reason than that he entertained the strangers at the boys' gymnastic festival; but the generosity of Cimon surpassed even the hospitality and philanthropy of the Athenians of olden time.
+				<milestone n="6" unit="section"/>
+				For they&mdash;and their city is justly very proud of it&mdash;spread abroad among the Hellenes the sowing of grain and the lustral uses of spring waters, and taught mankind who knew it not the art of kindling fire.  But he made his home in the city a general public residence for his fellow citizens, and on his estates in the country allowed even the stranger to take and use the choicest of the ripened fruits, with all the fair things which the seasons bring.  Thus, in a certain fashion, he restored to human life the fabled communism of the age of Cronus,&mdash;the golden age.
+				<milestone n="7" unit="section"/>
+				Those who slanderously said that this was flattery of the rabble and demagogic art in him, were refuted by the man's political policy, which was aristocratic and Laconian. He actually opposed Themistocles when he exalted the democracy unduly, as Aristides also did.  Later on he took hostile issue with Ephialtes, who, to please the people, tried to dethrone the Council of the Areiopagus;
+				<milestone n="8" unit="section"/>
+				and though he saw all the rest except Aristides and Ephialtes filling their purses with the gains from their public services, he remained unbought and unapproached by bribes, devoting all his powers to the state, without recompense and in all purity, through to the end. 
+			</p>
+         <p>It is told, indeed, that one Rhoesaces, a Barbarian who had deserted from the King, came to Athens with large moneys, and being set upon fiercely by the public informers, fled for refuge to Cimon, and deposited at his door two platters, one filled with silver, the other with golden Darics.  Cimon, when he saw them, smiled,
+				<milestone n="9" unit="section"/>
+				and asked the man whether he preferred to have Cimon as his hireling or his friend, and on his replying, 
+				<q direct="unspecified">As my friend,</q> 
+				        <q direct="unspecified">Well then,</q> said Cimon, 
+				<q direct="unspecified">Take this money with thee and go thy way, for I shall have the use of it when I want it if I am thy friend.</q>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>The allies continued to pay their assessments, but did not furnish men and ships according to allotment, since they were soon weary of military service, and had no need of war, but a great desire to till their land and live at their ease.  The Barbarians were gone and did not harass them, so they neither manned their ships nor sent out soldiers.  The rest of the Athenian generals tried to force them to do this, and by prosecuting the delinquents and punishing them, rendered their empire burdensome and vexatious.
+				<milestone n="2" unit="section"/>
+				But Cimon took just the opposite course when he was general, and brought no compulsion to bear on a single Hellene, but accepted money from those who did not wish to go out on service, and ships without crews, and so suffered the allies, caught with the bait of their own ease, to stay at home and become tillers of the soil an unwarlike merchants instead of warriors, and all through their foolish love of comfort.  On the other hand, he made great numbers of the Athenians man their ships, one crew relieving another, and imposed on them the toil of his expeditions, and so in a little while, by means of the very wages which they got from the allies, made them lords of their own paymasters.
+				<milestone n="3" unit="section"/>
+				For those who did no military service became used to fearing and flattering those who were continually voyaging, and for ever under arms and training, and practising, and so, before they knew it, they were tributary subjects instead of allies.
+				<milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>And surely there was no one who humbled the Great King himself, and reduced his haughty spirit, more than Cimon.  For he did not let him go quietly away from Hellas, but followed right at his heels, as it were, and before the Barbarians had come to a halt and taken breath, he sacked and overthrew here, or subverted and annexed to the Hellenes there, until Asia from Ionia to Pamphylia was entirely cleared of Persian arms.
+				<milestone n="2" unit="section"/>
+				Learning that the generals of the King were lurking about Pamphylia with a great army and many ships, and wishing to make them afraid to enter at all the sea to the west of the Chelidonian isles, he set sail from Cnidus and Triopium<note resp="ed" place="unspecified" anchored="yes"> About 467 B.C.</note> with two hundred triremes.  These vessels had been from the beginning very well constructed for speed and maneuvering by Themistocles; but Cimon now made them broader, and put bridges between their decks, in order that with their numerous hoplites they might be more effective in their onsets.
+				<milestone n="3" unit="section"/>
+				Putting in at Phaselis, which was a Hellenic city, but refused to admit his armament or even to abandon the King's cause, he ravaged its territory and assaulted its walls.  But the Chians, who formed part of his fleet and were of old on friendly terms with the people of Phaselis, laboured to soften Cimon's hostility, and at the same time, by shooting arrows over the walls with little documents attached, they conveyed messages of their success to the men of Phaselis.
+				<milestone n="4" unit="section"/>
+				So finally Cimon made friends with them on condition that they should pay ten talents and join him in his expedition against the Barbarians. 
+			</p>
+         <p>Now Ephorus says that Tithraustes was commander of the royal fleet, and Pherendates of the infantry; but Callisthenes says that it was Ariomandes, the son of Gobryas, who, as commander-in-chief of all the forces, lay at anchor with the fleet off the mouth of the Eurymedon, and that he was not at all eager to fight with the Hellenes, but was waiting for eighty Phoenician ships to sail up from Cyprus.
+				<milestone n="5" unit="section"/>
+				Wishing to anticipate their arrival, Cimon put out to sea, prepared to force the fighting if his enemy should decline an engagement.  At first the enemy put into the river, that they might not be forced to fight; but when the Athenians bore down on them there, they sailed out to meet them.  They had six hundred ships, according to Phanodemus, three hundred and fifty, according to Ephorus. Whatever the number, nothing was achieved by them on the water which was worthy of such a force,
+				<milestone n="6" unit="section"/>
+				but they straightway put about and made for shore, where the foremost of them abandoned their ships and fled for refuge to the infantry which was drawn up near by; those who were overtaken were destroyed with their ships.  Whereby also it is plain that the Barbarian ships which went into action were very numerous indeed, since, though many, of course, made their escape and many were destroyed, still two hundred were captured by the Athenians.
+				<milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>When the enemy's land forces marched threateningly down to the sea, Cimon thought it a vast undertaking to force a landing and lead his weary Hellenes against an unwearied and many times more numerous foe.  But he saw that his men were exalted by the impetus and pride of their victory, and eager to come to close quarters with the Barbarians, so he landed his hoplites still hot with the struggle of the sea-fight, and they advanced to the attack with shouts and on the run.
+				<milestone n="2" unit="section"/>
+				The Persians stood firm and received the onset nobly, and a mighty battle ensued, wherein there fell brave men of Athens, who were foremost in public office and eminent.  But after a long struggle the Athenians routed the Barbarians with slaughter and then captured them and their camp, which was full of all sorts of treasure.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>But Cimon, though like a powerful athlete he had brought down two contests in one day, and though he had surpassed the victory of Salamis with an infantry battle, and that of Plataea with a naval battle, still went on competing with his own victories.  Hearing that the eighty Phoenician triremes which were too late for the battle had put in at Hydrus,<note resp="ed" place="unspecified" anchored="yes"> Hydrus is the name in the MSS., but no such place is known.  Syedra is the most probable correction.</note> he sailed thither with all speed, while their commanders as yet knew nothing definite about the major force, but were still in distrustful suspense.
+				<milestone n="4" unit="section"/>
+				For this reason they were all the more panic-stricken at his attack, and lost all their ships. Most of their crews were destroyed with the ships. This exploit so humbled the purpose of the King that he made the terms of that notorious peace, by which he was to keep away from the Hellenic sea-coast as far as a horse could travel in a day, and was not to sail west of the Cyanean and Chelidonian isles with armored ships of war.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>And yet Callisthenes denies that the Barbarian made any such terms, but says he really acted as he did through the fear which that victory inspired, and kept so far aloof from Hellas that Pericles with fifty, and Ephialtes with only thirty, ships sailed beyond the Chelidonian isles without encountering any navy of the Barbarians.
+				<milestone n="6" unit="section"/>
+				But in the decrees collected by Craterus there is a copy of the treaty in its due place, as though it had actually been made.  And they say that the Athenians also built the altar of Peace to commemorate this event, and paid distinguished honors to Callias as their ambassador. 
+			</p>
+         <p>By the sale of the captured spoils the people was enabled to meet various financial demands, and especially it constructed the southern wall of the Acropolis with the generous resources obtained from that expedition.
+				<milestone n="7" unit="section"/>
+				And it is said that, though the building of the long walls, called 
+				<q direct="unspecified">legs,</q> was completed afterwards, yet their first foundations, where the work was obstructed by swamps and marshes, were stayed up securely by Cimon, who dumped vast quantities of rubble and heavy stones into the swamps, meeting the expenses himself.
+				<milestone n="8" unit="section"/>
+				He was the first to beautify the city with the so-called 
+				<q direct="unspecified">liberal</q> and elegant resorts which were so excessively popular a little later, by planting the market-place with plane trees, and by converting the Academy from a waterless and arid spot into a well watered grove, which he provided with clear running-tracks and shady walks.
+				<milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now there were certain Persians who would not abandon the Chersonese, but called in Thracians from the North to help them, despising Cimon, who had sailed out from Athens with only a few triremes all told.<note resp="ed" place="unspecified" anchored="yes"> 466 B.C.</note> But he sallied out against them with his four ships and captured their thirteen, drove out the Persians, overwhelmed the Thracians, and turned the whole Chersonese over to his city for settlement.
+				<milestone n="2" unit="section"/>
+				And after this, when the Thasians were in revolt from Athens,<note resp="ed" place="unspecified" anchored="yes"> 465 B.C.</note> he defeated them in a sea-fight, captured thirty-three of their ships, besieged and took their city, acquired their gold mines on the opposite mainland for Athens, and took possession of the territory which the Thasians controlled there. 
+			</p>
+         <p>From this base he had a good opportunity, as it was thought, to invade Macedonia and cut off a great part of it, and because he would not consent to do it, he was accused of having been bribed to this position by King Alexander, and was actually prosecuted, his enemies forming a coalition against him.<note resp="ed" place="unspecified" anchored="yes"> 463 B.C.</note>
+				        <milestone n="3" unit="section"/>
+				In making his defence before his judges he said he was no proxenus of rich Ionians and Thessalians, as others were, to be courted and paid for their services, but rather of Lacedaemonians, whose temperate simplicity he lovingly imitated, counting no wealth above it, but embellishing the city with the wealth which he got from the enemy.
+				<milestone n="4" unit="section"/>
+				In mentioning this famous trial Stesimbrotus says that Elpinice came with a plea for Cimon to the house of Pericles, since he was the most ardent accuser, and that he smiled and said, 
+				<q direct="unspecified">Too old, too old, Elpinice, to meddle with such business.</q>  But at the trial he was very gentle with Cimon, and took the floor only once in accusation of him, as though it were a mere formality.
+				<milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Well then, Cimon was acquitted at this trial. And during the remainder of his political career, when he was at home, he mastered and constrained the people in its onsets upon the nobles, and in its efforts to wrest all office and power to itself; but when he sailed away again on military service,<note resp="ed" place="unspecified" anchored="yes"> 462 B.C.  See <bibl n="Plut. Cim. 17">Plut. Cim. 17</bibl>.</note> the populace got completely beyond control.  They confounded the established political order of things and the ancestral practices which they had formerly observed,
+				<milestone n="2" unit="section"/>
+				and under the lead of Ephialtes they robbed the Council of the Areiopagus of all but a few of the cases in its jurisdiction.  They made themselves masters of the courts of justice, and plunged the city into unmitigated democracy, Pericles being now a man of power and espousing the cause of the populace.  And so when Cimon came back home, and in his indignation at the insults heaped upon the reverend council, tried to recall again its jurisdiction and to revive the aristocracy of the times of Cleisthenes, they banded together to denounce him, and tried to inflame the people against him,
+				<milestone n="3" unit="section"/>
+				renewing the old slanders about his sister and accusing him of being a Spartan sympathizer.  It was to these calumnies that the famous and popular verses of Eupolis about Cimon had reference:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>He was not base, but fond of wine and full of sloth,</l>
+					          <l>and oft he'ld sleep in Lacedaemon, far from home,</l>
+					          <l>And leave his Elpinic&eacute; sleeping all alone.</l>
+				        </quote>
+				
+				But if, though full of sloth and given to tippling, he yet took so many cities and won so many victories, it is clear that had he been sober and mindful of his business, no Hellene either before or after him would have surpassed his exploits.
+				<milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>It is true indeed that he was from the first a philo-Laconian.  He actually named one of his twin sons Lacedaemonius, and the other Eleius,&mdash; the sons whom a woman of Cleitor bare him, as Stesimbrotus relates, wherefore Pericles often reproached them with their maternal lineage.  But Diodorus the Topographer says that these, as well as the third of Cimon's sons, Thessalus, were born of Isodice, the daughter of Euryptolemus, the son of Megacles.
+				<milestone n="2" unit="section"/>
+				And he was looked upon with favour by the Lacedaemonians, who soon were at enmity with Themistocles, and therefore preferred that Cimon, young as he was, should have the more weight and power in Athens.  The Athenians were glad to see this at first, since they reaped no slight advantage from the good will which the Spartans showed him.  While their empire was first growing, and they were busy making alliances, they were not displeased that honor and favour should be shown to Cimon.
+				<milestone n="3" unit="section"/>
+				He was the foremost Hellenic statesman, dealing gently with the allies and acceptably with the Lacedaemonians.  But afterwards, when they became more powerful, and saw that Cimon was strongly attached to the Spartans, they were displeased thereat.  For on every occasion he was prone to exalt Lacedaemon to the Athenians, especially when he had occasion to chide or incite them.  Then, as Stesimbrotus tells us, he would say, 
+				<q direct="unspecified">But the Lacedaemonians are not of such a sort.</q>
+				        <milestone n="4" unit="section"/>
+				In this way he awakened the envy and hatred of his fellow-citizens. 
+			</p>
+         <p>At any rate, the strongest charge against him arose as follows.  When Archidamus, the son of Zeuxidamus, was in the fourth year of his reign at Sparta,<note resp="ed" place="unspecified" anchored="yes"> 464 B.C.</note> a greater earthquake than any before reported rent the land of the Lacedaemonians into many chasms, shook Taygetus so that sundry peaks were torn away, and demolished the entire city with the exception of five houses.  The rest were thrown down by the earthquake.
+				<milestone n="5" unit="section"/>
+				It is said that while the young men and youths were exercising together in the interior of the colonnade, just a little before the earthquake, a hare made its appearance, and the youths, all anointed as they were, in sport dashed out and gave chase to it, but the young men remained behind, on whom the gymnasium fell, and all perished together.  Their tomb, even down to the present day, they call Seismatias.
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>Archidamus at once comprehended from the danger at hand that which was sure to follow, and as he saw the citizens trying to save the choicest valuables out of their houses, ordered the trumpet to give the signal of an enemy's attack, in order that they might flock to him at once under arms.  This was all that saved Sparta at that crisis.  For the Helots hurriedly gathered from all the country round about with intent to despatch the surviving Spartans.
+				<milestone n="7" unit="section"/>
+				But finding them arrayed in arms, they withdrew to their cities and waged open war, persuading many Perioeci also so to do.  The Messenians besides joined in this attack upon the Spartans. 
+			</p>
+         <p>Accordingly, the Lacedaemonians sent Pericleidas to Athens with request for aid, and Aristophanes introduces him into a comedy as 
+				<q direct="unspecified">sitting at the altars, pale of face, in purple cloak, soliciting an army.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristoph. Lys. 1137">Aristoph. Lys. 1137</bibl> ff.</note>
+				        <milestone n="8" unit="section"/>
+				But Ephialtes opposed the project, and besought the Athenians not to succour nor restore a city which was their rival, but to let haughty Sparta lie to be trodden under foot of men.  Whereupon, as Critias says, Cimon made his country's increase of less account than Sparta's interest, and persuaded the people to go forth to her aid with many hoplites. And Ion actually mentions the phrase by which, more than by anything else, Cimon prevailed upon the Athenians, exhorting them 
+				<q direct="unspecified">not to suffer Hellas to be crippled, nor their city to be robbed of its yoke-fellow.</q>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After he had given aid to the Lacedaemonians, he was going back home with his forces through the Isthmus of Corinth, when Lachartus upbraided him for having introduced his army before he had conferred with the citizens.  
+				<q direct="unspecified">People who knock at doors,</q> said he, 
+				<q direct="unspecified">do not go in before the owner bids them</q>; to which Cimon replied, 
+				<q direct="unspecified">And yet you Corinthians, O Lachartus, did not so much as knock at the gates of Cleonae and Megara, but hewed them down and forced your way in under arms, demanding that everything be opened up to the stronger.</q>  Such was his boldness of speech to the Corinthian in an emergency, and he passed on through with his forces.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Once more the Lacedaemonians summoned the Athenians to come to their aid against the Messenians and Helots in Ithome, and the Athenians went, but their dashing boldness awakened fear, and they were singled out from all the allies and sent off as dangerous conspirators.  They came back home in a rage, and at once took open measures of hostility against the Laconizers, and above all against Cimon. Laying hold of a trifling pretext, they ostracised him for ten years.<note resp="ed" place="unspecified" anchored="yes"> 461 B.C.</note> That was the period decreed in all cases of ostracism.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>It was during this period that the Lacedaemonians, after freeing the Delphians from the Phocians, encamped at Tanagra on their march back home.<note resp="ed" place="unspecified" anchored="yes"> 457 B.C.</note> Here the Athenians confronted them, bent on fighting their issue out, and here Cimon came in arms, to join his own Oeneid tribe, eager to share with his fellow-citizens in repelling the Lacedaemonians.
+				<milestone n="4" unit="section"/>
+				But the Council of the Five Hundred learned of this and was filled with fear, since Cimon's foes accused him of wishing to throw the ranks into confusion, and then lead the Lacedaemonians in an attack upon the city; so they forbade the generals to receive the man.  As he went away he besought Euthippus of Anaphlystus and his other comrades, all who were specially charged with laconizing, to fight sturdily against the enemy, and by their deeds of valor to dissipate the charge which their countrymen laid at their door.
+				<milestone n="5" unit="section"/>
+				They took his armour and set it in the midst of their company, supported one another ardently in the fight, and fell, to the number of one hundred, leaving behind them among the Athenians a great and yearning sense of their loss, and sorrow for the unjust charges made against them.  For this reason the Athenians did not long abide by their displeasure against Cimon, partly because, as was natural, they remembered his benefits, and partly because the turn of events favoured his cause.
+				<milestone n="6" unit="section"/>
+				For they were defeated at Tanagra in a great battle, and expected that in the following spring-time an armed force of Peloponnesians would come against them, and so they recalled Cimon from his exile.  The decree which provided for his return was formally proposed by Pericles.  To such a degree in those days were dissensions based on political differences of opinion, while personal feelings were moderate, and easily recalled into conformity with the public weal.  Even ambition, that master passion, paid deference to the country's welfare.
+				<milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Well then, as soon as Cimon returned from exile he stopped the war and reconciled the rival cities.  After peace was made,<note resp="ed" place="unspecified" anchored="yes"> 450 B.C.</note> since he saw that the Athenians were unable to keep quiet, but wished to be on the move and to wax great by means of military expeditions; also because he wished that they should not exasperate the Hellenes generally, nor by hovering around the islands and the Peloponnesus with a large fleet bring down upon the city charges of intestine war, and initial complaints from the allies, he manned two hundred triremes.
+				<milestone n="2" unit="section"/>
+				His design was to make another expedition with them against Egypt and Cyprus.  He wished to keep the Athenians in constant training by their struggles with Barbarians, and to give them the legitimate benefits of importing into Hellas the wealth taken from their natural foes. 
+			</p>
+         <p>All things were now ready and the soldiery on the point of embarking, when Cimon had a dream.
+				<milestone n="3" unit="section"/>
+				He thought an angry bitch was baying at him, and that mingled with its baying it uttered a human voice, saying:&mdash;
+				<quote rend="blockquote" type="oracle">
+					          <l>Go thy way, for a friend shalt thou be both to me </l>
+					          <l>and my puppies.</l>
+				        </quote>
+				The vision being hard of interpretation, Astyphilus of Posidonia, an inspired man and an intimate of Cimon's, told him that it signified his death.  He analyzed the vision thus: a dog is a foe of the man at whom it bays; to a foe, one cannot be a friend any better than by dying; the mixture of speech indicates that the enemy is the Mede, for the army of the Medes is a mixture of Hellenes and Barbarians.
+				<milestone n="4" unit="section"/>
+				After this vision, when Cimon had sacrificed to Dionysus and the seer was cutting up the victim, swarms of ants took the blood as it congealed, brought it little by little to Cimon, and enveloped his great toe therewith, he being unconscious of their work for some time.  Just about at the time when he noticed what they were doing, the ministrant came and showed him the liver of his victim without a head. 
+			</p>
+         <p>But since he could not get out of the expedition, he set sail, and after detailing sixty of his ships to go to Egypt, with the rest he made again for Cyprus.
+				<milestone n="5" unit="section"/>
+				After defeating at sea the royal armament of Phoenician and Cilician ships, he won over the cities round about, and then lay threatening the royal enterprise in Egypt, and not in any trifling fashion,&mdash;nay, he had in mind the dissolution of the King's entire supremacy, and all the more because he learned that the reputation and power of Themistocles were great among the Barbarians, who had promised the King that when the Hellenic war was set on foot he would take command of it.
+				<milestone n="6" unit="section"/>
+				At any rate, it is said that it was most of all due to Themistocles' despair of his Hellenic undertakings, since he could not eclipse the good fortune and valor of Cimon, that he took his own life.<note resp="ed" place="unspecified" anchored="yes"> Cf. <bibl n="Plut. Them. 31.4">Plut. Them. 31.4</bibl>
+            </note>
+			      </p>
+         <p>But Cimon, while he was projecting vast conflicts and holding his naval forces in the vicinity of Cyprus, sent men to the shrine of Ammon to get oracular answer from the god to some secret question.
+				<milestone n="7" unit="section"/>
+				No one knows what they were sent to ask, nor did the god vouchsafe them any response, but as soon as the enquirers drew nigh, he bade them depart, saying that Cimon himself was already with him. On hearing this, the enquirers went down to the sea-coast, and when they reached the camp of the Hellenes, which was at that time on the confines of Egypt, they learned that Cimon was dead, and on counting the days back to the utterance of the oracle, they found that it was their commander's death which had been darkly intimated, since he was already with the gods.
+				<milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>He died while besieging Citium, of sickness, as most say.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 1.112">Thuc. 1.112</bibl>
+            </note> But some say it was of a wound which he got while fighting the Barbarians.  As he was dying he bade those about him to sail away at once and to conceal his death.  And so it came to pass that neither the enemy nor the allies understood what had happened, and the force was brought back in safety 
+				<q direct="unspecified">under the command of Cimon,</q> as Phanodemus says, 
+				<q direct="unspecified">who had been dead for thirty days.</q>
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>After his death no further brilliant exploit against the Barbarians was performed by any general of the Hellenes, who were swayed by demagogues and partisans of civil war, with none to hold a mediating hand between them, till they actually clashed together in war.  This afforded the cause of the King a respite, but brought to pass an indescribable destruction of Hellenic power.
+				<milestone n="3" unit="section"/>
+				It was not until long afterwards<note resp="ed" place="unspecified" anchored="yes"> 396-394 B.C.</note> that Agesilaus carried his arms into Asia and prosecuted a brief war against the King's generals along the sea-coast.  And even he could perform no great and brilliant deeds, but was over- whelmed in his turn by a flood of Hellenic disorders and seditions and swept away from a second empire. 
+			</p>
+         <p>So he withdrew, leaving in the midst of allied and friendly cities the tax-gatherers of the Persians, not one of whose scribes, nay, nor so much as a horse, had been seen within four hundred furlongs of the sea, as long as Cimon was general.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>That his remains were brought home to Attica, there is testimony in the funeral monuments to this day called Cimonian.  But the people of Citium also pay honors to a certain tomb of Cimon, as Nausicrates the rhetorician says, because in a time of pestilence and famine the god enjoined upon them not to neglect Cimon, but to revere and honor him as a superior being.  Such was the Greek leader.
+			</p>
+      </body>
+   </text>
+</TEI.2>

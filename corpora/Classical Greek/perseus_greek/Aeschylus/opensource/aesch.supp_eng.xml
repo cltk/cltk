@@ -1,0 +1,874 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Supp.">Suppliant Women (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Aesch.">Aeschylus</author>
+<editor role="translator" n="Smyth">Herbert Weir Smyth, Ph. D.</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Aeschylus</author>
+<title>Aeschylus, with an English translation by Herbert Weir Smyth, Ph. D. in two volumes.  2.  Suppliant Women</title>
+<editor role="editor">Herbert Weir Smyth, Ph. D.</editor>
+<imprint>
+<pubPlace>Cambridge, MA</pubPlace>
+<publisher>Harvard University Press</publisher>
+<date>1926</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="card"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Nancy Sultan</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Nancy Sultan, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>4/5/1993</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Proofread notes.</item>
+</change>
+<change><date>09-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: aesch.supp_eng.xml,v $
+Revision 1.1  2009-10-09 19:49:18  rsingh04
+more reorganizing of texts module by collection
+
+Revision 1.1  2009/10/07 20:59:53  rsingh04
+began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+Revision 1.5  2009/06/22 18:09:36  student
+edited entity tags CEH
+
+Revision 1.4  2006/02/10 21:10:04  packel
+places/dates now actually tagged
+
+Revision 1.3  2005/08/01 15:44:56  packel
+really removed item tags
+
+Revision 1.2  2005/08/01 15:32:41  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:27:29  packel
+Converted to XML
+
+Revision 1.8  2004/04/21 20:28:10  mimno
+added card 1s
+
+Revision 1.7  2003/07/01 22:14:26  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.6  2000/03/04 20:33:49  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.5  2000/02/17 17:46:03  amahoney
+use n on sp for speeches interrupted by cardbreaks;  put cards at ends of
+such speeches after the close tag;  put sp and speaker tags on the divs
+of the choruses, which were not marked at all (but div2 closes sp, so
+we lost the speaker info)
+
+Revision 1.4  2000/02/09 23:27:27  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<div2 type="lyric">
+<milestone ed="p" n="1" unit="card"/>
+<stage>Enter a company of maidens, who have fled from <placeName key="tgn,7016833">Egypt</placeName> and just landed on the shores of <placeName key="perseus,Argos">Argos</placeName>; with them is their father</stage>
+<sp>
+<speaker>Chorus</speaker>
+<p>May Zeus who guards suppliants look graciously upon our company, which boarded a ship and put to sea from the outlets of the fine sand of the <placeName key="tgn,1127805">Nile</placeName>.  For we have fled Zeus' land<note anchored="yes" n="4" resp="Smyth">Or &ldquo;the land divine&rdquo; &lpar;<foreign lang="greek">di=an</foreign> with M&rpar;.  But see l. 558.</note><milestone ed="p" n="5" unit="line"/>whose pastures border <placeName key="tgn,1000140">Syria</placeName>, and are fugitives, not because of some public decree pronounced against blood crime, but because of our own act to escape the suit of man, since we abhor as impious all marriage with the sons of <placeName key="tgn,7016833">Aegyptus</placeName>.<milestone ed="p" n="10" unit="line"/>It was Danaus, our father, adviser and leader, who, considering well our course, decided, as the best of all possible evils, that we flee with all speed over the waves of the sea<milestone ed="p" n="15" unit="line"/>and find a haven on <placeName key="perseus,Argos">Argos</placeName>' shore.  For from there descends our race , sprung from the caress and breath of Zeus on the gnat-tormented heifer.</p>
+<p>To what kinder land than this<milestone ed="p" n="20" unit="line"/>could we come with these wool-wreathed branches in our hands, sole weapons of the suppliant? O realm, O land, and clear water;  gods on high and earth-bound powers, grievous in your vengeance,<milestone ed="p" n="25" unit="line"/>which inhabit the tomb; and you, Zeus the Savior, invoked third<note anchored="yes" n="26" resp="Smyth">With reference to the order of invocation in libations: 1. Olympian Zeus; 2. the Heroes, cp. l. 25; 3. Zeus the Saviour.  Cp. Frag. 55.</note>, the guardian of the habitations of righteous men:  receive as suppliants this band of women with the compassionate spirit of the land. But<milestone ed="p" n="30" unit="line"/>the thronging swarm of violent men born of <placeName key="tgn,7016833">Aegyptus</placeName>, should they set foot upon this marshy land,  drive them seaward&mdash;and with them their swift ship&mdash;and there may they encounter a cruel sea with thunder, lightning, and rain-charged winds,<milestone ed="p" n="35" unit="line"/>and perish by the tempest's buffeting blasts, if they ever lay their hands on us, their cousins, and mount unwilling beds from which Right holds them aloof.<milestone ed="p" n="40" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="40" unit="line"/>And now I invoke, as our champion from beyond the sea, the calf born of Zeus, the offspring of the flower-grazing cow, our ancestress,<milestone ed="p" n="45" unit="line"/>the caress of Zeus' breath. The appointed period confirmed itself in a name suited to the event&mdash;Epaphus<note anchored="yes" n="48" resp="Smyth">Epaphus signifies &ldquo;touch,&rdquo; &ldquo;caress.&rdquo;  See l. 315.</note>, to whom she gave birth.<milestone ed="p" n="49" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>To him I cry for help.<milestone ed="p" n="50" unit="line"/>And now in the region wherein our first mother pastured, by recounting the story of her distress of long ago, I shall now set forth reliable proofs to the inhabitants of the land;<milestone ed="p" n="55" unit="line"/>and other evidence, though unexpected, will yet appear.  Men will come to know the truth as my tale proceeds.<milestone ed="p" n="58" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Now if by chance there be some neighbor in the land who knows the song of birds,<milestone ed="p" n="60" unit="line"/>when our complaint greets his ear, he will fancy that he hears the voice of Metis, Tereus' piteous wife, the hawk-chased nightingale.<milestone ed="p" n="63" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>For she, constrained to leave her green leaves, laments pitifully her accustomed haunts,<milestone ed="p" n="65" unit="line"/> and composes the tale of her own child's doom&mdash;how he perished, destroyed by her own hand, victim of the wrath of an unnatural mother.<milestone ed="p" n="68" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Even so I, indulging my grief in Ionian strains,<milestone ed="p" n="70" unit="line"/>pain my tender face summered by <placeName key="tgn,1127805">Nile</placeName>'s sun and my heart unexercised in tears; and I gather the flowers of grief, anxious whether there is any friendly kinsman here to champion our band<milestone ed="p" n="75" unit="line"/>which has fled from the haze-shrouded land.<milestone ed="p" n="77" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>But, gods of our race, hear, and regard with favor the cause of righteousness; if you refuse youth<milestone ed="p" n="80" unit="line"/>fulfillment of its arrogant desires, and readily abhor violence, you would be righteous toward marriage. Even for those who flee hard-pressed from war there is an altar,<milestone ed="p" n="85" unit="line"/>a shelter against harm through respect for the powers of heaven.<milestone ed="p" n="86" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>But may Zeus grant that it go well with us.  For Zeus' desire is hard to trace:  it shines everywhere, even in gloom, together with fortune<milestone ed="p" n="90" unit="line"/>obscure to mortal men.<milestone ed="p" n="91" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Safely it falls, and not upon its back, whatever deed comes to pass at Zeus' nod; for the pathways of his understanding stretch dark and tangled,<milestone ed="p" n="95" unit="line"/>beyond comprehension.<milestone ed="p" n="96" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p>From their high-towering hopes he hurls mankind to utter destruction; yet he does not marshal any armed violence&mdash;<milestone ed="p" n="100" unit="line"/>all that is wrought by the powers divine is free from toil.  Seated on his holy throne, unmoved, in mysterious ways he accomplishes his will.<milestone ed="p" n="104" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p>So let him look upon human outrageousness<milestone ed="p" n="105" unit="line"/>&mdash;in what way it shoots up men in their wooing of us, sprouted from thoughts of evil intent,<milestone ed="p" n="110" unit="line"/>having a frenzied purpose as its irresistible spur, and deluded, turning its thoughts to folly.<milestone ed="p" n="112" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="6">
+<sp><speaker>Chorus</speaker>
+<p>Such piteous strains of woe I utter in my pain, now shrill, now deep, blended with falling tears&mdash;Alas, alas!<milestone ed="p" n="115" unit="line"/>groans appropriate to funeral wails; though I live, I chant my own dirge.<milestone ed="p" n="117" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I invoke  <placeName key="tgn,1099657">Apia</placeName>'s hilly land&mdash;for well, O land, you  understand my barbarous speech&mdash;,<milestone ed="p" n="120" unit="line"/>and many times I lay my hands upon my Sidonian veil and tear its linen fabric to shreds.<milestone ed="p" n="123" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="6">
+<sp><speaker>Chorus</speaker>
+<p>Sacrifices in satisfaction of vows are given freely to the gods when all fares well, if only there be escape from death.<milestone ed="p" n="125" unit="line"/>Alas, alas, perplexing troubles!  Where will this wave of trouble bear me away?<milestone ed="p" n="128" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I invoke <placeName key="tgn,1099657">Apia</placeName>'s hilly land&mdash;for<milestone ed="p" n="130" unit="line"/>well, O land, you understand my barbarous speech&mdash;, and many times I lay my hands upon my Sidonian veil and tear its linen fabric to shreds.<milestone ed="p" n="134" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="7">
+<sp><speaker>Chorus</speaker>
+<p>Our oars, indeed, and our timbered ship, bound with yellow rope<note anchored="yes" n="134" resp="Smyth">Undergirding ropes &lpar;<foreign lang="greek">u(pozw/mata</foreign>&rpar; to brace a ship's sides. Cp. l. 441.</note><milestone ed="p" n="135" unit="line"/>to withstand the sea, sped me on by help of favoring winds, unharmed by all tempests; nor have I reason for complaint.  But may the all-seeing Father<milestone ed="p" n="140" unit="line"/>establish a kindly issue in due time&mdash;<milestone ed="p" n="141" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="2">
+<sp><speaker>Chorus</speaker>
+<p>That the mighty race of our honorable mother escape the embrace of man (ah me), unwedded, unvanquished.<milestone ed="p" n="144" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="7">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="145" unit="line"/>And may Zeus' pure daughter, she who holds securely the sacred wall, willingly, meeting my will, look upon me; and, grieved at our pursuit, come with all her might, a virgin to a virgin's aid,<milestone ed="p" n="150" unit="line"/>to deliver me&mdash;<milestone ed="p" n="151" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="2">
+<sp><speaker>Chorus</speaker>
+<p>That the mighty race of our honorable mother may escape the embrace of man (ah me), unwedded, unvanquished.<milestone ed="p" n="154" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="8">
+<sp><speaker>Chorus</speaker>
+    <p>Yet, if she will not, we, a dark,<milestone ed="p" n="155" unit="line"/>sun-burned race, with suppliant boughs will invoke the underworld Zeus, Zeus the great host<milestone ed="p" n="160" unit="line"/>of the dead; for if the gods of <placeName key="tgn,7011019">Olympus</placeName> hear us not, we will hang ourselves.<milestone ed="p" n="162" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Ah Zeus! On account of the poisonous hate of Io vengeance from the gods pursues us.<note anchored="yes" n="163" resp="Smyth">The assets of public debtors and exiles were ascertained and secured at <placeName key="perseus,Athens">Athens</placeName> by officers called <foreign lang="greek">masth=res</foreign>.</note>I know<milestone ed="p" n="165" unit="line"/>your consort's sky-conquering spite; for a stormy sea  follows a harsh wind.<milestone ed="p" n="168" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="8">
+<sp><speaker>Chorus</speaker>
+<p>And Zeus shall then be liable to the charge of injustice<milestone ed="p" n="170" unit="line"/>that he hates the child of the heifer, the child whom he himself begat long ago, his very own, and now he holds his face averted from our prayers.<milestone ed="p" n="175" unit="line"/>May he from above hear our call!<milestone ed="p" n="162a" unit="card"/></p></sp></div2>
+<div2 type="ephymnion" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Ah Zeus! On account of the poisonous hate of Io vengeance from the gods pursues us. I know<milestone ed="p" n="165a" unit="line"/>your consort's sky-conquering spite; for a stormy sea  follows a harsh wind.<milestone ed="p" n="176" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Danaus</speaker>
+<p>My children, you must be prudent.  A prudent captain of your voyage was your reliable old father here with whom you came.  And now that I have considered with foresight what may befall us here on land, I charge you, record my injunctions on the tablets of your minds and guard them.</p>
+<p><milestone ed="p" n="180" unit="line"/>I see dust, the voiceless herald of an army; the axle-driven wheels are not silent in their sockets. I behold a throng, armed with shields and holding spears, with steeds and curved chariots. Perhaps they are the princes of the land<milestone ed="p" n="185" unit="line"/>come to look on us, informed by messengers.  But whether a harmless man or one driven by savage wrath rouses this expedition, it is better, damsels, in any case, to seat yourselves at that mound sacred to the assembled gods.
+<note anchored="yes" n="189" resp="Smyth"><foreign lang="greek">a)gw/n</foreign> has here the force of <foreign lang="greek">a)gora/</foreign>, place of assembly.  Cp. l. 222.</note><milestone ed="p" n="190" unit="line"/>Stronger than a castle is an altar&mdash;an impenetrable shield.  As quick as you can, gather in your left hands your white-wreathed suppliant boughs, sacred emblems of Zeus the merciful.<milestone ed="p" n="195" unit="line"/>Reply to the strangers, as is fitting for aliens, in piteous and plaintive language of necessity, telling them clearly of your flight, how it was unstained by deed of blood. Above all let no arrogance accompany your speech, and reveal nothing impious in your peaceful eyes, from your respectful face.<milestone ed="p" n="200" unit="line"/>In your  speech neither interrupt, nor hesitate&mdash;for this would offend these people. And remember to be submissive: you are an alien, a fugitive, and in need.  Bold speech does not suit the weak.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Father, your words are prudent, and they fall on prudent ears.<milestone ed="p" n="205" unit="line"/>I will take heed of your wise words, and hold them in memory.  May Zeus, the author of our race, behold us!<milestone ed="p" n="207" unit="card"/></p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>May he indeed behold you, and with a gracious eye.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I would like even now to be seated by your side.</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>Then do not delay, but put your purpose into action.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="210" unit="line"/>O Zeus, have pity upon our troubles lest we are ruined.</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>If he wishes it so, all will end well.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>&lt;<gap desc="*"/>&gt;</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>Invoke now also that bird of Zeus</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>We invoke the saving beams of the sun.</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>Pure Apollo, too, who, though a god, was exiled once from heaven.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="215" unit="line"/>Knowing our lot, he may well have pity on mortals.</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>May he have pity indeed, and stand by ready to defend.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Whom, further, of these divinities must I invoke?</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>I behold a trident here, the token of its god.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Well did he send us here and well may he receive us in this land.</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p><milestone ed="p" n="220" unit="line"/>Here, too, is Hermes, according to the Hellenic custom.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>May he then announce good tidings to the free!</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>Honor to the mutual altar of all these protecting powers; and seat yourselves on holy ground like a flock of doves in dread of hawks of the same feathered tribe&mdash;<milestone ed="p" n="225" unit="line"/>kindred, yet foes, who would defile their race.  If bird prey on bird, how can it be pure?  And how can man be pure who would seize from an unwilling father an unwilling bride?  For such an act, not even in Hades, after death, shall he escape arraignment for outrage.<milestone ed="p" n="230" unit="line"/>There also among the dead, so men tell, another Zeus holds a last judgment upon misdeeds.  Take heed and reply in this manner, that victory may attend your cause.<milestone ed="p" n="234" unit="card"/></p></sp>
+<stage>Enter the King of <placeName key="perseus,Argos">Argos</placeName> with men-at-arms</stage>
+<sp>
+<speaker>King</speaker>
+<p>From where comes this band we address,<milestone ed="p" n="235" unit="line"/>clothed in foreign attire and luxuriating in closely-woven and barbaric robes?  For your apparel is not that of the women of <placeName key="perseus,Argos">Argos</placeName>, nor yet of any part of <placeName key="tgn,1000074">Hellas</placeName>. How you have gained courage thus fearlessly to come to this land, unheralded and friendless and without guides,<milestone ed="p" n="240" unit="line"/>this makes me wonder.  And yet, truly, I see that branches usually carried by suppliants are laid by your side before the gods assembled here&mdash;as to this alone can <placeName key="tgn,1000074">Hellas</placeName>  guess with confidence.<note anchored="yes" n="243" resp="Smyth">The original means &ldquo;agree in forming a conjecture,&rdquo; i.e. be satisfied with a guess.</note>As for the rest, there is still much I should with reason leave to conjecture,<milestone ed="p" n="245" unit="line"/>if your voice were not here to inform me.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>You have not spoken falsely about our clothing. But, for my part, how am I to address you?  As commoner, as spokesman, bearer of the sacred wand,<note anchored="yes" n="248" resp="Smyth">Apparently a periphrasis for &ldquo;herald&rdquo;; but the Greek text is uncertain.</note>or as ruler of the realm?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>As for that, answer and speak to me with confidence.<milestone ed="p" n="250" unit="line"/>For I am Pelasgus, offspring of Palaechthon, whom the earth brought forth, and lord of this land; and after me, their king, is rightly named the race of the Pelasgi, who harvest the land.  Of all the region through which the pure<milestone ed="p" n="255" unit="line"/>Strymon flows, on the side toward the setting sun, I am the lord.  There lies within the limits of my rule the land of the Perrhaebi, the parts beyond Pindus close to the Paeonians, and the mountain ridge of <placeName key="perseus,Dodona">Dodona</placeName>; the edge of the watery sea borders my kingdom.  I rule up to these boundaries.</p>
+<p><milestone ed="p" n="260" unit="line"/>The ground where we stand is Apian land itself, and has borne that name since antiquity in honor of a healer.  For Apis, seer and healer, the son of Apollo, came from <placeName key="tgn,7011174">Naupactus</placeName> on the farther shore and purified this land of monsters deadly to man, which Earth,<milestone ed="p" n="265" unit="line"/>defiled by the pollution of bloody deeds of old, caused to spring up&mdash;plagues charged with wrath, an ominous colony of swarming serpents.  Of these plagues Apis worked the cure by sorcery and spells to the content of the <placeName key="tgn,5001993">Argive</placeName> land,<milestone ed="p" n="270" unit="line"/>and for reward thereafter earned for himself remembrance in prayers.</p>
+<p>Now that you have my testimony, declare your lineage and speak further&mdash;yet our people do not take pleasure in long discourse.<milestone ed="p" n="274" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Our tale is brief and clear.  Argives<milestone ed="p" n="275" unit="line"/>we claim to be by birth, offspring of a cow blest in its children.  And the truth of this I shall confirm in full.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Foreign maidens, your tale is beyond my belief&mdash;how your race can be from <placeName key="perseus,Argos">Argos</placeName>. For you are more similar to the<milestone ed="p" n="280" unit="line"/>women of <placeName key="tgn,1000172">Libya</placeName> and in no way similar to those native to our land.  The <placeName key="tgn,1127805">Nile</placeName>, too, might foster such a stock, and like yours is the Cyprian impress stamped upon female images by male craftsmen.  And of such aspect, I have heard, are nomad women, who<milestone ed="p" n="285" unit="line"/>ride on camels for steeds, having padded saddles, and dwell in a land neighboring the Aethiopians.  And had you been armed with the bow, certainly I would have guessed you to be the unwed, flesh-devouring Amazons.  But inform me, and I will better comprehend<milestone ed="p" n="290" unit="line"/>how it is that you trace your race and lineage from <placeName key="perseus,Argos">Argos</placeName>.<milestone ed="p" n="291" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Is there a report that once in this land of <placeName key="perseus,Argos">Argos</placeName> Io was ward of Hera's house?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Certainly she was; the tradition prevails far and wide.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="295" unit="line"/>And is there some story, too, that Zeus was joined in love with a mortal?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>This entanglement was not secret from Hera.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What then was the result of this royal strife?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>The goddess of Argos transformed the woman into a cow.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="300" unit="line"/>And while she was a horned cow, did not Zeus approach her?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>So they say, making his form that of a bull lusting for a mate.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What answer then did Zeus' stubborn consort give?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>She placed the all-seeing one to stand watch over the cow.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What manner of all-seeing herdsman with a single duty do you mean?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="305" unit="line"/>Argus, a son of Earth, whom Hermes slew.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What else did she contrive against the unfortunate cow?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>A sting, torment of cattle, constantly driving her on.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>They call it a gadfly, those who dwell by the <placeName key="tgn,1127805">Nile</placeName>.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Well then, it drove her by a long course out of the land.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="310" unit="line"/>Your account agrees with mine in all respects.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>So she came to <placeName key="tgn,1099727">Canobus</placeName> and to <placeName key="tgn,7001186">Memphis</placeName>.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And Zeus begot a son by the touching of his hand.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Who is it then that claims to be the cow's Zeus-begotten calf?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="315" unit="line"/>Epaphus, and truly named from &ldquo;laying on of hands.&rdquo;</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>&lsqb;And who was begotten of Epaphus?&rsqb;</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><placeName key="tgn,1000172">Libya</placeName>, who reaps the fruit of the largest portion of the earth.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>&lsqb;What offspring, then, did Libya have?&rsqb;</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>&lsqb;Agenor was her first child born.&rsqb;</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>And who was his offspring?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Belus, who had two sons and was father of my father here.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="320" unit="line"/>Now tell me his wisely-given name.<note anchored="yes" n="320" resp="Smyth">The epithet, properly applicable to the venerable, Danaus, is transferred to his name, because, to the Greek, name often connoted personality. So &ldquo;the dreaded name of Demogorgon.&rdquo;</note></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Danaus: and he has a brother with fifty sons.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Reveal his name ungrudgingly.<milestone ed="p" n="323" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><placeName key="tgn,7016833">Aegyptus</placeName>; and now that you know my ancient lineage, I pray you to help<note anchored="yes" n="324" resp="Smyth">Literally &ldquo;raise&rdquo; from sanctuary.</note>a band that is <placeName key="tgn,5001993">Argive</placeName> by descent.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="325" unit="line"/>I think you indeed have some share in this land from old. But how did you bring yourselves to leave the home of your fathers? What stroke of fortune befell you?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Lord of the Pelasgians, of varying color are the ills of mankind, and nowhere can you find trouble of the same plume.<milestone ed="p" n="330" unit="line"/>For who dreamed that a kindred race, sprung of old, would thus in unexpected flight find haven at <placeName key="perseus,Argos">Argos</placeName>, fleeing in terror through loathing of the marriage-bed?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Why have you come as suppliants of these gods congregated here, holding in your hands those white-wreathed, fresh-plucked boughs?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="335" unit="line"/>So as not to be made slave to <placeName key="tgn,7016833">Aegyptus</placeName>' race.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>By reason of hatred?  Or do you speak of unlawfulness ?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Who would purchase their lords from among their kin?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>In this way families have enhanced their power.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>And it is easy then, if things go ill, to separate from a wife.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="340" unit="line"/>How then am I to deal with you in accordance with my sacred duty?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>By not surrendering us at the demand of <placeName key="tgn,7016833">Aegyptus</placeName>' sons.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>A serious request&mdash;to take upon myself a dangerous war.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>But Justice protects her champions.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>True, if she had a share in the matter from the beginning.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="345" unit="line"/>Show reverence for the ship of state thus crowned.<note anchored="yes" n="345" resp="Smyth">The gods, whose statues have been wreathed with the suppliants' branches, are regarded as the pilots who direct the ship of state.  Possibly there is also a reference to the custom of crowning a vessel's stern with flowers.</note></p></sp>
+<sp>
+<speaker>King</speaker>
+<p>I shrink as I gaze upon these shaded shrines.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Yet heavy is the wrath of Zeus, god of the suppliant.<milestone ed="p" n="348" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<p>Son of Palaechthon, lord of the Pelasgians, hear me with a benign heart.<milestone ed="p" n="350" unit="line"/>Behold me, your suppliant, a fugitive, running around like a heifer chased by wolves upon precipitous crags, where, confident in his help, she lows to tell the herdsman of her distress.<milestone ed="p" n="354" unit="card"/></p>
+<sp>
+<speaker>King</speaker>
+<p>I see<milestone ed="p" n="355" unit="line"/>a company of assembled gods assenting beneath the shade of fresh-plucked boughs.  Nevertheless may this affair of claimants to the friendship of our city bring no mischief in its wake!  And let no feud come upon the state from causes unforeseen and unforestalled; for the state has no need of such trouble.<milestone ed="p" n="359" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Indeed,<milestone ed="p" n="360" unit="line"/>may Justice, daughter of Zeus the Apportioner, Justice who protects the suppliant, look upon our flight that it bring no mischief in its wake.  But you, aged in experience, learn from one of younger birth.  If you show mercy to a suppliant ... from a man of holiness.<milestone ed="p" n="365" unit="card"/></p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="365" unit="line"/>It is not my own house at whose hearth you sit.  If the state is stained by pollution in its commonalty, in common let the people strive to work out the cure.  For myself, I will pledge no promise before I have communicated these events to all the citizens.<milestone ed="p" n="370" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="370" unit="line"/>You are the state, you are the people.  Being subject to no judge, you rule the altar, your country's hearth by your will's sole ordinance; and, enthroned in sole sovereignty,<milestone ed="p" n="375" unit="line"/>you determine every issue.  Beware pollution!<milestone ed="p" n="376" unit="card"/></p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Pollution on my enemies!  But without harm I do not know how to help you.  And yet again, it is not well advised to slight these supplications.  I am perplexed, and fear possesses my soul<milestone ed="p" n="380" unit="line"/>whether to act, or not to act and take what fortune sends.<milestone ed="p" n="381" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Look to him who looks down from above, to him, the guardian of mortals sore-distressed, who appeal to their neighbors, yet do not obtain the justice that is their right.<milestone ed="p" n="385" unit="line"/>The wrath of Zeus, the suppliant's god, remains, and will not be softened by a sufferer's complaints.<milestone ed="p" n="387" unit="card"/></p></sp>
+<sp>
+<speaker>King</speaker>
+<p>If the sons of <placeName key="tgn,7016833">Aegyptus</placeName> have authority over you by the law of your country claiming that they are nearest of kin, who would wish to contest it?<milestone ed="p" n="390" unit="line"/>You must plead in accordance with the laws of the land you have fled, that they have no authority over you.<milestone ed="p" n="392" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Never, oh never, may I fall subject to the power and authority of these men.  I am determined to flee to escape this marriage that offends my soul, piloting my course by the stars.<milestone ed="p" n="395" unit="line"/>Take Justice as your ally, and render judgment for the cause deemed righteous by the gods.<milestone ed="p" n="397" unit="card"/></p></sp>
+<sp>
+<speaker>King</speaker>
+<p>The judgment is not easy&mdash;do not make me the judge.  I have declared already that, though I am ruler, I will not do this thing without the consent of my people, lest hereafter,<milestone ed="p" n="400" unit="line"/>if any evil befall, the people should say, &ldquo;You honored aliens and brought ruin upon your own land.&rdquo;<milestone ed="p" n="402" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Kindred to both in blood, Zeus surveys both sides alike in this dispute with an impartial scale, apportioning, as is due, to the wicked their wrongdoing and to the godly their works of righteousness.<milestone ed="p" n="405" unit="line"/>When these things are thus equally balanced, why do you fear to act justly?<milestone ed="p" n="407" unit="card"/></p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Surely there is need of deep and salutary counsel; need for a keen-sighted eye, not confused, to descend, like some diver, into the depths;<milestone ed="p" n="410" unit="line"/>that to the state above all things this matter may not work mischief, but may end well for us; that strife may not seize you for its prize, nor yet that we surrender you from these seats of sanctuary,<milestone ed="p" n="415" unit="line"/>and bring upon ourselves the dire, abiding vengeance of the all-destroying god, who, even in the realm of Death, does not set his victim free.  Surely you cannot think there is no need of salutary counsel?<milestone ed="p" n="418" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Take counsel, and, as is your sacred duty, prove yourself our sacred<milestone ed="p" n="420" unit="line"/>champion.  Do not betray the fugitive who has been impiously cast out and driven from afar.<milestone ed="p" n="423" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<p>And see me not ravished from this sanctuary of  many gods,<milestone ed="p" n="425" unit="line"/>oh you who hold sovereign power over the land. Recognize  men's wantonness, and guard against wrath.<milestone ed="p" n="428" unit="card"/></p></div2>
+<div2 type="strophe" n="5">
+<p>Do not see your suppliant dragged, in spite of justice, from the images of the gods,<milestone ed="p" n="430" unit="line"/>like a horse by the bridle, and see rude hands laid upon my fine-woven robes.<milestone ed="p" n="433" unit="card"/></p></div2>
+<div2 type="antistrophe" n="5">
+<p>For be assured of this&mdash;whichever end you bring to pass, to your children and house<milestone ed="p" n="435" unit="line"/>does it remain to make full payment.<note anchored="yes" n="436" resp="Smyth">The condensed phrase &ldquo;pay equal &lpar;measure of&rpar; justice,&rdquo; though emphasizing the notion of just retribution for evil, includes that of just reward for good&mdash;the act comes back upon the doer &lpar;<foreign lang="greek">dra/santi paqei=n</foreign>&rpar;.</note>Consider these just ordinances of God.<milestone ed="p" n="438" unit="card"/></p></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>King</speaker>
+<p>I have considered them; and I am driven to this cruel predicament. I must take upon myself a mighty war against one side or the other.<milestone ed="p" n="440" unit="line"/>There is no escape, it is as firmly fixed as a ship's hull drawn tight by windlasses.  There is no result without grievous hurt. Now when goods are plundered from a homestead,<milestone ed="p" n="445" unit="line"/>other goods may come by grace of Zeus, guardian of household wealth; as a tongue that has shot arrows beside the mark, one speech may be the healer of another.  But to avoid the shedding of kindred blood,<milestone ed="p" n="450" unit="line"/>surely there is need of sacrifice and that many a victim fall to many a god as a deliverance from impending harm.  For truly, it is to my undoing that I have come into this quarrel; and yet I prefer to be unskilled rather than practised in the lore of foretelling ill.  But may my judgment belie itself and all go well!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="455" unit="line"/>Hear now the end of my appeals for compassion.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>I hear; say on.  It shall not escape me.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I have breast-bands and girdles to gather up my robes.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Such things are proper, no doubt, for women.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In these then, be sure, I have a beautiful instrument&mdash;</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="460" unit="line"/>Tell me what speech you plan to utter.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>If you will not give some pledge to this group&mdash;</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>What will the contrivance of the sashes do for you?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>To adorn these images with tablets of strange sort.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Your words are riddling; come, explain in simple speech.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="465" unit="line"/>To hang ourselves from the statues of these gods.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>I detect a threat that is a lash upon my heart.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>You have grasped my intention, for I have cleared your vision.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>And on many sides there are difficulties hard to wrestle with; for, like a flood, a multitude of ills bursts on me.<milestone ed="p" n="470" unit="line"/>It is a sea of ruin, fathomless and impassable, which I am launched upon, and nowhere is there a haven from distress.  For should I not pay the debt due to you, the pollution you name is beyond all range of speech; yet if<milestone ed="p" n="475" unit="line"/>I take my stand before the walls and try the issue of battle with the sons of <placeName key="tgn,7016833">Aegyptus</placeName>, your kinsmen, how will the cost not mount to a cruel price&mdash;men's blood to stain the ground for women's sake?</p>
+<p>And yet the wrath of Zeus who guards the suppliant compels my reverence; for supreme among mortals is the fear of him.<milestone ed="p" n="480" unit="line"/>Aged father of these maidens, take these boughs straightway in your arms and place them upon other altars of the country's gods, that all the natives may see the sign that you have come in suppliance.  And let no random word fall against<milestone ed="p" n="485" unit="line"/>me; for the people could complain against authority.  It may well be that some, stirred to compassion at the sight, will hate the wantonness of the troop of males, and that the people will be more friendly towards you; for  all men are well disposed to the weaker cause.<milestone ed="p" n="490" unit="card"/></p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p><milestone ed="p" n="490" unit="line"/>We consider it worth much to have gained a champion who is compassionate.  Yet send escorts and guides of the country's people with me so we may find where the gods who protect your city have their altars at the temple porches and their . . . seats,<milestone ed="p" n="495" unit="line"/>and that we may go safely through the town.  My shape is unlike yours, for <placeName key="tgn,1127805">Nile</placeName> and Inachus rear a different race.  Beware lest boldness give birth to fear; for through ignorance men have slain those they love.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="500" unit="line"/>Come, men, the stranger speaks well.  Be his guides to the altars of the city and to the sanctuaries of the gods.   Do not speak at length with whomever you meet on the way while you are bringing this seafarer to be a suppliant at the hearths of the gods.<stage>Exit Danaus with attendants</stage></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>You told him, and let him go as directed.<milestone ed="p" n="505" unit="line"/>But what of me? What am I to do?  Where do you assign security to me?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Leave your boughs here, tokens of your distress.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Behold, I leave them at your signal and command.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Go now along this level space about the sanctuary.<note anchored="yes" n="508" resp="Smyth">With the mound, crowded with the images of the gods and their common altar &lpar;l. 222&rpar;, the maidens here contrast a level space, adjacent to the sanctuary yet accessible to all.  Some <foreign lang="greek">a)/lsh</foreign> were open to the public &lpar;<foreign lang="greek">be/bhla</foreign>&rpar;, while others formed part of the sacred precinct proper. The poets, according to Strabo 9.412, used the word <foreign lang="greek">a)/lsos</foreign> to denote all sanctuaries, even if they were not planted with trees.</note></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>But it is not holy ground.  How can it keep me safe?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="510" unit="line"/>Be assured, we will not surrender you to winged creatures' ravishment.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>But what about those whom we dread worse than evil serpents?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Speak with good omen, as I have spoken auspiciously to you.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>No wonder I am fretful through alarm of mind.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Excessive fear is always uncontrolled.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="515" unit="line"/>Cheer my heart by deeds as well as words.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>Your father will not leave you here alone for long.  I am going now to call together the people of the land, that I may make the masses friendly; and I will instruct your father in what things he should say.<milestone ed="p" n="520" unit="line"/>Now stay here and beseech the gods of the land with prayers to grant what you desire, while I go to advance your cause.  May persuasion and efficacious fortune attend me!<stage>Exit with attendants</stage><milestone ed="p" n="524" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Lord of lords,<milestone ed="p" n="525" unit="line"/>most blessed among the blessed, power most perfect among the perfect, O blessed Zeus, hear! And from your offspring ward off in utter abhorrence the lust of men, and into the purple sea cast<milestone ed="p" n="530" unit="line"/>their black-benched madness!<milestone ed="p" n="531" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Look benignly upon the women's cause, look upon our race ancient in story, and recall the happy tale of our ancestress, the woman of your love.<milestone ed="p" n="535" unit="line"/>Show that you remember all, you who laid your hand upon Io.  It is from Zeus that we claim descent, and it is from this, our homeland, that we went forth.<milestone ed="p" n="538" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>I have come here to the prints of ancient feet, my mother's, even to the region where she was watched while she browsed among the flowers&mdash;<milestone ed="p" n="540" unit="line"/>into that pasture, from which Io, tormented by the gad-fly's sting, fled in frenzy, traversing many tribes of men, and<milestone ed="p" n="545" unit="line"/>according to fate, cut in two the surging strait, marking off the land upon the farther shore.<milestone ed="p" n="547" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And through the land of <placeName key="tgn,1000004">Asia</placeName> she gallops, straight through sheep-pasturing <placeName key="tgn,7002613">Phrygia</placeName>, and she passes the city of Teuthras among the Mysians,<milestone ed="p" n="550" unit="line"/>and the hollow vales of <placeName key="tgn,7016631">Lydia</placeName>, across the mountains of the Cilicians and the Pamphylians, speeding over ever-flowing rivers and earth deep and rich, and<milestone ed="p" n="555" unit="line"/>the land of Aphrodite that teems with wheat.<milestone ed="p" n="556" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Harassed by the sting of the winged herdsman she gains at last the fertile groves sacred to Zeus, that snow-fed pasture assailed<milestone ed="p" n="560" unit="line"/>by Typho's fury, and the water of the <placeName key="tgn,1127805">Nile</placeName> that no disease may touch&mdash;maddened by her ignominious toils and frenzied with the pain of Hera's torturing goad.<milestone ed="p" n="565" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="565" unit="line"/>And mortals, who in those days dwelled in the land, shook with pallid terror at the terrible sight as they beheld a being fearsome, half-human, part cow<milestone ed="p" n="570" unit="line"/>and part of woman; and they were astonished at the monstrous thing.  And then, at last, who was it who calmed the far-wandering, the wretched, the sting-tormented Io?<milestone ed="p" n="574" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Zeus, it was, through endless time, the lord,<milestone ed="p" n="575" unit="line"/>. . . and by the unharming might of his hand, and by his divine breath, she gained rest, and let fall the sorrowing shame of tears.<milestone ed="p" n="580" unit="line"/>And, taking Zeus as her support, according to a true story, she bore a blameless son&mdash;<milestone ed="p" n="582" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Throughout long ages blessed.  All the earth cries aloud, &ldquo;This<milestone ed="p" n="585" unit="line"/>is in very truth the offspring of life-giving Zeus; for who else could have endured the suffering plotted by Hera?&rdquo;Call this the work of Zeus and this his race sprung from Epaphus and you will hit the truth.<milestone ed="p" n="590" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="590" unit="line"/>Which of the gods has accomplished deeds which, with good reason, warrant more justly my appeal to him?  Father himself and lord, he planted us with his own hand; he is the mighty fashioner of our race, ancient in wisdom, who devises everything, whose breath makes all things prosper, Zeus himself.<milestone ed="p" n="595" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="595" unit="line"/>He does not sit upon his throne by mandate of another and hold his dominion beneath a mightier. No one sits above him whose power he holds in awe.  He speaks, and it is done&mdash;he hastens to execute whatever his counselling mind conceives.<note anchored="yes" n="599" resp="Smyth">The full force of this majestic and awe-inspiring passage, recalling the solemnity of Isaiah, can be reproduced only by paraphrase. Nearer the original is: &ldquo;He does not, sitting &lt;upon his throne&gt; by the authority of any, bear a lesser sway delegated by superiors ... But with him the deed is as the word to do swiftly anything that his counselling mind conceives.&rdquo;</note><milestone ed="p" n="600" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Re-enter Danaus</stage>
+<sp>
+<speaker>Danaus</speaker>
+<p><milestone ed="p" n="600" unit="line"/>Be of good cheer, my children, all goes well on the part of the citizens.  Decrees, carrying full authority, have been passed.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Hail, our envoy, harbinger of tidings most welcome, But tell us&mdash;to what end has the decision been carried, and to what course does the majority of the people's votes incline?</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p><milestone ed="p" n="605" unit="line"/>Action was taken by the Argives, not by any doubtful vote but in such a way as to make my aged heart renew its youth.  For the air bristled with right hands held aloft as, in full vote, they ratified this resolution into law: &ldquo;That we are settlers in this land, and are free,<milestone ed="p" n="610" unit="line"/>subject to no seizure, and secure from robbery of man; that no one, native or alien, lead us captive; but, if they turn to violence, any landholder who refuses to rescue us, should both forfeit his rights and suffer public banishment.&rdquo;<milestone ed="p" n="615" unit="line"/>Such was the persuasive speech that the king of the Pelasgians delivered on our behalf, uttering the solemn warning that never in the future should the city feed the great wrath of Zeus, protector of the suppliant; and declaring  that, should a twofold defilement&mdash;from strangers and from natives at once&mdash;arise before the city,<milestone ed="p" n="620" unit="line"/>it would become fodder for distress past all relief.  Hearing these words, the <placeName key="tgn,5001993">Argive</placeName> people, waiting for no proclamation of crier, voted by uplifted hand that this should be so.  It was the Pelasgian people, won readily to assent, who heard the subtle windings of his speech; but it was Zeus who brought the end to pass.<milestone ed="p" n="625" unit="card"/></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="625" unit="line"/>Come, let us invoke blessings upon the Argives in return for blessings.  And may Zeus, god of strangers, behold the offerings of gratitude voiced by a stranger's lips, that they may in true fulfilment reach their perfect goal.<milestone ed="p" n="630" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="630" unit="line"/>Divinely-born gods!  Hear now as I pour forth libations for blessings upon our kindred.  Never may the wanton lord of war,<milestone ed="p" n="635" unit="line"/>insatiate of battle-cry, Ares, who reaps a human harvest in alien fields, destroy this Pelasgian land by fire; for they had compassion for us,<milestone ed="p" n="640" unit="line"/>and cast a vote in our favor, respecting  our pitiable flock, suppliants in the name of Zeus.<milestone ed="p" n="643" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Nor did they cast their votes for the side of the males,<milestone ed="p" n="645" unit="line"/>disregarding the women's cause, since they honored the avenging eye of Zeus, against which there is no battling, and what house would have it<milestone ed="p" n="650" unit="line"/>defiling its roof?<note anchored="yes" n="650" resp="Smyth">By a sudden shift of metaphor, the eye of Zeus is likened to a foul bird whose pollution of the roof is an evil omen to the inmates of the house.</note>For he sits heavily upon it.  They take reverent heed of their kin, petitioners of holy Zeus; therefore with pure<milestone ed="p" n="655" unit="line"/>altars shall they please the gods.<milestone ed="p" n="656" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Therefore let there fly forth from our overshadowed<note anchored="yes" n="656" resp="Smyth">Overshadowed by the suppliant branches, which, though now laid on the altar &lpar;l. 507&rpar;, are still in imagination held before the faces of the maidens.</note>lips a prayer of gratitude.  Never may pestilence<milestone ed="p" n="660" unit="line"/>empty this city of its men nor strife stain the soil of the land with the blood of slain inhabitants.  But may the flower of its youth be unplucked, and may Ares,<milestone ed="p" n="665" unit="line"/>the partner of Aphrodite's bed, he who makes havoc of men, not shear off their bloom.<milestone ed="p" n="667" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And may the altars, where the elders gather, blaze in honor of venerable men.<milestone ed="p" n="670" unit="line"/>Thus may their state be regulated well, if they hold in awe mighty Zeus, and, most of all, Zeus the warden of the guest, who by venerable enactment guides destiny straight.<milestone ed="p" n="675" unit="line"/>We pray that other guardians be always renewed, and that Artemis-Hecate<note anchored="yes" n="676" resp="Smyth">Artemis and Hecate were identified in Attic cult as early as the fifth century B.C.  Cp. <title>Corp. Inscr. Att.</title> 1.208.  The epithet <foreign lang="greek">e(ka/th</foreign> &ldquo;far-darter,&rdquo; &ldquo;archer&rdquo; was, it seems, not applied as a common adjective to Artemis.</note>watch over the childbirth of their women.<milestone ed="p" n="678" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>And let no murderous havoc come upon<milestone ed="p" n="680" unit="line"/>the realm to ravage it, by arming Ares&mdash;foe to the dance and lute, parent of tears&mdash;and the shout of civil strife.<milestone ed="p" n="685" unit="line"/>And may the joyless swarm of diseases settle far from the heads of the inhabitants, and to all the young people may Lyceus<note anchored="yes" n="686" resp="Smyth">The epithet Lyceus, often applied to Apollo, was commonly connected with the belief that he was the destroyer and protector of wolves &lpar;<foreign lang="greek">lu/koi</foreign>&rpar;.  As a destructive power he is invoked to ward off enemies &lpar;<bibl n="Aesch. Seven 145">Aesch. Seven 145</bibl>&rpar;; as an averter of evil he protects herds, flocks, and the young.  According to Pausanias &lpar;<bibl n="Paus. 2.19.3">Paus. 2.19.3</bibl>&rpar; Danaus established a sanctuary in honor of Lyceus at <placeName key="perseus,Argos">Argos</placeName>, where, in later times, the most famous of all Apollo's temples was consecrated to him under the title of &ldquo;Wolf-god.&rdquo;</note>be graciously disposed.<milestone ed="p" n="688" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>May Zeus cause the earth to bring forth its tribute of fruit<milestone ed="p" n="690" unit="line"/>by the produce of every season; may their grazing cattle in the fields have abundant increase, and may they obtain all things from the heavenly powers.<milestone ed="p" n="695" unit="line"/>May minstrels sing hymns of praise at the altars; and from pure lips let there proceed the phorminx-loving chant.<milestone ed="p" n="698" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>May the people who control the state guard its privileges free from fear&mdash;<milestone ed="p" n="700" unit="line"/>a prudent government counselling wisely for the public prosperity.  And should they have recourse to arms may they inflict no loss, but grant just rights of covenant to the stranger within their gates.<milestone ed="p" n="704" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>And may they worship forever the gods who possess the land<milestone ed="p" n="705" unit="line"/>with native honors of laurel bough held aloft, and oxen slain, even as their fathers did before their time. Since reverence for parents stands written third among the statutes of Justice, to whom honor supreme is due.<milestone ed="p" n="710" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Danaus</speaker>
+<p><milestone ed="p" n="710" unit="line"/>I commend these sensible prayers, dear children; but do not be troubled yourselves when you hear the unexpected and startling tidings your father has to tell.  From my post of look-out here on the sanctuary of suppliants I see that ship; for it is well-marked and does not escape me:<milestone ed="p" n="715" unit="line"/>the trimming of its sail, its side-guards, and the prow that with its eyes scans its onward course, obeying&mdash;all too well for those to whom it is unfriendly&mdash;the guiding rudder at the stern.  The men on board are plainly seen, their black<milestone ed="p" n="720" unit="line"/>limbs showing from their white attire.  The rest of the ships and all the assisting fleet stand clear in view:  but the leading ship herself has furled her sail and draws near the shore with full sweep of sounding oars.  Yet<milestone ed="p" n="725" unit="line"/>you must face the matter calmly and with self-control, and not be unmindful of these gods.  For my part, I will secure allies and advocates to urge our cause, and return.  Perhaps some herald or envoys may come, eager to seize you as a prize and drag you away, but nothing will happen: do not fear them.<milestone ed="p" n="730" unit="line"/>Yet in the event that we should be slow in bringing aid, it would be better not to forget for a moment the means of help you have here at hand.  Courage! In good time, assuredly, and on the day ordained, he who dishonors the gods will suffer punishment.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Father, I am afraid. With what swift wings the ships<milestone ed="p" n="735" unit="line"/>approach!  There is not much time left.<milestone ed="p" n="736" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I am possessed by dreadful fear if truly my long flight has been of no profit.  Father, I am consumed with fright.<milestone ed="p" n="739" unit="card"/></p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>Since the vote of the Argives was final,<milestone ed="p" n="740" unit="line"/>be of good cheer, my children; they will fight in your defence, I know this well.</p></sp>
+<sp>
+<speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Abominable is the lustful race of <placeName key="tgn,7016833">Aegyptus</placeName> and insatiate of battle; and you know that all too well.<milestone ed="p" n="743" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<p>In ships, stout-timbered and dark-prowed, they have sailed here,<milestone ed="p" n="745" unit="line"/>attended by a mighty black host, and in their wrath overtaken us.<milestone ed="p" n="746" unit="card"/></p>
+<sp>
+<speaker>Danaus</speaker>
+<p>But they will find here a force with arms well-seasoned by the noonday heat.</p></sp>
+<sp>
+<speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Do not leave me forlorn, I implore you, father.  A woman abandoned to herself is nothing.  There is no Ares in her.<milestone ed="p" n="750" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<p><milestone ed="p" n="750" unit="line"/>They are of evil mind, and guileful of purpose, with impure hearts, thinking no more of altars than carrion birds.<milestone ed="p" n="753" unit="card"/></p>
+<sp>
+<speaker>Danaus</speaker>
+<p>This would profit us well, my children, should they incur both Heaven's hate and yours.</p></sp>
+<sp>
+<speaker>&lsqb;Chorus&rsqb;</speaker>
+<p><milestone ed="p" n="755" unit="line"/>Father, no fear of tridents or of things held sacred in the sight of Heaven will ever keep their hands from us.<milestone ed="p" n="757" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<p>They are overweening, maddened, with unholy rage, shameless dogs that do not respect the gods.<milestone ed="p" n="760" unit="card"/></p></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Danaus</speaker>
+<p><milestone ed="p" n="760" unit="line"/>Yet there is a saying that wolves are stronger than dogs; the papyrus-fruit does not conquer the wheat-ear.<note anchored="yes" n="761" resp="Smyth">Distinctive foods mark national differences&mdash;the Egyptians are no match for the Argives.  Theophrastus, in his<title>History of Plants</title> 4.8, reports that the inhabitants of <placeName key="tgn,7016833">Egypt</placeName> chew papyrus, raw, boiled, or roasted.</note></p></sp>
+<sp>
+<speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Since they have the tempers of lewd and impious beasts, we must guard against them quickly.</p></sp>
+<sp>
+<speaker>Danaus</speaker>
+<p>A fleet in getting under way is not so speedy,<milestone ed="p" n="765" unit="line"/>nor yet in anchoring, when the securing cables must be brought ashore; and even at anchorage shepherds of ships do not feel immediately secure, above all if they have arrived on a harborless coast when the sun is sinking into night.<milestone ed="p" n="770" unit="line"/>In a cautious pilot night is likely to beget anxiety.  Then, too, the disembarking of an army cannot be effected with success before a ship has gained confidence in her moorings.  But, for all your terror, remember not to neglect the gods.  &lsqb;I will return&rsqb; when I have secured aid.  The city will find no fault with a messenger,<milestone ed="p" n="775" unit="line"/>old in years, but with youth in his heart and on his tongue.<stage>Exit</stage><milestone ed="p" n="776" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>O land of hills, land of our righteous veneration, what is to be our lot?  To what region in the Apian land are we to flee, if anywhere there be some dark hiding-place?  Ah that I might become black smoke<milestone ed="p" n="780" unit="line"/>that draws near to the clouds of Zeus; or, soaring aloft without wings, vanish out of sight like viewless dust and dissolve into nothingness!<milestone ed="p" n="784" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>The evil is no longer escapable;<milestone ed="p" n="785" unit="line"/>my heart is darkened and trembling; the look-out my father held has brought me ruin.  I am undone with terror. Rather would I meet my doom in a noose<milestone ed="p" n="790" unit="line"/>than suffer the embraces of a man I loathe.  Death before that, with Hades for my lord and master!<milestone ed="p" n="792" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Ah that somewhere in the upper air I might find a seat against which the dank clouds turn into snow, or some bare, inaccessible crag,<milestone ed="p" n="795" unit="line"/>beyond sight, brooding in solitude, beetling, vulture-haunted, to bear witness to my plunge into the depths before I am ever forced into a marriage that would pierce my heart!<milestone ed="p" n="800" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="800" unit="line"/>Thereafter I refuse not to become a booty for dogs and a banquet for the local birds; for death is freedom from misery-loving evils.  Come death, death be my doom,<milestone ed="p" n="805" unit="line"/>before the marriage-bed!  How can I yet find some means of escape to deliver me from marriage?<milestone ed="p" n="808" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Shriek aloud, with a cry that reaches heaven, strains of supplication to the gods;<milestone ed="p" n="810" unit="line"/>O father, give heed that they  are somehow accomplished to my safety and tranquility.  Behold deeds of violence with no kind glance in your just eyes!<milestone ed="p" n="815" unit="line"/>Have respect for your suppliants, O Zeus, omnipotent upholder of the land!<milestone ed="p" n="817" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>For the males of the race of <placeName key="tgn,7016833">Aegyptus</placeName>, intolerable in their wantonness, chase after me,<milestone ed="p" n="820" unit="line"/>a fugitive, with clamorous lewdness and seek to lay hold of me with violence.  But yours alone is the beam of the balance, and without you what is accomplished for mortals?<milestone ed="p" n="825" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<div2 type="lyric">
+<sp>
+<p><stage>The herald of the Egyptians is seen at a distance, with armed followers.</stage><milestone ed="p" n="825" unit="line"/>Ho! Ha!  Here on the land is the pirate from the ship!  Before that, pirate, may you perish . . .<milestone ed="p" n="830" unit="line"/>I see in this the prelude of suffering wrought by violence.  Oh! Oh! Fly for protection! Savagery beyond bearing by its insolence on sea and land alike.<milestone ed="p" n="835" unit="line"/>Lord of the land, protect us!<milestone ed="p" n="836" unit="card"/></p></sp>
+<sp>
+<speaker>&lsqb;Herald&rsqb;</speaker>
+<p>Away with you, away to the ship, as fast as your feet can carry you!  If you won't, your hair shall be torn out; you'll be pricked with goads, and off will come your heads<milestone ed="p" n="840" unit="line"/>with abundant letting of gory blood.  Away with you, away&mdash;and curses on you!&mdash;to the ships.<milestone ed="p" n="843" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Would that you had perished on your course over the great briny flood<milestone ed="p" n="845" unit="line"/>along with your lordly arrogance and your riveted ship!  ...<milestone ed="p" n="849" unit="card"/></p></sp>
+<sp>
+<speaker>&lsqb;Herald&rsqb;</speaker>
+<p>I order you to stop your shrieking.<milestone ed="p" n="850" unit="line"/>... Ho there! leave the sanctuary: be off to the ship!  I do not respect one without honor and city.<milestone ed="p" n="854" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Never again may my eyes behold<milestone ed="p" n="855" unit="line"/>the cattle-nurturing stream from which increase comes to men and vigor of the blood of life.  I am a native here, of ancient nobility<milestone ed="p" n="860" unit="line"/>. . . old man.<milestone ed="p" n="861" unit="card"/></p></sp>
+<sp>
+<speaker>&lsqb;Herald&rsqb;</speaker>
+<p>You will get yourself speedily on board, on board, I say, whether you will or not, by force, by force. . . .<milestone ed="p" n="865" unit="line"/><milestone ed="p" n="866" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Alas, alas!  So may you perish past all help, driven from your course over the surging waves by eastern breezes off<milestone ed="p" n="870" unit="line"/>the sandy tomb of Sarpedon!<milestone ed="p" n="872" unit="card"/></p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>Wail and shout and call upon the gods&mdash;you will not escape the Egyptian ship.<milestone ed="p" n="875" unit="line"/>Cry out, utter a strain of woe more bitter still.<milestone ed="p" n="876" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Alas, alas the brutal outrage with which, you crocodile, you boast arrogantly, bellowing on the sea. May the mighty<milestone ed="p" n="880" unit="line"/>Nile, who watches you, overwhelm your arrogance and destroy you.<milestone ed="p" n="882" unit="card"/></p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>Go to the double-prowed ship as quickly as possible.  Let no one delay, for dragging by force has no mercy on locks of hair.<milestone ed="p" n="885" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="885" unit="line"/>Alas, father; the help of the sacred images deludes me.  Like a spider, he is carrying me seaward step by step&mdash;a nightmare, a black nightmare! Oh! Oh!<milestone ed="p" n="890" unit="line"/> Mother Earth, mother Earth, avert his fearful cries!  O father Zeus, son of Earth!<milestone ed="p" n="893" unit="card"/></p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>I do not fear the native gods, be assured. They did not rear me, nor by their nurture did they bring me to old age.<milestone ed="p" n="895" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="895" unit="line"/>He rages close to me, the two-footed serpent. Like some viper he lays hold of me and bites my foot.  Alas, alas!  Mother Earth, mother Earth,<milestone ed="p" n="900" unit="line"/>avert his fearful cries!  O father Zeus, son of Earth!<milestone ed="p" n="902" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Herald</speaker>
+<p>If you will not resign yourself and get to the ship, rending will have no pity on the fabric of your garments.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>We are lost!  O King, we are suffering impious violence!</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p><milestone ed="p" n="905" unit="line"/>Oh, you will soon see many kings in <placeName key="tgn,7016833">Aegyptus</placeName>' sons.  Be of good cheer: you will not have to blame lack of government.</p></sp>
+<sp>
+<speaker>&lsqb;Chorus&rsqb;</speaker>
+<p>Listen!  Chiefs and rulers of the city, I am threatened with violence!</p></sp>
+<sp>
+<speaker>&lsqb;Herald&rsqb;</speaker>
+<p>I think I will have to seize you by the hair and drag you off<milestone ed="p" n="910" unit="line"/>since you are slow to heed my orders.</p></sp>
+<stage>Enter the King with retainers</stage>
+<sp>
+<speaker>King</speaker>
+<p>You there!  What are you doing?  What kind of arrogance has incited you to do such dishonor to this realm of Pelasgian men?  Indeed, do you think you have come to a land of women? For a barbarian dealing with Hellenes, you act insolently.<milestone ed="p" n="915" unit="line"/>Many are the misses of your wits, and your hits are none.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>And in this case where have I gone wrong and transgressed my right?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>First of all, you do not know how to act as a stranger.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>I not know?  How so, when I simply find and take my own that I had lost?</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>To what patrons of your land was your notice given?</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p><milestone ed="p" n="920" unit="line"/>To Hermes, the Searcher, greatest of patrons.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>For all your notice to the gods, you do them no reverence.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>I revere the deities by the <placeName key="tgn,1127805">Nile</placeName>.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>While ours are nothing, as I understand you?</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>I shall carry off these maids unless someone tears them away.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p><milestone ed="p" n="925" unit="line"/>If you so much as touch them, you will regret it, and right soon.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>I hear you; and your speech is far from hospitable.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>No, since I have no hospitality for despoilers of the gods.</p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p>I will go and tell <placeName key="tgn,7016833">Aegyptus</placeName>' sons about this.</p></sp>
+<sp>
+<speaker>King</speaker>
+<p>My proud spirit will not ponder on this threat.<milestone ed="p" n="930" unit="card"/></p></sp>
+<sp>
+<speaker>Herald</speaker>
+<p><milestone ed="p" n="930" unit="line"/>But that I may know and tell a plainer tale &mdash;for it is fitting that a herald make exact report on each detail&mdash;what message am I to deliver?  Who is it, am I to tell on my return, that has despoiled me of this band of women, their own cousins?  It is not, I suppose, by voice of witnesses that the god of battle judges cases like this;<milestone ed="p" n="935" unit="line"/>nor is it by the gift of silver that he settles dispute; no! If that be the case, many a one shall fall and shuffle off his life.</p></sp>
+<sp>
+<speaker>&lsqb;King&rsqb;</speaker>
+<p>My name?  Why should I tell you?  In due course of time you will learn it, you and your companions.<milestone ed="p" n="940" unit="line"/>As for these maids, if, convinced by god-fearing argument, they consent of their own free will and heartily, you may take them.  But to this purpose a decree has been passed by the unanimous resolve of the people of the State, never, under compulsion, to surrender this association of women. Through their resolve<milestone ed="p" n="945" unit="line"/>the rivet has been driven home, to remain fixed and fast.  Not on tablets is this inscribed, nor has it been sealed in folds of books: you hear the truth from free-spoken lips.  Now get out of my sight immediately!</p></sp>
+<sp>
+<speaker>&lsqb;Herald&rsqb;</speaker>
+<p><milestone ed="p" n="950" unit="line"/>I think we are about to involve ourselves in a new war.  But may victory and authority rest with the men!</p></sp>
+<sp>
+<speaker>&lsqb;King&rsqb;</speaker>
+<p>It is men, I believe, you will find in the dwellers of this land; and they are no drinkers of diluted wine.<stage>Exit Herald.</stage>But<milestone ed="p" n="955" unit="line"/>take courage, all of you, and together with your handmaidens, proceed to our well-fenced town, encircled by sturdy devices of towers.  As for places inside to lodge, there are plenty of the public sort. For on no modest scale do I myself live, where,<milestone ed="p" n="960" unit="line"/>in company with many others, you may occupy abodes suitably prepared; or, if it is more pleasing to you, it is free for you also to make your home in dwellings of separate sort. Of these select what is best and most to your desires.  A protector you have in me and in all the inhabitants, whose resolve this is that now takes effect.<milestone ed="p" n="965" unit="line"/>Why wait for others of higher authority?<milestone ed="p" n="966" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In blessings may you abound, noble Pelasgian, in requital for your blessings!  But, if it pleases you, send our brave father Danaus here to be our adviser<milestone ed="p" n="970" unit="line"/>and leader of our counsels.  For it befits him, rather than ourselves, to advise us where we should establish our home and what neighborhood is friendly.  All the world is ready to cast reproach on those who speak a foreign tongue.  But may all be for the best!<stage>Exit the King.</stage><milestone ed="p" n="975" unit="line"/>And you, dear handmaidens, preserving your fair fame and provoking no angry utterances on the part of the native folk, take up your stations even as Danaus has allotted her duty of attendance unto each.<milestone ed="p" n="980" unit="card"/></p></sp>
+<stage>Enter Danaus with a bodyguard</stage>
+<sp>
+<speaker>Danaus</speaker>
+<p><milestone ed="p" n="980" unit="line"/>My children, it is right to offer prayers to the Argives and to sacrifice and pour libations to them as to Olympian gods; for they are our saviors in no doubtful manner.  They heard from my lips the conduct of your cousins toward their own kinfolk, and were moved to bitterness against them;<milestone ed="p" n="985" unit="line"/>but to me they assigned this escort of spearmen, that I might have rank and honor, and might not be ambushed and perish by the death of the spear, and so an ever-living burden come upon the land.  Recipients of such favors as these,<milestone ed="p" n="990" unit="line"/>it becomes us to hold gratitude in yet higher honor from the bottom of our hearts.  And in addition to the many other wise injunctions of your father recorded in your memory, inscribe this too&mdash;that an unknown company is proved by time.  For in an alien's case, all the world bears an evil tongue in readiness,<milestone ed="p" n="995" unit="line"/>and it is easy lightly to utter  defiling slander.  Therefore I would have you bring no shame upon me, now when your youthful loveliness attracts men's gaze. The tender ripeness of summer fruit is in no way easy to protect; beasts despoil it&mdash;and men, why not?&mdash;<milestone ed="p" n="1000" unit="line"/>and brutes that fly and those that walk the earth.  Love's goddess spreads news abroad of fruit bursting ripe. . . . So all men, as they pass,<milestone ed="p" n="1005" unit="line"/>mastered by desire, shoot an alluring arrow of the eye at the delicate beauty of virgins.  See to it, therefore, that we do not suffer that in fear for which we have endured great toil and ploughed the great waters with our ship; and that we bring no shame to ourselves and exultation to our enemies. Housing of two kinds is at our disposition,<milestone ed="p" n="1010" unit="line"/>the one Pelasgus offers, the other, the city, and to occupy free of cost.  These terms are easy.  Only pay heed to these behests of your father, and count your chastity more precious than your life.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>May the Olympian gods grant us good fortune in all the rest!<milestone ed="p" n="1015" unit="line"/>But, concerning the bloom of my virginity, father, be of good cheer, for, unless some evil has been devised of Heaven, I will not swerve from the former pathway of my thoughts.<milestone ed="p" n="1018" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus &lsqb;of the Danaids&rsqb;</speaker>
+<p>Come now away, glorifying the blessed gods, lords of the city both those who guard the town<milestone ed="p" n="1020" unit="line"/>and those who dwell about Erasinus' ancient stream. And you handmaidens take up the song.  Let the theme of our praise be this city of the Pelasgians, and no longer<milestone ed="p" n="1025" unit="line"/>let the homage of our hymns be paid to <placeName key="tgn,1127805">Nile</placeName>'s floods where they seek the sea,<milestone ed="p" n="1026" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus &lsqb;of the Danaids&rsqb;</speaker>
+<p>But to the rivers that pour their gentle draught through the land and increase the birth of children, soothing its soil with their fertilizing streams.</p>
+<p><milestone ed="p" n="1030" unit="line"/>May pure Artemis look upon this band in compassion, and may marriage never come through Cytherea's compulsion.  May that prize belong to my enemies!<milestone ed="p" n="1034" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>&lsqb;Chorus of Handmaidens&rsqb;</speaker>
+<p>Yet there is no disdain of Cypris in this our friendly hymn;<milestone ed="p" n="1035" unit="line"/>for she, together with Hera, holds power nearest to Zeus, and for her solemn rites the goddess of varied wiles is held in honor.</p>
+<p>And in the train of their mother are Desire and she to whom nothing is denied,<milestone ed="p" n="1040" unit="line"/>winning Persuasion; and to Harmonia has been given a share of Aphrodite, and to the whispering touches of the Loves.<milestone ed="p" n="1043" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>&lsqb;Chorus of Handmaidens&rsqb;</speaker>
+<p>But for the fugitives I have boding fears of blasts of harm and cruel distress and bloody wars.<milestone ed="p" n="1045" unit="line"/>How did they make such a smooth voyage when pursuit followed fast upon their track?</p>
+<p>Whatever is fated, that will come to pass. The mighty, untrammelled will of Zeus cannot be transgressed.<milestone ed="p" n="1050" unit="line"/>Marriage has been the destiny of many women before our time.<milestone ed="p" n="1052" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>&lsqb;A Danaid&rsqb;</speaker>
+<p>May mighty Zeus defend me from marriage with <placeName key="tgn,7016833">Aegyptus</placeName>' race!</p></sp>
+<sp><speaker>&lsqb;A Handmaiden&rsqb;</speaker>
+<p>That would indeed be best.</p></sp>
+<sp><speaker>&lsqb;A Danaid&rsqb;</speaker>
+<p><milestone ed="p" n="1055" unit="line"/>But you would move the immovable.</p></sp>
+<sp><speaker>&lsqb;A Handmaiden&rsqb;</speaker>
+<p>And you do not know what the future has in store.<milestone ed="p" n="1057" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>&lsqb;A Danaid&rsqb;</speaker>
+<p>How should I scan the mind of Zeus, a sight unfathomable?</p></sp>
+<sp><speaker>&lsqb;A Handmaiden&rsqb;</speaker>
+<p>Let the words of your prayer be moderate.</p></sp>
+<sp><speaker>&lsqb;A Danaid&rsqb;</speaker>
+<p><milestone ed="p" n="1060" unit="line"/>What sense of proportion would you now teach me?</p></sp>
+<sp><speaker>&lsqb;A Handmaiden&rsqb;</speaker>
+<p>Do not ask too much of the gods.<milestone ed="p" n="1062" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>&lsqb;Chorus of Danaids and Handmaidens&rsqb;</speaker>
+<p>May sovereign Zeus spare me cruel marriage with a man I hate, that very Zeus who<milestone ed="p" n="1065" unit="line"/>mercifully freed Io from pain, restoring her with healing hand by kindly force.<milestone ed="p" n="1068" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>&lsqb;Chorus of Danaids and Handmaidens&rsqb;</speaker>
+<p>And may he award victory to the women!<milestone ed="p" n="1070" unit="line"/>I praise that which is better than evil, two parts of good mixed with one of bad; and I praise that, through god-given means of deliverance, conflicting rights, in accordance with my prayers, should follow the course of justice.<stage>Exeunt omnes</stage></p></sp></div2>
+</div1></body></text>
+</TEI.2>

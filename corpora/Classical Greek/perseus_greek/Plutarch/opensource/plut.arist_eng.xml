@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Arist." type="work">Aristides</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;&fund.AnnCPB;</titleStmt>
+         <extent>about 84Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Arist."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">2</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990536</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/90</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Proofread by Ted Armstrong.</item>
+         </change>
+         <change>
+            <date>8/91</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Revise DTDs and recheck texts.</item>
+         </change>
+         <change>
+            <date>8/92</date>
+            <respStmt>
+               <name>DAS</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Removed highlighted text, cleaned up notes and citations,
+					and changed chapters to DIV2's.</item>
+         </change>
+         <change>
+            <date>10/22/92</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Glued all Plutarch files together,
+					put in HEAD tags to title them.</item>
+         </change>
+         <change>
+            <date>9/12/97</date>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Made conformant with TEI P3.</item>
+         </change>
+         <change>
+            <date/>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>	
+					$Log: plut.arist_eng.xml,v $
+					Revision 1.4  2010-11-30 18:28:12  balmas01
+					getting rid of angle brackets in commit comments
+
+					Revision 1.3  2010-11-19 13:47:08  balmas01
+					Normalizing quote q and lb
+
+					Revision 1.2  2009-12-15 20:52:49  rsingh04
+					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
+
+					Revision 1.1  2009/12/07 22:05:56  rsingh04
+					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
+
+					Revision 1.8  2009/08/06 17:11:24  rsingh04
+					fixed section numbers
+
+					Revision 1.7  2009/06/11 20:04:19  student
+					fixing citations - ad
+
+					Revision 1.6  2009/06/10 20:56:41  student
+					fixing citations - ad
+
+					Revision 1.5  2009/05/06 20:08:10  lcerrato
+					fixed bad bibls
+
+					Revision 1.4  2009/01/23 22:09:50  rsingh04
+					small fixes
+
+					Revision 1.3  2009/01/22 22:25:27  rsingh04
+					small fix
+
+					Revision 1.2  2009/01/21 22:20:01  rsingh04
+					now validates and entities fixed
+
+					Revision 1.2  2001/09/28 19:34:06  lcerrato
+					cleaned up quotes, bibls and notes
+					
+					Revision 1.1  2001/09/27 21:56:40  lcerrato
+					adding new tags for DE, ISBN, etc.
+					
+					Revision 1.4  2000/03/04 20:35:11  dasmith
+					Added separate funder entity to TEI header.
+					
+					Revision 1.3  1999/07/28 18:27:56  dasmith
+					Added text to REFSDECL.
+					
+					Revision 1.2  1999/07/09 23:15:27  textgod
+					Converted to TEI-conformant SGML.</item>
+         </change>
+         <change>
+            <date>9/01</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>removed from group file, retagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>ARISTIDES</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Aristides, the son of Lysimachus, belonged to the tribe Antiochis, and to the deme Alopece. As regards his substance, stories differ, some having it that he passed all the days of his life in severe poverty, and that at his death he left behind him two daughters who for a long time were not sought in marriage because of their indigence.
+				<milestone n="2" unit="section"/>
+				But in contradiction of this story which so many writers give, Demetrius of Phalerum, in his 
+				<q direct="unspecified">Socrates,</q> says he knows of an estate in Phalerum which belonged to Aristides&mdash;the one in which he lies buried, and regards as proofs of his opulent circumstances, first, his office of Archon Eponymous, which only he could hold who obtained it by lot from among the families carrying the highest property assessments (these were called Pentacosiomedimni, or Five-hundred-bushellers);
+				<milestone n="3" unit="section"/>
+				second, his banishment in ostracism, for no poor men, but only men from great houses which incurred envy because of their family prestige, were liable to ostracism; third, and last, the fact that he left in the precinct of Dionysus as offerings for victory some choregic tripods, which, even in our day, were pointed out as still bearing the inscription: 
+				<q direct="unspecified">The tribe Antiochis was victorious; Aristides was Choregus; Archestratus was Poet.</q>
+				        <milestone n="4" unit="section"/>
+			      </p>
+         <p>Now this last argument, though it seems very strong, is really very weak.  For both Epaminondas, who, as all men know, was reared and always lived in great poverty, and Plato the philosopher, took it upon themselves to furnish munificent public performances, the first, of men trained to play the flute, the second, of boys trained to sing and dance; but Plato received the money that he spent thereon from Dion of Syracuse, and Epaminonmas from Pelopidas.
+				<milestone n="5" unit="section"/>
+				Good men wage no savage and relentless war against the gifts of friends, but while they look upon gifts taken to be stored away and increase the receiver's wealth as ignoble and mean, they refuse none which promote an unselfish and splendid munificence. 
+			</p>
+         <p>However, as regards the tripods, Panaetius tries to show that Demetrius was deceived by identity of name.
+				<milestone n="6" unit="section"/>
+				From the Persian wars, he says, down to the end of the Peloponnesian war, only two Aristides are recorded as victorious choregi, and neither of them is identical with the son of Lysimachus.  One was the son of Xenophilus, and the other lived long afterwards, as is proved by the inscription itself, which is written in the character used after Eucleides,<note resp="ed" place="unspecified" anchored="yes"> In 403-402 B.C., when Eucleides was Archon Eponymous, the Ionian alphabet was officially adopted at Athens.</note> as well as by the last name, Archestratus, of whom there is no record during the Persian wars, while during the time of the Peloponnesian war his name often appears as that of a choral poet.
+				<milestone n="7" unit="section"/>
+			      </p>
+         <p>This argument of Panaetius should be more closely examined as to its validity; but to banishment in ostracism every one was liable who was superior to the common run of men in reputation, or lineage, or eloquence.  And so it was that Damon, the teacher of Pericles, was ostracized because he was thought to be rather extraordinary in his wisdom.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Per. 4.2">Plut. Per. 4.2</bibl>
+            </note>
+				        <milestone n="8" unit="section"/>
+				Furthermore, Idomeneus says that Aristides obtained the office of archon, not by lot, but by the election of the Athenians.<note resp="ed" place="unspecified" anchored="yes"> From 508 B.C. to 487 B.C. the archons were elected by the Assembly; after 487, they were once more chosen by lot.</note> And if he was made archon after the battle of Plataea, as Demetrius himself has written, it is certainly very credible that in view of such a reputation and such successes as he there won, he should be deemed worthy, for his valor, of an office which men who drew lots for it obtained for their wealth.
+				<milestone n="9" unit="section"/>
+				In fact, Demetrius is clearly ambitious to rescue not only Aristides, but also Socrates from what he deems the great evil of poverty, for he says that Socrates owned not only his house, but also seventy minas out at interest with Crito.
+				<milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Aristides was an intimate friend of that Cleisthenes who set the state in order after the expulsion of the tyrants.  He also admired and emulated, above all other statesmen, Lycurgus the Lacedaemonian.  He therefore favoured an aristocratic form of government, and ever had opposed to him, as champion of the people, Themistocles the son of Neocles.  Some say that even as boys and fellow-pupils, from the outset, in every word and deed, whether serious or trivial, they were at variance with one another,
+				<milestone n="2" unit="section"/>
+				and that by this very rivalry their natures were straightway made manifest, the one as dexterous, reckless, and unscrupulous, easily carried with impetuosity into any and every undertaking; the other as established on a firm character, intent on justice, and admitting no falsity or vulgarity or deceit, not even in any sport whatsoever. 
+			</p>
+         <p>But Ariston of Ceos says that this enmity of theirs, which came to be so intense, had its origin in a love affair.
+				<milestone n="3" unit="section"/>
+				They were both enamored of Stesilaus, who was of Ceian birth, and in beauty of person the most brilliant of youths; and they cherished their passion so immoderately, that not even after the boy's beauty had faded did they lay aside their rivalry, but, as though they had merely taken preliminary practice and exercise in that, they presently engaged in matters of state also with passionate heat and opposing desires.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Themistocles joined a society of political friends, and so secured no inconsiderable support and power. Hence when some one told him that he would be a good ruler over the Athenians if he would only be fair and impartial to all, he replied: 
+				<q direct="unspecified">Never may I sit on a tribunal where my friends are to get no more advantage from me than strangers.</q>
+				        <milestone n="5" unit="section"/>
+				But Aristides walked the way of statesmanship by himself, on a private path of his own, as it were, because, in the first place, he was unwilling to join with any comrades in wrong-doing, or to vex them by withholding favours; and, in the second place, he saw that power derived from friends incited many to do wrong, and so was on his guard against it, deeming it right that the good citizen should base his confidence only on serviceable and just conduct.
+				<milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>However, since Themistocles was a reckless agitator, and opposed and thwarted him in every measure of state, Aristides himself also was almost compelled&mdash;partly in self-defence, and partly to curtail his adversary's power, which was increasing through the favour of the many&mdash;to set himself in opposition to what Themistocles was trying to do, thinking it better that some advantages should escape the people than that his adversary, by prevailing everywhere, should become too strong.
+				<milestone n="2" unit="section"/>
+				Finally there came a time when he opposed and defeated Themistocles in an attempt to carry some really necessary measure.  Then he could no longer hold his peace, but declared, as he left the Assembly, that there was no safety for the Athenian state unless they threw both Themistocles and himself into the death-pit.  On another occasion he himself introduced a certain measure to the people, and was carrying it through successfully, in spite of the attacks of the opposition upon it, but just as the presiding officer was to put it to the final vote, perceiving, from the very speeches that had been made in opposition to it, the inexpediency of his measure, he withdrew it without a vote.
+				<milestone n="3" unit="section"/>
+				And oftentimes he would introduce his measures through other men, that Themistocles might not be driven by the spirit of rivalry with him to oppose what was expedient for the state. 
+			</p>
+         <p>Altogether admirable was his steadfast constancy amid the revulsions of political feeling.  He was not unduly lifted up by his honors, and faced adversity with a calm gentleness, while in all cases alike he considered it his duty to give his services to his country freely and without any reward, either in money, or, what meant far more, in reputation.
+				<milestone n="4" unit="section"/>
+				And so it befell, as the story goes, that when the verses composed by Aeschylus upon Amphiaraus were recited in the theater:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>He wishes not to seem, but rather just to be,</l>
+					          <l>And reap a harvest from deep furrows in a mind</l>
+					          <l>From which there spring up honorable counselings,</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aesch. Seven 592">
+                  <title>Seven Against Thebes</title>, 592 ff.</bibl>(Dindorf).</note>
+				
+				all the spectators turned their eyes on Aristides, feeling that he, above all men, was possessed of such excellence.
+				<milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>It was not only against the inclinations of his good-will and personal favour that he was a most strenuous champion of justice, but also against those of his anger and hatred.  At any rate a story is told, how he was once prosecuting an enemy in court, and after he had made his accusation the judges were loath to hear the defendant at all, and demanded that their vote be taken against him straightway; but Aristides sprang to his feet and seconded the culprit's plea for a hearing and the usual legal procedure.
+				<milestone n="2" unit="section"/>
+				And again, when he was serving as private arbitrator between two men, on one of them saying that his opponent had done Aristides much injury, 
+				<q direct="unspecified">Tell me rather,</q> he said, 
+				<q direct="unspecified">whether he has done thee any wrong; it is for thee, not for myself, that I am seeking justice.</q> When he was elected overseer of the public revenues, he proved clearly that large sums had been embezzled, not only by his fellow-officials, but also by those of former years and particularly by Themistocles:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>The man was clever, but of his hand had no control.</l>
+				        </quote>
+				
+				        <milestone n="3" unit="section"/>
+			      </p>
+         <p>For this cause, Themistocles banded many together against Aristides, prosecuted him for theft at the auditing of his accounts, and actually got a verdict against him, according to Idomeneus.  But the first and best men of the city were incensed at this, and he was not only exempted from his fine, but even appointed to administer the same charge again.  Then he pretended to repent him of his former course, and made himself more pliable, thus giving pleasure to those who were stealing the common funds by not examining them or holding them to strict account,
+				<milestone n="4" unit="section"/>
+				so that they gorged themselves with the public moneys, and then lauded Aristides to the skies, and pleaded with the people in his behalf, eagerly desirous that he be once more elected to his office.  But just as they were about to vote, Aristides rebuked the Athenians.  
+				<q direct="unspecified">Verily,</q> said he, 
+				<q direct="unspecified">when I served you in office with fidelity and honor, I was reviled and persecuted; but now that I am flinging away much of the common fund to thieves, I am thought to be an admirable citizen.
+				<milestone n="5" unit="section"/>
+				For my part, I am more ashamed of my present honor than I was of my former condemnation, and I am sore distressed for you, because it is more honorable in your eyes to please base men than to guard the public moneys.</q>  By these words, as well as by exposing their thefts, he did indeed stop the mouths of the men who were then testifying loudly in his favour, but he won genuine and just praise from the best citizens.
+				<milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now when Datis, on being sent by Darius ostensibly to punish the Athenians for burning Sardis, but really to subdue all the Hellenes, put in at Marathon with all his armament and went to ravaging the country, then, of the ten generals appointed by the Athenians for the conduct of the war, it was Miltiades who enjoyed the greatest consideration, but in reputation and influence Aristides was second.
+				<milestone n="2" unit="section"/>
+				By adopting at that time the opinion of Miltiades about the battle to be fought, he did much to turn the scale in its favour.  And since each general held the chief authority for a single day in turn, when the command came round to him, he handed it over to Miltiades, thereby teaching his fellow-officers that to obey and follow men of wisdom is not disgraceful, but dignified and salutary. By thus appeasing the jealousy of his colleagues and inducing them to be cheerfully contented in the adoption of a single opinion (and that the best), he confirmed Miltiades in the strength which comes from an unrestricted power.  For each of the other generals at once relinquished his own right to command for a day in turn, and put himself under the orders of Miltiades.
+				<milestone n="3" unit="section"/>
+				In the battle, the Athenian center was the hardest pressed, and it was there that the Barbarians held their ground the longest, over against the tribes Leontis and Antiochis.  There, then, Themistocles and Aristides fought brilliantly, ranged side by side; for one was a Leontid, the other an Antiochid.
+				<milestone n="4" unit="section"/>
+				When the Athenians had routed the Barbarians and driven them aboard their ships, and saw that they were sailing away, not toward the islands, but into the gulf toward Attica under compulsion of wind and wave, then they were afraid lest the enemy find Athens empty of defenders, and so they hastened homeward with nine tribes, and reached the city that very day.
+				<milestone n="5" unit="section"/>
+				But Aristides was left behind at Marathon with his own tribe, to guard the captives and the booty.  Nor did he belie his reputation, but though silver and gold lay about in heaps, and though there were all sorts of raiment and untold wealth besides in the tents and captured utensils, he neither desired to meddle with it himself, nor would he suffer any one else to do so, although certain ones helped themselves without his knowledge.  Among these was Callias the Torchbearer.<note resp="ed" place="unspecified" anchored="yes"> One of the highest officers at the celebration of the Eleusinian mysteries.</note>
+				        <milestone n="6" unit="section"/>
+			      </p>
+         <p>Some Barbarian, it seems, rushed up to this man, supposing him to be a king from his long hair and the headband that he wore, made obeisance to him, and taking him by the hand in suppliant fashion, showed him a great mass of gold buried up in a sort of pit. Callias, most savage and lawless of men, took up the gold; but the man, to prevent his betraying the matter to others, he slew.  From this circumstance, they say, his descendants are called by the comic poets 
+				<q direct="unspecified">Laccopluti,</q> or 
+				<q direct="unspecified">Pit-wealthies,</q> in sly allusion to the place where Callias found his gold.
+				<milestone n="7" unit="section"/>
+			      </p>
+         <p>Aristides at once received the office of Archon Eponymous.  And yet Demetrius of Phalerum says that it was a little while before his death, and after the battle of Plataea, that the man held this office.<note resp="ed" place="unspecified" anchored="yes"> 479-478 B.C.</note>
+			      </p>
+         <p>But in the official records, after Xanthippides, in whose year of office Mardonius was defeated at Plataea, you cannot find, long as the list is, so much as the name Aristides; whereas immediately after Phaenippus, in whose year of office the victory at Marathon was won, an Aristides is recorded as archon.<note resp="ed" place="unspecified" anchored="yes"> 490-489 B.C.</note>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Of all his virtues, it was his justice that most impressed the multitude, because of its most continual and most general exercise.  Wherefore, though poor and a man of the people, he acquired that most kingly and godlike surname of 
+				<q direct="unspecified">The Just.</q>
+				        <milestone n="2" unit="section"/>
+				This no kings or tyrants ever coveted, nay, they rejoiced to be surnamed 
+				<q direct="unspecified">Besiegers,</q> or 
+				<q direct="unspecified">Thunderbolts,</q> or 
+				<q direct="unspecified">Conquerors,</q> and some 
+				<q direct="unspecified">Eagles,</q> or 
+				<q direct="unspecified">Hawks,</q>
+            <note resp="ed" place="unspecified" anchored="yes"> Demetrius Poliorcetes; Ptolemy Ceraunos; Seleucus Nicator; Pyrrhus Aetos; Antiochus Hierax.</note> cultivating the reputation which is based on violence and power, as it seems, rather than on virtue.  And yet divinity, to which such men are eager to adapt and conform themselves, is believed to have three elements of superiority,&mdash;incorruption, power, and virtue; and the most reverend, the divinest of these, is virtue.
+				<milestone n="3" unit="section"/>
+				For vacuum and the ultimate elements partake of incorruption; and great power is exhibited by earthquakes and thunderbolts, and rushing tornadoes, and invading floods; but in fundamental justice nothing participates except through the exercise of intelligent reasoning powers. 
+			</p>
+         <p>Therefore, considering the three feelings which are generally entertained towards divinity,&mdash;envy, fear, and honorable regard, men seem to envy and felicitate the deities for their incorruption and perpetuity; to dread and fear them for their sovereignty and power; but to love and honor and revere them for their justice.
+				<milestone n="4" unit="section"/>
+				And yet, although men are thus disposed, it is immortality, of which our nature is not capable, and power, the chief disposal of which is in the hands of fortune, that they eagerly desire; while as for virtue, the only divine excellence within our reach, they put it at the bottom of the list, unwisely too, since a life passed in power and great fortune and authority needs justice to make it divine; by injustice it is made bestial.
+				<milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now, to resume, it befell Aristides to be loved at first because of this surname, but afterwards to be jealously hated, especially when Themistocles set the story going among the multitude that Aristides had done away with the public courts of justice by his determining and judging everything in private, and that, without any one perceiving it, he had established for himself a monarchy, saving only the armed body-guard.  And besides, the people too must by this time have become greatly elated over their victory; they thought nothing too good for themselves, and were therefore vexed with those who towered above the multitude in name and reputation.
+				<milestone n="2" unit="section"/>
+				So they assembled in the city from all the country round, and ostracized Aristides, giving to their envious dislike of his reputation the name of fear of tyranny. 
+			</p>
+         <p>Now the sentence of ostracism was not a chastisement of base practices, nay, it was speciously called a humbling and docking of oppressive prestige and power; but it was really a merciful exorcism of the spirit of jealous hate, which thus vented its malignant desire to injure, not in some irreparable evil, but in a mere change of residence for ten years.
+				<milestone n="3" unit="section"/>
+				And when ignoble men of the baser sort came to be subjected to this penalty, it ceased to be inflicted at all, and Hyperbolus was the last to be thus ostracized.<note resp="ed" place="unspecified" anchored="yes"> About 417 B.C.  Cf. <bibl n="Plut. Nic. 11">Plut. Nic. 11</bibl>, <bibl n="Plut. Alc. 13">Plut. Alc. 13</bibl>.</note> It is said that Hyperbolus was ostracized for the following reason.  Alcibiades and Nicias had the greatest power in the state, and were at odds. Accordingly, when the people were about to exercise the ostracism, and were clearly going to vote against one or the other of these two men, they came to terms with one another, united their opposing factions, and effected the ostracism of Hyperbolus.
+				<milestone n="4" unit="section"/>
+				The people were incensed at this for they felt that the institution had been insulted and abused, and so they abandoned it utterly and put an end to it. 
+			</p>
+         <p>The method of procedure&mdash;to give a general outline&mdash;was as follows.  Each voter took an ostrakon, or potsherd, wrote on it the name of that citizen whom he wished to remove from the city, and brought it to a place in the agora which was all fenced about with railings.
+				<milestone n="5" unit="section"/>
+				The archons first counted the total number of ostraka cast.  For if the voters were less than six thousand, the ostracism was void. Then they separated the names, and the man who had received the most votes they proclaimed banished for ten years, with the right to enjoy the income from his property. 
+			</p>
+         <p>Now at the time of which I was speaking, as the voters were inscribing their ostraka, it is said that an unlettered and utterly boorish fellow handed his ostrakon to Aristides, whom he took to be one of the ordinary crowd, and asked him to write Aristides on it.
+				<milestone n="6" unit="section"/>
+				He, astonished, asked the man what possible wrong Aristides had done him.  
+				<q direct="unspecified">None whatever,</q> was the answer, 
+				<q direct="unspecified">I don't even know the fellow, but I am tired of hearing him everywhere called 'The Just.'</q>  On hearing this, Aristides made no answer, but wrote his name on the ostrakon and handed it back.  Finally, as he was departing the city, he lifted up his hands to heaven and prayed&mdash;a prayer the opposite, as it seems, of that which Achilles made<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Il. 1.407">Hom. Il. 1.407-412</bibl>
+            </note>&mdash;that no crisis might overtake the Athenians which should compel the people to remember Aristides.
+				<milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But in the third year thereafter,<note resp="ed" place="unspecified" anchored="yes"> 480 B.C.</note> when Xerxes was marching through Thessaly and Boeotia against Attica, they repealed their law of ostracism, and voted that those who had been sent away under it might return.  The chief reason for this was their fear of Aristides, lest he attach himself to the enemy's cause, and corrupt and pervert many of his fellow-citizens to the side of the Barbarian.  But they much misjudged the man.  Even before this decree of theirs, he was ever inciting and urging the Hellenes to win their freedom; and after it was passed, when Themistocles was general with sole powers, he assisted him in every undertaking and counsel, although he thereby, for the sake of the general safety, made his chiefest foe the most famous of men.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Thus when Eurybiades wished to abandon Salamis, but the Barbarian triremes, putting out by night, had encompassed the strait where he lay round about, and had beset the islands therein, and no Hellene knew of this encompassment, Aristides came over to them from Aegina, venturously sailing through the enemy's ships.  He went at once by night to the tent of Themistocles, and called him forth alone.
+				<milestone n="3" unit="section"/>
+				
+				        <q direct="unspecified">O Themistocles,</q> said he, 
+				<q direct="unspecified">if we are wise, we shall at last lay aside our vain and puerile contention, and begin a salutary and honorable rivalry with one another in emulous struggles to save Hellas, thou as commanding general, I as assistant counsellor, since at the very outset I learn that thou art the only one who has adopted the best policy, urging as thou dost to fight a decisive sea-fight here in the narrows as soon as may be.  
+				<milestone n="4" unit="section"/>
+				And though thine allies oppose thee, thy foes would seem to assist thee; for the sea round about and behind us is already filled with hostile ships, so that even our unwilling ones must now of necessity be brave men and fight.  Indeed, no way of escape is left.</q>
+				        <milestone n="5" unit="section"/>
+				To this Themistocles replied: 
+				<q direct="unspecified">I should not have wished, O Aristides, to find thee superior to me here; but I shall try to emulate thy fair beginning, and to surpass thee in my actions.</q>  At the same time he told Aristides of the trick that he had contrived against the Barbarian, and entreated him to show Eurybiades convincingly, inasmuch as he had the greater credit with that commander, that there was no safety except in a sea-fight.
+				<milestone n="6" unit="section"/>
+				So it happened in the council of generals that Cleocritus the Corinthian declared to Themistocles that Aristides also was opposed to his plan, since he, though present, held his peace.  Aristides at once replied that he would not have held his peace had not Themistocles counselled for the best; but as it was, he kept quiet, not out of any goodwill to the man, but because he approved of his plan.
+				<milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>While the captains of the Hellenes were acting on this plan, Aristides noticed that Psyttaleia, a small island lying in the straits in front of Salamis, was full of the enemy.  He therefore embarked in small boats the most ardent and the most warlike of the citizens, made a landing on Psyttaleia, joined battle with the Barbarians, and slew them all, save the few conspicuous men who were taken alive.  Among these were three sons of the King's sister Sandauce,<note resp="ed" place="unspecified" anchored="yes"> Cf. <bibl>Plut. Them. 13.2</bibl>.</note> whom he straightway sent to Themistocles,
+				<milestone n="2" unit="section"/>
+				and it is said that, in obedience to some oracle or other, and at the bidding of Euphrantides the seer, they were sacrificed to Dionysus Carnivorous.  Then Aristides lined the islet all round with his hoplites, and lay in wait for any who should be cast up there, that no friend might perish, and no foe escape.  For the greatest crowding of the ships, and the most strenuous part of the battle, seems to have been in this region.  And for this reason a trophy was erected on Psyttaleia.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>After the battle, Themistocles, by way of sounding Aristides, said that the deed they had now performed was a noble one, but a greater still remained, and that was to capture Asia in Europe, by sailing up to the Hellespont as fast as they could and cutting in twain the bridges there.  But Aristides cried out with a loud voice and bade him abandon the proposal, and seek rather with all diligence how they might most speedily expel the Mede from Hellas,
+				<milestone n="4" unit="section"/>
+				lest, being shut in and unable to make his escape, from sheer necessity he throw this vast force of his upon the defensive. So Themistocles sent once more the eunuch Arnaces,<note resp="ed" place="unspecified" anchored="yes"> Cf. <bibl n="Plut. Them. 16.2">Plut. Them. 16.2f</bibl>.</note> a prisoner of war, bidding him tell the King that the Hellenes had actually set out on a voyage to attack the bridges, but that he, Themistocles, had succeeded in turning them back, wishing to save the King.
+				<milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At this Xerxes grew exceeding fearful, and hurried straight to the Hellespont; but Mardonius, with the flower of the army, to the number of three hundred thousand men, was left behind. He was a formidable adversary, and because his confidence in his infantry was strong, he wrote threateningly to the Hellenes, saying:
+				<milestone n="2" unit="section"/>
+				
+				        <q direct="unspecified">Ye have conquered with your maritime timbers landsmen who know not how to ply the oar; but now, broad is the land of Thessaly and fair the plain of Boeotia for brave horsemen and men-at-arms to contend in.</q>  But to the Athenians he sent separate letters and proposals from the King, who promised to rebuild their city, give them much money, and make them lords of the Hellenes, if only they would cease fighting against him.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>When the Lacedaemonians learned this, they took flight, and sent an embassy to Athens, begging the Athenians to despatch their wives and children to Sparta, and to accept from her a support for their aged and infirm; for great was the distress among the people, since it had so recently lost both land and city.
+				<milestone n="4" unit="section"/>
+				However, after listening to the embassy, on motion of Aristides, they answered with an admirable answer, declaring that they could be tolerant with their foes for supposing that everything was to be bought for wealth and money, since their foes could conceive of nothing higher than these things; but they were indignant at the Lacedaemonians for having an eye only to the penury and indigence that now reigned at Athens, and for being so unmindful of the valor and ambition of the Athenians as to exhort them to contend for Hellas merely to win their rations.
+				<milestone n="5" unit="section"/>
+				When Aristides had made this motion and had introduced the waiting embassies into the Assembly, he bade the Lacedaemonians tell their people that there was not bulk of gold above or below ground so large that the Athenians would take it in payment for the freedom of the Hellenes; and to the messengers of Mardonius he said, pointing to the sun: 
+				<q direct="unspecified">As long as yonder sun journeys his appointed journey, so long will the Athenians wage war against the Persians in behalf of the land which has been ravaged by them and of the temples which they have defiled and consumed with fire.</q>
+				        <milestone n="6" unit="section"/>
+				Still further, he made a motion that the priests should solemnly curse all who came to a parley with the Medes or forsook the alliance of the Hellenes. 
+			</p>
+         <p>When Mardonius for the second time invaded Attica, again the people crossed over to Salamis. Then Aristides, who had been sent as envoy to Lacedaemon, inveighed against their sluggishness and indifference, in that they had once more abandoned Athens to the Barbarian, and demanded that they go to the aid of what was still left of Hellas.
+				<milestone n="7" unit="section"/>
+				On hearing this, the Ephors, as long as it was day, publicly disported themselves in easygoing festival fashion; for it was their festival of the Hyacinthia.  But in the night they selected five thousand Spartans, each of whom had seven Helots to attend upon him, and sent them forth without the knowledge of the Athenians.  So when Aristides came before them with renewed invectives, they laughed and said he was but a sleepy babbler, for that their army was already in Arcadia on its march against the 
+				<q direct="unspecified">strangers</q> (they called the Persians strangers).
+				<milestone n="8" unit="section"/>
+				But Aristides declared they were jesting out of all season, forasmuch as they were deceiving their friends instead of their enemies. This is the way Idomeneus tell the story.  But in the decree which Aristides caused to be passed, he himself is not named as envoy, but Cimon, Xanthippus, and Myronides.
+				<milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Having been elected general with sole powers in view of the expected battle, he came to Plataea<note resp="ed" place="unspecified" anchored="yes"> Spring of 479 B.C.</note> at the head of eight thousand Athenian hoplites. There Pausanias also, the commander in chief of the whole Hellenic army, joined him with his Spartans, and the forces of the rest of the Hellenes kept streaming up.
+				<milestone n="2" unit="section"/>
+				Now, generally speaking, there was no limit to the encampment of the Barbarians as it lay stretched out along the river Asopus, so vast was it; but round their baggage trains and chief headquarters they built a quadrangular wall, whereof each side was ten stadia in length. 
+			</p>
+         <p>To Pausanias and all the Hellenes under him Tisamenus the Eleian made prophecy, and foretold victory for them if they acted on the defensive and did not advance to the attack.
+				<milestone n="3" unit="section"/>
+				But Aristides sent to Delphi and received from the god response that the Athenians would be superior to their foes if they made vows to Zeus, Cithaeronian Hera, Pan, and the Sphragitic nymphs; paid sacrifices to the heroes Androcrates, Leucon, Pisandrus, Damocrates, Hypsion, Actaeon, and Polyidus; and if they sustained the peril of battle on their own soil, in the plain of Eleusinian Demeter and Cora.
+				<milestone n="4" unit="section"/>
+				When this oracle was reported to Aristides, it perplexed him greatly. The heroes to whom he was to sacrifice were, it was true, ancient dignitaries of the Plataeans; and the cave of the Sphragitic nymphs was on one of the peaks of Cithaeron, facing the summer sunsets; and in it there was also an oracle in former days, as they say, and many of the natives were possessed of the oracular power, and these were called nympholepti, or 
+				<q direct="unspecified">nymph-possessed.</q>
+				        <milestone n="5" unit="section"/>
+				But the plain of Eleusinian Demeter, and the promise of victory to the Athenians if they fought the battle in their own territory, called them back, as it were, to Attica, and changed the seat of war. 
+			</p>
+         <p>At this time the general of the Plataeans, Arimnestus, had a dream in which he thought he was accosted by Zeus the Saviour and asked what the Hellenes had decided to do, and replied: 
+				<q direct="unspecified">On the morrow, my Lord, we are going to lead our army back to Eleusis, and fight out our issue with the Barbarians there, in accordance with the Pythian oracle.</q>
+				        <milestone n="6" unit="section"/>
+				Then the god said they were entirely in error, for the Pythian oracle's places were there in the neighborhood of Plataea, and if they sought them they would surely find them.  All this was made so vivid to Arimnestus that as soon as he awoke he summoned the oldest and most experienced of his fellow-citizens.  By conference and investigation with these he discovered that near Hysiae, at the foot of mount Cithaeron, there was a very ancient temple bearing the names of Eleusinian Demeter and Cora.
+				<milestone n="7" unit="section"/>
+				Straightway then he took Aristides and led him to the spot.  They found that it was naturally very well suited to the array of infantry against a force that was superior in cavalry, since the spurs of Cithaeron made the edges of the plain adjoining the temple unfit for horsemen.  There, too, was the shrine of the hero Androcrates hard by, enveloped in a grove of dense and shady trees.
+				<milestone n="8" unit="section"/>
+				And besides, that the oracle might leave no rift in the hope of victory, the Plataeans voted, on motion of Arimnestus, to remove the boundaries of Plataea on the side toward Attica, and to give this territory to the Athenians, that so they might contend in defence of Hellas on their own soil, in accordance with the oracle.
+				<milestone n="9" unit="section"/>
+			      </p>
+         <p>This munificence of the Plataeans became so celebrated that Alexander, many years afterwards, when he was now King of Asia,<note resp="ed" place="unspecified" anchored="yes"> 331-330 B.C.</note> built the walls of Plataea, and had proclamation made by herald at the Olympic games that the King bestowed this grace upon the Plataeans in return for their bravery and magnanimity in freely bestowing their territory upon the Hellenes in the Median war, and so showing themselves most zealous of all.
+				<milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now with the Athenians the men of Tegea came to strife regarding their position in the line. They claimed that, as had always been the case, since the Lacedaemonians held the right wing, they themselves should hold the left, and in support of their claim they sounded loudly the praises of their ancestors.  The Athenians were incensed, and Aristides came forward and made this speech: 
+				<q direct="unspecified">To argue with the men of Tegea about noble birth and bravery, there is surely no time now; but we declare to you, O Spartans, and to the rest of the Hellenes, that valor is not taken away from a man, nor is it given him, by his position in the line.  Whatsoever post ye shall assign to us, we will endeavor to maintain and adorn it, and so bring no disgrace upon the contests we have made before.
+				<milestone n="2" unit="section"/>
+				We are come, not to quarrel with our allies, but to do battle with our foes; not to heap praises on our fathers, but to show ourselves brave men in the service of Hellas.  It is this contest which will show how much any city or captain or private soldier is worth to Hellas.</q>  On hearing this, the councillors and leaders declared for the Athenians, and assigned to them the other wing.
+				<milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>While Hellas was thus in suspense and Athens especially in danger, certain men of that city who were of prominent families and large wealth, but had been impoverished by the war, saw that with their riches all their influence in the city and their reputation had departed, while other men now had the honors and offices.  They therefore met together secretly at a certain house in Plataea, and conspired to overthrow the democracy; or, if their plans did not succeed, to injure the general cause and betray it to the Barbarians.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Such was the agitation in the camp, and many had already been corrupted, when Aristides got wind of the matter, and, fearful of the crisis that favoured the plot, determined not to leave the matter in neglect, nor yet to bring it wholly to the light, since it could not be known how many would be implicated by a test which was based on justice rather than expediency.  Accordingly, he arrested some eight or so of the many conspirators.
+				<milestone n="3" unit="section"/>
+				Two of these, against whom the charge was first formally brought, and who were really the most guilty ones, Aeschines of Lamptrae and Agesias of Acharnae, fled the camp.  The rest he released, affording thus an opportunity for encouragement and repentance to those who still thought they had escaped detection, and suggested to them that the war was a great tribunal for their acquittal from the charges made against them, provided they took sincere and righteous counsel in behalf of their country.
+				<milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this, Mardonius made trial of the Hellenes with that arm of his service in which he thought himself most superior.  He despatched all his cavalry against them as they lay encamped at the foot of Cithaeron, in positions that were rugged and rocky&mdash;all except the Megarians.  These, to the number of three thousand, were encamped the rather in open plain.  For this reason they suffered severely at the hands of the cavalry, which poured in tides against them, and found access to them on every side.
+				<milestone n="2" unit="section"/>
+				Accordingly, they sent a messenger in haste to Pausanias, bidding him come to their aid, since they were unable of themselves to withstand the host of the Barbarians.  Pausanias, on hearing this, and seeing at once that the camp of the Megarians was as good as hidden from view by the multitude of the enemy's javelins and arrows, and that its defenders were huddled together in narrow quarters, on his own part had no way of rendering them aid against horsemen, since his phalanx of Spartans was full-armored and slow of movement;
+				<milestone n="3" unit="section"/>
+				but to the rest of the generals and captains of the Hellenes who were about him he proposed, in order to stir up their valor and ambition, that some of them should volunteer to make contention for the succour of the Megarians.  The rest all hesitated, but Aristides, in behalf of the Athenians, undertook the task, and despatched his most zealous captain, Olympiodorus, with the three hundred picked men of his command, and archers mingled with them.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>These quickly arrayed themselves and advanced to the attack on the run.  Masistius, the commander of the Barbarian cavalry, a man of wonderful prowess and of surpassing stature and beauty of person, saw them coming, and at once wheeled his horse to face them and charged down upon them.  Then there was a mighty struggle between those who withstood and those who made the charge, since both regarded this as a test of the whole issue between them.
+				<milestone n="5" unit="section"/>
+				Presently the horse of Masistius was hit with an arrow, and threw his rider, who lay where he fell, unable to raise himself, so heavy was his armour; and yet he was no easy prey to the Athenians, though they pressed upon him  and smote him.  For not only his chest and  head, but also his limbs were encased in gold and bronze and iron.  But at last, with the spike of a javelin, through the eye-hole of his helmet, he was smitten to the death, and the rest of the Persians abandoned his body and fled.
+				<milestone n="6" unit="section"/>
+				The magnitude of their success was known to the Hellenes, not from the multitude of those they slew, for few had fallen, but from the grief of the Barbarians. For they shore their own hair in tribute to Masistius, and that of their horses and mules, and filled the plain with their wailing cries.  They felt that they had lost a man who, after Mardonius himself, was by far the first in valor and authority.
+				<milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this cavalry battle, both sides refrained from further fighting for a long time, since only as they acted on the defensive would victory be theirs&mdash;so the soothsayers interpreted the sacrifices alike for Persians and Hellenes,&mdash;but if they attacked, defeat.  At last Mardonius, since he had supplies remaining for only a few days, and since the Hellenes were ever increasing in number as fresh bodies joined them, impatiently determined to wait no longer, but to cross the Asopus at daybreak and attack the Athenians unexpectedly. During the evening he gave the watchword to his commanders.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>But about midnight a solitary horseman quietly approached the camp of the Hellenes, and falling in with the outposts, ordered that Aristides the Athenian come to him.  He was speedily obeyed, and then said: 
+				<q direct="unspecified">I am Alexander the Macedonian, and I am come at the greatest peril to myself, out of my good-will toward you, that no suddenness of attack may frighten you into inferior fighting.
+				<milestone n="3" unit="section"/>
+				Mardonius will surely give battle on the morrow, not because he has substantial hope or even courage, but because he is destitute of provisions.  His soothsayers, indeed, are trying to keep him from battle by unpropitious sacrifices and oracular utterances, while his army is full of dejection and consternation; but he must needs boldly try his fortune, or sit still and endure extremest destitution.</q>
+				        <milestone n="4" unit="section"/>
+				When he had told him this, Alexander begged Aristides to keep the knowledge to himself and bear it well in mind, but to tell it to none other.  Aristides replied that it was not honorable to conceal this knowledge from Pausanias, since it was on him that the supreme command devolved, but that it should not be told the other leaders before the battle; though in case Hellas were victorious, no man should remain ignorant of Alexander's zeal and valor.
+				<milestone n="5" unit="section"/>
+				After this conversation, the king of the Macedonians rode off back again, and Aristides went to the tent of Pausanias and told him all that had been said.  Then they summoned the other leaders and gave them orders to keep the army in array, since there was to be a battle.
+				<milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At this juncture, as Herodotus relates,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 9.46">Hdt. 9.46</bibl>
+            </note> Pausanias sent word to Aristides, demanding that the Athenians change their position and array themselves on the right wing, over against the Persians, where they would contend better, he said, since they were versed already in the Persian style of fighting, and emboldened by a previous victory over them; the left wing, where the Medising Hellenes were going to attack, should be intrusted to himself and his Spartans.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>The rest of the Athenian generals thought it inconsiderate and annoying in Pausanias to leave the rest of his line in the position assigned, while, he moved them, and them only, back and forth like Helots, and put them forward where the fighting was to be hottest.  But Aristides declared that they were utterly wrong; they had contended emulously with the Tegeans, but a little while back, for the occupation of the left wing and plumed themselves on being preferred before those rivals;
+				<milestone n="3" unit="section"/>
+				but now, when the Lacedaemonians of their own accord vacated the right wing for them, and after a fashion proffered them the leadership among the Hellenes, they neither welcomed the reputation thus to be won, nor counted it gain that their contention would thus be, not with men of the same tribes and kindreds, but rather with Barbarians and natural enemies.  Upon this the Athenians very willingly exchanged posts with the Spartans,
+				<milestone n="4" unit="section"/>
+				and the word passed from lip to lip far through their ranks that their enemies would attack them with no better arms and with no braver spirits than at Marathon, nay, with the same kind of archery as then, and with the same variegated vesture and gold adornments to cover soft bodies and unmanly spirits; 
+				<q direct="unspecified">while we have not only like arms and bodies with our brethren of that day, but that greater courage which is born of our victories; and our contest is not alone for land and city, as theirs was, but also for the trophies which they set up at Marathon and Salamis, in order that the world may think that not even those were due to Miltiades only, or to fortune, but to the Athenians.</q>
+				        <milestone n="5" unit="section"/>
+			      </p>
+         <p>The Spartans and Athenians, then, were busily engaged in exchanging posts; but the Thebans heard of it from deserters and told Mardonius.  He, at once, whether through fear of the Athenian or out of ambition to engage with the Lacedaemonians, counterchanged his Persians to the right wing, and ordered the Hellenes with him to set themselves against the Athenians.
+				<milestone n="6" unit="section"/>
+				When this change in his enemy's order of battle was manifest, Pausanias returned and occupied the right wing again, whereupon Mardonius also resumed his own left wing, just as he stood at the beginning, facing the Lacedaemonians.  And thus the day came to an end without action.  The Hellenes, on deliberation, decided to change their camp to a position farther on, and to secure a spot where there was plenty of good water, since the neighboring springs were defiled and ruined by the Barbarians' superior force of cavalry.
+				<milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Night came on, and the generals set out to lead their forces to the appointed encampment.  The soldiers, however, showed no great eagerness to follow in close order, but when they had once abandoned their first defences, most of them hurried on toward the city of Plataea, and there tumult reigned as they scattered about and encamped in no order whatsoever.  But it chanced that the Lacedaemonians were left alone behind the others, and that too against their will.
+				<milestone n="2" unit="section"/>
+				For Amompharetus, a man of a fierce and venturesome spirit, who had long been mad for battle and distressed by the many postponements and delays, now at last lost all control of himself, denounced the change of position as a runaway flight, and declared that he would not abandon his post, but stay there with his company and await the onset of Mardonius.
+				<milestone n="3" unit="section"/>
+				And when Pausanias came up and told him that their action had been formally voted by the Hellenes in council, Amompharetus picked up a great stone and threw it down at the feet of Pausanias, saying that was his personal ballot for battle, and he cared not a whit for the cowardly counsels and votes of the rest. Pausanias, perplexed at the case, sent to the Athenians, who were already moving off, begging them to wait and make the march in company with him, and then began to lead the rest of his troops toward Plataea, with the idea that he would thus force Amompharetus from his position.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>At this point day overtook them, and Mardonius, who did not fail to notice that the Hellenes had abandoned their encampment, with his force in full array, bore down upon the Lacedaemonians, with great shouting and clamor on the part of the Barbarians, who felt that there would be no real battle, but that the Hellenes had only to be snatched off as they fled.  And this lacked but little of coming to pass.
+				<milestone n="5" unit="section"/>
+				For Pausanias, on seeing the situation, though he did check his march and order every man to take post for battle, forgot, either in his rage at Amompharetus or his confusion at the speed of the enemy, to give the signal for battle to the confederate Hellenes.  For this reason they did not come to his aid at once, nor in a body, but in small detachments and straggling, after the battle was already joined.
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>When Pausanias got no favorable omens from his sacrifices, he ordered his Lacedaemonians to sit quiet with their shields planted in front of them, and to await his orders, making no attempt to repulse their enemies, while he himself went to sacrificing again. By this time the horsemen were charging upon them; presently their missiles actually reached them, and many a Spartan was smitten.
+				<milestone n="7" unit="section"/>
+				And then it was that Callicrates, said to be the fairest of the Hellenes to look upon, and the tallest man in their whole army, was shot, and, dying, said he did not grieve at death, since he had left his home to die for Hellas, but at dying without striking a single blow.  Their experience was indeed a terrible one, but the restraint of the men was wonderful.  They did not try to repel the enemy who were attacking them, but awaited from their god and their general the favorable instant, while they endured wounds and death at their posts.
+				<milestone n="8" unit="section"/>
+				Some say that as Pausanias was sacrificing and praying, a little to one side of his line of battle, some Lydians suddenly fell upon him and rudely hurled away the sacrificial offerings; and that Pausanias and his attendants, being without weapons, smote the intruders with the sacrificial staves and goads; wherefore, to this day, in imitation of this onslaught, the ceremonies of beating the young warriors round the altar at Sparta, and of the procession of the Lydians which follows this, are duly celebrated as rites.
+				<milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Then, in distress at this state of affairs, while the seer slew victim after victim, Pausanias turned his face, all tears, toward the Heraeum, and with hands uplifted prayed Cithaeronian Hera and the other gods of the Plataean land that, if it was not the lot of the Hellenes to be victorious, they might at least do great deeds before they fell, and show to a certainty that their enemies had marched out against men who were brave and who knew how to fight.
+				<milestone n="2" unit="section"/>
+				While Pausanias was thus calling on the gods, right in the midst of his prayers, the sacrifices showed themselves propitious and the seer announced victory.  Word was at once passed all along the line to set themselves in motion against the enemy, and the phalanx suddenly had the look of a fierce beast bristling up to defend itself.  The Barbarians then got assurance that their contest was to be with men who would fight to the death.
+				<milestone n="3" unit="section"/>
+				Therefore they made a rampart of their wicker targets and shot their arrows into the ranks of the Lacedaemonians. These, however, kept their shields closely locked together as they advanced, fell upon their foemen, tore away their wicker targets, and then, smiting the Persians in face and breast with their long spears, they slew many, who nevertheless did great deeds of courage before they fell.  For they grasped the long spears with their naked hands, fractured them for the most part, and then took to short-range fighting with a will, plying their daggers and scimetars, tearing away their enemies' shields, and locking them in close embrace; and so they held out a long time.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>The Athenians, meanwhile, were quietly awaiting the Lacedaemonians.  But when the shouts of those engaged in battle fell loud upon their ears, and there came, as they say, a messenger from Pausanias telling them what was happening, they set out with speed to aid him.  However, as they were advancing through the plain to his aid, the Medising Hellenes bore down upon them.
+				<milestone n="5" unit="section"/>
+				Then Aristides, to begin with, when he saw them, went far forward and shouted to them, invoking the gods of Hellas, that they refrain from battle, and oppose not nor hinder those who were bearing aid to men standing in the van of danger for the sake of Hellas.  But as soon as he saw that they paid no heed to him, and were arrayed for battle, then he turned aside from rendering aid where he had proposed, and engaged with these, though they were about fifty thousand in number.
+				<milestone n="6" unit="section"/>
+				But the greater part of them at once gave way and withdrew, especially as the Barbarians had also retired, and the battle is said to have been fought chiefly with the Thebans, whose foremost and most influential men were at that time very eagerly Medising, and carried with them the multitude, not of choice, but at the bidding of the few.
+				<milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>The contest thus begun in two places, the Lacedaemonians were first to repulse the Persians. Mardonius was slain by a man of Sparta named Arimnestus, who crushed his head with a stone, even as was foretold him by the oracle in the shrine of Amphiaraus.  Thither he had sent a Lydian man, and a Carian besides to the oracle of Trophonius.<note resp="ed" place="unspecified" anchored="yes">According to <bibl n="Hdt. 8.135">Hdt. 8.135</bibl>, Mys the Carian visited the shrine of the Ptoan Apollo, overlooking Lake Copais.</note> This latter the prophet actually addressed in the Carian tongue;
+				<milestone n="2" unit="section"/>
+				but the Lydian, on lying down in the precinct of Amphiaraus, dreamed that an attendant of the god stood by his side and bade him be gone, and on his refusal, hurled a great stone upon his head, insomuch that he died from the blow (so ran the man's dream).  These things are so reported. Furthermore, the Lacedaemonians shut the flying Persians up in their wooden stockade. 
+			</p>
+         <p>Shortly after this it was that the Athenians routed the Thebans, after slaying three hundred, their most eminent leaders, in the actual battle.
+				<milestone n="3" unit="section"/>
+				After the rout was effected, and more might have been slain, there came a messenger to the Athenians, telling them that the Barbarian force was shut up and besieged in their stockade.  So they suffered the Hellenes in front of them to make good their escape, while they themselves marched to the stockade.  They brought welcome aid to the Lacedaemonians, who were altogether inexperienced and helpless in storming walled places, and captured the camp with great slaughter of the enemy.
+				<milestone n="4" unit="section"/>
+				Out of three hundred thousand, only forty thousand, it is said, made their escape with Artabazus.  Of those who contended in behalf of Hellas, there fell in all one thousand three hundred and sixty.  Of these, fifty-two were Athenians, all of the Aeantid tribe, according to Cleidemus, which made the bravest contest
+				<milestone n="5" unit="section"/>
+				(for which reason the Aeantids used to sacrifice regularly to the Sphragitic nymphs the sacrifice ordained by the Pythian oracle for the victory, receiving the expenses therefor from the public funds); ninety-one were Lacedaemonians, and sixteen were men of Tegea. 
+			</p>
+         <p>Astonishing, therefore, is the statement of Herodotus,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hdt. 9.85">Hdt. 9.85</bibl>
+            </note> where he says that these one hundred and fifty nine represented the only Hellenes who engaged the enemy, and that not one of the rest did so.  Surely the total number of those who fell, as well as the monuments erected over them, testifies that the success was a common one.
+				<milestone n="6" unit="section"/>
+				Besides, had the men of three cities only made the contest, while the rest sat idly by, the altar would not have been inscribed as it was:&mdash;
+				<quote rend="blockquote" type="inscription">
+					          <l>Here did the Hellenes, flushed with a victory granted by Ares</l>
+					          <l>Over the routed Persians, together, for Hellas delivered,</l>
+					          <l>Build them an altar of Zeus, Zeus as Deliverer known.</l>
+				        </quote>
+				        <milestone n="7" unit="section"/>
+			      </p>
+         <p>This battle was fought on the fourth of the month Boedromion, as the Athenians reckon time; but according to the Boeotian calendar, on the twenty-seventh of the month Panemus,<note resp="ed" place="unspecified" anchored="yes"> About August 1, 479 B.C.</note> the day when, down to the present time, the Hellenic council assembles in Plataea, and the Plataeans sacrifice to Zeus the Deliverer for the victory.  We must not wonder at the apparent discrepancy between these dates, since, even now that astronomy is a more exact science, different peoples have different beginnings and endings for their months.
+				<milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this, the Athenians would not grant the Spartans the highest meed of valor, nor allow them to erect a general trophy, and the cause of the Hellenes had certainly gone at once to destruction from their armed contention, had not Aristides, by abundant exhortation and admonition, checked his fellow-generals, especially Leocrates and Myronides, and persuaded them to submit the case to the Hellenes for decision.
+				<milestone n="2" unit="section"/>
+				Thereupon, in the council of the Hellenes, Theogeiton the Megarian said that the meed of valor must be given to some third city, unless they desired the confusion of a civil war.  At this point Cleocritus the Corinthian rose to speak. Every one thought he would demand the meed of valor for the Corinthians, since Corinth was held in greatest estimation after Sparta and Athens.  But to the astonishment and delight of all, he made a proposition in behalf of the Plataeans, and counselled to take away contention by giving them the meed of valor, since at their honor neither claimant could take offence.
+				<milestone n="3" unit="section"/>
+				To this proposal Aristides was first to agree on behalf of the Athenians, then Pausanias on behalf of the Lacedaemonians.  Thus reconciled, they chose out eighty talents of the booty for the Plataeans, with which they rebuilt the sanctuary of Athena, and set up the shrine, and adorned the temple with frescoes, which continue in perfect condition to the present day; then the Lacedaemonians set up a trophy on their own account, and the Athenians also for themselves.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>When they consulted the oracle regarding the sacrifice to be made, the Pythian god made answer that they were to erect an altar of Zeus the Deliverer, but were not to sacrifice upon it until they had extinguished the fire throughout the land, which he said had been polluted by the Barbarians, and kindled it fresh and pure from the public hearth at Delphi.  Accordingly the commanders of the Hellenes went about straightway and compelled all who were using fire to extinguish it, while Euchidas, who promised to bring the sacred fire with all conceivable speed, went from Plataea to Delphi.
+				<milestone n="5" unit="section"/>
+				There he purified his person by sprinkling himself with the holy water, and crowned himself with laurel.  Then he took from the altar the sacred fire and started to run back to Plataea.  He reached the place before the sun had set, accomplishing thus a thousand furlongs in one and the same day.  He greeted his countrymen, handed them the sacred fire, and straightway fell down, and after a little expired.  In admiration of him the Plataeans gave him burial in the sanctuary of Artemis Eucleia, and inscribed upon his tomb this tetrameter verse:&mdash;
+				<quote rend="blockquote" type="inscription">
+					          <l>Euchidas, to Pytho running, came back here </l>
+					          <l>the selfsame day.</l>
+				        </quote>
+				        <milestone n="6" unit="section"/>
+			      </p>
+         <p>Now Eucleia is regarded by most as Artemis, and is so addressed; but some say she was a daughter of Heracles and of that Myrto who was daughter of Menoetius and sister of Patroclus, and that, dying in virginity, she received divine honors among the Boeotians and Locrians.  For she has an altar and an image built in every market place, and receives preliminary sacrifices from would-be brides and bridegrooms.
+				<milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this, there was a general assembly of the Hellenes, at which Aristides proposed a decree to the effect that deputies and delegates from all Hellas convene at Plataea every year, and that every fourth year festival games of deliverance be celebrated&mdash;the Eleutheria; also that a confederate Hellenic force be levied, consisting of ten thousand shield, one thousand horse, and one hundred ships, to prosecute the war against the Barbarian; also that the Plataeans be set apart as inviolable and consecrate, that they might sacrifice to Zeus the Deliverer in behalf of Hellas.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>These propositions were ratified, and the Plataeans undertook to make funeral offerings annually for the Hellenes who had fallen in battle and lay buried there.  And this they do yet unto this day, after the following manner.  On the sixteenth of the month Maimacterion (which is the Boeotian Alalcomenius), they celebrate a procession.  This is led forth at break of day by a trumpeter sounding the signal for battle;
+				<milestone n="3" unit="section"/>
+				wagons follow filled with myrtle-wreaths, then comes a black bull, then free-born youths carrying libations of wine and milk in jars, and pitchers of oil and myrrh (no slave may put hand to any part of that ministration, because the men thus honored died for freedom);
+				<milestone n="4" unit="section"/>
+				and following all, the chief magistrate of Plataea, who may not at other times touch iron or put on any other raiment than white, at this time is robed in a purple tunic, carries on high a water-jar from the city's archive chamber, and proceeds, sword in hand, through the midst of the city to the graves;
+				<milestone n="5" unit="section"/>
+				there he takes water from the sacred spring, washes off with his own hands the gravestones, and anoints them with myrrh; then he slaughters the bull at the funeral pyre, and, with prayers to Zeus and Hermes Terrestrial, summons the brave men who died for Hellas to come to the banquet and its copious draughts of blood; next he mixes a mixer of wine, drinks, and then pours a libation from it, saying these words: 
+				<q direct="unspecified">I drink to the men who died for the freedom of the Hellenes.</q> These rites, I say, are observed by the Plataeans down to this very day.
+				<milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After the Athenians had returned to their own city, Aristides saw that they desired to receive the more popular form of government.  He thought the people worthy of consideration because of its sturdy valor, and he saw also that it was no longer easy to be forced out of its desires, since it was powerful in arms, and greatly elated by its victories. So he introduced a decree that the administration of the city be the privilege of all classes, and that the archons be chosen from all the Athenians.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>Themistocles once declared to the people that he had devised a certain measure which could not be revealed to them, though it would be helpful and salutary for the city, and they ordered that Aristides alone should hear what it was and pass judgment on it.  So Themistocles told Aristides that his purpose was to burn the naval station of the confederate Hellenes, for that in this way the Athenians would be greatest, and lords of all.  Then Aristides came before the people and said of the deed which Themistocles purposed to do, that none other could be more advantageous, and none more unjust.  On hearing this, the Athenians ordained that Themistocles cease from his purpose.<note resp="ed" place="unspecified" anchored="yes"> Cf. <bibl n="Plut. Them. 20.1">Plut. Them. 20.1-2</bibl>.</note> So fond of justice was the people, and so loyal and true to the people was Aristides.
+				<milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>When he was sent out as general along with Cimon to prosecute the war,<note resp="ed" place="unspecified" anchored="yes"> 478 B.C.</note> and saw that Pausanias and the other Spartan commanders were offensive and severe to the allies, he made his own intercourse with them gentle and humane, and induced Cimon to be on easy terms with them and to take an actual part in their campaigns, so that before the Lacedaemonians were aware, not by means of hoplites or ships or horsemen, but by tact and diplomacy he had stripped them of the leadership.
+				<milestone n="2" unit="section"/>
+				For, well disposed as the Hellenes were toward the Athenians on account of the justice of Aristides and the reasonableness of Cimon, they were made to long for their supremacy still more by the rapacity of Pausanias and his severity.  The commanders of the allies ever met with angry harshness at the hands of Pausanias, and the common men he punished with stripes, or by compelling them to stand all day long with an iron anchor on their shoulders.
+				<milestone n="3" unit="section"/>
+				No one could get bedding or fodder or go down to a spring for water before the Spartans, nay, their servants armed with goads would dive away such as approached.  On these grounds Aristides once had it in mind to chide and admonish him, but Pausanias scowled, said he was busy, and would not listen.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Subsequently the captains and generals of the Hellenes, and especially the Chians, Samians, and Lesbians, came to Aristides and tried to persuade him to assume the leadership and bring over to his support the allies, who had long wanted to be rid of the Spartans and to range themselves anew on the side of the Athenians.  He replied that he saw the urgency and the justice of what they proposed, but that to establish Athenian confidence in them some overt act was needed, the doing of which would make it impossible for the multitude to change their allegiance back again.
+				<milestone n="5" unit="section"/>
+				So Uliades the Samian and Antagoras the Chian conspired together, and ran down the trireme of Pausanias off Byzantium, closing in on both sides of it as it was putting out before the line.  When Pausanias saw what they had done, he sprang up and wrathfully threatened to show the world in a little while that these men had run down not so much his ship as their own native cities; but they bade him be gone, and be grateful to that fortune which fought in his favour at Plataea; it was because the Hellenes still stood in awe of this, they said, that they did not punish him as he deserved.  And finally they went off and joined the Athenians.
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>Then indeed was the lofty wisdom of the Spartans made manifest in a wonderful way.  When they saw that their commanders were corrupted by the great powers entrusted to them, they voluntarily abandoned the leadership and ceased sending out generals for the war, choosing rather to have their citizens discreet and true to their ancestral customs than to have the sway over all Hellas.
+				<milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>The Hellenes used to pay a sort of contribution for the war even while the Lacedaemonians had the leadership, but now they wished to be assessed equably city by city.  So they asked the Athenians for Aristides, and commissioned him to inspect their several territories and revenues,<note resp="ed" place="unspecified" anchored="yes"> 478-477 B.C.</note> and then to fix the assessments according to each member's worth and ability to pay.
+				<milestone n="2" unit="section"/>
+				And yet, though he became master of such power, and though after a fashion Hellas put all her property in his sole hands, poor as he was when he went forth on this mission, he came back from it poorer still, and he made his assessments of money not only with purity and justice, but also to the grateful satisfaction and convenience of all concerned. Indeed, as men of old hymned the praises of the age of Cronus&mdash;the golden age, so did the allies of the Athenians praise the tariff of Aristides, calling it a kind of blessed happening for Hellas, especially as, after a short time, it was doubled and then again trebled.
+				<milestone n="3" unit="section"/>
+				For the tax which Aristides laid amounted to four hundred and sixty talents only; but Pericles must have added almost a third to this, since Thucydides<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 2.13">Thuc. 2.13</bibl>
+            </note> says that when the war began the Athenians had a revenue of six hundred talents from their allies.  And after the death of Pericles the demagogues enlarged it little by little, and at last brought the sum total up to thirteen hundred talents, not so much because the war, by reason of its length and vicissitudes, became extravagantly expensive, as because they themselves led the people off into the distribution of public moneys for spectacular entertainments, and for the erection of images and sanctuaries.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>So then Aristides had a great and admirable name for his adjustment of the revenues.  But Themistocles is said to have ridiculed him, claiming that the praise he got therefor was not fit for a man, but rather for a mere money-wallet.  He came off second best, however, in this retort upon the plain speech of Aristides, who had remarked, when Themistocles once declared to him the opinion that the greatest excellence in a general was the anticipation of the plans of his enemies: 
+				<q direct="unspecified">That is indeed needful, Themistocles, but the honorable thing, and that which makes the real general, is his mastery over his fingers.</q>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Aristides did, indeed, bind the Hellenes by an oath, and took oath himself for the Athenians, to mark his imprecations casting iron ingots into the sea; but afterwards, when circumstances, forsooth, compelled a more strenuous sway, he bade the Athenians lay the perjury to his own charge, and turn events to their own advantage.
+				<milestone n="2" unit="section"/>
+				And in general, as Theophrastus tells us, while the man was strictly just in his private relations to his fellow-citizens, in public matters he often acted in accordance with the policy which his country had adopted, feeling that this required much actual injustice.  For instance, he says that when the question of removing the moneys of the confederacy from Delos to Athens,<note resp="ed" place="unspecified" anchored="yes"> 454 B.C.</note> contrary to the compacts, was being debated, and even the Samians proposed it, Aristides declared that it was unjust, but advantageous.
+				<milestone n="3" unit="section"/>
+				And yet, although he at last established his city in its sway over so many men, he himself abode by his poverty, and continued to be no less content with the reputation he got from being a poor man, than with that based on his trophies of victory.  This is clear from the following story. 
+			</p>
+         <p>Callias the Torch-bearer was a kinsman of his. This man was prosecuted by his enemies on a capital charge, and after they had brought only moderate accusations against him within the scope of their indictment, they went outside of it and appealed to the judges as follows:
+				<milestone n="4" unit="section"/>
+				
+				        <q direct="unspecified">You know Aristides the son of Lysimachus,</q> they said, 
+				<q direct="unspecified">how he is admired in Hellas; what do you suppose his domestic circumstances are when you see him entering the public assembly in such a scanty cloak as that?  Is it not likely that a man who shivers in public goes hungry at home, and is straitened for the other necessaries of life?  Callias, however, who is the richest man of Athens (and his cousin at that), allows him to suffer want with his wife and children, though he has often had service of the man, and many times reaped advantage from his influence with you.</q>
+				        <milestone n="5" unit="section"/>
+				But Callias, seeing that his judges were very turbulent at this charge, and bitterly disposed toward him, summoned Aristides and demanded his testimony before the judges that though often proffered aid from him and importuned to accept it, he had refused it, with the answer that it more became him to be proud of his poverty than Callias of his wealth; for many were to be seen who use wealth well or ill, but it was not easy to find a man who endured poverty with a noble spirit; and those only should be ashamed of poverty who could not be otherwise than poor.
+				<milestone n="6" unit="section"/>
+				When Aristides had borne this witness for Callias, there was no one of his hearers who did not go home preferring to be poor with Aristides rather than to be rich with Callias.  This, at any rate, is the story told by Aeschines the Socratic. And Plato<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Gorg. 518">Plat. Gorg. 518f</bibl>, <bibl n="Plat. Gorg. 526">Plat. Gorg. 526</bibl>.</note> maintains that of all those who had great names and reputations at Athens, this man alone was worthy of regard.  Themistocles, he says, and Cimon, and Pericles, filled the city with porches and moneys and no end of nonsense; but Aristides squared his politics with virtue.
+				<milestone n="7" unit="section"/>
+			      </p>
+         <p>There are also strong proofs of his reasonableness to be seen in his treatment of Themistocles.  This man he had found to be his foe during almost all his public service, and it was through this man that he was ostracized; but when Themistocles was in the same plight, and was under accusation before the city, Aristides remembered no evil; nay, though Alcmeon and Cimon and many others denounced and persecuted the man, Aristides alone did and said no meanness, nor did he take any advantage of his enemy's misfortune, just as formerly he did not grudge him his prosperity.
+				<milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>As touching the death of Aristides, some say he died in Pontus, on an expedition in the public service; others at Athens, of old age, honored and admired by his countrymen.  But Craterus the Macedonian tells something like this about the death of the man.  After the exile of Themistocles, he says, the people waxed wanton, as it were, and produced a great crop of sycophants, who hounded down the noblest and most influential men, and subjected them to the malice of the multitude, now exalted with its prosperity and power.
+				<milestone n="2" unit="section"/>
+				Among these he says that Aristides also was convicted of bribery, on prosecution of Diophantus of the deme Amphitrope, for having taken money from the Ionians when he was regulating the tributes; and, further, that being unable to pay the judgment, which was fifty minas, he sailed away and died somewhere in Ionia.  But Craterus furnishes no documentary proof of this,&mdash;no judgment of the court, no degree of indictment,&mdash;although he is wont to record such things with all due fullness, and to adduce his authorities.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>All the rest, as I may venture to say,&mdash;all who rehearse the shortcomings of the people in dealing with their leaders,&mdash;compile and descant upon the exile of Themistocles, the imprisonment of Miltiades, the fine of Pericles, the death of Paches in the court room,&mdash;he slew himself on the rostrum when he saw that he was convicted,&mdash;and many such a case, and they put into the list the ostracism of Aristides, but of such a condemnation as this for bribery they make no mention whatsoever.
+				<milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Moreover, his tomb is pointed out at Phalerum, and they say the city constructed it for him, since he did not leave even enough to pay for his funeral.  And they tell how his daughters were married from the prytaneium at the public cost, the city bestowing the dowry for the marriage and voting outright three thousand drachmas to each daughter, while to Lysimachus his son, the people gave one hundred minas in silver, as many acres of vineyard land, and besides this a pension of four drachmas per diem,
+				<milestone n="2" unit="section"/>
+				&mdash;all in a bill which was brought in by Alcibiades.  And further, Lysimachus left a daughter, Polycrite, according to Callisthenes, and the people voted for her a public maintenance, in the style of their Olympic victors.  Again, Demetrius the Phalerean, Hieronymus the Rhodian, Aristoxenus the Musician, and Aristotle (provided the book 
+				<q direct="unspecified">On Nobility of Birth</q> is to be ranked among the genuine works of Aristotle) relate that Myrto, the granddaughter of Aristides, lived in wedlock with Socrates the Sage.  He had another woman to wife, but took this one up because her poverty kept her a widow, and she lacked the necessaries of life.
+				<milestone n="3" unit="section"/>
+				To these, however, Panaetius, in his work on Socrates, has made sufficient reply.
+			</p>
+         <p>And the Phalerean says, in his 
+				<q direct="unspecified">Socrates,</q> that he remembers a grandson of Aristides, Lysimachus, a very poor man, who made his own living by means of a sort of dream-interpreting tablet, his seat being near the so-called Iaccheium.  To this man's mother and to her sister, Demetrius persuaded the people to give, by formal decree, a pension of three obols per diem; though afterwards, in his capacity of sole legislator, he himself, as he says, assigned a drachma instead of three obols to each of the women.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>It is not to be wondered at that the people took such thought for families in the city, since on learning that the granddaughter of Aristogeiton was living humbly in Lemnos, unmarried because of her poverty, they brought her back to Athens, consorted her with a well-born man, and gave her the estate in Potamus for her dowry.  For such humanity and benevolence, of which the city still gives illustrious examples even in my own day, she is justly admired and lauded.
+			</p>
+      </body>
+   </text>
+</TEI.2>

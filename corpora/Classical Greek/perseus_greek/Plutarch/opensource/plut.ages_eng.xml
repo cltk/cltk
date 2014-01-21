@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Ages." type="work">Agesilaus</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 125Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Ages."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1917</date>
+                  </imprint>
+                  <biblScope type="volume">5</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990978</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition
+					</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>11/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>AGESILA&Uuml;S</head>
+         <p> 
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+				Archidamus, the son of Zeuxidamas, after an illustrious reign over the Lacedaemonians, left behind him a son, Agis, by Lampido, a woman of honourable family; and a much younger son, Agesila&uuml;s, by Eupolia, the daughter of Melesippidas. The kingdom belonged to Agis by law, and it was thought that Agesila&uuml;s would pass his life in a private station. He was therefore given the so-called 
+				<q direct="unspecified">agoge,</q> or course of public training in Sparta, which, although austere in its mode of life and full of hardships, educated the youth to obedience. 
+				<milestone n="2" unit="section"/>For this reason it was, we are told, that Simonides gave Sparta the epithet of 
+				<q direct="unspecified">man-subduing,</q> since more than in any other state her customs made her citizens obedient to the laws and tractable, like horses that are broken in while yet they are colts. From this compulsory training the law exempts the heirs-apparent to the throne. 
+				<milestone n="3" unit="section"/>But Agesila&uuml;s was singular in this also, that he had been educated to obey before he came to command. For this reason he was much more in harmony with his subjects than any of the kings; to the commanding and kingly traits which were his by nature there had been added by his public training those of popularity and kindliness. 
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While he was among the so-called 
+				<q direct="unspecified">bands</q> of boys who were reared together, he had as his lover Lysander
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lyc. 17.1">
+                  <title>Lycurgus</title>, xvii. 1</bibl>; <bibl n="Plut. Lys. 22.3">
+                  <title>Lysander</title>, xxii. 3</bibl>.</note>, who was smitten particularly with his native decorum. For although he was contentious and high-spirited beyond his fellows, wishing to be first in all things, and having a vehemence and fury which none could contend with or overwhelm, on the other hand he had such a readiness to obey and such gentleness, that he did whatever was enjoined upon him, not at all from a sense of fear, but always from a sense of honour, and was more distressed by censure than he was oppressed by hardships. 
+				<milestone n="2" unit="section"/>As for his deformity, the beauty of his person in its youthful prime covered this from sight, while the ease and gaiety with which he bore such a misfortune, being first to jest and joke about himself, went far towards rectifying it. Indeed, his lameness brought his ambition into clearer light, since it led him to decline no hardship and no enterprise whatever. We have no likeness of him (for he himself would not consent to one, and even when he lay dying forbade the making of 
+				<q direct="unspecified">either statue or picture</q> of his person), but he is said to have been a little man of unimposing presence. 
+				<milestone n="3" unit="section"/>And yet his gaiety and good spirits in every crisis, and his raillery, which was never offensive or harsh either in word or look, made him more lovable, down to his old age, than the young and beautiful. But according to Theophrastus, Archidamus was fined by the ephors for marrying a little woman, 
+				<q direct="unspecified">For she will bear us,</q> they said, 
+				<q direct="unspecified">not kings, but kinglets.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was during the reign of Agis that Alcibiades came from Sicily as an exile to Sparta, and he had not been long in the city when he incurred the charge of illicit intercourse with Timaea, the wife of the king. The child, too, that was born of her, Agis refused to recognize as his own, declaring that Alcibiades was its father. Duris says that Timaea was not very much disturbed at this, but in whispers to her Helot maids at home actually called the child Alcibiades, not Leotychides; 
+				<milestone n="2" unit="section"/>moreover that Alcibiades himself also declared that he had not approached Timaea out of wanton passion, but because he was ambitious to have the Spartans reigned over by his descendants.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Alc. 23.7">
+                  <title>Alcibiades</title>, xxiii. 7 f.</bibl>
+            </note> On this account Alcibiades withdrew from Sparta, being in fear of Agis; and the boy was always an object of suspicion to Agis, and was not honoured by him as legitimate. But when the king lay sick, the supplications and tears of Leotychides prevailed upon him to declare him his son in the presence of many witnesses. 
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Notwithstanding this, after the death of Agis
+				<note resp="ed" place="unspecified" anchored="yes">In 398 B.C.</note>, Lysander, who by this time had subdued the Athenians at sea and was a man of the greatest influence in Sparta, tried to advance Agesila&uuml;s to the throne, on the plea that Leotychides was a bastard and had no claim upon it. Many of the other citizens also, owing to the excellence of Agesila&uuml;s and the fact that he had been reared with them under the common restraints of the public training, warmly espoused the plan of Lysander and co-operated with him. But there was a diviner in Sparta, named Diopeithes, who was well supplied with ancient prophecies, and was thought to be eminently wise in religious matters. 
+				<milestone n="4" unit="section"/>This man declared it contrary to the will of Heaven that a lame man should be king of Sparta, and cited at the trial of the case the following oracle:&mdash; 
+				<quote rend="blockquote">
+					          <l/>
+					          <l>Bethink thee now, O Sparta, though thou art very glorious, lest from thee, sound of foot, there spring a maimed royalty; for long will unexpected toils oppress thee, and onward-rolling billows of man-destroying war.</l>
+				        </quote> 
+				        <milestone n="5" unit="section"/>To this Lysander answered that, in case the Spartans stood in great fear of the oracle, they must be on their guard against Leotychides; for it mattered not to the god that one who halted in his gait should be king, but if one who was not lawfully begotten, nor even a descendant of Heracles, should be king, this was what the god meant by the 
+				<q direct="unspecified">maimed royalty.</q> And Agesila&uuml;s declared that Poseidon also had borne witness to the bastardy of Leotychides, for he had cast Agis forth from his bed-chamber by an earthquake, and after this more than ten months elapsed before Leotychides was born.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Alc. 23.8">
+                  <title>Alcibiades</title>, xxiii. 8</bibl>; <bibl n="Plut. Lys. 22.3">
+                  <title>Lysander</title>, xxii. 3 ff.</bibl>; <bibl n="Xen. Hell. 3.3.2">Xenophon, <title>Hellenica</title>, iii. 3, 2</bibl>.</note>
+			      </p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In this way, and for these reasons, Agesila&uuml;s was appointed king, and straightway enjoyed possession of the estates of Agis as well as his throne, after expelling Leotychides as a bastard. But seeing that his kinsmen on his mother's side, though worthy folk, were excessively poor, he distributed among them the half of his estates, thereby making his inheritance yield him good-will and reputation instead of envy and hatred. As for Xenophon's statement
+				<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Ages. 6.4">Xenophon's <title>Agesila&uuml;s</title>, vi. 4.</bibl>
+            </note> that by obeying his country in everything he won very great power, so that he did what he pleased, the case is as follows. 
+				<milestone n="2" unit="section"/>At that time the ephors and the senators had the greatest power in the state, of whom the former hold office for a year only, while the senators enjoy their dignity for life, their offices having been instituted to restrain the power of the kings, as I have said in my Life of Lycurgus.
+				<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Lyc. 5.6">Chapters v. 6 f.</bibl>; <bibl n="Plut. Lyc. 7.1">vii. 1 f.</bibl>
+            </note> Therefore from the outset, and from generation to generation, the kings were traditionally at feud and variance with them. 
+				<milestone n="3" unit="section"/>But Agesila&uuml;s took the opposite course. Instead of colliding and fighting with them, he courted their favour, winning their support before setting out on any undertaking; and whenever he was invited to meet them, hastening to them on the run. If ever the ephors visited him when he was seated in his royal chair and administering justice, he rose in their honour; and as men were from time to time made members of the senate, he would send each one a cloak and an ox as a mark of honour. 
+				<milestone n="4" unit="section"/>Consequently, while he was thought to be honouring and exalting the dignity of their office, he was unawares increasing his own influence and adding to the power of the king a greatness which was conceded out of good-will towards him.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In his dealings with the rest of the citizens he was less blame-worthy as an enemy than as a friend; for he would not injure his enemies without just cause, but joined his friends even in their unjust practices. And whereas he was ashamed not to honour his enemies when they did well, he could not bring himself to censure his friends when they did amiss, but actually prided himself on aiding them and sharing in their misdeeds. For he thought no aid disgraceful that was given to a friend. 
+				<milestone n="2" unit="section"/>But if, on the other hand, his adversaries stumbled and fell, he was first to sympathize with them and give them zealous aid if they desired it, and so won the hearts and the allegiance of all. The ephors, accordingly, seeing this, and fearing his power, laid a fine upon him, alleging as a reason that he made the citizens his own, who should be the common property of the state.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Natural philosophers are of the opinion that, if strife and discord should be banished from the universe, the heavenly bodies would stand still, and all generation and motion would cease in consequence of the general harmony. And so the Spartan law-giver seems to have introduced the spirit of ambition and contention into his civil polity as an incentive to virtue, desiring that good citizens should always be somewhat at variance and in conflict with one another, and deeming that complaisance which weakly yields without debate, which knows no effort and no struggle, to be wrongly called concord. 
+				<milestone n="4" unit="section"/>And some think that Homer also was clearly of this mind; for he would not have represented Agamemnon as pleased when Odysseus and Achilles were carried away into abuse of one another with 
+				<q direct="unspecified">frightful words,</q>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Od. 8.75">
+                  <title>Odyssey</title>, viii. 75 ff.</bibl>
+            </note> if he had not thought the general interests likely to profit by the mutual rivalry and quarrelling of the chieftains. This principle, however, must not be accepted without some reservations; for excessive rivalries are injurious to states, and productive of great perils.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Agesila&uuml;s had but recently come to the throne, when tidings were brought from Asia that the Persian king was preparing a great armament with which to drive the Lacedaemonians from the sea. Now, Lysander was eager to be sent again into Asia, and to aid his friends there. These he had left governors and masters of the cities, but owing to their unjust and violent conduct of affairs, they were being driven out by the citizens, and even put to death. He therefore persuaded Agesila&uuml;s to undertake the expedition and make war in behalf of Hellas, proceeding to the farthest point across the sea, and thus anticipating the preparations of the Barbarian. 
+				<milestone n="2" unit="section"/>At the same time he wrote to his friends in Asia urging them to send messengers to Sparta and demand Agesila&uuml;s as their commander. Accordingly, Agesila&uuml;s went before the assembly of the people and agreed to undertake the war if they would grant him thirty Spartans as captains and counsellors, a select corps of two thousand enfranchised Helots, and a force of allies amounting to six thousand. 
+				<milestone n="3" unit="section"/>They readily voted everything, owing to the co-operation of Lysander, and sent Agesila&uuml;s forth at once with the thirty Spartans. Of these Lysander was first and foremost, not only because of his own reputation and influence, but also because of the friendship of Agesila&uuml;s, in whose eyes his procuring him this command was a greater boon than his raising him to the throne.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>While his forces were assembling at Geraestus,
+				<note resp="ed" place="unspecified" anchored="yes">In the spring of 396 B.C.</note> Agesila&uuml;s himself went to Aulis with his friends and spent the night. As he slept, he thought a voice came to him, saying: 
+				<q direct="unspecified">King of the Lacedaemonians, thou art surely aware that no one has ever been appointed general of all Hellas together except Agamemnon, in former times, and now thyself, after him. And since thou commandest the same hosts that he did, and wagest war on the same foes, and settest out for the war from the same place, it is meet that thou shouldst sacrifice also to the goddess the sacrifice which he made there before he set sail.</q> 
+				        <milestone n="5" unit="section"/>Almost at once Agesila&uuml;s remembered the sacrifice of his own daughter
+				<note resp="ed" place="unspecified" anchored="yes">Iphigeneia. Cf. <bibl n="Eur. IA 1540">Euripides, <title>Iph. Aul.</title>, 1540 ff. </bibl>(Kirchhoff).</note> which Agamemnon had there made in obedience to the soothsayers. He was not disturbed, however, but after rising up and imparting his vision to his friends, declared that he would honour the goddess with a sacrifice in which she could fitly take pleasure, being a goddess, and would not imitate the cruel insensibility of his predecessor. So he caused a hind to be wreathed with chaplets, and ordered his own seer to perform the sacrifice, instead of the one customarily appointed to this office by the Boeotians. 
+				<milestone n="6" unit="section"/>Accordingly, when the Boeotian magistrates heard of this, they were moved to anger, and sent their officers, forbidding Agesila&uuml;s to sacrifice contrary to the laws and customs of the Boeotians. These officers not only delivered their message, but also snatched the thigh-pieces of the victim from the altar.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 3.4.3">Xenophon, <title>Hell.</title> iii. 4, 3 f.</bibl>
+            </note> Agesila&uuml;s therefore sailed away in great distress of mind; he was not only highly incensed at the Thebans, but also full of ill-boding on account of the omen. He was convinced that his undertakings would be incomplete, and that his expedition would have no fitting issue.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As soon as he came to Ephesus, the great dignity and influence which Lysander enjoyed were burdensome and grievous to him. The doors of Lysander were always beset with a throng, and all followed in his train and paid him court, as though Agesila&uuml;s had the command in name and outward appearance, to comply with the law, while in fact Lysander was master of all, had all power, and did everything.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 3.4.7">Xenophon, <title>Hell.</title> iii. 4, 7.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>In fact, none of the generals sent out to Asia ever had more power or inspired more fear than he; none other conferred greater favours on his friends, or inflicted such great injuries upon his enemies. All this was still fresh in men's minds, and besides, when they saw the simple, plain, and familiar manners of Agesila&uuml;s, while Lysander retained the same Vehemence and harshness, and the same brevity of speech as before, they yielded to the latter's influence altogether, and attached themselves to him alone. 
+				<milestone n="3" unit="section"/>As a consequence of this, in the first place, the rest of the Spartans were displeased to find themselves assistants of Lysander rather than counsellors of the king; and, in the second place, Agesila&uuml;s himself:, though he was not an envious man, nor displeased that others should be honoured, but exceedingly ambitious and high-spirited, began to fear that any brilliant success which he might achieve in his undertakings would be attributed to Lysander, owing to popular opinion. He went to work, therefore, in this way.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>To begin with, he resisted the counsels of Lysander, and whatever enterprises were most earnestly favoured by him, these he ignored and neglected, and did other things in their stead; again, of those who came to solicit favours from him, he sent away empty-handed all who put their chief confidence in Lysander; and in judicial cases likewise, all those against whom Lysander inveighed were sure to come off victorious, while, on the contrary, those whom he was manifestly eager to help had hard work even to escape being fined. 
+				<milestone n="5" unit="section"/>These things happened, not casually, but as if of set purpose, and uniformly. At last Lysander perceived the reason, and did not hide it from his friends, but told them it was on his account that they were slighted, and advised them to go and pay their court to the king, and to those more influential with him than himself.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, since his words and acts seemed contrived to bring odium upon the king, Agesila&uuml;s, wishing to despite him still more, appointed him his carver of meats, and once said, we are told, in the hearing of many: 
+				<q direct="unspecified">Now then, let these suppliants go off to my carver of meats and pay their court to him.</q> 
+				        <milestone n="2" unit="section"/>Lysander, then, deeply pained, said to him: 
+				<q direct="unspecified">I see, Agesila&uuml;s, that thou knowest very well how to humble thy friends.</q> 
+				        <q direct="unspecified">Yes indeed,</q> said the king, 
+				<q direct="unspecified">those who wish to be more powerful than I am.</q> Then Lysander said: 
+				<q direct="unspecified">Well, perhaps these words of thine are fairer than my deeds. Give me, however, some post and place where I shall be of service to thee, without vexing thee.</q>
+				        <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lys. 23.9">
+                  <title>Lysander</title>, xxiii. 9.</bibl>
+            </note> 
+				        <milestone n="3" unit="section"/>Upon this he was sent to the Hellespont, and brought over to Agesila&uuml;s from the country of Pharnabazus, Spithridates, a Persian, with much money and two hundred horsemen. He did not, however, lay aside his wrath, but continued his resentment, and from this time on planned how he might wrest the kingdom from the two royal families, and make all Spartans once more eligible to it. And it was thought that he would have brought about a great disturbance in consequence of this quarrel, had not death overtaken him on his expedition into Boeotia.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lys. 24.1">
+                  <title>Lysander</title>, xxiv.</bibl>-<bibl n="Plut. Lys. 28.1">xxviii.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>Thus ambitious natures in a commonwealth, if they do not observe due bounds, work greater harm than good. For even though Lysander was troublesome, as he was, in gratifying his ambition unseasonably, still, Agesila&uuml;s must surely have known another and more blameless way of correcting a man of high repute and ambition when he erred. As it was, it seems to have been due to the same passion that the one would not recognize the authority of his superior, nor the other endure the being ignored by his friend and comrade.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>At first Tisaphernes was afraid of Agesila&uuml;s, and made a treaty in which he promised him to make the Greek cities free and independent of the King. Afterwards, however, when he was convinced that he had a sufficient force, he declared war, and Agesila&uuml;s gladly accepted it. 
+				<milestone n="2" unit="section"/>For he had great expectations from his expedition, and he thought it would be a disgraceful thing if, whereas Xenophon and his Ten Thousand had penetrated to the sea, and vanquished the King just as often as they themselves desired, he, in command of the Lacedaemonians, who had the supremacy on sea and land, should perform no deed worthy of remembrance in the eyes of the Hellenes. At once, then, requiting the perjury of Tisaphernes with a righteous deception, he gave out word that he was going to lead his troops against Caria; but when the Barbarian had assembled his forces there, he set out and made an incursion into Phrygia. 
+				<milestone n="3" unit="section"/>He captured many cities and made himself master of boundless treasure, thus showing plainly to his friends that the violation of a treaty is contempt for the gods, but that in outwitting one's enemies there is not only justice, but also great glory, and profit mixed with pleasure. However, since he was inferior in cavalry and his sacrifices were unpropitious, he retired to Ephesus and began to get together a force of horsemen, commanding the well-to-do, in case they did not wish to perform military service themselves, to furnish instead every man a horse and rider. 
+				<milestone n="4" unit="section"/>There were many who chose this course, and so it came to pass that Agesila&uuml;s quickly had a large force of warlike horsemen instead of worthless men-at-arms.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 3.4.15">Xenophon, <title>Hell.</title> iii. 4, 15.</bibl>
+            </note> For those who did not wish to do military service hired those who did, and those who did not wish to serve as horsemen hired those who did. Indeed, Agesila&uuml;s thought Agamemnon had done well in accepting a good mare and freeing a cowardly rich man from military service.
+				<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Il. 23.296">
+                  <title>Iliad</title>, xxiii. 296 ff.</bibl>
+            </note> 
+				        <milestone n="5" unit="section"/>And once when, by his orders, his prisoners of war were stripped of their clothing and offered for sale by the venders of booty, their clothing found many purchasers, but their naked bodies, which were utterly white and delicate, owing to their effeminate habits, were ridiculed as useless and worthless. Then Agesila&uuml;s, noticing, said: 
+				<q direct="unspecified">These are the men with whom you fight, and these the things for which you fight.</q>
+			      </p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the season again favoured an incursion into the enemy's country,
+				<note resp="ed" place="unspecified" anchored="yes">In the spring of 395 B.C.; cf. <bibl n="Xen. Hell. 3.4.16">Xenophon, <title>Hell.</title> iii. 4, 16 ff.</bibl>
+            </note> Agesila&uuml;s gave out that he would march into Lydia, and this time he was not trying to deceive Tisaphernes. That satrap, however, utterly deluded himself, in that he disbelieved Agesila&uuml;s because of his former trick, and thought that now, at any rate, the king would attack Caria, although it was ill-suited for cavalry, and he was far inferior in that arm of the service. 
+				<milestone n="2" unit="section"/>But Agesila&uuml;s, as he had given out that he would do, marched into the plain of Sardis, and then Tisaphernes was forced to hasten thither from Caria with aid and relief; and riding through the plain with his cavalry, he cut off many straggling plunderers there. Agesila&uuml;s, accordingly, reflecting that the enemy's infantry had not yet come up, while his own forces were complete, made haste to give battle. 
+				<milestone n="3" unit="section"/>He mingled his light-armed infantry with his horsemen, and ordered them to charge at full speed and assault the enemy, while he himself at once led up his men-at-arms. The Barbarians were put to flight, and the Greeks, following close upon them, took their camp and slew many of them. As a result of this battle, the Greeks could not only harry the country of the King without fear, but had the satisfaction of seeing due punishment inflicted upon Tisaphernes, an abominable man, and most hateful to the Greek race. 
+				<milestone n="4" unit="section"/>For the King at once sent Tithraustes after him, who cut off his head, and asked Agesila&uuml;s to make terms and sail back home, offering him money at the hands of envoys. But Agesila&uuml;s answered that it was for his city to make peace, and that for his own part, he took more pleasure in enriching his soldiers than in getting rich himself; moreover, the Greeks, he said, thought it honourable to take, not gifts, but spoils, from their enemies. 
+				<milestone n="5" unit="section"/>Nevertheless, desiring to gratify Tithraustes, because he had punished Tisaphernes, that common enemy of the Greeks, he led his army back into Phrygia, taking thirty talents from the viceroy to cover the expenses of the march.
+			</p>
+         <p>On the road he received a dispatch-roll from the magistrates at home, which bade him assume control of the navy as well as of the army.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 3.4.27">Xenophon, <title>Hell.</title> iii. 4, 27 ff.</bibl>
+            </note> This was an honour which no one ever received but Agesila&uuml;s. And he was confessedly the greatest and most illustrious man of his time, as Theopompus also has somewhere said, although he prided himself more on his virtues than on his high command. 
+				<milestone n="6" unit="section"/>But in putting Peisander in charge of the navy at this time, he was thought to have made a mistake; for there were older and more competent men to be had, and yet he gave the admiralty to him, not out of regard for the public good, but in recognition of the claims of relationship and to gratify his wife, who was a sister of Peisander.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As for himself, he stationed his army in the province of Pharnabazus
+				<note resp="ed" place="unspecified" anchored="yes">In the fall of 395 B.C.; cf. &lt;<bibl n="Xen. Hell. 4.1.1">Xenophon, <title>Hell.</title> iv. 1, 1 ff.</bibl>
+            </note>, where he not only lived in universal plenty, but also accumulated much money. He also advanced to the confines of Paphiagonia and brought Cotys, the king of the Paphlagonians, into alliance with him, for his virtues, and the confidence which he inspired, inclined the king to desire his friendship. 
+				<milestone n="2" unit="section"/>Spithridates also, from the time when he abandoned Pharnabazus and came to Agesila&uuml;s, always accompanied him in his journeys and expeditions. Spithridates had a son, a very beautiful boy, named Megabates, of whom Agesila&uuml;s was ardently enamoured, and a beautiful daughter also, a maiden of marriageable age. This daughter Agesila&uuml;s persuaded Cotys to marry, 
+				<milestone n="3" unit="section"/>and then receiving from him a thousand horsemen and two thousand targeteers, he retired again into Phrygia, and harassed the country of Pharnabazus, who did not stand his ground nor trust in his defences, but always kept most of his valued and precious things with him, and withdrew or fled from one part of the country to another, having no abiding place. At last Spithridates, who had narrowly watched him, in conjunction with Herippidas the Spartan,
+				<note resp="ed" place="unspecified" anchored="yes">The leader of the second company of thirty Spartan counsellors sent out in the spring of 395 B.C. Cf. <bibl n="Xen. Hell. 3.4.20">Xenophon, <title>Hell.</title> iii. 4, 20.</bibl>
+            </note> seized his camp and made himself master of all his treasures. 
+				<milestone n="4" unit="section"/>Here, however, Herippidas, who had too sharp an eye to the booty that was stolen, and forced the Barbarians to restore it, watching over and enquiring into everything, exasperated Spithridates, so that he marched off at once to Sardis with the Paphlagonians.
+			</p>
+         <p>This is said to have annoyed Agesila&uuml;s beyond all else. For he was pained at the loss of a gallant man in Spithridates, and with him of a considerable force, and was ashamed to labour under the charge of pettiness and illiberality, from which he was always ambitious to keep not only himself, but also his country, pure and free. 
+				<milestone n="5" unit="section"/>And apart from these manifest reasons, he was irritated beyond measure by his love for the boy, which was now instilled into his heart, although when the boy was present he would summon all his resolution and strive mightily to battle against his desires. Indeed, when Megabates once came up and offered to embrace and kiss him, he declined his caresses. 
+				<milestone n="6" unit="section"/>The boy was mortified at this, and desisted, and afterwards kept his distance when addressing him, whereupon Agesila&uuml;s, distressed now and repentant for having avoided his kiss, pretended to wonder what ailed Megabates that he did not greet him with a kiss. 
+				<q direct="unspecified">It is thy fault,</q> the king's companions said; 
+				<q direct="unspecified">thou didst not accept, but didst decline the fair one's kiss in fear and trembling; yet even now he might be persuaded to come within range of thy lips; but see that thou dost not again play the coward.</q> 
+				        <milestone n="7" unit="section"/>Then, after some time spent in silent reflection, Agesila&uuml;s said: 
+				<q direct="unspecified">There is no harm in your persuading him; for I think I would more gladly fight that battle of the kiss over again than possess all the gold I have ever seen.</q> Of such a mind was he while Megabates was with him, though when the boy was gone, he was so on fire with love for him that it were hard to say whether, had the boy come back into his presence, he would have had the strength to refuse his kisses.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Ages. 5.4">Xenophon's <title>Agesila&uuml;s</title>, v. 4-7.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, Pharnabazus desired to have a conference with him, and Apollophanes of Cyzicus, who was a guest-friend of both, brought the two together. Agesila&uuml;s, with his friends, came first to the appointed place, and throwing himself down in a shady place where the grass was deep, there awaited Pharnabazus. 
+				<milestone n="2" unit="section"/>And when Pharnabazus came, although soft cushions and broidered rugs had been spread for him, he was ashamed to see Agesila&uuml;s reclining as he was, and threw himself down likewise, without further ceremony, on the grassy ground, although he was clad in raiment of wonderful delicacy and dyes. After mutual salutations, Pharnabazus had plenty of just complaints to make, since, although he had rendered the Lacedaemonians many great services in their war against the Athenians, his territory was now being ravaged by them. 
+				<milestone n="3" unit="section"/>But Agesila&uuml;s, seeing the Spartans with him bowed to the earth with shame and at a loss for words (for they saw that Pharnabazus was a wronged man), said: 
+				<q direct="unspecified">We, O Pharnabazus, during our former friendship with the King, treated what belongs to him in a friendly way, and now that we have become his enemies, we treat it in a hostile way. Accordingly, seeing that thou also desirest to be one of the King's chattels, we naturally injure him through thee. 
+				<milestone n="4" unit="section"/>But from the day when thou shalt deem thyself worthy to be called a friend and ally of the Greeks instead of a slave of the King, consider this army, these arms and ships, and all of us, to be guardians of thy possessions and of thy liberty, without which nothing in the world is honourable or even worthy to be desired.</q>
+				        <milestone n="5" unit="section"/>Upon this, Pharnabazus declared to him his purposes. 
+				<q direct="unspecified">As for me, indeed,</q> he said, 
+				<q direct="unspecified">if the King shall send out another general in my stead, I will be on your side; but if he entrusts me with the command, I will spare no efforts to punish and injure you in his behalf.</q> On hearing this, Agesila&uuml;s was delighted, and said, as he seized his hand and rose up with him, 
+				<q direct="unspecified">O Pharnabazus, I would that such a man as thou might be our friend rather than our enemy.</q>
+				        <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 4.1.28">Xenophon, <title>Hell.</title> iv. 1, 28-38</bibl>, where Agesila&uuml;s adds a promise to respect, in future, the property of Pharnabazus, even in case of war.</note>
+			      </p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As Pharnabazus and his friends were going away, his son, who was left behind, ran up to Agesila&uuml;s and said with a smile: 
+				<q direct="unspecified">I make thee my guest-friend, Agesila&uuml;s,</q> and offered him a javelin which he held in his hand. Agesila&uuml;s accepted it, and being delighted with the fair looks and kindly bearing of the boy, looked round upon his companions to see if any one of them had anything that would do for a return-gift to a fair and gallant friend; 
+				<milestone n="2" unit="section"/>and seeing that the horse of Idaeus, his secretary, had a decorated head-gear, he quickly took this off and gave it to the youth. Nor afterwards did he cease to remember him, but when, as time went on, the youth was robbed of his home by his brothers and driven into exile in Peloponnesus, he paid him much attention. He even gave him some assistance in his love affairs. 
+				<milestone n="3" unit="section"/>For the Persian was enamoured of an Athenian boy, an athlete, who, owing to his stature and strength, was in danger of being ruled out of the lists at Olympia. He therefore had recourse to Agesila&uuml;s with entreaties to help the boy, and Agesila&uuml;s, wishing to gratify him in this matter also, with very great difficulty and with much trouble effected his desires.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 4.1.39">Xenophon, <title>Hell.</title> iv. 1, 39 f.</bibl>
+            </note>
+			      </p>
+         <p>Indeed, although in other matters he was exact and law-abiding, in matters of friendship he thought that rigid justice was a mere pretext. 
+				<milestone n="4" unit="section"/>At any rate, there is in circulation a letter of his to Hidrieus the Carian, which runs as follows: 
+				<q direct="unspecified">As for Nicias, if he is innocent, acquit him; if he is guilty, acquit him for my sake; but in any case acquit him.</q> Such, then, was Agesila&uuml;s in most cases where the interests of his friends were concerned; but sometimes he used a critical situation rather for his own advantage. Of this he gave an instance when, as he was decamping in some haste and confusion, he left his favourite behind him sick. The sick one besought him loudly as he was departing, but he merely turned and said that it was hard to be compassionate and at the same time prudent. This story is related by Hieronymus the philosopher.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Agesila&uuml;s had now been nearly two years in the field, and much was said about him in the interior parts of Asia, and a wonderful opinion of his self-restraint, of his simplicity of life, and of his moderation, everywhere prevailed. For when he made a journey, he would take up his quarters in the most sacred precincts by himself,
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Ages. 5.7">Xenophon's <title>Agesila&uuml;s</title>, v. 7.</bibl>
+            </note> thus making the gods overseers and witnesses of those acts which few men are permitted to see us perform; and among so many thousands of soldiers, one could hardly find a meaner couch than that of Agesila&uuml;s; 
+				<milestone n="2" unit="section"/>while to heat and cold he was as indifferent as if nature had given him alone the power to adapt himself to the seasons as God has tempered them. And it was most pleasing to the Greeks who dwelt in Asia to see the Persian viceroys and generals, who had long been insufferably cruel, and had revelled in wealth and luxury, now fearful and obsequious before a man who went about in a paltry cloak, and at one brief and laconic speech from him conforming themselves to his ways and changing their dress and mien, insomuch that many were moved to cite the words of Timotheus:&mdash;
+				<quote rend="blockquote">
+					          <l>Ares is Lord; of gold Greece hath no fear.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">Cf. Bergk, <title>Poet. Lyr. Graeci</title>, iii.4 p. 622.</note>
+			      </p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Asia being now unsettled and in many quarters inclining to revolt, Agesila&uuml;s set the cities there in order, and restored to their governments, without killing or banishing any one, the proper form. Then he determined to go farther afield, to transfer the war from the Greek sea, to fight for the person of the King and the wealth of Ecbatana and Susa, and above all things to rob that monarch of the power to sit at leisure on his throne, playing the umpire for the Greeks in their wars, and corrupting their popular leaders. 
+				<milestone n="2" unit="section"/>But at this point Epicydidas the Spartan came to him with tidings that Sparta was involved in a great war with other Greeks, and that the ephors called upon him and ordered him to come to the aid of his countrymen. 
+				<quote rend="blockquote">
+					          <l>O barbarous ills devised by Greeks!</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Eur. Tro. 766">Euripides, <title>Troades</title>, 766</bibl> (Kirchhoff).</note> How else can one speak of that jealousy which now leagued and arrayed the Greeks against one another? They laid violent hands on Fortune in her lofty flight, and turned the weapons which threatened the Barbarians, and War, which had at last been banished from Greece, back again upon themselves. 
+				<milestone n="3" unit="section"/>I certainly cannot agree with Demaratus the Corinthian, who said that those Greeks had missed a great pleasure who did not behold Alexander seated on the throne of Dareius, nay, I think that such might well have shed tears when they reflected that this triumph was left for Alexander and Macedonians by those who now squandered the lives of Greek generals on the fields of Leuctra, Coroneia, and Corinth, and in Arcadia.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Agesila&uuml;s, however, never performed a nobler or a greater deed than in returning home as he now did, nor was there ever a fairer example of righteous obedience to authority. For Hannibal, though he was already in an evil plight and on the point of being driven out of Italy, could with the greatest difficulty bring himself to obey his summons to the war at home; and Alexander actually went so far as to jest when he heard of Antipater's battle with Agis,
+				<note resp="ed" place="unspecified" anchored="yes">At Megalopolis, in Arcadia, 331 B.C., Agis fell fighting, and the Spartan rebellion at once collapsed. Alexander had not the slightest thought of returning home to help Antipater.</note> saying: 
+				<q direct="unspecified">It would seem, my men, that while we were conquering Dareius here, there has been a battle of mice there in Arcadia.</q> 
+				        <milestone n="5" unit="section"/>Why, then, should we not call Sparta happy in the honour paid to her by Agesila&uuml;s, and in his deference to her laws? No sooner had the dispatch-roll come to him than he renounced and abandoned the great good fortune and power already in his grasp, and the great hopes which beckoned him on, and at once sailed off 
+				<q direct="unspecified">with task all unfulfilled,</q>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Hom. Il. 4.175">
+                  <title>Iliad</title>, iv. 175.</bibl>
+            </note> leaving behind a great yearning for him among his allies, and giving the strongest confutation to the saying of Erasistratus the son of Phaeax, who declared that the Lacedaemonians were better men in public life, but the Athenians in private. 
+				<milestone n="6" unit="section"/>For while approving himself a most excellent king and general, he showed himself a still better and more agreeable friend and companion to those who enjoyed his intimacy. Persian coins were stamped with the figure of an archer, and Agesila&uuml;s said, as he was breaking camp, that the King was driving him out of Asia with ten thousand 
+				<q direct="unspecified">archers</q>; for so much money had been sent to Athens and Thebes and distributed among the popular leaders there, and as a consequence those peoples made war upon the Spartans.
+				<note resp="ed" place="unspecified" anchored="yes">According to Xenophon (<bibl n="Xen. Hell. 3.5.1">
+                  <title>Hell.</title> iii. 5, 1 ff.</bibl>), Persian money was distributed in Thebes, Corinth, and Argos. 
+					<q direct="unspecified">The Athenians, though they took no share of the gold, were none the less eager for war.</q>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And when he had crossed the Hellespont and was marching through Thrace,
+				<note resp="ed" place="unspecified" anchored="yes">Agesila&uuml;s followed 
+					<q direct="unspecified">the very route taken by the Great King when he invaded Hellas</q> (<bibl n="Xen. Hell. 4.2.8">Xenophon, <title>Hell.</title> iv. 2, 8</bibl>).</note> he made no requests of any of the Barbarians, but sent envoys to each people asking whether he should traverse their country as a friend or as a foe. All the rest, accordingly, received him as a friend and assisted him on his way, as they were severally able; but the people called Trallians, to whom even Xerxes gave gifts, as we are told, demanded of Agesila&uuml;s as a price for his passage a hundred talents of silver and as many women. 
+				<milestone n="2" unit="section"/>But he answered them with scorn, asking why, then, they did not come at once to get their price; and marched forward, and finding them drawn up for battle, engaged them, routed them, and slew many of them. He sent his usual enquiry forward to the king of the Macedonians also, who answered that he would deliberate upon it. 
+				<q direct="unspecified">Let him deliberate, then,</q> said Agesila&uuml;s, 
+				<q direct="unspecified">but we will march on.</q> In amazement therefore at his boldness, and in fear, the Macedonian king gave orders to let him pass as a friend. 
+				<milestone n="3" unit="section"/>Since the Thessalians were in alliance with his enemies, he ravaged their country. But to the city of Larissa he sent Xenocles and Scythes, hoping to secure its friendship. His ambassadors, however, were arrested and kept in close custody, whereupon the rest of his command were indignant, and thought that Agesila&uuml;s ought to encamp about Larissa and lay siege to it. But he declared that the capture of all Thessaly would not compensate him for the loss of either one of his men, and made terms with the enemy in order to get them back. 
+				<milestone n="4" unit="section"/>And perhaps we need not wonder at such conduct in Agesila&uuml;s, since when he learned that a great battle had been fought near Corinth,
+				<note resp="ed" place="unspecified" anchored="yes">394 B.C. Cf. <bibl n="Xen. Hell. 4.2.18">Xenophon, <title>Hell.</title> iv. 2, 18</bibl>&mdash;<bibl n="Xen. Hell. 4.3.1">3, 1 f.</bibl>
+            </note> and that men of the highest repute had suddenly been taken off, and that although few Spartans altogether had been killed, the loss of their enemies was very heavy, he was not seen to be rejoiced or elated, but fetched a deep groan and said: 
+				<q direct="unspecified">Alas for Hellas, which has by her own hands destroyed so many brave men! Had they lived, they could have conquered in battle all the Barbarians in the world.</q> 
+				        <milestone n="5" unit="section"/>However, when the Pharsalians annoyed him and harassed his army, he ordered five hundred horsemen which he led in person to attack them, routed them, and set up a trophy at the foot of mount Narthacium. This victory gave him special pleasure, because with horsemen of his own mustering and training, and with no other force, he had conquered those whose chief pride was placed in their cavalry.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 4.3.9">Xenophon, <title>Hell.</title> iv. 3, 9.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Here Diphridas, an ephor from Sparta, met him, with orders to invade Boeotia immediately. Therefore, although he was purposing to do this later with a larger armament, he thought it did not behoove him to disobey the magistrates, but said to those who were with him that the day was near for which they had come from Asia. He also sent for two divisions of the army at Corinth. 
+				<milestone n="2" unit="section"/>Then the Lacedaemonians at home, wishing to do him honour, made proclamation that any young man who wished might enlist in aid of the king. All enlisted eagerly, and the magistrates chose out the most mature and vigorous of them to the number of fifty, and sent them off.
+			</p>
+         <p>Agesila&uuml;s now marched through the pass of Thermopylae, traversed Phocis, which was friendly to Sparta, entered Boeotia, and encamped near Chaeroneia. Here a partial eclipse of the sun occurred, and at the same time
+				<note resp="ed" place="unspecified" anchored="yes">August, 394 B.C.</note> news came to him of the death of Peisander, who was defeated in a naval battle off Cnidus by Pharnabazus and Conon. 
+				<milestone n="3" unit="section"/>Agesila&uuml;s was naturally much distressed at these tidings, both because of the man thus lost, and of the city which had lost him; but nevertheless, that his soldiers might not be visited with dejection and fear as they were going into battle, he ordered the messengers from the sea to reverse their tidings and say that the Spartans were victorious in the naval battle. He himself also came forth publicly with a garland on his head, offered sacrifices for glad tidings, and sent portions of the sacrificial victims to his friends.
+				<note resp="ed" place="unspecified" anchored="yes">The soldiers of Agesila&uuml;s were consequently victorious in a skirmish with the enemy, according to Xenophon (<bibl n="Xen. Hell. 4.3.14">
+                  <title>Hell.</title> iv. 3, 14</bibl>).</note>
+			      </p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After advancing as far as Coroneia and coming within sight of the enemy, he drew up his army in battle array, giving the left wing to the Orchomenians, while he himself led forward the right. On the other side, the Thebans held the right wing themselves, and the Argives the left. Xenophon says that this battle was unlike any ever fought,
+				<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Hell. 4.3.16"/>
+               <bibl n="Xen. Hell. 4.3.16">
+                  <title>Hellenica</title>, iv. 3, 16.</bibl>
+            </note> and he was present himself and fought on the side of Agesila&uuml;s, having crossed over with him from Asia.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 5.3.6"/>
+               <bibl n="Xen. Anab. 5.3.6">Xenophon's <title>Anabasis</title>, v. 3, 6.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>The first impact, it is true, did not meet with much resistance, nor was it long contested, but the Thebans speedily routed the Orchomenians, as Agesila&uuml;s did the Argives. Both parties, however, on hearing that their left wings were overwhelmed and in flight, turned back. Then, although the victory might have been his without peril if he had been willing to refrain from attacking the Thebans in front and to smite them in the rear after they had passed by, Agesila&uuml;s was carried away by passion and the ardour of battle and advanced directly upon them, wishing to bear them down by sheer force. 
+				<milestone n="3" unit="section"/>But they received him with a vigour that matched his own, and a battle ensued which was fierce at all points in the line, but fiercest where the king himself stood surrounded by his fifty volunteers,
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Ages. 17.2"/>
+               <bibl n="Plut. Ages. 17.2">chapter xvii. 2.</bibl> They are not mentioned by Xenophon.</note> whose opportune and emulous valour seems to have saved his life. For they fought with the utmost fury and exposed their lives in his behalf, and though they were not able to keep him from being wounded, but many blows of spears and swords pierced his armour and reached his person, they did succeed in dragging him off alive, and standing in close array in front of him, they slew many foes, while many of their own number fell. 
+				<milestone n="4" unit="section"/>But since it proved too hard a task to break the Theban front, they were forced to do what at the outset they were loth to do. They opened their ranks and let the enemy pass through, and then, when these had got clear, and were already marching in looser array, the Spartans followed on the run and smote them on the flanks. They could not, however, put them to rout, but the Thebans withdrew to Mount Helicon,
+				<note resp="ed" place="unspecified" anchored="yes">From the slopes of which they had advanced to the battle.</note> greatly elated over the battle, in which, as they reasoned, their own contingent had been undefeated.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Agesila&uuml;s, although he was weakened by many wounds, would not retire to his tent until he had first been carried to his troops and seen that the dead were collected within the encampment. Moreover, he ordered that all of the enemy who had taken refuge in the sanctuary should be dismissed. 
+				<milestone n="2" unit="section"/>For the temple of Athena Itonia was near at hand, and a trophy stood in front of it, which the Boeotians had long ago erected, when, under the command of Sparto, they had defeated the Athenians there and slain Tolmides their general.
+				<note resp="ed" place="unspecified" anchored="yes">In 447 B.C.; cf. the <bibl n="Plut. Per. 18.2"/>
+               <bibl n="Plut. Per. 18.2">
+                  <title>Pericles</title>, xviii. 2 f.</bibl>
+            </note> Early next morning, Agesila&uuml;s, wishing to try the Thebans and see whether they would give him battle, ordered his soldiers to wreath their heads and his pipers to play their pipes, while a trophy was set up and adorned in token of their victory.
+				<note resp="ed" place="unspecified" anchored="yes">Cf the <bibl n="Plut. Nic. 6.5"/>
+               <bibl n="Plut. Nic. 6.5">
+                  <title>Nicias</title>, vi. 5.</bibl>
+            </note> 
+				        <milestone n="3" unit="section"/>And when the enemy sent to him and asked permission to take up their dead, he made a truce with them, and having thus assured to himself the victory, proceeded to Delphi,
+				<note resp="ed" place="unspecified" anchored="yes">Leaving the army in command of Gylis the polemarch (<bibl n="Xen. Hell. 4.3.21"/>
+               <bibl n="Xen. Hell. 4.3.21">Xenophon, <title>Hell.</title> iv. 3, 21</bibl>).</note> where the Pythian games were in progress. There he celebrated the customary procession in honour of the god, and offered up the tenth of the spoils which he had brought from Asia, amounting to a hundred talents.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Then he went back home, where his life and conduct brought him at once the affection and admiration of his fellow-citizens. For, unlike most of their generals, he came back from foreign parts unchanged and unaffected by alien customs; he showed no dislike towards home fashions, nor was he restive under them, but honoured and loved what he found there just as much as those did who had never crossed the Eurotas; he made no change in his table, or his baths, or the attendance on his wife, 
+				<milestone n="5" unit="section"/>or the decoration of his armour, or the furniture of his house, nay, he actually let its doors remain although they were very old,&mdash;one might say they were the very doors which Aristodemus
+				<note resp="ed" place="unspecified" anchored="yes">The great-great-grandson of Heracles; cf. <bibl n="Xen. Ages. 8.7"/>
+               <bibl n="Xen. Ages. 8.7">Xenophon, <title>Agesila&uuml;s</title>, viii. 7.</bibl>
+            </note> had set up. His daughter's 
+				<q direct="unspecified">kannathron,</q> as Xenophon tells us, was no more elaborate than that of any other maid (
+				<q direct="unspecified">kannathra</q> is the name they give to the wooden figures of griffins or goat-stags in which their young girls are carried at the sacred processions).
+				<note resp="ed" place="unspecified" anchored="yes">These figures of animals were on wheels, and served as carriages (cf. <bibl n="Ath. 4.139">Athenaeus, p. 139 f.</bibl>).</note> 
+				        <milestone n="6" unit="section"/>Xenophon, it is true, has not recorded the name of the daughter of Agesila&uuml;s, and Dicacarchus expressed great indignation that neither her name nor that of the mother of Epaminondas was known to us; but we have found in the Lacedaemonian records that the wife of Agesila&uuml;s was named Cleora, and his daughters Eupolia and Proauga. And one can see his spear also, which is still preserved at Sparta, and which is not at all different from that of other men.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, on seeing that some of the citizens esteemed themselves highly and were greatly lifted up because they bred racing horses, he persuaded his sister Cynisca to enter a chariot in the contests at Olympia, wishing to show the Greeks that the victory there was not a mark of any great excellence, but simply of wealth and lavish outlay. 
+				<milestone n="2" unit="section"/>Also, having Xenophon the philosopher in his following, and making much of him, he ordered him to send for his sons and rear them at Sparta, that they might learn that fairest of all lessons, how to obey and how to command. Again, finding after Lysander's death that a large society was in existence, which that commander, immediately after returning from Asia, had formed against him, Agesila&uuml;s set out to prove what manner of citizen Lysander had been while alive. 
+				<milestone n="3" unit="section"/>So, after reading a speech which Lysander had left behind him in book form,&mdash;a speech which Cleon of Halicarnassus had composed, but which Lysander had intended to adopt and pronounce before the people in advocacy of a revolution and change in the form of government,&mdash;Agesila&uuml;s wished to publish it. But one of the senators, who had read the speech and feared its ability and power, advised the king not to dig Lysander up again, but rather to bury the speech with him, to which advice Agesila&uuml;s listened and held his peace.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Lys. 30.1"/>
+               <bibl n="Plut. Lys. 30.1">
+                  <title>Lysander</title>, chapter xxx.</bibl>
+            </note> 
+				        <milestone n="4" unit="section"/>And as for those who were in opposition to him, he would do them no open injury, but would exert himself to send some of them away from time to time as generals and commanders, and would show them up if they proved base and grasping in their exercise of authority; then, contrariwise, when they were brought to trial, he would come to their aid and exert himself in their behalf, and so would make them friends instead of enemies, and bring them over to his side, so that no one was left to oppose him.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>For Agesipolis, the other king, since he was the son of an exile,
+				<note resp="ed" place="unspecified" anchored="yes">Pausanias, who was impeached in 395 B.C., went into voluntary exile, and was condemned to death.</note> in years a mere stripling, and by nature gentle and quiet, took little part in affairs of state. And yet he too was brought under the sway of Agesila&uuml;s. For the Spartan kings eat together in the same 
+				<q direct="unspecified">phiditium,</q> or public mess,
+				<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Lyc. 12.1"/>
+               <bibl n="Plut. Lyc. 12.1">
+                  <title>Lycurgus</title>, xii. 1 </bibl>f.</note> whenever they are at home. 
+				<milestone n="6" unit="section"/>Accordingly, knowing that Agesipolis was prone to love affairs, just as he was himself, Agesila&uuml;s would always introduce some discourse about the boys who were of an age to love. He would even lead the young king's fancy toward the object of his own affections, and share with him in wooing and loving, these Spartan loves having nothing shameful in them, but being attended rather with great modesty, high ambition, and an ardent desire for excellence, as I have written in my life of Lycurgus.
+				<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Lyc. 17.1"/>
+               <bibl n="Plut. Lyc. 17.1">Chapters xvii. 1</bibl>; <bibl n="Plut. Lyc. 18.4"/>
+               <bibl n="Plut. Lyc. 18.4">xviii. 4.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Having thus obtained very great influence in the city, he effected the appointment of Teleutias, his half-brother on his mother's side, as admiral. Then he led an army to Corinth, and himself, by land, captured the long walls, while Teleutias, with his fleet, seized the enemy's ships and dockyards. Then coming suddenly upon the Argives,
+				<note resp="ed" place="unspecified" anchored="yes">Plutarch confuses the expedition of 393 B.C. (<bibl n="Xen. Hell. 4.4.19"/>
+               <bibl n="Xen. Hell. 4.4.19">Xenophon, <title>Hell.</title> iv. 4. 19</bibl>) with that of 390 B.C. (<bibl n="Xen. Hell. 4.5.1"/>
+               <bibl n="Xen. Hell. 4.5.1">Xenophon, <title>Hell.</title> iv. 5, 1 ff.</bibl>).</note> who at that time held Corinth, and were celebrating the Isthmian games, he drove them away just as they had sacrificed to the god, and made them abandon all their equipment for the festival. 
+				<milestone n="2" unit="section"/>At this, the exiles from Corinth who were in his army begged him to hold the games. This, however, he would not do, but remained at hand while they held the games from beginning to end, and afforded them security. Afterwards, when he had departed, the Isthmian games were held afresh by the Argives, and some contestants won their victories a second time, while some were entered in the lists as victors in the first contests, but as vanquished in the second. 
+				<milestone n="3" unit="section"/>In this matter Agesila&uuml;s declared that the Argives had brought down upon themselves the charge of great cowardice, since they regarded the conduct of the games as so great and august a privilege, and yet had not the courage to fight for it. He himself thought that moderation ought to be observed in all these matters, and sought to improve the local choirs and games. These he always attended, full of ambitious ardour, and was absent from no contest in which either boys or girls competed. Those things, however, for which he saw the rest of the world filled with admiration, he appeared not even to recognize. 
+				<milestone n="4" unit="section"/>Once upon a time Callipides the tragic actor, who had a name and fame among the Greeks and was eagerly courted by all, first met him and addressed him, then pompously thrust himself into his company of attendants, showing plainly that he expected the king to make him some friendly overtures, and finally said: 
+				<q direct="unspecified">Dost thou not recognize me, O King?</q> The king fixed his eyes upon him and said: 
+				<q direct="unspecified">Yea, art thou not Callipides the buffoon?</q> For this is how the Lacedaemonians describe actors. And again, when he was invited to hear the man who imitated the nightingale, he declined, saying: 
+				<q direct="unspecified">I have heard the bird herself.</q>
+				        <note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Lyc. 20.5"/>
+               <bibl n="Plut. Lyc. 20.5">
+                  <title>Lycurgus</title>, xx. 5.</bibl>
+            </note> 
+				        <milestone n="5" unit="section"/>Again, Menecrates the physician, who, for his success in certain desperate cases, had received the surname of Zeus, and had the had taste to employ the appellation, actually dared to write the king a letter beginning thus: 
+				<q direct="unspecified">Menecrates Zeus, to King Agesila&uuml;s, greeting.</q> To this Agesila&uuml;s replied: 
+				<q direct="unspecified">King Agesila&uuml;s, to Menecrates, health and sanity.</q>
+			      </p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>While he was lingering in the territory of Corinth, he seized the Heraeum,
+				<note resp="ed" place="unspecified" anchored="yes">The refugees in the Heraeum came out and surrendered of their own accord (<bibl n="Xen. Hell. 4.5.5"/>
+               <bibl n="Xen. Hell. 4.5.5">Xenophon, <title>Hell.</title> iv. 5, 5</bibl>).</note> and as he was watching his soldiers carry off the prisoners and booty, messengers came from Thebes to treat for peace. But he had always hated that city, and thinking this an advantageous time also for insulting it, pretended neither to see nor hear its ambassadors when they presented themselves. But his pride soon had a fall; 
+				<milestone n="2" unit="section"/>for the Thebans had not yet departed when messengers came to him with tidings that the Spartan division had been cut to pieces by Iphicrates.
+				<note resp="ed" place="unspecified" anchored="yes">At Lechaeum the port of Corinth on the Corinthian gulf in 390 B.C. (<bibl n="Xen. Hell. 4.5.11"/>
+               <bibl n="Xen. Hell. 4.5.11">Xenophon, <title>Hell.</title> iv. 5, 11-18</bibl>).</note> This was the greatest disaster that had happened to the Spartans in a long time; for they lost many brave men, and those men were overwhelmed by targeteers and mercenaries, though they were men-at-arms and Lacedaemonians.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>At once, then, Agesila&uuml;s sprang up to go to their assistance, but when he learned that it was all over with them,
+				<note resp="ed" place="unspecified" anchored="yes">He had marched till he was 
+					<q direct="unspecified">well within the plateau of Lechaeum</q> (<bibl n="Xen. Hell. 4.5.8"/>
+               <bibl n="Xen. Hell. 4.5.8">Xenophon, <title>Hell.</title> iv. 5, 8</bibl>).</note> he came back again to the Heraeum, and ordering the Boeotians then to come before him, gave them an audience. But they returned his insolence by making no mention of peace, but simply asking safe conduct into Corinth. Agesila&uuml;s was wroth at this, and said: 
+				<q direct="unspecified">If you wish to see your friends when they are elated at their successes, you can do so tomorrow in all safety.</q> 
+				        <milestone n="4" unit="section"/>And taking them along with him on the next day, he ravaged the territory of the Corinthians, and advanced to the very gates of the city. After he had thus proved that the Corinthians did not dare to resist him, he dismissed the embassy. Then he himself, picking up the survivors of the division that had been cut to pieces, led them back to Sparta, always breaking camp before it was day, and pitching the next camp after it was dark, in order that the hateful and malicious Arcadians might not exult over them.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>After this, to gratify the Achaeans, he crossed over with them on an expedition into Acarnania,
+				<note resp="ed" place="unspecified" anchored="yes">In 390-389 B.C. (<bibl n="Xen. Hell. 4.6.3"/>
+               <bibl n="Xen. Hell. 4.6.3">Xenophon, <title>Hell.</title> iv. 6, 3</bibl>&mdash;<bibl n="Xen. Hell. 4.7.1"/>
+               <bibl n="Xen. Hell. 4.7.1">7, 1</bibl>).</note> where he drove away much booty and conquered the Acarnanians in battle. But when the Achaeans asked him to spend the winter there in order to prevent the enemy from sowing their fields, he said he would do the opposite of this; for the enemy would dread the war more if their land was sown when summer came. And this proved true; for when a second expedition against them was announced, they came to terms with the Achaeans.
+			</p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Conon and Pharnabazus with the Great King's fleet were masters of the sea and were ravaging the coasts of Laconia, and after the walls of Athens had been rebuilt with the money which Pharnabazus furnished,
+				<note resp="ed" place="unspecified" anchored="yes">In 393 B.C. (<bibl n="Xen. Hell. 4.8.10"/>
+               <bibl n="Xen. Hell. 4.8.10">Xenophon, <title>Hell.</title> iv. 8,10</bibl>).</note> the Lacedaemonians decided to make peace with the king of Persia. To that end, they sent Antalcidas to Tiribazus,
+				<note resp="ed" place="unspecified" anchored="yes">The Great King's satrap in Western Asia.</note> and in the most shameful and lawless fashion handed over to the King the Greeks resident in Asia, in whose behalf Agesila&uuml;s had waged war. Agesila&uuml;s, therefore, could have had no part at all in this infamy. 
+				<milestone n="2" unit="section"/>For Antalcidas was his enemy, and put forth all his efforts to make the peace because he saw that the war enhanced to the utmost the reputation and power of Agesila&uuml;s. Notwithstanding this, to one who remarked that the Lacedaemonians were favouring the Medes, Agesila&uuml;s replied that the Medes were the rather favouring the Lacedaemonians. 
+				<milestone n="3" unit="section"/>Moreover, by threatening with war the Greeks who were unwilling to accept the peace, he forced them all to abide by the terms which the Persian dictated,
+				<note resp="ed" place="unspecified" anchored="yes">The peace of Antalcidas was ratified by all the Greek states except Thebes in 387 B.C. (<bibl n="Xen. Hell. 5.1.29"/>
+               <bibl n="Xen. Hell. 5.1.29">Xenophon, <title>Hell.</title> v. 1, 29 ff.</bibl>).</note> more especially on account of the Thebans, his object being to make them weaker by leaving Boeotia independent of Thebes. This he made clear by his subsequent behaviour. For when Phoebidas committed the foul deed of seizing the Cadmeia
+				<note resp="ed" place="unspecified" anchored="yes">The citadel of Thebes. It was seized by Phoebidas in 383 B.C. (<bibl n="Xen. Hell. 5.2.26"/>
+               <bibl n="Xen. Hell. 5.2.26">Xenophon, <title>Hell.</title> v. 2, 26 ff.</bibl>).</note> in a time of perfect peace, and all the Greeks were indignant and the Spartans displeased at the act, 
+				<milestone n="4" unit="section"/>and when especially those who were at variance with Agesila&uuml;s angrily asked Phoebidas by whose command he had done this thing, thereby turning suspicion upon Agesila&uuml;s, he did not scruple to come to the help of Phoebidas, and to say openly that they must consider whether the act itself was serviceable or not; for that which was advantageous to Sparta might well be done independently, even if no one ordered it. 
+				<milestone n="5" unit="section"/>And yet in his discourse he was always declaring that justice was the first of the virtues; for valour was of no use unless justice attended it, and if all men should be just, there would be no need of valour. And to those who said, 
+				<q direct="unspecified">This is the pleasure of the Great King,</q> he would say, 
+				<q direct="unspecified">How is he greater than I unless he is also more just?</q>, rightly and nobly thinking that justice must be the royal measure wherewith relative greatness is measured. 
+				<milestone n="6" unit="section"/>And when, after the peace was concluded, the Great King sent him a letter proposing guest-friendship, he would not accept it, saying that the public friendship was enough, and that while that lasted there would be no need of a private one. Yet in his acts he no longer observed these opinions, but was often carried away by ambition and contentiousness, and particularly in his treatment of the Thebans. 
+				<milestone n="7" unit="section"/>For he not only rescued Phoebidas from punishment, but actually persuaded Sparta to assume responsibility for his iniquity and occupy the Cadmeia on its own account, besides putting the administration of Thebes into the hands of Archias and Leontidas, by whose aid Phoebidas had entered and seized the acropolis. 
+			</p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Of course this gave rise at once to a suspicion that while Phoebidas had done the deed, Agesila&uuml;s had counselled it; and his subsequent acts brought the charge into general belief. For when the Thebans expelled the Spartan garrison and liberated their city,
+				<note resp="ed" place="unspecified" anchored="yes">In 379 B.C., with the help of the Athenians (<bibl n="Xen. Hell. 5.4.2"/>
+               <bibl n="Xen. Hell. 5.4.2">Xenophon <title>Hell.</title> v. 4, 2-12</bibl>). Cf. the <bibl n="Plut. Pel. 9.1"/>
+               <bibl n="Plut. Pel. 9.1">
+                  <title>Pelopidas</title> ix.-xiii.</bibl>
+            </note> he charged them with the murder of Archias and Leontidas, who were really tyrants, though polemarchs in name, and levied war upon them. 
+				<milestone n="2" unit="section"/>And Cleombrotus, who was king now that Agesipolis was dead, was sent into Boeotia with an army; for Agesila&uuml;s, who had now borne arms for forty years, and was therefore exempt by law from military service, declined this command. He was ashamed, after having recently made war upon the Phliasians in behalf of their exiles,
+				<note resp="ed" place="unspecified" anchored="yes">In 380-379 B.C. (<bibl n="Xen. Hell. 5.3.13"/>
+               <bibl n="Xen. Hell. 5.3.13">Xenophon, <title>Hell.</title> v. 3, 13-25</bibl>).</note> to be seen now harrying the Thebans in the interests of their tyrants.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 5.4.13"/>
+               <bibl n="Xen. Hell. 5.4.13">Xenophon, <title>Hell.</title> v. 4, 13.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>Now, there was a certain Lacedaemonian named Sphodrias, of the party opposed to Agesila&uuml;s, who had been appointed harmost at Thespiae. He lacked neither boldness nor ambition, but always abounded in hopes rather than in good judgement. This man, coveting a great name, and considering that Phoebidas had made himself famous far and near by his bold deed at Thebes, was persuaded that it would be a far more honourable and brilliant exploit for him to seize the Peiraeus on his own account and rob the Athenians of access to the sea, attacking them unexpectedly by land. 
+				<milestone n="4" unit="section"/>It is said, too, that the scheme was devised by Pelopidas and Melo, chief magistrates at Thebes.
+				<note resp="ed" place="unspecified" anchored="yes">Their object was to embroil Athens and Sparta (<bibl n="Xen. Hell. 5.4.20"/>
+               <bibl n="Xen. Hell. 5.4.20">Xenophon, <title>Hell.</title> v. 4, 20-24</bibl>).</note> They privily sent men to him who pretended to be Spartan sympathizers, and they, by praising and exalting Sphodrias as the only man worthy to undertake so great a task, urged and incited him into an act which was no less lawless and unjust than the seizure of the Cadmeia, though it was essayed without courage or good fortune. 
+				<milestone n="5" unit="section"/>For full daylight overtook him while he was yet in the Thriasian plain, although he had hoped to attack the Peiraeus by night. It is said also that his soldiers saw a light streaming from certain sanctuaries at Eleusis, and were filled with shuddering fear. Their commander himself lost all his courage, since concealment was no longer possible, and after ravaging the country a little, retired disgracefully and ingloriously to Thespiae. 
+				<milestone n="6" unit="section"/>Hereupon men were sent from Athens to Sparta to denounce Sphodrias. They found, however, that the magistrates there had no need of their denunciation, but had already indicted Sphodrias on a capital charge. This charge he determined not to meet, fearing the wrath of his countrymen, who were ashamed in the presence of the Athenians, and wished to be thought wronged with them, that they might not be thought wrongdoers with Sphodrias.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now Sphodrias had a son, Cleonymus, who was still a boy and fair to look upon, and of whom Archidamus, the son of King Agesila&uuml;s, was enamoured. In this crisis Archidamus naturally sympathized with his favourite because of the peril in which his father stood, but he was unable to aid and assist him openly, since Sphodrias was one of the opponents of Agesila&uuml;s. 
+				<milestone n="2" unit="section"/>But when Cleonymus came to him in tears and begged him to mollify Agesila&uuml;s, from whom he and his father had most to fear, for three or four days he was restrained by awe and fear from saying anything to Agesila&uuml;s as he followed him about; but finally, when the trial was near at hand, he plucked up courage to tell him that Cleonymus had begged him to intercede for his father. 
+				<milestone n="3" unit="section"/>Now Agesila&uuml;s, although he knew of the love of Archidamus, had not put a stop to it, since Cleonymus, from his early boyhood, had given special promise of becoming an earnest and worthy man. At this time, however, he did not permit his son to expect any advantage or kindness in answer to his prayer; he merely said, as he went away, that he would consider what was the honourable and fitting course in the matter. 
+				<milestone n="4" unit="section"/>Archidamus was therefore mortified, and ceased to visit Cleonymus, although before this he had done so many times a day. As a consequence, the friends of Sphodrias also were more in despair of his case, until Etymocles, one of the friends of Agesila&uuml;s, conferred with them and disclosed the mind of the king, namely, that he blamed to the utmost what Sphodrias had done, but yet thought him a brave man, and saw that the city needed just such soldiers. 
+				<milestone n="5" unit="section"/>For this was the way in which Agesila&uuml;s always spoke about the trial, in his desire to gratify his son, so that Cleonymus was at once aware of the zealous efforts of Archidamus in his behalf, and the friends of Sphodrias had courage at last to come to his help. It is a fact also that Agesila&uuml;s was excessively fond of his children, and a story is told of his joining in their childish play. Once, when they were very small, he bestrode a stick, and was playing horse with them in the house, and when he was spied doing this by one of his friends, he entreated him not to tell any one, until he himself should be a father of children.
+			</p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But after Sphodrias was acquitted,
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 5.4.24"/>
+               <bibl n="Xen. Hell. 5.4.24">Xenophon, <title>Hell.</title> v. 4, 24-34.</bibl>
+            </note> and the Athenians, on learning of it, were inclined to go to war, Agesila&uuml;s was very harshly criticized. It was thought that, to gratify an absurd and childish desire, he had opposed the course of justice in a trial, and made the city accessory to great crimes against the Greeks. 
+				<milestone n="2" unit="section"/>Besides, when he saw that his colleague Cleombrotus was little inclined to make war upon the Thebans, he waived the exemption by law which he had formerly claimed in the matter of the expedition, and presently led an incursion into Boeotia himself,
+				<note resp="ed" place="unspecified" anchored="yes">According to Xenophon (<bibl n="Xen. Hell. 5.4.35"/>
+               <bibl n="Xen. Hell. 5.4.35">
+                  <title>Hell.<title> v. 4, 35</title>
+                  </title>
+               </bibl>), he was asked to do so by the Lacedaemonians, who preferred him to Cleombrotus as a leader. This was in 378 B.C.</note> where he inflicted damage upon the Thebans, and in his turn met with reverses, so that one day when he was wounded, Antalcidas said to him: 
+				<q direct="unspecified">Indeed, this is a fine tuition-fee which thou art getting from the Thebans, for teaching them how to fight when they did not wish to do it, and did not even know how.</q> 
+				        <milestone n="3" unit="section"/>For the Thebans are said to have been really more warlike at this time than ever before, owing to the many expeditions which the Lacedaemonians made against them, by which they were virtually schooled in arms. And Lycurgus of old, in one of his three so-called 
+				<q direct="unspecified">rhetras,</q> forbade his people to make frequent expeditions against the same foes, in order that those foes might not learn how to make war.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Lyc. 13.6"/>
+               <bibl n="Plut. Lyc. 13.6">
+                  <title>Lycurgus</title>, xiii. 6.</bibl>
+            </note>
+			      </p>
+         <p>Moreover, the allies of the Lacedaemonians were offended at Agesila&uuml;s, because, as they said, it was not upon any public ground of complaint, but by reason of some passionate resentment of his own, that he sought to destroy the Thebans. 
+				<milestone n="4" unit="section"/>Accordingly, they said they had no wish to be dragged hither and thither to destruction every year, they themselves so many, and the Lacedaemonians, with whom they followed, so few. It was at this time, we are told, that Agesila&uuml;s, wishing to refute their argument from numbers, devised the following scheme. He ordered all the allies to sit down by themselves promiscuously, and the Lacedaemonians apart by themselves. 
+				<milestone n="5" unit="section"/>Then his herald called upon the potters to stand up first, and after them the smiths, next, the carpenters in their turn, and the builders, and so on through all the handicrafts. In response, almost all the allies rose up, but not a man of the Lacedaemonians; for they were forbidden to learn or practise a manual art.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Lyc. 24.2"/>
+               <bibl n="Plut. Lyc. 24.2">
+                  <title>Lycurgus</title>, xxiv. 2.</bibl>
+            </note> Then Agesila&uuml;s said with a laugh: 
+				<q direct="unspecified">You see, O men, how many more soldiers than you we are sending out.</q>
+			      </p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But in Megara, when he was leading his army back from Thebes,
+				<note resp="ed" place="unspecified" anchored="yes">From a second incursion into Boeotia, made in 377 B.C. (<bibl n="Xen. Hell. 5.4.47"/>
+               <bibl n="Xen. Hell. 5.4.47">Xenophon, <title>Hell.</title> v. 4, 47-55</bibl>; <bibl n="Xen. Hell. 5.4.58"/>
+               <bibl n="Xen. Hell. 5.4.58">58</bibl>).</note> as he was going up to the senate-house in the acropolis, he was seized with a cramp and violent pain in his sound leg, which then swelled up, appeared to be congested, and showed signs of excessive inflammation. 
+				<milestone n="2" unit="section"/>As soon as a certain Syracusan physician had opened a vein below the ankle, the pains relaxed, but much blood flowed and could not be checked, so that Agesila&uuml;s was very faint from its loss, and in dire peril of his life. At last, however, the flow of blood was stopped, and Agesila&uuml;s was carried to Sparta, where he remained for a long time in a weak condition and unable to take the field. 
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>During this time the Spartans met with many reverses both by land and sea, the greatest of which was at Tegyra, where for the first time they were overpowered by the Thebans in a pitched battle.
+				<note resp="ed" place="unspecified" anchored="yes">This battle, fought in 375 B.C., is not mentioned by Xenophon, but is described by Plutarch in the <bibl n="Plut. Pel. 16.1"/>
+               <bibl n="Plut. Pel. 16.1">
+                  <title>Pelopidas</title>, chapters xvi.</bibl> and <bibl n="Plut. Pel. 17.1"/>
+               <bibl n="Plut. Pel. 17.1">xvii.</bibl>, doubtless on the authority of Ephorus (cf. <bibl n="Diod. 15.81.2"/>
+               <bibl n="Diod. 15.81.2">Diodorus, xv. 81, 2)</bibl>.</note> There was, accordingly, a general sentiment in favour of a general peace, and ambassadors from all Hellas came together at Sparta to settle its terms.
+				<note resp="ed" place="unspecified" anchored="yes">In 371 B.C. (<bibl n="Xen. Hell. 6.3.3."/>
+               <bibl n="Xen. Hell. 6.3.3.">Xenophon, <title>Hell.</title> vi. 3, 3-20</bibl>).</note> 
+				        <milestone n="4" unit="section"/>One of these ambassadors was Epaminondas, a man of repute for culture and philosophy, although he had not yet given proof of capacity as a general. This man, seeing the rest all cringing before Agesila&uuml;s, alone had the courage of his convictions, and made a speech, not in behalf of Thebes, his native city, but of all Greece in common, declaring that war made Sparta great at the expense of the sufferings of all the other states, and urging that peace be made on terms of equality and justice, for it would endure only when all parties to it were made equal.
+			</p>
+         <p>
+				        <milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Agesila&uuml;s, accordingly, seeing that the Greeks all listened to Epaminondas with the greatest attention and admiration, asked him whether he considered it justice and equality that the cities of Boeotia should be independent of Thebes. Then when Epaminondas promptly and boldly asked him in reply whether he too thought it justice for the cities of Laconia to be independent of Sparta, Agesila&uuml;s sprang from his seat and wrathfully bade him say plainly whether he intended to make the cities of Boeotia independent. 
+				<milestone n="2" unit="section"/>And when Epaminondas answered again in the same way by asking whether he intended to make the cities of Laconia independent, Agesila&uuml;s became violent and was glad of the pretext for at once erasing the name of the Thebans from the treaty of peace and declaring war upon them.
+				<note resp="ed" place="unspecified" anchored="yes">According to Xenophon (<bibl n="Xen. Hell. 6.3.19"/>
+               <bibl n="Xen. Hell. 6.3.19">
+                  <title>Hell.</title> vi. 3, 19.</bibl>), who makes no mention of Epaminondas, the Thebans had signed as Thebans, but on the next day wished to substitute Boeotians for Thebans. This Agesila&uuml;s refused to permit. It would have recognized the supremacy of Thebes in Boeotia.</note> The rest of the Greeks, however, he ordered to depart, now that they were reconciled with each other, leaving differences which could be healed to the terms of peace, and those which could not, to war, since it was a hard task to settle and remove all their disputes.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>At this time Cleombrotus was in Phocis with an army. The ephors therefore immediately sent him orders to lead his forces against Thebes. They also sent round a summons for an assembly of their allies, who were without zeal for the war and thought it a great burden, but were not yet bold enough to oppose or disobey the Lacedaemonians. 
+				<milestone n="4" unit="section"/>And although many baleful signs appeared, as I have written in my Life of Epaminondas,
+				<note resp="ed" place="unspecified" anchored="yes">Not extant.</note> and though Prothou&uuml;s the Laconian made opposition to the expedition, Agesila&uuml;s would not give in, but brought the war to pass. He thought that since all Hellas was on their side, and the Thebans had been excluded from the treaty, it was a favourable time for the Spartans to take vengeance on them. 
+				<milestone n="5" unit="section"/>But the time chosen for it proves that this expedition was made from anger more than from careful calculation. For the treaty of peace was made at Lacedaemon on the fourteenth of the month Scirophorion, and on the fifth of Hecatombaeon the Lacedaemonians were defeated at Leuctra,&mdash;an interval of twenty days. In that battle a thousand Lacedaemonians fell, besides Cleombrotus the king, and around him the mightiest of the Spartans. 
+				<milestone n="6" unit="section"/>Among these, they say, was Cleonymus, the beautiful son of Sphodrias,
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Ages. 25.1">chapter xxv. 1.</bibl>
+            </note> who was thrice struck down in front of his king, as many times rose again to his feet, and died there, fighting the Thebans.
+			</p>
+         <p>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now that the Lacedaemonians had met with an unexpected reverse, and the Thebans with an unlooked-for success surpassing that of any other Hellenes at strife with Hellenes, the high conduct of the defeated city was no less to be envied and admired than that of the victorious city. 
+				<milestone n="2" unit="section"/>Xenophon says
+				<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Sym. 1.1">
+                  <title>Symposium</title>, i. 1.</bibl>
+            </note> that in the case of noble men, there is much that is worth recording even in what they say and do at their wine and in their sports, and he is right; and it is no less, but even more, worth while to observe carefully the decorum with which noble men speak and act in the midst of adversity. The city was holding a festival and was full of strangers; for the 
+				<q direct="unspecified">gymnopaediae</q> were in progress and choirs of boys were competing with one another in the theatre; then came the messengers of calamity from Leuctra. 
+				<milestone n="3" unit="section"/>But the ephors, although it was at once apparent that their cause was ruined and their supremacy lost, would not allow a choral performance to be omitted, nor the fashion of the festival to be changed by the city, but after sending the names of the slain warriors to the homes of their kindred, they themselves conducted the spectacle and the choral contests to a close. 
+				<milestone n="4" unit="section"/>On the next morning also, now that everyone knew who had survived the battle and who had been slain, the fathers and kindred and friends of the slain went down into the market-place and greeted one another with bright faces, full of pride and exultation; while the friends of the survivors, as if in mourning, tarried at home with the women, and if one of them was obliged to appear in public, his garb and speech and looks betokened his humiliation and abasement.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 6.4.16">Xenophon, <title>Hell.</title> vi. 4, 16.</bibl>
+            </note> 
+				        <milestone n="5" unit="section"/>And a still greater difference was to be seen (or heard about) in the women; she who expected her son back from the battle alive was dejected and silent, but the mothers of those reported to have fallen immediately frequented the temples, and visited one another with an air of gladness and pride.
+			</p>
+         <p>
+				        <milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The greater number, however, when their allies were falling away from them and it was expected that Epaminondas, in all the pride of a conqueror, would invade Peloponnesus, fell to thinking of the oracles,
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Ages. 3.4">chapter iii. 4 f.</bibl>
+            </note> in view of the lameness of Agesila&uuml;s, and were full of dejection and consternation in respect to the divine powers, believing that their city was in an evil plight because they had dethroned the sound-footed king and chosen instead a lame and halting one,&mdash;the very thing which the deity was trying to teach them carefully to avoid. 
+				<milestone n="2" unit="section"/>And yet otherwise he had such power and valour and fame that they not only continued to employ him as king and general in matters pertaining to war, but also as physician and arbiter in their civil perplexities. For instance, upon those who had shown cowardice in the battle, whom they themselves call 
+				<q direct="unspecified">tresantes,</q> or <emph>
+               <emph>run-aways</emph>
+            </emph>, they hesitated to inflict the disabilities required by the laws, since the men were numerous and powerful, for fear that they might stir up a revolution. 
+				<milestone n="3" unit="section"/>For such men are not only debarred from every office, but intermarriage with any of them is a disgrace, and any one who meets them may strike them if he pleases. Moreover, they are obliged to go about unkempt and squalid, wearing cloaks that are patched with dyed stuffs, half of their beards shaven, and half left to grow. 
+				<milestone n="4" unit="section"/>It was a serious matter, therefore, to allow many such men in the city, when she lacked not a few soldiers. So they chose Agesila&uuml;s as a law-giver for the occasion. And he, without adding to or subtracting from or changing the laws in any way, came into the assembly of the Lacedaemonians and said that the laws must be allowed to sleep for that day, but from that day on must be in sovereign force. By this means he at once saved the laws for the city and the men from infamy. 
+				<milestone n="5" unit="section"/>Then, wishing to remove the discouragement and dejection which prevailed among the young men, he made an incursion into Arcadia,
+				<note resp="ed" place="unspecified" anchored="yes">In 370 B.C. (<bibl n="Xen. Hell. 6.5.10">Xenophon, <title>Hell.</title> vi. 5, 10-21</bibl>).</note> and though he studiously avoided joining battle with the enemy, he took a small town of the Mantineans and overran their territory, and thus lightened and gladdened the expectations of his city, which felt that its case was not wholly desperate.
+			</p>
+         <p>
+				        <milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this,
+				<note resp="ed" place="unspecified" anchored="yes">In the same year, after Agesila&uuml;s had returned and disbanded his forces.</note> Epaminondas entered Laconia with his allies, having no fewer than forty thousand men-at-arms. Many light armed and unarmed troops also followed him for the sake of plunder, so that a horde of seventy thousand, all told, made this incursion into Laconia. 
+				<milestone n="2" unit="section"/>For a period of no less than six hundred years the Dorians had been living in Lacedaemon, and this was the first time in all that period that enemies had been seen in the country; before this, none had ventured there. But now they burst into an unravaged and inviolate land, and burned and plundered as far as the river and the city, and no one came out against them. 
+				<milestone n="3" unit="section"/>For Agesila&uuml;s would not suffer the Lacedaemonians to fight against such a 
+				<q direct="unspecified">billowy torrent of war,</q> to use the words of Theopompus, but surrounded the central and most commanding parts of the city with his men-at-arms, while he endured the boastful threats of the Thebans, who called upon him by name and bade him come out and fight for his country, since he had caused her misfortunes by lighting up the flames of war. 
+				<milestone n="4" unit="section"/>But this was not the worst. Agesila&uuml;s was still more harassed by the tumults and shrieks and running about throughout the city, where the elder men were enraged at the state of affairs, and the women were unable to keep quiet, but were utterly beside themselves when they heard the shouts and saw the fires of the enemy.
+				<note resp="ed" place="unspecified" anchored="yes">
+					          <q direct="unspecified">The women could not endure even the sight of the smoke, since they had never set eyes upon an enemy</q> (<bibl n="Xen. Hell. 6.5.28">Xenophon, <title>Hell.</title> vi. 5, 28</bibl>).</note> 
+				        <milestone n="5" unit="section"/>He was also distressed at the thought of what his fame would be, because he had taken command of the city when she was greatest and most powerful, and now saw her reputation lowered, and her proud boast made empty, which boast he himself also had often made, saying that no Spartan woman had ever seen the smoke of an enemy's fires. It is said also that Antalcidas, when an Athenian was disputing with him over the valour of the two peoples and said, 
+				<q direct="unspecified">Yet we have often driven you away from the Cephisus,</q> replied: 
+				<q direct="unspecified">But we have never driven you away from the Eurotas.</q> 
+				        <milestone n="6" unit="section"/>And a similar retort was made by a Spartan of lesser note to the Argive who said, 
+				<q direct="unspecified">Many of you lie buried in the lands of Argos</q>; the Spartan answered: 
+				<q direct="unspecified">But not a man of you in the lands of Laconia.</q>
+			      </p>
+         <p>
+				        <milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Now, however, they say that Antalcidas, who was an ephor, secretly sent his children away to Cythera, so full of fear was he. But Agesila&uuml;s, when the enemy tried to cross the Eurotas and force their way to the city, abandoned the rest of it and drew up his forces in front of its central and lofty precincts. 
+				<milestone n="2" unit="section"/>Now, the Eurotas at this time was flowing at its fullest and deepest, since snows had fallen, and its current, even more from its coldness than its violence, was very troublesome to the Thebans. As Epaminondas was fording it at the head of his phalanx, certain ones pointed him out to Agesila&uuml;s, and he, we are told, after fixing his gaze upon him and watching him for a long time, said but these words: 
+				<q direct="unspecified">O adventurous man!</q> 
+				        <milestone n="3" unit="section"/>Epaminondas was ambitious to join battle in the city and set up a trophy of victory there, but since he could neither force nor tempt Agesila&uuml;s out of his positions, he withdrew and began to ravage the country. Meanwhile, about two hundred of the Lacedaemonians who had long been disaffected and mutinous banded together and seized the Issorium, where the temple of Artemis stands, a well-walled and inaccessible spot. 
+				<milestone n="4" unit="section"/>The Lacedaemonians wished to make a dash upon them at once, but Agesila&uuml;s, fearing their insurrection, ordered the rest to keep quiet, while he himself, wearing his cloak and attended by a single servant, went towards them, crying out that they had misunderstood his orders; for he had not commanded them to assemble in that place, nor in a body, but some yonder (pointing to another spot), and some in another part of the city. 
+				<milestone n="5" unit="section"/>They were delighted to hear this, supposing that their design was undiscovered, and, breaking up, went off to the places which he ordered them to occupy. Then Agesila&uuml;s at once summoned other troops and took possession of the Issorium, after which he arrested about fifteen of the conspirators who had been gathered there, and put them to death in the night. 
+				<milestone n="6" unit="section"/>He was also informed of another and a larger conspiracy of Spartans, who met secretly in a house and there plotted revolution. It was impracticable either to bring these men to trial in a time of so much confusion, or to overlook their plots. Accordingly, Agesila&uuml;s conferred with the ephors, and then put these men also to death without process of law, although no Spartan had ever before met with such a death. 
+				<milestone n="7" unit="section"/>At this time, also, many of the provincials and Helots who had been enrolled in the army ran away from the city and joined the enemy, and this caused very deep discouragement. Agesila&uuml;s therefore instructed his servants to go every morning before it was light to the barracks and take the arms of the deserters and hide them, that their numbers might not be known.
+			</p>
+         <p>
+				        <milestone n="8" unit="section"/>As for the reason why the Thebans withdrew from Laconia, most writers say that it was because winter storms came on and the Arcadians began to melt away and disband; others, because they had remained there three entire months and thoroughly ravaged most of the country;
+				<note resp="ed" place="unspecified" anchored="yes">All three reasons are given by Xenophon (<bibl n="Xen. Hell. 6.5.50">
+                  <title>Hell.</title> vi. 5. 50</bibl>).</note> but Theopompus says that when the Theban chief magistrates had already determined to take their army back, Phrixus, a Spartan, came to them, bringing ten talents from Agesila&uuml;s to pay for their withdrawal, so that they were only doing what they had long ago decided to do, and had their expenses paid by their enemies besides.
+			</p>
+         <p>
+				        <milestone n="33" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This story may be true, although I know not how all other writers could be ignorant of it, while Theopompus alone heard it; but, at any rate, all agree that the salvation of Sparta at this time was due to Agesila&uuml;s, because he renounced his inherent passions of contentiousness and ambition, and adopted a policy of safety. 
+				<milestone n="2" unit="section"/>He could not, however, restore the power and reputation of his city after its fall, for it was like a human body that is sound, indeed, but has followed all the while too strict and severe a regimen; a single error turned the scale and brought down the entire prosperity of the city. Nor was this strange. For to a civil polity best arranged for peace and virtue and unanimity they had attached empires and sovereignties won by force, not one of which Lycurgus thought needful for a city that was to live in happiness; and therefore they fell.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Agesila&uuml;s himself now declined military service on account of his years, but Archidamus his son, with assistance which came from the tyrant of Sicily,
+				<note resp="ed" place="unspecified" anchored="yes">Dionysius the Elder.</note> conquered the Arcadians in the so-called 
+				<q direct="unspecified">tearless battle,</q> where not one of his own men fell, and he slew great numbers of the enemy.
+				<note resp="ed" place="unspecified" anchored="yes">In 368 B.C. (<bibl n="Xen. Hell. 7.1.28">Xenophon, <title>Hell.</title> vii. 1, 28-32</bibl>).</note> This victory, more than anything else, showed the weakness of the city. 
+				<milestone n="4" unit="section"/>For up to this time they were wont to think the conquest of their enemies so customary and natural a thing for them to achieve, that no sacrifice for victory was offered in the city to the gods, beyond that of a cock, neither did the winners of the contest exult, nor those who heard of their victory show great joy. Nay, even after the battle at Mantinea,
+				<note resp="ed" place="unspecified" anchored="yes">In 418 B.C., when the Lacedaemonians defeated an allied force of Mantineans, Argives, and Athenians (<bibl n="Thuc. 5.64">Thucydides, v. 64-75</bibl>).</note> which Thucydides has described, the one who first announced the victory had no other reward for his glad tidings than a piece of meat sent by the magistrates from the public mess. 
+				<milestone n="5" unit="section"/>But now, at the news of the Arcadian victory and at the approach of Archidamus, no one could restrain himself, but first his father went to meet him, weeping for joy, and after him the chief magistrates, while the elderly men and the women went down in a throng to the river, lifting their hands to heaven and blessing the gods, as if Sparta had wiped away her unmerited disgraces and now saw the light shine bright again as of old; for before this, we are told, her men could not so much as look their wives in the face, out of shame at their disasters.
+			</p>
+         <p>
+				        <milestone n="34" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But when Messene was built by Epaminondas, and its former citizens flocked into it from all quarters,
+				<note resp="ed" place="unspecified" anchored="yes">In 369 B.C.</note> the Spartans had not the courage to contest the issue nor the ability to hinder it, but cherished the deepest resentment against Agesila&uuml;s, because a country which was not of less extent than their own, which stood first among Hellenic lands for its fertility, the possession and fruits of which they had enjoyed for so long a time, had been lost by them during his reign. 
+				<milestone n="2" unit="section"/>For this reason, too, Agesila&uuml;s would not accept the peace which was proffered by the Thebans. He was not willing to give up to them formally the country which was actually in their power, and persisted in his opposition. As a consequence, he not only did not recover Messenia, but almost lost Sparta besides, after being outgeneralled. 
+				<milestone n="3" unit="section"/>For when the Mantineans changed their allegiance,
+				<note resp="ed" place="unspecified" anchored="yes">In 362 B.C.</note> revolted from Thebes, and called in the Lacedaemonians to help them, Epaminondas, learning that Agesila&uuml;s had marched out from Sparta with his forces and was approaching, set out by night from Tegea, without the knowledge of the Mantineans, and led his army against Sparta itself. He passed by Agesila&uuml;s, and came within a little of suddenly seizing the city in a defenceless state.
+				<note resp="ed" place="unspecified" anchored="yes">
+					          <q direct="unspecified">Like a nest of young birds utterly bereft of its natural defenders</q> (<bibl n="Xen. Hell. 7.5.10">Xenophon, <title>Hell.</title> vii. 5, 10</bibl>).</note> 
+				        <milestone n="4" unit="section"/>But Euthynus, a Thespian, as Callisthenes says, or, according to Xenophon,
+				<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Xen. Hell. 7.5.10">Loc. cit.</bibl> Cf. also <bibl n="Diod. 15.82.6">Diodorus, xv, 82, 6.</bibl>
+            </note> a certain Cretan, brought word to Agesila&uuml;s, who quickly sent on a horseman to warn the people in Sparta, and not long after his arrival the Thebans were crossing the Eurotas and attacking the city, while Agesila&uuml;s defended it right vigorously and in a manner not to be expected of his years. 
+				<milestone n="5" unit="section"/>For he did not think, as on a former occasion, that the crisis demanded safe and cautious measures, but rather deeds of desperate daring. In these he had never put confidence before, nor had he employed them, but then it was only by their aid that he repelled the danger, snatching the city out of the grasp of Epaminondas, erecting a trophy of victory, and showing their wives and children that the Lacedaemonians were making the fairest of all returns to their country for its rearing of them. 
+				<milestone n="6" unit="section"/>Archidamus, too, fought among the foremost, conspicuous for his impetuous courage and for his agility, running swiftly through the narrow streets to the endangered points in the battle, and everywhere pressing hard upon the enemy with his few followers.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 7.5.12">Xenophon, <title>Hell.</title> vii. 5, 12-14.</bibl>
+            </note> But I think that Isidas, the son of Phoebidas, must have been a strange and marvellous sight, not only to his fellow-citizens, but also to his enemies. 
+				<milestone n="7" unit="section"/>He was of conspicuous beauty and stature, and at an age when the human flower has the greatest charm, as the boy merges into the man. Naked as he was, without either defensive armour or clothing,&mdash;for he had just anointed his body with oil,&mdash;he took a spear in one hand, and a sword in the other, leaped forth from his house, and after pushing his way through the midst of the combatants, ranged up and down among the enemy, smiting and laying low all who encountered him. 
+				<milestone n="8" unit="section"/>And no man gave him a wound, whether it was that a god shielded him on account of his valour, or that the enemy thought him taller and mightier than a mere man could be. For this exploit it is said that the ephors put a garland on his head, and then fined him a thousand drachmas, because he had dared to hazard his life in battle without armour.
+			</p>
+         <p>
+				        <milestone n="35" unit="chapter"/>
+				        <milestone n="1" unit="section"/>A few days afterwards a battle was fought near Mantinea, in which Epaminondas had already routed the van of the Lacedaemonians, and was still eagerly pressing on in pursuit of them,
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Hell. 7.5.22">Xenophon, <title>Hell.</title> vii. 5, 22-24.</bibl>
+            </note> when Anticrates, a Spartan, faced him and smote him with a spear, as Dioscorides tells the story; but the Lacedaemonians to this day call the descendants of Anticrates 
+				<q direct="unspecified">machaeriones,</q> or <emph>
+               <emph>swordsmen</emph>
+            </emph>, because he used a sword for the blow. 
+				<milestone n="2" unit="section"/>For the Lacedaemonians were filled with such admiring love for him because of the fear in which they held Epaminondas while living, that they voted honours and gifts to Anticrates himself, and to his posterity exemption from taxes, an immunity which in my own day also is enjoyed by Callicrates, one of the descendants of Anticrates.
+			</p>
+         <p>After the battle and the death of Epaminondas, when the Greeks concluded peace among themselves, Agesila&uuml;s and his partisans tried to exclude the Messenians from the oath of ratification, on the ground that they had no city. 
+				<milestone n="3" unit="section"/>And when all the rest admitted the Messenians and accepted their oaths, the Lacedaemonians held aloof from the peace, and they alone remained at war in the hope of recovering Messenia.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Diod. 15.89.1">Diodorus, xv. 89, 1 f.</bibl>
+            </note> Agesila&uuml;s was therefore deemed a headstrong and stubborn man, and insatiable of war, since he did all in his power to undermine and postpone the general peace, and again since his lack of resources compelled him to lay burdens on his friends in the city and to take loans and contributions from them. 
+				<milestone n="4" unit="section"/>And yet it was his duty to put an end to their evils, now that opportunity offered, and not, after having lost Sparta's whole empire, vast as it was, with its cities and its supremacy on land and sea, then to carry on a petty struggle for the goods and revenues of Messene.
+			</p>
+         <p>
+				        <milestone n="36" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He lost still more reputation by offering to take a command under Tachos the Egyptian. For it was thought unworthy that a man who had been judged noblest and best in Hellas, and who had filled the world with his fame, should furnish a rebel against the Great King, a mere Barbarian, with his person, his name, and his fame, and take money for him, rendering the service of a hired captain of mercenaries.
+				<note resp="ed" place="unspecified" anchored="yes">Xenophon (<bibl n="Xen. Ages. 2.28">Agesila&uuml;s, ii. 28-31</bibl>) has Agesila&uuml;s take this step in order to punish the Great King and liberate again the Greeks of Asia.</note> 
+				        <milestone n="2" unit="section"/>For even if, now that he was past eighty years of age and his whole body was disfigured with wounds, he had taken up again his noble and conspicuous leadership in behalf of the freedom of the Hellenes, his ambition would not have been altogether blameless, as men thought. For honourable action has its fitting time and season; nay, rather, it is the observance of due bounds that constitutes an utter difference between honourable and base actions. 
+				<milestone n="3" unit="section"/>Agesila&uuml;s, however, paid no heed to these considerations, nor did he think any public service beneath his dignity; it was more unworthy of him, in his opinion, to live an idle life in the city, and to sit down and wait for death. Therefore he collected mercenaries with the money which Tachos sent him, embarked them on transports, and put to sea, accompanied by thirty Spartan counsellors, as formerly.
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Ages. 6.2">chapter vi. 2.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>As soon as he landed in Egypt,
+				<note resp="ed" place="unspecified" anchored="yes">361 B.C.</note> the chief captains and governors of the king came down to meet him and pay him honour. There was great eagerness and expectation on the part of the other Egyptians also, owing to the name and fame of Agesila&uuml;s, and all ran together to behold him. 
+				<milestone n="5" unit="section"/>But when they saw no brilliant array whatever, but an old man lying in some grass by the sea, his body small and contemptible, covered with a cloak that was coarse and mean, they were moved to laughter and jesting, saying that here was an illustration of the fable, 
+				<q direct="unspecified">a mountain is in travail, and then a mouse is born.</q>
+				        <note resp="ed" place="unspecified" anchored="yes">In <bibl n="Ath. 14.616d">Athenaeus p. 616 d</bibl>, it is Tachos himself who makes this jest upon Agesila&uuml;s, who replies in anger: 
+					<q direct="unspecified">Some day you will think me a lion.</q>
+            </note> 
+				        <milestone n="6" unit="section"/>They were still more surprised, too, at his eccentricity. When all manner of hospitable gifts were brought to him, he accepted the flour, the calves, and the geese, but rejected the sweetmeats, the pastries, and the perfumes, and when he was urged and besought to take them, ordered them to be carried and given to his Helots. He was pleased, however, as Theophrastus tells us, with the papyrus used in chaplets, because the chaplets were so neat and simple, and when he left Egypt, asked and received some from the king.
+			</p>
+         <p>
+				        <milestone n="37" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But now, on joining Tachos, who was making preparations for his expedition, he was not, as he expected, appointed commander of all the forces, but only of the mercenaries, while Chabrias the Athenian had charge of the fleet, and Tachos himself was commander-in-chief
+				<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Diod. 15.92.2">Diodorus, xv. 92, 2 f.</bibl>
+            </note> 
+				        <milestone n="2" unit="section"/>This was the first thing that vexed Agesila&uuml;s; then, though he was indignant at the vain pretensions of the king in other matters, he was compelled to endure them. He even sailed with him against the Phoenicians, forcing himself into a subservience which was beneath his dignity and contrary to his nature, until he found his opportunity.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>For Nectanabis, who was a cousin of Tachos and had a part of the forces under his command, revolted from him, and having been proclaimed king by the Egyptians, sent to Agesila&uuml;s asking for his aid and assistance. He made the same appeal to Chabrias also, promising large gifts to both. 
+				<milestone n="4" unit="section"/>When Tachos learned of this and resorted to entreaties for their allegiance, Chabrias tried to persuade and encourage Agesila&uuml;s to continue with him in the friendship of Tachos. But Agesila&uuml;s said: 
+				<q direct="unspecified">You, Chabrias, who came here on your own account, can decide your own case; but I was given by my country to the Egyptians as a general. It would therefore be dishonourable for me to make war on those to whom I was sent as an ally, unless my country gives me a new command to do so.</q> 
+				        <milestone n="5" unit="section"/>After these words, he sent men to Sparta who were to denounce Tachos, and commend Nectanabis. Tachos and Nectanabis also sent and besought the support of the Lacedaemonians, the former on the ground that he had long been their ally and friend, the latter on the plea that he would be well disposed to their city and more eager to promote her interests. The Lacedaemonians, accordingly, after hearing the messengers, made public answer to the Egyptians that Agesila&uuml;s would attend to these matters; but to Agesila&uuml;s they wrote privately bidding him see to it that the interests of Sparta should not suffer. 
+				<milestone n="6" unit="section"/>So Agesila&uuml;s took his mercenaries and went over from Tachos to Nectanabis, making the interests of his country serve as a veil for a strange and unnatural proceeding, since when this pretext was removed, the most fitting name for his act was treachery.
+				<note resp="ed" place="unspecified" anchored="yes">Xenophon, who can see no fault in Agesila&uuml;s, says (<bibl n="Xen. Ages. 2.31">
+                  <title>Agesila&uuml;s</title>, ii. 31</bibl>): 
+					<q direct="unspecified">Accordingly, he chose between the two that one who seemed to be the truer partisan of Hellas, and with him marched against the enemy of Hellas and conquered him in battle.</q>
+            </note> But the Lacedaemonians assign the chief place in their ideas of honour to the interests of their country, and neither learn nor understand any other justice than that which they think will enhance the glory of Sparta.
+			</p>
+         <p>
+				        <milestone n="38" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Tachos, accordingly, thus deserted by his mercenaries, took to flight. But in Mendes another rival rose up against Nectanabis and was proclaimed king, and after collecting a hundred thousand men advanced against him. Then Nectanabis sought to encourage Agesila&uuml;s by saying that although the enemy were numerous, they were a mixed rabble of artisans whose inexperience in war made them contemptible. 
+				<milestone n="2" unit="section"/>
+				        <q direct="unspecified">Indeed,</q> said Agesila&uuml;s, 
+				<q direct="unspecified">it is not their numbers that I fear, but the inexperience and ignorance of which you speak, which it is hard to overcome by stratagems. For stratagems array unexpected difficulties against men who try to defend themselves against them, if they suspect and await them; but he who does not await nor even suspect any stratagem gives no hold to the opponent who is trying to outwit him, just as, in a wrestling bout, he who does not stir gives no advantage to his antagonist.</q> After this, the Mendesian also sent and tried to win over Agesila&uuml;s. 
+				<milestone n="3" unit="section"/>Nectanabis was therefore alarmed, and when Agesila&uuml;s urged him to fight the issue out as speedily as possible, and not to wage a war of delays against men who were inexperienced in fighting, but were numerous enough to surround him and hedge him in and anticipate and get the start of him in many ways, he grew still more suspicious and fearful of him, and retired into a city which was well fortified and had a large compass. 
+				<milestone n="4" unit="section"/>Agesila&uuml;s was incensed at this lack of confidence, and full of indignation, but since he was ashamed to change sides again and finally go back home without accomplishing any thing, he accompanied Nectanabis and entered the city with him.
+			</p>
+         <p>
+				        <milestone n="39" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But when the enemy came up and began to surround the city with a trench, then the Egyptian changed his mind, grew fearful of the siege, and wished to give battle, for which the Greeks also were very eager, since there were no provisions in the place. Agesila&uuml;s, however, would not permit it, but opposed it, and was therefore maligned by the Egyptians even more bitterly than before, and called a betrayer of the king. But he bore their calumnies more patiently now, and sought to find the fitting moment for his stratagem.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>This was as follows. The enemy were digging a deep trench outside around the city, in order to shut its occupants up completely. Accordingly, when the trench had been carried almost around the city, and its ends were near one another, after waiting for evening to come and ordering the Greeks to arm themselves, Agesila&uuml;s went to the Egyptian and said: 
+				<q direct="unspecified">Now is the time, young man, for us to save ourselves, and I would not speak of it until it came, for fear of vitiating it. 
+				<milestone n="3" unit="section"/>The enemy have now worked out our safety with their own hands. They have dug their trench so far that the part which is finished hinders them from attacking us in great numbers, and the space between the ends gives us room to fight them on fair and equal terms. Come, then, be eager to show yourself a brave man; follow with us as we charge, and save yourself and your army too. 
+				<milestone n="4" unit="section"/>For the enemy in our front will not withstand us, and the rest will not harm us because of the trench.</q> Nectanabis, then, was filled with admiration for the sagacity of Agesila&uuml;s, and putting himself in the centre of the Greek array, charged forwards and easily routed his opponents. And now that Agesila&uuml;s had won back the confidence of Nectanabis, he brought the same stratagem to bear again upon the enemy, like a trick in wrestling. 
+				<milestone n="5" unit="section"/>By sometimes pretending to retreat and fly, and sometimes attacking them on the flanks, he drove their whole multitude into a tract which had a deep canal full of water on either side. The space between these he occupied and stopped up with the head of his column, and so made his numbers equal to those of the enemy who could fight with him, since they were unable to surround and enclose him. Therefore after a short resistance they were routed; many were slain, and the fugitives were dispersed and melted away.
+				<note resp="ed" place="unspecified" anchored="yes">The account of this Egyptian campaign in <bibl n="Diod. 15.93">Diodorus, xv. 93</bibl>, differs in many details.</note>
+			      </p>
+         <p>
+				        <milestone n="40" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After this, the Egyptian succeeded in establishing himself firmly and securely in power, and showed his friendliness and affection by begging Agesila&uuml;s to remain and spend the winter with him. But Agesila&uuml;s was eager to return to the war at home, knowing that his city needed money and was hiring mercenaries. He was therefore dismissed with great honour and ceremony, taking with him, besides other honours and gifts, two hundred and thirty talents of silver for the war at home. 
+				<milestone n="2" unit="section"/>But since it was now winter, he kept close to shore with his ships, and was borne along the coast of Libya to an uninhabited spot called the Harbour of Menela&uuml;s. Here he died, at the age of eighty-four years. He had been king of Sparta forty-one years, and for more than thirty of these he was the greatest and most influential of all Hellenes, having been looked upon as leader and king of almost all Hellas, down to the battle of Leuctra.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>It was Spartan custom, when men of ordinary rank died in a foreign country, to give their bodies funeral rites and burial there, but to carry the bodies of their kings home. So the Spartans who were with Agesila&uuml;s enclosed his dead body in melted wax, since they had no honey, and carried it back to Lacedaemon. The kingdom devolved upon Archidamus his son, and remained in his family down to Agis, who was slain by Leonidas
+				<note resp="ed" place="unspecified" anchored="yes">In 240 B.C. See the <bibl n="Plut. Agis 19.1">
+                  <title>Agis</title>, chapters xix.</bibl>, <bibl n="Plut. Agis 20.1">xx</bibl>.</note> for attempting to restore the ancient constitution, being the fifth in descent from Agesila&uuml;s. 
+			</p>
+      </body>
+   </text>
+</TEI.2>

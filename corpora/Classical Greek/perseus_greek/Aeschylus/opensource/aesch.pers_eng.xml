@@ -1,0 +1,758 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Pers.">Persians (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Aesch.">Aeschylus</author>
+<editor role="translator" n="Smyth">Herbert Weir Smyth, Ph. D.</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Aeschylus</author>
+<title>Aeschylus, with an English translation by Herbert Weir Smyth, Ph. D. in two volumes. 1. Persians</title>
+<editor role="editor">Herbert Weir Smyth, Ph. D.</editor>
+<imprint>
+<pubPlace>Cambridge, MA</pubPlace>
+<publisher>Harvard University Press</publisher>
+<date>1926</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="card"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Annette Giesecke</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Annete Giesecke, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>4/2/1993</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Proofread notes.</item>
+</change>
+<change><date>10/98</date>
+<respStmt><name>Bill Merrill</name><resp>ed.</resp></respStmt>
+<item>Fixed card break at 715.</item>
+</change>
+<change><date>09-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: aesch.pers_eng.xml,v $
+Revision 1.1  2009-10-09 19:49:18  rsingh04
+more reorganizing of texts module by collection
+
+Revision 1.1  2009/10/07 20:59:53  rsingh04
+began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+Revision 1.5  2009/06/22 17:53:15  student
+edited entity tags CEH
+
+Revision 1.4  2006/02/10 21:10:04  packel
+places/dates now actually tagged
+
+Revision 1.3  2005/08/01 15:44:56  packel
+really removed item tags
+
+Revision 1.2  2005/08/01 15:32:41  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 14:27:17  packel
+Converted to XML
+
+Revision 1.9  2004/04/21 20:28:10  mimno
+added card 1s
+
+Revision 1.8  2003/07/01 22:14:25  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.7  2000/03/04 20:33:49  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.6  2000/02/17 17:46:03  amahoney
+use n on sp for speeches interrupted by cardbreaks;  put cards at ends of
+such speeches after the close tag;  put sp and speaker tags on the divs
+of the choruses, which were not marked at all (but div2 closes sp, so
+we lost the speaker info)
+
+Revision 1.5  2000/02/09 23:27:27  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<div2 type="anapests">
+<stage>Enter a band of Elders, guardians of the Persian Empire</stage>
+<sp n="Chorus">
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1" unit="line"/>Here we are, the faithful Council of the Persians, who have gone to the land of <placeName key="tgn,1000074">Hellas</placeName>, we who serve as warders of the royal abode, rich in bountiful store of gold,<milestone ed="p" n="5" unit="line"/>we whom Xerxes, our King, Darius' royal son, himself selected, by virtue of our rank and years, to be the guardians of his realm.</p>
+<p>Yet as regards the return of our King and of his host, so richly decked out in gold,<milestone ed="p" n="10" unit="line"/>the soul within my breast is distressed and presages disaster.  For the whole populace of the Asian nation has come and murmurs against its youthful King, nor does any courier or horseman<milestone ed="p" n="15" unit="line"/>arrive at the city of the Persians, who left behind them the walled defence of <placeName key="tgn,7017509">Susa</placeName> and <placeName key="tgn,7002115">Agbatana</placeName> and Cissa's ancient ramparts, and went forth, some on horseback, some in galleys, others on foot<milestone ed="p" n="20" unit="line"/>presenting a dense array of war.</p>
+<p>Such are Amistres and Artaphrenes and Megabates  and Astaspes, marshals of the Persians; kings themselves, yet vassals of the Great King,<milestone ed="p" n="25" unit="line"/>they press on, commanders of an enormous host, skilled in archery and horsemanship, formidable to look upon and fearful in battle through the valiant resolve of their souls.  Artembares, too, who fights from his chariot,<milestone ed="p" n="30" unit="line"/>and Masistres, and noble Imaeus, skilled with the bow, and Pharandaces, and Sosthanes, who urges on his steeds.  Others in addition the mighty, fecund <placeName key="tgn,1127805">Nile</placeName> sent forth &mdash; Susiscanes,<milestone ed="p" n="35" unit="line"/>Pegastagon of Egyptian lineage, mighty Arsames, lord of sacred <placeName key="tgn,7001186">Memphis</placeName>, Ariomardus, governor of ancient <placeName key="perseus,Thebes">Thebes</placeName>, and the marsh-dwelling oarsmen,<milestone ed="p" n="40" unit="line"/>well-skilled and countless in number.<milestone ed="p" n="41" unit="card"/></p>
+<p>Behind them follows a throng of luxurious Lydians and those<note anchored="yes" n="42" resp="Smyth">A covert reference to the Ionians, kinsmen of the Athenians, who served under compulsion in the expedition against <placeName key="tgn,1000074">Greece</placeName>.</note>who hold in subjection all the people of the mainland, whom Metrogathes and brave Arcteus, their regal commanders,<milestone ed="p" n="45" unit="line"/>and <placeName key="perseus,Sardis">Sardis</placeName> rich in gold sent forth, riding in many a chariot, in ranks with three and four steeds abreast, a spectacle terrible to behold.  They too who live by sacred Tmolus pledge themselves<milestone ed="p" n="50" unit="line"/>to cast the yoke of slavery upon Hellas&mdash;Mardon, Tharybis, anvils of the lance, and the Mysians, hurlers of the javelin. <placeName key="tgn,7002626">Babylon</placeName>, also, teeming with gold, sends a mixed host arrayed in a long line, both mariners borne in galleys<milestone ed="p" n="55" unit="line"/>and those who rely on their skill in archery.  The nation too which wears the sabre follows from every part of <placeName key="tgn,1000004">Asia</placeName> in the fearful procession of the King.</p>
+<p>Such are the warriors, the flower of the Persian land,<milestone ed="p" n="60" unit="line"/>who have departed, and in fierce longing for them the whole land of <placeName key="tgn,1000004">Asia</placeName>, their foster-nurse, laments, while parents and wives, as they count the days, shudder at the lengthening delay.
+</p></sp></div2>
+</div1>
+<milestone ed="p" n="65" unit="card"/>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="65" unit="line"/>The royal army, dealing destruction to cities, has already passed to the neighboring land upon the facing shore,  and this they did by crossing the <placeName key="tgn,7002638">Hellespont</placeName>,<milestone ed="p" n="70" unit="line"/>named for the daughter of Athamas, on a bridge of boats made fast with cables, thereby casting a tightly constructed roadway as a yoke upon the neck of the sea.<milestone ed="p" n="73" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>The fiery lord of populous <placeName key="tgn,1000004">Asia</placeName><milestone ed="p" n="75" unit="line"/>is leading his wondrous warrior-flock against the whole earth in two divisions, on foot and by the sea, putting his trust in his stalwart and stern commanders; he himself,<milestone ed="p" n="80" unit="line"/>a god-like hero whose race is sprung from gold.<note anchored="yes" n="80" resp="Smyth">The hero Perseus, here regarded as the ancestor of Xerxes, and in l. 146 as giving his name to the whole Persian race, was the son of Zeus, who descended to Danae in a shower of gold.</note><milestone ed="p" n="81" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>With eyes flashing with the dark glare of a deadly dragon, attended by soldiers and mariners in great numbers, and speeding his Syrian chariot,<milestone ed="p" n="85" unit="line"/>he leads against a people renowned for the spear a warlike host of archers.<milestone ed="p" n="87" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And there is no man skilled to withstand the mighty stream of men, and with strong barriers keep out the sea's invincible surge;<milestone ed="p" n="90" unit="line"/>for <placeName key="tgn,7000231">Persia</placeName>'s host cannot be withstood, and her men are courageous.<milestone ed="p" n="93" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>For by the will of the gods Fate has held sway<milestone ed="p" n="95" unit="line"/>since ancient time, and has ordained for the Persians the pursuit of rampart-destroying war, the turmoil of fighting horsemen, and the  storming of cities.<milestone ed="p" n="100" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="100" unit="line"/>And they have learned to look upon the precinct of the deep when the broad-wayed sea whitens to foam beneath the tempest's blast, trusting in their finely wrought<milestone ed="p" n="105" unit="line"/>cables and their devices which give passage to their army.<milestone ed="p" n="107" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>Yet the insidious guile of god&mdash;what mortal man can escape it?  Who with agile foot can lightly  overleap<milestone ed="p" n="110" unit="line"/>and escape its toils?<milestone ed="p" n="111" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Chorus</speaker>
+<p>For Delusion, with her fair appearance, lures men astray into her snares, from which it is not possible to escape without meeting with disaster.<milestone ed="p" n="115" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="115" unit="line"/>Therefore  my heart is wrapped in gloom and is racked with fear for the Persian army lest the state  learn that the mighty capital of <placeName key="tgn,7017509">Susa</placeName> is empty of men.<milestone ed="p" n="120" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="5">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="120" unit="line"/>Fearful I am too that as bands of women cry aloud &ldquo;woe,&rdquo; the Cissian stronghold will raise a resounding shout responsive  to the beating of breasts,<milestone ed="p" n="125" unit="line"/>and that there will be a tearing  of fine linen robes.<milestone ed="p" n="126" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="6">
+<sp><speaker>Chorus</speaker>
+<p>For all the men-at-arms, those who urge on steeds and those who march along the plain, have left the city and gone forth, like bees in a swarm, together with the captain of the host.<milestone ed="p" n="130" unit="line"/>They have crossed the headland, projecting into the sea and common to either continent, through which both shores are bridged.<milestone ed="p" n="133" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="6">
+<sp><speaker>Chorus</speaker>
+<p>And marriage-beds are filled with tears through longing for husbands;<milestone ed="p" n="135" unit="line"/>each Persian woman has sent to the field her warlike and fiery consort, and now in grief and longing for her beloved lord, is left forsaken by her mate.<milestone ed="p" n="140" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="140" unit="line"/>But come, Persians, let us take our place on the steps of this ancient palace and devise some wise and deeply-pondered counsel&mdash;for need of this has come upon us&mdash;as to how Xerxes our King,<milestone ed="p" n="145" unit="line"/>Darius' son, scion of our own race as his forefather's name declares, is faring.  Is it the drawing of the bow that has triumphed, or is it the might of the sharp spear-head  which has prevailed?<stage>Enter Atossa, richly dressed, on a chariot and attended by a numerous retinue</stage></p>
+<p><milestone ed="p" n="150" unit="line"/>But look, here is a light like the eyes of the god, the mother of our king, my Queen.  I bow low before her.  It is fitting also that we all address her with words of salutation.<stage>The elders prostrate themselves and then rise to their feet.  Their leader continues</stage><milestone ed="p" n="155" unit="card"/></p></sp></div2>
+<div2 type="trochees">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="155" unit="line"/>O Queen, most exalted of <placeName key="tgn,7000231">Persia</placeName>'s deep-girdled women, venerable mother of Xerxes, wife of Darius, all hail! You were the consort of the Persian's god, and of another god the mother, that is, unless its former good fortune has now forsaken our host.<milestone ed="p" n="159" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Atossa</speaker>
+<p>For this very reason I have left the gold-decorated palace<milestone ed="p" n="160" unit="line"/>and the chamber which belongs to Darius and myself, and have come here.  My heart, too, is racked with anxiety, and to you, my friends, will I make a disclosure. For I am by no means free from apprehension that wealth, grown great, will, raising a cloud of dust upon the ground, trip up the prosperity which Darius raised not without the favor of some god.<milestone ed="p" n="165" unit="line"/>It is for this reason that there is a double concern in my mind: neither to hold in honor vast wealth without men, and that the light of success does not shine, in proportion to their strength, on men without riches.  Our wealth, at all events, is ample, but my anxiety is for the light, the salvation of the house, which I regard to be the presence of its lord.<milestone ed="p" n="170" unit="line"/>Therefore, since things stand as they do, lend me your counsel in this concern, Persians, my aged trusty servants.  For all my hopes of good counsel depend on you.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Be assured, our country's Queen, that you need not twice mention either word or deed regarding that in which it is possible for us to direct you.<milestone ed="p" n="175" unit="line"/>For we whom you summon as counsellors in these matters are well disposed towards you and your interests.<milestone ed="p" n="176" unit="card"/></p></sp>
+<sp n="Atossa">
+<speaker>Atossa</speaker>
+<p>I have been haunted by a multitude of dreams at night since the time when my son, having despatched his army, departed with intent to lay waste the land of the Ionians.  But never yet have I beheld so distinct a vision<milestone ed="p" n="180" unit="line"/>as that of the last night.  This I will describe to you.</p>
+<p>I dreamed that two women in beautiful clothes, one in Persian garb, the other in Dorian attire, appeared before my eyes; both far more striking in stature than are the women of our time,<milestone ed="p" n="185" unit="line"/>flawless in beauty, sisters of the same family. As for the lands in which they dwelt, to one had been assigned by lot the land of <placeName key="tgn,1000074">Hellas</placeName>, to the other that of the barbarians.  The two, as I imagined it, seemed to provoke each other to a mutual feud, and my son,  when he had become aware of this,<milestone ed="p" n="190" unit="line"/>attempted to restrain and placate them. He yoked them both to his car and placed the collar-straps upon their necks.  The one bore herself proudly in these trappings and kept her mouth obedient to the rein.  The other struggled and with her hands<milestone ed="p" n="195" unit="line"/>tore apart the harness of the car; then, free of the curb,  she dragged it violently along with her and snapped the yoke in two.  My son was hurled to the ground and his father Darius stood by his side filled with pity.  But Xerxes, when he caught sight of him, tore the garments covering his body.<milestone ed="p" n="200" unit="card"/></p>
+<p><milestone ed="p" n="200" unit="line"/>Such was the vision I beheld in the night. But when I had risen and dipped my hands in the clear-flowing water of a spring, I drew near to an altar with incense in my hand, intending to make an offering of sacrificial cake to the divinities that avert evil, those to whom these rites are due.<milestone ed="p" n="205" unit="line"/>But I saw an eagle fleeing for safety to the altar of Phoebus&mdash;and out of terror, my friends, I stood speechless. Thereupon I caught sight of a falcon rushing at full speed with outstretched wings and with his talons plucking at the head of the eagle, which did nothing but cower and<milestone ed="p" n="210" unit="line"/>yielded its body to his foe.</p>
+<p>These are the terrors I beheld, terrors too for you to hear. Be assured that if my son should suceeed, he would prove to be remarkable indeed, but if he fails, he does not have to answer to the state; if he returns safely, he will hold sway in this land as he did before.
+</p></sp>
+<milestone ed="p" n="215" unit="card"/>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="215" unit="line"/>Mother, we would neither alarm you unduly by our words nor raise your hopes too high.  If, however, it is something inauspicious that you have seen, visit the gods with supplication and entreat them to avert the evil and to bring to pass what will be beneficial to you, your children, the kingdom, and all else that you hold dear.  Next, it is appropriate that you should<milestone ed="p" n="220" unit="line"/>offer libations to Earth and the dead; and use auspicious words to address your husband Darius, whom you say you have seen in the night, and ask him to send into the light of day from beneath the earth blessings for you and your son; ask too that the reverse of this may be held in bondage beneath the earth and fade away in gloom.  Such is the advice I, relying on my instincts, offer you with kind intent.<milestone ed="p" n="225" unit="line"/>According to our interpretation of these portents, the issue will in all respects prove prosperous to you.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>You, its first interpreter, have indeed read the meaning of my dream with goodwill, at least, toward my son and house.  May the outcome then prove beneficial! When I return to the palace, I will perform for the gods and my dear ones beneath the earth all those rites which you recommend. Meanwhile, my friends, I would like to learn<milestone ed="p" n="230" unit="line"/>where <placeName key="perseus,Athens">Athens</placeName> is located.<milestone ed="p" n="232" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Far from here, to the west where the last rays of our Lord the Sun set.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Can it then really be that my son had the keen desire to make this city his prey?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Yes, for then all <placeName key="tgn,1000074">Hellas</placeName> would be subject to the King.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p><milestone ed="p" n="235" unit="line"/>Does their army have such a multitude of men?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Yes, it is an army of such magnitude that it has caused great disaster for the Medes.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>And what else have they besides?  Do they have sufficient wealth in their homes?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Of silver they possess a veritable fountain, a treasure chest in their soil.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Is the bow-stretching arrow particularly suited to their hands?<milestone ed="p" n="240" unit="line"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Far from it; they have lances for close fight and shields that serve them for armor.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>And who is set over them as shepherd and is master of their host?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Of no man are they called the slaves or vassals.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>How then can they withstand the attack of an invading foe?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>So well as to have destroyed Darius' great and courageous host.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p><milestone ed="p" n="245" unit="line"/>In truth, your words have given the fathers and mothers of those who are now on their way there dire food for thought.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>No, rather I think that you will soon learn the truth of the matter.  For here comes one who is beyond a doubt a Persian courier.  He bears clear tidings of some issue, be it good or bad.<milestone ed="p" n="249" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>O cities of all the land of <placeName key="tgn,1000004">Asia</placeName>,<milestone ed="p" n="250" unit="line"/>O realm of <placeName key="tgn,7000231">Persia</placeName>, and bounteous haven of wealth, at a single stroke all your plenteous prosperity has been shattered, and the flower of the Persians has fallen and perished!  Ah, it is a terrible task to be the first to deliver news of disaster.  And yet, Persians, I must relate the entirety of the calamity<milestone ed="p" n="255" unit="line"/>&mdash;the whole barbarian  host is lost.<milestone ed="p" n="256" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Grievous, grievous disaster, strange and cruel.  Alas, Persians, weep now that you hear of this calamity.<milestone ed="p" n="260" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="260" unit="line"/>Yes, weep, for you hear that the whole army is utterly destroyed; and I myself unexpectedly behold the day of my return.<milestone ed="p" n="262" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>The life which has been given to us elders is too long, for we have now heard<milestone ed="p" n="265" unit="line"/>of this unexpected misery.<milestone ed="p" n="266" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Since I myself was present and did not merely hear what happened from the report of others, I can tell you exactly what kind of disaster was wrought.<milestone ed="p" n="268" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Alas, alas!  In vain did our vast and variously armed host<milestone ed="p" n="270" unit="line"/>go forth from the land of <placeName key="tgn,1000004">Asia</placeName> against the hostile soil of <placeName key="tgn,1000074">Hellas</placeName>.<milestone ed="p" n="272" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+    <p>Full of the bodies of men who perished by a miserable fate are the shores of <placeName key="perseus,Salamis, Cyprus">Salamis</placeName> and all the neighboring coasts.<milestone ed="p" n="274" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Alas, alas!  You say that the bodies of our loved ones,<milestone ed="p" n="275" unit="line"/>battered by the brine and drenched, are tossing, washed back and forth among the reefs.<milestone ed="p" n="278" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Our bows were of no use, and the whole host has perished, overwhelmed when ship charged on ship.<milestone ed="p" n="280" unit="line"/><milestone ed="p" n="280" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Raise a doleful and mournful wail for the Persians, the wretched Persians, since they have met with complete and utter ruin.  Alas for the destruction of our host!<milestone ed="p" n="284" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+    <p>O name of <placeName key="perseus,Salamis, Cyprus">Salamis</placeName> most odious to my ears!<milestone ed="p" n="285" unit="line"/>Alas, how I groan when I recall the memory of <placeName key="perseus,Athens">Athens</placeName>!<milestone ed="p" n="286" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Ah, hateful indeed is <placeName key="perseus,Athens">Athens</placeName> to her foes.  Now must we remember how many Persian women she has deprived of sons and husbands, lost all in vain.<milestone ed="p" n="290" unit="line"/><milestone ed="p" n="290" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Atossa</speaker>
+<p>Long have I kept silent in my misery, struck with dismay at our disaster; for this calamity is so great that it is not possible to say or even to ask about its extent. Nevertheless mortals must endure affliction when it is heaven-sent.<milestone ed="p" n="295" unit="line"/>Compose yourself, and even though you groan at our loss, relate the sum of our disaster and speak out! Who is there that is not dead?  Whom of our leaders must we bewail?  Who, appointed to wield command, by death left  his post empty, without its chief?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Xerxes himself lives and beholds the light.<milestone ed="p" n="300" unit="line"/></p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>The words you utter bring a great light of joy into my house, and bright day after night wrapped in gloom.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+    <p>But Artembares, commander of ten thousand cavalrymen, is being battered now against Silenia's cruel shore. And Dadaces, leader of a thousand men, leapt, struck by a spear,<milestone ed="p" n="305" unit="line"/> with a nimble bound from his ship. Tenagon, the true-born Bactrians' chieftain, is ranging now around the surf-beaten isle of Ajax.  Lilaeus and Arsames, and, third, Argestes,<milestone ed="p" n="310" unit="line"/>kept buffeting against its rugged shore, whirled around about the island,<note anchored="yes" n="310" resp="Smyth">According to the scholiast, <placeName key="perseus,Salamis, Cyprus">Salamis</placeName> is meant; according to Hermann, one of the small islands adjacent to <placeName key="perseus,Salamis, Cyprus">Salamis</placeName>.</note>the breeding-place of doves. Arcteus, too, who lived by the waters of the Egyptian Nile, Adeues, and Pharnuchus of the mighty shield&mdash;all these were hurled out of one ship.  Matallus of <placeName key="perseus,Chryse">Chrysa</placeName>, commander of ten thousand,<milestone ed="p" n="315" unit="line"/>leader of the Black Cavalry, thirty thousand strong, in death dyed red his thick and shaggy beard, changing its color with a deep crimson stain. Arabus, too, the Magian, perished there, and Bactrian Artabes, a settler now in a rugged land.<milestone ed="p" n="320" unit="line"/>Amistris, and Amphistreus, wielder of a painful spear, and brave Ariomardus, whose death brought grief to <placeName key="perseus,Sardis">Sardis</placeName>, and Seisames the Mysian, and Tharybis, admiral of five times fifty ships, a Lyrnaean by descent, a man of physical beauty,<milestone ed="p" n="325" unit="line"/>lies dead in a state of misery, no longer attended by good fortune.<note anchored="yes" n="325" resp="Smyth">The ironical phrase<foreign lang="greek">ou) ma/l' eu)tuxw=s</foreign>, which is contrasted with <foreign lang="greek">eu)eidh/s</foreign>, probably refers to his unburied state.  Cp. <bibl n="Soph. Aj. 1126">Soph. Aj. 1126.</bibl></note> Syennesis, also, the governor of the Cilicians, foremost in courage, he whose prowess did the foe most harm, found there a glorious death.  Such were the leaders about whom I was making my report.<milestone ed="p" n="330" unit="line"/>Although our losses were many, I announce but few.<milestone ed="p" n="331" unit="card"/></p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Alas!  The words I hear put the very crown upon our woes; a disgrace to the Persians and cause for shrill lament.  But retrace your tale and tell me this clearly:<milestone ed="p" n="335" unit="line"/>how great was the number of the Greek ships which gave them confidence enough to go into battle with their armed prows against the Persian army?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>If numbers had been the only factor, be assured that the barbarians would have gained the victory with their fleet.  For the whole number of the ships of <placeName key="tgn,1000074">Hellas</placeName> amounted to ten times thirty,<milestone ed="p" n="340" unit="line"/>and, in addition to these, there was a chosen squadron of ten.  But Xerxes, this I know, had under his command a thousand, while those excelling in speed were twice a hundred, and seven more.  This is the total of their respective numbers.  Do you think that we were simply outnumbered in this contest?<milestone ed="p" n="345" unit="line"/>No, it was some divine power that tipped the scale of fortune with unequal weight and thus destroyed our host.  The gods preserve the city of the goddess Pallas.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Is then the city of <placeName key="perseus,Athens">Athens</placeName> not yet despoiled?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>No, while her men still live, her ramparts are impregnable.<milestone ed="p" n="350" unit="line"/></p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>But the beginning of the encounter of the fleets,  tell me about  it.  Who began the onset?  Was it the Hellenes?  Or my son, exulting in the multitude of his ships?<milestone ed="p" n="353" unit="card"/></p></sp>
+<sp n="Messenger">
+<speaker>Messenger</speaker>
+<p>My Queen, some destructive power or evil spirit, appearing from somewhere or other, caused the beginning of our utter rout.<milestone ed="p" n="355" unit="line"/>A Hellene, from the Athenian host, came to your son Xerxes and told this tale: that, when the gloom of black night should set in, the Hellenes would not remain in place, but, springing upon the rowing benches of their ships, would seek, some here, some there,<milestone ed="p" n="360" unit="line"/>to preserve their lives by stealthy flight.  But Xerxes, when he heard this, comprehending neither the cleverness of the Greek nor that the gods grudged him success, straightway gave all his captains orders to this effect&mdash;that, when the sun had ceased to illumine the earth with his beams,<milestone ed="p" n="365" unit="line"/>and darkness had covered the region of the sky, they should bring up in a tight group the main body of the fleet, disposed in triple line, to bar the exits and the sounding straits, and station other ships in a circle around the island of Ajax. He gave them a warning too that, should the Hellenes escape an evil doom,<milestone ed="p" n="370" unit="line"/>finding by stealth some means of flight for their fleet, it had been decreed that every captain should lose his head.  These commands he made with complete confidence of heart, since he knew not the issue intended by the gods.  Our crews then, with no lack of order but with an obedient spirit,<milestone ed="p" n="375" unit="line"/>prepared their evening meal, while each sailor looped his oar about its thole-pin so that it fitted well.  But when the light of the sun had faded and night drew on, each master of an oar and each man versed in arms went on board.<milestone ed="p" n="380" unit="line"/>The long galleys cheered each other, line by line; and they held their course as each captain had been ordered, and all through the night the commanders of the fleet kept their whole force cruising to and fro across the strait.  Night began to wane,<milestone ed="p" n="385" unit="line"/>yet the fleet of the Hellenes in no way attempted to put forth by stealth.  When, however, radiant Day with her white horses shone over all the land, a loud cheer like a song of triumph first rang out from the Hellenes, and, at the same instant,<milestone ed="p" n="390" unit="line"/>clear from the island crags, an echo returned an answering cry.  Terror fell on all the barbarians, balked of their purpose; for then the Hellenes chanted their solemn paean, not as in flight, but as men rushing to the onset with the courage of gallant hearts.<milestone ed="p" n="395" unit="card"/></p>
+<p><milestone ed="p" n="395" unit="line"/>The trumpet with its blast set all their side afire, and instantly, at the word of command, with the even stroke of foaming oars they struck the briny deep.  Swiftly they all came clear into view.  Their right wing, well marshalled,<milestone ed="p" n="400" unit="line"/>led on in orderly advance, next their whole army pressed on against us, and at the same time a loud shout met our ears: &ldquo;On, you men of <placeName key="tgn,1000074">Hellas</placeName>!  Free your native land. Free your children, your wives, the temples of your fathers' gods,<milestone ed="p" n="405" unit="line"/>and the tombs of your ancestors.  Now you are fighting for all you have.&rdquo;  Then from our side arose in response the mingled clamor of Persian speech, and straightaway the ships dashed together their bronze prows.  It was a ship of <placeName key="tgn,1000074">Hellas</placeName><milestone ed="p" n="410" unit="line"/>that began the charge and chopped off in its entirety the curved stern of a Phoenician boat. Each captain drove his ship straight against some other ship.  At first the stream of the Persian army held its own. When, however, the mass of our ships had been crowded in the narrows, and none could render another aid,<milestone ed="p" n="415" unit="line"/>and each crashed its bronze prow against each of its own line, they splintered their whole bank of oars. Then the Hellenic galleys, not heedless of their chance, hemmed them in and battered them on every side.  The hulls of our vessels rolled over, and the sea was hidden from our sight,<milestone ed="p" n="420" unit="line"/>strewn as it was with wrecks and slaughtered men.  The shores and reefs were crowded with our dead, and every ship that formed a part of the barbarian fleet plied its oars in disorderly flight.  But, as if our men were tuna or some haul of fish,<milestone ed="p" n="425" unit="line"/>the foe kept striking and hacking them with broken oars and fragments of wrecked ships. Groans and shrieks together filled the open sea until the face of black night hid the scene.  But as for the the full extent of our disasters, this, even if I had ten days in succession to do so, I could not describe to you.<milestone ed="p" n="430" unit="line"/>However,  you can be sure that so great a multitude of men never perished in a single day.
+</p></sp>
+<milestone ed="p" n="433" unit="card"/>
+<sp>
+<speaker>Atossa</speaker>
+<p>Alas! In truth a vast sea of troubles has burst upon the Persians and the entire barbarian race.<milestone ed="p" n="435" unit="line"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Be assured of this, not even half of the disaster has as yet been told.  A calamity so dreadful as to outweigh these ills twice over befell them.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>But what greater misfortune than this could have befallen them?  Speak! What is this other disaster you say<milestone ed="p" n="440" unit="line"/>came upon our force, sinking the scale to greater weight of ill?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Those Persians who were in their life's prime, bravest in spirit, pre-eminent for noble birth, and always among the foremost in loyalty to the King himself&mdash; these have fallen ignobly by a most inglorious doom.<milestone ed="p" n="445" unit="line"/></p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Ah, I am truly reduced to misery through this disaster!  By what fate was it that you say they met their end?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+    <p>There is an island<note anchored="yes" n="447" resp="Smyth">Psyttalea.</note>lying before <placeName key="tgn,perseus,Salamis, Cyprus">Salamis</placeName>, a small one and dangerous anchorage for ships; its sea-washed shore is the haunt of Pan, who loves the dance.<milestone ed="p" n="450" unit="line"/>There Xerxes dispatched these, his choicest troops, in order that when the Hellenic enemy, wrecked from their ships, should flee in search of safety to the island, they might slaughter their force, an easy prey, and rescue their comrades from the straits of the sea.  Grievously did he misjudge the issue.  For when some god<milestone ed="p" n="455" unit="line"/>had given the glory to the Hellenes in the battle on the sea, on that same day, fencing their bodies in armor of bronze, they leapt from their ships and encircled the whole island, so that our men were at a loss which way to turn.  Often they were struck by stones slung from their hands,<milestone ed="p" n="460" unit="line"/>and arrows sped from the bow-string kept falling upon them and doing them harm.  At last the Hellenes, charging with one shout, struck them and hacked to pieces the limbs of the poor wretches, until they had utterly quenched the life of all.<milestone ed="p" n="465" unit="line"/>Xerxes groaned aloud when he beheld the extent of the disaster, for he occupied a seat commanding a clear view of the entire army&mdash;a lofty headland by the open sea.  Tearing his robes and uttering a loud cry, he straightaway gave orders to his force on land<milestone ed="p" n="470" unit="line"/>and dismissed them in disorderly flight.  This, besides the one already told, is the disaster you must bewail.<milestone ed="p" n="472" unit="card"/></p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>O hateful divinity, how have you foiled the purpose of the Persians!  Cruel was the vengeance which my son brought upon himself for his designs against illustrious <placeName key="perseus,Athens">Athens</placeName>;  the barbarians<milestone ed="p" n="475" unit="line"/>whom Marathon destroyed were not enough.  It was in an effort to exact retribution for them that my son  has drawn upon himself so great a multitude of woes. But the ships that escaped destruction&mdash;tell me about them.  Where did you leave them?  Can you give a clear report?<milestone ed="p" n="480" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="480" unit="line"/>The commanders of the ships which still remained fled with a rush in disorder wherever the wind bore them.  As for the survivors of the army, they perished in Boeotian territory, some, faint from thirst, beside a refreshing spring, while some of us, exhausted and panting,<milestone ed="p" n="485" unit="line"/>made our way to the land of the Phocians, to Doris and the Melian gulf, where the Spercheus waters the plain with kindly stream.  Coming from there, badly in need of food, we received welcome in the Achaean land and<milestone ed="p" n="490" unit="line"/>the cities of the Thessalians.  There it was that many perished of thirst and hunger, for we were oppressed by both.  And we came to the Magnesian land and to the country of the Macedonians, to the ford of the <placeName key="tgn,7015932">Axius</placeName> and Bolbe's reedy marsh, and to Mount Pangaeus,<milestone ed="p" n="495" unit="line"/>in the Edonian land.  But on that night the god roused winter before its time and froze the stream of sacred Strymon from shore to shore. Many a man who before that had held the gods in no esteem, implored them then in supplication, doing obeisance to earth and heaven.<milestone ed="p" n="500" unit="line"/>But when our host had made an end of its fervent invocation of the gods, it ventured to pass across the ice-bound stream.  And each of us who started on his way before the sun god dispersed his beams, found himself in safety, for the bright orb of the sun with its burning rays<milestone ed="p" n="505" unit="line"/>heated the middle section and pierced it with its flames.  One after another our men sank in, and fortunate indeed was he who perished soonest.  The survivors, after making their way through <placeName key="tgn,7001317">Thrace</placeName> with great hardship,<milestone ed="p" n="510" unit="line"/>&mdash;and few they were indeed&mdash;escaped to the safety of the land of their homes; now the city of the Persians may make lament in regret for the beloved youth of the land.  What I say is true, yet much remains untold of the ills launched by Heaven upon the Persians.<stage>Exit</stage><milestone ed="p" n="515" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="515" unit="line"/>O unearthly power, source of our cruel distress, with what crushing weight have you fallen upon the whole Persian race!</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>How the utter destruction of our host distresses me!  O vivid vision of my dreams at night, how clearly did you signify misfortune to me!<milestone ed="p" n="520" unit="line"/>And all too lightly did you in turn interpret it.  However, since your explanation determined thus, first of all I wish to offer prayers to the gods, and then I will return after I have brought from the palace a sacrificial cake as a gift to Earth and the dead.<milestone ed="p" n="525" unit="line"/>I know indeed that it is for what cannot be undone, yet I do this in the hope that something more auspicious may come to pass in the future.  But you should confer faithfully with the faithful counsellors in view of what has befallen.  And as for my son, if he should come here before I return,<milestone ed="p" n="530" unit="line"/>comfort him and escort him to the palace, so that he will not inflict on himself some further ill to crown those already ours.<stage>Exit</stage><milestone ed="p" n="532" unit="card"/></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>O sovereign Zeus, by destroying the army of the haughty and multitudinous Persians,<milestone ed="p" n="535" unit="line"/>you have shrouded in the gloom of grief the city of <placeName key="tgn,7017509">Susa</placeName> and of <placeName key="tgn,7002115">Agbatana</placeName>! Many a woman, who has a share in this sorrow, tears her veil with tender hands<milestone ed="p" n="540" unit="line"/>and moistens with drenching tears the robe covering her bosom.  And the Persian wives, indulging in soft wailing through longing to behold their lords and abandoning the daintily wrought coverlets of their couches, the delight of their youth,<milestone ed="p" n="545" unit="line"/>mourn with complainings that know no end. So I too sustain the truly woeful fate of those who are gone.<milestone ed="p" n="548" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>For now in truth the whole land of <placeName key="tgn,1000004">Asia</placeName>, decimated, moans:<milestone ed="p" n="550" unit="line"/>Xerxes led forth &lpar;woe!&rpar;, Xerxes laid low &lpar;woe!&rpar;, Xerxes disposed all things imprudently with his sea-going vessels.  Why then was Darius<milestone ed="p" n="555" unit="line"/>in his time so unscathed by disaster, he who was ruler of archers, to the men of <placeName key="tgn,7017509">Susa</placeName> a beloved leader?<milestone ed="p" n="558" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>For infantry and seamen both, the ships, dark-eyed<note anchored="yes" n="559" resp="Smyth">The great eye that was often painted on each bow made a Greek ship seem a thing of life.  Cp. <bibl n="Aesch. Supp. 716">Aesch. Supp. 716</bibl>.</note>and linen-winged,<milestone ed="p" n="560" unit="line"/>led forth &lpar;woe!&rpar;, the ships laid them low &lpar;woe!&rpar;, the ships, under the deadly impact of the foe and by the hands of Ionians.<milestone ed="p" n="565" unit="line"/>The King himself, as we learn, has barely made his escape over the wintry paths which traverse the plains of <placeName key="tgn,7001317">Thrace</placeName>.<milestone ed="p" n="568" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And they who were first to meet their doom &lpar;alas!&rpar;, left behind  by dire necessity &lpar;alas!&rpar;,<milestone ed="p" n="570" unit="line"/>are swept along the Cychrean strand &lpar;woe!&rpar;.  Groan and gnash your teeth; in grievous strain shout forth our woes till they reach the heavens &lpar;alas!&rpar;, raise high<milestone ed="p" n="575" unit="line"/>your wailing clamor in cries of misery.<milestone ed="p" n="576" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Lacerated by the swirling waters &lpar;alas!&rpar; they are gnawed &lpar;alas!&rpar; by the voiceless children of the undefiled sea &lpar;alas!&rpar;.  The home, bereaved of his presence, laments its head;<milestone ed="p" n="580" unit="line"/>and parents, bereft of their children, in their old age bewail their heaven- sent woes &lpar;alas!&rpar;, now that they learn the full measure of their afflictions.<milestone ed="p" n="584" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>Not now for long will those who dwell throughout the length and breadth of <placeName key="tgn,1000004">Asia</placeName><milestone ed="p" n="585" unit="line"/>abide under the sway of the Persians, nor will they pay further tribute at the compulsion of their lord, nor will they prostrate themselves to the earth and do him reverence;<milestone ed="p" n="590" unit="line"/>for the royal power has perished utterly.<milestone ed="p" n="591" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<p>No longer will men keep a curb upon their tongues; for the people are set free to utter their thoughts at will, now that the yoke of power has been broken.<milestone ed="p" n="595" unit="line"/>The blood-stained soil of Ajax' sea-washed isle holds all that once was <placeName key="tgn,7000231">Persia</placeName>.<milestone ed="p" n="598" unit="card"/></p></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Atossa</stage>
+<sp>
+<speaker>Atossa</speaker>
+<p>My friends, whoever has experience of misery knows that when a sea<milestone ed="p" n="600" unit="line"/>of troubles comes upon mortal men, they view all things with alarm; but when fortune flows with prosperous tide, they believe that this same fortune will forever bring them success.  Now in my case everything seems full of dread; before my eyes appears the enmity of the gods,<milestone ed="p" n="605" unit="line"/>and in my ears there rings a sound that has no note of joy; such is my consternation at the evil tidings which terrify my soul.</p>
+<p>It is for this reason that I have come here from the palace once again, without my chariot and my former pomp, and bring, as propitiatory libations for the father of my son,<milestone ed="p" n="610" unit="line"/>offerings that soothe the dead, both white milk, pleasant to drink, from an unblemished cow, and bright honey, distillation wrought from blossoms by the bee, together with lustral water from a virgin spring;<milestone ed="p" n="615" unit="line"/>and from a rustic source, this unmixed draught, the quickening juice of an ancient vine.  Here too is the fragrant fruit of the pale-green olive that lives the entirety of its life in luxuriant foliage; and garlanded flowers, produce of the bounteous earth.</p>
+<p>But come, my friends,<milestone ed="p" n="620" unit="line"/>chant solemn songs as I make these libations to the dead, and summon forth the divine spirit of Darius, while I convey, in honor of the gods, these offerings for the earth to drink.<milestone ed="p" n="623" unit="card"/></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>Royal lady, august queen of the Persians, pour these libations down to the chambers of the earth,<milestone ed="p" n="625" unit="line"/>while we,  in solemn chant, beseech the guides of the dead beneath the earth to be gracious to our prayers.</p>
+<p>O holy divinities of the nether world, Earth and Hermes, and you, Lord of the dead,<milestone ed="p" n="630" unit="line"/>send up to the light the spirit from below; for if, beyond our prayers, he knows any further remedy for our distress, he alone of mortals can declare how to bring it to accomplishment.<milestone ed="p" n="633" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Does our sainted and godlike king hear me as I utter,<milestone ed="p" n="635" unit="line"/>in obscure barbaric speech,  my dismal and dolorous cries?  Or must I shout aloud the utter misery of my anguish so that it pierces the earth?  Does he hear me from below?<milestone ed="p" n="640" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="640" unit="line"/>O Earth, and you other rulers of those who dwell in the nether world, ensure, I implore, that the glorious spirit, the god of the Persians, whom <placeName key="tgn,7017509">Susa</placeName> bore, may quit his abode.<milestone ed="p" n="645" unit="line"/>Send to the upper world him the likes of whom the Persian earth has never entombed.<milestone ed="p" n="647" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>Beloved indeed was the hero, beloved is his burial mound; beloved are the qualities that lie buried there.  O Aidoneus,<milestone ed="p" n="650" unit="line"/>Aidoneus, who convey shades to the upper air, permit our divine lord Darius to come forth!<milestone ed="p" n="652" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>For since he did not ever cause the destruction of his people by senseless and ruinous wars, he bore the name of divine counsellor<milestone ed="p" n="655" unit="line"/>to the Persians; and a divine counsellor he was, since he guided his people well.<milestone ed="p" n="657" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>King, our king of old, come forth, draw near! Rise to the barrow's topmost point,<milestone ed="p" n="660" unit="line"/>lift your saffron-dyed sandal, display the crest of your royal tiara! Come forth, O blameless father Darius.<milestone ed="p" n="664" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+<p>That you may hear<milestone ed="p" n="665" unit="line"/>pitiable and unheard-of sorrows, O Lord of our lord, appear!  For a gloom, like that of Styx, hovers over us, since all the youth of the land<milestone ed="p" n="670" unit="line"/>is now utterly destroyed.  Come forth, O  blameless father Darius!<milestone ed="p" n="673" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>Alas, alas!  You whose death your friends bewailed with bitter tears,<milestone ed="p" n="675" unit="line"/>why, my king, my king, why is it that our land has lost all its three-tiered galleys,<milestone ed="p" n="680" unit="line"/>ships that are no more, no more?<milestone ed="p" n="681" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<div2 type="anapests">
+<stage>The ghost of Darius rises from his tomb</stage>
+<sp>
+<speaker>Ghost of Darius</speaker>
+<p>O most faithful of the faithful, comrades of my youth, aged Persians, what is it that is troubling the state?  The earth groans and is furrowed by the stamp of men.  As I behold my wife by my tomb,<milestone ed="p" n="685" unit="line"/>I feel alarm, and I accept her libations in kindly mood; while you, standing near my tomb, make lament, and with shrill cries that summon the spirits of the dead, invoke me piteously.  Not easy is the path out of the tomb, for this reason above all, that the gods beneath the earth<milestone ed="p" n="690" unit="line"/>are readier to seize than to release.  Nevertheless, since I have obtained dominion among them, I have come. But make haste, so that I may  not incur blame regarding the time of  my sojourn.  What is this unexpected ill that weighs the Persians down?<milestone ed="p" n="694" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I shrink in awe from gazing upon you.<milestone ed="p" n="695" unit="line"/>I shrink in awe from speaking in your presence by reason of my former dread of you.<milestone ed="p" n="697" unit="card"/></p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Since, in compliance with your moanings, I have come from the world below, lay aside your awe of me; make your tale not long, but brief; speak out and deliver your story in its entirety.<milestone ed="p" n="700" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="700" unit="line"/>I fear to do your bidding; I fear to speak in your presence and deliver to those I love news hard to utter.<milestone ed="p" n="703" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Darius</speaker>
+<p>Since dread long ingrained in your mind restrains you,<milestone ed="p" n="705" unit="line"/>cease, noble woman, venerable partner of my bed, from your tears and laments, speak to me with all frankness.  Afflictions ordained for human life must, we know, befall mankind.  For many calamities from the sea, many from the land, arise to mortal men if their span of life is extended far.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>O you who in prosperity surpassed all mortal men by your happy destiny,<milestone ed="p" n="710" unit="line"/>since, so long as you gazed upon the beams of the sun, you lived a life of felicity, envied of all, in Persian eyes a god, so now too I consider you fortunate in that you died before you beheld the depth of our calamities.  The whole tale, O Darius, you will hear in brief space of time: the power of <placeName key="tgn,7000231">Persia</placeName> is ruined almost utterly.<milestone ed="p" n="715" unit="card"/></p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p><milestone ed="p" n="715" unit="line"/>How did it happen?  Did some stroke of pestilence or factional strife come upon the State?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Neither; but near <placeName key="perseus,Athens">Athens</placeName> our whole host has been brought to ruin.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Tell me, what son of mine led our army there?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Impetuous Xerxes,  depopulating the whole surface of the continent.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Was it by land or sea that he made this mad expedition, the reckless man?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p><milestone ed="p" n="720" unit="line"/>By both.  There was a twofold front of double armies.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>But how was it that so vast a land force won a passage to the farther shore?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>By a clever device he yoked the <placeName key="tgn,7002638">Hellespont</placeName> so as to gain a passage.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>What!  Did he succeed in closing the mighty <placeName key="tgn,1115068">Bosporus</placeName>?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Yes indeed.   One of the divine powers must have assisted him in his purpose.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p><milestone ed="p" n="725" unit="line"/>Alas! Some mighty power came upon him so that he was not able to think clearly.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Yes, since we can see the outcome, what ruin he wrought.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>And how then did they fare that you now lament them?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Disaster to the naval force brought ruin to the force on land.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>And did the whole army utterly perish by the spear?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p><milestone ed="p" n="730" unit="line"/>Yes, and it is for this reason that the whole city of <placeName key="tgn,7017509">Susa</placeName> groans at its desolation.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Alas for the loss of our warriors' valiant force and defence!</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>And the host of the Bactrians is lost, wholly destroyed: not even an old man is left.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Unhappy man, since he has brought to ruin the youth of our allies.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>But Xerxes, alone and forlorn, with scanty train, they say&mdash;</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p><milestone ed="p" n="735" unit="line"/>Met his end, how, tell me, and where?  Of his safety is there any hope?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>To his joy he reached the bridge yoking the two continents.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>And reached our continent in safety?  Is this certain?</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>Yes, a proven report establishes this. Doubt there is none.<milestone ed="p" n="739" unit="card"/></p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Alas! The fulfilment of the oracles has indeed come swiftly, and it is my son upon whom<milestone ed="p" n="740" unit="line"/>Zeus has caused their issue to descend.  Yet I was confident that, only after long lapse of time, the gods would in some way bring them to accomplishment; nevertheless, when man hastens to his own undoing, the god too participates with him. A fountain of misfortune has now, I think, been discovered for all I love.  A son of mine it was who, in his ignorance, brought these things to pass through youthful recklessness;<milestone ed="p" n="745" unit="line"/>for he conceived the hope that he could by shackles, as if it were a slave, restrain the current of the sacred <placeName key="tgn,7002638">Hellespont</placeName>, the <placeName key="tgn,1115068">Bosporus</placeName>, a stream divine; he set himself to fashion a roadway of a new type, and, by casting upon it hammer-wrought fetters, made a spacious causeway for his mighty host.  Mortal though he was, he thought in his folly that he would gain the mastery of all the gods,<milestone ed="p" n="750" unit="line"/>yes, even over Poseidon.  Must this not have been a disease of the soul that possessed my son?  I fear that the plenteous treasure amassed by my toil may become the prey of the spoiler.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p>This lesson impetuous Xerxes learned through conversation with evil men.  For they kept telling him that, whereas you<milestone ed="p" n="755" unit="line"/>won plentiful treasure for your children by your spear, he, on his part, through lack of manly spirit, played the warrior at home and did not increase his father's wealth. Hearing such taunts many a time from evil counsellors, he planned this expedition and army against <placeName key="tgn,1000074">Hellas</placeName>.<milestone ed="p" n="759" unit="card"/></p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Therefore a calamity<milestone ed="p" n="760" unit="line"/>dreadful and unforgettable has been caused by him, a desolating calamity such as never before befell this city of <placeName key="tgn,7017509">Susa</placeName> since our Lord Zeus first ordained that one ruler should bear sway over all <placeName key="tgn,1000004">Asia</placeName> with its flocks and wield the sceptre of its government.<milestone ed="p" n="765" unit="line"/>For Medus was first to be the leader of its host; and another, his son, completed his work since wisdom ruled his spirit.  Third, after him, Cyrus, blessed in good fortune, came to the throne and established peace for all his people.<milestone ed="p" n="770" unit="line"/>The Lydians and Phrygians he won to his rule, and the whole of <placeName key="tgn,6002765">Ionia</placeName> he subdued by force; for he won the favor of the gods through his right-mindedness.  Fourth in succession, the son of Cyrus ruled the host.  Fifth in the list, Mardus came to power, a disgrace to his native land<milestone ed="p" n="775" unit="line"/>and to the ancient throne; but he was slain in his palace by the guile of noble Artaphrenes, with the help of friends whose duty this was.  &lsqb;Sixth came Maraphis, and seventh Artaphrenes.<note anchored="yes" n="778" resp="Smyth">This interpolated or corrupt verse possibly comes from a variant list of the conspirators against the Smerdis (in l. 774 called Mardus), whom the Magian rebels planned to put in the place of the real prince of that name, who was slain by his brother Cambyses.  The name Maraphis does not occur elsewhere in connection with this event, and neither he nor Artaphrenes was ever king.  Herodotus names Intaphernes as the chief conspirator against the false Smerdis.</note>&rsqb; And I in turn attained the lot I desired,<milestone ed="p" n="780" unit="line"/>and many a campaign I made with a valiant force; but disaster so dire as this I brought not upon the state.  Yet Xerxes my son, youth that he is, has the mind of youth and does not remember my injunctions.  Be sure of this, my age-mates:<milestone ed="p" n="785" unit="line"/>all of us who have held this sovereign power cannot be shown to have wrought ruin as great as this.<milestone ed="p" n="787" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What then, O king Darius?  What is the intention of your words? How, after this reverse, may we, the people of <placeName key="tgn,7000231">Persia</placeName>, best prosper in time to come?</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p><milestone ed="p" n="790" unit="line"/>If you do not take the field against the Hellenes' land, even if the forces of the Medes outnumber theirs.  The land itself is their ally.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What do you mean?  In what way &ldquo;their ally&rdquo;?</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>It wastes with famine an enemy force which is too large.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="795" unit="line"/>But we will dispatch a force of select and easily managed troops.</p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p>Not even the host which now remains in <placeName key="tgn,1000074">Hellas</placeName> will be able to return to safety.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>How is that?  Will not the whole barbarian army cross from <placeName key="tgn,1000003">Europe</placeName> over the <placeName key="tgn,7002638">Hellespont</placeName>?<milestone ed="p" n="800" unit="card"/></p></sp>
+<sp>
+<speaker>Darius</speaker>
+<p><milestone ed="p" n="800" unit="line"/>Few indeed out of many, if it is right to put any faith in the oracles of Heaven, with regard to what has just been brought to pass; for they are fulfilled, not just some, while others fail.  And if this is truth, it is through persuasion of vain hopes that he is leaving behind a body of picked troops.<milestone ed="p" n="805" unit="line"/>They are now lingering where the plain is watered by the stream of Asopus which nourishes <placeName key="tgn,7002683">Boeotia</placeName>'s fields.  Here they will meet their crowning disaster in requital for their presumptuous pride and impious thoughts.  For, on reaching the land of <placeName key="tgn,1000074">Hellas</placeName>,<milestone ed="p" n="810" unit="line"/>restrained by no religious awe, they ravaged the images of the gods and set fire to their temples.  Altars have been destroyed, statues of the gods have been thrown from their bases in utter ruin and confusion. Therefore, since they wrought such evil, evil they suffer in no less measure; and other evils are still in store:<milestone ed="p" n="815" unit="line"/>the spring of their woes is not yet quenched, but it still wells forth.  For so great will be the mass of clotted gore spilled by the Dorian lance upon Plataean soil that heaps of dead will reveal, even to the third generation, a voiceless record for the eyes of men<milestone ed="p" n="820" unit="line"/>that mortal man should not vaunt himself excessively.  For presumptuous pride, when it has matured, bears as its fruit a crop of calamity, from which it reaps an abundant harvest of tears.</p>
+<p>Bear in mind that such are the penalties for deeds like these, and hold <placeName key="perseus,Athens">Athens</placeName> and <placeName key="tgn,1000074">Hellas</placeName> in your memory.  Let no one of you,<milestone ed="p" n="825" unit="line"/>through disdain of present fortune and lust for more, squander his abundant wealth.  Zeus, in truth, is a chastiser of overweening pride and corrects with heavy hand.  Therefore, now that my son has been warned to be prudent by the voice of God,<milestone ed="p" n="830" unit="line"/>instruct him with admonitions of reason to cease  from drawing the punishment of Heaven on himself by his vaunting rashness.  And as for you, beloved and venerable mother of Xerxes, withdraw to the palace and bring from there clothing which is suitable for him, and prepare to meet your son.  For<milestone ed="p" n="835" unit="line"/>through grief at his misfortunes, the embroidered apparel which he was wearing has been torn into tattered shreds. Soothe him with words of kindness; for it is to your voice alone, I know, that he will listen.  As for me, I depart to the darkness beneath the earth.<milestone ed="p" n="840" unit="line"/>Farewell, Elders, and despite your troubles, rejoice while each day is yours; for wealth does not profit the dead at all.<stage>The ghost of Darius descends</stage><milestone ed="p" n="843" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I grieve as I hear the many misfortunes that are now, and are yet to be, the lot of the barbarians.</p></sp>
+<sp>
+<speaker>Atossa</speaker>
+<p><milestone ed="p" n="845" unit="line"/>O God! How much grief assails me! But most of all this sorrow wounds me, to hear of the shameful clothes which are now worn by my son. But I will depart, and when I have brought appropriate garments from the palace,<milestone ed="p" n="850" unit="line"/>I will make attempt to meet my son; for I will not forsake him whom I love so well in his affliction.<stage>Exit</stage><milestone ed="p" n="852" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Oh yes, it was in truth a glorious and good life under civil government that we enjoyed so long as our aged<milestone ed="p" n="855" unit="line"/>and all-powerful king, who did no wrong and did not favor war, god-like Darius, ruled the realm.<milestone ed="p" n="858" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>In the first place we showed to the world armies worthy of our fame, and civil institutions, like towers in strength,<milestone ed="p" n="860" unit="line"/>regulated all the state; and our return from war brought back our men, unworn and unsuffering, to happy homes.<milestone ed="p" n="864" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker>
+    <p>And what a number of cities he captured!&mdash;<milestone ed="p" n="865" unit="line"/>without crossing the stream of Halys or even stirring from his own hearth:  such as the Acheloan<note anchored="yes" n="869" resp="Smyth">If &ldquo;Acheloan&rdquo; is used, as some report, only of fresh water, the poet may have in mind the pile-dwellings of the Paeonians on Lake Prasias (mentioned by <bibl n="Hdt. 5.16">Hdt. 5.16</bibl>); if &ldquo;Acheloan&rdquo; includes also salt water, the reference may be to the islands off Thrace&mdash;Imbros, <placeName key="perseus,Thasos City">Thasos</placeName>, and <placeName key="tgn,perseus,Samothrace City">Samothrace</placeName>.</note>cities on the Strymonian sea which is located beside<milestone ed="p" n="870" unit="line"/>the Thracian settlements.<milestone ed="p" n="871" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker>
+<p>And those outside the lake, the cities on the mainland, surrounded with a rampart, obeyed him as their king;<milestone ed="p" n="875" unit="line"/>those, too, that boast to be on both sides of the broad <placeName key="tgn,7002638">Hellespont</placeName> and Propontis, deeply-recessed, and the outlet of <placeName key="tgn,7016619">Pontus</placeName>.<milestone ed="p" n="879" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Chorus</speaker>
+    <p>The sea-washed islands, also, off the projecting arm<milestone ed="p" n="880" unit="line"/>of the sea, lying close to this land of ours, such as <placeName key="tgn,7002672">Lesbos</placeName>, and olive-planted <placeName key="tgn,perseus,Samos City">Samos</placeName>, <placeName key="tgn,perseus,Chios City">Chios</placeName> and <placeName key="tgn,7011023">Paros</placeName>, <placeName key="tgn,7012053">Naxos</placeName>, Mykonos,<milestone ed="p" n="885" unit="line"/>and <placeName key="tgn,perseus,Andros City">Andros</placeName> which lies adjacent to <placeName key="tgn,7011191">Tenos</placeName>.<milestone ed="p" n="888" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Chorus</speaker>
+    <p>And he held under his sway the sea-girt islands midway between the continents,<milestone ed="p" n="890" unit="line"/><placeName key="tgn,7011173">Lemnos</placeName>, and the settlement of Icarus, and <placeName key="tgn,7011266">Rhodes</placeName>, and <placeName key="tgn,5003757">Cnidos</placeName>, and the Cyprian cities <placeName key="tgn,7002373">Paphos</placeName>, <placeName key="perseus,Soli">Soli</placeName>, and <placeName key="perseus,Salamis, Cyprus">Salamis</placeName>,<milestone ed="p" n="895" unit="line"/>whose mother-city is now the cause of our lament.<milestone ed="p" n="898" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker>
+<p>And the rich and populous cities of the Hellenes in the Ionian heritage<milestone ed="p" n="900" unit="line"/>he controlled by his own will; and at his command he had an unwearied strength of men-at-arms and of allies from every nation.  But now,<milestone ed="p" n="905" unit="line"/>worsted completely in war through disasters on the sea, we endure this change of fortune no doubt from the hand of god.<milestone ed="p" n="909" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<stage>Enter Xerxes in tattered robes, and attended by a scanty retinue</stage>
+<sp>
+<speaker>Xerxes</speaker>
+<p>Alas, wretched am I who have met this cruel doom<milestone ed="p" n="910" unit="line"/>which did not give the faintest sign of its coming! In what savage mood has Fortune trampled upon the Persian race?  What misery is yet in store for me, unhappy wretch?  The strength of my limbs is loosened as I look upon this aged group of citizens.<milestone ed="p" n="915" unit="line"/>Ah, Zeus,I wish that the doom of death had buried me, too, together with the men who have been laid low!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Alas, my king, for our noble army, for the high honor of <placeName key="tgn,7000231">Persia</placeName>'s rule,<milestone ed="p" n="920" unit="line"/>and for the splendor of the men now cut off by Fate!</p>
+<p>The land bewails her native youth, slaughtered for Xerxes, who has crowded Hades with Persian slain.<milestone ed="p" n="925" unit="line"/>Many warriors, masters of the bow, our country's pride, a great multitude of men, have perished.  Alas, alas, for our trusty defence!  The land of <placeName key="tgn,1000004">Asia</placeName>, the leading power of the earth,<milestone ed="p" n="930" unit="line"/>has piteously, yes piteously, been bowed to her knees.<milestone ed="p" n="932" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Xerxes</speaker>
+<p>Behold me, alas, a fitting subject for lamentation, born a source of ruin to my race and fatherland.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="935" unit="line"/>As a greeting for your return home I will lift up an ill-omened cry of woe, the voice, versed in lamentation, of a Mariandynian mourner,<milestone ed="p" n="940" unit="line"/>a wail attended by many a tear.<milestone ed="p" n="941" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Xerxes</speaker>
+<p>Utter a strain of lamentation, plaintive and discordant.  For Fortune has now veered and turned against me.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>I will indeed utter the song of lamentation<milestone ed="p" n="945" unit="line"/>in commemoration of your sufferings and of our strongly-manned ships, buffeted by waves; the plaintive strain of our land which mourns its sons.  And I will cry aloud in lamentation, shedding many a tear.<milestone ed="p" n="950" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Xerxes</speaker>
+<p><milestone ed="p" n="950" unit="line"/>Yes, for the Ionian naval force, turning the tide of battle, swept them away, the Ionian host, ravaging the dark sea and the shore of doom.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="955" unit="line"/>Woe!  woe!  cry aloud, learn about the whole disaster. Where is the rest of the multitude of your comrades?  Where are those who stood by your side, such as Pharandaces, Susas, Pelagon, Dotamas, and<milestone ed="p" n="960" unit="line"/>Agdabatas, Psammis, and Susiscanes of <placeName key="tgn,7002115">Agbatana</placeName>?<milestone ed="p" n="962" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Xerxes</speaker>
+    <p>By the shores of <placeName key="perseus,Salamis, Cyprus">Salamis</placeName>, dashing against its rugged shore,<milestone ed="p" n="965" unit="line"/>I left them, fallen in death from a Tyrian ship.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Woe!  woe!  cry aloud!  Where is your beloved Pharnuchus, and the courageous Ariomardus?  Where is prince Seualces,<milestone ed="p" n="970" unit="line"/>or Lilaeus of noble lineage, <placeName key="tgn,7001186">Memphis</placeName>, Tharybis and Masistras, Artembares and Hystaechmas?  This I ask you.<milestone ed="p" n="974" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Xerxes</speaker>
+<p>Woe, woe is me!<milestone ed="p" n="975" unit="line"/>They beheld ancient and hateful <placeName key="perseus,Athens">Athens</placeName> and with one convulsive struggle &lpar;alas, alas !&rpar; poor wretches, they lie gasping on the shore.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Did you really lose your trusty eye<note anchored="yes" n="979" resp="Smyth">The Persian kings had in their service officers called their &ldquo;eyes&rdquo; and &ldquo;ears,&rdquo; charged to make report of what they saw and heard.</note>there, that which<milestone ed="p" n="980" unit="line"/>counted tens upon tens of thousands of the Persians, Batanochus' son Alpistus . . . son of Sesames, Megabates' son, Parthos and mighty Oebares, did you leave these behind?<milestone ed="p" n="985" unit="line"/>Alas, alas, the unhappy men!  You speak of woe, surpassing woe, for noble Persians.<milestone ed="p" n="988" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Xerxes</speaker>
+<p>In truth you stir yearning in me for my gallant comrades<milestone ed="p" n="990" unit="line"/>when you tell me of woe, surpassing woe, hateful and unforgettable.  The heart within me cries out aloud for the wretched ones.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>And yet there are others too whom we miss:  Xanthis, commander of a myriad Mardian men, and warlike Anchares,<milestone ed="p" n="995" unit="line"/>Diaexis, too, and Arsaces, captains of the horse, Cegdadatas and Lythimnas, and Tolmus, insatiate in war.  I marvel,<milestone ed="p" n="1000" unit="line"/>that they do not follow behind around your wheeled tent.<milestone ed="p" n="1002" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="4">
+<sp><speaker>Xerxes</speaker>
+<p>Gone are they who were leaders of the host.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Gone, alas, ingloriously.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Alas, alas!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1005" unit="line"/>Alas, alas, you powers divine, you brought ruin upon us,  unexpected, unmistakable to see, as is the glance of calamity.<milestone ed="p" n="1008" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="4">
+<sp><speaker>Xerxes</speaker>
+<p>We have been stricken by misfortune such as will endure for ages.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>We have been stricken; it is abundantly clear.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p><milestone ed="p" n="1010" unit="line"/>By strange woe, strange woe!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>It was with bad luck that we encountered <placeName key="tgn,6002765">Ionia</placeName>'s mariners. Unfortunate in war, indeed, is <placeName key="tgn,7000231">Persia</placeName>'s race.<milestone ed="p" n="1014" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="5">
+<sp><speaker>Xerxes</speaker>
+<p>How true it is. In the loss of so great an army<milestone ed="p" n="1015" unit="line"/>I have indeed been dealt a blow, wretched as I am.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>What that belonged to <placeName key="tgn,7000231">Persia</placeName>, unfortunate one, has not been destroyed?</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Do you see this remnant of my royal robe?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Yes, I do indeed.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p><milestone ed="p" n="1020" unit="line"/>And this quiver&mdash;</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>What is this you say has been saved?</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Treasury for shafts?</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Truly a small remnant from an ample store.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>We have been deprived of defenders.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1025" unit="line"/><placeName key="tgn,6002765">Ionia</placeName>'s people shrink not from the spear.<milestone ed="p" n="1026" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="5">
+<sp><speaker>Xerxes</speaker>
+<p>They are a war-like people.  I have lived to behold a calamity I never expected.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Are you speaking of the routed multitude which manned your ships?</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p><milestone ed="p" n="1030" unit="line"/>And I rent my robe at the disastrous event.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Alas, alas!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>No, far worse than alas.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Yes, for twofold and threefold&mdash;</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Pain to us, but exultation to our enemies</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1035" unit="line"/>Yes, and our strength has been maimed.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>I am stripped of my escort.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>By the disasters of your comrades upon the sea.<milestone ed="p" n="1038" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="6">
+<sp><speaker>Xerxes</speaker>
+<p>Weep, weep over our calamity, and depart to your homes.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Alas, alas, woe, woe!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p><milestone ed="p" n="1040" unit="line"/>Cry aloud now in response to me.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>A wretched offering from the wretched to the wretched.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Cry out, tuning your strain to mine.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Oh, oh!  That which has happened is grievous indeed.<milestone ed="p" n="1045" unit="line"/>Alas, for I too share in your sorrow.<milestone ed="p" n="1046" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="6">
+<sp><speaker>Xerxes</speaker>
+<p>Strike, strike, and groan for my sake.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>I weep in lamentation!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Now cry aloud in response to me.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>This care, my lord, is mine.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p><milestone ed="p" n="1050" unit="line"/>Lift up your voice now in lamentation.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Oh, oh!  And with our wailing, alas, will be mingled bruising blows and shrieks of pain.<milestone ed="p" n="1054" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="7">
+<sp><speaker>Xerxes</speaker>
+<p>Beat your breast too, and raise the Mysian wail.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1055" unit="line"/>Anguish, anguish!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>And tear, I beg of you, the white hair from your beard.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>With clenched nails, with clenched nails, with loud wailing.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>And utter shrill cries.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>This too I will do.<milestone ed="p" n="1060" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="7">
+<sp><speaker>Xerxes</speaker>
+<p><milestone ed="p" n="1060" unit="line"/>And with your fingers tear the robe which drapes you.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Anguish, anguish!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Pluck out your locks, and lament our host.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>With clenched nails, with clenched nails, with loud wailing.</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Let tears moisten your eyes.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1065" unit="line"/>I am drenched with tears.<milestone ed="p" n="1066" unit="card"/></p></sp></div2>
+<div2 type="epode">
+<sp><speaker>Xerxes</speaker>
+<p>Cry aloud now in response to me.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Alas, alas!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>With sounds of wailing go to your homes.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1070" unit="line"/>Alas, alas!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Alas! through the city.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Alas, indeed!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Pour forth your wails as you move along with soft steps.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Alas, alas, O Persian land, grievous now to walk upon!</p></sp>
+<sp><speaker>Xerxes</speaker>
+<p>Ah me!<milestone ed="p" n="1075" unit="line"/>Those that perished in three-tiered galleys, ah me!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>I will escort you with dismal sounds of woe.<stage>Exeunt omnes</stage></p></sp></div2>
+</div1></body></text>
+</TEI.2>

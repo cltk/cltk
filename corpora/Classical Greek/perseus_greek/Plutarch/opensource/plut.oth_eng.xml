@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Oth." type="work">Otho</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 42Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Oth."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1926</date>
+                  </imprint>
+                  <biblScope type="volume">11</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991141</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/99</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>OTHO</head>
+         <note resp="ed" place="unspecified" anchored="yes">With Plutarch's <title>Otho</title> may be compared <bibl n="Suet. Otho 1.1">Suetonius, <title>Otho</title>
+            </bibl>; <bibl n="D.C. 64.10">Dion Cassius, lxiv. 10-15</bibl>; <bibl n="Tac. Hist. 1.46">Tacitus, <title>Hist.</title> i. 46-ii. 49</bibl>.</note>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>At daybreak the new emperor went forth to the Capitol and sacrificed; then, having ordered Marius Celsus to be brought to him, he greeted that officer, conversed with him kindly, and urged him to forget the cause of his imprisonment rather than to remember his release. Celsus replied in a manner that was neither ignoble nor ungrateful, saying that the very charge made against him afforded proof of his character, for the charge was that he had been loyal to Galba, from whom he had received no special favours. Both speakers were admired by those who were present, and the soldiery gave their approval. 
+				<milestone n="2" unit="section"/>In the senate Otho spoke at length in a kindly strain and like a popular leader. For part of the time during which he himself was to have been consul, he assigned the office to Verginius Rufus, and all those who had been designated as future consuls by Nero or Galba he confirmed in their appointment. To the priesthoods he promoted those who were preeminent in age or reputation. 
+				<milestone n="3" unit="section"/>Moreover, to all the men of senatorial rank who had been exiled under Nero and restored under Galba, he restored whatever portions of each man's property he found to be unsold. Wherefore the citizens of highest birth and greatest influence, who before this had felt a shuddering fear that it was not a man, but some genius of retribution or avenging spirit, that had suddenly fallen upon the state, became more cheerful in their hopes for a government which wore a face so smiling.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But nothing so gladdened all Romans alike, and won their allegiance to the new emperor so much, as his treatment of Tigellinus. Men were not aware that Tigellinus was already punished by his very fear of that punishment which the city was demanding as a debt due to the public, 
+				<milestone n="2" unit="section"/>and also by incurable bodily diseases; and besides, there were those unhallowed and unspeakable grovellings of his among the vilest harlots, for which his lustful nature still panted, clutching after them as his life painfully ebbed away; these were looked upon by reasonable men as extremest punishment and an equivalent of many deaths. Nevertheless it vexed the common people that he should see the light of day after so many good men had been robbed of that light by him. 
+				<milestone n="3" unit="section"/>Accordingly, Otho sent a messenger to fetch him from his country estate at Sinuessa; for he was staying there, where vessels lay at anchor, that he might fly to more distant parts. He tried to bribe the messenger with a large sum of money to let him go, but failing in this, he made him gifts nevertheless, and begged him to wait till he had shaved; and taking the razor he cut his own throat.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And now that the emperor had given the people this most righteous gratification, he did not remember his own private grievances against any man soever, and in his desire to please the multitude did not refuse at first to be hailed in the theatres by the name of Nero, and when statues of Nero were produced in public, he did not prevent it. 
+				<milestone n="2" unit="section"/>Moreover, Cluvius Rufus tells us that 
+				<q direct="unspecified">diplomas,</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Oth. 8.4">Chap. viii 4.</bibl>
+            </note> such as couriers are provided with, were sent to Spain, in which the cognomen of Nero was added to the name of Otho. However, perceiving that the men of highest birth and greatest influence were displeased at this, Otho gave up the practice.
+			</p>
+         <p>But while he was placing his government on this basis, the paid soldiers began to make themselves troublesome by urging him not to trust the influential citizens, but to be on his guard against them and restrict their power. It is uncertain whether their goodwill led them to be really apprehensive for him, or whether they used this pretext for raising disturbance and war. 
+				<milestone n="3" unit="section"/>And so, when the emperor sent Crispinus to bring back the seventeenth legion from Ostia, and while that officer was still getting the baggage together at night and loading the arms upon the waggons, the boldest of the soldiers all began to cry out that Crispinus was come on no good errand, and that the senate was attempting to bring about a revolution, and that the transportation of the arms was an act of hostility, not of service, to the emperor. 
+				<milestone n="4" unit="section"/>The notion prevailed with great numbers and exasperated them; some attacked the waggons, others killed two centurions who opposed them, as well as Crispinus himself; and then the whole body, putting themselves in array and exhorting one another to go to the help of the emperor, marched to Rome. Here, learning that eighty senators were at supper with Otho, they rushed to the palace, declaring that now was a good time to take off all the emperor's enemies at one stroke. 
+				<milestone n="5" unit="section"/>Accordingly, the city was in great commotion, expecting to be plundered at once; in the palace there were runnings to and fro; and a dire perplexity fell upon Otho. For while he had fears about the safety of his guests, he himself was an object of fear to them, and he saw that they kept their eyes fixed upon him in speechless terror, some of them having even brought their wives with them to the supper. 
+				<milestone n="6" unit="section"/>But he sent the prefects of the guard with orders to explain matters to the soldiers and appease them, while at the same time he dismissed his guests by another door; and they barely succeeded in making their escape as the soldiers, forcing their way through the guards into the great hall, asked what was become of the enemies of Caesar. 
+				<milestone n="7" unit="section"/>In this crisis, then, Otho stood up on his couch, and after many exhortations, and entreaties, and not without plentiful tears, at last succeeded in sending them away; but on the following day, after making a gift of twelve hundred and fifty drachmas to every man, he went into the camp. 
+				<milestone n="8" unit="section"/>There he commended the great body of the soldiers for their goodwill and zeal in his service, but said that there were a few of them who were intriguing to no good purpose, thereby bringing his moderation and their fidelity into disrepute, and he demanded that they share his resentment against these and assist him in punishing them. All his hearers approving of this and bidding him to do as he wished, he took two men only, at whose punishment no one was likely to be distressed, and went away.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Those who were already fond of Otho and put confidence in him admired this change in his behaviour, but others thought it a policy forced upon him by the situation, wherein he courted popular favour because of the war. For already there were sure tidings that Vitellius had assumed the dignity and power of emperor; and swift couriers were continually coming with accounts of ever new accessions to him, although others made it clear that the armies in Pannonia, Dalmatia, and Mysia, with their leaders, adhered to Otho. 
+				<milestone n="2" unit="section"/>And quickly there came also friendly letters from Mucianus and Vespasian, who were at the head of large forces, the one in Syria, the other in Judaea. Otho was elated by these, and wrote to Vitellius advising him not to have more than a soldier's ambitions, in which case he should be rewarded with a large sum of money, and a city, where he could live in the utmost ease and pleasure and be undisturbed. 
+				<milestone n="3" unit="section"/>Vitellius also wrote to Otho in reply, at first in a somewhat dissembling manner; but afterwards both got excited and wrote one another abusive letters filled with shameful insults; not that either brought false charges, but it was foolish and ridiculous for one to storm the other with reproaches applicable to both. For as regards prodigality, effeminacy, inexperience in war, and multiplicity of debts incurred in a previous state of poverty, it were hard to say which of them had the advantage.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>There were many reports of signs and apparitions, most of which were of uncertain and dubious origin; but everybody saw that a Victory standing in a chariot on the Capitol had dropped the reins from her hands, as if she had not power to hold them, and that the statue of Caius Caesar on the island in the Tiber, without the occurrence of earthquake or wind, had turned from west to east, 
+				<milestone n="5" unit="section"/>which is said to have happened during the time when Vespasian was at last openly trying to seize the supreme power. The behaviour of the Tiber, too, was regarded by most people as a baleful sign. It was a time, to be sure, when rivers are at their fullest, but the Tiber had never before risen so high, nor caused so great ruin and destruction. It overflowed its banks and submerged a great part of the city, and especially the grain-market, so that dire scarcity of food prevailed for many days together.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And now, when word was brought to Rome that Caecina and Valens, who were in command with Vitellius, were in possession of the Alps, Dolabella, a man of noble family, was suspected by the praetorian soldiers of revolutionary designs. Otho therefore sent him away (through fear of him or of someone else) to the town of Aquinum, with words of encouragement. And in his selection of the men in authority who were to accompany him on his expedition he included also Lucius, the brother of Vitellius, without either increasing or diminishing his honours. 
+				<milestone n="2" unit="section"/>He also took strong measures for the safety of the wife and mother of Vitellius, that they might have no fear for themselves. Moreover, he appointed Flavius Sabinus, a brother of Vespasian, prefect of the city, either because in this way also he could honour the memory of Nero (for Nero had bestowed the office upon Sabinus, but Galba had deprived him of it), or rather because, by advancing Sabinus, he could show how he favoured and trusted Vespasian.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Well, then, Otho himself tarried behind at Brixillum, a town of Italy on the river Po, but sent his forces on under the command of Marius Celsus and Suetonius Paulinus, besides Gallus and Spurina. These were men of distinction, but were unable to conduct the campaign according to their own plans and wishes, owing to the disorderly and arrogant spirit of their soldiers. 
+				<milestone n="4" unit="section"/>For these would not deign to obey other officers, since, as they said, they had made the emperor their commander. It is true that the enemy's troops also were not altogether in condition, nor under the control of their officers, but fierce and haughty, and for the same reason. Nevertheless, they were certainly experienced in fighting, and being accustomed to hard labour, they did not shun it; 
+				<milestone n="5" unit="section"/>whereas Otho's men were soft, owing to their lack of employment and their unwarlike mode of life, having spent most of their time at spectacles and festivals and plays, and they wished to cloak their weakness with insolence and boasting, disdaining to perform the services laid upon them because they were above the work, not because they were unable to do it. When Spurina tried to force them into obedience, he came near being killed by them. 
+				<milestone n="6" unit="section"/>They spared him no abuse nor insolence, declaring that he was betraying and ruining the opportunities and the cause of Caesar. Nay, some of them who were drunk came at night to his tent and demanded money for a journey, for they must go, they said, to Caesar, in order to denounce their commander.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Spurina and the emperor's cause were helped for the time by the abuse which his soldiers received at Placentia. For when the troops of Vitellius assaulted the walls, they railed at the soldiers of Otho who manned the ramparts, calling them actors, dancers, spectators at Pythian and Olympian games, men who had never known or seen a campaign or fighting, and thought highly of themselves because they had cut off the head of a defenceless old man (meaning Galba), but would not openly enter a conflict and battle of men. 
+				<milestone n="2" unit="section"/>Otho's soldiers were so disturbed by these reproaches, and so inflamed, that they threw themselves at the feet of Spurina, begging him to use them and command them, and pleading excuse from no danger or toil. And so, when a fierce assault was made upon the walls and many siege-engines were brought to bear upon them, Spurina's men prevailed, repulsed their opponents with great slaughter, and held safe a city which was famous and more flourishing than any in Italy.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>In other ways, too, the generals of Vitellius were more vexatious than those of Otho in their dealings with both cities and private persons. One of them, Caecina, had neither the speech nor the outward appearance of a Roman citizen, but was offensive and strange, a man of huge stature, who wore Gaulish trousers and long sleeves, and conversed by signs even with Roman officials. 
+				<milestone n="4" unit="section"/>His wife, too, accompanied him, with an escort of picked horsemen; she rode a horse, and was conspicuously adorned. Fabius Valens, the other general, was so rapacious that neither what he plundered from the enemy nor what he stole or received as gifts from the allies could satisfy him. Indeed, it was thought that this rapacity of his had delayed his march, so that he was too late for the battle at Placentia. 
+				<milestone n="5" unit="section"/>But some blame Caecina, who, they say, was eager to win the victory himself before Valens came, and so not only made other minor mistakes, but also joined battle inopportunely and without much spirit, thereby almost ruining their whole enterprise.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For when Caecina, repulsed from Placentia, had set out to attack Cremona, another large and prosperous city, first Annius Gallus, who was coming to the help of Spurina at Placentia, hearing upon the march that Placentia was safe, but that Cremona was in peril, changed his course and led his army to Cremona, where he encamped near the enemy; then his colleagues<note resp="ed" place="unspecified" anchored="yes">Celsus, Paulinus and Spurina (<bibl n="Plut. Oth. 5.3">v. 3</bibl>), although Spurina is not mentioned further.</note> came one by one to his aid. 
+				<milestone n="2" unit="section"/>Caecina now placed a large body of men-at-arms in ambush where the ground was rough and woody, and then ordered his horsemen to ride towards the enemy, and if they were attacked, to withdraw little by little and retreat, until they had in this way drawn their pursuers into the ambush. But deserters brought word of all this to Celsus, who rode out with good horsemen to meet the enemy, followed up his pursuit with caution, surrounded the men in ambush, and threw them into confusion. Then he summoned his men-at-arms from the camp. 
+				<milestone n="3" unit="section"/>And apparently, if these had come up in time to the support of the cavalry, not a man of the enemy would have been left alive, but the whole army with Caecina would have been crushed and slain. As it was, however, Paulinus came to their aid too slowly and too late, and incurred the charge of sullying his reputation as a commander through excessive caution. 
+				<milestone n="4" unit="section"/>But most of the soldiers actually accused him of treachery, and tried to incense Otho against him, loudly boasting that they had been victorious, but that their victory was made incomplete by the cowardice of their commanders. Otho did not believe them, and yet wished to avoid the appearance of disbelieving them. He therefore sent to the armies his brother Titianus, and Proculus, the prefect of the guards; of these two men Proculus had the entire authority in reality, and Titianus only in appearance. 
+				<milestone n="5" unit="section"/>Celsus and Paulinus, too, enjoyed the empty title of friends and counsellors, but had no power or influence in the conduct of affairs. There were disturbances also among the enemy, and especially among the troops of Valens; for when these were told about the battle at the ambuscade, they were enraged because they were not present and had given no aid where so many men had lost their lives. They actually began to stone Valens, but he finally succeeded in pacifying them, and then broke camp arid joined Caecina.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Otho now came to the camp at Bedricum (a little village near Cremona) and held a council of war. Proculus and Titianus were of the opinion that he ought to fight a decisive battle while his armies were flushed with their recent victory, and not sit there dulling the efficiency of his troops and waiting for Vitellius to come in person from Gaul. 
+				<milestone n="2" unit="section"/>Paulinus, on the contrary, said that the enemy already had all the resources with which they would give battle, and lacked nothing, whereas, in the case of Otho, a force as large as the one he already had might be expected from Mysia and Pannonia, if he would only wait for his own best opportunity and conduct the campaign to suit that of the enemy. 
+				<milestone n="3" unit="section"/>For his men were now confident of success in spite of their inferior numbers, and he would not find them less keen after they had received reinforcements, nay, their superiority would lead them to fight all the better. And besides, delay was to their advantage, since they had everything in abundance, while to the enemy time would bring a scarcity of supplies, since they were occupying a hostile country. 
+				<milestone n="4" unit="section"/>So Paulinus argued, and Marius Celsus voted with him. Annius Gallus was not present, being under treatment for a fall from his horse, but Otho asked his advice by letter, and his counsel was not to hasten the battle, but to await the forces from Mysia, which were already on the march. Nevertheless, Otho would not listen to these counsels, and the day was carried by those who urged immediate battle.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Various other reasons for this are given by various writers; but manifestly the praetorian soldiers, as they were called, who served as the emperor's guards, since they were now getting a more generous taste of real military service and longed for their accustomed life of diversion at Rome in which festivals abounded and war was unknown, could not be restrained, but were eager for the battle, feeling sure that at the very first onset they would overwhelm their opponents. 
+				<milestone n="2" unit="section"/>Moreover, it would seem that Otho himself could not longer bear up against the uncertainty of the issue, nor endure (so effeminate was he and so unused to command) his own thoughts of the dire peril confronting him; but worn out by his anxieties, he veiled his eyes, like one about to leap from a precipice, and hastened to commit his cause to fortune. 
+				<milestone n="3" unit="section"/>And this is the account given by Secundus the rhetorician, who was Otho's secretary. But others would tell us that both armies were strongly inclined to confer; and above all, if they could agree, to elect as emperor the best of the commanders who were with them, but if not, to convene the senate and commit to it the choice of an emperor. 
+				<milestone n="4" unit="section"/>And since neither of the men who then had the title of emperor enjoyed high repute, it is not unlikely that the real soldiers, those who knew what hardship was and had sense, should be led to reflect that it would be a dreadful and most hateful thing if the evils which the citizens had once to their sorrow inflicted upon one another and suffered because of Sulla and Marius, and again because of Caesar and Pompey, should now be endured again only to make the imperial power a means for providing for the gluttony and drunkenness of Vitellius or for the luxury and licentiousness of Otho. 
+				<milestone n="5" unit="section"/>It is suspected, then, that Celsus was aware of these feelings, and therefore tried to interpose delay, hoping that the issue would thus be decided without hardship and battle, and that Otho, fearing this, hastened on the battle.
+			</p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Otho himself returned to Brixillum, and in this too he made a mistake, not only because he took away from the combatants the respect and ambition which his presence and oversight inspired, but also because, by leading away as his bodyguard of foot and horse the men who were most vigorous and eager to please him, he cut away, as it were, the head and front of his army.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>During this time there was also a conflict at the river Po, where Caecina tried to build a bridge across the stream, and Otho's soldiers attacked him and tried to prevent it. Not succeeding, Otho's men loaded their vessels with torchwood full of sulphur and pitch, and began to cross the river; but a blast of wind suddenly smote the material which they had prepared for use against the enemy, and fanned it afire. 
+				<milestone n="3" unit="section"/>First smoke arose from it, then bright flames, so that the crews were confounded and leaped overboard into the river, upsetting their boats, and putting themselves at the mercy of a jeering enemy. Moreover, the Germans attacked Otho's gladiators at an island in the river, overpowered them and slew not a few of them.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>These disasters threw Otho's soldiers at Bedriacum into a rage for battle, and Proculus therefore led them forth out of Bedriacum, and after a march of fifty furlongs pitched his camp, but in a manner so ignorant and ridiculous that his men were troubled by lack of water, although it was the spring of the year and the plains around abounded in running streams and rivers that never dried up. 
+				<milestone n="2" unit="section"/>On the following day he proposed to make a march of no less than a hundred furlongs and attack the enemy, but Paulinus objected, and thought they ought to wait and not tire themselves beforehand, nor join battle immediately after a march with men who had armed and arrayed themselves at their leisure, while they themselves were advancing so great a distance with all their beasts of burden and camp-followers. 
+				<milestone n="3" unit="section"/>While the generals were disputing about the matter, there came from Otho a Numidian courier with a letter which ordered them not to wait or delay, but to march at once against the enemy. Accordingly, they decamped and moved forward, and Caecina, who was much disturbed on learning of their approach, hastily abandoned his operations at the river and came to his camp. There most of the soldiers had already armed themselves, and Valens was giving out the watchword to them, and while the legions were taking up their positions, the best of the cavalry were sent out in advance.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And now, for some reason, it was believed and rumoured among Otho's vanguard that the generals of Vitellius would come over to their side. Accordingly, when these drew near, Otho's men greeted them in a friendly fashion and called them fellow-soldiers. The enemy, however, returned the salutation in no kindly spirit, but with anger and hostile cries, so that those who had greeted them were dejected, and were suspected of treachery by the others on their side. 
+				<milestone n="2" unit="section"/>This was the first thing that threw Otho's men into confusion, and at a time when the enemy were close at hand. And besides, nothing else was done properly, since the baggage-train wandered about among the fighting men and caused great disorder. Moreover, the line of battle was often broken by the nature of the ground, which was full of trenches and pits, and in avoiding or going around these the men were compelled to engage their opponents promiscuously and in many detachments. 
+				<milestone n="3" unit="section"/>Only two legions (to use the Roman word), that of Vitellius called 
+				<q direct="unspecified">Rapax</q> (or Devourer) and that of Otho called 
+				<q direct="unspecified">Adiutrix</q> (or Helper), got out into a treeless and extended plain, engaged in full formation, and fought a regular battle for a long time. Otho's men were sturdy and brave, but were now for the first time getting a taste of war and fighting; those of Vitellius, on the other hand, had seen many battles and were used to them, but they were now old and past their prime.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>So Otho's men charged upon them, drove them back, and captured their eagle, killing nearly all who stood in the first rank; but the others, impelled by shame and anger, fell upon their foes, slew Orfidius, the commander of the legion, and seized many of their standards. Against Otho's gladiators, too, who were supposed to have experience and courage in close fighting, Alfenus Varus led up the troops called Batavians. 
+				<milestone n="5" unit="section"/>They are the best cavalry of the Germans, and come from an island made by the Rhine. A few of the gladiators withstood these, but most of them fled towards the river, where they encountered cohorts of the enemy in battle array, and in defending themselves against these, were cut off to a man. 
+				<milestone n="6" unit="section"/>But the praetorian soldiers fought more shamefully than any others. They did not even wait for their opponents to come to close quarters, but fled through the ranks of their still unvanquished comrades, filling them with fear and confusion. Notwithstanding all this, many of Otho's men conquered those who opposed them, forced their way through the victorious enemy, and regained their camp.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But as for their generals, neither Proculus nor Paulinus ventured to enter the camp with them, but turned aside through fear of the soldiers, who were already laying the blame for their defeat upon their commanders. But Annius Gallus received into the town the soldiers who gathered there out of the battle, and tried to encourage them. The battle had been nearly equal, he said, and in many parts of it they had overcome their enemies. 
+				<milestone n="2" unit="section"/>Marius Celsus, moreover, assembled the officers and urged them to consult the public good. In view of so great a calamity, he said, and the slaughter of so many citizens, not even Otho himself, if he were a good man, would wish to make further trial of his fortune, since even Cato and Scipio, by refusing to yield to a victorious Caesar after Pharsalus, had incurred the charge of needlessly squandering the lives of many brave men in Africa, although their struggle was in behalf of Roman freedom. 
+				<milestone n="3" unit="section"/>For in general all men alike are subject to the decrees of fortune, but of one thing she cannot rob a good man, and that is the privilege, in case of adversity, of taking reasonable measures to correct the situation that confronts him.
+			</p>
+         <p>By this speech Celsus won over the officers. And after they had sounded the soldiers and found them desirous of peace, and when Titianus urged that an embassy be sent in the interest of concord, Celsus and Gallus decided to go and confer with Caecina and Valens. 
+				<milestone n="4" unit="section"/>But as they were on the way they were met by some centurions of the enemy, who said that their army was already in motion and was on its way to Bedriacum, and that they themselves had been sent out by their generals to treat for concord. Accordingly, Celsus commended them, and bade them turn back with him and go to meet Caecina. But when they were near the army of Caecina, Celsus ran risk of his life. For it chanced that the horsemen who had formerly been worsted by him at the ambush were riding on in advance. 
+				<milestone n="5" unit="section"/>So when they saw Celsus coming up, they forthwith raised a shout and dashed against him. But the centurions stood in front of him and kept them off; the other officers also shouted to the horsemen to spare Celsus, and Caecina, hearing their cries, rode up and speedily brought his horsemen to order. Then he greeted Celsus in a friendly manner and went on with him to Bedriacum. 
+				<milestone n="6" unit="section"/>But meanwhile Titianus had repented of having sent the embassy, and after ordering the more resolute of the soldiers back again upon the walls, he exhorted the rest to go to their support. However, when Caecina rode up on his horse and stretched out his hand to them, not a man resisted further, but some greeted his soldiers from the walls, while others, throwing open the gates, went forth and mingled with the advancing troops. 
+				<milestone n="7" unit="section"/>There were no hostilities, on the part of Otho's men, but only friendly salutations and greetings, and all took oath to support Vitellius and went over to his side.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>This is the account which most of the participants give of the battle, although they themselves confess that they were ignorant of its details, owing to the disorder and the unequal fortunes of the several groups. At a later time, when I was travelling through the plain, Mestrius Florus, one of the men of consular rank who were at that time with Otho (by constraint, and not of their own will), pointed out to me an ancient temple, and told me how, as he came up to it after the battle, he saw a heap of dead bodies so high that those on top of it touched the gable of the temple. 
+				<milestone n="2" unit="section"/>The reason for this he said he could neither discover himself nor learn from anyone else. It is natural, indeed, that in civil wars, when a rout takes place, more men should be killed, because no quarter is given (there being no use for prisoners); but why the dead bodies should be collected and heaped up in such a manner is not easy to determine.
+				<milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+				To Otho there came at first, as is usual in such catastrophes, an indistinct rumour of the result; but presently some of his soldiers who had been wounded came with direct tidings of the battle. Here one cannot so much wonder that his friends would not let him give up all for lost, and exhorted him to be of good cheer; but the feelings of his soldiers towards him passed all belief. Not a man of them left him, 
+				<milestone n="2" unit="section"/>or went over to the victorious side, or was seen to despair of the emperor's cause and seek his own safety, but all alike came to his door, called upon him as emperor, became his humble suppliants when he appeared before them, seized his hands with cries and prayers, fell down before him, wept, begged him not to abandon them, and not to betray them to their enemies, but to use their lives and persons in his service as long as they had breath. 
+				<milestone n="3" unit="section"/>Such were their united supplications. And one obscure soldier held up his sword, and with the words 
+				<q direct="unspecified">Know, O Caesar, that all of us stand in this fashion at thy side,</q> slew himself.
+			</p>
+         <p>None of these things, however, broke Otho down, but looking all around with a countenance composed and cheerful, he said: "
+				<q direct="unspecified">This day, my fellow-soldiers, I deem more blessed than that on which ye first made me emperor, since I see you so devoted to me and am judged worthy of so high honour at your hands. 
+					<milestone n="4" unit="section"/>But do not rob me of a greater blessedness-that of dying nobly in behalf of fellow-citizens so many and so good. If I was worthy to be Roman emperor, I ought to give my life freely for my country. I know that the victory of our adversaries is neither decisive nor assured. I have word that our forces from Mysia are already approaching the Adriatic, and are only a few days distant from us. 
+					<milestone n="5" unit="section"/>Asia, Syria, Egypt, and the armies fighting against the Jews, are on our side; the senate, too, is with us, as well as the wives and children of our adversaries. Still, it is not to defend Italy against Hannibal, or Pyrrhus, or the Cimbri, that our war is waged, but both parties are waging war against Romans, and we sin against our country whether we conquer or are conquered. For the victor's gain is our country's loss. 
+					<milestone n="6" unit="section"/>Believe me when I insist that I can die more honourably than I can reign. For I do not see how my victory can be of so great advantage to the Romans as my offering up my life to secure peace and concord, and to prevent Italy from beholding such a day again.</q>
+			      </p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>So he spake, and after resisting firmly those who tried to oppose and dissuade him, he ordered his friends to depart, as well as the men of senatorial rank who were present; to those who were absent he sent the same command, and wrote to the cities urging them to escort the travellers on their way with honour and in safety. 
+				<milestone n="2" unit="section"/>Then he sent for his nephew Cocceius, who was still a youth, and bade him be of good cheer and not fear Vitellius, whose mother and wife and children he had kept safe and cared for as though they were his own. He had desired, he said, to make him his son, but had put off the adoption, in order that the youth might share his power after he had prevailed, and not perish with him after he had failed. 
+				<q direct="unspecified">And now, my boy,</q> he said, 
+				<q direct="unspecified">this is my last charge to thee; do not altogether forget, and do not too well remember, that thou hadst a Caesar for an uncle.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>This done, after a little he heard tumult and shouting at his door. For as the men of senatorial rank were departing, the soldiers threatened to kill them if they did not remain, instead of forsaking their emperor. Once more, then, he went forth, since he feared for the men's safety. He was no longer gentle and suppliant, however, but stern of countenance, and looking angrily round upon the most turbulent of the soldiers, he made them go away submissively and in fear.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was now evening, and being thirsty, he drank a little water. He had two swords, and after examining the blade of each for a long time, he laid one of them aside, but put the other under his arm, and then called his servants. These he addressed kindly, and distributed money to them, more to one and less to another, not as though lavish with what was no longer to be his, but with strict regard to moderation and the claims of merit. 
+				<milestone n="2" unit="section"/>After sending the servants away, he betook himself to rest for the remainder of the night, and slept so soundly that his chamberlains heard his heavy breathing. Just before dawn he called a freedman with whom he had arranged for the departure of the senators, and bade him learn how they fared. And when he was told that all of them had what was needful for their journey, 
+				<q direct="unspecified">Go thou, then,</q> he said to the freedman, 
+				<q direct="unspecified">and show thyself to the soldiers, unless thou wishest them to put thee to a miserable death for helping me to die.</q> 
+				        <milestone n="3" unit="section"/>Then, when the man had gone out, with both hands he held his sword upright beneath him, and fell upon it, giving but a single groan as he felt the pang. The servants outside heard his groan and raised a wailing cry, and at once the whole camp and the city were filled with lamentation. The soldiers, with loud cries, burst in at the door, and then bewailed their emperor, full of anguish, and reviling themselves because they had not watched over him and prevented him from dying in their behalf. 
+				<milestone n="4" unit="section"/>Not one of his followers went away, although the enemy were near, but after attiring the body and preparing a funeral pyre for it, they escorted it thither with military honours, and full of exultation were those who won the privilege of carrying the bier. Of the rest, some embraced the emperor's body and kissed his wound, others grasped his hands, and others still made him their obeisance at a distance. There were some, too, who first put their torches to the pyre and then slew themselves, not, so far as could be known, because they were either indebted to the dead for favours, or fearful of punishment at the hands of the victor. 
+				<milestone n="5" unit="section"/>Nay, it would seem that no king or tyrant was ever possessed by so dire and frenzied a passion for ruling as was that of these soldiers for being ruled and commanded by Otho; not even after his death did their yearning for him leave them, nay, it abode with them until it finally changed into an incurable hatred for Vitellius.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Well, then, the rest of the story is now in place. They buried the   remains of Otho, and made a tomb for them which neither by the great size of its mound nor by the boastfulness of its inscription could awaken jealousy. I saw it when I was at Brixillum. It is a modest memorial and the inscription on it, in translation, runs thus: 
+				<q direct="unspecified">To the memory of Marcus Otho.</q>
+			      </p>
+         <p>
+				        <milestone n="2" unit="section"/>Otho died at the age of thirty-seven years, but he had ruled only three months, and when he was gone, those who applauded his death were no fewer or less illustrious than those who blamed his life. For though he lived no more decently than Nero, he died more nobly.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>As for his soldiers, when Pollio, their remaining prefect,<note resp="ed" place="unspecified" anchored="yes">The other was Proculus, (<bibl n="Plut. Oth. 7.4">vii. 4</bibl>; <bibl n="Plut. Oth. 8.1">xiii. 1</bibl>).</note> ordered them to swear allegiance at once to Vitellius, they were incensed; and when they learned that some of the senators were still there, they let all of them go except Verginius Rufus, and him they annoyed by going to his house in military array and inviting him again,<note resp="ed" place="unspecified" anchored="yes">See The <bibl n="Plut. Galb. 6.3">
+                  <title>Galba</title>, vi. 3</bibl>; <bibl n="Plut. Galb. 10.2">x. 2 ff.</bibl>
+            </note> and even urging him, to assume the imperial power, or to go on an embassy in their behalf. 
+				<milestone n="4" unit="section"/>But Verginius thought it would be madness for him to accept the imperial dignity now, when they were defeated, after refusing it before, when they were victorious, and as for going on an embassy to the Germans, he feared to do so, since they felt that he had often done them violence beyond all reason; and so he stole away unobserved by another door. When the soldiers learned of this, they consented to take the oaths, and joined the forces of Caecina, thus obtaining pardon.
+			</p>
+      </body>
+   </text>
+</TEI.2>

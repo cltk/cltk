@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Per." type="work">Pericles</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;&fund.AnnCPB;</titleStmt>
+         <extent>about 104Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Per."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1916</date>
+                  </imprint>
+                  <biblScope type="volume">3</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990722</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>8/90</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Proofread by Ted Armstrong.</item>
+         </change>
+         <change>
+            <date>8/91</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Revise DTDs and recheck texts.</item>
+         </change>
+         <change>
+            <date>8/92</date>
+            <respStmt>
+               <name>DAS</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Removed highlighted text, cleaned up notes and citations,
+					and changed chapters to DIV2's.</item>
+         </change>
+         <change>
+            <date>10/22/92</date>
+            <respStmt>
+               <name>EM</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Glued all Plutarch files together,
+					put in HEAD tags to title them.</item>
+         </change>
+         <change>
+            <date>9/12/97</date>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>Made conformant with TEI P3.</item>
+         </change>
+         <change>
+            <date/>
+            <respStmt>
+               <name>David Smith</name>
+               <resp>ed.</resp>
+            </respStmt>
+            <item>	
+					$Log: plut.per_eng.xml,v $
+					Revision 1.4  2010-11-30 18:28:12  balmas01
+					getting rid of angle brackets in commit comments
+
+					Revision 1.3  2010-11-19 13:47:05  balmas01
+					Normalizing quote q and lb
+
+					Revision 1.2  2009-12-15 20:52:50  rsingh04
+					converted demetrius, antony and comparison from sgml to xml and added to hopper.  also replaced xml snippets in other plutarch files with their respective entities.
+
+					Revision 1.1  2009/12/07 22:05:55  rsingh04
+					moved more xml files around based on copyright status.  split up Plutarch/plut_gk.xml into separate files and gave them their own doc ids.
+
+					Revision 1.5  2009/06/19 19:09:10  lcerrato
+					fixed bad bibls
+
+					Revision 1.4  2009/06/11 15:43:28  student
+					fixing citations - ad
+
+					Revision 1.3  2009/01/23 22:09:51  rsingh04
+					small fixes
+
+					Revision 1.2  2009/01/22 22:18:58  rsingh04
+					now validates and entities fixed
+
+					Revision 1.2  2001/09/28 19:34:07  lcerrato
+					cleaned up quotes, bibls and notes
+					
+					Revision 1.1  2001/09/27 21:56:41  lcerrato
+					adding new tags for DE, ISBN, etc.
+					
+					Revision 1.4  2000/03/04 20:35:11  dasmith
+					Added separate funder entity to TEI header.
+					
+					Revision 1.3  1999/07/28 18:27:56  dasmith
+					Added text to REFSDECL.
+					
+					Revision 1.2  1999/07/09 23:15:27  textgod
+					Converted to TEI-conformant SGML.
+				</item>
+         </change>
+         <change>
+            <date>9/01</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>removed from group file, retagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>PERICLES</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>On seeing certain wealthy foreigners in Rome carrying puppies and young monkeys about in their bosoms and fondling them, Caesar<note resp="ed" place="unspecified" anchored="yes">Caesar Augustus.</note> asked, we are told, if the women in their country did not bear children, thus in right princely fashion rebuking those who squander on animals that proneness to love and loving affection which is ours by nature, and which is due only to our fellow-men.
+				<milestone n="2" unit="section"/>
+				Since, then, our souls are by nature possessed of great fondness for learning and fondness for seeing, it is surely reasonable to chide those who abuse this fondness on objects all unworthy either of their eyes or ears, to the neglect of those which are good and serviceable. Our outward sense, since it apprehends the objects which encounter it by virtue of their mere impact upon it, must  the exercise of his mind every man, if he pleases, has the natural power to turn himself away in every case, and to change, without the least difficulty, 
+				<milestone n="3" unit="section"/>
+				to that object upon which he himself determines.  It is meet, therefore, that he pursue what is best, to the end that he may not merely regard it, but also be edified by regarding it.  A color is suited to the eye if its freshness, and its pleasantness as well, stimulates and nourishes the vision; and so our intellectual vision must be applied to such objects as, by their very charm, invite it onward to its own proper good.
+				<milestone n="4" unit="section"/>
+				Such objects are to be found in virtuous deeds; these implant in those who search them out a great and zealous eagerness which leads to imitation.  In other cases, admiration of the deed is not immediately  accompanied by an impulse to do it.  Nay, many times, on the contrary, while we delight in the work, we despise the workman, as, for instance, in the case of perfumes and dyes; we take a delight in them, but dyers and perfumers we regard as illiberal and vulgar folk.
+				<milestone n="5" unit="section"/>
+				Therefore it was a fine saying of Antisthenes, when he heard that Ismenias was an excellent piper: 
+				<q direct="unspecified">But he's a worthless man,</q> said he, 
+				<q direct="unspecified">otherwise he wouldn't be so good a piper.</q> And so Philip<note resp="ed" place="unspecified" anchored="yes">Philip of Macedon, to Alexander.</note> once said to his son, who, as the wine went round, plucked the strings charmingly and skilfully, 
+				<q direct="unspecified">Art not ashamed to pluck the strings so well?</q>  It is enough, surely, if a king have leisure to hear others pluck the strings, and he pays great deference to the Muses if he be but a spectator of such contests.
+				<milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Labour with one's own hands on lowly tasks gives witness, in the toil thus expended on useless things, to one's own indifference to higher things. No generous youth, from seeing the Zeus at Pisa<note resp="ed" place="unspecified" anchored="yes">That is, Olympia.</note> or the Hera at Argos, longs to be Pheidias or Polycleitus; nor to be Anacreon or Philetas or Archilochus out of pleasure in their poems.
+				<milestone n="2" unit="section"/>
+				For it does not of necessity follow that, if the work delights you with its grace, the one who wrought it is worthy of your esteem.  Wherefore the spectator is not advantaged by those things at sight of which no ardor for imitation arises in the breast, nor any uplift of the soul arousing zealous impulses to do the like.  But virtuous action straightway so disposes a man that he no sooner admires the works of virtue than he strives to emulate those who wrought them.
+				<milestone n="3" unit="section"/>
+				The good things of Fortune we love to possess and enjoy; those of Virtue we love to perform.  The former we are willing should be ours at the hands of others; the latter we wish that others rather should have at our hands.  The Good creates a stir of activity towards itself, and implants at once in the spectator an active impulse; it does not form his character by ideal representation alone, but through the investigation of its work it furnishes him with a dominant purpose.
+				<milestone n="4" unit="section"/>
+				For such reasons I have decided to persevere in my writing of Lives, and so have composed this tenth book, containing the life of Pericles, and that of Fabius Maximus, who waged such lengthy war with Hannibal.  The men were alike in their virtues, and more especially in their gentleness and rectitude, and by their ability to endure the follies of their peoples and of their colleagues in office, they proved of the greatest service to their countries.  But whether I aim correctly at the proper mark must be decided from what I have written.
+				<milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Pericles was of the tribe Acamantis, of the deme Cholargus, and of the foremost family and lineage on both sides.  His father, Xanthippus, who conquered the generals of the King at Mycale,<note resp="ed" place="unspecified" anchored="yes">479 B.C.</note> married Agariste, granddaughter<note resp="ed" place="unspecified" anchored="yes">His niece, rather.</note> of that Cleisthenes who, in such noble fashion, expelled the Peisistratidae and destroyed their tyranny, instituted laws, and established a constitution best tempered for the promotion of harmony and safety.
+				<milestone n="2" unit="section"/>
+				She, in her dreams, once fancied that she had given birth to a lion, and a few days thereafter bore Pericles.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Hdt. 6.131">Hdt. 6.131</bibl>
+            </note>
+			      </p>
+         <p>His personal appearance was unimpeachable, except that his head was rather long and out of due proportion. For this reason the images of him, almost all of them, wear helmets, because the artists, as it would seem, were not willing to reproach him with deformity.  The comic poets of Attica used to call him 
+				<q direct="unspecified">Schinocephalus,</q> or Squill-head (the squill is sometimes called 
+				<q direct="unspecified">schinus</q>)
+				<milestone n="3" unit="section"/>
+				So the comic poet Cratinus, in his 
+				<q direct="unspecified">Cheirons,</q> says: 
+				<q direct="unspecified">Faction and Saturn, that ancient of days, were united in wedlock; their offspring was of all tyrants the greatest, and lo! he is called by the gods the head-compeller.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 86.</bibl>
+            </note> And again in his 
+				<q direct="unspecified">Nemesis</q>: 
+				<q direct="unspecified">Come, Zeus! of guests and heads the Lord!</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 49.</bibl>
+            </note>
+				        <milestone n="4" unit="section"/>
+				And Telecleides speaks of him as sitting on the acropolis in the greatest perplexity, 
+				<q direct="unspecified">now heavy of head, and now alone, from the eleven-couched chamber of his head, causing vast uproar to arise.</q>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 2220.</bibl>
+            </note> And Eupolis, in his 
+				<q direct="unspecified">Demes,</q> having inquiries made about each one of the demagogues as they come up from Hades, says, when Pericles is called out last:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>The very head of those below hast thou now brought.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 280.</bibl>
+            </note>
+				
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>His teacher in music, most writers state, was Damon (whose name, they say, should be pronounced with the first syllable short); but Aristotle<note resp="ed" place="unspecified" anchored="yes">Plato, rather, in <bibl n="Plat. Alc. 1 118c">Plat. Alc. 1 118c</bibl>.</note> says he had a thorough musical training at the hands of Pythocleides.  Now Damon seems to have been a consummate sophist, but to have taken refuge behind the name of music in order to conceal from the multitude his real power, and he associated with Pericles, that political athlete, as it were, in the capacity of rubber and trainer.
+				<milestone n="2" unit="section"/>
+				However, Damon was not left unmolested in this use of his lyre as a screen, but was ostracized for being a great schemer and a friend of tyranny, and became a butt of the comic poets. At all events, Plato<note resp="ed" place="unspecified" anchored="yes">Plato the comic poet.<bibl>Kock, <title>Com. Att. Frag.</title> i. p. 655.</bibl>
+            </note> represented some one as inquiring of him thus:&mdash;
+				
+				<quote rend="blockquote">
+               <l>In the first place tell me then, I beseech thee, thou who art</l>
+					          <l>The Cheiron, as they say, who to Pericles gave his craft.</l>
+				        </quote>
+				
+				        <milestone n="3" unit="section"/>
+				Pericles was also a pupil of Zeno the Eleatic, who discoursed on the natural world, like Parmenides, and perfected a species of refutative catch which was sure to bring an opponent to grief; as Timon of Phlius expressed it:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>His was a tongue that could argue both ways with a fury resistless,</l>
+					          <l>Zeno's; assailer of all things.</l>
+				        </quote>
+				
+				        <milestone n="4" unit="section"/>
+				But the man who most consorted with Pericles, and did most to clothe him with a majestic demeanor that had more weight than any demagogue's appeals, yes, and who lifted on high and exalted the dignity of his character, was Anaxagoras the Clazomenian, whom men of that day used to call 
+				<q direct="unspecified">Nous,</q> either because they admired that comprehension of his, which proved of such surpassing greatness in the investigation of nature; or because he was the first to enthrone in the universe, not Chance, nor yet Necessity, as the source of its orderly arrangement, but Mind (Nous) pure and simple, which distinguishes and sets apart, in the midst of an otherwise chaotic mass, the substances which have like elements.
+				<milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>This man Pericles extravagantly admired, and being gradually filled full of the so-called higher philosophy and elevated speculation, he not only had, as it seems, a spirit that was solemn and a discourse that was lofty and free from plebeian and reckless effrontery, but also a composure of countenance that never relaxed into laughter, a gentleness of carriage and cast of attire that suffered no emotion to disturb it while he was speaking, a modulation of voice that was far from boisterous, and many similar characteristics which struck all his hearers with wondering amazement.
+				<milestone n="2" unit="section"/>
+				It is, at any rate, a fact that, once on a time when he had been abused and insulted all day long by a certain lewd fellow of the baser sort, he endured it all quietly, though it was in the marketplace, where he had urgent business to transact, and towards evening went away homewards unruffled, the fellow following along and heaping all manner of contumely upon him.
+				<milestone n="3" unit="section"/>
+				When he was about to go in doors, it being now dark, he ordered a servant to take a torch and escort the fellow in safety back to his own home.
+			</p>
+         <p>The poet Ion, however, says that Pericles had a presumptuous and somewhat arrogant manner of address, and that into his haughtiness there entered a good deal of disdain and contempt for others; he praises, on the other hand, the tact, complaisance, and elegant address which Cimon showed in his social intercourse.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cim. 9">Plut. Cim. 9</bibl>.</note>
+				        <milestone n="4" unit="section"/>
+				But we must ignore Ion, with his demand that virtue, like a dramatic tetralogy, have some sort of a farcical appendage.  Zeno, when men called the austerity of Pericles a mere thirst for reputation, and swollen conceit, urged them to have some such thirst for reputation themselves, with the idea that the very assumption of nobility might in time produce, all unconsciously, something like an eager and habitual practice of it.
+				<milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>These were not the only advantages Pericles had of his association with Anaxagoras.  It appears that he was also lifted by him above superstition, that feeling which is produced by amazement at what happens in regions above us.  It affects those who are ignorant of the causes of such things, and are crazed about divine intervention, and confounded through their inexperience in this domain; whereas the doctrines of natural philosophy remove such ignorance and inexperience, and substitute for timorous and inflamed superstition that unshaken reverence which is attended by a good hope.
+				<milestone n="2" unit="section"/>
+				A story is told that once on a time the head of a one-horned ram was brought to Pericles from his country-place, and that Lampon the seer, when he saw how the horn grew strong and solid from the middle of the forehead, declared that, whereas there were two powerful parties in the city, that of Thucydides and that of Pericles, the mastery would finally devolve upon one man,&mdash;the man to whom this sign had been given.  Anaxagoras, however, had the skull cut in two, and showed that the brain had not filled out its position, but had drawn together to a point, like an egg, at that particular spot in the entire cavity where the root of the horn began.
+				<milestone n="3" unit="section"/>
+				At that time, the story says, it was Anaxagoras who won the plaudits of the bystanders; but a little while after it was Lampon, for Thucydides was overthrown, and Pericles was entrusted with the entire control of all the interests of the people.
+			</p>
+         <p>Now there was nothing, in my opinion, to prevent both of them, the naturalist and the seer, from being in the right of the matter; the one correctly divined the cause, the other the object or purpose. It was the proper province of the one to observe why anything happens, and how it comes to be what it is; of the other to declare for what purpose anything happens, and what it means.
+				<milestone n="4" unit="section"/>
+				And those who declare that the discovery of the cause, in any phenomenon, does away with the meaning, do not perceive that they are doing away not only with divine portents, but also with artificial tokens, such as the ringing of gongs, the language of fire-signals, and the shadows of the pointers on sundials.  Each of these has been made, through some causal adaptation, to have some meaning.  However, perhaps this is matter for a different treatise.
+				<milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>As a young man, Pericles was exceedingly reluctant to face the people, since it was thought that in feature he was like the tyrant Peisistratus; and when men well on in years remarked also that his voice was sweet, and his tongue glib and speedy in discourse, they were struck with amazement at the resemblance.  Besides, since he was rich, of brilliant lineage, and had friends of the greatest influence, he feared that he might be ostracized, and so at first had naught to do with politics, but devoted himself rather to a military career, where he was brave and enterprising.
+				<milestone n="2" unit="section"/>
+				However, when Aristides was dead,<note resp="ed" place="unspecified" anchored="yes">Soon after 468 B.C.</note> and Themistocles in banishment,<note resp="ed" place="unspecified" anchored="yes">After 472 B.C.</note> and Cimon was kept by his campaigns for the most part abroad, then at last Pericles decided to devote himself to the people, espousing the cause of the poor and the many instead of the few and the rich, contrary to his own nature, which was anything but popular.
+				<milestone n="3" unit="section"/>
+				But he feared, as it would seem, to encounter a suspicion of aiming at tyranny, and when he saw that Cimon was very aristocratic in his sympathies, and was held in extraordinary affection by the party of the 
+				<q direct="unspecified">Good and True,</q> he began to court the favour of the multitude, thereby securing safety for himself, and power to wield against his rival.
+				<milestone n="4" unit="section"/>
+				Straightway, too, he made a different ordering in his way of life.  On one street only in the city was he to be seen walking,&mdash;the one which took him to the market-place and the council-chamber. Invitations to dinner, and all such friendly and familiar intercourse, he declined, so that during the long period that elapsed while he was at the head of the state, there was not a single friend to whose house he went to dine, except that when his kinsman Euryptolemus gave a wedding feast, he attended until the libations were made,<note resp="ed" place="unspecified" anchored="yes">That is, until the wine for the symposium was brought in,and drinking began.</note> and then straightway rose up and departed.
+				<milestone n="5" unit="section"/>
+				Conviviality is prone to break down and overpower the haughtiest reserve, and in familiar intercourse the dignity which is assumed for appearance's sake is very hard to maintain.  Whereas, in the case of true and genuine virtue, 
+				<q direct="unspecified">fairest appears what most appears,</q> and nothing in the conduct of good men is so admirable in the eyes of strangers, as their daily walk and conversation is in the eyes of those who share it.
+			</p>
+         <p>And so it was that Pericles, seeking to avoid the satiety which springs from continual intercourse, made his approaches to the people by intervals, as it were, not speaking on every question, nor addressing the people on every occasion, but offering himself like the Salaminian trireme, as Critolaus says, for great emergencies.  The rest of his policy he carried out by commissioning his friends and other public speakers.
+				<milestone n="6" unit="section"/>
+				One of these, as they say, was Ephialtes, who broke down the power of the Council of the Areiopagus, and so poured out for the citizens, to use the words of Plato,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Rep. 8.562c">Plat. Rep. 8.562c</bibl>.</note> too much 
+				<q direct="unspecified">undiluted freedom,</q> by which the people was rendered unruly, just like a horse, and, as the comic poets say, 
+				<q direct="unspecified">no longer had the patience to obey the rein, but nabbed Euboea and trampled on the islands.</q>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Moreover, by way of providing himself with a style of discourse which was adapted, like a musical instrument, to his mode of life and the grandeur of his sentiments, he often made an auxiliary string of Anaxagoras, subtly mingling, as it were, with his rhetoric the dye of natural science.  It was from natural science, as the divine Plato says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Phaedrus 270a">Plat. Phaedrus 270a</bibl>
+            </note> that he 
+				<q direct="unspecified">acquired his loftiness of thought and perfectness of execution, in addition to his natural gifts,</q> and by applying what he learned to the art of speaking, he far excelled all other speakers.
+				<milestone n="2" unit="section"/>
+				It was thus, they say, that he got his surname; though some suppose it was from the structures with which he adorned the city, and others from his ability as a statesman and a general, that he was called Olympian.  It is not at all unlikely that his reputation was the result of the blending in him of many high qualities.
+				<milestone n="3" unit="section"/>
+				But the comic poets of that day who let fly, both in earnest and in jest, many shafts of speech against him, make it plain that he got this surname chiefly because of his diction; they spoke of him as 
+				<q direct="unspecified">thundering</q> and 
+				<q direct="unspecified">lightening</q> when he harangued his audience,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Aristoph. Ach. 528">Aristoph. Ach. 528-531</bibl>.</note> and as 
+				<q direct="unspecified">wielding a dread thunderbolt in his tongue.</q>
+			      </p>
+         <p>There is on record also a certain saying of Thucydides, the son of Melesias, touching the clever persuasiveness of Pericles, a saying uttered in jest.
+				<milestone n="4" unit="section"/>
+				Thucydides belonged to the party of the 
+				<q direct="unspecified">Good and True,</q> and was for a very long time a political antagonist of Pericles.  When Archidamus, the king of the Lacedaemonians, asked him whether he or Pericles was the better wrestler, he replied: 
+				<q direct="unspecified">Whenever I throw him in wrestling, he disputes the fall, and carries his point, and persuades the very men who saw him fall.</q>
+			      </p>
+         <p>The truth is, however, that even Pericles, with all his gifts, was cautious in his discourse, so that whenever he came forward to speak he prayed the gods that there might not escape him unawares a single word which was unsuited to the matter under discussion.
+				<milestone n="5" unit="section"/>
+				In writing he left nothing behind him except the decrees which he proposed, and only a few in all of his memorable sayings are preserved, as, for instance, his urging the removal of Aegina as the 
+				<q direct="unspecified">eye-sore of the Piraeus,</q> and his declaring that he 
+				<q direct="unspecified">already beheld war swooping down upon them from Peloponnesus.</q>  Once also when Sophocles, who was general with him on a certain naval expedition,<note resp="ed" place="unspecified" anchored="yes">Against Samos, 440-439 B.C.</note> praised a lovely boy, he said: 
+				<q direct="unspecified">It is not his hands only, Sophocles, that a general must keep clean, but his eyes as well.</q>
+				        <milestone n="6" unit="section"/>
+				Again, Stesimbrotus says that, in his funeral oration over those who had fallen in the Samian War, he declared that they had become immortal, like the gods; 
+				<q direct="unspecified">the gods themselves,</q> he said, 
+				<q direct="unspecified">we cannot see, but from the honors which they receive, and the blessings which they bestow, we conclude that they are immortal.</q>  So it was, he said, with those who had given their lives for their country.
+				<milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Thucydides describes<note resp="ed" place="unspecified" anchored="yes">In the encomium on Pericles, <bibl n="Thuc. 2.65.9">Thuc. 2.65.9</bibl>.</note> the administration of Pericles as rather aristocratic,&mdash;
+				<q direct="unspecified">in name a democracy, but in fact a government by the greatest citizen.</q>  But many others say that the people was first led on by him into allotments of public lands, festival-grants, and distributions of fees for public services, thereby falling into bad habits, and becoming luxurious and wanton under the influence of his public measures, instead of frugal and self-sufficing.  Let us therefore examine in detail the reason for this change in him.<note resp="ed" place="unspecified" anchored="yes">The discussion of this change in Pericles from the methods of a demagogue to the leadership described by Thucydides, continues through chapter 15.</note>
+				        <milestone n="2" unit="section"/>
+			      </p>
+         <p>In the beginning, as has been said, pitted as he was against the reputation of Cimon, he tried to ingratiate himself with the people.  And since he was the inferior in wealth and property, by means of which Cimon would win over the poor,&mdash;furnishing a dinner every day to any Athenian who wanted it, bestowing raiment on the elderly men, and removing the fences from his estates that whosoever wished might pluck the fruit,&mdash;Pericles, outdone in popular arts of this sort, had recourse to the distribution of the people's own wealth.  This was on the advice of Damonides, of the deme Oa, as Aristotle has stated.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristot. Ath. Pol. 27.4">Aristot. Const. Ath. 27.4</bibl>.</note>
+				        <milestone n="3" unit="section"/>
+			      </p>
+         <p>And soon, what with festival-grants and jurors' wages and other fees and largesses, he bribed the multitude by the wholesale, and used them in opposition to the Council of the Areiopagus.  Of this body he himself was not a member, since the lot had not made him either First Archon, or Archon Thesmothete, or King Archon, or Archon Polemarch. These offices were in ancient times filled by lot, and through them those who properly acquitted themselves were promoted into the Areiopagus.
+				<milestone n="4" unit="section"/>
+				For this reason all the more did Pericles, strong in the affections of the people, lead a successful party against the Council of the Areiopagus.  Not only was the Council robbed of most of its jurisdiction by Ephialtes, but Cimon also, on the charge of being a lover of Sparta and a hater of the people, was ostracized,<note resp="ed" place="unspecified" anchored="yes">461 B.C.  Cf. <bibl n="Plut. Cim. 16.2">Plut. Cim. 16.2</bibl>.</note>&mdash;a man who yielded to none in wealth and lineage, who had won most glorious victories over the Barbarians, and had filled the city full of money and spoils, as is written in his Life.  Such was the power of Pericles among the people.
+				<milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Now ostracism involved legally a period of ten years' banishment.  But in the meanwhile<note resp="ed" place="unspecified" anchored="yes">457 B.C.</note> the Lacedaemonians invaded the district of Tanagra with a great army, and the Athenians straightway sallied out against them.  So Cimon came back from his banishment and stationed himself with his tribesmen in line of battle, and determined by his deeds to rid himself of the charge of too great love for Sparta, in that he shared the perils of his fellow-citizens.  But the friends of Pericles banded together and drove him from the ranks, on the ground that he was under sentence of banishment.
+				<milestone n="2" unit="section"/>
+				For which reason, it is thought, Pericles fought most sturdily in that battle, and was the most conspicuous of all in exposing himself to danger.  And there fell in this battle all the friends of Cimon to a man, whom Pericles had accused with him of too great love for Sparta.  Wherefore sore repentance fell upon the Athenians, and a longing desire for Cimon, defeated as they were on the confines of Attica, and expecting as they did a grievous war with the coming of spring.
+				<milestone n="3" unit="section"/>
+				So then Pericles, perceiving this, hesitated not to gratify the desires of the multitude, but wrote with his own hand the decree which recalled the man.  Whereupon Cimon came back from banishment and made peace<note resp="ed" place="unspecified" anchored="yes">450 B.C.</note> between the cities.  For the Lacedaemonians were as kindly disposed towards him as they were full of hatred towards Pericles and the other popular leaders.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Some, however, say that the decree for the restoration of Cimon was not drafted by Pericles until a secret compact had been made between them, through the agency of Elpinice, Cimon's sister, to the effect that Cimon should sail out with a fleet of two hundred ships and have command in foreign parts, attempting to subdue the territory of the King, while Pericles should have supreme power in the city.
+				<milestone n="5" unit="section"/>
+				And it was thought that before this, too, Elpinice had rendered Pericles more lenient towards Cimon, when he stood his trial on the capital charge of treason.<note resp="ed" place="unspecified" anchored="yes">463. B.C.  Cf. <bibl n="Plut. Cim. 14.2">Plut. Cim. 14.2-4</bibl>.</note> Pericles was at that time one of the committee of prosecution appointed by the people, and on Elpinice's coming to him and supplicating him, said to her with a smile: 
+				<q direct="unspecified">Elpinice, thou art an old woman, thou art an old woman, to attempt such tasks.</q>  However, he made only one speech, by way of formally executing his commission, and in the end did the least harm to Cimon of all his accusers.
+				<milestone n="6" unit="section"/>
+			      </p>
+         <p>How, then, can one put trust in Idomeneus, who accuses Pericles of assassinating the popular leader Ephialtes, though he was his friend and a partner in his political program, out of mere jealousy and envy of his reputation?  These charges he has raked up from some source or other and hurled them, as if so much venom, against one who was perhaps not in all points irreproachable, but who had a noble disposition and an ambitious spirit, wherein no such savage and bestial feelings can have their abode.
+				<milestone n="7" unit="section"/>
+				As for Ephialtes, who was a terror to the oligarchs and inexorable in exacting accounts from those who wronged the people, and in prosecuting them, his enemies laid plots against him, and had him slain secretly by Aristodicus of Tanagra, as Aristotle says.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristot. Ath. Pol. 25.4">Aristot. Const. Ath. 25.4</bibl>.</note> As for Cimon, he died on his campaign in Cyprus.<note resp="ed" place="unspecified" anchored="yes">449 B.C.  Cf. <bibl n="Plut. Cim. 18">Plut. Cim. 18-19</bibl>.</note>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Then the aristocrats, aware even some time before this that Pericles was already become the greatest citizen, but wishing nevertheless to have some one in the city who should stand up against him and blunt the edge of his power, that it might not be an out and out monarchy, put forward Thucydides of Alopece, a discreet man and a relative of Cimon, to oppose him.
+				<milestone n="2" unit="section"/>
+				He, being less of a warrior than Cimon, and more of a forensic speaker and statesman, by keeping watch and ward in the city, and by wrestling bouts with Pericles on the bema, soon brought the administration into even poise.
+			</p>
+         <p>He would not suffer the party of the 
+				<q direct="unspecified">Good and True,</q> as they called themselves, to be scattered up and down and blended with the populace, as heretofore, the weight of their character being thus obscured by numbers, but by culling them out and assembling them into one body, he made their collective influence, thus become weighty, as it were a counterpoise in the balance.
+				<milestone n="3" unit="section"/>
+				Now there had been from the beginning a sort of seam hidden beneath the surface of affairs, as in a piece of iron, which faintly indicated a divergence between the popular and the aristocratic programme; but the emulous ambition of these two men cut a deep gash in the state, and caused one section of it to be called the 
+				<q direct="unspecified">Demos,</q> or the People, and the other the 
+				<q direct="unspecified">Oligoi,</q> or the Few.
+				<milestone n="4" unit="section"/>
+				At this time, therefore, particularly, Pericles gave the reins to the people, and made his policy one of pleasing them, ever devising some sort of a pageant in the town for the masses, or a feast, or a procession, 
+				<q direct="unspecified">amusing them like children with not uncouth delights,</q>
+            <note resp="ed" place="unspecified" anchored="yes">An iambic trimeter from an unknown source.</note> and sending out sixty triremes annually, on which large numbers of the citizens sailed about for eight months under pay, practising at the same time and acquiring the art of seamanship.
+				<milestone n="5" unit="section"/>
+				In addition to this, he despatched a thousand settlers to the Chersonesus,<note resp="ed" place="unspecified" anchored="yes">447. B.C.  Cf. <bibl n="Plut. Per. 19.1">Plut. Per. 19.1-2</bibl>.</note> and five hundred to Naxos, and to Andros half that number, and a thousand to Thrace to settle with the Bisaltae, and others to Italy, when the site of Sybaris was settled,<note resp="ed" place="unspecified" anchored="yes">444 B.C.  Sybaris had been destroyed in 510 B.C.</note> which they named Thurii.  All this he did by way of lightening the city of its mob of lazy and idle busybodies, rectifying the embarrassments of the poorer people, and giving the allies for neighbors an imposing garrison which should prevent rebellion.
+				<milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But that which brought most delightful adornment to Athens, and the greatest amazement to the rest of mankind; that which alone now testifies for Hellas that her ancient power and splendor, of which so much is told, was no idle fiction,&mdash;I mean his construction of sacred edifices,&mdash;this, more than all the public measures of Pericles, his enemies maligned and slandered.  They cried out in the assemblies: 
+				<q direct="unspecified">The people has lost its fair fame and is in ill repute because it has removed the public moneys of the Hellenes from Delos into its own keeping,
+					<milestone n="2" unit="section"/>
+					and that seemliest of all excuses which it had to urge against its accusers, to wit, that out of fear of the Barbarians it took the public funds from that sacred isle and was now guarding them in a stronghold, of this Pericles has robbed it.  And surely Hellas is insulted with a dire insult and manifestly subjected to tyranny when she sees that, with her own enforced contributions for the war, we are gilding and bedizening our city, which, for all the world like a wanton woman, adds to her wardrobe precious stones and costly statues and temples worth their millions.</q>
+				        <milestone n="3" unit="section"/>
+			      </p>
+         <p>For his part, Pericles would instruct the people that it owed no account of their moneys to the allies provided it carried on the war for them and kept off the Barbarians; 
+				<q direct="unspecified">not a horse do they furnish,</q> said he, 
+				<q direct="unspecified">not a ship, not a hoplite, but money simply; and this belongs, not to those who give it, but to those who take it, if only they furnish that for which they take it in pay.
+					<milestone n="4" unit="section"/>
+					And it is but meet that the city, when once she is sufficiently equipped with all that is necessary for prosecuting the war, should apply her abundance to such works as, by their completion, will bring her everlasting glory, and while in process of completion will bring that abundance into actual service, in that all sorts of activity and diversified demands arise, which rouse every art and stir every hand, and bring, as it were, the whole city under pay, so that she not only adorns, but supports herself as well from her own resources.</q>
+				        <milestone n="5" unit="section"/>
+			      </p>
+         <p>And it was true that his military expeditions supplied those who were in the full vigor of manhood with abundant resources from the common funds, and in his desire that the unwarlike throng of common laborers should neither have no share at all in the public receipts, nor yet get fees for laziness and idleness, he boldly suggested to the people projects for great constructions, and designs for works which would call many arts into play and involve long periods of time, in order that the stay-at-homes, no whit less than the sailors and sentinels and soldiers, might have a pretext for getting a beneficial share of the public wealth.
+				<milestone n="6" unit="section"/>
+				The materials to be used were stone, bronze, ivory, gold, ebony, and cypress-wood; the arts which should elaborate and work up these materials were those of carpenter, moulder, bronze-smith, stone-cutter, dyer, worker in gold and ivory, painter, embroiderer, embosser, to say nothing of the forwarders and furnishers of the material, such as factors, sailors and pilots by sea,
+				<milestone n="7" unit="section"/>
+				and, by land, wagon-makers, trainers of yoked beasts, and drivers.  There were also rope-makers, weavers, leather-workers, road-builders, and miners.  And since each particular art, like a general with the army under his separate command, kept its own throng of unskilled and untrained laborers in compact array, to be as instrument unto player and as body unto soul in subordinate service, it came to pass that for every age, almost, and every capacity the city's great abundance was distributed and scattered abroad by such demands.
+				<milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>So then the works arose, no less towering in their grandeur than inimitable in the grace of their outlines, since the workmen eagerly strove to surpass themselves in the beauty of their handicraft. And yet the most wonderful thing about them was the speed with which they rose.  Each one of them, men thought, would require many successive generations to complete it, but all of them were fully completed in the heyday of a single administration.
+				<milestone n="2" unit="section"/>
+				And yet they say that once on a time when Agatharchus the painter was boasting loudly of the speed and ease with which he made his figures, Zeuxis heard him, and said, 
+				<q direct="unspecified">Mine take, and last, a long time.</q>  And it is true that deftness and speed in working do not impart to the work an abiding weight of influence nor an exactness of beauty; whereas the time which is put out to loan in laboriously creating, pays a large and generous interest in the preservation of the creation.
+				<milestone n="3" unit="section"/>
+				For this reason are the works of Pericles all the more to be wondered at; they were created in a short time for all time.  Each one of them, in its beauty, was even then and at once antique; but in the freshness of its vigor it is, even to the present day, recent and newly wrought.  Such is the bloom of perpetual newness, as it were, upon these works of his, which makes them ever to look untouched by time, as though the unfaltering breath of an ageless spirit had been infused into them.
+				<milestone n="4" unit="section"/>
+				His general manager and general overseer was Pheidias, although the several works had great architects and artists besides.  Of the Parthenon, for instance, with its cella of a hundred feet in length, Callicrates and Ictinus were the architects; it was Coroebus who began to build the sanctuary of the mysteries at Eleusis, and he planted the columns on the floor and yoked their capitals together with architraves; but on his death Metagenes, of the deme Xypete, carried up the frieze and the upper tier of columns;
+				<milestone n="5" unit="section"/>
+				while Xenocles, of the deme Cholargus, set on high the lantern over the shrine. 41  For the long wall, concerning which Socrates says<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Gorg. 455e">Plat. Gorg. 455e</bibl>.</note> he himself heard Pericles introduce a measure, Callicrates was the contractor.  Cratinus pokes fun at this work for its slow progress, and in these words:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Since ever so long now</l>
+					          <l>In word has Pericles pushed the thing; in fact he </l>
+					          <l>does not budge it.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">From a play of unknown name. <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 100</bibl>
+            </note>
+				
+				The Odeum, which was arranged internally with many tiers of seats and many pillars, and which had a roof made with a circular slope from a single peak, they say was an exact reproduction of the Great King's pavilion, and this too was built under the superintendence of Pericles.
+				<milestone n="6" unit="section"/>
+				Wherefore Cratinus, in his 
+				<q direct="unspecified">Thracian Women,</q> rails at him again:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>The squill-head Zeus! lo! here he comes,</l>
+					          <l>The Odeum like a cap upon his cranium,</l>
+					          <l>Now that for good and all the ostracism is o'er.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 35.</bibl>
+            </note>
+				
+			      </p>
+         <p>Then first did Pericles, so fond of honor was he, get a decree passed that a musical contest be held as part of the Panathenaic festival.  He himself was elected manager, and prescribed how the contestants must blow the flute, or sing, or pluck the zither. These musical contests were witnessed, both then and thereafter, in the Odeum.
+				<milestone n="7" unit="section"/>
+				The Propylaea of the acropolis were brought to completion in the space of five years, Mnesicles being their architect.  A wonderful thing happened in the course of their building, which indicated that the goddess was not holding herself aloof, but was a helper both in the inception and in the completion of the work.
+				<milestone n="8" unit="section"/>
+				One of its artificers, the most active and zealous of them all, lost his footing and fell from a great height, and lay in a sorry plight, despaired of by the physicians.  Pericles was much cast down at this, but the goddess appeared to him in a dream and prescribed a course of treatment for him to use, so that he speedily and easily healed the man.  It was in commemoration of this that he set up the bronze statue of Athena Hygieia on the acropolis near the altar of that goddess, which was there before, as they say.
+				<milestone n="9" unit="section"/>
+				But it was Pheidias who produced the great golden image of the goddess, and he is duly inscribed on the tablet as the workman who made it.  Everything, almost, was under his charge, and all the artists and artisans, as I have said, were under his superintendence, owing to his friendship with Pericles.  This brought envy upon the one, and contumely on the other, to the effect that Pheidias made assignations for Pericles with free-born women who would come ostensibly to see the works of art.
+				<milestone n="10" unit="section"/>
+				The comic poets took up this story and bespattered Pericles with charges of abounding wantonness, connecting their slanders with the wife of Menippus, a man who was his friend, and a colleague in the generalship, and with the bird-culture of Pyrilampes, who, since he was the comrade of Pericles, was accused of using his peacocks to bribe the women with whom Pericles consorted.
+				<milestone n="11" unit="section"/>
+				And why should any one be astonished that men of wanton life lose no occasion for offering up sacrifices, as it were, of contumelious abuse of their superiors, to the evil deity of popular envy, when even Stesimbrotus of Thasos has ventured to make public charge against Pericles of a dreadful and fabulous impiety with his son's wife?
+				<milestone n="12" unit="section"/>
+				To such degree, it seems, is truth hedged about with difficulty and hard to capture by research, since those who come after the events in question find that lapse of time is an obstacle to their proper perception of them; while the research of their contemporaries into men's deeds and lives, partly through envious hatred and partly through fawning flattery, defiles and distorts the truth.
+				<milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Thucydides and his party kept denouncing Pericles for playing fast and loose with the public moneys and annihilating the revenues.  Pericles therefore asked the people in assembly whether they thought he had expended too much, and on their declaring that it was altogether too much, 
+				<q direct="unspecified">Well then,</q> said he, 
+				<q direct="unspecified">let it not have been spent on your account, but mine, and I will make the inscriptions of dedication in my own name.'</q>
+				        <milestone n="2" unit="section"/>
+				When Pericles had said this, whether it was that they admired his magnanimity or vied with his ambition to get the glory of his works, they cried out with a loud voice and bade him take freely from the public funds for his outlays, and to spare naught whatsoever.  And finally he ventured to undergo with Thucydides the contest of the ostracism, wherein he secured his rival's banishment,<note resp="ed" place="unspecified" anchored="yes">442. B.C.</note> and the dissolution of the faction which had been arrayed against him.
+				<milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Thus, then, seeing that political differences were entirely remitted and the city had become a smooth surface, as it were, and altogether united, he brought under his own control Athens and all the issues dependent on the Athenians,&mdash;tributes, armies, triremes, the islands, the sea, the vast power derived from Hellenes, vast also from Barbarians, and a supremacy that was securely hedged about with subject nations, royal friendships, and dynastic alliances.
+				<milestone n="2" unit="section"/>
+				But then he was no longer the same man as before, nor alike submissive to the people and ready to yield and give in to the desires of the multitude as a steersman to the breezes.  Nay rather, forsaking his former lax and sometimes rather effeminate management of the people, as it were a flowery and soft melody, he struck the high and clear note of an aristocratic and kingly statesmanship, and employing it for the best interests of all in a direct and undeviating fashion,
+				<milestone n="3" unit="section"/>
+				he led the people, for the most part willingly, by his persuasions and instructions. And yet there were times when they were sorely vexed with him, and then he tightened the reins and forced them into the way of their advantage with a master's hand, for all the world like a wise physician, who treats a complicated disease of long standing occasionally with harmless indulgences to please his patient, and occasionally, too, with caustics and bitter drugs which work salvation.
+				<milestone n="4" unit="section"/>
+				For whereas all sorts of distempers, as was to be expected, were rife in a rabble which possessed such vast empire, he alone was so endowed by nature that he could manage each one of these cases suitably, and more than anything else he used the people's hopes and fears, like rudders, so to speak, giving timely check to their arrogance, and allaying and comforting their despair.  Thus he proved that rhetoric, or the art of speaking, is, to use Plato's words,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Phaedrus 271c">Plat. Phaedrus 271c</bibl>.</note>
+				        <q direct="unspecified">an enchantment of the soul,</q> and that her chiefest business is a careful study of the affections and passions, which are, so to speak, strings and stops of the soul, requiring a very judicious fingering and striking.
+				<milestone n="5" unit="section"/>
+				The reason for his success was not his power as a speaker merely, but, as Thucydides says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 2.65.8">Thuc. 2.65.8</bibl>.</note> the reputation of his life and the confidence reposed in him as one who was manifestly proven to be utterly disinterested and superior to bribes.  He made the city, great as it was when he took it, the greatest and richest of all cities, and grew to be superior in power to kings and tyrants.  Some of these actually appointed him guardian of their sons, but he did not make his estate a single drachma greater than it was when his father left it to him.
+				<milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Of his power there can be no doubt, since Thucydides gives so clear an exposition of it, and the comic poets unwittingly reveal it even in their malicious gibes, calling him and his associates 
+				<q direct="unspecified">new Peisistratidae,</q> and urging him to take solemn oath not to make himself a tyrant, on the plea, forsooth, that his preeminence was incommensurate with a democracy and too oppressive.
+				<milestone n="2" unit="section"/>
+				Telecleides says<note resp="ed" place="unspecified" anchored="yes">In a play of unknown name. <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 220.</bibl>
+            </note> that the Athenians had handed over to him
+				
+				<quote rend="blockquote">
+					          <l>With the cities' assessments the cities themselves, to bind or release as he pleases,</l>
+					          <l>Their ramparts of stone to build up if he likes, and then to pull down again straightway,</l>
+					          <l>Their treaties, their forces, their might, peace, and riches, and all the fair gifts of good fortune.</l>
+				        </quote>
+				
+				And this was not the fruit of a golden moment, nor the culminating popularity of an administration that bloomed but for a season; nay rather he stood first for forty years<note resp="ed" place="unspecified" anchored="yes">Reckoning roundly from 469 to 429 B.C.</note> among such men as Ephialtes, Leocrates, Myronides, Cimon, Tolmides, and Thucydides,
+				<milestone n="3" unit="section"/>
+				and after the deposition of Thucydides and his ostracism, for no less than fifteen of these years did he secure an imperial sway that was continuous and unbroken, by means of his annual tenure of the office of general.  During all these years he kept himself untainted by corruption, although he was not altogether indifferent to money-making; indeed, the wealth which was legally his by inheritance from his father, that it might not from sheer neglect take to itself wings and fly away, nor yet cause him much trouble and loss of time when he was busy with higher things, he set into such orderly dispensation as he thought was easiest and most exact.
+				<milestone n="4" unit="section"/>
+				This was to sell his annual products all together in the lump, and then to buy in the market each article as it was needed, and so provide the ways and means of daily life.  For this reason he was not liked by his sons when they grew up, nor did their wives find in him a liberal purveyor, but they murmured at his expenditure for the day merely and under the most exact restrictions, there being no surplus of supplies at all, as in a great house and under generous circumstances, but every outlay and every intake proceeding by count and measure.
+				<milestone n="5" unit="section"/>
+				His agent in securing all this great exactitude was a single servant, Evangelus, who was either gifted by nature or trained by Pericles so as to surpass everybody else in domestic economy.
+			</p>
+         <p>It is true that this conduct was not in accord with the wisdom of Anaxagoras, since that philosopher actually abandoned his house and left his land to lie fallow for sheep-grazing, owing to the lofty thoughts with which he was inspired.
+				<milestone n="6" unit="section"/>
+				But the life of a speculative philosopher is not the same thing, I think, as that of a statesman.  The one exercises his intellect without the aid of instruments and independent of external matters for noble ends; whereas the other, inasmuch as he brings his superior excellence into close contact with the common needs of mankind, must sometimes find wealth not merely one of the necessities of life, but also one of its noble things, as was actually the case with Pericles, who gave aid to many poor men.
+				<milestone n="7" unit="section"/>
+				And, besides, they say that Anaxagoras himself, at a time when Pericles was absorbed in business, lay on his couch all neglected, in his old age, starving himself to death, his head already muffled for departure, and that when the matter came to the ears of Pericles, he was struck with dismay, and ran at once to the poor man, and besought him most fervently to live, bewailing not so much that great teacher's lot as his own, were he now to be bereft of such a counsellor in the conduct of the state.  Then Anaxagoras&mdash;so the story goes&mdash;unmuffled his head and said to him, 
+				<q direct="unspecified">Pericles, even those who need a lamp pour oil therein.</q>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>When the Lacedaemonians began to be annoyed by the increasing power of the Athenians, Pericles, by way of inciting the people to cherish yet loftier thoughts and to deem it worthy of great achievements, introduced a bill to the effect that all Hellenes wheresoever resident in Europe or in Asia, small and large cities alike, should be invited to send deputies to a council at Athens.  This was to deliberate concerning the Hellenic sanctuaries which the Barbarians had burned down, concerning the sacrifices which were due to the gods in the name of Hellas in fulfillment of vows made when they were fighting with the Barbarians, and concerning the sea, that all might sail it fearlessly and keep the peace.
+				<milestone n="2" unit="section"/>
+				To extend this invitation, twenty men, of such as were above fifty years of age, were sent out, five of whom invited the Ionians and Dorians in Asia and on the islands between Lesbos and Rhodes; five visited the regions on the Hellespont and in Thrace as far as Byzantium; five others were sent into Boeotia and Phocis and Peloponnesus, and from here by way of the Ozolian Locrians into the neighboring continent as far as Acarnania and Ambracia;
+				<milestone n="3" unit="section"/>
+				while the rest proceeded through Euboea to the Oetaeans and the Maliac Gulf and the Phthiotic Achaeans and the Thessalians, urging them all to come and take part in the deliberations for the peace and common welfare of Hellas.  But nothing was accomplished  , nor did the cities come together by deputy, owing to the opposition of the Lacedaemonians, as it is said, since the effort met with its first check in Peloponnesus.  I have cited this incident, however, to show forth the man's disposition and the greatness of his thoughts.
+				<milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>In his capacity as general, he was famous above all things for his saving caution; he neither undertook of his own accord a battle involving much uncertainty and peril, nor did he envy and imitate those who took great risks, enjoyed brilliant good-fortune, and so were admired as great generals; and he was for ever saying to his fellow-citizens that, so far as lay in his power, they would remain alive forever and be immortals.
+				<milestone n="2" unit="section"/>
+				So when he saw that Tolmides, son of Tolmaeus, all on account of his previous good-fortune and of the exceeding great honor bestowed upon him for his wars, was getting ready, quite inopportunely, to make an incursion into Boeotia, and that he had persuaded the bravest and most ambitious men of military age to volunteer for the campaign,&mdash;as many as a thousand of them, aside from the rest of his forces,&mdash;he tried to restrain and dissuade him in the popular assembly, uttering then that well remembered saying, to wit, that if he would not listen to Pericles, he would yet do full well to wait for that wisest of all counsellors, Time.
+				<milestone n="3" unit="section"/>
+				This saying brought him only moderate repute at the time; but a few days afterwards, when word was brought that Tolmides himself was dead after defeat in battle near Coroneia,<note resp="ed" place="unspecified" anchored="yes">447 B.C.</note> and that many brave citizens were dead likewise, then it brought Pericles great repute as well as goodwill, for that he was a man of discretion and patriotism.
+				<milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Of all his expeditions, that to the Chersonesus<note resp="ed" place="unspecified" anchored="yes">447 B.C.</note> was held in most loving remembrance, since it proved the salvation of the Hellenes who dwelt there.  Not only did he bring thither a thousand Athenian colonists and stock the cities anew with vigorous manhood, but he also belted the neck of the isthmus with defensive bulwarks from sea to sea, and so intercepted the incursions of the Thracians who swarmed about the Chersonesus,
+				<milestone n="2" unit="section"/>
+				and shut out the perpetual and grievous war in which the country was all the time involved, in close touch as it was with neighboring communities of Barbarians, and full to overflowing of robber bands whose haunts were on or within its borders.  But he was admired and celebrated even amongst foreigners for his circumnavigation of the Peloponnesus,<note resp="ed" place="unspecified" anchored="yes">453. B.C.</note> when he put to sea from Pegae in the Megarid with a hundred triremes.
+				<milestone n="3" unit="section"/>
+				He not only ravaged a great strip of seashore, as Tolmides had done before him, but also advanced far into the interior with the hoplites from his ships, and drove all his enemies inside their walls in terror at his approach, excepting only the Sicyonians, who made a stand against him in Nemea, and joined battle with him; these he routed by main force and set up a trophy for his victory.
+				<milestone n="4" unit="section"/>
+				Then from Achaia, which was friendly to him, he took soldiers on board his triremes, and proceeded with his armament to the opposite mainland, where he sailed up the Achelous, overran Acarnania, shut up the people of Oeniadae behind their walls, and after ravaging and devastating their territory, went off homewards, having shown himself formidable to his enemies, but a safe and efficient leader for his fellow-citizens.  For nothing untoward befell, even as result of chance, those who took part in the expedition.
+				<milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>He also sailed into the Euxine Sea<note resp="ed" place="unspecified" anchored="yes">Probably about 436. B.C.</note> with a large and splendidly equipped armament.  There he effected what the Greek cities desired, and dealt with them humanely, while to the neighboring nations of Barbarians with their kings and dynasts he displayed the magnitude of his forces and the fearless courage with which they sailed whithersoever they pleased and brought the whole sea under their own control.  He also left with the banished Sinopians thirteen ships of war and soldiers under command of Lamachus to aid them against Timesileos.
+				<milestone n="2" unit="section"/>
+				When the tyrant and his adherents had been driven from the city, Pericles got a bill passed providing that six hundred volunteers of the Athenians should sail to Sinope and settle down there with the Sinopians, dividing up among themselves the houses and lands which the tyrant and his followers had formerly occupied.
+			</p>
+         <p>But in other matters he did not accede to the vain impulses of the citizens, nor was he swept along with the tide when they were eager, from a sense of their great power and good fortune, to lay hands again upon Egypt and molest the realms of the King which lay along the sea.
+				<milestone n="3" unit="section"/>
+				Many also were possessed already with that inordinate and inauspicious passion for Sicily which was afterwards kindled into flame by such orators as Alcibiades. And some there were who actually dreamed of Tuscany and Carthage, and that not without a measure of hope, in view of the magnitude of their present supremacy and the full-flowing tide of success in their undertakings.
+				<milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But Pericles was ever trying to restrain this extravagance of theirs, to lop off their expansive meddlesomeness, and to divert the greatest part of their forces to the guarding and securing of what they had already won.  He considered it a great achievement to hold the Lacedaemonians in check, and set himself in opposition to these in every way, as he showed, above all other things, by what he did in the Sacred War.<note resp="ed" place="unspecified" anchored="yes">About 448 B.C.</note>
+				        <milestone n="2" unit="section"/>
+				The Lacedaemonians made an expedition to Delphi while the Phocians had possession of the sanctuary there, and restored it to the Delphians; but no sooner had the Lacedaemonians departed than Pericles made a counter expedition and reinstated the Phocians.  And whereas the Lacedaemonians had had the 
+				<q direct="unspecified">promanteia,</q> or right of consulting the oracle in behalf of others also, which the Delphians had bestowed upon them, carved upon the forehead of the bronze wolf in the sanctuary, he secured from the Phocians this high privilege for the Athenians, and had it chiselled along the right side of the same wolf.
+				<milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>That he was right in seeking to confine the power of the Athenians within lesser Greece, was amply proved by what came to pass.  To begin with, the Euboeans revolted,<note resp="ed" place="unspecified" anchored="yes">446. B.C.</note> and he crossed over to the island with a hostile force.  Then straightway word was brought to him that the Megarians had gone over to the enemy, and that an army of the enemy was on the confines of Attica under the leadership of Pleistoanax, the king of the Lacedaemonians.
+				<milestone n="2" unit="section"/>
+				Accordingly, Pericles brought his forces back with speed from Euboea for the war in Attica.  He did not venture to join battle with hoplites who were so many, so brave, and so eager for battle, but seeing that Pleistoanax was a very young man, and that out of all his advisers he set most store by Cleandridas, whom the ephors had sent along with him, by reason of his youth, to be a guardian and an assistant to him, he secretly made trial of this man's integrity, speedily corrupted him with bribes, and persuaded him to lead the Peloponnesians back out of Attica.
+				<milestone n="3" unit="section"/>
+				When the army had withdrawn and had been disbanded to their several cities, the Lacedaemonians, in indignation, laid a heavy fine upon their king, the full amount of which he was unable to pay, and so betook himself out of Lacedaemon, while Cleandridas, who had gone into voluntary exile, was condemned to death.  He was the father of that Gylippus who overcame the Athenians in Sicily.  And nature seems to have imparted covetousness to the son, as it were a congenital disease, owing to which he too, after noble achievements, was caugt in base practices and banished from Sparta in disgrace.  This story, however, I have told at length in my life of Lysander.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Lys. 16">Plut. Lys. 16</bibl> f.</note>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>When Pericles, in rendering his accounts for this campaign, recorded an expenditure of ten talents as 
+				<q direct="unspecified">for sundry needs,</q> the people approved it without officious meddling and without even investigating the mystery.  But some writers, among whom is Theophrastus the philosopher, have stated that every year ten talents found their way to Sparta from Pericles, and that with these he conciliated all the officials there, and so staved off the war, not purchasing peace, but time, in which he could make preparations at his leisure and then carry on war all the better.
+				<milestone n="2" unit="section"/>
+				However that may be, he again turned his attention to the rebels, and after crossing to Euboea with fifty ships of war and five thousand hoplites, he subdued the cities there.  Those of the Chalcidians who were styled Hippobotae, or Knights, and who were preeminent for wealth and reputation, he banished from their city, and all the Hestiaeans he removed from the country and settled Athenians in their places, treating them, and them only, thus inexorably, because they had taken an Attic ship captive and slain its crew.
+				<milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this, when peace had been made for thirty years between the Athenians and the Lacedaemonians, be got a decree passed for his expedition to Samos,<note resp="ed" place="unspecified" anchored="yes">440 B.C.</note> alleging against its people that, though they were ordered to break off their war against the Milesians, they were not complying.
+			</p>
+         <p>Now, since it is thought that he proceeded thus against the Samians to gratify Aspasia, this may be a fitting place to raise the query what great art or power this woman had, that she managed as she pleased the foremost men of the state, and afforded the philosophers occasion to discuss her in exalted terms and at great length.
+				<milestone n="2" unit="section"/>
+				That she was a Milesian by birth, daughter of one Axiochus, is generally agreed; and they say that it was in emulation of Thargelia, an Ionian woman of ancient times, that she made her onslaughts upon the most influential men.  This Thargelia came to be a great beauty and was endowed with grace of manners as well as clever wits.  Inasmuch as she lived on terms of intimacy with numberless Greeks, and attached all her consorts to the king of Persia, she stealthily sowed the seeds of Persian sympathy in the cities of Greece by means of these lovers of hers, who were men of the greatest power and influence.
+				<milestone n="3" unit="section"/>
+				And so Aspasia, as some say, was held in high favour by Pericles because of her rare political wisdom.  Socrates sometimes came to see her with his disciples, and his intimate friends brought their wives to her to hear her discourse, although she presided over a business that was any- thing but honest or even reputable, since she kept a house of young courtesans.
+				<milestone n="4" unit="section"/>
+				And Aeschines<note resp="ed" place="unspecified" anchored="yes">Aeschines the Socratic, in a dialogue entitled 
+					<q direct="unspecified">Aspasia,</q> not extant.</note> says that Lysicles the sheep-dealer, a man of low birth and nature, came to be the first man at Athens by living with Aspasia after the death of Pericles.  And in the 
+				<q direct="unspecified">Menexenus</q> of Plato, even though the first part of it be written in a sportive vein, there is, at any rate, thus much of fact, that the woman had the reputation of associating with many Athenians as a teacher of rhetoric.
+				<milestone n="5" unit="section"/>
+				However, the affection which Pericles had for Aspasia seems to have been rather of an amatory sort.  For his own wife was near of kin to him, and had been wedded first to Hipponicus, to whom she bore Callias, surnamed the Rich; she bore also, as the wife of Pericles, Xanthippus and Paralus.  Afterwards, since their married life was not agreeable, he legally bestowed her upon another man, with her own consent, and himself took Aspasia, and loved her exceedingly.
+				<milestone n="6" unit="section"/>
+				Twice a day, as they say, on going out and on coming in from the market-place, he would salute her with a loving kiss.
+			</p>
+         <p>But in the comedies she is styled now the New Omphale, now Deianeira, and now Hera.  Cratinus<note resp="ed" place="unspecified" anchored="yes">In his 
+				<q direct="unspecified">Cheirons</q>, <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 86.</bibl>
+            </note> flatly called her a prostitute in these lines:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>As his Hera, Aspasia was born, the child of Unnatural Lust,</l>
+					          <l>A prostitute past shaming.</l>
+				        </quote>
+				
+				And it appears also that he begat from her that bastard son about whom Eupolis, in his 
+				<q direct="unspecified">Demes,</q> represented him as inquiring with these words:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>And my bastard, doth he live?</l>
+				        </quote>
+				
+				to which Myronides replies:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Yea, and long had been a man,</l>
+					          <l>Had he not feared the mischief of his harlot-birth.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 282</bibl>
+            </note>
+				
+				        <milestone n="7" unit="section"/>
+			      </p>
+         <p>So renowned and celebrated did Aspasia become, they say, that even Cyrus, the one who went to war with the Great King for the sovereignty of the Persians, gave the name of Aspasia to that one of his concubines whom he loved best, who before was called Milto.  She was a Phocaean by birth, daughter of one Hermotimus, and, after Cyrus had fallen in battle, was carried captive to the King,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Xen. Anab. 1.10.2">Xen. Anab. 1.10.2</bibl>.</note> and acquired the greatest influence with him.  These things coming to my recollection as I write, it were perhaps unnatural to reject and pass them by.
+				<milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>But to return to the war against the Samians, they accuse Pericles of getting the decree for this passed at the request of Aspasia and in the special behalf of the Milesians.  For the two cities were waging their war for the possession of Priene, and the Samians were getting the better of it, and when the Athenians ordered them to stop the contest and submit the case to arbitration at Athens, they would not obey.  So Pericles set sail and broke up the oligarchical government which Samos had, and then took fifty of the foremost men of the state, with as many of their children, as hostages, and sent them off to Lemnos.
+				<milestone n="2" unit="section"/>
+				And yet they say that every one of these hostages offered him a talent on his own account, and that the opponents of democracy in the city offered him many talents besides. And still further, Pissouthnes, the Persian satrap, who had much good-will towards the Samians, sent him ten thousand gold staters and interceded for the city.  However, Pericles took none of these bribes, but treated the Samians just as he had determined, set up a democracy and sailed back to Athens.
+				<milestone n="3" unit="section"/>
+				Then the Samians at once revolted, after Pissouthnes had stolen away their hostages from Lemnos for them, and in other ways equipped them for the war.  Once more, therefore, Pericles set sail against them.  They were not victims of sloth, nor yet of abject terror, but full of exceeding zeal in their determination to contest the supremacy of the sea.  In a fierce sea-fight which came off near an island called Tragia, Pericles won a brilliant victory, with four and forty ships outfighting seventy, twenty of which were infantry transports.
+				<milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Close on the heels of his victorious pursuit came his seizure of the harbor, and then he laid formal siege to the Samians, who, somehow or other, still had the daring to sally forth and fight with him before their walls.  But soon a second and a larger armament came from Athens, and the Samians were completely beleaguered and shut in. Then Pericles took sixty triremes and sailed out into the main sea, as most authorities say, because he wished to meet a fleet of Phoenician ships which was coming to the aid of the Samians, and fight it at as great a distance from Samos as possible; but according to Stesimbrotus, because he had designs on Cyprus, which seems incredible.
+				<milestone n="2" unit="section"/>
+				But in any case, whichever design he cherished, he seems to have made a mistake.  For no sooner had he sailed off than Melissus, the son of Ithagenes, a philosopher who was then acting as general at Samos, despising either the small number of ships that were left, or the inexperience of the generals in charge of them, persuaded his fellow-citizens to make an attack upon the Athenians.  In the battle that ensued the Samians were victorious, taking many of their enemy captive, and destroying many of their ships, so that they commanded the sea and laid in large store of such necessaries for the war as they did not have before.
+				<milestone n="3" unit="section"/>
+				And Aristotle says that Pericles was himself also defeated by Melissus in the sea-fight which preceded this.
+			</p>
+         <p>The Samians retaliated upon the Athenians by branding their prisoners in the forehead with owls; for the Athenians had once branded some of them with the samaena.  Now the samaena is a ship of war with a boar's head design for prow and ram, but more capacious than usual and paunchlike, so that it is a good deep-sea traveller and a swift sailor too.
+				<milestone n="4" unit="section"/>
+				It got this name because it made its first appearance in Samos, where Polycrates the tyrant had some built.  To these brand-marks, they say, the verse of Aristophanes<note resp="ed" place="unspecified" anchored="yes">From his <title>Babylonians</title>, not extant. <bibl>Kock, <title>Com. Att. Frag.</title> i. p. 408.</bibl>
+            </note> made riddling reference:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>For oh!  how lettered is the folk of the Samians!</l>
+				        </quote>
+				
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Be that true or not, when Pericles learned of the disaster which had befallen his fleet, he came speedily to its aid.  And though Melissus arrayed his forces against him, he conquered and routed the enemy and at once walled their city in, preferring to get the upper hand and capture it at the price of money and time, rather than of the wounds and deadly perils of his fellow-citizens.
+				<milestone n="2" unit="section"/>
+				And since it was a hard task for him to restrain the Athenians in their impatience of delay and eagerness to fight, he separated his whole force into eight divisions, had them draw lots, and allowed the division which got the white bean to feast and take their ease, while the others did the fighting.  And this is the reason, as they say, why those who have had a gay and festive time call it a
+				<q direct="unspecified">white day,</q>&mdash;from the white bean.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Ephorus says that Pericles actually employed siege-engines, in his admiration of their novelty, and that Artemon the engineer was with him there, who, since he was lame, and so had to be brought on a stretcher to the works which demanded his instant attention, was dubbed Periphoretus.  Heracleides Ponticus, however, refutes this story out of the poems of Anacreon, in which Artemon Periphoretus is mentioned many generations before the Samian War and its events.
+				<milestone n="4" unit="section"/>
+				And he says that Artemon was very luxurious in his life, as well as weak and panic-stricken in the presence of his fears, and therefore for the most part sat still at home, while two servants held a bronze shield over his head to keep anything from falling down upon it.  Whenever he was forced to go abroad, he had himself carried in a little hammock which was borne along just above the surface of the ground.  On this account he was called Periphoretus.
+				<milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After eight months the Samians surrendered, and Pericles tore down their walls, took away their ships of war, and laid a heavy fine upon them, part of which they paid at once, and part they agreed to pay at a fixed time, giving hostages therefor.  To these details Duris the Samian adds stuff for tragedy, accusing the Athenians and Pericles of great brutality, which is recorded neither by Thucydides, nor Ephorus, nor Aristotle.
+				<milestone n="2" unit="section"/>
+				But he appears not to speak the truth when he says, forsooth, that Pericles had the Samian trierarchs and marines brought into the market-place of Miletus and crucified there, and that then, when they had already suffered grievously for ten days, he gave orders to break their heads in with clubs and make an end of them, and then cast their bodies forth without burial rites.
+				<milestone n="3" unit="section"/>
+				At all events, since it is not the wont of Duris, even in cases where he has no private and personal interest, to hold his narrative down to the fundamental truth, it is all the more likely that here, in this instance, he has given a dreadful portrayal of the calamities of his country, that he might calumniate the Athenians.
+			</p>
+         <p>When Pericles, after his subjection of Samos, had returned to Athens, he gave honorable burial to those who had fallen in the war, and for the oration which he made, according to the custom, over their tombs, he won the greatest admiration.
+				<milestone n="4" unit="section"/>
+				But as he came down from the bema, while the rest of the women clasped his hand and fastened wreaths and fillets on his head, as though he were some victorious athlete, Elpinice drew nigh and said: 
+				<q direct="unspecified">This is admirable in thee, Pericles, and deserving of wreaths, in that thou hast lost us many brave citizens, not in a war with Phoenicians or Medes, like my brother Cimon, but in the subversion of an allied and kindred city.</q>
+				        <milestone n="5" unit="section"/>
+				On Elpinice's saying this, Pericles, with a quiet smile, it is said, quoted to her the verse of Archilochus:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Thou hadst not else, in spite of years, perfumed thyself.</l>
+				        </quote>
+            <note resp="ed" place="unspecified" anchored="yes">That is, 
+					<q direct="unspecified">thou art too old to meddle in affairs.</q>  Cf. <bibl n="plut. per. 10.5">chapter x. 5.</bibl>
+            </note>
+				
+				Ion says that he had the most astonishingly great thoughts of himself for having subjected the Samians; whereas Agamemnon was all of ten years in taking a barbarian city, he had in nine months time reduced the foremost and most powerful people of Ionia.
+				<milestone n="6" unit="section"/>
+				And indeed his estimate of himself was not unjust, nay, the war actually brought with it much uncertainty and great peril, if indeed, as Thucydides says,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 8.76.4">Thuc. 8.76.4</bibl>.</note> the city of Samos came within a very little of stripping from Athens her power on the sea.
+				<milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>After this, when the billows of the Peloponnesian War were already rising and swelling, he persuaded the people to send aid and succour to the Corcyraeans<note resp="ed" place="unspecified" anchored="yes">433 B.C.</note> in their war with the Corinthians, and so to attach to themselves an island with a vigorous naval power at a time when the Peloponnesians were as good as actually at war with them.
+				<milestone n="2" unit="section"/>
+				But when the people had voted to send the aid and succour, he despatched Lacedaemonius, the son of Cimon, with only ten ships, as it were in mockery of him.  Now there was much good-will and friendship on the part of the house of Cimon towards the Lacedaemonians. In order, therefore, that in case no great or conspicuous achievement should be performed under the generalship of Lacedaemonius, he might so be all the more calumniated for his Iaconism, or sympathy with Sparta, Pericles gave him only a few ships, and sent him forth against his will.
+				<milestone n="3" unit="section"/>
+				And in general he was prone to thwart and check the sons of Cimon, on the plea that not even in their names were they genuinely native, but rather aliens and strangers, since one of them bore the name of Lacedaemonius, another that of Thessalus, and a third that of Eleius. And they were all held to be the sons of a woman of Arcadia.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Cim. 16.1">Plut. Cim. 16.1</bibl>.</note> Accordingly, being harshly criticized because of these paltry ten ships on the ground that he had furnished scanty aid and succour to the needy friends of Athens, but a great pretext for war to her accusing enemies, he afterwards sent out other ships, and more of them, to Corcyra,&mdash;the ones which got there after the battle.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Thuc. 1.50.5">Thuc. 1.50.5</bibl>.</note>
+				        <milestone n="4" unit="section"/>
+			      </p>
+         <p>The Corinthians were incensed at this procedure, and denounced the Athenians at Sparta, and were joined by the Megarians, who brought their complaint that from every market-place and from all the harbors over which the Athenians had control, they were excluded and driven away, contrary to the common law and the formal oaths of the Greeks; the Aeginetans also, deeming themselves wronged and outraged, kept up a secret wailing in the ears of the Lacedaemonians, since they had not the courage to accuse the Athenians openly.  At this juncture Potidaea, too, a city that was subject to Athens, although a colony of Corinth, revolted, and the siege laid to her hastened on the war all the more.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>Notwithstanding all, since embassies were repeatedly sent to Athens, and since Archidamus, the king of the Lacedaemonians, tried to bring to a peaceful settlement most of the accusations of his allies and to soften their anger, it does not seem probable that the war would have come upon the Athenians for any remaining reasons, if only they could have been persuaded to rescind their decree against the Megarians and be reconciled with them. And therefore, since it was Pericles who was most of all opposed to this, and who incited the people to abide by their contention with the Megarians, he alone was held responsible for the war.
+				<milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>They say that when an embassy had come from Lacedaemon to Athens to treat of these matters, and Pericles was shielding himself behind the plea that a certain law prevented his taking down the tablet on which the decree was inscribed, Polyalces, one of the ambassadors, cried: 
+				<q direct="unspecified">Well then, don't take it down, but turn the tablet to the wall; surely there's no law preventing that.</q>  Clever as the proposal was, however, not one whit the more did Pericles give in.
+				<milestone n="2" unit="section"/>
+				He must have secretly cherished, then, as it seems, some private grudge against the Megarians; but by way of public and open charge he accused them of appropriating to their own profane uses the sacred territory of Eleusis, and proposed a decree that a herald be sent to them, the same to go also to the Lacedaemonians with a denunciation of the Megarians.
+				<milestone n="3" unit="section"/>
+				This decree, at any rate, is the work of Pericles, and aims at a reasonable and humane justification of his course.  But after the herald who was sent, Anthemocritus, had been put to death through the agency of the Megarians, as it was believed, Charinus proposed a decree against them, to the effect that there be irreconcilable and implacable enmity on the part of Athens towards them, and that whosoever of the Megarians should set foot on the soil of Attica be punished with death; and that the generals, whenever they should take their ancestral oath of office, add to their oath this clause, that they would invade the Megarid twice during each succeeding year; and that Anthemocritus be buried honorably at the Thriasian gates, which are now called the Dipylum.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>But the Megarians denied the murder of Anthemocritus, and threw the blame for Athenian hate on Aspasia and Pericles, appealing to those far-famed and hackneyed versicles of the 
+				<q direct="unspecified">Acharnians</q>:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Simaetha, harlot, one of Megara's womankind,</l>
+					          <l>Was stolen by gilded youths more drunk than otherwise;</l>
+					          <l>And so the Megarians, pangs of wrath all reeking hot,</l>
+					          <l>Paid back the theft and raped of Aspasia's harlots two.</l>
+				        </quote>
+				        <note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Aristoph. Ach. 524">Verses 524 ff.</bibl>
+            </note>
+				
+				
+				        <milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Well, then, whatever the original ground for enacting the decree,&mdash;and it is no easy matter to determine this,&mdash;the fact that it was not rescinded all men alike lay to the charge of Pericles.  Only, some say that he persisted in his refusal in a lofty spirit and with a clear perception of the best interests of the city, regarding the injunction laid upon it as a test of its submissiveness, and its compliance as a confession of weakness; while others hold that it was rather with a sort of arrogance and love of strife, as well as for the display of his power, that he scornfully defied the Lacedaemonians.
+				<milestone n="2" unit="section"/>
+			      </p>
+         <p>But the worst charge of all, and yet the one which has the most vouchers, runs something like this. Pheidias the sculptor was contractor for the great statue, as I have said, and being admitted to the friendship of Pericles, and acquiring the greatest influence with him, made some enemies through the jealousy which he excited; others also made use of him to test the people and see what sort of a judge it would be in a case where Pericles was involved.  These latter persuaded one Menon, an assistant of Pheidias, to take a suppliant's seat in the market-place and demand immunity from punishment in case he should bring information and accusation against Pheidias.
+				<milestone n="3" unit="section"/>
+				The people accepted the man's proposal, and formal prosecution of Pheidias was made in the assembly.  Embezzlement, indeed, was not proven, for the gold of the statue, from the very start, had been so wrought upon and cast about it by Pheidias, at the wise suggestion of Pericles, that it could all be taken off and weighed,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Thuc. 2.13.5">Thuc. 2.13.5</bibl>.</note> and this is what Pericles actually ordered the accusers of Pheidias to do at this time.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>But the reputation of his works nevertheless brought a burden of jealous hatred upon Pheidias, and especially the fact that when he wrought the battle of the Amazons on the shield of the goddess, he carved out a figure that suggested himself as a bald old man lifting on high a stone with both hands, and also inserted a very fine likeness of Pericles fighting with an Amazon.  And the attitude of the hand, which holds out a spear in front of the face of Pericles, is cunningly contrived as it were with a desire to conceal the resemblance, which is, however, plain to be seen from either side.
+				<milestone n="5" unit="section"/>
+			      </p>
+         <p>Pheidias, accordingly, was led away to prison, and died there of sickness; but some say of poison which the enemies of Pericles provided, that they might bring calumny upon him.  And to Menon the informer, on motion of Glycon, the people gave immunity from taxation, and enjoined upon the generals to make provision for the man's safety.
+				<milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>About this time also Aspasia was put on trial for impiety, Hermippus the comic poet being her prosecutor, who alleged further against her that she received free-born women into a place of assignation for Pericles.  And Diopeithes brought in a bill providing for the public impeachment of such as did not believe in gods, or who taught doctrines regarding the heavens, directing suspicion against Pericles by means of Anaxagoras.
+				<milestone n="2" unit="section"/>
+				The people accepted with delight these slanders, and so, while they were in this mood, a bill was passed, on motion of Dracontides, that Pericles should deposit his accounts of public moneys with the prytanes, and that the jurors should decide upon his case with ballots which had lain upon the altar of the goddess on the acropolis.  But Hagnon amended this clause of the bill with the motion that the case be tried before fifteen hundred jurors in the ordinary way, whether one wanted to call it a prosecution for embezzlement and bribery, or malversation.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Well, then, Aspasia he begged off, by shedding copious tears at the trial, as Aeschines says, and by entreating the jurors; and he feared for Anaxagoras so much that he sent him away from the city.  And since in the case of Pheidias he had come into collision with the people, he feared a jury in his own case, and so kindled into flame the threatening and smouldering war, hoping thereby to dissipate the charges made against him and allay the people's jealousy, inasmuch as when great undertakings were on foot, and great perils threatened, the city entrusted herself to him and to him alone, by reason of his worth and power.  Such, then, are the reasons which are alleged for his not suffering the people to yield to the Lacedaemonians; but the truth about it is not clear.
+				<milestone n="33" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>The Lacedaemonians, perceiving that if he were deposed they would find the Athenians more pliant in their hands, ordered them to drive out the Cylonian pollution,<note resp="ed" place="unspecified" anchored="yes">That is, members of the Alcmaeonid family, which was involved in the stain of bloodguiltiness when the archon Megacles, about 636 B.C., sacrilegiously slew the followers of Cylon.  See <bibl n="Plut. Sol. 12.1">Plut. Sol. 12.1-3</bibl>; <bibl n="Thuc. 1.126">Thuc. 1.126</bibl>.</note> in which the family of Pericles on his mother's side was involved, as Thucydides states.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Thuc. 1.127.1">Thuc. 1.127.1</bibl>.</note> But the attempt brought a result the opposite of what its makers designed, for in place of suspicion and slander, Pericles won even greater confidence and honor among the citizens than before, because they saw that their enemies hated and feared him above all other men.
+				<milestone n="2" unit="section"/>
+				Therefore also, before Archidamus invaded Attica with the Peloponnesians, Pericles made public proclamation to the Athenians, that in case Archidamus, while ravaging everything else, should spare his estates, either out of regard for the friendly tie that existed between them, or with an eye to affording his enemies grounds for slander, he would make over to the city his lands and the homesteads thereon.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Accordingly, the Lacedaemonians and their allies invaded Attica with a great host under the leadership of Archidamus the king.  And they advanced, ravaging the country as they went, as far as Acharnae, where they encamped, supposing that the Athenians would not tolerate it, but would fight with them out of angry pride.
+				<milestone n="4" unit="section"/>
+				Pericles, however, looked upon it as a terrible thing to join battle with sixty thousand Peloponnesian and Boeotian hoplites (those who made the first invasion were as numerous as that), and stake the city itself upon the issue. So he tried to calm down those who were eager to fight, and who were in distress at what the enemy was doing, by saying that trees, though cut and lopped, grew quickly, but if men were destroyed it was not easy to get them again.
+				<milestone n="5" unit="section"/>
+				And he would not call the people together into an assembly, fearing that he would be constrained against his better judgement, but, like the helmsman of a ship, who, when a stormy wind swoops down upon it in the open sea, makes all fast, takes in sail, and exercises his skill, disregarding the tears and entreaties of the sea-sick and timorous passengers, so he shut the city up tight, put all parts of it under safe garrison, and exercised his own judgement, little heeding the brawlers and malcontents.
+				<milestone n="6" unit="section"/>
+				And yet many of his friends beset him with entreaties, and many of his enemies with threats and denunciations, and choruses sang songs of scurrilous mockery, railing at his generalship for its cowardice, and its abandonment of everything to the enemy.  Cleon, too, was already harassing him, taking advantage of the wrath with which the citizens regarded him to make his own way toward the leadership of the people,
+				<milestone n="7" unit="section"/>
+				as these anapaestic verses of Hermippus<note resp="ed" place="unspecified" anchored="yes">From his 
+					<q direct="unspecified">Moirai</q>, or <gloss>
+                  <title>Fates</title>
+               </gloss>. <bibl>Kock, <title>Com. Att. Frag.</title> i. pp. 236 f.</bibl>
+            </note> show:&mdash;
+				
+				<quote rend="blockquote">
+					          <l>Thou king of the Satyrs, why pray wilt thou not</l>
+					          <l>Take the spear for thy weapon, and stop the dire talk</l>
+					          <l>With the which, until now, thou conductest the war.</l>
+					          <l>While the soul of a Teles is in thee?</l>
+					          <l>If the tiniest knife is but laid on the stone</l>
+					          <l>To give it an edge, thou gnashest thy teeth,</l>
+					          <l>As if bitten by fiery Cleon.</l>
+				        </quote>
+				
+				        <milestone n="34" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>However, Pericles was moved by no such things, but gently and silently underwent the ignominy and the hatred, and, sending out an armament of a hundred ships against the Peloponnesus, did not himself sail with it, but remained behind, keeping the city under watch and ward and well in hand, until the Peloponnesians withdrew.  Then, by way of soothing the multitude, who, in spite of their enemies' departure, were distressed over the war, he won their favour by distributions of moneys and proposed allotments of conquered lands; the Aeginetans, for instance, he drove out entirely, and parcelled out their island among the Athenians by lot.  And some consolation was to be had from what their enemies suffered.
+				<milestone n="2" unit="section"/>
+				For the expedition around the Peloponnesus ravaged much territory and sacked villages and small cities, while Pericles himself, by land, invaded the Megarid and razed it all.  Wherein also it was evident that though their enemies did the Athenians much harm by land, they suffered much too at their hands by sea, and therefore would not have protracted the war to such a length, but would have speedily given up, just as Pericles prophesied in the beginning, had not a terrible visitation from heaven thwarted human calculations.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>As it was, in the first place, a pestilential destruction fell upon them<note resp="ed" place="unspecified" anchored="yes">430 B.C.  Cf. <bibl n="Thuc. 2.47">Thuc. 2.47-54</bibl>.</note> and devoured clean the prime of their youth and power.  It weakened them in body and in spirit, and made them altogether wild against Pericles, so that, for all the world as the mad will attack a physician or a father, so they, in the delirium of the plague, attempted to do him harm, persuaded thereto by his enemies. These urged that the plague was caused by the crowding of the rustic multitudes together into the city,
+				<milestone n="4" unit="section"/>
+				where, in the summer season, many were huddled together in small dwellings and stifling barracks, and compelled to lead a stay-at-home and inactive life, instead of being in the pure and open air of heaven as they were wont.  They said that Pericles was responsible for this, who, because of the war, had poured the rabble from the country into the walled city and then gave that mass of men no employment whatever, but suffered them, thus penned up like cattle, to fill one another full of corruption, and provided them no change or respite.
+				<milestone n="35" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>Desiring to heal these evils, and at the same time to inflict some annoyance upon the enemy, he manned a hundred and fifty ships of war, and, after embarking many brave hoplites and horsemen, was on the point of putting out to sea, affording great hope to the citizens, and no less fear to the enemy in consequence of so great a force.  But when the ships were already manned, and Pericles had gone aboard his own trireme, it chanced that the sun was eclipsed and darkness came on, and all were thoroughly frightened, looking upon it as a great portent.
+				<milestone n="2" unit="section"/>
+				Accordingly, seeing that his steersman was timorous and utterly perplexed, Pericles held up his cloak before the man's eyes, and, thus covering them, asked him if he thought it anything dreadful, or portentous of anything dreadful.  
+				<q direct="unspecified">No,</q> said the steersman. 
+				<q direct="unspecified">How then,</q> said Pericles, 
+				<q direct="unspecified">is yonder event different from this, except that it is something rather larger than my cloak which has caused the obscurity?</q>  At any rate, this tale is told in the schools of philosophy.
+				<milestone n="3" unit="section"/>
+				Well, then, on sailing forth, Pericles seems to have accomplished nothing worthy of his preparations, but after laying siege to sacred Epidaurus, which awakened a hope that it might he captured, he had no such good fortune, because of the plague. Its fierce onset destroyed not only the Athenians themselves, but also those who, in any manner soever, had dealings with their forces.  The Athenians being exasperated against him on this account, he tried to appease and encourage them.
+				<milestone n="4" unit="section"/>
+				He did not, however, succeed in allaying their wrath, nor yet in changing their purposes, before they got their hostile ballots into their hands, became masters of his fate, stripped him of his command, and punished him with a fine.  The amount of this was fifteen talents, according to those who give the lowest, and fifty, according to those who give the highest figures.  The public prosecutor mentioned in the records of the case was Cleon, as Idomeneus says, but according to Theophrastus it was Simmias, and Heracleides Ponticus mentions Lacratides.
+				<milestone n="36" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>So much, then, for his public troubles; they were likely soon to cease, now that the multitude had stung him, as it were, and left their passion with their sting; but his domestic affairs were in a sorry plight, since he had lost not a few of his intimate friends during the pestilence, and had for some time been rent and torn by a family feud. The eldest of his legitimate sons, Xanthippus, who was naturally prodigal, and had married a young and extravagant wife, the daughter of Tisander, the son of Epilycus, was much displeased at his father's exactitude in making him but a meagre allowance, and that a little at a time.
+				<milestone n="2" unit="section"/>
+				Accordingly, he sent to one of his father's friends and got money, pretending that Pericles bade him do it.  When the friend afterwards demanded repayment of the loan, Pericles not only refused it, but brought suit against him to boot.  So the young fellow, Xanthippus, incensed at this, fell to abusing his father, publishing abroad, to make men laugh, his conduct of affairs at home, and the discourses which he held with the sophists.
+				<milestone n="3" unit="section"/>
+				For instance, a certain athlete had hit Epitimus the Pharsalian with a javelin, accidentally, and killed him, and Pericles, Xanthippus said, squandered an entire day discussing with Protagoras whether it was the javelin, or rather the one who hurled it, or the judges of the contests, that 
+				<q direct="unspecified">in the strictest sense</q> ought to be held responsible for the disaster.  Besides all this, the slanderous charge concerning his own wife Stesimbrotus says was sown abroad in public by Xanthippus himself, and also that the quarrel which the young man had with his father remained utterly incurable up to the time of his death,&mdash;for Xanthippus fell sick and died during the plague.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>Pericles lost his sister also at that time, and of his relatives and friends the largest part, and those who were most serviceable to him in his administration of the city.  He did not, however, give up, nor yet abandon his loftiness and grandeur of spirit because of his calamities, nay, he was not even seen to weep, either at the funeral rites, or at the grave of any of his connections, until indeed he lost the very last remaining one of his own legitimate sons, Paralus.
+				<milestone n="5" unit="section"/>
+				Even though he was bowed down at this stroke, he nevertheless tried to persevere in his habit and maintain his spiritual greatness, but as he laid a wreath upon the dead, he was vanquished by his anguish at the sight, so that he broke out into wailing, and shed a multitude of tears, although he had never done any such thing in all his life before.
+				<milestone n="37" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>The city made trial of its other generals and counsellors for the conduct of the war, but since no one appeared to have weight that was adequate or authority that was competent for such leadership, it yearned for Pericles, and summoned him back to the bema and the war-office.<note resp="ed" place="unspecified" anchored="yes">429 B.C.</note> He was lying dejectedly at home because of his sorrow, but was persuaded by Alcibiades and his other friends to resume his public life.
+				<milestone n="2" unit="section"/>
+				When the people had apologized for their thankless treatment of him, and he had undertaken again the conduct of the state, and been elected general, he asked for a suspension of the law concerning children born out of wedlock,&mdash;a law which he himself had formerly introduced,&mdash;in order that the name and lineage of his house might not altogether expire through lack of succession.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>The circumstances of this law were as follows.  Many years before this,<note resp="ed" place="unspecified" anchored="yes">451-450 B.C.</note> when Pericles was at the height of his political career and had sons born in wedlock, as I have said, he proposed a law that only those should he reckoned Athenians whose parents on both sides were Athenians.  And so when the king of Egypt sent a present to the people of forty thousand measures of grain, and this had to be divided up among the citizens, there was a great crop of prosecutions against citizens of illegal birth by the law of Pericles, who had up to that time escaped notice and been overlooked, and many of them also suffered at the hands of informers.
+				<milestone n="4" unit="section"/>
+				As a result, a little less than five thousand were convicted and sold into slavery, and those who retained their citizenship and were adjudged to be Athenians were found, as a result of this scrutiny, to be fourteen thousand and forty in number.
+				<milestone n="5" unit="section"/>
+				It was, accordingly, a grave matter, that the law which had been rigorously enforced against so many should now be suspended by the very man who had introduced it, and yet the calamities which Pericles was then suffering in his family life, regarded as a kind of penalty which he had paid for his arrogance and haughtiness of old, broke down the objections of the Athenians.  They thought that what he suffered was by way of retribution, and that what he asked became a man to ask and men to grant, and so they suffered him to enroll his illegitimate son in the phratry-lists and to give him his own name.  This was the son who afterwards conquered the Peloponnesians in a naval battle at the Arginusae islands,<note resp="ed" place="unspecified" anchored="yes">406 B.C.</note> and was put to death by the people along with his fellow-generals.
+				<milestone n="38" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>At this time, it would seem, the plague laid hold of Pericles, not with a violent attack, as in the case of others, nor acute, but one which, with a kind of sluggish distemper that prolonged itself through varying changes, used up his body slowly and undermined the loftiness of his spirit.
+				<milestone n="2" unit="section"/>
+				Certain it is that Theophrastus, in his 
+				<q direct="unspecified">Ethics,</q> querying whether one's character follows the bent of one's fortunes and is forced by bodily sufferings to abandon its high excellence, records this fact, that Pericles, as he lay sick, showed one of his friends who was come to see him an amulet that the women had hung round his neck, as much as to say that he was very badly off to put up with such folly as that.
+				<milestone n="3" unit="section"/>
+			      </p>
+         <p>Being now near his end,<note resp="ed" place="unspecified" anchored="yes">He died in the autumn of 429 B.C.</note> the best of the citizens and those of his friends who survived were sitting around him holding discourse of his excellence and power, how great they had been, and estimating all his achievements and the number of his trophies,&mdash;there were nine of these which he had set up as the city's victorious general.
+				<milestone n="4" unit="section"/>
+				This discourse they were holding with one another, supposing that he no longer understood them but had lost consciousness. He had been attending to it all, however, and speaking out among them said he was amazed at their praising and commemorating that in him which was due as much to fortune as to himself, and which had fallen to the lot of many generals besides, instead of mentioning his fairest and greatest title to their admiration; 
+				<q direct="unspecified">for,</q> said he, 
+				<q direct="unspecified">no living Athenian ever put on mourning because of me.</q>
+				        <milestone n="39" unit="chapter"/>
+				        <milestone n="1" unit="section"/>
+			      </p>
+         <p>So, then, the man is to be admired not only for his reasonableness and the gentleness which he maintained in the midst of many responsibilities and great enmities, but also for his loftiness of spirit, seeing that he regarded it as the noblest of all his titles to honor that he had never gratified his envy or his passion in the exercise of his vast power, nor treated any one of his foes as a foe incurable.
+				<milestone n="2" unit="section"/>
+				And it seems to me that his otherwise puerile and pompous surname is rendered unobjectionable and becoming by this one circumstance, that it was so gracious a nature and a life so pure and undefiled in the exercise of sovereign power which were called Olympian, inasmuch as we do firmly hold that the divine rulers and kings of the universe are capable only of good, and incapable of evil.  In this we are not like the poets, who confuse us with their ignorant fancies, and are convicted of inconsistency by their own stories,
+				<milestone n="3" unit="section"/>
+				since they declare that the place where they say the gods dwell is a secure abode and tranquil, without experience of winds and clouds, but gleaming through all the unbroken time with the soft radiance of purest light,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Hom. Od. 6.42">Hom. Od. 6.42</bibl> ff.</note>&mdash;implying that some such a manner of existence is most becoming to the blessed immortal; and yet they represent the gods themselves as full of malice and hatred and wrath and other passions which ill become even men of any sense.  But this, perhaps, will be thought matter for discussion elsewhere.
+				<milestone n="4" unit="section"/>
+			      </p>
+         <p>The progress of events wrought in the Athenians a swift appreciation of Pericles and a keen sense of his loss.  For those who, while he lived, were oppressed by a sense of his power and felt that it kept them in obscurity, straightway on his removal made trial of other orators and popular leaders, only to be led to the confession that a character more moderate than his in its solemn dignity, and more august in its gentleness, had not been created.
+				<milestone n="5" unit="section"/>
+				That objectionable power of his, which they had used to call monarchy and tyranny, seemed to them now to have been a saving bulwark of the constitution, so greatly was the state afflicted by the corruption and manifold baseness which he had kept weak and grovelling, thereby covering it out of sight and preventing it from becoming incurably powerful.
+			</p>
+      </body>
+   </text>
+</TEI.2>

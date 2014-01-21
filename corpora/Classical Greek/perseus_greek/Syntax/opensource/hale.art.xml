@@ -1,0 +1,1961 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>The Art of Reading Latin:  How To Teach It</title>
+<author>William Gardner Hale</author>
+&responsibility;
+</titleStmt>
+<extent>About 120Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<bibl>
+<title>The Art of Reading Latin:  How To Teach It.  An address delivered 
+before the associated academic principals of the State of New York, 
+December 28, 1886.</title>
+<author>William Gardner Hale, professor of Latin in Cornell University</author>
+<date>1887</date>
+<publisher>Ginn and Company</publisher>
+<pubPlace>Boston</pubPlace>
+</bibl>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+  <state n="chunk" unit="section"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>15-Aug-01</date>
+<respStmt><name>Anne Mahoney</name><resp>ed.</resp></respStmt>
+<item>
+$Log: hale.art.xml,v $
+Revision 1.1  2009-12-08 20:46:34  rsingh04
+moved more xml files around based on copyright status.  renamed terence files to follow the abbreviations and split up minora_lat.xml into separate files
+
+Revision 1.3  2009/07/10 21:51:17  student
+fixing citations - ad
+
+Revision 1.2  2005/08/16 17:18:03  packel
+ARRGGH item tags
+
+Revision 1.1  2005/07/25 15:04:09  packel
+Converted to XML
+
+Revision 1.7  2003/10/10 18:32:34  amahoney
+fix a couple of typos
+
+Revision 1.6  2003/07/01 22:18:11  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.5  2003/02/04 21:11:45  lcerrato
+fixed typo section 5 book you never say to book you never saw
+
+Revision 1.4  2003/02/04 21:10:54  lcerrato
+fixed typo section 8 object or verb to object of verb
+
+Revision 1.3  2002/03/11 22:19:23  amahoney
+tweak a few things to improve display
+
+Revision 1.2  2002/03/11 21:38:06  amahoney
+finish basic markup
+
+Revision 1.1  2002/03/01 22:38:53  amahoney
+new text:  needs to be here, some day
+
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<div1 type="section" n="1">
+<head>Preface</head>
+
+<p>The method of teaching
+herein advocated started, many years ago, from a desire to know Latin literature,
+and an impatience with the actual amount of reading power attained by a
+college course.  At the outset there existed a conviction that the
+modern mind could not be so degenerate as to be incapable of reading Latin
+as the Romans read it, that is to say, in the Roman order, in the Roman
+medium, and at a rate of speed which would not be intolerably slow in the
+reading of a modern tongue.  The nature of the aim dictated the method
+to be employed;  and the employment of the method proved the soundness
+of the original conviction.
+</p>
+<p>The writer has for some years intended to publish an account of this
+method, as it has shaped itself in practical experience with successive
+classes.  First, however, he desired to present it orally before a
+number of gatherings of teachers.  As a beginning, accordingly, the
+address with which the pamphlet opens was read before the Holiday Conference
+of the Associated Academic Principals of the State of New York, held in
+Syracuse in December last.  The interest with which the paper was
+received was so kindly, and the requests that it be published without further
+delay were so pressing, that it seemed best not to hold to the former intention.
+</p>
+<p>The pamphlet has not the form which was first intended, namely, that
+of plain exposition;  for in spite of the iteration of the personal
+pronoun, the form of direct appeal and explanation natural to an address
+proved to have its advantages.  It has been necessary, however, to
+add to the address a considerable supplement.
+</p>
+<p>Though no explicit suggestions will be found in regard to the teaching
+of Greek, the substance of the method of course applies alike to either
+language.
+</p>
+<p>I am under a debt to many of my students of recent years, whose support
+of the method, though it was taken up by them under the sore necessity
+of an entire revolution of confirmed mental habits, has supplied me with
+the confidence that comes from concrete results.  But I am under especial
+obligations to my sister, Miss Gertrude Elisabeth Hale, both for suggestions
+made earlier as a result of her own experience (the device mentioned on
+page 13 originated, so far as my own case goes, with her) and for a searching
+criticism of the proof of the present pamphlet, from the point of view
+of a preparatory teacher.
+
+</p></div1>
+<div1 type="section" n="2">
+<p>The attacks which
+have been made of late upon the study of Greek and to some extent upon
+the study of Latin have had at their backs the conviction that the results
+obtained are very much out of proportion to the years of labor spent upon
+these languages by the schoolboy and the college student.  The danger
+which threatens classical study to-day in this country is due in large
+part to the fact that this conviction is a sound one.  If the case
+were different, if the average college graduate were really able to read
+ordinary Greek and Latin with speed and relish, the whole matter would
+be on a very different footing from that on which it now lamely stands.
+</p>
+<p>To learn to read Greek and Latin with speed and relish, and then, if
+one's tastes turn towards literature or art of any kind, to proceed to
+do so;  to come to know familiarly and lovingly that great factor
+in the record of the thinking and feeling of the human race, the literatures
+of Greece and Rome, &mdash; that is an aim which we should all set before our
+students.  But, speaking generally, our students, yours and mine,
+do not come to love those literatures.  Perhaps they tolerate them,
+perhaps they respect them.  But to love them and to make them a substantial
+part of the intellectual life, &mdash; that is a thing which many a student,
+fitted therefor by natural taste and ability, fails to accomplish, and
+never so much as knows his loss.  This seems to me, looking at the
+long years of study given to Greek and Latin, and the great emphasis put
+upon them in the requirements for admission to our colleges, a very sad
+business.
+</p>
+<p>Now the blame of it all must be divided among three parties, &mdash; the Greek
+and Latin languages themselves, the teachers in the preparatory schools,
+and the teachers in the universities.  The first of these guilty parties
+are out of our reach.  They are difficult languages;  but difficult
+languages they must remain.  That leaves the practical whole of the
+responsibility to be divided between the teachers in the preparatory schools
+and the teachers in the universities, or, to take concrete examples, for
+the purpose of our conference, between you and me.
+</p>
+<p>Which of us is the more to blame, I will not attempt to say.  But
+so much I will say, and from my sure observation:  that the influence
+upon the formation of intellectual character by the teachers who prepare
+young men for college is nearly ineffaceable.  The boy who comes to
+college with a thinking habit is capable of learning to read Latin (for
+I must now confine myself to that topic, though the whole substance of
+what I have to say applies with equal force to the teaching of Greek) with
+ease and speed;  the boy who comes without the habit has faults that
+a college course can rarely cure.  That the boy should be taught to
+think before he comes to college is, then, from the point of view of the
+study of Latin, the one indispensable thing.  That it is so from every
+other point of view as well, makes our case so much the stronger.
+</p>
+<p>But one thing more is also indispensable sooner or later for a high
+success (and there is in Latin but one success), namely, that the method
+which the boy is taught to use in his thinking be the right one, &mdash; the
+result of the most careful observation of the practical difficulties to
+be overcome, and the most careful study of the best ways of overcoming
+them.
+</p>
+<p>As we group these difficulties, placing them in the order in which they
+would be felt by a beginner, we find them to be: &mdash;
+<list type="simple">
+<label>1.</label> <item>The vocabulary</item>
+<label>2.</label> <item>The system of inflections.</item>
+<label>3.</label> <item>The elaborate use of this system
+of inflections to express meaning, in place of our simpler modern methods
+of using prepositions, auxiliaries, and the like:  or, in a single
+word, <emph>syntax</emph>.</item>
+</list>
+</p>
+<p>I suppose the beginner would think that these three difficulties covered
+the whole ground, and that if he had his vocabulary and his inflections
+secured, and understood what is called syntax, he could then read Latin
+with great ease.  But he would be very wrong.  The most formidable
+difficulty has not been mentioned.  The Latin sentence is constructed
+upon a plan entirely different from that of the English sentence. 
+Until that plan is just as familiar to the student as the English plan,
+until, for page after page, he takes in ideas as readily and naturally
+on the one plan as on the other, until, in short, a single steady reading
+of the sentence carries his mind through the very same development of thought
+that took place in the mind of the writer, he cannot read Latin otherwise
+than slowly and painfully.  So, then, an absolutely essential thing
+to a man who wants to read Latin is: &mdash;
+<list type="simple">
+<label>4.</label> <item>A perfect working familiarity with the Latin ways of constructing sentences.</item>
+</list>
+</p>
+<p>Now we teach the first three things more or less effectively, &mdash; vocabulary,
+inflection, syntax.  Do we teach the last?
+
+</p></div1>
+<div1 type="section" n="3">
+<p>I turn to the "First Latin Books," in order to find what is said to
+students at that most critical period in their study of the language, &mdash;
+the beginning.  I remember well how I was taught at Phillips Exeter
+Academy &mdash; of revered memory &mdash; to attack a Latin sentence.  "First
+find your verb, and translate it," said my teacher.  "Then find your
+subject, and translate it.  Then find the modifiers of the subject,
+then the modifiers of the verb,"  etc., etc.  Well, I had got
+more than four years beyond Exeter before I learned to read Latin with
+any feeling but that it was a singularly circuitous and perverted way of
+expressing ideas, which I could not expect to grasp until I had reformed
+my author's sentences and reduced them to English.  Since my time,
+however, better ways may have come into vogue.  So I turn to the books
+of two scholarly gentlemen of my acquaintance, &mdash; practical teachers, too,
+&mdash; namely, Mr. Comstock, of Phillips Andover Academy, and Dr. Leighton,
+of the Brooklyn Latin School.   On page 233 of Mr. Comstock's
+"First Latin Book," and pages 211 and 212 of Dr. Leighton's "First Steps
+in Latin," I find distinct rules, essentially the same, for the operation
+in question.  The former begin as follows: &mdash;
+
+<quote lang="en"><p>a. In every simple sentence, find and translate
+<list type="simple"><item>(1) The subject.</item>
+<item>(2) The predicate.</item>
+</list></p>
+</quote>
+</p>
+<p>Here is a new departure, an entire revolution since my day.  I
+was taught to find first the <emph>predicate</emph>.  A change so radical,
+a method so exactly the opposite of the old one, ought to lead to results
+the opposite of the old;  namely, to the power to read Latin easily
+instead of with difficulty.  So, with a cheerful heart, I take up
+a simple sentence in the fourth oration against Catiline, <bibl n="Cic. Catil. 4.3.5">3.5</bibl>, and try
+my new method.
+</p>
+<p><foreign lang="la">Haec omnia indices detulerunt</foreign>.  I look for my subject. 
+Fortunately, it lies right at hand.  It is <foreign lang="la">haec</foreign>, nom. pl. 
+Next I translate it, <gloss rend="ital">these</gloss>;  or, since it is neuter, <gloss rend="ital">these
+things</gloss>.  Then I proceed to find the verb, which, again is obvious,
+viz., <foreign lang="la">detulerunt</foreign>, in 3d person pl., agreeing with the subject <foreign lang="la">haec</foreign>. 
+Perhaps I have caught from somewhere the happy idea of not looking words
+up in the dictionary until I have tried my hand at them.  So, very
+properly, I set out with the simplest meaning I can think of, viz., <gloss rend="ital">brought</gloss>. 
+Now I am well started:  <gloss rend="ital">These things brought</gloss>.  Next I
+look for the modifiers of the subject, and find <foreign lang="la">omnia</foreign>.  I build
+it on, and have now "all these things" for my subject, &mdash; <gloss rend="ital">all these things
+brought</gloss>.  Next I look for the modifiers of the predicate, and
+I find <foreign lang="la">indices</foreign>, <gloss rend="ital">witnesses</gloss>, acc. pl., object of the verb. 
+Everything is straight.  <gloss rend="ital">All these things brought the witnesses</gloss>. 
+I pass on, and when I come to the class-room, and the teacher calls on
+me, I read out, <gloss rend="ital">All these things brought the witnesses</gloss>, prepared
+to parse it to the last word, &mdash; only to be told that I am <emph>entirely
+wrong</emph>.<note anchored="yes">If the example chosen is not a happy one, any
+teacher of young pupils &mdash; any college teacher even, I fear &mdash; could, with
+a few days' watching of a class, come up on examples that will satisfy
+him that the habitual method, no matter how high the teacher's aims, tends
+to bring about a laxity of scrutiny which constantly leads into blunders
+as bad as the example here given.</note> 
+</p>
+<p>Now, a Roman boy of my age, and much less clever than I, if he could
+have smuggled himself into the senate that day, would have understood what
+those four words meant the instant Cicero uttered the last of them, <foreign lang="la">detulerunt</foreign>. 
+What is the difference between us?  Each of us, he and I, knew substantially
+the meaning of each word, each of us could inflect, each of us knew all
+the syntax required.  Yet I missed the idea, while he got it. 
+Wherein did he beat me?  Why, simply here:  I, following the
+direction of my teachers, first found my subject, and settled on <foreign lang="la">haec</foreign>. 
+The Roman boy did not know whether <foreign lang="la">haec</foreign> was subject or object. 
+He only knew it as <foreign lang="la">haec</foreign>.  I knew that <foreign lang="la">detulerunt</foreign> was
+the verb, and so did he when it arrived.  I knew that <foreign lang="la">omnia</foreign>
+agreed with the subject <foreign lang="la">haec</foreign>, while he only surmised that it belonged
+with <foreign lang="la">haec</foreign>, whatever that might prove to be.  I knew that <foreign lang="la">indices</foreign>
+was the object, while he only felt that <foreign lang="la">indices</foreign> was subject or object,
+and that it was the opposite of <foreign lang="la">haec omnia</foreign> (apposition being out
+of the question), being object if that should turn out to be subject, and
+subject if that should turn out to be object.  Then he heard <foreign lang="la">detulerunt</foreign>,
+and with that word everything dropped into place as simply as, in Milton's
+sentence following,
+
+<cit><quote lang="en"><lg type="iambic-pentameter"><l part="F">&hellip; the moon, whose orb</l>
+<l>Through optic glass the Tuscan artist views,</l></lg></quote><bibl></bibl></cit>
+
+the last word resolves our momentary suspense in regard to the relation
+of orb and artist;  which relation would have been precisely reversed,
+had we found such a word, e.g., as "glads."
+</p>
+<p>Let us try the method further.  Mr. Comstock goes on (the italics
+are in part my own): &mdash;
+<list type="simple"><label>b.</label><item>In a Compound Sentence translate
+each principal clause as though it were a Simple Sentence.  If there
+are Subordinate Clauses, translate them <emph>in the order of their importance</emph>. 
+A Subordinate or Dependent Clause is one which, just as in English, limits
+some part of the Principal Clause (as described in 42, page 12). 
+A clause introduced by a Latin word meaning <gloss>if, who, which, because,
+since, although, when, after, while</gloss>, etc., is Dependent, and should
+be left until the meaning of the Principal Clause has been obtained.</item>
+
+<label>c.</label><item>In a Complex Sentence, first
+translate the Principal Clause as a Simple Sentence;  then translate
+the Dependent Clauses according to directions given above (b).</item>
+</list>
+</p>
+<p>But what is the order of their importance, and how am I to start? 
+With the connective, I presume.  We will suppose it to be <foreign lang="la">ut</foreign>. 
+But how shall I translate it?  There are some half-dozen or more "meanings": 
+<gloss>in order to, so that, when, as, considering, although</gloss>.  Which
+does it have here?  I cannot tell.  <emph>No
+more could a Roman</emph>.  But the difference is, that a Roman
+did not want to tell which one of its forces <foreign lang="la">ut</foreign> had here, but waited
+until something in the rest of the sentence, perhaps twenty, perhaps fifty,
+words away, informed him;  while I am bidden, so to speak, to toss
+up a cent, and start off upon a meaning, with the odds heavily against
+me;  possibly to find my mistake and go back and correct it, more
+probably to add error on error in order to "make sense," and so to get
+the whole thing into a hopeless muddle.
+
+</p></div1>
+<div1 type="section" n="4">
+<p>Now, <emph>all this is wrong</emph>.  It is a frightful
+source of confusion to prowl about here and there in the sentence in a
+self-blinded way that would seem pathetic to a Roman, looking at things
+without the side-lights afforded to him by the order;  and, further,
+it is a frightful waste of time.  Take a sentence such as often occurs,
+e.g., the opening of the third oration against Catiline, delivered before
+the people.  Imagine, now, two scenes:  on the one hand the Roman
+Forum, on <date value="-63-12-03">Dec. 3, 63 BC</date>, with a mass of men and boys listening to Cicero
+as he tells the story of the entangling of the conspirators remaining in
+Rome;  on the other, a modern schoolroom, say in the Syracuse High
+School (though I hope I am about to slander Dr. Bacon), <date value="1886-12-03">Dec. 3, 1886 AD</date>. 
+In the former case  Cicero has the floor, as we say;  in the
+latter case, Dr. Bacon's assistant, book in hand, his pupils before him. 
+Both audiences want to get at the same thing, &mdash; what Cicero has to say. 
+In the first scene, Cicero proceeds: &mdash;
+</p>
+<p><cit><quote lang="la">Rem publicam, Quirites, vitamque omnium vestrum, bona, fortunas,
+coniuges liberosque vestros, atque hoc domicilium clarissimi imperi, fortunatissimam
+pulcherrimamque urbem, hodierno die deorum immortalium summo ergo vos amore,
+laboribus consiliis periculis meis, e flamma atque ferro ac paene ex faucibus
+fati ereptam et vobis conservatam ac restitutam videtis.</quote> <bibl n="Cic. Catil. 3.1">(Catil. 3.1)</bibl></cit>
+</p>
+<p>When he has said that, every soul that has heard him knows precisely
+what he means.  Now change to the Syracuse High School.  The
+teacher says, "first find your subject."  So we run on, scenting out
+a subject: &mdash;
+</p>
+<p><quote lang="la">Rem publicam, Quirites, vitamque omnium vestrum, bona, fortunas,
+coniuges liberosque vestros, atque hoc domicilium clarissimi imperi, fortunatissimam
+pulcherrimamque urbem, hodierno die deorum immortalium summo ergo vos amore,
+laboribus consiliis periculis meis, e flamma atque ferro ac paene ex faucibus
+fati ereptam et vobis conservatam ac restitutam videtis.</quote>
+</p>
+<p>Well, we are through with the entire sentence, and there is no subject! 
+Of course, then, it is implied in the verb, and that is the 2d person pronoun,
+in the plural.  Next we find our verb.  That is, as it happens,
+the last word, <foreign lang="la">videtis</foreign>.  Then we go back, do we, and find the
+modifiers of the subject, and then the modifiers of the verb?  <emph>No</emph>,
+I say to all that.  <emph>We have already</emph>,
+if we have been rightly brought up, <emph>understood
+everything in that sentence by the time we reach the last syllable of it,
+without having thought meanwhile of a single English word;  and we
+are as ready in 1886 to go on immediately with the next sentence as we
+should have been if we had been Romans in the Roman Forum on that day in
+63 BC</emph>.  Or, to put it another way, the boy who, reaching
+that oration in the course of his preparation for college, cannot understand
+that particular sentence, and a great many much more difficult sentences
+in the oration, from reading it straight through once in the Latin, nay,
+<emph>from merely hearing his teacher read it straight
+through once in the Latin</emph>, has been wrongly trained, is wasting
+time sadly, out of a human life all too short, and, so far from being on
+the direct way to read Latin with speed and relish, and then to proceed
+to do so, is on the direct way to drop it just as soon as the elective
+system of his particular college will allow, and, if he cares for literature,
+to go into some language in which it is not necessary, first to find the
+subject, and then the predicate, and then the modifiers of the subject,
+and then the modifiers of the predicate, and then to do the same thing
+for the subordinate sentence, or, if there are several subordinate sentences,
+to do the same thing for each one of them in the order of their importance,
+and then to put these tattered bits together into a patchwork.
+
+</p></div1>
+<div1 type="section" n="5">
+<p>Now, it will not do to say that students, by beginning in this way,
+get, quite early, beyond the need of it.  At any rate, I can testify,
+from my own experience, that, in spite of the admirable efforts of the
+schools in "sight-reading," they do not, when they come to Harvard or Cornell. 
+I allow myself in my class-room &mdash; keeping well inside of what is said to
+be customary among college professors &mdash; one jest a year.  When I first
+meet the new Freshman class (for I could not bear to leave such precious
+material wholly to the most perfect assistant), I question them:</p>
+<p>"Suppose, now, you are set, as you were at the examination for admission
+the other day, to tell me the meaning of a sentence in a book you never
+saw, &mdash; say an oration of Cicero, &mdash; how do you proceed to get at the writer's
+meaning?"</p>
+<p>There is at once a chorus of voices (for they are crammed
+for that question, having learned printed directions, as we have seen,
+in the first books they studied), "First find the &mdash; SUBJECT," three-quarters
+of them say;  "PREDICATE," the other quarter.</p>
+<p>"Now here," I say to them, "is an unhappy difference of opinion about first principles
+in a matter of everyday practice, and of very serious importance. 
+Which is right?"  They do not know.  "Which do you suppose the
+Romans who heard the oration delivered in the Forum first hunted up, the
+subject or the predicate?"  That little jest, simple as it is, always
+meets with great success;  for it not only raises a laugh (of no value
+in itself), but it shows at once, even to a Freshman, the entire absurdity
+of trying to read Latin by a hunting-up first of either his subject or
+his predicate;  and so enlists his sympathy in favor of trying some
+other way, if any can be shown him.  But, at the same time, it proves
+to me that the method taught at the most critical of all periods, the beginning,
+is still wrong.  Only in late years, and very rarely, does some student
+answer my question with:  "First read the first Latin word without
+translating it, then the second, then the third, and so on to the end,
+taking in all the possible constructions of every word, while barring out
+at once the impossible, and, above all, erring, if anywhere, in the direction
+of keeping the mind in suspense unnecessarily long, waiting, at least,
+until a sure solution has been given by the sentence itself."
+</p>
+<p>Yet this is the one method that should everywhere be rigorously used,
+from the day of the first lesson to the last piece of Latin that the college
+graduate reads to solace his old age.  <emph>Only,
+the process which at first is at every point conscious and slow</emph>,
+as it was not with the Romans, <emph>becomes, in Latin
+of ordinary difficulty, a process wholly unconscious and very rapid</emph>,
+precisely as it was with the Romans.  Just when the process would
+become easy for ordinarily simple Latin, if the training were right from
+the beginning, I cannot say.  In my own experience with college students,
+all whose habits have to be changed, I find a striking difference to be
+produced in a single term.  And at the end of two years, when the
+elective work begins, I now find it entirely practicable for the class
+to devote itself to the study of the Latin literature in the Latin alone,
+having nothing to do with version into English except at the examinations; 
+and I never had so good and so spirited translation, whether at sight or
+on the reading of the term, as last week, when, for the first time, I held
+such an examination at the end of a term spent without translation.
+
+</p></div1>
+<div1 type="section" n="6">
+<p>To bring the matter into a definite and practical shape, I can best
+indicate what it seems to me you ought to direct your teachers of Latin
+to do, <foreign lang="la">mutatis mutandis</foreign>, by telling you what I myself do from the
+time when I first meet my Freshmen to the end of the Sophomore year.
+</p>
+<p>After my little jest about the Romans hunting up first the subject and
+then the predicate as Cicero talked to them, or first the predicate and
+then the subject, whichever one thinks the Roman method may have been,
+I assure them that "<emph>what we have to do is to learn
+to understand a Roman sentence precisely as a Roman understood it as he
+heard it or read it</emph>, say in an oration, for example.  Now the
+Roman heard, or read, first the first word, then the second, then the third,
+and so on, through sentence after sentence, to the end of the oration,
+with no turning back, with no hunting around.  And in doing this he
+was so guided all the time, by indications of one kind or another in some
+way strown through each sentence, that, when the last word of that sentence
+had been spoken or read, the whole of the meaning had reached his mind. 
+The process of detecting these indications of meaning was to him a wholly
+unconscious one.  We moderns, however, of course cannot begin so far
+along.  What we are to reach finally is precisely this unconsciousness
+of processes;  but we shall be obliged, for the first few years, explicitly
+to study the indications, until we come to know them familiarly, one after
+another.  We must for some time think out, at every point, as the
+sentence progresses (and that without ever allowing ourselves to look ahead),
+all those conveyings of meaning, be they choice of word, or choice of order,
+or choice of case, or choice of mode, or choice of tense, or whatsoever
+else which at that point sufficed for the Roman mind.  And when these
+indications &mdash; which after all are not so many in number &mdash; have come to
+be so familiar to us that most of them are ready to flash before the mind
+without our deliberately summoning them, we shall be very near the point
+at which, in Latin graded to our growing powers, we shall interpret indications
+unconsciously.  And the moment we do that, we shall be reading Latin
+by the Roman's own method."
+
+</p></div1>
+<div1 type="section" n="7">
+<p>I take up now &mdash; all books being closed &mdash; a sentence of very simple structure,
+of which every word and every construction are familiar, say a certain
+passage in Livy.<note anchored="yes"><cit><bibl n="Liv. 1.41">1.41, </bibl><quote lang="la">Tarquinium moribundum cum qui
+circa erant excepissent, illos fugientes lictores comprehendunt.</quote></cit></note>
+I tell the story of the context:  Two assassins have got admission,
+on the pretext of a quarrel to be decided, into the presence of Tarquin. 
+One of them diverts the attention of the king by telling his tale, and
+the other brings down an axe upon the king's head;  whereupon they
+both rush for the door.
+</p>
+<p>In order that the interpretation shall be done absolutely in the order
+in which a Roman would do it, without looking ahead, I write one word at
+a time upon the board (as I will again do upon the board before you), and
+ask questions as I go, as follows : &mdash;<note anchored="yes">The sentence grows upon the board by the addition
+of one word after another.&nbsp; To obtain the same result in print, with
+each new word the whole of the sentence thus far given will be repeated.&nbsp;
+And, for the sake of greater clearness, answers will be distinguished from
+questions by the use of italics.&nbsp;<note anchored="yes" place="inline" resp="aem">[Nowadays, some teachers find it
+convenient to write the sentence on a transparency and uncover one word
+at a time.]</note></note>
+</p>
+<p><foreign lang="la">Tarquinium</foreign>.  "What did Livy mean by putting that word at
+the beginning of the sentence?"</p>
+<p>"That the person mentioned in it is at this point of conspicuous importance."</p>
+<p>"Where is <foreign lang="la">Tarquinium</foreign> made?"</p>
+<p>"In the accusative singular."</p>
+<p>"What does that fact mean to your minds?"
+</p>
+<p>Here most of them are somewhat dazed, not being used to that word <emph>meaning</emph>,
+the very word that ought constantly to be used in dealing with syntax,
+or so-called "parsing." So I very probably have to say, "May it mean the
+duration of time of the act with which it is connected?"</p>
+<p>They say, "No."</p>
+<p>I ask, "Why not?"</p>
+<p>Somebody says, "Because the name of a person cannot indicate time."</p>
+<p>I say, "Give me some words that might indicate time."  They give me <foreign lang="la">dies, noctes, aetatem,</foreign>
+etc.  Then I ask, "May it mean extent of space?"</p>
+<p>They say, "No," give me similar reasons for their answer, and, upon my asking for words
+that might indicate extent of space, they give me, perhaps, <foreign lang="la">mille passuum,
+tres pedes</foreign>, etc.</p>
+<p>Then I ask, "May it indicate the extent of the
+action of the verb, the degree to which the action goes?"  They say,
+"No," for a similar reason.  But when I ask for words that might
+mean the degree of the action, they commonly cannot tell me, for the reason
+that, strange to say, the grammars do not recognize such a usage; 
+though sentences like "he walks a great deal every day" (<foreign lang="la">multum cottidie
+ambulat</foreign>) are even more common than sentences like "he walks three miles
+every day" (<foreign lang="la">cottidie tria milia passuum ambulat</foreign>), and the accusatives
+mean essentially the same thing in both sentences.</p>
+<p>Then I ask, "May
+it mean that in respect to which something is said, &mdash; <emph>as regards Tarquin</emph>,
+&mdash; the accusative of specification?"  To a question like that, I am
+sorry to say that a great many always answer yes, for students get very
+vague notions of the real uses of the accusative of specification. 
+Somebody, however, may be able to tell me that the name of a person is
+never used in the accusative of specification, and that in general the
+use of the accusative of specification, in the days of Cicero and Virgil,
+was mostly confined to poetry.  "What words were used in the accusative
+of specification in prose?"  Here I never get an answer, although
+the list is determinate, short, and important.  So I have to say,
+"I must add to your working knowledge a useful item;  write in your
+note-books as follows:  <foreign lang="la">partem, vicem, genus</foreign> with <foreign lang="la">omne</foreign>
+or a pronoun (<foreign lang="la">quod, hoc, id</foreign>), <foreign lang="la">sexus</foreign> with <foreign lang="la">virile</foreign> or
+<foreign lang="la">muliebre</foreign>, <foreign lang="la">hoc</foreign> and <foreign lang="la">id</foreign> with <foreign lang="la">aetatis</foreign>, the relative
+<foreign lang="la">quod</foreign> and the interrogative <foreign lang="la">quid</foreign>, are used in Latin prose
+in all periods as accusatives of specification.  Here, then, is a
+bit of definite information which may enable you, when you first meet one
+of these words again (you will do so quite early in your first book of
+Livy), to walk without stumbling through a sentence where you would otherwise
+trip."  Then I go back to Tarquinium.  "May it be," I ask, "an
+accusative of exclamation?"</p>
+<p>They say, "Possibly so." </p>
+<p>I say, "possibly yes, though in historical narration you would hardly expect
+such an exclamation from the historian."  Next I ask, "May it be a
+cognate accusative?" </p>
+<p>To that they answer, "No";  telling
+me, perhaps with some help, that "the name of a person cannot be in any
+sense a restatement of an act, &mdash; cannot mean an activity."</p>
+<p>"Well, then, what does this accusative case mean?"</p>
+<p>By this time a good many
+are ready to say:  "Object of a verb, or in apposition with the
+object."  But I ask if one thing more is possible, and some one
+says:  "Subject of an infinitive."</p>
+<p>"Yes," I answer;  "and one thing more yet?"  </p>
+<p>"Predicate of an infinitive," someone suggests.
+</p>
+<p>"Now," I ask, "what have we learned from all this?  Given the name
+of a person or persons in the accusative with no preposition, how many
+and what constructions are possible?"  All are ready now to answer,
+<emph>Object of a verb, or subject or predicate of an infinitive</emph>. 
+"Good," I say.  "Keep those possibilities always fresh in your mind,
+letting them flash through it the moment you see such a word;  and
+that having been done, <emph>WAIT</emph>, and <emph>NEVER
+DECIDE</emph> which of these possible meanings was in the mind of the Roman
+speaker or writer until the rest of the sentence has made the answer to
+that question perfectly clear.  Now tell me what constructions are
+possible for an accusative like <foreign lang="la">hiemem</foreign>."</p>
+<p>They answer, "duration of time, apposition, object of verb, subject or predicate of an infinitive."</p>
+<p>"For an accusative like <foreign lang="la">pedes</foreign>?"</p>
+<p>They answer, "extent of space, apposition, object of verb, or subject or predicate of an infinitive."</p>
+<p>"For an accusative like <foreign lang="la">multum</foreign>?"</p>
+<p>"Extent of action, apposition, object of verb, or subject or predicate of an infinitive."  </p>
+<p>"For an accusative like <foreign lang="la">vitam</foreign>?"</p>
+<p>"Cognate accusative, apposition, object of verb, or subject or predicate of an infinitive."</p>
+<p>Now I ask, "Can any one tell me what constructions we may expect if the verb
+turns out to be some word like <foreign lang="la">doceo</foreign> or <foreign lang="la">celo</foreign>?"  They
+all give the answer, and therewith I have already passed in rapid review
+practically the whole matter of the accusative constructions;  and,
+what is more, &mdash; and this is vital, &mdash; I have done it <emph>from
+a very practical standpoint</emph>.  I have not asked a student
+to "parse" a word <emph>after seeing its full connection in the sentence</emph>
+(an exercise which loses four-fifths of its virtue by this misplacement),
+but I have demanded <emph>anticipatory parsing</emph>,
+&mdash; I have put my questions in such a way that my students have learned for
+all accusatives what instantaneous suggestions of the possible parts a
+word is playing in the sentence they may get, at first sight of the word,
+from the very nature of the word.
+</p>
+<p>Then I pass on.  "We have our King Tarquin before our eyes, as
+the person on whom the interest of the sentence centres, and we know that
+he is the object of an action, or the subject or predicate of an infinitive
+action;  or, possibly, in apposition with such an object, subject,
+or predicate.  To proceed, the next word, <foreign lang="la">moribundum</foreign>, is what
+and where made?"  </p>
+<p>"Adjective, nom. sing. neut., or acc. sing. masc. or neut."</p>
+<p>Don't smile at all this.  The habit of getting a young student to think all these things out, even where he could not
+go astray if they were not asked of him, saves many a getting lost in difficult
+places.  "What is probable about <foreign lang="la">moribundum</foreign>, as we have it
+in this particular sentence?"</p>
+<p>"That it belongs to Tarquinium."</p>
+<p>"Right.  Now keep that picture in mind:  <foreign lang="la">Tarquinium moribundum</foreign>,
+<emph>the King, breathing his last, acted upon or acting</emph>. 
+Now for the next word:  <foreign lang="la">Tarquinium moribundum cum</foreign>.  What
+is <foreign lang="la">cum</foreign>?"  Some say, with perfect readiness, "preposition,"
+some say "conjunction."<note anchored="yes">The fact that it is possible for students,
+without a moment's reflection, to plunge at things in this sadly well-known
+way shows how thoroughly ineffective the prevailing method of teaching
+beginners is in developing a sharp and self-suspicious observation.&nbsp;
+That charge, it will be seen, cannot be brought against the method advocated
+in this paper.</note></p>
+<p>"But," I answer, "if you are used to the right spelling, you know with
+an instant's thought that no Roman that ever lived could tell at this point
+whether it was preposition or conjunction.  In order to tell, you
+must wait for &mdash; what?"</p>
+<p>"Ablative or verb," they answer. </p>
+<p>Then we go on, "<foreign lang="la">Tarquinium moribundum cum qui</foreign>.  What does <foreign lang="la">qui</foreign>
+at once tell us about <foreign lang="la">cum</foreign>?"</p>
+<p>"Conjunction."</p>
+<p>"Right.  What do we know now, with almost absolute certainty, about <foreign lang="la">Tarquinium</foreign>? 
+What part of the sentence does it belong to?"</p>
+<p>Here, I grieve to say, a chorus of voices always answers, "Main verb";  for, in some
+mysterious way, students arrive at the universities without having learned
+that the Romans delighted to take out the most important word, or combination
+of words, from a subordinate introductory sentence, and put it at the very
+start, before the connective, &mdash; a bit of information worth a great deal
+for practical reading.  That habit of expression I now tell them,
+and then ask, "Given a sentence beginning with <foreign lang="la">mors si</foreign>, what do
+you know?"</p>
+<p>"That mors is the subject or predicate of the verb introduced by si."</p>
+<p>"Given a sentence introduced by <foreign lang="la">Hannibali victori cum
+ceteri</foreign>?"</p>
+<p>"That Hannibali depends on something in the cum-sentence."
+</p>
+<p>Now we go back to our sentence, and the word <foreign lang="la">qui</foreign>.  "What
+part of speech is it?"</p>
+<p>"Relative," they say.</p>
+<p>"Or what else?"  I ask.</p>
+<p>"Interrogative."</p>
+<p>"Where is it made?" </p>
+<p>"Nom. sing. or plur., masc." </p>
+<p>"If it is a relative, where in the sentence as a whole does its antecedent lie?"  
+They should answer, "Inside the cum-clause."  The <foreign lang="la">cum</foreign> serves as the first of two brackets
+to include the <foreign lang="la">qui</foreign>-clause.</p>
+<p>"If, on the other hand, it is an interrogative, what kind of a question is alone here possible?"  </p>
+<p>"Indirect, and in the subjunctive," they answer.</p>
+<p>"In that case, what kind of a meaning, speaking generally, must the verb introduced by <foreign lang="la">cum</foreign> have?"  </p>
+<p>"It must be able to imply asking of some kind."</p>
+<p>"Rightly said;  perhaps we may have such a sentence as, <quote>"When everybody inquired who these men were"</quote> 
+&mdash; <foreign lang="la">Cum qui essent omnes quaererent</foreign>; 
+or perhaps we shall find that <foreign lang="la">qui</foreign> is relative.  The next word
+is <foreign lang="la">circa</foreign>, &mdash; <foreign lang="la">Tarquinium moribundum cum qui circa</foreign>.  What
+part of speech is it?"</p>
+<p>"Adverb."</p>
+<p>"What then may it do?" </p>
+<p>"It may modify a verb, an adjective, or another adverb."
+</p>
+<p>We proceed:  <foreign lang="la">Tarquinium moribundum cum qui circa erunt</foreign>. </p>
+<p>"What, now, about <foreign lang="la">circa</foreign>?"</p>
+<p>"It modifies <foreign lang="la">erant</foreign>."</p>
+<p>"What was the number of <foreign lang="la">qui</foreign>?"</p>
+<p>"Plural."</p>
+<p>"Was it relative or interrogative?"</p>
+<p>"Relative."</p>
+<p>"How do you know?" </p>
+<p>"Because erant is not subjunctive."</p>
+<p>"Right.  Now <foreign lang="la">qui circa erant</foreign> is as good as a noun or a pronoun, &mdash; an indeclinable noun
+or pronoun, in the plural.  Think of it in that way, as we go on.  <foreign lang="la">Tarquinium moribundum cum qui circa erant excepissent</foreign>.  I don't
+ask to-day the meaning of the mode of <foreign lang="la">excepissent</foreign>, because the world
+is in so much doubt about the question of the history and force of the
+<foreign lang="la">cum</foreign>-constructions.  But what was Livy's meaning in writing
+the accusative <foreign lang="la">Tarquinium</foreign>?"</p>
+<p>"Object of <foreign lang="la">excepissent</foreign>."</p>
+<p>"Yes, and what was the subject of <foreign lang="la">excepissent</foreign>?"</p>
+<p>"The antecedent of <foreign lang="la">qui</foreign>."</p>
+<p>"Yes;  or, looking at the matter more generally,
+the subject was <foreign lang="la">qui circa erant</foreign>."
+</p>
+<p>"Before going on, what picture have we before us?  What has the
+sentence thus far said?  This:  
+<quote rend="blockquote"><emph>See Tarquin, dying!  See the bystanders!  See them pick him up!</emph></quote></p>
+<p>Our curiosity is stimulated by the very order.  The next word is <foreign lang="la">illos</foreign>,
+&mdash; <quote lang="la">Tarquinium moribundum cum qui circa erant excepissent</quote> ... 
+What does the position of <foreign lang="la">illos</foreign>, first in the main sentence proper,
+tell us?"</p>
+<p>"That the people meant by it are of special prominence at this point."  </p>
+<p>"Who do you suppose these <foreign lang="la">illos</foreign> are, these
+more distant persons, thus set in emphatic balance against <foreign lang="la">Tarquinium</foreign>,
+each leading its clause?  </p>
+<p>"The assassins," the whole class say. </p>
+<p>"What do we know about Livy's meaning from the case?"</p>
+<p>Now they all answer in fine chorus and completeness, "Apposition, object of main verb,
+or subject or predicate of an infinitive."
+</p>
+<p>We proceed:  <quote lang="la">Tarquinium moribundum cum qui circa erant excepissent,
+illos fugientes</quote> ...  "What part of speech is <foreign lang="la">fugientes</foreign>?" </p>
+<p>"Participle."</p>
+<p>"Which one?"</p>
+<p>"Present active." </p>
+<p>"Then you see a running-away going on before your eyes.  What gender?" </p>
+<p>"Masc. or fem."</p>
+<p>"What number?"</p>
+<p>"Plural."  </p>
+<p>"Then you see some two or more men or women running away.  What case?" </p>
+<p>"Nom. or acc."</p>
+<p>"On the whole, do you feel sure you know the case?"</p>
+<p>"Yes;  accusative."</p>
+<p>"Belonging to what?" </p>
+<p>"<foreign lang="la">Illos</foreign>."</p>
+<p>"Why?"</p>
+<p>"Because of course the assassins, the <foreign lang="la">illos</foreign>, would run away."</p>
+<p>"Yes," I say;  "but it cannot possibly
+mislead you to wait until there isn't a shadow of a doubt.  We will
+go on:  <quote lang="la">Tarquinium moribundum cum qui circa erant excepissent, illos
+fugientes lictores</quote> ...  Here you have another set of people, the
+king's body-guard.  In what case?"</p>
+<p>"Nom. or acc. plural." </p>
+<p>"Which?"  They do not know.  "Well, then, can <foreign lang="la">illos</foreign> agree
+with <foreign lang="la">lictores</foreign>, if you consider forms alone?"</p>
+<p>"Yes."</p>
+<p>"In that case, <foreign lang="la">fugientes</foreign> would have to go with <foreign lang="la">illos lictores</foreign>, wouldn't it?"</p>
+<p>"Yes."</p>
+<p>"But would the lictors run away?" </p>
+<p>"No."</p>
+<p>"Would the assassins?"</p>
+<p>"Yes."</p>
+<p>"Certainly. Then <foreign lang="la">fugientes</foreign> does not belong with <foreign lang="la">lictores</foreign>, and does belong
+with <foreign lang="la">illos</foreign>;  and <foreign lang="la">illos</foreign> seems to be, just as we suspected
+at first sight of it, the assassins.  However, we must ask ourselves
+one more question, Is apposition possible between <foreign lang="la">illos</foreign> and <foreign lang="la">lictores</foreign>?" </p>
+<p>"No;  for they are very different people."</p>
+<p>"Is any relation of a predicate possible between them?  Can the one be the predicate
+of an infinitive of which the other is the subject?"</p>
+<p>"No; because, as before, they are very different people."</p>
+<p>"Still it is possible that <foreign lang="la">lictores</foreign> is accusative.  If it is, it may
+be object, in which case <foreign lang="la">illos</foreign> is necessarily subject, for, as we
+have seen, they cannot be in apposition;  or, it may be subject, in
+which case, for the same reason, <foreign lang="la">illos</foreign> must be object.  In
+either case, they must be in <emph>direct opposition</emph> to each other, one
+of them (we don't yet know which) being subject, the other, object; 
+while, if <foreign lang="la">lictores</foreign> is nom., you still have the same relation, only
+you know which is subject and which is object.  In any event, you
+see they are set over against each other, together making subject and object. 
+Now keep the results of this reasoning ready for the countless cases in
+which such combinations occur.  Given two nouns like <foreign lang="la">bellum Saguntum</foreign>: 
+what are the constructions?"</p>
+<p>"One is the subject of a verb, and the other the object, and we can't yet tell which."</p>
+<p>"Right. Now I will give you a still more involved combination, but of a very commonly
+occurring kind, &mdash; <foreign lang="la">quae nos materiem</foreign>.  What do you make out
+of that?"</p>
+<p>Some clever boy will say, "<foreign lang="la">Nos</foreign> must be the subject of
+a verb, either finite or infinitive, and <foreign lang="la">quae</foreign> and <foreign lang="la">materiem</foreign> are object and
+predicate-object."</p>
+<p>"Good.  Then what kind of meaning does the verb probably have?"</p>
+<p>"One of calling."</p>
+<p>"Right. The words are from Lucretius, and the verb he used was <foreign lang="la">vocamus</foreign>. 
+Treasure up that combination and the meaning of it."
+</p>
+<p>"Now we go back to the assassins who are running away, and the king's
+body-guard.  I will inform you that there is just one more word in
+the sentence.  What part of speech is it?"</p>
+<p>"Verb."</p>
+<p>"Active or passive?"  </p>
+<p>"Active."</p>
+<p>"Right.  What does it tell?"  </p>
+<p>"Tells what the lictors do to the assassins."</p>
+<p>"What mode, then?"</p>
+<p>"Indicative."</p>
+<p>"What two tenses are possible?"</p>
+<p>"The perfect and the historical present."</p>
+<p>"Right.  Now the situation is a pretty dramatic one.  Which of these two tenses
+should you accordingly choose, if you were writing the story?"  </p>
+<p>"The present."  </p>
+<p>"So did Livy.  Now tell me what you think the verb is."</p>
+<p>"<foreign lang="la">Interficiunt</foreign>," somebody says.  "<foreign lang="la">Capiunt</foreign>," says
+another, hitting the idea but not the right word, which is <foreign lang="la">comprehendunt</foreign>,
+get hold of them well, &mdash; "nab 'em";  or, as our tamer English
+phrase might put it, "secure them."
+</p>
+<p>"Now let us render into English the sentence as a whole, translating
+not merely Livy's words, but the actual development of the thought in his
+mind.
+<quote rend="blockquote"><foreign lang="la">Tarquinium</foreign>, there's
+Tarquin;  <foreign lang="la">moribundum</foreign>, he's a dying man;  
+<foreign lang="la">cum qui circa erant</foreign>, you see the bystanders about to do something;  
+<foreign lang="la">excepissent</foreign>, they have caught and supported the king;  
+<foreign lang="la">illos</foreign>, you turn and look at the assassins;  
+<foreign lang="la">fugientes</foreign>, they are off on the run;  
+<foreign lang="la">lictores</foreign>, there are the king's body-guard;  we hold our breath in suspense; 
+&mdash; <foreign lang="la">comprehendunt</foreign>, <emph>THEY'VE GOT 'EM!</emph></quote>  
+</p>
+<p>So, then, <emph>that Latin order,
+which looks so perverted to one who is trained to pick the sentence to
+pieces and then patch it together again, gives us the very succession in
+which one would see the actual events</emph>;  weaves all the occurrences
+together into a compact whole, yet keeping everywhere the <emph>natural</emph>
+order;  while any order that we may be able to invent for a corresponding
+<emph>single sentence</emph> in English will twist and warp the natural order
+into a shape that would greatly astonish a Roman."
+</p>
+<p>"Finally, with the understanding and sense of the dramatic in the situation,
+which we have got by working the sentence out as Livy wrote it, compare
+the perversion of it, which we get by working it out correctly on the first-find-your-subject-of-the-main-sentence-and-then-your-predicate,
+etc., method:</p>
+<p><gloss>the lictors secure the assassins
+as they run away, when those who were standing by had caught and supported
+the dying Tarquin</gloss>.</p>
+<p>The facts are all there, but the <emph>style</emph>, the <emph>soul</emph>, is gone."
+
+</p></div1>
+<div1 type="section" n="8">
+<p>Then I at once bring what we have learned to bear by giving a piece
+of blank paper to each student and starting out upon a new sentence, which
+shall involve what we have just seen, together with some fresh matter. 
+The questions are carefully studied and written out in advance, and the
+place of each is indicated to me, in my prepared manuscript, by a number
+attached to the Latin word concerned, as if for a footnote.  As each
+question is put, the number is at once written down by each student and
+his answer written out.  Afterwards my assistant carefully goes through
+every paper, and with a colored paper marks every error, for my own guidance,
+and for the subsequent study, penitence, and profit of the writer. 
+The following is an example actually used, from <bibl n="Liv. 21.53">Livy 21.53</bibl>.  The answer
+that should be written is given with each question.
+</p>
+<p><quote lang="la">Hannibal <gloss id="s8g1" lang="en" n="question">Construction?</gloss> <gloss lang="en" n="answer" target="s8g1">Subject of a verb, either subordinate or main.</gloss>
+cum <gloss id="s8g2" lang="en" n="question">Part of speech?</gloss> <gloss lang="en" n="answer" target="s8g2">Preposition or conjunction</gloss>
+quid <gloss id="s8g3" lang="en" n="question"><foreign lang="la">Cum</foreign> was what part of speech?</gloss> <gloss lang="en" n="answer" target="s8g3">Conjunction</gloss>
+<gloss id="s8g4" lang="en" n="question">Construction of <foreign lang="la">Hannibal</foreign>?</gloss> <gloss lang="en" n="answer" target="s8g4">Subject or predicate nominative of verb introduced by <foreign lang="la">cum</foreign>.</gloss>
+<gloss id="s8g5" lang="en" n="question"><foreign lang="la">Quid</foreign> is what part of speech?</gloss> <gloss lang="en" n="answer" target="s8g5">Interrogative</gloss>
+<gloss id="s8g6" lang="en" n="question">Construction of the verb to which <foreign lang="la">quid</foreign> belongs?</gloss> <gloss lang="en" n="answer" target="s8g6">Subjunctive of indirect question</gloss>
+<gloss id="s8g7" lang="en" n="question">General nature of meaning of verb introduced by <foreign lang="la">cum</foreign>?</gloss> <gloss lang="en" n="answer" target="s8g7">Some meaning that can imply a question</gloss>
+<gloss id="s8g8" lang="en" n="question">Case of <foreign lang="la">quid</foreign>?</gloss> <gloss lang="en" n="answer" target="s8g8">Nom. or acc. neut. sing.</gloss>
+<gloss id="s8g9" lang="en" n="question">Construction of <foreign lang="la">quid</foreign>?</gloss> <gloss lang="en" n="answer" target="s8g9">Subject, predicate, or object of finite verb or infinitive;  or acc. of specification, the so-called adverb.</gloss>
+optimum <gloss id="s8g10" lang="en" n="question">Case?</gloss> <gloss lang="en" n="answer" target="s8g10">Nom. neut. sing., or acc. masc. or neut. sing.</gloss>
+<gloss id="s8g11" lang="en" n="question">Construction?</gloss> <gloss lang="en" n="answer" target="s8g11">If neut., agreeing with subject or object of verb, or in predicate.  If masc., agreeing with object of verb, or with subject or predicate of an infinitive.</gloss>
+<gloss id="s8g12" lang="en" n="question">What constructions may follow to complete the meaning of <foreign lang="la">optimum</foreign>?</gloss> <gloss lang="en" n="answer" target="s8g13">Dat. of the person for whom something is <foreign lang="la">optimum</foreign>, or abl. of that with respect to which something is <foreign lang="la">optimum</foreign>.  (It is worthwhile to have those two possibilities pat, for the great class of words of which <foreign lang="la">optimum</foreign> is a specimen.)</gloss>
+foret <gloss id="s8g13" lang="en" n="question">Where made?</gloss> <gloss lang="en" n="answer" target="s8g13">Imperfect subjunctive.  (Reason already given under <ref target="s8g6" targOrder="U">6.</ref>)</gloss>
+hosti <gloss id="s8g14" lang="en" n="question">Construction?</gloss> <gloss lang="en" n="answer" target="s8g14">Dative after <foreign lang="la">optimum</foreign>.  (Reason given under <ref target="s8g12" targOrder="U">12.</ref>)</gloss>
+cerneret, <gloss id="s8g15" lang="en" n="question">Where made, and introduced by what?</gloss> <gloss lang="en" n="answer" target="s8g15">Imperfect subjunctive, introduced by <foreign lang="la">cum</foreign>.</gloss>
+<gloss id="s8g16" lang="en" n="question">Construction of <foreign lang="la">Hannibal</foreign>?</gloss> <gloss lang="en" n="answer" target="s8g16">Subject of <foreign lang="la">cerneret</foreign></gloss>
+vix <gloss id="s8g17" lang="en" n="question"><foreign lang="la">Vix</foreign>, <gloss lang="en">hardly</gloss>, has a negative feeling.  In such a connection, what would be the pronoun meaning "any," and what the adjective?  (Probably nobody knows.)</gloss> <gloss lang="en" n="answer" target="s8g17"><foreign lang="la">Quisquam, ullus</foreign></gloss>
+ullam spem <gloss id="s8g18" lang="en" n="question">Construction?</gloss> <gloss lang="en" n="answer" target="s8g18">Acc. sing., object of verb, or subject or predicate of infinitive.</gloss>
+<gloss id="s8g19" lang="en" n="question"><foreign lang="la">Spes</foreign>, just as much as <foreign lang="la">spero</foreign>, indicates a mental activity, and we shall probably find something else, completing its meaning, the object of the <foreign lang="la">spes</foreign>.  What will be the case (a) if the completing word is a noun? (b) if the completing word is a verb?</gloss>  <gloss lang="en" n="answer" target="s8g19">Objective genitive of a noun;  of a verb, objective genitive of gerund or of gerundive with noun, or future infinitive.</gloss>
+habebat <gloss id="s8g20" lang="en" n="question">Subject is what?</gloss> <gloss lang="en" n="answer" target="s8g20">A pronoun, repeating <foreign lang="la">Hannibal</foreign>.</gloss>
+temere <gloss id="s8g21" lang="en" n="question">Part of speech, and simplest meaning?</gloss> <gloss lang="en" n="answer" target="s8g21">Adverb, meaning <gloss lang="en">blindly</gloss>.</gloss>
+<gloss id="s8g22" lang="en" n="question">Bearing in mind that, in the ordinary Roman habit, words were placed in anticipation of those which they modify, not after them, what do you feel about <foreign lang="la">temere</foreign>?</gloss> <gloss lang="en" n="answer" target="s8g22">That it modifies the expected object of <foreign lang="la">spem</foreign>, which, consequently, is a verb.</gloss>
+atque <gloss id="s8g23" lang="en" n="question">Probably introduces what?</gloss> <gloss lang="en" n="answer" target="s8g23">Another adverb, corresponding to <foreign lang="la">temere</foreign>.</gloss>
+<seg type="cloze">---</seg> <gloss id="s8g24" lang="en" n="question">Write an adverb to mean 'not looking ahead.'</gloss> <gloss lang="en" n="answer" target="s8g24"><foreign lang="la">Improvide</foreign></gloss>
+<seg type="cloze">---</seg> <gloss id="s8g25" lang="en" n="question">Write nom. or acc. neut. sing. meaning 'anything' (in one word).</gloss> <gloss lang="en" n="answer" target="s8g25"><foreign lang="la">Quicquam</foreign>.</gloss>
+<gloss id="s8g26" lang="en" n="question">In what case is that word here, and with what verb is it connected?</gloss> <gloss lang="en" n="answer" target="s8g26">Acc., connected with a verb, which verb must depend on <foreign lang="la">spem</foreign>.</gloss>
+consules <gloss id="s8g27" lang="en" n="question">Where made, without reference to context?</gloss> <gloss lang="en" n="answer" target="s8g27">Nom. or acc. plur.</gloss>
+<gloss id="s8g28" lang="en" n="question">Where made, with reference to context, and how do you know?</gloss> <gloss lang="en" n="answer" target="s8g28">Acc., because <foreign lang="la">habebat</foreign> is sing.</gloss>
+<gloss id="s8g29" lang="en" n="question">Meaning of this accusative?</gloss> <gloss lang="en" n="answer" target="s8g29">That <foreign lang="la">consules</foreign> is subject, object, or predicate of an infinitive.</gloss>
+<gloss id="s8g30" lang="en" n="question">Relation of <foreign lang="la">quicquam</foreign> and <foreign lang="la">consules</foreign> to each other?</gloss> <gloss lang="en" n="answer" target="s8g30">One the object, the other the subject, of the infinitive.</gloss>
+<seg type="cloze">---</seg><gloss id="s8g31" lang="en" n="question">Complete the sentence, using a verb meaning 'do.'</gloss> <gloss lang="en" n="answer" target="s8g31"><foreign lang="la">Acturos</foreign>, with or without <foreign lang="la">esse</foreign>.</gloss>
+<gloss id="s8g32" lang="en" n="question">Write, in the best English you have at your command, a translation of the sentence.</gloss>
+</quote>
+
+</p></div1>
+<div1 type="section" n="9">
+<p>"Now," I go on to say to my students, "you are to commit this sentence
+to memory, and be ready to give it fluently in the Latin when we meet next. 
+And in the same way you will commit to memory every passage we so use in
+the year;  and at each term examination you will find yourselves called
+upon to write one of these passages, still from memory.  Further,
+and still more important than this, never again pick out your subject,
+your predicate, etc.;  but, in preparing your daily lessons, do just
+what we have been doing this morning, except that <emph>you
+are not to translate any sentence, or any part of any sentence, until you
+have gone through the whole lesson in the Latin, and got all the meaning
+in your power out of it</emph>.  I give you a short lesson, and I
+shall call upon one man and another to take up a sentence and go rapidly
+through it as Latin, word after word, as we have just now done, telling
+us precisely how it should be thought out.  In preparing your lesson,
+in order to be sure that your eye does not stray and run ahead, cut out
+a piece of flexible pasteboard, or, until you can get pasteboard, a piece
+of stiff writing-paper, as long as twice the width of your printed text,
+and two or three inches wide.  Cut a strip from the top, running along
+half the length, and deep enough to correspond to precisely one line of
+your text, including the space that belongs with it.<note anchored="yes">At the meeting of the Philological Association
+at Ithaca last summer, Professor Gildersleeve, in the course of some remarks
+upon the reading of Greek and Latin, expressed himself with great severity
+in regard to the habitual way of doing the thing, and suggested that it
+would be desirable, in order to force students to accept the order of the
+original, to require them to read through a hole in a piece of paper, or
+with a notched card.&nbsp; The method urged in the present pamphlet is
+practically so identical with the results that would flow from Professor
+Gildersleeve's suggestion, that nothing but the fact that this method was
+already substantially in print in the Cornell University Register for 1885-6,
+and in the special announcement of courses in the classics, could save
+this pamphlet from the suspicion of being merely an expansion of Professor
+Gildersleeve's hint.&nbsp; The same thing holds in regard to the admirable
+injunction in the preface to the new edition of the Allen and Greenough
+Cicero, published in May, 1886.&nbsp; As it is, however, it appears that
+the essential aim of the method of this pamphlet (not necessarily, of course,
+its details) has strong and express confirmation.</note>
+Use this piece of paper in such a way as to expose just one word at a time,
+together with which, of course, will also be seen all the words preceding; 
+that is to say, as you think about one word after another, pushing your
+paper on, you will constantly see all of the sentence thus far traversed,
+without being able to look ahead."
+</p>
+<p>At the next meeting, the class, thus prepared, recites as described,
+a number of students attempting to show precisely what mental processes
+one should go through in taking up the sentences of the lesson.  At
+the next but one, and thereafter throughout the Freshman year, all books
+being closed, the instructor reads the review lesson aloud, with all the
+effectiveness possible to him, one sentence at a time, calling for a translation
+of it from one and another student.<note anchored="yes">For this very helpful feature of the work under
+description, I owe my thanks to my assistant, Dr. A. C. White.&nbsp; I
+know of no piece of work more charming and cheering to listen to, excepting
+the translation of a new piece of Latin in the same way.</note>
+As a preparation for this exercise, each student is urged to read the review
+aloud a number of times in his own room, doing his author as much justice
+as possible.
+</p>
+<p>At every exercise during the year, except the special weekly exercise,
+a number of sentences, prepared by the instructor, and based upon the text
+under reading at the time, are given out to students, to be written upon
+the board, in the English and in Latin, while the rest of the class are
+engaged upon translating the review as the instructor reads it;  and
+when the work upon the review is over, these Latin sentences upon the board
+are criticised by the class.  I touch upon a very serious defect in
+most of our preparatory schools when I say that from beginning to end there
+should never be a recitation in a foreign language without written or oral
+translation into that language.
+
+</p></div1>
+<div1 type="section" n="10">
+<p>For the special weekly exercise described above, there can be no considerable
+preparation beyond incessant faithfulness in the daily work.  The
+time thus left free is utilized in the preparation of a considerable piece
+of English based upon the Latin recently read.  (It will be seen that
+no textbook in composition is employed.)  The exercise handed in by
+each student is afterwards looked through, and returned to him at the next
+meeting of the class, with all errors marked.
+</p>
+<p>The writing of the Latin sentence, one word at a time, upon the board
+in the special weekly exercise which has been described above, gives place
+in a few weeks to the corresponding dictation of one word at a time, to
+be written upon his paper by the student, the questions being, of course,
+given as before.  The exercise changes constantly in character by
+the dropping of questions with which the students have become familiar,
+and the bringing in of questions involving new principles.  Meanwhile,
+the examination of the papers written shows, from week to week, just where
+each student's weakness lies.  In no long time all the constantly
+recurring constructions have become familiar as practical, working affairs. 
+Then (and this time properly comes somewhere near the end of the first
+third of the year) I cease entirely to have the Latin written, and give
+my passage (which may now be of respectable length) orally, still asking
+occasional questions for written answers, here and there, at points dangerous
+or otherwise instructive.  After the whole of the passage has been
+gone through in this way, it is taken up again, one sentence at a time,
+and a written translation is made by each student.  The passages are
+commonly selected from the book which the class is reading, and not very
+far in advance of the place reached in the other lessons of the week. 
+The attempt is always made to select a passage with a dramatic or otherwise
+striking close.  Each week, as already said, the whole of the exercise
+of the previous week is memorized, and repeated by several students, with
+great attention to the effective conveying of the meaning, by the throwing
+together, as in all spoken languages, of a number of words making a group
+in the sentence as a whole, by the careful balancing, in the delivery,
+of words clearly meant to be balanced, etc., etc.
+</p>
+<p>All this time each student is gaining a working knowledge of syntax
+regarded from the true standpoint for the first purposes of college work,
+namely, as a mechanism for conveying meaning from one mind to another; 
+is learning to bring that knowledge of syntax to bear at the most economical
+point;  is gaining familiarity with Roman tricks of order;  and
+is laying up a steadily growing vocabulary.<note anchored="yes">To vary the exercise, a continuous story of
+several pages in length is occasionally read through without stopping and
+without repetition, and each student then writes as complete a r&eacute;sum&eacute;
+of it as he can produce.</note>
+And throughout, in order to keep constantly in sight the idea that <emph>the
+aim of the whole business is to learn to read Latin</emph>, occasional
+examinations in translation new passages from a text or printed paper are
+held during the term (as of course they should be upon any system), and
+at the end of each term the first exercise at the final exam is translation
+at hearing, the second exercise is translation at sight, the third exercise
+is translation at sight from English to Latin, the fourth is the writing
+of one of the passages memorized during the term;  and not until this
+is done does the student proceed to an exercise in translating and commenting
+upon passages read during the term.  Moreover, the greater part of
+the grammatical questions of the paper are set, not upon passages read
+during the term, but upon the passages given for the first time at the
+examinations;  namely, the passages to be translated at hearing and
+at sight.
+
+</p></div1>
+<div1 type="section" n="11">
+<p>In the second year,  the aim of gaining in power to read at sight
+is constantly held up before the students, and occasional written exercises
+in reading at sight are given through the term, while the first exercise
+set at the examination at the end of the term is always translation at
+sight.  A proper supplement to this is an elective in the speaking
+and writing of Latin.  In the second and third terms of the second
+year, which are now devoted to Horace, considerable quantities can be read,
+with a good deal of memorizing;  and the treatment can be made almost
+wholly literary.  That carries us through the Sophomore year, and
+to the beginning of the elective work, taken by Juniors and Seniors together. 
+Here translation at the daily lesson ends, except in those rare cases where
+the meaning of a difficult passage cannot be given by explaining the grammatical
+structure, or by turning the passage into some other form in Latin.<note anchored="yes">The preparation indicated has been leading
+for some years toward the dropping of translation at the daily recitations,
+and, indeed, I have always endeavored to secure time toward the end of
+the hour in which to read on in advance to my students, without translating.&nbsp;
+But I should not have had the courage in the present year to break with
+translation in the class-room in advanced reading, had it not been for
+the assurances given me by Professor Greenough, founded upon his own experiments
+in doing this precise thing.&nbsp; My experience in the past term has been
+so gratifying as to lead me to desire greatly that Professor Greenough
+might set forth, in accessible form, the great advantages of the system
+for students properly trained for it.&nbsp; Meanwhile, let me premise that
+the delight of this method of dealing with a literature &mdash; the charm of
+direct communication with the author, of feeling, in fact, the very untranslatableness
+of diction and style &mdash; cannot be fancied by one who has not made the experiment;&nbsp;
+always supposing, of course, that the class has been trained in advance
+and brought to the point at which such reading is made possible.</note>
+Translations are written at occasional exercises held for that purpose
+during the term, and always make a part of the final examination, so that
+every student feels bound to understand his author.  But <emph>the
+students are urged not to have anything to do with English in preparation
+for their daily lessons or for the final examination</emph>, but to read
+the Latin <emph>as literature</emph>, with the utmost skill in rendering their
+author that they can acquire.
+</p>
+<p>In all my teaching, two exercises stand out from the rest, as giving
+me special delight through the interest and mental activity of my students: 
+first, the exercises with the Freshmen, which I have described as carried
+on weekly by myself;  secondly, an exercise such as I carried on with
+an elective class recently, when, at the end of a term spent upon Plautus,
+I read a new play straight through in the Latin (the students following
+me in their texts), without translation, and with very little comment,
+moving at about the rate at which one would move if he were reading a new
+play of Shakespeare in a similar way;  and felt my audience responsive,
+even to the extent of occasional laughter that checked us for a moment,
+to nearly everything in our author that would have been intelligible, without
+special explanation, in an English translation.
+
+</p></div1>
+<div1 type="section" n="12">
+<p>Finally, if you ask me whether this method which I have been describing
+does not take a great deal of time, I shall answer that the amount of Latin
+read in the first term is much smaller than in the ordinary way, but that
+the power to read increases rapidly, and that the total quantity read in
+the first year is somewhat greater than on the common system, considerably
+greater in the second year, and in the elective years absolutely greater; 
+to say nothing of the much juster understanding of, and more intimate feeling
+for, his original, and the much keener delight in reading, gained by the
+student who pursues this method.  But there is one thing more to be
+said about this kind of work, this training of the student to read Latin
+rapidly. <emph>It is not the work of the universities at all.</emph>  In
+the universities, men should not learn how to read Latin, but should read
+it.  It should be my office, for instance, to make them acquainted
+with the body of the literature, to make them know it, at any rate, and
+love it, if possible.  But the office of preparing them to do this
+by training them to read ordinary Latin with ease and speed belongs to
+no college instructor, but to the schools of which you have charge. 
+I wholly believe that the application, from the very first day of reading
+a Roman sentence of one word, of the method here described, would, without
+adding a day to the length of time given to preparation for college, make
+a young student able, at the beginning of his Freshman year, to read Latin
+with more ease and speed than are my students at the end of it, &mdash; to say
+nothing of the greater pleasure which they would have in their work. 
+And I am not judging from my experience in university teaching alone; 
+for this very method of teaching has been used by students of my own upon
+young pupils, of varying ability, in preparation for college, and with
+results that fully confirm my belief.  Nor are the young pupils the
+only gainers.  The teacher himself will be surprised to see how much
+more pleasure he feels in his work;  and, if he keeps up his reading
+of the Latin literature, as all teachers of course endeavor to do, he will
+be surprised to find how his rate of speed will increase.  And the
+method itself will give him no trouble to learn;  for in the very
+act of preparing papers for examinations of this sort, or, at the worst,
+of conducting oral exercises without preparation, the teacher will very
+soon have taught himself the whole art.
+
+</p></div1>
+<div1 type="section" n="13">
+<head>Supplement</head>
+
+<p>To the preceding address
+&mdash; long, and yet too brief &mdash; I wish to add two things:  further specimens
+of papers actually employed by myself with a Freshman class, and suggestions
+for the application of the method in the preparatory schools.
+</p>
+<p>At this point, I should advise the wearied reader, if he feels some
+confidence in the method, to lay the pamphlet aside and make experiment
+himself with a class, returning to the reading after he has come to feel
+an interest in further suggestions of detail.  As for the wearied
+reader that does not feel this confidence, he will readily lay the pamphlet
+down unadvised.
+
+</p></div1>
+<div1 type="section" n="14">
+<head>Specimens of papers</head>
+
+<p>In giving in this way details of the system on which my own work is
+conducted, I do not feel that I owe an apology.  One who proposes
+a method must have a very solid basis for his proposal.  This basis
+must be an experience of the efficacy of that which he is urging; 
+and this experience should be given with the greatest clearness and definiteness. 
+It is to be wished, indeed, that teachers of a given subject throughout
+the country, in colleges and schools, might regard themselves as forming
+one body with a common purpose, and that a constant interchange of experience
+and opinion might go on among them, alike in matters of investigation and
+matters of pedagogy.
+</p>
+<p>It should be remembered that the papers printed below were used, early
+in the Freshman year, with students who had prepared for college upon the
+familiar and thoroughly un-Roman system.  If students were prepared
+upon the right method, not one in ten of the questions here indicated would
+need to be asked, and the exercise of translating at hearing would be a
+rapid and attractive affair.
+</p>
+<p>These papers were given to the Freshman class in succession, at intervals
+of a week, in the autumn of 1885;  at which time the work of the other
+recitations of the week was in Livy.  The constant aim &mdash; and the class
+were so informed &mdash; was to find for these papers, as given week after week,
+passages which would demand of them a practical power of handling constructions
+which had been discussed in the other exercises of the week, so that their
+progress should be one of constant acquisition without loss;  and
+it was promised them that in this way they should in a short time possess
+a ready and <emph>available</emph> familiarity with all the commonly recurring
+constructions of the language.  I further told them that, since I
+should not give them at these exercises in translation the meaning of any
+word which they had ever seen before, they had a very strong reason for
+laying up for themselves a vocabulary through securing in their memory
+every Latin word occurring in their daily work, and a very strong reason
+for paying extremely careful attention, both at and after the other recitations
+of the week, to any explanations of meaning of this or that word, alone,
+or in connection with others related to it in meaning (e.g. to <foreign lang="la">alius</foreign>,
+in connection with <foreign lang="la">alter</foreign> and <foreign lang="la">ceteri</foreign>), which might similarly
+be given to them at the ordinary recitations.  Nor was I content with
+this;  for, in order that there might be no escape, I prepared a partial
+syllabus of definable points emphasized in the work of the term; 
+and one of these was purchased, from the office that printed it, by each
+student in the class.
+</p>
+<p>At the beginning of the term, the work of the advance lesson was largely
+done in the class-room, instructor and instructed working together. 
+It will be rightly inferred from this that the class moved slowly at the
+outset.  I am a devout believer in the reading of large quantities
+of the classics;  indeed, that is, in this present business, my particular
+and precise aim;  but I am also a believer in what is called "the
+long run," and "in the long run" only a soundly trained man gets very far. 
+In the preliminary training, it is necessary at first to take a good deal
+of time in probing to the quick, sometimes with considerable distress to
+the would-be athletes, a class of new students who have been carefully
+trained to distort and mangle the Latin sentence;  who have necessarily
+failed to acquire the alert and self-watchful habits of thought and of
+suspended judgment to which the received method, with its resulting impatience
+to "make sense," is practically strongly opposed;  whose knowledge
+of syntax is of a back-handed kind, good for very little except to "parse"
+with, more or less mechanically and ineffectually, after the whole sentence
+has been dug out, but worth nothing as yet for the current interpretation
+of the syntax of word after word <foreign lang="la">in situ</foreign> in the progress of the
+sentence;  and, finally, some of whom have been trained to pronounce
+Latin on the English method, others on the Continental, and others on one
+or another of that great variety of methods passing current under the general
+appellation of "Roman," and many of whom, accordingly, find it very difficult
+to understand a word of one syllable as pronounced by my assistant or myself,
+&mdash; to say nothing of a word of two syllables.
+</p></div1>
+<div1 type="section" n="15">
+<p>Up to the fourth week inclusive, the Latin was written upon the board
+at these weekly exercises, one word at a time, the questions being put,
+as indicated by the footnotes in the papers given below, at one point and
+another as the sentence progressed.  For several weeks after that
+time, the Latin sentence was written by each student, one word at a time,
+as pronounced by the instructor, the questions being set and answered as
+before.  After this, the writing of the Latin was forbidden, and the
+passages used were interpreted only as <emph>heard</emph> from the instructor's
+reading.
+</p>
+<p>At the first interview, the class had worked out, as it was put upon
+the board, one word at a time, the sentence in <bibl n="Liv. 1.1.5">Livy I.1.5.</bibl>
+</p>
+<p><cit><quote lang="la">Ibi egressi Troiani, ut quibus ab immenso prope
+errore nihil praeter arma et naves superesset, cum praedam ex agris agerent,
+Latinus rex Aboriginesque, qui tum ea tenebant loca, ad arcendam vim advenarum
+armati ex urbe atque agris concurrunt.</quote> <bibl n="Liv. 1.1.5">(1.1.5)</bibl></cit>
+</p>
+<p>As we reached the point <foreign lang="la">...ut quibus</foreign>, they had made out, under
+questioning, that <foreign lang="la">ut</foreign> might be (1) a
+conjunction, in which case <foreign lang="la">quibus</foreign> could be (a)
+an interrogative introducing an indirect question depending on the <foreign lang="la">ut</foreign>-verb,
+or (b) a relative referring to something connected
+with the <foreign lang="la">ut</foreign>-verb;  or that, on the other hand, <foreign lang="la">ut</foreign> might
+be (2) an adverb, in which case the <foreign lang="la">quibus</foreign>-clause
+must be substantially an adjective modifying <foreign lang="la">Troiani</foreign>;  in other
+words, a <emph>characterizing</emph> clause. 
+In this connection, they had been told, for the sake of having the whole
+matter secured for their repertory of combinations of this kind, that what
+was essential in this latter case was the characterizing clause itself,
+and that in strictness no introductory word was necessary;  if one
+was used, however, it might be either <foreign lang="la">ut</foreign>, <foreign lang="la">utpote</foreign>, or <foreign lang="la">quippe</foreign>; 
+and it was also pointed out that, while there were three possibilities
+for a combination like <foreign lang="la">ut quibus</foreign>, there was only one possibility
+for a combination like <foreign lang="la">utpote quibus</foreign> or <foreign lang="la">quippe quibus</foreign>.
+</p>
+<p>As we reached <foreign lang="la">superesset</foreign>, it was pointed out, <emph>against
+the practical habit of thought of nearly all the class</emph>, that, since
+in Latin the common practice was to put a modifying clause or phrase before
+the thing modified, the chances were that the <foreign lang="la">quibus</foreign>-clause, if
+it should turn out to be a characterizing clause, would bear, not upon
+<foreign lang="la">egressi</foreign>, but upon something which we were still to wait for. 
+(This something turned out to be <foreign lang="la">cum ... agerent</foreign>, &mdash; <gloss>the natural
+thing for destitute men to do</gloss>.)
+</p>
+<p>As we reached <foreign lang="la">...cum praedam</foreign>, at which stage it was sure that
+<foreign lang="la">cum</foreign> was a conjunction, the point was made, though again against
+the sentiments of the class, that <foreign lang="la">Troiani</foreign> was the subject of the
+verb introduced by <foreign lang="la">cum</foreign>, since the Romans were fond of taking out
+a conspicuous word or phrase belonging to an introductory temporal sentence,
+and putting it before the connective.<note anchored="yes">It must already be apparent that I do not regard
+the "Sauveur method" as sufficient in dealing with a language so difficult
+as the Latin, and in a community where no amount of exertion will make
+Latin the habitual medium of daily speech.&nbsp; But I feel, nevertheless,
+that we owe a great debt of gratitude to Dr. Sauveur and his followers
+for their insistence that the language should be treated as living, and
+as intelligible to the ear.</note>
+</p>
+<p>The passage chosen for the first written exercise turned out to be a
+little too difficult in the reasoning at the <foreign lang="la">et cui</foreign> point, though
+it had a certain and considerable usefulness in displaying to the class
+a sentence of which some of them, though knowing the meaning of each word,
+and though able to "parse" it from beginning to end if it were once translated
+to them, would yet fail to comprehend the meaning, through a lack of a
+working knowledge of the constructions involved.
+
+</p></div1>
+<div1 type="section" n="16">
+<head>First Exercise <bibl n="Liv. 1.34.7">(Livy 1.34.7)</bibl></head>
+
+<p>[Tanaquil has been urging upon Lucumo, who lives
+in Tarquinii, that he would have better hopes of rising in some new city,
+and points out that Rome has special advantages.]
+</p>
+<p><quote lang="la">Facile<gloss id="s16g1" lang="en" n="question">May be either of what possible parts of speech;  and where made?</gloss> <gloss lang="en" n="answer" target="s16g1">Adj. in nom. or acc. neut. sing.;  or adverb.</gloss> 
+ persuadet<gloss id="s16g2" lang="en" n="question">In what way will the person who is persuaded, if there is one, be expressed?</gloss> <gloss lang="en" n="answer" target="s16g2">By the dative.</gloss> 
+<gloss id="s16g3" lang="en" n="question">In what way will that to which the person is persuaded be expressed, if it proves to be (a) a pronoun?  (b) a verbal idea?</gloss> <gloss lang="en" n="answer" target="s16g3">(a) By the accusative. (b) By the infinitive, if it is a statement of belief, etc.; by a substantive purpose clause, if it be an act desired to be brought about.</gloss> 
+ ut<gloss id="s16g4" lang="en" n="question">The suspense about <foreign lang="la">facile</foreign> is now probably how resolved?</gloss> <gloss lang="en" n="answer" target="s16g4">The writer meant it as adverb, modifying persuadet.</gloss> 
+<gloss id="s16g5" lang="en" n="question">What constructions will probably follow <foreign lang="la">ut</foreign>, if it is meant (a) as conjunction?  (b) as adverb?</gloss> <gloss lang="en" n="answer" target="s16g5">(a) A substantive purpose clause. (b) A noun (appositive), adjective, or adjectival phrase, belonging to the personal subject or object of <foreign lang="la">persuadet</foreign>, and so nom. or dat.</gloss> 
+cupido<gloss id="s16g6" lang="en" n="question">May be either of what possible parts of speech, and, in either case, in what construction?</gloss> <gloss lang="en" n="answer" target="s16g6">Noun, nom., subject of substantive final clause introduced by the conjunction <foreign lang="la">ut</foreign>;  or, adjective, dat., agreeing with personal object of <foreign lang="la">persuadet</foreign> and introduced by the adverb <foreign lang="la">ut</foreign>.</gloss> 
+<gloss id="s16g7" lang="en" n="question">Does it call for anything to complete its meaning, and, if so, what?</gloss> <gloss lang="en" n="answer" target="s16g7">An objective genitive.</gloss> 
+ honorum et<gloss id="s16g8" lang="en" n="question">What three uses has the word <foreign lang="la">et</foreign>?</gloss> <gloss lang="en" n="answer" target="s16g8">(1) Connecting two words, = and;  (2) as the first of two <foreign lang="la">et</foreign>s = both ... and;  or (3) as bearing upon a single word, = also, even.</gloss> 
+<gloss id="s16g9" lang="en" n="question">What uses may <foreign lang="la">et</foreign> have, in each case, in the present passage?</gloss> <gloss lang="en" n="answer" target="s16g9">It may connect <foreign lang="la">cupido</foreign>, or <foreign lang="la">honorum</foreign>, to something yet to come;  or it may be the first of two balanced <foreign lang="la">et</foreign>s;  or it may emphasize a word or phrase to follow.</gloss> 
+ cui<gloss id="s16g10" lang="en" n="question">What is now the probable meaning of <foreign lang="la">et</foreign>, what its office, and what light does it throw upon <foreign lang="la">cupido</foreign>? Mark the quantity of the <foreign lang="la">i</foreign> in the last.</gloss> <gloss lang="en" n="answer" target="s16g10">And;  connecting the <foreign lang="la">cui</foreign>-sentence to <foreign lang="la">cup&icirc;do</foreign>, which is an adjective.</gloss> 
+<gloss id="s16g11" lang="en" n="question">If this surmise is right, then what part of speech will the <foreign lang="la">cui</foreign>-sentence be equivalent to, and by what mode will this meaning be expressed?</gloss> <gloss lang="en" n="answer" target="s16g11">An adjective;  expressed by the characterizing mode, the subjunctive.</gloss> 
+Tarquinii<gloss id="s16g12" lang="en" n="question">Is name of town in nom. pl.?  What three possibilities of construction?</gloss> <gloss lang="en" n="answer" target="s16g12">Subject, predicate, or in apposition with the one or the other.</gloss> 
+ materna<gloss id="s16g13" lang="en" n="question">Part of speech and possible cases?</gloss> <gloss lang="en" n="answer" target="s16g13">Adjective, nom. sing. fem., abl. sing. fem., nom. or acc. neut. pl.</gloss> 
+<gloss id="s16g14" lang="en" n="question">Meaning of its position before its noun?</gloss> <gloss lang="en" n="answer" target="s16g14">That it is emphatic.</gloss> 
+tantum<gloss id="s16g15" lang="en" n="question">Possible parts of speech, and corresponding meanings?</gloss> <gloss lang="en" n="answer" target="s16g15">Adjective, meaning so great, or adverb, meaning to such a degree, or to such a degree and no further, i.e. only.</gloss> 
+<gloss id="s16g16" lang="en" n="question">In the last sense, what are its synonyms?</gloss> <gloss lang="en" n="answer" target="s16g16"><foreign lang="la">Solum</foreign> and <foreign lang="la">modo</foreign>.</gloss> 
+ patria<gloss id="s16g17" lang="en" n="question">What part of speech was <foreign lang="la">tantum</foreign>, and what did it modify?</gloss> <gloss lang="en" n="answer" target="s16g17">Adverb, modifying <foreign lang="la">materna</foreign>.</gloss> 
+<gloss id="s16g18" lang="en" n="question">Probably construction of <foreign lang="la">patria</foreign> and of <foreign lang="la">Tarquinii</foreign>?</gloss> <gloss lang="en" n="answer" target="s16g18"><foreign lang="la">Tarquinii</foreign> is probably subject of the <foreign lang="la">cui</foreign>-verb, and <foreign lang="la">patria</foreign> is its predicate.</gloss> 
+ <seg type="cloze">---</seg> <gloss id="s16g19" lang="en" n="question">Write the verb.</gloss> <gloss lang="en" n="answer" target="s16g19"><foreign lang="la">Esset</foreign>.</gloss> 
+sublatis<gloss id="s16g20" lang="en" n="question">Where made?</gloss> <gloss lang="en" n="answer" target="s16g20">Participle, dat. or abl. pl.</gloss> 
+ itaque rebus<gloss id="s16g21" lang="en" n="question">Possible cases?</gloss> <gloss lang="en" n="answer" target="s16g21">Dat. or abl.</gloss> 
+<gloss id="s16g22" lang="en" n="question">Probable construction?</gloss> <gloss lang="en" n="answer" target="s16g22">Ablative absolute with <foreign lang="la">sublatis</foreign>.</gloss>
+ commigrant <seg type="cloze">---</seg> <gloss id="s16g23" lang="en" n="question">The place they go to is Rome.  Complete the sentence in two ways, using <foreign lang="la">urbs</foreign> in one, and <foreign lang="la">Roma</foreign> in the other.</gloss> <gloss lang="en" n="answer" target="s16g23"><foreign lang="la">Ad urbem</foreign>;  <foreign lang="la">Romam</foreign>.</gloss> 
+<gloss id="s16g24" lang="en" n="question">Translate the passage.</gloss>
+</quote>
+.</p></div1>
+<div1 type="section" n="17">
+<head>Second exercise <bibl n="Liv. 1.9.1">(Livy 1.9.1)</bibl></head>
+
+<p>[Romulus has enclosed a great space with his fortifications,
+and gathered a crowd of refugees into his new city.]
+</p>
+<p><quote lang="la">Iam res<gloss id="s17g1" lang="en" n="question">Possible cases?</gloss> <gloss lang="en" n="answer" target="s17g1">Nom. sing., nom. or acc. pl.</gloss> 
+ Romana<gloss id="s17g2" lang="en" n="question">Probable case and construction of <foreign lang="la">res</foreign>?</gloss> <gloss lang="en" n="answer" target="s17g2">Nom., subject of main verb.</gloss> 
+ adeo<gloss id="s17g3" lang="en" n="question">Commonest meaning of <foreign lang="la">adeo</foreign>?  and how must its meaning, if completed, be completed?</gloss> <gloss lang="en" n="answer" target="s17g3">To such a degree;  by consecutive <foreign lang="la">ut</foreign>-sentence.</gloss> 
+erat<gloss id="s17g4" lang="en" n="question">Meaning of the tense?</gloss> <gloss lang="en" n="answer" target="s17g4">State of affairs at the point at which the story has reached.</gloss> 
+<gloss id="s17g5" lang="en" n="question">What two parts of speech are capable of completing the sentence?</gloss> <gloss lang="en" n="answer" target="s17g5">Adjective and participle.</gloss> 
+ valida, ut cuilibet<gloss id="s17g6" lang="en" n="question">Part of speech?  what other word is substantially equivalent?</gloss> <gloss lang="en" n="answer" target="s17g6">Indefinite pronoun;  <foreign lang="la">cuivis</foreign>.</gloss> 
+<gloss id="s17g7" lang="en" n="question">How are we to think of the meaning of case?</gloss> <gloss lang="en" n="answer" target="s17g7">As some aspect of the indirect object.</gloss> 
+ finitimarum<gloss id="s17g8" lang="en" n="question">Suggests the beginning of what construction?</gloss> <gloss lang="en" n="answer" target="s17g8">Partitive genitive.</gloss> 
+civitatum bello<gloss id="s17g9" lang="en" n="question">Possible cases and possible constructions?</gloss> <gloss lang="en" n="answer" target="s17g9">Dative of some aspect of the indirect object, or ablative in some instrumental aspect.</gloss> 
+<gloss id="s17g10" lang="en" n="question">Can <foreign lang="la">cuilibet</foreign> go with <foreign lang="la">bello</foreign>, and why?</gloss> <gloss lang="en" n="answer" target="s17g10">No;  for the partitive genitive shows that <foreign lang="la">cuilibet</foreign> refers to a <foreign lang="la">civitati</foreign>.</gloss> 
+<gloss id="s17g11" lang="en" n="question">Then is <foreign lang="la">bello</foreign> more likely to turn out to be a dative, or an ablative?</gloss> <gloss lang="en" n="answer" target="s17g11">An ablative.</gloss> 
+ par<gloss id="s17g12" lang="en" n="question">What suspense about Livy's meaning is now resolved?</gloss> <gloss lang="en" n="answer" target="s17g12"><foreign lang="la">Cuilibet</foreign> is the dative of the indirect object to which the quality of <foreign lang="la">par</foreign> is directed, and <foreign lang="la">bello</foreign> is the ablative of respect for <foreign lang="la">par</foreign>.</gloss> 
+ <seg type="cloze">---</seg><gloss id="s17g13" lang="en" n="question">Write the predicate from <foreign lang="la">sum</foreign>.</gloss> <gloss lang="en" n="answer" target="s17g13"><foreign lang="la">Esset</foreign>.</gloss> 
+sed penuria<gloss id="s17g14" lang="en" n="question">Possible cases?</gloss> <gloss lang="en" n="answer" target="s17g14">Nom. or abl.</gloss> 
+<gloss id="s17g15" lang="en" n="question">If the idea is completed, by what case?</gloss> <gloss lang="en" n="answer" target="s17g15">Objective genitive.</gloss> 
+ mulierum hominis aetatem<gloss id="s17g16" lang="en" n="question">Possible meanings of the case?</gloss> <gloss lang="en" n="answer" target="s17g16">Duration of time, appositive, object of a verb, or subject or predicate of an infinitive.</gloss> 
+duratura<gloss id="s17g17" lang="en" n="question">Probable meaning of <foreign lang="la">aetatem</foreign>?</gloss> <gloss lang="en" n="answer" target="s17g17">Duration of time.</gloss> 
+<gloss id="s17g18" lang="en" n="question">What two possibilities for the government of <foreign lang="la">duratura</foreign>?</gloss> <gloss lang="en" n="answer" target="s17g18">That it belongs (1) to <foreign lang="la">penuria</foreign>,</gloss> 
+ magnitudo<gloss id="s17g19" lang="en" n="question">What do we now feel about the case of <foreign lang="la">penuria</foreign>, and the meaning of that case?</gloss> <gloss lang="en" n="answer" target="s17g19">That it is an ablative, expressing the cause of <foreign lang="la">duratura</foreign>.</gloss> 
+ <seg type="cloze">---</seg>, <gloss id="s17g20" lang="en" n="question">Write predicate from sum, choosing the tense with care.</gloss> <gloss lang="en" n="answer" target="s17g20"><foreign lang="la">Erat</foreign>.</gloss> 
+quippe<gloss id="s17g21" lang="en" n="question">Conceive of <foreign lang="la">quippe</foreign> as an adverb, meaning <gloss>indeed, in fact</gloss>.</gloss>
+ quibus <gloss id="s17g22" lang="en" n="question">What is the probable nature of the <foreign lang="la">quibus</foreign>-sentence, and what its construction?</gloss> <gloss lang="en" n="answer" target="s17g22">Adjectival, i.e., a characterizing sentence in subjunctive.</gloss>
+<gloss id="s17g23" lang="en" n="question">What must be the underlying relation between the condition of affairs which we shall find expressed in the <foreign lang="la">quibus</foreign>-sentence, and the condition of affairs expressed in the main sentence?</gloss> <gloss lang="en" n="answer" target="s17g23">Causal.</gloss>
+<gloss id="s17g24" lang="en" n="question">What is the antecedent of <foreign lang="la">quibus</foreign>?</gloss> <gloss lang="en" n="answer" target="s17g24">The people to whom the <foreign lang="la">magnitudo</foreign> belonged, the inhabitants of the town.</gloss>
+<gloss id="s17g25" lang="en" n="question">Possible cases?</gloss> <gloss lang="en" n="answer" target="s17g25">Dat. or abl.</gloss>
+<gloss id="s17g26" lang="en" n="question"><foreign lang="la">Quibus</foreign> indicates persons. How does that narrow the possibilities of an ablative construction?</gloss> <gloss lang="en" n="answer" target="s17g26">It can be only abl. absolute, or ablative dependent on a comparative or some word like <foreign lang="la">fretus</foreign> or <foreign lang="la">contentus</foreign>, or ablative of source with some word like <foreign lang="la">genitus, ortus, natus</foreign>.</gloss>
+nec<gloss id="s17g27" lang="en" n="question">What is sure about <foreign lang="la">nec</foreign>?</gloss> <gloss lang="en" n="answer" target="s17g27">That it balances a later <foreign lang="la">nec</foreign> or <foreign lang="la">et</foreign>.</gloss> 
+ domi<gloss id="s17g28" lang="en" n="question">Construction?</gloss> <gloss lang="en" n="answer" target="s17g28">Locative.</gloss> 
+ spes<gloss id="s17g29" lang="en" n="question">What must follow?</gloss> <gloss lang="en" n="answer" target="s17g29">Objective genitive or future infinitive.</gloss> 
+prolis nec cum finitimis conubia  <seg type="cloze">---</seg> <gloss id="s17g30" lang="en" n="question">Complete the sentence by writing the proper form from the verb <foreign lang="la">sum</foreign>.</gloss> <gloss lang="en" n="answer" target="s17g30"><foreign lang="la">Essent</foreign>.</gloss> 
+<gloss id="s17g31" lang="en" n="question">Translate.</gloss>
+</quote>
+</p></div1>
+<div1 type="section" n="18">
+<head>Third exercise <bibl n="Liv. 1.24.2">(Livy 1.24.2)</bibl></head>
+
+<p>[The Alban and Roman kings have proposed that
+the war between the two peoples shall be settled by a battle between the
+Horatii and Curiatii.]
+</p>
+<p><quote lang="la">Nihil recusatur.  Tempus et locus convenit.  Priusquam<gloss id="s18g1" lang="en" n="question">What ideas may one have in mind when he writes <foreign lang="la">antequam</foreign> or <foreign lang="la">priusquam</foreign>, and by what mode will these ideas be respectively expressed?</gloss> <gloss lang="en" n="answer" target="s18g1">He may mean to give the idea of an act anticipated &mdash; i.e., looked forward to from the time of the act of the main clause &mdash; by some person mentioned in that sentence;  and he will express this by the idea-mode, the subjunctive.  Or he may mean to state the actual occurrence of an event, as a boundary point beyond which the main event took place;  and he will express this by the fact-mode, the indicative.</gloss> 
+<gloss id="s18g2" lang="en" n="question">In the light of the situation, which of the two ideas is it more probable that Livy is going to express?</gloss> <gloss lang="en" n="answer" target="s18g2">The former.</gloss> 
+dimicarent, foedus ictum<gloss id="s18g3" lang="en" n="question">Is anything sure yet about the case of <foreign lang="la">foedus</foreign>, or the part of speech of <foreign lang="la">ictum</foreign>?</gloss> <gloss lang="en" n="answer" target="s18g3">No.</gloss> 
+ inter Romanos et Albanos est his<gloss id="s18g4" lang="en" n="question">What should be kept in mind as possibilities for all demonstrative pronominal words, like <foreign lang="la">is, hic, ille, ita</foreign>, etc.?</gloss> <gloss lang="en" n="answer" target="s18g4">That they look backward to something already mentioned, or forward to something which is yet to be mentioned.</gloss> 
+<gloss id="s18g5" lang="en" n="question">Which is the case here?</gloss> <gloss lang="en" n="answer" target="s18g5">The latter.</gloss> 
+ legibus<gloss id="s18g6" lang="en" n="question">What construction do you think is coming?</gloss> <gloss lang="en" n="answer" target="s18g6">A substantive final clause, telling what the <foreign lang="la">his legibus</foreign> were.</gloss> 
+, ut cuius<gloss id="s18g7" lang="en" n="question">In general, what have we found to be the two possibilities when one meets the combination of <foreign lang="la">ut</foreign> and the relative?</gloss> <gloss lang="en" n="answer" target="s18g7">Either (1) that <foreign lang="la">ut</foreign> is the conjunction, and the <foreign lang="la">qui</foreign>-clause looks forward to an antecedent to be given laterin the <foreign lang="la">ut</foreign>-clause;  or (2) that <foreign lang="la">ut</foreign> is the adverb, the <foreign lang="la">qui</foreign> looking backward, and the relative statement forming a characterizing clause which stands in a causal relation to the main clause.</gloss> 
+<gloss id="s18g8" lang="en" n="question">Bearing in mind <foreign lang="la">his legibus</foreign>, which of the two possible meanings of the combination <foreign lang="la">ut cuius</foreign> do you suppose to have been in Livy's mind in this particular case?</gloss> <gloss lang="en" n="answer" target="s18g8">The former.</gloss> 
+populi cives<gloss id="s18g9" lang="en" n="question">Probable meaning of case of <foreign lang="la">populi</foreign>?</gloss> <gloss lang="en" n="answer" target="s18g9">Possessive, depending on <foreign lang="la">cives</foreign>.</gloss> 
+ eo certamine vicissent<gloss id="s18g10" lang="en" n="question">Meaning of tense?</gloss> <gloss lang="en" n="answer" target="s18g10">Future perfect from a past point of view.</gloss>
+is alteri<gloss id="s18g11" lang="en" n="question">Probable nature of combination?</gloss> <gloss lang="en" n="answer" target="s18g11">Subject and indirect object.</gloss> 
+<gloss id="s18g12" lang="en" n="question">Differs how in meaning from <foreign lang="la">alius</foreign>?</gloss> <gloss lang="en" n="answer" target="s18g12">Refers to the one other out of two, while <foreign lang="la">alius</foreign> means another out of any number.</gloss> 
+ populo cum bona pace <seg type="cloze">---</seg> <gloss id="s18g13" lang="en" n="question">Surmise, if possible, what the final verb is;  and at any rate tell where it must be made.</gloss> <gloss lang="en" n="answer" target="s18g13">Imperfect subjunctive;  <foreign lang="la">imperaret</foreign> (<foreign lang="la">imperaret</foreign> is likely to be written rather than Livy's frequentative <foreign lang="la">imperitaret</foreign>;  but the word is admissible).</gloss> 
+<gloss id="s18g14" lang="en" n="question">Translate.</gloss>
+</quote>
+</p></div1>
+<div1 type="section" n="19">
+<head>Fourth exercise <bibl n="Liv. 22.38.1">(Livy 22.38.1)</bibl></head>
+
+<p>[The year following the defeat at the Trasumene
+lake.  Dissatisfaction with the policy of Fabius.  The people
+have carried the election of one consul, Varro, the nobility of the other,
+Aemilius Paullus.  The two are about to march out for the summer campaign.]
+</p>
+<p><quote lang="la">Contiones<gloss id="s19g1" lang="en" n="question">Possible meanings?</gloss> <gloss lang="en" n="answer" target="s19g1">Meeting, and speech made before a meeting.</gloss> 
+ priusquam<gloss id="s19g2" lang="en" n="question">What meanings may follow, and by what constructions indicated?</gloss> <gloss lang="en" n="answer" target="s19g2">Action anticipated at the time of the main act, expressed by the subjunctive;  or actual event, back of which the main act lies, expressed by the indicative.</gloss> 
+ ab urbe signa moverentur<gloss id="s19g3" lang="en" n="question">What was the special shade of meaning in <foreign lang="la">priusquam ... moverentur</foreign>?</gloss> <gloss lang="en" n="answer" target="s19g3">That the <foreign lang="la">contiones</foreign> were held, or made, in anticipation of the expected marching.</gloss> 
+ consulis<gloss id="s19g4" lang="en" n="question">What is it now clear that <foreign lang="la">contiones</foreign> means?</gloss> <gloss lang="en" n="answer" target="s19g4">Means speech, language.</gloss> 
+ Varronis multae ac feroces fuere, denuntiantis<gloss id="s19g5" lang="en" n="question">Belongs with what?</gloss> <gloss lang="en" n="answer" target="s19g5"><foreign lang="la">Consulis</foreign>.</gloss> 
+<gloss id="s19g6" lang="en" n="question"><foreign lang="la">Denuntiare</foreign> means to make an announcement. How will the object be expressed if it is (a) a noun or pronoun? (b) a verb, conveying a statement of fact?  (c) a verb, conveying action desired?</gloss>  <gloss lang="en" n="answer" target="s19g6">(a&gt; Accusative.  (b) Infinitive.  (c) Substantive final clause.</gloss>
+ bellum<gloss id="s19g7" lang="en" n="question">What construction occurs to you at once for <foreign lang="la">bellum</foreign>?</gloss> <gloss lang="en" n="answer" target="s19g7">Object of <foreign lang="la">denuntiare</foreign>.</gloss> 
+<gloss id="s19g8" lang="en" n="question">Is there any certainty that this is what Livy meant?</gloss> <gloss lang="en" n="answer" target="s19g8">No.</gloss> 
+<gloss id="s19g9" lang="en" n="question">What else may Livy have in mind?</gloss> <gloss lang="en" n="answer" target="s19g9">A subject or an object for an infinitive depending on <foreign lang="la">denuntiantis</foreign>.</gloss> 
+arcessitum<gloss id="s19g10" lang="en" n="question">What possibilities for <foreign lang="la">arcessitum</foreign>?</gloss> <gloss lang="en" n="answer" target="s19g10">Participle agreeing with <foreign lang="la">bellum</foreign>, or part of an infinitive perfect (with <foreign lang="la">esse</foreign> to come) or future (with <foreign lang="la">iri</foreign> to come) having <foreign lang="la">bellum</foreign> for its subject.</gloss> 
+ in<gloss id="s19g11" lang="en" n="question">What case do you expect to find following, and why?</gloss> <gloss lang="en" n="answer" target="s19g11">Accusative, because <foreign lang="la">arcessitum</foreign> includes the idea of motion.</gloss> 
+ Italiam ab nobilibus mansurumque<gloss id="s19g12" lang="en" n="question">What is the only thing that you know surely about <foreign lang="la">mansurum</foreign>?</gloss> <gloss lang="en" n="answer" target="s19g12">That its construction is the same as that of <foreign lang="la">arcessitum</foreign>.</gloss> 
+ in<gloss id="s19g13" lang="en" n="question">What case do you expect to find following, and why?</gloss> <gloss lang="en" n="answer" target="s19g13">Ablative, because <foreign lang="la">mansurum</foreign> includes the idea of rest.</gloss> 
+ visceribus reipublicae, si<gloss id="s19g14" lang="en" n="question">What indication have you of the probable nature of the condition, and how will it be expressed?</gloss> <gloss lang="en" n="answer" target="s19g14">It looks as if it were the condition for <foreign lang="la">mansurum</foreign>.  In that case it will be a future or future prefect from the past standpoint, expressed by the so-called imperfect or pluperfect subjunctive.</gloss> 
+ plures Fabios imperatores haberet, se<gloss id="s19g15" lang="en" n="question">Probable construction of <foreign lang="la">bellum</foreign> and <foreign lang="la">arcessitum</foreign>, and grounds of your opinion?</gloss> <gloss lang="en" n="answer" target="s19g15"><foreign lang="la">Se</foreign> is acc. or abl.  It cannot be abl. absolute, since it refers to the subject of the sentence;  and it is probably not the ablative of source, for we are not likely to find a word meaning <gloss>born of</gloss> here.  It is therefore probably accusative.  In that case, <foreign lang="la">bellum</foreign> is either the subject or object of an active infinitive which we are to have, and of which <foreign lang="la">se</foreign> is object or subject.  <foreign lang="la">Arcessitum</foreign>, which is passive, is therefore not an infinitive, but a participle; and, besides that, <foreign lang="la">mansurum</foreign>, which is in the same construction with <foreign lang="la">arcessitum</foreign>, is not transitive.</gloss> 
+quo die<gloss id="s19g16" lang="en" n="question">Where is the antecedent of <foreign lang="la">quo die</foreign>, and what do you know about it?</gloss> <gloss lang="en" n="answer" target="s19g16">Yet to come, and in some way connected with the coming infinitive which we have found to depend on <foreign lang="la">denuntiantis</foreign>.</gloss> 
+ hostem vidisset<gloss id="s19g17" lang="en" n="question">Meaning of tense and mood?</gloss> <gloss lang="en" n="answer" target="s19g17">Future perfect from past point of view, in indirect discourse.</gloss> 
+ perfecturum.<gloss id="s19g18" lang="en" n="question">What suspended constructions are now resolved?</gloss> <gloss lang="en" n="answer" target="s19g18"><foreign lang="la">Perfecturum</foreign> is infinitive, <foreign lang="la">se</foreign> is its subject, <foreign lang="la">bellum</foreign> its object, with attached participles <foreign lang="la">arcessitum</foreign> and <foreign lang="la">mansurum</foreign>, the latter having a future condition dependent upon it.</gloss> 
+<gloss id="s19g19" lang="en" n="question">Translate.</gloss>
+</quote>
+</p></div1>
+<div1 type="section" n="20">
+<head>Fifth exercise <bibl n="Liv. 21.53.1">(Livy 21.53.1)</bibl></head>
+
+<p>[The passage here used was employed in the address. 
+It is given again in its place among the present set of papers, partly
+to show that the minute questioning with which a teacher of an untrained
+Freshman class must begin may give place early to a more rapid movement,
+after the habit of watchfulness and a willingness to hold the mind in suspense
+have been established.]
+</p>
+<p><quote lang="la">Hannibal cum quid<gloss id="s20g1" lang="en" n="question">What must be the construction of the verb of the <foreign lang="la">quid</foreign>-sentence, and why?</gloss> <gloss lang="en" n="answer" target="s20g1">Subjunctive of indirect question of fact, or of indirect deliberative question.</gloss> 
+ optimum foret hoste cerneret, vix<gloss id="s20g2" lang="en" n="question">In such a connection, what would be the pronoun meaning any, and what the adjective?</gloss> <gloss lang="en" n="answer" target="s20g2"><foreign lang="la">Quisquam, ullus</foreign>.</gloss> 
+ ullam spem<gloss id="s20g3" lang="en" n="question">What would be the completing construction (a) if nominal?<note anchored="yes">It would be a practical convenience if there were an adjective bearing the same relation to the words "noun" and "pronoun" that "verbal" bears to "verb."&nbsp; For my own use I have employed the adjective "nominal" in this sense.</note> (b) if verbal?</gloss> <gloss lang="en" n="answer" target="s20g3">(a) Genitive.  (b) Genitive of gerund or of gerundive, or future infinitive.</gloss> 
+ habebat temere<gloss id="s20g4" lang="en" n="question">Does <foreign lang="la">temere</foreign>, judging by the order, probably modify <foreign lang="la">habebat</foreign>, or something yet to come?</gloss> <gloss lang="en" n="answer" target="s20g4">The latter.</gloss> 
+<gloss id="s20g5" lang="en" n="question">Then what do you surmise about the completing construction for <foreign lang="la">spem</foreign>?</gloss> <gloss lang="en" n="answer" target="s20g5">That it is a verbal construction.</gloss> 
+ atque improvide  <seg type="cloze">---</seg> <gloss id="s20g6" lang="en" n="question">Write the neuter pronoun meaning <gloss>anything</gloss>, in nom. or acc. form.</gloss> <gloss lang="en" n="answer" target="s20g6"><foreign lang="la">Quicquam</foreign>.</gloss> 
+consules<gloss id="s20g7" lang="en" n="question">General construction hereby indicated, and construction of <foreign lang="la">consules</foreign> and of the word you have just written?</gloss> <gloss lang="en" n="answer" target="s20g7">The verbal for <foreign lang="la">spem</foreign> is an infinitive, with <foreign lang="la">quicquam</foreign> for subject and <foreign lang="la">consules</foreign> for object, or vice versa.</gloss> 
+ <seg type="cloze">---</seg> <gloss id="s20g8" lang="en" n="question">Write the infinitive, meaning <gloss>to do</gloss>.</gloss> <gloss lang="en" n="answer" target="s20g8"><foreign lang="la">Acturos</foreign>.</gloss> 
+cum alterius ingenium, fama<gloss id="s20g9" lang="en" n="question">Case?</gloss> <gloss lang="en" n="answer" target="s20g9">Nom. or abl.</gloss> 
+ prius deinde re<gloss id="s20g10" lang="en" n="question">Case of <foreign lang="la">fama</foreign>, and proof.</gloss> <gloss lang="en" n="answer" target="s20g10">Abl., because the phrase <foreign lang="la">prius deinde</foreign> makes it parallel with <foreign lang="la">re</foreign>.</gloss> 
+ cognitum, percitum ac ferox sciret  <seg type="cloze">---</seg>, <gloss id="s20g11" lang="en" n="question">Write verb required to complete the clause.</gloss> <gloss lang="en" n="answer" target="s20g11"><foreign lang="la">Esse</foreign>.</gloss>
+ferociusque factum prospero cum praedatoribus<gloss id="s20g12" lang="en" n="question">What is indicated by a combination like <foreign lang="la">prospero cum praedatoribus</foreign>?</gloss> <gloss lang="en" n="answer" target="s20g12">That <foreign lang="la">cum</foreign> connects with <foreign lang="la">praedatoribus</foreign> a noun, yet to come, to which <foreign lang="la">prospero</foreign> belongs.</gloss> 
+ suis certamine crederet, adesse gerendae rei fortunam haud diffidebat.<gloss id="s20g13" lang="en" n="question">Translate.</gloss>
+</quote>
+</p></div1>
+<div1 type="section" n="21">
+<head>Sixth exercise <bibl n="Liv. 22.40.1">(Livy 22.40.1)</bibl></head>
+
+<p><quote lang="la">Adversus<gloss id="s21g1" lang="en" n="question">What part of speech is <foreign lang="la">adversus</foreign>?</gloss> <gloss lang="en" n="answer" target="s21g1">Participle or preposition.</gloss> 
+ ea<gloss id="s21g2" lang="en" n="question">What is possible for <foreign lang="la">ea</foreign>?</gloss> <gloss lang="en" n="answer" target="s21g2">Object of preposition <foreign lang="la">adversus</foreign>, or agreeing with an abl. sing. or acc. pl.</gloss> 
+ oratio<gloss id="s21g3" lang="en" n="question">What do you know now about <foreign lang="la">adversus</foreign> and <foreign lang="la">ea</foreign>, and how?</gloss> <gloss lang="en" n="answer" target="s21g3"><foreign lang="la">Oratio</foreign> is nom. fem., so that <foreign lang="la">adversus</foreign> is not participle, but preposition, <foreign lang="la">ea</foreign> being its object.</gloss> 
+ consulis haud sane laeta fuit, magis fatentis<gloss id="s21g4" lang="en" n="question">Construction to follow (a) if nominal?  (b) if verbal?</gloss> <gloss lang="en" n="answer" target="s21g4">(a) Accusative. (b) Infinitive statement in indirect discourse.</gloss> 
+ ea<gloss id="s21g5" lang="en" n="question">Possible constructions?</gloss> <gloss lang="en" n="answer" target="s21g5">Object of <foreign lang="la">fatentis</foreign>, or subject or predicate of an infinitive depending on it.</gloss> 
+ quae diceret vera quam facilia <seg type="cloze">---</seg> <gloss id="s21g6" lang="en" n="question">Write Latin for <gloss>to do</gloss>, completing the idea of <foreign lang="la">facilia</foreign>.</gloss> <gloss lang="en" n="answer" target="s21g6"><foreign lang="la">Factu</foreign>.</gloss> 
+ <seg type="cloze">---</seg><gloss id="s21g7" lang="en" n="question">Write in Latin whatever is still necessary to complete the sentence.</gloss> <gloss lang="en" n="answer" target="s21g7"><foreign lang="la">Esse</foreign>.</gloss> 
+dictatori magistrum<gloss id="s21g8" lang="en" n="question">Meaning of the position of <foreign lang="la">dictatori</foreign> and <foreign lang="la">magistrum</foreign>?</gloss> <gloss lang="en" n="answer" target="s21g8">Sharp contrast.</gloss>
+<gloss id="s21g9" lang="en" n="question">Probable general construction of sentence?</gloss> <gloss lang="en" n="answer" target="s21g9">Indirect statement, in the infinitive, <foreign lang="la">magistrum</foreign> being its subject, and <foreign lang="la">dictatori</foreign> being the indirect object of the infinitive, or of a predicate adjective.</gloss>
+ equitum intolerabilem fuisse;  quid<gloss id="s21g10" lang="en" n="question">In the present construction, what modes possible after <foreign lang="la">quid</foreign>, and with what meanings respectively?</gloss> <gloss lang="en" n="answer" target="s21g10">Subjunctive of indirect question, either deliberative or seriously asking for information, or infinitive, in rhetorical question practically amounting to an assertion.<note anchored="yes">It is of course unadvisable, for class-work of this sort, to cover at the beginning all the possibilities of the indirect interrogative sentence.&nbsp; I have given such of them as are easily grasped and are most important.</note></gloss> 
+<gloss id="s21g11" lang="en" n="question">If a partitive genitive is to follow, in what part of the clause have we learned that we are likely to find it?</gloss> <gloss lang="en" n="answer" target="s21g11">As far removed from the word on which it depends as the other points of style will allow.</gloss> 
+ consuli adversus collegam seditissum ac temerarium verium atque auctoritatis  <seg type="cloze">---</seg>? <gloss id="s21g12" lang="en" n="question">Decide, in the light of the whole passage, what kind of a sentence this necessarily is, and write the Latin for <gloss>would there be</gloss>.</gloss> <gloss lang="en" n="answer" target="s21g12"><foreign lang="la">Fore</foreign>, or <foreign lang="la">futurum esse</foreign>.</gloss> 
+<gloss id="s21g13" lang="en" n="question">Translate.</gloss>
+</quote>
+</p></div1>
+<div1 type="section" n="22">
+<head>Application of the Method in Preparatory Work</head>
+
+<p>It will be convenient
+to refer, in these suggestions, to some one of the books commonly employed
+by beginners in Latin;  e.g. Dr. Leighton's "First Steps in
+Latin."  The application can of course be made with ease to any other
+book of the same scope.
+</p>
+<p>First and most important is it that the beginner should accustom himself
+<emph>from the very outset</emph> to the sound of the Roman
+language.  In Lesson XIII, e.g., the learner, having prepared
+himself upon the sentences <foreign lang="la">regina laudat</foreign>, <foreign lang="la">scribae portant</foreign>,
+<foreign lang="la">puellae laudant</foreign>, <foreign lang="la">laudas</foreign>, <foreign lang="la">laudamus</foreign>, <foreign lang="la">reginae donant</foreign>,
+etc., should not open his book to translate them.  <emph>His
+book should be closed</emph>, and he should give the meaning of <foreign lang="la">regina
+laudat</foreign>, etc., as his teacher delivers the sentence to him.  To
+translate <foreign lang="la">regina laudat</foreign> <emph>at hearing</emph>,
+after having studied it, <emph>is not beyond the mental
+power of the modern boy</emph>.  Neither is it beyond his power,
+with possibly a trifle of patience on the part of his teacher, to translate
+at hearing a new sentence of the same scope, e.g. <foreign lang="la">laudo</foreign>; 
+<foreign lang="la">scriba laudat</foreign>;  <foreign lang="la">scriba donat</foreign>;  <foreign lang="la">scribae donant</foreign>. 
+But if this is true, a very important truth at once follows.  There
+is, it will be admitted, no greater jump in any first Latin book than that
+from nothing at all to the first lesson in Latin sentences of one and two
+words.  If, in taking that step, the boy can successfully prepare
+himself to translate the set lesson at hearing, and to translate in the
+same way new sentences of the same vocabulary and the same scope, then
+<emph>he can prepare himself</emph>, as he progresses
+by carefully graded steps, in any of the books in common use, <emph>to
+translate any previously studied Latin at hearing, and to translate at
+hearing any new sentences of the same scope, framed for him by the invention
+of his teacher</emph>.  Before the book is opened by any one but
+the teacher, the exercises of the class-room should be 
+<list type="simple">
+<item>(1) the translation at hearing of the review, </item>
+<item>(2) the translation at hearing of the advance, and </item>
+<item>(3) the translation at hearing of new sentences of the same scope.</item>
+</list>  And no one will venture to say that a boy who had been carried in this way
+through an introductory book would not begin Caesar as a better Latinist
+than a boy who had not been so started.
+</p>
+<p>In Lesson XIII, as we have seen, the boy has learned that the subject
+of a verb is expressed by the nominative.  In the next lesson he is
+told that the direct object of a transitive verb is expressed by the accusative. 
+For the present, that is the sum total of his knowledge about accusatives. 
+Of course the teacher will narrow his own knowledge to his pupil's horizon. 
+Accordingly, he will start upon a sentence beginning with an accusative,
+e.g. <foreign lang="la">scribas</foreign>, and ask the learner what, without hearing the rest
+of the sentence, he learns from the case, with regard to the relation of
+the <gloss>clerks</gloss> to the rest of the sentence;  in a word, what the
+<emph>meaning</emph> of the case is.  The boy will answer "object of
+the verb," and the teacher will accept the answer.  Then he will
+give the beginning of another sentence, containing a nominative and an
+accusative, say <foreign lang="la">regina scribam</foreign>, and ask the learner what the two
+cases mean to him.  The learner will answer "subject" and "object." 
+The teacher will then give a number of combinations of subject and object,
+e.g. <foreign lang="la">scriba puellam</foreign>, <foreign lang="la">nauta agricolam</foreign>, employing the full
+vocabulary provided in the lesson.  Then, retracing his steps, he
+will give complete sentences of which the combinations just used may be
+supposed to be the beginning, repeating each of these combinations in connection
+with as many as possible of the various verbs provided;  e.g. 
+<foreign lang="la">regina scribam laudat</foreign>, <foreign lang="la">regina scribam vocat</foreign>, <foreign lang="la">regina scribam
+exspectat</foreign>.  Then another combination, e.g. <foreign lang="la">scriba puellam</foreign>,
+should similarly be repeated with various verbs.  In all this, the
+Latin should be given deliberately,<note anchored="yes">The teacher who uses the Roman method should
+be fastidious in his pronunciation, for his own example will tell far more
+than precept.&nbsp; Now that every method-book has every syllable marked,
+there is no possible justification for incorrectness.&nbsp; Yet many teachers,
+coming to <foreign lang="la">r&ecirc;gina</foreign> and <foreign lang="la">am&icirc;citiam</foreign> in Lesson XIV,
+will pronounce them <foreign lang="la">reg&icirc;na</foreign>, <foreign lang="la">amicitiam</foreign>;&nbsp; not a
+few will read <foreign lang="la">vocant</foreign> as <foreign lang="la">v&ocirc;cant</foreign>;&nbsp; and, I sadly
+fear, nearly all, while teaching their students that final <foreign lang="la">-a</foreign> is
+long in the ablative and short in the nominative, etc., will pronounce
+<foreign lang="la">f&acirc;ma</foreign> and <foreign lang="la">f&acirc;m&acirc;</foreign> precisely alike, namely as
+ablative, &mdash; though the sound of short final <emph>-a</emph> is very well represented
+to us in English in such familiar words as "California," "Nevada,"
+"Cuba".</note>
+so that the pupil may be able to form his mental pictures easily, as he
+hears one word after another.  He should be urged, too, to form these
+pictures <emph>without thinking of the English word</emph>. 
+The word <foreign lang="la">regina</foreign> should bring a <foreign lang="la">regina</foreign> before his mental vision,
+instead of bringing, first the <emph>word</emph> "queen," and then a mental
+vision of a queen.<note anchored="yes">I find teachers to be sceptical about the
+possibility of doing this.&nbsp; But it is not even difficult, if the young
+student begins rightly and is rightly helped throughout.&nbsp; The apparent
+difficulty goes back to the false habits of mind produced by making translation
+the constant method of getting at the meaning of the author, and, so to
+speak, the ultimate end of study;&nbsp; whereas <emph>the
+true end of study, precisely as in the case of modern languages, is to
+get the power to read the original</emph>.&nbsp; It is to be feared, even,
+that, in the pressure produced by the long hours of their working day,
+many teachers in the preparatory schools do not themselves read the authors
+they teach, but only make preparations to correct the students' translations
+at the recitations.&nbsp; If they would devote five minutes a day to reading
+their Caesar, Virgil, and Cicero aloud, as before an imaginary audience,
+and five minutes more to doing the same thing before a real audience in
+their class-room, they would find their faith to grow apace.</note>
+</p>
+<p>In these exercises <emph>there should be no translation
+into English</emph> (it will be remembered that the Latin of the review
+and the Latin of the advance have already been translated at hearing). 
+Next should come an exercise like the following:</p>
+<p>"How, in Latin, can you present to my mind a queen as acting upon somebody?"  </p>
+<p>"By saying <foreign lang="la">regina</foreign>."</p>
+<p>"How a girl as being acted upon?" </p>
+<p>"By saying <foreign lang="la">puellam</foreign>."</p>
+<p>"How a clerk?"</p>
+<p>"By saying <foreign lang="la">scribam</foreign>."</p>
+<p>"How a letter?"</p>
+<p>"By saying <foreign lang="la">epistulam</foreign>." </p>
+<p>"Now put before me a queen as acting, and a girl as being acted upon." </p>
+<p><foreign lang="la">Regina puellam</foreign>.</p>
+<p>"A farmer as acting, and a sailor as being acted upon."</p>
+<p><foreign lang="la">Agricola nautam</foreign>.</p>
+<p>After a number of these combinations have been given, "Now tell me in Latin that the queen is waiting
+for the clerk," then "that the queen is waiting for the letter," etc.,
+etc.  Variations of the tense of the verb should also be employed. 
+I must confine myself, however, to showing the method of dealing with the cases.
+</p></div1>
+<div1 type="section" n="23">
+<p>In the next lesson, XVI, the pupil will learn one of the simple uses
+of the genitive.  He should then be asked what the cases tell him
+in <foreign lang="la">liber pueri</foreign> (being made, of course, to see that, though <foreign lang="la">pueri</foreign>
+might be nom. pl. so far as form goes, it cannot be so here, since <foreign lang="la">liber</foreign>
+must be subject), in <foreign lang="la">magister reginae filiam</foreign>, etc.;  and should
+then be carried through various exercises similar to those suggested in
+connection with the previous lesson.  He will also learn in Lesson
+XVI about apposition, of which more anon.  In Lesson XVII he will
+learn about the way of expressing the indirect object of a verb, and should
+now be asked what the cases mean in combinations like <foreign lang="la">agricolae nautis
+viam</foreign>, <foreign lang="la">nauta agricolis viam</foreign>, <foreign lang="la">scriba puero librum</foreign>, <foreign lang="la">scriba
+pueris reginae libros</foreign>, <foreign lang="la">agricola puero scribae viam</foreign>, etc.; 
+and should then have whole sentences given him, and English combinations
+and sentences to be put into Latin, as already described.
+</p>
+<p>So constructions are taught one after another, the simplest meaning
+of each case being alone given when the case is first dealt with. 
+Later, other uses of these same cases are taught, and the certainty which
+the pupil at first felt in regard to the speaker's meaning when he heard
+a given case (say the accusative) now passes away.  As early as Lesson
+XVI he learned, as we saw, that "a noun used to describe another noun or
+pronoun, and meaning the same thing, is put in the same case."  At
+this point, consequently, he recognizes that there is a double possibility
+for a given accusative.  Supposing us to take up a sentence beginning
+(say) with <foreign lang="la">legatum</foreign>, the accusative word may turn out to be either
+of two things, namely, the <emph>object</emph> of the verb, or in <emph>apposition</emph>
+to the object of the verb.  These two possibilities, and these alone,
+should, for a number of weeks, flash through the beginner's mind at sight
+or hearing of an accusative.  Later, however (Lessons LI and LII),
+he will find that certain verbs are of such a nature as to take <emph>two
+objects</emph>, and will have specimens given him.  At this point an
+accusative has for him <emph>three</emph> possibilities:  it may be, to
+the speaker's thought, <emph>object</emph>, it may be <emph>second object</emph>, or
+it may be an <emph>appositive</emph>;  while if the meaning of the words
+is such as to exclude all possibility of the last of these, as, e.g., in
+a sentence beginning with <foreign lang="la">me fraudem</foreign>, the meaning of the combination
+is seen at once to be that <foreign lang="la">me</foreign> is the first object, and <foreign lang="la">fraudem</foreign>
+the second object, of some one of the verbs that need two objects to complete
+their thought, e.g. <foreign lang="la">celo</foreign>.  Not long afterward, he will learn
+(Lesson LXI) about the accusative of <emph>duration of time</emph> and <emph>extent
+of space</emph>, and he now must recognize still another possibility for any
+accusatives like <foreign lang="la">annos</foreign> or <foreign lang="la">pedes</foreign>, but not for a word like
+<foreign lang="la">Caesarem</foreign> or <foreign lang="la">me</foreign>.  Still later, he will add to his repertory
+an understanding of the <emph>cognate accusative</emph>, of the <emph>accusative
+as subject of an infinitive</emph>, etc.
+</p>
+<p>The teacher will keep clearly before the learner's mind that, while
+any accusative may be a direct object, or the subject or predicate of an
+infinitive, only words of a particular meaning can be used in the expression
+of duration of time, etc., and only words of another and an equally particular
+meaning can play the part of a cognate accusative, etc.  The teacher
+would do well to make for himself, as the book progressed, a collection
+of short sentences illustrating all the possible kinds of accusatives (as
+yet known to the pupil) in which a given word, like <foreign lang="la">Caesarem</foreign>, <foreign lang="la">annos</foreign>,
+<foreign lang="la">vitam</foreign>, may occur (and, of course, similar collections for the other
+cases);  and to run through one of these collections frequently, perhaps
+daily, with the class, using no English.  Throughout this progress,
+it will be noted, <emph>nothing has been allowed to
+lapse</emph>.  The way described of looking at all the possible
+meanings of (say) an accusative, seen or heard, constitutes a continual
+review of the sharpest nature, and, furthermore, of that very persuasive
+and pressing kind which looks toward immediate and constant practical use.
+</p>
+<p>Following these methods, the pupil will surely, if the exercises of
+translating at hearing and understanding at hearing without translating
+are kept up, have obtained, by the time he reaches the end of the book,
+the power to catch the force of the accusative constructions, in short
+and simple sentences, with correctness and <emph>without conscious operations
+of reasoning</emph>.  For his very familiarity with all the possibilities
+of accusative constructions for words of one and another meaning will have
+brought him into a condition in which, on the one side, he will <emph>WAIT,
+OPEN-MINDED</emph>, for the word or words that shall determine which meaning
+the speaker had in his own thought (if, as mostly, those words are yet
+to come);  and, on the other, will, by a tact now grown unconscious,
+<emph>INSTINCTIVELY APPREHEND</emph>, when the determining
+word or words arrive, what that meaning was;  in short, he will have
+made a good beginning of understanding the Roman language as it was understood
+by Roman hearers and Roman readers.
+
+</p></div1>
+<div1 type="section" n="24">
+<p>The sketch here given for the treatment of the accusative constructions
+suggests the way in which any set of constructions should be managed. 
+I append a few specimens of the results for this and that class of words
+in a number of cases.  I grant that the enumeration for the ablative,
+and even for the genitive, is of provoking sweep;  but this is only
+equivalent to saying that the number of meanings of the ablative and genitive
+cases which a young student must learn, under whatsoever method, is great.
+</p>
+<p>The genitive of any pronoun may be found to mean the <gloss>possessor</gloss>
+of some thing or of some activity (the activity being expressed in a verbal
+noun), or the <gloss>object</gloss> of some activity (expressed in a noun, an adjective,
+or some one of a certain list of verbs), or the <gloss>whole</gloss> of which some
+other word expresses a part, &mdash; may be, then, either <gloss>subjective</gloss>,
+or <gloss>objective</gloss>, or <gloss>partitive</gloss>;  or it may simply belong
+to some noun, just as an adjective does.  The genitive of any noun
+(say <foreign lang="la">civitatis</foreign>) may prove to be either <gloss>subjective</gloss>, or <gloss>objective</gloss>,
+or <gloss>partitive</gloss>, or in <gloss>apposition</gloss> with some other genitive. 
+The genitive of a noun like <foreign lang="la">periculi</foreign> may prove to be either <gloss>appositive</gloss>,
+or <gloss>subjective</gloss>, or <gloss>objective</gloss>, or <gloss>partitive</gloss>, or (if
+modified by a noun or participle) <gloss>qualitative</gloss>.  The genitive
+of a noun indicating an <gloss>act or mental state of a bad nature</gloss> may
+be either <gloss>appositive</gloss>, or <gloss>subjective</gloss>, or <gloss>objective</gloss>,
+including <gloss>a crime charged</gloss> or <gloss>a penalty adjudged</gloss>, or may be
+<gloss>partitive</gloss>.  A genitive <foreign lang="la">magni</foreign> may agree with a noun,
+or may mean the <gloss>value</gloss> of something.
+</p>
+<p>The dative of any word may mean <gloss>the person or thing indirectly concerned
+in an act or state</gloss> expressed by a noun or an adjective or a group of
+words.  The dative of the name of a person (say <foreign lang="la">Caesari</foreign>) may
+have this general meaning, or, in one or another special phase of it, may
+mean <gloss>the person concerned in an obligation</gloss> indicated by a gerundive
+(the agent), or the <gloss>possessor</gloss> of something.  The dative of
+a word like <foreign lang="la">dolori</foreign>, <foreign lang="la">laudi</foreign>, etc., may mean, in a general way,
+<gloss>the thing indirectly concerned</gloss>, or, with a special phase of that
+idea, may mean <gloss>the end served</gloss>.
+</p>
+<p>The accusative we have discussed already.  The vocative takes care
+of itself, when the form is unmistakable.
+</p>
+<p><emph>The ablative is a case to be dreaded</emph>. 
+In general, it should, like other cases, be cut up as little as possible. 
+Something can be done by proceeding from the three ideas of the <gloss>starting-point</gloss>,
+the <gloss>means</gloss>, and the <gloss>place</gloss> (<gloss>true ablative</gloss>, <gloss>instrumental</gloss>,
+and <gloss>locative</gloss>), as in Dr. Leighton's table on p. 290, and the table
+on p. 254 of the Allen &amp; Greenough Grammar;  but  the best
+intentions on the part of grammarians and teachers have not yet made the
+matter easy for the learner.  The suggestions to be given here must
+go beyond these three divisions.
+</p>
+<p>Nearly all ablatives can be <gloss>absolute</gloss>, or can <gloss>depend upon a
+comparative</gloss>, or on a word like <foreign lang="la">dignus</foreign> or <foreign lang="la">contentus</foreign>. 
+Beside this, a proper name (say <foreign lang="la">Caesare</foreign>) may be in the ablative
+of source, after some word like <foreign lang="la">genitus</foreign>, though such a form of expression
+is naturally rare in the prose read before going to college.  Of course
+such a word cannot be in the ablative of <gloss>means</gloss> (in the narrower
+sense), or of <gloss>specification</gloss>, or of <gloss>time</gloss>, or of <gloss>degree
+of difference</gloss>.  A word like <foreign lang="la">die</foreign>, however, beside the general
+possibilities, may indicate <gloss>time</gloss>, or the <gloss>degree of difference</gloss>,
+a word like <foreign lang="la">auro</foreign> <gloss>means</gloss> or <gloss>price</gloss>, a word like <foreign lang="la">capite</foreign>
+<gloss>description</gloss>, etc.  I shall not attempt here a complete list
+of suggestions.  In general, in spite of the complexity of the uses
+of the ablative, the learner is less likely to go badly astray in dealing
+with this case in actual practice than in dealing with the genitive or
+the accusative.
+</p>
+<p>One point not yet touched upon is of the gravest consequence. 
+when a form occurs which may be in either of two cases, or even possibly
+in any one of three or four cases, <emph>the pupil should
+not allow himself to suppose that he knows the case</emph>, even if a probability
+presents itself at once.  E.g., a student reading in <bibl n="Caes. Gal. 1.3">B.G.1.3</bibl>, and
+passing by <foreign lang="la">ea</foreign> (<foreign lang="la">his rebus adducti et auctoritate Orgetorigis permoti
+constituerunt ea, quae</foreign>, etc.), may easily suppose <foreign lang="la">ea</foreign> to be the
+object of <foreign lang="la">constituerunt</foreign>, instead of waiting until conviction of
+some kind is forced upon him by the remainder of the sentence;  which
+conviction will prove to be that <foreign lang="la">ea</foreign> was the object, not of <foreign lang="la">constituerunt</foreign>,
+but of an infinitive which is not reached until the <foreign lang="la">quae</foreign>-clause
+is finished.  The direction to the student should be:  <emph>Have
+your eyes open, but keep in doubt as long as possible</emph>;  in a word,
+<emph>THINK</emph>, and <emph>WAIT</emph>.
+
+</p></div1>
+<div1 type="section" n="25">
+<p>Verbal constructions should be dealt with in a similar way.  The
+possibilities after conjunctions should, in particular, be entirely familiar. 
+Given a <foreign lang="la">quamquam</foreign> or a <foreign lang="la">quamvis</foreign>, the student should be able
+to tell instantly what is coming.  Given an <foreign lang="la">antequam</foreign>, he should
+know precisely what the two ideas are, either one of which may possibly
+be in the speaker's mind, and by what mode each was expressed by the Romans. 
+Given an <foreign lang="la">ut</foreign>, he should know the full range of ideas possible for
+the speaker to have when he so begins a clause, and by what construction
+each of these ideas is expressed.  And in particular it will be found
+useful to set before the class the whole range of verbal constructions
+that are capable of serving as the object or the subject or a verb (substantive
+clauses), and to ask them which and how many of these a given verb or phrase
+may take.  These substantive clauses are as follows: &mdash;
+
+<list type="simple">
+<item>The indirect statement of fact (infinitive).</item>
+<item>The indirect question of fact.</item>
+<item>The indirect deliberative question.</item>
+<item>The final clause.</item>
+<item>The consecutive clause.</item>
+</list>
+</p>
+<p>Now give the class a verb, <foreign lang="la">dicit</foreign>, and ask what possible completing
+verbal ideas there may be, and what phase of meaning one and another of
+these would indicate for the word <foreign lang="la">dicit</foreign> itself.  The answer
+should be:  <gloss>the infinitive</gloss>, if dicit means that a statement
+is made;  <gloss>the subjunctive introduced by an interrogative</gloss> (including
+of course <foreign lang="la">ut</foreign>), if <foreign lang="la">dicit</foreign> means the giving of an answer to
+a question of fact or a deliberate question;  <gloss>the subjunctive with
+<foreign lang="la">ut</foreign> or <foreign lang="la">ne</foreign></gloss>, if <foreign lang="la">dicit</foreign> means the giving of a direction. 
+The substantive consecutive clause, it is, of course, impossible for <foreign lang="la">dicit</foreign>
+to take.  On the other hand, the meaning of a word like <foreign lang="la">effecit</foreign>
+is such that it can take the substantive consecutive clause and can take
+no other;  so that, unless we find a clear accusative object, we are
+sure, upon meeting an <foreign lang="la">efficit</foreign>, that a verbal object introduced by
+<foreign lang="la">ut</foreign> or <foreign lang="la">ut non</foreign> is sooner or later to come.  A verb like
+<foreign lang="la">peto</foreign> can take only a substantive final clause, a verb like <foreign lang="la">quaero</foreign>
+only an interrogative substantive clause (either a question of fact, or
+a deliberative question), etc.  To look at these matters in this particular
+way is of <emph>great usefulness</emph>.  If, for
+example, the clas is translating at hearing, in <bibl n="Cic. Sen. 63">Cat. Mai. 63</bibl>, the
+anecdote beginning <foreign lang="la">quin etiam memoriae proditum est</foreign>, everybody should
+at this point instantly recognize that an infinitive of statement is sooner
+or later inevitable, and, knowing the Latin habit of arrangement, should
+at once associate with that impending infinitive statement all the intervening
+matter, <foreign lang="la">cum Athenis ludis quidam in theatrum</foreign>, etc.  The same
+thing is seen, with a much briefer suspense, in Caesar's <cit><quote lang="la">id si fieret,
+intellegebat magno periculo, etc.,</quote> <bibl n="Caes. Gal. 1.10">B.G. 1.10.2.</bibl></cit>
+
+</p></div1>
+<div1 type="section" n="26">
+<p>Most of the things thus far mentioned will be familiar to the student
+before he leaves his introductory book and begins Caesar.  At this
+point, he takes up sentences more complex, and yet in the main containing
+no new principles.  His teacher can now do him a great service by
+<emph>reading aloud both familiar and new sentences, in
+such a way as to throw the parts into masses</emph>;  and by teaching
+the student to do the same in what he has already read.  E.g., in
+<bibl n="Caes. Gal. 1.8">B.G. 1.8</bibl>, the words <quote lang="la">ea legione quam secum habebat</quote> form one idea
+and should be given without separation;  the words <quote lang="la">militibusque
+qui ex provincia convenerant</quote> form another, connected, after a slight
+pause, with the former group;  the sentence <foreign lang="la">qui fines Sequanorum
+ab Helvetiis dividit</foreign> should be delivered as a single mass, and in such
+a manner as to show that it is a piece of parenthetical explanation. 
+In this way, the teacher can make his hearers feel that this longish sentence
+of five lines, with its verb held up to the last place, is really <emph>entirely
+simple</emph>.  He should also call attention to the very common pointings-forward
+to an explanatory sentence, which are effected by pronouns and pronominal
+adverbs, as, e.g., in <foreign lang="la">id</foreign> in <bibl n="Caes. Gal. 1.31">1.31.2</bibl> (<foreign lang="la">non minus se id contendere</foreign>)
+which, as the meaning of <foreign lang="la">contendere</foreign> tells us, must be explained
+to us later in a substantive purpose clause;  as in <foreign lang="la">hoc</foreign> in
+<bibl n="Caes. Gal. 1.32">1.32.4</bibl> (<foreign lang="la">respondit hoc esse miseriorem et graviorem fortunam</foreign>), which
+must be explained later either by a <foreign lang="la">quo</foreign> in a sentence containing
+another comparative, or by a <foreign lang="la">quod</foreign>-sentence containing a statement
+of fact;  as in <foreign lang="la">haec</foreign> in <cit><bibl n="Caes. Gal. 1.40">1.40.11</bibl> <quote lang="la">(haec sibi esse curae)</quote></cit>,
+which must be explained by a substantive final clause, or by an infinitive; 
+as in an <foreign lang="la">ita</foreign>, looking forward to an <foreign lang="la">ut</foreign>- or <foreign lang="la">si</foreign>-clause,
+or an infinitive;  etc., etc.
+</p>
+<p>The teacher will all the while know very well what things his class
+is familiar with, and what it is not familiar with, and will accordingly
+drop questions upon the former and continue them upon the latter. 
+But up to the very end, there should be stated exercises in translation
+at hearing, say once a week, with careful questions upon points critical
+for the apprehension of the meaning;  the passages themselves to be
+committed to memory later.  This is the most effective engine of the
+method, &mdash; the surest way of developing and keeping up the habits of watchfulness
+and of willingness to wait.
+
+</p></div1>
+<div1 type="section" n="27">
+<p>And now a brief <emph>summary of suggestions</emph>, in which I will address myself directly to the teacher.
+</p>
+<p>At the outset, make the student feel that the Latin language was once
+<emph>an every-day tongue</emph> of men, women, and children;  a tongue
+in which people not only wrote books, but dined, and played tennis; 
+a language <emph>spoken</emph>, and <emph>understood
+as spoken</emph>.  Direct him, therefore, to aim to associate meaning
+with the sound of the word, not merely with groups of letters on a page. 
+Tell him, as he commits his vocabulary to memory, to lift his eye from
+the printed word, and repeat again and again, in imagination, the spoken
+word, so that when he hears it from his teacher, he will feel its force
+immediately.
+</p>
+<p>Throughout the introductory lesson-book, conduct the translation of
+the review and of the advance at hearing, and, in the same way, have the
+student, his book being closed, <emph>put the printed English
+sentences into Latin</emph> as you deliver them to him.  If you do
+this from the first, he will be able, by the time the lesson-book is finished,
+to express a sentence of considerable length in Latin, grasping it as a
+whole, instead of turning one word into Latin, and then another, and so
+on, in piecemeal fashion.
+</p>
+<p>If you can get time for preparation, aim at <emph>repetition</emph>,
+making for your own use, in connection with each lesson in the book, a
+group of sentences which, employing the vocabulary already acquired, shall
+proceed from change to change with but a slight difference each time. 
+A simple example of what I mean may be recalled from pp. 25-26.<note anchored="yes">I question whether it would not be better
+to use a smaller vocabulary in the first few lessons than some of the books
+employ, aiming rather, by the varied repetition of a comparatively few
+words in the simple constructions of subject, direct object, indirect object,
+and predicate, at giving the student a real facility in the grasping of
+meanings and the conveying of meanings through inflections.&nbsp; It is
+hard for the young mind to get this facility when dealing with things so
+new if it is encumbered at the same time with having to handle a large
+vocabulary.</note>
+In this matter, &mdash; the insisting upon the value of repetition, &mdash; the Sauveur
+method is quite right.
+</p>
+<p>As the student learns one new use after another, say of the accusative,
+help him to get a clear and practically serviceable idea of the possibilities
+of range of one and another kind of word, as <foreign lang="la">Caesarem, mille passuum,
+annum, multum</foreign>.
+</p>
+<p>In a similar way, help him to classify ideas that are expressed by verbal
+constructions, especially in subordinate clauses.  Let him, for example,
+know with perfect familiarity what two kinds of adversative ideas exist
+in the nature of things, and by what mode these are respectively expressed
+in Latin (of the period which he is dealing with), and with what introductory
+particles.  Let him know familiarly what two ideas one may have in
+mind in using an <foreign lang="la">antequam</foreign>-construction, a <foreign lang="la">dum</foreign>-construction,
+and so on, and how these ideas are expressed.
+</p>
+<p>By the time he has finished the introductory book, he will in this way
+have made the <emph>intelligent</emph> acquaintance of
+very nearly all the constructions of the language, and should have them
+all in working order, like familiar tools.
+</p>
+<p>When you come to Caesar, do not let your class make the first plunge
+alone, but for a number of days carry them through the advance yourself,
+avoiding translation on your own part as far as possible, reading the Latin
+to them in your very best and most helpful manner, and pointing out order
+and construction.  Throughout the Caesar and Cicero (I should say
+precisely the same thing of the <title>Anabasis</title>) have the review of each
+day prepared to be translated at hearing.  Encourage your students
+to learn to deliver the Latin well by appointing a promising reader, from
+time to time, to prepare himself in advance to read the review to the class
+in your stead.  Let him stand at your side with his eye upon his fellow-students; 
+and as he finishes a sentence, or such part of a sentence as shall be best
+to give in a lump, do you yourself name the student who shall translate.
+</p>
+<p>Be sure that you constantly treat constructions as <emph>means of expressing
+certain ideas</emph>, not as mere exemplifications of rules.  And, to
+enforce this view, as well as for many other reasons, watch constantly
+the development of ideas in dealing with sentences which your students
+have not seen before, and, in your questioning for written answers, or
+for <foreign lang="la">viva voce</foreign> answers, call attention to point after point in the
+gradual unfolding of the meaning, demanding all the time what I have elsewhere
+called "anticipatory parsing."  And have a good deal of memorizing and reciting of these selected passages.
+</p>
+<p>Aim to go a little beyond the lesson every day, having your class read
+on, not at sight, but at hearing, this additional ground being understood
+to form a part of the review at the next meeting.
+</p>
+<p>The disadvantage of reading on at sight is twofold.  The student
+is too apt to look ahead while some one else is up, preparing himself to
+make a good showing if he is called upon.  And even if he does not
+do this, he is too ready to run his eye to and fro in the sentence, not
+really accepting the Latin order, but doing a more or less clever piece
+of patchwork.  It often happens to me, in dealing with students who
+have been well practised in sight-reading before coming to the University,
+to read aloud a sentence containing only familiar words, every one of which
+they catch as it is delivered, yet fail to get any meaning from the sentence
+as a whole;  and I commonly find that, if I will at once put the sentence
+in the very same words, but in the English order, they will comprehend
+it instantly and without difficulty.  That experience proves that
+one may do a deal of sight-reading, yet never come to know the Latin order
+in any practical way.<note anchored="yes">Here lies the answer to the question, What
+is the good of going through the extra difficulty of understanding Latin
+without seeing it, when all that we aim at is to be able to read the printed
+page?&nbsp; Without saying anything about the greater sense of reality,
+and the greater interest which this way of dealing with the language brings
+with it, one might make the matter clear by supposing the case to be reversed.&nbsp;
+If English were a dead language, and Roman boys were learning to read it
+under Roman teachers who had mastered it, it would obviously be a very
+slow proceeding to pick it all to pieces and rearrange it into the Roman
+order as a means of understanding it.&nbsp; The most courteous ghost among
+us would laugh in the teacher's face if he were to visit a Roman schoolroom
+and find that sort of thing going on;&nbsp; just as undoubtedly the most
+courteous of Roman ghosts must laugh &mdash; unless, perhaps, his sense of grief
+over the waste of opportunity gets the better of his sense of humor &mdash; if
+ever he visits a modern schoolroom when a class is reading an oration of
+his great countryman.&nbsp; Just as he would surely say to us that this
+was precisely the way never to learn to read Latin, so our English-speaking
+ghost would beg the teacher to give all that business up, and to use some
+means to make it absolutely inevitable that the student should accept our
+English order of expression, to the end that he might really learn to read
+the language;&nbsp; and this means would necessarily be the trying to understand
+at hearing, first sentences of graded difficulty, then continuous passages
+of the literature.</note>
+</p>
+<p>Finally, <emph>no day should pass without composition</emph>. 
+The writing of Latin is one of the most dreary of intellectual occupations,
+or one of the most delightful.  Pretty uniformly it is the former
+for a boy who has not written a Latin sentence from the time he finished
+his elementary book and began his Caesar till, only a few months before
+going to college, he took up his special book in composition for the bare
+purpose of preparing for the examination in that subject.  <emph>The
+object of writing Latin</emph> in the preparatory schools is not to get one's
+self ready to pass an examination, but <emph>to get one's self ready to read
+Latin</emph>;  and if that aim be intelligently pursued, the examination
+in writing Latin will take care of itself.  The pursuit, however,
+should be incessant.  Every day a number of sentences based upon the
+author in use at the time should be written by various members of the class,
+sent to the board for the purpose.  Time can easily be obtained by
+having the writing going on while the class is reciting upon the review; 
+after which, corrections should be called for from the class in general.
+</p>
+<p>Throughout the work of the preparatory school, the teacher should insist
+upon it that what the pupil is primarily aiming at is to learn to read
+in a great literature, with as slight a barrier as possible between him
+and his author;  and he should make himself regard cases, modes, and
+tenses, and make his students regard them, as <emph>keys to the literature</emph>,
+as <emph>direct conveyors of thought from mind to mind</emph>.  How the
+last may most effectively and rapidly be done, I have tried to show. 
+This is all that strictly falls within the scope of the present pamphlet. 
+But I cannot forbear to add that the teacher who is conducting a class
+through Caesar, or Cicero, or Virgil, should never lose sight of the fact
+that his work is not wholly preparatory, &mdash; that <emph>he
+is already dealing with a great literature</emph>.  The more he
+can make his students see that it is a great literature, through the virtue
+of his own enjoyment of it, and, in particular, through the power with
+which he can read it to them in the Latin, and the power with which he
+can train them to read it themselves, the easier will be his task, and
+the richer its palpable rewards;  and the greater will be his contribution
+to the sum total of the classical education.
+</p>
+<p>This brings us to the university, with its manifold aims, &mdash; the study
+of the literature and of the history of its development, the comparative
+study of the forms and the syntax, the study of ancient history from the
+sources, the study of ancient life, of ancient art, etc.  All these
+various pursuits, however, rest ultimately mainly upon <emph>the
+power to read Latin with ease and speed</emph>.</p></div1>
+</body>
+</text>
+</TEI.2>

@@ -1,0 +1,898 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Overview of Latin Syntax</title>
+<author>Anne Mahoney</author>
+&responsibility;
+&fund.FIPSE;
+</titleStmt>
+<extent>About 120Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<bibl>
+<title>Overview of Latin Syntax</title>
+<author>Anne Mahoney</author>
+<date>2000</date>
+<publisher>Text created electronically</publisher>
+</bibl>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+  <state unit="form"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+  <state unit="chapter"/>
+  <state n="chunk" unit="section"/>
+  <state n="chunk" unit="form"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>7-Apr-00</date>
+<respStmt><name>Anne Mahoney</name><resp>ed.</resp></respStmt>
+<item>
+$Log: latsyn.xml,v $
+Revision 1.1  2009-12-08 20:46:34  rsingh04
+moved more xml files around based on copyright status.  renamed terence files to follow the abbreviations and split up minora_lat.xml into separate files
+
+Revision 1.6  2009/08/25 19:51:33  rsingh04
+changed bibls with Perseus:abo to corresponding abbreviation
+
+Revision 1.5  2009/07/30 16:39:51  rsingh04
+fixed allen and greenough refs
+
+Revision 1.4  2009/07/27 14:04:45  student
+fixed bibl errors - zr
+
+Revision 1.3  2005/10/17 19:44:44  lcerrato
+fixed typo of past pefect to past perfect
+
+Revision 1.2  2005/08/16 17:18:03  packel
+ARRGGH item tags
+
+Revision 1.1  2005/07/25 15:04:12  packel
+Converted to XML
+
+Revision 1.21  2005/07/01 14:31:22  mimno
+new XML versions
+
+Revision 1.20  2000/07/23 18:36:12  amahoney
+add double dative
+
+Revision 1.19  2000/07/17 21:11:59  amahoney
+done with examples!
+
+Revision 1.18  2000/07/14 22:06:27  amahoney
+bunch of examples from the Pro Caelio
+
+Revision 1.17  2000/07/13 21:28:58  amahoney
+examples from Virgil
+
+Revision 1.16  2000/07/06 22:03:46  amahoney
+examples from Virgil
+
+Revision 1.15  2000/07/05 17:37:25  amahoney
+finally have a structure that works
+
+Revision 1.14  2000/07/03 21:02:27  amahoney
+examples from Cicero
+
+Revision 1.13  2000/06/23 21:23:09  amahoney
+chunk on subsects where there are any
+
+Revision 1.12  2000/06/21 21:17:23  amahoney
+some examples from Cicero
+
+Revision 1.11  2000/06/14 21:14:49  amahoney
+pretty much finished with examples from Catullus
+
+Revision 1.10  2000/06/06 21:15:54  amahoney
+decide to make the examples into a list
+
+Revision 1.9  2000/06/01 21:38:48  amahoney
+start examples from Catullus
+
+Revision 1.8  2000/06/01 19:55:36  amahoney
+examples of word order and sentence construction from Caesar
+
+Revision 1.7  2000/05/26 21:18:37  amahoney
+examples from Caesar for verbs
+
+Revision 1.6  2000/05/18 21:49:28  amahoney
+finish Caesar examples for nouns, start verbs
+
+Revision 1.5  2000/05/15 13:36:47  amahoney
+more examples from Caesar
+
+Revision 1.4  2000/05/07 17:31:18  amahoney
+start putting in examples
+
+Revision 1.3  2000/04/21 22:05:47  amahoney
+add subsect to refsdecl, so it shows up in the go-to box where they exist
+
+Revision 1.2  2000/04/21 15:48:45  amahoney
+all the AG refs are in place
+
+Revision 1.1  2000/04/07 20:58:58  amahoney
+initial coding
+
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="chapter" n="1">
+<head>Nouns, Adjectives, and Pronouns</head>
+<p>The nominal system comprises nouns, adjectives, and pronouns:  the classes of
+words that inflect for number and case.  Participles (and gerundives) are adjectives formed from
+verbs;  infinitives (and supines and gerunds) are nouns formed from verbs.
+</p>
+<div2 type="form" n="noun_agree">
+<head>Agreement</head>
+<p>Adjectives agree with the nouns they modify in number, gender, and case.  <bibl n="AG 286">AG 286</bibl> 
+<list type="simple">
+<item><cit><quote lang="la">Eorum <emph>una</emph> pars ... initium capit a flumine Rhodano,</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Cui dono <emph>lepidum novum</emph> libellum?</quote> <bibl n="Catul. 1">Catullus 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Quo usque tandem abutere, Catilina, patientia <emph>nostra</emph>?</quote> <bibl n="Cic. Catil. 1.1">Cicero, Catil. 1.1</bibl></cit></item>
+</list>
+</p>
+<p>Nouns in apposition to each other have the same case.  <bibl n="AG 282">AG 282</bibl>
+<list type="simple">
+<item><cit><quote lang="la">In eo itinere persuadet Castico, <emph>Catamantaloedis filio,</emph> ... ut regnum in civitate sua occuparet.</quote> <bibl n="Caes. Gal. 1.3">Caesar, BG 1.3</bibl></cit></item>
+<item><cit><quote lang="la">Passer mortuus est meae puellae, passer, <emph>deliciae</emph> meae puellae.</quote> <bibl n="Catul. 3">Catullus 3.2-3</bibl></cit></item>
+<item><cit><quote lang="la">Res est omnis in hac causa nobis, iudices, cum Clodia, <emph>muliere</emph> non solum nobili verum etiam nota.</quote> <bibl n="Cic. Cael. 31">Cicero, Cael. 31</bibl></cit></item>
+</list>
+</p>
+<p>Pronouns take the number, gender, and case of the nouns they stand for.  <bibl n="AG 295">AG 295</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Hi</emph> [= Galli] omnes lingua, institutis, legibus inter se differunt.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Fulsere quondam candidi <emph>tibi</emph> [= Catullo] soles</quote> <bibl n="Catul. 8">Catullus 8.3</bibl></cit></item>
+</list>
+</p>
+<p>The case of a relative pronoun depends on its function in the relative clause,
+not of the case of its antecedent.  <bibl n="AG 305">AG 305</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Gallia est omnis divisa in partes tres, <emph>quarum</emph> [= partium] unam incolunt Belgae, ...</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Passer, deliciae meae puellae,</l>
+<l><emph>quicum</emph> ludere, <emph>quem</emph> in sinu tenere,</l>
+<l><emph>cui</emph> primum digitum dare appetenti</l>
+<l>et acris solet incitare morsus...</l></lg></quote> <bibl n="Catul. 2">Catullus 2.1-4</bibl></cit></item>
+<item><cit><quote lang="la">Arma virumque cano, Troiae <emph>qui</emph> [= vir] primus ab oris ... venit</quote> <bibl n="Verg. A. 1.1">Virgil, Aen. 1.1</bibl></cit></item>
+</list>
+</p></div2>
+<div2 type="form" n="nom">
+<head>Nominative</head>
+<p>The subject of a finite verb is in the nominative.  <bibl n="AG 339">AG 339</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Gallia</emph> est omnis divisa in partes tres.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Tu</emph> solebas meas esse aliquid putare nugas.</quote> <bibl n="Catul. 1">Catullus 1.3-4</bibl> </cit></item>
+<item><cit><quote lang="la">Quam diu etiam <emph>furor iste tuus</emph> nos eludet?</quote> <bibl n="Cic. Catil. 1.1">Cicero, Catil. 1.1</bibl></cit></item>
+</list>
+</p>
+<p>A predicate nominative follows a copula verb and modifies the subject, or is 
+in apposition to the subject.  <bibl n="AG 283">AG 283-284</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Apud Helvetios longe <emph>nobilissimus</emph> fuit et <emph>ditissimus</emph> Orgetorix.</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+<item><cit><quote lang="la">Lesbius est <emph>pulcher</emph>.</quote> <bibl n="Catul. 79">Catullus 79.1</bibl></cit></item>
+<item><cit><quote lang="la">Urbs antiqua fuit <emph>Karthago</emph>.</quote> <bibl n="Verg. A. 1.12">Virgil, Aen. 1.12</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Graves</emph> erunt homines qui hoc iurati dicere audebunt.</quote> <bibl n="Cic. Cael. 20">Cicero, Cael. 20</bibl></cit></item>
+</list>
+</p></div2>
+<div2 type="form" n="gen">
+<head>Genitive</head>
+<p>The genitive case is most often used for possession.  <bibl n="AG 343">AG 343</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Mons Iura fines <emph>Sequanorum</emph> ab Helvetiis dividit.</quote> <bibl n="Caes. Gal. 1.8">Caesar, BG 1.8</bibl></cit></item>
+<item><cit><quote lang="la">Passer, deliciae <emph>meae puellae</emph></quote> <bibl n="Catul. 2">Catullus 2.1</bibl> </cit></item>
+</list>
+</p>
+<p>The objective genitive depends on a noun that has a verb-like sense, and
+gives the object of the implied verb.  For example, <quote lang="la">amor patriae</quote>
+(<gloss>love of country</gloss>):  someone loves his or her country.  <bibl n="AG 348">AG 348</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Is, <emph>regni</emph> cupiditate inductus, coniurationem nobilitatis fecit.</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+<item><cit><quote lang="la">Aura secunda venit iam prece <emph>Pollucis,</emph> iam <emph>Castoris</emph> implorata.</quote><bibl n="Catul. 68">Catullus 68.64-65</bibl></cit>  It is clear from context that the sailor prays to Castor and Pollux;  these gods are not the ones praying.</item>
+<item><cit><quote lang="la">Nam quod <emph>Catilinae</emph> familiaritas obiecta Caelio est, longe ab ista suspicione abhorrere debet.</quote> <bibl n="Cic. Cael. 10">Cicero, Cael. 10</bibl></cit></item>
+</list>
+</p>
+<p>The partitive genitive indicates the whole from which a part is drawn.  <bibl n="AG 346">AG 346</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Horum omnium</emph> fortissimi sunt Belgae,</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Phaselus ait fuisse <emph>navium</emph> celerrimus.</quote> <bibl n="Catul. 4">Catullus 4.1-2</bibl></cit></item>
+</list>
+</p>
+<p>The genitive can indicate the material of which something is made.  <bibl n="AG 344">AG 344</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Civitas multitudinem <emph>hominum</emph> ex agris magistratus cogit.</quote> <bibl n="Caes. Gal. 1.4">Caesar, BG 1.4</bibl></cit></item>
+<item><cit><quote lang="la">Crescit in dies singulos <emph>hostium</emph> numerus.</quote> <bibl n="Cic. Catil. 1.5">Cicero, Catil. 1.5</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Tantae molis</emph> erat Romanam condere gentem!</quote> <bibl n="Verg. A. 1.33">Virgil, Aen. 1.33</bibl></cit></item>
+<item><cit><quote lang="la">Insequitur cumulo praeruptus <emph>aquae</emph> mons.</quote> <bibl n="Verg. A. 1.105">Virgil, Aen. 1.105</bibl></cit></item>
+</list>
+
+</p></div2>
+<div2 type="form" n="dat">
+<head>Dative</head>
+<p>The dative case is most often used for the indirect object of a verb.  <bibl n="AG 361">AG 361</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Ei</emph> filiam suam in matrimonium dat.</quote> <bibl n="Caes. Gal. 1.3">Caesar, BG 1.3</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Cui</emph> dono lepidum novum libellum?</quote> <bibl n="Catul. 1">Catullus 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Si hoc <emph>adulescenti optimo P. Sestio</emph> vel <emph>fortissimo viro M. Marcello</emph> dixissem, iam mihi vim et manus intulisset.</quote> <bibl n="Cic. Catil. 1.21">Cicero, Catil. 1.21</bibl></cit></item>
+</list>
+</p>
+<p>Some compound verbs take a dative, even though the prepositions they are compounded
+with take the accusative or ablative.  <bibl n="AG 370">AG 370</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Orgetorix virtute <emph>omnibus</emph> praestabat</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Verani, omnibus e meis amicis</l>
+<l>antistans mihi <emph>milibus trecentis</emph></l></lg></quote> <bibl n="Catul. 9">Catullus 9.1-2</bibl></cit>  Here <quote lang="la">ex omnibus meis amicis</quote> is equivalent to <quote lang="la">omnium meorum amicorum</quote>.  <quote lang="la">Mihi</quote> is dative of interest, but <quote lang="la">milibus trecentis</quote> goes with <quote lang="la">antistans</quote>.</item>
+<item><cit><quote lang="la">Incubuere mari</quote> <bibl n="Verg. A. 1.84">Virgil, Aen. 1.84</bibl></cit></item>
+</list>
+</p>
+<p>The dative can be used to indicate a person interested in the action of the verb.
+This construction is variously called "dative of reference," "dative of interest", "dative of advantage," or 
+"ethical dative."  <bibl n="AG 376">AG 376-380</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii trium mensium molita cibaria <emph>sibi</emph> quemque domo effere iubent.</quote> <bibl n="Caes. Gal. 1.5">Caesar, BG 1.5</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>At <emph>vobis</emph> male sit, malae tenebrae</l>
+<l>Orci, quae omnia bella devoratis,</l>
+<l>tam bellum <emph>mihi</emph> passerem abstulistis.</l></lg></quote> <bibl n="Catul. 3">Catullus 3.13-15</bibl></cit>  (these are perhaps better called datives of disadvantage)</item>
+<item><cit><quote lang="la">Conservate <emph>parenti</emph> filium, parentum <emph>filio</emph>.</quote> <bibl n="Cic. Cael. 80">Cicero, Cael. 80</bibl></cit></item>
+</list>
+</p>
+<p>Some adjectives take a dative.  <bibl n="AG 383">AG 383-385</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Belgae proximi sunt <emph>Germanis</emph>.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Sit <emph>suo</emph> similis <emph>patri</emph>.</quote> <bibl n="Catul. 61">Catullus, 61.221</bibl></cit></item>
+</list>
+</p>
+<p>The dative denotes the agent with the passive periphrastic.  <bibl n="AG 374">AG 374</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Omnibus Gallis</emph> idem est faciendum quod Helvetii faciunt.</quote><bibl n="Caes. Gal. 1.31">Caesar, BG 1.31</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Nobis</emph>... nox est perpetua una dormienda</quote><bibl n="Catul. 5">Catullus 5.5-6</bibl></cit></item>
+</list>
+</p>
+<p>The "double dative" is two datives, one an ordinary dative of reference or an indirect object, the other denoting a purpose or goal.  Usually the verb is a form of <quote lang="la">sum</quote>, though other verbs are also used.  <bibl n="AG 382">AG 382</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Haedui equitatum <emph>Caesari auxilio</emph> miserant.</quote> <bibl n="Caes. Gal. 1.18">Caesar, BG 1.18</bibl></cit>  <gloss>They had sent an army to Caesar as assistance</gloss>, in order to help him, for the purpose of being an aid to him, as a source of aid to him.</item>
+<item><cit><quote lang="la">Estne <emph>novis nuptis odio</emph> Venus?</quote> <bibl n="Catul. 66">Catullus 66.15</bibl></cit>  <gloss>Is Venus hateful to newlyweds?</gloss></item>
+</list>
+</p></div2>
+<div2 type="form" n="acc">
+<head>Accusative</head>
+<p>The accusative case is most often used for the direct object of a transitive verb.  <bibl n="AG 387">AG 387</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Belgae <emph>unam partem</emph> incolunt.</quote><bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Cui dono <emph>lepidum novum libellum</emph>?</quote> <bibl n="Catul. 1">Catullus 1.1</bibl></cit></item>
+</list>
+</p>
+<p>Some verbs take two objects:  <quote lang="la">magister <emph>discipulos</emph> <emph>linguam latinam</emph> docet</quote>
+(<gloss>the teacher teaches the students the Latin language</gloss>).  <bibl n="AG 391">AG 391-393</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Liscus summo magistratui praeerat <emph>quem vergobretum</emph> appellant Haedui</quote><bibl n="Caes. Gal. 1.16">Caesar, BG 1.16</bibl></cit>:  <gloss>... which the Haedui call the vergobretus</gloss>, or "the Haedui call this magistrate the vergobretus."</item>
+<item><cit><quote lang="la"><emph>Id</emph> mea <emph>me</emph> multis docuit regina querelis.</quote> <bibl n="Catul. 66">Catullus 66.19</bibl></cit>  In prose this might read <quote lang="la">Mea regina me id multis querelis docuit</quote>.</item>
+</list>
+</p>
+<p>The accusative can denote the limit or goal of motion.  <bibl n="AG 388">AG 388b</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Eorum qui <emph>domum</emph> redierunt repertus est numerus milium C et X.</quote> <bibl n="Caes. Gal. 1.29">Caesar, BG 1.29</bibl></cit></item>
+<item><cit><quote lang="la">Venistine <emph>domum</emph> ad tuos penates?</quote> <bibl n="Catul. 9">Catullus 9.3</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Italiam</emph> ... <emph>Laviniaque</emph> venit</quote> <bibl n="Verg. A. 1.2">Virgil, Aen. 1.2</bibl></cit></item>
+</list>
+</p>
+<p>The subject of an infinitive is in the accusative.  This construction is most
+frequent in indirect discourse.  <bibl n="AG 397">AG 397e</bibl>, <bibl n="AG 580">580</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Biennium</emph> sibi satis esse duxerunt</quote> <bibl n="Caes. Gal. 1.3">Caesar, BG 1.3</bibl></cit></item>
+<item><cit><quote lang="la">Salve, ianua, <emph>quam</emph> Balbo dicunt servisse benigne olim.</quote> <bibl n="Catul. 67">Catullus 67.2-4</bibl></cit></item>
+<item><cit><quote lang="la">Non <emph>patruum</emph>, non <emph>avum</emph>, non <emph>proavum</emph>, non <emph>abavum</emph>, non <emph>atavum</emph> audieras consules fuisse?</quote> <bibl n="Cic. Cael. 33">Cicero, Cael. 33</bibl></cit> <gloss>Have you never heard that your ancestors were consuls?</gloss></item>
+</list>
+</p>
+<p>The accusative can be used in a construction much like the ablative of respect,
+called the "adverbial accusative."  <bibl n="AG 397">AG 397 a, b</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Neque <emph>multum</emph> frumento, sed <emph>maximam partem</emph> lacte atque pecore vivunt.</quote> <bibl n="Caes. Gal. 4.1">Caesar, BG 4.1</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Multum</emph> lusimus in meis tabellis.</quote><bibl n="Catul. 50">Catullus 50.2</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Nihilne</emph> te nocturnum praesidium Palati, <emph>nihil</emph> urbis vigiliae, <emph>nihil</emph> timor populi, <emph>nihil</emph> concursus bonorum omnium, <emph>nihil</emph> hic munitissimus habendi senatus locus, <emph>nihil</emph> horum ora voltusque moverunt?</quote> <bibl n="Cic. Catil. 1.1">Cicero, Catil. 1.1</bibl></cit></item>
+</list>
+</p>
+<p>Many prepositions take the accusative.  <bibl n="AG 220">AG 220-221</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Gallia est omnis divisa <emph>in partes tres</emph>.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="elegiac"><l><emph>Multas per gentes</emph> et <emph>multa per aequora</emph> vectus</l>
+<l>advenio <emph>has miseras</emph>, frater, <emph>ad inferias.</emph></l></lg></quote> <bibl n="Catul. 101">Catullus 101.1-2</bibl></cit></item>
+</list>
+</p></div2>
+<div2 type="form" n="abl">
+<head>Ablative</head>
+<p>The ablative case can denote the means by which something is done.  <bibl n="AG 409">AG 409</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Continetur <emph>Garumna flumine</emph>, <emph>Oceano</emph>, <emph>finibus</emph> Belgarum.</quote><bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Cui dono lepidum novum libellum,</l>
+<l><emph>arida</emph> modo <emph>pumice</emph> expolitum?</l></lg></quote> <bibl n="Catul. 1">Catullus 1.1-2</bibl></cit></item>
+</list>
+</p>
+<p>The ablative case can indicate a place where something happens.  Usually the preposition <quote lang="la">in</quote> is used, but not invariably.<bibl n="AG 426">AG 426</bibl>, <bibl n="AG 429">429</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii ipsi <emph>in eorum finibus</emph> bellum gerunt</quote><bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Ariovistus exercitum <emph>castris</emph> continuit.</quote><bibl n="Caes. Gal. 1.48">Caesar, BG 1.48</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Te <emph>Campo</emph> quaesivimus <emph>minore</emph>,</l>
+<l>te <emph>in Circo</emph>, te <emph>in omnibus libellis</emph>,</l>
+<l>te <emph>in templo summi Iovis sacrato.</emph></l></lg></quote> <bibl n="Catul. 55">Catullus 55.3-5</bibl></cit></item>
+</list>
+</p>
+<p>The ablative case can indicate separation.  This is the most basic use
+of this case, as indicated by its name (<quote lang="la">ab + latus</quote> 
+from <quote lang="la">aufero</quote>).  Usually this construction includes one of the prepositions <quote lang="la">ab</quote>, <quote lang="la">de</quote>, or <quote lang="la">ex</quote>.  <bibl n="AG 400">AG 400-402</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Gallos <emph>ab Aquitanis</emph> Garumna flumen, <emph> a Belgis</emph> Matronea et Sequana dividit.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Nunc eum volo <emph>de tuo ponte</emph> mittere pronum.</quote> <bibl n="Catul. 17">Catullus 17.23</bibl></cit></item>
+<item><cit><quote lang="la">Nec saevi dolores exciderant <emph>animo</emph>.</quote> <bibl n="Verg. A. 1.26">Virgil, Aen. 1.25-26</bibl></cit></item>
+</list>
+</p>
+<p>The ablative case can indicate manner.  <bibl n="AG 412">AG 412</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Flumen est Arar <emph>incredibili lenitate</emph> </quote><bibl n="Caes. Gal. 1.12"> Caesar, BG 1.12</bibl></cit></item>
+<item><cit><quote lang="la">...sermones varii, in quibus:  <emph>quo modo</emph> se haberet</quote> <bibl n="Catul. 10">Catullus 10.6-7</bibl></cit></item>
+</list>
+</p>
+<p>The ablative case can specify something in respect to which something happens;
+this is the "ablative of respect" or "ablative of specification."  <bibl n="AG 418">AG 418</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Hi omnes <emph>lingua, institutis, legibus</emph> inter se differunt.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Tu <emph>animo</emph> offirmas.</quote> <bibl n="Catul. 76">Catullus 76.11</bibl></cit></item>
+</list>
+</p>
+<p>The ablative case can denote the time when something happens.  <bibl n="AG 423">AG 423</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Die constituta</emph> Orgetorix ad iudicium omnem suam familiam coegit.</quote> <bibl n="Caes. Gal. 1.4">Caesar, BG 1.4</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Hesterno</emph>, Licini, <emph>die</emph> otiosi lusimus.</quote><bibl n="Catul. 50">Catullus 50.1</bibl></cit></item>
+</list>
+</p>
+<p>Many prepositions take the ablative.  <bibl n="AG 220">AG 220-221</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii fere cotidianis proeliis <emph>cum Germanis</emph> contendunt.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="elegiac"><l>Nulla fides ullo fuit umquam foedere tanta</l>
+<l>quanta <emph>in amore tuo</emph> <emph>ex parte</emph> reperta <emph>mea</emph> est.</l></lg></quote> <bibl n="Catul. 87">Catullus 87.3-4</bibl></cit></item>
+</list>
+</p>
+<p>The ablative absolute is a way of commenting on something that is logically,
+but not grammatically, related to the main sentence.  <bibl n="AG 419">AG 419-420</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Eo opere perfecto</emph>, praesidia disponit.</quote> <bibl n="Caes. Gal. 1.8">Caesar, BG 1.8</bibl></cit></item>
+<item><cit><quote lang="la">Lesbia <emph>me praesente</emph> viro mala plurima dicit.</quote> <bibl n="Catul. 83">Catullus 83.1</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hexameter"><l part="F">Musa, mihi causas memora:  <emph>quo numine laeso</emph></l>
+<l>quidve dolens regina deum tot volvere casus</l>
+<l>insignem pietate virum tot adire labores</l>
+<l>impulerit?</l></lg></quote> <bibl n="Verg. A. 1.8">Virgil, Aen. 1.8-11</bibl></cit></item>
+</list>
+</p>
+<p>Ablative absolute phrases almost always include a participle;  the most common exception is the idiom "in the consulate of...".
+<list type="simple">
+<item><cit><quote lang="la">Is, <emph>M. Messala et M. Pisone consulibus,</emph> coniurationem fecit</quote><bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+</list>
+</p>
+<p>Some verbs take an ablative, really an ablative of means.  <bibl n="AG 410">AG 410</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Persuadent Rauracis uti <emph>eodem consilio</emph>.</quote> <bibl n="Caes. Gal. 1.5">Caesar, BG 1.5</bibl></cit></item>
+<item><cit><quote lang="la">Quo usque tandem abutere, Catilina, <emph>patientia nostra</emph>?</quote> <bibl n="Cic. Catil. 1.1">Cicero, Catil. 1.1</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Auro</emph> opus fuit.</quote> <bibl n="Cic. Cael. 31">Cicero, Cael. 31</bibl></cit>  The idiom <quote lang="la">opus est</quote> takes this ablative as well.</item>
+</list>
+</p></div2>
+<div2 type="form" n="voc">
+<head>Vocative and locative</head>
+<p>The vocative case is used for talking to people.  Vocatives and imperatives are
+often found together;  they are morphologically similar, since each is the bare stem form.  <bibl n="AG 340">AG 340</bibl>
+<list type="simple">
+<item><cit><quote lang="la">"Desilite," inquit, "<emph>milites</emph>, nisi vultis aquilam hostibus prodere."</quote> <bibl n="Caes. Gal. 4.25">Caesar, BG 4.25</bibl></cit></item>
+<item><cit><quote lang="la">Vale, <emph>puella</emph>.</quote> <bibl n="Catul. 8">Catullus 8.12</bibl></cit></item>
+<item><cit><quote lang="la">Quid est, <emph>Catilina</emph>?</quote> <bibl n="Cic. Catil. 1.13">Cicero, Catil. 1.13</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Mulier,</emph> quid tibi cum Caelio?</quote> <bibl n="Cic. Cael. 33">Cicero, Cael. 33</bibl></cit></item>
+</list>
+</p>
+<p>The locative case is vestigial and used with very few nouns except <quote lang="la">domus</quote>,
+<quote lang="la">rus</quote>, and names of towns and small islands.  It indicates
+the place where something happens.  <bibl n="AG 427">AG 427</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Dumnorix non solum <emph>domi</emph> sed apud finitimas civitatis largiter potest.</quote> <bibl n="Caes. Gal. 1.18">Caesar, BG 1.18</bibl></cit></item>
+<item><cit><quote lang="la">Hoc fit quod <emph>Romae</emph> vivimus.</quote> <bibl n="Catul. 68">Catullus 68a.44</bibl></cit></item>
+<item><cit><quote lang="la">Septem ingentia victor corpora fundat humi.</quote> <bibl n="Verg. A. 1.193">Virgil, Aen. 1.192-193</bibl></cit></item>
+</list>
+</p></div2></div1>
+<div1 type="chapter" n="2">
+<head>Verbs</head>
+<p>Verbs are words that inflect for person, number, tense, mood, and voice.
+</p>
+<div2 type="form" n="verb_agree">
+<head>Agreement</head>
+<p>A verb and its subject agree in person and number.  <bibl n="AG 316">AG 316</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Unam <emph>incolunt</emph> Belgae.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Tu <emph>volebas</emph> nec puella <emph>nolebat</emph>.</quote> <bibl n="Catul. 8">Catullus 8.7</bibl></cit></item>
+<item><cit><quote lang="la">Nos consules <emph>desumus</emph>.</quote> <bibl n="Cic. Catil. 1.3">Cicero, Catil. 1.3</bibl></cit></item>
+</list>
+</p>
+<p>A participle, which is a verbal adjective, agrees with the noun it modifies
+just as any other adjective does.  <bibl n="AG 488">AG 488</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Civitas ob eam rem <emph>incitata</emph> armis ius suum exsequi conabatur.</quote> <bibl n="Caes. Gal. 1.4">Caesar, BG 1.4</bibl></cit></item>
+<item><cit><quote lang="la">Iam mens <emph>praetrepidans</emph> avet vagari.</quote> <bibl n="Catul. 46">Catullus 46.7</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Dicta</emph> est a me causa, iudices, et <emph>perorata.</emph></quote> <bibl n="Cic. Cael. 70">Cicero, Cael. 70</bibl></cit></item>
+</list>
+</p>
+<p>Infinitives and gerunds are verbal nouns.  They are always 
+neuter singular.  <bibl n="AG 452">AG 452</bibl>, <bibl n="AG 501">501-502</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><emph>Perfacile</emph> est imperio potiri.</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Difficile</emph> est longum subito deponere amorem.</quote> <bibl n="Catul. 76">Catullus 76.13</bibl></cit></item>
+</list>
+</p></div2>
+<div2 type="section" n="2">
+<head>Tense</head>
+<p>The tense of a verb form indicates whether the action it describes takes place
+in the past, the present, or the future.  <bibl n="AG 464">AG 464</bibl></p>
+<div3 type="form" n="pres">
+<head>Tenses of the present system</head>
+<p>The present system includes the present, the imperfect, and the future.  Often
+the tenses of the present system are used for continuing or repeated action, as 
+opposed to action that happens once and is done with.  This is, in particular, the
+main difference between the imperfect and the present perfect.  <bibl n="AG 465">AG 465</bibl>, 
+<bibl n="AG 470">470</bibl>, <bibl n="AG 472">472</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Angustos se fines habere <emph>arbitrabantur</emph>.  His rebus adducti, <emph>constituerunt</emph> ea quae ad proficiscendum pertinerent comparare.</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2-3</bibl></cit> <gloss>They (always, habitually) thought their territory was constricted.  Prompted by these considerations, they (at one time) decided to prepare what they would need for the expedition.</gloss></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Scribens versiculos uterque nostrum</l>
+<l><emph>ludebat</emph> numero modo hoc modo illoc,</l>
+<l>reddens mutua per iocum atque vinum.</l>
+<l>Atque illinc <emph>abii</emph> tuo lepore</l>
+<l>incensus.</l></lg></quote> <bibl n="Catul. 50">Catullus 50.4-8</bibl></cit>  <gloss>Each of us writing lines would (repeatedly, over the course of the afternoon) play with this meter and that, sharing wine and laughter.  I left (once) excited by your charm.</gloss></item>
+<item><cit><quote lang="la"><emph>Corripuere</emph> viam interea, iamque <emph>ascendebant</emph> collem.</quote><bibl n="Verg. A. 1.418">Virgil, Aen. 1.418-419</bibl></cit>  <gloss>They (once, at a single point in time) started on their way and were going up the hill (which took a little while).</gloss></item>
+<item><cit><quote lang="la">Prima pars <emph>fuit</emph> illa quae me minus <emph>movebat.</emph></quote> <bibl n="Cic. Cael. 26">Cicero, Cael. 26</bibl></cit>  <gloss>The first part (of the speech the prosecutor has just finished making) was what (during that speech) bothered me least.</gloss></item>
+</list>
+</p></div3>
+<div3 type="form" n="perf">
+<head>Tenses of the perfect system</head>
+<p>The perfect system includes the present perfect (often just called "perfect"), the
+past perfect or pluperfect, and the future perfect.  These tenses generally indicate
+completed action.  It is convenient to think of these tenses as the present, past,
+and future of the perfect system.  <bibl n="AG 473">AG 473</bibl>, 
+<bibl n="AG 477">477</bibl>, <bibl n="AG 478">478</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Necare eandem <emph>voluit</emph>;  <emph>quaesivit</emph> venenum, <emph>sollicitavit</emph> servos, potionem <emph>paravit</emph>, locum <emph>constituit</emph>, clam <emph>attulit.</emph></quote> <bibl n="Cic. Cael. 31">Cicero, Cael. 31</bibl></cit> Here the perfect is used to narrate a series of actions that have happened and are now complete.</item>
+<item><cit><quote lang="la">Ubi ea dies quam <emph>constituerat</emph> cum legatis <emph>venit</emph>, ...</quote> <bibl n="Caes. Gal. 1.8">Caesar, BG 1.8</bibl></cit>  <gloss>When the day came that he had arranged with his lieutenants...</gloss>.</item>
+<item><cit><quote lang="la"><lg type="hexameter"><l>Nam simul ac fessis <emph>dederit</emph> fors copiam Achivis</l>
+<l>urbis Dardaniae Neptunia solvere vincla,</l>
+<l>alta Polyxenia madefient caede sepulcra.</l></lg></quote> <bibl n="Catul. 64">Catullus 64.366-368</bibl></cit> <gloss>After chance gives the Achaeans the power.... Polyxena's tomb will become wet.</gloss>  The action of the subordinate clause will be complete when the action of the main clause happens, so the subordinate clause uses a tense from the perfect system;  as that time is in the future, the appropriate tense is the future perfect.</item>
+</list>
+</p></div3>
+<div3 type="form" n="infin_tense">
+<head>Tenses of infinitives and participles</head>
+<p>Infinitives and participles also have tenses, though not all possible tenses.  These
+tenses show the relationship of the infinitive or participle to the time of the main
+verb of the clause.  <bibl n="AG 486">AG 486</bibl>, <bibl n="AG 489">489</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Orgetorix dixit perfacile <emph>esse</emph> totius Galliae imperio <emph>potiri</emph></quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit> <gloss>Orgetorix said it <emph>was</emph> (or <emph>would be</emph>) easy <emph>to gain</emph> power over all Gaul</gloss>;  both present infinitives refer to things that are true at the same time as Orgetorix is speaking, or things that he expects will be true in the future.</item>
+<item><cit><quote lang="la">Quod vides <emph>perisse</emph> perditum ducas.</quote><bibl n="Catul. 8">Catullus 8.2</bibl></cit>.   The use of the perfect infinitive indicates that the affair is really over:  it ended in the past.</item>
+<item><cit><quote lang="la">Quid <emph>dolens</emph> regina deum virum tot adire labores impulerit?</quote> <bibl n="Verg. A. 1.10">Virgil, Aen. 1.9-11</bibl></cit>  Juno was in pain at the same time as she forced Aeneas to go through his travails, hence <quote lang="la">dolens</quote> is a present participle.</item>
+<item><cit><quote lang="la">Videor mihi <emph>iecisse</emph> fundamenta defensionis meae.</quote> <bibl n="Cic. Cael. 5">Cicero, Cael. 5</bibl></cit>  Cicero informs the jury that the basis of the defense is complete, hence the perfect infinitive.</item>
+</list>
+</p></div3>
+<div3 type="form" n="sequence">
+<head>Tenses of the subjunctive;  sequence of tenses</head>
+<p>The tense of a verb in the subjunctive in a subordinate clause depends on its relationship to the
+time of the main clause.  When the main verb refers to the present or the future (a "primary" tense), the
+subjunctive is a present tense.  When the main verb refers to the past (a "secondary" tense), the subjunctive
+is in a past tehse.  If the action described by the subjunctive verb comes before the action of the main
+verb (that is, it is completed action at the time of the main verb), the subjunctive comes from the perfect
+system.  If the subjunctive desribes an action at the same time as that of the main verb, or an action that comes
+after that of the main verb (that is, action that is not completed), the subjunctive comes from the present system.  So:
+
+<table>
+<row role="data"><cell cols="1" role="data" rows="1"></cell><cell cols="1" role="data" rows="1"><emph>Main verb primary</emph></cell><cell cols="1" role="data" rows="1"><emph>Main verb secondary</emph></cell></row>
+<row role="data"><cell cols="1" role="data" rows="1"><emph>Subjunctive happens before (complete)</emph></cell><cell cols="1" role="data" rows="1">Perfect subjunctive</cell><cell cols="1" role="data" rows="1">Pluperfect subjunctive</cell></row>
+<row role="data"><cell cols="1" role="data" rows="1"><emph>Subjunctive happens after (incomplete)</emph></cell><cell cols="1" role="data" rows="1">Present subjunctive</cell><cell cols="1" role="data" rows="1">Imperfect subjunctive</cell></row>
+</table>
+
+<bibl n="AG 482">AG 482-483</bibl>
+<list type="simple">
+<item><cit><quote lang="la">His rebus <emph>fiebat</emph> ut minus facile finitimis bellum inferre <emph>possent.</emph></quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2.</bibl></cit>  The Gauls' difficulty in making war is contemporary with the reasons the main clause refers to;  contemporary action in secondary sequence calls for the imperfect subjunctive.</item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Quaeris quot mihi basiationes</l>
+<l>tuae, Lesbia, <emph>sint</emph> satis superque.</l></lg></quote><bibl n="Catul. 7">Catullus 7.1-2</bibl></cit>  The sufficiency of kisses would come after the question;  subsequent action in primary sequence calls for the present subjunctive.</item>
+<item><cit><quote lang="la">Multa quoque et bello passus, dum <emph>conderet</emph> urbem.</quote> <bibl n="Verg. A. 1.5">Virgil, Aen. 1.5</bibl></cit>  The main verbs in this sentence (which extents over the first seven lines of the <title>Aeneid</title>) are all in the past, including <quote lang="la">passus [est]</quote> here.  The founding of the city is subsequent to Aeneas's sufferings.  Subsequent action in secondary sequence calls for the imperfect subjunctive.</item>
+<item><cit><quote lang="la">Accusatio crimen desiderat rem ut <emph>definiat</emph>, hominem <emph>notet</emph>, argumento <emph>probet</emph>, teste <emph>confirmet</emph>.</quote> <bibl n="Cic. Cael. 6">Cicero, Cael. 6</bibl></cit>  This general description of the legal system is in the present tense.  The purpose clauses describe actions subsequent to the main verb, as purpose clauses often do.  Subsequent action in primary sequence calls for the present subjunctive.</item>
+</list>
+</p></div3></div2>
+<div2 type="section" n="3">
+<head>Mood</head>
+<p>Latin has three finite moods:  the indicative, the subjunctive, and the imperative.
+The verbal nouns and adjectives are non-finite moods:  the infinitives, participles,
+gerund, gerundive, and supine.  <bibl n="AG 154">AG 154-155</bibl>
+</p>
+<div3 type="form" n="ind">
+<head>Indicative</head>
+<p>The indicative is the usual mood of ordinary statement.  Most independent clauses
+are in the indicative.  <bibl n="AG 437">AG 437</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Apud Helvetios longe nobilissimus <emph>fuit</emph> Orgetorix.</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+<item><cit><quote lang="la">Odi et amo.</quote> <bibl n="Catul. 85">Catullus 85.1</bibl></cit></item>
+</list>
+</p>
+<p>Clauses with <quote lang="la">cum</quote> take the indicative when the
+<quote lang="la">cum-</quote>clause says <emph>when</emph> the main clause happens or happened.  <bibl n="AG 545">AG 545</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii fere cotidianis proeliis cum Germanis contendunt, cum ipsi in eorum finibus bellum <emph>gerunt.</emph></quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit>  </item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l part="F">Tu solebas</l>
+<l>meas esse aliquid putare nugas</l>
+<l>iam tum cum <emph>ausus es</emph> unus Italorum</l>
+<l>omne aevum tribus explicare chartis.</l></lg></quote> <bibl n="Catul. 1">Catullus 1.3-6</bibl></cit></item>
+<item><cit><quote lang="la">Mimi ergo iam exitus, non fabulae, in quo cum clausula non <emph>invenitur</emph>, fugit aliquis e manibus, dein scabilla concrepant, aulaeum tollitur</quote> <bibl n="Cic. Cael. 65">Cicero, Cael. 65</bibl></cit></item>
+</list>
+</p>
+<p>Simple conditional sentences take the indicative in both protasis and apodosis.  These
+include the "future more vivid."  <bibl n="AG 514">AG 514</bibl>, <bibl n="AG 515">515</bibl>, <bibl n="AG 516">516</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Si pacem populus Romanus cum Helvetiis <emph>faciet</emph>, in eam partem <emph>ibunt</emph> atque ibi <emph>erunt</emph> Helvetii.</quote> <bibl n="Caes. Gal. 1.13">Caesar, BG 1.13</bibl></cit>.</item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l><emph>Cenabis</emph> bene, mi Fabulle, apud me</l>
+<l>paucis, si di te <emph>favent</emph> diebus,</l>
+<l>si tecum <emph>attuleris</emph> bonam atque magnam</l>
+<l part="I">cenam.</l></lg></quote> <bibl n="Catul. 13">Catullus 13.1-4</bibl></cit></item>
+<item><cit><quote lang="la">Non iubeo, sed, si me <emph>consulis</emph>, <emph>suadeo</emph>.</quote> <bibl n="Cic. Catil. 1.13">Cicero, Catil. 1.13</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hexameter"><l part="F">Equidem per litora certos</l>
+<l><emph>dimittam</emph> et Libyae lustrare extrema <emph>iubebo,</emph></l>
+<l>si quibus eiectus silvis aut urbibus <emph>errat.</emph></l></lg></quote> <bibl n="Verg. A. 1.576">Virgil, Aen. 1.576-578</bibl></cit></item>
+</list>
+</p>
+<p>Relative clauses normally take the indicative.  <bibl n="AG 304">AG 304</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Gallia est omnis divisa in partes tres, quarum unam <emph>incolunt</emph> Belgae.</quote><bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Passer mortuus est, quem plus illa oculis suis <emph>amabat.</emph></quote><bibl n="Catul. 3">Catullus 3.3-5</bibl></cit></item>
+</list>
+</p>
+<p>Causal clauses with <quote lang="la">quia</quote> or <quote lang="la">quod</quote> 
+normally take the indicative.  <bibl n="AG 540">AG 540</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii reliquos gallos virtute praecedunt, quod fere cotidianis proeliis cum Germanis <emph>contendunt</emph>.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Nam quod scriptorum non magna <emph>est</emph> copia apud me, hoc fit quod Romae vivimus.</quote> <bibl n="Catul. 68">Catullus 68.34-35</bibl></cit></item>
+</list>
+</p></div3>
+<div3 type="form" n="subj">
+<head>Subjunctive</head>
+<p>The subjunctive is the mood of subordination.  <bibl n="AG 438">AG 438</bibl>  See also sequence of tenses, above.
+</p>
+<p>Clauses with <quote lang="la">cum</quote> take the subjunctive when the
+<quote lang="la">cum-</quote>clause tells something about the <emph>circumstances</emph>
+around the main action.  <bibl n="AG 546">AG 546</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Cum civitas ob eam rem incitata armis ius suum exsequi <emph>conaretur</emph>, Orgetorix mortuus est, neque abest suspicio quin ipse sibi mortem consciverit.</quote> <bibl n="Caes. Gal. 1.4">Caesar, BG 1.4.</bibl></cit> Here Caesar's use of the subjunctive means that Orgetorix died not just <emph>while</emph> the Helvetians were preparing to fight him, but <emph>because</emph> they'd turned against him &mdash; as the next clause makes clear.</item>
+<item><cit><quote lang="la">Quid facient crines, cum ferro talia <emph>cedant</emph>?</quote> <bibl n="Catul. 66">Catullus 66.47</bibl></cit></item>
+<item><cit><quote lang="la">At studuit Catilinae, cum iam aliquot annos <emph>esset</emph> in foro, Caelius.</quote> <bibl n="Cic. Cael. 12">Cicero, Cael. 12</bibl></cit>  If Cicero had said <quote lang="la">fuit</quote>, he would simply have been indicating the time when Caelius took up with Catiline.  <quote lang="la">Esset</quote> means that Caelius's several years of experience in the Forum are relevant:  Caelius had already begun to establish himself as a competent, steady young man.</item>
+</list>
+</p>
+<p>Concessive and causal <quote lang="la">cum-</quote>clauses also take the subjunctive.  <bibl n="AG 549">AG 549</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Haedui, cum se suaque ab eis defendere non <emph>possent</emph>, legatos ad Caesarem mittunt.</quote> <bibl n="Caes. Gal. 1.11">Caesar, BG 1.11.</bibl></cit> <gloss><emph>Because</emph> the Haedui could not defend themselves...</gloss></item>
+<item><cit><quote lang="la">Quod cum ita <emph>sit</emph>, nolim statuas nos mente maligna id facere.</quote><bibl n="Catul. 68">Catullus 68.37</bibl></cit></item>
+</list>
+</p>
+<p>Subordinate clauses in indirect discourse take the subjunctive, though clauses that are
+not actually part of the quotation take the same mood as they would in direct discourse.  <bibl n="AG 580">AG 580</bibl>, <bibl n="AG 585">585</bibl>
+<list type="simple">
+<item><cit><quote lang="la">His Caesar ita respondit:  eo sibi minus dubitationis dari quod eas res, quas legati Helvetii <emph>commemorassent</emph>, memoria <emph>teneret.</emph></quote> <bibl n="Caes. Gal. 1.14">Caesar, BG 1.14</bibl></cit>.</item>
+<item><cit><quote lang="la">Cum a me quoque id responsum tulisses, me nullo modo posse isdem parietibus tuto esse tecum, quia magno in periculo <emph>essem</emph> quod isdem moenibus <emph>contineremur</emph>, ad Q. Metellum praetorem venisti.</quote> <bibl n="Cic. Catil. 1.19">Cicero, Catil. 1.19</bibl></cit>  Both of the "because" clauses are part of the response Catiline got from Cicero.</item>
+</list>
+</p>
+<p>Indirect questions take the subjunctive.  <bibl n="AG 574">AG 574</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Eodem die <emph>qualis esset natura montis</emph> exploratores qui cognoscerent misit.</quote> <bibl n="Caes. Gal. 1.21">Caesar, BG 1.21</bibl></cit></item>
+<item><cit><quote lang="la">Quare id <emph>faciam</emph> fortasse requiris.</quote> <bibl n="Catul. 85">Catullus 85.1</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Quaeris quot mihi basiationes</l>
+<l>tuae, Lesbia, <emph>sint</emph> satis superque.</l></lg></quote> <bibl n="Catul. 7">Catullus 7.1-2</bibl></cit></item>
+</list>
+</p>
+<p>Conditional sentences take the subjunctive when the protasis is false;  these are
+"contrary to fact" conditionals.  "Future less vivid" conditionals, where the protasis
+gives a supposition or hypothesis that might or might not be true, also use the subjunctive.
+Sometimes general or "whenever" conditionals take the subjunctive, but these may also be 
+treated as simple conditionals.  <bibl n="AG 514">AG 514</bibl>, <bibl n="AG 516">516</bibl>, 
+<bibl n="AG 517">517</bibl>, <bibl n="AG 518">518</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Nostri, si ab illis initium transeundi <emph>fieret</emph>, parati in armis <emph>erant</emph>.</quote> <bibl n="Caes. Gal. 2.9">Caesar, BG 2.9</bibl></cit> <gloss>Our troops <emph>were</emph> ready in case theirs <emph>might begin</emph> to cross.</gloss>  The protasis is a hypothesis and the apodosis a fact;  the protasis uses the imperfect subjunctive for subsequent action in secondary sequence.</item>
+<item><cit><quote lang="la">Si nostri oblita <emph>taceret</emph>, sana <emph>esset</emph>.</quote><bibl n="Catul. 83">Catullus 83.3-4</bibl></cit> <gloss>If Lesbia will forget about us and be quiet (which is not what she is doing), she will be OK (but instead she's going to fall in love).</gloss> The protasis and apodosis are both contrary to fact;  the imperfect subjunctive is used for continuing action, because the entire poem is cast in the present tense (cf. <quote lang="la">dicit</quote>, line 1).</item>
+</list>
+</p>
+<p>Purpose clauses, sometimes called "final" clauses, take the subjunctive.  <bibl n="AG 531">AG 531</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Frumentum omne comburunt, ut paratiores ad omnia pericula subeunda <emph>essent.</emph></quote> <bibl n="Caes. Gal. 1.5">Caesar, BG 1.5.</bibl></cit></item>
+<item><cit><quote lang="la">Advenio ut te postremo <emph>donarem</emph> munere mortis.</quote><bibl n="Catul. 101">Catullus 101.3</bibl></cit></item>
+<item><cit><quote lang="la">Maia genitum demittit ut terrae <emph>pateant</emph> hospitio Teucris.</quote> <bibl n="Verg. A. 1.297">Virgil, Aen. 1.297-299</bibl></cit></item>
+</list>
+</p>
+<p>Result clauses, sometimes called "consecutive" clauses, take the subjunctive.  <bibl n="AG 537">AG 537</bibl>
+<list type="simple">
+<item><cit><quote lang="la">His rebus fiebat ut minus facile finitimis bellum inferre <emph>possent.</emph></quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2.</bibl></cit> </item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Atque illinc abii tuo lepore</l>
+<l>incensus, Licini, facetiisque,</l>
+<l>ut nec me miserum cibus <emph>iuvaret</emph></l>
+<l>nec somnus <emph>tegeret</emph> quiete ocellos.</l></lg></quote><bibl n="Catul. 50">Catullus 50.7-9</bibl></cit></item>
+</list>
+</p>
+<p>Relative clauses "of characteristic" also take the subjunctive;  these give 
+a general rule characterizing the antecedent.  <bibl n="AG 534">AG 534-535</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Erant omnino itinera duo, quibus itineribus domo exire <emph>possent</emph>.</quote> <bibl n="Caes. Gal. 1.6">Caesar, BG 1.6</bibl></cit>  These are the sort of paths along which they could leave, paths suitable for leaving.</item>
+<item><cit><quote lang="la">Quam diu quisquam erit qui te defendere <emph>audeat</emph>, vives.</quote> <bibl n="Cic. Catil. 1.6">Cicero, Catil. 1.6</bibl></cit>  Roughly, <gloss>"So long as there is anyone to defend you, you will live."</gloss>  If Cicero had said <quote lang="la">audebit</quote>, that is all he would have meant;  with the subjunctive, he means "anyone of the type of person who would stick up for you" &mdash; not a type of person for whom Cicero has much regard.</item>
+</list>
+</p>
+<p>Relative clauses can take the subjunctive when they are equivalent to purpose clauses;  here <quote lang="la">qui</quote> is equivalent to <quote lang="la">ut is</quote>.  <bibl n="AG 531">AG 531</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Eodem die qualis esset natura montis exploratores <emph>qui cognoscerent</emph> misit.</quote> <bibl n="Caes. Gal. 1.21">Caesar, BG 1.21</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Tam te basia multa basiare</l>
+<l>vesano satis et super Catullo est,</l>
+<l>quae nec pernumerare curiosi</l>
+<l><emph>possint</emph> nec mala fascinare lingua.</l></lg></quote><bibl n="Catul. 7">Catullus 7.9-12</bibl></cit></item>
+</list>
+</p>
+<p>The subjunctive can also be used in independent clauses, though this
+is relatively rare.  Independent clauses with the subjunctive include commands
+("hortatory" or "jussive" subjunctive, <bibl n="AG 439">AG 439-440</bibl>), 
+wishes ("optative" subjunctive, <bibl n="AG 441">AG 441-442</bibl>), or 
+doubtful questions ("deliberative" subjunctive, <bibl n="AG 444">AG 444</bibl>).
+<list type="simple">
+<item><cit><quote lang="la">Miser Catulle, <emph>desinas</emph> ineptire.</quote> <bibl n="Catul. 8">Catullus 8.1</bibl></cit></item>
+<item><cit><quote lang="la">Qua re <emph>secedant</emph> improbi, <emph>secernant</emph> se a bonis, unum in locum <emph>congregentur</emph>, muro denique, quod saepe iam dixi, <emph>secernantur</emph> a nobis.</quote> <bibl n="Cic. Catil. 1.32">Cicero, Catil. 1.32</bibl></cit></item>
+</list>
+</p>
+<p>Negative commands are also independent clauses with the subjunctive, except of course those that use <quote lang="la">noli</quote> with the infinitive.  <bibl n="AG 450">AG 450</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><lg type="aeolic"><l>Nupta, tu quoque quae tuus</l>
+<l>vir petit cave ne <emph>neges</emph></l></lg></quote> <bibl n="Catul. 61">Catullus 61.151-152</bibl></cit></item>
+</list>
+</p></div3>
+<div3 type="form" n="imperat">
+<head>Imperative</head>
+<p>The imperative is the mood of command.  <bibl n="AG 448">AG 448</bibl>
+<list type="simple">
+<item><cit><quote lang="la">"<emph>Desilite</emph>," inquit, "milites, nisi vultis aquilam hostibus prodere."</quote> <bibl n="Caes. Gal. 4.25">Caesar, BG 4.25</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Lugete</emph>, o Veneres Cupidinesque.</quote><bibl n="Catul. 3">Catullus 3.1</bibl></cit></item>
+<item><cit><quote lang="la">Pauca <emph>nuntiate</emph> meae puellae non bona dicta.</quote><bibl n="Catul. 11">Catullus 11.15-16</bibl></cit></item>
+<item><cit><quote lang="la">Musa, mihi causas <emph>memora</emph>.</quote> <bibl n="Verg. A. 1.8">Virgil, Aen. 1.8</bibl></cit></item>
+<item><cit><quote lang="la">Quod cum huius vobis adulescentiam proposueritis, <emph>constituitote</emph> ante oculos etiam huius miseri senectutem qui hoc unico filio nititur, in huius spe requiescit, huius unius casum pertimescit.</quote> <bibl n="Cic. Cael. 79">Cicero, Cael. 79</bibl></cit></item>
+</list>
+</p>
+<p>Commands or requests can also be expressed with the subjunctive.  Negative
+commands often take the subjunctive;  positive requests may.  <bibl n="AG 450">AG 450</bibl>, <bibl n="AG 439">439-440</bibl>
+<list type="simple">
+<item><cit><quote lang="la"><lg type="aeolic"><l>Nupta, tu quoque quae tuus</l>
+<l>vir petit cave ne <emph>neges</emph></l></lg></quote> <bibl n="Catul. 61">Catullus 61.151-152</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="choliamb"><l>Miser Catulle, <emph>desinas</emph> ineptire,</l>
+<l>et quod vides perisse perditum <emph>ducas</emph>.</l></lg></quote><bibl n="Catul. 8">Catullus 8.1-2</bibl></cit></item>
+</list>
+</p></div3></div2>
+<div2 type="section" n="4">
+<head>Voice</head>
+<p>Voice indicates whether the grammatical subject is the agent. <bibl n="AG 156">AG 156</bibl></p>
+<div3 type="form" n="act">
+<head>Active</head>
+<p>In the active voice, the grammatical subject does the action of the verb.
+<list type="simple">
+<item><cit><quote lang="la">Belgae cum Germanis continenter bellum <emph>gerunt</emph>.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit></item>
+<item><cit><quote lang="la">Iam ver egelidos <emph>refert</emph> tepores.</quote><bibl n="Catul. 46">Catullus 46.1</bibl></cit></item>
+<item><cit><quote lang="la">Senatus haec <emph>intellegit</emph>.</quote> <bibl n="Cic. Catil. 1.1">Cicero, Catil. 1.1</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Habet</emph> a M. Caelio res publica duas accusationes.</quote> <bibl n="Cic. Cael. 78">Cicero, Cael. 78</bibl></cit></item>
+<item><cit><quote lang="la">Hic portus alii <emph>effodiunt</emph>.</quote> <bibl n="Verg. A. 1.427">Virgil, Aen. 1.427</bibl></cit></item>
+</list>
+</p></div3>
+<div3 type="form" n="pass">
+<head>Passive</head>
+<p>In the passive voice, the grammatical subject receives or suffers the
+action of the verb.
+<list type="simple">
+<item><cit><quote lang="la">Ad eas res conficiendas Orgetorix <emph>deligitur</emph>.</quote> <bibl n="Caes. Gal. 1.3">Caesar, BG 1.3</bibl></cit>.  <gloss>Orgetorix is chosen</gloss>;  Caesar does not specify by whom.</item>
+<item><cit><quote lang="la"><lg type="elegiac"><l>Nulla potest mulier tantum se dicere <emph>amatam</emph></l>
+<l rend="indent">vere, quantum a me Lesbia <emph>amata</emph> mea <emph>es</emph>.</l></lg></quote><bibl n="Catul. 87">Catullus 87.1-2</bibl></cit></item>
+<item><cit><quote lang="la">Ille et terris et alto <emph>iactatus est</emph> vi superorum.</quote><bibl n="Verg. A. 1.3">Virgil, Aen. 1.3</bibl></cit></item>
+</list>
+</p>
+<p>The agent of a passive verb appears in a prepositional phrase using the
+preposition <quote lang="la">ab</quote>.  <bibl n="AG 405">AG 405</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Orgetorix <emph>a senatu</emph> populi Romani amicus appellatus erat.</quote> <bibl n="Caes. Gal. 1.3">Caesar, BG 1.3</bibl></cit>  The same thing could have been said in the active voice:  <quote lang="la">Senatus Orgetorigem amicum populi Romani appellavit.</quote></item>
+<item><cit><quote lang="la">Quid datur <emph>a divis</emph> felici optatius hora?</quote><bibl n="Catul. 62">Catullus 62.30</bibl></cit></item>
+<item><cit><quote lang="la">Haec <emph>a te</emph> dictaque factaque sunt.</quote><bibl n="Catul. 76">Catullus 76.8</bibl></cit></item>
+<item><cit><quote lang="la">Non enim <emph>ab isdem</emph> accusatur M. Caelius <emph>a quibus</emph> oppugnatur.</quote> <bibl n="Cic. Cael. 20">Cicero, Cael. 20</bibl></cit></item>
+</list>
+</p></div3></div2>
+<div2 type="form" n="infin">
+<head>Infinitives</head>
+<p>The infinitive is most often used for indirect statement.  <bibl n="AG 580">AG 580</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Diviciacus Haeduus respondit hoc <emph>esse</emph> miseriorem et graviorem fortunam Sequanorum quam reliquorum</quote> <bibl n="Caes. Gal. 32">Caesar, BG 32</bibl></cit></item>
+<item><cit><quote lang="la">Phasellus ait <emph>fuisse</emph> navium celerrimus.</quote><bibl n="Catul. 4">Catullus 4.2</bibl></cit></item>
+<item><cit><quote lang="la">Iuno fertur Karthaginum terris magis omnibus <emph>coluisse</emph>.</quote> <bibl n="Verg. A. 1.15">Virgil, Aen. 1.15</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Datum esse</emph> aiunt huic P. Licinio &hellip;; <emph>constitutum esse</emph> cum servis ut venirent ad balneas Senias.</quote> <bibl n="Cic. Cael. 61">Cicero, Cael. 61</bibl></cit></item>
+</list>
+</p>
+<p>Some verbs require a complementary infinitive.  <bibl n="AG 456">AG 456</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii minus facile finitimis bellum <emph>inferre</emph> possunt.</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+<item><cit><quote lang="la">Volo te ac tuos amores ad caelum lepido <emph>vocare</emph> versu.</quote> <bibl n="Catul. 6">Catullus 6.16-17</bibl></cit></item>
+</list>
+</p>
+<p>The infinitive is also a verbal noun that can be the subject or object of another verb.  <bibl n="AG 452">AG 452-455</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Perfacile est totius Galliae imperio <emph>potiri</emph>.</quote> <bibl n="Caes. Gal. 1.2">Caesar, BG 1.2</bibl></cit></item>
+<item><cit><quote lang="la">Ad mortem te <emph>duci</emph> iam pridem oportebat.</quote> <bibl n="Cic. Catil. 1.2">Cicero, Catil. 1.2</bibl></cit>  Note how this infinitve has its own subject, <quote lang="la">te</quote>.</item>
+</list>
+</p></div2>
+<div2 type="form" n="part">
+<head>Participles</head>
+<p>Participles are verbal adjectives.  <bibl n="AG 488">AG 488</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Gallia est omnis <emph>divisa</emph> in partes tres.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1.</bibl></cit>  <quote lang="la">Divisa</quote> is the perfect passive participle of <quote lang="la">divido</quote> and agrees with the noun it modifies.</item>
+<item><cit><quote lang="la">Cui dono libellum pumice <emph>expolitum</emph>?</quote> <bibl n="Catul. 1">Catullus 1.1-2</bibl></cit> <quote lang="la">Expolitum</quote> is the perfect passive participle of <quote lang="la">expolio</quote>, modifying <quote lang="la">libellum</quote>.</item>
+<item><cit><quote lang="la">Ille mi par esse deo videtur, qui <emph>sedens</emph> adversus te spectat.</quote><bibl n="Catul. 51">Catullus 51.1-4</bibl></cit> <quote lang="la">Sedens</quote> is the present active participle of <quote lang="la">sedeo</quote> and modifies <quote lang="la">qui</quote>.</item>
+<item><cit><quote lang="la">Quaero enim cur Licinium <emph>titubantem</emph>, <emph>haesitantem</emph>, <emph>cedentem</emph>, fugere <emph>conantem</emph> mulieraria manus ista de manibus emiserit.</quote> <bibl n="Cic. Cael. 66">Cicero, Cael. 66</bibl></cit>  All these present participles modify <quote lang="la">Licinium</quote>, the direct object of <quote lang="la">emiserit</quote>.  Note how <quote lang="la">conantem</quote> has a complementary infinitive, just as finite forms of <quote lang="la">conor</quote> would.</item>
+</list>
+</p>
+<p>The perfect passive participle forms the perfect passives as compound
+tenses:  the (present) perfect indicative and subjunctive passive, the 
+pluperfect indicative and subjunctive passive, and the future perfect indicative
+passive.  In these tenses the participle agrees with the subject.
+<list type="simple">
+<item><cit><quote lang="la">Ea res <emph>est</emph> Helvetiis per indicium <emph>enuntiata</emph>.</quote> <bibl n="Caes. Gal. 1.4">Caesar, BG 1.4</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="elegiac"><l>Nulla potest mulier tantum se dicere <emph>amatam</emph></l>
+<l rend="indent">vere, quantum a me Lesbia <emph>amata</emph> mea <emph>es</emph>.</l></lg></quote><bibl n="Catul. 87">Catullus 87.1-2</bibl></cit></item>
+</list>
+</p>
+<p>The gerundive forms the passive periphrastic as a compound tense.  The
+gerundive agrees with the subject, and is neuter singular when the subject is impersonal.  <bibl n="AG 500">AG 500</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Caesari omnia uno tempore erant <emph>agenda</emph>:  vexillum <emph>proponendum</emph>, signum tuba <emph>dandum</emph>, ab opere <emph>revocandi</emph> milites, acies <emph>instruenda</emph>.</quote> <bibl n="Caes. Gal. 2.20">Caesar, BG 2.20</bibl></cit></item>
+<item><cit><quote lang="la">Nobis... nox <emph>est</emph> perpetua una <emph>dormienda</emph></quote><bibl n="Catul. 5">Catullus 5.5-6</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Erit verendum</emph> mihi ne quisquam hoc dicat.</quote> <bibl n="Cic. Catil. 1.5">Cicero, Catil. 1.5</bibl></cit></item>
+</list>
+</p></div2></div1>
+<div1 type="chapter" n="3">
+<head>Sentence Construction</head>
+<p>Latin writers use more complicated sentences than English writers do, but
+there are certain conventions and patterns that they generally follow.  Because
+the word order in Latin does not convey grammatical information the way it does
+in English, Latin writers can re-arrange words to put the important ideas first,
+to emphasize puns and other word play, to fit poetic meter, or to put a surprise
+at the end of the sentence.  Sentences in Latin prose can be long, but the best
+writers construct them carefully so the listener or reader does not get lost.
+</p>
+<div2 type="form" n="prose_order">
+<head>Word order</head>
+<p>The usual order of words in a Latin sentence is subject, direct object, verb.  <bibl n="AG 596">AG 596</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Is sibi legationem ad civitates suscepit.</quote> <bibl n="Caes. Gal. 1.3">Caesar, BG 1.3</bibl></cit></item>
+<item><cit><quote lang="la">Senatus haec intellegit, consul videt; hic tamen vivit.</quote> <bibl n="Cic. Catil. 1.2">Cicero, Catil. 1.2</bibl></cit></item>
+<item><cit><quote lang="la">Accusatio crimen desiderat.</quote> <bibl n="Cic. Cael. 6">Cicero, Cael. 6</bibl></cit></item>
+<item><cit><quote lang="la">Nemo hunc M. Caelium in illo aetatis flore vidit nisi aut cum patre aut mecum.</quote> <bibl n="Cic. Cael. 9">Cicero, Cael. 9</bibl></cit></item>
+</list>
+</p>
+<p>The order subject, verb, direct object is also common.
+<list type="simple">
+<item><cit><quote lang="la">Vergobretus vitae necisque in suos habet potestatem</quote> <bibl n="Caes. Gal. 1.16">Caesar, BG 1.16</bibl></cit></item>
+<item><cit><quote lang="la">Habemus Senatus consultum in te, Catilina.</quote> <bibl n="Cic. Catil. 1.3">Cicero, Catil. 1.3</bibl></cit></item>
+<item><cit><quote lang="la">Dixit multa de luxurie.</quote> <bibl n="Cic. Cael. 25">Cicero, Cael. 25</bibl></cit></item>
+</list>
+</p>
+<p>Adjectives usually come near the nouns they modify.  <bibl n="AG 598">AG 598</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii iam per angustias et fines Sequanorum <emph>suas copias</emph> traduxerant.</quote> <bibl n="Caes. Gal. 1.11">Caesar, BG 1.11</bibl></cit>  <quote lang="la">Suas</quote> must modify <quote lang="la">copias</quote>, not <quote lang="la">angustias</quote>, because of the word order as well as the sense.</item>
+<item><cit><quote lang="la">Etenim quid est, Catilina, quod iam amplius exspectes, si neque nox tenebris obscurare <emph>coetus nefarios</emph> nec <emph>privata domus</emph> parietibus continere voces <emph>coniurationis tuae</emph> potest, si inlustrantur, si erumpunt omnia?</quote> <bibl n="Cic. Catil. 1.6">Cicero, Catil. 1.6</bibl></cit></item>
+<item><cit><quote lang="la"><emph>Aurum sumptum</emph> a Clodia, <emph>venenum quaesitum</emph> quod Clodiae daretur, ut dicitur.</quote> <bibl n="Cic. Cael. 30">Cicero, Cael. 30</bibl></cit>  It is the gold which is taken, the poison which is sought, not the other way around.</item>
+</list>
+</p>
+<p>Adverbs usually come near the verbs (or adjectives) they modify.  <bibl n="AG 598">AG 598</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Helvetii repentino eius adventu commoti, cum id quod ipsi <emph>diebus viginti</emph> <emph>aegerrime</emph> confecerant, ut flumen transirent, illum <emph>uno die</emph> fecisse intellegerent, legatos ad eum mittunt.</quote> <bibl n="Caes. Gal. 1.13">Caesar, BG 1.13</bibl> </cit> Here <quote lang="la">uno die</quote> modifies <quote lang="la">fecisse</quote>, not <quote lang="la">intellegerent</quote>:  Caesar was able to do in one day what took the Helvetians twenty.  The sentence does not say the Helvetians understood in one day what Caesar had done, but that he did it in one day.</item>
+<item><cit><quote lang="la">Illa <emph>nimis</emph> antiqua praetereo.</quote> <bibl n="Cic. Catil. 1.3">Cicero, Catil. 1.3</bibl></cit></item>
+<item><cit><quote lang="la">Aliud est <emph>male</emph> dicere, aliud accusare.</quote> <bibl n="Cic. Cael. 6">Cicero, Cael. 6</bibl></cit>  <quote lang="la">Male dicere</quote> go so closely together that they end up becoming one word.</item>
+</list>
+</p>
+<p>Latin word order is <emph>free</emph> but not <emph>arbitrary</emph>.  When a
+word is not in its expected place, there is usually a reason.  <bibl n="AG 597">AG 597</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Divico ita cum Caesare egit:  si <emph>pacem</emph> populus Romanus cum Helvetiis faceret, in eam partem ituros atque ibi futuros Helvetios ubi eos Caesar constituisset atque esse voluisset.</quote> <bibl n="Caes. Gal. 1.13">Caesar, BG 1.13</bibl> </cit>  Here in the protasis of the conditional in the indirect discourse, the base word order is direct object, subject, verb.  Caesar could have written <quote lang="la">Si populus Romanus pacem cum Helvetiis faceret...</quote>, but put the direct object first for emphasis.  Divico is stressing a trade-off:  if you Romans make peace, we Helvetians will go wherever you want to put us.  There's no stress on <quote lang="la">populus Romanus</quote> because it is not the Roman people who will really be concluding the peace, it's Caesar.</item>
+<item><cit><quote lang="la"><emph>Hos</emph> ego video <emph>consul</emph> et de re publica sententiam rogo, et quos ferro trucidari oportebat, eos nondum voce volnero!</quote> <bibl n="Cic. Catil. 1.9">Cicero, Catil. 1.9</bibl></cit>  The direct object appears first partly to emphasize it and partly to allow Cicero to delay the word <quote lang="la">consul</quote>, making it emphatic;  a more ordinary order might be <quote lang="la">Ego consul hos video</quote>.</item>
+<item><cit><quote lang="la"><emph>Quae lex</emph> ad imperium, ad maiestatem, ad statum patriae, ad salutem omnium pertinet, <emph>quam legem</emph> Q. Catulus armata dissensione civium rei publicae paene extremis temporibus tulit, <emph>quaeque lex</emph> sedata illa flamma consulatus mei fumantis reliquias coniurationis exstinxit, <emph>hac nunc lege</emph> Caeli adulescentia non ad rei publicae poenas sed ad mulieris libidines et delicias deposcitur.</quote> <bibl n="Cic. Cael. 70">Cicero, Cael. 70</bibl></cit>  Here the phrases with <quote>lex</quote> are all placed at the front of their clauses, even though the second is a direct object and the fourth, in the main clause, an ablative of means;  this is a form of the rhetorical figure of anaphora, used here to emphasize the discongruity between Caelio's actions and the grave crimes for which the law was originally intended.</item>
+</list>
+</p></div2>
+<div2 type="form" n="period">
+<head>Periodic sentences</head>
+<p>A periodic sentence (sometimes just called a period) is a highly structured sentence, usually
+rather long and including several subordinate clauses.  Formal writing uses periodic
+sentences;  informal writing generally does not.  <bibl n="AG 600">AG 600-601</bibl>
+<list type="simple">
+<item><cit><quote lang="la">Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana dividit.</quote> <bibl n="Caes. Gal. 1.1">Caesar, BG 1.1</bibl></cit>  This sentence makes a nice example because it is not too long, but nonetheless has the characteristic features of a periodic sentence.  The two clauses are parallel:  object, prepositional phrase, subject, verb.  This parallelism lets Caesar get away with only mentioning the object and the verb once.  He could have written something more like this:  <quote lang="la">Gallos ab Aquitanis Garumna flumen dividit, et Gallos a Belgis Matrona et Sequana flumina dividunt</quote>, but that would be flat and boring.</item>
+<item><cit><quote lang="la">Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partis Italiae, statuisti quo quemque proficisci placeret, delegisti quos Romae relinqueres, quos tecum educeres, discripsisti urbis partis ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.</quote> <bibl n="Cic. Catil. 1.9">Cicero, Catil. 1.9</bibl></cit>  Most of the main clauses in this series of parallel clauses (the second-person verbs) are augmented by subordinate clauses.</item>
+<item><cit><quote lang="la">Quem si nobis, si suis, si rei publicae conservatis, addictum, deditum, obstrictum vobis ac liberis vestris habebitis omniumque huius nervorum ac laborum vos potissimum, iudices, fructus uberes diuturnosque capietis.</quote> <bibl n="Cic. Cael. 80">Cicero, Cael. 80</bibl></cit> The parallel phrases with homoeoteleuton (matching word endings) lend weight to a very simple idea:  <quote lang="la">si Caelium non condemnabitis, vobis omnibus per totam viam suam bene faciet.</quote></item>
+</list>
+</p>
+<p>In a true periodic sentence, often neither the meaning nor the grammar is complete until
+the very last word.
+<list type="simple">
+<item><cit><quote lang="la">Interea, ea legione quam secum habebat militibusque qui ex provincia convenerant, a lacu Lemanno, qui in flumen Rhodanum influit, ad montem Iuram, qui finis Sequanorum ab Helvetiis dividit, milia passuum decem novem murum in altitudinem pedum sedecim fossamque perducit.</quote> <bibl n="Caes. Gal. 1.8">Caesar, BG 1.8</bibl></cit>  The skeleton of this sentence is:  <quote lang="la">Interea legione militibusque murum fossamque perducit.</quote>  Everything else, including the four subordinate clauses, simply qualifies either the legion and soldiers or the wall and ditch.  The main verb is the last word, and the sentence is not complete until you get there.</item>
+<item><cit><quote lang="la">Tu, Iuppiter, qui isdem quibus haec urbs auspiciis a Romulo es constitutus, quem Statorem huius urbis atque imperi vere nominamus, hunc et huius socios a tuis ceterisque templis, a tectis urbis ac moenibus, a vita fortunisque civium omnium arcebis et homines bonorum inimicos, hostes patriae, latrones Italiae scelerum foedere inter se ac nefaria societate coniunctos aeternis suppliciis vivos mortuosque mactabis.</quote><bibl n="Cic. Catil. 1.33">Cicero, Catil. 1.33</bibl></cit>  Here the skeleton is <quote lang="la">Tu hunc [= Catilinam] a nobis arcebis, et inimicos suppliciis mactabis.</quote>  Jupiter's name is qualified by the two relative clauses.  Cicero expands the simple idea <quote lang="la">a nobis</quote> into three phrases, getting progressively longer and more complicated.  The <quote lang="la">et</quote> joins the two main verbs <quote lang="la">arcebis</quote> and <quote lang="la">mactabis</quote>;  the latter verb has a threefold direct object, once again in increasingly long phrases.</item>
+<item><cit><quote lang="la">Conservate parenti filium, parentem filio, ne aut senectutem iam prope desperatam contempsisse aut adulescentiam plenam spei maximae non modo non aluisse vos verum etiam perculisse atque adflixisse videamini.</quote> <bibl n="Cic. Cael. 80">Cicero, Cael. 80</bibl></cit>  Although the main verb is the first word of the sentence, the verb of the purpose clause is the last word.  The main clause has two parallel phrases, with the nouns in parallel order and the construction in chiastic order.  The purpose clause is in two parts joined by <quote lang="la">aut &hellip; aut</quote>;  the construction of each part is an infinitive, which we will ultimately find out is complementary to <quote>videamini</quote>, with a direct object.  The second disjunct part is itself in two parts, joined by <quote lang="la">non modo &hellip; verum etiam</quote>, and the second part of that disjunction is also in two parts, joined by <quote lang="la">atque</quote>.</item>
+</list>
+</p>
+<p>Information is often supplied in the order in which you need it, or in an order that makes logical or rhetorical sense.
+<list type="simple">
+<item><cit><quote lang="la">Cum esset Caesar in citeriore Gallia, ita ut supra demonstravimus, crebri ad eum rumores adferebantur, litterisque item Labieni certior fiebat omnis Belgas, quam tertiam esse Galliae partem dixeramus, contra populum Romanum coniurare obsidesque inter se dare.</quote> <bibl n="Caes. Gal. 2.1">Caesar, BG 1.2</bibl></cit>  Here Caesar opens his second book with references back to the first:  <gloss>while Caesar was in Hither Gaul (as we explained above), rumors came to him thick and fast, and he also found out from a letter from Labienus that all the Belgians (one-third of Gaul, as we said above) were conspiring against the Roman people and cementing their alliance with hostages.</gloss>  Caesar tells you first when these new events were going on, then how he found out about them, first by rumors and then from a reliable source, then what they were.</item>
+<item><cit><quote lang="la">De te autem, Catilina, cum quiescunt, probant, cum patiuntur, decernunt, cum tacent, clamant, neque hi solum quorum tibi auctoritas est videlicet cara, vita vilissima, sed etiam illi equites Romani, honestissimi atque optimi viri, ceterique fortissimi cives qui circumstant senatum, quorum tu et frequentiam videre et studia perspicere et voces paulo ante exaudire potuisti.</quote> <bibl n="Cic. Catil. 1.21">Cicero, Catil. 1.21</bibl></cit>  Cicero begins with the Senate, then adds the knights (<quote lang="la">neque hi solum &hellip; sed etiam illi</quote>), then the rest of Rome (<quote lang="la">ceterique</quote>).  The classes are in this order because of their presumed importance to Catiline.</item>
+<item><cit><quote lang="la">Si quis, iudices, forte nunc adsit ignarus legum iudiciorum consuetudinisque nostrae, miretur profecto quae sit tanta atrocitas huiusce causae, quod diebus festis ludisque publicis, omnibus forensibus negotiis intermissis, unum hoc iudicium exerceatur, nec dubitet quin tanti facinoris reus arguatur ut eo neglecto civitas stare non possit.</quote> <bibl n="Cic. Cael. 1">Cicero, Cael. 1</bibl></cit>  Cicero draws a picture for the jurors:  a foreigner arrives;  he wonders what could be so important that a court is in session on a holiday;  clearly this case is so important that it cannot wait.</item>
+</list>
+</p>
+<p>Conjunctions and adverbs make the structure clear.
+<list type="simple">
+<item><cit><quote lang="la">Id hoc facilius eis persuasit, <emph>quod</emph> undique loci natura Helvetii continentur:  <emph>una ex parte</emph> flumine Rheno latissimo atque altissimo, qui agrum Helvetium a Germanis dividit;  <emph>alter ex parte</emph> monte Iura altissimo, qui est inter Sequanos et Helvetios;  <emph>tertia</emph> lacu Lemanno et flumine Rhodano, qui provinciam nostram ab Helvetiis dividit</quote> <bibl n="Caes. Gal. 1.2"> Caesar, BG 1.2</bibl></cit> Here the main structure is a statement (<gloss>Orgetorix easily persuaded the Helvetians</gloss>), a reason introduced by <quote lang="la">quod</quote> (<gloss>because they were hemmed in by natural obstacles</gloss>), and three details in support of that reason, introduced by numerals (<gloss>on one side</gloss>, <gloss>on the second side</gloss>, and <gloss>on the third side</gloss> &mdash; note that Caesar does not need to say <quote lang="la">tertia ex parte</quote>, and it would be monotonous if he did).  The three reasons, moreover, are fleshed out by relative clauses:  the structure of the end of the sentence is entirely symmetrical.</item>
+<item><cit><quote lang="la"><emph>Ut</emph> saepe homines aegri morbo gravi, <emph>cum</emph> aestu febrique iactantur, <emph>si</emph> aquam gelidam biberunt, <emph>primo</emph> relevari videntur, <emph>deinde</emph> multo gravius vehementiusque adflictantur, <emph>sic</emph> hic morbus qui est in re publica relevatus istius poena vehementius reliquis vivis ingravescet.</quote> <bibl n="Cic. Catil. 1.31">Cicero, Catil. 1.31</bibl></cit>  Here we have a comparison:  the sickness that now afflicts the republic is like a person's fever.  The fever is described first:  in certain circumstances (<quote lang="la">cum</quote>), if people do certain things (<quote lang="la">si</quote>), first they seem better and then they get worse (<quote lang="la">primo, deinde</quote>).  Similarly (<quote lang="la">sic</quote>), the Republic now seems to be getting sicker.</item>
+<item><cit><quote lang="la">Illud tamen te esse admonitum volo, <emph>primum</emph> ut qualis es talem te omnes esse existiment, ut quantum a rerum turpitudine abes tantum te a verborum libertate seiungas;  <emph>deinde</emph> ut ea in alterum ne dicas quae, cum tibi falso responsa sint, erubescas.</quote> <bibl n="Cic. Cael. 8">Cicero, Cael. 8</bibl></cit>  Here <quote lang="la">primum</quote> and <quote lang="la">deinde</quote> mark off the two parts of the warning, so the listener does not get confused by the various <quote lang="la">ut</quote>-clauses.</item>
+</list>
+</p></div2>
+<div2 type="form" n="poetic_order">
+<head>Poetic word order</head>
+<p>Normal word order in a poem is the same as in prose.
+<list type="simple">
+<item><cit><quote lang="la">Quis ullos homines beatiores vidit?</quote> <bibl n="Catul. 45">Catullus 45.25-26</bibl></cit></item>
+<item><cit><quote lang="la">Arma virumque cano.</quote> <bibl n="Verg. A. 1.1">Virgil, Aen. 1.1</bibl></cit></item>
+</list>
+</p>
+<p>Words may be displaced to fit the meter.
+<list type="simple">
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Varus me <emph>meus</emph> ad suos amores </l>
+<l><emph>visum</emph> duxerat e foro <emph>otiosum</emph>.</l></lg></quote><bibl n="Catul. 10">Catullus 10.1-2</bibl></cit> The expected prose order might be <quote lang="la">Varus meus me otiosum visum e foro ad suos amores duxerat.</quote></item>
+<item><cit><quote lang="la">... Troiae qui primus ab oris Italiam fato profugus Laviniaque venit litora</quote> <bibl n="Verg. A. 1.2">Virgil, Aen. 1.1-3</bibl></cit> The more normal order would be <quote lang="la">qui primus ab Troiae oris fato profugus Italiam Laviniaque litora venit</quote>, and prose might have <quote lang="la">in</quote> or <quote lang="la">ad Italiam et Lavinia litora</quote>.</item>
+</list>
+</p>
+<p>Often the last word before the principal caesura of a dactylic hexameter, or the first word after that caesura, belongs with
+the last word of the line.  Similarly, the last word of the first half of the
+"pentameter" of an elegiac couplet often belongs with the last word of the line.
+<list type="simple">
+<item><cit><quote lang="la">Tum Thetis <emph>humanos</emph> non despexit <emph>hymenaeos</emph></quote> <bibl n="Catul. 64">Catullus 64.20</bibl></cit></item>
+<item><cit><quote lang="la">Tantae molis erat <emph>Romanam</emph> condere <emph>gentem</emph></quote> <bibl n="Verg. A. 1.33">Virgil, Aen. 1.33</bibl></cit></item>
+<item><cit><quote lang="la">Tantane vos <emph>generis</emph> tenuit fiducia <emph>vestri</emph>?</quote> <bibl n="Verg. A. 1.132">Virgil, Aen. 1.132</bibl></cit></item>
+<item><cit><quote lang="la"><lg type="elegiac"><l>Dicit:  sed mulier <emph>cupido</emph> quod dicit <emph>amanti</emph></l>
+<l>in vento et <emph>rapida</emph> scribere oportet <emph>aqua.</emph></l></lg></quote> <bibl n="Catul. 70">Catullus 70.3-4</bibl></cit></item>
+</list>
+</p>
+<p>Poets like to construct golden lines.  A golden line is a dactylic hexameter made up of two nouns, each modified by an adjective, symmetrically arranged around a verb.
+<list type="simple">
+<item><cit><quote lang="la">irrita ventosae linquens promissa procellae</quote><bibl n="Catul. 64">Catullus 64.59</bibl></cit></item>
+<item><cit><quote lang="la">aurave distinctos educit verna colores</quote> <bibl n="Catul. 64">Catullus 64.90</bibl></cit></item>
+<item><cit><quote lang="la">Extemplo Aeneae solvuntur frigore membra.</quote> <bibl n="Verg. A. 1.92">Virgil, Aen. 1.192</bibl></cit>;  here the genitive <quote lang="la">Aeneae</quote> modifies <quote lang="la">membra</quote> instead of an adjective.  This is the first use of Aeneas's name in the poem, and the ornamental line calls attention to it.</item>
+</list>
+</p>
+<p>Poets may arrange words to emphasize puns and word play, or for sound effects.
+<list type="simple">
+<item><cit><quote lang="la"><lg type="hendecasyllable"><l>Gratias tibi maximas Catullus</l>
+<l>agit pessimus omnium poeta,</l>
+<l>tanto pessimus omnium poeta</l>
+<l>quanto tu optimus omnium patronus.</l></lg></quote> <bibl n="Catul. 49">Catullus 49.4-8</bibl></cit> Here the identical metrical position emphasizes the repetition and the variation in the last line.</item>
+<item><cit><quote lang="la">monstrum horrendum, informe, ingens, cui lumen ademptum.</quote> <bibl n="Verg. A. 3.658">Virgil, Aen. 3.658</bibl></cit>  The elisions and the four contracted bicipitia emphasize the ungainliness of Polyphemus.</item>
+<item><cit><quote lang="la">...spargens umida mella soporiferumque papaver.</quote> <bibl n="Verg. A. 4.486">Virgil, Aen. 4.486</bibl></cit>  This line is soporific because all the stressed syllables come in princeps positions.</item>
+</list>
+</p></div2></div1>
+</body>
+</text>
+</TEI.2>

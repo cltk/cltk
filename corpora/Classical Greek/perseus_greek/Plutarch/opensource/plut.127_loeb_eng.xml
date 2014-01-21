@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De primo frigido</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Plutarch</author>
+            <editor role="editor" n="Loeb">Harold Cherniss and William C. Helmbold</editor>&responsibility;&fund.NEH;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Moralia</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Harold Cherniss and William C. Helmbold</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1957</date>
+                  </imprint>
+                  <biblScope type="volume">12</biblScope>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section"/>
+         </refsDecl><!--<refsDecl doctype="TEI.2">
+				<state unit="stephpage" n="chunk"/>
+				</refsDecl>--></encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="greek">Greek</language>
+            <language id="eng">English</language>
+            <language id="la">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>5/10</date>
+            <respStmt>
+               <name>RS</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div1 type="section" n="intro">
+            <pb id="v.12.p.227"/>
+            <head>ON THE PRINCIPLE OF COLD (DE PRIMO FRIGIDO) <lb/> INTRODUCTION</head>
+            <p>
+					This little essay, or open letter to Favorinus, is not
+					written in a controversial spirit, though a few sharp
+					comments are made from time to time. Having
+					established (chapters 5-7) that an element of Cold
+					really exists, Plutarch proceeds to consider what that
+					element may be. Since fire is obviously excluded,
+					can it be air, as the Stoics believe (8-12), or water,
+					as Empedocles, and an early Peripatetic, Strato, hold
+					(13-16) ? Or, indeed, may it be earth itself (17-22) ?
+					This latter opinion is apparently put forward by
+					Plutarch as an original contribution to theoretical
+					physics and there is no reason to believe it is not his.
+					The essay closes, however, with a recommendation
+					to scepticism,<note resp="ed" place="unspecified" anchored="yes">See J. Schr&ouml;ter, <hi rend="italics">Plutarchs Stellung zur Skepsis</hi> (Greifswald, 1911), pp. 23 and 40. He compares other recomendations to the suspension of judgement, such as <hi rend="italics">Mor.</hi> 430 f - 431 a. <hi rend="italics">Cf.</hi> also Hartman, <hi rend="italics">De Plutarcho</hi>, pp. 253 f.</note> so that our author may not have regarded his attempted proof as cogent, as indeed it is
+					not.
+				</p>
+            <p>
+					The work was probably written in Delphi (<hi rend="italics">cf.</hi> 953
+					c-d and e) after a.d. 107-(949 e, note) and addressed
+					to the young philosopher Favorinus,<note resp="ed" place="unspecified" anchored="yes">For the details see Ziegler's article on Plutarch in Pauly-Wissowa, <hi rend="italics">RE</hi>, col. 675.</note> the great lover
+					of Aristotle (<hi rend="italics">Mor.</hi> 734 f), who is also a speaker in
+					<hi rend="italics">Symposiacs</hi>, viii. IO. Though Favorinus was in all
+					
+					<pb id="v.12.p.228"/>
+					
+					likelihood some twenty years younger than Plutarch,
+					the two men dedicated several works to each other.<note resp="ed" place="unspecified" anchored="yes">Lamprias cat. 132: Plutarch's <hi rend="italics">Letter to Favorinus on Friendship</hi> (or <hi rend="italics">The Use of Friends</hi>); Galen, <hi rend="italics">de Opt. Doctr.</hi> (i. 41 K): Favorinus's <hi rend="italics">Plutarch, or On the Academic Disposition</hi>. See also Suidas, <hi rend="italics">s.v.</hi> 
+                  <foreign lang="greek">*fabwri=nos</foreign>.</note>
+					In the present essay it is, perhaps, odd that of the
+					three quotations from Aristotle one is a rebuke (950
+					b), one is apparently a partial miscitation (948 a, note),
+					while the third is of no importance. No doubt it is in
+					virtue of Favorinus' youth that his idol is treated so
+					lightly, and that the sceptical note is sounded so
+					firmly at the end. The young Peripatetic was also
+					quoted by Plutarch (for partial refutation) in <hi rend="italics">Mor.</hi>
+					271 c ; but Plutarch (if Tarn<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Alexander the Great</hi>, ii. 298 f.</note> and others are right)
+					became much more favourable to Peripatetics later
+					in his life (e.g. in the <hi rend="italics">Life of Alexander</hi>).
+				</p>
+            <p>
+					Bernardakis s text of this work is one of his most
+					unsatisfactory ; even for an <hi rend="italics">editio minor</hi> it is careless
+					and confused to a deplorable extent. Nor are the
+					means of correcting and supplementing it at hand,
+					the fifth Teubner volume being still, one fears, in
+					the remote future. Then, too. the only photographs
+					available were those of E and Β. which are not likely
+					to add much to our knowledge.<note resp="ed" place="unspecified" anchored="yes">See the recent brisk controversy as to their relationship: Manton, <hi rend="italics">Class. Quart.</hi> xliii (1949), pp. 97-104; Hubert, <hi rend="italics">Rhein. Mus.</hi> xciii (1950), pp. 330-336; Einarson and De Lacy, <hi rend="italics">Class. Phil.</hi> xlvi (1951), p. 110, n. 56; Flaceliere, ed. Plutarch, <hi rend="italics">Amatorius</hi>, pp. 35 ff. The evidence in this essay, for what it may be worth, seems to make it unlikely that B was here copied from either E or an immediate descendant; they both appear to go back to a common ancestor, perhaps through several intermediaries: see, <hi rend="italics">e.g.</hi>, 951 a, b, d, 953 e. See now Cherniss <hi rend="italics">supra</hi>, pp. 27, note <hi rend="italics">a</hi>; 31, 32.</note> Consequently the
+					only course that seemed prudent was to return to
+					
+					<pb id="v.12.p.229"/>
+					
+					Wyttenbach wherever there was a reasonable doubt.
+					Bernardakis has been tacitly corrected (or altered,
+					whichever it may be) in a good many places. This
+					has been done consistently when both E and <foreign lang="greek">Β</foreign>
+					agree with Wyttenbach's and Hutten's silence ; Bernardakis's silence, unfortunately, appears to have no
+					significance.
+				</p>
+            <p>
+					The work is no. 90 in the catalogue of Lamprias.
+					
+					<pb id="v.12.p.231"/>
+					
+				        </p>
+         </div1>
+         <div1 type="section" n="1">
+            <p>Is there, then, Favorinus,<note resp="ed" place="unspecified" anchored="yes">See the introduction to this essay.</note> an active principle or
+					substance of Cold (as fire is of Heat) through the
+					presence of which and through participation in which
+					everything else becomes cold? Or is coldness rather
+					a negation of warmth, as they say darkness is of light
+					and rest of motion? Cold, indeed, seems to have the
+					quality of being stationary, as heat has that of motion;
+					while the cooling off of hot things is not caused by the
+					presence of any force,<note resp="ed" place="unspecified" anchored="yes">As, for instance, the force of fire.</note> but merely by the displacement of heat, for it can be seen to depart completely
+					at the same time as the remainder cools off. The
+					steam, for example, which boiling water emits, is
+					expelled in company with the departing heat; that
+					is why the amount becomes less by cooling off; for
+					this removes the heat and nothing else takes its place.
+				</p>
+         </div1>
+         <div1 type="section" n="2">
+            <p>First of all, must we not be wary of one point in
+					this argument ? It eliminates many obvious forces
+					by considering them not to be qualities or properties,
+					but merely the negation of qualities or properties,
+					weight being the negation of lightness and hardness
+					that of softness, black that of white, and bitter that
+					of sweet, and so in any other case where there is a
+					natural opposition of forces rather than a relation
+					of positive and negative. Another point is that all
+					negation is inert and unproductive : blindness, for
+					
+					<pb id="v.12.p.233"/>
+					
+					example, and deafness, silence or death. Here you
+					have the defection of a definite form and the annihilation of a reality, not something that is in itself a part
+					of nature or reality. It is the nature of coldness,
+					however, to produce affects and alterations in bodies
+					that it enters no less than those caused by heat.
+					Many objects can be frozen solid, or become condensed or made viscous, by cold.<note resp="ed" place="unspecified" anchored="yes">As steam is condensed and oil becomes viscous.</note> Moreover, the
+					property whereby coldness promotes rest and resists
+					motion is not inert, but acts by pressure and resistance. being constrictive and preservative because of
+					its strength. This explains how, though negation is a
+					disappearance and departure of the contrary force,
+					many things may yet become<note resp="ed" place="unspecified" anchored="yes">The verb is ambiguous: <q direct="unspecified">become cold</q> or <q direct="unspecified">dry</q> or perhaps <q direct="unspecified">congealed.</q>
+               </note> cold while all the time
+					containing within themselves considerable warmth.
+					There are even some objects which cold solidifies and
+					consolidates the more readily the hotter they are :
+					steel, for example, plunged in water. The Stoics<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 1052 f; von Arnim, <hi rend="italics">S.V.F.</hi> ii, pp. 134, 222; and see Hartman's explanation, <hi rend="italics">De Plutarcho</hi>, p. 566. Von Arnim thinks that the next five chapters also contain Stoic material.</note> also
+					affirm that in the bodies of infant children the breath is
+					tempered by cooling and, from being a physical substance, becomes a soul. This, however, is debatable ;
+					yet since there are many other effects which may be
+					seen to be produced through the agency of cold, we
+					are not justified in regarding it as a negation.
+				</p>
+         </div1>
+         <div1 type="section" n="3">
+            <p>Besides, a negation does not permit degrees of
+					less or more. Surely nobody will affirm that one blind
+					man is blinder than another, or one dumb man more
+					silent than another, or one corpse deader than its
+					fellow ; but among cold things there is a wide range
+					of deviation from much to little, from very cold to not
+					very, and, generally speaking, in degrees of intensity
+					
+					<pb id="v.12.p.235"/>
+					
+					and remission, just as there is in hot things. This
+					occurs because the matter involved is in different cases
+					acted upon by the opposing forces with more or less
+					intensity ; it thus exhibits degrees of one or the other,
+					and so of hot and cold. There is, in fact, no such
+					thing as a blending of positive qualities with negative
+					ones, nor may any positive force accept the assault
+					of the negation that corresponds to it or take it into
+					partnership ; instead it gives place to it. Now hot
+					things do admit a blending with cold up to a point,
+					just as do black with white, high notes with low, sweet
+					tastes with sour ; and this harmonious association
+					of colours and sounds, drugs and sauces, produces
+					many combinations that are pleasant and grateful
+					to the senses.
+				</p>
+            <p>
+					For the opposition of a negation to a positive
+					quality is an irreconcilable hostility, since the existence of the one is the annihilation of the other. The
+					other opposition, however, of positive forces, if it
+					occurs in due measure, is often operative in the arts,
+					and very often indeed in various phenomena of
+					nature, especially in connexion with the weather
+					and the seasons and those matters from which the
+					god derives his title of harmonizer and musician,
+					because he organizes and regulates them. He does
+					not receive these names merely for bringing sounds
+					of high and low pitch, or black and white colours, into
+					harmonious fellowship, but because he has authority
+					over the association and disunion of heat and cold in
+					the universe, to see that they observe due measure
+					in their combination and separation, and because, by
+					eliminating the excess of either, he brings both into
+					proper order.
+				</p>
+         </div1>
+         <div1 type="section" n="4">
+            <p>Furthermore, we find that cold can be perceived
+					
+					<pb id="v.12.p.237"/>
+					
+					as well as heat; but mere negation cannot be seen or
+					heard or touched or recognized by the other senses.
+					Perception, in fact, must be of something existent;
+					but where nothing existent is observed, privation may
+					be inferred, being the negation of existence, as blindness is of sight, silence of sound, void and emptiness
+					of matter. We cannot perceive a void by touch ; but
+					where no matter can be touched, void is inferred.
+					Nor can we hear silence ; yet, even though we hear
+					nothing, we infer silence. Nor, in the same way, is
+					sense active when things are unseen or bare<note resp="ed" place="unspecified" anchored="yes">As, when a hill has been stripped of timber, you cannot see the trees.</note>; there
+					is, rather, inference from the negation of perception.
+					If, therefore, cold were a privation of warmth, we
+					ought not to be able to feel it, but only to infer it
+					from the deficiency in warmth ; but if cold is perceived by the contraction and condensation of our
+					flesh (just as heat is by the warming and loosening
+					of it), clearly there is some special first principle and
+					source of coldness, just as there is of heat.
+				</p>
+         </div1>
+         <div1 type="section" n="5">
+            <p>And yet another point: privation of any sort is
+					something simple and uncomplicated, whereas substances have many differences and powers. Silence,
+					for example, is of only one kind, while sound varies,
+					sometimes annoying, at other times delighting, the
+					perception. Both colours and figures show the same
+					variation, for they produce different effects on different occasions when they meet the eye ; but that
+					which cannot be touched and is without colour or any
+					quality whatever, admits no difference, but is always
+					the same.
+				</p>
+         </div1>
+         <div1 type="section" n="6">
+            <p>Is cold, then, so like this sort of privation that
+					
+					<pb id="v.12.p.239"/>
+					
+					it produces no effects that differ ? Or is the contrary
+					true : Do not great and useful pleasures accrue to
+					our bodies from the presence of cold, as well as mighty
+					detriments and pains and depressions, before which
+					the heat does not always depart and quit the field ?
+					Often, rather, though cut off within, it makes a stand
+					and gives battle. This struggle of hot and cold is
+					called shivering or shaking ; and if heat is overcome,
+					freezing and torpor set in ; but if cold is defeated,
+					there is diffused through the body a relaxed and
+					pleasantly warm sensation which Homer<note resp="ed" place="unspecified" anchored="yes">See, <hi rend="italics">e.g., Odyssey</hi>, vi. 156; <hi rend="italics">Iliad</hi>, xxiii. 598, 600; and <hi rend="italics">cf. Mor.</hi> 454 d, 735 f.</note> calls <q direct="unspecified">to
+						be aglow.</q> Surely these facts are obvious to everyone ; and it is chiefly by these effects that cold is
+					shown to be in opposition to heat, not as a negation
+					or privation, but as one substance or one state<note resp="ed" place="unspecified" anchored="yes">Heat, for example, may be said to be a <q direct="unspecified">state</q> or condition of metal.</note> to
+					another : it is not a mere destruction or abolition of
+					heat, but a positive substance or force. Otherwise
+					we might just as well exclude winter from the list
+					of seasons or the northerly blasts from that of winds,
+					on the pretext that they are only a deficiency of hot
+					weather or southerly gales and have no proper origin
+					of their own.
+				</p>
+         </div1>
+         <div1 type="section" n="7">
+            <p>Furthermore, given four primary bodies in the
+					universe<note resp="ed" place="unspecified" anchored="yes">See Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, pp. 315 ff., Empedocles, frag. B 17. The doctrine is clearly stated by, for example, Pliny, <hi rend="italics">Nat. Hist.</hi> ii. 10. The author of the <hi rend="italics">Epinomis</hi> (981 c) adds a fifth element, aether (<hi rend="italics">cf.</hi> 951 d <hi rend="italics">infra</hi>).</note> which, because of their quantity, simplicity, and potentiality, most judges regard as being
+					the elements or first principles of everything else - 
+					I mean fire, water, air, and earth - the number of
+					primary, simple qualities must be the same. And
+					what should these be but warmth and cold, dryness
+					
+					<pb id="v.12.p.241"/>
+					
+					and moisture, which by their very nature cause all
+					the elements to act and be acted upon?<note resp="ed" place="unspecified" anchored="yes">Post translates his emendation: <q direct="unspecified">by which all things are qualified through the natural action of the elements,</q> pointing out that elements have nothing but size, shape, and motion. Fire causes heat, but its atoms are not themselves hot.</note> Just as in
+					grammar we have elements long and short and in
+					music elements high and low in pitch - and in neither
+					case is one element merely a negation of the other - 
+					so also in physical bodies we must assume an elementary opposition of wet to dry and cold to hot, and
+					in this way we shall be faithful both to logic and to
+					experience. Or are we, as old Anaximenes<note resp="ed" place="unspecified" anchored="yes">Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, p. 95; <hi rend="italics">cf.</hi> Diller, <hi rend="italics">Hermes</hi>, lxvii, pp. 35 f.</note> maintained, to leave neither hot nor cold in the realm of
+					being, but to treat them as states belonging equally
+					to any matter and occurring as a result of changes
+					within it ? He affirms, in fact, that anything which
+					undergoes contraction and condensation of matter
+					is cold, while anything that suffers rarefaction and
+					distention - this comes close to his own phrasing - is
+					hot. So there is no contradiction in the remark that
+					the man blew both hot and cold,<note resp="ed" place="unspecified" anchored="yes">See Aesop's <hi rend="italics">Fables</hi> (no. 60 in Chambry's Bude edition, vol. i, pp. 131 ff.), where the satyr renounces friendship with the man because the latter blows both hot and cold through the same mouth.</note> for breath grows
+					cold when it is compressed and condensed by the lips ;
+					but when it is expelled from the mouth left slack, it
+					becomes hot through rarefaction. Aristotle,<note resp="ed" place="unspecified" anchored="yes">Probably (<hi rend="italics">cf.</hi> the note on 950 b <hi rend="italics">infra</hi>) <hi rend="italics">Problemata</hi>, xxxiv. 7 (964 a 10 ff.); contrast Plato, <hi rend="italics">Timaeus</hi>, 79 a-c.</note> however, holds that in this Anaximenes was mistaken :
+					when the mouth is slack, what is exhaled is warm air
+					from our own bodies ; but when we compress the
+					lips and blow, it is not air from ourselves, but the cold
+					air in front of the mouth that is propelled forward and
+					makes contact.
+					
+					<pb id="v.12.p.243"/>
+					
+				        </p>
+         </div1>
+         <div1 type="section" n="8">
+            <p>Perhaps we should now leave the question
+					whether heat and cold are substances ; if so, let us
+					advance the argument to the next point and inquire
+					what sort of substance coldness has, and what is its
+					first principle and nature. Now those who affirm
+					that there are certain uneven, triangular formations
+					in our bodies<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Timaeus</hi>, 53 c, 54 b-c.</note> and that shivering and trembling,
+					shuddering and the like manifestations, proceed from
+					this rough irregularity, even if they are wrong in the
+					particulars, at least derive the first principle from
+					the proper place ; for the investigation should begin,
+					as it were from the very hearth,<note resp="ed" place="unspecified" anchored="yes">Or, perhaps, <q direct="unspecified">with Hestia,</q> as the first principle of the cosmos (see, for example, Ritter, on Plato, <hi rend="italics">Phaedrus</hi>, 247 a, pp. 123-124 of his edition). This passage is somewhat obscurely quoted below in 954 f. There were already three different interpretations known to the scholiast on Plato, <hi rend="italics">Euthyphro</hi>, 3 a (p. 2, ed. Greene).</note> from the substance
+					of all things. This is, it would seem, the great difference between a philosopher and a physician or a
+					farmer or a flute-player ; for the latter are content
+					to examine the causes most remote from the first
+					cause, since as soon as the most immediate cause of
+					an effect is grasped - that fever is brought about by
+					exertion or an overflow of blood, that rusting of grain
+					is caused by days of blazing sun after a rain, that a
+					low note is produced by the angle and construction
+					of the pipes - that is enough to enable a technician
+					to do his proper job. But when the natural philosopher sets out to find the truth as a matter of speculative knowledge, the discovery of immediate causes
+					is not the end, but the beginning of his journey to
+					the first and highest causes. This is the reason why
+					Plato and Democritus,<note resp="ed" place="unspecified" anchored="yes">Wyttenbach suggested <q direct="unspecified">Xenocrates</q> for <q direct="unspecified">Democritus</q> in this passage, which may be right, though his proposal is not considered by either Mullach or Heinze.</note> when they were inquiring
+					into the causes of heat and heaviness, were right not
+					to stop their investigation with earth and fire, but
+					
+					<pb id="v.12.p.245"/>
+					
+					to go on carrying back sensible phenomena to rational
+					origins until they reached, as it were, the minimum
+					number of seeds.
+				</p>
+         </div1>
+         <div1 type="section" n="9">
+            <p>Nevertheless it is better for us first to attack
+					things perceptible to the senses,in which Empedocles<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, p. 319, frag. B 21, part of which is quoted below in 949 f.</note>
+					and Strato<note resp="ed" place="unspecified" anchored="yes">See Fritz Wehrli, <hi rend="italics">Die Schule des Aristoteles</hi>, Part V. frag. 49.</note> and the Stoics<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 952 c, 1053 f; von Arnim, <hi rend="italics">S.V.F.</hi> ii, pp. 140 f.</note> locate the substances
+					that underlie the qualities, the Stoics ascribing the
+					primordially cold to the air, Empedocles and Strato
+					to water ; and someone else may, perhaps, be found
+					to affirm that earth is the original substance of coldness.<note resp="ed" place="unspecified" anchored="yes">As Plutarch himself: see below, 952 c ff. (chapters 17-22).</note> But let us examine Stoic doctrine before the
+					others.
+				</p>
+            <p>
+					Since fire is not only warm but bright, the opposite
+					natural entity (they say) must be both cold and dark :
+					as gloomy is the opposite of bright, so is cold of hot.
+					Besides, as darkness confounds the sight, so cold
+					confuses the sense of touch. Heat, on the other hand,
+					transmits the sensation of touching, as brightness
+					does that of seeing. It follows, then, that in nature
+					the primordially dark is also the primordially cold ;
+					and that it is air which is primordially dark does not,
+					in fact, escape the notice of the poets since they use
+					the term <q direct="unspecified">air</q> for <q direct="unspecified">darkness</q>:
+					<quote rend="blockquote">
+                  <l>Thick air lay all about the ships, nor could
+					</l>
+                  <l>The moon shine forth from heaven.<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Odyssey</hi>, ix. 144-145. Words for <q direct="unspecified">air</q> in Homer often mean <q direct="unspecified">mist</q> or <q direct="unspecified">fog.</q>
+                     </note>
+                  </l>
+               </quote>
+					And another instance :
+					<quote rend="blockquote">So clad in air they visit all the earth.<note resp="ed" place="unspecified" anchored="yes">Hesiod, <hi rend="italics">Works and Days</hi>, 255.</note>
+               </quote>
+					
+					          <pb id="v.12.p.247"/>
+					
+					And another:
+					<quote rend="blockquote">
+                  <l>The air at once he scattered and dispelled the mist;
+					</l>
+                  <l>The sun shone forth and all the battle carne in view.<note resp="ed" place="unspecified" anchored="yes">Homer, <hi rend="italics">Iliad</hi>, xvii. 649-650.</note>
+                  </l>
+               </quote>
+					They also call the lightless air <hi rend="italics">knephas</hi>, being as it
+					were, <hi rend="italics">kenon phaous</hi> 
+               <q direct="unspecified">void of light</q> ; and collected
+					and condensed air has been termed <hi rend="italics">nephos</hi> 
+               <q direct="unspecified">cloud</q>
+					because it is a negation of light.<note resp="ed" place="unspecified" anchored="yes">Plutarch's etymologies here are no more scientific or convincing than those to be found in his <hi rend="italics">Roman Questions</hi>, L.C.L. vol. iv, pp. 6-171.</note> Flecks in the sky
+					and mist and fog and anything else that does not
+					provide a transparent medium for light to reach our
+					senses are merely variations of air ; and its invisible
+					and colourless part is called Hades and Acheron.<note resp="ed" place="unspecified" anchored="yes">
+                  <q direct="unspecified">Invisible</q>; <hi rend="italics">cf.</hi> 953 a below and Plato, <hi rend="italics">Cratylus</hi>, 403 a ff.; <hi rend="italics">Phaedo</hi>, 81 c-d and contrast <hi rend="italics">Mor.</hi> 942 f <hi rend="italics">supra</hi>; <q direct="unspecified">colourless,</q> 
+                  <hi rend="italics">achroston, Acheron. Cf.</hi> L. Parmentier, <q direct="unspecified">Recherches sur le traite d'Isis et d'Osiris de Plut.,</q> 
+                  <hi rend="italics">Mem. Acad. Belg.</hi> ii. 2 (1912/13), pp. 71 ff.</note> In
+					the same way, then, as air is dark when light is gone,
+					so when heat departs the residue is cold air and
+					nothing else. And this is the reason why it has been
+					termed Tartarus because of its coldness. Hesiod<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Theogony</hi>, 119; contrast Plato, <hi rend="italics">Phaedo</hi>, 112 a ff.</note>
+					makes this obvious when he writes <q direct="unspecified">murky Tartarus</q> ; and to shake and shiver with cold is to
+					<q direct="unspecified">tartarize.</q>
+               <note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Servius on Vergil, <hi rend="italics">Aen.</hi> vi. 577.</note> Such, then, is the reason for these
+					names.
+				</p>
+         </div1>
+         <div1 type="section" n="10">
+            <p>Since corruption, in each case, is a change of
+					the things that are corrupted into their opposites,
+					let us see whether the saying holds good that <q direct="unspecified">the
+						death of fire is the birth of air.</q>
+               <note resp="ed" place="unspecified" anchored="yes">Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, p. 168, Heraclitus, frag. 76 (frag. 25, ed. Bywater, p. 11). <hi rend="italics">Cf. Mor.</hi> 392 c-d.</note> Fire, indeed,
+					perishes like a living creature,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 281 f, 702 e-f; 703 b.</note> being either extinguished by main force or dying out of itself. Now
+					if it is extinguished, that makes the change of fire
+					
+					<pb id="v.12.p.249"/>
+					
+					into air more conspicuous. Smoke, in fact, is a form
+					of air, as is reek and exhalation, which, to quote
+					Pindar,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Isth.</hi> iv. 112.</note>
+					          <quote rend="blockquote">Stabs at the air with unctuous smoke.</quote>
+					Nevertheless, even when fire goes out for lack of
+					nourishment, one may see, as for instance in the case
+					of lamps, the apex of the flame passing off into murky,
+					dusky air. Moreover, the vapour ascending from our
+					bodies when, after a bath or sweat, cold water is
+					poured on them, sufficiently illustrates the change
+					of heat, as it perishes, into the air ; and this implies
+					that it is the natural opposite of fire. From this the
+					Stoics drew the conclusion that air was primordially
+					dark and cold.
+				</p>
+         </div1>
+         <div1 type="section" n="11">
+            <p>Moreover, freezing, which is the most extreme
+					and violent effect of cold in bodies, is a condition
+					of water, but a function of air. For water of itself is
+					fluid, uncongealed and not cohesive ; but when it is
+					compressed by air because of its cold state, it becomes
+					taut and compact. This is the reason for the saying<note resp="ed" place="unspecified" anchored="yes">Included without authority among Callimachus's fragments (787 = anon. 384) by Schneider, but rejected by Pfeiffer.</note>
+					          <quote rend="blockquote">If Southwind challenges North, instantly snow will appear.</quote>
+					For after the Southwind has collected the moisture
+					as raw material, the Boreal air takes over and congeals it. This is particularly evident in snowfields :
+					when they have discharged a preliminary exhalation
+					of air that is thin and cold, they melt.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 691 f and Hubert's references <hi rend="italics">ad loc.</hi>
+               </note> Aristotle<note resp="ed" place="unspecified" anchored="yes">Frag. 212, ed. Rose and <hi rend="italics">cf. Mor.</hi> 695 d.</note>
+					also declares that whetstones of lead will melt and
+					become fluid in the wintertime through excess of cold
+					
+					<pb id="v.12.p.251"/>
+					
+					when no water is anywhere near them ; it seems
+					probable that the air with its coldness forces the
+					bodies together until it crushes and breaks them.<note resp="ed" place="unspecified" anchored="yes">There is here probably a confusion of lead and tin, for both of which the term <hi rend="italics">stannum</hi> is used in Latin. Tin is reduced to powder by severe cold, owing to transformation to its allotrope. In [Aristotle], <hi rend="italics">De Mir. Ausc.</hi> 50 (p. 257, L.C.L.) the more nearly correct statement appears that tin melts in severe cold. This note is due to the suggestion of O. T. Benfey of Haverford College.</note>
+				        </p>
+         </div1>
+         <div1 type="section" n="12">
+            <p>Furthermore, portions of water will freeze
+					sooner than the spring from which they are drawn,
+					for the air more readily masters the smaller amount.
+					If you will draw from a well cold water in a jar<note resp="ed" place="unspecified" anchored="yes">Presumably Plutarch is thinking of a jar of porous earthenware, such as are commonly used to cool water in the Near East.</note> and
+					let it down again into the well in such a way that the
+					jar does not touch the water, but is suspended in the
+					air, and if you wait a short time, you will find that the
+					water has become colder.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 690 b-e.</note> This is very good evidence
+					that the First Cause of coldness is not water but air.
+					Certainly, none of the great rivers freezes through
+					its entire depth ; for the air does not penetrate down
+					into the whole, but merely renders stationary as
+					much as, by contact and proximity, it includes within
+					the range of its coldness. And this is the reason why
+					barbarians<note resp="ed" place="unspecified" anchored="yes">The Thracians, according to 968 f ff. <hi rend="italics">infra</hi>; <hi rend="italics">cf.</hi> also Pliny, <hi rend="italics">Nat. Hist.</hi> viii. 103; Aelian, <hi rend="italics">De Natura Animal.</hi> vi. 24; xiv. 26.</note> do not cross frozen rivers until they have
+					tried them out with foxes : if the ice is not thick, but
+					merely superficial, the foxes perceive this by the
+					sound of the current running underneath and return
+					to the bank. Some even catch fish by weakening and
+					softening the ice with hot water - enough of the ice,
+					at least, to admit their lines ; so the cold has no effect
+					at a depth. Yet the water near the surface undergoes
+					so great a change through freezing that ships are
+					crushed by it when it is forced in on itself and squeezed
+					tight, as those relate who recently passed the winter
+					
+					<pb id="v.12.p.253"/>
+					
+					with Caesar<note resp="ed" place="unspecified" anchored="yes">Probably the reference is to Trajan and the Second Dacian War (a.d. 105-107). Plutarch's intimate friends, Sosius Senecio, is known to have taken part in it.</note> on the Danube. Nevertheless, what
+					happens in our own case is ample testimony : after
+					warm baths and sweats we are cooler, since our bodies
+					are relaxed and porous, so that we take in a good deal
+					of cold along with the air.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 690 c-d.</note> The same thing happens
+					to water, too : it freezes faster when it has first been
+					heated, thus becoming more susceptible to air ; and
+					those who draw off boiling water and suspend it in
+					the air do this, surely, only to secure the admixture
+					of great quantities of air.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 690 c-d.</note> So now, Favorinus, the
+					argument that attributes the primal force of cold to
+					the air depends on such plausibilities as these.
+				</p>
+         </div1>
+         <div1 type="section" n="13">
+            <p>But the argument which attributes it to water
+					finds in the same way facts to support it; Empedocles<note resp="ed" place="unspecified" anchored="yes">Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, p. 319, frag. B 21, lines 3 and 5. Plutarch apparently used a version different from those known to Aristotle and Simplicius. The evidence is complicated and may be consulted in Diels-Kranz. On Empedocles' meaning see Cherniss, <hi rend="italics">Aristotle's Criticism of the Presocratics</hi>, p. 110.</note> says something like this :
+					<quote rend="blockquote">
+                  <l>Behold the sun, everywhere bright and warm;
+					</l>
+                  <l>And then the rain, to all men dark and cold.</l>
+               </quote>
+					By thus setting cold against hot, as he does dark
+					against bright, he has given us to understand that
+					dark and cold belong to the same substance, as do
+					also bright and hot. And our senses bear witness
+					that darkness is an attribute of water, not of air, since
+					nothing, to put it simply, is blackened by air and
+					everything is by water.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 364 b.</note> For if you throw the whitest
+					wool or the whitest garment into water, it will come
+					
+					<pb id="v.12.p.255"/>
+					
+					out black and it will remain black until the moisture
+					is evaporated by heat or is squeezed out by some sort
+					of wringing or pressure. When a patch of ground is
+					sprinkled, the spots which are covered by the drops
+					turn black, but the rest remains as it was. In fact,
+					of water itself the deepest looks the darkest because
+					there is so much of it, while those parts that lie near
+					the air flash and sparkle<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 952 f <hi rend="italics">infra</hi>.</note>; and of the other liquids
+					oil is the most transparent, as containing the most
+					air. A proof of this is its lightness, by reason of which
+					it maintains itself on the surface of all other things,
+					buoyed up by the air.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 696 b, 702 b.</note> If it is sprinkled upon the
+					waves, it will calm the sea, not because it is so smooth
+					that the winds slip off it, as Aristotle<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Problemata</hi>, 961 a 23 ff., though this work is surely not by Aristotle in the form in which it has come down to us.</note> affirmed ; but
+					because the waves are dissipated when they are
+					struck by any moist substance. But it is peculiar to
+					oil that it provides light and sight at the bottom since
+					the moist elements are interspersed with air ; it is,
+					in fact, not only on the surface that it provides light
+					for those who pass the night at sea ; it does so also
+					for sponge-divers<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 981 e <hi rend="italics">infra</hi>; Oppian, <hi rend="italics">Hal.</hi> v. 638 ff.</note> below the surface when it is blown
+					out of their mouths. Air, therefore, has no greater
+					proportion of darkness than water has, and it has
+					less cold. Certainly oil, which has more air than any
+					other moist substance, is least cold; and when it
+					freezes, it forms a soft jelly : the air that is intermixed
+					does not permit it to freeze hard. They dip needles,
+					iron clasps, and all delicate artifacts in oil rather than
+					in water, fearing that the water's excessive frigidity
+					
+					<pb id="v.12.p.257"/>
+					
+					may distort them. It is, in fact, fairer to judge the
+					argument by this evidence than by that of colour,
+					since snow and hail and ice are at their brightest when
+					they are coldest. Moreover, pitch is both hotter and
+					darker than honey.
+				</p>
+         </div1>
+         <div1 type="section" n="14">
+            <p>I am surprised, nevertheless, when those who
+					maintain that the air is cold because it is dark do not
+					perceive that others think it must be hot because it
+					is light. For darkness is not so closely connected and
+					akin to cold as heaviness and stability are ; many
+					things, in fact, which have no heat are bright, but
+					nothing cold is buoyant, light, and soaring. Why,
+					the very clouds, as long as they are akin to the substance of air, float aloft; but as soon as they change to
+					moisture, they fall at once and lose their lightness no
+					less than their warmth as coldness grows within them.
+					Contrariwise, when heat supervenes, they reverse
+					the movement again, for their substance begins to
+					soar as soon as it has changed to air.
+				</p>
+            <p>
+					Nor is the argument from destruction true either ;
+					for when anything is destroyed, it does not perish by
+					becoming its opposite, though it does perish by the
+					action of its opposite, as fire, for instance, is changed
+					by water into air. For of water Aeschylus<note resp="ed" place="unspecified" anchored="yes">Nauck, <hi rend="italics">Trag. Graec. Frag.</hi> pp. 107-108, frag. 360.</note> speaks
+					in tragic style, but accurately, as
+					<quote rend="blockquote">The riot-quelling justicer of fire.</quote>
+					And when Homer<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Iliad</hi>, xxi. 330-383; 435-469. The river is the Xanthus.</note> matched Hephaestus against the
+					river and Apollo against Poseidon in the battle, he
+					did it rather as a philosopher than as a poet. And
+					
+					<pb id="v.12.p.259"/>
+					
+					Archilochus<note resp="ed" place="unspecified" anchored="yes">Diehl, <hi rend="italics">Anthologia Lyrica Graeca</hi>, i. 237, frag. 86; Edmonds, <hi rend="italics">Elegy and Iambus</hi> (L.C.L.), ii, p. 146, frag. 93; quoted again in <hi rend="italics">Mor.</hi> 1070 a, <hi rend="italics">Life of Demetrius</hi>, 35 (905 e).</note> expressed himself well on a woman
+					who was of two minds :
+					<quote rend="blockquote">
+                  <l>With guileful thoughts she bore
+					</l>
+                  <l>In one hand water, in the other fire.</l>
+               </quote>
+					Among the Persians it was the most compelling plea
+					to gain an end, one which would admit no refusal, if
+					the suppliant took fire, stood in a river, and threatened
+					that if he lost his suit, he would drop the fire into the
+					water. Now he got what he asked, but though he
+					did so, he was punished for the threat, on the ground
+					that it was contrary to law and against nature. Again,
+					the familiar proverb that is on everyone's lips,<note resp="ed" place="unspecified" anchored="yes">But, curiously enough, not to be found in the <hi rend="italics">Paroemiographi Graeci</hi>, as edited by Leutsch and Schneidewin.</note> 
+               <q direct="unspecified">to
+						mix fire with water,</q> as an example of the impossible,
+					seems to bear witness that water is hostile to fire,
+					which is destroyed by it and so is punished by being
+					extinguished<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> the quotation from Aeschylus <hi rend="italics">supra</hi>, 950 e.</note>; it is not so affected by air, which, on
+					the contrary, supports fire and welcomes it in its
+					changed form. For if anything into which the thing
+					destroyed changes is its opposite, why will fire, any
+					more than water, seem opposite to air ? For air
+					changes into water by condensation, and into fire by
+					rarefaction just as, on the other hand, water vanishes
+					into air by rarefaction, but into earth by condensation.
+					Now these processes take place, in my opinion, not
+					because these elements are contrary or hostile to one
+					another, but because they are in close affinity and relationship. But my opponents,<note resp="ed" place="unspecified" anchored="yes">Presumably those who, in 950 d <hi rend="italics">supra</hi>, claim that air is cold because it is dark.</note> whichever way they
+					state their case, ruin their proof. Certainly it is perfectly
+					
+					<pb id="v.12.p.261"/>
+					
+					absurd for them to say that water is frozen by air
+					when they have never seen air itself freezing. For
+					clouds, mists, and flecks in the sky are not congelations, but condensations and thickenings of air that is
+					moist and vaporous. But waterless, dry air never
+					admits loss of heat to the point where such a change
+					might occur. There are, in fact, mountains which do
+					not know clouds or dew or mist because their peaks
+					reach a region of pure air that has no humidity at all.
+					From this fact it is especially obvious that it is the
+					condensation and density below that contribute to air
+					the cold, moist element that is found in combination
+					with it.
+				</p>
+         </div1>
+         <div1 type="section" n="15">
+            <p>It is reasonable that the lower portion of large
+					rivers should not freeze ; for the upper portion, being
+					frozen, does not transmit the exhalation which is,
+					accordingly, shut in and turned back, and so provides
+					heat for the deep waters. A demonstration of this
+					is the fact that when the ice melts again a great
+					quantity of vapour rises from the waters. This is also
+					the reason why the bodies of animals are warmer in
+					the winter, because the heat is driven inwards by the
+					cold from without and they keep it within them.
+				</p>
+            <p>
+					Now drawing off water and suspending it in the
+					air<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 949 f <hi rend="italics">supra</hi>; <hi rend="italics">Mor.</hi> 690 b-e.</note> not only takes away its warmth, but its coldness
+					also; those, therefore, who want a very cold drink
+					take care not to disturb the snowpacks<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 691 c - 692 a for snow packed in chaff and the like.</note> or the wet
+					matter that is formed from them by compression,
+					for movement expels both heat and cold.
+				</p>
+            <p>
+					That such a function of cold belongs not to air, but
+					to water, may be demonstrated as follows from a fresh
+					
+					<pb id="v.12.p.263"/>
+					
+					start. In the first place, it is improbable that air,
+					which lies adjacent to the aether<note resp="ed" place="unspecified" anchored="yes">On the difference between <hi rend="italics">aer</hi> and <hi rend="italics">aether</hi> see the lucid discussion of Guthrie, <hi rend="italics">The Greeks and their Gods</hi>, pp. 207 f.</note> and touches and is
+					touched by the revolving fiery substance, should have
+					a force that is contrary to that of aether. For one
+					thing, it is impossible for two substances whose boundaries touch and are contiguous not to be acted upon
+					by each other - and if acted upon, for the weaker not
+					to be contaminated by the force that resides in the
+					stronger. Nor is it reasonable to suppose that Nature
+					has placed side by side destroyer and victim, as though
+					she were the author of strife and dissension, not of
+					union and harmony. She does, indeed, make use of
+					opposites to constitute the universe ; yet she does
+					not employ them without a tempering element, or
+					where they will collide. She disposes them rather
+					so that a space is skipped and an inserted strip duly
+					assigned whereby they will not destroy one another,
+					but may enjoy communication and co-operation. And
+					this strip is occupied by air, suffused as it is through
+					a space under the fire<note resp="ed" place="unspecified" anchored="yes">That is, the aether. See also Cherniss, <hi rend="italics">op. cit.</hi> p. 126.</note> between it and water. It
+					makes distribution both ways and receives contributions from both, being itself neither hot nor cold, but
+					a blending and union of the two. When these are so
+					fused, they meet without injury and the fused matter
+					sends forth or takes to itself the opposing extremes<note resp="ed" place="unspecified" anchored="yes">Heat and cold.</note>
+					without violence.
+				</p>
+         </div1>
+         <div1 type="section" n="16">
+            <p>Then, too, air is everywhere equal; though
+					neither winter nor cold is identical everywhere. It
+					is no accident that some parts of the world are cold
+					and damp, while others are hot and dry ; it is due
+					to the existence of a single substance that includes
+					
+					<pb id="v.12.p.265"/>
+					
+					coldness and wetness in one. The greater part of
+					Africa is hot and without water ; while those who
+					have travelled through Scythia, Thrace, and Pontus<note resp="ed" place="unspecified" anchored="yes">Plutarch may be thinking of the old kingdom of Pontus, which included tracts south, east, and north of the Black Sea.</note>
+					report that these regions have great lakes or marshes
+					and are traversed by many deep rivers. As for the
+					regions that lie between, those that are near lakes
+					and marshes are especially cold because of the exhalations from the water, Posidonius,<note resp="ed" place="unspecified" anchored="yes">The fragment has not yet been numbered in L. Edelstein's forthcoming collection; for the literature see <hi rend="italics">A.J.P.</hi> lvii (1936), p. 301 and n. 61.</note> then, in
+					affirming that the freshness and moistness of marsh
+					air is the reason for the cold, has done nothing to
+					disturb the plausibility of the argument; he has,
+					rather, made it more plausible. For fresh air would
+					not always seem colder if cold did not take its origin
+					from moisture. So Homer<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Odyssey</hi>, v. 469.</note> spoke more truly when
+					he affirmed
+					<quote rend="blockquote">The river-air blows chill before the dawn,</quote>
+					thereby indicating the source of coldness.
+				</p>
+            <p>
+					Our senses, moreover, often deceive us and we
+					imagine, when we touch cold garments or cold wool,
+					that we are touching moist objects : this is because
+					wet and cold have a common substance and their
+					natures have a close affinity and relationship. In very
+					cold climates the low temperature often breaks
+					vessels whether they are of bronze or of clay - not,
+					of course, when they are empty, but only when they
+					are full and the water exerts pressure by means of
+					its coldness. Theophrastus,<note resp="ed" place="unspecified" anchored="yes">The fragment is apparently omitted by Wimmer.</note> to be sure, declares that
+					the air breaks these vessels, using the liquid as a
+					spike. But take care<note resp="ed" place="unspecified" anchored="yes">This seems to be addressed to Favorinus's Peripatetic sympathies.</note> that there isn't more wit than
+					
+					<pb id="v.12.p.267"/>
+					
+					truth in such a remark! For if it were so, vessels full
+					of pitch or of milk would more readily be broken by
+					the air.<note resp="ed" place="unspecified" anchored="yes">That is, than those full of water.</note>
+				        </p>
+            <p>
+					Water, however, seems to be cold of itself, and
+					primordially so. It is the antithesis, in its coldness,
+					to the heat of fire, just as in its wetness to the dryness
+					of fire, and in its heaviness to the other's lightness.
+					To sum up : fire is of a disintegrating and separative
+					nature, while water is adhesive and retentive, holding
+					and gluing together by means of its moistness.
+					Empedocles<note resp="ed" place="unspecified" anchored="yes">Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, p. 318, frag. B 19. Plutarch seems to have mistaken Empedocles' meaning, though some would invoke frag. B 34. In general, while Plutarch is said to have written ten books on Empedocles (Lamprias catalogue no. 43), he does not seek the difficult poet's meaning very carefully.</note> alluded to this, when, as often as he
+					mentioned them, he termed Fire a <q direct="unspecified">Destructive
+						Strife</q> and Water <q direct="unspecified">Tenacious Love.</q> For the
+					nourishment of fire is that which can be changed
+					into fire and only things that have affinity and a
+					close relationship to it can be so changed ; while
+					its opposites, like water, are not easily changed to
+					fire. Water itself is practically incombustible, and it
+					renders matter such as damp grass and moist timber
+					very hard to consume ; the greenness in them produces a dusky, dull flame because, by dint of cold, it
+					struggles against heat as against its natural enemy.
+				</p>
+         </div1>
+         <div1 type="section" n="17">
+            <p>Now you must pursue the subject by comparing
+					these arguments with those of my opponents. For
+					Chrysippus,<note resp="ed" place="unspecified" anchored="yes">Von Arnim, <hi rend="italics">S.V.F.</hi> ii, p. 140; <hi rend="italics">cf. Mor.</hi> 1053 e.</note> thinking that the air is primordially
+					cold because it is also dark, merely mentioned those
+					who affirm that water is at a greater distance from the
+					aether<note resp="ed" place="unspecified" anchored="yes">See 951 d <hi rend="italics">supra</hi>.</note> than is air ; and, wishing to make them some
+					answer, he said, <q direct="unspecified">If so, we might as well declare that
+						even earth is primordially cold because it is at the
+						
+						<pb id="v.12.p.269"/>
+						
+						greatest distance from the aether</q> - tossing off this
+					argument as if it were utterly inadmissible and absurd.
+					But I have a mind to maintain the thesis that earth
+					too is not destitute of probable and convincing arguments, and I shall start with the one that Chrysippus
+					has found most serviceable for air. And what is this ?
+					Why, that it is primordially dark and cold. For if he
+					takes these two pairs of opposing forces and assumes
+					that one must of necessity accompany the other,
+					there are, surely, innumerable oppositions and antipathies between the aether and the earth with which
+					one might suppose this to be consistent. For it
+					is not only opposed as heavy to light and as moving
+					by gravity downwards, not upwards, or as dense
+					to rare or as slow and stable to mobile and active,
+					but as heaviest to lightest and as densest to rarest
+					and, finally, as immovable of itself to self-moving,
+					and as occupying the central position in the universe
+					to revolving forever around a centre. It is not absurd,
+					then, if oppositions so numerous and important carry
+					with them the opposition of cold and heat as well.
+					<q direct="unspecified">Yes,</q> Chrysippus may say, <q direct="unspecified">but fire is bright.</q>
+					Is not the earth, then, dark ? Why, it is the darkest
+					and most unilluminated of all things. Certainly air
+					is first of all to participate in light; it is instantly
+					altered and when it is saturated, it distributes
+					illumination everywhere, lending itself to light as a
+					body in which to reside. For when the sun arises,
+					as one of the dithyrambic writers<note resp="ed" place="unspecified" anchored="yes">Diehl, <hi rend="italics">Anthologia Lyrica Graeca</hi>, ii. 302; Edmonds, <hi rend="italics">Lyra Graeca</hi> (L.C.L.), iii, p. 460 (adespota no. 95).</note> has said,
+					<quote rend="blockquote">It straightway fills the mighty home of the air-borne winds.</quote>
+					
+					          <pb id="v.12.p.271"/>
+					
+					Next the air, moving downward, infuses a part of its
+					brightness into the lakes and the sea, and the depths
+					of the rivers flash brightly,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Aeschylus, <hi rend="italics">Prometheus</hi>, 90, and 950 b <hi rend="italics">supra</hi>.</note> to the extent that air
+					is able to penetrate them. Of all bodies only the
+					earth remains constantly without light, impenetrable
+					to the illumination of sun or moon ; yet it is warmed
+					by them and permits the heat to sink in and warm
+					it up to a slight depth. But because it is solid, earth
+					does not give passage to light, but is encircled by
+					light on its surface only, while the inner parts are
+					called Darkness and Chaos and Hades<note resp="ed" place="unspecified" anchored="yes">The Invisible Place, according to the etymology adopted above in 948 f.</note> - so that
+					Erebus<note resp="ed" place="unspecified" anchored="yes">Hesiod, <hi rend="italics">Theogony</hi>, 125. The original meaning of Erebus is actually <q direct="unspecified">darkness</q>.</note> turns out to be the subterranean and interior
+					darkness. Then, too, the poets tell us that Night
+					was born of Earth<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, p. 331, Empedocles, frag. B 48; <hi rend="italics">cf. Mor.</hi> 1006 f.</note> and mathematicians demonstrate
+					that night is the shadow of Earth blocking the light
+					of the sun. The air, indeed, is saturated with darkness by the earth, just as it is with light by the sun.
+					The unlighted portion of the air is the area of night,
+					amounting to the space occupied by the earth's
+					shadow. This is the reason why men make use of the
+					air out of doors even when it is night, as well as many
+					beasts which do their pasturing in the darkness, since
+					it retains some vestiges of light and dispersed glimmerings of radiance ; but the house-bound man who
+					is under a roof is utterly blind and without light
+					inasmuch as there the earth envelops him from all
+					directions. Whole skins, furthermore, and horns of
+					animals do not let light pass through them because
+					of their solidity ; yet if sections are sawed off and
+					polished, they become translucent when once the
+					air has been mixed with them. It is also my opinion
+					
+					<pb id="v.12.p.273"/>
+					
+					that the earth is called black by the poets,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">e.g.</hi> Homer, <hi rend="italics">Iliad</hi>, ii. 699; Alcman, 36 (Edmonds, <hi rend="italics">Lyra Graeca</hi>, i, p. 76; Diehl, <hi rend="italics">Anthologia Lyrica Graeca</hi>, ii. 27); Sappho, 38 (Edmonds, <hi rend="italics">op. cit.</hi> i, p. 208).</note> whenever
+					they have occasion to do so, because of its murky and
+					lightless characteristics. The result, then, of these
+					considerations is that the much-prized antithesis of
+					light and darkness belongs to earth rather than to air.
+				</p>
+         </div1>
+         <div1 type="section" n="18">
+            <p>This, however, has no relevance to the question
+					under discussion ; for it has been shown that there
+					are many cold objects which are bright and many
+					hot which are dull and dark. Yet there are qualities
+					more closely connected that belong to coldness :
+					heaviness, stability, solidity, and resistance to change.
+					Air has no part at all in them, while earth has a greater
+					share in all of them than water has. Cold, moreover,
+					is perceptibly one of the hardest of things and it
+					makes things hard and unyielding. Theophrastus,<note resp="ed" place="unspecified" anchored="yes">Frag. 184 Wimmer.</note>
+					for instance, tells us that when frozen fish are dropped
+					on the ground, they are broken and smashed to bits
+					just like objects of glass or earthenware. And at
+					Delphi you yourself heard, in the case of those who
+					climbed Parnassus to rescue the Thyiades<note resp="ed" place="unspecified" anchored="yes">The Thyiades were Attic women, devotees of Dionysus, who went every other year to Delphi to join in the midwinter festival. See Guthrie, <hi rend="italics">The Greeks and their Gods</hi>, p. 178.) The rites must have involved considerable discomfort and even risk, as Dodds says (edition of Euripides, <hi rend="italics">Bacchae</hi>, p. xi).</note> when
+					they were trapped by a fierce gale and snowstorm,
+					that their capes were frozen so stiff and wooden that
+					when they were opened out, they broke and split
+					apart. Excessive cold, because of its hardness and
+					immobility, also stiffens the muscles and renders the
+					tongue speechless, for it congeals the moist and
+					tender parts of the body.
+					
+					<pb id="v.12.p.275"/>
+					
+				        </p>
+         </div1>
+         <div1 type="section" n="19">
+            <p>In view of these considerations, regard the
+					facts in the following light : every force, presumably,
+					whenever it prevails, by a law of nature changes and
+					turns into itself whatever it overcomes. What is
+					mastered by heat is reduced to flames, what is
+					mastered by wind turns to air ; and anything that
+					falls into the water, unless it gets out quickly, dissolves and liquefies. It follows, then, that whatever
+					is completely frozen must turn into primordial cold.
+					Now freezing is extreme refrigeration that terminates
+					in a complete alteration and petrifaction when, since
+					the cold has obtained complete mastery, the moist
+					elements are frozen solid and the heat is squeezed
+					out. This is the reason why the earth at its bottommost point is practically all solid frost and ice. For
+					there undiluted and unmitigated cold abides at bay,
+					thrust back to the point farthest removed from the
+					flaming aether.<note resp="ed" place="unspecified" anchored="yes">See 951 d above.</note> As for these features that are
+					visible, cliffs and crags and rocks, Empedocles<note resp="ed" place="unspecified" anchored="yes">Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, i, p. 296, frag. A 69; <hi rend="italics">cf. Mor.</hi> 691 b and Hubert's references <hi rend="italics">ad loc.</hi>
+               </note> thinks
+					that they have been fixed in place and are upheld by
+					resting on the fire that burns in the depths of the
+					earth ; but the indications are rather that all these
+					things from which the heat was squeezed out and
+					evaporated were completely frozen by the cold ; and
+					for this reason they are called <hi rend="italics">pagoi</hi>.<note resp="ed" place="unspecified" anchored="yes">Crags and rocks are called <hi rend="italics">pagoi</hi> (as the Areo-pagus, <q direct="unspecified">Mars Hill,</q> at Athens), which Plutarch correctly connects with the verb meaning <q direct="unspecified">freeze</q> or <q direct="unspecified">solidify</q> and uses to confute Empedocles.</note> So also the
+					peaks<note resp="ed" place="unspecified" anchored="yes">Plutarch is speaking of volcanoes like Aetna with a lava bed on top.</note> of many of them have a black crust where the
+					heat has been expelled and have the appearance of
+					debris from a conflagration. For the cold freezes
+					substances to a varying degree, but hardest those of
+					which it is naturally a primary constituent. Thus, if
+					
+					<pb id="v.12.p.277"/>
+					
+					it is the nature of heat to lighten, the lightest object
+					will have most heat, and if it is the nature of humidity
+					to soften, the softest will have the most humidity ;
+					so, if it is also true that the nature of cold is to harden,
+					then it must also follow that the hardest object will
+					have the most cold - that is to say, just as the earth
+					has. But what is coldest by nature is surely also
+					primarily cold, so that the earth is in fact cold both
+					primordially and naturally ; and, of course, this is
+					obvious even to the senses. Mud, in fact, is a colder
+					thing than water ; and men extinguish a fire by
+					dumping earth upon it. Blacksmiths, when their iron
+					becomes fiery and begins to melt, sprinkle on it marble
+					chips and gypsum to check and cool it off before it
+					melts too much. It is also true that dust cools the
+					bodies of athletes and dries up their sweat.
+				</p>
+         </div1>
+         <div1 type="section" n="20">
+            <p>And what is the meaning of our demand for
+					a yearly change of habitation ? In winter we retreat
+					to the loftiest parts of our houses, those farthest from
+					the earth, while in summer we require the lower parts,
+					submerging ourselves and going in quest of comfortable retreats, as we make the best of a life in the
+					embrace of mother earth. Since we do this, are we
+					not guided to the earth by our perception of its coldness ? Do we not acknowledge it as the natural seat
+					of primordial cold ? And surely our living by the sea
+					in the winter is, in a way, an escape from the earth,
+					since we abandon the land as far as possible because
+					of the frost and wrap ourselves in salt sea air because
+					it is warm. Then again, in the summer by reason of
+					the heat, we long for the earth-born, upland air, not
+					
+					<pb id="v.12.p.279"/>
+					
+					because it is itself chilly, but because it has sprung
+					from the naturally and primordially cold and has been
+					imbued with its earthy power, as steel is tempered
+					by being plunged in water.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 433 a and 946 c <hi rend="italics">supra</hi>.</note> And of flowing waters,
+					also, the coldest are those that fall from rocks or
+					mountains, and of well waters the deepest are the
+					coldest; the air from outside does not, in the case
+					of these wells, affect the water, so deep are they,
+					while any such streams burst forth through pure unmixed earth, like the one at Taenarum,<note resp="ed" place="unspecified" anchored="yes">Plutarch knew that the mouth of Hades was at Taenarum (Pindar, <hi rend="italics">Pythian</hi>, iv. 44) and transferred the Styx to that place. For its water see Frazer on Pausanias, viii. 18. 4. According to Antigonus, <hi rend="italics">Hist. Mirab.</hi> 158 (ed. Keller) no receptacle except one of horn can contain the water; he adds, <q direct="unspecified">All that taste of it die.</q>
+               </note> which they
+					call the water of Styx : it flows from the rock in a
+					trickle, but so cold that no vessel except an ass's hoof
+					can contain it - all others it bursts and breaks apart.
+				</p>
+         </div1>
+         <div1 type="section" n="21">
+            <p>We are, further, informed by physicians that
+					generically earth is by nature astringent and cold,
+					and they enumerate many metals that provide a
+					styptic, staying effect for medicinal use. The element
+					of earth is not sharp or mobile or slender or priekly
+					or soft or ductile, but solid and compact like a cube.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 288 e and Plato, <hi rend="italics">Timaeus</hi>, 55 d-e.</note>
+					This is how it came to have weight; and the cold,
+					which is its true power, by thickening, compressing,
+					and squeezing out the humidity of bodies, induces
+					shivering and shaking through its inequality<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 948 b <hi rend="italics">supra</hi>.</note>; and
+					if it becomes complete master and expels or extinguishes all the heat, it fixes the body in a frozen
+					and corpselike condition. This is the reason why
+					earth does not burn at all, or burns only grudgingly
+					
+					<pb id="v.12.p.281"/>
+					
+					and with difficulty. Air, on the other hand, often
+					shoots forth flames from itself and, turning into fire,
+					makes streams and flashes of lightning. Heat feeds
+					on moisture,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 649 b, 687 a, 696 b; Aristotle, <hi rend="italics">Metaphysics</hi>, A 3 (983 b 23 ff.); Pseudo-Aristotle, <hi rend="italics">Problemata</hi>, 949 b 29.</note> for it is not the solid part of wood,
+					but the damp part, that is combustible ; and when
+					this is distilled, the solid, dry part remains behind,
+					reduced to ashes.<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 696 b.</note> Those who emulously strive to
+					prove that this too is changed and consumed, sprinkling it, perhaps, with oil or kneading it with suet and
+					setting it alight, accomplish nothing ; for when the
+					oily part is consumed, the earthy remains as a permanent residue, do what they may. Not only, therefore, because the earth is physically immovable from
+					its station, but also because it is unalterable in essence, it was quite appropriately called Hestia<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> Plato, <hi rend="italics">Phaedrus</hi>, 247 a and 948 b <hi rend="italics">supra</hi> with the note. For earth as Hestia see also Dio Chrys. xxxvi. 46 (L.C.L.) with Crosby's note; Dion. Hal. ii. 66. 3; Ovid, <hi rend="italics">Fasti</hi>, vi. 267; Koster, <hi rend="italics">Mnemosyne</hi>, Suppl. iii (1951), p. 7, n. 6.</note> by
+					the ancients - in as much as she <q direct="unspecified">remains in the home
+						of the gods</q> - because of its stationary and compact
+					nature ; and coldness is what binds it together, as
+					Archela&uuml;s<note resp="ed" place="unspecified" anchored="yes">Diels-Kranz, <hi rend="italics">Frag. der Vorsok.</hi>
+                  <hi rend="super">5</hi>, ii, p. 48.</note> the natural philosopher declared, since
+					nothing can relax or soften it, as a substance that is
+					subject to heating or warming might be loosened.
+				</p>
+            <p>
+					As for those who suppose that they feel cold air and
+					water, but are less sensible of earth's coldness, what
+					they perceive is that portion of earth which is closest
+					to them and has come to be a medley, a congeries,
+					abounding in air and water, sun and heat. There is
+					no difference between such people and those who
+					
+					<pb id="v.12.p.283"/>
+					
+					declare that the aether<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 951 d <hi rend="italics">supra</hi>.</note> is not naturally and primordially hot, but rather that scalding water or red
+					hot iron are - because they can feel and touch these,
+					but are unable to touch and feel the primordially
+					pure and heavenly fire. Nor likewise are these
+					persons able to touch and feel the earth at its bottommost, which is what we particularly mean by earth - 
+					earth set off alone by itself, without admixture of any
+					other element. But we can see a sample of such
+					earthiness in that statement about the cliffs<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf.</hi> 954 c-d <hi rend="italics">supra</hi>.</note> that
+					display from deep down so intense a cold that it can
+					scarcely be endured. Then, too. those who want a
+					colder drink throw pebbles into the water,<note resp="ed" place="unspecified" anchored="yes">
+                  <hi rend="italics">Cf. Mor.</hi> 690 f - 691 c.</note> which
+					becomes thicker and denser through the coldness that
+					streams upward, fresh and undiluted, from the stones.
+				</p>
+         </div1>
+         <div1 type="section" n="22">
+            <p>We must, therefore, believe that the reason
+					why ancient learned men held that there is no commerce between earthly and celestial things was not
+					that they distinguished up and down by relative
+					position, as we do in the case of scales ; but rather
+					it was the difference in powers that led them to assign
+					such things as are hot and bright, swift and buoyant,
+					to the eternal and imperishable part of nature, while
+					darkness and cold and slowness they considered the
+					unhappy heritage of transitory and submerged beings.
+					Then too, the body of a living creature, as long as it;
+					breathes and flourishes, does, as the poets say, enjoy
+					both warmth and life<note resp="ed" place="unspecified" anchored="yes">Perhaps some such passage as Homer, <hi rend="italics">Iliad</hi>, xxii. 363 is meant.</note>; but when these forsake it
+					and it is abandoned in the realm of earth alone,
+					immediately frigidity and congelation seize upon it,
+					
+					<pb id="v.12.p.285"/>
+					
+					since warmth naturally resides in anything else rather
+					than in the earthy.
+				</p>
+         </div1>
+         <div1 type="section" n="23">
+            <p>Compare these statements, Favorinus, with the
+					pronouncements of others ; and if these notions of
+					mine are neither less probable nor much more plausible than those of others, say farewell to dogma, being
+					convinced as you are that it is more philosophic to
+					suspend judgement when the truth is obscure than
+					to take sides.<note resp="ed" place="unspecified" anchored="yes">See the introduction to this essay.</note>
+				        </p>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

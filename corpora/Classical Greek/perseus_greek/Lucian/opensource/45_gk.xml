@@ -1,0 +1,594 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title>De saltatione</title>
+            <title type="sub">Machine readable text</title>
+            <author n="Plut.">Lucian</author>
+            <editor role="editor" n="Loeb">A. M. Harmon</editor>&responsibility;&fund.NEH;&fund.Google;</titleStmt>
+         <extent/>&Perseus.publish;<sourceDesc>
+            <listBibl>
+               <biblStruct>
+                  <monogr>
+                     <author>Lucian</author>
+                     <title>Works</title>
+                     <respStmt>
+                        <resp>with an English Translation by</resp>
+                        <name>A. M. Harmon</name>
+                     </respStmt>
+                     <imprint>
+                        <pubPlace>Cambridge, MA</pubPlace>
+                        <publisher>Harvard University Press</publisher>
+                        <pubPlace>London</pubPlace>
+                        <publisher>William Heinemann Ltd.</publisher>
+                        <date>1936</date>
+                     </imprint>
+                     <biblScope type="volume">5</biblScope>
+                  </monogr>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="section" n="chunk"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <pb id="v.5.p.210"/>
+         <div1>
+            <sp>
+               <speaker>*luki=nos</speaker>
+               <p>
+                  <milestone unit="section" n="1"/> e)pei\ toi/nun, w)= *kra/twn, deinh/n tina tau/thn
+kathgori/an e)k pollou=, oi)=mai, pareskeuasme/nos
+kathgo/rhkas o)rxh/sew/n te kai\ au)th=s o)rxhstikh=s,
+kai\ prose/ti h(mw=n ge tw=n xairo/ntwn th=| toiau/th| qe/a| w(s e)pi\ fau/lw| kai\ gunaikei/w| pra/gmati
+mega/lhn spoudh\n poioume/nwn, a)/kouson o(/son tou= o)rqou= dihma/rthkas kai\ w(s le/lhqas seauto\n tou= megi/stou tw=n e)n tw=| bi/w| a)gaqw=n kathgorw=n.
+kai\ suggnw/mh soi ei) e)c a)rxh=s bi/w| au)xmhrw=| suzw=n kai\ mo/non to\ sklhro\n a)gaqo\n h(gou/menos
+u(p' a)peiri/as au)tw=n kathgori/as a)/cia ei)=nai
+neno/mikas.
+</p>
+            </sp>
+            <sp>
+               <speaker>*kra/twn</speaker>
+               <p>
+                  <milestone unit="section" n="2"/> a)nh\r de\ ti/s  w)\n o(/lws,^ kai\ tau=ta paidei/a| su/ntrofos kai\ filosofi/a| ta\ me/tria w(milhkw/s, a)fe/menos, w)= *luki=ne, tou= peri\ ta\ belti/w spouda/zein kai\ toi=s palaioi=s sunei=nai ka/qhtai kataulou/menos, qhludri/an a)/nqrwpon o(rw=n e)sqh=si malakai=s
+kai\ a)/|smasin a)kola/stois e)nabruno/menon kai\ mimou/menon e)rwtika\ gu/naia, tw=n pa/lai ta\s maxlota/tas, *fai/dras kai\ *parqeno/pas kai\ *(rodo/pas tina/s,
+<pb id="v.5.p.212"/> kai\ tau=ta pa/nta u(po\ krou/masin kai\ tereti/smasi
+kai\ podw=n ktu/pw|, katage/lasta w(s a)lhqw=s
+pra/gmata kai\ h(/kista e)leuqe/rw| a)ndri\ kai\ oi(/w| soi\
+pre/ponta ; w(/ste e)/gwge puqo/menos w(s e)pi\ toiau/th| qe/a| sxola/zois, ou)k h)|de/sqhn mo/non u(pe\r sou= a)lla\ kai\ h)nia/qhn ei) *pla/twnos kai\ *xrusi/ppou kai\
+*)aristote/lous e)klaqo/menos ka/qhsai to\ o(/moion
+peponqw\s toi=s ta\ w)=ta pterw=| knwme/nois, kai\ tau=ta muri/wn a)/llwn o)/ntwn a)kousma/twn kai\ qeama/twn spoudai/wn, ei) tou/twn tis de/oito, tw=n kukli/wn au)lhtw=n kai\ tw=n kiqa/ra| ta\ e)/nnoma
+prosa|do/ntwn, kai\ ma/lista th=s semnh=s
+tragw|di/as kai\ th=s faidrota/ths kwmw|di/as, a(/per kai\
+e)nagw/nia ei)=nai h)ci/wtai.
+<milestone unit="section" n="3"/> pollh=s ou)=n, w)= gennai=e, th=s a)pologi/as soi deh/sei pro\s tou\s pepaideume/nous, ei) bou/lei mh\ panta/pasin e)kkekri/sqai kai\ th=s tw=n spoudai/wn a)ge/lhs e)celhla/sqai. kai/toi to/ ge a)/meinon e)kei=no/ e)stin, oi)=mai, a)rnh/sei to\ pa=n i)a/sasqai kai\ mhde\ th\n a)rxh\n o(mologei=n ti toiou=ton paranenomh=sqai/ soi. pro\s d' ou)=n tou)pio\n o(/ra o(/pws mh\ la/qh|s h(mi=n
+e)c a)ndro\s tou= pa/lai *ludh/ tis h)\ *ba/kxh geno/menos, o(/per ou) so\n a)\n e)/gklhma ei)/h mo/non, a)lla\ kai\
+<pb id="v.5.p.214"/> h(mw=n, ei) mh/ se kata\ to\n *)odusse/a tou= lwtou= a)pospa/santes e)pi\ ta\s sunh/qeis diatriba\s e)pana/comen pri\n la/qh|s tele/ws u(po\ tw=n e)n tw=| qea/trw|
+*seirh/nwn katesxhme/nos. kai/toi e)kei=nai me\n toi=s
+w)si\n mo/nois e)pebou/leuon kai\ dia\ tou=to khrou= e)de/hsen pro\s to\n para/ploun au)tw=n su\ de\ kai\
+di' o)fqalmw=n e)/oikas o(/los dedoulw=sqai.
+</p>
+            </sp>
+            <sp>
+               <speaker>*luki=nos</speaker>
+               <p>
+                  <milestone unit="section" n="4"/> papai=, w)= *kra/twn, w(s ka/rxaro/n tina e)/lusas
+e)f' h(ma=s to\n sautou= ku/na. plh\n to/ ge para/deigma,, th\n tw=n *lwtofa/gwn kai\ *seirh/nwn ei)ko/na, pa/nu a)nomoiota/thn moi dokei=s ei)rhke/nai w(=n pe/ponqa, par' o(/son toi=s me\n tou= lwtou= geusame/nois kai\ tw=n
+*seirh/nwn a)kou/sasin o)/leqros h)=n th=s te e)dwdh=s kai\ th=s a)kroa/sews tou)piti/mion, e)moi\ de\ pro\s tw=| th\n h(donh\n para\ polu\ h(di/w pefuke/nai ^ kai\ to/ te/los a)gaqo\n a)pobe/bhken ou) ga\r ei)s lh/qhn tw=n
+oi)/koi ou)d' ei)s a)gnwsi/an tw=n kat' e)mauto\n
+perii/stamai, a)ll' ei) xrh\ mhde\n o)knh/santa ei)pei=n,
+makrw=| pinutw/teros kai\ tw=n e)n tw=| bi/w|
+dioratikw/teros e)k tou= qea/trou soi e)panelh/luqa. ma=llon
+de/, to\ tou= *(omh/rou au)to\ ei)pei=n kalo/n, o(/ti o( tou=to
+i)dw\n to\ qe/ama <q direct="unspecified">terya/menos nei=tai kai\ plei/ona
+ei)dw/s.</q> 
+               </p>
+            </sp>
+            <sp>
+               <speaker>*kra/twn</speaker>
+               <p>
+*(hra/kleis, w)= *luki=ne, oi(=a pe/ponqas, o(\s ou)d' ai)sxu/nh| e)p' au)toi=s, a)lla\ kai\ semnunome/nw| e)/oikas.
+to\ gou=n deino/taton tou=to/ e)stin, o(/ti mhde\ i)a/sew/s tina h(mi=n u(pofai/neis e)lpi/da, e)painei=n tolmw=n ta\
+ou(/tws ai)sxra\ kai\ kata/ptusta.
+<pb id="v.5.p.216"/>
+               </p>
+            </sp>
+            <sp>
+               <speaker>*luki=nos</speaker>
+               <p>
+                  <milestone unit="section" n="5"/> ei)pe/ moi, w)= *kra/twn, tauti\ de\ peri\ o)rxh/sews kai\ tw=n e)n tw=| qea/trw| ginome/nwn i)dw\n polla/kis au)to\s e)pitima=|s, h)\ a)pei/ratos w)\n tou= qea/matos o(/mws ai)sxro\n au)to\ kai\ kata/ptuston, w(s fh/s, nomi/zeis ; ei) me\n ga\r ei)=des, e)c i)/sou h(mi=n kai\ su\ gege/nhsai: ei) de\ mh/, o(/ra mh\ a)/logos h( e)piti/mhsis
+ei)=nai/ sou do/ch| kai\ qrasei=a, kathgorou=ntos w(=n a)gnoei=s.	</p>
+            </sp>
+            <sp>
+               <speaker>*kra/twn</speaker>
+               <p>
+e)/ti '
+ga\r tou=to/ moi to\ loipo\n h)=n, e)n baqei= tou/tw| tw=| pw/gwni kai\ polia=| th=| ko/mh| kaqh=sqai me/son e)n toi=s gunai/ois kai\ toi=s memhno/sin e)kei/nois qeatai=s, krotou=nta/ te prose/ti kai\ e)pai/nous a)prepesta/tous e)pibow=nta o)le/qrw| tini\ a)nqrw/pw|
+e)s ou)de\n de/on kataklwme/nw|.
+</p>
+            </sp>
+            <sp>
+               <speaker>*luki=nos</speaker>
+               <p>
+suggnwsta/ sou tau=ta, w)= *kra/twn. ei) de/ moi peisqei/hs pote\ kai\ o(/son pei/ras e(/neka para/sxois seauto\n a)napeta/sas tou\s o)fqalmou/s, eu)= oi)=da w(s ou)k a)na/sxoio a)\n mh\ ou)xi\ pro\ tw=n a)/llwn qe/an e)n e)pithdei/w| katalamba/nwn o(/qen kai\ o)/yei a)kribw=s
+kai\ a)kou/sh| a(/panta.
+</p>
+            </sp>
+            <sp>
+               <speaker>*kra/twn</speaker>
+               <p> mh\ w(/ras ^ a)/ra i(koi/mhn, ei)/ ti toiou=ton a)nasxoi/mhn pote/, e)/st' a)\n dasu/s te ei)/hn ta\ ske/lh kai\ to\
+<pb id="v.5.p.218"/> ge/neion a)para/tiltos: w(s nu=n ge kai\ se\ h)/dh e)lew= tele/ws h(mi=n e)kbebakxeume/non.
+</p>
+            </sp>
+            <sp>
+               <speaker>*luki=nos</speaker>
+               <p>
+                  <milestone unit="section" n="6"/> bou/lei ou)=n a)fe/menos, w)= e(tai=re, tw=n blasfhmiw=n tou/twn a)kou=sai\ mou/ ti peri\ o)rxh/sews le/gontos kai\ tw=n e)n au)th=| kalw=n, kai\ w(s ou)
+terpnh\ mo/non a)lla\ kai\ w)fe/limo/s e)stin toi=s qewme/nois, kai\ o(/sa paideu/ei kai\ o(/sa dida/skei, kai\
+w(s r(uqmi/zei tw=n o(rw/ntwn ta\s yuxa/s, kalli/stois qea/masin e)ggumna/zousa kai\ a)ri/stois a)kou/smasin e)ndiatri/bousa kai\ koino/n ti yuxh=s kai\ sw/matos ka/llos e)pideiknume/nh ; to\ ga\r kai\ meta\ mousikh=s
+kai\ r(uqmou= tau=ta pa/nta poiei=n ou) yo/gos a)\n au)th=s a)ll' e)/painos ma=llon ei)/h.
+</p>
+            </sp>
+            <sp>
+               <speaker>*kra/twn</speaker>
+               <p> e)moi\ me\n ou) pa/nu sxolh\ memhno/tos a)nqrw/pou a)kroa=sqai th\n no/son th\n au(tou= e)painou=ntos: 
+su\ de\ ei) bou/lei lh=ro/n tina kataskeda/sai mou,
+e(/toimos filikh\n tau/thn leitourgi/an u(posth=nai
+kai\ parasxei=n ta\ w)=ta, kai\ a)/neu khrou= parakou/ein tw=n fau/lwn duna/menos. w(/ste h)/dh siwph/somai/ soi, kai\ le/ge o(po/sa e)qe/leis w(s mhde\ a)kou/onto/s tinos.
+</p>
+            </sp>
+            <sp>
+               <speaker>*luki=nos</speaker>
+               <p>
+                  <milestone unit="section" n="7"/> eu)= ge, w)= *kra/twn, kai\ tou/tou e)deo/mhn ma/lista: ei)/sh| ga\r met' o)li/gon ^ ei) lh=ros ei)=nai/ soi do/cei
+ta\ lexqhso/mena. kai\ prw=to/n ge e)kei=no pa/nu
+h)gnohke/nai moi dokei=s, w(s ou) new/teron to\ th=s o)rxh/sews e)pith/deuma tou=to/ e)stin ou)de\ xqe\s kai\ prw/|hn a)rca/menon, oi(=on kata\ tou\s propa/toras
+<pb id="v.5.p.220"/>
+h(mw=n h)\ tou\s e)kei/nwn, a)ll' oi(/ ge ta)lhqe/stata
+o)rxh/sews pe/ri genealogou=ntes a(/ma th=| prw/th|
+gene/sei tw=n o(/lwn fai=en a)/n soi kai\ o)/rxhsin a)nafu=nai,
+tw=| a)rxai/w| e)kei/nw| *)/erwti sunanafanei=san. h( gou=n xorei/a tw=n a)ste/rwn kai\ h( pro\s tou\s a)planei=s tw=n planh/twn sumplokh\ kai\ eu)/ruqmos au)tw=n koinwni/a kai\ eu)/taktos a(rmoni/a th=s prwtogo/nou
+o)rxh/sews dei/gmata/ e)stin. kat' o)li/gon de\
+au)canome/nh kai\ th=s pro\s to\ be/ltion a)ei\ prosqh/khs tugxa/nousa, nu=n e)/oiken e)s to\ a)kro/taton
+a)potetele/sqai kai\ gegenh=sqai poiki/lon ti kai\ panarmo/nion kai\ polu/mouson a)gaqo/n.
+<milestone unit="section" n="8"/> prw=ton de/ fasin *(re/an h(sqei=san th=| te/xnh| e)n
+*frugi/a| me\n tou\s *koru/bantas, e)n *krh/th| de\ tou\s
+*kourh=tas o)rxei=sqai keleu=sai, kai\ ou) ta\ me/tria
+w)/nato th=s te/xnhs au)tw=n, oi(/ ge periorxou/menoi
+diesw/santo au)th=| to\n *di/a, w(/ste kai\ sw=stra ei)ko/tws
+a)\n o( *zeu\s o)fei/lein o(mologoi/h au)toi=s, e)kfugw\n dia\ th\n e)kei/nwn o)/rxhsin tou\s patrw/|ous o)do/ntas.
+e)no/plios de\ au)tw=n h( o)/rxhsis h)=n, ta\ ci/fh metacu\ krotou/ntwn pro\s ta\s a)spi/das kai\ phdw/ntwn e)/nqeo\n
+ti kai\ polemiko/n.
+<pb id="v.5.p.222"/> *meta\ de/, *krhtw=n oi( kra/tistoi e)nergw=s e)pithdeu/santes au)to\ a)/ristoi o)rxhstai\ e)ge/nonto, ou)x
+oi( i)diw=tai mo/non, a)lla\ kai\ oi( basilikw/teroi kai\ prwteu/ein a)ciou=ntes. o( gou=n *(/omhros to\n *mhrio/nhn, ou)k ai)sxu=nai boulo/menos a)lla\ kosmh=sai, o)rxhsth\n prosei=pen, kai\ ou(/tws a)/ra e)pi/shmos h)=n
+kai\ gnw/rimos a(/pasin e)pi\ th=| o)rxhstikh=| w(/ste ou)x
+oi( *(/ellhnes mo/non tau=ta h)pi/stanto peri\ tau=ta a)lla\ kai\ oi( *trw=es au)toi/, kai/toi pole/mioi o)/ntes:
+e(w/rwn ga/r, oi)=mai, kai\ th\n e)n tw=| polemei=n au)tou= koufo/thta kai\ eu)ruqmi/an, h(\n e)c o)rxh/sews e)ke/kthto.
+fhsi\n de\ ta\ e)/ph w(=de/ pws: *mhrio/nh, ta/xa ke/n se kai\ o)rxhsth/n per e)o/nta e)/gxos e)mo\n kate/pause. kai\ o(/mws ou) kate/pausen au)to\n a(/te ga\r
+h)skhme/nos e)n th=| o)rxhstikh=|, r(a|di/ws, oi)=mai, diedi/drasken ta\s e)p' au)to\n a)fe/seis tw=n a)konti/wn.
+<milestone unit="section" n="9"/> pollou\s de\ kai\ a)/llous tw=n h(rw/wn ei)pei=n e)/xwn toi=s au)toi=s e)ggegumnasme/nous kai\ te/xnhn
+to\ pra=gma pepoihme/nous, i(kano\n h(gou=mai to\n *neopto/lemon, *)axille/ws me\n pai=da o)/nta, pa/nu de\
+diapre/yanta e)n th=| o)rxhstikh=| kai\ ei)=dos to\ ka/lliston au)th=| prosteqeiko/ta, *purri/xion a)p' au)tou= keklhme/non kai\ o( *)axilleu/s, tau=ta u(pe\r tou= paido\s punqano/menos, ma=llon e)/xairen, oi)=mai,
+h)\ e)pi\ tw=| ka/llei kai\ th=| a)/llh| a)lkh=| au)tou=. toigarou=n th\n *)/ilion, te/ws a)na/lwton ou)=san, h(
+<pb id="v.5.p.224"/> e)kei/nou o)rxhstikh\ kaqei=len kai\ ei)s e)/dafos
+kate/rriyen.
+<milestone unit="section" n="10"/> *lakedaimo/nioi me/n, a)/ristoi *(ellh/nwn ei)=nai dokou=ntes, para\ *poludeu/kous kai\ *ka/storos karuati/zein maqo/ntes o)rxh/sews de\ kai\ tou=to ei)=dos,
+e)n *karu/ais th=s *lakwnikh=s didasko/menon ^ a(/panta meta\ *mousw=n poiou=sin, a)/xri tou= polemei=n pro\s au)lo\n kai\ r(uqmo\n kai\ eu)/takton e)/mbasin tou= podo/s: kai\ to\ prw=ton su/nqhma *lakedaimoni/ois pro\s th\n ma/xhn o( au)lo\s e)ndi/dwsin. toigarou=n kai\ e)kra/toun
+a(pa/ntwn, mousikh=s au)toi=s kai\ eu)ruqmi/as h(goume/nhs.
+i)/dois d' a)\n nu=n e)/ti kai\ tou\s e)fh/bous au)tw=n ou) mei=on o)rxei=sqai h)\ o(plomaxei=n manqa/nontas: o(/tan ga\r a)kroxeirisa/menoi kai\ pai/santes kai\ paisqe/ntes e)n tw=| me/rei pau/swntai, ei)s o)/rxhsin au)toi=s
+h( a)gwni/a teleuta=|, kai\ au)lhth\s me\n e)n tw=| me/sw| ka/qhtai e)paulw=n kai\ ktupw=n tw=| podi/, oi( de\ kata\ stoi=xon a)llh/lois e(po/menoi sxh/mata pantoi=a e)pidei/knuntai pro\s r(uqmo\n e)mbai/nontes, a)/rti me\n
+<pb id="v.5.p.226"/> polemika/, met' o)li/gon de\ xoreutika/, a(\ *dionu/sw|
+<milestone unit="section" n="11"/> kai\ *)afrodi/th| fi/la. toigarou=n kai\ to\ a)=|sma
+o(\ metacu\ o)rxou/menoi a)/|dousin *)afrodi/ths
+e)pi/klhsi/s e)stin kai\ *)erw/twn, w(s sugkwma/zoien au)toi=s kai\ sunorxoi=nto. kai\ qa/teron de\ tw=n
+a)|sma/twn &mdash; du/o ga\r a)/|detai &mdash; didaskali/an e)/xei w(s xrh\ o)rxei=sqai. <q direct="unspecified"> po/rrw </q>  ga/r, fasi/n, <q direct="unspecified">w)= pai=des, po/da meta/bate kai\ kwma/cate ^ be/ltion,</q>  toute/stin a)/meinon o)rxh/sasqe.
+o(/moia de\ kai\ oi( to\n o(/rmon kalou/menon
+o(/rmon<milestone unit="section" n="12"/> kalou/menon poiou=sin. o( de\ o(/rmos o)/rxhsi/s e)stin koinh\ e)fh/bwn te kai\ parqe/nwn, par' e(/na xoreuo/ntwn
+kai\ w(s a)lhqw=s o(/rmw| e)oiko/twn kai\ h(gei=tai me\n
+o( e)/fhbos ta\ neanika\ o)rxou/menos kai\ o(/sois u(/steron
+e)n pole/mw| xrh/setai, h( parqe/nos de\ e(/petai kosmi/ws
+to\ qh=lu xoreu/ein dida/skousa, w(s ei)=nai to\n o(/rmon
+e)k swfrosu/nhs kai\ a)ndrei/as pleko/menon. kai\ ai( gumnopaidi/ai ^ de\ au)toi=s o(moi/ws o)/rxhsi/s e)stin.
+<milestone unit="section" n="13"/> a(\ de\ *(/omhros u(pe\r *)aria/dnhs e)n th=| a)spi/di pepoi/hken kai\ tou= xorou= o(\n au)th=| *dai/dalos
+h)/skhsen w(s a)negnwko/ti soi pari/hmi, kai\ tou\s o)rxhsta\s de\ tou\s du/o ou(\s e)kei= o( poihth\s
+kubisthth=ras kalei=, h(goume/nous tou= xorou=, kai\ pa/lin a(\ e)n
+th=| au)th=| a)spi/di le/gei: <q direct="unspecified">kou=roi d' o)rxhsth=res e)di/neon,</q> ^ w(/s ti ka/lliston tou=to tou= *(hfai/stou e)mpoih/santos th=| a)spi/di. tou\s me\n ga\r *fai/akas
+<pb id="v.5.p.228"/>
+kai\ pa/nu ei)ko\s h)=n o)rxh/sei xai/rein, a(brou/s te
+o)/ntas kai\ e)n pa/sh| eu)daimoni/a| diatri/bontas. o( gou=n *(/omhros tou=to au)tw=n ma/lista qauma/zonta
+pepoi/hke to\n *)odusse/a kai\ ta\s marmaruga\s tw=n podw=n qew/menon.
+<milestone unit="section" n="14"/> e)n me/n ge *qessali/a| tosou=ton e)pe/dwken th=s o)rxhstikh=s h( a)/skhsis, w(/ste tou\s prosta/tas kai\
+proagwnista\s au)tw=n proorxhsth=ras e)ka/loun
+kai\ dhlou=si tou=to ai( tw=n a)ndria/ntwn e)pigrafai\
+ou(/s toi=s a)risteu/ousin a)ni/stasan <q direct="unspecified"> prou)/krinen</q>  ga/r, fasi/n <q direct="unspecified">proorxhsth=ra a( po/lis.</q>  kai\ au)=qis, <q direct="unspecified">*ei)lati/wni ta\n ei)ko/na o( da=mos eu)= o)rxhsame/nw| ta\n ma/xan.</q> 
+                  <milestone unit="section" n="15"/> e)w= le/gein, o(/ti teleth\n ou)demi/an a)rxai/an
+e)/stin eu(rei=n a)/neu o)rxh/sews, *)orfe/ws dhladh\ kai\ *mousai/ou kai/. tw=n to/te a)ri/stwn o)rxhstw=n katasthsame/nwn au)ta/s, w(/s ti ka/lliston kai\ tou=to nomoqethsa/ntwn, su\n r(uqmw=| kai\ o)rxh/sei muei=sqai. o(/ti d' ou(/tws e)/xei, ta\ me\n o)/rgia siwpa=n a)/cion tw=n
+a)muh/twn e(/neka, e)kei=no de\ pa/ntes a)kou/ousin, o(/ti tou\s e)cagoreu/ontas ta\ musth/ria e)corxei=sqai le/gousin oi( polloi/.
+<milestone unit="section" n="16"/> e)n *dh/lw| de/ ge ou)de\ ai( qusi/ai a)/neu o)rxh/sews a)lla\ su\n tau/th| kai\ meta\ mousikh=s e)gi/gnonto. pai/dwn xoroi\ sunelqo/ntes u(p' au)lw=| kai\ kiqa/ra| oi( me\n e)xo/reuon, u(pwrxou=nto de\ oi( a)/ristoi
+<pb id="v.5.p.230"/> prokriqe/ntes e)c au)tw=n. ta\ gou=n toi=s xoroi=s grafo/mena tou/tois a)/|smata u(porxh/mata e)kalei=to kai\ e)mpe/plhsto tw=n toiou/twn h( lu/ra.
+<milestone unit="section" n="17"/> kai\ ti/ soi tou\s *(/ellhnas le/gw, o(/pou kai\ *)indoi\ e)peida\n e(/wqen a)nasta/ntes proseu/xwntai to\n *(/hlion, ou)x w(/sper h(mei=s th\n xei=ra ku/santes h(gou/meqa e)ntelh= h(mw=n ei)=nai, th\n eu)xh/n, a)ll' e)kei=noi pro\s th\n a)natolh\n sta/ntes o)rxh/sei to\n
+*(/hlion a)spa/zontai, sxhmati/zontes e(autou\s siwph=| kai\ mimou/menoi th\n xorei/an tou= qeou=: kai\ tou=t' e)stin *)indw=n kai\ eu)xh\ kai\ xoroi\ kai\ qusi/a. dio\ kai\ tou/tois i(leou=ntai to\n qeo\n di/s, kai\ a)rxome/nhs kai\
+duome/nhs th=s h(me/ras.
+<milestone unit="section" n="18"/> *ai)qi/opes de/ ge kai\ polemou=ntes su\n o)rxh/sei au)to\ drw=sin, kai\ ou)k a)\n a)fei/h to\ be/los *ai)qi/oy
+a)nh/r a)felw\n th=s kefalh=s &mdash; tau/th| ga\r a)nti\ fare/tras
+xrw=ntai peride/ontes au)th=| a)ktinhdo\n ta\ be/lh &mdash; ei)
+mh\ pro/teron o)rxh/saito kai\ tw=| sxh/mati a)peilh/seie kai\ proekfobh/seie th=| o)rxh/sei to\n pole/mion.
+<milestone unit="section" n="19"/> a)/cion de/, e)pei\ th\n *)indikh\n kai\ th\n *ai)qiopi/an diecelhlu/qamen, kai\ e)s th\n gei/tona au)tw=n *ai)/gupton katabh=nai tw=| lo/gw|. dokei= ga/r moi o( palaio\s
+mu=qos kai\ *prwte/a to\n *ai)gu/ption ou)k a)/llo ti
+h)\ o)rxhsth/n tina gene/sqai le/gein, mimhtiko\n
+<pb id="v.5.p.232"/>
+a)/nqrwpon kai\ pro\s pa/nta sxhmati/zesqai kai\ metaba/llesqai duna/menon, w(s kai\ u(/datos u(gro/thta mimei=sqai kai\ puro\s o)cu/thta e)n th=| th=s kinh/sews
+sfodro/thti kai\ le/ontos a)grio/thta kai\ parda/lews qumo\n kai\ de/ndrou do/nhma, kai\ o(/lws o(/ ti kai\
+qelh/seien. o( de\ mu=qos paralabw\n pro\s to\
+paradoco/teron th\n fu/sin au)tou= dihgh/sato, w(s gignome/nou tau=ta a(/per e)mimei=to. o(/per dh\ kai\ toi=s nu=n o)rxoume/nois pro/sestin, i)/dois t' a)\n
+ou)=n au)tou\s pro\s to\n kairo\n ^ w)ke/ws diallattome/nous kai\ au)to\n mimoume/nous to\n *prwte/a.
+ei)ka/zein de\ xrh\ kai\ th\n *)/empousan th\n e)s muri/as morfa\s metaballome/nhn toiau/thn tina\ a)/nqrwpon u(po\ tou= mu/qou paradedo/sqai.
+<milestone unit="section" n="20"/> e)pi\ tou/tois di/kaion mhde\ th=s *(rwmai/wn
+o)rxh/sews a)mnhmonei=n, h(\n oi( eu)gene/statoi au)tw=n
+tw=| polemikwta/tw| tw=n qew=n *)/arei, oi( *sa/lioi kalou/menoi i(erwsu/nhs de\ tou=to o)/noma, o)rxou=ntai,
+<milestone unit="section" n="21"/> semnota/thn te a(/ma kai\ i(erwta/thn. *biquno\s de\ mu=qos, kai\ ou(=tos ou) pa/nu tw=n *)italiwtikw=n
+a)llo/trios, fhsi\n to\n *pri/apon dai/mona polemisth/n,
+tw=n *tita/nwn oi)=mai e(/na h)\ tw=n *)idai/wn *daktu/lwn
+tou=to e)/rgon pepoihme/non, ta\ e)no/plia paideu/ein, paralabo/nta para\ th=s *(/hras to\n *)/arh, pai=da me\n e)/ti, sklhro\n de\ kai\ pe/ra tou= metri/ou a)ndriko/n,
+mh\ pro/teron o(plomaxei=n dida/cai pri\n te/leion
+o)rxhsth\n a)peirga/sato. kai\ e)pi\ tou/tw| kai\ misqo\s au)tw=| para\ th=s *(/hras e)ge/neto, deka/thn
+<pb id="v.5.p.234"/> a)ei\ tw=n e)k pole/mou perigignome/nwn tw=| *)/arei
+par' au)tou= lamba/nein.
+<milestone unit="section" n="22"/> ta\ me\n ga\r *dionusiaka\ kai\ *bakxika\ oi)=mai/ se
+mh\ perime/nein e)mou= a)kou=sai, o(/ti o)/rxhsis e)kei=na pa/nta h)=n. triw=n gou=n ou)sw=n tw=n genikwta/twn
+o)rxh/sewn, ko/rdakos kai\ sikinni/dos kai\ e)mmelei/as,
+oi( *dionu/sou qera/pontes oi( *sa/turoi tau/tas
+e)feuro/ntes a)f' au(tw=n e(ka/sthn w)no/masan, kai\ tau/th| th=| te/xnh| xrw/menos o( *dio/nusos, fasi/n *turrhnou\s kai\ *)indou\s kai\ *ludou\s e)xeirw/sato kai\ fu=lon ou(/tw ma/ximon toi=s au(tou= qia/sois katwrxh/sato.
+<milestone unit="section" n="23"/> w(/ste, w)= qauma/sie, o(/ra mh\ a)no/sion h)=|
+kathgorei=n e)pithdeu/matos qei/ou te a(/ma kai\ mustikou= kai\ tosou/tois qeoi=s e)spoudasme/nou kai\ e)pi\ timh=| au)tw=n drwme/nou kai\ tosau/thn te/ryin a(/ma
+kai\ paidei/an ^ w)fe/limon parexome/nou. qauma/zw de/ sou ka)kei=no, ei)dw\s *(omh/rou
+kai\ *(hsio/dou ma/lista e)rasth\n o)/nta se au)=qis
+ga/r e)pi\ tou\s poihta\s e)pa/neimi, pw=s a)ntifqe/ggesqai e)kei/nois tolma=|s pro\ tw=n pa/ntwn o)/rxhsin
+e)painou=sin. o( me\n ga\r *(/omhros ta\ h(/dista kai\ ka/llista katale/gwn, u(/pnon kai\ filo/thta kai\ molph\n kai\ o)/rxhsin<!--note n="v.5.p.234.n.1" place="unspecified" anchored="yes" /--> , mo/nhn tau/thn a)mu/mona w)no/masen, prosmarturh/sas nh\ *di/a kai\ to\ h(du\
+th=| molph=|, a(/per a)mfo/tera th=| o)rxhstikh=|] pro/sestin,
+kai\ w)|dh\ glukera\ kai\ o)rxhsmo\s ^ a)mu/mwn, o(\n
+<pb id="v.5.p.236"/>
+su\ nu=n mwma=sqai e)pinoei=s. kai\ pa/lin e)n e(te/rw|
+me/rei th=s poih/sews:
+a)/llw| me\n ga\r e)/dwke qeo\s polemh/i+a e)/rga, a)/llw| d' o)rxhstu/n te kai\ i(mero/essan a)oidh/n. i(mero/essa ga\r w(s a)lhqw=s h( met' o)rxh/sews w)|dh\ kai\ dw=ron qew=n tou=to ka/lliston. kai\ e)/oiken ei)s du/o dih|rhkw\s o( *(/omhros ta\ pa/nta pra/gmata, po/lemon kai\ ei)rh/nhn, toi=s tou= pole/mou mo/na tau=ta
+<milestone unit="section" n="24"/> w(s ka/llista a)ntiteqeike/nai. o( de\ *(hsi/odos, ou) par' a)/llou a)kou/sas a)ll' i)dw\n au)to\s e(/wqen eu)qu\s o)rxoume/nas ta\s *mou/sas, e)n a)rxh=| tw=n e)pw=n tou=to peri\ au)tw=n to\ me/giston e)gkw/mion dihgei=tai, o(/ti <q direct="unspecified"> peri\ krh/nhn i)oeide/a po/ss1' a(paloi=sin o)rxeu=ntai,</q>  tou= patro\s to\n bwmo\n perixoreu/ousai. a)lla\ su\ me/n, w)= gennai=e, mononouxi\ qeomaxw=n
+<milestone unit="section" n="25"/> u(bri/zeis ei)s th\n o)rxhstikh\n o( *swkra/ths de/,
+sofw/tatos a)nh/r, ei)/ ge pisteute/on tou=to peri\
+au)tou= le/gonti tw=| *puqi/w|, ou) mo/non e)ph/|nei th\n o)rxhstikh\n a)lla\ kai\ e)kmaqei=n au)th\n h)ci/ou, me/giston ne/mwn ^ eu)ruqmi/a| kai\ eu)mousi/a| kai\ kinh/sei e)mmelei= kai\ eu)sxhmosu/nh| tou= kinoume/nou: kai\ ou)k h)|dei=to ge/rwn a)nh\r e(/n tw=n spoudaiota/twn maqhma/twn kai\ tou=to h(gou/menos ei)=nai. kai\
+e)/melle/n ge e)kei=nos peri\ o)rxhstikh\n ou) metri/ws spouda/sesqai, o(/s ge kai\ ta\ mikra\ ou)k w)/knei manqa/nein, a)lla\ kai\ ei)s ta\ didaskalei=a tw=n au)lhtri/dwn e)foi/ta kai\ par' e(tai/ras gunaiko\s ou)k a)phci/ou
+<pb id="v.5.p.238"/>
+spoudai=o/n ti a)kou/ein, th=s *)aspasi/as. kai/toi e)kei=nos a)/rti a)rxome/nhn e(w/ra to/te th\n te/xnhn kai\
+ou)de/pw ei)s tosou=ton ka/llos dihrqrwme/nhn. ei)
+de\ tou\s nu=n e)pi\ me/giston au)th\n proagago/ntas e)qea=to, eu)= oi)=da, pa/ntwn a)\n e)kei=no/s ge a)fe/menos
+mo/nw| tw=| qea/mati tou/tw| to\n nou=n a)\n prosei=xen kai\
+tou\s pai=das ou)k a)\n a)/llo ti pro\ au)tou= e)dida/cato.
+<milestone unit="section" n="26"/> dokei=s de/ moi, o(/tan kwmw|di/an kai\ tragw|di/an e)painh=|s, e)pilelh=sqai o(/ti kai\ e)n e(kate/ra| e)kei/nwn
+o)rxh/sews i)/dio/n ti ei)=do/s e)stin, oi(=on tragikh\ ^ me\n h( e)mme/leia, kwmw|dikh\ de\ o( ko/rdac, e)ni/ote de\ kai\ tri/ths, ^ sikinni/dos, proslambanome/nhs. e)pei\
+de\ e)n a)rxh=| kai\ proeti/mhsas th=s o)rxh/sews th\n
+tragw|di/an kai\ kwmw|di/an kai\ au)lhta\s kukli/ous
+kai\ kiqarw|di/an, e)nagw/nia tau=ta kai\ dia\ tou=to semna\ proseipw/n, fe/re nu=n a)nteceta/swmen th=|
+o)rxh/sei e(/kaston au)tw=n. kai/toi to\n me\n au)lo/n,
+ei) dokei=, kai\ th\n kiqa/ran parw=men: me/rh ga/r th=s tou= o)rxhstou= u(phresi/as kai\ tau=ta.
+<milestone unit="section" n="27"/> th\n tragw|di/an de/ ge a)po\ tou= sxh/matos prw/tou katama/qwmen oi(/a e)sti/n, w(s ei)dexqe\s a(/ma kai\
+fobero\n qe/ama ei)s mh=kos a)/rruqmon h)skhme/nos
+a)/nqrwpos, e)mba/tais u(yhloi=s e)poxou/menos,
+pro/swpon u(pe\r kefalh=s a)nateino/menon e)pikei/menos kai\ sto/ma kexhno\s pa/mmega w(s katapio/menos
+tou\s qeata/s. e)w= le/gein prosterni/dia kai\
+<pb id="v.5.p.240"/> progastri/dia, prosqeth\n kai\ e)pitexnhth\n paxu/thta prospoiou/menos, w(s mh\ tou= mh/kous h( a)rruqmi/a
+e)n leptw=| ma=llon e)le/gxoito: ei)=t' e)/ndoqen au)to\s
+kekragw/s, e(auto\n a)naklw=n kai\ kataklw=n, e)ni/ote kai\ peria/|dwn ta\ i)ambei=a kai/, to\ dh\ ai)/sxiston, melw|dw=n ta\s sumfora/s, kai\ mo/nhs th=s fwnh=s u(peu/qunon pare/xwn e(auto/n: ta\ ga\r a)/lla toi=s poihtai=s e)me/lhsen pro\ pollou= pote genome/nois. kai\ me/xri me\n *)androma/xh tis h)\ *(eka/bh e)sti/n, forhto\s h( w)|dh/: o(/tan de\ *(hraklh=s au)to\s ei)selqw\n monw|dh=|, e)pilaqo/menos au(tou= kai\ mh/te th\n leonth=n ai)desqei\s mh/te to\ r(o/palon o(\ peri/keitai, soloiki/an
+eu)= fronw=n ei)ko/tws fai/h a)/n tis to\ pra=gma.
+<milestone unit="section" n="28"/> kai\ ga\r au)= o(/per e)neka/leis th=| o)rxhstikh=|, to\ a)/ndras o)/ntas mimei=sqai gunai=kas, koino\n tou=to
+kai\ th=s tragw|di/as kai\ th=s kwmw|di/as e)/gklhma
+a)\n ei)/h: plei/ous gou=n e)n au)tai=s tw=n a)ndrw=n ai(
+<milestone unit="section" n="29"/> gunai=kes. h( kwmw|di/a de\ kai\ tw=n prosw/pwn au)tw=n
+to\ katage/laston me/ros tou= terpnou= au(th=| neno/miken,
+oi(=a *da/wn kai\ *tibei/wn kai\ magei/rwn pro/swpa.
+to\ de\ tou= o)rxhstou= sxh=ma w(s me\n ko/smion kai\ eu)prepe\s ou)k e)me\ xrh\ le/gein, dh=la ga\r toi=s mh\ tufloi=s tau=ta: to\ de\ pro/swpon au)to\ w(s
+ka/lliston kai\ tw=| u(pokeime/nw| dra/mati e)oiko/s, ou) kexhno\s de\ w(s e)kei=na a)lla\ summemuko/s e)/xei ga\r
+<milestone unit="section" n="30"/> pollou\s tou\s u(pe\r au)tou= bow=ntas. pa/lai me\n ga\r au)toi\ kai\ h)=|don kai\ w)rxou=nto: ei)=t' e)peidh\
+<pb id="v.5.p.242"/> kinoume/nwn to\ a)=sqma th\n w)|dh\n e)peta/ratten, a)/meinon e)/docen a)/llous au)toi=s u(pa/|dein.
+<milestone unit="section" n="31"/> ai( de\ u(poqe/seis koinai\ a)mfote/rois, kai\ ou)de\n
+ti diakekrime/nai tw=n tragikw=n ai( o)rxhstikai/, plh\n o(/ti poikilw/terai au(=tai kai\ polumaqe/sterai
+kai\ muri/as metabola\s e)/xousai.
+<milestone unit="section" n="32"/> ei) de\ mh\ e)nagw/nios h( o)/rxhsis, e)kei/nhn ei)=nai/ fhmi ai)ti/an, to\ do/cai toi=s a)gwnoqe/tais mei=zon
+kai\ semno/teron to\ pra=gma h)\ w(/ste ei)s e)ce/tasin kalei=sqai. e)w= le/gein o(/ti po/lis e)n *)itali/a|, tou= *xalkidikou= ge/nous h( a)ri/sth, kai\ tou=to w(/sper ti
+ko/smhma tw=| par' au)toi=s a)gw=ni proste/qeiken.
+<milestone unit="section" n="33"/> e)qe/lw de/ soi e)ntau=qa h)/dh a)pologh/sasqai u(pe\r tw=n paraleleimme/nwn tw=| lo/gw| pampo/llwn
+o)/ntwn, w(s mh\ do/can a)gnoi/as h)\ a)maqi/as para/sxwmai.
+ou) ga/r me le/lhqen o(/ti polloi\ pro\ h(mw=n peri\ o)rxh/sews suggegrafo/tes th\n plei/sthn diatribh\n th=s grafh=s e)poih/santo pa/nta th=s o)rxh/sews ta\ ei)/dh e)pecio/ntes kai\ o)no/mata au)tw=n katale/gontes
+kai\ oi(/a e(ka/sth kai\ u(f' o(/tou eu(re/qh, polumaqi/as tau/thn e)pi/deicin h(gou/menoi pare/cein. e)gw\ de\
+ma/lista me\n th\n peri\ tau=ta filotimi/an
+a)peiro/kalo/n te kai\ o)yimaqh= kai\ e)mautw=| a)/kairon oi)/omai
+<milestone unit="section" n="34"/> ei)=nai kai\ dia\ tou=to pari/hmi: e)/peita de\ ka)kei=no\
+se a)ciw= e)nnoei=n kai\ memnh=sqai, o(/ti moi nu=n ou) pa=san o)/rxhsin pro/keitai genealogei=n, ou)de\ tou=ton to\n skopo\n u(pesthsa/mhn tw=| lo/gw|, o)rxh/sewn
+<pb id="v.5.p.244"/>
+o)no/mata katariqmh/sasqai, plh\n o(/swn e)n a)rxh=|
+o)li/gwn e)pemnh/sqhn ta\s genikwte/ras au)tw=n proxeirisa/menos: a)lla\ to/ ge e)n tw=| paro/nti moi kefa/laion tou= lo/gou tou=to/ e)stin, th\n nu=n o)/rxhsin kaqestw=san e)paine/sai kai\ dei=cai o(/sa e)n au(th=| terpna\ kai\ xrh/sima perilabou=sa e)/xei, ou) pa/lai a)rcame/nh e)s tosou=to ka/llos e)pidido/nai, a)lla\ kata\ to\n *sebasto\n ma/lista.
+ai( me\n ga\r prw=tai e)kei=nai w(/sper tine\s r(i/zai kai\ qeme/lioi ^ th=s o)rxh/sews h)=san, to\ de\ a)/nqos
+au)th=s kai\ to\n telew/taton karpo/n, o(/sper ^ nu=n ma/lista e)s to\ a)kro/taton a)potete/lestai, tou=ton ^
+ou)=n o( h(me/teros lo/gos diece/rxetai, parei\s to\ qermaustri/zein kai\ ge/ranon o)rxei=sqai kai\ ta\ a)/lla w(s mhde\n th=| nu=n tau/th| e)/ti prosh/konta. ou)de\ ga\r e)kei=no to\ *fru/gion th=s o)rxh/sews ei)=dos,
+to\ paroi/nion kai\ sumpotiko/n, meta\ me/qhs
+gigno/menon a)groi/kwn polla/kis pro\s au)/lhma gunaikei=on
+o)rxoume/nwn sfodra\ kai\ kamathra\ ^ phdh/mata, kai\ nu=n e)/ti tai=s a)groiki/ais e)pipola/zonta,^ u(p' a)gnoi/as pare/lipon, a)ll' o(/ti mhde\n tau=ta th=| nu=n o)rxh/sei koinwnei=. kai\ ga/r o( *pla/twn e)n toi=s
+*no/mois ta\ me/n tina ei)/dh e)painei= tau/ths, ta\ de\ pa/nu a)pacioi=, diairw=n au)ta\ e)/s te to\ terpno\n kai\
+<pb id="v.5.p.246"/>
+to\ xrh/simon kai\ a)pelau/nwn au)tw=n ta\ a)sxhmone/stera, protimw=n de\ kai\ qauma/zwn qa/tera.
+<milestone unit="section" n="35"/> kai\ peri\ me\n au)th=s o)rxh/sews tosau=ta: to\ ga\r pa/nta e)pecio/nta mhku/nein to\n lo/gon
+a)peiro/kalon. a(\ de\ to\n o)rxhsth\n au)to\n e)/xein xrh\ kai\ o(/pws dei= h)skh=sqai kai\ a(\ memaqhke/nai kai\ oi(=s
+kratu/nein to\ e)/rgon, h)/dh soi di/eimi, w(s ma/qh|s
+ou) tw=n r(a|di/wn kai\ tw=n eu)metaxeiri/stwn ou)=san th/n te/xnhn, a)lla\ pa/shs paideu/sews e)s to\ a)kro/taton a)fiknoume/nhn, ou) mousikh=s mo/non a)lla\ kai\ r(uqmikh=s kai\ metrikh=s, kai\ th=s sh=s filosofi/as ma/lista, th=s te fusikh=s kai\ th=s h)qikh=s: th\n ga\r dialektikh\n au)th=s periergi/an a)/kairon au(th=|
+neno/miken. ou) mh\n ou)de\ r(htorikh=s a)fe/sthken, a)lla\
+kai\ tau/ths mete/xei, kaq' o(/son h)/qous te kai\ pa/qous e)pideiktikh/ e)stin, w(=n kai\ oi( r(h/tores gli/xontai. ou)k a)ph/llaktai de\ kai\ grafikh=s kai\
+plastikh=s, a)lla\ kai\ th\n e)n tau/tais eu)ruqmi/an ma/lista mimoume/nh fai/netai, w(s mhde\n a)mei/nw mh/te *feidi/an au)th=s mh/te *)apellh=n ei)=nai dokei=n.
+<milestone unit="section" n="36"/> pro\ pa/ntwn de\ *mnhmosu/nhn kai\ th\n qugate/ra au)th=s *polu/mnian i(/lewn e)/xein au)th=| pro/keitai, kai\ memnh=sqai peira=tai a(pa/ntwn. kata\ ga/r toi to\n
+*(omhriko\n *ka/lxanta to\n o)rxhsth\n ei)de/nai xrh\ <q direct="unspecified">ta/ t' e)o/nta ta/ t' e)sso/mena pro/ t' e)o/nta,</q> w(s mhde\n au)to\n dialanqa/nein,^ a)ll' ei)=nai pro/xeiron th\n mnh/mhn au)tw=n. kai\ to\ me\n kefa/laion th=s u(posxe/sews,^ mimhtikh\ ti/s  e)stin e)pisth/mh kai\ deiktikh\ kai\ tw=n e)nnohqe/ntwn e)cagoreutikh\ kai\
+<pb id="v.5.p.248"/> tw=n a)fanw=n safhnistikh/, kai\ o(/per o( *qoukudi/dhs peri\ tou= *perikle/ous e)/fh e)painw=n to\n a)/ndra, tou=to kai\ to\ tou= o)rxhstou= a)kro/taton a)\n e)gkw/mion ei)/h, gnw=nai/ te ta\ de/onta kai\ e(rmhneu=sai au)ta/: e(rmhnei/an de\ nu=n th\n safh/neian tw=n sxhma/twn le/gw. h( de\ pa=sa tw=| e)/rgw| xorhgi/a h( palaia\ i(stori/a e)sti/n, w(s proei=pon, kai\ h( pro/xeiros
+<milestone unit="section" n="37"/> au)th=s mnh/mh te kai\ met' eu)prepei/as e)pi/deicis: a)po\ ga\r xa/ous eu)qu\s kai\ th=s prw/ths tou= ko/smou gene/sews a)rca/menon xrh\ au)to\n a(/panta ei)de/nai a)/xri tw=n kata\ th\n *kleopa/tran th\n *ai)gupti/an. tou/tw| ga\r tw=| diasth/mati periwri/sqw h(mi=n h( tou= o)rxhstou= polumaqi/a kai\ ta\ dia\ me/sou ma/lista i)/stw, *ou)ranou= tomh/n, *)afrodi/ths gona/s, *tita/nwn ma/xhn, *dio\s ge/nesin, *(re/as a)pa/thn, li/qou u(pobolh/n, *kro/nou desma/, to\n tw=n triw=n
+<milestone unit="section" n="38"/> a)delfw=n klh=ron. ei)=ta e(ch=s *giga/ntwn e)pana/stasin, puro\s kloph/n, a)nqrw/pwn pla/sin, *promhqe/ws ko/lasin, *)/erwtos i)sxu\n e(kate/rou,^ kai\ meta\ tau=ta *dh/lou pla/nhn kai\ *lhtou=s w)di=nas kai\
+<pb id="v.5.p.250"/> *pu/qwnos a)nai/resin kai\ *tituou= e)piboulh\n kai\ to\ me/son th=s gh=s eu(risko/menon pth/sei tw=n a)etw=n.
+<milestone unit="section" n="39"/> *deukali/wna e)pi\ tou/tois, kai\ th\n mega/lhn e)p' e)kei/nou tou= bi/ou nauagi/an, kai\ la/rnaka mi/an
+lei/yanon tou= a)nqrwpi/nou ^ ge/nous fula/ttousan, kai\
+e)k li/qwn a)nqrw/pous pa/lin ei)=ta *)ia/kxou sparagmo\n kai\ *(/hras do/lon kai\ *seme/lhs kata/flecin kai\ *dionu/sou a)mfote/ras ta\s gona/s, kai\ o(/sa peri\ *)aqhna=s kai\ o(/sa peri\ *(hfai/stou kai\ *)erixqoni/ou, kai\ th\n e)/rin th\n peri\ th=s *)attikh=s, kai\
+*(alirro/qion kai\ th\n prw/thn e)n *)arei/w| pa/gw| kri/sin, kai\ o(/lws th\n *)attikh\n pa=san
+muqologi/an:<milestone unit="section" n="40"/>: e)caire/tws de\ th\n *dh/mhtros pla/nhn kai\
+*ko/rhs eu(/resin kai\ *keleou= ceni/an kai\ *triptole/mou gewrgi/an kai\ *)ikari/ou a)mpelourgi/an kai\ th\n
+*)hrigo/nhs sumfora/n, kai\ o(/sa peri\ *bore/ou kai\ o(/sa peri\ *)wreiqui/as kai\ *qhse/ws kai\ *ai)ge/ws. e)/ti de\ th\n *mhdei/as u(podoxh\n kai\ au)=qis e)s *pe/rsas fugh\n kai\ ta\s *)erexqe/ws qugate/ras kai\ ta\s *pandi/onos, a(/ te e)n *qra/|kh| e)/paqon kai\ e)/pracan.
+ei)=ta o( *)aka/mas kai\ h( *fulli\s kai\ h( prote/ra de\ th=s *(ele/nhs a(rpagh\ kai\ h( stratei/a tw=n *dioskou/rwn
+<pb id="v.5.p.252"/> e)pi\ th\n po/lin kai\ to\ *(ippolu/tou pa/qos kai\ *(hrakleidw=n ka/qodos: *)attika\ ga/r kai\ tau=ta ei)ko/tws
+a)\n nomi/zoito. tau=ta me\n ta\ *)aqhnai/wn o)li/ga pa/nu dei/gmatos
+e(/neka e)k pollw=n tw=n paraleleimme/nwn dih=lqon.
+<milestone unit="section" n="41"/> e(ch=s de\ ta\ *me/gara kai\ *ni=sos kai\ *sku/lla kai\ porfurou=s plo/kamos kai\ *mi/nwos po/ros kai\ peri\ th\n eu)erge/tin a)xaristi/a. oi(=s e(ch=s o( *kiqairw\n
+kai\ ta\ *qhbai/wn kai\ *labdakidw=n pa/qh kai\ *ka/dmou e)pidhmi/a kai\ boo\s o)/klasis kai\ o)/fews o)do/ntes kai\ *spartw=n a)na/dosis kai\ au)=qis tou= *ka/dmou ei)s dra/konta metabolh\ kai\ pro\s lu/ran tei/xisis kai\ mani/a tou= teixopoiou= kai\ th=s gunaiko\s au)tou=
+th=s *nio/bhs h( megalauxi/a kai\ h( e)pi\ tw=| pe/nqei sigh\ kai\ ta\ *penqe/ws kai\ *)aktai/wnos kai\ ta\ *oi)di/podos kai\ *(hraklh=s su\n toi=s a)/qlois au)tou=
+a(/pasin kai\ h( tw=n pai/dwn sfagh/.
+<milestone unit="section" n="42"/> ei)=q' h( *ko/rinqos ple/a kai\ au(/th mu/qwn, th\n *glau/khn kai\ to\n *kre/onta e)/xousa, kai\ pro\ au)tw=n to\n *bellerofo/nthn kai\ th\n *sqene/boian kai\ *(hli/ou ma/xhn kai\ *poseidw=nos, kai\ meta\ tau=ta th\n *)aqa/mantos mani/an kai\ tw=n *nefe/lhs pai/dwn e)pi\ tou= kriou= th\n ; diae/rion fugh/n,  <gap/> *)inou=s ^ kai\ *melike/rtou u(podoxh/n.
+<pb id="v.5.p.254"/>
+                  <milestone unit="section" n="43"/> e)pi\ tou/tois ta\ *pelopidw=n kai\ *mukh=nai kai\
+ta\ e)n au)tai=s kai\ pro\ au)tw=n, *)/inaxos kai\ *)iw\ kai\
+o( frouro\s au)th=s *)/argos kai\ *)atreu\s kai\ *que/sths
+kai\ *)aero/ph, kai\ to\ xrusou=n a)rni/on kai\ *pelopei/as ^ ga/mos kai\ *)agame/mnonos sfagh\ kai\
+*klutaimh/stras timwri/a kai\ e)/ti pro\ tou/twn h( tw=n e(pta\ loxagw=n stratei/a kai\ h( tw=n fuga/dwn gambrw=n tou= *)adra/stou u(podoxh\ kai\ o( e)p'
+au)toi=s xrhsmo\s kai\ h( tw=n peso/ntwn a)tafi/a kai\ *)antigo/nhs dia\ tau=ta kai\ *menoike/ws a)pw/leia.
+<milestone unit="section" n="44"/> kai\ ta\ e)n *neme/a| de/, h( *(uyipu/lh kai\ *)arxe/moros,
+a)nagkaio/tata tw=| o)rxhsth=| mnhmoneu/mata. kai\
+pro\ au)tw=n ei)/setai th\n *dana/hs parqe/neusin kai\
+*perse/ws ge/nesin kai\ to\n e)pi\ ta\s *gorgo/nas a)=qlon
+au)tw=| proh|rhme/non, w(=| oi)kei/a kai\ h( *ai)qiopikh\ dih/ghsis, *kassie/peia kai\ *)androme/da kai\ *khfeu/s,
+ou(\s kai\ a)/strois e)gkate/lecen h( tw=n meta\ tau=ta pi/stis. ka)kei=na de\ ta\ a)rxai=a ta\ *ai)gu/ptou kai\
+*danaou= ei)/setai kai\ th\n e)piqala/mion e)piboulh/n.
+<milestone unit="section" n="45"/> ou)k o)li/ga de\ kai\ h( *lakedai/mwn toiau=ta
+pare/xetai, to\n *(ua/kinqon kai\ to\n tou= *)apo/llwnos
+a)nterasth\n *ze/furon kai\ th\n u(po\ tw=| di/skw| tou= meiraki/ou
+sfagh\n kai\ to\ e)k tou= ai(/matos a)/nqos kai\ th\n e)n
+<pb id="v.5.p.256"/>
+au)tw=| ai)a/zousan e)pigrafh/n, kai\ th\n *tunda/rew a)na/stasin kai\ th\n *dio\s e)pi\ tou/tw| kat' *)asklhpiou= o)rgh\n e)/ti de\ kai\ to\n *pa/ridos cenismo\n kai\ th\n *(ele/nhs a(rpagh\n meta\ th\n. e)pi\ tw=| mh/lw|
+<milestone unit="section" n="46"/> kri/sin. nomiste/on ga\r th=| *spartiatikh=| i(stori/a|
+kai\ th\n *)iliakh\n sunh=fqai, pollh\n ou)=san kai\ polupro/swpon kaq' e(/kaston gou=n tw=n e)kei= peso/ntwn dra=ma th=| skhnh=| pro/keitai: kai\ memnh=sqai de\ tou/twn dei= ma/lista,^ a)po\ th=s a(rpagh=s eu)qu\s a)/xri tw=n e)n toi=s no/stois gegenhme/nwn kai\ th=s *ai)nei/ou pla/nhs kai\ *didou=s e)/rwtos.
+w(=n ou)k a)llo/tria kai\ ta\ peri\ to\n *)ore/sthn
+dra/mata kai\ ta\ e)n *skuqi/a| tw=| h(/rwi+ tetolmhme/na. ou)k a)pw|da\ de\ kai\ ta\ pro\ tou/twn, a)lla\ toi=s *)iliakoi=s suggenh=, *)axille/ws e)n *sku/rw| parqe/neusis kai\ *)odusse/ws mani/a kai\ *filokth/tou e)rhmi/a, kai\ o(/lws h( pa=sa *)odu/sseios pla/nh
+kai\ *ki/rkh kai\ *thle/gonos kai\ h( *ai)o/lou tw=n a)ne/mwn dunastei/a kai\ ta\ a)/lla me/xri th=s tw=n mnhsth/rwn timwri/as: kai\ pro\ tou/twn h( kata\ *palamh/dous e)piboulh\ kai\ h( *naupli/ou o)rgh\ kai\ h( *ai)/antos mani/a kai\ h( qate/rou e)n tai=s pe/trais a)pw/leia.
+<pb id="v.5.p.258"/>
+                  <milestone unit="section" n="47"/> e)/xei polla\s kai\ *)=hlis a)forma\s toi=s o)rxei=sqai
+peirwme/nois, to\n *oi)no/maon, to\n *murti/lon, to\n *kro/non, to\n *di/a, tou\s prw/tous tw=n *)olumpi/wn
+<milestone unit="section" n="48"/> a)gwnista/s. pollh\ de\ kai\ h( kat' *)arkadi/an muqologi/a, *da/fnhs fugh/, *kallistou=s qhri/wsis, *kentau/rwn paroini/a, *pano\s gonai/, *)alfeiou=
+e)/rws kai\ u(/falos a)podhmi/a.
+<milestone unit="section" n="49"/> a)lla\ ka)\n ei)s th\n *krh/thn a)fi/kh| tw=| lo/gw|, pa/mpolla ka)kei=qen h( o)/rxhsis e)rani/zetai, th\n
+*eu)rw/phn, th\n *pasifa/hn, tou\s tau/rous a)mfote/rous, to\n labu/rinqon, th\n *)aria/dnhn, th\n *fai/dran, to\n *)andro/gewn, to\n *dai/dalon, to\n *)/ikaron, to\n *glau=kon, th\n *polui+/dou mantikh/n, to\n *ta/lw, to\n
+<milestone unit="section" n="50"/> xalkou=n th=s *krh/ths peri/polon. ka)\n ei)s *ai)twli/an mete/lqh|s, ka)kei= polla\ h( o)/rxhsis katalamba/nei,
+th\n *)alqai/an, to\n *mele/agron, th\n *)atala/nthn, to\n dalo/n, kai\ potamou= kai\ *(hrakle/ous pa/lhn kai\ *seirh/nwn ge/nesin kai\ *)exina/dwn a)na/dosin kai\ meta\ th\n mani/an *)alkmai/wnos oi)/khsin ei)=ta *ne/sson kai\
+*dhi+anei/ras zhlotupi/an, e)f' h(=| th\n e)n *oi)/th| pura/n.
+<milestone unit="section" n="51"/> e)/xei kai\ *qra/|kh polla\ tw=| o)rxhsome/nw|
+a)nagkai=a, to\n *)orfe/a, to\n e)kei/nou sparagmo\n kai\
+th\n la/lon au)tou= kefalh\n th\n e)piple/ousan th=|
+<pb id="v.5.p.260"/>
+lu/ra| , kai\ to\n *ai(=mon kai\ th\n *(rodo/phn, kai\ th\n
+<milestone unit="section" n="52"/> *lukou/rgou ko/lasin. kai\ *qessali/a de\ e)/ti plei/w
+pare/xetai, to\n *peli/an, to\n *)ia/sona, th\n *)/alkhstin, to\n tw=n penth/konta ne/wn sto/lon, th\n *)argw/,
+<milestone unit="section" n="53"/> th\n la/lon au)th=s tro/pin, ta\ e)n *lh/mnw|, to\n *ai)h/thn,
+to\n *mhdei/as o)/neiron, to\n *)ayu/rtou sparagmo\n kai\
+ta\ e)n tw=| para/plw| geno/mena, kai\ meta\ tau=ta to\n *prwtesi/laon kai\ th\n *laoda/meian.
+<milestone unit="section" n="54"/> ka)\n ei)s th\n *)asi/an pa/lin diabh=|s, polla\ ka)kei=
+dra/mata: h( ga\r *sa/mos eu)qu\s kai\ to\ *polukra/tous pa/qos kai\ th=s qugatro\s au)tou= me/xri *persw=n pla/nh, kai\ ta\ e)/ti a)rxaio/tera, h( tou= *tanta/lou
+fluari/a kai\ h( par' au)tw=| qew=n e(sti/asis kai\ h(
+*pe/lopos kreourgi/a kai\ o( e)lefa/ntinos w)=mos
+au)tou=.
+<milestone unit="section" n="55"/> kai\ e)n *)itali/a| de\ o( *)hridano\s kai\ *fae/qwn kai\ ai)/geiroi a)delfai\ qrhnou=sai kai\ h)/lektron
+dakru/ousai<milestone unit="section" n="56"/> . ei)/setai de\ o( toiou=tos kai\ ta\s *(esperi/das kai\
+to\n frouro\n th=s xrush=s o)pw/ras dra/konta kai\
+to\n *)/atlantos mo/xqon kai\ to\n *ghruo/nhn kai\ th\n
+<milestone unit="section" n="57"/> e)c *)eruqei/as e)/lasin tw=n bow=n. ou)k a)gnoh/sei
+<pb id="v.5.p.262"/>
+de\ kai\ ta\s muqika\s metamorfw/seis a(pa/sas,
+o(/soi ei)s de/ndra h)\ qhri/a h)\ o)/rnea h)lla/ghsan kai\ o(/sai e)k gunaikw=n a)/ndres e)ge/nonto, to\n *kaine/a le/gw kai\ to\n *teiresi/an kai\ tou\s toiou/tous.
+<milestone unit="section" n="58"/> kai\ e)n *foini/kh| de\ *mu/rran kai\ to\ *)assu/rion e)kei=no pe/nqos merizo/menon, kai\ tau=ta ei)/setai,
+kai\ ta\ new/tera de\ o(/sa meta\ th\n *makedo/nwn a)rxh\n e)tolmh/qh u(po/ te *)antipa/trou kai\ para\
+*seleu/kw|<milestone unit="section" n="59"/> e)pi\ tw=| *stratoni/khs e)/rwti. ta\ ga\r *ai)gupti/wn, mustikw/tera o)/nta, ei)/setai me/n,
+sumbolikw/teron de\ e)pidei/cetai: to\n *)/epafon le/gw kai\
+to\n *)/osirin kai\ ta\s tw=n qew=n ei)s ta\ zw=|a metabola/s. pro\ pa/ntwn de\ ta\ peri\ tou\s e)/rwtas au)tw=n kai\ au)tou= tou= *dio\s kai\ ei)s o(/sa e(auto\n meteskeu/asen
+<milestone unit="section" n="60"/> ei)/setai, kai\ ^ th\n e)n *(/aidou a(/pasan tragw|di/an kai\ ta\s kola/seis kai\ ta\s e)f' e(ka/sth| ai)ti/as kai\ th\n
+*peiri/qou kai\ *qhse/ws a)/xri tou= *(/aidou e(tairei/an.
+<milestone unit="section" n="61"/> sunelo/nti de\ ei)pei=n, ou)de\n tw=n u(po\ tou= *(omh/rou kai\ *(hsio/dou kai\ tw=n a)ri/stwn poihtw=n kai\ ma/lista th=s tragw|di/as legome/nwn a)gnoh/sei.
+<pb id="v.5.p.264"/> *tau=ta pa/nu o)li/ga e)k pollw=n, ma=llon de\ a)pei/rwn
+to\ plh=qos, e)celw\n ta\ kefalaiwde/stera kate/leca, ta\ a)/lla toi=s te poihtai=s a)/|dein a)fei\s kai\ toi=s o)rxhstai=s au)toi=s deiknu/nai kai\ soi\
+proseceuri/skein kaq' o(moio/thta tw=n proeirhme/nwn, a(/per
+a(/panta pro/xeira kai\ pro\s to\n kairo\n e(/kaston tw=| o)rxhsth=| propeporisme/na kai\ protetamieume/na kei=sqai a)nagkai=on.
+<milestone unit="section" n="62"/> e)pei\ de\ mimhtiko/s e)sti kai\ kinh/masi ta\
+a)|do/mena dei/cein u(pisxnei=tai, a)nagkai=on au)tw=|, o(/per
+kai\ toi=s r(h/torsi, safh/neian a)skei=n, w(s e(/kaston tw=n deiknume/nwn u(p' au)tou= dhlou=sqai mhdeno\s e)chghtou= deo/menon, a)ll' o(/per e)/fh o( *puqiko\s
+xrhsmo/s, dei= to\n qew/menon o)/rxhsin kai\ kwfou= sunie/nai kai\ mh\ lale/ontos tou= o)rxhstou= a)kou/ein.
+<milestone unit="section" n="63"/> o(/ dh\ kai\ *dhmh/trion to\n *kuniko\n paqei=n le/gousin. e)pei\ ga\r kai\ au)to\s o(/moia/ soi kathgo/rei th=s
+o)rxhstikh=s, le/gwn tou= au)lou= kai\ tw=n suri/ggwn
+kai\ tw=n ktu/pwn pa/rergo/n ti to\n o)rxhsth\n ei)=nai, mhde\n au)to\n pro\s to\ dra=ma suntelou=nta, kinou/menon de\ a)/logon a)/llws ki/nhsin kai\ ma/taion, ou)deno\s au)th=| nou= proso/ntos, tw=n de\ a)nqrw/pwn toi=s peri\ to\ pra=gma gohteuome/nwn,^: e)sqh=ti shrikh=| kai\ proswpei/w| eu)prepei=, au)lw=| te kai\ tereti/smasi kai\ th=| tw=n a)|do/ntwn eu)fwni/a|, oi(=s kosmei=sqai mhde\n o)\n to\ tou= o)rxhstou= pra=gma, o(
+to/te kata\ to\n *ne/rwna eu)dokimw=n o)rxhsth/s, ou)k
+<pb id="v.5.p.266"/> a)su/netos, w(/s fasin, a)ll' ei) kai/ tis a)/llos e)/n te i(stori/as mnh/mh| kai\ kinh/sews ka/llei dienegkw/n, e)deh/qh tou= *dhmhtri/ou eu)gnwmonesta/thn, oi)=mai, th\n de/hsin, i)dei=n o)rxou/menon, e)/peita kathgorei=n
+au)tou= kai\ u(pe/sxeto/ ge a)/neu au)lou= kai\ a)|sma/twn e)pidei/cesqai au)tw=|. kai\ ou(/tws e)poi/hsen: h(suxi/an ga\r toi=s te ktupou=si kai\ toi=s au)lou=si kai\ au)tw=|
+paraggei/las tw=| xorw=|, au)to\s e)f' e(autou= w)rxh/sato th\n *)afrodi/ths kai\ *)/areos moixei/an, *(/hlion mhnu/onta, kai\ *(/hfaiston e)pibouleu/onta kai\ toi=s desmoi=s a)mfote/rous, th/n te *)afrodi/thn kai\ to\n
+*)/arh, saghneu/onta, kai\ tou\s e)festw=tas qeou\s
+e(/kaston au)tw=n, kai\ ai)doume/nhn me\n th\n *)afrodi/thn, u(podedoiko/ta de\ kai\ i(keteu/onta to\n *)/arh, kai\ o(/sa th=| i(stori/a| tau/th| pro/sestin, w(/ste to\n *dhmh/trion u(perhsqe/nta toi=s gignome/nois tou=ton e)/painon a)podou=nai to\n me/giston tw=| o)rxhsth=| a)ne/krage ga\r kai\ mega/lh| th=| fwnh=| a)nefqe/gcato, <q direct="unspecified"> a)kou/w, a)/nqrwpe, a(\ poiei=s: ou)x o(rw= mo/non,
+a)lla/ moi dokei=s tai=s xersi\n au)tai=s lalei=n.</q> 
+                  <milestone unit="section" n="64"/> e)pei\ de\ kata\ to\n *ne/rwna/ e)smen tw=| lo/gw|,
+bou/lomai kai\ barba/rou a)ndro\s to\ e)pi\ tou= au)tou= o)rxhstou= geno/menon ei)pei=n, o(/per me/gistos e)/painos o)rxhstikh=s ge/noit' a)/n. tw=n ga\r e)k tou= *po/ntou barba/rwn basiliko/s tis a)/nqrwpos kata/ ti xre/os
+h(/kwn w(s to\n *ne/rwna e)qea=to meta\ tw=n a)/llwn
+to\n o)rxhsth\n e)kei=non ou(/tw safw=s o)rxou/menon
+w(s kai/toi mh\ e)pakou/onta tw=n a)|dome/nwn &mdash; h(mie/llhn ga/r tis w)\n e)tu/gxanen &mdash; sunei=nai a(pa/ntwn. kai\
+<pb id="v.5.p.268"/>
+dh\ a)piw\n h)/dh e)s th\n oi)kei/an,^ tou= *ne/rwnos
+decioume/nou kai\ o(/ ti bou/loito ai)tei=n keleu/ontos kai\ dw/sein u(pisxnoume/nou, <q direct="unspecified"> to\n o)rxhsth/n,</q>  e)/fh, <q direct="unspecified">dou\s ta\ me/gista eu)franei=s.</q>  tou= de\
+*ne/rwnos e)rome/nou, <q direct="unspecified">ti/  a)/n soi xrh/simos ge/noito e)kei= ;</q> 
+                  <q direct="unspecified"> prosoi/kous,</q>  e)/fh, <q direct="unspecified"> barba/rous e)/xw, ou)x
+o(moglw/ttous, kai\ e(rmhne/wn ou) r(a/|dion eu)porei=n pro\s au)tou/s. h)\n ou)=n tinos de/wmai, dianeu/wn ou(=tos
+e(/kasta/ moi e(rmhneu/sei.</q>  tosou=ton a)/ra kaqi/keto au)tou= h( mi/mhsis th=s o)rxh/sews e)pi/shmo/s te kai\ safh\s fanei=sa.
+<milestone unit="section" n="65"/> h( de\ plei/sth diatribh\ kai\ o( skopo\s th=s o)rxhstikh=s h( u(po/krisi/s e)stin, w(s e)/fhn, kata\ ta\ au)ta\ kai\ toi=s r(h/torsin e)pithdeuome/nh, kai\ ma/lista toi=s ta\s kaloume/nas tau/tas mele/tas dieciou=sin: ou)de\n gou=n kai\ e)n e)kei/nois ma=llon e)painou=men h)\ to\ ^
+e)oike/nai toi=s u(pokeime/nois prosw/pois kai\ mh\ a)pw|da\ ei)=nai ta\ lego/mena tw=n ei)sagome/nwn a)riste/wn h)\ turannokto/nwn h)\ penh/twn h)\ gewrgw=n, a)ll' e)n e(ka/stw| tou/twn to\ i)/dion kai\ to\ e)cai/reton dei/knusqai.
+<milestone unit="section" n="66"/> e)qe/lw gou=n soi kai\ a)/llou barba/rou r(h=sin e)pi\ tou/tois ei)pei=n, i)dw\n ga\r pe/nte pro/swpa tw=| o)rxhsth=| pareskeuasme/na &mdash; tosou/twn ga\r merw=n
+to\ dra=ma h)=n &mdash; e)zh/tei, e(/na o(rw=n to\n o)rxhsth/n, ti/nes oi( o)rxhso/menoi kai\ u(pokrinou/menoi ta\ loipa\ proswpei=a ei)=en e)pei\ de\ e)/maqen o(/ti au)to\s u(pokrinei=tai kai\ u(porxh/setai ta\ pa/nta, <q direct="unspecified"> e)lelh/qeis,</q>  e)/fh, <q direct="unspecified">w)= be/ltiste, sw=ma me\n tou=to e(/n, polla\s  ta\s yuxa\s e)/xwn.</q> 
+                  <pb id="v.5.p.270"/>
+                  <milestone unit="section" n="67"/> tau=ta me\n o( ba/rbaros. ou)k a)peiko/tws de\ kai\
+oi( *)italiw=tai to\n o)rxhsth\n panto/mimon kalou=sin, a)po\ tou= drwme/nou sxedo/n. kalh\ ga\r h( poihtikh\ parai/nesis e)kei/nh, to/, <q direct="unspecified">w)= pai=, ponti/ou qhro\s petrai/ou no/on e)/xwn ^ pa/sais poli/essin o(mi/lei,</q> kai\ tw=| o)rxhsth=| a)nagkai/a: kai\ dei= prosfu/nta toi=s pra/gmasin sunoikeiou=n e(auto\n e(ka/stw| tw=n drwme/nwn.
+to\ de\ o(/lon h)/qh kai\ pa/qh dei/cein kai\ u(pokrinei=sqai h( o)/rxhsis e)pagge/lletai, nu=n me\n e)rw=nta, nu=n de\ o)rgizo/meno/n tina ei)sa/gousa, kai\ a)/llon memhno/ta kai\ a)/llon leluphme/non, kai\ a(/panta tau=ta memetrhme/nws. to\ gou=n paradoco/taton, th=s au)th=s h(me/ras a)/rti me\n *)aqa/mas memhnw/s, a)/rti de\ *)inw\ foboume/nh dei/knutai, kai\ a)/llote *)atreu\s o( au)to/s, kai\ meta\ mikro\n *que/sths, ei)=ta *ai)/gisqos h)\ *)aero/ph: kai\ pa/nta tau=ta ei(=s
+a)/nqrwpo/s e)stin,
+<milestone unit="section" n="68"/> ta\ me\n ou)=n a)/lla qea/mata kai\ a)kou/smata e(no\s e(ka/stou e)/rgou th\n e)pi/deicin e)/xei h)\ ga\r
+au)lo/s e)stin h)\ kiqa/ra h)\ dia\ fwnh=s melw|di/a h)\
+tragikh\ dramatourgi/a h)\ kwmikh\ gelwtopoii/a:
+o( de\ o)rxhsth\s ta\ pa/nta e)/xei sullabw/n, kai\ e)/nestin poiki/lhn kai\ pammigh= th\n paraskeuh\n
+au)tou= i)dei=n, au)lo/n, su/rigga, podw=n ktu/pon, kumba/lou yo/fon, u(pokritou= eu)fwni/an, a)|do/ntwn
+o(mofwni/an.
+<pb id="v.5.p.272"/>
+                  <milestone unit="section" n="69"/> e)/ti de\ ta\ me\n a)/lla qate/rou tw=n e)n tw=| a)nqrw/pw| e)/rga e)sti/n, ta\ me\n yuxh=s, ta\ de\ sw/matos: e)n de\
+th=| o)rxh/sei a)mfo/tera summe/miktai. kai\ ga\r dianoi/as e)pi/deicin ta\ gigno/mena e)/xei kai\ swmatikh=s a)skh/sews e)ne/rgeian, to\ de\ me/giston h( sofi/a tw=n drwme/nwn kai\ to\ mhde\n e)/cw lo/gou. *lesbw=nac gou=n o( *mutilhnai=os, a)nh\r kalo\s kai\ a)gaqo/s, xeiriso/fous tou\s o)rxhsta\s a)peka/lei kai\
+h)/|ei e)pi\ th\n qe/an au)tw=n w(s belti/wn a)nastre/ywn a)po\ tou= qea/trou. *timokra/ths de\ o( dida/skalos
+au)tou= i)dw/n pote a(/pac, ou)k e)cepi/thdes e)pista/s,
+o)rxhsth\n ta\ au(tou= poiou=nta, <q direct="unspecified">oi(/ou me,</q>  e)/fh <q direct="unspecified"> qea/matos h( pro\s filosofi/an ai)dw\s a)peste/rhken.</q> 
+                  <milestone unit="section" n="70"/> ei) d' e)/stin a)lhqh= a(\ peri\ yuxh=s o( *pla/twn le/gei,
+ta\ tri/a me/rh au)th=s kalw=s o( o)rxhsth\s dei/knusin,
+to\ qumiko\n o(/tan o)rgizo/menon e)pidei/knutai, to\
+e)piqumhtiko\n o(/tan e)rw=ntas u(pokri/nhtai, to\ logistiko\n o(/tan e(/kasta tw=n paqw=n xalinagwgh=|: tou=to me/n ge e)n a(/panti me/rei th=s o)rxh/sews kaqa/per h( a(fh\ e)n tai=s ai)sqh/sesin pare/spartai.^ ka/llous de\ pronow=n kai\ th=s e)n toi=s ai)sqh/sesin
+eu)morfi/as, ti/ a)/llo h)\ to\ tou= *)aristote/lous
+e)palhqeu/ei, to\ ka/llos e)painou=ntos kai\ me/ros tri/ton h(goume/nou ta)gaqou= kai\ tou=to ei)=nai ;
+h)/kousa de/ tinos kai\ peritto/tero/n ti neanieuome/nou
+<pb id="v.5.p.274"/> u(pe\r th=s tw=n o)rxhstikw=n proswpei/wn siwph=s, o(/ti kai\ au(/th *puqagoriko/n ti do/gma ai)ni/ttetai.
+<milestone unit="section" n="71"/> e)/ti de\ tw=n a)/llwn e)pithdeuma/twn tw=n me\n to\
+terpno/n, tw=n de\ to\ xrh/simon u(pisxnoume/nwn,
+mo/nh o)/rxhsis a)/mfw e)/xei, kai\ polu/ ge to\ xrh/simon
+w)felimw/teron o(/sw| meta\ tou= terpnou= gi/gnetai.
+po/sw| ga\r tou=to o(ra=n h(/dion h)\ pukteu/ontas
+neani/skous kai\ ai(/mati r(eome/nous, kai\ palai/ontas a)/llous e)n ko/nei, ou(\s h( o)/rxhsis polla/kis a)sfale/steron a(/ma kai\ eu)morfo/teron kai\ terpno/teron e)pidei/knutai. th\n me\n ou)=n ge su/ntonon ki/nhsin th=s o)rxhstikh=s kai\ strofa\s au)th=s kai\ periagwga\s
+kai\ phdh/mata kai\ u(ptiasmou\s toi=s me\n a)/llois terpna\ ei)=nai sumbe/bhken o(rw=sin, toi=s de\ e)nergou=sin au)toi=s u(gieino/tata: gumnasi/wn ga/r to\
+ka/llisto/n te a(/ma kai\ eu)ruqmo/taton tou=to fai/hn
+a)\n e)/gwge ei)=nai, mala/tton me\n to\ sw=ma kai\ ka/mpton
+kai\ koufi/zon kai\ eu)xere\s ei)=nai pro\s metabolh\n dida/skon, i)sxu/n te ou) mikra\n peripoiou=n toi=s sw/masin.
+<milestone unit="section" n="72"/> pw=s ou)=n ou) panarmo/nio/n ti xrh=ma o)/rxhsis, qh/gousa me\n th\n yuxh/n, a)skou=sa de\ kai\ to\ sw=ma, te/rpousa de\ tou\s o(rw=ntas, dida/skousa de\ polla\ tw=n pa/lai u(p' au)loi=s kai\ kumba/lois kai\ melw=n eu)ruqmi/a| kai\ khlh/sei dia/ te o)fqalmw=n kai\ a)koh=s ; ei)/t' ou)=n ^ fwnh=s eu)moiri/an zhtei=s, pou= a)\n a)llaxo/qi
+eu(/rois, h)\ poi=on polufwno/teron a)/kousma h)\ e)mmele/steron ; ei)/te au)lou= kai\ su/riggos to\ ligurw/teron,
+<pb id="v.5.p.276"/>
+a(/lis kai\ tou/twn e)n o)rxh/sei a)polau=sai/ soi pa/restin.
+e)w= le/gein w(s a)mei/nwn to\ h)=qos o(milw=n th=| toiau/th| qe/a| genh/sh|, o(/tan o(ra=|s ^ to\ qe/atron misou=n me\n ta\ kakw=s gigno/mena, e)pidakru=on de\ toi=s a)dikoume/nois,
+kai\ o(/lws ta\ h)/qh tw=n o(rw/ntwn paidagwgou=n.
+<milestone unit="section" n="73"/> o(\ de/ e)sti ma/lista e)pi\ tw=n o)rxhstw=n e)paine/sai, tou=to h)/dh e)rw=: to\ ga\r i)sxu/n te a(/ma kai\
+u(gro/thta tw=n melw=n e)pithdeu/ein o(moi/ws para/docon ei)=nai/ moi dokei= w(s ei)/ tis e)n tw=| au)tw=| kai\ *(hrakle/ous to\ kartero\n kai\ *)afrodi/ths to\ a(bro\n deiknu/oi.
+<milestone unit="section" n="74"/> e)qe/lw de\ h)/dh kai\ u(podei=cai/ soi tw=| lo/gw| o(poi=on xrh\ ei)=nai to\n a)/riston o)rxhsth\n e)/n te yuxh=| kai\
+sw/mati. kai/toi th=s me\n yuxh=s proei=pon ta\
+plei=sta mnhmoniko/n te 'ga/r ei)=nai ^ kai\ eu)fua= kai\ suneto\n kai\ o)cu\n e)pinoh=sai kai\ kairou= ma/lista e)stoxa/sqai fhmi\ dei=n au)to/n, e)/ti de\ kritiko/n te poihma/twn kai\ a)|sma/twn kai\ melw=n tw=n a)ri/stwn
+diagnwstiko\n kai\ tw=n kakw=s pepoihme/nwn
+e)legktiko/n<milestone unit="section" n="75"/>. to\ de\ sw=ma kata\ to\n *poluklei/tou
+kano/na h)/dh e)pidei/cein moi dokw=: mh/te ga\r
+u(yhlo\s a)/gan e)/stw kai\ pe/ra tou= metri/ou e)pimh/khs mh/te tapeino\s kai\ nanw/dhs th\n fu/sin, a)ll' e)/mmetros a)kribw=s, ou)/te polu/sarkos, a)pi/qanon ga/r, ou)/te lepto\s e)s u(perbolh/n: skeletw=des tou=to
+kai\ nekriko/n.
+<milestone unit="section" n="76"/> e)qe/lw gou=n soi kai\ dh/mou tino\s ou) fau/lou ta\
+toiau=ta e)pishmai/nesqai boa\s ei)pei=n oi( ga\r *)antioxei=s, eu)fuesta/th po/lis kai\ o)/rxhsin ma/lista presbeu/ousa, ou(/tws e)pithrei= tw=n legome/nwn kai\
+tw=n gignome/nwn e(/kasta, w(s mhde/na mhde\n au)tw=n
+<pb id="v.5.p.278"/> dialanqa/nein. mikrou= me\n ga\r o)rxhstou=
+ei)selqo/ntos kai\ to\n *(/ektora o)rxoume/nou mia=| fwnh=| pa/ntes a)nebo/hsan, <q direct="unspecified">w)= ^ *)astua/nac, *(/ektwr de\ pou= ; </q>  a)/llote de/ pote mhki/stou tino\s u(pe\r to\ me/trion o)rxei=sqai to\n *kapane/a e)pixeirou=ntos kai\
+prosba/llein toi=s *qhbai/wn tei/xesin, <q direct="unspecified">u(pe/rbhqi,</q>  e)/fhsan, <q direct="unspecified">to\ tei=xos, ou)de/n soi dei= kli/makos.</q>  kai\ e)pi\ tou= paxe/os de\ kai\ pimelou=s o)rxhstou= phda=n mega/la peirwme/nou, <q direct="unspecified">deo/meqa,</q>  e)/fasan, <q direct="unspecified"> fei=sai ^ th=s qume/lhs.</q> to\ de\ e)nanti/on tw=| pa/nu leptw=| e)pebo/hsan, <q direct="unspecified"> kalw=s e)/xe,</q> w(s nosou=nti. tou/twn ou) tou= geloi/ou e(/neka e)pemnh/sqhn,^ a)ll'
+w(s i)/dh|s o(/ti kai\ dh=moi o(/loi mega/lhn spoudh\n e)poih/santo e)pi\ th=| o)rxhstikh=|, w(s r(uqmi/zein ta\ kala\ kai\ ta\ ai)sxra\ au)th=s du/nasqai.
+<milestone unit="section" n="77"/> eu)ki/nhtos de\ to\ meta\ tou=to pa/ntws e)/stw kai\
+to\ sw=ma lelume/nos te a(/ma kai\ sumpephgw/s,
+w(s lugi/zesqai/ te o(/ph kairo\s kai\ sunesta/nai
+<milestone unit="section" n="78"/> karterw=s, ei) tou/tou de/oi. o(/ti de\ ou)k a)ph/llaktai
+o)/rxhsis kai\ th=s e)nagwni/ou xeironomi/as a)lla\ mete/xei
+kai\ tw=n *(ermou= kai\ *poludeu/kous kai\ *(hrakle/ous
+e)n a)qlh/sei kalw=n i)/dois a)\n e(ka/sth| tw=n mimh/sewn
+e)pisxw/n. *(hrodo/tw| me\n ou)=n ta\ di' o)mma/twn faino/mena pisto/tera ei)=nai tw=n w)/twn dokei=: o)rxh/sei, de\ kai\
+ta\ w)/twn kai\ o)fqalmw=n pro/sestin. ou(/tw de\
+<milestone unit="section" n="79"/> qe/lgei o)/rxhsis w(/ste a)\n e)rw=n tis ei)s to\ qe/atron pare/lqoi, e)swfroni/sqh i)dw\n o(/sa e)/rwtos kaka\ te/lh: kai\ lu/ph| e)xo/menos e)ce/rxetai tou= qea/trou
+<pb id="v.5.p.280"/> faidro/teros w(/sper ti fa/rmakon lhqedano\n kai\ kata\ to\n poihth\n nhpenqe/s te kai\ a)/xolon piw/n. shmei=on de\ th=s pro\s ta\ gigno/mena oi)keio/thtos kai\ tou= gnwri/zein e(/kaston tw=n o(rw/ntwn ta\ deiknu/mena to\ kai\ dakru/ein polla/kis tou\s qeata/s,
+o(po/tan ti oi)ktro\n kai\ e)leeino\n fai/nhtai. h( me\n
+ge *bakxikh\ o)/rxhsis e)n *)iwni/a| ma/lista kai\ e)n *po/ntw| spoudazome/nh, kai/toi saturikh\ ou)=sa,
+ou(/tw kexei/rwtai tou\s a)nqrw/pous tou\s e)kei= w(/ste kata\ to\n tetagme/non e(/kastoi kairo/n, a(pa/ntwn e)pilaqo/menoi tw=n a)/llwn, ka/qhntai di' h(me/ras tita=nas kai\ koru/bantas kai\ satu/rous kai\ bouko/lous o(rw=ntes. kai\ o)rxou=ntai/ ge tau=ta oi( eu)gene/statoi kai\ prwteu/ontes e)n e(ka/sth| tw=n po/lewn, ou)x o(/pws ai)dou/menoi a)lla\ kai\ me/ga fronou=ntes e)pi\ tw=| pra/gmati ma=llon h)/per ^ e)p' eu)genei/ais kai\ leitourgi/ais kai\ a)ciw/masi progonikoi=s.
+<milestone unit="section" n="80"/> e)pei\ de\ ta\s a)reta\s e)/fhn ta\s o)rxhstika/s, a)/koue kai\ ta\s kaki/as au)tw=n. ta\s me\n ou)=n e)n sw/mati h)/dh e)/deica, ta\s de\ th=s dianoi/as ou(/tws e)pithrei=n, oi)=mai, du/naio a)/n. polloi\ ga\r au)tw=n
+u(p' a)maqi/as &mdash; a)mh/xanon ga\r a(/pantas ei)=nai sofou\s &mdash; kai\ soloiki/as deina\s e)n th=| o)rxh/sei e)pidei/knuntai,
+oi( me\n a)/loga kinou/menoi kai\ mhde/n, w(/s fasi, pro\s th\n xordh/n, e(/tera me\n ga\r o( pou/s, e(/tera
+d' o( r(uqmo\s le/gei: oi( de\ eu)/ruqma me/n, ta\ pra/gmata
+de\ meta/xrona h)\ pro/xrona, oi(=on e)gw/ pote i)dw\n me/mnhmai. ta\s ga\r *dio\s gona\s o)rxou/meno/s tis kai\ th\n tou= *kro/nou teknofagi/an parwrxei=to
+<pb id="v.5.p.282"/> ta\s *que/stou sumfora/s, tw=| o(moi/w| parhgme/nos.
+kai\ a)/llos th\n *seme/lhn u(pokrino/menos ballome/nhn
+tw=| keraunw=| th\n *glau/khn au)th=| ei)/kaze metageneste/ran ou)=san. a)ll' ou)k a)po/ ge tw=n toiou/twn o)rxhstw=n o)rxh/sews au)th=s, oi)=mai, katagnwste/on ou)de\ to\ e)/rgon au)to\ mishte/on, a)lla\ tou\s me/n, w(/sper ei)si/n, a)maqei=s nomiste/on, e)painete/on de\ tou\s e)nno/mws kai\ kata\ r(uqmo\n th=s te/xnhs i(kanw=s
+e(/kasta drw=ntas.
+<milestone unit="section" n="81"/> o(/lws de\ to\n o)rxhsth\n dei= pantaxo/qen a)phkribw=sqai, w(s ei)=nai to\ pa=n eu)/ruqmon, eu)/morfon, su/mmetron, au)to\ au(tw=| e)oiko/s, a)sukofa/nthton, a)nepi/lhpton, mhdamw=s e)llipe/s, e)k tw=n a)ri/stwn kekrame/non, ta\s e)nqumh/seis o)cu/n, th\n paidei/an baqu/n, ta\s e)nnoi/as a)nqrw/pinon ma/lista. o( gou=n e)/painos au)tw=| to/t' a)\n gi/gnoito e)ntelh\s para\ tw=n qeatw=n o(/tan e(/kastos tw=n o(rw/ntwn gnwri/zh| ta\ au(tou=, ma=llon de\ w(/sper e)n kato/ptrw| tw=| o)rxhsth=| ^ e(auto\n ble/ph| kai\ a(\ pa/sxein au)to\s kai\ a(\ poiei=n ei)/wqen: to/te ga\r ou)de\ kate/xein e(autou\s oi( a)/nqrwpoi u(f' h(donh=s du/nantai, a)ll' a)qro/oi pro\s to\n e)/painon e)kxe/ontai, ta\s th=s e(autou= yuxh=s
+e(/kastos ei)ko/nas o(rw=ntes kai\ au(tou\s gnwri/zontes. a)texnw=s ga\r to\ *delfiko\n e)kei=no to\ *gnw=qi seauto\n
+e)k th=s qe/as au)toi=s perigi/gnetai, kai\ a)pe/rxontai a)po\ tou= qea/trou a(/ te xrh\ ai(rei=sqai kai\ a(\ feu/gein
+memaqhko/tes kai\ a(\ pro/teron h)gno/oun didaxqe/ntes.
+<pb id="v.5.p.284"/>
+                  <milestone unit="section" n="82"/> gi/netai de/, w(/sper e)n lo/gois, ou(/tw de\ kai\ e)n o)rxh/sei h( pro\s tw=n pollw=n legome/nh kakozhli/a
+u(perbaino/ntwn to\ me/tron th=s mimh/sews kai\ pe/ra tou= de/ontos e)piteino/ntwn, kai\ ei) me/ga ti dei=cai de/oi, u(perme/geqes e)pideiknume/nwn, kai\ ei) a(palo/n, kaq' u(perbolh\n qhlunome/nwn, kai\ ta\ a)ndrw/dh a)/xri tou= a)gri/ou kai\ qhriw/dous proago/ntwn.
+<milestone unit="section" n="83"/> oi(=on e)gw/ pote me/mnhmai i)dw\n poiou=nta o)rxhsth\n
+eu)dokimou=nta pro/teron, suneto\n.me\n ta\ a)/lla kai\ qauma/zesqai w(s a)lhqw=s a)/cion, ou)k oi)=da de\ h(=|tini tu/xh| ei)s a)sxh/mona u(po/krisin di' u(perbolh\n mimh/sews e)cokei/lanta. o)rxou/menos ga\r to\n *ai)/anta meta\ th\n h(=ttan eu)qu\s maino/menon, ei)s tosou=ton u(perece/pesen w(/ste ou)x u(pokri/nasqai mani/an a)lla\ mai/nesqai au)to\s ei)ko/tws a)/n tini e)/docen. e(no\s ga\r tw=n tw=| sidhrw=| u(podh/mati ktupou/ntwn th\n e)sqh=ta kate/rrhcen, e(no\s de\ tw=n u(paulou/ntwn to\n au)lo\n a(rpa/sas tou= *)odusse/ws plhsi/on e(stw=tos kai\ e)pi\ th=| ni/kh| me/ga fronou=ntos diei=le th\n kefalh\n katenegkw/n, kai\ ei)/ ge mh\ o( pi=los a)nte/sxen kai\ to\ polu\ th=s plhgh=s a)pede/cato, a)pwlw/lei a)\n o( kakodai/mwn *)odusseu/s,
+o)rxhsth=| parapai/onti peripesw/n. a)lla\ to/ ge
+qe/atron a(/pan sunememh/nei tw=| *ai)/anti kai\ e)ph/dwn
+kai\ e)bo/wn kai\ ta\s e)sqh=tas a)nerri/ptoun, oi( me\n
+<pb id="v.5.p.286"/>
+surfetw/deis kai\ au)to\ tou=to i)diw=tai tou= me\n
+eu)sxh/monos ou)k e)stoxasme/noi ou)de\ to\ xei=ron
+h)\ to\ krei=tton o(rw=ntes, a)/kran de\ mi/mhsin tou= pa/qous ta\ toiau=ta oi)o/menoi ei)=nai: oi( a)steio/teroi de\ sunie/ntes me\n kai\ ai)dou/menoi e)pi\ toi=s ginome/nois, ou)k e)le/gxontes de\ siwph=| to\ pra=gma, toi=s de\ e)pai/nois kai\ au)toi\ th\n a)/noian th=s o)rxh/sews e)pikalu/ptontes, kai\ a)kribw=s o(rw=ntes o(/ti ou)k *ai)/antos a)lla\ o)rxhstou= mani/as ta\ gigno/mena
+h)=n. ou) ga/r a)rkesqei\s tou/tois o( gennai=os a)/llo ^ makrw=| tou/tou geloio/teron e)/prace: kataba\s
+ga/r ei)s to\ me/son e)n th=| boulh=| du/o u(patikw=n me/sos e)kaqe/zeto, pa/nu dedio/twn mh\ kai\ au)tw=n tina w(/sper krio\n mastigw/sh| labw/n. kai\ to\ pra=gma oi( me\n e)qau/mazon, oi( de\ e)ge/lwn, oi(
+de\ u(pw/pteuon mh\ a)/ra e)k th=s a)/gan mimh/sews ei)s th\n tou= pa/qous a)lh/qeian u(phne/xqh. kai\
+<milestone unit="section" n="84"/> au)to\n me/ntoi fasi\n a)nanh/yanta ou(/tws metanoh=sai
+e)f' oi(=s e)poi/hsen w(/ste kai\ nosh=sai u(po\ lu/phs,
+w(s a)lhqw=s e)pi\ mani/a| kategnwsme/non. kai\ e)dh/lwse\
+ge tou=to safw=s au)to/s ai)tou/ntwn ga/r au)=qis tw=n stasiwtw=n ^ au)tou= to\n *ai)/anta o)rxh/sasqai
+au)toi=s, paraithsa/menos, <q direct="unspecified"> to\n u(pokrith/n,</q>  e)/fh ^ pro\s to\ qe/atron, <q direct="unspecified">i(kano/n e)stin a(/pac manh=nai.</q>  ma/lista de\ au)to\n h)ni/asen o( a)ntagwnisth\s kai\ a)nti/texnos: tou= ga\r o(moi/ou *ai)/antos au)tw=|
+grafe/ntos ou(/tw kosmi/ws kai\ swfro/nws th\n mani/an
+<pb id="v.5.p.288"/>
+u(pekri/nato w(s e)paineqh=nai, mei/nas e)nto\s tw=n th=s o)rxh/sews o(/rwn kai\ mh\ paroinh/sas ei)s th\n u(po/krisin.
+<milestone unit="section" n="85"/> tau=ta/ soi, w)= filo/ths, o)li/ga e)k pampo/llwn pare/deica o)rxh/sews e)/rga kai\ e)pithdeu/mata,
+w(s mh\ pa/nu a)/xqoio/ moi e)rwtikw=s qewme/nw| au)ta/.
+ei) de\ boulhqei/hs koinwnh=sai/ moi th=s qe/as, eu)= oi)=da e)gw\ pa/nu a(lwso/meno/n se kai\
+o)rxhstomanh/sonta/ ge prose/ti. w(/ste ou)de\n deh/somai to\ th=s *ki/rkhs e)kei=no pro\s se\ ei)pei=n, to\
+qau=ma\ m' e)/xei w(s ou)/ti piw\n ta/de fa/rmak' e)qe/lxqhs, qelxqh/sh| ga/r, kai\ ma\ *di/' ou)k o)/nou kefalh\n h)\ suo\s kardi/an e(/ceis, a)ll' o( me\n no/os soi e)mpedw/teros e)/stai, su\ de\ u(f' h(donh=s ou)de\ o)li/gon tou= kukew=nos a)/llw| metadw/seis piei=n. o(/per ga\r o(
+*(/omhros peri\ th=s *(ermou= r(a/bdou th=s xrush=s le/gei, o(/ti kai\ <q direct="unspecified"> a)ndrw=n o)/mmata qe/lgei di'</q> au)th=s
+w(=n e)qe/lei, tou\s d' au)=te kai\ u(pnw/ontas e)gei/rei, tou=to a)texnw=s o)/rxhsis poiei= kai\ ta\ o)/mmata qe/lgousa kai\ e)grhgore/nai poiou=sa kai\ e)pegei/rousa th\n dia/noian pro\s e(/kasta tw=n drwme/nwn.
+</p>
+            </sp>
+            <sp>
+               <speaker>*kra/twn</speaker>
+               <p> kai\ mh\n h)/dh e)gw/, w)= *luki=ne, pei/qomai\ te/ soi kai\ a)napeptame/na e)/xw kai\ ta\ w)=ta kai\ ta\ o)/mmata.
+kai\ me/mnhso/ ge, w)= filo/ths, e)peida\n ei)s to\ qe/atron i)/h|s, ka)moi\ para\ sautw=| qe/an katalamba/nein,
+w(s mh\ mo/nos e)kei=qen sofw/teros h(mi=n e)pani/ois.</p>
+            </sp>
+         </div1>
+      </body>
+   </text>
+</TEI.2>

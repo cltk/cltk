@@ -1,0 +1,1114 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Aj.">Ajax (English)</title>
+<title type="sub">Machine readable text</title>
+<author n="Soph.">Sophocles</author>
+<editor role="editor" n="Jebb">Sir Richard Jebb</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 90Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Sophocles</author>
+<title>The Ajax of Sophocles. Edited with introduction and notes by Sir Richard Jebb.</title>
+<editor role="editor">Sir Richard Jebb</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Cambridge University Press</publisher>
+<date>1893</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<step refunit="line" from="DESCENDANT (1 L N%1)"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>1987</date>
+<respStmt><name>EM, Scott Ettinger and Roger Travis</name><resp>tagging</resp></respStmt>
+<item>Text scanned at U. Chicago in 1987. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</item>
+</change>
+<change><date>?</date>
+<respStmt><name>Pierre Habel, John Gilbert</name><resp>ed.</resp></respStmt>
+<item>This text was modernized by Pierre Habel, so as to remove archaisms. It was reviewed by John Gibert, and revisions were made accordingly.</item>
+</change>
+<change><date>7/90</date>
+<respStmt><name>Jane Chaplin</name><resp>ed.</resp></respStmt>
+<item>Proofread text</item>
+</change>
+<change><date>9/19/90</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Final check of cardbreaks, tags, and linenumbers.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>John Gilbert</name><resp>ed.</resp></respStmt>
+<item>Review and comment on modernization of translation.</item>
+</change>
+<change><date>8/91</date>
+<respStmt><name>EM</name><resp>ed.</resp></respStmt>
+<item>Put in Gibert's revisions, and revise DTDs and recheck texts.</item>
+</change>
+<change><date>6/95</date>
+<respStmt><name>Lisa Cerrato</name><resp>ed.</resp></respStmt>
+<item>Added missing speaker tags for cards which had none.</item>
+</change>
+<change><date> 1-Feb-00</date>
+<respStmt><name>Anne Mahoney</name><resp>Markup</resp></respStmt>
+<item>
+$Log: soph.aj_eng.xml,v $
+Revision 1.1  2009-12-08 18:56:08  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.3  2006/02/10 21:10:42  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:30:23  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:02:48  packel
+Converted to XML
+
+Revision 1.10  2004/04/21 20:41:59  mimno
+added card 1s
+
+Revision 1.9  2003/07/01 22:18:07  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2000/03/04 20:35:16  dasmith
+Added separate funder entity to TEI header.
+
+Revision 1.7  2000/02/15 23:18:01  amahoney
+use n attribute on sp element to carry over the speaker name when
+the speech is interrupted by a card break;  this also requires that
+the card break at the end come after the close of the sp, not within
+
+Revision 1.6  2000/02/08 22:10:16  amahoney
+correct declaration of language
+
+Revision 1.5  2000/02/01 22:25:35  amahoney
+bring up to P3
+
+</item></change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 type="episode">
+<milestone ed="p" n="1" unit="card"/>
+<sp>
+<speaker>Athena</speaker>
+<p>Always, son of <placeName key="perseus,Laertes">Laertes</placeName>, have I observed you on the prowl to snatch some means of attack against your enemies.  So now at the tent of Ajax by the ships where he has his post at the camp's outer edge, I watch you<milestone ed="p" n="5" unit="line"/>for a long time as you hunt and scan his newly pressed tracks, in order to see whether he is inside or away.  Your course leads you well to your goal, like that of a keen-scenting Laconian hound.  For the man has just now gone in,<milestone ed="p" n="10" unit="line"/>with sweat dripping from his head and from his hands that have killed with the sword.  There is no further need for you to peer inside these doors.  Rather tell me what your goal is that you have shown such eagerness for, so that you may learn from her who holds the knowledge.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Voice of Athena, dearest to me of the gods,<milestone ed="p" n="15" unit="line"/>how clearly, though you are unseen, do I hear your call and snatch its meaning in my mind, just as I would the bronze tongue of the Tyrrhenian trumpet!  And now you have discerned correctly that I am circling my path on the track of a man who hates me, Ajax the shield-bearer.<milestone ed="p" n="20" unit="line"/>It is he and no other that I have been tracking so long.  For tonight he has done us a deed beyond comprehension&mdash;if he is indeed the doer.  We know nothing for certain, but drift in doubt.  And so I of my of accord took up the burden of this search.<milestone ed="p" n="25" unit="line"/>For we recently found all the cattle, our plunder, dead&mdash;yes, slaughtered by human hand&mdash;and with them the guardians of the flocks.</p>
+<p>Now, all men lay responsibility for this crime to him.  And further, a scout who had seen him<milestone ed="p" n="30" unit="line"/>bounding alone over the plain with a newly-wet sword reported to me and declared what he saw.  Then immediately I rush upon his track, and sometimes I follow his signs, but sometimes I am bewildered, and cannot read whose they are.  Your arrival is timely, for truly in all matters, both those of the past<milestone ed="p" n="35" unit="line"/>and those of the future, it is your hand that steers me.
+</p></sp>
+<milestone ed="p" n="36" unit="card"/>
+<sp>
+<speaker>Athena</speaker>
+<p>I know it, Odysseus, and some time ago I came on the path as a lookout friendly to your hunt.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And so, dear mistress, do I toil to good effect?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Know that that man is the doer of these deeds.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="40" unit="line"/>Then to what end did he thrust his hand so senselessly?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>He was mad with anger over the arms of Achilles.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Why, then, his onslaught upon the flocks?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>It was in your blood, he thought, that he was staining his hand.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Then was this a plot aimed against the Greeks?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p><milestone ed="p" n="45" unit="line"/>Yes, and he would have accomplished it, too, had I not been attentive.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And what reckless boldness was in his mind that he dared this?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Under night's cover he set out against you, by stealth and alone.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And did he get near us?  Did he reach his goal?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>He was already at the double doors of the two generals.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="50" unit="line"/>How, then, did he restrain his hand when it was eager for murder?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p><milestone ed="p" n="65" unit="line"/>It was I who prevented him, by casting over his eyes oppressive notions of his fatal joy, and I who turned his fury aside on the flocks of sheep and the confused droves guarded by herdsmen, the spoil which you had not yet divided.<milestone ed="p" n="55" unit="line"/>Then he fell upon them and kept cutting out a slaughter of many horned beasts as he split their spines in a circle around him.  At one time he thought that he was killing the two Atreidae, holding them in his very hand;  at another time it was this commander, and at another that one which he attacked.  And I, while the man ran about in diseased frenzy,<milestone ed="p" n="60" unit="line"/>I kept urging him on, kept hurling him into the snares of doom.  Soon, when he rested from this toil, he bound together the living oxen along with with all the sheep and brought them home, as though his quarry were men, not well-horned cattle.  And now he abuses them, bound together, in the house.</p>
+<p>But to you also will I show this madness openly, so that when you have seen it you may proclaim it to all the Argives.  Be of good courage and stand your ground, and do not regard the man as a cause of disaster for you.  I will turn away the beams of his eyes<milestone ed="p" n="70" unit="line"/>and keep them from landing on your face.</p>
+<stage>To Ajax.</stage>
+<p>You there, you who bind back your captive's arms, I am calling you, come here!  I am calling Ajax!  Come out in front of the house!
+</p></sp>
+<milestone ed="p" n="74" unit="card"/>
+<sp>
+<speaker>Odysseus</speaker>
+<p>What are you doing, Athena?  Do not call him out.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p><milestone ed="p" n="75" unit="line"/>Hold your peace!  Do not earn a reputation for cowardice!</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>No, by the gods, let it content you that he stay inside.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>What is the danger?  Was he not a man before?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Yes, a man hostile to me in the past, and especially now.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>And is not the sweetest mockery the mockery of enemies?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="80" unit="line"/>I am content that he stay within his tent.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Do you fear to see a madman right before your eyes?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I would not shrink from him in fear, if he were sane.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>But he will not see you now, even though you stand nearby.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>How could that be, if he still sees with the same eyes?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p><milestone ed="p" n="85" unit="line"/>I shall darken them, though their sight is keen.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>It is true: all is possible when a god contrives.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Stand silent, then, and stay where you are.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I must stay.  But I would prefer to be far from here!</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>You there, Ajax, once again I call you!<milestone ed="p" n="90" unit="line"/>Why do you show so little regard for your ally?</p></sp>
+<sp>
+<stage>Enter Ajax, holding a blood-stained whip in his hand.</stage></sp>
+<sp><speaker>Ajax</speaker>
+<p>Welcome, Athena!  Welcome, daughter sprung from Zeus!  How well have you stood by me!  I will crown you with trophies of pure gold in gratitude for this quarry!</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>A fine pledge.  But tell me this&mdash;<milestone ed="p" n="95" unit="line"/>have you dyed your sword well in the Greek army?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>I can make that boast.  I do not deny it.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>And have you launched your armed hand against the Atreidae?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Yes, so that never again will they dishonor Ajax.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>The men are dead, as I interpret your words.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p><milestone ed="p" n="100" unit="line"/>Dead they are.  Now let them rob me of my arms!</p></sp><milestone ed="p" n="101" unit="card"/>
+<sp>
+<speaker>Athena</speaker>
+<p>I see.  And the son of <placeName key="perseus,Laertes">Laertes</placeName>, how does his fortune with respect to you?  Has he escaped you?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>That blasted fox!  You ask me where he is?</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Yes, I do.  I mean Odysseus, your adversary.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p><milestone ed="p" n="105" unit="line"/>My most pleasing prisoner, mistress, he sits inside.  I do not wish him to die just yet.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Until you do what?  Or win what greater advantage?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Until he be bound to a pillar beneath my roof&mdash;</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>What evil, then, will you inflict on the poor man?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p><milestone ed="p" n="110" unit="line"/>&mdash;and have his back crimsoned by the lash, before he dies.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Do not abuse the poor man so cruelly!</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>In all else, Athena, I bid you take your pleasure, but he will pay this penalty and no other.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Well, then, since it delights you to do so,<milestone ed="p" n="115" unit="line"/>put your arm to use; spare no portion of your plan.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>I go to my work.  And I give you this commission:  be always for me the close-standing ally that you have been for me today!<stage>Exit Ajax.</stage></p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Do you see, Odysseus, how great is the strength of the gods? Whom could you have found more prudent than this man,<milestone ed="p" n="120" unit="line"/>or better able to do what the situation demanded?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I know of no one, but in his misery I pity him all the same, even though he hates me, because he is yoked beneath a ruinous delusion&mdash;I think of my own lot no less than his.<milestone ed="p" n="125" unit="line"/>For I see that all we who live are nothing more than phantoms or fleeting shadow.</p></sp>
+<sp>
+<speaker>Athena</speaker>
+<p>Therefore since you witness his fate, see that you yourself never utter an arrogant word against the gods, nor assume any swelling pride, if in the scales of fate you are weightier<milestone ed="p" n="130" unit="line"/>than another in strength of hand or in depth of ample wealth.  For a day can press down all human things, and a day can raise them up.  But the gods embrace men of sense and abhor the evil.<stage>Exit Odysseus and Athena.</stage></p></sp><milestone ed="p" n="134" unit="card"/>
+<div2 type="anapests">
+<stage>Enter the Chorus of Salaminian Sailors, followers of Ajax.</stage>
+<sp><speaker>Chorus</speaker>
+<p>Son of Telamon, you who hold<milestone ed="p" n="135" unit="line"/>your throne on wave-washed <placeName key="tgn,7002340">Salamis</placeName> near the open sea, when your fortune is fair, I rejoice with you.  But whenever the stroke of Zeus, or the raging rumor of the Danaans with the clamor of their evil tongues attacks you, then I shrink with great fear and shudder in terror,<milestone ed="p" n="140" unit="line"/>like the fluttering eye of the winged dove.</p>
+<p>Just so with the passing of the night loud tumults oppressed us to our dishonor, telling how you visited the meadow wild with horses and destroyed<milestone ed="p" n="145" unit="line"/>the cattle of the Greeks, their spoil, prizes of the spear which had not yet been shared, how you killed them with flashing iron.</p>
+<p>Such are the whispered slanders that Odysseus moulds and breathes into the ears of all,<milestone ed="p" n="150" unit="line"/>and he wins much belief.  For now he tells tales concerning you that easily win belief, and each hearer rejoices with spiteful scorn at your burdens more than he who told.</p>
+<p>Point your shaft at a noble spirit,<milestone ed="p" n="155" unit="line"/>and you could not miss;  but if a man were to speak such things against me, he would win no belief.  It is on the powerful that envy creeps.  Yet the small without the great are a teetering tower of defence.<milestone ed="p" n="160" unit="line"/>For the lowly  stand most upright and prosperous when allied with the great, and the great when served by less.</p>
+<p>But foolish men cannot learn good precepts in these matters beforehand.  It is men of this sort that subject you to tumult, and<milestone ed="p" n="165" unit="line"/>we lack the power to repel these charges without you, O King.  For when they have escaped your eye, they chatter like flocking birds.  But, terrified by a mighty vulture,<milestone ed="p" n="170" unit="line"/>perhaps, if you should appear, they would quickly cower without voice in silence.</p></sp><milestone ed="p" n="172" unit="card"/></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="172" unit="line"/>Was it Artemis ruler of bulls, Zeus's daughter, that drove you, O powerful Rumor, O mother of my shame,<milestone ed="p" n="175" unit="line"/>drove you against the herds of all our people?  Was she exacting retribution, perhaps, for a victory that had paid her no tribute, whether it was because she had been cheated of the glory of captured arms, or because a stag had been slain without gifts for recompense?  Or can the bronze-cuirassed Lord of War<milestone ed="p" n="180" unit="line"/>have had some cause for anger arising out of an alliance of spears, and taken vengeance for the outrage by contrivance shrouded in night?</p><milestone ed="p" n="182" unit="card"/></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="182" unit="line"/>For never of your own heart alone, son of Telamon, would you have gone so far down the sinister path<milestone ed="p" n="185" unit="line"/>as to fall upon the flocks.  When the gods send madness, it cannot but reach its target, but may Zeus and Phoebus avert the evil rumor of the Greeks!</p>
+<p>And if it is the great kings who slander you with their furtive stories,<milestone ed="p" n="190" unit="line"/>or if it is he born of the abject line of Sisyphus, do not, my king, do not win me an evil name by keeping your face still hidden in the tent by the sea.</p><milestone ed="p" n="193" unit="card"/></sp></div2>
+<div2 type="epode">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="193" unit="line"/>Come now, up from your seat, wherever you are settled in this long-lived pause from battle<milestone ed="p" n="195" unit="line"/>and are making the flame of disaster blaze up to the sky!  The violent insolence of your enemies rushes fearlessly about in the breezy glens, while the tongues of all the army cackle out a load of grief.<milestone ed="p" n="200" unit="line"/>For me, sorrow stands firmly planted.</p><milestone ed="p" n="201" unit="card"/></sp></div2>
+</div1>
+<div1 type="episode">
+<div2 type="anapests">
+<stage>Enter Tecmessa.</stage>
+<sp><speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="201" unit="line"/>Mates of the ship of Ajax, offspring of the race that springs from the Erechtheids, the soil's sons, cries of grief are the portion of us who care from afar for the house of Telamon.<milestone ed="p" n="205" unit="line"/>Ajax, our terrible, mighty lord of untamed power, now lies plagued by a turbid storm of disease.</p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>And what is the heavy change from the fortune of yesterday which this night has produced?<milestone ed="p" n="210" unit="line"/>Daughter of Teleutas the Phrygian, speak, since for you his spear-won mate bold Ajax maintains his love, so that with some knowledge you could suggest an explanation.</p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="anapests">
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Oh, how am I to tell a tale too terrible for words?<milestone ed="p" n="215" unit="line"/>Grave as death is the suffering which you will hear.  By madness our glorious Ajax was seized in the night, and he has been subjected to utter disgrace.  All this you may see inside his dwelling&mdash;butchered victims bathed in blood,<milestone ed="p" n="220" unit="line"/>sacrifices of no hand but his.</p></sp><milestone ed="p" n="221" unit="card"/></div2>
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="221" unit="line"/>What report of the fiery warrior have you revealed to us, unbearable, nor yet escapable&mdash;<milestone ed="p" n="225" unit="line"/>a report which the great Danaans propound, which their powerful storytelling spreads!  Ah, me, I shudder at the future's advancing step.  In public view the man will die<milestone ed="p" n="230" unit="line"/>because the dark sword in his frenzied hand massacred the herds and the horse-guiding herdsmen.<milestone ed="p" n="231" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="231" unit="line"/>Ah!  Then it was from there, from there that he came to me with his captive flock!<milestone ed="p" n="235" unit="line"/>Of part, he cut the throats on the floor inside;  some, striking their sides, he tore asunder.  Then he caught up two white-footed rams and sheared off the head of one and its tongue-tip, and flung them away;<milestone ed="p" n="240" unit="line"/>the other he bound upright to a pillar, and seizing a heavy strap from a horse's harness he flogged it with a whistling, doubled lash, while he cursed it with awful imprecations which a god, and no mortal, had taught him.<milestone ed="p" n="245" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="245" unit="line"/>The time has come for each of us to veil his head and steal away on foot, or to sit and take on the swift yoke of rowing,<milestone ed="p" n="250" unit="line"/>giving her way to the sea-faring ship.  So angry are the threats which the brother-kings, the sons of Atreus, speed against us!  I fear to share in bitter death beneath an onslaught of stones,<milestone ed="p" n="255" unit="line"/>crushed at this man's side, whom an untouchable fate holds in its grasp.<milestone ed="p" n="257" unit="card"/></p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Tecmessa</speaker>
+<p>It grips him no longer.  For like a southerly wind after it has started up sharply without bright lightning he grows calm.  And now in his right mind he has new pain.<milestone ed="p" n="260" unit="line"/>To look on self-made suffering, when no other has had a hand in it&mdash;this induces sharp pains.<milestone ed="p" n="263" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Chorus</speaker>
+<p>But if he has stopped his madness, I have good hope that all may yet be well, since the trouble is of less account once it has passed.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="265" unit="line"/>And which, if the choice were given you, would you choose&mdash;to distress your friends, and have joy yourself, or to share the grief of friends who grieve?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The twofold sorrow, lady, is certainly the greater evil.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Then we are ruined now, although the plague is past.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="270" unit="line"/>What do you mean?  I do not understand what you say.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>That man, while afflicted, found joy for himself in the dire fantasies that held him, though his presence distressed us who were sane.  But now, since he has had pause and rest from the plague,<milestone ed="p" n="275" unit="line"/>he has been utterly subjected to lowly anguish, and we similarly grieve no less than before.  Surely, then, these are two sorrows, instead of one?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Indeed, I agree, and so I fear that a blow sent by a god has hit him.  How could it be otherwise, if his spirit is no lighter<milestone ed="p" n="280" unit="line"/>than when he was plagued, now that he is released?</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>This, you must know, is how matters stand.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In what way did the plague first swoop down on him?  Tell us who share your pain how it happened.<milestone ed="p" n="284" unit="card"/></p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>You will hear all that took place, since you are involved.<milestone ed="p" n="285" unit="line"/>In the dead of night when the evening lamps were no longer aflame, he seized a two-edged sword and wanted to leave on an aimless foray.  Then I admonished him and said, &ldquo;What are you doing, Ajax?  Why do you set out unsummoned on this expedition,<milestone ed="p" n="290" unit="line"/>neither called by messenger, nor warned by trumpet?  In fact the whole army is sleeping now.&rdquo;  But he answered me curtly with that trite jingle:  &ldquo;Woman, silence graces woman.&rdquo;  And I, taking his meaning, desisted, but he rushed out alone.</p>
+<p><milestone ed="p" n="295" unit="line"/>What happened out there, I cannot tell.  But he came in with his captives hobbled together&mdash;bulls, herding dogs, and his fleecy quarry.  Some he beheaded;  of some he cut the twisted throat or broke the spine;  others<milestone ed="p" n="300" unit="line"/>he abused in their bonds as though they were men, though falling only upon cattle.  At last he darted out through the door, and dragged up words to speak to some shadow&mdash;now against the Atreidae, now about Odysseus&mdash;with many a mocking boast of all the abuse that in vengeance he had fully repaid them during his raid.<milestone ed="p" n="305" unit="line"/>After that he rushed back again into the house, and somehow by slow, painful steps he regained his reason.  And as he scanned the room full of his disastrous madness, he struck his head and howled;  he fell down, a wreck amid the wrecked corpses of the slaughtered sheep, and there he sat<milestone ed="p" n="310" unit="line"/>with clenched nails tightly clutching his hair.  At first, and for a long while, he sat without a sound.  But then he threatened me with those dreadful threats, if I did not declare all that had happened, and he demanded to know what on earth was the business he found himself in.<milestone ed="p" n="315" unit="line"/>And in my fear, friends, I told him all that had been done, as far as I knew it for certain.  But he immediately groaned mournful groans, such as I had never heard from him before.  For he had always taught that such wailing<milestone ed="p" n="320" unit="line"/>was for cowardly and low-hearted men.  He used to grieve quietly without the sound of loud weeping, but instead moaned low like a bull.</p>
+<p>And now, prostrate in such miserable fortune, tasting no food, no drink,<milestone ed="p" n="325" unit="line"/>the man sits idly where he has fallen in the middle of the iron-slain cattle.  And plainly he plans to do something terrible.  Somehow his words and his laments say as much.  Ah, my friends&mdash;for it was my errand to ask you this&mdash;come in and help him, if in any way you can.<milestone ed="p" n="330" unit="line"/>Men of his kind can be won over by the words of friends.<milestone ed="p" n="331" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Tecmessa, daughter of Teleutas, terrible is your news that our lord has been possessed by his sorrows.</p></sp>
+<sp>
+<stage>Within.</stage></sp>
+<sp><speaker>Ajax</speaker><stage>wailing.</stage>
+<p>Oh!  Ah, me! Ah, me!</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Soon there will be more sorrow, it seems.  Did you not hear<milestone ed="p" n="335" unit="line"/>Ajax, did you not hear his resounding howl?</p></sp>
+<sp>
+<speaker>Ajax</speaker><stage>wailing.</stage>
+<p>O!  Ah, me! Ah, me!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>The man seems to be sick, or else to be still pained by the disease which was recently with him, since he sees its traces.</p></sp>
+<sp>
+<speaker>Ajax</speaker><stage>wailing.</stage>
+<p>O my son, my son!</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="340" unit="line"/>Ah, miserable me!  Eurysaces, it is for you he calls!  What can his purpose be?  Where are you?  I am miserable!</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Teucer!  Where is Teucer?  Will his raid last for ever?  While I perish?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>He seems to be sane&mdash;open the door!<milestone ed="p" n="345" unit="line"/>Perhaps merely at the sight of me he will come to a more respectable mood.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>There, it is open.  Now you can look on this man's deeds, and his true condition.<milestone ed="p" n="348" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<stage>Ajax is discovered sitting amidst the slaughtered cattle.</stage>
+<sp><speaker>Ajax</speaker>
+<p><milestone ed="p" n="348" unit="line"/>Ah, good sailors, you alone of my friends<milestone ed="p" n="350" unit="line"/>who alone still abide by the true bond of friendship, see how great a wave has just now crested over and broken around me, set on by a murderous storm!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Ah, lady, too true, it seems, was your testimony!<milestone ed="p" n="355" unit="line"/>The fact proves that he is not sane.<milestone ed="p" n="356" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Ajax</speaker>
+<p><milestone ed="p" n="356" unit="line"/>Ah, you clan staunch in maritime skill, who embarked and stroked the oar-blade upon the brine, in you, in you alone<milestone ed="p" n="360" unit="line"/>I see a defense against suffering.  Come, slay me on top of these!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="362" unit="line"/>Hush!  Speak words of better omen!  Do not cure evil by prescribing evil; do not increase the anguish of your mad disaster.<milestone ed="p" n="364" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Ajax</speaker>
+<p>Do you see the bold, the strong of heart,<milestone ed="p" n="365" unit="line"/>the dauntless in battles with the enemy&mdash;do you see me now, terrible in the force of my hands against beasts unformidable?  Oh, the mockery!  How I have been violated!</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Ajax, my lord, I beg you, do not talk this way!</p></sp>
+<sp><speaker>Ajax</speaker>
+<p>Away with you!  Will you not take yourself outside!<milestone ed="p" n="370" unit="line"/>Ah, me!  Ah, me!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>By the gods I plead, give way and acquire good sense!</p></sp>
+<sp><speaker>Ajax</speaker>
+<p>My rotten fortune!&mdash;I let slip from my grasp those men who were begging for punishment,<milestone ed="p" n="375" unit="line"/>and fell instead on cattle with twisted horns and fine goats, making their dark blood flow!<milestone ed="p" n="377" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Why grieve when the deed is past recall?  These things can never be but as they are.<milestone ed="p" n="379" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Ajax</speaker>
+<p>Ah, you who spy out all things,<milestone ed="p" n="380" unit="line"/>you ready tool of  every crime, ah, son of <placeName key="perseus,Laertes">Laertes</placeName>, you filthiest sneak in all the army, I am sure you laugh loud and long for joy!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>It is at the god's dispensation that every man both laughs and mourns.</p></sp>
+<sp><speaker>Ajax</speaker>
+<p>Yet if only I could see him, even shattered as I am!<milestone ed="p" n="385" unit="line"/>Oh!  Oh!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Make no big threats!  Do you not see the trouble you are in?</p></sp>
+<sp><speaker>Ajax</speaker>
+<p>O Zeus, forefather of my forebears, if only I might destroy that deep dissembler, that hateful sneak, and<milestone ed="p" n="390" unit="line"/>the two brother-kings, and finally die myself, also!<milestone ed="p" n="392" unit="card"/></p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>When you make that prayer, pray at the same time for me that I, too, may die.  What reason is there for me to live when you are dead?<milestone ed="p" n="394" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="3">
+<sp><speaker>Ajax</speaker>
+<p>Ah, Darkness, my light!<milestone ed="p" n="395" unit="line"/>O Gloom of the underworld, to my eyes brightest-shining, take me, take me to dwell with you&mdash;yes, take me.  I am no longer worthy to look for help to the race of the gods,<milestone ed="p" n="400" unit="line"/>or for any good from men, creatures of a day.</p>
+<p>No, the daughter of Zeus, the valiant goddess, abuses me to my destruction.  Where, then, can a man flee?  Where can I go to find rest?<milestone ed="p" n="405" unit="line"/>If my past achievements go to ruin, my friends, along with such victims as these near me, and if I am inclined to foolish plunderings, then with sword driven by both hands all the army would murder me!<milestone ed="p" n="410" unit="card"/></p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="410" unit="line"/>Ah, what misery for me that a valuable man should speak words of a sort which he would never before now have endured to speak!<milestone ed="p" n="412" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="3">
+<sp><speaker>Ajax</speaker>
+<p>Ah!  You paths of the sounding sea, you tidal caves and wooded pastures by the shore, long, long, too long indeed<milestone ed="p" n="415" unit="line"/>have you detained me here at <placeName key="perseus,Troy">Troy</placeName>.  But no more will you hold me, no more so long as I have the breath of life.  Of that much let sane men be sure.</p>
+<p>O neighboring streams of Scamander,<milestone ed="p" n="420" unit="line"/>kindly to the Greeks, no more shall you look on Ajax, whose equal in the army&mdash;here I will boast&mdash;<milestone ed="p" n="425" unit="line"/><placeName key="perseus,Troy">Troy</placeName> has never seen come from the land of <placeName key="tgn,1000074">Hellas</placeName>.  But now deprived of honor I lie low here in the dust!<milestone ed="p" n="428" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>In truth I do not know how to restrain you, nor how to let you speak further, when you have fallen on such harsh troubles.<milestone ed="p" n="430" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Ajax</speaker>
+<p><milestone ed="p" n="430" unit="line"/>Aiai!  Who would ever have thought that my name would so descriptively suit my troubles?  For well now may Ajax cry &ldquo;Aiai&rdquo;&mdash;yes, twice and three times.  Such are the harsh troubles with which I have met.  Look, I am one whose father's<milestone ed="p" n="435" unit="line"/>prowess won him the fairest prize of all the army, whose father brought every glory home from this same land of Ida;  but I, his son, who came after him to this same ground of <placeName key="perseus,Troy">Troy</placeName> with no less might and proved the service of my hand in no meaner deeds,<milestone ed="p" n="440" unit="line"/>I am ruined as you see by dishonor from the Greeks.  And yet of this much I feel sure:  if Achilles lived, and had been called to award the first place in valor to any claimant of his arms, no one would have grasped them before me.<milestone ed="p" n="445" unit="line"/>But now the Atreidae have made away with them to a man without scruples and thrust away the triumphs of Ajax.  And if these eyes and this warped mind had not swerved from the purpose that was mine, they would have never in this way procured votes in judgment against another man.<milestone ed="p" n="450" unit="line"/>As it was, the daughter of Zeus, the grim-eyed, unconquerable goddess, tripped me up at the instant when I was readying my hand against them, and shot me with a plague of frenzy so that I might bloody my hands in these grazers.  And those men exult to have escaped me&mdash;<milestone ed="p" n="455" unit="line"/>not that I wanted their escape.  But if a god sends harm, it is true that even the base man can elude the worthier.</p>
+<p>And now what shall I do, when I am plainly hated by the gods, abhorred by the Greek forces and detested by all <placeName key="perseus,Troy">Troy</placeName> and all these plains?<milestone ed="p" n="460" unit="line"/>Shall I leave my station at the ships and the Atreidae to their own devices in order to go home across the <placeName key="tgn,7002675">Aegean</placeName>?  And how shall I face my father Telamon, when I arrive?  How will he bear to look on me, when I stand before him stripped, without that supreme prize of valor<milestone ed="p" n="465" unit="line"/>for which he himself won a great crown of fame?  No, I could not bear to do it!  But then shall I go against the bulwark of the Trojans, attacking alone in single combats and doing some valuable service, and finally die?  But, in so doing I might, I think, gladden the Atreidae.<milestone ed="p" n="470" unit="line"/>That must not happen.  Some enterprise must be sought whereby I may prove to my aged father that in nature, at least, his son is not gutless.  It is a stain upon a man to crave the full term of life, when he finds no variation from his ignominious troubles.<milestone ed="p" n="475" unit="line"/>What joy is there in day following day, now advancing us towards, now drawing us back from the verge of death?  I would not buy at any price the man who feels the glow of empty hopes.<milestone ed="p" n="480" unit="line"/>The options for a noble man are only two:  either live with honor, or make a quick and honorable death.  You have heard all.<milestone ed="p" n="481" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>No man shall say that you have spoken a bastard word, Ajax, or one not bred of your own heart.  Yet at least pause;  dismiss these thoughts, and grant friends the power to rule your purpose.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="485" unit="line"/>Ajax, my lord, the fortune that humans are compelled to endure is their gravest evil.  I was the daughter of a free-born father mighty in wealth, if any Phrygian was.  Now I am a slave, for somehow the gods so ordained,<milestone ed="p" n="490" unit="line"/>and even more so did your strong hand.  Therefore, since I have come into your bed, I wish you well, and I do beg you, by the Zeus of our hearth, by your marriage-bed in which you coupled with me, do not condemn me to the cruel talk<milestone ed="p" n="495" unit="line"/>of your enemies, do not leave me to the hand of a stranger!  On whatever day you die and widow me by your death, on that same day, be sure, I shall also be seized forcibly by the Greeks and, with your son, shall obtain a slave's portion.<milestone ed="p" n="500" unit="line"/>Then one of my masters will name me bitterly, shooting me with taunts:  &ldquo; See the concubine of Ajax, who was the mightiest man in the army.  See what menial tasks she tends to, in place of such an enviable existence!&rdquo;  Such things will men say, and so will destiny afflict me<milestone ed="p" n="505" unit="line"/>while the shame of these words will stain you and your family.  Show respect to your father, whom you abandon in miserable old age, and respect your mother with her share of many years, who often prays to the gods that you may come home alive.<milestone ed="p" n="510" unit="line"/>Pity, too, my king, your son.  Pity him the great sorrow which at your death you will bequeath both to him and to me, if robbed of nurturing care he must spend his days apart from you, an orphan tended by guardians who are neither family nor friends.</p>
+<p>I have nothing left to which I can look,<milestone ed="p" n="515" unit="line"/>save you, and you are the reason.  Your spear ravaged my country to nothingness, and another fate has brought down my mother and father, giving them a home in Hades in their death.  What homeland, then, could I have without you?  What wealth?  My welfare is entirely in your hands.<milestone ed="p" n="520" unit="line"/>So remember me, too.  A true man should cherish remembrance, if anywhere he takes some pleasure.  It is kindness that always begets kindness.  But whoever lets the memory of benefits seep from him, he can no longer be a noble man.<milestone ed="p" n="525" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="525" unit="line"/>Ajax, I wish that pity touched your heart as it does mine.  Then you would approve her words.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>She will have approval as far as I am concerned, if only she takes heart and graciously does my bidding.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Dear Ajax, I will obey you in everything.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p><milestone ed="p" n="530" unit="line"/>Then bring me my son, so that I may see him.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>But in my fear I released him from my keeping.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Because of these troubles of mine?  Or what do you mean?</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Yes, for fear that somehow the poor child would get in your way, and die.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Yes, that would have been truly worthy of my destiny.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="535" unit="line"/>Well, at least I took care to avert that disaster.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>I approve of your action and of your foresight.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>How, then, can I serve you, as things stand now?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Let me speak to him and see him face to face.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Oh, yes&mdash;he is close by, watched by our servants.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p><milestone ed="p" n="540" unit="line"/>Then why is his presence delayed?</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>My child, your father calls you.  Bring him here, servant, whichever of you is guiding his steps.</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Is the man coming?  Or has he missed your call?</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Here now one of the servants approaches with him.<milestone ed="p" n="545" unit="card"/></p></sp>
+<sp>
+<stage>Enter the Servant and Eurysaces.</stage></sp>
+<sp><speaker>Ajax</speaker>
+<p><milestone ed="p" n="545" unit="line"/>Lift him; lift him up here.  Doubtless he will not shrink to look on this newly-shed blood, if he is indeed my true-born son and heir to his father's manners.  But he must at once be broken into his father's harsh ways and moulded to the likeness of my nature.<milestone ed="p" n="550" unit="line"/>Ah, son, may you prove luckier than your father, but in all else like him.  Then you would not prove base.  Yet even now I may well envy you on this account, that you have no perception of these evils about us.  Yes, life is sweetest when one lacks sense, &lsqb;for lack of sensation is a painless evil&rsqb;<milestone ed="p" n="555" unit="line"/>that is, until one learns to know joy or pain.  But when you come to that knowledge, then you must be sure to prove among your father's enemies of what mettle and of what lineage you are.  Meanwhile feed on light breezes, and nurse your tender life for your mother's joy.<milestone ed="p" n="560" unit="line"/>There is no Greek&mdash;I know it for certain&mdash;who will do violence to you with hard outrages, even when you are without me.  So trusty is the guard, Teucer himself, whom I will leave at your gates.  He will not falter in his care for you, although now he walks a far path, busied with the hunt of enemies.</p>
+<p><milestone ed="p" n="565" unit="line"/>O my warriors, my seafaring comrades!  On you as on him, I lay this shared task of love:  give my command to Teucer!  Let him take this child to my home and set him before the face of Telamon, and of my mother, Eriboea,<milestone ed="p" n="570" unit="line"/>so that he may become the comfort of their age into eternity &lsqb;until they come to the deep hollows of the god below&rsqb;.  And order him that no commissioners of games, nor he who is my destroyer, should make my arms a prize for the Greeks.  No, you take this for my sake, Son, my broad shield from which you have your name.<milestone ed="p" n="575" unit="line"/>Hold it and wield it by the sturdy thong, this sevenfold, spear-proof shield!  But the rest of my arms shall be my gravemates.</p>
+<stage>To Tecmessa.</stage>
+<p>Come, take the child right away, shut tight the doors and make no laments before the house.<milestone ed="p" n="580" unit="line"/>God, what a weepy thing is woman.  Quick, close the house!  It is not for a skilful doctor to moan incantations over a wound that craves the knife.<milestone ed="p" n="583" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I am afraid when I hear this eager haste.  Your tongue's sharp edge does not please me.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="585" unit="line"/>Ajax, my lord, what can you have in mind?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Do not keep asking me, do not keep questioning.  Self-restraint is a virtue.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Ah, how I despair!  Now, by your child, by the gods, I implore you, do not betray us!</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>You annoy me too much.  Do you not know<milestone ed="p" n="590" unit="line"/>that I no longer owe any service to the gods?</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Hush, no impiety!</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Speak to those who hear.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>You will not listen?</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>Already your words have been too many.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Yes, because I am afraid, my king!</p></sp>
+<sp>
+<speaker>Ajax</speaker><stage>To the Attendants.</stage>
+<p>Close the doors this instant!</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>In the name of the gods, be softened!</p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p>You have foolish hope, I think,<milestone ed="p" n="595" unit="line"/>if you plan so late to begin schooling my temper.<stage>Ajax is shut into the tent.  Exit Tecmessa with Eurysaces.</stage><milestone ed="p" n="596" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>O famous <placeName key="tgn,7002340">Salamis</placeName>, you, I know, have your happy seat among the waves that beat your shore, eternally conspicuous in the eyes of all men.<milestone ed="p" n="600" unit="line"/>But I, miserable, have long been delayed here, still making my bed through countless months in the camp on the fields of Ida.<milestone ed="p" n="605" unit="line"/>I am worn by time and with anxious expectation still of a journey to Hades the abhorred, the unseen.<milestone ed="p" n="609" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p>And now a new struggle awaits me, ah, me!&mdash;a match with<milestone ed="p" n="610" unit="line"/>Ajax, hard to cure, sharing his tent with a madness of divine origin.  It is he whom mighty in bold war you dispatched from you once far in the past.  But now he is changed; he grazes his thoughts in isolated places<milestone ed="p" n="615" unit="line"/>and has been found a heavy sorrow for his friends.  His hands' former achievements, deeds of prowess supreme,<milestone ed="p" n="620" unit="line"/>have fallen without friends, without friends, before the unfriendly, miserable Atreidae.<milestone ed="p" n="622" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker><p>Surely his mother, companion of antiquity and<milestone ed="p" n="625" unit="line"/>grey with age, when she hears that he has been afflicted with the ruin of his mind will raise a loud cry of wailing.  It is not the nightingale's piteous lament<milestone ed="p" n="630" unit="line"/>that she, unhappy, will sing.  Rather in shrill-toned odes the dirge will rise, while the hollow sound of beating hands and the shredding of grey hair will fall upon her breast.<milestone ed="p" n="635" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="635" unit="line"/>Yes, better hid in Hades is the man plagued by foolishness, who by the lineage from where he springs is noblest of the enduring Achaeans, yet now is<milestone ed="p" n="640" unit="line"/>constant no more in his inbred temperament, but wanders outside himself.  O Telamon, unhappy father, how heavy a curse upon your son awaits your hearing, a curse which never yet has<milestone ed="p" n="645" unit="line"/>any life-portion of the heirs of Aeacus nourished but his!<milestone ed="p" n="646" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<stage>Enter Ajax, sword in hand, followed by Tecmessa.</stage></sp>
+<sp><speaker>Ajax</speaker>
+<p>All things the long and countless years first draw from darkness, and then bury from light; and there is nothing which man should not expect:  the dread power of oath is conquered, as is unyielding will.<milestone ed="p" n="650" unit="line"/>For even I, who used to be so tremendously strong&mdash;yes, like tempered iron&mdash;felt my tongue's sharp edge emasculated by this woman's words, and I feel the pity of leaving her a widow and the boy an orphan among my enemies.</p>
+<p>But I will go to the bathing-place and<milestone ed="p" n="655" unit="line"/>the meadows by the shore so that by purging my defilements I may escape the heavy anger of the goddess.  Then I will find some isolated spot, and bury this sword of mine, most hateful weapon, digging down in the earth where none can see.<milestone ed="p" n="660" unit="line"/>Let Night and Hades keep it underground!  For ever since I took into my hand this gift from Hector, my greatest enemy, I have gotten no good from the Greeks.  Yes, men's proverb is true:<milestone ed="p" n="665" unit="line"/>the gifts of enemies are no gifts and bring no good.</p>
+<p>And so hereafter I shall, first, know how to yield to the gods, and, second, learn to revere the Atreidae.  They are rulers, so we must submit.  How could it be otherwise?  Things of awe and might<milestone ed="p" n="670" unit="line"/>submit to authority.  So it is that winter with its snow-covered paths gives place to fruitful summer;  night's dark orbit makes room for day with her white horses to kindle her radiance;  the blast of dreadful winds<milestone ed="p" n="675" unit="line"/>allows the groaning sea to rest;  and among them all, almighty Sleep releases the fettered sleeper, and does not hold him in a perpetual grasp.</p>
+<p>And we men&mdash;must we not learn self-restraint?  I, at least, will learn it, since I am newly aware that an enemy is to be hated only as far as<milestone ed="p" n="680" unit="line"/>suits one who will in turn become a friend.  Similarly to a friend I would wish to give only so much help and service as suits him who will not forever remain friendly.  For the masses regard the haven of comradeship as treacherous.</p>
+<p>But concerning these things it will be well.  You, wife,<milestone ed="p" n="685" unit="line"/>go inside and pray to the gods that the desires of my heart be completed to the very end.<stage>Exit Tecmessa.</stage></p>
+<p>You also, my comrades, honor my wishes just as she does, and command Teucer, when he comes, to take care of us, and to be kind to you at the same time.<milestone ed="p" n="690" unit="line"/>I am going to where my journey inexorably leads.  But you do as I say, and before long, perhaps, though I now suffer, you will hear that I have found rest and peace.<stage>Exit Ajax.</stage><milestone ed="p" n="693" unit="card"/></p></sp>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>I shiver with rapture; I soar on the wings of sudden joy!<milestone ed="p" n="695" unit="line"/>O Pan, O Pan, appear to us, sea-rover, from the stony ridge of snow-beaten Cyllene.  King, dancemaker for the gods, come, so that joining with us you may set on the Nysian and the Cnosian steps,<milestone ed="p" n="700" unit="line"/>your self-taught dances.  Now I want to dance.  And may Apollo, lord of <placeName key="perseus,Delos">Delos</placeName>, step over the Icarian sea<milestone ed="p" n="705" unit="line"/>and join me in his divine form, in eternal benevolence!<milestone ed="p" n="707" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p>Ares has dispelled the cloud of fierce trouble from our eyes.  Joy, joy!  Now, Zeus, now can the white radiance of prosperous days approach<milestone ed="p" n="710" unit="line"/>our swift, sea-speeding ships, since Ajax forgets his pain anew, and has instead fully performed all prescribed sacrifices to the gods with worship and strict observance.</p>
+<p>The strong years make all things fade.<milestone ed="p" n="715" unit="line"/>And so I would not say that anything was beyond belief, when beyond our hopes, Ajax has been converted from his fury and mighty struggles against the Atreidae.<milestone ed="p" n="719" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<stage>Enter the Messenger, from the Greek camp.</stage></sp>
+<sp><speaker>Messenger</speaker>
+<p>Friends, my first news is this:<milestone ed="p" n="720" unit="line"/>Teucer has just now returned from the Mysian heights.  He has come to the generals' quarters mid-camp, and is being shouted at by all the Greeks at once.  Recognizing him from a distance as he approached, they gathered around him<milestone ed="p" n="725" unit="line"/>and then pelted him with jeers from every side&mdash;no one held back&mdash;calling him &ldquo;the brother of the maniac, of the plotter against the army,&rdquo; and saying that he would not be able to avoid entirely losing flesh and life before their flying stones.  In this way they had come to the point where swords<milestone ed="p" n="730" unit="line"/>had been plucked from sheaths and were drawn in their hands.  But then the conflict, when it had nearly run its full course, was halted by the conciliatory words of the elders.  But where shall I find Ajax, to tell him this?  To our lord I must tell all.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="735" unit="line"/>He is not inside, but is recently departed.  He has yoked a new purpose to his new mood.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>No!  Oh, no!  Too late, then, was he who sent me on this errand, or I myself came too slowly.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="740" unit="line"/>What is this urgent matter? What part of it has been neglected?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>Teucer declared that Ajax should not slip out of the house, until he himself arrives.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Well, he is departed, I repeat, bent on the purpose that is best for him&mdash;to be rid of his anger at the gods.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="745" unit="line"/>These words betray great foolishness, if there is any wisdom in the prophecies of Calchas.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>What does he prophesy?  What knowledge of this affair do you bring?<milestone ed="p" n="748" unit="card"/></p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>This much I know and witnessed on the spot.  Leaving the royal circle of the chiefs who sat in council,<milestone ed="p" n="750" unit="line"/>Calchas separated himself from the Atreidae and put his right hand with all kindness into the hand of Teucer.  The prophet then addressed him and strictly commanded him to use every possible resource to keep Ajax inside his tent for the duration of this day that now shines on us, and to prevent him from moving about<milestone ed="p" n="755" unit="line"/>if he wished ever to look on him alive.  For this day alone will the anger of divine Athena lash at him.  That was the prophet's warning.  &ldquo;Yes,&rdquo; the seer went on to explain, &ldquo;lives that have grown too proud and no longer yield good fall on grave difficulties sent from the gods,<milestone ed="p" n="760" unit="line"/>especially when someone born to man's estate forgets that fact by thinking thoughts too high for man.  And Ajax, even at the time he first set out from home, showed himself foolish, when his father advised him well.  For Telamon told him, &lsquo;My son,<milestone ed="p" n="765" unit="line"/>seek victory in arms, but always seek it with the help of god.&rsquo;  Then with a tall boast and foolishly he replied, &lsquo;Father, with the help of the gods even a worthless man might achieve victory;  but I, even without that help, fully trust to bring that glory within my grasp.&rsquo;<milestone ed="p" n="770" unit="line"/>So much he boasted.  Then once again in answer to divine Athena&mdash;at a time when she was urging him forward and telling him to turn a deadly hand against the enemy&mdash;he answered her with words terrible and blasphemous, &lsquo;Queen, stand beside the other Greeks;<milestone ed="p" n="775" unit="line"/>where Ajax stands, battle will never break our line.&rsquo;  It was by such words, you must know, that he won for himself the intolerable anger of the goddess since his thoughts were too high for man.  But if he survives this day, perhaps with the god's help we may find means to save him.&rdquo;</p>
+<p><milestone ed="p" n="780" unit="line"/>With those words the seer finished, and at once Teucer rose from his seat and sent me with these orders for you to follow.  But if I have been cheated of success, Ajax does not live.  Otherwise Calchas has no skill.<milestone ed="p" n="784" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Poor Tecmessa, born to misery,<milestone ed="p" n="785" unit="line"/>come out and see this man and his news.  The razor lies close at our throat, poised to cut off all joy.</p></sp>
+<sp>
+<stage>Enter Tecmessa, with Eurysaces.</stage></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Why do you stir me from my place of rest, when I have just found peace from those relentless troubles?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Listen to this man, and<milestone ed="p" n="790" unit="line"/>hear the news of Ajax that he has brought us&mdash;news at which I felt sudden grief.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Oh, no, what is your news, man?  Surely we are not ruined?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>I have no clue of your condition, but know only that, if Ajax is away, I have little hope for him.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>But he is away, so  I am in agony to know what you mean.</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p><milestone ed="p" n="795" unit="line"/>Teucer strictly commands that you keep Ajax under shelter of his tent and not allow him to go out alone.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>But where is Teucer?  And why these orders?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>He has just now returned, and he suspects that such a departure carries death for Ajax.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="800" unit="line"/>Oh, misery!  From whom can he have learned this?</p></sp>
+<sp>
+<speaker>Messenger</speaker>
+<p>From Thestor's son, the prophet.  His prophecy applies to today, when the issue is one of life or death for Ajax.</p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Ah, me!  My friends, protect me from the doom threatened by fate!  Hurry, some of you, to speed Teucer's coming;<milestone ed="p" n="805" unit="line"/>let others go to the westward bays, and others to the eastward, and there seek the man's disastrous path.  I see now that I have been deceived by my husband and cast out of the favor that I once had with him.  Ah, my child, what shall I do?  I must not sit idle.<milestone ed="p" n="810" unit="line"/>I too will go as far as my strength will carry me.  Move, let us be quick, this is no time to sit still, if we wish to save a man who is eager for death.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>I am ready to help, and I will show it in more than word.  Speed of action and speed of foot will follow together.<stage>Exeunt Tecmessa and the Chorus.  A Servant takes Eurysaces into the tent.  The scene changes to a lonely place on the shore.  Enter Ajax, still with sword.</stage><milestone ed="p" n="815" unit="card"/></p></sp>
+<sp>
+<speaker>Ajax</speaker>
+<p><milestone ed="p" n="815" unit="line"/>The sacrificial killer stands planted in the way that will cut most deeply&mdash;if I have the leisure for even this much reflection.  First, it is the gift of Hector, that enemy-friend who was most hateful to me and most hostile to my sight;  next, it is fixed in enemy soil, the land of <placeName key="perseus,Troy">Troy</placeName>,<milestone ed="p" n="820" unit="line"/>newly-whetted on the iron-devouring stone;  and finally I have planted it with scrupulous care, so that it should prove most kind to me by a speedy death.</p>
+<p>Yes, we are well equipped.  And so, O Zeus, be the first to aid me, as is proper.<milestone ed="p" n="825" unit="line"/>It is no large prize that I ask you to award me.  Send on my behalf some messenger with news of my downfall to Teucer, so that he may be the first to raise me once I have fallen on this sword and made it newly-wet, and so that I am not first spotted by some enemy<milestone ed="p" n="830" unit="line"/>and cast out and exposed as prey to the dogs and birds.  For this much, Zeus, I appeal to you.  I call also on Hermes, guide to the underworld, to lay me softly to sleep with one quick, struggle-free leap, when I have broken open my side on this sword.<milestone ed="p" n="835" unit="line"/>And I call for help to the eternal maidens who eternally attend to all sufferings among mortals, the dread, far-striding Erinyes, asking them to learn how my miserable life is destroyed by the Atreidae.<milestone ed="p" n="840" unit="line"/>And may they seize those wicked men with most wicked destruction, just as they see me &lsqb;fall slain by my own hand, so slain by their own kin may they perish at the hand of their best-loved offspring&rsqb;.  Come, you swift and punishing Erinyes, devour all the assembled army and spare nothing!<milestone ed="p" n="845" unit="line"/>And you, Helios, whose chariot-wheels climb the steep sky, when you see the land of my fathers, draw in your rein spread with gold and tell my disasters and my fate to my aged father and to the unhappy woman who nursed me.<milestone ed="p" n="850" unit="line"/>Poor mother!  Indeed, I think, when she hears this news, she will sing a song of loud wailing throughout the entire city.  But it is not for me to weep in vain like this.  No, the deed must quickly have its beginning.  O Death, Death, come now and lay your eyes on me!<milestone ed="p" n="855" unit="line"/>And yet I will meet you also in that other world and there address you.  But you, beam of the present bright day, I salute you and the Sun in his chariot for the last time and never again.  O light!  O sacred soil<milestone ed="p" n="860" unit="line"/>of my own <placeName key="tgn,7002340">Salamis</placeName>, firm seat of my father's hearth!  O famous <placeName key="perseus,Athens">Athens</placeName>, and your race kindred to mine!  And you, springs and rivers of this land&mdash;and you plains of <placeName key="perseus,Troy">Troy</placeName> I salute you also&mdash;farewell, you who have nurtured me!  This is the last word that Ajax speaks to you.<milestone ed="p" n="865" unit="line"/>The rest he will tell to the shades in Hades.<stage>Ajax falls upon his sword.</stage><milestone ed="p" n="866" unit="card"/></p></sp>
+<div2 type="lyric">
+<sp>
+<stage>The Chorus reenters in two bands.</stage></sp>
+<sp><speaker>First Semichorus</speaker>
+<p>Toil follows toil yielding toil!  Where, where have I not trudged?  And still no place can say that I have shared its secret.<milestone ed="p" n="870" unit="line"/>Listen!  A sudden thud!</p></sp></div2>
+<div2 type="lyric">
+<sp>
+<speaker>Second Semichorus</speaker>
+<p>We made it, we shipmates of your voyage.</p></sp></div2>
+<div2 type="lyric">
+<sp>
+<speaker>Semichorus 1</speaker>
+<p><milestone ed="p" n="875" unit="line"/>What news, then?</p></sp></div2>
+<div2 type="lyric">
+<sp>
+<speaker>Semichorus 2</speaker>
+<p>All the westward flank of the ships has been scoured for tracks.</p></sp></div2>
+<div2 type="lyric">
+<sp>
+<speaker>Semichorus 1</speaker>
+<p>And did you find anything?</p></sp></div2>
+<div2 type="lyric">
+<sp>
+<speaker>Semichorus 2</speaker>
+<p>Only an abundance of toil.  There was nothing more to see.</p></sp></div2>
+<div2 type="lyric">
+<sp>
+<speaker>Semichorus 1</speaker>
+<p>Neither, as a matter of fact, has the man been seen along the path that faces the shafts of the morning sun.<milestone ed="p" n="880" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>Who, then, can guide me?  What toiling<milestone ed="p" n="880" unit="line"/>fisherman, busy about his sleepless hunt, what nymph of the Olympian heights or of the streams that flow toward<milestone ed="p" n="885" unit="line"/><placeName key="tgn,1115068">Bosporus</placeName>, can say whether she has anywhere seen the wanderings of fierce-hearted Ajax?  It is cruel that I, who have roamed with such great toil, cannot come near him with a fair course,<milestone ed="p" n="890" unit="line"/>but fail to see where the enfeebled man is.</p>
+<stage>Enter Tecmessa near the corpse of Ajax.</stage></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Ah, me, ah, me!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Whose cry broke from that nearby grove?</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Ah, misery!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>There, I see his unfortunate young bride, who was the prize of his spear,<milestone ed="p" n="895" unit="line"/>Tecmessa, dissolved in that pitiful wailing.</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>I am lost, destroyed, razed to the ground, my friends!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>What is it?</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Here is our Ajax&mdash;his blood newly shed, he lies folded around the sword, burying it.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="900" unit="line"/>Ah, no!  Our homecoming is lost!  Ah, my king, you have killed me, the comrade of your voyage!  Unhappy man&mdash;broken-hearted woman!</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="905" unit="line"/>His condition demands that we cry &lsquo;aiai.&rsquo;</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>But by whose hand can the ill-fated man have contrived this end?</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>He did it with his own hand;  it is obvious.<milestone ed="p" n="910" unit="line"/>This sword which he planted in the ground and on which he fell convicts him.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Ah, what blind folly I have displayed!  All alone, then, you bled, unguarded by your friends!  And I took no care, so entirely dull was I, so totally stupid.  Where, where lies inflexible Ajax, whose name means anguish?<milestone ed="p" n="915" unit="card"/></p></sp>
+<sp>
+<speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="915" unit="line"/>No, he is not to be looked at!  I will cover him over entirely with this enfolding shroud, since no one&mdash;no one, that is, who loves him&mdash;could bear to see him spurt the darkened gore of his self-inflicted slaughter up his nostrils and out of the bloody gash.</p>
+<p><milestone ed="p" n="920" unit="line"/>Ah, what shall I do?  What loved one is there to lift you in his arms?  Where is Teucer?  How timely would be his arrival, if he would but come to compose the corpse of his brother here!  Ah, unlucky Ajax, from so great a height you are fallen so low!<milestone ed="p" n="925" unit="line"/>Even among your enemies you are worthy of mourning!<milestone ed="p" n="926" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p>You were bound, poor man, with that unbending heart you were bound, it seems, to fulfill a harsh destiny of limitless toils!  So wild to my ears<milestone ed="p" n="930" unit="line"/>were the words of hatred which in your fierce mood you moaned against the Atreidae with such deadly passion.  True it is that that moment was a potent source of sorrows,<milestone ed="p" n="935" unit="line"/>when the arms were made the prize for a contest in the skills of warfare!</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Ah!  Ah!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>True anguish, I know, pierces your heart.</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Ah!  Ah, me!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="940" unit="line"/>I do not wonder, lady, that you wail and wail again, when you have just lost one so loved.</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>It is for you to analyze my troubles, but for me to feel them too fully.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>I must agree.</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Oh, my son, to what a heavy yoke of slavery<milestone ed="p" n="945" unit="line"/>we advance!  What cruel task-masters stand over us!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Ah, the deeds of the two ruthless Atreidae which you name in our present grief would be unthinkable!  May the gods hold them back!</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p><milestone ed="p" n="950" unit="line"/>These events that you see would not have happened as they have without the will of the gods.</p></sp>
+<sp><speaker>Chorus</speaker>
+<p>Yes, they have brought upon us a burden too heavy to bear.</p></sp>
+<sp><speaker>Tecmessa</speaker>
+<p>Yet what suffering the divine daughter of Zeus, fierce Pallas, engenders for Odysseus' sake!</p></sp>
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="955" unit="line"/>No doubt the much-enduring hero exults in his dark soul and mocks in loud laughter at these frenzied sorrows&mdash;what shame!&mdash;<milestone ed="p" n="960" unit="line"/>and with him, when they hear the news, will laugh the royal brothers, the Atreidae.<milestone ed="p" n="961" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<speaker>Tecmessa</speaker>
+<p>Then let them mock and rejoice at this man's misery.  Perhaps, even though they did not cherish him while he lived, they will lament his death, when they meet with the difficulties of war.  Men of crooked judgment do not know what good<milestone ed="p" n="965" unit="line"/>they have in their hands until they have thrown it away.  His death is more bitter to me than it is sweet to the Greeks;  but in any case to Ajax himself it is a joy, since he has accomplished all that he desired to get&mdash;his longed-for death.  So why should they exult over him?<milestone ed="p" n="970" unit="line"/>He died before the gods, not at all before them&mdash;no!  And so let Odysseus toss his insults in empty glee.  For them Ajax is no more;  for me he is gone, abandoning me to anguish and mourning.</p></sp>
+<sp>
+<speaker>Teucer</speaker><stage>Approaching.</stage>
+<p>Ah!  Ah, no!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="975" unit="line"/>Quiet&mdash;I think I hear the voice of Teucer striking a note that points to this disaster.</p></sp>
+<sp>
+<stage>Enter Teucer.</stage></sp>
+<sp><speaker>Teucer</speaker>
+<p>Beloved Ajax, brother whose face was so dear to me, have you truly fared as the mighty rumor says?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>He is dead, Teucer.  Take it as fact.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p><milestone ed="p" n="980" unit="line"/>Then I am destroyed by my heavy fortune!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>When things stand as they do&mdash;</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Ah, misery, misery!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>&mdash;you have cause to mourn.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>O rash passion!</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Yes, Teucer, far too rash.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Ah, misery&mdash;what about the man's child?  Where in all of <placeName key="perseus,Troy">Troy</placeName> can I find him?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="985" unit="line"/>He is alone near the tent.</p></sp>
+<sp>
+<speaker>Teucer</speaker><stage>To Tecmessa.</stage>
+<p>Then bring him here right away, so that we may prevent some enemy from snatching him away, as a hunter snatches a cub from a lioness and leaves her barren!   Go quickly; give me your help!  It is the habit of men everywhere to laugh in triumph over the dead when they are mere corpses on the ground.<stage>Exit Tecmessa.</stage></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="990" unit="line"/>Yes, while still alive, Teucer, Ajax ordered you to care for the child, just as you are in fact doing.<milestone ed="p" n="992" unit="card"/></p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>This sight is truly most painful to me of all that my eyes have seen.<milestone ed="p" n="995" unit="line"/>And the journey truly loathsome to my heart above all other journeys is this one that I have just now made while pursuing and scouting out your footsteps, dearest Ajax, once I learned of your fate!  For a swift rumor about you, as if sent from some god, passed throughout all the Greek army, telling that you were dead and gone.<milestone ed="p" n="1000" unit="line"/>I heard the rumor while still far away from you, and I groaned quietly in sadness.  But now that I see its truth, my heart is utterly shattered!  Oh, god!</p>
+<p>Come, uncover him;  let me see the worst.<stage>The corpse of Ajax is uncovered.</stage></p>
+<p>O face painful to look upon and full of cruel boldness,<milestone ed="p" n="1005" unit="line"/>what a full crop of sorrows you have sown for me in your death!  Where can I go?  What people will receive me, when I have failed to help you in your troubles?  No doubt Telamon, your father and mine, will likely greet me with a smile and kind words,<milestone ed="p" n="1010" unit="line"/>when I return without you.  Yes, of course he will&mdash;a man who, even when enjoying good fortune, tends not to smile more brightly than before!  What will a man like him leave unsaid?  What insult will he forego against &ldquo;the bastard offspring of his spear's war-prize,&rdquo; against your &ldquo;cowardly, unmanly betrayer,&rdquo; dear Ajax,<milestone ed="p" n="1015" unit="line"/>or better yet, your &ldquo;treacherous betrayer&rdquo; with designs to govern your domain and your house after your death?  So will he insult me;  he is a man quick to anger, severe in old age, and his rage seeks quarrels without cause.  And in the end I shall be thrust out of our land, and cast off,<milestone ed="p" n="1020" unit="line"/>branded by his taunts as a slave instead of a freeman.  These are my prospects at home.  At <placeName key="perseus,Troy">Troy</placeName>, on the other hand, my enemies are many, while I have few things to help me.  All this have I gained from your death!  Ah, me, what shall I do?  How shall I draw your poor corpse<milestone ed="p" n="1025" unit="line"/>off the sharp tooth of this gleaming sword, the murderer who, it seems, made you breathe your last?  Now do you see how in time Hector, though dead, was to destroy you?</p>
+<p>By the gods, note the fortune of this mortal pair.<milestone ed="p" n="1030" unit="line"/>First Hector with the very warrior's belt given to him by Ajax was lashed to the chariot-rail and shredded without end, until his life fled with his breath.  Now Ajax here had this gift from Hector, and by this he has perished in his deadly fall.  Was it not the Fury who forged this blade,<milestone ed="p" n="1035" unit="line"/>was not that belt the product of Hades, the grim artificer?  I, for my part, would affirm that these happenings and all happenings ever are designed by the gods for men.  But if there is anyone in whose judgment my words are unacceptable, let him cherish his own thoughts, as I do mine.<milestone ed="p" n="1040" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1040" unit="line"/>Do not go on at length, but consider how you will bury him and what you will next say.  For I see our enemy approaching, and chances are that he comes to mock at our sorrows, like one who would do us harm.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>What man of the army do you see?</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p><milestone ed="p" n="1045" unit="line"/>Menelaus, the beneficiary of this expedition.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>I see him; he is not hard to recognize when near.</p></sp>
+<sp>
+<stage>Enter Menelaus.</stage></sp>
+<sp><speaker>Menelaus</speaker>
+<p>You there, I tell you not to lift that corpse for burial, but leave it where it lies.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Why do you waste your breath on this arrogant command?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="1050" unit="line"/>It conveys my decree, and the decree of the army's supreme ruler.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Would you mind, then, telling me what reason you pretend?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>This&mdash;that when we had hoped we were bringing Ajax from home to be an ally and a friend for the Greeks, we found him on closer examination to be an enemy worse than the Phrygians,<milestone ed="p" n="1055" unit="line"/>since he plotted the murder of the entire army and marched by night against us in order to take us with his spear.  And if some god had not smothered this attempt, we would have been allotted the fate which he now has, and we would be dead and lie prostrate by an ignoble doom,<milestone ed="p" n="1060" unit="line"/>while he would be living.  But now a god has turned his outrage aside, so that it fell on the sheep and cattle.</p>
+<p>For this reason there is no man so powerful that he will be able to entomb the corpse of Ajax.  Instead he shall be cast forth somewhere on the yellow sand<milestone ed="p" n="1065" unit="line"/>to become forage for the birds of the seashore. So then do not inflame the terrible force of your spirit.  If we were unable to master him while he lived, in any case in death, at least, we shall rule him despite your opposition and control him by force of our hands.   For while he lived, there never was a time<milestone ed="p" n="1070" unit="line"/>when he would obey my commands.</p>
+<p>Now it is, in truth, the mark of a base nature when a commoner does not think it right to obey those who stand over him.  Never can the laws maintain a prosperous course in a city where fear has no fixed place,<milestone ed="p" n="1075" unit="line"/>nor can a camp be ruled any more with moderation, if it lacks the guarding force of fear and reverence.  A man, though he grow his body great and mighty, must expect to fall, even from a light blow.  Whoever knows fear and shame both,<milestone ed="p" n="1080" unit="line"/>you can be certain that he has found his salvation;  but where there is license to attack others and act at will, do not doubt that such a State, though she has run before a favoring wind, will eventually sink with time into the depths.</p>
+<p>No, let me see fear, too, established, where fear is fitting;<milestone ed="p" n="1085" unit="line"/>let us not think that we can act on our desires without paying the price in pain.  These things come by turns.  He was once the hot attacker, now it is my hour to glory.  And so I warn you not to bury him,<milestone ed="p" n="1090" unit="line"/>so that you can avoid falling into your own grave.<milestone ed="p" n="1091" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Menelaus, after laying down wise precepts, do not then violate the dead.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Never again, my fellow Salaminians, will I be amazed if some nobody by birth does wrong,<milestone ed="p" n="1095" unit="line"/>when those who are reputed to be born of noble blood employ such wrongful sentiments in their arguments.</p>
+<p>Come, tell me from the first once more&mdash;do you really say that you brought Ajax here to the Greeks as an ally personally recruited by you?  Did he not sail of his own accord?  As his own master?<milestone ed="p" n="1100" unit="line"/>On what grounds are you his commander?  On what grounds have you a right to kingship over the men whom he brought from home?  It was as <placeName key="perseus,Sparta">Sparta</placeName>'s king that you came, not as master over us.  Nowhere was it established among your lawful powers that you should order him any more than he you.<milestone ed="p" n="1105" unit="line"/>You sailed here under the command of others, not as a supreme commander who might at any time exercise authority over Ajax.</p>
+<p>No, rule the troops you rule, and use your reverend words to punish them!  But this man, whether you or the other general forbid it, I will lay<milestone ed="p" n="1110" unit="line"/>in the grave as justice demands, and I will not fear your tongue.  It was not at all for your wife's sake that Ajax  made this expedition, as did those toil-worn drudges.  No, it was for the sake of the oath by which he had sworn, and not at all for you, since it was not his habit to value nobodies.<milestone ed="p" n="1115" unit="line"/>And so when you come here again, bring more heralds, and the leader of the expedition, too.  Your bluster could not make me turn to notice you, so long as you are what you are.</p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Again, I say, in these troubles I cannot approve of such a tone.  Harsh words sting, however just they are.<milestone ed="p" n="1120" unit="card"/></p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="1120" unit="line"/>The bowman seems to feel no little grandeur.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>I do, since it is no lowly skill that I possess.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>How you would boast, if you had a shield!</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Even without a shield I would be a match for you fully armed.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>What a tongue you have!  What dreadful anger it feeds!</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p><milestone ed="p" n="1125" unit="line"/>When right is with him, a man's thoughts may be grand.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>What, is it right that the man who murdered me should prosper?</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Murdered you?  It is truly a strange happening, if in fact you live after being killed.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>A god rescued me.  So far as that corpse is concerned, I am in Hades.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Then since it was the gods who saved you, do not dishonor the gods.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="1130" unit="line"/>What, would I find fault with divine law?</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Yes, if by your presence here you prevent burial of the dead.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Prevent it I do, since he was at war with me and I with him.  Burial in such a case would not be right.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>What do you mean?  Did Ajax ever stand forth publicly to war with you?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>He hated me as I hated him, and you knew it, too.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p><milestone ed="p" n="1135" unit="line"/>Yes, he hated you because you had been caught fixing the votes in order to rob him.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>At the hands of the jurymen, not mine, he suffered that loss.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>You could make a thousand stealthy crimes look pretty.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>That sentiment leads to pain for someone I know.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>The pain will be no greater, I think, than that which we will inflict.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p><milestone ed="p" n="1140" unit="line"/>I will tell you once and for all&mdash;there is to be no burial for him.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>And hear my reply&mdash;he shall be buried immediately.</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>Once I saw a bold-tongued man who had urged sailors to set sail during wintertime.  Yet in him you could have found no voice<milestone ed="p" n="1145" unit="line"/>when the worst of the storm was upon him.  No, hidden beneath his cloak he allowed the crew to trample on him at will.  And so it is with you and your raging speech&mdash;perhaps a great storm, even if its blast comes from a small cloud, will extinguish your shouting.<milestone ed="p" n="1150" unit="card"/></p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p><milestone ed="p" n="1150" unit="line"/>Yes, and I have seen a man stuffed with foolishness who exulted in his neighbor's misfortunes.  It turned out that a man like me and of similar temperament stared at him and said, &ldquo; Man, do not wrong the dead;<milestone ed="p" n="1155" unit="line"/>for, if you do, rest assured that you will come to harm.&rdquo;  So he warned the misguided man before him.  Take note&mdash;I see him now, and I think that he is no one but you.  Have I spoken in riddles?</p></sp>
+<sp>
+<speaker>Menelaus</speaker>
+<p>I will go&mdash;it would be a disgrace to have it known<milestone ed="p" n="1160" unit="line"/>that I argue when I have the power to use force.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Leave then!  The worst disgrace for me is that I should listen to a fool's empty chatter.<stage>Exit Menelaus.</stage><milestone ed="p" n="1163" unit="card"/></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>A trial of this great discord will soon come about.  But you, Teucer, with all the speed you can muster,<milestone ed="p" n="1165" unit="line"/>be quick to seek a hollow grave for Ajax, where he shall establish his dank tomb, a constant memorial for mortals.<milestone ed="p" n="1168" unit="card"/></p></sp>
+<sp>
+<stage>Enter Tecmessa and Eurysaces.</stage></sp>
+<sp><speaker>Teucer</speaker>
+<p>And now just in time his son and his wife approach<milestone ed="p" n="1170" unit="line"/>to arrange the burial of the pitiable corpse.  Come here, nephew.  Take your place near him, and  grasp in supplication your father, your begetter.  Kneel and pray for help, with locks of hair in your hand from me, her, and thirdly you;<milestone ed="p" n="1175" unit="line"/>they are the suppliant's only resource.  But if any soldier from the army should tear you by violence from this body, then for his wickedness may he be wickedly cast out of his country and get no burial, but be severed at the root with all his race, just as I shear this lock.<milestone ed="p" n="1180" unit="line"/>Take it, Nephew, and keep it safe.  Let no one move you, but kneel there and cling to the dead.</p>
+<p>And you there, do not stand idly by like women, not men.  Help defend us until I return, when I have seen to a grave for him, though all the world forbids it.<stage>Exit Teucer.</stage><milestone ed="p" n="1185" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="choral">
+<div2 type="strophe" n="1">
+<sp><speaker>Chorus</speaker>
+<p><milestone ed="p" n="1185" unit="line"/>Which will be the last year?  When will the sum of the years of our many wanderings stop bringing upon me the unending doom of toilful spear-battles<milestone ed="p" n="1190" unit="line"/>throughout broad <placeName key="perseus,Troy">Troy</placeName>, the cause of sorrow and of shame for <placeName key="tgn,1000074">Greece</placeName>?<milestone ed="p" n="1192" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="1">
+<sp><speaker>Chorus</speaker><p><milestone ed="p" n="1192" unit="line"/>If only that man had first passed into the depths of the sky or into Hades, the common home of all,<milestone ed="p" n="1195" unit="line"/>before he taught the Greeks the shared plague of Ares' detested arms!  Ah, those toils of his invention, which produced so many more toils!  Look how that man has ravaged humanity!<milestone ed="p" n="1199" unit="card"/></p></sp></div2>
+<div2 type="strophe" n="2">
+<sp><speaker>Chorus</speaker><p>No delight in garlands<milestone ed="p" n="1200" unit="line"/>or deep wine-cups did that man provide me, no sweet din of flutes, that miserable man, or pleasing rest in the night.<milestone ed="p" n="1205" unit="line"/>And from love&mdash;god!&mdash;from love he has totally barred me. Here I lie uncared for, while heavy dews constantly wet my hair,<milestone ed="p" n="1210" unit="line"/>damp reminders of joyless <placeName key="perseus,Troy">Troy</placeName>.<milestone ed="p" n="1211" unit="card"/></p></sp></div2>
+<div2 type="antistrophe" n="2">
+<sp><speaker>Chorus</speaker><p>In the past bold Ajax was always my bulwark against night's terrors and flying missiles.  But now he has become an offering consecrated<milestone ed="p" n="1215" unit="line"/>to a malignant divinity.  What joy, then, what delight awaits me anymore? O to be where the wooded wave-washed cape fences off the deep sea,<milestone ed="p" n="1220" unit="line"/>to be beneath Sunium's jutting plateau, so that we might salute sacred <placeName key="perseus,Athens">Athens</placeName>!<milestone ed="p" n="1223" unit="card"/></p></sp></div2>
+</div1>
+<div1 type="episode">
+<sp>
+<stage>Enter Teucer.</stage></sp>
+<sp><speaker>Teucer</speaker>
+<p>Here I am!  I hurried back when I saw the supreme commander, Agamemnon, rapidly approaching.<milestone ed="p" n="1225" unit="line"/>It is plain to me that he will let his clumsy tongue fly.</p></sp>
+<sp>
+<stage>Enter Agamemnon.</stage></sp>
+<sp><speaker>Agamemnon</speaker>
+<p>So it is you, they tell me, who dared open your mouth wide to make fierce threats against us&mdash;and are you still unpunished?  Yes, I mean you&mdash;you, the captive slave's son.  No doubt if you were born from a noble mother,<milestone ed="p" n="1230" unit="line"/>your talk would reach the sky and you would proudly strut about, when now it is the case that, though you are a nobody and a nothing, you have stood up for this other nothing lying here, and have vowed that we came out with no authority either as admirals or as generals to rule the Greeks or you.  No, as an autonomous ruler, you say, Ajax set sail.</p>
+<p><milestone ed="p" n="1235" unit="line"/>Does it not shame me that I hear these proud words from slavish mouths?  What was the man whom you shout about with such arrogance?  Where did he advance, or where did he stand his ground, where I did not do the same?  Have the Greeks, then, no other men but him?  To our own harm, it seems, we announced<milestone ed="p" n="1240" unit="line"/>to the Greeks the contests for the arms of Achilles, if on all sides we are accounted corrupt because of Teucer, and if it will never satisfy you Salaminians, even when you are defeated, to accept the verdict which satisfied the majority of the judges.  But instead you will always no doubt aim your slanderous arrows at us,<milestone ed="p" n="1245" unit="line"/>or treacherously lash at our backs when you fall behind us in the race.</p>
+<p>Yet in a place where such ways prevail, there could be no settled order for any law, if we are to thrust the rightful winners aside and bring those in the rear up to the front ranks.<milestone ed="p" n="1250" unit="line"/>These tendencies must be checked. It is not the stout, broad-shouldered men that are the steadiest allies.  No, it is the wise who prevail in every engagement.  A broad-backed ox is kept straight on the road all the same when only a small whip directs him.<milestone ed="p" n="1255" unit="line"/>And a dose of this very medicine, I foresee, will find you before long, unless you gain a little good sense.  He no longer exists, but is already a shade, yet still you boldly insult us and give your tongue too much freedom.  Restrain yourself, I say.  Recall your birth, your nature.<milestone ed="p" n="1260" unit="line"/>Bring someone else here&mdash;a man who is freeborn&mdash;who can plead your cause before me in your place.  For when you speak, I no longer understand&mdash; I do not know your barbarian language.<milestone ed="p" n="1264" unit="card"/></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>If only you both had the sense to exercise self-restraint!<milestone ed="p" n="1265" unit="line"/>There is no better advice that I could give you two.</p></sp>
+<sp n="Teucer">
+<speaker>Teucer</speaker>
+<p>My, how quickly gratitude to the dead seeps away from men and is found to have turned to betrayal, since this man no longer offers even the slightest praise in remembrance of you, Ajax, even though it was for his sake<milestone ed="p" n="1270" unit="line"/>you toiled so often in battle, offering your own life to the spear!  No, your assistance is dead and gone, all flung aside!</p>
+<p>Full and foolish talker, do you no longer remember anything of the time when you were trapped inside your defenses,<milestone ed="p" n="1275" unit="line"/>when you were all but destroyed in the turn of the battle and he, he alone came and saved you at the moment when the flames were already blazing around the decks at your ships' sterns and Hector was leaping high over the trench towards the vessels?<milestone ed="p" n="1280" unit="line"/>Who averted that?  Was it not Ajax who did it, the one who, you say, nowhere set foot where you were not?  Well, do you grant that he did his duty to you there?  And what about when another time, all alone, he confronted Hector in single combat according to the fall of the lots, and not at anyone's command?<milestone ed="p" n="1285" unit="line"/>The lot which he cast in was not the kind to flee the challenge;  it was no lump of moist earth, but one which would be the first to leap lightly from the crested helmet!  It was this man who did those deeds, and I, the slave, the son of the barbarian mother, was at his side.<milestone ed="p" n="1290" unit="card"/></p>
+<p><milestone ed="p" n="1290" unit="line"/>Pitiful creature, how can you be so blind as to argue the way you do?  Are you not aware of the fact that your father's father Pelops long ago was a barbarian, a Phrygian?  That Atreus, your own begetter, set before his brother a most unholy feast made from the flesh of his brother's children?<milestone ed="p" n="1295" unit="line"/>And you yourself were born from a Cretan mother, whose father found a stranger straddling her and who was consigned by him to be prey for the mute fish.  So being of such a kind, can you reproach a man like me for my lineage?  I am the son of Telamon,<milestone ed="p" n="1300" unit="line"/>who won my mother for his consort as prize for valor supreme in the army.  And she was the daughter of Laomedon, of royal blood, and it was as the flower of the spoil that Alcmena's son gave her to Telamon.  Thus nobly born as I am from two noble parents,<milestone ed="p" n="1305" unit="line"/>could I disgrace my own flesh and blood, whom even as he lies here subdued by such massive troubles, you, making your pronouncements without a blush of shame, would thrust out without burial?  Now consider this well:  wherever you cast him away, with him you will also cast our three corpses.<milestone ed="p" n="1310" unit="line"/>It is right for me to die before all men's eyes while I am toiling in his cause, rather than for your wife&mdash;or should I say your brother's?  With this in mind, then, look not to my safety, but to yours instead, since if you cause me any grief at all, you will soon wish<milestone ed="p" n="1315" unit="line"/>that you had been more timid than bold when confronting me.
+</p></sp>
+<milestone ed="p" n="1316" unit="card"/>
+<sp>
+<stage>Enter Odysseus.</stage></sp>
+<sp><speaker>Chorus</speaker>
+<p>Lord Odysseus, you arrive at the right time, if mediation, not division, is your purpose in coming.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>What is the trouble, friends?  From far off I heard shouting from the Atreidae over this brave man's corpse.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1320" unit="line"/>Is it not because we, Lord Odysseus, have long had to hear the worst, most shameful language from this man?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>How so?  I can pardon a man a retaliatory barrage of abuse if another has insulted him.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>I insulted him, since his conduct toward me was of the same stripe.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1325" unit="line"/>And what did he do that harmed you?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>He declares that he will not leave this corpse without due burial, but will entomb it in spite of me.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Then may a friend speak the truth, and still remain your helpmate no less than before?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1330" unit="line"/>Speak.  Otherwise I would be less than sane, since I count you my greatest friend among all the Greeks.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Listen, then.  In the name of the gods, do not let yourself so ruthlessly cast this man out unburied.  Do not in any way let the violence of your hatred overcome you<milestone ed="p" n="1335" unit="line"/>so much that you trample justice under foot.  To me, too, this man was once the most hostile enemy in the army from the day on which I beat him for possession of Achilles' arms.  Yet for all that he was hostile towards me, I would not dishonor him in return or refuse to admit<milestone ed="p" n="1340" unit="line"/>that in all our Greek force at <placeName key="perseus,Troy">Troy</placeName> he was, in my view, the best and bravest, excepting Achilles.  It would not be just, then, that he should be dishonored by you.  It is not he, but the laws given by the gods that you would damage.  When a good man is dead, there is no justice<milestone ed="p" n="1345" unit="line"/>in doing him harm, not even if you hate him.<milestone ed="p" n="1346" unit="card"/></p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>You, Odysseus&mdash;do you champion him against me in this battle?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I do, though I did hate him, when it was honorable for me to hate.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>But should you not also trample him now that he is dead?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Do not take delight, son of Atreus, in that superiority which brings no honor.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1350" unit="line"/>Reverence, I tell you, is not easily practiced by the autocrat.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>But it is easy to grant dispensations to friends when they advise well.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>A good man should listen to those in charge.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Stop!  Your power is victorious when you surrender to your friends.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Remember to what sort of man you show this kindness!</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1355" unit="line"/>The man was once my enemy, yes, but he was also noble.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Why do you do this?  Why do you so respect an enemy's corpse?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>I yield to his excellence much more than his hostility.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Men who act as you do are the unstable sort in humankind.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>Quite the majority of men, I assure you, are friendly at one time, and bitter at another.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1360" unit="line"/>So then, are these the type of friends that you recommend we make?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>It is not my habit to recommend an inflexible spirit.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>You will make us appear to be cowards today.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>On the contrary, we will be men of justice in the eyes of all the Greeks.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>Then do you truly urge me to allow the burying of the dead?</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1365" unit="line"/>Yes, for I too shall come to that necessity.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>How true it is that in all things alike each man works for himself!</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And for whom should I work more than for myself?</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p>It must be called your doing then, not mine.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>However you do it, in all respects you will at least prove beneficent.</p></sp>
+<sp>
+<speaker>Agamemnon</speaker>
+<p><milestone ed="p" n="1370" unit="line"/>In any case, be quite certain that to you I would grant a larger favor than this.   To that man, however, as on earth, so below I give my hatred.  But you can do what you will.<stage>Exit Agamemnon.</stage></p></sp>
+<sp>
+<speaker>Chorus</speaker>
+<p>Whoever denies, Odysseus, that you were born wise in judgment<milestone ed="p" n="1375" unit="line"/>is a total fool since you have shown it just now.<milestone ed="p" n="1376" unit="card"/></p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p>And now I announce that from this point on I am ready to be Teucer's friend as much as I was once his enemy.  And I would like to join in the burying of your dead and share your labors, omitting no service<milestone ed="p" n="1380" unit="line"/>which mortals should render to their best and bravest warriors.</p></sp>
+<sp>
+<speaker>Teucer</speaker>
+<p>Good Odysseus, I have only praise for your words.  You have greatly belied my fears.  Of all the Greeks you were his deadliest enemy, and yet you alone have stood by him with helping hand and did not come here and allow yourself in life<milestone ed="p" n="1385" unit="line"/>to violate the dead Ajax ruthlessly, as did the crazed general who came, since he and his brother wanted to cast out the outraged corpse without burial.  Therefore may the Father supreme on <placeName key="tgn,7011019">Olympus</placeName> above us,<milestone ed="p" n="1390" unit="line"/>and the unforgetting Fury and Justice the Fulfiller destroy them for their wickedness with wicked deaths, just as they sought to cast this man out with unmerited, outrageous mistreatment.</p>
+<p>But you, progeny of aged Laertes, I hesitate to permit you to touch the corpse in burial,<milestone ed="p" n="1395" unit="line"/>lest I so offend the dead.  In all other tasks do indeed be our partner.  And if you wish to bring any soldier of the army with you, he shall be welcome.  For the rest, I will make all things ready.  But you, Odysseus, know that to us you have been a good and noble friend.</p></sp>
+<sp>
+<speaker>Odysseus</speaker>
+<p><milestone ed="p" n="1400" unit="line"/>It was my wish to help, but if it is not pleasing to you that I should assist here, I accept your decision and depart.<stage>Exit Odysseus.</stage></p></sp>
+<div2 type="anapests">
+<sp>
+<speaker>Teucer</speaker>
+<p>Enough.  Already the interval has been long drawn out.  Come, hurry some of you to dig the hollow grave; others erect the<milestone ed="p" n="1405" unit="line"/>cauldron wrapped in fire on its high stand for prompt preparation of the ritual cleansing.  Let another company bring from the tent the finery which he wore in battle beneath his shield.  And you, too, child, with such strength as you have<milestone ed="p" n="1410" unit="line"/>lay a loving hand upon your father and help me to lighten his body;  for his channels are still warm and spray upwards the dark force of his spirit.</p>
+<p>Come, come everyone who claims to be our friend, start forward and move on,<milestone ed="p" n="1415" unit="line"/>laboring in service to this man of perfect excellence.  To a nobler man such service has never yet been rendered &lsqb;&mdash;nobler than Ajax when he lived, I mean&rsqb;.</p></sp></div2>
+<div2 type="anapests">
+<sp>
+<speaker>Chorus</speaker>
+<p>Many things, I tell you, can be known through mortal eyes;  but before he sees it happening, no one can foretell<milestone ed="p" n="1420" unit="line"/>the future, or what his fate will be.</p></sp></div2>
+</div1></body></text>
+</TEI.2>

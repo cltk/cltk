@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Num." type="work">Numa</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 77 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Num."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1914</date>
+                  </imprint>
+                  <biblScope type="volume">1</biblScope>
+               </monogr>
+               <idno type="ISBN">0674990528</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/98</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>NUMA</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>There is likewise<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lyc. 1.1">Lycurgus, i. 1-3.</bibl>
+            </note> a vigorous dispute about the time at which King Numa lived, although from the beginning down to him the genealogies seem to be made out accurately. But a certain Clodius, in a book entitled 
+				<q direct="unspecified">An Examination of Chronology,</q> insists that the ancient records were lost when the city was sacked by the Gauls,<note resp="ed" place="unspecified" anchored="yes">390 B.C. Cf. <bibl n="Plut. Cam. 19">Camillus, xix.-xxix.</bibl>
+            </note> and that those which are now exhibited as such were forged, their compilers wishing to gratify the pride of certain persons by inserting their names among the first families and the most illustrious houses, where they had no cause to appear. 
+				<milestone n="2" unit="section"/>Accordingly, when it is said that Numa was an intimate friend of Pythagoras, some deny utterly that Numa had any Greek culture, holding either that he was naturally capable of attaining excellence by his own efforts, or that the culture of the king was due to some Barbarian superior to Pythagoras. Others say that Pythagoras the philosopher lived as many as five generations after Numa, 
+				<milestone n="3" unit="section"/>but that there was another Pythagoras, the Spartan, who was Olympic victor in the foot-race for the sixteenth Olympiad<note resp="ed" place="unspecified" anchored="yes">657-654 B.C.</note> (in the third year of which Numa was made king), and that in his wanderings about Italy he made the acquaintance of Numa, and helped him arrange the government of the city, whence it came about that many Spartan customs were mingled with the Roman, as Pythagoras taught them to Numa. And at all events, Numa was of Sabine descent, and the Sabines will have it that they were colonists from Lacedaemon. 
+				<milestone n="4" unit="section"/>Chronology, however, is hard to fix, and especially that which is based on the names of victors in the Olympic games, the list of which is said to have been published at a late period by Hippias of Elis, who had no fully authoritative basis for his work. I shall therefore begin at a convenient point, and relate the noteworthy facts which I have found in the life of Numa.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For thirty-seven years, now, Rome had been built and Romulus had been its king; and on the fifth of the month of July, which day they now call the Capratine Nones, Romulus was offering a public sacrifice outside the city at the so-called Goat's Marsh, in the presence of the senate and most of the people. 
+				<milestone n="2" unit="section"/>Suddenly there was a great commotion in the air, and a cloud descended upon the earth bringing with it blasts of wind and rain. The throng of common folk were terrified and fled in all directions, but Romulus disappeared, and was never found again either alive or dead. Upon this a grievous suspicion attached itself to the patricians, and an accusing story was current among the people to the effect that they had long been weary of kingly rule, and desired to transfer the power to themselves, and had therefore made away with the king. And indeed it had been noticed for some time that he treated them with greater harshness and arrogance. 
+				<milestone n="3" unit="section"/>This suspicion the patricians sought to remove by ascribing divine honours to Romulus, on the ground that he was not dead, but blessed with a better lot. And Proculus, a man of eminence, took oath that he had seen Romulus ascending to heaven in full armour, and had heard his voice commanding that he be called Quirinus.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Rom. 27.3">Romulus, xxvii. 3-xxviii. 3.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>The city was now beset with fresh disturbance and faction over the king to be appointed in his stead, for the new comers were not yet altogether blended with the original citizens, but the commonalty was still like a surging sea, and the patricians full of jealousy towards one another on account of their different nationalities. It is indeed true that it was the pleasure of all to have a king, but they wrangled and quarrelled, not only about the man who should be their leader, but also about the tribe which should furnish him. 
+				<milestone n="5" unit="section"/>For those who had built the city with Romulus at the outset thought it intolerable that the Sabines, after getting a share in the city and its territory, should insist on ruling those who had received them into such privileges; and the Sabines, since on the death of their king Tatius they had raised no faction against Romulus, but suffered him to rule alone, had a reasonable ground for demanding that now the ruler should come from them. They would not admit that they had added themselves as inferiors to superiors, but held rather that their addition had brought the strength of numbers and advanced both parties alike to the dignity of a city. On these questions, then, they were divided into factions.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>But in order that their factions might not produce utter confusion from the absence of all authority, now that the administration of affairs was suspended, it was arranged by the senators, who were one hundred and fifty in number,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Rom. 20.1">Romulus, xx. 1.</bibl>
+            </note> that each of them in his turn should assume the insignia of royalty, make the customary sacrifices to the gods, and transact public business, for the space of six hours by day and six hours by night. 
+				<milestone n="7" unit="section"/>This distribution of times seemed well adapted to secure equality between the two factions, and the transfer of power likely to remove all jealousy on the part of the people, when they saw the same man, in the course of a single day and night, become king and then a private citizen again. This form of government the Romans call 
+				<q direct="unspecified">interregnum.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But although in this way the senators were thought to rule constitutionally and without oppression, they roused suspicions and clamorous charges that they had changed the form of government to an oligarchy, and were holding the state in tutelage among themselves, and were unwilling to be ruled by a king. Therefore it was agreed by both factions that one should appoint a king from the other. 
+				<milestone n="2" unit="section"/>This was thought the best way to end their prevailing partisanship, and the king thus appointed would be equally well-disposed to both parties, being gracious to the one as his electors, and friendly to the other because of his kinship with them. Then, as the Sabines gave the Romans their option in the matter, it seemed to them better to have a Sabine king of their own nomination, than to have a Roman made king by the Sabines. 
+				<milestone n="3" unit="section"/>They took counsel, therefore, among themselves, and nominated Numa Pompilius from among the Sabines, a man who had not joined the emigrants to Rome, but was so universally celebrated for his virtues that, when he was nominated, the Sabines accepted him with even greater readiness than those who had chosen him. Accordingly, after making their decision known to the people, the leading senators of both parties were sent as ambassadors to Numa, begging him to come and assume the royal power.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Numa belonged to a conspicuous city of the Sabines called Cures, from which the Romans, together with the incorporated Sabines, took the joint name of Quirites. He was a son of Pompon, an illustrious man, and was the youngest of four brothers. He was born, moreover, by some divine felicity, on the very day when Rome was founded by Romulus, that is, the twenty-first day of April.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Rom. 12.1">Romulus, xii. 1.</bibl>
+            </note> 
+				        <milestone n="5" unit="section"/>By natural temperament he was inclined to the practice of every virtue, and he had subdued himself still more by discipline, endurance of hardships, and the study of wisdom. He had thus put away from himself not only the infamous passions of the soul, but also that violence and rapacity which are in such high repute among Barbarians, believing that true bravery consisted in the subjugation of one's passions by reason. 
+				<milestone n="6" unit="section"/>On this account he banished from his house all luxury and extravagance, and while citizen and stranger alike found in him a faultless judge and counsellor, he devoted his hours of privacy and leisure, not to enjoyments and money-making, but to the service of the gods, and the rational contemplation of their nature and power. In consequence he had a great name and fame, so that Tatius, the royal colleague of Romulus at Rome, made him the husband of his only daughter, Tatia. 
+				<milestone n="7" unit="section"/>He was not, however, so exalted by his marriage as to go to dwell with his royal father-in-law, but remained among the Sabines ministering to his aged father. Tatia, too, preferred the quiet life which her husband led as a private citizen to the honour and fame which she had enjoyed at Rome because of her father. But she died, as we are told, in the thirteenth year after her marriage.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Then Numa, forsaking the ways of city folk, determined to live for the most part in country places, and to wander there alone, passing his days in groves of the gods, sacred meadows, and solitudes. This, more than anything else, gave rise to the story about his goddess. It was not, so the story ran, from any distress or aberration of spirit that he forsook the ways of men, but he had tasted the joy of more august companionship 
+				<milestone n="2" unit="section"/>and had been honoured with a celestial marriage; the goddess Egeria loved him and bestowed herself upon him, and it was his communion with her that gave him a life of blessedness and a wisdom more than human. However, that this story resembles many of the very ancient tales which the Phrygians have received and cherished concerning Attis, the Bithynians concerning Herodotus, the Arcadians concerning Endymion, and other peoples concerning other mortals who were thought to have achieved a life of blessedness in the love of the gods, is quite evident. 
+				<milestone n="3" unit="section"/>And there is some reason in supposing that Deity, who is not a lover of horses or birds, but a lover of men, should be willing to consort with men of superlative goodness, and should not dislike or disdain the company of a wise and holy man. But that an immortal god should take carnal pleasure in a mortal body and its beauty, this, surely, is hard to believe.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>And yet the Aegyptians make a distinction here which is thought plausible, namely, that while a woman can be approached by a divine spirit and made pregnant, there is no such thing as carnal intercourse and communion between a man and a divinity. But they lose sight of the fact that intercourse is a reciprocal matter, and that both parties to it enter into a like communion. However, that a god should have affection for a man, and a so-called love which is based upon affection, and takes the form of solicitude for his character and his virtue, is fit and proper. 
+				<milestone n="5" unit="section"/>And therefore it is no mistake when the ancient poets tell their tales of the love Apollo bore Phorbas, Hyacinthus, and Admetus, as well as the Sicyonian Hippolytus also, of whom it is said, that, as often as he set out to sail from Sicyon to Cirrha, the Pythian priestess, as though the god knew of his coming and rejoiced thereat, chanted this prophetic verse:&mdash;
+				<quote rend="blockquote">
+					          <l>Lo, once more doth beloved Hippolytus hither make voyage.</l>
+				        </quote>
+			      </p>
+         <p>
+				        <milestone n="6" unit="section"/>There is a legend, too, that Pan became enamoured of Pindar and his verses. And the divine powers bestowed signal honour on Archilochus and Hesiod after their deaths, for the sake of the Muses.<note resp="ed" place="unspecified" anchored="yes">The Delphian oracle pronounced a curse on the man who killed Archilochus, because 
+					<q direct="unspecified">he had slain the servant of the Muses.</q> And the same oracle told the people of Orchomenus, when a plague had fallen upon them, that 
+					<q direct="unspecified">the only remedy was to bring back the bones of Hesiod from the land of Naupactus to the land of Orchomenus.</q>
+            </note> Again, there is a story, still well attested, that Sophocles, during his life, was blessed with the friendship of Aesculapius, and that when he died, another deity procured him fitting burial.<note resp="ed" place="unspecified" anchored="yes">Dionysus is said to have appeared to Lysander and ordered him to allow Sophocles to be buried in the tomb of his fathers, on the road to Deceleia, then occupied by the Lacedaemonian army. See <bibl n="Paus. 1.21.1">Pausanias, i. 21, 1</bibl>, with Frazer's note.</note> 
+				        <milestone n="7" unit="section"/>Is it worth while, then, if we concede these instances of divine favour, to disbelieve that Zaleucus, Minos, Zoroaster, Numa, and Lycurgus, who piloted kingdoms and formulated constitutions, had frequent audience of the Deity? Is it not likely, rather, that the gods are in earnest when they hold converse with such men as these, in order to instruct and advise them in the highest and best way, but use poets and warbling singers, if at all, for their own diversion? 
+				<milestone n="8" unit="section"/>However, if any one is otherwise minded, I say with Bacchylides, 
+				<q direct="unspecified">Broad is the way.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Fragment 29 (Jebb, Bacchylides, p. 423).</note>  Indeed there is no absurdity in the other account which is given of Lycurgus and Numa and their like, namely, that since they were managing headstrong and captious multitudes, and introducing great innovations in modes of government, they pretended to get a sanction from the god, which sanction was the salvation of the very ones against whom it was contrived.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But to resume the story, Numa was already completing his fortieth year when the embassy came from Rome inviting him to take the throne. The speakers were Proculus and Velesus, one or the other of whom the people was expected to choose as their king, Proculus being the favourite of the people of Romulus, and Velesus of the people of Tatius. These speakers, then, were brief supposing that Numa would welcome his good fortune. 
+				<milestone n="2" unit="section"/>It was, however, no slight task, but one requiring much argument and entreaty, to persuade and induce a man who had lived in peace and quiet, to accept the government of a city which owed its existence and growth, in a fashion, to war. His reply, therefore, in the presence of his father and one of his kinsmen named Marcius, was as follows. 
+				<q direct="unspecified">Every change in a man's life is perilous; but when a man knows no lack, and has no fault to find with his present lot, nothing short of madness can change his purposes and remove him from his wonted course of life, which, even though it have no other advantage, is at least fixed and secure, and therefore better than one which is all uncertain. 
+					<milestone n="3" unit="section"/>But the lot of one who becomes your king cannot even be called uncertain, judging from the experience of Romulus, since he himself was accused of basely plotting against his colleague Tatius, and involved the patricians in the charge of having basely put their king out of the way. And yet those who bring these accusations laud Romulus as a child of the gods, and tell how he was preserved in an incredible way and fed in a miraculous manner when he was still an infant. But I am of mortal birth, and I was nourished and trained by men whom you know. 
+					<milestone n="4" unit="section"/>Moreover, the very traits in my disposition which are commended, are far from marking a man destined to be a king, namely, my great love of retirement, my devotion to studies inconsistent with the usual activities of men, and my well-known strong and inveterate love of peace, of unwarlike occupations, and of men who come together only for the worship of the gods and for friendly intercourse, but who otherwise live by themselves as tillers of the soil or herdsmen. 
+					<milestone n="5" unit="section"/>Whereas, unto you, O Romans, whether you want them or not, Romulus has bequeathed many wars, and to make head against these the city needs a king with a warrior's experience and strength. Besides, the people has become much accustomed to war, and eager for it because of their successes, and no one is blind to their desire for growth by conquest. I should therefore become a laughing-stock if I sought to serve the gods, and taught men to honour justice and hate violence and war, in a city which desires a leader of its armies rather than a king.</q>
+			      </p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>With such words did Numa decline the kingdom. Then the Romans put forth every effort to meet his objections, and begged him not to plunge them again into faction and civil war, since there was none other on whom both parties could unite. His father also and Marcius, when the envoys had withdrawn, beset him privately, and tried to persuade him to accept so great a gift of the gods. 
+				<milestone n="2" unit="section"/>
+				        <q direct="unspecified">Even though,</q> they said, 
+				<q direct="unspecified">thou neither desirest wealth for thyself, because thou hast enough, nor covetest the fame which comes from authority and power, because thou hast the greater fame which comes from virtue, yet consider that the work of a true king is a service rendered to God, who now rouses up and refuses to leave dormant and inactive the great righteousness which is within thee. Do not, therefore, avoid nor flee from this office, which a wise man will regard as a field for great and noble actions, where the gods are honoured with magnificent worship, and the hearts of men are easily and quickly softened and inclined towards piety, through the moulding influence of their ruler. 
+					<milestone n="3" unit="section"/>This people loved Tatius, though he was a foreign prince, and they pay divine honours to the memory of Romulus. And who knows but that the people, even though victorious, is sated with war, and, now that it is glutted with triumphs and spoils, is desirous of a gentle prince, who is a friend of justice, and will lead them in the paths of order and peace? But if, indeed, they are altogether intemperate and mad in their desire for war, then were it not better that thou, holding the reins of government in thy hand shouldst turn their eager course another way, and that thy native city and the whole Sabine nation should have in thee a bond of goodwill and friendship with a vigorous and powerful city?</q> 
+				        <milestone n="4" unit="section"/>These appeals were strengthened, we are told, by auspicious omens and by the zealous ardour of his fellow-citizens, who, when they learned of the embassy from Rome, begged him to return with it and assume the royal power there, in order to unite and blend together the citizens.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Numa therefore decided to yield, and after sacrificing to the gods, set out for Rome. The senate and people met him on his way, filled with a wondrous love of the man; women welcomed him with fitting cries of joy; sacrifices were offered in the temples, and joy was universal, as if the city were receiving, not a king, but a kingdom. When they were come down into the forum, Spurius Vettius whose lot it was to be 
+				<q direct="unspecified">interrex</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Num. 2.7">chapter ii. 7.</bibl>
+            </note> at that hour, called for a vote of the citizens, and all voted for Numa. But when the insignia of royalty were brought to him, he bade the people pause, and said his authority must first be ratified by Heaven. 
+				<milestone n="2" unit="section"/>Then taking with him the augurs and priests, he ascended the Capitol, which the Romans of that time called the Tarpeian Hill. There the chief of the augurs turned the veiled head of Numa towards the south, while he himself, standing behind him, and laying the right hand on his head, prayed aloud, and turned his eyes in all directions to observe whatever birds or other omens might be sent from the gods. 
+				<milestone n="3" unit="section"/>Then an incredible silence fell upon the vast multitude in the forum, who watched in eager suspense for the issue, until at last auspicious birds appeared and approached the scene on the right. Then Numa put on his royal robes and went down from the citadel to the multitude, where he was received with glad cries of welcome as the most pious of men and most beloved of the gods.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>His first measure on assuming the government was to disband the body of three hundred men that Romulus always kept about his person, and called 
+				<q direct="unspecified">Celeres</q> (that is, <emph>swift ones</emph>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Rom. 26.2">Romulus, xxvi. 2.</bibl>
+            </note>); for he would not consent to distrust those who trusted him, nor to reign over those who distrusted him. His second measure was to add to the two priests of Jupiter and Mars a third priest of Romulus, whom he called the Flamen Quirinalis. 
+				<milestone n="5" unit="section"/>Now before this time the Romans called their priests 
+				<q direct="unspecified">flamines,</q> from the close-fitting 
+				<q direct="unspecified">piloi,</q> or <emph>caps</emph>, which they wear upon their heads, and which have the longer name of 
+				<q direct="unspecified">pilamenai,</q> as we are told, there being more Greek words mingled with the Latin at that time than now.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Rom. 15.3">Romulus, xv. 3.</bibl> Plutarch does not hesitate to derive the Latin 
+					<q direct="unspecified">flamines</q> from the doubtful Greek 
+					<q direct="unspecified">pilamanei.</q>
+            </note> Thus also the name 
+				<q direct="unspecified">laena,</q> which the Romans give to the priestly mantle, Juba says is the same as the Greek 
+				<q direct="unspecified">chlaina</q>; and that the name Camillus, which the Romans give to the boy with both parents living who attends upon the priest of Jupiter, is the same as that which some of the Greeks give to Hermes, from his office of attendant.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After taking such measures to secure the goodwill and favour of the people, Numa straightway attempted to soften the city, as iron is softened in the fire, and change its harsh and warlike temper into one of greater gentleness and justice. For if a city was ever in what Plato calls<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Lyc. 5.6">Lycurgus, v. 6.</bibl>
+            </note> a 
+				<q direct="unspecified">feverish</q> state, Rome certainly was at that time. It was brought into being at the very outset by the excessive daring and reckless courage of the boldest and most warlike spirits, who forced their way thither from all parts, 
+				<milestone n="2" unit="section"/>and in its many expeditions and its continuous wars it found nourishment and increase of its power; and just as what is planted in the earth gets a firmer seat the more it is shaken, so Rome seemed to be made strong by its very perils. And therefore Numa, judging it to be no slight or trivial undertaking to mollify and newly fashion for peace so presumptuous and stubborn a people, called in the gods to aid and assist him. 
+				<milestone n="3" unit="section"/>It was for the most part by sacrifices, processions, and religious dances, which he himself appointed and conducted, and which mingled with their solemnity a diversion full of charm and a beneficent pleasure, that he won the people's favour and tamed their fierce and warlike tempers. At times, also, by heralding to them vague terrors from the god, strange apparitions of divine beings and threatening voices, he would subdue and humble their minds by means of superstitious fears. 
+				<milestone n="4" unit="section"/>This was the chief reason why Numa's wisdom and culture were said to have been due to his intimacy with Pythagoras; for in the philosophy of the one, and in the civil polity of the other, religious services and occupations have a large place. It is said also that the solemnity of his outward demeanour was adopted by him because he shared the feelings of Pythagoras about it. 
+				<milestone n="5" unit="section"/>That philosopher, indeed, is thought to have tamed an eagle, which he stopped by certain cries of his, and brought down from his lofty flight; also to have disclosed his golden thigh as he passed through the assembled throngs at Olympia. And we have reports of other devices and performances of his which savoured of the marvellous, regarding which Timon the Phliasian wrote:&mdash;
+				<quote rend="blockquote">
+					          <l>Down to a juggler's level he sinks with his cheating devices,</l>
+					          <l>Laying his nets for men, Pythagoras, lover of bombast.</l>
+				        </quote>
+				        <milestone n="6" unit="section"/>In like manner Numa's fiction was the love which a certain goddess or mountain nymph bore him, arid her secret meetings with him, as already mentioned,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Num. 4.1">Chapter iv. 1-2.</bibl>
+            </note> and his familiar converse with the Muses. For he ascribed the greater part of his oracular teachings to the Muses, and he taught the Romans to pay especial honours to one Muse in particular, whom he called Tacita, that is, <emph>the silent</emph>, or <emph>speechless one</emph>; thereby perhaps handing on and honouring the Pythagorean precept of silence.
+			</p>
+         <p>
+				        <milestone n="7" unit="section"/>Furthermore, his ordinances concerning images are altogether in harmony with the doctrines of Pythagoras. For that philosopher maintained that the first principle of being was beyond sense or feeling, was invisible and uncreated, and discernible only by the mind. And in like manner Numa forbade the Romans to revere an image of God which had the form of man or beast. Nor was there among them in this earlier time any painted or graven likeness of Deity, 
+				<milestone n="8" unit="section"/>but while for the first hundred and seventy years they were continually building temples and establishing sacred shrines, they made no statues in bodily form for them, convinced that it was impious to liken higher things to lower, and that it was impossible to apprehend Deity except by the intellect. Their sacrifices, too, were altogether appropriate to the Pythagorean worship; for most of them involved no bloodshed, but were made with flour, drink-offerings, and the least costly gifts.
+			</p>
+         <p>
+				        <milestone n="9" unit="section"/>And apart from these things, other external proofs are urged to show that the two men were acquainted with each other. One of these is that Pythagoras was enrolled as a citizen of Rome. This fact is recorded by Epicharmus the comic poet, in a certain treatise which he dedicated to Antenor; and Epicharmus was an ancient, and belonged to the school of Pythagoras. Another proof is that one of the four sons born to king Numa was named Mamercus, after the son of Pythagoras. 
+				<milestone n="10" unit="section"/>And from him they say that the patrician family of the Aemilii took its name, Aemilius being the endearing name which the king gave him for the grace and <emph>winsomeness</emph> of his speech. Moreover, I myself have heard many people at Rome recount how, when an oracle once commanded the Romans to erect in their city monuments to the wisest and the bravest of the Greeks, they set up in the forum two statues in bronze, one of Alcibiades, and one of Pythagoras.<note resp="ed" place="unspecified" anchored="yes">According to the elder Pliny (<bibl n="Plin. Nat. 34.12">N.H. xxxiv. 12</bibl>), these statues stood in the comitium at Rome from the time of the Samnite wars (343-290 B.C.) down to that of Sulla (138-78 B.C.).</note>  However, since the matter of Numa's acquaintance with Pythagoras is involved in much dispute, to discuss it at greater length, and to win belief for it, would savour of youthful contentiousness.
+			</p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>To Numa is also ascribed the institution of that order of high priests who are called Pontifices, and he himself is said to have been the first of them. According to some they are called Pontifices because employed in the service of the gods, who are <emph>powerful</emph> and supreme over all the world; and 
+				<q direct="unspecified">potens</q> is the Roman word for <emph>powerful</emph>. 
+				<milestone n="2" unit="section"/>Others say that the name was meant to distinguish between <emph>possible</emph> and impossible functions; the lawgiver enjoining upon these priests the performance of such sacred offices only as were <emph>possible</emph>, and finding no fault with them if any serious obstacle prevented. But most writers give an absurd explanation of the name; Pontifices means, they say, nothing more nor less than <emph>bridge-builders</emph>, from the sacrifices which they performed at the bridge over the Tiber, sacrifices of the greatest antiquity and the most sacred character; for 
+				<q direct="unspecified">pons</q> is the Latin word for <emph>bridge</emph>. 
+				<milestone n="3" unit="section"/>They say, moreover, that the custody and maintenance of the bridge, like all the other inviolable and ancestral rites, attached to the priesthood, for the Romans held the demolition of the wooden bridge to be not only unlawful, but actually sacrilegious. It is also said that it was built entirely without iron and fastened together with wooden pins in obedience to an oracle. The stone bridge was constructed at a much later period, when Aemilius was quaestor.<note resp="ed" place="unspecified" anchored="yes">179 B.C.</note> 
+				        <milestone n="4" unit="section"/>However, it is said that the wooden bridge also was later than the time of Numa, and was completed by Ancus Marcius, the grandson of Numa by his daughter, when he was king.
+			</p>
+         <p>The chief of the Pontifices, the Pontifex Maximus, had the duty of expounding and interpreting the divine will, or rather of directing sacred rites, not only being in charge of public ceremonies, but also watching over private sacrifices and preventing any departure from established custom, as well as teaching whatever was requisite for the worship or propitiation of the gods. 
+				<milestone n="5" unit="section"/>He was also overseer of the holy virgins called Vestals; for to Numa is ascribed the consecration of the Vestal virgins, and in general the worship and care of the perpetual fire entrusted to their charge. It was either because he thought the nature of fire pure and uncorrupted, and therefore entrusted it to chaste and undefiled persons, or because he thought of it as unfruitful and barren, and therefore associated it with virginity. Since wherever in Greece a perpetual fire is kept, as at Delphi and Athens, it is committed to the charge, not of virgins, but of widows past the age of marriage. 
+				<milestone n="6" unit="section"/>And if by any chance it goes out, as at Athens during the tyranny of Aristion<note resp="ed" place="unspecified" anchored="yes">88-86 B.C. Cf. <bibl n="Plut. Luc. 19.6">Lucullus, xix. 6</bibl>; <bibl n="Plut. Sull. 13.3">Sulla, xiii, 3.</bibl>
+            </note> the sacred lamp is said to have been extinguished, and at Delphi when the temple was burned by the Medes, and as during the Mithridatic and the Roman civil wars the altar was demolished and the fire extinguished, then they say it must nor be kindled again from other fire, but made fresh and new, by lighting a pure and unpolluted flame from the rays of the sun. 
+				<milestone n="7" unit="section"/>And this they usually effect by means of metallic mirrors, the concavity of which is made to follow the sides of an isosceles rectangular triangle, and which converge from their circumference to a single point in the centre. When, therefore, these are placed opposite the sun, so that its rays, as they fall upon them from all sides, are collected and concentrated at the centre, the air itself is rarefied there, and very light and dry substances placed there quickly blaze up from its resistance, the sun's rays now acquiring the substance and force of fire. 
+				<milestone n="8" unit="section"/>Some, moreover, are of the opinion that nothing but this perpetual fire is guarded by the sacred virgins; while some say that certain sacred objects, which none others may behold, are kept in concealment by them. What may lawfully be learned and told about these things, I have written in my Life of Camillus.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Cam. 20.3">Chapter xx. 3-6.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the beginning, then, they say that Gegania and Verenia were consecrated to this office by Numa, who subsequently added to them Canuleia and Tarpeia; that at a later time two others were added by Servius, making the number which has continued to the present time. It was ordained by the king that the sacred virgins should vow themselves to chastity for thirty years; during the first decade they are to learn their duties, during the second to perform the duties they have learned, and during the third to teach others these duties. 
+				<milestone n="2" unit="section"/>Then, the thirty years being now passed, any one who wishes has liberty to marry and adopt a different mode of life, after laying down her sacred office. We are told, however, that few have welcomed the indulgence, and that those who did so were not happy, but were a prey to repentance and dejection for the rest of their lives, thereby inspiring the rest with superstitious fears, so that until old age and death they remained steadfast in their virginity.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>But Numa bestowed great privileges upon them, such as the right to make a will during the life time of their fathers, and to transact and manage their other affairs without a guardian, like the mothers of three children. When they appear in public, the fasces are carried before them, and if they accidentally meet a criminal on his way to execution, his life is spared; but the virgin must make oath that the meeting was involuntary and fortuitous, and not of design. 
+				<milestone n="4" unit="section"/>He who passes under the litter on which they are borne, is put to death. For their minor offences the virgins are punished with stripes, the Pontifex Maximus sometimes scourging the culprit on her bare flesh, in a dark place, with a curtain interposed. But she that has broken her vow of chastity is buried alive near the Colline gate. Here a little ridge of earth extends for some distance along the inside of the city-wall; the Latin word for it is 
+				<q direct="unspecified">agger.</q> 
+				        <milestone n="5" unit="section"/>Under it a small chamber is constructed, with steps leading down from above. In this are placed a couch with its coverings, a lighted lamp, and very small portions of the necessaries of life, such as bread, a bowl of water, milk, and oil, as though they would thereby absolve themselves from the charge of destroying by hunger a life which had been consecrated to the highest services of religion. 
+				<milestone n="6" unit="section"/>Then the culprit herself is placed on a litter, over which coverings are thrown and fastened down with cords so that not even a cry can be heard from within, and carried through the forum. All the people there silently make way for the litter, and follow it without uttering a sound, in a terrible depression of soul. No other spectacle is more appalling, nor does any other day bring more gloom to the city than this. 
+				<milestone n="7" unit="section"/>When the litter reaches its destination, the attendants unfasten the cords of the coverings. Then the high-priest, after stretching his hands toward heaven and uttering certain mysterious prayers before the fatal act, brings forth the culprit, who is closely veiled, and places her on the steps leading down into the chamber. After this he turns away his face, as do the rest of the priests, and when she has gone down, the steps are taken up, and great quantities of earth are thrown into the entrance to the chamber, hiding it away, and making the place level with the rest of the mound. Such is the punishment of those who break their vow of virginity.
+			</p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Furthermore, it is said that Numa built the temple of Vesta, where the perpetual fire was kept, of a circular form, not in imitation of the shape of the earth, believing Vesta to be the earth, but of the entire universe, at the centre of which the Pythagoreans place the element of fire, and call it Vesta and Unit. 
+				<milestone n="2" unit="section"/>And they hold that the earth is neither motionless nor situated in the centre of surrounding space, but that it revolves in a circle about the central fire, not being one of the most important, nor even one of the primary elements of the universe. This is the conception, we are told, which Plato also, in his old age, had of the earth, namely that it is established in a secondary space, and that the central and sovereign space is reserved for some other and nobler body.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Pontifices also explain and direct the ancestral rites of burial for those who desire it, and they were taught by Numa not to regard any such offices as a pollution, but to honour the gods below also with the customary rites, since they receive into their keeping the most sovereign part of us, and particularly the goddess called Libitina, who presides over the solemn services for the dead, whether she is Proserpina, or, as the most learned Romans maintain, Venus; thereby not inaptly connecting man's birth and death with the power of one and the same goddess. 
+				<milestone n="2" unit="section"/>Numa himself also regulated the periods of mourning according to ages. For instance, over a child of less than three years there was to be no mourning at all; over one older than that, the mourning was not to last more months than it had lived years, up to ten; and no age was to be mourned longer than that, but ten months was the period set for the longest mourning.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Num. 19.1">chapter xix. 1.</bibl>
+            </note> This is also the period during which women who have lost their husbands remain in widowhood, and she who took another husband before this term was out, was obliged by the laws of Numa to sacrifice a cow with calf.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Numa also established many other orders of priesthood, of which I shall mention two, besides, those of the Salii and the Fetiales, which more than any others give evidence of the man's reverent piety. The Fetiales were guardians of peace, so to speak, and in my opinion took their name from their office, which was to put a stop to disputes by oral conference, or <emph>parley</emph>
+            <note resp="ed" place="unspecified" anchored="yes">Connecting the name with fateri, fari, <emph>to speak</emph>.</note> and they would not suffer a hostile expedition to be made before every hope of getting justice had been cut off. 
+				<milestone n="4" unit="section"/>For the Greeks call it peace when two parties settle their quarrels by mutual conference, and not by violence. And the Roman Fetiales often went to those who were doing them a wrong and made personal appeals for fair treatment; but if the unfair treatment continued, they called the gods to witness, invoked many dreadful evils upon themselves and their country in case they resorted to hostilities unjustly, and so declared war upon them. 
+				<milestone n="5" unit="section"/>But if they forbade it or withheld their consent, neither soldier nor king of Rome could lawfully take up arms. War had to begin with their verdict that it was just, and the ruler, on receiving this verdict, must then deliberate on the proper way to wage it. And it is said that the dreadful disaster which the city experienced at the hands of the Gauls was in consequence of the illegal treatment of these priests.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>For when the Barbarians were besieging Clusium, Fabius Ambustus was sent from Rome to their camp to bring about a cessation of hostilities on behalf of the besieged. But on receiving an unseemly answer, he thought his office of ambassador was at an end, and committed the youthful folly of taking up arms for the Clusians and challenging the bravest of the Barbarians to single combat. 
+				<milestone n="7" unit="section"/>Fabius fought successfully, unhorsed his adversary, and stripped him of his armour. But when the Gauls discovered who he was, they sent a herald to Rome denouncing Fabius for violating a truce, breaking his oath, and fighting against them before war was formally declared. At Rome the Fetiales tried to persuade the senate to deliver Fabius into the hands of the Gauls, but he took refuge with the multitude, and through the favour of the populace evaded his punishment. After a little, therefore, the Gauls came up and sacked Rome, with the exception of the Capitol. But this story is more fully given in my Life of Camillus.<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Cam. 28">Chapters xvii.-xxii.</bibl>
+            </note>
+			      </p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The priesthood of the Salii Numa is said to have been established for the following reason. In the eighth year of his reign a pestilence, which traversed Italy, distracted Rome also. The story goes that while the people were disheartened by this, a bronze buckler fell from heaven, which came into the hands of Numa, and a wonderful account of it was given by the king, which he learned from Egeria and the Muses. 
+				<milestone n="2" unit="section"/>The buckler came, he said, for the salvation of the city, and must be carefully preserved by making eleven others of like fashion, size, and shape, in order that the resemblance between them might make it difficult for a thief to distinguish the one that fell from heaven. He said further that the spot where it fell, and the adjacent meadows, where the Muses usually had converse with him, must be consecrated to them; and that the spring which watered the spot should be declared holy water for the use of the Vestal virgins, who should daily sprinkle and purify their temple with it. 
+				<milestone n="3" unit="section"/>Moreover, they say that the truth of all this was attested by the immediate cessation of the pestilence. When Numa showed the buckler to the artificers and bade them do their best to make others like it, they all declined, except Veturius Mamurius, a most excellent workman, who was so happy in his imitation of it, and made all the eleven so exactly like it, that not even Numa himself could distinguish them. For the watch and care of these bucklers, then, he appointed the priesthood of the Salii. 
+				<milestone n="4" unit="section"/>Now the Salii were so named, not, as some tell the tale, from a man of Samothrace or Mantinea, named Salius, who first taught the dance in armour; but rather from the <emph>leaping</emph>
+            <note resp="ed" place="unspecified" anchored="yes">The Latin 
+					<q direct="unspecified">salire,</q> 
+               <emph>to leap</emph>.</note> which characterized the dance itself. This dance they perform when they carry the sacred bucklers through the streets of the city in the month of March, clad in purple tunics, girt with broad belts of bronze, wearing bronze helmets on their heads, and carrying small daggers with which they strike the shields. 
+				<milestone n="5" unit="section"/>But the dance is chiefly a matter of step; for they move gracefully, and execute with vigour and agility certain shifting convolutions, in quick and oft-recurring rhythm.
+			</p>
+         <p>The bucklers themselves are called 
+				<q direct="unspecified">ancilia,</q> from their shape; for this is not round, nor yet completely oval, like that of the regular shield, but has a curving indentation, the arms of which are bent back and united with each other at top and bottom this makes the shape 
+				<q direct="unspecified">ancylon,</q> the Greek for <emph>curved</emph>. Or, they are named from the elbow on which they are carried, which, in Greek, is 
+				<q direct="unspecified">ankon.</q> This is what Juba says, who is bent on deriving the name from the Greek. But the name may come from the Greek 
+				<q direct="unspecified">anekathen,</q> inasmuch as the original shield fell <emph>from on high</emph>; or from 
+				<q direct="unspecified">akesis,</q> because it <emph>healed</emph> those who were sick of the plague; or from 
+				<q direct="unspecified">auchmon lysis,</q> because it <emph>put an end to the drought</emph>; or, further, from 
+				<q direct="unspecified">anaschesis,</q> because it brought a <emph>cessation</emph> of calamities, just as Castor and Pollux were called Anakes by the Athenians; if, that is, we are bound to derive the name from the Greek.
+			</p>
+         <p>
+				        <milestone n="7" unit="section"/>We are told that Mamertius was rewarded for his wonderful art by having his name mentioned in a song which the Salii sing as they perform their war-dance. Some, however, say that the song does not commemorate Veturius Mamurius, but 
+				<q direct="unspecified">veterem memoriam,</q> that is to say, <emph>ancient remembrance.</emph>
+			      </p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After Numa had thus established and regulated the priestly orders, he built, near the temple of Vesta, the so-called Regia, or royal house. Here he passed most of his time, performing sacred functions, or teaching the priests, or engaged in the quiet contemplation of divine things. He also had another house on the Quirinal hill, the site of which is still pointed out. At all public and solemn processions of the priests, heralds were sent on before through the city, bidding the people make holiday, and putting a stop to all labour. 
+				<milestone n="2" unit="section"/>For, just as it is said that the Pythagoreans do not allow men to worship and pray to their gods cursorily and by the way, but would have them go from their homes directly to this office, with their minds prepared for it, so Numa thought that his citizens ought neither to hear nor see any divine service while they were occupied with other matters and therefore unable to pay attention. They should rather be free from all distractions and devote their thoughts to the religious ceremony as a matter of the highest importance. They should also rid their streets of noise and clatter and clamour, and all such accompaniments of menial and manual labour, and clear them for the sacred ceremonies. And the Romans still preserve some traces of this earlier feeling. When a magistrate is busy taking auspices or sacrificing, the people cry 
+				<q direct="unspecified">Hoc age,</q> which means 
+				<q direct="unspecified">
+               <emph>Mind this,</emph>
+            </q> and helps to make the bystanders attentive and orderly.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Many of his other precepts also resembled those of the Pythagoreans. For instance, the Pythagoreans said: 
+				<q direct="unspecified">Don't use a quart-measure as a seat</q>; 
+				<q direct="unspecified">Don't poke the fire with a sword</q>; 
+				<q direct="unspecified">When you set out for foreign parts, don't turn back</q>; and 
+				<q direct="unspecified">To the celestial gods sacrifice an odd number, but an even number to the terrestrial</q>; and the meaning of all these precepts they would keep hidden from the vulgar. So in some of Numa's rules the meaning is hidden; as, for instance, 
+				<q direct="unspecified">Don't offer to the gods wine from unpruned vines</q> ; 
+				<q direct="unspecified">Don't make a sacrifice without meal</q>; 
+				<q direct="unspecified">Turn round as you worship</q>; and 
+				<q direct="unspecified">Sit down after worship.</q> 
+				        <milestone n="4" unit="section"/>The first two rules would seem to teach that the subjection of the earth is a part of religion; and the worshippers' turning round is said to be an imitation of the rotary motion of the universe; but I would rather think that the worshipper who enters a temple, since temples face the east and the Sun, has his back towards the sunrise, and therefore turns himself half round in that direction, and then wheels fully round to face the god of the temple, thus making a complete circle, and linking the fulfilment of his prayer with both deities; 
+				<milestone n="5" unit="section"/>unless, indeed, this change of posture, like the Aegyptian wheels, darkly hints and teaches that there is no stability in human affairs, but that we must accept contentedly whatever twists and turns our lives may receive from the Deity. And as for the sitting down after worship, we are told that it is an augury of the acceptance of the worshipper's prayers and the duration of his blessings. We are also told, that, as different acts are separated by an interval of rest, 
+				<milestone n="6" unit="section"/>so the worshipper, having completed one act, sits down in the presence of the gods, in order that he may begin another with their blessing. But this, too, can be brought into agreement with what was said above: the lawgiver is trying to accustom us not to make our petitions to the Deity when we are busied with other matters and in a hurry, as it were, but when we have time and are at leisure.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>By such training and schooling in religious matters the city became so tractable, and stood in such awe of Numa's power, that they accepted his stories, though fabulously strange, and thought nothing incredible or impossible which he wished them to believe or do. 
+				<milestone n="2" unit="section"/>At any rate, the story goes that he once invited a large number of the citizens to his table, and set before them mean dishes and a very simple repast; but just as they began to eat, he surprised them by saying that the goddess with whom he consorted was come to visit him, and lo, on a sudden, the room was full of costly beakers and the tables were laden with all sorts of meats and abundant furniture. 
+				<milestone n="3" unit="section"/>But nothing can be so strange as what is told about his conversation with Jupiter. When the Aventine hill&mdash;so runs the tale&mdash;was not yet a part of the city nor even inhabited, but abounded in springs and shady dells, two demi-gods, Picus and Faunus, made it their haunt. In other ways these divinities might be likened to Satyrs or Pans, but they are said to have used powerful drugs and practised clever incantations, and to have traversed Italy playing the same tricks as the so-called Idaean Dactyli<note resp="ed" place="unspecified" anchored="yes">Fabulous gnomes associated with the Mount Ida of Phrygia and Crete.</note> of the Greeks. 
+				<milestone n="4" unit="section"/>These demi-gods Numa is said to have caught, by mixing wine and honey with the water of the spring from which they were wont to drink. When captured, they dropped their own forms and assumed many different shapes, presenting hideous and dreadful appearances. But when they perceived that they were fast caught and could not escape, they foretold to Numa many things that would come to pass, and taught him besides the charm against thunder and lightning, which is still practised with onions, hair, and sprats. 
+				<milestone n="5" unit="section"/>Some, however, say that it was not the imps themselves who imparted the charm, but that they called Jupiter down from heaven by their magic, and that this deity angrily told Numa that he must charm thunder and lightning with 
+				<q direct="unspecified">heads.</q> 
+				        <q direct="unspecified">Of onions?</q> asked Numa, filling out the phrase. 
+				<q direct="unspecified">Of men,</q> said Jupiter. Thereupon Numa, trying once more to avert the horror of the prescription, asked, 
+				<q direct="unspecified">with hair?</q> 
+				        <q direct="unspecified">Nay,</q> answered Jupiter, 
+				<q direct="unspecified">with living&mdash;</q> 
+				        <q direct="unspecified">sprats?</q> added Numa, as he had been taught by Egeria to say. 
+				<milestone n="6" unit="section"/>Then the god returned to heaven in a <emph>gracious</emph> mood,&mdash;
+				<q direct="unspecified">hileos,</q> as the Greeks say,&mdash;and the place was called Ilicium from this circumstance; and that is the way the charm was perfected. These stories, fabulous and ridiculous as they are, show us the attitude which the men of that time, from force of custom, took towards the gods. And Numa himself, as they say, had such implicit confidence in the gods, that once, when a message was brought to him that enemies were coming up against the city, he smiled and said: 
+				<q direct="unspecified">But I am sacrificing.</q>
+			      </p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He was also the first, they say, to build temples to Faith and Terminus; and he taught the Romans their most solemn oath by Faith, which they still continue to use. Terminus signifies <emph>boundary</emph>, and to this god they make public and private sacrifices where their fields are set off by boundaries; of living victims nowadays, but anciently the sacrifice was a bloodless one, since Numa reasoned that the god of boundaries was a guardian of peace and a witness of just dealing, and should therefore be clear from slaughter. 
+				<milestone n="2" unit="section"/>And it is quite apparent that it was this king who set bounds to the territory of the city, for Romulus was unwilling to acknowledge, by measuring off his own, how much he had taken away from others. He knew that a boundary, if observed, fetters lawless power; and if not observed, convicts of injustice. And indeed the city's territory was not extensive at first, but Romulus acquired most of it later with the spear. 
+				<milestone n="3" unit="section"/>All this was distributed by Numa among the indigent citizens. He wished to remove the destitution which drives men to wrongdoing, and to turn the people to agriculture, that they might be subdued and softened along with the soil they tilled. For there is no other occupation which produces so keen and quick a relish for peace as that of a farmer's life, where so much of the warrior's daring as prompts a man to fight for his own, is always preserved, while the warrior's licence to indulge in rapacity and injustice is extirpated. 
+				<milestone n="4" unit="section"/>Numa, therefore, administering agriculture to his citizens as a sort of peace-potion, and well pleased with the art as fostering character rather than wealth, divided the city's territory into districts, to which he gave the name of 
+				<q direct="unspecified">pagi,</q> and in each of them he set overseers and patrols. But sometimes he would inspect them in person, and judging of the characters of the citizens from the condition of their farms, would advance some to positions of honour and trust; while others, who were indolent and careless, he would chide and reproach, and so try to make them sensible.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But of all his measures, the one most admired was his distribution of the people into groups according to their trades or arts. For the city was supposed to consist of two tribes, as has been said,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plut. Num. 2.4">Chapter ii. 4 f.</bibl>
+            </note> although it had no consistency, but was rather divided into two tribes, and utterly refused to become united, or to blot out its diversities and differences. On the contrary, it was filled with ceaseless collisions and contentions between its component parts. Numa, therefore, aware that hard substances which will not readily mingle may be crushed and pulverized, and then more easily mix and mingle with each other-owing to the smallness of their particles, 
+				<milestone n="2" unit="section"/>determined to divide the entire body of the people into a greater number of divisions, and so, by merging it in other distinctions, to obliterate the original and great distinction, which would be lost among the lesser ones. He distributed them, accordingly, by arts and trades, into musicians, goldsmiths, carpenters, dyers, leatherworkers, curriers, braziers, and potters. The remaining trades he grouped together, and made one body out of all who belonged to them. 
+				<milestone n="3" unit="section"/>He also appointed social gatherings and public assemblies and rites of worship befitting each body. And thus, at last, he banished from the city the practice of speaking and thinking of some citizens as Sabines, and of others as Romans; or of some as subjects of Tatius, and others of Romulus, so that his division resulted in a harmonious blending of them all together.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Praise is also given to that measure of his whereby the law permitting fathers to sell their sons was amended. He made an exception of married sons, provided they had married with the consent and approval of their fathers. For he thought it a hard thing that a woman who had married a man whom she thought free, should find herself living with a slave.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He applied himself, also, to the adjustment of the calendar, not with exactness, and yet not altogether without careful observation. For during the reign of Romulus, they had been irrational and irregular in their fixing of the months, reckoning some at less than twenty days, some at thirty-five, and some at more; they had no idea of the inequality in the annual motions of the sun and moon, but held to this principle only, that the year should consist of three hundred and sixty days. 
+				<milestone n="2" unit="section"/>But Numa, estimating the extent of the inequality at eleven days, since the lunar year had three hundred and fifty-four days, but the solar year three hundred and sixty-five, doubled these eleven days, and every other year inserted after the month of February the intercalary month called Mercedinus by the Romans, which consisted of twenty-two days. 
+				<milestone n="3" unit="section"/>This correction of the inequality which he made was destined to require other and greater corrections in the future.
+			</p>
+         <p>He also changed the order of the months. March, which had been first, he made the third month, and January, which had been the eleventh under Romulus, he made the first month; February, which had been twelfth and last, thus became the second month, as now. But there are many who say that these months of January and February were added to the calendar by Numa, 
+				<milestone n="4" unit="section"/>and that at the outset the Romans had only ten months in their year, as some Barbarians have three, and as, among the Greeks, the Arcadians have four, and the Acarnanians six; the Aegyptian year had at first only a single month in it, afterwards four, as we are told. And therefore, though they inhabit a very recent country,<note resp="ed" place="unspecified" anchored="yes">Perhaps as formed by the deposits of the Nile (<bibl n="Hdt. 2.5">Herod. ii. 5</bibl> and <bibl n="Hdt. 2.9">9</bibl>).</note> they have the credit of being a very ancient people, and load their genealogies with a prodigious number of years, since they really count their months as so many years.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>That the Romans had at first only ten months in their year, and not twelve, is proved by the name of their last month; for they still call it December, or the tenth month. And that March used to be their first month, is proved by the sequence of months after it; for the fifth month after it used to be called Quintilis, the sixth Sextilis, and so on with the rest. Therefore, when they placed January and February before March, they were guilty of naming the above-mentioned month Quintilis, or fifth, but counting it seventh. 
+				<milestone n="2" unit="section"/>And besides, it was reasonable that March, which is consecrate to Mars, should be put in the first place by Romulus, and April in the second place, since this month is named after Aphrodite. In it they sacrificed to this goddess, and on its first day the women bathe with myrtle garlands on their heads. Some, however, say that April, with its smooth 
+				<q direct="unspecified">p,</q> cannot be derived from Aphrodite, with its rough 
+				<q direct="unspecified">ph,</q> but that this month of high spring time is called April because it <emph>opens</emph> and discloses the buds and shoots in vegetation, this being the meaning of the word 
+				<q direct="unspecified">aperio.</q> 
+				        <milestone n="3" unit="section"/>The next month in order is called May, from Maia, the mother of Mercury, to whom it is sacred; and June is so named from Juno. There are some, however, who say that these months get their name from an age, older and younger; for 
+				<q direct="unspecified">majores</q> is their name for the <emph>elder</emph>, 
+				<q direct="unspecified">juniores</q> for the <emph>younger</emph> men. Each of the remaining months they named from its arithmetical position in the list, the fifth Quintilis, the sixth Sextilis, and so on with September, October, November, and December. 
+				<milestone n="4" unit="section"/>Afterwards the fifth month was named Julius, from Julius Caesar, the conqueror of Pompey; and the sixth month Augustus, from the second Caesar, who was given that title. The seventh and eighth months bore for a short time the names Germanicus and Domitianus, which the emperor Domitian gave them; but when he was slain, they resumed their old names of September and October. Only the last two months, November and December, preserved the names derived from their position in the list just as they were at the outset.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>Of the months which were added or transposed by Numa, February must have something to do with <emph>purification</emph> for this is nearest to the meaning of the word, and in this month they make offerings to the dead and celebrate the festival of the Lupercalia, which, in most of its features, resembles a purification.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Rom. 21.4">Romulus, xxi. 4-8.</bibl>
+            </note> The first month, January, is so named from Janus. And I think that March, which is named from Mars, was moved by Numa from its place at the head of the months because he wished in every case that martial influences should yield precedence to civil and political. 
+				<milestone n="6" unit="section"/>For this Janus, in remote antiquity, whether he was a demi-god or a king, was a patron of civil and social order, and is said to have lifted human life out of its bestial and savage state. For this reason he is represented with two faces, implying that he brought men's lives out of one sort and condition into another.
+			</p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>He also has a temple at Rome with double doors, which they call the gates of war; for the temple always stands open in time of war, but is closed when peace has come. The latter was a difficult matter, and it rarely happened, since the realm was always engaged in some war, as its increasing size brought it into collision with the barbarous nations which encompassed it round about. 
+				<milestone n="2" unit="section"/>But in the time of Augustus Caesar it was closed, after he had overthrown Antony; and before that, when Marcus Atilius and Titus Manlius were consuls, it was closed a short time; then war broke out again at once, and it was opened. During the reign of Numa, however, it was not seen open for a single day, but remained shut for the space of forty-three years together, so complete and universal was the cessation of war. 
+				<milestone n="3" unit="section"/>For not only was the Roman people softened and charmed by the righteousness and mildness of their king, but also the cities round about, as if some cooling breeze or salubrious wind were wafted upon them from Rome, began to experience a change of temper, and all of them were filled with longing desire to have good government, to be at peace, to till the earth, to rear their children in quiet, and to worship the gods. 
+				<milestone n="4" unit="section"/>Festivals and feasts, hospitalities and friendly converse between people who visited one another promiscuously and without fear,&mdash;these prevailed throughout Italy, while honour and justice flowed into all hearts from the wisdom of Numa, as from a fountain, and the calm serenity of his spirit diffused itself abroad. Thus even the hyperboles of the poets fall short of picturing the state of man in those days: 
+				<milestone n="5" unit="section"/>
+				        <q direct="unspecified">And on the iron-bound shield-handles lie the tawney spiders' webs</q>; and, 
+				<q direct="unspecified">rust now subdues the sharp-pointed spears and two-edged swords; no longer is the blast of brazen trumpets heard, nor are the eyelids robbed of delicious sleep.</q>
+            <note resp="ed" place="unspecified" anchored="yes">A free citation, apparently from memory, of Bacchylides, Fragment 13 (Bergk). See Jebb's <title>Bacchylides</title>, p. 411.</note>  For there is no record either of war, or faction, or political revolution while Numa was king. Nay more, no hatred or jealousy was felt towards his person, nor did ambition lead men to plot and conspire against his throne. 
+				<milestone n="6" unit="section"/>On the contrary, either fear of the gods, who seemed to have him in their especial care, or reverence for his virtue, or a marvellous felicity, which in his days kept life free from the taint of every vice, and pure, made him a manifest illustration and confirmation of the saying which Plato,<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Plat. Rep. 487e">
+                  <title>Republic</title>, p. 487 e.</bibl>
+            </note> many generations later, ventured to utter regarding government, 
+				<milestone n="7" unit="section"/>namely, that human ills would only then cease and disappear when, by some divine felicity, the power of a king should be united in one person with the insight of a philosopher, thereby establishing virtue in control and mastery over vice. 
+				<q direct="unspecified">Blessed,</q> indeed, is such a wise man 
+				<q direct="unspecified">in himself, and blessed, too, are those who hear the words of wisdom issuing from his lips.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plat. Laws 711e">Plato, Laws, p. 711 e.</bibl>
+            </note> 
+				        <milestone n="8" unit="section"/>For possibly there is no need of any compulsion or menace in dealing with the multitude, but when they see with their own eyes a conspicuous and shining example of virtue in the life of their ruler, they will of their own accord walk in wisdom's ways, and unite with him in conforming themselves to a blameless and blessed life of friendship and mutual concord, attended by righteousness and temperance. Such a life is the noblest end of all government, and he is most a king who can inculcate such a life and such a disposition in his subjects. This, then, as it appears, Numa was preeminent in discerning.
+			</p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As regards his marriages and offspring, historians are at variance. Some say that he had no other wife than Tatia, and no other child than one daughter, Pompilia. Others ascribe to him four sons besides, Pompon, Pinus, Calpus, and Mamercus, each one of whom was the founder of an honourable family. 
+				<milestone n="2" unit="section"/>From Pompon the Pomponii are descended, from Pinus the Pinarii, from Calpus the Calpurnii, and from Mamercus the Mamercii, who for this reason had also the surname of Reges, or <emph>Kings.</emph> But there is a third class of writers who accuse the former of paying court to these great families by forging for them lines of descent from Numa, and they say that Pompilia was not the daughter of Tatia, but of Lucretia, another wife whom Numa married after he became king. 
+				<milestone n="3" unit="section"/>However, all are agreed that Pompilia was married to Marcius. Now this Marcius was a son of the Marcius who induced Numa to accept the throne.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Num. 6">chapter vi.</bibl>
+            </note> That Marcius accompanied Numa to Rome, and there was honoured with membership in the Senate. After Numa's death, he competed for the throne with Hostilius, and being defeated, starved himself to death. But his son Marcius, the husband of Pompilia, remained at Rome, and begat Ancus Marcius, who succeeded Tullus Hostilius in the kingdom. 
+				<milestone n="4" unit="section"/>This Ancus Marcius is said to have been only five years old when Numa died, not a speedy nor a sudden death, but wasting away gradually from old age and a mild disorder, as Piso writes. He was something over eighty years old when he died.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>His obsequies were as much to be envied as his life. The peoples which were in alliance and friendship with Rome assembled at the rites with public offerings and crowns; the senators carried his bier, the priests of the gods served as its escort, and the rest of the people, including women and children, followed with groans and lamentations, not as though they were attending the funeral of an aged king, but as though each one of them was burying some dearest relation taken away in the flower of life. 
+				<milestone n="2" unit="section"/>They did not burn his body, because, as it is said, he forbade it; but they made two stone coffins and buried them under the Janiculum. One of these held his body, and the other the sacred books which he had written out with his own hand, as the Greek lawgivers their tablets. But since, while he was still living, he had taught the priests the written contents of the books, and had inculcated in their hearts the scope and meaning of them all, he commanded that they should be buried with his body, convinced that such mysteries ought not to be entrusted to the care of lifeless documents. 
+				<milestone n="3" unit="section"/>This is the reason, we are told, why the Pythagoreans also do not entrust their precepts to writing, but implant the memory and practice of them in living disciples worthy to receive them. And when their treatment of the abstruse and mysterious processes of geometry had been divulged to a certain unworthy person, they said the gods threatened to punish such lawlessness and impiety with some signal and wide-spread calamity. 
+				<milestone n="4" unit="section"/>Therefore we may well be indulgent with those who are eager to prove, on the basis of so many resemblances between them, that Numa was acquainted with Pythagoras.
+			</p>
+         <p>Antias, however, writes that it was twelve pontifical books, and twelve others of Greek philosophy, which were placed in the coffin. And about four hundred years afterwards, when Publius Cornelius and Marcus Baebius were consuls, heavy rains fell, and the torrent of water tore away the earth and dislodged the coffins. 
+				<milestone n="5" unit="section"/>When their lids had fallen off, one coffin was seen to be entirely empty, without any trace whatever of the body, but in the other the writings were found. These Petilius, who was then praetor, is said to have read, and then brought to the senate, declaring that, in his opinion, it was not lawful or proper that the writings should be published abroad. The books were therefore carried to the comitium and burned.
+			</p>
+         <p>
+				        <milestone n="6" unit="section"/>It is true, indeed, of all just and good men, that they are praised more after they have left the world than before, since envy does not long survive them, and some even see it die before them; but in Numa's case the misfortunes of the kings who followed him made his fame shine all the brighter. For of the five who came after him, the last was dethroned and grew old in exile, and of the other four, not one died a natural death. Three of them were conspired against and slain; 
+				<milestone n="7" unit="section"/>and Tullus Hostilius, who reigned next after Numa, and who mocked and derided most of his virtues, and above all his devotion to religion, declaring that it made men idle and effeminate, turned the minds of the citizens to war. He himself; however, did not abide by his presumptuous folly, but was converted by a grievous and complicated disease, and gave himself over to a superstition which was far removed from the piety of Numa. His subjects, too, were even more affected with superstition, as we are told, when he died by a stroke of lightning.
+			</p>
+      </body>
+   </text>
+</TEI.2>

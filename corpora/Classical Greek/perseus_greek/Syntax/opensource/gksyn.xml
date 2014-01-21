@@ -1,0 +1,675 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Overview of Greek Syntax</title>
+<author>Jeffrey A. Rydberg-Cox</author>
+&responsibility;
+</titleStmt>
+<extent>About 120Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<bibl>
+<title>Overview of Greek Syntax</title>
+<author>Jeffrey A. Rydberg-Cox</author>
+<date>2000</date>
+<publisher>Text created electronically</publisher>
+</bibl>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+  <state unit="form"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+  <state unit="chapter"/>
+  <state n="chunk" unit="form"/>
+  <state unit="use"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="la">Latin&gt;</language></langUsage></profileDesc>
+
+<revisionDesc>
+<change><date> 7-Nov-00</date>
+<respStmt><name>Anne Mahoney</name><resp>ed.</resp></respStmt>
+<item>
+$Log: gksyn.xml,v $
+Revision 1.1  2009-12-08 20:46:34  rsingh04
+moved more xml files around based on copyright status.  renamed terence files to follow the abbreviations and split up minora_lat.xml into separate files
+
+Revision 1.5  2009/08/25 19:51:33  rsingh04
+changed bibls with Perseus:abo to corresponding abbreviation
+
+Revision 1.4  2009/07/29 18:45:30  student
+fixed bibl error - zr
+
+Revision 1.3  2009/06/19 17:14:26  rsingh04
+fixed refs to smyth so they will actually work
+
+Revision 1.2  2005/08/16 17:18:03  packel
+ARRGGH item tags
+
+Revision 1.1  2005/07/25 15:04:06  packel
+Converted to XML
+
+Revision 1.3  2005/07/01 14:31:22  mimno
+new XML versions
+
+Revision 1.2  2000/11/12 18:43:56  amahoney
+fix references to Smyth:  put one section in n attribute, list of
+sections in visible text
+
+Revision 1.1  2000/11/07 19:25:51  amahoney
+finally, this widely-cited document is in the hopper
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+<div1 id="og.1" type="chapter" n="1">
+<head>Nouns, Adjectives, and Pronouns</head>
+<div2 id="og.1.nom" type="form" n="nom">
+<head>Nominative</head>
+<p>Used as the subject, predicate object, or independently in titles.
+
+<list type="simple">
+<item><p><hi rend="bold">Subject:</hi>  Serves as the subject of a finite verb.  <bibl n="Smyth grammar 938">Smyth 938-939</bibl></p>
+<p><cit><quote lang="greek">tau=ta oi( ai(retoi\ a)gge/llousi toi=s stratiw/tais</quote> <bibl n="Xen. Anab. 1.2.3">Xen. Anab. 1.2.3</bibl></cit>;  <gloss>The delegates report these things to the soldiers</gloss>
+</p></item>
+<item><p><hi rend="bold">Predicate:</hi>  The predicate object of verbs such as <foreign lang="greek">ei)mi/</foreign> and <foreign lang="greek">gi/gnomai</foreign>  <bibl n="Smyth grammar 939">Smyth 939</bibl></p>
+<p><cit><quote lang="greek">*kle/arxos fuga\s h)=n</quote> <bibl n="Xen. Anab. 1.1.9">Xen. Anab. 1. 1. 9</bibl></cit>;  <gloss>Clearchus was an exile</gloss>
+</p></item>
+<item><p><hi rend="bold">Independent:</hi>  Standing independently describing titles or names.  <bibl n="Smyth grammar 940">Smyth 940-942</bibl></p>
+<p><cit><quote lang="greek">prosei/lhfe th\n tw=n ponhrw=n koinh\n e)pwnumi/an sukofa/nths</quote> <bibl n="Aeschin. 2.99">Aeschin. 2.99</bibl></cit>;  <gloss>he -- the syncophant -- received the common appellation of the vile</gloss></p></item>
+</list>
+  </p></div2>
+<div2 id="og.1.gen" type="form" n="gen">
+<head>Genitive</head>
+<p>1.  limits the meaning of a noun</p>
+<p>2. expresses the idea of source or separation.</p>
+<p>These relationships can be expressed by the English prepositions <emph>of</emph>  or  <emph>from.</emph>
+
+<list type="simple">
+<item><p><hi rend="bold">Possession:</hi>  Denotes possession or ownership  <bibl n="Smyth grammar 1297">Smyth 1297-1302</bibl></p>
+<p><cit><quote lang="greek">o( *ku/rou sto/los</quote> <bibl n="Xen. Anab. 1.2.5">Xen. Anab. 1.2.5</bibl></cit>;  <gloss>the expedition of Cyrus</gloss>
+</p></item>
+<item><p><hi rend="bold">Partitive:</hi>  Denotes the general class to which a specific noun belongs.   <bibl n="Smyth grammar 1306">Smyth 1306-1319</bibl></p>
+<p><cit><quote lang="greek">oi( a)/poroi tw=n politw=n</quote> <bibl n="Dem. 18.104">Dem. 18.104</bibl></cit>;  <gloss>the needy among the citizens</gloss>
+</p></item>
+<item><p><hi rend="bold">Quality:</hi>  Denotes the quality of a person or thing. Used mainly as a predicate.  <bibl n="Smyth grammar 1320">Smyth 1320-1321</bibl></p>
+<p><cit><quote lang="greek">oi( de/ tines th=s au)th=s gnw/mhs o)li/goi kate/fugon</quote> <bibl n="Thuc. 3.70">Thuc. 3.70</bibl></cit>;  <gloss>but some few of the same opinion fled</gloss>
+</p></item>
+<item><p><hi rend="bold">Explanation:</hi>  Denotes the specific class to which a general noun belongs.   <bibl n="Smyth grammar 1322">Smyth 1322</bibl></p>
+<p><cit><quote lang="greek">a)/ellai pantoi/wn a)ne/mwn</quote> <bibl n="Hom. Od. 5.292">Hom. Od. 5.292</bibl></cit>;  <gloss>blasts of wind of every sort</gloss>
+</p></item>
+<item><p><hi rend="bold">Material:</hi>  Denotes the composition or contents of a noun.   <bibl n="Smyth grammar 1323">Smyth 1323-1324</bibl></p>
+<p><cit><quote lang="greek">e(cako/sia ta/lanta fo/rou</quote> <bibl n="Thuc. 2.13">Thuc. 2.13</bibl></cit>;  <gloss>six hundred talents in taxes</gloss>
+</p></item>
+<item><p><hi rend="bold">Measure:</hi>  Denotes the extent in space or time of a noun.  <bibl n="Smyth grammar 1325">Smyth 1325-1327</bibl></p>
+<p><cit><quote lang="greek">o)ktw\ stadi/wn tei=xos</quote> <bibl n="Thuc. 7.2">Thuc. 7.2</bibl></cit>;  <gloss>a wall eight stades long</gloss>
+</p></item>
+<item><p><hi rend="bold">Subjective:</hi>  Denotes the subject of a verbal adjective expressed by a noun, usually with an active sense.  <bibl n="Smyth grammar 1330">Smyth 1330</bibl></p>
+<p><cit><quote lang="greek">tw=n barba/rwn fo/bos</quote> <bibl n="Xen. Anab. 1.2.17">Xen. Anab. 1.2.17</bibl></cit>;  <gloss>the fear of the barbarians</gloss> (which they feel: <foreign lang="greek">oi( ba/rbaroi fobou=ntai</foreign>) 
+</p></item>
+<item><p><hi rend="bold">Objective:</hi>  Denotes the object of a verbal action expressed by a noun, usually with a passive sense.    <bibl n="Smyth grammar 1331">Smyth 1331-1335</bibl></p>
+<p><cit><quote lang="greek">fo/bos tw=n *ei(lw/twn</quote>  <bibl n="Thuc. 3.54">Thuc. 3.54</bibl></cit> <gloss>the fear of the Helots</gloss> (felt towards them: <foreign lang="greek">fobou=ntai tou\s *ei(/lwtas</foreign>)</p></item>
+<item><p><hi rend="bold">Price or Value:</hi>  Denotes the price or value of an object  <bibl n="Smyth grammar 1336">Smyth 1336-1337</bibl></p>
+<p><cit><quote lang="greek">xili/wn draxmw=n di/khn feu/gw</quote> <bibl n="Dem. 55.25">Dem. 55.25</bibl></cit>;  <gloss>I am defendant in an action involving a thousand drachma</gloss>
+</p></item>
+<item><p><hi rend="bold">With Certain Verbs:</hi>  The genitive is used as the object verbs that denote sharing, touching, beginning, aiming at, obtaining, smelling, remembering, hearing, perceiving, filing, ruling, differing, commanding, etc.  <bibl n="Smyth grammar 1341">Smyth 1341-1371</bibl></p>
+<p><cit><quote lang="greek">th=s qala/tths e)kra/tei</quote> <bibl n="Plat. Menex. 239e">Plat. Menex. 239e</bibl></cit>;  <gloss>he was master of the sea</gloss>
+</p></item>
+<item><p><hi rend="bold">Charge:</hi>  Denotes the crime with verbs of charging, summoning, and convicting.  <bibl n="Smyth grammar 1375">Smyth 1375-1379</bibl></p>
+<p><cit><quote lang="greek">e)me\ o( *me/lhtos a)sebei/as e)gra/yato</quote> <bibl n="Plat. Euthyph. 5c">Plat. Euthyph. 5c</bibl></cit>;  <gloss>Meletus prosecuted me for impiety</gloss>
+</p></item>
+<item><p><hi rend="bold">Separation:</hi>  The genitive expresses the ideas of separation with verbs denoting to cease, be apart from, want, lack, etc.    <bibl n="Smyth grammar 1392">Smyth 1392-1400</bibl></p>
+<p><cit><quote lang="greek">lh/gein tw=n po/nwn</quote> <bibl n="Isoc. 1.14">Isoc. 1.14</bibl></cit>;  <gloss>to cease from toil</gloss>
+</p></item>
+<item><p><hi rend="bold">Comparison:</hi>  Denotes the person or thing being compared when used with comparative adjectives, comparative adverbs or verbs expressing the idea of comparison.  <bibl n="Smyth grammar 1401">Smyth 1401-1404</bibl></p>
+<p><cit><quote lang="greek">a)/rxwn a)gaqo\s ou)de\n diafe/rei patro\s a)gaqou=</quote> <bibl n="Xen. Cyrop. 8.1.1">Xen. Cyrop. 8.1.1</bibl></cit>;  <gloss>a good ruler differs in no respect from a good father</gloss>
+</p></item>
+<item><p><hi rend="bold">Cause:</hi>  The genitive expresses cause with verbs denoting wonder, admiration, anger, etc.  <bibl n="Smyth grammar 1405">Smyth 1405-1407</bibl></p>
+<p><cit><quote lang="greek">to\n ce/non di/kaion ai)ne/sai proqumi/as</quote> <bibl n="Eur. IA 1371">Eur. IA 1371</bibl></cit>;  <gloss>it is right to praise the stranger for his zeal</gloss>
+</p></item>
+<item><p><hi rend="bold">Source:</hi>  The genitive expresses the idea of source.  <bibl n="Smyth grammar 1410">Smyth 1410-1411</bibl></p>
+<p><cit><quote lang="greek">pi/qwn h)fu/sseto oi)=nos</quote> <bibl n="Hom. Od. 23.305">Hom. Od. 23.305</bibl></cit>;  <gloss>wine was broached from the casks</gloss>
+</p></item>
+<item><p><hi rend="bold">Time or Place within which:</hi>  The genitive denotes the time or place within which an event happens.  <bibl n="Smyth grammar 1444">Smyth 1444-1449</bibl></p>
+<p><cit><quote lang="greek">w)/|xeto th=s nukto/s</quote> <bibl n="Xen. Anab. 7.2.17">Xen. Anab. 7.2.17</bibl></cit>;  <gloss>he departed during the night</gloss>
+</p></item>
+<item><p><hi rend="bold">Agency:</hi>  The genitive with <foreign lang="greek">u(po/</foreign> expresses the agent of a passive verb.  <bibl n="Smyth grammar 1491">Smyth 1491</bibl></p>
+<p><cit><quote lang="greek">perierrei=to d' au(/th u(po\ tou= *ma/ska ku/klw|</quote> <bibl n="Xen. Anab. 1.5.4">Xen. Anab. 1.5.4</bibl></cit>;  <gloss>And this was encircled by the Mascas</gloss>
+</p></item>
+<item><p><hi rend="bold">Purpose:</hi>  The genitive articular infinitive can express purpose.  <bibl n="Smyth grammar 1408">Smyth 1408-1409</bibl></p>
+<p><cit><quote lang="greek">tou= mh\ ta\ di/kaia poiei=n</quote> <bibl n="Dem. 18.107">Dem. 18.107</bibl></cit>;  <gloss>in order not to do what was just</gloss></p></item>
+</list>
+  </p></div2>
+<div2 id="og.1.dat" type="form" n="dat">
+<head>Dative</head>
+<p>1.  Used as the indirect object.</p>
+<p>2.  Expresses how or with what something is done.</p>
+<p>3.  Expresses relationships of place where and time when.</p>
+<p>These relationships can be expressed by the English prepositions <emph>to</emph> or <emph>for</emph>, <emph>with</emph> or <emph>by</emph>, and <emph>in</emph> or <emph>at</emph>.
+
+<list type="simple">
+<item><p><hi rend="bold">Indirect Object:</hi>  Used as the indirect object of a verb.    <bibl n="Smyth grammar 1469">Smyth 1469-1470</bibl></p>
+<p><cit><quote lang="greek">*ku=ros di/dwsin au)tw=| e(\c mhnw=n misqo/n</quote> <bibl n="Xen. Anab. 1.1.10">Xen. Anab. 1.1.10</bibl></cit>;  <gloss>Cyrus gives pay for six months to him</gloss>
+</p></item>
+<item><p><hi rend="bold">Possessor:</hi>  Denotes possession with verbs such as <foreign lang="greek">gi/gnomai</foreign> and <foreign lang="greek">ei)mi/</foreign>.  <bibl n="Smyth grammar 1476">Smyth 1476-1480</bibl></p>
+<p><cit><quote lang="greek">a)/llois me\n xrh/mata/ e)sti, h(mi=n de\ cu/mmaxoi a)gaqoi/</quote> <bibl n="Thuc. 1.86">Thuc. 1.86</bibl></cit>;  <gloss>others have riches, we have good allies</gloss>
+</p></item>
+<item><p><hi rend="bold">Advantage or Disadvantage:</hi>  Describes the person or thing for (or against) whom an action is done.  <bibl n="Smyth grammar 1481">Smyth 1481-1486</bibl></p>
+<p><cit><quote lang="greek">a)/llw| o( toiou=tos ploutei=, kai\ ou)x e(autw=|</quote> <bibl n="Plat. Menex. 246e">Plat. Menex. 246e</bibl></cit>;  <gloss>such a man is rich for another, and not for himself</gloss>
+</p></item>
+<item><p><hi rend="bold">Ethical:</hi>  A dative personal pronoun denotes the interest of the speaker or the one being spoken to in the action of a statement.  <bibl n="Smyth grammar 1486">Smyth 1486-1487</bibl></p>
+<p><cit><quote lang="greek">toiou=to u(mi=n e)sti h( turanni/s</quote> <bibl n="Hdt. 5.92">Hdt. 5.92</bibl></cit>;  <gloss>such a thing, you know, is despotism</gloss>
+</p></item>
+<item><p><hi rend="bold">Agent:</hi>  Denotes agency with either verbal adjectives ending in <foreign lang="greek">-te/os</foreign> or passive verbs in the perfect or pluperfect tenses.  <bibl n="Smyth grammar 1488">Smyth 1488-1494</bibl></p>
+<p><cit><quote lang="greek">tosau=ta/ moi ei)rh/sqw</quote> <bibl n="Lys. 24.4">Lys. 24.4</bibl></cit>;  <gloss>let so much have been said by me</gloss>
+</p></item>
+<item><p><hi rend="bold">Attendant Circumstance:</hi>  Denotes the manner in which an action takes place.  <bibl n="Smyth grammar 1527">Smyth 1527</bibl></p>
+<p><cit><quote lang="greek">pollh=| boh=| prose/keinto</quote> <bibl n="Thuc. 4.127">Thuc. 4.127</bibl></cit>;  <gloss>they attacked with loud shouts</gloss>
+</p></item>
+<item><p><hi rend="bold">Respect:</hi>  Denotes the respect or attendant circumstance in which an action is true.  <bibl n="Smyth grammar 1516">Smyth 1516</bibl></p>
+<p><cit><quote lang="greek">a)sqenh\s tw=| sw/mati</quote> <bibl n="Dem. 21.165">Dem. 21.165</bibl></cit>;  <gloss>weak in body</gloss>
+</p></item>
+<item><p><hi rend="bold">Means:</hi>  Denotes the means with which something is done.  <bibl n="Smyth grammar 1507">Smyth 1507-1511</bibl></p>
+<p><cit><quote lang="greek">e)zhmi/wsan xrh/masin</quote> <bibl n="Thuc. 2.65">Thuc. 2.65</bibl></cit>;  <gloss>they punished him by a fine</gloss>
+</p></item>
+<item><p><hi rend="bold">Degree of Difference:</hi>  Denotes the degree of difference with words containing an idea of comparison.  <bibl n="Smyth grammar 1513">Smyth 1513-1515</bibl></p>
+<p><cit><quote lang="greek">ou) pollai=s h(me/rais u(/steron h)=lqen</quote> <bibl n="Xen. Hell. 1.1.1">Xen. Hell. 1.1.1</bibl></cit>;  <gloss>he arrived not many days later</gloss>
+</p></item>
+<item><p><hi rend="bold">Accompaniment:</hi>  Denotes accompaniment, frequently with the preposition <foreign lang="greek">su/n</foreign>.  Most common in military situations.  <bibl n="Smyth grammar 1524">Smyth 1524-1525</bibl></p>
+<p><cit><quote lang="greek">a)kolouqei=n tw=| h(goume/nw|</quote> <bibl n="Plat. Rep. 474c">Plat. Rep. 474c</bibl></cit>;  <gloss>to follow the leader</gloss>
+</p></item>
+<item><p><hi rend="bold">Time When:</hi>  Denotes the point of time when an action takes place.  <bibl n="Smyth grammar 1540">Smyth 1540-1543</bibl></p>
+<p><cit><quote lang="greek">tau/thn me\n th\n h(me/ran au)tou= e)/meinan, th=| de\ u(sterai/a| ktl</quote> <bibl n="Xen. Hell. 1.1.14">Xen. Hell. 1.1.14-14</bibl></cit>; . <gloss>throughout that day they waited there, but on the day following</gloss>, etc. 
+</p></item>
+<item><p><hi rend="bold">Place Where:</hi>  Denotes the place where an action takes place.  Most common in poetry.  <bibl n="Smyth grammar 1530">Smyth 1530-1538</bibl></p>
+<p><cit><quote lang="greek">gh=| e)/keito</quote> <bibl n="Soph. OT 1266">Soph. OT 1266</bibl></cit>;  <gloss>she lay on the ground</gloss>
+</p></item>
+<item><p><hi rend="bold">With compound verbs:</hi>  The dative is used as the direct object of many verbs compounded with the prepositions <foreign lang="greek">e)n, su/n, </foreign> and <foreign lang="greek">e)pi/</foreign> and less frequently with the prepositions <foreign lang="greek">pro/s, para/, peri/, </foreign> and <foreign lang="greek">u(po/</foreign>.  <bibl n="Smyth grammar 1544">Smyth 1544-1550</bibl></p>
+<p><cit><quote lang="greek">e)lpi/das e)mpoiei=n a)nqrw/pois</quote> <bibl n="Xen. Cyrop. 1.6.19">Xen. Cyrop. 1.6.19</bibl></cit>;  <gloss>to create expectations in men</gloss></p></item>
+</list>
+  </p></div2>
+<div2 id="og.1.acc" type="form" n="acc">
+<head>Accusative</head>
+<p>Used as the direct object of a verb, or to communicate relationships of motion, space, or time.
+
+<list type="simple">
+<item><p><hi rend="bold">Direct Object:</hi>  Used as the direct object of a transitive verb.  <bibl n="Smyth grammar 1553">Smyth 1553-1555</bibl></p>
+<p><cit><quote lang="greek">to\n a)/ndra o(rw=</quote> <bibl n="Xen. Anab. 1.8.26">Xen. Anab. 1.8.26</bibl></cit>;  <gloss>I see the man</gloss>
+</p></item>
+<item><p><hi rend="bold">Cognate:</hi>  Repeats the sense of the verb in the form of a verbal noun.  <bibl n="Smyth grammar 1563">Smyth 1563-1577</bibl></p>
+<p><cit><quote lang="greek">th\n e)n *salami=ni naumaxi/an naumaxh/santes</quote> <bibl n="Dem. 59.97">Dem. 59.97</bibl></cit>;  <gloss>victorious in the sea-fight at Salamis</gloss>
+</p></item>
+<item><p><hi rend="bold">Subject of the Infinitive:</hi>  Used as the subject of an infinitive.  <bibl n="Smyth grammar 1972">Smyth 1972-1981</bibl></p>
+<p><cit><quote lang="greek">to\n ga\r kalo\n ka)gaqo\n a)/ndra eu)dai/mona ei)=nai/ fhmi</quote> <bibl n="Plat. Gorg. 470e">Plat. Gorg. 470e</bibl></cit>;  <gloss>for I maintain that the noble and good man is happy</gloss>
+</p></item>
+<item><p><hi rend="bold">Specification or Respect:</hi>  Limits the scope of a verb or an adjective.  <bibl n="Smyth grammar 1600">Smyth 1600-1605</bibl></p>
+<p><cit><quote lang="greek">tuflo\s ta/ t' w)=ta to/n te nou=n ta/ t' o)/mmat' ei)=</quote> <bibl n="Soph. OT 371">Soph. OT 371</bibl></cit>;  <gloss>you are blind in ears, and mind, and eyes</gloss>
+</p></item>
+<item><p><hi rend="bold">Extent of Space:</hi>  Describes the space over which an action takes place.  <bibl n="Smyth grammar 1581">Smyth 1581</bibl></p>
+<p><cit><quote lang="greek">a)/gein &lpar;stratia\n&rpar; stena\s o(dou/s</quote> <bibl n="Xen. Cyrop. 1.6.43">Xen. Cyrop. 1.6.43</bibl></cit> <gloss>to lead an army over narrow roads</gloss>
+</p></item>
+<item><p><hi rend="bold">Extent of Time:</hi>  Describes the length of time of an action.  <bibl n="Smyth grammar 1582">Smyth 1582-1585</bibl></p>
+<p><cit><quote lang="greek">cummaxi/an e)poih/santo e(kato\n e)/th</quote> <bibl n="Thuc. 3.114">Thuc. 3.114</bibl></cit>;  <gloss>they made an alliance for a hundred years</gloss>
+</p></item>
+<item><p><hi rend="bold">End of Motion:</hi>  Describes the motion towards something with prepositions.  In poetry, the preposition may be omitted.  <bibl n="Smyth grammar 1588">Smyth 1588-1589</bibl></p>
+<p><cit><quote lang="greek">pe/myome/n nin *(ella/da</quote> <bibl n="Eur. Tro. 883">Eur. Tro. 883</bibl></cit>;  <gloss>we will convey her to Greece</gloss>
+</p></item>
+<item><p><hi rend="bold">Adverbial:</hi>  The accusative may serve as an adverb.  <bibl n="Smyth grammar 1606">Smyth 1606-1611</bibl></p>
+<p><cit><quote lang="greek">e)/plee pro/fasin e)p' *(ellhspo/ntou</quote> <bibl n="Hdt. 5.33">Hdt. 5.33</bibl></cit>;  <gloss>he sailed professedly for the Hellespont</gloss>
+</p></item>
+<item><p><hi rend="bold">Oaths:</hi>  Used with verbs of swearing and the particles <foreign lang="greek">nh/</foreign> and <foreign lang="greek">ma/</foreign>  <bibl n="Smyth grammar 1596">Smyth 1596</bibl></p>
+<p><cit><quote lang="greek">o)mnu/w u(mi=n qeou\s pa/ntas kai\ pa/sas</quote> <bibl n="Xen. Anab. 6.1.31">Xen. Anab. 6.1.31</bibl></cit>;  <gloss>I swear to you by all the gods and goddesses.</gloss>
+</p></item>
+<item><p><hi rend="bold">Double Accusative:</hi>  Many verbs take two accusatives, one of the person affected, the other of the thing.    <bibl n="Smyth grammar 1619">Smyth 1619-1635</bibl></p>
+<p><cit><quote lang="greek">o( po/lemos a)ei/mnhston paidei/an au)tou\s e)pai/deuse</quote> <bibl n="Aeschin. 3.148">Aeschin. 3.148</bibl></cit>;  <gloss>the war taught them a lesson they will hold in everlasting remembrance</gloss>
+</p></item>
+<item><p><hi rend="bold">Predicate Accusative:</hi>  Verbs of naming, appointing, considering take a second accusative as a predicate of the direct object.  <bibl n="Smyth grammar 1613">Smyth 1613-1618</bibl></p>
+<p><cit><quote lang="greek">strathgo\n au)to\n a)pe/deice</quote> <bibl n="Xen. Anab. 1.1.2">Xen. Anab. 1.1.2</bibl></cit>;  <gloss>he appointed him general</gloss></p></item>
+</list>
+  </p></div2>
+<div2 id="og.1.voc" type="form" n="voc">
+<head>Vocative</head>
+<p>Used for exclamations and emphatic address.
+
+<list type="simple">
+<item><p><hi rend="bold">Exclamations:</hi>  The vocative is used in exclamations  <bibl n="Smyth grammar 1283">Smyth 1283-1288</bibl></p>
+<p><cit><quote lang="greek">w)= *zeu= kai\ qeoi/</quote> <bibl n="Plat. Prot. 310d">Plat. Prot. 310d</bibl></cit>;  <gloss>oh Zeus and ye gods</gloss>
+</p></item>
+<item><p><hi rend="bold">Emphatic address:</hi>  The vocative is used for emphatic addresses.  <bibl n="Smyth grammar 1283">Smyth 1283-1288</bibl></p>
+<p><cit><quote lang="greek">a)kou/eis <hi rend="bold">*ai)sxi/nh</hi>;</quote> <bibl n="Dem. 18.121">Dem. 18.121</bibl></cit> <gloss>do you hear, <emph>Aeschines</emph>?</gloss> </p></item>
+</list>
+  </p></div2></div1>
+<div1 id="og.2" type="chapter" n="2">
+<head>Verbs:  Tense</head>
+<div2 id="og.2.pres" type="form" n="pres">
+<head>Present</head>
+<p>The present tense denotes an action in the present time with continuing aspect.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Present:</hi>  The present denotes an action in progress at the present time.  <bibl n="Smyth grammar 1875">Smyth 1875-1876</bibl></p>
+<p><cit><quote lang="greek">a)lhqh= le/gw</quote> <bibl n="Lys. 13.72">Lys. 13.72</bibl></cit>;  <gloss>I am telling the truth</gloss>
+</p></item>
+<item><p><hi rend="bold">Gnomic Present:</hi>  The present can denote a general truth.  <bibl n="Smyth grammar 1877">Smyth 1877</bibl></p>
+<p><cit><quote lang="greek">a)/gei de\ pro\s fw=s th\n a)lh/qeian xro/nos</quote> <bibl>Men. <title>Sent.</title> 11</bibl></cit> <gloss>time brings the truth to light</gloss> </p></item>
+<item><p><hi rend="bold">Historical Present:</hi>  The present may be used in narrative to present a more vivid picture of an action.  <bibl n="Smyth grammar 1883">Smyth 1883-1884</bibl></p>
+<p><cit><quote lang="greek">o( de\ *qemistoklh=s <emph>feu/gei</emph> e)s *ke/rkuran . . . <emph>diakomi/zetai</emph> e)s th\n h)/peiron</quote>  <bibl n="Thuc. 1.136">Thuc. 1.136</bibl></cit> <gloss>Themistocles <emph>fled</emph> (flees) to Corcyra . . . <emph>was</emph> (is) transported to the mainland</gloss>
+</p></item>
+<item><p><hi rend="bold">Present Simple Conditions:</hi>  The present or perfect indicative stands in the protasis of present simple conditions.  The present or perfect indicative stands in the apodosis.  <bibl n="Smyth grammar 2298">Smyth 2298-2301</bibl></p>
+<p><cit><quote lang="greek">ei) ou)=n bou/lesqe, e)/cestin u(mi=n h(ma=s labei=n cumma/xous</quote> <bibl n="Xen. Anab. 5.4.6">Xen. Anab. 5.4.6</bibl></cit>;  <gloss>If you wish, you can take us as allies</gloss>
+</p></item>
+<item><p><hi rend="bold">Present General Conditions:</hi>  The subjunctive with <foreign lang="greek">e)a/n</foreign> stands in the protasis of present general conditions.  The present indicative stands in the apodosis  <bibl n="Smyth grammar 2337">Smyth 2337-2339</bibl></p>
+<p><cit><quote lang="greek">a)dikou=nta, h)\n la/bh|s, kola/zeis;</quote> <bibl n="Xen. Cyrop. 3.1.11">Xen. Cyrop. 3.1.11</bibl></cit>;  <gloss>Do you punish a wrong-doer if you catch him?</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.2.perf" type="form" n="perf">
+<head>Perfect</head>
+<p>The perfect denotes present time and completed aspect.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Perfect:</hi>  The perfect denotes a completed action in the present time.  <bibl n="Smyth grammar 1945">Smyth 1945</bibl></p>
+<p><cit><quote lang="greek">ta\s po/leis au)tw=n parh/|rhtai</quote> <bibl n="Dem. 9.26">Dem. 9.26</bibl></cit>;  <gloss>he has taken away (and still holds) their cities</gloss>
+</p></item>
+<item><p><hi rend="bold">Gnomic Perfect:</hi>  The perfect can denote a general truth.  <bibl n="Smyth grammar 1948">Smyth 1948</bibl></p>
+<p><cit><quote lang="greek">h( a)taci/a pollou\s h)/dh a)polw/leken</quote> <bibl n="Xen. Anab. 3.1.38">Xen. Anab. 3.1.38</bibl></cit>;  <gloss>lack of discipline already has been the ruin of many</gloss>
+</p></item>
+<item><p><hi rend="bold">Present Simple Conditions:</hi>  The present or perfect indicative stands in the protasis of present simple conditions.  The present or perfect indicative stands in the apodosis.  <bibl n="Smyth grammar 2298">Smyth 2298-2301</bibl></p>
+<p><cit><quote lang="greek">ei) ou)=n bou/lesqe, e)/cestin u(mi=n h(ma=s labei=n cumma/xous</quote> <bibl n="Xen. Anab. 5.4.6">Xen. Anab. 5.4.6</bibl></cit>;  <gloss>If you wish, you can take us as allies</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.2.plup" type="form" n="plup">
+<head>Pluperfect</head>
+<p>The pluperfect expresses past time and completed aspect.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Pluperfect:</hi>  The pluperfect expresses a completed action in past time.  <bibl n="Smyth grammar 1952">Smyth 1952</bibl></p>
+<p><foreign lang="greek">e)bebouleu/mhn</foreign> <gloss>I had (was) resolved</gloss></p></item>
+<item><p><hi rend="bold">Past Simple Conditions:</hi>  The imperfect, aorist, or pluperfect indicative stands in the protasis and apodosis of past simple conditions.    <bibl n="Smyth grammar 2298">Smyth 2298-2301</bibl></p>
+<p><cit><quote lang="greek">ei)/ te/ ti a)/llo . . . e)ge/neto e)piki/ndunon toi=s *(/ellhsi, pa/ntwn . . . mete/sxomen</quote> <bibl n="Thuc. 3.54">Thuc. 3.54</bibl></cit>;  <gloss>and if any other danger befell the Greeks, we took our share in all</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.2.imperf" type="form" n="imperf">
+<head>Imperfect</head>
+<p>The imperfect expresses past time and continuing aspect.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Imperfect:</hi>  The imperfect denotes an action that is continuing in a past time or is still incomplete in the present.  <bibl n="Smyth grammar 1889">Smyth 1889-1892</bibl></p>
+<p><cit><quote lang="greek">die/fqeiran *)aqhnai/wn pi/nte kai\ ei)/kosi oi(\ cunepoliorkou=nto</quote> <bibl n="Thuc. 3.68">Thuc. 3.68</bibl></cit>;  <gloss>they put to death twenty-five of the Athenians who were besieged</gloss> (i.e. from the beginning to the end of the siege)
+</p></item>
+<item><p><hi rend="bold">Conative Imperfect:</hi>  The imperfect can denote an action that was attempted in a past time.  <bibl n="Smyth grammar 1895">Smyth 1895</bibl></p>
+<p><cit><quote lang="greek">*qhbai=oi katedoulou=nt' au)tou/s</quote> <bibl n="Dem. 8.74">Dem. 8.74</bibl></cit>;  <gloss>the Thebans tried to enslave them</gloss>
+</p></item>
+<item><p><hi rend="bold">Iterative Imperfect:</hi>  The imperfect can denote a repeated action in past time when accompanied by <foreign lang="greek">a)/n</foreign>.  <bibl n="Smyth grammar 1893">Smyth 1893-1894</bibl></p>
+<p><cit><quote lang="greek">e)pequ/mei a)/n tis e)/ti plei/w au)tou= a)kou/ein</quote> <bibl n="Xen. Cyrop. 1.4.3">Xen. Cyrop. 1.4.3</bibl></cit>;  <gloss>people would (used to) desire to hear still more from him</gloss>
+</p></item>
+<item><p><hi rend="bold">Present Contrafactual Conditions:</hi>  The imperfect indicative stands in the protasis of present contrafactual conditions.  The imperfect indicative with <foreign lang="greek">a)/n</foreign> stands in the apodosis.  <bibl n="Smyth grammar 2302">Smyth 2302-2312</bibl></p>
+<p><cit><quote lang="greek">ei) ga\r e)kh/dou, h(=kes a)\n fe/rwn plh/rh to\n misqo\n</quote> <bibl n="Xen. Anab. 7.5.5">Xen. Anab. 7.5.5</bibl></cit>;  <gloss>If you were troubled, you would have come with full pay</gloss>
+</p></item>
+<item><p><hi rend="bold">Past Contrafactual Condition:</hi>  The aorist or imperfect indicative stands in the protasis of past contrafactual conditions.  The aorist or imperfect indicative with <foreign lang="greek">a)/n</foreign> stands in the apodosis.   <bibl n="Smyth grammar 2302">Smyth 2302-2312</bibl></p>
+<p><cit><quote lang="greek">ou)k a)\n e)poi/hsen *)agasi/as tau=ta, ei) mh\ e)gw\ au)to\n e)ke/leusa</quote> <bibl n="Xen. Anab. 6.6.15">Xen. Anab. 6.6.15</bibl></cit>;  <gloss>Agasias would not have done this, if I had not commanded him</gloss>
+</p></item>
+<item><p><hi rend="bold">Past Simple Conditions:</hi>  The imperfect, aorist, or pluperfect indicative stands in the protasis and apodosis of past simple conditions.    <bibl n="Smyth grammar 2298">Smyth 2298-2301</bibl></p>
+<p><cit><quote lang="greek">ei)/ te/ ti a)/llo . . . e)ge/neto e)piki/ndunon toi=s *(/ellhsi, pa/ntwn . . . mete/sxomen</quote> <bibl n="Thuc. 3.54">Thuc. 3.54</bibl></cit>;  <gloss>and if any other danger befell the Greeks, we took our share in all</gloss>
+</p></item>
+<item><p><hi rend="bold">Past General Conditions:</hi>  The optative with <foreign lang="greek">ei)</foreign> stands in the  protasis of past general conditions.  The imperfect indicative stands in the apodosis.  <bibl n="Smyth grammar 2340">Smyth 2340-2341</bibl></p>
+<p><cit><quote lang="greek">ei) de/ tis kai\ a)ntei/poi, eu)qu\s . . . e)teqnh/kei</quote> <bibl n="Thuc. 8.66">Thuc. 8.66</bibl></cit>;  <gloss>but if any one even made an objection, he was promptly put to death</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.2.aor" type="form" n="aor">
+<head>Aorist</head>
+<p>The aorist expresses past time and simple aspect.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Aorist:</hi>  The aorist denotes a simple action in the past.  <bibl n="Smyth grammar 1923">Smyth 1923-1930</bibl></p>
+<p><cit><quote lang="greek">e)ni/khsan oi( *kerkurai=oi kai\ nau=s pe/nte kai\ de/ka die/fqeiran</quote> <bibl n="Thuc. 1.29">Thuc. 1.29</bibl></cit>;  <gloss>the Corcyraeans were victorious and destroyed fifteen ships</gloss>
+</p></item>
+<item><p><hi rend="bold">Gnomic Aorist:</hi>  The aorist can express a general truth and, in this case, should be translated as a present.  <bibl n="Smyth grammar 1931">Smyth 1931-1932</bibl></p>
+<p><cit><quote lang="greek">ka/llos me\n ga\r h)\ xro/nos a)nh/lwsen h)\ no/sos e)ma/rane</quote> <bibl n="Isoc. 1.6">Isoc. 1.6</bibl></cit>;  <gloss>for beauty is either wasted by time or withered by disease</gloss>
+</p></item>
+<item><p><hi rend="bold">Iterative Aorist:</hi>  The aorist can indicate repeated action in past time when accompanied by <foreign lang="greek">a)/n</foreign>.  <bibl n="Smyth grammar 1933">Smyth 1933</bibl></p>
+<p><cit><quote lang="greek"><emph>ei)=pen</emph> a)/n</quote> <bibl n="Xen. Cyrop. 7.1.14">Xen. Cyrop. 7.1.14</bibl></cit> <gloss>he used to say</gloss> 
+</p></item>
+<item><p><hi rend="bold">Past Contrafactual Condition:</hi>  The aorist or imperfect indicative stands in the protasis of past contrafactual conditions.  The aorist or imperfect indicative with <foreign lang="greek">a)/n</foreign> stands in the apodosis.   <bibl n="Smyth grammar 2302">Smyth 2302-2312</bibl></p>
+<p><cit><quote lang="greek">ou)k a)\n e)poi/hsen *)agasi/as tau=ta, ei) mh\ e)gw\ au)to\n e)ke/leusa</quote> <bibl n="Xen. Anab. 6.6.15">Xen. Anab. 6.6.15</bibl></cit>;  <gloss>Agasias would not have done this, if I had not commanded him</gloss>
+</p></item>
+<item><p><hi rend="bold">Past Simple Conditions:</hi>  The imperfect, aorist, or pluperfect indicative stands in the protasis and apodosis of past simple conditions.    <bibl n="Smyth grammar 2298">Smyth 2298-2301</bibl></p>
+<p><cit><quote lang="greek">ei)/ te/ ti a)/llo . . . e)ge/neto e)piki/ndunon toi=s *(/ellhsi, pa/ntwn . . . mete/sxomen</quote> <bibl n="Thuc. 3.54">Thuc. 3.54</bibl></cit>;  <gloss>and if any other danger befell the Greeks, we took our share in all</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.2.fut" type="form" n="fut">
+<head>Future</head>
+<p>The future expresses future time with either simple or continuing aspect.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Future:</hi>  The future denotes an action that will take place at a future time.  <bibl n="Smyth grammar 1910">Smyth 1910-1913</bibl></p>
+<p><cit><quote lang="greek">lh/yetai misqo\n ta/lanton</quote> <bibl n="Xen. Anab. 2.2.20">Xen. Anab. 2.2.20</bibl></cit>;  <gloss>he shall receive a talent as his reward</gloss>
+</p></item>
+<item><p><hi rend="bold">Jussive Future:</hi>  The future can denote a command, much like the imperative.  <bibl n="Smyth grammar 1917">Smyth 1917-1922</bibl></p>
+<p><cit><quote lang="greek">w(\s ou)=n poih/sete</quote> <bibl n="Plat. Prot. 338a">Plat. Prot. 338a</bibl></cit>;  <gloss>you will do thus</gloss>
+</p></item>
+<item><p><hi rend="bold">Gnomic Future:</hi>  The future can express a general truth and, in this case, should be translated as a present.  <bibl n="Smyth grammar 1914">Smyth 1914</bibl></p>
+<p><cit><bibl n="Plat. Rep. 603e">Plat. Rep. 603e</bibl> <quote lang="greek">a)nh\r e)pieikh\s ui(o\n a)pole/sas r(a=|sta <emph>oi)/sei</emph> tw=n a)/llwn</quote></cit> <gloss>a reasonable man, if he loses a son, <emph>will</emph> (is expected to) <emph>bear</emph> it more easily than other men</gloss> 
+</p></item>
+<item><p><hi rend="bold">Future More Vivid Conditions:</hi>  The subjunctive with <foreign lang="greek">e)a/n</foreign> stands in the protasis of future more vivid conditions.  The future indicative stands in the apodosis.  <bibl n="Smyth grammar 2323">Smyth 2323-2327</bibl></p>
+<p><cit><quote lang="greek">ti/ e)/stai toi=s stratiw/tais, e)a\n au)tw=| tau=ta xari/swntai</quote> <bibl n="Xen. Anab. 2.1.10">Xen. Anab. 2.1.10</bibl></cit>;  <gloss>What will the soldiers have, if they oblige him in this?</gloss> 
+</p></item>
+<item><p><hi rend="bold">Future Most Vivid Conditions:</hi>  The future indicative stands in the protasis and apodosis of future most vivid conditions.  <bibl n="Smyth grammar 2328">Smyth 2328</bibl></p>
+<p><cit><quote lang="greek">a)poktenei=s ga/r, ei)/ me gh=s e)/cw balei=s</quote> <bibl n="Eur. Phoen. 1621">Eur. Phoen. 1621</bibl></cit>;  <gloss>for you will slay me if you cast me out of the land</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.2.futperf" type="form" n="futperf">
+<head>Future Perfect</head>
+<p>The future perfect expresses future time and completed aspect.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Future Perfect:</hi>  The future perfect denotes a completed action in some future time.  <bibl n="Smyth grammar 1955">Smyth 1955-1958</bibl></p>
+<p><cit><quote lang="greek">h( qu/ra keklh/setai</quote> <bibl n="Aristoph. Lys. 1071">Aristoph. Lys. 1071</bibl></cit>;  <gloss>the door will be kept shut</gloss>
+</p></item>
+</list>
+</p></div2></div1>
+<div1 id="og.3" type="chapter" n="3">
+<head>Verbs:  Voice</head>  
+<div2 id="og.3.act" type="form" n="act">
+<head>Active Voice</head>
+<p>The active voice denotes that the subject is the agent of an action.
+
+<list type="simple">
+<item><p><hi rend="bold">Transitive:</hi>  A transitive verb expresses an immediate impact on its object.  The object is defined the accusative.  <bibl n="Smyth grammar 1705">Smyth 1705-1706</bibl>
+</p></item>
+<item><p><hi rend="bold">Intransitive:</hi>  An intransitive verb has an indirect impact on an object.  The object can be 1) the subject, 2) defined by an oblique case, or 3) defined by a prepositional phrase.  <bibl n="Smyth grammar 1707">Smyth 1707-1710</bibl></p></item>
+</list>
+  </p></div2>
+<div2 id="og.3.mid" type="form" n="mid">
+<head>Middle Voice</head>
+<p>The middle voice denotes that the subject is both an agent of an action and somehow concerned with the action.
+
+<list type="simple">
+<item><p><hi rend="bold">Direct Reflexive:</hi>  A direct reflexive middle denotes the idea of <emph>self</emph> as a direct object.  <bibl n="Smyth grammar 1717">Smyth 1717-1718</bibl></p>
+<p><cit><quote lang="greek">dei/sas mh/ e)f' a(rpagh\n tra/poito to\ stra/teuma</quote> <bibl n="xen. anab. 7.1.18">Xen. Anab. 7.1.18</bibl></cit>;  <gloss>Fearing lest the army might betake itself to plunder.</gloss>
+</p></item>
+<item><p><hi rend="bold">Indirect Reflexive:</hi>  An indirect reflexive middle denotes the idea of <emph>self</emph> as an indirect object.  <bibl n="Smyth grammar 1719">Smyth 1719-1722</bibl></p>
+<p><cit><quote lang="greek">me/nein te au)to\n e)ke/leue kai\ su/ndeipnon e)poih/sato</quote> <bibl n="xen. anab. 2.5.27">Xen. Anab. 2.5.27</bibl></cit>;  <gloss>He invited him to remain and made him his guest.</gloss></p></item>
+</list>
+  </p></div2>
+<div2 id="og.3.pass" type="form" n="pass">
+<head>Passive Voice</head>
+<p>The passive voice denotes that the subject is acted upon.
+  </p></div2></div1>
+<div1 id="og.4" type="chapter" n="4">
+<head>Verbs:  Mood</head>
+<div2 id="og.4.ind" type="form" n="ind">
+<head>Indicative</head>
+<p>The indicative mood expresses simple statements or questions of fact.
+
+<list type="simple">
+<item><p><hi rend="bold">Specific Indicative:</hi>  The Indicative mood is used to express a fact or to ask a question anticipating a fact.  <bibl n="Smyth grammar 1770">Smyth 1770-1773</bibl></p>
+<p><cit><quote lang="greek">e)ntau=q' e)/meinen h(me/ras pe/nte</quote> <bibl n="Xen. Anab. 1.2.11"> Xen. Anab. 1.2.11</bibl></cit>;  <gloss>He remained there for five days</gloss>
+</p></item>
+<item><p><hi rend="bold">In Purpose or Final Clauses:</hi>  The future indicative can be used in place of the subjunctive or optative in purpose clauses (Most common in poetry).  <bibl n="Smyth grammar 2203">Smyth 2203</bibl></p>
+<p><cit><quote lang="greek">ou)de\ di' e(\n a)/llo tre/fontai h)\ o(/pws maxou=ntai</quote> <bibl n="Xen. Cyrop. 2.1.21">Xen. Cyrop. 2.1.21</bibl></cit>;  <gloss>nor are they maintained for any other single purpose than for fighting</gloss>
+</p></item>
+<item><p><hi rend="bold">In Object Clauses of Effort:</hi>  The future indicative can be used in object clauses introduced by <foreign lang="greek">o(/pws</foreign> or  <foreign lang="greek">o(/pws mh/</foreign> following verbs that signify attempting or planning.  <bibl n="Smyth grammar 2209">Smyth 2209-2211</bibl></p>
+<p><cit><quote lang="greek">e)/prasson o(/pws tis boh/qeia h(/cei</quote> <bibl n="Thuc. 3.4">Thuc. 3.4</bibl></cit> <gloss>they were managing</gloss> (this, that) <gloss>how some reinforcements should come</gloss>
+</p></item>
+<item><p><hi rend="bold">In Fear Clauses:</hi>  The future indicative can sometimes be used in place of the subjunctive in object clauses introduced by <foreign lang="greek">o(/pws mh/</foreign> following verbs that signify fear of something in the future.  The indicative is also used in clauses that signify fear of something in the present or the past.  <bibl n="Smyth grammar 2231">Smyth 2231</bibl></p>
+<p><cit><bibl n="Dem. 9.75">Dem. 9.75</bibl> <quote lang="greek">de/doika o(/pws mh\ . . . a)na/gkh genh/setai <note anchored="yes" place="inline" resp="JRC">(<foreign lang="la">v. l.</foreign> ge/nhtai&rpar;</note></quote></cit> <gloss>I fear lest a necessity may arise</gloss>
+</p></item>
+<item><p><hi rend="bold">In Causal Clauses:</hi>  The indicative is used in causal clauses expressing a factual cause after both primary and secondary tenses.  The negative is <foreign lang="greek">ou)</foreign>.  Causal clauses are introduced by <foreign lang="greek">o(/ti, dio/ti, dio/per, e)pei/, e)peidh/, o(/te, o(po/te</foreign> and <foreign lang="greek">w(s</foreign>.  <bibl n="Smyth grammar 2240">Smyth 2240-2242</bibl></p>
+<p><cit><quote lang="greek">e)pei\ de\ u(mei=s ou) bou/lesqe sumporeu/esqai, a)na/gkh dh/ moi h)\ u(ma=s prodo/nta th=| *ku/rou fili/a| xrh=sqai ktl.</quote> <bibl n="Xen. Anab. 1.3.5">Xen. Anab. 1.3.5</bibl></cit>;  <gloss>but since you do not wish to continue the march with me</gloss>, <gloss>I must either retain the friendship of Cyrus by renouncing you</gloss>, etc. 
+</p></item>
+<item><p><hi rend="bold">In Consecutive or Result Clauses:</hi>  A result clause introduced by <foreign lang="greek">w(/ste</foreign> expressing the idea of an actual result is expressed by the indicative.  <bibl n="Smyth grammar 2274">Smyth 2274-2278</bibl></p>
+<p><cit><quote lang="greek">ou(/tw dia/keimai u(f' u(mw=n w(ste ou)de\ dei=pnon e)/xw e)n th=| e)mautou= xw/ra|</quote> <bibl n="Xen. Hell. 4.1.33">Xen. Hell. 4.1.33</bibl></cit>;  <gloss>I am treated by you in such a manner that I cannot even sup in my own country</gloss>
+</p></item>
+<item><p><hi rend="bold">In Temporal Clauses:</hi>  The indicative is used in temporal clauses to denote a factual occurrence on a definite occasion in the present or the past.  The negative is <foreign lang="greek">ou)</foreign>.  <bibl n="Smyth grammar 2395">Smyth 2395-2397</bibl></p>
+<p><cit><quote lang="greek">o(/te tau=ta h)=n, sxedo\n me/sai h)=san nu/ktes</quote> <bibl n="Xen. Anab. 3.1.33">Xen. Anab. 3.1.33</bibl></cit>;  <gloss>it was about midnight when this was taking place</gloss>
+</p></item>
+<item><p><hi rend="bold">In Indirect Discourse:</hi>  The indicative is used in indirect discourse introduced by <foreign lang="greek">o(/ti</foreign> or <foreign lang="greek">w(s</foreign> following a verb in primary sequence.  The indicative may also be retained following a verb in secondary sequence.  <bibl n="Smyth grammar 2614">Smyth 2614-2615</bibl></p>
+<p><cit><quote lang="greek">le/gei d' w(s u(bristh/s ei)mi</quote> <bibl n="Lys. 24.15">Lys. 24.15</bibl></cit>;  <gloss>he says that I am an insolent person</gloss>
+</p></item>
+<item><p><hi rend="bold">Present Simple Conditions:</hi>  The present or perfect indicative stands in the protasis of present simple conditions.  The present or perfect indicative stands in the apodosis.  <bibl n="Smyth grammar 2298">Smyth 2298-2301</bibl></p>
+<p><cit><quote lang="greek">ei) ou)=n bou/lesqe, e)/cestin u(mi=n h(ma=s labei=n cumma/xous</quote> <bibl n="Xen. Anab. 5.4.6">Xen. Anab. 5.4.6</bibl></cit>;  <gloss>If you wish, you can take us as allies</gloss>
+</p></item>
+<item><p><hi rend="bold">Present Contrafactual Conditions:</hi>  The imperfect indicative stands in the protasis of present contrafactual conditions.  The imperfect indicative with <foreign lang="greek">a)/n</foreign> stands in the apodosis.  <bibl n="Smyth grammar 2302">Smyth 2302-2312</bibl></p>
+<p><cit><quote lang="greek">ei) ga\r e)kh/dou, h(=kes a)\n fe/rwn plh/rh to\n misqo\n</quote> <bibl n="Xen. Anab. 7.5.5">Xen. Anab. 7.5.5</bibl></cit>;  <gloss>If you were troubled, you would have come with full pay</gloss>
+</p></item>
+<item><p><hi rend="bold">Present General Conditions:</hi>  The subjunctive with <foreign lang="greek">e)a/n</foreign> stands in the protasis of present general conditions.  The present indicative stands in the apodosis  <bibl n="Smyth grammar 2337">Smyth 2337-2339</bibl></p>
+<p><cit><quote lang="greek">a)dikou=nta, h)\n la/bh|s, kola/zeis;</quote> <bibl n="Xen. Cyrop. 3.1.11">Xen. Cyrop. 3.1.11</bibl></cit>;  <gloss>Do you punish a wrong-doer if you catch him?</gloss>
+</p></item>
+<item><p><hi rend="bold">Past Simple Conditions:</hi>  The imperfect, aorist, or pluperfect indicative stands in the protasis and apodosis of past simple conditions.    <bibl n="Smyth grammar 2298">Smyth 2298-2301</bibl></p>
+<p><cit><quote lang="greek">ei)/ te/ ti a)/llo . . . e)ge/neto e)piki/ndunon toi=s *(/ellhsi, pa/ntwn . . . mete/sxomen</quote> <bibl n="Thuc. 3.54">Thuc. 3.54</bibl></cit>;  <gloss>and if any other danger befell the Greeks, we took our share in all</gloss>
+</p></item>
+<item><p><hi rend="bold">Past Contrafactual Conditions:</hi>  The aorist or imperfect indicative stands in the protasis of past contrafactual conditions.  The aorist or imperfect indicative with <foreign lang="greek">a)/n</foreign> stands in the apodosis.   <bibl n="Smyth grammar 2302">Smyth 2302-2312</bibl></p>
+<p><cit><quote lang="greek">ou)k a)\n e)poi/hsen *)agasi/as tau=ta, ei) mh\ e)gw\ au)to\n e)ke/leusa</quote> <bibl n="Xen. Anab. 6.6.15">Xen. Anab. 6.6.15</bibl></cit>;  <gloss>Agasias would not have done this, if I had not commanded him</gloss>
+</p></item>
+<item><p><hi rend="bold">Past General Conditions:</hi>  The optative with <foreign lang="greek">ei)</foreign> stands in the  protasis of past general conditions.  The imperfect indicative stands in the apodosis.  <bibl n="Smyth grammar 2340">Smyth 2340-2341</bibl></p>
+<p><cit><quote lang="greek">ei) de/ tis kai\ a)ntei/poi, eu)qu\s . . . e)teqnh/kei</quote> <bibl n="Thuc. 8.66">Thuc. 8.66</bibl></cit>;  <gloss>but if any one even made an objection, he was promptly put to death</gloss>
+</p></item>
+<item><p><hi rend="bold">Future More Vivid Conditions:</hi>  The subjunctive with <foreign lang="greek">e)a/n</foreign> stands in the protasis of future more vivid conditions.  The future indicative stands in the apodosis.  <bibl n="Smyth grammar 2323">Smyth 2323-2327</bibl></p>
+<p><cit><quote lang="greek">ti/ e)/stai toi=s stratiw/tais, e)a\n au)tw=| tau=ta xari/swntai</quote> <bibl n="Xen. Anab. 2.1.10">Xen. Anab. 2.1.10</bibl></cit>;  <gloss>What will the soldiers have, if they oblige him in this?</gloss>
+</p></item>
+<item><p><hi rend="bold">Future Most Vivid Conditions:</hi>  The future indicative stands in the protasis and apodosis of future most vivid conditions.  <bibl n="Smyth grammar 2328">Smyth 2328</bibl></p>
+<p><cit><quote lang="greek">a)poktenei=s ga/r, ei)/ me gh=s e)/cw balei=s</quote> <bibl n="Eur. Phoen. 1621">Eur. Phoen. 1621</bibl></cit>;  <gloss>for you will slay me if you cast me out of the land</gloss></p></item>
+</list>
+  </p></div2>
+<div2 id="og.4.subj" type="form" n="subj">
+<head>Subjunctive</head>
+<p>The meaning of the subjunctive mood varies according to its context.
+
+<list type="simple">
+<item><p><hi rend="bold">Hortatory:</hi>  The subjunctive without <foreign lang="greek">a)/n</foreign> is used in exhortations.  The negative is <foreign lang="greek">mh/</foreign>  <bibl n="Smyth grammar 1797">Smyth 1797-1799</bibl></p>
+<p><cit><quote lang="greek">a)/ge skopw=men</quote> <bibl n="Xen. Cyrop. 5.5.15">Xen. Cyrop. 5.5.15</bibl></cit>;  <gloss>come let us consider</gloss>
+</p></item>
+<item><p><hi rend="bold">Prohibitive:</hi>  The second or third person aorist subjunctive without <foreign lang="greek">a)/n</foreign> is used in prohibitions.  The negative is <foreign lang="greek">mh/</foreign>.  <bibl n="Smyth grammar 1800">Smyth 1800</bibl></p>
+<p><cit><quote lang="greek">mhde\n a)qumh/shte</quote> <bibl n="Xen. Anab. 5.4.19">Xen. Anab. 5.4.19</bibl></cit>;  <gloss>do not lose heart</gloss>
+</p></item>
+<item><p><hi rend="bold">Deliberative:</hi>  The first person subjunctive is used when a speaker questions what she or he should do.  The negative is <foreign lang="greek">mh/</foreign>.  <bibl n="Smyth grammar 1805">Smyth 1805-1808</bibl></p>
+<p><cit><quote lang="greek">ti/ dra/sw; poi= fu/gw;</quote> <bibl n="Eur. Med. 1271">Eur. Med. 1271</bibl></cit>;  <gloss>what am I to do? whither shall I fly?</gloss>
+</p></item>
+<item><p><hi rend="bold">Hesitating Assertion:</hi>  The subjunctive with <foreign lang="greek">mh/</foreign> can express a doubtful assertion.   With <foreign lang="greek">mh/ ou)</foreign> it expresses a doubtful denial.  <bibl n="Smyth grammar 1801">Smyth 1801-1804</bibl></p>
+<p><cit><quote lang="greek">mh\ a)groiko/teron h)=| to\ a)lhqe\s ei)pei=n</quote> <bibl n="Plat. Gorg. 462e">Plat. Gorg. 462e</bibl></cit>;  <gloss>I suspect it's too rude to tell the truth</gloss>
+</p></item>
+<item><p><hi rend="bold">In Purpose or Final Clauses:</hi>  The subjunctive can be used in purpose clauses following verbs in primary sequence.  <bibl n="Smyth grammar 2193">Smyth 2193-2196</bibl></p>
+<p><cit><quote lang="greek">kata/mene i(/na kai\ peri\ sou= bouleusw/meqa</quote> <bibl n="Xen. Anab. 6.6.28">Xen. Anab. 6.6.28</bibl></cit>;  <gloss>remain behind that we may consider your case also</gloss>
+</p></item>
+<item><p><hi rend="bold">In Object Clauses of Effort:</hi>  The subjunctive can occasionally be used in object clauses introduced by <foreign lang="greek">o(/pws</foreign> or  <foreign lang="greek">o(/pws mh/</foreign> following verbs that signify effort.  <bibl n="Smyth grammar 2214">Smyth 2214</bibl></p>
+<p><cit><quote lang="greek">e)/prassen . . . o(/pws po/lemos ge/nhtai</quote> <bibl n="Thuc. 1.57">Thuc. 1.57</bibl></cit>;  <gloss>he tried to bring it about that war should be occasioned</gloss>
+</p></item>
+<item><p><hi rend="bold">In Fear Clauses:</hi>  The subjunctive is used in object clauses introduced by <foreign lang="greek">mh/</foreign> following verbs in primary sequence that signify fear.  <bibl n="Smyth grammar 2225">Smyth 2225-2232</bibl></p>
+<p><cit><quote lang="greek">de/doika mh\ . . . e)pilaqw/meqa th=s oi)/kade o(dou=</quote> <bibl n="Xen. Anab. 3.2.25">Xen. Anab. 3.2.25</bibl></cit>;  <gloss>I am afraid lest we may forget the way home</gloss>
+</p></item>
+<item><p><hi rend="bold">In Temporal Clauses:</hi>  The subjunctive is used with <foreign lang="greek">a)/n</foreign> in temporal clauses referring to the future, corresponding in sense to the future more vivid condition.  The negative is <foreign lang="greek">mh/</foreign>.  <bibl n="Smyth grammar 2401">Smyth 2401-2403</bibl></p>
+<p><cit><quote lang="greek">e)peida\n a(/pant' a)kou/shte, kri/nate</quote> <bibl n="Dem. 4.14">Dem. 4.14</bibl></cit>;  <gloss>when you have heard everything, decide</gloss>
+</p></item>
+<item><p><hi rend="bold">Present General Conditions:</hi>  The subjunctive with <foreign lang="greek">e)a/n</foreign> stands in the protasis of present general conditions.  The present indicative stands in the apodosis  <bibl n="Smyth grammar 2297">Smyth 2297</bibl></p>
+<p><cit><quote lang="greek">a)dikou=nta, h)\n la/bh|s, kola/zeis;</quote> <bibl n="Xen. Cyrop. 3.1.11">Xen. Cyrop. 3.1.11</bibl></cit>;  <gloss>Do you punish a wrong-doer if you catch him?</gloss>
+</p></item>
+<item><p><hi rend="bold">Future More Vivid Conditions:</hi>  The subjunctive with <foreign lang="greek">e)a/n</foreign> stands in the protasis of future more vivid conditions.  The future indicative stands in the apodosis.  <bibl n="Smyth grammar 2323">Smyth 2323-2327</bibl></p>
+<p><cit><quote lang="greek">ti/ e)/stai toi=s stratiw/tais, e)a\n au)tw=| tau=ta xari/swntai</quote> <bibl n="Xen. Anab. 2.1.10">Xen. Anab. 2.1.10</bibl></cit>;  <gloss>What will the soldiers have, if they oblige him in this?</gloss></p></item>
+</list>
+  </p></div2>
+<div2 id="og.4.opt" type="form" n="opt">
+<head>Optative</head>
+<p>The meaning of the optative mood varies according to its context.
+
+<list type="simple">
+<item><p><hi rend="bold">Optative of Wish:</hi>  The optative without <foreign lang="greek">a)/n</foreign> can be used to express a wish.  <bibl n="Smyth grammar 1814">Smyth 1814-1819</bibl></p>
+<p><cit><quote lang="greek">w)= pai=, ge/noio patro\s eu)tuxe/steros</quote> <bibl n="Soph. Aj. 550">Soph. Aj. 550</bibl></cit>;  <gloss>ah, boy, mayest thou prove more fortunate than thy sire</gloss>
+</p></item>
+<item><p><hi rend="bold">Potential Optative:</hi>  The optative with <foreign lang="greek">a)/n</foreign> can be used to express a future possibility.  <bibl n="Smyth grammar 1824">Smyth 1824-1834</bibl></p>
+<p><cit><quote lang="greek">gnoi/hs d' a)\n o(/ti tou=q' ou(/tws e)/xei</quote> <bibl n="Xen. Cyrop. 1.6.21">Xen. Cyrop. 1.6.21</bibl></cit>;  <gloss>you may see that this is so</gloss>
+</p></item>
+<item><p><hi rend="bold">Imperative Optative:</hi>  The optative without <foreign lang="greek">a)/n</foreign> can be used to express an imperative command.  <bibl n="Smyth grammar 1820">Smyth 1820</bibl></p>
+<p><cit><quote lang="greek">*xeiri/sofos h(goi=to</quote> <bibl n="Xen. Anab. 3.2.37">Xen. Anab. 3.2.37</bibl></cit>;  <gloss>let Chirisophus lead</gloss>
+</p></item>
+<item><p><hi rend="bold">In Purpose or Final Clauses:</hi>  The optative can be used in purpose clauses following verbs in secondary sequence.  <bibl n="Smyth grammar 2193">Smyth 2193-2196</bibl></p>
+<p><cit><quote lang="greek">kai\ a(/ma tau=t' ei)pw\n a)ne/sth w(s mh\ me/lloito a)lla\ perai/noito ta\ de/onta</quote> <bibl n="Xen. Anab. 3.1.47">Xen. Anab. 3.1.47</bibl></cit>;  <gloss>and with these words on his lips he stood up in order that what was needful might not be delayed but be done at once</gloss>
+</p></item>
+<item><p><hi rend="bold">In Object Clauses of Effort:</hi>  The optative with <foreign lang="greek">o(/pws</foreign> is sometimes used following a verb of effort in place of the future indicative.  <bibl n="Smyth grammar 2211">Smyth 2211-2212</bibl></p>
+<p><cit><quote lang="greek">e)peme/leto o(/pws mh/te a)/sitoi mh/te a)/potoi/ pote e)/sointo</quote> <bibl n="Xen. Cyrop. 8.1.43">Xen. Cyrop. 8.1.43</bibl></cit>;  <gloss>he took care that they should never be without food or drink</gloss>
+</p></item>
+<item><p><hi rend="bold">In Fear Clauses:</hi>  The optative is used in object clauses introduced by <foreign lang="greek">mh/</foreign> following secondary verbs that signify fear.  <bibl n="Smyth grammar 2225">Smyth 2225-2232</bibl></p>
+<p><cit><quote lang="greek">e)/deisan oi( (/ *ellhnes mh\ prosa/goien pro\s to\ ke/ras kai\ . . . au)tou\s katako/yeian</quote> <bibl n="Xen. Anab. 1.10.9">Xen. Anab. 1.10.9</bibl></cit>;  <gloss>the Greeks were seized with fear lest they might advance against their flank and cut them down</gloss>
+</p></item>
+<item><p><hi rend="bold">In Causal Clauses:</hi>  Causal clauses expressing a reported cause take the optative after a secondary tense.    <bibl n="Smyth grammar 2240">Smyth 2240-2242</bibl></p>
+<p><cit><quote lang="greek">&lpar;oi( *)aqhnai=oi&rpar; to\n *perikle/a e)ka/kizon o(/ti strathgo\s w)\n ou)k e)peca/goi</quote> <bibl n="Thuc. 2.21">Thuc. 2.21</bibl></cit>;  <gloss>the Athenians reviled Pericles on the ground that, though he was general, he did not lead them out</gloss>
+</p></item>
+<item><p><hi rend="bold">In Temporal Clauses:</hi>  The optative is used without <foreign lang="greek">a)/n</foreign> in temporal clauses referring to the future, corresponding in sense to the future less vivid condition.  The negative is <foreign lang="greek">mh/</foreign>.  <bibl n="Smyth grammar 2404">Smyth 2404-2408</bibl></p>
+<p><cit><quote lang="greek">de/oito/ g' a)\n au)tou= me/nein, e(/ws a)pe/lqois</quote> <bibl n="Xen. Cyrop. 5.3.13">Xen. Cyrop. 5.3.13</bibl></cit>;  <gloss>he would beg him to remain until you should depart</gloss>
+</p></item>
+<item><p><hi rend="bold">In Indirect Discourse:</hi>  The optative can be used in indirect discourse introduced by <foreign lang="greek">o(/ti</foreign> or <foreign lang="greek">w(s</foreign> following a verb in secondary sequence.  <bibl n="Smyth grammar 2614">Smyth 2614-2615</bibl></p>
+<p><cit><quote lang="greek">e)/gnwsan o(/ti keno\s o( fo/bos ei)/h</quote> <bibl n="Xen. Anab. 2.2.21">Xen. Anab. 2.2.21</bibl></cit>;  <gloss>they recognized that their fear was groundless</gloss>
+</p></item>
+<item><p><hi rend="bold">Past General Conditions:</hi>  The optative with <foreign lang="greek">ei)</foreign> stands in the  protasis of past general conditions.  The imperfect indicative stands in the apodosis.  <bibl n="Smyth grammar 2340">Smyth 2340-2341</bibl></p>
+<p><cit><quote lang="greek">ei) de/ tis kai\ a)ntei/poi, eu)qu\s . . . e)teqnh/kei</quote> <bibl n="Thuc. 8.66">Thuc. 8.66</bibl></cit>;  <gloss>but if any one even made an objection, he was promptly put to death</gloss>
+</p></item>
+<item><p><hi rend="bold">Future Less Vivid Conditions:</hi>  The optative with <foreign lang="greek">ei)</foreign> stands in the  protasis of future less vivid conditions.  The optative with <foreign lang="greek">a)/n</foreign> stands in the  apodosis.  <bibl n="Smyth grammar 2329">Smyth 2329-2334</bibl></p>
+<p><cit><quote lang="greek">deina\ a)\n ei)/hn ei)rgasme/nos, . . . ei) li/poimi th\n ta/cin</quote> <bibl n="Plat. Apol. 28d">Plat. Apol. 28d</bibl></cit>;  <gloss>I should be in the state of having committed a dreadful deed, if I were to desert my post</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.4.imperat" type="form" n="imperat">
+<head>Imperative</head>
+<p>The imperative mood is used to express commands and prohibitions.
+
+<list type="simple">
+<item><p><hi rend="bold">Commands:</hi>  The imperative is used to express commands.  <bibl n="Smyth grammar 1836">Smyth 1836-1839</bibl></p>
+<p><cit><quote lang="greek">a)/ge dh\ a)kou/sate</quote> <bibl n="Xen. Apol. 14">Xen. Apol. 14</bibl></cit>;  <gloss>come listen</gloss>
+</p></item>
+<item><p><hi rend="bold">Prohibitions:</hi>  The imperative with <foreign lang="greek">mh/</foreign> is used to express prohibitions.  <bibl n="Smyth grammar 1840">Smyth 1840-1844</bibl></p>
+<p><cit><quote lang="greek">mh\ mainw/meqa mhd' ai)sxrw=s a)polw/meqa</quote> <bibl n="Xen. Anab. 7.1.29">Xen. Anab. 7.1.29</bibl></cit>;  <gloss>let us not act like madmen nor perish disgracefully</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.4.infin" type="form" n="infin">
+<head>Infinitive</head>
+<p>The infinitive is a verbal noun.  It is verbal in that it is formed from a verbal stem, modified by adverbs, and admits the constructions of a finite verb.  It is a noun in that it can be the subject or object of a verb, and can exhibit case syntax.
+
+<list type="simple">
+<item><p><hi rend="bold">Subject:</hi>  The infinitive can serve as the subject of a verb, particularly impersonal verbs such as <foreign lang="greek">dei=</foreign>.  <bibl n="Smyth grammar 1984">Smyth 1984-1988</bibl></p>
+<p><cit><quote lang="greek">sumfe/rei au)toi=s fi/lous ei)=nai</quote> <bibl n="Xen. Ec. 11.23">Xen. Ec. 11.23</bibl></cit>;  <gloss>it is for their interest to be friends</gloss>
+</p></item>
+<item><p><hi rend="bold">Object:</hi>  The infinitive can serve as the object of verbs that imply a supplementary action.  <bibl n="Smyth grammar 1989">Smyth 1989-1990</bibl></p>
+<p><cit><quote lang="greek">pai/deusis kalh\ dida/skei xrh=sqai no/mois</quote> <bibl n="Xen. Hunt. 12.14">Xen. Hunt. 12.14</bibl></cit>;  <gloss>a good education teaches obedience to the laws</gloss>
+</p></item>
+<item><p><hi rend="bold">Complementary:</hi>  The infinitive can complement adjectives, adverbs, and substantives that imply ability or suitability.  <bibl n="Smyth grammar 2000">Smyth 2000-2007</bibl></p>
+<p><cit><quote lang="greek">deino\s le/gein, kako\s biw=nai</quote> <bibl n="Aeschin. 3.174">Aeschin. 3.174</bibl></cit>;  <gloss>skilled in speaking, evil in life</gloss>
+</p></item>
+<item><p><hi rend="bold">Purpose:</hi>  The infinitive can express purpose, particularly after verbs implying choosing or giving.  <bibl n="Smyth grammar 2008">Smyth 2008-2011</bibl></p>
+<p><cit><quote lang="greek">pare/xw e)mauto\n e)rwta=n</quote> <bibl n="Plat. Apol. 33b">Plat. Apol. 33b</bibl></cit>;  <gloss>I offer myself to be questioned</gloss>
+</p></item>
+<item><p><hi rend="bold">In Consecutive/Result Clauses:</hi>  A result clause introduced by <foreign lang="greek">w(/ste</foreign> expressing the idea that something was intended to or could occur as a natural result of an action is expressed by the infinitive.  <bibl n="Smyth grammar 2258">Smyth 2258-2272</bibl></p>
+<p><cit><quote lang="greek">e)/xw trih/\reis w(/ste e(lei=n to\ e)kei/nwn ploi=on</quote> <bibl n="Xen. Anab. 1.4.8">Xen. Anab. 1.4.8</bibl></cit>;  <gloss>I have triremes (so as) to catch their  vessel</gloss>
+</p></item>
+<item><p><hi rend="bold">Absolute:</hi>  The infinitive can be used absolutely in parenthetical phrases.  <bibl n="Smyth grammar 2012">Smyth 2012</bibl></p>
+<p><cit><quote lang="greek">a)lhqe/s ge w(s e)/pos ei)pei=n ou)de\n ei)rh/kasin</quote> <bibl n="Plat. Apol. 17a">Plat. Apol. 17a</bibl></cit> <gloss>not one word of truth, I may say, did they utter</gloss> 
+</p></item>
+<item><p><hi rend="bold">Imperative:</hi>  The infinitive can be used to express a command.  <bibl n="Smyth grammar 2013">Smyth 2013</bibl></p>
+<p><cit><quote lang="greek">a)kou/ete lew/|: kata\ ta\ pa/tria tou\s xo/as pi/nein</quote> <bibl n="Aristoph. Ach. 1000">Aristoph. Ach. 1000</bibl></cit>;  <gloss>hear ye, good people! drink the Pitchers as our sires drank!</gloss>
+</p></item>
+<item><p><hi rend="bold">Exclamatory:</hi>  The infinitive can be used absolutely in exclamations.  <bibl n="Smyth grammar 2015">Smyth 2015</bibl></p>
+<p><cit><quote lang="greek">e)me\ paqei=n ta/de</quote> <bibl n="Aesch. Eum. 837">Aesch. Eum. 837</bibl></cit>;  <gloss>that I should suffer this!</gloss>
+</p></item>
+<item><p><hi rend="bold">Wishes:</hi>  The infinitive can be used in place of an optative of wish.  <bibl n="Smyth grammar 2014">Smyth 2014</bibl></p>
+<p><cit><quote lang="greek">w)= *zeu=, e)kgene/sqai moi *)aqhnai/ous tei/sasqai</quote> <bibl n="Hdt. 5.105">Hdt. 5.105</bibl></cit>;  <gloss>oh Zeus, that it be granted to me to punish the Athenians!</gloss>
+</p></item>
+<item><p><hi rend="bold">In Indirect Discourse:</hi>  The infinitive can be used in to represent a finite verb in indirect discourse after verbs expressing the idea of saying, believing, and thinking.  <bibl n="Smyth grammar 2616">Smyth 2616-2024</bibl></p>
+<p><cit><quote lang="greek">e)/fh h)\ a)/cein *lakedaimoni/ous h)\ au)tou= a)poktenei=n</quote> <bibl n="Thuc. 4.28">Thuc. 4.28</bibl></cit>;  <gloss>he said that he would either bring the Lacedaemonians or kill them on the spot</gloss>
+</p></item>
+<item><p><hi rend="bold">Articular Infinitive:</hi>  The infinitive can be used with the article as if it were a noun.  <bibl n="Smyth grammar 2025">Smyth 2025-2037</bibl></p>
+<p><cit><quote lang="greek">a)ni/h kai\ to\ fula/ssein</quote> <bibl n="Hom. Od. 20.52">Hom. Od. 20.52</bibl></cit>;  <gloss>to watch is also trouble</gloss>
+</p></item>
+</list>
+  </p></div2>
+<div2 id="og.4.part" type="form" n="part">
+<head>Participle</head>
+<p>Participles are verbal adjectives.  Participles are like adjectives in that:
+<list type="simple"><item>1.   they have both case and number,</item>
+<item>2.  they can modify other nouns and pronouns.</item></list></p>
+<p>Participles  are like verbs in that:
+<list type="simple"><item>1.  they are formed from verb stems,</item>
+<item>2.  they have both voice and tense (although tense only signifies aspect),</item>
+<item>3.  they can take both an object and an indirect object,</item>
+<item>4.  they are modified by adverbs.</item></list>
+
+<list type="simple">
+<item><p><hi rend="bold">Attributive:</hi>  A participle with an article in the attributive position functions as an adjective.   <bibl n="Smyth grammar 2049">Smyth 2049-2053</bibl></p>
+<p><cit><quote lang="greek">o( e)festhkw\s ki/ndunos th=| po/lei</quote> <bibl n="Dem. 18.176">Dem. 18.176</bibl></cit>;  <gloss>the danger impending over the State</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial:</hi>  A participle not in the attributive position can describe an accompanying circumstance relating to the action of the sentence.  <bibl n="Smyth grammar 2054">Smyth 2054-2057</bibl></p>
+<p><cit><quote lang="greek">oi a)/nqrwpoi lipo/ntes th\n o(do\n feu/gontes o)li/goi a)pe/qnh|skon</quote> <bibl n="Xen. Anab. 4.2.7">Xen. Anab. 4.2.7</bibl></cit>;  <gloss>by leaving the road and making off only a few were killed</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial - Temporal:</hi>  A circumstantial participle can denote a temporal relationship.  <bibl n="Smyth grammar 2061">Smyth 2061</bibl></p>
+<p><cit><quote lang="greek">a)kou/sasi toi=s strathgoi=s tau=ta e)/doce to\ stra/teuma sunagagei=n</quote> <bibl n="Xen. Anab. 4.4.19">Xen. Anab. 4.4.19</bibl></cit>;  <gloss>on hearing this it seemed best to the generals to collect the troops</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial - Manner:</hi>  A circumstantial participle can denote the manner of an action.  <bibl n="Smyth grammar 2062">Smyth 2062</bibl></p>
+<p><cit><quote lang="greek">parh/launon tetagme/noi</quote> <bibl n="Xen. Anab. 1.2.16">Xen. Anab. 1.2.16</bibl></cit>;  <gloss>they marched past in order</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial - Means:</hi>  A circumstantial participle can denote the means of an action.  <bibl n="Smyth grammar 2063">Smyth 2063</bibl></p>
+<p><cit><quote lang="greek">lh|zo/menoi cw=si</quote> <bibl n="Xen. Cyrop. 3.2.25">Xen. Cyrop. 3.2.25</bibl></cit>;  <gloss>they live by pillaging</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial - Cause:</hi>  A circumstantial participle can denote the cause of an action.  A causal participle accompanied by the particles <foreign lang="greek">a(/te, oi(=a</foreign> or <foreign lang="greek">oi(=on</foreign> expresses the authority of the author.  A causal participle accompanied by the particle <foreign lang="greek">w(s</foreign> expresses the authority of the subject of the sentence.  <bibl n="Smyth grammar 2064">Smyth 2064</bibl></p>
+<p><cit><quote lang="greek">oi( ga\r *ko/lxoi, a(/te e)kpeptwko/tes tw=n oi)kiw=n, polloi\ h)=san a(qro/oi</quote> <bibl n="Xen. Anab. 5.2.1">Xen. Anab. 5.2.1</bibl></cit>;  <gloss>for the Colchians, since they had been driven out of their houses, were now gathered together in one great body</gloss></p>
+<p><cit><quote lang="greek">e)qanatw/qh u(po\ tw=n e)n *spa/rth| telw=n w(s a)peiqw=n</quote> <bibl n="Xen. Anab. 2.6.4">Xen. Anab. 2.6.4</bibl></cit>;  <gloss>As a result he was condemned to death by the authorities at Sparta on the ground of disobedience</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial - Purpose:</hi>  The future participle accompanied by <foreign lang="greek">w(s</foreign> can denote the purpose of an action.  <bibl n="Smyth grammar 2065">Smyth 2065</bibl></p>
+<p><cit><quote lang="greek">prope/myantes kh/ruka po/lemon proerou=nta</quote> <bibl n="Thuc. 1.29">Thuc. 1.29</bibl></cit>;  <gloss>having sent a herald in advance to proclaim war</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial - Concession:</hi>  A circumstantial participle can have concessive force.  <bibl n="Smyth grammar 2066">Smyth 2066</bibl></p>
+<p><cit><quote lang="greek">polloi\ ga\r o)/ntes eu)genei=s ei)sin kakoi/</quote> <bibl n="Eur. El. 551">Eur. El. 551</bibl></cit>;  <gloss>for many, albeit noble by birth, are ignoble</gloss>
+</p></item>
+<item><p><hi rend="bold">Circumstantial - Condition:</hi>  A circumstantial participle can have conditional force.  The negative of circumstantial participles is <foreign lang="greek">mh/</foreign>.  <bibl n="Smyth grammar 2067">Smyth 2067</bibl></p>
+<p><cit><quote lang="greek">su\ de\ klu/wn ei)/sei ta/xa</quote> <bibl n="Aristoph. Birds 1390">Aristoph. Birds 1390</bibl></cit>;  <gloss>but if you listen you shall soon know</gloss>
+</p></item>
+<item><p><hi rend="bold">Genitive Absolute:</hi>  A circumstantial participle in the genitive agreeing with a noun or a pronoun that is not related to the construction of the main sentence is a genitive absolute.  A genitive absolute can express the same relationships as other circumstantial participles.  <bibl n="Smyth grammar 2070">Smyth 2070-2075</bibl></p>
+<p><cit><quote lang="greek">tou=to de\ le/gontos au)tou= pta/rnutai/ tis</quote> <bibl n="Xen. Anab. 3.2.9">Xen. Anab. 3.2.9</bibl></cit>;  <gloss>As he was saying this, someone sneezed</gloss>
+</p></item>
+<item><p><hi rend="bold">Accusative Absolute:</hi>  A circumstantial participle of an impersonal verb in the accusative agreeing with a noun or a pronoun not related to the construction of the main sentence is an accusative absolute.  An accusative absolute can express the same relationships as other circumstantial participles.  <bibl n="Smyth grammar 2076">Smyth 2076-2078</bibl></p>
+<p><cit><quote lang="greek">do/can de\ tau=ta e)kh/rucan ou(/tw poiei=n</quote> <bibl n="Xen. Anab. 4.1.13">Xen. Anab. 4.1.13</bibl></cit>;  <gloss>Having decided this, they proclaimed that they should do so</gloss>
+</p></item>
+<item><p><hi rend="bold">Supplementary Participle:</hi>  The supplementary participle completes the meaning of verbs that denote beginning and ceasing and the verbs <foreign lang="greek">lanya/nw, fya/nw</foreign> and <foreign lang="greek">tugxa/nw</foreign>.    <bibl n="Smyth grammar 2088">Smyth 2088-2105</bibl></p>
+<p><cit><quote lang="greek">a)/rista tugxa/nousi pra/cantes</quote> <bibl n="Isoc. 4.103">Isoc. 4.103</bibl></cit>;  <gloss>they happen to have fared the best</gloss>
+</p></item>
+<item><p><hi rend="bold">In Indirect Discourse:</hi>  The participle can be used to represent a finite verb in indirect discourse after verbs expressing the idea of knowing, learning, remembering, or showing (<foreign lang="greek">oi)=da, gignw/skw, e)pi/stamai, e)nnow=, manqa/nw, (ou)k) a)gnow=, me/mnhmai, e)pilanqa/nomai, dhlw=, (e)pi)dei/knumi, fai/nw, a)pofai/nw, fai/nomai, e)/oika, (e)c)e)le/gxw, o(mologw=, a)gge/llw, </foreign> and <foreign lang="greek">poiw=</foreign>).  <bibl n="Smyth grammar 2106">Smyth 2106-2115</bibl></p>
+<p><cit><quote lang="greek">me/mnhmai *kriti/a| tw=|de cuno/nta se</quote> <bibl n="Plat. Charm. 156a">Plat. Charm. 156a</bibl></cit>;  <gloss>I remember that you were in company with Critias here</gloss>
+</p></item>
+</list>
+  </p></div2></div1>
+<div1 id="og.sources" type="chapter" n="sources">
+<head>Sources Cited</head>
+<listBibl>
+<bibl>Bevier, L. <title>Brief Greek Syntax.</title> New York: 1903.</bibl>
+<bibl>Hansen, H. and G. Quinn. <title>Greek:  An Intensive Course.</title> New York: Fordham University Press, 1992.</bibl>
+<bibl n="KG">K&uuml;hner, R. and B. Gerth. <title lang="de">Ausf&uuml;hrliche Grammatik der Griechischen Sprache.</title> Hannover: 1898.</bibl>
+<bibl>Mastronarde, D. <title>Introduction to Attic Greek</title>. Berkeley: 1993.</bibl>
+<bibl n="Smyth grammar">Smyth, H. <title>Greek Grammar.</title> Cambridge: 1920.</bibl>
+</listBibl></div1>
+
+</body>
+</text>
+</TEI.2>

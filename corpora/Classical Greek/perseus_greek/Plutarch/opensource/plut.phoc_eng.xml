@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2
+  PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+   <teiHeader type="text" status="new">
+      <fileDesc>
+         <titleStmt>
+            <title type="sub">Machine readable text</title>
+            <title n="Phoc." type="work">Phocion</title>
+            <author n="Plut.">Plutarch</author>
+            <editor n="Perrin" role="editor">Bernadotte Perrin</editor>&responsibility;</titleStmt>
+         <extent>about 84 Kb</extent>&Perseus.publish;<sourceDesc>
+            <biblStruct>
+               <analytic n="Phoc."/>
+               <monogr>
+                  <author>Plutarch</author>
+                  <title>Plutarch's Lives</title>
+                  <respStmt>
+                     <resp>with an English Translation by</resp>
+                     <name>Bernadotte Perrin</name>
+                  </respStmt>
+                  <imprint>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <date>1919</date>
+                  </imprint>
+                  <biblScope type="volume">8</biblScope>
+               </monogr>
+               <idno type="ISBN">0674991117</idno>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <correction status="high" method="silent">
+               <p>optical character recognition</p>
+            </correction>
+         </editorialDecl>
+         <refsDecl doctype="tei.2">
+            <state unit="chapter" delim="."/>
+            <state unit="section"/>
+         </refsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language id="en">English</language>
+            <language id="la">Latin</language>
+            <language id="greek">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change>
+            <date>10/00</date>
+            <respStmt>
+               <name>LMC</name>
+               <resp/>
+            </respStmt>
+            <item>tagged and parsed</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>PHOCION</head>
+         <p>
+				        <milestone n="1" unit="chapter"/>
+				        <milestone n="1" unit="section"/>DEMADES the orator, who was powerful at Athens because he conducted affairs so as to please Antipater and the Macedonians, and was forced to propose and favour many measures which were at variance with the dignity and character of the city, used to say that he was excusable because he was in command of a shipwrecked state. This may have been too hardy an utterance for the orator, but it would seem to be true when transferred to the administration of Phocion. Demades, indeed, was himself but wreckage of the state, since his life and administration were so outrageous that Antipater said of him, when he was now grown old, that he was like a victim when the sacrifice was over&mdash;nothing left but tongue and guts. But the fame of Phocion's virtue, which may be said to have found an antagonist in a grievous and violent time, the fortunes of Greece rendered obscure and dim. Surely we must not follow Sophocles in making virtue weak, as when he says:&mdash;
+				<quote rend="blockquote">
+					          <l>Indeed, O King, what reason nature may have given</l>
+					          <l>Abides not with the unfortunate, but goes astray;</l>
+				        </quote>
+				yet thus much power must be granted to Fortune in her conflicts with good men: instead of the honour and gratitude which are their due, she brings base censure and calumny upon some, and so weakens the world's confidence in their virtue.
+			</p>
+         <p>
+				        <milestone n="2" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And yet it is commonly held that a people is more apt to wreak its insolence upon good men when it is prosperous, being then lifted up by grandeur and power; but the reverse is often the case. For calamities make men's dispositions bitter, irritable, and prone to wrath, so that no one can say anything to please or soften them, but they are annoyed by every speech or word that has vigour. He who censures them for their transgressions is thought to abuse them for their misfortunes, and he who is outspoken with them, to despise them. And just as honey irritates wounded and ulcerated parts of the body, so often words of truth and soberness sting and exasperate those who are in an evil plight, unless uttered with kindness and complaisance; and therefore, doubtless, the poet calls that which is pleasant 
+				<q direct="unspecified">menoeikes,</q> on the ground that it yields to that part of the soul which experiences pleasure, and does not fight with it or resist it.<note resp="ed" place="unspecified" anchored="yes">As often, Plutarch's etymology is amiably wrong. Homer uses 
+					<q direct="unspecified">
+                  <foreign lang="greek">menoeike/s</foreign>
+               </q> as a stock epithet of good things in such abundance as to be <gloss>spirit-suiting</gloss>, or <gloss>satisfying</gloss>.</note> An eye that is inflamed dwells most gratefully on colours which are dark and lustreless, but shuns those which are radiant and bright; and so a city that has fallen on unfavourable fortunes is made by its weakness too sensitive and delicate to endure frank speaking, and that at a time when it needs it most of all, since the situation allows no chance of retrieving the mistakes that have been made. Therefore the conduct of affairs in such a city is altogether dangerous; for she brings to ruin with herself the man who speaks but to win her favour, and she brings to ruin before herself the man who will not court her favour.
+			</p>
+         <p>Now, the sun, as mathematicians tell us, has neither the same motion as the heavens, nor one that is directly opposite and contrary, but takes a slanting course with a slight inclination,<note resp="ed" place="unspecified" anchored="yes">i.e. to the plane of the ecliptic.</note> and describes a winding spiral of soft and gentle curves, thus preserving all things and giving them the best temperature. And so in the administration of a city, the course which is too straight, and opposed in all things to the popular desires, is harsh and cruel, just as, on the other hand, it is highly dangerous to tolerate or yield perforce to the mistakes of the populace. But that wise guidance and government of men which yields to them in return for their obedience and grants them what will please them, and then demands from them in payment what will advantage the state,&mdash;and men will give docile and profitable service in many ways, provided they are not treated despotically and harshly all the time,&mdash;conduces to safety, although it is laborious and difficult and must have that mixture of austerity and reasonableness which is so hard to attain. But if the mixture be attained, that is the most concordant and musical blending of all rhythms and all harmonies; and this is the way, we are told, in which God regulates the universe, not using compulsion, but making persuasion and reason introduce that which must be.
+			</p>
+         <p>
+				        <milestone n="3" unit="chapter"/>
+				        <milestone n="1" unit="section"/>These principles found an illustration in Cato the Younger also. For his manners were not winning, nor pleasing to the populace, nor was he eminent in his public career for popularity. Indeed, Cicero says it was because he acted as if he lived in Plato's commonwealth, and not among the dregs of Romulus, that he was defeated when he stood for the consulship<note resp="ed" place="unspecified" anchored="yes">
+               <bibl n="Cic. Att. 2.1.8">Cicero, <title>ad Att.</title> ii. 1, 8</bibl>, where, however, there is no allusion to Cato's loss of the consulship. <foreign lang="la">Dicit enim tamquam in Platonis</foreign> 
+               <foreign lang="greek">politei/a|</foreign>, <foreign lang="la">non tamquam in Romuli faece, sententiam.</foreign>
+            </note> but I think he fared just as fruits do which make their appearance out of season. For, as we look upon these with delight and admiration, but do not use them, so the old-fashioned character of Cato, which, after a long lapse of time, made its appearance among lives that were corrupted and customs that were debased, enjoyed great repute and fame, but was not suited to the needs of men because of the weight and grandeur of its virtue, which were out of all proportion to the immediate times. For his native city was not already prostrate, like that of Phocion, but struggling with great tempest and surge, and though he could only serve her by putting hand to sails and ropes and by supporting men of greater influence, but was repulsed from rudder-sweeps and pilotage, he nevertheless gave Fortune a hard contest. She did, indeed, seize and overthrow the commonwealth by means of other men, but with difficulty, slowly, after a long time, and when it had almost won the day through Cato and the virtue of Cato. And with this virtue we compare that of Phocion, though not for their general resemblances, but on the ground that both were good men and devoted to the state. For there is surely a difference between the bravery of one man and that of another, as, for instance, between that of Alcibiades and that of Epaminondas; between the wisdom of one man and that of another, as, between that of Themistocles and that of Aristides; between the justice of one man and that of another, as, between that of Numa and that of Agesila&uuml;s. But the virtues of these men, even down to their ultimate and minute differences, show that their natures had one and the same stamp, shape, and general colour; they were an equal blend, so to speak, of severity and kindness, of caution and bravery, of solicitude for others and fearlessness for themselves, of the careful avoidance of baseness and, in like degree, the eager pursuit of justice. Therefore we shall need a very subtle instrument of reasoning, as it were, for the discovery and determination of their differences.
+			</p>
+         <p>
+				        <milestone n="4" unit="chapter"/>
+				        <milestone n="1" unit="section"/>That Cato's lineage, then, was illustrious, is generally admitted, as will be said later; but Phocion's, as I judge, was not altogether ignoble or lowly. For had he been the son of a pestle-maker, as Idomeneus says, then Glaucippus the son of Hypereides, in the speech wherein he collected countless evil things to say against him, would not have omitted his mean birth; nor would Phocion have lived on so high a plane or enjoyed so sound an education as to have been a pupil of Plato when he was still a stripling, and later a pupil of Xenocrates, in the Academy, and to have cultivated the noblest behaviour from the very beginning. For hardly any Athenian ever saw Phocion in laughter or in tears, or making use of a public bath, as Duris tells us, or holding his hand outside his cloak,&mdash;when he wore a cloak. Since in the country, at least, and on his campaigns, he always walked without shoes or outer garment, unless the cold was excessive and hard to bear, so that presently his soldiers used to say in jest that it was a sign of severe winter when Phocion wore a cloak.
+			</p>
+         <p>
+				        <milestone n="5" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Though his nature was most gentle and most kind, his countenance made him seem forbidding and sullen, so that hardly any one of those who were not on intimate terms cared to converse with him alone. Therefore, when Chares once made the Athenians laugh by speaking of Phocion's frowning brows, 
+				<q direct="unspecified">No harm,</q> said Phocion, 
+				<q direct="unspecified">has come to you from this brow of mine; but these men's laughter has cost the city many a tear.</q> And in like manner Phocion's language, also, was salutary in its excellent inventions and happy conceits, although it had a brevity which was rather imperious, severe, and unpleasant. For, as Zeno used to say that a philosopher should immerse his words in meaning before he utters them, so Phocion's language had most meaning in fewest words. And this is probably what Polyeuctus the Sphettian had in mind when he said that Demosthenes was a most excellent orator, but Phocion a most powerful speaker. For, as a valuable coin has greatest worth in smallest bulk, so effective speech would seem to indicate much with few words. Indeed, it is said that once upon a time, when, the theatre was filling up with people, Phocion himself was walking about behind the scenes lost in thought and that when one of his friends remarked: 
+				<q direct="unspecified">You seem to be considering, Phocion,</q> he replied: 
+				<q direct="unspecified">Yes, indeed, I am considering whether I can shorten the speech which I am to deliver to the Athenians.</q> And Demosthenes, who held the other orators in great contempt, when Phocion rose to speak, was wont to say quietly to his friends: 
+				<q direct="unspecified">Here comes the pruning-knife of my speeches.</q>
+            <note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Dem. 10.2">
+                  <title>Demosthenes</title>, x. 2</bibl>.</note> But perhaps this must be referred to Phocion's character; since a word or a nod merely from a good man is of more convincing weight than any number of elaborate periods.
+			</p>
+         <p>
+				        <milestone n="6" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When he was a young man, Phocion attached himself to Chabrias the general as a close follower, profiting much thereby in military experience, and sometimes also rectifying that general's temperament, which was uneven and violent. For though Chabrias was sluggish and hard to move at other times, in actual battle his spirit was excited and all on fire, and he would rush on with the boldest at too great a hazard, just as, without doubt, he actually threw away his life at Chios<note resp="ed" place="unspecified" anchored="yes">In 357 B.C.  Chios, Rhodes, and Byzantium had revolted from Athens.</note> by being the first to drive his trireme to shore and trying to force a landing. So then Phocion, who allowed himself at once safe and active, would put ardour into Chabrias when he delayed, and again would take away the unseasonable intensity of his efforts. Wherefore Chabrias, who was a good-natured and worthy man, made much of him and advanced him to enterprises and commands, making him known to the Greeks, and employing him in most affairs of moment. Especially in the sea-fight off Naxos<note resp="ed" place="unspecified" anchored="yes">In 376 B.C. The Athenians defeated the Lacedaemonian fleet and regained the mastery of the sea.</note> he conferred no little name and fame upon Phocion; for he gave him command of the left wing, and here the battle raged hotly and the issue was speedily decided. Accordingly, as this was the first sea-fight which the Athenians had fought with the Greeks on their own account since the capture of their city,<note resp="ed" place="unspecified" anchored="yes">At the close of the Peloponnesian war (404 B.C.).</note> and as it had succeeded, they made exceeding much of Chabrias, and came to look upon Phocion as a man fit for command. They won the victory during the celebration of the great mysteries; and therefore Chabrias used to furnish the Athenians with wine for the festival every year on the sixteenth of the month Boedromion.
+			</p>
+         <p>
+				        <milestone n="7" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Afterwards, we are told, when Chabrias sent him to get their contributions from the islanders and offered him twenty ships, Phocion said that if he was sent to wage war, he needed a larger force, but if to confer with allies, one ship was enough; and after sailing out with his own trireme and discussing matters with the cities and dealing with the magistrates considerately and in a straightforward manner, he returned with many ships, which the allies sent off with money for the Athenians. And not only while Chabrias was alive did Phocion continue to show him attention and honour, but also after his death he took good care of his relatives, and especially of his son Ctesippus, whom he wished to make a good man; and although he saw that the youth was capricious and intractable, he nevertheless persisted in correcting and covering up his disgraceful conduct. Once, however, we are told, when the young man was troublesome to him on an expedition, and plied him with unseasonable questions and advice, like one making corrections and sharing in the command, he cried: 
+				<q direct="unspecified">O Chabrias, Chabrias, surely I make thee a large return for thy friendship in enduring thy son.</q>
+			      </p>
+         <p>He saw that the public men of his day had distributed among themselves as if by lot the work of the general and the orator. Some of them merely spoke before the people and introduced measures,&mdash;men like Eubulus, Aristophon, Demosthenes, Lycurgus, and Hypereides; while such men as Diopeithes, Menestheus, Leosthenes, and Chabrias advanced themselves by holding the office of general and waging war. He therefore wished to resume and restore the public service rendered by Pericles, Aristides, and Solon, which was equally apportioned in both fields of action. For each of those men showed himself to be, in the words of Archilochus,
+				<quote rend="blockquote">
+					          <l>As well a squire of Enyalius god of war,</l>
+					          <l>As versed in the lovely Muses' gifts.</l>
+				        </quote>
+				He also saw that the goddess Athena was a goddess of war as well as of statecraft, and was so addressed.
+			</p>
+         <p>
+				        <milestone n="8" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Having taken this stand, his civil policies were always in favour of peace and quiet; and yet he held the office of general more frequently than any man, and I speak not only of the men of his own time, but also of those who came before him. He did not seek the office or canvass for it; nor, on the other hand, did he flee or run away when his city called him. It is generally admitted, indeed, that he held the office of general forty-five times, although he was not even once present at the election, but was always absent when the people summoned and chose him. Therefore men of little understanding are amazed at the conduct of the Athenian people. For Phocion opposed them more than anybody else, and never said or did anything to win their favour; and yet, just as kings are supposed to listen to their flatterers after dinner has begun, so the Athenians made use of their more elegant and sprightly leaders by way of diversion, but when they wanted a commander they were always sober and serious, and called upon the severest and most sensible citizen, one who alone, or more than the rest, arrayed himself against their desires and impulses. Indeed, when an oracle from Delphi was read out in the assembly, declaring that when the rest of the Athenians were of like mind, one man had a mind at variance with the city, Phocion came forward and bade them seek no further, since he himself was the man in question; for there was no one but he who disliked everything they did. And when, as he was once delivering an opinion to the people, he met with their approval, and saw that all alike accepted his argument, he turned to his friends and said: 
+				<q direct="unspecified">Can it possibly be that I am making a bad argument without knowing it?</q>
+			      </p>
+         <p>
+				        <milestone n="9" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The Athenians were once asking contributions<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Alc. 10.1">
+                  <title>Alcibiades</title>, x. 1</bibl>.</note> for a public sacrifice, and the rest were contributing, but Phocion, after being many times asked to give, said: 
+				<q direct="unspecified">Ask from these rich men; for I should be ashamed to make a contribution to you before I have paid my debt to this man here,</q> pointing to Callicles the money-lender. And once when his audience would not cease shouting and crying him down, he told them this fable. 
+				<q direct="unspecified">A coward was going forth to war, but when some ravens croaked, he laid down his arms and kept quiet; then he picked them up and was going forth again, and when the ravens croaked once more, he stopped, and said at last: &lsquo;You may croak with all your might, but you shall not get a taste of me.&rsquo;</q> And at another time, when the Athenians urged him to lead forth against the enemy, and called him an unmanly coward because he did not wish to do so, he said: 
+				<q direct="unspecified">Ye cannot make me bold, nor can I make you cowards. However, we know one another.</q> And again, in a time of peril, when the people were behaving very harshly towards him and demanding that he render up accounts of his generalship, 
+				<q direct="unspecified">My good friends,</q> said he, 
+				<q direct="unspecified">make sure of your safety first.</q> Again, when they had been humble and timorous during a war, but then, after peace had been made, were getting bold and denouncing Phocion on the ground that he had robbed them of the victory, 
+				<q direct="unspecified">Ye are fortunate,</q> said he, 
+				<q direct="unspecified">in having a general who knows you; since otherwise ye had long ago perished.</q> Once, too, when the people were unwilling to adjudicate with the Boeotians a question of territory, but wanted to go to war about it, he counselled them to fight with words, in which they were superior, and not with arms, in which they were inferior. Again, when he was speaking and they would not heed or even consent to hear him, he said: 
+				<q direct="unspecified">Ye can force me to act against my wishes, but ye shall not compel me to speak against my judgement.</q> And when Demosthenes, one of the orators in opposition to him, said to him, 
+				<q direct="unspecified">The Athenians will kill thee, Phocion, should they go crazy,</q> he replied: 
+				<q direct="unspecified">But they will kill thee, should they come to their senses.</q> Again, when he saw Polyeuctus the Sphettian, on a hot day, counselling the Athenians to go to war with Philip, and then, from much panting and sweating, since he was really very corpulent, frequently gulping down water, Phocion said: 
+				<q direct="unspecified">It is meet that ye should be persuaded by this man to go to war; for what do ye think he would do under breastplate and shield, when the enemy were near, if, in making you a premeditated speech, he is in danger of choking to death?</q> At another time Lycurgus heaped much abuse upon him in the assembly, and above all because, when Alexander demanded ten of the citizens of Athens,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phoc. 17.2">chapter xvii. 2 f</bibl>.</note> Phocion counselled their surrender; Phocion, however, merely said: 
+				<q direct="unspecified">I have given this people much good and profitable counsel, but they will not listen to me.</q>
+			      </p>
+         <p>
+				        <milestone n="10" unit="chapter"/>
+				        <milestone n="1" unit="section"/>There was a certain Archibiades, nicknamed Laconistes, because, in imitation of the Spartans, he let his beard grow to an extravagant size, always wore a short cloak, and had a scowl on his face. Phocion was once stormily interrupted in the council, and called upon this man for testimony and support in what he said. But when the man rose up and gave such counsel as was pleasing to the Athenians, Phocion seized him by the beard and said: 
+				<q direct="unspecified">O Archibiades, why, then, didst thou not shave thyself?</q> Again, when Aristogeiton the public informer, who was always warlike in the assemblies and tried to urge the people on to action, came to the place of muster leaning on a staff and with both legs bandaged, Phocion spied him from the tribunal when he was afar off, and cried out: 
+				<q direct="unspecified">Put down Aristogeiton, too, as lame and worthless.</q> So that one might wonder how and why a man so harsh and stern got the surname of The Good.
+			</p>
+         <p>But though it is difficult, it is not impossible, I think, for the same man, like the same wine, to be at once pleasant and austere; just as others, on the contrary, appear to be sweet, but are most unpleasant to those who use them, and most injurious. And yet we are told that Hypereides once said to the people: 
+				<q direct="unspecified">Do not ask, men of Athens, merely whether I am bitter, but whether I am paid for being bitter,</q> as if the multitude were led by their avarice to fear and attack those only who are troublesome and vexatious, and not rather all who use their power to gratify their insolence or envy or wrath or contentiousness. Phocion, then, wrought no injury to any one of his fellow citizens out of enmity, nor did he regard any one of them as his enemy; but he was harsh, obstinate, and inexorable only so far as was necessary to struggle successfully against those who opposed his efforts in behalf of the country, and in other relations of life showed himself well-disposed to all, accessible, and humane, so that he even gave aid to his adversaries when they were in trouble or in danger of being brought to account. When his friends chided him for pleading the cause of some worthless man, he said that good men needed no aid. Again, when Aristogeiton the public informer, who was under condemnation, sent and asked him to come to him, he obeyed the summons and set out for the prison; and when his friends sought to prevent him, he said: 
+				<q direct="unspecified">Let me go, my good men; for where could one take greater pleasure in meeting Aristogeiton?</q>
+			      </p>
+         <p>
+				        <milestone n="11" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And certainly the allies and the islanders regarded envoys from Athens under the conduct of any other general as enemies, barricading their gates, obstructing their harbours, and bringing into their cities from the country their herds, slaves, women and children; but whenever Phocion was the leader, they went far out to meet him in their own ships, wearing garlands and rejoicing, and conducted him to their homes themselves.
+			</p>
+         <p>
+				        <milestone n="12" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Philip was stealing into Euboea and bringing a force across from Macedonia and making the cities his own by means of tyrants and when Plutarch the Eretrian called upon the Athenians and begged them to rescue the island from its occupation by the Macedonian, Phocion was sent out as general with a small force,<note resp="ed" place="unspecified" anchored="yes">In 350 B.C.</note> in the belief that the people of the island would rally readily to his aid. But he found the whole island full of traitors, disaffected, and honeycombed with bribery, and was therefore in a position of great peril. So he took possession of a crest of ground which was separated by a deep ravine from the plains about Tamynae, and on this assembled and held together the best fighting men of his force. To the disorderly and worthless triflers who ran away from the camp and made their way home he bade his officers give no heed, for in the camp their lack of discipline would make them useless and harmful to the fighting men, while at home their accusing consciences would make them less liable to cry down their commander, and would keep them entirely from malicious accusations.
+			</p>
+         <p>
+				        <milestone n="13" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When the enemy came up against him, he ordered his men to remain quietly under arms until he should have finished sacrificing, and then waited a considerable time, either because the omens were bad, or because he wished to draw the enemy nearer. Therefore, to begin with, Plutarch, who thought that Phocion's delay was due to cowardice, sallied forth with his mercenaries. Next, the horsemen, catching sight of Plutarch, could not restrain themselves, but rode at once into the enemy, hurrying out of the camp in a disorderly and scattered fashion. 
+				<milestone n="2" unit="section"/>The foremost of them were conquered, and then all of them dispersed and Plutarch took to flight, while some of the enemy gained the ramparts and tried to cut them away and destroy them, supposing themselves to be entirely victorious. But at this point the sacrifices were completed, and the Athenians, bursting out of their camp, routed their assailants and slew most of them as they fled among the entrenchments. Then Phocion ordered his phalanx to halt for the reception and support of the troops which had been scattered in the previous flight, while he himself with his picked men fell upon the main body of the enemy. 
+				<milestone n="3" unit="section"/>A fierce battle ensued, in which all the Athenians fought with spirit and gallantry; but Thallus the son of Cineas and Glaucus the son of Polymedes, whose post was at their general's side, bore away the palm. However, Cleophanes also did most valuable service in that battle. For, by calling back the cavalry from their flight and exhorting them with loud cries to succour their general in his peril, he made them turn back and confirm the victory of the men-at-arms.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>After this, Phocion expelled Plutarch from Eretria, took possession of Zaretra, a fortress most advantageously situated where the island is reduced to its narrowest width by the sea, which hems it in on both sides, and released all the Greeks whom he had taken prisoners. For he was afraid that the orators at Athens might drive the people, in some fit of anger, to treat them with cruelty.
+			</p>
+         <p>
+				        <milestone n="14" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After these things had been accomplished, Phocion sailed back home, and then the allies speedily felt the absence of his probity and justice, and speedily did the Athenians recognize the experience and vigour which had been shown by him. For his successor in command, Molossus, conducted the war in such a way as actually to fall alive into the hands of the enemy. 
+				<milestone n="2" unit="section"/>And now Philip, cherishing great anticipations, went to the Hellespont with all his forces,<note resp="ed" place="unspecified" anchored="yes">In 340 B.C.</note> expecting to get the Chersonesus, and at the same time Perinthus and Byzantium, into his power. The Athenians were eager to give aid to their allies, but their orators strove successfully to have Chares sent out as commander, and he, after sailing thither, did nothing worthy of the force under his orders, nor would the cities even receive his armament into their harbours. On the contrary, he was held in suspicion by all of them, and wandered about exacting money from the allies and despised by the enemy, 
+				<milestone n="3" unit="section"/>so that the people of Athens, instigated by their orators, were incensed at him, and repented of having sent aid to the Byzantians. Then Phocion rose in the assembly and declared that they must not be angry at their allies who showed distrust, but at their generals who were distrusted; 
+				<q direct="unspecified">For these,</q> said he, 
+				<q direct="unspecified">make you to be feared even by those who can be saved only by your help.</q>
+			      </p>
+         <p>Accordingly, moved by his words, the people changed their minds again and ordered him to take another force and go himself to the help of their allies on the Hellespont;<note resp="ed" place="unspecified" anchored="yes">In 339 B.C.</note> a commission which contributed more than anything else to the salvation of Byzantium. 
+				<milestone n="4" unit="section"/>For already Phocion was held in high repute there; and when Leon<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Nic. 22.3">
+                  <title>Nicias</title>, xxii. 3</bibl>.</note> also, a man who was first among the Byzantians for virtue, and had been a familiar companion of Phocion in the Academy, went surety for him with the city, they would not suffer him to go into camp outside the city, as he wished, but threw open their gates and received the Athenians into close companionship with themselves. This mark of confidence caused the Athenians to be not only discreet and blameless in their general conduct, but also most spirited in the struggles for the city's defence. 
+				<milestone n="5" unit="section"/>In this way Philip was expelled from the Hellespont at this time and brought into contempt, although men had thought there was no fighting or contending with him at all; moreover, Phocion captured some of his ships and recovered cities which he had garrisoned. He also landed in many parts of Philip's territory and plundered and overran it, until he was wounded by those who rallied to its defence, and sailed back home.
+			</p>
+         <p>
+				        <milestone n="15" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The people of Megara once made a secret appeal to Athens for help,<note resp="ed" place="unspecified" anchored="yes">Against a faction in the city which would have delivered it into the power of Philip. The date of these events is uncertain (perhaps 344-343 B.C.).</note> and Phocion, fearing that the Boeotians might get early knowledge of the appeal and anticipate Athens in sending help, called an assembly early in the morning and announced to the Athenians the message received from Megara. Then, as soon as the requisite decree had been passed, he ordered the trumpeter to give the signal and led them, under arms, directly from the assembly. 
+				<milestone n="2" unit="section"/>The Megarians received him eagerly, and he enclosed Nisaea<note resp="ed" place="unspecified" anchored="yes">The sea-port of Megara, about a mile away.</note> with a wall, built two long walls down to the sea-port from Megara, and thus united the city with the sea, so that she need now pay little heed to enemies on land and could be in close connection with Athens by sea.
+			</p>
+         <p>
+				        <milestone n="16" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Presently<note resp="ed" place="unspecified" anchored="yes">In 340 B.C.</note> the relations between Athens and Philip were altogether hostile, and, in Phocion's absence, other generals were chosen to conduct the war. But when Phocion returned with his fleet from the islands, to begin with, he tried to persuade the people, since Philip was peaceably inclined and greatly feared the peril of war, to accept the terms of settlement which he offered. 
+				<milestone n="2" unit="section"/>And when one of those who haunted the law-courts in the capacity of public informer opposed him, and said, 
+				<q direct="unspecified">Canst thou dare, O Phocion, to divert the Athenians from war when they are already under arms?</q> 
+				        <q direct="unspecified">I can,</q> said he, 
+				<q direct="unspecified">and that, too, though I know that while there is war thou wilt be under my orders, but when peace has been made I shall be under thine.</q> When, however, he could not prevail, but Demosthenes carried the day and was urging the Athenians to join battle with Philip as far from Attica as possible, 
+				<q direct="unspecified">My good Sir,</q> said Phocion, 
+				<q direct="unspecified">let us not ask where we can fight, but how we shall be victorious. 
+					<milestone n="3" unit="section"/>For in that case the war will be at a long remove; but wherever men are defeated every terror is close at hand.</q> But when the defeat came,<note resp="ed" place="unspecified" anchored="yes">In 338 B.C., at Chaeroneia, where Philip defeated the allied Greeks and put an end to their independence.</note> and the turbulent and revolutionary spirits in the city dragged Charidemus to the tribunal and demanded that he be made general, the best citizens were filled with fear; and with the aid of the council of the Areiopagus in the assembly, by dint of entreaties and tears, they persuaded them at last to entrust the city to the guidance of Phocion.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>In general, Phocion thought that the policy and kindly overtures of Philip should be accepted by the Athenians; but when Demades brought in a motion that the city should participate with the Greeks in the common peace and in the congress,<note resp="ed" place="unspecified" anchored="yes">The Congress of Greek states summoned by Philip to meet at Corinth. It voted for war against Persia under the leadership of Philip.</note> Phocion would not favour it before they found out what demands Philip was going to make upon the Greeks. 
+				<milestone n="5" unit="section"/>His opinion did not prevail, owing to the crisis, and yet as soon as he saw that the Athenians were repenting of their course, because they were required to furnish Philip with triremes and horsemen, 
+				<q direct="unspecified">This is what I feared,</q> said he, 
+				<q direct="unspecified">when I opposed your action; but since you agreed upon it, you must not repine or be dejected, remembering that our ancestors also were sometimes in command, and sometimes under command, but by doing well in both these positions saved both their city and the Greeks.</q> 
+				        <milestone n="6" unit="section"/>And on the death of Philip,<note resp="ed" place="unspecified" anchored="yes">19In 336 B.C. See the <bibl n="Plut. Dem. 22.1">
+                  <title>Demosthenes</title>, chapter xxii</bibl>.</note> he was opposed to the peoples offering sacrifices of glad tidings; for it was an ignoble thing, he said, to rejoice thereat, and the force which had been arrayed against them at Chaeroneia was diminished by only one person.
+			</p>
+         <p>
+				        <milestone n="17" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Again, when Demosthenes was heaping abuse upon Alexander, who was already advancing against Thebes, Phocion said: 
+				<q direct="unspecified">&lsquo;Rash one, why dost thou seek to provoke a man who is savage,&rsquo;<note resp="ed" place="unspecified" anchored="yes">
+                  <bibl n="Hom. Od. 9.494">
+                     <title>Odyssey</title>, ix. 494</bibl>, Odysseus, to a companion, of Polyphemus the Cyclops.</note> and is reaching out after great glory? Canst thou wish, when so great a conflagration is near, to fan the city into flame? But I, who am bearing the burdens of command with this object in view, will not suffer these fellow citizens of mine to perish even if that is their desire.</q> 
+				        <milestone n="2" unit="section"/>And when Thebes had been destroyed<note resp="ed" place="unspecified" anchored="yes">In 335 B.C.</note> and Alexander was demanding the surrender of Demosthenes, Lycurgus, Hypereides, Charidemus, and others, and the assembly turned their eyes upon Phocion and called upon him many times by name, he rose up, and drawing to his side one of his friends, whom he always cherished, trusted, and loved most of all, he said: 
+				<q direct="unspecified">These men have brought the city to such a pass that I, for my part, even if this Nicocles should be demanded, would urge you to give him up. 
+					<milestone n="3" unit="section"/>For if I might die myself in behalf of you all, I should deem it a piece of good fortune for me. And I feel pity,</q> said he, 
+				<q direct="unspecified">men of Athens, for those also who have fled hither from Thebes; but it is enough that the Greeks should have the fate of Thebes to mourn. Therefore it is better to supplicate and try to persuade the victors for both you and them, and not to fight.</q>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>Well, then, we are told that when Alexander got the first decree which the Athenians passed, he cast it from him and ran with averted face from the envoys; the second, however, he accepted, because it was brought by Phocion, and because he heard from the older Macedonians that Philip also used to admire this man. And he not only consented to meet Phocion and hear his petition, but actually listened to his counsels. And Phocion counselled him, if he sought quiet, to make an end of the war; but if glory, to transfer the war, and turn his arms away from Greece against the Barbarians. 
+				<milestone n="5" unit="section"/>And by saying many things that suited well with Alexander's nature and desires he so far changed and softened his feelings that he advised the Athenians to give close attention to their affairs, since, if anything should happen to him, the leadership of Greece would properly fall to them.<note resp="ed" place="unspecified" anchored="yes">Cf. the <bibl n="Plut. Alex. 13.2">
+                  <title>Alexander</title>, xiii. 2</bibl>.</note> In private, too, he made Phocion his friend and guest, and showed him greater honour than most of his constant associates enjoyed. 
+				<milestone n="6" unit="section"/>At any rate, Duris writes that after Alexander had become great and had conquered Dareius, he dropped from his letters the word of salutation, 
+				<q direct="unspecified">chairein,</q> except whenever he was writing to Phocion; him alone, like Antipater, he used to address with the word 
+				<q direct="unspecified">chairein.</q> This is the testimony of Chares also.
+			</p>
+         <p>
+				        <milestone n="18" unit="chapter"/>
+				        <milestone n="1" unit="section"/>The story about the money, indeed, is generally admitted, namely, that Alexander sent him a present of a hundred talents.<note resp="ed" place="unspecified" anchored="yes">The talent was equivalent to about &pound;235, or $1,200, with four or five times the purchasing power of modern money.</note> When this was brought to Athens, Phocion asked the bearers why in the world, when there were so many Athenians, Alexander offered such a sum to him alone. They replied: 
+				<q direct="unspecified">Because Alexander judges that thou alone art a man of honour and worth.</q> 
+				        <q direct="unspecified">In that case,</q> said Phocion, 
+				<q direct="unspecified">let him suffer me to be and be thought such always.</q> 
+				        <milestone n="2" unit="section"/>But when the messengers accompanied him to his home and saw there a great simplicity,&mdash;his wife kneading bread, while Phocion with his own hands drew water from the well and washed his feet,&mdash;they were indignant, and pressed the money upon him still more urgently, declaring it an intolerable thing that he, though a friend of the king, should live in such poverty. Phocion, accordingly, seeing a poor old man walking the street in a dirty cloak, asked them if they considered him inferior to this man. 
+				<milestone n="3" unit="section"/>
+				        <q direct="unspecified">Heaven forbid!</q> they cried. 
+				<q direct="unspecified">And yet this man,</q> said Phocion, 
+				<q direct="unspecified">has less to live upon than I, and finds it sufficient. And, in a word,</q> said he, 
+				<q direct="unspecified">if I make no use of this great sum of money, it will do me no good to have it; or, if I use it, I shall bring myself, and the king as well, under the calumnies of the citizens.</q> So the treasure went back again from Athens, after it had showed the Greeks that the man who did not want so great a sum was richer than the man who offered it. 
+				<milestone n="4" unit="section"/>Alexander was vexed and wrote back to Phocion that he could not regard as his friends those who wanted nothing of him. But not even then would Phocion take the money; he did, however, ask for the release of Echecratides the sophist, Athenodorus of Imbros, and two men of Rhodes, Demaratus and Sparton, who had been arrested upon sundry charges and imprisoned in Sardis. 
+				<milestone n="5" unit="section"/>These men, then, Alexander set free at once, and at a later time,<note resp="ed" place="unspecified" anchored="yes">In 324 B.C., when Craterus was commissioned to lead the veteran soldiers of Alexander back to Macedonia. See the <bibl n="Plut. Alex. 71.1">
+                  <title>Alexander</title>, chapter lxxi</bibl>.</note> when he sent Craterus back into Macedonia, he ordered him to turn over to Phocion the revenues from whichever one of four cities in Asia he might select,&mdash;either Cius, Gergithus, Mylasa, or Elaea,&mdash;insisting still more strongly than before that he would be angry if Phocion did not take them. But Phocion would not take them, and very soon Alexander died. And even to the present day Phocion's house is pointed out in Melit&eacute;,<note resp="ed" place="unspecified" anchored="yes">A deme, or ward, in the S. W. part of Athens. See the <bibl n="Plut. Them. 22.2">
+                  <title>Themistocles</title>, xxii. 2</bibl>.</note> adorned with bronze disks, but otherwise plain and simple.
+			</p>
+         <p>
+				        <milestone n="19" unit="chapter"/>
+				        <milestone n="1" unit="section"/>As for his wives, nothing is told us about the first, except that she was a sister of Cephisodotus the sculptor; but the reputation which the second had among the Athenians for sobriety and simplicity was not less than that of Phocion for probity. 
+				<milestone n="2" unit="section"/>And once when the Athenians were witnessing an exhibition of new tragedies, the actor who was to take the part of a queen asked the choregus to furnish him with a great number of attendant women in expensive array; and when he could not get them, he was indignant, and kept the audience waiting by his refusal to come out. But the choregus, Melanthius, pushed him before the spectators, crying: 
+				<q direct="unspecified">Dost thou not see that Phocion's wife always goes out with one maid-servant? Thy vanity will be the undoing of our women-folk.</q> 
+				        <milestone n="3" unit="section"/>His words were plainly heard by the audience, and were received with tumultuous applause. And this very wife, when an Ionian woman who was her guest displayed ornaments of gold and precious stones worked into collars and necklaces, said: 
+				<q direct="unspecified">My ornament is Phocion, who is now for the twentieth year a general of Athens.</q>
+			      </p>
+         <p>
+				        <milestone n="20" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Phocus his son wished to compete at the Panathenaic festival as a vaulting rider of horses, Phocion permitted it, not because he was ambitious for the victory, but in order that care and training of the body might make his son a better man; for in general the youth was fond of wine and irregular in his habits. The youth was victorious, and many asked him to their houses for the victor's banquet; but Phocion declined the other invitations and granted the coveted honour to one host only. 
+				<milestone n="2" unit="section"/>And when he went to the banquet and saw the general magnificence of the preparations, and particularly the foot-basins of spiced wine that were brought to the guests as they entered, he called his son and said: 
+				<q direct="unspecified">Phocus, do not let thy companion ruin thy victory.</q> Moreover, wishing to remove the young man entirely from that style of living, he took him off to Sparta and put him among the youths who were following the course of discipline called 
+				<q direct="unspecified">agoge.</q>
+            <note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Ages. 1.1">
+                  <title>Agesila&uuml;s</title>, i. 1</bibl>.</note> 
+				        <milestone n="3" unit="section"/>This vexed the Athenians, who thought that Phocion despised and looked down upon the native customs. And once Demades said to him: 
+				<q direct="unspecified">Phocion, why shouldn't we try to persuade the Athenians to adopt the Spartan polity? For if thou sayest the word, I am ready to introduce and support the requisite law.</q> But Phocion replied: 
+				<q direct="unspecified">Indeed it would very well become thee, with so strong a scent of ointment upon thee, and wearing such a mantle as thine, to recommend to the Athenians the public mess-halls of the Spartans, and to extol Lycurgus.</q>
+			      </p>
+         <p>
+				        <milestone n="21" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Alexander wrote asking the Athenians to send him triremes, and the orators opposed the request, and the council bade Phocion speak upon the matter, 
+				<q direct="unspecified">I tell you, then,</q> he said, 
+				<q direct="unspecified">either to be superior in arms or to be friends with those who are superior.</q> To Pytheas, who at that time was just beginning to address the Athenians, but was already loquacious and bold, Phocion said: 
+				<q direct="unspecified">Hold thy peace, thou who art but a newly bought slave of the people!</q> 
+				        <milestone n="2" unit="section"/>And when Harpalus, who had run away from Alexander out of Asia with great sums of money, landed in Attica,<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Dem. 25.1">
+                  <title>Demosthenes</title>, chapter xxv</bibl>.</note> and those who were wont to make merchandise of their influence as orators came running to him at breakneck speed, to these men he dropped and scattered small morsels of his wealth by way of bait; but he sent to Phocion and offered him seven hundred talents, and everything else that he had, and put himself with all his possessions at the sole disposition of Phocion. 
+				<milestone n="3" unit="section"/>But Phocion answered sharply that Harpalus would rue it if he did not cease trying to corrupt the city, and for the time being the traitor was abashed and desisted from his efforts. After a little, however, when the Athenians were deliberating upon his case, he found that those who had taken money from him were changing sides and denouncing him, that they might not be discovered; while Phocion, who would take nothing, was now giving some consideration to the safety of Harpalus as well as to the public interests. 
+				<milestone n="4" unit="section"/>Again, therefore, he was led to pay court to Phocion, but after all his efforts to bribe him found that he was impregnable on all sides like a fortress. Of Charicles, however, Phocion's son-in-law, Harpalus made an intimate associate and friend, trusting him in everything and using him in everything, and thus covered him with infamy.
+			</p>
+         <p>
+				        <milestone n="22" unit="chapter"/>
+				        <milestone n="1" unit="section"/>For instance, on the death of Pythonic&eacute; the courtesan, who was the passionately loved mistress of Harpalus and had borne him a daughter, Harpalus resolved to build her a very expensive monument, and committed the care of the work to Charicles. 
+				<milestone n="2" unit="section"/>This service was an ignoble one in itself, but it acquired additional disgrace from the completed tomb. For this is still to be seen in Hermus, on the road from Athens to Eleusis, and it has nothing worthy of the large sum of thirty talents which Charicles is said to have charged Harpalus for the work.<note resp="ed" place="unspecified" anchored="yes">See <bibl n="Paus. 1.37.5">Pausanias, i. 37, 5</bibl>, with Frazer's notes. Pausanias speaks of it as 
+					<q direct="unspecified">the best worth seeing of all ancient Greek tombs.</q>
+            </note>And yet after the death of Harpalus himself,<note resp="ed" place="unspecified" anchored="yes">Antipater demanded his surrender by the Athenians, and Harpalus fled to Crete, where he was assassinated.</note> his daughter was taken up by Charicles and Phocion and educated with every care. 
+				<milestone n="3" unit="section"/>However, when Charicles was brought to trial for his dealings with Harpalus, and begged Phocion to help him and go with him into the court-room, Phocion refused, saying: 
+				<q direct="unspecified">I made thee my son-in-law, Charicles, for none but just purposes.</q>
+			      </p>
+         <p>Asclepiades the son of Hipparchus was the first one to bring to the Athenians the tidings that Alexander was dead. Thereupon Demades urged them to pay no heed to the report, since, had it been true, the whole earth would long ago have been filled with the stench of the body. But Phocion, who saw that the people were bent on revolution, tried to dissuade them and restrain them. 
+				<milestone n="4" unit="section"/>And when many of them sprang towards the bema, and shouted that the tidings brought by Asclepiades were true and that Alexander was dead, 
+				<q direct="unspecified">Well, then,</q> said Phocion, 
+				<q direct="unspecified">if he is dead to-day, he will be dead to-morrow and the day after. Therefore we can deliberate in quiet, and with greater safety.</q>
+			      </p>
+         <p>
+				        <milestone n="23" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Leosthenes, who had plunged the city into the Lamian war<note resp="ed" place="unspecified" anchored="yes">323-322 B.C. So named because the confederate Greeks held Antipater and his forces for some time besieged in Lamia, a city of S. E. Thessaly (<bibl n="Plut. Phoc. 23.4">&sect; 4</bibl>).</note> much to Phocion's displeasure, once asked him derisively what good he had done the city during the many years in which he had been general. 
+				<q direct="unspecified">No slight good,</q> said Phocion, 
+				<q direct="unspecified">in that its citizens are buried in their own sepulchres.</q> 
+				        <milestone n="2" unit="section"/>Again, when Leosthenes was talking very boldly and boastfully in the assembly, Phocion said: 
+				<q direct="unspecified">Thy speeches, young man, are like cypress-trees, which are large and towering, but bear no fruit.</q> And when Hypereides confronted him with the question, 
+				<q direct="unspecified">When, then, O Phocion, wilt thou counsel the Athenians to go to war?</q> 
+				        <q direct="unspecified">Whenever,</q> said Phocion, 
+				<q direct="unspecified">I see the young men willing to hold their places in the ranks, the rich to make contributions, and the orators to keep their thievish hands away from the public moneys.</q>
+			      </p>
+         <p>
+				        <milestone n="3" unit="section"/>When many were admiring the force got together by Leosthenes, and were asking Phocion what he thought of the city's preparations, 
+				<q direct="unspecified">They are good,</q> said he, 
+				<q direct="unspecified">for the short course;<note resp="ed" place="unspecified" anchored="yes">The short course in the foot-races was straight away, the length of the stadium; the long course was ten times back and forth.</note> but it is the long course which I fear in the war, since the city has no other moneys, or ships, or men-at-arms.</q> 
+				        <milestone n="4" unit="section"/>And events justified his fear. For at first Leosthenes achieved brilliant successes, conquering the Boeotians in battle, and driving Antipater into Lamia. Then, too, they say that the city came to cherish high hopes, and was continuously holding festivals and making sacrifices of glad tidings. Phocion, however, when men thought to convict him of error and asked him if he would not have been glad to have performed these exploits, replied: 
+				<q direct="unspecified">By all means; but I am glad to have given the advice I did.</q> And again, when glad tidings came in quick succession by letter and messenger from the camp, 
+				<q direct="unspecified">When, pray,</q> said he, 
+				<q direct="unspecified">will our victories cease?</q>
+			      </p>
+         <p>
+				        <milestone n="24" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But Leosthenes was killed, and then those who feared that Phocion, if he were sent out as general, would put a stop to the war, arranged with a certain obscure person to rise in the assembly and say that he was a friend and intimate associate of Phocion, and therefore advised the people to spare him and keep him in reserve, since they had none other like him, and to send out Antiphilus to the army. This course was approved by the Athenians, whereupon Phocion came forward and said that he had never been intimately associated with the person, nor in any way familiar or acquainted with him; 
+				<milestone n="2" unit="section"/>
+				        <q direct="unspecified">But now,</q> said he, 
+				<q direct="unspecified">from this very day I make thee a friend and close companion, for thou hast counselled what was for my advantage.</q>
+			      </p>
+         <p>Again, when the Athenians were bent on making an expedition against the Boeotians, at first he opposed it; and when his friends told him that he would be put to death by the Athenians if he offended them, 
+				<q direct="unspecified">That will be unjust,</q> said he, 
+				<q direct="unspecified">if I act for their advantage; but if I play them false, it will be just.</q> 
+				        <milestone n="3" unit="section"/>Afterwards, however, seeing that they would not desist, but continued their clamour, he ordered the herald to make proclamation that every man in Athens under sixty years of age should take provisions for five days and follow him at once from the assembly. Thereupon a great tumult arose, the elderly men leaping to their feet and shouting their dissent. 
+				<q direct="unspecified">It is no hardship,</q> said Phocion, 
+				<q direct="unspecified">for I who am to be your general am in my eightieth year.</q> For the time being this checked them and changed their purpose.
+			</p>
+         <p>
+				        <milestone n="25" unit="chapter"/>
+				        <milestone n="1" unit="section"/>However, when their sea-coast was being devastated by Micion, who landed at Rhamnus with a horde of Macedonians and mercenaries and overran the adjacent territory, Phocion led the Athenians out against him. And as they marched, men would run up to their general from all sides and show him what to do. He was advised to seize a hill here, to send his horsemen around thither, or to make his attack upon the enemy there. 
+				<q direct="unspecified">O Heracles,</q> said Phocion, 
+				<q direct="unspecified">how many generals I see, and how few soldiers!</q> 
+				        <milestone n="2" unit="section"/>Again, after he had drawn up his men-at-arms, one of them went out far in advance of the rest, and then was stricken with fear when an enemy advanced to meet him, and went back again to his post. 
+				<q direct="unspecified">Shame on thee, young man,</q> said Phocion, 
+				<q direct="unspecified">for having abandoned two posts, the one which was given thee by thy general, and the one which thou didst give thyself.</q> However, he attacked the enemy, routed them utterly, and slew Micion himself together with many others. 
+				<milestone n="3" unit="section"/>The Greek army in Thessaly, also, although Leonnatus and his Macedonians from Asia had joined Antipater, was victorious in battle, and Leonnatus fell; the Greek men-at-arms were led by Antiphilus, their cavalry by Menon the Thessalian.
+			</p>
+         <p>
+				        <milestone n="26" unit="chapter"/>
+				        <milestone n="1" unit="section"/>But a short time afterwards Craterus crossed from Asia with a large force,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phoc. 18.5">chapter xviii. 5</bibl>.</note> and there was another pitched battle at Crannon. Here the Greeks were defeated. Their defeat was not severe, nor did many of them fall, but owing to their lack of obedience to their commanders, who were young and soft-hearted, and because at the same time Antipater made tempting overtures to their several cities, their army melted away and most shamefully abandoned the cause of freedom. 
+				<milestone n="2" unit="section"/>At once, therefore, Antipater led his forces against Athens, and Demosthenes and Hypereides left the city. Demades, however though he was unable to pay any portion of the fines which had been imposed upon him by the city (he had been seven times convicted of introducing illegal measures, had lost his civic rights, and was therefore debarred from speaking in the assembly), obtained immunity at this time, and brought in a bill for sending to Antipater ambassadors plenipotentiary to treat for peace. 
+				<milestone n="3" unit="section"/>But the people were fearful, and called upon Phocion, declaring that he was the only man whom they could trust. 
+				<q direct="unspecified">But if I had been trusted,</q> said he, 
+				<q direct="unspecified">when I gave you counsel, we should not now be deliberating on such matters.</q> And when the bill had thus been passed, he was sent off to Antipater, who was encamped in the Cadmeia,<note resp="ed" place="unspecified" anchored="yes">The citadel of Thebes.</note> and was making preparations to march into Attica at once. And this was the first request that Phocion made, namely, that Antipater should remain where he was and make the treaty. 
+				<milestone n="4" unit="section"/>And when Craterus declared that it was not fair in Phocion to try to persuade them to remain in the territory of their friends and allies and ravage it, when they had it in their power to get booty from that of their enemies, Antipater took him by the hand and said: 
+				<q direct="unspecified">We must grant Phocion this favour.</q> But as for the other terms of the peace, he ordered the Athenians to leave them to the conquerors, just as, at Lamia, he had been ordered to do by Leosthenes.
+			</p>
+         <p>
+				        <milestone n="27" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Accordingly, Phocion returned to Athens with these demands, and the Athenians acceeded to them, under the necessity that was upon them. Then Phocion went once more to Thebes, with the other ambassadors, to whom the Athenians had added Xenocrates the philosopher. For so high an estimate was set upon the virtue of Xenocrates, and so great was his reputation and fame in the eyes of all, that it was supposed the human heart could harbour no insolence or cruelty or wrath which the mere sight of the man would not infuse with reverence and a desire to do him honour. 
+				<milestone n="2" unit="section"/>But the result in this case was the opposite, owing to a certain ruthlessness and hatred of goodness in Antipater. For, in the first place, he would not salute Xenocrates, although he greeted the other ambassadors; at which Xenocrates is said to have remarked: 
+				<q direct="unspecified">Antipater does well to feel shame before me alone of his ruthless designs against our city.</q> And again, when the philosopher began to speak, Antipater would not listen to him, but angrily contradicted him and forced him into silence. 
+				<milestone n="3" unit="section"/>But when Phocion had made his plea, Antipater replied that the Athenians could be his friends and allies on condition that they delivered up Demosthenes and Hypereides, reverted to their earlier constitution with its basis of property qualification, received a garrison into Munychia,<note resp="ed" place="unspecified" anchored="yes">The acropolis of Peiraeus.</note> and, in addition, paid the costs of the war and a fine.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>The rest of the ambassadors were satisfied with these terms and considered them humane, with the exception of Xenocrates, who said that Antipater dealt with them moderately if he held them to be slaves, but severely if he held them to be freemen. Phocion, however, besought Antipater to spare them the garrison, to which Antipater, as we are told, replied: 
+				<q direct="unspecified">O Phocion, we wish to gratify thee in all things, except those which will ruin thee and us.</q> 
+				        <milestone n="5" unit="section"/>But some tell a different story, and say that Antipater asked whether, in case he indulged the Athenians in the matter of the garrison, Phocion would go surety that his city would abide by the peace and stir up no trouble; and that when Phocion was silent and delayed his answer, Callimedon, surnamed Carabus,<note resp="ed" place="unspecified" anchored="yes">
+               <gloss>Stag-beetle</gloss>.</note> an arrogant man and a hater of democracy, sprang to his feet and cried: 
+				<q direct="unspecified">But even if the fellow should prate such nonsense, Antipater, wilt thou trust him and give up what thou hast planned to do?</q>
+			      </p>
+         <p>
+				        <milestone n="28" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Thus the Athenians were obliged to receive a Macedonian garrison, which was under the command of Menyllus, an equitable man and a friend of Phocion. But the measure was held to be an arrogant one, and rather a display of power which delighted in insolence than an occupation due to stress of circumstance. And it came at a time which added not a little to the distress of the people. For the garrison was introduced on the twentieth of the month Bo&euml;dromion, while the celebration of the mysteries was in progress, on the day when the god Iacchus is conducted from the city to Eleusis, so that the disturbance of the sacred rite led most men to reflect upon the attitude of the heavenly powers in earlier times and at the present day. 
+				<milestone n="2" unit="section"/>For of old the mystic shapes and voices were vouchsafed to them in the midst of their most glorious successes, and brought consternation and affright upon their enemies;<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Them. 15.1">
+                  <title>Themistocles</title>, xv. 1</bibl>.</note> but now, while the same sacred ceremonies were in progress, the gods looked down with indifference upon the most grievous woes of Hellas, and the profanation of the season which had been most sweet and holy in their eyes made it for the future give its name to their greatest evils. Indeed, a few years before this the Athenians had received an oracle from Dodona bidding them 
+				<q direct="unspecified">guard the summits of Artemis,</q>
+            <note resp="ed" place="unspecified" anchored="yes">Artemis was the patron goddess of Munychia.</note> that strangers might not seize them; 
+				<milestone n="3" unit="section"/>and now, during the days of the festival, when the fillets with which they entwine the mystic chests were dyed, instead of purple they showed a sallow and deathly colour, and, what was more significant still, all the articles for common use which were dyed along with the fillets took the natural hue. Moreover, as a mystic initiate was washing a pig<note resp="ed" place="unspecified" anchored="yes">An offering for Demeter, the chief divinity of the mysteries.</note> in the harbour of Cantharus,<note resp="ed" place="unspecified" anchored="yes">Part of the harbour of Peiraeus.</note> a great fish seized the man and devoured the lower parts of his body as far as the belly, by which Heaven clearly indicated to them in advance that they would be deprived of the lower parts of the city which adjoined the sea, but would retain the upper city.
+			</p>
+         <p>
+				        <milestone n="4" unit="section"/>Now, the garrison, owing to the influence of Menyllus, did no harm to the inhabitants; but the citizens who were deprived of their franchise because of their poverty numbered more than twelve thousand, and those of them who remained at home appeared to be suffering grievous and undeserved wrongs, while those who on this account forsook the city and migrated to Thrace, where Antipater furnished them with land and a city, were like men driven from a captured city.
+			</p>
+         <p>
+				        <milestone n="29" unit="chapter"/>
+				        <milestone n="1" unit="section"/>Moreover, the death of Demosthenes in Calauria, and that of Hypereides at Cleonae, about which I have written elsewhere,<note resp="ed" place="unspecified" anchored="yes">See the <bibl n="Plut. Dem. 28.1">
+                  <title>Demosthenes</title>, chapters xxviii.</bibl>-<bibl n="Plut. Dem. 30.1">xxx</bibl>.</note> made the Athenians yearn almost passionately for Philip and Alexander. At a later time, after Antigonus had been slain,<note resp="ed" place="unspecified" anchored="yes">Antigonus was defeated by Seleucus and Lysimachus at Ipsus, in Phrygia, in 301 B.C., and fell in the battle.</note> and those who slew him began to oppress and vex the people, a peasant in Phrygia who was digging on his farm was asked by someone what he was doing, and answered: 
+				<q direct="unspecified">I am looking for Antigonus.</q> 
+				        <milestone n="2" unit="section"/>So now many were moved to speak, as they called to mind how the greatness and generosity of those illustrious kings made their wrath easy to appease; whereas Antipater, although he tried to conceal his power under the mask of a common man of mean attire and simple mode of life, was really a more burdensome tyrant and master to those who were in trouble. 
+				<milestone n="3" unit="section"/>But nevertheless Phocion successfully pleaded with Antipater for the exemption of many from exile, and for those who went into exile he obtained the privilege of residing in Peloponnesus, instead of being driven out of Hellas beyond the Ceraunian mountains and the promontory of Taenarum like other men in banishment. Of this number was Hagnonides the public informer. 
+				<milestone n="4" unit="section"/>Furthermore, by managing the affairs of the city with mildness and according to the laws, he kept the men of education and culture always in office, while the busybodies and innovators, who withered into insignificance from the very fact that they held no office and raised no uproars, were taught by him to be fond of home and to delight in tilling the soil. When he saw that Xenocrates paid the resident alien tax, he offered to enroll him as a citizen; but the philosopher refused, saying that he could not take part in an administration for the prevention of which he had served on an embassy.<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phoc. 27.1">chapter xxvii</bibl>.</note>
+			      </p>
+         <p>
+				        <milestone n="30" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When Menyllus offered Phocion a gift of money, he replied that neither was Menyllus better than Alexander,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phoc. 18.1">chapter xviii</bibl>.</note> nor was there any stronger reason why the man who would not accept it then should take it now. Menyllus, however, begged him to take the money for his son Phocus at least, whereupon Phocion said: 
+				<q direct="unspecified">For Phocus, should he be converted to sobriety of life, his patrimony will be enough; but as he is now, nothing is sufficient.</q> Again, when Antipater desired him to do something that was not seemly, he gave him a sharper answer, saying: 
+				<q direct="unspecified">Antipater cannot have from me the services of friend and flatterer at once.</q> 
+				        <milestone n="2" unit="section"/>And Antipater himself once said, as we are told, that be had two friends at Athens, Phocion and Demades; one he could never persuade to take anything, the other he could never satisfy with his gifts. And verily Phocion displayed as a virtue the poverty in which; though he had been so many times a general of Athens and had enjoyed the friendship of kings, he had come to old age; whereas Demades made a great parade of his wealth, even though he was violating the laws to do so. 
+				<milestone n="3" unit="section"/>For instance, there was a law of Athens at this time forbidding a choregus to have a foreigner in his chorus, under penalty of a thousand drachmas; but Demades presented a chorus of a hundred members all of whom were foreigners, and at the same time brought into the theatre his fine of a thousand drachmas for each one of them. Again, when he was bringing home a wife for his son Demeas, he said to him: 
+				<q direct="unspecified">When I married thy mother, my son, not even a neighbour noticed it; but to thy nuptials kings and potentates are contributing.</q>
+			      </p>
+         <p>
+				        <milestone n="4" unit="section"/>When the Athenians importuned Phocion to go and persuade Antipater to remove the garrison, whether it was because he despaired of persuading him, or because he saw that the people were more sensible and conducted public affairs with more decorum when they were thus under the influence of fear, he continually rejected that mission; he did, however, persuade Antipater not to exact the moneys due from the city, but to delay, and postpone their payment. The people, accordingly, transferred their importunities to Demades. 
+				<milestone n="5" unit="section"/>He readily undertook the mission, and taking his son with him set out for Macedonia. He arrived there, as some heavenly power, doubtless, would have it, precisely at the time when Antipater was already afflicted with sickness, and when Cassander, who had assumed control of affairs, had found a letter which Demades had written to Antigonus in Asia, beseeching him to present himself suddenly in Greece and Macedonia, which hung by an old and rotten thread, as he facetiously called Antipater. 
+				<milestone n="6" unit="section"/>When, therefore, Cassander saw Demades after his arrival, he arrested him, and first slaughtered his son, whom he had brought so near that the folds of his father's robe caught the blood of his murder and were filled with it, and then, after heaping much insult and abuse upon him for his ingratitude and treachery, slew the father too.
+			</p>
+         <p>
+				        <milestone n="31" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And when Antipater died, after appointing Polysperchon general-in-chief, and Cassander chiliarch,<note resp="ed" place="unspecified" anchored="yes">Not to be taken in its literal meaning of <gloss>commander of a thousand</gloss>, but in the general sense of <gloss>lieutenant-general</gloss>, second in command. Antipater vainly sought to deprive his son of the succession.</note> Cassander at once became rebellious, promptly took the government into his own hands, and sent Nicanor with all speed to relieve Menyllus from the command of the garrison at Athens, bidding him take over Munychia before Antipater's death became known. 
+				<milestone n="2" unit="section"/>This was done, and when, after a few days, the Athenians learned that Antipater was dead,<note resp="ed" place="unspecified" anchored="yes">In 319 B.C.</note> they blamed Phocion severely, alleging that he had known about it before and had held his peace as a favour to Nicanor. Phocion, however, paid no heed to these charges, but by interviews and discussions with Nicanor rendered him in general mild and gracious to the Athenians, and, in particular, persuaded him to undertake sundry expensive exhibitions as director of games.
+			</p>
+         <p>
+				        <milestone n="32" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In the meantime, too, Polysperchon, who had the king<note resp="ed" place="unspecified" anchored="yes">The imbecile Philip Arrhidaeus, half-brother of Alexander. The other king, the little son of Alexander by Roxana, was in Epeirus with Olympias, the mother of Alexander. See the <bibl n="Plut. Eum. 3.1">
+                  <title>Eumenes</title>, iii. 1</bibl> and <bibl n="Plut. Eum. 3.7">7</bibl>, with the notes.</note> in his own personal charge and was seeking to thwart the schemes of Cassander, sent a letter to the citizens of Athens, announcing that the king restored to them their democracy and ordered that all Athenians should take part in the administration of the city according to their earlier polity. 
+				<milestone n="2" unit="section"/>This was a plot against Phocion. For Polysperchon was scheming (as he plainly showed a little later) to dispose the city in his own interests, and had no hope of succeeding unless Phocion was banished; he was sure, however, that Phocion would be banished if the disfranchised citizens overwhelmed the administration, and the tribunal was again at the mercy of demagogues and public informers.
+			</p>
+         <p>
+				        <milestone n="3" unit="section"/>Since the Athenians were somewhat stirred by these communications, Nicanor wished to address them,<note resp="ed" place="unspecified" anchored="yes">Nicanor, acting in the interests of Cassander, wished to expose to the Athenians the designs of Polysperchon.</note> and after a council had been convened in Peiraeus, he came before it, relying upon Phocion for the safety of his person. But Dercyllus, the Athenian general in command of the district, made an attempt to arrest him, whereupon Nicanor, who became aware of the attempt in time, dashed away, and was clearly about to inflict speedy punishment upon the city. Phocion, however, when assailed for letting Nicanor go and not detaining him, said that he had confidence in Nicanor and expected no evil at his hands; but in any case, he would rather be found suffering wrong than doing wrong. 
+				<milestone n="4" unit="section"/>Now, such an utterance as this might seem honourable and noble in one who had regard to his own interests alone; but he who endangers his country's safety, and that, too, when he is her commanding general, transgresses, I suspect, a larger and more venerable obligation of justice towards his fellow citizens. For it cannot even be said that it was the fear of plunging the city into war which made Phocion refrain from seizing Nicanor, but that he sought to excuse himself on other grounds by protestations of good faith and justice, in order that Nicanor might respect these obligations and keep the peace and do the Athenians no wrong; 
+				<milestone n="5" unit="section"/>nay, it would seem that he really had too strong a confidence in Nicanor. For though many gave warning against that officer and accused him of hostile designs against the Peiraeus, in that he was sending mercenaries across to Salamis, and tampering with some of the residents in Peiraeus, Phocion would not give heed to the story nor believe it at all. Indeed, even after Philomelus of Lamptrae brought in a decree that all Athenians should stand under arms and await orders from Phocion their general, he paid no attention to the matter, until Nicanor led his troops forth from Munychia and began to run trenches around the Peiraeus.
+			</p>
+         <p>
+				        <milestone n="33" unit="chapter"/>
+				        <milestone n="1" unit="section"/>In this state of affairs, Phocion, who now wished to lead the Athenians forth to battle, was stormed at and held in derision, and Alexander the son of Polysperchon came with an armed force. His ostensible design was to bring aid to the citizens against Nicanor, but he really wished to seize the city, if he could, now that she was ruinously divided against herself. 
+				<milestone n="2" unit="section"/>For the exiles who had burst into the country with him were at once in the city, strangers and disfranchised citizens ran in to join them, and a motley and turbulent assembly was gathered together, in which Phocion was deposed from his command and other generals were chosen. And had not Alexander been seen in close conference with Nicanor near the walls, and had not their interview, which was often repeated, rendered the Athenians suspicious, the city would not have escaped its peril. 
+				<milestone n="3" unit="section"/>Moreover, Hagnonides the orator<note resp="ed" place="unspecified" anchored="yes">The same as the public informer of <bibl n="Plut. Phoc. 19.3">xxix. 3</bibl>.</note> at once assailed Phocion and denounced him as a traitor, whereupon Callimedon and Charicles<note resp="ed" place="unspecified" anchored="yes">Prominent partisans of Antipater, who had transferred their allegiance to Cassander, the son of Antipater, rather than to Polysperchon, the successor of Antipater.</note> took fright and left the city, while Phocion, and with him those of his friends who remained faithful, set out to go to Polysperchon. There went forth with them also, out of regard for Phocion, Solon of Plataea and Deinarchus of Corinth,<note resp="ed" place="unspecified" anchored="yes">Antipater's chief agent in Peloponnesus.</note> who were reputed to be intimate friends of Polysperchon. 
+				<milestone n="4" unit="section"/>But Deinarchus fell sick, and the party therefore tarried many days in Elateia, during which time the people of Athens, in accordance with a decree brought in by Archestratus and supported by Hagnonides, sent an embassy to denounce Phocion. Both the parties fell in with Polysperchon at the same time, as he was marching with the king near Pharygae, a village of Phocis lying at the foot of Mount Acrurium, which is now called Galata.
+			</p>
+         <p>
+				        <milestone n="5" unit="section"/>Here, then, Polysperchon, after setting up the golden canopy and seating beneath it the king and his friends, as soon as Deinarchus came forward, ordered him to be seized, tortured, and put to death,<note resp="ed" place="unspecified" anchored="yes">In order to maintain himself in power, Polysperchon was forced to treat Antipater's friends as his own enemies.</note> and then gave audience to the Athenians. But they raised a tumultuous shouting with their denunciations of one another in the council, and at last Hagnonides came forward and said: 
+				<q direct="unspecified">Throw us all into one cage and send us back to Athens to render an account.</q> 
+				        <milestone n="6" unit="section"/>At this, the king burst out laughing; but the Macedonians and foreigners who were gathered about the council, having nothing else to do, were eager to listen, and nodded to the ambassadors to make their denunciation there. But there was no fairness in the conduct of the case, since, when Phocion tried to speak, he was frequently interrupted by Polysperchon, and at last, smiting the ground with his staff, he retired and held his peace. 
+				<milestone n="7" unit="section"/>Moreover, when Hegemon<note resp="ed" place="unspecified" anchored="yes">One of Phocion's party, and, like him, under accusation of treachery, i.e. of favouring Cassander rather than Polysperchon.</note> said that Polysperchon could bear witness to his good will towards the people, and Polysperchon replied in wrath, 
+				<q direct="unspecified">Cease telling lies against me in the presence of the king,</q> the king sprang to his feet and would have smitten Hegemon with a spear. But Polysperchon quickly threw his arms about the king, and thus the council was dissolved.
+			</p>
+         <p>
+				        <milestone n="34" unit="chapter"/>
+				        <milestone n="1" unit="section"/>A guard was now placed about Phocion and his associates, and at sight of this all of his friends who were standing at some remove covered up their faces and sought safety in flight. Phocion and his party, however, were taken back to Athens by Cleitus, ostensibly to be tried, but really under sentence of death. 
+				<milestone n="2" unit="section"/>And besides, the manner of their return to the city was shameful, for they were carried on waggons through the Cerameicus to the theatre. For thither Cleitus brought them and there he kept them, until the magistrates had made up an assembly, from which they excluded neither slave, foreigner, nor disfranchised person, but allowed all alike, both men and women, free access to theatre and tribunal. 
+				<milestone n="3" unit="section"/>After the letter of the king had been read aloud, in which he said that according to his judgement the men were traitors, but that their fellow citizens, who were freemen and self-governing, should pronounce sentence upon them, Cleitus led the men in. Then the best of the citizens, at sight of Phocion, covered their faces, bent their heads, and wept. One of them, however, rose up and had the courage to say that, since the king had put a case of such importance into the hands of the people, it were well that slaves and foreigners should leave the assembly. 
+				<milestone n="4" unit="section"/>This the multitude would not tolerate, but cried out to stone the oligarchs and haters of the people. Therefore no one else undertook to speak in behalf of Phocion, but he himself, with great difficulty, at last made himself heard, saying: 
+				<q direct="unspecified">Do ye wish to put us to death unjustly or justly?</q> And when some answered, 
+				<q direct="unspecified">Justly,</q> he said: 
+				<q direct="unspecified">And how will ye determine this without hearing me?</q> 
+				        <milestone n="5" unit="section"/>But they were not a whit more willing to hear him, and therefore, drawing nearer, he said: 
+				<q direct="unspecified">I admit my own guilt, and I assign death as the penalty<note resp="ed" place="unspecified" anchored="yes">In cases where the penalty was not fixed by law, the accuser proposed a penalty, and the accused had the right to propose a counter-penalty. The court then chose between the two penalties. Phocion waived all the advantage of this right, as Socrates, in a different way, had done.</note> for my political conduct; but these men with me, men of Athens, are not guilty at all, and why will ye put them to death?</q> 
+				        <q direct="unspecified">Because they are thy friends,</q> answered many, whereat Phocion retired and held his peace. But Hagnonides read aloud an edict which he had prepared, in accordance with which the people were to vote by show of hands whether they thought the men to be guilty, and the men, if the show of hands was against them, were to be put to death.
+			</p>
+         <p>
+				        <milestone n="35" unit="chapter"/>
+				        <milestone n="1" unit="section"/>After the edict had been read aloud, some demanded an additional clause providing that Phocion should be tortured before he was put to death, and insisted that the rack should be brought in and the executioners summoned. But Hagnonides, who saw that Cleitus was displeased at this, and considered the measure abominable and barbarous, said: 
+				<q direct="unspecified">Whenever we catch that rascally Callimedon, men of Athens, we will put him to the torture; but I cannot make any such motion in the case of Phocion.</q> 
+				        <milestone n="2" unit="section"/>Here some decent fellow called out in response: 
+				<q direct="unspecified">Right thou art; for if we should torture Phocion, what would be left for us to do to thee?</q> So the form of the edict was approved, and when the show of hands was taken, no one keeping his seat, but all rising to their feet, and most of them wreathing themselves with garlands, they condemned the men to death. Now, there were with Phocion, Nicocles, Thudippus, Hegemon, and Pythocles; and Demetrius of Phalerum, Callimedon, Charicles, and sundry others, were condemned to death in absentia.
+			</p>
+         <p>
+				        <milestone n="36" unit="chapter"/>
+				        <milestone n="1" unit="section"/>When, accordingly, the assembly had been dissolved and the men were being led to the prison, the rest of them, as their friends and relatives clung about them, walked along lamenting and shedding tears; but the countenance of Phocion was the same as it used to be when he was escorted from the assembly as general, and when men saw it, they were amazed at the man's calmness and at his grandeur of spirit. 
+				<milestone n="2" unit="section"/>His enemies, however, ran along by his side and reviled him; and one of them actually came up and spat in his face. At this, as we are told, Phocion looked towards the magistrates and said: 
+				<q direct="unspecified">Will not someone stop this fellow's unseemly behaviour?</q> Again, when Thudippus, on entering the prison and seeing the executioner bruising the hemlock, grew angry and bewailed his hard fate, declaring it not fitting that he should perish with Phocion, 
+				<q direct="unspecified">Is it no satisfaction to thee, then,</q> said Phocion, 
+				<q direct="unspecified">that thou art put to death in company with Phocion?</q> 
+				        <milestone n="3" unit="section"/>And when one of his friends asked him if he had any message for his son Phocus, 
+				<q direct="unspecified">Certainly,</q> said he; 
+				<q direct="unspecified">my message is that he cherish no resentment against the Athenians.</q> Again, when Nicocles, his most faithful friend, begged the privilege of drinking the drug first, 
+				<q direct="unspecified">O Nicocles,</q> he said, 
+				<q direct="unspecified">thy request is grievous to me and painful; but since I have never in all my life denied thee any other favour, I grant thee this one also.</q> 
+				        <milestone n="4" unit="section"/>But when all the rest had drunk of it, the drug ran short, and the executioner refused to bruise another portion unless he were paid twelve drachmas, which was the price of the weight required. However, after a delay of some length, Phocion called one of his friends, and, asking if a man could not even die at Athens without paying for the privilege, bade him give the executioner his money.
+			</p>
+         <p>
+				        <milestone n="37" unit="chapter"/>
+				        <milestone n="1" unit="section"/>It was the nineteenth day of the month Munychion,<note resp="ed" place="unspecified" anchored="yes">Early in May, 318 B.C.</note> and the horsemen conducting the procession in honour of Zeus were passing by the prison. Some of them took off their garlands, and others gazed at the door of the prison with tears in their eyes. And it was thought by all those whose souls were not wholly savage and debauched by rage and jealousy, that an impious thing had been done in not waiting over that day, and so keeping the city pure from a public execution when it was holding festival. 
+				<milestone n="2" unit="section"/>However, his enemies, as if their triumph were incomplete, got a decree passed that the body of Phocion should be carried beyond the boundary of the country, and that no Athenian should light a fire for his obsequies. Therefore no friend of his ventured to touch his body, but a certain Conopion, who was wont to perform such services for hire, carried the body beyond Eleusis, took fire from the Megarian territory, and burned it. 
+				<milestone n="3" unit="section"/>The wife of Phocion,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phoc. 19.1">chapter xix</bibl>.</note> however, who was present with her maid-servants, heaped up a cenotaph on the spot and poured libations upon it; then, putting the bones in her bosom and carrying them by night to her dwelling, she buried them by the hearth, saying: 
+				<q direct="unspecified">To thee, dear Hearth, I entrust these remains of a noble man; but do thou restore them to the sepulchre of his fathers, when the Athenians shall have come to their senses.</q>
+			      </p>
+         <p>
+				        <milestone n="38" unit="chapter"/>
+				        <milestone n="1" unit="section"/>And indeed, after a short time had passed, and when the course of events was teaching them what a patron and guardian of moderation and justice the people had lost, they set up a statue of him in bronze, and gave his bones a public burial. Moreover, as regards his accusers, the people themselves condemned Hagnonides and put him to death; while Epicurus and Demophilus, who had run away from the city, were found out by Phocion's son and visited with his vengeance.
+			</p>
+         <p>
+				        <milestone n="2" unit="section"/>This son of Phocion,<note resp="ed" place="unspecified" anchored="yes">Cf. <bibl n="Plut. Phoc. 20.1">chapters xx.</bibl> and <bibl n="Plut. Phoc. 30.1">xxx. 1</bibl>.</note> we are told, turned out to be a man of no worth in general, and once, being enamoured of a girl who was kept in a brothel, chanced to hear Theodorus the Atheist discourse in the Lyceium as follows: 
+				<q direct="unspecified">If there is no disgrace in ransoming a man beloved, the same is true of a woman loved; what is true of a comrade, is true also of a mistress.</q> Accordingly, his passion leading him to think the argument sound, he ransomed his mistress. But Phocion's fate reminded the Greeks anew of that of Socrates;<note resp="ed" place="unspecified" anchored="yes">In 399 B.C.</note> they felt that the sin and misfortune of Athens were alike in both cases.
+			</p>
+      </body>
+   </text>
+</TEI.2>
