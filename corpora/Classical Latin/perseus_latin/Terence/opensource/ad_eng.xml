@@ -1,0 +1,985 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Adelphi:  The Brothers</title>
+<author>P. Terentius Afer (Terence)</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Terence</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>Ney York</pubPlace>
+<publisher>Harper and Brothers</publisher>
+<date>1874</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="TLN line"/>
+</refsDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>14-Aug-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: ad_eng.xml,v $
+Revision 1.2  2010-07-09 16:36:14  student
+fixed place tags - zr
+
+Revision 1.1  2009/12/08 20:46:27  rsingh04
+moved more xml files around based on copyright status.  renamed terence files to follow the abbreviations and split up minora_lat.xml into separate files
+
+Revision 1.11  2009/06/25 23:07:04  student
+fixed bibl error - zr
+
+Revision 1.10  2009/06/24 02:08:12  student
+fixed Ter. An. references - zr
+
+Revision 1.9  2009/06/23 14:53:01  student
+fixed Pl. Trin. references - zr
+
+Revision 1.8  2009/06/19 18:16:30  student
+fixed Pl. Mil. references - zr
+
+Revision 1.7  2009/06/18 19:43:29  student
+fixed Pl. Cur. references - zr
+
+Revision 1.6  2009/06/18 16:38:03  student
+changed Pl. Capt. from tln to act.scene - zr
+
+Revision 1.5  2008/11/14 21:28:07  lcerrato
+fixed author names for consistent sorting
+
+Revision 1.4  2006/05/05 17:38:29  packel
+fixed date tags
+
+Revision 1.3  2006/02/10 20:50:43  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:31:41  packel
+removed stray item tags
+
+Revision 1.1  2005/07/25 15:04:39  packel
+Converted to XML
+
+Revision 1.9  2003/07/01 22:18:12  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.8  2002/03/01 18:42:38  czietz
+finish spelling errors
+
+Revision 1.7  2002/02/27 21:40:10  czietz
+minor spelling errors
+
+Revision 1.6  2001/08/29 19:56:38  amahoney
+make the various Dramatis Personae lists independent instead of cross referencing each other
+
+Revision 1.5  2001/08/21 18:49:51  amahoney
+get translator's name into proper place in meta-data, use same form of author's name as in Latin
+
+Revision 1.4  2001/08/17 17:32:56  amahoney
+fix headers for TOC
+
+Revision 1.3  2001/08/17 17:24:11  amahoney
+begin marking the Latin
+
+Revision 1.2  2001/08/17 15:32:05  amahoney
+fix line numbers in the English, pick up a few typos in Latin
+
+Revision 1.1  2001/08/16 21:11:14  amahoney
+new texts
+
+</item>
+</change>
+</revisionDesc>
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castGroup>
+<castItem type="role"><role>DEMEA,<note anchored="yes">From <foreign lang="greek">dhmo\s,</foreign> the people."</note></role><roleDesc>Brothers, aged Athenians.</roleDesc></castItem>
+<castItem type="role"><role>MICIO,<note anchored="yes">From <foreign lang="greek">*mikiw\n,</foreign> a Greek proper name.</note></role></castItem>
+</castGroup>
+<castItem type="role"><role>HEGIO,<note anchored="yes">From <foreign lang="greek">h(gei=sqai,</foreign> "to lead," or "take charge of."</note> </role><roleDesc>an aged Athenian, kinsman of Sostrata.</roleDesc></castItem>
+<castItem type="role"><role>AESCHINUS,<note anchored="yes">From <foreign lang="greek">aisxo\s</foreign>, "disgrace."</note> </role><roleDesc>son of Demea, &pound;adopted by Micio.</roleDesc></castItem>
+<castItem type="role"><role>CTESIPHO,<note anchored="yes">From <foreign lang="greek">kthsi\s,</foreign> "a patrimony," and <foreign lang="greek">fw=s,</foreign> "light."</note> </role><roleDesc>another son of Demea.</roleDesc></castItem>
+<castItem type="role"><role>SANNIO,<note anchored="yes">From <foreign lang="greek">sanno\s,</foreign> "foolish."</note> </role><roleDesc>a Procurer.</roleDesc></castItem>
+<castItem type="role"><role>GETA,<note anchored="yes">One of the nation of the Getae.</note> </role><roleDesc>servant of Sostrata.</roleDesc></castItem>
+<castGroup>
+<castItem type="role"><role>PARMENO,<note anchored="yes">From <foreign lang="greek">para\,</foreign> "by," and <foreign lang="greek">me/nw,</foreign> "to remain."</note>servants of Micio.</role></castItem>
+<castItem type="role"><role>SYRUS,<note anchored="yes">From <placeName key="tgn,1000140">Syria</placeName>, his native country.</note></role></castItem>
+<castItem type="role"><role>DROMMO,<note anchored="yes">From <foreign lang="greek">dro/mos,</foreign> "a race."</note></role></castItem>
+</castGroup>
+<castItem type="role"><role>PAMPHILA,<note anchored="yes">From <foreign lang="greek">pa=n,</foreign> "all" and <foreign lang="greek">filo\s,</foreign> "a friend."</note> </role><roleDesc>a young woman beloved by Aeschinus.</roleDesc></castItem>
+<castItem type="role"><role>SOSTRATA,<note anchored="yes">From <foreign lang="greek">swxw\,</foreign> "to preserve," or "save."</note> </role><roleDesc>a widow, mother of Pamphila.</roleDesc></castItem>
+<castItem type="role"><role>CANTHARA,<note anchored="yes">From <foreign lang="greek">kanqaro\s,</foreign> "a cup."</note> </role><roleDesc>a Nurse.</roleDesc></castItem>
+<castItem type="role"><role>A Music-girl.</role></castItem>
+</castList>
+<p>Scene.--<placeName key="perseus,Athens">Athens</placeName>; before the houses of MICIO and SOSTRATA.
+</p>
+<div1 type="act" n="introduction">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>MICIO and DEMEA are two brothers of dissimilar tempers. Demea is married, and lives a country life, while his brother remains single, and resides in <placeName key="perseus,Athens">Athens</placeName>. Demea has two sons, the elder of whom, Aeschinus, has been adopted by Micio. Being allowed by his indulgent uncle to gratify his inclinations without restraint, Aeschinus has debauched Pamphila, the daughter of a widow named Sostrata. Having, however, promised to marry the young woman, he has been pardoned for the offense, and it has been kept strictly secret. Ctesipho, who lives in the country with his father under great restraint, on visiting the city, falls in love with a certain Music-girl, who belongs to the Procurer Sannio. To screen his brother, Aeschinus takes the responsibility of the affair on himself, and succeeds in carrying off the girl for him. Demen, upon hearing of this, censures Micio for his ill-timed indulgence, the bad effects of which are thus exemplified in Aeschinus; and at the same time lauds the steady conduct and frugality of Ctesipho, who has been brought up under his own supervision. Shortly after this, Sostrata hears the story about the Music-girl, at the very time that her daughter Pamphila is in labor. She naturally supposes that Aeschinus has deserted her daughter for another, and hastens to acquaint Hegio, her kinsman, with the fact. Meantime Demea learns that Ctesipho has taken part in carrying off the Music-girl, whereon Syrus invents a story, and screens Ctesipho for the moment. Demea is next informed by Hegio of the conduct of Aeschinus toward Pamphila. Wishing to find his brother, he is purposely sent on a fruitless errand by Syrus, on which he wanders all over the city to no purpose. Micio having now been informed by Hegio, and knowing that the intentions of Aeschinus toward Pamphila are not changed, accompanies him to the house of Sostrata, whom he consoles by his promise that Aeschinus shall marry her daughter. Demea then returns from his search, and, rushing into Micio's house, finds his son Ctesipho there carousing; on which he exclaims vehemently against Micio, who uses his best endeavors to soothe him, and finally with success. He now determines to become kind and considerate for the future. At his request, Pamphila is brought to Micio's house, and the nuptials are celebrated. Micio, at the earnest request of Demea and Aeschinus, marries Sostrata; Hegio has a competency allowed him; and Syrus and his wife <placeName key="tgn,7002613">Phrygia</placeName> are made free. The Play concludes with a serious warning from Demea, who advises his relatives not to squander their means in riotous living; but, on the contrary, to bear admonition and to submit to restraint in a spirit of moderation and thankfulness.</p></div2>
+<div2 type="scene" n="production">
+<head>THE TITLE OF THE PLAY.</head>
+
+<p>PERFORMED at the, Funeral Games of Aemilius Paulus,<note anchored="yes">Of Aemilius Paulus) This Play (from the Greek <foreign lang="greek">)*adelfoi\,</foreign> "The Brothers") was performed at the Funeral Games of Lucius Aemilius Paulus, who was surnamed Macedonicus, from having gained a victory over Perseus, King of <placeName key="tgn,7002715">Macedon</placeName>. He was so poor at the time of his decease, that they were obliged to sell his estate in order to pay his widow her dower. The Q. Fabius Maximus and P. Cornelius Africanus here mentioned were not, as some have thought, the Curule Aediles, but two sons of Aemilius Paulus, who had taken the surnames of the families into which they had been adopted.</note> which were celebrated by Q. Fabius Maximns and P. Cornelius Africanus. L. Atilius Praenestinus and Minutius Prothimus performed it. Flaccus, the freedman of Claudius, composed the music for Sarranian flutes.<note anchored="yes">Sarranian flutes) The "Sarranian" or "Tyrian" pipes, or flutes, are supposed to have been of a quick and mirthful tone; Madame Dacier has consequently with much justice suggested that the representation being on the occasion of a funeral, the title has not come down to us in a complete form, and that it was performed with the Lydian, or grave, solemn pipe, alternately with the Tyrian. This opinion is also strengthened by the fact that Donatus expressly says that it was performed to the music of Lydian flutes.</note> Taken from the Greek of Menander, L. Anicius and M. Cornelius being Consuls.<note anchored="yes">Being Consuls) L. Anicius Gallus and M. Cornelius Cethegus were Consuls in the year from the Building of the City 592, and B.C. <date value="-161">161</date>.</note>
+</p></div2>
+<div2 type="scene" n="summary">
+<head>THE SUMMARY OF C. SULPITIUS APOLLINARIS.</head>
+<p>As Demea has two sons, young men, he gives Aeschinus to his brother Micio to be adopted by him; but he retains Ctesipho: him, captivated with the charms of a Music-girl, and under a harsh and strict father, his brother Aeschinus screens; the scandal of the affair and the amour he takes upon himself; at last, he carries the Music-girl away from the Procurer. This same Aeschinus has previously debauched a poor woman, a citizen of <placeName key="perseus,Athens">Athens</placeName>, and has given his word that she shall be his wife. Demea upbraids him, and is greatly vexed; afterward, however, when the truth is discovered, Aeschinus marries the girl who has been debauched; and, his harsh father Demea now softened, Ctesipho retains the Music-girl.
+
+</p></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<sp><speaker>THE PROLOGUE.</speaker><p>Since the Poet has found that his writings are carped at by unfair critics, and that his adversaries represent in a bad light the Play that we are about to perform, he shall give information about himself; you shall be the judges whether this ought to be esteemed to his praise or to his discredit. The Synapothnescontes<milestone n="6" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Synapothnescontes</lemma>: Signifying "persons dying together." The "Commorientes" of Plautus is lost. It has been doubted by some, despite these words of Terence, if Plautus ever did write such a Play.</note> is a Comedy of Diphilus;<milestone n="6" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of Diphilus</lemma>: Diphilus was a Greek Poet, contemporary with Menander.</note> Plautus made it into a Play called the "Commorientes." In the Greek, there is a young man, who, at the early part of the Play, carries off a Courtesan from a Procurer; that part Plautus has entirely left out. This portion he has adopted in the <title>Adelphi</title>, and has transferred it, translated word for word. This new Play we are about to perform; determine then whether you think a theft has been committed, or a passage has been restored to notice which has been passed over in neglect. For as to what these malevolent persons say, that men of noble rank assist him, and are always writing in conjunction with him--that which they deem to be a heavy crimination, he takes to be the highest praise; since he pleases those who please you all and the public; the aid of whom in war, in peace, in private business,<milestone n="20" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In war, in peace, in private, business</lemma>: According to Donatus, by the words "<foreign lang="la">in bello</foreign>," Terence is supposed to refer to his friend and patron Scipio; by "<foreign lang="la">in otio</foreign>," to Furius Publius; and in the words "<foreign lang="la">in negotio</foreign>" to Laelius, who was famed for his wisdom.</note> each one has availed himself of, on his own occasion, without any haughtiness on their part. Now then, do not expect the plot of the Play; the old men<milestone n="23" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The old men</lemma>: This is similar to the words in the Prologue to the Trinummus of Plautus, <bibl n="Pl. Trin. prologue.0">l. 16</bibl>: "But expect nothing about the plot of this Play; the old men who will come hither will disclose the matter to you."</note> who come first will disclose it in part; a part in the representation they will make known. Do you cause your impartial attention to increase the industry of the Poet in writing?
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="26" unit="TLN line"/>
+<stage>Enter MICIO, calling to a servant within.</stage>
+<sp><speaker>MICIO</speaker><p> Storax! Aeschinus has not returned home from the entertainment last night, nor any of the servants who went to fetch him.<note anchored="yes"><lemma targOrder="U">To fetch him</lemma>: "<foreign lang="la">Advorsum ierant</foreign>." On the duties of the "<foreign lang="la">adversitores</foreign>," see the Notes to Bohn's Translation of Plautus.</note> <stage>To himself.</stage> Really, they say it with reason, if you are absent anywhere, or if you stay abroad at any time, 'twere better for that to happen which your wife says against you, and which in her passion she imagines in her mind, than the things which fond parents fancy. A wife, if you stay long abroad, either imagines that you are in love or are beloved, or that you are drinking and indulging your inclination, and that you only are taking your pleasure, while she herself is miserable. As for myself, in consequence of my son not having returned home, what do I imagine? In what ways am I not disturbed? For fear lest he may either have taken cold,<milestone n="36" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Either have taken cold</lemma>: Westerhovius observes that this passage seems to be taken from one in the Miles Gloriosus of Plautus, <bibl n="Pl. Mil. 3.1">l. 721</bibl>, et seq.: "Troth, if I had had them, enough anxiety should I have had from my children; I should have been everlastingly tormented in mind: but if perchance one had had a fever, I think I should have died. Or if one in liquor had tumbled any where from his horse, I should have been afraid that he had broken his legs or neck on that occasion." It may be remarked that.there is a great resemblance between the characters of Micio here and Periplecomenus in the Miles Gloriosus.</note> or have fallen down somewhere, or have broken some limb. Oh dear! that any man should take it into his head, or find out what is dearer to him than he is to himself! And yet he is not my son, but my brother's. He is quite different in disposition. I, from my very youth upward, have lived a comfortable town life, and taken my ease; and, what they esteem a piece of luck, I have never had a wife. He, on the contrary to all this, has spent his life in the country, and has always lived laboriously and penuriously. He married a wife, and has two sons. This one, the elder of them, I have adopted. I have brought him up from an infant, and considered and loved him as my own. In him I centre my delight; this object alone is dear to me. On the other hand, I take all due care that he may hold me equally dear. I give--I overlook; I do not judge it necessary to exert my authority in every thing; in fine, the things that youth prompts to, and that others do unknown to their fathers, I have used my son not to conceal from me. For he, who, as the practice is, will dare to tell a lie to or to deceive his father, will still more dare to do so to others. I think it better to restrain children through a sense of shame and liberal treatment, than through fear. On these points my brother does not agree with me, nor do they please him. He often comes to me exclaiming, "What are you about, Micio? Why do you ruin for us this youth? Why does he intrigue? Why does he drink? Why do you supply him with the means for these goings on? You indulge him with too much dress; you are very inconsiderate." He himself is too strict, beyond what is just and reasonable; and he is very much mistaken, in my opinion, at all events, who thinks that an authority is more firm or more lasting which is established by force, than. that which is founded on affection. Such is my mode of reasoning; and thus do I persuade myself. He, who, compelled by harsh treatment, does his duty, so long as he thinks it will be known, is on his guard: if he hopes that it will be concealed, he again returns to his natural bent. He whom you have secured by kindness, acts from inclination; he is anxious to return like for like; present and absent, he will be the same. This is the duty of a parent, to accustom a son to do what is right rather of his own choice, than through fear of another. In this the father differs from the master: he who can not do this, let him confess that he does not know how to govern children. But is not this the very man of whom I was speaking? Surely it is he. I don't know why it is I see him out of spirits; I suppose he'll now be scolding as usual. Demea, I am glad to see you well.<milestone n="81" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To see you well</lemma>: Cooke remarks, that though there are several fine passages in this speech, and good observations on human life, yet it is too long a soliloquy.</note></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="82" unit="TLN line"/>
+<stage>Enter DEMEA.</stage>
+<sp><speaker>DEMEA</speaker><p> Oh,--opportunely met; you are the very man I was looking for.<milestone n="81" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I was looking for</lemma>: Donatus observes that the Poet has in this place improved upon Menander, in representing Demea as more ready to wrangle with his brother than to return his compliments.</note></p></sp>
+<sp><speaker>MICIO</speaker><p> Why are you out of spirits?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do you ask me, when we have such a son as Aeschinus,<milestone n="82" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Such a son as Aeschinus</lemma>: The passage pretty clearly means by "<foreign lang="la">ubi nobis Aeschinus sit</foreign>," "when I've got such a son as Aeschinus." Madame Dacier, however, would translate it: "Ask me--you, in whose house Aeschinus is?" thus accusing him of harboring Aeschinus; a very forced construction, however.</note> why I'm out of spirits?</p></sp>
+<sp><speaker>MICIO</speaker><p> <stage>aside.</stage> Did I not say it would be so? <stage>To DEMEA.</stage> What has he been doing?</p></sp>
+<sp><speaker>DEMEA</speaker><p> What has he been doing? He, who is ashamed of nothing, and fears no one, nor thinks that any law can control him. But I pass by what has been previously done: what a thing he has just perpetrated!</p></sp>
+<sp><speaker>MICIO</speaker><p> Why, what is it?</p></sp>
+<sp><speaker>DEMEA</speaker><p> He has broken open a door,<milestone n="88" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Broken open a door</lemma>: The works of Ovid and Plautus show that it was no uncommon thing for riotous young men to break open doors; Ovid even suggests to the lover the expediency of getting into the house through the windows.</note> and forced his way into another person's house, beaten to death the master himself, and all the household, and carried off a wench whom he had a fancy for. All people are exclaiming that it was a most disgraceful proceeding. How many, Micio, told me of this as I was coming here? It is in everybody's mouth. In fine, if an example must be cited, does he not see his brother giving his attention to business, and living frugally and soberly in the country? No action of his is like this. When I say this to him, Micio, I say it to you. You allow him to be corrupted.</p></sp>
+<sp><speaker>MICIO</speaker><p> Never is there any thing more unreasonable than a man who wants experience, who thinks nothing right except what he himself has done.</p></sp>
+<sp><speaker>DEMEA</speaker><p> What is the meaning of that?</p></sp>
+<sp><speaker>MICIO</speaker><p> Because, Demea, you misjudge these matters. It is no heinous crime, believe me, for a young man to intrigue or to drink; it is not; nor yet for him to break open a door. If neither I nor you did so, it was poverty that did not allow us to do so. Do you now claim that as a merit to yourself which you then did from necessity? That is unfair; for if we had had the means to do so, we should have done the same. And, if you were a man, you would now suffer that other son of yours to act thus now, while his age will excuse it, rather than, when he has got you, after long wishing it, out of the way, he should still do so, at a future day, and at an age more unsuited.</p></sp>
+<sp><speaker>DEMEA</speaker><p> O <persName>Jupiter</persName>! You, sir, are driving me to distraction. Is it not a heinous thing for a young man to do these things?</p></sp>
+<sp><speaker>MICIO</speaker><p> Oh! do listen to me, and do not everlastingly din me upon this subject. You gave me your son to adopt; he became mine; if he offends in any thing, Demea, he offends against me: in that case I shall bear the greater part of the inconvenience. Does he feast,<milestone n="117" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Does he feast</lemma>: Colman has the following observation here: "The mild character of Micio is contrasted by <persName>Cicero</persName> to that of a furious, savage, severe father, as drawn by the famous Comic Poet, Caecilius. Both writers are quoted in the Oration for Caelius, in the composition of which it is plain that the orator kept his eye pretty closely on our Poet. The passages from Caecilius contain all that vehemence and severity which, as <persName>Horace</persName> tells us, was accounted the common character of the style of that author."</note> does he drink, does he smell of perfumes,<milestone n="117" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Smell of perfumes</lemma>: For an account of the "<foreign lang="la">unguenta</foreign>," or perfumes in use among the ancients, see the Notes to Bohn's Translation of Plautus.</note>--it is at my cost. Does he intrigue, money shall be found by me, so long as it suits me; when it shall be no longer convenient, probably he'll be shut out of doors.<milestone n="119" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Will be shut out of doors</lemma>: No doubt by his mistress, when she has drained him of his money, and not by Micio himself, as Colman says he was once led to imagine.</note> Has he broken open a door--it shall be replaced; has he torn any one's clothes--they shall be mended. Thanks to the Gods, I both have means for doing this, and these things are not as yet an annoyance. In fine, either desist, or else find some arbitrator between us: I will show that in this matter you are the most to blame.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Ah me! Learn to be a father from those who are really so.</p></sp>
+<sp><speaker>MICIO</speaker><p> You are his father by nature, I by my anxiety.</p></sp>
+<sp><speaker>DEMEA</speaker><p> You, feel any anxiety?</p></sp>
+<sp><speaker>MICIO</speaker><p> Oh dear,--if you persist, I'll leave you.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Is it thus you act?</p></sp>
+<sp><speaker>MICIO</speaker><p> Am I so often to hear about the same thing?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I have some concern for my son.</p></sp>
+<sp><speaker>MICIO</speaker><p> I have some concern for him too; but, Demea, let us each be concerned for his own share--you for the one, and I for the other. For, to concern yourself about both is almost the same thing as to demand him back again, whom you intrusted to me.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Alas, Micio!</p></sp>
+<sp><speaker>MICIO</speaker><p> So it seems to me.</p></sp>
+<sp><speaker>DEMEA</speaker><p> What am I to say to this? If it pleases you, henceforth--let him spend, squander, and destroy; it's nothing to me. If I say one word after this----</p></sp>
+<sp><speaker>MICIO</speaker><p> Again angry, Demea?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Won't you believe me? Do I demand him back whom I have intrusted? I am concerned for him; I am not a stranger in blood; if I do interpose----well, well, I have done. You desire me to concern myself for one of them,--do concern myself; and I give thanks to the Gods, he is just as I would have him; that fellow of yours will find it out at a future day : I don't wish to say any thing more harsh against him. <stage>(Exit.)</stage>
+</p></sp>
+<sp><speaker>MICIO</speaker><p> These things are<milestone n="141" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">These things are</lemma>: Donatus observes here, that Terence seems inclined to favor the part of mild fathers. He represents Micio as appalled at his adopted son's irregularities, lest if he should appear wholly unmoved, he should seem to be corrupting him, rather than to be treating him with only a proper degree of indulgence.</note> not nothing at all, nor yet all just as he says; still they do give me some uneasiness; but I was unwilling to show him that I took them amiss, for he is such a man; when I would pacify him, I steadily oppose and resist him; and in spite of it he hardly puts up with it like other men; but if I were to inflame, or even to humor his anger, I should certainly be as mad as himself. And yet Aesclhinus has done me some injustice in this affair. What courtesan has he not intrigued with? Or to which of them has he not made some present? At last, he recently told me that he wished to take a wife,<milestone n="151" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Wished to take a wife</lemma>: Donatus remarks here, that the art of Terence in preparing his incidents is wonderful. He contrives that even ignorant persons shall open the plot, as in the present instance, where we understand that Aeschinus has mentioned to Micio his intention of taking a wife, though he has not entered into particulars. This naturally leads us to the ensuing parts of the Play, without forestalling any of the circumstances.</note> I suppose he was just then tired of them all. I was in hopes that the warmth of youth had now subsided; I was delighted. But look now, he is at it again; however, I am determined to know it, whatever it is, and to go meet the fellow, if he is at the Forum. <stage>(Exit.)</stage>
+
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="157" unit="TLN line"/>
+<stage>Enter AESCHINUS and PARMENO with the MUSIC-GIRL, followed by SANNIO and a crowd of people.</stage>
+<sp><speaker>SANNIO</speaker><p> I beseech you, fellow-citizens, do give aid to a miserable and innocent man; do assist the distressed.
+</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>to the GIIL.</stage> Be quiet, and now then stand here just where you are. Why do you look back? There's no danger; he shall never touch you while I am here.</p></sp>
+<sp><speaker>SANNIO</speaker><p> I'll have her, in spite of all.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Though he is a villain, he'll not risk, to-day, getting a second beating.</p></sp>
+<sp><speaker>SANNIO</speaker><p> Hear me, Aeschinus, that you may not say that you were in ignorance of my calling; I am a Procurer.<milestone n="161" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">"I am a Procurer</lemma>: He says this aloud, and with emphasis, relying upon the laws which were enacted at <placeName key="perseus,Athens">Athens</placeName> in favor of the "<foreign lang="la">lenones</foreign>," whose occupation brought great profits to the state, from their extensive trading in slaves. It was forbidden to maltreat them, under pain of being disinherited.</note></p></sp>
+<sp><speaker>AESCHINUS</speaker><p> I know it.</p></sp>
+<sp><speaker>SANNIO</speaker><p> And of as high a character as any one ever was. When you shall be excusing yourself by-and-by, how that you wish this injury had not been done me, I shall not value it this <stage>snapping his fingers</stage>. Depend upon it, I'll prosecute my rights; and you shall never pay with words for the evil that you have done me in deed. I know those ways of yours: "I wish it hadn't happened; I'll take my oath that you did not deserve this injustice;" while I myself have been treated in a disgraceful manner.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>to PARMENO.</stage> Go first with all dispatch and open the door. <stage>PARMENO opens the door.</stage></p></sp>
+<sp><speaker>SANNIO</speaker><p> But you will avail nothing by this.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>To the GIRL.</stage> Now then, step in.</p></sp>
+<sp><speaker>SANNIO</speaker><p> <stage>coming between.</stage> But I'll not let her.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Step this way, Parmeno; you are gone too far that way; here <stage>pointing</stage>, stand close by him; there, that's what I want. Now then, take care you don't move your eyes in any direction from mine, that there may be no delay if I give you the sign, to your fist being instantly planted in his jaws.</p></sp>
+<sp><speaker>SANNIO</speaker><p> I'd have him then try that.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>to PARMENO.</stage> Now then, observe me.</p></sp>
+<sp><speaker>PARMENO</speaker><p> <stage>to SANNIO.</stage> Let go the woman. <stage>Strikes him.</stage></p></sp>
+<sp><speaker>SANNIO</speaker><p> Oh! scandalous deed!
+</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> He shall repeat it, if you don't take care. <stage>PARMENO strikes him again.</stage></p></sp>
+<sp><speaker>SANNIO</speaker><p> Oh shocking!</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>to PARMENO.</stage> I didn't give the sign; but still make your mistakes on that side in preference. Now then, go. <stage>PARMENO goes with the MUSIC-GIRL into MICIO'S house.</stage></p></sp>
+<sp><speaker>SANNIO</speaker><p> What is the meaning of this? Have you the sway here, Aeschinus?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> If I had it, you should be exalted for your deserts.</p></sp>
+<sp><speaker>SANNIO</speaker><p> What business have you with me?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> None.</p></sp>
+<sp><speaker>SANNIO</speaker><p> How then, do you know who I am?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> I don't want to.</p></sp>
+<sp><speaker>SANNIO</speaker><p> Have I touched any thing of yours?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> If you had touched it, you'd have got a drubbing.</p></sp>
+<sp><speaker>SANNIO</speaker><p> What greater right then have you to take my property, for which I paid my money? Answer me that.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> It were better for you not to be making a disturbance here before the house; for if you persist in being impertinent, you shall be dragged in at once, and there you shall be lashed to death with whips.</p></sp>
+<sp><speaker>SANNIO</speaker><p> A free man, with whips?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> So it shall be.</p></sp>
+<sp><speaker>SANNIO</speaker><p> Oh, you shameless fellow! Is this the place where they say there is equal liberty for all?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> If you have now raved enough, Procurer, now then listen, if you please.</p></sp>
+<sp><speaker>SANNIO</speaker><p> Why, is it I that have been raving, or you against me?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Leave alone all that, and come to the point.</p></sp>
+<sp><speaker>SANNIO</speaker><p> What point? Where am I to come to?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Are you willing now that I should say something that concerns you?</p></sp>
+<sp><speaker>SANNIO</speaker><p> With all my heart, only so it be something that's fair.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Very fine! a Procurer wishing me not to say what's unfair.</p></sp>
+<sp><speaker>SANNIO</speaker><p> I am a Procurer,<milestone n="188" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I am a Procurer</lemma>: Westerhovins supposes this part to be a translation from the works of Diphilus.</note> I confess it-the common bane of youth--a perjurer, a public nuisance; still, no injury has befallen you from me.
+</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Why, faith, that remains to come----</p></sp>
+<sp><speaker>SANNIO</speaker><p> Pray, Aeschinus, do come back to the point at which you set out.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> You bought her for twenty nine; and may your bargain never thrive! That sum shall be given for her.</p></sp>
+<sp><speaker>SANNIO</speaker><p> What if I don't choose to sell her to you? Will you compel me?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> By no means.</p></sp>
+<sp><speaker>SANNIO</speaker><p> I was afraid you would.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Neither do I think that a woman can be sold who is free; for I claim her by action of freedom.<milestone n="194" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By action of freedom</lemma>: "<foreign lang="la">Asserere liberati causa</foreign>," was to assert the freedom of a person, with a determination to maintain it at law. The "assertor" laid hands upon the person, declaring that he or she was free; and till the cause was tried, the person whose freedom was claimed, remained in the hands of the "assertor."</note> Now consider which you choose; take the money, or prepare yourself for the action. Think of it, Procurer, till I return.<milestone n="196" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Till I return</lemma>: Colman has a curious remark here: "I do not remember, in the whole circle of modern comedy, a more natural picture of the elegant ease and indifference of a fine gentleman, than that exhibited in this Scene in the character of Aeschinus."</note> <stage>He  goes into the house of MICIO.</stage>
+</p></sp>
+<sp><speaker>SANNIO</speaker><p> <stage>to himself.</stage> O supreme <persName>Jupiter</persName>! I do by no means wonder that men run mad through ill usage. He has dragged me out of my house, beaten me, taken my property away against my will, and has given me, unfortunate wretch, more than five hundred blows. In return for all this ill usage he demands the girl to be made over to him for just the same price at which she was bought. But however, since he has so well deserved of me, be it so: he demands what is his due. Very well, I consent then, provided he only gives the money. But I suspect this; when I have said that I will sell her for so much, he'll be getting witnesses forthwith that I have sold her.<milestone n="204" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That I have sold her</lemma>: He means, that if he only names a price, Aeschinus will suborn witnesses to say that be has agreed to sell her, in which case Aeschinus will carry her off with impunity, and the laws will not allow him to recover her; as it will then be an ordinary debt, and he will be put off with all the common excuses used by debtors.</note> As to getting the money, it's all a dream. Call again by and by; come back to-morrow. I could bear with that too, hard as it is, if he would only pay it. But I consider this to be the fact; when you take up this trade, you must brook and bear in silence the affronts of these young fellows. However, no one will pay me; it's in vain for me to be reckoning upon that.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="211" unit="TLN line"/>
+<stage>Enter SYRUS, from the house of MICIO.</stage>
+<sp><speaker>SYRUS</speaker><p> <stage>speaking to AECHINUS within.</stage> Say no more; I myself will arrange with him; I'll make him glad to take the money at once, and say besides that he has been fairly dealt with. <stage>Addressing SANNIO.</stage> Sannio, how is this, that I hear you have been having some dispute or other with my master?</p></sp>
+<sp><speaker>SANNIO</speaker><p> I never saw a dispute on more unequal terms<milestone n="212" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On more unequal terms</lemma>:  "<foreign lang="la">Certationem comparatam</foreign>." This was a term taken from the combats of gladiators, where it was usual to choose as combatants such as seemed most nearly a match for each other.</note> than the one that has happened to-day between us; I, with being thumped, he, with beating me, were both of us quite tired.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Your own fault.</p></sp>
+<sp><speaker>SANNIO</speaker><p> What could I do?</p></sp>
+<sp><speaker>SYRUS</speaker><p> You ought to have yielded to the young man.</p></sp>
+<sp><speaker>SANNIO</speaker><p> How could I more so, when to-day I have even afforded my face to his blows?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Well--are you aware of what I tell you? To slight money on some occasions is sometimes the surest gain. What!--were you afraid, you greatest simpleton alive, if you had parted with ever so little<milestone n="217" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If you had parted with ever so little</lemma>: This passage is probably alluded to by <persName><surname>Cicero</surname></persName>, in his work, <bibl n="Cic. Off. 2.18"><title lang="la">De Officiis</title>, B. ii. c. 18</bibl>: "For it is not only liberal sometimes to give up a little of one's rights, but it is also profitable."</note> of your right, and had humored the young man, that he would not repay you with interest?
+</p></sp>
+<sp><speaker>SANNIO</speaker><p> I do not pay ready money for hope.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Then you'll never make a fortune. Get out with you, Sannio; you don't know how to take in mankind.</p></sp>
+<sp><speaker>SANNIO</speaker><p> I believe that to be the better plan--but I was never so cunning as not, whenever I was able to get it, to prefer getting ready money.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Come, come, I know your spirit; as if twenty minae were any thing at all to you in comparison to obliging him; besides, they say that you are setting out for <placeName key="tgn,1000112">Cyprus</placeName>----</p></sp>
+<sp><speaker>SANNIO</speaker><p> (aside.) Hah!</p></sp>
+<sp><speaker>SYRUS</speaker><p> That you have been buying up many things to take thither; and that the vessel is hired. This I know, your mind is in suspense; however, when you return thence, I hope you'll settle the matter.</p></sp>
+<sp><speaker>SANNIO</speaker><p> Not a foot do stir: Heavens! I'm undone! <stage>Aside.</stage> It was upon this hope they devised their project.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>aside.</stage> He is alarmed. I've brought the fellow into a fix.</p></sp>
+<sp><speaker>SANNIO</speaker><p> <stage>aside.</stage> Oh, what villainy!--Just look at that; how he has nicked me in the very joint.
+<milestone n="229" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the very joint</lemma>: "<foreign lang="la">Ut in ipso articulo oppressit</foreign>." Colman translates this, "Nick'd me to a hair."</note> Several women have been purchased, and other things as well, for me to take to <placeName key="tgn,1000112">Cyprus</placeName>.
+<milestone n="230" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To take to <placeName key="tgn,1000112">Cyprus</placeName></lemma>: He alludes to a famous slave-market held in the Isle of <placeName key="tgn,1000112">Cyprus</placeName>, whither merchants carried slaves for sale, after buying them up in all parts of <placeName key="tgn,1000074">Greece</placeName>.</note> If I don't get there to the fair, my loss will, be very great. Then if I postpone this business, and settle it when I come back from there, it will be of no use; the matter will be quite forgotten. "Come at last?" they'll say. "Why did you delay it? Where have you been?" So that I had better lose it altogether than either stay here so long, or be suing for it then.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Have you by this reckoned
+<milestone n="236" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">3 Have you by this reckoned</lemma>: "<foreign lang="la">Iamne enumerasti id quod ad te rediturum putes?</foreign>" Colman renders this, "Well, have you calculated what's your due?" referring to the value of the Music-girl that has been taken away from him; and thinks that the following conversation between Sannio and Syrus supports that construction. Madame lacier puts another sense on the words, and understands them as alluding to Sannio's calculation of his expected profits at <placeName key="tgn,1000112">Cyprus</placeName>.</note> up what you calculate will be your profits?
+</p></sp>
+<sp><speaker>SANNIO</speaker><p> Is this honorable of him? Ought Aeschinus to attempt this? Ought he to endeavor to take her away from me by downright violence?</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>aside.</stage> He gives ground. <stage>To SANNIO.</stage> I have this one proposal to make; see if you fully approve of it. Rather than you should run the risk, Sannio, of getting or losing the whole, halve it. He will manage to scrape together ten minae<milestone n="242" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Scrape together ten minae</lemma>: Donatus remarks, that Syrus knows very well that Aeschinus is ready to pay the whole, but offers Sannio half, that he may be glad to take the bare principal, and think himself well off into the bargain.</note> from some quarter or other.</p></sp>
+<sp><speaker>SANNIO</speaker><p> Ah me! unfortunate wretch, I am now in danger of even losing part of the principal. Has he no shame? He has loosened all my teeth; my head, too, is full of bumps with his cuffs; and would he defraud me as well? I shall go nowhere.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Just as you please. Have you any thing more to say before I go?</p></sp>
+<sp><speaker>SANNIO</speaker><p> Why yes, Syrus, i' faith, I have this to request. Whatever the matters that are past, rather than go to law, let what is my own be returned me; at least, Syrus, the sum she cost me. I know that you have not hitherto made trial of my friendship; you will have no occasion to say that I am unmindful or ungrateful.</p></sp>
+<sp><speaker>SYRUS</speaker><p> I'll do the best I can. But I see Ctesipho; he's in high spirits about his mistress.</p></sp>
+<sp><speaker>SANNIO</speaker><p> What about what I was asking you?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Stay a little.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="256" unit="TLN line"/>
+<stage>Enter CTESIPHO, at the other side of the stage.</stage>
+<sp><speaker>CTESIPHO</speaker><p> From any man, when you stand in need of it, you are glad to receive a service; but of a truth it is doubly acceptable, if he does you a kindness who ought to do so. O brother, brother, how can I sufficiently commend you? This I am quite sure of; I can never speak of you in such high terms but that your deserts will surpass it. For I am of opinion that I possess this one thing in especial beyond all others, a brother than whom no individual is more highly endowed with the highest qualities.</p></sp>
+<sp><speaker>SYRUS</speaker><p> O Ctesipho!</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> O Syrus, where is Aeschinus?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Why, look--he's at home, waiting for you.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>speaking joyously.</stage> Ha!</p></sp>
+<sp><speaker>SYRUS</speaker><p> What's the matter?</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> What's the matter? 'Tis through him, Syrus, that I am now alive--generous creature! Has he not deemed every thing of secondary importance to himself in comparison with my happiness? The reproach, the discredit, my own amour and imprudence, he has taken upon himself. There can be nothing beyond this; but what means that noise at the door?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Stay, stay; 'tis Aeschinus himself coming out.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="267" unit="TLN line"/>
+<stage>Enter AESCHINUS, from the house of MICIO.</stage>
+<sp><speaker>AESCHINUS</speaker><p> Where is that villain?</p></sp>
+<sp><speaker>SANNIO</speaker><p> <stage>aside.</stage> He's looking for me.<note anchored="yes"><lemma targOrder="U">He's looking for me</lemma>: Donatus remarks upon the readiness with which Sannio takes the appellation of "<foreign lang="la">sacrilegus</foreign>," as adapted to no other person than himself.</note> Is  he bringing any thing with him? Confusion! I don't see any thing.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>to CTESIPHO.</stage> Ha! well met; you are the very man I was looking for. How goes it, Ctesipho? All is safe: away then with your melancholy.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> By my troth, I certainly will away with it, when I have such a brother as you. O my dear Aeschinus! O my brother! Alas! I am unwilling to praise you any more to your face, lest you should think I do so rather for flattery than through gratitude.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Go to, you simpleton! as though we didn't by this time understand each other, Ctesipho. This grieves me, that we knew of it almost too late, and that the matter had come to such a pass, that if all mankind had wished they could not possibly have assisted you.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> I felt ashamed.
+</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Pooh! that is folly, not shame; about such a trifling matter to be almost flying the country!
+<milestone n="275" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Flying the country</lemma>: Donatus tells us, that in Menander the young man was on the point of killing himself. Terence has here softened it into leaving the country. Colman remarks: "We know that the circumstance of carrying off the Music-girl was borrowed from Diphilus; yet it is plain from Donatus that there was also an intrigue by Ctesipho in the Play of Menander; which gives another proof of the manner in which Terence used the Greek Comedies."</note> 'Tis shocking to be mentioned; I pray the Gods may forbid it!</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> I did wrong.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>in a lower voice.</stage> What says Sannio to us at last?</p></sp>
+<sp><speaker>SYRUS</speaker><p> He is pacified at last.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> I'll go to the Forum to pay him off; you, Ctesipho, step in-doors to her.</p></sp>
+<sp><speaker>SANNIO</speaker><p> <stage>aside to SYRUS.</stage> Syrus, do urge the matter.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>to AESCHINUS.</stage> Let us be off, for he is in haste foe' <placeName key="tgn,1000112">Cyprus</placeName>.
+<milestone n="278" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He is in haste for <placeName key="tgn,1000112">Cyprus</placeName></lemma>: Donatus remarks that this is a piece of malice on the part of Syrus, for the purpose of teasing Sannio.</note></p></sp>
+<sp><speaker>SANNIO</speaker><p> Not particularly so; although still, I'm stopping here doing nothing at all.</p></sp>
+<sp><speaker>SYRUS</speaker><p> It shall be paid, don't fear.</p></sp>
+<sp><speaker>SANNIO</speaker><p> But he is to pay it all.</p></sp>
+<sp><speaker>SYRUS</speaker><p> He shall pay it all; only hold your tongue and follow us this way.</p></sp>
+<sp><speaker>SANNIO</speaker><p> I'll follow.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>as SYRUS is going.</stage> Harkye, harkye, Syrus.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>turning back.</stage> Well now, what is it?</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>aside.</stage> Pray do discharge that most abominable fellow as soon as possible; for fear, in case he should become more angry, by some means or other this matter should reach my father, and then I should be ruined forever.</p></sp>
+<sp><speaker>SYRUS</speaker><p> That shall not happen, be of good heart; meanwhile enjoy yourself in-doors with her, and order the couches
+<milestone n="285" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Order the couches</lemma>: Those used for the purpose of reclining on at the entertainment.</note> to be spread for us, and the other things to be got ready. As soon as this business is settled, I shall come home with the provisions.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> Pray do so. Since this has turned out so well, let us make a cheerful day of it. <stage>CTESIPHO goes into the house of MICIO; and exeunt AESCHINUS and SYRUS, followed by SANNIO.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="290" unit="TLN line"/>
+<stage>Enter SOSTRATA and CANTHARA, from the house of the former.</stage>
+<sp><speaker>SOSTRATA</speaker><p> Prithee, my dear nurse, how is it like to end?</p></sp>
+<sp><speaker>CANTHARA</speaker><p> Like to end, do you ask? I' troth, right well, I trust.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Her pains are just beginning, my dear.</p></sp>
+<sp><speaker>CANTHARA</speaker><p> You are in a flight, now, just as though you had never been present on such an occasion--never been in labor yourself.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Unfortunate woman that I am! I have not a person at home; we are quite alone; Geta too is absent. I have no one to go for the midwife, or to fetch Aeschinus.</p></sp>
+<sp><speaker>CANTHARA</speaker><p> I' faith, he'll certainly be here just now, for he never lets a day pass without visiting us.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> He is my sole comfort in my afflictions.</p></sp>
+<sp><speaker>CANTHARA</speaker><p> Things could not have happened, mistress, more for the advantage of your daughter than they have, seeing that violence was offered her; so far as he is concerned, it is most lucky,--such a person, of such disposition and feelings, a member of so respectable a family.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> It is indeed as you say; I entreat the Gods that he may be preserved to us. <stage>They stand apart, on seeing GETA.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="301" unit="TLN line"/>
+<stage>Enter GETA, on the other side of the stage.</stage>
+<sp><speaker>GETA</speaker><p> <stage>to himself.</stage> Now such is our condition, that if all were to combine all their counsels, and to seek a remedy for this mischief that has befallen myself, my mistress, and her daughter, they could find no relief. Oh wretched me! so many calamities beset us on a sudden, we can not possibly extricate ourselves. Violence, poverty, oppression, desertion, infamy! What an age is this! O shocking villainy! O accursed race! O impious man!----</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Unhappy me! How is it that I see Geta hurrying along thus terrified?</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>continuing.</stage> Whom neither promises, nor oaths, nor compassion could move or soften; nor yet the fact that the delivery was nigh at hand of the unfortunate woman on whom he had so shamefully committed violence.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> <stage>apart to CANTHARA.</stage> I don't well understand what he is talking about.</p></sp>
+<sp><speaker>CANTHARA</speaker><p> Pray, let us go nearer to him, Sostrata.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>continuing.</stage> Ah wretched me! I am scarcely master of my senses, I am so inflamed with anger. There is nothing that 1 would like better than for all that family to be thrown in my way, that I might give vent to all my wrath upon them while this wound is still fresh. 1 could be content with any punishment, so I might only wreak my vengeance on them. First, I would stop the breath of the old fellow himself who gave being to this monster; then as for his prompter, Syrus, out upon him! How I would tear him piecemeal! I would snatch him by the middle up aloft, and dash him head downward upon the earth, so that with his brains he would bestrew the road: I would pull out the eyes of the young fellow himself, and afterward hurl him headlong over some precipice. The others I would rush upon, drive, drag, crush, and trample them under foot. But why do I delay at once to acquaint my mistress with this calamity? <stage>Moves as if going.</stage></p></sp>
+<sp><speaker>SOSTRATA</speaker><p> <stage>to CANTHARA.</stage> Let us call him Lack. Geta----</p></sp>
+<sp><speaker>GETA</speaker><p> Well--leave me alone,
+<milestone n="321" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Leave me alone</lemma>: Quoting from Madame Dacier, Colman has this remark here: "Geta's reply is founded on a frolicsome but ill-natured custom which prevailed in <placeName key="tgn,1000074">Greece</placeName>--to stop the slaves in the streets, and designedly keep them in chat, so that they might be lashed when they came home for staying out so long."</note> whoever you are.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> 'Tis I,--Sostrata.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>turning round.</stage> Why, where are you? You are the very person I am looking for. I was in quest of you; it's very fortunate you have met me.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> What's the matter? Why are you trembling?
+</p></sp>
+<sp><speaker>GETA</speaker><p> Alas! alas!</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> My dear Geta, why in such haste? Do take breath.</p></sp>
+<sp><speaker>GETA</speaker><p> Quite----<stage>pauses.</stage></p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Why, what means this "quite"?</p></sp>
+<sp><speaker>GETA</speaker><p> Undone--It's all over with us.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Say, then, I entreat you, what is the matter.</p></sp>
+<sp><speaker>GETA</speaker><p> Now----</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> What "now," Geta?</p></sp>
+<sp><speaker>GETA</speaker><p> Aeschinus----</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> What about him?</p></sp>
+<sp><speaker>GETA</speaker><p> Has abandoned our family.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Then I am undone! Why so?</p></sp>
+<sp><speaker>GETA</speaker><p> He has attached himself to another woman.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Woe unto wretched me!</p></sp>
+<sp><speaker>GETA</speaker><p> And he makes no secret of it; he himself has carried her off openly from a procurer.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Are you quite sure of this?</p></sp>
+<sp><speaker>GETA</speaker><p> Quite sure; I saw it myself, Sostrata, with these same eyes.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Ah wretched me! What is one now to believe, or whom believe? Our own Aeschinus, the very life of us all, in whom all our hopes and comforts were centred! Who used to swear he could never live a single day without her! Who used to say, that he would place the infant on his father's knees,
+<milestone n="333" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On his father's knees</lemma>: It was a prevalent custom with the Greeks to place the newly-born child upon the knee of its grandfather.</note> and thus entreat that he might be allowed to make her his wife!</p></sp>
+<sp><speaker>GETA</speaker><p> Dear mistress, forbear weeping, and rather consider what must be done for the future in this matter. Shall we submit to it, or shall we tell it to any person?</p></sp>
+<sp><speaker>CANTHARA</speaker><p> Pooh, pooh! Are you in your senses, my good man? Does this seem to you a business to be made known to any one?</p></sp>
+<sp><speaker>GETA</speaker><p> I, indeed, have no wish for it. In the first place, then, that his feelings are estranged from us, the thing itself declares. Now, if we make this known, he'll deny it, I'm quite sure; your reputation and your daughter's character will then be in danger. On the other hand, if he were fully to confess it, as he is in love with another woman, it would not be to her advantage to be given to him. Therefore, under either circumstance, there is need of silence.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Oh! by no means in the world! I'll not do it.</p></sp>
+<sp><speaker>GETA</speaker><p> What is it you say?</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> I'll make it known.</p></sp>
+<sp><speaker>GETA</speaker><p> Ha, my dear Sostrata, take care what you do!</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> The matter can not possibly be in a worse position than it is at present. In the first place, she has no portion; then, besides, that which was as good as a portion, her honor, is lost: she can not be given in marriage as a virgin. This resource is left; if he should deny it, I have a ring which he lost as evidence of the truth. In fine, Geta, as I am fully conscious that no blame attaches to me, and that neither interest nor any consideration unworthy of her or of myself has had a share in this matter, I will make trial----</p></sp>
+<sp><speaker>GETA</speaker><p> What am I to say to this? I agree, as you speak for the best.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> You be off as fast as possible, and relate all the matter just as it has happened to her kinsman Hegio; for he was the best friend of our lamented Simulus, and has shown especial regard for us.</p></sp>
+<sp><speaker>GETA</speaker><p> <stage>aside.</stage> Aye, faith, because nobody else takes any notice of us.</p></sp>
+<sp><speaker>SOSTRATA</speaker><p> Do you, my dear Canthara, run with all haste, and  fetch the midwife, so that, when she is wanted, we may not have to wait for her. <stage>SOSTRATA goes into the house, and exit GETA and CANTHARA.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="357" unit="TLN line"/>
+<stage>Enter DEMEA.</stage>
+<sp><speaker>DEMEA</speaker><p> <stage>to himself.</stage> Utterly undone! I hear that Ctesipho was with Aeschinus at the carrying off of this girl. This sorrow still remains for unhappy me, should Aeschinus be able to seduce him, even him, who promises so fair, to a course of debauchery. Where am I to inquire for him? I doubt he has been carried off to some bad house; that profligate has persuaded him, I'm quite sure. But look--I see Syrus coming this way, I shall now know from him where he is. But, i 'faith, he is one of the gang; if he perceives that I am looking for him, the rascal will never tell me. I'll not let him know what I want.
+<stage>Enter SYRUS, at the other side of the stage.</stage></p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>to himself.</stage> We just now told the old gentleman the whole affair just as it happened; I never did see any one more delighted.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>apart.</stage> O <persName>Jupiter</persName>! the folly of the man!</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>continuing.</stage> He commended his son. To me, who put them upon this project, he gave thanks----</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>apart.</stage> I shall burst asunder.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>continuing.</stage> He told down the money instantly, and gave me half a mina besides to spend. That was laid out quite to my liking.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>apart.</stage> Very fine--if you would wish a thing to be nicely managed, intrust it to this fellow.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>overhearing him.</stage> Ha, Demea! I didn't see you; how goes it?</p></sp>
+<sp><speaker>DEMEA</speaker><p> How should it go? I can not enough wonder at your mode of living here.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Why, really silly enough, and, to speak without disguise, altogether absurd. <stage>Calls at the door of MICIO'S house.</stage> Dromo, clean the: rest of the fish; let the largest conger-eel play a little in the water; when I come back it shall, be boned;
+<milestone n="378" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">It shall be boned</lemma>: The operation of boning conger-eels is often mentioned in Plautus, from whom we learn that they were best when eaten in that state, and cold.</note> not before.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Is profligacy like this----</p></sp>
+<sp><speaker>SYRUS</speaker><p> As for myself, it isn't to my taste, and I often exclaim against it. <stage>Calls; at the door.</stage> Stephanio, take care that the salt fish is well soaked.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Ye Gods, by our trust in you! Is he doing this for any purpose of his own, or does he think it creditable to ruin his son? Wretch that I am! methinks I already see the day when Aeschinus will be running away for want, to serve somewhere or other as a soldier.
+<milestone n="385" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Serve somewhere or other as a soldier</lemma>: See a similar passage in the Trinummus of Plautus, <bibl n="Pl. Trin. 3.2">l. 722</bibl>, whence it appears that it was the practice for young men of ruined fortunes to go and offer their services as mercenaries to some of the neighboring potentates. Many of the ten thousand who fought for the younger Cyrus at the battle of <placeName key="tgn,6001621">Cunaxa</placeName>, and were led back under the command of Xenophon (as described in his <title>Anabasis</title>, were, doubtless, of this class.</note>
+</p></sp>
+<sp><speaker>SYRUS</speaker><p> O Demea ! That is wisdom indeed, not only to look at the present moment, but also to look forward to what's to come.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Well--is this Music-girl still with you?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Why, yes, she's in-doors.</p></sp>
+<sp><speaker>DEMEA</speaker><p> How now--is he going to keep her at home?</p></sp>
+<sp><speaker>SYRUS</speaker><p> I believe so; such is his madness!</p></sp>
+<sp><speaker>DEMEA</speaker><p> Is it possible?</p></sp>
+<sp><speaker>SYRUS</speaker><p> An imprudent lenity in his father, and a vicious inlulgence.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Really, I am ashamed and grieved at my brother.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Demea! Between you there is a great--I do not say it because you are here present--a too great difference. You are, every bit of you, nothing but wisdom; he a mere dreamer. Would you indeed have suffered that son of yours to act thus?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I, suffer him? Would I not have smelt it out six months before he attempted it?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Need I be told by you of your foresight?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I pray he may only continue the same he is at present!</p></sp>
+<sp><speaker>SYRUS</speaker><p> Just as each person wishes his son to be, so he turns out.</p></sp>
+<sp><speaker>DEMEA</speaker><p> What news of him? Have you seen him to-day?</p></sp>
+<sp><speaker>SYRUS</speaker><p> What, your son? <stage>Aside.</stage> I'll pack him off into the country. <stage>To DEMEA.</stage> I fancy he's busy at the farm long before this.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Are you quite sure he is there?</p></sp>
+<sp><speaker>SYRUS</speaker><p> What!--when I saw him part of the way myself----</p></sp>
+<sp><speaker>DEMEA</speaker><p> Very good. I was afraid he might be loitering here.</p></sp>
+<sp><speaker>SYRUS</speaker><p> And extremely angry too.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Why so?</p></sp>
+<sp><speaker>SYRUS</speaker><p> He attacked his brother in the Forum with strong language about this Music-girl.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do you really say so?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Oh dear, he didn't at all mince the matter; for just as the money was being counted out, the gentleman came upon us by chance, and began exclaiming, "Oh Aeschinus, that you should perpetrate these enormities! that you should be guilty of actions so disgraceful to our family!"</p></sp>
+<sp><speaker>DEMEA</speaker><p> Oh, I shall weep for joy.</p></sp>
+<sp><speaker>SYRUS</speaker><p> "By this you are not squandering your money only, but your reputation."</p></sp>
+<sp><speaker>DEMEA</speaker><p> May he be preserved to me! I trust he will be like his forefathers. <stage>Weeping.</stage></p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>aside.</stage> Heyday!</p></sp>
+<sp><speaker>DEMEA</speaker><p> Syrus, he is full of these maxims.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>aside.</stage> Strange, indeed! He had the means at home of learning them.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I do every thing I can; I spare no pains; I train him up to it: in fine, I bid him look into the lives of men, as though into a mirror, and from others to take an example for himself. Do this, I say----</p></sp>
+<sp><speaker>SYRUS</speaker><p> Quite right.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Avoid that----</p></sp>
+<sp><speaker>SYRUS</speaker><p> Very shrewd.</p></sp>
+<sp><speaker>DEMEA</speaker><p> This is praiseworthy----</p></sp>
+<sp><speaker>SYRUS</speaker><p> That's the thing.</p></sp>
+<sp><speaker>DEMEA</speaker><p> That is considered blamable----</p></sp>
+<sp><speaker>SYRUS</speaker><p> Extremely good.</p></sp>
+<sp><speaker>DEMEA</speaker><p> And then, moreover----</p></sp>
+<sp><speaker>SYRUS</speaker><p> Upon my honor, I have not the leisure to listen to you just at present: I have got some fish just to my taste, and must take care they are not spoiled; for that would be as much a crime in me, as for you, Demea, not to observe those maxims which you have just been mentioning; and so far as I can, I lay down precepts for my fellow-servants on the very same plan; "this is too salt, that is quite burned up, this is not washed enough, that is very well done; remember and do so another time." I carefully instruct them so far as I can to the best of my capacity. In short, Demea, I bid them look into their sauce-pans as though into a mirror,
+<milestone n="428" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As though into a mirror</lemma>: He parodies the words of Demea in l. 415, where he speaks of looking into the lives of men as into a mirror.</note> and suggest to them what they ought to do. I am sensible these things are trifling which we do; but what is one to do? According as the man is, so must you humor him. Do you wish any thing else?</p></sp>
+<sp><speaker>DEMEA</speaker><p> That more wisdom may be granted you.</p></sp>
+<sp><speaker>SYRUS</speaker><p> You will be going off into the country, I suppose?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Directly.</p></sp>
+<sp><speaker>SYRUS</speaker><p> For what should you do here, where, if you do give any good precepts, no one will regard them? <stage>Goes into MICIO'S house.</stage>
+</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>to himself.</stage> I certainly will be off, as he on whose account I came hither has gone into the country. I have a care for him: that alone is my own concern, since my brother will have it so; let him look to the other himself. But who is it I see yonder at a distance? Isn't it Hegio of our tribes?
+<milestone n="439" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of our tribe</lemma>: Solon divided the Athenians into ten tribes, which he named after ten of the ancient heroes: Erectheis, Aegeis, Pandionis, Leontis, Acamantis, OEneis, Cecrops, Hippothoontis, Aeantis, and Antiochis. These tribes were each divided into ten Demi.</note> If I see right, i' faith, it is he. Ah, a man I have been friendly with from a child! Good Gods! we certainly have a great dearth of citizens of that stamp nowadays, with the old-fashioned virtue and honesty. Not in a hurry will any misfortune accrue to the public from him. How glad I am to find some remnants of this race even still remaining; now I feel some pleasure in living. I'll wait here for him, to ask him how he is, and have some conversation with him.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="449" unit="TLN line"/>
+<stage>Enter HEGIO and GETA, conversing, at a distance.</stage>
+<sp><speaker>HEGIO</speaker><p> Oh immortal Gods! a disgraceful action, Geta! What is it you tell me?</p></sp>
+<sp><speaker>GETA</speaker><p> Such is the fact.
+</p></sp>
+<sp><speaker>HEGIO</speaker><p> That so ignoble a deed should come from that family! Oh Aeschinus, assuredly you haven't taken after your father in that !</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>apart.</stage> Why surely, he has heard this about the Music-girl; that gives him concern, though a stranger; this father of his thinks nothing of it. Ah me! I wish he were somewhere close at hand to overhear this.</p></sp>
+<sp><speaker>HEGIO</speaker><p> Unless they do as they ought to do, they shall not come off so easily.</p></sp>
+<sp><speaker>GETA</speaker><p> All our hopes, Hegio, are centred in you; you we have for our only friend; you are our protector, our father. The old man, Simulus, when dying, recommended us to you; if you forsake us, we are undone.</p></sp>
+<sp><speaker>HEGIO</speaker><p> Beware how you mention that; I neither will do it, nor do I think that, with due regard to the ties of relationship, I could.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>apart.</stage> I'll accost him. <stage>Approaches HEGIO.</stage> Hegio, I bid you welcome right heartily;</p></sp>
+<sp><speaker>HEGIO</speaker><p> <stage>starting.</stage> Oh! you are the very man I was looking for. Greetings to you, Demea.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Why, what's the matter?</p></sp>
+<sp><speaker>HEGIO</speaker><p> Your eldest son Aeschinus, whom you gave to your brother to adopt, has been acting the part of neither an honest man nor a gentleman.</p></sp>
+<sp><speaker>DEMEA</speaker><p> What has he been doing?</p></sp>
+<sp><speaker>HEGIO</speaker><p> You knew my friend and year's-mate, Simulus?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Why not?</p></sp>
+<sp><speaker>HEGIO</speaker><p> He has debauched his daughter, a virgin.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Hah!</p></sp>
+<sp><speaker>HEGIO</speaker><p> Stay, Demea. You have not yet heard the worst.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Is there any thing still worse?</p></sp>
+<sp><speaker>HEGIO</speaker><p> Worse, by far: for this indeed might in some measure have been borne with. The hour of night prompted him; passion, wine, young blood; 'tis human nature. When he was sensible of what he had done, he came voluntarily to the girl's mother, weeping, praying, entreating, pledging his honor, vowing that he would take her home.
+<milestone n="473" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Would take her home</lemma>: As his wife.</note> The affair was pardoned, hushed up, his word taken. The girl from that intercourse became pregnant: this is the tenth month. He, worthy fellow, has provided himself, if it please the Gods, with a Music-girl to live with; the other he has cast off.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do you say this for certain?</p></sp>
+<sp><speaker>HEGIO</speaker><p> The mother of the young woman is among us,
+<milestone n="479" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is among us</lemma>: "<foreign lang="la">In medio</foreign>," "is alive," or "in the midst of us." </note> the young woman too; the fact speaks for itself; this Geta, besides, according to the common run of servants, not a bad one or of idle habits; he supports them; alone, maintains the whole family; take him, bind him,
+<milestone n="482" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take him, bind him.</lemma>: In allusion to the method of examining slaves, by binding and torturing them.</note> examine him upon the matter.</p></sp>
+<sp><speaker>GETA</speaker><p> Aye, faith, put me to the torture, Demea, if such is not the fact: besides, he will not deny it. Confront me with him.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>aside.</stage> I am ashamed; and what to do, or how to answer him, I don't know.</p></sp>
+<sp><speaker>PAMPHILA</speaker><p> <stage>crying out within the house of SOSTRATA.</stage> Ah me! I am racked with pains! Juno Lucina,
+<milestone n="487" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Juno Lucina</lemma>: So in the <title>Andria</title>, <bibl n="Ter. An. 3.1">l. 473</bibl>, where Glycerium is overtaken with the pains of labor, she calls upon Juno Lucina.</note> bring aid, save me, I beseech thee.</p></sp>
+<sp><speaker>HEGIO</speaker><p> Hold; is she in labor, pray?</p></sp>
+<sp><speaker>GETA</speaker><p> No doubt of it, Hegio.</p></sp>
+<sp><speaker>HEGIO</speaker><p> Ah! she is now imploring your protection, Demea; let her obtain from you spontaneously what the power of the law compels you to give. I do entreat the Gods that what befits you may at once be clone. But if your sentiments are otherwise, Demea, I will defend both them and him who is dead to the utmost of my power. He was my kinsman:
+<milestone n="494" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He was my kinsman</lemma>: In the Play of Menander, Hegio was the brother of Sostrata.</note> we were brought up together from children, we were companions in the wars and at home, together we experienced the hardships of poverty. I will therefore exert myself, strive, use all methods, in fine lay down my life, rather than forsake these women. What answer do you give me?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I'll go find my brother, Hegio: the advice he gives me upon this matter I'll follow.
+<milestone n="500" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Upon this matter I'll follow</lemma>: "<foreign lang="la">Is, quod mihi de hac re dederat consilium, id sequar</foreign>." Colman has the following Noto on this passage: "Madame Dacier rejects this line, because it is also: to be found in the Phormio. But it is no uncommon thing with our author to use the same expression or verse for different places, especially on familiar occasions. There is no impropriety in it here, and the foregoing hemistich is rather lame without it. The propriety of consulting Micio, or Demea's present ill-humor with him, are of no consequence. The old man is surprised at Hegio's story, does not know what to do or say, and means to evade giving a positive answer, by saying that he would consult his brother."</note>
+</p></sp>
+<sp><speaker>HEGIO</speaker><p> But, Demea, take you care and reflect upon this: the more easy you are in your circumstances, the more powerful, wealthy, affluent, and noble you are, so much the more ought you with equanimity to observe the dictates of justice, if you would have yourselves esteemed as men of probity.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Go back now;
+<milestone n="506" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Go back now</lemma>: "<foreign lang="la">Redite</foreign>." Demea most probably uses this word, because Hegio has come back to him to repeat the last words for the sake of greater emphasis.</note> every thing shall be done that is proper to be done.</p></sp>
+<sp><speaker>HEGIO</speaker><p> It becomes you to act thus. Geta, show me in to Sostrata. <stage>Follows GETA into SOSTRATA'S house.</stage></p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>to himself.</stage> Not without warning on my part have these things happened: I only wish it may end here; but this immoderate indulgence will undoubtedly lead to some great misfortune. I'll go find my brother, and vent these feelings upon him. <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="513" unit="TLN line"/>
+<stage>Enter HEGIO, from SOSTRATA'S house, and speaking to her within.</stage>
+<sp><speaker>HEGIO</speaker><p> Be of good heart,<note anchored="yes"><lemma targOrder="U">Be of good heart</lemma>: Colman has the following Note here: "Donatus tells us, that in some old copies this whole Scene was wanting. Guyetus therefore entirely rejects it. I have not ventured to take that liberty; but must confess that it appears to me, if not supposititious, at least cold and superfluous, and the substance of it had better been supposed to have passed between Hegio and Sostrata within."</note> Sostrata, and take care and console her as far as you can. I'll go find Micio, if he is at the Forum, and acquaint him with the whole circumstances in their order; if so it is that he will do his duty by you, let him do so; but if his sentiments are otherwise about this matter, let him give me his answer, that I may know at once what I am to do. <stage>(Exit.)</stage>
+
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="519" unit="TLN line"/>
+<stage>Enter CTESIPHO and SYRUS from the house of MICIO.</stage>
+<sp><speaker>CTESIPHO</speaker><p> My father gone into the country, say you?</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>with a careless air.</stage> Some time since.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> Do tell me, I beseech you.</p></sp>
+<sp><speaker>SYRUS</speaker><p> He is at the farm at this very moment,
+<milestone n="519" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At this very moment</lemma>: It is very doubtful whether the words "<foreign lang="la">cum maxime</foreign>" mean to signify exactly "at this moment," or are intended to signify the intensity with which Demea is laboring.</note> I warrant--hard at some work or other.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> I really wish, provided it be done with no prejudice to his health, I wish that he may so effectually tire himself, that, for the next three days together, he may be unable to arise from his bed.</p></sp>
+<sp><speaker>SYRUS</speaker><p> So be it, and any thing still better than that,
+<milestone n="522" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Any thing still better than that</lemma>: Lemaire suggests that by these words Syrus intends to imply that he should not care if Demea were never to arise from his bed, but were to die there. Ctesipho, only taking him heartily to second his own wishes for the old man's absence, answers affirmatively "ita," "by all means," "exactly so."</note> if possible.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> Just so; for I do most confoundedly wish to pass this whole day in merry-making as I have begun it; and for no reason do I detest that farm so heartily as for its being so near town. If it were at a greater distance, night would overtake him there before he could return hither again. Now, when he doesn't find me there, he'll come running back here, I'm quite sure; he'll be asking me where I have been, that I have not seen him all this day: what am I to say?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Does nothing suggest itself to your mind?</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> Nothing whatever.</p></sp>
+<sp><speaker>SYRUS</speaker><p> So much the worse
+<milestone n="529" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">So much the worse</lemma>: Schmieder observes that "<foreign lang="la">tanto nequior</foreign>" might have two meanings,--"so much the worse for us," or, as the spectators might understand it, "so much the more worthless you."</note>--have you no client, friend, or guest?
+</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> I have; what then?</p></sp>
+<sp><speaker>SYRUS</speaker><p> You have been engaged with them.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> When I have not been engaged? That can never do.</p></sp>
+<sp><speaker>SYRUS</speaker><p> It may.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> During the daytime; but if I pass the night here, what excuse can I make, Syrus?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Dear me, how much I do wish it was the custom for one to be engaged with friends at night as well! But you be easy; I know his humor perfectly well. When he raves the most violently, I can make him as gentle as a lamb.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> In what way?</p></sp>
+<sp><speaker>SYRUS</speaker><p> He loves to hear you praised: I make a god of you to him, and recount your virtues.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> What, mine</p></sp>
+<sp><speaker>SYRUS</speaker><p> Yours; immediately the tears fall from him as from a child, for very joy. <stage>Starting.</stage> Hah take care----</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> Why, what's the matter?</p></sp>
+<sp><speaker>SYRUS</speaker><p> The wolf in the fable
+<milestone n="538" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The wolf in the fable</lemma>: This was a proverbial expression, tantamount to our saying, "Talk of the devil, he's sure to appear." Servius, in his Commentary on the Ninth Eclogue of Virgil, says that the saying arose from the common belief that the person whom a wolf sets his eyes, upon is deprived of his voice, and thence came to be applied to a person who, coming, upon others in the act of talking about him, necessarily put a stop to their conversation. Cooke says, in reference to this passage, "This certainly alludes to a Fable of Aesop's, of the Wolf, the Fox, and the Ape: which is translated by Phaedrus, and is the tenth of his First Book." It is much more certain that Cooke is mistaken here, and that the fable of the arbitration of the Ape between the Wolf and the Fox has nothing to do with this passage. If it alludes to any fable (which from the expression itself is riot at all unlikely), it is more likely to be that where the Nurse threatens that the wolf shall take the naughty Child, on which he makes his appearance, but is disappointed in his expectations, or else that of the Shepherd-boy and the Wolf. See the Stichus of Plautus, 1. 57, where the same. expression occurs.</note>----</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> What! my father?</p></sp>
+<sp><speaker>SYRUS</speaker><p> His own self.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> What shall we do, Syrus?</p></sp>
+<sp><speaker>SYRUS</speaker><p> You only be off in-doors, I'll see to that.
+</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> If he makes any inquiries, you have seen me no-where; do you hear?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Can you not be quiet? <stage>They retreat to the door of MICIO'S house, and CTESIPHO stands in the doorway.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="543" unit="TLN line"/>
+<stage>Enter DEMEA, on the other side of the stage.</stage>
+<sp><speaker>DEMEA</speaker><p> <stage>to himself.</stage> I certainly am an unfortunate man. In the first place, I can find my brother nowhere; and then, in the next place, while looking for him, I met a day-laborer<note anchored="yes"><lemma targOrder="U">Met a day-laborer</lemma>: Donatus remarks that the Poet artfully contrives to detain Demea in town, his presence being necessary in the latter part of the Play.</note> from the farm; he says that my son is not in the country, and what to do I know not----</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>apart.</stage> Syrus!</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>apart.</stage> What's the matter?</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>apart.</stage> Is he looking for me?</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>apart.</stage> Yes.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>apart.</stage> Undone!</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>apart.</stage> Nay, do be of good heart.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>to himself.</stage> Plague on it! what ill luck is this? I can not really account for it, unless I suppose myself only born for the purpose of enduring misery. I am the first to feel our misfortunes; the first to know of them all; then the first to carry the news; I am the only one, if any thing does go wrong, to take it to heart.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>apart.</stage> I'm amused at him; he says that he is the first to know of every thing, while he is the only one ignorant of every thing.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>to himself.</stage> I've now come back; and I'll go see whether perchance my brother has yet returned.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>apart.</stage> Syrus, pray do take care that he doesn't suddenly rush in upon us here.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>apart.</stage> Now will you hold your tongue? I'll take care.</p></sp>
+<sp><speaker>CTESIPHO</speaker><p> <stage>apart.</stage> Never this day will I depend on your management for that, upon my faith; for I'll shut myself up with her in some cupboard
+<milestone n="553" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With her in some cupboard</lemma>: Donatus observes that the young man was silly in this, for if discovered to be there he would be sure to be-caught. His object, however, for going there would be that he might not be discovered.</note>--that's the safest. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>apart.</stage> Do so, still I'll get rid of him.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>seeing SYRUS.</stage> But see! there's that rascal, Syrus.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>aloud, pretending not to see DEMEA.</stage> Really, upon my faith, no person can stay here, if this is to be the case! ]For my part, I should like to know how many masters I have--what a cursed condition this is</p></sp>
+<sp><speaker>DEMEA</speaker><p> What's he whining about? What does he mean? How say you, good sir, is my brother at home?</p></sp>
+<sp><speaker>SYRUS</speaker><p> What the plague do you talk to me about, 'good sir"? I'm quite distracted!</p></sp>
+<sp><speaker>DEMEA</speaker><p> What's the matter with you?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Do you ask the question Ctesipho has been beating me, poor wretch, and that Music-girl, almost to death.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Ha! what is it you tell me?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Aye, see how he has cut my lip. <stage>Pretends to point to it.</stage></p></sp>
+<sp><speaker>DEMEA</speaker><p> For what reason?</p></sp>
+<sp><speaker>SYRUS</speaker><p> He says that she was bought by my advice.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Did not you tell me, a short time since, that you had seen him on his way into the country?</p></sp>
+<sp><speaker>SYRUS</speaker><p> I did; but he afterward came back, raving like a madman; he spared nobody--ought he not to have been ashamed to beat an old man? Him whom, only the other day, I used to carry about in my arms when thus high? <stage>Showing.</stage></p></sp>
+<sp><speaker>DEMEA</speaker><p> I commend him; O Ctesipho, you take after your father. Well, I do pronounce you a man.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Commend him? Assuredly he will keep his hands to himself in future, if he's wise.</p></sp>
+<sp><speaker>DEMEA</speaker><p> 'Twas done with spirit.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Very much so, to be beating a poor woman, and me, a slave, who didn't dare strike him in return; heyday! very spirited indeed!</p></sp>
+<sp><speaker>DEMEA</speaker><p> He could not have done better; he thought the same as I did, that you were the principal in this affair. But is my brother within?
+</p></sp>
+<sp><speaker>SYRUS</speaker><p> He is not.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I'm thinking where to look for him.</p></sp>
+<sp><speaker>SYRUS</speaker><p> I know where he is--but I shall not tell you at present.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Ha! what's that you say?</p></sp>
+<sp><speaker>SYRUS</speaker><p> I do say so.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Then I'll break your head for you this instant.</p></sp>
+<sp><speaker>SYRUS</speaker><p> I can't tell the person's name he's gone to, but I know the place where he lives.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Tell me the place then.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Do you know the portico down this way, just by the shambles? <stage>Pointing in the direction.</stage></p></sp>
+<sp><speaker>DEMEA</speaker><p> How should I but know it?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Go straight along, right up that street; when you come there, there is a descent right opposite that goes down-ward, go straight down that; afterward, on this side <stage>extending one hand</stage>, there is a chapel: close by it is a narrow lane, where there's also a great wild fig-tree.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I know it.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Go through that----</p></sp>
+<sp><speaker>DEMEA</speaker><p> But that lane is not a thoroughfare.</p></sp>
+<sp><speaker>SYRUS</speaker><p> I' faith, that's true; dear, dear, would you take me to be in my senses?
+<milestone n="580" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take me to be in my senses</lemma>: "<foreign lang="la">Censen hominem me esse?</foreign>" literally, "Do you take me to be a human being?" meaning, "Do you take me to be a person in my common senses?"</note> I made a mistake. Return to the portico; indeed that will be a much nearer way, and there is less going round about you know the house of Cratinus, the rich man?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I know it.</p></sp>
+<sp><speaker>SYRUS</speaker><p> When you have passed that, keep straight along that street on the left hand;
+<milestone n="583" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Street on the left hand</lemma>: Theobald, in his edition of Shakspeare, observes that the direction given by Lancelot in the <title>Merchant of Venice</title> seems to be copied from that given here by Syrus: <cit><quote lang="en">"Turn up on your right hand at the next turning, but at the next turning of all on your left; marry, at the very next turning of no hand, but turn down indirectly to the Jew's house."</quote><bibl n="Shak. MV 2.2">(2.2)</bibl></cit></note> when you come to the Temple of Diana, turn to the right; before you come to the city gate,<milestone n="584" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Come to the city gate</lemma>: From this we discover that Demea is being sent to the very extremity of the town, as Donatus informs us that ponds of water were always close to the gates of towns, for the purpose of watering the beasts. of burden, and of having a supply at hand in case the enemy should set fire to the city gates.</note> just by that pond, there is a baker's shop, and opposite to it a joiner's; there he is.
+</p></sp>
+<sp><speaker>DEMEA</speaker><p> What is he doing there?</p></sp>
+<sp><speaker>SYRUS</speaker><p> He has given some couches to be made, with oaken legs, for use in the open air.
+<milestone n="586" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The open air</lemma>: Donatus remarks that it was usual for the Greeks to sit and drink in the sun; and that Syrus being suddenly asked this question shows his presence of mind by giving this circumstantial answer, that he may the better impose upon Demea. The couches used on such occasions may be presumed to have required stout legs, and to be made of hard wood, such as oak, to prevent them from splitting. Two instances of couches being used for carousing in the open air will be found in the last Scenes of the Asinaria and Stichus of Plautus.</note></p></sp>
+<sp><speaker>DEMEA</speaker><p> For you to carouse upon! Very fine ! But why do I delay going to him? <stage>(Exit.)</stage></p></sp>
+<sp><speaker>SYRUS</speaker><p> Go, by all means. I'll work you to day, you skeleton,
+<milestone n="588" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You skeleton</lemma>: "<foreign lang="la">Silicernium</foreign>." This was said to be the name of a funeral entertainment or dish of meats offered up to the "<foreign lang="la">umbras</foreign>" or "<foreign lang="la">manes</foreign>," in silence. The word is also said to have been applied to an old man from his stooping postures, "<foreign lang="la">silices cernit</foreign>," "he looks at the stones."</note> as you deserve. Aeschinus loiters intolerably; the breakfast's spoiling; arid as for Ctesipho, he's head and ears in love.
+<milestone n="590" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Head and ears in love</lemma>: "<foreign lang="la">Totus</foreign>," literally, "quite" or "altogether."</note> I shall now think of myself, for I'll be off at once, and pick out the very nicest bit, and, leisurely sipping my cups,
+<milestone n="592" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sipping my cups</lemma>: As to the "<foreign lang="la">cyathi</foreign>" and cups of the ancients, see the last Scene of the Stichus of Plautus, which is a perfect specimen of a carousal among the lower classes in ancient times. See also the last Scene of the Asinaria. The slaves generally appear to have taken part in the entertainments with their young masters.</note> I'll lengthen out the day. <stage>Goes into the house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="594" unit="TLN line"/>
+<stage>Enter MICIO and HEGIO.</stage>
+<sp><speaker>MICIO</speaker><p> I can see no reason here, Hegio, that I should be so greatly commended. I do my duty; the wrong that has originated with us I redress. Unless, perhaps, you thought me one of that class of men who think that an injury is purposely done them if you expostulate about any thing they have done; and yet are themselves the first to accuse. Because I have not acted thus, do you return me thanks?</p></sp>
+<sp><speaker>HEGIO</speaker><p> Oh, far from it; I never led myself to believe you to be otherwise than you are; but I beg, Micio, that you will go with me to the mother of the young woman, and repeat to her the same; what you have told me, do you yourself tell the woman, that this suspicion of Aeschinus's fidelity was incurred on his brother's account, and that this Music-girl was for him.</p></sp>
+<sp><speaker>MICIO</speaker><p> If you think I ought, or if there is a necessity for doing so, let us go.</p></sp>
+<sp><speaker>HEGIO</speaker><p> You act with kindness; for you'll then both have relieved her mind who is now languishing in sorrow and affliction, and have discharged your duty. But if you think otherwise, I will tell her myself what you have been saying to me.</p></sp>
+<sp><speaker>MICIO</speaker><p> Nay, I'll go as well.</p></sp>
+<sp><speaker>HEGIO</speaker><p> You act with kindness; all who are in distressed circumstances are suspicious,
+<milestone n="606" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are suspicious</lemma>: These lines are supposed to be founded on some verses of Menander which are still extant.</note> to I know not what degree; they take every thing too readily as an affront; they fancy themselves trifled with on account of their helpless condition; therefore it will be more satisfactory for you to justify him to them yourself. <stage>They go into the house of SOSTRATA.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="612" unit="TLN line"/>
+<stage>Enter AESCHINUS.</stage>
+<p>I am quite distracted in mind! for this misfortune so unexpectedly to befall me, that I neither know what to do with myself, or how to act! My limbs are enfeebled through fear, my faculties bewildered with apprehension; no counsel is able to find a place within my breast. Alas! how to extricate myself from this perplexity I know not; so strong a suspicion has taken possession of them about me; not without some reason too: Sostrata believes that I have purchased this Music-girl for myself: the old woman informed me of that. For by accident, when she was sent for the midwife, I saw her, and at once went up to her. "How is Pamphila?" I inquired; "is her delivery at hand? Is it for that she is sending for the midwife?" "Away, away, Aeschinus," cries she; "you have deceived us long enough; already have your promises disappointed us sufficiently." "Ha !" said I; "pray what is the meaning of this?" "Farewell," she cries; "keep to her who is your choice." I instantly guessed what it was they suspected, but still I checked myself, that I might not be telling that gossip any thing about my brother, whereby it might be divulged. Now what am I to do? Shall I say she is for my brother, a thing that ought:by no means to be repeated any where? However, let that pass. It is possible it might go no further. I am afraid they would not believe it, so many probabilities concur against it; 'twas I myself carried her off; 'twas I, my own self, that paid the money for her; 'twas my own house she was carried to. This I confess has been entirely my own fault. Ought I not to have disclosed this affair, just as it happened, to my father? I might have obtained his consent to marry her. I have been too negligent hitherto; henceforth, then, arouse yourself, Aeschinus. This then is the first thing; to go to them and clear myself. I'll approach the door. <stage>Advances to the door of SOSTRATA'S house.</stage> Confusion! I always tremble most dreadfully when I go to knock at that door. <stage>Knocking and calling to them within.</stage> Ho there, ho there! it is Aeschinus; open the door immediately, some one. <stage>The door opens.</stage> Some person, I know not who, is coming out; I'll step aside here. <stage>He stands apart.</stage></p></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="639" unit="TLN line"/>
+<stage>Enter MICIO from the house of SOSTRATA.</stage>
+<sp><speaker>MICIO</speaker><p> <stage>speaking at the door to SOSTRATA.</stage> Do as I told you, Sostrata; I'll go find Aeschinus, that lie may know how these matters have been settled. <stage>Looking round.</stage> But who was it knocking at the door?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>apart.</stage> Heavens, it is my father!--I am undone !</p></sp>
+<sp><speaker>MICIO</speaker><p> Aeschinus !</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>aside.</stage> What can be his business here?</p></sp>
+<sp><speaker>MICIO</speaker><p> Was it you knocking at this door? <stage>Aside.</stage> He is silent. Why shouldn't I rally him a little? It would be as well, as he was never willing to trust me with this secret. <stage>To AESCHINUS.</stage> Don't you answer me?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>confusedly.</stage> It wasn't I knocked at that door, that I know of.</p></sp>
+<sp><speaker>MICIO</speaker><p> Just so; for I wondered what business you could have here. <stage>Apart.</stage> He blushes; all's well.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Pray tell me, father, what business have you there?</p></sp>
+<sp><speaker>MICIO</speaker><p> Why, none of my own; but a certain friend of mine just now brought me hither from the Forum to give him some assistance.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Why?</p></sp>
+<sp><speaker>MICIO</speaker><p> I'll tell you. There are some women living here; in impoverished circumstances, as I suppose you don't know them; and, in fact, I'm quite sure, for it is not long since they removed to this place.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Well, what next?</p></sp>
+<sp><speaker>MICIO</speaker><p> There is a girl living with her mother.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Go on.</p></sp>
+<sp><speaker>MICIO</speaker><p> This girl has lost her father; this friend of mine is her next of kin; the law obliges him to marry her.
+<milestone n="655" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Obliges him to marry her</lemma>: It appears to have been a law given by Solon to the Athenians that the next male relative of suitable age should marry a female orphan himself, or find her a suitable portion. Madame Dacier suggests that the custom was derived from the Phoenicians, who had received it from the Jews, and quotes the Book of Numbers, xxxvi. 8. This law forms the basis of the plot of the Phormio.</note></p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>aside.</stage> Undone!</p></sp>
+<sp><speaker>MICIO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Nothing. Very well: proceed.</p></sp>
+<sp><speaker>MICIO</speaker><p> He has come to take her with him; for he lives at <placeName key="perseus,Miletus">Miletus</placeName>.
+</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> What ! To take the girl away with him?</p></sp>
+<sp><speaker>MICIO</speaker><p> Such is the act.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> All the way to <placeName key="perseus,Miletus">Miletus</placeName>, pray?
+<milestone n="658" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To <placeName key="perseus,Miletus">Miletus</placeName>, pray?</lemma>: A colony of <placeName key="perseus,Athens">Athens</placeName>, on the coast of <placeName key="tgn,7002294">Asia Minor</placeName>.</note></p></sp>
+<sp><speaker>MICIO</speaker><p> Yes.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>aside.</stage> I'm overwhelmed with grief <stage>To MICIO.</stage> But what of them? What do they say?</p></sp>
+<sp><speaker>MICIO</speaker><p> What do you suppose they should? Why, nothing at all. The mother has trumped up a tale, that there is a child by some other man, I know not who, and she does not state the name; she says that he was the first, and that she ought not to be given to the other.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Well now, does not this seem just to you after all?</p></sp>
+<sp><speaker>MICIO</speaker><p> No.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Why not, pray? Is the other to be carrying her away from here?</p></sp>
+<sp><speaker>MICIO</speaker><p> Why should he not take her?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> You have acted harshly and unfeelingly, and even, if, father, I may speak my sentiments more plainly, unhandsomely.</p></sp>
+<sp><speaker>MICIO</speaker><p> Why so?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Do you ask me? Pray, what do you think must be the state of mind of the man who was first connected with her, who, to his misfortune, may perhaps still love her to distraction, when he sees her torn away from before his face, and borne off from his sight forever? An unworthy action, father!</p></sp>
+<sp><speaker>MICIO</speaker><p> On what grounds is it so? Who betrothed her?
+<milestone n="673" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Who betrothed her?</lemma>: Donatus observes that these questions, which enumerate all the proofs requisite for a marriage, are an indirect and very delicate reproof of Aeschinus for the irregular and clandestine nature of his proceedings.</note> Who gave her away? When and to whom was she married? Who was the author of all this? Why did he connect himself with a woman who belonged to another?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Was it to be expected that a young woman of her age should sit at home, waiting till a kinsman of hers should come from a distance? This, my father, you ought to have represented, and have insisted on it.
+</p></sp>
+<sp><speaker>MICIO</speaker><p> Ridiculous! Was I to have pleaded against him whom I was to, support But what's all this, Aeschinus, to us? What have we to do with them? Let us begone:---- What's the matter? Why these tears?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> <stage>weeping.</stage> Father, I beseech you, listen to me.</p></sp>
+<sp><speaker>MICIO</speaker><p> Aeschinus, I have heard and know it all; for I love you, and therefore every thing you do is the more a care to me.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> So do I wish you to find me deserving of your love, as long as you live, my dear father, as I am sincerely sorry for the offense I have committed, and am ashamed to see you.</p></sp>
+<sp><speaker>MICIO</speaker><p> Upon my word 1 believe it, for I know your ingenuous disposition: but I am afraid that you are too inconsiderate. In what city, pray, do you suppose you live? You have debauched a virgin, whom it was not lawful for you to touch. In the first place then that was a great offense; great, but still natural. Others, and even men of worth, have frequently done the same. But after it happened, pray, did you show any circumspection? Or did you use any foresight as to what was to be done, or how it was to be done? If you were ashamed to tell me of it, by what means was I to come to know it? While you were at a loss upon these points, ten months have been lost. So far indeed as lay in your power, you have periled both yourself and this poor girl, and the child. What did you imagine--that the Gods would set these matters to rights for you while you were asleep, and that she would be brought home to your chamber without any exertions of your own? I would not have you to be equally negligent in other affairs. Be of good heart, you shall have her for your wife.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Hah!</p></sp>
+<sp><speaker>MICIO</speaker><p> Be of good heart, I tell you.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Father, are you now jesting with me, pray?</p></sp>
+<sp><speaker>MICIO</speaker><p> I, jesting with you! For what reason?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> I don't know; but so anxiously do I wish this to be true, that I am the more afraid it may not be.</p></sp>
+<sp><speaker>MICIO</speaker><p> Go home, and pray to the Gods that you may have your wife; be off.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> What! have my wife now?
+</p></sp>
+<sp><speaker>MICIO</speaker><p> Now.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Now?</p></sp>
+<sp><speaker>MICIO</speaker><p> Now, as soon as possible.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> May all the Gods detest me, father, if I do not love you better than even my very eyes!</p></sp>
+<sp><speaker>MICIO</speaker><p> What! better than her?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Quite as well.</p></sp>
+<sp><speaker>MICIO</speaker><p> Very kind of you !</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Well, where is this Milesian?</p></sp>
+<sp><speaker>MICIO</speaker><p> Departed, vanished, gone on board ship; but why do you delay?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Father, do you rather go and pray to the Gods; for I know, for certain, that they will rather be propitious to you,
+<milestone n="707" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Propitious to you</lemma>: Donatus remarks that there is great delicacy in this compliment of Aeschinus to Micio, which, though made in his presence, does not bear the semblance of flattery. Madame Dacier thinks that Terence here alludes to a line of Hesiod, which says that it is the duty of the aged to pray. Colman suggests that the passage is borrowed from some lines of Menander still in existence.</note> as being a much better man than I am.</p></sp>
+<sp><speaker>MICIO</speaker><p> I'll go in-doors, that what is requisite may be prepared. You do as I said, if you are wise. <stage>Goes into his house.</stage>
+<stage>AESCHINUS alone.</stage></p></sp>
+<sp><speaker>AESCHINUS</speaker><p> What can be the meaning of this? Is this being a father, or this being a son? If he had been a brother or familiar companion, how could he have been more complaisant ! Is he not worthy to be beloved? Is he not to be imprinted in my very bosom? Well then, the more does he impose an obligation on me by his kindness, to take due precaution not inconsiderately to do any thing that he may not wish. But why do I delay going in-doors this instant, that I may not myself delay my own nuptials? <stage>Goes into the house of MICIO.</stage>
+</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="717" unit="TLN line"/>
+<stage>Enter DEMEA.</stage>
+<p>I am quite tired with walking: May the great <persName>Jupiter</persName> confound you, Syrus, together with your directions! I have crawled the whole city over; to the gate, to the pond--where not? There was no joiner's shop there; not a soul could say he had seen my brother; but now I'm determined to sit and wait at his house till he returns.</p></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="723" unit="TLN line"/>
+<stage>Enter MICIO from his house.</stage>
+<sp><speaker>MICIO</speaker><p> <stage>speaking to the people within.</stage> I'll go and tell them there's no delay on our part.</p></sp>
+<sp><speaker>DEMEA</speaker><p> But see here's the very man: O Micio, I have been seeking you this long time.</p></sp>
+<sp><speaker>MICIO</speaker><p> Why, what's the matter?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I'm bringing you some new and great enormities of that hopeful youth.</p></sp>
+<sp><speaker>MICIO</speaker><p> Just look at that!</p></sp>
+<sp><speaker>DEMEA</speaker><p> Fresh ones, of blackest dye.</p></sp>
+<sp><speaker>MICIO</speaker><p> There now--at it again.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Ah, Micio! you little know what sort of person he is.</p></sp>
+<sp><speaker>MICIO</speaker><p> I do.</p></sp>
+<sp><speaker>DEMEA</speaker><p> O simpleton! you are dreaming that I'm talking about the Music-girl; this crime is against a virgin and a citizen.</p></sp>
+<sp><speaker>MICIO</speaker><p> I know it.</p></sp>
+<sp><speaker>DEMEA</speaker><p> So then, you know it, and put up with it!</p></sp>
+<sp><speaker>MICIO</speaker><p> Why not put up with it?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Tell me, pray, don't you exclaim about it? Don't you go distracted?</p></sp>
+<sp><speaker>MICIO</speaker><p> Not I: certainly I had rather
+<milestone n="730" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Certainly I had rather</lemma>: He pauses after "<foreign lang="la">quidem</foreign>," but he means to say that if he had his choice, he would rather it had not been so.</note>----
+</p></sp>
+<sp><speaker>DEMEA</speaker><p> There has been a child born.</p></sp>
+<sp><speaker>MICIO</speaker><p> May the Gods be propitious to it.</p></sp>
+<sp><speaker>DEMEA</speaker><p> The girl has no fortune.</p></sp>
+<sp><speaker>MICIO</speaker><p> So I have heard.</p></sp>
+<sp><speaker>DEMEA</speaker><p> And he--must he marry her without one?</p></sp>
+<sp><speaker>MICIO</speaker><p> Of course.</p></sp>
+<sp><speaker>DEMEA</speaker><p> What is to be done then?</p></sp>
+<sp><speaker>MICIO</speaker><p> Why, what the case itself points out: the young woman must be brought hither.</p></sp>
+<sp><speaker>DEMEA</speaker><p> O Jupiter! must that be the way then?</p></sp>
+<sp><speaker>MICIO</speaker><p> What can I do else?</p></sp>
+<sp><speaker>DEMEA</speaker><p> What can you do?: If in reality this causes you no concern, to pretend it were surely the duty of a man.</p></sp>
+<sp><speaker>MICIO</speaker><p> But I have already betrothed the young woman to him; the matter is settled: the marriage takes place to-day. I have removed all apprehensions. This is rather the duty of a man.</p></sp>
+<sp><speaker>DEMEA</speaker><p> But does the affair please you, Micio?</p></sp>
+<sp><speaker>MICIO</speaker><p> If I were able to alter it, no; now, as I can not, I bear it with patience. The life of man is just like playing with dice:
+<milestone n="742" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Playing with dice</lemma>: The "<foreign lang="la">tesserae</foreign>" of the ancients were cubes, or what we call "dice;" while the "<foreign lang="la">tali</foreign>" were in imitation of the knuckle-bones of animals, and were marked on four sides only. For some account of the mode of playing with the "<foreign lang="la">tali</foreign>," see the last Scene of the Asinaria, and the Curculio of Plautus, <bibl n="Pl. Cur. 2.2">l. 257-9</bibl>. Madame Dacier suggests that Menander may possibly have borrowed this passage from the Republic of Plato, <bibl n="Plat. Rep. 604C">B. X.</bibl>, where he says, "'We should take counsel from accidents, and, as in a game at dice, act according to what has fallen, in the manner which reason tells us to be the best."</note> if that which you most want to throw does not turn up, what turns up by chance you must correct by art.</p></sp>
+<sp><speaker>DEMEA</speaker><p> O rare corrector! of course it is by your art that twenty minae have been thrown away for a Music-girl; who, as soon as possible, must be got rid of at any price; and if not for money, why then for nothing.</p></sp>
+<sp><speaker>MICIO</speaker><p> Not at all, and indeed I have no wish to sell her.</p></sp>
+<sp><speaker>DEMEA</speaker><p> What will you do with her then?</p></sp>
+<sp><speaker>MICIO</speaker><p> She shall be at my house.</p></sp>
+<sp><speaker>DEMEA</speaker><p> For heaven's sake, a courtesan and a matron in the same house!
+</p></sp>
+<sp><speaker>MICIO</speaker><p> Why not?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do you imagine you are in your senses</p></sp>
+<sp><speaker>MICIO</speaker><p> Really I do think so.</p></sp>
+<sp><speaker>DEMEA</speaker><p> So may the Gods prosper me, I now see your folly; I believe you are going to do so that you may have somebody to practice music with.</p></sp>
+<sp><speaker>MICIO</speaker><p> Why not?</p></sp>
+<sp><speaker>DEMEA</speaker><p> And the new-made bride to be learning too?</p></sp>
+<sp><speaker>MICIO</speaker><p> Of course.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Having hold of the rope,
+<milestone n="755" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hold of the rope</lemma>: "<foreign lang="la">Restim ductans saltabis</foreign>." Donatus and Madame Dacier think that this is only a figurative expression for a dance in which all joined hands; according to some, however, a dance is alluded to where the person who led off drew a rope or cord after him, which the rest of the company took hold of as they danced; which was invented in resemblance of the manner in which the wooden horse was dragged by ropes into the city of <placeName key="perseus,Troy">Troy</placeName>.</note> you will be dancing with them.</p></sp>
+<sp><speaker>MICIO</speaker><p> Like enough; and you too along with us, if there's need.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Ah me! are you not ashamed of this?</p></sp>
+<sp><speaker>MICIO</speaker><p> Demea, do, for once, lay aside this anger of yours, and show yourself as you ought at your son's wedding, cheerful and good-humored. I'll just step over to them, and return immediately. <stage>Goes into SOSTRATA'S house.</stage></p></sp>
+<sp><speaker>DEMEA</speaker><p> O <persName>Jupiter</persName>! here's a life! here are manners! here's madness! A wife to be coming without a fortune! A musicwench in the house! A house full of wastefulness! A young man ruined by extravagance! An:old man in his dotage!--Should Salvation herself
+<milestone n="764" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Salvation herself:</lemma>: See an observation relative to the translation of the word "<foreign lang="la">Salus</foreign>," in the Notes to Plautus, vol. i. pages 193. 450.</note> desire it, she certainly could not save this family. <stage>(Exit.)</stage>
+
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="767" unit="TLN line"/>
+<stage>Enter SYRUS, drunk, and DEMEA, on the opposite side of the stage.</stage>
+<sp><speaker>SYRUS</speaker><p> Upon my faith, my dear little Syrus, you have taken delicate care of yourself, and have done your duty<milestone n="767" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have done your duty</lemma>: His duty of providing the viands and drink for the entertainment. So Ergasilus says in the Captivi of Plautus, <bibl n="Pl. Capt. 4.4">l. 912</bibl> "Now I will go off to my government (<foreign lang="la">praefecturam</foreign>), to give laws to the bacon."</note> with exquisite taste; be off with you. But since I've had my fill of every thing in-doors, I have felt disposed to take a walk.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>apart.</stage> Just look at that--there's an instance of their good training!</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>to himself.</stage> But see, here comes our old man. <stage>Addressing him.</stage> What's the matter ? Why out of spirits?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Oh you rascal!</p></sp>
+<sp><speaker>SYRUS</speaker><p> Hold now; are you spouting your sage maxims here?</p></sp>
+<sp><speaker>DEMEA</speaker><p> If you were my servant----</p></sp>
+<sp><speaker>SYRUS</speaker><p> Why, you would be a rich man, Demea, and improve your estate.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I would take care that you should be an example to all the rest.</p></sp>
+<sp><speaker>SYRUS</speaker><p> For what reason ? What have I done ?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do you ask me ? in the midst of this confusion, and during the greatest mischief, which is hardly yet set right, you have been getting drunk, you villain, as though things had been going on well.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>aside.</stage> Really, I wish I hadn't come out.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="780" unit="TLN line"/>
+<stage>Enter DROMO in haste, from the house of MICIO.</stage>
+<sp><speaker>DROMO</speaker><p> Halloo, Syrus! Ctesipho desires you'll come back.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Get you gone. <stage>Pushes him back into the house.</stage>
+</p></sp>
+<sp><speaker>DEMEA</speaker><p> What is it he says about Ctesipho?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Nothing.</p></sp>
+<sp><speaker>DEMEA</speaker><p> How now, you hang-dog, is Ctesipho in the house?</p></sp>
+<sp><speaker>SYRUS</speaker><p> He is not.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Then why does he mention him?</p></sp>
+<sp><speaker>SYRUS</speaker><p> It's another person; a little diminutive Parasite. Don't you know him?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I will know him before long. <stage>Going to the door.</stage></p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>stopping him.</stage> What are you about? Whither are you going?</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>struggling.</stage> Let me alone.</p></sp>
+<sp><speaker>SYRUS</speaker><p> <stage>holding him.</stage> Don't, I tell you.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Won't you keep your hands off, whip-scoundrel? Or would you like me to knock your brains out this instant ? <stage>Rushes into the house.</stage></p></sp>
+<sp><speaker>SYRUS</speaker><p> He's gone! no very pleasant boon-companion, upon my faith, particularly to Ctesipho. What am I to do now ? Why, even get into some corner till this tempest is lulled, and sleep off this drop of wine. That's my plan. <stage>Goes into the house, staggering.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="791" unit="TLN line"/>
+<stage>Enter MICIO, from the house of SOSTRATA.</stage>
+<sp><speaker>MICIO</speaker><p> <stage>to SOSTRATA, within.</stage> Every thing's ready with us, as I told you, Sostrata, when you like.--Who, I wonder, is making my door fly open with such fury ?
+<stage>Enter DEMEA in haste, from the house of MICIO.</stage></p></sp>
+<sp><speaker>DEMEA</speaker><p> Alas! what shall I do? How behave? In what terms exclaim, or how make my complaint? O heavens! O earth! O seas of <persName>Neptune</persName> !</p></sp>
+<sp><speaker>MICIO</speaker><p> <stage>apart.</stage> Here's for you! he has discovered all about the affair; and of course is now raving about it; a quarrel is the consequence; I must assist him,<milestone n="795" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I must assist him</lemma>: Colman remarks on this passage:  "The character of Micio appears extremely amiable through the first four Acts of this Comedy, and his behavior is in many respects worthy of imitation; but his conduct in conniving at the irregularities of Ctesipho, and even assisting him to support them, is certainly reprehensible. Perhaps the Poet threw this shade over his virtues on purpose to show that mildness and good-humor might be carried to excess."</note> however.
+</p></sp>
+<sp><speaker>DEMEA</speaker><p> See, here comes the common corrupter of my children.</p></sp>
+<sp><speaker>MICIO</speaker><p> Pray moderate your passion, and recover yourself.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I have moderated it; I am myself; I forbear all reproaches; let us come to the point: was this agreed upon between us,--proposed by yourself, in fact,--that you were not to concern yourself about my son, nor I about yours? Answer me.</p></sp>
+<sp><speaker>MICIO</speaker><p> It is the fact,--I don't deny it.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Why is he now carousing at your house? Why are you harboring my son ? Why do you purchase a mistress for him, Micio ? Is it at all fair, that I should have any less justice from you, than you from me? Since I do not concern myself about your son, don't you concern yourself about mine.</p></sp>
+<sp><speaker>MICIO</speaker><p> You don't reason fairly.</p></sp>
+<sp><speaker>DEMEA</speaker><p> No ?</p></sp>
+<sp><speaker>MICIO</speaker><p> For surely it is a maxim of old, that among themselves all things are common to friends.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Smartly said; you've got that speech up for the occasion.</p></sp>
+<sp><speaker>MICIO</speaker><p> Listen to a few words, unless it is disagreeable, Demea. In the first place, if the extravagance your sons are guilty of distresses you, pray do reason with yourself. You formerly brought up the two suitably to your circumstances, thinking that your own property would have to suffice for them both; and, of course, you then thought that I should marry. Adhere to that same old rule of yours,--save, scrape together, and be thrifty for them; take care to leave them as much as possible, and take that credit to yourself: my fortune, which has come to them beyond their expectation, allow them to enjoy; of your capital there will be no diminution; what comes from this quarter, set it all down as so much gain. If you think proper impartially to consider these matters in your mind, Demea, you will save me and yourself, and them, considerable uneasiness.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I don't speak about the expense; their morals----</p></sp>
+<sp><speaker>MICIO</speaker><p> Hold; I understand you; that point I was coming to.<milestone n="824" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That point I was coming to</lemma>: Colman observes here: "Madame Dacier makes an observation on this speech, something like that of Donatus on one of Micio's above; and says that Micio, being hard put to it by the real circumstances of the case, thinks to confound Demea by a nonsensical gallimatia. I can not be of the ingenious lady's opinion on this matter, for I think a more sensible speech could not be made, nor a better plea offered in favor of the young men, than that of Micio in the present instance."</note> There are in men, Demea, many signs from which a conjecture is easily formed; so that when two persons do the same thing, you may often say, this one may be allowed to do it with impunity, the other may not; not that the thing itself is different, but that he is who does it. I see signs in them, so as to feel confident that they will turn out as we wish. I see that they have good sense and understanding, that they have modesty upon occasion, and are affectionate to each other; you may infer that their bent and disposition is of a pliant nature; at any time you like you may reclaim them. But still, you may be apprehensive that they will be somewhat too apt to neglect their interests. O my dear Demea, in all other things we grow wiser with age; this sole vice does old age bring upon men: we are all more solicitous about our own interests than we need be; and in this respect age will make them sharp enough.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Only take care, Micio, that these fine reasonings of yours, and this easy disposition of yours, do not ruin us in the end.</p></sp>
+<sp><speaker>MICIO</speaker><p> Say no more; there's no danger of that. Now think no further of these matters. Put yourself to-day into my hands; smooth your brow.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Why, as the occasion requires it, I must do so; but to-morrow I shall be off with my son into the country at day-break.</p></sp>
+<sp><speaker>MICIO</speaker><p> Aye, to-night, for my share; only keep yourself in good-humor for the day.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I'll carry off that Music-girl along with me as well.</p></sp>
+<sp><speaker>MICIO</speaker><p> You will gain your point; by that means you will keep your son fast there; only take care to secure her.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I'll see to that; and what with cooking and grinding, I'll take care she shall be well covered with ashes, smoke, and meal; besides all this, at the very mid-day<milestone n="851" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At the very mid-day</lemma>: Exposed to the heat of a mid-day sun.</note> I'll set her gathering stubble; I'll make her as burned and as black as a coal.</p></sp>
+<sp><speaker>MICIO</speaker><p> You quite delight me; now you seem to me to be wise; and for my part I would then compel my son to go to bed with her, even though he should be unwilling.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do you banter me? Happy man, to have such a temper! I feel----</p></sp>
+<sp><speaker>MICIO</speaker><p> Ah ! at it again!</p></sp>
+<sp><speaker>DEMEA</speaker><p> I'll have done then at once.</p></sp>
+<sp><speaker>MICIO</speaker><p> Go in-doors then, and let's devote this day to the object<milestone n="857" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the object</lemma>: The marriage and its festivities.</note> to which it belongs. <stage>Goes into the house.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="859" unit="TLN line"/>
+<stage>DEMEA alone.</stage>
+<sp><speaker>DEMEA</speaker><p> Never was there any person of ever such well-trained habits of life, but that experience, age, and custom are always bringing him something new, or suggesting something; so much so, that what you believe you know you don't know, and what you have fancied of first importance to you, on making trial you reject; and this is my case at present: for the rigid life I have hitherto led, my race nearly run, I now renounce. Why so ?--I have found, by experience, that there is nothing better for a man than an easy temper and complacency. That this is the truth, it is easy for any one to understand on comparing me with my brother. He has always spent his life in ease and gayety; mild, gentle, offensive to no one, having a smile for all, he has lived for himself, and has spent his money for himself; all men speak well of him, all love him. I, again, a rustic, a rigid, cross, self-denying, morose and thrifty person, married a wife; what misery I entailed in consequence! Sons were born--a fresh care. And just look, while I have been studying to do as much as possible for them, I have worn out my life and years in saving; now, in the decline of my days, the return I get from them for my pains is their dislike. He, on the other hand, with out any trouble on his part, enjoys a father's comforts; they love him; me they shun; him they trust with all their secrets, are fond of him, are always with him. I am forsaken; they wish him to live; but my death, forsooth, they are longing for. Thus, after bringing them up with all possible pains, at a trifling cost he has made them his own; thus I bear all the misery, he enjoys the pleasure. Well, then, henceforward let us try, on the other hand, whether I can't speak kindly and act complaisantly, as he challenges me to it: I also want myself to be loved and highly valued by my friends. If that is to be effected by giving and indulging, I will not be behind him. If our means fail, that least concerns me, as I am the eldest.<milestone n="884" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Am the eldest</lemma>: And therefore likely to be the first to die, and to avoid seeing such a time come.</note></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="886" unit="TLN line"/>
+<stage>Enter SYRUS.</stage>
+<sp><speaker>SYRUS</speaker><p> Hark you, Demea, your brother begs you will not go out of the way.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Who is it?--O Syrus, my friend,<milestone n="886" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">O Syrus, my friend</lemma>: The emptiness of his poor attempts to be familiar are very evident in this line.</note> save you! how are you? How goes it with you?</p></sp>
+<sp><speaker>SYRUS</speaker><p> Very well.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Very good. <stage>Aside.</stage> I have now for the first time used these three expressions contrary to my nature,--"O Syrus, my friend, how are you ?--how goes it with you?" <stage>To SYRUS.</stage> You show yourself far from an unworthy servant, and I shall gladly do you a service.</p></sp>
+<sp><speaker>SYRUS</speaker><p> I thank you.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Yes, Syrus, it is the truth; and you shall be convinced of it by experience before long.</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="893" unit="TLN line"/>
+<stage>Enter GETA, from the house of SOSTRATA.</stage>
+<sp><speaker>GETA</speaker><p> <stage>to SOSTRATA, within</stage>. Mistress, I am going to see after them, that they may send for the damsel as soon as possible; but see, here's Demea. <stage>Accosting him.</stage> Save you!</p></sp>
+<sp><speaker>DEMEA</speaker><p> O, what's your name?</p></sp>
+<sp><speaker>GETA</speaker><p> Geta.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Geta, I have this day come to the conclusion that you are a man of very great worth, for I look upon him as an undoubtedly good servant who has a care for his master; as I have found to be your case, Geta; and for that reason, if any opportunity should offer, I would gladly do you a service. <stage>Aside.</stage> I am practicing the affable, and it succeeds very well.</p></sp>
+<sp><speaker>GETA</speaker><p> You are kind, sir, to think so.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>aside.</stage> Getting on by degrees--I'll first make the lower classes my own.</p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="903" unit="TLN line"/>
+<stage>Enter AESCHINUS, from the house of MICIO.</stage>
+<sp><speaker>AESCHINUS</speaker><p> <stage>to himself.</stage> They really are killing me while too intent on performing the nuptials with all ceremony; the whole day is being wasted in their preparations.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Aeschinus ! how goes it?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Ha, my father! are you here ?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Your father, indeed, both by affection and by nature; as I love you more than my very eyes; but why don't you send for your wife ?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> So I wish to do; but I am waiting for the music-girl<milestone n="908" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The music-girl</lemma>: "<foreign lang="la">Tibicinae</foreign>," or music-girls, attended at marriage ceremonials. See the Aulularia of Plautus, where Megadorus hires the music-girls on his intended marriage with the daughter of Euclio.</note> and people to sing the nuptial song.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Come now, are you willing to listen to an old fellow like me?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> What is it?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Let those things alone, the nuptial song, the crowds, the torches,<milestone n="910" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The crowds, the torches</lemma>: See the Casina of Plautus, Act IV., Scenes 3 and 4, for some account of the marriage ceremonial. The torches, music-girls, processions, and hymeneal song, generally accompanied a wedding, but from the present passage we may conclude that they were not considered absolutely necessary.</note> and the music-girls, and order the stone wall in the garden<milestone n="911" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Stone wall in the garden</lemma>: The "<foreign lang="la">maceria</foreign>," or garden-wall of loose stones, is also mentioned in the Truculentus of Plautus, 1. 301.</note> here to be pulled down with all dispatch, and bring her over that way; make but one house of the two; bring the mother and all the domestics over to our house.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> With all my heart, kindest father.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>aside.</stage> Well done! now I am called " kind." My brother's house will become a thoroughfare; he will be bringing home a multitude, incurring expense in many ways: what matters it to me ? I, as the kind Demea, shall get into favor. Now then, bid that Babylonian<milestone n="918" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bid that Babylonian</lemma>: This passage has much puzzled the Commentators; but it seems most probable that it is said aside, and that in consequence of his profuseness he calls his brother a Babylonian, (just as we call a wealthy man a nabob,) and says, "Well, let him, with all my heart, be paying twenty mine (between &pound;70 and &pound;80) for a music-girl."</note> pay down his twenty minae. <stage>To SYRUS.</stage> Syrus, do you delay to go and do it ?</p></sp>
+<sp><speaker>SYRUS</speaker><p> What am I to do?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Pull down the wall: and you, Geta, go and bring them across.</p></sp>
+<sp><speaker>GETA</speaker><p> May the Gods bless you, Demea, as I see you so sincere a well-wisher to our family. <stage>GETA and SYRUS go into MICIO'S house.</stage></p></sp>
+<sp><speaker>DEMEA</speaker><p> I think they deserve it. What say you, Aeschinus, as to this plan ?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> I quite agree to it.</p></sp>
+<sp><speaker>DEMEA</speaker><p> It is much more proper than that she, being sick and lying-in, should be brought hither through the street.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Why, my dear father, I never did see any thing better contrived.</p></sp>
+<sp><speaker>DEMEA</speaker><p> It's my way; but see, here's Micio coming out.</p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="928" unit="TLN line"/>
+<stage>Enter MICIO, from his house.</stage>
+<sp><speaker>MICIO</speaker><p> <stage>speaking to GETA, within.</stage> Does my brother order it? Where is he? <stage>To DEMEA.</stage> Is this your order, Demea?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Certainly, I do order it, and in this matter, and in every thing else, wish especially to make this family one with ourselves, to oblige, serve, and unite them.
+</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Father, pray let it be so.</p></sp>
+<sp><speaker>MICIO</speaker><p> I do not oppose it.</p></sp>
+<sp><speaker>DEMEA</speaker><p> On the contrary, i' faith, it is what we ought to do: in the first place, she is the mother of his wife <stage>pointing to AESCHINUS</stage>.</p></sp>
+<sp><speaker>MICIO</speaker><p> She is. What then?</p></sp>
+<sp><speaker>DEMEA</speaker><p> An honest and respectable woman.</p></sp>
+<sp><speaker>MICIO</speaker><p> So they say.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Advanced in years.</p></sp>
+<sp><speaker>MICIO</speaker><p> I am aware of it.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Through her years, she is long past child-bearing; there is no one to take care of her; she is a lone woman.</p></sp>
+<sp><speaker>MICIO</speaker><p> <stage>aside.</stage> What can be his meaning ?</p></sp>
+<sp><speaker>DEMEA</speaker><p> It is right you should marry her; and that you, Aeschinus, should use your endeavors to effect it.</p></sp>
+<sp><speaker>MICIO</speaker><p> I, marry her, indeed ?</p></sp>
+<sp><speaker>DEMEA</speaker><p> You.</p></sp>
+<sp><speaker>MICIO</speaker><p> I?</p></sp>
+<sp><speaker>DEMEA</speaker><p> You, I say.</p></sp>
+<sp><speaker>MICIO</speaker><p> You are trifling !</p></sp>
+<sp><speaker>DEMEA</speaker><p> Aeschinus, if you are a man, he'll do it</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> My dear father----</p></sp>
+<sp><speaker>MICIO</speaker><p> What, ass! do you attend to him?</p></sp>
+<sp><speaker>DEMEA</speaker><p> 'T is all in vain; it can not be otherwise.</p></sp>
+<sp><speaker>MICIO</speaker><p> You are mad!</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Do let me prevail on you, my father.</p></sp>
+<sp><speaker>MICIO</speaker><p> Are you out of your senses? Take yourself off.<milestone n="940" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take yourself off</lemma>: Aeschinus, probably, in his earnestness, has seized hold of him with his hand, which Micio now pushes away.</note></p></sp>
+<sp><speaker>DEMEA</speaker><p> Come, do oblige your son.</p></sp>
+<sp><speaker>MICIO</speaker><p> Are you quite in your right mind? Am I, in my five-and-sixtieth year, to be marrying at last? A decrepit old woman too ? Do you advise me to do this?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Do; I have promised it.<milestone n="943" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I have promised it</lemma>: This is not the truth; the notion has only been started since he last saw them.</note></p></sp>
+<sp><speaker>MICIO</speaker><p> Promised, indeed; be generous at your own cost, young man.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Come, what if he should ask a still greater favor ?
+</p></sp>
+<sp><speaker>MICIO</speaker><p> As if this was not the greatest !</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do comply.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Don't make any difficulty.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Do promise.</p></sp>
+<sp><speaker>MICIO</speaker><p> Will you not have done?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Not until I have prevailed upon you.</p></sp>
+<sp><speaker>MICIO</speaker><p> Really, this is downright force.<milestone n="946" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Really, this is downright force</lemma>: "<foreign lang="la">Vis est haec quidem</foreign>." The same expression occurs in the Captivi of Plautus, <bibl n="Pl. Capt. 3.5">l. 755</bibl>. The expression seemed to be a common one with the Romans. According to Suetonius, Julius Caesar used it when attacked by his murderers in the senate-house. On Tullius Cimber seizing hold of his garments, he exclaimed, <cit><quote lang="la">Ita quidem vis est!</quote><bibl n="Suet. Jul. 82.1">(82.1)</bibl></cit>--" Why, really, this is violence !"</note></p></sp>
+<sp><speaker>DEMEA</speaker><p> Act with heartiness, Micio.</p></sp>
+<sp><speaker>MICIO</speaker><p> Although this seems to me<milestone n="947" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This seems to me</lemma>: Donatus informs us that in Menander's Play, the old man did not make any resistance whatever to the match thus patched up for him. Colman has the following observation on this fact: "It is surprising that none of the critics on this passage. have taken notice of this observation of Donatus, especially as our loss of Menander makes it rather curious. It is plain that Terence in the plan of his last Act followed Menander; but though he has adopted the absurdity of marrying Micio to the old lady, yet we learn from Donatus that his judgment rather revolted at this circumstance, and he improved on his original by making Micio express a repugnance to such a match, which it seems he did not in the Play of Menander."</note> to be wrong, foolish, absurd, and repugnant to my mode of life, yet, if you so strongly wish it, be it so.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> You act obligingly.</p></sp>
+<sp><speaker>DEMEA</speaker><p> With reason I love you; but----</p></sp>
+<sp><speaker>MICIO</speaker><p> What ?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I will tell you, when my wish has been complied with.</p></sp>
+<sp><speaker>MICIO</speaker><p> What now ? What remains to be done?</p></sp>
+<sp><speaker>DEMEA</speaker><p> Hegio here is their nearest relation; he is a connection of ours and poor; we ought to do some good for him.</p></sp>
+<sp><speaker>MICIO</speaker><p> Do what?</p></sp>
+<sp><speaker>DEMEA</speaker><p> There is a little farm here in the suburbs, which you let out; let us give it him to live upon.</p></sp>
+<sp><speaker>MICIO</speaker><p> But is it a little one ?</p></sp>
+<sp><speaker>DEMEA</speaker><p> If it were a large one, still it ought to be done; he has been as it were a father to her; he is a worthy man, and connected with us; it would be properly bestowed. In fine, I now adopt that proverb which you, Micio, a short time ago repeated with sense and wisdom--it is the common vice of all, in old age, to be too intent upon our own interests. This stain we ought to avoid: it is a true maxim, and ought to be observed in deed.</p></sp>
+<sp><speaker>MICIO</speaker><p> What am I to say to this? Well then, as he desires it <stage>pointing to AESCHINUS</stage>, it shall be given him.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> My father!</p></sp>
+<sp><speaker>DEMEA</speaker><p> Now, Micio, you are indeed my brother, both in spirit and in body.</p></sp>
+<sp><speaker>MICIO</speaker><p> I am glad of it.</p></sp>
+<sp><speaker>DEMEA</speaker><p> <stage>aside.</stage> I foil him at his own weapon.<milestone n="961" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At his own weapon</lemma>: He probably means, by aping the kind feeling which is a part of Micio's character.</note></p></sp></div2>
+<div2 type="scene" n="9">
+<milestone n="1" unit="line"/><milestone n="963" unit="TLN line"/>
+<stage>Enter SYRUS, from the house.</stage>
+<sp><speaker>SYRUS</speaker><p> It has been done as you ordered, Demea.</p></sp>
+<sp><speaker>DEMEA</speaker><p> You are a worthy fellow. Upon my faith,--in my opinion, at least,--I think Syrus ought at once to be made free.</p></sp>
+<sp><speaker>MICIO</speaker><p> He free! For what reason?</p></sp>
+<sp><speaker>DEMEA</speaker><p> For many.</p></sp>
+<sp><speaker>SYRUS</speaker><p> O my dear Demea! upon my word, you are a worthy man! I have strictly taken care of both these sons of yours, from childhood; I have taught, advised, and carefully instructed them in every thing I could.</p></sp>
+<sp><speaker>DEMEA</speaker><p> The thing is evident; and then, besides all this, to cater for them, secretly bring, home a wench, prepare a morning entertainment;<milestone n="969" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A morning entertainment</lemma>: A banquet in the early part or middle of the day was considered by the Greeks a debauch.</note> these are the accomplishments of no ordinary person.</p></sp>
+<sp><speaker>SYRUS</speaker><p> O, what a delightful man !</p></sp>
+<sp><speaker>DEMEA</speaker><p> Last of all, he assisted to-day in purchasing this Music-wench--he had the management of it; it is right he should be rewarded; other servants will be encouraged thereby: besides, he <stage>pointing to AESCHINUS</stage> desires it to be so.
+</p></sp>
+<sp><speaker>MICIO</speaker><p> <stage>to AESCHINUS.</stage> Do you desire this to be done?</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> I do wish it.</p></sp>
+<sp><speaker>MICIO</speaker><p> Why then, if you desire it, just come hither, Syrus, to me <stage>performing the ceremony of manumission</stage>; be a free man.<milestone n="974" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be a free man</lemma>: He touches Syrus on the ear, and makes him free. The same occurs in the Epidicus of Plautus, Act V., Sc. 2, 1. 65.</note></p></sp>
+<sp><speaker>SYRUS</speaker><p> You act generously; I return my thanks to you all;--and to you, Demea, in particular.</p></sp>
+<sp><speaker>DEMEA</speaker><p> I congratulate you.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> And I.</p></sp>
+<sp><speaker>SYRUS</speaker><p> I believe you. I wish that this joy were made complete--that I could see my wife, <placeName key="tgn,7002613">Phrygia</placeName>,<milestone n="977" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My wife, <placeName key="tgn,7002613">Phrygia</placeName></lemma>: The so-called marriage, or rather cohabitation, of the Roman slaves will be found treated upon in the Notes to Plautus. Syrus calls <placeName key="tgn,7002613">Phrygia</placeName> his wife on anticipation that she will become a free woman.</note> free as well.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Really, a most excellent woman.</p></sp>
+<sp><speaker>SYRUS</speaker><p> And the first to suckle your grandchild, his son, today <stage>pointing to AESCHINUS</stage>.</p></sp>
+<sp><speaker>DEMEA</speaker><p> Why really, in seriousness, if she was the first to do so, there is no doubt she ought to be made free.</p></sp>
+<sp><speaker>MICIO</speaker><p> What, for doing that?</p></sp>
+<sp><speaker>DEMEA</speaker><p> For doing that; in fine, receive the amount from me<milestone n="981" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Receive the amount from me</lemma>: The only sign of generosity he has yet shown.</note> at which she is valued.</p></sp>
+<sp><speaker>SYRUS</speaker><p> May all the Gods always grant you, Demea, all you desire.</p></sp>
+<sp><speaker>MICIO</speaker><p> Syrus, you have thrived pretty well to-day.</p></sp>
+<sp><speaker>DEMEA</speaker><p> If, in addition, Micio, you will do your duty, and lend him a little ready money in hand for present use, he will soon repay you.</p></sp>
+<sp><speaker>MICIO</speaker><p> Less than this <stage>snapping his fingers</stage>.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> He is a deserving fellow.</p></sp>
+<sp><speaker>SYRUS</speaker><p> Upon my word, I will repay it; only lend it me.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Do, father.</p></sp>
+<sp><speaker>MICIO</speaker><p> I'll consider of it afterward.</p></sp>
+<sp><speaker>DEMEA</speaker><p> He'll do it, Syrus.</p></sp>
+<sp><speaker>SYRUS</speaker><p> O most worthy man !</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> O most kind-hearted father!
+</p></sp>
+<sp><speaker>MICIO</speaker><p> How is this? What has so suddenly changed your disposition, Demea? What caprice is this? What means this sudden liberality?<milestone n="989" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This sudden liberality</lemma>: "<foreign lang="la">Quid prolubium? Quae istaec subita est largitas?</foreign>" Madame Dacier tells us that this passage was borrowed from Coeilius, the Comic Poet.</note></p></sp>
+<sp><speaker>DEMEA</speaker><p> I will tell you:--That I may convince you of this, Micio, that the fact that they consider you an easy and kind-hearted man, does not proceed from your real life, nor, indeed, from a regard for virtue and justice; but from your humoring, indulging, and pampering them. Now therefore, Aeschinus, if my mode of life has been displeasing to you, because I do not quite humor you in every thing, just or unjust, I have done: squander, buy, do what you please. But if you would rather have one to reprove and correct those faults, the results of which, by reason of your youth, you can not see, which you pursue too ardently, and are thoughtless upon, and in due season to direct you; behold me ready to do it for you.</p></sp>
+<sp><speaker>AESCHINUS</speaker><p> Father, we leave it to you; you best know what ought to be done. But what is to be done about my brother?</p></sp>
+<sp><speaker>DEMEA</speaker><p> I consent. Let him have his mistress:<milestone n="1001" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Let him have his mistress</lemma>: It must be remembered that he has the notions of a Greek parent, and sees no such criminality in this sanction as a parent would be sensible of at the present day.</note> with her let him make an end of his follies.</p></sp>
+<sp><speaker>MICIO</speaker><p> That's right. <stage>To the AUDIENCE.</stage> Grant us your applause.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

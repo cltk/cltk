@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title type="work" n="Apoc.">Apocolocyntosis: introduction</title>
+				<title type="sub">Machine readable text</title>
+				<author n="Petr.">Seneca</author>
+				<editor role="editor" n="Rouse">W.H.D. Rouse</editor>
+				&responsibility; &fund.AnnCPB;</titleStmt>
+			<extent>About 100Kb</extent> &Perseus.publish;<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Seneca</author>
+						<title>Apocolocyntosis</title>
+						<editor role="editor">W.H.D. Rouse, M.A. Litt. D.</editor>                        
+						<imprint>
+							<pubPlace>London</pubPlace>
+							<publisher>William Heinemann</publisher>
+							<date>1913</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state unit="chapter"/>
+			</refsDecl>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language id="en">English</language>
+				<language id="greek">Greek</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change>
+				<date>2006</date>
+				<respStmt>
+					<name>GRC</name>
+					<resp>tagging</resp>
+				</respStmt>
+				<item/>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<div1 type="chapter" n="front">
+				<pb id="p.367"/>
+			<div2 type="section" n="intro"><head>INTRODUCTION</head>
+				<p>This piece is ascribed to Seneca by ancient tradition; it is impossible to
+					prove that it is his, and impossible to prove that it is not. The matter
+					will probably continue to be decided by every one according to his view of
+					Seneca's character and abilities: in the matters of style and of sentiment
+					much may be said on both sides. Dion Cassius (lx, 35) says that Seneca
+					composed an <foreign lang="greek">a)pokoloku/ntwsis</foreign> or
+					Pumpkinification of Claudius after his death, the title being a parody of
+					the usual <foreign lang="greek">a)poqe/wsis;</foreign> but this title is not
+					given in the MSS. of the Ludus de Morte Claudii, nor is there anything in
+					the piece which suits the title very well.</p>
+				<p>As a literary form, the piece belongs to the class called <hi rend="italics">Satura Menippea,</hi> a satiric medley in prose and verse.</p>
+				<p>This text is that of Buecheler, with a few trifling changes, which are
+					indicated in the notes. We have been courteously allowed by Messrs Weidmann
+					to use this text. I have to acknowledge the help of Mr Ball's notes, from
+					which I have taken a few references; but my translation was made many years
+					ago.</p>
+				<signed>W. H. D. ROUSE.</signed>
+			</div2>
+			<pb/>
+			<pb id="p.369"/>
+			<div2 type="section" n="biblio"><head>BIBLIOGRAPHY</head>
+				<p><hi rend="italics">Editio Princeps:</hi> Lucii Annaei Senecae in morte Claudii
+					Caesaris Ludus nuper repertus: Rome, 1513.</p>
+				<p><hi rend="italics">Latest critical text:</hi> Franz Buecheler, Weidmann, 1904 (a
+					reprint with a few changes of the text from a larger work, Divi Claudii <foreign
+						lang="greek">)Apokoloku/ntwsis</foreign> in the Symbola Philologorum Bonnensium,
+					fasc. i, 1864).</p>
+				<p><hi rend="italics">Translations and helps:</hi> The Satire of Seneca on the
+					Apotheosis of Claudius, by A. P. Ball (with introduction, notes, and translations):
+					New York: Columbia University Press; London, Macmillan, 1902.</p>
+			</div2>
+			</div1>
+			
+		</body>
+	</text>
+</TEI.2>

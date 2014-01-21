@@ -1,0 +1,650 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Paradoxa stoicorum ad M. Brutum</title>
+<author>M. Tullius Cicero</author>
+<editor role="editor">J. G. Baiter</editor>
+<editor role="editor">C. L. Kayser</editor>
+&responsibility;
+</titleStmt>
+<extent></extent>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>M. Tullii Ciceronis opera quae supersunt omnia</title>
+<author>M. Tullius Cicero</author>
+<editor role="editor">J. G. Baiter</editor>
+<editor role="editor">C. L. Kayser</editor>
+<imprint>
+<pubPlace>Leipzig</pubPlace>
+<publisher>Tauchnitz</publisher>
+<date>1865</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="section"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date></date>
+<respStmt><name>cew</name><resp>ed.</resp></respStmt>
+<item>
+$Log: cic.parad_lat.xml,v $
+Revision 1.1  2009-10-09 19:49:14  rsingh04
+more reorganizing of texts module by collection
+
+Revision 1.1  2009/09/15 19:11:20  rsingh04
+added more cicero texts, removed old cicero files that aren't used
+
+Revision 1.2  2009/09/10 13:39:35  ajones06
+Fixed some of the metadata for the Cicero philosophical works.
+
+Revision 1.1  2009/09/09 14:27:22  gcrane
+base files
+
+Revision 1.4  2006/05/06 03:50:59  gcrane
+small mods
+
+Revision 1.3  2006/04/29 12:50:05  gcrane
+replaced italics with angle brackets to mark supplements
+
+fixed OCR errors by comparing this to another on-line edition:
+
+* stray period -- "latr.aret"
+
+* "e" for "c": hue-->huc, area-->arca
+
+* the latter is tough, since "area" is a real word.
+
+There may have been one or two other fixes -- I didn't check places
+where there was just a difference of a comma here or there.
+
+there are c. 30K of raw characters in this (30017 by one scan). at 99.95%
+accuracy, that would allow for 15 errors. It looks like we are better than that
+*before* the text comparison.
+
+Revision 1.2  2006/04/29 03:04:26  gcrane
+tagged quotes as QUOTE
+
+Revision 1.1  2006/04/29 03:02:11  gcrane
+added to repository
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="la"><body>
+
+
+<pb id="p.1001"/>
+<milestone unit="section" n="arg"/>
+<div1 type="book" n="arg"><head>Argumentum.</head>
+	<milestone unit="chapter" n="arg"/>
+<p>Hoc libello Cicero Catonis Uticensis, perfecti illius Stoici, admiratione adductus disciplinae Stoicae praecepta, quae homines ob
+severitatem admirabantur magis quam sequebantur, <foreign lang="greek">para/doca</foreign>,
+quae Latini vocant <quote>admirabilia</quote>, orationis suae suavitate mollita
+probare populo et commendare sibi proposuit. Nam etsi in oratione pro L. Murena Catone accusante Stoicorum <foreign lang="greek">para/doca</foreign> perstringit et in librorum de Finibus III. et IV. eorundem austeritati
+moderandum esse censet, tamen non tam doctrinae rationem illorum improbat quam sermonis insolentiam. Ac primo quidem loco
+bonum sola honestate contineri, deinde secundo tamquam consectario ostendit honestissimum quemque in se uno habere omnia
+bene beateque vivendi praesidia. Ex his autem locis cetera, quae
+deinceps persequitur, apta sunt et suspensa. Itaque tertius locus
+est de peccatorum aequalitate omnium. Quarti de stultorum insania loci pauca tantum verba supersunt; cetera exciderunt cum
+titulo et initio alius paradoxi (solum sapientem esse civem, omnes
+autem stultos esse exules), quo ad perstringendum Clodium usus
+est, quem non modo exulem, sed hostem, se ipsum semper civem
+fuisse demonstrat. Quinto loco, quo L. Lucullum atque etiam Hortensium videtur carpere, nisi sapientem libertate frui neminem
+docet, posse vero unum quemque ita vivere, ut velit, i. e. liberum
+esse, si modo honestatem sequatur. Denique sexto loco, quo M.
+Crassum divitem reprehendit, aerarii in consulatu secundo (a. u.
+c. 699.) expilati infamia notabilem, solum sapientem ait gaudere
+divitiis, ut quae cum in ceteris virtutibus tum maxime in continentia sint positae. Hoc autem brevium quaestionum, quod ad M.
+Brutum mittit, munusculum unius anni tempore, ut videtur, verno
+compositum esse e prooemii &sect; 5. apparet. Et quamquam Cicero
+Crassum a. u. c. 701. et Clodium a. 702. interfectos dialogi licentia
+sibi adesse potuit fingere, non tamen post mensem anni 708. Iunium,
+quo Cato mortem sibi Uticae conscivit, conditum hoc opusculum
+esse videtur.</p>
+
+<pb id="p.1002"/>
+
+<milestone unit="chapter" n="0"/>
+<p><milestone unit="section" n="1"/> Animadverti, Brute, saepe Catonem, avunculum
+tuum, cum in senatu sententiam diceret, locos gravis ex
+philosophia tractare abhorrentis ab hoc usu forensi et
+publico, sed dicendo consequi tamen, ut illa etiam populo probabilia viderentur; <milestone unit="section" n="2"/> quod eo maius est illi quam
+aut tibi aut nobis, quia nos ea philosophia plus utimur,
+quae peperit dicendi copiam et in qua dicuntur ea, quae
+non multum discrepent ab opinione populari, Cato autem, perfectus mea sententia Stoicus, et ea sentit, quae
+non sane probantur in volgus, et in ea est haeresi, quae
+nullum sequitur florem orationis neque dilatat argumentum: minutis interrogatiunculis quasi punctis quod proposuit efficit. <milestone unit="section" n="3"/>  sed nihil est tam incredibile, quod non
+dicendo fiat probabile, nihil tam horridum, tam incultum, quod non splendescat oratione et tamquam excolatur. quod cum ita putarem, feci etiam audacius quam
+ille ipse, de quo loquor: Cato enim dum taxat de magnitudine animi, de continentia, de morte, de omni laude
+virtutis, de dis inmortalibus, de caritate patriae Stoice
+solet oratoriis ornamentis adhibitis dicere; ego tibi illa
+ipsa, quae vix in gymnasiis et in otio Stoici probant,
+ludens conieci in communis locos. <milestone unit="section" n="4"/> quae quia sunt admirabilia contraque opinionem omnium [ab ipsis etiam
+<foreign lang="greek">para/doca</foreign> appellantur], temptare volui possentne proferri in lucem [id est in forum] et ita dici, ut probarentur, an alia quaedam esset erudita, alia popularis oratio,
+eoque hos locos scripsi libentius, quod mihi ista <foreign lang="greek">para/doca</foreign>
+quae appellant maxime videntur esse Socratica
+longeque verissima. <milestone unit="section" n="5"/> accipies igitur hoc parvum opusculum, lucubratum his iam contractioribus noctibus,
+quoniam illud maiorum vigiliarum munus in tuo nomine
+adparuit, et degustabis genus exercitationum  earum,
+quibus uti consuevi, cum ea, quae dicuntur in scholis
+<foreign lang="greek">qetikw=s</foreign>, ad nostrum hoc oratorium transfero dicendi
+genus. hoc tamen opus in acceptum ut referas nihil
+postulo; non enim est tale, ut in arce poni possit, quasi
+Minerva illa Phidiae, sed tamen, ut ex eadem officina
+exisse adpareat.</p></div1>
+
+
+
+<pb id="p.1003"/>
+<div1 type="book" n="1"><head>Paradoxon I</head>
+<milestone unit="section" n="6"/>
+<quote lang="greek">o(/ti mo/non to\ kalo\n a)gaqo/n.</quote>
+<div2 type="chapter" n="1">
+<p>vereor ne cui vestrum ex Socraticorum  hominum
+disputationibus, non ex meo sensu deprompta haec videatur oratio; dicam quod sentio tamen et dicam brevius
+quam res tanta dici potest. numquam hercule ego neque pecunias istorum neque tecta magnifica neque opes
+neque imperia neque eas, quibus maxime astricti sunt,
+voluptates in bonis rebus aut expetendis esse duxi,
+quippe cum viderem rebus his circumfluentis ea tamen
+desiderare maxime, quibus abundarent; neque enim umquam expletur nec satiatur cupiditatis sitis, neque solum ea qui habent libidine augendi cruciantur, sed etiam
+amittendi metu. <milestone unit="section" n="7"/> in quo equidem   continentissimorum
+hominum, maiorum nostrorum, saepe requiro prudentiam, qui haec inbecilla et conmutabilia [pecuniae membra] verbo <quote>bona</quote> putaverunt appellanda, cum re ac
+factis longe aliter iudicavissent. potestne bonum cuiquam malo esse aut potest quisquam in abundantia bonorum ipse esse non bonus? atqui ista omnia talia videmus, ut et inprobi habeant et absint probis. <milestone unit="section" n="8"/> quam ob
+rem licet inrideat si qui volt, plus apud me tamen vera
+ratio valebit quam volgi opinio; neque ego umquam
+bona perdidisse dicam, si quis pecus aut supellectilem
+amiserit, nec non saepe laudabo sapientem illum, Biantem, ut opinor, qui numeratur in septem: cuius cum
+patriam Prienam  cepisset hostis ceterique ita fugerent,
+ut multa de suis rebus asportarent, cum esset admonitus
+a quodam ut idem ipse faceret, <quote>ego vero</quote> inquit <quote>facio;
+nam omnia mecum porto mea.</quote> <milestone unit="section" n="9"/> ille haec ludibria fortunae ne sua quidem putavit, quae nos appellamus etiam
+bona. quid est igitur, quaeret aliquis, bonum? si, quod
+recte fit et honeste et cum virtute, id bene fieri vere
+dicitur, quod rectum et honestum et cum virtute est, id
+solum opinor bonum.</p></div2>
+<div2 type="chapter" n="2"><p><milestone unit="section" n="10"/>
+sed haec videri possunt odiosiora,
+cum lentius disputantur: vita atque factis inlustrata sunt
+summorum virorum [haec quae verbis subtilius quam
+satis est, disputari videntur]; quaero enim a vobis, num
+ullam cogitationem habuisse videantur ii, qui hanc rein
+
+
+<pb id="p.1004"/>
+
+
+publicam tam praeclare fundatam nobis reliquerunt, aut
+argenti ad avaritiam aut amoenitatum ad delectationem
+aut supellectilis ad delicias aut epularum ad voluptates?
+ponite ante oculos unum quemque [regum]. <milestone unit="section" n="11"/> voltis a
+Romulo? voltis post liberam civitatem ab iis ipsis, qui
+liberaverunt? quibus tandem Romulus gradibus escendit
+in caelum? iisne, quae isti bona appellant, an rebus
+gestis atque virtutibus? quid? a Numa Pompilio minusne gratas dis inmortalibus capudines ac fictilis urnulas fuisse quam felicatas Saliorum pateras arbitramur?
+omitto reliquos; sunt enim omnes pares inter se praeter
+Superbum. <milestone unit="section" n="12"/> Brutum si qui roget, quid egerit in patria
+liberanda, si quis item reliquos eiusdem consilii socios,
+quid spectaverint, quid secuti sint: num quis exsistat,
+cui voluptas, cui divitiae, cui denique praeter officium
+fortis et magni viri quicquam aliud propositum fuisse
+videatur? quae res ad necem Porsennae C. Mucium
+inpulit sine ulla spe salutis suae? quae vis Coclitem
+contra omnis hostium copias tenuit in ponte solum?
+quae patrem Decium, quae filium devota vita inmisit in
+armatas hostium copias? quid continentia C. Fabricii,
+quid tenuitas victus M'. Curii sequebatur? quid duo
+propugnacula belli Punici, Cn. et P. Scipiones, qui
+Karthaginiensium adventum corporibus suis intercludendum putaverunt? quid Africanus maior? quid minor?
+quid inter horum aetates interiectus Cato? quid innumerabiles alii? - nam domesticis exemplis abundamus -:
+cogitassene quicquam in vita sibi esse expetendum nisi
+quod laudabile esse et praeclarum videretur?</p></div2>
+<div2 type="chapter" n="3"><p><milestone unit="section" n="13"/> veniant
+igitur isti inrisores huius orationis ac sententiae, et iam
+vel ipsi iudicent, utrum se horum alicuius, qui marmoreis tectis ebore et auro fulgentibus, qui signis, qui
+tabulis, qui caelato auro et argento, qui Corinthiis operibus abundant, an C. Fabricii, qui nihil habuit eorum,
+nihil habere voluit, similis malint? <milestone unit="section" n="14"/> atque haec quidem,
+quae modo huc, modo illuc transferuntur, facile adduci
+solent ut in bonis rebus esse negent; illud arte tenent
+accurateque defendunt, voluptatem esse summum bonum: quae quidem mihi vox pecudum videtur esse, non
+hominum. tu, cum tibi sive deus sive mater, ut ita
+
+
+
+<pb id="p.1005"/>
+
+
+dicam, rerum omnium natura dederit animum, quo nihil
+est praestantius neque divinius, sic te ipse abicies atque
+prosternes, ut nihil inter te atque inter quadripedem aliquam putes interesse? quicquam bonum est, quod non
+eum, qui id possidet, meliorem facit? <milestone unit="section" n="15"/> ut enim est quisque maxime boni particeps, ita est laudabilis maxime,
+neque est ullum bonum, de quo non is, qui id habeat,
+honeste possit gloriari. quid autem est horum in voluptate? melioremne efficit aut laudabiliorem virum? an
+quisquam in potiendis voluptatibus gloriando se et praedicatione ecfert? atqui si voluptas, quae plurimorum patrociniis defenditur, in rebus bonis habenda non est,
+eaque quo est maior, eo magis mentem ex sua sede et
+statu demovet, profecto nihil est aliud bene et beate
+vivere nisi honeste et recte vivere.</p></div2></div1>
+
+<milestone unit="section" n="16"/>
+<div1 type="book" n="2"><head>Paradoxon II</head>
+<div2 type="chapter" n="1">
+<quote lang="greek">o(/ti au)ta/rkhs h( a)reth\ pro\s eu)daimoni/an</quote>
+
+<quote rend="blockquote">[In quo virtus sit, ei nihil deesse ad beate vivendum.]</quote>
+<p>nec vero ego M. Regulum aerumnosum nec infelicem nec miserum umquam putavi; non enim magnitudo
+animi cruciabatur eius a Poenis, non gravitas, non fides,
+non constantia, non ulla virtus, non denique animus
+ipse, qui tot virtutum praesidio tantoque comitatu, cum
+corpus eius caperetur, capi certe ipse non potuit. C.
+vero Marium vidimus, qui mihi secundis rebus unus ex
+fortunatis hominibus, adversis unus ex summis viris
+videbatur, quo beatius esse mortali nihil potest. <milestone unit="section" n="17"/> nescis,
+insane, nescis, quantas viris virtus habeat; nomen tantum virtutis usurpas, quid ipsa valeat ignoras: nemo
+potest non beatissimus esse, qui est totus aptus ex sese
+quique in se uno sua ponit omnia. cui spes omnis et
+ratio et cogitatio pendet ex fortuna, huic nihil potest
+esse certi, nihil quod exploratum habeat permansurum
+sibi unum diem; eum tu hominem terreto, si quem eris
+nanctus, istis mortis aut exsilii minis: mihi vero quicquid acciderit in tam ingrata civitate, ne recusanti quidem evenerit, non modo [non] repugnanti. quid enim
+
+<pb id="p.1006"/>
+
+
+ego laboravi aut quid egi aut in quo evigilarunt curae
+et cogitationes meae, si quidem nihil peperi tale, nihil
+consecutus sum, ut eo statu essem, quem neque fortunae temeritas neque inimicorum labefactaret iniuria?
+mortemne mihi minitaris, <milestone unit="section" n="18"/> ut omnino ab hominibus, an
+exsilium, ut ab inprobis demigrandum sit? mors terribilis iis, quorum cum vita omnia exstinguuntur, non
+iis, quorum laus emori non potest; exsilium autem illis,
+quibus quasi circumscriptus est habitandi locus, non iis,
+qui omnem orbem terrarum unam urbem esse ducunt.
+te miseriae, te aerumnae premunt omnes, qui te beatum,
+qui florentem putas; te lubidines torquent; tu dies noctisque cruciaris, cui nec sat est quod est et id ipsum ne
+non diuturnum sit futurum times; te conscientiae stimulant maleficiorum tuorum; te metus exanimant iudiciorum atque legum; quocumque adspexisti, ut furiae sic
+tuae tibi occurrunt iniuriae, quae te suspirare libere non
+sinunt. <milestone unit="section" n="19"/> quam ob rem ut inprobo et stulto et inerti nemini bene esse potest, sic bonus vir et sapiens et fortis
+miser esse nemo potest; nec vero, cuius virtus moresque
+laudandi sunt, eius non laudanda vita est, neque porro
+fugienda vita est quae laudanda est, esset autem fugienda, si esset misera. quam ob rem quicquid est
+laudabile, idem et beatum et florens et expetendum videri decet.</p></div2></div1>
+
+
+<milestone unit="section" n="20"/>
+<div1 type="book" n="3"><head>Paradoxon III</head>
+<quote rend="blockquote" lang="greek">o(/ti i)/sa ta\ a(marth/mata kai\ ta\ katorqw/mata</quote>
+
+<div2 type="chapter" n="1"><p><quote>parva</quote> inquit <quote>est res.</quote> at magna culpa; nec enim
+peccata rerum  eventis, sed vitiis hominum  metienda
+sunt: in quo peccatur, id potest aliud alio maius esse
+aut minus, ipsum quidem illud peccare, quoquo verteris,
+unum est. auri navem evertat gubernator an paleae, in
+re aliquantum, in gubernatoris inscitia nihil interest.
+lapsa est lubido in muliere ignota, dolor ad pauciores
+pertinet, quam si petulans fuisset in aliqua generosa ac
+nobili virgine; peccavit vero nihilo minus, si quidem est
+peccare tamquam transire lineas, quod cum feceris, culpa
+commissa est: quam longe progrediare, cum semel transieris,
+
+<pb id="p.1007"/>
+
+ad augendam transeundi culpam nihil pertinet.
+peccare certe licet nemini; quod autem non licet, id hoc
+uno tenetur, si arguitur non licere: id si nec maius nec
+minus umquam fieri potest, quoniam in eo est peccatum,
+si non licuit, quod semper unum et idem est, quae ex
+eo peccata nascuntur aequalia sint oportet. <milestone unit="section" n="21"/> quod si virtutes sunt pares inter se, paria esse etiam vitia necesse
+est: atqui paris esse virtutes nec bono viro meliorem nec
+temperante temperantiorem nec. forti fortiorem nec sapienti sapientiorem posse fieri, facillume potest perspici.
+an virum bonum dices, qui depositum nullo teste, cum
+lucrari inpune posset auri pondo decem, reddiderit, si
+idem in decem milibus non idem fecerit? aut temperantem, qui se in aliqua libidine continuerit, in aliqua
+effuderit? <milestone unit="section" n="22"/> una virtus est consentiens cum ratione et perpetua constantia; nihil huc addi potest, quo magis virtus
+sit, nihil demi, ut virtutis nomen relinquatur: etenim si
+bene facta recte facta sunt et nihil recto rectius, certe
+ne bono quidem melius quicquam inveniri potest. sequitur igitur ut etiam vitia sint paria, si quidem pravitates animi recte vitia dicuntur. atqui quoniam pares
+virtutes sunt, recte facta, quoniam a virtutibus proficiscuntur, paria esse debent, itemque peccata, quoniam ex
+vitiis manant, sint aequalia necesse est.</p></div2>
+
+<div2 type="chapter"><p><milestone unit="section" n="23"/><quote>a philosophis</quote>
+inquit <quote>ista sumis.</quote> metuebam ne a lenonibus diceres.
+<quote>Socrates disputabat isto modo.</quote> bene hercule narras;
+nam istum doctum et sapientem virum fuisse memoriae
+traditum est. sed tamen quaero ex te, quoniam verbis
+inter nos contendimus, non pugnis: utrum nobis est
+quaerendum quid baioli atque operarii an quid homines
+doctissimi senserint? praesertim cum hac sententia non
+modo verior, sed ne utilior quidem hominum vitae reperiri ulla possit. quae vis est enim quae magis arceat
+homines ab inprobitate omni, quam si senserint nullum
+in delictis esse discrimen? aeque peccare se, si privatis
+ac si magistratibus manus adferant? quamcumque in
+domum stuprum intulerint, eandem esse labem lubidinis? <milestone unit="section" n="24"/> <quote>nihilne igitur interest</quote>-- nam hoc dicet aliquis -- <quote>patrem quis necet anne servum?</quote> nuda ista si ponas,
+iudicare qualia sint non facile possim. patrem vita privare
+
+<pb id="p.1008"/>
+
+si per se scelus est, Saguntini, qui parentes suos
+liberos emori quam servos vivere maluerunt, parricidae
+fuerunt: ergo et parenti non numquam adimi vita sine
+scelere potest et servo saepe sine iniuria non potest.
+causa igitur haec, non natura distinguit, quae quoniam
+utro accessit, id fit propensius, si utroque adiuncta est,
+paria fiant necesse est. <milestone unit="section" n="25"/> illud tamen interest, quod in
+servo necando, si id fit iniuria, semel peccatur, in patris
+vita violanda multa peccantur: violatur is qui procreavit, is qui aluit, is qui erudivit, is qui in sede ac domo
+atque in re publica conlocavit; multitudine peccatorum
+praestat eoque poena maiore dignus est. sed nos in
+vita non quae cuique peccato poena sit, sed quantum
+cuique liceat spectare debemus: quicquid non oportet
+scelus esse, quicquid non licet nefas putare debemus.
+etiamne in minimis rebus? etiam, si quidem rerum modum figere non possumus, animorum modum tenere
+possumus. <milestone unit="section" n="26"/> histrio si paulum se movit extra numerum
+aut si versus pronuntiatus est syllaba una brevior aut
+longior, exsibilatur, exploditur: in vita tu, quae omni
+gestu moderatior, omni versu aptior esse debet, in
+syllaba te peccasse dices? poetam non audio in nugis:
+in vitae societate audiam  civem digitis peccata dimetientem sua? si vis, sane sint breviora, leviora qui
+possunt videri? cum quicquid peccatur perturbatione
+peccetur rationis atque ordinis, perturbata autem semel
+ratione et ordine nihil possit addi, quo magis peccari
+posse videatur.</p></div2></div1>
+
+
+<milestone unit="section" n="27"/>
+<div1 type="book" n="4"><head>Paradoxon IV</head>
+<quote rend="blockquote" lang="greek">o(/ti pa=s a)/frwn mai/netai</quote>
+
+<quote rend="blockquote">[Omnis stultos insanire.]</quote>
+<div2 type="chapter" n="1">
+<p>ego vero te non stultum, ut saepe, non inprobum,
+ut semper, sed dementem * * *</p>
+
+<p>* * * rebus ad victum necessariis esse invictus * *
+potest. sapientis animus magnitudine consilii, tolerantia
+rerum humanarum, contemptione fortunae, virtutibus
+denique omnibus ut moenibus saeptus vincetur et expugnabitur, qui ne civitate quidem pelli potest? quae
+
+
+<pb id="p.1009"/>
+
+
+est enim civitas? omnisne conventus etiam ferorum et
+inmanium? omnisne etiam fugitivorum ac latronum congregata unum in locum multitude? certe negabis. non
+igitur erat illa tum civitas, cum leges in ea nihil valebant, cum iudicia iacebant, cum mos patrius occiderat,
+cum ferro pulsis magistratibus senatus nomen in re publica non erat; praedonum   ille concursus et te duce
+latrocinium in foro constitutum et reliquiae coniurationis
+a Catilinae furiis ad tuum scelus furoremque conversae
+non civitas erat. <milestone unit="section" n="28"/> itaque pulsus ego civitate non sum, 
+quae nulla erat: accersitus in civitatem sum, cum esset
+in re publica consul, qui tum nullus fuerat, esset senatus, qui tum occiderat, esset consensus populi liber,
+esset iuris et aequitatis, quae vincla sunt civitatis, repetita memoria. ac vide quam ista tui latrocinii tela contempserim: iactam et inmissam a te nefariam in me
+iniuriam semper duxi; pervenisse ad me numquam putavi, nisi forte, cum parietes disturbabas aut cum tectis
+sceleratas faces inferebas, meorum aliquid ruere aut
+deflagrare arbitrabare: <milestone unit="section" n="29"/> nihil neque meum est neque
+cuiusquam, quod auferri, quod eripi, quod amitti potest.
+si mihi eripuisses divinam animi mei conscientiam, meis
+curis, vigiliis, consiliis stare te invitissimo rem publicam, si huius aeterni beneficii inmortalem memoriam
+delevisses, multo etiam magis, si illam mentem, unde
+haec consilia manarunt, mihi eripuisses, tum ego accepisse me confiterer iniuriam; sed si haec nec fecisti nec
+facere potuisti, reditum mihi gloriosum iniuria tua dedit,
+non exitum calamitosum. ergo ego semper civis, et tum
+maxime, cum meam salutem senatus exteris nationibus,
+&lt;ut&gt; civis optumi, commendabat, tu ne nunc quidem, nisi
+forte idem hostis esse et civis potest. an tu civem ab
+hoste natura ac loco, non animo factisque distinguis?</p></div2>
+
+<div2 type="chapter" n="2"><p>
+<milestone unit="section" n="30"/>caedem  in foro fecisti, armatis latronibus templa tenuisti, privatorum domos, aedis sacras incendisti: cur
+hostis Spartacus, si tu civis? potes autem esse tu civis,
+propter quem aliquando civitas non fuit? et me tuo nomine appellas, cum omnes meo discessu exsulasse rem
+publicam putent? numquamne, homo amentissime, te
+circumspicies? numquam nec quid facias considerabis
+
+<pb id="p.1010"/>
+
+
+
+nec quid loquare? nescis exsilium  scelerum esse poenam, meum illud iter ob praeclarissimas res a me gestas
+esse susceptum? <milestone unit="section" n="31"/> omnes scelerati atque inpii, quorum tu
+te ducem esse profiteris, quos leges exsilio adfici volunt,
+exsules sunt, etiam  si solum non mutarunt. an cum
+omnes te leges exsulem esse iubeant, &lt;non eris tu exsul?
+exsul non&gt; appelletur is, qui cum telo fuerit? ante senatum  tua sica deprehensa est. qui hominem occiderit?
+plurimos occidisti. qui incendium fecerit? aedes Nympharum manu tua deflagravit. qui templa occupaverit?
+in foro castra posuisti. <milestone unit="section" n="32"/> sed quid ego communis leges
+profero, quibus omnibus es exsul? familiarissimus tuus
+de te privilegium tulit, ut, si in opertum Bonae Deae
+accessisses, exsulares: at te id fecisse etiam gloriari
+soles. quo modo igitur tot legibus eiectus in exsilium
+nomen exsulis non perhorrescis? <quote>Romae sum</quote> inquit.
+et quidem  in operto fuisti.  non igitur ubi quisque
+erit, eius loci ius tenebit, si ibi eum legibus esse non
+oportebit.</p></div2></div1>
+
+<milestone unit="section" n="33"/>
+<div1 type="chapter" n="5"><head>Paradoxon V</head>
+<quote rend="blockquote" lang="greek">o(/ti mo/nos o( sofo\s e)leu/qeros kai\ pa=s a)/frwn dou=los</quote>
+<quote rend="blockquote">[Omnis sapientis liberos esse et stultos omnis servos.]</quote>
+<div2 type="chapter" n="1"><p>laudetur vero hic imperator aut etiam     appelletur
+aut hoc nomine dignus putetur. quo modo aut cui tandem hic libero imperabit, qui non potest cupiditatibus
+suis imperare? refrenet primum libidines, spernat voluptates, iracundiam teneat, coerceat avaritiam, ceteras
+animi labis repellat; tum incipiat aliis imperare, cum
+ipse inprobissimis dominis, dedecori ac turpitudini, parere desierit: dum quidem iis oboediet, non modo imperator, sed liber habendus omnino non erit. praeclare
+enim est hoc usurpatum a doctissimis - quorum ego
+auctoritate non uterer, si mihi apud aliquos agrestis haec
+habenda esset oratio; cum   vero apud prudentissimos
+loquar, quibus haec inaudita non sint, cur ego simulem
+me, si quid in his studiis operae posuerim, perdidisse?
+
+<pb id="p.1011"/>
+
+
+&mdash; dictum est igitur ab eruditissimis viris nisi sapientem
+liberum esse neminem. <milestone unit="section" n="34"/> quid est enim libertas? potestas
+vivendi, ut velis. quis igitur vivit, ut volt, nisi qui recte
+vivit, qui gaudet officio, cui vivendi via considerata atque provisa est? qui ne legibus quidem propter metum
+paret, sed eas sequitur et colit, quod id salutare esse
+maxime iudicat; qui nihil dicit, nihil facit, nihil cogitat
+denique nisi lubenter ac libere; cuius omnia consilia resque omnes, quas gerit, ab ipso proficiscuntur eodemque
+referuntur, nec est ulla res, quae plus apud eum polleat
+quam ipsius voluntas atque iudicium; cui quidem etiam,
+quae vim habere maximam dicitur, Fortuna ipsa cedit,
+si, ut sapiens poeta dixit, <quote>suis ea cuique fingitur moribus.</quote> soli igitur hoc contingit sapienti, ut nihil faciat
+invitus, nihil dolens, nihil coactus. <milestone unit="section" n="35"/> quod etsi ita esse
+pluribus verbis disserendum est, illud tamen et breve et
+confitendum est, nisi qui ita sit adfectus, esse liberum
+neminem. servi igitur omnes inprobi; nec hoc tam re
+est quam dictu inopinatum atque mirabile: non enim ita
+dicunt eos esse servos, ut mancipia, quae sunt dominorum facta nexo aut aliquo iure civili, sed, si servitus
+sit, sicut est, oboedientia fracti animi et abiecti et arbitrio carentis suo, quis neget omnis levis, omnis cupidos,
+omnis denique inprobos esse servos?</p></div2>
+<div2 type="chapter" n="2"><p><milestone unit="section" n="36"/>an ille mihi liber,
+cui mulier imperat? cui leges inponit, praescribit, iubet,
+vetat quod videtur? qui nihil imperanti negare potest,
+nihil recusare audet? poscit, dandum est; vocat, veniendum; eicit, abeundum; minatur, extimescendum. ego
+vero istum non modo servum, sed nequissimum servum,
+etiam si in amplissima familia natus sit, appellandum
+puto. atque in pari stultitia sunt, quos signa, quos tabulae, quos caelatum argentum, quos Corinthia opera,
+quos aedificia magnifica nimio opere delectant. <quote>at sumus</quote> inquit <quote>principes civitatis.</quote> vos vero ne conservorum quidem vestrorum principes estis; <milestone unit="section" n="37"/> sed ut in magna
+familia sunt alii lautiores, ut sibi videntur, servi, sed
+tamen servi, ut atrienses, at qui tractant ista, qui tergent, qui ungunt, qui verrunt, qui spargunt, non honestissimum locum servitutis tenent, sic in civitate, qui
+se istarum rerum cupiditatibus dediderunt, ipsius servitutis
+
+<pb id="p.1012"/>
+
+locum paene infimum obtinent. <quote>magna</quote> inquit
+<quote>bella gessi, magnis imperiis et provinciis praefui.</quote> gere
+igitur animum laude dignum: Aetionis tabula te stupidum detinet aut signum aliquod Polycleti; mitto unde
+sustuleris, quo modo habeas: intuentem te, admirantem,
+clamores tollentem cum video, servum esse ineptiarum
+omnium iudico. <milestone unit="section" n="38"/> <quote>nonne igitur sunt illa festiva?</quote> sunt;
+nam nos quoque oculos eruditos habemus. sed, obsecro te, ita venusta habeantur ista, non ut vincla virorum
+sint, sed ut oblectamenta puerorum. quid enim censes?
+si L. Mummius aliquem istorum videret matellionem
+Corinthium cupidissime tractantem, cum ipse totam Corinthum contempsisset, utrum illum civem excellentem
+an atriensem diligentem putaret? revivescat M'. Curius
+aut eorum aliquis, quorum in villa ac domo nihil splendidum, nihil ornatum fuit praeter ipsos, et videat aliquem summis populi beneficiis usum barbatulos mullos
+exceptantem de piscina et pertractantem et murenarum
+copia gloriantem, nonne hunc hominem ita servum iudicet, ut ne in familia quidem dignum maiore aliquo
+negotio putet? <milestone unit="section" n="39"/> an eorum servitus dubia est, qui cupiditate peculii nullam condicionem recusant durissimae
+servitutis? hereditatis spes quid iniquitatis in serviendo
+non suscipit? quem nutum locupletis orbi senis non observat? loquitur ad voluntatem, quicquid denuntiatum
+est facit, adsectatur, adsidet, muneratur. quid horum
+est liberi?</p></div2>
+
+<milestone unit="section" n="40"/>
+<div2 type="chapter" n="3"><p>quid denique servi non inertis? quid? iam
+illa cupiditas, quae videtur esse liberalior, honoris, imperii, provinciarum, quam dura est domina, quam imperiosa, quam vehemens! Cethego, homini non probatissimo, servire coegit eos, qui sibi esse amplissimi
+videbantur, munera mittere, noctu venire domum ad
+eum, precari, denique supplicare. quae servitus est, si
+haec libertas existimari potest? quid? cum cupiditatis
+dominatus excessit et alius est dominus exortus ex conscientia peccatorum, timor, quam est illa misera, quam
+dura servitus? adulescentibus paulo loquacioribus est
+serviendum; omnes, qui aliquid scire videntur, tamquam
+domini timentur; iudex vero quantum habet dominatum,
+quo timore nocentis adficiti an non est omnis metus servitus?
+
+<pb id="p.1013"/>
+
+<milestone unit="section" n="41"/> quid valet igitur illa eloquentissimi viri, L. Crassi,
+copiosa magis quam sapiens oratio <quote>eripite nos ex servitute</quote>? quae est ista servitus tam claro homini tamque
+nobili? omnis animi debilitati et humilis et fracti timiditas servitus est. <quote>nolite sinere nos cuiquam servire.</quote>
+in libertatem vindicari volt? minime; quid enim adiungit? <quote>nisi vobis universis.</quote> dominum mutare, non liber
+esse volt. <quote>quibus et possumus et debemus.</quote> nos vero,
+si quidem animo excelso et alto et virtutibus exaggerato
+sumus, nec debemus nec possumus: tu posse te dicito,
+quoniam quidem potes, debere ne dixeris, quoniam nihil
+quisquam debet nisi quod est turpe non reddere. sed
+haec hactenus. ille videat, quo modo imperator esse
+possit, cum eum ne liberum quidem esse ratio et veritas
+ipsa convincat.</p></div2></div1>
+
+<milestone unit="section" n="42"/>
+<div1 type="book" n="6"><head>Paradoxon VI</head>
+<quote rend="blockquote" lang="greek">o(/ti mo/nos o( sofo\s plou/sios</quote>
+
+<quote rend="blockquote">[Quod solus sapiens dives.]</quote>
+<div2 type="chapter" n="1">
+<p>quae est ista in commemoranda pecunia tua tam insolens ostentatio? solusne tu dives? pro di inmortales!
+egone me audisse aliquid et didicisse non gaudeam? solusne dives? quid, si ne dives quidem? quid, si pauper
+etiam? quem enim intellegimus divitem aut hoc verbum
+in quo homine ponimus? opinor in eo, cui tanta possessio sit, ut ad liberaliter vivendum facile contentus sit,
+qui nihil quaerat, nihil adpetat, nihil optet amplius. <milestone unit="section" n="43"/> animus oportet tuus se iudicet divitem, non hominum 
+sermo, neque possessiones tuae. nihil sibi deesse putat,
+nihil curat amplius, satiatus est aut contentus etiam pecunia: concedo, dives est. sin autem propter aviditatem
+pecuniae nullum quaestum turpem putas, cum isti ordini
+ne honestus quidem possit esse ullus; si cotidie fraudas,
+decipis, poscis, pacisceris, aufers, eripis, si socios spolias, aerarium  expilas, si testamenta amicorum <hi rend="italics">ne</hi> exspectas quidem atque ipse supponis, haec utrum abundantis an egentis signa sunt? <milestone unit="section" n="44"/> animus hominis dives, non
+arca appellari solet. quamvis ilia sit plena, dum te
+inanem videbo, divitem non putabo; etenim ex eo, quantum
+
+<pb id="p.1014"/>
+
+cuique satis est, metiuntur homines divitiarum modum. filiam quis habet, pecunia est opus; duas, maiore;
+pluris, maiore etiam; si, ut aiunt Danao, quinquaginta
+sint filiae, tot dotes magnam quaerunt pecuniam: quantum enim cuique opus est, ad id accommodatur, ut ante
+dixi, divitiarum modus. qui igitur non filias pluris, sed
+innumerabilis cupiditates habet, quae brevi tempore maximas copias exhaurire possint, hunc quo modo ego
+appellabo divitem, cum ipse egere se sentiat? <milestone unit="section" n="45"/> multi ex te audierunt cum diceres, neminem esse divitem, nisi
+qui exercitum alere posset suis fructibus, quod populus
+Romanus tantis vectigalibus iam pridem vix potest:
+ergo hoc proposito numquam eris dives ante, quam tibi
+ex tuis possessionibus tantum reficietur, ut eo tueri sex
+legiones et magna equitum ac peditum auxilia possis.
+iam fateris igitur non esse te divitem, cui tantum desit,
+ut expleas id quod exoptas. itaque istam paupertatem vel potius egestatem  ac mendicitatem  tuam numquam
+obscure tulisti.</p></div2>
+
+<milestone unit="section" n="46"/>
+<div2 type="chapter" n="2"><p>nam ut iis, qui honeste rem quaerunt
+mercaturis faciendis, operis dandis, publicis sumendis,
+intellegimus opus esse quaesito, sic, qui videt domi tuae
+pariter accusatorum atque indicum consociatos greges,
+qui nocentis et pecuniosos reos eodem te actore corruptelam iudicii molientis, qui tuas mercedum pactiones
+in patrociniis, &dagger; intercidas pecuniarum in coitionibus
+candidatorum, dimissiones libertorum ad defaenerandas
+diripiendasque provincias, qui expulsiones vicinorum, qui
+latrocinia in agris, qui cum servis, cum libertis, cum
+clientibus societates, qui possessiones vacuas, qui proscriptiones locupletium, qui cladis municipiorum, qui
+illam Sullani temporis messem recordetur, qui testamenta subiecta, tot qui sublatos homines, qui denique
+omnia venalia, edictum, decretum, alienam suam sententiam, forum, domum, vocem, silentium: quis hunc non
+putet confiteri sibi quaesito opus esse? cui quaesito autem opus sit, quis umquam hunc vere dixerit divitem? <milestone unit="section" n="47"/> etenim  divitiarum est fructus in copia, copiam autem
+declarat satietas rerum atque abundantia: quam tu quoniam numquam adsequere, numquam omnino es dives
+futurus. meam autem quoniam pecuniam contemnis, et
+
+
+<pb id="p.1015"/>
+
+recte&mdash;est enim ad volgi opinionem mediocris, ad tuam
+nulla, ad meam modica&mdash;, de me silebo, de re loquar. <milestone unit="section" n="48"/> si censenda nobis sit atque aestimanda res, utrum tandem pluris aestimemus pecuniam Pyrrhi, quam Fabricio
+dabat, an continentiam Fabricii, qui illam pecuniam repudiabat? utrum aurum Samnitium an responsum M'.
+Curii? hereditatem L. Pauli an liberalitatem Africani,
+qui eius hereditatis Q. Maximo fratri partem suam concessit? haec profecto, quae sunt summarum virtutum,
+pluris aestimanda sunt quam illa, quae sunt pecuniae.
+quis igitur, si quidem, ut quisque quod plurimi est possidet, ita divitissimus habendus est, dubitet quin in virtute divitiae sint? quoniam nulla possessio, nulla vis
+auri et argenti pluris quam virtus aestimanda est. <milestone unit="section" n="49"/> o di 
+inmortales! non intellegunt homines quam magnum vectigal sit parsimonia. venio enim iam ad sumptuosos,
+relinquo istum quaestuosum. capit ille ex suis praediis
+sescena sestertia, ego centena ex meis; illi aurata tecta
+in villis et sola marmorea facienti et signa, tabulas, supellectilem et vestem infinite concupiscenti non modo ad
+sumptum ille est fructus, sed etiam ad faenus exiguus:
+ex meo tenui vectigali detractis sumptibus cupiditatis
+aliquid etiam redundabit. uter igitur est divitior, cui
+deest an cui superat? qui eget an qui abundat? cuius
+possessio quo est maior, eo plus requirit ad se tuendam,
+an quae suis se viribus sustinet? <milestone unit="section" n="50"/> sed quid ego de me
+loquor, qui morum ac temporum vitio aliquantum etiam
+ipse fortasse in huius saeculi errore verser? M'. Manilius
+patrum nostrorum memoria, ne semper Curios et Luscinos loquamur, pauper tandem fuit? habuit enim aediculas in Carinis et fundum in Labicano. nos igitur
+divitiores, qui plura habemus? utinam quidem! sed non
+aestimatione census, verum victu atque cultu terminatur
+pecuniae modus. <milestone unit="section" n="51"/> non esse cupidum pecunia est, non esse
+emacem vectigal est: contentum vero suis rebus esse
+maximae sunt certissimaeque divitiae.  etenim  si isti
+callidi rerum aestimatores prata et areas quasdam magno
+aestimant, quod ei generi possessionum minime quasi
+noceri potest, quanti est aestimanda virtus, quae nec
+eripi nec subripi potest, neque naufragio neque incendio
+
+<pb id="p.1016"/>
+
+
+amittitur, nec tempestatum nec temporum perturbatione
+mutatur! <milestone unit="section" n="52"/> qua praediti qui sunt, soli sunt divites. soli
+enim possident res et fructuosas et sempiternas solique,
+quod est proprium divitiarum, contenti sunt rebus suis,
+satis esse putant quod est, nihil adpetunt, nulla re egent,
+nihil sibi deesse sentiunt, nihil requirunt: inprobi autem
+et avari, quoniam incertas atque in casu positas possessiones habent et plus semper adpetunt nec eorum quisquam adhuc inventus est, cui quod haberet esset satis,
+non modo non copiosi ac divites, sed etiam  inopes ac
+pauperes existinandi sunt.</p>
+</div2>
+</div1>
+</body>
+</text>
+</TEI.2>

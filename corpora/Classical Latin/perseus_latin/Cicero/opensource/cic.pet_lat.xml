@@ -1,0 +1,484 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+  <teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+        <title>Essay on Running for Consul</title>
+        <title type="sub">Machine readable text</title>
+        <author>Q. Tullius Cicero</author>
+        <editor role="editor" n="OCT">L. C. Purser</editor> &responsibility; &fund.NEH;
+      </titleStmt> &Perseus.publish; <sourceDesc>
+        <p>Follows the 1902 OCT </p>
+      </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+        <state unit="section"/>
+      </refsDecl>
+      <refsDecl doctype="TEI.2">
+        <state delim="." unit="chapter"/>
+        <state unit="section"/>
+      </refsDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language id="la">Latin </language>
+        <language id="greek">Greek </language>
+      </langUsage>
+    </profileDesc>
+
+    <revisionDesc>
+      <change>
+        <date>5 August 1999</date>
+        <respStmt>
+          <name>David Smith</name>
+          <resp>ed.</resp>
+        </respStmt>
+        <item> 
+$Log: cic.pet_lat.xml,v $
+Revision 1.3  2010-09-03 15:34:29  rsingh04
+cleaned up log keyword
+
+Revision 1.2  2010/06/03 21:27:39 student
+putting in page numbers - AD
+
+Revision 1.1 2009/10/09 19:49:16 rsingh04 
+more reorganizing of texts module by collection 
+
+Revision 1.2 2005/08/01 15:59:20 packel 
+removed stray item tags 
+
+Revision 1.1 2005/07/25 14:31:26 packel 
+Converted to XML 
+
+Revision 1.6 2003/07/01 22:14:59 yorkc 
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp.
+character encodings and typos.) 
+
+Revision 1.5 2001/02/16 19:58:40 amahoney 
+change author to Quintus, not Marcus 
+
+Revision 1.4 2000/03/05 02:06:57 dasmith 
+Added responsibility and funder info to TEI header. 
+
+Revision 1.3 1999/08/05 22:11:58 dasmith 
+Tweaked header.
+        </item>
+      </change>
+    </revisionDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <head>Q. TVLLI CICERONIS COMMENTARIOLVM PETITIONIS CONSVLATVS AD M. FRATREM</head>
+      <opener>
+        <dateline>Scr. in. anno 690 (64).</dateline>
+        <salute>QVINTVS MARCO FRATRI S. D.</salute>
+      </opener>
+
+      <milestone n="1" unit="chapter"/>
+      <milestone n="1" unit="section"/>
+      <p><reg>etsi</reg> tibi omnia suppetunt ea quae consequi ingenio aut usu homines Laut
+        intelligentia] possunt, tamen amore nostro non sum alienum arbitratus ad te perscribere ea
+        quae mihi veniebant in mentem dies ac noctes de petitione tua cogitanti, non ut aliquid ex
+        his novi addisceres sed ut ea quae in re dispersa atque infinita viderentur esse ratione et
+        distributione sub uno aspectu ponerentur. <milestone unit="para"/><milestone n="2"
+          unit="section"/><reg>civitas</reg> quae sit cogita, quid petas, qui sis. <reg>prope</reg>
+        cotidie tibi hoc ad forum descendenti meditandum est '<reg>novus</reg> sum, consulatum peto,
+          <name>Roma</name> est.' <reg>nominis</reg> novitatem dicendi gloria maxime sublevabis.
+          <reg>semper</reg> ea res plurimum dignitatis habuit. <reg>non</reg> potest qui dignus
+        habetur patronus consularium indignus consulatu putari. <reg>quam</reg> ob rem quoniam ab
+        hac laude proficisceris et quicquid es ex hoc es, ita paratus ad dicendum venito <pb n="155"/> quasi
+        in singulis causis iudicium de omni ingenio futurum sit. <milestone n="3" unit="section"
+          /><reg>eius</reg> facultatis adiumenta, quae tibi scio esse seposita, ut parata ac prompta
+        sint cura et saepe quae &lt;de&gt; <name>Demosthenis</name> studio et exercitatione
+        scripsit <name>Demetrius</name> recordare, deinde ut amicorum et multitudo et genera
+        appareant. <reg>habes</reg> enim ea quae &lt;non multi homines&gt; novi habuerunt,
+        omnis publicanos, totum fere equestrem ordinem, multa propria municipia, multos abs te
+        defensos homines cuiusque ordinis, aliquot collegia, praeterea studio dicendi conciliatos
+        plurimos adulescentulos, cotidianam amicorum assiduitatem et frequentiam. <milestone n="4"
+          unit="section"/><reg>haec</reg> cura ut teneas commonendo et rogando et omni ratione
+        efficiendo ut intellegant qui debent tua causa, referendae gratiae, qui volunt, obligandi
+        tui tempus sibi aliud nullum fore. <reg>etiam</reg> hoc multum videtur adiuvare posse novum
+        hominem, hominum nobilium voluntas et maxime consularium. <reg>prodest</reg> quorum in locum
+        ac numerum pervenire velis ab iis ipsis illo loco ac dignum numero putari. <milestone n="5"
+          unit="section"/><reg>ii</reg> rogandi omnes sunt diligenter et ad eos adlegandum est
+        persuadendumque iis nos semper cum optimatibus de re publica sensisse, minime popularis
+        fuisse; si quid locuti populariter videamur, id nos eo consilio fecisse ut nobis
+          <persName>Cn. Pompeium</persName> adiungeremus, ut eum qui plurimum posset aut amicum in
+        nostra petitione haberemus aut certe non adversarium. <milestone n="6" unit="section"
+          /><reg>praeterea</reg> adulescentis nobilis elabora ut habeas vel ut teneas, studiosos
+        quos babes. <reg>multum</reg> dignitatis adferent. <reg>plurimos</reg> habes; perfice ut
+        sciant quantum in iis putes esse. <reg>si</reg> adduxeris ut ii qui volunt cupiant, plurimum
+        proderunt. <milestone n="2" unit="chapter"/><milestone n="7" unit="section"/><reg>ac</reg>
+        multum etiam novitatem tuam adiuvat quod eius modi nobiles tecum petunt, ut nemo sit
+        qui audeat dicere plus illis nobilitatem quam tibi virtutem prodesse oportere.
+          <reg>nam</reg>
+        <persName>P. Galbam</persName> et <persName>L. Cassium</persName> summo loco natos quis est
+        qui petere consu<pb n="156"/>latum putet? <reg>vides</reg> igitur amplissimis ex familiis homines, quod
+        sine nervis sunt, tibi paris non esse. <reg>at</reg>
+        <name>Antonius</name> et <name>Catilina</name> molesti sunt. <milestone n="8" unit="section"
+          /><reg>immo</reg> homini navo, industrio, innocenti, diserto, gratioso apud eos qui res
+        iudicant, optandi competitores ambo a puemitia sicarii, ambo libidinosi, ambo egentes.
+          <name>Eorum</name> alterius bona proscripta vidimus, vocem denique audivimus iurantis se
+          <name>Romae</name> iudicio aequo cum homine <name>Graeco</name> certare non posse, ex
+        senatu eiectum scimus optima verorum censorum existimatione, in praetura competitorem
+        habuimus amico Sabidio et Panthera, quom ad <pb n="157"/> tabulam quos poneret non haberet; quo tamen in
+        magistratu amicam quam domi palam haberet de machinis emit. <reg>in</reg> petitione autem
+        consulatus Cappadoces omnis compilare per turpissimam legationem maluit quam adesse et
+        populo <name>Romano</name> supplicare. <milestone n="9" unit="section"/><reg>alter</reg>
+        vero, di boni! quo splendore est? <reg>primum</reg> nobilitate eadem [qua
+          <name>Catilina</name>]. <reg>num</reg> maiore? <reg>non</reg>. <reg>sed</reg> virtute.
+          <reg>quam</reg> ob rem? <reg>quod</reg>
+        <name>Antonius</name> umbram suam metuit, hic ne leges quidem natus in patris egestate,
+        educatus in sororis stupris, corroboratus in caede civium, cuius primus ad rem publicam
+        aditus in equitibus R. occidendis fuit (nam illis quos meminimus <name>Gallis</name>, qui
+        tum <name>Titiniorum</name> ac Nanniorum ac <pb/>
+        <name>Tanusiorum</name> capita demebant, <name>Sulla</name> <pb n="158"/> unum <name>Catilinam</name>
+        praefecerat); in quibus ille hominem optimum, <persName>Q. Caecilium</persName>, sororis
+        suae virum, equitem <name>Romanum</name>, nullarum partium, cum semper natura tum etiam
+        aetate iam quietum, suis manibus occidit. <milestone unit="para"/><milestone n="3"
+          unit="chapter"/><milestone n="10" unit="section"/><reg>quid</reg> ego nunc dicam peteme
+        eum consulatum, qui hominem carissimum populo <name>Romano</name>, <persName>M.
+          Marium</persName>, inspectante populo <name>Romano</name> vitibus per totam umbem
+        ceciderit, ad bustum egerit, ibi omni cmuciatu lacerarit, vivo stanti collum gladio sua
+        dextera secuemit, cum sinistra capillum eius a vertice teneret, caput sua manu tulerit, cum
+        inter digitos eius rivi sanguinis fluerent? qui postea cum histrionibus et cum gladiatoribus
+        ita vixit ut alteros libidinis, alteros facinoris adiutores haberet, qui nullum in locum tam
+        sanctum ac tam religiosum accessit in quo non, etiam si aliis culpa non esset, tamen ex sua
+        nequitia dedecoris <pb n="159"/> suspicionem relinqueret, qui ex curia <name>Curios</name> et
+          <name>Annios</name>, ab atmiis Sapalas et <name>Carvilios</name>, ex equestri ordine
+          <name>Pompilios</name> et <name>Vettios</name> sibi amicissimos comparavit, qui tantum
+        habet audaciae, tantum nequitiae, tantum denique in libidine artis et efficacitatis, ut
+        prope in parentum gremiis praetextatos liberos constuprarit? <reg>quid</reg> ego nunc tibi
+        de <name>Africa</name>, quid de testium dictis scribam? <reg>nota</reg> sunt, et ea tu
+        saepius legito; sed tamen hoc mihi non praetermittendum videtur quod primum ex eo iudicio
+        tam egens discessit quam quidam iudices eius ante illud in eum iudicium fuemunt, deinde tam
+        invidiosus ut aliud in eum iudicium cotidie flagitetur. <reg>hic</reg> se sic habet ut magis
+        <pb/> timeant etiam si quierit, quam ut contemnant si quid commoverit. <milestone n="11"
+          unit="section"/><reg>quanto</reg> melior tibi fortuna petitionis data est quam nuper
+        homini novo, <persName>C. Coelio</persName>! <reg>ille</reg> cum duobus hominibus ita
+        nobilissimis petebat ut tamen in iis omnia pluris essent quam ipsa nobilitas, summa ingenia,
+        summus pudor, plurima beneficia, sum<pb n="160"/>ma ratio ac diligentia petendi. <reg>ac</reg> tamen
+        eorum alterum <name>Coelius</name>, cum multo inferior esset genere, superior nulla me
+        paene, superavit. <milestone n="12" unit="section"/><reg>qua</reg> me tibi, si facies ea
+        quae natura et studia quibus semper usus es, largiuntur, quae temporis tui ratio desiderat,
+        quae potes, quae debes, non erit difficile certamen cum iis competitoribus, qui nequaquam
+        sunt tam genere insignes quam vitiis nobiles. <reg>quis</reg> enim reperiri potest tam
+        improbus civis qui velit uno suffragio duas in rem publicam sicas destringere? <milestone
+          unit="para"/><milestone n="4" unit="chapter"/><milestone n="13" unit="section"
+          /><reg>quoniam</reg> quae subsidia novitatis haberes et habere posses exposui, nunc de
+        magnitudine petitionis dicendum videtur. <reg>consulatum</reg> petis, quo honore nemo est
+        quin te dignum arbitretur, sed multi qui invideant; petis enim homo ex equestri loco summum
+        locum civitatis <pb n="161"/> atque ita summum ut forti homini, diserto, innocenti multo idem ille honos
+        plus amplitudinis quam ceteris adferat. <reg>noli</reg> putare eos qui sunt eo honore usi
+        non videre, tu cum idem sis adeptus, quid dignitatis habiturus sis. <name>Eos</name> vero
+        qui consularibus familiis nati locum maiorum consecuti non sunt suspicor tibi, nisi si qui
+        admodum te amant, invidere. <reg>etiam</reg> novos homines praetorios existimo, nisi qui tuo
+        beneflcio vincti sunt, nolle abs te se honore superari. <milestone n="14" unit="section"
+          /><reg>iam</reg> in populo quam multi invidi sint, quam consuetudine horum annorum ab
+        hominibus novis alienati, venire tibi in mentem certo scio; esse etiam non nullos tibi
+        iratos ex iis causis quas egisti <pb/> necesse est. <reg>iam</reg> illud tute circumspicito,
+        quod ad Cn. <name>Pompei</name> gloriam augendam tanto studio te dedisti, num quos tibi
+        putes ob eam causam esse amicos. <milestone n="15" unit="section"/><reg>quam</reg> ob rem
+        cum et summum locum civitatis petas et videas esse studia quae adversentur, adhibeas necesse
+        est omnem rationem et curam et laborem et diligentiam. <milestone unit="para"/><milestone
+          n="5" unit="chapter"/><milestone n="16" unit="section"/><reg>et</reg> petitio magistratus
+        divisa est in duarum rationum diligentiam, quarum altera in amicorum studiis, altera in
+        populari voluntate ponenda est. <reg>amicorum</reg> studia beneflciis et officiis et
+        vetustate et facilitate ac iucunditate naturae parta esse oportet. <reg>sed</reg> hoc nomen
+        amicorum in petitione latius patet quam in cetera vita. <reg>quisquis</reg> est enim qui
+        ostendat aliquid in te voluntatis, qui colat, qui domum ventitet, is in amicorum numero est
+        habendus. <reg>sed</reg> tamen qui sunt amici ex causa iustiore cognationis aut adflnitatis
+        aut sodalitatis alicuius necessitudinis, iis carum et iucundum esse maxime prodest.
+          <milestone n="17" unit="section"/><reg>deinde</reg> ut quisque est intimus ac maxime
+        domesticus, ut is amet et quam amplissimum esse te cupiat valde elaborandum est, tum ut
+        tribules, ut vicini, ut clientes, ut denique liberti, postremo etiam servi tui; nam fere
+        omnis sermo ad forensem famam a domesticis emanat auctoribus. <milestone n="18"
+          unit="section"/><reg>denique</reg> sunt instituendi cuiusque generis amici,ad speciem
+        homines inlustres honoreac nomine, qui etiam si suifragandi studia non navant, tamen
+        adferunt petitori aliquid dignitatis; ad ius obtinendum magistratus, ex quibus maxime
+        consules, deinde tribuni pl., ad conficiendas centurias homines excellenti gratia.
+          <reg>qui</reg> abs te tribum aut centuriam aut aliquod beneficium aut habent
+        &lt;aut&gt; sperant, <pb/> eos rursus magno opere et compara et confirma.
+          <reg>nam</reg> per hos annos homines ambitiosi vehementer omni studio atque opera
+        elaborant, ut possint a tribulibus suis ea quae peti<pb n="162"/>erint impetrare. <reg>hos</reg> tu
+        homines, quibuscumque poteris rationibus, ut ex animo atque ex tilla summat voluntate tui
+        studiosi sint elaborato. <milestone n="19" unit="section"/><reg>quod</reg> si satis grati
+        homines essent, haec tibi omnia parata esse debebant, sic uti parata esse confido.
+          <reg>nam</reg> hoc biennio quattuor sodalitates hominum ad ambitionem gratiosissimorum
+        tibi obligasti, <persName>C. Fundani</persName>, <persName>Q. Galli</persName>, C.
+          &lt;<name>Corneli</name>&gt;, <persName>C. Orcivi</persName>. <name>Horum</name>
+        in causis ad te deferendis quid tibi eorum sodales receperint et confirmarint scio, nam
+        intemfui. <reg>qua</reg> me hoc tibi faciendum est hoc tempore ut ab his quod debent exigas
+        saepe commonendo, rogando, confirmando, curando ut intellegant nullum se umquam aliud tempus
+        habituros referendae gratiae. <reg>profecto</reg> homines et spe reliquorum tuorum
+        officiorum et [iam] recentibus beneficiis ad studium navandum excitabuntur. <milestone
+          unit="para"/><milestone n="20" unit="section"/><reg>et</reg> omnino quoniam eo genere
+        amicitiarum petitio tua maxime munita est, quod ex causarum defensionibus adeptus es, fac ut
+        plane iis omnibus quos devinctos tenes discriptum ac dispositum suum cuique munus sit; et
+        quem ad modum nemini illorum molestus ulla in me umquam fuisti, sic cura ut intellegant
+        omnia te quae ab illis tibi deberi putaris ad hoc tempus reservasse. <milestone n="6"
+          unit="chapter"/><milestone n="21" unit="section"/><reg>sed</reg> quoniam tribus rebus
+        homines maxime ad benevolentiam atque haec suifragandi studia ducuntur, beneficio, spe,<pb n="163"/>
+        adiunctione animi ac <pb/> voluntate, animadvertendum est quem ad modum cuique horum generi
+        sit inserviendum. <reg>minimis</reg> beneficiis homines adducuntur ut satis causae putent
+        esse ad studium suifragationis, nedum ii quibus saluti fuisti, quos tu habes plurimos, non
+        intellegant, si hoc tuo tempore tibi non satis fecerint, se probatos nemini umquam fore.
+          <reg>quod</reg> cum ita sit, tamen rogandi sunt atque etiam in hanc opinionem adducendi ut
+        qui adhuc nobis obligati fuerint iis vicissim nos obligari posse videamur. <milestone n="22"
+          unit="section"/><reg>qui</reg> autem spe tenentur, quod genus hominum multo etiam est
+        diligentius atque officiosius, iis fac ut propositum ac paratum auxilium tuum esse videatur,
+        denique ut spectatorem te officiorum esse intellegant diligentem, ut videre te plane atque
+        animadvertere quantum a quoque proficiscatur appareat. <milestone n="23" unit="section"
+          /><name>Tertium</name> illud genus est [studiorum] voluntarium, quod agendis gratiis,
+        accommodandis sermonibus ad eas rationes, propter quas quisque studiosus tui esse videbitur,
+        significanda erga illos pari voluntate, adducenda amicitia in spem familiaritatis et
+        consuetudinis confirmari oportebit. <reg>atque</reg> in his omnibus generibus iudicato et
+        perpendito quantum quisque possit, ut scias et quem ad modum cuique inservias et quid a
+        quoque exspectes ac postules. <milestone n="24" unit="section"/><reg>sunt</reg> enim quidam
+        homines in suis vicinitatibus et municipiis gratiosi, sunt diligentes et copiosi, qui etiam
+        si antea non studuerunt huic gratiae, tamen ex tempore elaborare eius causa cui debent aut
+        volunt facile possunt. <reg>his</reg> hominum generibus sic inserviendum est ut ipsi
+        intellegant te videre quid a quoque exspectes, sentire quid accipias, meminisse quid
+        acceperis. <reg>sunt</reg> autem alii, qui aut nihil possunt aut etiam odio sunt tribulibus
+        suis nec habent tantum animi ac facultatis ut enitantur ex tempore. <pb/>
+        <reg>hos</reg> ut intemnoscas elaborato, ne spe in aliquo maiore posita praesidi parum
+        comparetur. <milestone n="7" unit="chapter"/><milestone n="25" unit="section"/><reg>et</reg>
+        quamquam partis ac fundatis amicitiis fretum ac <pb n="164"/>munitum esse oportet, tamen in ipsa
+        petitione amicitiae permultae ac perutiles comparantur; nam in ceteris molestiis habet hoc
+        tamen petitio commodi: potes honeste, quod in cetera vita non queas, quoscumque velis
+        adiungere ad amicitiam, quibuscum si alio tempore agas, absurde facere videare, in petitione
+        autem nisi id agas et cum multis et diligenter, nullus petitor esse videare. <milestone
+          n="26" unit="section"/><reg>ego</reg> autem tibi hoc confirmo, esse neminem, nisi aliqua
+        necessitudine competitorum alicui tuorum sit adiunctus, a quo non facile si contenderis
+        impetrare possis ut suo beneficio promereatur se ut ames et sibi ut debeas, modo ut
+        intellegat te magni aestimare ex animo agere, bene se ponere, fore ex eo non brevem et
+        suifragatoriam sed firmam et perpetuam amicitiam. <milestone n="27" unit="section"
+          /><reg>nemo</reg> erit, mihi crede, in quo modo aliquid sit, qui hoc tempus sibi oblatum
+        amicitiae tecum constituendae praetermittat, praesertim cum tibi hoc casus adferat ut ii
+        tecum petant quorum amicitia aut contemnenda aut fugienda sit, et qui hoc quod ego te hortor
+        non modo adsequi sed ne incipere quidem possint. <milestone n="28" unit="section"
+          /><reg>nam</reg> qui incipiat <name>Antonius</name> homines adiungere atque invitare ad
+        amicitiam quos per se suo nomine appellare non possit? <reg>mihi</reg> quidem nihil stultius
+        videtur quam existimare esse eum studiosum tui quem non noris. <reg>eximiam</reg> quandam
+        gloriam et dignitatem ac rerum gestarum magnitudinem esse oportet in eo quem homines ignoti
+        nullis suifragantibus honore adficiant; ut quidem homo nequam, iners, sine officio, sine
+        ingenio, cum infamia, nullis amicis hominem plurimorum studio <pb/> atque omnium bona
+        existimatione munitum praecurrat, sine magna culpa neglegentiae fleri non potest. <pb n="165"/><milestone
+          n="8" unit="chapter"/><milestone n="29" unit="section"/><reg>quam</reg> ob rem omnis
+        centurias multis et variis amicitiis cura ut confirmatas habeas. <reg>et</reg> primum, id
+        quod ante oculos est, senatores equitesque <name>Romanos</name>, ceterorum ordinum navos
+        homines et gratiosos complectere. <reg>multi</reg> homines urbani industrii, multi libertini
+        in foro gratiosi navique versantur. <reg>quos</reg> per te, quos per communis amicos
+        poteris, summa cura ut cupidi tui sint elaborato, appetito, adlegato, summo beneficio te
+        adfici ostendito. <milestone n="30" unit="section"/><reg>deinde</reg> habeto rationem urbis
+        totius, collegiorum omnium, pagorum, vicinitatum. <reg>ex</reg> his principes ad amicitiam
+        tuam si adiunxeris, per eos reliquam multitudinem facile tenebis. <reg>postea</reg> totam
+          <name>Italiam</name> fac ut in animo ac memoria tributim discriptam comprensamque habeas,
+        ne quod municipium, coloniam, praefecturam, locum denique <name>Italiae</name> ne quem esse
+        patiare in quo non habeas firmamenti quod satis esse possit, <milestone n="31"
+          unit="section"/>perquiras et investiges homines ex omni regione, eos cognoscas, appetas,
+        confirmes, cures ut in suis vicinitatibus tibi petant et tua causa quasi candidati sint.
+          <reg>volent</reg> te amicum, si suam a te amicitiam expeti videbunt. <reg>id</reg> ut
+        intellegant oratione ea quae ad eam rationem pertinet habenda consequere. <reg>homines</reg>
+        municipales ac rusticani, si nobis nomine noti sunt, in amicitia esse se arbitrantur; si
+        vero etiam praesidi se aliquid sibi constituere putant, non amittunt occasionem promerendi.
+          <reg>hos</reg> ceteri et maxime tui competitores ne norunt quidem, tu et nosti et facile
+        cognosces, sine quo amicitia esse non potest. <milestone n="32" unit="section"
+          /><reg>neque</reg> id tamen satis est, tametsi magnum est, sed sequitur spes utilitatis
+        atque amicitiae, ne nomenclator solum sed amicus <pb/> etiam bonus esse videare.
+          <reg>ita</reg> cum et hos ipsos, propter suam ambitionem qui apud tribulis suos plurimum
+        gratia possunt, studiosos in centuriis habebis et ceteros qui apud aliquam partem tribulium
+        propter municipi aut vicinitatis aut conlegi rationem valent cupidos <pb n="166"/>tui constitueris, in
+        optima spe esse debebis. <milestone n="33" unit="section"/><reg>iam</reg> equitum centuriae
+        multo facilius mihi diligentia posse teneri videntur. <reg>primum</reg> cognosce equites
+        (pauci enim sunt), deinde appete (multo enim facilius illa adulescentulorum ad amicitiam
+        aetas adiungitur); deinde habes tecum ex iuventute optimum quemque et studiosissimum
+        humanitatis; tum autem, quod equester ordo tuus est, sequentur illi auctoritatem ordinis, si
+        abs te adhibebitur ea diligentia ut non ordinis solum voluntate sed etiam singulorum
+        amicitiis eas centurias confirmatas habeas. <reg>iam</reg> studia adulescentulorum in
+        suifragando, in obeundo, in nuntiando, in adsectando mirifice et magna et honesta sunt.
+          <milestone unit="para"/><milestone n="9" unit="chapter"/><milestone n="34" unit="section"
+          /><reg>et</reg>, quoniam adsectationis mentio facta est, id quoque curandum est ut
+        cotidiana cuiusque generis et ordinis et aetatis utare. <reg>nam</reg> ex ea ipsa copia
+        coniectura fieri poterit quantum sis in ipso campo virium ac facultatis habiturus.
+          <reg>huius</reg> autem rei tres partes sunt, una salutatorum [cum domum veniunt], altera
+        deductorum, tertia adsectatorum. <milestone n="35" unit="section"/><reg>in</reg>
+        salutatoribus, qui magis vulgares sunt et hac consuetudine quae nunc est plures veniunt, hoc
+        efficiendum est ut hoc ipsum minimum officium eorum tibi gratissimum esse videatur.
+          <reg>qui</reg> domum tuam venient, significato te animadvertere; eorum amicis qui illis
+        renuntient ostendito, <pb/> saepe ipsis dicito. <reg>sic</reg> homines saepe, cum obeunt
+        pluris competitores et vident unum esse aliquem qui haec officia maxime animadvertat, ei se
+        dedunt, deserunt ceteros, minutatim ex communibus proprii, ex fucosis firmi suifragatores
+        evadunt. <reg>iam</reg> illud teneto diligenter, si eum qui tibi promiserit audieris fucum,
+        ut dicitur, facere aut [ut] senseris, ut te id audisse aut scire dissimules, si qui tibi se
+        purgare volet quod suspectum esse &lt;se&gt; arbitretur, adfirmes te de illius
+        voluntate numquam dubitasse nec debere dubitare. <reg>is</reg> enim qui se non putat satis
+        facere amicus esse nullo modo potest. <reg>scire</reg> autem oportet quo quisque animo sit,
+        ut quantum cui<pb n="167"/>que confidas constituere possis. <milestone n="36" unit="section"
+          /><reg>iam</reg> deductorum officium quo maius est quam salutatorum, hoc gratius tibi esse
+        significato atque ostendito et, quod eius fieri poterit, certis temporibus descendito.
+          <reg>magnam</reg> adfert opinionem, magnam dignitatem cotidiana in deducendo frequentia.
+          <milestone n="37" unit="section"/><name>Tertia</name> est ex hoc genere adsidua
+        adsectatorum copia. <reg>in</reg> ea quos voluntarios habebis, curato ut intellegant te sibi
+        in perpetuum summo beneflcio obligari; qui autem tibi debent, ab iis plane hoc munus
+        exigito, qui per aetatem ac negotium poterunt, ipsi tecum ut adsidui sint, qui ipsi sectari
+        non poterunt, suos necessarios in hoc munere constituant. <reg>valde</reg> ego te volo et ad
+        rem pertinere arbitror semper cum multitudine esse. <milestone n="38" unit="section"
+          /><reg>praeterea</reg> magnam adferet laudem et summam dignitatem, si ii tecum erunt qui a
+        te defensi et qui per te servati ac iudiciis liberati sunt. <reg>haec</reg> tu plane ab his
+        postulato ut quoniam nulla impensa per te alii rem, alii honorem, alii salutem ac fortunas
+        omnis <pb/> obtinuerint, nec aliud ullum tempus futurum sit ubi tibi referre gratiam
+        possint, hoc te officio remunerentur. <milestone unit="para"/><milestone n="10"
+          unit="chapter"/><milestone n="39" unit="section"/><reg>et</reg> quoniam in amicorum
+        studiis haec omnis oratio versatur, qui locus in hoc genere cavendus sit praetermittendum
+        non videtur. <reg>fraudis</reg> atque insidiarum et perfidiae plena sunt omnia.
+          <reg>non</reg> est huius temporis perpetua illa de hoc genere disputatio, quibus rebus
+        benevolus et simulator diiudicari possit; tantum est huius temporis admonere.
+          <reg>summa</reg> tua virtus eosdem homines et simulare tibi se esse amicos et invidere
+        coegit. <reg>quam</reg> ob rem <foreign lang="greek">*)epixa/rmeion</foreign> illud teneto,
+        nervos atque artus esse sapientiae non temere credere, <milestone n="40" unit="section"/>et,
+        cum tuorum amicorum studia constitueris, tum etiam obtrectatorum atque adversariorum
+        rationes et genera cognoscito. <reg>haec</reg> tria sunt, unum quos laesisti, alterum qui
+        sine causa non amant, tertium qui competitorum valde amici sunt. <reg>quos</reg> laesisti,
+        cum contra eos pro amico diceres, iis te plane purgato, necessitudines commemorato, in spem
+        adducito te in eorum<pb n="168"/> rebus, si se in amicitiam &lt;tuam&gt; contulerint, pari studio
+        atque officio futurum. <reg>qui</reg> sine causa non amant, eos aut beneficio aut spe aut
+        significando tuo erga illos studio dato operam ut de illa animi pravitate deducas.
+          <reg>quorum</reg> voluntas erit abs te propter competitorum amicitias alienior, iis quoque
+        eadem inservito ratione qua superioribus et, si probare poteris, te in eos ipsos
+        competitores tuos benevolo esse animo ostendito. <milestone unit="para"/><milestone n="11"
+          unit="chapter"/><milestone n="41" unit="section"/><reg>quoniam</reg> de amicitiis
+        constituendis satis dictum est, dicendum est de illa altera parte petitionis quae in
+        populari ratione versatur. <reg>ea</reg> desiderat nomenclationem, blanditiam, adsiduitatem,
+        benignitatem, rumorem, spem in re <pb/> publica. <milestone n="42" unit="section"
+          /><reg>primum</reg> quod facis, ut homines noris, significa ut appareat, et auge ut
+        cotidie melius fiat. <reg>nihil</reg> mihi tam populare neque tam gratum videtur.
+          <reg>deinde</reg> id quod natura non habes induc in animum ita simulandum esse ut natura
+        facere videare. <reg>quamquam</reg> plurimum natura valet, tamen videtur in paucorum mensum
+        negotio posse simulatio naturam vincere. <reg>nam</reg> comitas tibi non deest, ea quae bono
+        ac suavi homine digna est, sed opus est magno opere blanditia, quae etiam si vitiosa est et
+        turpis in cetera vita, tamen in petitione est necessaria. <reg>etenim</reg> cum deteriorem
+        aliquem adsentando facit, tum improba est, cum amiciorem, non tam vituperanda, petitori vero
+        necessaria est, cuius frons et vultus et sermo ad eorum quoscumque convenerit sensum et
+        voluntatem commutandus et accommodandus est. <milestone n="43" unit="section"
+          /><reg>iam</reg> adsiduitatis nullum est praeceptum, verbum ipsum docet quae res sit.
+          <reg>prodest</reg> quidem vehementer nusquam discedere, sed tamen hic fructus est
+        adsiduitatis, non solum esse <name>Romae</name> atque in foro sed adsidue petere, saepe
+        eosdem appellare, non committere ut quisquam possit dicere, &dagger;quod eius consequi
+        possis, si abs te non sit rogatum&dagger; et valde ac diligenter rogatum. <milestone
+          n="44" unit="section"/><reg>benignitas</reg> <pb n="169"/>autem late patet. <reg>est</reg> in re
+        familiari, quae quamquam ad multitudinem pervenire non potest, tamen ab amicis si laudatur,
+        multitudini grata est; est in conviviis, quae fac et abs te et ab amicis tuis concelebrentur
+        et passim et tributim; est etiam in opera, quam pervulga et communica, <pb/> curaque ut
+        aditus ad te diurni nocturnique pateant, neque solum foribus aedium tuarum sed etiam vultu
+        ac fronte, quae est animi ianua; quae &lt;si&gt; significat voluntatem abditam esse
+        ac retrusam, parvi refert patere ostium. <reg>homines</reg> enim non modo promitti sibi,
+        praesertim quod de candidato petant, sed etiam large atque honorifice promitti volunt.
+          <milestone n="45" unit="section"/><reg>qua</reg> re hoc quidem facile praeceptum est, ut
+        quod facturus sis id significes te studiose ac libenter esse facturum; illud difficilius et
+        magis ad tempus quam ad naturam accommodatum tuam, quod facere non possis, ut id&dagger;
+        iucunde neges&dagger; quorum alterum est tamen boni viri, alterum boni petitoris.
+          <reg>nam</reg> cum id petitur, quod honeste aut [non] sine detrimento [est] nostro
+        promittere non possumus, quo modo si qui roget ut contra amicum aliquem causam recipiamus,
+        belle negandum est, ut ostendas necessitudinem, demonstres quam moleste feras, aliis te
+        rebus exsarturum esse persuadeas. <milestone n="12" unit="chapter"/><milestone n="46"
+          unit="section"/><reg>audivi</reg> hoc dicere quendam de quibusdam oratoribus, ad quos
+        causam suam detulisset, gratiorem sibi orationem &lt;eius&gt; fuisse qui negasset
+        quam illius qui recepisset. <reg>sic</reg> homines fronte et oratione magis quam ipso
+        beneficio reque capiuntur. <reg>verum</reg> hoc probabile est, illud alterum subdurum tibi
+        homini <name>Platonico</name> suadere, sed tamen tempori consulam. <reg>quibus</reg> enim te
+        propter aliquod officium necessitudinis adfuturum negaris, tamen ii possunt abs te placati
+        aequique discedere; quibus autem idcirco negaris, quod te im<pb n="170"/>peditum esse dixeris aut
+        amicorum hominum negotiis aut gravioribus causis aut ante susceptis, <pb/> inimici discedunt
+        omnesque hoc animo sunt ut sibi te mentiri malint quam negare. <milestone n="47"
+          unit="section"/><persName>C. Cotta</persName>, in ambitione artifex, dicere solebat se
+        operam suam, quoad non contra officium rogaretur, polliceri solere omnibus, impertire iis
+        apud quos optime poni arbitraretur; ideo se nemini negare, quod saepe accideret causa cur is
+        cui pollicitus esset non uteretur, saepe ut ipse magis esset vacuus quam putasset; neque
+        posse eius domum compleri qui tantum modo reciperet quantum videret se obire posse; casu
+        fieri ut agantur ea quae non putaris, illa quae credideris in manibus esse ut aliqua de
+        causa non agantur; deinde esse extremum ut irascatur is cui mendacium dixeris. <milestone
+          n="48" unit="section"/><reg>id</reg>, si promittas, et incertum est et in diem et in
+        paucioribus; sin autem [id] neges, et certe abalienes et statim et pluris. <reg>plures</reg>
+        enim multo <pb n="171"/>sunt qui rogant ut uti liceat opera alterius quam qui utuntur. <reg>qua</reg> re
+        satius est [ut] ex his aliquos aliquando in foro tibi irasci quam omnis continuo domi,
+        praesertim cum multo magis irascantur iis qui negent, quam ei quem videant ea ex causa
+        impeditum, ut facere quod promisit cupiat si ullo modo possit. <milestone n="49"
+          unit="section"/><reg>ac</reg> ne videar aberrasse a distributione mea, qui haec in hac
+        populari parte petitionis disputem, hoc sequor, haec omnia non tam ad amicorum studia quam
+        ad popularem famam pertinere, et si inest aliquid ex illo genere, benigne respondere,
+        studiose inservire negotiis ac periculis amicorum, tamen hoc loco ea dico, quibus
+        multitudinem capere possis, ut de nocte domus compleatur, ut multi spe tui praesidi
+        teneantur, ut amiciores abs te discedant quam accesserint, ut quam plurimorum aures optimo
+        sermone compleantur. <milestone unit="para"/><milestone n="13" unit="chapter"/><milestone
+          n="50" unit="section"/><reg>sequitur</reg> enim ut de rumore dicendum sit, cui maxime
+        serviendum est. <reg>sed</reg> quae dicta sunt omni superiore <pb/> oratione, eadem ad
+        rumorem concelebrandum valent, dicendi laus, studia publicanorum et equestris ordinis,
+        hominum nobilium voluntas, adulescentulorum frequentia, eorum qui abs te defensi sunt
+        adsiduitas, ex municipiis multitudo eorum quos tua causa venisse appareat, bene
+        &lt;te&gt; ut homines nosse, comiter appellare, adsidue diligenter petere, benignum
+        ac liberalem esse &lt;et&gt; loquantur et existiment, domus ut multa nocte
+        compleatur, omnium generum frequentia adsit, satis fiat oratione omnibus, re operaque
+        multis; perficiatur id quod fieri potest labore et arte ac diligentia, non ut ad populum ab
+        his omnibus fama perveniat sed ut in his studiis populus ipse versetur. <milestone n="51"
+          unit="section"/><reg>iam</reg> urbanam illam multitudi<pb n="172"/>nem et eorum studia qui contiones
+        tenent adeptus es in <name>Pompeio</name> ornando, <name>Manili</name> causa recipienda,
+          <name>Cornelio</name> defendendo; excitanda nobis sunt quae adhuc habuit nemo quin idem
+        splendidorum hominum voluntates haberet. <reg>efficiendum</reg> etiam illud est ut sciant
+        omnes <persName>Cn. Pompei</persName> summam esse erga te voluntatem et vehementer ad illius
+        rationes te id adsequi quod petis pertinere. <milestone n="52" unit="section"
+          /><reg>postremo</reg> tota petitio cura ut pompae plena sit, ut inlustris, ut splendida,
+        ut popularis sit, ut habeat summam speciem ac dignitatem, ut etiam si &dagger;quae
+        poscit ne&dagger; competitoribus tuis exsistat aut sceleris aut libidinis aut
+        largitionis accommodata ad eorum mores infamia. <milestone n="53" unit="section"
+          /><reg>atque</reg> etiam in hac petitione maxime videndum est ut spes rei publicae bona de
+        te sit et honesta opinio; nec tamen in petendo res publica capessenda est neque in senatu
+        neque in contione, sed haec tibi sunt retinenda ut senatus te existimet ex eo quod ita
+        vixeris <pb/> defensorem auctoritatis suae fore, equites et viri boni ac locupletes ex vita
+        acta te studiosum oti ac rerum tranquillarum, multitudo ex eo quod dumtaxat oratione in
+        contionibus ac iudicio popularis fuisti, te a suis commodis non alienum futurum. <milestone
+          unit="para"/><milestone n="14" unit="chapter"/><milestone n="54" unit="section"
+          /><reg>haec</reg> veniebant mihi in mentem de duabus illis commentationibus matutinis,
+        quod tibi cotidie ad forum descendenti meditandum esse dixeram: &lsquo;<reg>novus</reg>
+        sum, consulatum peto.&rsquo; <name>Tertium</name> restat: &lsquo;<name>Roma</name>
+        est,&rsquo; civitas ex nationum conventu con<pb n="173"/>stituta, in qua multae insidiae, multa
+        fallacia, multa in omni genere vitia versantur, multorum adrogantia, multorum contumacia,
+        multorum malevolentia, multorum superbia, multorum odium ac molestia perferenda est.
+          <reg>video</reg> esse magni consili atque artis in tot hominum cuiusque modi vitiis
+        tantisque versantem vitare offensionem, vitare fabulam, vitare insidias, esse unum hominem
+        accommodatum ad tantam morum ac sermonum ac voluntatum varietatem. <milestone n="55"
+          unit="section"/><reg>qua</reg> re etiam atque etiam perge tenere istam viam quam
+        institisti, excelle dicendo. <reg>hoc</reg> et tenentur <name>Romae</name> et adliciuntur et
+        ab impediendo ac laedendo repelluntur. <reg>et</reg> quoniam in hoc vel maxime est vitiosa
+        civitas, quod largitione interposita virtutis ac dignitatis oblivisci solet, in hoc fac ut
+        te bene noris, id est ut intellegas eum esse te qui iudici ac periculi metum maximum
+        competitoribus adferre possis. <milestone unit="para"/><reg>fac</reg> ut se abs te custodiri
+        atque observari sciant; cum diligentiam tuam, cum auctoritatem vimque dicendi tum profecto
+        equestris ordinis erga te studium pertimescent. <milestone n="56" unit="section"
+          /><reg>atque</reg> haec ita nolo te illis proponere ut videare accusationem iam meditari,
+        sed ut hoc terrore facilius hoc ipsum <pb/> quod agis consequare. <reg>et</reg> plane sic
+        contende omnibus nervis ac facultatibus ut adipiscamur quod petimus. <reg>video</reg> nulla
+        esse comitia tam inquinata largitione quibus non gratis aliquae centuriae renuntient suos
+        magno opere necessarios. <milestone n="57" unit="section"/><reg>qua</reg> re si advigilamus
+        pro rei dignitate et si nostros ad summum studium [benevolosi excitamus et si hominibus
+        studiosis [gratiosisque] nostri suum cuique munus discribimus et si competitoribus iudiciuin
+        proponimus, sequestribus metum <pb n="174"/>inicimus, divisores ratione aliqua coercemus, perfici potest
+        ut largitio nulla sit aut nihil valeat. <milestone unit="para"/><milestone n="58"
+          unit="section"/><reg>haec</reg> sunt quae putavi non melius scire me quam te sed facilius
+        his tuis occupationibus conligere unum in locum posse et ad te perscripta mittere.
+          <reg>quae</reg> tametsi ita sunt scripta ut non ad omnis qui honores petant sed ad te
+        proprie et ad hanc petitionem tuam valeant, tamen tu si quid mutandum esse videbitur aut
+        omnino tollendum aut si quid erit praeteritum velim hoc mihi dicas; volo enim hoc
+        commentariolum petitionis haberi omni ratione perfectum. </p>
+    </body>
+  </text>
+</TEI.2>

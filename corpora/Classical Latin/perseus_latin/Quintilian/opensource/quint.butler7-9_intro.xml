@@ -1,0 +1,124 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title type="work" n="Inst.">Institutio Oratoria, books 7-9: introduction</title>
+<title type="sub">Machine readable text</title>
+<author n="Quint.">Quintilian</author>
+ <editor role="editor" n="Butler">Harold Edgeworth Butler</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Quintilian</author>
+<title>With An English Translation</title>
+ <editor role="editor" n="Butler">Harold Edgeworth Butler</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Cambridge, Mass., Harvard University Press; London, William Heinemann, Ltd.</publisher>
+<date>1922</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="front"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>2006</date>
+<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+<item></item>
+</change>
+
+</revisionDesc>
+</teiHeader>
+
+<text>
+	<body>
+<div1 type="front">
+<pb id="p.v"/>
+
+<!--<div2 type="chapter"><head>Table of contents</head>
+
+<p>BOOK VII
+Preface.&mdash;Ch. 1: Arrangement.&mdash;Ch. 2: Conjecture.&mdash;Ch. 3: Definition.&mdash;Ch. 4: Quality.&mdash;
+Ch. 5: Points of law.&mdash;Ch. 6: The letter of the
+law and intention.&mdash;Ch. 7: Contradictory laws.&mdash;
+Ch. 8: Syllogism.&mdash;Ch. 9: Ambiguity.&mdash;Ch. 10:
+Relation of various <hi rend="italics">status</hi> or bases. Each case
+must be considered on its merits. Rules not
+possible for every case. <ref target="p.3">3</ref></p>
+
+<p>BOOK VII
+Preface.&mdash;Ch. 1: Style.&mdash;Ch. 2: Propriety of
+words.&mdash;Ch. 3: Stylistic ornament; merits and
+faults.&mdash;Ch. 4: Amplification and diminution.&mdash;
+Ch. 5: General reflexions and their value in
+oratory.&mdash;Ch. 6: Tropes. <ref target="p.177">177</ref></p>
+
+<p>BOOK IX
+Ch. 1: Figures of thought and of speech.&mdash;Ch. 2:
+Figures of thought considered in detail.&mdash; Ch. 3:
+Figures of speech considered in detail.&mdash;Ch. 4:
+Artistic structure and rhythm; metrical feet and
+their appropriate employment. <ref target="p.349">349</ref></p>
+
+<pb id="p.2"/>
+
+</div2>-->
+
+<pb id="p.vii"/>
+
+<div2 type="chapter"><head>Introductory note</head>
+
+<p>A considerable portion of the three books contained in this volume is of a highly technical
+character and of interest only to professed students
+of the technique of the ancient schools of rhetoric
+and the minuter points of Latin prose style. <reg>even</reg>
+these portions contain not a little that is of general
+interest, but those which are likely to be most
+attractive to the general reader are VII. i and vi,
+the whole of VIII., and IX. i, 1&ndash;21, and iv, 1&ndash;57.
+Wherever discussion of <hi rend="italics">bases</hi> occurs, the reader is
+referred back to III. vi, as the subject is too complicated to be dealt with in notes. <reg>similarly</reg> for the
+Syllogism, Enthymeme or Epichaereme reference
+will be necessary to the passages indicated in the
+footnotes.</p>
+<closer><signed><name>H. E. B.</name></signed></closer></div2>
+
+<pb id="p.viii"/>
+
+<div2 type="chapter"><head>Sigla</head>
+
+<p>A = Codex Ambrosianus, 11th century.</p>
+<p>B = Agreement of Codices Bernensis, Bambergensis and
+Nostradamensis, 10th century.</p>
+<p>G = Codex Bambergensis where gaps in B have been
+supplied by an 11th-century hand.</p>
+</div2>
+</div1>
+	</body>
+</text>
+</TEI.2>

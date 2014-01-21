@@ -1,0 +1,803 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Aulularia, or The Concealed Treasure</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.aul_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.6  2009/06/25 22:54:03  student
+fixed bibl errors - zr
+
+Revision 1.5  2009/06/17 20:59:50  student
+corrected scene number - zr
+
+Revision 1.4  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:57:44  packel
+Converted to XML
+
+Revision 1.17  2003/07/01 22:17:27  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.16  2001/08/21 18:49:29  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.15  2001/08/08 17:55:27  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.14  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.13  2001/08/03 20:50:00  amahoney
+fix spurious italics in lemmata
+
+Revision 1.12  2001/08/02 21:22:37  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.11  2001/08/01 21:34:09  amahoney
+use full speaker names
+
+Revision 1.10  2001/08/01 19:16:30  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.9  2001/07/17 22:07:36  amahoney
+make scene divisions match the Latin
+
+Revision 1.8  2001/07/05 21:23:34  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.7  2001/07/03 18:21:28  amahoney
+fix the broken characters
+
+Revision 1.6  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.5  2001/06/21 17:39:34  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.4  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+Revision 1.3  2001/06/08 21:19:27  amahoney
+fix stage directions
+
+Revision 1.2  2001/06/04 20:48:44  amahoney
+fix the refsdecls, and get another one in order
+
+Revision 1.1  2001/06/01 21:36:54  amahoney
+first three plays from the new translation
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>THE HOUSEHOLD GOD, </role><roleDesc>who speaks the Prologue.</roleDesc></castItem>
+<castItem type="role"><role>EUCLIO, </role><roleDesc>an aged Athenian.</roleDesc></castItem>
+<castItem type="role"><role>MEGADORUS, </role><roleDesc>uncle of Lyconides.</roleDesc></castItem>
+<castItem type="role"><role>LYCONIDES, </role><roleDesc>a young Athenian.</roleDesc></castItem>
+<castItem type="role"><role>STROBILUS, </role><roleDesc>servant of Megadorus and Lyconides</roleDesc></castItem>
+<castItem type="role"><role>PYTHODICUS, </role><roleDesc>servant of Megadorus.</roleDesc></castItem>
+<castGroup>
+<castItem type="role"><role>ANTHRAX </role><roleDesc>Cooks</roleDesc></castItem>
+<castItem type="role"><role>CONGRIO</role></castItem>
+</castGroup>
+<castItem type="role"><role>EUNOMIA, </role><roleDesc>the sister of Megadorus.</roleDesc></castItem>
+<castItem type="role"><role>PHAEDRA, </role><roleDesc>the daughter of Euclio.</roleDesc></castItem>
+<castItem type="role"><role>STAPHYLA, </role><roleDesc>an old woman, servant of Euclio.</roleDesc></castItem>
+</castList>
+
+<stage type="scene">Scene -- <placeName key="tgn,7001393">Athens</placeName>, before the houses of EUCLIO and MEGADORUS and the Temple of Truth.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT</head>
+
+<p>EUCLIO, a miserly old Athenian, has a daughter named Ph&aelig;dra, who has been ravished by a young man named Lyconides, but is ignorant from whom she has received that injury. Lyconides has an uncle named Megadorus, who being ignorant of these circumstances, determines to ask Ph&aelig;dra of her father, in marriage for himself. Euclio has discovered a pot of gold in his house which he watches with the greatest anxiety. In the meantime, Megadorus asks his daughter in marriage, and his proposal is accepted; and while preparations are making for the nuptials, Euclio conceals his treasure, first in on place and then in another. Strobilus, the servant of Lyconides, watches his movements, and, having discovered it, carries off the treasure. While Euclio is lamenting his loss, Lyconides accosts him, with the view of confessing the outrage he has committed on his daughter, and of announcing to him that his uncle, Megadorus, has cancelled his agreement to marry her, in favour of himself. Euclio at first thinks that he is come to confess the robbery of the treasure. After much parleying, his mistake is rectified, and the matter is explained; on which Lyconides forces Strobilus to confess the theft; and (although the rest of the Play In its original form is lost) we learn from the acrostic Argument that Strobilus gives up the treasure, and Lyconides marries the daughter of Euclio, and receives the gold for a marriage-portion. The Supplement written by Codrus Urcens to supply the place of what is lost has been added.
+
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT OF PRISCIAN.</head>
+<p>A POT (<foreign lang="la">Aulam</foreign>) that he has found full of gold, Euclio watches with the greatest strictness (<foreign lang="la">Vi</foreign>), being distracted in a dreadful manner. Lyconides (<foreign lang="la">Lyconides</foreign>) debauches his daughter. Megadorus wishes (<foreign lang="la">Vult</foreign>) to marry her without a portion, and to do it in a cheerful way <foreign lang="la">(Lubens),</foreign> he provides cooks with provisions. Euclio is afraid on account of the gold (<foreign lang="la">Auro</foreign>); he drives them out of the house; and the whole matter (<foreign lang="la">Re</foreign>) having been seen, the servant of the ravisher steals it (<foreign lang="la">Id</foreign>). He discloses the matter to Euclio; by (<foreign lang="la">Ab</foreign>) him he is presented with the gold, a wife, and a son.
+</p></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<head>THE PROLOGUE<note anchored="yes"><lemma targOrder="U">Title <foreign lang="la">Aulularia</foreign></lemma>:  This word is derived from the old Latin word "aula," the same with the more recent form "olla," signifying "a pot," and whose diminutive was "aulula," which had the same signification. It will be seen how conspicuous a part the "aula" performs in the Play. Warner says, in a Note to his Translation, that Moli&egrave;re took a great part of his Comedy, called L'Avare, from this play of Plautus; and that there are two English Comedies on the same plan, one by Shadwell, the other by Fielding, called the Miser.</note></head>
+
+<sp><speaker>THE HOUSEHOLD GOD</speaker><p>Lest any one should wonder who I am, I will tell you in a few words. I am the household God of this family, from whose house you have seen me coming forth. It is now many years that I have been occupying this houses and I inhabited it for the father and the grandfather of this person who now dwells here. But beseeching me, his grandfather entrusted to me a treasure of gold, unknown to all. He deposited it in the midst of the hearth<milestone n="7" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Midst of the hearth</lemma>:  The Lares, or household Gods, were kept in the "<foreign lang="la">lararium</foreign>," which was a recess near the "focus," or "hearth," and in which prayers were offered up by the Romans on rising in the morning. The hearth of fireplace was in the middle of the house, and was sacred to the Lares</note>, praying me that I would watch it for him. He, when he died, was of such an avaricious disposition, that he would never disclose it to his own son, and preferred rather to leave him in want than to show that treasure to that son. He left him no large quantity of land, on which to live with great laboriousness and in wretchedness. When he died who had entrusted that gold to me, I began to take notice whether his son would any how pay greater honor to me than his father had paid me. But he was in the habit of venerating me still less and less by very much, and gave me a still less share of devotion. So in return was it done by me; and he likewise ended his life. He left this person who now dwells here, his son, of the same disposition as his father and grandfather were. He has an only daughter; she is always every day making offerings to me, either with incense, or wine, or something or other; she presents me, too, with chaplets. Out of regard for her, I have caused this Euclio to find this treasure, in order that he might more readily give her in marriage if he should wish; for a young man of very high rank has ravished her; this young man knows who it is that he has ravished; she knows him not, nor yet does her father know that she has been ravished. This day I shall cause the old gentleman here, our neighbour, to ask her as his wife; that will I do for this reason, that he may the more easily marry her who has ravished her. And this old gentleman who shall ask her as his wife, the same is the uncle of that young man who debauched her in the night time at the festival of <placeName key="tgn,7010621">Ceres</placeName><milestone n="36" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Festival of <placeName key="tgn,7010621">Ceres</placeName></lemma>:  He probably alludes to the Thesmophoria, a festival which was celebrated in honor of the Goddess <placeName key="tgn,7010621">Ceres</placeName>, and a large portion of the rites whereof were solemnized in the night time. In general it was celebrated only by the married women, though, as we find in the present instance, the maidens took some part in a portion of the ceremonial. It was said to have been celebrated in the night time in commemoration of the search by Ceres, with a torch in her hand, for her daughter Proserpine, when ravished by Pluto. No lights were used on the occasion, which will account, in a great measure, for the mishap of Ph&aelig;dra in the present instance, without her knowing who was the party that had insulted her. See an able article on the Thesmophoria in Dr Simth's Dictionary of Antiquities.</note>. But this old fellow is now making an uproar in the house, as usual; he is thrusting the old woman out of doors, that she may not be privy to the secret. I suppose he wants to look at the gold, if it be not stolen.
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="40" unit="TLN line"/>
+<stage>Enter EUCLIO, driving out STAPHYLA.</stage>
+<sp><speaker>EUCLIO</speaker><p> Get out, I say, be off, get out; by my troth, you must budge out of this house here, you pryabout woman, with your inquisitive eyes.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> Pray why are you beating me, wretched creature that I am?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> That you may be wretched, and that, curst as you are. you may pass a curst life, well befitting you.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> But for what reason have you now pushed me out of the house?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Am I to be giving you a reason, you whole harvest of whips<milestone n="45" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Harvest of whips</lemma>:  "Stimulorum seges." Literally, "you corn-field of whips." He means, that he will make her, body as full of weals from whipping in a corn-field is of ears of corn.</note>. Get away there from the door! There, do look, if you please, how she does creep along. But do you know how matters stand with you? If I just now take a stick or a whip in my hand, I'll quicken that tortoise pace for you.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> O that the Gods would drive me to hang myself, rather indeed than that I should be a slave in your house on these terms!</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Hark how the hag is grumbling to herself! By my troth, you wretch, I'll knock out those eyes of yours, that you mayn't be able to watch me, what business I'm about. Get out <stage>pushes her with his hands</stage>-further yet! still further! further! There now, stand you there! By my faith, if you budge a finger's breadth, or a nail's width from that spot, or if you look back until I shall order you, i' faith, I'll give you up at once as a trainer for the gibbet. <stage>Aside.</stage> I know for sure that I did never see one more accursed than this hag, and I'm sadly in fear of her, lest she should be cheating me unawares, or be scenting it out where the gold is concealed, a most vile wretch, who has eyes in the back of her head as well. Now I'll go and see whether the gold is just as I concealed it, that so troubles wretched me in very many ways. <stage>He goes into his house.</stage>
+
+<milestone n="67" unit="TLN line"/></p></sp>
+<sp><speaker>STAPHYLA</speaker><p> By heavens, I cannot now conceive what misfortune, or what insanity, I am to say has befallen my master; in such a way does he often, ten times in one day, in this fashion push wretched me out of the house. I' faith, I know not what craziness does possess this man; whole nights is he on the watch; then, too, all the day long does he sit for whole days together at home like a lame cobbler<milestone n="73" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A lame cobbler</lemma>:  Of course, lame people would be the most likely to take to such a sedentary employment as that of a cobbler</note>. Nor can I imagine now by what means to conceal the disgrace of my master's daughter, whose lying-in approaches near; and there isn't anything better for me, as I fancy, than to make one long capital letter<milestone n="77" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Long capital letter</lemma>:  She means to say, that she shall be forced to make a letter I of herself, by hanging herself. In so saying, she not only alludes to the straight and perpendicular form of that letter, but to its being especially long in the Roman mode of writing.</note> of myself, when I've tied up my neck in a halter.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="79" unit="TLN line"/>
+<stage>Enter EUCLIO, from his house.</stage>
+<sp><speaker>EUCLIO</speaker><p> <stage>to himself</stage>. Now, with my mind at ease, at length I go out of my house, after I've seen that everything is safe in-doors. Now do you return at once into the house <stage>to STAPHYLA</stage>, and keep watch in-doors.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> Keep watch in-doors upon nothing at all, forsooth! or is it, that no one may carry the house away. For here in our house there's nothing else for thieves to gain, so filled is it with emptiness<milestone n="84" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Filled is it with emptiness</lemma>:  The expression, "full of emptiness," is intended as a piece of wit on the part of the old woman. Perhaps Euclio would not have the spiders molested, because they were considered to bring good luck.</note> and cobwebs.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> 'Tis a wonder that, for your sake, Jupiter doesn't now make me a King Philip, or a Darius<milestone n="86" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Philip, or a Darius</lemma>:  The names of Philip, King of <placeName key="tgn,7002715">Macedon</placeName>, and Darius, King of <placeName key="tgn,7000231">Persia</placeName>, as powerful and wealthy monarchs, would be likely to be well known to the writers of the new Greek Comedy, from whom Plautus borrowed most, if not all, of his plays.</note>, you hag of hags. I choose those cobwebs to be watched for me. I am poor, I confess it--I put up with it. What the Gods send, I endure. Go in-doors, shut to the door, I shall be there directly. Take you care not to let any strange person into the house.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> What if any person asks for fire?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I wish it to be put out, that there may be no cause for any one asking it of you. But if the fire shall be kept in, you yourself shall be forthwith extinguished. Then do you say that the water has run out<milestone n="94" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has run out</lemma>:  It is not improbable that allusion is here made to the supply of water by pipes from the aqueducts.</note>, if any one asks for it.
+</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> The knife, the hatchet, the pestle and mortar, utensils that neighbours are always asking the loan of----</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Say that thieves have come and carried them off. In fact, in my absence, I wish no one to be admitted into my house; and this, too, do I tell you beforehand, if Good Luck should come, don't you admit her.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> I' faith, she takes good care, I think, not to be admitted; for though close at hand<milestone n="101" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Close at hand</lemma>:  She seems to allude to the fact of the temple of Bona Fortuna, or Good Luck, being in the vicinity of Euclio's house.</note>, she has never come to our house.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Hold your tongue, and go in-doors.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> I'll hold my tongue, and be off.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Shut the door, please, with both bolts. I shall be there directly. <stage>STAPHYLA goes into the house.</stage> I'm tormented in my mind, because I must go away from my house I' faith, I go but very unwillingly; but I know full well what I'm about; for the person that is our master of our ward<milestone n="107" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Master of our ward</lemma>:  The "curi&aelig;" at <placeName key="perseus,Rome">Rome</placeName> were sub-divisions of the tribes originally made by Romulus, who divided the Ramnes, Titienses, and Luceres into thirty "curi&aelig;." Each "curia" had its place for meeting and worship, which was also called "curia;" and was presided over by the "Curio," who is here called the "Magister curi&aelig;," or "master of the ward." At first the Patricians and Equites had the sole influence in the "curi&aelig;," and alone electee the "Curiones;" but after the year <date value="-209">A.U.C. 544</date>, the "Curio" was elected from the Patricians, after which period the political importance of the "curi&aelig;" gradually declined, until they became mere bodies meeting for the performance of religious observances. Plautus probably alludes, in the present instance, to a dole, or distribution of money, made by the Greek Trittuarch among the poorer brethren of his <foreign lang="greek">trittu\v,</foreign> or "tribus;" as in adapting a Greek play to the taste of a Roman audience, he very often mingles the customs of the one country with those of the other.</note> has given notice that he will distribute a didrachm of silver to each man; if I relinquish that, and don't ask for it, at once I fancy that all will be suspecting that I've got gold at home; for it isn't very likely that a poor man would despise ever such a trifle, so as not to ask for his piece of money. For as it is, while I am carefully concealing it from all, lest they should know, all seem to know it, and all salute me more civilly than they formerly used to salute me; they come up to me, they stop, they shake hands<milestone n="116" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">They shake hands</lemma>:  "Copulantur dextras." Literally, "they couple right hands."</note>; they ask me how I am, what I'm doing, what business I'm about. Now I'll go there whither I had set out<milestone n="118" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whither I had set out</lemma>:  <foreign lang="la">Nunc quo profectus sumito.</foreign> This is rendered, in Cotter's Translation, "now I will go where I am profited!"</note>; afterwards, I'll betake myself back again home as fast as ever I can.
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="120" unit="TLN line"/>
+<stage>Enter EUNOMIA and MEGADORUS, from their house.</stage>
+<sp><speaker>EUNOMIA</speaker><p> I could wish you, brother, to think that I utter these words by reason of my own regard and your welfare, as is befitting your own sister to do. Although I'm not unaware that we women are accounted troublesome; for we are all of us deservedly considered very talkative, and, in fact, they say at the present day that not a single woman has been found dumb<milestone n="125" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has been found dumb</lemma>:  Not seeing the sarcasm intended against the female sex in this passage, Lambinus seriously takes the trouble to contradict Eunomia; his words are, "I myself, who am at present in my fifty-sixth year have seen no less than two dumb women."</note> in any age. Still, brother, do you consider this one circumstance, that I am your nearest relation, and you in like manner are mine. How proper it is that I should counsel and advise you, and you me, as to what we may judge for the interest of each of us; and for it not to be kept concealed or kept silence upon through apprehension, but rather that I should make you my confidant, and you me in like manner. For that reason, now, have I brought you here apart out of doors, that I might here discourse with you upon your private concerns.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Best of women, give me your hand. <stage>Takes her hand.</stage></p></sp>
+<sp><speaker>EUNOMIA</speaker><p> <stage>looking about</stage>. Where is she? Who, pray, is this best of women?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Yourself. </p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Do you say so?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> If you say no, I say no.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Indeed, it's right that the truth should be spoken; for the best of women can nowhere be found; one is only worse than another, brother.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I think the same, and I'm determined never to contradict you on that point, sister. What do you wish?</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Give me your attention, I beg of you.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> 'Tis at your service; use and command me, please, if you wish for aught.
+</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> A thing that I consider very greatly for your advantage I'm come to recommend you.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Sister, you are doing after your usual manner.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> I wish it were done. </p></sp>
+<sp><speaker>MEGADORUS</speaker><p> What is it, sister?</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> That you may enjoy<milestone n="148" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That you may enjoy</lemma>:  <foreign lang="la">Quod tibi sempiternum salutare sit.</foreign> This was a formula frequently introduced in announcing intelligence, or in making a proposition, and was considered to be significant of a good omen.</note> everlasting blessings in being the father of children.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> May the Gods so grant it.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> I wish you to bring home a wife.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Ha! I'm undone. </p></sp>
+<sp><speaker>EUNOMIA</speaker><p> How so?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Because, sister, your words are knocking out the brains of unfortunate me; you are speaking stones<milestone n="152" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You are speaking stones</lemma>:  So Shakspeare says, in <cit><bibl n="Shak. Ham 3.2">Hamlet, Act III., sc. 2,</bibl> <quote>"I will speak daggers to her, but use none."</quote></cit> Aristophanes says, in one of his plays, "You have spoken roses to me."</note>.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Well, well, do this that your sister requests you.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> If she requests me, I will do it.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> 'Tis for your own interest. </p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Yes, for me to die before I marry. Let her who comes here to-morrow, be carried out<milestone n="156" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be carried out</lemma>:  "Feratur," "may be carried out to burial." "Fero" and "effero" have that especial signification. The body was carried out to burial on a bier, which resembled a bed or couch.</note> of the house the day after, sister; on that condition, give me her whom you wish to give; get ready the nuptials.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> I am able, brother, to provide you with a wife with a very large marriage-portion. But she's somewhat aged; she's of the middle-age of woman. If you request me, brother, to ask her for you, I'll ask her.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Would you like me to ask you a question?</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Yes, if you like, ask it.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Suppose any old man, past mid-age, brings home a middle-aged wife, if by chance he should have a child by this old woman, do you doubt at all but that the name of that child is Posthumus<milestone n="164" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is Posthumus</lemma>:  Children, who were born after their father's decease were called "posthumi," a term which is still retained. By speaking of an old woman, "anus," as the mother, he seems also to allude to the chance of the child losing its mother as well, at the moment of its birth</note>, all prepared? Now, sister, I'll remove and lessen this labour for you. I, by the merits of the Gods and of my forefathers, am rich enough; these high families, haughty pride<milestone n="168" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Haughty pride</lemma>:  He means to say, that these evils are attendant upon marrying a woman with a large dowry.</note>, bountiful portions, acclamations, imperiousness, vehicles inlaid with ivory, superb mantles and purple, I can't abide, things that by their extravagance reduce men to slavery.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Tell me, pray, who is she whom you would like to take for a wife?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I'll tell you. Do you know that Euclio, the poor old man close by?</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> I know him; not a bad sort of man, i' faith.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I'd like his maiden daughter to be promised me in marriage. Don't make any words<milestone n="173" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Don't make any words</lemma>:  Ben Jonson has imitated this passage in his <bibl>Silent Woman, Act I., sc. 5</bibl>:
+<quote lang="en"><lg type="unspec"><l>I know what thou wouldst say:</l>
+<l>She's poor, and her friends deceased.</l>
+<l>She has brought a wealthy dowry in her silence.</l></lg></quote></note> about it, sister; I know what you are going to say; that she's poor. This poor girl pleases me.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> May the Gods prosper it. </p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I hope the same.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> What do you want me now for? Do you wish for anything?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Farewell. </p></sp>
+<sp><speaker>EUNOMIA</speaker><p> And you the same, brother. <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I'll go meet Euclio, if he's at home. But, see! the very person is betaking himself home, whence, I know not.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="178" unit="TLN line"/>
+<stage>Enter EUCLIO.</stage>
+<sp><speaker>EUCLIO</speaker><p> <stage>to himself</stage>. My mind had a presentiment that I was going to no purpose when I left my house; and therefore I went unwillingly; for neither did any one of the wardsmen come, nor yet the master of the ward, who ought to have distributed the money. Now I'm making all haste to hasten home; for I myself am here, my mind's at home.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> <stage>accosting him</stage>. May you be well, and ever fortunate, Euclio!</p></sp>
+<sp><speaker>EUCLIO</speaker><p> May the Gods bless you, Megadorus!</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> How are you? Are you quite well, and as you wish?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. It isn't for nothing when a rich man accosts a poor man courteously; now this fellow knows that I've got some gold; for that reason he salutes me more courteously.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Do you say that you are well?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Troth, I'm not very well in the money line.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I' faith, if you've a contented mind, you have enough to passing a good life with.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. By my faith, the old woman has made a discovery to him about the gold; 'tis clear it's all out. I'll cut off her tongue, and tear out her eyes, when I get home.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Why are you talking to yourself?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I'm lamenting my poverty; I've a grown-up girl without a portion, and one that can't be disposed of in marriage; nor have I the ability to marry her to anybody.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Hold your peace; be of good courage, Euclio: she shall be given in marriaye; you shall be assisted by myself. Say, if you have need of aught; command me.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. Now is he aiming at my property, while he's making promises; he's gaping for my gold, that he may devour it; in the one hand he is carrying a stone<milestone n="195" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Carrying a stone</lemma>:  "To ask for bread, and to receive a stone," was a proverbial expression with the ancients. Erasmus says that it was applied to those who pretended to be friendly to a person, and at the same time were doing him mischief; and that it was borrowed from persons enticing a dog with a piece of bread, and, when it had come sufficiently near, pelting it with a stone. The expression is used in the New Testament. "If a son shall ask bread of any of you that is a father, will he give him a stone?" St. Luke, c. xi., v. 11. The bread, as we learn from specimens found at <placeName key="tgn,7004658">Pompeii</placeName>, was often made into cakes, which somewhat resembled large stones.</note>. while he shows the bread in the other. I trust no person, who, rich himself, is exceedingly courteous to a poor man; when he extends his hand with a kind air, then is he loading you with some damage. I know these polypi<milestone n="198" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">These polypi</lemma>:  <placeName key="tgn,2071526">Ovid</placeName> says in his Halieuticon, or Treatise on Fishes: "But, on the other hand, the sluggish polypus sticks to the rocks with its body provided with feelers, and by this stratagem it escapes the nets; and, according to the nature of the spot, it assumes and changes its colour, always resembling that place which it has lighted upon; and when it has greedily seized the prey hanging. from the fishing-line, it likewise deceives the angler on his raising the rod, when, on emerging into the air, it loosens its feelers, and spits forth the hook that it has despoiled of the bait."</note>, who, when they've touched a thing, hold it fast.
+</p></sp>
+<sp><speaker>MEG.(</speaker><p> Give me your attention, Euclio, for a little time: I wish to address you in a few words, about a common concern of yours and mine.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. Alas! woe is me! my gold has been grabbed from in-doors: now he's wishing for this thing, I'm sure, to come to a compromise with me; but I'll go look in my house. <stage>He goes towards his door.</stage></p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Where are you going? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> I'll return to you directly, for there's something I must go and see to at home. <stage>He goes into his house.</stage></p></sp>
+<sp><speaker>MEGADORUS</speaker><p> By my troth, I do believe that when I make mention of his daughter, for him to promise her to me, he'll suppose that he's being laughed at by me; nor is there out of the whole class of paupers one more beggarly than he. <stage>EUCLIO returns from his house.</stage></p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. The Gods do favour me; my property's all safe. If nothing's lost, it's safe. I was very dreadfully afraid, before I went in-doors! I was almost dead! <stage>Aloud.</stage> I'm come back to you, Megadorus, if you wish to say anything tome.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I return you thanks; I beg that as to what I shall enquire of you, you'll not hesitate to speak out boldly.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> So long, indeed, as you enquire nothing that I mayn't choose to speak out upon.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Tell me, of what sort of family do you consider me to be sprung?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Of a good one. </p></sp>
+<sp><speaker>MEGADORUS</speaker><p> What think you as to my character?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> 'Tis a good one. </p></sp>
+<sp><speaker>MEGADORUS</speaker><p> What of my conduct?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Neither bad nor dishonest. </p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Do you know my years?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I know that they are plentiful, just like your money.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I' faith, for sure I really did always take you to be a citizen without any evil guile, and now I think you so.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. He smells the gold. <stage>Aloud.</stage> What do you want with me now?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Since you know me, and I know you, what sort of person you are--a thing, that may it bring a blessing on myself, and you and your daughter, I ask your daughter as my wife. Promise me that it shall be so.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Heyday! Megadorus, you are doing a deed that's not becoming to your usual actions, in laughing at me, a poor man, and guiltless towards yourself and towards your family For neither in act, nor in words, have I ever deserved it of you, that you should do what you are now doing.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> By my troth, I neither am come to laugh at you, nor am I laughing at you, nor do I think you deserving of it.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Why then do you ask for my daughter for your self?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> That through me it may be better for you, and through you and yours for me.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> This suggests itself to my mind, Megadorus, that you are a wealthy man, a man of rank; that I likewise am a person, the poorest of the poor; now, if I should give my daughter in marriage to you, it suggests itself to my mind that you are the ox, and that I am the ass; when I'm yoked to you, and when I'm not able to bear the burden equally with yourself, I, the ass, must lie down in the mire; you, the ox, would regard me no more than if I had never been born; and I should both find you unjust, and my own class would laugh at me; in neither direction should I have a fixed stall, if there should be any separation<milestone n="233" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be any separation</lemma>:  "Si quid divortii fuat." By the use of the word "divortium," he means either an estrangement of himself from Megadorus, or a separation or divorce of the latter from his intended wife, which of course would lead to the same consequences. The facilities for divorce among the Romans have been remarked upon in a previous Note.</note>; the asses would tear me with their teeth, the oxen would butt at me with their horns. This is the great hazard, in my passing over from the asses to the oxen.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> The nearer you can unite yourself in alliance with the virtuous, so much the better. Do you receive this proposal, listen to me, and promise her to me.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> But indeed there is no marriage-portion.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> You are to give none; so long as she comes with good principles, she is sufficiently portioned.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I say so for this reason, that you mayn't be supposing that I have found any treasures.
+</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I know that; don't enlarge upon it. Promise her to me.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> So be it. <stage>Starts and looks about.</stage> But, O <placeName key="tgn,2075298">Jupiter</placeName>, am I not utterly undone?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> What's the matter with you?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> What was it sounded just now as though it were iron?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Here at my place, I ordered them to dig up the garden. <stage>EUCLIO runs off into his house.</stage> But where is this man? He's off, and he hasn't fully answered me; he treats me with contempt. Because he sees that I wish for his friendship, he acts after the manner of mankind. For if a wealthy person goes to ask a favour of a poorer one, the poor man is afraid to treat with him; through his apprehension he hurts his own interest. The same person, when this opportunity is lost, too late, then wishes for it.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>coming out of the house, addressing STAPHYLA within</stage>. By the powers, if I don't give you up to have your tongue cut out by the roots, I order and I authorize you to hand me over to any one you please to be incapacitated.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> By my troth, Euclio, I perceive that you consider me a fit man for you to make sport of in my old age, for no deserts of my own.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I' faith, Megadorus, I am not doing so, nor, should I desire it, had I the means<milestone n="254" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Had I the means</lemma>:  "Neque, si cupiam, copia est." In saying this, Euclio intends to play upon the words of Megadorus, "ludos facias," which may either signify "you make sport of me," or "you give a public show" or "spectacle," which the wealthy Patricians of <placeName key="tgn,7013962">Rome</placeName> were in the habit of doing. Euclio pretends to take his words in the latter sense, and replies, "I couldn't even if I would," by reason of his poverty, as he pretends. It was usual for the &AElig;diles to provide the spectacles from their private resources, from which circumstance one who lived a life of extravagance was said "&AElig;dilitatem petere," "to be aspiring to the &AElig;dileship."</note>.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> How now? Do you then betroth your daughter to me?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> On those terms, and with that portion which I mentioned to you.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Do you promise her then? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> I do promise her.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> May the Gods bestow their blessings on it.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> May the Gods so do. Take you care of this, and remember that we've agreed, that my daughter is not to bring you any portion.
+</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I remember it. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> But I understand in what fashion you, of your class, are wont to equivocate; an agreement is no agreement, no agreement is an agreement, just as it pleases you.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I'll have no misunderstanding with you. But what reason is there why we shouldn't have the nuptials this day?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Why, by my troth, there is very good reason for them.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I'll go, then, and prepare matters. Do you want me in any way?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> That shall be done. Fare you well.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> <stage>going to the door of his house and calling out</stage>. <placeName key="tgn,2395733">Hallo</placeName>! Strobilus, follow me quickly, in all haste, to the fleshmarket. <stage>(Exit MEGADORUS.)</stage></p></sp>
+<sp><speaker>EUCLIO</speaker><p> He has gone hence. Immortal Gods, I do beseech you! How powerful is gold! I do believe, now, that he has had some intimation that I've got a treasure at home; he's gaping for that; for the sake of that has he persisted in this alliance.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="268" unit="TLN line"/>
+<stage>EUCLIO, alone.</stage>
+<sp><speaker>EUCLIO</speaker><p> <stage>going to the door of his house, he opens it, and calls to STAPHYLA within</stage>. Where are you who have now been blabbing to all my neighbours that I'm going to give a portion to my daughter? <placeName key="tgn,2395733">Hallo</placeName>! Staphyla, I'm calling you! Don't you hear? Make haste in-doors there, and wash the vessels clean. I've promised my daughter in marriage; to-day I shall give her to be married to Megadorus here.
+<stage>from the house.</stage></p></sp>
+<sp><speaker>STAPHYLA</speaker><p> <stage>as she enters</stage>. May the Gods bestow their blessings on it! But, i' faith, it cannot be; 'tis too sudden.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Hold your tongue, and be off. Take care that things are ready when I return home from the Forum, and shut the house up. I shall be here directly. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>STAPHYLA</speaker><p> What now am I to do? Now is ruin near at hand for us, both for myself and my master's daughter; for her disgrace and her delivery are upon the very point of becoming known; that which even until now has been concealed and kept secret, cannot be so now. I'll go in-doors, that what my master ordered may be done when he comes. But, by my faith, I do fear that I shall have to drink of a mixture of bitterness<milestone n="279" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A mixture of bitterness</lemma>:  Hildyard suggests that Staphyla is fond of a drop, and likes her liquors neat ("merum"), wherefore it is a double misfortune to her, not only to endure misfortunes, but those of a "mixed" nature. "Mixtum" was the term applied to the wine, when mixed with its due proportion of water for drinking.</note>! <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="280" unit="TLN line"/>
+<stage>Enter STROBIOUS, ANTHRAX, and CONGRIO, with MUSIC GIRLS and PERSONS carrying provisions.</stage>
+<sp><speaker>STROBILUS</speaker><p> After my master had bought the provisions, and hired the cooks<milestone n="280" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hired the cooks</lemma>:  Allusion has been made, in the Notes to the Pseudolus, to the custom of hiring cooks in the markets on any special occasion. These were frequently slaves; and in such case, the greater portion of their earnings would go into the pockets of their masters. From the remark made in l. 265, we find that Congrio and Anthrax are slaves.</note> and these music- girls in the market-place, he ordered me to divide these provisions into two parts.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> By my troth, but you really shan't be dividing me<milestone n="283" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You really shan't be dividing me</lemma>:  He alludes to his own name, "Congrio," "a conger eel," which was cut up before it was cooked; and he means to say, that spite of his name, he will not stand being divided by Strobilus.</note>, I tell you plainly. If you wish me to go anywhere whole, I'll do my best.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> A very pretty and modest fellow, indeed<milestone n="285" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Modest fellow, indeed</lemma>:  Anthrax gives a very indelicate turn to the remark of Congrio; and the liberty has been taken of giving a more harmless form to the gross witticism of Anthrax. It may be here remarked, that he takes his name from the Greek word, signifying "a coal," a commodity, of course much in request with cooks.</note>. As if, when you are a conger by name, you wouldn't like to be cut into pieces.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> But, Anthrax, I said that in another sense, and not in the one which you are pretending.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Now my master's going to be married to-day.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> Whose daughter is he to marry? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> The daughter of this Euclio, his near neighbour here. For that reason he has ordered half of these provisions here to be presented to him--one cook, and one music-girl likewise.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> That is, you take one half to him, the other half home?
+</p></sp>
+<sp><speaker>STROBILUS</speaker><p> 'Tis just as you say. </p></sp>
+<sp><speaker>ANTHRAX </speaker><p> How's that? Couldn't this old fellow provide from his own resources for the wedding of his daughter.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Pshaw! </p></sp>
+<sp><speaker>ANTHRAX </speaker><p> What's the matter?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> What's the matter, do you ask? A pumice stone isn't so dry as is this old fellow.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> Do you really say that it is as you affirm?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Do be judge yourself. Why, he's for ever crying out for aid from Gods and men, that his property has gone, and that he is ruined root and branch, if the smoke by chance escapes out of doors through the rafters of his house. Why, when he goes to sleep, he ties a bag<milestone n="301" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He ties a bag</lemma>:  He probably intends to hint here that Euclio sleeps with his purse (which consisted of a "follis," or "leathern bag")  tied round his throat, but implies that he not only wishes thereby to save his money, but his breath as well, by having the mouth of the bag so near to his own. Although <placeName key="tgn,2093704">Thornton</placeName> thinks that the suggestion of Lambinus that "follem obstringit" means, "he ties up the nozzle of the bellows," is forced and far-fetched, it is far from improbable that that is the meaning of the passage. It may possibly mean that he ties the bellows to his throat.</note> beneath his gullet.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> Why so? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> That when he sleeps, he may lose no breath.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> And does he stop up the lower part of his windpipe<milestone n="304" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Part of his windpipe</lemma>:  An indelicate remark is here made, which has been obviated in the translation.</note> as well, lest, perchance, he should lose any breath as he sleeps?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> In that 'tis as fair that you should credit me, as it is for me to credit you.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> Why really, I do believe you.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> But, further, do you know how it is? I' faith, he grieves to throw away the water when he washes.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> Do you think a great talent<milestone n="309" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A great talent</lemma>:  As the ancients weighed silver on paying a talent, the word "talentum" denoted both a sum of money and a weight. The great talent here mentioned, was the Attic talent of sixty min&aelig;, or six thousand drachm&aelig;.</note> might be begged of this old fellow for him to give us, through which we might become free?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> By my troth, if you were to ask it, he would never let you have the loan of hunger. Why, the other day, the barber had cut his nails<milestone n="312" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Had cut his nails</lemma>: From this passage we learn that barbers were in the habit of paring the nails of their customers; in the Epistles of <placeName key="tgn,2399200">Horace</placeName>, B. 1, Ep. 7, l. 50, we are informed that idlers pared their nails in the shops to <placeName key="tgn,7013962">Rome</placeName>.</note>; he collected all the parings, and carried them off.
+</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> I' faith, you do describe a miserably stingy wretch.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> But do you think that he does live so very stingily and wretchedly?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> A kite, the other day, carried off his morsel of food; the fellow went crying to the Pr&aelig;tor<milestone n="317" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the Pr&oelig;tor</lemma>:  The "Pr&aelig;tor" was a magistrate at <placeName key="tgn,7013962">Rome</placeName>, who administered justice, and ranked next to the Consuls. There were eight Pr&aelig;tors in the time of <placeName key="tgn,2068515">Cicero</placeName>. Two of them were employed in adjudicating "in causis privatis," "disputes concerning private property." One of these was called "Pr&aelig;tor urbanus," or "the city Pr&aelig;tor," who administered justice when the parties were "cives," or possessed the rights of Roman citizenship. The other was called "Pr&aelig;tor peregrinus," or "the foreigners' Pr&aelig;tor," who administered justice when both the litigating parties, or only one of them, were "peregrini," or "foreigners," and had not the right of Roman citizenship. The other six Pr&aelig;tors had jurisdiction in criminal cases, such as murder, adultery, and violence. The Pr&aelig;tors committed the examination of causes to subordinate judges, who were called "judices selecti," and they published the sentences of the judges so appointed by them. The Pr&aelig;tors wore the "toga pr&aelig;texta," or "magisterial robe," sat on the "sella curulis," and were preceded by six lictors. Their duties lasted for a year, after which they went as governors to such provinces as had no army, which were assigned to them by lot. There they administered justice in the same way as they had done as Pr&aelig;tors at <placeName key="tgn,7013962">Rome</placeName>, and were called by the name of "Propr&aelig;tores;" though, as such governors, they were also sometimes called "Pr&aelig;tores." The office of Pr&aelig;tor was first instituted at <placeName key="tgn,7013962">Rome</placeName> <date value="-365">A.U.C. 388</date>, partly because the Consuls, on account of the many wars in which the Romans were engaged, could no longer administer justice; partly that the Patricians might thereby have a compensation for admitting the Plebeians to a share in the Consulate. At first there was only one Pr&aelig;tor; Sylla made their number six; Julius C&aelig;sar eight; and Augustus increased them to sixteen. It will not escape observation, that Plautus, as usual, mentions a Roman officer in a Play, the scene of which is supposed to be <placeName key="tgn,7001393">Athens</placeName>.</note>; there, weeping and lamenting, he began to request that he might be allowed to compel the kite to give bail. There are innumerable other things that I could mention, if I had the leisure. But which of you two is the sharper? Tell me.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I--as being much the better one. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> A cook I ask for, not a thief<milestone n="322" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Not a thief</lemma>:  Because "celer," "sharp" or "nimble," would especially apply to the requisite qualifications for an expert thief.</note>.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> As a cook, I mean. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>to ANTHRAX</stage>. What do you say?</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> I'm just as you see me.
+</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> He's a nine-day cook<milestone n="324" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A nine-day cook</lemma>:  Congrio probably means to say that Anthrax is a cook who only gets employment on the "Nundin&aelig;," when the influx of country-people into the city called the services of even the worst cooks into requisition, and the eaters were not of the most fastidious description. The "Nundin&aelig;" (so called from "non&aelig;," "ninth," and "dies," "day") returned every eighth day, according to our mode of reckoning; but according to the Romans, who, in counting, reckoned both extreme, every ninth day, whence the name. On this day the country-people came into the city to sell their wares, make their purchases, hear the new laws read, and learn the news. By the Hortensian law, the "Nundin&aelig;," which before were only "feri&aelig;," or "holidays," were made "fasti," or "court-days," that the country-people then in town might have their lawsuits determined. Lipsius thinks that reference is here made to the feast called "novendiale," which was sometimes given to the poorer classes on the ninth day after the funeral of a person of affluence. Probably, the cooking of these banquets was not of the highest order; but the former seems the more probable explanation of the passage.</note>; every ninth day he's in the habit of going out to cook.</p></sp>
+<sp><speaker>ANTHRAX </speaker><p> You, you three-lettered fellow<milestone n="325" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Three-lettered fellow</lemma>:  "Trium literarum homo;" literally, "man of three letters"--"F U R," "thief."</note>; do you abuse me, you thief?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> To be sure I do, you trebly-distilled thief of thieves<milestone n="327" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Thief of thieves</lemma>:  "Funtrifurcifer." Strictly speaking, the latter word signifies "thief three times over."</note>.
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="327" unit="TLN line"/>
+<sp><speaker>STROBILUS</speaker><p> Now do you hold your tongue for the present, and, that lamb, whichever is the fatter of the two----</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Very well<milestone n="328" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Very well</lemma>:  Congrio answers "licet," by way of assent to Strobilus, thinking that he is asking him to take the fattest lamb, on which Strobilus gives him the leanest one. Hildyard suggests that Congrio fancies that Strobilus is asking which is the fattest cook, and not the fattest lamb, and accordingly says, "Very well," thereby admitting that he is the fattest of the two. If there is any such wit intended in the passage, it is very recondite.</note>. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Do you, Congrio, take that, and go in-doors there <stage>pointing to EUCLIO'S house </stage>; and <stage>to a MUSIC-GIRL and some of the PEOPLE with provisions</stage> do you follow him; the rest of you this way, to our house.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> By my troth, you've made an unfair division; they've got the fattest lamb.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> But the fattest music-girl shall be given you then. Do you, therefore, go along with him, <placeName key="tgn,7002613">Phrygia</placeName><milestone n="333" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"><placeName key="tgn,7002613">Phrygia</placeName></lemma>:  "<placeName key="tgn,7002613">Phrygia</placeName>" was an appropriate girl for a "tibicina," "music-girl," or female player on the flute, as that instrument was originally introduced from <placeName key="tgn,7002613">Phrygia</placeName>, or <placeName key="tgn,7016631">Lydia</placeName>, which adjoined it. Eleusium would probably derive her name from <placeName key="perseus,Eleusis">Eleusis</placeName> in <placeName key="tgn,7002681">Attica</placeName>, where the mysteries of <placeName key="tgn,7010621">Ceres</placeName> were celebrated. Players on the "tibi&aelig;" were much in request on festive occasions, especially at weddings, as in the present instance. The "tibicina" were probably hired in the market-place, the same way as the cooks.</note>. And do you, Eleusium, step in-doors here, to our house.
+</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> O you crafty Strobilus, have you pushed me off here upon this most miserly old fellow, where if I ask for anything, I may ask even to hoarseness before anything's found me?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> 'Tis very foolish, and 'tis thanklessly done, to do a service to you, when what you do goes for nothing.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> But how so? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Do you ask? In the first place then, there will be no confusion for you there in the house; if you want anything to use, bring it from your own home, don't lose your trouble in asking for it. But here, at our house, there's great confusion, and a large establishment-- furniture, gold, garments, silver vessels. If anything's lost here (as I know that you can easily<milestone n="345" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You can easily</lemma>:  "Facile," "easily," seems a preferable reading to "facere." If the latter reading is adopted, there are three consecutive verbs in the infinitive mood, which, even in the (occasionally) uncouth language of Plautus, sounds very uneuphoniously, "Facere abstinere posse."</note> keep hands off--if nothing's in your way), they may say, "The cooks have stolen it; seize them, bind them, beat them, thrust them in the dungeon"<milestone n="347" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the dungeon</lemma>:  "Puteus" here signifies the black hole or dungeon underground (called also "ergastulum"), where the refractory slaves were put in confinement.</note>. Nothing of that sort will happen to you, inasmuch as there will be nothing for you to steal. Follow me this way.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I follow.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>knocking at the door of EUCLIO'S house</stage>. Ho, there Staphyla, come out and open the door.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> <stage>from within</stage>. Who calls there? STRO. Strobilus.</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="350" unit="TLN line"/>
+<stage>Enter STAPHYLA.</stage>
+<sp><speaker>STAPHYLA</speaker><p> What do you want? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> For you to take in these cooks, and this music-girl, and these provisions for the wedding. Megadorus bade me take these things to Euclio.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> Are you about to make this wedding, Strobilus, in honor of <placeName key="tgn,7010621">Ceres</placeName><milestone n="354" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In honor of <placeName key="tgn,7010621">Ceres</placeName></lemma>:  The old woman probably alludes to the Thesmophoria, where abstinence from wine was especially practised, and which were celebrated in a state of fasting and purification. Her question here tends to confirm the suspicion that she was more fond of the "merum" than the "mixtum," reference to which has already been made</note>?
+</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Why? </p></sp>
+<sp><speaker>STAPHYLA</speaker><p> Because I don't see any wine brought.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Why, that will be brought just now, when he himself comes back from the market.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> There's no firewood here in our house.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> There are the beams. </p></sp>
+<sp><speaker>STAPHYLA</speaker><p> I' faith, there are.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> There is wood, then; don't you be seeking it out of doors.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> What, you unpurified fellow<milestone n="359" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You unpurified fellow</lemma>:  "Impurate." "You that are unpurified, in spite of your everlastingly stewing over the fire." She alludes, figuratively, to the process of smelting and purifying metals by the action of fire.</note>, although your business is with the fire, for the sake of a dinner, or of your own hire, do you request us to set our house on fire?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I don't ask you. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Take them in-doors.</p></sp>
+<sp><speaker>STAPHYLA</speaker><p> Follow me. <stage>They follow her in-doors, and STROBILUS goes with the others into the house of MEGADORUS.</stage></p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="363" unit="TLN line"/>
+<stage>Enter PYTHODICUS, from the house of MEGADORUS.</stage>
+<sp><speaker>PYTHODICUS</speaker><p> Mind you your business; I'll step in and see what the cooks are doing, to observe whom, i' faith, to-day it is a most laborious task. Unless I manage this one thing, for them to cook the dinner down in the dungeon<milestone n="365" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the dungeon</lemma>:  By the use of the word "puteus" he may possibly mean the black hole or dungeon alluded to in l. 301, whence there was no means of agress but by being drawn up. He means to say that such a place will be the only one for preventing the cooks from thieving whatever comes in their way. The thievish propensities of the hired cooks are also referred to in the Pseudolus.</note>; thence, when cooked, we might bring it up again in small baskets. But if they should eat below<milestone n="367" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Should eat below</lemma>:  He reflects that if they are put in the "puteus" to prevent their thieving, they may possibly revenge themselves by eating up the victuals as fast as they cook it.</note> whatever they should cook, those above would go without their dinner, and those below have dined. But here am I chattering, as though I had no business, when there's such a pack of thieves in the house. <stage>Goes into the house.</stage></p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="371" unit="TLN line"/>
+<stage>Enter EUCLIO, with some chaplets of flowers in his hand.</stage>
+<sp><speaker>EUCLIO</speaker><p> I wished at length to screw up my courage to-day, so as to enjoy myself at the wedding of my daughter. I come to the market, I enquire about fish; they tell me that it is dear, that lamb is dear, beef is dear, veal, large fish<milestone n="375" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Large fish</lemma>: "Cetus" or "cete" properly signifies fish of the whale or dolphin kind; it perhaps means here simply the larger and coarser fish in use among the Romans, like plaice or codfish with us. He probably would not ask the price of "pisciculi," or "small fish," as their dearness would terrify him out of his wits.</note>, and pork, all of them are dear. And for this reason were they still dearer; I hadn't the money. I came away thence in a rage, since I had nothing wherewithal to make a purchase; and thus did I baulk<note anchored="yes"><lemma targOrder="U">Did I baulk</lemma>:  "Manum adire" probably signified "to kiss the hand" to a person when expecting something more than that, and thereby "to make a fool of him." He asked the prices of all the commodities, and probably chaffered about them, then kissed his hand to the dealers, and left the market without purchasing. Some think it alludes to a feint or baulk made in wrestling.</note> all those rascals. Then I began to think with myself upon the road, "If you are guilty of any extravagance on a festive day, you may be wanting on a common day, unless you are saving." After I disclosed this reasoning to my heart and appetite, my mind came over to my opinion, that I ought to give my daughter in marriage at as little expense as possible. Now I've bought a bit of frankincense, and these chaplets of flowers; these shall be placed upon the hearth for our household God, that he may grant a propitious marriage to my daughter. But what do I----? Do I behold my house open? There's a noise, too, within; is it that I'm robbed, wretch that I am?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>speaking within the house</stage>. Seek of the neighbours a bigger pot<milestone n="390" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A bigger pot</lemma>:  Congrio is bawling out within doors for a bigger "aula," "pot" or "jar," to be brought for his cooking, on which the old hunck thinks that some thieves have discovered his own dear "aula."</note> if you can; this one's too little, it can't hold it.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Woe to me! By my faith, I'm a dead man; the gold's being carried off--my pot's being looked for. I am certainly murdered, unless I make haste to run with all haste in-doors here! Apollo, prithee do assist and help me, whom thou hast already, before this, helped in such circumstances. Pierce with thine arrows the plunderers of my treasures. But am I delaying to run, before I perish outright. <stage>He runs into his house.</stage></p></sp></div2>
+<div2 type="scene" n="9">
+<milestone n="1" unit="line"/><milestone n="398" unit="TLN line"/>
+<stage>Enter ANTHRAX, from the house of MEGADORUS.</stage>
+<sp><speaker>ANTHRAX </speaker><p> <stage>speaking to some within</stage>. Dromo, do you scale the fish. Do you, Mach&aelig;rio, have the conger and the lamprey boned. I'm going to ask the loan of a baking-pan of our neighbour Congrio. You, if you are wise, will have that capon more smoothly picked for me than is a plucked play-actor<milestone n="402" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A plucked play-actor</lemma>:  The actors, having to perform the parts of women and beardless youths, were obliged to remove superfluous hair from the face, which was effected "vellendo," "by plucking it out," whence the term "volsus."</note>. But what's this clamour that's arising here hard by? By my faith, the cooks, I do believe, are at their usual pranks<milestone n="404" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At their usual pranks</lemma>:  "Faciunt officium suum." Literally "are doing their duty." He says this ironically; on hearing the row going on in Euclio's house, he supposes that the cooks are up to their old tricks of thieving and wrangling.</note>. I'll run in-doors, lest there may be any disturbance here for me as well. <stage>Retreats into the house of MEGADORUS.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="406" unit="TLN line"/>
+<stage>Enter CONGRIO, in haste, from the house of EUCLIO.</stage>
+<sp><speaker>LYCONIDES</speaker><p> <stage>roaring out</stage>. Beloved fellow-citizens, fellow- countrymen, inhabitants, neighbours, and all strangers, do make way for me to escape! Make all the streets clear! Never have I at any time, until this day, come to Bacchants<milestone n="408" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To Bacchants</lemma>:  The Bacchants, or frantic female worshippers of Bacchus, with their rites, have been alluded to in a Note at the commencement of the Bacchides.</note>, in a Bacchanalian den, to cook; so sadly have they mauled wretched me and my scullions with their sticks. I'm aching all over, and am utterly done for; that old fellow has so made a bruising school<milestone n="410" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A bruising school</lemma>:  Literally, "a Gymnasium." The Gymnasium was the place where vigorous exercise was taken; so Congrio means to say that Euclio has been taking exercise in basting his back.</note> of me; and in such a fashion has he turned us all out of the house, myself and them, laden with sticks. Nowhere, in all the world, have I ever seen wood dealt out more plentifully. Alackaday! by my faith, to my misery, I'm done for; the Bacchanalian den is opening, here he comes. He's following us. I know the thing I'll do: that the master himself<milestone n="412" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The master himself</lemma>:  By "magister" he probably means Euclio, whom he styles the master of the Gymnasium, whose duty it was to train the pupils in the various exercises. He says that his master has taught him a trick, namely, how to defend himself. which in the next Scene he threatens to do.</note> has taught me.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="415" unit="TLN line"/>
+<stage>Enter EUCLIO, from his house, driving the COOKS and the MUSIC GIRL before him.</stage>
+<sp><speaker>EUCLIO</speaker><p> <stage>(calling out, while CONGRIO and the others are running off)</stage> Come back! Where are you running to, now? Hold you!</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Why are you crying out, you stupid?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Because this instant I shall give your name to the Triumvirs<milestone n="416" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the Triumvirs</lemma>:  "Trisviros." Though the scene is in <placeName key="tgn,1000074">Greece</placeName> he refers to the "Triumviri capitales," who were Roman magistrates. They took cognizance of capital crimes, and they apprehended criminals. In conjunction with the &AElig;diles, they had to preserve the public peace, to prevent unlawful assemblies, and to enforce the payment of fines due to the state. They had also the care of the public prisons, and to them was entrusted the punishment of criminals. They had authority to inflict summary punishment upon the slaves and the lower orders, though, probably, not upon those who enjoyed the rights of Roman citizens.</note>.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Why? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Because you've got a knife.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> 'Tis the proper thing for a cook. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Why did you threaten me?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I think that it was badly managed, that I didn't pierce your side with it.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> There's not a person that's living this day a greater rascal than you, nor one to whom designedly I would with greater pleasure cause a mischief.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I' faith, though<milestone n="421" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I' faith, though</lemma>:  In Hildyard's edition this and the next line are given to Euclio; but they seem much more likely to belong to Congrio, as we do not find that any person has beat Euclio with sticks, whereas Congrio has already complained of the rough usage he has experienced.</note> you should hold your noise, really that's quite clear; the thing itself is its own witness. As it is, I'm made softer by far with your sticks than any ballet-dancer. But what right have you to touch us, you beggarman? What's the matter?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Do you even ask me? Is it that I've done less than I ought to have done? Only let me---- <stage>Is going to strike him.</stage></p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Now, by my faith, at your great peril, if this head should feel it!</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Troth, I don't know what may happen<milestone n="426" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What may happen</lemma>:  Euclio is laughing at his "ifs," which commence the saving-clause of all cowards. He does not care what Congrio will do but he knows that he has already made his head to feel it.</note> hereafter; your head feels it just now! But what business, pray, had you in my house, in my absence, unless I had ordered you? I want to know that.
+</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Hold your noise, then; because we came to cook for the wedding.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Why the plague do you trouble yourself whether I eat meat raw or cooked, unless you are my tutor<milestone n="430" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You are my tutor</lemma>:  One of the duties of the "p&aelig;dagogus," or "tutor of boys," would be to see that they did not eat unwholesome food.</note>.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I want to know if you will allow or not allow us to cook the dinner here?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I, too, want to know whether my property will be safe in my house.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I only wish to carry the things away safe that I brought here! I don't care for yours; should I be coveting your things?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I understand; don't teach me; I know.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> What is it, on account of which you now hinder us from cooking the dinner here? What have we done? What have we said to you otherwise than you could wish?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Do you even ask me, you rascally fellow? You who've been making a thoroughfare of every corner of my house, and the places under lock and key? If you had stopped by the fireside, where it was your business, you wouldn't have had your head broken. It has been done for you deservedly! Therefore that you may now know my determination; if you come nearer to the door here, unless I order you, I'll make you to be the most wretched of creatures. Do you now know my determination? <stage>He goes into his house.</stage></p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Where are you going? Come you back again! So may Laverna<milestone n="445" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">So may Laverna</lemma>:  Laverna was a Goddess worshipped by the thievish fraternity at <placeName key="perseus,Rome">Rome</placeName>, as their tutelar Divinity. Horace makes mention of her in his Epistles, B. 1, Ep. 16.</note> love me well, I'll expose you at once with loud abuse here before the house, if you don't order my utensils to be restored to me! What shall I do now? Verily, by my faith, I came here with unlucky auspices; I was hired for a didrachm<milestone n="448" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For a didrachm</lemma>:  "Nummo." It has been remarked, in the Notes to the Pseudolus, that a "nummus," or didrachm, of nearly twenty-pence of our money, was the wages of a good cook for a day's employment. See the Pseudolus, ll. 800--810.</note>; I stand in more need now of a surgeon than of wages.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="449" unit="TLN line"/>
+<stage>Enter EUCLIO, from his house, with the pot of money under his cloak.</stage>
+<sp><speaker>EUCLIO</speaker><p> <stage>to himself, as he enters</stage>. This, by my faith, wherever I shall go, really shall be with me, and with myself will I carry it, nor will I ever again entrust it to that place, for it to be in such great peril. <stage>Speaking to CONGRIO and his SCULLIONS.</stage> Now, then, go you all of you in the house, cooks and music-girls; introduce even, if you like, a whole company of hirelings<milestone n="452" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Company of hirelings</lemma>:  "Venalium" may mean either "slaves" or "hirelings;" it does not much signify which, as the cooks, in this instance at least, were both. Having secured his money, Euclio does not care if a whole gang of thieves is admitted into his house, as there is nothing for them to steal.</note>; cook, bustle, and hurry now at once just as much as you please.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> O dear, I'm a ruined man. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Be off! your labour was hired here, not your talk.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Harkye, old gentleman, for the beating, by my faith, I shall demand of you a recompense. I was hired a while ago to cook, and not to be basted.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Proceed against me at law! Don't be troublesome! Either cook the dinner, or away with you from the house to downright perdition!</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Go there yourself then. <stage>CONGRIO and the COOKS and MUSIC-GIRL go back into the house.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="460" unit="TLN line"/>
+<stage>EUCLIO, alone.</stage>
+<sp><speaker>EUCLIO</speaker><p> He's gone. Immortal Gods! A poor man, who begins to have dealings or business with an opulent one, commences upon a rash undertaking! Thus, for instance, Megadorus who has pretended that, for the sake of honoring me, he sends these cooks hither, is plaguing unfortunate me in every way; for this reason has he sent them, that they might purloin this <stage>putting his hand on the pot</stage> from unfortunate me. Just as I might expect, even my dunghill-cock in-doors, that was bought with the old woman's savings<milestone n="466" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With the old woman's savings</lemma>:  "Ani peculiaris." Bought ont of the "peculium," or "savings," of the old woman.</note>, had well nigh been the ruin of me; where this was buried, he began to scratch there all round about with his claws. What need of more words? So exasperated were my feelings, I took a stick, and knocked off the head of the cock--a thief caught in the act. I' faith, I do believe that the cooks had promised a reward to the cock, if he should discover it; I took the opportunity<milestone n="471" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Took the opportunity</lemma>:  "Eximere ex manu manubrium," literally means, "to take the handle out of the hand," and its figurative application is derived from the act of taking a sword out of the hand of a person who is about to use it.</note> out of their hands, however. What need of many words? I had a regular battle<milestone n="472" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A regular battle</lemma>:  Hildyard suggests that, in these words, there is probably a reference to some current saying or proverb. If such is the case, the saying so referred to has not come down to us.</note> with the dunghill- cock. But see, my neighbour Megadorus is coming from the Forum. I can't, then, venture to pass by him, but I must stop and speak to him. <stage>He retires close to his door.</stage></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="475" unit="TLN line"/>
+<stage>Enter MEGADORUS, at a distance.</stage>
+<sp><speaker>MEGADORUS</speaker><p> <stage>to himself</stage>. I've communicated to many friends my design about this proposal; they speak in high terms of the daughter of Euclio. They say that it was discreetly done, and with great prudence. But, in my opinion, indeed, if the other richer men were to do the same, so as to take home as their wives, without dower, the daughters of the poorer persons, both the state would become much more united, and we should meet with less ill feeling than we now meet with; both, they, the wives, would stand in fear of punishment more than they do stand in fear of it, and we husbands should be at less expense than we now are. In the greater part of the people this is a most just way of thinking; in the smaller portion there is an objection among the avaricious, whose avaricious minds and insatiate dispositions there is neither law nor magistrate to be able to put a check upon. But a person may say this; "How are these rich women with portions to marry, if this law is laid down for the poor?" Let them marry whom they please, so long as the dowry isn't their companion. If this were so done, the women would acquire for themselves better manners for them to bring, in place of dowry, than they now bring. I'd make mules, which exceed horses in price, to become cheaper than Gallic geldings<milestone n="495" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Than Gallic geldings</lemma>:  Mules were much coveted by the haughty names of <placeName key="perseus,Rome">Rome</placeName> for the purpose of drawing their carriages. He says that if he had his way, such extravagance should not be encouraged, and mules should not be a bit more valuable than humble Gallic geldings.</note>.
+</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. So may the Gods favour me, I listen to him with delight; very shrewdly has he discoursed on the side of economy.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> <stage>to himself</stage>. No wife should then be saying: "Indeed, I brought you a marriage-portion far greater than was your own wealth; why, it really is fair that purple and gold should be found for me, maid-servants, mules, muleteers, and lacqueys<milestone n="501" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And lacqueys</lemma>:  "Pedissequos." The "pedissequi" were a particular class of slaves whose duty it was to follow their master when he went out of doors. They were of the lowest rank in the slave family.</note>, pages to carry<milestone n="502" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pages to carry</lemma>:  The "salutigeruli pueri" were boys whose business it was to run on errands, and carry messages and compliments from one house to another. Hildyard suggests the rather refined translation of "boys to carry visiting-cards."</note> compliments, vehicles in which I may be carried."</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. How thoroughly he does understand the doings of the wives! I wish he were made Prefect of the manners of the women.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> <stage>to himself</stage>. Now, go where you will, you may see more carriages<milestone n="505" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">More carriages</lemma>:  "Plaustra" generally mean "carts" or "waggons," and perhaps, from his reference to the country, may have that signification here; though he has just been speaking of the luxury of the ladies, with their "vehicla," or "carriages."</note> among the houses than in the country when you go to a farm-house. But this is even light, in comparison with when they ask for their allowance; there stands the scourer<milestone n="508" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The scourer</lemma>:  The "fullo" was a washer and cleaner of linen and woollen clothing with fuller's earth. As woollen dresses were chiefly worn by the Romans, they would, by reason of the perspiration produced by so hot a climate, require frequent purification. As the ancients, probably, were not acquainted with the use of ordinary washing soap, various alkalis were used in its place for the purpose of cleansing garments. It is not known whether the fuller's earth of the Romans resembled that used at the present day.</note>, the embroiderer, the goldsmith, the woollen-manufacturer, retail dealers in figured skirts<milestone n="509" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Dealers in figured skirts</lemma>:  "Patagiarii." These were persons who sold the "patagium," which was a broad band or hem on the tunics of the women, answering to the "clavus," or "broad stripe," on the clothes of the men. It may possibly have been the same as the "instita," or broad flounce, which distinguished the Roman matrons of reputable character.</note>, dealers in women's under-clothing<note anchored="yes"><lemma targOrder="U">Dealers in women's under-clothing</lemma>:  <foreign lang="la">Indusiarii</foreign>, "makers" or "sellers" of the "indusium," which is by some thought to have been the upper tunic worn by the Roman women; while others suppose the under tunic, worn next the skin, to have been so called, from "intus," "innermost."</note>, dyers in flame-colour, dyers in violet, dyers in wax- colour<milestone n="510" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Dyers in wax-colour</lemma>:  "Carinarii." Ovid, in the Art of Love, B. 3, l. 184, has the line, "Sua velleribus nomina cera dedit." "The wax has given its own name to the wool." The yellow colour resembling that of wax was much esteemed by the Romans.</note>, or else sleeve-makers<milestone n="511" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sleeve-makers</lemma>:  "Manulearii," "makers of the manulea." This was a long sleeve fitted on to the tunics of the Roman ladies, and was probably made to take on and off, for the purpose of keeping the arms and hands warm.</note>, or perfumers<note anchored="yes"><lemma targOrder="U">Perfumers</lemma>:  "Murobrecharii." One reading here is "murrobathrarii," "persons who give an agreable smell to women's shoes, by scenting them with myrrh." "Murobrecharii," which is adopted above, means "perfumers," or "persons who scented the clothes," from the Greek <foreign lang="greek">mnro\n,</foreign> "ointment," and <foreign lang="greek">bre/xw,</foreign> "to moisten." Myrrh or nard was much used for this purpose. The unguents or ointments used by the ancients were very numerous. Among those used for the skin or the hair were "mendesium," "megalesium," "metoplum," "amaracinum," "Cyprinum," "susinum," "nardinum," "spicatuin," "jasminum," "rosaceum," and crocus oil, which last was considered the most costly. Powders were also used as perfumes; they were called "diapasmata." The Greeks used expensive perfumes from early times, and both Greeks and Romans were in the habit of carrying them about in small boxes of elegant workmanship. In the luxurious city of <placeName key="perseus,Capua">Capua</placeName>, there was one great street, called the "Seplasia," which consisted entirely of shops in which ointments and perfumes were sold.</note>; wholesale linendrapers, shoemakers, squatting cobblers, slipper-makers; sandasmakers stand there; stainers in mallow colour stand there; hairdressers<note anchored="yes"><lemma targOrder="U">Hairdressers</lemma>:  "Ciniflones." The "ciniflones" were those persons whose duty it was to heat the "calamistrum," or "curling-iron," in woodashes (cinis), from which they took their name. In the time of Cicero, the youths of <placeName key="perseus,Rome">Rome</placeName> generally had their hair curled, whence they were termed "calamistrati."</note>make their demands, botchers their demands; boddice-makers<milestone n="516" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Boddice-makers</lemma>:  "Strophiarii." These were makers of the band or stomacher which was worn by the women, to correct excessive protuberance of the breast and stomach.</note> stand there; makers of kirtles<note anchored="yes"><lemma targOrder="U">Makers of kirtles</lemma>:  "Semizonarii." These were makers or sellers of "semicinctia," which were little "aprons" or "kirtles" extending half way down the body.</note> take their stand. Now you would think them got rid of; these make way, others make their demands; three hundred duns<milestone n="518" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Three hundred duns</lemma>:  "Phylacist&aelig;," from the Greek <foreign lang="greek">fnlakisths,</foreign> "a keeper of a prison." He calls "duns" or importunate creditors by this name, from their keeping as close a watch on the front of a debtor's house as if they were gaolers.</note> are standing in your hall; weavers, lace-makers<milestone n="519" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lace-makers</lemma>:  "Limbuarii." The makers of "limbus," "lace" or "fringes" for women's dresses.</note>, cabinet-makers<note anchored="yes"><lemma targOrder="U">Cabinet-makers</lemma>:  "Arcularil," makers of "arcui&aelig;," "caskets" or cabinets" for jewels and nicknacks.</note>, are introduced; the money's paid them. You would think them got rid of by this; when dyers in saffroncolours come sneaking along; or else there's always some horrid plague or other which is demanding something.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. I would accost him, if I didn't fear that he would cease to descant upon the ways of women; for the present I'll leave him as he is.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> When the money has been paid to all the nicknackmongers, for these saffron-coloured garments and stomachers, your wife's expenses, then at the last comes the tax-gatherer<milestone n="526" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The tax-gatherer</lemma>:  "Miles." Literally, "the soldier." This is explained as meaning that the soldier comes to receive the military tribute levied by the Tribunes, which was called "&aelig;s military." The word may, however possibly mean simply the officer of the magistrate by whom the tribute was levied, as "miles" has sometimes, though very rarely, that signification.</note> and asks for money. You go, your account is being made up with your banker<milestone n="529" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With your banker</lemma>:  The "argentarii" acted as bankers of deposit upon whom the depositors drew checks as with us.</note>; the tax-gatherer waits, half-starved, and thinks the money will be paid. When the account has been made up with the banker, even already is the husband himself in debt to the banker, and the hopes of the tax-gatlherer are postponed to another day. These, and many others, are the inconveniences and intolerable expenses of great portions; but she who is without portion is in the power of her husband; the portioned ones overwhelm their husbands with loss and ruin. But see; here's my connexion by marriage before the house! How do you do, Euclio?
+</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="537" unit="TLN line"/>
+<sp><speaker>EUCLIO</speaker><p> With very great pleasure have I listened to your discourse.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Did you hear me? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Everything from the very beginning.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> <stage>eyeing him from head to foot</stage>. Still, in my way of thinking indeed, you would be acting a little more becomingly if you were more tidy at the wedding of your daughter.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Those who have display according to their circumstances and splendour according to their means<milestone n="541" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">According to their means</lemma>:  Shakspeare expresses the same idea in <cit><bibl n="Shak. Ham 1.3">Hamlet, Act I, Sc. 3:</bibl> <quote lang="en"><lg type="blank"><l>Costly thy habit as thy purse can buy,</l>
+<l>But not expressed in fancy.</l></lg></quote></cit></note>, remember themselves, from whence they are sprung; neither by myself, Megadorus, nor by any poor man, are better circumstances enjoyed than appearances warrant.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Surely they are; and may the Gods, I hope, make them so to be, and more and more may they prosper that which you now possess.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. That expression don't please me, "which you now possess." He knows that I've got this, as well as I do myself: the old woman has discovered it to him.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Why do you separate yourself thus alone, apart from the Senate<milestone n="549" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Apart from the Senate</lemma>:  As the Senate consults about the common interests, so are they discussing their common sentiments. Megadorus therefore, on hearing him talking to himself, asks him why he is withdrawing himself from the discussions of the Senate.</note>?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Troth, I was considering whether I should accuse you deservedly.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> What's the matter? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Do you ask me what's the matter? You who have filled every corner in my house, for wretched me, with thieves? You who have introduced into my dwelling five hundred cooks, with six hands a-piece, of the race of Geryon<milestone n="554" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of the race of Geryon</lemma>:  Geryon was a King of <placeName key="tgn,1000095">Spain</placeName>, slain by Hercures. He was fabled to have had three heads and three bodies, consequently six hands.</note>, whom were Argus to watch, who was eyes all over, that Juno once set as a spy upon <placeName key="tgn,1125260">Jupiter</placeName>, he never could watch them; a music-girl besides, who could alone drink up for me the Corinthian fountain of Pirene<milestone n="559" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Fountain of Pirene</lemma>:  Pirene, the daughter of Achelo&uuml;s, on Conchreas her son by Neptune being slain by Diana, pined away, and was changed into a fountain, which was in the Arx Corinthiacus, or Citadel of <placeName key="perseus,Corinth">Corinth</placeName>, and retained her name.</note>, if it were flowing with wine? And then as to provisions----</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Troth, there's enough for a procurer<milestone n="560" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For a procurer</lemma>:  Who might be presumed to have a voracious and ungovernable appetite, and probably a large household to satisfy. Some editions however, have "legioni," which would almost appear to be a preferable reading almost enough for a whole legion."</note> even. I sent as much as a lamb.
+</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Than which lamb, I, indeed, know right well that there is nowhere a more curious<milestone n="562" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A more curious</lemma>:  "Magis curiosam." It is suggested in Schmieder's Notes to Plautus, that Euclio intends to call the lamb "inquisitive" or "curious," "curiosam," because he had found it, when he entered his house to drive out Congrio and his scullions, scraping and smelling about in every direction, as in a strange place it was natural for it to do, but which the old man thought to be done in quest of his treasure. On this, Megadorus, who has not heard, or else has misunderstood, the last syllable for "nem," instead of "sam," asks him what sort of a lamb a "curio" (the nominative of "curionem")  lamb is; on which Euclio catches him up, and says he calls a "curio" lamb such a one as he has sent him, all skin and bone, and lean with "cura," "care." "Curionem" is by many preferred as the reading in the 517th line to "curiosam," and perhaps it is the best. Be it as it may, the wit seems far-fetched; and not improbably the word "curio" may have had some meaning which is now lost, other than its usual signification of the master or head of a "curia," or "ward."</note> beast existing.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I wish to know of you why is this lamb curious?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Because it's all skin and bone, so lean is it with care; why, even when alive, by the light of the sun you may look at its entrails; it's just as transparent as a Punic lantern<milestone n="566" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A Punic lantern</lemma>:  The horn exported from <placeName key="perseus,Carthage">Carthage</placeName>, for the purpose of making lanterns, was more pellucid than any other.</note>.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I bought it to be killed.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Then it's best that you likewise should bargain for<milestone n="568" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Should bargain for</lemma>:  "Loces." "Should hire" the "conductores, or "libitinarii," who contracted to perform funerals. He seems to hint that the lamb is so meagre that it is not worth eating. If that is not his meaning, the wit intended to be conveyed by the passage is imperceptible.</note> it to be carried out for burial; for I believe it's dead by this time.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Euclio, I wish this day to have a drinking with you.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> By my troth, I really must not drink.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> But I'll order one cask of old wine to be brought from my house.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I' faith, I won't have it; for I've determined to drink water.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> I'll have you well drenched this day, if I live, you who have determined to drink water.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>aside</stage>. I know what plan he's upon; he's aiming at this method, to overcome me with wine, and after that, to change the settlement<milestone n="576" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Change the settlement</lemma>:  "Commutet coloniam." Literally "may change its colony."</note> of what I possess: I'll take care of that, for I'll hide it somewhere out of doors. I'll make him lose his wine and his trouble together.</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Unless you want me for anything, I'm going to bathe, that I may sacrifice. <stage>He goes into his house.</stage></p></sp>
+<sp><speaker>EUCLIO</speaker><p> By my faith, you pot <stage>taking it from under his cloak</stage>, you surely have many enemies, and that gold as well which is entrusted to you! Now this is the best thing to be done by me, to take you away, my pot, to the Temple of Faith<milestone n="583" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Temple of Faith</lemma>:  "Fides," "Faith," was a Goddess worshipped by the Romans. Probably, in the present instance, her Temple was represented at one side of the stage, and the door just beyond the side-scene.</note>, where I'll hide you carefully. Faith, thou dost know me, and I thee; please, do have a care not to change thy name against me, if I entrust this to thee. Faith, I'll come to thee, relying on thy fidelity. <stage>He goes into the Temple of faith.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="587" unit="TLN line"/>
+<stage>Enter STROBILUS <note anchored="yes"><lemma targOrder="U">Strobilus</lemma>:  It is a curious fact that all of the editions make this to be a different person from the Strobilus, the servant of Megadorus, whom we have already seen hiring Congrio, Anthrax, and the "tibicin&aelig;." In the "dramatis person&aelig;" they style this one, Strobilus, "the servant of Lyconides," and the other Strobilus, in some instances, as "the servant of Megadorus," and in others (evidently by mistake) as "the servant of Euclio." On examination we shall find there is no ground for this. Eunomia (most probably a widow) is living, together with her son Lyconides, in the house of her brother Megadorus. This is clear from what Lyconides says in l. 684, where, speaking of the house of his uncle, he calls it "&aelig;des nostras," "our house," which he would not have said had he not been residing there. By the indulgence of his uncle, who has no children, we may presume that Strobilus has been permitted to consider him as "his young master." After hiring the cooks, he has communicated the bad news to Lyconides, who tells him to keep a good look-out, and inform him of any chance that may possibly happen for breaking off the marriage.</note>.</stage>
+<sp><speaker>STROBILUS</speaker><p> This is the duty of a good servant, to do what I'm intending, not to consider the commands of his master a bore or trouble to him. For that servant who resolves to serve his master with hearty goodwill, him it behoves to act expeditiously for his master, slowly for himself; but if he sleeps, let him so sleep as to bethink himself that he is a servant. But he who lives in servitude to one in love, as I am serving, if he sees love overcoming his master, this I think to be the duty of the servant; to restrain him for his safety, not to impel him onwards towards his own inclination. Just as a float of bulrushes is placed beneath boys who are learning to swim, by means of which they may labour less, so as to swim more easily and move their hands; in the same way do I consider that it is proper for the servant to be a buoy to his master thus in love, so as to bear him up lest he should go to the bottom; and so * * * * should he learn the will of his master, that his eyes should know what his mouth chooses not to speak. What he orders, he should hasten to perform more swiftly than the swift steeds. He who shall have a care for these things, will escape the castigation of the ox's hide, nor by his own means will he ever bring the fetters to brightness. Now, my master's in love with the daughter of this poor man, Euclio; word has just now been brought to my master that she is given to Megadorus here: he has sent me here to spy out, that he may be made acquainted with the things that are going on. Now, without any suspicion, I'll sit here by the sacred altar<milestone n="606" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By the sacred altar</lemma>:  The Athenians often raised altars to Apollo or Bacchus at their doors. The Romans also had altars in their public streets. On the stage of Comedy there was generally an altar erected in honor of Apollo, <foreign lang="greek">prostathrio\s,</foreign> "that presides."</note>. From this spot I shall be able, in this direction and that, to witness what they are about. <stage>He sits by the altar, and on seeing EUCLIO, hides behind it.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="608" unit="TLN line"/>
+<stage>Enter EUCLIO, from the Temple</stage>
+<sp><speaker>EUCLIO</speaker><p> O Goddess Faith, do thou but take care not to discover to any person that my gold is there. I have no fear that any one will find it, so well is it concealed in its hiding place. By my troth, he will surely have a charming booty there, if any one shall meet with that pot loaded with gold. But I entreat thee, Faith, to hinder that. Now I shall go wash me, that I may perform the sacrifice; so that I may not delay my new connexion by marriage, but that, when he sends to me, he may forthwith take my daughter home. Over and over again now, Goddess Faith, do thou take care that I shall carry away the pot safe from thy Temple. To thy fidelity<milestone n="615" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To thy fidelity</lemma>:  "Tu&aelig; fidei." He plays upon the word "fides," and flatters himself that his treasure cannot be more secure than when entrusted "to the faith of Falt..."</note> have I entrusted the gold; in thy grove and Temple is it placed. <stage>Goes into his house.</stage>
+</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>coming from behind the altar</stage>. Immortal Gods, what a deed did I hear this person speaking of, how that he had hidden here, in the Temple of Faith, a pot filled with gold; prithee, beware you, how you are more faithful to him than to myself! And he, as I fancy, is the father of her whom my master's in love with. I'll go hence into it; I'll thoroughly ransack the Temple, to see if I can anywhere find the gold, while he's engaged. But if I do find it, O Goddess Faith, I'll offer to thee a gallon jug<milestone n="622" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A gallon jug</lemma>:  "Congialem." Literally, "holding a congius.' This contained about nine pints of English measure. By the use of the word "fidelia," "a jug," he plays on its resemblance to the name of "Fides."</note> full of honeyed wine, that I'll surely offer to thee; but I'll drink it up myself, when I have offered it. <stage>Retreats behind the altar.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="624" unit="TLN line"/>
+<stage>Enter EUCLIO, from his house.</stage>
+<sp><speaker>EUCLIO</speaker><p> <stage>to himself</stage>. It wasn't for nothing that the raven was just now croaking on my left hand<note anchored="yes"><lemma targOrder="U">On my left hand</lemma>:  We cannot fail to remember here the exactly similar expression of Gay, in the fable of the Farmer's Wife and the Raven:
+<quote lang="en"><l>That raven on yon left-hand oak</l>
+<l>(Curse on his ill-betiding croak!)</l>
+<l>Bodes me no good.</l></quote></note>; he was both scratching the ground with his feet and croaking with his voice. At once my heart began to jump about<milestone n="626" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Began to jump about</lemma>:  "Ars ludicra" here means "the art of a 'ludius,' or stage-player," who moves to and fro and gesticulates-hence "cor c&oelig;pit artem facere ludicram" would strictly mean "my heart begins to move to and fro like a play-actor."</note>, and to leap within my breast. But why do I delay to run?
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="628" unit="TLN line"/>
+<sp><speaker>EUCLIO</speaker><p>
+<stage>He discovers STROBILUS, and drags him from behind the altar.</stage>Out, out, you earthworm<note anchored="yes"><lemma targOrder="U">Earthworm</lemma>:  He thinks, that in the short space of time during which he has been absent in the Temple, he can only have sprung out of the earth, as he had not seen him a few minutes before; and taking him to be a sort of 'pr&aelig;stigiator," or "juggler," lie fancies that he has followed him into the Temple, and purloined the treasure.</note>, who have this instant crept out of the earth; who just now were nowhere seen, and now that you are seen shall die for it. By my faith, you juggler, I'll receive you now after a disagreable fashion. <stage>Begins to shake and beat him.</stage></p></sp>
+<sp><speaker>STROBILUS</speaker><p> What the curst plague does ail you? What business have you with me, old fellow? Why do you torment me? Why are you dragging me? For what reason are you beating me?
+</p></sp>
+<sp><speaker>EUCLIO</speaker><p> You out-and-out whipping-post, do you even ask that, you, not thief, but thrice-dotted thief.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> What have I stolen from you?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Give me that back here, if you please.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> What do you want me to give you back?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Do you ask me that? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> As for me, I've taken nothing away from you.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> But give up that which you have taken away for yourself. Are you going to do so?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Do what? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> You can't carry it off.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> What do you want? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Lay it down.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Troth, for my part, I think that you are in the habit<milestone n="637" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the habit</lemma>:  The real meaning of the author in this line is so indelicate, that it requires another turn to be given to the passage.</note> of quizzing, old gentleman.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Put that down, please; cease your quibbling; I'm not trifling now.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> What am I to put down? Why don't you mention it, whatever it is, by its own name? By my faith, I really have neither taken nor touched anything.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Show me your hands, here. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Well, I do show them; see, here they are. <stage>Holdinq out his hands.</stage></p></sp>
+<sp><speaker>EUCLIO</speaker><p> I see them. Come, show me the third<milestone n="642" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Show me the third</lemma>:  This passage has been considered as extravagant; but it really does not appear inconsistent with the ridiculous conduct of the wretched Euclio throughout. <placeName key="tgn,1136756">Thornton</placeName> supposes that the following passage in the old play of Albumazar, Act III., Sc. 8 (where Trinculo questions Ronca about the purse, which the latter has stolen from him), is an imitation of this passage:
+<quote lang="en"><sp><speaker>Trin.</speaker><p>Show me your hand.</p></sp>
+<sp><speaker>Ron.</speaker><p>Here 'tis.</p></sp>
+<sp><speaker>Trin.</speaker><p>But where's the other?</p></sp>
+<sp><speaker>Ron.</speaker><p>Why, here.</p></sp>
+<sp><speaker>Trin.</speaker><p>But I mean, where's your other hand?</p></sp>
+<sp><speaker>Ron.</speaker><p>Think you me the giant with an hundred hands?</p></sp>
+<sp><speaker>Trin.</speaker><p>Give me your right.</p></sp>
+<sp><speaker>Ron.</speaker><p>My right?</p></sp>
+<sp><speaker>Trin.</speaker><p>Your left?</p></sp>
+<sp><speaker>Ron.</speaker><p>My left?</p></sp>
+<sp><speaker>Trin.</speaker><p>Now both.</p></sp>
+<sp><speaker>Ron.</speaker><p>There's both, my dear Antonio</p></sp></quote></note>, as well.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>aside</stage>. Sprites, and frenzy, and madness, possess this old fellow. Are you doing me an injustice, or not?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> A very great one, I confess, inasmuch as you are not strung up; and that too shall be done this moment, un less you do confess.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> What am I to confess to you? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> What it was you took away hence.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> May the Gods confound me, if I've taken away anything of yours, <stage>aside</stage> and if I don't wish I had taken it away.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Come then, shake out your cloak.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> At your pleasure. <stage>Shakes it.</stage></p></sp>
+<sp><speaker>EUCLIO</speaker><p> You haven't it among your under-clothing?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Search where you please. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Pshaw! how civilly the rascal speaks, that I mayn't suppose he has taken it away! I know your tricks. Come, show me here again that right hand.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Here it is. <stage>Extending it.</stage> EUC. Now show me your left.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Well, then, I show you both, in fact. <stage>Extending them.</stage></p></sp>
+<sp><speaker>EUCLIO</speaker><p> Now I leave off searching. Give back that here.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Give back what? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Are you trifling with me? You certainly have got it.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I, got it? Got what? </p></sp>
+<sp><speaker>EUCLIO</speaker><p> I shan't say; you want to hear. Whatever you have of mine, give it back.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> You are mad; you've searched me all over at your own pleasure, and yet you've found nothing of yours in my possession.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>starting</stage>. Stop, stop; who was that? Who was the other<milestone n="655" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Who was the other</lemma>:  This suspicion in Euclio is very natural; and he asks the question very artfully, for the purpose of catching a confession from him by inadvertence.</note> that was within here, together with yourself? Troth, I'm undone; he's now rummaging about within. If I let this one go, he'll escape. At last, I've now searched this one all over; he has got nothing. Be off where you please; <placeName key="tgn,1125260">Jupiter</placeName> and the Gods confound you!</p></sp>
+<sp><speaker>STROBILUS</speaker><p> He returns his thanks not amiss<note anchored="yes"><lemma targOrder="U">Thanks not amiss</lemma>:  He says this sarcastically. If he gets such thanks when he has not stolen the treasure, what would he have got supposing that he had?</note>.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I'll go in here now, and I'll at once throttle this accomplice of yours. Will you not fly hence from my sight? Will you away from here, or no?
+</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I'm off. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Take you care, please, how I see you. <stage>(He goes into the Temple.)</stage></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="661" unit="TLN line"/>
+<stage>STROBIOUS, alone.</stage>
+<sp><speaker>STROBILUS</speaker><p> I would rather that I were dead outright, by a shocking death, than not lay an ambush this day for that old fellow. But he'll not venture now to hide his gold here; he'll now be carrying it with him, I guess, and be changing the spot. But hark! there's a noise at the door. <stage>Looking in the direction of the Temple.</stage> See, the old fellow's bringing out the gold with him! Meanwhile, I'll step aside here to the door. <stage>Conceals himself near the door.</stage></p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="667" unit="TLN line"/>
+<stage>Enter EUCLIO, from the Temple, with the pot of money.</stage>
+<sp><speaker>EUCLIO</speaker><p> <stage>to himself</stage>. I had thought that there was the very greatest dependence upon Faith; very nearly had she played me a pretty trick<milestone n="668" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Played me a pretty trick</lemma>:  "Sublevit os." "Sublinere os" means to paint the face secretly," in allusion to the practical joke of so doing when a person is asleep, and thereby making a fool of him.</note>. If the raven hadn't come to my assistance, to my sorrow I should have been undone. Troth, I very much wish that raven would come to me which gave me the warning, that I might say something kind to him; for I would as soon give<milestone n="672" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Would as soon give</lemma>:  That is, "not at all." He says "thank you" to the raven, but he would be as likely to give it a scrap of victuals as to throw it away, which was quite repugnant to his "jus et norma vivendi," his mode of life.</note> him something to eat as lose it. Now I'm thinking of a lonely spot where I shall hide this. The grove of Sylvanus, outside of the wall, is unfrequented, ana planted with many a willow; there will I choose a spot. I'm determined to trust Sylvanus<milestone n="676" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sylvanus</lemma>:  Sylvanus was the tutelary Divinity of the woodlands field, and cattle. Pigs were usually offered in sacrifice to him.</note>, rather than Faith. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>re-appearing from his hiding-place</stage>. Capital! capital! the Gods will me to be safe and preserved! Now will I run before to that place, and climb up into some tree, and thence will I watch where the old fellow hides the gold. Although my master bade me remain here, I'm resolved rather to risk a mishap along with emolument. <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="682" unit="TLN line"/>
+<stage>Enter LYCONIDES and EUNOMIA, from the house of MEGADORUS.</stage>
+<sp><speaker>LYCONIDES</speaker><p> I've told you all, mother; as well as I do myself, you understand all about the daughter of Euclio. Now, I do entreat you, my mother, make mention of it to my uncle, and I now unask of you, mother, that which before I entreated of you, to conceal this from Megadorus.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> You know, yourself, that what you desire to be done, I desire, and I trust that I shall obtain this of my brother; and the reason is good, if 'tis so as you say, that in a drunken fit you debauched this damsel.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Could I, my mother, tell a falsehood in your presence?</p>
+<p><stage>PH&AElig;DRA cries out in labour, in EUCLIO'S house.</stage> I die, my nurse; my pangs are coming on! I entreat thee for thy protection, Juno Lucina<milestone n="692" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Juno Lucina</lemma>:  Juno Lucina was the Goddess who presided over childbirth. Some suppose that the Goddess Diana was called by that name; but (although Diana was also addressed by parturient females) it is more likely that Juno was addressed under the title. A similar circumstance to this takes place in the <placeName key="tgn,7004109">Andria</placeName> and the <placeName key="tgn,7018553">Adelphi</placeName> of Terence.</note>!</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Ah! my mother, I see a more convincing proof for you; she's crying aloud--she's in the pangs of labour.</p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Come in-doors here, with me, my son, to my brother, that I may obtain a grant from him of that which you beg of me.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Go; I'll follow you this instant, mother. <stage>EUNOMIA goes into the house.</stage> But my servant, Strobilus, I wonder where he is, whom I ordered to wait here for me. Now I reflect with myself, if he's lending me his assistance, it isn't fair that I should be angry with him. I'll go in-doors, where they are sitting in judgment<milestone n="700" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">They are sitting in judgnment</lemma>:  "Ubi de capite meo sunt Comitia." Literally, "where, then, are the Comitia about my life." Trials were held before the "Comitia centuriata," or assemblies of the people, at <placeName key="perseus,Rome">Rome</placeName>, to which reference is here made. He alludes to the discussion between Eunomia and Megadorus, on the marriage of the latter with Ph&aelig;dra.</note> upon my life. <stage>Goes into the house of MEGADORUS.</stage>
+</p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="701" unit="TLN line"/>
+<stage>Enter STROBILUS, with the pot of money.</stage>
+<sp><speaker>STROBILUS</speaker><p> I, by myself, exceed the riches of the Griffins<note anchored="yes"><lemma targOrder="U">Riches of the Griffins</lemma>:  Pici. "Picis" would be a better reading here, and ought to be adopted unless we agree with some of the Commentators, who think that Strobilus begins a sentence, and then, in the exuberance of his joy, breaks out into an expression of a different construction from that originally intended. It may, however, possibly be, as Hildyard suggests, the "nominativus pendens," which is not unfrequently used by Plautus. The Pici here alluded to, were Griffins, or fabulous monsters, who were said to watch the treasures of the Arimaspi, a people of the north of <placeName key="tgn,6005315">Scythia</placeName>, mentioned by Herodotus, who were said to possess mountains of gold; in which story, no doubt, the Uralian mountians were alluded to.</note>, who inhabit the golden mountains, For I'm unwilling to make mention of those other kings, beggarly fellows--I am the king Philip. O charming day! for when I went from here, just now, I arrived there much the first, and, long before, I placed myself in a tree, and thence observed where the old fellow hid the gold. When he departed thence, I let myself down from the tree, and dug up the pot full of gold. Thence, from that spot, I saw the old fellow betaking himself back again; he didn't see me, for I turned a little on one side, out of the path. Heyday! here he comes himself. I'll go and hide this away, at home. <stage>Goes into the house of MEGADORUS.</stage></p></sp></div2>
+<div2 type="scene" n="9">
+<milestone n="1" unit="line"/><milestone n="713" unit="TLN line"/>
+<stage>Enter EUCLIO, tearing his hair and wringing his hands.</stage>
+<sp><speaker>EUCLIO</speaker><p> I'm ruined! I'm done for! I'm murdered! Whither shall I run? Whither not run? Stop him--stop him. Whom? who? I don't know. I see nothing! I'm going blindfold; and, in fact, whither I am going, or where I am, or who I am, I can't in my mind find out for certain. <stage>To the AUDIENCE.</stage> I beseech you, give me your aid (I beg and entreat of you), and point me out the person that has taken it away. What's the matter? Why do you laugh? I'm acquainted with you all; I know that there are many thieves here, who conceal themselves with white clothes and chalk<milestone n="718" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">White clothes and chalk</lemma>:  The Romans were much in the habit of having their woollen "tog&aelig;" made extremely white by chalk, pipeclay, and the fuller's art. He alludes to white garments covering bad manners, much as in Scripture whited sepuichres are mentoned as being full of uncleanness.</note>, and sit as though they were honest! <stage>To one of the SPECTATORS.</stage> What say you? You I'm resolved to believe; for I perceive, even by your looks, that you are honest. Well then, none of these has got it? You've been the death of me! Tell me, then, who has got it? You don't know? Oh,wretched, wretched me! I'm done for! wofully undone! In most sorry plight I go; so much groaning, and misfortune, and sorrow, has this day brought upon me, hunger and poverty, too. I'm the most utterly ruined of all men upon the earth! For what need of life have I, who have lost so much gold that I so carefully watched? I pinched myself, and my inclinations, and my very heart<milestone n="725" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And my very heart</lemma>:  "Geniumque meum." Literally, "and my Genius," i. e. "my social disposition" or "capacity for enjoyment.'</note>! Now others are rejoicing at this, my loss and my misfortune! I cannot endure it. <stage>He runs about, crying and stamping.</stage>
+
+<stage>Enter LYCONIDES, from the house of MEGADORUS.</stage></p></sp>
+<sp><speaker>LYCONIDES</speaker><p> What person, I wonder, is this before our house lamenting, and that utters complaints with his moaning? Why,surely, this is Euclio, as I imagine. I'm utterly undone! The thing's all out; he knows now, as I suppose, that his daughter is brought to bed. I'm in a state of uncertainty now what I shall do, whether go or remain, accost him or fly.
+</p></sp></div2>
+<div2 type="scene" n="10">
+<milestone n="1" unit="line"/><milestone n="731" unit="TLN line"/>
+<sp><speaker>EUCLIO</speaker><p> What person is it that speaks there?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> 'Tis I, wretch that I am.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Yes, and so am I, and wretchedly ruined, whose lot is misfortune so great and sorrow.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Be of good courage. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> How, prithee, can I be so?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Because that deed which is afflicting your mind, I did it, and I confess it.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> What is it I hear from you?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> That which is the truth. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> What evil, young man, have I deserved, by reason of which you should do thus, and go to ruin both me and my children?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> A Divinity was my prompter; he prompted me to do it<milestone n="737" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Prompted me to do it</lemma>:  "Ad illam illexit." Literally, "enticed me to her." The humour of the whole scene turns upon Euclio and Lyconides mistaking the meaning of each other--the former thinking that the latter is speaking about the "aula," or "pot," while the latter fancies that Euclio is amenting the mishap of his daughter. In the Latin language, the word "aula" is or the feminine gender, by reason of which the misunderstanding is much more natural than it would be in the English language. In consequence, some little latitude in the translation is absolutely necessary to sustain the equivoque of the original</note>.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> How? </p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I confess that I have done wrong, and I know that I deserve censure; for that reason I'm come to beseech you, that, with feelings assuaged, you will pardon me.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Why did you dare do so, to touch that which was not your own?
+</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> What do you wish to be done? The thing has been done; it can't be undone. I believe that the Gods willed it, for if they hadn't willed it, I know it wouldn't have happened.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> But I believe that the Gods have willed that I should be the death of you in fetters.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Don't say that! </p></sp>
+<sp><speaker>EUCLIO</speaker><p> What business then have you to touch what is my own against my will?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Because I did it under the evil influence of wine and love.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Most audacious man, that you should dare to come here to me with that speech, you impudent fellow! For if this is lawful, so that you may be able to excuse it--let us openly, in broad daylight, plunder their golden trinkets from ladies--after that, if we are caught, let us excuse ourselves, that we did it when intoxicated, by reason of being in love. Too cheap are wine and love, if one in liquor and in love is allowed to do with impunity whatever he pleases.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> But I come to you of my own accord to supplicate you on account of my folly.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Persons don't please me, who, when they've done wrong, excuse themselves. You knew that you had no right there; you oughtn't to have touched<milestone n="754" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You oughtn't to have touched</lemma>:  "Tn illam scibas non tuam esse: non attactam aportuit." This literally, speaking of the pot (aula) as of the feminine gender, would mean "you knew that she was not your own; it was not fitting for her to be touched." This of course helps to confirm Lyconides in the impression that Euclio is speaking of his daughter.</note>.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Therefore, inasmuch as I did dare to touch, I make no objection to keep by all means.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> You, keep what is my own against my will?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Against your will, I do not ask; but I think that that which was yours ought to be mine<milestone n="758" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ought to be mine</lemma>:  Lyconides here alludes to a law which prevailed at <placeName key="perseus,Rome">Rome</placeName>, whereby, when a person had seduced a freeborn female, he was obliged either to marry her himself without a portion, or else to give her such a portion as was suitable to her station. Lyconides means to say that he shall exercise the former right.</note>. Moreover, Euclio, you'll find, I say, that mine it ought to be.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Now really, on my word, I'll drag you to the Pr&aelig;tor and take proceedings<note anchored="yes"><lemma targOrder="U">And take proceedings</lemma>:  "Scribam dicam." "Dica" was a name derived from the Greek, for an "indictment," "writ," or "process," by which in action was commenced.</note> against you, <milestone n="760" unit="TLN line"/>unless you make restitution.
+</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Make restitution of what to you?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> What you've stolen of mine.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I, stolen of yours? Whence, or what is it?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> So shall <placeName key="tgn,1125260">Jupiter</placeName> love you, how ignorant you are about it!</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Unless, indeed, you tell me what you are enquiring for.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> The pot of gold, I say, I'm asking back of you, which you confessed to me that you had taken away.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> By my faith, I've neither said so, nor have I done it.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Do you deny it? </p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Yes, I do utterly deny it; for neither the gold nor yet this pot, what it means, do I know or understand.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Give me up that pot which you took away from the wood of Sylvanus. Come, give it me back! I would rather give you the one-half of it. Although you are a thief to me, I'll not be hard upon the thief. Give it me back.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> You are not in your senses, to call me a thief; I thought, Euclio, that you had come to the knowledge of another matter; as concerns myself, it is a great matter which I wish to speak with you upon at your leisure, if you are at leisure.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Tell me, in good faith, have you not stolen that gold?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> In good faith, No. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Nor know who has taken it away?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> In good faith, No, to that as well.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> But if you should know who has taken it away, will you discover it to me?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I will do so. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> Nor accept of a share from him, whoever he is, for yourself, nor harbour the thief?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Even so. </p></sp>
+<sp><speaker>EUCLIO</speaker><p> What if you deceive me?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Then may great <placeName key="tgn,1125260">Jupiter</placeName> do unto me what he pleases.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I'm satisfied. Come, then, say what you wish.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> If you know me but imperfectly, of what family I'm born: Megadorus here is my uncle; Antimachus was my father; my name is Lyconides; Eunomia is my mother.
+</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I know the family; now, what do you want?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I want to know this. You have a daughter of yours?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Why, yes, she's there at home.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> You have, I think, recently betrothed her to my uncle?</p></sp>
+<sp><speaker>EUCLIO</speaker><p> You have the whole matter. </p></sp>
+<sp><speaker>LYCONIDES</speaker><p> He has now bade me announce to you his refusal of her<milestone n="783" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">His refusal of her</lemma>:  "Repudium." The rejection of a person after being betrothed was called "repudium;" while the putting-away of a marned woman by her husband was called "divortium."</note>.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> A refusal, when the things are got ready, and the wedding's prepared? May all the immortal Gods and Goddesses confound him, so far as is possible, by reason of whom this day, unhappy wretch that I am, I have lost so much gold!</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Be of good heart, and speak in kindly terms; now, a thing--may it turn out well and prosperously to you and your daughter.--May the Gods so grant--say.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> May the Gods so grant. </p></sp>
+<sp><speaker>LYCONIDES</speaker><p> And for me, too, may the Gods so grant it. Now, then, do you listen. The man that admits a fault is not so much to be despised, if he feels a sense of shame when he excuses himself. Now, Euclio, I do beseech you, that what unawares I have done wrong towards yourself or your daughter, you will grant me pardon for the same, and give her for a wife to me, as the laws demand. I confess that I did violence to your daughter on the festival of <placeName key="tgn,7010621">Ceres</placeName>, by reason of wine and the impulse of youth.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Woe is me! What shocking deed do I hear of you?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Why do you exclaim? You whom I've made to be a grandfather now at the very wedding of your daughter. For your daughter has just been brought to bed in the ninth month after--calculate the number<milestone n="798" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Calculate the number</lemma>:  "Numeram cape." He probably means by this, "calculate the time" since the festival of <placeName key="tgn,7010621">Ceres</placeName>, when this misfortone happened.</note>; for that reason, in my behalf, has my uncle sent his refusal. Go in-doors; enquire whether it is so or not as I say.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I'm undone utterly; so very many misfortunes unite themselves for my undoing. I'll go in-doors, that I may know what of this is true. <stage>He goes into his house.</stage>
+</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I'll follow you this instant. This matter seems now to be pretty nearly in the haven of safety. Now, where to say my servant Strobilus is, I don't know, but yet I'll wait here still a little while; after that I'll follow this man indoors; now, in the meantime, I'll give him leisure to enquire of the nurse about my doings, the attendant of his daughter, whether she knows the truth. <stage>Moves as if going.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="808" unit="TLN line"/>
+<stage>Enter STROBILUS, at a distance.</stage>
+<sp><speaker>STROBILUS</speaker><p> <stage>to himself</stage>. Immortal Gods, with what and how great delights do you present me! I've got a four pound pot filled with gold; who there is richer than I?  <milestone n="810" unit="TLN line"/>What man is there greater than I at <placeName key="perseus,Athens">Athens</placeName> now; any one, I mean, to whom the Gods are propitious?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>to himself</stage>. Why, surely, I seemed just now to hear the voice of some one speaking here.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>to himself</stage>. Ha! do I not see my master?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>to himself</stage>. Do I see Strobilus now, my servant?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>to himself</stage>. 'Tis he himself.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>to himself</stage>. 'Tis no other.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>to himself</stage>. I'll accost him.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>to himself</stage>. I'll step out<note anchored="yes"><lemma targOrder="U">I'll step out</lemma>:  It must be supposed that Strobilus is a good way down a street, which emerges on the stage right opposite the Spectators; while Lyconides is in the front of the stage, and consequently beyond the nearer end of the street.</note> towards him. I do think that he has been, as I requested him, to the old woman, the nurse herself of this damsel.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>to himself</stage>. Why don't I tell him that I've found this prize, and speak out? For that reason, I'll beg of him to make me free. I'll go and speak to him. <stage>Addressing him.</stage> I've found----</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> What have you found? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Not that which the boys cry out that they've found in the bean<note anchored="yes"><lemma targOrder="U">Found in the bean</lemma>:  This is explained as meaning a little worm or weevil, which boys used to seek for in beans and other pulse, and which they called "Midas"</note>.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> And are you trifling with me then, as you are in the habit of doing? <stage>He turns as if to go away.</stage>
+<milestone n="820" unit="TLN line"/></p></sp>
+<sp><speaker>STROBILUS</speaker><p> Master, stop; I'll speak out then; do listen.
+</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Come then, tell me. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> I've found to-day, master very great riches.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Where, pray? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> A four pound pot<milestone n="821" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A four pound pot</lemma>:  "Quadrilibris" probably alludes to the capacity of the pot, and not its weight. It was probably a jar made to contain four pounds weight of liquid.</note>, I say, full of gold!</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> What crime is this that I hear of from you?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I've stolen it from this old fellow, Euclio.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Where is this gold? </p></sp>
+<sp><speaker>STROBILUS</speaker><p> In my box at home; I now wish to be made free.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I, make you free, you fellow, brimful of wickedness?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Out upon you, master, I know what you would be at. Troth, I've cleverly tried your inclination; you were just getting ready to take it away from me; what would you do, if I had found it?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> You can't make good your pretences. Come, give up the gold!</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I, give up the gold? </p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Give it up, I say, that it may be given back to him.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Where am I to get it from? 
+<milestone n="830" unit="TLN line"/></p></sp>
+<sp><speaker>LYCONIDES</speaker><p> That which you confessed just now to be in your box.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I' faith, I'm in the habit of talking nonsense; 'twas in that way I was speaking.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>seizinq him</stage>. But do you know what?----
+</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Even kill me outright, i' faith, you never shall get it hence of me <gap/><note anchored="yes">The rest of this Play is unfortunately lost. From the Acrostic Argument which is prefixed to the Play, we learn that Lyconides obtained the gold, and gave it up to Euclio, who presented it to him as a marriage-portion with his daughter. In some of the Editions there is a Supplement to the last Scene, written in a very meagre style by some unknown author, which is not worth presenting to the reader The Supplementby Antonius Codrus Urceus, a learned scholar and professor at <placeName key="tgn,7004847">Bologna</placeName>, is certainly somewhat superior, and, such as it is, a translation of it is here presented to the reader. Its chief fault is, that it indicates a greater change in the nature of the miser than is consistent with probability. Though Plautus doubtless depicted him as giving up the gold to his new son-in-law, it was probably on some other ground than a change of disposition.</note>
+
+<stage>A SUPPLEMENT TO THE AULULARIA BY CODRUS URCEUS.</stage>
+<milestone n="832a" unit="TLN line"/></p></sp>
+<sp><speaker>STROBILUS</speaker><p> ---- the pot belonging to the old fellow, which I've not got.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I will have it, whether you will or no; when I've tied you up all fours, and torn asunder your body for you tied up to the beam. But why do I delay to rush upon the jaws of this rascal, and why this instant do I not compel his soul to take its journey before its time<note anchored="yes"><lemma targOrder="U">Before its time</lemma>: --The expression used here by Urceus is capable of two modes of translation; the most delicate one has been preferred.</note>? Are you going to give it me or not?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I will give it you. </p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I want you to give it me now, and not at a future time.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I'll give it now; but I entreat you to allow me to recover breath. <stage>LYCONIDES lets him go.</stage> Aha! What is it you want me to give you, master?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Don't you know, you rascal? And do you dare to refuse me the four pound pot full of gold which you just now said you had stolen? <stage>Calling at the door.</stage> Hallo there! Where now are the flogging men?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Master, do hear a few words. Lyc. I won't hear; floggers, hallo there--hallo!
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="832b" unit="TLN line"/>
+<stage>Enter two FLOGGING SLAVES.</stage>
+<sp><speaker>SLAVE.</speaker><p> What's the matter? </p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I want the chains to be got ready.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Listen to me, I beg of you; afterwards order them to bind me as much as you please.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I will hear you; but hasten the matter very quickly.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> If you order me to be tortured to death, see what you obtain; in the first place, you have the death of your slave. Then, what you wish for you cannot get. But if you had only allured me by the reward of dear liberty, you would already have obtained your wish. Nature produces all men free, and by nature all desire freedom. Slavery is worse than every evil, than every calamity; and he whom <placeName key="tgn,1125260">Jupiter</placeName> hates, him he first makes a slave.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> You speak not unwisely </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Now then hear the rest. Our age has produced masters too grasping, whom I'm in the habit of calling Harpagos, Harpies, and Tantali, poor amid great wealth, and thirsty in the midst of the waters of Ocean; no riches are enough for them, not those of Midas, not of Cr&oelig;sus; not all the wealth of the Persians can satisfy their Tartarean maw. Masters use their slaves rigorously, and slaves now obey their masters but tardily; so on neither side is that done which would be fair to be done. Their provisions, kitchens, and store-cellars, avaricious old fellows shut up with a thousand keys. Slaves, thievish, doubledealers, and artful, open for themselves things shut up with a thousand keys, which the owners hardly like to be granted to their lawful children, and stealthily do they carry off, consume, and lick them up--fellows that will never disclose their hundred thefts even at the gibbet; thus in laughter and joking do bad slaves take revenge upon their slavery. So then, I come to the conclusion that liberality renders slaves faithful.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Rightly, indeed, have you spoken, but not in a few words, as you promised me. But if I do make you free, will you give me back what I'm asking for?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I will give it back; but I wish for witnesses to be present; you'll pardon me, master, I trust you but little.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Just as you please; let there be present even a hundred; then I shouldn't care about it.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>going to the door of the house of MEGADORUS</stage>. Megadorus, and you, Eunomia, please come here, I beg of you; the business finished, you shall return directly.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="832c" unit="TLN line"/>
+<stage>Enter MEGADORUS and EUNOMIA.</stage>
+<sp><speaker>MEGADORUS</speaker><p> Who's calling us? Ha! Lyconides! </p></sp>
+<sp><speaker>EUNOMIA</speaker><p> Ha! Strobilus, what is the matter? Say.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> 'Tis a short matter. </p></sp>
+<sp><speaker>MEGADORUS</speaker><p> What is it?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I'm calling you as witnesses. If I bring here a four pound pot full of gold and give it up to Lyconides, Lyconides makes me a free man, and orders me to be my own master. <stage>To LYCONIDES.</stage> Do you not promise me so?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I do promise so. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Have you heard now what he has said?</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> We have heard. </p></sp>
+<sp><speaker>STROBILUS</speaker><p> Swear, then, by <placeName key="tgn,1125260">Jupiter</placeName>.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Alas! to what I am reduced by the misfortunes of others! You are too insulting; still, I'll do what he bids me.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Hark you, our generation hasn't much confidence in people: the documents are signed; the twelve witnesses are present; the registrar writes down the time and the place; and still, the pleader is found to deny that it has been done.</p></sp>
+<sp><speaker>LYE.</speaker><p> But release me speedily, please.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> Here, take this stone. <stage>Giving him a stone.</stage></p></sp>
+<sp><speaker>LYCONIDES</speaker><p> If I knowingly deceive you, so may <placeName key="tgn,1125260">Jupiter</placeName> reject from me his blessings, the city and citadel safe, as I do this stone. <stage>(He throws it.</stage> Have I now satisfied you?</p></sp>
+<sp><speaker>STROBILUS</speaker><p> I am satisfied; and I'm going to bring the gold.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Go with the speed of Pegasus, and return devouring the road with your rapid steps. <stage>Exit STROBILUS.</stage> Any impertinent slave, that wishes to be more wise than his master, is a nuisance to a decent man. Let this Strobilus be off as a free man to utter perdition, if he only brings me the pot full of pure gold, so that I may restore Euclio, my father-in-law, from his grief to joy, and obtain the favour of his daughter, who is just brought to bed by reason of my debauching her. But see! Strobilus is returning, loaded; as I guess, he's bringing the pot; and, for sure, it is the pot that he's carrying.
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="832d" unit="TLN line"/>
+<stage>Enter STROBIOUS, carrying the pot of gold.</stage>
+<sp><speaker>STROBILUS</speaker><p> Lyconides, I bring you my findings that I promised--the four pound pot of gold; have I been long?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Why, yes. <stage>He takes some of the gold out of the pot.</stage> O immortal Gods, what do I behold? Or what is it I hold? More than six hundred Philippean pieces, three or four times over. But let's call out Euclio forthwith.
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="832e" unit="TLN line"/>
+<sp><speaker>LYCONIDES</speaker><p> <stage>going to the door of EUCLIO'S house</stage>. Ho, Eucho, Euclio!</p></sp>
+<sp><speaker>MEGADORUS</speaker><p> Euclio, Euclio! </p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>opening his window</stage>. What' the matter?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> Come down to us, for the Gods will you to be saved; we've got the pot.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> Have you got it, or are you trifling with me?</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> We've got it, I say. Now, if you can, fly down hither.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> <stage>having come out of the house to them</stage>. O great <placeName key="tgn,1125260">Jupiter</placeName>! O household Divinity and Queen Juno! and Alcides, my treasurer! that at length you do show pity upon a wretched old man. <stage>Taking the pot in his arms.</stage> O my pot! O how aged I, your friend, do clasp you with joyful arms, and receive you with kisses; with a thousand embraces even I cannot be satisfied. O my hope! my heart! that dissipates my grief.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>aside, to MEGADORUS</stage>. I always thought that to be in want of gold was the worst thing for both boys and men, and all old people. Indigence compels boys to be guilty of misdeeds, men to thieve, and old men themselves to become beggars. But 'tis much worse, as I now see, to abound in gold beyond what's necessary for us. Alas! what miseries has Euclio endured on account of the pot, that a little while since was lost by him!</p></sp>
+<sp><speaker>EUCLIO</speaker><p> To whom shall I give deserved thanks? Whether to the Gods, who show regard for good men, or to my friends, upright men, or to them both? Rather to both, I think; and first to you, Lyconides, the origin and author of so great a good; you do I present with this pot of gold; accept it with pleasure. I wish it to be your own, and my daughter as well, in the presence of Megadorus, and his good sister, Eunomia.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> <stage>receiving the pot of gold</stage>. The favour is received, and is returned, in thanks, as you deserve, Eucho, a father-in-law most acceptable to me.</p></sp>
+<sp><speaker>EUCLIO</speaker><p> I shall think the favour sufficiently returned to me, if you now receive with pleasure my gift, and myself as well for your father-in-law.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> I do receive it; and I wish my house to be that of Euclio.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> What still remains, master,--remember now that I'm to be free.</p></sp>
+<sp><speaker>LYCONIDES</speaker><p> You've well put me in mind. Be you a free man, O Strobilus, for your deserts; and now prepare in-doors the dinner that has been so disturbed.</p></sp>
+<sp><speaker>STROBILUS</speaker><p> <stage>coming forward</stage>. Spectators, the avaricious Euclio has changed his nature; he has suddenly become liberal; so, too, do you practise liberality; and if the play has pleased you well, loudly clap your hands.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

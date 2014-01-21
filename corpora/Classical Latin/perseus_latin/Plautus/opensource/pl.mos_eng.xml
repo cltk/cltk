@@ -1,0 +1,1057 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Mostellaria, or The Haunted House</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.mos_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:55  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:27  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:22  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:30  packel
+Converted to XML
+
+Revision 1.13  2003/07/01 22:17:30  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.12  2001/08/21 18:49:31  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.11  2001/08/08 17:55:29  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.10  2001/08/03 20:53:28  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.9  2001/08/03 20:50:02  amahoney
+fix spurious italics in lemmata
+
+Revision 1.8  2001/08/02 21:22:40  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.7  2001/08/01 21:34:11  amahoney
+use full speaker names
+
+Revision 1.6  2001/08/01 19:16:31  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>THEUROPIDES, </role><roleDesc>a merchant of <placeName key="perseus,Athens">Athens</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>SIMO, </role><roleDesc>an aged Athenian, his neighbour.</roleDesc></castItem>
+<castItem type="role"><role>PHILOLACHES, </role><roleDesc>son of Theuropides.</roleDesc></castItem>
+<castItem type="role"><role>CALLIDAMATES, </role><roleDesc>a young Athenian, friend of Philolaches</roleDesc></castItem>
+<castItem type="role"><role>TRANIO, </role><roleDesc>servant of Philolaches.</roleDesc></castItem>
+<castItem type="role"><role>GRUMIO, </role><roleDesc>servant of Theuropides.</roleDesc></castItem>
+<castItem type="role"><role>PHANISCUS, </role><roleDesc>servant of Callidamates.</roleDesc></castItem>
+<castItem type="role"><role>ANOTHER SERVANT of Callidamates.</role></castItem>
+<castItem type="role"><role>A BANKER.</role></castItem>
+<castItem type="role"><role>A BOY.</role></castItem>
+<castItem type="role"><role>PHILEMATIUM, </role><roleDesc>a music-girl, mistress of Phiolaches.</roleDesc></castItem>
+<castItem type="role"><role>SCAPHA, </role><roleDesc>her attendant.</roleDesc></castItem>
+<castItem type="role"><role>DELPHIUM, </role><roleDesc>mistress of Callidamates.</roleDesc></castItem>
+</castList>
+
+<stage>Scene--<placeName key="perseus,Athens">Athens</placeName>; before the houses of THEUROPIDES and SIMO.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>WHILE Theuropides is absent from home on business, his son Philolaches leads a dissolute life at home with his friend Callidamates and his own servant Tranio While they are in the midst of their carousals, the father of Philolaches unexpectedly arrives at <placeName key="perseus,Athens">Athens</placeName>. Their first impulse is to leave the house immediately, but, Callidamates being in a state of helpless intoxication, they are prevented from so doing. In this dilemma, Tranio undertakes to rescue them. He requests them to remain perfectly quiet in the house, and not to stir out of it. The house is then shut up, and he sallies forth to meet Theuropides. He pretends to him that the house has been shut up for some months past, in consequence of its being haunted. In the midst of the conversation, he is accosted by a Banker, who duns him for the interest of some money which Philolaches has borrowed of him for the purpose of procuring the freedom of Philematium, his mistress. Theuropides enquires what the money was borrowed for, on which Tranio says that Philolaches has purchased a house with it. On Theuropides making further enquiries, Tranio says that he has bought the house in which Simo is living. On this, Theuropides wishes to examine this new purchase, and sends Tranio to request Simo to allow him to do so, if not inconvenient. Tranio obtains the permission, Simo being ignorant of the object, and they go over the house, Theuropides being much pleased with his son's bargain. Tranio is then sent by Theuropides into the country to fetch Philolaches thence, he having pretended that he is there. Shortly after, a servant of Callidamates comes to the house that is shut up to fetch his master home. Theuropides questions him, and then finds out the deception that has been practised upon him; and on receiving further information from Simo, who declares that he has not sold his own house, he resolves to punish Tranio. The latter, on finding this to be the case, runs to an altar for refuge. Callidamates, who is now sober, and has got out of the house by the back-gate, now makes his appearance, and, at his earnest intercession, pardon is granted by Theuropides to Philolaches and Tranio.
+
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>PHILOLACHES has given liberty to (<foreign lang="la">Manumisit</foreign>) his mistress who has been bought by him, and he consumes all (<foreign lang="la">Omnem</foreign>) his substance in the absence of his father. When he returns, Tranio deceives the old man (<foreign lang="la">Senem</foreign>); he says that frightful (<foreign lang="la">Terrifica</foreign>) apparitions have been seen in the house, and (<foreign lang="la">Et</foreign>) that at once they had removed from it. A Usurer, greedy of gain (<foreign lang="la">Lucripeta</foreign>), comes up in the meantime, asking for the interest of some money, and again the old man is made sport of (<foreign lang="la">Lusus</foreign>); for the servant says that a deposit for a house which has been bought has been taken up (<foreign lang="la">Acceptum</foreign>) on loan.  The old man enquires (<foreign lang="la">Requirit</foreign>) which it is; he says that of the neighbour next door. He then looks over (<foreign lang="la">Inspectat</foreign>) it. Afterwards he is vexed that he has been laughed at; still by (<foreign lang="la">Ab</foreign>) the companion of his son he is finally appeased.
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>Enter, from the house of THEUROPIDES, GRUMIO, pushing out TRANIO.<note anchored="yes">Title <lemma lang="la" targOrder="U">Mostellaria</lemma>:  This is a word probably derived from "mostellum," the diminutive of "monstrum," a "spectre" or "prodigy." It was probably coined by Plautus to serve as the title of this Play, which is called by several of the ancient Commentators by the name of "Phasma," "the Apparition."</note></stage>
+<sp><speaker>GRUMIO</speaker><p> Get out of the kitchen, will you; out of it, you whip-scoundrel, who are giving me your cavilling talk amid the platters; march out of the house, you ruin of your master. Upon my faith, if I only live, I'll be soundly revenged upon you in the country. Get out, I say, you steam of the kitchen. Why are you skulking thus?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why the plague are you making this noise here before the house? Do you fancy yourself to be in the country<milestone n="7" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the country</lemma>:  Grumio appears to have been cook and herdsman combined, and perhaps generally employed at the country farm of Theuropides. On this occasion he seems to have been summoned to town to cook for the entertainment which Philolaches is giving to his friends.</note>? Get out of the house; be off into the country. Go and hang yourself. Get away from the door. <stage>Striking him.</stage> There now, was it that you wanted?</p>
+<p>&gt;</p></sp>
+<sp><speaker>GRUMIO</speaker><p> <stage>running away</stage>. I'm undone! Why are you beating me? TRA. Because you want it.</p></sp>
+<sp><speaker>GRUMIO</speaker><p> I must endure it. Only let the old gentleman return home; only let him come safe home, whom you are devouring in his absence.</p></sp>
+<sp><speaker>TRANIO</speaker><p> You don't say what's either likely or true, you blockhead, as to any one devouring a person in his absence.</p></sp>
+<sp><speaker>GRUMIO</speaker><p> Indeed, you town wit, you minion of the mob, do you throw the country in my teeth? Really, Tranio, I do believe that you feel sure that before long you'll be handed over to the mill. Within a short period, i' faith, Tranio, you'll full soon be adding to the iron-bound race<milestone n="18" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The iron-bound race</lemma>:  The gang of slaves, who, for their malpractices, are working in the country in chains.</note> in the country. While you choose to, and have the opportunity, drink on, squander his property, corrupt my master's son, a most worthy young man, drink night and day, live like Greeks<milestone n="21" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Live like Greeks</lemma>:  "Pergr&aelig;camini." Though the Scene is at <placeName key="perseus,Athens">Athens</placeName>, Plautus consults the taste of a Roman Audience, as on many other occasions, in making the Greeks the patterns of riotous livers. Asconius Pedianus says that at these entertainments the Greeks drank off a cup of wine every tune they named a Divinity or mentioned a friend.</note>, make purchase of mistresses, give them their freedom, feed parasites, feast yourselves sumptuously. Was it thus that the old gentleman enjoined you when he went hence abroad? Is it after this fashion that he will find his property well husbanded? Do you suppose that this is the duty of a good servant, to be ruining both the estate and the son of his master? For I do consider him as ruined, when he devotes himself to these goings on. A person, with whom not one of all the young men of <placeName key="tgn,7002681">Attica</placeName> was before deemed equally frugal or more steady, the same is now carrying off the palm in the opposite direction. Through your management and your tutoring has that been done.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What the plague business have you with me or with what I do? Prithee, haven't you got your cattle in the country for you to look to? I choose to drink, to intrigue, to keep my wenches; this I do at the peril of my own back, and not of yours</p></sp>
+<sp><speaker>GRUMIO</speaker><p> Then with what assurance he does talk! <stage>Turning away in disgust.</stage> Faugh!</p></sp>
+<sp><speaker>TRANIO</speaker><p> But may <placeName key="tgn,1125260">Jupiter</placeName> and all the Deities confound you; you stink of garlick, you filth unmistakeable, you clod, you he-goat, you pig-sty, you mixture of dog and she-goat.</p></sp>
+<sp><speaker>GRUMIO</speaker><p> What would you have to be done? It isn't all that can smell of foreign perfumes, if you smell of them; or that can take their places at table above their master, or live on such exquisite dainties as you live upon. Do you keep to yourself those turtle-doves, that fish, and poultry; let me enjoy my lot upon garlick diet. You are fortunate; I unlucky. It must be endured. Let my good fortune be awaiting me, your bad yourself.</p></sp>
+<sp><speaker>TRANIO</speaker><p> You seem, Grumio, as though you envied me, because I enjoy myself and you are wretched. It is quite my due. It's proper for me to make love, and for you to feed the cattle; for me to fare handsomely, you in a miserable way.</p></sp>
+<sp><speaker>GRUMIO</speaker><p> O riddle for the executioner<milestone n="52" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Riddle for the executioner</lemma>:  Riddled with holes by the scourge of the executioner.</note>, as I guess it will turn out; they'll be so pinking you with goads, as you carry your gibbet<milestone n="53" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You carry your gibbet</lemma>:  Bearing his own cross; a refinement of torture which was too often employed upon malefactors.</note> along the streets one day, as soon as ever the old gentleman returns here.</p></sp>
+<sp><speaker>TRANIO</speaker><p> How do you know whether that mayn't happen to yourself sooner than to me? </p></sp>
+<sp><speaker>GRUMIO</speaker><p> Because I have never deserved it; you have deserved it, and you now deserve it.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Do cut short the trouble of your talking, unless you wish a heavy mischance to befall you.</p></sp>
+<sp><speaker>GRUMIO</speaker><p> Are you going to give me the tares for me to take for the cattle? If you are not, give me the money. Go on, still persist in the way in which you've commenced! Drink, live like Greeks, eat, stuff yourselves, slaughter your fatlings!</p></sp>
+<sp><speaker>TRANIO</speaker><p> Hold your tongue, and be off into the country; I intend to go to the Pir&aelig;us to get me some fish for the evening. To-morrow I'll make some one bring you the tares to the farm. What's the matter? Why now are you staring at me, gallows-bird?
+</p></sp>
+<sp><speaker>GRUMIO</speaker><p> I' faith, I've an idea that will be your own title before long.</p></sp>
+<sp><speaker>TRANIO</speaker><p> So long as it is as it is, in the meantime I'll put up with that "before long."</p></sp>
+<sp><speaker>GRUMIO</speaker><p> That's the way; and understand this one thing, that that which is disagreable comes much more speedily than that which you wish for.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Don't you be annoying; now then, away with you into the country, and betake yourself off. Don't you deceive yourself, henceforth you shan't be causing me any impediment. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>GRUMIO</speaker><p> <stage>to himself</stage>. Is he really gone? Not to care one straw for what I've said! O immortal Gods, I do implore your aid, do cause this old gentleman of ours, who has now been three years absent from here, to return hither as soon as possible, before everything is gone, both house and land. Unless he does return here, remnants to last for a few months only are left. Now I'll be off to the country; but look! I see my master's son, one who has been corrupted from having been a most excellent young man. <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="84" unit="TLN line"/>
+<stage>Enter PHILOLACHES, from the house of THEUROPIDES.</stage>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>to himself</stage>. I've often thought and long reflected on it, and in my breast have held many a debate, and in my heart (if any heart I have) have revolved this matter, and long discussed it, to what thing I'm to consider man as like, and what form he has when he is born? I've now discovered this likeness. I think a man is like unto a new house when he is born. I'll give my proofs of this fact. <stage>To the AUDIENCE.</stage> And does not this seem to you like the truth? But so I'll manage that you shall think it is so. Beyond a doubt I'll convince you that it is true what I say. And this yourselves, I'm sure, when you have heard my words, will say is no otherwise than just as I now affirm that it is. Listen while I repeat my proofs of this fact; I want you to be equally knowing with myself upon this matter. As soon as ever a house is built up, nicely polished off<milestone n="98" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Polished off</lemma>:  From this passage it would seem that pains were taken to give the houses a smooth and polished appearance on the outside.</note>, carefully erected, and according to rule, people praise the architect and approve of the house, they take from it each one a model for himself. Each one has something similar, quite at his own expense; they do not spare their pains. But when a worthless, lazy, dirty, negligent fellow betakes himself thither with an idle family, then is it imputed as a fault to the house, while a good house is being kept in bad repair. And this is often the case; a storm comes on and breaks the tiles and gutters; then a careless owner takes no heed to put up others. A shower comes on and streams down the walls; the rafters admit the rain; the weather rots the labours of the builder; then the utility of the house becomes diminished; and yet this is not the fault of the builder. But a great part of mankind have contracted this habit of delay; if anything can be repaired by means of money, they are always still putting it off, and don't * * * do it until the walls come tumbling down<milestone n="114" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Walls come tumbling down</lemma>:  Warner remarks that a sentiment not unlike this is found in Scripture, Ecclesiastes, x. 18: "By much slothfulness the building decayeth; and through idleness of the hands the house droppeth through." It may be also observed that the passage is very similar to the words of the parable of the foolish man who built his house upon sand, St. Matthew, vii. 26: "And the rain descended, and the floods came, and the winds blew and beat upon that house, and it fell; and great was the fall thereof."</note>; then the whole house has to be built anew. These instances from buildings I've mentioned; and now I wish to inform you how you are to suppose that men are like houses. In the first place then, the parents are the builders-up of the children, and lay the foundation for the children; they raise them up, they carefully train them to strength, and that they may be good both for service and for view before the public. They spare not either their own pains or their cost, nor do they deem expense in that to be an expense. They refine them, teach them literature, the ordinances, the laws; at their own cost and labour they struggle, that others may wish for their own children to be like to them. When they repair to the army, they then find them some relation<milestone n="127" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Find them some relation</lemma>:  In the first year of military service the Roman youths were placed under the tutelage of some relation or friend.</note> of theirs as a protector. At that moment they pass out of the builder's hands. One year's pay has now been earned; at that period, then, a sample is on view how the building will turn out. But I was always discreet and virtuous, just as long as I was under the management of the builder. After I had left him to follow the bent of my own inclinations, at once I entirely spoiled the labours of the builders. Idleness came on; that was my storm; on its arrival, upon me it brought down hail and showers, which overthrew my modesty and the bounds of virtue, and untiled them for me in an instant. After that I was neglectful to cover in again; at once passion like a torrent entered my heart; it flowed down even unto my breast, and soaked through my heart. Now both property, credit, fair fame, virtue, and honor have forsaken me; by usage have I become much worse, and, i' faith (so rotten are these rafters of mine with moisture), I do not seem to myself to be able possibly to patch up my house to prevent it from falling down totally once for all, from perishing from the foundation, and from no one being able to assist me. My heart pains me, when I reflect how I now am and how I once was, than whom in youthful age not one there was more active in the arts of exercise<milestone n="147" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the arts of exercise</lemma>:  "Arte gymnastic&acirc;." Literally, "in the gymnastic art."</note>, with the quoit, the javelin, the ball, racing, arms, and horses. I then lived a joyous life<milestone n="148" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lived a joyous life</lemma>:  "Victitabam volup." Lambinus suggests that the true reading here is "haud volup," "not voluptuously."</note>; in frugality and hardihood I was an example to others; all, even the most deserving, took a lesson from me for themselves. Now that I'm become worthless, to that, indeed, have I hastened through the bent of my inclinations. <stage>He stands apart.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="157" unit="TLN line"/>
+<stage>Enter PHILEMATITUM and SCAPHA, with all the requisites for a toilet.</stage>
+<sp><speaker>PHILEMATIUM</speaker><p> On my word, for this long time I've not bathed in cold water with more delight than just now; nor do I think that I ever was, my dear Scapha, more thoroughly cleansed than now.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> May the upshot of everything be unto you like a plenteous year's harvest.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> What has this harvest got to do with my bathing?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Not a bit more than your bathing has to do with the harvest.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. O beauteous Venus, this is that storm of mine which stripped off all the modesty with which I was roofed; through which Desire and Cupid poured their shower into my breast; and never since have I been able to roof it in. Now are my walls soaking in my heart; this building is utterly undone.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Do look, my Scapha, there's a dear, whether this dress quite becomes me. I wish to please Philolaches my protector, the apple of my eye.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Nay but, you set yourself off to advantage with pleasing manners, inasmuch as you yourself are pleasing. The lover isn't in love with a woman's dress, but with that which stuffs out<milestone n="164" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That which stuffs out</lemma>:  That is, the body.</note> the dress.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. So may the Gods bless me, Scapha is waggish; the hussy's quite knowing. How cleverly she understands all matters, the maxims of lovers too!</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Well now? </p></sp>
+<sp><speaker>SCAPHA</speaker><p> What is it?</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Why look at me and examine, how this becomes me.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Thanks to your good looks, it happens that whatever you put on becomes you.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. Now then, for that expression, Scapha, I'll make you some present or other to-day, and I won't allow you to have praised her for nothing who is so pleasing to me.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> I don't want you to flatter me.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Really you are a very simple woman. Come now, would you rather be censured undeservedly, than be praised with truth? Upon my faith, for my own part, even though undeservedly, I'd much rather be praised than be found fault with with reason, or that other people should laugh at mny appearance.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> I love the truth; I wish the truth to be told me; I detest a liar.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> So may you love me, and so may your Philolaches love you, how charming you are.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. How say you, you hussy? In what words did you adjure? "So may I love her?" Why wasn't "So may she love me" added as well? I revoke the present. What I just now promised you is done for; you have lost the present.
+</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Troth, for my part I am surprised that you, a person so knowing, so clever, and so well educated, are not aware that you are acting foolishly.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Then give me your advice, I beg, if I have done wrong in anything.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> I' faith, you certainly do wrong, in setting your mind upon him alone, in fact, and humouring him in particular in this way and slighting other men. It's the part of a married woman, and not of courtesans, to be devoted to a single lover.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. O Jupiter! Why, what pest is this that has befallen my house? May all the Gods and Goddesses destroy me in the worst of fashions, if I don't kill this old hag with thirst, and hunger, and cold.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> I don't want you, Scapha, to be giving me bad advice.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> You are clearly a simpleton, in thinking that he'll for everlasting be your friend and well-wisher. I warn you of that; he'll forsake you by reason of age and satiety.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> I hope not.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Things which you don't hope happen more frequently than things which you do hope. In fine, if you cannot be persuaded by words to believe this to be the truth, judge of my words from facts; consider this instance, who I now am, and who I once was. No less than your are now, was I once beloved, and I devoted myself to one, who, faith, when with age this head changed its hue, forsook and deserted me. Depend on it, the same will happen to yourself.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. I can scarcely withhold myself from flying at the eyes of this mischief-maker.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> I am of opinion that I ought to keep myself alone devoted to him, since to myself alone has he given freedom for himself alone.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. O ye immortal Gods! what a charming woman, and of a disposition how chaste! By heaven, 'tis excellently done, and I'm rejoiced at it, that it is for her sake I've got nothing left.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> On my word you really are silly.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> For what reason?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Because you care for this, whether he loves you.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Prithee, why should I not care for it?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> You now are free. You've now got what you wanted; if he didn't still love you, as much money as he gave for your liberty, he'd lose.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. Heavens, I'm a dead man if I don't torture her to death after the most shocking fashion. That evil-persuading enticer to vice is corrupting this damsel.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Scapha, I can never return him sufficient thanks for what he deserves of me; don't you be persuading me to esteem him less.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> But take care and reflect upon this one thing, if you devote yourself to him alone, while now you are at this youthful age, you'll be complaining to no purpose in your aged years.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. I could wish myself this instant changed into a quinsy, that I might seize the throat of that old witch, and put an end to the wicked mischief-maker.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> It befits me now to have the same grateful feelings since I obtained it, as formerly before I acquired it, when I used to lavish caresses upon him.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. May the Gods do towards me what they please, if for that speech I don't make you free over again, and if I don't torture Scapha to death.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> If you are quite assured that you will have a provision to the end, and that this lover will be your own for life, I think that you ought to devote yourself to him alone, and assume the character of a wife<milestone n="220" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Assume the character of a wife</lemma>:  "Capiundos crines." Literally, "the hair must be assumed." Festus says that it was usual on the occasion of the marriage ceremony, to add six rows of curls to the hair of the bride, in imitation of the Vestal virgins, who were patterns of purity, and were dressed in that manner. Hence the term "capere crines" came to signify "to become a wife."</note>.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Just as a person's character is, he's in the habit of finding means accordingly; if I keep a good character for myself I shall be rich enough.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. By my troth, since selling there must be, my father shall be sold much sooner than, while I'm alive, I'll ever permit you to be in want or go a-begging.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> What's to become of the rest of those who are in love with you?</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> They'll love me the more when they see me displaying gratitude to one who has done me services.
+</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. I do wish that news were brought me now that my father's dead, that I might disinherit myself of my property, and that she might be my heir.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> This property of his will certainly soon be at an end; day and night there's eating and drinking, and no one displays thriftiness; 'tis downright cramming<milestone n="230" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">'Tis downright cramming</lemma>:  "Sagina plane est." "Sagina" was the term applied to the fattening or cramming of animals for the purpose of killing. The use of the term implies Scapha's notion of the bestial kind of life that Philolaches was leading.</note>.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. I' faith, I'm determined to make trial on yourself for the first to be thrifty; for you shall neither eat nor drink anything at my house for the next ten days.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> If you choose to say anything good about him, you shall be at liberty to say it; if you speak otherwise than well, on my word you shall have a beating instantly.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. Upon my faith, if I had paid sacrifice to supreme Jove with that money which I gave for her liberty, never could I have so well employed it. Do see, how, from her very heart's core, she loves me! Oh, I'm a fortunate man; I've liberated in her a patron to plead my cause for me.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> I see that, compared with Philolaches, you disregard all other men; now, that on his account I mayn't get a beating, I'll agree with you in preference, if you are quite satisfied that he will always prove a friend to you.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Give me the mirror<milestone n="242" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give me the mirror</lemma>:  Probably a mirror with a handle, such as the servants usually held for their mistresses. There is something comical in the notion of a female coming out into the street to make her toilet.</note>, and the casket with my trinkets, directly, Scapha, that I may be quite dressed when Philolaches, my delight, comes here.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> A woman who neglects herself and her youthful age has occasion for a mirror; what need of a mirror have you, who yourself are in especial a mirror for a mirror.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. For that expression, Scapha, that you mayn't have said anything so pretty in vain, I'll to-day give something for your savings--to you, my Philematium.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> <stage>while SCAPHA is dressing her hair</stage>. Will you see that each hair is nicely arranged in its own place?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> When you yourself are so nice, do believe that your hair must be nice.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. Out upon it! what worse thing can possibly be spoken of than this woman? Now the jade's a flatterer, just now she was all contradictory.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Hand me the ceruse<milestone n="252" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hand me the ceruse</lemma>:  White lead, or "cerussa," was used by the Roman women for the purpose of whitening the complexion. Ovid mentions it in his Treatise on the Care of the Complexion, l. 73.</note>.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Why, what need of ceruse have you?</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> To paint my cheeks with it.</p></sp>
+<sp><speaker>SEA.</speaker><p> On the same principle, you would want to be making ivory white with ink.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. Cleverly said that, about the ink and the ivory! Bravo! I applaud you, Scapha.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Well then, do you give me the rouge.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> I shan't give it. You really are a clever one. Do you wish to patch up a most clever piece with new daubing? It's not right that any paint should touch that person, neither ceruse, nor quince-ointment, nor any other wash. Take the mirror, then. <stage>Hands her the glass.</stage></p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart.</stage> Ah wretched me!--she gave the glass a kiss. I could much wish for a stone, with which to break the head of that glass.</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Take the towel and wipe your hands.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Why so, prithee?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> As you've been holding the mirror, I'm afraid that your hands may smell of silver; lest Philolaches should suspect you've been receiving silver somewhere.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. I don't think that I ever did see any one procuress more cunning. How cleverly and artfully did it occur to the jade's imagination about the mirror!</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Do you think I ought to be perfumed with unguents as well?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> By no means do so. </p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> For what reason?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> Because, i' faith, a woman smells best<milestone n="267" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A woman smells best</lemma>:  Cicero and Martial have a similar sentiment; their opinion has been followed by many modern writers and other persons as well.</note> when she smells of nothing at all. For those old women who are in the habit of anointing themselves with unguents, vampt up creatures, old hags, and toothless, who hide the blemishes of the person with paint, when the sweat has blended itself with the unguents, forthwith they stink just like when a cook has poured together a variety of broths; what they smell of, you don't know, except this only, that you understand that badly they do smell.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. How very cleverly she does understand everything! There's nothing more knowing than this knowing woman! <stage>To the AUDIENCE.</stage> This is the truth, and a very great portion, in fact, of you know it, who have old women for wives at home who purchased you with their portions.</p></sp>
+<sp><speaker>PHITE.</speaker><p> Come now, examine my golden trinkets and my mantle; does this quite become me, Scapha?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> It befits not me to concern myself about that.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Whom then, prithee?</p></sp>
+<sp><speaker>SCAPHA</speaker><p> I'll tell you; Philolaches; so that he may not buy anything except that which he fancies will please you. For a lover buys the favours of a mistress for himself with gold and purple garments. What need is there for that which he doesn't want as his own, to be shown him still? Age is to be enveloped in purple; gold ornaments are unsuitable for a woman. A beautiful woman will be more beautiful naked than drest in purple. Besides, it's in vain she's well-drest if she's ill-conducted; ill-conduct soils fine ornaments worse than dirt. But if she's beauteous, she's sufficiently adorned.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>apart</stage>. Too long have I withheld my hand. <stage>Coming forward.</stage> What are you about here?</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> I'm decking myself out to please you.</p></sp>
+<sp><speaker>PLILO.</speaker><p> You are dressed enough. <stage>To SCAPHA.</stage> Go you hence in-doors, and take away this finery. <stage>SCAPHA goes into the house.</stage> But, my delight, my Philematium, I have a mind to regale together with you.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> And, i' faith, so I have with you; for what you have a mind to, the same have I a mind to, my delight.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Ha! at twenty mine that expression were cheap.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Give me ten, there's a dear; I wish to let you have that expression bought a bargain.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> You've already got ten min&aelig; with you; or reckon up the account: thirty min&aelig; I gave for your freedom----</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Why reproach me with that?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> What, I reproach you with it? Why, I had rather that I myself were reproached with it; no money whatever for this long time have I ever laid out equally well.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> Surely, in loving you, I never could have better employed my pains.
+</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> The account, then, of receipts and expenditure fully tallies between ourselves; you love me, I love you. Each thinks that it is so deservedly. Those who rejoice at this, may they ever rejoice at the continuance of their own happiness. Those who envy, let not any one henceforth be ever envious of their blessings.</p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> <stage>pointing to a couch on the stage</stage>. Come, take your place, then. <stage>At the door, to a SERVANT, who obeys.</stage> Boy, bring some water for the hands; put a little table here. See where are the dice. Would you like some perfumes? <stage>They recline on the couch.</stage></p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> What need is there? Along with myrrh I am reclining. But isn't this my friend who's coming hither with his mistress? 'Tis he; it's Callidamates; look, he's coming. Capital! my sweet one, see, our comrades are approaching; they're coming to share the spoil.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="313" unit="TLN line"/>
+<stage>Enter CALLIDAMATES, at a distance, drunk, and DELPHIUIM, followed by a SERVANT.</stage>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>to his SERVANT</stage>. I want you to come for me<milestone n="306" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You to come for me</lemma>:  Though none of the Editions say so, it is not improbable that this is said to Phaniscus, who, in the sequel, comes to fetch Callidamates home. The duties of the "adversitor" have been alluded to in a previous Note.</note> in good time to the house of Philolaches; listen you; well then! those are your orders. <stage>Exit SERVANT.</stage> For from the place where I was, thence did I betake myself off;&gt; so confoundedly tired was I there. with the entertainment and the discourse. Now I'll go to Philolaches to have a bout there he'll receive us with jovial feelings and handsomely. Do I seem to you to be fairly drenched, my bubsy?</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> You ought always to live pursuing this course of life.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Should you like, then, for me to hug you, and you me? </p></sp>
+<sp><speaker>DELPHIUM</speaker><p> If you've a mind to do so, of course.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> You are a charming one. <stage>He stumbles.</stage> Do hold me up, there's a dear.</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> <stage>holding him by the arm</stage>. Take care you don't fall. Stand up.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> O! you are the apple of my eye. I'm your fosterling, my honey. <stage>He stumbles.</stage></p></sp>
+<sp><speaker>DELPHIUM</speaker><p> <stage>still holding him up</stage>. Only do take care that you don't recline in the street, before we get to a place where a couch is ready laid.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Do let me fall. </p></sp>
+<sp><speaker>DELPHIUM</speaker><p> Well, I'll let you. <stage>Lets go.</stage></p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>dragging her as he falls</stage>. But that as well which I've got hold of in my hand.</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> If you fall, you shan't fall without me falling with you. Then some one shall pick us both up as we lie <stage>Aside.</stage> The man's quite drenched.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>overhearing</stage>. Do you say that I am drenched, my bubsy?</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> Give me your hand; I really do not want * * you hurt.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>giving his hand</stage>. There now, take it.</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> Come, move on with me.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Where am I going, do you know?</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> I know.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> It has just come into my head: why, of course I'm going home for a booze.</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> Why yes, really now I do remember that.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Won't you let me go to find them, my life? Of all persons I wish well to him especially. I'll return just now. <stage>Goes forward towards the door.</stage></p></sp>
+<sp><speaker>PHILEMATIUM</speaker><p> That "just now" is a long time to me.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>going to the door and knocking</stage>. Is there any person here?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> 'Tis he.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>turning round</stage>. Bravo! Philolaches, good day to you, most friendly to me of all men.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> May the Gods bless you. <stage>Pointing to a couch.</stage> Take your place, Callidamates. <stage>He takes his place.</stage> Whence are you betaking yourself?</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Whence a drunken man does.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Well said. But, my Delphium, do take your place, there's a dear. <stage>She takes her place on a couch.</stage></p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Give her something to drink. I shall go to sleep directly. <stage>Nods and goes to sleep.</stage></p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> He doesn't do anything wonderful or strange. What shall I do with him then, my dear?</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> Let him alone just as he is.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Come, you boy. Meanwhile, speedily pass the goblet round, beginning with Delphium.
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="348" unit="TLN line"/>
+<stage>Enter TRANIO, at a distance.</stage>
+<sp><speaker>TRANIO</speaker><p> <stage>to himself</stage>. Supreme Jove, with all his might and resources, is seeking for me and Philolaches, my master's son, to be undone. Our hopes are destroyed; nowhere is there any hold for courage; not even Salvation<milestone n="342" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Not even Salvation</lemma>:  See the Captivi, l. 535, and the Note to the passage.</note> now could save us if she wished. Such an immense mountain of woe have I just now seen at the harbour: my master has arrived from abroad; Tranio is undone! <stage>To the. AUDIENCE.</stage> Is there any person who'd like to make gain of a little money, who could this day endure to take my place in being tortured? Where are those fellows hardened to a flogging, the wearers- out of iron chains, or those, who, for the consideration of three didrachms, would get beneath besieging towers<milestone n="348" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Beneath besieging towers</lemma>: -- "Fal&aelig;" were wooden towers, placed on the top of walls or fortified places; of course the attack of these would imply extreme danger to those who attempted it.</note>, where some are in the way of having their bodies pierced with fifteen spears? I'll give a talent to that man who shall be the first to run to the cross for me; but on condition that twice his feet, twice his arms<milestone n="351" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Twice his feet, twice his arms</lemma>:  Some suppose that by "bis pedes, bis brachia," he means that two nails were to be driven into each leg and foot. It seems more probable that he means two for the feet and two for the hands.</note> are fastened there. When that shall have been done, then ask the money down of me. But am I not a wretched fellow, not at full speed to be running home?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Here come the provisions; see, here's Tranio; he's come back from the harbour.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>running</stage>. Philolaches!</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> What's the matter? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Both I and you----</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> What about "Both I and you?"</p></sp>
+<sp><speaker>TRANIO</speaker><p> Are undone!</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Why so? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Your father's here.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> What is it I hear of you?</p></sp>
+<sp><speaker>TRANIO</speaker><p> We are finished up. Your father's come, I say.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>starting up.</stage> Where is he, I do entreat you?</p></sp>
+<sp><speaker>TRANIO</speaker><p> He's coming.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Coming? Who says so? Who has seen him?</p></sp>
+<sp><speaker>TRANIO</speaker><p> I saw him myself, I tell you.
+</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Woe unto me! what am I about?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why the plague now do you ask me what you are about? Taking your place at table, of course.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Did you see him? </p></sp>
+<sp><speaker>TRANIO</speaker><p> I my own self, I tell you.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> For certain? </p></sp>
+<sp><speaker>TRANIO</speaker><p> For certain, I tell you.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> I'm undone, if you are telling the truth.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What good could it be to me if I told a lie?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> What shall I do now?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>pointing to the table and couches</stage>. Order all these things to be removed from here. <stage>Pointing.</stage> Who's that asleep there?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Callidamates. </p></sp>
+<sp><speaker>TRANIO</speaker><p> Arouse him, Delphium.</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> <stage>bawling out in his ear</stage>. Callidamates! Callidamates! awake! CALL. <stage>raising himself a little</stage>. I am awake; give me something to drink.</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> Awake; the father of Philolaches has arrived from abroad. </p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> I hope his father's well.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> He is well indeed; but I am utterly undone.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> You, utterly undone? How can that be?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> By heavens! do get up, I beg of you; my father has arrived.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Your father has come? Bid him go back again. What business had he to come back here so soon?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> What am I to do? My father will, just now, be coming and unfortunately finding me amid drunken carousals, and the house full of revellers and women. It's a shocking bad job, to be digging a well at the last moment, just when thirst has gained possession of your throat; just as I, on the arrival of my father, wretch that I am, am now enquiring what I am to do.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>pointing at CALLIDAMATES</stage>. Why look, he has laid down his head and gone to sleep. Do arouse him.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>shaking him</stage>. Will you awake now? My father, I tell you, will be here this instant.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> How say you? Your father? Give me my shoes, that I may take up arms. On my word, I'll kill your father this instant.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> <stage>seizing hold of him</stage>. You're spoiling the whole business; do hold your tongue. <stage>To DELPHIUM.</stage> Prithee, do carry him off in your arms into the house.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>To DELPHIUM, who is lifting him up</stage>. Upon my faith, I'll be making an utensil of you just now, if you don't find me one. <stage>He is led off into the house.</stage></p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> I'm undone!</p></sp>
+<sp><speaker>TRANIO</speaker><p> Be of good courage; I'll cleverly find a remedy for this alarm. </p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> I'm utterly ruined!</p></sp>
+<sp><speaker>TRANIO</speaker><p> Do hold your tongue; I'll think of something by means of which to alleviate this for you. Are you satisfied, if on his arrival I shall so manage your father, not only that he shall not enter, but even that he shall run away to a distance from the house? Do you only be off from here in-doors, and remove these things from here with all haste.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Where am I to be? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Where you especially desire: with her <stage>pointing to PHILEMATIUM</stage>; with this girl, too, you'll be. <stage>Pointing to DELPHEIUM.</stage></p></sp>
+<sp><speaker>DELPHIUM</speaker><p> How then? Are we to go away from here?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Not far from here, Delphium. For carouse away in the house not a bit the less on account of this.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Ah me! I'm in a sweat with fear as to how these fine words are to end! </p></sp>
+<sp><speaker>TRANIO</speaker><p> Can you not be tranquil in your mind, and do as I bid you?</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> I can be. </p></sp>
+<sp><speaker>TRANIO</speaker><p> In the first place of all, Philematium, do you go in-doors; and you, Delphium.</p></sp>
+<sp><speaker>DELPHIUM</speaker><p> We'll both be obedient to you. <stage>They go into the house.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> May Jupiter grant it so! Now then, do you give attention as to what I'd have attended to. In the first place, then, before anything, cause the house to be shut up at once. Take care and don't let any one whisper a word indoors.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Care shall be taken. </p></sp>
+<sp><speaker>TRANIO</speaker><p> Just as though no living being were dwelling within the house.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Very well. </p></sp>
+<sp><speaker>TRANIO</speaker><p> And let no one answer, when the old gentleman knocks at the door.</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> Anything else?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Order the master-key<milestone n="895" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Order the mister-key</lemma>:  "Clavem--Laconicam;" literally, "the Laconian key." This was a kind of key originally invented by the Spartans, by means of which a door could be locked from the outside, but not from within. According to some, this key was called "Laconica," from its rough appearance, in allusion to the inelegant exterior of the Spartans. In his Thesmophoriazus&aelig;, Aristophanes informs us that these keys had three wards.</note> of the house to be brought me at once from within; this house I'll lock here on the outside.
+</p></sp>
+<sp><speaker>PHILOLACHES</speaker><p> To your charge I commit myself, Tranio, and my hopes. <stage>He goes into the house, and the things are removed from the stage.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>to himself</stage>. It matters not a feather whether a patron or a dependant is the nearest at hand for that man who has got no courage in his breast. For to every man, whether very good or very bad, even at a moment's notice, it is easy to act with craft; but this must be looked to, this is the duty of a prudent man, that what has been planned and done in craftiness, may all come about smoothly and without mishap; so that he may not have to put up with anything by reason of which he might be loth to live; just as I shall manage, that, from the confusion which we shall here create, all shall really go on smoothly and tranquilly, and not produce us any inconvenience in the results. <stage>Enter a BOY, from the house.</stage> But, why have you come out? I'm undone! (The </p></sp>
+<sp><speaker>A BOY.</speaker><p> shows him the key.) O very well, you've obeyed my orders most opportunely.</p></sp>
+<sp><speaker>A BOY.</speaker><p> He bade me most earnestly to entreat you some way or other to scare away his father, that he may not enter the house.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Even more, tell him this, that I'll cause that he shan't venture even to look at the house, and to take to flight, covering up his head<milestone n="414" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Covering up his head</lemma>:  With the ancients, when either ashamed or alarmed at anything, it was the custom to throw a part of the dress over the head, as a hood.</note> with the greatest alarm. Give me the key <stage>taking it</stage>, and be off in-doors, and shut to the door, and I'll lock it on this side. <stage>The BOY goes into the house, and TRANIO locks the door.</stage> Bid him now come forthwith. For the old gentleman here while still alive this day will I institute games<milestone n="417" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Will I institute games</lemma>: , He plays on the double meaning of "ludos," which means either "tricks," or "funerai games" in honor of the dead, according to the context.</note> in his presence, such as I fancy there will never be for him when he's dead. <stage>Moving away.</stage> I'll go away from the door to this spot; hence, I'll look out afar in which direction to lay the burden on the old fellow on his arrival. <stage>Exit to a little distance.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="431" unit="TLN line"/>
+<stage>Enter THEUROPIDES, followed by ATTENDANTS.</stage>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to himself</stage>. Neptune, I do return extreme thanks to thee that thou hast just dismissed me from thee, though scarce alive. But if, from this time forward, thou shalt only know that I have stirred a foot upon the main, there is no reason why, that instant, thou shouldst not do with me that which thou hast now wished to do. Away with you, away with you from me henceforth for ever after to-day; what I was to entrust to thee, all of it have I now entrusted.
+<stage>overhearing him.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. By my troth, Neptune, you've been much to blame, to have lost this opportunity so fair.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> After three years, I've arrived home from &AElig;gypt. I shall come a welcome guest to my household, I suppose.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. Upon my faith, he might have come a much more welcome one, who had brought the tidings you were dead.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>looking at the door</stage>. But what means this? Is the door shut in the daytime? I'll knock. <stage>Knocks at the door.</stage> Hallo, there! is any one going to open this door for me?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>coming forward, and speakcing aloud</stage>. What person is it that has come so near to our house?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Surely this is my servant Tranio.</p></sp>
+<sp><speaker>TRANIO</speaker><p> O Theuropides, my master, welcome; I'm glad that you've arrived in safety. </p></sp>
+<sp><speaker>HAVE</speaker><p> you been well all along?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> All along, as you see.</p></sp>
+<sp><speaker>TRANIO</speaker><p> That's very good.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What about yourselves? Are you all mad?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why so?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> For this reason; because you are walking about outside; not a born person is keeping watch in the house, either to open or to give an answer. With kicking with my feet I've almost broken in the pannels?</p></sp>
+<sp><speaker>TRANIO</speaker><p> How now? Have you been touching this house?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why shouldn't I touch it? Why, with kicking it, I tell you, I've almost broken down the door.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What, you touched it?
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I touched it, I tell you, and knocked at it.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Out upon you! </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why so?</p></sp>
+<sp><speaker>TRANIO</speaker><p> By heavens! 'twas ill done.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What is the matter? </p></sp>
+<sp><speaker>TRANIO</speaker><p> It cannot be expressed, how shocking and dreadful a mischief you've been guilty of.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> How so?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Take to flight, I beseech you, and get away from the house. Fly in this direction, fly closer to me. <stage>He runs to wards TRANIO.</stage> What, did you touch the door?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> How could I knock, if I didn't touch it?</p></sp>
+<sp><speaker>TRANIO</speaker><p> By all that's holy, you've been the death----</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Of what person? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Of all your family.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> May the Gods and Goddesses confound you with that omen.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I'm afraid that you can't make satisfaction for yourself and them.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> For what reason, or what new affair is this that you thus suddenly bring me news of?</p></sp>
+<sp><speaker>TRANIO</speaker><p> And <stage>whispering</stage> hark you, prithee, do bid those people to move away from here. <stage>Pointing to the ATTENDANTS of THEUROPIDES.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to the ATTENDANTS</stage>. Move away from here.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Don't you touch the house. Touch you the ground<milestone n="457" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Touch you the ground</lemma>:  The ancients were in the habit of reverentially touching the earth, when engaged in any affairs that related to the dead or the infernal Deities.</note> as well. <stage>(Exeunt the ATTENDANTS.)</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I' faith, prithee, do speak out now.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Because it is now seven months that not a person has set foot within this house, and since we once for all left it.</p></sp>
+<sp><speaker>THEE.</speaker><p> Tell me, why so?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Just look around, whether there's any person to overhear our discourse.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>looking around</stage>. All's quite safe.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Look around once more.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>looking around</stage>. There's nobody; now then, speak out. TRA. <stage>in a loud whisper</stage>. The house has been guilty of a capital offence<milestone n="464" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Guilty of a capital offence</lemma>:  'Capitalis &aelig;des facta eat;" meaning that a murder had been committed in it.</note>.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I don't understand you. </p></sp>
+<sp><speaker>TRANIO</speaker><p> A crime, I tell you, has been committed there, a long while ago, one of olden time and ancient date.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Of ancient date? </p></sp>
+<sp><speaker>TRANIO</speaker><p> 'Tis but recently, in fact, that we've discovered this deed.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What is this crime, or who committed it? Tell me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> A host slew his guest, seized with his hand; he, I fancy, who sold you the house.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Slew him?</p></sp>
+<sp><speaker>TRANIO</speaker><p> And robbed this guest of his gold, and buried this guest there in the house, on the spot.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> For what reason do you suspect that this took place?</p></sp>
+<sp><speaker>TRANIO</speaker><p> I'll tell you; listen. One day, when your son had dined away from home, after he returned home from dining; we all went to bed, and fell asleep. By accident, I had forgotten to put out my lamp; and he, all of a sudden, called out aloud----</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What person? My son?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Hist! hold your peace: just listen. He said that a dead man came to him in his sleep----</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> In his dreams, then, you mean?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Just so. But only listen. He said that he had met with his death by these means----</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What, in his sleep?</p></sp>
+<sp><speaker>TRANIO</speaker><p> It would have been surprising if he had told him awake, who had been murdered sixty years ago. On some occasions you are absurdly simple. But look, what he said: "I am the guest of Diapontius, from beyond the seas; here do I dwell; this has been assigned me as my abode; for Orcus would not receive me in Acheron, because prematurely I lost my life. Through confiding was I deceived: my entertainer slew me here, and that villain secretly laid me in the ground without funereal rites, in this house, on the spot, for the sake of gold. Now do you depart from here; this house is accursed, this dwelling is defiled." The wonders that here take place, hardly in a year could I recount them. Hush, hush! <stage>He starts.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Troth now, what has happened, prithee?</p></sp>
+<sp><speaker>TRANIO</speaker><p> The door made a noise. Was it he that was knocking?
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>turning pale</stage>. I have not one drop of blood! Dead men are come to fetch me to Acheron, while alive!</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. I'm undone! those people there will mar my plot. <stage>A noise is heard from within.</stage> How much I dread, lest he should catch me in the fact.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What are you talking about to yourself? <stage>Goes near the door.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> Do get away from the door. By heavens, fly, I do beseech you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Fly where? Fly yourself, as well.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I am not afraid: I am at peace with the dead.</p></sp>
+<sp><speaker>A VOICE</speaker><p> <stage>from within</stage>. Hallo! Tranio<milestone n="502" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hallo! Tranio</lemma>:  Weise's Edition gives these words to Theuropides, Rost, no doubt rightly, suggests that these words are spoken by Philolaches from inside (perhaps in a low voice, to ask Tranio how matters are going on). On this, Tranio turns it to good account, by pretending that the Ghost is calling out to him for his supposed impiety in daring to knock at the door.</note>.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>in a low voice, near the door</stage>. You won't be calling me, if you are wise. <stage>Aloud, as if speaking to the APPARITION.</stage> 'Tis not I that's guilty; I did not knock at the door.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Pray, what is it that's wrong? What matter is agitating you, Tranio? To whom are you saying these things?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Prithee, was it you that called me? So may the Gods bless me, I fancied it was this dead man expostulating because you had knocked at the door. But are you still standing there, and not doing what I advise you?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What am I to do? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Take care not to look back. Fly; cover up your head!</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why don't you fly?</p></sp>
+<sp><speaker>TRANIO</speaker><p> I am at peace with the dead.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I recollect. Why then were you so dreadfully alarmed just now?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Have no care for me, I tell you; I'll see to myself. You, as you have begun to do, fly as quick as ever you can; Hercules, too<milestone n="514" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hercules, too</lemma>:  Hercules having slain so many monsters, was naturally regarded as a Deity likely to give aid in extreme danger.</note>, you will invoke.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Hercules, I do invoke thee! <stage>Runs off.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>to himself.</stage> And I, as well, old fellow, that; this day he'll send some heavy mishap upon you. O ye immortal Gods, I do implore your aid. Plague on it! what a mess I have got into to-day. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="532" unit="TLN line"/>
+<stage>Enter a BANKER, at the end of the stage.</stage>
+<sp><speaker>A BANKER.</speaker><p> <stage>to himself</stage>. I never knew any year worse for money upon interest, than this year has turned out to me. From morning even until night, I spend my time in the Forum; I cannot lend out a coin of silver to any one.
+<stage>Enter TRANIO.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. Now, faith, I am clearly undone in an everlasting way! The Banker's here who found the money with which his mistress was bought. The matter's all out, unless I meet him a bit beforehand, so that the old man may not at present come to know of this. I'll go meet him. But <stage>seeing THEUROPIDES</stage> I wonder why he has so soon betaken himself homeward again. I'm afraid that he has heard something about this affair. I'll meet him, and accost him. But how dreadfully frightened I am! Nothing is more wretched than the mind of a man with a guilty conscience, such as possesses myself. But however this matter turns out, I'll proceed to perplex it still further: so does this affair require.
+<stage>THEUROPIDES.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>accosting him</stage>. Whence come you?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I met that person from whom I bought this house.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Did you tell him anything about that which I was telling you?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I' faith, I certainly told him everything.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. Woe to unfortunate me! I'm afraid that my schemes are everlastingly undone!</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What is it you are saying to yourself?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why nothing. But tell me, prithee, did you really tell him?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I told him everything in its order, I tell you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Does he, then, confess about the guest?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why no; he utterly denies it.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Does he deny it?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Do you ask me again? I should tell you if he had confessed it. What now are you of opinion ought to be done?</p></sp>
+<sp><speaker>TRANIO</speaker><p> What is my opinion? By my troth, I beg of you, appoint an arbitrator together with him; but take you care that you appoint one who will believe me; you'll overcome him as easily as a fox eats a pear<milestone n="543" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As a fox eats a pear</lemma>:  This may either mean, very easily indeed, or not at all. It is not clear that a fox will eat a pear; but if he does, his teeth will go through it with the greatest ease. Not improbably, Tranio uses the expression for its ambiguity.</note>.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>to himself</stage>. But see, here's Tranio, the servant of Philolaches, people who pay me neither interest nor principal on my money. <stage>Goes towards TRANIO, who steps forward to meet him.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to TRANIO</stage>. Whither are you betaking yourself?</p></sp>
+<sp><speaker>TRANIO</speaker><p> I'm going no whither. <stage>Aside.</stage> For sure, I am a wretch, a rascal, one born with all the Gods my foes! He'll now be accosting me in the old man's presence. Assuredly, I am a wretched man; in such a fashion both this way and that do they find business for me. But I'll make haste and accost him. <stage>Moves towards the BANKER.</stage></p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>apart</stage>. He's coming towards me. I'm all right I've some hopes of my money; he's smiling.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>to himself</stage>. The fellow's deceived. <stage>To the BANKER.</stage> I heartily bid you hail, my friend Saturides<milestone n="552" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Friend Saturides</lemma>:  A nickname coined by the author, from "satur," "brimful," of money, probably.</note>.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> And hail to you. What about the money?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Be off with you, will you, you brute. Directly you come, you commence the attack<milestone n="554" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Commence the attack</lemma>:  "Pilum injecisti." Literally, "you have thrown the dart." " To throw the dart" was a common expression, signifying "to make the first attack;" as the darts were thrown before recourse was had</note> against me.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>apart</stage>. This fellow's empty-handed.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>overhearing him</stage>. This fellow's surely a conjurer.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> But why don't you put an end to this trifling?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Tell me, then, what it is you want.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Where is Philolaches?</p></sp>
+<sp><speaker>TRANIO</speaker><p> You never could have met me more opportunely than you have met me. </p></sp>
+<sp><speaker>A BANKER.</speaker><p> How's that?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>taking him aside</stage>. Step this way.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>aloud</stage>. Why isn't the money repaid me?
+</p></sp>
+<sp><speaker>TRANIO</speaker><p> I know that you have a good voice; don't bawl out so loud. </p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>aloud</stage>. I' faith, I certainly shall bawl out.</p></sp>
+<sp><speaker>TRANIO</speaker><p> O do humour me now.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> What do you want me to humour you in?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Prithee, be off hence home.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Be off? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Return here about mid-day.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Will the interest be paid then?</p></sp>
+<sp><speaker>TRANIO</speaker><p> It will be paid. Be off.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Why should I run to and fro here, or use or waste my pains? What if I remain here until mid-day in preference?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why no; be off home. On my word, I'm telling the truth. Only do be off.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>aloud</stage>. Then do you pay me my interest. Why do you trifle with me this way?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Bravo! faith. Really now, do be off; do attend to me.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>aloud</stage>. I' faith, I'll call him now by name.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Bravo! stoutly done! Really you are quite rich now when you bawl out.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>aloud</stage>. I'm asking for my own. In this way you've been disappointing me for these many days past. If I'm troublesome, give me back the money; I'll go away then. That expression<milestone n="574" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That expression</lemma>:  By "hoc verbum" he probably alludes to the expression, "reddite argentum, "down with the money."</note> puts an end to all replies.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>pretending to offer it him</stage>. Then, take the principal<milestone n="575" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take the principal</lemma>:  He finds he must say something, so he says this, although he has no money with him. He knows, however, that the usurer will first insist on the interest being paid, because if he takes the principal, it will be a legal waver of his right to claim the interest.</note>.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>aloud</stage>. Why no, the interest; I want that first.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What? Have you, you fellow most foul of all fellows, come here to burst yourself? Do what lies in your power. He's not going to pay you; he doesn't owe it.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Not owe it?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Not a tittle, indeed, can you get from here. Would you prefer for him to go abroad, and leave the city in exile, driven hence for your sake? Why then, in preference let him pay the<milestone n="581" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Let him pay the</lemma>:  "Quin sortem potius dare licet?" is the reading here, in Weise's Edition; but the line seems hopelessly incorrect.</note> principal.
+</p></sp>
+<sp><speaker>A BANKER.</speaker><p> But I don't ask for it.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>calling out to TRANIO, from a distance</stage>. Hark you! you whip-knave, come back to me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>to THEUROPIDES</stage>. I'll be there just now. <stage>To the BANKER.</stage> Don't you be troublesome: no one's going to pay you; do what you please. You are the only person, I suppose, that lends money upon interest. <stage>Moves towards THEUROPIDES.</stage></p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>bawling aloud</stage>. Give me my interest! pay me my interest! you pay my interest! Are you going to give me my interest this instant? Give me my interest!</p></sp>
+<sp><speaker>TRANIO</speaker><p> Interest here, interest there! The old rogue knows how to talk about nothing but interest. I do not think that ever I saw any beast more vile than you.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Upon my faith, you don't alarm me now with those expressions. This is of a hot nature; although it is at a distance off, it scorches badly<milestone n="592" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">It scorches badly</lemma>:  This line is given by Gruter to Theuropides, by Acidalius to Tranio, and by Lambinus to the Banker. The latter seems the most appropriate owner of it; and he probably alludes, aside, to the effects of his pressing in a loud voice for the money. Tranio is introduced as using the same expression, in l. 650; but there can be no doubt that the line, as there inserted, is spurious.</note>.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Don't you be troublesome; no one's going to pay you; do what you please. You are the only person, I suppose, that lends money upon interest.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to TRANIO</stage>. Pray, what interest is this that he is asking for?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>in a low voice, to the BANKER</stage>. Look now; his father has arrived from abroad, not long since; he'll pay you both interest and principal; don't you then attempt any further to make us your enemies. See whether he puts you off.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Nay but, I'll take it, if anything's offered.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to TRANIO, coming towards him</stage>. What do you say, then----? </p></sp>
+<sp><speaker>TRANIO</speaker><p> What is it you mean?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Who is this? What is he asking for? Why is he thus rudely speaking of my son Philolaches in this way, and giving you abuse to your face? What's owing him?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>to THEUROPIDES</stage>. I beg of you, do order the money to be thrown in the face of this dirty brute.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I, order it?
+</p></sp>
+<sp><speaker>TRANIO</speaker><p> Order the fellow's face to be pelted with money.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>coming nearer</stage>. I could very well put up with a pelting with money.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to TRANIO</stage>. What money's this?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Philolaches owes this person a little.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> How much? </p></sp>
+<sp><speaker>TRANIO</speaker><p> About forty min&aelig;.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>to THEUROPIDES</stage>. Really, don't think much of that; it's a trifle, in fact.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Don't you hear him? Troth now, prithee, doesn't he seem just suited to be a Banker--a generation that's most roguish?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I don't care, just now, for that, who he is or whence he is; this I want to be told me, this I very much wish to know--I heard from him that there was interest owing on the money as well.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Forty-four min&aelig; are due to him. Say that you'll pay it, that he may be off.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I, say that I'll pay it?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Do say so. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What, I?</p></sp>
+<sp><speaker>TRANIO</speaker><p> You yourself. Do only say so. Do be guided by me. Do promise. Come now, I say; I beg of you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Answer me; what has been done with this money?</p></sp>
+<sp><speaker>TRANIO</speaker><p> It's safe. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Pay it yourselves then, if it's safe,</p></sp>
+<sp><speaker>TRANIO</speaker><p> Your son has bought a house.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> A house? </p></sp>
+<sp><speaker>TRANIO</speaker><p> A house.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Bravo! Philolaches is taking after his father! The fellow now turns to merchandize. A house, say you?</p></sp>
+<sp><speaker>TRANIO</speaker><p> A house, I tell you. But do you know of what sort?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> How can I know?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Out with you! </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What's the matter?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Don't ask me that. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> But why so?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Bright as a mirror, pure brilliancy itself.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Excellently done, upon my faith! Well, how much did he agree to give for it?</p></sp>
+<sp><speaker>TRANIO</speaker><p> As many great talents as you and I put together make; but these forty min&aelig; he paid by way of earnest. <stage>Pointing to the BANKER.</stage> From him he received what we paid the other man. Do you quite understand<milestone n="629" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Do you quite understand</lemma>:  Warner suggests, that by using this expression before the Banker, he intends to make a secret of the house being haunted, and that he keeps up the mystery in the succeeding line.</note>? For after this house was in such a state as I mentioned to you, he at once purchased another house for himself.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Excellently done, upon my faith!</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>touching TRANIO</stage>. Hark you. Mid-day is now close at hand.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Prithee, do dismiss this puking fellow, that he mayn't worry us to death. Forty-four min&aelig; are due to him, both principal and interest.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> 'Tis just that much; I ask for nothing more.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Upon my faith, I really could have wished that you had asked more, if only by a single coin.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to the BANKER</stage>. Young man, transact the business with me.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> I'm to ask it of you, you mean?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Come for it to-morrow.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> I'll be off, then; I'm quite satisfied if I get it tomorrow. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. A plague may all the Gods and Goddesses send upon him! so utterly has he disarranged my plans. On my word, no class of men is there more disgusting, or less acquainted with fair dealing than the banking race.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> In what neighbourhood did my son buy this house?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. Just see that, now! I'm undone!</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Are you going to tell me that which I ask you?</p></sp>
+<sp><speaker>TRANIO</speaker><p> I'll tell you; but I'm thinking what was the name of the owner. <stage>Pretends to think.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Well, call it to mind, then.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. What am I to do now, except put the lie upon this neighbour of ours next door? I'll say that his son has bought that house. I' faith, I've heard say that a lie piping-hot is the best lie; this is piping-hot; although it is at a distance off, it scorches badly. Whatever the Gods dictate, that am I determined to say.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Well now? Have you recollected it by this?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. May the Gods confound that fellow!--no this other fellow, rather. <stage>To THEUROPIDES.</stage> Your son has bought the house of this next-door neighbour of yours.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> In real truth? </p></sp>
+<sp><speaker>TRANIO</speaker><p> If, indeed, you are going to pay down the money, then in real truth; if you are not going to pay it, in real truth he has not bought it.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> He hasn't bought it in a very good situation.
+</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why yes, in a very good one.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I' faith, I should like to look over this house; just knock at the door, and call some one to you from within, Tranio.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. Why just look now, again I don't know what I'm to say. Once more, now, are the surges bearing me upon the self-same rock. What now? I' faith, I can't discover what I am now to do; I'm caught in the fact.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Just call some one out of doors; ask him to show us round.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>going to the door of SIMO'S house</stage>. Hallo there, you! <stage>Turning round</stage> But there are ladies here; we must first see whether they are willing or unwilling.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You say what's good and proper; just make enquiry, and ask. I'll wait here outside until you come out.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. May all the Gods and Goddesses utterly confound you, old gentleman! in such a fashion are you thwarting my artful plans in every way. Bravo! very good! Look, Simo himself, the owner of the house, is coming out of doors. I'll step aside here, until I have convened the senate of council in my mind. Then, when I've discovered what I am to do, I'll join him. <stage>THEUROPIDES and TRANIO stand at a distance from SIMO'S house, in opposite directions, THEUROPIDES being out of sight.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="690" unit="TLN line"/>
+<stage>Enter SIMO, from his house.</stage>
+<sp><speaker>SIMO</speaker><p> <stage>to himself</stage>. I've not enjoyed myself better at home this year than I have to-day, nor has at any time any meal pleased me better. My wife provided a very nice breakfast for me; now she bids me go take a nap. By no means! It instantly struck me that it didn't so happen by chance. She provided a better breakfast than is her wont; and then, the old lady wanted to draw me away to my chamber. Sleep is not good<milestone n="681" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sleep is not good</lemma>:  It was a custom with the Romans to take a nap at noon, after the "prandium." The modern Italians have the same practice, and call it the "siesta." Simo has his private reasons for thinking that this nap is not wholesome in his own case.</note> after breakfast--out upon it! I secretly stole away from the house, out of doors. My wife, I'm sure, is now quite bursting with rage at home.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. A sore mischance is provided for this old fellow by the evening; for he must both dine and go to bed in-doors in sorry fashion.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>continuing</stage>. The more I reflect upon it in my mind: if any person has a dowried wife, sleep has no charms for him. I detest going to take a nap. It's a settled matter with me to be off to the Forum from here, rather than nap it at home. And, i' faith <stage>to the AUDIENCE</stage>, I don't know how your wives are in their behaviour; this wife of mine, I know right well how badly she treats me, and that she will prove more annoying to me hereafter than she has been.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. If your escape, old gentleman, turns out amiss, there'll be no reason for you to be accusing any one of the Gods; by very good right, you may justly lay the blame upon yourself. It's time now for me to accost this old fellow. 'Tis down upon him<milestone n="698" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Down upon him</lemma>:  "Hoc habet." Literally, "he has it;" a term used by the Spectators, when a gladiator received a wound at the gladiatorial games.</note>. I've hit upon a plan whereby to cajole the old fellow, by means of which to drive grief<milestone n="699" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By means of which to drive grief</lemma>:  He plays upon the resemblance of the words "dolo" and "dolorem."</note> away from me. I'll accost him. <stage>Accosting him.</stage> May the Gods, Simo, send on you many blessings! <stage>Takes him by the hand.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> Save you, Tranio! </p></sp>
+<sp><speaker>TRANIO</speaker><p> How fare you?</p></sp>
+<sp><speaker>SIMO</speaker><p> Not amiss. What are you about?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Holding by the hand a very worthy man.</p></sp>
+<sp><speaker>SIMO</speaker><p> You act in a friendly way, in speaking well of me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> It certainly is your due.</p></sp>
+<sp><speaker>SIMO</speaker><p> But, i' faith, in you I don't hold a good servant by the hand.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>calling from a distance, where he is not perceived by SIMO</stage>. Hark you! you whip-knave, come back to me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>turning round</stage>. I'll be there just now.</p></sp>
+<sp><speaker>SIMO</speaker><p> Well now, how soon----?</p></sp>
+<sp><speaker>TRANIO</speaker><p> What is it? </p></sp>
+<sp><speaker>SIMO</speaker><p> The usual goings-on.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Tell me then, these usual goings-on, what are they?</p></sp>
+<sp><speaker>SIMO</speaker><p> The way that you yourselves proceed. But, Tranio, to say the truth, according as men are, it so befits you to humour them; reflecting, at the same time, how short life is.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What of all this? Dear me, at last, after some difficulty, I perceive that you are talking about these goings-on of ours.</p></sp>
+<sp><speaker>SIMO</speaker><p> I' faith, you people are living a merry life, just as befits you: on wine, good cheer, nice dainty fish, you enjoy life.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why yes, so it was in time past, indeed; but now these things have come to an end all at once. </p></sp>
+<sp><speaker>SIMO</speaker><p> How so?</p></sp>
+<sp><speaker>TRANIO</speaker><p> So utterly, Simo, are we all undone!</p></sp>
+<sp><speaker>SIMO</speaker><p> Won't you hold your tongue? Everything has gone on prosperously with you hitherto.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I don't deny that it has been as you say; undoubtedly, we have lived heartily, just as we pleased; but, Simo, in such a way has the breeze now forsaken our ship----</p></sp>
+<sp><speaker>SIMO</speaker><p> What's the matter? In what way?</p></sp>
+<sp><speaker>TRANIO</speaker><p> In a most shocking way.</p></sp>
+<sp><speaker>SIMO</speaker><p> What, wasn't it hauled ashore<milestone n="723" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Wasn't it hauled ashore</lemma>:  It was the custom, when ships were not in use, especially in the winter time, to draw them up on shore, by means of rollers placed beneath them.</note>in safety?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Ah me! </p></sp>
+<sp><speaker>SIMO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Ah wretched me! I'm utterly undone!</p></sp>
+<sp><speaker>SIMO</speaker><p> How so? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Because a ship has come, to smash the hull of our ship.</p></sp>
+<sp><speaker>SIMO</speaker><p> I would wish as you would wish, Tranio, for your own sake. But what is the matter? Do inform me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I will inform you. My master has arrived from abroad.</p></sp>
+<sp><speaker>SIMO</speaker><p> In that case, the cord will be stretched for you; thence to the place where iron fetters clink; after that, straight to the cross.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Now, by your knees, I do implore you, don't give information to my master.</p></sp>
+<sp><speaker>SIMO</speaker><p> Don't you fear; he shall know nothing from me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Blessings on you, my patron.</p></sp>
+<sp><speaker>SIMO</speaker><p> I don't care for clients of this description for myself.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Now as to this about which our old gentleman has sent me.</p></sp>
+<sp><speaker>SIMO</speaker><p> First answer me this that I ask you. As yet, has your old gentleman discovered anything of these matters?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Nothing whatever.</p></sp>
+<sp><speaker>SIMO</speaker><p> Has he censured his son at all?
+</p></sp>
+<sp><speaker>TRANIO</speaker><p> He is as calm as the calm weather is wont to be. Now he has requested me most earnestly to beg this of you, that leave may be given him to see over this house of yours.</p></sp>
+<sp><speaker>SIMO</speaker><p> It's not for sale. </p></sp>
+<sp><speaker>TRANIO</speaker><p> I know that indeed; but the old gentleman wishes to build a woman's apartment<milestone n="741" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A woman's apartment</lemma>:  "Gyn&aelig;ceum." This was a name borrowed from the Greeks, for the apartments in the house which were especially devoted to the use of the females.</note> here in his own house, baths, too, and a piazza, and a porch.</p></sp>
+<sp><speaker>SIMO</speaker><p> What has he been dreaming of?</p></sp>
+<sp><speaker>TRANIO</speaker><p> I'll tell you. He wishes to give his son a wife as soon as he can; for that purpose he wants a new apartment for the women. But he says that some builder, I don't know who, has been praising up to him this house of yours, as being remarkably well built; now he's desirous to take a model from it, if you don't make any objection----</p></sp>
+<sp><speaker>SIMO</speaker><p> Indeed, he is really choosing a plan for himself from a piece of poor workmanship.</p></sp>
+<sp><speaker>TRANIO</speaker><p> It was because he heard that here the summer heat was much modified; that this house was wont to be inhabited each day all day long.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why really, upon my faith, on the contrary, while there's shade in every direction, in spite of it, the sun is always here from morning till night: he stands, like a dun, continually at the door; and I have no shade anywhere, unless, perhaps, there may be some in the well.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Well now, have you one from Sarsina, if you have no woman of Umbria<milestone n="756" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">No woman of Umbria</lemma>:  This is a poor pun upon the different acceptations of the word "umbra," which may signify, according to the context, "shade," or "a woman of Umbria." Simo means it in the former, while Tranio chooses to take it in the latter sense. Simo does not like this attempt at wit, and tells him not to be impertinent. We may here observe, that Plautus was born at Sarsina, a town of Umbria.</note>?</p></sp>
+<sp><speaker>SIMO</speaker><p> Don't be impertinent. It is just as I tell you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Still, he wishes to look over it.</p></sp>
+<sp><speaker>SIMO</speaker><p> He may look over it, if he likes. If there is anything that takes his fancy, let him build after my plan.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Am I to go and call this person hither?</p></sp>
+<sp><speaker>SIMO</speaker><p> Go and call him.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>(to himself, as he goes to the other side of the stage to call THEUROPIDES).</stage> They say that Alexander the Great and Agathocles<milestone n="761" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Agathocles</lemma>:  Agathocles rose from the station of a potter to be king of Sicily.</note> achieved two very great exploits; what shall be the lot of myself, a third, who, unaided, am achieving deeds imperishable? This old fellow is carrying his pack-saddle, the other one, as well. I've hit upon a novel trade for myself, not a bad one; whereas muleteers have mules to carry pack-saddles; I've got men to carry the pack-saddles. They are able to carry heavy burdens; whatever you put upon them, they carry. Now, I don't know whether I am to address him. I'll accost him, however. <stage>Calling aloud.</stage> Hark you, Theuropides!</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>coming forward</stage>. Well; who's calling me?</p></sp>
+<sp><speaker>TRANIO</speaker><p> A servant most attached to his master. Where you sent me, I got it all agreed to.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Prithee, why did you stay there so long?</p></sp>
+<sp><speaker>TRANIO</speaker><p> The old gentleman hadn't leisure; I was waiting until then.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You keep up that old way of yours, of being tardy.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Hark you! if you please reflect upon this proverb: to blow and swallow<milestone n="777" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To blow and swallow</lemma>:  Or "exhale and inhale." A proverbial expression, very similar to that in use with us, that "a person cannot blow hot and cold at the same time."</note> at the same moment isn't easy to be done; I couldn't be here and there at the same time.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What now?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Come and look, and inspect it at your own pleasure.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Very well, you go before me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Am I delaying to do so? </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I'll follow after you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>as they advance</stage>. Look, the old gentleman himself is awaiting you before the door, but he is concerned that he has sold this house.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why so?</p></sp>
+<sp><speaker>TRANIO</speaker><p> He begs me to persuade Philolaches to let him off.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I don't think he will. Each man reaps on his own farm<milestone n="785" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Reaps on his own farm</lemma>:  A country proverb, meaning "every one for himself."</note>. If it had been bought dear, we shouldn't have had permission to return it on his hands. Whatever profit there is, it's proper to bring it home. It don't, now-a-days, befit men to be showing compassion.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I' faith, you are losing time while you are talking. Follow me.
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Be it so. </p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>to THEUROPIDES</stage>. I'll give you my services. <stage>Pointing.</stage> There's the old gentleman. <stage>To SIMO.</stage> Well now, I've brought you this person.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'm glad that you've arrived safely from abroad, Theuropides. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> May the Gods bless you.</p></sp>
+<sp><speaker>SIMO</speaker><p> Your servant was telling me that you were desirous to look over this house.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Unless it's inconvenient to you.</p></sp>
+<sp><speaker>SIMO</speaker><p> Oh no; quite convenient. Do step in-doors and look over it. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>pausing</stage>. But yet--the ladies----</p></sp>
+<sp><speaker>SIMO</speaker><p> Take you care not to trouble yourself a straw about any lady. Walk in every direction, wherever you like, all over the house just as though it were your own.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>apart to TRANIO</stage>. "Just as though----?"</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>whispering</stage>. Oh, take care that you don't throw it in his teeth now in his concern, that you have bought it. Don't you see him, how sad a countenance the old gentleman has?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>apart</stage>. I see. TRA. <stage>apart</stage>. Then don't seem to exult, and to be overmuch delighted; in fact, don't make mention that you've bought it.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>apart</stage>. I understand; and I think you've given good advice, and that it shows a humane disposition. <stage>Turning to SIMO.</stage> What now?</p></sp>
+<sp><speaker>SIMO</speaker><p> Won't you go in? Look over it at your leisure, just as you like.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I consider that you are acting civilly and kindly.</p></sp>
+<sp><speaker>SIMO</speaker><p> Troth, I wish to do so. Should you like some one to show you over.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Away with any one to show<milestone n="804" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Away with any one to show</lemma>:  He says this, not liking the mention of the word "perductor," which, beside meaning an "attendant" or "one to escort," signifies a "pander" or "procurer." So in the next line, "perducto" means "to show over" or "to act the procurer"</note> me over. I don't want him. </p></sp>
+<sp><speaker>SIMO</speaker><p> Why? What's the matter?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I'll go wrong, rather than any one should show me over.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>pointing</stage>. Don't you see, this vestibule before the house, and the piazza, of what a compass it is?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Troth, really handsome!</p></sp>
+<sp><speaker>TRANIO</speaker><p> Well, look now. what pillars there are, with what strength they are built, and of what a thickness.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I don't think that I ever saw handsomer pillars.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> I' faith, they were some time since bought by me at such a price!</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside, whispering</stage>. Don't you hear--"They were once"? He seems hardly able to refrain from tears.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> At what price did you purchase them?</p></sp>
+<sp><speaker>SIMO</speaker><p> I gave three min&aelig; for the two, besides the carriage, <stage>He retires to some distance.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>after looking close at them, to TRANIO</stage>. Why, upon my word, they are much more unsound than I thought them at first.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why so? </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Because, i' faith, the woodworm has split them both from the bottom.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I think they were cut at an improper season; that fault damages them; but even as it is, they are quite good enough, if they are covered with pitch. But it was no foreign pulse-eating artisan<milestone n="817" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Foreign pulse-eating artisan</lemma>:  From the use of the word "pultiphagus," he probably alludes to Carthaginian workmen, who were very skilful at working in wood. In the P&oelig;nulus, Hanno the Carthaginian is called "patruus pultiphagonides," "the pulse-eating kinsman." If this is the meaning, it is pretty clear that he is not speaking in praise of the workmanship. Some, however, ever, think that as, in early times, the lower classes at Rome lived upon "puls," "pap" or "pottage," the Scene being at Athens, Roman workmen are alluded to; if so, he may mean to speak in praise of the work, and to say that no bungling artists made the doors. See the Note in p. 355. The joints are said to wink, from the close conjunction of the eyelids in the act of winking.</note> did this work. Don't you see the joints in the door? <stage>Pointing.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I see them. </p></sp>
+<sp><speaker>TRANIO</speaker><p> Look, how close together they are sleeping.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Sleeping? </p></sp>
+<sp><speaker>TRANIO</speaker><p> That is, how they wink, I intended to say. Are you satisfied?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> The more I look at each particular, the more it pleases me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>pointing</stage>. Don't you see the painting, where one crow<milestone n="821" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Where one crow</lemma>:  By the "crow," he means himself; and by the "vultures," the two old men. Simo is probably standing at some distance off; and knowing that his master's sight is not good, he feels that he may deride him with impunity.</note> is baffling two vultures? The crow stands there; it's pecking at them both in turn. This way, look, prithee, towards me<milestone n="822" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Towards me</lemma>:  "Ad me." Theuropides thinks he means, "in my direction;" whereas Tranio really means, "look 'at me' and you will see the crow;" though he does not intend that his master shall take it in that sense.</note>, that yon may be able to see the crow. <stage>THEUROPIDES turns towards him.</stage> Now do you see it?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>looking about</stage>. For my part, I really see no crow there.</p></sp>
+<sp><speaker>TRANIO</speaker><p> But do you look in that direction, towards yourselves, since you cannot discover the crow, if perchance you may be able to espy the vultures. <stage>THEUROPIDES turns towards SIMO.</stage> Now do you see them?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Upon my faith, I don't see them.</p></sp>
+<sp><speaker>TRANIO</speaker><p> But I can see two vultures.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> To make an end of it with you, I don't see any bird at all painted here.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Well then, I give it up. I excuse you; it is through age you cannot see.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> These things which I can see, really they do all please me mightily.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>coming forward</stage>. Now, at length, it's worth your while to move further on. THEU. Troth, you give good advice.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>calling at the door</stage>. Ho there, boy! take this person round this house and the apartments. But I myself would have shown you round, if I hadn't had business at the Forum.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Away with any one to show me over. I don't want to be shown over. Whatever it is, I'd rather go wrong than any one should show me over.</p></sp>
+<sp><speaker>SIMO</speaker><p> The house I'm speaking of.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Then I'll go in without any one to show me over.</p></sp>
+<sp><speaker>SIMO</speaker><p> Go, by all means.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I'll go in-doors, then.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>holding him back</stage>. Stop, please; let me see whether the dog----</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Very well then, look. <stage>TRANIO looks into the passage.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> There is one. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>looking in</stage>. Where is it?</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>to the dog</stage>. Be off and be hanged! 'St, won't you be off to utter perdition with you? What, do you still linger? 'St, away with you from here!</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>coming nearer to the door</stage>. There's no danger. You only move on. It's as gentle<milestone n="840" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">It's as gentle</lemma>:  This, probably, is intended to refer to the statue of a dog lying down in the vestibule, and not a real one. Pictures of dogs, with "cave canem" written beneath, were sometimes painted on the wall near the door.</note> as a woman in childbed. You may boldly step in-doors wherever you like. I'm going hence to the Forum.
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You've acted obligingly. Good speed to you. <stage>Exit SIMO.</stage> Tranio, come, make that dog move away from the door inside, although it isn't to be feared.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Nay but <stage>pointing</stage>, you look at it, how gently it lies. Unless you'd like yourself to appear troublesome and cowardly----</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Very well, just as you like.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Follow me this way then.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> For my part, I shall not move in any direction from your feet. <stage>They go into the house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="858" unit="TLN line"/>
+<stage>Enter PHANISCUS.</stage>
+<sp><speaker>PHANISCUS</speaker><p> <stage>to himself</stage>. Servants who, though they are free from fault, still stand in awe of punishment, those same are wont to be serviceable to their masters. But those who fear nothing, after they have merited punishment, hit upon foolish plans for themselves: they exercise themselves in running; they take to flight. But, if they are caught, they acquire from punishment a hoard, which by good means they cannot. They increase from a very little, and from that they lay by a treasure. The resolution that's in my mind is to be determined to be on my guard against punishment, before my back comes to lose its state of soundness. As hitherto it has been, so does it become my hide still to be, without a bruise, and such that I should decline its being beaten. If I have any control over it, I shall keep it well covered up<milestone n="865" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Well covered up</lemma>:  He alludes to the practice of stripping disobedient slaves, for the purpose of flogging them.</note>. When punishment is being showered down on others, don't let it be showered down on me. But as servants wish their master to be, such is he wont to be. He is good to the good, bad to the bad. But now at our house at home there do live so many rogues, lavish of their property<milestone n="870" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lavish of their property</lemma>:  That is, of their backs.</note>, bearers of stripes. When they are called to go fetch their master, "I shan't go; don't be plaguing me; I know where you are hurrying off to," is the reply. "Now, faith, you mule, you're longing to go to pasturage out of doors<milestone n="876" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To pasturage out of doors</lemma>:  This was probably a proverbial, phrase for going to the "thermopolium," the "hot liquor-shop" or "tippling- house," so much frequented by the slaves. See the Trinummus, l. 1013, and the Note to the passage.</note>." With better deserts, this advantage have I reaped from them, and, in consequence, I have come from home. I alone, out of so many servants, am going to fetch my master. When, to-morrow, my master comes to know this, in the morning he will chastise them with bull's-hide spoils. In fine, I care less for their backs than for my own. Much rather shall they be bull's-hide-scourged than I be rope-scourged<milestone n="882" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bull's-hide-scourged--rope scourged</lemma>:  "Buc&aelig;d&aelig;--restio." The latter word properly signifies "a ropemaker." The former is probably coined by Plautus.</note>. <stage>Moves on.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="885" unit="TLN line"/>
+<stage>Enter a SERVANT.</stage>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Hold you and stop this instant. Phaniscus! look round, I say!</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> <stage>not turning round</stage>. Don't be annoying to me.</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Do see how scornful the monkey is!</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I am so for myself; I choose to be. Why do you trouble yourself about it? <stage>Walking on.</stage></p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Are you going to stop this instant, you dirty parasite? </p></sp>
+<sp><speaker>PHANISCUS</speaker><p> <stage>turning round</stage>. How am I a parasite?</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Why, I'll tell you: you can be drawn anywhere by victuals. Do you give yourself airs, because your master's so fond of you?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> <stage>rubbing his eyes</stage>. O dear, my eyes do ache<milestone n="890" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My eyes do ache</lemma>:  Phaniscus probably means to say, that the sight of him is as annoying to his eyes as smoke can be.</note>.</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Why so? </p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Because the smoke's so troublesome.</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Hold your tongue, will you, you clever workman, who are in the habit of coining money out of lead<milestone n="892" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Money out of lead</lemma>:  According to Erasmus, (Adagia Chil. v. Cent. 1,) this was a proverbial expression among the Romans, signifying the ability to put on a specious appearance.</note>.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> You cannot compel me to be abusive to you. My master knows me.</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Why, really, his own pillow<milestone n="894" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">His own pillow</lemma>:  There is an indelicate allusion in this line; and another turn has been given to it in the Translation.</note> he ought to know, for resting on when drunk.
+</p></sp>
+<sp><speaker>PHANISCUS</speaker><p>If you were sober, you wouldn't be abusive.</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Am I to give heed to you, when you won't to me.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> But, you rascal, you come along with me to fetch him.</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Troth now, Phaniscus, prithee, do leave off talking about these matters.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I'll do so, and knock at the door. <stage>Knocks at the door of the house of THEUROPIDES.</stage> Hallo there! is there any person here to protect this door from a most serious injury? <stage>Knocking again.</stage> Is any one, is any one, I say, coming out here and going to open it? Why, really, no one comes out here. Just as befits such worthless fellows, so they are. But on that account, I've the more need to be cautious that no one may come out and use me ill. <stage>They stand aside.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="904" unit="TLN line"/>
+<stage>Enter TRANIO and THEUROPIDES, from the house of SIMO.</stage>
+<sp><speaker>TRANIO</speaker><p> What's your opinion of this bargain?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I am quite delighted.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Does it seem to you to have been bought too dear?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I' faith, I'm sure that I never anywhere saw a house thrown away, this one only excepted.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Does it please you, then?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Does it please me, do you ask me? Why yes, upon my faith, it really does please me very much.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What a fine set of rooms for the women! What a porch!</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Exceedingly fine. For my part, I don't think that there is any Porch larger than this in the public buildings.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why, I myself and Philolaches have taken the measure sure of all the porches in the public buildings.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Well, what then?</p></sp>
+<sp><speaker>TRANIO</speaker><p> This is far larger than all of them.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Immortal Gods--a splendid bargain! On my word, if he were now to offer six great talents of silver, ready money, for it, I would never take it.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Upon my faith, if you were inclined to take it, I would never let you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> My money has been well invested upon this purchase.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Boldly confess that by my advice and prompting it was done, who urged him to take up the money of the Banker upon interest, which we paid this person by way of deposit.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You've saved the whole ship. Eighty min&aelig;<milestone n="919" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Eighty min&aelig;</lemma>:  Forty having been already paid (according to his story) as a deposit, and there being 120 min&aelig; in two talents.</note>, you say, are owing for it?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Not a coin more. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> He may have it to-day.</p></sp>
+<sp><speaker>TRANIO</speaker><p> By all means so, that there may be no dispute arising; or else pay them over to me, I'll then pay them over to him.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> But still, don't let there be any taking me in, if I do give them to you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Could I venture to deceive you in deed or word even in jest only?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Could I venture not to be on my guard against you, so as not to trust anything to you?</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why, have I ever imposed upon you in anything, since I was your servant?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> But I've taken good care of that; I owe thanks to myself and my own judgment for that. If I'm only on my guard against you solely, I'm quite wise enough.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>aside</stage>. I agree with you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Now be off into the country; tell my son that I've arrived.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I'll do as you wish.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Run with all speed; bid him come to the city at once together with you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Very well. <stage>Aside.</stage> Now I'll betake myself this way by the back-door to my boon-companions; I'll tell them that things are quiet here, and how I have kept him away from here. <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="933" unit="TLN line"/>
+<stage>THEUROPIDES, PHANISCUS, and another SERVANT.</stage>
+<sp><speaker>PHANISCUS</speaker><p> <stage>coming forward</stage>. Really, I don't hear either the sound of revellers here, as once it was, nor yet the music-girl singing, nor any one else. <stage>Goes towards the door.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What's the matter here? What are these people seeking at my house? What do they want? What are they peeping in for?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I shall proceed to knock at the door. <stage>Knocks.</stage> Hallo there, unlock the door! Hallo, Tranio! are you going to open it, I say?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>advancing</stage>. What story's this, I wonder?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> <stage>aloud</stage>. Are you going to open it, I say? I've come to fetch my master Callidamates.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Harkye, you lads! what are you doing there? Why are you breaking down that door?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Our master's at a drinking-party here.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Your master at a drinking-party here?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I say so. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You're carrying the joke too far, my lad.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> We've come to fetch him.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What person? </p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Our master. Prithee, how often must I tell you?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> There's no one living here my lad; for I do think that you are a decent lad.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Doesn't a young gentleman called Philolaches live in this house?</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> <stage>aside</stage>. This old fellow's crack-brained, surely.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> You are entirely mistaken, respected sir<milestone n="944" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Respected sir</lemma>:  "Pater." Literally, "father."</note>; for unless he moved from here to-day or yesterday, I know for certain that he's living here.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why, no one has been living here for these six months past.</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> You are dreaming. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What, I?</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> You. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Don't you be impertinent. Let me speak to the lad. <stage>Pointing to PHANISCUS.</stage></p></sp>
+<sp><speaker>PHANISCUS</speaker><p> No one lives there? O dear----</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> It's the fact.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Really! why, yesterday and the day before, four, five, six days ago, all along, in fact, since his father went abroad from here, eating and drinking have never ceased for a single three days here.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What is it you say?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> That eating and drinking have never stopped for a single three days here, bringing in wenches, living like Greeks, hiring harpists and music-girls.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Who was it did this?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Philolaches. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What Philolaches?
+</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> He whose father I take to be Theuropides.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>apart</stage>. O dear, O dear! I'm utterly undone, if he says the truth in this. I'll continue to question him still Do you say that this Philolaches, whoever he is, has been in the habit of drinking here together with your master?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Here, I tell you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> My lad, contrary to your appearance, you are a fool. See now, please, that you've not perchance been dropping in somewhere for an afternoon's whet<milestone n="966" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An afternoon's whet</lemma>:  "Merendam." According to some, this meal was the same as the "prandium," or "breakfast;" while others take it to have been a slight meal or luncheon, taken at about four or five in the afternoon.</note>, and have been drinking there a little more than was enough.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> What do you mean? </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Just what I say: don't be going by mistake to other persons' houses.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I know where I ought to go, and the place to which I was to come. Philolaches lives here, whose father is Theuropides; and who, after his father went away to trade, made free a music-girl here.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Philolaches, say you? </p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Just so; Philematium, I mean.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> For how much? </p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> For thirty talents.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> No, by Apollo<milestone n="965" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">No, by Apollo</lemma>:  Ma <foreign lang="greek">to\n *)apo/llw.</foreign> He uses a Greek adjuration</note>; you mean min&aelig;.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Do you say that a mistress was purchased for Philolaches for thirty min&aelig;?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I do say so. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> And that he gave her her freedom?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I do say so. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> And that after his father had departed hence abroad, he has been carousing here continually with your master?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I do say so. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Well, has he made purchase of the house next door here?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I don't say so. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Has he given forty min&aelig;, too, to this person, to be as a deposit?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Nor yet do I say so.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Ah me! you've proved my ruin!</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Aye, and he has proved the ruin of his father.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You prophesy the truth! I could wish it false!</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> A friend of his father, I suppose?
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Ah me! Upon my faith, you do pronounce him to be a wretched father.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Why really, this is nothing at all-thirty min&aelig;, in comparison with the other expenses he has incurred in good living. He has ruined his father. There's one servant there a very great scoundrel, Tranio by name; he could even waste the revenue of a Hercules<milestone n="976" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The revenue of a Hercules</lemma>:  It was the custom with many to devote to Hercules the tenth part of their possessions. Consequently, the revenues belonging to the Temples of this Deity would be especially large.</note>. On my word, I'm sadly distrest for his father; for when he comes to know that things have gone on thus, a hot coal will be scorching his breast, poor man.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> If, indeed, this is the truth.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> What am I to gain, that I should tell a lie? <stage>Knocks again at the door.</stage> Hallo, you! is any one coming to open this door?</p></sp>
+<sp><speaker>ANOTHER SERVANT of Callidamates.</speaker><p> Why do you knock in this way, when there's no one in the house?</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> I fancy that he's gone elsewhere to carouse. Now then, let's begone. <stage>They move as if going.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What, my lad, are you off then? Liberty's the overcoat for your back<milestone n="982" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The overcoat for your back</lemma>:  Schmieder thinks this is said insultingly to Phaniscus. It would, however, appear otherwise: Phaniscus having no "p&aelig;nnla," or "overcoat," on, Theuropides, who thinks him a very worthy fellow, says, "My good fellow, your freedom would make yon a very fine overcoat."</note>.</p></sp>
+<sp><speaker>PHANISCUS</speaker><p> Nothing have I with which to cover my back, except to pay respect and service to my master.  <stage>(Exeunt PHANISCUS and SERVANT.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="993" unit="TLN line"/>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to himself</stage>. By my troth, I am undone! What need is there of talking? According to the words I have heard, I surely haven't lately voyaged hence to &AElig;gypt, but even to some desolate land and the most remote shores have I been borne about, so much am I at a loss to know where I now am. But I shall soon know; for see, here's the person of whom my son bought the house.
+
+<stage>Enter SIMO.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What are you about?</p></sp>
+<sp><speaker>SIMO</speaker><p> I'm coming home from the Forum.
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Has anything new been going on at the Forum to-day?</p></sp>
+<sp><speaker>SIMO</speaker><p> Why yes. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What is it, pray?</p></sp>
+<sp><speaker>SIMO</speaker><p> I saw a dead man being carried to burial.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Dear me! that is something new!</p></sp>
+<sp><speaker>SIMO</speaker><p> I saw one who was dead being carried out to burial<milestone n="991" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Being carried out to burial</lemma>:  It is supposed that in this reply he plays upon the question of Theuropides, who uses the word "processit" in his question, which may either mean, "what has been going on?" or "what procession has there been?</note> They said that he had been alive but just before.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Woe to that head of yours for your nonsense!</p></sp>
+<sp><speaker>SIMO</speaker><p> Why are you, thus idling about, enquiring after the news? </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Because I've just arrived from abroad.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'm engaged out to dine: don't suppose I shall invite you<note anchored="yes"><lemma targOrder="U">I shall invite you</lemma>:  He alludes to the universal custom of giving friends a "c&oelig;na viatica' or welcome entertainment, on arriving from. off a journey.</note>. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I' faith, I don't want.</p></sp>
+<sp><speaker>SIMO</speaker><p> But, to-morrow, unless any person invites me first, I'll even dine with you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I' faith, and that, too, I don't want. Unless you are engaged with something of greater importance, lend me your attention.</p></sp>
+<sp><speaker>SIMO</speaker><p> By all means. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You have received, as far as I understand, forty min&aelig; of Philolaches.</p></sp>
+<sp><speaker>SIMO</speaker><p> Never a coin, so far as I know.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What? Not from my servant Tranio?</p></sp>
+<sp><speaker>SIMO</speaker><p> Much less is that the case.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Which he gave you by way of deposit?</p></sp>
+<sp><speaker>SIMO</speaker><p> What are you dreaming about?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What, I? Why, really, 'tis yourself, who hope that, by dissembling in this manner, you'll be able to make void this bargain.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why, what do you mean? </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> The business that, in my absence, my son transacted with you here.</p></sp>
+<sp><speaker>SIMO</speaker><p> How did your son, in your absence, transact any business with me? What pray, or on what day?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I owe you eighty min&aelig; of silver.</p></sp>
+<sp><speaker>SIMO</speaker><p> Not to me, indeed, upon my faith; but still, if you do owe them, give them me. Faith must be kept. Don't be attempting to deny it.
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Assuredly, I shall not deny that I owe them; and I shall pay them. Do you take care how you deny that you received the forty from him.</p></sp>
+<sp><speaker>SIMO</speaker><p> Troth now, prithee, look this way at me, and answer me. He said that you were wishful to give a wife to your son; for that reason, he said that you intended building on your own premises.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I, intended building here? </p></sp>
+<sp><speaker>SIMO</speaker><p> So he told me.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Ah me! I'm ruined outright! I've hardly any voice left<milestone n="1019" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I've hardly any voice left</lemma>:  "Vocis on habeo satis." Lietally 'I have not voice enough."</note>. Neighbours, I'm undone, ruined quite!</p></sp>
+<sp><speaker>SIMO</speaker><p> Has Tranio been causing any confusion?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Yes; he has thrown everything into confusion. He has made a fool of me to-day in a disgraceful manner.</p></sp>
+<sp><speaker>SIMO</speaker><p> What is it you say?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> This matter is just as I am telling you: he has this day made a fool of me in an outrageous manner. Now I beseech you that you'll kindly aid me, and lend me your assistance.</p></sp>
+<sp><speaker>SIMO</speaker><p> What would you have?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I beg of you, come this way together with me.</p></sp>
+<sp><speaker>SIMO</speaker><p> Be it so. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Lend me the assistance of your slaves and some scourges.</p></sp>
+<sp><speaker>SIMO</speaker><p> Take them by all means.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> At the same time I'll tell you about this, in what a fashion he has this day imposed upon me. <stage>They go into the house of SIMO.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1041" unit="TLN line"/>
+<stage>Enter TRANIO.</stage>
+<sp><speaker>TRANIO</speaker><p> <stage>to himself</stage>. The man that shall prove timid in critical matters, will not be worth a nutshell. And, really, to say what that expression, "worth a nutshell," means, I don't know. But after my master sent me into the country to fetch his son hither, I went that way <stage>pointing</stage> slily through the lane to our garden. At the entrance to the garden that's in the lane, I opened the door; and by that road I led out all the troop, both men and women. After, from being in a state of siege, I had led out my troops to a place of safety, I adopted the plan of convoking a senate of my comrades, and when I had convoked it, they forthwith banished me from the senate. When I myself perceived that the matter must be decided by my own judgment, as soon as ever I could, I did the same as many others do, whose affairs are in a critical or a perplexed state; they proceed to render them more perplexed, so that nothing can be settled. But I know full well, that now by no means can this be concealed from the old man. But how's this, that our next neighbour's door makes a noise? Why, surely this is my master: I'd like to have a taste of his talk. <stage>Goes aside, out of sight of THEUROPIDES.</stage>
+<stage>house.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>in the doorway, speaking to SIMO'S SLAVES</stage>. Do you stand there, in that spot within the threshold; so that, the very instant I call, you may sally forth at once. Quickly fasten the handcuffs upon him. I'll wait before the house for this fellow that makes a fool of me, whose hide I'll make a fool of in fine style, if I live.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. The affair's all out. Now it's best for you, Tranio, to consider what you are to do.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to himself</stage>. I must go to work to catch him cleverly and artfully when he comes here. I'll not disclose to him my feelings all at once; I'll throw out my line; I'll conceal the fact that I know anything of these matters.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. O cunning mortal! not another person in Athens can be pronounced more clever than he. One can no more this day deceive him than he can a stone. I'll accost the man; I'll address him.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> <stage>to himself</stage>. Now I do wish that he would come here.</p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>apart</stage>. I' faith, if me indeed you want, here I am ready at hand for you. <stage>Comes forward.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Bravo! Tranio, what's being done?</p></sp>
+<sp><speaker>TRANIO</speaker><p> The country people are coming from the country Philolaches will be here in a moment.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I' faith, he comes opportunely for me. This neighbour of ours I take to be a shameless and dishonest fellow.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why so?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Inasmuch as he denies that he knows you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Denies it? </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> And declares that you never gave him a single coin of money
+</p></sp>
+<sp><speaker>TRANIO</speaker><p> Out with you, you are joking me, I do believe; he doesn't deny it.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> How so? </p></sp>
+<sp><speaker>TRANIO</speaker><p> I am sure now that you are joking; for surely he doesn't deny it.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Nay but, upon my faith, he really does deny it; or that he has sold this house to Philolaches.</p></sp>
+<sp><speaker>TEA.</speaker><p> Well now, pray, has he denied that the money was paid him?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Nay more, he offered to take an oath to me, if I desired it, that he had neither sold this house, nor had any money him paid been. I told him the same that you told me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What did he say? </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> He offered to give up all his servants for examination.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Nonsense! On my faith, he never will give them up.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> He really does offer them.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why then, do you summon him to trial.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Wait a bit; I'll make trial as I fancy. I'm determined on it. </p></sp>
+<sp><speaker>TRANIO</speaker><p> Bring the fellow here to me.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What then, if I go fetch some men?</p></sp>
+<sp><speaker>TRANIO</speaker><p> It ought to have been done already; or else bid the young man to demand possession of the house.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why no, I want to do this first--to put the servants under examination<milestone n="1073" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Servants under examination</lemma>:  "Qu&aelig;stioni." "Examination by torture;" which was the method used by the Romans for extracting confessions from slaves.</note>.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I' faith, I think it ought to be done. Meantime, I'll take possession of this altar<milestone n="1074" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take possession of this altar</lemma>:  When a person took refuge at an altar, he could not be brought to justice, or have violence offered to his person. According to some writers, there were always two altars on the stage of Comedy, one on the right hand, sacred to Apollo, and one on the left, devoted o that Divinity or Hero in honor of whom the Play was being acted.</note>.<stage>Runs to the altar.</stage></p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why so? </p></sp>
+<sp><speaker>TRANIO</speaker><p> You can understand nothing. Why, that those may not be able to take refuge here whom he shall give up for examination, I'll keep guard here for you; so that the examination may not come to nothing.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Get up from the altar. </p></sp>
+<sp><speaker>TRANIO</speaker><p> By no means.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Prithee, don't you take possession of the altar.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why so?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You shall hear; why, because I especially want this, for them to be taking refuge there. Do let them; so much the more easily shall I get him fined before the judge.</p></sp>
+<sp><speaker>TRANIO</speaker><p> What you intend to do, do it. Why do you wish to sow further strife? You don't know how ticklish a thing it is to go to law.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Just get up, <stage>beckoning</stage> this way; it's, then, to ask your advice upon something that I want you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Still, as I am, I'll give my advice from this spot: my wits are much sharper when I'm sittings<milestone n="1084" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sharper when I'm sitting</lemma>:  Warner suggests that a little raillery is intended here, upon the custom of sitting when dispensing justice and paying adoration to the Gods.</note>. Besides, advice is given with higher sanction from holy places<note anchored="yes"><lemma targOrder="U">With higher sanction from holy places</lemma>:  The ancients made use of sacred places for the purpose of debating on affairs of importance in, as being likely to add weight and authority to their judgment. The Roman Senate often met in the Temples, and there administered justice and gave audience to ambassadors.</note>.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Get up; don't be trifling. Just look me in the face. </p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>looking at him</stage>. I am looking.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Do you see me? </p></sp>
+<sp><speaker>TRANIO</speaker><p> I do see--that if any third person were to step in here, he would die of hunger.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Why so? </p></sp>
+<sp><speaker>TRANIO</speaker><p> Because he would get no profit; for, upon my faith, we are both artful ones.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I'm undone! </p></sp>
+<sp><speaker>TRANIO</speaker><p> What's the matter with you?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You have deceived me. </p></sp>
+<sp><speaker>TRANIO</speaker><p> How so, pray?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> You've wiped me clean<milestone n="1089" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You've wiped me clean</lemma>:  "Emungo," "to wipe the nose" for a person, also meant "to cheat" or "impose upon him;" probably, by reason of the state of helplessness it implied in the party who was so treated.</note>. </p></sp>
+<sp><speaker>TRANIO</speaker><p> Consider, please, if it wasn't well done; is your nose running still?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Aye, all my brains besides have you been wiping out of my head as well. For all your villanies I have discovered from their very roots; and not from the roots, indeed, i' faith, but even from beneath the very roots. Never this day, by my troth, will you have planned all this without being punished. I shall at once, you villain, order fire and faggots<milestone n="1099" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Order fire and faggots</lemma>:  Though a suppliant could not be removed from the altar by force, still it was allowable to burn him away, by surrounding him with fire.</note> to be placed around you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Don't do it; for it's my way to be sweeter boiled than roasted.
+</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Upon my faith, I'll make an example of you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Because I please you, you select me for an example.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Say now: what kind of a person did I leave my son, when I went away from here?</p></sp>
+<sp><speaker>TRANIO</speaker><p> One with feet and hands, with fingers, ears, eyes, and lips. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I asked you something else than that.</p></sp>
+<sp><speaker>TRANIO</speaker><p> For that reason I now answer you something else. But look, I see Callidamates, the friend of your son, coming this way. Deal with me in his presence, if you want anything</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="1122" unit="TLN line"/>
+<stage>Enter CALLIDAMATES, at a distance.</stage>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>to himself</stage>. When I had buried all drowsiness<milestone n="1102" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Buried all drowsiness</lemma>:  Generally we hear of a person "being buried in sleep;" but Callidamates considers that a drunkard, when he awakes from his sleep, "buries slumber." It is not unlike the words of Shakspeare, in Macbeth: "Macbeth doth murder sleep!"</note>, and slept off the debauch, Philolaches told me that his father had arrived here from abroad; in what a way too his servant had imposed upon the man on his arrival; he said that he was afraid to come into his presence. Now of our company I am deputed sole ambassador, to obtain peace from his father. And look, most opportunely here he is. <stage>Accosting THEUROPIDES.</stage> I wish you health, Theuropides, and am glad that you've got back safe from abroad. You must dine here with us to-day. Do so.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Callidamates, may the Gods bless you. For your dinner I offer you my thanks.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Will you come then? </p></sp>
+<sp><speaker>TRANIO</speaker><p> <stage>To THEUROPIDES.</stage> Do promise him; I'll go for you, if you don't like.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Whip-scoundrel, laughing at me still?</p></sp>
+<sp><speaker>TRANIO</speaker><p> What, because I say that I'll go to dinner for you?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> But you shan't go. I'll have you carried to the cross, as you deserve.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Come, let this pass, and say that I shall go to the dinner. Why are you silent?</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> <stage>to TRANIO</stage>. But why, you greatest of simpletons, have you taken refuge at the altar?</p></sp>
+<sp><speaker>TRANIO</speaker><p> He frightened me on his arrival. <stage>To THEUROPIDES.</stage> Say now, what I have done amiss. Look, now there's an umpire for us both; come, discuss the matter.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I say that you have corrupted my son.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Only listen. I confess that he has done amiss; that he has given freedom to his mistress; that in your absence he has borrowed money at interest; that, I admit, is squandered away. Has he done anything different to what sons of the noblest families do?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Upon my faith, I must be on my guard with you; you are too clever a pleader.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Just let me be umpire in this matter. <stage>TO TRANIO.</stage> Get up; I'll seat myself there.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> By all means: take the management of this dispute to yourself. <stage>Pushes him to one side of the altar.</stage></p></sp>
+<sp><speaker>TRANIO</speaker><p> Why, this is surely a trick. Make me, then, not to be in a fright, and yourself to be in a fright in my stead.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I consider now everything of trifling consequence, compared with the way in which he has fooled me.</p></sp>
+<sp><speaker>TRANIO</speaker><p> I' faith, 'twas cleverly done, and I rejoice that it was done. Those who have white heads ought at that age to be wiser.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> What am I now to do if my friend Demipho or Philonides----</p></sp>
+<sp><speaker>TRANIO</speaker><p> Tell them in what way your servant made a fool of you. You would be affording most capital plots for Comedies.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Hold your tongue awhile; let me speak in my turn.--Listen. </p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> By all means.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> In the first place of all then, you know that I am the companion of your son; he has gone to my house, for he is ashamed to come into your presence, because he knows that you are aware what he has done. Now, I beseech you, do pardon his simplicity and youthfulness. He is your son; you know that this age is wont to play such pranks; whatever he has.done, he has done in company with me. We have acted wrong: the interest, principal, and all the sum at which the mistress was purchased, all of it we will find, and will contribute together, at our own cost, not yours.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> No mediator could have come to me more able to influence me than yourself. I am neither angry with him<milestone n="1142" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Neither angry with him</lemma>:  "Illi," "with him;" evidently meaning Philolaches.</note>, nor do I blame him for anything: nay more, in my presence, wench on, drink, do what you please. If he's ashamed of this, that he has been extravagant, I have sufficient satisfaction.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> I'm quite ashamed myself</p></sp>
+<sp><speaker>TRANIO</speaker><p> He grants pardon thus far; now then, what is to become of me?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Filth, tied up as you hang, you shall be beaten with stripes.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Even though I am ashamed<milestone n="1146" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Though I am ashamed</lemma>:  This piece of impudence is very characteristic of Tranio.</note>?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Upon my faith, I'll be the death of you, if I live!</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Make this pardon general; do, pray, forgive Tranio this offence, for my sake.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I would more readily put up with your obtaining any other request of me than that I should forbear sending to perdition this fellow for his most villanous doings.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Pray, do pardon him. </p></sp>
+<sp><speaker>TRANIO</speaker><p> Do pardon me?</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Look there, don't you see how the villain sticks there? <stage>Pointing to the altar.</stage></p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Tranio, do be quiet, if you are in your senses.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Only do you be quiet in urging this matter. I'll subdue him with stripes, so that he shall be quiet.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Really, there is no need. Come now, do allow yourself to be prevailed upon.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I wish you would not request me.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Troth now, I do entreat you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> I wish you would not request me, I tell you.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> It's in vain you wish me not; only do grant this one pardon for his offence, pray, for my sake, I do entreat you.</p></sp>
+<sp><speaker>TRANIO</speaker><p> Why make this difficulty? As if to-morrow I shouldn't be very soon committing some other fault; then, both of them, both this one and that, you'll be able to punish soundly.</p></sp>
+<sp><speaker>CALLIDAMATES</speaker><p> Do let me prevail upon you.</p></sp>
+<sp><speaker>THEUROPIDES</speaker><p> Well then, have it so; begone, unpunished! <stage>TRANIO jumps down from the altar.</stage> There now, <stage>pointing to CALLIDAMATES</stage> return him thanks for it. <stage>Coming forward.</stage> Spectators, this Play is finished; grant us your applause<milestone n="1160" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Grant us your applause</lemma>:  We may here remark that <title>The Intriguing Chambermaid</title>, one of Fielding's comedies, is founded upon this entertaining Play.</note>.</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

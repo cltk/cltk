@@ -1,0 +1,4284 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+    <teiHeader type="text" status="new">
+        <fileDesc>
+            <titleStmt>
+            	<title type="sub">Catilina, Iugurtha, Orationes Et Epistulae textual notes</title>
+            	<author n="Sal.">Sallust</author>
+            	<editor role="editor" n="Ahlberg">Axel W. Ahlberg</editor> &responsibility;
+            	&fund.AnnCPB; </titleStmt>
+        	<extent>About 100Kb</extent> &Perseus.publish; <sourceDesc>
+        		<biblStruct>
+        			<monogr>
+        				<author>C. Sallusti Crispi</author>
+        				<title>Catilina, Iugurtha, Orationes Et Epistulae Excerptae De Historiis</title>
+        				<editor role="editor" n="Ahlberg">Axel W. Ahlberg</editor>
+        				<imprint>
+        					<pubPlace>Leipzig</pubPlace>
+        					<publisher>Teubner</publisher>
+        					<date>1919</date>
+        				</imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+        	<refsDecl doctype="TEI.2">
+        		<state unit="text"/>
+        		<state unit="chapter"/>
+        	</refsDecl>
+        	<refsDecl doctype="TEI.2" n="text=Hist.">
+        		<state unit="text"/>
+        		<state unit="book"/>
+        		<state unit="section"/>
+        	</refsDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language id="la">Latin</language>
+                <language id="greek">Greek</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+            <change>
+                <date>2006</date>
+                <respStmt>
+                    <name>GRC</name>
+                    <resp>tagging</resp>
+                </respStmt>
+                <item/>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <group>
+<text lang="la" n="Cat.">
+<body>
+<div1 type="chapter" n="1">
+<div2 type="section" n="1">
+<p>omnis homines <hi rend="italics">&ast;Char. gramm. I 149, 17 Diom. gramm. 1305, 29</hi></p>
+<p>omnis... student <hi rend="italics">Prisc. gramm. II 358, 15</hi></p>
+<p>omnis ... praestare <hi rend="italics">Non. p. 371, 11</hi></p>
+<p>omnis ... animalibus <hi rend="italics">Char. gramm. I 140, 1 Eugraph. Ter. Eun. 232</hi></p>
+<p>omneis <hi rend="italics" >Char.</hi></p>
+<p>omnes <hi rend="italics" >Eugraph.</hi></p>
+<p>qui ... animalibus <hi rend="italics">Arus. gramm. VII 508, 4</hi></p>
+<p>praestare ceteris animalibus <hi rend="italics">Diom. gramm. I 313, 11</hi></p>
+<p>ventri oboedientia <hi rend="italics">Sen. epist. 8(60), 4</hi></p>
+<p>oboedientes <hi rend="italics" >Sen.</hi></p>
+<p>pecora ... finxit <hi rend="italics">Arus. gramm. VII 496, 27</hi></p>
+<p>quae... finxit <hi rend="italics">Non. p. 309, 11 Victorin. rhet. p. 160, 36 Prisc. gramm. III 370, 18</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>sed ... sita est <hi rend="italics">Serv. Aen. 2, 452 georg. 1, 198</hi></p>
+<p>animae <hi rend="italics">Hier. adv. lovin.</hi></p>
+<p>sed... utimur <hi rend="italics">Lact. inst. 2, 12, 12</hi></p>
+<p>animi... utimur <hi rend="italics">Hier. ad Gal. 5, 16 p. 410 ad Eph. 5, 33 p. 537</hi></p>
+<p>utimur] vivere <hi rend="italics">Hier. ad Gal.</hi></p>
+<p>animi ... commune est&ast; <hi rend="italics">Hier. adv. lovin. 2, 10 Aug. civ. 9, 9</hi></p>
+<p>alterum nobis.. . commune est <hi rend="italics">Serve. Aen. 5, 81</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>videtur] esse videtur XNMTm videtur esse BKHDFIsn</p>
+<p>et... efficere <hi rend="italics">Victorin. rhet. p. 160, 33</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>nam...opus est <hi rend="italics" >Don. Ter. Andr. 334 Prisc. gramm. III 226 3 288, 17</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>alterum... eget <hi rend="italics">Schol. Hor. ars 411 Schol. Verg. Bern. georg. 2, 28</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="2">
+<div2 type="section" n="1">
+<p>igitur initio reges <hi rend="italics">Cledon. gramm. V 74, 9</hi></p>
+<p>igitur ... placebant <hi rend="italics">Aug. civ. 3, 10</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>postea ... (9) putare <hi rend="italics">Aug. civ. 3, 14</hi></p>
+<p>tum demum ... compertum est <hi rend="italics">Non. p. 364, 17</hi> tunc vero <hi rend="italics">Non.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>initio <hi rend="italics" >om.</hi> P</p>
+<p>partum est <hi rend="italics">s. s.</hi> P</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>fortuna ... inmutatur <hi rend="italics">Non. p. 526, 26</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>homines] omnes <hi rend="italics">plerique codd.</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>indocti incultique <hi rend="italics">Serv. Aen. 8, 316</hi></p>
+<p>sed... transiere <hi rend="italics">Prisc. gramm. III 433, 30</hi></p>
+<p>indocti . .. transiere <hi rend="italics">Serv. georg. 1, 3</hi></p>
+<p>vitam ... transiere <hi rend="italics">Non. p. 419, 22 Don. Ter. Phorm. 605</hi></p>
+<p>transiere KM (g <hi rend="italics">s. s.</hi>) m <hi rend="italics">Non.</hi></p>
+<p>transierunt O <hi rend="italics">Donati</hi> transire A<hi rend="sup">1</hi> transigere N(g <hi rend="italics">del.</hi>) Fm <hi rend="italics">Serv. georg. Don.</hi> transegere A<hi rend="sup">2</hi> <hi rend="italics">rell. codd.</hi></p>
+<p>eorum ... aestumo <hi rend="italics" >Prisc. gramm. III 44, 21</hi> horum <hi rend="italics" >Prisc.</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>atque] et <hi rend="italics">Prisc. gramm. III 102, 20</hi></p>
+<p>verum ... videtur <hi rend="italics">Prisc. gramm. III 102, 20. 236, 7. 287, 2</hi></p>
+<p>qui...intentus <hi rend="italics">Arus. gramm. VII 488, 9</hi></p>
+<p>qui.. .quaerit <hi rend="italics">Non. p. 309, 28</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="3">
+<div2 type="section" n="2">
+<p>tametsi... sequitur <hi rend="italics">&ast;Sacerd. gramm. VI 445, 14</hi></p>
+<p>sequitur A<hi rend="sup" >1</hi>Ylm <hi rend="italics">Gell. Sacerd. Char.</hi> sequatur XMT<hi rend="sup">2</hi>Fsn</p>
+<p>auctorem PB (u <hi rend="italics">eras.</hi>) H <hi rend="italics">Gell. Char. cf.</hi> R<hi rend="sup">2</hi>B <hi rend="italics" >Orosii</hi></p>
+<p>actorem <hi rend="italics">rell. cod.</hi> RV<hi rend="sup">3</hi> <hi rend="italics">Gellii cf. Aur. Vict.</hi></p>
+<p>tametsi... rerum <hi rend="italics">Char. gramm. I 215, 27 cf. Oros. hist. 1, 1, 6</hi> (actores scriptoresque) <hi rend="italics">cf. Aur. Vict. Caes. 20, 2&ndash;3</hi></p>
+<p>factis dicta A<hi rend="sup">1</hi>C<hi rend="sup" >1</hi></p>
+<p>factu PCBNHIsn facto <hi rend="italics">rell.</hi> (u <hi rend="italics">s. s. vel corr.</hi> AKMD)</p>
+<p>supra ea] ea <hi rend="italics">om. Gell.</hi></p>
+<p>ac mihi ... (17) ducit <hi rend="italics">Gell. 4, 15, 1</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ac... reliquorum <hi rend="italics">&ast;Sacerd. gramm. VI 444, 25</hi></p>
+<p>reliquis P<hi rend="sup" >1</hi>n</p>
+<p>qua CB <hi rend="italics">(exquae)</hi> quae <hi rend="italics" >rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="4">
+<div2 type="section" n="1">
+<p>intentam A<hi rend="sup">1</hi>I</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>carptim] strictim <hi rend="italics">Non.</hi></p>
+<p>carptim ... perscribere <hi rend="italics">Non. p. 512, 20</hi></p>
+<p>a spe . . .erat <hi rend="italics">Arus. gramm. VII 490, 11</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>quam ... absolvam <hi rend="italics" >Victorin. rhet. p. 203, 25</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="5">
+<div2 type="section" n="1">
+<p>Lucius... fuit <hi rend="italics">Non. p. 351, 18</hi></p>
+<p>Lucius &mdash; pravoque <hi rend="italics">in mg.</hi> A</p>
+<p>pravoque <hi rend="italics">add.</hi> P<hi rend="sup" >1</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>ibique... exercuit <hi rend="italics">Non. p. 433, 17</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>cuiquam <hi rend="italics" >eras. A om.</hi> C cuique N</p>
+<p>patiens ... credibile est <hi rend="italics">&ast;Aug. epist. 167, 7</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>cuius rei lubet PANTsm <hi rend="italics">Non. Ps. Sail.</hi> cuius lubet rei CBYn cuius////, (libet rei <hi rend="italics">s. s.</hi>) I</p>
+<p>simulator ac diss. <hi rend="italics">Fronto p. 108 N. Serv. Aen. 1, 516</hi></p>
+<p>quoius... dissimulator <hi rend="italics">Non. p. 439, 24 cf. Ps. Sall. rep. 2, 1, 4</hi> (quoius rei lubet)</p>
+<p>alieni ... profusus <hi rend="italics">Fronto p. 107 N. Cledon. gramm. V 72, 10 Prisc. gramm. III 217, 14</hi></p>
+<p>ardens in cup. <hi rend="italics">Arus. gramm. VII 449, 14</hi></p>
+<p>satis... parum <hi rend="italics">Fronto p. 107 N. Gell. 1, 15, 18 Sidon. epist. 9, 9, 2 Prisc. gramm. III 85, 4</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>incitabant... mores <hi rend="italics">Comment. Lucan. 1, 159</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>quoniam...civitatis <hi rend="italics" >&ast;Sacerd. gramm. VI 446, 8</hi></p>
+<p>et ut A<hi rend="sup" >2</hi>CB</p>
+<p>atque optuma <hi rend="italics">Aug., om. codd.</hi></p>
+<p>ac flagitiosissuma <hi rend="italics">om.</hi> P (ac fla-sima <hi rend="italics">in mg.</hi> P<hi rend="sup">2</hi>) ac flagitio <hi rend="italics">in ras. A</hi></p>
+<p>paulatim ... facta sit <hi rend="italics">Aug. civ. 2, 18. 19</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="6">
+<div2 type="section" n="1">
+<p>urbem ... Troiani <hi rend="italics">Non. p. 249, 25 Serv. Aen. 7, 48 1, 6</hi> (<hi rend="italics" >libere</hi>)</p>
+<p>urbem ... vagabantur <hi rend="italics">Aug. civ. 3, 3</hi></p>
+<p>qui... vagabantur <hi rend="italics">om. Serv. Aen. 7, 678</hi></p>
+<p>cumque iis] et cum his <hi rend="italics">Serv. Aen. 7, 678</hi></p>
+<p>urbem ... Aborigines <hi rend="italics">Serv. Aen. 7, 678 cf.Isid. orig. 15, 1, 1</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>hi... convenere <hi rend="italics">Serv. Aen. 12, 164 Prisc. gramm. III 414, 13</hi></p>
+<p>alius] alii B<hi rend="sup">1</hi>ls</p>
+<p>ita.. .facta erat <hi rend="italics">Aug. epist. 138, 10 Papyr. Oxyr. 884, 2, om. codd.</hi></p>
+<p>facta <hi rend="italics" >estPapyr.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>sed] nam <hi rend="italics">Aug.</hi></p>
+<p>sed postquam... (7) parabant <hi rend="italics">Aug. civ. 3, 10</hi></p>
+<p>civibus] legibus <hi rend="italics">Aug.</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>reip. consultabant <hi rend="italics">Arus. gramm. VII 460, 1</hi></p>
+<p>hi] hi autem <hi rend="italics">Serv.</hi></p>
+<p>hi... appellabantur <hi rend="italics">Serv. Aen. 5. 758</hi></p>
+<p>curae... appellabantur <hi rend="italics" >Eugraph. Ter. Ad. 110 cf. Isid. orig. 9, 4, 10</hi></p>
+<p>appellabantur] appellati sunt <hi rend="italics" >Serv.</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>libertatis] causa <hi rend="italics">s. s.</hi> MT libertatis causa NKHDs</p>
+<p>annua imp. <hi rend="italics">Prob. inst. gramm. IV 129, 16</hi></p>
+<p>annua... fecere <hi rend="italics">Aug. civ. 5, 12</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="7">
+<div2 type="section" n="3">
+<p>civitas... incesserat <hi rend="italics">Aug. civ. 5, 12</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>iam simulac iuventus <hi rend="italics">Veg.</hi></p>
+<p>iam ... erat <hi rend="italics">Diom. gramm. I 435, 9</hi></p>
+<p>patiens... laborem <hi rend="italics">om. Veg.</hi></p>
+<p>usum militiae T <hi rend="italics">et</hi> Q<foreign lang="greek">p</foreign> <hi rend="italics">Vegeti</hi> usu militiae P<hi rend="sup">1</hi> usu militia <hi rend="italics">A Vegeti</hi> usum militiam P<hi rend="sup" >2</hi>M et usu militiam H usu militiam <hi rend="italics">rell. codd., M Vegeti, v. Ag 178</hi></p>
+<p>discebant B<hi rend="sup">1</hi> <hi rend="italics">Veg.</hi></p>
+<p>iam...discebat <hi rend="italics">Veg. mil. 1, 4</hi></p>
+<p>magisque ... habebant <hi rend="italics">Non. p. 453, 18</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>igitur... formidulosus <hi rend="italics">Gell, 9, 12, 9</hi></p>
+<p>non arm. hostis form. <hi rend="italics">Non. p. 113, 4</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>se quisque PA<hi rend="sup">1</hi> NK<hi rend="sup">1</hi>lm si quisque s sic se quisque A<hi rend="sup" >2</hi>CBK<hi rend="sup">2</hi>HMTFn</p>
+<p>laudis...erant <hi rend="italics">Non. 442, 15</hi></p>
+<p>pec. lib. erant <hi rend="italics">Arus. gramm. VII 490, 21</hi></p>
+<p>laudis... volebant <hi rend="italics">&ast;Aug. civ. 5, 12</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>possum A<hi rend="sup">1</hi>m <hi rend="italics">Serv.</hi> possem <hi rend="italics">rell. codd.</hi></p>
+<p>memorare... fuderit <hi rend="italics">Serv. Aen. 12, 230</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="8">
+<div2 type="section" n="1">
+<p>sed...dominatur <hi rend="italics">Lact. inst. 3, 29, 8</hi></p>
+<p>sed... obscuratque <hi rend="italics">Aug. civ. 7, 3</hi></p>
+<p>res... obscuratque <hi rend="italics">Lact. inst. 3, 29, 8</hi></p>
+<p>celebrat obscuratque <hi rend="italics" >Lact.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>Atheniensium... (20) ingenia <hi rend="italics">Aug. civ. 18, 2</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>sed quia prov. <hi rend="italics">&ast;Sacerd. gramm. VI 446, 9</hi></p>
+<p>sed quia... (17) ingenia <hi rend="italics">Arus. gramm. VII 485, 29</hi></p>
+<p>eorum ... ingenia <hi rend="italics">Hier. vita Hilar. prol. cf. Vopisc. Prob. 1, 1, </hi> (omnes omnium virtutes tantas esse, quantas videri eas voluerint eorum ingenia, qui)</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>qui fecere P (ea <hi rend="italics">post adiectum videtur) Hier. Aug.</hi> qui ea fecere <hi rend="italics">rell. codd.</hi></p>
+<p>eam Fn <hi rend="italics">Hier. Aug. cf. Vopisc.</hi> ea <hi rend="italics">rell. codd.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ingenium ... exercebat <hi rend="italics" >Non. p. 322, 32</hi></p>
+<p>et sua A<hi rend="sup">2</hi>C suaque I</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="9">
+<div2 type="section" n="1">
+<p>ius... valebat <hi rend="italics" >Aug. civ. 2, 17. 2, 18 (bis)</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>in... magnifici <hi rend="italics">Non. p. 398, 19 Serv. Aen. 1, 632</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>vindicatum est] est <hi rend="italics">om. Diom.</hi></p>
+<p>in hostem <hi rend="italics">om. Diom.</hi></p>
+<p>vindicatum ... pugnaverant <hi rend="italics">Diom. gramm. 1 365, 3 cf. Heges. 5, 7, 18</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>magis <hi rend="italics">om.</hi> Pls</p>
+<p>accepta... malebant <hi rend="italics">&ast;Aug. epist. 138, 9, 10</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="10">
+<div2 type="section" n="1">
+<p>ingentes <hi rend="italics">om.</hi> PBI</p>
+<p>cuncta... patebant <hi rend="italics">Serv. Aen. 1, 298</hi></p>
+<p>ac miscere omnia <hi rend="italics">s. s.</hi> P<hi rend="sup">2</hi>A<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>divitiaeque A<hi rend="sup">2</hi>CB divitiae A<hi rend="sup">1</hi> <hi rend="italics">rell., v. Ag. 179</hi></p>
+<p>optanda PA<hi rend="sup">1</hi>l optandae A<hi rend="sup">2</hi> <hi rend="italics">rell.</hi></p>
+<p>alias Pl alia A<hi rend="sup">1</hi> aliis A<hi rend="sup">2</hi> <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>et amb. Y (-DF) nm ambitio... subegit <hi rend="italics">Serv. Aen. 4, 283</hi></p>
+<p>aliud clausum ... habere <hi rend="italics" >&ast;Serv. Aen. 7, 51</hi></p>
+<p>amicitias ...aestumare <hi rend="italics">Arus. gramm. VII 450, 32</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>post...invasit <hi rend="italics">Non. p. 199, 1</hi></p>
+<p>post... inmutata <hi rend="italics" >Char. gramm. I 71, 12</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="11">
+<div2 type="section" n="1">
+<p>sed...(12) contendit <hi rend="italics">Aug. civ. 5, 12</hi></p>
+<p>virtuti N<hi rend="sup">2</hi>KHM<hi rend="sup" >2</hi>TD<hi rend="sup">2</hi>F<hi rend="sup">2</hi>snm</p>
+<p>quod... erat <hi rend="italics">Arus. gramm. VII 510, 10 Prisc. gramma. III 292, 8</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>sed...nititur <hi rend="italics" >Aug. civ. 5, 19</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>quam ... concupivit <hi rend="italics">&ast;Aug. civ. 7, 12</hi></p>
+<p>ea...effeminat <hi rend="italics">Non. p. 521, 16</hi></p>
+<p>et <hi rend="italics">Gell. om. codd., v. Ag. 180</hi></p>
+<p>avaritia... minuitur <hi rend="italics" >Gell. 3, 1, 1</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>bonis ... habuit <hi rend="italics">Exup. 5</hi></p>
+<p><lemma>trahere, domum</lemma> <hi rend="italics">addidi conl. c. 17, 1. 31, 3 alibi</hi> </p>
+<p>neque modum n. modestiam <hi rend="italics">&ast;Ps. Sall. in. Tull. 1, 1</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p><lemma>amoena voluptaria</lemma> <hi rend="italics">fortasse</hi> amoena atque vol., <hi rend="italics">v. Ag 179</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>primum...(3) polluere <hi rend="italics">Aug. epist. 138, 16</hi></p>
+<p>insueverit <hi rend="italics">Aug.</hi> pop. Rom. <hi rend="italics">om. Arus.</hi></p>
+<p>insuevit ... potare <hi rend="italics">Arus. gramm. VII 486, 17</hi></p>
+<p>signa] statuas s. s. XNK</p>
+<p>ea... rapere <hi rend="italics" >Prisc. gramm. III 69, 5</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>postquam ... fecere <hi rend="italics">Prisc. gramm. III 341, 26</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>quippe sec. res <hi rend="italics">&ast;Sacerd. gramm. VI 446, 10</hi></p>
+<p>quippe... fatigant <hi rend="italics">cf. Aug. civ. 17, 20</hi></p>
+<p>ne] nedum A<hi rend="sup">2</hi>C<hi rend="sup">2</hi>B<hi rend="sup">2</hi>HT<hi rend="sup">2</hi>s<hi rend="sup">2</hi>n <hi rend="italics">Prisc. gramm. 503, 9</hi></p>
+<p>quippe ... temperarent <hi rend="italics" >&ast;Sacerd. gramm. VI 469, 8 Prisc. gramm. III 99, 28</hi></p>
+<p>ne... temperarent <hi rend="italics">Prisc. gramm. III 503, 9</hi></p>
+<p>obtemperarent B<hi rend="sup">2</hi>N<hi rend="sup">2</hi>K<hi rend="sup">2</hi>Y</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="12">
+<div2 type="section" n="1">
+<p>sequebantur Fn <hi rend="italics">fortasse recte. v. Ag. 168</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>atque mod. MTDm nihilque mod. AC neque quicquam mod. n</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>cognoveris] videas <hi rend="italics">Prisc.</hi></p>
+<p>quom... exaedificatas <hi rend="italics">Prise. gramm. III 370, 3</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>deorum] deum <hi rend="italics" >Serv.</hi></p>
+<p>verum ... decorabant <hi rend="italics">Serv. Aen. 1, 378</hi></p>
+<p>domos... decorabant <hi rend="italics">Prise. gramm. 11 310, 1</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>perinde P<hi rend="sup" >2</hi>N<hi rend="sup">2</hi>KD</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="13">
+<div2 type="section" n="1">
+<p>a privatis... constrata esse <hi rend="italics">Adnot. sup. Lucan. 2, 677. 6, 56</hi></p>
+<p>constrata esse] esse <hi rend="italics">om. Adnot. sup. Lucan. 2, 677</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>habere honeste <hi rend="italics">Arus.</hi></p>
+<p>quibus ...properabant <hi rend="italics">Arus. gramm. VII 451, 2</hi></p>
+<p>quippe... properabant <hi rend="italics">Prisc. gramm. III 320, 16</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>viri K<hi rend="sup">2</hi>T<hi rend="sup">2</hi> D<hi rend="sup">2</hi>s viros <hi rend="italics" >rell. cf. Firm. err. 4, 2 et Aug. civ. 6, 8</hi> viros muliebria pati</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="14">
+<div2 type="section" n="1">
+<p>in tanta ... civitate <hi rend="italics">&ast;Aug. civ. 3, 2</hi></p>
+<p>facinorum] ad hoc fac. <hi rend="italics" >Eugraph.</hi></p>
+<p>facinorum ... habebat <hi rend="italics">Eugraph. Ter. Eun. 1018</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>manu ventre (pene <hi rend="italics">s. s. m. 2</hi>) P manu <hi rend="italics">(lacuna 4 litt.</hi>) alea ventre pene B</p>
+<p>quicumque ... laceraverat <hi rend="italics">Fronto p. 153 N.</hi></p>
+<p>manu ... laceraverat <hi rend="italics" >&ast;Aug. dialect 7.</hi></p>
+<p>quique <hi rend="italics">Fronto</hi> impudicus adulter ganeo BY snm imp. ad. P (ganeo <hi rend="italics">s. s. m. 2</hi>) 1 imp. ad. alea (ganeo <hi rend="italics">s. s.</hi>) A imp. ad. ganeo alea C imp. ad. gan. <hi rend="italics">om. Fronto</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>quos ... alebat <hi rend="italics" >&ast;Aug. civ. 3, 2</hi></p>
+<p><lemma>animus exagitabat</lemma> <hi rend="italics">fortasse</hi> exagitabant, <hi rend="italics">u. Ag. 168</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>similisque cet. eff. <hi rend="italics">Arus. gramm. VII 507, 6</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>et aetate Ysnm aetate et A<hi rend="sup">2</hi>CB etiam etPA<hi rend="sup" >1</hi>l</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>scio...frequentabat <hi rend="italics">Non. p. 433, 18</hi></p>
+<p>frequentabant <hi rend="italics">Non.</hi></p>
+<p>quod <hi rend="italics">exp.</hi> N <hi rend="italics" >eras.</hi> m <hi rend="italics">om.</hi> <foreign lang="greek">G</foreign>lsn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="15">
+<div2 type="section" n="1">
+<p>primo A pridem <foreign lang="greek">G</foreign></p>
+<p><lemma>multa nefanda</lemma> <hi rend="italics">cf. Flor. epit. 2, 12, 1 Val. Max. 9, 1, 9</hi> </p>
+</div2>
+
+<div2 type="section" n="2">
+<p>quod XHMnm qui quodYls</p>
+<p>adulta Xs adultum A<hi rend="sup">2</hi>C Ylnm</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>igitur colos <hi rend="italics">&ast;Sacerd. gramm. VI 446, 11</hi></p>
+<p>igitur colos exanguis <hi rend="italics">Prob. cath. gramm. IV 15. 14</hi> colos <hi rend="italics">Sacerd. Prob.</hi> color <hi rend="italics">codd.</hi> color ei ex(s)anguis XKHMDn color eius ex(s)anguis TFs colore ex(s)anguis Nl (e <hi rend="italics" >eras.</hi> eius <hi rend="italics">s.s.</hi>) m (e <hi rend="italics" >eras.</hi>)</p>
+<p>foedi oculi <hi rend="italics" >Don. Ter.Eun. 943 Serv. Aen. 2, 55</hi></p>
+<p>citus ... incessus <hi rend="italics">Non. p. 265, 23 Schol. Hor. sat. 1, 3, 9</hi></p>
+<p>prorsus ... inerat <hi rend="italics">Non. p. 427, 3 Char. gramm. I 211, 23</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="16">
+<div2 type="section" n="3">
+<p>insontis sicuti sontis <hi rend="italics">Prob. cath. gramm. IV 28, 27 Sacerd. gramm. VI 479, 19</hi></p>
+<p><lemma>circumvenire iugulare</lemma> <hi rend="italics">fortasse</hi> et iugulare, <hi rend="italics">v. Ag. 179</hi></p>
+<p>ne...erat <hi rend="italics">Aug. conf. 2, 5, 11</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>petenti ACK petendi <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="17">
+<div2 type="section" n="2">
+<p>omnis <hi rend="italics">om. Prisc.</hi></p>
+<p>in unum omnis convocat <hi rend="italics">Prisc. gramm. III 305, 21</hi></p>
+<p>plurimum <hi rend="italics">m. 2</hi> NTDFm maximum H primum <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>et Ser.] et <hi rend="italics">om.</hi> BFsn</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>Q. Curius] Q. <hi rend="italics">om.</hi> A <hi rend="italics">s. s.</hi> N</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>simul... fore <hi rend="italics">in mg.</hi> B</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="18">
+<div2 type="section" n="1">
+<p>in quis <hi rend="italics">Diom. fortasse recte</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>sed... dicam <hi rend="italics">Diom. gramm. I 445, 22</hi></p>
+<p>Tullo PANKls Tullio <hi rend="italics">rell.</hi></p>
+<p>M. pro <hi rend="italics">M' codd.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>nequiverat MT<hi rend="sup">2</hi> nequiverit <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>ea re s. s. P<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>Catilina <hi rend="italics">om. Prisc.</hi></p>
+<p>signa <hi rend="italics">Albin.</hi></p>
+<p>quod ni... dare <hi rend="italics">Prisc. gramm III 49, 6</hi></p>
+<p>pro curia ... dare <hi rend="italics" >&ast;Albinus gramm. VII 307, 20</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="19">
+<div2 type="section" n="1">
+<p>convenerant... quod eum <hi rend="italics">in mq.</hi> A<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>in eo putabant s. <hi rend="italics">s.</hi> P<hi rend="sup">2</hi></p>
+<p>Cn. Pompei <hi rend="italics">Schol. Hor.</hi></p>
+<p>et iam ... erat <hi rend="italics">Schol. Hor. carm. 2, 17, 18</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>provincia Ysm provinciam XNFln</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>dicant XNm dicunt B<hi rend="sup">2</hi>Ylsn</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>numquam ... fecisse <hi rend="italics">Agroec. gramm. VII 122, 8</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>dictum] est <hi rend="italics">s. s.</hi> BNMTI dictum est D</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="20">
+<div2 type="section" n="1">
+<p>in rem fore credens <hi rend="italics">Arus. gramm. VII 486, 28</hi></p>
+<p>arbitris... amotis <hi rend="italics">Schol. Hor. epod. 5, 50</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>ni...forent <hi rend="italics">Serv. georg. 1, 260</hi></p>
+<p>forent XYlsm foret VP<hi rend="sup">2</hi>n <hi rend="italics">Serv.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>vobis VP<hi rend="sup">2</hi>A<hi rend="sup" >2</hi>C<hi rend="sup">2</hi>Bn</p>
+<p>atque] et <hi rend="italics" >Hier.</hi></p>
+<p>idem] eadem <hi rend="italics">bis Hier.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>nam ... amicitia est <hi rend="italics">Don. Ter. Hec. 170 Schol. Hor. epist. 10, 5. 18, 40</hi></p>
+<p>idem velle . . . amicitia est <hi rend="italics">&ast;Hier. epist. 130, 12</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>magis magisque V</p>
+<p>ceterum . . . animus <hi rend="italics">&ast;Sacerd. gramm. VII 446, 5</hi></p>
+<p>animus] auxiliorum <hi rend="italics" >Sacerd.</hi></p>
+<p>considero quae <hi rend="italics">s. s.</hi> Al</p>
+<p>ipsi VA<hi rend="sup">2</hi>C<hi rend="sup">2</hi> ipsos <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>boni atque strenui nobiles et ignobiles V</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>relinquere PCB (n <hi rend="italics" >eras.</hi>)</p>
+</div2>
+
+<div2 type="section" n="9">
+<p>o <hi rend="italics">s.s.</hi> P <hi rend="italics">add.</hi> A <hi rend="italics">om.</hi> Nm</p>
+</div2>
+
+<div2 type="section" n="10">
+<p>pro ... fidem <hi rend="italics">Prisc. gramm. III 49, 24</hi></p>
+<p>nobis in manu <hi rend="italics">Prisc.</hi></p>
+<p>pro ... nobis est <hi rend="italics">Prisc. gramm. III 364, 6</hi></p>
+</div2>
+
+<div2 type="section" n="11">
+<p>quasi qui <hi rend="italics">divitiassuas Schol. Hor.</hi></p>
+<p>quas...coaequandis <hi rend="italics">Schol. Hor. carm. 2, 18, 20</hi></p>
+<p>etiam...(25) familiarem <hi rend="italics">in mg.</hi> P<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="14">
+<p>en <hi rend="italics">om.</hi> V s.<hi rend="italics"> s.</hi> A<hi rend="sup">2</hi></p>
+<p>illa illa VACB<hi rend="sup">2</hi>NK<hi rend="sup">1</hi>sn illa PB<hi rend="sup" >1</hi>K<hi rend="sup">2</hi>H <foreign lang="greek" >G</foreign>lm</p>
+</div2>
+
+<div2 type="section" n="15">
+<p>hortantur VP<hi rend="sup">1</hi> hortentur P<hi rend="sup">2</hi> <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="16">
+<p>utimini XNH Mlsn utemini VP<hi rend="sup">2</hi>KTDFm</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="21">
+<div2 type="section" n="1">
+<p>bona ulla s. s. P</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>victorum lubido AC lubido <hi rend="italics">s. s.</hi> H</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>se om P <hi rend="italics">s. s.</hi> B <hi rend="italics">exp.</hi> D</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>unum...laudare <hi rend="italics">Prisc. gramm. III 304, 16</hi></p>
+<p>admonebat...suae <hi rend="italics">Arus. gramm. VII 455, 20</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="22">
+<div2 type="section" n="1">
+<p><lemma>dicerent Catilinam</lemma> <hi rend="italics">cf. Flor. epit. 2, 12, 4 Schol. Stat Theb. 5, 159</hi> </p>
+<p>popularis sceleris sui <hi rend="italics">Don. Ter. Phorm. 35</hi></p>
+<p>quom...adigeret <hi rend="italics">Eugraph. Ter. Phorm. 35</hi></p>
+<p>adigeret <hi rend="italics" >Eugraph.</hi> adiceret <hi rend="italics">codd.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p><lemma>eo [dict]ita[re</lemma> <hi rend="italics">corr. Dietsch</hi> (dictitare <hi rend="italics">ex glossa</hi> dict <hi rend="italics">et</hi> ita <hi rend="italics">exortum videtur</hi>), <hi rend="italics" >fortasse</hi> divinam rem.</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="23">
+<div2 type="section" n="1">
+<p>natus... loco <hi rend="italics">Non. p. 341, 16</hi></p>
+<p>sed... coopertus <hi rend="italics">Non. p. 310, 5</hi></p>
+<p>probri gratia <hi rend="italics">Agroec. gramm. VII 119, 16</hi> opprobrii <hi rend="italics">Agroec.</hi></p>
+<p>moverant] amoverant P a <hi rend="italics">s. s.</hi> A CTm</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>maria ...coepit <hi rend="italics">Don. Ter. Phorm. 68 Eugraph. Ter. Phorm. 68</hi></p>
+<p>interdum] etiam <hi rend="italics">Gell.</hi></p>
+<p>ni sibi PC<hi rend="sup">2</hi>BK <hi rend="italics" >Gell.</hi> nisi sibi s nisi AC<hi rend="sup">1</hi>Ylnm ni F</p>
+<p>minari...foret <hi rend="italics">Gell. 6(7), 17, 7</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>insolentiae <hi rend="italics">corr.</hi> N insolentia <hi rend="italics">rell. codd.</hi></p>
+<p>quae quoque modo A<hi rend="sup">1</hi>NKMsm quae et quomodo A<hi rend="sup">2</hi>Bn quae et quoque modo C quae quomodo <hi rend="italics">tell.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ad... Ciceroni <hi rend="italics">Serv. Aen. 8, 506</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>invidiam A C B (<hi rend="italics">corr.</hi>) n aestimabat X (<hi rend="italics" >corr.</hi> B) n</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="24">
+<div2 type="section" n="2">
+<p>suam Y(-HF)m</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>primum <hi rend="italics">Arus.</hi></p>
+<p>quae...toleraverant <hi rend="italics" >Arus. gramm. VII 513, 1</hi></p>
+<p>toleraverat <hi rend="italics">Arus.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="25">
+<div2 type="section" n="1">
+<p>sed... (<hi rend="italics" >3</hi>) decus <hi rend="italics">Fronto p. 110 N.</hi> (<hi rend="italics">Hauler p. 166 sq.</hi>)</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>viro liberis A<hi rend="sup">1</hi>m <hi rend="italics" >Fronto Arus. Eugraph.</hi> viro atque liberis <hi rend="italics" >rell. codd. Prisc., credo Sall. scripsisse:</hi> genere, forma, praeterea viro atque liberis, <hi rend="italics">cf. c.20, 7 58, 2, v. Ag 129 et 182</hi></p>
+<p>praeterea... fortunata <hi rend="italics">Eugraph. Ter. Andr. 97.</hi></p>
+<p>haec ... fuit <hi rend="italics">Prisc. gramm. III 286, 5.</hi></p>
+<p>viro...fuit <hi rend="italics">Arus. gramm. VII 473, 28</hi></p>
+<p>graecis latinis <hi rend="italics">m. 1 Fronto</hi></p>
+<p>gr. et latinis XNMTl nm <hi rend="italics">m. 2 Fronto Arus.</hi> gr. atque latinis <hi rend="italics">rell. codd., v. Ag. 130</hi></p>
+<p>litteris ... docta <hi rend="italics">Arus. gramm. VII 464, 18</hi></p>
+<p>psallere saltare <hi rend="italics">Fronto Macr.</hi> psallere et saltare <hi rend="italics">codd. Eutych.</hi></p>
+<p>saltare Ylsnm <hi rend="italics">Fronto Macr, Serv. Eutych.</hi> cantare X (saltare <hi rend="italics">corr.</hi> P<hi rend="sup">2</hi>B<hi rend="sup" >2</hi>, 'saltare debet legi teste Servio in commentario Virgilii' <hi rend="italics">in mg.</hi> A, saltare <hi rend="italics">in mg. advocate teste Servio sec. Dietsch. C</hi>).</p>
+<p>necesse <hi rend="italics">est codd. Macr. Serv.</hi> necesse <hi rend="italics">Fronto</hi> nec. erat. <hi rend="italics">Eutych.</hi></p>
+<p>psallere... probae <hi rend="italics">Macr. sat. 3, 14, 5 Eutych. gramm. V 477, 29</hi></p>
+<p>saltare...probae <hi rend="italics">Serv. Aen. 4, 62 georg. 1, 350</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>lubido P<hi rend="sup">1</hi>Ylsm lubidine X+ <hi rend="italics">m. 2</hi> PKHTDFl</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="26">
+<div2 type="section" n="2">
+<p>neque ... deerant <hi rend="italics">&ast;Aug. epist. 167, 6</hi></p>
+<p>astutia deerat <hi rend="italics">Aug.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>commemoravi Y (-N) 22 clientum Y (-N)</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>petitiones Y (-N) s</p>
+<p>consuli A<hi rend="sup">2</hi>CBn</p>
+<p>in campo <hi rend="italics">del.</hi> Am <hi rend="italics">om.</hi> CBn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="28">
+<div2 type="section" n="1">
+<p>domu P domui A (u <hi rend="italics">exp.</hi>) 1</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>periculi ACs</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>coloniis XMlsn</p>
+<p>colonis A<hi rend="sup" >1</hi>Ym</p>
+<p>fecerat PAB (n <hi rend="italics">s. s.</hi>)</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="29">
+<div2 type="section" n="1">
+<p>man li P manili A, <hi rend="italics" >itemque c. 30, 1</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="30">
+<div2 type="section" n="1">
+<p>Lucius ... recitavit <hi rend="italics" >&ast;Pomp. gramm. V 288, 1</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>senati P <hi rend="italics">Non.</hi> senatus <hi rend="italics">rell. codd.</hi></p>
+<p>Q. Metellus] <hi rend="overline">m</hi>. tullius <hi rend="italics">Non.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>igitur ...missi <hi rend="italics">Non. p. 484, 16</hi></p>
+<p>hi ... erant <hi rend="italics">Ser. Aen. 1, 93 Ps. Ascon. Verr. 2, 6, 17</hi></p>
+<p>hi... paucorum <hi rend="italics">Serv. gramm. IV419, 13</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>&amp; s. c. XNHnms<hi rend="sup">2</hi> sestercia centum <hi rend="italics">eras.</hi> I et sest. centum om. BK<hi rend="italics">l</hi> (sestertiorum centum <hi rend="italics">al. m.</hi> DF)</p>
+<p>et sestertia ducenta milia A<hi rend="sup">2</hi>CBH sn et s. ter (<hi rend="italics">s. s.</hi> A) ducenta milia PA<hi rend="sup" >1</hi>Nl et sestertiorum ter (<hi rend="italics">eras.</hi>) ducenta milia K et sestertiorum ducenta milia <foreign lang="greek" >G</foreign>m</p>
+<p>milia <hi rend="italics">vulgo secl.</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>maiores P</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="31">
+<div2 type="section" n="1">
+<p>quis <hi rend="italics" >Fronto</hi> quibus <hi rend="italics">codd.</hi></p>
+<p>quis ... civitas <hi rend="italics">Fronto</hi> (<hi rend="italics">Hauler p. 163</hi>)</p>
+<p>atque lascivia] lasciviaq. <hi rend="italics">Fronto</hi></p>
+<p>laetitia... pepererat <hi rend="italics">Fronto</hi> (<hi rend="italics">Hauler p. 167</hi>)</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>adflictare ...(13) diffidere <hi rend="italics">Fronto p. 110 N.</hi> (<hi rend="italics">Hauler p. 169</hi>)</p>
+<p><lemma>deliciis omissis</lemma> <hi rend="italics">Fronto, desunt in codd.</hi> </p>
+<p>sibi ... diffidere <hi rend="italics">Arus. gramm. VII 486, 6</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>plauscia P plautitia A<hi rend="sup">2</hi>CB</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>aut sui XI (a <hi rend="italics">eras.</hi> et <hi rend="italics">s. s.</hi>) n ut sui P et ut sui <hi rend="italics" >vel</hi> ut et sui Ysm</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>demisso ...supplici <hi rend="italics">Prisc. gramm. II 340, 20. 354, 21</hi></p>
+<p><lemma>patribus coepit</lemma> <hi rend="italics">vulgo add.</hi> </p>
+<p>aestimarent <hi rend="italics">codd.</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>quoniam quidem circ. v. <hi rend="italics" >&ast;Sacerd. gramm. VI 446, 10</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="32">
+<div2 type="section" n="1">
+<p>resting(u)am PNl<hi rend="sup">2</hi>s restringam ACKl<hi rend="sup">1</hi> exsting(u)am BYnm</p>
+<p>ea quae Ys</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="33">
+<div2 type="section" n="1">
+<p>patria VYnm patriae XN<hi rend="sup">1</hi>ls</p>
+<p>nostrum cuiquam V</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>vestrum <hi rend="italics">Gell.</hi> vestri VP<hi rend="sup">2</hi>Al<hi rend="sup">1</hi> nostri P<hi rend="sup">1</hi>l<hi rend="sup">2</hi> <hi rend="italics">rell.</hi></p>
+<p>miseriti VPNM<hi rend="sup">1</hi>Tl<hi rend="sup">1</hi> miserti XKM<hi rend="sup" >2</hi>Fl<hi rend="sup">2</hi>snm miserati H miseritum D</p>
+<p>saepe ... Romanae <hi rend="italics">Gell. 20, 6, 14</hi></p>
+<p>argentum aere sol. tes <hi rend="italics">Non. p. 390, 28</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>sed ... amittit <hi rend="italics">Serv. Aen. 1, 195</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>vobis V</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="34">
+<div2 type="section" n="2">
+<p>oreretur PN<hi rend="sup">1</hi> oriretur <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>senatum Xn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="35">
+<div2 type="section" n="1">
+<p>l. catilina q. catulo PA<hi rend="sup">1</hi>Blsn l. catilina suo q. catulo A<hi rend="sup">2</hi>C l. catilina salutem q. catulo (<hi rend="italics" >vel</hi> q. catulo salutem) Ym l. catilina salutem dicit q. catulo V</p>
+<p>in magnis meis V</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>quam ... cognoscas <hi rend="italics">Serv. Aen. 4. 204</hi></p>
+<p>cognoscas] mecum recognoscas <hi rend="italics" >Serv.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>publ. mis. causam. <hi rend="italics">Porph. Hor. carm. 2, 8, 6</hi></p>
+<p>publicam ...suscepi <hi rend="italics">Prisc. gramm. III 321, 20</hi></p>
+<p>quin] qui&verbar;&verbar;N quia B<hi rend="sup" >2</hi>K<hi rend="sup">2</hi>H F<hi rend="sup">2</hi>ls</p>
+<p>non possem VXNKls non <hi rend="italics">s. s. vel om.</hi> A<foreign lang="greek" >G</foreign>m et VP A<hi rend="sup">2</hi><foreign lang="greek" >G</foreign>lm sed A<hi rend="sup">1</hi> sed et CBN et cum K cum et Hs cum <hi rend="italics">in ras.</hi> F</p>
+<p>orestiliae V</p>
+</div2>
+
+<div2 type="section" n="6">
+<p>orestillam tibi commendo V</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="36">
+<div2 type="section" n="1">
+<p>arretino A reatinio P reatino A<hi rend="sup">2</hi> <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>antequam ... discedere <hi rend="italics">om. Arus.</hi></p>
+<p>ceterae ... condemnatis <hi rend="italics">Arus. gramm. VII 499, 13</hi></p>
+<p>praeter... condemnatis <hi rend="italics">Prob. inst. gramm. IV 149, 9 Cledon. gramm. V 76, 14. 78, 16 Pomp. gramm. V 278. 22 Prisc. gramm. III 188, 14. 343, 12. 354, 21</hi></p>
+<p>condemnatos A<hi rend="sup">1</hi>N<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>nam <hi rend="italics">Char.</hi> senati PANl <hi rend="italics">Char.</hi> senatus <hi rend="italics">rell. codd.</hi></p>
+<p>namque ... decretis <hi rend="italics" >Char. gramm. 1 22, 18. 539, 12</hi></p>
+<p>uti ... invaserat <hi rend="italics">Fest. p. 359, 4</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="37">
+<div2 type="section" n="3">
+<p>et malos <hi rend="italics">Don.</hi></p>
+<p>bonis ... extollunt <hi rend="italics">Don. Ter. Phorm. 358</hi></p>
+<p>sine damno hab. <hi rend="italics" >Fronto</hi></p>
+<p>quoniam ... damno <hi rend="italics" >Fronto</hi> (<hi rend="italics">Hauler p. 168</hi>) <hi rend="italics">cf. Exup. 2</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>probro ... praestabant <hi rend="italics">Arus. gramm. VII 498, 28</hi></p>
+<p>praestabant A<hi rend="sup">2</hi>CBH <foreign lang="greek">G</foreign>n <hi rend="italics">Arus.</hi> praestabat P<hi rend="sup" >1</hi>ANKlsm</p>
+<p>per A<hi rend="sup">1</hi>m <hi rend="italics">Sacerd.</hi> quiper <hi rend="italics">rell. codd.</hi></p>
+<p>alii ... amissis <hi rend="italics">&ast;Sacerd. gramm. VI 446, 3</hi></p>
+</div2>
+
+<div2 type="section" n="11">
+<p>adeo <hi rend="italics" >codd. recentiores</hi></p>
+<p>multos post annos <hi rend="italics">Arus. gramm. VII 497, 21</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="39">
+<div2 type="section" n="2">
+<p>ceterosque] que <hi rend="italics">om.</hi> AC</p>
+</div2>
+
+<div2 type="section" n="3">
+<p><lemma>est, vetus</lemma> <hi rend="italics">corr. Gruter</hi> </p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="40">
+<div2 type="section" n="2">
+<p>civitatium XN<hi rend="sup">1</hi> civitatum <hi rend="italics" >rell.</hi></p>
+<p>et quasi .. casum <hi rend="italics">Arus. gramm. VII 464, 7 Prisc. gramm. III 281, 2. 307, 9</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ab Roma <hi rend="italics">Prob. Serg. Prise.</hi> ab <hi rend="italics">s. s.</hi> BD <hi rend="italics">om. rell.</hi> Romae P</p>
+<p>nam ... aberat <hi rend="italics">Prob. inst. gramm. IV 150, 20. 26 Serg. gramm. IV 511, 30 Prisc. gramm. III 66, 15</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="41">
+<div2 type="section" n="5">
+<p>praecipit <hi rend="italics" >Linker</hi> praecepit <hi rend="italics">codd.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="43">
+<div2 type="section" n="1">
+<p>constituerant PA<hi rend="sup">1</hi> N<hi rend="sup" >1</hi>H<hi rend="sup">1</hi><foreign lang="greek">G</foreign>l constituerat A<hi rend="sup">2</hi>CBN<hi rend="sup">2</hi>KH<hi rend="sup">2</hi>Tsnm</p>
+<p>Aefulanum <hi rend="italics">Kunze in Berl. Phil. Woch. 1912, 670 sqq</hi> Faesulanum <hi rend="italics">codd.</hi></p>
+<p>quisque <hi rend="italics">vulgo</hi> quoque A que&verbar;&verbar;que N quaeque <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>et PA<hi rend="sup">1</hi> <hi rend="italics">om. rell.</hi></p>
+<p>incenderent PA<hi rend="sup">1</hi>NHTlsm incenderet <hi rend="italics" >rell.</hi></p>
+<p>sed ... interficerent <hi rend="italics">Prisc. gramm. II 199, 10</hi></p>
+<p>e <hi rend="italics">Prisc.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>consulto A<hi rend="sup">2</hi>CBN<hi rend="sup" >2</hi>KH<hi rend="sup">2</hi>MTD<hi rend="sup">2</hi>Flsn consultando PA<hi rend="sup">1</hi>N<hi rend="sup">1</hi>H<hi rend="sup" >1</hi>D<hi rend="sup">1</hi>m</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="44">
+<div2 type="section" n="1">
+<p>sed ... Ciceronis <hi rend="italics">Prob. inst. gramm. IV 124, 8</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>quis CNn</p>
+<p>ex eo <hi rend="italics">s. s.</hi> V</p>
+<p><lemma>cognosces. fac</lemma> <hi rend="italics">cf. Cic. Catil. 3, 5, 12</hi> </p>
+<p>pets A<hi rend="sup">2</hi>CB</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="45">
+<div2 type="section" n="1">
+<p>per... edoctus <hi rend="italics">Arus. gramm. VII. 464, 19</hi></p>
+<p>pom(p)tino XNH<hi rend="sup">2</hi>DFsnm prom(p)tino BKH<hi rend="sup">1</hi>l promptinio MT</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>illi P<hi rend="sup">2</hi>AKMTF<hi rend="sup">2</hi>m illis <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="46">
+<div2 type="section" n="3">
+<p>itemque] item quendam ACT itemque quendam M</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="47">
+<div2 type="section" n="1">
+<p>fidei p. BN<hi rend="sup" >1</hi> fidei publicae C<hi rend="sup">1</hi>HDF<hi rend="sup">1</hi>I fide praedicere A<hi rend="sup">1</hi></p>
+<p>paucis ante diebus <hi rend="italics" >Prob. inst. gramm.IV 149, 4</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>senatus ... Lentulus <hi rend="italics">Arus. gramm. VII 451, 7</hi></p>
+<p>habeantur XHt haberentur Ysnm tenerentur F</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="48">
+<div2 type="section" n="9">
+<p>a BYlsn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="49">
+<div2 type="section" n="1">
+<p>neque precibus n. gratia n. pretio XNKMT (proemio <hi rend="italics">pro</hi> pretio) lsn</p>
+<p>neque pretio neque gratia <hi rend="italics">Prisc. cf. Dict.</hi></p>
+<p>n. precibus n. pretio n. gratia DF n. gratia n. precibus n. pretio Hm, <hi rend="italics">v. Iug. 29,3</hi></p>
+<p>Ciceronem <hi rend="italics">om. Prisc.</hi></p>
+<p>impelli quivit <hi rend="italics">Prisc.</hi></p>
+<p>sed ... potuere <hi rend="italics">Prisc. gramm. II 359,19 cf. Diet. 1,18</hi> (neque pretio neque gratia)</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>exercebant P<hi rend="sup">1</hi>AT</p>
+<p>isdem ... Piso <hi rend="italics">om. Prisc.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="50">
+<div2 type="section" n="4">
+<p>pedibus in sententiam <hi rend="italics">Char. gramm. I 215, 25</hi></p>
+<p>additis B<hi rend="sup" >2</hi>M<hi rend="sup">2</hi>m<hi rend="sup">2</hi> abditis <hi rend="italics">rell. fortasse recte</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="51">
+<div2 type="section" n="1">
+<p>homines <hi rend="italics">om. Char.</hi></p>
+<p>qui...consultant <hi rend="italics">Arus. gramm. VII 460, 3</hi></p>
+<p>consulant <hi rend="italics" >Arus.</hi></p>
+<p>atque <hi rend="italics">om. Arus.</hi></p>
+<p>vacuum <hi rend="italics">Arus.</hi></p>
+<p>esse <hi rend="italics">om. Char.</hi></p>
+<p>omnis ... decet <hi rend="italics">Char. gramm. I 139, 22</hi></p>
+<p>ab ...decet <hi rend="italics">Arus. gramm. VII 514, 12</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>nam animus haud facile <hi rend="italics">Serv.</hi></p>
+<p>omnis ... officiunt <hi rend="italics">Serv. georg. 2, 499</hi> omnes <hi rend="italics">Char. Serv.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>p.c. <hi rend="italics">s. s.</hi> PAN <hi rend="italics">om.</hi> Knm</p>
+<p>quae VP<hi rend="sup">2</hi>A<hi rend="sup">2</hi>Ym<hi rend="sup">1</hi> <hi rend="italics">Arus.</hi> qui XK<hi rend="sup">2</hi>MTlsnm<hi rend="sup">2</hi></p>
+<p>quae ... consuluerint <hi rend="italics" >Arus. gramm. VII 459, 29</hi></p>
+<p>consuluerunt V</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>et] atque Pl</p>
+</div2>
+
+<div2 type="section" n="6">
+<p>et in pace] et <hi rend="italics">om.</hi> ACMTm</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>neve VA<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>sententiam V</p>
+<p>rapi ... conpleri <hi rend="italics">Aug. civ. 1,</hi> 5</p>
+<p>collibuisset <hi rend="italics">Aug.</hi></p>
+</div2>
+
+<div2 type="section" n="10">
+<p>permovet VX<hi rend="sup">2</hi>l</p>
+<p>accendit VP<hi rend="sup">2</hi>AMl</p>
+</div2>
+
+<div2 type="section" n="12">
+<p>habent XNKls + <hi rend="italics">m. 2</hi> BTm agunt VBYnm + <hi rend="italics">m. 2</hi> PACNK</p>
+</div2>
+
+<div2 type="section" n="15">
+<p>equidem ... cruciatus <hi rend="italics">Prisc. gramm. III 103, 13</hi></p>
+<p>severior VACNT sevior <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="16">
+<p>certo VXNnm certe BYls</p>
+</div2>
+
+<div2 type="section" n="19">
+<p>supervacuaneum VPK supervacaneum <hi rend="italics" >rell.</hi></p>
+<p>in armis sint V</p>
+</div2>
+
+<div2 type="section" n="21">
+<p>sententia VA</p>
+<p>in eos verberibus V</p>
+<p>uti ... animadvorteretur <hi rend="italics">Arus. gramm. VII 456, 1</hi></p>
+</div2>
+
+<div2 type="section" n="22">
+<p>de condemnatis VI</p>
+</div2>
+
+<div2 type="section" n="24">
+<p>qui] quid P<hi rend="sup">1</hi>Bln</p>
+<p>neglegeris P</p>
+</div2>
+
+<div2 type="section" n="25">
+<p>fortuna ... moderatur <hi rend="italics">Prise. gramm. III 273, 15</hi></p>
+<p>quoius ... moderatur <hi rend="italics">Arus. gramm. VII 494, 3</hi></p>
+</div2>
+
+<div2 type="section" n="27">
+<p>eius VPA<hi rend="sup">1</hi>NKlsm cives <hi rend="italics">rell</hi></p>
+</div2>
+
+<div2 type="section" n="29">
+<p>ea ... fieri <hi rend="italics">Arus. gramm. VII 490, 6 Prisc. gramm. III 307, 6. 358, 24</hi></p>
+</div2>
+
+<div2 type="section" n="30">
+<p>pop. Romanus <hi rend="italics" >Arus.</hi></p>
+</div2>
+
+<div2 type="section" n="32">
+<p>initium magnae cladis V</p>
+</div2>
+
+<div2 type="section" n="33">
+<p>vas ... concupiverat <hi rend="italics">Prob. inst. gramm. IV 125, 29</hi></p>
+<p>is <hi rend="italics">s. s.</hi> PAN</p>
+</div2>
+
+<div2 type="section" n="34">
+<p>fuit V</p>
+</div2>
+
+<div2 type="section" n="35">
+<p>haec ego V</p>
+</div2>
+
+<div2 type="section" n="36">
+<p>manus XM (s <hi rend="italics">eras.</hi> PM)</p>
+<p>senati C <hi rend="italics">fortasse recte</hi></p>
+</div2>
+
+<div2 type="section" n="40">
+<p>circumveniri V circumvenire <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="41">
+<p>ego hanc VBHDFls hanc ego PACNTm hanc ergo KMn</p>
+</div2>
+
+<div2 type="section" n="42">
+<p>illis VPl in illis <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="43">
+<p>neu]ne VP<hi rend="sup">2</hi>Kl</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="52">
+<div2 type="section" n="1">
+<p>alius...adsentiebantur <hi rend="italics">Diom. gramm. I 381, 27</hi></p>
+<p>alia mihi V <hi rend="italics">Serv.</hi> mihi alia <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>longe ... conscripti <hi rend="italics">Serv. Aen. 1, 13</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>cavere ...magis <hi rend="italics" >Arus. gramm. VII 488, 25</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>maleficia VXHls malefacta A<hi rend="sup">1</hi>Ynm maledicta K mala F</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>pluris ... fecistis <hi rend="italics">Arus. gramm. VII 499, 8</hi></p>
+<p>fecere <hi rend="italics">Arus.</hi></p>
+<p>ista] ita VMT<hi rend="sup">1</hi></p>
+<p>expergiscimini ... publicam &ast;<hi rend="italics">Agroec. gramm. VII 117, 6 Schol. Stat. Theb. 2, 109 Prisc. gramm. III 455, 31</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>est] <hi rend="italics">fortasse</hi> sunt, <hi rend="italics">v. Ag. 172</hi></p>
+</div2>
+
+<div2 type="section" n="12">
+<p>sint... aerari <hi rend="italics">Arus. gramm. VII 486, 24</hi></p>
+<p>illis Yls scelestis VP<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="13">
+<p>credo . . . habere <hi rend="italics" >Non. p. 317, 38</hi></p>
+</div2>
+
+<div2 type="section" n="16">
+<p>si. . . metuit <hi rend="italics">Arus. gramm. VII 493, 5</hi></p>
+</div2>
+
+<div2 type="section" n="18">
+<p>intentius VP<hi rend="sup">2</hi></p>
+<p>paulum VAC paululum <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="19">
+<p>nolite ... (22) rem publicam <hi rend="italics">Aug. civ. 5, 12</hi></p>
+</div2>
+
+<div2 type="section" n="20">
+<p>ita AK<hi rend="sup">2</hi>Tm <hi rend="italics">Aug.</hi> ita res <hi rend="italics">rell. codd.</hi></p>
+<p>et equorum <hi rend="italics">Aug.</hi></p>
+</div2>
+
+<div2 type="section" n="21">
+<p>fecerunt <hi rend="italics">Aug.</hi></p>
+</div2>
+
+<div2 type="section" n="24">
+<p>accersunt VP<hi rend="sup">2</hi>B<hi rend="sup">2</hi>KTD<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="25">
+<p>etiamnum V</p>
+<p>depre(he)nsis VPBKHDFls adpre(he)nsis <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="26">
+<p>miseremini VA<hi rend="sup">2</hi>C<hi rend="sup">2</hi>B<hi rend="sup">2</hi>l</p>
+<p>etiam <hi rend="italics">om.</hi> Y(&mdash; K)nm</p>
+<p>ne ... misericordia <hi rend="italics">Don. Ter. Andr. 939</hi></p>
+</div2>
+
+<div2 type="section" n="27">
+<p>convertat VPAI convertatur CBKMTnm vertat ND<hi rend="sup">2</hi> vertatur HD<hi rend="sup">1</hi>Fs</p>
+</div2>
+
+<div2 type="section" n="29">
+<p>non ... (10) sunt <hi rend="italics">Serv. georg. 3, 456</hi></p>
+<p>deorum auxilia comparantur <hi rend="italics" >Serv.</hi></p>
+<p>agundo] laborando <hi rend="italics">Serv.</hi></p>
+<p>bene cons. <hi rend="italics">om. Serve.</hi></p>
+<p>prospere VAMF <hi rend="italics">Serv., fort. recte</hi></p>
+</div2>
+
+<div2 type="section" n="30">
+<p>contra... pugnaverat <hi rend="italics">Arus. gramm. VII 503, 1</hi></p>
+</div2>
+
+<div2 type="section" n="32">
+<p>vero VPA<hi rend="sup">1</hi>l</p>
+<p>aut] atque VP<hi rend="sup">2</hi>Bm</p>
+</div2>
+
+<div2 type="section" n="33">
+<p>iterum VPBKHls it. iam ACYm alterum iam n</p>
+<p>Statilio Gabinio Vl</p>
+</div2>
+
+<div2 type="section" n="35">
+<p>mehercules P<hi rend="sup">1</hi>sm</p>
+<p>occulte potest V</p>
+</div2>
+
+<div2 type="section" n="36">
+<p>quare ... censeo <hi rend="italics">Eugraph. Ter. Eun. 1072</hi></p>
+<p>ego ita censeo VPBI ita ego c. <hi rend="italics">rell.</hi> ego <hi rend="italics">om. Eugraph.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="53">
+<div2 type="section" n="1">
+<p>itemque ... pars <hi rend="italics" >&ast;Sacerd. gramm. VI 446, 4</hi></p>
+<p>senati P (i <hi rend="italics">eras.</hi>) A<hi rend="sup">1</hi>m <hi rend="italics">Don. Char. Prisc.</hi> senatus <hi rend="italics" >rell. codd.</hi></p>
+<p>senati decretum fit <hi rend="italics">Don. Ter. Hec. 356 Char. gramm. l 143, 13</hi></p>
+<p>senati ...censuerat <hi rend="italics">Prisc. gramm. II 258, 6</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>multa... (23) superaret <hi rend="italics">orat. obl. reddit Aug. civ. 5, 12</hi></p>
+<p>multa sibi et legenti et audienti <hi rend="italics" >Aug.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>cum ... contendisse <hi rend="italics">Arus. gramm. VII 459, 6</hi></p>
+<p>contendisse Romanos <hi rend="italics" >Aug.</hi></p>
+<p>ad hoc... fuisse <hi rend="italics">om.Aug.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>sui <hi rend="italics">Aug.</hi> 26 <hi rend="italics">add. Ritschl</hi></p>
+<p>sed ...sustentabat <hi rend="italics">Aug. civ. 5, 12</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>possum PDls possem <hi rend="italics" >rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="54">
+<div2 type="section" n="1">
+<p>magnitud ... (7) addiderat <hi rend="italics">Sacerd. gramm. VI 459, 19</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>dono] bono A<hi rend="sup">1</hi>N<hi rend="sup">1</hi>K<hi rend="sup">1</hi>MTm</p>
+<p>sibi ... posset <hi rend="italics">Aug. civ. 5, 12</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>illum magis <hi rend="italics" >Aug.</hi></p>
+<p>illam A<hi rend="sup">2</hi>CBH<foreign lang="greek">G</foreign>l illa n sequebatur <hi rend="italics" >Aug.</hi> adsequebatur <hi rend="italics">codd.</hi></p>
+<p>quo ... sequebatur <hi rend="italics">Aug. civ. 5, 12</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="55">
+<div2 type="section" n="1">
+<p>sententiam Catonis Y(-HD) nm</p>
+<p>ad <hi rend="italics">eras.</hi> BKm <hi rend="italics">s. s.</hi> MT</p>
+<p>postulabantur <hi rend="italics" >correxi</hi> postulabant A postulabat <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>est... appellatur <hi rend="italics">Char. gramm. I 76, 17 Serv. Aen. 1, 159. 12, 897</hi></p>
+<p>descenderis n</p>
+<p>humi depressus <hi rend="italics">Arus. gramm. VII 487, 32</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>incultu PNlsm inculta <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>vindices <hi rend="italics" >vulgo</hi>&verbar;indices H et ind. PK ei ind. A ind. BNlsn per ind. <foreign lang="greek">G</foreign></p>
+</div2>
+
+<div2 type="section" n="6">
+<p><lemma>dignum moribus</lemma> <hi rend="italics">cf. Treb. Claud. 5, 3</hi> (dignum exitum vita ac moribus suis habuit) <hi rend="italics">cf. Aug. epist. 43, 2</hi> (dignum moribus factisque suis exitum reppererunt)</p>
+<p>exitium] exitum <hi rend="italics">fortasse scribendum, cf. Treb. et Aug.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="56">
+<div2 type="section" n="1">
+<p>et ipse] et <hi rend="italics">om.</hi> Y(-D)nm</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>amplius duobus milibus <hi rend="italics">Arus. gramm. VII 451, 11</hi></p>
+<p>brevi ... habuisset <hi rend="italics">Non. p. 499, 17</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>aut] et <hi rend="italics" >Serv.</hi></p>
+<p>sed ... portabant <hi rend="italics">Non. p. 554, 9</hi></p>
+<p>sparos ... portabant <hi rend="italics">Serv. Aen. 11, 682</hi></p>
+<p>portare <hi rend="italics">Serv.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>in Gall. NKmn <hi rend="italics">Prisc.</hi> ad Gall. F</p>
+<p>in Galliam versus <hi rend="italics">Prisc. gramm. III 514, 22</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>interea ... concurrebant <hi rend="italics">Prisc. gramm. III 184, 11</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="57">
+<div2 type="section" n="2">
+<p>at q. <hi rend="italics">vel</hi> atq. <hi rend="italics">codd. q. del.</hi> CNKM</p>
+<p>in agro P. praesidebat <hi rend="italics">Arus. gramm. VII 498, 23</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>movit P B K s movet <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>expeditus <hi rend="italics">multi edd.</hi> expedites <hi rend="italics" >codd. et Prisc., fortasse cum Dietschio scribendum:</hi> expeditus impeditos</p>
+<p>neque ... sequeretur <hi rend="italics">Prisc. gramm. III 343, 20</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="58">
+<div2 type="section" n="2">
+<p>cuique Ym</p>
+</div2>
+
+<div2 type="section" n="10">
+<p>tegit V</p>
+</div2>
+
+<div2 type="section" n="11">
+<p>supervacuaneum P supervacaneum l supervacaneum <hi rend="italics">rell.</hi></p>
+<p>pugnare pro pot. pauc. VACNKMTnm pro pot. pauc. pugn. PBHDFls</p>
+</div2>
+
+<div2 type="section" n="12">
+<p>aggredimini VCl aggrediamini <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="13">
+<p>vobis VP<hi rend="sup">2</hi>C<hi rend="sup">2</hi>Dn nobis <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="17">
+<p>audacia ... habetur <hi rend="italics" >Non. p. 242, 20. 431, 5. 442, 18</hi></p>
+</div2>
+
+<div2 type="section" n="19">
+<p>praeterea ... facit <hi rend="italics">Non. p. 353, 36</hi></p>
+</div2>
+
+<div2 type="section" n="21">
+<p>cavete XNHDlm cavete ne VA<hi rend="sup">1</hi>K<foreign lang="greek">G</foreign>sn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="59">
+<div2 type="section" n="3">
+<p>omnes evocatos et centuriones <hi rend="italics" >Serv.</hi></p>
+<p>ab iis...evocatos <hi rend="italics">Serv. Aen. 2, 157</hi></p>
+<p>armatum <hi rend="italics">om. Agroec.</hi></p>
+<p>optumum ... subducit <hi rend="italics">Agroec. gramm. VII 119, 24</hi></p>
+<p>subduxit <hi rend="italics">Agroec.</hi></p>
+<p>colonis C<hi rend="sup">2</hi>H<foreign lang="greek">G</foreign>sm coloniis A<hi rend="sup">2</hi>C<hi rend="sup">1</hi>BKn</p>
+<p>colonibus PA<hi rend="sup" >1</hi>Nl, <hi rend="italics">v. c. 28, 4 an</hi> calonibus?</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>pedibus aeger <hi rend="italics">Arus. gramm. VII 453, 1</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>tumulti <hi rend="italics">Non.</hi> tumultus <hi rend="italics">codd.</hi></p>
+<p>ille ... locat <hi rend="italics">Non. p. 489, 34</hi></p>
+<p>inhermos P</p>
+<p>pro liberis ... suis <hi rend="italics">om. Arus.</hi></p>
+<p>contra ... certare <hi rend="italics">Arus. gramm. VII 459, 1</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>homo militaris <hi rend="italics">Prob. inst. grcamm. IV 8, 5</hi></p>
+<p>amplius ... fuerat <hi rend="italics">Arus. gramm. VII 451, 12</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="60">
+<div2 type="section" n="2">
+<p>a <hi rend="italics">om</hi> X <hi rend="italics">s. s.</hi> Al</p>
+<p>postquam ... posset <hi rend="italics">Non. p. 554, 26</hi></p>
+<p>possit P<hi rend="sup">1</hi>AC<hi rend="sup">1</hi></p>
+<p>geritur] agitur Y(-NH)nm</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>Catilina <hi rend="italics">super</hi> copias <hi rend="italics">vel</hi> videt <hi rend="italics">scr. al. m.</hi> ACBNKsm <hi rend="italics">om. rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="61">
+<div2 type="section" n="2">
+<p>quem...tegebat <hi rend="italics">Comment. Lucan. 6, 132 Adnot. sup. Lucan. 6, 132, cf. Flor. epit. 2, 12, 12</hi> (quem quis in pugnando ceperat locum) pugnando locum vivus MTF loc. viv. pugn. <hi rend="italics">Adnot. sup. Lucan.</hi> vivos <hi rend="italics">om. Comment. Lucan. cf. Flor., fortasse rece</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>paulo...conciderant <hi rend="italics">Char. gramm. l 159, 3 1 Diom. gramm. 333, 31</hi> paulo divorsius sed] alis alibi stantes cecideunt <hi rend="italics">Char. Diom., sed haud seio an haec festimoniorum pars ad alium locum pertineat</hi></p>
+<p>conciderunt <hi rend="italics">Char. Diom.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>vero <hi rend="italics">om. Serve.</hi></p>
+<p>Catilina ... repertus est <hi rend="italics">Serv. Aen. 1, 488</hi></p>
+<p>que animi <hi rend="italics">om. Schol. Stat.</hi></p>
+<p>vivus habuerat <hi rend="italics">Schol. Stat.</hi></p>
+<p>ferociamque... retinens <hi rend="italics">Schol. Stat. Theb. 3, 94</hi></p>
+</div2>
+
+</div1>
+</body>
+</text>
+        	
+<text lang="la" n="Jug.">
+<body>
+<div1 type="chapter" n="1">
+<div2 type="section" n="1">
+<p>falso queritur <hi rend="italics">&ast;Sacerd. gramm. VI 442, 29 </hi></p>
+<p>falso ... natura <hi rend="italics">&ast;Ult. Syll. gramm. IV 249, 1 </hi></p>
+<p>falso ... sua <hi rend="italics">Quint. inst. 9, 4, 77</hi></p>
+<p>falso ... humanum <hi rend="italics">Mar. Victorin. gramm. V1126, 22 Don. Ter. Andr. 3,2,25 Char. gramm. I 199,24 Serv. Aen. 4,415. 11,581 Aug. nat. et grat. 1, 1 Cledon. gramm. V 64,4 Pomp. gramm. V 251, 7 Aug. gramm. V 519, 11 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>qui ... grassatur <hi rend="italics">Non. p. 316, 9</hi></p>
+<p>quippe quae NK<hi rend="sup">1</hi> H<hi rend="sup" >2</hi>MDnm <hi rend="italics">Don. </hi>quippe qui A quippe <hi rend="italics">rell. codd. </hi></p>
+<p>aliasque] ceterasque <hi rend="italics">Sacerd. </hi>bonasom.<hi rend="italics"> Don.</hi></p>
+<p>probitatem... bonas <hi rend="italics">&ast;Sacerd. gramm. VI 470,14 </hi></p>
+<p>eripere quoiquam] accipere quisquam <hi rend="italics" >Schol. Stat. </hi></p>
+<p>neque ... potest <hi rend="italics">Don. Ter. Eun. 241 </hi></p>
+<p>probitatem ... potest <hi rend="italics">Schol. Stat. Theb.4,150 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>sin ... cupidinibus <hi rend="italics">Don. Ter. Eun. 74 </hi></p>
+<p>quisque A<hi rend="sup">1</hi>MD<hi rend="sup">1</hi>m<hi rend="sup">1</hi> quique <hi rend="italics" >rell.</hi></p>
+<p>auctores BH<hi rend="sup" >1</hi>T<hi rend="sup">1</hi> actores <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ac perniciosa <hi rend="italics">Aug., om. codd., v. Ag. 88 sqq.</hi></p>
+<p>studio ... petunt <hi rend="italics" >&ast;Aug. epist. 153, 22 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="2">
+<div2 type="section" n="3">
+<p>omnia <hi rend="italics">Hier. Aug. </hi></p>
+<p>omniaque ... senescunt <hi rend="italics">Hier. in Ezech. praef. Aug. epist. 166, 14 Comment. Lucan. 1, 81 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>ceterum studia omnia nostra sicuti anima inmortalia sunt <hi rend="italics">Serv. Aen. 9, 95</hi></p>
+<p>quom ... paratur <hi rend="italics">Non. p. 82,2 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="3">
+<div2 type="section" n="1">
+<p>ius <hi rend="italics">vel </hi> vis A<hi rend="sup">2</hi>B HMT(?)DFn iis PN<hi rend="sup">1</hi>K<hi rend="sup">2</hi>I us K<hi rend="sup">1</hi>m his A<hi rend="sup">1</hi> is N<hi rend="sup" >2</hi> usus CT<hi rend="sup">2</hi></p>
+<p>fuit NKM fuit uti PA<hi rend="sup">1</hi>DTl<hi rend="sup">2</hi>s</p>
+<p>fuit utique A<hi rend="sup">2</hi>BHDFl<hi rend="sup">1</hi> utique m</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>frustra ... dementia est <hi rend="italics">Hier. in Ezram praef. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>et pern. <hi rend="italics">om. Arus.</hi></p>
+<p>nisi... gratificari <hi rend="italics">Arus. gramm. VII 476,13 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="4">
+<div2 type="section" n="4">
+<p>magistratus P<hi rend="sup">1</hi>BKFnm magistratum <hi rend="italics">rell. </hi></p>
+<p>sim] sum H<hi rend="italics">I</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>proinde A<hi rend="sup">2</hi>CNKHnm perinde <hi rend="italics">rell. </hi></p>
+<p>proinde A<hi rend="sup" >1</hi>NH<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>dum ... taedetque <hi rend="italics">Arus. gramm. VII 513, 20 </hi></p>
+<p>ad inc. redeo <hi rend="italics">Prob. inst. gramm. IV 184, 27</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="5">
+<div2 type="section" n="1">
+<p>dehinc P<hi rend="sup">1</hi>Am dein <hi rend="italics">rell. del. </hi>C</p>
+<p>obviatum P<hi rend="sup">1</hi>BKFs</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>expediam CBsm + <hi rend="italics">m. 2</hi> AKHDF</p>
+<p>pauca supra repetam <hi rend="italics">Prisc. granmm. III 46, 18 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>quoi ... fuit <hi rend="italics">Schol. Horat. carm. 4, 8, 19</hi></p>
+<p>ex virtute nomeninditum fuit <hi rend="italics">Schol. Verg. Veron. Aen.9,387</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>deliquerat H reliquerat ANKMTnm</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="6">
+<div2 type="section" n="1">
+<p>qui] hic <hi rend="italics">Diom. Macr. </hi></p>
+<p>qui... (4) carus esse <hi rend="italics">Diom. gramm. 1 341, 9 Macr. exc. gramm. V 624, 24 </hi></p>
+<p>pollens viribus <hi rend="italics" >Arus. gramm. VII 503, 3 </hi></p>
+<p>ui ... (6) loqui <hi rend="italics">Fronto p. 108 N. </hi></p>
+<p>pollens... validus <hi rend="italics">om. Diomn. Macr.</hi></p>
+<p>luxu Ym <hi rend="italics" >Fronto Diom. </hi> luxui XNTlsn luxuriae <hi rend="italics" >Macr.</hi></p>
+<p>inertiae neque corrump. <hi rend="italics">Fronto </hi></p>
+<p>iaculari equitare <hi rend="italics">Diom. Macr. </hi></p>
+<p>equitare ... certare <hi rend="italics">Serv. Aen. 2, 132 </hi></p>
+<p>cursu ... certare <hi rend="italics">Arus. gramm. VII 459, 3</hi></p>
+<p>gloria <hi rend="italics">om. Diom. </hi></p>
+<p>et cum ... esse <hi rend="italics">Don. Ter. Andr. 65</hi></p>
+<p>esset XNFlm</p>
+<p>leonem ... feras <hi rend="italics">Serv. Aen. 10, 836. ecl. 2, 49 </hi></p>
+<p>facere, minimum <hi rend="italics">Fronto Macr. </hi> fac. et min. <hi rend="italics" >codd.</hi></p>
+<p>pleraque... loqui <hi rend="italics">Macr. exc. gramm. V 624, 28 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="7">
+<div2 type="section" n="3">
+<p>nam ... (17) honesti <hi rend="italics">Fronto (Hauler p. 161 sq. et 166)</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>qui ... erat <hi rend="italics">Don. Ter. Ad. 671 </hi></p>
+<p>imperator Rom. erat <hi rend="italics">Arus. gramm. VII 481, 21</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>huc] hoc <hi rend="italics">Fronto </hi></p>
+<p>et <hi rend="italics">codd. Fronto m. 2 </hi> atque <hi rend="italics">Fronto m. 1</hi></p>
+<p>quibus BMTFnm</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="8">
+<div2 type="section" n="1">
+<p>ea... nobiles <hi rend="italics">Non. p. 407, 31 </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>abduxit A CF<hi rend="sup">2</hi></p>
+<p>adduxit <hi rend="italics">rell. </hi></p>
+<p>suam et <hi rend="italics">vel </hi> suamet <hi rend="italics">codd. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="9">
+<div2 type="section" n="2">
+<p>certo VXNlm<hi rend="sup">2</hi> certe <hi rend="italics">rell.</hi></p>
+<p>et populo] populoque ACNMm</p>
+<p>en <hi rend="italics">om. </hi> VPI <hi rend="italics">s. s.</hi> A</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="10">
+<div2 type="section" n="1">
+<p>ego Iug. te <hi rend="italics">rell. codd. </hi></p>
+<p>parvom ... Iugurtha <hi rend="italics">Don. Ter. Andr. 35</hi></p>
+<p>ego te Iug. VNMTFnm <hi rend="italics">Don. Eugraph.</hi></p>
+<p>et sine spe et <hi rend="italics">Eugraph. </hi></p>
+<p>meum regnum <hi rend="italics">plerique codd. Eugraph. </hi> regnum meum VPD</p>
+<p>parvom ... accepi <hi rend="italics">Eugraph. Ter. Andr. 35 </hi></p>
+<p>excepi <hi rend="italics">Eugraph. </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>me falsum <hi rend="italics" >Non. </hi></p>
+<p>neque ... habuit <hi rend="italics" >Quint. inst. 9,3,12 Non. p. 110,6</hi></p>
+<p>(h)oneravisti VN<hi rend="sup">1</hi>T<hi rend="sup" >2</hi>m</p>
+<p>gloria inv. vic. <hi rend="italics">Porph. Hor. carm. 4, 3 16 Schol. Hor. carm. 4,3,16 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>vitae finem V</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>non thesauri neque ex. <hi rend="italics">Eugraph. </hi> thesauri V</p>
+<p>verum] sed <hi rend="italics">Eugraph. </hi></p>
+<p>armis parare neque pretio quisquam possit <hi rend="italics">Eugraph. </hi></p>
+<p>non ... queas <hi rend="italics">Eugraph. Ter. Ad. 65</hi></p>
+<p>parantur AC<hi rend="sup">1</hi>F<hi rend="sup" >2</hi>n</p>
+<p>amicior VPA<hi rend="sup">1</hi>B<hi rend="sup">2</hi>Nn<hi rend="sup">2</hi> amicitior <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>nam ... dilabuntur <hi rend="italics">&ast;Sen. epist. 15, 2 (94), 46</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>qui VXNnm quia PA<hi rend="sup">2</hi>C<hi rend="sup">2</hi>Yls qui de M</p>
+<p>nam ... videtur <hi rend="italics">&ast;Quint. inst. 8,5, 4</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>colite et obs. TFn <hi rend="italics">Prisc. </hi></p>
+<p>vos... enitimini <hi rend="italics">Prisc. gramm. III 455, 32</hi></p>
+<p>enitimini] intuemini <hi rend="italics">Prisc.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="11">
+<div2 type="section" n="2">
+<p>illi ... fecerant <hi rend="italics">om. Prisc. </hi></p>
+<p>postquam ... convenerunt <hi rend="italics">Prisc. gramm. II 101, 18 </hi></p>
+<p>convenere <hi rend="italics" >Prisc. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>impari P impar&verbar;N impar ei l</p>
+<p>dextra Adh. ads. <hi rend="italics">Arus. gramm. VII 452,13 Prisc. gramm. I 312, 21</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>Iugurtha ... iacit <hi rend="italics">Schol. Stat. Theb. 1, 411</hi></p>
+<p>iacit XN<hi rend="sup">1</hi>m<hi rend="sup">1</hi> <hi rend="italics">Schol. Stat. </hi>ait A<hi rend="sup">2</hi>C<hi rend="sup">2</hi>N<hi rend="sup">2</hi>Ysm<hi rend="sup" >2</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="12">
+<div2 type="section" n="3">
+<p><lemma>tamquam sua[m]</lemma> <hi rend="italics">corr. Schmalz in Berl. Phil. Woch. 1916, 63</hi> </p>
+</div2>
+
+<div2 type="section" n="4">
+<p>conficit XHln confecit NK<hi rend="sup">1</hi>s perficit TF</p>
+<p>perfecit K<hi rend="sup">2</hi>MDm</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>in tug. A<hi rend="sup">2</hi>B<hi rend="sup">2</hi>M <hi rend="italics">Don. Ter. Phorm. Serv. bis</hi></p>
+<p>quom ... ancillae <hi rend="italics">Don. Ter. Phorm. 292</hi></p>
+<p>occultans... ancillae <hi rend="italics">Don. Ter. Andr. 828 </hi></p>
+<p>tugurio mul. anc. <hi rend="italics">Serve. Aen. 1, 409. 8,337 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="13">
+<div2 type="section" n="1">
+<p>di(e)vulgatur Xlsnm di(e)vulgabatur <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>fretus ... contendere <hi rend="italics">Non. p. 259,16 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>fugit <hi rend="italics">Non. </hi></p>
+<p>ex proelio ... contendit <hi rend="italics">Non. p. 260,17 </hi></p>
+<p>contendere <hi rend="italics">Non. </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>omnis numidiae P<hi rend="sup">1</hi>B omni numidae K omni numidiae C<hi rend="sup">2</hi>I<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>praecipit A<hi rend="sup">2</hi>C BNln praecepit <hi rend="italics" >rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="14">
+<div2 type="section" n="1">
+<p>adfinium loco VM<hi rend="sup" >2</hi>m<hi rend="sup">1</hi> adf. locum A<hi rend="sup">1</hi>C<hi rend="sup">1</hi> in adf. loco MFm<hi rend="sup">2</hi> in adf. locum <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>posse a Vm<hi rend="sup">1</hi> possem ea A<hi rend="sup">1</hi>N</p>
+<p>secundum XN<hi rend="sup">1</hi>ln <hi rend="italics" >Prisc. </hi> sedum m sed C<hi rend="sup">2</hi>N<hi rend="sup">2</hi> <hi rend="italics">rell. </hi></p>
+<p>si des. erant <hi rend="italics">om. Prisc.</hi></p>
+<p>secundum ... uterer <hi rend="italics">Prise. gramm. III 26,28 </hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>heu A<hi rend="sup">2</hi>s <hi rend="italics">Ult. Syll. </hi></p>
+<p>eheu me miserum <hi rend="italics">Ult. Syll. gramm. IV 256,4 </hi></p>
+<p>heu me mis., heu me infelicem <hi rend="italics">Ult. Syll. </hi></p>
+<p>hucine VXN Ksm</p>
+<p>huccine B<hi rend="sup">2</hi> <hi rend="italics">rell. </hi></p>
+<p>tuis <hi rend="italics">om. </hi>V</p>
+<p>parem ... fecisti <hi rend="italics">Arus. gramm. VII 500,3 </hi></p>
+<p>is] id V</p>
+<p>numquam VP<hi rend="sup">1</hi>l</p>
+<p>versabitur VXls versabimur AYnm</p>
+</div2>
+
+<div2 type="section" n="11">
+<p>et sup. V</p>
+<p>sese] se V <hi rend="italics">om.</hi> P</p>
+<p>non quit VP<hi rend="sup">2</hi></p>
+<p>sicuti ... effecit <hi rend="italics" >Non. p. 14, 26 </hi></p>
+<p>ut] et V</p>
+<p>regno meo VBHDFsm</p>
+</div2>
+
+<div2 type="section" n="12">
+<p>laboris V</p>
+</div2>
+
+<div2 type="section" n="13">
+<p>quod...vobis <hi rend="italics">Don. Ter. Ad. 692 </hi></p>
+<p>sumus V</p>
+</div2>
+
+<div2 type="section" n="15">
+<p>meos <hi rend="italics">om. </hi>V</p>
+<p>anima est V</p>
+<p>et] atque V</p>
+</div2>
+
+<div2 type="section" n="17">
+<p>accidam <hi rend="italics">Don. </hi></p>
+<p>quo ... appellem <hi rend="italics" >Don. Ter. Hec. 378 </hi></p>
+</div2>
+
+<div2 type="section" n="18">
+<p>neu foed. V</p>
+</div2>
+
+<div2 type="section" n="20">
+<p>max. ope niti <hi rend="italics">om.Serv.</hi></p>
+<p>quos ... singulos <hi rend="italics">Serv.Aen. 4, 283 </hi></p>
+</div2>
+
+<div2 type="section" n="21">
+<p>quoius VP<hi rend="sup">2</hi> <hi rend="italics">lacuna ab </hi> inpio <hi rend="italics">usque ad c. 31, 23 </hi> auctoritas K</p>
+<p>ne VP<hi rend="sup">2</hi>A<hi rend="sup">1</hi>N ut <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="22">
+<p>iam iam ... carissume <hi rend="italics">Serv. Aen. 12, 676</hi></p>
+</div2>
+
+<div2 type="section" n="24">
+<p>neu iure VP<hi rend="sup">2</hi>Al ne lure B<hi rend="sup">1</hi> ne vivere <hi rend="italics">rell. </hi></p>
+<p>emori V</p>
+</div2>
+
+<div2 type="section" n="25">
+<p>per liberos ... vostros <hi rend="italics" >Prob. inst. gramm. IV 96,8 </hi></p>
+<p>per vos... Romani <hi rend="italics">om. </hi>V</p>
+<p>misero mihi VDF mihi misero mihi <hi rend="italics">(exp.)</hi> A</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="15">
+<div2 type="section" n="2">
+<p>suo AM</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>videt regis <hi rend="italics">om. Non. </hi></p>
+<p>is ... inpudentemque <hi rend="italics">Non. p. 306, 5 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="16">
+<div2 type="section" n="1">
+<p>vicit ... anteferebat <hi rend="italics">Non. p. 366,1 </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>qui N<hi rend="sup">2</hi>HT<hi rend="sup">2</hi>sm consuls P consulibus H<hi rend="sup">2</hi><foreign lang="greek" >G</foreign>ln</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>inimicis <hi rend="italics">vulgo</hi> amicis <hi rend="italics" >codd.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="17">
+<div2 type="section" n="2">
+<p>de iis] cetera <hi rend="italics">Prisc. </hi></p>
+<p>comperta <hi rend="italics">Prisc. </hi></p>
+<p>de iis... narraverim <hi rend="italics">Prisc. gramm. III 67,23 </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>mare ... (14) animalia <hi rend="italics">&ast;Fronto p. 109 N (Hauler p. 162 et 166) </hi></p>
+<p>mare saev. inp. <hi rend="italics">Serv. Aen. 1, 616</hi></p>
+<p>ager frug. fert. <hi rend="italics">Arus. gramm. VII 473, 20 </hi></p>
+<p>arbore <hi rend="italics">Arus. </hi></p>
+<p>arb. inf. <hi rend="italics">Arus. gramm. VII 473, 18 </hi></p>
+<p>caelo ... aquarum <hi rend="italics">Serv. Aen. 1,22 </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>ac <hi rend="italics">Fronto om. codd. </hi></p>
+<p>quemquam] quem <hi rend="italics">Fronto</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>sint Ysnm sunt XNl</p>
+<p>utique ... habere <hi rend="italics">Ult. Syll. gramm. IV248, 13 </hi></p>
+<p>penes auctores fides erit <hi rend="italics" >&ast;Sen. nat.4 <hi rend="sup">b</hi>, 3,1</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="18">
+<div2 type="section" n="3">
+<p>sqq. <hi rend="italics" >cf. Isid. orig. 9, 2,120 sq.</hi></p>
+<p>postquam Hercules in Africa, sicut putant, interiit, exercitus eius variis gentibus permixtus est <hi rend="italics">Schol. Stat. 6, 512 </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>commercio PAN commercia <hi rend="italics" >rell. </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>secum <hi rend="italics">om. </hi>Pl</p>
+<p>nomadas P<hi rend="sup" >1</hi>A<hi rend="sup">1</hi>m numadas l mumidas <hi rend="italics" >rell. </hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>mapalia <hi rend="italics">Serv. Aen. 1,421 </hi></p>
+<p>tecta A<hi rend="sup">2</hi>CBNT<hi rend="sup">2</hi>lsnm tecto <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>propius...agitabant <hi rend="italics">Arus. gramm. VII 501, 11 </hi></p>
+<p>mutare ... instituerant <hi rend="italics">Comment. Lucan. 7, 263 </hi></p>
+</div2>
+
+<div2 type="section" n="11">
+<p>proxuma <hi rend="italics">Arus. </hi> proxume <hi rend="italics">codd. fortasse recte </hi></p>
+<p>Carthagine <hi rend="italics">Arus. </hi>Carthaginem <hi rend="italics">codd.</hi></p>
+<p>proxuma... appellatur <hi rend="italics">Arus. gramm. VII 498,17 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="19">
+<div2 type="section" n="1">
+<p>Lepcim <hi rend="italics">Buecheler in Rhein. Mus. 59,638 sqq (cf. Schmalz, Berl. Phil. Woch. 1916, 511) </hi> Leptim <hi rend="italics">codd., itemque c. 19,3; 77, 1, 2; 79, 1 </hi></p>
+<p>Hipponem ... urbis <hi rend="italics">&ast;Sacerd. gramm. VI 470,18 </hi></p>
+<p>aliasque urbis] ceterasque civitates <hi rend="italics">Sacerd.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>nam] sed <hi rend="italics" >Serv. </hi></p>
+<p>tacere satius <hi rend="italics">Quint.</hi></p>
+<p>nam ... dicere <hi rend="italics">Quint. inst. 2,13,14 Serv. Aen. 1,342 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>Philenon arae <hi rend="italics">Max. Victorin. gramm. VI 235, 13 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>proxumi Pl <hi rend="italics">Arus. </hi> proxume <hi rend="italics">rell. codd. </hi></p>
+<p>Hispania <hi rend="italics" >Arus. </hi> Hispanias Pl Hispaniam <hi rend="italics" >rell.</hi></p>
+<p>proxumi ... sunt <hi rend="italics" >Arus. gramm. VII 498,18 </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>dehinc PB deinde A dein <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="20">
+<div2 type="section" n="2">
+<p>opportunus iniuriae <hi rend="italics">Arus. gramm. VII 496, 15 </hi></p>
+<p>in regnum ... metuendus <hi rend="italics">&ast;Fronto p. 109 N. (Hauler p. 162)</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>et amicitia ... fretus <hi rend="italics">Arus. gramm. VII, 474, 28</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="21">
+<div2 type="section" n="4">
+<p><lemma>bello disceptare&gt;:</lemma> <hi rend="italics">om. codd., leguntur in paucis integris, v. Ag. 93 sq.</hi> </p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="22">
+<div2 type="section" n="1">
+<p>sed... erat <hi rend="italics">Prisc. gramm. III 353, 11 </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>senati Cs 33 adrigere Xls erigere Ynm</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="24">
+<div2 type="section" n="2">
+<p>ad <hi rend="italics">om. </hi>V</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>mei <hi rend="italics">om. </hi>V</p>
+<p>incertum est VP<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>expuli V</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>vestra vis V</p>
+<p>quo Y(-M) qua A<hi rend="sup">2</hi>CBn a quo A<hi rend="sup">1</hi>M lsm a qua P</p>
+<p>movere N commoveri V</p>
+</div2>
+
+<div2 type="section" n="9">
+<p>scripsi V</p>
+<p>nam ... faceret <hi rend="italics">Ser. Aen. 1, 392 </hi></p>
+</div2>
+
+<div2 type="section" n="10">
+<p>ut] et V<hi rend="sup">1</hi></p>
+<p>cruciatum V</p>
+<p>manibus VPBls</p>
+<p>ex man. <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="25">
+<div2 type="section" n="2">
+<p>enisum P<hi rend="sup">1</hi>A<hi rend="sup">1</hi>N<hi rend="sup">1</hi>lsm enisum (nisum) est <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>in senatu A<hi rend="sup" >2</hi>CBlmn</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ab PB a <hi rend="italics">rell. </hi></p>
+<p>navem P<hi rend="sup" >1</hi>ACN<hi rend="sup">1</hi>Mls navim <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>rapiebat P<hi rend="sup" >1</hi> Nls rapiebatur <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>diducta NTDFsnm ded. HM ducta Xl</p>
+</div2>
+
+<div2 type="section" n="10">
+<p>ut ... potiretur <hi rend="italics" >Non. p. 498,29 Arus. gramm. VII 498, 4 Serv. Aen. 3, 278 </hi></p>
+<p>priusquam ... potiretur <hi rend="italics">Prisc. gramm. III 334, 4</hi></p>
+<p>poteretur <hi rend="italics" >Arus.</hi></p>
+</div2>
+
+<div2 type="section" n="11">
+<p>senati PACN senatui 1 senatus <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="26">
+<div2 type="section" n="1">
+<p>tantum ... paciscatur <hi rend="italics">Arus. gramm. VII 498, 9</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>fecit Y</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>armatus Xln armatis A<hi rend="sup">1</hi> <hi rend="italics">rell. </hi></p>
+<p>interficit Xlsn interfecit Ym</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="27">
+<div2 type="section" n="2">
+<p>per pauc. fact. <hi rend="italics">om. Arus.</hi></p>
+<p>ut ... condonaretur <hi rend="italics">Arus. gramm. VII 461,3 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p><lemma>Nasica &lt;et&gt;</lemma> <hi rend="italics">addidi, v. Ag. 20 et 179</hi> </p>
+</div2>
+
+<div2 type="section" n="4">
+<p>Calpurnius <hi rend="italics">om.</hi> Pl <hi rend="italics">s. s. </hi> MD Calpurnius L. baestlae A Calpurnius L. bestia c. (L. bestia c. <hi rend="italics">eras.</hi>) C bestia c; calpurnius B L. calpurnius bestia Ns</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="28">
+<div2 type="section" n="1">
+<p>venum ire CBHs</p>
+<p>praecipit Xs praecepit <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>senati <hi rend="italics">Dietsch fort. recte, ut in Catil. 30,3. 36,5. 53, 1 Iug. 40, 1; cf. tamen Catil. 51,36</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>auctoritate C<foreign lang="greek">G</foreign>s + <hi rend="italics">m. 2 </hi> ABNHD auctoritas <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>et <hi rend="italics">Fronto, om. codd. </hi></p>
+<p>in consule ... insidias <hi rend="italics">&ast;Frontop. 109 N(Hauler p. 162) </hi></p>
+<p>invidias PANIm <hi rend="italics">Fronto, fort. recte </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="29">
+<div2 type="section" n="3">
+<p><lemma>Iugurtha primo</lemma> <hi rend="italics">primo </hi> AYsm primum <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>deinde <hi rend="italics" >Diom. </hi> postero die <hi rend="italics">om. Diom. </hi></p>
+<p>dein ... accipitur <hi rend="italics">&ast;Fest. p. 314, 34 Diom. gramm. I 486,15</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="30">
+<div2 type="section" n="1">
+<p>pot. Scauri eos <hi rend="italics">Arus. </hi></p>
+<p>quod ... ferebatur <hi rend="italics">om. Arus. </hi></p>
+<p>eos ... impediebat <hi rend="italics">Arus. gramm. VII 486, 7</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>inter dubitationem <hi rend="italics">Arus. gramm. VII 482, 2</hi></p>
+<p>monere ne rem p. ne lib. N<hi rend="sup">1</hi>m monere rem p. (p. rom. <hi rend="italics">corr.</hi>) ne lib. A monere P. R. ne lib. PB (movere)lsn monere ne pop. rom. ne lib. C monere p. r. ne remp. ne lib. <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>eam PA<hi rend="sup" >2</hi>CBMT</p>
+<p>quae] quam P<hi rend="sup" >2</hi>CB<hi rend="sup">2</hi>MT</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="31">
+<div2 type="section" n="2">
+<p>multi BMDn</p>
+<p>ab ... corruptus <hi rend="italics">Arus. gramm. VII 460. 10 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>potentiae factionis VP<hi rend="sup">2</hi>n</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>situmq. est. V</p>
+</div2>
+
+<div2 type="section" n="10">
+<p>sed ... magnifici <hi rend="italics" >Serv. Aen. 1, 46 </hi></p>
+<p>proinde VP<hi rend="sup">1</hi>A<hi rend="sup">1</hi>N<hi rend="sup">1</hi>m perinde <hi rend="italics" >rell. </hi></p>
+<p>honores non praedas V</p>
+</div2>
+
+<div2 type="section" n="11">
+<p>Quirites <hi rend="italics">om. </hi>V</p>
+</div2>
+
+<div2 type="section" n="12">
+<p>et idem VPCBlsn idemque <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="14">
+<p>ita] itaque V</p>
+<p>ita... tutus est <hi rend="italics">Serve. Aen, 7, 787 </hi></p>
+<p>ab VP a <hi rend="italics">rell. </hi></p>
+<p>omnis eadem cupere <hi rend="italics">om. Don. </hi></p>
+<p>idem cupere VP<hi rend="sup">2</hi>l odisse et V</p>
+<p>quos...coegit <hi rend="italics">Don. Ter. Hec. 170 </hi></p>
+</div2>
+
+<div2 type="section" n="15">
+<p>inter bonos ... factio <hi rend="italics">Non. p. 304,23</hi></p>
+</div2>
+
+<div2 type="section" n="16">
+<p>curam libertatis Vn</p>
+</div2>
+
+<div2 type="section" n="18">
+<p>vos] vobis VA<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="19">
+<p>iussis... erit <hi rend="italics">Arus. gramm. VII 496, 26 </hi></p>
+<p>contemnet V</p>
+<p>ad rem p. VX1 in rem p. A<hi rend="sup">1</hi> <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="20">
+<p>bella atque paces <hi rend="italics">Cledon. gramm. V 42,25 Pomp. gramm. V 176,21 </hi></p>
+<p>iudicia ... paces <hi rend="italics">Beda gramm. VII 283,16 </hi></p>
+<p>paces <hi rend="italics">Serv. gramm. IV 432, 21</hi></p>
+<p>paces exercebant <hi rend="italics">Cledon. </hi></p>
+<p>vos ... Romanus <hi rend="italics">Serv. Aen. 1, 46</hi></p>
+<p>imp. omn. gent. <hi rend="italics">Arus. gramm. VII 481, 20 </hi></p>
+</div2>
+
+<div2 type="section" n="21">
+<p>viro VP Mm viro F viros A<hi rend="sup">1</hi>N<hi rend="sup">1</hi>s virum A<hi rend="sup">2</hi>N<hi rend="sup">2</hi> <hi rend="italics">rell. </hi></p>
+<p>flagitiosum HM flagitiosissimo m flagitiosissimo F flagitiosissimos A<hi rend="sup" >1</hi>N<hi rend="sup">1</hi>s</p>
+</div2>
+
+<div2 type="section" n="22">
+<p>alterna VXDln</p>
+</div2>
+
+<div2 type="section" n="23">
+<p>hostibus <hi rend="italics">bis </hi> P<hi rend="sup">1</hi>ln <hi rend="italics" >semel rell. </hi></p>
+<p>hostibus <hi rend="italics" >bis </hi> P<hi rend="sup">1</hi>ln <hi rend="italics">semel rell. </hi></p>
+</div2>
+
+<div2 type="section" n="25">
+<p>amittatis V</p>
+<p>est <hi rend="italics">om. </hi>Ys</p>
+</div2>
+
+<div2 type="section" n="26">
+<p>vindicantur V vindicatum fuerit <hi rend="italics" >Diom. </hi></p>
+<p>nisi ... noxios <hi rend="italics">Diom. gramm. I 365, 2</hi></p>
+</div2>
+
+<div2 type="section" n="28">
+<p>inmemorem]////memorem N memorem <hi rend="italics" >rell.</hi> (in s. s. KTF)</p>
+<p>benefici memorem esse quam maleficii VP<hi rend="sup">2</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="32">
+<div2 type="section" n="1">
+<p><lemma>saepe [in]</lemma> <hi rend="italics">vulgo delent, sed post </hi> in <hi rend="italics">aliquid videtur excidisse velut 'contionibus' </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p><lemma>perfugas vendere[nt],</lemma> <hi rend="italics">corr. Kortte </hi> </p>
+</div2>
+
+<div2 type="section" n="5">
+<p>quoniam PA1l quo <hi rend="italics">rell. </hi></p>
+<p>ne] nam <hi rend="italics">Don. 2 </hi></p>
+<p>magis quam benivolentiam <hi rend="italics">Don. 1</hi> mallem <hi rend="italics" >Don. 1</hi></p>
+<p>ne ... mallet <hi rend="italics">Don. Ter. Hec. 766 bis </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="33">
+<div2 type="section" n="1">
+<p>cum Cassio <hi rend="italics">om. Serv.</hi></p>
+<p>cultu ... venit <hi rend="italics">Serv. georg. 1, 3 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>plebs A<hi rend="sup">2</hi>H<foreign lang="greek" >G</foreign>ln</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>vera Y(-K)m</p>
+<p>aperiet A aperiret Y(-K)m</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="35">
+<div2 type="section" n="1">
+<p>patria P Africa <hi rend="italics">rel.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>per ... artifices <hi rend="italics">Arus. gramm. VII 456, 3</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>supra PBK s super <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="10">
+<p>o urbem AH<hi rend="sup" >2</hi>M<hi rend="sup">2</hi> <hi rend="italics">Liv. Aug. Oros.</hi> urbem <hi rend="italics" >rell.</hi></p>
+<p>mature] cito <hi rend="italics">Liv.</hi></p>
+<p>o urbem ... invenerit <hi rend="italics">&ast;Liv. perioch. 64 &ast;Aug. epist. 138,16 &ast;Oros. hist. 5,15,5 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="36">
+<div2 type="section" n="2">
+<p>consulem] principem <hi rend="italics">Arus. </hi></p>
+<p>pacis ... ludificare <hi rend="italics">Arus. gramm. VII 490, 22 </hi></p>
+<p>ludificari <hi rend="italics" >Arus. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="37">
+<div2 type="section" n="3">
+<p>Aulus] Albinus PAN<hi rend="sup">1</hi>Kl <hi rend="italics">itemque c. 38, 2. 38, 4. 38, 9. 39, 1 </hi></p>
+<p>opp. Suthul <hi rend="italics">&ast;Prisc. gramm. II 147, 21</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>aquis hiemantibus <hi rend="italics">Sen. epist. 19, 5 (114), 19 </hi></p>
+<p>quae ... forent <hi rend="italics">om. Arus.</hi></p>
+<p>aliaque ... properare <hi rend="italics">Arus. gramm. VII 502, 11 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="38">
+<div2 type="section" n="1">
+<p>subdolo P subdolus A<hi rend="sup">1</hi>NK<hi rend="sup">1</hi></p>
+<p>tramites et salt. loca <hi rend="italics">Serv. </hi> et tramites <hi rend="italics">om. Diom. </hi></p>
+<p>quasi ... ductare <hi rend="italics">Serv. Aen. 10, 341 </hi></p>
+<p>vitabundus... ductare <hi rend="italics">Diom. gramm. I 403, 5</hi></p>
+<p>exerc. duct.] recedebat <hi rend="italics" >Diom. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>diu PN die A die <hi rend="italics">rell. </hi></p>
+<p>partim TD<hi rend="sup">2</hi>Fsnm partium <hi rend="italics">rell. </hi> (s. duces <hi rend="italics">s. s.</hi> A)</p>
+</div2>
+
+<div2 type="section" n="6">
+<p>transire Y (e <hi rend="italics">s. s.</hi> T)</p>
+<p>irrumpere P<hi rend="sup">1</hi>n erupere CBl</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>nostri foeda fuga <hi rend="italics">Don. Ter. Eun. 313</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>facit XNDsnm fecit BYl</p>
+<p><lemma>clausum ten&lt;er&gt;et,</lemma> <hi rend="italics">vulgo addunt</hi> </p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="39">
+<div2 type="section" n="1">
+<p>ubi ea] haec ubi <hi rend="italics">Prisc. cf. Catil. 36, 2 </hi></p>
+<p>ubi ... comperta sunt <hi rend="italics">Prisc. gramm. III 73, 10 </hi></p>
+<p>pars insol. rer. bell. <hi rend="italics">Arus. gramm. VII 486,20 </hi></p>
+<p>fuerint PAN<hi rend="sup">1</hi>K<hi rend="sup">1</hi>T<hi rend="sup">2</hi>Dln</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="40">
+<div2 type="section" n="1">
+<p>senati PANIm senatus <hi rend="italics" >rell. </hi></p>
+<p>neglegisset B</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>metuens pericula <hi rend="italics">Arus. grarmm. VII 493, 1</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>iusserit P<hi rend="sup">1</hi>AF<hi rend="sup">2</hi>m iusserit decreverit voluerit <hi rend="italics">rell</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>mamilia PAl mamiliana NK<hi rend="sup">1</hi> malliana m mamilli <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="41">
+<div2 type="section" n="1">
+<p>partium m<hi rend="sup">1</hi> partium popularium <hi rend="italics">rell. </hi></p>
+<p>factionum N<hi rend="sup">1</hi>m<hi rend="sup">1</hi> senatus factionum CBn + <hi rend="italics">m. 2 </hi> ANKT senatores factionum <hi rend="italics">rell. </hi></p>
+<p>quae ... ducunt <hi rend="italics">Don. Ter. Eun. 50 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>discessit Ynm 22 fuit PNKT<hi rend="sup">2</hi> D<hi rend="sup">2</hi>lsn fit A<hi rend="sup" >2</hi>CB fuere <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>paucorum ... agitabatur <hi rend="italics">Arus. gramm. VII 458, 25</hi></p>
+<p>agitabantur <hi rend="italics" >Arus.</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>ipsa AN<hi rend="sup">1</hi>m <hi rend="italics">Arus. </hi> ipsam <hi rend="italics">rell. codd. </hi></p>
+<p>quoad... praecipitavit <hi rend="italics">Arus. gramm. VII 505, 2 </hi></p>
+</div2>
+
+<div2 type="section" n="10">
+<p>permixtio sn + <hi rend="italics">m. 2 </hi> PABKMTD permixtione <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="42">
+<div2 type="section" n="1">
+<p>alterum <hi rend="italics">bis n semel rell. </hi></p>
+<p>necaverat XKls necaverant A<hi rend="sup">1</hi>Ynm</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>omnis Xl omnibus P<hi rend="sup">2</hi>A<hi rend="sup">2</hi>Yns</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="43">
+<div2 type="section" n="1">
+<p>provincias... partiverant <hi rend="italics">Serv. Aen. 1, 194 Cledon. gramm. V 59, 13 &ast;Pomp. gramrn. V 233,32 </hi></p>
+<p>acri ... populi <hi rend="italics">Arus. gramm. VII 451, 14</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>scribere NMm eligere D eligere scribere XKHlsn scrib. elig. F elig. praesidia scrib. T</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="44">
+<div2 type="section" n="1">
+<p>exercitus ... (24) adcedebat <hi rend="italics" >&ast;Fronto p. 109 N. (Hauler p. 162) </hi> ei <hi rend="italics">del. m. 2 Fronto </hi></p>
+<p>traditus (tur <hi rend="italics">corr. m. 2) Fronto</hi></p>
+<p>a Sp. Albino proconsule XKT<hi rend="sup">2</hi>F<hi rend="sup">2</hi>lsnm<hi rend="sup">2</hi> <hi rend="italics">Fronto </hi> Sp. Albini proconsulis <hi rend="italics">rell. codd. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>labore PANKl</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>nam ... (28) confirmavit <hi rend="italics" >&ast;Fronto p. 109&mdash;110 N. (Hauler p. 163 et 168)</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>neque muniebantur <hi rend="italics">Fronto; fortasse scribendum </hi> mun. ea <hi rend="italics">ut in integro cod. Pacris. 6087 saec. XII, v. Ag 89 </hi></p>
+<p>diu PNH Ms <hi rend="italics">Fronto </hi> die <hi rend="italics">rell. codd. </hi></p>
+<p>publice datum <hi rend="italics">codd. Arus. </hi> datum publice <hi rend="italics">Fronto</hi></p>
+<p>frumentum ... mercari <hi rend="italics">Arus. gramm. VII 487, 22 </hi></p>
+<p>panem ... mercari <hi rend="italics">Don. Ter. Eun. 939</hi></p>
+<p>ea <hi rend="italics">Fronto</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="45">
+<div2 type="section" n="2">
+<p><lemma>aut [quem]</lemma> <hi rend="italics">om. Fronto </hi> </p>
+<p>cibum coctum <hi rend="italics">Fronto </hi> coct. cib. <hi rend="italics">codd. </hi></p>
+<p>insequerentur <hi rend="italics">m. l Fronto </hi></p>
+<p>hastatus aut <hi rend="italics">Fronto </hi></p>
+<p>hostis adesset <hi rend="italics">Prisc. </hi></p>
+<p>praeterea ... munire <hi rend="italics" >Prisc. gramm. III 94,8 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="46">
+<div2 type="section" n="1">
+<p>Roma <hi rend="italics">Fronto </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>ubi...conatus est <hi rend="italics">Non. p. 325,31</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>nuntiari ACBNKsn nuntiare <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>item] dehinc <hi rend="italics">Non. </hi></p>
+<p>ipse... erat <hi rend="italics">Non. p. 553, 12 </hi></p>
+<p>cum] cumque <hi rend="italics">Non. </hi></p>
+<p>cum ... velites <hi rend="italics">Non. p. 552,27 </hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>an Xln et K aut s vel <hi rend="italics">rell. </hi></p>
+<p>in incerto KT<hi rend="sup" >2</hi>F<hi rend="sup">2</hi>sm<hi rend="sup">1</hi> incerto XNlnm<hi rend="sup">2</hi> incertum H<foreign lang="greek" >G</foreign></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="47">
+<div2 type="section" n="2">
+<p>si paterentur et ob <hi rend="italics">Schmalz </hi> et si paterentur <hi rend="italics">codd.</hi></p>
+<p><lemma>commeatu[m] iuvaturam</lemma> <hi rend="italics" >corr. Ursin.</hi> iuvaturam <hi rend="italics">Madvig </hi> iuvaturum <hi rend="italics">codd. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="48">
+<div2 type="section" n="1">
+<p>ubi ... conposuit <hi rend="italics">Non. p. 257, 22</hi></p>
+<p>coactus...certare <hi rend="italics">Non. p. 335,38 </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>per...antevenit <hi rend="italics">Schol. Stat. Theb. 6,148 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>a quo ... viginti <hi rend="italics">Arus. gramm. VII 455, 25 </hi></p>
+<p>milia viginti A<hi rend="sup" >1</hi>F<hi rend="sup">2</hi>m <hi rend="italics">Arus. </hi>milia passuum viginti XKlsn <hi rend="italics">Non. </hi> milia habens (<hi rend="italics">del. </hi>B) passuum viginti A<hi rend="sup">2</hi>B milia viginti passuum H<foreign lang="greek">G</foreign> passuum viginti N, <hi rend="italics">v. Ag 132 </hi></p>
+<p>aberat ... cultu <hi rend="italics">Non. p. 185, 12 </hi></p>
+<p>vastus ... cultu <hi rend="italics">Serv. Aen 8, 8 </hi></p>
+<p>vestitus ... arborum <hi rend="italics" >Schol. Stat. Theb. 5,16</hi></p>
+<p>quae ... gignuntur <hi rend="italics">Prisc. gramm. III 377,5 </hi></p>
+<p>humi... gignuntur <hi rend="italics">Arus. gramm. VII 477, 32 </hi></p>
+<p>gignuntur] nascuntur <hi rend="italics">Arus.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="49">
+<div2 type="section" n="1">
+<p>Iugurtha ... consedit <hi rend="italics">Prisc. gramm. III 321,5 </hi></p>
+<p>consedit] montem insedit <hi rend="italics">Prisc. </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>belli PAl <hi rend="italics">Arus. </hi>bello <hi rend="italics">rell. codd. </hi></p>
+<p>rudes ... consererent <hi rend="italics">Arus. gramm. VII 492, 3</hi></p>
+<p>conserere <hi rend="italics">Arus.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p><lemma>postremo &lt;pro&gt;</lemma> <hi rend="italics">vulgo add. </hi> </p>
+<p>interea <hi rend="italics">Don. </hi></p>
+<p>ignarus hostium <hi rend="italics">om. Don. </hi></p>
+<p>degrediens XNl digrediens A<hi rend="sup">2</hi>B <hi rend="italics">rell. itemque c. 50, 1 </hi></p>
+<p>conspicatur <hi rend="italics" >Don. Prisc. gramm. III 436, 3 </hi> conspicitur <hi rend="italics" >codd.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>quom ... ostenderet <hi rend="italics">Don. Ter. Eun. 384</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="50">
+<div2 type="section" n="1">
+<p>colli <hi rend="italics">Arus. </hi></p>
+<p>Numidas ... animadvortit <hi rend="italics">Arus. gramm. VII 464, 25 </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>praetergressum <hi rend="italics">vulgo </hi> praetergressos <hi rend="italics">codd. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>fuerunt Y(-K)m</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ubi XN<hi rend="sup">2</hi>l<hi rend="sup">2</hi>n ubique N<hi rend="sup">1</hi>l<hi rend="sup">1</hi> ubicumque <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>fuerant P</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="51">
+<div2 type="section" n="4">
+<p>mun. ullum XKls ullum (illis Nn) mun. <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>circumire XN<hi rend="sup">1</hi>m circuire <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="52">
+<div2 type="section" n="1">
+<p>inter... certabant <hi rend="italics">Arus. gramm. VII 459,4</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>diei CBK<hi rend="sup">2</hi>H<hi rend="sup">2</hi>Flsm<hi rend="sup" >2</hi></p>
+<p>praec. erat BH<foreign lang="greek">G</foreign>m</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>plerosque A<hi rend="sup" >1</hi>Ys<hi rend="sup">2</hi>m pluresque <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ab Iug. <hi rend="italics" >om. Arus. </hi></p>
+<p>quem ... diximus <hi rend="italics">Arus. gramm. VII 499,2 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="53">
+<div2 type="section" n="5">
+<p>laetique <hi rend="italics">fortasse defendendum coll. Liv. 22, 60, 9; an</hi> confecti <hi rend="italics">vel </hi> lacerati?</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>adventarent D</p>
+<p>alteros XKT<hi rend="sup">2</hi>F<hi rend="sup">2</hi>lsn alterum <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>pro... mutatur <hi rend="italics">Prisc. gramm. III 296, 6 </hi> mutatur <hi rend="italics">Prisc. </hi>exortum <hi rend="italics" >codd.</hi></p>
+<p>detrectant PAYs decretant CBn detractant Mlm</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="54">
+<div2 type="section" n="1">
+<p><lemma>castris quatriduo&lt;m&gt;</lemma> <hi rend="italics">addidi in " Zeitbestimmungen im Lat." p. 34</hi> </p>
+<p>cum cura <hi rend="italics">Sen. benef. 4,1,1 </hi></p>
+<p>etiam tum regis an. HTDF regis etiam tum an. PCNKsnm regis etiam an. A etiam regis tum an. BM regis////an. etiam tum l</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>Numida PAYlm Numidarum CBMTsn + <hi rend="italics">m. 2 </hi>ANKHFm</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>iniquom <hi rend="italics">vulgo</hi> inimicum <hi rend="italics">codd.</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>puberes interf. <hi rend="italics">Prob. cath. gramm. IV 16, 23 </hi></p>
+<p>interfecit <hi rend="italics">Prob. </hi>interfici AT<hi rend="sup">2</hi> <hi rend="italics">Serv. </hi></p>
+<p>puberes ...iubet <hi rend="italics">Serv. Aen. 5, 546 </hi></p>
+<p>pub. omnes <hi rend="italics">Serv. </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>cui A<hi rend="sup">2</hi>CBH<hi rend="sup">2</hi>s</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="55">
+<div2 type="section" n="1">
+<p>ut in PT<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>anxius XH<hi rend="sup">2</hi>T<hi rend="sup">2</hi>D<hi rend="sup">2</hi>lsn animus H<hi rend="sup">1</hi> animus anxius NKm animosior <foreign lang="greek">G</foreign></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="56">
+<div2 type="section" n="3">
+<p>ab rege defecerat <hi rend="italics">Prisc. gramm. II 404, 10 </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ac ni ... mutavissent <hi rend="italics">Non. p. 293, 10 </hi></p>
+<p>gerunt XKIs agunt <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="57">
+<div2 type="section" n="1">
+<p>armis virisque opulentum <hi rend="italics">Arus. gramm. VII 496, 23 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>pars...pugnare <hi rend="italics">Non. p. 553, 17 </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>proximis PA<hi rend="sup">2</hi>CBKl</p>
+<p>taedam P<hi rend="sup">1</hi>A<hi rend="sup">1</hi>ND<hi rend="sup" >2</hi>m</p>
+<p>ardenti A<hi rend="sup">2</hi>K<foreign lang="greek">G</foreign>s ardentem m</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="58">
+<div2 type="section" n="3">
+<p>pauci ...frustrari <hi rend="italics">Schol. Stat. Theb. 2, 594 </hi></p>
+<p>frustrari XTm frustrati A<hi rend="sup" >2</hi>C<hi rend="sup">2</hi>Y lsn frustrabantur <hi rend="italics" >Schol. Stat. </hi></p>
+<p>sin Xl si <hi rend="italics" >rell. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>clamorem M<hi rend="sup">1</hi>DF clamorem vel tumultum <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ne quam contumeliam <hi rend="italics" >Don. Ter. Eun. 771 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="59">
+<div2 type="section" n="3">
+<p>adversis equi(s) m. <hi rend="italics">2 </hi>PKTl adversi sequi <hi rend="italics">codd. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="60">
+<div2 type="section" n="1">
+<p>eodem tempore <hi rend="italics">Serv. Aen. 10, 833 </hi></p>
+<p>sese XK<hi rend="sup">2</hi>Tsn se <hi rend="italics">rell. </hi></p>
+<p>avidius ...tegere <hi rend="italics">Don. Ter. Phorm. 964</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>aut niti] aut <hi rend="italics">in mg.</hi> A<hi rend="sup">2</hi> <hi rend="italics">om. </hi>N<foreign lang="greek">G</foreign>nm</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>ubi] postquam <hi rend="italics">Claud. Don.</hi></p>
+<p>ubi ... conminutae <hi rend="italics" >Claud. Don. Aen. 2,442 </hi></p>
+<p>conminutae sunt <hi rend="italics">Claud. Don. </hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>denique Xl deinde <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="61">
+<div2 type="section" n="1">
+<p>nisi M + <hi rend="italics">m. 2 </hi>AKHI ni F niti PA<hi rend="sup">1</hi>NK<hi rend="sup" >1</hi>H<hi rend="sup">1</hi>Dl<hi rend="sup">1</hi>m niti nisi CBsn</p>
+<p>et <hi rend="italics">om.Arus. </hi></p>
+<p>ad P<hi rend="sup">2</hi>N<hi rend="sup" >2</hi>HT<hi rend="sup">1</hi> <hi rend="italics">Arus. </hi>ab <hi rend="italics">rell. codd. </hi></p>
+<p>ab Zama ... defecerant <hi rend="italics" >Arus. gramm. VII 485,23</hi></p>
+<p>in... defecerant <hi rend="italics">Arus.gramm. VII 466, 20 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>clam <hi rend="italics">om. </hi>P <hi rend="italics">s. s.</hi> A <hi rend="italics">in mg.</hi> n</p>
+<p>de M. nece XNKm M. de nece Asn de <hi rend="italics">om. </hi>H<foreign lang="greek">G</foreign>l</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>facile N. persuadet <hi rend="italics">Arus. gramm. VII 507, 24 </hi></p>
+<p>ne si CB (ne <hi rend="italics">s. s.</hi>) NK<hi rend="sup" >2</hi>sm nisi PAK<hi rend="sup">1</hi>T<hi rend="sup">2</hi>D<hi rend="sup">2</hi>l si (ne <hi rend="italics">om.</hi>) A<hi rend="sup">2</hi>HT<hi rend="sup">1</hi>D<hi rend="sup">1</hi>F ne si <hi rend="italics">om. </hi>Mn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="62">
+<div2 type="section" n="1">
+<p>meritae XKls merenti <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>tradere Xlsn traderet Ym</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>cum AYm dum <hi rend="italics" >rell.</hi></p>
+<p>quom ... vocaretur <hi rend="italics">Serv. ecl. 8, 71 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="63">
+<div2 type="section" n="1">
+<p>ageret <hi rend="italics">m. </hi> 2 BKTD agere <hi rend="italics">rell. </hi></p>
+<p>cuncta] omnia H<foreign lang="greek">G</foreign>nm</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>animus ... victor <hi rend="italics">Non. p. 343, 4</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>pueritiam] aetatem <hi rend="italics">Prisc. </hi>Arpini altus <hi rend="italics">Diom. gramm. I 375, 14 </hi></p>
+<p>et ... altus <hi rend="italics">Prisc. gramm. II 527, 23 </hi></p>
+<p>alitus MT<hi rend="sup">2</hi>, <hi rend="italics" >quam lectionem Prisc. testatur in quibusdam codicibus inveniri</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>tamen ... vir <hi rend="italics" >Max. Victorin. granm. VI 202, 10 </hi></p>
+<p>consulatum <hi rend="italics">om. plerique codd. </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>quin P<hi rend="sup">1</hi>F<hi rend="sup">1</hi> qui nisi l quin is <hi rend="italics">rell. </hi></p>
+<p><lemma>et &lt;is&gt;</lemma> <hi rend="italics">transp. Eussner</hi> </p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="64">
+<div2 type="section" n="1">
+<p>Marius] Marius cum PA<hi rend="sup">1</hi>NK<hi rend="sup">1</hi>H<hi rend="sup" >1</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>mirari primum XNKT</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ullo Xlsn alio KT<hi rend="sup">1</hi> aliquo <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>quia XKl quod <hi rend="italics">rell.</hi></p>
+<p>animo ... festinatur <hi rend="italics">Schol. Stat. Theb. 2,321</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="65">
+<div2 type="section" n="1">
+<p>paululum A<hi rend="sup" >2</hi>CBMsn</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>modo] more Pl</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>in imp. Ys in <hi rend="italics">om.</hi> PAH<hi rend="sup">1</hi>lm imperatori CBH<hi rend="sup">2</hi>n</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>multis a P a <hi rend="italics">om. </hi>M <hi rend="italics">s. s.</hi> m</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="66">
+<div2 type="section" n="1">
+<p>aliaque] que <hi rend="italics">om. </hi>ANM</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>inermos PAC<hi rend="sup">2</hi>BNKDlm inermes <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>plebes Xsn plebs Ylm</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="67">
+<div2 type="section" n="1">
+<p>arcem <hi rend="italics">Dietsch </hi>ad arcem <foreign lang="greek" >G</foreign>(-D) arce <hi rend="italics">rell. </hi></p>
+<p><lemma>hostium &lt;obsidebat&gt;;</lemma> <hi rend="italics">add. Dietsch </hi> </p>
+<p>fuga PA<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>aut casu XNlsn an c. <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="68">
+<div2 type="section" n="4">
+<p>late Mm latere <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="69">
+<div2 type="section" n="2">
+<p>irae PANHl</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>Latio A<hi rend="sup">1</hi>K<hi rend="sup">2</hi> HD<hi rend="sup">2</hi>s collatio <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="70">
+<div2 type="section" n="1">
+<p>per... quaerere <hi rend="italics">Non. p. 400,17 </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>clarum <hi rend="italics">codd., cf. Tac. ann. 12, 29, 1 </hi>(clarus acceptusque popularibus) <hi rend="italics" >et Ps. Sall. rep. 2, 7, 6</hi> (magis clarum magisque acceptum); <hi rend="italics">sed fortasse scribendum </hi>carum <hi rend="italics">coll. Iug. 12, 3. 108,1 et Sulp. Sev. passim et Aur. Vict. Caes. 3, 4 </hi></p>
+<p>qui] is <hi rend="italics">Gell.</hi></p>
+<p>qui ... superaverant <hi rend="italics">Gell. 1, 22,15 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>inultus K<foreign lang="greek">G</foreign></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>cupidinibus NK<hi rend="sup">2</hi><foreign lang="greek" >G</foreign>m</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="71">
+<div2 type="section" n="1">
+<p>Nabdalsa exercito corpore <hi rend="italics" >Non. p. 6, 1. 295, 5</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>animum aegrum <hi rend="italics">Claud. Don. </hi></p>
+<p>uti ... cepit <hi rend="italics">Claud. Don. Aen. 6, 520 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>epistulam ... sumit <hi rend="italics">Non. p. 396, 1</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p><lemma>perfu- gis]</lemma> <hi rend="italics">del Kritz </hi> ex servis A<hi rend="sup">1</hi> expertus N</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="72">
+<div2 type="section" n="1">
+<p>oreretur PA<hi rend="sup">1</hi>N<hi rend="sup">1</hi> oriretur <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>omni strepitu pavescere <hi rend="italics">Arus. gramm. VII1503, 6</hi></p>
+<p><lemma>&lt;atque alio&gt;</lemma> <hi rend="italics">leguntur in integris quibusdam recentioribus</hi> </p>
+<p>excitus] <hi rend="italics">cf. Sulp. Sev. epist. 1, 12. 12, 5 </hi>(somno excitus) exercitus PN excitatus M experrectus <hi rend="italics">Diom. </hi></p>
+<p>interdum ... facere <hi rend="italics">Diom. gramm. I 376,15 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="73">
+<div2 type="section" n="6">
+<p>honorem] negotium <hi rend="italics">Arus.</hi> ducere <hi rend="italics">Arus.</hi></p>
+<p>et sua... ducerent <hi rend="italics">Arus. gramm. VII 502, 19 </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>T. <hi rend="italics">praen. </hi>PA <hi rend="italics">om. rell. </hi></p>
+<p>Mancino PAls Mant(h)ino NM TFnm Manctino H D Mancilio CB</p>
+<p>sed paulo (paulum n) decreverat XNDlnm sed senatus paulo decio decreverat (decr. decio H) <hi rend="italics">tell., excidit tale quale </hi>ante senatus aliam provinciam Mario</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="74">
+<div2 type="section" n="1">
+<p>varius T<hi rend="sup">1</hi>(?)m vagus T<hi rend="sup" >2</hi> vanus <hi rend="italics">rell. </hi></p>
+<p>hominum Xlsn omnium P<hi rend="sup">2</hi>AYm</p>
+</div2>
+
+<div2 type="section" n="3">
+<p><lemma>armorum [et]</lemma> <hi rend="italics">vulgo del. </hi> </p>
+<p>Numidis PA<hi rend="sup">2</hi>BT<hi rend="sup">1</hi>D<hi rend="sup">1</hi>F<hi rend="sup">1</hi>n Numidas <hi rend="italics" >rell. (desunt Kl)</hi></p>
+<p>tutata CBHT<hi rend="sup">2</hi>F<hi rend="sup">2</hi>l<hi rend="sup">2</hi>m tutati n tutarunt MT<hi rend="sup">1</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="75">
+<div2 type="section" n="1">
+<p>ubi H<foreign lang="greek">G</foreign>sm ubique P<hi rend="sup">1</hi>A<hi rend="sup">1</hi>NK<hi rend="sup">1</hi> ibique <hi rend="italics" >rell.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>domiti pecoris <hi rend="italics">Char. gramm. 136, 2 </hi></p>
+<p>eoque] que <hi rend="italics">om. </hi>PA<hi rend="sup">1</hi>Nl</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>fuerit <hi rend="italics">plerique codd. </hi>(fuerat N fuit M); <hi rend="italics">an </hi>forent <hi rend="italics">vel </hi> futuri sint?</p>
+</div2>
+
+<div2 type="section" n="6">
+<p>Marius ad Thalam profectus <hi rend="italics">Prob. inst. gramm. IV 150,25 </hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>nihilo segnius <hi rend="italics" >Arus. gramm. VII 495, 14 </hi></p>
+<p>item AN</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="76">
+<div2 type="section" n="1">
+<p>uno XNl</p>
+<p>una <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>dein duobus PA<hi rend="sup">1</hi>T<hi rend="sup">2</hi>l deinde iubet <hi rend="italics">rell.</hi></p>
+<p><lemma>[superque eas]</lemma> <hi rend="italics">del. Kortfe</hi> </p>
+</div2>
+
+<div2 type="section" n="4">
+<p>relique A reliqui l</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="77">
+<div2 type="section" n="1">
+<p>et illorum Ysnm<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>Iugurthini <hi rend="italics">fort. cum Linkero delendum </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="78">
+<div2 type="section" n="2">
+<p>sinus duo sunt pares natura, inpares magnitudine <hi rend="italics">Serv. Aen. 1, 111 </hi></p>
+<p>peralta A<hi rend="sup" >2</hi>CBTn</p>
+<p>alia <hi rend="italics">bis</hi> A <hi rend="italics">semel rell. glossema habeo, v. Kunze Sallustiana III 2, 25 sqq.</hi></p>
+<p>alia <hi rend="italics">bis</hi> A <hi rend="italics">semel rell. glossema habeo, v. Kunze Sallustiana III 2, 25 sqq.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>a tractu <hi rend="italics">Hier. norm. hebr. p. 850 Isid. orig. 13, 18, 6 c. 79 cf. Val. Max. 5, 6 ext. 4 et Mela 1, 7, 38 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="79">
+<div2 type="section" n="1">
+<p>memorabile A<hi rend="sup" >2</hi>CBM<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>pleraque Africa An <hi rend="italics">Arus. </hi>pleraeque Africae <hi rend="italics">rell. codd.</hi></p>
+<p>Carthaginienses ... imperitabant <hi rend="italics" >Arus. gramm. VII 481, 22</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>Philenis KD<hi rend="sup">2</hi>Fm<hi rend="sup">1</hi> Philenes <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>loca... gignentium <hi rend="italics">Arus. gramm. VII 495, 23</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>esse <hi rend="italics">om. </hi>CBl</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>ut vel <hi rend="italics">v. Schmalz in Berl. Phil. Woch. 1916. 61 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="80">
+<div2 type="section" n="5">
+<p>bello NT belli <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>Bocchi A<hi rend="sup">2</hi>CBn<hi rend="sup">1</hi></p>
+<p>quia] quod H<foreign lang="greek">G</foreign> snm</p>
+<p>denas ... amplius <hi rend="italics">Serv. Aen. 1, 71 </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>nulla P<hi rend="sup">2</hi> nullus l nullam <hi rend="italics">rell. fort. recte</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="81">
+<div2 type="section" n="1">
+<p>libidinem A<hi rend="sup">1</hi>KTF libidine <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>ad ... constituunt <hi rend="italics" >Prisc. gramm. III 66, 15 </hi></p>
+<p>ibiq(ue) Pl</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>dux Romanus PA<hi rend="sup" >2</hi>CBH<hi rend="sup">2</hi>l</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>moras B<hi rend="sup" >2</hi>K<hi rend="sup">2</hi><foreign lang="greek">G</foreign>(-T) mox <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="82">
+<div2 type="section" n="1">
+<p>cognitis ... adcesserat <hi rend="italics">om. Arus.</hi></p>
+<p>melius ... facere <hi rend="italics">Arus. gramm. VII 472, 10 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="83">
+<div2 type="section" n="1">
+<p>et X <hi rend="italics">om. rell. </hi></p>
+<p>aegerrime XN<hi rend="sup" >1</hi>ln acerrime <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>alia XTn partim <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="84">
+<div2 type="section" n="3">
+<p>quamquam adv. erat <hi rend="italics">om. Arus. </hi></p>
+<p>neque... audebat <hi rend="italics">Arus. gramm. VII 450,15</hi></p>
+<p>abn. audebat] abnueret <hi rend="italics">(uel-rat) Arus. </hi></p>
+<p>militia CKFlsn <hi rend="italics">Prisc. </hi>militiam <hi rend="italics">rell. codd. </hi>volente A<hi rend="sup">2</hi>C BKHT</p>
+<p>neque ... putabatur <hi rend="italics" >Prisc. gramm. III 285, 1 </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>hoc modo disseruit <hi rend="italics">Serg. gramm. IV 542,27 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="85">
+<div2 type="section" n="1">
+<p>dehinc Ylnm</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>quo] quanto VA<hi rend="sup" >2</hi>Tl</p>
+<p>illa Vl</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>vestro benef. VCBTs benef. vestro <hi rend="italics">rell. </hi></p>
+<p>sustineo V 16 et <hi rend="italics">om. </hi>VI</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>haec omnia <hi rend="italics">Don. </hi></p>
+<p>omnia... adsunt <hi rend="italics" >Don. Ter. Phorm. 130 </hi></p>
+<p>virtute VXKlsn et (ex) virtute <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>beneficia in remp. Vn</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>et <hi rend="italics">om. </hi>Y(-T) nm haberem <hi rend="italics">Arus.</hi></p>
+<p>et... habeam <hi rend="italics">Arus. gramm. VII 460, 19 </hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>verti V vertitur HTm<hi rend="sup">2</hi> venit K<hi rend="sup">2</hi>M</p>
+</div2>
+
+<div2 type="section" n="10">
+<p>mutare VPBTl (put-) mutari <hi rend="italics">rell. </hi></p>
+<p>homines <hi rend="italics">Prisc. ter </hi></p>
+<p>veteris pros. ac <hi rend="italics">om. Prisc. 2</hi></p>
+<p>ac] aut CB <hi rend="italics">om.</hi> V <hi rend="italics">Prisc. 1 et 3</hi></p>
+<p>et] ac <hi rend="italics">Prisc. ter </hi></p>
+<p>hominem ... stipendi <hi rend="italics">Prisc. gramm. III 221, 19. 360,1.365, 21 </hi></p>
+<p>trepide <hi rend="italics">Non. </hi></p>
+<p>scilicet...sui <hi rend="italics">Non. p. 396, 25 </hi></p>
+</div2>
+
+<div2 type="section" n="11">
+<p>imperare] imperatorem VP<hi rend="sup">2</hi></p>
+<p>sibi <hi rend="italics">del.</hi> A<hi rend="sup" >2</hi><hi rend="italics"> om. </hi>PCBl</p>
+</div2>
+
+<div2 type="section" n="12">
+<p>atque VXls at Ynm</p>
+<p>et VPBl <hi rend="italics">om. rell. </hi></p>
+</div2>
+
+<div2 type="section" n="13">
+<p>aut VA et <hi rend="italics">rel., cf. &sect; 47 et L&ouml;fstedt, Peregrin. Aether. 197 sqq. </hi></p>
+</div2>
+
+<div2 type="section" n="14">
+<p>obiciuntur VP<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="16">
+<p>patribus] matre V</p>
+<p>possit V</p>
+<p>maluisse V</p>
+</div2>
+
+<div2 type="section" n="17">
+<p>faciunt PA<hi rend="sup">1</hi> facient n</p>
+<p>item VA<hi rend="sup">1</hi>Nm idem <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="18">
+<p>labori et inn. NKHM<hi rend="sup">1</hi>sm et lab. inn. A</p>
+<p>haec per ilia V</p>
+</div2>
+
+<div2 type="section" n="22">
+<p>vita illorum VXNKls ill. vita P vita eorum <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="23">
+<p>habent V</p>
+<p>quasi <hi rend="italics">om. </hi>Ysnm neque mala neque bona V</p>
+<p>eorum <hi rend="italics">om. Schol. luv. </hi></p>
+<p>maiorum ... patitur <hi rend="italics">Schol. luv. 8, 139 </hi></p>
+</div2>
+
+<div2 type="section" n="24">
+<p>fateor Vs patior <hi rend="italics">rell. fort. recte </hi></p>
+</div2>
+
+<div2 type="section" n="26">
+<p>facundiam VTDl<hi rend="sup" >2</hi> snm<hi rend="sup">2</hi></p>
+<p>vestro maximo P</p>
+<p>meque Vln me <hi rend="italics">rell. </hi>(vos meque m), <hi rend="italics">cf. &sect;et 36 47</hi></p>
+<p>lacerarent A<hi rend="sup">1</hi>NKD<hi rend="sup" >1</hi>F</p>
+<p>mei <hi rend="italics" >s.s.</hi> A<hi rend="sup">2</hi> <hi rend="italics">om.</hi>H<foreign lang="greek">G</foreign>(-D)</p>
+</div2>
+
+<div2 type="section" n="27">
+<p>praedicent VPH<hi rend="sup">2</hi>M<hi rend="sup" >2</hi>Fls praedicet <hi rend="italics">rell. </hi></p>
+<p>falsa VPYln<hi rend="sup">2</hi> falsam XHD<hi rend="sup" >1</hi>sn<hi rend="sup">1</hi>m</p>
+<p>vitam B(?)HD<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="29">
+<p>ostentare imagines <hi rend="italics">Auson. </hi></p>
+<p>neque tr. aut cons. <hi rend="italics">om. Auson. </hi></p>
+<p>non possum ... ostentare <hi rend="italics">Auson. grat. act. 8, 36</hi></p>
+<p>ostentare <hi rend="italics">om. Auson. </hi></p>
+<p>hastam Y(-N)</p>
+<p>at... dona <hi rend="italics" >Non. p. 554, 13</hi></p>
+<p>corpore] pectore VP<hi rend="sup">2</hi>B<hi rend="sup" >1</hi></p>
+</div2>
+
+<div2 type="section" n="30">
+<p>egomet VP<hi rend="sup">2</hi></p>
+<p>meis <hi rend="italics">om. </hi>VM</p>
+</div2>
+
+<div2 type="section" n="31">
+<p>parvi VP<hi rend="sup">2</hi> <hi rend="italics">Non. </hi>parum <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="32">
+<p>non ... ostendit <hi rend="italics">Non. p. 257, 35 </hi></p>
+<p>profuerunt VP<hi rend="sup" >2</hi> H<foreign lang="greek">G</foreign>m</p>
+</div2>
+
+<div2 type="section" n="33">
+<p>hostes Y(-M)snm</p>
+<p>praesidium VP<hi rend="sup">2</hi></p>
+<p>et] atque <hi rend="italics">Non. </hi></p>
+<p>hiemem...pati <hi rend="italics">Non. p. 322,3 </hi></p>
+</div2>
+
+<div2 type="section" n="34">
+<p>ego VANK s ergo <hi rend="italics">rell. </hi>(igitur M)</p>
+</div2>
+
+<div2 type="section" n="35">
+<p>nam Vl mollitiam VTn</p>
+</div2>
+
+<div2 type="section" n="36">
+<p>alia talia <hi rend="italics">Fabri, cf. &sect;41 </hi> alia VPCB talia <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="39">
+<p>incultum VBn</p>
+</div2>
+
+<div2 type="section" n="40">
+<p>libet mihi V </p>
+<p>et ex] et <hi rend="italics">s. s.</hi>A ex <hi rend="italics">om. </hi>H<foreign lang="greek">G</foreign></p>
+<p>laborem viris PCBls</p>
+<p>que bonis <hi rend="italics" >om. </hi>Pl bonis <hi rend="italics">s. s. </hi>C<hi rend="italics" >om. </hi>B</p>
+<p>esse <hi rend="italics">s. s. </hi>A<hi rend="sup">2</hi>K<hi rend="sup">2</hi><hi rend="italics">om. </hi>Ysm</p>
+</div2>
+
+<div2 type="section" n="41">
+<p>sudorem <hi rend="italics">om. </hi>V <hi rend="italics" >s. s.</hi> m</p>
+</div2>
+
+<div2 type="section" n="42">
+<p>omnibus flagitiis Vn</p>
+<p>viri <hi rend="italics">om. </hi>V</p>
+</div2>
+
+<div2 type="section" n="45">
+<p>bonum aninmum habete V habete bon. an. M bon. hab. bon. an. l</p>
+<p>sed] et V</p>
+<p>mehercules VT</p>
+</div2>
+
+<div2 type="section" n="46">
+<p>est <hi rend="italics">s. s.</hi> ANm <hi rend="italics">om. </hi>M</p>
+</div2>
+
+<div2 type="section" n="47">
+<p>aut VPBlsn <hi rend="italics">s. s.</hi> AT <hi rend="italics">om. rell.</hi></p>
+<p>periculis V</p>
+<p>meque VPA<hi rend="sup">2</hi>CBlnm me <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="48">
+<p>omnibus bonis A<hi rend="sup">1</hi>Nm</p>
+<p>subvenire reip. V</p>
+<p>decebat VPA<hi rend="sup">2</hi>CBln decet <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="49">
+<p>nemo ign. VP<hi rend="sup">1</hi>A ign. nemo <hi rend="italics">rell. </hi></p>
+<p>est <hi rend="italics">om. </hi>AYm</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="86">
+<div2 type="section" n="2">
+<p>nec <hi rend="italics">Gell. </hi></p>
+<p>libido cuiusque <hi rend="italics">Gell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>ipse... opportunissimus <hi rend="italics">Gell. 16, 10, 16 </hi></p>
+<p>omnia... videntur <hi rend="italics">Comment. Lucan. 10, 407 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="87">
+<div2 type="section" n="1">
+<p>levia alia <hi rend="italics">transposuit Ciacconius</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>Romanos ... futures <hi rend="italics">Prisc. gramm. III 318, 18 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="88">
+<div2 type="section" n="1">
+<p>accipitur P<hi rend="sup" >1</hi>A<hi rend="sup">1</hi>CNl excipitur <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>utrisque PACH<hi rend="sup">2</hi>T<hi rend="sup">2</hi>nm utriusque BNH<hi rend="sup">1</hi>ls utrimque T<hi rend="sup">1</hi>DF <hi rend="italics">om. </hi>M</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>praedam H<foreign lang="greek" >G</foreign>snm</p>
+<p>in <hi rend="italics">om. </hi>Ysn</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>quae ... cognovit <hi rend="italics">Prisc. gramm. III 310. 19</hi> belli patrandi XTl <hi rend="italics">Prisc. </hi>copiam <hi rend="italics" >add. </hi>Ysnm</p>
+<p><lemma>nudatum &lt;iri&gt;,</lemma> <hi rend="italics">add. multi editores </hi> </p>
+</div2>
+
+<div2 type="section" n="6">
+<p>accideret A<hi rend="sup">1</hi>ln accederet <hi rend="italics">rell. </hi></p>
+<p>solitus] <hi rend="italics">subaudiendum </hi>fecerit</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="89">
+<div2 type="section" n="1">
+<p>constituerat NKTDFs</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>sqq. <hi rend="italics">cf. Mela 3, 100 </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>aquae] atque P<hi rend="sup">1</hi>T eaque N<hi rend="sup" >1</hi>l<hi rend="sup">1</hi></p>
+<p>quorum A<hi rend="sup">2</hi>CB<hi rend="sup" >1</hi>Hn</p>
+<p>quod genus siti <hi rend="italics" >Serv. </hi></p>
+<p>siti ... accenditur <hi rend="italics">Serv. georg. 3, 434</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>ibique CB + <hi rend="italics">m. 2 </hi>AKHMDm ubique <hi rend="italics">rell. </hi></p>
+<p>gulae irritamenta <hi rend="italics">Prisc.</hi></p>
+<p>neque salem ... gulae <hi rend="italics">Prisc. gramm. II 147, 5</hi></p>
+<p>neque salem ... quaerebant <hi rend="italics">Prob. nom. gramm. IV 209, 12 Char. gramm. l 106,12 Serg. gramm. IV 542,14</hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>adversus PH</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="90">
+<div2 type="section" n="1">
+<p>quia PACls quod <hi rend="italics">rell.</hi></p>
+<p>autem aridus et <hi rend="italics">om. Arus. </hi></p>
+<p>ager ... vacuos <hi rend="italics">Non. p. 498, 30 Arus. gramm. VII 514,13</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>Manilium P<hi rend="sup">1</hi>A<hi rend="sup">1</hi>B<hi rend="sup" >2</hi>Nl</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>Tanain PAFls Tanaim <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="91">
+<div2 type="section" n="1">
+<p>simul et H<foreign lang="greek">G</foreign>nm statim A</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>item ANK</p>
+</div2>
+
+<div2 type="section" n="7">
+<p>ante <hi rend="italics" >s. s. A om. </hi>Y (ac N)</p>
+<p>cohercetur A<hi rend="sup">1</hi>N</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="92">
+<div2 type="section" n="1">
+<p>peregit A<hi rend="sup">2</hi> CBn <hi rend="italics">om. rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p><lemma>plura &lt;deserta&gt;</lemma> <hi rend="italics">om. codd., legitur in quibusdam integris recentioribus </hi> </p>
+</div2>
+
+<div2 type="section" n="5">
+<p><lemma>Namque</lemma> <hi rend="italics">sqq. cf. Frontin. strat. 3,9, 3 </hi> </p>
+<p>Muluc(c)-hae Y(-K)m</p>
+<p>diiungebat P<hi rend="sup" >1</hi>A<hi rend="sup">1</hi>Cl<hi rend="sup">1</hi> disiungebat <hi rend="italics">rell. </hi></p>
+<p>omnis <hi rend="italics">vulgo </hi> omnia XNKlsn<hi rend="sup">1</hi>m omni <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>aliis Ysn <hi rend="italics">cf. c. 21,3 </hi> altis Xl talibus m</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>praecisum. ea vineae <hi rend="italics">Wirz </hi>prae ciseauineae P praecise///uineae N preceps (pre <hi rend="italics">post additum,</hi> ceps <hi rend="italics">in ras.</hi>) eo vineae n praecisae vineae <hi rend="italics">rell </hi></p>
+<p>eae <hi rend="italics" >vel</hi> hae PA<hi rend="sup">2</hi>CBm hec n eo KH ea <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="93">
+<div2 type="section" n="2">
+<p>aversum s adversum <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>adorta <hi rend="italics">Eussner </hi>advertit PA<hi rend="sup">1</hi>K vertit <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>inflexa PBNKl flexa <hi rend="italics">rell. </hi></p>
+<p>modo deinde A<hi rend="sup">2</hi>CB</p>
+<p>in PA<hi rend="sup">2</hi>CB <hi rend="italics">om rell. </hi></p>
+<p>pervenit X perscribit <hi rend="italics" >rell. </hi></p>
+<p>haud proel. P aut proel. l////proel. AN</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>eadem PA<hi rend="sup">1</hi>NT<hi rend="sup" >2</hi>lm<hi rend="sup">1</hi> eodem <hi rend="italics">rell. </hi></p>
+<p>escenderat A<hi rend="sup">1</hi>N<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>adit Xlnm adiit <hi rend="italics">rell. </hi></p>
+<p>edocet Xm docet <hi rend="italics">rell. </hi></p>
+<p>ascenderat Xl descenderat <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="94">
+<div2 type="section" n="1">
+<p>conpositisque] que <hi rend="italics">om </hi>AYl</p>
+<p>et qui l</p>
+<p>escensuri erant <hi rend="italics">Carrio </hi> ascensuri erant A<hi rend="sup">1</hi>T<hi rend="sup">2</hi>F<hi rend="sup">2</hi> e centuries erant P et centuriae praeerant Ys centuriis praeerant A<hi rend="sup">2</hi>CBn centuriones erant l</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>vetustae P</p>
+<p>escenderent PAN<hi rend="sup">1</hi> ascenderent <hi rend="italics">rell.</hi></p>
+<p>prae KTs pro P<hi rend="sup">1</hi> per <hi rend="italics" >rell. </hi></p>
+<p>inermos PAB<hi rend="sup" >2</hi>NTDlm inermes <hi rend="italics">rell. </hi></p>
+<p>degrediens PA<hi rend="sup">1</hi>NKs</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>tota P<hi rend="sup">2</hi>l</p>
+<p>intentos XT<hi rend="sup">2</hi>F<hi rend="sup">2</hi>l intentus <hi rend="italics">rell. </hi></p>
+<p>Numidas XT<hi rend="sup">2</hi>n invidias <hi rend="italics">rell. </hi></p>
+<p>egressus K<hi rend="sup">2</hi> MF<hi rend="sup">2</hi> regressus <hi rend="italics">rell. </hi>est <hi rend="italics">copulam om. </hi>CBH <hi rend="italics">add. rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="95">
+<div2 type="section" n="1">
+<p>quos m qui ACNKT<hi rend="sup">2</hi>D<hi rend="sup">2</hi>F quem n quoniam M quod <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>tanti viri nos tempus <hi rend="italics">Prisc. </hi></p>
+<p>sed ... admonuit <hi rend="italics">Prisc. gramm. III 328, 6</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>patriciae gentis <hi rend="italics">Serv. </hi></p>
+<p>nobilis <hi rend="italics">om. Serv. </hi></p>
+<p>iam prope PBMn<hi rend="sup">1</hi> prope <hi rend="italics">om. Serv. </hi></p>
+<p>igitur ... ignavia <hi rend="italics">Serv. Aen. 7, 601 </hi></p>
+<p>atque] et PB</p>
+<p><lemma>[atque doctissume]</lemma> <hi rend="italics">del. Vogel </hi> </p>
+<p>voluntas AC</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>pudat A pudet N pudet <hi rend="italics">rell.</hi></p>
+<p>magis an pig. H<foreign lang="greek">G</foreign>snm magis <hi rend="italics">s. s.</hi> B<hi rend="sup">2</hi></p>
+<p>nam ... disserere <hi rend="italics">Non. p. 424, 11 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="96">
+<div2 type="section" n="1">
+<p>supra praedictum PCB</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>ab PANK a <hi rend="italics">rell.</hi> (<hi rend="italics" >om.</hi> l)</p>
+<p>ioca... agere <hi rend="italics">Non. p. 209, 28 </hi></p>
+<p>agere] exercere <hi rend="italics">Non.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="97">
+<div2 type="section" n="1">
+<p>misit PT<hi rend="sup">2</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>corrumpit CBTDFln</p>
+<p>et <hi rend="italics">om. </hi>Ysm</p>
+</div2>
+
+<div2 type="section" n="3">
+<p><lemma>Ita</lemma> <hi rend="italics">sqq. cf. Frontin. strat. 2, 1,13</hi> </p>
+<p>die PA<hi rend="sup">1</hi>l<hi rend="sup">1</hi> <hi rend="italics">Gell. </hi>diei <hi rend="italics">rell. codd. </hi></p>
+<p>vix ... reliqua <hi rend="italics">Gell. 9,14,26 </hi></p>
+<p>et <hi rend="italics">s. s.</hi> K <hi rend="italics">om.</hi> <foreign lang="greek">G</foreign>sm</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>escendere N<hi rend="sup">1</hi> <hi rend="italics">Arus. </hi>ascendere <hi rend="italics">rell. codd. </hi>(scandere A<hi rend="sup">1</hi>)</p>
+<p>pars ... hostibus <hi rend="italics">Arus. gramm. VII 472,12 </hi></p>
+<p>peditesque] que <hi rend="italics">om. A</hi></p>
+<p>alii alii <hi rend="italics">vulgo </hi> alios alios <hi rend="italics">codd. </hi></p>
+<p>obtruncari <hi rend="italics">vulgo </hi>obtruncare <hi rend="italics">codd. </hi></p>
+<p>multi <hi rend="italics">vulgo </hi>multa A<hi rend="sup">1</hi>N multos <hi rend="italics">rell. </hi></p>
+<p>circumveniri PA<hi rend="sup">1</hi>N circumvenire <hi rend="italics">rell., an: </hi>caedere alios, alios obtruncare, multos ... circumvenire?</p>
+<p>quia] quod AH<foreign lang="greek">G</foreign>snm</p>
+<p><lemma>veteres [novique]</lemma> <hi rend="italics">del. Kritz, cf. c. 87,3</hi> </p>
+<p>facere A<hi rend="sup">2</hi>CBH<foreign lang="greek" >G</foreign>sn fecere <hi rend="italics">rell.</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="98">
+<div2 type="section" n="3">
+<p>visui P<hi rend="sup">2</hi>A<hi rend="sup">1</hi>Ml</p>
+<p>editus B<hi rend="sup">2</hi>K<hi rend="sup">2</hi>H<hi rend="sup">2</hi><foreign lang="greek" >G</foreign>sm edita <hi rend="italics">rell.</hi></p>
+<p>quaerebat <hi rend="italics">vulgo </hi>gerebant XDl gerebat K<hi rend="sup" >2</hi>HTFsnm regebant A<hi rend="sup">1</hi>(?)N<hi rend="sup" >1</hi>K<hi rend="sup">1</hi> regebat M</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>ceterum ... iubet <hi rend="italics">Non. p. 522,31</hi></p>
+<p>dein ... subducit <hi rend="italics">Non. p. 400, 1 </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>fugerant A<hi rend="sup">2</hi>C<hi rend="sup">2</hi> fugere aut <hi rend="italics">rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="99">
+<div2 type="section" n="1">
+<p>vigiles <hi rend="italics">Kortte </hi>vectigales <hi rend="italics">codd. </hi></p>
+<p>atque K<hi rend="sup">2</hi> et m aut <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>et] atque H<foreign lang="greek">G</foreign>nm</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>formidine terrore XNKlsm terrore formidine H<foreign lang="greek">G</foreign>n (formido M T)</p>
+<p>terror A<hi rend="sup">2</hi> terrore <hi rend="italics">rell.</hi></p>
+<p>ceperat AMFsm acceperat <hi rend="italics" >rell. </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="100">
+<div2 type="section" n="1">
+<p>it CB m <hi rend="italics">om. rell.</hi></p>
+<p>dextumos P<hi rend="sup">2</hi>ACBK<hi rend="sup">2</hi>Tsn <hi rend="italics">Prisc. </hi>extimos m extremos <hi rend="italics" >rell. </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>A. Manlius] Mallius <hi rend="italics" >Prisc. </hi></p>
+<p>Sulla ... funditoribus <hi rend="italics">Prisc. gramm. II 95, 5. 98, 13 </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>faceret K<hi rend="sup">2</hi><foreign lang="greek" >G</foreign> facerent D</p>
+<p>equites et (ex A) Xn</p>
+<p>tam <hi rend="italics">om </hi>PANl <hi rend="italics">s. s.</hi> K<hi rend="sup">2</hi></p>
+<p>futurum <hi rend="italics">duo integri recentiores </hi>futuri <hi rend="italics">codd. </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p><lemma>aiebant: [quod]</lemma> <hi rend="italics">del. Eussner </hi> </p>
+<p>habuisse PA<hi rend="sup">1</hi>NK<hi rend="sup" >1</hi> habuisset <hi rend="italics">rell. </hi></p>
+<p>res publica (R. P. <hi rend="italics">vel </hi>r. p.) CNKMsm <hi rend="italics">Fronto </hi>reip. PA<hi rend="sup">2</hi>BHTDF remp. A<hi rend="sup">1</hi></p>
+<p>consuetam ... gesta <hi rend="italics">Fronto p. 110 N. (Hauler p. 163) </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="101">
+<div2 type="section" n="3">
+<p>item A<hi rend="sup">1</hi>CBNK<hi rend="sup">2</hi>MTD igitur H</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>proeliantur A<hi rend="sup">1</hi>K<hi rend="sup" >1</hi><foreign lang="greek">G</foreign>nm proeliarentur PA<hi rend="sup">2</hi>CBK<hi rend="sup">2</hi>ls proeliantes N pr&oelig;liabantur H</p>
+</div2>
+
+<div2 type="section" n="6">
+<p>agebat CB H agitabat A<hi rend="sup">2</hi>n erat <hi rend="italics">rell. </hi></p>
+<p>apud] ad <hi rend="italics" >Arus. </hi></p>
+<p>ibi...exclamat <hi rend="italics">Arus. gramm. VII 451, 25 </hi></p>
+<p>nostrum PA<hi rend="sup">1</hi>N</p>
+<p>simul ... ostendere <hi rend="italics" >Prisc. gramm. II 530,13 </hi></p>
+<p>ostentans <hi rend="italics">Prisc. </hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>advertitur ANK<hi rend="sup">1</hi>M<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>sinistraque K<hi rend="sup">2</hi>m sinistra <hi rend="italics">rell., v. Ag. 179</hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="102">
+<div2 type="section" n="2">
+<p>suo] se A<hi rend="sup">2</hi>CB</p>
+<p>L. <hi rend="italics">pr aen.s. s. </hi>AK <hi rend="italics">om. </hi><foreign lang="greek">G</foreign> sm</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>facere///ingenium N ingenium aut ut m ut <hi rend="italics">om. rell., v. Schmalz in Berl. Phil. Woch. 1916,62 sq. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>quoius] tutus Pl catus A<hi rend="sup">1</hi></p>
+<p>facundia PAT<hi rend="sup">1</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>laetitia nobis VPCBHl nobis laet. <hi rend="italics">rell. </hi></p>
+<p>quom] quod V</p>
+<p>atque VPCBK<hi rend="sup" >2</hi> et <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>hoc... principio <hi rend="italics">propter mutilationem chartae desunt in </hi>P hoc <hi rend="italics">om. </hi>A populo R(omano) iam VA<hi rend="sup">2</hi>CBH<foreign lang="greek" >G</foreign>lsn utinam <hi rend="italics">ex &sect;8 perperam rell.</hi></p>
+<p>inopi VP<hi rend="sup">2</hi>A<hi rend="sup">2</hi>CBK<hi rend="sup">2</hi>Hsn tibi A<hi rend="sup" >1</hi>NK<hi rend="sup">1</hi>(?) nobis m <hi rend="italics">om.</hi> <foreign lang="greek">G</foreign></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>nostra amicitia VXFl am. nostra <hi rend="italics">rell. </hi></p>
+<p>quia VXNKl quod C <hi rend="italics">rell. </hi></p>
+<p>quod H<foreign lang="greek" >G</foreign>ln</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>a <hi rend="italics">om. </hi>V</p>
+<p>cepisses V</p>
+<p>esse V es <hi rend="italics">Fabri fort. recte</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>te <hi rend="italics">s. s.</hi> ANHFs</p>
+<p>quando VPA<hi rend="sup" >2</hi>CBK<hi rend="sup">2</hi>m quoniam <hi rend="italics" >rell.</hi></p>
+<p>atque VPA<hi rend="sup">2</hi>CBK<hi rend="sup">2</hi> <hi rend="italics">om. rell. </hi></p>
+</div2>
+
+<div2 type="section" n="10">
+<p>officiis <hi rend="italics">s. s.</hi> AKM <hi rend="italics">om. </hi>NHF</p>
+</div2>
+
+<div2 type="section" n="11">
+<p>demitte VFn dimitte <hi rend="italics">rell. </hi></p>
+<p>p(opulum) r(omanum) <hi rend="italics">s. s.</hi> A <hi rend="italics">om. </hi>m r. p. NH</p>
+</div2>
+
+<div2 type="section" n="12">
+<p>ob <hi rend="italics">om. </hi>PN<foreign lang="greek">G</foreign>sn ad l</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="103">
+<div2 type="section" n="1">
+<p>turrim] cirrim P</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>Bocchus seu Cls Bocchus. feliciter seu <hi rend="italics">rell. </hi></p>
+<p><lemma>necessariorum quinque</lemma> <hi rend="italics" >a</hi> quinque <hi rend="italics">lacuna mutilorum incipit, quae ad c. 112,3 </hi>vellet <hi rend="italics">pertinet</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>ipsis HMQRl illis <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>sine decore pavidi ad Sullam C pav. ad S. sine dec. M sine decore <hi rend="italics" >om. </hi>HDQm<foreign lang="greek">p</foreign></p>
+<p>profugiunt CMFQRs(?)n perf. <hi rend="italics">rell. </hi>(pergunt K)</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>Rom. avar. CKHFRlsn<foreign lang="greek">p</foreign> avar. Rom. <hi rend="italics">rell. </hi></p>
+<p>rati sunt M<hi rend="sup">2</hi>TFQR</p>
+</div2>
+
+<div2 type="section" n="6">
+<p>tum ... volens <hi rend="italics">Non. p. 23, 12 </hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>benevolentia HRI benevolentiam CTsn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="104">
+<div2 type="section" n="1">
+<p>postquam] ubi TD<hi rend="sup">1</hi>Qm</p>
+<p>infecto KHM TD<hi rend="sup" >1</hi>m<foreign lang="greek">p</foreign> confecto <hi rend="italics">rell. </hi></p>
+<p>quod KTDQm quo(d) int. neg. CTFR sn<foreign lang="greek">p</foreign> neg. quo(d) int. KHMDQm quo int. <hi rend="italics">om. </hi>l</p>
+<p>rediit CR m<foreign lang="greek">p</foreign></p>
+<p>est <hi rend="italics">om. </hi>MTF</p>
+<p>que <hi rend="italics">om. </hi>MTF</p>
+<p>ab] ad T<hi rend="sup">2</hi>DQm <hi rend="italics" >om.</hi>. <foreign lang="greek">p</foreign></p>
+<p>praetorem MDQm<foreign lang="greek" >p</foreign> praetorem Utica(m) <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>legatis F<foreign lang="greek">p</foreign> in <hi rend="italics">(om. </hi>Q, a M) quibus (quis n) legatis <hi rend="italics">rell. </hi></p>
+<p>Romam pot. eundi DQ Rom. eundi pot. H eundi pot. Romam m</p>
+<p>fit] <hi rend="italics">om. </hi>C fuit R<hi rend="sup">1</hi></p>
+<p>hum. rerum CKHRsn<foreign lang="greek" >p</foreign> rer. hum. <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>Rusone CHs Rufone <hi rend="italics" >rell. </hi>(Pisone n)</p>
+<p>ex iis ... accepit <hi rend="italics">om. </hi>HD</p>
+<p>accipit R</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>Bocchum quoniam (optimum <hi rend="italics">codd.</hi>) poenitet, delicta gratiae facit <hi rend="italics">Arus. gramm. VII 476,16 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="105">
+<div2 type="section" n="1">
+<p>quis CHD Rln quibus <hi rend="italics">rell. </hi></p>
+<p>Bocchus cognitis R cognitis <hi rend="italics">om. </hi>HMD</p>
+<p>petiverat HTDQm</p>
+<p>de comm. KF</p>
+</div2>
+
+<div2 type="section" n="2">
+<p><lemma>atque [peditum]</lemma> <hi rend="italics">secl. Kortte </hi> </p>
+<p>peditum item fund. TQm</p>
+<p>Balearum Gls<hi rend="sup">1</hi>n Balearium Fs<hi rend="sup">2</hi> baleatorum KHMTQ<foreign lang="greek">p</foreign> balneatorum R <hi rend="italics">om. </hi>m</p>
+<p>iere] vero C <hi rend="italics">om. </hi>MQ</p>
+<p>advorsum CHs adversum KMDn<foreign lang="greek">p</foreign> adversus <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>die quinto denique T denique quinto die <foreign lang="greek">p</foreign> denique <hi rend="italics">om. </hi>CD<hi rend="sup">1</hi></p>
+<p>vero ampl. m vero <hi rend="italics">om. </hi>TFQ</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="106">
+<div2 type="section" n="1">
+<p>adv. Volux <hi rend="italics">Serv. </hi></p>
+<p>Volux ... appellat <hi rend="italics">Serv. Aen. 5, 540 </hi></p>
+<p>praesidium HMTDQ</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>ex CKFsnm(?) a <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>ille ... pertimescere <hi rend="italics">Non. p. 425, 26 </hi></p>
+<p>virtuti satis credebant <hi rend="italics">Serv. ecl. 2, 17 </hi></p>
+<p>perditis Mn<foreign lang="greek" >p</foreign></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>eo F<foreign lang="greek">p</foreign></p>
+<p>proficisceretur CHMRs<hi rend="sup" >1</hi><foreign lang="greek">p</foreign> proficiscerentur <hi rend="italics">rell.</hi></p>
+<p>cenatus esse in castris <hi rend="italics">Prob. inst. gramm. IV 143, 17 Cledon. gramm. V 72, 7 </hi></p>
+<p>quam <hi rend="italics">om. </hi>KHMTD<foreign lang="greek">p</foreign></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ante eos HMDn<foreign lang="greek" >p</foreign></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="107">
+<div2 type="section" n="1">
+<p>existimabat MD<hi rend="sup">2</hi>FR<foreign lang="greek">p</foreign> estimabat <hi rend="italics">vel </hi>extimabat <hi rend="italics">rell.</hi></p>
+<p>antea CQTFRsn<foreign lang="greek">p</foreign> ante KHMDl(?) <hi rend="italics">add. Dietsch </hi>adversus QMD</p>
+<p>inermibus T<foreign lang="greek">p</foreign> peditibus D<hi rend="sup">2</hi>R<foreign lang="greek">p</foreign></p>
+<p>nec... petere <hi rend="italics">Non. p. 492,22 </hi>neque <hi rend="italics" >Non.</hi></p>
+<p>et in <hi rend="italics">Schol. Stat. </hi></p>
+<p>hostem(-es Pb) <hi rend="italics">Schol. Stat.</hi></p>
+<p>in ... vortere <hi rend="italics">Schol. Stat. Theb. 7,312 </hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>obtestatur KD attestatus M</p>
+</div2>
+
+<div2 type="section" n="4">
+<p>eius <hi rend="italics">om. </hi>HD</p>
+<p>crederet CMTn</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>factum CKHMDF <hi rend="italics">om. </hi>T (1 <hi rend="italics">deest.</hi>)</p>
+<p>cum Sylla solum MD</p>
+</div2>
+
+<div2 type="section" n="6">
+<p>probata est Fn<foreign lang="greek">p</foreign></p>
+<p>acciderat KMn</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="108">
+<div2 type="section" n="1">
+<p>nomine Aspar MD</p>
+<p>et <hi rend="italics" >om. </hi>Mn <hi rend="italics">exp. </hi>R ac D</p>
+<p>orator et <hi rend="italics">om. </hi>M</p>
+<p>consilia C consilia ierat (erat Q erant D<hi rend="sup">1</hi> uenerat K) <hi rend="italics">rell. </hi></p>
+<p>impar erat gen. R impar ei K impari CHMD<hi rend="sup">2</hi>s (1 <hi rend="italics">deest</hi>)</p>
+<p>pater] mater MTD</p>
+<p>ortus] natus HD<hi rend="sup">2</hi> nata MTD<hi rend="sup" >1</hi></p>
+<p>Mauro <hi rend="italics" >ante </hi>carus QHD</p>
+<p>obingenia QHMDR ab ingenio l</p>
+<p>multa bona <hi rend="italics">om. </hi>HMD</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>deligeret; consulto sese... habere; neu ... pertimesceret quo <hi rend="italics">codd. </hi> (neu ... pertimesceret <hi rend="italics">post</hi> Romanos <hi rend="italics">&sect; 3 inser. F s. s. <foreign lang="greek" >p</foreign></hi>): <hi rend="italics">transposuit Hitzig</hi></p>
+<p>consulta QMTDl<hi rend="sup">2</hi>s<hi rend="sup">2</hi> <hi rend="italics">desinit </hi>n<hi rend="sup">1</hi></p>
+<p>sese omnia integra cum illo h. QT sese c. i. o. h. integra C omnia de integra sese c. i. h. M</p>
+<p>cavere QKM caver ... l</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>sed ego... fide <hi rend="italics">Prisc. gramm. II 393, 14 </hi></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="109">
+<div2 type="section" n="1">
+<p>se pauca CKRs pauca se HTF se <hi rend="italics">om. </hi>Q<foreign lang="greek">p</foreign></p>
+<p>aut nullo QMD<hi rend="sup">1</hi>F</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>tunc KHMl<foreign lang="greek" >p</foreign></p>
+<p>erat HMD</p>
+<p>digressi sunt QKTR<foreign lang="greek">p</foreign> (l <hi rend="italics" >deest</hi>) </p>
+</div2>
+
+<div2 type="section" n="4">
+<p>occulte <hi rend="italics">s. s. </hi>D<hi rend="sup">2</hi> <hi rend="italics">in mg. </hi>R <hi rend="italics">om. </hi>QF</p>
+<p>praeterea&verbar;<hi rend="italics">desinit </hi>l</p>
+<p>uir et (et <hi rend="italics">om. </hi>F) CHFs uirat <hi rend="italics">uel</hi> iurat <hi rend="italics">rell. </hi>(uir iurat <foreign lang="greek" >p</foreign> uir ex sent. iurat R uir intern. iurat Q uir dabar ex sent. iurat K)</p>
+<p>rex sic KHTD</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="110">
+<div2 type="section" n="2">
+<p>mehercule VT herc(u)le <hi rend="italics">Prisc. rell. </hi></p>
+<p>et mehercule...indigus <hi rend="italics">Prisc. gramm. III 323,19 </hi></p>
+<p>indigus VCB indigui <hi rend="italics" >Prisc. rell. codd. </hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>eguisse aliquando pretium tuae am. VCBKHFs<foreign lang="greek">p</foreign> aliq. eg. p. t. a.R p. al. eg. t. a. QTD preti al. t. eg. a. M</p>
+<p>meum an. VCB an. meum <hi rend="italics">rell. </hi></p>
+<p>est VCB habeo <hi rend="italics">rell.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>postremo... lubet <hi rend="italics">om. Don. </hi></p>
+<p>vivis CB vixeris <hi rend="italics">Don. </hi></p>
+<p>tibi <hi rend="italics">om. </hi>BDF</p>
+<p>arma... integra erit<hi rend="italics"> Don. Ter. Eun. 750 </hi>viros <hi rend="italics">om. Don. </hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>flag. est VCBK (esse) M est <hi rend="italics">om. rell. </hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>at CB ad V <hi rend="italics">om. rell.</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>quod VCBR uti <hi rend="italics">rell. </hi></p>
+</div2>
+
+<div2 type="section" n="8">
+<p>id <hi rend="italics">om. </hi>QMTD<hi rend="sup">1</hi></p>
+<p>vosque VB</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="111">
+<div2 type="section" n="1">
+<p>de comm. Q<foreign lang="greek">p</foreign></p>
+<p>multum <hi rend="italics">M<foreign lang="greek" >p</foreign> om. </hi>T patefacit F<foreign lang="greek">p</foreign> patefecit <hi rend="italics">rell.</hi></p>
+<p>gratia KTs</p>
+<p>ei <hi rend="italics">Wirz </hi>et CHDTRs<hi rend="sup" >1</hi> etiam K esse QMs<hi rend="sup">2</hi><foreign lang="greek" >p</foreign></p>
+<p>quam plur. R<foreign lang="greek">p</foreign></p>
+<p>adventura <hi rend="italics">cum Glareano fort. scribendam</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>negitare CT D<hi rend="sup">2</hi>Rs neglectare HMD<hi rend="sup">1</hi> (cogitare K) negare QF<foreign lang="greek">p</foreign></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>lenitus KM leniter Ds leviter CT</p>
+<p>et <hi rend="italics" >om. </hi>KMF<foreign lang="greek">p</foreign></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>visa CHFRs v. sunt QKMTD<foreign lang="greek">p</foreign></p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="112">
+<div2 type="section" n="1">
+<p>at QMTDRs et CK HF<foreign lang="greek">p</foreign></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>ab illo <hi rend="italics">om. </hi>QHMD</p>
+<p>fidere KHMD</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>Bocchus <hi rend="italics">om. </hi>HMD</p>
+<p>a pacem <hi rend="italics">mutili excipiunt; lectiones omisi codicum </hi>KHMF, <hi rend="italics">quippe quas eadem manus recentior, quae lacunam supplevit, scripserit </hi></p>
+<p>Sillam sibi C sibi <hi rend="italics">s.s.</hi> B</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="113">
+<div2 type="section" n="2">
+<p>pollicere PA</p>
+</div2>
+
+<div2 type="section" n="3">
+<p>ante diem&verbar;<hi rend="italics">desinit </hi>P</p>
+<p>corporis <hi rend="italics">om. Serv. vulgo secl. </hi></p>
+<p>et oculis <hi rend="italics" >Serv.</hi></p>
+<p>voltu ...varius <hi rend="italics">Serv. Aen. 7,251 </hi></p>
+<p>ita <hi rend="italics">vulgo secl. </hi></p>
+<p>occulta pectoris D<hi rend="sup">1</hi> occultare et oris A<hi rend="sup">1</hi>N occultare et oris immutationem A<hi rend="sup">2</hi>CB occulta specie oris T occultam rem et oris s</p>
+<p>quae... patefecisse <hi rend="italics">cum Dietschio glossema habendum?</hi></p>
+<p>patefecissent A<hi rend="sup">1</hi>Ns</p>
+</div2>
+
+</div1>
+<div1 type="chapter" n="114">
+<div2 type="section" n="1">
+<p>per idem tempus <hi rend="italics">Pomp. gramm. V 208, 6</hi></p>
+<p>cipione s scipione CBTD<hi rend="sup" >2</hi></p>
+<p>M.] Cn. T</p>
+</div2>
+
+<div2 type="section" n="2">
+<p>contremuerat A<hi rend="sup">1</hi>NT (-rant) s contremuit A<hi rend="sup">2</hi>C BD</p>
+<p>illincque s</p>
+<p>inde <hi rend="italics">om </hi>NDs</p>
+<p>pro] de <hi rend="italics">bis Diom. </hi></p>
+<p>cum Gallis ... certare <hi rend="italics">Diom. gramm. I 399, 24 </hi></p>
+<p>certari A<hi rend="sup">1</hi> <hi rend="italics">Diom.</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>et A<hi rend="sup">2</hi>T ex CBNDs <hi rend="italics">om. </hi>A<hi rend="sup">1</hi></p>
+</div2>
+
+</div1>
+</body>
+</text>
+
+<text lang="la" n="Hist.">
+<body>
+<div1 type="book" n="Lep">
+<div2 type="section" n="4">
+<p>nam quid a Pyrrho, Hannibale, aequore et terra <hi rend="italics">Don. Ter. Phorm. 243</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>saevus<hi rend="italics">Serv.</hi></p>
+<p>scaevus iste Romulus <hi rend="italics">Serv. ecl. 3, 13</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p><lemma>supplicia in</lemma> <hi rend="italics">add. Orelli</hi> </p>
+</div2>
+
+<div2 type="section" n="7">
+<p>agundum ... est <hi rend="italics">Don. Ter. Andr. 254</hi></p>
+<p>illum <hi rend="italics">Kortte fort. recte</hi></p>
+</div2>
+
+<div2 type="section" n="11">
+<p>agitandi inops <hi rend="italics">Arus. gramm. VII 480, 3</hi></p>
+</div2>
+
+<div2 type="section" n="17">
+<p><lemma>bene par[a]ta</lemma> <hi rend="italics">corr. Orelli</hi> </p>
+</div2>
+
+<div2 type="section" n="19">
+<p>ut . . . fecerit <hi rend="italics">Diom. gramm. I 412, 20</hi></p>
+</div2>
+
+<div2 type="section" n="20">
+<p><lemma>raptum ire</lemma> <hi rend="italics">corr. Madvig</hi> ire <hi rend="italics">Madvig</hi> iri V</p>
+</div2>
+
+<div2 type="section" n="21">
+<p><lemma>praeter victoriam</lemma> <hi rend="italics">an</hi> victorem <hi rend="italics">cum Kritzio scribendum?</hi></p>
+</div2>
+
+<div2 type="section" n="23">
+<p>relegati in paludes <hi rend="italics">Arus. gramm. VII 505, 9</hi></p>
+</div2>
+
+<div2 type="section" n="24">
+<p>res secundae <hi rend="italics">Sen.</hi></p>
+<p>quia ... obtentui <hi rend="italics">Sen. contr. 9, 1. 13 Porph. Hor. epist. 1, 18, 29</hi></p>
+</div2>
+
+<div2 type="section" n="25">
+<p><lemma>pax et</lemma> <hi rend="italics">an</hi> pax et &lt;concordia&gt; composita?</p>
+</div2>
+
+<div2 type="section" n="26">
+<p><lemma>etiam prae&lt;si&gt;dio</lemma> <hi rend="italics">add. Aldus</hi> </p>
+</div2>
+
+</div1>
+<div1 type="book" n="Phil">
+<div2 type="section" n="1">
+<p>prava <hi rend="italics">Aldus</hi> parva V</p>
+</div2>
+
+<div2 type="section" n="3">
+<p><lemma>se &lt;e&gt;</lemma> <hi rend="italics">vulgo add.</hi> </p>
+<p>carminibus <hi rend="italics">vulgo</hi> carminis V</p>
+</div2>
+
+<div2 type="section" n="5">
+<p>ab eo <hi rend="italics">vulgo</hi> habeo V</p>
+<p>et indigni rep. <hi rend="italics">Arus. gramm. VII 480, 19</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p><lemma>animadvortatis ne&lt;u&gt;</lemma> <hi rend="italics">add. Carrio</hi> </p>
+</div2>
+
+<div2 type="section" n="12">
+<p><lemma>videmini [i]tanta</lemma> <hi rend="italics">del. Orelli</hi> </p>
+</div2>
+
+<div2 type="section" n="19">
+<p>haec ... oppressit <hi rend="italics">Non. p. 229, 4</hi></p>
+<p>obrepsit F<hi rend="sup">3</hi> <hi rend="italics">Nonii</hi></p>
+</div2>
+
+<div2 type="section" n="20">
+<p>nomini V</p>
+</div2>
+
+<div2 type="section" n="22">
+<p><lemma>Lepidus exercitum</lemma> <hi rend="italics">add. Orelli</hi> </p>
+</div2>
+
+</div1>
+<div1 type="book" n="Cott">
+<div2 type="section" n="1">
+<p>Quirites ... (1) mea in <hi rend="italics">polimpsesti Berolinensis et Aurelianensis</hi></p>
+<p>tolerabi <hi rend="italics">Aurel.</hi></p>
+</div2>
+
+<div2 type="section" n="2">
+<p>senecta iam aetate <hi rend="italics">Serv. Aen. 11, 165 ad alium locum crediderim pertinere</hi></p>
+</div2>
+
+<div2 type="section" n="7">
+<p>sumptum V</p>
+</div2>
+
+<div2 type="section" n="12">
+<p>volente V</p>
+</div2>
+
+</div1>
+<div1 type="book" n="Pomp">
+<div2 type="section" n="3">
+<p>utrum ... praestare <hi rend="italics">Diom. gramm. I 366, 12</hi> censetis <hi rend="italics">om. Diom.</hi></p>
+<p>praestare creditis <hi rend="italics" >Diom.</hi></p>
+<p>exercitum <hi rend="italics">et quae sequuntur usque ad finem orationis leguntur in palimpsesto Aurelianensi</hi></p>
+</div2>
+
+<div2 type="section" n="4">
+<p>cervibus <hi rend="italics">Aurel.</hi></p>
+</div2>
+
+<div2 type="section" n="5">
+<p>tefeci recepi Galliam <hi rend="italics">om. Aurel.</hi></p>
+<p>sustinuit <hi rend="italics" >Aurel.</hi></p>
+<p>ambitionem egi <hi rend="italics" >Aurel.</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p>Turiam <hi rend="italics" >Ursino suadente plurimi editores</hi></p>
+<p>exercitus <hi rend="italics">Aurel.</hi></p>
+<p>nobis <hi rend="italics">Aurel.</hi></p>
+</div2>
+
+<div2 type="section" n="9">
+<p>quae <hi rend="italics">om. Aurel.</hi></p>
+<p>onorique V aerique <hi rend="italics">Aurel.</hi></p>
+<p>sunt <hi rend="italics">om.</hi> V</p>
+<p>non <hi rend="italics">om. Aurel.</hi></p>
+<p>etiam <hi rend="italics">om. Aurel.</hi></p>
+</div2>
+
+</div1>
+<div1 type="book" n="Macr">
+<div2 type="section" n="1">
+<p>si ... existumaretis <hi rend="italics">Don. Ter. Phorm. 45</hi></p>
+</div2>
+
+<div2 type="section" n="6">
+<p><lemma>vobismet ipsi[s]</lemma> <hi rend="italics">corr. Kortte</hi> </p>
+</div2>
+
+<div2 type="section" n="7">
+<p>at <hi rend="italics">Kritz</hi> et V</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>quam... pertaesum est <hi rend="italics">Arus. gramm. VII 500, 14</hi></p>
+</div2>
+
+<div2 type="section" n="12">
+<p>itaque ... arsere <hi rend="italics">Arus. gramm. VII 486, 30</hi></p>
+<p><lemma>posterum: vis</lemma> <hi rend="italics">comma ante</hi> vis <hi rend="italics">sustulit Madvig</hi></p>
+</div2>
+
+<div2 type="section" n="14">
+<p>amittendum <hi rend="italics">Arus.</hi></p>
+<p>omittundum . . . agitis <hi rend="italics">Arus. gramm. VII 453, 10</hi></p>
+</div2>
+
+<div2 type="section" n="17">
+<p>ego <hi rend="italics">om. Arus.</hi></p>
+<p>neque ... hortor <hi rend="italics">Arus. gramm. VII 477, 17</hi></p>
+</div2>
+
+<div2 type="section" n="19">
+<p>quinis modiis <hi rend="italics">Asulanus</hi> quin is modis V</p>
+<p><lemma>neque absolvi&lt;t&gt;</lemma> <hi rend="italics">vulgo add.</hi> </p>
+<p>ignavi cuiusque tenuissimas spes frustratur <hi rend="italics">Gronovius</hi> ignam quiusque tenuissimas perfrustratur V</p>
+</div2>
+
+<div2 type="section" n="20">
+<p><lemma>ultro iniuria&lt;e&gt;</lemma> <hi rend="italics">add. Kritz</hi> </p>
+<p>cavendus dolus est <hi rend="italics">Arus. gramm. VII 488, 23</hi></p>
+</div2>
+
+<div2 type="section" n="21">
+<p>namque ... conabuntur. cavendus dolus est V <hi rend="italics">transp. Fabri.</hi></p>
+</div2>
+
+<div2 type="section" n="25">
+<p>claudit res <hi rend="italics">Don. add. Carrio</hi></p>
+<p>neque ... claudit <hi rend="italics">Don. Ter. Eun. 164</hi></p>
+</div2>
+
+<div2 type="section" n="26">
+<p>scilicet <hi rend="italics">Serv. om.</hi> V</p>
+<p>scilicet quia ... abstinetur <hi rend="italics">Serv. Aen. 1, 211</hi></p>
+</div2>
+
+</div1>
+<div1 type="book" n="Mithr">
+<div2 type="section" n="2">
+<p>nisi <hi rend="italics">ante</hi> egregia <hi rend="italics">addendum?</hi></p>
+</div2>
+
+<div2 type="section" n="3">
+<p>parum <hi rend="italics">Aldus</hi> rarum V</p>
+</div2>
+
+<div2 type="section" n="8">
+<p>Eumenem <hi rend="italics">Asulanus</hi> eum en V</p>
+</div2>
+
+<div2 type="section" n="12">
+<p><lemma>excidio habitur&lt;i&gt;</lemma> <hi rend="italics">vulgo add.</hi> </p>
+</div2>
+
+<div2 type="section" n="15">
+<p>proeliis] prope <hi rend="italics">Char.</hi></p>
+<p>inter ... incessit <hi rend="italics" >Char. gramm. I 119, 11</hi></p>
+</div2>
+
+<div2 type="section" n="16">
+<p>scio ... (18) conficere <hi rend="italics">Char. gramm. I 196, 18</hi></p>
+<p>petieris <hi rend="italics">Char.</hi></p>
+<p><lemma>&lt;belli prudentibus&gt;</lemma> <hi rend="italics">add. Char.</hi> </p>
+<p>parvo labore <hi rend="italics" >om. Char.</hi></p>
+<p><lemma>conficere, quo[m]</lemma> <hi rend="italics">del. Gerlach</hi> </p>
+</div2>
+
+<div2 type="section" n="17">
+<p>raptum <hi rend="italics">Ciacconius</hi> partum V</p>
+<p>conditos V <hi rend="italics">et codd. AS Servii</hi></p>
+<p>conditor <hi rend="italics">rell. codd. Servii</hi></p>
+<p>peste...terrarum <hi rend="italics">Serv. Aen. 7, 303</hi> (pestem <hi rend="italics">codd. AS Servii</hi>)</p>
+</div2>
+
+<div2 type="section" n="19">
+<p>quid ... expectas <hi rend="italics">Arus. gramm. VII 487, 6</hi></p>
+<p>expectans <hi rend="italics" >Arus.</hi></p>
+</div2>
+
+</div1>
+</body>
+</text>
+        </group>
+    </text>
+</TEI.2>
+

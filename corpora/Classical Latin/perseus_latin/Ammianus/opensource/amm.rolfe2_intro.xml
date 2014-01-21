@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title type="work">Rerum Gestarum, volume 2 introduction</title>
+				<title type="sub">Machine readable text</title>
+				<author>Ammianus Marcellinus</author>
+				<editor role="editor" n="Rolfe">John C. Rolfe,
+					Ph.D., Litt.D.</editor>
+				&responsibility;
+				&fund.AnnCPB;
+			</titleStmt>
+			<extent>About 100Kb</extent>
+			&Perseus.publish;
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Ammianus Marcellinus</author>
+						<title>With An English Translation</title>
+						<imprint>
+							<pubPlace>Cambridge</pubPlace>
+							<publisher>Cambridge, Mass., Harvard University Press; London, William Heinemann, Ltd.</publisher>
+							<date>1940</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state unit="book"/>
+			</refsDecl>
+		</encodingDesc>
+		
+		<profileDesc>
+			<langUsage>
+				<language id="en">English</language>
+				<language id="greek">Greek</language>
+				<language id="la">Latin</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change><date>2006</date>
+				<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+				<item></item>
+			</change>
+			<change><date>5/27/09</date><respStmt><name>RS</name><resp>(n/a)</resp></respStmt>
+				<item>  
+					$Log: amm.rolfe2_intro.xml,v $
+					Revision 1.1  2009-10-07 21:00:34  rsingh04
+					began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files
+
+					Revision 1.1  2009/09/25 19:12:52  rsingh04
+					added seneca epistulae, combined ammianus english and latin into one text and created new files for introductions and indices of the three volumes
+
+					Revision 1.1  2009/09/25 15:15:58  gcrane
+					base files
+					
+					Revision 1.2  2009/05/27 15:55:15  rsingh04
+					added cvs log keyword
+					
+				</item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	
+	
+	<text>
+		
+		<body>  
+			
+			<pb id="v2.p.1"/>
+			
+			<div1 type="book"><head>Preface</head>
+				
+				<p>In punctuation I have perhaps deviated more than in vol. i. from Clark's system (see Preface to vol. i.), especially when one metrical <hi rend="italics">clausula</hi> is immediately followed by another consisting of a single word.</p>
+				
+				<p>In his description of natural phenomena, such as that of the rainbow in xx. 11, 26 ff., Ammianus is often inexact and sometimes not clear. It has seemed best to try to translate what he says, without attempting to reconcile his statements with those of modern times, or with those of the more enlightened Greek and Roman writers.</p>
+				
+				<p>Inconsistency in the location of places (cf. vol. i., p. 583, note) is sometimes due to errors on the part of Ammianus, more frequently to changes in the boundaries and the names of the provinces in his time.</p>
+				
+				<p>Ammianus often uses <hi rend="italics">comes,</hi> <quote>count</quote> without further designations which identify the nature of office; in such instances it seems best to give the word its actual meaning. This applies with greater force to <hi rend="italics">dux,</hi> of which <quote>duke</quote> is seldom, if ever, a satisfactory rendering. See vol. i., p. xxxiv, note 3, and E. von Nischer in <hi rend="italics">Amer. Jour. of Phil.,</hi> liii., pp. 25 ff.</p> <closer><signed>John C. Rolfe</signed> <dateline>Philadelphia, June, 1936.</dateline></closer>
+			</div1>
+		</body>   
+	</text>
+</TEI.2> 

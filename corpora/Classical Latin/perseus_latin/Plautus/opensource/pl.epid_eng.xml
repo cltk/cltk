@@ -1,0 +1,837 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Epidicus, or The Fortunate Discovert</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.epid_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:15  packel
+Converted to XML
+
+Revision 1.13  2003/07/01 22:17:28  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.12  2001/08/21 18:49:30  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.11  2001/08/08 17:55:28  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.10  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.9  2001/08/03 20:50:01  amahoney
+fix spurious italics in lemmata
+
+Revision 1.8  2001/08/02 21:22:39  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.7  2001/08/01 21:34:10  amahoney
+use full speaker names
+
+Revision 1.6  2001/08/01 19:16:30  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>PERIPHIANES, </role><roleDesc>an aged Athenian of rank.</roleDesc></castItem>
+<castItem type="role"><role>STRATIPPOCLES, </role><roleDesc>his son by a former wife.</roleDesc></castItem>
+<castItem type="role"><role>APAECIDES, </role><roleDesc>an aged Athenian, friend of Periphanes.</roleDesc></castItem>
+<castItem type="role"><role>EPIDICUS, </role><roleDesc>servant of Periphanes.</roleDesc></castItem>
+<castItem type="role"><role>CHAERIBULUS, </role><roleDesc>a young Athenian, friend of Stratippocies.</roleDesc></castItem>
+<castItem type="role"><role>THESPRIO, </role><roleDesc>armour-bearer to Stratippocles.</roleDesc></castItem>
+<castItem type="role"><role>A CAPTAIN </role><roleDesc>of <placeName key="tgn,7011266">Rhodes</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>A BANKER.</role></castItem>
+<castItem type="role"><role>PHILIPPA, </role><roleDesc>a woman of <placeName key="tgn,7011116">Epidaurus</placeName>, the mother of Telestis.</roleDesc></castItem>
+<castItem type="role"><role>ACROPOLISTIS, </role><roleDesc>a music-girl, mistress of Stratippocles.</roleDesc></castItem>
+<castItem type="role"><role>TELESTIS, </role><roleDesc>daughter of Periphanes and Philippa.</roleDesc></castItem>
+<castItem type="role"><role>A MUSIC-GIRL.</role></castItem>
+</castList>
+
+<stage>Scene--<placeName key="perseus,Athens">Athens</placeName>: before the houses of PERIPHANES, AP&AElig;CIDES, and CH&AElig;RIBULUS.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/>
+<head>THE SUBJECT.</head>
+
+<p>The plot of this Play is of an involved nature. Periphanes, an aged Athenian, has a son, born in wedlock, named Stratippocles. By Philippa, a woman of Epidaurus, whom he has formerly seduced, he has had a daughter, named Telestis who has been residing with her mother at <placeName key="perseus,Thebes">Thebes</placeName>. A war arising between the Athenians and Thebans, Stratippocles, on setting out for the army, commissions Epidicus, his father's servant, to purchase for him Acropolistis, a music-girl, of whom lie is enamoured. Epidicns, on this, persuades Periphanes that this girl is really his daughter by Philippa, whom he has not seen for many years, and that she has been taken captive at <placeName key="perseus,Thebes">Thebes</placeName>, and brought to <placeName key="perseus,Athens">Athens</placeName>. On this the old man gives Epidicus the requisite sum, and she is brought home and introduced to him as his daughter Telestis. In the meantime, Stratippocles meets with another damsel who has been taken captive, and agrees with a Banker to borrow forty mince, for the purpose of purchasing her. He returns to <placeName key="perseus,Athens">Athens</placeName>, and resolves not to meet his father until he has paid the money to the Banker and gained possession of the damsel, and Epidicus is threatened by him with a severe punishment, if he does not manage to raise the sum required. On this he accosts his aged master, and tells him that he must find a wife for his son, who is about to purchase a singing-girl of the name of Acropolistis. The old man is persuaded to give a sum of money to Epidicus for the purpose of buying Acropolistis, that she may be kept out of the way of his son. On receiving the money, Epidicus hands it over to Stratippocles, to be paid to the Banker. The old gentleman having that morning ordered a singing-girl to be hired to perform at a sacrifice at his house, she is brought to him as Acropolistis, having been instructed how to play her part. A Captain, who admires Acropolistis, having heard that Periphanes has purchased her, applies to him, and offers to give him a profit of ten min&aelig; if he will transfer her to him. Periphanes, thereupon, brings to him the music-girl who is assuming that character (while the real Acropolistis is taken for his daughter), on which the Captain discovers the deception, and Periphanes finds out that the girl is already free, and has been only brought to his house to perform at the sacrifice. At this conjuncture Philippa arrives, having heard that her daughter has been brought to <placeName key="perseus,Athens">Athens</placeName>. Periphanes meets her, and assures her that her daughter is safe at his house. On this, Philippa is introduced to Acropolistis, and declares that she is not her daughter, and that Periphanes has been imposed upon. On being questioned,Acropolistis confesses that she has only called Periphanes her father because lie has called her his daughter. Epidicus, on being discovered to be guilty of this second fraud upon his master, is greatly alarmed; but just then he perceives the Banker, who has come for the money, leading the Theban captive. He immediately recognizes her as Telestis, the real daughter of Periphanes and Philippa, Stratippocles, somewhat to his sorrow, is informed that the captive is his half-sister, and therefore, most probably, consoles himself with Acropolistis. For making this discovery, Epidicus is not only pardoned by Periphanes, but receives his freedom.
+
+</p></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/>
+<head>THE ACROSTIC ARGUMENT.<note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>An old gentleman, thinking her his daughter, purchases (<foreign lang="la">Emit</foreign>) a music-girl, by the advice (<foreign lang="la">Persuasu</foreign>) of his servant, who, a second time (<foreign lang="la">Iterum</foreign>), substitutes for him, in place of <foreign lang="la">his son's</foreign> mistress, another one hired; he gives (<foreign lang="la">Dat</foreign>) to his master's son the money; with it the young man, not knowing it (<foreign lang="la">Imprudens</foreign>), purchases his sister. Soon afterwards, by the aid of a woman whom he has seduced, and of a Captain, the old man understands (<foreign lang="la">Cognoscit</foreign>) that he has been imposed upon, as (<foreign lang="la">Ut</foreign>) the one is in search of his mistress, the other of her daughter. But (<foreign lang="la">Sed</foreign>) on finding his daughter, he gives his servant his liberty.
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>Enter THESPRIO, followed by EPIDICUS.<note anchored="yes">Translator's subtitle <lemma targOrder="U">The Fortunate Discovery</lemma>:  Plautus calls this Play by the name of <title>Epidicus</title>, from the slave, who is the principal actor in it. It will be seen that a fortunate discovery really does take place in the Fifth Act, where Periphanes not only finds his long-lost daughter, but Stratippocles is prevented from unknowingly being guilty of incest. That Plautus thought very highly of this Play, is evident from what is said in the Bacchides, l. 215, where Chrysalus is introduced as saying that he "loves the Epidicus as well as his own self."</note></stage>
+<sp><speaker>EPIDICUS</speaker><p> <stage>pulling THESPRIO by the cloak</stage>. Harkye! young man.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Who pulls me by the cloak, when thus in haste?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> An intimate. </p></sp>
+<sp><speaker>THESPRIO</speaker><p> I confess it; for with your annoyance you are too intimate.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> But do look back, Thesprio!</p></sp>
+<sp><speaker>THESPRIO</speaker><p> <stage>looking round</stage>. What? Is it Epidicus that I see?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Why surely you've the use of your eyes.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Greetings to you. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> May the Gods grant what you desire. I'm glad that you've got here safe.
+</p></sp>
+<sp><speaker>THESPRIO</speaker><p> What besides? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> According to the usage, a dinner shall be given you<milestone n="6" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A dinner shall be given you</lemma>:  The "c&oelig;na viatica," or "welcome entertainment," has been mentioned in the Notes to the Bacchides, Act I., So. 2.</note>.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> I agree. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What to do?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> That I'll accept it, if you offer it.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> How are you? Fare you as you could wish?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> The proof's before you. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I understand. <stage>Eyeing him from top to toe.</stage> Marvellous! You seem quite plump and hearty.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> <stage>pointing to his left hand</stage>. Thanks to this.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Which, indeed, you ought to have parted with<milestone n="9" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To have parted with</lemma>:  The thieves of antiquity are said to have used the left hand for the purposes of their nefarious calling. The cutting off of the hand was a common punishment.</note> long ago.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> I'm less of a pilferer now than formerly.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> How so? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> I rob above-board<milestone n="10" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I rob above- board</lemma>:  It has been suggested that this is an imitation of a passage in Aristophanes, Act II., Sc. 3, where Blepsidemus says, "<foreign lang="greek">ou)  keklofa/s a)/ll' h(/rpakas.</foreign>" "You have not pilfered, but plundered." The thought, however, is quite natural, without resorting to a previous author for it.</note>.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> May the immortal Gods confound you, with what huge strides you do walk! for when I caught sight of you at the harbour, I began to run at a rapid pace; I was hardly able to overtake you just now.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> You are a town wit. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I know that you, on the other hand, are a military gentleman.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Speak out as boldly as you please.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> How say you? Have you been well all along?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> In a varied way. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Those who are well in a varied way<milestone n="16" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In a varied way</lemma>:  He puns upon the different meanings of the word "varie;" and alludes to the checquered or striped state of the slave's back after whipping. By "varie," Thesprio simply means, "sometimes well, and sometimes ill."</note>, a race of men of the goat kind or of the panther kind, don't please me.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> What do you wish me to tell you but that which is fact?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> To answer to these things fairly; how's our master's son? Is he well?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Stout as a boxer and an athlete.
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> You've brought me joyous tidings on your arrival. But where is he?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> I came here together with him.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Where is he then? Unless, perchance, you've brought him in your wallet, or, perhaps, in your knapsack.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> May the Gods confound you!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I want to make enquiries of you. Lend me your attention; attention shall be lent you in return.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> You say what's law<milestone n="23" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What's law</lemma>:  The words "operam da" and "operam dabo," used by Epidicus, were terms used in the Roman courts of law: therefore Thesprio says, "jus dicis," meaning, "you talk like a judge."</note>. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> It becomes me to do so.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> But why now are you acting the Pr&aelig;tor over us?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What other person in <placeName key="perseus,Athens">Athens</placeName> will you say is more deserving of it than I?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> But still, Epidicus, one thing is wanting for your Pr&aelig;torship.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What, pray? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> You shall know; two lictors<milestone n="26" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Two lictors</lemma>:  The Pr&aelig;tors were attended by lictors As one part of their duty was to scourge refractory slaves, Thesprio means to joke Epidicus, by telling him that he requires the lictors -- not to do him honor, but to scourge him.</note> two osier bundles of twigs----</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>shaking his fist at him</stage>. Woe unto you! But how say you----? THES. What is it you ask?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Where are the arms<milestone n="27" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Where are the armns</lemma>:  As Thesprio was his armour-bearer, this question cannot be considered as an impertinent one.</note> of Stratippocles?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> I' faith, they've gone over to the enemy.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What, his arms? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> Aye, and quickly too.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Do you say that seriously?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Seriously I say it; the enemy have got them.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> By my troth, a disgraceful affair.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Still, before now, other persons have done the same. This affair will turn out to his honor<milestone n="31" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Will turn out to his honor</lemma>:  Schmieder thinks that in these words there is a covert allusion to the conduct of Terentius Varro, by whose bad management the Romans lost the battle of Cann&aelig;, when fighting against Hannibal. The Senate, however, received him with open arms, "because he had not despaired of the state."</note>.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> How so? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> Because it has been so to others before.
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Mulciber, I suppose, made the arms which Stratippocles had; they flew over to the enemy<milestone n="32" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Flew over to the enemy</lemma>:  Plautus seems here to fancy that the arms made by Mulciber or Vulcan, for Achilles, were taken by Hector from Patroclus, when, in fact, they were made at the request of Thetis, for the purpose of avenging his death. He probably did not care to represent a slave and A camp-follower as being particularly correct in their knowledge of Homer.</note>.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Why, then, e'en let this son of Thetis lose them; the daughters of Nereus will bring him others.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Only this must be looked to, that material may be found for the armourers, if in each campaign he yields a spoil to the enemy.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Have done now with these matters.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> You yourself make an end of them when you please.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Cease your enquiries then. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Say, where is Stratippocles himself?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> There is a reason, for which reason he has been afraid to come together with me.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Pray, what is it? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> He doesn't wish to see his father as yet.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> For what reason? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> You shall hear; because he has purchased out of the spoil a young female captive of charming and genteel figure.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What is it I hear from you?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> That which I'm telling you.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Why has he purchased her?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> To please his fancy.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> How many fancies has this man? For assuredly, before he went away from home to the army, he himself commissioned me, that a music-girl whom he was in love with should be purchased of a Procurer for him. That I have managed to accomplish for him.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Whichever way the wind is at sea, Epidicus, in that direction the sail is shifted.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Woe unto wretched me! He has utterly undone me!</p></sp>
+<sp><speaker>THESPRIO</speaker><p> What's the meaning of this? What's the matter, pray?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Well now--she whom he has bought, at what sum has he purchased her?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> A very little. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> That I don't ask you.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> What then? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> For how many min&aelig;?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> <stage>holding up all his fingers four times</stage>. For so many.
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Forty min&aelig;? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> For that purpose, he borrowed the money on interest of a Banker at Thebes, at a didrachm for each silver mina per day.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Surprising!</p></sp>
+<sp><speaker>THESPRIO</speaker><p> This Banker, too, has come together with him, and is dunning for his money.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Immortal Gods! now I'm fairly done for!</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Why so, or.what's the matter, Epidicus?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> He has proved my ruin!</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Who?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Who? He who lost his arms.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> But why so? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Because he himself was every day sending me letters from the army--but I shall hold my tongue; it's best to do so. It's best for a man in servitude to know more than he says; that's true wisdom.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> On my faith, I don't understand why you are alarmed. You are frightened, Epidicus; I see it by your countenance. You seem here, in my absence, to have got into some scrape or other.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Can't you cease annoying me?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> I'll be off. <stage>Moves as if going.</stage></p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Stand still; I'll not let you go from here. <stage>Holds him.</stage> THES. Why do you hold me back?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Is he in love with her whom he has purchased out of the spoil?</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Do you ask me? He dotes to death upon her.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> The hide will be stripped from off my back.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> He loves her, too, more than ever he loved you.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> May Jupiter confound you!</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Let me go now; for he has forbidden me to go to our house; he ordered me to come here <stage>pointing to the house</stage> to our neighbour's, Ch&aelig;ribulus; there he bade me wait; he's about to come there himself.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Why so? </p></sp>
+<sp><speaker>THESPRIO</speaker><p> I'll tell you; because he doesn't wish to meet with or see his father, before he has paid down this money which is owing for her.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> O dear! an involved business, i' faith.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> Do let go of me, that I may now be off forthwith.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> When the old gentleman knows this, our ship will fairly founder.
+</p></sp>
+<sp><speaker>THESPRIO</speaker><p> What matters it to me in what way you come to your end?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Because I don't wish to perish alone; I'd like you to perish with me, well-wisher with well-wisher.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> <stage>tearing himself away from EPIDICUS</stage>. Away with you from me to utter and extreme perdition with those terms of yours!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Be off, then, if you are in great haste about anything.</p></sp>
+<sp><speaker>THESPRIO</speaker><p> <stage>aside</stage>. I never met with any person from whom I parted with greater pleasure. <stage>Goes into the house of CH&AElig;RIBULUS.</stage></p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to himself</stage>. He's gone away from here; you are now alone. In what plight this matter is, you now see, Epidicus. Unless you have some resources in your own self, you are done for. Ruination so great is impending over you--unless you support yourself stoutly, you cannot hold up; to such a degree are mountains of misfortune threatening to tumble on you. Neither does any plan just now please me by means of which to find myself disengaged from my entanglement. To my misfortune, by my trickeries I have forced the old man to imagine that he was making purchase of his own daughter; whereas he has bought for his own son a music-girl whom he was fond of, and whom on his departure he commissioned me about. He now, to please his fancy, has brought another one from the army. I've lost my hide, for when the old man finds out that he has been played tricks with, he'll be flaying my back with twigs. But still, do you take all precautions. <stage>He stands still and thinKs.</stage> That's of no use! clearly this head of mine is addled! You are a worthless fellow, Epidicus. <stage>In another tone.</stage> What pleasure have you in being abusive? Because you are forsaking yourself. What am I to do? Do you ask me the question? Why you yourself, in former days, were wont to lend advice to others. Well, well; something must be found out. But why delay to go meet the young man, that I may know how the matter stands? And here he is himself. He is in a grave mood. He's coming with Ch&aelig;ribulus, his year's-mate. I'll step aside here, whence at my leisure I'll follow their discourse. <stage>He steps aside.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="104" unit="TLN line"/>
+<stage>Enter STRATIPPOCLES and CH&AElig;RIBULUS.</stage>
+<sp><speaker>STRATIPPOCLES</speaker><p> I've told you all the matter, Ch&aelig;ribulus, and I have fully disclosed to you the sum of my griefs and loves.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> You are foolish, Stratippocles, beyond your age and lineage. Does it shame you, because you have bought a captive girl, born of good family, from among the spoil? Who will there be to impute it as a fault to you?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Through doing this, I've found that those who are envious are all enemies to me; but I've never offered violence<milestone n="109" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Never offered violence</lemma>:  This is a very important passage, as it relieves the Audience from the apprehension they might otherwise feel in the Fifth Act, that Stratippocles had unconsciously been guilty of incest.</note> or criminal assault against her chastity.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> Then, so far, in my opinion at least, you are a still more deserving man, inasmuch as you are temperate in your passion.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> He effects nothing who consoles a desponding man with his words: he is a friend, who, in dubious circumstances, aids in deed when deeds are necessary.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> What do you wish me to do?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> To lend me forty min&aelig; of silver, to be paid to the Banker from whom I borrowed it on interest.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> On my word, if I had it, I would not deny you.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> What then does it signify your being bounteous in talk, <milestone n="116" unit="TLN line"/>if all aid in the matter<note anchored="yes"><lemma targOrder="U">If all aid in the matter</lemma>:  The same sentiment occurs in the Trinummus, l. 439.</note> is dead outright.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> Why faith, I myself am quite wearied and distracted with being dunned.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> I had rather my friends of that sort were thrust into a furnace than into litigation<milestone n="118" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Into litigation</lemma>:  "Quam Foro." Literally, "than in the Forum." He plays on the resemblance of the words "furno," "oven" or "furnace," and "Foro," the "Forum." He had rather see his friends dead outright, than worried by their creditors.</note>. But now I could wish to buy me the assistance of Epidicus at a weighty price, a fellow whom I'll hand over well-liquored with stripes to the baker<milestone n="120" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the baker</lemma>:  For the purpose of taking his place at the hand-mill for grinding corn, which was probably done in the same building where the bread was baked, and was a most laborious operation.</note>, unless he this day finds me forty min&aelig; before I've mentioned to him the last syllable of the sum.
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>apart</stage>. The matter's all right; he promises well; he'll keep faith, I trust. <stage>Ironically.</stage> Without any expenditure of my own, an entertainment<milestone n="124" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An entertainment</lemma>:  As already mentioned, "symbola" was a club entertainment, or pic-nic (in the original sense of the word), where each provided his own share of the provisions.</note> is already provided for my shoulder-blades. I'll accost the man. <stage>He goes up to STRATIPPOCLES.</stage> The servant Epidicus wishes health to his master Stratippocles, on his arrival from abroad.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> <stage>turning round</stage>. Where is he?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Here he is; I'm delighted that you have returned safe.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> I believe you as much in that as I do myself.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Have you been well all along?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> I've been free from disease; in mind I've been ailing.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> As regarded myself, I've taken care of what you entrusted to me; it has been obtained; the female captive has been bought, about which matter you were sending me letters so often.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> You've lost all your labour.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> But why have I lost it?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Because she is not dear to my heart, nor does she please me.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What means it, then, that you gave me such strict injunctions, and sent letters to me?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Formerly I did love her; but now another passion influences my heart.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I' faith, it is a shocking thing for that to be unpleasant for a man which you have managed well for him; where I've done well, I've in reality done ill, since love has shifted sides.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> I wasn't right in my mind when I sent those letters to you.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Is it proper that I should be the atonement for your folly, so as for you to substitute my back as the scape-goat<milestone n="139" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As the scape-goat</lemma>:  "Succidanea" was a term applied to a victim, substituted in place of another which had not given favourable omens.</note> for your folly?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Why are we making words about that? This man <stage>pointing to himself</stage> has need of forty min&aelig;, ready money, and in all haste, for him to pay a Banker, and speedily too.
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Only tell me from what quarter you wish me to get them. From what banker am I to seek them?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> From where you like. But if I don't finger them before sunset, don't you enter my house; off with yourself to the mill.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> You easily say that without risk and concern, and with a gay heart. I know our floggers; I feel the pain when I'm beaten.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> How say you now? Will you suffer me to destroy myself?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Don't do that. I'll cope with this peril and bold attempt in preference.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Now you please me; now do I commend you.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I'll submit to this in any way that's pleasing to you.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> What then is to be done about this music-girl?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Some method shall be found out; by some means I'll disengage myself; some way I shall get extricated.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> You are full of scheming; I know you of old.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> There is a rich Captain of Eub&oelig;a<milestone n="152" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Captain of Eub&oelig;a</lemma>:  The Captain is elsewhere called a Rhodian. Probably it is meant that Rhodes was the place of his birth, and the island of Eub&oelig;a that of his residence.</note>, abounding in plenty of gold, who, when he knows that that one was bought for you, and that this other one has been brought here, will forthwith be entreating you, of his own accord, to transfer that other one to him. But where is she whom you have brought with you?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> I shall have her here just now.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> What are we now doing here?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Let's go in-doors here at your house, that, for the present, we may pass this day merrily. <stage>They go into the house of CH&AElig;RIBULUS.</stage></p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to himself</stage>. Go in-doors; I'll now call<milestone n="158" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I'll now call</lemma>: -159. Echard's adaptation of these two lines is so quaint, that it is worth transcribing. "In the meantime must I have a committee of the whole house, to consider of ways and means for the raising supplies to carry on this vigorous war."</note> a council in my heart to adopt measures about this money business, against whom, in especial, war is to be declared, and out of whom I'm to get the money. Epidicus, consider what you are to do; thus suddenly has this business been thrown upon you. But now you must not be slumbering, nor have you any leisure for delay. Now must you be daring! 'Tis my fixed determination to lay siege to the old man. I'll go indoors; I'll tell the young man, my master's son, not to walk abroad here, or come anywhere in the way of the old gentleman. <stage>Goes into the house of CH&AElig;RIBULUS.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="166" unit="TLN line"/>
+<stage>Enter AP&AElig;CIDES and PERIPHANES, from the house of the former.</stage>
+<sp><speaker>APAECIDES</speaker><p> Mostly all men<milestone n="165" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Mostly all men</lemma>:  Ap&aelig;cides has been talking in-doors with Periphanes about his supposed daughter who has lately come home, and is recommending him to atone to Philippa for his conduct to her, by marrying her. It is supposed that Terence had this passage in view in the Andria, l. 637-8.</note> are ashamed when they have no occasion to be; when they ought to be ashamed, then does shame forsake them, when there's a necessity for their being ashamed. That man, in fact, are you. What is there to be ashamed of in your bringing home a wife, poor, but born of good family? Especially her, whose daughter you say this girl is, who is at your house?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I have some regard for my son<milestone n="171" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Regard for my son</lemma>:  It was looked upon as a disgraceful thing for a father with grown-up sons to marry again, and thereby introduce a mother- in-law into his family. Ap&aelig;cides blames Periphanes for this scruple, and hints to him that he ought not to be more ashamed on account of his son, than of his late wife, who, being dead, and for whom he had no hearty liking, could not make him blush at a second marriage.</note>.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> But, i' faith, the wife whom you buried I thought you had felt some respect for; whose tomb as oft as you see, you straightway sacrifice victims to Orcus; and not without reason, in fact, since you've been allowed to get the better of her by surviving her.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Ah me! I was a Hercules while she was with me; and, upon my faith, the sixth labour<milestone n="177" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The sixth labour</lemma>:  The sixth labour of Hercules was his combat with the Amazons, when he took Antiope or Hippolyts, their queen, and carried off her girdle.</note> was not more difficult to Hercules than the one that fell to my lot.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> I' faith, money's a handsome dowry.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Troth, so it is, which isn't encumbered with a wife.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="181" unit="TLN line"/>
+<stage>Enter EPIDICUS, from the house of CH&AElig;RIBULUS, softly crossing the stage.</stage>
+<sp><speaker>EPIDICUS</speaker><p> <stage>at the door, as he enters</stage>. Hist! hist! be silent, and have good courage; with a fair omen have I come out of doors, the bird upon the left hand<milestone n="181" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bird upon the left hand</lemma>:  Among the Romans the Augur looked to the South, having the East on his left hand, which was considered the auspicious quarter. The Greeks considered birds on the left hand an ill omen.</note>. <stage>Pointing to his head.</stage> I've got a sharp knife, with which to embowel the old man's purse; but see! here he is before the house of Ap&aelig;cides, the two old fellows, just as I want. Now I shall change me into a leech, and suck out the blood of these who are called the pillars of the Senate.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Let him be married at once.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> I approve of your design.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> For I've heard that he's entangled with love with a certain music-girl, I don't know who. At that I'm vexed to death.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>apart</stage>. By my troth, all the Deities do aid, amplify, and love me; really, these men themselves are pointing out to me the way by means of which I'm to get the money out of them. Now then, come, equip yourself, Epidicus, and throw your cloak about your neck <stage>suiting the action to the word</stage>, and pretend as though you had been in search of the man all the city over. On with it, if you are going to do it! <stage>He hurries past the OLD MEN as though he didn't see them, and calls out aloud.</stage> Immortal Gods! I do wish I could meet with Periphanes at home, whom I'm tired with searching for all over the city, throughout the doctors' shops, throughout the barbers' shops, in the gymnasium, and in the Forum, at the perfumers' shops and the butchers' stalls<milestone n="196" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Butchers' stalls</lemma>:  "Lanienas." Madame Dacier thinks that this means a place where arms were sold, and the "lanist&aelig;," or "gladiators" exercised themselves.</note>, and round about the bankers' shops. I'm become hoarse with enquiring; I've almost dropped down with running.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Epidicus! </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>looking round</stage>. Who is it that's calling Epidicus back?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> It's I, Periphanes. </p></sp>
+<sp><speaker>APAECIDES</speaker><p> And I, Ap&aelig;cides.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> And I, indeed, am Epidicus. But, master, I find that you've both met me at the nick of time.
+</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What's the matter? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Wait, wait! <stage>puffs and blows</stage>; prithee, do let me get breath!</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> By all means, rest yourself.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I'm quite faint; I must recover my breath.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Do rest yourself at your leisure.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Lend me your attention. All the men of the army have been remanded home from Thebes<milestone n="203" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Remanded home from Thebes</lemma>:  Madame Dacier supposes, and with fair reason, that in this Epidicus tells what really is the fact.</note>.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Who knows for certain that this has been done?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I say that it has been done.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Are you sure of that? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I am sure of it.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why are you sure of it?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Because I've seen the soldiers marching through the streets in shoals. They are bringing back their arms and their baggage-horses.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Very good indeed!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Then, what prisoners they've got with them! boys, girls, in twos and threes; another one has got five; there's a crowd in the streets; they are looking out each for his son.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I' troth, a business very well managed!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Then, filly as many of the courtesans as there are in the whole city were going decked out each to meet her lover; they were going to trap them; that's the fact, inasmuch as I gave especial attention to it; several of these had with them nets beneath their garments. When I came to the harbour, forthwith I espied her waiting there, and with her were four music-girls.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> With whom, Epidicus?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> With her whom your son has been loving and doting on for years, with whom he's making all haste to ruin credit, property, himself, and yourself. She was on the lookout for him at the harbour.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Just see the sorceress now!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> But decked out, sparkling with gold, and adorned so splendidly! so nicely! so fashionably!</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What was she drest in? Was it a royal robe, or was it a plain dress?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> A skylight one<milestone n="221" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A skylight one</lemma>:  "Impluviatam." Echard's Note to this passage is much to the purpose. "The word 'impluvium' signifies a square open place which the Romans had in their houses to receive rain for their use; or a square courtyard, that received the rain at four water-spouts; from whence a habit they had, made with four sides or four pieces, was called 'vestimentum impluviatum.' Here Epidicus takes occasion from this to admire at a woman's being able to wear a courtyard on her back. Periphanes, carrying on the humour, tells him 'tis no wonder, since they frequently wear whole houses and lands, meaning the value of them." The word "impluvium" has been previously rendered "skylight," in the present Translation. See the Notes to the Miles Gloriosus, l. 159, where Periplecomenus complains of Sceledrus looking down his "impluvium" from the top of the house. The garment may, however, not improbably have been called "impluviatum," from its being of a greyish, or rain colour.</note>, according as these women coin names for garments.
+</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What! was she dressed in a skylight?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What's there wonderful in that? As though many women didn't go through the streets decked out with farms upon them. But when the tax is demanded, they declare it cannot be paid<milestone n="224" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">They declare it cannot be paid</lemma>:  He means that their dupes or lovers cannot pay their taxes.</note>; while to these hussies, to whom a larger tax is paid, it can be paid. Why, what new names every year these women are finding for their clothing--the thin tunic, the thick tunic, your fulled linen cloth, chemises, bordered shifts' the marigold or saffron-coloured dress, the under-petticoat or else the light vermilion dress, the hood, the royal or the foreign robe, the wave pattern<milestone n="230" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The wave pattern</lemma>:  "Cumatile," from the Greek <foreign lang="greek">ku=ma,</foreign> "a wave." These dresses were so called, probably, from their being undulated, or, as we call it, "watered." Ovid, in the Art of Love, B. 8, l. 177, speaks of dresses called "undulat&aelig;," "resembling the waves;" as also does Varro. Some Commentators think that "undulat&aelig;" means "sea-green," and Schmieder takes "cumatile" to mean the same. From its juxtaposition with "plumatile," "feather-pattern," it would seem that the pattern rather than the colour is alluded to. "Plumatile" is considered by some simply to mean embroidered; and "plumata" is clearly used in that sense by Lucan in the Pharsalia, B. 10, l. 125. For a list of the Roman ladies' dresses, see the Aulularia, l. 463, et seq.</note> or the feather-pattern, the wax or the apple-tint. The greatest nonsense! From dogs, too, do they even take the names.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> How so? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> They call one the Laconian<milestone n="231" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Laconian</lemma>:  Probably the garments had their name from their resemblance to the colour of this breed of dogs. They were imported from Laconia, and hence called "Laconici." From an expression in the Epodes of Horace, Ode VI., l. 5-6, they appear to have been used as shepherds' dogs; but Warner in a Note to his Translation, supposes them to have been of the greyhound species, So, in Shakspeare's Midsummer Night's Dream. <bibl n="Shak. MND 4.1">Act IV., Sc. 1</bibl>, Theseus says:  <quote lang="en"><lg type="ia5"><l>My hounds are bred out of the Spartan kind,</l>
+<l>So flewed, so, sanded</l></lg></quote></note>. These names compel men to make auctions.
+</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> But do you say on as you commenced.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Two other women behind me began to speak thus between themselves; I, like my wont, went away a little distance from them; I pretended that I wasn't attending to their talk: I didn't quite hear all, and still I wasn't deceived in a word they said.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I long to hear it.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Then one of them said to the other with whom she was talking----</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Be quiet then, that you may hear. After they had caught sight of her whom your son is dying for: "Prithee, how happily and luckily has it befallen that woman for her lover to be wishing to set her free." "Who is he?" said the other. She mentioned Stratippocles.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Troth now, I'm undone; what is it I hear of you?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> That which really took place. After this, I myself, when I heard them talking, began again to draw closer towards them little by little, as though the crowd of people was pushing me, whether I would or no.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I understand. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Then the one asked the other, "How do you know?" "Why, because a letter has been brought her to-day from Stratippocles; that he has borrowed money on interest from a banker at Thebes; that it is ready, and he himself has brought it for that purpose."</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Tell on--I'm undone!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> She said that she had heard so from her and from the letter which she had seen.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What am I to do now? I ask your advice, Ap&aelig;cides.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Let us find some clever, useful expedient; for he, indeed, will either be here just now, or is here already.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> If it were right for me to be wiser than you, I could give you some good advice, which you will praise, I fancy, both of you----</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Then where is it, Epidicus?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Yes, and useful for this purpose,</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Why do you hesitate to mention it?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> It's proper for yourselves, who are the wiser, to be the first to speak, and for me to speak afterwards.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Aye, aye, of course--come, say on.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> But you'll laugh at me.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> On my word, we will not do so.
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Well then, if it pleases you, use my advice; if it doesn't please you, find better. There's neither sowing nor reaping<milestone n="261" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Neither sowing nor reaping</lemma>:  "Mihi istic nec seritur nec metitur." This proverbial saying (so well known to every student of the Eton Grammar)  merely means, "I have no interest whatever in the matter."</note> for me in this matter; only that I do wish the same that you wish.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I return you thanks. Make us partakers in your wisdom.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Let a wife at once be chosen for your son; and so take vengeance on this music-girl whom he wants to liberate, and who is corrupting him for you; and so let it be managed, that even until her dying day she may remain a slave.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> It ought to be so managed.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I am ready to do anything, so long only as this may be brought about</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Well then, now there's an opportunity of doing so, before he comes into the city, as to-morrow he will be here; to-day he will not have come.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> How do you know?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I do know, because another person told me, who came from there, that he would be here in the morning.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Then say you what we are to do.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I'm of opinion that you ought to do thus: you must pretend as though you were desirous to give her liberty to the music-girl for your own whim, and as though you were violently in love with her.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> To what advantage does that tend?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Do you ask that? Why, that you may purchase her beforehand with money, before your son comes, and may say that you bought her to set her at liberty----</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I understand. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> When she's bought, you must remove her somewhere out of the city; unless your own feelings are any way opposed.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> O no, skilfully suggested.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> But what say you, Ap&aelig;cides?</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Why, what should I? Except that I think you've contrived it very cleverly.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Then, in consequence, all thoughts of marriage with her will be removed from him, so that he will make no difficulties as to what you wish.
+</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Long life to you, wise as you are, it really does please us. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Do you then skilfully do whatever you are going to do.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I' faith, you speak to the purpose.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I have found, too, how this suspicion may be removed from yourself.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Let me know it.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> You shall know it; just listen.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> He's come with a breast full of counsel.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> There's need of a person to carry the money there for the music-girl; but there's no equal necessity for yourself to do it.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why so? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Lest he should think you are doing it for the sake of your son----</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Cleverly thought of!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> By which means you'll keep him away from her; lest any difficulty might arise by reason of that suspicion.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What person shall we find suited to this purpose?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>pointing to AP&AElig;CIDES.</stage> He will be the best; he will be able to take all due precautions, as he understands the laws and ordinances.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Epidicus, receive my thanks. But I'll attend to this with all care.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I'll find him and bring him here to you, to whom the music-girl belongs; and I'll take the money along with him. <stage>Pointing to AP&AElig;CIDES.</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> For how much, at the lowest, can she be bought?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What, she? Perhaps she might possibly be bought at the lowest for forty min&aelig;; but if you give me more, I shall return it. There's no trickery in this matter. This money, too, of yours won't be locked up ten days.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> How so? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Why, because another young man is dying with love for this woman, one abounding in money, a great warrior, a Rhodian, a spoiler of his foes<milestone n="296" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A Rhodian, a spoiler of his foes</lemma>:  The Rhodians were considered wealthy, proud, and boastful.</note>, a boaster; he'll buy her of you, and give the money with pleasure. You only do it; there's a large profit for you here.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I really pray the Gods it may be so.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> You'll obtain your prayer. </p></sp>
+<sp><speaker>APAECIDES</speaker><p> Why then, don't you go in-doors and bring the money out here? I'll go visit the Forum. Epidicus, do you come thither.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to AP&AElig;CIDES</stage>. Don't you go away from there before I come to you.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> I'll wait till then.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to EPIDICUS</stage>. Do you follow me in- doors.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Go and count it out; I'll not detain you at all. <stage>(Exit AP&AElig;CIDES, and  PERIPHANES goes into his house.)</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="306" unit="TLN line"/>
+<stage>EPIDICUS, alone.</stage>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to himself</stage>. I do think that in the Attic land there is no spot of land so fertile as is this Periphanes of ours; why, from the locked and sealed-up money-chest I summon forth silver just as much as I please. But this, i' troth, I am afraid of, that if the old man should come to know it, he'll be making parasites of elm-twigs<milestone n="308" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Parasites of elm-twigs</lemma>:  He alludes to the propensity of Parasites for devouring to the bone all who came in their way.</note>, to be shaving me quite clean. But one matter and consideration disturbs me--what music-girl, one that goes out on hire, I'm to show to Ap&aelig;cides. <stage>He muses.</stage> And that as well I've got: this morning the old gentleman bade me bring for him on hire some music-girl to his house here, to sing for him while he was performing a sacrifice<milestone n="313" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Performing a sacrifice</lemma>:  It was the custom, while private person were sacrificing to the Lares or household Gods, to have music performed upon the harp or the pipe.</note>. She shall be hired, and be instructed beforehand in what way she's to prove herself cunning towards the old man. I'll away in-doors; I'll get the money out of the swindled old fellow. <stage>He goes into the house of PERIPHANES.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="320" unit="TLN line"/>
+<stage>Enter STRATIPPOCLES and CH&AElig;RIBULUS, from the house of the latter.</stage>
+<sp><speaker>STRATIPPOCLES</speaker><p> I'm distractedly in suspense and worn to the heart with waiting how the fair promises of Epidicus will turn out for me. I've been tormented too long. Whether there is to be anything, or whether there is not, I wish to know.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> For all these resources you may still seek some other resources for yourself. For my part, I knew at the first, or the instant, that there was no help for you in him<milestone n="322" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That there was no help for you in him</lemma>:  "Nullam tibi esse in illo copiam."</note>.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Upon my faith, I'm ruined!</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> You act absurdly in tormenting yourself in mind. By my troth, if I should catch him, I would never allow that slave of a fellow to be laughing at us with impunity.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> What can you expect him to do, you, who have such great wealth at home, and have not a coin of it, as you say, and have in yourself no resources for your friend?</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> I' faith, if I had had it, I should have proffered it with pleasure; but something in some manner<milestone n="328" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Something in some manner</lemma>:  This admirably shows how hard up the stingy Ch&aelig;ribulus is for an excuse.</note>, in some way, in some direction, from some person, some hope I have for you, that there'll be some good fortune for you to share with me.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Woe to you, you sneaking fellow<milestone n="330" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You sneaking fellow</lemma>:  "Murcide." Some editions have "muricide," "you mouse-killing fellow;" a capital name for a sordid, miserable creature.</note>.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> Why does it please you to abuse me?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Why, because you are prating to me about something in some manner, from somewhere or other, from some persons, that nowhere exists, and I won't admit it to my ears. Of no more assistance are you unto me than he who never yet has been born. <stage>They stand near the door of the house of CH&AElig;RIBULUS.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="337" unit="TLN line"/>
+<stage>Enter EPIDICUS, from the house of PERIPHANES, with a bag of money round his neck.</stage>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to PERIPHANES, within the house</stage>. You've done your duty then; it now befits me to do mine. Through this care of mine, you may be allowed to be at ease. <stage>In a lower voice.</stage> This, in fact, is now lost to you; don't at all be setting your hopes on it. <stage>Holding some of the coins in his hands.</stage> How very shining it is! You only trust me for that. This way I'm going to act, this way my forefathers have acted before me. O ye immortal Gods, what a brilliant day you have bestowed upon me in this how propitious and how favourable to my requests! But why do I delay to take my departure hence, that I may bear this supply with lucky auspices to the colony<milestone n="342" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the colony</lemma>:  He means the house of Ch&aelig;ribulus, which has just been peopled by his master.</note>. I'm delaying while I'm standing here. But what means this? Before the house I see the two companions, my master and Ch&aelig;ribulus. <stage>Accosting them.</stage> What are you doing? Take this, will you. <stage>Gives STRATIPPOCLES the bag of money.</stage></p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> How much is there in this?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> As much as is enough, and more than enough; a superabundance; I've brought more by ten min&aelig; than you owe to the Banker. So long as I please and obey you, I value my own back at a straw.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> But why so?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Because I shall make your father a bag-murderer<milestone n="348" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A bag- murderer</lemma>:  "Perenticidam." A word coined by the author for the occasion, on account of its resemblance to "parenticida," "a parricide."</note>.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> What kind of expression is that?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I don't at all care for your old-fashioned and every-day words; you chouse by purses full<milestone n="350" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Chouse by purses full</lemma>:  Echard gives a particular meaning te this passage, and Warner seems to adopt his notion, which certainly seems farfetched. The former says, in a Note, "Epidicus here carries on the fancy of 'perenticida,' and 'parenticide, and the Poet has luckily hit upon a line that exactly agrees with either. For the common punishment of parricides was to put them into a sack with a cock, a serpent, and an ape, and then throw them into the river. Now the ward 'ductare' signifies equally 'to bring a man into punishment,' or 'to cheat him;' so that the phrase 'peratim ductare' is the same thing; only 'follis' was a much larger sack than 'pera.'" M. Guiet considers this passage to be spurious.</note>, but I'll chouse by bags full. For the procurer took away a whole lot of money for the music-girl (I paid it; with these hands I counted it out), her whom your father supposes to be his own daughter. Now, again, that your father may be deceived, and assistance be provided for you, I've discovered a method. In such a way have I persuaded the old gentleman--and had a talk to this effect, that, when you returned, you might not have possession of her<milestone n="355" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Possession of her</lemma>:  Madame Dacier is of opinion that some lines are wanting here. Echard and Warner are also of that opinion.</note>----</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Bravo!--bravo!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> She's now at your house<milestone n="356" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">She's now at your house</lemma>:  That is, the first mistress of Stratippocles is at his father's house personating the lost daughter.</note> in place of her.
+</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> I understand. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Now he has given me Ap&aelig;cides by way of guarantee in this matter (he's waiting for me at the Forum), as if to seem the purchaser.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Not a bad precaution!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> The cautious man's now taken in himself; your own father himself placed this purse around my neck<milestone n="359" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This purse around my neck</lemma>:  Purses containing large sums of money were generally slung round the neck by a string. See the Aulularia, l. 258 Asinaria, l. 661; and Truculentus, l. 648.</note>. He's making preparation, that immediately on your arrival home you shall be married.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> In one way only will he persuade me; if Orcus takes her away from me, who has been brought with me.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Now I've hit upon this scheme: I'll go by myself alone to the procurer's house; I'll instruct him, if any one comes to him, to say that the money has been paid him for the music-girl; inasmuch as, the day before yesterday, I paid it down with my own hands for this mistress of yours, whom your father takes to be his own daughter. Then the procurer, unknowingly, will be staking his accursed head, as though he had received the money for her who has now been brought here together with you.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> You are more versatile than a potter's-wheel.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Now I'll get ready some artful music-girl, who's hired at a didrachm, to pretend that she has been purchased, and cleverly to trick the two old fellows: Ap&aelig;cides, together with her, will bring her to your father.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> How adroitly managed!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Her, prepared beforehand with my devices, and provided with my schemes, I shall send to him. But I'm talking at too great length; you have delayed me too long: you now know these things how they are to be; I'll be off.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Success attend you! <stage>Exit EPIDICUS.</stage></p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> He is very clever at artful tricks.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Indeed, by his plans, he has saved me, that's sure.</p></sp>
+<sp><speaker>CH&AElig;R.</speaker><p> Let's go hence into my house.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Yes, and a little more joyfully than I came out of your house, by the courage and conduct of Epidicus, do I return into camp with the spoil. <stage>They go into the house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="382" unit="TLN line"/>
+<stage>Enter PERIPHANES.</stage>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to herself</stage>. Not only for the sake of the face were it right for men to have a mirror for themselves wherein to look at their faces; but one with which they might be enabled to examine the heart of discretion, and therefore be able to examine the resources of the mind; when they had looked in that, they might afterwards consider how they had once passed their lives in youth. Just as myself, for instance, who, for the sake of my son, began to torment myself in mind, as though my son had been guilty of some offence against, me, or as though my own misdeeds had not been most heavy in my youth. In truth, we old fellows are out of our senses sometimes. This, in my own opinion at least, has proved advantageous. But my friend Ap&aelig;cides is coming with the spoil. I'm glad that the negotiator has returned safe.
+
+<stage>Enter AP&AElig;CIDES, with a MUSIC-GIRL.</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> How goes it? </p></sp>
+<sp><speaker>APAECIDES</speaker><p> The Gods and Goddesses are favouring you.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> The omen pleases me. </p></sp>
+<sp><speaker>APAECIDES</speaker><p> A person with whom all things go on prosperously. But do you order her to be taken in-doors.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>going to the door of his house, and calling</stage>. Hallo there! come out of doors here, some one. <stage>A SERVANT comes out.</stage> Take that woman into the house! And, do you hear?</p></sp>
+<sp><speaker>SERV.</speaker><p> What do you desire?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Take care you don't permit this woman to associate with my daughter, or to see her. Now do you understand? I wish her to be shut up apart in that little chamber; there's a great difference between the manners of a maiden and a courtesan. <stage>The SERVANT leads the MUSIC-GIRL into the house.</stage></p></sp>
+<sp><speaker>APAECIDES</speaker><p> You speak cleverly and judiciously; each man cannot keep too strict a guard upon the chastity of his daughter. Upon my faith, we certainly did forestall this woman from your son just in time.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why so? </p></sp>
+<sp><speaker>APAECIDES</speaker><p> Because another person told me that he had just seen your son here.</p></sp>
+<sp><speaker>PERT.</speaker><p> I' troth, he was stirring in this business.
+</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Upon my faith, it really is so, clearly. You really have a clever servant, and worth any price.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> At his weight in gold he would not be dear.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> How well he kept<milestone n="411" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">How well he kept</lemma>:  The cunning of Epidicus is admirably shown here. He pretends to the old man that they together are deceiving the Music-girl, while, in reality, he is imposing on the old man.</note> that Music-girl quite in ignorance that she was purchased for you; so full of joke and fun did he bring her hither along with him.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> It's wonderful how that could be managed.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> He said that you were going to offer a sacrifice at home for your son, because he had returned safe from Thebes.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> He hit upon the right thing.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Yes, and he himself told her that she had been hired to assist you here in the sacrifice. He said that you were about to perform it, and that you had a sacrifice at home. But I then made pretence that I was ignorant, as it were, inasmuch as I made myself out half-witted<milestone n="420" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Made myself out half-witted</lemma>:  This in his wisdom he pretended that she might not fancy that he was a cunning fellow, going to put a trick upon her, in combination with Epidicus.</note>.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why yes; it was right to do so.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> An important trial of a friend is going on at the Forum; I want to go as his advocate.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Go, and when you have leisure, return to me mediately.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> I'll be here just now. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to himself</stage>. Nothing is there more opportune to man than a friend in need; without labour of your own, what you want is done nevertheless. If I had commissioned any one upon this business, a less skilful person, and less fitted for this matter, he would have been gulled; and so, grinning with his white teeth, my son would have most deservedly laughed at me. But who is this I see coming this way, that with his swaggering makes his scarf to be streaming in the wind? <stage>He stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="437" unit="TLN line"/>
+<stage>Enter a CAPTAIN, with his SERVANT.</stage>
+<sp><speaker>A CAPTAIN </speaker><p> <stage>to his SERVANT</stage>. Take care not to pass by any house without asking where lives the old gentleman, Periphanes of Plothea<milestone n="433" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Periphanes of Plothea</lemma>:  "Plothenius." Most of the editions have here "Plat&aelig;nius" "of Plat&aelig;a." As this was in B&oelig;otia, the other is far more likely to be the right reading, Plothea being a Demus of Attica.</note>. Take care that you don't return to me without knowing it.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>coming forward</stage>. Young man, if I point out to you the person whom you are in search of, what thanks shall I get of you?</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> In arms, by the might of war, I've deserved that all people ought to give me thanks.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> You haven't found out, young man, a tranquil spot where to recount your virtues as you wish; for, if an inferior vaunts his battles to a superior, by his lips they become soiled; but this Periphanes of Plothea whom you are seeking, I am he, if you want him for anything.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> Him, you mean, who in his youth among kings in arms, by his skill in war, gained vast wealth?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Aye, if you were to hear of my achievements, drop ping your hands you would run off home.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> I' faith, I'm rather in search of one to whom to speak of my own, than of one to be speaking of his to me.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> This is not the place for it. Do you then look out for another person, into whom to stuff your scraps of nonsense<milestone n="450" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your scraps of nonsense</lemma>:  "Centones." These were properly patchwork tales, or poems, made up of scraps from various works.</note>. <stage>Aside.</stage> And yet this is folly, for me to impute that to him as a fault, which I myself used to do in my youth when I was a soldier; in recounting my battles I used to tear out men's ears by the roots, when I had once begun.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> Lend your attention, that you may learn what I've come to you about. I've heard that you have purchased my mistress.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>aside</stage>. Heyday! now at last I know who he is; the officer whom Epidicus was telling me about a short time since. <stage>To the OFFICER.</stage> Young man, it is as you say; I have purchased her.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> I want a few words with you, if it is not inconvenient to you.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Upon my faith, I don't know whether it's convenient or not, until perhaps you say what you want.
+</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> I want you to transfer her to me, and take the ransom. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> You may have her.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> But why should I hesitate to speak out to you? I wish at once to make her my freed-woman, that she may be my mistress<milestone n="464" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That she may be my mistress</lemma>:  The swaggering, careless character of the Captain, is admirably depicted here, as he does not hesitate to tell a perfect stranger, and him an aged man, his intentions, at the possible risk of shocking him.</note>.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I'll make short work with you; she was bought for me for fifty min&aelig; of silver; if sixty min&aelig; are paid down to me, I'll let the damsel employ your holidays<milestone n="468" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Employ your holidays</lemma>:  The "feri&aelig;," or "holidays," are mentioned in the Captivi, l. 473. See the Note to the passage.</note>, and so assuredly so, that, if you like, you may remove her from this country.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> Is she then purchased by me?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> On those terms you may have her. You have made a good bargain. <stage>Going to the door of his house.</stage> Hallo there! bring out of doors the Music-girl you took in. The harp, too, as well, that was thrown in with her, I'll make you a present of it for nothing.
+<stage>MUSIC-GIRL.</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>taking her by the hand and leading her to the CAPTAIN</stage>. Come, take her, please.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> What madness possesses you? What mystery are you devising for me? Why don't you order the Music-girl<milestone n="476" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Order the Music-girl</lemma>:  Periphanes has ordered the girl who has just come, and whom he takes to be Acropolistis, to be brought out; whereas the Captain is in love with the first, who is passing for the old gentleman's daughter and this mistake occasions the dispute</note> to be brought from in-doors?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why, this is the Music-girl. There's no other one here.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> You can't impose on me. Why don't you bring out here the Music-girl Acropolistis?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> This, I tell you, is she.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> This, I tell you, is not she. Do you suppose that I can't know my own mistress?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> It was this Music-girl, I tell you, for whom my son was dying with love.
+</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> This is not she. </p></sp>
+<sp><speaker>PERT.</speaker><p> How, not she?</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> It is not. </p></sp>
+<sp><speaker>PERT.</speaker><p> Where in the world, then, does, she come from? For my part, i' faith, I certainly paid the money for her.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> Foolishly paid, I guess, and a mighty mistake.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Nay, but this is she; for I sent the servant who is in the habit of attending my son; he himself this moment purchased the Music-girl.</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> Well then, this fellow has cut you up joint by joint, old gentleman, this servant of yours. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> How, cut me up?</p></sp>
+<sp><speaker>A CAPTAIN </speaker><p> Such is my suspicion; for she has been palmed upon you for that Music-girl. Old gentleman, you've been bubbled clearly and cleverly. I shall now go seek her wherever she is. Warrior, farewell! <stage>(Exeunt the OFFICER and SERVANT.)</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>stamnping with rage</stage>. Bravo, bravo! Epidicus You're a clever fellow! You have fought well--you're a man! you've wiped my nose when snivelling, worthless fellow that I am! <stage>To the MUSIC-GIRL.</stage> Did Ap&aelig;cides purchase you to-day of the procurer? <stage>A pause.</stage> Come now, tell me.</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> I never heard of that person before to-day, nor, indeed, was any one able to purchase me for any money; I've been free now for more than five years.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What business have you, then, at my house?</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> You shall hear; I came, being hired to perform for an old gentleman while he was sacrificing.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I do confess that I am the most worthless of all men in Athens of Attica. But do you know Acropolistis the Music-girl?</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> As well as my own self. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Where does she live?</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> Since she has been made free, I don't know for certain. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Well now, I should like to know who has made her free, if you know?</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> That which I have heard, you shall hear; I heard that Stratippocles<milestone n="506" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I heard that Stratippocles</lemma>:  She discloses to him what she has heard as the fact, and which is the real state of the case. Although Acropolistis is in his house, in the character of his daughter, he, not knowing who she really is, is alarmed at hearing that his son has procured her liberation, which he has just taken so much pains to prevent.</note>, the son of Periphanes, had provided in his absence that she should be made free.
+</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> By heavens, I'm undone<milestone n="508" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I'm undone</lemma>:  Having now detected this piece of roguery of which Epidicus has been guilty.</note>, most clearly, if these things are true. Epidicus has disembowelled my purse!</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> I've heard to that effect. Do you want me for anything else?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Away to perdition in the veriest torments, and off this instant!</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> Won't you give me back my harp?</p></sp>
+<sp><speaker>PERT.</speaker><p> Neither harp nor pipes. Make haste, then, and escape from here, if the Gods love you!</p></sp>
+<sp><speaker>MUS.-G.</speaker><p> I'll be off. At a future time, however, you'll restore it, with the greater disgrace<milestone n="514" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With the greater disgrace</lemma>:  Probably by being sued, and obliged to give it up, whether he will or no.</note> to yourself. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to himself</stage>. What now? Shall I, who have been placed before so many edicts<milestone n="515" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Before so many edicts</lemma>:  "Qui in tantis positus sum sententiis." This passage has been explained various ways; but Madame Dacier
+ seems justified in thinking that Gronovius has found the right meaning, and that the allusion is to the custom of placing the name of the proposer at the head of the <foreign lang="greek">yhfi/smata,</foreign> or public edicts of the Greeks; this of course implied that the proposer was a man of standing, and of some fair pretensions to a reputation for wisdom.</note>, allow him to get with impunity? No; even though as much again should be required to be lost, I'll lose it rather than allow myself to be held in derision with impunity and plundered by them. That I should have been thus cheated openly to my face, and that I should have been set at nought before this Ap&aelig;cides, who is famed as being the framer and founder of all the laws and ordinances! He too declares that he is a wise man! that the hammer, forsooth, should be wiser than the handle<milestone n="523" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Than the handle</lemma>:  He seems to compare Ap&aelig;cides to the head of the hammer, and himself to the handle, and says that they are equally outwitted. He probably implies thereby that he has been in the habit of giving the impetus to Ap&aelig;cides in the same way that the handle of the hammer does to the head.</note>! <stage>He stands aside.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="526" unit="TLN line"/>
+<stage>Enter PHILIPPA, at a distance.</stage>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. If a mortal being has aught of misery, through which, miserable creature, to be wretched from the heart, that same do I experience, for whom full many a woe unites in the same spot, which, all, at the same instant are beating against my breast. A multitude of troubles keep me in suspense. Poverty and misery alarm the thoughts of my heart; nor have I anywhere a spot of safety where to fix my hopes; in such a way has my daughter fallen into the power of the enemy<milestone n="530" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Into the power of the enemy</lemma>:  Though this has happened probably some time since, Philippa has not had an opportunity till now of coming in search of her daughter, by reason of the continuance of war. As soon as peace is made, she repairs to Athens,</note>; nor do I know where she now is.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>apart</stage>. Who is this woman coming from a distance with a breast filled with alarms, and who thus bewails her lot?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. It was told me that Periphanes was living in this neighbourhood.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>apart</stage>. She's mentioning me; need of hospitality has befallen her, I suppose.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. I would be very willing to give a reward to any one who would point me out that man, or where he dwells.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>apart</stage>. I recognize her; for I think I have seen her before; where, I know not. Is it, or is it not she, whom my mind suspects her to be?</p></sp>
+<sp><speaker>&gt;PHIL.</speaker><p> <stage>seeing him</stage>. Good Gods! I have seen this person before!</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to himself</stage>. It surely is she, a poor woman whom I remember having an intrigue with at Epidaurus.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. Surely it is he, who at Epidaurus first violated my maiden modesty.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to himself</stage>. She who had the daughter by me whom I've now got at home.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. What if I accost him?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to himself</stage>. I don't know whether to make up to her. If this is she----</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. But if it is the man, as length of years renders me doubtful----</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to himself</stage>. Length of time renders my mind uncertain. But if it is she, whom with some doubt I conjecture it to be, I'll accost her circumspectly.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. A woman's artfulness must be employed by me.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>to himself</stage>. I'll address her.
+</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to herself</stage>. I'll bring my powers of conversation to bear against him.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>accosting her</stage>. Health to you!</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> That health I accept for me and mine.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What besides?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Health to yourself; what you lent me, I return.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I don't impeach your punctuality. Don't I know you?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> If I know you, I'll move your feelings, so that you shall know me.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Where have I been in the habit of seeing you?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> You are unfairly hard upon me.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why so? </p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Because you think it right that I should be the prompter of your memory.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> You speak to the purpose.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> You say what's strange to me, Periphanes.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Ah now! that's better. Do you remember, Philippa----</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Yes, I remember that. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> At Epidaurus----</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Ah! you have moistened my burning breast with a little drop of comfort.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> How I relieved the poverty of you, a poor young maiden, and your mother?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> What, are you he who for your own gratification brought heavy troubles upon me?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I am he. Health to you.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> I am in health, since I see you in health.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Give me your hand.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>extending her hand, which he takes</stage>. Take it--you hold by the hand a woman distrest and full of woes.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What is it that disturbs your features?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> The daughter whom I had by you----</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What of her? </p></sp>
+<sp><speaker>PHILIPPA</speaker><p> When I had brought her up, I lost her; she fell into the hands of the enemy.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Keep your mind in quiet and at rest. Why look, she's here at my house safe and sound. For immediately I heard from my servant that she was a captive, instantly I gave the money for her to be purchased; he managed this affair as discreetly and frugally as in other matters he is egregiously--dishonest.
+</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Let me see her, whether it is she or no.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>going to the door of his house</stage>. Hallo there! you--Canthara, this instant bid my daughter<milestone n="568" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bid my daughter</lemma>:  "Acropolistidem" is here inserted in the editions evidently by mistake, and is purposely omitted in this Translation. It was probably inserted by some careless or injudicious transcriber in the middle ages, in the place of "Telestidem," as Periphanes knows the girl in his house as Telestis, and fancies that she is his daughter. At the same time he knows that Acropolistis is the name of his son's mistress, whom he has so recently tried unsuccessfully (as he supposes) to get into his power.</note> come out before the house, that she may see her mother.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> My spirits now at last return to me.
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="570" unit="TLN line"/>
+<stage>Enter ACROPOLISTIS from the house.</stage>
+<sp><speaker>ACROPOLISTIS</speaker><p> Why is it, father, that you have called me out before the house?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> That you may see and accost your mother, and wish her health on her arrival, and give her kisses.</p></sp>
+<sp><speaker>ACROPOLISTIS</speaker><p> <stage>looking about</stage>. What mother of mine?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>pointing to PHILIPPA</stage>. She who, half dead, is following your gaze.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Who is this that you are requesting to kiss me?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Your own daughter. </p></sp>
+<sp><speaker>PHILIPPA</speaker><p> What, she?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> She. </p></sp>
+<sp><speaker>PHILIPPA</speaker><p> What--am I to kiss her?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why not, her who was born of you?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Man, you are mad. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What, I?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Yes, you. </p></sp>
+<sp><speaker>PERT.</speaker><p> Why?</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Because this woman--I neither know nor understand who she is, nor have I beheld her with my eyes before this day.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I know why you are mistaken; because this woman has her dress and ornaments changed.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Puppies have one smell<milestone n="577" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have one smell</lemma>:  She means that all animals have an instinct by which they recognize their own young.</note>, pigs quite another; I say that I do not know her, who she is.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>stamping with rage</stage>. Oh! by our trust in Gods and men, what is this? Am I following the calling of a Procurer, to be keeping strange women in my house, and to be emptying my house of my money? <stage>To ACROPOLISTIS.</stage> What are you to be calling me your father and kissing me? Why stand you stupidly there? Why do you keep silent?
+</p></sp>
+<sp><speaker>ACROPOLISTIS</speaker><p> What do you want me to say?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>pointing to PHILIPPA</stage>. She denies that she is your mother.</p></sp>
+<sp><speaker>ACROPOLISTIS</speaker><p> Don't let her be so, if she don't choose. For my own part, whether she likes it or not, I shall be my mother's daughter still. It isn't right for me to compel this woman to be my mother if she doesn't like.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why then did you call me father?</p></sp>
+<sp><speaker>ACROPOLISTIS</speaker><p> That is your own fault, not mine; ought I not to call you father when you call me daughter? Her too, as well <stage>pointing to PHILIPPA</stage> if she were to call me daughter, I should call mother. She declares that I am not her daughter; then she is not my mother. In fine, this is no fault of mine; what I've been taught, I've told you all of it. Epidicus was my instructor.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I'm undone! I've upset my waggon<milestone n="591" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I've upset my waggon</lemma>:  Evidently a proverbial expression borrowed from rustic life. "To upset a man's apple-cart," is used in cant phrase-ology in our day, as meaning to do a person a disservice.</note>!</p></sp>
+<sp><speaker>ACROPOLISTIS</speaker><p> Have I done anything amiss towards that?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Upon my faith, if I ever hear you call me father, I'll put an end to your life, you jade!</p></sp>
+<sp><speaker>ACROPOLISTIS</speaker><p> I shan't call you so. When you want to be my father, then be so; when you don't want, don't be my father.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> <stage>to PERIPHANES</stage>. What? Did you purchase her for that reason, because you supposed her to be your daughter? By what signs did you recognize her?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> By none.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Why did you suppose her to be our daughter?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> My servant Epidicus told me so.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> What if it had seemed to your servant otherwise? Prithee, could you not have known?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> How should I, who had never seen her after having once beheld her.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> Wretched creature, I'm quite undone! <stage>Begins to weep.</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Don't weep, madam; go in-doors; be of good courage; I'll find her out.</p></sp>
+<sp><speaker>PHILIPPA</speaker><p> An Attic citizen from Athens here purchased her Indeed, they said it was a young man who had bought her.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I will find her; hold your peace. Only do go in-doors, and keep an eye upon this Circe<milestone n="603" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Upon this Circe</lemma>:  He calls her a Circe, because she has laid a spell upon him, as it were by enchantments, for which Circe was famous. Perhaps, too, he calls her a daughter of the Sun, from his not knowing who her father really is, when he has so recently supposed himself to be so.</note>, this daughter of the Sun. <stage>She goes into the house, followed by ACROPOLISTIS.</stage> All business laid aside, I'll give my attention to seeking for Epidicus. If I find him, I'll make this day become the final one for him. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="607" unit="TLN line"/>
+<stage>Enter STRATIPPOCLES, from the house of CH&AElig;RIBULUS.</stage>
+<sp><speaker>STRATIPPOCLES</speaker><p> <stage>to himself</stage>. The Banker<milestone n="606" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Banker</lemma>:  "Danista." This was from a Greek word, signifying a "banker," or "usurer." With an extraordinary degree of carelessness, Cotter takes it to be the proper name of a man, and calls him Danista.</note> is inattentive to me, not to seek the money of me, or bring this woman who has been purchased out of the spoil. But see--here comes Epidicus How's this, that in gloominess his brow is wrinkled?
+<stage>at a distance.</stage></p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to himself</stage>. If Jupiter unto himself were to take the eleven Gods<milestone n="609" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The eleven Gods</lemma>:  He alludes to the eleven who, with Jupiter, made the "Dii majores." They are thus enumerated in two rugged lines of Ennius:  <quote lang="la"><l>Juno, Vesta, Ceres, Diana, Minerva, Venus, Mars,</l>
+<l>Mercurius Jovi, Neptunus, Vulcanus, Apollo</l></quote>.</note> beside himself, even then, all of them would not be able to rescue Epidicus from torture. I've seen Periphanes buying the thongs; Ap&aelig;cides was together with him; now, I do believe that these persons are in search of me. They have found it out; they know that they've been imposed upon.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> <stage>coming forward</stage>. What are you about, my ready occasion?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> That which a wretched fellow is about.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> What's the matter with you?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Why don't you prepare for me the necessaries for flight before I'm quite undone? For the two fleeced old gentlemen are hunting for me through the city; they are carrying in their hands handcuffs an inch and a half thick.
+</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Be of good heart----</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Of course I will, whose freedom is so close at hand<milestone n="617" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is so close at hand</lemma>:  "Quoi libertas in mundo sita est." This expression, no doubt, is intended to be used ironically by Epidicus.</note>.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> I will preserve you. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I' faith, they'll do it better for me, if they catch me. But who's this young woman, this greyish old fellow, too, that's coming along?
+<stage>are seen at a distance.</stage></p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> This is the Banker, and this is the woman whom I purchased out of the spoil.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What, is this she?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> It is she. Isn't she just like what I told you? Look at her.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Is it she?</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Survey her, Epidicus. Even from her nail to the top of her hair she is most lovely! Is she not? Do look at her! Observe her! You'll be looking at a picture beautifully painted.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Judging from your words you are foretelling that my hide will be beautifully painted; me, whom Apelles and Zeuxis<milestone n="625" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Apelles and Zeuxis</lemma>:  See the Notes to the P&oelig;nulus, l. 1289. He alludes to Periphanes and Ap&aelig;cides, who will cause his back to be marked with elm-twigs.</note>, the pair of them, will be painting with elm-tree pigments.
+
+<stage>Enter the BANKER and TELESTIS.</stage></p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> <stage>to the BANKER.</stage> Immortal Gods! I'm surprised at your slowness. The man that's spoken of in the proverb with swollen feet, would have got here sooner than you have arrived for me.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>pointing to TELESTIS</stage>. I' faith, 'twas she delayed me.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> If indeed you delayed for her sake, because she wished it, you have come too quickly.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Well, well, dispatch with me and count out the money, that I mayn't be detaining my friends.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> It has been counted out.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> <stage>giving him a bag</stage>. Take this bag; put it into it.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> You come discreetly provided! Wait till I bring out the money to you.</p></sp>
+<sp><speaker>A BANKER.</speaker><p> Make haste.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> It's at home. <stage>Goes into the house of CH&AElig;RIBULUS.</stage>
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>looking steadily at TELESTIS</stage>. Have I the use of my eyes quite unimpaired, or is it otherwise? Do I not behold in you, Telestis, the daughter of Periphanes, born at Thebes of your mother Philippa, and conceived at Epidaurus?</p></sp>
+<sp><speaker>TELESTIS</speaker><p> What person are you who are making mention of the name of my parents and my own?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Don't you know me? </p></sp>
+<sp><speaker>TELESTIS</speaker><p> Not, indeed, so far as recurs to my mind just now.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Don't you remember my bringing you a crescent upon your birthday, and a little gold ring for your finger? <stage>STRATIPPOCLES returns with the money.</stage></p></sp>
+<sp><speaker>TELESTIS</speaker><p> I remember it. What, are you that person?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I am, and <stage>pointing to STRATIPPOCLES, at a distance</stage> he there is your brother by another mother and the same father.</p></sp>
+<sp><speaker>TELESTIS</speaker><p> <stage>in agitation</stage>. What of my father? Is he alive?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Be of calm and composed feelings; hold your peace.</p></sp>
+<sp><speaker>TELESTIS</speaker><p> The Gods will that from being lost I should be saved, if you speak the truth.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I have no occasion to be telling untruths to you.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> <stage>to the BANKER</stage>. Take this money, Banker; here are forty min&aelig;. If any piece shall be doubtful I'll change it. <stage>Gives him the money.</stage></p></sp>
+<sp><speaker>A BANKER.</speaker><p> You do well. Kindly farewell. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> <stage>to TELESTIS</stage>. Now then you are my own----</p></sp>
+<sp><speaker>TELESTIS</speaker><p> Why yes--sister, i' faith, that you may know it as well. Greetings to you, brother.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> <stage>to EPIDICUS</stage>. Is this woman in her senses?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> In her senses, if she calls you her brother.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> How's this? Have I just now become her brother while going in-doors and coming out?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What good fortune there is, do you in silence keep your peace thereon and rejoice.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Sister, you have both lost and found me!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Simpleton, hold your tongue! Through my endeavours, there's ready for you at home, in fact, a Music-girl for you to make love to; I too, through my endeavours, have restored your sister to liberty.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Epidicus, I confess----</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Be off into the house, and order the water to be made warm<milestone n="653" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The water to be made warm</lemma>:  A bath was usually taken by the middle and upper classes immediately on arriving from a journey.</note> for her. The rest I'll let you know afterwards, when there's leisure.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> Follow me this way, sister.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I'll bid Thesprio<milestone n="655" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I'll bid Thesprio</lemma>:  Thesprio only appears once, and that at the beginning of the Play. This is certainly a prevalent fault with Plautus, who does not make the most of his characters. Artotrogus, the Parasite, in the Miles Gloriosus, is lost to us after the First Scene. Sceparnio only appears in the First and Second Acts of the Rudens, and the honest Grumio is lost sight of after the First Act of the Mostellaria. It is not a sufficient excuse to plead that Artotrogus and Thesprio are what were called "person&aelig; protatic&aelig;," characters whose business it is to introduce the plot, and do no more; even though this example is followed by Terence, who similarly introduces Sosia in the Andria, Davus in the Phormio, and Philotis in the Hecyra.</note> come across to you. But remember, if the old gentlemen are at all savage, you, with your sister, to run and help me.</p></sp>
+<sp><speaker>STRATIPPOCLES</speaker><p> That will be easy. <stage>He and TELESTIS go into the house of PERIPHANES.</stage></p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>going to the door of the house of CH&AElig;RIBULUS</stage>. Thesprio, come this way through the garden. Come to my rescue at home! The matter's of importance! <stage>To himself.</stage> I care much less for the old fellows than I did just now. I'll return in-doors, that the strangers may be attended to on their arrival. I'll tell these same things that I know, in-doors to Stratippocles. I shall not take to flight; I'm determined to be there at home, and he shan't throw it in my teeth that he has been provoked by my running away<milestone n="663" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By my running away</lemma>:  "Pedibus." Literally, "by my feet."</note>. I'll away in-doors; I've been talking too long. <stage>(Goes into the house of PERIPHANES.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="666" unit="TLN line"/>
+<stage>Enter PERIPHANES and AP&AElig;CIDES, with thongs in their hands.</stage>
+<sp><speaker>PERIPHIANES</speaker><p> Hasn't this fellow quite made a laughing-stock of us two decrepit old people<note anchored="yes"><lemma targOrder="U">Decrepit old people</lemma>:  "Decrepitos." From the verb "decrepo," "to crackle," or "make a sputtering," as a candle does when going out, or the wick of a lamp when the oil fails.</note>?</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Why yes, I' faith, you've really kept me plagued in a shocking fashion.
+</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Now do hold your tongue. Only let me catch the fellow!</p></sp>
+<sp><speaker>APAECIDES</speaker><p> I'll tell you now, that you may know it. It's best for you to seek another companion; so much, while I've been following you, has the congested blood, from weariness, come down into the knees of poor me.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> After how many fashions has this fellow made sport of me and you to-day! besides, how he has disembowelled my silver resources for me!</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Away with him from me; for surely he's the son of Vulcan in his wrath: wherever he touches, he sets all on fire; if you stand by him, he scorches you with his heat.
+<stage>unperceived, from the house.</stage></p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to himself</stage>. More than the twelve Gods, the immortal Gods as many as are in the heavens, are now assistants in my rescue, and are fighting on my side. As to whatever I have offended in, I have aid and assistance at home<milestone n="675" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Assistance at home</lemma>:  He alludes to Stratippocles, Telestis, Philippa, Thesprio, and probably Ch&aelig;ribulus, who are all ready to take his part; and, indeed, have good reason to do so, from the opportune discovery which he has just made.</note>. All my enemies I quite spurn by the heels<milestone n="676" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Spurn by the heels</lemma>:  <foreign lang="greek"> *)apolaktizw/.</foreign> It has been more than once remarked that the use of Greek words was much affected by the Romans, in the same way that we make use of French phrases.</note>.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>looking about</stage>. Where in the world shall I look for him?</p></sp>
+<sp><speaker>APAECIDES</speaker><p> So long as you look for him without me, you may look for him even in the middle of the sea, as far as I'm concerned.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>coming forward, and addressing PERIPHANES</stage> Why are you looking for me? Why are you taking this trouble? Why are you worrying him? <stage>Pointing to AP&AElig;CIDES.</stage> See, here I am. Have I run away from you? Have I betaken myself from the house? Have I hid myself from your sight? I don't entreat you either. Do you wish to bind me? Look then, I present my hands. <stage>Holding out his hands.</stage> You have got thongs; I saw you purchase them. Why do you delay now? Do bind me!</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> It's all over<milestone n="682" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">It's all over</lemma>:  "Ilicet." Literally, "you may begone;" the word used when judicial proceedings had terminated.</note>. He gives bail to me of his own accord for his appearance.
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Why don't you bind me?</p></sp>
+<sp><speaker>APAECIDES</speaker><p> A wicked slave, upon my faith!</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Really, Ap&aelig;cides, I don't want you to intercede for me.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> You easily obtain your wish, Epidicus.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>to PERIPHANES</stage>. Are you going to do anything?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What, at your pleasure? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Troth, at my own, indeed, and not at yours, are these hands to be bound by you to-day.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> But I don't choose; I shan't bind them.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> <stage>to PERIPHANES</stage>. He's preparing to throw a dragnet over you; he's framing some plan, I know not what.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> You are causing delay to yourself, while I stand unbound; bind them, I tell you, bind them together.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> But I choose rather to question you unbound.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> But you shall know nothing.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>turning to AP&AElig;CIDES</stage>. What am I to do?</p></sp>
+<sp><speaker>APAECIDES</speaker><p> What are you to do? Let him be complied with.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> You are a worthy person, Ap&aelig;cides.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Hold out your hands then.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> <stage>holding out his hands</stage>. They don't at all object; bind them fast together too. Don't be afraid. <stage>PERIPHANES binds his hands.</stage> I'm submissive. When the job is done, then pronounce your judgment<milestone n="692" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pronounce your judgment</lemma>:  "Arbitraminor" seems a better reading than "arbitramino."</note>.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> There, that is good. </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Now then, to the point, with your enquiries of me; ask me what you please.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> In the first place, with what assurance did you presume to say that she who was bought the day before yesterday was my daughter?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I chose to; on that assurance.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Do you say so? You chose to?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I do say so. Even lay me a wager that she is not the daughter----</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> A woman whom the mother declares she doesn't know?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Then, if she isn't the daughter of her mother, make me a bet about it, my didrachm to your talent<milestone n="698" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My didrachm to your talent</lemma>:  The moderate odds of three thousand to one.</note>.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why, that's a mere catch. But who is this woman?
+</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> The mistress of your son, that you may know the whole matter.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Did I not give you the thirty min&aelig; for my daughter?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I confess that they were given, and that with that money I purchased this Music-girl, your son's mistress, instead of your daughter. As to those thirty min&aelig;, in fact, I imposed upon you.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> For what reason did you play a trick upon me about that hired Music-girl?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I' faith, I really did do it, and I think it was rightly done.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> In the last place, what has been done with the silver I gave you?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I'll tell you; I gave it to a person neither bad nor yet good<milestone n="706" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nor yet good</lemma>:  "Indigno" is read here in some editions for "benigno," and is, perhaps, a better reading; though Epidicus may, possibly, as Post suggests, intend to allude satirically to the undecided and versatile character of Stratippocles.</note>--your son Stratippocles.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Why did you dare to give it him?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Because it pleased me. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>stamping</stage>. Plague on it! what insolence is this?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Am I to be bawled at just as if I were a slave?</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>ironically</stage>. As you are a free man, I rejoice.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I have deserved to become so.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> You--deserved? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Go look in-doors; I'll let you know that this is the truth.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> What's the matter? </p></sp>
+<sp><speaker>EPIDICUS</speaker><p> The thing itself will tell you so at once. Only do go in-doors.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Aye, aye! this is not without its meaning. Do you keep an eye on him, Ap&aelig;cides. <stage>Goes into his house.</stage></p></sp>
+<sp><speaker>APAECIDES</speaker><p> What's the meaning of this, Epidicus?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I' faith, it's with the greatest injustice that I'm standing here bound, through whose aid his daughter has been discovered to-day.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> Do you say that you have found his daughter?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I have found her, and she is at home. But how hard it is, when, for services done, you reap a harvest of evil.</p></sp>
+<sp><speaker>APAECIDES</speaker><p> What, her whom this day we've both been weary with seeking throughout the city?</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I'm weary with finding, you weary with seeking.
+
+<stage>from the house.</stage></p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> <stage>at the door, to those within</stage>. Why do you entreat me thus earnestly in his behalf? For I find that he does deserve that I should be pleased to act according to his deserts. <stage>To EPIDICUS.</stage> Hold out your hands, you, that I may unbind them.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Don't you touch them. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> But do you present them to me.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> I don't choose. </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> You don't do right.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Upon my faith, I'll never allow myself to be unbound this day, unless you give me satisfaction.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> You ask what's very fair and very just. Shoes, a tunic, and a cloak I'll give you.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> What next, after that? </p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> Your freedom.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> But after that? There's need for a new-made freed-man to pick a bit<milestone n="724" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To pick a bit</lemma>:  "Pappet." "Pappo" properly signifies "to eat pap," as children do.</note>.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> It shall be given; I'll find you food.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> On my word, never this day shall you release me, unless you beg my pardon.</p></sp>
+<sp><speaker>PERIPHIANES</speaker><p> I do entreat you, Epidicus, to forgive me, if unawares in fault I've done anything wrong. But by way of return for this matter, be a free man.</p></sp>
+<sp><speaker>EPIDICUS</speaker><p> Against my inclination do I grant you this pardon, but I'm compelled by necessity. Unbind them then, if you choose. <stage>He holds out his hands, which are unbound by PERIPHANES, and they go into his house.</stage>
+<stage>coming forward.</stage></p>
+<p>This is that man who by his roguery<milestone n="729" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By his roguery</lemma>: -- "Malitia," "artfulness." "trickery."</note> has gained his freedom. Clap your hands, and fare you well! Stretch your loins, and rise from your seats.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

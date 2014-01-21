@@ -1,0 +1,1075 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Mercator, or The Merchant</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.mer_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:31  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:55  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:24  packel
+Converted to XML
+
+Revision 1.12  2003/07/01 22:17:29  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.11  2001/08/21 18:49:30  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.10  2001/08/08 17:55:28  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.9  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.8  2001/08/02 21:22:39  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.7  2001/08/01 21:34:10  amahoney
+use full speaker names
+
+Revision 1.6  2001/07/31 19:02:26  amahoney
+make scene divisions match the Latin, and include TLN lines
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+<castList>
+<castItem type="role"><role>DEMIPHO, </role><roleDesc>an aged Athenian.</roleDesc></castItem>
+<castItem type="role"><role>LYSIMACHUS, </role><roleDesc>an aged Athenian.</roleDesc></castItem>
+<castItem type="role"><role>CHARINUS, </role><roleDesc>son of Demipho, in love with Pasicompsa.</roleDesc></castItem>
+<castItem type="role"><role>EUTYCHUS, </role><roleDesc>son of Lysimachus.</roleDesc></castItem>
+<castItem type="role"><role>ACANTHIO, </role><roleDesc>the servant of Charinus.</roleDesc></castItem>
+<castItem type="role"><role>A COOK.</role></castItem>
+<castItem type="role"><role>PASICOMPSA, </role><roleDesc>a young woman beloved by Charinus.</roleDesc></castItem>
+<castItem type="role"><role>DORIPPA, </role><roleDesc>the wife of Lysimachus.</roleDesc></castItem>
+<castItem type="role"><role><placeName key="tgn,7011190">SYRA</placeName>, </role><roleDesc>an old woman, her servant.</roleDesc></castItem>
+<castGroup>
+<castItem type="role"><role>PERISTRATA, <note anchored="yes">These characters are only introduced in the two Scenes at the end of the Fourth Act, which are generally considered to be spurious.</note> </role><roleDesc>the wife of Demipho.</roleDesc></castItem>
+<castItem type="role"><role>LYCISSA, </role><roleDesc>her attendant.</roleDesc></castItem>
+</castGroup>
+<castItem type="role"><role>SLAVES.</role></castItem>
+</castList>
+
+<stage>Scene.--<placeName key="perseus,Athens">Athens</placeName>; before the houses of LYSIMACHUS and DEMIPHO which are adjacent to each other.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>THIS Play (which is thought by some not to have been the composition of Plautus) describes the follies of a vicious old man and his son. Two years before the period when the Play opens, Charinus has been sent by his father Demipho to traffic at <placeName key="tgn,7011266">Rhodes</placeName>. Returning thence, he brings with him a young woman, named Pasicompsa, who is in reality his mistress, but whom he pretends to have purchased for the purpose of her being an attendant upon his mother. Demipho, in the absence of his son, goes down to the ship, and seeing the young woman there, falls desperately in love with her. He then pretends to Charinus that she is too handsome to be brought into the house as a servant, and that she must be sold again. Insisting upon this, he persuades his friend, Lysimachus, to purchase her for him in his own name, and to take her to his own house. This being done, and the damsel brought to the house, the wife of Lysimachus unexpectedly returns home from the country, and finds her there. In the meanwhile, Charinus, being reduced to despair on losing his mistress, determines to leave the country. His friend Eutychus, the son of Lysimachus, having discovered his friend's mistress in his father's house, stops him just as he is about to depart, and informs him where she has been found. He then reconciles his own parents, and the Play concludes with his very just censure of Demipho for his vicious conduct.
+
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>A YOUNG man, being sent (<foreign lang="la">Missus</foreign>) by his father to traffic, buys (<foreign lang="la">Emit</foreign>) a damsel of remarkable beauty, and brings her home. The old man, after he has seen her, makes enquiry (<foreign lang="la">Requirit</foreign>) who she is. The servant pretends (<foreign lang="la">Confingit</foreign>) that she has been bought <foreign lang="la">by the son</foreign> as an attendant for his mother. The old man falls in love with (<foreign lang="la">Amat</foreign>) her, and pretending that he has sold her, gives her in the charge of (<foreign lang="la">Tradit</foreign>) his neighbour. His wife thinks that he has brought (<foreign lang="la">Obduxe</foreign>) a mistress home. Then his friend stops (<foreign lang="la">Retrahit</foreign>) Charinus in his flight, after he has discovered his mistress.
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>The PROLOGUE, spoken by CHARINUS.</stage>
+<sp><speaker>CHARINUS</speaker>
+<p>Two things have I now resolved to do at the same time; both the subject and my own amours will I disclose. I am not doing like as I have seen other lovers do in Comedies, who relate their woes either to the night or to the day, or to the Sun or to the Moon; who, faith, I don't suppose pay much regard to the complaints of mortals, either what they wish or what they don't wish. To yourselves in preference will I now relate my woes. In the Greek this Play is called the Emporos<milestone n="9" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Emporos</lemma>:  The Greek word <foreign lang="greek">e)mporo\s,</foreign> signifying "a merchant."</note> of Philemon; the same in the Latin is the Mercator of Marcus Accius. My father sent me hence to trade at <placeName key="tgn,7011266">Rhodes</placeName>. Two years have now passed since I left home. There I began to love a fair one of remarkable beauty. But how I was captivated by her, I'll tell you, if you'll lend ear, and if you'll have the kindness to give your attention to this. And yet in this, but little have I followed the method of our forefathers in my own person, and on the spot as a tell- tale<milestone n="17" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As a tell-tale</lemma>:  He apologizes for his apparent boldness in breaking in upon them, and commencing to relate his amours, without first asking their leave.</note> of my own amours am I represented before you. But all these failings are wont to attend on love--care, trouble, and refinement overmuch. Not only him who loves, but every one to whom this latter fault extends, him with a great and weighty evil does it affect; nor by my troth, in fact, does any one aim at refinement, beyond what his means allow of, without heavy disaster. But to love as well are these evils incident, which I have not as yet recounted--sleeplessness, a troubled mind, confusion, terror, and apprehension, trifling, and folly even, rashness too, thoughtlessness, foolhardy impudence, wantonness, lust, and malevolence; covetousness is inherent as well, idleness, injustice, want, contumely and wastefulness, talkativeness or moody silence. This latter is the fact, because things which relate not to the purpose, nor are of utility, the same does the lover give utterance to full oft at an unseasonable moment; and yet again, this moody silence for this reason do I commend, because no lover is ever so skilled in eloquence, as to be enabled to give utterance to that which is for his own interest. You, then, must not be offended with myself for my babbling; Venus bestowed it upon me on that same day on which this passion. To that point am I resolved to return, that what I commenced upon I may disclose. In the first place, when in life I had passed from my boyish days, and my disposition was weaned from childish pursuits, I began distractedly to love a Courtesan in this place. Forthwith, unknown to my father, my means went to be wasted upon her; an exacting Procurer, the owner of this damsel, by every method that he could, grasped everything into his own possession<milestone n="45" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Grasped everything into his own possession</lemma>:  <foreign lang="la">Rapiebat domum.</foreign> Literally "he carried off home."</note>. Night and day my father censured me for this; represented the perfidy, the wickedness of Procurers; how that his own property was being forcibly rent in pieces, while that of this Procurer was increasing; this too in the loudest tones; sometimes muttering to himself; refusing to speak to me; even denying that I was his child; crying aloud through all the city and proclaiming that all should withhold from trusting me when desiring to borrow; that love had allured many a one to ruin; that I, passing all bounds, regardless of decency, and acting wrongfully, laid hands upon and tore whatever I could from him at home; that 'twas a most vile system that those choice possessions which he, by enduring every hardship, had acquired, should all be squandered away and parted with through the violence of my desire. That now for so many years he had supported myself, a reproach to him; that were I not ashamed, I ought not to desire to live. That he himself, at the very moment after he had passed his boyish days, did not, like me, devote his attention to love or indolence in slothfulness, nor, indeed, had he the control of himself, so very strictly by his father was he held in check; that in the various sordid pursuits of the country he was employed, and that only every fifth year even was he then enabled to visit the city, and that immediately after he had had a sight of the Festival<milestone n="67" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Had had a sight of the Festival</lemma>:  "Spectavisset peplum." Literally, "had seen the show of the garment." At the great Panathen&aelig;a, or Festival of Minerva, which was celebrated every fifth year, the "peplum" of Minerva was exposed to public view. A procession was afterwards formed, to carry it to the Temple of Minerva, or Athene Polias. The "peplum" was a garment of crocus colour, woven by virgins. On it were represented the conquest of Enceladus and the Giants by Minerva. The garment was not carried by hands, but on the mast of a ship; and this ship, which was usually kept near the Areiopagus, was moved along by machinery.</note>, back again instantly into the country was he wont to be driven by his father. That there by far the most of all the household did he toil, while thus his father would say to him: "For yourself you are ploughing, for yourself you harrow, for yourself you sow, for your own self too do you reap; for yourself, in fine, will this labour be productive of happiness." That after life had left his father's body, he had sold the farm, and with that money had bought for himself a bark of fifteen tons<milestone n="75" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of fifteen tons</lemma>:  "Metretas trecentas." Literally, "three hundred metret&aelig;." The "metreta" was properly a Greek liquid measure of about nine gallons. If, as some of the books inform us, in weight it was equal to one hundred-weight, three hundred of them would make fifteen tons. It is, however, not improbable that the word really signifies a weight nearer in capacity to a ton than to a hundred-weight.</note>, and with the same had transported merchandize to every quarter, even until he had acquired the property which he then possessed. That I ought to do the same, if I would be as it behoved me to be. I, when I found that I was disliked by my father and was an object of hate to him whom I was bound to please, distracted and in love as I was, resolutely made up my mind. I said that I would go to traffic, if he pleased; that I would renounce my amour, so as to be obedient to him. He gave me thanks, and praised my good feeling, but failed not to exact my promise; he built a merchant-ship<milestone n="86" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A merchant-ship</lemma>:  "Cercurum." The merchant-ships, which were called "cercuri," are said to have been so called from the island of <placeName key="tgn,7010886">Corcyra</placeName>, or Cercyra, so famous for its traffic, where they were said to have been first built. Some writers suppose them to have originally been peculiar to the inhabitants of the Isle of <placeName key="tgn,1000112">Cyprus</placeName>.</note>, and purchased merchandize; the ship ready, he placed it on board; besides, to myself with his own hand he paid down a talent of silver; with me he sent a servant, who formerly had been my tutor from the time when I was a little child, to be as though a guardian to me. These things completed, we set sail; we came to <placeName key="tgn,7011266">Rhodes</placeName>, where the merchandize which I had brought I sold to my mind according as I wished; I made great profits, beyond the estimate of the merchandize which my father had given me; and so I made a large sum. But while in the harbour I was walking there, a certain stranger recognized me, and invited me to dinner. I went, and took my place at table, being merrily and handsomely entertained. When at night we went to rest, behold, a female came to me, than whom not another female is there more charming. That night, by order of my entertainer, did she pass with me; consider your own selves, how very much he gratified me. Next day, I went to my host; I begged him to sell her to me; I said that for his kindnesses I should ever be grateful and obliged. What need is there of talking? I bought her, and yesterday I brought her hither. I don't wish my father to come to know I've brought her. For the present, I've left her and a servant in the harbour on board the ship. But why do I see my servant running hither from the harbour, whom I forbade to leave the ship? I dread what the reason may be. <stage>Stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="111" unit="TLN line"/>
+<stage>Enter ACANTHIO, at a distance, in haste.</stage>
+<sp><speaker>ACANTHIO</speaker><p> <stage>to himself</stage>. With your utmost power and might always try and endeavour that your younger master<milestone n="111" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your younger master</lemma>:  "<placeName key="tgn,7017431">Herus</placeName> minor." One version renders these words, "your master when thrown down." That surely cannot be the meaning of the passage.</note> may by your aid be preserved. Come then, Acanthio, away with weariness from you; take care and be on your guard against sloth. At the same time put an end to this panting; troth, I can hardly fetch my breath; at the same time, too, drive right full against all those persons who come in the way, shove them aside, and push them into the road. This custom here is a very bad one; no one thinks it proper for him to give way to one who is running and in haste; and thus three things must be done at the same moment, when you have commenced upon but one; you must both run and fight, and squabble as well, upon the road.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart</stage>. What's the reason of this, that he's requiring speed for himself at a rate so rapid? I have some anxiety, what the business is, or what news he brings.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> <stage>to himself</stage>. I'm trifling about it. The more I stop, the greater the risk that's run.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart</stage>. He brings news of some misfortune, I know not what.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> <stage>to himself</stage>. His knees are failing this runner. I'm undone, my spleen is in rebellion<milestone n="123" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Spleen is in rebellion</lemma>:  He alludes to the expansion of the spleen by the act of running fast.</note>, it's taking possession of my breast. I'm done up, I can't draw my breath. A very worthless piper should I be. I' faith, not all the baths will ever remove this lassitude from me. Am I to say that my master Charinus is at home or abroad?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>apart</stage>. I'm doubtful in my mind what the matter is; I'd like for myself to learn of him, that I may become acquainted with it.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> <stage>to himself</stage>. But why still standing here? Why still hesitating to make splinters of this door? <stage>Knocks at the door of DEMIPHO'S house, and calls.</stage> Open the door, some one. Where's my master, Charinus? Is he at home or abroad? Does any one think fit to come to the door?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>presenting himself</stage>. Why, here am I, whom you're looking for, Acanthio.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> <stage>not seeing him</stage>. There is nowhere a more lazy management than in his house.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What matter is afflicting you so terribly?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> <stage>turning round</stage>. Many, master, both yourself and me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What's the matter? </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> We are undone.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> That beginning do you present unto our foes.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> But your own self it has befallen, as fate would have it.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Tell me this matter, whatever it is.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Quietly--I want to take a rest. <stage>He pants.</stage></p></sp>
+<sp><speaker>CHARINUS</speaker><p> But, i' faith, do take the skirt of your coat<milestone n="138" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Skirt of your coat</lemma>:  "Laciniam." The "lacini&aelig;" were the angular extremities of the "pallium," and the "toga," one of which was brought round over the left shoulder. It was generally tucked into the girdle, but was sometimes allowed to hang loose. From the present passage, we may conclude that it was sometimes devoted to the purposes of a pocket-handkerchief.</note>, and wipe the sweat from off you.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> For your sake, I've burst the veins of my lungs; I'm spitting blood already. <stage>He spits.</stage></p></sp>
+<sp><speaker>CHARINUS</speaker><p> Swallow &AElig;gyptian resin with honey; you'll make it all right.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Then, i' faith, do you drink hot pitch<milestone n="140" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Drink hot pitch</lemma>:  Commentators have been at a loss to know why Acanthio should be so annoyed at the recommendation of Charinus, and why he should answer him in these terms. The ingenious <placeName key="tgn,1010231">Rost</placeName> seems in a great measure to have hit upon the true meaning of the passage. Charinus tells him that a mixture of resin and honey is good for the lungs. Now, from what Pliny says, B. 24, ch. 6, we should have reason to suppose that some kinds of resin were used in diseases of the lungs. But, on the other hand, Aristotle, in his History of Animals, B. 8, ch. 24, mentions a certain resin called "sandonache," which was of a poisonous nature. Acanthio, then, may have been frightened from a previous knowledge of the doubtful nature of resins as a remedy; he may also have heard that the Egyptians preserved their mummies with honey and resin, and his stomach may have revolted at swallowing such a mixture; and, thinking that his master is trifling with him, he answers him in anger. The latter explanation will appear the more probable when we remember, that as honey and resin were used for the embalming of the higher classes, the bodies of the poorer persons in <placeName key="tgn,7016833">Egypt</placeName> were preserved by being dipped in pitch; and though this did not suggest itself to <placeName key="tgn,1010231">Rost</placeName>, it is not improbable that the servant intends by his answer to repay his master in the same coin. Perhaps he may have imagined that his master intended him to swallow the mixture in a hot, melted state, just as when it was injected into the mummies. Persons convicted of blasphemy were sometimes condemned to swallow melted pitch</note>; then your troubles will vanish.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I know no one a more tetchy fellow than yourself.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> And I know no one more abusive than yourself</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But what if I'm persuading you to that which I take to be for your benefit? </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Away with benefit of that sort, that's accompanied with pain.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Tell me, is there any good at all that any one can enjoy entirely without evil; or where you mustn't endure labour when you wish to enjoy it?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> I don't understand these things; I never learnt to philosophize, and don't know how. I don't want any good to be given me, to which evil is an accompaniment.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>extending his hand</stage>. Come now, Acanthio, give me your right hand.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> It shall be given; there then, take it. <stage>Gives his hand.</stage></p></sp>
+<sp><speaker>CHARINUS</speaker><p> Do you intend yourself to be obedient to me, or don't you intend it?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> You may judge by experience, as I've ruptured myself with running for your sake, in order that what I knew, you might have the means of knowing directly.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'll make you a free man within a few months.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> You are smoothing me down.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What, should I presume ever to make mention of an untrue thing to you? On the contrary, before I said so, you knew already whether I intend to utter an untruth.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Ah! your words, upon my faith, are increasing my weakness. You are worrying me to death!</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What, is this the way you're obedient to me?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> What do you want me to do?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What, you? What I want is this----</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> What is it then that you do want?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'll tell you. </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Tell me, then.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But still, I'd like to do it in a quiet way.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Are you afraid lest you should wake the drowsy Spectators<milestone n="160" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The drowsy Spectators</lemma>:  No wonder if this most tiresome dialogue has sent them to sleep.</note> from their nap?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Woe be to you! </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> For my part, that same am I bringing to you from the harbour.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What are you bringing? Tell me.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Violence, alarm, torture, care, strife, and beggary.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm undone! You really are bringing me hither a store of evils. I'm ruined outright.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Why, yes, you are----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I know it already; you'll be saying I'm wretched.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> 'Tis you have said so; I'm mum.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What mishap is this?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Don't enquire. It is a very great calamity.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Prithee, do relieve me at once. Too long a time have I been in suspense. </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Softly; I still wish to make many enquiries before I'm beaten.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> By my troth, you assuredly will be beaten, unless you say at once, or get away from here.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Do look at that, please, how he does coax me; there's no one more flattering when he sets about it.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> By heavens, I do entreat and beseech you to disclose to me at once what it is; inasmuch as I see that I must be the suppliant of my own servant.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> And do I seem so unworthy of it?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Oh no, quite worthy. </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Well, so I thought.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Prithee, is the ship lost?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> The ship's all right; don't fear about that.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Well then, the rest of the cargo?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> That's right and tight.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why then don't you tell me what it is, for which, just now, running through the city, you were seeking me?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Really, you are taking the words out of my mouth.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'll hold my tongue. </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Do hold your tongue. I doubt, if I brought you any good news, you'd be dreadfully pressing, who are now insisting upon my speaking out, when you must hear bad news.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Troth then, prithee do you let me know what this misfortune is.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Since you beg of me, I'll tell you. Your father----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> My father did what? </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Your mistress----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What about her? </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> He has seen her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Seen her? Ah wretch that I am! What I ask you, answer me.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Nay, but do you ask me, if you want anything.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> How could he see her? </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> With his eyes.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> In what way? </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Wide open.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Away hence and be hanged. You are trifling, when my life's at stake.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> How the plague am I trifling, if I answer you what you ask me?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Did he see her for certain?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Aye, troth, as certainly as I see you and you see me. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Where did he see her?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Down on board the ship, as he stood near the prow and chatted with her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Father, you have undone me. Come now, you, come now, you sir? Why, you whip-rascal, didn't you take care that he mightn't see her? Why, villain, didn't you stow her away, that my father mightn't perceive her?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Because we were busily employed about our business; we were engaged in packing up and arranging the cargo. While these things were being done, your father was brought alongside in a very small boat; and not an individual beheld the man until he was aboard the ship.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> In vain have I escaped the sea with its dreadful tempests! Just now I really did suppose that I was both ashore and in a place of safety; but I see that by the raging waves I am being hurried towards the rocks. Say on; what took place?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> After he espied the woman, he began to ask her to whom she belonged. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> What did she answer?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> That instant I ran up and interposed, saying that you had bought her as a maid-servant for your mother.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Did he seem to believe you in that?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Do you e'en ask me that? Why the rogue began to take liberties with her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Prithee, what, with her? </p></sp>
+<sp><speaker>ACANTHIO</speaker><p> 'Twere a wonder if he had taken liberties with myself.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> By heavens, my heart is saddened, which, drop by drop is melting away, just as though you were to put salt in water. I'm undone.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Aye, aye, that one expression have you most truly uttered.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> This is mere folly. What shall I do? I do think. my father won't believe me if I say that I bought her for my mother; and then, besides, it seems to me a shame that I should tell a lie to my parent. He'll neither believe, nor indeed is it credible, that I bought this woman of surpassing beauty as a maid-servant for my mother.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Won't you be quiet, you most silly man? Troth, he will believe it, for he just now believed me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm dreadfully afraid that a suspicion will reach my father how the matter really stands. Prithee, answer me this that I ask you.</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> What do you ask?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Did he seem to suspect that she was my mistress?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> He did not seem. On the contrary, in everything, just as I said it, he believed me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> As being true-as he seemed to yourself at least.
+</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Not so; but he really did believe me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Ah! wretched man that I am! I'm ruined! But why do I kill myself here with repining, and don't be off to the ship? Follow me. <stage>Hastening along.</stage></p></sp>
+<sp><speaker>ACANTHIO</speaker><p> If you go that way, you'll conveniently come slap upon your father. As soon as he shall see you, dismayed and out of spirits, at once he'll be stopping you, and enquiring where you bought her, and for how much you bought her; he'll be trying you in your dismay.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>turning about</stage>. I'll go this way in preference. Do you think that by this my father has left the harbour?</p></sp>
+<sp><speaker>ACANTHIO</speaker><p> Why, it was for that reason I ran before him hither, that he mightn't come upon you unawares and fish it out of you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Very properly done. <stage>(Exeunt.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="225" unit="TLN line"/>
+<stage>Enter DEMIPHO.</stage>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to himself</stage>. In wondrous ways<milestone n="224" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In wondrous ways</lemma>: -5. These lines occur also in the Rudens, l. 593.</note> do the Gods make sport of men, and in wondrous fashions do they send dreams in sleep. As, for instance, I, this very last night that has passed, have sufficiently experienced in my sleep, and, mortal that I am, was much occupied therewith. I seemed to have purchased for myself a beautiful she-goat. That she might not offend that other she-goat which I had at home before, and that they mightn't disagree if they were both in the same spot, after that I had purchased her, I seemed to entrust her to the charge of an ape. This ape, not very long afterwards, came to me, uttered imprecations against me, and assailed me with reproaches; he said that by her means and through the arrival of the she-goat he had suffered injury and loss in no slight degree; he said that the she-goat, which I had entrusted to him to keep, had gnawed away the marriage-portion of his wife. This seemed extremely wonderful to me, how that this single she-goat could possibly have gnawed away<milestone n="240" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Could possibly have gnawed away</lemma>:  There is a poor play on words. here with reference to "una;" how "one" goat could "ambadederit," "gnaw away," or "doubly eat" (literally speaking) the dowry--that is, how one goat could do the work of two.</note> the marriage-portion of the wife of the ape. The ape, however, insisted that it was so, and, in short, gave me this answer, that if I didn't make baste and remove her away from his own house, he would bring her home into my house to my wife. And, by my troth, I seemed very greatly to take an interest in her, but not to have any one to whom to entrust this she-goat; wherefore the more, in my distress, was I tormented with anxiety what to do. Meanwhile, a kid appeared to address me, and began to tell me that he had carried off the she-goat from the ape, and began to laugh at me. But I began to lament and complain that she was carried off. To what reality I am to suppose that this vision points, I can't discover; except that I suspect that I have just now discovered this she-goat, what she is, or what it all means. This morning, at daybreak, I went away hence down to the harbour. After I had transacted there what I wanted, suddenly I espied the ship from <placeName key="tgn,7011266">Rhodes</placeName>, in which my son arrived here yesterday. I had an inclination, I know not why, to visit it; I went on board a boat, and put off to the ship; and there I beheld a woman of surpassing beauty, whom my son has brought as a maid-servant for his mother. After I had thus beheld her, I fell in love with her, not as men in their senses, but after the fashion in which madmen are wont. I' faith, in former times, in my youthful days, I fell in love, 'tis true; but after this fashion, according as I'm now distracted, never. Now beyond a doubt, surely thus this matter stands; this is that she-goat. But what that ape and that kid mean, I'm afraid. One thing, i' faith, I really do know for certain, that I'm undone for love; <stage>to the AUDIENCE</stage> consider yourselves the other point, what a poor creature I am<milestone n="268" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What a poor creature I am</lemma>:  This seems to be the real meaning of "quanti siem;" Gueudeville has adopted it; but there is considerable difference of opinion among the Commentators on the sense of the passage.</note>. But I'll hold my tongue; lo! I see my neighbour; he's coming out of doors. <stage>Stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="272" unit="TLN line"/>
+<stage>Enter LYSIMACHUS and a SERVANT with some rakes, from the house of the former.</stage>
+<sp><speaker>LYSIMACHUS</speaker><p> Really I will have this goat mutilated, that's giving us so much trouble at the farm.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart</stage>. Neither this omen nor this augury pleases me; I'm afraid that my wife will be just now mutilating me like the he-goat, and be acting the part of this same ape.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Do you go hence to my country-house, and take care and deliver personally into his own hands those rakes to the bailiff Pistus himself. Take care and tell my wife that I have business in the city, so that she mayn't expect me; for do you mention that I have three causes coming on for judgment to-day. Be off, and remember to say this.</p></sp>
+<sp><speaker>SERV.</speaker><p> Anything more?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> That's enough. <stage>(Exit)</stage></p></sp>
+<sp><speaker>SERVANT.</speaker><p></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>Stepping forward</stage>. Greetings to you, Lysimachus.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Well met! and greetings to you, Demipho. How are you? How goes it?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> As with one that's most wretched<milestone n="282" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As with one that's most wretched</lemma>:  "Quod miserrimus" Literally 'what a very wretched person does."</note>.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> May the Gods grant better things.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> As for the Gods, it's they that do this.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What's the matter?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I'd tell you, if I saw that you had time or leisure.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Although I have business in hand, if you wish for anything, Demipho, I'm never too busy to give attention to a friend.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You speak of your kindness to myself who have experienced it. How do I seem to you as to age?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> A subject for <placeName key="tgn,1120946">Acheron</placeName>--an antiquated, decrepit old fellow.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You see in a wrong light. I am a child, Lysimachus, of seven years old.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Are you in your senses, to say that you are a child?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I'm telling what's true. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I' faith, it has this moment come into my mind what you mean to say; directly a person is old, no longer has he sense or taste; people say that he has become a child again.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why, no; for I'm twice as hearty as ever I was before.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I' faith, it's well that so it is, and I'm glad of it.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Aye, and if you did but know; with my eyes, too, I see even better now than I did formerly.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> That's good.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Of a thing that's bad, I'm speaking.
+</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Then that same is not good.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But, if I wished at all, could I venture to disclose something to you?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Boldly. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Give heed, then.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> It shall be carefully done.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> This day, Lysimachus, I've begun to go to school to learn my letters. I know three letters already.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> How? Three letters?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>spelling</stage>. A M O [I am in love].</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What! you, in love, with your hoary head, you most shocking old fellow? </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Whether that is hoary, or whether red, or whether black, I'm in love.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> You're now playing upon me in this, I fancy, Demipho.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Cut my throat, if it's false, what I'm saying. That you may be sure I'm in love, take a knife, and do you cut off either my finger, or my ear, or my nose, or my lip: if I move me, or feel that I'm being cut, then, Lysimachus, I give you leave to torture me to death here with being in love.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside to the AUDIENCE</stage>. If ever you've seen a lover in a picture, why, there he is <stage>pointing at DEMIPHO</stage>: for really, in my way of thinking, an antiquated, decrepit old man is just about the same as though he were a figure painted upon a wall.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Now, I suppose, you are thinking of censuring me.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What, I, censure you?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Well, there's no reason that you should censure me. Other distinguished men have done the like before. It's natural to be in love, it's natural, as well, to be considerate. Then, please, don't reprove me; no inclination impelled me to this.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Why, I'm not reproving you. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But still, don't you think any the worse of me for acting thus.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I, think the worse of you? O, may the Deities forbid it. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Still, please, only do take care of that.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Due care is taken. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Quite sure?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> You're wearing me out. <stage>Aside.</stage> This person's deranged through love. <stage>To DEMIPHO.</stage> Do you desire aught with me? </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Farewell!</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I'm making haste to the harbour; for I've got business there. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Good luck go with you.
+</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Heartily fare you well.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Kindly fare you well. <stage>(Exit LYSIMACHUS.)</stage>
+<stage>DEMIPHO continues, to himself</stage>. And what's more, I too as well have got some business at the harbour; now, therefore, I shall be off thither. But, look! most opportunely I see my son. I'll wait for the fellow; it's necessary for me now to see him, to persuade him, as far as I possibly can, to sell her to me, and not make a present of her to his mother; for I've heard that he has brought her as a present for her. But I have need of precaution, that he mayn't any way imagine that I have set my fancy upon her.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="335" unit="TLN line"/>
+<stage>Enter CHARINUS, at a distance.</stage>
+<sp><speaker>CHARINUS</speaker><p> <stage>to himself</stage>. Never, I do think, was any person more wretched than myself, nor one who had more everlasting crosses. Isn't it the fact, that whatever thing there is that I have commenced to attempt, it cannot fall out to my wish according as I desire? To such an extent is some evil fortune always befalling me, which overwhelms my fair intentions. To my misfortune, I procured me a mistress to please my inclination; I acquired her for a sum of money, fancying that I could keep her unknown to my father. He has found her out, and has seen her, and has undone me. Nor have I yet determined what to say when he asks me, so much do uncertain thoughts, aye, tenfold, struggle within my breast; nor know I now in my mind what resolution I can possibly take; so much uncertainty, mingled with anxiety, is there in my feelings, at one moment the advice of my servant pleases me, then again it doesn't please me, and it doesn't seem possible for my father to be induced to think that she was bought as a maid-servant for my mother. Now, if I say, as is the fact, and declare that I purchased her for myself, what will he think of me? He may take her away, too, and carry her hence beyond sea, to be sold! Well taught at home, I know how severe he is. Is this, then, being in love? I'd rather be at the plough-tail<milestone n="352" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Rather be at the plough-tail</lemma>:  "Arare mavelim, quam sic amare." There is an insipid play upon the resemblance of the words "arare," "to plough," and "amare" "to love."</note> than love in this fashion. Before to-day, long ago, he drove me away against my inclination from his house, my home, and bade me go and traffic. There did I meet with this misfortune. When its misery can surpass its pleasure, what is there delightful in it? In vain I've hidden her, concealed her, kept her in secret; my father's a very fly<milestone n="357" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A very fly</lemma>:  The flies of those days seem to have been as annoying and inquisitive as those of modern times. "Musc&aelig;" was a term of reproach for Parasites and busybodies.</note>; nothing can be kept away from him; nothing so sacred or so profane is there, but that he's there at once; neither have I any assured hope in my mind through which to feel confidence in my fortunes.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>apart</stage>. What's the reason of this, that my son is talking to himself alone? He seems to me anxious about some matter, I know not what.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>looking round</stage>. Heyday, now! Why, surely it's my father here that I see. I'll go and accost him. <stage>Accosting him.</stage> How goes it, father?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Whence do you come? Why are you in a hurry, my son?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> It's all right, father. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> So I trust; but what's the reason that your colour's so changed? Do you feel ill at all?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I know not what it is affects my spirits, father; this last night I didn't rest quite as well as I wished.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> As you've been travelling by sea, your eyes, I suppose, are at present rather unaccustomed to the shore.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> No doubt it is that; but it will be going off presently.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Troth, it's for that reason you are pale; if you were prudent, you'd go home and lie down.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I haven't the leisure; I wish to attend to business on commission.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Attend to it to-morrow; the day after, attend to it.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I've often heard from you, father, it behoves all wise men, the first thing, to give their earliest attention to business upon commission.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Do so, then; I have no wish to be striving against your opinion.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>aside</stage>. I'm all right, if, indeed, his adherence to that sentiment is immoveable and lasting.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside</stage>. Why is it that he calls himself aside into counsel with himself? I'm not afraid now lest he should be able to come to know that I'm in love with her, because I've not as yet done anything in a foolish manner, as people in love are wont to do.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>aside</stage>. I' faith, the affair for the present is really quite safe; for I'm quite certain that he doesn't know anything about that mistress of mine; if he did know, his talk would have been different.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside</stage>. Why don't I accost him about her?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>aside</stage>. Why don't I betake myself off hence? <stage>Aloud.</stage> I'm going to deliver the commissions from my friends to their friends. <stage>Moves as if going.</stage></p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Nay, but stop; I still want to make a few enquiries of you first.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Say what it is you wish. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Have you all along been well?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Quite well all the time, so long, indeed, as I was there; but as soon as I had arrived here in harbour, I don't know what faintness it was came over me.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I' faith, I suppose it arose from sea-sickness; but it will be going off just now. But how say you? What servant-maid is this that you have brought from <placeName key="tgn,7011266">Rhodes</placeName> for your mother?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I've brought one. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Well, what sort of a woman is she as to appearance?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Not an ill-favored one, i' faith.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> How is she as to manners?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> In my way of thinking, I never saw one better.</p></sp>
+<sp><speaker>DEN.</speaker><p> So, indeed, i' faith, she seemed to me when I saw her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> How now, have you seen her, father?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I have seen her; but she doesn't suit our ways, and so she doesn't please me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why so? </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Because she hasn't a figure suitable to our establishment; we stand in need of no female servant but one who can weave, grind, chop wood, make yarn, sweep out the house, stand a beating, and who can have every day's victuals cooked for the household. This one will be able to do not any single one of these things.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why, in fact, for this reason I purchased her, to make a present of her to my mother.
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Don't you be giving her, nor mention that you have brought her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>aside</stage>. The Deities favour me.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside</stage>. I'm shaking him by slow degrees. <stage>Aloud.</stage> But, what I omitted to say,--she can neither with due propriety follow your mother as an attendant; nor will I allow it.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But why? </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Because, with those good looks, it would be scandalous if she were to be following a matron when she's walking through the streets; all people would be staring, gazing, nodding, winking, hissing, twitching, crying out, be annoying, and singing serenades at our door; my door, perhaps, would be filled with the charcoal marks<milestone n="404" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With the charcoal marks</lemma>:  Colman, who translated this Play in <placeName key="tgn,1136756">Thornton</placeName>'s edition, has this Note here: "Some consider these words as alluding to defamatory, rather than commendatory verses, alleging that praise was written in chalk, and scandal in coal. '<placeName key="tgn,5001986">Ilia</placeName> prius chart&acirc;, mox h&aelig;c carbone.' I have followed the opinion, however, of other Commentators, who suppose that in these cases chalk, or coal, or lighted torches, were used indiscriminately, according to the colour of the ground--as a Poet would write a panegyric in black ink upon white paper, or a lover delineate the name of his mistress with the smoke of a candle on a white-washed ceiling."</note> of her praises; and, according as persons are scandalizing at the present day, they might throw it in the teeth of my wife and myself, that we are carrying on the business of a Procurer. Now what occasion is there for this?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why, faith, you say what's just, and I agree with you. But what shall be done with her now?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Exactly; I'll buy for your mother some stout wench of a female slave, not a bad servant, but of ungainly figure, as befits the mistress of a family--either a Syrian or an Egyptian woman: she shall do the grinding, spin out the yarn, and stand a lashing; and on her account no disgrace at all will be befalling our doors.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What then if she is restored to the person of whom she was purchased?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> By no means in the world.</p></sp>
+<sp><speaker>CHARINUS</speaker><p>He said that he would take her back, if she didn't suit.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> There's no need of that; I don't want you to get into litigation, nor yet your honor to be called in question. I' troth, I would much rather, if any must be endured, put up with the loss myself, than that disgrace or scandal on account of a woman should be brought upon my house. I think that I am able to sell for you at a good profit.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I' faith, so long, indeed, as you don't be selling her at a less price than I bought her at, father.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Do you only hold your tongue; there is a certain old gentleman who commissioned me to buy one for him of just that same appearance.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But, father, a certain young man commissioned me to buy one for him of just that same appearance that she is of.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I think that I am able to dispose of her for twenty min&aelig;.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But, if I had chosen, there have been already seven-and-twenty min&aelig; offered.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But I---- </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Nay, but I, I say----</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But you don't know what I was going to say; do hold your tongue. I can add three min&aelig; even to that, so that there will be thirty. <stage>Looks as though on one side at a distance.</stage></p></sp>
+<sp><speaker>CHARINUS</speaker><p> What are you turning yourself towards?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Towards him who's making the purchase.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>staring about</stage>. Why, where in the world is this person?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Look there, I see him<milestone n="428" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">There, I see him</lemma>:  He says this by way of joking, just for the moment, in order to withdraw his son's notice from the manifest iniquity of which he is guilty.</note>, yonder <stage>pointing</stage>; he's bidding me even still to add five min&aelig;.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>aside</stage>. By my troth, may the Gods send a curse upon him, whoever he is!</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>looking in the distance</stage>. There he is again, making a sign to me, even still, for me to add six min&aelig;.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> My man is bidding seven min&aelig;, for her, full weight, father. <stage>Aside.</stage> I' faith, he shall never this day outdo me.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> He's bidding in vain; I will have her!</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But the other one made the first offer.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I care nothing for that. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> He bids fifty.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> No, a hundred's the offer. Can't you desist from bidding against the determination of my mind. I' troth, you'll be having an immense profit, in such a way is this old gentleman for whom she's being purchased. He's not in his senses by reason of his love; whatever you ask, you'll get.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I' faith, that young man, for whom I'm purchasing, is assuredly dying with distraction for love of her.
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Troth, very much more so is that old gentleman, if you did but know it.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I' faith, that old man never was nor ever will be more distracted with love than that young man, father, to whom I'm lending this assistance.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Do be quiet, I tell you; I'll see to that matter, that it's all right. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> How say you----?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What is it? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> I didn't take her for a slave; but it was he that took her for such.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Let me alone. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> By law you cannot put her up for sale.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I'll somehow see to that. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> And then besides, she's the common property of myself and another person; how do I know how he's disposed, whether he does wish or doesn't wish to sell her?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I'm sure he does wish. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> But, i' faith, I believe that there's a certain person who doesn't wish.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What matters that to me? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Because it's right that he should have the disposal of his own property.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What is it you say? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> She is the common property of myself and another person; he isn't here at present.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> You are answering me before I ask. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> You are buying, father, before I sell. I don't know, I say, whether he chooses to part with her or not.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But if she is purchased for that certain person who gave you the commission, will he choose it then? If I purchase her for that person who gave me the commission, will he then not choose it? You avail nothing. Never, on my faith, shall any person have her in preference to the person that I wish. That I'm resolved upon.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Have you made up your mind that it is resolved upon? </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why, I'm going hence at once to the ship; there she shall be sold.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Do you wish me to go there with you?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I don't wish you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You don't choose it, then.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> It's better for you to give your earliest attention to the business which you've been commissioned upon.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You are hindering me from doing so.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Then do you make your excuse that you have used all diligence. Don't you go to the harbour, I tell you that now.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> That shall be attended to.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside</stage>. I'll be off to the harbour, and (I have need of caution lest he should find it out) I'll not buy her myself, but commission my friend Lysimachus; he said just now that he was going to the harbour. I'm delaying while I'm standing here. <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="469" unit="TLN line"/>
+<stage>CHARINUS, alone.</stage>
+<sp><speaker>CHARINUS</speaker><p> <stage>wringing his hands, and crying aloud</stage>. I'm lost--I'm undone. They say that the Bacchanals tore Pentheus to pieces<milestone n="462" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tore Pentheus to pieces</lemma>:  Pentheus, king of <placeName key="perseus,Thebes">Thebes</placeName>, was torn in pieces by his mother Agave, and the other Bacchanalian women, for obstructing their celebration of the orgies of Bacchus. See the Metamorphoses of Ovid, B. 3, l. 720.</note>. I do believe that that was the merest trifle compared with the manner in which I am rent asunder in different ways. Why do I exist? Why don't I die? What good is there for me in life? I'm determined, I'll go to a doctor<milestone n="465" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To a doctor</lemma>:  Colman renders "medicum," "an apothecary;" and remarks, that the passage may put the reader in mind of Shakspeare's Romeo in allusion to the passage commencing, "I do know an apothecary," &amp;c.</note>, and there I'll put myself to death by poison, since that is being taken from me for the sake of which I desire to remain in existence. <stage>He is going off.</stage>
+
+<stage>Enter EUTYCHUS, from the house of LYSIMACHUS.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Stop, prithee, stop, Charinus.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>turning</stage>. Who is it, that calls me back?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Eutychus, your friend and companion, your nearest neighbour as well. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> You don't know<milestone n="468" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You don't know</lemma>:  The note of interrogation in Weise's edition at the end of these words seems out of place.</note> what a vast weight of my woes I am enduring.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I do know. I listened to it all at the door: I know the whole matter.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What is it that you know? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Your father wishes to sell----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You have the whole matter.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> --Your mistress---- </p></sp>
+<sp><speaker>CHARINUS</speaker><p> You know by far too much.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> --Against your wish. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> You know everything. But how do you know that this woman is my mistress?
+</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You yourself told me yesterday. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Isn't it the fact that I had quite forgotten that I told you yesterday?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> It's not surprising it is so. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> I now consult you. Answer me; by what death do you think that I should die in preference?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Won't you hold your peace? Take you care how you say that. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> What then do you wish me to say?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Should you like me to trick your father nicely?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I really should like it. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Should you like me to walk to the harbour----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What, rather than that you should fly?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> And release the fair one for a sum.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What, rather than you should pay her weight in gold? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Whence is it to come?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'll entreat Achilles to lend me the gold with which Hector was ransomed </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Are you in your senses?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I' faith, if I were in my senses, I shouldn't be seeking you for my physician.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Do you wish her to be purchased for as high a price as he asks?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Throw in something by way of surplus; even a thousand didrachms more than he shall demand.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Now, do hold your peace. But what say you as to this? Whence will the money come, for you to give, when your father asks for it?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> It shall be found, it shall be sought out, something shall be done. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You are worrying me to death. For I'm afraid of that "Something shall be done."</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why won't you hold your tongue?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You give your commands to one who is dumb.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Is this matter sufficiently pointed out to you?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Can't you possibly be attending to something else?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> It isn't possible. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>going</stage>. Kindly fare you well.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I' faith, I cannot fare well, before you come back to me. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> To better purpose, recover your senses.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Farewell, and prevail, and be my preserver.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I'll do so. Wait for me at home.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Do you take care, then, to betake yourself back just now with the booty. 
+<stage>(Exit EUTYCHUS, and CHARINUS goes into DEMIPHO'S house.)</stage>
+
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="499" unit="TLN line"/>
+<stage>Enter LYSIMACHUS, with PASICOMPSA, weeping.</stage>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>to himself</stage>. I've lent my assistance to my friend in a friendly manner; this piece of goods, which my neighbour requested me, I've purchased. <stage>Turning to PASICOMPSA.</stage> You are my own; then follow me. Don't weep. You are acting very foolishly; spoiling such eyes. Why, really you have more reason to laugh than to be crying.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> In the name of heaven, prithee, my good old gentleman, do tell me----</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Ask me what you please.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Why have you bought me?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What, I, bought you? For you to do what you are bidden; in like manner what you bid me, I'll do.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> I am determined, to the best of my ability and skill, to do what I shall think you desire.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I shall bid you do nothing of laborious work.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Why, really, for my part, my good old gentleman, I haven't learnt, i' faith, to carry burdens, or to feed cattle at the farm, or to nurse children.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> If you choose to be a good girl, it shall be well for you. </p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Then, i' faith, to my sorrow, I'm undone.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Why so? </p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Because in the place from which I have been conveyed hither, it used to be well with the worthless<milestone n="504" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Well with the worthless</lemma>:  She seems to mean that at <placeName key="tgn,7011266">Rhodes</placeName>, where she has lately come from, women of light character are treated better than those who are virtuous.</note>.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside</stage>. By my troth, her talk alone is worth more than the sum that she was purchased at. <stage>To PASICOMPSA.</stage> As though you would say that no woman is good.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Indeed I don't say so; nor is it my way, to say a thing which I believe all people are acquainted with.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I want to ask this one thing of you.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> I'll answer you when you ask. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What say you now? What am I to say your name is?</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Pasicompsa. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> The name was given you from your good looks<milestone n="510" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From your good looks</lemma>:  Coming from two Greek words, signifying "all graces," or "attractions."</note>. But what say you, Pasicompsa? Can you, if occasion should arise, spin a fine woof?
+</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> I can. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> If you know how to do a fine one, I'm sure you can spin a coarser one.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> For spinning, I fear no woman that's of the same age. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Upon my faith, I take it that you are good and industrious, since, young woman, now that you are grown up, you know how to do your duty.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> I' faith, I learned it from a skilful mistress. I won't let my work be called in question.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Well, thus the matter stands, i' faith. Look now, I'll give you a sheep for your own, one sixty years old.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> My good old gentleman, one so old as that?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> It's of the Grecian breed. If you take care of it, it is a very good one; it is shorn very easily.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> For the sake of the compliment, whatever it is that shall be given me, I shall receive it with thanks.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Now, damsel, that you mayn't be mistaken, you are not mine; so don't think it.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Prithee, tell me, then, whose I am?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> You've been bought back for your own master. I've bought you back for him<milestone n="523" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Back for him</lemma>:  She imagines all along that by the word "master" he means the young man Charinus; whereas Demipho is really intended.</note>; he requested me to do so.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> My spirits have returned, if good faith is kept with me. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Be of good courage; this person will give you your liberty. I' troth, he did so dote upon you this day as soon as ever he had seen you.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> I' faith, it's now two years since he commenced his connexion with me. Now, as I'm sure that you are a friend of his, I'll disclose it. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> How say you? Is it now two years since he formed the connexion with you?</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Certainly, it is; and we agreed, on oath, between ourselves, I with him, and he with me, that I would never have intercourse with any man except himself, nor he with any woman except myself.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Immortal Gods! Isn't he even to sleep with his wife?</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> Prithee, is he a married man? He neither is nor will he be. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Indeed, I wish he wasn't. I' faith, the fellow has been committing perjury.</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> No young man do I more ardently love.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Why, really he's a child, you simpleton; for, in fact, it's not so very long a time since his teeth fell out.
+</p></sp>
+<sp><speaker>PASICOMPSA</speaker><p> What? His teeth? </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> It's no matter? Follow me this way, please; he requested that I would find you room for one day in my house, since my wife is away in the country. <stage>He goes into his house, followed by PASICOMPSA.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="544" unit="TLN line"/>
+<stage>Enter DEMIPHO.</stage>
+<sp><speaker>DEMIPHO</speaker><p> <stage>to himself</stage>. At last I've managed to ruin myself; a mistress has been purchased for me without the knowledge of my wife and son. I'm resolved on it; I'll have recourse again to former habits and enjoy myself. In my allotment of existence, almost now run through, the little that there remains of life, I'll cheer up with pleasure, wine, and love. For it's quite proper for this time of life to enjoy itself. When you are young, then, when the blood is fresh, it's right to devote your exertions to acquiring your fortune; and then when at last, you are an old man, you may set yourself at your ease; drink, and be amorous; this, the fact that you are living, is now so much profit. This, as I say, I'll carry out in deed. <stage>Turning to his house.</stage> Meanwhile, however, I'll take a look in-doors here at my house; my wife has been some time expecting me at home quite hungry: now, she'll be worrying me to death with her scolding, if I go in-doors. But, in fine, whatever comes of it, i' faith, I'll not go, but I'll first meet this neighbour of mine before I return home; I want him to hire some house for me, where this damsel may dwell. And, see, he's coming out of doors.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="562" unit="TLN line"/>
+<stage>Enter LYSIMACHUS, from his house.</stage>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>to PASICOMPSA, within</stage>. I'll bring him to you directly, if I meet him.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>behind</stage>. He's meaning me.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>turning about</stage>. How say you, Demipho?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Is the damsel at your house?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What do you suppose?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What if I go see her? <stage>Moves towards the house.</stage></p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Why making such haste? Stay.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What am I to do?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What you ought to do; take care and consider.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Consider what? Why troth, for my own part, I think there's need for my doing this, going in-doors there, I mean.
+</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What, is it so, you old wether? Would you be going in? </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What should I do else?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> First listen to this, and attend; there's something even before this that I think it proper you should do. For if you now go in-doors to her, you'll be wishing to embrace her, chatting with her, and kissing her.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Really you know my feelings; you understand what I would be at. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> You will be doing wrong.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> What, with that which you love?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> So much the less reason. Would you, full of hungriness, with a foul breath, a stinking old fellow, be kissing a woman? And wouldn't you, as you approached, be setting a female vomiting?</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I' faith, I'm sure that you're in love, as you point out these things beforehand to me. What then, if I give a dinner? If you approve of this, let's lay hold of some cook, who may be cooking away a meal<milestone n="573" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Cooking away a meal</lemma>:  "Prandium" here does not mean the morning meal, similar to our breakfast, but a "feast" or "banquet in general.</note> here at your house, even until the evening.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Well, I'm of that way of thinking. Now you are talking wisely, and like a lover.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why are we standing here? Why then don't we be off and procure the provisions, that we may be comfortable?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> For my part, I'll follow you. And, i' troth, you'll be finding out a lodging for her, if you are prudent; for, i' faith, she shan't be at my house a single day beyond the present; I'm afraid of my wife, lest, if she should return from the country to-morrow, she'll be finding her here. <stage>(Exeunt.)</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="588" unit="TLN line"/>
+<stage>Enter CHARINUS, from DEMIPHO's house.</stage>
+<sp><speaker>CHARINUS</speaker><p> <stage>to himself</stage>. Am I not a wretched mortal, who can rest quietly nowhere? If I'm at home, my mind's abroad; but if I'm abroad, my mind's at home. To such a degree. has love kindled a flame in my breast and in my heart; did not the tears fall from my eyes, why then, I doubt, my head would be on fire. I cling to hope; safety I've lost; whether she'll return or no, I know not. If my father seizes her, as he has said, then my welfare is gone in exile; but if my companion has done what he promised, then my welfare has not departed. But still, even if Eutychus had had gouty feet, he could have been back from the harbour by this. This is a very great fault of his, that he is too slow, against the wishes of my feelings. But <stage>looking towards the side</stage> isn't this he whom I espy running? 'Tis he himself; I'll go meet him. <stage>Clasps his hands.</stage> Thou who art the overlooker of Gods and of men and the mistress of mortals as well, inasmuch as thou hast indulged me in this hope that I entertained, I do return thee thanks. Does any hope remain? Alas! I'm utterly undone. His countenance by no means pleases me! He moves along in sadness. My breast burns. I am in doubt. He shakes his head. Eutychus!
+
+<stage>Enter EUTYCHUS.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Alas! Charinus. <stage>He pants.</stage></p></sp>
+<sp><speaker>CHARINUS</speaker><p> Before you take breath, in one word, speak out. Where am I? Here, or among the dead?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You are neither among the dead nor here.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm saved, immortality has been vouchsafed me--he has purchased her. He has nicely tricked my father. There's no one living more clever at gaining his purpose. Prithee, do tell me; if I'm neither here nor at Acheron, where am I?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Nowhere in the world. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm utterly undone! That speech has just put an end to me here. Whatever it is, do come to the material points of the matter.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> First of all, we are ruined.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But why don't you in preference tell me that which I don't know? It is an annoying way of speaking, when you should despatch the business, to be beating about the bush<milestone n="606" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be beating about the bush</lemma>:  <foreign lang="la">Longinquum loqui</foreign>; literally to be talking at a distance."</note>.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> The damsel has been taken away from you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Eutychus, you are guilty of a capital offence.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> How so? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Because you are killing your year's-mate and friend, a free citizen.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> May the Gods forbid it! </p></sp>
+<sp><speaker>CHARINUS</speaker><p> You've thrust a sword into my throat; this moment I shall fall.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Troth now, prithee, don't be desponding in mind.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I have none to be desponding in. Tell on, then, the rest of your bad news; for whom has she been purchased?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I don't know. She had been already knocked down to the bidder and taken off by him, when I got to the harbour.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Ah me! Already, indeed, have you heaped burning mountains of woe upon me. Proceed, executioner, torment me on, since you have once begun.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> This is not more a cause of anguish to yourself, than it has proved to me this day.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Tell me, who bought her?</p></sp>
+<sp><speaker>BUT.</speaker><p> I' faith, I do not know.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Well, is this a good friend giving one his aid?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What would you have me do?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> The same that you see me doing, die with grief. But did you make enquiry, what was the appearance of the person that had bought her? Perhaps the damsel might have been traced out by that means.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Ah! wretch that I am---- </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Do cease lamenting; attend to that which you are now about.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What have I done? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Proved the destruction of myself, and with myself of your own word.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> The Gods know that that is not any fault of mine.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> A fine thing, indeed! You mention the Gods, who are absent, as witnesses; how am I to believe you in that?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Why, it rests with your own self what to believe; with myself, what to say, that rests with me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> On that point you are ready, so as to give answer like for like; but as to what you are requested, you are lame, blind, dumb, defective, and weak. You promised that you would trick my father; I myself supposed that I was entrusting the matter to a skilful person, and I entrusted it to an utter stone.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What could I do?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What could you do, do you ask me? You should have enquired, and asked who he was or whence he was, of what lineage; whether he was a citizen or a foreigner----</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> They said that he was a citizen of <placeName key="tgn,7002681">Attica</placeName>.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> At least, you should have found out where he lives, if you couldn't the name.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> No person was able to say he knew.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But at least you should have enquired what was the appearance of the man. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I did do so.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Of what figure, then, did they say he was?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I'll tell you: grey-headed, bandy-legged, pot-bellied, wide-mouthed, of stunted figure, with darkish eyes, lank jaws, splay-footed rather.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You are mentioning to me not a human being, but a whole storehouse, I don't know what, of deformities. Is there anything else that you can tell about him?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> It is just as much as I know.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I' troth, for sure, with his lank jaws he has caused my jaw to drop<milestone n="639" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He has caused my jaw to drop</lemma>:  Literally, "he has given me a great evil." He puns upon the resemblance of the words "malum," an "evil," and "mala," the "jaw."</note>. I cannot endure it; I'm determined that I'll go hence in exile. But what state in especial to repair to, I'm in doubt; <placeName key="perseus,Megara">Megara</placeName>, <placeName key="perseus,Eretria">Eretria</placeName>, <placeName key="perseus,Corinth">Corinth</placeName>, <placeName key="perseus,Chalcis">Chalcis</placeName>, <placeName key="tgn,7012056">Crete</placeName>, <placeName key="tgn,1000112">Cyprus</placeName>, <placeName key="tgn,7011098">Sicyon</placeName>, <placeName key="tgn,5003757">Cnidos</placeName>, <placeName key="tgn,7011374">Zacynthus</placeName>, <placeName key="tgn,7002672">Lesbos</placeName>, or B&oelig;otia.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Why are you adopting that design?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why, because love is tormenting me.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What say you as to this? Suppose, if when you have arrived there, whither you are now intending to go, you begin there to fall desperately in love, and there, too, you fail of success, then you'll be taking flight from there as well, and after that, again, from another place, if the same shall happen, what bounds, pray, will be set to your exile, what limits to your flight? What country or home can possibly be certain for you? Tell me that. Say now, if you leave this city, do you fancy that you'll leave your love here behind? If it is so fully taken as certain in your mind that so it will be, if you hold that as a point resolved upon, how much better is it for you to go away somewhere in the country, to be there, to live there, until the time when desire for her and passion have set you at liberty?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Have you now said your say?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I have said it. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> You have said it to no purpose; this is my full determination. I'll be off home, to pay my duty to my father and my mother; after that, unknown to my father, I'll fly from this country, or adopt some other plan. <stage>Goes into DEMIPHO'S house, leaving EUTYCHUS alone</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>to himself</stage>. How suddenly he has taken himself off and gone away. Ah! wretch that I am! if he goes away, all will say that it has happened through my remissness. I'm determined at once to order as many criers as possible to be hired to search for her to find her; after that, I'll go to the Pr&aelig;tor forthwith, and beg him to give me search-warrant officers in all the quarters of the city; for I find that nothing else whatever is now left for me to do. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="667" unit="TLN line"/>
+<stage>Enter DORIPPA.</stage>
+<sp><speaker>DORIPPA</speaker><p> <stage>to herself</stage>. Since a messenger came to me in the country from my husband, that he couldn't come into the country, I made up my mind, and came back to follow after him who fled from me. But <stage>looking round</stage> I don't see our old woman Syra following. Aye, look, there she comes at last.
+<stage>with a bundle of green sprigs.</stage></p></sp>
+<sp><speaker>DORIPPA</speaker><p> Why don't you go quicker? </p></sp>
+<sp><speaker>SYRA</speaker><p> By my troth, I cannot; so great is this burden that I'm carrying.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> What burden? </p></sp>
+<sp><speaker>SYRA</speaker><p> Fourscore years and four, and to that are added servitude, sweat, and thirst; these things as well which I am carrying weigh me down.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Give me something, Syra, with which to decorate this altar of our neighbour<milestone n="672" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Altar of our neighbour</lemma>:  She alludes to Apollo Prostatorus: an altar or statue to whom was placed near the doors of most of the houses Athens; see the Notes to the Bacchides.</note>.</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>holding out a sprig</stage>. Present this sprig of laurel, then. DOR. Now do you go into the house.</p></sp>
+<sp><speaker>SYRA</speaker><p> I'm going. <stage>Goes into the house of LYSIMACHUS.</stage></p></sp>
+<sp><speaker>DORIPPA</speaker><p> <stage>laying the sprig on the altar</stage>. Apollo, I pray thee that thou wilt propitiously grant peace, safety, and health, unto our household, and that in thy propitiousness thou wilt show favour to my son.
+<stage>rushes out of the house, clapping her hands.</stage></p></sp>
+<sp><speaker>SYRA</speaker><p> I'm utterly undone! Wretch that I am, I'm ruined! Ah! wretched me! </p></sp>
+<sp><speaker>DORIPPA</speaker><p> Prithee, are you quite in your senses? What are you howling for?</p></sp>
+<sp><speaker>SYRA</speaker><p> Dorippa, my dear Dorippa! </p></sp>
+<sp><speaker>DORIPPA</speaker><p> Prithee, why are you crying out?
+</p></sp>
+<sp><speaker>SYRA</speaker><p> Some woman, I know not who, is here in-doors in the house.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> What? A woman? </p></sp>
+<sp><speaker>SYRA</speaker><p> A harlot woman.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Is it so, really? </p></sp>
+<sp><speaker>SYRA</speaker><p> In serious truth. You know how to act very prudently, in not remaining in the country. A fool even could have found it out that she was the mistress of your very pretty husband.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> By heavens, I believe it.</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>taking her arm</stage>. Step this way with me, that you, my Juno, may see as well your rival Alcmena.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I' troth, I certainly shall go there, as fast as I can. <stage>They go into the house of LYSIMACHUS.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="692" unit="TLN line"/>
+<stage>Enter LYSIMACHUS.</stage>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>to himself</stage>. Is this too little of a misfortune that Demipho's in love, that he must be extravagant as well? If he had been inviting ten men of highest rank to dinner, he has provided too much. But the cooks he directed in such a way just as at sea the time-keeper<milestone n="692" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The time-keeper</lemma>:  The time was given to the rowers by the "pausarius," who is here called "hortator." The directions he gave were called 'celeusma," from the Greek <foreign lang="greek">keleu/w,</foreign> "to order." Lysimachus probably means that Demipho has hired whole ranks of them</note> is wont to direct the rowers. I hired a Cook myself, but I'm surprised that he hasn't come as I directed him. But who's this, I wonder, that's coming out of my house? The door's opening. <stage>He stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="700" unit="TLN line"/>
+<stage>Enter DORIPPA, from the house of LYSIMACHUS.</stage>
+<sp><speaker>DORIPPA</speaker><p> <stage>weeping</stage>. No woman ever will be, or ever has been, more wretched than myself in being married to such a husband. Alas! unhappy that I am! Just see, to what a husband have you committed yourself and the property you have! Just see, to what a person I brought ten talents for a portion; that I should see these things, that I should endure these insults.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>behind</stage>. I' troth, I'm undone; my wife's returned from the country already. I do believe she has seen the damsel in the house. But what she says I cannot distinctly hear from hence; I'll go nearer to her. <stage>Approaches her.</stage></p></sp>
+<sp><speaker>DORIPPA</speaker><p> Ah! woe to wretched me!</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>behind</stage>. Aye, and to me as well.
+</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I'm utterly undone!</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>behind</stage>. As for me, i' faith, to my sorrow I'm downright undone! she has seen her. May all the Gods confound you, Demipho!</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I' troth, this was it, why my husband wouldn't go into the country.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>behind</stage>. What shall I do now, but go up and speak to her? <stage>Goes up to her.</stage> The husband bids health to his wife. Are the country people<milestone n="710" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are the country people</lemma>:  There has been much discussion as to the meaning of this passage; it seems, however, pretty clear that it is only an indirect way of asking Dorippa why she has so suddenly left the country for town. Colman thinks, with some of the older Commentators, that Dorippa pouts, and makes no return to her husband's salutation, on which he observes that the town gentry are grown as unmannerly as the country bumpkins. The context will admit of this explanation, but it seems rather far-fetched.</note> becoming townsfolk?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> They are acting more decently than those who are not become country people.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Are the people in the country at all in fault?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I' faith, less so than the townsfolk, and much less mischief do they meet with for themselves.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> But in what have the townsfolk done wrong? Tell me that. </p></sp>
+<sp><speaker>DORIPPA</speaker><p> Whose woman is that in the house?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What, have you seen her?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I have seen her. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Whose is she, do you ask?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I shall find out, in spite of you; i' faith, I long to know. But you are trying me on purpose.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Do you wish me to tell you whose she is? She, she---- <stage>Aside.</stage> Ah me! upon my faith, I don't know what to say.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Do you hesitate?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside</stage>. I never saw one who did it more.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> But why don't you tell me?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Nay, but if I may---- </p></sp>
+<sp><speaker>DORIPPA</speaker><p> You ought to tell me.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I cannot, you hurry me so; you press me as though were guilty.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> <stage>ironically</stage>. I know you are free from all guilt.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Speak out as boldly as you please.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Tell me, then. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I, tell you?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Why, it must be told, in spite of everything.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> She is---- Do you wish me tell her name as well?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> You are trifling. I've caught you in the fact; you are guilty.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Guilty of what? If now I had no occasion for silence, now I shouldn't tell you<milestone n="726" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I shouldn't tell you</lemma>:  This he says, in his confusion, by mistake for "I should tell you."</note>. Why, this same woman is --</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Who is she? </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> She----</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Marry, come up! don't you know who she is?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Why, yes, I do know. I've been chosen as an arbitrator with respect to her. </p></sp>
+<sp><speaker>DORIPPA</speaker><p> An arbitrator? Now I know; you have invited her here to consult with you.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Why no; she has been given me as a deposit.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> <stage>ironically</stage>. I understand.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> By my troth, it's not anything of that sort.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> You are clearing yourself too soon<milestone n="732" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Clearing yourself too soon</lemma>:  "Numero." Rost thinks that this means "you have quite," or "satisfactorily cleared yourself;" Dorippa, of course, saying so in an ironical manner. She seems, however, rather to allude to his defending himself before he is accused. Lysimachus pretends that some persons have disputed the possession of Pasicompsa, and that she has been left in his hands by mutual consent, till he has given his decision.</note>.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside</stage>. Too much of a business have I met with; really I'm stuck fast.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="741" unit="TLN line"/>
+<stage>Enter a COOK, at a distance, with SCULLIONS and provisions.</stage>
+<sp><speaker>A COOK.</speaker><p> Make haste, get quickly on, for I've got to cook a dinner for an old gentleman in love. And, in fact, when I think of it again, it's to be cooked for ourselves, not him for whom we've been hired: for a person that's in love, if he has that with which he is in love, he esteems that as food, to see her, embrace her, kiss her, chat with her; but we, I trust, shall return well laden home. Step this way. But see, here's the old gentleman that hired us.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside</stage>. Why, look! I'm undone! here's the Cook.</p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>going up to LYSIMACHUS</stage>. We are come.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Be off! </p></sp>
+<sp><speaker>A COOK.</speaker><p> How, be off?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>in a low voice</stage>. Hush! Be off!</p></sp>
+<sp><speaker>A COOK.</speaker><p> What, I, be off? </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Be off, I say.</p></sp>
+<sp><speaker>A COOK.</speaker><p> Are you not going to have a dinner?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> We are full already.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> But---- </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside</stage>. I'm utterly undone.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> What say you? Have those persons ordered these things to be brought to you as well, between whom you were appointed arbitrator?
+</p></sp>
+<sp><speaker>A COOK.</speaker><p> Is this person <stage>pointing to DORIPPA</stage> your mistress, whom a little time since you told me you were in love with, when you were buying the provisions?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Won't you hold your tongue? </p></sp>
+<sp><speaker>A COOK.</speaker><p> A very pretty figure of a woman.! I' faith, she does love a sweetheart.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Won't you be off to perdition?</p></sp>
+<sp><speaker>A COOK.</speaker><p> She's not amiss. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> But you are amiss.</p></sp>
+<sp><speaker>A COOK.</speaker><p> I' troth, I do fancy she's a nice bed-fellow.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Won't you be off? I'm not the person that hired you just now.</p></sp>
+<sp><speaker>A COOK.</speaker><p> How's that? Nay but, upon my faith, you are that very man. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside</stage>. Alas wretch that I am!</p></sp>
+<sp><speaker>A COOK.</speaker><p> Your wife's in the country, I suppose, whom you were saying a little time ago you hated full as much as vipers.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I, said that to you?</p></sp>
+<sp><speaker>A COOK.</speaker><p> Aye, to me, upon my faith.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> So may Jupiter love me, wife, I never did say that.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Do you deny that as well?</p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>to DORIPPA</stage>. He didn't say he hated you, but his wife. </p></sp>
+<sp><speaker>DORIPPA</speaker><p> This is made clear, that you detest me.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> But I deny it.</p></sp>
+<sp><speaker>A COOK.</speaker><p> And he said that his wife was in the country.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>pointing to DORIPPA</stage>. This is she. Why are you annoying me? </p></sp>
+<sp><speaker>A COOK.</speaker><p> Because you say that you don't know me. Are you afraid of her?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I'm wise in being so; for she's my only companion.</p></sp>
+<sp><speaker>A COOK.</speaker><p> Do you wish to use my services?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I don't wish. </p></sp>
+<sp><speaker>A COOK.</speaker><p> Give me my pay.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Ask for it to-morrow; it shall be given you; for the present, be off. <stage>Aside.</stage> Alas, wretch that I am! I now find that that old saying is a true one, that some bad comes through a bad neighbour.</p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>to the SCULLIONS</stage>. Why are we standing here?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Why don't you be gone?</p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>aside to LYSIMACHUS</stage>. If any inconvenience happens to you, that's not my fault.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside to the COOK</stage>. Why, you are utterly ruining wretched me</p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>aside to LYSIMACHUS</stage>. I understand now what you want. You mean, you wish me to go away from here.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside to the COOK</stage>. I do wish it, I say.
+</p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>aside to LYSIMACHUS</stage>. I'll be off. Pay me a drachma. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside to the COOK</stage>. It shall be paid.</p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>aside to LYSIMACHUS</stage>. Then order it to be paid me, please. It can be paid in the meantime, while they are putting down the provisions.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>aside to the COOK</stage>. Why don't you be off? Can't you cease being troublesome? <stage>Slips the money into his hand.</stage></p></sp>
+<sp><speaker>A COOK.</speaker><p> <stage>to the SCULLIONS</stage>. Come, do you set down those provisions before the feet of that old gentleman. These baskets I'll order to be fetched from your house either by-and-by or else to-morrow. <stage>To the SCULLIONS.</stage> Do you follow me. <stage>Exeunt, having set down the provisions.</stage>
+</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Perhaps you are surprised at that Cook, that he came and brought these things. I'll tell you why it is.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I'm not surprised if you do anything wrongful or criminal; and, by heavens, I'll not put up with it, that I am married thus unfortunately, and that harlots are brought into my house in this way. Syra, go ask my father, in my name, to come here directly together with you.</p></sp>
+<sp><speaker>SYRA</speaker><p> I'll go.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Prithee, wife, you don't know what the matter is. In set form now will I make oath, that I have never had anything to do with her. <stage>Exit SYRA.</stage> What, is Syra gone now? By heaven, I'm undone! <stage>DORIPPA goes into the house.</stage>
+</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>to himself</stage>. But, see, she's off as well! Woe to wretched me! Then, neighbour Demipho, may the Gods and Goddesses confound you, together with your mistress and your intriguings! He has most unjustly loaded me with suspicions; he has stirred up enemies against me. At home my wife is most infuriated. I'll be off to the Forum, and tell this to Demipho, that I'll drag this woman by the hair into the street, unless he takes her hence out of this house wherever he chooses. <stage>Goes to the door and calls.</stage> Hark you! wife, wife! although you're angry at me, you'll order, if you are wise, these things to be carried hence indoors. We shall be able by-and-by to dine all the better upon the same.
+</p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="803" unit="TLN line"/>
+<stage>Enter SYRA and EUTYCHUS, at a distance, on opposite sides.</stage>
+<sp><speaker>SYRA</speaker><p> <stage>to herself</stage>. Whither my mistress sent me, to her father ----, he's not at home; they said that he has gone off into the country. Now, I'll take home this answer. I' faith, the women do live upon hard terms, and, wretched creatures, on much more unjust ones than the men. For if a husband has been keeping a mistress without the knowledge of his wife, if the wife comes to know it, the husband gets off with impunity; if, unknown to the husband, the wife goes from the house out of doors, a pretext arises for the husband, the marriage is dissolved<milestone n="803" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The marriage is dissolved</lemma>:  She alludes to the facility with which at Rome, where the Play was performed, wives were divorced on the merest suspicion of infidelity.</note>. I wish the law was the same for the husband as for the wife; for the wife that is a good one, is content with one husband; why, any the less, should the husband be content with one wife? By my troth, I'd give cause, if men were punished in the same way (if any one should be keeping a mistress unknown to his wife), as those women are repudiated who are guilty of a slip, that there should be more divorced men than there are women now.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>to himself, apart</stage>. I'm quite tired with hunting the whole city through; I find nothing whatever about this woman. But my mother has returned from the country; for I see Syra standing before the house. Syra!</p></sp>
+<sp><speaker>SYRA</speaker><p> Who is it that's calling me?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> 'Tis I, your master and foster-child.</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>turning round</stage>. Save you, my foster-child. EUT. Has my mother returned from the country then? Answer me.</p></sp>
+<sp><speaker>SYRA</speaker><p> Aye, for her own especial sake and that of the family.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What is it that's the matter?</p></sp>
+<sp><speaker>SYRA</speaker><p> That very pretty father of yours has brought a mistress into the house.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> How say you? </p></sp>
+<sp><speaker>SYRA</speaker><p> Your mother, on arriving from the country, found her at home.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> By my troth, I didn't think my father was a person for those practices. Is the woman now even still in-doors?</p></sp>
+<sp><speaker>SYRA</speaker><p> Even still.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Do you follow me. <stage>He goes into the house of LYSIMACHUS.</stage>
+</p>
+<p>[</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>to herself</stage>. How now<milestone n="823" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">How now?</lemma>:  From the commencement of this line to the end of the act is generally considered to be spurious; probably it is the work of some zealous critic of the middle ages, who fondly thought to improve the Play as it stood. He introduces Peristrata as complaining of the conduct of her husband, in depriving her son of his mistress, but never suspecting what is the true state of the case; an opportunity for a Comic dilemma, which Plautus himself, had he intended to introduce the character, would probably not have neglected.</note>? Do I see Peristrata here, the wife of Demipho? She quickens her pace; she glances about with her eyes; she turns herself round; she inclines her neck on one side. I'll observe from here what matter she's about; it's something of importance, whatever scent she's upon. <stage>Stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="829a" unit="TLN line"/>
+<stage>Enter PERISTRATA and LYCISSA, from the house of DEMIPHO.</stage>
+<sp><speaker>PERISTRATA</speaker><p> The Goddess Astarte<milestone n="829b" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Goddess Astarte</lemma>:  Astarte. The author seems to allude to Venus under this name. Cicero tells us that Astarte was the Syrian Venus. This soliloquy of Peristrata is very obscure and confused, and couched in most crabbed language, but her intention seems to be to descant upon the supreme sway of love.</note> is the might of mortals and of the Gods, their life, their health; she, the same, who is likewise their death, destruction, downfall, the seas, the earth, the heaven, and the stars. Whatever Temples of Jove we inhabit, they are guided by her nod; her do they obey; to her do they pay regard; what displeases her, the other Deities do quickly put aside. Whatever pleases her, that, all things, which live and have sense, do pursue. Some she tortures, destroys; others, with her own milk does she nourish and raise aloft; but those whom she tortures, they live and enjoy their senses; those whom she hastens to rear and raise aloft, these last indeed do perish forthwith, and to their sorrow use their senses. Then, well-wishers, they lie prostrate, objects of dislike they bite the ground, grovel upon their faces, roar out, and make a riot; and when they think they live, then in especial do they rush on to ruin, then, then do they show eagerness in the pursuit of the object beloved; young men stumble, aged men likewise are led away. They love themselves; the object which they love, they wish to be loved and known. But if at that age they begin to fall in love, much more grievous is their madness. But if they do not love, then they hate, they are morose, too, and wayward; tattlers, haters, ill-disposed, passionate, envious for themselves and theirs. What they have formerly been shamelessly guilty of themselves, if it is done in a more quiet way, fathers do not tolerate as they ought to do; but they proclaim it, and indecently cry it out aloud.</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>apart</stage>. So far as I understand, Demipho is treating this lady badly too.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> This is the truth. My son is in love and is dying; when his father came to know of it, he was enraged beyond bounds. What insanity is this? This same husband of mine at one time packed my son off to Rhodes to traffic; now, according to the news Acanthio brings, he'll be betaking himself into banishment. O unjust father! O unfortunate son! whither will you betake yourself? Where will you leave your mother? Shall I pass my life bereft? Shall I lose my son? I will not endure it. Has his father sold her? Wherever she shall be found, the mother will redeem her. Do you tell me, Lycissa, do they suppose that she was brought into this neighbourhood?</p></sp>
+<sp><speaker>LYCISSA</speaker><p> <stage>pointing to the house of LYSIMACHUS</stage>. To that, I fancy; to the house of a certain old gentleman, a friend.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Here, there is no one that 1 know of besides Lysimachus.</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>apart</stage>. They are mentioning Lysimachus. It's a wonder if the old fellows, who are neighbours, haven't been going halves in the same nest.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> I'll go look for Dorippa, his wife. <stage>The door of the house of LYSIMACHUS opens.</stage></p></sp>
+<sp><speaker>LYCISSA</speaker><p> Why go look for her? Don't you see her?</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Indeed, I do see her. Let's listen; she's muttering something in a passion, I know not what, to herself. <stage>They stand aside.</stage></p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="829c" unit="TLN line"/>
+<stage>Enter DORIPPA, from the house of LYSIMACHUS.</stage>
+<sp><speaker>DORIPPA</speaker><p> <stage>to herself</stage>. Syra hasn't come back, whom, poor wretch, it's now a long time since I sent to fetch my father; in her very slowness, she has either hardened into a stone, or she has stopped from swelling with the sting of a serpent.</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>apart</stage>. I'm undone; here's my mistress, she's looking after me.
+</p></sp>
+<sp><speaker>DORIPPA</speaker><p> <stage>continuing</stage>. I cannot remain at home; my eyes cannot abide that pretty young harlot; I would have shut her out of doors, but my son Eutychus prevented me. Still, I shan't altogether believe the news he brings.</p></sp>
+<sp><speaker>LYCISSA</speaker><p> <stage>apart</stage>. Do you hear, mistress?</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> <stage>apart</stage>. I hear; let her go on.</p></sp>
+<sp><speaker>LYCISSA</speaker><p> <stage>apart</stage>. I'll let her. DOR. <stage>to herself</stage>. He says that she has come hither to our house for the sake of an old gentleman, a friend; that he has her for sale, so that he may withdraw her from his son, who's in love with her. This really is a falsehood, either in my husband or my son; the accounts differ. The husband says that she was given him as a deposit; but the son says that she's on sale.</p></sp>
+<sp><speaker>SYRA</speaker><p> <stage>apart</stage>. I'll go meet her on a sudden, that she mayn't find out that I've been loitering.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> In this matter I shan't believe my son, who's acting in compliance with his father; for, for him, like a regular cuckoo<milestone n="829d" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A regular cuckoo</lemma>:  Plautus, on more than one occasion, calls an adulterer by this epithet.</note>, has he determined to tell abundance of lies: for my own part I shall believe the Cook, in preference. But see, here's Syra. How the old witch does run. Syra!</p></sp>
+<sp><speaker>SYRA</speaker><p> Who's calling me? <stage>Stares around her.</stage></p></sp>
+<sp><speaker>DORIPPA</speaker><p> The Gods send a plague upon you!</p></sp>
+<sp><speaker>SYRA</speaker><p> Mistress, if you are wise, bestow this upon your rival and your husband in preference.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> For saying that, I'm no longer angry with you. But where's your father? Why does he delay? Does gout hinder the man?</p></sp>
+<sp><speaker>SYRA</speaker><p> He's lame with neither gout nor chalk-stones<milestone n="829d" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nor chalk- stones</lemma>:  "Articularius" Literally, "having a disease in the ioints."</note>, whom his feet carry into the country.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Not at home? </p></sp>
+<sp><speaker>SYRA</speaker><p> No.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Where then?</p></sp>
+<sp><speaker>SYRA</speaker><p> They say he's in the country, and that it's uncertain whether he'll return to-day, he has such a large account with his bailiff.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Everything is befalling me this day contrary to my wishes. I shan't live till the evening, unless I drive that hussy away from the house. <stage>She turns to the door.</stage> I'm going home.
+</p></sp>
+<sp><speaker>LYCISSA</speaker><p> <stage>apart</stage>. The mistress is going away.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> <stage>apart</stage>. What, going away? Call her.</p></sp>
+<sp><speaker>LYCISSA</speaker><p> <stage>calling</stage>. Dorippa! Dorippa!</p></sp>
+<sp><speaker>DORIPPA</speaker><p> <stage>turning round</stage>. What nuisance is this? Who's calling me back?</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> I'm not a nuisance, but a well-wisher; and it's your friend Peristrata addresses you. Prithee, do stay.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Why, Peristrata--i' faith, I didn't know you: dreadful vexation is tormenting and agitating me.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> This I enquire about--prithee don't deny me. I heard you just now; tell me what annoyance is troubling you.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Peristrata, so may the Gods prosper your only son, do kindly lend me your attention; none could be given me more agreably: our ages are alike; together we grew up; we have husbands alike in age; with no one do I converse with greater pleasure. I'm really annoyed with good reason. What now would your feelings be, if at this time of life your husband Demipho were to bring a mistress before your eyes?</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Has he brought one? </p></sp>
+<sp><speaker>DORIPPA</speaker><p> So it is.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> She's at your house?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> At my house; aye, and cooks were hired; a banquet was being prepared, if my coming hadn't upset everything. Venus and Cupid are tormenting the wretched old fellow at an unseasonable time.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> But these things are trifles, Dorippa. I wish that I wasn't more wretched.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Trifles? </p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Really trifles.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> What worse could your husband do?</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Aye, worse than worse.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> What is it? Prithee do say. As you to me, so I to you, let's give advice to each other what needs to be done, It's an old saying, that, "he's truly wise who is wise at the risk of another."</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Dorippa, I have an only son; do you know that?</p></sp>
+<sp><speaker>DORIPPA</speaker><p> I do know it.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Him his father some time ago packed off from his own house to Rhodes.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> For what reason? </p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Because he was in love.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> For that very thing?
+</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Yes, and the very same thing now as well--inasmuch as he had brought a female slave here, his father coming to know of it, took her away, and put her up for sale.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Aye, aye, I know it; my son told me the truth. I fancied she was the mistress of my husband. To whom was she entrusted?</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> To a certain old gentleman in this neighbourhood, his friend. I think that he has no other friend here except your husband.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> <stage>aside</stage>. It certainly is she. <stage>To PERISTRATA.</stage> What does your son?</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> He declares that he'll leave this city.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> The matter's in a safe position. What if he finds her? </p></sp>
+<sp><speaker>PERISTRATA</speaker><p> I imagine he'll stay.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Beyond expectation we are saved; don't doubt it; she's at my house.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> At your house? It was she, I suppose, about whom I heard you talking just now. </p></sp>
+<sp><speaker>DORIPPA</speaker><p> It was she.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> O well done; I love you with reason; you've restored me my son. Do let me see her.</p></sp>
+<sp><speaker>DORIPPA</speaker><p> Let's go in-doors then.</p></sp>
+<sp><speaker>PERISTRATA</speaker><p> Let's go. <stage>Turning round.</stage> Come here, Lycissa. Do you go tell these things to Acanthio. I'll go here to Dorippa's house.
+<stage>Exit LYCISSA. DORIPPA, PERISTRATA, and SYRA go into the house of LYSIMACHUS.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="830" unit="TLN line"/>
+<stage>Enter CHARINUS, from the house of DEMIPHO, in a travelling habit.</stage>
+<sp><speaker>CHARINUS</speaker><p> <stage>looking towards the door</stage>. O higher and lower<note anchored="yes"><lemma targOrder="U">Higher and lower</lemma>:  According to some writers, the threshold was sacred to Vesta Tertullian mentions a Deity called "Limentinus," or "the God of the Threshold."</note> portions of the threshold, now both of you farewell. This day for the last time do I raise this foot within my father's house. The ease, the enjoyment, the in-dwelling, the habitation of this house is henceforth for me cut off, destroyed, and alienated. I am undone! The household Gods of my parents, the Lar the father of the family<milestone n="834" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Father of the family</lemma>:  The "Lares" seem to have been divided into two classes--the private and the public Lares. The private, or "familiares," were probably the same as the "Penates," under another name. The public Lares were the "urbani," presiding over the cities; "rustici," over the country; "compitales," over cross-roads; "marini," over the sea.</note>, to you do I recommend, that you will kindly protect the possessions of my parents. I shall now seek other household Gods for myself, another Lar, another city, another state. The people of Attica I do detest; for where worse manners are on the increase every day, where, those who are friends, those who are faithless, you are not able, to distinguish, and where that is torn away from you, which especially pleases your taste, there, in fact, if a kingdom were given one, that country is not desirable. <stage>Stands aside in deep thought.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="842" unit="TLN line"/>
+<stage>Enter EUTYCUHS, from the house of LYSIMACHUS, at a distance.</stage>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>to himself</stage>. Thou who art the overlooker of Gods and of men, and the mistress of mortals as well, inasmuch as thou hast indulged me in this hope that I entertained, I do return thee thanks. What Deity is there now that is joyous with gladness like mine? That was at home which I was in search of. There did I find six companions, life, friendship, my native land, festivity, mirth, and jollity. On finding these, at the same moment did I utterly destroy ten very bad things, wrath, hatred, folly, ruin, perverseness, grief, tears, exile, want, and loneliness. Ye Gods, I pray you grant me a speedy opportunity of meeting him.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>to himself, not seeing EUTYCHUS</stage>. I'm ready prepared, as you see. Pride I cast aside; I'm my own companion, attendant, horse, groom, esquire; I'm my own master, I, too, obey myself; for my own self do I carry what I require. O Cupid! how powerful art thou. For easily dost thou render any one resolute through thy deeds, and then again, the same person diffident forthwith from being over bold.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>to himself</stage>. I'm thinking which way to run in search of him.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>continuing</stage>. The matter's resolved upon, that I'll seek her everywhere, wherever in the world she has been carried off from hence; and neither shall any river stand in my way, nor mountain, nor the sea, indeed, nor heat, nor cold; I dread neither wind nor hail; the torrents of rain I'll submit to; labour, heat, and thirst, will I endure. I'll neither stop nor rest anywhere at night, or in the day, assuredly, before I shall have met with either my mistress or my death.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>looking round</stage>. Some voice, I know not who's, flew to my ear. CHAR. <stage>continuing</stage>. You do I invoke, ye Lares of the roads<milestone n="865" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Lares of the roads</lemma>:  He seems here to allude to the class of Lares who were usually called "Compitales," and whose statues were erected at the cross-roads. Varro tells us that there were 265 stations for Lares at the corners of the streets of Rome.</note>, that you will kindly lend me aid.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>seeing CHARINUS</stage>. Jupiter! isn't that Charinus?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>turning round</stage>. Fellow-citizens, fare ye well.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>aloud</stage>. Charinus, stop, this instant.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Who calls me back? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Hope, Safety, Victory.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What do you want with me?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> To go along with you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Look for another companion; these companions that have possession of me, will not part with me.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Who are they? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Care, misery, sickness, tears, and lamentation.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Drive away those companions, and look this way and return. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> If indeed you wish to speak to me, do you follow. <stage>Moves on.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Stop, this instant! </p></sp>
+<sp><speaker>CHARINUS</speaker><p> You do amiss, in delaying me as I haste; the sun is setting.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> If you would make haste in this direction, just as you are hastening in that one, you'd be doing more rightly; this way there is now a prospering gale, only tack about. Here is a fair Westerly breeze; there is a showery Southern blast. The one causes a calm; the other stirs up all the waves. Betake yourself towards the land, Charinus, in this direction. Don't you see right opposite? Black clouds and showers are coming on. Look now to the left, how full the heaven is of brightness. Don't you see right opposite?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> He has thrown religious scruples<milestone n="881" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Thrown religious scruples</lemma>:  He considers the remark made by Eutychus as ominous, which it would be impious for him to disregard.</note> in my way; I'll betake myself in that direction. <stage>Turns towards EUTYCHUS.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You are wise. O Charinus, turn your steps, and turn your feet as well, in the opposite direction, Extend your arm. Catch hold of me. Do you hold me new?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm holding you.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Hold on, then. Whither now were you going?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Into banishment. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What to do there?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> As a wretched person would. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Don't fear; this instant shall I restore you to joyousness before you go away.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm going. <stage>Moves.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> A thing that you especially long to hear, the same shall you hear for you to rejoice at. Stay this instant; I'm come as a friend, full of the kindest feelings.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What is it? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Your mistress----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What of her? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I know where she is.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Prithee, do you? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> She's safe and sound.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Where is she safe? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I know where.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'd much rather I did.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Can't you possibly be calm in your feelings?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What if my feelings are agitated?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I'll bring them for you into a safe and tranquil state; don't you fear.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Prithee * * * do say where she is --where you've seen her. Why are you mute? Speak--you are torturing to death wretched me by your silence.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> She isn't far from here.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why then don't you point her out, if you see her?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I' faith, I don't see her at this moment; but I saw her just now.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why, then, don't you cause me to see her?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I will cause it.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> That means a long time for one in love.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Are you still in apprehension? I'll disclose it all. No person is there living more beloved by me than is he who has got her; nor is there one to whom it is right that I should be a better wisher.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I don't care about that; I'm looking for her.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> About her, then, I'm telling you. Really, this has not come into my mind but this moment, to tell it you----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Tell me, then, where she is. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> In our house.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> If you are telling the truth, a worthy house, and aptly built, I deem it. But how am I to credit that? Have you seen her; or do you speak from hearsay?
+</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I've seen her myself.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Who took her to your house?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Why, you're asking an unfair question. What matters it to you with whom she came?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> So long as she's there---- </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> She certainly is.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Then, for these tidings, do you wish whatever you please. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What if I do wish?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Pray to the Gods to bring its fulfilment.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You are laughing at me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> My fortunes, in fine, are redeemed, if I can see her. But why don't I lay aside this garb? <stage>Goes to the door of DEMIPHO'S house, and calls.</stage> Hallo, somebody, come here this instant out of doors. Come out, and bring me thence a cloak this way.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Well, now how much you do gratify me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>to a BOY who enters, bringing his cloak</stage>. You boy, who have come with such speed, take my scarf <stage>giving it</stage>, and now stand aside there; that, if these things are not true, I may hasten to go upon this intended journey. <stage>To EUTYCHUS.</stage> Are you telling the truth?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Really, Charinus, you are not ashamed of anything. Don't you believe me?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> For my part, I really do believe everything that you tell me. But why don't you introduce me to her, that I may see her?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Wait a little. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why am I to wait?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> It's not a convenient moment to go into the house.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You are torturing me to death. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> There's no need, I tell you, for you to go into the house just now.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Answer me-for what reason?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> She's not at leisure. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why so?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Because it isn't convenient to her.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Is it so? Not convenient to her who loves me, and whom I love in return? He's trifling with me in every way. I'm too foolish to believe him. He's only delaying me. <stage>Turns to the BOY.</stage> I'll put on my scarf again.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Stop a little, and listen to this.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>taking off the cloak</stage>. You boy, take this cloak<milestone n="922" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take this cloak</lemma>:  Though commonly rendered "cloak," the pallium" differed materially from that article of dress. It was a square piece of cloth, which came direct from the loom in that shape, and required no cutting out by the tailor. The "pallia" were mostly worn in an undyed state, consequently white, brown, and grey were the prevailing colours. They were sometimes dyed of crimson, purple, and saffron colour. Sometimes they were striped, like our plaids or checks. Flowers were sometimes interwoven, and occasionally with gold thread. Wool was the most common material. They were not only used for wearing, but for spreading over beds and couches, and covering the body during sleep. Sometimes they were used as carpets, and sometimes as awnings or curtains; and indeed the word as often means "a blanket" as a garment. When worn, the "pallium" was passed over the left shoulder, then drawn behind the back and under the right arm, leaving it bare, and then thrown again over the left shoulder See Dr. Smith's Dictionary of Greek and Roman Antiquities.</note>, please. <stage>Puts on the travelling scarf.</stage>
+</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Really this hasn't come but this moment into my mind to tell it you. My mother's dreadfully angry with my father, because he has brought into the house a harlot before her very eyes, while she was away in the country. She suspects that she's his own mistress.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>not attending to him</stage>. I've taken up my belt<milestone n="925" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My belt</lemma>:  The "zona," "girdle" or "belt," would be employed by the traveller to tuck up his long clothing, for the sake of expedition; it was also used either as a purse or for the purpose of holding the purse. The traveller would require his sword for the purposes of safety, while the "ampulla," or "leather bottle," was to hold the oil with which the feet were anointed when galled with walking.</note>. <stage>Puts it on.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> She's now enquiring into this matter in-doors.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>inattentive</stage>. Now my sword's in hand. <stage>Taking it from the BOY.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> But if I were now to introduce you?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>inattentive</stage>. I'll take my bottle, and be off from here. <stage>Moves.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Stop, stop, Charinus!</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You are mistaken; you can't deceive me.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> And, i' faith, I have no wish.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why, then, don't you allow me to proceed upon my journey? </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I won't let you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm delaying myself. Boy, do you this instant be off hence in-doors. <stage>The BOY goes into the house.</stage> Now I've ascended the chariot; now I've taken the reins in my hands. <stage>Imitating the action of a charioteer.</stage></p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You are not in your senses.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Feet of mine, why don't ye betake yourselves into the chariot, straight for Cyprus, since my father determines on my banishment?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> You are silly. Prithee, don't be saying this.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>as though to himself</stage>. I'm resolved to persist--to use my endeavours to seek her out where she is.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Why, she's at our house.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>as though to himself</stage>. For what that person said, he told a falsehood in it.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Really, I told you the truth.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>continuing</stage>. Now I've come to Cyprus.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Nay, but follow me, that you may see her whom you are looking for. <stage>Moves towards his FATHER'S house.</stage></p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>pretending not to hear</stage>. Enquiring there, I didn't find her. EUT. I'll not care then for my mother's anger.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>still pretending</stage>. I'll still go on to seek her. Now I've got to Chalcis; I see there my former host at Zacynthus; I tell him why I've come thither; I make enquiry if he has heard say who has brought her thither, who has got possession of her.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Why don't you cease that nonsense, and step with me this way in-doors? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>still pretending</stage>. My host answered that figs grew, not bad ones, at Zacynthus.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> He didn't say false there.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>continuing</stage>. But he says that he has heard about my mistress, that she's here at Athens.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Really, this Zacynthian is quite a Calchas<milestone n="939" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Calchas</lemma>:  The soothsayer who attended the Grecian army to Troy.</note>.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>continuing</stage>. I get aboard ship, and start at once. I'm now at home; now I've returned from banishment. My friend, Eutychus <stage>turning towards him</stage>, greetings to you! How have you been? How are my parents? Are they well? Do you come to my mother, you say--you invite me kindly; you speak politely. At your house to-morrow; for the present at home. So it is proper; so it ought to be done.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> How now? What are you dreaming about? This man's not in his senses. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why don't you, as a friend, make haste to cure me then?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Follow me, please. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>running close behind him</stage>. I'm following.
+</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>turning round</stage>. Softly, pray; you are treading on my heels. Don't you hear me?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I've heard you for some time past.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I want a reconciliation to be made between my father and mother; for now she's in a passion----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>pushing him</stage>. Only do go on. EUT. About that woman----</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>pushing him</stage>. Only do go on.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Therefore take care---- </p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>pushing him</stage>. Nay, but do go on then; I'll make her as mild as Juno is when she's kind to Jupiter. <stage>They go into the house of LYSIMACHUS.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="957" unit="TLN line"/>
+<stage> Enter DEMIPHO and LYSIMACHUS.</stage>
+<sp><speaker>LYSIMACHUS</speaker><p>[Demipho<note anchored="yes">This, and the next ten lines, are generally looked upon as spurious. They have probably been inserted by some busy interpolater, to supply what Plautus had intended us to suppose as having transpired between Demipho and Lysimachus before they enter.</note>, this saying of the wise, I think you have often heard, "Pleasure is the bait for misfortune;" because, by it, not less are men aught than are fishes with the hook Although aged people fly from it, still you don't pay that regard to your old age: since it hasn't even withdrawn love from you, but has forced you to it even more vehemently. Wherefore it utterly confounds yourself and your understanding and your mind, and dazzles your eyesight. Myself too have you brought into great trouble, and I know not what to do,</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Lysimachus, this is the will of the Gods, not of men. If you reflect upon this with yourself, you will be of opinion that you are not doing right, in censuring so heavily a person your friend and the sharer of your secrets.] As though you yourself had never done anything like this action.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> By heavens, never. I took care not to do anything: wretch that I am, I am scarcely alive; for my wife is lying all in a ferment about her.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But I'll undertake to clear you, so that she mayn't be angry. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Follow me--but I see my son coming out.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="962" unit="TLN line"/>
+<stage>Enter EYTUCHUS, from the house of LYSIMACHUS.</stage>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>as he comes out, to CHARINUS, within</stage>. I'll go to my father, that he may know my mother's wrath is appeased. I'll return just now.
+</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> <stage>to DEMIPHO</stage>. The beginning pleases me. <stage>Going up to EUTYCHUS.</stage> What are you about? How goes it, Eutychus?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Extremely opportunely have you both met me.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What's the matter?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Your wife is peaceful and appeased. Give me your right hands this moment. <stage>Shakes hands with them both.</stage></p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> The Gods are favouring me.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>to DEMIPHO</stage>. I bring you word that you have got no mistress. </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> The Gods confound you. Why, prithee, what affair is this?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I'll tell you. Give your attention then, both of you.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Well then, we are giving you our attention, both of us.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Those who are born of a good family, if they are of bad tendencies, by their own faultiness withdraw nobleness from their rank, and disgrace their disposition.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> He says what's true. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Then it's to yourself he says it.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> For this reason is this the more true; for at this time of life, it wasn't just for you to take away from your son, a young man, his mistress, purchased with his own money.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> How say you? Is she the mistress of Charinus?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> <stage>aside</stage>. How the rogue does dissemble.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why, he said that he had bought her as a maidservant for his mother. </p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Was it for that reason, then, you bought her, you young lover, you old boy?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Very well said, i' troth! Proceed, proceed. I'll stand by him here on the other side. Let's both load him well with such speeches as he's worthy of.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> <stage>aside</stage>. I'm done for. EUT. Who has done an injustice so great to his blameless son; whom, in fact, upon my faith, I brought back home just when he was setting out in self-banishment; for he was going into exile.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Has he gone then? </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> What, do you speak, you hobgoblin? At this time of life you ought to abstain from those pursuits.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I confess it; undoubtedly I've acted wrong.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What, do you speak, you hobgoblin? You ought at this time of life to have done with these guilty practices. Just as the seasons of the year, so different lines of conduct befit different ages; but if this is proper, that old fellows should be wenching in their old age, where in the world is our common welfare?
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Alas! wretch that I am! I'm undone.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> The young men are more in the habit of giving their attention to following those pursuits.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Troth, now, prithee, do take her to yourselves, with pigs and with basket<milestone n="988" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With pigs and with basket</lemma>:  "Cum porcis, cum piscin&acirc;." This was probably a countrified expression, analogous to our phrases "with bag and baggage," "stump and rump."</note>.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Restore her to your son; let him have her, now, as he wishes.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> So far as I'm concerned, he may have her.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> High time, i' faith, since you haven't the power of doing otherwise.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> For this injury let him take what satisfaction he likes; only do you make peace, I beg of you, that he mayn't be angry with me. I' faith, if I had known it, or if, indeed, he had told me in the slightest way of joke that he was in love with her, I should never have proceeded to take her away from him so in love. Enitychus, you are his companion, preserve and rescue me, I beg of you. Make this old fellow your client. You shall say that I'm mindful of a kindness.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Entreat him that he'll pardon his offences and his youthful age<milestone n="997" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And his youthful age</lemma>:  Of course this is said in a tone of keen and well-merited satire.</note>.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Heyday now, are you still persisting in inveighing against me with your airs? I trust that a like opportunity will befall me as well for returning you a similar compliment.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I've long made an end of those pursuits.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> And really so shall I from this time forward.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Not a bit of it. Through usage your inclinations will be leading you to it again.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Prithee, do now be satisfied. Rather, scourge me with thongs even, if you like.</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> You say right. But that your wife will do, when she comes to know of this.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> There's no need for her to come to know of it.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What's that? She shan't come to know of it; don't be afraid. Let's go in-doors; this place isn't a suitable one for your practices, for there to be persons to overhear who are passing through the street, while we are talking.
+</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Why, faith, you say what's right; that way the story will be shorter. Let's be off</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Your son is in-doors here at our house.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> It's very good. We'll pass that way through the garden<milestone n="1009" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Through the garden</lemma>:  He means that he will be able to go home the back way, so that perhaps his wife may not see whence lie has come. This line shows that the houses of Lysimachus and Demipho are on the same side of the street, and not, as Cotter says, one on one side, the other on the other, with their doors opposite.--It may be here remarked, that it is not improbable that a considerable portion of this Play has perished.</note> home. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Eutychus, I want this affair to be settled before I set my foot again within doors.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> What is it? </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Each person thinks about his own concerns. Answer me this: do you know for certain that your mother isn't angry with me?</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> I do know it. </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Take care.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Trust me for it. Are you satisfied?</p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> I am. But still, troth now, prithee, do take care.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Don't you believe me? </p></sp>
+<sp><speaker>LYSIMACHUS</speaker><p> Yes, I do believe you; but still I'm dreadfully afraid.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> Let's go in-doors.</p></sp>
+<sp><speaker>EUTYCHUS</speaker><p> Aye, but I think we must pronounce. the law for the old men before we depart, on what terms they are to keep check upon themselves and to be continent. Whoever shall be sixty years of age, if we know of any one, whether husband or, i' faith, whether bachelor, in fact, who goes a wenching, upon these terms shall we deal with him; we shall deem him a fool. And, i' faith, so far as we're concerned, he shall be in want who has squandered away his property. And let no one hereafter forbid his youthful son to be in love and to keep a mistress, so it be done in a decent manner. If he shall forbid him, let him, unknown to himself, suffer more loss than if he had openly permitted him. Let this law, then, from this night forward, be binding upon the old men. <stage>To the AUDIENCE.</stage> Young men, kindly fare you well; and if this law, enacted for the sake of the old ones, pleases you, it is right that you should give us loud applause.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

@@ -1,0 +1,976 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+    <teiHeader type="text" status="new">
+        <fileDesc>
+            <titleStmt>
+             <title type="sub">De Brevitate Vitae</title>
+                <author n="Sen.">Seneca</author>
+                <editor role="editor" n="Basore">John W. Basore</editor>
+                &fund.NEH; </titleStmt>
+            <extent>About 100Kb</extent> &Perseus.publish; <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>L. Annaeus Seneca</author>
+                        <title>Moral Essays: volume 2</title>
+                     <editor role="editor" n="Basore">John W. Basore</editor>
+                        <imprint>
+                            <pubPlace>London and New York</pubPlace>
+                            <publisher>Heinemann</publisher>
+                            <date>1932</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+        	<refsDecl doctype="TEI.2">
+        		<state unit="book"/>
+        		<state unit="chapter" n="chunk"/>
+        		<state unit="section"/>
+        	</refsDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language id="la">Latin</language>
+                <language id="greek">Greek</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+            <change>
+                <date>2009</date>
+                <respStmt>
+                    <name>GRC</name>
+                    <resp>tagging</resp>
+                </respStmt>
+                <item/>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+<text>
+<body>
+	<pb id="p.286"/>
+	<div1 type="book" n="10">
+	<head>Liber X,
+ad Pavlinvm:
+de brevitate vitae</head>
+
+<p><milestone unit="chapter" n="1"/><milestone unit="section" n="1"/>  Maior pars mortalium, Pauline, de naturae
+malignitate conqueritur, quod in exiguum aevi gignamur, quod haec tam velociter, tam rapide dati nobis
+temporis spatia decurrant, adeo ut exceptis admodum
+paucis ceteros in ipso vitae apparatu vita destituat.
+Nec huic publico, ut opinantur, malo turba tantum
+et imprudens <note> imprudens inferior MSS.: impudens A.</note> volgus ingemuit; clarorum quoque
+virorum hic affectus querellas evocavit. Inde illa
+maximi medicorum exclamatio est: 'vitam brevem
+esse, longam artem ';
+<milestone unit="section" n="2"/> inde Aristotelis cum rerum
+natura exigentis minime conveniens sapienti viro
+lis : ' aetatis illam animalibus tantum indulsisse, ut
+<pb id="p.288"/>
+quina aut dena saecula educerent, homini in tam
+multa ac magna genito tanto citeriorem terminum
+stare.' <milestone unit="section" n="3"/>Non exiguum temporis habemus, sed multum perdimus. Satis longa vita et in maximarum
+rerum consummationem large data est, si tota bene
+collocaretur ; sed ubi per luxum ac neglegentiam
+diffluit, ubi nulli bonae rei impenditur, ultima demum
+necessitate cogente quam ire non intelleximus
+transisse sentimus. <milestone unit="section" n="4"/>Ita est : non accipimus brevem
+vitam, sed facimus, nec inopes eius sed prodigi sumus.
+Sicut amplae et regiae opes, ubi ad malum dominum
+pervenerunt, momento dissipantur, at quamvis
+modicae, si bono custodi traditae sunt, usu crescunt»
+ita aetas nostra bene disponenti multum patet.</p>
+
+<p><milestone unit="chapter" n="2"/> <milestone unit="section" n="1"/>Quid de rerum natura querimur ? Illa se
+benigne gessit; vita, si uti scias, longa est. At <note> at supplied by Pauly.</note>
+alium insatiabilis tenet avaritia, alium in supervacuis
+laboribus operosa sedulitas ; alius vino madet, alius
+inertia torpet ; alium defatigat ex alienis iudiciis
+suspensa semper ambitio, alium mercandi praeceps
+cupiditas circa omnis terras, omnia maria spe lucri
+ducit ; quosdam torquet cupido militiae numquam
+non aut alienis periculis intentos aut suis anxios ;
+sunt quos ingratus superiorum cultus voluntaria
+servitute consumat; <milestone unit="section" n="2"/> multos aut affectatio alienae
+fortunae aut suae querella <note> querella Madvig: qua A: cura Haase.</note> detinuit; plerosque
+<pb id="p.290"/>
+nihil certum sequentis vaga et inconstans et sibi
+displicens levitas per nova consilia iactavit ; quibusdam nihil, quo cursum derigant, placet, sed marcentis oscitantisque fata deprendunt, adeo ut quod
+apud maximum poetarum more oraculi dictum est,
+verum esse non dubitem : " Exigua pars est vitae,
+qua vivimus." Ceterum quidem omne spatium non
+ vita sed tempus est. <milestone unit="section" n="3"/> Urgent et circumstant vitia
+undique nec resurgere aut in dispectum veri attollere
+oculos sinunt, sed immersos et in cupiditatem infixos
+premunt. Numquam illis recurrere ad se licet ; si
+quando aliqua fortuito quies contigit, velut profundum mare, in quo post ventum quoque volutatio est,
+fluctuantur nec umquam illis a cupiditatibus suis
+ otium stat. <milestone unit="section" n="4"/> De istis me putas dicere, quorum in
+confesso mala sunt ? Aspice illos, ad quorum
+felicitatem concurritur ; bonis suis offocantur. Quam
+multis divitiae graves sunt ! Quam multorum eloquentia et cotidiana <note> eloquentia et (?) cotidiana apparently A1.</note> ostentandi ingenii sollicitatio <note> sollicitatio Bourgery: spatio A: occupatio Gertz.</note>
+sanguinem educit! Quam multi continuis voluptatibus pallent ! Quam multis nihil liberi relinquit
+circumfusus clientium populus! Omnis denique
+istos ab infimis usque ad summos pererra : hic advocat,
+hic adest, ille periclitatur, ille defendit, ille iudicat,
+nemo se sibi vindicat, alius in alium consumitur.
+Interroga de istis, quorum nomina ediscuntur, his
+illos dinosci videbis notis: ille illius cultor est,
+
+<pb id="p.292"/>
+ hic illius; suus nemo est. <milestone unit="section" n="5"/> Deinde dementissima
+quorundam indignatio est : queruntur de superiorum
+fastidio, quod ipsis adire volentibus non vacaverint !
+Audet quisquam de alterius superbia queri, qui sibi
+ipse numquam vacat ? Ille tamen te, quisquis es,
+insolenti quidem vultu sed aliquando respexit, ille
+aures suas ad tua verba demisit, ille te ad latus suum
+recepit ; tu non inspicere te umquam, non audire
+dignatus es. Non est itaque, quod ista officia cuiquam
+imputes, quoniam quidem, cum illa faceres, non esse
+cum alio volebas, sed tecum esse non poteras.
+</p>
+
+<p><milestone unit="chapter" n="3"/><milestone unit="section" n="1"/>  Omnia licet, quae umquam ingenia fulserunt,
+in hoc unum consentiant, numquam satis hanc humanarum mentium caliginem mirabuntur. Praedia
+sua occupari a nullo patiuntur et, si exigua contentio
+est de modo finium, ad lapides et arma discurrunt;
+in vitam suam incedere alios sinunt, immo vero ipsi
+etiam possessores eius futuros inducunt. Nemo
+invenitur, qui pecuniam suam dividere velit; vitam
+unusquisque quam multis distribuit ! Adstricti sunt
+in continendo patrimonio, simul ad iacturam temporis
+ventum est, profusissimi in eo, cuius unius honesta
+ avaritia est. Libet itaque ex seniorum turba comprendere aliquem: <milestone unit="section" n="2"/> " Pervenisse te ad ultimum
+aetatis humanae videmus, centesimus tibi vel supra
+
+<pb id="p.294"/>
+premitur annus ; agedum, ad computationem aetatem tuam revoca. Duc, quantum ex isto tempore
+creditor, quantum amica, quantum rex, quantum
+cliens abstuleris quantum lis uxoria, quantum
+servorum coercitio, quantum officiosa per urbem
+discursatio. Adice morbos, quos manu fecimus,
+adice et quod sine usu iacuit ; videbis te pauciores
+ annos habere quam numeras. <milestone unit="section" n="3"/> Repete memoria
+tecum, quando certus consilii fueris, quotus quisque
+dies ut destinaveras processerit, quando tibi usus tui
+fuerit, quando in statu suo vultus, quando animus
+intrepidus, quid tibi in tam longo aevo facti operis
+sit, quam multi vitam tuam diripuerint te non
+sentiente quid perderes, quantum vanus dolor, stulta
+laetitia, avida cupiditas, blanda conversatio abstulerit,
+quam exiguum tibi de tuo relictum sit ; intelleges
+te immaturum mori." Quid ergo est in causa ?
+<milestone unit="section" n="4"/> Tamquam semper victuri vivitis, numquam vobis
+fragilitas vestra succurrit, non observatis, quantum
+iam temporis transierit ; velut ex pleno et abundanti
+perditis, eum interim fortasse ille ipse qui alicui <note> alicui A5: aliquo A1: aliquoi Gertz, Hermes.</note> vel
+homini vel rei donatur dies ultimus sit. Omnia
+tamquam mortales timetis, omnia tamquam immortales <note n="marg" place="unspecified" anchored="yes">5</note> concupiscitis. Audies plerosque dicentes:
+" A quinquagesimo anno in otium secedam, sexagesimus me annus ab officiis dimittet." Et quem tandem
+longioris vitae praedem accipis ? Quis ista sicut disponis
+
+<pb id="p.296"/>
+ire patietur ? Non pudet te reliquias vitae tibi reservare et id solum tempus bonae menti destinare,
+quod in nullam rem conferri possit ? Quam serum
+est tune vivere incipere, eum desinendum est ! Quae
+tam stulta mortalitatis oblivio in quinquagesimum
+et sexagesimum annum differre sana consilia et inde
+velle vitam inchoare, quo pauci perduxerunt !
+</p>
+
+<p><milestone unit="chapter" n="4"/><milestone unit="section" n="1"/>  Potentissimis et in altum sublatis hominibus
+excidere voces videbis, quibus otium optent, laudent,
+omnibus bonis suis praeferant. Cupiunt interim
+ex illo fastigio suo, si tuto liceat, descendere ; nam
+ut nihil extra lacessat aut quatiat, in se ipsa fortuna
+ruit.
+<milestone unit="section" n="2"/> Divus Augustus, cui dii plura quam ulli praestiterunt, non desit quietem sibi precari et vacationem
+a re publica petere ; omnis eius sermo ad hoc semper
+revolutus est, ut speraret otium. Hoc labores suos,
+etiam si falso, dulci tamen oblectabat solacio, ali-
+ quando se victurum sibi. <milestone unit="section" n="3"/> In quadam ad senatum
+missa epistula, cum requiem suam non vacuam fore
+dignitatis nec a priore gloria discrepantem pollicitus
+esset, haec verba inveni : " Sed ista fieri speciosius
+quam promitti possunt. Me tamen cupido temporis
+optatissimi mihi provexit, ut quoniam rerum laetitia
+moratur adhuc, praeciperem aliquid voluptatis ex
+ verborum dulcedine." <milestone unit="section" n="4"/> Tanta visa est res otium,
+ut illam, quia usu non poterat, cogitatione praesumeret. Qui omnia videbat ex se uno pendentia.
+
+<pb id="p.298"/>
+qui hominibus gentibusque fortunam dabat, illum
+diem laetissimus cogitabat, quo magnitudinem suam
+exueret. Expertus erat, quantum illa bona per
+omnis terras fulgentia sudoris exprimerent, quantum
+ occultarum sollicitudinum tegerent. <milestone unit="section" n="5"/> Cum civibus
+primum, deinde eum collegis, novissime eum adfinibus
+coactus armis decernere mari terraque sanguinem
+fudit.
+Per Macedoniam, Siciliam, Aegyptum, Syriam
+Asiamque et omnis prope oras bello circumactus
+Romana caede lassos exercitus ad externa bella
+convertit. Dum Alpes pacat <note> pacat inferior MSS.: placat A.</note> immixtosque mediae
+paci et imperio hostes perdomat, dum vel ultra
+Rhenum et Euphraten et Danuvium terminos movet,
+in ipsa urbe Murenae, Caepionis, Lepidi, Egnati,
+aliorum in eum mucrones acuebantur. Nondum
+horum effugerat insidias : filia et tot nobiles iuvenes
+adulterio velut sacramento adacti iam infractam
+aetatem territabant Paulusque <note> Paullusque Ruben: plusque A: Iullusque Bourgery
+after Waltz.
+
+</note> et iterum timenda
+eum Antonio mulier. Haec ulcera eum ipsis membris
+absciderat : alia subnascebantur ; velut grave multo
+sanguine corpus parte semper aliqua rumpebatur.
+Itaque otium optabat, in huius spe et cogitatione
+labores eius residebant, hoc votum erat eius, qui voti
+compotes facere poterat.
+
+<pb id="p.300"/>
+</p>
+
+<p><milestone unit="chapter" n="5"/><milestone unit="section" n="1"/>  M. Cicero inter Catilinas, Clodios iactatus
+Pompeiosque et Crassos, partim manifestos inimicos,
+partim dubios amicos, dum fluctuatur cum re publica
+et illam pessum euntem tenet, novissime abductus,
+nec secundis rebus quietus nec adversarum patiens,
+quotiens illum ipsum consulatum suum non sine
+ causa sed sine fine laudatum detestatur! <milestone unit="section" n="2"/> Quam
+flebiles voces exprimit in quadam ad Atticum epistula
+iam victo patre Pompeio, adhuc filio in Hispania
+fracta arma refovente ! " Quid agam," inquit, " hic,
+quaeris? Moror in Tusculano meo semiliber." Alia
+deinceps adicit, quibus et priorem aetatem complorat
+ et de praesenti queritur et de futura desperat. Semiliberum se dixit Cicero. <milestone unit="section" n="3"/> At me hercules numquam
+sapiens in tam humile nomen procedet, numquam
+semiliber erit, integrae semper libertatis et solidae,
+solutus et sui iuris et altior ceteris. Quid enim supra
+eum potest esse, qui supra fortunam est ?
+</p>
+
+<p><milestone unit="chapter" n="6"/><milestone unit="section" n="1"/>  Livius Drusus, vir acer et vehemens, eum leges
+novas et mala Gracchana movisset stipatus ingenti
+totius Italiae coetu, exitum rerum non pervidens,
+quas nec agere licebat nec iam liberum erat semel
+incohatas relinquere, execratus inquietam a primordia vitam dicitur dixisse uni sibi ne puero quidem
+umquam ferias contigisse. Ausus est enim et
+
+<pb id="p.302"/>
+pupillus adhuc et praetextatus iudicibus reos commendare et gratiam suam foro interponere tam
+efficaciter quidem, ut quaedam iudicia constet ab
+ illo rapta. <milestone unit="section" n="2"/> Quo non erumperet tam immatura
+ambitio ? Scires in malum ingens et privatum et
+publicum evasuram tam praecoquem audaciam.
+Sero itaque querebatur nullas sibi ferias contigisse
+a puero seditiosus et foro gravis. Disputatur, an
+ipse sibi manus attulerit ; subito enim vulnere per
+inguen accepto conlapsus est, aliquo dubitante, an
+mors eius voluntaria esset, nullo, an tempestiva.
+<milestone unit="section" n="3"/> Supervacuum est commemorare plures, qui eum
+aliis felicissimi viderentur, ipsi in se verum testi-
+monium dixerunt perosi omnem actum annorum
+suorum ; sed his querellis nec alios mutaverunt nec
+se ipsos. Nam eum verba eruperunt, adfectus ad
+ consuetudinem relabuntur. <milestone unit="section" n="4"/> Vestra me hercules
+vita, licet supra mille annos exeat, in artissimum
+contrahetur ; ista vitia nullum non saeculum de-
+vorabunt. Hoc vero spatium quod, quamvis natura
+currit, ratio dilatat, cito vos effugiat necesse est ;
+non enim adprenditis nec retinetis nec velocissimae
+omnium rei moram facitis, sed abire ut rem super-
+vacuam ac reparabilem sinitis.
+
+<pb id="p.304"/>
+</p>
+
+<p><milestone unit="chapter" n="7"/><milestone unit="section" n="1"/>  In primis autem et illos numero, qui nulli
+rei nisi vino ac libidini vacant ; nulli enim turpius
+occupati sunt. Ceteri etiam si vana gloriae imagine
+teneantur, speciose tamen errant ; licet avaros mihi,
+licet iracundos enumeres vel odia exercentes iniusta
+vel bella, omnes isti viribus peccant ; in ventrem ae
+ libidinem proiectorum inhonesta labes est. <milestone unit="section" n="2"/> Omnia
+istorum tempora excute, aspice quam diu computent,
+quam diu insidientur, quam diu timeant, quam diu
+colant, quam diu colantur, quantum vadimonia sua
+atque aliena occupent, quantum convivia, quae iam
+ipsa officia sunt : videbis, quemadmodum illos
+respirare non sinant vel mala sua vel bona.
+<milestone unit="section" n="3"/> Denique inter omnes convenit nullam rem bene
+exerceri posse ab homine occupato, non eloquentiam,
+non liberales disciplinas, quando districtus animus
+nihil altius recipit, sed omnia velut inculcata respuit.
+Nihil minus est hominis occupati quam vivere ; nullius
+rei difficilior scientia est. Professores aliarum artium
+volgo multique sunt, quasdam vero ex his pueri ad-
+modum ita percepisse visi sunt, ut etiam praecipere
+possent. Vivere tota vita discendum est et, quod
+magis fortasse miraberis, tota vita discendum est
+ mori. <milestone unit="section" n="4"/> Tot maximi viri relictis omnibus impedi-
+
+<pb id="p.306"/>
+mentis, eum divitiis officiis voluptatibus renuntiassent,
+hoc unum in extremam usque aetatem egerunt, ut
+vivere scirent ; plures tamen ex his nondum se scire
+ confessi vita abierunt, nedum ut isti sciant. <milestone unit="section" n="5"/> Magni,
+milli crede, et supra humanos errores eminentis viri
+est nihil ex suo tempore delibari sinere, et ideo eius
+vita longissima est, quia, quantumcumque patuit,
+totum ipsi vacavit. Nihil inde incultum otiosumque
+iacuit, nihil sub alio fuit, neque enim quicquam
+repperit dignum quod cum tempore suo permutaret
+custos eius parcissimus. Itaque satis illi fuit; iis
+vero necesse est defuisse, ex quorum vita multum
+populus tulit.
+<milestone unit="section" n="6"/> Nec est quod putes non illos aliquando intellegere
+damnum suum. Plerosque certe audies ex iis, quos
+magna felicitas gravat, inter clientium greges aut
+causarum actiones aut ceteras honestas miserias
+exclamare interdum : " Vivere mihi non licet."
+<milestone unit="section" n="7"/> Quidni non liceat ? Omnes illi, qui te sibi advocant,
+tibi abducunt. Ille reus quot dies abstulit ? Quot
+ille candidatus ? Quot illa anus efferendis heredibus
+lassa ? Quot ille ad irritandam avaritiam captantium
+simulatus aeger ? Quot ille potentior amicus, qui
+vos non in amicitiam, sed in apparatu <note> inamicitiaᾶ sed inapparatu A: in amicitiam sed in
+apparatum inferior MSS.: in amicitia Hermes.
+
+</note> habet ? Dis-
+punge, inquam, et recense vitae tuae dies ; videbis
+
+<pb id="p.308"/>
+ paucos admodum et reiculos apud te resedisse. <milestone unit="section" n="8"/> Adsecutus ille quos optaverat fasces cupit ponere et
+subinde dicit : " Quando hic annus praeteribit ? "
+Facit ille ludos, quorum sortem sibi optingere magno
+aestimavit : " Quando," inquit, " istos effugiam ? "
+Diripitur ille toto foro patronus et magno concursu
+omnia ultra, quam audiri potest, complet : " Quando,"
+inquit, " res proferentur ? " Praecipitat quisque
+vitam suam et futuri desiderio laborat, praesentium
+ taedio. <milestone unit="section" n="9"/> At ille qui nullum non tempus in usus suos
+confert, qui omnem diem tamquam ultimum <note> ultimum Gertz after Bentley, Hermes : vitam A, Bourgery.</note> ordinat,
+nec optat crastinum nec timet. Quid enim est, quod
+iam ulla hora novae voluptatis possit adferre ? Omnia
+nota, omnia ad satietatem percepta sunt. De cetero
+fors fortuna, ut volet, ordinet; vita iam in tuto est. Huic
+adici potest, detrahi nihil, et adici sic, quemadmodum
+saturo iam ac pleno aliquid cibi, quod nec desiderat et <note> et supplied by Madvig.</note>
+<note n="marg" place="unspecified" anchored="yes">10</note> capit. Non est itaque quod quemquam propter canos
+aut rugas putes diu vixisse ; non ille diu vixit, sed
+diu fuit. Quid enim si illum multum putes navigasse,
+quem saeva tempestas a portu exceptum huc et illuc
+tulit ac vicibus ventorum ex diverso furentium per
+eadem spatia in orbem egit ? Non ille multum
+navigavit, sed multum iactatus est.
+</p>
+
+<p><milestone unit="chapter" n="8"/><milestone unit="section" n="1"/>  Mirari soleo, eum video aliquos tempus
+
+<pb id="p.310"/>
+petentes et eos, qui rogantur, facillimos. Illud
+uterque spectat, propter quod tempus petitum est,
+ipsum quidem neuter; quasi nihil petitur, quasi
+nihil datur. Re omnium pretiosissima luditur ; fallit
+autem illos, quia res incorporalis est, quia sub oculos
+non venit, ideoque vilissima aestimatur, immo paene
+ nullum eius pretium est. <milestone unit="section" n="2"/> Annua, congiaria homines
+carissime accipiunt et illis aut laborem aut operam
+aut diligentiam suam locant. Nemo aestimat tempus ; utuntur illo laxius quasi gratuito. At eosdem
+aegros vide, si mortis periculum propius admotum
+est, medicorum genua tangentes, si metuunt capitale
+supplicium, omnia sua, ut vivant, paratos impendere !
+<milestone unit="section" n="3"/> Tanta in illis discordia adfectuum est. Quodsi posset
+quemadmodum praeteritorum annorum cuiusque
+numerus proponi, sic futurorum, quomodo illi, qui
+paucos viderent superesse, trepidarent, quomodo
+illis parcerent ! Atqui facile est quamvis exiguum
+dispensare, quod certum est ; id debet servari diligentius, quod nescias quando deficiat.
+<milestone unit="section" n="4"/> Nec est tamen, quod putes illos ignorare, quam
+cara res sit; dicere solent eis, quos valdissime diligunt, paratos se partem annorum suorum dare. Dant
+nec intellegunt ; dant autem ita, ut sine illorum in-
+cremento sibi detrahant. Sed hoc ipsum, an de-
+
+<pb id="p.312"/>
+trahant,<note> andetraant A2: unde detrahant Madvig, Hermes.</note> nesciunt; ideo tolerabilis est illis iactura
+ detrimenti latentis. <milestone unit="section" n="5"/> Nemo restituet annos, nemo
+iterum te tibi reddet. Ibit, qua coepit aetas, nec
+cursum suum aut revocabit aut supprimet ; nihil
+tumultuabitur, nihil admonebit velocitatis suae.
+Tacita labetur ; non illa se regis imperio, non favore
+populi longius proferet. Sicut missa est a primo
+die, curret ; nusquam devertetur, nusquam remo-
+rabitur. Quid fiet ? Tu occupatus es, vita festinat ;
+mors interim aderit, cui, velis nolis, vacandum est.
+</p>
+
+<p><milestone unit="chapter" n="9"/><milestone unit="section" n="1"/>  Potestne quicquam stultius esse quam quorundam <note> stultius esse quam quorundam supplied by Bourgery:
+alii alia.
+</note> sensus, hominum eorum dico qui prudentiam
+iactant ? Operosius occupati sunt, ut melius possint
+vivere ; impendio vitae vitam instruunt ! Cogitationes suas in longum ordinant ; maxima porro vitae
+iactura dilatio est ; illa primum quemque extrahit
+diem, illa eripit praesentia, dum ulteriora promittit.
+Maximum vivendi impedimentum est expectatio, quae
+pendet ex crastino, perdit hodiernum. Quod in manu
+fortunae positum est, disponis, quod in tua, dimittis.
+Quo spectas ? Quo te extendis ? Omnia quae ventura sunt in incerto iacent ; protinus vive !
+<milestone unit="section" n="2"/>  Clamat
+ecce maximus vates et velut divino ore instinctus <note> ore instinctus A: ore instinctu Hermes: furore instinctus Muretus: ore et instinctu Gertz: horrore instinctus
+Bourgery.
+
+</note>
+salutare carmen canit :
+
+<pb id="p.314"/>
+Optima quaeque dies miseris mortalibus aevi
+prima fugit.
+" Quid cunctaris ? " inquit, " Quid cessas ? Nisi
+occupas, fugit." Et eum occupaveris, tamen fugiet ;
+itaque cum celeritate temporis utendi velocitate
+certandum est et velut ex torrenti rapido nec semper
+ ituro cito hauriendum. <milestone unit="section" n="3"/> Hoc quoque pulcherrime
+ad exprobrandam infinitam cunctationem,<note> cunctationem Hermes after Gertz: cognationem A:
+cogitationem some inferior MSS., Bourgery, Duff.
+
+</note> quod non
+optimam quamque aetatem sed diem dicit. Quid
+securus et in tanta temporum fuga lentus menses
+tibi et annos in longam seriem, utcumque aviditati
+tuae visum est, exporrigis ? De die tecum loquitur
+ et de hoc ipso fugiente. <milestone unit="section" n="4"/> Num dubium est ergo, quin
+optima quaeque prima dies fugiat mortalibus miseris,
+id est occupatis ? Quorum puerilis adhuc animos
+senectus opprimit, ad quam imparati inermesque
+perveniunt, nihil enim provisum est ; subito in illam
+necopinantes inciderunt, accedere eam cotidie non
+ sentiebant. <milestone unit="section" n="5"/> Quemadmodum aut sermo aut lectio
+aut aliqua intentior cogitatio iter facientis decipit et
+pervenisse ante sentiunt quam adpropinquasse, sic
+hoc iter vitae adsiduum et citatissimum, quod vigilantes dormientesque eodem gradu facimus, occupatis
+non apparet nisi in fine.
+</p>
+
+<p><milestone unit="chapter" n="10"/><milestone unit="section" n="1"/>  Quod proposui si in partes velim et argumenta
+diducere, multa mihi occurrent, per quae probem
+brevissimam esse occupatorum vitam. Solebat dicere
+
+<pb id="p.316"/>
+Fabianus, non ex his cathedraris philosophis, sed ex
+veris et antiquis: ' contra adfectus impetu, non
+suptilitate pugnandum, nec minutis vulneribus sed
+incursu avertendam aciem; non probam cavillationem esse, nam contundi debere, non vellicari.'
+Tamen ut illis error exprobretur suus, docendi, non
+tantum deplorandi sunt.
+<milestone unit="section" n="2"/> In tria tempora vita dividitur: quod fuit, quod
+est, quod futurum est. Ex iis quod agimus breve
+est, quod acturi sumus dubium, quod egimus certum.
+Hoc est enim, in quod fortuna ius perdidit, quod in
+nullius arbitrium reduci potest. Hoc amittunt occupati ; nec enim illis vacat praeterita respicere, et
+si vacet, iniucunda est paenitendae rei recordatio.
+<milestone unit="section" n="3"/> Inviti itaque ad tempora male exacta animum re-
+vocant nec audent ea retemptare, quorum vitia,
+etiam quae aliquo praesentis voluptatis lenocinio
+surripiebantur, retractando patescunt. Nemo, nisi
+quoi <note> quoi Gruter: quo A.</note> omnia acta sunt sub censura sua, quae num-
+quam fallitur, libenter se in praeteritum retorquet;
+<milestone unit="section" n="4"/> ille qui multa ambitiose concupiit, superbe contempsit,
+impotenter vicit, insidiose decepit, avare rapuit, prodige effudit, necesse est memoriam suam timeat. Atqui
+haec est pars temporis nostri sacra ac dedicata, omnis
+humanos casus supergressa, extra regnum fortunae
+
+<pb id="p.318"/>
+subducta, quam non inopia, non metus, non morborum
+incursus exagitet ; haec nec turbari nec eripi potest :
+perpetua eius et intrepida possessio est. Singuli
+tantum dies, et hi per momenta, praesentes sunt ;
+at praeteriti temporis omnes, cum iusseritis, aderunt,
+ad arbitrium tuum inspici se ac detineri patientur,
+ quod facere occupatis non vacat. <milestone unit="section" n="5"/> Securae et quietae
+mentis est in omnes vitae suae partes discurrere ;
+occupatorum animi, velut sub iugo sint, flectere se
+ac respicere non possunt. Abit igitur vita eorum in
+profundum ; et ut nihil prodest, licet quantumlibet
+ingeras, si non subest quod excipiat ac servet, sic,
+nihil refert quantum temporis detur, si non est ubi
+subsidat, per quassos foratosque animos transmittitur.
+<milestone unit="section" n="6"/> Praesens tempus brevissimum est, adeo quidem, ut
+quibusdam nullum videatur ; in cursu enim semper
+est, fluit et praecipitatur; ante desinit esse quam
+venit, nec magis moram patitur quam mundus aut
+sidera, quorum inrequieta semper agitatio numquam
+in eodem vestigio manet. Solum igitur ad occupatos
+praesens pertinet tempus, quod tam breve est, ut
+arripi non possit, et id ipsum illis districtis in multa
+subducitur.
+</p>
+
+<p><milestone unit="chapter" n="11"/><milestone unit="section" n="1"/>  Denique vis scire quam non diu vivant ? Vide
+quam cupiant diu vivere. Decrepiti senes paucorum
+annorum accessionem votis mendicant; minores
+natu se ipsos esse fingunt ; mendacio sibi blandiuntur
+et tam libenter se fallunt quam si una fata decipiant.
+
+<pb id="p.320"/>
+Iam vero cum illos aliqua imbecillitas mortalitatis
+admonuit, quemadmodum paventes moriuntur, non
+tamquam exeant de vita, sed tamquam extrahantur.
+Stultos se fuisse, qui non vixerint, clamitant et, si
+modo evaserint ex illa valitudine, in otio victuros ;
+tunc quam frustra paraverint, quibus non fruerentur*
+<note n="marg" place="unspecified" anchored="yes">2</note> quam in cassum omnis ceciderit labor, cogitant. At
+quibus vita procul ab omni negotio agitur, quidni
+spatiosa sit ? Nihil ex illa delegatur, nihil alio atque
+alio spargitur, nihil inde fortunae traditur, nihil
+neglegentia interit, nihil largitione detrahitur, nihil
+supervacuum est ; tota, ut ita dicam, in reditu est.
+Quantulacumque itaque abunde sufficit, et ideo,
+quandoque ultimus dies venerit, non cunctabitur
+sapiens ire ad mortem certo gradu.
+</p>
+
+<p><milestone unit="chapter" n="12"/><milestone unit="section" n="1"/>  Quaeris fortasse, quos occupatos vocem ?
+Non est quod me solos putes dicere, quos a basilica
+immissi demum canes eiciunt, quos aut in sua vides
+turba speciosius elidi aut in aliena contemptius, quos
+officia domibus suis e vocant, ut alienis foribus inlidant,
+aut <note> aut added by Madvig.</note> hasta praetoris infami lucro et quandoque suppuraturo
+ exercet. Quorundam otium occupatum est; <milestone unit="section" n="2"/>
+in villa aut in lecto suo, in media solitudine, quamvis
+ab omnibus recesserint, sibi ipsi molesti sunt ; quorum
+non otiosa vita dicenda, est, sed desidiosa occupatio.
+
+<pb id="p.322"/>
+Illum tu otiosum vocas qui Corinthia, paucorum furore pretiosa, anxia suptilitate concinnat et maiorem
+dierum partem in aeruginosis lamellis consumit?
+Qui in ceromate (nam, pro facinus ! ne Romanis
+quidem vitiis laboramus) spectator puerorum rixantium sedet ? Qui iumentorum suorum greges in
+aetatium et colorum paria diducit ? Qui athletas
+novissimos <note> novissimos A: novis cibis Madvig, Duff: novissimo
+more Gertz.
+</note> pascit?
+<milestone unit="section" n="3"/>  Quid? illos otiosos vocas, quibus
+apud tonsorem multae horae transmittuntur, dum
+decerpitur, si quid proxima nocte subcrevit, dum de
+singulis capillis in consilium itur, dum aut disiecta
+coma restituitur aut deficiens hinc atque illinc in
+frontem compellitur ? Quomodo irascuntur, si tonsor
+paulo neglegentior fuit, tamquam virum tonderet !
+Quomodo excandescunt, si quid ex iuba sua decisum
+est, si quid extra ordinem iacuit, nisi omnia in anulos
+suos reciderunt! Quis est istorum qui non malit rem
+publicam turbari quam comam suam <note> suam Muretus transfers from a place after publicam.</note> ? Qui non
+sollicitior sit de capitis sui decore quam de salute ?
+Qui non comptior esse malit quam honestior ? Hos
+tu otiosos vocas inter pectinem speculumque occupatos ?
+<milestone unit="section" n="4"/> Quid illi, qui in componendis, audiendis,
+discendis canticis operati sunt, dum vocem, cuius rectum cursum natura et optimum et simplicissimum
+fecit, in flexus modulationis inertissimae torquent,
+quorum digiti aliquod intra se carmen metientes
+semper sonant, quorum, cum ad res serias, etiam
+
+<pb id="p.324"/>
+saepe tristes adhibiti sunt, exauditur tacita modulatio ? Non habent isti otium, sed iners negotium.
+<milestone unit="section" n="5"/> Convivia me hercules horum non posuerim inter
+vacantia tempora, cum videam, quam solliciti argentum ordinent, quam diligenter exoletorum suorum
+tunicas succingant, quam suspensi sint, quomodo
+aper a coeo exeat, qua celeritate signo dato glabri
+ad ministeria discurrant, quanta arte scindantur aves
+in frusta non enormia, quam curiose infelices pueruli
+ebriorum sputa detergeant. Ex his elegantiae lauti-
+tiaeque fama captatur et usque eo in omnes vitae
+secessus mala sua illos secuntur,ut nec bibant sine ambitione
+ nec edant. <milestone unit="section" n="6"/> Ne illos quidem inter otiosos numeraverim,qui sella se et lectica huc et illuc ferunt et ad
+gestationum suarum, quasi deserere illas non liceat,
+horas occurrunt, quos quando lavari debeant, quando
+natare, quando cenare, alius admonet ; usque <note> usque Gertz: et usque A.</note> eo
+nimio delicati animi languore solvuntur, ut per se scire
+ non possint, an esuriant! <milestone unit="section" n="7"/> Audio quendam ex delicatis&mdash;si modo deliciae vocandae sunt vitam et consuetudinem humanam dediscere&mdash;, cum ex balneo inter
+manus elatus et in sella positus esset, dixisse inter-
+rogando : " Iam sedeo ? " Hunc tu ignorantem, an
+sedeat, putas scire an vivat, an videat, an otiosus sit ?
+Non facile dixerim, utrum magis miserear, si hoc
+
+<pb id="p.326"/>
+ ignoravit, an si ignorare se finxit. <milestone unit="section" n="8"/> Multarum quidem
+rerum oblivionem sentiunt, sed multarum et imitantur. Quaedam vitia illos quasi felicitatis argumenta delectant ; nimis humilis et contempti hominis
+videtur scire quid facias. I nunc et mimos multa
+mentiri ad exprobrandam luxuriam puta. Plura me
+hercules praetereunt quam fingunt et tanta incredibilium vitiorum copia ingenioso in hoc unum saeculo
+processit, ut iam mimorum arguere possimus neglegentiam. Esse aliquem, qui usque eo deliciis interierit
+ ut an sedeat alteri credat ! <milestone unit="section" n="9"/> Non est ergo hic otiosus,
+aliud illi nomen imponas; aeger est, immo mortuus
+est ; ille otiosus est, cui otii sui et sensus est. Hic
+vero semivivus, cui ad intellegendos corporis sui habitus indice opus est, quomodo potest hic ullius temporis dominus esse ?
+</p>
+
+<p><milestone unit="chapter" n="13"/><milestone unit="section" n="1"/>  Persequi singulos longum est, quorum aut
+latrunculi aut pila aut excoquendi in sole corporis cura
+consumpsere vitam. Non sunt otiosi, quorum volup-
+tates multum negotii habent. Nam de illis nemo
+dubitabit, quin operose nihil agant, qui litterarum in-
+utilium studiis detinentur, quae iam apud Romanos
+ quoque magna manus est. <milestone unit="section" n="2"/> Graecorum iste morbus
+fuit quaerere, quem numerum Ulixes remigum habuisset, prior scripta esset Ilias an Odyssia, praeterea
+an eiusdem essent auctoris, alia deinceps huius notae,
+
+<pb id="p.328"/>
+quae sive contineas, nihil tacitam conscientiam iuvant
+ sive proferas, non doctior videaris sed molestior. <milestone unit="section" n="3"/> Ecce
+Romanos quoque invasit inane studium supervacua
+discendi. His diebus audii quendam referentem,
+quae primus quisque ex Romanis ducibus fecisset;
+primus navali proelio Duilius vicit, primus Curius
+Dentatus in triumpho duxit elephantos. Etiamnunc
+ista, etsi ad veram gloriam non tendunt, circa civilium
+tamen operum exempla versantur ; non est pro-
+futura talis scientia, est tamen quae nos speciosa
+ rerum vanitate detineat. <milestone unit="section" n="4"/> Hoc quoque quaerentibus
+remittamus, quis Romanis primus persuaserit navem
+conscendere. Claudius is fuit, Caudex ob hoc ipsum
+appellatus, quia plurium tabularum contextus caudex
+apud antiquos vocatur, unde publicae tabulae codices
+dicuntur et naves nunc quoque ex antiqua consuetu-
+dine, quae commeatus per Tiberim subvehunt, codicariae
+ vocantur. <milestone unit="section" n="5"/> Sane et hoc ad rem pertineat, quod
+Valerius Corvinus primus Messanam vicit et primus
+ex familia Valeriorum urbis captae in se translato
+nomine Messana appellatus est paulatimque vulgo
+ permutante litteras Messala dictus. <milestone unit="section" n="6"/> Num et hoc
+cuiquam curare permittes, quod primus L. Sulla in
+circo leones solutos dedit, cum alioquin alligati
+darentur, ad conficiendos eos missis a rege Boccho
+iaculatoribus ? Et hoc sane remittatur: num et
+
+<pb id="p.330"/>
+Pompeium primum in circo elephantorum duode-
+viginti pugnam edidisse commissis more proeli noxiis<note> Text uncertain: others read innoxis.</note>
+hominibus ad ullam rem bonam pertinet ? Princeps
+civitatis et inter antiquos principes, ut fama tradidit,
+bonitatis eximiae memorabile putavit spectaculi
+genus novo more perdere homines. Depugnant ?
+Parum est. Laneinantur? Parum est: ingenti
+ mole animalium exterantur! <milestone unit="section" n="7"/> Satius erat ista in
+oblivionem ire, ne quis postea potens disceret in-
+videretque rei minime humanae. O quantum caliginis mentibus nostris obicit magna felicitas ! Ille se
+supra rerum naturam esse tune credidit, cum tot
+miserorum hominum catervas sub alio caelo natis
+beluis Obiceret, cum bellum inter tam disparia animalia
+committeret, eum in conspectum populi Romani
+multum sanguinis funderet mox plus ipsum fundere
+coacturus. At idem postea Alexandrina perfidia
+deceptus ultimo mancipio transfodiendum se praebuit, tum demum intellecta inani iactatione cognominis sui.
+<milestone unit="section" n="8"/> Sed ut illo revertar, unde decessi, et in eadem
+materia ostendam supervacuam quorumdam diligentiam : idem narrabat Metellum victis in Sicilia Poenis
+triumphantem unum omnium Romanorum ante
+currum centum et viginti captivos elephantos duxisse;
+
+<pb id="p.332"/>
+Sullam ultimum Romanorum protulisse pomerium,
+quod numquam provinciali, sed Italico agro adquisito
+proferre moris apud antiquos fuit. Hoc scire magis
+prodest, quam Aventinum montem extra pomerium
+esse, ut ille adfirmabat, propter alteram ex duabus
+causis, aut quod plebs eo secessisset, aut quod Remo
+auspicante illo loco aves non addixissent, alia deinceps
+innumerabilia, quae aut farta<note> farta A : paria Haase.</note> sunt mendaciis aut
+ similia ? <milestone unit="section" n="9"/> Nam ut concedas omnia eos fide bona
+dicere, ut ad praestationem scribant, tamen cuius
+ista errores minuent ? Cuius cupiditates prement ?
+Quem fortiorem, quem iustiorem, quem liberaliorem
+facient ? Dubitare se interim Fabianus noster
+aiebat, an satius esset nullis studiis admoveri quam
+his implicari.
+</p>
+
+<p><milestone unit="chapter" n="14"/><milestone unit="section" n="1"/>  Soli omnium otiosi sunt qui sapientiae vacant,
+soli vivunt ; nec enim suam tantum aetatem bene
+tuentur. Omne aevum suo adiciunt; quidquid
+annorum ante illos actum est, illis adquisitum est.
+Nisi ingratissimi sumus, illi clarissimi sacrarum
+opinionum conditores nobis nati sunt, nobis vitam
+praeparaverunt. Ad res pulcherrimas ex tenebris
+ad lucem erutas alieno labore deducimur; nullo
+nobis saeculo interdictum est, in omnia admittimur
+et, si magnitudine animi egredi humanae imbecil-
+
+<pb id="p.334"/>
+litatis angustias libet, multum, per quod spatiemur,
+ temporis est. <milestone unit="section" n="2"/> Disputare cum Socrate licet, dubitare
+eum Carneade, eum Epicuro quiescere, hominis
+naturam eum Stoicis vincere, eum Cynicis excedere.
+Cum rerum natura in consortium omnis aevi patiatur
+incedere, quidni ab hoc exiguo et caduco temporis
+transitu in illa toto nos demus animo, quae immensa,
+quae aeterna sunt, quae cum melioribus communia ?
+<milestone unit="section" n="3"/> Isti, qui per officia discursant, qui se aliosque inquietant, cum bene insanierint, eum omnium limina
+cotidie perambulaverint nec ullas apertas fores
+praeterierint, cum per diversissimas domos meritoriam salutationem circumtulerint, quotum quemque
+ex tam immensa et variis cupiditatibus districta urbe
+ poterunt videre ? <milestone unit="section" n="4"/> Quam multi erunt, quorum illos
+aut somnus aut luxuria aut inhumanitas summoveat !
+Quam multi qui illos, eum diu torserint, simulata
+festinatione transcurrant ! Quam multi per refertum
+clientibus atrium prodire vitabunt et per obscuros
+aedium aditus profugient, quasi non inhumanius sit
+decipere quam excludere ! Quam multi hesterna
+crapula semisomnes et graves illis miseris suum
+somnum rumpentibus ut alienum expectent, vix
+adlevatis labris insusurratum miliens nomen oscitatione superbissima reddent !
+<milestone unit="section" n="5"/> Hos in veris officiis morari licet dicamus, qui
+
+<pb id="p.336"/>
+Zenonem, qui Pythagoran cotidie et Democritum
+ceterosque antistites bonarum artium, qui Aristotelen et Theophrastum volent habere quam familiarissimos. Nemo horum non vacabit, nemo non
+venientem ad se beatiorem, amantiorem sui dimittet,
+nemo quemquam vacuis a se manibus abire patietur ;
+nocte convenio, interdiu ab omnibus mortalibus
+possunt.
+</p>
+
+<p><milestone unit="chapter" n="15"/><milestone unit="section" n="1"/>  Horum te mori nemo coget, omnes docebunt ;
+horum nemo annos tuos conteret, suos tibi contribuet ;
+nullius ex his sermo periculosus erit, nullius amicitia
+capitalis, nullius sumptuosa observatio. Feres ex
+illis, quidquid voles ; per illos non stabit, quominus
+ quantum plurimum cupiens<note> quantum plurimum cupieris Muretus : plurimum quantum ceperis A : cum coeperis Hermes after Vahlen.</note> haurias. <milestone unit="section" n="2"/> Quae illum
+felicitas, quam pulchra senectus manet, qui se in
+horum clientelam contulit! Habebit, cum quibus
+de minimis maximisque rebus deliberet, quos de se
+cotidie consulat, a quibus audiat verum sine contumelia, laudetur sine adulatione, ad quorum se
+similitudinem effingat.
+<milestone unit="section" n="3"/> Solemus dicere non fuisse in nostra potestate, quos
+sortiremur parentes, forte hominibus datos ; nobis
+vero ad nostrum arbitrium nasci licet. Nobilissimorum ingeniorum familiae sunt ; elige in quam
+adscisci velis ; non in nomen tantum adoptaberis,
+sed in ipsa bona, quae non erunt sordide nec maligne
+ custodienda; maiora fient, quo illa pluribus diviseris. <milestone unit="section" n="4"/>
+
+<pb id="p.338"/>
+Hi tibi dabunt ad aeternitatem iter et te in illum
+locum, ex quo nemo deicitur, sublevabunt. Haec una
+ratio est extendendae mortalitatis, immo in<note> in commonly added.</note> immortalitatem vertendae. Honores, monimenta, quidquid
+aut decretis ambitio iussit aut operibus extruxit, cito
+subruitur; nihil non longa demolitur vetustas et
+movet. At iis, quae consecravit sapientia, nocere
+non potest ; nulla abolebit aetas, nulla deminuet ;
+sequens ac deinde semper ulterior aliquid ad venerationem conferet, quoniam quidem in vicino versatur
+ invidia, simplicius longe posita miramur. <milestone unit="section" n="5"/> Sapientis
+ergo multum patet vita, non idem illum qui ceteros ter-
+minus cludit. Solus generis humani legibus solvitur ;
+omnia illi saecula ut deo serviunt. Transit tempus
+aliquod ? Hoc recordatione comprendit. Instat ?
+Hoc utitur. Venturum est ? Hoc praecipit. Longam illi vitam facit omnium temporum in unum
+conlatio.
+</p>
+
+<p><milestone unit="chapter" n="16"/><milestone unit="section" n="1"/>  Illorum brevissima ac sollicitissima aetas est,
+qui praeteritorum obliviscuntur, praesentia neclegunt, de futuro timent ; eum ad extrema venerunt,
+sero intellegunt miseri, tam diu se, dum nihil agunt,
+ occupatos fuisse. <milestone unit="section" n="2"/> Nec est, quod hoc argumento probari putes longam illos agere vitam, quia interdum
+mortem invocant. Vexat illos imprudentia incertis
+adfectibus et incurrentibus in ipsa, quae metuunt ;
+ mortem saepe ideo optant, quia timent. <milestone unit="section" n="3"/> Illud quoque
+argumentum non est quod putes diu viventium, quod
+saepe illis longus videtur dies, quod, dum veniat con-
+
+<pb id="p.340"/>
+dictum tempus cenae, tarde ire horas queruntur;
+nam si quando illos deseruerunt occupationes, in otio
+relicti aestuant, nec quomodo id disponant aut extrahant sciunt. Itaque ad occupationem aliquam tendunt
+et quod interiacet omne tempus grave est ; tam me
+hercules, quam cum dies muneris gladiatorii edictus
+est, aut cum alicuius alterius vel spectaculi vel volup-
+tatis expectatur constitutum, transilire medios dies
+volunt. Omnis illis speratae rei longa dilatio est.
+<milestone unit="section" n="4"/> At illud tempus, quod amant,<note> amant Muretus : amanti A.</note> breve est et praeceps
+breviusque multo suo fit<note> fit added by Erasmus before suo.</note> vitio ; aliunde enim alio
+transfugiunt et consistere in una cupiditate non possunt. Non sunt illis longi dies, sed invisi; at contra
+quam exiguae noctes videntur, quas in complexu
+ scortorum aut vino exigunt ! <milestone unit="section" n="5"/> Inde etiam poetarum
+furor fabulis humanos errores alentium, quibus visus
+est Iuppiter voluptate concubitus delenitus duplicasse
+noctem. Quid aliud est vitia nostra incendere quam
+auctores illis inscribere deos et dare morbo exemplo
+divinitatis excusatam licentiam ? Possunt istis non
+brevissimae videri noctes, quas tam care mereantur ?
+Diem noctis expectatione perdunt, noctem lucis metu.
+</p>
+
+<p><milestone unit="chapter" n="17"/><milestone unit="section" n="1"/>  Ipsae voluptates eorum trepidae et variis ter-
+roribus inquietae sunt subitque cum maxime exsultantis sollicita cogitatio : " Haec quam diu ? "
+
+<pb id="p.342"/>
+Ab hoc affectu reges suam flevere potentiam, nec
+illos magnitudo fortunae suae delectavit, sed venturus aliquando finis exterruit. Cum per magna
+camporum spatia porrigeret exercitum nec numerum
+eius sed mensuram conprenderet Persarum rex insolentissimus, lacrimas profudit, quod intra centum
+annos nemo ex tanta iuventute superfuturus esset.
+<milestone unit="section" n="2"/> At illis admoturus erat fatum ipse qui flebat perditurusque alios in mari, alios in terra, alios proelio,
+alios fuga et intra exiguum tempus consumpturus
+ illos, quibus centesimum annum timebat. <milestone unit="section" n="3"/> Quid,
+quod gaudia quoque eorum trepida sunt ? Non
+enim solidis causis innituntur, sed eadem qua oriuntur
+vanitate turbantur. Qualia autem putas esse tempora etiam ipsorum confessione misera, eum haec
+quoque, quibus se attollunt et super hominem efferunt,
+ parum sincera sint ? <milestone unit="section" n="4"/> Maxima quaeque bona sollicita
+sunt nec ulli fortunae minus bene quam optimae creditur ; alia felicitate ad tuendam felicitatem opus est
+et pro ipsis quae successere votis vota facienda sunt.
+Omne enim quod fortuito obvenit instabile est, quoque
+altius surrexerit, opportunius est in occasum. Neminem porro casura delectant ; miserrimam ergo necesse
+est, non tantum brevissimam, vitam esse eorum, qui
+magno parant labore, quod maiore possideant.
+Operose adsecuntur quae volunt, anxii tenent quae
+ adsecuti sunt ; <milestone unit="section" n="5"/> nulla interim numquam amplius redi-
+
+<pb id="p.344"/>
+turi temporis ratio est. Novae occupationes veteribus
+substituuntur, spes spem excitat, ambitionem ambitio.
+Miseriarum non finis quaeritur, sed materia mutatur.
+Nostri nos honores torserunt ? Plus temporis alieni
+auferunt. Candidati laborare desimus ? Suffragatores incipimus. Accusandi deposimus molestiam ?
+Iudicandi nanciscimur. Iudex desit esse ? Quaesitor
+est. Alienorum bonorum mercennaria procuratione
+ consenuit ? Suis opibus distinetur. <milestone unit="section" n="6"/> Marium caliga
+dimisit ? Consulatus exercet. Quintius dictaturam
+properat pervadere ? Ab aratro revocabitur. Ibit<note> ibit A : ivit Haase : ibat Duff.</note>
+in Poenos nondum tantae maturus rei Scipio ; victor
+Hannibalis, victor Antiochi, sui consulatus decus,
+fraterni sponsor, ni per ipsum mora esset, eum Iove
+reponeretur ; civiles servatorem agitabunt seditiones
+et post fastiditos a iuvene diis aequos honores iam
+senem contumacis exili delectabit ambitio. Num-
+quam derunt vel felices vel miserae sollicitudinis
+causae; per occupationes vita trudetur. Otium
+numquam agetur, semper optabitur.
+</p>
+
+<p><milestone unit="chapter" n="18"/><milestone unit="section" n="1"/>  Excerpe itaque te volgo, Pauline carissime,
+et in tranquilliorem portum non pro aetatis spatio
+iactatus tandem recede. Cogita, quot fluctus subieris,
+quot tempestates partim privatas sustinueris, partim
+
+<pb id="p.346"/>
+publicas in te converteris ; satis iam per laboriosa et
+inquieta documenta exhibita virtus est : experire,
+quid in otio faciat. Maior pars aetatis, certe melior
+rei publicae data sit ; aliquid temporis tui sume
+ etiam tibi. <milestone unit="section" n="2"/> Nec te ad segnem aut inertem quietem
+voco, non ut somno et caris turbae voluptatibus quidquid est in te indolis vividae mergas. Non est istud
+adquiescere ; invenies maiora omnibus adhuc strenue
+tractatis operibus, quae repositus et securus agites.
+<milestone unit="section" n="3"/> Tu quidem orbis terrarum rationes administras
+tam abstinenter quam alienas, tam diligenter
+quam tuas, tam religiose quam publicas. In
+officio amorem consequeris, in quo odium vitare
+difficile est ; sed tamen, mihi crede, satius est vitae
+ suae rationem quam frumenti publici nosse. <milestone unit="section" n="4"/> Istum
+animi vigorem rerum maximarum capacissimum a
+ministerio honorifico quidem sed parum ad beatam
+vitam apto revoca et cogita non id egisse te ab aetate
+prima omni cultu studiorum liberalium, ut tibi multa
+milia frumenti bene committerentur ; maius quiddam
+et altius de te promiseras. Non derunt et frugalitatis
+exactae homines et laboriosae operae ; tanto aptiora
+portandis oneribus tarda iumenta sunt quam
+nobiles equi, quorum generosam pernicitatem quis
+ umquam gravi sarcina pressit ? <milestone unit="section" n="5"/> Cogita praeterea,
+quantum sollicitudinis sit ad tantam te molem obicere;
+
+<pb id="p.348"/>
+cum ventre tibi humano negotium est. Nec rationem
+patitur nec aequitate mitigatur nec ulla prece flectitur
+populus esuriens. Modo modo intra paucos illos dies,
+quibus C. Caesar perit, si quis inferis sensus est, hoc
+gravissime ferens, quod sciebat populo Romano superstiti<note> The text is very dubious : quod sciebat populo Romano
+superstiti Hermes : quod dicebat populo Romano super stite
+A : quod populo Romano superstite, dicebant Madvig.
+</note> septem aut octo certe dierum cibaria superesse,
+dum ille pontes navibus iungit et viribus imperi ludit,
+aderat ultimum malorum obsessis quoque, alimentorum egestas ; exitio paene ac fame constitit et,
+quae famem sequitur, rerum omnium ruina furiosi et
+ externi et infeliciter superbi regis imitatio. <milestone unit="section" n="6"/> Quem
+tunc animum habuerunt illi, quibus erat mandata
+frumenti publici cura, saxa, ferrum, ignes. Gaium
+excepturi ? Summa dissimulatione tantum inter
+viscera latentis mali tegebant, eum ratione scilicet.
+Quaedam enim ignorantibus aegris curanda sunt;
+causa multis moriendi fuit morbum suum nosse.
+</p>
+
+<p><milestone unit="chapter" n="19"/><milestone unit="section" n="1"/>  Recipe te ad haec tranquilliora, tutiora, maiora!
+Simile tu putas esse, utrum cures, ut incorruptum et
+a fraude advehentium et a neglegentia frumentum
+transfundatur in horrea, ne concepto umore vitietur
+et concalescat, ut ad mensuram pondusque respondeat, an ad haec sacra et sublimia accedas sciturus,
+
+<pb id="p.350"/>
+quae materia sit dei, quae voluptas, quae condicio,
+quae forma; quis animum tuum casus expectet ;
+ubi nos a corporibus dimissos natura componat ; quid
+sit quod huius mundi gravissima quaeque in medio
+sustineat, supra levia suspendat, in summum ignem
+ferat, sidera vicibus suis excitet ; cetera deinceps in-
+ gentibus plena miraculis ? <milestone unit="section" n="2"/> Vis tu relicto solo mente
+ad ista respicere ! Nunc, dum calet sanguis, agentibus<note> vigentibus A : sensibus added by Buff after Madvig.</note> ad meliora eundum est. Expectat te in hoc
+genere vitae multum bonarum artium, amor virtutium
+atque usus, cupiditatium oblivio, vivendi ac moriendi
+scientia, alta rerum quies.
+<milestone unit="section" n="3"/> Omnium quidem occupatorum condicio misera est,
+eorum tamen miserrima, qui ne suis quidem laborant
+occupationibus, ad alienum dormiunt somnum, ad
+alienum ambulant gradum, amare et odisse, res omnium liberrimas, iubentur. Hi si volent scire quam
+brevis ipsorum vita sit, cogitent ex quota parte sua
+sit.
+</p>
+
+<p><milestone unit="chapter" n="20"/><milestone unit="section" n="1"/>  Cum videris itaque praetextam saepe iam
+sumptam, cum celebre in foro nomen, ne invideris ;
+ista vitae damno parantur. Ut unus ab illis numeretur annus, omnis annos suos conterent. Quosdam
+antequam in summum ambitionis eniterentur, inter
+prima luctantis aetas reliquit ; quosdam eum in consummationem dignitatis per mille indignitates erepsissent, misera subit cogitatio laborasse ipsos in titulum
+
+<pb id="p.352"/>
+sepulcri; quorundam ultima senectus, dum in novas
+spes ut iuventa disponitur, inter conatus magnos et
+ improbos invalida defecit. <milestone unit="section" n="2"/> Foedus ille, quem in
+iudicio pro ignotissimis litigatoribus grandem natu
+et imperitae coronae assensiones captantem, spiritus
+liquit ; turpis ille, qui vivendo lassus citius quam
+laborando inter ipsa officia conlapsus est ; turpis,
+quem accipiendis immorientem rationibus diu tractus
+ risit heres. <milestone unit="section" n="3"/> Praeterire quod mihi occurrit exemplum
+non possum. S. Turannius<note> S. Turannius Gertz: styrannius A.</note> fuit exactae diligentiae
+senex, qui post annum nonagesimum, cum vacationem
+procurationis ab C. Caesare ultro accepisset, componi
+se in lecto et velut exanimem a circumstante familia
+plangi iussit. Lugebat domus otium domini senis
+nec finivit ante tristitiam, quam labor illi suus re-
+ stitutus est. Adeone iuvat occupatum mori ? <milestone unit="section" n="4"/> Idem
+plerisque animus est ; diutius cupiditas illis laboris
+quam facultas est ; eum imbecillitate corporis pugnant, senectutem ipsam nullo alio nomine gravem
+iudicant, quam quod illos seponit. Lex a quinquagesimo anno militem non legit, a sexagesimo
+senatorem non citat ; difficilius homines a se otium
+ impetrant quam a lege. <milestone unit="section" n="5"/> Interim dum rapiuntur
+et rapiunt, dum alter alterius quietem rumpit, dum
+mutuo miseri sunt, vita est sine fructu, sine voluptate,
+sine ullo profectu animi. Nemo in conspicuo mortem
+
+<pb id="p.354"/>
+habet, nemo non procul spes intendit ; quidam vero
+disponunt etiam illa, quae ultra vitam sunt, magnas
+moles sepulcrorum et operum publicorum dedicationes et ad rogum munera et ambitiosas exequias.
+At me hercules istorum funera, tamquam minimum
+vixerint, ad faces et cereos ducenda sunt.</p></div1>
+</body>
+
+
+</text>
+</TEI.2>

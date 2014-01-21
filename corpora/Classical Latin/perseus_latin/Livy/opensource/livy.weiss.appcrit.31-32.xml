@@ -1,0 +1,1091 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+  <teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+	<title>Ab urbe condita libri, erkl&auml;rt von M. Weissenborn, books 31-32, textual notes</title>
+	
+	<author n="Liv.">Titus Livius (Livy)</author>
+	&responsibility;
+	&fund.NEH;
+      </titleStmt>
+	
+      <extent></extent>
+      
+	&Perseus.publish;
+      
+      <sourceDesc>
+	<listBibl>
+	  <biblStruct>
+	    <monogr>
+	      <author>Livy</author>
+	      <editor>W. Weissenborn</editor>
+	      <editor>H. J. M&uuml;ller</editor>
+	      <title>Ab urbe condita</title>
+	      <imprint>
+		<pubPlace>Berlin</pubPlace>
+		<publisher>Weidmannsche Buchhandlung</publisher>
+		<date>1883</date>
+	      </imprint>
+	      <biblScope type="volume">7.1</biblScope>
+	    </monogr>
+	  </biblStruct>
+
+	</listBibl>
+      </sourceDesc>
+      
+    </fileDesc>
+    
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+	<state delim="." unit="book"/>
+	<state delim="." unit="chapter"/>
+	<state unit="section"/>
+      </refsDecl>
+    </encodingDesc>
+    
+    <profileDesc>
+      <langUsage>
+	<language id="la">Latin
+	</language><language id="en">English
+	</language><language id="de">German
+	</language><language id="greek">Greek
+      </language></langUsage>
+    </profileDesc>
+    
+    <revisionDesc>
+      <change>
+	<date>2006/7/03</date>
+	<respStmt><name>Gregory Crane</name><resp>ed.</resp></respStmt>
+	<item>
+
+      </item></change></revisionDesc></teiHeader>
+
+<text><front>
+<pb id="p.iii"/>
+<div1 type="intro"><head>Vorwort.</head>
+<p>Der Kommentar ist in der vorliegenden erst nach Verlauf von 16 Jahren notwendig gewordenen dritten Auflage stark umgearbeitet. &Uuml;ber dic hierbei beobachteten Grunds&auml;tze habe ich mich fr&uml;her ausgesprochen; s. Vorw. zur siebenten Auflage des ersten Heftes vom ersten Bande (Buch 1).</p>
+<p>Im Text ist die Interpunktion sehr h&auml;ufig eine andere geworden (z. B.
+<bibl n="Liv. 32.10.6">32, 10, 6</bibl>); an nich wenigen Stellen hatte ich Druckfehler zu bescitigen oder dic Orthographie zu berichtigen; s.
+<bibl n="Liv. 31.1.2">31, 1, 2</bibl>.
+<bibl n="Liv. 31.1.5">5</bibl>.
+<bibl n="Liv. 31.2.3">2, 3</bibl>.
+<bibl n="Liv. 31.5.3">5, 3</bibl>.
+<bibl n="Liv. 31.8.8">8, 8</bibl>.
+<bibl n="Liv. 31.12.6">12, 6</bibl>.
+<bibl n="Liv. 31.12.8">8</bibl>.
+<bibl n="Liv. 31.14.8">14, 8</bibl>.
+<bibl n="Liv. 31.21.16">21, 16</bibl>.
+<bibl n="Liv. 31.25.8">25, 8</bibl>.
+<bibl n="Liv. 31.27.7">27, 7</bibl>.
+<bibl n="Liv. 31.29.15">29, 15</bibl>.
+<bibl n="Liv. 31.31.4">31, 4</bibl>.
+<bibl n="Liv. 31.33.6">33, 6</bibl>.
+<bibl n="Liv. 31.37.9">37, 9</bibl>.
+<bibl n="Liv. 31.38.9">38, 9</bibl>.
+<bibl n="Liv. 31.39.3">39, 3</bibl>.
+<bibl n="Liv. 31.41.9">41, 9</bibl>.
+<bibl n="Liv. 31.43.2">43, 2</bibl>.
+<bibl n="Liv. 31.50.3">50, 3</bibl>.
+<bibl n="Liv. 31.50.4">4</bibl>.
+<bibl n="Liv. 31.50.6">6</bibl>.
+<bibl n="Liv. 32.4.7">32, 4, 7</bibl>.
+<bibl n="Liv. 32.7.13">7, 13</bibl>.
+<bibl n="Liv. 32.8.3">8, 3</bibl>.
+<bibl n="Liv. 32.10.4">10, 4</bibl>.
+<bibl n="Liv. 32.13.10">13, 10</bibl>.
+<bibl n="Liv. 32.14.4">14, 4</bibl>.
+<bibl n="Liv. 32.18.9">18, 9</bibl>.
+<bibl n="Liv. 32.19.1">19, 1</bibl>.
+<bibl n="Liv. 32.21.14">21, 14</bibl>.
+<bibl n="Liv. 32.21.26">26</bibl>.
+<bibl n="Liv. 32.21.27">27</bibl>.
+<bibl n="Liv. 32.24.1">24, 1</bibl>.
+<bibl n="Liv. 32.29.3">29, 3</bibl>.
+<bibl n="Liv. 32.32.1">32, 1</bibl>.
+<bibl n="Liv. 32.36.7">36, 7</bibl>.
+<bibl n="Liv. 32.37.5">37, 5</bibl>.
+<bibl n="Liv. 32.39.2">39, 2</bibl>. &mdash;Die Lesart des Textes ist an folgenden Stellen ge&auml;ndert:
+<bibl n="Liv. 31.2.6">31, 2, 6</bibl>.
+<bibl n="Liv. 31.4.2">4, 2</bibl>.
+<bibl n="Liv. 31.4.5">5</bibl>.
+<bibl n="Liv. 31.7.3">7, 3</bibl>.
+<bibl n="Liv. 31.8.8">8, 8</bibl>.
+<bibl n="Liv. 31.9.3">9, 3</bibl>.
+<bibl n="Liv. 31.9.7">7</bibl>.
+<bibl n="Liv. 31.9.10">10</bibl>.
+<bibl n="Liv. 31.11.12">11, 12</bibl>.
+<bibl n="Liv. 31.14.9">14, 9</bibl>.
+<bibl n="Liv. 31.16.4">16, 4</bibl>.
+<bibl n="Liv. 32.18.5">18, 5</bibl> (zweifach).
+<bibl n="Liv. 31.20.7">20, 7</bibl>.
+<bibl n="Liv. 31.21.2">21, 2</bibl>.
+<bibl n="Liv. 31.21.4">4</bibl>.
+<bibl n="Liv. 31.21.5">5</bibl>.
+<bibl n="Liv. 31.21.11">11</bibl>.
+<bibl n="Liv. 32.22.6">22, 6</bibl> (zweifach).
+<bibl n="Liv. 31.24.1">24, 1</bibl>.
+<bibl n="Liv. 31.24.11">11</bibl>.
+<bibl n="Liv. 31.25.2">25, 2</bibl>.
+<bibl n="Liv. 31.26.13">26, 13</bibl>.
+<bibl n="Liv. 31.27.5">27, 5</bibl>.
+<bibl n="Liv. 31.29.3">29, 3</bibl>.
+<bibl n="Liv. 31.29.5">5</bibl>.
+<bibl n="Liv. 31.30.9">30, 9</bibl>.
+<bibl n="Liv. 31.35.1">35, 1</bibl>.
+<bibl n="Liv. 31.36.7">36, 7</bibl>.
+<bibl n="Liv. 31.37.7">37, 7</bibl>.
+<bibl n="Liv. 31.40.1">40, 1</bibl>.
+<bibl n="Liv. 31.40.4">4</bibl>.
+<bibl n="Liv. 31.40.9">9</bibl>.
+<bibl n="Liv. 31.42.5">42, 5</bibl>.
+<bibl n="Liv. 31.43.2">43, 2</bibl>.
+<bibl n="Liv. 31.44.2">44, 2</bibl>.
+<bibl n="Liv. 31.46.12">46, 12</bibl>.
+<bibl n="Liv. 31.46.13">13</bibl>.
+<bibl n="Liv. 31.46.15">15</bibl>.
+<bibl n="Liv. 31.47.6">47, 6</bibl>.
+<bibl n="Liv. 31.49.2">49, 2</bibl>.
+<bibl n="Liv. 31.49.10">10</bibl>.
+<bibl n="Liv. 32.5.4">32, 5, 4</bibl>.
+<bibl n="Liv. 32.5.7">7</bibl>.
+<bibl n="Liv. 32.9.6">9, 6</bibl>.
+<bibl n="Liv. 32.11.3">11, 3</bibl>.
+<bibl n="Liv. 32.11.6">6</bibl>.
+<bibl n="Liv. 32.11.10">10</bibl>.
+<bibl n="Liv. 32.16.3">16, 3</bibl> (zweifach).
+<bibl n="Liv. 32.16.9">9</bibl>.
+<bibl n="Liv. 32.16.11">11</bibl>.
+<bibl n="Liv. 32.17.4">17, 4</bibl>.<bibl n="Liv. 32.17.9">9</bibl>.
+<bibl n="Liv. 32.17.17">17</bibl> (dreifach).
+<bibl n="Liv. 32.18.1">18, 1</bibl>.
+<bibl n="Liv. 32.19.7">19, 7</bibl>.
+<bibl n="Liv. 32.20.2">20, 2</bibl>.
+<bibl n="Liv. 32.21.2">21, 2</bibl>.
+<bibl n="Liv. 32.21.11">11</bibl>.
+<bibl n="Liv. 32.21.14">14</bibl>.
+<bibl n="Liv. 32.21.16">16</bibl>.
+<bibl n="Liv. 32.21.27">27</bibl>.
+<bibl n="Liv. 32.22.5">22, 5</bibl>.
+<bibl n="Liv. 32.23.5">23, 5</bibl>.
+<bibl n="Liv. 32.24.3">24, 3</bibl>.
+<bibl n="Liv. 32.26.6">26, 6</bibl>.
+<bibl n="Liv. 32.26.7">7</bibl>.
+<bibl n="Liv. 32.26.8">8</bibl> (zweifach).
+<bibl n="Liv. 32.26.13">13</bibl>.
+<bibl n="Liv. 32.28.11">28, 11</bibl>.
+<bibl n="Liv. 32.30.13">30, 13</bibl>.
+<bibl n="Liv. 32.31.6">31, 6</bibl> (zweifach).
+<bibl n="Liv. 32.32.6">32, 6</bibl>.
+<bibl n="Liv. 32.34.6">34, 6</bibl>.
+<bibl n="Liv. 32.39.2">39, 2</bibl>.</p>
+<p>Im Text kursiv gedruckte W&ouml;rter fehlen in allen Handschriften.</p>
+<p>Wenn im Anhang neben dem Lemma kein Emendator genannt ist, so ist die Lesart den j&uml;ngeren Codices entnommen.</p>
+<p>Ein dem Lemma im Kommentar beigef&uml;gtes * bedeutet: &lsquo;vgl. den Anhang&rsquo;.</p>
+<closer><dateline>Berlin, im April 1883.</dateline>
+<name>Prof. Dr. Hermann Johannes M&uml;ller.</name></closer></div1>
+<pb id="p.iv"/>
+<div1 type="introduction"><head>Vorwort zur zweiten auflage.</head>
+<p>F&uuml;r die neue Bearbeitung der folgenden B&uuml;cher konnte ich aufser den Bemerkungen &uuml;ber die erste Ausgabe in dem Lit. Centralbl. 1862 Sp. 17 zur Verbesserung des Textes die Ausgaben von Hertz und Madvig, sowie des letzteren Emendationes Livianae und die Beitr&auml;ge zur Kritik u. Erkl. des Livius von M. M&uuml;ller (1866) benutzen. Unterst&uuml;rzt durch diese H&uuml;lfsmittel habe ich mehrfache Ver&auml;nderungen des Textes vorgenommen, zugleich aber nach einer neuen Pr&uuml;fung des handschriftlichen Materials von meiner Ansicht &uuml;ber das Verh&auml;linis der Bamberger Handschrift zu der Mainzer in diesen B&uuml;chern abzugehen mich nicht entschliefsen k&ouml;nnen und die Gr&uuml;nde daf&uuml;r zum Teil in der Abhandlung De codice Livii Moguntino (1865) dargelegt. Mag auch die Mainzer Handschrift viele Vorz&uuml;ge haben und die Bamberger in den letzten der B&uuml;cher, welche sie enth&auml;lt, jener nachstehen, so l&auml;fst sich doch, wie schon die Verzeichnisse bei Kreyssig T. Livii ab u. c. liber tricesimus tertius S. X ff. zeigen, nicht leugnen, dafs dieses Verh&auml;ltnis nur allm&auml;hlich eintritt, in den ersten B&uuml;chern, welche in der Mainzer Hdschr. enthalten sind, die Bamberger oft das Bessere bietet und von den Interpolationen und willk&uuml;rlichen Ver&auml;nderungen, die in der Mainzer nicht verkannt werden k&ouml;nen, frei ist; s. Madvig Em. Liv. S. 365. Dazu kommt, dafs &uuml;ber die Lesarten der Bamberger Hdschr. ein Zweifel nicht obwalten kann, w&auml;hrend es infolge der Ausdrucks- und Anf&uuml;hrungsweise des Gelenius nicht immer feststeht, was er in der Hdschr. gefunden und was er nach Konjektur ge&auml;ndert hat, namentlich ob er an den Stellen, wo seine Angaben von denen Carbachs abweichen, nur der Hdschr. gefolgt ist. Ebenso zweifle ich auch jetzt nicht, dafs die Bamberger Hdschr. bis zu dem Punkte, wo ihr die Mainzer zur Seite tritt (weiterhin ist es nicht geschehen) mit Recht in der ersten Ausgabe &lsquo;die beste Handschrift&rsquo; genannt worden ist (s. Madvigs Ausg. III 1, S. III), besonders da Gelenius &uuml;ber den von ihm neben der Mainzer Hdschr. verglichenen Codex Spirensis, welcher dem Bamberger n&auml;her gestanden zu haben scheint als die j&uuml;ngeren Handschriften (s. N. Jahrb. f. Phil. 18, 183; Madvig a. a. O. S. XII), so wenige Andeutungen gegeben hat.</p>
+<closer><dateline>Eisenach, im Juni 1867.</dateline>
+<name>W. Weifsenborn.</name></closer></div1></front>
+<body>
+<pb id="p.181"/>
+<div1 type="introduction">
+<head>Verzeichnis der stellen,
+An welchen von der handschriftlichen &uuml;berlieferung abgewichen ist, und der wichtigsten konjeketuren, welche J. N. Madvig in seine textausgabe (Hauniae MDCCCLXIII) aufgenommen hat.</head>
+<p>Ald. = Aldus; Alsch. = Alschefski; Bk. = Bekker; ed. v. = editiones veteres vor Aldus; Cr&eacute;v. = Cr&eacute;vier; Drak. = Drakenborch; Duk. = Duker; Fr. 1 = editio Frobeniana 1531; Fr. 2 = editio Frobeniana 1535; Glar. = Glareanus; Gr. = J. F. Gronov; J. Gr. = Jakob Gronov; Hwg. = Heerwagen; Htz. = Hertz; HJM. = H. J. M&uuml;ller; Kr. = Kreyfsig; Mog. = editio Moguntina 1518; Mg. = Madvig; Mms. = Th. Mommsen; Rhen. = Rhenanus; Sig. = Sigonius; Wfl. = W&ouml;lfflin; Wfsb. = Weifsenborn; Wsbg. = Wesenberg.</p>
+<p>B = Bambergensis; 11. Jahrhundert.</p></div1>
+<div1 type="book" n="31">
+
+<div2 type="chapter" n="1">
+<div3 type="section" n="4">
+<p><lemma>octoginta septem</lemma>] <foreign>LXXVIII</foreign> B; hierzu bemerkt Wfsb.2: &lsquo;die &uuml;berlieferte Zahlangabe w&uuml;rde nicht zu der Chronologie des Liv. passen, der seit dem J. 300 v. Chr. drei Jahre weniger rechnet als die Fasten; s. zu <bibl n="Liv. 10.5.14">10.5.14</bibl>; Mms. Chron. 121; vgl. jedoch <bibl n="Liv. 34.54.6">34.54.6</bibl>;&rsquo;; Mg. schreibt nach Glar. <foreign>duodenonaginta</foreign> und sagt dazu: &lsquo;Livium sibi in his constitisse certum non est; ef. 34, 54, 6.&rsquo;.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>proximis</lemma>] Mog.; <foreign>proximi</foreign> B.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>profundum</lemma>] Ascensius; <foreign>profundam</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>quo</lemma>] die im Kommentar gegebene Erkl&auml;rung ist problematisch; vgl. jedoch Isokr. 1, 7 und 8; vielleicht ist <foreign>armis</foreign> oder <foreign>quo</foreign> zu streichen, letzteres etwa als Anticipation aus <foreign>quondam</foreign> oder als Zusatz, der die nicht erkannte Parenthese <foreign>multa . . armis</foreign> mit dem Vorhergehenden verbinden sollte. Harant empfiehlt <foreign>quod</foreign> statt <foreign>quo</foreign> zu schreiben.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>causa</lemma>] Heinsius: <foreign>causai</foreign> B, <foreign>causae</foreign> j&uuml;ng. Hdschr.</p></div3>
+</div2>
+
+<div2 type="chapter" n="2">
+<div3 type="section" n="3">
+<p><lemma>Ptolomaeum</lemma>] so wird dieser Name in der vierten Dekade in B fast regelm&auml;fsig geschrieben (an u. St. <foreign>ptolaemaeum,</foreign> was auf eine Korrektur <foreign>ptolemaeum</foreign> hinweist); s. <bibl n="Liv. 31.9.1">31.9.1</bibl>. <bibl n="Liv. 43.5">43.5</bibl>; <bibl n="Liv. 32.33.4">32.33.4</bibl>; <bibl n="Liv. 33.19.8">33.19.8</bibl>.11; <bibl n="Liv. 35.13.4">35.13.4</bibl>; <bibl n="Liv. 36.4.3">36.4.3</bibl>; <bibl n="Liv. 37.3.9">37.3.9</bibl>; vgl. aber <bibl n="Liv. 37.56.4">37.56.4</bibl>. 5. &Uuml;bereinstimmend die &Uuml;berlieferung im Puteaneus und Spirensis (s. <bibl n="Liv. 23.10.12">23.10.12</bibl>; <bibl n="Liv. 27.4.10">27.4.10</bibl>. <bibl n="Liv. 30.4">30.4</bibl>); abweichend dagegen der Vindobonensis (<bibl n="Liv. 42.29.7">42.29.7</bibl>; <bibl n="Liv. 44.19.6">44.19.6</bibl>; <bibl n="Liv. 45.11.1">45.11.1</bibl>. <bibl n="Liv. 2.10.12">2.10.12</bibl>, <bibl n="Liv. 8.13.4">8.13.4</bibl>. 7). Mg. schreibt &uuml;berall: <foreign>Ptolemaeus.</foreign></p></div3>
+<div3 type="section" n="6">
+<p><lemma>Ampium</lemma>] <foreign lang="la">appium</foreign> B; vgl. &sect; 7 und 9.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>qua</lemma>] Mg.; <foreign>quam</foreign> B. Dies hat Wfsb.2 im Text und bemerkt dazu: &lsquo;<foreign>quam tribum . . vocant</foreign> Attraktion, = <foreign>eam tribum Umbriae, quam . . vocant;</foreign> s. zu <bibl n="Liv. 40.31.9">40.31.9</bibl>; vgl. Vell. Pat. 2, 17, 1; Ter. Heaut. 724.&rsquo;</p></div3>
+<div3 type="section" n="7">
+<p><lemma>Mutilum</lemma>] <foreign>militum</foreign> B, <foreign>mutillum</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>Ingaunis</lemma>] <foreign lang="la">incaunis</foreign> B.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>icit</lemma>] <foreign lang="la">iecit</foreign> B; vgl. <bibl n="Liv. 21.18.10">21.18.10</bibl>. 11 Anh.</p></div3>
+<pb id="p.182"/>
+</div2>
+
+<div2 type="chapter" n="3">
+<div3 type="section" n="6">
+<p><lemma>ne</lemma>] <foreign lang="la">nec</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="4">
+<div3 type="section" n="2">
+<p><lemma>urbanus</lemma>] <foreign lang="la">urbis</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>C. et M. Servilii</lemma>] <foreign lang="la">et m. seruilius</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>Hostilii</lemma>] <foreign lang="la">hostilus</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>Tappulus</lemma>] Gelenius; <foreign>t. apuleius</foreign> B.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>Gillo</lemma>] <foreign lang="la">cilo</foreign> B; vgl. <bibl n="Liv. 30.21.12">30.21.12</bibl>; <bibl n="Liv. 31.6.2">31.6.2</bibl> (<foreign>scillo</foreign> korr. in <foreign>gillo</foreign>); <bibl n="Liv. 31.8.8">31.8.8</bibl>.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>et L.</lemma>] Sig.; <foreign>et t.</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="5">
+<div3 type="section" n="1">
+<p><lemma>quingentesimo</lemma>] B; <foreign>quingesimo</foreign> Prisc. de fig. num. 5, 22 (II 413 H.)</p></div3>
+<div3 type="section" n="1">
+<p><lemma>quinquagesimo</lemma>] Glar.; <foreign>q_</foreign>|<foreign>dragensimo</foreign> B.</p></div3>
+<div3 type="section" n="1">
+<p><lemma>primo</lemma>] <foreign lang="la">uno</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>diis ipsis</lemma>] <foreign lang="la">ipsis diis</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="6">
+<div3 type="section" n="1">
+<p><lemma>sorti</lemma>] <foreign lang="la">sortis</foreign> korr. aus <foreign>sorti</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Plautus</lemma>] vgl. <bibl n="Liv. 4.4">4.4</bibl>; <foreign>plancus</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Gillo</lemma>] vgl. <bibl n="Liv. 4.4">4.4</bibl> Anh.</p></div3>
+</div2>
+
+<div2 type="chapter" n="7">
+<div3 type="section" n="3">
+<p><lemma>proximo</lemma>] Mg.; <foreign>punico proximo</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>die</lemma>] Mg.; <foreign>die inde</foreign> B1, <foreign>inde die</foreign> B2.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>aequabitis</lemma> hinzugef&uuml;gt nach Jacobs.</p></div3>
+<div3 type="section" n="15">
+<p><lemma>etiam</lemma>] <foreign lang="la">iam</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="8">
+<div3 type="section" n="1">
+<p><lemma>uti rogaret</lemma>] B; Mg. schreibt mit Sig.: <foreign>uti rogas;</foreign> vgl. <bibl n="Liv. 30.43.3">30.43.3</bibl></p></div3>
+<div3 type="section" n="5">
+<p><lemma>exercitibus</lemma>] <foreign lang="la">exercitu</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>consules</lemma>] G&ouml;ller; <foreign>cons.</foreign> B.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>praesidii</lemma>] Mg; <foreign>praesidio</foreign> B, <foreign>praesidium (praesidi&otilde;)</foreign> Gr.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>haberent</lemma>] Muret; <foreign>haberet</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="9">
+<div3 type="section" n="3">
+<p><lemma>libeat</lemma>] <foreign lang="la">liceat</foreign> B.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>consules</lemma>] <foreign lang="la">cos.</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>licere, ex certa voveri</lemma> hinzugef&uuml;gt nach Mg. (die Worte <foreign>vovere debere quia pecunia</foreign> stehen in B auf einer Rasur).</p></div3>
+<div3 type="section" n="7">
+<p><lemma>quia ea</lemma>] Bk.; <foreign>quia</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>quantam</lemma>] B2; <foreign>qua tamen</foreign> B1; <foreign>quanta</foreign> Duk.</p></div3>
+</div2>
+
+<div2 type="chapter" n="10">
+<div3 type="section" n="7">
+<p><lemma>velit</lemma>] B2; <foreign>uenit</foreign> B1.</p></div3>
+</div2>
+
+<div2 type="chapter" n="11">
+<div3 type="section" n="12">
+<p><lemma>eis</lemma>] Mg.; <foreign>ei</foreign> B; Wfsb.2 bemerkt: &lsquo;<foreign>ei</foreign> vom Standpunkte des Senats aus gesagt, ist hier wohl nicht auffallender als an manchen anderen Stellen, wo <foreign>is</foreign> statt des Reflexivums steht; s. <bibl n="Liv. 1.54.5">1.54.5</bibl>. <bibl n="Liv. Frag. 56">56.10</bibl>; <bibl n="Liv. 9.5.9">9.5.9</bibl>; <bibl n="Liv. 31.3.6">31.3.6</bibl>. <bibl n="Liv. 34.1">34.1</bibl>; <bibl n="Liv. 32.8.11">32.8.11</bibl>; <bibl n="Liv. 35.46.8">35.46.8</bibl>; <bibl n="Liv. 38.47.12">38.47.12</bibl>; <bibl n="Liv. 45.13.14">45.13.14</bibl>; Caes. BG. 1, 6, 3. 11, 3; Nep. Milt. 4, 5 u. a.; sonst liegt an u. St. die Ver&auml;nderung in <foreign>eis</foreign> (Mg.) oder <foreign>sibi</foreign> (Gr.) nahe.&rsquo;</p></div3>
+<div3 type="section" n="17">
+<p><lemma>permittenti</lemma>] Ruben; <foreign>permittente</foreign> B.</p></div3>
+<div3 type="section" n="17">
+<p><lemma>mutarive</lemma>] <foreign lang="la">mutari</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="12">
+<div3 type="section" n="2">
+<p><lemma>sacrilegiis</lemma>] <foreign lang="la">sacrilegis</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>Lanuvi in</lemma>] Wfsb.; <foreign>lanuuii</foreign> B; Wfsb.2 bemerkt: &lsquo;obgleich bisweilen der blofse Ablativ steht (s. <bibl n="Liv. 1.34.8">1.34.8</bibl>; <bibl n="Liv. 9.46.9">9.46.9</bibl> u. a.), besonders wenn er eine attributive Bestimmung hat, so gebraucht doch Liv. in F&auml;llen wie dem vorliegenden regelm&auml;fsig <foreign>in;</foreign> s. <bibl n="Liv. 24.10.6">24.10.6</bibl>. <bibl n="Liv. 44.8">44.8</bibl>; <bibl n="Liv. 26.23.4">26.23.4</bibl>; <bibl n="Liv. 29.14.3">29.14.3</bibl>; <bibl n="Liv. 32.1.10">32.1.10</bibl> u. a.&rsquo;</p></div3>
+</div2>
+
+<div2 type="chapter" n="13">
+<div3 type="section" n="4">
+<p><lemma>noxia</lemma>] Wfsb.: <foreign>noxiam</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>trientabulumque</lemma>] Hearne; <foreign>trie&ntilde; tabul&utilde;q;</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="14">
+<div3 type="section" n="2">
+<p><lemma>discriptis</lemma>] B; Mg. schreibt: <foreign>descriptis.</foreign></p></div3>
+<div3 type="section" n="8">
+<p><lemma>percunctantis</lemma>] <foreign lang="la">percontatis</foreign> B1, <foreign>percontatos</foreign> B2, <foreign>percunctantes</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>factum gens Acarnanum</lemma>] Fr. 1; <foreign>gens acarnanum factum</foreign> B. Diese Wortstellung beh&auml;lt Wfsb.2 bei und vergleicht als &auml;hnlich auffallend <bibl n="Liv. 22.6">22.6</bibl>; Praef. 5; <bibl n="Liv. 3.55.7">3.55.7</bibl>. <bibl n="Liv. Frag. 60">60.7</bibl>; <bibl n="Liv. 8.30.10">8.30.10</bibl>; <bibl n="Liv. 21.52.9">21.52.9</bibl>; <bibl n="Liv. 24.8.3">24.8.3</bibl>; <bibl n="Liv. 25.3.8">25.3.8</bibl>; <bibl n="Liv. 26.27.16">26.27.16</bibl>; <bibl n="Liv. 28.2.15">28.2.15</bibl>; <bibl n="Liv. 36.11.9">36.11.9</bibl> u. a.</p></div3>
+<pb id="p.183"/>
+<div3 type="section" n="11">
+<p><lemma>Piraeum</lemma>] die Form <foreign>Piraeus,</foreign> welche als die im Lateinischen gebr&auml;uchliche Wiedergabe des griechischen <foreign lang="greek">*peiraieu/s</foreign> anzusehen ist, findet sich handschriftlich gut beglaubigt bei Liv. <bibl n="Liv. 31.14.11">31.14.11</bibl>. <bibl n="Liv. 22.5.23">22.5.23</bibl>, <bibl n="Liv. 10.25.1">10.25.1</bibl>. <bibl n="Liv. 2.26.5">2.26.5</bibl>. <bibl n="Liv. 6.7.8">6.7.8</bibl>. <bibl n="Liv. 30.9.45">30.9.45</bibl>, <bibl n="Liv. 1.2.47">1.2.47</bibl>, 1; <bibl n="Liv. 32.16.5">32.16.5</bibl>. <bibl n="Liv. 9.23.13">9.23.13</bibl>. <bibl n="Liv. 35.50.3">35.50.3</bibl>; <bibl n="Liv. 36.42.4">36.42.4</bibl>. 5. 7; <bibl n="Liv. 37.14.1">37.14.1</bibl>; <bibl n="Liv. 38.39.4">38.39.4</bibl>; <bibl n="Liv. 45.27.11">45.27.11</bibl> (wo <foreign>Piraeum</foreign> zu schreiben ist); Plaut. Bacch. 235; Trin. 1103; Most. 1, 1. 63; Ter. Eun. 290. 539; Cic. de rep. 3, 44; ad fam. 4, 12, 1. 2; ad Att. 7, 3, 10 (wo <foreign>Piraeum</foreign> zu schreiben ist); Nep. Them. 6, 1; Alc. 6, 1. 3. Thras. 2, 5; Con. 4, 5; Phoc. 2, 4. 3, 4. 4, 1; Catull 64, 74; Quint. 8, 6, 64; Tac. Ann. 5, 10; Flor. 1, 40 (<bibl n="Liv. 3.5">3.5</bibl>), 10; Vell. Pat. 2, 23, 3; Gell. 2, 21, 1; <bibl n="Liv. 15">15.1.6</bibl> u. a. m.; vgl. B&uml;cheler Grundr. der lat. Decl. 24; Neue 12, 329 ff.</p></div3>
+</div2>
+
+<div2 type="chapter" n="15">
+<div3 type="section" n="8">
+<p><lemma>recipit</lemma>] B; Mg. schreibt nach j&uml;ng. Hdschr.: <foreign>recepit.</foreign></p></div3>
+<div3 type="section" n="8">
+<p><lemma>Ciam</lemma>] Sig; <foreign>ceiam</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>sed neque</lemma>] Duk.; <foreign>et neque</foreign> B.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>Thraeciae</lemma>] Wfsb. nach Gr. (<foreign>Thraciae); graeciae</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="16">
+<div3 type="section" n="4">
+<p><lemma>obsedit</lemma> hinzugef&uuml;gt nach Pluygers.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>Callimedis</lemma>] Bk.; <foreign>gallimedis</foreign> B.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>Callipolis . . Madytos</lemma>] Mog.; <foreign>gallipolis . . madocus</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="17">
+<div3 type="section" n="5">
+<p><lemma>gymnasio</lemma>] Mg.; <foreign>gymnasium</foreign> B. Etwas leichter ist vielleicht die gleichfalls von Mg. vorgeschlagene &Auml;nderung <foreign>in templum (templo).</foreign> so dafs <foreign>in gymnasium</foreign> unangetastet bliebe. Wfsb. h&auml;lt es f&uml;r m&ouml;glich <foreign>in templo . . in gymnasium</foreign> beizubehalten und vergleicht zu dem Konstruktionswechsel 32, 21, 22; zu <bibl n="Liv. 5.11.14">5.11.14</bibl>.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>vivum</lemma> tilgt Pluygers; der Ausdruck ist allerdings nicht mit logischer Sch&auml;rfe gestaltet, ich habe aber Bedenken getragen, die Streichung zu vollziehen, da ich glaubte, dafs sich der Schriftsteller hier einer minder genauen Sprechweise bedient habe. Vgl. Anhang zu <bibl n="Liv. 32.16.11">32.16.11</bibl>.</p></div3>
+</div2>
+
+<div2 type="chapter" n="18">
+<div3 type="section" n="4">
+<p><lemma>animos</lemma>] Mg.; <foreign>animo est</foreign> B.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>argento quaeque . . acceptis</lemma>] Harant; <foreign>argentoque quae . . accepto</foreign> B. Hierzu bemerkt Mg.: &lsquo;dure admodum inter <foreign>auro argentoque . . . accepto</foreign> interponitur <foreign>quae coacervata erant,</foreign> etiamsi de vasis rebusque aureis argenteisque accipias.&rsquo;.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>repente, proditos</lemma>] B; Mg. schreibt nach Cr&eacute;v.: <lemma>[repente</lemma>] <foreign lang="la">proditos.</foreign></p></div3>
+<div3 type="section" n="7">
+<p><lemma>leti</lemma>] <foreign lang="la">laeti</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="19">
+<div3 type="section" n="1">
+<p><lemma>duce</lemma>] <foreign lang="la">rege</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="20">
+<div3 type="section" n="5">
+<p><lemma>Ti.</lemma>] Sig.; <foreign>t.</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>ex praeda</lemma> getilgt nach Wfsb.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>centenos vicenos</lemma>] Wfsb.; <foreign>CXX</foreign> B. Hierzu bemerkt Mg.; Weifsenbornius probabiliter coniecit scribendum <foreign>centenos vicenos asses.</foreign>&rsquo;</p></div3>
+</div2>
+
+<div2 type="chapter" n="21">
+<div3 type="section" n="4">
+<p><lemma>lassitudinem</lemma>] Htz.; <foreign>lassitudini</foreign> B; Mg. schreibt: <foreign>lassitudini militum pepercit, quod . .</foreign></p></div3>
+<div3 type="section" n="5">
+<p><lemma>et</lemma> getilgt nach Mg.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>in</lemma> hinzugef&uml;gt nach j&uml;ng. Hdschr. mit Gr.; Wfsb.2 vergleicht zu dem blofsen Abl., den er = <foreign>quod tantam multitudinem habebant</foreign> oder <foreign>propter multitudinem</foreign> setzt, 26, 11: <foreign>copia;</foreign> <bibl n="Liv. 4.19.6">4.19.6</bibl>; <bibl n="Liv. 5.38.4">5.38.4</bibl>; <bibl n="Liv. 21.2.3">21.2.3</bibl>; <bibl n="Liv. 22.11.6">22.11.6</bibl>; <bibl n="Liv. 28.11.12">28.11.12</bibl> u. a.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>Diiovi</lemma>] Valesius; <foreign>deoiovi</foreign> B; vgl. Mms. CIL. I S. 36. 382; B&uml;cheler Rh. Mus. XV 445.</p></div3>
+</div2>
+
+<div2 type="chapter" n="22">
+<div3 type="section" n="6">
+<p><lemma>terrestres</lemma>] B hat <foreign>terrestris;</foreign> Nominative Plur. auf <foreign>is</foreign> (statt <foreign>es</foreign>) sind in den guten Hdschr. bei Livius an folgenden Stellen &uml;berliefert: 5, 50, 2: <foreign>hostis</foreign> (Ver.); <bibl n="Liv. 8.23.10">8.23.10</bibl>: <foreign>hostis;</foreign> <bibl n="Liv. 21.39.4">21.39.4</bibl>: <foreign>volentis;</foreign> <bibl n="Liv. 24.5.5">24.5.5</bibl>: <foreign>convenientis;</foreign> <bibl n="Liv. 24.29.12">24.29.12</bibl>: <foreign>abnuentis;</foreign> <bibl n="Liv. 24.32.2">24.32.2</bibl>: <foreign>omnis;</foreign> <bibl n="Liv. 25.24.12">25.24.12</bibl>: <foreign>classis;</foreign> <bibl n="Liv. 25.39.9">25.39.9</bibl>: <foreign>calentis;</foreign> <bibl n="Liv. 27.18.2">27.18.2</bibl>: <foreign>advenientis;</foreign> <bibl n="Liv. 28.22.10">28.22.10</bibl>: <foreign>hostis;</foreign> <bibl n="Liv. 28.25.5">28.25.5</bibl>: <foreign>circumeuntis;</foreign> <bibl n="Liv. 28.33.15">28.33.15</bibl>: <foreign>pedestris;</foreign> <bibl n="Liv. 31.22.6">31.22.6</bibl>: <foreign>terrestris;</foreign> <bibl n="Liv. 31.33.6">31.33.6</bibl>: <foreign>hostis;</foreign> <bibl n="Liv. 42.23.10">42.23.10</bibl>: <foreign>lacrimantis;</foreign> <bibl n="Liv. 42.30.7">42.30.7</bibl>: <foreign>sentientis.</foreign></p></div3>
+<pb id="p.184"/>
+<div3 type="section" n="6">
+<p><lemma>Megara</lemma>] <foreign lang="la">megaram</foreign> B; vgl. HJM. zu <bibl n="Liv. 24.30.9">24.30.9</bibl> Anh. der Teubnerschen Ausgabe.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>nec</lemma>] <foreign lang="la">ne</foreign> B; Mg. schreibt: <foreign>ne extra fretum Euripi &lt;quidem&gt; . .</foreign></p></div3>
+</div2>
+
+<div2 type="chapter" n="24">
+<div3 type="section" n="1">
+<p><lemma>rebus</lemma> hinzugef&uml;gt nach Luchs.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>hemerodromos</lemma>] Ascensius; <foreign>hemrodromas</foreign> B1, <foreign>hemerodromas</foreign> B2.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>iram</lemma> hinzugef&uml;gt nach Wfsb., auch <foreign>odium</foreign> (Wfsb.) oder <foreign>animum</foreign> (Mg.) w&auml;ren passende Zus&auml;tze; das blofse <foreign>expleturum,</foreign> wozu man <foreign>se</foreign> als Objekt erg&auml;nzen m&uml;fste, wie <foreign>hostium</foreign> zu <foreign>caede,</foreign> w&auml;re sehr hart. F&uuml;r <foreign>odium</foreign> (entweder an die Stelle von <foreign>diu</foreign> zu setzen oder vor <foreign>diu</foreign> einzuschieben) entscheidet sich M. M&uml;ller.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>ecum</lemma>] B2; <foreign>aec&uml;</foreign> B1.</p></div3>
+<div3 type="section" n="18">
+<p><lemma>humanive</lemma>] ed. vet.; <foreign>humanique</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="25">
+<div3 type="section" n="2">
+<p><lemma>Eleusinem</lemma>] Mog.; <foreign>eleusinam</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Megara</lemma>] <foreign lang="la">megaram</foreign> B; vgl. zu <bibl n="Liv. 22.6">22.6</bibl> Anh.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Argis</lemma>] B; Harant vermutet: <foreign>Aegii.</foreign></p></div3>
+<div3 type="section" n="3">
+<p><lemma>Cycliadam</lemma>] Dark.; <foreign>eycladem</foreign> B, <foreign>cycliadem</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>pollicitus</lemma>] B; Mg. sagt: &lsquo;scribendum opinor <foreign>pollicitus est</foreign>.&rsquo;.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>Cycliadas</lemma>] <foreign lang="la">clycliades</foreign> B, <foreign>cycliades</foreign> j&uml;ng. Hdschr.</p></div3>
+</div2>
+
+<div2 type="chapter" n="26">
+<div3 type="section" n="13">
+<p><lemma>erat</lemma>] hinzugef&uuml;gt nach Siesbye.</p></div3>
+</div2>
+
+<div2 type="chapter" n="27">
+<div3 type="section" n="1">
+<p><lemma>L.</lemma>] Glar.; <foreign>t.</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Corrhago</lemma>] <foreign lang="la">corhago</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Orgesso</lemma>] <foreign lang="la">orsesso</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Antipatream</lemma>] <foreign lang="la">antepatream</foreign> B.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>Codrione</lemma>] Harant; <foreign>codrionem</foreign> B; Wfsb.2 behielt <foreign>Codrionem</foreign> bei, erkl&auml;rte dies als Attraktion und verglich <bibl n="Liv. 34.61.4">34.61.4</bibl>; Ter. Heaut. 84; Cic. de leg. agr. 2, 57; K&uuml;hn. 321; Mg. erkl&auml;rte diese Annahme f&uuml;r unstatthaft und forderte den Nominativ.</p></div3>
+</div2>
+
+<div2 type="chapter" n="29">
+<div3 type="section" n="3">
+<p><lemma>in</lemma> hinzugef&uuml;gt nach Mg.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>deleta</lemma>] ed. vet.; <foreign>deiecta</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="30">
+<div3 type="section" n="7">
+<p><lemma>semusta, truncata</lemma>] B; <foreign>semusta et truncata</foreign> j&uuml;ng. Hdschr., was Mg. f&uuml;r richtig zu halten geneigt ist.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>Eleusine</lemma>] ed. vet.; <foreign>eleusiniae</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="31">
+<div3 type="section" n="4">
+<p><lemma>Cianos</lemma>] Sig.; <foreign>chios</foreign> B2, L&uuml;cke in B1.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>Aenios</lemma>] Drak.; <foreign>aeneos</foreign> B; vgl. <bibl n="Liv. 37.33.1">37.33.1</bibl>; <bibl n="Liv. 38.41.4">38.41.4</bibl>.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>Larisenses</lemma>] Bk. (<foreign>Larissenses</foreign> ed. v.); <foreign>lamsenses</foreign> B.</p></div3>
+<div3 type="section" n="17">
+<p><lemma>sint</lemma>] Ascensius; <foreign>sunt</foreign> B; Wfsb. vermutet <foreign>sunto</foreign> und vergleicht Cic. de leg. 2, 21.</p></div3>
+</div2>
+
+<div2 type="chapter" n="32">
+<div3 type="section" n="2">
+<p><lemma>sed eandem</lemma>] Fr. 1; <foreign>setandem</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>Pylaico</lemma>] Gelenius; <foreign>pyraea</foreign> B1, <foreign>pyraeo</foreign> B2.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>sit</lemma> hinzugef&uuml;gt nach der Mail&auml;nder Ausg. von 1505.</p></div3>
+</div2>
+
+<div2 type="chapter" n="33">
+<div3 type="section" n="4">
+<p><lemma>Dassaretiorum</lemma>] Mog.; <foreign>darsertiorum</foreign> B1, <foreign>darsetiorum</foreign> B2; vgl. &sect; 5; <foreign>darsetiorum</foreign> B; &sect; 8: <foreign>darsetios</foreign> B; <bibl n="Liv. 40.4">40.4</bibl>: <foreign>dassaretios</foreign> B; <bibl n="Liv. 32.9.9">32.9.9</bibl>: <foreign>dassaretios</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>Bevum</lemma>] ed. vet.; <foreign>bactum</foreign> B, <foreign>betum (bactum)</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>hostes</lemma>] <foreign lang="la">hostis</foreign> B; vgl. zu <bibl n="Liv. 22.6">22.6</bibl> Anh.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>hostes appropinquare</lemma>] fehlt in B; Wfsb.2 bemerkt hierzu: &lsquo;vielleicht hat Liv. das <foreign>hostes appropinquare,</foreign> welches in B fehlt und einem Glossem &auml;hnlich sieht, nur gedacht wissen wollen, so dafs <foreign>fefellit</foreign> absolut gebraucht w&auml;re, = &lsquo;es (n&auml;ml. dafs die Feinde sich n&auml;herten) entging ihnen nicht&rsquo;; s. <bibl n="Liv. 10.41.6">10.41.6</bibl>; Cic. de off. 2. 25; p. Sest. 106; p. Cael. 45.&rsquo;</p></div3>
+<pb id="p.185"/>
+
+</div2>
+
+<div2 type="chapter" n="34">
+<div3 type="section" n="7">
+<p><lemma>Athaco</lemma>] fehlt in B; <foreign>Achaeo</foreign> oder <foreign>Achaeo</foreign> j&uuml;ng. Hdschr.; <foreign>Areto</foreign> Mail&auml;nder Ausg. 1505.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>discripta</lemma>] B; Mg. schreibt: <foreign>descripta.</foreign></p></div3>
+<div3 type="section" n="9">
+<p><lemma>eduxit</lemma>] <foreign lang="la">duxit</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="35">
+<div3 type="section" n="1">
+<p><lemma>rex</lemma>] ed. vet.; <foreign>rex non</foreign> B, <foreign>rex uero</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>quo adsueverant</lemma>] HJM. vermutet, dafs <foreign>cui (quoi) adsueverant</foreign> zu schreiben ist.</p></div3>
+</div2>
+
+<div2 type="chapter" n="36">
+<div3 type="section" n="6">
+<p><lemma>Ottolobum</lemma>] Wfsb.; <foreign>attolobum</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>et</lemma> getilgt nach Ussing; Wfsb.2 bemerkt hierzu: &lsquo;da nichts vorausgeht, worauf <foreign>simul et</foreign> bezogen werden k&ouml;nnte, wie an &auml;hnlichen Stellen (s. Sall. Iug. 25, 5; Cic. ad Att. 1, 1, 4), so ist anzunehmen, dafs <foreign>et neglegentia</foreign> des Nachdrucks wegen vor <foreign>cum audacia</foreign> gestellt ist (= &lsquo;zugleich auch die . . samt der . .&rsquo;; &lsquo;mit der . . zugleich auch die . .&rsquo;); s. <bibl n="Liv. 1.31.3">1.31.3</bibl>: <foreign>diis quoque simul cum patria relictis.</foreign> Da jedoch die Umstellung in dieser Verbindung ungew&ouml;hnlich ist, so wollen andere <foreign>et</foreign> tilgen oder den Ausfall eines zweiten Begriffes vor <foreign>simul</foreign> annehmen [<foreign>&lt;temeritatis&gt; simul</foreign> H. A. Koch; <foreign>&lt;securitatis</foreign> oder <foreign>socordiae&gt; simul</foreign> M. M&uuml;ller].&rsquo;</p></div3>
+</div2>
+
+<div2 type="chapter" n="37">
+<div3 type="section" n="7">
+<p><lemma>prima</lemma>] Mg.; <foreign>primo</foreign> B.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>per vias inviaque</lemma>] Drak.; <foreign>peruias inuiasque</foreign> B.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>equi spoliis</lemma>] Gelenius; <foreign>equi sunt spoliis</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="38">
+<div3 type="section" n="5">
+<p><lemma>regis</lemma>] fehlt in B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="39">
+<div3 type="section" n="5">
+<p><lemma>Bruanium</lemma>] Gr. (<foreign>Bryanium</foreign> Sig.); <foreign>bruantiam</foreign> B, <foreign>bruanam</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>Eordaeam</lemma>] Gr. (<foreign>Heordaeam</foreign> Sig.); <foreign>erduaeam</foreign> B. Vgl. 40, 1.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>propere</lemma>] Vofvs; <foreign>opere</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>fecit</lemma>] <foreign lang="la">facit</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="40">
+<div3 type="section" n="1">
+<p><lemma>Eordaeam</lemma>] Gr. (<foreign>Heordaeam</foreign> Sig.); <foreign>erdumaeam</foreign> B. Vgl. 39, 7.</p></div3>
+<div3 type="section" n="1">
+<p><lemma>consul</lemma> hinzugef&uuml;gt nach Harant.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>et</lemma> getilgt nach Mg.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>auctor</lemma> getilgt nach Mg.</p></div3>
+</div2>
+
+<div2 type="chapter" n="41">
+<div3 type="section" n="8">
+<p><lemma>Pharcadoni</lemma>] Ussing; <foreign>phaeca</foreign> B1, <foreign>phaecado</foreign> B2.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>palati</lemma>] fehlt in B.</p></div3>
+<div3 type="section" n="13">
+<p><lemma>universi sescentorum</lemma>] Gelenius; <foreign>sescentorum</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="42">
+<div3 type="section" n="5">
+<p><lemma>receperat</lemma>] Mog. und j&uuml;ng. Hdschr.; <foreign>rereperant</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>ad tumulum ad castra</lemma>] B; Mg. bemerkt hierzu: &lsquo;nonne <foreign>ad tumulum ac castra</foreign>?&rsquo;</p></div3>
+</div2>
+
+<div2 type="chapter" n="43">
+<div3 type="section" n="2">
+<p><lemma>tale</lemma>] <foreign lang="la">talis</foreign> einige j&uuml;ng. Hdschr., fehlt in B; Mg. beh&auml;lt <foreign>talis</foreign> bei.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>terra</lemma>] Mg.; <foreign>erant</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="44">
+<div3 type="section" n="1">
+<p><lemma>Maleo superato</lemma>] B; Mg. schreibt <foreign>Malea superata</foreign> und so immer.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Philippum</lemma>] <foreign lang="la">Philyppo</foreign> B; Wfsb.2 schrieb <foreign>in Philippo</foreign> und bemerkte dazu: &lsquo;vgl. &sect; 8; <bibl n="Liv. 28.43.8">28.43.8</bibl>: <foreign>illud nec tibi in me nec mihi in minoribus natu animi sit;</foreign> <bibl n="Liv. 34.2.1">34.2.1</bibl>; Sall. C. 51, 15: <foreign>in hominibus impiis sceleris eorum obliti de poena disserunt;</foreign> Cic. in Verr. 4, 46: <foreign>nec solum in Papinio fuit hac abstinentia</foreign> u. a.&rsquo;</p></div3>
+<div3 type="section" n="4">
+<p><lemma>statuae imagines</lemma>] B; Mg. schreibt: <foreign>statuae &lt;et&gt; imagines.</foreign></p></div3>
+<div3 type="section" n="4">
+<p><lemma>sacerdotes, quae</lemma>] <foreign lang="la">sacerdotesque</foreign> B.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>maiorumque</lemma>] B; Mg. schreibt nach j&uuml;ng. Hdschr.: <foreign>maiorumve.</foreign></p></div3>
+</div2>
+
+<div2 type="chapter" n="45">
+<div3 type="section" n="2">
+<p><lemma>in ira</lemma>] <foreign lang="la">in iram</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>Gaurion</lemma>] Drak.; <foreign>caurelon</foreign> B, <foreign>gaurelon</foreign> j&uuml;ng. Hdschr.</p></div3>
+<pb id="p.186"/>
+<div3 type="section" n="14">
+<p><lemma>Mendaeum</lemma>] B2; <foreign>memdaeum</foreign> B1, <foreign>mendeum</foreign> j&uuml;ng. Hdschr.; <foreign>Mendin</foreign> Mog.; <foreign>Mendam</foreign> Glar.</p></div3>
+<div3 type="section" n="15">
+<p><lemma>Toronae</lemma>] Fr. 1; <foreign>coronae</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="46">
+<div3 type="section" n="2">
+<p><lemma>Pyrrhias</lemma>] Bk.; <foreign>pyrrihas</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>venit</lemma>] Wfsb. vermutet <foreign>convenit;</foreign> HJM. ist geneigt <foreign>Heracleam</foreign> vor <foreign>ad communicanda consilia</foreign> zu stellen.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>quae</lemma>] Gr.; <foreign>qui</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>Phthiotidis</lemma>] Wfsb.; <foreign>pthiniae id</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>faciebant</lemma>] Kr.; <foreign>iaciebant</foreign> B.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>castigationis</lemma>] Gr.; <foreign>castigationibus</foreign> B.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>quot . . videbantur</lemma>] <foreign>quod .. videbatur</foreign> B.</p></div3>
+<div3 type="section" n="13">
+<p><lemma>Pteleon</lemma>] Ruperti; <foreign>egeleon</foreign> B.</p></div3>
+<div3 type="section" n="15">
+<p><lemma>in arcem, quae super portum est</lemma>] B&uuml;ttner; <foreign>quae super portum est in arcem</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="47">
+<div3 type="section" n="6">
+<p><lemma>quem</lemma> getilgt nach Mg. Wfsb.2 bemerkt dazu: &lsquo;obgleich Liv. in Nebens&auml;tzen die Kopula bisweilen wegl&auml;fst (s. zu <bibl n="Liv. 27.5.9">27.5.9</bibl>; <bibl n="Liv. 29.10.1">29.10.1</bibl>), so k&ouml;nnte doch hier, da man <foreign>rebatur</foreign> erwartet, nicht wohl <foreign>est</foreign> gedacht, sondern <foreign>ratus</foreign> nur als Particip betrachtet werden; die Konstr. w&auml;re dann anakoluthisch, indem <foreign>Romam . . cum venisset</foreign> angekn&uuml;pft wird, als wenn nicht <foreign>quem,</foreign> sondern <foreign>eum</foreign> vorherginge, oder <foreign>quem</foreign> gesagt ist, als ob <foreign>Romam . . venerat</foreign> folgte (<foreign>imminens, quem . . venerat</foreign>), so dafs <foreign>quem . . ratus</foreign> nicht verk&uuml;rzter Vordersatz zu einem Hauptsatz, sondern das, was Hauptsatz sein sollte, wieder Vordersatz zu einem andern Nachsatze geworden ist, wie sonst nicht selten das Particip; s. <bibl n="Liv. 5.48.6">5.48.6</bibl>. Ob Liv. selbst diese Ungenauigkeit verschuldet hat, wie an anderen Stellen (s. <bibl n="Liv. 22.3.7">22.3.7</bibl>; <bibl n="Liv. 23.36.10">23.36.10</bibl>; <bibl n="Liv. 28.31.1">28.31.1</bibl> u. a.; vgl. <bibl n="Liv. 31.30.6">31.30.6</bibl>: <foreign>habitantes</foreign>), oder <foreign>quem</foreign> statt <foreign>eumque</foreign> oder <foreign>atque eum</foreign> verschrieben sei, l&auml;fst sich nicht erkennen.&rsquo;</p></div3>
+<div3 type="section" n="7">
+<p><lemma>petit</lemma>] B; Mg. schreibt: <foreign>petiit.</foreign></p></div3>
+</div2>
+
+<div2 type="chapter" n="48">
+<div3 type="section" n="4">
+<p><lemma>extrahere</lemma>] Htz.; <foreign>extraheret</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>magistratu suisque</lemma>] Fr. 2; <foreign>magistratus iusquis</foreign> B, <foreign>magistratu suisquis</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>senatusconsulto</lemma>] Duk.; <foreign>senatusconsultum</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="49">
+<div3 type="section" n="2">
+<p><lemma>argenti</lemma>] j&uuml;ng. Hdschr.; <foreign>aeris argenti centum</foreign> fehlt in B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>quingentos</lemma>] HJM.; <foreign>d</foreign> B; vgl. <bibl n="Liv. 33.23.9">33.23.9</bibl>; Wfsb.2 und Mg. schreiben: <foreign>quingenta.</foreign></p></div3>
+<div3 type="section" n="5">
+<p><lemma>in Hispania aut</lemma> streicht G. F. Unger.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>et non</lemma>] Wfsb.; <foreign>et</foreign> B, <foreign>haud</foreign> j&uuml;ng. Hdschr. Hierzu bemerkt Wfsb.2: &lsquo;<foreign>et non</foreign> ist nicht sicher; aber dem Sprachgebrauch des Liv. nicht angemessen ist <foreign>haud eorum</foreign> und unwahrscheinlich, dafs <foreign>et</foreign> zu tilgen sei (Mg. nach St&uml;renburg; s. Em. Liv. 376), da so eine sehr harte, mit <bibl n="Liv. 25.18.5">25.18.5</bibl> u. a. kaum zu vergleichende Konstr. eingef&uuml;hrt, der Genetiv von einem anderen, durch einen Satz getrennten Genetiv desselben Wortes abh&auml;ngig gemacht w&uuml;rde (<foreign>eius . . eorum</foreign>); auch w&auml;re <foreign>eorum . . interfuissent</foreign> &uuml;berfl&uuml;ssig, da sich von selbst versteht, dafs der, welcher einen Triumph begehrt, am Kriege teilgenommen habe, und bekommt erst Bedeutung, wenn ein Gegensatz bezeichnet wird.&rsquo;</p></div3>
+<div3 type="section" n="10">
+<p><lemma>testes</lemma>] Mg.; <foreign>virtus</foreign> oder <foreign>virtutes</foreign> j&uuml;ng. Hdschr., fehlt in B; <foreign>auctores</foreign> vermutet Harant.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>Tappulus</lemma>] Glar.; <foreign>t. appulus</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="50">
+<div3 type="section" n="4">
+<p><lemma>M.</lemma> hinzugef&uuml;gt nach Mog.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>Publio et Marco</lemma>] B2; <foreign>p. et m. et</foreign> B1; Wfsb. vermutet: <foreign>Publio et Marco et &lt;Gaio&gt;.</foreign></p></div3>
+<pb id="p.187"/>
+<div3 type="section" n="5">
+<p><lemma>M.' Acilius</lemma>] Sig.; <foreign>m. acilius</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>comitiis . .</lemma>] G. F. Unger vermutet: <foreign>comitiis aed. cur. = comitiis aedilium curulium.</foreign></p></div3>
+<div3 type="section" n="11">
+<p><lemma>Stertinio</lemma>] Fr. 1; <foreign>tercinio</foreign> B.</p></div3>
+
+</div2></div1>
+<div1 type="book" n="32">
+
+<div2 type="chapter" n="1">
+<div3 type="section" n="2">
+<p><lemma>L. Lentulo</lemma>] Mog.; <foreign>p. lentulo</foreign> B, <foreign>l.</foreign> (oder <foreign>p.</foreign>) <foreign>cornelio</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>prorogata imperia</lemma>] Gr.; <foreign>prorogato imperio</foreign> B, <foreign>prorogatum imperium</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>C.</lemma>] Bk.; <foreign>l.</foreign> B.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>ab Q.</lemma>] <foreign>absq.</foreign> B; zu letzterem (<foreign>abs Q.</foreign>) vergleicht Wfsb.2 26, 15, 12; <bibl n="Liv. 42.66.6">42.66.6</bibl>.</p></div3>
+<div3 type="section" n="14">
+<p><lemma>indicta</lemma>] Wfsb.; <foreign>dicta</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="2">
+<div3 type="section" n="7">
+<p><lemma>datum</lemma>] B; <foreign>datum erat</foreign> j&uuml;ng. Hdschr., und so schreibt Mg.</p></div3>
+</div2>
+
+<div2 type="chapter" n="4">
+<div3 type="section" n="3">
+<p><lemma>Pylis</lemma>] Mail. Ausg. von 1505; <foreign>pyleis</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>Thessaliae quae</lemma>] Doujat; <foreign>thessaliaeque</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="5">
+<div3 type="section" n="1">
+<p><lemma>quanticumque</lemma>] Gr.; <foreign>quantacumque</foreign> B.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>ademptam, Megalopolitis</lemma> hinzugef&uuml;gt nach Mg.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>ad</lemma> hinzugef&uuml;gt nach Mg.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>tum</lemma>] <foreign>cum</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="6">
+<div3 type="section" n="7">
+<p><lemma>Ivi in</lemma>] j&uuml;ng. Hdschr. (Lov. 2) und Mog.; fehlt in B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="7">
+<div3 type="section" n="3">
+<p><lemma>portoria</lemma>] B; tilgt Mg.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>Tamphilus</lemma>] Sig.; <foreign>pamphilus</foreign> B.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>M.'</lemma>] Sig.; <foreign>m.</foreign> B.</p></div3>
+<div3 type="section" n="13">
+<p><lemma>C. Helvius</lemma>] Gel.; <foreign>caelus</foreign> B1, <foreign>caelius</foreign> B2.</p></div3>
+<div3 type="section" n="15">
+<p><lemma>et C. Sulpicii Galbae</lemma>] Sig.; <foreign>sulpicius et galba</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="8">
+<div3 type="section" n="5">
+<p><lemma>L.</lemma>] ed. vet.; <foreign>t.</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>praetoribus</lemma>] Cr&eacute;v.; <foreign>praetores</foreign> B.</p></div3>
+<div3 type="section" n="14">
+<p><lemma>in potestatem</lemma>] B; Mg. schreibt <foreign>in potestate</foreign> nach der editio Tarvisiensis.</p></div3>
+</div2>
+
+<div2 type="chapter" n="9">
+<div3 type="section" n="3">
+<p><lemma>cum</lemma>] hinzugef&uuml;gt nach Duk.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>gessit</lemma>] Mg.; <foreign>gessit et</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>octingentis</lemma>] Glar.; <foreign>d</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="10">
+<div3 type="section" n="2">
+<p><lemma>concilio</lemma>] B; Mg. schreibt nach Lov. 6: <foreign>consilio.</foreign></p></div3>
+<div3 type="section" n="4">
+<p><lemma>civitatium</lemma>] Mail. Ausg. 1480; vgl. Drak.; <foreign>ciuitate</foreign> B1, <foreign>ciuitatum</foreign> B2.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>arbitro</lemma>] Mg.; <foreign>arbitrio</foreign> B.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>aptum</lemma>] Gelenius; <foreign>amplum</foreign> B.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>fecit</lemma>] <foreign>facit</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="11">
+<div3 type="section" n="3">
+<p><lemma>educturum</lemma>] Gr.; <foreign>deducturum</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>regem</lemma>] Harant; <foreign>rem</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>pernox</lemma>] <foreign>per noctem</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>carpit</lemma>] Wfsb.; <foreign>capit</foreign> B, <foreign>capi</foreign> j&uuml;ng. Hdschr.</p></div3>
+</div2>
+
+<div2 type="chapter" n="12">
+<div3 type="section" n="5">
+<p><lemma>magis quia</lemma>] Muret; <foreign>quia magis</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="13">
+<div3 type="section" n="1">
+<p><lemma>valle se</lemma>] Wfsb.; <foreign>ualles</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>Molottidis</lemma>] Freinsheim; <foreign>molotidis</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>Iresiae</lemma>] B; daf&uuml;r vermutet Leake <foreign>Piresiae,</foreign> ebenso Postolakka; vgl. Bursian Geogr. 1, 75.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>Euhydrium</lemma>] B; daf&uuml;r vermutet Imhoof: <foreign>Methydrium.</foreign></p></div3>
+<div3 type="section" n="14">
+<p><lemma>et inbelli</lemma>] M. M&uuml;ller; <foreign>ex inbelli</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="14">
+<div3 type="section" n="2">
+<p><lemma>est</lemma> hinzugef&uuml;gt nach Wfsb.; Mg. schreibt: <foreign>adortus est. per . .</foreign></p></div3>
+<div3 type="section" n="2">
+<p><lemma>eo demum</lemma>] J. Perizonius; <foreign>eodem</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="15">
+<div3 type="section" n="3">
+<p><lemma>Cierio</lemma>] Leake; <foreign>pieria</foreign> (<foreign>piera, pirea, pyrea, pyrhea</foreign>) j&uuml;ng. Hdschr., fehlt in B; Mg. schreibt nach Lov. 1. 6: <foreign>Pirea.</foreign></p></div3>
+<pb id="p.188"/>
+<div3 type="section" n="4">
+<p><lemma>eisdem</lemma>] j&uuml;ng. Hdschr.; in B fehlen die Worte <foreign>Phaloria . . . datur,</foreign> und Wfsb. ist geneigt anzunehmen, dafs die L&uuml;cke aus <bibl n="Liv. 36.14.6">36.14.6</bibl> erg&auml;nzt sei; Mg. bemerkt zu der St.: &lsquo;suspectum <foreign>eisdem;</foreign> nam abundat, etiamsi enarres, qui urbem dederint, simul veniam petisse.&rsquo; Harant vermutet: <foreign>eis dem&lt;um&gt;</foreign> .., HJM.: <foreign>eis &lt;fi&gt;dem..</foreign></p></div3>
+<div3 type="section" n="8">
+<p><lemma>Atracem</lemma>] Gr.; <foreign>ad rhagem</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="16">
+<div3 type="section" n="3">
+<p><lemma>Samen</lemma>] Sig.; <foreign>zammam</foreign> B, <foreign>zamam (gamam)</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>C.</lemma> hinzugef&uuml;gt nach HJM.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>eae</lemma>] <foreign>ea</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>distantem</lemma>] Fr. 1; <foreign>distante</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>petere</lemma>] Cr&eacute;v.; <foreign>peterent</foreign> B.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>impigre</lemma>] HJM.; <foreign>haud impigre</foreign> B; R. Novak vermutet: <foreign>quid&lt;em&gt; impigre.</foreign> Vielleicht kann <foreign>haud impigre</foreign> beibehalten werden; vgl. Ztschr. f. d. GW. 1879 Jahresb. S. 163. M&ouml;glich ist auch die Annahme, dafs <foreign>impigre</foreign> Glossem war und ein Wort verdr&auml;ngte, urspr&uuml;nglich also z. B. <foreign>haud segniter</foreign> im Texte stand.</p></div3>
+<div3 type="section" n="17">
+<p><lemma>et</lemma> hinzugef&uuml;gt nach Mg.</p></div3>
+</div2>
+
+<div2 type="chapter" n="17">
+<div3 type="section" n="4">
+<p><lemma>Atracis</lemma> hinzugef&uuml;gt nach K. Heusinger.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>oppugnandae</lemma>] B (<foreign>obpugnandae</foreign>); <foreign>expugnandae</foreign> j&uuml;ng. Hdschr., und so schreibt Mg. Vgl. Frigell, Epileg. ad 1. XXI S. 47 ff.</p></div3>
+<div3 type="section" n="14">
+<p><lemma>si quam</lemma>] <foreign>si quas</foreign> B.</p></div3>
+<div3 type="section" n="17">
+<p><lemma>trepidationem vanam</lemma>] HJM.; <foreign>trepidation&euml;insanam</foreign> oder <foreign>trepidation&euml;que insanam</foreign> j&uuml;ng. Hdschr., fehlt in B; Mg. sagt: &lsquo;pro <foreign>insanam</foreign> Livius <foreign>ingentem</foreign> similemve vocem posuit&rsquo;; Wfsb.2: &lsquo;es ist zu bezweifeln, dafs Liv. <foreign>trepidationem insanam</foreign> geschrieben habe, wenn sich auch bei ihm <bibl n="Liv. 10.28.10">10.28.10</bibl> <foreign>velut lymphaticus pavor</foreign> und bei Dichtern <foreign>amens terror</foreign> findet.&rsquo;</p></div3>
+</div2>
+
+<div2 type="chapter" n="18">
+<div3 type="section" n="1">
+<p><lemma>generisque armorum</lemma>] Baumgarten-Crusius; <foreign>generis armorum</foreign> B, <foreign>generis armorumque</foreign> j&uuml;ng. Hdschr.; Wfsb.2 folgt den letzteren und vergleicht <bibl n="Liv. 9.19.1">9.19.1</bibl>; vielleicht ist mit B an dem zweigliedrigen Asyndeton festzuhalten; s. zu <bibl n="Liv. 21.28.2">21.28.2</bibl>.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>Daulis</lemma>] Gelenius; <foreign>daulias</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>Elatia</lemma>] <foreign>elatea</foreign> B; vgl. <bibl n="Liv. 28.7.3">28.7.3</bibl>: <foreign>Elatiam</foreign> (<foreign>eletiam</foreign> P, <foreign>cletiam</foreign> V); <bibl n="Liv. 32.19.1">32.19.1</bibl>: <foreign>et late iam</foreign> B, <foreign>elatiam</foreign> j&uuml;ng. Hdschr.; <bibl n="Liv. 21.14">21.14</bibl>: <foreign>elate iam</foreign> B, <foreign>elatiam</foreign> j&uuml;ng. Hdschr.; <bibl n="Liv. 24.1">24.1</bibl>: <foreign>elatiam</foreign> j&uuml;ng. Hdschr. (<foreign>leteam</foreign> Voss., Lov. 1; <foreign>elatheam</foreign> Lov. 6), fehlt in B; <bibl n="Liv. 32.1">32.1</bibl>: <foreign>&euml; late in</foreign> B, <foreign>elatiis</foreign> Harl. (vgl. Drak.); <bibl n="Liv. 39.2">39.2</bibl>: . . . <foreign>i&auml;</foreign> B, <foreign>elatiam</foreign> j&uuml;ng. Hdschr.; <bibl n="Liv. 33.1.1">33.1.1</bibl>: <foreign>elatiam;</foreign> <bibl n="Liv. 2.9">2.9</bibl>: <foreign>elatiam;</foreign> <bibl n="Liv. 27.5">27.5</bibl>: <foreign>elatiae;</foreign> <bibl n="Liv. 29.9">29.9</bibl>: <foreign>elatia</foreign> j&uuml;ng. Hdschr., <foreign>elatio</foreign> B (nach Drak.); <bibl n="Liv. 31.7">31.7</bibl>: <foreign>elatia</foreign> B, j&uuml;ng. Hdschr. (nach Drak.); <bibl n="Liv. 34.25.3">34.25.3</bibl>: <foreign>elatia;</foreign> <bibl n="Liv. 41.7">41.7</bibl>: <foreign>elatiam;</foreign> <bibl n="Liv. Frag. 48">48.2</bibl>: <foreign>elatiae</foreign> Mog., B. j&uuml;ng. Hdschr.; <bibl n="Liv. Frag. 50">50.9</bibl>: <foreign>elatiam;</foreign> <bibl n="Liv. 42.54.7">42.54.7</bibl>; <foreign>uelatias</foreign> V.</p></div3>
+</div2>
+
+<div2 type="chapter" n="19">
+<div3 type="section" n="1">
+<p><lemma>Elatiam</lemma>] s. zu <bibl n="Liv. 18">18.9</bibl> Anh.</p></div3>
+</div2>
+
+<div2 type="chapter" n="20">
+<div3 type="section" n="2">
+<p><lemma>eos</lemma>] <foreign>eossi</foreign> B; Wfsb.2 h&auml;lt an diesem <foreign>eos si</foreign> fest und sagt: &lsquo;die Wiederholung von <foreign>si</foreign> konnte durch die weite Entfernung des ersten veranlafst werden, wie bei <foreign>ut;</foreign> s. <bibl n="Liv. 8.6.14">8.6.14</bibl>; <bibl n="Liv. 28.40.2">28.40.2</bibl>&rsquo;; Mg. beh&auml;lt gleichfalls <foreign>eos si</foreign> bei, schreibt aber nach Ussing vorher: <foreign>mirum est quibus . . </foreign></p></div3>
+</div2>
+
+<div2 type="chapter" n="21">
+<div3 type="section" n="1">
+<p><lemma>eos</lemma>] Mg.; <foreign>eos non</foreign> B.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>ut</lemma> hinzugef&uuml;gt nach Mg.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>Lacedaemoniis et</lemma>] j&uuml;ng. Hdschr.; <foreign>lacedaemoniis atque</foreign> B.</p></div3>
+<div3 type="section" n="14">
+<p><lemma>Elatiam</lemma>] s. zu <bibl n="Liv. 18">18.9</bibl> Anh.</p></div3>
+<div3 type="section" n="14">
+<p><lemma>aut vi aut metu aut voluntate</lemma>] umgestellt nach Mg.; die Worte (<foreign>aut vi aut metu</foreign> fehlen in B) stehen hinter <foreign>amnem</foreign> in den Hdschr.</p></div3>
+<div3 type="section" n="16">
+<p><lemma>potius</lemma> getilgt nach Perizonius.</p></div3>
+<pb id="p.189"/>
+<div3 type="section" n="18">
+<p><lemma>praesidium</lemma>] Wfsb.2. bemerkt dazu: &lsquo;nach der hdschr. Lesart <foreign>in praesidium</foreign> (B) k&ouml;nnte man vermuten, dafs Liv. <foreign>classem in praesidium</foreign> geschrieben habe, wozu dann <foreign>terra . . simul</foreign> der Gegensatz w&auml;re, w&auml;hrend jetzt diese Worte auf &sect; 16: <foreign>classe</foreign> bezogen werden m&uuml;ssen.&rsquo;</p></div3>
+<div3 type="section" n="20">
+<p><lemma>exercitu</lemma>] Mail&auml;nder Ausgabe von 1480; <foreign>excrcitus</foreign> B.</p></div3>
+<div3 type="section" n="22">
+<p><lemma>Ciani</lemma>] Sig.; <foreign>clani</foreign> B.</p></div3>
+<div3 type="section" n="23">
+<p><lemma>Charitelen</lemma>] Bk.; <foreign>garitelen</foreign> B.</p></div3>
+<div3 type="section" n="24">
+<p><lemma>filii etiam</lemma>] Fr. 2; <foreign>pili etiam</foreign> Lov. 1; <foreign>pili</foreign> (<foreign>pilis</foreign>) <foreign>eius</foreign> j&uuml;ng. Hdschr.; . . . <foreign>cius</foreign> B.</p></div3>
+<div3 type="section" n="25">
+<p><lemma>sit</lemma>] Duk.; <foreign>sint</foreign> B.</p></div3>
+<div3 type="section" n="25">
+<p><lemma>fieri</lemma>] Bk.; <foreign>reri</foreign> B, <foreign>tam</foreign> (oder <foreign>iam</foreign> oder <foreign>cum</foreign>) <foreign>fieri</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="27">
+<p><lemma>Issaei</lemma>] Mg.; <foreign>issaici</foreign> B, <foreign>isaci</foreign> (<foreign>ysaci, hisaci, hissaci, hisfaci, hiffaci</foreign>) j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="28">
+<p><lemma>unde</lemma>] B; Mg. schreibt: *<foreign>unde.</foreign></p></div3>
+<div3 type="section" n="30">
+<p><lemma>summopere</lemma>] j&uuml;ng. Hdschr. (Gaertn.); <foreign>summo opere</foreign> j&uuml;ng. Hdschr. (Ox. N), <foreign>summare</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="22">
+<div3 type="section" n="5">
+<p><lemma>Pisias</lemma>] Mg.; <foreign>risias</foreign> B.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>preces</lemma>] <foreign>parum</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="23">
+<div3 type="section" n="1">
+<p><lemma>cum Attalo ac Rhodiis</lemma>] ed. vet.; <foreign>cum romanis ac rhodiis</foreign> B, j&uuml;ng. Hdschr.; <foreign>cum rhodiis</foreign> j&uuml;ng. Hdschr. und ed vet.; <foreign>rhodiis</foreign> eine j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>in</lemma> hinzugef&uuml;gt nach Htz.</p></div3>
+<div3 type="section" n="5">
+<p><lemma>oppugnantibus</lemma>] Gr.; <foreign>pugnantibus</foreign> B.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>Romanus</lemma>] Wfsb.; <foreign>c&Utilde; intus romanus</foreign> B; <foreign>Quinctius</foreign> ohne <foreign>Romanus</foreign> Vulg.</p></div3>
+</div2>
+
+<div2 type="chapter" n="24">
+<div3 type="section" n="1">
+<p><lemma>Elatiam</lemma>] s. zu <bibl n="Liv. 18">18.9</bibl> Anh.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>admoto cum</lemma>] Jacobs; <foreign>admotoq.</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>duas</lemma> hinzugef&uuml;gt nach Mg.</p></div3>
+</div2>
+
+<div2 type="chapter" n="25">
+<div3 type="section" n="2">
+<p><lemma>lege</lemma>] <foreign>legi</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>moto</lemma>] Mg.; <foreign>modo</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="26">
+<div3 type="section" n="7">
+<p><lemma>ii</lemma> hinzugef&uuml;gt nach Mg.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>Norbam</lemma>] Mog.; <foreign>norbem</foreign> j&uuml;ng. Hdschr., fehlt in B.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>Norbam</lemma>] Mog.; <foreign>norbae</foreign> B, <foreign>norbem</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>urbanum</lemma>] Mg.; <foreign>urbis</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>facta</lemma>] Lentz; <foreign>acta</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="27">
+<div3 type="section" n="2">
+<p><lemma>elephanti</lemma>] <foreign>elephantes</foreign> B. Vgl. zu <bibl n="Liv. 44.5.6">44.5.6</bibl>; Drak. zu <bibl n="Liv. 31.36.4">31.36.4</bibl>.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>L.</lemma>hinzugef&uuml;gt nach ed. vet.</p></div3>
+<div3 type="section" n="7">
+<p><lemma>Atilius</lemma>] Gr.; <foreign>acilius</foreign> B, <foreign>attilius</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>Ti.</lemma>] Sig.; <foreign>t.</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="28">
+<div3 type="section" n="7">
+<p><lemma>prope</lemma>] B; Mg. schreibt nach Cr&eacute;v.: <foreign>quoque.</foreign></p></div3>
+<div3 type="section" n="11">
+<p><lemma>cui</lemma>] Mg.; <foreign>qui</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="29">
+<div3 type="section" n="2">
+<p><lemma>Acfulae</lemma>] H&uuml;bner; s. CIL. 2, 3408; <foreign>aefulo</foreign> B; Mg. schreibt nach Kr.: <foreign>Aesulae.</foreign></p></div3>
+<div3 type="section" n="5">
+<p><lemma>agenda</lemma>] B; <foreign>agendae</foreign> Fr. 1.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>ducto</lemma>] <foreign>educto</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="30">
+<div3 type="section" n="1">
+<p><lemma>iunxeratque</lemma>] <foreign>iunxerat</foreign> B.</p></div3>
+<div3 type="section" n="13">
+<p><lemma>carpenta supra ducenta. multa</lemma>] Mog. (doch <foreign>milia</foreign> statt <foreign>multa;</foreign> dies <foreign>milia</foreign> &auml;nderte Drak. in <foreign>multa</foreign>); <foreign>carpent . .</foreign> B, <foreign>carpenta supra . .</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="13">
+<p><lemma>oppida</lemma>] Lov. 5, Mog.; fehlt in B und den &uuml;brigen Hdschr.</p></div3>
+<div3 type="section" n="13">
+<p><lemma>Gallorum</lemma>] Bk.; <foreign>Gallorumque</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="31">
+<div3 type="section" n="6">
+<p><lemma>prospere gestis</lemma>] Lov. 6; <foreign>gestis prospere</foreign> B; letzteres verteidigte Wfsb.2 unter Hinweis auf <bibl n="Liv. 21.32.8">21.32.8</bibl>; <bibl n="Liv. 40.37.5">40.37.5</bibl>.</p></div3>
+<pb id="p.190"/>
+<div3 type="section" n="6">
+<p><lemma>urbanus</lemma>] Leydener Ausg. von 1553; <foreign>urbis</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="32">
+<div3 type="section" n="1">
+<p><lemma>Elatia</lemma>] s. zu <bibl n="Liv. 18">18.9</bibl> Anh.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>propiores</lemma>] <foreign>priores</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>principes Macedonum</lemma>] HJM. m&ouml;chte sowohl Cr&eacute;v. als auch Tillmanns recht geben und die Stelle aus Pol. 18, 1, 2 folgendermafsen erg&auml;nzen: <foreign>principes Macedonum &lt;Apollodorus ac Demosthenes et Brachyllas Boeotius&gt; et Achaeorum . . </foreign></p></div3>
+<div3 type="section" n="11">
+<p><lemma>Dionysodorus</lemma>] Sig.; <foreign>dionisyodorus</foreign> B, <foreign>dionysiodorus</foreign> j&uuml;ng. Hdschr., <foreign>dionysidorus</foreign> Harl.</p></div3>
+<div3 type="section" n="11">
+<p><lemma>Aristaenus</lemma>] <foreign>arma ei&rsquo;</foreign> B.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>ad</lemma> hinzugef&uuml;gt nach ed. vet.</p></div3>
+<div3 type="section" n="13">
+<p><lemma>audiamusque</lemma>] <foreign>audiemusque</foreign> B.</p></div3>
+<div3 type="section" n="15">
+<p><lemma>si nulla</lemma>] B; <foreign>ut nulla</foreign> Gelenius.</p></div3>
+</div2>
+
+<div2 type="chapter" n="33">
+<div3 type="section" n="7">
+<p><lemma>et Perinthum</lemma>] Sig.; <foreign>et penopolum</foreign> (<foreign>penopium</foreign>) j&uuml;ng. Hdschr., fehlt in B.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>ac</lemma>] j&uuml;ng. Hdschr. (Harl.); <foreign>aut</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>nec de</lemma>] Bk.; <foreign>ne de</foreign> B, <foreign>neque de</foreign> j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="12">
+<p><lemma>at non</lemma>] B; einige j&uuml;ng. Hdschr. haben <foreign>at non sic;</foreign> es ist wahrscheinlich ein Adverbium ausgefallen.</p></div3>
+<div3 type="section" n="16">
+<p><lemma>Cium</lemma>] Sig.; <foreign>chium</foreign> B; ebenso <bibl n="Liv. 34.6">34.6</bibl>.</p></div3>
+<div3 type="section" n="16">
+<p><lemma>Thebas Phthias</lemma>] ed. vet.; <foreign>thebas thias</foreign> korr. aus <foreign>thias thebas</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="34">
+<div3 type="section" n="4">
+<p><lemma>possent</lemma>] B; Mg. schreibt nach ed. vet.: <foreign>possint.</foreign></p></div3>
+<div3 type="section" n="4">
+<p><lemma>Agraeos</lemma>] Gelenius; <foreign>aegraeos</foreign> B, <foreign>greos</foreign> Lov. 4, <foreign>graecos</foreign> die &uuml;brigen j&uuml;ng. Hdschr.</p></div3>
+<div3 type="section" n="4">
+<p><lemma>Apodotosque</lemma>] Sig.; <foreign>apodoctasq;</foreign> B.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>Cium</lemma>] s. <bibl n="Liv. 33.16">33.16</bibl> Anh.</p></div3>
+<div3 type="section" n="6">
+<p><lemma>sed quia</lemma>] Ascensius; <foreign>et quia</foreign> B.</p></div3>
+<div3 type="section" n="8">
+<p><lemma>Peraean</lemma>] Bk.; <foreign>epirean</foreign> B.</p></div3>
+<div3 type="section" n="10">
+<p><lemma>sationis</lemma>] ed. vet.; <foreign>stationis</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="35">
+<div3 type="section" n="2">
+<p><lemma>Philippus</lemma>] Duk.; <foreign>philippi</foreign> B.</p></div3>
+<div3 type="section" n="3">
+<p><lemma>consumpsisse</lemma>] B; Mg. schreibt nach j&uuml;ng. Hdschr.: <foreign>se consumpsisse.</foreign></p></div3>
+<div3 type="section" n="12">
+<p><lemma>deduxisset</lemma>] <foreign>deduxisset et</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="36">
+<div3 type="section" n="3">
+<p><lemma>Thronium</lemma>] Gelenius; <foreign>thonium</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="37">
+<div3 type="section" n="2">
+<p><lemma>cum</lemma>] Wfsb.; <foreign>eo</foreign> B, <foreign>eum</foreign> (<foreign>enim</foreign>) j&uuml;ng. Hdschr.; Mg. schreibt nach Drak.: <foreign>vero.</foreign></p></div3>
+<div3 type="section" n="6">
+<p><lemma>cui</lemma>] Cr&eacute;v.; <foreign>quod</foreign> B, <foreign>qui</foreign> Lov. 2.</p></div3>
+</div2>
+
+<div2 type="chapter" n="38">
+<div3 type="section" n="7">
+<p><lemma>principum</lemma>] ed. vet.; <foreign>principium</foreign> B.</p></div3>
+<div3 type="section" n="9">
+<p><lemma>rogationes</lemma>] Cr&eacute;v.; <foreign>rogationem</foreign> B.</p></div3>
+</div2>
+
+<div2 type="chapter" n="39">
+<div3 type="section" n="2">
+<p><lemma>Elatiam</lemma>] s. zu <bibl n="Liv. 18">18.9</bibl> Anh.</p></div3>
+<div3 type="section" n="2">
+<p><lemma>ad</lemma> hinzugef&uuml;gt nach Mg.; vgl. <bibl n="Liv. 5.12.5">5.12.5</bibl>; <bibl n="Liv. 23.34.8">23.34.8</bibl>.</p></div3>
+</div2>
+
+<div2 type="chapter" n="40">
+<div3 type="section" n="9">
+<p><lemma>redit</lemma>] B; Mg. schreibt nach ed. vet.: <foreign>rediit</foreign></p></div3>
+<div3 type="section" n="11">
+<p><lemma>accersendo</lemma>] B; Mg. schreibt nach j&uuml;ng. Hdschr.: <foreign>domum accersendo.</foreign></p></div3>
+</div2></div1></body></text></TEI.2>

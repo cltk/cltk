@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Cistellaria, or The Casket</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.cist_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:31  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:55  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:58:09  packel
+Converted to XML
+
+Revision 1.12  2003/07/01 22:17:28  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.11  2001/08/21 18:49:30  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.10  2001/08/08 17:55:28  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.9  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.8  2001/08/02 21:22:39  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.7  2001/08/01 21:34:10  amahoney
+use full speaker names
+
+Revision 1.6  2001/07/31 19:02:26  amahoney
+make scene divisions match the Latin, and include TLN lines
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:35  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>THE GOD OF HELP, </role><roleDesc>who speaks the Prologue in the Second Act.</roleDesc></castItem>
+<castItem type="role"><role>DEMIPHO, </role><roleDesc>a merchant of <placeName key="tgn,7011173">Lemnos</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>ALCESIMARCHUS, </role><roleDesc>a young man of <placeName key="tgn,7011104">Sicyon</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>LAMPADISCUS, </role><roleDesc>servant of Demipho.</roleDesc></castItem>
+<castItem type="role"><role>PHANOSTRATA, </role><roleDesc>wife of Demipho.</roleDesc></castItem>
+<castItem type="role"><role>SILENIUM, </role><roleDesc>their daughter, beloved by Alcesimarchus.</roleDesc></castItem>
+<castItem type="role"><role>MELAENIS, </role><roleDesc>a Procuress.</roleDesc></castItem>
+<castItem type="role"><role>HAITSCA, </role><roleDesc>her servant.</roleDesc></castItem>
+<castItem type="role"><role>A PROCURESS, </role><roleDesc>the mother of Gymnasium.</roleDesc></castItem>
+<castItem type="role"><role>GYMNASIUM, </role><roleDesc>a Courtesan.</roleDesc></castItem>
+</castList>
+
+<stage>Scene.-<placeName key="tgn,7011104">Sicyon</placeName>, in <placeName key="tgn,7017076">Peloponnesus</placeName>. Before the houses of DEMIPHO, SILENIUM, and the father of ALCESIMARCHUS.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>DEMIPHO, a merchant of <placeName key="tgn,7011173">Lemnos</placeName>, having ravished Phanostrata, a young woman of <placeName key="tgn,7011104">Sicyon</placeName>, she is brought to bed of a female child. This she gives to her servant Lampadiscus, to be exposed. On this being done, in the sight of Lampadiscus, a Procuress picks up the infant, and afterwards makes a present of it to her friend Mel&aelig;nis, by whom it is brought up, under the name of Silenium. Alcesimarchus, a young man of <placeName key="tgn,7011104">Sicyon</placeName>, falls violently in love with her, and takes her under his protection. In the meantime, Demipho, who has married another wife, after her death marries Phanostrata, and comes to live at <placeName key="tgn,7011104">Sicyon</placeName>. He and his wife are then anxious, if possible, to regain their lost child. The daughter of Demipho by his first wife is destined by her father to become the wife of Alcesimarchus; on hearing which, Mel&aelig;nis removes her foster-child from his protection. At this conjuncture Lampadiscus finds out the Procuress that had taken up the infant when exposed, and from her discovers that the child of his mistress is with Mel&aelig;nis. He informs his mistress of this, while Mel&aelig;nis is, unknown to them, standing by; upon which she determines to confess the truth, and to restore Silenium to her parents. While she is thinking upon this plan, Alcesimarchus lays hands on Silenium, and carries her off to his father's house. In the confusion attendant on this, Halisca, the servant of Mel&aelig;nis, drops a casket in the street, containing some trinkets which had been worn by Silenium at the time when she was exposed. Phanostrata and Lampadiscus find the casket, and on Halisca coming to search for it, they discover where Silenium is. They go into the house, and Phanostrata discover her long-lost child.
+
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>A young man of <placeName key="tgn,7011173">Lemnos</placeName> ravishes (<foreign lang="la">Comprimit</foreign>) a woman of <placeName key="tgn,7011104">Sicyon</placeName>.  He (<foreign lang="la">Is</foreign>) returns to his country, and becomes father of a daughter by his marriage there.  The woman of <placeName key="tgn,7011104">Sicyon</placeName> (<foreign lang="la">Sicyonia</foreign>) also bears a daughter. A servant takes (<foreign lang="la">Tollit</foreign>) and exposes her, and keeps watch in secret; her (<foreign lang="la">Eam</foreign>), taken up, a Courtesan presents to another. Coming back afterwards from <placeName key="tgn,7011173">Lemnos</placeName> (<foreign lang="la">Lemno</foreign>), he marries her whom he had ravished; and his daughter born at <placeName key="tgn,7011173">Lemnos</placeName> (<foreign lang="la">Lemni</foreign>) he promises in marriage to a young man captivated by passion (<foreign lang="la">A more</foreign>) for the one that had been exposed. On making enquiry (<foreign lang="la">Requirens</foreign>), the servant finds her whom he had exposed; and so (<foreign lang="la">Itaque</foreign>) legaliy and properly does Alcesimarchus (<foreign lang="la">Alcesimarchus</foreign>) gain her recognized as a tree woman, whom before he had had <foreign lang="la">as a concubine.</foreign>
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>Enter SILENIUM, GYMNASIUM, and PROCURESS, from the house of SILENIUM.<note anchored="yes"><lemma targOrder="U">Title <foreign lang="la">Cistellaria</foreign></lemma>:  A word formed by Plautus from the diminutive of "cistella,' "a casket."</note></stage>
+<sp><speaker>SILENIUM</speaker><p> Inasmuch as hitherto I have loved you, and have deemed you to be my friend, my dear Gymnasium, and your mother as well; so have you shown it to me this day, both you and she. If you had been my own sister, how more you two could possibly have held me in esteem I know not; but, according as is my way of thinking, I conceive it could not possibly be, such ready assistance, all other things laid aside, have you given me. For this reason do I love you, and for it a vast obligation have you both conferred upon me.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> I' faith, at such a price as this, indeed, it's easy for us to give you our attendance and to do you good offices; so handsomely and so elegantly have you entertained us at breakfast at your house, as we shall ever remember.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> It has been done with hearty good will by me, and will be done, to get those things which I shall think you are desirous of.
+</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> As the man said, who was borne by a prospering breeze on a calm sea: "I rejoice that we came<milestone n="15" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That we came</lemma>:  "Ventum." There is probably a poor pun intended on the other meaning of this word, as the accusative case of "ventus," "wind."</note> to you;" in such a delightful manner have we been here this day received; nor except in the management, was there anything there at your house but what pleased me.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> How so, prithee?</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> Too seldom did the servant give me something to drink, and, as it was, it clouded the colour of the wine.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Pray, is that becoming to be mentioned here?</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> It's both right and proper; there's no other person here. </p></sp>
+<sp><speaker>SILENIUM</speaker><p> With reason do I love you both, who esteem and honor me.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> I' faith, my dear Silenium, it befits this class to be kindly disposed among themselves, and carefully to keep up friendships, when you see these matrons of elevated rank, born of the noblest families, how they value friendship, and how carefully they keep it united between themselves. If we do that same thing, if we imitate the same example, still as it is, with difficulty do we exist with their extreme dislike. Of their own enjoyments they would have us to be in want, in resources of our own they would have us not to possess any power, and to stand in need of them in all matters, that we may be their humble servants<milestone n="32" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">May be their humble servants</lemma>:  "Ut simus sibi supplices." Literally, "that we may be suppliants to themselves."</note>. If you wait upon them, you'd rather be giving your room than your company. So very kind are they before the world to our class; in private, if ever there's the opportunity, underhandedly they pour cold water<note anchored="yes"><lemma targOrder="U">Pour cold water</lemma>:  Meaning, in other words, "They try to do us all the mischief they can."</note> upon us. They declare that we are in the habit of having commerce with their husbands; they say that we are their supplanters; they attempt to crush us. Because we are the free daughters of slaves<milestone n="38" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Free daughters of slaves</lemma>:  The "profess&aelig;," or "courtesans," at <placeName key="perseus,Rome">Rome</placeName>, were mostly of the class of "libertin&aelig;"--" children of slaves who had been made free," or else freed-women themselves, who had been the mistresses of their former owners. From this circumstance, "to lead a libertine life" came to mean the same as "to pass a loose" or "unchaste life."</note>, both I and your mother, we became Courtesans; she brought up yourself, and I this girl <stage>pointing to GYMNASIUM</stage>, by chance-fathers. Nor yet for the sake of vanity have I driven her to the calling of a Courtesan, but that I mightn't starve.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> But it had been better to give her in marriage to a husband in preference.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> Heyday, now! Surely, faith, she's married to a husband every day; she has both been married to one to-day, she'll be marrying again to-night. I've never allowed her to go to bed a widow. For if she weren't to be marrying, the household would perish with doleful famine.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> It behoves me, mother, to be just as you wish I should be.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> I' troth, I don't regret it, if you will prove such as you say you'll be; for if, indeed, you shall be such as I intend, you'll never be a Hecale<milestone n="49" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A Hecale</lemma>:  "Hecala" seems a preferable reading here to "Hecata." Hecale was a very poor old woman, whom Plutarch mentions as having entertamed Theseus on one of his expeditions. "As poor as Hecale," became a proverb. Her poverty is mentioned by Ovid, in the Remedy of Love, in conjunction with that of the beggar Irus.</note> in your old age, and you'll ever keep that same tender age which you now have, and you'll prove a loss to many and a profit to myself full oft, without any outlay of my own.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> May the Gods grant it.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> Without your own energies<milestone n="51" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Without your own energies</lemma>:  This is very similar to our provert, that "Providence helps those who help themselves."</note>, the Gods cannot possibly do anything in this.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> I' faith, for my own part, I'll zealously devote my energies to it. But what mean you amid this conversation, apple of my eye, my own Silenium? (never did I see you more sad;) prithee, do tell me, why does mirth so shun you? And you are not so neat as you usually are. <stage>SILENIUM sighs.</stage> Do look at that, please, how deep a sigh she heaved. You are pale too. Tell us both what's the matter with you, and in what you want our aid; so that we may know. Prithee, don't by your tears be causing me anxiety.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> My dear Gymnasium, I'm sadly affected; I feel ill, I am shockingly distrest; I am pained in spirits, I feel pain in my eyes, I am in pain from faintness. What shall I say, but that my own folly drives me to sadness?</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Take you care, then, that you have your folly entombed in that very same place from which it takes its rise.
+</p></sp>
+<sp><speaker>SILENIUM</speaker><p> What shall I do? </p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Hide it in darkness, in the very deepest recesses of your breast. Take you care and have it so, that you yourself are alone sensible of your own folly, without any other witnesses.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> But I've got the heart-ache.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Why so? For what reason have you the heartache, prithee, tell me, a thing that I neither have, nor any other woman whatever, according as the men say?</p></sp>
+<sp><speaker>SILENIUM</speaker><p> If there's any heart to feel pain, it does feel pain; but if there isn't, still this pains me here. <stage>Pointing to her left-side.</stage></p></sp>
+<sp><speaker>A PROCURESS</speaker><p> This woman's in love.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Come now, to begin to be in love, is it bitter, prithee?</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> Why, troth, love is most fruitful both in honey and in gall; inasmuch as it produces sweetness in a mere taste, but causes bitterness even to repletion.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> Of that character is the malady that afflicts me, my dear Gymnasium.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Love is full of treachery.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> He's taking his spoils of me, then.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Be of good courage, you'll get the better of this malady. </p></sp>
+<sp><speaker>SILENIUM</speaker><p> I trust it will be so, if the physician comes that can administer the medicine to this malady.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> He will come. </p></sp>
+<sp><speaker>SILENIUM</speaker><p> A hard expression is that to one in love, "He will come," unless he does come. But by my own fault and foolishness, am I, wretched creature, more afflicted, because for him alone have I longed for myself, with whom to pass my life.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> That is more suitable to a married woman, my dear Silenium, to love but one, and with him to pass her life, to whom she has once been married; but, indeed, a Courtesan is most like a flourishing city; she cannot alone increase her fortunes without a multitude of men.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> I want you to give heed to this matter; the thing on account of which you have been sent for to me, I'll disclose. Now, my mother, because I don't wish myself to be called a Courtesan, complied with my desire; in that matter she indulged myself who have been obedient to her; to allow me to live with him alone whom I so ardently loved.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> I' faith, she acted foolishly. But look, have you ever kept company with any man?</p></sp>
+<sp><speaker>SILENIUM</speaker><p> With no one, indeed, except Alcesimarchus; nor has any other person whatever committed an infringement on my chastity. </p></sp>
+<sp><speaker>A PROCURESS</speaker><p> Prithee, by what means did this man gain your good graces?</p></sp>
+<sp><speaker>SILENIUM</speaker><p> At the festival of Bacchus my mother took me to see the procession. While I was returning home, from a secret look-out he secretly traced me even to the door; after that, he insinuated himself into the friendship of my mother and myself as well, by endearments, presents, and gifts.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> I should like a man of that sort to be offered me. How I'd work him.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> What need is there of words? Through intercourse, I on the other hand began to love him, and he myself.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> O my dear Silenium----!</p></sp>
+<sp><speaker>SILENIUM</speaker><p> What's the matter? </p></sp>
+<sp><speaker>A PROCURESS</speaker><p> You ought to pretend to be in love; for if you fall in love at once, you'll be much better consulting the interests of him whom you love than your own.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> But in solemn form he took an oath before my mother that he would take me as his wife. Now, another woman is about to be taken home by him, a Lemnian lady, his relation, who is living here hard by <stage>pointing to DEMIPHO'S house</stage>; for his father has compelled him. Now my mother is enraged with me, because I didn't return home to her, when I came to know of this matter, that he was about to take another as his wife.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> Nothing's unfair in love.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> Now, I entreat you that you'll let her <stage>pointing to GYMNASIUM</stage> be here only for the next three days, and keep house for me; for I've been sent for to my mother's house.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> Although this will be a troublesome three days for me, and you'll be causing me a loss, I'll do so.</p></sp>
+<sp><speaker>SIL,</speaker><p> You act kindly and like a friend. But you, my dear Gymnasium, if in my absence Alcesimarchus shall come, don't you chide him roughly; however he has deserved of myself, still he has my affections; but, prithee, act gently, so that you mayn't say anything that may cause him pain. Take the keys <stage>giving them to her</stage>; if you have need to take out anything for use, take it out. I wish to go----</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> <stage>weeping</stage>. How you have drawn tears from me.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> My dear Gymnasium, kindly, farewell.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Take care of yourself, there's a dear. Prithee, will you go in this dishabille? <stage>Pointing to her dress.</stage>
+</p></sp>
+<sp><speaker>SILENIUM</speaker><p> It's right that such neglect should attend upon my prospects thus disarranged.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> At least do lift up that outer garment<milestone n="116" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Outer garment</lemma>:  "Amiculum" was a general name for the outer garment, such as the "pallium," "toga," or "chlamys," in contradistinction to the "tunica," or "under-clothing."</note>.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> Let it be dragged, while I myself am being dragged down.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Since so it pleases you, fare you well and prosper.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> If I could, I would. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Mother, do you wish anything of me, before I go indoors? Upon my faith, to me she does seem to be in love.</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> For this reason, then, it is, that I'm repeatedly dinning it into your ears, not to be in love with any man. Go in-doors.</p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Do you wish anything of me?</p></sp>
+<sp><speaker>A PROCURESS</speaker><p> That you may fare well. </p></sp>
+<sp><speaker>GYMNASIUM</speaker><p> Fare you well <stage>GYMNASIUM goes into the house of SILENTIUM.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="120" unit="TLN line"/>
+<stage>The PROCURESS, alone.</stage>
+<sp><speaker>A PROCURESS</speaker><p> <stage>to the AUDIENCE</stage>. It's the same fault with myself as with a great part of us women who are following this calling; who, as soon as ever we have got our load of food, are forthwith full of talk; more than is enough do.we say. Why, myself now, inasmuch as I'm filled to my heart's content, and because I've charged myself quite full of the choicest of wine, it pleases me to use my tongue more at freedom; to my misfortune I can't keep silent on that which it were necessary to be silent upon. But once upon a time, that girl, who has gone hence in tears, from a lane I carried off a little child exposed. There is here a certain youth, of the highest rank; his father, of a very high family, is living at <placeName key="tgn,7011098">Sicyon</placeName><milestone n="131" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Living at <placeName key="tgn,7011098">Sicyon</placeName></lemma>:  This was a very ancient city in the north of the <placeName key="tgn,7017076">Peloponnesus</placeName>, not far from <placeName key="perseus,Corinth">Corinth</placeName>. According to Pliny the Elder, it was famous for its shops, stored with all kinds of metals.</note>; he is dying desperately in love for this young woman, who has just. now gone hence in tears; on the other hand, she is smitten with love. I made a present of her to my friend, this Courtesan: who had often made mention of it to me that somewhere I must find for her a boy or a girl, just born, that she herself might pass it off as her own. As soon as ever the opportunity befell me, I immediately granted her request in that which she had asked of me. After she had received this female child from me, at once she was brought to bed of the same female child which she had received from me, without the aid of a midwife and without pain, just as other women bring forth, who seek a trouble to themselves; but she said that her lover was a foreigner, and that by reason of that circumstance she was palming it off. This, we two alone are aware of, I who gave the child to her, and she who received it from me; <stage>to the AUDIENCE</stage> except yourselves, indeed. Thus was this affair managed; if any occasion should arise, I wish you to remember this circumstance. I'm off home. <stage>(Exit.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="149" unit="TLN line"/>
+<stage>Enter the GOD OF HELP<note anchored="yes"><lemma targOrder="U">God of Help</lemma>:  For the purposes of the Prologue, which is here introduced, "help," or "assistance," is personified as a Divinity, under the name of "Auxilium," who is to assist Silenium in the discovery of her parents.</note>, who speaks the PROLOGUE.</stage>
+<sp><speaker>THE GOD OF HELP</speaker><p><stage>To the AUDIENCE.</stage> This old woman is both a much-talker and a much-tippler. Isn't it the fact that she has hardly left room to a Divinity for him to speak, so much has she forestalled him in talking about the substitution of this girl? But if she had held her tongue, still I was about to mention it--a God, who could do it better; for my name is Help. Now <stage>to the AUDIENCE</stage> lend your attention, that I may clearly explain this plot to you. Some time since, at <placeName key="tgn,7011104">Sicyon</placeName>,: there was the Festival of Bacchus; a merchant of <placeName key="tgn,7011173">Lemnos</placeName><milestone n="158" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Merchant of <placeName key="tgn,7011173">Lemnos</placeName></lemma>:  Demipho.</note> came hither to the games, and he, an ungovernable young man, ravished a maiden<milestone n="159" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A maiden</lemma>:  Phanostrata.</note> in the dark, in the street, at the dead of night. He, as he knew that he was deserving of a heavy punishment, at once found shelter with his heels, and made off for <placeName key="tgn,7011173">Lemnos</placeName>, where he then lived. She whom he had ravished, the ninth ensuing month completed, brought forth a daughter here<milestone n="164" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A daughter here</lemma>:  Silenium.</note>. Since she did not know the person guilty of this deed, who he was, she made the servant<milestone n="166" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The servant</lemma>:  Lampadiscus.</note> of her father partaker of her counsels, and gave to that servant the child to be exposed to death. He exposed it; this woman took up the child; that servant, who had exposed it, secretly took note whither or to what house she carried away the child. As you have heard her own self confess, she gave this child to the Courtesan Mel&aelig;nis; and she brought her up as being her own daughter, honestly and virtuously. But then, this Lemnian married a neighbour there, his relation, for his wife. She departed this life; there she was compliant to her husband. After he had performed the due obsequies to his wife, at once he removed hither; here he married for his wife that same woman<milestone n="179" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That same woman</lemma>:  An exactly similar circumstance forms the groundwork of the plot in the Hecyra of Terence.</note> whom formerly,when a maid, he ravished. When he understood that it was she whom he had ravished, she told him that, in consequence of the violation, she had brought forth a daughter, and had at once given her to a servant to be exposed. He forthwith ordered this same servant to make enquiries, if anyhow he could discover who had taken it up. Now to that task is the servant always assiduously devoting his attention, if he can find out that Courtesan, whom formerly, when he himself exposed her, he from his hidingplace had seen take her up. Now, what remains unpaid, I wish to discharge, that my name may be struck out, so that I mayn't remain a debtor. A young man<milestone n="191" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A young man</lemma>:  Alcesimarchus.</note> is here at <placeName key="tgn,7011104">Sicyon</placeName>, his father is alive; with affection he distractedly dotes upon this exposed girl, who just now went hence in tears unto her mother; and she loves him in return, which is the most delightful love of all. As human matters go, nothing is granted for everlasting: the father is wishful to give the young man a wife. When the mother<milestone n="197" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">When the mother</lemma>:  Mel&aelig;nis.</note> came to know of this, she ordered her to be sent for home. Thus have these matters come to pass. Kindly fare you well, and conquer by inborn valour, as you have done before; defend your allies, both ancient ones and new; increase resources by your righteous laws; destroy your foes; laud and laurels gather; that, conquered by you, the P&oelig;ni<milestone n="202" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The P&oelig;ni</lemma>:  This Play was probably written towards the end of the second Punic war</note> may suffer the penalty. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="203" unit="TLN line"/>
+<stage>Enter ALCESIMARCHUS and MEL&AElig;NIS.</stage>
+<sp><speaker>ALCESIMARCHUS</speaker><p> I do believe that Love was the first to invent torture among mankind. This conjecture do I form from myself at home, not to go seek it out of doors; I, who surpass all men, exceed them in the pangs of my feelings. I'm tossed, tormented, agitated, goaded, whirled on the wheel of love in my misery, I'm deprived of sensation, carried one way, carried another way, I'm torn and rent asunder; such clouded faculties of mind have I, where I am, there I am not; where I am not, there my thoughts are; to such a degree have I now all kinds of feelings in me; what I like, then all at once I like not the same; so much does love trifle with me changing my mind, drive me, pursue, desire, and seize for itself, retain, trepan, and promise; what it gives, it gives not; it deludes me; what this moment it has persuaded me, it now dissuades me from; what it has dissuaded me from, it now points out to me that same. After the manner of the sea is it experienced by me; so much does it distract my enamoured feelings; and only in that, in my misery, I do not sink utterly, is there any evil removed from me thus ruined; in such a way has my father detained me these six days running in the country, at his house there; nor has it been allowed me in the meantime to visit my mistress. Isn't this dreadful to relate?<note anchored="yes" resp="AEM">At this point editors of the Latin text generally insert several fragments quoted from other sources;  this translation does not, but picks up again at line 492.</note>
+<milestone n="492" unit="TLN line"/></p></sp>
+<sp><speaker>MELAENIS</speaker><p> Are you joking for this reason, because you've got another wife engaged, a rich lady of <placeName key="tgn,7011173">Lemnos</placeName>? Have her then! We are neither of a family so great as you are, nor is our wealth so substantial as yours; but still I have no fears that any one will impeach our oath; you then, if you shall feel any pain, will know for what reason you do feel pain.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> May the Gods confound me-- </p></sp>
+<sp><speaker>MELAENIS</speaker><p> Whatever you wish for, I desire it may befall you.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> If ever I'll marry that wife which my father has engaged for me.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> And me, if ever I give you my daughter for a wife.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Will you allow me to be forsworn?</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Yes, and a little more easily than myself and my affairs to go to ruin, and my daughter to be trifled with. Begone! go seek where there is confidence enough in your oaths; here now, with us, Alcesimarchus, you've renounced your title<milestone n="503" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Renounced your title</lemma>:  "Confregisti tesseram." Literally, "you have broken your tally," or "ticket." These were pieces of wood cut in half, and fitting each other. They were exchanged by friends, and denoted their readiness, on the presenting thereof, to entertain each other with hospitality. She means that Alcesimarchus has broken his word, and has lost his right to be considered as a friend. See the P&oelig;nulus, l. 1047.</note> to our friendship.
+</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Make trial of me but once. </p></sp>
+<sp><speaker>MELAENIS</speaker><p> I have made that trial full oft; which I lament has been so made.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Give her back to me. </p></sp>
+<sp><speaker>MELAENIS</speaker><p> Under new circumstances I'll use an old proverb: "What I have given, I wish I had not given; what's left, that I shall not give."</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Won't you restore her again to me?</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Answer yourself for me.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> You won't restore her then?</p></sp>
+<sp><speaker>MELAENIS</speaker><p> You know the whole of my resolution already.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Is that quite resolved upon by you in your heart?</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Why, in fact, I'm thinking about something else; i' faith, I don't at present catch these words of yours with my ears.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Not hear? Why, what are you doing?</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Then do you give heed at once, that you may know what you are doing.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Then, so may the Gods and Goddesses of above and below, and of middle rank<milestone n="512" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of middle rank</lemma>:  "Medioxumi." By these are meant the Demigods.</note>, and so may Juno the queen and the daughter<note anchored="yes"><lemma targOrder="U">And the daughter</lemma>:  In his confusion he calls Juno, the sister and wife of <placeName key="tgn,1125260">Jupiter</placeName>, his daughter.</note> of supreme Jove, and so may Saturn his uncle----</p></sp>
+<sp><speaker>MELAENIS</speaker><p> I' troth, his father----</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> And so may Ops the opulent, his grandam----</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Indeed, his mother, rather.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Juno his daughter, and Saturn his uncle, supreme Jove--You are maddening me; it's through you I make these mistakes. </p></sp>
+<sp><speaker>MELAENIS</speaker><p> Go on saying so.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Is it that I'm to know<milestone n="518" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That I'm to know</lemma>:  According to the suggestion of Rost, the reading "sciam," "I may know," has been preferred to "scias," "you may know," in the present passage.</note> what conclusion you are going to come to? </p></sp>
+<sp><speaker>MELAENIS</speaker><p> Go on talking; I shall not send her back, that's resolved upon.</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> Why then, so may Jupiter, and so may Juno and Saturn, to me, so may--I don't know what to say--Now I know--Yes, madam, listen, that you may know my mind; may all the Deities, great and small, and those honored with the platter<milestone n="522" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Honored with the platter</lemma>:  "Patellarii." These were the <placeName key="tgn,1018972">Lares</placeName> and Penates, the household Gods, to whom offerings were made of victuals in small plates or platters. Ovid, in the Fasti, B. 2, l. 634, says: "Offer, too a share of the viands, that the presented platter, testimony of the pleasing honor, may feed the well-girl Lares."</note> * * * cause me not surviving to give a kiss this day to Silenium, if I don't this very day murder you and your daughter and myself, and after that, with the break of day, if I don't to-morrow kill you both, and indeed, by all the powers, if at the third onset I don't demolish you all, if you don't send her back to me. I've said what I intended. Farewell. <stage>Goes into his FATHER'S house.</stage></p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>to herself</stage>. He's gone in-doors in a rage. What shall I do now? If she comes back to him, matters will be just in the same position. When satiety begins to take possession; he'll be turning her out of doors, when he shall be bringing home this Lemnian wife. But still I'll go and follow him; there's necessity for caution, lest he, in love, should be doing some mischief. In fine, since with strict justice a poor person's not allowed to contend with a rich one, I'll lose my labour rather than lose my daughter. But who's this that straight along the street is directing his course this way? Both the other matter do I fear, and this do I dread; so utterly in trepidation am wretched I. <stage>She stands aside.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="536" unit="TLN line"/>
+<stage>Enter LAMPADISCUS.</stage>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>to himself</stage>. I've followed the old woman with my clamour through the streets; I've kept her most dreadfully plagued. In what a multitude of ways has she, this day, kept guard upon herself, and been able to remember nothing. How many alluring things, what advantages I've promised her. Blow many inventions I've applied to her, how many stratagems in questioning her. With difficulty have I extorted it from her that she should tell me, because I promised to give her a cask of wine.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="543" unit="TLN line"/>
+<stage>Enter PHANOSTRATA, from her house.</stage>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>to herself</stage>. I seemed just now to be hearing the voice of my servant Lampadiscus before the house.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>stepping forward</stage>. You are not deaf, mistress, you heard aright.
+</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> What are you doing here?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> A thing for you to rejoice at.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> What's that?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>pointing to the house of SILENIUM</stage>. A little while ago, I saw a woman coming out of that house there.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Her that took up my daughter?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> You have the matter rgiht.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> What after that? </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I told her in what way I had seen her take up the daughter of my mistress from the Hippodrome. Then she was in a fright.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>apart</stage>. Now my body's in a shudder, my heart is throbbing; for I recollect that from the Hippodrome the little female infant was brought to me, and that I brought it up as my own.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Come, prithee, do go on; my soul's longing to hear how the matter proceeded.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>apart</stage>. I only wish you couldn't hear.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I proceed * * * saying<milestone n="556" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Saying</lemma>:  We are to suppose that on following the Procuress to her own house, he says this to Gymnasium, taking her for the young woman whom he is in search of. Probably a large portion of the Play is lost here.</note>, "This old woman calls you her daughter wrongfully. * * * * * * * * For this woman here is your foster-mother, so don't think she is your mother. I'm to take you back and invite you to opulence, where you may be settled in a noble family, where your father may present you with twenty great talents for a portion. For this is not a place where after the Etrurian mode<milestone n="562" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Etrurian mode</lemma>:  The Tuscans or Etrurians, who were said to have been originally a colony from <placeName key="tgn,7016631">Lydia</placeName>, are by some writers stated to have forced their young women to gain their marriage-portions by prostitution. Herodotus alludes to this custom of the Lydians.</note> you are disgracefully to earn a dowry for yourself by prostitution of your person."</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Is she, pray, a Courtesan, who took it up?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Yes, she was a Courtesan. But how it happened, I'll tell you about that matter. I was now winning her over to me by my persuasion. The old woman embraced her knees, weeping and entreating that she would not forsake her; saying that she was her own daughter; and she took a solemn oath to me that she herself had borne her. " Her," said she, "whom you are in search of, I gave to a friend of mine to bring her up as her own daughter; and she is alive," said she. "Where is she?" immediately said I.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Preserve me, ye Gods, I do entreat you.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>apart</stage>. But me you are undoing!</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> You ought to have enquired to whom she gave it.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I did enquire, and she said to the Courtesan Mel&aelig;nis.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>apart</stage>. He has mentioned my name? I'm utterly undone!</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> When she mentioned her, I straightway asked, "Where does she live?" said I; "take and show me." "She has been carried off hence," says she, "to live abroad."</p></sp>
+<sp><speaker>MELAENIS</speaker><p> He's sprinkling<milestone n="580" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He's sprinkling</lemma>:  This metaphor, which is also used in the Trinummus, is take? from the custom of throwing cold water on persons when in a fainting state</note> a little cold water now.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> "Wherever she has been carried off, thither we will follow. Do you trifle in this fashion? You are undone, if, i' faith, you don't disclose this."I insisted to such a degree, that the old woman swore that she would soon inform me.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> But you oughtn't to have let her go.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> She's all safe; but she said that she wished first to meet a certain woman, a friend of hers, with whom this was a matter of interest in common, and I'm sure she'll come.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>apart</stage>. She'll be discovering me, and adding her own distress to mine.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Make me acquainted what you now wish me to do.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Go in-doors, and be of good heart. If your husband shall come, bid him wait at home, lest he should be required by me, if I want him for anything. I'm going to run back to the old woman.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Lampadio, prithee, do take care.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I'll have this matter well managed.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> I trust in the Gods and in yourself.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> And I in the same.--that you'll now go home. <stage>PHANOSTRATA goes into her house.</stage></p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>coming forward</stage>. Young man, stay and listen.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> What, are you calling to me, woman? </p></sp>
+<sp><speaker>MELAENIS</speaker><p> To you.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> What's the matter? For I'm fully engaged.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>Pointing to the house of DEMIPHO</stage>. Who lives there? </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Demipho, my master.
+</p></sp>
+<sp><speaker>MELAENIS</speaker><p> It is he, I suppose, that has betrothed his daughter with such great wealth to Alcesimarchus?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> It is he himself. </p></sp>
+<sp><speaker>MELAENIS</speaker><p> How now, you? What other daughter, then, are you people now in search of?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I'll tell you; not his daughter by his wife, but his wife's daughter.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> What's the meaning of that speech?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> By a former woman, I say, my master had a daughter born.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Surely, just now you said you were in search of the daughter of her who has been talking here.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Her daughter I am in search of.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> In what way then, pray, is she a "former woman," who is now his wife?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Woman, whoever you are, you weary me with your prating. The middle woman<milestone n="611" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The middle woman</lemma>:  "Medioxumam." The middle woman, although his first wife, and the mother of the daughter whom he had betrothed to Alcesimarchus; he having had Phanostrata the first, as a woman (when he ravished her), but not as a wife until after the death of his first wife.</note> whom he had for a wife, of her this maiden was born that's being given to Alcesimarchus. That wife is dead. Do you understand now?</p></sp>
+<sp><speaker>MELAENIS</speaker><p> I understand that quite well; but it's this knotty point I'm enquiring about, how the first can be the last, the last be the first.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> The fact is this; this woman he ravished before he took her home as his wife; before that she was pregnant, and before that she gave birth to a daughter: after she gave birth to her, she ordered the infant to be exposed; I myself exposed her; another woman took her away; I was on the look-out; after that, my master married her. That girl, her daughter, we are now in search of. <stage>MEL&AElig;NIS turns aside her head.</stage> Why now, with face upturned, are you looking up towards the heavens?</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Now, then, be off at once whither you were hastening; I won't detain you; I understand it now.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I' troth, to the Deities I do give thanks; for if you hadn't understood me, I do think you would never have let me go. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>to herself</stage>. Now it's necessary for me to be honest, whether I will or no, although I had rather not; I find the thing is discovered. Now will I myself lay them under an obligation to me, rather than she shall peach upon me. I'll go home, and I'll bring Silenium to her parents. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="631" unit="TLN line"/>
+<stage>Enter MEL&AElig;nis, SILENIUM, and HALISCA.</stage>
+<sp><speaker>MELAENIS</speaker><p> I've disclosed the whole matter to you; follow, my Silenium, that you may rather belong to those to whom you ought to belong, than be mine. Although against my will I shall part with you, still I'll reconcile my mind to consult that which in especial conduces to your benefit. <stage>Giving her a casket.</stage> For here in this are the trinkets<milestone n="635" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Are the trinkets</lemma>:  The discovery in the Rudens depends on a similar circumstance. This custom of attaching trinkets to the persons of children when exposed, will be more fully remarked upon in the Notes to the Translation of Terence.</note>, together with which she who gave you to me formerly brought you to me; that your parents may recognize you the more easily. Take this casket, Halisca, and then go and knock at that door <stage>pointing to the house of DEMIPHO</stage>: say that I request that some one will come from within. Make haste, quickly.
+
+<stage>Enter ALCESIMARCHUS, from his FATHER'S house, with his sword drawn.</stage></p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> <stage>calling aloud</stage>. Death, receive me unto thyself, a friend and well-wisher to me!</p></sp>
+<sp><speaker>SILENIUM</speaker><p> My mother, to our sorrow, we are undone!</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> <stage>aloud, to himself</stage>. Whether shall I pierce my side here <stage>striking his right side</stage> or on the left.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>to SILENIUM</stage>. What's the matter with you?</p></sp>
+<sp><speaker>SILENIUM</speaker><p> <stage>pointing</stage>. Don't you see Alcesimarchus? He's grasping a sword. ALC. <stage>aloud, in a frantic manner</stage>. What art about? Thou art delaying. Quit the light of day.</p></sp>
+<sp><speaker>SILENIUM</speaker><p> Do run and aid him, pray, that he mayn't kill himself. <stage>They run to assist him, on which HALISCA drops the casket.</stage></p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> O Safety more healthful than my own safety, you now, whether I wish or don't wish, alone do cause me to live.</p></sp>
+<sp><speaker>MELAENIS</speaker><p> Fie on it! Were you ready to commit such violence?</p></sp>
+<sp><speaker>ALCESIMARCHUS</speaker><p> I've nought to do with you--to you I'm dead. <stage>Clasping SILENIUM in his arms.</stage> Her, as I hold her, I'm determined not to lose. For, by heaven, I am resolved henceforth to have her entirely rivetted fast unto me. <stage>Goes to the door of the house, and calls.</stage> Where are you, servants? Shut the door with bolts, with bars, when I shall have carried her within the threshold! <stage>He carries SILENIUM into the house, followed by HALISCA.</stage></p></sp>
+<sp><speaker>MELAENIS</speaker><p> <stage>exclaiming, while wringing her hands</stage>. He's gone off: he has carried the damsel away. I'll go--I'll at once follow him in-doors, that he may know of me these same things, if from being angered with me I can render him pleased. <stage>Goes into the house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="653" unit="TLN line"/>
+<stage>Enter LAMPADISCUS.</stage>
+<sp><speaker>LAMPADISCUS</speaker><p> I do believe I never saw a more tormenting old nag than this is. What she just now confessed to me, is she to be denying it? But look, I see my mistress. Why <stage>seeing the casket on the ground</stage>, how's this, that this casket is lying here with these trinkets, and that I see no other person in the street? I must act the child's part<milestone n="657" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Act the child's part</lemma>:  He alludes to his taking up the toys or trinkets, which were made for children to play with. "Conquiniscam," very unnecessarily it would seem, has an indelicate meaning given to it by Lambinus.</note>; I'll stoop to pick up the casket. <stage>Picks it up.</stage>
+<stage>from her house.</stage></p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> What are you about, Lampadio?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>giving the casket to PHANOSTRATA</stage>. Is this casket from out of our house here, I wonder. For I picked it up, lying here near the door.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> What news do you bring about the old woman?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> That there's not one other on earth more wicked. She denies all those things which she just now confessed to me. But, i' faith, for me to allow that old jade to be laughing at me, it's preferable for me to die by any kind of death.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Ye Gods, I do adjure you by our trust in you! <stage>Opening the casket.</stage></p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Why do you call upon the Gods?</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Save us! </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> What's the matter?</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> These are the trinkets with which you exposed my little daughter to death. </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Are you in your senses?</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> These certainly are. </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Do you persist?
+</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> These are they.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> If any other woman were to speak to me after that fashion, I should say she was drunk.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> By heaven! I'm talking no nonsense. But prithee, whence in the world did these come, or what Deity placed this before our door? As though for a given purpose, at the very instant sacred Hope comes to my aid?</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="671" unit="TLN line"/>
+<stage>Enter HALISCA, at a distance, from the house of the FATHER of ALCESIMARCHUS.</stage>
+<sp><speaker>HAL.</speaker><p> <stage>to herself</stage>. Unless the Gods give me some aid, I'm utterly undone; nor do I know whence I am to seek for aid. To such a degree does carelessness possess wretched me in mind, which I sadly fear may be lighting upon my own back, if my mistress knows that I'm so negligent as I really am. The casket which I took and held in my hands here before the door, where it is I know not; except, as I fancy, it was dropt by me about this spot. <stage>Looks about on the ground.</stage> My good sirs <stage>to the AUDIENCE</stage>, my kind Spectators, do give me information if any one has seen it, if any one has taken it away, or any one picked it up; and whether in this direction or that he has taken his departure? <stage>She pauses for a reply.</stage> I'm none the wiser for asking these persons, or for worrying them, who are always delighted at a woman's mishaps. Now I'll mark if there are any footsteps here; for if no one had passed this way since I went in-doors, the casket would be lying here. Why say "here?" It's lost, I guess; it's done for. It's all over with unhappy and unlucky me! It's nowhere, and nowhere am I. This, by its loss, has proved my loss. But still, as I've begun, I'll e'en go on; I'll make search; for both within do I fear, and without I am afraid; so much, on either side, does fear agitate me now. In this are mortals intensely wretched. He is now joyous, whoever he is, that has found it, which is of no use at all to any person else; to myself it may be. But I cause delay to myself, while I'm doing this with remissness. Halisca, attend to what you are about: look down upon the ground, and look round about; search with your eyes; guess with shrewdness.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>apart, at a distance</stage>. Mistress!</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>apart</stage>. Well, what's the matter?
+</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>apart</stage>. That's she. <stage>Pointing at HALISCA.</stage></p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>apart</stage>. Who?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>apart.</stage> She who let fall the casket. Why surely she's tracing out that spot where it fell.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>apart.</stage> It seems so. </p></sp>
+<sp><speaker>HAL.</speaker><p> <stage>to herself, looking on the ground</stage>. But that person has gone this way; this way I perceive the imprint of his shoe<milestone n="697" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of his shoe</lemma>:  "Socci." The "soccus" was a loose shoe worn especially by the Comic actors. Its use was probably derived from <placeName key="tgn,1000074">Greece</placeName>.</note>; this way I'll follow him. <stage>She moves along, still looking on the ground.</stage> In this spot now has he stopped, along with another person. Here now a circle<milestone n="699" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Here now a circle</lemma>:  "Turbo." Schmieder thinks that this means "a whirlwind," and that she intends to say that she has lost the track, in consequence of the wind blowing round the dust, and so obliterating the footmarks. Perhaps, however, she means, that just there the track is lost by its being all in confusion, without beginning or end, so far as she can see. Some would read "turba," a "multitude," as meaning that the throng in the street hinders her from clearly seeing the imprints of the feet.</note> presents itself to my sight, nor did he go straight forward this way; here he came to a pause. This way did he come out of that circle. Here was a conference with some one. It points to two persons now. Who are these? Heyday I see the footsteps of only one. But he has gone this way. I'll consider it: hither he went from thence; from hence he has never gone. I'm troubling myself to no purpose. What's lost is lost; my hide<milestone n="703" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My hide</lemma>:  She alludes to the flogging which she may expect for her carelessness, which will cause her to lose her skin, or literally, as Plautus says (quite in accordance with our vulgar parlance), her "leather."</note> along with the casket. I'll go in-doors again. <stage>Going towards the house of the FATHER of ALCESIMARCHUS.</stage></p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>calling out</stage>. Hallo, woman-stop; there are some persons who wish to meet with you.</p></sp>
+<sp><speaker>HAL.</speaker><p> Who's calling me back?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> A good female and a bad male want you.</p></sp>
+<sp><speaker>HAL.</speaker><p> Away with you, bad male; I want a good one. <stage>To herself.</stage> After all, he who calls knows better what he wants than I who am called; I'll return. <stage>Aloud.</stage> Prithee, have you seen any person hereabouts pick up a casket with some trinkets, which I, to my misfortune, have lost here? For when, just now, we were running into the house of Alcesimarchus, that he mightn't put an end to his life, at that moment I think that, through terror, the casket fell down from me here.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>aside to PHANOSTRATA</stage>. This woman's to our purpose; let's then give heed to her a little, mistress.</p></sp>
+<sp><speaker>HAL.</speaker><p> To my sorrow, I'm utterly undone. What shall I say to my mistress, who bade me with such earnestness take care of it, through which Silenium might the more readily recognize her parents--who, when little, was adopted by my mistress as her own, and whom a certain Courtesan gave to her?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>aside</stage>. She's talking about this matter of ours. According as she gives these indications by her talk, she must surely know where your daughter is.</p></sp>
+<sp><speaker>HAL.</speaker><p> Now is she desirous of her own accord to restore her to her father and mother, whose daughter she is; prithee, my good sir, you are attending to something else; I commend my matter to you.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I'm giving my attention to this, and this is as good as food to me, that you are talking of; but amid my attending to this matter, I was answering this mistress of mine what she was enquiring; now I return to you. If you have need of anything, say you, and give your orders. What were you looking, for?</p></sp>
+<sp><speaker>HAL.</speaker><p> My good sir and my good madam, I greet you.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> And we you. But what are you looking for?</p></sp>
+<sp><speaker>HAL.</speaker><p> I'm tracing footsteps here, the way that something has escaped me here, I don't know how.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> What is it? </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> What is it, pray?</p></sp>
+<sp><speaker>HAL.</speaker><p> Something to bring a loss to another, and a calamity on our family.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>aside to PHANOSTRATA</stage>. A worthless baggage is this, mistress, and a crafty one.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>aside</stage>. I' faith, and so she seems.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>aside</stage>. She imitates a worthless animal and a mischievous.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>aside</stage>. Which one, prithee? LAM. <stage>aside</stage>. A caterpillar, which twisting about winds itself in the leaf of the vine; just in the same way does she begin a story that twists about. <stage>To HALISCA.</stage> What are you looking for?</p></sp>
+<sp><speaker>HAL.</speaker><p> A casket, my good young man, has flown away from me here.
+</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> You ought to have put it in a cage.</p></sp>
+<sp><speaker>HAL.</speaker><p> I' faith, the booty was no great one.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> It's a wonder, if a whole troop of slaves<milestone n="733" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Troop of slaves</lemma>:  This is said in allusion to the runaway propensities of slaves.</note> isn't there in the casket.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Do let her speak. </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> If indeed she would speak.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>to HALISCA</stage>. Come say you, what was in it?</p></sp>
+<sp><speaker>HAL.</speaker><p> Trinkets only. </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> There's a certain man, who declares that he knows where it is.</p></sp>
+<sp><speaker>HAL.</speaker><p> But, by my faith, he'll confer an obligation on a certain woman if he'll discover it. </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> But this certain man wishes a reward to be given to him.</p></sp>
+<sp><speaker>HAL.</speaker><p> But, by my faith, this certain woman, that has lost this casket, declares that she has nothing to give to this certain man.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> But still this certain man looks for some money.</p></sp>
+<sp><speaker>HAL.</speaker><p> But still he looks for it in vain.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> But, by my faith, good woman, in no matter does this certain man give his pains for nothing.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Lend me your conversation: it will now be for your own advantage. We confess that we have got the casket.</p></sp>
+<sp><speaker>HAL.</speaker><p> Then may Salvation preserve you; where is it now?</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>producing the casket</stage>. See, here it is, safe. But I wish to discourse with you upon a matter of importance to myself; I take you as a sharer with me in my own preservation.</p></sp>
+<sp><speaker>HAL.</speaker><p> What matter is this, or who are you?</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> I am the mother of her who had these things with her, when exposed.</p></sp>
+<sp><speaker>HAL.</speaker><p> Do you live here then? <stage>Pointing to the house.</stage></p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> You are a diviner. But, prithee, good woman, do lay aside all mystification, and to the point; tell me at once, whence did you get these trinkets?</p></sp>
+<sp><speaker>HAL.</speaker><p> This daughter of my mistress had them.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> You tell a falsehood; for my own mistress's daughter had them, not yours.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Don't interrupt. </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I'll be mum.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Good woman, go on speaking. Where is she who had them?</p></sp>
+<sp><speaker>HAL.</speaker><p> <stage>pointing to the house of ALCESIMARCHUS</stage>. Here, next door. </p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> By the powers, surely the son-in-law of my husband is living there.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Surely---- </p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> <stage>to LAMPADISCUS</stage>. Interrupting again? <stage>To HALISCA.</stage> Go on relating it. How many years old is she said to be?</p></sp>
+<sp><speaker>HAL.</speaker><p> Seventeen. </p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> She is my own daughter then!</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> 'Tis she, as the number of her years has proved.</p></sp>
+<sp><speaker>HAL.</speaker><p> What you are seeking, you have found; I now seek what's mine. </p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Why, faith, they've found what's their own, I'll seek for number three<milestone n="758" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For number three</lemma>:  "Qu&aelig;ro tertiam." Literally, "I seek a third." This he says by way of joke; as one has been looking for her daughter another for the casket, he must look for something as well, a mistress, to wit.</note>.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> My daughter, the object which I was seeking, I have discovered.</p></sp>
+<sp><speaker>HAL.</speaker><p> It's proper to keep in safety what has been entrusted in confidence, lest a kindness should turn out a detriment to the well-deserving. This fosterling of ours is assuredly your daughter, and my mistress is about to restore you your own, and for that purpose has she come from her house. But, prithee, enquire of her own self; I am but a servant.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> You ask what's just.</p></sp>
+<sp><speaker>HAL.</speaker><p> To her rather do I choose this obligation to belong. But I beg that you'll restore me that casket.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> What's to be done, Lampadio?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> What's your own, keep as your own.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> But I feel compassion for her.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> This I think ought to be done; give her the casket, and go in-doors together with her.</p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> I'll follow your advice. <stage>Giving it to HALISCA.</stage> Take you the casket. Let's go in-doors. But what's the name of your mistress?</p></sp>
+<sp><speaker>HAL.</speaker><p> Mel&aelig;nis. </p></sp>
+<sp><speaker>PHANOSTRATA</speaker><p> Go first; I'll follow you at once. <stage>Exit LAMPADISCUS, and the others go into the house of the FATHER of ALCESIMARCHUS.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="774" unit="TLN line"/>
+<stage>Enter DEMIPHO.</stage>
+<sp><speaker>DEMIPHO</speaker><p> What affair is this, that all persons are talking about in the street--that my daughter has been found? They say, too, that Lampadio<note anchored="yes"><lemma targOrder="U">Lampadio</lemma>:  Lampadiscus is called here, and in Act IV., "Lampadio." This was probably intended as a familiar name, by which the family called him; though some Commentators are of opinion that Lampadio is the real name, and Lampadiscus a diminutive.</note> has been seeking me in the Forum.
+<stage>Enter LAMPADISCUS.</stage></p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> Master, whence come you? </p></sp>
+<sp><speaker>DEMIPHO</speaker><p> From the Senate.</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> I rejoice that through my means there is an addition to your children.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> But it don't please me; I don't want that I should be having more children by means of another person. But what is the meaning of this?</p></sp>
+<sp><speaker>LAMPADISCUS</speaker><p> <stage>pointing to the house of the FATHER of ALCESIMARCHUS</stage>. Make haste, and go in-doors here to the house of your neighbour; you'll at once recognize your daughter. Your wife's in-doors there as well. Go quickly.</p></sp>
+<sp><speaker>DEMIPHO</speaker><p> I'm resolved that this shall, before all other matters, be attended to. <stage>They go into the house of the FATHER of ALCESIMARCHUS.</stage></p></sp>
+<sp><speaker>The Company of COMEDIANS</speaker><p>Don't you wait, Spectators, till they come out to you; no one will come out; they'll all finish the business indoors; when that shall be done, they'll lay aside their dress; then, after that, he that has done amiss will get a beating<milestone n="785" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Get a beating</lemma>:  It has been already remarked, that as the actors in early times were slaves, it was the custom after the Play was over for the &AElig;diles to order those to be flogged who had not given satisfaction to the Audience.</note>; he that has not done amiss will get some drink. Now as to what's left, Spectators, for you to do, after the manner of your ancestors, give your applause at the conclusion of the Play.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

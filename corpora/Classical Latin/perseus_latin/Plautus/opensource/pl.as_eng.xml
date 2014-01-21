@@ -1,0 +1,825 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Asinaria, or The Ass-Dealer</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.as_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:31  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:55  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:57:41  packel
+Converted to XML
+
+Revision 1.16  2003/07/01 22:17:27  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.15  2001/08/21 18:49:29  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.14  2001/08/08 17:55:16  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.13  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.12  2001/08/02 21:22:37  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.11  2001/08/01 21:34:09  amahoney
+use full speaker names
+
+Revision 1.10  2001/08/01 19:16:30  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.9  2001/07/17 22:07:36  amahoney
+make scene divisions match the Latin
+
+Revision 1.8  2001/07/05 21:23:34  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.7  2001/07/03 18:21:28  amahoney
+fix the broken characters
+
+Revision 1.6  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.5  2001/06/21 17:39:34  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.4  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+Revision 1.3  2001/06/08 21:19:27  amahoney
+fix stage directions
+
+Revision 1.2  2001/06/04 20:48:44  amahoney
+fix the refsdecls, and get another one in order
+
+Revision 1.1  2001/06/01 21:36:54  amahoney
+first three plays from the new translation
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>DEMAENETUS, </role><roleDesc>an aged Athenian.</roleDesc></castItem>
+<castItem type="role"><role>ARGYRIPPUS, </role><roleDesc>his son, in love with Philenium.</roleDesc></castItem>
+<castGroup>
+<castItem type="role"><role>LIBANUS, </role><roleDesc>Servants of Dem&aelig;netus.</roleDesc></castItem>
+<castItem type="role"><role>LEONIDA,</role></castItem>
+</castGroup>
+<castItem type="role"><role>THE ASS-DEALER.</role></castItem>
+<castItem type="role"><role>DIABOLUS, </role><roleDesc>an Athenian Captain, the rival of Argyripps.</roleDesc></castItem>
+<castItem type="role"><role>A PARASITE, </role><roleDesc>a dependant of Diabolus.</roleDesc></castItem>
+<castItem type="role"><role>A BOY.</role></castItem>
+<castItem type="role"><role>ARTEMONA, </role><roleDesc>wife of Dem&aelig;enetus.</roleDesc></castItem>
+<castItem type="role"><role>CLEAERETA, </role><roleDesc>a procuress.</roleDesc></castItem>
+<castItem type="role"><role>PHILENIUM, </role><roleDesc>daughter of Cle&aelig;reta.</roleDesc></castItem>
+</castList>
+
+<stage type="scene"><placeName key="perseus,Athens">Athens</placeName>, before the house of CLE&AElig;RETA; the house of DEM&AElig;NETUS is a little way down another street, and in view of the audience</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT</head>
+
+<sp><speaker>ARGYRIPPUS,</speaker><p> the son of Dem&aelig;netus, is violently in love with Philenium, a young woman, who is living with her mother, Cle&aelig;reta, a procuress. The latter has made an agreement with a Captain, of the name of Diabolus, to transfer Philenium to him for twenty min&aelig;, on condition, however, that if Argyrippus shall first pay that sum, he shall have her. Argyrippus, having exhausted all his own resources, applies to his father, Dem&aelig;netus, an over-indulgent and immoral old man, and requests him to furnish him with twenty min&aelig;. Dem&aelig;netus is married to Artemona, a rich woman, and is totally dependant on the will of herself and her favourite slave, the chamberlain Saurea. Being destitute of money, Dem&aelig;netus orders his servant, Libanus, by some means or other to cheat his mistress or the chamberlain out of that sum. Just then an ass-dealer arrives, to pay to Saurea twenty min&aelig;, the price of some asses which he has previously purchased. Libanus then arranges with his fellow-servant, Leonida, that the latter shall personate Saurea, and so receive the money from the ass-dealer. This is done, and the money is paid to Leonida, in the presence of Dem&aelig;netus, who assures the dealer that Leonida really is the person to whom the money is payable. This sum is then given to Argyrippus, but with the disgraceful stipulation that for one day his father shall enjoy the company of Philenium. This he submits to, and the three sit down to a banquet. The Captain discovers this, and sends his Parasite to inform Artemona of her husband's conduct. She accordingly accompanies the Parasite, and discovers her husband in the company of his son and the young woman; after soundly rating him, she leads him off; while Argyrippus remains in possession of Philenium.
+
+</p></sp></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<sp><speaker>THE ASS-DEALER.</speaker><p> son in love (<foreign lang="la">Amanti</foreign>), the old man, who lives under (<foreign lang="la">Sub</foreign>) his wife's control, wishes to help him with money; therefore (<foreign lang="la">Itaque</foreign>), some money that has been brought <foreign lang="la">in payment</foreign> for the asses for Saurea he orders to be paid (<foreign lang="la">Nulerari</foreign>) to his servant Leonida. This is carried to (<foreign lang="la">Ad</foreign>) his mistress, <foreign lang="la">and</foreign> the son yields her favours <foreign lang="la">to his father.</foreign> His rival (<foreign lang="la">Rivinus</foreign>) <foreign lang="la">is</foreign> furious an account of the woman thus taken from him: he (<foreign lang="la">Is</foreign>) tells all the matter, through the Parasite, to the wife. The wife rushes (<foreign lang="la">Adcurrit</foreign>) <foreign lang="la">to the place,</foreign> and drags her husband from the den.
+
+</p></sp></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<stage>THE PROLOGUE.</stage>
+<sp><speaker>PROLOGUS</speaker><p> Attend now, Spectators, if you please, forthwith to this, and may this matter turn out fortunately for me and for yourselves, and for this company, and for our employers<milestone n="3" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For our employers</lemma>:  By "dominis" he probably means the &AElig;diles by whom the actors were engaged for the public entertainment.</note>, and for our managers<milestone n="3" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And for our managers</lemma>:  The "conductores" were probably the leaders or managers of the company, who made the contract with the &AElig;diles.</note>. Now, crier, do you at once make all the people give. attentive ear. Come, be seated now, only be careful that 'tis not for nought. Now I will tell you why I have come forward here, and what my intention is, that you may know the name of this play. For, so far as relates to the plot, it really is a short one. Now I will tell you what I said I was wishful to inform you upon. The name of this play in Greek is Onagos<milestone n="10" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Is Onagos</lemma>:  "Onagos." The Greek name for an "ass-driver."</note>-- Demophilus<milestone n="11" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Demophilus</lemma>:  No particulars are known of Demophilus the Comic Writer. Some would suggest Diphilus as the reading here: he is mentioned in the <placeName key="tgn,7018553">Adelphi</placeName> of Terence, and was a Comic Poet, contemporary with Menander.</note> composed it--Marcus<milestone n="11" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Marcus</lemma>:  Marcus is the word used here. It is supposed to be a corruption of, or an abbreviation for, Maccius or M. Accius, whichever was the pr&aelig;nomen of the poet.</note>Plautus turned it into Latin. He wishes it to be called Asinaria<milestone n="12" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Asinaria</lemma>:  "Asinaria" seems to be the nominative feminine singular or neuter plural of the adjective "asinarius," of or "relating to asses."</note> if by your leaves it may be so. In this play there is both pleasantry and fun. 'Tis a droll story; kindly lend me your attention; may Mars, too, as, full oft at other times he has done, so give you now his aid.
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="16" unit="TLN line"/>
+<stage>Enter DEM&AElig;NETUS and LIBANUS, from the house of the former.</stage>
+<sp><speaker>LIBANUS</speaker><p> As you desire your own only son to survive your own existence, prosperous, and living on; so by your lengthened years, and by that wife of yours of whom you stand in awe, do I conjure you, that if this day you have said anything that's false against myself, your wife may then survive your own existence, and that, she living, you, still alive, may come to utter destruction<milestone n="22" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Come to utter destruction</lemma>:  "Pestem obpetas." Literally, "meet with a plague." This expression held a somewhat similar rank with our uncourteous invitation, "Go to the devil."</note>.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> By the Gods above<milestone n="23" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By the Gods above</lemma>:  "Per Deum Fidium." Literally, "by the God Fidius." This God had a Temple in the Capitol at <placeName key="perseus,Rome">Rome</placeName>. He was represented as having Honor on his right hand, and Truth on the left. He is mentioned by Ovid, in the Sixth Book of the Fasti, as having the names also of Sancus and Semo. He was also called Sangus and Sanctus, and is generally supposed to have been the Sabine Hercules. <placeName key="tgn,7014435">Saint Augustine</placeName> says that he was a king of the Sabines, whom they had deified.</note> as to what you seek to know, I see that I must, perforce, speak out, whatever you question me upon, being thus conjured; so determinedly have you accosted me, that I really do not dare otherwise than to disclose everything to you making all these enquiries. Say then at once what it is that you desire so much to know; as I myself shall know, so will I let you know.
+</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Troth now, prithee answer me seriously what I ask you; take care that you tell me no falsehood.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Why, then, don't you ask?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Will you, then, be sending me there, where stone grinds stone<milestone n="31" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Stone grinds stone</lemma>:  He alludes to the "pistrinum," or hand-mill, where refractory slaves were often sent and set to grind the corn, which was a very laborious employment.</note>?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> What place is that? Or where in the world is that place?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Where worthless men are weeping, who breakfast upon pearled barley<milestone n="33" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pearled barley</lemma>:  "Polenta." This was barley-meal, dried before the fire, soaked in water for a night, and then baked.</note>.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> What that place is, or where it is, I cannot understand, where worthless men are weeping, who breakfast upon pearled barley.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, in the islands of club-land and rattle- chains<milestone n="36" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Club-land and rattle-chain</lemma>:  "Fustitudinas, ferricrepinas." These are words coined by the author for the occasion. In the next line he alludes to flogging with thongs of hide.</note>, where dead oxen attack living men.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I' faith, I now understand, Libanus, what place it is; that perhaps you mean, where the pearled barley is prepared.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> O dear: I'm not speaking of that, i' faith, nor do I wish to speak of it. Troth now, prithee, do spit out<milestone n="41" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Do spit out</lemma>:  The ancients signified extreme disgust by spitting. Libanus is so frightened at the bare "idea" of the "pistrinum," or "mill," that he deems the attempt to mention it as of bad omen, and begs that his master will spit away from him the very notion of it.</note> the words that you have spoken.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Be it so; you shall be indulged. <stage>He coughs and spits.</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> Come, come--hawk away. </p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> What, still more? <stage>Spits on.</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> Troth now; prithee, do go on--still more.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> What-from the very bottom of my throat? <stage>Spits.</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> Even more still. </p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Why, how long? <stage>Spits.</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> I want you, even to the death----</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Take you care of a woful mishap, if you please.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Of your wife, I mean, not of yourself.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> For that speech, I give you leave to be free from apprehension.
+</p></sp>
+<sp><speaker>LIBANUS</speaker><p> May the Gods grant you whatever you desire.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> In return, give me your attention. Why should I ask this of you? Or why should I threaten you, because you have not made me acquainted with it? Or why, in fine, should I censure my son as other fathers do?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> What new affair is this? <stage>Aside.</stage> I wonder much what it is, and I'm in dread what the upshot of it may be.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> In fact, I'm now aware that my son's in love with that Courtesan Philenium, that lives close by. Is not this as I say, Libanus?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> You are upon the right track; such is the fact. But a dreadful malady has overtaken him.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> What is the malady? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, that his presents don't equal his promises.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Are you, then, one who assists my son in his amours?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I really am, and our Leonida is another.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I' faith, you do kindly, and you gain thanks from me. But this wife of mine, Libanus, don't you know what sort of a person she is?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> You are the first to experience it, but we give a guess beforehand.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I confess that she is troublesome and not to be pleased.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> You say that later than I believed you in it.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> All parents, Libanus, who listen to me, will show indulgence to their children, inasmuch as they will find their sons more kindly disposed and more affectionate; and that do I desire to do myself. I wish to be loved by mine; I wish myself to be like my father, who, for my sake, himself in the disguise of a ship-master, carried off from a procurer a female with whom I was in love; nor was he ashamed, at that time of life, to devise stratagems, and to purchase with good turns me, his son, for himself. These ways of my father have I resolved to imitate. For to-day my son Argyrippus has entreated me to give him a supply of money for his amours; and I very much wish in that to oblige my son. I wish to forward his amours; I wish him to be fond of myself, his father. Although his mother keeps him strictly, and with a tight rein, as fathers have been in the habit of doing, all that I dismiss. Especially as he has deemed me deserving, for him to entrust it to ire, I ought to pay all due regard to his feelings. Inasmuch as he has applied to me, as it is right that a respectful son should do, I wish him to have some money for him to give to his mistress * * * * *</p></sp>
+<sp><speaker>LIBANUS</speaker><p> You are desiring that which I find you are do siring to no purpose. Your wife brought her servant Saurea with her on her marriage<milestone n="87" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With her on her marriage</lemma>:  "Dotalem." The husband was master of the other slaves in the household; but the "dotalis" was under the sole control of the mistress. Aulus Gellius, in his Seventeenth Book, calls him "servus recepticius," probably, either because it was his business to receive whatever was due to his mistress, or from his being received into the house in preference to all other slaves.</note>, who has more in his control trol than you have.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I received money with her, and for the portion I sold my authority. Now I'll compress into a few words what I want of you; my son is now in need of twenty silver min&aelig;: do you manage that it may be forthwith found for him.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> From what place in the world? </p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Cheat me of them.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> You are talking downright nonsense. You are bidding me take the clothes from off a naked man. I, cheat you?--come now, fly you without wings, please. What, am I to cheat you who have nothing in your power for your own self? Unless you have first cheated your wife out of something.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Impose upon or rob myself in any way you can, my wife in any way, my servant Saurea in any way. I promise you that it shall not prove to your detriment, if you effect it to-day.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> On the same principle you might bid me to fish in the air, and to hunt with a javelin in the midst of the sea.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Take Leonida as your coadjutor<milestone n="103" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your coadjutor</lemma>:  "Optio" was originally the name of the lientenant, or adjutant, who was chosen by the centurion in the Roman armies to assist him in the discharge of his duties.</note>; devise some plan or other, think of some expedient: bring it about that my son this day gets some money to give his mistress.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> What say you, Dem&aelig;netus * * * * * if the foe should intercept me, will you ransom me?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I will ransom you. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Then do you attend to something else, whatever you please.
+</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I'm off to the Forum, unless you wish for anything.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Be of--why are you not walking<milestone n="110" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Why are you not walking</lemma>:  "Etiamne ambulas." <placeName key="tgn,2063856">Thornton</placeName>, quoting from Limiers, says, in reference to this passage, "This is a banter of the slave's, who is rallying his master on the pain he is in, in walking supported by his crutch-stick. There is a distinction made between 'ire,' which, the grammarians tell us, is used to express walking fast, and 'ambulare,' 'to walk slowly,' or 'step by step.'"</note>?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> And do you hear, too----? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Well now.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> If I want you for anything, where will you be?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Wherever it shall be agreable to my feelings. Really, there's not a person that I shall stand in dread of from this time forward, for fear he might be able to do me an injury, since in your discourse you have disclosed to me all your sentiments. Why, your own self even I don't stand much in awe of, if I carry this out. I'll go where I intended, and there I'll commune upon my plans.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Do you hear me? I shall be with Archibulus, the banker.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> In the Forum, you mean? DEM. There, if there shall be any occasion for me<milestone n="119" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Any occasion for me</lemma>:  "Si quid opus fuerit." This expression equivalent to ours, "if I am wanted," was made use of by the Romans when they had the intention of engaging in some occupation of importance.</note>.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I'll remember it. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> <stage>to himself</stage> Not any servant can there be more artful than this fellow, nor yet more crafty, nor one that it is more difficult for you to be on your guard against. If you want anything well managed, entrust it to this same fellow; he'd rather he should die in wretchedness, than not have that quite completed which he has promised. For I know that this money is as surely forthcoming for my son, as that I look upon this same walking-stick. But why am I delaying to go to the Forum where I had intended <gap/> <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="127" unit="TLN line"/>
+<stage>Enter ARGYRIPPUS, from the house of CLE&AElig;RETA, addressing her within.</stage>
+<sp><speaker>ARGYRIPPUS</speaker><p> Is't thus it is,--me to be shut out of doors? Is this the reward that's given to me who deserve so highly of you? To him who deserves well you are unkind, to him who deserves ill you are indulgent. But to your own misfortune, for now from this spot will I go to the Triumvirs<milestone n="134" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the Triumvirs</lemma>:  The "Tresviri," or "Triumviri," were in duty bound to receive informations relative to public morals, and were empowered to inflict summary punishment on persons of the rank and occupation of Cle&aelig;reta. They have been more fully referred to in a previous Note. It will not be forgotten that, though the scene is in <placeName key="tgn,7001393">Athens</placeName>, Plautus is making reference to Roman customs.</note>, and there I'll take care your names shall be. I'll punish capitally yourself and your daughter, you enticers, pests, and destruction of young men! For, compared with you, the sea is not the sea; you are a most dangerous sea. For on the sea did I find it, here have I been cleaned out of my wealth. What I have given, and what kindnesses I have done, I find them all valueless for good, and thrown away. But from hence-forth, whatever harm I shall be able to do you, I will do it, and do it at your deserts. I' faith, I'll reduce you to the verge of poverty, that state from which you have risen. By my troth, I'll make you to know what you now are, and what you once were; what you were before I visited that daughter of yours, and, in my passion, bestowed upon her my affection; on coarse bread<milestone n="145" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On coarse bread</lemma>:  "Sordido--pane." According to the Commentators, this means brown bread with the bran in it. Terence, in his Eunuchus, calls it "panis ater," "black bread" Juvenal calls it "dog's bread."</note> you were enjoying your life, in rags, and in want. And if these you had, especial thanks did you return to all the Divinities. Now, bad woman, you the same person, when 'tis better with you, don't know me through whose means it is so. From a wild beast, I'll make you tame through hunger, only trust me for that<milestone n="148" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Trust me for that</lemma>:  "Me specta modo."Literally, "only look to me."</note>. But I have no reason to blame your daughter herself; she does not deserve it in the least. She acts by your command; she obeys your bidding; you are her mother, you too her mistress. I'll revenge myself on you; I'll ruin you; as you are deserving, and as you merit at my hands. But look now, the hag, how she really doesn't think me worthy for her to come to and address and deprecate my resentment. But, see, the enticer's coming out at last, I think. Here. before the door, I'll address her in my own fashion, as I please, since I'm not allowed to do so within.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="153" unit="TLN line"/>
+<stage>Enter CLE&AElig;RETA, from her house.</stage>
+<sp><speaker>CLEAERETA</speaker><p> If any purchaser should come, he could not carry him away from me each single word of those for gold Philippean pieces. What you say wrongfully against us is good gold and silver. Your heart is locked up here with us, at the helm of Cupid. With oars and with sails make haste and fly as fast as you can; the further you betake yourself to sea, the more the tide will bring you back to harbour.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I faith, I'll be depriving this custom-house officer<milestone n="163" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This custom-house officer</lemma>:  "Istum portitorem privabo portitorio." Cle&aelig;reta has just mentioned "portus," "the harbour," meaning her own house, to which, despite of himself, Argyrippus will, by his own passion, be brought back at last. He takes up the metaphor, and says that she, the landing-waiter (<foreign lang="la">portitor</foreign>), or custom-house officer, shall not, however, get her dues; meaning, that he is determined not to let her have any more of his money.</note> of his dues. From henceforth I'll persist in treating you as you have deserved of me and mine, since you have treated me not as I deserve, in excluding me from your house.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> I know that that is rather said with the tongue, than that it will happen in deed.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I alone have brought you from obscurity and from want; if I alone patronize you, you can never return sufficient thanks.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Do you still be the only one to patronize me, if you alone will always give me what I ask. Do you always keep what has been promised you, on this condition, that you surpass others in your presents.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> What limit is there to be to giving? For really you can never be satisfied; the moment that you've received something, not very long after, you are devising something for you to be asking for.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> What limit is there to be to your enjoying yourself, and to your indulging your amour? Can you never be satisfied? The moment that you have sent her home, that instant, you are directly asking me to send her back to you.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> In fact, I have given whatever you have demanded of me.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> And I have sent the damsel to you. A requital has been given, like for like; a return for the money.
+</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> You treat me badly. </p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Why do you blame me if I do my duty? For nowhere is it either feigned in story or represented in pictures or written in poems, where a procuress, who wishes to thrive, treats any lover well.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Still, 'twere right for you to show favour to me at least, that I might last the longer for you.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Don't you know, the woman that shows favour to a lover, that same woman shows little favour to herself? Just like a fish, so is a lover to a procuress; he's good for nothing if ne isn't fresh. Then it has juice, then it has sweetness; in any fashion you like you may season it, either stewed or roasted; ill any way you will, you may turn it. So the lover; he's ready to give, he longs for something to be asked of him, for there it's taken from a full stock, nor does he know what he's giving, or what mischief he's doing. Of this matter does the new lover think; he wishes himself to please his mistress, he wishes to please me, he wishes to please her lady's maid<milestone n="187" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Her lady's maid</lemma>:  "Pedissequa" seems to have been the name of the female-servant, whose duty it was to be constantly in attendance on her mistress; and who probably followed her in the street, whence her name.</note>, he wishes to please the men-servants, he wishes to please the maid-servants as well, and even my dog does he caress, that when it sees him, it may be delighted. I tell the truth; it shows cleverness for every person to be fair-dealing for his own advantage.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I've thoroughly learned that this is true, to my own great misfortune.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> I' faith, if you now had anything to give, you'd be uttering different remarks; now, since you've got nothing, you expect to be having her by means of harsh language.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> 'Tis not my way. </p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Nor yet mine, indeed, i' faith, to be sending her to you for nothing; but this shall be done out of regard for your youthful age and your own sake, since you have rather been the cause of profit to us than of reputation to yourself. If two talents of silver<milestone n="197" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Two talents of silver</lemma>:  The Attic silver, or Solonian talent, contained 73-100th parts of the old Attic talent. It will be observed that the hag is here adding just one hundred "min&aelig;" to her demand; but it is clear that she is only doing so to provoke Argyrippus, and to amuse herself with his mistress.</note> are paid me down, reckoned in my hand, this night will I grant you for nothing, as a present, by reason of my respect for you.
+</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> What if I haven't it? </p></sp>
+<sp><speaker>CLEAERETA</speaker><p> I'll believe that you haven't it--still, she shall go to another.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Where is that which I have given you already?</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Spent; for if it was remaining to me, the damsel should be sent to you, and I should never ask for anything. Daylight, water, the sun, the moon, the night, these things I purchase not with money; the rest, whatever we wish to enjoy, we purchase on Grecian trust<milestone n="203" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On Grecian trust</lemma>:  The Greeks were so noted for their want of punctuality in their payments, that it became the general rule among them not to give credit. Consequently, "Grecian trust" became a proverbial saying for "ready money."</note>. When we ask bread of the baker, wine from the wineshop--if they receive the money, they give their wares; the same principle do I go upon. My hands always have eyes in them; they believe what they see. There's an old saying, "trusting is good for nought<milestone n="207" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Trusting is good for nought</lemma>:  "Nihili cocio est." The meaning of this passage is obvious, that "trusting is bad;" but the signification of the word "cocio" has puzzled the Commentators. Gronovius, with some probability, suggests that it is the old form of the word "cautio;" meaning "one who goes upon trust." It may either mean that, or "trusting," or "giving tick," as we familiarly term it; indeed, it is not improbable that the word "cocio" may have been a cant name for "credit." From the remark of Cle&aelig;reta, we may conclude that this was a proverbial expression, which had originated in being used by some famous person, or in some celebrated play of that day, all remembrance of which has now perished.</note>;" you know whose it is--I say no more.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Now I'm clean stripped, you tell me another tale; a very different one, I say, you give me now from formerly, when I was making presents; a different one from formerly, when with kindness and good words you used to entice me to your house. Then did your house even smile upon me, when I used to come to you. You used to say that I alone of all loved you and her. When I had given anything, just like the young ones of a pigeon were you both upon my lips; and all your likings were according to my own liking. You always kept close to me; whatever I requested, whatever I wished, you used to do; what I didn't wish and forbade, that, with carefulness, you used to avoid, nor did you first venture to attempt to do it. Now, you jades, you don't much care either what I do wish or what I don't wish.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Don't you know? This calling of ours is very like that of the fowler. The fowler, when he has prepared the spot, sprinkles the food about. The birds are accustomed to the spot. 'Tis necessary for him<milestone n="221" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">'Tis necessary for him</lemma>:  "<foreign lang="la">Necesse est facere sumptum, qui qu&aelig;rit merum</foreign>." <placeName key="tgn,2008410">Louis</placeName> the Twelfth, the King of France, was always quoting this proverb; but it has been remarked, that he failed to make it his rule of conduct.</note> to make an outlay, who seeks for gain. They eat often; if they are caught once, they reimburse the fowler. So in like manner here with us. Our house is the spot, I am the fowler, the courtesan is the food, the couch is the decoy, the lovers the birds. By kindly welcoming them, by addressing them courteously, by dallying, and by chattering over the wine, and amusing conversation, they are won. If one of them has touched her bosom, that is not without advantage to the fowler. If he has taken a kiss, him you may take without a net. That you should be forgetful of these things, you who have been schooled so long!</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> That's your own fault, in turning away from you a scholar half instructed.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Come back again without hesitation, if you've got the pay; for the present, be off. <stage>Pretends to go.</stage></p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Stay, stay; don't you hear me? Say what you think it fair that I should give you for her, that for this year she may be with no one else.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> What, you? Twenty min&aelig;. And on this condition: if any other person shall bring them first to me, to you--good-bye.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> But I---- There's still something that I wish to say to you before you go.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Say what you please. </p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I'm not entirely ruined yet; there's still something more left for me to come to ruin. I have wherewithal to give you what you ask; but I'll give it you on my own terms, that you may be enabled to understand that throughout all this year she is to be at my service, and that, in the meantime, she is to admit no other man whatever to her, besides myself.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Why, if you choose, the male-servants that are at home, I'll make eunuchs of. In fine, take you care and bring articles of agreement that we will be as you wish. Impose conditions upon us as you wish, and as you shall choose. Do you only bring the money with you, I'll readily put up with the rest. The doors of procurers are very like those of a custom-house officer; if you bring anything, then they are opened; if there is nothing for you to give, then the doors are not opened. <stage>Goes into her house.</stage></p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> <stage>to himself</stage>. I'm undone, if I don't procure these twenty min&aelig;. And really, unless I make away with this much money, I must come to destruction. Now I'll go to the Forum, and make trial with my resources, with all my endeavours. I'll beg, I'll earnestly entreat each friend as I see him; both good and bad am I determined to apply to, and make trial of. But if I can't borrow it, I'll take it up at interest, I'm resolved. <stage>(Goes into the house of DEM&AElig;NETUS.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="249" unit="TLN line"/>
+<stage>Enter LIBANUS, from the house of DEM&AElig;NETUS.</stage>
+<sp><speaker>LIBANUS</speaker><p> Upon my faith, Libanus, it really were better for you now to be waking, and to be devising some plan for procuring the money. A long time has now elapsed, since you parted with your master and went to the Forum. For that end that you might devise some plan for procuring the money, there till this time of day have you been sleeping at your ease. Why don't you away with all slothfulness from yourself, and remove all sluggishness, and betake yourself again to your former dexterous ingenuity. Preserve your master; take you care, too, how you do the same that other servants are wont, who employ a clever ingenuity in cheating their master? Whence shall I get it? Whom shall I diddle out of it? Whither shall 1 steer this fly-boat? 'Tis settled, 'tis confirmed by auspices; on each side do the birds give good omens. The woodpecker and the crow are on my right, the raven, as well, upon my left. They are persuading me to it: i' faith, I'm resolved to follow your advice. <stage>Starts and listens.</stage> But what means this, that the woodpecker is tapping the elm-tree? That's not for nothing. Troth, for certain, so far as I can gather omens from augury, the rods are in readiness for my own back, or for Saurea the chamberlain. But what means this that Leonida is running this way out of breath? I fear that this bodes ill for my trumped-up schemes <stage>Stands apart.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="267" unit="TLN line"/>
+<stage>Enter LEONIDA, running.</stage>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. Where now shall I find Libanus, or my master's son, that I may make them more mirthful than is Mirth herself<milestone n="271" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Mirth herself</lemma>:  "Lubentia," or "<placeName key="tgn,2094077">Venus</placeName> lubentina," was the Goddess of pleasure, mirth, and delight.</note>? Great booty and a triumph do I bring them on my arrival. Inasmuch as together with me they drink, together with me they are wont to wench, why, this booty that I've got, together with them will I share it.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. This fellow has been robbing a house, if he has been acting after his usual manner. Woe to the person that has so carelessly kept the door!</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. I could be ready to be a slave for an age, if I could only meet with Libanus.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. I' faith, with my assistance, indeed, you shall never be free a bit the sooner.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. I'd give two hundred teeming lashes<milestone n="280" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Teeming lashes</lemma>:  "Plagas pr&aelig;gnantes." Literally, "pregnant stripes"--"blows that generate other blows."</note> on my back as well.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. He's giving away all his substance, for he carries his treasures on his back<milestone n="281" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Treasures on his back</lemma>:  "Talk of giving,"--he says, "stripes on his back are all that he has to give."</note>.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. But if time should intervene upon this opportunity, never, upon my faith, will he hereafter obtain it again, oven with white horses<milestone n="283" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With white horses</lemma>:  White horses were most esteemed by the ancients, and were supposed to excel others in swiftness.</note>. He'll be deserting his master in the siege; he'll be increasing the courage of the foe. But if with me he is desirous to seize hold upon this opportunity which has presented itself, very great bounties brimful of joyousness, will he, together with myself, be producing for his masters, both for the son and the father. So that, for life, they will be indebted to us both, bound by our services.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. He's talking of persons being bound<milestone n="289" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Talking of persons being bound</lemma>:  He catches, or pretends to catch, the two last syllables of the word "devincti," "obligated," and then says that Leonida is speaking of people being "vincti," "chained" or "bound." This he deems, or pretends to deem, to be ominous of ill.</note>, I don't know who. I don't like it; I fear for us in common, lest he may have been cheating in some cheatery.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. I'm utterly undone, unless I find Libanus at once, wherever in the world he is.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. This fellow's looking out for an accomplice, to unite with himself in a bad design. I don't like it: 'tis a portentous sign that instant, when a person trembles that sweats<milestone n="293" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Person trembles that sweats</lemma>:  Probably Leonida is out of breath and in a perspiration; Libanus considers this as a bad omen. By his remark he is supposed to allude to the "sudiculum," a kind of scourge, which received its name from making those sweat who were punished with it.</note>.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. But why, as I hasten, do I loiter here with my feet, and make myself so bounteous with my tongue? Why don't I bid it be quiet, that in its talkativeness is wearing out the day?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. Upon my faith, an unfortunate man, to check his patroness; for if he has done anything roguishly, his tongue perjures itself in his behalf.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. I'll make haste, lest I should be providing a safe keeping for my spoil too late.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. What spoil is this? I'll go meet him, and enquire what it is. <stage>He accosts him.</stage> I wish you health in as loud a voice as my strength admits of.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Exerciser of the whip, health to you.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Keeper of the gaol, how do you do?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Ha! colonizer of the chains. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Ha! delight of the scourges.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> When naked, how many pounds do you say you are in weight?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Upon my faith, I don't know. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> I know that you don't know; but, i' faith, I who have weighed you do know. Tied up naked, you were a hundred pounds in weight, when you were hanging with your feet downwards.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> On what evidence is that? </p></sp>
+<sp><speaker>LEONIDA</speaker><p> I'll tell you on what evidence, and in what way. When you are tied up with a full hundred pounds to your feet<milestone n="307" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hundred pounds to your feet</lemma>:  When slaves were hung up by the arms to be scourged, it was usual to fasten heavy weights to their feet, to prevent them from kicking those who scourged them. The peor wit of Leonida seems to have this meaning: punning upon the word "pendeo," which signifies either "to hang from" or "to weigh," he says, that when Libanus is tied up with the weight at his feet, he weighs just as much as the weight and no more; for, being a worthless fellow, he has no weight whatever as a good man.</note>, when the manacles are fastened to your hands, and tied to the beam, you are weighing neither more nor less, than as being a worthless and good-for-nothing fellow.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Woe be to you! </p></sp>
+<sp><speaker>LEONIDA</speaker><p> That, Servitude bequeaths to you by her will.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I wish this skirmishing of words to be cut short. What matter is this?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Am I sure in trusting you?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> You may, without hesitation. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> If you wish to assist our master's son in his amour, there is so much of a good opportunity on a sudden, but still mingled with evil--all the hangman's days will be rendered famous by ourselves. Libanus, now have we occasion to find some boldness and inventiveness. An exploit so great have I thought of just now, that we two may be pronounced the most deserving of all for torture to befall us.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> 'Twas on that account I was wondering why my shoulder-blades were aching just now, which were beginning to prognosticate that there was some danger for them at home. Whatever it is, speak out.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> 'Tis great booty with great risk.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> If indeed all persons by compact were to collect all the tortures, I have, I fancy, a back at home, so that I need not seek it out of doors.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> If you maintain such firmness of resolve, then we are all right.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, if the matter were to be atoned for by my back, I could wish to seize the public money: I'll persist in my denial, and I'll endure all; in fine, I'll forswear myself.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Ah! that's true valour, when occasion is, for one to endure misfortune with boldness. He that endures misfortune with boldness, that man afterwards enjoys good fortune.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why don't you tell the matter at once? I'm longing to tempt the scourge.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>breathing hard</stage>. Ask deliberately each particular then, that I may rest me. Don't you see that I'm still out of breath with running?
+</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Well, well, I'll wait your pleasure, even, in fact, till you die.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Where's our master, pray?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> The old one is at the Forum, the young one is here in-doors.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> That's enough for me then. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Is it then that you've become a rich man?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Leave off your raillery. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> I'll have done; for my ears are in expectation of what you are bringing me.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Give your attention, that equally with myself you may learn this.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I'm silent, then. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> You oblige me. Don't you remember that our chamberlain sold some <placeName key="tgn,2136419">Arcadian</placeName> asses to a dealer of <placeName key="tgn,7011026">Pella</placeName><milestone n="337" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Dealer of <placeName key="tgn,7011026">Pella</placeName></lemma>:  <placeName key="tgn,7011026">Pella</placeName> was a wealthy city of <placeName key="tgn,7006667">Macedonia</placeName>, famed for the opulence of its merchants. It was the birthplace of Alexander the Great</note>?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I remember it; after that, what then?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Well, he has sent some money here then to be paid to Saurea, for the asses; a young man has just now come who has brought this money.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Where is this person?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> You think he ought to be devoured this instant, if you could see him.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Aye, to be sure. But, however, you are speaking, I suppose, of those asses, aged and lame, whose hoofs were quite worn away to their very thighs?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Those same ones, that carried the elm twigs hither from the country, for your use.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I understand you; and the same ones carried you from here, bound, into the country<milestone n="345" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bound, into the country</lemma>:  Namely, to the "ergastulum," of "puteus," the place to which refractory slaves were sent for hard labour, and which was generally at the country-house of the master.</note>.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> You say what's quite correct. But as I was sitting in the barber's shop, he began to make enquiries of me, whether I knew a certain Dem&aelig;netus, the son of Strato. At once I said that I knew him, and that I was his servant; and I pointed out our house.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> After that, what then? </p></sp>
+<sp><speaker>LEONIDA</speaker><p> He said that he was bringing the money for the asses to the chamberlain Saurea, twenty min&aelig; in amount; but that he himself didn't know the individual, who he was, but that he knew Dem&aelig;netus quite well. Since he spoke thus to this effect----</p></sp>
+<sp><speaker>LIBANUS</speaker><p> What then? </p></sp>
+<sp><speaker>LEONIDA</speaker><p> Listen then, and you'll know. At once I made myself courteous, and a person of consequence. I said that I was the chamberlain. Thus, in these terms did he answer me: "Upon my faith, I don't know Saurea, nor yet of what appearance he is. It isn't fair for you to blame me; but if you like, bring here Dem&aelig;netus, your master, whom I do know; I'll not prevent you taking the money then." I said that I would bring him, and that I should be at home immediately. He's about to go to the baths<milestone n="368" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To go to the baths</lemma>:  It was very natural that after a long journey he should first go to the barber's shop, and then repair to the public baths to refresh himself.</note>, from there he'll afterwards come here. What plan do you think, now, I ought to adopt? Tell me.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, I'm thinking of this, how to get between the money, and the stranger, and Saurea. At present this matter is rough-hewn; but if this stranger brings here the money first, then are we both at once shut out from it. But the old man to-day took me apart at a distance from the house, and threatened me and yourself that we should be tasters of the elm twigs, if Argyrippus didn't this very day get twenty mine of silver. He commanded that we should cheat either the chamberlain or his own wife, and said that he would give the aid he promised. Now, do you go to the Forum to our master, and tell him this, how we are going to manage; that you, from Leonida, are going to be the chamberlain Saurea, until the dealer has brought the money for the asses.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I'll do as you request me.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> In the meantime, I'll amuse him here, if by chance he should come first.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> But what say you----? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> What do you want?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> If I give you a blow on the cheek with my fist, by-and-by, while I'm personating Saurea<milestone n="375" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Personating Saurea</lemma>:  Saurea, as the "atriensis," "chamberlain" or "gentleman-usher," was the head of the slave family; and it was his privilege to beat the other slaves, if they offended him or neglected their duties.</note>, don't you be offended.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I' faith, but you'll have a care not to be touching me, if you are wise; you'll surely have changed your name to day with a bad omen<milestone n="377" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your name to-day with a bad omen</lemma>:  Limiers says that this is said in allusion to his having assumed the name of "Saurea," which meant "a lash" or "scourge."</note>.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Prithee, do endure it with resolution.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Do you endure the cuff that I, too, shall be giving you in return.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I speak as it's in the habit of being done.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I' faith, and I speak, too, of how I'm likely to act.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Don't refuse me.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why I promise, I tell you, to give you a like return, just as you deserve.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I'm off; I know that you'll put up with it by-and-by. But who's this? 'Tis he--'tis the very man himself. I'll return here just now; in the meantime do you detain him here; I want to inform the old gentleman. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> Well, do your duty, then, and fly.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="381" unit="TLN line"/>
+<stage>Enter the ASS-DEALER, with a BOY.</stage>
+<sp><speaker>THE ASS-DEALER.</speaker><p> <stage>to himself</stage>. According as it was pointed out to me, this must be the house where Dem&aelig;netus is said to live. <stage>To the BOY.</stage> Go, boy, and knock, and call Saurea the chamberlain out here, if he's in-doors. <stage>The BOY goes to knock.</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> Who's breaking in our door in this fashion? Enough there, I say, if you hear me at all.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> No one has touched it as yet: are you out of your senses?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why I thought that you had touched it, because you were steering your course in that direction. I don't want the door, my fellow-slave<milestone n="390" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My fellow-slave</lemma>:  He so calls the door, from the fact of its being under the control of the "janitor," or "doorkeeper," who was also a slave. Ovid has a similar passage in his Amores, B. 1, El. 6, l. 74. In his address to the "janitor," he says, "Duraque conserv&aelig;, ligna, valete, fores' "And you, ye doors equally slaves, hard-hearted blocks of wood, farewell."</note>, to be thumped by you; I really am attached to our house.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> I' faith, there's no fear of the hinges being broken off the doors, if you answer all who make enquiries in this fashion.
+</p></sp>
+<sp><speaker>LIBANUS</speaker><p> This door is of this habit; it cries out at once for tho porter, if it sees any door-kicker at a distance coming towards it. But what are you come for? What are you enquiring about?</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> I wanted Dem&aelig;netus. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> If he were at home, I would tell you so.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Well, his chamberlain then? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> No more is ne at home.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Where is he? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> He said he was going to the barber's.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Hasn't he returned, since he went there?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I' faith, he hasn't. What did you want?</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> He was to have received twenty mine of silver, if he had been in.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> What was it for? </p></sp><sp><speaker>ASS-D.</speaker> <p>He sold some asses at market to a dealer from <placeName key="tgn,7011026">Pella</placeName>.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I understand; you are bringing it now. I think that he'll be here just now.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Of what appearance is your chamberlain Saurea? If it's he, I shall be able to know at once.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Lantern-jawed, with reddish hair, a little pot-bellied, with glaring eyes, middling stature, sour aspect.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> A painter couldn't have more correctly described his appearance---- And, i' faith, I see the very man; he's coming this way, wagging his head.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Whoever gets in his way when he's in a passion, he'll be for striking him.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> By my faith, if, indeed, he were coming filled with the threats and the courage of the grandson of &AElig;acus<milestone n="409" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of of the grandson of &AElig;acus</lemma>:  He alludes to the wrath of Achilles the son of Pelens, and grandson of &AElig;acus, "the direful spring" of the Grecian woes, with which the Iliad commences.</note>, if he were to touch me in his wrath, in his wrath he would be getting a thrashing.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="407" unit="TLN line"/>
+<stage>Enter LEONIDA, counterfeiting SAUREA.</stage>
+<sp><speaker>LEONIDA</speaker><p> <stage>to himself</stage>. What's this to do here? Not a person bares a bit about my orders! How did I order Libanus to come to the barber's shop, and he didn't come at all. I' faith, for sure he hasn't consulted well for his back and his legs.
+</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> <stage>to himself</stage>. This is a very overbearing fellow.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>to the ASS-DEALER</stage>. Woe to me this day!</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I bid welcome to Libanus, the freed-man! Are you set at liberty now?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I do implore you. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> In good sooth, to your great misfortune surely have you fallen in my way. Why didn't you come to the barber's shop, as I ordered you?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>pointing to the ASS-DEALER</stage>. This person detained me.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I' faith, if in fact you were now to say that supreme Jove had detained you, and he were present to sue for you, you shouldn't escape the evil consequences. Whip-knave, did you disobey my orders? <stage>Offers to strike him.</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>to the ASS-DEALER</stage>. Stranger, I'm done for.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Prithee, Saurea, for my sake, don't beat him.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I wish, now, I had a whip in my hand----</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Prithee, do be appeased. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> --With which to lash your sides, which have grown callous with blows. <stage>To the ASS-DEALER, who interposes.</stage> Stand off this way; let me be the death of this fellow who is continually inflaming me with anger--a thief to whom I can never once enjoin a single thing, but that I must command the same things a hundred times, and din them in his ears<milestone n="427" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Din them in his ear</lemma>:  "Obganniam." This word literally signifies "to bark like a fox."</note>. For that reason, now, by my troth, what with bawling and passion, I cannot endure the labour. Have you, you rascal, <stage>pointing</stage> ordered this dirt to be removed hence from the door? Have you ordered the labours of the spiders to be swept down from the pillars? Have you ordered those bosses on our door<milestone n="431" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bosses on our door</lemma>:  The "bull&aelig;," or "bosses," here mentioned, were large heads of brass or gilt nails with which the doors of the Romans were ornamented.</note> to be brought to brightness? It's of no use; I must walk about with a stick, as though I were a lame man. Because only for these single three days I have been giving my constant attendance at the Forum, in order to find some one who requires money upon interest, here, in the meantime, are you sleeping at home, and my master is living in a pigstye, not in a house. <stage>He strikes LIBANUS.</stage> There now, take you that.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>to the ASS-DEALER</stage>. Prithee, stranger, do take my part.
+</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Saurea, for my sake, I entreat you, do let him go.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Hark you! has any one paid for the carriage of that olive oil?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> He has paid. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> To whom was it given?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> To Stichus himself, your deputy. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> Tut! you're trying to mollify me<milestone n="439" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Trying to mollify me</lemma>:  Inasmuch as he pretends to be jealous of Stichus enjoying the favour of the pretended Saurea, and being appointed his "vicarius," or "deputy," in preference to himself.</note>. I know that he is my deputy, and that there isn't a servant in the house who is more valuable to his master than he is. But the wines that I sold yesterday to Ex&aelig;rambus, the wine merchant, has he yet paid Stichus for them?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I think he has, in full; for I saw Ex&aelig;rambus himself bringing hither his banker.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> On such terms would I always deal<milestone n="444" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Would I always deal</lemma>:  "Sic dedero." Camerarius and Lambinus give these words a rather far-fetched meaning, and think that they signify, "I had rather give away my commodities, than sell them and be so ill- paid."</note>; before, what I've trusted, I've hardly been paid within a year after. Now he's quite in a hurry; even of his own accord he brings him to the house, and writes a transfer of the money<milestone n="445" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Writes a transfer of the money</lemma>:  "Scribere nummos" seems here to have the usual meaning of "rescribere nummos," to "transfer" or "set down money to the account of another person in one's banker's books."</note>.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Has Dromo paid down the wages agreed upon?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Less than half, I think. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> What about the remainder?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> He said that he would pay it directly it was paid<milestone n="448" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Directly it was paid</lemma>:  It was the custom with the owners of slaves to let out their services for a specified sum. He pretends that Dromo is a slave that has been let out by him for a job, and enquires whether the money is paid on which he is told, that he has only been paid half, inasmuch as the job is not yet finished, and that the other half is retained until he has completed it.</note> to him; for it was retained until he had finished the work that was agreed on to be done by him.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> The cups that I lent to Philodamus, has he brought them back?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Not yet. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> What, not yet? If you wish to make a present<milestone n="450" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Wish to make a present</lemma>:  At the suggestion of Gronovius, "dare" is read, in this line, with a comma after it, instead of "da," the usual reading. In the latter case the passage would read, "---- if you choose, do a service for a friend," which certainly has not the point of the other version.</note>, lend to a person that is a friend----
+</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> <stage>aside</stage>. I' faith, I'm quite undone; he'll be just now driving me away with his ill-temper.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>in a low voice to LEONIDA</stage>. <placeName key="tgn,2395733">Hallo</placeName>! you, enough now. Do you hear what he's saying?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>in the same way to LIBANUS</stage>. I hear, and I'll have done.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> <stage>aside</stage>. At last, I think, he has done: now it's best to accost him before he commences again to prate. <stage>To LEONIDA.</stage> How soon, sir, will you give me your attention?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Oh, by all means--have you been here any time? Troth, I didn't observe you; pray, don't lay it to my charge: anger has so blinded my eyesight.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> 'Tisn't to be wondered at. But if he's at home, I was wanting Dem&aelig;netus.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Libanus says that he isn't within. But still, if you like to pay that money over to me, I'll give you an acquittance that the account is discharged as to that item.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> This way rather, for me to pay you in the presence of your master, Dem&aelig;netus.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> My master knows him, and he my master.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> In his master's presence, I'll pay him.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> At my peril, so you only pay him, I'll engage the matter's safe. For if our old gentleman were to know that confidence wasn't placed in him, to whom he himself always entrusts the management of all matters, he would be angry.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I don't much care; don't let him not pay it, if he don't like; so let him stand here.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Give it him, I say. Oh dear, I'm sadly afraid that he'll be thinking that I've persuaded you not to trust him; prithee, do give it and don't be afraid. Upon my word, it will be safe.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> I think it will be--so long, indeed, as I myself keep it in my hand. I'm a stranger; I don't know Saurea.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Well, know him now then.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> It may be he, it may not be he; i' faith, I know not; if it's he, why then it must be he. I know for sure that I shall give this up to no person that I don't know.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>aside</stage>. Troth now, may all the Gods confound the fellow. <stage>Aloud to LIBANUS.</stage> Take care you don't entreat him with a word. He's arrogant, because he's fingering my twenty min&aelig;. No one will take it. <stage>To the ASS-DEALER.</stage> Take yourself off home, be off from here, and don't be troublesome.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> You are in too angry mood: it isn't right for a person who is a slave to give himself airs.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> By my faith, to your own great misfortune now are you talking uncivilly to him. Dirty, worthless fellow, don't you see he's angry?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to the ASS-DEALER</stage>. Be off then.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>to the ASS-DEALER</stage>. Scoundrelly fellow. <stage>Aside to him.</stage> Prithee, do give him the money lest he should abuse you.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> On my word, you are seeking evil for yourselves.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to LIBANUS</stage>. By the powers, your legs shall be broken<milestone n="479" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your legs shall be broken</lemma>:  One of the most cruel punishments inflicted on refractory or runaway slaves was that of breaking their legs. To effect this, their legs were extended upon an anvil, and then struck with a bar of iron or a hammer.</note>, if you don't proclaim this shameless fellow.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Troth, I'm undone. Be off, you shameless fellow.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> You rascal. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>to the ASS-DEALER</stage>. Won't you venture to assist me, you rascal?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Do you persist in soliciting the scamp?</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> How's this? <stage>To LEONIDA.</stage> Do you, rascal, who are a slave, speak abusively to a free man?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Give him a beating. </p></sp><sp><speaker>ASS-D.</speaker><p> By my faith, that surely shall befall yourself to get a beating as soon as ever I shall see Dem&aelig;netus this day. I summon you to judgments<milestone n="485" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Summon you to judgment</lemma>:  "In jus vocare," "to summon into court," was the term applied when one party lodged a criminal information against another.</note>.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I shan't go. </p></sp><sp><speaker>ASS-D.</speaker><p> You won't go? Remember----</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I do remember. </p></sp><sp><speaker>ASS-D.</speaker><p> I' faith, I'll have satisfaction out of your back.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Woe unto you? What, villain--satisfaction to be given by us to you indeed?</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Aye, and even this very day satisfaction shall be given me for your abusive language.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> How now, whip-knave? How say you, hang-dog? Do you suppose that we shall run away from our master? Go this instant then to our master, where you were citing us just now, and where you were wishing to go.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> What, now at last? Still, you shall never get a coin of money away from me, unless Dem&aelig;netus shall order me to give it.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Do so. Come, move on then. Are you to offer insults to another person, and are they not to be repeated to yourself? I'm a man as much as you are.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> No doubt such is the fact.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Follow me this way, then. With your good leave<milestone n="495" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With your good leave</lemma>: " Pr&aelig;fiscini." It was a common notion among the ancients, that if a person spoke in commendation of himself, he stood in danger of fascination--the effect of envy or enchantment on the part of another person. For this reason, on such occasions they prefaced with the word "pr&aelig;mfiscini," understanding "dixerim," "I would say." This meant "without impeachment of malice," "be it spoken in a good hour," or, as we say, "by your leave."</note> I would now say this: not a person has ever accused me by reason of my deserving it, nor is there in <placeName key="tgn,7001393">Athens</placeName> one other individual, this day, whom they would think they could as safely trust.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Perhaps so: but still, you shall never this day persuade me to entrust to you, whom I don't know, this money A man to a man is a wolf<milestone n="499" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Man to a man is a wolf</lemma>:  There was an ancient proverb, <quote lang="la">Homo homini lupus</quote>, "Man is to man a wolf." It probably implied much the same as the more celebrated words of a modern Poet:
+<quote lang="en">Man's inhumanity to man makes countless thousands mourn</quote>.</note>, not a man, when the other doesn't know of what character he is.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Now at last you are appeasing me<milestone n="500" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You are appeasing me</lemma>:  This he seems to say in a spirit of irony Huic capitulo" is literally "to this little head" meaning, 'to this humble individual, myself."</note>: I was sure that this day you would give satisfaction to this poor head of mine; although I'm in mean garb, still, I'm well to do, nor can an estimate of my means be formed from it.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Perhaps so. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> Still more then I tell you: Periphanes, a merchant of <placeName key="tgn,7011266">Rhodes</placeName>, a rich man, in the absence of my master, himself alone paid over to me, in private, a talent of silver, and trusted me, nor was he deceived in it.
+</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> Perhaps so. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> And you, too, yourself, as well, if you had enquired about me of other people, would, i' faith, I'm quite sure, have entrusted to me what you now have with you.</p></sp>
+<sp><speaker>THE ASS-DEALER.</speaker><p> I don't deny it. <stage>(Exeunt.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="504" unit="TLN line"/>
+<stage>Enter CLE&AElig;RETA and PHEILENIUM, from the house of the former.</stage>
+<sp><speaker>CLEAERETA</speaker><p> And am I unable to render you obedient to my injunctions? Or are you so disposed as to be free from the control of your mother?</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> How could I propitiate Piety<milestone n="510" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Could I propitiate Piety</lemma>:  She thinks that the Goddess "Pietas" will be shocked at her want of kind and grateful feeling, if she consents to turn Argyrippus out of doors.</note>, if I could desire to please you, being endowed with these manners, after the fashion, mother, that you enjoin upon me?</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Is it consistent with propriety for you to oppose my precepts?</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> How so? </p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Is this worshipping Piety, to lessen the authority of a mother?</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Those who act right I blame not, nor do I love those who do wrong.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> You are a very prating, lovesick girl.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Mother, that is my living<milestone n="516" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">That is my living</lemma>:  It is hard to say which she means as the source of her profit--whether her loving propensities, or her fund of talkativeness, for which her mother is censuring her. The next line is spoken with reference to her passion for Argyrippus.</note>. His tongue woos me, his person seeks me, his passion pleads, opportunity prompts.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> I was purposing to convince you. Are you come as my accuser?</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> By my troth, I neither do accuse you, nor do I think it right I should do so; but I do complain of my lot, when I am separated from him whom I love.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Will then one bit of the whole day's talk be left for myself?</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Both my share of the speaking and your own do I give up to you. Do you yourself keep the signal<milestone n="523" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Keep the signal</lemma>:  Portisculum." According to some writers portisculus" was a name of the "pausaurius" or "hortator," called by the Greeks <foreign lang="greek">keleusth\s,</foreign>, an officer whose duty it was to order the rowers to keep time. In the present passage, it seems rather to signify the hammer, or other instrument, which that officer held in his hand, for the purpose of beating time, to regulate the motion of the rowers; not unlike the baton of the conductor of a band.</note> both for speaking and for being silent. But, i' faith, if I only put up my oars in the boat-house<milestone n="524" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the boat-house</lemma>:  "In casteri&acirc;." Nonius Marcellus informs us that "casteria" was a house, in which the oars, rudders, sails, and tackle, were sept, when the ship was laid up in dock.</note> while I'm resting, all the welfare of the household is at a standstill for you.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> How say you, the out and out most insolent woman that ever I saw? How often have I forbidden you to speak to Argyrippus, the son of Dem&aelig;netus, or to touch him, or to hold discourse with him, or to look at him? What has he ever given? What has he ordered to be brought to our house? Or do you fancy to yourself that smooth words are gold?--that clever speeches are as good as presents? Of your own accord you fell in love with him; of your own accord you go after him; of your own accord you request him to be sent for to you. Those who are givers, those same you laugh at; those who are cheating us, you are dying for. If any one promises you that he'll make you rich when his mother dies, ought you to be waiting for that? I' faith, a great risk impends over ourselves and the household, that we may die of hunger while we are awaiting her death. Now therefore, unless he brings me here twenty min&aelig; of silver, upon my word, though profuse of his tears, he shall certainly be turned from here out of doors. This day's the end of<milestone n="531" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The end of</lemma>:  "Summa" seems a preferable reading to "summ&aelig;.'</note> excuses for poverty at my house.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> If, my mother, you were to order me to go without victuals, I would submit.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> I don't forbid you to love those who give that for the sake of which they ought to be loved.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> What, mother, if this inclination of mine is fixed? What am I to do? Tell me.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Oh dear--look at my head<milestone n="543" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Look at my head</lemma>:  She tells her daughter to look at her grey hairs, meaning that she must make a provision against old age, when her admirers will forsake her and she will have no means of gaining a livelihood.</note>, if, indeed, you consider your own interest.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Even the shepherd, mother, that feeds the sheep of another, has a certain one of his own to be the consoler of his hopes. For the sake of my affection, do allow me to love Argyrippus only, who is my choice.</p></sp>
+<sp><speaker>CLEAERETA</speaker><p> Go in-doors, for, upon my word, there is really nothing more impudent than yourself.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Mother, you have given birth to a daughter obedient to your commands. <stage>They go into the house.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="545" unit="TLN line"/>
+<stage>Enter LEONIDA and LIBANUS.</stage>
+<sp><speaker>LEONIDA</speaker><p> Great praise and thanks we give deservedly to perfidy, when relying upon our tricks, our stratagems, and our devices, upon our confidence in our shoulder-blades and the hardihood resulting from the elm-twigs so oft applied, against the whips, the searing-irons, the crosses, and the fetters, the cords, the chains, the prisons, the stocks, the shackles, the collars, and taskmasters most cruel and well acquainted with our backs, who many a time before have imprinted<milestone n="556" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have imprinted</lemma>:  The sense of the passage seems to require a comma after "indiderunt," and not a period, as Richter's edition has it.</note> scars upon our shoulder-blades; by conquering, now, these legions, troops and armies of thieves, by our prowess, through our perjuries, O brave, have we gained the victory. This, through the valour of this comrade of mine, and through my own courtesy, has been brought about.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> What man is there more firm than myself at enduring stripes?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> By the powers, you who can extol your exploits now, as I can do exploits, which in peace and in warfare you have so ---- villanously performed; verily, in troth, many in number may they be now recounted according to your deserts; where you have defrauded him that trusted you, where you have proved faithless to your master, where knowingly and wilfully you have on solemn oath been perjured, where you have bored through party walls, where you have been detected in theft, where you have full oft pleaded your cause, as you hung up, against eight clever, hardened fellows<milestone n="568" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Eight clever, hardened fellows</lemma>:  These were probably the eight Lictors who attended the "Tresviri" or "Triumviri," which magistrates had especial jurisdiction over slaves with the power of ordering summary punishment.</note>, sturdy stripers.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Certainly I do admit, Leonida, that it is true as you say. But verily, in troth, your many misdeeds, too, may be recounted as well and truly; where wilfully you have proved faithless to the trusting, where you have been detected in theft and scourged in public, where you have proved forsworn, where you have laid hands on sacred things, where to your masters you have full oft proved a loss, a trouble, and a disgrace, where you have stoutly denied that that was given to you which had been entrusted to you, where you have proved more faithful to your wench than to your friend, where through your hardihood you have frequently reduced to weariness eight sturdy lictors, armed with pliant twigs of elm. <stage>To the AUDIENCE.</stage> Is the compliment ill repaid in the way that I've praised my comrade?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Just as befits both me and yourself, and our dispositions.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Now drop this, and answer me this that I ask.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Enquire of me what you please.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Have you got the twenty silver min&aelig;?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Guess ---- Upon my word, the old gentleman Dem&aelig;netus, has been very obliging to us. How cleverly he pretended that I was Saurea. With the greatest difficulty did I withhold my laughter, when he rebuked the stranger, because in his absence he had been unwilling to put confidence in me; and with what readiness did he call me Saurea the chamberlain.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Stop a moment. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> What's the matter?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Isn't this Philenium that's coming from in-doors, and Argyrippus with her.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Keep silence, 'tis he; let's listen quietly to them. In tears, she holds him, weeping, by the lappet of his garment; what, I wonder, am I to say is the matter?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Let's listen in silence. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> Dear me, a thought, I' faith, has just come into my mind; I very much wish I had a long stick here.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> For what reason? </p></sp>
+<sp><speaker>LEONIDA</speaker><p> With which to beat these asses<milestone n="593" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To beat these asses</lemma>:  He means the money which was to have been paid for the asses.</note>, if perchance they should begin to bray out here, from within the bag. <stage>They stand apart.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="591" unit="TLN line"/>
+<stage>Enter ARGYRIPPUS from the house of CLE&AElig;RETA, followed by PHILENIUM.</stage>
+<sp><speaker>ARGYRIPPUS</speaker><p> Why are you holding me back?
+</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Because, as I love you, I cannot bear your departing.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Farewell. </p></sp>
+<sp><speaker>PHILENIUM</speaker><p> I should fare somewhat better, if you were to remain here.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Blessings on you. </p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Do you wish for blessings on me, to whom you are bringing disease by your departure?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Your mother has bid me the last farewell<milestone n="598" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bid me the last farewell</lemma>:  The word "vale," "farewell," is here understood, and reference is made, figuratively, to the usage of exclaiming "vale" when fire was set to the funeral pile. In saying that she bade him go home he refers to the expression with which the ceremony concluded, "ilicet," "you may go away," or "you may go home."</note>; she has requested me to go home.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> A bitter death will she cause her daughter, if I must part from you.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart, to LEONIDA</stage>. Troth now, the man has been turned out of doors there.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>apart</stage>. Such is the fact. ARG. Prithee, do let me go.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Whither are you going now? Why don't you stay here?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> This night, if you choose, I'll stay.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. Don't you hear him? How profuse he is of his attentions by night. But now, in the daytime, he's engaged; surely he's a Solon<milestone n="603" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">He's a Solon</lemma>:  Solon was one of the wise men of <placeName key="tgn,1000074">Greece</placeName>, and the great lawgiver of the Athenians. He was remarkable for he severity of his morals.</note> to write laws whereby the public may regulate itself. Psha! those who would be in readiness for themselves to pay obedience to his laws, would decidedly never do any good; they would be drinking night and day.</p></sp>
+<sp><speaker>LEONIDA</speaker><p>. <stage>apart</stage>. Troth now, for sure, he wouldn't budge a foot from her if she would let him, who is now in such haste, and is threatening that he's going away from her.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. Now make an end of your talk, that I may catch his discourse.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Farewell! </p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Whither are you hastening?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Kindly fare you well! I shall see you in the other world<milestone n="610" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the other world</lemma>:  "Apud Orcum." Orcus was a name of the Shades below, and was also an epithet of the God Pluto.</note>. For indeed now, so soon as I can, I shall sever myself from life.
+</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Prithee, why, while I do not deserve it, do you wish to consign me to death?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I--you? whom, if I were to hear that you were in want of life, at once would I present you my own life, and from my own would add to yours.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Why, then, do you threaten that you will quit life? For what do you suppose that I shall do, if you do that which you are talking of? I'm determined to do everything exactly the same to myself that you do to yourself. </p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> O! sweeter than honey are you to me.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> And surely you are my life. Embrace me.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I do so with pleasure. <stage>They embrace.</stage></p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Would that thus we might be carried to the tomb.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>apart</stage>. O Libanus, how wretched is the man that loves.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>apart</stage>. Aye, but surely, faith, the man that's hanging up<milestone n="621" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The man that's hanging up</lemma>:  He alludes to the punishment of the thieves, which has been before referred to.</note> is much more wretched.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>apart</stage>. I know that, who have had experience of it. Let's go round them: let's accost them, one on the one side, one on the other. <stage>One walks towards them from each side.</stage></p></sp>
+<sp><speaker>LIBANUS</speaker><p> Health to you, master. But is this female, smoke, that you are embracing?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Why so? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Because your eyes are filled with tears; 'twas for that reason I asked.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> One who would have been a protector to you, you have lost.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I' faith, I surely haven't lost one; for this reason, be cause I never had one.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Health to you, Philenium.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> What you desire, the Gods will give you.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I could desire your favours, and a cask of wine, if wishes were to come to pass.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Whip-knave, beware how you speak a word.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, 'tis for you, not for myself, I wish it.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> For that reason, then, say on what you please.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>pointing to LEONIDA</stage>. Troth, I'd like to give him a beating.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Who, pray, would allow you to do so, you frizzle- pated<milestone n="631" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You frizzle-pated</lemma>:  "Calamistrate" means dressed with the 'calamistrum," "a crisping-pin," or iron tube with which the hair was curled.</note> mountebank? Could you thrash me, you, who reckon as your daily food your own thrashings?</p></sp>
+<sp><speaker>&gt;ARG.</speaker><p> How far superior, Libanus, are your lots to my own, who never will live this day until the evening.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> For what reason, prithee? </p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> <stage>pointing to PHILENIUM</stage>. Because I'm in love with her, and she's in love with me, and nowhere have I anything to bestow upon her; for that reason has her mother expelled me with all my affection from her house. The twenty min&aelig; of silver have brought me to my end, which the young man, Diabolus, declared that he would give her this day, in order that she mightn't send her anywhere, for this whole year, except to himself. Don't you see of what force are twenty min&aelig; of silver, or what they can effect? The man who parts with them is happy; I, who part not with them, am undone.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Has he already paid<milestone n="642" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has he already paid</lemma>:  "Jam dedit argentum?" This is curiously rendered by Gueudeville, "Ce Monsieur le Diable a-t-il d&pound;ej&agrave; donn&pound;e son argent?" which, literally translated, is, "Has this Mister Devil already paid his money?" He appears to have taken a rather unwarranted liberty in translating the name "Diabolus" by the term "le Diable"--neither more nor less than the French name of his Satanic Majesty</note> the money?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> He hasn't paid it. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Be of good courage; don't be afraid.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to LIBANUS</stage>. Step this way, Libanus, I want you.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Certainly, if you want anything. <stage>Steps aside, putting his hand on the shoulder of LEONIDA.</stage></p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I entreat of you, is it more pleasant in this same matter for you to discourse hugging one another?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Understand, master, that all things are not equally sweet to all persons. 'Tis pleasant for you lovers to converse, hugging one another; I care nothing for his hugging <stage>pointing to LEONIDA</stage>, and <stage>pointing to PHILENIUM</stage> she despises mine. Do you then yourself do that which you would be suggesting to us to do.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Indeed I will, and really with pleasure, i' faith. <stage>Placing his arm round PHILENIUM'S neck.</stage> In the meantime, if it seems good to you, do you step aside there.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to LIBANUS</stage>. Should you like our master to be bantered a bit?
+</p></sp>
+<sp><speaker>LIBANUS</speaker><p> He really is deserving of it.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Should you like me, in his presence, to make Philenium embrace me?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I' faith, I should like it. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> Follow me this way <stage>They join ARGYRIPPUS.</stage></p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Is there any escape at all? Have you conversed enough?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Listen, and give attention, and devour my words. First of all, that we are your slaves, we don't deny; but if twenty silver min&aelig; are forthcoming for you, by what name will you call us?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Freed-men. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> And not patrons?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> That in preference. </p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>produces the bag</stage>. Here are twenty min&aelig; in this bag. These, if you like, I'll give you.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> May the Deities ever preserve you, protector of your master, honor to the people, treasury of resources, preserver of my inner man<milestone n="660" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of my inner man</lemma>:  "Interioris corporis." Literally, "of my inner body." This is a periphrasis signifying life, the seat of which, the vital parts, are within the body.</note>, and commander of love; place it here, put down that bag, here on the spot, at once<milestone n="661" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">On the spot, at once</lemma>:  "In loco plane." These words seem to imply not in a hanging position, but clean or pat upon the ground. Warner, however, renders the passage, "Tye the bag around my neck." It was probably the intention of Argyrippus to take it after Leonida had fairly put it down.</note>.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I don't like you, who are my master, to carry this load.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Still, do you rid yourself of the trouble, and fasten that bag to myself.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I'll carry it, porter-like; you, as befits my master, go, without any burden, before me.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> How now? Why's this? Why don't you give up the bag<milestone n="665" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give up the bag</lemma>:  "Crumenam" seems a better reading than crumena, which Richter adopts.</note> here, for your master to feel its weight?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Bid her to whom I'm about to give it, to beg and entreat it of me. For that's a dangerous spot where you bid me put it down at once.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> <stage>to LEONIDA</stage>. Apple of my eye, my rose, my life, my delight, Leonida, do give me the money, and don't sever us lovers asunder.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> <stage>to PHILENIUM</stage>. Call me, then, your little sparrow, your chicken, your quail, your pet lamb: say that I'm your pet kid or your pet calf; take me by the ears, press your lips to my lips.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> She, kiss you, you whip-scoundrel? </p></sp>
+<sp><speaker>LEONIDA</speaker><p> Really, how unbecoming it does seem! But, by the powers, you shan't get it this day, if my knees are not embraced.</p></sp>
+<sp><speaker>&gt;ARG.</speaker><p> <stage>aside</stage>. Necessity compels to anything. <stage>To LEONIDA.</stage> Let them be embraced <stage>kneels down and embraces his knees</stage>: now give what I'm asking for.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Come, my Leonida, prithee do bring safety to your master thus in love. Redeem yourself from him by this service, and purchase him for yourself with this money.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> You are very pretty and amiable; and if this were mine, you should never this day ask me for it, but I would give it you: 'tis better for you to ask it of him <stage>pointing to LIBANUS</stage>, for 'twas he gave it me to keep for him. Approach him then prettily, my pretty one. <stage>Delivers the bag to LIBANUS.</stage> Take this, please, Libanus.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Scoundrel, are you still trifling with me?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I' faith, I should never have done so, if you hadn't embraced my knees so roughly. <stage>Aside to LIBANUS.</stage> Come, please, in your turn, do you at once have some sport with him, and give her an embrace.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>aside to LEONIDA</stage>. Hold your tongue; trust me for that.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Why don't we accost him, Philenium? <stage>pointing to LIBANUS</stage>--really, a very worthy fellow, upon my faith, and not like this thief <stage>pointing to LEONIDA</stage>.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>aside to LEONIDA</stage>. We must walk up and down; now, in my turn, they'll be entreating me.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> By heaven, Libanus, I do entreat you, be pleased by your deeds to come to your master's rescue; do give me those twenty min&aelig;: you see that thus in love I stand in need of them.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> It shall be seen to; I wish it done; return here at nightfall. Now bid her, ever so little, to beg and entreat them of me.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> <stage>to LIBANUS</stage>. Do you wish me to begin with caressing, or with kissing you?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, really, with them both. </p></sp>
+<sp><speaker>PHILENIUM</speaker><p> And do you then, I do entreat you, prove the saving of us both.
+</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> O Libanus, my patron, do give me that; 'tis more becoming for the freed-man<milestone n="694" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For the freed-man</lemma>:  By "libertus," or "freed-man," he means himself, while Libanus is his "patronus," or "patron."</note>, than for the patron, to be carrying a burden in the street.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> My Libanus, golden apple of my eye, the gift and the very grace of love; there's a dear, whatever you wish, I'll do; prithee, do give us that money.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Call me, then, your little duck, dove, or your puppet; your swallow, jackdaw, little sparrow, your mannikin: make of me the reptile that crawls, so that I may have a double tongue<milestone n="699" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A double tongue</lemma>:  An unseemly allusion s intended in this expression.</note>; enfold me in your arms, and embrace my neck.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> She, embrace you, villain? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Really, how undeserving I do seem. You shan't for no purpose have uttered a speech so unseemly against me. By my troth, if indeed you expect to get this money, this day you shall carry myself on your shoulders.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> What? I, carry you? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Otherwise, you shan't get this money from me.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Heavens, I'm undone! Still, if indeed it is decorous for the master to carry the servant, mount.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> In this way are proud people wont to be tamed. Stand still then, just as you were wont to do when formerly a boy<milestone n="707" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">When formerly a boy</lemma>:  "<foreign lang="fr">Honi soit qui mal y pense</foreign>" should be said to Lambinus and the other Commentators who have imagined an indelicate allusion to be couched under these words. He clearly alludes to the boyish game of leapfrog, at which they had in childhood been accustomed "to make a back."</note>. Do you understand what I say? <stage>He prepares to get upon the shoulders of ARGYRIPPUS.</stage> Aye--so--move on: I praise you much; not any horse is there more clever than yourself as a horse.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> <stage>while stooping</stage>. Get on, directly. LIB. I'll do so. <stage>He gets on.</stage> Hallo!--what's the matter? How are you going? By my troth, I'll deprive you of your barley then, if you don't amble<milestone n="710" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If you don't amble</lemma>:  "Badizas." This is an adaptation of the Greek verb <foreign lang="greek">badi/zw,</foreign> "to go."</note>, lifting up your feet.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Prithee, Libanus, there's enough now.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Never this day, by my troth, shall you get anything by entreaty. For now up hill with the spur will I push on my steed. After that, I'll deliver you to the millers, that there you may be tortured as you run<milestone n="715" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tortured as you run</lemma>:  He alludes to the occupation of asses and worn-out horses in grinding at the corn-mill.</note>. Stand still, that I may now at once get down for the hill, although you are but a bad one. <stage>Gets off his shoulders.</stage></p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Well now--since you've both made fun of me just as you liked, are you going to give the money?</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, yes, if, indeed, you erect to me a statue and an altar, and then sacrifice an ox to me here as though to a God; for I am the Divinity Salvation to you.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Nay, but, master, do you betake yourself away from him, and do you come to me. And, what he has demanded for himself, will you erect a statue for me, and offer prayers to me?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> But what Divinity am I to call you?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Fortune, and that the Propitious one<milestone n="720" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And that the Propitious one</lemma>:  "Fortuna Cbsequens" or "Propitious Fortune," had a Temple at <placeName key="perseus,Rome">Rome</placeName>.</note>. </p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> You are better than he then.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> Why, is there ever anything better for a man than Salvation?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Though I praise Fortune, still, not to speak in dispraise of the Divinity Salvation----</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> By the powers, but they are good, both of them.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I shall know it, when they have conferred anything that's good.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> Wish for that which you desire to befall you.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> What if I do wish it? </p></sp>
+<sp><speaker>LEONIDA</speaker><p> It shall come to pass.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I wish for her to be devoted to me alone this whole year round.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> You have obtained it. </p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Do you really say so?</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I do say so for certain. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> Come to me, in my turn, and make trial: wish ardently for that which you especially desire to happen to you; it shall be done.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> What other thing could I ardently wish for rather than that of which I am in want? Oblige me with twenty silver min&aelig; to give to her mother.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> They shall be given: take care and be of good courage, your wishes shall be fulfilled.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Just as they are wont, Salvation and Fortune are deceiving mortals.
+</p></sp>
+<sp><speaker>LEONIDA</speaker><p> I this day have been the head in finding this money for you.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I have been the foot. </p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Why, neither head nor foot of your talking is visible; I can understand neither what you mean, nor why you are trifling with me.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> I think that now you've been teased enough; now let's disclose the matter as it really stands. Give your attention, Argyrippus, if you please. Your father has ordered us to bring this money to you.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> How very &agrave; propos and opportunely you have brought it.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>giving him the bag</stage>. Here, in this, there will be twenty good min&aelig;, obtained by bad means: these, on certain conditions, he bade us give you.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Prithee, what are they? </p></sp>
+<sp><speaker>LIBANUS</speaker><p> That you would grant him her favours and an entertainment.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Bid him come, I beg. For him who deserves it right well, we'll do what he wishes, him who has brought these scattered loves of ours to a happy result.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> You'll permit your father then, Argyrippus, to caress her?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> She, by being restored to me, will easily cause me to permit it. Prithee, Leonida, run, and beg my father to come here. </p></sp>
+<sp><speaker>LIBANUS</speaker><p> He has been in the house some time.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> He hasn't come this way, at all events.</p></sp>
+<sp><speaker>LIBANUS</speaker><p> <stage>pointing to the back way</stage>. He came round that way<milestone n="746" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Came round that way</lemma>:  Well he might!</note> by the lane, through the garden, lest any one of his friends should see him coming here; he's afraid that his wife may come to know of it. If your mother knew about the money, how it was obtained----</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Well, well--do use words of good omens<milestone n="749" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Use words of good omen</lemma>:  "Benedicite." This was a form made use of for the purpose of averting bad omens.</note>; go in-doors quickly, farewell.</p></sp>
+<sp><speaker>LEONIDA</speaker><p> And you two, love on. <stage>He and LIBANUS go into the house of DEM&AElig;NETUS; ARGYRIPPUS and PHILENIUM into that of CLE&AElig;RETA.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="746" unit="TLN line"/>
+<stage>Enter DIABOLUS and a PARASITE, with a scroll in his hand.</stage>
+<sp><speaker>DIABOLUS</speaker><p> Come now, show me this agreement that you've written out between myself and the procuress. Read over the conditions; for you are a quite unique composer<milestone n="752" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A quite unique composer</lemma>:  "Poeta" is here used in the primary sense of the word, from the Greek <foreign lang="greek">poihth\s,</foreign> "a maker," "artist," or "contriver."</note> in such matters.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> I'll make the procuress be terrified when she hears the conditions.</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> Troth now, prithee, proceed and read them over to me.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Are you attending? </p></sp>
+<sp><speaker>DIABOLUS</speaker><p> I'm all attention.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>reads the agreement</stage>. "Diabolus, the son of Glaucus, has made a present to Cle&aelig;reta, the procuress, of twenty silver min&aelig;, that Philenium may be with him night and day for this whole year."</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> Yes, and not with any other person.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Am I to add that? </p></sp>
+<sp><speaker>DIABOLUS</speaker><p> Add it, and take care and write it plainly and distinctly.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>writes it down, and then reads</stage>. "And not admit any other man whatever, because either her friend or her patron, she may choose to call him----"</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> Not any one! </p></sp>
+<sp><speaker>A PARASITE</speaker><p> "Or because she may say that he is the lover of a female friend of hers. The door must be closed to all men except to yourself. On the door she must write that she is engaged. Or, because she may affirm that the letter has been brought from abroad, there is not to be even any letter in the house, nor so much as a waxed tablet; and if there is any useless picture<milestone n="768" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Any useless picture</lemma>:  Some of the Commentators have supposed that indecent or immodest pictures are here meant. Such is not the fact. Portraits were taken among the Romans in profile, in wax, which was laid on a plane surface; and probably other pictures were similarly constructed. In his jealousy, Diabolus will not allow Philenium to keep any useless or valueless picture, for fear lest she may melt it, to use the wax for tablets, as a medium of correspondence with a paramour. To a portrait of this kind, Laodamia probably refers in her Epistle to Protesila&uuml;s, in the Heroides of Ovid, l. 133: "But while as a warrior thou shalt be wielding arms in a distant region, I have a waxen figure which represents thy features."</note>, let her sell it; if she does not part with it, within four days from the time when she has received the money of you, let it be considered as your own; you to burn it if you like; so that she may have no wax, with which she may be able to make a letter. She is to invite no guest; you are to invite them. On no one of them is she to cast her eyes: if she looks upon any other person, she must be blind forthwith<milestone n="775" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Must be blind forthwith</lemma>:  This is probably a polite way of saying, "Let her leave the room forthwith."</note>. Then she is to drink cup by cup equally with yourself. She is to receive it from you; she is to hand it to you for you to drink. She is not to have a relish for less or for more than yourself."</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> That's quite to my taste.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>reading</stage>. "She is to remove all causes of suspicion from her, nor is she to tread on any man's foot<milestone n="780" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tread on any man's foot</lemma>:  From passages in Ovid's Amours and Art of Love, we learn that this was a favourite method of communication by intriguing parties.</note> with her foot; when she rises she is neither to step upon the next couch, nor when she gets down from the couch is she thence to extend her hand to any one; she is not to give to nor ask of any one a ring for her to look at; she is not to present dice to any man whatever except to yourself; when she throws<milestone n="785" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">When she throws</lemma>:  When throwing the dice, it was the custom to invoke some favourite object, which was thought to bring good luck to the thrower. See the Notes to the Captivi, Act I., Sc. 1. She is not to say, "You I invoke," lest, by the ambiguity, it should be intended to apply to another man and not to her protector</note> them, she is not to say, You I call upon,' she is to mention your name. She may call on any Goddess that she pleases as propitious to her, but on no God: if she should chance to be very full of devotion, she is to tell you, and you are to pray to him that he may be propitious. She is neither to nod at any man, wink, or make a sign. In fine, if the lamp goes out, she is not to move a single joint of herself in the dark."</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> That's very good; so, in fact, she must do: but expunge that about the chamber; for my part, I prefer that she should move. I don't wish her to have an excuse, and to say that it is forbidden her by her vow.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> I understand, you fear some quibble. </p></sp>
+<sp><speaker>DIABOLUS</speaker><p> Just so.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Then as you bid me, I'll strike it out. <stage>Erases it.</stage></p></sp>
+<sp><speaker>DIABOLUS</speaker><p> And why not? </p></sp>
+<sp><speaker>A PARASITE</speaker><p> Hear the rest.</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> Say on, I'm listening.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>goes on reading</stage>. "And she is not to use any shuffling words, nor is she to know how to speak in any tongue but the Attic. If perchance she should begin to cough, she is not to cough so as to expose her tongue to any one in coughing. But if she should pretend as though she had a running at the nose<milestone n="801" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A running at the nose</lemma>:  The meaning seems to be, that if her nose runs by reason of a catarrh, she is not to open her mouth to put her tongue out, but that Diabolus is, in common parlance, to wipe her nose for her.</note>, even then she is not to do so; you yourself must wipe her lips rather than that she should open her mouth before another person. And her mother, the procuress, is not to come in in the middle of the wine, nor is she to utter a word of abuse to any one; if she does so speak, let this be her fine, to go for twenty days without wine."</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> You have written it nicely; a clever agreement.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> "Then, if she bids her maid-servant carry chaplets, garlands, or unguents, to Venus or to Cupid, your servant is to watch whether she gives them to Venus or to a man. If perchance she should say she wishes to keep herself in purity<milestone n="811" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Keep herself in purity</lemma>:  He probably alludes to the festival of Isis or <placeName key="tgn,1092955">Ceres</placeName>, on which occasion it was usual for the female votaries rigidly to separate themselves from the society of men. The translation of the next line is somewhat modified.</note>, let her account for as many nights as she has kept herself in purity. These are no trifles; for they are no funeral dirge<milestone n="813" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">No funeral dirge</lemma>:  "Mortualia" were the songs which hired female mourners sang at funerals; and which, as being especially worthless, were pre-eminently called "nug&aelig;," or "trifles."</note>."</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> The conditions please me entirely; follow me indoors. </p></sp>
+<sp><speaker>A PARASITE</speaker><p> I follow. <stage>(They go into the house of CLE&AElig;RETA.)</stage>
+<gap/>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="810" unit="TLN line"/>
+<stage>Enter DIABOLUS and the PARASITE.<note anchored="yes">One scene, at least, is clearly lost here, as we are not informed how Diabolus has become acquainted with the man&oelig;uvres to obtain the money, and the disgraceful compact made by Dem&aelig;netus; although, not improbably, he has caught sight of him in the house of the procuress.</note></stage>
+<sp><speaker>DIABOLUS</speaker><p> Follow this way. Am I to put up with this, or shall I hold my tongue? I would rather die than not discover this to his wife. And say you so, old man? With a mistress would you be acting the part of a youngster? Would you be excusing yourself to your wife, and calling yourself an aged man? Would you be taking the mistress from her lover? And would you be presenting the money to the procuress, and be secretly pilfering it from your wife at home? You should hang me, rather than you should carry off these matters undiscovered. On my honor, I'll really go this instant hence to her whom I'm sure that you'll very soon be destroying, in order that you may be able to supply your extravagance, unless, indeed, she shall first prevent you.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> I'm of opinion that thus you must act. 'Tis more becoming that I should disclose this matter, rather than yourself, lest she may think that you, excited by reason of love, rather than for her own sake, have acted thus.</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> Why, faith, you say what's right. Do you then contrive to raise a storm and strife against him, that he, together with his own son, is carousing with one mistress the livelong day, and that he's secretly pilfering from her.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Don't suggest to me. I'll take care of that.</p></sp>
+<sp><speaker>DIABOLUS</speaker><p> But I'll wait for you at home. <stage>Exit DIABOLUS; the PARASITE goes into the house of DEM&AElig;NETUS.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="828" unit="TLN line"/>
+<stage>A Table, and everything requisite for an Entertainment, being placed before the house of CLE&AElig;RETA, enter ARGYRIPPUS, DEM&AElig;NETUS, and PHILENIUM, from the house of CLE&AElig;RETA.</stage>
+<sp><speaker>ARGYRIPPUS</speaker><p> Come then, father, let's take our places, please.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> As you bid me, my son, so it shall be.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p>. <stage>to the ATTENDANTS</stage>. Lads, spread the table.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Is it at all displeasing to you, son, if she takes her place by me? <stage>They take their places.</stage></p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Duty, father, keeps sorrow from my eyes; although I love her, still I can control my feelings, not to take it to heart because she takes her place by you.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> It becomes a young man to be respectful, Argyrippus.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Troth, father, through proper regard for you, I can be so.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Come, then, let's enjoy this banquet with wine and pleasant discourse. I don't wish to be feared, I prefer myself to be loved by you, my son.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> In truth, I do them both, as is proper for a son.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I'd believe it, if I saw you were cheerful.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Why, do you think that I'm sorrowful?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Do I think so? You, whom I see as melancholy as if the day<milestone n="815" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">As if the day</lemma>:  He probably means the day for coming up for judgment, or else for trial.</note> of trial had been named for you.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Don't you say that. </p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Don't you be so, then I'll not say so.
+</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Well then, look at me; I'm laughing. <stage>He affects to laugh.</stage></p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I'd like that those who wish me ill would laugh thus.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I know, indeed, father, why you now suppose to yourself that I'm sad; it is because she is by you. And really, father, by my faith, to tell you the truth, that matter does hurt me; and not for this reason, that I don't desire for you that which you wish, but because I love her; another woman, indeed, I could easily endure to be by you.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> But I have a fancy for this one.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Then you have what you desire; for myself, I wish for what I could desire.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Submit to it this one day, since I've given you the power to be with her for a year, and have procured for you the command of money in your amour.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Well, by doing that, you have laid me under an obligation to you.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Why then don't you show yourself cheerful to me? <stage>They commence the banquet, PHILENIUM reclining below DEM&AElig;NETUS.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="851" unit="TLN line"/>
+<stage>Enter ARTEMONA and the PARASITE, from the house of DEM&AElig;NETUS, at the further side of the stage.<note anchored="yes">In the early part of this Scene, the wife and the Parasite do not see Dem&aelig;netus, who is carousing in the front of Cle&aelig;reta's house, at the other side of the stage. We must remember that the Roman stage was of vast extent--as much, according to some writers, as 180 feet in width. Perhaps a wall extended a little forward by the side of the house, which would preclude the view of what was going on behind it and near to the door until Artemona and the Parasite had traversed the stage.</note></stage>
+<sp><speaker>ARTEMONA</speaker><p> Prithee, do you say that my husband is carousing here, together with my son?--and that he has carried to his mistress twenty min&aelig; of silver?--and that, with the knowledge of my son, his father is perpetrating this wickedness?</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Trust me in nothing henceforth, either divine or human, Artemona, if you find me untruthful in this matter.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Wretched then am I, who have supposed that, beyond others, my husband was sober, decent, chaste, and especially fond of his wife.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> But now, henceforth, understand that he, before all men, is a person of the smallest worth--a drunkard, a good-for-nothing fellow, unchaste, and a contemner of his own wife.
+</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> I' faith, if this wasn't true, he would never be doing the things that he is now doing.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Upon my word, I too always hitherto took him to be a decent person; but by this action he declares himself,--to be carousing, indeed, together with his son, and, a decrepit old man, toying with a mistress in his company.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> For this it is, i' faith, that he's going out to dinner every day. He says that he's going to Archidemus, Chereas, Ch&aelig;restratus, Clinius, Chremes, Cratinus, Dinias, Demosthenes: while he's thinking of debauchery, and public dens of infamy with his harlot.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Why don't you bid your maid-servants carry him off home upon their shoulders?</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Do you only be quiet. By my troth, I'll surely give him some trouble.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> I'm sure of it, that so it will befall him, so long, indeed, as you shall continue married to him.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> I was fancying that this fellow was still giving attendance either in the senate or to his dependants: that for that reason it was, that, worn out with fatigue, he snored the whole night through. Wearied with his labours out of doors he comes home at night. Another's farm he ploughs, his own he leaves untilled. Both he himself is corrupted, and he corrupts his son as well.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Do you only follow me this way, I'll make you just now to fall upon the man himself in the very fact.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> By heaven, there's nothing that I could more wish for.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Just stop there. <stage>He moves stealthily forward, and examines the other side of the stage.</stage></p></sp>
+<sp><speaker>ARTEMONA</speaker><p> What's the matter? </p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>returning to her</stage>. If perchance you were to see your husband reclining, if you beheld him with a garland on, caressing a mistress, could you recognize him?</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> I' troth, I could. </p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>points to the other end of the stage</stage>. Then there's your man.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>moving stealthily forward with the PARASITE</stage>. I'm undone.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Stay a little. Let's observe in private, from ambush, what business they are about.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> What end will you put to your caresses, father?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I confess, my son---- </p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> What do you confess?
+</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> That I'm utterly undone with love for her.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>to ARTEMONA</stage>. Do you hear what he says?</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> I hear.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> <stage>to PHILENIUM</stage>. Ought I not to filch the mantle from my wife at home, which she is so fond of, and bring it to you? Though my wife's life should last a whole year in consequence, by my troth I could not be dissuaded from doing so.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>to ARTEMONA</stage>. Do you suppose that he has been accustomed to frequent a brothel to-day for the first time?</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Upon my faith, it was he that was pilfering me; whereas I was suspecting my maid-servants, and was tormenting the wretched creatures who were innocent all the while.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Father, bid him pour out some wine; 'tis a long time since I drank first<milestone n="896" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Since I drank first</lemma>:  They probably took the first draught each in his turn. Argyrippus tells his father that he is dry, and that it is a long time since he had the first draught.</note>.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> <stage>to the SERVANT</stage>. Begin, boy, from the top<milestone n="897" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From the top</lemma>:  We are to suppose that the three are reclining or one "triclinium," or couch. Argyrippus lies at the top, his father below him, and Philenium the lowest, with her head reclining on the old man's breast.</note>. <stage>To PHILENIUM</stage>. Come, do you meanwhile from below give me a kiss. <stage>Kisses her.</stage></p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>to the PARASITE</stage>. Wretch that I am, I'm undone! How the villain, the garnishing of a bier<milestone n="898" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of a bier</lemma>:  "Capulus" was another name of the "lectica" or "feretrum," on which the corpse was carried to the funeral pile. In the case of rich people, the "capuli" were sometimes made of ivory, and covered with gold and purple.</note>, is kissing away.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> A breath, by my faith, somewhat sweeter than that of my wife.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Tell me, there's a dear, does the breath of your wife smell bad?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I'd prefer to drink bilge-water, if it were necessary, rather than kiss her.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>apart</stage>. By heavens, you are a wretch. PAR. <stage>apart</stage>. I' faith, he's deserving so to be.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> How say you, father? <stage>Takes a draught in the meanwhile.</stage></p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>apart</stage>. Aye, pray, how say you? By my troth, to your own great detriment, you've surely said that against me. Never mind; only de you come home, I'll let you know what danger there is in speaking abusively against a wife with a dowry.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Don't you love my mother?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Who--I? I love her just now, because she isn't present.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> How, when she is present?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Then, I wish she was dead. </p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>apart to ARTEMONA</stage>. This fellow is fond of you, according to what he says.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> On my word, he's surely laying out all this at interest; for if, this day, he returns home, I'll especially have my revenge in kissing him.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> <stage>handing the dice-box</stage>. Father, throw the dice; that afterwards I may have a throw.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> By all means. You, Philenium, for myself, and death for my wife. <stage>He throws.</stage> 'Tis Venus's cast<milestone n="911" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Venus's, cast</lemma>:  "Venereus jactus" was the best throw on the set of four "tali," or knuckle-bone dice, used by the ancients. It is supposed to have been a combination of the numbers, the sum of which was fourteen. When trying to throw the "Venereus jactus," it was usual to mention the name of the mistress of the thrower; and Dem&aelig;netus&gt; throws in "death to his wife," by way of supplement. From the next line, he appears to have been successful in his throw.</note>. Lads, clap your hands, and give me some honeyed wine in my cup, in honor of my throw.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>apart</stage>. I can hold out no longer.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>apart</stage>. If you haven't learned the fulling trade<milestone n="913" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Haven't learned the fulling trade</lemma>:  He intends a pun here upon the word "durare," which meant either "to endure," "bear," or "hold out;" as also "to full," "harden," or "thicken cloth," by the fuller's art. Artemona says that she cannot "durare" in the first sense; on which the Parasite quibbles, and says, "Because you have not learnt the fulling art." In the next line also a ploy upon words is intended, as "invadi in oculos" may mean either "present yourself before his eyes" or "attack his eyes," and claw them out. No doubt the Parasite would have relished the fun, if she had taken his advice in the latter sense.</note>, it's not to be wondered at; now it's quite fitting for you to beset his eyes. <stage>They make their appearance before the revellers.</stage></p></sp>
+<sp><speaker>ARTEMONA</speaker><p> By heavens, I will live, and you this day have made that invocation to your own great misfortune.</p></sp>
+<sp><speaker>A PARASITE</speaker><p> Will some one run to fetch the undertakers<milestone n="916" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The undertaker</lemma>:  The "pollinctores" were slaves, who belonged to the "libitinarii," or "undertakers," and whose duty it was to anoint the body with oil and perfumes before it was burnt.</note>?
+</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Health to you, mother. </p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Health indeed after this fashion!</p></sp>
+<sp><speaker>A PARASITE</speaker><p> <stage>aside</stage>. Dem&aelig;netus is dead. 'Tis time to betake myself hence: this battle bravely waxes hot. I'll be off to Diabolus. I'll tell him his orders are performed as he desired them; and in the meantime I'll persuade him that we should take a meal, while these people are squabbling. Afterwards, in fine, I'll bring him here to-morrow, to the procuress, that he may give her the twenty mince, that, in his turn, he in his passion may be enabled to obtain this damsel. I hope that Argyrippus will be able to be prevailed upon to allow him to pass each alternate night with him in her company; for, unless I obtain that, I've lost my patron<milestone n="925" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My patron</lemma>:  "Regem." Literally, "my king;" the name which Parasites bestowed upon their patrons.</note>; so great is the passion of the man by reason of his love. <stage>He quietly withdraws.</stage></p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>addressing PHILENIUM</stage>. What business have you to give a retreat here in your house to my husband?</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> Troth, he really will this day be the death of wretched me, through sheer disgust.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>to DEM &AElig;NETUS</stage>. Rise, wencher, be off home.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I'm undone. </p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Yes, you are<milestone n="928" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Yes, you are</lemma>:  He says, "nullus sum," in the sense of "I'm undone;" but she chooses to take it as though he had meant "I am a worthless fellow," which meaning these words are capable of bearing.</note>; don't, i' faith, gainsay it, you most vile of all men. Why, the cuckoo's still on his nest<milestone n="929" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Cuckoo's still on his nest</lemma>:  The cuckoo takes possession of the nests of other birds. and lays its eggs there. Artemona probably alludes to that fact, on seeing her husband under such a disgraceful circumstances.</note>. Rise, wencher, be off home.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Woe to me! </p></sp>
+<sp><speaker>ARTEMONA</speaker><p> You prophesy correctly. Rise, wencher, be off home.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Step a little this way then.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Rise, wencher, be off home. </p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> Now, prithee, wife----</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Do you remember now that I'm your wife? It was but just now, when you were heaping abuse upon me, that I wasn't your wife.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I'm utterly ruined. </p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Why, pray? Does the breath of your wife smell strong?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> It smells of myrrh. </p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Have you filched my mantle then to be giving to your harlot?
+</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> By the powers--what, did he promise that he would filch your mantle?</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Won't you hold your tongue?</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I was going to dissuade him, mother. </p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>to ARGYRIPPUS</stage>. A pretty son! <stage>To DEM&AElig;NETUS.</stage> Is it proper for a father to teach these morals to his children? Are you ashamed of nothing?</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> I' faith, if there's nothing else, I'm ashamed of you, wife.</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> With your hoary head, your wife is dragging you, you cuckoo, from dens of infamy.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> The dinner's cooking; mayn't I stop, only to take my dinner?</p></sp>
+<sp><speaker>ARTEMONA</speaker><p> Faith, you'll dine to-day on a heavy mishap, as you deserve.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> <stage>rising</stage>. I shall repose but uncomfortably; my wife is taking me home condemned.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> I told you, father, not to devise ill against my mother.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> <stage>to DEM&AElig;NETUS</stage>. Do remember about the mantle<milestone n="945" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">About the mantle</lemma>:  This she says by way of farewell banter to the old fellow, whom she is too happy to get rid of.</note>, there's a dear.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> <stage>calls out to CLE&AElig;RETA</stage>. Won't you order her to go away from here?</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> No, I'll go in, in preference. <stage>To ARGYRIPPUS.</stage> Follow me this way, my life.</p></sp>
+<sp><speaker>ARGYRIPPUS</speaker><p> Yes, I follow. </p></sp>
+<sp><speaker>ARTEMONA</speaker><p> <stage>to DEM&AElig;NETUS</stage>. Be off home.</p></sp>
+<sp><speaker>PHILENIUM</speaker><p> <stage>to DEM&AElig;NETUS</stage>. Do give me a kiss, at least, before you go.</p></sp>
+<sp><speaker>DEMAENETUS</speaker><p> <stage>to PHILENIUM</stage>. Go hang yourself. <stage>(Exeunt.)</stage></p></sp>
+<sp><speaker>The COMEDIANS.</speaker>
+<p>If this old fellow, unknown to his wife, has been in any way indulging his own inclinations, he has been doing nothing new or wonderful, or otherwise than others are in the habit of doing. No one is there of a disposition so severe, or of a temper so firm, but that he will enjoy himself when he has any opportunity. Now if you wish to interpose in behalf of this old man, so that he be not punished, we think that it can be brought about if you give us loud applause.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

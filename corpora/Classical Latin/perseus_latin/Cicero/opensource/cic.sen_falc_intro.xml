@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+	<title>De Senectute: introduction</title>
+<title type="sub">Machine readable text</title>
+	<author n="Cic.">M. Tullius Cicero</author>
+<editor role="editor" n="Falconer">William Armistead Falconer</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Cicero: De Senectute De Amicitia De Divinatione</author>
+<title>With An English Translation</title>
+    <editor role="editor" n="Falconer">William Armistead Falconer</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Harvard University Press; Cambridge, Mass., London, England</publisher>
+<date>1923</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="chapter"/>
+</refsDecl>	
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>2006</date>
+<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+<item></item>
+</change>
+
+</revisionDesc>
+</teiHeader>
+
+<text>
+
+<!--<text><body><div1 type="chapter"><head>Preface</head>
+
+<p>While my uncle,<note>Gen. H. B. Armistead, of Charleston, Ark.; b. 1832 in
+Fauquier Co., Virginia; Secretary of State of Arkansas,
+1892&ndash;1896.</note> then in his eighty-first year, was
+confined to his room by a serious illness, he received
+a letter of consolation from a friend, who quoted from
+Shuckburgh's translation of the <hi rend="italics">De senectute.</hi> This
+quotation, though short, brought solace and cheer to
+the invalid and made him eager to hear more of
+Cicero's views on old age, and, as a result, he asked
+me to bring him the essay in the Latin and read it
+to him. Twenty years had passed since I had read
+the tractate at the University of Virginia under my
+revered old professor, Dr. Wm. E. Peters, and hence
+my rendering at sight must have done violence to the
+original in many places; but just as ' honour peereth
+in the meanest habit,' so the light of Cicero's genius
+was not wholly obscured by the medium through
+which it passed. At any rate, when I had finished,
+my uncle begged me&mdash;more, I think, for my good
+than for his own pleasure&mdash;to write out a translation
+of the entire treatise. I pleaded that my Latin was
+too rusty and that my judicial duties did not leave
+me leisure for such a task. He replied that my
+Latin would brighten with use and that an hour or
+
+<pb/>
+
+half-hour spent upon it now and then would not be
+missed and would afford me needed recreation. In
+his earnestness he exacted a promise which his death
+a few months later made only the more sacred.
+And so, on the trains as I went about the circuit, in
+hotels at night after trying cases all day, and in odd
+moments at home, I strove to redeem that promise.
+After several revisions a translation was completed
+and put into type.</p>
+<p>My version had passed from hand to hand for two
+or three years with no thought of publication, when
+my poet-friend Brookes More asked permission to
+show it to his brother, Dr. Paul Elmer More of
+Princeton University, who brought it to the attention of Dr. Edward Capps, the American Editor of
+the L.C.L. At Dr. Capps' suggestion it was sent to
+the Senior Editor in England. After another revision it was accepted by him for publication and an
+invitation given to translate also the <hi rend="italics">De amicitia</hi> and
+the <hi rend="italics">De divinatione.</hi> Four years have gone by since
+this work was begun. It has been carried on amid
+many interruptions. Ill-health and, more often, the
+prior claims of professional and official duties have
+made the task an arduous one; and yet, because of
+these studies in classical learning and my contact
+with great scholars, living and dead, no other period
+of my life has brought me so much pleasure of mind
+and soul: <hi rend="italics">qua voluptate nulla certe potest esse maior.</hi></p>
+<closer><signed><name>William Armistead Falconer.</name></signed>
+<dateline>Fort Smith, Arkansas, U.S.A.,
+March 15, 1922.</dateline>
+</closer>
+</div1>
+</body>
+</text>-->
+
+<pb id="p.2"/>
+
+<body>
+<div1 type="chapter" n="intro">
+	<div2 type="section" n="intro1"><head>Introduction to the Cato Maior 1. Cicero as a writer of philosophy</head>
+
+<p>In his youth, in preparation for a public career,
+Cicero devoted himself with ardour and success to
+the study of philosophy, and, during the whole of an
+exceptionally busy life, spent all his spare moments
+in reading and in the society of the learned. As a
+relaxation from public employment he produced in
+55 B.C. his <hi rend="italics">De oratore,</hi> in 54 his <hi rend="italics">De republica</hi> and in
+52 his <hi rend="italics">De legibus.</hi> His choice of literature as his
+chief pursuit was due to political causes.</p>
+<p>In January 49 B.C., after twelve months as governor of Cilicia, Cicero returned to Italy to find his
+country in the midst of civil war. Long hesitating
+which side to embrace, he finally gave his support
+to Pompey. After the battle of Pharsalus, in
+August 48, Cicero decided that further resistance
+to Caesar was useless and, in October, went to
+Brundisium, remaining there virtually a prisoner
+until September 47, when Caesar granted him an
+unconditional pardon. Although treated by the
+dictator and his friends with great respect, Cicero
+held proudly aloof from any active participation in
+a government which he regarded as a tyranny.</p>
+
+<pb id="p.3"/>
+
+<p>When, by Caesar's complete dominance of the
+courts and the Senate, Cicero had been excluded
+from those activities in which he had spent thirty
+brilliant and laborious years, he was forced to find
+some other outlet for his tireless energy of mind and
+body. Full of grief for the downfall of the Republic,
+harassed by debt and struggling under an almost
+intolerable weight of domestic sorrows, he turned to
+the writing of philosophic books as the surest relief
+from trouble and as the best means of serving his
+country. Early in 46 B.C., he withdrew from Rome
+to the quiet of his country places, and in that year
+published <hi rend="italics">Paradoxa, Partitiones oratoriae, Orator,
+De claris oratoribus,</hi> and, probably, <hi rend="italics">Hortensius.</hi>
+In February 45 the death of his adored and only
+daughter drove him into a frenzy of writing in an
+effort to forget his grief. In an incredibly short time
+he produced, in the years 45 and 44, <hi rend="italics">Consolatio, De
+finibus, Tusculanae disputationes, De natura deorum,
+Cato Maior, De divinatione, De fato, De gloria, De
+amicitia, Topica,</hi> and <hi rend="italics">De officiis.</hi> The <hi rend="italics">De officiis,</hi>
+finished in November, closed his literary career.</p></div2>
+
+<div2 type="section" n="intro2"><head>2. Date of composition</head>
+
+<p>In a letter to Atticus written on May 11, 44 B.C.
+(<hi rend="italics">Ad Att.</hi> xiv. 21), Cicero speaks of the <hi rend="italics">Cato Maior</hi>
+as then already written. In the <hi rend="italics">De divinatione</hi>
+it is referred to as a recent work. It followed
+the <hi rend="italics">De natura deorum</hi> which was not completed
+until late in August 45. While there can be no
+certainty as to the exact time of composition
+the probability is that it was written between
+
+<pb id="p.4"/>
+
+December 15, 45 and January 3, 44 B.C. It was
+not fully revised, however, until July 17, 44 (<hi rend="italics">Ad Att.</hi>
+xvi. 3).<note>That the reference in this letter is to <hi rend="italics">Cato Maior</hi> and
+not to <hi rend="italics">De gloria</hi> is clear from the context; besides, the <hi rend="italics">De
+gloria</hi> had been sent to Atticus six days before (<hi rend="italics">Ad Att.</hi>
+xvi. 2).</note> </p></div2>
+
+<div2 type="section" n="intro3"><head>3. Title</head>
+
+<p>Cicero once refers to this essay as <hi rend="italics">O Tite, si quid</hi>
+(<hi rend="italics">Ad Att.</hi> xiv. 11), from its initial words; once as
+<hi rend="italics">De senectute</hi> (<hi rend="italics">De div.</hi> ii. 3), and twice as <hi rend="italics">Cato Maior</hi>
+(<hi rend="italics">Lael.</hi> 4; <hi rend="italics">Ad Att.</hi> xiv. 21). Its full title is <hi rend="italics">Cato
+Maior de senectute.</hi></p></div2>
+
+<div2 type="section" n="intro4"><head>4. Dedication to Atticus</head>
+
+<p>The <hi rend="italics">Cato Maior</hi> and the <hi rend="italics">Laelius</hi> are both dedicated
+to TITUS POMPONIUS ATTICUS, who was born at
+Rome in 109 B.C. His friendship with Cicero began
+in childhood and continued until Cicero's death in
+43 B.C. From about 88 to 65 B.C., Atticus lived in
+Athens, devoting himself to the study of Greek
+philosophy and literature. He wrote Latin verses,
+which are highly commended by his biographer
+Cornelius Nepos, Roman <hi rend="italics">Annales,</hi> a genealogical
+history of Roman families and a history in Greek
+of Cicero's consulship. He died in 32 B.C., at the
+age of 77, highly esteemed by the Emperor Augustus
+Caesar and by the leading Romans of his day.
+More than 400 letters from Cicero to him are extant
+to prove the rare intimacy and deep affection existing
+between these two remarkable men.</p></div2>
+
+<pb id="p.5"/>
+
+<div2 type="section" n="intro5"><head>5. TIME OF THE DIALOGUE AND ITS INTERLOCUTORS</head>
+
+<p>The discussion is supposed to occur in the year
+150 B.C., between Cato, then 84, Scipio, then 35,
+and Laelius,<note>For a sketch of Laelius see <hi rend="italics">Lael.</hi> Introd, pp. 104&ndash;105.</note> then about 36.</p>
+<p>MARCUS PORCIUS CATO, who was born at Tusculum in 234 B.C., served under Fabius Maximus as
+a private soldier in the campaign against Hannibal
+in Campania in 214, and as a military tribune in the
+siege of Tarentum in 209. He was elected quaestor
+in 204, plebeian aedile in 199, praetor in 198, and
+consul in 195. In 194 he celebrated a triumph for
+his victories in Spain.</p>
+<p>In the war against Antiochus he was on the staff
+of the consul Marcus Acilius Glabrio, and distinguished himself at the Battle of Thermopylae in
+191. In 184 he was censor with Flaccus and began
+his struggles against the lax morals of the day.
+He degraded seven senators, and exerted all his
+power to stem the tide of luxury and extravagance.
+Going as an envoy to Carthage in 157, he returned
+full of alarm at its prosperity and always thereafter,
+it is said, concluded every speech with the words
+<hi rend="italics">ceterum censeo delendam esse Carthaginem.</hi> He died
+in 149. In addition to his ability as a farmer,
+soldier, statesman and orator, Cato had considerable literary talent. He published 150 speeches,
+a book of witticisms, a treatise entitled <hi rend="italics">De re</hi>
+<hi rend="italics">rustica,</hi> works on legal subjects and a history of
+Rome from its foundation to the year 150 B.C.,
+entitled <hi rend="italics">Origines.</hi></p>
+<p>PUBLIUS SCIPIO AFRICANUS MINOR was born about
+185 B.C. He was the son by birth of Lucius Aemilius
+
+<pb id="p.6"/>
+
+Paulus, and the son by adoption of Publius Cornelius
+Scipio, son of Africanus the Elder. He was a great
+student and a patron of Greek and Roman letters,
+and numbered among his intimate friends Polybius,
+the Greek historian; Panaetius the Stoic, and the
+Roman poets Lucullus and Terence. At the age
+of seventeen he fought under his father Paulus at
+Pydna, and in 151 B.C. was military tribune in
+Spain. In 148, though only a candidate for the
+aedileship, he was elected consul. As consul a
+second time he destroyed Carthage in 146. Thirteen
+years later, in his third consulship, he captured
+Numantia. His death occurred in 129 and was due,
+it was thought, to violence. Carbo, the popular
+leader, was suspected of having strangled him in his
+bed as he slept. According to the evidence of
+Cicero and Polybius (<hi rend="italics">Hist.</hi> xxxii. 9&ndash;16), Scipio was
+one of the purest and noblest men in history.</p></div2>
+
+<div2 type="section" n="intro6"><head>6. Greek sources of the <hi rend="italics">Cato Maior</hi></head>
+
+<p>Cicero, in the letter of dedication of the <hi rend="italics">Cato
+Maior,</hi> refers to Aristo Cius as the author of a
+treatise on old age, and he may have drawn upon
+that author in writing his own treatise. In Chapters
+2 and 3 the conversation between Cephalus and
+Socrates in Plato's <hi rend="italics">Republic</hi> is closely followed.
+Chapters 17 and 22 contain passages from Xenophon's <hi rend="italics">Oeconomicus</hi> and <hi rend="italics">Cyropaedia.</hi> In the form
+of the dialogue Cicero adopted the method of
+Aristotle rather than that of Plato, to avoid the
+frequent and continuous exchange of question and
+answer, and to permit one speaker, after a few
+
+<pb id="p.7"/>
+
+remarks from the other interlocutors, to give a
+connected discussion.</p></div2>
+
+<div2 type="section" n="intro7"><head>7. Manuscripts, editions and translations</head>
+
+<p>The best MSS. of the <hi rend="italics">Cato Maior</hi> are: P (at
+Paris), 9th or 10th century; L (at Leyden), 10th
+century; B (at Munich), 12th century; R (at
+Zurich), of uncertain date; E (at Berlin), 12th
+century; S (at Munich), 11th century.</p>
+<p>The present text is eclectic, following most
+closely that of J. S. Reid, but with such readings
+adopted from the editions of M&uuml;ller, Bennett and
+others as seemed preferable. The critical notes of
+Reid and M&uuml;ller and the interpretative notes of
+Reid and Bennett have been consulted with great
+profit in the preparation of the translation.</p>
+<p>For an extensive bibliography of this essay the
+reader is referred to the excellent edition of Frank
+Gardner Moore. Of the many translations consulted
+the best, in the opinion of the present translator,
+in their order of merit, are those of Shuckburgh,
+Edmonds, and A. P. Peabody.</p>
+<p>My grateful acknowledgements are due to Prof.
+<reg>bechtel</reg> of Tulane University, and to Prof. <reg>henry</reg>
+Strauss and Dr. J. L. Hancock of the University
+of Arkansas for a critical reading of the manuscript,
+and to my friends Mr. Brookes More of Hingham,
+Mass., and the late Judge Jesse Turner of Van
+Buren, Ark., for many helpful suggestions and
+criticisms.</p>
+</div2>
+</div1>
+</body>
+
+</text>
+</TEI.2>

@@ -1,0 +1,1137 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Pseudolus, or The Cheat</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<state unit="line"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.ps_eng.xml,v $
+Revision 1.1  2009-12-07 18:50:29  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.5  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.4  2009/01/21 19:08:52  lcerrato
+changed speaker to HARPAX act 2 scene 2 according to source
+
+Revision 1.3  2006/02/10 20:50:27  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:23  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:59:39  packel
+Converted to XML
+
+Revision 1.14  2003/07/01 22:17:32  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.13  2001/08/21 18:49:31  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.12  2001/08/08 17:55:29  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.11  2001/08/03 20:53:28  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.10  2001/08/03 20:50:02  amahoney
+fix spurious italics in lemmata
+
+Revision 1.9  2001/08/02 21:22:41  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.8  2001/08/01 21:34:11  amahoney
+use full speaker names
+
+Revision 1.7  2001/08/01 19:16:31  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.6  2001/07/10 21:15:33  amahoney
+put a TLN at the start of each scene, and make the scenes match the Latin to facilitate chunking
+
+Revision 1.5  2001/07/05 21:23:35  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.4  2001/07/03 18:21:29  amahoney
+fix the broken characters
+
+Revision 1.3  2001/06/29 19:04:21  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.2  2001/06/21 17:39:36  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.1  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role>SIMO, </role><roleDesc>an old gentleman of <placeName key="perseus,Athens">Athens</placeName>.</roleDesc></castItem>
+<castItem type="role"><role>CALIDORUS, </role><roleDesc>his son, in love with Ph&oelig;nicium.</roleDesc></castItem>
+<castItem type="role"><role>CHARINUS, </role><roleDesc>the friend of Calidorus.</roleDesc></castItem>
+<castItem type="role"><role>CALLIPHO, </role><roleDesc>the friend of Simo.</roleDesc></castItem>
+<castItem type="role"><role>PSEUDOLUS, </role><roleDesc>the servant of Simo.</roleDesc></castItem>
+<castItem type="role"><role>BALLIO, </role><roleDesc>a procurer, the owner of Ph&oelig;nicium.</roleDesc></castItem>
+<castItem type="role"><role>HARPAX, </role><roleDesc>the servant of Polymach&aelig;roplagides.</roleDesc></castItem>
+<castItem type="role"><role>SIMMIA, </role><roleDesc>the Cheat, a servant of Charinus.</roleDesc></castItem>
+<castItem type="role"><role>A COOK.</role></castItem>
+<castItem type="role"><role>A BOY, </role><roleDesc>servant of Ballio.</roleDesc></castItem>
+<castItem type="role"><role>POENICIUM </role><roleDesc>[mute], beloved by Calidorus.</roleDesc></castItem>
+<castItem type="role"><role>SLAVES of Ballio.</role></castItem>
+</castList>
+
+<stage>Scene--<placeName key="perseus,Athens">Athens</placeName>. The house of BALLIO is on one side of the Street, that of SIMO on the other.</stage>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="subject">
+<head>THE SUBJECT.</head>
+
+<p>CALIDORUS, a young Athenian, the son of Simo, is in love with Ph&oelig;nicium, a young woman who belongs to Ballio, a procurer. A bargain has been made by the procurer, to sell her to a military officer for twenty min&aelig;; fifteen of these have been paid down, and it has been agreed that when the remaining five and a certain token, with a letter, shall have been sent by the Captain, the damsel shall be sent to him in return. Pseudolus, the servant of Simo, promises his master's son, that, if possible, he will prevent this. They first address Ballio on the subject; but their attempts to influence him are all in vain. Pseudolus then devises a plan to get some money out of Simo, by whom, however, it is discovered; but, after having acknowledged his fault, he prevails upon the old gentleman to promise him twenty min&aelig; if he shall contrive to get the girl out of the procurer's hands. Harpax, the messenger from the Captain, in the meantime makes his appearance. Being a stranger to the place, he unwittingly delivers the Captain's letter and the token to Pseudolus, who pretends that he is the head-servant of the procurer. Charinus, the friend of Calidorus, lends him five min&aelig;; and, provided with this, Pseudolus equips Simmia, a servant of Charinus, so as to represent the messenger from the Captain. He finds the procurer, delivers the letter, pays the five mine, and carries off the damsel. Ballio then makes a bet of twenty min&aelig; with Simo, that Pseudolus shall not outwit him that day. The real Harpax now applies to Ballio for the girl, and the trick being discovered, the procurer has to pay back the fifteen min&aelig; to the Captain, and the twenty for the bet which he has made with Simo. Simo then pays the twenty min&aelig;, which he has promised to Pseudolus if he should succeed in outwitting the procurer. Pseudolus is handsomely entertained by Calidorus, and engages to return to Simo one-half of the money, if he wil join the entertainment.
+</p></div2>
+<div2 type="scene" n="argument">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p>An officer pays down fifteen mine, ready money (<foreign lang="la">Pr&oelig;sentes</foreign>); as a token he also (<foreign lang="la">Simul</foreign>) gives an impression of his seal, that the procurer may deliver Ph&oelig;nicium to him (<foreign lang="la">Ei</foreign>), who brings it with the rest <foreign lang="la">of the money.</foreign> Pseudolus intercepts his camp-servant coming (<foreign lang="la">Venientem</foreign>) with the token, saving (<foreign lang="la">Dicens</foreign>), that he is Syrus, <foreign lang="la">the servant</foreign> of Ballio, and thus he gives his aid (<foreign lang="la">Opem</foreign>) to his master; for the procurer (<foreign lang="la">Leno</foreign>) delivers up the damsel to Simmia, whom he has substituted. The real Harpax comes (<foreign lang="la">Venit</foreign>); the matter is all discovered, and the old man (<foreign lang="la">Senex</foreign>) pays the money which he has agreed <foreign lang="la">to give.</foreign>
+
+</p></div2></div1>
+<div1 type="act" n="prologue">
+<div2 type="scene" n="0">
+<milestone n="1" unit="line"/><milestone n="p1" unit="TLN line"/>
+<sp><speaker>PROLOGUE<note anchored="yes"><lemma targOrder="U">The Prologue</lemma>:  It is generally supposed that this Prologue, with the exception of the last two lines, was not written by Plautus it is, however, of grest antiquity, and is found in most of the MSS.</note></speaker>
+<p>ATTEND to me this day; good things I bring upon the stage; for I think 'tis very just that to the good good things should be brought; as likewise bad things to the bad; that those who are bad may have what's bad, those who are good what's good; bad men are bad because they hate the good; because the good contemn the bad, needs must be that they are good; and therefore, you are good since you have ever abhorred the bad; and both by your laws, Quirites, and by your legions, have you routed them with good success. In like manner now do you give your goodly attention to this goodly company, which is a good one, and. to good people brings this day good things. Ears, eyes, and understanding, shall be amply filled. He that comes hungry or thirsty to the theatre, the same shall carefully give his attention both through laughter and a sharpened stomach; while those who are full will laugh, the hungry will be carping. Now, if you are wise, you hungry ones, give place, and go away; you who are full, stand--aye, sit you down, and give attention. I shall not now divulge the plot, nor yet the name of this play--Pseudolus will fully do that. I imagine then and I think that this is enough which I have said to you. Where mirth, jokes, laughter, wine, and jollity, are the order of the day, the Graces, too, and propriety, joyousness, and delight; he who seeks for other things, that person appears to seek for evil. Away, then, with evil cares, as being men at your ease this day. <milestone n="1" unit="TLN line"/>'Tis better for your loins to be stretched<note anchored="yes"><lemma targOrder="U">Loins to be stretched</lemma>:  In the sitting position, the muscles of the loins are contracted; hence the present expression.</note>, and for you to arise. A long play of Plautus is coming upon the stage.
+</p></sp></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="3" unit="TLN line"/>
+<stage>Enter CALIDORUS and PSEUDOLUS from SIMO'S house.</stage>
+<sp><speaker>PSEUDOLUS</speaker><p> If, master, by your being silent, I could be in-formed what miseries are afflicting you so sadly, I would willingly have spared the trouble of two persons--of myself in asking you, and of yourself in answering me. Since, however, that cannot be, necessity compels me to enquire of you. Answer me: What's the reason that, out of spirits for these many days past, you've been carrying a letter about with you, washing it with your tears, and making no person the sharer of your purpose? Speak out, that what I am ignorant of, I may know together with yourself.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I am wretchedly miserable, Pseudolus.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> May <placeName key="tgn,1125260">Jupiter</placeName> forbid it! </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> This belongs not at all to the arbitration of <placeName key="tgn,1125260">Jupiter</placeName>; under the sway of Venus<milestone n="15" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Under the sway of Venus</lemma>:  The youth of both sexes, from the tenth to the eighteenth year, were supposed to be under the dominion of Venus, to whom they offered their clothes dolls, and toys, on arriving at puberty.</note> am I harassed, not under that of Jove.
+</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Is it allowable for me to know what it is? For hitherto you have had me as chief confidant in your plans.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> The same is now my intention.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Let me know then what's the matter with you. I'll aid you either with resources, or with my efforts, or with good counsel.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Do you take this letter: do you thence inform yourself what misery and what care are wasting me away.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>taking the letter</stage>. Compliance shall be given you. But, prithee, how's this?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What's the matter? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> As I think, these letters are very loving; they are climbing on each other's backs.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Are you making sport of me with your foolery?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I' faith, I really do believe that unless the Sibyl<milestone n="25" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Unless the Sibyl</lemma>:  The Sibyl, being gifted with prophecy, might know the meaning of that which could not be read. The 23rd line has been somewhat modified in the translation.</note> can read them, nobody else can possibly interpret them.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why speak you unkindly of those sweet letters-- sweet tablets too, written upon by a hand as sweet.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Troth now, have hens, prithee, such hands? For certainly a hen has written these letters.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> You are annoying me. Either read it or return the letter.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Very well then, I'll read it through. Give me your attention.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> That's not here. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Do you summon it then.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Well, I'll be silent; do you summon it from that wax there<milestone n="33" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From that wax there</lemma>:  Allusion is here made to the wax with which the surface of the tablet was covered, and on which the writing was traced with the iron "stylus."</note>; for there my attention is at present, not in my breast.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I see your mistress, Calidorus. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Where is she, prithee?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> See, here she is at full length in the letter; she's lying upon the wax.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Now, may the Gods and Goddesses, inasmuch----<milestone n="37" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Inasnmuch</lemma>:  He is going to say, "may the Divinities confound you;' which anathema Pseudolus adroitly turns aside, and refrains from further provoking his master.</note></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Preserve me from harm, to wit.
+</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> For a short season have I been like a summer plant<milestone n="38" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Like a summer plant</lemma>:  Some Commentators think that Plautus refers to some imaginary plant, which was supposed to grow up and wither on the day of the summer Solstice. It seems, however, more probable that he only refers to the short existence of summer flowers in general.</note>; suddenly have I sprung up, suddenly have I withered.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Be silent, while I read the letter through.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why don't you read it then?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>reading</stage>. " Ph&oelig;nicium to her lover, Calidorus, by means of wax and string and letters, her exponents, sends health, and safety does she beg<milestone n="43" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Safety does she beg</lemma>:  The writer plays upon the different meanings of the word "sarus." She sends you "salus," "greeting" or "salutation," and requests you to find her "salus," "safety" or "rescue," in return.</note> of you, weeping, and with palpitating feelings, heart, and breast."</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I'm undone; I nowhere find, Pseudolus, this safety for me to send her back.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> What safety? </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> A silver one.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> And do you wish to send her back a silver safety for one on wood<milestone n="47" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">For one on wood</lemma>:  Meaning, in return for her "salus," or "salutation," upon the wooden tablet, is it your wish to send her "salus," "safety," procured through the medium of money, by effecting her liberation.</note>? Consider what you're about.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Read on now; I'll soon cause you to know from the letter how suddenly there's need for me for one of silver to be found.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>reading on</stage>. "The procurer has sold me, my love, for twenty min&aelig;, to a Macedonian officer from abroad. Before he departed hence, the Captain paid him fifteen min&oelig;; only five min&aelig; now are remaining unpaid. On that account the Captain left here a token--his own likeness impressed on wax by his ring--that he who should bring hither a token like to that, together with him the procurer might send me. The next day hence, on the Festival of Bacchus<milestone n="59" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Festival of Bacchus</lemma>:  "Dionysia." There were several festivals of Bacchus at <placeName key="perseus,Athens">Athens</placeName>. They were called "Dionysia" from Dionysus, the Greek same of that God.</note>, is the one fixed for this matter."</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Well, that's to-morrow; my ruin is near at hand, unless I have some help in you.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Let me read it through. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I permit you; for I seem to myself to be talking to her. Read on; the sweet and the hitter are you now mingling together for me.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>reading on</stage>. "Now our loves, our tenderness, our intimacy, our mirth, our dalliance, our talking, our sweet kisses, the close embrace of us lovers equally fond, the soft, dear kisses impressed on our tender lips, the delicious pressing of the swelling bosom; of all these delights, I say, for me and for you as well, the severance, the destruction, and the downfal is at hand, unless there is some rescue for me in you or for you in me. I have taken care that you should know all these things that I have written; now shall I make trial how far you love me, and how far you pretend to do so."</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> 'Tis written, Pseudolus, in wretchedness.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Alas! very wretchedly<milestone n="74" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Very wretchedly</lemma>:  Pseudolus probably intends to allude to the bad hand in which the letter seems to have been written, while his master refers to the sorrowful tone of the epistle.</note>. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why don't you weep, then?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I've eyes of pumice stone<milestone n="75" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of pumice stone</lemma>:  That is, "as dry as purnice stone."</note>; I can't prevail upon them to squeeze out one tear even.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why so? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> My family was always a dryeyed one.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Won't you attempt to assist me at all?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> What shall I do for you?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Alas! </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Alas! do you say? Well, don't be sparing of them, i' faith; I'll give you plenty.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I'm distracted. I nowhere can find any money to borrow.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Alas! </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Nor is there a single coin in the house.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Alas! </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> He's going to carry the damsel away to-morrow.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Alas! </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Is it in that fashion that you help me?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I give you that which I have; for I've a perpetual supply of those treasures<milestone n="84" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Supply of those treasures</lemma>:  Of "<placeName key="tgn,1123670">Ehen</placeName>!" "Alas!" or "Oh dear me" This he repeats so frequently, because his master has reproached him for not weeping in sympathy with him for the calamities of Ph&oelig;nicium,</note> in my house.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> It's all over with me this very day. But can you now  lend me one drachma, which I'll pay you back to-morrow</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I' faith, I hardly think I could, even though I should pawn myself for it. But what do you want to do with this drachma?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I want to purchase a halter for myself.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> For what reason? </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> With which to hang myself. I'm determined, ere 'tis dark, to take<milestone n="90" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ere 'tis dark, to take</lemma>:  "Ante tenebras tenebras persequi." Literally rally, "before the shades to reach the shades." A wretched pun is attempted.</note> a leap in the dark.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Who then shall pay me back my drachma * * * * ? Do you wish purposely to hang yourself for the very reason, that you may cheat mo out of my drachma if I lend it you?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> At all events, I can in nowise survive if she's removed and carried off from me.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why do you weep, you cuckoo<milestone n="96" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You cuckoo</lemma>:  "Cuculus." "Cuckoo" seems to have been in all ages a term of reproach. Horace mentions it as being applied by the common people to the vintagers in the autumn. Shakspeare, in the beautiful song in the Fifth Act of Love's Labour Lost, has these lines:
+<quote lang="en"><lg type="iambic"><l>The cuckoo then on every tree,</l>
+<l>Mocks married men, for thus sings he,</l>
+<l>Cuckoo!</l>
+<l>Cuckoo! cuckoo! O word of fear,</l>
+<l>Unpleasing to a married ear!</l></lg></quote>
+Perhaps the reason of this epithet being deemed opprobrious was the simple fact that the cuckoo is the laziest of birds, inasmuch as it is too idle to build its own nest. The subject is further referred to in a future note.</note>? You shall survive.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why should I not weep, who have neither a coin of silver in ready money, nor have the hope of a groat<milestone n="98" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hope of a groat</lemma>: " Libella" was the smallest silver coin among the Romans, the tenth part of a "denarius."</note> anywhere in the world?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> As I understand the tenor of this letter, unless you weep for her with tears of silver, the affection which you wish yourself by those tears to prove is of no more value than if you were to pour water into a sieve. But have no fear, I'll not forsake you in your love. In troth, I do trust that this day, from some quarter or other, by my good aid I shall find you help in the money line. But whence that is to come,--that whence I know not how to pronounce; except only that so it shall be; my eyebrow twitches<milestone n="107" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My eyebrow twitches</lemma>:  The itching of the eye, or the twitching of the eyebrows, has been supposed by superstitious persons in all ages to presage some impending event.</note> to that effect.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> As to what you say, I trust that your deeds may be as good as your words.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I' faith, you surely know, if I set my plans a-going<milestone n="109" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Set my plans a-going</lemma>:  "Mea si commovi sacra." Literally, "if I move my sacred things." Lambinus thinks that this may refer to the sacred things dedicated to Bacchus, which no one touched without being punished for it; and even if Bacchus himself attempted to do, confusion and disorder was the consequence.</note>, after what fashion and how great is the bustle that I am in the habit of causing.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> In you are now centred all the hopes of my existence.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Is it enough, if I this day make this damsel to be yours, or if I find you twenty min&aelig;?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> 'Tis enough, if so it is to be.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Ask of me twenty min&aelig;, that you may be assured that I'll procure for you that which I have promised. Ask them of me, by my troth, prithee do; I long to make the promise.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Will you this day find me twenty min&aelig; of silver?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I will find them; be no more troublesome to me then. And this I tell you first, that you mayn't deny that it was told you; if I can no one else, I'll diddle your father out of the money.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> So far as filial affection is concerned, even my mother as well. May the Gods always preserve you for me. But what if you are not able?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Upon that matter do you go to sleep with either eye.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> With the eye or with the ear<milestone n="124" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Or with the ear</lemma>:  "To sleep on the ear" was a proverbial saying borrowed by the Romans from the Greeks, to denote a sense of complete security Pseudolus say, that the proverb is too vulgar for his refined taste.</note>?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> The latter is too common an expression. Now, that no one may affirm that it wasn't told him, I tell you all <stage>to the AUDIENCE</stage>, in the presence of the youths in this audience, and of all the people, to all my friends and all my acquaintances I give notice, that for this day they must guard against me, and not trust me.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Hist! be silent, prithee, by all the powers!</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> What's the matter? </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> There was a noise at the procurer's door.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I could only wish it were his legs in preference.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Yes, and he himself is coming out from in-doors, the perjured scoundrel. <stage>They stand at a distance.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="133" unit="TLN line"/>
+<stage>Enter BALLIO, with several MALE<note anchored="yes"><lemma targOrder="U">Male</lemma>:  These male slaves in the text are called "lorarii." It was their province to lay the "lorum," or whip, about their fellow-slaves, at the bidding of their master.</note> and FEMALE SLAVES, from his house.</stage>
+<sp><speaker>BALLIO</speaker><p> Get out, come, out with you, you rascals, kept at a loss and bought at a loss, in the minds of not one of whom aught ever comes to do aright, of whom I can't make a bit of use, unless I try it after this fashion. <stage>He flogs the men all round.</stage> At no time did I ever see human beings more like asses; so hardened are your ribs with stripes; when you flog them, you hurt yourself the most. Of such a disposition are these whipping-posts who follow this line of conduct; when the opportunity is given, pilfer, purloin<milestone n="138" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Purloin</lemma>:  "Clepo," to "purloin" or "prig," comes from the Greek <foreign lang="greek">kleptw\,</foreign> "to steal." "Harpago," to "rob" or "plunder," is from the Greek verb <foreign lang="greek">a(rpa/gw,</foreign> of a similar meaning.</note>, prig, plunder, drink, eat, and run away's the word. This is their method, so that you would choose rather to leave wolves among sheep, than these fellows on guard in your house. Yet, when you look at their appearance, they don't seem amiss; by their doings they deceive you. Now, therefore, unless you all of you give your attention to this charge, unless you remove drowsiness and sloth from your breasts and eyes, I'll make your sides to be right thoroughly marked with thongs, so much so that not even Campanian coverlets are coloured as well, nor yet Alexandrian tapestry<milestone n="147" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Alexandrian tapestry</lemma>:  We learn from Pliny the Elder that the people of <placeName key="perseus,Alexandria">Alexandria</placeName> excelled in weaving tapestry of many threads, which was cal ed "polymita." They excelled both the Babylonians and Phrygians in depicting birds, beasts, and human beings, upon their productions. <placeName key="tgn,7003005">Campania</placeName> seems from the present passage to have been famous for its counterpanes.</note> of purple embroidered with beasts all over. Even yesterday I already gave you all notice, and assigned to each his own respective employment; but so utterly worthless are you, so neglectful, of such stub-born dispositions, that you compel me to put you in mind of your duty with a basting. You are so minded I suppose, to get the better of this scourge and myself through the hardness of your hides. Never, i' faith, will your hides prove harder, than is this cow-hide of mine. <stage>He dangles it before them.</stage> Do look at that, please; they are minding other matters. Attend to this, and give heed to this. <stage>He flogs one of them.</stage> How now? Does it pain? Ah, that's the way it's laid on when any slave slights his master. Stand all of you before me, you race of mortals born to be thrashed; turn your ears this way; give attention all of you to what I say. You fellow who are holding the pitcher, do you fetch the water; do you take care that the cauldron's full this instant. You, with the axe, I appoint over the wood-cutting department.</p></sp>
+<sp><speaker>SLAVES of Ballio.</speaker><p> But this one is blunted on the edge.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Let it be so, then. And so are you yourselves with stripes; yet am I for that reason any the less to enjoy your services? My orders I give to you, that the house be made clean. You have what you are to do; make haste, and go in-doors. <stage>Exit FIRST SLAVE.</stage> Be you the one that makes the couches smooth<milestone n="162" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Makes the couches smooth</lemma>:  It was to be his duty to prepare the couches required for the entertainment.</note>. Do you wash the plate clean, and arrange it in order as well, Take care that when I return from the Forum, I find things done; that all be swept, sprinkled, scoured, made smooth, cleaned, and arranged in order. For this day is my birthday; it befits you all to celebrate it. Take care to lay the gammon of bacon, the brawn, the collared neck, and the udder, in water; do you hear me? I wish to entertain tip-top men in first-rate style, that they may fancy that I have property. Go you in-doors, and get these things ready quickly, that there may be no delay when the cook comes. I'm going to market, that I may make purchase of whatever fish is there. Boy, go you before me; I must have a care that no one cuts away my purse. Or wait there; there's something that I had almost forgotten to say at home. Do you hear me, you women? I have this charge for you--you, misses of distinction, who spend your time with illustrious men in refinements, luxury, and delights; now shall I know and make trial this day, which one has regard for her liberty<milestone n="175" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Regard for her liberty</lemma>:  By "caput" he means "liberty of the head" or "person." He will try to find out which of the women attends to gaining as much money as will one day procure her liberation, and who consequently, is studying the interests of her master.</note>, which for her appetite which thinks on her business, which on sleeping only: this day I'll make trial which I must think of as a freed-woman, and which as one to be sold. Take you care that many a present from your lovers comes in for me this day; for if your year's board isn't picked up for me, to-morrow I'll turn you adrift on the public. You know that this is my birthday; where are those youths, the apples of whose eyes you are, whose very existence, whose delight you are? Where are your kisses, where your bosoms sweet as honey? Make the bearers of presents to come here then, for my sake, before this house, in whole regiments<milestone n="181" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In whole regiments</lemma>:  "Manipulatim." Literally, "in whole maniples." There were 120 men in each maniple of the "velites," "hastati," and "principes" of the Roman army, and 60 in each maniple of the "triarii." Four maniples made a cohort.</note>. Why am I to find clothes for you, gold trinkets, and those things which you need? What have I, you jades, through your means, except vexation, you women, eager for nothing but the wine? You are a-soaking away yourselves and your paunches too, at the very time that I'm here a-dry. Now, therefore, this is the best thing to do; for me to call you each by her name, that no one of you may be declaring to me by-and-by that her business hasn't been told her. Give attention, all of you. In the first place, Hedylium, my business is with you--you, who are the favorite of the corn-merchants, men who have, all of them, immense mountains of wheat piled up at home; take you care that wheat is brought here for me, to suffice this year to come for myself and all my household, and that I may so abound in corn that the city may change my name for me, and instead of the procurer Ballio proclaim me King lasions<milestone n="193" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">King Iasion</lemma>:  Iasius or Iasion, was a king of <placeName key="tgn,7002735">Arcadia</placeName>, the father of Atalanta, who attended the hunt of the Calydonian boar, and was beloved by Meleager There was another person of the same name, who was the lover of <placeName key="tgn,7010621">Ceres</placeName>, and was slain by the thunderbolts of Jove. As he was said to have been the father, by <placeName key="tgn,7010621">Ceres</placeName>, of Plutus, the God of Riches, he is probably the person here referred to</note>.
+</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> <stage>apart</stage>. Do you hear what the gallows-bird is saying? * * * Doesn't he seem a regular boaster to you?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. I' troth the fellow does, and a wicked one<milestone n="195" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And a wicked one</lemma>:  Pseudolus plays on the resemblance of the two words "magnificus," a boaster, and "maleficus," "wicked."</note> as well. But hush now, and give attention to this.</p></sp>
+<sp><speaker>BALLIO</speaker><p> &AElig;schrodora, you who have for your patrons the butchers, those rivals of the procurers, who, just like ourselves, by false oaths seek their gains, do you listen; unless the three larders shall be crammed for me this day with carcases of ample weight, to-morrow, just as they say that formerly the two sons of <placeName key="tgn,1125260">Jupiter</placeName> fastened Dirce<milestone n="199" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Fastened Dirce</lemma>:  Dirce was married to Lycus, the King of <placeName key="perseus,Thebes">Thebes</placeName>, after he had divorced Antiope. On this, Zethus and Amphion, the sons of the latter by <placeName key="tgn,1125260">Jupiter</placeName>, caused the supplanter of their mother to be fastened to the tail of a wild bull, and put Lycus to death.</note> to the bull, aye, this day as well, will I tie you up to the larder; that, in fact, shall be your bull.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> <stage>apart</stage>. I'm quite enraged by the talk of this fellow; that we should suffer the youth of <placeName key="tgn,7002681">Attica</placeName> to encourage here<milestone n="202" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To encourage here</lemma>:  As being the minister of their pleasures.</note> this fellow! Where are they--where are they skulking, they of mature age, who have their amorous dealings with this procurer? Why don't they meet? Why don't they one and all deliver the public from this pestilence? But I am very simple, and very ignorant; they would venture, of course, to do that to those, to whom their passions compel them, to their misfortune, to be subservient, and, at the same time, prevent them from doing that against them which they would rather wish to do.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. Hush! CAL. <stage>apart</stage>. What's the matter?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. Pshaw! you are not very obliging. Why are you drowning his talk<milestone n="208" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Drowning his talk</lemma>:  Calidorus will keep whispering to him, while he is wishful to listen to what the procurer is saying.</note> by your noise?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> <stage>apart</stage>. I'll be silent. PSEUD. <stage>apart</stage>. But I'd much rather you would be silent, than that you should say you will be silent.</p></sp>
+<sp><speaker>BALLIO</speaker><p> And you, Xystilis, take you care and give me your attention--you whose fanciers have large quantities of oil at home. If oil shall not be brought me here forthwith in leathern bags, I'll to-morrow cause yourself to be carried off in a leathern bag to the prostitutes' shambles<milestone n="214" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Prostitutes' shambles</lemma>:  It is not exactly known what the "pergula" was, but it is supposed that it was a "booth" or "shed" adjoining to a house, which was let out for persons who wished to expose their wares to the public view. It is not improbable that in these sheds the lower class of courtesans "prostabant venales," or courted the public favour. No doubt the "leno" had one of these in his establishment, and he threatens the refractory females with it as a punishment, as it was probably tenanted by the refractory ones, and those whose charms had ceased to attract more wealthy customers.</note>. There a bed shall be given you, I warrant, where you can have no rest, but where, even to downright fainting---- You understand what's the tendency of that which I'm saying? Will you tell me, you viper you, you who have so many of your fanciers so right well laden with their oil, is now the head of any one of your fellow-slaves a bit the better anointed by your means, or do I, myself, get my dainty morsels a bit the better seasoned with oil<milestone n="221" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Seasoned with oil</lemma>:  "Unctiusculo." The Romans used a great deal of oil in the seasoning of their dishes.</note> for it? But I understand-- you don't care much about oil; with wine you anoint yourself. Only wait a bit; by my troth I'll punish you for all at one spell, unless indeed this day you contrive to manage all these things that I've been speaking of. But as for you, Ph&oelig;nicium, I tell you this, you pet of the mighty men--you who have been for so long a time always paying down to me your money for your liberty--you who only know how to promise, but don't know how to pay what you have promised; unless this day all your keep is brought me here out of the stores of your customers, to-morrow, Ph&oelig;nicium, with a true Ph&oelig;nician hide<milestone n="228" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">True Ph&oelig;nician hide</lemma>:  He puns upon her name; as "ph&oelig;nicium," or "puniceum," was the name of the purple colour for which <placeName key="tgn,7002862">Tyre</placeName> and <placeName key="tgn,7002861">Sidon</placeName>, in Ph&oelig;nicia, were so famous.</note>, you'll pay a visit to the strumpets' shambles.
+<stage>The SLAVES go into the house of BALLIO.</stage>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="230" unit="TLN line"/>
+<stage>CALIDORUS and PSEUDOLUS come forward. BALLIO stands near his door.</stage>
+<sp><speaker>CALIDORUS</speaker><p> Pseudolus, don't you hear what he says?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I hear it, master, and I give good heed.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What do you advise me to send him, that he mayn't devote my mistress to dishonor?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Don't you trouble yourself about that; be of cheerful mind. I'll manage for myself and for you. For some time past I've been on terms of goodwill with him, and he with me; and our friendship is of old standing. I'll send him this day, on his birthday, a mischief heavy and well-matured.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What's the plan? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Can't you attend to something else?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> But---- </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Tut.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I'm distracted. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Harden your heart.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I cannot. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Make yourself to can.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> By what means, pray, can I prevail upon my feelings?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Carry you out that which is to your advantage, rather than give heed with your feelings to the thing that's disadvantageous.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> That's nonsense; there is no pleasure, unless a lover acts like a fool.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Do you persist? </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> O my dear Pseudolus, let me be undone--do let me, please.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I'll let you; only let me go. <stage>Going.</stage></p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Stay, stay. As you shall, then, wish me to be, so will I be.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Now, at last, you are in your senses.</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>coming forward from the door of his house to the other side of the stage</stage>. The day is passing; I'm causing delay to myself. Boy, do you go before me. <stage>Moves as if going.</stage></p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Hallo there! he's going; why don't you call him back?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why in such a hurry? Gently.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> But before he's gone.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Why the plague do you go so slowly, boy?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You born on this day, hallo! you born on this day; I'm calling to you; hallo! you born on this day, come you back and look at us. Although you are busy, we want you; stop--it's because some persons want to speak to you.</p></sp>
+<sp><speaker>BALLIO</speaker><p> What's this? Who is it, when I'm busy, causes me unseasonable delay?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> He that has been your supporter.</p></sp>
+<sp><speaker>BALLIO</speaker><p> He's dead that has been; only he that is, is now alive.
+</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You are too saucy. </p></sp>
+<sp><speaker>BALLIO</speaker><p> You are too troublesome. <stage>Turns away to go on.</stage></p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Seize the fellow: follow him up.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Go on, boy. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Let's go and meet him this way. <stage>They run and stand before him.</stage></p></sp>
+<sp><speaker>BALLIO</speaker><p> May Jupiter confound you, whoever you are.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> That for yourself I wish. </p></sp>
+<sp><speaker>BALLIO</speaker><p> And for both of you do I. Turn you this way, boy. <stage>Takes another direction.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> May we not speak with you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Why, it doesn't please me.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But if it's something to your advantage?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Am I allowed to go away, pray, or am I not?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Pshaw! Stop. <stage>Catches hold of him.</stage> BAL. Let me go.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Ballio, listen. </p></sp>
+<sp><speaker>BALLIO</speaker><p> I'm deaf.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Really, you are uncivil. </p></sp>
+<sp><speaker>BALLIO</speaker><p> You are a chatterer of nonsense.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I gave you money so long as I had it.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I'm not asking what you gave.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I'll give you some when I have it.</p></sp>
+<sp><speaker>BALLIO</speaker><p> When you have it, bring it to me<milestone n="258" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bring it to me</lemma>:  "Ducito." This word may either mean "bring" the money when you have got it, or "take away" Ph&oelig;nicium when you bring the money. The former seems the most probable meaning.</note>.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Alas, alas! In what a foolish fashion have I lavished what I brought to you, and what I gave you.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Your wealth defunct, you now are talking about it; you are a simpleton, a cause that has been tried you are trying over again.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> At least consider him, who he is.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I've known for a long time now who he was; who he now is, let him know himself. Do you walk on <stage>to the BOY</stage>.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> And can't you, Ballio, only once give a look this way for your own profit?</p></sp>
+<sp><speaker>BALLIO</speaker><p> At that price I'll give a look; for if I were sacrificing to supreme Jupiter, and were presenting<milestone n="266" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And were presenting</lemma>:  "Porricio" was the word especially employed to signify the act of laying the entrails on the altar, for the purpose of burning them.</note> the entrails in my hands to lay them on the altar, if in the meanwhile anything in the way of profit were offered, I should in preference forsake the sacrifice. There's no being able to resist that sort of piety, however other things go.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>aside</stage>. The very Gods, whom it is especially our duty to reverence--them he esteems of little value.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I'll speak to him. Hail to you, right heartily, the very vilest slave in Athens.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> May the Gods and Goddesses favour you, Ballio, both at his wish and at my own; or, if you are deserving of other terms, let them neither favour nor bless you.</p></sp>
+<sp><speaker>BALLIO</speaker><p> What's the matter, Calidorus?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Love and pinching want<milestone n="273" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Love and pinching want</lemma>:  "Amatur atque egetur aeritor. Literally, "it is loved, and is wanted sharply."</note> are the matter.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I would pity you, if, upon pity I could support my establishment.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Aye, aye, we know you quite well, what sort of character you are; don't be proclaiming it. But do you know what we want?</p></sp>
+<sp><speaker>BALLIO</speaker><p> I' faith, I know it pretty nearly; that there may be something unfortunate for me.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Both to that and this for which we called you back, prithee do give your attention.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I am attending; but compress into a few words what you want, as I'm busy now.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> He <stage>pointing to CALIDORUS</stage> is quite ashamed about what he promised you, and the day for which he promised it, that he hasn't even yet paid you those twenty min&aelig; for his mistress.</p></sp>
+<sp><speaker>BALLIO</speaker><p> That which we are ashamed at is much more easily endured than that which we are vexed at. At not having paid the money, he is ashamed; I, because I have not received it, am vexed.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Still, he'll pay it, he'll procure it; do you only wait some days to come. But he has been afraid of this, that you'll sell her on account of his embarrassment.</p></sp>
+<sp><speaker>BALLIO</speaker><p> He had an opportunity, had he wished, of paying the money long ago.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What if I had it not? </p></sp>
+<sp><speaker>BALLIO</speaker><p> If you had been in love, you would have found it on loan. You would have gone to the usurer<milestone n="287" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the usurer</lemma>:  "Danista from the Greek <foreign lang="greek">dani/sths,</foreign> "an usurer."</note>; you would have paid the interest; or else you would have pilfered it from your father.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Ought he to have pilfered it from his father, you most shameless villain? There is no fear that you'll point out to him anything that's right.</p></sp>
+<sp><speaker>BALLIO</speaker><p> That's not like a procurer. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> And could I possibly pilfer anything from my father, an old man so much on his guard? And besides, if I could do so, filial affection forbids.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I understand you; do you then at night embrace filial affection in place of Ph&oelig;nicium. But since I see you prefer your filial affection to your love--are all men your fathers? Is there no one for you to ask to lend you some money?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why, the very name of lending's dead and gone by this.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Look you now; since, i' faith<milestone n="296" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Since, i' faith</lemma>:  He alludes probably to the recent fraudulent failure of some well-known bankers.</note>, those fellows arose from the banker's table, with a filled skin, who, when they called in their own, paid what they had borrowed to no born creature, since then, I say, all people have been more cautious not to trust another.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Most wretched am I; nowhere am I able to find a coin of silver; so distractedly am I perishing both through love and want of money.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Buy oil on credit<milestone n="301" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Buy oil on credit</lemma>:  "Emito die c&aelig;c&acirc;--id vendito oculat&acirc; die." By buying a commodity "on a blind day," and selling it "on one with eyes," is meant the system of credit for the purposes of business; where they who purchase on that principle have an eye only to the present time, but are blind as to the future consequences of their speculation. The intention of the procurer is to advise the young man to get oil on credit, and then sell it for anything it will fetch.</note>, and sell it for ready money; then, i' faith, even two hundred min&aelig; ready money might be raised.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> There I'm done; the twenty-five year old law<milestone n="303" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The twenty-five year old law</lemma>:  The Quinavicenarian, which was also called the L&aelig;torian Law, forbade credit to be given to persons under the age of twenty-five years, and deprived the creditor of all right to recover his money or goods. As usual, Plautus does not scruple to refer to Roman customs, though the scene is at Athens.</note> founders me. All are afraid to trust me.
+</p></sp>
+<sp><speaker>BALLIO</speaker><p> The same law<milestone n="304" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The same law</lemma>:  By using the word "lex," he probably means that the law also applies to him, as it forbids him to give credit; or he may simply mean that it is his rule and custom not to give credit.</note> have I. I'm afraid to trust you.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> To trust him, indeed! How now, do you repent of the great profit he has been to you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> No lover is a profitable one, except him who keeps continually making presents. Either let him be always giving, or when he has nothing, let him at the same time cease to be in love.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> And don't you pity me at all?</p></sp>
+<sp><speaker>BALLIO</speaker><p> You come empty-handed; words don't chink. But I wish you life and health.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Heyday! Is he dead already?</p></sp>
+<sp><speaker>BALLIO</speaker><p> However he is, to me indeed, at all events, with these speeches, he is dead. Then, does a lover really live, when he comes begging to a procurer? Do you always come to me with a complaint that brings<milestone n="312" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Complaim that brings</lemma>:  "Cum argentat&acirc; querimom&acirc;." Literally, "with a silvery complaint." He probably alludes to the chinking of silver.</note> its money. As for that, which you are now lamenting about, that you have got no money, complain of it to your stepmother<milestone n="314" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To your stepmother</lemma>:  Stepmothers, in ancient times, were proverbially notorious for their unfeeling conduct to their step-children. Ballio ironically tells him to go and look for sympathy from his stepmother, on which Pseudolus retorts by implying that Ballio is as unfeeling as any stepmother can be.</note>.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why, have you ever been married to his father, pray?</p></sp>
+<sp><speaker>BALLIO</speaker><p> May the Gods grant better things.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Do what we ask you, Ballio, on my credit, if you are afraid to trust him. Within the next three days, from some quarter, in some way, either by land or sea, I'll rout up this money for you.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I, trust you? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why not?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Because, i' faith, on the same principle that I trust you, on that principle I should tie a run-away dog to a lamb's fry.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Is the obligation thus ungratefully returned by you to me, who have deserved so well of you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> What do you want now? </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> That you will only wait these six days of the Feast, and will not sell her or prove the death of the person who loves her.
+</p></sp>
+<sp><speaker>BALLIO</speaker><p> Be of good courage; I'll wait six months even.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Capital--most delightful man!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Aye; and do you wish, too, that from joyful I should make you even more joyous?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> How so? </p></sp>
+<sp><speaker>BALLIO</speaker><p> Why, because I've got no Ph&oelig;nicium to sell.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Not got her? </p></sp>
+<sp><speaker>BALLIO</speaker><p> I' faith, not I, indeed.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Pseudolus, go fetch the sacrifice, the victims, the sacrificers<milestone n="327" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The sacrificers</lemma>:  "Lanios." Literally, "butchers." These were the "pop&aelig;," or servants of the priests, who slaughtered the cattle which were offered in sacrifice.</note>, that I may make offering to this supreme Jove. For this Jupiter is now much more mighty to me than is Jupiter himself.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I want no victims; with the entrails of min&aelig;<milestone n="329" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Entrails of min&oelig;</lemma>:  "Mininis extis." He intends a pun by the use of the word "mininis," "Mina," as has been already observed, meant a kind of sheep without wool on its belly, and also the sum of money composed of a hundred drachm&aelig;. He does not want victims, he wants the entrails of the money for his propitiation.</note> I wish to be appeased.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> <stage>to PSEUDOLUS</stage>. Make haste. Why do you hesitate? Go fetch the lambs; do you hear what Jupiter says?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I'll be here this moment; but first I must run as far as beyond the gate<milestone n="331" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Beyond the gate</lemma>:  The Metian Gate at Rome is supposed to be here referred to, where the butchers kept their slaughter-houses, and where the "lanii" were likely to be found. It is not improbable that the priests and sacrificers wore bells on their dress, to which reference is probably made in the next line. Perhaps they were employed for the purpose of drowning the cries of the victims. The ephod of the Jewish high priest was adorned with bells.</note>.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why thither? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I'll fetch two sacrificers thence, with their bells; at the same time I'll fetch thence two bundles of elm twigs, that this day a sufficiency may be provided for the sacrifice to this Jove.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Away to utter perdition<milestone n="335" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To utter perdition</lemma>:  "In malam crucem." Literally, "go to the dreadful cross," which answers to our expression, "go to perdition;" or, in unpolite parlance, "go to the devil." It alludes to the cross, as the instrument of punishment for slaves and malefactors of the lower order.</note>.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Thither shall the pimping Jupiter go.</p></sp>
+<sp><speaker>BALLIO</speaker><p> It isn't for your interest that I should die.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How so? </p></sp>
+<sp><speaker>BALLIO</speaker><p> This way; because, if I'm dead, there will be no one worse than yourself in Athens. For your interest <stage>to CALIDORUS</stage> it is that I should die.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> How so? </p></sp>
+<sp><speaker>BALLIO</speaker><p> I'll tell you; because, i' faith, so long as I shall be alive, you'll never be a man well to do.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Troth now, prithee, in serious truth, tell me this that I ask you--have you not got my mistress, Ph&oelig;nicium, on sale?</p></sp>
+<sp><speaker>BALLIO</speaker><p> By my faith, I really have not; for I've now sold her already.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> In what way? </p></sp>
+<sp><speaker>BALLIO</speaker><p> Without her trappings, with all her inwards<milestone n="343" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With all her inwards</lemma>:  "Cum intestinis omnibus." By this unfeeling expression, the fellow means, "stark naked," just as she stands. However, we will do him the justice to suppose that when, in the sequel, she is led away by Simmia, a "toga" is thrown over her for decency's sake.</note>.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What? Have you sold my mistress?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Decidedly; for twenty min&aelig;. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> For twenty min&aelig;?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Or, in other words, for four times five min&aelig;, whichever you please, to a Macedonian Captain; and I've already got fifteen of the min&aelig; at home.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What is it that I hear of you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> That your mistress has been turned into money.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why did you dare to do so?</p></sp>
+<sp><speaker>BALLIO</speaker><p> 'Twas my pleasure; she was my own.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Hallo! Pseudolus. Run, fetch me a sword.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> What need is there of a sword?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> With which to kill this fellow this instant, and then myself.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But why not kill yourself only rather? For famine will soon be killing him.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What do you say, most perjured of men as many as are living upon the earth? Did you not take an oath that you would sell her to no person besides myself?</p></sp>
+<sp><speaker>BALLIO</speaker><p> I confess it. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> In solemn form<milestone n="353" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In solemn form</lemma>:  To take an oath in solemn form, or, "concepts verbis," was when the oath was repeated by another person, and the party swearing him followed in his words. The Roman formula for swearing was "<foreign lang="la">Ex animi mei sententi&acirc; iuro</foreign>."</note>, to wit.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Aye, and well considered too. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> You have proved perjured, you villain.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I sacked the money at home, however. Villain as I am, I am now able to draw upon a stock of silver in my house; whereas you who are so dutiful, and born of that grand family, haven't a single coin.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Pseudolus, stand by him on the other side and load this fellow with imprecations.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Very well. Never would I run to the Pr&aelig;tor<milestone n="358" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Run to the Pr&oelig;tor</lemma>:  The "Pr&aelig;tor" was the public officer at Rome who liberated slaves at the request of their owners. The ceremony was performed by his lictor laying a rod called "vindicta" on the head of the person manumitted.</note> with equal speed that I might be made free. <stage>Stands on the other side of BALLIO.</stage></p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Heap on him a multitude of curses.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Now will I publish you with my rebukes. Thou lackshame!</p></sp>
+<sp><speaker>BALLIO</speaker><p> 'Tis the fact. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Villain!</p></sp>
+<sp><speaker>BALLIO</speaker><p> You say the truth. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Whipping-post!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Why not? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Robber of tombs!</p></sp>
+<sp><speaker>BALLIO</speaker><p> No doubt. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Gallows-bird!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Very well done. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Cheater of your friends!</p></sp>
+<sp><speaker>BALLIO</speaker><p> That's in my way. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Parricide!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Proceed, you. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Committer of sacrilege!</p></sp>
+<sp><speaker>BALLIO</speaker><p> I own it. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Perjurer!</p></sp>
+<sp><speaker>BALLIO</speaker><p> You're telling nothing new<milestone n="363" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Telling nothing new</lemma>:  He means that Calidorus has called him that already; which he has done in the 354th line.</note>. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Lawbreaker!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Very much so. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Pest of youth!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Most severely said. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Thief!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Oh! wonderful! </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Vagabond!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Pooh! pooh<milestone n="364" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Pooh! pooh!</lemma>:  "Bombax." This is a Greek word, an expression of contempt.</note>! </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Defrauder of the public!</p></sp>
+<sp><speaker>BALLIO</speaker><p> Most decidedly so. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Cheating scoundrel!</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Filthy pander! </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Lump of filth!</p></sp>
+<sp><speaker>BALLIO</speaker><p> A capital chorus. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> You beat your father and mother.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Aye, and killed them, too, rather than find them food; did I do wrong at all?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> We are pouring our words into a pierced cask<milestone n="369" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Into a pierced cask</lemma>:  This notion is probably taken from the punishment of the daughters of Dana&uuml;s, who, for the murder of their husbands, the sons of &AElig;gyptus, were doomed by Jupiter to pass their time in the Inferns, regions in gathering up water in perforated vessels.</note>: we are losing our pains.
+</p></sp>
+<sp><speaker>BALLIO</speaker><p> Would you like to call me anything else besides?</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Is there anything that shames you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Yes; that you have been found to be a lover as empty as a rotten nut. But although you have used towards me expressions many and harsh, unless the Captain shall bring me this day the five min&aelig; that he owes me, as this was the last day appointed for the payment of that money, if he doesn't bring it, I think that I am able to do my duty.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What is that duty? </p></sp>
+<sp><speaker>BALLIO</speaker><p> If you bring the money, I'll break faith with him; that's my duty. If it were more worth my while, I would talk further with you. But, without a coin of money, 'tis in vain that you request me to have pity upon you. Such is my determination; but do you, from this, consider what you have henceforth to do? <stage>Moves.</stage></p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Are you going then? </p></sp>
+<sp><speaker>BALLIO</speaker><p> At present I am full of business. <stage>(Exit.)</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Before long you'll be more so. That man is my own, unless all Gods and men forsake me. I'll bone him just in the same fashion that a cook does a lamprey<milestone n="382" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Cook does a lamprey</lemma>:  The "mur&aelig;na," or "lamprey," was a dish highly valued by the Romans.</note>. Now, Calidorus, I wish you to give me your attention.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What do you bid me do?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I wish to lay siege to this town, that this day it may be taken. For that purpose, I have need of an artful, clever, knowing, and crafty fellow, who may despatch out of hand what he is ordered, not one to go to sleep upon his watch.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Tell me, then, what you are going to do?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> In good time I'll let you know. I don't care for it to be repeated twice; stories are made too long that way.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> You plead what's very fair and very just.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Make haste; bring the fellow hither quickly.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Out of many, there are but few friends that are to be depended upon by a person.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I know that; therefore, get for yourself now a choice of both, and seek out of these many one that can be depended upon.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I'll have him here this instant.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Can't you be off then? You create delay for yourself by your talking. <stage>(Exit CALIDORUS.)</stage>
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="394" unit="TLN line"/>
+<stage>PSEUDOLUS, alone.</stage>
+<sp><speaker>PSEUDOLUS</speaker><p> Since he has gone hence, you are now standing alone, Pseudolus. What are you to do now, after you have so largely promised costly delights to your master's son by your speeches? You, for whom not even one drop of sure counsel is ready, nor yet of silver * * * * nor have you where first you must begin your undertaking, nor yet fixed limits for finishing off your web. But just as the poet, when he has taken up his tablets, seeks what nowhere in the world exists, and still finds it, and makes that like truth which really is a fiction; now I'll become a poet; twenty min&aelig;, which no-where in the world are now existing, still will I find. And some time since had I said that I would find them for him, and I had attempted to throw a net over our old gentleman; however, by what means I know not, he perceived it beforehand. But my voice and my talking must be stopped; for, see! I perceive my master, Simo, coming this way, together with his neighbour, Callipho. Out of this old sepulchre will I dig twenty min&aelig; this day, to give them to my master's son. Now I'll step aside here, that I may pick up their conversation. <stage>He stands apart.</stage></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="415" unit="TLN line"/>
+<stage>Enter SIMO and CALLIPHO.</stage>
+<sp><speaker>SIMO</speaker><p> If now a Dictator<milestone n="416" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If now a Dictator</lemma>:  Though the scene is at Athens, Plautus here makes reference to Roman customs. The Dictator was the highest officer in the Roman Republic, and was only elected upon emergencies.</note> were to be appointed at Athens of Attica out of the spendthrifts or out of the gallants, I do think that no one would surpass my son. For now the only talk of all throughout the city is to the effect that he is trying to set his mistress free, and is seeking after money for that purpose. Some people bring me word of this; and, in fact, I had long ago perceived it, and had suspected it, but I dissembled on it.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. Already is his son suspected by him; this affair is nipt in the bud, this business is at a stand-still. The way is now entirely blocked up against me, by which I had intended to go a-foraging for the money. He has perceived it beforehand. There's no booty for the marauders.
+</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> Those men who carry about and who listen to accusations, should all be hanged, if so it could be at my decision, the carriers by their tongues, the listeners by their ears. For these things that are told you, that your son in his amour is desirous to chouse you out of money, the chance is that these things so told you are all lies. But sappose they are true, as habits are, now-a-days especially, what has he done so surprising? What new thing, if a young man does love, and if he does liberate his mistress?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. A delightful old gentleman.</p></sp>
+<sp><speaker>SIMO</speaker><p> I don't wish him to follow the old-fashioned habits<milestone n="436" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The old-fashioned habits</lemma>:  "Vetus nolo faciat." Literally, "I do not wish him to do what is old-fashioned." He alludes to the old-fashioned trick of falling into love, and running into extravagance.</note>.</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> But still, in vain do you object; or you yourself shouldn't have done the like in your youthful days. It befits the father to be immaculate, who wishes his son to be more immaculate than he has been himself. But the mischief and the profligacy you were guilty of might have been distributed throughout the whole population, a share for each man. Are you surprised at it, if the son does take after the father?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. O Zeus, Zeus<milestone n="443" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">O Zeus, Zeus!</lemma>:  <foreign lang="greek">*=)w *zeu=, *zeu=.</foreign> Zeus was the Greek name of Jupiter, whose Latin title was formed from "Zeus pater," "Father Zeus." The use of it in Latin colloquy exactly corresponds with the irreverent French phrase too mach in use with us, "O mon Dieu!"</note>! how few in number are you considerate men. See, that's being a father to a son, just as is proper.</p></sp>
+<sp><speaker>SIMO</speaker><p> Who is it that's speaking here? <stage>Looking round.</stage> Why, surely 'tis my servant Pseudolus. 'Tis he corrupts my son, the wicked scoundrel; he is his leader, he his tutor. I long for him to be put to extreme torture.</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> This is folly now, thus to keep your anger in readiness. How much better were it to accost him with kind words and to make all enquiries, whether these things are true or not that they tell you of?</p></sp>
+<sp><speaker>SIMO</speaker><p> I'll take your advice. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. They are making towards you, Pseudolus; prepare your speech to meet the old fellow. Good courage in a bad case is half the evil got over. <stage>Aloud, as he advances to meet them.</stage> First, I salute my master, as is proper; and alter that, if anything is left, that I bestow upon his neighbour.</p></sp>
+<sp><speaker>SIMO</speaker><p> Good day to you. What are you about?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> About standing here in this fashion <stage>assuming an attitude</stage>.</p></sp>
+<sp><speaker>SIMO</speaker><p> See the attitude of the fellow, Callipho; how like that of a man of rank.</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> I consider that he is standing properly and with boldness.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> It befits a servant innocent and guileless, as he is, to be bold, most especially before his master.</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> There are some things about which we wish to inquire of you, which we ourselves know and have heard of as though through a cloud of mist.</p></sp>
+<sp><speaker>SIMO</speaker><p> He'll manage you now with his speeches, so that you shall think it isn't Pseudolus but Socrates<milestone n="465" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">But Socrates</lemma>:  The most learned and virtuous of all the philosophers of ancien times.</note> that's talking to you. What do you say?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> For a long time you have held me in contempt, I know. I see that you have but little confidence in me. You wish me to be a villain; still, I will be of strict honesty.</p></sp>
+<sp><speaker>SIMO</speaker><p> Take care, please, and make the recesses of your ears free, Pseudolus, that my words may be enabled to enter where I desire.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Come, say anything you please, although I am angry at you.</p></sp>
+<sp><speaker>SIMO</speaker><p> What, you, a slave, angry at me your master?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> And does that seem wonderful to you?</p></sp>
+<sp><speaker>SIMO</speaker><p> Why, by my troth, according to what you say, I must be on my guard against you in your anger, and you are thinking of beating me in no other way than I am wont to beat yourself. What do you think? <stage>To CALLIPHO.</stage></p></sp>
+<sp><speaker>CALLIPHO</speaker><p> I' faith, I think that he's angry with good reason, since you have so little confidence in him.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'll leave him alone then. Let him be angry: I'll take care that he shall do me no harm. But what do you say? What as to that which I was asking you?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> If you want anything, ask me. What I know, do you consider given you as a response at Delphi.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> Give your attention then, and take care and please mind your promise. What do you say? Do you know that my son is in love with a certain music-girl?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Yea, verily<milestone n="483" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Yea, verily</lemma>:  <foreign lang="greek">*nai\ ga/r.</foreign> This and the two following remarks of Pseudolus are in Greek. The Romans affected curtness of repartee in Greek, in much the same manner as we do in French. A cant tone has been attempted in the translation to be given to the remarks so made by Pseudolus.</note>. </p></sp>
+<sp><speaker>SIMO</speaker><p> Whom he is trying to make free?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Yea, verily and indeed. </p></sp>
+<sp><speaker>SIMO</speaker><p> And you are scheming by cajolery and by cunning tricks to get twenty min&aelig; in ready money out of me?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I, get them out of you?</p></sp>
+<sp><speaker>SIMO</speaker><p> Just so; to give them to my son, with which to liberate his mistress. Do you confess it? Speak out.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Yea, verily; yea, verily. </p></sp>
+<sp><speaker>SIMO</speaker><p> He confesses it. Didn't I tell you so just now, Callipho?</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> So I remember. </p></sp>
+<sp><speaker>SIMO</speaker><p> Why, directly you knew of these things, were they kept concealed from me? Why wasn't I made acquainted with them?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I'll tell you: because I was unwilling that a bad custom should originate in me, for a servant to accuse his master before his master.</p></sp>
+<sp><speaker>SIMO</speaker><p> Wouldn't you order this fellow to be dragged head first to the treadmills<milestone n="494" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the treadmill</lemma>:  "Pistrinum." The establishment of each wealthy person had its "pistrinum," or "handmill," where the mill for grinding corn was worked by the hand of slaves. The most worthless and refractory were employed at this labour, and as the task was deemed a degradation, the "pistrinum" was the usual place of punishment for the slaves of the household. Throughout this translation, the liberty has been in general taken of conveying the meaning of the term by the use of the word "treadmill."</note>?</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> Has he done anything amiss, Simo?</p></sp>
+<sp><speaker>SIMO</speaker><p> Yes, very much so. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>to CALLIPHO</stage>. Be quiet, I quite well understand my own affairs, Callipho. Is this a fault? Now then, give your attention to the reason why I you kept ignorant of this amour. I knew that the treadmill was close at hand, if I told you.</p></sp>
+<sp><speaker>SIMO</speaker><p> And didn't you know, as well, that the treadmill would be close at hand when you kept silent on it?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I did know it. </p></sp>
+<sp><speaker>SIMO</speaker><p> Why wasn't it told me?
+</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> The one evil was close at hand, the other at a greater distance; the one was at the moment, the other was a few days off.</p></sp>
+<sp><speaker>SIMO</speaker><p> What will you be doing now? For assuredly the money cannot be got in this quarter out of me, who have especially detected it. I shall forthwith give notice to all that no one is to trust him the money.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I' faith, I'll never go begging to any person, so long, at all events, as you shall be alive; troth, you shall find me the money; and as for me, I shall take it from you.</p></sp>
+<sp><speaker>SIMO</speaker><p> You, take it from me? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Undoubtedly.</p></sp>
+<sp><speaker>SIMO</speaker><p> Troth, now, knock out my eye, if I do find it.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You shall provide it. I warn you then to be on your guard against me.</p></sp>
+<sp><speaker>SIMO</speaker><p> By my troth, I know this for sure; if you do take it away, you will have done a wonderful and a great exploit.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I will do it, however. </p></sp>
+<sp><speaker>SIMO</speaker><p> But if you don't carry it off?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Then flog me with rods. But what if I do carry it off?</p></sp>
+<sp><speaker>SIMO</speaker><p> I give you Jupiter as your witness, that you shall pass your life free from punishment.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Take care and remember that. </p></sp>
+<sp><speaker>SIMO</speaker><p> Could I possibly be unable to be on my guard, who am forewarned?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I forewarn you to be on your guard. I say you must be on your guard, I tell you. Keep watch. Look, now, with those same hands will you this day give me the money</p></sp>
+<sp><speaker>SIMO</speaker><p> By my troth, 'tis a clever mortal if he keeps his word.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Carry me away to be your slave if I don't do it.</p></sp>
+<sp><speaker>SIMO</speaker><p> You speak kindly and obligingly; for at present you are not mine, I suppose.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Would you like me to tell you, too, what you will still more wonder at?</p></sp>
+<sp><speaker>SIMO</speaker><p> Come, then; i' faith, I long to hear it; I listen to you with pleasure.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Before I fight that battle, I shall first fight another battle, famous and memorable.</p></sp>
+<sp><speaker>SIMO</speaker><p> What battle? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why, with the procurer your neighbour; by means of stratagem and artful tricks, I'l cleverly bamboozle the procurer out of this music-girl, with whom your son is so desperately in love; and I surely will have both of these things effected this very day, before the evening.</p></sp>
+<sp><speaker>SIMO</speaker><p> Well, if you accomplish these tasks as you say, you will surpass in might King Agathocles<milestone n="532" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">King Agathocles</lemma>:  Agathocles was famous for having risen, by his valour and merit, from being the son of a potter to be the King of Sicily.</note>. But if you don't do it, is there any reason why I shouldn't forthwith put you in the treadmill?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Not for one day, but, i' faith, for all, whatever the time. But if I effect it, will you not at once give me the money of your own free will for me to pay to the procurer?</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> Pseudolus is making a fair claim; say "I'll give it."</p></sp>
+<sp><speaker>SIMO</speaker><p> But still, do you know what comes into my mind? Suppose they have made an arrangement, Callipho, among themselves, or are acting in concert, and on a preconcerted plan, to bamboozle me out of the money?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Who would be more audacious than myself, if I dared to do such an action? Well, Simo, if we are thus in collusion, or have ever arranged any plan, do you mark me quite all over with elm-tree stripes<milestone n="545" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With elm-tree stripes</lemma>:  "Stylis ulmeis," "with elm-tree styli." He alludes to the weals produced by flogging with elm-tree rods, which, being long and fine, would resemble the iron "stylus" used for writing upon was tablets.</note>, just as when letters are written in a book with a reed.</p></sp>
+<sp><speaker>SIMO</speaker><p> Now then, proclaim the games as soon as you please.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Give me your attention, Callipho, I beg you, for this day, so that you may not any way employ yourself upon other business.</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> Why, now, I had made up my mind yesterday to go into the country.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Still, do you now change the plan which you had resolved upon.</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> I am now resolved not to go away on account of this; I have an inclination to be a spectator of your games, Pseudolus; and if I shall find that he doesn't give you the money which he has promised, rather than it shouldn't be done, I'll give it.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> I shall not change my purpose.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Because, by my faith, if you don't give it, you shall be dunned for it with clamour great and plenteous. Come, now, move yourselves off hence into the house this instant, and in turn give room for my tricks.</p></sp>
+<sp><speaker>SIMO</speaker><p> Be it so. </p></sp>
+<sp><speaker>CALLIPHO</speaker><p> You may have your way,</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But I want you to keep close at home.</p></sp>
+<sp><speaker>SIMO</speaker><p> Well, that assistance I promise you.</p></sp>
+<sp><speaker>CALLIPHO</speaker><p> But I shall be off to the Forum. I'll be back here presently. <stage>Exit CALLIPHO. SIMO goes into his house.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Be back directly. <stage>To the AUDIENCE.</stage> I have a suspicion, now, that you are suspecting that I have been promising these so great exploits to these persons for the purpose of amusing you, while I am acting this play, and that I shall not do that which I said I will do. I will not change my design; so far as that then I know for certain; by what means I'm to carry it out not at all do I know as yet; only this, that so it shall be. For he that appears upon the stage in a new character, him it befits to bring something that is new. If he cannot do that, let him give place to him who can. I am inclined to go hence into the house for some little time, while I summon together<milestone n="572" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">While I summon together</lemma>:  "Dum concenturio." This word literally means, "to collect together the centuries," or "companies of a hundred men," for the purpose of giving their votes.</note> all my stratagems in my mind. Meanwhile this piper shall entertain you. <stage>Goes into the house of SIMO, and the PIPER strikes up a tune.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="574" unit="TLN line"/>
+<stage>Enter PSEUDOLUS, from the house of SIMO.</stage>
+<sp><speaker>PSEUDOLUS</speaker><p> O Jupiter, whatever I undertake, how cleverly and how fortunately does it befal me. Not any plan is there stored up in my breast that I can hesitate upon or be afraid of. But it is folly to entrust a bold exploit to a timorous heart; for all things are just as you make them, so as you make them of importance. Now in my breast have I already so prepared my forces--double, aye, threefold stratagems, that when I engage with the enemy, relying upon the merits, I say, of my forefathers, and on my own industry and tricking propensity for mischief, I may easily conquer, and easily spoil my antagonists by my contrivances. Now will I adroitly batter down this Ballio<milestone n="585" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Batter down this Ballio</lemma>:  "Ballionem exbalistabo." He play upon the resemblance of the name of Ballio to the "balista," or "engine of war."</note>, the common foe of me and all of you; only lend me your attention. Now will I forthwith draw out my legions against this old town. If I take it, I shall make it a pleasant matter for the citizens: I'll load and fill myself, and my allies as well, with booty from it. I shall strike terror and fright into my enemies, so that they may know of what race I was born. Great exploits it befits me to perform, which long after may bespeak fame for me. But whom do I see here? Who's this low fellow that's presented before my eyes? I should like to know why he's come here with his sword: I' troth, now then I'll lie here in ambush for him, to see the business that he's about. <stage>Retires to a distance.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="594" unit="TLN line"/>
+<stage>Enter HARPAX, with a bay in his hand.</stage>
+<sp><speaker>HARPAX</speaker><p> This is the place, and this the spot, which was pointed out to me by my master, according as 1 form a judgment from my eyesight. For my master, the Captain, told me to this effect, that the house was the seventh from the gate, in which lives the person to whom he requested me to carry the token and this silver * * * * * I could vastly wish that some one would inform me where this Ballio, the procurer, lives. <stage>Looks from side to side.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. Hist! Silence! This man is mine, unless all Gods and men forsake me. Now have I need of a new plan; this new scheme is suddenly presented to me. This I prefer to my former one; that I shall dismiss, which, before, I had commenced to carry into effect. By my troth, I'll then work this military messenger that's just arrived.</p></sp>
+<sp><speaker>HARPAX</speaker><p> I'll knock at the door, and call some one out of doors from within. <stage>Goes towards the door of BALLIO'S house.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>coming up to him</stage>. Whoever you are, I wish you to spare your knocking; for I've just come out of doors, I, the spokesman and the defender of the door.
+</p></sp>
+<sp><speaker>HARPAX</speaker><p> Are you Ballio? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why, no; but I'm the deputy-Ballio<milestone n="607" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The deputy-Ballio</lemma>:  In the Latin "subballio."</note>.</p></sp>
+<sp><speaker>HARPAX</speaker><p> What means that expression? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I'm his butler-steward<milestone n="608" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">His butler-steward</lemma>:  "Condus-promus" was the title given to the slave who had charge of the "storerooms," or "cell&aelig;," in the Roman establishments. The office answered to those of our housekeeper and butler combined.</note>; the caterer for his larder.</p></sp>
+<sp><speaker>HARPAX</speaker><p> As though you were to say, you are his chamberlain<milestone n="609" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">His chamberlain</lemma>:  "Atriensis" was the title of the slave in whose charge was the "atrium," or large hall, or central room on the ground floor.</note>.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> No; I'm above his chamberlain.</p></sp>
+<sp><speaker>HARPAX</speaker><p> What are you, slave or free man?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why, at present, I'm still a slave.</p></sp>
+<sp><speaker>HARPAX</speaker><p> So you seem to be; and you don't look to be one worthy to be free.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Ain't you in the habit of looking at yourself when you abuse another person?</p></sp>
+<sp><speaker>HARPAX</speaker><p> <stage>aside</stage>. This must be a roguish fellow.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>aside</stage>. The Gods protect and favour me! for this is my anvil: this day will I hammer out thence full many a device.</p></sp>
+<sp><speaker>HARPAX</speaker><p> Why is he talking to himself alone?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How say you, young man----?</p></sp>
+<sp><speaker>HARPAX</speaker><p> What is it? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Are you, or are you not, from that Captain of Macedonia? The servant of him, 1 mean, who bought a damsel of us here, who gave fifteen silver min&aelig; to the procurer, my master, and is still owing five?</p></sp>
+<sp><speaker>HARPAX</speaker><p> I am. But where in the world have you ever known me, or have ever seen or spoken to me? For in fact, before this day, I never was at Athens, nor did I ever before this day behold you with my eyes * * * * * * * * * *</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Because you seem likely to be from him; for at the time when he went away, this was the day appointed for the money, on which he was to pay it to us, and he has not brought it as yet.
+</p></sp>
+<sp><speaker>HARPAX</speaker><p> Yes, here it is. <stage>Holding up the bag.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> What?--have you brought it?</p></sp>
+<sp><speaker>HARPAX</speaker><p> I, myself. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Do you at all hesitate to give it me?</p></sp>
+<sp><speaker>HARPAX</speaker><p> I, give it you?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Aye, faith, to me, who manage the business and the accounts of my master Ballio, receive his money, and pay it to him to whom he owes it.</p></sp>
+<sp><speaker>HARPAX</speaker><p> By my troth, if you were even the keeper of the treasures of supreme Jove, I would never entrust a groat of silver to you.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>pointing</stage>. While you've been making yourself so big, the money has become loose<milestone n="629" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has become loose</lemma>:  This passage is of obscure meaning; very possibly, however, while Harpax has been vapouring, the mouth of the bag containing the money has become loose, to which Pseudolus draws his attention.</note>.</p></sp>
+<sp><speaker>HARPAX</speaker><p> I'll keep it the rather tied up--this way. <stage>Ties the mouth of the bag.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Woe to you! You indeed have been found to doubt my honor. As though innumerable times as much are not in the habit of being entrusted to me alone.</p></sp>
+<sp><speaker>HARPAX</speaker><p> It's possible that others may think so, and that I mayn't trust you.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> As though you meant to say that I wished to chouse you out of the money.</p></sp>
+<sp><speaker>HARPAX</speaker><p> Why, yes; as though you meant to say so; and as though I, on the other hand, meant to suspect it. But what's your name?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>aside</stage>. This procurer has a servant of the name of Syrus; I'll say that I am he. I am Syrus.</p></sp>
+<sp><speaker>HARPAX</speaker><p> Syrus? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> That's my name.</p></sp>
+<sp><speaker>HARPAX</speaker><p> We are making many words. If your master's at home, why don't you call him out, that I may transact that for which I was sent here, whatever be your name?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> If he were within I would call him out. But if you choose to give it me, it will be more truly paid than if you were to give it to himself.</p></sp>
+<sp><speaker>HARPAX</speaker><p> But now do you know how it is? My master has sent me to pay this, not to lose it. But I know, to a certainty, that you are in a fever now, because you cannot lay your claws upon it. I shall entrust the money to no person except to Ballio himself.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But at present he's full of business: a cause of his is being tried before the judge.</p></sp>
+<sp><speaker>HARPAX</speaker><p> May the Gods prosper it! And I, when I shall think that he's at home, will come again. Do you take this letter from me, and give it him: for in it is the token agreed upon between your master and mine about the damsel.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> For my part, I understand it; the person who should bring the money and the impress of his likeness hither to us, with him he said he wished the damsel to be sent; for he left a specimen of it here as well.</p></sp>
+<sp><speaker>HARPAX</speaker><p> You understand the whole affair?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why should I not understand it?</p></sp>
+<sp><speaker>HARPAX</speaker><p> Give him this token then. <stage>Gives the letter and token.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Very well. But what's your name?</p></sp>
+<sp><speaker>HARPAX</speaker><p> Harpax. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Get along with you, Harpax, I like you not. By my troth, you really shan't enter this house, lest you should be doing something in the harpy line<milestone n="654" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the harpy line</lemma>:  He alludes to his name, as having the Greek verb <foreign lang="greek">arpa/zw,</foreign> "to plunder," or "to carry off by force," for its origin.</note>.</p></sp>
+<sp><speaker>HARPAX</speaker><p> I am wont to carry off my enemies alive from the battle-field; from that circumrstance is my name.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I' faith, I think that you are much more likely to carry off the brass pots from a house.</p></sp>
+<sp><speaker>HARPAX</speaker><p> Such is not the fact. But, Syrus, do you know what I request of you?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I shall know, if you tell me.</p></sp>
+<sp><speaker>HARPAX</speaker><p> I shall put up outside of the gate here, at the third shop, at the house of that tun-bellied, limping, fat old woman, Chrysis.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> What do you wish then? </p></sp>
+<sp><speaker>HARPAX</speaker><p> That you'll fetch me thence when your master comes.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> At your pleasure; by all means.</p></sp>
+<sp><speaker>HARPAX</speaker><p> For, as I've come wearied off my journey, I wish to refresh myself.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You are very wise, and your plan is agreable to me. But take care, please, that you are not out of the way when I send for you.
+</p></sp>
+<sp><speaker>HARPAX</speaker><p> Why, when I've dined, I shall indulge myself with a nap.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I quite agree with you. </p></sp>
+<sp><speaker>HARPAX</speaker><p> Do you wish aught else?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> That you'll be off to take your nap.</p></sp>
+<sp><speaker>HARPAX</speaker><p> I'm off. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> And, do you hear, Harpax? Order yourself to be covered up, please; you'll receive the benefit if you take a good sweat.  <stage>(Exit HARPAX.)</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="667" unit="TLN line"/>
+<stage>PSEUDOLUS, alone.</stage>
+<sp><speaker>PSEUDOLUS</speaker><p> Immortal Gods! this man has preserved me by his coming. By his supply for my journey he has brought me from my wanderings quite into the right way. For the Goddess Opportunity herself could not come to me more opportunely, than has this letter in this opportune manner been brought to me. For this has been brought as a horn of plenty<milestone n="671" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A horn of plenty</lemma>:  He alludes to the "Cornucopia," or "horn of plenty," of the heathen Mythology, respecting which we find varying accounts in the ancient writers. Some say that by it was meant the horn of the goat Amalthen, which suckled Jupiter, and that the Nymphs gave it to Achelo&uuml;s, who afterwards exchanged it for the horn of which Hercules afterwards deprived him in the contest for the hand of Deianira. Ovid, in the Ninth Book of the Metamorphoses, represents it as being the same horn which was broken off by Hercules. "And that was not enough: while his relentless right hand was holding my stubborn born, he broke it, and tore it away from my mutilated forehead. This heaped with fruit and odoriferous flowers, the Nymphs have consecrated, and the bounteous Goddess Plenty is enriched by my horn."</note>, in which there is whatever I wish for: here are my wiles, here all my tricks, here my stratagems, here my money, here his mistress for my master's son so much in love. And now how vaunting shall I show myself; how, with a breast so fertile in expedients, I was to do each thing, how, to steal away the damsel from the procurer, I had all my plans arranged in order in my mind as I desired, fixed, planned out. But, no doubt, thus will it come to pass: this Goddess Fortune, unaided, prevails over the designs of a hundred armed men. And this is the fact, just as each person uses his fortune, so does he surpass others, and forthwith we all pronounce him wise. When we learn that the counsels of any person have turned out well, we declare that he is a prudent man; but that he is a fool who is unsuccessful. In our folly we know not how much we are mistaken, when we eagerly wish anything to be given to us; as though we ourselves could possibly know what is for our advantage. We lose what is certain, while we are seeking what is uncertain. And this comes to pass, amid labours and amid sorrow, that death meanwhile comes creeping on. But there's enough now of philosophizing; I have been talking too long, and at too great length. Immortal Gods! my lie was not dear at its weight in double-distilled gold, which I just now trumped up here on the spur of the moment, when I said that I belonged to the procurer. Now, through this letter shall I deceive three persons--my master, and the procurer, and him who gave me this letter. Excellent! another thing as well has happened, that I wished for: see, Calidorus is coming; he is bringing some one with him, I know not whom. <stage>Stands apart.</stage></p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="694" unit="TLN line"/>
+<stage>Enter CALIDORUS and CHARINUS.</stage>
+<sp><speaker>CALIDORUS</speaker><p> The sweets and the bitters, all have I disclosed to you. You know my love, you know my difficulty, you know my poverty.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I well remember all; do you only let me know what you want me to do.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Pseudolus has directed me thus, that I should bring to him some bold and zealous person.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You observe your directions well; for you bring him one both friendly and zealous. But this Pseudolus is a stranger to me.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> He is a very clever fellow--he is my contriver. He said that he would effect those things for me that I have told you of.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart</stage>. I'll address this person in a very lofty strain.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Whose voice is it that's heard here?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Oh! thee, sovereign lord, thee, oh! thee do I address who dost rule over Pseudolus: thee do I seek, to impart to thee delights thrice three, threefold, acquired by three contrivances, obtained over three persons through craftiness and through subtlety, which in this very little sealed packet I have brought unto you<milestone n="706" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I have brought unto you</lemma>:  The note of interrogation at the end of this passage, as found in Ritschel's Edition, seems to be out of place.</note>. <stage>Holds up the letter.</stage>
+</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> That's the fellow; how the hang-dog does bluster just like a tragedian.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Advance a step on thy side towards me. Boldly stretch forth thine arm for greeting.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> <stage>taking his hand</stage>. Tell me, Pseudolus, whether, as Hope or as Safety, must I greet you?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why both. </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> As both I greet you. But what has been done? Why are you silent? I have carried this person here. <stage>Pointing to CHARINUS.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How? Carried him here? </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Brought, I meant to say.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Who's this person? </p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Charinus.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Well done; I return him thanks<milestone n="712" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Return him thanks</lemma>:  <foreign lang="greek">xu/rin tou/tw| poiw\.</foreign> He speaks in Greek for the purpose of punning on the name of Charinus in the word <foreign lang="greek">xa/rin,</foreign> "thanks."</note> then.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Will you then boldly enjoin me what it is necessary to do?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> My thanks, so far. May it be well with you, Charinus; I don't like that we should be troublesome to you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You, troublesome to me? Now, really, that's troublesome.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Well, then, wait a moment. <stage>Takes the letter out from under his dress.</stage></p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What's that? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> This letter have I just now intercepted, and the token.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Token? What token? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> The one that was brought just now from the Captain. His servant, who was bringing it, with five mine&aelig; of silver, who came to fetch your mistress hence, him I have just now bamboozled.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> How so? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> For the sake of these Spectators the play is being performed; they know, who were present here; you I'll tell at another time.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What are we to do then?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You shall this day embrace your mistress at liberty.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> What, I? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You yourself.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> I? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Your own self, I say, if indeed this head shall exist so long; if you'll only quickly find me out a man.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Of what description? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> A cunning, crafty and clever one, who, when he has once taken hold of the beginning, may by his own ingenuity still hold fast upon what it behoves him to do; one, too, who has not often been seen here.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> If he is a slave, does that matter at all?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why, I'd much rather have him than a free man.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I think that I'm able to procure for you a cunning and clever fellow, that has lately come to my father from Carystus<milestone n="730" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">From Carystus</lemma>:  This was a city of Eub&oelig;a, opposite the Isle of Andros.</note>, and hasn't as yet gone anywhere out the house, and who never visited Athens before yesterday.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You assist in right earnest. But I have need to borrow five min&aelig; of silver, which I shall repay this day, for his father <stage>pointing to CALIDORUS</stage> owes it me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'll lend it; don't seek it anywhere else.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> O, how convenient a person for me. I have need of a scarf as well, a sword, and a broad-brimmed hat.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I can provide them from my house. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Immortal Gods! surely this is not Charinus for me, but Abundance. But this servant, who is come here from Carystus, is there anything in him?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Plenty of the stinking goat<milestone n="738" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The stinking goat</lemma>:  He cannot resist the temptation of a pun, though a somewhat unsavoury one. Pseudolus asks if this servant of Charinus is at all sharp. "Quid sapit?" The same words also admit of the meaning, "does he smell of anything?" On which Charinus gives him answer, as though the question had been put in the latter sense, "Yes, of the goat under the arm- pits." The Romans, who were fond of giving a name to everything, whether it was worth it or not, called the strong smell produced by the glands of the arm-pits by the name of "hircus," "the goat," by reason of the rank smell of that animal.</note> in him.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> It befits the fellow, then, to have a tunic with long sleeves<milestone n="738" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tunic with long sleeves</lemma>:  On this dirty answer being given him, Pesudolus says, "Well, then, he must have an under-garment with long sleeves," "manuleata tunica," in order to suppress the offensive smell. The use of the long-sleeved tunic was considered to denote great effeminacy.</note> Has the chap anything sharp<milestone n="739" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Anything sharp</lemma>:  "Ecquid aceti." Literally, "any vinegar." This word sometimes signifies "caustic wit" or "raillery" Here it denotes "natural shrewdness.</note> in his breast?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Aye, of the very sharpest. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But if it is necessary for him to draw forth what is sweet from the same place, has he aught of that?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Do you ask that He has wine of myrrh, sweet raisin wine, spice wine<milestone n="741" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Raisin wine, spice wine</lemma>:  "Passum" was wine made from grapes dried in the sun. "Defrutum" was new wine boiled down to one-half with herbs and spices to make it keep.</note> honey wine, sweets of every sort. Why, he once began to set up a hot liquor-shop in his breast.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Bravissi o! Why, Charinus, you beat me cleverly<milestone n="743" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You beat me cleverly</lemma>:  "Lamberas." The verb "lambero" generally signifies "to tear in pieces."</note> at my own game. But what am I to say is the name of this servant?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Simmia. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> In a difficulty, does he understand how to twirl about?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> A whirlwind<milestone n="745" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A whirlwind</lemma>:  "Turbo" may mean either a "spinning-" or "whipping-top," or a "whirlwind," here.</note> is not so ready as he.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Is he shrewd at all? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> In mischievous tricks<milestone n="746" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In mischievous tricks</lemma>:  "Argutus," as an adjective, signifies "clever," "shrewd." As the past participle of the verb "arguo," it means "accused." Pseudolus asks if he is "shrewd," "argutus" to which the other answers evasively, "O yes (he has been accused," "argutus"), "of mischievous tricks very often."</note> very often.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How, when he's caught in the fact?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> He's a very eel; he slips out.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Is this fellow an experienced one?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> A public ordinance<milestone n="748" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A public ordinance</lemma>:  The "plebiscita" among the Romans were the public ordinances, which were proposed by the Tribunes at the "Comitia Tributa" of the people. He puns upon the resemblance of the word "scitus," which means "knowing," and "scitum" signifying "an ordinance." Is he "scitus," "knowing?" "O yes, a public ordinance" "scitum," 'is not more knowing," "scitus," "than he is"</note> is not more experienced.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> He is a suitable person, according to what I hear you say.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Aye, and from this you may know it. When he looks at you he'll tell, of his own accord, what it is you want with him. But what are you about to do?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I'll tell you. When I've dressed up my man, I intend to make him become the pretended servant of the Captain; let him take this token to the procurer, with five min&aelig; of silver. There's the whole plot for you. As for the rest, in what way he is to do each thing, I'll instruct himself.
+</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> Why, therefore, do we stand here then?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Bring the fellow to me just now, dressed out with all his accoutrements, to &AElig;schinus, the banker's. But make all haste.</p></sp>
+<sp><speaker>CALIDORUS</speaker><p> We'll be there before you.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Get you gone there quickly. <stage>CALIDORUS and CHARINUS go into SIMO'S house.</stage> Whatever before was uncertain or doubtful in my mind, is now clear-now fined to the dregs; my heart has now an open path. All my legions will I lead forth under their standards with happy omen<milestone n="762" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With happy omen</lemma>:  "Ave sinistr&acirc;" Literally, "with a bird on the left hand." This was considered to be a fatvorable omen.</note> with favorable auspices, and to my heart's content. I have a certainty that I can rout my enemies. Now will I go to the Forum, and load Simmia with my instructions what he is to do, that he may not be tripping at all, and that he may cleverly lay the train for this plot. Soon now shall I cause the town of this procurer to be carried by storm. <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="767" unit="TLN line"/>
+<stage>Enter a BOY from the house of BALLIO.</stage>
+<sp><speaker>A BOY</speaker><p> On that Boy on whom the Gods bestow servitude under a procurer, when they add a base occupation as well, assuredly do they, so far as I now understand in my mind, bestow upon him a great misfortune and miseries manifold. Just as this servitude has turned out to me, where I am set over duties great and small; nor am I able to find any admirer to love me, so that at length I might be fitted out in a little better guise. Now this day is the birthday of this procurer. The procurer has made a determination, from the lowest to the highest, that if each one does not this day send him a present, he shall perish to-morrow with the greatest torments. Now, faith, I know not what to do in my line, for, unless I shall send a present to the procurer this day, to-morrow must I swallow down fullers' produce<milestone n="781" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Fullers' produce</lemma>:  As fullers used hands, feet, and sticks is beating the cloth, "fructus fullonius" would mean "kicks and bruises."</note>. And yet I cannot do that which they who can are wont to do. Alas! how little am I, even still for this vocation. And by my troth, now, to my misfortune how fearfully do I dread punishment. If any one lays on<milestone n="785" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">If any one lays on</lemma>:  It is supposed by some that an indecent collusion is obscurely made in this line; it is, however, doubtful if such really is the fact.</note> whose hand is too heavy, although they say that it generally is done amid great weeping, I think that I am able in some measure to keep my teeth closed. But I must keep close my lips and my talking, for see, my master is betaking himself home, and bringing a Cook with him. <stage>Stands at a distance.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="790" unit="TLN line"/>
+<stage>Enter BALLIO and a COOK.</stage>
+<sp><speaker>BALLIO</speaker><p> Those who call it the cook's market, call it so foolishly; for 'tis not a cook's market, but a thieves' market. For if, upon oath, I were to seek out the worst of men, I couldn't have brought a worse one than this fellow that I'm bringing, one, chattering, bragging, silly, and worthless. Why, for this very reason Orcus has declined<milestone n="795" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Or cus has declined</lemma>:  "Orcus" is an epithet of Pluto, the king of the Infernal regions, and, sometimes, of the place itself.</note> to take him to himself, that he might be here to cook a banquet for the dead; for here he is able to cook a thing to please them alone.</p></sp>
+<sp><speaker>A COOK.</speaker><p> If you thought of me in this manner that you are mentioning, why did you hire me?</p></sp>
+<sp><speaker>BALLIO</speaker><p> From scarcity; there wasn't another. But why, if you were a cook, were you sitting in the market-place, you alone behind the rest?</p></sp>
+<sp><speaker>A COOK.</speaker><p> I'll tell you. By reason of the avarice of men have I become an inferior cook, not through my own inclination.</p></sp>
+<sp><speaker>BALLIO</speaker><p> For what reason is that? </p></sp>
+<sp><speaker>A COOK.</speaker><p> I'll tell you. Because, in fact, directly people come to hire a cook, no one enquires for him that's the best and the highest priced: rather do they hire him that's the lowest priced. Through this have I to-day been the only sitter in the market. Those wretched fellows are for a drachma a-piece; not any person is able to prevail on me to rise for less than a didrachm<milestone n="820" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A didrachm</lemma>:  Literally, "nummus," "a coin" or "piece of money," which means a didrachm or piece of two drachm&aelig; in value, or about one shilling and sevenpence of our money.</note>. I don't cook a dinner too, like other cooks, who bring me up seasoned meadows of grass upon their dishes; who turn the guests into oxen, and supply the grass. This herbage, too, do they further season with other herbs: put in coriander, fennel, garlick, orage; they add, too, sorrel, cabbage, beet, and spinach. In this they dissolve a pound weight of asaf&oelig;tida. The roguish mustard is pounded, which makes the eyes of those that pound it drop tears before they have pounded it. These fellows, when they cook dinners, when they do season them, season them, not with seasonings, but with vampyre owls<note anchored="yes"><lemma targOrder="U">With vampyre owls</lemma>:  "Strigibus." By this expression he probably alludes to the drastic effect of these herbs on those who partook of them. Ovid, in the Sixth Book of the Fasti, has these words: "There are ravenous fowls; not those which used to rob the mouth of Phineus at the board, but thence do they derive their origin. Large are their heads, fixed is their gaze for plunder are their beaks adapted; on their wings is a greyish colour, crooked talons are on their claws. By night they fly, and they seek the children unprotected by the nurse, and pollute their bodies dragged from their cradles. With their beaks they are said to tear the entrails of the sucklings, and they have their maws distended with the blood which they have swallowed. 'Striges' are they called; and the origin of this name is the fact, that they are wont to screech in the dismal night." It is supposed by some persons that, under this name, the vampyre bat is alluded to.</note> which eat out the bowels of the guests while still alive. Through this, in fact, it is, that people here live such short lives, inasmuch as they heap up these herbs of this sort in their stomachs, dreadful to be mentioned, not only to be eaten. Herbage which the cattle eat not, men eat themselves.</p></sp>
+<sp><speaker>BALLIO</speaker><p> What do you say? Do you use divine seasonings, by which you can prolong the life of men, you, who find fault with these other seasonings?</p></sp>
+<sp><speaker>A COOK.</speaker><p> I proclaim it boldly; for those who shall eat of my victuals which I have seasoned will be able to exist two hundred years even. For when I've put into the saucepan either cicilendrum, or cepolindrum, or mace<milestone n="832" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Cepolindrum, or mace</lemma>:  With the exception of mace, all these names are gibberish, invented by the Cook for the purpose of imposing upon Bailio.</note>, or saucaptis, the very dishes become warmed forthwith. These are sauces for fish, the cattle of Neptune; the flesh of the earthly cattle I season with cicimandrum, hapalopsis, or cataractria.
+</p></sp>
+<sp><speaker>BALLIO</speaker><p> Now may Jupiter and all the Divinities confound you with your sauces, and with all those lies of yours!</p></sp>
+<sp><speaker>A COOK.</speaker><p> Do allow me to speak, please. </p></sp>
+<sp><speaker>BALLIO</speaker><p> Speak, and go to very perdition.</p></sp>
+<sp><speaker>A COOK.</speaker><p> When all the saucepans are hot, I open them all then does the odour fly towards heaven with its handhanging down<milestone n="841" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With its hands hanging down</lemma>:  He means to personify the odour and to represent it as flying up to heaven; but, by mistake, he says it flies up, "demissis manibus," with its hands hanging down, which would father be the attitude of a person thrown out of, and falling from, the heavens. Ballio repeats the expression in a tone of surprise, on which the Cook corrects himself, and says he meant to say, "with its feet hanging down," "demissis pedibus."</note>.</p></sp>
+<sp><speaker>BALLIO</speaker><p> The odour with its hands hanging down?</p></sp>
+<sp><speaker>A COOK.</speaker><p> I made a mistake without thinking.</p></sp>
+<sp><speaker>BALLIO</speaker><p> How so? </p></sp>
+<sp><speaker>A COOK.</speaker><p> With its feet hanging down, I meant to say. Jupiter dines on that odour every day.</p></sp>
+<sp><speaker>BALLIO</speaker><p> If you happen not to go out to cook, pray what does Jupiter dine upon?</p></sp>
+<sp><speaker>A COOK.</speaker><p> He goes to sleep without his dinner.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Go to very perdition. Is it for this reason that I'm to give you a didrachm to-day?</p></sp>
+<sp><speaker>A COOK.</speaker><p> Well, I confess that I am a very high-priced cook; but I make the results of my labour to be seen for the price, hired at which I go out.</p></sp>
+<sp><speaker>BALLIO</speaker><p> In thieving, to wit. </p></sp>
+<sp><speaker>A COOK.</speaker><p> And do you expect to meet with any cook except with the claws of a kite or of an eagle?</p></sp>
+<sp><speaker>BALLIO</speaker><p> And do you expect to go anywhere to cook, and not to cook the dinner there with your claws tied up? Now, therefore, you boy <stage>to the BOY</stage>, who are my servant, I now give you notice to make haste to remove hence all my property; and to keep his eyes as well in your sight. Whichever way he shall look, do you look the same way as well. If he shall move in any direction, do you move as well. If he shall put forth his hand, put you forth your hand as well. If he shall take anything of his own, do you suffer him to take it; if he shall take what's mine, do you on the other side hold him fast. If he shall stoop to the ground, do you stoop there as well. Likewise over your understrappers I shall appoint a single guard a-piece.
+</p></sp>
+<sp><speaker>A COOK.</speaker><p> Only have good courage. </p></sp>
+<sp><speaker>BALLIO</speaker><p> Prithee, tell me how I possibly can have good courage, who am taking you home to my house?</p></sp>
+<sp><speaker>A COOK.</speaker><p> Because, by my broth, this day will I do just in the way that Medea cooked up the old man Pelias<milestone n="869" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The old man Pelias</lemma>:  The Cook could not be expected to be very learned in the heathen Mythology; and we accordingly find him making a blunder. &AElig;son, the father of Jason, was restored to youth by the charms of Medea; but Pelias being the enemy of Jason, Medea persuaded his daughters to cut him in pieces, that he might in similar manner restore him to youth; which was accordingly done, on which, having thus contrived his death, she refused her assistance. It is much more probable that the Cook should be intended to be represented as ignorant, than as attempting here to impose on the ignorance of Ballio. Warner, in his translation, however, thinks otherwise. He says, "The humour plainly lies in the Cook's promises to restore Ballio to his juvenility by a cookery--one that would kill him. Ballio's ignorance is, indeed, here meant to be exposed to ridicule by the Cook, that is by Plautus, as it likewise is in the names of the spices, which are probably fictitious."</note> whom she is said by a draught and by her potions from an aged man to have made young again; so will I make you likewise.</p></sp>
+<sp><speaker>BALLIO</speaker><p> How now; are you an enchanter as well?</p></sp>
+<sp><speaker>A COOK.</speaker><p> Why no, by my troth, I am rather a preserver<milestone n="874" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Rather a preserver</lemma>:  The "enchanters," who were called "venefici," "poisoners," were supposed to destroy men by their potions, whence the present reply of the Cook.</note> of mankind.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Well now; for how much would you teach me that one point in cooking?</p></sp>
+<sp><speaker>A COOK.</speaker><p> What point? </p></sp>
+<sp><speaker>BALLIO</speaker><p> That I may preserve you from pilfering anything from me.</p></sp>
+<sp><speaker>A COOK.</speaker><p> For a didrachm, if you believe me; if not, not for a mina even. But whether are you about to-day to give a dinner, to your friends or to your enemies?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Why, faith, to my friends surely.</p></sp>
+<sp><speaker>A COOK.</speaker><p> But why don't you invite your enemies to it rather than your friends? For this day will I present to the guests a banquet so savoury, and I'll season it with such a dulcet sweetness, that whoever shall taste each thing that's seasoned, I'll make that same person to gnaw off the ends of his own fingers.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Troth now, prithee, before you shall present aught to the guests do you yourself first taste, and give some to your understrappers, that you may gnaw off the ends of your own pilfering hands.</p></sp>
+<sp><speaker>A COOK.</speaker><p> Perhaps then you don't believe me in the things that I say.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Don't you be troublesome; you din me too much; you don't please me by it. See, there I live. <stage>Points to his house.</stage> Do you go in-doors and cook the dinner, with all speed.</p></sp>
+<sp><speaker>A BOY</speaker><p> Why don't you go, and take your place? Go and find the guests; the dinner's spoiling already. <stage>COOK and BOY go into the house.</stage></p></sp>
+<sp><speaker>BALLIO</speaker><p> Now, just look, please, at that young offshoot; for he, too, is a good-for-nothing deputy-scullion for the cook. Truly I don't know what now first to be on my guard against; such thieves there are in my house, and there's a robber close at hand. For my neighbour here, the father of Calidorus, a short time since, in the market-place, asked me by all means to be on my guard against his servant Pseudolus, not to put any trust in him; for that he is on the hunt this day, if possible to dupe me out of the woman. He said that he had stoutly promised to him that he would get away Ph&oelig;nicium from me by stratagem. I'll now go indoors and give notice to my household, that no one must put any trust whatever in this Pseudolus. <stage>Goes into his house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="905" unit="TLN line"/>
+<stage>Enter PSEUDOLUS.</stage>
+<sp><speaker>PSEUDOLUS</speaker><p> If the immortal Gods ever did determine that any person should be assisted by their aid, now do they intend that Calidorus shall be preserved for me, and the procurer destroyed, inasmuch as they produced you for my assistant, so clever and so knowing a fellow. <stage>(Looking back.)</stage> But where is he? am I not a silly fellow to be thus talking to myself alone? I' faith, he has put a trick upon myself, as I fancy; myself one knave, I have been poorly on my guard against another knave. By my troth I'm undone, if this fellow's off, and I shall not carry into effect this day what I intended. But see, there he is, a statue that deserves a whipping; how stately he does stalk along!
+
+<stage>HARPAX.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How now! By my faith I was looking about for you; I was very greatly afraid that you were off.</p></sp>
+<sp><speaker>SIMO</speaker><p> It was my character to do so, I confess.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Where were you loitering? </p></sp>
+<sp><speaker>SIMO</speaker><p> Where I pleased.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> That I know well enough already.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why then do you ask me what you know?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why this I want, to put you in mind.</p></sp>
+<sp><speaker>SIMO</speaker><p> Needing to be put in mind yourself, don't you be putting me in mind.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Really I am treated by you quite with contempt.</p></sp>
+<sp><speaker>SIMO</speaker><p> And why shouldn't I treat you with contempt, I who have the repute of being a military gentleman?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I want this then, which has been commenced, to be completed.</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you see me a-doing anything else?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Therefore walk on briskly. </p></sp>
+<sp><speaker>SIMO</speaker><p> No, I choose to go slowly.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> This is the opportunity; while this Harpax is asleep, I want you to be the first to accost him.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why are you hurrying? Softly; don't you fear. I wish Jupiter would so make it, that he were openly in the same place with me, whoever he is, that has arrived from the Captain. Never a jot, by my troth, should he be a bit the better Harpax than I. Have good courage, I'll have this business nicely accounted for to you. So by my tricks and lies would I put this military stranger in a fright that he himself would deny that he is the person that he is, and would believe me to be the person that he himself is.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How can that be? </p></sp>
+<sp><speaker>SIMO</speaker><p> You are murdering me when you ask me that.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> A clever fellow. </p></sp>
+<sp><speaker>SIMO</speaker><p> And so are you too, who are quite my equal with your mischievous tricks and lies * * * * * * *</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> May Jupiter preserve you for me.</p></sp>
+<sp><speaker>SIMO</speaker><p> Aye, and for myself. But look, does this dress become me quite well?
+</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> It suits very well. </p></sp>
+<sp><speaker>SIMO</speaker><p> Be it so.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> May the Deities grant you as many blessings as you may wish for yourself. For if I were to wish for as many as you are deserving of, they would be less than nothing; <stage>aside</stage> nor have I ever seen any one more of a rogue than this fellow.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>overhearing him</stage>. Do you say that to me?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> This man's an honest fellow.</p></sp>
+<sp><speaker>SIMO</speaker><p> It is neither this person, then <stage>pointing to PSEUDOLUS</stage>, nor myself.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But take care that you don't be tripping.</p></sp>
+<sp><speaker>SIMO</speaker><p> Can't you hold your tongue? He that puts a man in mind of that which, remembering it, he does keep in mind, causes him to forget it. I recollect everything; they are stored up in my breast; my plans are cleverly laid.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I'm silent. But what good turn shall I do you if you carry through this matter with management? So may the Gods love me----</p></sp>
+<sp><speaker>SIMO</speaker><p> They won't do so; you'll be uttering sheer falsehoods then.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How I do love you, Simmia, for your roguery, and both fear and laud you.</p></sp>
+<sp><speaker>SIMO</speaker><p> That I have learned to make a present of to others; you can't put your flatteries on me.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> In how delightful a manner I shall receive you this day, when you have completed this matter.</p></sp>
+<sp><speaker>SIMO</speaker><p> Ha, ha, ha! <stage>Laughing.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> With nice viands, wine, perfumes, and titbits between our cups. There, too, shall be a charming damsel, who shall give you kiss upon kiss.</p></sp>
+<sp><speaker>SIMO</speaker><p> You will be receiving me in a delightful manner.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Aye, and if you effect it, then I'll make you say so still more.</p></sp>
+<sp><speaker>SIMO</speaker><p> If I don't effect it, do you, the executioner, take me off to torture. But make haste and point out to me where is the door of the procurer's house.</p></sp>
+<sp><speaker>PSEUD. </speaker><p> 'Tis the third hence. </p></sp>
+<sp><speaker>SIMO</speaker><p> Hist! hush! the door's opening.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> In my mind, I believe that the house is poorly.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why so? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Because, i' faith, it is vomiting forth the procurer. <stage>BALLIO is coming out of his house.</stage>
+</p></sp>
+<sp><speaker>SIMO</speaker><p> Is this he? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> This is his own self.</p></sp>
+<sp><speaker>SIMO</speaker><p> 'Tis a worthless commodity. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Do see that: he doesn't go straight, but sideways, just as a crab is wont. <stage>They conceal themselves from BALLIO.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="956" unit="TLN line"/>
+<stage>Enter BALLIO from his house.</stage>
+<sp><speaker>BALLIO</speaker><p> I do believe that this fellow is not so bad a cook as I thought he was; for he has clawed off nothing as yet except a cup and a tankard.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>apart to SIMMIA</stage>. Hallo you! now's your opportunity and your time.</p></sp>
+<sp><speaker>SIMO</speaker><p> I agree with you. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Step slily out into the street; I'll be here in ambush. <stage>SIMMIA steps forward, and then walks along the middle of the street to meet BALLIO.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>talking aloud to himself</stage>. I took the number carefully; this is the sixth lane from the city gate; down that lane he bade me turn; how many houses down he told me, that I don't quite know for certain.</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>eyeing SIMMIA</stage>. Who's this fellow in the scarf, or whence does he come, or whom is he looking for? The appearance of the fellow seems outlandish and shabby.</p></sp>
+<sp><speaker>SIMO</speaker><p> But see, here's a person, who, from uncertainty, will make the thing more certain for me that I wish to know.</p></sp>
+<sp><speaker>BALLIO</speaker><p> He's coming straight towards me. Where in the world am I to say this fellow comes from?</p></sp>
+<sp><speaker>SIMO</speaker><p> Harkye! you who are standing there with a goat's beard, answer me this that I ask you.</p></sp>
+<sp><speaker>BALLIO</speaker><p> How now! Don't you salute me first?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>with a surly voice</stage>. I have no salutations to give away.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Well, troth, you shall get just as much from here then.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>from behind</stage>. Well done, at the very beginning.</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you know any person in this lane, I ask you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> I know myself. </p></sp>
+<sp><speaker>SIMO</speaker><p> Few persons do that which you mention; for in the Forum there is hardly every tenth person that knows his own self.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>from behind</stage>. I'm all right; he is philosophizing now.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'm looking for a fellow here, a bad one, a law breaker, an impious, perjured, and dishonest rogue.</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>aside</stage>. He's looking for me, for those are my titles If he would only mention the name. <stage>To SIMMIA.</stage> What's the name of this person?</p></sp>
+<sp><speaker>SIMO</speaker><p> Ballio, the procurer. </p></sp>
+<sp><speaker>BALLIO</speaker><p> Do I know him? I am the very person, young man, that you are looking for.</p></sp>
+<sp><speaker>SIMO</speaker><p> What, are you Ballio? </p></sp>
+<sp><speaker>BALLIO</speaker><p> I really am he.</p></sp>
+<sp><speaker>SIMO</speaker><p> How you are clothed, a housebreaker * * * * * * * * * * <stage>He takes hold of BALLIO'S cloak.</stage></p></sp>
+<sp><speaker>BALLIO</speaker><p> I think if you were to see me in the dark, you'd be keeping your hand off.</p></sp>
+<sp><speaker>SIMO</speaker><p> My master bade me present you many greetings. Receive this letter from me; he bade me give you it.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Who's the person that bade you?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>from behind</stage>. I'm undone, now the fellow's in the middle of the mud. He doesn't know the name--this business is at a dead lock.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Who do you say sent me this?</p></sp>
+<sp><speaker>SIMO</speaker><p> Observe the seal; do you yourself tell me his name, that I may know that you are Ballio himself.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Give me the letter. </p></sp>
+<sp><speaker>SIMO</speaker><p> Take it, and look at the seal. <stage>Gives him the letter.</stage></p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>looking at it</stage>. Oho! 'Tis nothing more nor less than Polymach&aelig;roplagides<milestone n="988" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Polymach&aelig;roplagides</lemma>:  This high-sounding name is compounded of three Greek words, and signifies "the son of many blows with the sword," or something akin to it.</note>, his own very self; I recognize it. Hallo you, Polymach&aelig;roplagides is his name!</p></sp>
+<sp><speaker>SIMO</speaker><p> I know now that I have rightly given you the letter, since you have mentioned the name of Polymach&aelig;roplagides,</p></sp>
+<sp><speaker>BALLIO</speaker><p> How fares he? </p></sp>
+<sp><speaker>SIMO</speaker><p> By my troth, just as a brave man and a good soldier should. But make haste, I beg, to read this letter through, for it is requisite to do so, and to take this money at once and send out the damsel. For it's necessary for me this day to be at Sicyon<milestone n="995" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be at Sicyon</lemma>:  This was a very ancient city of the Peloponnesus on the Gulf of Corinth.</note>, or else to suffer death to-morrow; so peremptory is my master.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I know it: you are telling those who know it already.</p></sp>
+<sp><speaker>SIMO</speaker><p> Make haste then to read the letter through.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I'll do so, if you'll only hold your tongue. <stage>He reads the letter.</stage> "The Captain Polymach&aelig;roplagides sends this letter, written to the procurer Ballio, sealed with the impression which was formerly agreed upon between us two."</p></sp>
+<sp><speaker>SIMO</speaker><p> The token's in the letter</p></sp>
+<sp><speaker>BALLIO</speaker><p> I see the token and I recognize it. But is he in the habit of sending no greeting written in his letter?</p></sp>
+<sp><speaker>SIMO</speaker><p> Such is the military etiquette, Ballio; with their hand they send health to their well-wishers, and with the same do they send destruction to their evil-wishers. But as you have commenced, go on to ascertain of yourself what this letter says.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Listen then. <stage>Reading on.</stage> "Harpax is my camp-servant, who has come to you." Are you this Harpax?</p></sp>
+<sp><speaker>SIMO</speaker><p> I am, and the real Harpax too<milestone n="1010" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The real Harpax too</lemma>:  He lays a stress on the name, to catch a laugh from the audience by implying that he is a regular Harpax or "plunderer," both in name and reality.</note>.</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>reading on</stage>. "Who brings this letter; I wish the money to be received from him, and the woman to be sent together with him. 'Tis becoming to send greeting to the worthy; had I deemed you worthy, I should have sent it to you."</p></sp>
+<sp><speaker>SIMO</speaker><p> What then? </p></sp>
+<sp><speaker>BALLIO</speaker><p> Pay me the money, take away the woman.</p></sp>
+<sp><speaker>SIMO</speaker><p> Which of us is delaying the matter?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Follow me in-doors then.</p></sp>
+<sp><speaker>SIMO</speaker><p> I'm following. <stage>They go into BALLIO'S house.</stage></p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="1017" unit="TLN line"/>
+<stage>PSEUDOLUS comes forward.</stage>
+<sp><speaker>PSEUDOLUS</speaker><p> I' troth, a more artful fellow, and one more skilfully cunning, I never did see than is this same Simmia. Very much do I dread this man, and sadly do I fear that he may prove mischievous against myself just as he has been against him; lest in his prosperity he may now turn his horns against me, if he finds an opportunity. Should he prove mischievous towards me * * * * But, i' faith, for my part I hope not, for I wish well to him. Now in three ways am I in the greatest dread. First of all then, I dread this comrade of mine, lest he should forsake me and go over from me to the enemy. Next do I dread that my master should in the meantime return from the Forum; lest, the booty taken, the plunderers should be taken. Together with these things do I fear, lest that other Harpax should arrive here before this Harpax has departed hence with the woman. By my faith, I'm undone; they are very slow in coming out of doors. With baggage packed<milestone n="1033" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With baggage packed</lemma>:  "Conligatis vasis." This is a figure derived from military affairs. In modern as in ancient times, the custom is for the soldiers, when they break up the encampment, to collect all their vessels and baggage and tie them up in bundles.</note> up, my heart is waiting, ready, if he doesn't bring out the damsel together with himself, to fly away in exile out from of my breast. * * * * * * <stage>The door of BALLIO'S house opens.</stage> I'm the conqueror-- I've got the better of my wary guards.</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="1038" unit="TLN line"/>
+<stage>Enter SIMMIA, from BALLIO'S house, leading PH&OElig;NICIUM.</stage>
+<sp><speaker>SIMO</speaker><p> <stage>to PH&OElig;NICIUM</stage>. Don't weep: you know not how the matter is, Ph&oelig;nicium; but before long I'll let you know it when you are resting. I'm not leading you to that Macedonian long-teethed fellow, who now causes you to be weeping. To him will I lead you, whose you especially long to be. I'll cause you before very long to be embracing Calidorus.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Prithee, why did you stay so long in-doors? For how long a time was my heart throbbing with beating against my breast.</p></sp>
+<sp><speaker>SIMO</speaker><p> You have found reason, you whipping-post, with a vengeance to be making enquires of me * * * * * * * amid the ambush of the enemy. Why don't we go home with all speed with military strides<milestone n="1049" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With military strides</lemma>:  Having often to march quickly, soldiers would naturally acquire the habit of walking with large strides.</note>.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Now, by my troth, although you are a worthless fellow, you advise aright. March in triumphal procession, this way, straight in the path to the festive goblet. <stage>They march off in triumphal procession.</stage></p></sp></div2>
+<div2 type="scene" n="5">
+<milestone n="1" unit="line"/><milestone n="1052" unit="TLN line"/>
+<stage>Enter BALLIO, from his house.</stage>
+<sp><speaker>BALLIO</speaker><p> Ha, ha, ha! <stage>laughing.</stage> Now, at last, my mind is in a state of ease, since that fellow has departed hence, and taken away the woman. I should like Pseudolus now to come, that wicked rascal, to carry the woman off from me by his stratagems. I know for sure, right well, that I had rather in solemn form perjure myself a thousand times, than that he should cheat me by making a laughing-stock of me. By my troth now, I'll laugh at the fellow if I meet him. But I guess that he'll soon be on the treadmill, just as befits him. Now I wish for Simo that he would come in my way, in order that he might be joyful in common with my joy.</p></sp></div2>
+<div2 type="scene" n="6">
+<milestone n="1" unit="line"/><milestone n="1063" unit="TLN line"/>
+<stage>Enter SIMO.</stage>
+<sp><speaker>SIMO</speaker><p> <stage>to himself</stage>. I'm going to see what business my Ulysses has transacted; whether he now has the statue<milestone n="1064" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Now has the statue</lemma>:  He alludes to Ulysses carrying away the Palladium or statue of Minerva from the citadel of Troy.</note> from the Ballionian citadel.</p></sp>
+<sp><speaker>BALLIO</speaker><p> O, lucky man! give me your lucky hand. <stage>Takes his hand.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> What's the matter? </p></sp>
+<sp><speaker>BALLIO</speaker><p> Now.</p></sp>
+<sp><speaker>SIMO</speaker><p> What now? </p></sp>
+<sp><speaker>BALLIO</speaker><p> There's nothing at all for you to fear.</p></sp>
+<sp><speaker>SIMO</speaker><p> What's the matter? Has that fellow Pseudolus come to you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> No. </p></sp>
+<sp><speaker>SIMO</speaker><p> What good fortune is there, then?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Your twenty min&aelig; are safe and sound which Pseudolus stipulated for from you this day.</p></sp>
+<sp><speaker>SIMO</speaker><p> I' faith, I really do wish they were.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Ask of me twenty min&aelig; if he this day gets hold of that woman, or gives her to your son this day, as he has promised. On my word, prithee, do demand them of me; I quite long to promise them. And, besides this, keep the woman as a present for yourself, that in every way you may know that your money's safe.</p></sp>
+<sp><speaker>SIMO</speaker><p> There's no danger that I know of in making this bargain. According as you have solemnly pledged your word, will you give me twenty min&aelig;?</p></sp>
+<sp><speaker>BALLIO</speaker><p> They shall be given. </p></sp>
+<sp><speaker>SIMO</speaker><p> This, indeed, is not sa badly done. But have you met the fellow?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Aye, both of them together.
+</p></sp>
+<sp><speaker>SIMO</speaker><p> What did he say? What did ho talk about? Prithee, what did he mention to you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Theatrical nonsense; expressions which, in comedies, are wont to be used to a procurer, which boys are acquainted with. He said that I was worthless, and wicked, and forsworn.</p></sp>
+<sp><speaker>SIMO</speaker><p> I' faith, he told no lie.</p></sp>
+<sp><speaker>BALLIO</speaker><p> 'Twas for that reason I wasn't angry. For what matters it for you to speak uncivilly to him who cares not for it, and who don't deny the truth of what you say?</p></sp>
+<sp><speaker>SIMO</speaker><p> Why is it that you are in no fear of him? That I'm longing to hear.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Because he never will carry the woman off now, nor is he able. Don't you yourself remember that I told you, some time since, that she had been sold to a Macedonian officer?</p></sp>
+<sp><speaker>SIMO</speaker><p> I remember. </p></sp>
+<sp><speaker>BALLIO</speaker><p> Well, his servant just now brought me the money, and the token with the impression, which had been arranged between himself and me.</p></sp>
+<sp><speaker>SIMO</speaker><p> What then? </p></sp>
+<sp><speaker>BALLIO</speaker><p> He took away with him the woman, not long since.</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you say this in real truth?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Whence could I possibly have that quality?</p></sp>
+<sp><speaker>SIMO</speaker><p> Do you only take care that he hasn't been playing some trick there.</p></sp>
+<sp><speaker>BALLIO</speaker><p> The letter and the impress on the seal make me sure. Indeed, 'twas but just now he took her off for Sicyon.</p></sp>
+<sp><speaker>SIMO</speaker><p> Troth now, 'twas well done. Why do I delay to make Pseudolus give a name<milestone n="1100" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Give a name</lemma>:  He alludes to the custom of the first colonists giving the name to a colony. He says that he thinks that he must give Pseudolus settlement at the hand-mill, and so make him colonize the place of punishment.</note> to a colony at the mill-stones? But who's this fellow in the scarf?</p></sp>
+<sp><speaker>BALLIO</speaker><p> I don't know, i' faith; however, let's observe whither he's going, and what business he's upon. <stage>They stand on one side.</stage></p></sp></div2>
+<div2 type="scene" n="7">
+<milestone n="1" unit="line"/><milestone n="1103" unit="TLN line"/>
+<stage>Enter HARPAX.</stage>
+<sp><speaker>CHARINUS</speaker><p> <stage>to himself</stage>. That slave's a base and worthless fellow, who values his master's commands at nought; and he, too, is good for nothing who is forgetful to do his duty unless he's put in mind. But those who forthwith deem themselves to be at liberty, when they have hidden themselves from the sight of their master, who riot, wench, devour what they have,--aye, what they have not,--long do those same endure the name of servitude. Nor is there any good disposition in them, except only that they may uphold themselves by their dishonest contrivances. With these, neither their company nor their conversation suits me, nor by these persons have I been ever known. Although he is away, I consider my master as being here; I fear him when he isn't here, that I may not have to fear him when he is here. Therefore, as I have been ordered, to this business will I give my attention. But that Syrus, to whom I gave the token, would have been letting me stay even yet in the shop. As he bade me, I stayed there; he said that he would send for me when the procurer was at home. But since he hasn't come, or called me while staying there, I'm come hither of my own accord, that I may know what is the fact, that that fellow mayn't be playing tricks with me. And there is nothing better than that I should knock at this door, and call some out here from indoors. I want this procurer to take this money of me, and to send off this woman with me. <stage>Goes towards BALLIO'S door.</stage></p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>from behind, to SIMO</stage>. Hark you! </p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart</stage>. What do you want?</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>apart</stage>. This fellow's my own. SIMO. <stage>apart</stage>. How so?</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>apart, pointing to the purse in the hand of HARPAX</stage>. Because that booty's mine. He's in search of a mistress he has got money. I already long to fix my teeth in him.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>apart</stage>. Are you going to devour him already?</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>apart</stage>. While he's fresh, while he's in the habit of giving away, while he's warm upon it, 'tis proper for him to be gobbled up. The good men keep me poor, the bad ones support me; the virtuous are a benefit to the public, the debauched to myself.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>aside</stage>. A mischief may the Gods send you; such a villain are you.</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>apart</stage>. Venus bestows upon me these blessings, when she drives hither these haters of money, these who quite long for losses, who carefully pamper themselves and their youthful age, eat, drink, and wench. Of quite different dispositions are they and you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>to himself</stage>. I'm now delaying myself, in not knocking at this door, that I may know whether or no Ballio is at home now. <stage>Calls out, going up to the door.</stage> Hallo! where are you? Hallo! where are you?</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>apart</stage>. Why, he's going straight up towards my house. I shall come off finely loaded with plunder from this fellow; I know it's a lucky omen for me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>knocking violently at the door</stage>. Does any one come to open this door?</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>calling out to him</stage>. Hallo! you in the scarf, what's owing you at that house?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I'm enquiring for Ballio, the procurer, the master of the house.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Whoever you are, young man, make short work of your enquiries.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why so? </p></sp>
+<sp><speaker>BALLIO</speaker><p> Because he himself in person sees you in his presence before him.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What, are you he? </p></sp>
+<sp><speaker>SIMO</speaker><p> You in the scarf, take you care, please, of some crooked misfortune, and point your finger<milestone n="1144" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Point your finger</lemma>:  Simo thinks that Harpax has come to be a customer of the procurer, and tells him to beware of misfortune, and rather to point the finger of scorn at such a worthless character. The middle finger was used for that purpose.</note> at him; this fellow is a procurer.</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>pointing to SIMO</stage>. And this is an honest man. <stage>To SIMO.</stage> But you, worthy fellow, are many a time being hunted after in the Forum with noise enough, when you haven't a groat in the world, unless this procurer here comes to help you a bit.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> But why don't you address yourself to me?</p></sp>
+<sp><speaker>BALLIO</speaker><p> I do address you. What is it you want?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You to take this money. <stage>He holds out the five min&aelig;.</stage></p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>holding out his hand</stage>. Already have I extended my hand, if you are going to give it.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Take it; here are five picked min&aelig; of silver counted out. <stage>Gives him the money.</stage> This did my master, Polymach&aelig;roplagides. order me to deliver to you, the sum which he was owing, and that you were to send Ph&oelig;nicium with me.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Your master? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> I say to that effect.</p></sp>
+<sp><speaker>BALLIO</speaker><p> The Captain? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> I speak to that effect.</p></sp>
+<sp><speaker>BALLIO</speaker><p> The Macedonian? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Such is the fact, I say.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Polymach&aelig;roplagides sent you to me?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You say what's fact. </p></sp>
+<sp><speaker>BALLIO</speaker><p> To give me this money?
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> If you really are the procurer Ballio.</p></sp>
+<sp><speaker>BALLIO</speaker><p> And for you to take away the woman from me?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Even so. </p></sp>
+<sp><speaker>BALLIO</speaker><p> Did he say that it was Ph&oelig;nicium?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> You remember it exactly. </p></sp>
+<sp><speaker>BALLIO</speaker><p> Wait there; I'll return to you this instant.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Make haste, then, with all speed, for I'm in a hurry. 'Tis now late in the day, d'ye see?</p></sp>
+<sp><speaker>BALLIO</speaker><p> I see; still I wish to call this person aside. Do you only wait there; I'll return to you this instant. <stage>He takes SIMO on one side.</stage> What's to be done now, Simo? What are we to do? I've detected this fellow that has brought the money in the fact.</p></sp>
+<sp><speaker>SIMO</speaker><p> How so? </p></sp>
+<sp><speaker>BALLIO</speaker><p> And don't you understand what this plan is?</p></sp>
+<sp><speaker>SIMO</speaker><p> About as much as the most ignorant do.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Your servant, Pseudolus, has sent this fellow on the message, as though he was from the Macedonian Captain.</p></sp>
+<sp><speaker>SIMO</speaker><p> Have you got the money from the fellow?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Do you ask about that which you see? <stage>Shows the purse in his hand.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> Harkye, remember to give me one half of that plunder. It's right that that should be in common.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Why, plague on't, 'tis all your own<milestone n="1165" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your own</lemma>:  Meaning that, no doubt, Pseudolus had stolen it from him.</note>.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>coming forward a step</stage>. How soon are you going to attend to me?</p></sp>
+<sp><speaker>BALLIO</speaker><p> I'll attend to you, indeed. <stage>Aside.</stage> What now do you advise me to do, Simo?</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>aside</stage>. Let's make some fun of this counterfeit spy, even until he himself shall be sensible that he is being made a fool of.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Follow me. <stage>To HARPAX.</stage> What have you to say? You are his servant, I suppose?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Most certainly. </p></sp>
+<sp><speaker>BALLIO</speaker><p> At what price did he purchase you?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> With the victory of his prowess in battle; for I was a very great general at home in my own country.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Why, did he ever capture a gaol in your country?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> If you utter affronting speeches, you'll be hearing them.
+</p></sp>
+<sp><speaker>BALLIO</speaker><p> In what time did you come from Sicyon hither?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> In one day, by noon. </p></sp>
+<sp><speaker>SIMO</speaker><p> Bravo! By my troth, you did come quickly; how very swift of foot this man is.</p></sp>
+<sp><speaker>BALLIO</speaker><p> When you look at his calves, you might know that he can wear heavy fetters. How say you--were you also, when a child, in the habit of sleeping in a cradle?</p></sp>
+<sp><speaker>SIMO</speaker><p> Of course. </p></sp>
+<sp><speaker>BALLIO</speaker><p> And were you, too, in the habit of doing<milestone n="1178" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The habit of doing</lemma>:  An indecent allusion is most probably here intended. An attempt has been made in the translation to turn it into another channel.</note>--you know what I mean?</p></sp>
+<sp><speaker>SIMO</speaker><p> Of course he was in the habit of doing as other children did?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Are you men in your senses? </p></sp>
+<sp><speaker>BALLIO</speaker><p> What, because I asked you that? At night, when the Captain was going on guard, and when you were going with him, did the sword of the officer fit your scabbard?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Go to utter perdition. </p></sp>
+<sp><speaker>BALLIO</speaker><p> You, indeed, shall have the opportunity of going there in good time to-day.</p></sp>
+<sp><speaker>CHARINUS</speaker><p>But do you bring out the woman to me, or else give me back the money.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Wait a bit. </p></sp>
+<sp><speaker>CHARINUS</speaker><p> Why should I wait?</p></sp>
+<sp><speaker>BALLIO</speaker><p> That scarf, tell me for how much it has been lent.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What matters it? </p></sp>
+<sp><speaker>SIMO</speaker><p> How much is the sword hired for?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> These fellows surely stand in need of hellebore<milestone n="1184" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Have need of hellebore</lemma>:  Black hellebore was much esteemed in eases of madness. Harpax has really, from their way of proceeding, some reason to think that the persons in conversation with him are not in their right senses.</note>.</p></sp>
+<sp><speaker>BALLIO</speaker><p> How now--<stage>Takes hold of him.</stage> HAR. <stage>repulsing him</stage>. Leave me alone.</p></sp>
+<sp><speaker>BALLIO</speaker><p> What wages does that broad-brimmed hat hire to-day for its owner?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What owner? </p></sp>
+<sp><speaker>SIMO</speaker><p> What do the shoes? * * * * * * *</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What are you dreaming about? Why, I'm the owner of all these things, bought with my own savings.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Those, you mean, which the upper part of your thighs supports<milestone n="1189" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Your thighs supports</lemma>:  Unless a more gross allusion is intended, he means that his "peculium" is not his "savings" (which is the strict meaning of the word), but his back and flanks, which often receive on them the punishment of servitude, ana which alone he can call his own.</note>.
+</p></sp>
+<sp><speaker>CHARINUS</speaker><p> <stage>aside</stage>. These old fellows have been anointed; they want themselves rubbed down<milestone n="1190" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Themselves rubbed down</lemma>:  After bathing, the Greeks and Romans were in the habit of being anointed, and then rubbed down with a flesh-brush. Probably the latter custom had gone out of fashion in the time of Plautus. Harpax says that the old men want to be rubbed down; but he means, as uncle Bowling expresses it in Roderick Random, "with an oaken towel."</note>, after the old-fashioned custom.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I' faith, prithee, answer me this truly and seriously, which I ask of you: What are you to earn? For how trifling a sum has Pseudolus hired you?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> Who is this Pseudolus? </p></sp>
+<sp><speaker>BAR.</speaker><p> Your tutor, who has instructed you in this knavery, to take away the woman hence from me by stratagem.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> What Pseudolus, and what stratagem are you talking to me about? A person that I know of no colour, black or white.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Will you not be off from here? There's no profit here for swindlers to-day. Therefore you may tell Pseudolus that another person has carried off the prize-the first Harpax that came.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> On my word, I really am that Harpax.</p></sp>
+<sp><speaker>BALLIO</speaker><p> Aye, on my word, you want to be. This is nothing more nor less than a downright impostor.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I have given yourself the money, and a while ago, immediately on my arrival, the token to your servant; a letter sealed with the likeness of my master, here before the door.</p></sp>
+<sp><speaker>BALLIO</speaker><p> You gave a letter to my servant? What servant?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> To Syrus. </p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>to SIMO</stage>. The wicked rogue has assurance enough<milestone n="1204" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Has assurance enough</lemma>:  The note of interrogation, in Ritschel's edition, after "nequam," seems to be out of place.</note>. He hasn't contrived his knavish scheme amiss. By my faith, that whipping-post of a fellow, Pseudolus, how cleverly he has managed his plans; just as much money as the Captain owed, he has given this man, and has dressed out the fellow that he might take away the woman * * * * * * * * <stage>To HARPAX.</stage> But the real Harpax himself brought that letter hither to me.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> My name is Harpax; I am the servant of the Macedonian Captain. I'm doing nothing roguishly or cheatingly, nor do I know or understand this Pseudolus, what mortal being he is.</p></sp>
+<sp><speaker>SIMO</speaker><p> Unless it's something wonderful, procurer, you've clearly lost the woman.
+</p></sp>
+<sp><speaker>BALLIO</speaker><p> Assuredly, by my troth, I'm in dread of that more and more, when I come to hear his words. I' faith, that Syrus, too, has already set my heart a-freezing, that received the token from him.</p></sp>
+<sp><speaker>SIMO</speaker><p> 'Tis a wonder if it isn't Pseudolus. <stage>To HARPAX.</stage> How now, you! of what appearance was the person to whom you delivered the token?</p></sp>
+<sp><speaker>CHARINUS</speaker><p> A certain red-haired fellow<milestone n="1218" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Red-haired fellow</lemma>:  Some Commentators fancy that in these lines Plautus intends to give a description of himself. If so, he certainly was not so handsome as he was ingenious.</note>, pot-bellied, with thick calves, swarthy, with a big head, sharp eyes, red face, and very large feet.</p></sp>
+<sp><speaker>BALLIO</speaker><p> You prove our undoing, when you mention the feet. It was Pseudolus himself. It's all up with me. I'm dying now, Simo.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> By my troth, I shan't let you die, unless the money's returned me-twenty min&aelig;.</p></sp>
+<sp><speaker>SIMO</speaker><p> And another twenty min&aelig; to me as well.</p></sp>
+<sp><speaker>BALLIO</speaker><p> <stage>to SIMO</stage>. And is the sum to be taken of me that I promised by way of a joke?</p></sp>
+<sp><speaker>SIMO</speaker><p> From unprincipled men it's proper for both their money and their plunder to be taken.</p></sp>
+<sp><speaker>BALLIO</speaker><p> At least you might give up Pseudolus to me.</p></sp>
+<sp><speaker>SIMO</speaker><p> I, give up Pseudolus to you? What has he done amiss? Did I not tell you a hundred times that you were to beware of him?</p></sp>
+<sp><speaker>BALLIO</speaker><p> He has ruined me. </p></sp>
+<sp><speaker>SIMO</speaker><p> And on me he has laid a fine of twenty fair min&aelig;.</p></sp>
+<sp><speaker>BALLIO</speaker><p> What am I to do then? </p></sp>
+<sp><speaker>CHARINUS</speaker><p> When you have given me the money--go hang yourself.</p></sp>
+<sp><speaker>BALLIO</speaker><p> The Gods confound you. <stage>To HARPAX.</stage> Follow me, then, this way, please, to the Forum, that I may pay you.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> I follow you. </p></sp>
+<sp><speaker>SIMO</speaker><p> What am I to do?</p></sp>
+<sp><speaker>BALLIO</speaker><p> Strangers I'll pay at once; to-morrow I'll settle with fellow-citizens. Pseudolus has been holding a councilgeneral<milestone n="1232" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A council-general</lemma>:  "Centuriata habuit comitia." Literally, "has held the comitia centuriata." These were the largest and most important meetings of the centuries or classes of all the Roman citizens, who there met together for the purpose of electing the superior magistrates by their votes, making laws, deciding upon war, and in later times, of concluding peace with foreign nations As these important things were done with due deliberation, Ballio borrows a figure thence, and means that Pseudolus has been giving all attention to the promotion of the success of the plot which he has laid against him.</note> against my life, in sending that fellow to me to-day to carry off the woman. <stage>To HARPAX.</stage> Do you follow me, <stage>To the AUDIENCE.</stage> Now don't you be expecting that I shall be returning home this way. As matters stand, I've determined to go through the alleys.</p></sp>
+<sp><speaker>CHARINUS</speaker><p> If you had walked at the rate you talk, you'd by this have been at the Forum.</p></sp>
+<sp><speaker>BALLIO</speaker><p> I'm determined to make this, instead of my birthday, my dying day. <stage>(Exit BALLIO, HARPAX following.)</stage></p></sp></div2>
+<div2 type="scene" n="8">
+<milestone n="1" unit="line"/><milestone n="1238" unit="TLN line"/>
+<stage>SIMO, alone</stage>
+<sp><speaker>SIMO</speaker><p> I've touched this fellow handsomely, and cleverly has my servant managed his adversary. Now am I resolved to lie in ambush for Pseudolus in a different manner to what's done in other plays, where people lie in wait with goads or whips. Without revenge will I at once pay down the twenty min&aelig; which I promised if he should effect it. I'll carry them to him of my own accord. This creature is very clever, very cunning, very artful. Pseudolus has surpassed the Trojan stratagem<milestone n="1244" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Trojan stratagem</lemma>:  He probably- alludes to the contrivance at the Wooden Horse, which was first suggested by Ulysses</note> and Ulysses too. Now I'll be off in-doors. I'll take out the money; I'll lie in ambush for Pseudolus. <stage>Goes into his house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1246" unit="TLN line"/>
+<stage>Enter PSEUDOLUS, drunk, with a chaplet on his head.</stage>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>staggering</stage>. How's this? And is it the fact? Feet-are you standing or not? Or is it this you want, some; one to pick me up here as I lie? But, by my faith, if I do fall down, yours will be the fault. Are you going to go? Heigho! I must wait upon myself. This is the great fault in wine; it first lays hold of the feet; 'tis a cunning wrestler. By my faith, assuredly am I now come off right well drenched; with such exquisite viands, with such becoming elegance, in such a delightful place, have we been delightfully entertained. What's the need for me to make much prosing? This is the thing for a man, an object for him to pass his life for; here are all pleasures and all delights. I think that the ecstasy is equal to that of the Deities, when the lover embraces his mistress, when he places lip to lip, when melting kisses are exchanged, when breast is pressed to breast, or else, if they please, they are locked in strict embrace; then for your most loving mistress, with her white hand, to be pledging you in the luscious goblet, for no one there to be disagreable to another, for no one to be indulging in silly conversation; for unguents and perfumes, ribbons<milestone n="1265" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Ribbons</lemma>:  "Lemniscos." According to Festus, "lemnisci" were purple ribbons wrapped round one another, and hanging down from the wreaths which the ancients wore on their heads at their entertainments. From a passage in Pliny it would appear that these ribbons were in general only worn by persons of distinction. The translation of l. 1260 has necessarily been somewhat modified.</note> and festive wreaths, to be provided in profusion; and for the rest of the entertainment, too, to be provided in no niggardly style. That no one may have to question me then, in this manner have myself and my young master been spending this day in jollity. After I had fulfilled all my task just as I intended, the enemy put to flight, I was leaving them reclining and drinking, each lover with his mistress, and my own mistress there as well, indulging heart and soul. But after I had risen, they begged me to dance. After this fashion <stage>he dances</stage> did I show myself off there quite charmingly, in a master-like style, to wit; for I am thoroughly acquainted with the Ionian step. Thus, clad in my little mantle, full of fun, I was stepping about, this way. Some of them clapped me, others cried out for me to dance again. In that same Ionian fashion once again did I begin to take a turn; I presented myself to my mistress, that she might caress me; as I was pirouetting, down I tumbled: that was the funeral dirge<milestone n="1278" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The funeral dirge</lemma>:  The word "N&aelig;nia," or "nenia," has severai meanings, among others, that of "a funeral dirge," which is probably its meaning here. Pseudolus intends to say that his fall, so far as he was concerned, put an and to his enjoying the amusement of dancing any further.</note> for my sport. And so, while I was a-struggling to get up, near----, almost, I mean, I soiled my mantle. Then, by my troth, I was the cause of plenteous mirth. A goblet was presented me on account of my fall. Forthwith I changed my mantle, and put on this; thence have I come hither, that I might get rid of my surfeit. Now I'm going to my old master, to put him in mind of our bargain. Open-open the door. Hallo, there! Tell Simo, somebody, that I'm here. <stage>Knocks at the door of SIMO'S house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="1285" unit="TLN line"/>
+<stage>Enter SIMO<note anchored="yes">All the former editions introduced Ballio in this scene, and put in his mouth much of what really belongs to Simo. The astute Ritschel saw the absurdity of this, and has rectified the text accordingly.</note>, from his house.</stage>
+<sp><speaker>SIMO</speaker><p> The voice of a rascally fellow is calling me out of doors. <stage>He stares at PSEUDOLUS.</stage> But what's this? How's this? What is it I see in this guise?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>staggering towards him</stage>. Your own Pseudolus, drunk, with a chaplet on<milestone n="1287" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With a chaplet on</lemma>:  Pseudolus lays some stress on this, as slaves were not permitted to wear chaplets. He, however, presumes on the fact of Simo being in his debt.</note>.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>to himself</stage>. By my troth, this is free and easy indeed. But see his attitude; is he on my account a bit the more afraid? I'm thinking whether I shall address him harshly or kindly. But this <stage>pointing to a purse in his hand</stage> that I'm carrying forbids me to use rough measures towards him just now; if there's any hope for me, centred in this.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>staggering up to SIMO</stage>. A worthless fellow is coming to meet the best of men.</p></sp>
+<sp><speaker>SIMO</speaker><p> May the Gods bless you, Pseudolus. <stage>PSEUDOLUS eructates.</stage> Foh! go to utter perdition. <stage>Pushes him away.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But why should I have that mischance befal me?</p></sp>
+<sp><speaker>SIMO</speaker><p> Why, the plague, in your drunkenness, are you eructating in my face?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Hold me up, steadily; take care that I don't fall. Don't you see me, how drenched and soaking I am?</p></sp>
+<sp><speaker>SIMO</speaker><p> What impudence is this, for you to be going about this way in broad daylight, drunk, with a chaplet on?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Such is my pleasure. <stage>Eructates again.</stage> SIMO. Why your pleasure? Do you persist in eructating in my very face?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> An eructation is comforting to me; do indulge me in it; do but stand off.</p></sp>
+<sp><speaker>SIMO</speaker><p> For my part I really do believe, you villain, that you are able in a single hour to drink up four right plentiful vintages of the Massic hills<milestone n="1303" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Massic hills</lemma>:  The Massic hills were situate in the Falernian district, in the territory of Naples. The Massic or Falernian wine held the second rank among the choice wines of the Romans. It was considered fit for drinking when ten years old, and might be used up to the twentieth year, but when kept anger was considered to be injurious to the nervous system.</note>.
+</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> A winter hour<milestone n="1304" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A winter hour</lemma>:  The Romans divided the light part of the day. into twelve hours; consequently, the hours of the winter days were much shorter than the summer ones.</note>, add. </p></sp>
+<sp><speaker>SIMO</speaker><p> You don't remind me amiss. But tell me, however, whence I am to say that you are bringing your deeply-laden bark?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> I've just been having a thorough bout with your son. That damsel is the cause of this; along with your son she is carousing, a free woman.</p></sp>
+<sp><speaker>SIMO</speaker><p> You are a most worthless fellow.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But, Simo, wasn't Ballio nicely diddled? How well I carried what I told you into effect.</p></sp>
+<sp><speaker>SIMO</speaker><p> I know everything in its order, just as you managed each particular.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why, then, do you hesitate to pay me the money?</p></sp>
+<sp><speaker>SIMO</speaker><p> You ask what's just, I confess; take it. <stage>Gives him the money.</stage></p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> But you declared that you wouldn't give it me; and still do you give it.</p></sp>
+<sp><speaker>SIMO</speaker><p> Are you laughing at me? What? Are you going to take this from your master, Pseudolus?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> With most willing heart and soul.</p></sp>
+<sp><speaker>SIMO</speaker><p> Prithee, can't you venture to make me an abatement of some portion of this money?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> No: you shall say that I really am a greedy fellow; for you shall never be richer by a single coin of this money.</p></sp>
+<sp><speaker>SIMO</speaker><p> Well, I really didn't suppose that it would ever come to pass with me that I should be begging of you.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Load your shoulder with it, and follow me this way. <stage>Pointing.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> I--load myself with that? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> You will load yourself, I'm sure.</p></sp>
+<sp><speaker>SIMO</speaker><p> What am I to do to this fellow? Doesn't he, contrary to my expectation, take my money, and then laugh at me?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Woe to the conquered<milestone n="1322" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Woe to the conquered</lemma>:  The following was the origin of this expression. When the Romans capitulated to the Gauls under Brennus, a thousand pounds weight of gold were to be their ransom. When it was about to be weighed out, the Gauls brought false weights. On this the Roman officer refused to use them, whereupon Brennus threw his sword into the scale, and exclaimed "V&aelig; victis!" "Woe to the conquered!" The expression afterwards became proverbial, as signifying that no mercy was to be expected.</note>: turn your back, then. <stage>Turns him round.</stage>
+</p></sp>
+<sp><speaker>SIMO</speaker><p> Oh! oh! desist. Let me alone--I'm in pain.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Were you not in pain, I should be in pain; and no compassion would you have had for my back, if I hadn't this day managed this.</p></sp>
+<sp><speaker>SIMO</speaker><p> There will be an opportunity for me to be revenged on you, if I live.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Why do you threaten? I've got a back of my own.</p></sp>
+<sp><speaker>SIMO</speaker><p> Very well, then. <stage>Moves as if going.</stage> PSEUD. Come you back then.</p></sp>
+<sp><speaker>SIMO</speaker><p> Why come back? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Only come you back; you shall not be deceived.</p></sp>
+<sp><speaker>SIMO</speaker><p> <stage>turns round</stage>. I am come back. PSEUD. Come and have a drink with me.</p></sp>
+<sp><speaker>SIMO</speaker><p> What--I, come? </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> Do as I ask you. If you do come, I'll let you take half of this, or even more. <stage>Points to the purse in his hand.</stage></p></sp>
+<sp><speaker>SIMO</speaker><p> I'll come; take me where you like, Pseudolus.</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> How now then? Are you at all angry with me or with your son, Simo, on account of these matters?</p></sp>
+<sp><speaker>SIMO</speaker><p> Certainly, not at all. </p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>going</stage>. Step this way now.</p></sp>
+<sp><speaker>SIMO</speaker><p> I follow you. But why don't you invite the Spectators as well?</p></sp>
+<sp><speaker>PSEUDOLUS</speaker><p> <stage>turning round</stage>. I' faith, they are not in the habit of inviting me; and, therefore, I don't invite them. But if you <stage>addressing the AUDIENCE</stage> are willing to applaud and approve of this company of players, and this Comedy, I invite you for to-morrow<milestone n="1335" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Invite you for to-morrow</lemma>:  At the Megalensian games the third day was especially set apart for scenic representations. Probably, as the present Play was acted there, it was on that occasion announced for repetition on the succeeding day. It may not be inapposite here to remark that Cicero, in his Treatise on Old Age, informs us that Plautus entertained a very high opinion of this Play; while Aulus Gellius styles it "<foreign lang="la">Com&oelig;dia festissima</foreign>," "a most entertaining Comedy." Many of the modern Commentators have pronounced it to be the most meitorious of the Plays of Plautus.</note>.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

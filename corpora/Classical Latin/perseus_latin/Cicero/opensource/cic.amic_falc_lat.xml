@@ -1,0 +1,1405 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+	<title>De Amicitia</title>
+<title type="sub">Machine readable text</title>
+	<author n="Cic.">M. Tullius Cicero</author>
+<editor role="editor" n="Falconer">William Armistead Falconer</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Cicero: De Senectute De Amicitia De Divinatione</author>
+<title>With An English Translation</title>
+    <editor role="editor" n="Falconer">William Armistead Falconer</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Harvard University Press; Cambridge, Mass., London, England</publisher>
+<date>1923</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+	<refsDecl doctype="TEI.2" n="text=Amic">
+		<state unit="section"/>
+	</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+	<language id="la">Latin</language>
+	<language id="en">English</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>2006</date>
+<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+<item></item>
+</change>
+
+</revisionDesc>
+</teiHeader>
+
+<text><group>
+
+<pb id="p.108"/>
+
+<text n="Amic"><body><head>Laelius de Amicitia</head>
+
+<p><milestone unit="chapter" n="1"/><milestone unit="section" n="1"/>Q. Mucius augur multa narrare de C. Laelio
+socero suo memoriter et iucunde solebat nec dubitare
+illum in omni sermone appellare sapientem. <reg>ego</reg>
+autem a patre ita eram deductus ad Scaevolam
+sumpta virili toga, ut, quoad possem et liceret, a
+senis latere numquam discederem. <reg>itaque</reg> multa
+ab eo prudenter disputata, multa etiam breviter et
+commode dicta memoriae mandabam, fierique studebam eius prudentia doctior. <reg>quo</reg> mortuo me ad
+pontificem Scaevolam contuli, quem unum nostrae
+civitatis et ingenio et iustitia praestantissimum
+audeo dicere. <reg>sed</reg> de hoc alias, nunc redeo ad
+augurem.</p>
+<p><milestone unit="section" n="2"/><reg>cum</reg> saepe multa, tum memini domi in hemicyclio
+sedentem, ut solebat, cum et ego essem una et
+pauci admodum familiares, in eum sermonem illum
+incidere, qui <corr sic="tur">tum</corr> fere multis<note>tum fere multis <hi rend="italics">MSS.;</hi> tum forte <hi rend="italics">M&uuml;ller; Nauck om.</hi>
+multis</note> erat in ore. <reg>memi</reg>-
+
+<pb id="p.110"/>
+
+nisti enim profecto, Attice, et eo magis, quod P.
+Sulpicio utebare multum, cum is tribunus plebis
+capitali odio a Q. Pompeio, qui tum erat consul,
+dissideret, quocum coniunctissime et amantissime
+vixerat, quanta esset hominum vel admiratio vel
+querella.<milestone unit="section" n="3"/><reg>itaque</reg> tum Scaevola, cum in <corr sic="ear">eam</corr> ipsam
+mentionem incidisset, exposuit nobis sermonem
+Laeli de amicitia habitum ab illo secum et cum
+altero genero C. Fannio, Marci filio, paucis diebus
+post mortem Africani. <reg>eius</reg> disputationis sententias memoriae mandavi, quas hoc libro exposui
+arbitratu meo; quasi enim ipsos induxi loquentis,
+ne <quote>inquam</quote> et <quote>inquit</quote> saepius interponeretur
+atque ut tamquam a praesentibus coram haberi
+sermo videretur.<milestone unit="section" n="4"/><reg>cum</reg> enim saepe mecum ageres,
+ut de amicitia scriberem aliquid, digna mihi res
+cum omnium cognitione <corr sic="tur">tum</corr> nostra familiaritate
+visa est; itaque feci non invitus ut prodessem
+multis rogatu tuo. <reg>sed</reg> ut in Catone maiore, qui
+est scriptus ad te de senectute, Catonem induxi
+senem disputantem, quia nulla videbatur aptior
+persona quae de illa aetate loqueretur, quam eius,
+qui et diutissime senex fuisset et in ipsa senectute
+praeter ceteros floruisset; sic, cum accepissemus a
+patribus maxime memorabilem C. Laeli et P.
+Scipionis familiaritatem fuisse, idonea <corr sic="milli">mihi</corr> Laeli
+
+<pb id="p.112"/>
+
+persona visa est quae de amicitia ea ipsa dissereret,
+quae disputata ab eo meminisset Scaevola. <reg>genus</reg>
+autem hoc sermonum positum in hominum veterum
+auctoritate et eorum illustrium plus nescio quo
+pacto videtur habere gravitatis: itaque ipse mea
+legens sic afficior interdum, ut Catonem, non me,
+loqui existimem.<milestone unit="section" n="5"/><reg>sed</reg> ut tum ad senem senex de
+senectute, sic hoc libro ad amicum amicissimus
+scripsi de amicitia. <reg>tum</reg> est Cato locutus, quo erat
+nemo fere senior temporibus illis, nemo prudentior;
+nunc Laelius et sapiens, sic enim est habitus, et
+amicitiae gloria excellens de amicitia loquetur. <reg>tu</reg>
+velim a me animum parumper avertas, Laelium
+loqui ipsum putes. C. Fannius et Q. Mucius ad
+socerum veniunt post mortem Africani; ab his
+sermo oritur, respondet Laelius, cuius tota disputatio est de amicitia, quam legens te ipse<note>te ipse <hi rend="italics">PDE Lahmr., Nauck;</hi> te ipsum <hi rend="italics">GBS V Hlalm.</hi></note> cognosces</p>
+
+<p><milestone unit="section" n="6"/><milestone unit="chapter" n="2"/>FANNIUS. Sunt ista, Laeli; nec enim melior
+vir fuit Africano quisquam nec clarior. <reg>sed</reg> existimare debes omnium oculos in te esse coniectos
+unum; te sapientem et appellant et existimant
+Tribuebatur hoc modo M. Catoni, scimus L. Acilium
+apud patres nostros appellatum esse sapientem, sed
+
+<pb id="p.114"/>
+
+uterque alio quodam modo: Acilius quia prudens
+esse in iure civili putabatur, Cato quia multarum
+rerum usum habebat et multa eius et in senatu et
+in foro vel provisa prudenter vel acta constanter vel
+responsa acute ferebantur; propterea quasi cognomen
+iam habebat in senectute sapientis.<milestone unit="section" n="7"/><reg>Te</reg> autem alio
+quodam modo non solum natura et moribus, verum
+etiam studio et doctrina esse sapientem, nec sicut
+volgus, sed ut eruditi solent appellare sapientem,
+qualem in Graecia reliqua neminem&mdash;nam qui
+septem appellantur, eos qui ista subtilius quaerunt
+in numero sapientium non habent&mdash;Athenis unum
+accepimus et eum quidem etiam Apollinis oraculo
+sapientissimum iudicatum. <reg>hanc</reg> esse in te sapientiam existimant, ut omnia tua in te posita esse ducas
+humanosque casus virtute inferiores putes. <reg>itaque</reg>
+ex me quaerunt, credo ex hoc item Scaevola, quonam
+pacto mortem Africani feras, eoque magis quod
+proximis Nonis, cum in hortos D. Bruti auguris
+commentandi causa, ut assolet, venissemus, tu non
+affuisti, qui diligentissime semper ilium diem et
+illud munus solitus esses obire.</p>
+<p><milestone unit="section" n="8"/>SCAEVOLA. Quaerunt quidem, C. Laeli, multum,
+
+<pb id="p.116"/>
+
+ut est a Fannio dictum, sed ego id respondeo, quod
+animum adverti, te dolorem quem acceperis cum
+summi viri <corr sic="tur">tum</corr> amicissimi morte ferre moderate;
+nec potuisse non commoveri, nec fuisse id humanitatis tuae: quod autem Nonis in collegio nostro
+non affuisses, valetudinem respondeo causam, non
+maestitiam fuisse.</p>
+<p>LAELIUS. Recte tu quidem, Scaevola, et vere; nec
+enim ab isto officio, quod semper usurpavi cum
+valerem, abduci incommodo meo debui, nec ullo
+casu arbitror hoc constanti homini posse contingere,
+ut ulla intermissio fiat offici.<milestone unit="section" n="9"/><reg>tu</reg> autem, Fanni, quod
+mihi tantum tribui dicis, quantum ego nec agnosco
+nec postulo, facis amice, sed, ut mihi videris, non
+recte iudicas de Catone. <reg>aut</reg> enim nemo, quod
+quidem magis credo, aut, si quisquam, ille sapiens
+fuit. <reg>quo</reg> modo, ut alia omittam, mortem fili tulit!
+<reg>memineram</reg> Paulum, videram Gallum; sed hi in
+pueris, Cato in perfecto et spectato viro.<milestone unit="section" n="10"/><reg>quam</reg>
+ob rem cave Catoni anteponas ne istum quidem
+ipsum, quem Apollo, ut ais, sapientissimum iudicavit;
+huius enim facta, illius dicta laudantur.</p>
+<p><name>De</name> me autem, ut iam cum utroque vestrum loquar,
+
+<pb id="p.118"/>
+
+sic habetote: <milestone unit="chapter" n="3"/><reg>ego</reg> si Scipionis desiderio me
+moveri negem, quam id recte faciam viderint sapientes, sed certe mentiar. <reg>moveor</reg> enim tali amico
+orbatus, qualis, ut arbitror, nemo umquam erit, ut
+confirmare possum, nemo certe fuit. <reg>sed</reg> non egeo
+medicina: me ipse consolor et maxime illo solacio,
+quod eo errore careo, quo amicorum decessu plerique
+angi solent. <reg>nihil</reg> mali accidisse Scipioni puto; mihi
+accidit, si quid accidit; suis autem incommodis
+graviter angi non amicum, sed se ipsum amantis est.</p>
+<p><milestone unit="section" n="11"/><reg>cum</reg> illo vero quis neget <corr sic="acturn">actum</corr> esse praeclare?
+<reg>nisi</reg> enim, quod ille minime putabat, immortalitatem optare vellet, quid non adeptus est, quod
+homini fas esset optare, qui summam spem civium,
+quam de eo iam puero habuerant, continuo adulescens incredibili virtute superavit; qui consulatum
+petivit numquam, factus consul est bis, primum ante
+tempus, iterum sibi suo tempore, rei publicae paene
+sero; qui duabus urbibus eversis inimicissimis huic
+imperio non modo praesentia, verum etiam futura
+bella delevit? <reg>quid</reg> dicam de moribus facillimis,
+de pietate in matrem, liberalitate in sorores, boni-
+
+<pb id="p.120"/>
+
+tate in suos, iustitia in omnis? <reg>nota</reg> sunt
+vobis. <reg>quam</reg> autem civitati carus fuerit, maerore
+funeris indicatum est. <reg>quid</reg> igitur hunc paucorum
+annorum accessio iuvare potuisset? <reg>senectus</reg> enim
+quamvis non sit gravis, ut memini Catonem anno
+ante quam est mortuus, mecum et cum Scipione
+disserere, tamen aufert <corr sic="earn">eam</corr> viriditatem, in qua
+etiam nunc erat Scipio.</p>
+<p><milestone unit="section" n="12"/><reg>quam</reg> ob rem vita quidem talis fuit vel fortuna
+vel gloria, ut nihil posset accedere; moriendi autem
+sensum celeritas abstulit. <reg>quo</reg> de genere mortis
+difficile dictu est; quid homines suspicentur videtis:
+hoc vere tamen licet dicere, P. Scipioni ex multis
+diebus, quos in vita celeberrimos laetissimosque
+viderit, illum diem clarissimum fuisse, cum senatu
+dimisso domum reductus ad <corr sic="vesperur">vesperum</corr> est a patribus
+conscriptis, populo Romano, sociis et Latinis, pridie
+quam excessit e vita, ut ex tam alto dignitatis gradu
+ad superos videatur deos potius quam ad inferos
+pervenisse.</p>
+<p><milestone unit="section" n="13"/><milestone unit="chapter" n="4"/><reg>neque</reg> enim adsentior eis, qui nuper haec
+disserere coeperunt, cum corporibus simul animos
+interire atque omnia morte <corr sic="dcleri">deleri</corr>. <reg>plus</reg> apud me
+antiquorum auctoritas valet, vel nostrorum maiorum,
+qui mortuis tam religiosa iura tribuerunt, quod non
+fecissent, profecto, si nihil ad eos pertinere arbi-
+
+<pb id="p.122"/>
+
+trarentur, vel eorum qui in hac terra fuerunt magnamque Graeciam, quae nunc quidem deleta est,
+tum florebat, institutis et praeceptis suis erudierunt,
+vel eius, qui Apollinis oraculo sapientissimus est
+iudicatus, qui<note>qui <hi rend="italics">MSS.;</hi> &deg;qui <hi rend="italics">M&uuml;ller;</hi> cui <hi rend="italics"><name>Halm</name>., Bait., Lahm.</hi></note> non tum hoc tum illud, ut in plerisque,
+sed idem semper, animos hominum esse divinos
+eisque, cum ex corpore excessissent, reditum in
+caelum patere optimoque et iustissimo cuique expeditissimum.</p>
+<p><milestone unit="section" n="14"/><reg>quod</reg> idem Scipioni videbatur, qui quidem, quasi
+praesagiret, perpaucis ante mortem diebus, cum
+et Philus et Manilius adesset et alii plures, tuque
+etiam Scaevola, mecum venisses, triduum disseruit
+de re publica, cuius disputationis fuit extremum fere
+de immortalitate animorum, quae se in quiete per
+visum ex Africano audisse dicebat. <reg>id</reg> si ita est,
+ut optimi cuiusque animus in morte facillime evolet
+tanquam e custodia vinclisque corporis, cui censemus
+cursum ad deos faciliorem fuisse quam Scipioni?
+<reg>quocirca</reg> maerere hoc eius eventu vereor ne invidi
+magis quam amici sit. <reg>sin</reg> autem illa veriora, ut
+idem interitus sit animorum et corporum nec ullus
+sensus maneat, ut nihil boni est in morte, sic certe
+nihil mali. <reg>sensu</reg> enim amisso fit idem, quasi natus
+
+<pb id="p.124"/>
+
+non esset omnino, quem tamen osse natum et nos
+gaudemus et haec civitas, dum erit, laetabitur.</p>
+<p><milestone unit="section" n="15"/><reg>quam</reg> ob rem cum illo quidem, ut supra dixi,
+actum optime est, mecum incommodius, quem fuerat
+aequius, ut prius introieram, sic prius exire de vita.
+<reg>sed</reg> tamen recordatione nostrae amicitiae sic fruor,
+ut beate vixisse videar, quia cum Scipione vixerim,
+quocum mihi coniuncta cura de publica re et de
+privata fuit, quocum et domus fuit et militia communis et, id in quo omnis vis est amicitiae, voluntatum studiorum sententiarum summa consensio.
+<reg>itaque</reg> non tam ista me sapientiae, quam modo
+Fannius commemoravit, fama delectat, falsa praesertim, quam quod amicitiae nostrae memoriam
+spero sempiternam fore, idque eo mihi magis est
+cordi, quod ex omnibus saeculis vix tria aut quattuor
+nominantur paria amicorum, quo in genere sperare
+videor Scipionis et Laeli amicitiam notam posteritati fore.</p>
+<p><milestone unit="section" n="16"/>FANNIUS. Istuc quidem, Laeli, ita necesse est.
+<reg>sed</reg> quoniam amicitiae mentionem fecisti et sumus
+otiosi, pergratum mihi feceris&mdash;spero item Scaevolae
+&mdash;si, quem ad modum soles de ceteris rebus, cum ex
+te quaeruntur, sic de amicitia disputaris quid sentias,
+qualem existimes, quae praecepta des.</p>
+<p>SCAEVOLA. Mihi vero erit gratum, atque id ipsum
+
+<pb id="p.126"/>
+
+cum tecum agere conarer, Fannius antevertit. <reg>quam</reg>
+ob rem utrique nostrum gratum admodum feceris.</p>
+<p><milestone unit="section" n="17"/><milestone unit="chapter" n="5"/>LAELIUS. Ego vero non gravarer, si mihi ipse
+confiderem, nam et praeclara res est et sumus, ut
+dixit Fannius, otiosi. <reg>sed</reg> quis ego sum aut quae
+est in me facultas? <reg>doctorum</reg> est ista consuetudo
+eaque. <name>Graecorum</name>, ut eis ponatur de quo disputent
+quamvis subito. <reg>magnum</reg> opus est egetque exercitatione non parva. <reg>quam</reg> ob rem quae disputari
+de amicitia possunt, ab eis censeo petatis, qui ista
+profitentur; ego vos hortari tantum possum, ut
+<corr sic="anicitiam">amicitiam</corr> omnibus rebus humanis anteponatis;
+nihil est enim tam naturae aptum, tam conveniens
+ad res vel secundas vel adversas.</p>
+<p><milestone unit="section" n="18"/><reg>sed</reg> hoc primum sentio, nisi in bonis amicitiam
+esse non posse; neque id ad vivum reseco, ut illi,
+qui haec subtilius disserunt, fortasse vere, sed ad
+communem utilitatem parum; negant enim quemquam esse virum bonum nisi sapientem. <reg>sit</reg> ita
+sane: sed eam sapientiam interpretantur, quam
+adhuc mortalis nemo est consecutus. <reg>nos</reg> autem
+ea quae sunt in usu vitaque communi, non ea quae
+finguntur aut optantur, spectare debemus. <reg>numquam</reg> ego dicam C. Fabricium, M'. Curium, Ti.
+Coruncanium, quos sapientis nostri maiores iudicabant, ad istorum normam fuisse sapientis. <reg>qua</reg> re
+
+<pb id="p.128"/>
+
+sibi habeant sapientiae nomen et invidiosum et
+obscurum, concedant ut viri boni fuerint. <reg>ne</reg> id
+quidem facient; negabunt id nisi sapienti posse
+concedi.<milestone unit="section" n="19"/><reg>agamus</reg> igitur pingui, ut aiunt, Minerva.
+<reg>qui</reg> ita se gerunt, ita vivunt, ut eorum probetur
+fides integritas aequitas<note>aequitas <hi rend="italics">edd.;</hi> aequalitas <hi rend="italics">MSS.</hi></note> liberalitas, nec sit in eis
+ulla cupiditas libido audacia, sintque magna constantia, ut ei fuerunt, modo quos nominavi, hos viros
+bonos, ut habiti sunt, sic etiam appellandos putemus,
+quia sequantur, quantum homines possunt, naturam
+optimam bene vivendi ducem.</p>
+<p><reg>Sic</reg> enim mihi perspicere videor, ita natos esse
+nos, ut inter omnis esset societas quaedam, maior
+autem, ut quisque proxime accederet. <reg>itaque</reg> cives
+potiores quam peregrini, propinqui quam alieni;
+cum his enim amicitiam natura ipsa peperit, sed
+ea non satis habet firmitatis. <reg>namque</reg> hoc <corr sic="praestau">praestat</corr>
+amicitia propinquitati, quod ex propinquitate benevolentia tolli potest, ex amicitia non potest; sublata
+enim benevolentia amicitiae nomen tollitur, propinquitatis manet.<milestone unit="section" n="20"/><reg>quanta</reg> autem vis amicitiae sit
+ex hoc intellegi maxime potest, quod ex infinita
+societate generis humani, quam conciliavit ipsa
+natura, ita contracta res est et adducta in angustum,
+ut omnis caritas aut inter duos aut inter paucos
+iungeretur.</p>
+
+<pb id="p.130"/>
+
+<p><milestone unit="chapter" n="6"/><reg>est</reg> enim amicitia nihil aliud<note>nihil aliud <hi rend="italics">M&uuml;ller;</hi> nil unquam <hi rend="italics"><name>Reid</name>;</hi> quicquam <hi rend="italics"><name>Halm</name>'s MSS. </hi></note> nisi omnium
+divinarum humanarumque rerum cum benevolentia
+et caritate consensio, qua quidem haud scio an
+excepta sapientia nil quicquam melius homini sit a
+dis immortalibus datum. <reg>divitias</reg> alii praeponunt,
+bonam alii valetudinem, alii potentiam, alii honores,
+multi etiam voluptates. <reg>beluarum</reg> hoc quidem extremum, illa autem superiora caduca et incerta, posita
+non tam in consiliis nostris quam in fortunae temeritate. <reg>qui</reg> autem in virtute summum bonum ponunt,
+praeclare illi quidem, sed haec ipsa virtus amicitiam
+et gignit et continet, nec sine virtute amicitia esse
+ullo pacto potest.<milestone unit="section" n="21"/><reg>iam</reg> virtutem ex consuetudine
+vitae nostrae sermonisque nostri interpretemur nec
+eam, ut quidam docti, verborum magnificentia
+metiamur, virosque bonos eos qui habentur numeremus&mdash;Paulos Catones Gallos Scipiones Philos&mdash;his
+communis vita contenta est; eos autem omittamus,
+qui omnino nusquam reperiuntur.</p>
+<p><milestone unit="section" n="22"/><reg>talis</reg> igitur inter viros amicitia tantas opportunitates habet, quantas vix queo dicere. <reg>principio</reg> qui
+potest esse vita vitalis, ut ait Ennius, quae non in
+amici mutua benevolentia conquiescit? <reg>quid</reg> dulcius
+quam habere quicum omnia audeas sic loqui ut
+tecum? <reg>qui</reg> esset tantus fructus in prosperis rebus,
+nisi haberes qui illis aeque ac tu ipse gauderet?
+
+<pb id="p.132"/>
+
+Adversas vero ferre difficile esset sine eo, qui illas
+gravius etiam quam tu ferret. <reg>denique</reg> ceterae res,
+quae expetuntur, opportunae sunt singulae rebus
+fere singulis&mdash;divitiae, ut utare; opes, ut colare;
+honores, ut laudere; voluptates, ut gaudeas; valetudo, ut dolore careas et muneribus fungare corporis;
+amicitia res plurimas continet: quoquo te verteris
+praesto est, nullo loco excluditur, numquam intempestiva, numquam molesta est. <reg>itaque</reg> non aqua,
+non igni, ut aiunt, pluribus locis utimur quam amicitia.
+<reg>neque</reg> ego nunc de volgari aut de mediocri, quae
+tamen ipsa et delectat et prodest, sed de vera et
+perfecta loquor, qualis eorum, qui pauci nominantur,
+fuit. <reg>nam</reg> et secundas res splendidiores facit
+amicitia, et adversas, partiens communicansque,
+leviores.</p>
+<p><milestone unit="section" n="23"/><milestone unit="chapter" n="7"/><reg>cumque</reg> plurimas et maximas commoditates
+amicitia contineat, tum illa nimirum praestat omnibus, quod bonam spem praelucet in posterum, nec
+debilitari animos aut cadere patitur. <reg>verum</reg> etiam
+amicum qui intuetur, tamquam exemplar aliquod
+intuetur sui. <reg>quocirca</reg> et absentes adsunt et egentes
+abundant et imbecilli valent et, quod difficilius dictu
+est, mortui vivunt; tantus eos honos memoria desiderium prosequitur amicorum, ex quo illorum beata
+mors videtur, horum vita laudabilis. <reg>quod</reg> si exe-
+
+<pb id="p.134"/>
+
+meris ex rerum natura benevolentiae coniunctionem,
+nec domus ulla nec urbs stare poterit, ne agri quidem
+cultus permanebit. <reg>id</reg> si minus intellegitur, quanta
+vis amicitiae concordiaeque sit, ex dissensionibus
+atque discordiis percipi potest. <reg>quae</reg> enim domus
+tam stabilis, quae tam firma civitas est, quae non
+odiis et discidiis funditus possit everti?</p>
+<p><reg>ex</reg> quo, quantum boni sit in amicitia, iudicari
+potest.<milestone unit="section" n="24"/><reg>agrigentinum</reg> quidem doctum quendam
+virum carminibus Graecis vaticinatum ferunt, quae
+in rerum natura totoque mundo constarent quaeque
+moverentur, ea contrahere amicitiam, dissipare discordiam. <reg>atque</reg> hoc quidem omnes mortales et
+intellegunt et re probant. <reg>itaque</reg>, si quando aliquod
+officium exstitit amici in periculis aut adeundis aut
+communicandis, quis est qui id non maximis efferat
+laudibus? <reg>qui</reg> clamores tota cavea nuper in hospitis
+et amici mei M. Pacuvi nova fabula, cum ignorante
+rege uter Orestes esset, Pylades <corr sic="Oresten">Orestem</corr> se esse
+diceret, ut pro illo necaretur, Orestes autem, ita
+ut erat, <corr sic="Oresten">Orestem</corr> se esse perseveraret! <reg>stantes</reg>
+plaudebant in re ficta; quid arbitramur in vera
+facturos fuisse? <reg>facile</reg> indicabat ipsa natura vim
+suam, cum homines, quod facere ipsi non possent,
+id recte fieri in altero iudicarent.</p>
+
+<pb id="p.136"/>
+
+<p><reg>hactenus</reg> mihi videor de amicitia quid <corr sic="sentiren">sentirem</corr>
+potuisse dicere; si quae praeterea sunt&mdash;credo
+autem esse multa&mdash;ab eis, si videbitur, qui ista
+disputant, quaeritote.</p>
+<p><milestone unit="section" n="25"/>FANNIUS. Nos autem ate potius. <reg>quamquam</reg> etiam
+ab istis saepe quaesivi et audivi non invitus equidem,
+sed aliud quoddam filum orationis tuae.</p>
+<p>SCAEVOLA. Tum magis id diceres, Fanni, si nuper
+in hortis Scipionis, <corr sic="cuni">cum</corr> est de re publica disputatum,
+affuisses. <reg>qualis</reg> tum patronus iustitiae fuit contra
+accuratam orationem Phili!</p>
+<p>FANNIUS. Facile id quidem fuit iustitiam iustissimo viro defendere.</p>
+<p>SCAEVOLA. Quid? amicitiam nonne facile ei, qui
+ob eam summa fide, constantia iustitiaque servatam
+maximam gloriam ceperit?</p>
+<p><milestone unit="section" n="26"/><milestone unit="chapter" n="8"/>LAELIUS. Vim hoc quidem est afferre; quid
+enim refert qua me ratione cogatis? <reg>cogitis</reg> certe.
+<reg>studiis</reg> enim generorum, praesertim in re bona, cum
+difficile est tum ne aequum quidem obsistere.</p>
+<p><reg>saepissime</reg> igitur mihi de amicitia cogitanti
+maxime illud considerandum videri solet, utrum
+propter imbecillitatem atque inopiam desiderata
+sit amicitia, ut dandis recipiendisque meritis, quod
+quisque minus per se ipse posset, id acciperet ab
+alio vicissimque redderet, an esset hoc quidem
+
+<pb id="p.138"/>
+
+proprium amicitiae, sed antiquior et pulchrior et
+magis a natura ipsa profecta alia causa. <reg>amor</reg> enim,
+ex quo amicitia nominata est, princeps est ad benevolentiam coniungendam. <reg>nam</reg> utilitates quidem
+etiam ab eis percipiuntur saepe, qui simulatione
+amicitiae coluntur et observantur temporis causa;
+in amicitia autem nihil fictum, nihil simulatum est
+et, quidquid est, id est verum et' voluntarium.
+<milestone unit="section" n="27"/><reg>quapropter</reg> a natura mihi videtur potius quam indigentia orta amicitia, applicatione magis animi cum
+quodam sensu amandi, quam cogitatione quantum
+illa res utilitatis esset habitura. <reg>quod</reg> quidem quale
+sit, etiam in bestiis quibusdam animadverti potest,
+quae ex se natos ita amant ad quoddam tempus et
+ab eis ita amantur, ut facile earum sensus appareat.
+<reg>quod</reg> in homine multo est evidentius, primum ex ea
+caritate quae est inter natos et parentis, quae dirimi
+nisi detestabili scelere non potest, deinde cum similis
+sensus exstitit amoris, si aliquem nacti sumus, cuius
+cum moribus et natura congruamus, quod in eo
+quasi lumen aliquod probitatis et virtutis perspicere
+videamur.<milestone unit="section" n="28"/><reg>nihil</reg> est enim virtute amabilius, nihil
+quod magis alliciat ad diligendum, quippe cum
+propter virtutem et probitatem etiam eos, quos
+numquam vidimus, quodam modo diligamus. <reg>quis</reg>
+est qui C. Fabrici, M'. Curi non cum caritate aliqua
+
+<pb id="p.140"/>
+
+benevola memoriam usurpet, quos numquam viderit?
+<reg>quis</reg> autem est qui Tarquinium Superbum, qui Sp.
+Cassium, Sp. Maelium non oderit? <reg>cum</reg> duobus
+ducibus de imperio in Italia est decertatum, Pyrrho
+et Hannibale; ab altero propter probitatem eius
+non nimis alienos animos habemus; alterum propter
+crudelitatem semper haec civitas oderit.</p>
+<p><milestone unit="section" n="29"/><milestone unit="chapter" n="9"/><reg>quod</reg> si tanta vis probitatis est, ut eam vel in
+eis, quos numquam vidimus, et, quod maius est, in
+hoste etiam diligamus, quid mirum est, si animi hominum moveantur, cum eorum, quibuscum usu coniuncti esse possunt, virtutem et bonitatem perspicere
+videantur? <reg>quamquam</reg> confirmatur amor et beneficio accepto et studio perspecto et consuetudine
+adiuncta, quibus rebus ad illum primum motum
+animi et amoris adhibitis admirabilis quaedam exardescit benevolentiae <corr sic="magnitude">magnitudo</corr>.</p>
+<p><reg>quam</reg> si qui putant ab imbecillitate proficisci, ut
+sit per quem adsequatur quod quisque desideret,
+humilem sane relinquunt et minime generosum, ut
+ita dicam, ortum amicitiae, quam ex inopia atque
+indigentia natam volunt. <reg>quod</reg> si ita esset, ut
+quisque minimum esse in se arbitraretur, ita ad
+amicitiam esset aptissimus; quod longe secus est.
+<milestone unit="section" n="30"/><reg>ut</reg> enim quisque sibi plurimum confidit et ut quisque
+maxime virtute et sapientia sic munitus est, ut nullo
+egeat suaque omnia in se ipso posita iudicet, ita
+
+<pb id="p.142"/>
+
+in amicitiis expetendis colendisque maxime excellit.
+<reg>quid</reg> enim? <name>Africanus</name> indigens mei? <reg>minime</reg>
+hercule! <reg>ac</reg> ne ego quidem illius, sed ego admiratione quadam virtutis eius, ille vicissim opinione
+fortasse non nulla quam de meis moribus habebat,
+me dilexit; auxit benevolentiam consuetudo. <reg>sed</reg>
+quamquam utilitates multae et magnae consecutae
+sunt, non sunt tamen ab earum spe causae diligendi
+profectae.<milestone unit="section" n="31"/><reg>ut</reg> enim benefici liberalesque sumus,
+non ut exigamus gratiam&mdash;neque enim beneficium
+faeneramur, sed natura propensi ad liberalitatem
+sumus&mdash;sic amicitiam non spe mercedis adducti,
+sed quod omnis eius fructus in ipso amore inest,
+expetendam putamus.</p>
+<p><milestone unit="section" n="32"/><reg>ab</reg> his, qui pecudum ritu ad voluptatem omnia
+referunt, longe dissentiunt; nec mirum; nihil enim
+altum, nihil magnificum ac divinum suspicere possunt,
+qui suas omnis cogitationes abiecerunt in rem tam
+humilem tamque contemptam. <reg>quam</reg> ob rem hos
+quidem ab hoc sermone removeamus, ipsi autem
+intellegamus natura gigni sensum diligendi et benevolentiae caritatem facta significatione probitatis,
+quam qui appetiverunt, applicant sese et propius
+admovent, ut et usu eius, quem diligere coeperunt,
+fruantur et moribus, sintque pares in amore et
+aequales propensioresque ad bene merendum quam
+ad reposcendum, atque haec inter eos sit honesta
+
+<pb id="p.144"/>
+
+certatio. <name>Sic</name> et utilitates ex amicitia maximae
+capientur, et erit eius ortus a natura quam ab imbecillitate gravior et verior. <reg>nam</reg> si utilitas conglutinaret amicitias, eadem commutata dissolveret; sed
+quia natura mutari non potest, idcirco verae amicitiae
+sempiternae sunt.</p>
+<p><reg>ortum</reg> quidem amicitiae videtis, nisi quid ad haec
+forte vultis.</p>
+<p>FANNIUS. Tu vero perge, Laeli! <reg>pro</reg> hoc enim,
+qui minor est natu, meo iure respondeo.</p>
+<p><milestone unit="section" n="33"/>SCAEVOLA. Recte tu quidem: quam ob rem
+audiamus.</p>
+<p><milestone unit="chapter" n="10"/>LAELIUS. Audite vero, optimi viri, ea quae
+saepissime inter me et Scipionem de amicitia disserebantur. <reg>quamquam</reg> ille quidem nihil difficilius esse
+dicebat quam amicitiam usque ad extremum vitae
+diem permanere: nam vel ut non idem expediret
+incidere saepe, vel ut de re publica non idem sentiretur; mutari etiam mores <corr sic="horinum">hominum</corr> saepe dicebat,
+alias adversis rebus, alias aetate ingravescente.
+<reg>atque</reg> earum rerum exemplum ex similitudine
+capiebat ineuntis aetatis, quod summi puerorum
+amores saepe una cum praetexta toga deponerentur;
+<milestone unit="section" n="34"/>sin autem ad adulescentiam perduxissent, dirimi
+tamen interdum contentione vel uxoriae condicionis
+vel commodi alicuius, quod idem adipisci uterque
+
+<pb id="p.146"/>
+
+non posset. <reg>quod</reg> si qui longius in amicitia provecti
+essent, tamen saepe labefactari, si in honoris contentionem incidissent; pestem enim nullam maiorem
+esse amicitiis quam in plerisque pecuniae cupiditatem, in optimis quibusque honoris certamen et
+gloriae, ex quo inimicitias maximas saepe inter
+amicissimos exstitisse.</p>
+<p><milestone unit="section" n="35"/><reg>magna</reg> etiam discidia et plerumque iusta nasci,
+cum aliquid ab amicis quod rectum non esset postularetur, ut aut libidinis ministri aut adiutores essent
+ad iniuriam, quod qui recusarent, quamvis honeste
+id facerent, ius tamen amicitiae deserere arguerentur
+ab eis, quibus obsequi nollent; illos autem, qui
+quidvis ab amico auderent postulare, postulatione
+ipsa profiteri omnia se amici causa esse facturos.
+<reg>eorum</reg> querella inveterata non modo familiaritates
+exstingui solere, sed odia etiam gigni sempiterna.
+<reg>haec</reg> ita multa quasi fata impendere amicitiis, ut
+omnia subterfugere non modo sapientiae, sed etiam
+felicitatis diceret sibi videri.</p>
+<p><milestone unit="section" n="36"/><milestone unit="chapter" n="11"/><reg>quam</reg> ob rem id primum videamus, si placet,
+quatenus amor in amicitia progredi debeat. <reg>numne</reg>,
+si Coriolanus habuit amicos, ferre contra patriam
+arma illi cum Coriolano debuerunt? <reg>num</reg> Vecellinum amici regnum appetentem, num Maelium
+debuerunt iuvare?<milestone unit="section" n="37"/><reg>tiberium</reg> quidem Gracchum
+
+<pb id="p.148"/>
+
+rem publicam vexantem a Q. Tuberone aequalibusque amicis derelictum videbamus. <name>At</name> C. Blossius
+Cumanus, hospes familiae vestrae, Scaevola, cum
+ad me, quod aderam Laenati et Rupilio consulibus
+in consilio, deprecatum venisset, hanc ut sibi ignoscerem causam afferebat, quod tanti <corr sic="Ti">Tib</corr>. Gracchum
+fecisset, ut quidquid ille vellet sibi faciendum
+putaret. <reg>tum</reg> ego, <quote>etiamne,</quote> inquam, <quote>si te in
+Capitolium faces ferre vellet?</quote> <quote><reg>numquam</reg> voluisset
+id quidem, sed, si voluisset, paruissem.</quote> <reg>videtis</reg>,
+quam nefaria vox. <reg>et</reg> hercule ita fecit, vel plus
+etiam quam dixit; non enim paruit ille <corr sic="Ti">Tib</corr>. Gracchi
+temeritati, sed praefuit, nec se comitem illius furoris,
+sed ducem praebuit. <reg>itaque</reg> hac amentia, quaestione nova perterritus, in Asiam profugit, ad hostis
+se contulit, poenas rei publicae gravis iustasque
+persolvit.</p>
+<p><reg>nulla</reg> est igitur excusatio peccati, si amici causa
+peccaveris; nam, cum conciliatrix amicitiae virtutis
+opinio fuerit, difficile est amicitiam manere, si a
+virtute defeceris.<milestone unit="section" n="38"/><reg>quod</reg> si rectum statuerimus vel
+concedere amicis quidquid velint vel impetrare ab
+eis quidquid velimus, perfecta quidem sapientia si
+simus, nihil habeat res viti; sed loquimur de eis
+amicis qui ante oculos sunt, quos videmus<note>videmus <hi rend="italics">P Reid;</hi> vidimus <hi rend="italics">ER M&uuml;ller.</hi></note> aut de
+quibus memoriam accepimus, quos novit vita com-
+
+<pb id="p.150"/>
+
+munis. <reg>ex</reg> hoc numero nobis exempla sumenda
+sunt, et eorum quidem maxime, qui ad sapientiam
+proxime accedunt.<milestone unit="section" n="39"/><reg>videmus</reg> Papum Aemilium C.
+Luscino familiarem fuisse (sic a patribus accepimus)
+bis una consules, collegas in censura; tum et cum
+eis et inter se coniunctissimos fuisse M'. Curium, <corr sic="Ti">Tib</corr>.
+Coruncanium memoriae proditum est. <reg>igitur</reg> ne
+suspicari quidem possumus quemquam horum ab
+amico quidpiam contendisse, quod contra fidem.
+contra ius iurandum, contra rem publicam esset.
+<reg>nam</reg> hoc quidem in talibus viris quid attinet dicere,
+si contendisset impetraturum non fuisse, cum illi
+sanctissimi viri fuerint, aeque autem nefas sit tale
+aliquid et facere rogatum et rogare? <name>At</name> vero <corr sic="Ti">Tib</corr>.
+Gracchum sequebantur C. Carbo, C. Cato, et minime
+tum quidem Gaius frater, nunc idem acerrimus.</p>
+<p><milestone unit="section" n="40"/><milestone unit="chapter" n="12"/><reg>haec</reg> igitur lex in amicitia sanciatur, ut
+neque rogemus res turpis nec faciamus rogati.
+<reg>turpis</reg> enim excusatio est et minime accipienda cum
+in ceteris peccatis, tum si quis contra rem publicam
+<hi rend="italics">se</hi> amici causa fecisse fateatur. <reg>etenim</reg> eo loco,
+Fanni et Scaevola, locati sumus, ut nos longe prospicere oporteat futuros casus rei publicae. <reg>deflexit</reg>
+iam aliquantulum de spatio curriculoque consuetudo
+
+<pb id="p.152"/>
+
+maiorum.<milestone unit="section" n="41"/><name><corr sic="Ti">Tib</corr></name>. Gracchus regnum occupare conatus
+est, vel regnavit is quidem paucos menses. <reg>num</reg>
+quid simile populus Romanus audierat aut viderat?
+<reg>hunc</reg> etiam post mortem secuti amici et propinqui
+quid in P. Scipione effecerint, sine lacrimis non queo
+dicere. <reg>nam</reg> Carbonem, quocumque modo potuimus,
+propter recentem poenam <corr sic="Ti">Tib</corr>. Gracchi sustinuimus.
+<name>De</name> C. Gracchi autem tribunatu quid exspectem non
+libet augurari; serpit deinde res,<note>serpit deinde res <hi rend="italics">MSS.;</hi> serpit clam ea res <hi rend="italics"><reg>deiter</reg>, Bennett.
+<name>The</name> passage is probably corrupt, as M&uuml;ller thinks.</hi></note> quae proclivis
+ad perniciem, cum semel coepit, labitur. <reg>videtis</reg>
+in tabella iam ante quanta sit facta labes, primo
+Gabinia lege, biennio autem post Cassia. <reg>videre</reg>
+iam videor populum a senatu disiunctum, multitudinis arbitrio res maximas agi. <reg>plures</reg> enim discent
+quem ad modum haec fiant, quam quem ad modum
+his resistatur.</p>
+<p><milestone unit="section" n="42"/><reg>quorsum</reg> haec? <reg>quia</reg> sine sociis nemo quicquam
+
+<pb id="p.154"/>
+
+tale conatur. <reg>praecipiendum</reg> est igitur bonis, ut;
+si in eius modi amicitias ignari casu aliquo inciderint,
+ne existiment ita se alligatos, ut ab amicis in magna
+aliqua re publica peccantibus non discedant; improbis autem poena statuenda est, nec vero minor
+eis qui secuti erunt alterum, quam eis qui ipsi fuerint
+impietatis duces. <reg>quis</reg> clarior in Graecia Themistocle, quis potentior? <reg>qui</reg> cum imperator bello
+Persico servitute Graeciam liberavisset propterque
+invidiam in exsilium expulsus esset, ingratae patriae
+iniuriam non tulit, quam ferre debuit: fecit idem
+quod viginti annis ante apud nos fecerat Coriolanus.
+<name>His</name> adiutor contra patriam inventus est nemo;
+itaque mortem sibi uterque conscivit.<milestone unit="section" n="43"/><reg>qua</reg> re talis
+improborum consensio non modo excusatione amicitiae
+tegenda non est, sed potius supplicio omni vindicanda est, ut ne quis concessum putet amicum vel
+bellum patriae inferentem sequi. <reg>quod</reg> quidem,
+ut res ire coepit, haud scio an aliquando futurum sit;
+mihi autem non minori curae est, qualis res publica
+post mortem meam futura sit, quam qualis hodie sit.</p>
+<p><milestone unit="section" n="44"/><milestone unit="chapter" n="13"/><reg>haec</reg> igitur prima lex amicitiae sanciatur,
+ut ab amicis honesta petamus, amicorum causa
+honesta faciamus, ne exspectemus quidem dum
+
+<pb id="p.156"/>
+
+rogemur, studium semper adsit, cunctatio absit,
+consilium verum dare audeamus libere, plurimum in
+amicitia amicorum bene suadentium valeat auctoritas,
+eaque et adhibeatur ad monendum non modo aperte,
+sed etiam acriter, si res postulabit, et adhibitae
+pareatur.<milestone unit="section" n="45"/><reg>nam</reg> quibusdam, quos audio sapientes
+habitos in Graecia, placuisse opinor mirabilia quaedam&mdash;sed nihil est, quod illi non persequantur
+argutiis&mdash;partim fugiendas esse nimias amicitias,
+ne necesse sit unum sollicitum esse pro pluribus;
+satis superque esse sibi suarum cuique rerum; alienis
+nimis implicari molestum esse; commodissimum
+esse quam laxissimas habenas habere amicitiae, quas
+vel adducas cum velis vel remittas; caput enim esse
+ad beate vivendum securitatem, qua frui non possit
+animus, si tamquam parturiat unus pro pluribus.</p>
+<p><milestone unit="section" n="46"/><reg>alios</reg> autem dicere aiunt multo etiam inhumanius,
+quem locum breviter paulo ante perstrinxi, praesidi
+adiumentique causa, non benevolentiae neque caritatis
+amicitias esse expetendas; itaque ut quisque minimum firmitatis haberet minimumque virium, ita
+amicitias appetere maxime: ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam
+viri, et inopes quam opulenti, et calamitosi quam ei
+
+<pb id="p.158"/>
+
+qui putentur beati.<milestone unit="section" n="47"/>O praeclaram sapientiam!
+<reg>solem</reg> enim e mundo tollere videntur ei, qui amicitiam e vita tollunt, qua nihil a dis immortalibus melius
+habemus, nihil iucundius. <reg>quae</reg> est enim ista
+securitas? <reg>specie</reg> quidem blanda, sed reapse multis
+locis repudianda. <reg>neque</reg> enim est consentaneum
+ullam honestam rem actionemve, ne sollicitus sis,
+aut non suscipere aut susceptam deponere. <reg>quod</reg>
+si curam fugimus, virtus fugienda est, quae necesse
+est cum aliqua cura res sibi contrarias aspernetur
+atque oderit, ut bonitas malitiam, temperantia
+libidinem, ignaviam fortitudo. <reg>itaque</reg> videas rebus
+iniustis iustos maxime dolere, imbellibus fortis, flagitiosis modestos. <reg>ergo</reg> hoc proprium est animi bene
+constituti, et laetari bonis rebus et dolere contrariis.</p>
+<p><milestone unit="section" n="48"/><reg>quam</reg> ob rem si cadit in sapientem animi dolor,
+qui profecto cadit, nisi ex eius animo exstirpatam
+humanitatem arbitramur, quae causa est cur amicitiam funditus tollamus e vita, ne aliquas propter
+eam suscipiamus molestias? <reg>quid</reg> enim interest
+motu animi sublato, non dico inter pecudem et
+hominem, sed inter hominem et truncum aut saxum
+aut quidvis generis eiusdem? <reg>neque</reg> enim sunt
+isti audiendi, qui virtutem duram et quasi ferream
+esse quandam volunt; quae quidem est cum multis
+in rebus tum in amicitia tenera atque tractabilis,
+ut et bonis amici quasi diffundatur et incommodis
+
+<pb id="p.160"/>
+
+contrahatur. <reg>quam</reg> ob rem angor iste, qui <corr sic="prc">pro</corr>
+amico saepe capiendus est, non tantum valet, ut
+tollat e vita amicitiam, non plus quam ut virtutes,
+quia non nullas curas et molestias afferunt, repudientur.</p>
+<p><milestone unit="chapter" n="14"/><reg>cum</reg> autem contrahat amicitiam, ut supra
+dixi, si qua<note>si qua <hi rend="italics">M;</hi> si quasi <hi rend="italics"><name>Reid</name>;</hi> sic quasi <hi rend="italics">GBS;</hi> si qua quasi D.</note> significatio virtutis eluceat, ad quam se
+similis animus applicet et adiungat, id cum contigit,
+amor exoriatur necesse est.<milestone unit="section" n="49"/><reg>quid</reg> enim tam absurdum quam delectari multis inanibus rebus, ut honore,
+ut gloria, ut aedificio, ut vestitu cultuque corporis,
+animante virtute praedito, eo qui vel amare vel, ut
+ita dicam, redamare possit, non admodum delectari? <reg>nihil</reg> est enim remuneratione benevolentiae,
+nihil vicissitudine studiorum officiorumque iucundius.
+<milestone unit="section" n="50"/><reg>quid</reg>? si illud etiam addimus, quod recte addi potest,
+nihil esse quod ad se rem ullam tam illiciat et tam
+trahat quam ad amicitiam similitudo, concedetur
+profecto verum esse, ut bonos boni diligant asciscantque sibi quasi propinquitate coniunctos atque
+natura. <reg>nihil</reg> est enim appetentius similium sui nec
+rapacius quam natura. <reg>quam</reg> ob rem hoc quidem,
+Fanni et Scaevola, constet, ut opinor, bonis inter
+bonos quasi necessariam benevolentiam, qui est
+amicitiae fons a natura constitutus. <reg>sed</reg> eadem
+bonitas etiam ad multitudinem pertinet. <reg>non</reg> enim
+est inhumana virtus neque immunis neque superba,
+quae etiam populos universos tueri eisque optime
+
+<pb id="p.162"/>
+
+consulere soleat, quod non faceret profecto, si a
+caritate volgi abhorreret.</p>
+<p><milestone unit="section" n="51"/><reg>atque</reg> etiam mihi quidem videntur, qui utilitatis
+causa fingunt amicitias, amabilissimum nodum
+amicitiae tollere. <reg>non</reg> enim tam utilitas parta per
+amicum quam amici amor ipse delectat, tumque
+illud fit, quod ab amico est profectum, iucundum,
+si cum studio est profectum. <reg>tantumque</reg> abest ut
+amicitiae propter indigentiam colantur, ut ei, qui
+opibus et copiis maximeque virtute, in qua <corr sic="plurimun">plurimum</corr>
+est praesidi, minime alterius indigeant, liberalis
+simi sint et beneficentissimi. <reg>atque</reg> haud sciam an
+ne opus sit quidem nihil umquam omnino deesse
+amicis. <reg>ubi</reg> enim studia nostra viguissent, si numquam consilio, numquam opera nostra nec domi nec
+militiae Scipio eguisset? <reg>non</reg> igitur utilitatem
+amicitia, sed utilitas amicitiam secuta est.</p>
+<p><milestone unit="section" n="52"/><milestone unit="chapter" n="15"/><reg>non</reg> ergo erunt homines deliciis diffluentes
+audiendi, si quando de amicitia, quam nec usu nec
+ratione habent cognitam, disputabunt. <reg>nam</reg> quis
+est, pro deorum fidem atque hominum! qui velit,
+ut neque diligat quemquam nec ipse ab ullo diligatur,
+circumfluere omnibus copiis atque in omnium rerum
+abundantia vivere? <reg>haec</reg> enim est tyrannorum
+vita, nimirum in qua nulla fides, nulla caritas, nulla
+
+<pb id="p.164"/>
+
+stabilis benevolentiae potest esse fiducia, omnia
+semper suspecta atque sollicita, nullus locus amicitiae.
+<milestone unit="section" n="53"/><reg>quis</reg> enim aut eum diligat, quem metuat, aut eum,
+a quo se metui putet? <reg>coluntur</reg> tamen simulatione
+dumtaxat ad tempus. <reg>quod</reg> si forte, ut fit plerumque, ceciderint, tum intellegitur quam fuerint inopes amicorum. <reg>quod</reg> Tarquinium dixisse ferunt
+exulantem, tum se intellexisse, quos fidos amicos
+habuisset, quos infidos, cum iam neutris gratiam
+referre posset.</p>
+<p><milestone unit="section" n="54"/><reg>quamquam</reg> miror, illa superbia et importunitate, si
+quemquam amicum habere potuit. <reg>atque</reg> ut huius,
+quem dixi, mores veros amicos parare non potuerunt,
+sic multorum opes praepotentium excludunt amicitias
+fidelis. <reg>non</reg> enim solum ipsa fortuna caeca est, sed
+eos etiam plerumque efficit caecos, quos complexa
+est; itaque efferuntur fere fastidio et contumacia,
+nec quicquam insipiente fortunato intolerabilius fieri
+potest. <reg>atque</reg> hoc quidem videre licet, eos, qui
+antea commodis fuerint moribus, imperio potestate
+prosperis rebus immutari, sperni ab eis veteres amicitias, indulgeri novis.<milestone unit="section" n="55"/><reg>quid</reg> autem stultius quam,
+cum plurimum copiis facultatibus opibus possint,
+cetera parare, quae parantur pecunia, equos famulos
+vestem egregiam vasa pretiosa, amicos non parare,
+optimam et pulcherrimam vitae, ut ita dicam, supellectilem? <reg>etenim</reg> cetera cum parant, cui parent
+
+<pb id="p.166"/>
+
+nesciunt nec cuius causa laborent; eius enim est
+istorum quidque qui vicit viribus; amicitiarum sua
+cuique permanet stabilis et certa possessio, ut etiam
+si illa maneant, quae sunt quasi dona fortunae, tamen
+vita inculta et deserta ab amicis non possit esse
+iucunda. <reg>sed</reg> haec hactenus.</p>
+<p><milestone unit="section" n="56"/><milestone unit="chapter" n="16"/><reg>constituendi</reg> autem sunt, qui sint in amicitia
+fines et quasi termini diligendi. <name>De</name> <corr sic="quibis">quibus</corr> tris video
+sententias ferri, quarum nullam probo: unam, ut
+eodem modo erga amicum affecti simus quo erga
+nosmet ipsos; alteram, ut nostra in amicos benevolentia illorum erga nos benevolentiae pariter
+aequaliterque respondeat; tertiam, ut, quanti
+quisque se ipse facit, tanti fiat ab amicis.<milestone unit="section" n="57"/><reg>harum</reg>
+trium sententiarum nulli prorsus assentior. <reg>nec</reg>
+enim illa prima vera est, ut, quem ad modum in se
+quisque, sic in amicum sit animatus. <reg>quam</reg> multa
+enim, quae nostra causa numquam faceremus,
+facimus causa amicorum! <reg>precari</reg> ab indigno, supplicare, tum acerbius in aliquem invehi insectarique
+vehementius, quae in nostris rebus non satis honeste,
+in amicorum fiunt honestissime; multaeque res
+sunt, in quibus de suis commodis viri boni multa
+detrahunt detrahique patiuntur, ut eis amici potius
+quam ipsi fruantur.</p>
+<p><milestone unit="section" n="58"/><reg>altera</reg> sententia est quae definit amicitiam pari-
+
+<pb id="p.168"/>
+
+bus officiis ac voluntatibus. <reg>hoc</reg> quidem est nimis
+exigue et exiliter ad calculos vocare amicitiam, ut
+par sit ratio acceptorum et datorum. <reg>divitior</reg> mihi
+et affluentior videtur esse vera amicitia nec observare
+restricte ne plus reddat quam acceperit: neque
+enim verendum est ne quid excidat aut ne quid
+in terram defluat aut ne plus aequo quid in amicitiam
+congeratur.</p>
+<p><milestone unit="section" n="59"/><reg>tertius</reg> vero ille finis deterrimus, ut, quanti quisque
+se ipse faciat, tanti fiat ab amicis. <reg>saepe</reg> enim
+in quibusdam aut animus abiectior est aut spes
+amplificandae fortunae fractior. <reg>non</reg> est igitur
+amici talem esse in eum, qualis ille in se est, sed
+potius eniti et efficere ut amici iacentem animum
+excitet inducatque spem cogitationemque meliorem.
+<reg>alius</reg> igitur finis verae amicitiae constituendus est,
+si prius, quid maxime reprehendere Scipio solitus
+sit, dixero. <reg>negabat</reg> ullam vocem inimiciorem
+amicitiae potuisse reperiri quam eius qui dixisset
+ita amare oportere ut si aliquando esset osurus;
+nec vero se adduci posse ut hoc, quem ad modum
+putaretur, a Biante esse dictum crederet, qui sapiens
+habitus esset unus e septem; impuri cuiusdam aut
+ambitiosi aut omnia ad suam potentiam revocantis
+
+<pb id="p.170"/>
+
+esse sententiam. <reg>quonam</reg> enim modo quisquam
+amicus esse poterit ei, cui se putabit inimicum esse
+posse? <reg>quin</reg> etiam necesse erit cupere et optare
+ut quam saepissime peccet amicus, quo pluris det
+sibi tamquam ansas ad reprehendendum: rursum
+autem recte factis commodisque amicorum necesse
+erit angi dolere invidere.<milestone unit="section" n="60"/><reg>qua</reg> re hoc quidem praeceptum, cuiuscumque est, ad tollendam amicitiam
+valet: illud potius praecipiendum fuit, ut <corr sic="earn">eam</corr>
+diligentiam adhiberemus in amicitiis comparandis,
+ut ne quando amare inciperemus eum, quem aliquando odisse possemus. <reg>quin</reg> etiam si minus
+felices in deligendo fuissemus, ferendum id Scipio
+potius quam inimicitiarum tempus cogitandum
+putabat.</p>
+<p><milestone unit="section" n="61"/><milestone unit="chapter" n="17"/><name>His</name> igitur finibus utendum arbitror, ut,
+cum emendati mores amicorum sint, tum sit inter eos
+omnium rerum consiliorum voluntatum sine ulla
+exceptione communitas, ut etiam si qua fortuna
+accident ut minus iustae amicorum voluntates
+adiuvandae sint, in quibus eorum aut caput agatur
+aut fama, declinandum de via sit, modo ne summa
+turpitudo sequatur; est enim quatenus amicitiae
+dari venia possit. <reg>nec</reg> vero neglegenda est fama,
+nec mediocre telum ad res gerendas existimare
+oportet benevolentiam civium, quam blanditiis et
+assentando colligere turpe est; virtus, quam sequitur
+caritas, minime repudianda est.</p>
+
+<pb id="p.172"/>
+
+<p><milestone unit="section" n="62"/><reg>sed</reg>&mdash;saepe enim redeo ad Scipionem, cuius omnis
+sermo erat de amicitia&mdash;querebatur quod omnibus
+in rebus homines diligentiores essent; capras et
+ovis quot quisque haberet dicere posse, amicos quot
+haberet non posse dicere; et in illis quidem parandis
+adhibere curam, in amicis eligendis neglegentis esse
+nec habere quasi signa quaedam et notas, quibus
+eos, qui ad amicitiam essent idonei, iudicarent.
+<reg>sunt</reg> igitur firmi et stabiles et constantes eligendi,
+cuius generis est magna penuria; et iudicare difficile
+est sane nisi expertum, experiendum autem est in
+ipsa amicitia: ita praecurrit amicitia iudicium
+tollitque experiendi potestatem.<milestone unit="section" n="63"/><reg>est</reg> igitur prudentis sustinere ut cursum, sic impetum benevolentiae, quo utamur, quasi equis temptatis, sic amicitia,
+aliqua parte periclitatis moribus amicorum. <reg>quidam</reg>
+saepe in parva pecunia perspiciuntur quam sint leves;
+quidam autem, quos parva movere non potuit, cognoscuntur in magna. <reg>sin</reg> vero erunt aliqui reperti
+qui pecuniam praeferre amicitiae sordidum existiment, ubi eos inveniemus, qui honores magistratus
+imperia potestates opes amicitiae non anteponant,
+ut, cum ex altera parte proposita haec sint, ex altera
+ius amicitiae, non multo illa malint? <reg>imbecilla</reg> enim
+est natura ad contemnendam potentiam, quam
+etiam si neglecta amicitia consecuti sint, obscuratum
+
+<pb id="p.174"/>
+
+iri arbitrantur, quia non sine magna causa sit neglecta
+amicitia.<milestone unit="section" n="64"/><reg>itaque</reg> verae amicitiae difficillime reperiuntur in eis, qui in honoribus reque publica versantur.
+<reg>ubi</reg> enim istum invenias, qui honorem amici anteponat suo? <reg>quid</reg>? haec ut omittam, quam graves,
+quam difficiles plerisque videntur calamitatum societates, ad quas non est facile inventu qui descendant.
+<reg>quamquam</reg> Ennius recte:
+
+<quote rend="blockquote">
+<l>amicus certus in re incerta cernitur;</l></quote>
+
+tamen haec duo levitatis et infirmitatis plerosque
+convincunt, aut si in bonis rebus contemnunt aut in
+malis deserunt. <reg>qui</reg> igitur utraque in re gravem
+constantem stabilem se in amicitia praestiterit, hunc
+ex maxime raro genere hominum iudicare debemus
+et paene divino.</p>
+<p><milestone unit="section" n="65"/><milestone unit="chapter" n="18"/><reg>firmamentum</reg> autem stabilitatis constantiaeque est eius quam<note>quam <hi rend="italics">MSS.,</hi> quem <hi rend="italics"><name>Reid</name>.</hi></note> in amicitia quaerimus
+fides est; nihil est enim stabile, quod infidum est.
+<reg>simplicem</reg> praeterea et communem et consentientem, id est, qui rebus isdem moveatur, elegi par est;
+quae omnia pertinent ad fidelitatem. <reg>neque</reg> enim
+fidum potest esse multiplex ingenium et tortuosum,
+neque vero, qui non isdem rebus movetur naturaque
+
+<pb id="p.176"/>
+
+consentit, aut fidus aut stabilis potest esse. <reg>addendum</reg> eodem est, ut ne criminibus aut inferendis
+delectetur aut credat oblatis, quae pertinent omnia
+ad <corr sic="ear">eam</corr>, quam iam dudum tracto, constantiam. <reg>ita</reg>
+fit verum illud, quod initio dixi, amicitiam nisi inter
+bonos esse non posse.</p>
+<p><reg>est</reg> enim boni viri, quem eundem sapientem licet
+dicere, haec duo tenere in amicitia: primum, ne
+quid fictum sit neve simulatum; aperte enim vel
+odisse magis ingenui est quam fronte occultare
+sententiam; deinde non solum ab aliquo allatas
+criminationes repellere, sed ne ipsum quidem esse
+suspiciosum, semper aliquid existimantem ab amico
+esse violatum.<milestone unit="section" n="66"/><reg>accedat</reg> huc suavitas quaedam
+oportet sermonum atque morum, haudquaquam
+mediocre condimentum amicitiae. <reg>tristitia</reg> autem
+et in omni re severitas habet illa quidem gravitatem,
+sed amicitia remissior esse debet et liberior et dulcior
+et ad omnem comitatem facilitatemque proclivior.</p>
+<p><milestone unit="section" n="67"/><milestone unit="chapter" n="19"/><reg>exsistit</reg> autem hoc loco quaedam quaestio
+subdifficilis, num quando amici novi, digni amicitia,
+veteribus sint anteponendi, ut equis vetulis teneros
+anteponere solemus. <reg>indigna</reg> homine dubitatio;
+non enim debent esse amicitiarum, sicut aliarum
+rerum, satietates; veterrima quaeque, ut ea vina
+quae vetustatem ferunt, esse debent suavissima,
+verumque illud est, quod dicitur, multos modios
+salis simul edendos esse, ut amicitiae munus expletum
+
+<pb id="p.178"/>
+
+sit.<milestone unit="section" n="68"/><reg>novitates</reg> autem, si spem afferunt, ut tamquam
+in herbis non fallacibus fructus appareat, non sunt
+illae quidem repudiandae, vetustas tamen suo loco
+conservanda; maxima est enim vis vetustatis et
+consuetudinis. <reg>quin</reg> in ipso<note>quin in ipso <hi rend="italics"><name>Bennett</name> from Cornell MS.;</hi> qui in ipso <hi rend="italics">P;</hi>
+quin et in ipso <hi rend="italics">GBESV; Reid has</hi> ipso equo.</note> equo, cuius modo feci
+mentionem, si nulla res impediat, nemo est quin eo,
+quo consuevit, libentius utatur quam intractato et
+novo; nec vero in hoc, quod est animal, sed in eis
+etiam, quae sunt inanima, consuetudo valet, cum
+locis ipsis delectemur, montuosis etiam et silvestribus, in quibus diutius commorati sumus.</p>
+<p><milestone unit="section" n="69"/><reg>sed</reg> maximum est in amicitia superiorem parem
+esse inferiori. <reg>saepe</reg> enim excellentiae quaedam
+sunt, qualis erat Scipionis in nostro, ut ita dicam,
+grege. <reg>numquam</reg> se ille Philo, numquam Rupilio,
+numquam Mummio anteposuit, numquam inferioris
+ordinis amicis. Q. vero Maximum fratrem, egregium
+virum omnino, sibi nequaquam parem, quod is
+anteibat aetate, tamquam superiorem colebat suosque omnis per se posse esse ampliores volebat.<milestone unit="section" n="70"/><reg>quod</reg>
+faciendum imitandumque est omnibus, ut, si quam
+praestantiam virtutis ingeni fortunae consecuti sunt,
+impertiant ea suis communicentque cum proximis;
+ut, si parentibus nati sint humilibus, si propinquos
+habeant imbecilliore vel animo vel fortuna, eorum
+augeant opes eisque honori sint et dignitati. <reg>ut</reg>
+in fabulis, qui aliquamdiu propter ignorationem
+
+<pb id="p.180"/>
+
+stirpis et generis in famulatu fuerunt, cum cogniti
+sunt et aut deorum aut regum filii inventi, retinent
+tamen caritatem in pastores, quos patres multos
+annos esse duxerunt. <reg>quod</reg> est multo profecto
+magis in veris patribus certisque faciendum. <reg>fructus</reg>
+enim ingeni et virtutis omnisque praestantiae tum
+maximus capitur, cum in proximum quemque confertur.</p>
+<p><milestone unit="section" n="71"/><milestone unit="chapter" n="20"/><reg>ut</reg> igitur ei, qui sunt in amicitiae coniunctionisque necessitudine superiores, exaequare se cum
+inferioribus debent, sic inferiores non dolere se a
+suis aut ingenio aut fortuna aut dignitate superari.
+<reg>quorum</reg> plerique aut queruntur semper aliquid aut
+etiam exprobrant, eoque magis si habere se putant
+quod officiose et amice et cum labore, aliquo suo
+factum queant dicere. <reg>odiosum</reg> sane genus hominum
+officia exprobrantium, quae meminisse debet is,
+in quem collata sunt, non commemorare qui contulit.
+<milestone unit="section" n="72"/><reg>quam</reg> ob rem, ut ei, qui superiores sunt, submittere
+se debent in amicitia, sic quodam modo inferiores
+extollere. <reg>sunt</reg> enim quidam qui molestas amicitias
+faciunt cum ipsi se contemni putant&mdash;quod non
+fere contingit nisi eis qui etiam contemnendos se
+arbitrantur; qui hac opinione non modo verbis, sed
+etiam opera<note>opera <hi rend="italics"><name>Reid</name>;</hi> opere <hi rend="italics">MSS.</hi></note> levandi sunt.<milestone unit="section" n="73"/><reg>tantum</reg> autem cuique
+tribuendum, primum quantum ipse efficere possis,
+deinde etiam quantum ille, quem diligas atque
+
+<pb id="p.182"/>
+
+adiuves, sustinere. <reg>non</reg> enim neque tu possis,
+quamvis excellas, omnis tuos ad honores amplissimos
+perducere, ut Scipio P. Rupilium potuit consulem
+efficere, fratrem eius Lucium non potuit. <reg>quod</reg> si
+etiam possis quidvis deferre ad alterum, videndum
+est tamen quid ille possit sustinere.</p>
+<p><milestone unit="section" n="74"/><reg>omnino</reg> amicitiae corroboratis iam confirmatisque
+et ingeniis et aetatibus iudicandae sunt; nec, si qui
+ineunte aetate venandi aut pilae studiosi fuerunt,
+eos habere necessarios, quos tum eodem studio praeditos dilexerunt. <reg>isto</reg> enim modo nutrices et paedagogi iure vetustatis plurimum benevolentiae postulabunt. <reg>qui</reg> neglegendi quidem non sunt, sed alio
+quodam modo aestimandi<note>aestimandi <hi rend="italics"><reg>mommsen</reg>'s conjec. for</hi> est <hi rend="italics">or</hi> est. et <hi rend="italics"><name>Mss</name>.</hi></note> ; aliter amicitiae stabiles
+permanere non possunt. <reg>disparis</reg> enim mores disparia
+studia sequuntur, quorum dissimilitudo dissociat amicitias; nec ob aliam causam ullam boni improbis,
+improbi bonis amici esse non possunt, nisi quod
+tanta est inter eos, quanta maxima potest esse,
+morum studiorumque distantia.</p>
+<p><milestone unit="section" n="75"/><reg>recte</reg> etiam praecipi potest in amicitiis, ne intemperata quaedam benevolentia, quod persaepe fit,
+impediat magnas utilitates amicorum. <reg>nec</reg> enim,
+ut ad fabulas redeam, Troiam Neoptolemus capere
+
+<pb id="p.184"/>
+
+potuisset, si <corr sic="Lycomeden">Lycomedem</corr>, apud quem erat educatus,
+multis cum lacrimis iter suum impedientem audire
+voluisset. <reg>et</reg> saepe incidunt magnae res, ut discedendum sit ab amicis; quas qui impedire volt,
+quod desiderium non facile ferat, is et infirmus est
+mollisque natura et ob eam ipsam causam in amicitia
+parum iustus.<milestone unit="section" n="76"/><reg>atque</reg> in omni re considerandum est
+et quid postules ab amico et quid patiare a te
+impetrari.</p>
+<p><milestone unit="chapter" n="21"/><reg>est</reg> etiam quaedam calamitas in amicitiis
+dimittendis non numquam necessaria&mdash;iam enim a
+sapientium familiaritatibus ad volgaris amicitias
+oratio nostra delabitur. <reg>erumpunt</reg> saepe vitia
+amicorum <corr sic="tur">tum</corr> in ipsos amicos, <corr sic="tur">tum</corr> in alienos,
+quorum tamen ad amicos redundet infamia. <reg>tales</reg>
+igitur amicitiae sunt remissione usus eluendae et,
+ut Catonem dicere audivi, dissuendae magis quam
+discindendae, nisi quaedam admodum intolerabilis
+iniuria exarserit, ut neque rectum neque honestum
+sit nec fieri possit ut non statim alienatio disiunctioque facienda sit.</p>
+<p><milestone unit="section" n="77"/><reg>sin</reg> autem aut morum aut studiorum commutatio
+quaedam, ut fieri solet, facta erit, aut in rei publicae
+partibus dissensio intercesserit (loquor enim iam,
+
+<pb id="p.186"/>
+
+ut paulo ante dixi, non de sapientium, sed de communibus amicitiis) cavendum erit ne non solum
+amicitiae depositae, sed etiam inimicitiae susceptae
+videantur. <reg>nihil</reg> enim est turpius quam cum eo
+bellum gerere, quocum familiariter vixeris. <reg>ab</reg>
+amicitia Q. Pompei meo nomine se removerat, ut
+scitis, Scipio; propter <corr sic="dissensicnem">dissensionem</corr> autem, quae
+erat in re publica, alienatus est a collega nostro
+Metello; utrumque egit graviter ac moderate<note>graviter ac moderate <hi rend="italics"><name>Reid</name>;</hi> graviter auctoritate <hi rend="italics">MSS.</hi></note> et
+offensione animi non acerba.<milestone unit="section" n="78"/><reg>quam</reg> ob rem primum
+danda opera est ne qua amicorum discidia fiant, sin
+tale aliquid evenerit, ut exstinctae potius amicitiae
+quam oppressae esse videantur. <reg>cavendum</reg> vero
+ne etiam in gravis inimicitias convertant se amicitiae
+ex quibus iurgia maledicta contumeliae gignuntur.
+<reg>quae</reg> tamen si tolerabiles erunt, ferendae sunt et
+<corr sic="hie">hic</corr> honos veteri amicitiae tribuendus, ut is in culpa
+sit qui faciat, non is qui patiatur, iniuriam.</p>
+<p><reg>omnino</reg> omnium horum vitiorum atque incommodorum una cautio est atque una provisio, ut ne
+nimis cito diligere incipiant neve non dignos.<milestone unit="section" n="79"/><reg>digni</reg>
+autem sunt amicitia, quibus in ipsis inest causa cur
+diligantur. <reg>rarum</reg> genus! et quidem omnia praeclara,
+rara, nec quicquam difficilius quam reperire quod sit
+omni ex parte in suo genere perfectum. <reg>sed</reg> plerique
+neque in rebus humanis quicquam bonum norunt nisi
+
+<pb id="p.188"/>
+
+quod fructuosum sit, et amicos tamquam pecudes eos
+potissimum diligunt, ex quibus sperant se maximum
+fructum esse capturos.<milestone unit="section" n="80"/><reg>ita</reg> pulcherrima illa et
+maxime naturali carent amicitia per se et propter
+se expetita,nec ipsi sibi exemplo sunt, haec vis
+amicitiae et qualis et quanta sit. <reg>ipse</reg> enim se
+quisque diligit, non ut aliquam a se ipse mercedem
+exigat caritatis suae, sed quod per se quisque sibi
+carus est; quod nisi idem in amicitiam transferetur,
+verus amicus numquam reperietur: est enim is
+qui est tamquam alter idem.</p>
+<p><milestone unit="section" n="81"/><reg>quod</reg> si hoc apparet in bestiis, volucribus nantibus
+agrestibus, cicuribus feris, primum ut se ipsae diligant&mdash;id enim pariter cum omni animante nascitur
+&mdash;deinde, ut requirant atque appetant ad quas se
+applicent eiusdem generis animantis&mdash;idque faciant
+<corr sic="oum">cum</corr> desiderio et cum quadam similitudine amoris
+humani&mdash;quanto id magis in homine fit natura, qui
+et se ipse diligit et alterum anquirit, cuius animum
+ita cum suo misceat, ut efficiat paene unum ex
+duobus!</p>
+<p><milestone unit="section" n="82"/><milestone unit="chapter" n="22"/><reg>sed</reg> plerique perverse, ne dicam impudenter, habere talem amicum volunt, quales ipsi
+esse non possunt, quaeque ipsi non tribuunt amicis,
+haec ab eis desiderant. <reg>par</reg> est autem primum ipsum
+esse virum bonum, tum alterum similem sui quaerere.
+<reg>in</reg> talibus ea, quam iam dudum tractamus, stabilitas
+
+<pb id="p.190"/>
+
+amicitiae confirmari potest, cum homines benevolentia coniuncti primum cupiditatibus eis quibus ceteri
+serviunt imperabunt; deinde aequitate iustitiaque
+gaudebunt omniaque alter pro altero suscipiet; neque
+quicquam umquam nisi honestum et rectum alter ab
+altero postulabit, neque solum colent inter se ac
+diligent, sed etiam verebuntur. <reg>nam</reg> maximum
+ornamentum amicitiae tollit, qui ex ea tollit verecundiam.<milestone unit="section" n="83"/><reg>itaque</reg> in eis perniciosus est error, qui
+existimant libidinum peccatorumque omnium patere
+in amicitia licentiam. <reg>virtutum</reg> amicitia adiutrix
+a natura data est, non vitiorum comes, ut, quoniam
+solitaria non posset virtus ad ea quae summa sunt
+pervenire, coniuncta et consociata cum altera perveniret. <reg>quae</reg> si quos inter societas aut est aut fuit
+aut futura est, eorum est habendus ad summum
+naturae bonum optimus beatissimusque comitatus.
+<milestone unit="section" n="84"/><reg>haec</reg> est, inquam, societas, in qua omnia insunt,
+quae putant homines expetenda&mdash;honestas gloria
+tranquillitas animi atque iucunditas; ut et, cum
+haec adsint, beata vita sit, et sine his esse non possit</p>
+<p><reg>quod</reg> cum optimum maximumque sit, si id volumus
+adipisci, virtuti opera danda est, sine qua nec amicitiam neque ullam rem expetendam consequi possumus; ea vero neglecta qui se amicos habere
+arbitrantur, <corr sic="tur">tum</corr> se denique errasse sentiunt, cum
+eos gravis aliquis casus experiri cogit.<milestone unit="section" n="85"/><reg>quocirca</reg>,
+dicendum est enim saepius, cum iudicaris, diligere
+
+<pb id="p.192"/>
+
+oportet; non, cum dilexeris, iudicare. <reg>sed</reg> cum
+multis in rebus neglegentia plectimur, tum maxime
+in amicis et diligendis et colendis; praeposteris
+enim utimur consiliis et acta agimus, quod vetamur
+vetere proverbio. <reg>nam</reg>, implicati ultro et citro vel
+usu diuturno vel etiam officiis, repente in medio
+cursu amicitias exorta aliqua offensione disrumpimus.</p>
+<p><milestone unit="section" n="86"/><milestone unit="chapter" n="23"/><reg>quo</reg> etiam magis vituperanda est rei
+maxime necessariae tanta incuria. <reg>una</reg> est enim
+amicitia in rebus humanis, de cuius utilitate omnes
+uno ore consentiunt; quamquam a multis virtus
+ipsa contemnitur et venditatio quaedam atque ostentatio esse dicitur; multi divitias despiciunt, quos
+parvo contentos tenuis victus cultusque delectat;
+honores vero, quorum cupiditate quidam inflammantur, quam multi ita contemnunt, ut nihil inanius,
+nihil esse levius existiment! <reg>itemque</reg> cetera, quae
+quibusdam admirabilia videntur, permulti sunt qui
+pro nihilo putent. <name>De</name> amicitia omnes ad unum idem
+sentiunt; et ei qui ad rem publicam se contulerunt,
+et ei qui rerum cognitione doctrinaque delectantur,
+et ei qui suum negotium gerunt otiosi; postremo
+ei qui se totos tradiderunt voluptatibus, sine amicitia
+
+<pb id="p.194"/>
+
+vitam esse nullam, si modo velint aliqua ex parte
+liberaliter vivere.<milestone unit="section" n="87"/><reg>serpit</reg> enim nescio quo modo per
+omnium vitas amicitia nec ullam aetatis degendae
+rationem patitur esse expertem sui.</p>
+<p><reg>quin</reg> etiam si quis asperitate ea est et immanitate
+naturae, congressus ut hominum fugiat atque oderit,
+qualem fuisse Athenis Timonem nescio quem accepimus, tamen is pati non possit, ut non anquirat
+aliquem, apud quem evomat virus acerbitatis suae.
+<reg>atque</reg> hoc maxime iudicaretur, si quid tale possit
+contingere, ut aliquis nos deus ex hac hominum
+frequentia tolleret et in solitudine uspiam collocaret
+atque ibi suppeditans omnium rerum quas natura
+desiderat, abundantiam et copiam, hominis omnino
+aspiciendi potestatem eriperet&mdash;quis tam esset
+ferreus qui <corr sic="earn">eam</corr> vitam ferre posset cuique non auferret
+fructum voluptatum omnium solitudo?<milestone unit="section" n="88"/><reg>verum</reg> ergo
+illud est, quod a Tarentino Archyta, ut opinor, dici
+solitum nostros senes commemorare audivi ab aliis
+senibus auditum: si quis in caelum ascendisset
+naturamque mundi et pulchritudinem siderum perspexisset, insuavem illam admirationem ei fore,
+quae iucundissima fuisset, si aliquem cui narraret
+habuisset. <reg>Sic</reg> natura solitarium nihil amat semperque ad aliquod tamquam adminiculum adnititur, quod
+in amicissimo quoque dulcissimum est.</p>
+
+<pb id="p.196"/>
+
+<p><milestone unit="chapter" n="24"/><reg>sed</reg> cum tot signis eadem natura declaret
+quid velit anquirat desideret, tamen obsurdescimus
+nescio quo modo nec ea, quae ab ea monemur,
+audimus. <reg>est</reg> enim varius et multiplex usus amicitiae multaeque causae suspicionum offensionumque
+dantur, quas tum evitare, tum elevare, <corr sic="tur">tum</corr> ferre
+sapientis est. <reg>una</reg> illa subeunda<note>subeunda <hi rend="italics">edd.;</hi> sublevanda <hi rend="italics">aMSS.</hi></note> est offensio ut et
+utilitas in amicitia et fides retineatur; nam et
+monendi amici saepe sunt et obiurgandi, et haec
+accipienda amice, cum benevole fiunt.<milestone unit="section" n="89"/><reg>sed</reg> nescio
+quo modo verum est, quod in Andria familiaris
+meus dicit:
+
+<quote rend="blockquote">
+<l>obsequium amicos, veritas odium parit.</l></quote>
+
+<reg>molesta</reg> veritas, siquidem ex ea nascitur odium, quod
+est venenum amicitiae, sed obsequium multo molestius, quod peccatis indulgens praecipitem amicum
+ferri sinit; maxima autem culpa in eo, qui et veritatem aspernatur et in fraudem obsequio impellitur.</p>
+<p><reg>omni</reg> igitur hac in re habenda ratio et diligentia
+est, primum ut monitio acerbitate, deinde ut obiurgatio contumelia careat. <reg>in</reg> obsequio autem, quoniam Terentiano verbo lubenter <corr sic="utirur">utimur</corr>, comitas adsit,
+assentatio vitiorum adiutrix procul amoveatur, quae
+non modo amico, sed ne libero quidem digna est;
+aliter enim cur tyranno, aliter cum amico vivitur.
+
+<pb id="p.198"/>
+
+<milestone unit="section" n="90"/>Cuius autem aures clausae veritati sunt, uta ab amico
+verum audire nequeat, huius salus desperanda est.
+<reg>scitum</reg> est enim illud Catonis, ut multa: melius
+de quibusdam acerbos inimicos mereri, quam eos
+amicos, qui dulces videantur; illos verum saepe
+dicere, hos numquam. <reg>atque</reg> illud absurdum, quod
+ei, qui monentur, eam molestiam quam debent
+capere non capiunt, ear capiunt qua debent vacare.
+<reg>peccasse</reg> enim se non anguntur, obiurgari moleste
+ferunt; quod contra oportebat delicto dolere, correctione gaudere.</p>
+<p><milestone unit="section" n="91"/><milestone unit="chapter" n="25"/><reg>ut</reg> igitur et monere et moneri proprium
+est verae amicitiae, et alterum libere facere, non
+aspere, alterum patienter accipere, non repugnanter,
+sic habendum est nullam in amicitiis pestem esse
+maiorem quam adulationem blanditiam assentationem: quamvis enim multis nominibus est hoc
+vitium notandum levium hominum atque fallacium,
+ad voluptatem loquentium omnia, nihil ad veritatem.<milestone unit="section" n="92"/><reg>cum</reg> autem omnium rerum simulatio vitiosa
+est, tollit enim iudicium veri idque adulterat, tum
+amicitiae repugnat maxime; delet enim veritatem,
+sine qua nomen amicitiae valere non potest. <reg>nam</reg>
+cum amicitiae vis sit in eo ut unus quasi animus
+fiat ex pluribus, qui id fieri poterit, si ne in uno
+quidem quoque unus animus erit idemque semper,
+sed varius commutabilis multiplex?<milestone unit="section" n="93"/><reg>quid</reg> enim
+
+<pb id="p.200"/>
+
+potest esse tam flexibile, tam devium, quam animus
+eius, qui ad alterius non modo sensum ac voluntatem, sed etiam voltum atque nutum convertitur?
+
+<quote rend="blockquote">negat quis, nego; ait, aio; postremo imperavi egomet mihi
+omnia assentari,</quote>
+
+ut ait idem Terentius, sed ille in Gnathonis persona,
+quod amici genus adhibere omnino levitatis est.
+<milestone unit="section" n="94"/><reg>multi</reg> autem Gnathonum similes, cum sint loco fortuna fama superiores, quorum<note>quorum <hi rend="italics"><name>Reid</name>;</hi> horum <hi rend="italics"><reg>mf</reg>SS.</hi></note> est assentatio molesta,
+cum ad vanitatem accessit auctoritas.<milestone unit="section" n="95"/><reg>secerni</reg>
+autem blandus amicus a vero et internosci tam potest
+adhibita diligentia, quam omnia fucata et simulata
+a sinceris atque veris. <reg>contio</reg>, quae ex imperitissimis constat, tamen iudicare solet, quid intersit
+inter popularem, id est assentatorem et levem civem,
+et inter constantem et verum et gravem.<milestone unit="section" n="96"/><reg>quibus</reg>
+blanditiis C. Papirius nuper influebat in auris contionis, cum ferret legem de tribunis plebis reficiendis!
+<reg>dissuasimus</reg> nos, sed nihil de me, de Scipione
+dicam libentius. <reg>quanta</reg> illi, di immortales, fuit
+gravitas, quanta in oratione maiestas! ut facile
+ducem populi Romani, non comitem diceres. <reg>sed</reg>
+affuistis, et est in manibus oratio. <reg>itaque</reg> lex
+popularis suffragiis populi repudiata est.</p>
+
+<pb id="p.202"/>
+
+<p><reg>atque</reg>, ut ad me redeam, meministis Q. Maximo
+fratre Scipionis et L. Mancino consulibus, quam
+popularis lex de sacerdotiis C. Licini Crassi videbatur; cooptatio enim collegiorum ad populi beneficium transferebatur. (Atque is primus instituit in
+forum versus agere cum populo.) Tamen illius
+vendibilem orationem religio deorum immortalium
+nobis defendentibus facile vincebat. <reg>atque</reg> id actum
+est praetore me, quinquennio ante quam consul sum
+factus. <reg>ita</reg> re magis quam summa auctoritate causa
+illa defensa est.</p>
+<p><milestone unit="section" n="97"/><milestone unit="chapter" n="26"/><reg>quod</reg> si in scena, id est in contione, in
+qua rebus fictis et adumbratis loci plurimum est,
+tamen verum valet, si modo id patefactum et illustratum est, quid in amicitia fieri oportet, quae tota
+veritate perpenditur? <reg>in</reg> qua nisi, ut dicitur,
+apertum pectus videas tuumque ostendas, nihil
+fidum, nihil exploratum habeas, ne amare quidem
+aut amari, cum id quam vere fiat ignores. <reg>quamquam</reg> ista assentatio, quamvis perniciosa sit, nocere
+tamen nemini potest nisi ei, qui eam recipit atque
+ea delectatur. <reg>ita</reg> fit ut is assentatoribus patefaciat
+auris suas maxime, qui ipse sibi assentetur et se
+maxime ipse delectet.</p>
+<p><milestone unit="section" n="98"/><reg>omnino</reg> est amans sui virtus; optime enim se
+ipsa novit quamque amabilis sit intellegit: ego autem
+
+<pb id="p.204"/>
+
+non de virtute nunc loquor, sed de virtutis opinione.
+<reg>virtute</reg> enim ipsa non tam multi praediti esse quam
+videri volunt. <reg>hos</reg> delectat assentatio, his fictus
+ad ipsorum voluntatem sermo cum adhibetur,
+orationem illam vanam testimonium esse laudum
+suarum putant. <reg>nulla</reg> est igitur haec amicitia,
+cum alter verum audire non volt, alter ad mentiendum paratus est. <reg>nec</reg> parasitorum in comoediis
+assentatio faceta nobis videretur, nisi essent milites
+gloriosi.
+
+<quote rend="blockquote">
+<l>magnas vero agere gratias Thais mihi?</l></quote>
+
+<reg>satis</reg> erat respondere <quote>magnas.</quote> <quote><reg>ingentis</reg>,</quote> inquit
+Semper auget assentator id, quod is, cuius ad voluntatem dicitur, volt esse magnum.<milestone unit="section" n="99"/><reg>quam</reg> ob rem,
+quamquam blanda ista vanitas apud eos valet, qui
+ipsi illam adlectant et invitant, tamen etiam graviores
+constantioresque admonendi sunt, ut animadvertant
+ne callida assentatione capiantur.</p>
+<p><reg>aperte</reg> enim adulantem nemo non videt, nisi qui
+admodum est excors: callidus ille et occultus ne se
+insinuet studiose cavendum est. <reg>nec</reg> enim facillime
+agnoscitur, quippe qui etiam adversando saepe
+assentetur et litigare se simulans blandiatur atque
+ad extremum det manus vincique se patiatur, ut
+is, qui illusus sit, plus vidisse videatur. <reg>quid</reg> autem
+turpius quam illudi? <reg>quod</reg> ut ne accidat magis
+cavendum est:
+
+<pb id="p.206"/>
+
+<quote rend="blockquote">
+<l>ut me hodie ante omnis comicos stultos sense</l>
+<l>versaris atque illusseris lautissime!</l></quote>
+
+<milestone unit="section" n="100"/><reg>haec</reg> enim etiam in fabulis stultissima persona est
+improvidorum et credulorum senum.</p>
+<p><reg>sed</reg> nescio quo pacto ab amicitiis perfectorum
+hominum, id est sapientium&mdash;de hac dico sapientia,
+quae videtur in hominem cadere posse&mdash;ad levis
+amicitias defluxit oratio. <reg>quam</reg> ob rem ad - illa
+prima redeamus eaque ipsa concludamus aliquando.</p>
+<p><milestone unit="chapter" n="27"/><reg>virtus</reg>, inquam, C. Fanni, et tu, Q. Muci,
+et conciliat amicitias et conservat. <reg>in</reg> ea est enim
+convenientia rerum, in ea stabilitas, in ea constantia;
+quae cum se extulit et ostendit suum lumen et idem
+aspexit agnovitque in alio, ad id se admovet vicissimque accipit illud, quod in altero est, ex quo
+exardescit sive amor sive amicitia; utrumque enim
+dictum<note>dictum <hi rend="italics">edd.;</hi> ductum <hi rend="italics">PDE.</hi></note> est ab amando, Amare autem nihil est
+aliud nisi eum ipsum diligere quem ames, nulla
+indigentia, nulla utilitate quaesita. <reg>quae</reg> tamen
+ipsa ecflorescit ex amicitia, etiam si tu eam minus
+secutus sis.<milestone unit="section" n="101"/><reg>hac</reg> nos adulescentes benevolentia
+senes illos, L. Paulum, M. Catonem, C. Gallum,
+P. Nasicam, Ti. Gracchum Scipionis nostri socerum
+dileximus. <reg>haec</reg> etiam magis elucet inter aequalis,
+
+<pb id="p.208"/>
+
+ut inter me et Scipionem, L. Furium, P. Rupilium,
+Sp. Mummium; vicissim autem senes in adulescentium caritate acquiescimus, ut in vestra, ut in
+Q. Tuberonis; equidem etiam admodum adulescentis P. Rutili, A. Vergini familiaritate delector.
+<reg>quoniamque</reg> ita ratio comparata est vitae naturaeque
+nostrae, ut alia aetas oriatur, maxime quidem optandum est ut cum aequalibus possis, quibuscum tamquam e carceribus emissus sis, cum isdem ad calcem,
+ut dicitur, pervenire.</p>
+<p><milestone unit="section" n="102"/><reg>sed</reg> quoniam res humanae fragiles caducaeque
+sunt, semper aliqui anquirendi sunt quos diligamus
+et a quibus diligamur; caritate enim benevolentiaque sublata omnis est e vita sublata iucunditas.
+<reg>mihi</reg> quidem Scipio, quamquam est subito ereptus,
+vivit tamen semperque vivet; virtutem enim amavi
+illius viri, quae exstincta non est. <reg>nec</reg> mihi soli
+versatur ante oculos, qui illam semper in manibus
+habui, sed etiam posteris erit clara et insignis. <reg>nemo</reg>
+umquam animo aut spe maiora suscipiet qui sibi
+non illius memoriam atque imaginem proponendam
+putet.</p>
+<p><milestone unit="section" n="103"/><reg>equidem</reg> ex omnibus rebus, quas mihi aut fortuna
+aut natura tribuit, nihil habeo quod cum amicitia
+Scipionis possim comparare. <reg>in</reg> hac <corr sic="milli">mihi</corr> de re
+publica consensus; in hac rerum privatarum consilium, in eadem requies plena oblectationis fuit.
+<reg>numquam</reg> illum ne minima quidem re offendi, quod
+quidem senserim, nihil audivi ex eo ipse quod nollem;
+
+<pb id="p.210"/>
+
+una domus erat, idem victus isque communis, neque
+solum militia, sed etiam peregrinationes rusticationesque communes.<milestone unit="section" n="104"/><reg>nam</reg> quid ego de studiis dicam
+cognoscendi semper aliquid atque discendi, in quibus
+remoti ab oculis populi omne otiosum tempus contrivimus? <reg>quarum</reg> rerum recordatio et memoria
+si una cum illo occidisset, desiderium coniunctissimi atque amantissimi viri ferre nullo modo possem.
+<reg>sed</reg> nec illa exstincta sunt alunturque potius et
+augentur cogitatione et memoria mea, et, si illis
+plane orbatus essem, magnum tamen affert mihi
+aetas ipsa solacium; diutius enim iam in hoc desiderio esse non possum; omnia autem brevia tolerabilia esse debent, etiam si magna sunt.</p>
+<p><reg>haec</reg> habui de amicitia quae dicerem; vos autem
+hortor ut ita virtutem locetis (sine qua amicitia esse
+non potest) ut ea excepta nihil amicitia praestabilius
+putetis.</p>
+</body>
+</text>
+
+</group>
+</text>
+</TEI.2>

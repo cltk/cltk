@@ -1,0 +1,275 @@
+<?xml version="1.0"?> 
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [ 
+<!ENTITY % TEI.XML "INCLUDE"> 
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" > 
+%PersProse; 
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+	<title type="work" n="Inst.">Institutio Oratoria, books 1-3: introduction</title>
+<title type="sub">Machine readable text</title>
+<author n="Quint.">Quintilian</author>
+ <editor role="editor" n="Butler">Harold Edgeworth Butler</editor>
+&responsibility;
+&fund.AnnCPB;
+</titleStmt>
+<extent>About 100Kb</extent>
+&Perseus.publish;
+<sourceDesc>
+<biblStruct>
+<monogr>
+<author>Quintilian</author>
+<title>With an English Translation</title>
+ <editor role="editor" n="Butler">Harold Edgeworth Butler</editor>
+<imprint>
+<pubPlace>Cambridge</pubPlace>
+<publisher>Cambridge, Mass., Harvard University Press; London, William Heinemann, Ltd.</publisher>
+<date>1920</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl doctype="TEI.2">
+<state unit="front"/>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change><date>2006</date>
+<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+<item></item>
+</change>
+
+</revisionDesc>
+</teiHeader>
+<text>
+<body>
+<!--<div1 type="chapter"><pb id="p.v"/><head>TABLE OF CONTENTS</head>
+
+<p>Introduction <ref target="p.vii">vii</ref></p>
+<p>BIBLIOGRAPHY <ref target="p.xi">xi</ref></p>
+<p>LETTER TO HIS PUBLISHER, TRYPIHO <ref target="p.2">2</ref></p>
+<p>BOOK I:
+Preface.&mdash;Ch. 1: Elementary Education.&mdash;Ch. 2: The merits of public and private education compared.&mdash;Ch. 3: General reflections on the capacityand treatment of pupils.&mdash;ch. 4: Grammar.&mdash; Ch. 5: Correctness; barbarisms; pronunciation: the aspirate; accents; solecisms; words, foreign, compound, metaphorical, new, etc.&mdash;Ch. 6: Language; analogy; etymology; old words; authority; usage.&mdash;Ch. 7: Orthography; difference between spelling and pronunciation.&mdash;Ch. 8: Reading; authors to be read; methods of teaching; value of history.&mdash;Ch. 9: Composition.&mdash;Ch. 10: Other studies necessary to rhetoric; music, geometry, astronomy.&mdash;Ch. 11: Instruction to be derived from the stage; delivery; gesture; recitation; gymnastic. &mdash;Ch. 12: Boys capable of studying a number of subjects at once. <ref target="p.4">4</ref></p>
+<p>BOOK II:
+Ch. 1 : Rhetoric not begun early enough; relations between <hi rend="italics">rhetor </hi>and <hi rend="italics">grammaticus.</hi>&mdash;Ch. 2: Choice of a teacher; mutual duties of teacher and pupil.&mdash;Ch. 3: Necessity of avoiding inferior teachers.&mdash;Ch. 4: Elementary rhetorical exercises; narratives; proof and refutation; panegyric and denunciation; commonplaces; theses; reasons; preparations for pleadings; praise and blame of particular laws; fictitious declamations.&mdash;Ch. 5: Assistance to be given to pupils.&mdash;Ch. 6: Declamation.&mdash;Ch. 7: Orthography.&mdash;Ch. 8: Different methods required for different pupils.&mdash;Ch. 9: Pupils to regard teachers as <hi rend="italics">in loco parentis.</hi>&mdash;Ch. 10: Themes for declamation; criticism of existing practice.&mdash;Ch. 11: Criticism of those who think instruction in rhetoric unnecessary; necessity of thoroughness of method.&mdash;Ch. 12: Merits and defects of untrained speakers.&mdash;Ch. 13: No rigid rules possible; necessity of adaptability value of rules.&mdash;Ch. 14: The term rhetoric or oratory ; heads under which it is to be considered. Ch. 15: What is oratory? Various definitions; Quintilian's definition.&mdash;Ch. 16: Oratory denounced by some because of its capacity for harm; its excellences and value.&mdash;Ch. 17: Oratory an art; critics of this view; critics of its morality; relation to truth.&mdash;Ch. 18: Arts or sciences of three kinds; rhetoric a practical art or science, though partaking of the nature of theoretic and productive arts.&mdash;Ch. 19: Nature and art.&mdash;Ch. 20: Is rhetoric a virtue ?-Ch. 21: The subject of rhetoric; Quintilian's view; criticism thereof; relation between oratory and philosophy ; range of the orator's knowledge. <ref target="p.205">205</ref></p>
+
+<pb id="p.vi"/>
+
+<p>BOOK III:
+Ch. 1: Apology for dryness and detail of the more technical portion of the work; writers on rhetoric ; Greeks; Romans.&mdash;Ch. 2: Origin of oratory.&mdash;Ch. 3: Divisions of the art; their order their nature.&mdash;Ch. 4: Are there three sorts of oratory or more? Various views.&mdash;Ch. 5: Distinction between things and words; questions; definition of a cause.&mdash;Ch. 6: The <hi rend="italics">status</hi> or <hi rend="italics">basis </hi>of a cause ; a highly technical chapter.&mdash;Ch. 7: Panegyric.&mdash;Ch. 8: Deliberative oratory.&mdash;Ch. 9: Forensic oratory; the parts of a forensic speech.&mdash;Ch. 10: A cause may turn on one controversial point or more; nature of the cause to be first determined.&mdash;Ch. 11: Next points to be determined; the question, the mode of defence, the point for decision,the foundation of the case; various views. <ref target="p.371">371</ref></p>
+</div1>-->
+<div1 type="front">
+<pb id="p.vii"/>
+
+<div2 type="chapter"><head>Introduction</head>
+
+<head>Life of Quintilian</head>
+<p>Marcus Fabius Quintilianus was, like Seneca, of
+Spanish origin, being born about 35 A.D. at Calagurris. His father was a rhetorician of some note
+who practised with success at Rome. It is not surprising therefore to find that the young Quintilian
+was sent to Rome for his education. Among his
+teachers were the famous <hi rend="italics">grammaticus </hi>Remmius
+Palaemon, and the no less distinguished rhetorician
+Domitius Afer. On completing his education he
+seems to have returned to his native land to teach
+rhetoric there, for we next hear of him as being
+brought to Rome in 68 A.D. by Galba, then governor
+of Hispania Tarraconensis. At Rome he met with
+great success as a teacher and was the first rhetorician to set up a genuine public school and to receive
+a salary from the State. He continued to teach for
+twenty years and had among his pupils the younger
+Pliny and the two sons of Domitilla, the sister of
+Domitian. He was also a successful pleader in the
+courts as we gather from more than one passage in
+his works. Late in life he married and had two
+sons. But both wife and children predeceased him.
+
+<pb id="p.viii"/>
+
+He died full of honour, the possessor of wide lands
+and consular rank. The date of his death is unknown, but it was before 100 A.D. He left behind
+him a treatise <quote>On the causes of the decadence of
+Roman oratory</quote> (<hi rend="italics">De causis corruptae eloquentiae</hi>), the
+present work, and a speech in defence of a certain
+Naevius Arpinianus, who was accused of murdering
+his wife. These are the only works known to have
+been actually published by him, though others of
+his speeches had been taken down in shorthand and
+circulated against his will, while an excess of zeal on
+the part of his pupils resulted in the unauthorised
+publication of two series of lecture notes. The
+present work alone survives. The declamations
+which have come down to us under his name are
+spurious. Of his character the <hi rend="italics">Institutio Oratoria</hi>
+gives us the pleasantest impression. Humane,
+kindly and of a deeply affectionate nature, gifted
+with a robust common sense and sound literary
+judgment, he may well have been the ideal school-master. The fulsome references to Domitian are
+the only blemishes which mar this otherwise pleasing
+impression. And even here we must remember his
+great debt to the Flavian house and the genuine
+difficulty for a man in his position of avoiding the
+official style in speaking of the emperor.</p>
+
+<p>As a stylist, though he is often difficult owing
+to compression and the epigrammatic turn which he
+gives his phrases, he is never affected or extravagant.
+He is still under the influence of the sound traditions
+
+<pb id="p.ix"/>
+
+of the Ciceronian age, and his Latin is silver-gilt
+rather than silver. His <hi rend="italics">Institutio Oratoria, </hi>despite
+the fact that much of it is highly technical, has still
+much that is of interest to-day, even for those who
+care little for the history of rhetoric. Notably in
+the first book his precepts as regards education have
+lasting value: they may not be strikingly original,
+but they are sound, humane and admirably put. In
+the more technical portions of his work he is unequal;
+the reader feels that he cares but little about the
+minute pedantries of rhetorical technique, and that
+he lacks method in his presentation of the varying
+views held by his predecessors. But once he is free of
+such minor details and touches on themes of real
+practical interest, he is a changed man. He is at
+times really eloquent, and always vigorous and
+sound, while throughout the whole work he keeps
+the same high ideal unswervingly before him.</p></div2>
+
+<pb id="p.x"/>
+
+<pb id="p.xi"/>
+
+<div2 type="chapter"><head>Bibliography</head>
+
+<div3 type="section"><head>Editions</head>
+<p>Ed. princeps, Campano, Rome, 1470.</p>
+
+<p>Gronov, Leyden, 1665.</p>
+
+<p>Gibson, Oxford, 1693.</p>
+
+<p>Obrecht, Strassburg, 1698.</p>
+
+<p>Burmann, Leyden, 1720.</p>
+
+<p>Capperonnier, Paris, 1725.</p>
+
+<p>Gesner, G&ouml;ttingen, 1738.</p>
+
+<p>Spalding, Leipzig, 1798&ndash;1816, with supplementary volume of notes by Zumpt, 1829, and another by Bonnell, 1834.</p></div3>
+
+<div3 type="section"><head>Texts</head>
+
+<p>Zumpt, Leipzig, 1831.</p>
+
+<p>Bonnell. Tenbner texts, 1854.</p>
+
+<p>Halm, Leipzig, 1868.</p>
+
+<p>Meister, Leipzig, 1886&ndash;7.</p>
+
+<p>Radermacher, Teubner texts, 1907 (Bks. 1&ndash;6). Second edition by V. Buchheit, 2 vols., 1959.</p>
+
+<p>D. M. Gaunt, <hi rend="italics">M. Fabii Quintiliani Institutio Oratoria.</hi> Selections with commentary and summaries of the intervening material. London, W. Heinemann. 1952.</p></div3>
+
+<div3 type="section"><head>editions of single books</head>
+<p>Bk. 1, Fierville, Paris, 1890; F. Colson. Cambridge, 1924.</p>
+
+<p>Bk. 10, Peterson, Oxford, 1891.</p>
+
+<p>Bk. 10 and 12, Frieze, New York; Bk. 12, R. G. Austin, Oxford, 1948.</p>
+
+<p>Of the above the commentary of Spalding and the texts of Halm, Meister and Radermacher are by far the most important. Peterson's edition of Bk. 10 contains an admirable introduction dealing with the life of Quintilian, his gifts as a critic, his style and language and the MSS.
+
+<pb id="p.xii"/>
+</p>
+
+<p>In connection with the history of rhetorical theory and practice at Rome, the following works are of special importance:&mdash;</p>
+
+<p><hi rend="italics">Cicero, de Oratore </hi>(Ed. Wilkins, Oxford, 1892).</p>
+
+<p><hi rend="italics">Cicero, Orator </hi>(Ed. Sandys, Cambridge, 1889).</p>
+
+<p><hi rend="italics">Cicero, Brutus </hi>(Ed. Kellogg, Boston, 1889).</p>
+
+<p><hi rend="italics">Tacitus, Dialogus de claris oratoribus </hi>(Ed. Peterson, Oxford, 1893).</p>
+
+<p>For the history of Latin rhetoric and education the following works may be consulted:&mdash;</p>
+
+<p>Norden, <hi rend="italics">Die Antike Kunstprosa, </hi>Leipzig, 1898.</p>
+
+<p>Volkmann, <hi rend="italics">Die Rhetorik der Griechen und R&ouml;mer, </hi>Leipzig, 1885.</p>
+
+<p>Marquardt, <hi rend="italics">Das Privatleben der R&ouml;mer, </hi>pp. 80&ndash;126, ed. 2, Leipzig, 1886.</p>
+
+<p>Wilkins, <hi rend="italics">Roman Education, </hi>Cambridge, 1905.</p></div3>
+
+<div3 type="section"><head>English translations of Quintilian</head>
+<p>Guthrie, London, 1805.</p>
+
+<p>Watson, in Bohn's series, reprinted 1903.</p></div3>
+
+<div3 type="section"><head>The Manuscripts</head>
+<p>The MSS. of the <hi rend="italics">Institutio Oratoria </hi>fall into three groups:&mdash;</p>
+
+<p>(1) The Codex Ambrosianus (E153), an eleventh-century MS. now at Milan. Chs. ix. iv. 135 to xii. xi. 22 are missing.</p>
+
+<p>(2) The Codex Bernensis (351) of the 10th century.</p>
+
+<p>The Codex Bambergensis (M. 4, 14) of the 10th century.</p>
+
+<p>The Codex Nostradamensis (Paris, Lat. 18527) of the 10th (?) century.</p>
+
+<p>This group has the following <hi rend="italics">lucunae</hi>: i. to i. 7; v. xiv.
+12 to viii. iii. 64; viii. vi. 17 to 67; IX. iii. 2 to x. i. 107;
+xi. i. 71 to ii. 23; XII. x. 43 to <hi rend="italics">end. </hi>The gaps are to be
+supplied from the Codex Bambergensis, in which they have
+been filled in by a later hand from a MS. resembling the
+Ambrosianus.</p>
+
+<p>(3) A number of late MSS of the 15th century of the
+usual type.
+
+<pb id="p.xiii"/>
+</p>
+
+<p>Occasional assistance may he obtained from the <hi rend="italics">Ars
+Rhetorica</hi> of Julius Victor (Halm, <hi rend="italics">Rhet. Lat. minores, </hi>II.
+pp. 373 8qq.), which is based on Quintilian and often transcribes whole passages: the Rhetorical treatise attributed
+to Cassiodorus (Haln, <hi rend="italics">op. cit. </hi>p. 501) is also sometimes
+useful.</p>
+
+<p>The text in this volume is that of Halm, with a few slight
+alterations in reading, and a considerable number in punctuation. The first family is indicated by A in critical notes,
+the second by B. Where particular MSS. are mentioned
+they are indicated by their name.</p>
+</div3>
+</div2>
+
+<div2 type="chapter"><head>Sigla</head><pb id="p.xiv"/>
+
+<p>A = Codex Ambrosianus I, 11th century.</p>
+
+<p>B = Agreement of Codex Bernensis, Bambergensis and Nostradamensis, 10th century.</p>
+
+<p>G = Codex Bambergensis in those passages where gaps have been supplied by a later 11th-century hand.</p>
+</div2>
+</div1>
+</body>
+</text>
+</TEI.2>

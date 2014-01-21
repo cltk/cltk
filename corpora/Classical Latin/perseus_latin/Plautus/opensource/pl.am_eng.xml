@@ -1,0 +1,991 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersDrama PUBLIC "-//Perseus P4//DTD Perseus Drama//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersDrama.dtd" >
+%PersDrama;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+<fileDesc>
+<titleStmt>
+<title>Amphitryon, or Jupiter in Disguise</title>
+<author>T. Maccius Plautus</author>
+<editor role="transl">Henry Thomas Riley</editor>
+&responsibility;
+&fund.DLI2;
+</titleStmt>
+&Perseus.publish;
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>The Comedies of Plautus</title>
+<editor role="transl">Henry Thomas Riley</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>G. Bell and Sons</publisher>
+<date>1912</date>
+</imprint>
+</monogr>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent" status="medium">&Perseus.DE;</correction>
+</editorialDecl>
+<refsDecl doctype="TEI.2">
+<state unit="act"/>
+<state n="chunk" unit="scene"/>
+<!--<state unit="line"/>-->
+</refsDecl>
+	<refsDecl doctype="TEI.2">
+		<state unit="TLN line"/>
+	</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language id="en">English</language>
+<language id="la">Latin</language>
+<language id="greek">Greek</language>
+<language id="de">German</language>
+<language id="fr">French</language>
+<language id="it">Italian</language>
+</langUsage>
+</profileDesc>
+
+<revisionDesc>
+<change><date>1-Jun-01</date>
+<respStmt><name>AEM</name><resp>markup</resp></respStmt>
+<item>
+$Log: pl.am_eng.xml,v $
+Revision 1.3  2010-03-19 20:14:29  lcerrato
+fixed typo Alemena to Alcmena
+
+Revision 1.2  2010/02/26 21:44:38  rsingh04
+added back in TLN line chunking for latin texts
+
+Revision 1.1  2009/12/07 18:50:30  rsingh04
+moved more xml files around based on copyright status
+
+Revision 1.4  2009/06/17 20:57:56  rsingh04
+don't chunk by TLN line cause they don't seem to be correct and cause problems
+
+Revision 1.3  2006/02/10 20:50:26  packel
+places/dates now actually tagged
+
+Revision 1.2  2005/08/01 16:22:21  packel
+new XML version
+
+Revision 1.1  2005/07/25 14:57:38  packel
+Converted to XML
+
+Revision 1.18  2003/07/01 22:17:27  yorkc
+Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+Revision 1.17  2002/10/29 22:50:43  amahoney
+separate Mercury's prologue from the scene with Sosia, so the first chunk is manageable in size
+
+Revision 1.16  2001/08/21 18:49:29  amahoney
+get translator's name into correct place in meta-data, use same form of author as in Latin
+
+Revision 1.15  2001/08/08 17:43:15  amahoney
+get rid of the silly italics (marking words that "don't occur" in the Latin)
+
+Revision 1.14  2001/08/03 20:53:27  amahoney
+fix stage directions at end of scenes (which had unmatched parentheses
+in the original -- very nasty)
+
+Revision 1.13  2001/08/03 20:50:00  amahoney
+fix spurious italics in lemmata
+
+Revision 1.12  2001/08/02 21:22:37  amahoney
+add header to introduction stuff, to tidy up the tocs
+
+Revision 1.11  2001/08/01 21:34:09  amahoney
+use full speaker names
+
+Revision 1.10  2001/08/01 19:16:29  amahoney
+get the tln lines in place;  correct funder
+
+Revision 1.9  2001/07/17 22:07:36  amahoney
+make scene divisions match the Latin
+
+Revision 1.8  2001/07/05 21:23:34  amahoney
+correct citations so we can use both schemes (the one with fewer slots
+must always be first), and drop page breaks
+
+Revision 1.7  2001/07/03 18:21:28  amahoney
+fix the broken characters
+
+Revision 1.6  2001/06/29 19:04:20  amahoney
+tidy up line numbers, making citation scheme match the Latin
+
+Revision 1.5  2001/06/21 17:39:34  amahoney
+put in rudimentary line numbers, based on the footnotes
+
+Revision 1.4  2001/06/19 21:34:35  amahoney
+now they all parse, and the scenes are correctly identified
+
+Revision 1.3  2001/06/08 21:19:27  amahoney
+fix stage directions
+
+Revision 1.2  2001/06/04 20:48:44  amahoney
+fix the refsdecls, and get another one in order
+
+Revision 1.1  2001/06/01 21:36:54  amahoney
+first three plays from the new translation
+
+</item>
+</change>
+</revisionDesc>
+
+</teiHeader>
+
+<text lang="en">
+<body>
+
+<castList>
+<castItem type="role"><role><placeName key="tgn,1125260">JUPITER</placeName>, </role><roleDesc>who personates Amphitryon.</roleDesc></castItem>
+<castItem type="role"><role>MERCURY, </role><roleDesc>who personates Sosia.</roleDesc></castItem>
+<castItem type="role"><role>AMIPHITYON, </role><roleDesc>the Theban General.</roleDesc></castItem>
+<castItem type="role"><role>SOSIA, </role><roleDesc>the servant of Amphitryon.</roleDesc></castItem>
+<castItem type="role"><role>BLEPHARO, </role><roleDesc>the Pilot of Amphitryon's Ship.</roleDesc></castItem>
+<castItem type="role"><role>AN ACTOR.</role></castItem>
+<castItem type="role"><role>ALCMENA, </role><roleDesc>wife of Amphitryon.</roleDesc></castItem>
+<castGroup>
+<castItem type="role"><role>BROMIA, </role><roleDesc>attendants of Alcmena.</roleDesc></castItem>
+<castItem type="role"><role>THESSALA</role></castItem>
+</castGroup>
+</castList>
+
+<div1 type="act" n="intro">
+<head>Introduction</head>
+<div2 type="scene" n="1">
+<head>THE SUBJECT</head>
+<p>CREON, King of <placeName key="perseus,Thebes">Thebes</placeName>, being at war with the Teleboans or Taphians, under the command of Ptereias, sends an army against them. This is commanded by Amphitryon, who leaves his wife Alcmena pregnant at his departure from <placeName key="perseus,Thebes">Thebes</placeName>. During his absence from home, <placeName key="tgn,1125260">Jupiter</placeName>, assuming his form, and Mercury that of his servant Sosia, present themselves to Alcmena, as though just returned from the expedition against the Taphians. By means of this stratagem, <placeName key="tgn,1125260">Jupiter</placeName> is admitted to the embraces of Alcmena. While Mercury is keeping watch at the door of Amphitryon's house, Sosia, who has just arrived at <placeName key="perseus,Thebes">Thebes</placeName> with Amphitryon, makes his appearance for the purpose of announcing to Alcmena his master's return. Mercury, pretending that he himself is the real Sosia, and that the other is an impostor, drives him away from the door. He goes back to his master, who returns with him to the house, and on meeting Alcmena, she denies his assertion that he has but that moment returned from the expedition, and now presents himself to her for the first time since his return. On this, Amphitryon charges her with infidelity, and goes away to the harbour to find a witness who may persuade Alcmena of the truth of his assertions. When he returns, he is first driven away from the house by Mercury, and is afterwards accused by <placeName key="tgn,1125260">Jupiter</placeName> of attempting to personate Amphitryon, which person <placeName key="tgn,1125260">Jupiter</placeName> asserts himself to be. The dispute is referred to Blepharo, the pilot of Amphitryon, who. after making minute enquiries into the matter, professes himself utterly unable to decide between them. In the Fifth Act, at the moment in which Alcmena is delivered of Hercules and Iphiclus, a violent. peal of thunder is heard, and Amphitryon swoons with the shock. Bromia, the attendant of Alcmena, comes out of the house, and having raised Amphitryon from the ground, on his recovery informs him of the delivery of Alcmena. At this juncture, <placeName key="tgn,1125260">Jupiter</placeName> descends in his own character, and reveals the mystery to Amphitryon, who then becomes reconciled with his wife.
+
+</p></div2>
+<div2 type="scene" n="2">
+<head>THE ACROSTIC ARGUMENT. <note anchored="yes" place="inline">[Supposed to have been written by Priscian the Grammarian.]</note></head>
+<p><placeName key="tgn,1125260">JUPITER</placeName>, being captivated by love (<foreign lang="la">Amore</foreign>) for Alcmena, has changed (<foreign lang="la">Mutavit</foreign>) himself into the form of her husband, while Amphitryon is fighting for (<foreign lang="la">Pro</foreign>) his country with the foe; in the form (<foreign lang="la">Habitu</foreign>) of Sosia, Mercury acts as his servant. He (<foreign lang="la">Is</foreign>) imposes upon the master and the servant, on their arrival. Amphitryon commences a quarrel (<foreign lang="la">Turbas</foreign>) with his wife; and <placeName key="tgn,1125260">Jupiter</placeName> and Amphitryon seize (<foreign lang="la">Raptant</foreign>) one another as adulterers. Blepharo, chosen as umpire, is not able to determine which of the two (<foreign lang="la">Uter</foreign><note anchored="yes">This Acrostic is adapted to the word Amphitruo, the old Latin form of the name.</note>) is Amphitryon.  At last they understand all (<foreign lang="la">Omnem</foreign>) the matter;  and she brings forth twins.
+</p></div2></div1>
+<div1 type="act" n="1">
+<div2 type="scene" n="prol">
+<milestone n="1" unit="line"/><milestone n="1" unit="TLN line"/>
+<head>THE PROLOGUE.</head>
+<sp><speaker>MERCURY</speaker> <p>As, in purchasing and selling your merchandize<milestone n="1" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Merck indize</lemma>:  "<foreign lang="la">Mercimoniis</foreign>." Mercury was the God of trading and merchandize, and was said to have received his name from the Latin word "<foreign lang="la">merx</foreign>." See the tradesman's prayer to him in the Fasti of Ovid, <bibl n="Ov. Fast. 5.685">B. v., l. 682</bibl>.</note>, you are desirous to render me propitious to your bargains, and that I should assist you in all things; and as both in foreign countries and at home, you desire me to turn to the best advantage the business and the accounts of you all, and that with fair and ample profit, without end, I should crown the venture both which you have begun, and which you shall begin; and as you wish me to delight you and all yours with joyous news<milestone n="8" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With joyous news</lemma>:  Mercury was the messenger of the Gods, and, therefore, the patron of messengers; and, if we may so say, the God of News.</note>--these tidings will I bring, that I may announce them to you, things which in especial are for your common interest (for already do you know, indeed, that it has been given and assigned to me by the other Divinities, to preside over news and profit): : as you would wish me to favour and promote these things, that lasting gain may ever be forthcoming for you, so shall you give silence for this play, and so shall you be fair and upright judges here, all of you.  Now, by whose command, and for what reason I am come, I'll tell you, and at the sane time, myself, I will disclose my name. By the command of <placeName key="tgn,1125260">Jupiter</placeName> I am come; my name is Mercury<milestone n="19" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">My name is Mercury</lemma>:  There seems hardly any reason why he should disclose his name, after having, by an enumeration of his attributes, informed the Audience who he is.</note>. My father has sent me hither to you to entreat, although, what should as his commands be enjoined on you, he knew that you would do, inasmuch as he knew full well that you venerate and fear himself, as is befitting <placeName key="tgn,1125260">Jupiter</placeName>. But, certainly, he bade me ask this of you with entreaty, in gentle tones, and in bland accents. For, in fact, this <placeName key="tgn,1125260">Jupiter</placeName>, by whose command I am come, dreads a mishap<milestone n="27" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A mishap</lemma>:  "Malum." This word probably signifies here the corporal punishment which was inflicted on the slaves. It has been already remarked that the actors were mostly slaves, and punishment ensued on their displeasing the Audience.</note> not less than any one of you. Born of a mortal mother, a mortal sire, it is not reasonable to be surprised if he has apprehensions for himself. And I too, as well, who am the son of <placeName key="tgn,1125260">Jupiter</placeName>, through my relationship to my father, stand in dread of ill. Therefore, in peace am I come to you, and peace do I bring. I wish a thing to be asked of you that's reasonable and feasible; for, reasonable things to ask of the reasonable, a reasonable mediator have I been sent. For from the reasonable it is not right to ask things unreasonable; whereas from the unreasonable to ask things reasonable, is sheer folly, since these unrighteous persons are ignorant of what is right, and observe it not. Now then, all lend your attention here to the things which I shall say. What we wish, you ought to wish as well: both I and my father have well deserved of you and of your state. But why should I mention how in Tragedies I have seen others, such as Neptune, Valour, Victory, Mars, Bellona, making mention of the good services which they had done you? Of all these benefits, the ruler of the Deities, my sire, was the founder. But this has never been the habit of my father, to throw in your teeth what good he has done unto the good. He thinks that this is gratefully returned by you to him, and that he bestows these blessings on you deservedly, which he does bestow. Now, the matter which I came here to ask, I'll first premise, after that I'll tell the subject of this Tragedy. Why have you contracted your brows? Is it because I said that this would be a Tragedy? I am a God, and I'll change it. This same, if you wish it, from a Tragedy I'll make to be a Comedy, with all the lines the same. Whether would ye it were so, or not? But I'm too foolish; as though I didn't know, who am a God, that you so wish it; upon this subject I understand what your feelings are. I'll make this to be a mixture--a Tragi-comedy<milestone n="59" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A Tragi- comedy</lemma>:  "Tragico-com&oelig;dia." This is said to be the only occasion in which Tragi-comedy is mentioned by any of the ancient authors. Plautus does not, however, use the term in the sense which we apply to it. Gods being generally introduced into Tragedy alone, but here taking part in a Comedy he thinks it may be fairly called a Tragi-comedy, or a Comedy with the characters of Tragedy. This play is thought by some to have been borrowed from the writings of Epicharmus, the Sicilian dramatist.</note>. For me to make it entirely to be a Comedy, where Kings and Gods appear, I do not deem right. What then? Since here the servant has a part as well, just as I said, I'll make it to be a Tragi-comedy. Now <placeName key="tgn,1125260">Jupiter</placeName> has ordered me to beg this of you, that the inspectors<milestone n="65" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The inspectors</lemma>:  To the actor who was considered to give the most satisfaction to the Audience, it was customary for the &AElig;diles to present a reward, which they were bound to do without partiality. Officers, called "conquisitores," were consequently employed to go about the "cavea," or part of the theatre where the Audience sat, to see that there were no persons likely to have been hired for the purpose of applauding a particular actor.</note> should go among each of the seats throughout the whole theatre<milestone n="66" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whole theatre</lemma>:  "Cavea." Literally, "the seats" or "benches" where the Audience sat</note>, amid the spectators, that, if they should see any suborned applauders of any actor, there should in the theatre be taken away from them the pledge of their coats, as a security for their good behaviour. But if any should solicit the palm of victory for the actors, or if for any artist, whether by written letters, or whether any person himself should solicit personally, or whether by messenger; or if the &AElig;diles, too, should unfairly adjudge to any one the reward; <placeName key="tgn,1125260">Jupiter</placeName> has commanded the law to be the same as if he had sought by solicitation an appointment for himself or for another. By valour has he declared that you exist as victors, not by canvassing or unfair dealing. Why any the less should there be the same principle for the player, which there is for the greatest man? By merit, not by favourers, ought we to seek our ends. He who does aright has ever favourers enough, if there is honesty in them in whose disposal this matter<milestone n="80" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This matter</lemma>:  The award of the prize.</note> rests. This, too, he directed me likewise in his injunctions, that there should be inspectors over the players; that, he who should have procured suborned persons to applaud himself, or he who should have contrived for another give less satisfaction, from the same they might strip off his dress and leather<milestone n="85" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Leather</lemma>:  "Corium." It is a matter of doubt whether this word means the "persona," or "leather mask" worn by the actors, or the actor's own hide or skin, which would suffer on his being flogged.</note> mask. I don't wish you to be surprised, for what reason <placeName key="tgn,1125260">Jupiter</placeName> now concerns himself about actors. Don't be surprised, <placeName key="tgn,1125260">Jupiter</placeName> himself is about to take part in this play. Why are you wondering at this? As though, indeed, a new thing were now mentioned, that <placeName key="tgn,1125260">Jupiter</placeName> takes to the calling of a player. But a year since<milestone n="91" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A year since</lemma>:  It is conjectured that he is here dealing a hit at some Poet who had recently introduced <placeName key="tgn,1125260">Jupiter</placeName> on the stage, perhaps in an awkward manner or at an untimely moment--not as taking part himself in the piece, but at the prayer of some one of the characters. Horace reprehends a similar practice in his time: "Nec Deus intersit, nisi dignus vindice nodus;" meaning, that a Deity may only be introduced when the circumstances are such as to warrant his interference.</note>, when here on the stage the actors invoked <placeName key="tgn,1125260">Jupiter</placeName>, he came; he aided them. Besides, surely in Tragedy he has a place. This play, I say, <placeName key="tgn,1125260">Jupiter</placeName> himself will take a part in this day, and I together with him. Now do you give attention while I shall relate to you the subject of this Comedy.</p>
+<p>This city is <placeName key="perseus,Thebes">Thebes</placeName>; in that house there <stage>pointing</stage>, Amphitryon<milestone n="98" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Amphitryon</lemma>:  Perseus was the son of <placeName key="tgn,1125260">Jupiter</placeName> and Dana&euml;. By Andromeda, he was the father of Alc&aelig;us, Sthenelus, Nestor, and Electryon. Alc&aelig;us was the father of Amphitryon, while Electryon was the father of Alcmena, by Lysidice, the daughter of Pelops. Amphitryon, having accidentally slain Electryon, fled with his daughter Alcmena, who had been betrothed to him, to the court of Creon, King of <placeName key="perseus,Thebes">Thebes</placeName>. The brother of Alcmena having been slain by the Teleboans or Taphians, who inhabited certain islands on the coast of <placeName key="tgn,7002679">Acarnania</placeName>, Amphitryon undertook an expedition against them, at the head of the forces of Creon.</note> dwells, born at <placeName key="perseus,Argos">Argos</placeName>, of an <placeName key="tgn,5001993">Argive</placeName> sire; whose wife is Alcmena, daughter of Electryon. This Amphitrvon is now the general of the Theban troops; for between the Teleboans and the Theban people there is war. He, before he departed hence for the expedition, left his wife Alcmena pregnant. But I believe that you already know how my father is disposed how free in these affairs he has been, and how great a lover of many a woman, if any object once has captivated him. Unknown to her husband, he began to love Alcmena, and took temporary possession of her person for himself, and made her pregnant, too, by his embrace. Now, that more fully you may understand the matter with respect to Alcmena, she is pregnant by both; both by her husband and by supreme <placeName key="tgn,1125260">Jupiter</placeName> And my father is now lying here <stage>he points to the house</stage> in-doors with her; and for this reason is this night made longer, while he is taking this pleasure with her whom he desires. But he has so disguised himself, as though he were Amphitryon. Now, that you may not be surprised at this dress of mine, inasmuch as I have come out here this way in servile garb, an ancient and an antique circumstance, made new, will I relate to you, by reason of which I have come to you attired in this new fashion; for lo! my father <placeName key="tgn,1125260">Jupiter</placeName>, now in the house, changes himself into the likeness of Amphitryon, and all the servants who see him think it is he, so shifting in his shape does he render himself when he chooses. I have taken on myself the form of the servant Sosia, who has gone hence together with Amphitryon on the expedition, that I may be able to serve my father in his amour, and that the servants may not be enquiring who I am, when they see me here frequenting oft the house. Now, as they will suppose me a servant and their fellow-servant, not any one will enquire who I am, or why I'm come. My father, now in-doors, is gratifying his inclination, and is embracing her of whom he is especially enamoured. What has been done there at the army, my father is now relating to Alcmena. She, who really is with a paramour, thinks that he is her own husband. There, my father is now relating how he has routed the legions of the enemy; how he has been enriched with abundant gifts. Those gifts which there were given to Amphitryon, we have carried off; what he pleases, my father easily performs. Now will Amphitryon come hither this day from the army, his servant too, whose form I am bearing. Now, that you may be able the more easily to distinguish between us, I always shall carry these little wings here <stage>pointing</stage> upon my broad-brimmed cap; then besides, for my father there will be a golden tuft beneath his cap; that mark will not be upon Amphitryon. These marks no one of these domestics will be able to see; but you will see them. But yonder is Sosia, the servant of Amphitryon; he is now coming yonder from the harbour, with a lantern. I will now drive him, as he arrives, away from the house. Attend, it will be worth the while of you spectators, for Jupiter and Mercury to perform here the actors' part.
+</p></sp></div2>
+<div2 type="scene" n="1">
+<stage>Enter SOSIA, with a Lantern.</stage>
+<sp><speaker>SOSIA</speaker><p> <stage>to himself</stage>. What other person is there more bold than I, or who more stout of heart, who know the humours of young men<milestone n="154" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of young men</lemma>:  He alludes to the broils of the night, occasioned by the vagaries of wild and dissolute young men--perhaps not much unlike the Mohawks, whose outrageous pranks are mentioned in the Spectator and Swift's Journal to <placeName key="tgn,1093659">Stella</placeName>.</note>, and who am walking at this hour of night alone? What shall I do, if now the officers of the watch<milestone n="155" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Officers of the watch</lemma>:  Literally, the "Tresviri." As usual, though the Scene is laid in <placeName key="tgn,1000074">Greece</placeName>, Roman usages are introduced by Plautus. The officers here mentioned were called "nocturni Tresviri." It was their province to take up all suspicious characters found abroad during the night. They were attended, probably, by lictors, or subordinate officers, who are here referred to as 'homines octo validi," "eight sturdy fellows."</note> should thrust me into prison. To-morrow shall I be dealt out from there<milestone n="156" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Dealt out from there</lemma>:  He compares the gaol, or place of confinement, to a store-closet, and means to say, that as food is brought thence to be dressed, so shall he be brought from the gaol to be dressed, in the way of having his back lashed.</note>, just as though from a store-closet, for a whipping; nor will it be allowed me to plead my cause, nor will there be a bit of aid from my master; nor will there be a person but that they will imagine, all of them, that I am deserving. And so will eight sturdy fellows be thumping on wretched me just like an anvil; in this way, just come from foreign parts, I shall be received with hospitality by the public. The inconsiderateness of my master compels me to this, who has packed me off from the harbour at this time of night whether I would or no. Couldn't he as well have sent me here by daylight? For this reason, is servitude to a man of high station a greater hardship; for this reason is the servant of a wealthy man the more wretched: both night and day, without ceasing, there is enough, and more than enough of work for him; for doing or for saying occasion is ever arising, so that you can't be at rest. The master, abounding in servants<milestone n="170" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Abounding in servants</lemma>:  "Dives operis." Literally, "rich in labour," abounding in slaves to labour for him.</note>, and free from labour himself; thinks that whatever he happens to choose, can be done; he thinks that just, and reckons not what the labour is; nor will he ever consider whether he commands a thing that's reasonable or unreasonable. Wherefore, in servitude many hardships do befall us; in pain this burden must be borne and endured.</p></sp>
+<sp><speaker>MERCURY</speaker><p> (<stage>to the AUDIENCE</stage>). 'Twere with better reason for me to complain of servitude after this fashion; I, who to-day was free, and whom my father is now employing as a slave: this fellow is complaining, who was born a slave.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to himself</stage>. Really I am a rascal beyond a doubt; for only this moment it has suggested itself to me, that on my arrival I should give thanks, and address the Gods for their kindnesses vouchsafed. For surely, by my troth, if they were only desirous to give me a return according to my deserts, they would commission some person on my arrival soundly to box my ears, since those kindnesses which they have done me I have held as worthless and of no value.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>apart</stage>. He does what people are not generally in the habit of doing, in knowing what his deserts are.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to himself</stage>. What I never expected, nor any one else of my townsmen, to befall him, that same has come to pass, for us to come home safe and sound. Victorious, the enemy conquered, the troops are returning home, this very mighty war brought to an end, and the enemy slain. A city that has caused many a bitter death for the Theban people, that same has been conquered by the strength and valour of our soldiers, and taken by storm, under the command and conduct of my master Amphitryon in especial. With booty, territory, and glory<milestone n="193" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">And glory</lemma>:  "Adore&acirc;." This was literally the allowance or largest of corn which was distributed to troops after a victory; hence it figuratively signifies "honor" or "glory."</note>, too, has he loaded his fellow-citizens, and for Creon, King of <placeName key="perseus,Thebes">Thebes</placeName>, has he firmly fixed his sway. From the harbour he has sent me before him to his house that I may bear these tidings to his wife, how he has promoted the public good by his guidance, conduct, and command. This now will I consider, in what manner I shall address her, when I've arrived there. If I tell a falsehood. I shall be doing as I am accustomed after my usual wont; for when they were fighting with all their might, then with all my might I ran away. But still I shall pretend as though I was present, and I'll tell her what I heard. But in what manner and with what expressions it is right for me to tell my story, I still wish first to consider here with myself. <stage>He assumes an attitude of thought.</stage> In these terms will I give this narrative. "In the first place, when we arrived there, when first we made land, Amphitryon immediately made choice of the powerful men among the chieftains. Those he despatched on the embassy, and bade them tell his mind to the Teleboans; that if without constraint and without warfare they should be ready to deliver up what was plundered and the plunderers, and if they should be ready to restore what they had carried off, he would immediately conduct the army homewards, that the Greeks would depart from their territory, and that he would grant peace and quietness to them : but if they should be otherwise disposed, and not concede the things which he demanded, he, in consequence, would attack their city with extreme violence and with his men. When the embassadors had repeated these things, which Amphitryon had enjoined, in order to the Teleboans, being men stout of heart, relying on their valour, and confident in their prowess, they rebuked our embassadors very rudely. They answered that they were able in warfare to protect themselves and theirs, and that at once they must lead the army with all haste out of their territories. When the embassadors brought back this message, straightway Amphitryon drew out all his army from the encampment; on the other side, the Teleboans led forth their legions from the town, furnished with most gorgeous arms. After they had gone forth on either side in full array, the soldiers were marshalled, the ranks were formed. We, after our manner and usage, drew up our legions; the enemy, too, drew up their legions facing us. Then either general went forth into the mid-space beyond the throng of the ranks, and they parleyed together. It was agreed between them, that, which ever side should be conquered in that battle, they should surrender up their city, lands, altars, hearths. and theraselves. After that was done, the trumpets on either side gave the signal; the earth re-echoed, they raised a shout on either side. Each general, both upon this side and on that, offered vows to <placeName key="tgn,1125260">Jupiter</placeName>, and then encouraged his troops. Each man according to his ability does that which each one can and has the strength to do; he smites with his falchion; the weapons crash; the welkin bellows with the uproar of the men; of breaths and pantings a cloud is formed; men fall by wounds inflicted by men. At length, as we desired, our troops conquered; the foe fell in numbers; ours, on the other hand, pressed on; firm in our strength, we were victorious. But still not one betook himself to flight, nor yet gave way at his post, but standing there<milestone n="239" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Standing there</lemma>:  This seems to be the true meaning of "statim" in this passage.</note> he waged the combat. Sooner than quit the spot, they parted with their lives; each, as he stood, lay there and kept his rank in death. When my master Amphitryon saw this, at once he ordered the cavalry on the right to charge. The cavalry obeyed directly; from the right wing, with a tremendous shout, with brisk onset they rushed on; and rightfully did they slaughter and trample down the impious forces of the foe."</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>apart</stage>. Not even one word of these has he yet uttered correctly; for I was there in the battle personally, and my father too, when it was fought.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>continuing</stage>. "The enemy betook themselves to flight. Then was new spirit added to our men, the Teleboans flying, with darts were their bodies filled, and Amphitryon himself, with his own hand, struck off the head of Pterelas their king. This battle was being fought there even from the morning till the evening. This do I the better remember for this reason; because on that day I went without my breakfast. But night at last, by its interposing, cut short this combat. The next day, the chiefs came weeping from the city to us at the camp. With covered hands<milestone n="257" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With covered hands</lemma>:  He alludes here to the carrying of the "velamenta," which were branches of olive, surrounded with bandages of wool, and held in the hands of those who sued for mercy or pardon. The wool covered the hand, and was emblematical of peace, the hand being thereby rendered powerless to effect mischief.</note>, they entreated us to pardon their offences; and they all surrendered rendered up themselves. and all things divine and human, their city and their children, into the possession and unto the disposal of the Theban people. Lastly, by reason of his valour, a golden goblet was presented to my master Amphitryon, from which king Pterelas<milestone n="261" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">King Pterelas</lemma>:  Pterela, or Pterelas, was the son of Hippotho&euml;, the cousin of Amphitryon and Alcmena. He had a daughter named Cymetho, or Cometho, and his fate was said to depend upon the preservation of a certain lock of his hair. Cymetho, smitten with love for Amphitryon, or, according to some accounts, for Cephalus, his associate in the enterprise, cut off the fatal lock, and, like Scylla, betrayed her father, who was afterwards slain by Amphitryon.</note> had been used to drink." These things I'll thus tell my mistress. I'll now proceed to obey my master's order and to betake me home. <stage>He moves.</stage></p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>apart</stage>. Heyday! he's about to come this way; I'll go meet him; and I'll not permit this fellow at any time to-day to approach this house. Since I have his form upon myself, I'm resolved to play the fellow off. And indeed, since I have taken upon me his figure and his station, it is right for me likewise to have actions and manners like to his. Therefore it befits me to be artful, crafty, very cunning, and by his own weapon, artfulness, to drive him from the door. But what means this? He is looking up at the sky. I'll watch what scheme he's about.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>looking up at the sky</stage>. Upon my faith, for sure, if there is aught besides that I believe, or know for certain, I do believe that this night the God of Night<milestone n="272" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">God of Night</lemma>:  "Nocturnus" is generally supposed here to mean the "God of Night," though some Commentators have fancied that by it the Evening Star is signified.</note> has gone to sleep drunk; for neither does the Wain move itself in any direction in the sky, nor does the Moon bestir herself anywhere from where she first arose; nor does Orion<milestone n="275" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Nor does Orion</lemma>:  "Jugula" means either the three stars composing the girdle of Orion or the Constellation Orion itself. It also was the name of two stars in the Constellation Cancer, or the Crab, which were also called "Aselli," or "the Little Asses." The plural, "Jugul&aelig;," is more generally used. "Septentriones" was a name of the "Ursa Major," or "Greater Bear," also called by us "Charles's Wain." It received its name from "septem," "seven," and "terriones," "oxen that ploughed the earth," from its fancied resemblance to a string of oxen.</note>, or the Evening Star<milestone n="275" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Evening Star</lemma>:  "Vesperugo" is a name of Hesperus, or the Evening Star; while the Constellation of the Pleiades was sometimes known by the name of "Vergili&aelig;."</note>, or the Pleiades, set. In such a fashion are the stars standing stock-still, and the night is yielding not a jot to the day.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>apart</stage>. Go on, Night, as you've begun, and pay obedience to my father. In best style<milestone n="278" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In best style</lemma>:  "Optumo optume optumam operam." There is a clumsy attempt at wit in this alliteration.</note>, the best of services are you performing for the best of beings; in giving this, you reap a fair return.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to himself</stage>. I do not think that I have ever seen a longer night than this, except one of like fashion, which livelong night I was hanging up, having been first whipped. Even that as well, by my troth, does this one by far exceed in its length. I' faith, I really do believe that the Sun's asleep, and is thoroughly drenched. It's a wonder to me if he hasn't indulged himself a little too much at dinner.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>apart</stage>. Do you really say so, you scoundrel? Do you think that the Gods are like yourself? I' faith, you hang-dog, I'll entertain you for these speeches and misdeeds of yours; only come this way, will you, and you'll find your ruin.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to himself</stage>. Where are those wenchers, who unwillingly lie a-bed alone? A rare night this for making the best of what was a bad bargain at first<milestone n="288" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Bad bargain at first</lemma>:  This line has been a little modified in the translation.</note>.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>apart</stage>. My father then, according to this fellow's words, is doing rightly and wisely, who in his amorousness, indulging his passion, is lying in the embraces of Alcmena.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to himself</stage>. I'll go tell Alcmena, as my master ordered me. <stage>(Advancing, he discovers MERCURY.)</stage> But who is this fellow that I see before the house at this time of night? I don't like it.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. There is not in existence another such cowardly fellow as this.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. Now, when I think of it, this fellow wishes to take my mantle off once more<milestone n="294" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take my mantle off once more</lemma>:  "Detexere." This term was properly applied to the act of taking cloth, when woven, from off the loom. Sosia here uses it in the sense of stripping himself of It.</note>.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. The fellow's afraid; I'll have some sport with him.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I'm quite undone, my teeth are chattering. For sure, on my arrival, he is about to receive me with the hospitality of his fist. He's a merciful person, I suppose; now, because my master has obliged me to keep awake, with his fists just now he'll be making me go to sleep. I'm most confoundedly undone. Troth now, prithee, look, how big and how strong he is.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. I'll talk at him aloud, he shall hear what I say. Therefore indeed, in a still greater degree, shall he conceive fears within himself. <stage>In a loud voice, holding up his fists.</stage> Come, fists, it's a long time now since you found provision for my stomach; it seems to have taken place quite a long time ago, when yesterday you laid four men asleep, stript naked.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I'm dreadfully afraid lest I should be changing my name here, and become a Quintus<milestone n="305" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A Quintus</lemma>:  This is a poor attempt at wit. Mercury tells his fists that they thrashed four men into a lethargy yesterday; on which Sosia, in his apprehension, says that in that case he shall have to change his own name to "Quintus;" which signified "the fifth," and was also in use as a name among the Romans; implying thereby that he shall be the fifth to be so mauled.</note> instead of a Sosia. He declares that he has laid four men asleep; I fear lest I should be adding to that number.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>throwing about his arms</stage>. Well, now then for it. This is the way I intend.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. He is girded tight; for sure, he's getting himself ready.</p></sp>
+<sp><speaker>MERCURY</speaker><p> He shan't get off without getting a thrashing.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. What person, I wonder? MERC. Beyond a doubt, whatever person comes this way, he shall eat my fists.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. Get out with you, I don't wish to eat at this time of night; I've lately dined. Therefore do you, if you are wise, bestow your dinner on those who are hungry.</p></sp>
+<sp><speaker>MERCURY</speaker><p> The weight of this fist is no poor one.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I'm done for; he is poising his fists.</p></sp>
+<sp><speaker>MERCURY</speaker><p> What if I were to touch him, stroking him down<milestone n="313" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Stroking him down</lemma>:  He probably alludes to the soporific power of his."caduceus," or "wand."</note>, so that he may go to sleep?</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. You would be proving my salvation; for I've been watching most confoundedly these three nights running<milestone n="314" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Three nights running</lemma>:  He alludes to the length of the night, which was prolonged by <placeName key="tgn,1125260">Jupiter</placeName> for the purpose of his intrigue. According to other writers, it was on the occasion when Hercules was begotten, seven months before this period, that three nights were made into one.</note>.
+</p></sp>
+<sp><speaker>MERCURY</speaker><p> My hand refuses to learn to strike his cheek; it cannot do a disgraceful action. Hand of mine, of a changed form must he become whom you smite with this fist.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. This fellow will be furbishing me up, and be moulding my face anew.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>to his fist</stage>. The man that you hit full, his face must surely be boned.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. It's a wonder if this fellow isn't thinking of boning me just like a lamprey. Away with a fellow that bones people! If he sees me, I'm a dead man.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Some fellow is stinking to his destruction.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. Woe to me! Is it I that stink?</p></sp>
+<sp><speaker>MERCURY</speaker><p> And he cannot be very far off; but he has been a long way off from here.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. This person's a wizard<milestone n="323" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">This person's a wizard</lemma>:  We must remember that this is supposed to take place in the dark; and Sosia says that the man must surely be a wizard to guess that another person is so near him, and that he has been abroad till just now.</note>.</p></sp>
+<sp><speaker>MERCURY</speaker><p> My fists are longing.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. If you are going to exercise them upon me, I beg that you'll first cool them down against the wall.</p></sp>
+<sp><speaker>MERCURY</speaker><p> A voice has come flying to my ears.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. Unlucky fellow, for sure, was I, who didn't clip its wings. I've got a voice with wings, it seems.</p></sp>
+<sp><speaker>MERCURY</speaker><p> This fellow is demanding of me for himself a heavy punishment for his beast's back<milestone n="327" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">His beast's back</lemma>:  "Jumento suo." Literally, "on his beast of burden."</note>.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. As for me, I've got no beast's back.</p></sp>
+<sp><speaker>MERCURY</speaker><p> He must be well loaded with my fists.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I' faith, I'm fatigued, coming from board ship, when I was brought hither; even now I'm sea-sick. Without a burden, I can hardly creep along, so don't think that with a load I can go.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Why, surely, somebody<milestone n="331" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Somebody</lemma>:  "Nescio quis." Literally, "I know not who." For the sake of the joke, he pretends to think that this is the name of some one mentioned by Mercury; and says that as he is not that person, he is all right.</note> is speaking here.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I'm all right, he doesn't see me; he thinks it's "Somebody" speaking: Sosia is certainly my name.</p></sp>
+<sp><speaker>MERCURY</speaker><p> But here, from the right-hand side, the voice, as it seems, strikes upon my ear.
+</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I'm afraid that I shall be getting a thrashing here this day, in place of my voice, that's striking him. <stage>Moves.</stage></p></sp>
+<sp><speaker>MERCURY</speaker><p> Here he is--he's coming towards me, most opportunely.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I'm terrified--I'm numbed all over. Upon my faith, I don't know where in the world I now am, if any one should ask me; and to my misfortune, I cannot move myself for fright. It's all up with me; the orders of his master and Sosia are lost together. But I'm determined boldly to address this fellow to his face, so that I may be able to appear valiant to him; that he may keep his hands off me <stage>Advances towards the door.</stage></p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>accosting him</stage>. Where are you going, you that are carrying <placeName key="tgn,1050339">Vulcan</placeName> enclosed in your horn<milestone n="341" unit="TLN line"/><note anchored="yes"><lemma targOrder="U"><placeName key="tgn,1050339">Vulcan</placeName> enclosed in your horn</lemma>:  "Volcanum in cornu." Literally, "<placeName key="tgn,1050339">Vulcan</placeName> in your horn;" alluding to the horn lantern which Sosia is carrying.</note>?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Why do you make that enquiry, you who are boning men's heads with your fists?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Are you slave or free man?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Just as it suits my inclination.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Do you really say so? </p></sp>
+<sp><speaker>SOSIA</speaker><p> I really do say so.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Whip-scoundrel<milestone n="344" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Whip-scoundrel</lemma>:  "Verbero." This word, as a substantive, properly means a bad slave, who had been whipped--"a rascal" or "scoundrel." As a verb, it means "I beat." Sosia chooses, for the sake of the quibble, to take it in the latter sense, and tells Mercury that he lies; meaning to say that he (Mercury) is not beating him (Sosia).</note>! </p></sp>
+<sp><speaker>SOSIA</speaker><p> Now you are telling a lie.</p></sp>
+<sp><speaker>MERCURY</speaker><p> But I'll soon make you own that I'm telling the truth. </p></sp>
+<sp><speaker>SOSIA</speaker><p> What necessity is there for it?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Can I know whence you have set out, whose you are, or why you are come?</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>pointing</stage>. This way I'm going, and I'm the servant of my master. Are you any the wiser now?</p></sp>
+<sp><speaker>MERCURY</speaker><p> I'll this day make you be holding that foul tongue of yours.</p></sp>
+<sp><speaker>SOSIA</speaker><p> You can't; it is kept pure<milestone n="348" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">It is kept pure</lemma>: , It is generally supposed that in these words indelicate allusion is intended; but it is not so universally agreed on what nature is.</note> and becomingly.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Do you persist in chattering? What business now have you at this house? <stage>Points to the house.</stage>
+</p></sp>
+<sp><speaker>SOSIA</speaker><p> Aye, and what business have you?</p></sp>
+<sp><speaker>MERCURY</speaker><p> King Creon always sets a watch every night.</p></sp>
+<sp><speaker>SOSIA</speaker><p> He does right; because we were abroad, he has been protecting our house. But however, do go in now, and say that some of the family servants have arrived.</p></sp>
+<sp><speaker>MERCURY</speaker><p> How far you are one of the family servants I don't know. But unless you are off from here this instant, family servant as you are, I'll make you to be received in no familiar style.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Here, I say, I live, and of these people I am the servant.</p></sp>
+<sp><speaker>MERCURY</speaker><p> But do you understand how it is? Unless you are off, I'll make you to be exalted<milestone n="357" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be exalted</lemma>:  He probably means by this, that he will beat him to such a degree that he will be obliged to be carried off, either dead or unable to move a limb--"elevated" on the shoulders of other men.</note> this day.</p></sp>
+<sp><speaker>SOSIA</speaker><p> In what way, pray? </p></sp>
+<sp><speaker>MERCURY</speaker><p> You shall be carried off, you shan't walk away, if I take up a stick.</p></sp>
+<sp><speaker>SOSIA</speaker><p> But I declare that I am one of the domestics of this family.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Consider, will you, how soon you want a drubbing, unless you are off from here this instant.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Do you want, as I arrive from foreign parts, to drive me from my home?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Is this your home? </p></sp>
+<sp><speaker>SOSIA</speaker><p> It is so, I say.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Who is your master, then?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Amphitryon, who is now the general of the Theban forces, to whom Alcmena is married.</p></sp>
+<sp><speaker>MERCURY</speaker><p> How say you? What's your name?</p></sp>
+<sp><speaker>SOSIA</speaker><p> The Thebans call me Sosia, the son of my father Davus.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Assuredly, at your peril have you come here this day, with your trumped-up lies, your patched-up knaveries, you essence of effrontery.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Why no, it's rather with garments patched-up that I'm arrived here, not with knaveries.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Why, you are lying again; you come with your feet, surely, and not with your garments.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Yes, certainly. </p></sp>
+<sp><speaker>MERCURY</speaker><p> Then certainly take that for your lie. <stage>He strikes him.</stage></p></sp>
+<sp><speaker>SOSIA</speaker><p> By my troth, I certainly don't wish for it of course.</p></sp>
+<sp><speaker>MERCURY</speaker><p> But by my faith, you certainly shall have it of course, whether you wish or not: for, in fact, this is certainly my determination, and it is not at your own option. <stage>He strikes him.</stage></p></sp>
+<sp><speaker>SOSIA</speaker><p> Mercy, I entreat of you.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Do you dare to say that you are Sosia, when I myself am he? <stage>Strikes him.</stage></p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>crying at the top of his voice</stage>. I'm being murdered.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Why, you are crying out for a trifle as yet, compared with what it will be. Whose are you now?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Your own; for with your fists you have laid hands on me<milestone n="375" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Laid hands on me</lemma>:  "Usufecisti." "Usufacere" was a term used in law, to signify the taking possession of a thing by the laying of hands thereon. this, Sosia means to say, Mercury has most effectually done.</note>. Help, help, citizens of <placeName key="perseus,Thebes">Thebes</placeName>. <stage>MERCURY striking him.</stage></p></sp>
+<sp><speaker>MERCURY</speaker><p> What, still bawling, you scoundrel? Speak--what have you come for? </p></sp>
+<sp><speaker>SOSIA</speaker><p> For there to be somebody for you to belabour with your fists.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Whose are you?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Amphitryon's Sosia, I tell you.</p></sp>
+<sp><speaker>MERCURY</speaker><p> For this reason then you shall be beaten the more, because you prate thus idly; I am Sosia, not you.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I wish the Gods would have it so, that you were he in preference, and that I were thrashing you.</p></sp>
+<sp><speaker>MERCURY</speaker><p> What, muttering still? <stage>Strikes him</stage>.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I'll hold my tongue then.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Who is your master? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Whoever you like.</p></sp>
+<sp><speaker>MERCURY</speaker><p> How then? What's your name now?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Nothing but what you shall command.</p></sp>
+<sp><speaker>MERCURY</speaker><p> You said that you were Amphitryon's Sosia.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I made a mistake; but this I meant to say, that I was Amphitryon's associate<milestone n="384" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Associate</lemma>:  This poor pun is founded on the similarity of sound between Sosia and "socius," a "companion" or "associate."</note>.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Why, I was sure that we had no servant called Sosia except myself. Your senses are forsaking you.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I wish that those fists of yours had done so.</p></sp>
+<sp><speaker>MERCURY</speaker><p> I am that Sosia, whom you were just now telling me that you are.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I pray that I may be allowed to discourse with you in quietness, so as not to be beaten. </p></sp>
+<sp><speaker>MERCURY</speaker><p> Well then, let there be a truce for a short time, if you want to say anything.
+</p></sp>
+<sp><speaker>SOSIA</speaker><p> I'll not speak unless peace is concluded, since you are the stronger with your fists.</p></sp>
+<sp><speaker>MERCURY</speaker><p> If you wish to say anything, speak; I'll not hurt you. </p></sp>
+<sp><speaker>SOSIA</speaker><p> Am I to trust in your word?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Yes, in my word. </p></sp>
+<sp><speaker>SOSIA</speaker><p> What, if you deceive me?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Why, then may Mercury be angry with Sosia<milestone n="392" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Angry with Sosia</lemma>:  There is something comical in the absurdity of this oath. Mercury, personating Sosia, says that if he breaks it, the result must be that Mercury (i. e., himself):  will be angry with Sosia, the person in whose favour he is pretending to take the oath.</note>.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Then give attention: now I'm at liberty to say in freedom anything I please. I am Sosia, servant of Amphitryon.</p></sp>
+<sp><speaker>MERCURY</speaker><p> What, again? <stage>Offering to strike him.</stage></p></sp>
+<sp><speaker>SOSIA</speaker><p> I have concluded the peace, ratified the treaty--I speak the truth.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Take that, then. <stage>Hie strikes him.</stage></p></sp>
+<sp><speaker>SOSIA</speaker><p> As you please, and what you please, pray do, since you are the stronger with your fists. But whatever you shall do, still, upon my faith, I really shall not be silent about that.</p></sp>
+<sp><speaker>MERCURY</speaker><p> So long as you live, you shall never make me to be any other than Sosia at this moment.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I' faith, you certainly shall never make me to be any other person than my own self; and besides myself we have no other servant of the name of Sosia--myself, who went hence on the expedition together with Amphitryon.</p></sp>
+<sp><speaker>MERCURY</speaker><p> This fellow is not in his senses.</p></sp>
+<sp><speaker>SOSIA</speaker><p> The malady that you impute to me, you have that same yourself. How, the plague, am I not Sosia, the servant of Amphitryon? Has not our ship, which brought me, arrived here this night from the Persian port<milestone n="404" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The Persian port</lemma>:  Plautus is here guilty of an anachronism; for the "Portus Persicus," which was on the coast of Eub&oelig;a, was so called from the Persian fleet lying there on the occasion of the expedition to Greece, many ages after the time of Amphitryon.</note>? Has not my master sent me here? Am I not now standing before our house? Have I not a lantern in my hand? Am I not talking? Am I not wide awake? Has not this fellow been thumping me with his fists? By my troth<milestone n="408" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">By my troth</lemma>:  "Hercle." Literally, "by Hercules." Hypercritical Commentators have observed, that Plautus is guilty in this Play of a grammatical anachronism, in putting the expletive, "Hercle," in the mouths of persous at a time when Hercules is supposed to be yet unborn. They might with as much justice accuse him of anachronism in putting the Roman language into the mouths of persons at a time when that language did not as yet exist. He merely professes to embody the sentiments of persons in bygone days in such language as may render them the most easily intelligible to a Roman audience.</note>, he has been doing so; for even now, to my pain, my cheeks are tingling. Why, then, do I hesitate? Or why don't I go in-doors into our house? <stage>He makes towards the door.</stage></p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>stepping between</stage>. How--your house?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Indeed it really is so.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Why, all that you have been saying just now, you have trumped up; I surely am Amphitryon's Sosia. For in the night this ship of ours weighed anchor from the Persian port, and where king Pterelas reigned, the city we took by storm, and the legions of the Teleboans in fighting we took by arms, and Amphitryon himself cut off the head of king Pterelas in battle.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I do not trust my own self, when I hear him affirm these things; certainly, he really does relate exactly the things that were done there. <stage>Aloud.</stage> But how say you? What spoil from the Teleboans was made a present to Amphitryon?</p></sp>
+<sp><speaker>MERCURY</speaker><p> A golden goblet, from which king Pterelas used to drink.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. He has said the truth. Where now is this goblet?</p></sp>
+<sp><speaker>MERCURY</speaker><p> 'Tis in a casket, sealed with the seal of Amphitryon. </p></sp>
+<sp><speaker>SOSIA</speaker><p> Tell me, what is the seal?</p></sp>
+<sp><speaker>MERCURY</speaker><p> The Sun rising with his chariot. Why are you on the catch for me, you villain?</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. He has overpowered me with his proofs. I must look out for another name. I don't know from whence he witnessed these things. I'll now entrap him finely; for what I did alone by myself, and when not another person was present in the tent, that, he certainly will never be able this day to tell me. <stage>Aloud.</stage> If you are Sosia, when the armies were fighting most vigorously, what were you doing in the tent? If you tell me that, I'm vanquished.</p></sp>
+<sp><speaker>MERCURY</speaker><p> There was a cask of wine; from it I filled an earthen pot<milestone n="429" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An earthen pot</lemma>:  "Hirneam." "Hirnea" was an earthen vessel for holding wine. It was said to receive its name from the Greek word <foreign lang="greek">o)/rnis</foreign> "a bird," because it originally bore the figure of a bird.</note>.
+</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. He has got upon the track.  </p></sp><sp><speaker>MERC.</speaker><p>That I drew full of pure wine, just as it was born from the mother grape.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. It's a wonder if this fellow wasn't lying hid inside of that earthen pot. It is the fact, that there I did drink an earthen pot full of wine.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Well--do I now convince you by my proofs that you are not Sosia? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Do you deny that I am?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Why should I not deny it, who am he myself?</p></sp>
+<sp><speaker>SOSIA</speaker><p> By Jupiter I swear that I am he, and that I do not say false.</p></sp>
+<sp><speaker>MERCURY</speaker><p> But by Mercury, I swear that Jupiter does not believe you; for I am sure that he will rather credit me without an oath than you with an oath.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Who am I, at all events, if I am not Sosia? I ask you that.</p></sp>
+<sp><speaker>MERCURY</speaker><p> When I choose not to be Sosia, then do you be Sosia; now, since I am he, you'll get a thrashing, if you are not off hence, you fellow without a name.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. Upon my faith, for sure, when I examine him and recollect my own figure, just in such manner as I am (I've often looked in a glass<milestone n="442" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Looked in a glass</lemma>:  He seems to speak of looking in a mirror as something uncommon for a slave to do. Probably the expense of them did not allow of their being used by slaves. The "specula," or "looking-glasses," of the ancients, were usually made of metal, either a composition of tin and copper or of silver; but in later times, alloy was mixed with the silver. Pliny mentions the obsidian stone, or, as it is now called, Icelandic agate, as being used for this purpose. He also says that mirrors were made in the glass-houses of Sidon, which consisted of glass plates with leaves of metal at the back. These were probably of an inferior character. Those of copper and tin were made chiefly at Brundisium. The white metal formed from this mixture soon becoming dim, a sponge, with powdered pumice-stone, was usually fastened to the mirrors made of that composition. They were generally small, of round or oval shape, and having a handle. The female slaves usually held them while their mistresses were performing the duties of the toilet. Sometimes they were fastened to the walls, and they were occasionally of the length of a person's body, like the cheval glasses of our day</note>): , he is exactly like me. He has the broad-brimmed hat and clothing just the same; he is as like me as I am myself. His leg, foot, stature, shorn head, eyes, nose, even his lips, cheeks, chin, beard, neck--the whole of him. What need is there of words? If his back is marked with scars, than this likeness there is nothing more like. But when I reflect, really, I surely am the same person that I always was. My master I know, I know our I house; I am quite in my wits and senses. I'm not going to I obey this fellow in what he says; I'll knock at the door. <stage>Goes towards the door.</stage></p></sp>
+<sp><speaker>MERCURY</speaker><p> Whither are you betaking yourself? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Home.</p></sp>
+<sp><speaker>MERCURY</speaker><p> If now you were to ascend the chariot of Jove and fly away from here, then you could hardly be able to escape destruction.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Mayn't I be allowed to deliver the message to my mistress that my master ordered me to give?</p></sp>
+<sp><speaker>MERCURY</speaker><p> If you want to deliver any message to your own mistress; this mistress of mine I shall not allow you to approach. But if you provoke me, you'll be just now taking hence your loins broken.</p></sp>
+<sp><speaker>SOSIA</speaker><p> In preference, I'll be off. <stage>Aside.</stage> Immortal Gods, I do beseech your mercy. Where did I lose myself? Where have I been transformed? Where have I parted with my figure? Or have I left myself behind there, if perchance I have forgotten it? For really this person has possession of all my figure, such as it formerly was. While living, that is done for me, which no one will ever do for me when dead<milestone n="458" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">When dead</lemma>:  It is generally thought that he is punning here upon the word "imago," and alludes to the practice of carrying the "imagines," or "waxen images" of their ancestors, in the funeral processions of the Patricians--an honor, he says, that will never befall him when he is dead. Douza, however, thinks that he is playing upon the expression "ludos facere," which has the double meaning of "to impose upon" a person, or "to give a spectacle" of gladiators after the death of a person of Patrician rank; and that he means to say that the act "<foreign lang="la">ludos faciendi</foreign>" is being applied to him (in the first sense):  while alive, a thing that (in the second sense) will never befall him when dead.</note>. I'll go to the harbour, and I'll tell my master these things as they have happened--unless even he as well shall not know me, which may Jupiter grant, so that this day, bald, with shaven crown, I may assume the cap of freedom<milestone n="462" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Cap of freedom</lemma>:  When a slave was made free, after his manumission his head was shaved, and a cap put upon it in the Temple of Feronia, the Goddess of Freedmen.</note>. <stage>(Exit.)</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="463" unit="TLN line"/>
+<stage>MERCURY, alone</stage>
+<sp><speaker>MERCURY</speaker><p> Well and prosperously has this affair gone on for me; from the door have I removed the greatest obstacle, so that it may be allowed my father to embrace her in security. When now he shall have reached his master, Amphitryon there, he will say that the servant Sosia has repulsed himself from the door here; and then the other will suppose that he is telling him a lie, and will not believe that he has come here as he had ordered him. Both of them and the whole household of Amphitryon I will fill with mistakes and distraction, even until my father shall have had full enjoyment of her whom he loves; then at last all shall know what has been done. In the end Jupiter shall restore Alcmena to the former affection of her husband. For Amphitryon will just now be beginning a quarrel with his wife, and will be accusing her of incontinence; then will my father change for her this strife into tranquillity. Now, inasmuch as yet I've said but little about Alcmena, this day will she bring forth two sons, twins; the one will be born in the tenth month after he was begotten, the other in the seventh month<milestone n="482" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">In the seventh month</lemma>:  It is difficult to imagine how a critic can suppose that the duration of this Play is intended to be seven months, merely because, according to the ancient story, Hercules was born seven months after the intercourse of Jupiter with Alcmena. Heinsius and Vossius, however, were of this extraordinary opinion. They probably did not reflect that Plautus, for the sake of finding material for his Play, supposed the same intercourse to have been repeated on the same night on which Hercules was born.</note>; of these the one is the son of Amphitryon<milestone n="483" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Son of Amphitryon</lemma>:  Iphiclus was the son of Amphitryon.</note>, the other of Jupiter. But of the younger son the father is the superior, of the elder the inferior. <stage>To the AUDIENCE.</stage> Now do you comprehend this how it is? But for the sake of the honor<milestone n="486" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Of the honor</lemma>:  "Honoris." Madame Dacier has observed, that the tenderness of Jupiter extended only to her health, and not to her "reputation," as the word "honoris" would seem to imply. "Honoris grati&acirc;" may however, simply mean "for her own sake."</note> of this Alcmena, my father will take care that it shall happen at one birth, so that in one travail she may complete her double pangs, and not be laid under suspicion of unchastity, and that the clandestine connexion may remain concealed. Although, as I have said just now, Amphitryon shall still know all the matter in the end. What then? No one surely will impute it to Alcmena as a disgrace; for it does not seem that a God is acting justly to permit his own offences and his own faultiness to fall upon a mortal. I'll cut short my talk: the door makes a noise. See, the counterfeit Amphitryon is coming out of doors, and together with him Alcmena, the wife that he has taken the loan of.
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="499" unit="TLN line"/>
+<stage>Enter JUPITER and ALCMENA, from the house.</stage>
+<sp><speaker>JUPITER</speaker><p> Kindly fare you well, Alcmena; take care, as you are doing, of our common interest, and pray be sparing of yourself; you see that now your months are completed. It's necessary for me to go away from here; but the offspring that shall be born do you bring up<milestone n="506" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Do you bring up</lemma>:  "Tollito." It was a custom among the ancients for the new-born child to be laid on the ground, upon which it was taken up by the father, or such other person as intended to stand in the place of a parent to it. If it was not taken up, it was disowned, and left to starve. For this reason Jupiter makes this request of Alcmena.</note>.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> What business is this, my husband, since you thus suddenly leave your home?</p></sp>
+<sp><speaker>JUPITER</speaker><p> By my troth, 'tis not that I am wearied of you or of my home; but when the chief commander is not with the army, that is sooner done which ought not to be done than that which needs to be done.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. This is a very clever counterfeit, who really is my own father. <stage>To the AUDIENCE.</stage> Do you observe him, how blandly he smoothes the lady over.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I' faith, I find by experience how much you value your wife. </p></sp>
+<sp><speaker>JUPITER</speaker><p> If there is no one among women whom I love so much, are you satisfied?</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. Verily, upon my faith, if Juno only knew that you were giving your attention to such matters, I'd warrant that you'd rather be<milestone n="510" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You'd rather be</lemma>: -511 "Edepol n&aelig; illa si istis rebus ne sciat operam dare, Ego faxim ted Amphitryonem malis esse quam Jovem." This passage has been differently rendered by Richter. He says that "illa," "she," refers to Alcmena, and not to Juno, as has been generally imagined, and that Mercury says these words aside, and, turning to the Audience, remarks, that if he were only to tell Alcmena that Jupiter is not the real Amphitryon, he would wish himself the real one, in preference to being Jupiter, and losing the lady. The translation in the text seems, however, to convey the real meaning of the passage. Probably, when using the word "illa," as applying to Juno, ha slily points upwards to the heavens.</note> Amphitryon than Jupiter.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I would rather that I should find it so by experience, than that it should be told me. You leave me before the spot in the bed where.you have been lying has well grown warm. Yesterday, in the middle of the night, you came, and now you are going away. Is this your pleasure?</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. I'll approach, and address her, and play second fiddle to my father. <stage>He approaches ALCMENA.</stage> Never, upon my faith, do I believe that any mortal did so. distractedly love his wife as he distractedly dotes upon you.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Scoundrel!--don't I know you of old? Won't you be off out of my sight? What business have you in this matter, whip-knave? or why your muttering? Whom this very instant, with this walking-stick, I'll---- <stage>Shakes his stick over his head.</stage></p></sp>
+<sp><speaker>ALCMENA</speaker><p> Oh don't. </p></sp>
+<sp><speaker>JUPITER</speaker><p> Only make a whisper.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. My first attempt at playing second fiddle had almost come to an unfortunate conclusion.</p></sp>
+<sp><speaker>JUPITER</speaker><p> But as to what you say, my wife, you ought not to be angry with me. I came away privately from the army: these moments I stole for you, that you the first might know from me the first, how I had managed the common interests. All this have I related to you. If I had not loved you very much, I should not have done so.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. Isn't he doing just as I said? In her alarm, he is smoothing her down.</p></sp>
+<sp><speaker>JUPITER</speaker><p> That the army then mayn't find it out, I must return there privately, lest they should say that I have preferred my wife before the common interests.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> By your departure you set your wife in tears.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Be quiet; don't spoil your eyes: I'll return very shortly. </p></sp>
+<sp><speaker>ALCMENA</speaker><p> That "very shortly" is a long time.</p></sp>
+<sp><speaker>JUPITER</speaker><p> I do not with pleasure leave you here, or go away from you.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I am sensible of it; for, the night that you have come to me, on the same you go away. <stage>(She embraces him.)</stage></p></sp>
+<sp><speaker>JUPITER</speaker><p> Why do you hold me? It is time to go: I wish to depart from the city before it dawns. Now, Alcmena, this goblet which has been given me there on account of my valour, from which king Pterelas used to drink, he whom I slew with my own hand, the same I present to you. <stage>Presents to her the goblet.</stage></p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>taking the goblet</stage>. You do as you are wont in other things. By heavens, it is a noble gift; like him who gave the gift.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Aye, a noble gift; just like her to whom it has been given as a gift.</p></sp>
+<sp><speaker>JUPITER</speaker><p> What, still going on? Can't I, you scoundrel, make an end of you?
+</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Amphitryon, there's a dear, don't be angry<milestone n="540" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Don't be angry</lemma>:  It has been justly remarked that the amiable and interesting character of Alcmena is not unlike that of Desdemona, in Shakspeare's Othello.</note> with Sosia on my account.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Just as you wish I'll do.</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>aside</stage>. From his intriguing, how very savage he does become!</p></sp>
+<sp><speaker>JUPITER</speaker><p> Do you wish for anything else? </p></sp>
+<sp><speaker>ALCMENA</speaker><p> That when I am absent you will love me--me, who am yours, though absent.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Let's go, Amphitryon; it's already dawning.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Go you first, Sosia. <stage>Exit MERCURY.</stage> I'll follow this instant. <stage>To ALCMENA.</stage> Is there anything you wish?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Yes; that you'll come back speedily.</p></sp>
+<sp><speaker>JUPITER</speaker><p> I will; and sooner than you expect will I be here therefore be of good heart. <stage>ALCMENA goes into the house.</stage>  Now Night, thou who hast tarried for me, I permit these to give place to Day, that thou mayst shine upon mortals with a bright and brilliant light. And Night, as much as on this last thou wast too long, so much the shorter will I make the Day to be, that a Day of equal disparity may succeed the Night. I'll go and follow Mercury.  <stage>(Exit.)</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="2">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="551" unit="TLN line"/>
+<stage>Enter AMPHITRYON and SOSIA, at the end of the stage.</stage>
+<sp><speaker>AMPH.</speaker><p> Come, do you follow after me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I'm following; I'm following close after you.</p></sp>
+<sp><speaker>AMPH.</speaker><p> I think that you are the veriest rogue----</p></sp>
+<sp><speaker>SOSIA</speaker><p> But for what reason?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Because that which neither is, nor ever was, nor will be, you declare to me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Look at that; you are now acting according to your usual fashion, to be putting no trust in your servants.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Why is it so? For what reason? Surely now, by the powers, I'll cut out that villanous tongue of yours, you villain.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I am yours; do each thing just as it is agreable and as it pleases you. Still you never can, by any method, hinder me from saying these things just as they took place here.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> You consummate villain, do you dare tell me this, that you are now at home, who are here present?</p></sp>
+<sp><speaker>SOSIA</speaker><p> I speak the truth. </p></sp>
+<sp><speaker>AMPH.</speaker><p> A mishap shall the Gods send upon you, and I this day will send it as well.</p></sp>
+<sp><speaker>SOSIA</speaker><p> That's in your power, for I am your property.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Do you dare, you whip-scoundrel, to play your tricks with me, your master? Do you dare affirm that which no person ever yet before this has seen, and which cannot possibly happen, for the same man to be in two places together at the same time?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Undoubtedly, such as I say is the fact.</p></sp>
+<sp><speaker>AMPH.</speaker><p> May Jupiter confound you!</p></sp>
+<sp><speaker>SOSIA</speaker><p> What evil, master, have I been deemed deserving of in your service? </p></sp>
+<sp><speaker>AMPH.</speaker><p> Do you ask me, you rogue, who are even making sport of me?</p></sp>
+<sp><speaker>SOSIA</speaker><p> With reason might you curse me, if it had not so happened. But I tell no lie, and I speak as the thing really did happen.</p></sp>
+<sp><speaker>AMPH.</speaker><p> This fellow's drunk, as I imagine.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What, I? </p></sp>
+<sp><speaker>AMPH.</speaker><p> Yes--you there.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I wish I were so.</p></sp>
+<sp><speaker>AMPH.</speaker><p> You are wishing for that which is fact; where have you been drinking? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Nowhere, indeed.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What is this, that is the matter with the fellow?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Really I have told you ten times over. I am both at home now, I say (do you mark me?), and I, Sosia, am with you likewise. Don't I appear, master, to have told you quite distinctly, and quite circumstantially, that this is so.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Avaunt, get away with you from me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What's the matter?</p></sp>
+<sp><speaker>AMPH.</speaker><p> A pestilence possesses you.</p></sp>
+<sp><speaker>SOSIA</speaker><p> But why do you say so to me? I really am quite well and in perfect health, Amphitryon.</p></sp>
+<sp><speaker>AMPH.</speaker><p> But I'll make you this very day, just as you have deserved, not to be quite so well, and to be miserable instead of your perfect health, if I return home. Follow me, you who in this fashion are making sport of your master with your crack-brained talk; you, who, since you have neglected to perform what your master ordered, are now come even of your own accord to laugh at your master. Things which neither can happen, and which no one ever yet heard of in talk, you are telling of, you villain; on your back I'll take care and make those lies to tell this very day.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Amphitryon, this is the most wretched of wretchedness to a good servant, who is telling the truth to his master, if that same truth is overpowered by violence.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Discuss it with me by proofs. Why, how the plague can such a thing happen, for you now to be both here and at home? That I want to be told.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I really am both here and there; this any person has a right to wonder at; nor, Amphitryon, does this seem more. strange to you than to myself.</p></sp>
+<sp><speaker>AMPH.</speaker><p> In what way?</p></sp>
+<sp><speaker>SOSIA</speaker><p> In no degree, I say, is this more strange to you than to myself; nor, so may the Deities love me, did I at first credit Sosia--me myself, until that Sosia, I myself, made me to believe me myself. In order did he relate everything, as each thing came to pass, when we sojourned with the enemy; and then besides, he has carried off my figure together with my name. Not even is milk more like to milk than is that I myself like to me myself. For when some time since, before daybreak, you sent me from the harbour home before you----</p></sp>
+<sp><speaker>AMPH.</speaker><p> What then?</p></sp>
+<sp><speaker>SOSIA</speaker><p> I had been standing a long time at the door before I had got there.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Plague on it, what nonsense! Are you quite in your senses? </p></sp>
+<sp><speaker>SOSIA</speaker><p> I'm just as you see me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Some mischief, I know not what, has befallen this fellow from an evil hand<milestone n="605" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An evil hand</lemma>:  " Mal&acirc; manu." In this line these words relate to sorcery or enchantment, probably through spells, in which the hand was employed. Sosia takes the opportunity of punning, by understanding the words in their literal sense. " Evil hand," indeed, he says, "when I have been almost mauled to death with fists."</note> since he left me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I confess it; for I have been most shockingly bruised with his fists.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Who has been beating you?</p></sp>
+<sp><speaker>SOSIA</speaker><p> I myself, who am now at home, beat me myself.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Take you care to say nothing but what I shall ask you. Now, do you answer me. First of all, who this Sosia is, of that I want to be informed.</p></sp>
+<sp><speaker>SOSIA</speaker><p> He is your servant.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> Really I have even more than I desire by your own one self. Never, too, since I was born, had I a servant Sosia besides yourself.</p></sp>
+<sp><speaker>SOSIA</speaker><p> But now, Amphitryon, I say this; I'll make you, I say, on your arrival, meet with another Sosia at home, a servant of yours, besides myself, a son of Davus, the same father with myself, of figure and age as well just like myself. What need is there of words? This Sosia of yours is become twofold.</p></sp>
+<sp><speaker>AMPH.</speaker><p> You talk of things extremely wonderful. But did you see my wife? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Nay, but it was never allowed me to go in-doors into the house.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Who hindered you? </p></sp>
+<sp><speaker>SOSIA</speaker><p> This Sosia, whom I was just now telling of, he who thumped me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Who is this Sosia? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Myself, I say; how often must it be told you?</p></sp>
+<sp><speaker>AMPH.</speaker><p> But how say you? Have you been sleeping the while? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Not the slightest in the world.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Then, perhaps, you might perchance have seen some Sosia in your dreams.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I am not in the habit of performing the orders of my master in a sleepy fashion. Awake I saw him, awake I now see you, awake I am talking, awake did he, a little while since, thump me about with his fists.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What person did so? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Sosia, that I myself,--he, I say. Prithee, don't you understand?</p></sp>
+<sp><speaker>AMPH.</speaker><p> How, the plague, can any one possibly understand? You are jabbering such nonsense.</p></sp>
+<sp><speaker>SOSIA</speaker><p> But you'll know him shortly.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Whom? </p></sp>
+<sp><speaker>SOSIA</speaker><p> You'll know this servant Sosia.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Follow me this way, then; for it is necessary for me first to enquire into this. But take care that all the things that I ordered are now brought from the ship.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I am both mindful and diligent that what you order shall be performed; together with the wine, I have not drunk up your commands.</p></sp>
+<sp><speaker>AMPH.</speaker><p> May the Gods grant, that, in the event, what you have said may prove untrue. <stage>They stand apart.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="633" unit="TLN line"/>
+<stage>Enter ALCMENA, from the house, attended by THESSALA.</stage>
+<sp><speaker>ALCMENA</speaker><p> Is not the proportion of pleasures in life and in passing our existence short in comparison with what is disagreable? So it is allotted to each man in life; so has it pleased the Gods that Sorrow should attend on Pleasure as her companion; but if aught of good befalls us, more of trouble and of ill forthwith attends us. For this do I now feel by experience at home and in relation to myself, to whom delight has been imparted for a very short time, while I had the opportunity of seeing my husband for but one night; and now has he suddenly gone away hence from me before the dawn. Deserted do I now seem to myself, because he is absent from here, he whom before all I love. More of grief have I felt from the departure of my husband, than of pleasure from his arrival. But this, at least, makes me happy, that he has conquered the foe, and has returned home loaded with glory. Let him be absent, if only with fame acquired he betakes himself home. I shall bear and ever endure his absence with mind resolved and steadfast; if only this reward is granted me, that my husband shall be hailed the conqueror in the warfare, sufficient for myself will I deem it. Valour is the best reward; valour assuredly surpasses all things: liberty, safety, life, property and parents, country too, and children, by it are defended and preserved. Valour comprises everything in itself: all blessings attend him in whose possession is valour.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>apart</stage>. By my troth, I do believe that I shall come much wished for by my wife, who loves me, and whom, in return, I love: especially, our enterprise crowned with success, the enemy vanquished, whom no one had supposed to be able to be conquered: these, under my conduct and command, at the first meeting, have we vanquished; but I know for sure that I shall come to her much wished for.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. Well, and don't you think that I shall come much wished for to my mistress?
+<stage>SOSIA.</stage></p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>to herself</stage>. Surely, this is my husband.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>to SOSIA</stage>. Do you follow me this way.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>to herself</stage>. But why has he returned, when just now he said that he was in haste? Is he purposely trying me, and is he desirous to make proof of this, how much I regret his departure? By my faith, against no inclination of mine has he betaken himself home.
+</p></sp>
+<sp><speaker>SOSIA</speaker><p> Amphitryon, it were better for us to return to the ship. </p></sp>
+<sp><speaker>AMPH.</speaker><p> For what reason?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Because there's no person at home to give us a breakfast on our arrival.</p></sp>
+<sp><speaker>AMPH.</speaker><p> How comes that now into your mind?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Why, because we have come too late.</p></sp>
+<sp><speaker>AMPH.</speaker><p> How so? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Because I see Alcmena standing before the house, with her stomach-full<milestone n="667" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Stomach-full</lemma>:  He is guilty of a vulgar pun on the word "saturam," which may either mean "having a full stomach" or "being pregnant."</note> already.</p></sp>
+<sp><speaker>AMPH.</speaker><p> I left her pregnant here when I went away.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Alas, to my sorrow, I'm undone!</p></sp>
+<sp><speaker>AMPH.</speaker><p> What's the matter with you? </p></sp>
+<sp><speaker>SOSIA</speaker><p> I have come home just in good time to fetch the water<milestone n="669" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To fetch the water</lemma>:  He alludes to the practice among the ancients of bathing immediately after childbirth, and says that he himself, as the servant, will have to fetch the buckets of water</note> in the tenth month after that, according as I understand you to compute the reckoning.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Be of good heart. </p></sp>
+<sp><speaker>SOSIA</speaker><p> Do you know of how good heart I am? By my troth, do you never after this day entrust to me aught that is sacred, if I don't draw up all the life of that well, if I do but make a beginning.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Do you only follow me this way. I'll appoint another person for that business; don't you fear.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>advancing</stage>. I think that I shall now be doing my duty more, if I go to meet him. <stage>(They meet.)</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> With joy, Amphitryon greets his longed for wife--her, whom of all women in Thebes her husband deems by far the most excellent, and whom so much the Theban citizens truthfully extol as virtuous. Have you fared well all along? Do I arrive much wished for by you?</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. I never saw one more so; for she greets her own husband not a bit more than a dog.</p></sp>
+<sp><speaker>AMPH.</speaker><p> When I see you pregnant, and so gracefully burdened, I am delighted.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Prithee, in the name of all that's good, why, for the sake of mockery, do you thus salute and address me, as though you hadn't lately seen me--as though now, for the first time, you were betaking yourself homeward here from the enemy? For now you are addressing me just as though you were seeing me after a long time.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> Why, really for my part, I have not seen you at all this day until now.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Why do you deny it? </p></sp>
+<sp><speaker>AMPH.</speaker><p> Because I have learned to speak the truth.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> He does not do right, who unlearns the same that he has learned. Are you making trial what feelings I possess? But why are you returning hither so soon? Has an ill omen delayed you, or does the weather keep you back, you who have not gone away to your troops, as you were lately speaking of?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Lately? How long since was this "lately?"</p></sp>
+<sp><speaker>ALCMENA</speaker><p> You are trying me; but very lately, just now.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Prithee, how can that possibly be as you say?--"but very lately, just now."</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Why, what do you imagine? That I, on the other hand, shall trifle with you who are playing with me, in saying that you are now come for the first time, you who but just now went away from here?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Surely she is talking deliriously.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Stop a little while, until she has slept out this one sleep.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Is she not dreaming with her eyes open?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Upon my faith, for my part I really am awake, and awake I am relating that which has happened; for, but lately, before daybreak, I saw both him <stage>pointing at SOSIA</stage> and yourself.</p></sp>
+<sp><speaker>AMPH.</speaker><p> In what place?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Here, in the house where you yourself dwell.</p></sp>
+<sp><speaker>AMPH.</speaker><p> It never was the fact.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Will you not hold your peace? What if the vessel brought us here from the harbour in our sleep?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Are you, too, going to back her as well?</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside to AMPHITRYON</stage>. What do you wish to be done? Don't you know, if you wish to oppose a raving Bacchanal, from a mad woman you'll render her more mad--she'll strike the oftener<milestone n="704" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Strike the oftener</lemma>:  This is said in allusion to the blows with the thyrsus, which the frantic female votaries of Bacchus inflicted upon all persons that they met.</note>; if you humour her, after one blow you may overcome her?</p></sp>
+<sp><speaker>AMPH.</speaker><p> But, by my troth, this thing is resolved upon, somehow to rate her who this day has been unwilling to greet me on my arrival home.
+</p></sp>
+<sp><speaker>SOSIA</speaker><p> You'll only be irritating hornets.</p></sp>
+<sp><speaker>AMPH.</speaker><p> You hold your tongue. Alcmena, I wish to ask you one thing.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Ask me anything you please.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Is it frenzy that has come upon you, or does pride overcome you?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> How comes it into your mind, my husband, to ask me that?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Because formerly you used to greet me on my arrival, and to address me in such manner as those women who are virtuous are wont their husbands. On my arrival home I've found that you have got rid of that custom.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> By my faith, indeed, I assuredly did both greet you yesterday, upon your arrival, at that very instant, and at the same time I enquired if you had continued in health all along, my husband, and I took your hand and gave you a kiss.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What, did you welcome him yesterday?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> And you too, as well, Sosia.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Amphitryon, I did hope that she was about to bring you forth a son; but she isn't gone with child.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What then? </p></sp>
+<sp><speaker>SOSIA</speaker><p> With madness.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Really I am in my senses, and I pray the Gods that in safety I may bring forth a son; but <stage>to SOSIA</stage> hap-ill shall you be having, if he does his duty: for those ominous words, omen-maker, you shall catch what befits you.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Why really an apple<milestone n="723" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">An apple</lemma>:  There is a pun here upon the similarity of the two words "malum," "evil," and "malum," an "apple," in which latter sense Sosia chooses to take the expression of Alcmena. The version of the pun used in the text is borrowed from Thornton's Translation. In a Note, he wonders "why an apple (or any fruit) should be given to a pregnant woman." Sosia seems to explain the reason, in saying that if she feels faint, she will have something to gnaw. It is not improbable that tension of the muscles may in some degree counteract a tendency to faint. This wretched pun is repeated in l. 1032</note> ought to be given to the lady thus pregnant, that there may be something for her to gnaw if she should begin to faint.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Did you see me here yesterday?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I did, I say, if you wish it to be ten times repeated.</p></sp>
+<sp><speaker>AMPH.</speaker><p> In your sleep, perhaps?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> No--I, awake, saw you awake. </p></sp>
+<sp><speaker>AMPH.</speaker><p> Woe to me!</p></sp>
+<sp><speaker>SOSIA</speaker><p> What's the matter with you?
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> My wife is mad. </p></sp>
+<sp><speaker>SOSIA</speaker><p> She's attacked with black bile; nothing so soon turns people mad.</p></sp>
+<sp><speaker>AMPH.</speaker><p> When, madam, did you first find yourself affected?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Why really, upon my faith, I'm well, and in my senses.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Why, then, do you say that you saw me yesterday, whereas we were brought into harbour but last night? There did I dine, and there did I rest the livelong night on board ship, nor have I set my foot even here into the house, since, with the army, I set out hence against the Teleboan foe, and since we conquered them.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> On the contrary, you dined with me, and you slept with me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> How so? </p></sp>
+<sp><speaker>ALCMENA</speaker><p> I'm telling the truth.</p></sp>
+<sp><speaker>AMPH.</speaker><p> On my honor, not in this matter, really; about other </p></sp>
+<sp><speaker>MATTERS</speaker><p> I don't know. </p></sp>
+<sp><speaker>ALCMENA</speaker><p> At the very break of dawn you went away to your troops.</p></sp>
+<sp><speaker>AMPH.</speaker><p> By what means could I?</p></sp>
+<sp><speaker>SOSIA</speaker><p> She says right, according as she remembers; she's telling you her dream. But, madam, after you arose, you ought to have sacrificed to Jove, the disposer of prodigies<milestone n="739" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Disposer of prodigies</lemma>:  See the Miles Gloriosus, l. 394, and the Note to the passage.</note>, either with a salt cake or with frankincense.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> A mischief on your head!</p></sp>
+<sp><speaker>SOSIA</speaker><p> That's your own business, if you take due care.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Now again this fellow is talking rudely to me, and that without punishment.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>to SOSIA</stage>. You hold your tongue. <stage>To ALCMENA.</stage> Do you tell me now--did I go away hence from you at daybreak?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Who then but your own self recounted to me how the battle went there? </p></sp>
+<sp><speaker>AMPH.</speaker><p> And do you know that as well?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Why, I heard it from your own self, how you had taken a very large city, and how you yourself had slain king Pterelas.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What, did I tell you this?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> You yourself, this Sosia standing by as well.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>to SOSIA</stage>. Have you heard me telling about this to-day? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Where should I have heard you?
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> Ask her. </p></sp>
+<sp><speaker>SOSIA</speaker><p> In my presence, indeed, it never took place, that I know of.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> It would be a wonder<milestone n="750" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">It would be a wonder</lemma>:  She says this ironically.</note> if he didn't contradict you.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Sosia, come here and look at me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>looks at him</stage>. I am looking at you.</p></sp>
+<sp><speaker>AMPH.</speaker><p> I wish you to tell the truth, and I don't want you to humour me. Have you heard me this day sav to her these things which she affirms?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Prithee now, by my troth, are you, too, mad as well, when you ask me this, me, who, for my part, my own self now behold her in company with you for the first time?</p></sp>
+<sp><speaker>AMPH.</speaker><p> How now, madam? Do you hear him?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I do, indeed, and telling an untruth.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Do you believe neither him nor my own self, your husband?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> No; for this reason it is, because I most readily believe myself, and I am sure that these things took place just as I relate them.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Do you say that I came yesterday?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Do you deny that you went away from here to-day?</p></sp>
+<sp><speaker>AMPH.</speaker><p> I really do deny it, and I declare that I have now come home to you for the first time.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Prithee, will you deny this too, that you to-day made me a present of a golden goblet, with which you said that you had been presented?</p></sp>
+<sp><speaker>AMPH.</speaker><p> By heavens, I neither gave it nor told you so: but I had so intended, and do so now, to present you with that goblet. But who told you this?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Why, I heard it from yourself, and I received the goblet from your own hand. <stage>She moves as if going.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> Stay, stay, I entreat you. Sosia, I marvel much how she knows that I was presented there with this golden goblet, unless you have lately met her and told her all this.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Upon my faith, I have never told her, nor have I ever beheld her except with yourself.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What is the matter<milestone n="769" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">What is the matter</lemma>:  It is disputed among the Commentators to which character these words belong, Amphitryon or Alcmena</note> with this person?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Should you like the goblet to be produced?</p></sp>
+<sp><speaker>AMPH.</speaker><p> I should like it; to be produced
+</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Be it so. Do you go, Thessala, and bring from indoors the goblet, with which my husband presented me today. <stage>THESSALA goes into the house, and AMPHITRYON and SOSIA walk on one side.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> Sosia, do you step this way. Really, I do wonder extremely at this beyond the other wondrous matters, if she has got this goblet.</p></sp>
+<sp><speaker>SOSIA</speaker><p> And do you believe it, when it's carried in this casket, sealed with your own seal. <stage>He shows the casket.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> Is the seal whole? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Examine it.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>examining it</stage>. All right, it's just as I sealed it up.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Prithee, why don't you order her to be purified<milestone n="776" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To be purified</lemma>:  "Circumferri." Literally, "to be carried round her." Those who were "cerriti," "tormented with the wrath of Ceres," or, in other words, "possessed by evil spirits," were exorcised by persons walking round them with sulphur and burning torches; whence the present expression.</note> as a frantic person? </p></sp>
+<sp><speaker>AMPH.</speaker><p> By my troth, somehow there's need for it, for, i' faith, she's certainly filled with sprites.
+<stage>ALCMENA.</stage></p></sp>
+<sp><speaker>ALCMENA</speaker><p> What need is there of talking? See, here's the goblet; here it is. </p></sp>
+<sp><speaker>AMPH.</speaker><p> Give it me.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Come, now then, look here, if you please, you who deny what is fact, and whom I shall now clearly convict in this case. Isn't this the goblet with which you were presented there?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Supreme Jupiter! what do I behold? Surely this is that goblet. Sosia, I'm utterly confounded.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Upon my faith, either this woman is a most consummate juggler, or the goblet must be in here <stage>pointing to the casket</stage>. AMPH. Come, then, open this casket.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Why should I open it? It is securely sealed. The thing is cleverly contrived; you have brought forth another Amphitryon, I have brought forth another Sosia; now if the goblet has brought forth a goblet, we have all produced our doubles.</p></sp>
+<sp><speaker>AMPH.</speaker><p> I'm determined to open and examine it.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Look, please, how the seal is, that you may not hereafter throw the blame on me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Now do open it. For she certainly is desirous to drive us mad with her talking.
+</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Whence then came this which was made a present to me, but from yourself?</p></sp>
+<sp><speaker>AMPH.</speaker><p> It's necessary for me to enquire into this.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>opening the casket</stage>. Jupiter, O Jupiter!</p></sp>
+<sp><speaker>AMPH.</speaker><p> What is the matter with you?</p></sp>
+<sp><speaker>SOSIA</speaker><p> There's no goblet here in the casket.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What do I hear. </p></sp>
+<sp><speaker>SOSIA</speaker><p> That which is the truth.</p></sp>
+<sp><speaker>AMPH.</speaker><p> But at your peril now, if it does not make its appearance.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>showing it</stage>. Why, it does make its appearance.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Who then gave it you?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> The person that's asking me the question.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to AMPHITRYON</stage>. You are on the catch for me, inasmuch as you yourself have secretly run before me hither from the ship by another road, and have taken the goblet away from here and given it to her, and afterwards you have secretly sealed it up again.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Ah me! and are you too helping her frenzy as well? <stage>To ALCMENA</stage> Do you say that we arrived here yesterday? </p></sp>
+<sp><speaker>ALCMENA</speaker><p> I do say so, and on your arrival you instantly greeted me, and I you, and I gave you a kiss.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. That beginning now about the kiss doesn't please me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Go on telling it. </p></sp>
+<sp><speaker>ALCMENA</speaker><p> Then you bathed.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What, after I bathed?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> You took your place at table.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Bravo, capital! Now make further enquiry.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>to SOSIA</stage>. Don't you interrupt. <stage>To ALCMENA</stage>. Go on telling me. </p></sp>
+<sp><speaker>ALCMENA</speaker><p> The dinner was served; you dined with me; I reclined together with you at the repast.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What, on the same couch? </p></sp>
+<sp><speaker>ALCMENA</speaker><p> On the same.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Oh dear, I don't like this banquet.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Now do let her give her proofs. <stage>To ALCMENA.</stage> What, after we had dined?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> You said that you were inclined to go to sleep; the table was removed; thence we went to bed.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Where did you lie?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> In the chamber, in the same bed together with your. self. </p></sp>
+<sp><speaker>AMPH.</speaker><p> You have proved my undoing.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What's the matter with you?</p></sp>
+<sp><speaker>AMPH.</speaker><p> This very moment has she sent me to my grave.
+</p></sp>
+<sp><speaker>ALCMENA</speaker><p> How so, pray? </p></sp>
+<sp><speaker>AMPH.</speaker><p> Don't address me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What's the matter with you?</p></sp>
+<sp><speaker>AMPH.</speaker><p> To my sorrow I'm undone, since, in my absence from here, dishonor has befallen her chastity.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> In heaven's name, my lord, why, I beseech you, do I hear this from you? </p></sp>
+<sp><speaker>AMPH.</speaker><p> I, your lord? False one, don't call me by a false name.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>aside</stage>. 'Tis an odd matter<milestone n="814" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">'Tis an odd matter</lemma>:  Thornton says, on this passage, "The ambiguity of Sosia's pun in this place depends on the double signification of <foreign lang="la">vir</foreign>, which means 'a man' and 'a husband,' "Poor as it is, it answers very well in the English word "lord."</note> this, if indeed he has been made into my lady from my lord.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> What have I done, by reason of which these expressions are uttered to me?</p></sp>
+<sp><speaker>AMPH.</speaker><p> You yourself proclaim your own doings; do you enquire of me in what you have offended?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> In what have I offended you, if I have been with you to whom I am married?</p></sp>
+<sp><speaker>AMPH.</speaker><p> You, been with me? What is there of greater effrontery than this impudent woman? At least, if you were wanting in modesty of your own, you might have borrowed it.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> That criminality which you lay to my charge befits not my family. If you try to catch me in incontinence, you cannot convict me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Immortal Gods! do you at least know me, Sosia?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Pretty well.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Did I not dine yesterday on board ship in the Persian Port?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I have witnesses as well, who can confirm that which I say.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I don't know what to say to this matter, unless, perchance, there is another Amphitryon, who, perhaps, though you yourself are absent, takes care of your business, and who, in your absence, performs your duties here. For about that counterfeit Sosia it is very surprising. Certainly, about this Amphitryon, now, it is another matter still more surprising.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Some magician, I know not who, is bewildering this woman.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> By the realms of the supreme Sovereign I swear, and by Juno, the matron Goddess, whom for me to fear and venerate it is most especially fitting, that no mortal being<milestone n="833" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">No mortal being</lemma>:  Unknowingly, Alcmena has a salvo here for the untruth, which, unconsciously, she would be otherwise telling; Jupiter not being a mortal.</note> except yourself alone has ever touched my person in contact with his so as to render me unchaste.</p></sp>
+<sp><speaker>AMPH.</speaker><p> I could wish that that was true.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I speak the truth, but in vain, since you will not believe me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> You are a woman; you swear at random.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> She who has not done wrong, her it befits to be bold and to speak confidently and positively in her own behalf.</p></sp>
+<sp><speaker>AMPH.</speaker><p> That's very boldly said.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Just as befits a virtuous woman.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Say you so? By your own words you prove it.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> That which is called a dowry, I do not deem the same my dowry; but chastity, and modesty, and subdued desires, fear of the Gods, and love of my parents, and concord with my kindred; to be obedient to yourself and bounteous to the good, ready to aid the upright.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Surely, by my troth, if she tells the truth in this, she's perfect to the very ideal<milestone n="843" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">To the very ideal</lemma>:  "Examussim." Literally, "by the rule;" a term applied to carpenter's work.</note>.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Really I am so bewildered, that I don't know myself who I am.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Surely you are Amphitryon; take you care, please, that you don't peradventure lose yourself; people are changing in such a fashion since we came from abroad.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Madam, I'm resolved not to omit having this matter enquired into.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I' faith, you'll do so quite to my satisfaction.</p></sp>
+<sp><speaker>AMPH.</speaker><p> How say you? Answer me; what if I bring your own kinsman, Naucrates, hither from the ship, who, together with me, has been brought on board the same ship; and if he denies that that has happened which you say has happened, what is proper to be done to you? Do you allege any reason. why I should not at your cost dissolve<milestone n="852" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">At your cost dissolve</lemma>:  "Mulctem matrimonio." He alludes to the custom among the Romans of the husband retaining the marriage-portion of the wife, when she was divorced for adultery. If they separated for any other reason, her portion was returned to her.</note> this our marriage?
+</p></sp>
+<sp><speaker>ALCMENA</speaker><p> If I have done wrong, there is no reason.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Agreed. Do you, Sosia, take these<milestone n="854" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Take these</lemma>:  "Hos." It is not known to what this word is intended to apply; but it may possibly refer to some captives which he has brought with him, the fruits of his conquest.</note> people in-doors. I'll bring Naucrates hither with me from the ship. <stage>(Exit.)</stage> </p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>going close to ALCMENA</stage>. Now then, there's no one here except ourselves; tell me the truth seriously, is there any Sosia in-doors who is like myself?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Won't you hence away from me, fit servant for your master? </p></sp>
+<sp><speaker>SOSIA</speaker><p> If you command me, I'm off<milestone n="857" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I'm off</lemma>:  We may suppose him to say so with peculiar alacrity, as "abeo," the word used by Alcmena, was the formal word used on the manumission of a slave.</note>, <stage>Goes into the house.</stage></p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>to herself</stage>. By heavens, it is a very wondrous proceeding, how it has pleased this husband of mine thus to accuse me falsely of a crime so foul. Whatever it is, I shall now learn it from my kinsman Naucrates. <stage>Goes into the house.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="3">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="861" unit="TLN line"/>
+<stage>Enter JUPITER.</stage>
+<sp><speaker>JUPITER</speaker><p> I am that Amphitryon, whose servant Sosia is the same that becomes Mercury when there is occasion--I, who dwell in the highest story<milestone n="863" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">The highest story</lemma>:  "C&aelig;naculo." "C&aelig;naculum" was a name given to garrets, or upper rooms, which were let out as lodgings to the poorer classes. The word here conveys a double sense, either as signifying the elevated habitation of the heavenly Jove or the humble lodging of the poor actor who is performing the part. Perhaps our cant term, "sky-parlour," which is sometimes applied to a garret, would be the happiest translation here of the word.</note>, who sometimes, when it pleases me, become Jupiter. But, hither soon as ever I turn my steps, I become Amphitryon that moment, and I change my garb. Now hither am I come for the sake of a compliment to you, that I may not leave this Comedy incomplete. I've come as well to bring assistance to Alcmena, whom, guiltless woman, her husband Amphitryon is accusing of dishonor, For what I myself have brought about, if that undeservedly should fall as an injury upon her in her innocence, it would be my blame. Now, as I have already begun, I'll again pretend that I am Amphitryon, and this day will I introduce extreme confusion into this household. Then afterwards, at last, I'll cause the matter to be disclosed, and to Alcmena timely aid will I bring, and will cause that at one birth she shall bring forth, without pangs<milestone n="879" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Without pangs</lemma>:  "Sine doloribus." Plautus has been censured here for inconsistency, as at the close of the Play he appears to represent Alcmena as enduring the pangs of childbirth; but it is to be remembered that is only the account given by Bromia, and, according to what was her impression, on hearing Alcmena invoke the Deities.</note>, both the child with which she is pregnant by her husband and that with which she is pregnant by myself. I have ordered Mercury forthwith to follow me, if I should wish to give him any commands. Now will I accost her. <stage>He stands apart.</stage></p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="882" unit="TLN line"/>
+<stage>Enter ALCMENA, from the house.</stage>
+<sp><speaker>ALCMENA</speaker><p> I cannot remain in the house. That I should be thus accused by my husband of dishonor, incontinence, and disgrace! he cries aloud that things which have been done, have really not been done; and of things which have not been done, and of which I have not been guilty, he accuses me, and supposes that I shall treat it with indifference. By heavens, I will not do so, nor will I allow myself to be falsely charged with dishonor; but rather I'll either leave him, or make him give satisfaction and swear as well<milestone n="889" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Swear as well</lemma>:  It was considered a sufficient atonement, if the accuser took an oath that his accusation was wrongful; and his oath was considered to wipe off the injury.</note> that he wishes unsaid the things which he has alleged against me in my innocence.</p></sp>
+<sp><speaker>JUPITER</speaker><p> <stage>apart</stage>. This must be done by me, which she requires to be done, if I wish for her to receive me into her company as loving her: since that which I have done, that same conduct has proved to the detriment of Amphitryon, and since my love has already created trouble for him who is really guiltless, why now his wrath and his resentment towards her shall fall on me that am not accused.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> And lo! I see him, who just now was accusing wretched me of incontinence and dishonor.</p></sp>
+<sp><speaker>JUPITER</speaker><p> <stage>advancing</stage>. Wife, I would discourse with you. <stage>She turns from him.</stage> Why turn yourself away?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Such is my disposition; I always hate to look upon my enemies.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Heyday! enemies indeed<milestone n="901" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Enemies indeed</lemma>:  "Inimicos." Gronovius tells us that "izimicus" was term in law by which the husband was denoted after divorce if so, the expression might be supposed to strike with peculiar harshness on a husband's ear.</note>! </p></sp>
+<sp><speaker>ALCMENA</speaker><p> It is so, I speak the truth; unless you are going to allege that this is falsely said as well.</p></sp>
+<sp><speaker>JUPITER</speaker><p> <stage>offering to embrace her</stage>. You are too angry.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>repulsing him</stage>. Can't you keep your hands off? For surely if you were wise, or quite in your senses, with her, whom you deem and pronounce to be unchaste, you would neither hold discourse, in mirth or in seriousness, unless, indeed, you are more foolish than the most foolish.</p></sp>
+<sp><speaker>JUPITER</speaker><p> If I did say so, not a bit the more are you so, nor do I think you so, and therefore have I returned hither that I might excuse myself to you. For never has anything proved more grievous to my feelings than when I heard that you were angry with me. "Why did you charge me?" you will say. I'll tell you; by my troth, not that I deemed you to be unchaste; but I was trying your feelings, what you would do, and in what manner you would bring yourself to bear it. Really, I said these things to you just now in jest, for the sake of the joke. Do but ask Sosia this.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> But why don't you bring here my kinsman, Naucrates, whom you said just now that you would bring as a witness that you had not come here?</p></sp>
+<sp><speaker>JUPITER</speaker><p> If anything was said in joke, it isn't right for you to take it in earnest.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I know how much this has pained me at heart.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Prithee, Alcmena <stage>taking her hand</stage>, by your right hand I do entreat you, grant me pardon; forgive me, don't be angry.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> By my virtue have I rendered these accusations vain. Since then I eschew conduct that's unchaste, I would wish to avoid imputations of unchastity. Fare you well, keep your own<milestone n="928" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Keep your own</lemma>:  This was the formula used on separation by mutual consent, when the wife's portion was returned to her, as a matter of course.</note> property to yourself, return me mine. Do you order any maids to be my attendants?</p></sp>
+<sp><speaker>JUPITER</speaker><p> Are you in your senses? </p></sp>
+<sp><speaker>ALCMENA</speaker><p> If you don't order them, let me go alone; chastity shall I take as my attendant. <stage>Going.</stage></p></sp>
+<sp><speaker>JUPITER</speaker><p> Stay--at your desire, I'll give my oath that I believe my wife<milestone n="934" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Believe my wife</lemma>: Madame Dacier suggests that Jupiter is hem equivocating, and that he is covertly resorting to a salvo, by alluding to the chastity of Juno, his heavenly consort. He is so full of quibbles and subterfuges, that it is not unlikely to be intentional, although Dacier has been ridiculed by Gueudeville and Thornton for the notion.</note> to be chaste. If in that I deceive you, then, thee, supreme Jupiter, do I entreat that thou wilt ever be angered against<note anchored="yes"><lemma targOrder="U">Ever be angered against</lemma>:  This oath is similar in its absurdity to that of Mercury, in l. 392. Jupiter, personating Amphitryon, says, that if he himself breaks his oath, then may he himself always prove hostile to Amphitryon.</note> Amphitryon.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> Oh! rather may he prove propitious.</p></sp>
+<sp><speaker>JUPITER</speaker><p> I trust that it will be so; for before you have I taken a truthful oath. Now then, you are not angry?</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I am not. </p></sp>
+<sp><speaker>JUPITER</speaker><p> You act properly. For in the life of mortals many things of this nature come to pass; and now they take their pleasures, again they meet with hardships. Quarrels intervene, again do they become reconciled. But it perchance any quarrels of this nature happen between them, when again they have become reconciled, twofold more loving are they between themselves than they were before.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> At the first you ought to have been careful not to say so; but if you excuse yourself to me for the same, it must be put up with.</p></sp>
+<sp><speaker>JUPITER</speaker><p> But bid the sacred vessels to be got ready for me, that I may fulfil all those vows which I made when with the army, in case I should return safe home.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> I'll take care of that. </p></sp>
+<sp><speaker>JUPITER</speaker><p> <stage>To a SERVANT</stage>. Call out Sosia hither. Let him fetch Blepharo, the pilot that was on board my ship, to breakfast with us. <stage>Aside.</stage> He shall be fooled this day<milestone n="952" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Be fooled this day</lemma>:  Jupiter save this for the information of the Audience and to raise their expectations of the fun that is to follow</note> so as to go without his breakfast, while I shall drag Amphitryon hence by the throat.</p></sp>
+<sp><speaker>ALCMENA</speaker><p> <stage>aside</stage>. It's surprising what he can be arranging alone in secrecy with himself. But the door opens; Sosia's coming out.</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="956" unit="TLN line"/>
+<stage>Enter SOSIA, from the house</stage>
+<sp><speaker>SOSIA</speaker><p> Amphitryon, I'm here; if any way you have need of me, command me; your commands I will obey.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Very opportunely are you come.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Has peace been made then between you two? But since I see you in good humour, I'm delighted, and it is a pleasure to myself. And so does it seem becoming for a trusty servant to conduct himself; just as his superiors are, so should he be likewise; by their countenances he should fashion his own countenance; if his superiors are grave, let him be grave; if they rejoice, let him be merry. But come, answer me; have you two now come to a reconciliation?</p></sp>
+<sp><speaker>JUPITER</speaker><p> You are laughing at me, who know full well that these things were just now said by me in joke.</p></sp>
+<sp><speaker>SOSIA</speaker><p> In joke did you say it? For my part, I supposed that it was said seriously and in truthfulness.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Still, I've made my excuses; and peace has been made.</p></sp>
+<sp><speaker>SOSIA</speaker><p> 'Tis very good. </p></sp>
+<sp><speaker>JUPITER</speaker><p> I shall now perform the sacrifice in-doors, and the vows which I have made.</p></sp>
+<sp><speaker>SOSIA</speaker><p> So I suppose. </p></sp>
+<sp><speaker>JUPITER</speaker><p> Do you invite hither, in my name, Blepharo, the pilot, from the ship, so that when the sacrifice has been performed, he may breakfast with me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I shall be here again, while you'll be thinking that I'm there.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Return here directly. <stage>Exit SOSIA.</stage> </p></sp>
+<sp><speaker>ALCMENA</speaker><p> Do you wish for anything else, but that I should go in-doors now, that the things that are requisite may be got ready?</p></sp>
+<sp><speaker>JUPITER</speaker><p> Go then, and take care that everything is prepared as soon as possible. </p></sp>
+<sp><speaker>ALCMENA</speaker><p> Why, come in-doors whenever you please; I'll take care that there shall not be any delay.</p></sp>
+<sp><speaker>JUPITER</speaker><p> You say well, and just as befits an attentive wife. <stage>ALCMENA goes into the house.</stage>  Now both of these, both servant and mistress, are, the pair of them, deceived, in taking me to be Amphitryon; egregiously do they err. Now, you immortal Sosia, take you care and be at hand for me. You hear what I say, although you are not present here. Take care that you contrive to drive away Amphitryon, on his arrival just now, by some means or other, from the house. I wish him to be cajoled, while with this borrowed wife I now indulge myself. Please, take care that this is attended to just in such way as you know that I desire, and that you assist me while to myself I am offering sacrifice<milestone n="983" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">I am offering sacrifice</lemma>:  There is a cessation of action here, and Echard and Thornton rightly make the next Scene commence another Act. The interval is filled up with Amphitryon searching for Naucrates, Sosia for Blepharo, and Jupiter and Alcmena performing the sacrifice.</note>. <stage>Goes into AMPHITRYON'S house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="4">
+<milestone n="1" unit="line"/><milestone n="984" unit="TLN line"/>
+<stage>Enter MERCURY, running, at the end of the stage.</stage>
+<sp><speaker>MERCURY</speaker><p> Stand by and make room all of you, get you out of the way. And let not any person now be so presumptuous as to stand before me in the road. For surely, why, by my troth, should I, a God, be any less allowed to threaten the public, if it does not get out of my way, than a slave in Comedies<milestone n="987" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Slave in Comedies</lemma>:  In reference to this passage, Thornton says, "It is remarkable that this circumstance, which appears to be here ridiculed, is introduced in no less than three of our author's Plays. In the Mercator, Acanthio runs to his master Charinus, to tell him that his mistress Pasicompsa has been seen in the ship by his father Demipho; in the Stichus, Dinacium (Pinacium), a slave, informs his mistress Panegyris (Philumena) that her husband has put into port on his return from Asia; and in the Mostellaria, Tranio brings information of the unexpected coming of Theuropides, an old gentleman. Terence has censured the like practice, in the Prologue to the Self-Tormentor."</note>? He is bringing news that the ship is safe, or else the approach of some angry old blade; whereas I am obeying the bidding of Jove, and by his command do I now hie me. For this reason, it is more fitting to get out of the road and to make room for me. My father calls me, I am following him, to his orders so given am I obedient. As it befits a son to be dutiful to his father, just so am I to my father; in his amours I play second fiddle to him, I encourage him, assist him, advise him, rejoice with him. If anything is pleasing to my father, that pleasure is an extremely great one for myself. Is he amorously disposed? He is wise; he does right, inasmuch as he follows his inclination; a thing that all men ought to do, so long as it is done in a proper manner. Now, my father wishes Amphitryon to be cajoled; I'll take care, Spectators, that he shall be rarely cajoled, while you look on. I'll place a chaplet on my head, and pretend that I am drunk. And up there <stage>pointing to the top of the house</stage> will I get; from that spot, at the top of the house, I'll cleverly drive this person off when he comes hither: I'll take care that, sober, he shall be drenched. Afterwards, his own servant Sosia will presently be suffering the punishment for it; he'll be accusing him of doing, this day, the things which I myself have done what's that to me? It's proper for me to be obedient to my father; it's right to be subservient to his pleasure. But see! here is Amphitryon; he's coming. Now shall he be rarely fooled, if, indeed, <stage>to the AUDIENCE</stage> you are willing, by listening, to lend your attention. I'll go in-doors, and assume a garb<milestone n="1007" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Assume a garb</lemma>:  He perhaps means not only the chaplet worn by the reveller on his head, but the garb of a slave also.</note> that more becomes me; then I'll go up upon the roof, that I may drive him off from hence. <stage>Goes into the house, and fastens the door.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="4">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1009" unit="TLN line"/>
+<stage>Enter AMPHITRYON.</stage>
+<sp><speaker>AMPH.</speaker><p> <stage>to himself</stage>. Naucrates, whom I wanted to find, was not on board ship; neither at home nor in the city do I meet with any one that has seen him; for through all the streets have I crawled, the wrestling-rings and the perfumers' shops, to the market, too, and in the shambles, the school for exercise, and the Forum, the doctors' shops, the barbers' shops, and among all the sacred buildings. I'm wearied out with seeking him, and yet I nowhere meet with Naucrates. Now I'll go home, and from my wife will I continue to make enquiry into this matter, who the person was, by the side of whom she submitted her body to dishonor. For it were better that I was dead, than that I this day should leave this enquiry incomplete. <stage>Goes up to the door.</stage> But the house is closed. A pretty thing indeed! This is done just like the other things have been done: I'll knock at the door. <stage>Knocks.</stage> Open this door; ho there! is there anybody here? Is any one going to open this door?</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="1021" unit="TLN line"/>
+<stage>MERCURY appears on the top of the house, with a chaplet on his head, pretending to be drunk.</stage>
+<sp><speaker>MERCURY</speaker><p> Who's that at the door? </p></sp>
+<sp><speaker>AMPH.</speaker><p> 'Tis I.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Who's "'tis I?" </p></sp>
+<sp><speaker>AMPH.</speaker><p> 'Tis I that say so.</p></sp>
+<sp><speaker>MERCURY</speaker><p> For sure, Jupiter and all the Deities are angered with you who are banging at the door this way.</p></sp>
+<sp><speaker>AMPH.</speaker><p> In what manner? </p></sp>
+<sp><speaker>MERCURY</speaker><p> In this manner, that without a doubt you must be spending a wretched life.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> Sosia. </p></sp>
+<sp><speaker>MERCURY</speaker><p> Well; I'm Sosia, unless you think that I've forgotten myself. What do you want now?</p></sp>
+<sp><speaker>AMPH.</speaker><p> What, you rascal, and do you even ask me that, what it is I want?</p></sp>
+<sp><speaker>MERCURY</speaker><p> I do so ask you; you blockhead, you've almost broken the hinges from off the door. Did you fancy that doors were supplied us at the public charge? Why are you looking up at me, you stupid? What do you want now for yourself, or what fellow are you?</p></sp>
+<sp><speaker>AMPH.</speaker><p> You whip-scoundrel, do you even ask me who I am, you hell of elm-saplings<milestone n="1029" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Hell of elm-saplings</lemma>:  "Ulmorum Acheruns." According to Taubmann, this means, "whose back devours as many elm-rods as Acheron does souls."</note>? I' faith, this day I'll make you burn with smarts of the scourge for these speeches of yours.</p></sp>
+<sp><speaker>MERCURY</speaker><p> You surely must have formerly been a spendthrift in your young days.</p></sp>
+<sp><speaker>AMPH.</speaker><p> How so? </p></sp>
+<sp><speaker>MERCURY</speaker><p> Because in your old age you come begging a hap-ill<milestone n="1032" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">A hap-ill</lemma>:  See the Note to l. 723.</note> of me for yourself.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Slave! for your own torture do you give vent to these expressions this day.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Now I'm performing a sacrifice to you.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> How? </p></sp>
+<sp><speaker>MERCURY</speaker><p> Why, because I devote you to ill-luck<milestone n="1034" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Devote you to ill-luck</lemma>:  "Macto infortunio." "Macto," which properly signified "to amplify," was especially applied to the act of sacrificing, by way of giving something. Mercury here says in sport, that he makes Amphitryon an offering of--a jug of water, or perhaps a tile, it is not known for certain which; but it is generally supposed that in some part of this Scene, as originally written, he does throw water at him.</note> with this libation. <stage>Throws water on him.</stage> <gap/>
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> What, you, devote me<milestone n="1034a" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">You, devote me</lemma>:  This line commences the portion that is supposed by many of the Commentators not to have been written by Plautus, it not being found in most of the MSS. By those, however, who deny it to have been his composition, it is generally thought to have been composed by an ancient writer, and not to be at all deficient in humour and genuine Comic spirit. Gueudeville and Echard speak in high terms of it; and the learned Schmieder is unwilling to believe that it is not the composition of Plautus.</note>, you villain? If the Gods have not this day taken away my usual form, I'll take care that you shall be laden with bull's hide thongs, you victim of Saturn<note anchored="yes"><lemma targOrder="U">Victim of Saturn</lemma>:  Taubmann remarks that there is here an allusion to those slaves which the Carthaginians were in the habit of purchasing in order to sacrifice them, in place of their children, to Saturn--a rite borrowed from the same source as the passing of children through fire to Moloch, as practised by the Ph&oelig;nicians.</note>. So surely will I devote you to the cross and to torture. Come out of doors, you whip-knave.</p></sp>
+<sp><speaker>MERCURY</speaker><p> You shadowy ghost--you, frighten me with your threats? If you don't betake yourself off from here this instant, if you knock once more, if the door makes a noise with your little finger even, I'll break your head with this tile, so that with your teeth you may sputter out your tongue.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What, rascal, would you be for driving me away from my own house? What, would you hinder me from knocking at my own door? I'll this instant tear it from off all its hinges.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Do you persist? </p></sp>
+<sp><speaker>AMPH.</speaker><p> I do persist.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Take that, then. <stage>Throws a tile at him.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> Scoundrel! at your master? If I lay hands upon you this day, I'll bring you to that pitch of misery, that you shall be miserable for evermore.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Surely, you must have been playing the Bacchanal<note anchored="yes"><lemma targOrder="U">Playing the Bacchanal</lemma>:  "Bacchanal exercuisse." "To keep the festival of Bacchus," where frantic conduct and acts of outrageous madness were prevalent. See the Notes to the First Act of the Bacchidea.</note>, old gentleman.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Why so? </p></sp>
+<sp><speaker>MERCURY</speaker><p> Inasmuch as you take me to be your slave.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What? I--take you? </p></sp>
+<sp><speaker>MERCURY</speaker><p> Plague upon you! I know no master but Amphitryon.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>to himself</stage>. Have I lost my form? It's strange that Sosia shouldn't know me. I'll make trial. <stage>Calling out</stage>. How now! Tell me who I appear to be? Am I not really Amphitryon?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Amphitryon? Are you in your senses? Has it not been told you before, old fellow, that you have been playing the Bacchanal, to be asking another person who you are? Get away, I recommend you, don't be troublesome while Amphitryon, who has just come back from the enemy, is indulging himself with the company of his wife.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What wife? </p></sp>
+<sp><speaker>MERCURY</speaker><p> Alcmena.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What man? </p></sp>
+<sp><speaker>MERCURY</speaker><p> How often do you want it told? Amphitryon, my master;--don't be troublesome.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> Who's he sleeping with? </p></sp>
+<sp><speaker>MERCURY</speaker><p> Take care that you don't meet with some mishap in trifling with me this way.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Prithee, do tell me, my dear Sosia.</p></sp>
+<sp><speaker>MERCURY</speaker><p> More civilly said--with Alcmena.</p></sp>
+<sp><speaker>AMPH.</speaker><p> In the same chamber?</p></sp>
+<sp><speaker>MERCURY</speaker><p> Yes, as I fancy, he is sleeping with her side by side.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Alas!--wretch that I am!</p></sp>
+<sp><speaker>MERCURY</speaker><p> <stage>to the AUDIENCE</stage>. It really is a gain which he imagines to be a misfortune. For to lend one's wife to another is just as though you were to let out barren land to be ploughed.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Sosia! </p></sp>
+<sp><speaker>MERCURY</speaker><p> What, the plague, about Sosia?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Don't you know me, you whip-scoundrel?</p></sp>
+<sp><speaker>MERCURY</speaker><p> I know that you are a troublesome fellow, who have no need to go buy<note anchored="yes"><lemma targOrder="U">No need to go buy</lemma>:  He seems to mean that a "litigium," or "lawsuit," is already prepared for him, in daring to personate Amphitryon.</note> a lawsuit. </p></sp>
+<sp><speaker>AMPH.</speaker><p> Still once more--am I not your master Amphitryon?</p></sp>
+<sp><speaker>MERCURY</speaker><p> You are Bacchus himself<note anchored="yes"><lemma targOrder="U">Bacchus himself</lemma>:  He means that, from his frantic conduct he must surely be, not a Bacchanalian, but Bacchus himself.</note>, and not Amphitryon. How often do you want to be told? Any times more? My master Amphitryon, in the same chamber, is holding Alcmena in his embraces. If you persist, I'll produce him here, and not without your great discomfiture.</p></sp>
+<sp><speaker>AMPH.</speaker><p> I wish him to be fetched. <stage>Aside.</stage> I pray that this day, in return for my services, I may not lose house, wife, and household, together with my figure.</p></sp>
+<sp><speaker>MERCURY</speaker><p> Well, I'll fetch him; but, in the meantime, do you mind about the door, please. <stage>Aside.</stage> I suppose that by this he has brought the sacrifice that he was intending, as far as the banquet<note anchored="yes"><lemma targOrder="U">As the banquet</lemma>:  It is supposed that he here has a double meaning, and implies that he supposes that by this time Jupiter has satisfied his venement desire. It has been previously remarked, that after sacrifices a feast was made of the portions that were left.</note>. <stage>Aloud.</stage> If you are troublesome, you shan't escape without my making a sacrifice of you. <stage>He retires into the house.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> Ye Gods, by my trust in you, what madness is distracting my household? What wondrous things have I seen since I arrived from abroad! Why, it's true, surely, what was once heard tell of, how that men of Attica were transformed in Arcadia<note anchored="yes"><lemma targOrder="U">In Arcadia</lemma>:  He alludes to a story among the ancients, that certain people of Arcadia were transformed for a certain time into wolves: they were called "Lycanthropi," or "Wolf-men." Pliny the Elder mentions them in his Eighth Book.</note>, and remained as savage wild beasts, and were not ever afterwards known unto their parents.
+</p></sp></div2>
+<div2 type="scene" n="2a">
+<milestone n="1" unit="line"/><milestone n="1034x" unit="TLN line"/>
+<stage>Enter BLEPHARO and SOSIA, at a distance.</stage>
+<sp><speaker>BLEPHARO</speaker><p> What's this, Sosia? Great marvels are these that you are telling of. Do you say that you found another Sosia at home exactly like yourself?</p></sp>
+<sp><speaker>SOSIA</speaker><p> I do say so--but, hark you, since I have produced a Sosia, Amphitryon an Amphitryon, how do you know whether you, perchance, may not be producing another Blepharo? O that the Gods would grant that you as well, belaboured with fists, and with your teeth knocked out, going without your breakfast, might credit this. ForI, that other Sosia, that is to say, who am yonder, has mauled me in a dreadful manner.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Really, it is wonderful; but it's as well to mend our pace; for, as I perceive, Amphitryon is waiting for us, and my empty stomach is grumbling.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>apart</stage>.----And why do I mention foreign legends? More wondrous things they relate to have happened among our Theban race<note anchored="yes"><lemma targOrder="U">Our Theban race</lemma>:  He alludes to the story of Cadmus being sent by Agenor in search of Europa, and sowing the Dragon's teeth, from which arose a crop of armed men. See the Metamorphoses of Ovid, B. 3, l. 32.</note> in former days; that mighty searcher for Europa, attacking the monster sprung from Mars, suddenly produced his enemies from the serpent-seed; and in that battle fought, brother pressed on brother with lance and helm; the Epirote land, too, beheld the author of our race, together with the daughter of Venus<note anchored="yes"><lemma targOrder="U">With the daughter of Venus</lemma>:  He alludes to the tradition which stated that Cadmus and his wife Hermione retired to Illyria, and were there changed into serpents. See the Metamorphoses B. 4, l. 574.</note>, gliding as serpents. From on high supreme Jove thus willed it; thus destiny directs. All the noblest of our country, in return for their bright achievements, are pursued with direful woes. This fatality is pressing hard on me--still I could endure disasters so great, and submit to woes hardly to be endured----</p></sp>
+<sp><speaker>SOSIA</speaker><p> Blepharo. </p></sp>
+<sp><speaker>BLEPHARO</speaker><p> What's the matter?</p></sp>
+<sp><speaker>SOSIA</speaker><p> I don't know; I suspect something wrong.
+</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Why? </p></sp>
+<sp><speaker>SOSIA</speaker><p> Look, please, our master, like an humble courtier<note anchored="yes"><lemma targOrder="U">An humble courtier</lemma>:  "Salutator." The "salutatores" were a class of men who in the later times of the Roman Republic obtained a living by visiting the houses of the wealthy in the morning, and hanging about the door to pay their respects, and to accompany the master when he went abroad. Many persons thus supported themselves, and thereby enacted a part not much unlike the Parasites among the Greeks.</note>, is walking before the door bolted fast.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> It's nothing; walking to and fro, he's looking for an appetite<note anchored="yes"><lemma targOrder="U">Looking for an appetite</lemma>:  Cicero relates that Socrates used to walk very briskly in the evening, and when asked why he did so, replied that he was going to market for an appetite.</note>.</p></sp>
+<sp><speaker>SOSIA</speaker><p> After a singular fashion, indeed; for he has shut the door, that it mayn't escape out of the house.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> You do go yelping on. </p></sp>
+<sp><speaker>SOSIA</speaker><p> I go neither yelping on nor barking on; if you listen to me, observe him. I don't know why he's by himself alone; he's making some calculation, I suppose. I can hear from this spot what he says-- don't be in a hurry.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>apart</stage>. How much I fear lest the Gods should blot out the glory I have acquired in the conquest of the foe. In wondrous manner do I see the whole of my household in commotion. And then my wife, so full of viciousness, incontinence, and dishonor, kills me outright. But about the goblet, it is a singular thing; yet the seal was properly affixed. And what besides? She recounted to me the battles I had fought; Pterelas, too, besieged and bravely slain by my own hand, Aye, aye--now I know the trick; this was done by Sosia's contrivance, who as well has disgracefully presumed to-day to get before me on my arrival.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to BLEPHARO</stage>. He's talking about me, and in terms that I had rather not. Prithee, don't let's accost this man until he has disclosed his wrath.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Just as you please. </p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>apart</stage>. If it is granted me this day to lay hold of that whip-scoundrel, I'll show him what it is to deceive his master, and to assail me with threats and tricks.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Do you hear him? </p></sp>
+<sp><speaker>BLEPHARO</speaker><p> I hear him.</p></sp>
+<sp><speaker>SOSIA</speaker><p> That implement <stage>pointing to AMPHITRYON'S walkingstick</stage> is a burden for my shoulder-blades. Let's accost the man, if you please. Do you know what is in the habit of being commonly said?</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> What you are going to say, I don't know; what you'll have to endure I pretty well guess.</p></sp>
+<sp><speaker>SOSIA</speaker><p> It's an old adage--"Hunger and delay summon anger to the nostrils<note anchored="yes"><lemma targOrder="U">To the nostrils</lemma>:  From their expanding when a person is enraged, the nostrils were said to be peculiarly the seat of anger.</note>."</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Aye, and well suited to the occasion. Let's address him directly--Amphitryon!</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>looking round</stage>. Is it Blepharo I hear? It's strange why he's come to me. Still, he presents himself opportunely, for me to prove the guilty conduct of my wife. Why have you come here to me, Blepharo?</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Have you so soon forgotten how early in the morning you sent Sosia to the ship, that I might take a repast with you to-day?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Never in this world was it done. But where is that scoundrel?</p></sp>
+<sp><speaker>BELPH.</speaker><p> Who? </p></sp>
+<sp><speaker>AMPH.</speaker><p> Sosia.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> See, there he is. <stage>Points at him.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>looking about</stage>. Where? BLEPH. Before your eyes; don't you see him?</p></sp>
+<sp><speaker>AMPH.</speaker><p> I can hardly see for anger, so distracted has that fellow made me this day. You shall never escape my making a sacrifice of you. <stage>Offers to strike SOSIA, on which BLEPHARO prevents him.</stage> Do let me, Blepharo.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Listen, I pray. </p></sp>
+<sp><speaker>AMPH.</speaker><p> Say on, I'm listening-- <stage>gives a blow to SOSIA</stage> you take that.</p></sp>
+<sp><speaker>SOSIA</speaker><p> For what reason? Am I not in good time? I couldn't have gone quicker, if I had betaken myself on the oar-like wings<note anchored="yes"><lemma targOrder="U">Oar-like wings</lemma>:  "Remigiis." Virgil, and Ovid also, with considerable propriety, call the wings of D&aelig;dalus "remigia," "tiers of oars," from the resemblance which the main feathers of the wing bear to a row of oars. The story of D&aelig;dalus and Icarus is beautifully told by Ovid, in the Art of Love Book 2, and in the Metamorphoses, Book 8.</note> of D&aelig;dalus. <stage>AMPHITRYON tries to strike him again.</stage></p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Prithee, do leave him alone; we couldn't quicken our pace any further.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Whether it was the pace of a man on stilts or that of the tortoise, I'm determined to be the death of this villain. <stage>Striking him at each sentence.</stage> Take that for the roof; that for the tiles; that for closing the door; that for making fun of your master; that for your abusive language.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> What injury has he been doing to you?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Do you ask? Shut out of doors, from that housetop <stage>pointing to it</stage> he has driven me away from my house.</p></sp>
+<sp><speaker>SOSIA</speaker><p> What, I? </p></sp>
+<sp><speaker>AMPH.</speaker><p> What did you threaten that you would do if I knocked at that door? Do you deny it, you scoundrel?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Why shouldn't I deny it? See, he's sufficiently a witness with whom I have just now come; I was sent on purpose that by your invitation I might bring him to your house.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Who sent you, villain? </p></sp>
+<sp><speaker>SOSIA</speaker><p> He who asks me the question.</p></sp>
+<sp><speaker>AMPH.</speaker><p> When, of all things?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Some little time since-not long since--just now. When you were reconciled at home to your wife.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Bacchus must have demented you.</p></sp>
+<sp><speaker>SOSIA</speaker><p> May I not be paying my respects to Bacchus this day, nor yet to Ceres<note anchored="yes"><lemma targOrder="U">Nor yet to Ceres</lemma>:  He wishes to see neither of these Deities, it being a common notion that those to whom they appeared became mad.</note>. You ordered the vessels to be made clean, that you might perform a sacrifice, and you sent me to fetch him <stage>pointing to BLEPHARO</stage>, that he might breakfast with you.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Blepharo, may I perish outright if I have either been in the house, or if I have sent him. <stage>To SOSIA.</stage> Tell me--where did you leave me?</p></sp>
+<sp><speaker>SOSIA</speaker><p> At home, with your wife Alcmena. Leaving you, I flew towards the harbour, and invited him in your name. We are come, and I've not seen you since till now.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Villanous fellow! With my wife, say you? You shall never go away without getting a beating. <stage>Gives him a blow.</stage></p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>crying out</stage>. Blepharo! BLEPH. Amphitryon, do let him alone, for my sake, and listen to me.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Well then, I'll let him alone. What do you want? Say on.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> He has just now been telling me most extraordi nary marvels. A juggler, or a sorcerer, perhaps, has enchanted all this household of yours. Do enquire in other quarters, and examine how it is. And don't cause this poor fellow to be tortured, before you understand the matter.</p></sp>
+<sp><speaker>AMPH.</speaker><p> You give good advice; let's go in, I want you also to be my advocate against my wife. <stage>Knocks at the door.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2b">
+<milestone n="1" unit="line"/>
+<stage>Enter JUPITER, from the house.</stage>
+<note anchored="yes">Many of those Commentators who have doubted the genuineness of the last Scene, and of the previous one from the fourteenth line, have been ready to admit that this Scene is the composition of Plautus indeed, it bears very strong internal marks of having been composed by him.</note>
+<sp><speaker>JUPITER</speaker><p> Who with such weighty blows has been shaking this door on all the hinges? Who has been making such a great disturbance for this long while before the house? If I find him out, I'll sacrifice him to the shades of the Teleboans. There's nothing, as the common saying is, that goes on well with me to-day. I left Blepharo and Sosia that I might find my kinsman Naucrates; him I have not found, and them I have lost. But I espy them; I'll go meet them, to enquire if they have any news.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Blepharo, that's our master that's coming out of the house; but this man's the sorcerer.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> O Jupiter! What do I behold? This is not, but that is, Amphitryon; if this is, why really that cannot be he, unless, indeed, he is double.</p></sp>
+<sp><speaker>JUPITER</speaker><p> See now, here's Sosia with Blepharo; I'll accost them the first. Well, Sosia, come to us at last? I'm quite hungry.</p></sp>
+<sp><speaker>SOSIA</speaker><p> Didn't I tell you, Blepharo, that this one was the sorcerer?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Nay, Theban citizens, I say that this is he <stage>pointing to JUPITER</stage> who in my house has made my wife guilty of incontinence, through whom I find a store of unchastity laid up for me.</p></sp>
+<sp><speaker>SOSIA</speaker><p> <stage>to JUPITER</stage> Master, if now you are hungry, crammed full of fisticuffs, I betake me to you.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Do you persist, whip-scoundrel?</p></sp>
+<sp><speaker>SOSIA</speaker><p> Hie thee to Acheron, sorcerer.</p></sp>
+<sp><speaker>AMPH.</speaker><p> What, I a sorcerer? <stage>Strikes him.</stage> Take that.</p></sp>
+<sp><speaker>JUPITER</speaker><p> What madness possesses you, stranger, for you to be beating my servant?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Your servant? </p></sp>
+<sp><speaker>JUPITER</speaker><p> Mine.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> You lie. </p></sp>
+<sp><speaker>JUPITER</speaker><p> Sosia, go in-doors, and take care the breakfast is got ready while I'm sacrificing this fellow.</p></sp>
+<sp><speaker>SOSIA</speaker><p> I'll go. <stage>Aside.</stage> Amphitryon, I suppose, will receive the other Amphitryon as courteously as I, that other Sosia, did me, Sosia, a while ago. Meantime, while they are contending, I'll turn aside into the victualling department<note anchored="yes"><lemma targOrder="U">Victualling department</lemma>:  "Popina" usually signifies a "cook's shop;" but here it evidently alludes to the larder or kitchen in Amphitryons house, which Sosia now enters and we see no more of him.</note>: I'll clean out all the dishes, and all the vessels I'll drain. <stage>Goes into the house.</stage>
+</p></sp></div2>
+<div2 type="scene" n="2c">
+<milestone n="1" unit="line"/>
+<stage>JUPITER, AMPHITRYON, and BLEPHARO.</stage>
+<sp><speaker>JUPITER</speaker><p> Do you say that I lie? </p></sp>
+<sp><speaker>AMPH.</speaker><p> You lie, I say, you corrupter of my family.</p></sp>
+<sp><speaker>JUPITER</speaker><p> For that disgraceful speech, I'll drag you along here, seizing you by the throat. <stage>Seizes him by the throat.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> Ah wretched me! </p></sp>
+<sp><speaker>JUPITER</speaker><p> But you should have had a care of this beforehand.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Blepharo, aid me! </p></sp>
+<sp><speaker>BLEPHARO</speaker><p> <stage>aside</stage>. The two are so exactly alike that I don't know which to side with. Still, so far as possible, I'll put an end to their contention. <stage>Aloud.</stage> Amphitryon, don't slay Amphitryon in fight; let go his throat, I pray.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Are you calling this fellow Amphitryon?</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Why not? Formerly he was but one, but now he has become double. While you are wanting to be he, the other, too, doesn't cease to be of his form. Meanwhile, prithee, do leave go of his neck.</p></sp>
+<sp><speaker>JUPITER</speaker><p> I will leave go. <stage>Lets go of AMPHITRYON.</stage> But tell me, does that fellow appear to you to be Amphitryon?</p></sp>
+<sp><speaker>BLEPR.</speaker><p> Really, both of you do. </p></sp>
+<sp><speaker>AMPH.</speaker><p> O supreme Jupiter! when this day didst thou take from me my form? I'll proceed to make enquiry of him; are you Amphitryon?</p></sp>
+<sp><speaker>JUPITER</speaker><p> Do you deny it? </p></sp>
+<sp><speaker>AMPH.</speaker><p> Downright do I deny it, inasmuch as in Thebes there is no other Amphitryon besides myself.</p></sp>
+<sp><speaker>JUPITER</speaker><p> On the contrary, no other besides myself; and, in fact, do you, Blepharo, be the judge.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> I'll make this matter clear by proofs, if I can. <stage>To AMPHITRYON.</stage> Do you answer first.
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> With pleasure. </p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Before the battle with the Taphians was begun by you, what orders did you give me?</p></sp>
+<sp><speaker>AMPH.</speaker><p> The ship being in readiness, for you carefully to keep close to the rudder.</p></sp>
+<sp><speaker>JUPITER</speaker><p> That if our people should take to flight, I might betake myself in safety thither.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Anything else as well? </p></sp>
+<sp><speaker>AMPH.</speaker><p> That the bag loaded with treasure should be carefully guarded.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Because the money---- </p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Hold your tongue, you, if you please; it's my place to ask. Did you know the amount?</p></sp>
+<sp><speaker>JUPITER</speaker><p> Fifty Attic talents.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> He tells the truth to a nicety. And you <stage>to AMPHITRYON</stage>, how many Philippeans?</p></sp>
+<sp><speaker>AMPH.</speaker><p> Two thousand. </p></sp>
+<sp><speaker>JUPITER</speaker><p> And obols<note anchored="yes"><lemma targOrder="U">And obols</lemma>:  The "obolus" was the smallest of the Greek coins. It was of silver, and was worth in value rather more than three-halfpence of our money; six of them made a drachma. Plautus has not escaped censure for his anachronism, in talking here of the coins of Philip, King of Macedon.</note> twice as many.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Each of you states the matter correctly. Inside the bag one of you must have been shut up.</p></sp>
+<sp><speaker>JUPITER</speaker><p> Attend, please. With this right hand, as you know, I slew king Pterelas; his spoils I seized, and the goblet from which he had been used to drink I brought away in a casket; I made a present of it to my wife, with whom this day at home I bathed, I sacrificed, and slept.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Ah me! what do I hear? I scarcely am myself. For, awake, I am asleep; awake, I am in a dream; alive and well, I come to destruction. I am that same Amphitryon, the descendant of<note anchored="yes"><lemma targOrder="U">Descendant of</lemma>:  "Nepos" cannot here mean "grandson," as Gorgophone was not a lineal ancestor of Amphitryon, being the sister of his father Alc&aelig;us.</note> Gorgophone, the general of the Thebans, and the sole combatant for Creon against the Teleboans; I, who have subdued by my might the Acarnanians and the Taphians, and, by my consummate warlike prowess, their king. Over these have I appointed Cephalus, the son of the great Deioneus.</p></sp>
+<sp><speaker>JUPITER</speaker><p> I am he who by warfare and my valour crushed the hostile ravagers. They had destroyed Electryon and the brothers of my wife. Wandering through the Ionian, the &AElig;gean, and the Cretan seas, with piratical violence they laid waste Achaia, &AElig;tolia, and Phocis.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Immortal Gods! I cannot trust my own self, so exactly does he relate all the things that happened there. Consider, Blepharo.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> One thing only remains; if so it is, do you be Amphitryons both of you.</p></sp>
+<sp><speaker>JUPITER</speaker><p> I knew what you would say. The scar that I have on the muscle of my right arm, from the wound which Pterelas gave me----</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Well, that. </p></sp>
+<sp><speaker>AMPH.</speaker><p> Quite to the purpose.</p></sp>
+<sp><speaker>JUPITER</speaker><p> See you! look, behold!</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Uncover, and I'll look.</p></sp>
+<sp><speaker>JUPITER</speaker><p> We have uncovered. Look! <stage>They show their naked arms.</stage></p></sp>
+<sp><speaker>BLEPHARO</speaker><p> <stage>looking at the right arm of each</stage>. Supreme Jupiter, what do I behold? On the right-arm muscle of each, in the same spot, the scar clearly appears with the same mark, reddish and somewhat livid, just as it has first commenced to close. Reasoning is at a standstill, all judgment is struck dumb; I don't know what to do<note anchored="yes"><lemma targOrder="U">What to do</lemma>: , With this line terminates what is generally called the supposititious part of this Play.</note>
+</p></sp></div2>
+<div2 type="scene" n="3">
+<milestone n="1" unit="line"/><milestone n="1035" unit="TLN line"/>
+<sp><speaker>BLEPHARO</speaker><p> Do you settle these matters between yourselves; I'm off, for I have business; and I do not think that I have ever anywhere beheld such extraordinary wonders.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Blepharo, I pray that you'll stay as my advocate, and not go away.</p></sp>
+<sp><speaker>BLEPHARO</speaker><p> Farewell. What need is there of me for an advocate, who don't know which of the two to side with?</p></sp>
+<sp><speaker>JUPITER</speaker><p> I'm going hence in-doors: Alcmena is in labour. <stage>Exit BLEPHARO, and JUPITER goes into AMPHITRYON'S house.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>aloud to himself</stage>. I'm undone, wretch that I am; <milestone n="1040" unit="TLN line"/>for what am I to do, when my advocates and friends are now forsaking me? Never, by heavens, shall he deride me unrevenged, whoever he is. Now will I betake myself straight to the king, and tell him of the matter as it has happened. By my faith, I will this day take vengeance on this Thessalian sorcerer, who has wrongfully distracted the minds of my household. But where is he? <stage>Looking around.</stage> By my troth, he's off into the house, to my wife, I suppose. What other person lives in Thebes more wretched than myself? What now shall I do? I, whom all men deny and deride just as they please. I am resolved; I'll burst into the house; there, whatever person I perceive, whether maid-servant or man-servant, whether wife or whether paramour, <milestone n="1050" unit="TLN line"/>whether father or whether grandfather, I'll behead that person in the house; neither Jupiter nor all the Deities shall hinder me from this, even if they would, but that I'll do just as I have resolved. <stage>As he advances to the door, it thunders, and he falls in a swoon upon the ground.</stage>
+</p></sp></div2></div1>
+<div1 type="act" n="5">
+<div2 type="scene" n="1">
+<milestone n="1" unit="line"/><milestone n="1053" unit="TLN line"/>
+<stage>Enter BROMIA, from the house, AMPHITRYON lying on the ground.</stage>
+<sp><speaker>BROMIA</speaker><p> <stage>to herself</stage>. The hopes and resources of my life lie buried in my breast, nor is there any boldness in my heart, but what I have lost it. So much to me do all things seem, the sea, the earth, the heavens, to be conspiring, that now I may be crushed, that I may be destroyed. Ah, wretched me! I know not what to do. Prodigies so great have come to pass within the house. Ah! woe is me! I'm sick at heart, some water I could wish! I'm overpowered and I'm utterly undone. My head is aching, and I cannot hear, nor do I see well with my eyes No woman is there more wretched than myself, nor can one seem to be more so. Thus has it this day befallen my mistress; for when she invoked for herself the Deities of travail, what rumblings and grumblings<milestone n="1062" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Rumblings and grumblings</lemma>:  "Strepitus, crepitus, somtus tonitrus." A iingle in evidently intended here.</note>, crashes and flashes; suddenly, how instantaneously did it thunder, and how woundy loud. On the spot where each one stood, at the peal he fell; then some one, I know not who, exclaimed in a mighty voice, "Alcmena, succour is at hand, fear not: propitious both to thee and thine, the Ruler of the Heavens comes. Arise," it said, "ye who have fallen down in your terror through dread of me." As I lay, I arose; I fancied that the house was in flames. Then Alcmena called me; and then did that circumstance strike me with horror. Fears for my mistress took possession of me; I ran to her to enquire what she wanted; and then I beheld that she had given birth to two male children; not yet did any one of us perceive when she was delivered, or indeed expect it. <stage>Sees AMPHITRYON.</stage> But what's this? Who's this old man that's lying thus before our house? Has Jupiter then smitten him with his thunders? By my troth, I think so; for, oh Jupiter! he is in a lethargy just like one dead. I'll approach, that I may learn who it is. <stage>She advances.</stage> Surely, this is my master Amphitryon. <stage>Calls aloud.</stage> Ho! Amphitryon!</p></sp>
+<sp><speaker>AMPH.</speaker><p> I'm dead. </p></sp>
+<sp><speaker>BROMIA</speaker><p> Arise.</p></sp>
+<sp><speaker>AMPH.</speaker><p> I'm slain outright.</p></sp>
+<sp><speaker>BROMIA</speaker><p> Give me your hand. <stage>Takes his hand.</stage></p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>recovering</stage>. Who is it that has hold of me?</p></sp>
+<sp><speaker>BROMIA</speaker><p> Bromia, your maid-servant.</p></sp>
+<sp><speaker>AMPH.</speaker><p> <stage>rising</stage>. I tremble all over, to such a degree has Jove pealed against me. And no otherwise is it than if I had come hither from Acheron. But why have you come out of the house?</p></sp>
+<sp><speaker>BROMIA</speaker><p> The same alarm has scared ourselves, affrighted with horror; in the house where you yourself dwell, have I seen astounding prodigies. Woe to me, Amphitryon; even now do my senses fail me to such a degree.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Come now, tell me; do you know me to be your master Amphitryon? </p></sp>
+<sp><speaker>BROMIA</speaker><p> I do know it.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Look even once again. </p></sp>
+<sp><speaker>BROMIA</speaker><p> I do know it.</p></sp>
+<sp><speaker>AMPH.</speaker><p> She alone of all my household has a sane mind.</p></sp>
+<sp><speaker>BROMIA</speaker><p> Nay but, really, they are all of them sane.</p></sp>
+<sp><speaker>AMPH.</speaker><p> But my wife causes me to be insane by her own shameful practices.</p></sp>
+<sp><speaker>BROMIA</speaker><p> But I'll make you, Amphitryon, to be holding other language; that you may understand that your wife is dutiful and chaste, upon that subject I will in a few words discover some tokens and some proofs. In the first place of all, Alcmena has given birth to two sons.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Two, say you? </p></sp>
+<sp><speaker>BROMIA</speaker><p> Two.</p></sp>
+<sp><speaker>AMPH.</speaker><p> The Gods preserve me!</p></sp>
+<sp><speaker>BROMIA</speaker><p> Allow me to speak, that you may know that all the Deities are propitious to yourself and to your wife.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Say on. </p></sp>
+<sp><speaker>BROMIA</speaker><p> After that, this day, your wife began to be in labour, when the pangs of childbirth came on, as is the custom with women in travail, she invoked the immortal Gods to give her aid, with washed hands<milestone n="1094" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">With washed hands</lemma>:  The head was covered and the hands made pure by washing, before sacrifice to the Gods.</note> and with covered head. Then forthwith it thundered with most tremendous crash. At first we thought that your house was falling; all your house shone bright, as though it had been made of gold.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Prithee, relieve me quickly from this, since you have kept me long enough in suspense. What happened then?</p></sp>
+<sp><speaker>BROMIA</speaker><p> While these things were passing, meanwhile, not one of us heard your wife groaning or complaining; and thus, in fact, without pain was she delivered.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Then do I rejoice at this, whatever she has merited at my hands.</p></sp>
+<sp><speaker>BROMIA</speaker><p> Leave that alone, and hear these things which I shall tell you. After she was delivered, she bade us wash the babes; we commenced to do so. But that child which I washed, how stout, how very powerful he is; and not a person was there, able to wrap him in the swaddling-clothes.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Most wondrous things you tell of. If these things are true, I do not apprehend but that succour has been brought to my wife from heaven.</p></sp>
+<sp><speaker>BROMIA</speaker><p> Now shall I make you own to things more wondrous still. After he was laid in the cradle, two immense crested serpents glided down through the skylight; instantly they both reared their heads.</p></sp>
+<sp><speaker>AMPH.</speaker><p> Ah me! </p></sp>
+<sp><speaker>BROMIA</speaker><p> Be not dismayed--but the serpents began to gaze upon all around. After they beheld the children, quickly they made towards the cradle; I, fearing for the children, alarmed for myself, going backwards, began to draw and pull the cradle to and fro, and so much the more fiercely did the serpents pursue. After that one of the children caught sight of the serpents, he quickly leapt from the cradle, straightway he made an attack upon them, ana suddenly he grasped them, one in each hand.</p></sp>
+<sp><speaker>AMPH.</speaker><p> You tell of wondrous things; a very fearful exploit do you relate; for at your words horror steals upon the limbs of wretched me. What happened then? Say on.</p></sp>
+<sp><speaker>BBOM.</speaker><p> The child slew both the serpents. While these things are passing, in a loud voice there calls upon your wife----
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> What person----? </p></sp>
+<sp><speaker>BROMIA</speaker><p> Jupiter, the supreme Ruler of Gods and men. He said that he had secretly enjoyed Alcmena in his embraces, and that he was his own son who had overcome those serpents; the other, he said, was your child.</p></sp>
+<sp><speaker>AMPH.</speaker><p> By my troth, I am not sorry if I am allowed to take my half of a blessing in partnership with Jupiter. Go home, and bid the sacred vessels to be at once prepared for me, that with many victims I may seek my peace with supreme Jove. I will apply to Tiresias<milestone n="1128" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Tiresias</lemma>:  Some Commentators think that under the name Tiresias any soothsayer is here meant, and that this was before the time of Tiresias. So involved is the heathen Mythology, that it would be hard to say who existed first, Tiresias or Amphitryon, so that if Plautus is guilty of an anachronism, it is one of his most excusable ones. Juno was said to have struck Tiresias with blindness; on which Jupiter, as a recompense, bestowed on him the gift of prophecy See the Metamorphoses of Ovid, B. 3, l. 323.</note> the soothsayer, and consult him what he considers ought to be done; at the same time I'll relate to him this matter just as it has happened. <stage>It thunders.</stage> But what means this? How dreadfully it thunders! Ye Gods, your mercy, I do entreat.</p></sp></div2>
+<div2 type="scene" n="2">
+<milestone n="1" unit="line"/><milestone n="1131" unit="TLN line"/>
+<stage>JUPITER appears, in his own character, above.</stage>
+<sp><speaker>JUPITER</speaker><p> Be of good cheer, Amphitryon; I am come to thy aid: thou hast nothing to fear; all diviners and soothsayers let alone. What is to be, and what has past, I will tell thee; and so much better than they can, inasmuch as I am Jupiter. First of all, I have made loan of the person of Alcmena, and have caused her to be pregnant with a son. Thou, too, didst cause her to be pregnant, when thou didst set out upon the expedition; at one birth has she brought forth the two together. One of these, the one that is sprung from my parentage, shall bless thee<milestone n="1140" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Shall bless thee</lemma>:  "Te adficiet." "Se," "himself," is thought by some to be the correct reading here, as it has been remarked, how could the exploits of Hercules redound to the glory of Amphitryon? Still, as his adoptive father, it was not unlikely that he would take a peculiar interest in the achievements of Hercules.</note> with deathless glory by his deeds. Do thou return with Alcmena to your former affection; she merits not that thou shouldst impute it to her as her blame; by my power has she been compelled thus to act. I now return to the heavens. <stage>He ascends.</stage>
+</p></sp>
+<sp><speaker>AMPH.</speaker><p> I'll do as thou dost command me; and I entreat thee to keep thy promises. I'll go in-doors to my wife. I dismiss the aged Tiresias from my thoughts.</p></sp>
+<sp><speaker>An ACTOR.</speaker>
+<p>Spectators, now, for the sake of supreme Jove<milestone n="1146" unit="TLN line"/><note anchored="yes"><lemma targOrder="U">Sake of supreme Jove</lemma>:  According to some Commentators, the Romans believed that this Play greatly redounded to the honor of Jupiter; and it was, consequently, often acted in times of public trouble and calamity, with the view of appeasing his anger. They must have had singular notions of honor, as his Godship figures here in the combined characters of an insolent impostor and an unprincipled debauchee.</note>, give loud applause.
+</p></sp></div2></div1>
+</body>
+</text>
+</TEI.2>

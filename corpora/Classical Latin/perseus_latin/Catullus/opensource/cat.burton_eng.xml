@@ -1,0 +1,2840 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersVerse PUBLIC "-//Perseus P4//DTD Perseus Verse//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersVerse.dtd" >
+%PersVerse;
+]>
+<TEI.2>
+<teiHeader type="text" status="new">
+    <fileDesc>
+      <titleStmt>
+        <!--This is the overall file title. It's not really used.-->
+        <title>Carmina</title>
+        <title type="sub">Machine readable text</title>
+        <author>C. Valerius Catullus</author>
+        <editor role="editor" n="Burton">Sir Richard Francis Burton</editor>
+&responsibility;
+&fund.NEH;
+      </titleStmt>
+      <extent>about 158Kb</extent>
+         &Perseus.publish;
+      <sourceDesc>
+	<biblStruct>
+	  <monogr>
+	    <author>Catullus</author>
+	    <title>Carmina</title>
+	    <respStmt>
+	      <name>Sir Richard Francis Burton</name>
+	      <resp>trans.</resp>
+	    </respStmt>
+	    <imprint>
+              <pubPlace>London</pubPlace>
+              <publisher>For translator for private use</publisher>
+              <date>1894</date>
+	    </imprint>
+	  </monogr>
+	  <idno type="OCLC">878062</idno>
+	</biblStruct>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <refsDecl doctype="TEI.2">
+	<state delim="." unit="poem"/>
+	<state unit="line"/>
+      </refsDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language id="en">English
+      </language></langUsage>
+    </profileDesc>
+    <revisionDesc>
+      <change>
+	<date>10/30/97</date>
+	<respStmt><name>Jason Bates </name><resp>ed.</resp></respStmt>
+	<item>
+	$Log: cat.burton_eng.xml,v $
+	Revision 1.2  2010-07-01 21:18:53  student
+	fixing place tags - AD
+
+	Revision 1.1  2009/10/09 19:49:24  rsingh04
+	more reorganizing of texts module by collection
+
+	Revision 1.4  2008/11/14 21:10:45  lcerrato
+	changed author name to make consistent
+
+	Revision 1.3  2006/02/10 20:50:16  packel
+	places/dates now actually tagged
+
+	Revision 1.2  2005/08/01 15:56:09  packel
+	removed stray item tags
+	
+	Revision 1.1  2005/07/25 14:30:41  packel
+	Converted to XML
+	
+       Revision 1.7  2003/07/01 22:14:49  yorkc
+       Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)
+
+       Revision 1.6  2000/12/11 13:49:15  amahoney
+       fix a typo pointed out by a student
+
+       Revision 1.5  2000/03/04 20:34:08  dasmith
+       Added separate funder entity to TEI header.
+
+       Revision 1.4  2000/01/20 01:06:06  dasmith
+       The perl Roman package didn't recognize numerals with four characters
+       (e.g. XXXXII), so I converted such poem numbers by hand.
+
+       Revision 1.3  1999/08/03 21:46:48  dasmith
+       Changed header indenting.
+       Added line to refsDecl.
+
+       Revision 1.2  1999/08/03 21:44:09  dasmith
+       Arabicized poem numbers.
+
+       Revision 1.1  1999/08/03 21:02:49  textgod
+       Added to repository.
+
+       </item></change>
+    </revisionDesc>
+  </teiHeader>
+<text><body>
+<div1 type="poem" n="1">
+<head>DEDICATION TO CORNELIUS NEPOS</head>
+<l>To thee (<persName><surname>Cornelius</surname></persName>!); for wast ever fain</l>
+<l>To deem my trifles somewhat boon contain;</l>
+<l><milestone n="5" unit="line"/>E'en when thou single 'mongst Italians found</l>
+<l>Daredst all periods in three Scripts expound</l>
+<l>Learned (by <persName><surname>Jupiter</surname></persName>!) elaborately.</l>
+<l>Then take thee whatso in this booklet be,</l>
+<l>Such as it is, whereto O Patron Maid</l>
+<l><milestone n="10" unit="line"/>To live down Ages lend thou lasting aid!</l></div1>
+<div1 type="poem" n="2">
+<head>LESBIA'S SPARROW</head>
+<l>Sparrow! my pet's delicious joy,</l>
+<l>Wherewith in bosom nurst to toy</l>
+<l>She loves, and gives her finger-tip</l>
+<l>For sharp-nib'd greeding  neb to nip,</l>
+<l><milestone n="5" unit="line"/>Were she who my desire withstood</l>
+<l>To seek some pet of merry mood,</l>
+<l>As crumb o' comfort for her grief,</l>
+<l>Methinks her burning lowe's relief:</l>
+<l>Could I, as plays she, play with thee,</l>
+<l><milestone n="10" unit="line"/>That mind might win from misery free!</l>
+<l><gap/></l>
+<l>To me t'were grateful (as they say),   </l>
+<l>Gold codling was to fleet-foot May,</l>
+<l>Whose long-bound zone it loosed for aye.</l></div1>
+<div1 type="poem" n="3">
+<head>ON THE DEATH OF LESBIA'S SPARROW</head>
+<l>Weep every <persName><surname>Venus</surname></persName>, and all Cupids wail, </l>
+<l>And men whose gentler spirits still prevail. </l>
+<l>Dead is the Sparrow of my girl, the joy,</l>
+<l> Sparrow, my sweeting's most delicious toy, </l>
+<l><milestone n="5" unit="line"/>Whom loved she dearer than her very eyes;</l>
+<l>For he was honeyed-pet and anywise</l>
+<l>Knew her, as even she her mother knew;</l>
+<l>Ne'er from her bosom's harbourage he flew</l>
+<l>But 'round her hopping here, there, everywhere,</l>
+<l>Piped he to none but her his lady fair.</l>
+<l><milestone n="10" unit="line"/>Now must he wander o'er the darkling way</l>
+<l>Thither, whence life-return the Fates denay.</l>
+<l>But ah! beshrew you, evil Shadows low'ring</l>
+<l>In Orcus ever loveliest things devouring:</l>
+<l>Who bore so pretty a Sparrow fro' her ta'en.<milestone n="15" unit="line"/></l>
+<l>(Oh hapless birdie and Oh deed of bane!)</l>
+<l>Now by your wanton work my girl appears</l>
+<l>With turgid eyelids tinted rose by tears.</l></div1>
+<div1 type="poem" n="4">
+<head>ON HIS PINNACE</head>
+<l>Yonder Pinnace ye (my guests!) behold</l>
+<l>Saith she was erstwhile fleetest-fleet of crafts,</l>
+<l>Nor could by swiftness of aught plank that swims,</l>
+<l>Be she outstripped, whether paddle plied,</l>
+<l><milestone n="5" unit="line"/>Or fared she scudding under canvas-sail.</l>
+<l>Eke she defieth threat'ning <placeName key="tgn,2095226">Adrian</placeName> shore,</l>
+<l>Dare not denay her, insular <placeName key="tgn,7011270">Cyclades</placeName>,</l>
+<l>And noble <placeName key="tgn,7011266">Rhodos</placeName> and ferocious <placeName key="tgn,7002756">Thrace</placeName>,</l>
+<l>Propontis too and blustering Pontic bight.</l>
+<l><milestone n="10" unit="line"/>Where she (my Pinnace now) in times before,</l>
+<l>Was leafy woodling on Cyt&oacute;rean Chine</l>
+<l>For ever loquent lisping with her leaves.</l>
+<l>Pontic Amastris! Box-tree-clad Cyt&oacute;rus!</l>
+<l>Cognisant were ye, and you weet full well</l>
+<l>(So saith my Pinnace) how from earliest age<milestone n="15" unit="line"/></l>
+<l>Upon your highmost-spiring peak she stood,</l>
+<l>How in your waters first her sculls were dipt,</l>
+<l>And thence thro' many and many an important strait</l>
+<l>She bore her owner whether left or right,</l>
+<l>Where breezes bade her fare, or Jupiter deigned  <milestone n="20" unit="line"/></l>
+<l>At once propitious strike the sail full square;</l>
+<l>Nor to the sea-shore gods was aught of vow</l>
+<l>By her deemed needful, when from Ocean's bourne</l>
+<l>Extreme she voyaged for this limpid lake.</l>
+<l>Yet were such things whilome: now she retired<milestone n="25" unit="line"/></l>
+<l>In quiet age devotes herself to thee</l>
+<l>(0 twin-born Castor) twain with Castor's twin.</l></div1>
+<div1 type="poem" n="5">
+<head>TO LESBIA, (OF LESBOS-CLODIA?)</head>
+<l>Love we (my Lesbia!) and live we our day,</l>
+<l>While all stern sayings crabbed sages say,</l>
+<l>At one doit's value let us price and prize!</l>
+<l>The Suns can westward sink again to rise</l>
+<l><milestone n="5" unit="line"/>But we, extinguished once our tiny light,</l>
+<l>Perforce shall slumber through one lasting night!</l>
+<l>Kiss me a thousand times, then hundred more,</l>
+<l>Then thousand others, then a new five-score,</l>
+<l>Still other thousand other hundred store.</l>
+<l><milestone n="10" unit="line"/>Last when the sums to many thousands grow,</l>
+<l>The tale let's trouble till no more we know,</l>
+<l>Nor envious wight despiteful shall misween us</l>
+<l>Knowing how many kisses have been kissed between us.</l></div1>
+<div1 type="poem" n="6">
+<head>TO FLAVIUS: MIS-SPEAKING HIS MISTRESS</head>
+<l>Thy Charmer (Flavius!) to Catullus' ear</l>
+<l>Were she not manner'd mean and worst in wit</l>
+<l>Perforce thou hadst praised nor couldst silence keep.</l>
+<l>But some enfevered jade, I wot-not-what,</l>
+<l><milestone n="5" unit="line"/>Some piece thou lovest, blushing this to own.</l>
+<l>For, nowise 'customed widower nights to lie</l>
+<l>Thou 'rt ever summoned by no silent bed</l>
+<l>With flow'r-wreaths fragrant and with Syrian oil,</l>
+<l>By mattress, bolsters, here, there, everywhere</l>
+<l><milestone n="10" unit="line"/>Deep-dinted, and by quaking, shaking couch</l>
+<l>All crepitation and mobility.</l>
+<l>Explain! none whoredoms (no!) shall close my lips.</l>
+<l>Why? such outfuttered flank thou ne'er wouldst show</l>
+<l>Had not some fulsome work by thee been wrought.</l>
+<l>Then what thou holdest, boon or bane be pleased <milestone n="15" unit="line"/></l>
+<l>Disclose!  For thee and thy beloved fain would I</l>
+<l>Upraise to Heaven with my liveliest lay.</l></div1>
+<div1 type="poem" n="7">
+<head>TO LESBIA STILL BELOVED</head>
+<l>Thou ask'st How many kissing bouts I bore</l>
+<l>From thee (my Lesbia!) or be enough or more?</l>
+<l>I say what mighty sum of Lybian-sands</l>
+<l>Confine Cyrene's Laserpitium-lands</l>
+<l><milestone n="5" unit="line"/>'Twixt Oracle of Jove the Swelterer</l>
+<l>And olden Battus' holy Sepulchre,</l>
+<l>Or stars innumerate through night-stillness ken</l>
+<l>The stolen Love-delights of mortal men,</l>
+<l>For that to kiss thee with unending kisses</l>
+<l><milestone n="10" unit="line"/>For mad Catullus enough and more be this,</l>
+<l>Risses nor curious wight shall count their tale,</l>
+<l>Nor to bewitch us evil tongue avail.</l></div1>
+<div1 type="poem" n="8">
+<head>TO HIMSELF RECOUNTING LESBIA'S INCONSTANCY</head>
+<l>Woe-full Catullus! cease to play the fool</l>
+<l>And what thou seest dead as dead regard!</l>
+<l>Whil&ograve;me the sheeniest suns for thee did shine</l>
+<l>When oft-a-tripping whither led the girl</l>
+<l><milestone n="5" unit="line"/>By us beloved, as shall none be loved.</l>
+<l>There all so merry doings then were done</l>
+<l>After thy liking, nor the girl was loath.</l>
+<l>Then cert&egrave;s sheeniest suns for thee did shine.</l>
+<l>Now she's unwilling: thou too (hapless!) will</l>
+<l><milestone n="10" unit="line"/>Her flight to follow, and sad life to live:</l>
+<l>Endure with stubborn soul and still obdure.</l>
+<l>Damsel, adieu! Catullus obdurate grown</l>
+<l>Nor seeks thee, neither asks of thine unwill;</l>
+<l>Yet shalt thou sorrow when none woos thee more;</l>
+<l>Reprobate! Woe to thee! What life remains?<milestone n="15" unit="line"/></l>
+<l>Who now shall love thee? Who'll think thee fair?</l>
+<l>Whom now shalt ever love? Whose wilt be called?</l>
+<l>To whom shalt kisses give? whose liplets nip?</l>
+<l>But thou (Catullus!) destiny-doomed obdure.</l></div1>
+<div1 type="poem" n="9">
+<head>TO VERANIUS RETURNED FROM TRAVEL</head>
+<l>Veranius! over every friend of me</l>
+<l>Forestanding, owned I hundred thousands three,</l>
+<l>Home to Penates and to single-soul'd</l>
+<l>Brethren, returned art thou and mother old?</l>
+<l><milestone n="5" unit="line"/>Yes, thou art come. Oh, winsome news come well!</l>
+<l>Now shall I see thee, safely hear thee tell</l>
+<l>Of sites Iberian, deeds and nations 'spied,</l>
+<l>(As be thy wont) and neck-a-neck applied</l>
+<l><milestone n="10" unit="line"/>I'll greet with kisses thy glad lips and eyne.</l>
+<l>Oh! Of all mortal men beatified</l>
+<l>Whose joy and gladness greater be than mine?</l></div1>
+<div1 type="poem" n="10">
+<head>HE MEETS VARUS AND MISTRESS</head>
+<l>Led me my Varus to his flame,</l>
+<l>As I from Forum idling came.</l>
+<l>Forthright some whorelet judged I it</l>
+<l>Nor lacking looks nor wanting wit,</l>
+<l><milestone n="5" unit="line"/>When hied we thither, mid us three</l>
+<l>Fell various talk, as how might be</l>
+<l><placeName key="tgn,7016608">Bithynia</placeName> now, and how it fared,</l>
+<l>And if some coin I made or spared.</l>
+<l>"There was no cause  (I soothly said)</l>
+<l><milestone n="10" unit="line"/>"The Praetors or the Cohort made</l>
+<l>Thence to return with oilier head;</l>
+<l>The more when ruled by<gap/></l>
+<l>Praetor, as pile the Cohort rating."</l>
+<l>Quoth they, "But certes as 'twas there</l>
+<l>The custom rose, some men to bear<milestone n="15" unit="line"/></l>
+<l>Litter thou boughtest ?" I to her</l>
+<l>To seem but richer, wealthier,</l>
+<l>Cry, "Nay, with me 'twas not so ill</l>
+<l>That, given the Province suffered, still</l>
+<l>Eight stiff-backed loons I could not buy.'<milestone n="20" unit="line"/></l>
+<l>(Withal none here nor there owned I</l>
+<l>Who broken leg of Couch outworn</l>
+<l>On nape of neck had ever borne!)</l>
+<l>Then she, as pathic piece became,</l>
+<l>"Prithee Catullus mine, those same<milestone n="25" unit="line"/></l>
+<l>Lend me, Serapis-wards I'd hie."</l>
+<l><gap/></l>                              
+<l>"Easy, on no-wise, no," quoth I, </l>
+<l>"Whate'er was mine, I lately said </l>
+<l>Is some mistake, my camarade</l>
+<l>One Cinna-Gains-bought the lot,<milestone n="30" unit="line"/> </l>
+<l>But his or mine, it matters what?</l>
+<l>I use it freely as though bought, </l>
+<l>Yet thou, pert troubler, most absurd, </l>
+<l>None suffer'st speak an idle word."</l></div1>
+<div1 type="poem" n="11">
+<head>A PARTING INSULT TO LESBIA</head>
+<l>Furius and Aurelius, Catullus' friends, </l>
+<l>Whether extremest Indian shore he brave,</l>
+<l>Strands where far-resounding billow rends</l>
+<l>The shattered wave,</l>
+<l><milestone n="5" unit="line"/>Or 'mid Hyrcanians dwell he, Arabs soft and wild,</l>
+<l>Sacis and Parthians of the arrow fain,</l>
+<l>Or where the Seven-mouth'd Nilus mud-defiled </l>
+<l>Tinges the Main,</l>
+<l>Or climb he lofty Alpine Crest and note</l>
+<l><milestone n="10" unit="line"/>Works monumental, Caesar's grandeur telling,</l>
+<l>Rhine Gallic, horrid Ocean and remote</l>
+<l>Britons low-dwelling;</l>
+<l>All these (whatever shall the will design</l>
+<l>Of Heaven-homed Gods) Oh ye prepared to tempt; </l>
+<l>Announce your briefest to that damsel mine     <milestone n="15" unit="line"/></l>
+<l>In words unkempt :&mdash;</l>
+<l>Live she and love she wenchers several,</l>
+<l>Embrace three hundred wi' the like requitals, </l>
+<l>None truly loving and withal of all</l>
+<l>Bursting the vitals: <milestone n="20" unit="line"/></l>
+<l>My love regard she not, my love of yore,</l>
+<l>Which fell through fault of her, as falls the fair </l>
+<l>Last meadow-floret whenas passed it o'er</l>
+<l>touch of the share.</l></div1>
+<div1 type="poem" n="12">
+<head>TO M. ASINIUS WHO STOLE NAPERY</head>
+<l>Marr&uacute;cinus Asinius! ill thou usest</l>
+<l>That hand sinistral in thy wit and wine</l>
+<l>Filching the napkins of more heedless hosts.</l>
+<l>Dost find this funny?  Fool it passeth thee</l>
+<l><milestone n="5" unit="line"/>How 'tis a sordid deed, a sorry jest.</l>
+<l>Dost misbelieve me? Trust to Pollio,</l>
+<l>Thy brother, ready to compound such thefts</l>
+<l>E'en at a talent's cost; for he's a youth</l>
+<l>In speech past master and in fair pleasantries.</l>
+<l><milestone n="10" unit="line"/>Of hendecasyllabics hundreds three</l>
+<l>Therefore expect thou, or return forthright</l>
+<l>Linens whose loss affects me not for worth</l>
+<l>But as mementoes of a comrade mine.</l>
+<l>For napkins Saetaban from Ebro-land</l>
+<l>Fab&uacute;llus ent me a free giftie given<milestone n="15" unit="line"/></l>
+<l>Also Ver&aacute;nius: these perforce I love</l>
+<l>E'en as my Verani&oacute;lus and Fab&uacute;llus.</l></div1>
+<div1 type="poem" n="13">
+<head>FABULLUS IS INVITED TO A POET'S SUPPER</head>
+<l>Thou'lt sup right well with me, Fab&uacute;llus mine,</l>
+<l>In days few-numbered an the Gods design,</l>
+<l>An great and goodly meal thou bring wi' thee</l>
+<l>Nowise forgetting damsel bright o' blee,</l>
+<l><milestone n="5" unit="line"/>With wine, and salty wit and laughs all-gay.</l>
+<l>An these my bonny man, thou bring, I say</l>
+<l>Thou'lt sup right well, for thy Catullus' purse</l>
+<l>Save web of spider nothing does imburse.</l>
+<l>But thou in countergift more loves shalt take</l>
+<l>Or aught of sweeter taste or fairer make:</l>
+<l><milestone n="10" unit="line"/>I'll give thee unguent lent my girl to scent</l>
+<l>By every Venus and all Cupids sent,</l>
+<l>Which, as thou savour, pray Gods interpose</l>
+<l>And thee, Fab&uacute;llus, make a Naught-but-nose.</l></div1>
+<div1 type="poem" n="14">
+<head>TO CALVUS, ACKNOWLEDGING HIS POEMS</head>
+<l>Did I not liefer love thee than my eyes</l>
+<l>(Winsomest Calvus!), for that gift of thine</l>
+<l>Cert&egrave;s I'd hate thee with Vatinian hate.</l>
+<l>Say me, how came I, or by word or deed,</l>
+<l><milestone n="5" unit="line"/>To cause thee plague me with so many a bard?</l>
+<l>The Gods deal many an ill to such a client,</l>
+<l>Who sent of impious wights to thee such crowd.</l>
+<l>But if (as guess I) this choice boon new-found</l>
+<l>To thee from "Commentator" Sulla come,</l>
+<l><milestone n="10" unit="line"/>None ill I hold it&mdash;well and welcome 'tis,</l>
+<l>For that thy labours ne'er to death be doom'd.</l>
+<l>Great Gods!  What horrid booklet damnable</l>
+<l>Unto thine own Catullus thou (perdie!)</l>
+<l>Did send, that ever day by day die he</l>
+<l>In Saturnalia, first of festivals.<milestone n="15" unit="line"/></l>
+<l>No! No! thus shall't not pass wi' thee, sweet wag,</l>
+<l>For I at dawning day will scour the booths</l>
+<l>Of bibliopoles, Aquinii, Caesii and</l>
+<l>Suffenus, gather all their poison-trash</l>
+<l>And with such torments pay thee for thy pains.<milestone n="20" unit="line"/></l>
+<l>Now for the present hence, adieu! begone</l>
+<l>Thither, whence came ye, brought by luckless feet,</l>
+<l>Pests of the Century, ye pernicious Poets.</l></div1>
+<div1 type="poem" n="14b">
+<l>An of my trifles peradventure chance</l>
+<l>You to be readers, and the hands of you    <milestone n="25" unit="line"/></l>
+<l>Without a shudder unto us be offer'd</l>
+<l><gap/></l></div1>                              
+<div1 type="poem" n="15">
+<head>TO AURELIUS&mdash;HANDS OFF THE BOY!</head>
+<l>To thee I trust my loves and me,</l>
+<l>(Aurelius!) craving modesty.</l>
+<l>That (if in mind didst ever long</l>
+<l>To win aught chaste unknowing wrong)</l>
+<l><milestone n="5" unit="line"/>Then guard my boy in purest way.</l>
+<l>From folk I say not: naught affray</l>
+<l>The crowds wont here and there to run</l>
+<l>Through street-squares, busied every one;</l>
+<l>But thee I dread nor less thy penis</l>
+<l><milestone n="10" unit="line"/>Fair or foul, younglings' foe I ween is!</l>
+<l>Wag it as wish thou, at its will,</l>
+<l>When out of doors its hope fulfil;</l>
+<l>Him bar I, modestly, methinks.</l>
+<l>But should ill-mind or lust's high jinks</l>
+<l>Thee (Sinner!), drive to sin so dread,<milestone n="15" unit="line"/></l>
+<l>That durst ensnare our dearling's head,</l>
+<l>Ah! woe's thee (wretch!) and evil fate,</l>
+<l>Mullet and radish shall pierce and grate,</l>
+<l>When feet-bound, haled through yawning gate.</l></div1>
+<div1 type="poem" n="16">
+<head>TO AURELIUS AND FURIUS IN DEFENCE OF HIS MUSE'S HONESTY</head>
+<l>I'll . . .  you twain and . . . </l>
+<l>Pathic Aurelius!  F&uacute;rius, libertines!</l>
+<l>Who durst determine from my versicles</l>
+<l>Which seem o'er softy, that I'm scant of shame.</l>
+<l>For pious poet it behoves be chaste</l>
+<l>Himself; no chastity his verses need;</l>
+<l>Nay, gain they finally more salt of wit</l>
+<l>When over softy and of scanty shame,</l>
+<l>Apt for exciting somewhat prurient,</l>
+<l><milestone n="10" unit="line"/>In boys, I say not, but in bearded men</l>
+<l>Who fail of movements in their hardened loins.</l>
+<l>Ye who so many thousand kisses sung</l>
+<l>Have read, deny male masculant I be?</l>
+<l>You twain I'll . . . and . . . </l></div1>
+<div1 type="poem" n="17">
+<head>OF A "PREDESTINED" HUSBAND</head>
+<l>Colony! fain to display thy games on length of thy town-bridge!</l>
+<l>There, too, ready to dance, though fearing the shaking of crazy</l>
+<l>Logs of the Bridgelet propt on pier-piles newly renew&egrave;d,</l>
+<l>Lest supine all sink deep-merged in the marish's hollow,</l>
+<l><milestone n="5" unit="line"/>So may the bridge hold good when builded after thy pleasure</l>
+<l>Where Salis&uacute;bulus' rites with solemn function are sacred,</l>
+<l>As thou (Colony!) grant me boon of mightiest laughter.</l>
+<l>Certain a townsman mine I'd lief see thrown from thy gangway</l>
+<l>Hurl&egrave;d head over heels precipitous whelmed in the quagmire,</l>
+<l><milestone n="10" unit="line"/>Where the lake and the boglands are most rotten and stinking,</l>
+<l>Deepest and lividest lie, the swallow of hollow voracious.</l>
+<l>Witless surely the wight whose sense is less than of boy-babe</l>
+<l>Two-year-old and a-sleep on trembling forearm of father.</l>
+<l>He though, wedded to girl in greenest bloom of her youth-tide,</l>
+<l>(Bride-wife daintier bred than ever was delicate kidlet,<milestone n="15" unit="line"/></l>
+<l>Worthier diligent watch than grape-bunch blackest and ripest)</l>
+<l>Suffers her sport as she please nor rates her even at hair's worth,</l>
+<l>Nowise 'stirring himself, but lying log-like as alder</l>
+<l>Felled and o'er floating the fosse of safe Ligurian woodsman,</l>
+<l>Feeling withal, as though such spouse he never had own'd;         <milestone n="20" unit="line"/>         </l>
+<l>So this marvel o' mine sees naught, and nothing can hear he,</l>
+<l>What he himself, an he be or not be, wholly unknowing.</l>
+<l>Now would I willingly pitch such wight head first fro' thy bridge,</l>
+<l>Better a-sudden t'arouse that numskull's stolid old senses,</l>
+<l>Or in the sluggish mud his soul supine to deposit <milestone n="25" unit="line"/> </l>
+<l>Even as she-mule casts iron shoe where quagmire is stiffest.</l></div1>
+<div1 type="poem" n="18">
+<head>TO PRIAPUS, THE GARDEN-GOD</head>
+<l>This grove to thee devote I give, Priapus!</l>
+<l>Who home be <placeName key="tgn,7002579">Lampsacus</placeName> and holt, Priapus!</l>
+<l>For thee in cities worship most the shores</l>
+<l>Of <placeName key="tgn,7002638">Hellespont</placeName> the richest oystery strand.</l></div1>
+<div1 type="poem" n="19">
+<head>To PRIAPUS</head>
+<l>This place, O youths, I protect, nor less this turfbuilded cottage,</l>
+<l>Roofed with its osier-twigs and thatched with its bundles of sedges;</l>
+<l>I from the dried oak hewn and fashioned with rustical hatchet,</l>
+<l>Guarding them year by year while more are they evermore thriving.</l>
+<l><milestone n="5" unit="line"/>For here be owners twain who greet and worship my Godship,</l>
+<l>He of the poor hut lord and his son, the pair of them peasants:</l>
+<l>This with assiduous toil aye works the thicketty herbage</l>
+<l>And the coarse water-grass to clear afar from my chapel:</l>
+<l>That with his open hand ever brings me offerings humble.</l>
+<l>Hung up in honour mine are flowery firstlings of spring-tide,<milestone n="20" unit="line"/></l>
+<l>Wreaths with their ears still soft the tender stalklets a-crowning;</l>
+<l>Violets pale are mine by side of the poppy-head pallid;</l>
+<l>With the dull yellow gourd and apples sweetest of savour;</l>
+<l>Lastly the blushing grape disposed in shade of the vine-tree.</l>
+<l>Anon mine altar (this same) with blood (but you will be silent!)<milestone n="15" unit="line"/></l>
+<l>Bearded kid and anon some horny-hoofed nanny shall sprinkle.</l>
+<l>Wherefore Priapus is bound to requite such honours by service,</l>
+<l>Doing his duty to guard both vineyard and garth of his lordling.</l>
+<l>Here then, O lads, refrain from ill-mannered picking and stealing:</l>
+<l>Rich be the neighbour-hind and negligent eke his Priapus:<milestone n="20" unit="line"/></l>
+<l>Take what be his: this path hence leadeth straight to his ownings.</l></div1>
+<div1 type="poem" n="20">
+<head>To PRIAPUS</head>
+<l>I thuswise fashion&egrave;d by rustic art</l>
+<l>And from dried poplar-trunk (0 traveller!) hewn,</l>
+<l>This fieldlet, leftwards as thy glances fall,</l>
+<l>And my lord's cottage with his pauper garth</l>
+<l><milestone n="5" unit="line"/>Protect, repelling thieves' rapacious hands.</l>
+<l>In spring with vari-coloured wreaths I'm crown'd,</l>
+<l>In fervid summer with the glowing grain,</l>
+<l>Then with green vine-shoot and the luscious bunch,</l>
+<l>And glaucous olive-tree in bitter cold.</l>
+<l><milestone n="10" unit="line"/>The dainty she-goat from my pasture bears</l>
+<l>Her milk-distended udders to the town:</l>
+<l>Out of my sheep-cotes ta'en the fatted lamb</l>
+<l>Sends home with silver right-hand heavily charged;</l>
+<l>And, while its mother lows, the tender calf</l>
+<l>Before the temples of the Gods must bleed.<milestone n="15" unit="line"/></l>
+<l>Hence of such Godhead, (traveller !) stand in awe,</l>
+<l>Best it befits thee off to keep thy hands.</l>
+<l>Thy cross is ready, shaped as artless yard;</l>
+<l>"I'm willing, 'faith" (thou say'st) but 'faith here comes</l>
+<l>The boor, and plucking forth with bended arm   <milestone n="20" unit="line"/> </l>
+<l>Makes of this tool a club for doughty hand.</l></div1>
+<div1 type="poem" n="21">
+<head>To AURELIUS THE SKINFLINT</head>
+<l>Aurelius, father of the famisht crew,</l>
+<l>Not sole of starvelings now, but wretches who</l>
+<l>Were, are, or shall be in the years to come,</l>
+<l>My love, my dearling, fain art thou to strum.</l>
+<l><milestone n="5" unit="line"/>Nor privately; for nigh thou com'st and jestest</l>
+<l>And to his side close-sticking all things questest.</l>
+<l>'Tis vain: while lay'st thou snares for me the worst,</l>
+<l>By . . . . I will teach thee first.</l>
+<l>An food-full thus do thou, my peace I'd keep:</l>
+<l>But what (ah me ! ah me !) compels me weep</l>
+<l><milestone n="10" unit="line"/>Are thirst and famine to my dearling fated.</l>
+<l>Cease thou so doing while as modest rated,</l>
+<l>Lest to thy will thou win&mdash;but . . . .</l></div1>
+<div1 type="poem" n="22">
+<head>To VARUS ABUSING SUFFENUS</head>
+<l>Varus, yon wight Suffenus known to thee</l>
+<l>Fairly for wit, free talk, urbanity,</l>
+<l>The same who scribbles verse in amplest store&mdash;</l>
+<l>Methinks he fathers thousands ten or more</l>
+<l><milestone n="5" unit="line"/>Indited not as wont on palimpsest,</l>
+<l>But paper-royal, brand-new boards, and best</l>
+<l>Fresh bosses, crimson ribbands, sheets with lead</l>
+<l>Ruled, and with pumice-powder all well polished.</l>
+<l>These as thou readest, seem that fine, urbane</l>
+<l><milestone n="10" unit="line"/>Suffenus, goat-herd mere, or ditcher-swain</l>
+<l>Once more, such horrid change is there, so vile.</l>
+<l>What must we wot thereof? a Droll erst while,</l>
+<l>Or (if aught) cleverer, he with converse meets,</l>
+<l>He now in dullness, dullest villain beats</l>
+<l>Forthright on handling verse, nor is the wight <milestone n="15" unit="line"/></l>
+<l>Ever so happy as when verse he write:</l>
+<l>So self admires he with so full delight.</l>
+<l>In sooth, we all thus err, nor man there be</l>
+<l>But in some matter a Suffenus see</l>
+<l>Thou canst: his lache allotted none shall lack  <milestone n="20" unit="line"/></l>
+<l>Yet spy we nothing of our back-borne pack.</l></div1>
+<div1 type="poem" n="23">
+<head>TO FURIUS SATIRICALLY PRAISING HIS POVERTY</head>
+<l>Furius !  Nor chest, nor slaves can claim,</l>
+<l>Bug, Spider, nor e'e n hearth aflame,</l>
+<l>Yet thine a sire and step-dame who</l>
+<l>Wi' tooth can ever flint-food chew!</l>
+<l><milestone n="5" unit="line"/>So thou, and pleasant happy life</l>
+<l>Lead wi' thy parents wooden wife.</l>
+<l>Nor be this marvel: hale are all,</l>
+<l>Well ye digest; no fears appal</l>
+<l>For household-arsons, heavy ruin,</l>
+<l><milestone n="10" unit="line"/>Plunderings impious, poison-brewin'</l>
+<l>Or other parlous case forlorn.</l>
+<l>Your frames are hard and dried like horn,</l>
+<l>Or if more arid aught ye know</l>
+<l>By suns and frosts and hunger-throe.</l>
+<l>Then why not happy as thou'rt hale?<milestone n="15" unit="line"/></l>
+<l>Sweat's strange to thee, spit fails, and fail</l>
+<l>Phlegm and foul snivel from the nose.</l>
+<l>Add cleanness that aye cleanlier shows</l>
+<l>A bum than salt-pot cleanlier,</l>
+<l>Nor ten times cack'st in total year,<milestone n="20" unit="line"/></l>
+<l>And harder 'tis than pebble or bean</l>
+<l>Which rubbed in hand or crumbled, e'en</l>
+<l>On finger ne'er shall make unclean.</l>
+<l>Such blessings (Furius !) such a prize</l>
+<l>Never belittle nor despise;<milestone n="25" unit="line"/></l>
+<l>Hundred sesterces seek no more</l>
+<l>With wonted prayer&mdash;enow's thy store!</l></div1>
+<div1 type="poem" n="24">
+<head>TO  JUVENTIUS CONCERNING THE CHOICE OF A FRIEND</head>
+<l>O of Juventian youths the flowret fair</l>
+<l>Not of these only, but of all that were</l>
+<l>Or shall be, coming in the coming years,</l>
+<l>Better waste Midas' wealth (to me appears)</l>
+<l><milestone n="5" unit="line"/>On him that owns nor slave nor money-chest</l>
+<l>Than thou shouldst suffer by his love possest.</l>
+<l>"What! is he vile or not fair?"  "Yes!" I attest, </l>
+<l>"Yet owns this man so comely neither slaves nor chest </l>
+<l>My  words disdain thou or accept at best</l>
+<l><milestone n="10" unit="line"/>Yet neither slave he owns nor money-chest."</l></div1>
+<div1 type="poem" n="25">
+<head>ADDRESS TO THALLUS THE NAPERY-THIEF</head>
+<l>Thou bardache Thallus! more than Coney's robe</l>
+<l>Soft, or goose-marrow or ear's lowmost lobe,</l>
+<l>Or Age's languid yard and cobweb'd part,</l>
+<l>Same Thallus greedier than the gale thou art,</l>
+<l><milestone n="5" unit="line"/>When the Kite-goddess shows thee Gulls agape,</l>
+<l>Return my muffler thou hast dared to rape,</l>
+<l>Saetaban napkins, tablets of Thynos, all</l>
+<l>Which (Fool!) ancestral heirlooms thou didst call.</l>
+<l>These now unglueing from thy claws restore,</l>
+<l><milestone n="10" unit="line"/>Lest thy soft hands, and floss-like flanklets score </l>
+<l>The burning scourges, basely signed and lined,</l>
+<l>And thou unwonted toss like wee barque tyned</l>
+<l>'Mid vasty Ocean vexed by madding wind!</l></div1>
+<div1 type="poem" n="26">
+<head>CATULLUS CONCERNING HIS VILLA</head>
+<l>Furius! our Villa never Austral force</l>
+<l>B roke, neither set thereon Favonius' course,</l>
+<l>Nor savage Boreas, nor Epeliot's strain,</l>
+<l>But fifteen thousand crowns and hundreds twain</l>
+<l><milestone n="5" unit="line"/>Wreckt it, &mdash;Oh ruinous by-wind, breezy bane!</l></div1>
+<div1 type="poem" n="27">
+<head>TO HIS CUP-BOY</head>
+<l>Thou youngling drawer of Falernian old</l>
+<l>Crown me the goblets with a bitterer wine</l>
+<l>As was Postumia's law that rules the feast</l>
+<l>Than ebriate grape-stone more inebriate.</l>
+<l>But ye fare whither please ye (water-nymphs!)</l>
+<l>To wine pernicious, and to sober folk</l>
+<l>Migrate ye: mere Thyonian juice be here!</l></div1>
+<div1 type="poem" n="28">
+<head>TO FRIENDS ON RETURN FROM TRAVEL</head>
+<l>Followers of Piso, empty band</l>
+<l>With your light budgets packt to hand,</l>
+<l>Ver&aacute;nius best! Fab&uacute;llus mine!</l>
+<l>What do ye? Bore ye enough, in fine</l>
+<l><milestone n="5" unit="line"/>Of frost and famine with yon sot?</l>
+<l>What loss or gain have haply got</l>
+<l>Your tablets? so, whenas I ranged</l>
+<l>With Praetor, gains for loss were changed.</l>
+<l>"O Memmius! thou did'st long and late </l>
+<l><milestone n="10" unit="line"/> . .  me supine slow and . . . "</l>
+<l>But (truly see I) in such case</l>
+<l>Diddled you were by wight as base</l>
+<l>Sans mercy. Noble friends go claim!</l>
+<l>Now god and goddess give you grame</l>
+<l>Disgrace of Romulus! Remus' shame!<milestone n="15" unit="line"/></l></div1>
+<div1 type="poem" n="29">
+<head>TO CAESAR OF MAMURRA, CALLED MENTULA</head>
+<l>Who e'er could witness this (who could endure </l>
+<l>Except the lewdling, dicer, greedy-gut)</l>
+<l>That should Mamurra get what hairy <placeName key="tgn,1000070">Gaul</placeName></l>
+<l>And all that farthest Britons held whil&ograve;me?</l>
+<l><milestone n="5" unit="line"/>(Thou bardache Romulus!) this wilt see and bear?</l>
+<l>Then art a lewdling, dicer, greedy-gut!</l>
+<l>He now superb with pride superfluous</l>
+<l>Shall go perambulate the bedrooms all</l>
+<l>Like white-robed dovelet or Adonis-love.</l>
+<l>Romulus thou bardache! this wilt see and bear?</l>
+<l><milestone n="10" unit="line"/>Then art a lewdling, dicer, greedy-gut!</l>
+<l>Is't for such like name, sole Emperor thou!</l>
+<l>Thou soughtest extreme Occidental Isle?</l>
+<l>That this your . . . . Mentula</l>
+<l>Millions and Milliards might at will absorb?</l>
+<l>What is't but Liberality misplaced?<milestone n="15" unit="line"/></l>
+<l>What trifles wasted he, small heirlooms spent?</l>
+<l>First his paternal goods were clean dispersed;</l>
+<l>Second went <placeName key="tgn,7016619">Pontus</placeName>' spoils and for the third,&mdash;</l>
+<l>Ebro-land,&mdash;weets it well gold-rolling Tage.</l>
+<l>Fear him the Gallias? Him the Britons' fear? <milestone n="20" unit="line"/></l>
+<l>Why cherish this ill-wight? what 'vails he do?</l>
+<l>Save fat paternal heritage devour?</l>
+<l>Lost ye for such a name, o puissant pair</l>
+<l>(Father and Son-in-law), our all-in-all?</l></div1>
+<div1 type="poem" n="30">
+<head>To ALFENUS THE PERJUROR</head>
+<l>Alf&eacute;nus! short of memory, false to comrades dearest-dear,</l>
+<l>Now hast no pity (hardened Soul!) for friend and loving fere?</l>
+
+<l>Now to betray me, now to guile. thou (traitor!) ne'er dost pause?</l>
+<l>Yet impious feats of fraudful men ne'er force the Gods' applause:</l>
+
+<l><milestone n="5" unit="line"/>When heed'st thou not deserting me (Sad me!) in sorest scathe,</l>
+<l>Ah say whate'er shall humans do? in whom shall man show faith?</l>
+
+<l>For sure thou bad'st me safely yield my spirit (wretch!) to thee,</l>
+<l>Lulling my love as though my life were all security.</l>
+
+<l>The same now dost withdraw thyself and every word and deed</l>
+<l>Thou suffer'st winds and airy clouds to sweep from  out thy head.</l>
+
+<l>But an forget thou, mindful be the Gods, and Faith in mind</l>
+<l><milestone n="10" unit="line"/>Bears thee, and soon shall gar thee rue the deeds by thee design'd.</l></div1>
+<div1 type="poem" n="31">
+<head>ON RETURN TO SIRMIO AND HIS VILLA</head>
+<l><persName><surname>Sirmio</surname></persName>! of Islands and Peninsulas</l>
+<l>Eyelet, and whatsoe'er in limpid meres</l>
+<l>And vasty Ocean either Neptune owns,</l>
+<l>Thy scenes how willing-glad once more I see,</l>
+<l><milestone n="5" unit="line"/>At pain believing Thynia and the Fields</l>
+<l>Bithynian left, I'm safe to sight thy Site.</l>
+<l>Oh what more bless&egrave;d be than cares resolved,</l>
+<l>When mind casts burthen and by peregrine</l>
+<l>Work over wearied, lief we hie us home</l>
+<l><milestone n="10" unit="line"/>To lie reposing in the longed-for bed!</l>
+<l>This be the single meed for toils so triste.</l>
+<l>Hail, O fair <persName><surname>Sirmio</surname></persName>, in thy lord rejoice:</l>
+<l>And ye, O' waves of Lybian Lake be glad,</l>
+<l>And laugh what laughter pealeth in my home.</l></div1>
+<div1 type="poem" n="32">
+<head>CRAVING IPSITHILLA'S LAST FAVOURS</head>
+<l>ILL love my Ipsithilla sweetest, My desires and my Wit the meetest,</l>
+<l>So bid me join thy nap o' noon!</l>
+<l>Then (after bidding) add the boon</l>
+<l><milestone n="5" unit="line"/>Undraw thy threshold-bolt none dare,</l>
+<l>Lest thou be led afar to fare;</l>
+<l>Nay bide at home, for us prepare</l>
+<l>Nine-fold continuous love-delights.</l>
+<l>But aught do thou to hurry things,</l>
+<l><milestone n="10" unit="line"/>For dinner-full I lie aback,</l>
+<l>And gown and tunic through I crack.</l></div1>
+<div1 type="poem" n="33">
+<head>ON THE VIBENNII-BATH-THIEVES</head>
+<l>OH, best of robbers who in Baths delight, </l>
+<l>Vibennius, sire and son, the Ingle hight,</l>
+<l>(For that the father's hand be fouler one</l>
+<l>And with his anus greedier is the Son)</l>
+<l><milestone n="5" unit="line"/>Why not to banishment and evil hours</l>
+<l>Haste ye, when all the parent's plundering powers</l>
+<l>Are public knowledge, nor canst gain a Cent</l>
+<l>Son! by the vending of thy pil&egrave;d vent.</l></div1>
+<div1 type="poem" n="34">
+<head>HYMN TO DIANA</head>
+<l>Diana's faith inbred we bear</l>
+<l>Youths whole of heart and maidens fair,</l>
+<l>Let boys no blemishes impair,</l>
+<l>	And girls of Dian sing!</l>
+
+<l><milestone n="5" unit="line"/>O great Latonian progeny,</l>
+<l>Of greatest Jove descendancy,</l>
+<l>Whom mother bare 'neath olive-tree,</l>
+<l>	Deep in the Delian dell;</l>
+
+<l>That of the mountains reign thou Queen</l>
+<l><milestone n="10" unit="line"/>And forest ranges ever green,</l>
+<l>And coppices by man unseen,</l>
+<l>	And rivers resonant.</l>
+
+<l>Thou art Luc&iacute;na, Juno hight</l>
+<l>By mothers lien in painful plight,</l>
+<l>Thou puissant Trivia and the Light<milestone n="15" unit="line"/></l>
+<l>	Bastard, yclept the <persName><surname>Lune</surname></persName>.</l>
+
+<l>Thou goddess with thy monthly stage,</l>
+<l>The yearly march doth mete and guage</l>
+<l>An d rustic peasant's messuage,</l>
+<l>	Dost brim with best o' crops,<milestone n="20" unit="line"/></l>
+
+<l>Be hailed by whatso name of grace, </l>
+<l>Please thee and olden Romulus' race, </l>
+<l>Thy wonted favour deign embrace,</l>
+<l>	And save with choicest aid.</l></div1>
+<div1 type="poem" n="35">
+<head>AN INVITATION TO POET CECILIUS</head>
+<l>Now to that tender bard, my Comrade fair,</l>
+<l>(Cecilius) say I, " Paper go, declare,</l>
+<l><placeName key="perseus,Verona">Verona</placeName> must we make and bid to New</l>
+<l><placeName key="perseus,Comum">Comum</placeName>'s town-walls and Larian Shores adieu;"</l>
+<l><milestone n="5" unit="line"/>For I determined certain fancies he</l>
+<l>Accept from mutual friend to him and me.</l>
+<l>Wherefore he will, if wise, devour the way,</l>
+<l>Though the blonde damsel thousand times essay</l>
+<l>Recall his going and with arms a-neck</l>
+<l><milestone n="10" unit="line"/>A-winding would e'er seek his course to check;</l>
+<l>A girl who (if the truth be truly told)</l>
+<l>Dies of a hopeless passion uncontroul'd;</l>
+<l>For since the doings of the D&iacute;ndymus-dame,</l>
+<l>By himself storied, she hath read, a flame</l>
+<l>Wasting her inmost marrow-core hath burned. <milestone n="15" unit="line"/></l>
+<l>I pardon thee, than Sapphic Muse more learn'd,</l>
+<l>Damsel : for truly sung in sweetest lays</l>
+<l>Was by Cecilius Magna Mater's praise.</l></div1>
+<div1 type="poem" n="36">
+<head>ON  "THE ANNALS "&mdash;A SO-CALLED POEM OF VOLUSIUS</head>
+<l>Volusius' Annals, paper scum-bewrayed!</l>
+<l>Fulfil that promise erst my damsel made;</l>
+<l>Who vowed to Holy Venus and her son,</l>
+<l>Cupid, should I return to her anon</l>
+<l><milestone n="5" unit="line"/>And cease to brandish iamb-lines accurst,</l>
+<l>The writ selected erst of bards the worst</l>
+<l>She to the limping Godhead would devote</l>
+<l>With slowly-burning wood of illest note.</l>
+<l>This was the vilest which my girl could find</l>
+<l><milestone n="10" unit="line"/>With vow facetious to the Gods assigned. </l>
+<l>Now, 0 Creation of the azure sea,</l>
+<l>Holy <placeName key="tgn,7002336">Idalium</placeName>, Urian havenry</l>
+<l>Haunting, <placeName key="perseus,Ancona">Ancona</placeName>, <placeName key="tgn,5003757">Cnidos</placeName>' reedy site,</l>
+<l><placeName key="perseus,Amathus">Amathus</placeName>, Golgos, and the tavern hight</l>
+<l>Durrachium-thine Adrian abode&mdash;<milestone n="15" unit="line"/></l>
+<l>The vow accepting, recognize the vowed</l>
+<l>As not unworthy and unhandsome naught.</l>
+<l>But do ye meanwhile to the fire be brought, </l>
+<l>That teem with boorish jest of sorry blade, </l>
+<l>Volusius' Annals, paper scum-bewrayed.      <milestone n="20" unit="line"/></l></div1>
+<div1 type="poem" n="37">
+<head>TO THE FREQUENTERS OF A LOW TAVERN</head>
+<l>Salacious Tavern and ye taverner-host,</l>
+<l>From Pileate Brothers the ninth pile-post,</l>
+<l>D'ye claim, you only of the, mentule boast,</l>
+<l>D'ye claim alone what damsels be the best</l>
+<l>To swive: as he-goats holding all the rest?</l>
+<l>Is't when like boobies sit ye incontinent here,</l>
+<l>One or two hundred, deem ye that I fear</l>
+<l>Two hundred . . . . at one brunt?</l>
+<l>Ay, think so, natheless all your tavern-front</l>
+<l><milestone n="10" unit="line"/>With many a scorpion I will over-write.</l>
+<l>For that my damsel, fro' my breast took flight,</l>
+<l>By me so lov&egrave;d, as shall loved be none,</l>
+<l>Wherefor so mighty wars were waged and won,</l>
+<l>Does sit in public here. Ye fain, rich wights,</l>
+<l>All woo her: thither too (the chief of slights !) <milestone n="15" unit="line"/></l>
+<l>All pitiful knaves and by-street wenchers fare,</l>
+<l>And thou, (than any worse), with hanging hair,</l>
+<l>In coney-breeding Celtiberia bred,</l>
+<l>Egnatius! bonnified by beard full-fed,</l>
+<l>And teeth with Spanish urine polish&egrave;d.<milestone n="20" unit="line"/></l></div1>
+<div1 type="poem" n="38">
+<head>A COMPLAINT TO CORNIFICIUS</head>
+<l>Cornificius! 'Tis ill with thy Catullus,</l>
+<l>'Tis ill (by Hercules) distressfully:</l>
+<l><placeName key="tgn,1124856">Iller</placeName> and iller every day and hour.</l>
+<l>Whose soul (as smallest boon and easiest)</l>
+<l><milestone n="5" unit="line"/>With what of comfort hast thou deign'd console?</l>
+<l>Wi' thee I'm angered! Dost so prize my love?</l>
+<l>Yet some consoling utterance had been well</l>
+<l>Though sadder 'twere than Simon&iacute;dean tears.</l></div1>
+<div1 type="poem" n="39">
+<head>ON EGNATIUS OF THE WHITE TEETH</head>
+<l>Egnatius for that owns he teeth snow-white,</l>
+<l>Grins ever, everywhere. When placed a wight</l>
+<l>In dock, when pleader would draw tears, the while</l>
+<l>He grins. When pious son at funeral pile</l>
+<l></l><l><milestone n="5" unit="line"/>Mourns, or lone mother sobs for sole lost son,</l>
+<l>He grins. Whate'er, whene'er, howe'er is done,</l>
+<l>Of deed he grins. Such be his malady,</l>
+<l>Nor kind, nor courteous-so beseemeth me&mdash;</l>
+<l>Then take thou good Egnatius, rede of mine!</l>
+<l><milestone n="10" unit="line"/>Wert Thou Corrupt Sabine Or A Tiburtine,</l>
+<l>Stuffed Umbrian or Tuscan overgrown</l>
+<l>Swarthy Lanuvian with his teeth-rows shown,</l>
+<l>Transpadan also, that mine own I touch,</l>
+<l>Or any washing teeth to shine o'er much,</l>
+<l><milestone n="15" unit="line"/>Yet thy incessant grin I would not see,</l>
+<l>For naught than laughter silly sillier be.</l>
+<l>Thou Celtiber art, in Celtiberia born,</l>
+<l>Where man who's urined therewith loves a-morn</l>
+<l>His teeth and ruddy gums to scour and score;</l>
+<l><milestone n="20" unit="line"/>So the more polisht are your teeth, the more</l>
+<l>Argue they sipping stale in ampler store.</l></div1>
+<div1 type="poem" n="40">
+<head>THREATENING RAVIDUS WHO STOLE HIS MISTRESS</head>
+<l>What thought of folly R&aacute;vidus (poor churl!)</l>
+<l>Upon my iambs thus would headlong hurl?</l>
+<l>What good or cunning counsellor would fain</l>
+<l>Urge thee to struggle in such strife insane?</l>
+<l><milestone n="5" unit="line"/>Is't that the vulgar mouth thy name by rote?</l>
+<l>What will'st thou? Wishest on any wise such note?</l>
+<l>Then shalt be noted since my love so lief</l>
+<l>For love thou sued'st to thy lasting grief.</l></div1>
+<div1 type="poem" n="41">
+<head>ON MAMURRA'S MISTRESS</head>
+<l>That Ametina, worn-out whore,</l>
+<l>Me for a myriad oft would bore,</l>
+<l>That strumpet of th' ignoble nose,</l>
+<l>To leman, rakehell Formian chose.</l>
+<l><milestone n="5" unit="line"/>An ye would guard her (kinsmen folk)</l>
+<l>Your friends and leaches d'ye convoke:</l>
+<l>The girl's not sound-sens'd; ask ye naught</l>
+<l>Of her complaint: she's love-distraught.</l></div1>
+<div1 type="poem" n="42">
+<head>ON A STRUMPET WHO STOLE HIS TABLETS</head>
+<l>Come, Hendecasyllabics, many as may</l>
+<l>All hither, every one that of you be!</l>
+<l>That fulsome harlot makes me laughing-stock</l>
+<l>And she refuses at our prayer restore</l>
+<l><milestone n="5" unit="line"/>Our stolen Note-books, an such slights ye bear.    </l>
+<l>Let us pursue her clamouring our demands.</l>
+<l>"Who's she?" ye question: yonder one ye sight</l>
+<l>Mincingly pacing mime-like, perfect pest,</l>
+<l>With jaws wide grinning like a Gallic pup.</l>
+<l><milestone n="10" unit="line"/>Stand all round her dunning with demands,     </l>
+<l>"Return (O rotten whore!) our noting books.</l>
+<l>Our noting books (O rotten whore!) return!"</l>
+<l>No doit thou car'st? O Mire! O Stuff O' stews!</l>
+<l>Or if aught fouler filthier dirt there be.</l>
+<l><milestone n="15" unit="line"/>Yet must we never think these words suffice.     </l>
+<l>But if naught else avail, at least a blush</l>
+<l>Forth of that bitch-like brazen brow we'll squeeze.</l>
+<l>Cry all together in a higher key</l>
+<l>"Restore (O rotten whore!) our noting books,</l>
+<l><milestone n="20" unit="line"/>Our noting books (O rotten whore!) restore !"   </l>
+<l>Still naught avails us, nothing is she moved.</l>
+<l>Now must our measures and our modes be changed</l>
+<l>An we would anywise our cause advance.</l>
+<l>"Restore (chaste, honest Maid!) our noting books!"</l></div1>
+<div1 type="poem" n="43">
+<head>To MAMURRA'S MISTRESS</head>
+<l>Hail, girl who neither nose of minim size</l>
+<l>Owns, nor a pretty foot, nor jetty eyes,</l>
+<l>Nor thin long fingers, nor mouth dry of slaver</l>
+<l>Nor yet too graceful tongue of pleasant flavour,</l>
+<l><milestone n="5" unit="line"/><placeName key="tgn,7003763">Leman</placeName> to Formian that rake-a-hell.</l>
+<l>What, can the Province boast of thee as belle?</l>
+<l>Thee with my Lesbia durst it make compare?</l>
+<l>O Age insipid, of all humour bare!</l></div1>
+<div1 type="poem" n="44">
+<head>CATULLUS TO HIS OWN FARM</head>
+<l>O Farm our own, <placeName key="tgn,7021127">Sabine</placeName> or Tiburtine,</l>
+<l>(For style thee "Tiburs" Who have not at heart</l>
+<l>To hurt Catullus, whereas all that have</l>
+<l>Wage any Wager thou be <placeName key="tgn,7021127">Sabine</placeName> classed)</l>
+<l><milestone n="5" unit="line"/>But whether <placeName key="tgn,7021127">Sabine</placeName> or of Tiburs truer</l>
+<l>To thy suburban Cottage fared I fain</l>
+<l>And fro' my bronchials drave that curs&egrave;d cough</l>
+<l>Which not unmerited on me my maw,</l>
+<l>A-seeking sumptuous banquetings, bestowed.</l>
+<l><milestone n="10" unit="line"/>For I requesting to be Sestius' guest</l>
+<l>Read against claimant Antius a speech,</l>
+<l>Full-filled with poisonous pestilential trash.</l>
+<l>Hence a grave frigid rheum and frequent cough</l>
+<l>Shook me till fled I to thy bosom, where</l>
+<l><milestone n="15" unit="line"/>Repose and nettle-broth healed all my ills.</l>
+<l>Wherefore recruited now best thanks I give</l>
+<l>To thee for nowise punishing my sins:</l>
+<l>Nor do I now object if noisome writs</l>
+<l>Of Sestius hear I, but that cold and cough</l>
+<l><milestone n="20" unit="line"/>And rheum may plague, not me, but Sestius' self </l>
+<l>Who asks me only his ill writs to read.</l></div1>
+<div1 type="poem" n="45">
+<head>ON ACME AND SEPTUMIUS</head>
+<l>To Acm&eacute; quoth Septumius who his fere </l>
+<l>Held on his bosom-" Acme', mine! next year, </l>
+<l>Unless I love thee fondlier than before,</l>
+<l>And with each twelve month love thee more and more,</l>
+<l><milestone n="5" unit="line"/>As much as lover's life can slay with yearning,</l>
+<l>Alone in Lybia, or Hind's clime a-burning,</l>
+<l>Be mine to encounter Lion grisly-eyed!"</l>
+<l>While he was speaking Love on leftward side</l>
+<l>(As wont) approving sneeze from dextral sped.</l>
+<l><milestone n="10" unit="line"/>But Acm&eacute; backwards gently bending head,</l>
+<l>And the love-drunken eyes of her sweet boy</l>
+<l>Kissing with yonder rosy mouth, "My joy,"</l>
+<l>She murmured, "my life-love Septumillus mine!</l>
+<l>Unto one master's hest let's aye incline,</l>
+<l><milestone n="15" unit="line"/>As burns with fuller and with fiercer fire</l>
+<l>In my soft marrow set, this love-desire!"</l>
+<l>While she was speaking, Love from leftward side</l>
+<l>(As wont) with sneeze approving rightwards hied.</l>
+<l>Now with boon omens wafted on their way,</l>
+<l><milestone n="20" unit="line"/>In mutual fondness, love and loved are they.</l>
+<l>Love-sick Septumius holds one Acm&eacute;'s love,</l>
+<l>Of Syrias or either Britains high above,</l>
+<l>Acm&eacute; to one Septumius full of faith</l>
+<l>Her love and love-liesse surrendereth.</l>
+<l><milestone n="25" unit="line"/>Who e'er saw mortals happier than these two?  </l>
+<l>Who e'er a better omened <persName><surname>Venus</surname></persName> knew?</l></div1>
+<div1 type="poem" n="46">
+<head>HIS ADIEUX TO BITHYNIA</head>
+<l>Now Spring his cooly mildness brings us back,</l>
+<l>Now th' equinoctial heaven's rage and wrack</l>
+<l>Hushes at hest of Zephyr's bonny breeze.</l>
+<l>Far left (Catullus!) be the Phrygian leas</l>
+<l><milestone n="5" unit="line"/>And summery <placeName key="tgn,7008773">Nicaea</placeName>'s fertile downs:</l>
+<l>Fly we to <placeName key="tgn,2097781">Asia</placeName>'s fame-illumined towns.</l>
+<l>Now lust my fluttering thoughts for wayfare long,</l>
+<l>Now my glad eager feet grow steady, strong.</l>
+<l>O fare ye well, my comrades, pleasant throng,</l>
+<l><milestone n="10" unit="line"/>Ye who together far from homesteads flying,</l>
+<l>By many various ways come homewards hieing.</l></div1>
+<div1 type="poem" n="47">
+<head>TO PORCIUS AND SOCRATION</head>
+<l>Porcius and Socration, pair sinister</l>
+<l>Of <placeName key="tgn,2040810">Piso</placeName>, scabs and starvelings of the world,</l>
+<l>You to Fab&uacute;llus and my Veriani&oacute;lus,</l>
+<l>Hath dared yon snipt Priapus to prefer?</l>
+<l>Upon rich banquets sumptuously spread</l>
+<l><milestone n="5" unit="line"/>Still gorge you daily while my comrades must </l>
+<l>Go seek invitals where the three roads fork?</l></div1>
+<div1 type="poem" n="48">
+<head>TO  JUVENTIUS</head>
+<l>Those honied eyes of thine (Juventius!)</l>
+<l>If any suffer me sans stint to buss,</l>
+<l>I'd kiss of kisses hundred thousands three,</l>
+<l>Nor ever deem I'd reach satiety,</l>
+<l><milestone n="5" unit="line"/>Not albe denser than dried wheat-ears show</l>
+<l>The kissing harvests our embraces grow.</l></div1>
+<div1 type="poem" n="49">
+<head>TO MARCUS TULLIUS CICERO</head>
+<l>Most eloquent 'mid race of <persName><surname>Romulus</surname></persName>></l>
+<l>That is or ever was (Marc Tullius!)</l>
+<l>Or in the coming years the light shall see,</l>
+<l>His thanks, the warmest, offers unto thee</l>
+<l><milestone n="5" unit="line"/>Catullus, poet sorriest that be, </l>
+<l>And by such measure poet sorriest, </l>
+<l>As thou of pleaders art the bestest best.</l></div1>
+<div1 type="poem" n="50">
+<head>TO HIS FRIEND LICINIUS</head>
+<l>Idly (Licinius!) we our yesterday,</l>
+<l>Played with my tablets much as pleased us play,</l>
+<l>In mode becoming souls of dainty strain.</l>
+<l>Inditing verses either of us twain</l>
+<l><milestone n="5" unit="line"/>Now in one measure then in other line</l>
+<l>We rang the changes amid wit and wine.</l>
+<l>Then fared I homewards by thy fun so fired</l>
+<l>And by thy jests (Licinius!) so inspired,</l>
+<l>Nor food my hapless appetite availed</l>
+<l><milestone n="10" unit="line"/>Nor sleep in quiet rest my eyelids veiled,</l>
+<l>But o'er the bedstead wild in furious plight</l>
+<l>I tossed a-longing to behold the light,</l>
+<l>So I might talk wi' thee, and be wi' thee.</l>
+<l>But when these wearied limbs from labour free</l>
+<l><milestone n="15" unit="line"/>Were on my couchlet strewn half-dead to lie,  </l>
+<l>For thee (sweet wag!) this poem for thee wrote I,</l>
+<l>Whereby thou mete and weet my cark and care.</l>
+<l>Now be not over-bold, nor this our prayer</l>
+<l>Outspit thou (apple of mine eyes !): we pray</l>
+<l><milestone n="20" unit="line"/>Lest doom thee Nemesis hard pain repay :&mdash;   </l>
+<l>She's a dire Goddess, 'ware thou cross her way.</l></div1>
+<div1 type="poem" n="51">
+<head>TO LESBIA</head>
+<l>Peer of a God meseemeth he, </l>
+<l>Nay passing Gods (and that can be!) </l>
+<l>Who all the while sits facing thee</l>
+<l>Sees thee and hears</l>
+<l><milestone n="5" unit="line"/>Thy low sweet laughs which (ah me!) daze  </l>
+<l>Mine every sense, and as I gaze </l>
+<l>Upon thee (Lesbia!) o'er me strays</l>
+<l><gap/></l>
+<l>My tongue is dulled, my limbs adown</l>
+<l><milestone n="10" unit="line"/>Flows subtle flame; with sound its own   </l>
+<l>Rings either ear, and o'er are strown</l>
+<l>Mine eyes with night.</l>
+<l>Ease has thy lot, Catullus, crost,</l>
+<l>Ease gladdens thee at heaviest cost,</l>
+<l>Ease killed the Kings ere this and lost the tallest towns</l></div1>
+<div1 type="poem" n="52">
+<head>CATULLUS TO HIMSELF</head>
+<l>What is't, Catullus? Why delay to out die?</l>
+<l>That Wen hight Nonius sits in curule chair,</l>
+<l>For Consulship Vatinius false doth swear;</l>
+<l>What is't, Catullus? Why delay to out die?</l></div1>
+<div1 type="poem" n="53">
+<head>A JEST CONCERNING CALVUS</head>
+<l>I laughed at one 'mid Forum-crowd unknown</l>
+<l>Who, when Vatinius' crimes in wondrous way</l>
+<l>Had by my Calvus been explained, exposed,</l>
+<l>His hand upraising high admiring cried</l>
+<l><milestone n="5" unit="line"/>"Great Gods! the loquent little Doodle-diddle!" </l></div1>
+<div1 type="poem" n="54">
+<head>To JULIUS CAESAR(?)</head>
+<l>The head of <placeName key="tgn,2561794">Otho</placeName>, puniest of pates</l>
+<l><gap/></l>  
+<l>The rustic half-washt shanks of Nerius </l>
+<l>And Libo's subtle silent fizzling-farts.</l>
+<l><gap/></l>
+<l>I wish that leastwise these should breed disgust </l>
+<l><milestone n="5" unit="line"/>In thee and old Fuficius, rogue twice-cookt.</l>
+<l>Again at these mine innocent iamb-lines </l>
+<l>Wi' wrath be wrothest; unique Emperor!</l></div1>
+<div1 type="poem" n="55">
+<head>OF HIS FRIEND CAMERIUS</head>
+<l>We pray, an' haply irk it not when prayed,</l>
+<l>Show us where shadowed hidest thou in shade!</l>
+<l>Thee throughout Campus Minor sought we all,</l>
+<l>Thee in the Circus, thee in each bookstall,</l>
+<l><milestone n="5" unit="line"/>Thee in Almighty Jove's fane consecrate.</l>
+<l>Nor less in promenade titled from The Great</l>
+<l>(Friend!) I accosted each and every quean,</l>
+<l>But mostly madams showing mien serene,</l>
+<l>For thee I pestered all with many pleas&mdash;</l>
+<l><milestone n="10" unit="line"/>"Give me Came n us, wanton baggages!"       </l>
+<l>Till answered certain one a-baring breasts</l>
+<l>"Lo, 'twixt these rosy paps he haply rests!"</l>
+<l><milestone n="13" unit="line"/>But now to find thee were Herculean feat.</l>
+<l><milestone n="23" unit="line"/>Not if I feigned me that guard of <placeName key="tgn,7012056">Crete</placeName>,</l>
+<l>Not if with Pegas&egrave;an wing I sped,</l>
+<l><milestone n="25" unit="line"/>Or Ladas I or Perseus plumiped,</l>
+<l>Or Rhesus borne in swifty car snow-white:</l>
+<l>Add the twain foot-bewing'd and fast of flight,</l>
+<l>And of the cursive' winds require the blow:</l>
+<l>All these (Cam&eacute;rius!) couldst on me bestow.</l>
+<l><milestone n="30" unit="line"/>Tho' were I wearied to each marrow bone</l>
+<l>And by many o' languors clean forgone</l>
+<l><milestone n="32" unit="line"/>Yet I to seek thee (friend!) would still assay.</l>
+<l><milestone n="14" unit="line"/>In such proud lodging (friend) wouldst self denay?</l>
+<l>Tell us where haply dwell'st thou, speak outright,</l>
+<l>Be bold and risk it, trusting truth to light,</l>
+<l>Say do these milk-white girls thy Steps detain?</l>
+<l>If aye in tight-sealed lips thy tongue remain,</l>
+<l>All Amor's fruitage thou shalt cast away:</l>
+<l><milestone n="20" unit="line"/>Verbose is Venus, loving verbal play!</l>
+<l>But, an it please thee, padlockt palate bear,</l>
+<l>So in your friendship I have partner-share.</l></div1>
+<div1 type="poem" n="56">
+<head>TO CATO, DESCRIBING A "BLACK JOKER."</head><head></head>
+<l>O risible matter (<persName><surname>Cato</surname></persName>!) and jocose,</l>
+<l>Digne of thy hearing, of thy sneering digne.</l>
+<l>Laugh (Cato!) an thou love Catullus thine;</l>
+<l>The thing is risible, nay, too jocose.</l>
+<l><milestone n="5" unit="line"/>Erstwhile I came upon a lad who a lass</l>
+<l>Was . . .  and (so please it Dion!) I</l>
+<l>Pierced him with stiffest staff and did him die.</l></div1>
+<div1 type="poem" n="57">
+<head>ON MAMURRA AND JULIUS CAESAR</head>
+<l>Right well are paired these Cinaedes sans shame</l>
+<l>Mamurra and Caesar, both of pathic fame.</l>
+<l>No wonder!  Both are fouled with foulest blight,</l>
+<l>One urban being, Formian t'other wight,</l>
+<l><milestone n="5" unit="line"/>And deeply printed with indelible stain:</l>
+<l>Morbose is either, and the twin-like twain</l>
+<l>Share single Couchlet; peers in shallow lore,</l>
+<l>Nor this nor that for lechery hungers more,</l>
+<l>As rival wenchers who the maidens claim</l>
+<l><milestone n="10" unit="line"/>Right well are paired these Cinaedes sans shame. </l></div1>
+<div1 type="poem" n="58">
+<head>ON LESBIA WHO ENDED BADLY</head>
+<l>Caelius! That <persName><surname>Lesbia</surname></persName> of ours, that <persName><surname>Lesbia</surname></persName>,</l>
+<l>That only Lesbia by Catullus loved,</l>
+<l>Than self, far fondlier, than all his friends,</l>
+<l>She now Where four roads fork, and wind the wynds</l>
+<l><milestone n="5" unit="line"/>Husks the high-minded scions Remus-sprung.</l>
+<l><milestone n="23" unit="line"/>Not if I feigned me that guard of <placeName key="tgn,7012056">Crete</placeName>,</l>
+<l>Not if with Pegas&egrave;an wing I sped,</l>
+<l><milestone n="25" unit="line"/>Or Ladas I or Perseus plumiped,</l>
+<l>Or Rhesus borne in swifty car snow-white:</l>
+<l>Add the twain foot-bewing'd and fast of flight,</l>
+<l>And of the cursive' winds require the blow:</l>
+<l>All these (Cam&eacute;rius!) couldst on me bestow.</l>
+<l><milestone n="30" unit="line"/>Tho' were I wearied to each marrow bone</l>
+<l>And by many o' languors clean forgone</l>
+<l><milestone n="32" unit="line"/>Yet I to seek thee (friend!) would still assay.</l></div1>
+<div1 type="poem" n="59">
+<head>ON RUFA</head>
+<l>Rufa the Bolognese drains Rufule dry,</l>
+<l>(Wife to Menenius) she 'mid tombs you'll spy,</l>
+<l>The same a-snatching supper from the pyre</l>
+<l>Following the bread-loaves rolling forth the fire</l>
+<l><milestone n="5" unit="line"/>Till frapped by half-shaved body-burner's ire.</l>
+</div1>
+<div1 type="poem" n="60">
+<head>TO A CRUEL CHARMER</head>
+<l>Bare thee some lioness wild in Lybian wold?</l>
+<l>Or Scylla barking from low'st inguinal fold?</l>
+<l>With so black spirit, of so dure a mould,</l>
+<l>E'en voice of suppliant must thou disregard</l>
+<l>In latest circumstance ah, heart o'er hard?</l></div1>
+<div1 type="poem" n="61">
+<head>Epithalamium On Vinia And Manlius</head>
+<lg type="ABABC" n="1">
+<l>Of Helicon-hill, O Thou that be</l>
+<l>Haunter, <persName><surname>Urania</surname></persName>'s progeny,</l>
+<l>Who hurriest soft virginity</l>
+<l>To man, 0 Hymenaeus Hymen,</l>
+<l>0 Hymen Hymenaeus.</l></lg>
+<lg type="ABABC" n="2">
+<l>About thy temples bind the bloom,</l>
+<l>Of Marjoram flow'ret scented sweet;</l>
+<l>Take flamey veil: glad hither come</l>
+<l>Come hither borne by snow-hue'd feet</l>
+<l>Wearing the saffron'd sock.</l></lg>
+<lg type="ABABC" n="3">
+<l>And, roused by day of joyful cheer,</l>
+<l>Carolling nuptial lays and chaunts</l>
+<l>With voice as silver ringing clear,</l>
+<l>Beat ground with feet, while brandisht flaunts</l>
+<l>Thy hand the piney torch.</l></lg>
+
+<lg type="ABABC" n="4">
+<l>For Vinia comes by <persName><surname>Manlius</surname></persName> woo'd,</l>
+  <l>As <persName><surname>Venus</surname></persName> on th' Idalian crest,</l>
+<l>Before the Phrygian judge she stood</l>
+<l>And now with blessed omens blest,</l>
+<l>The maid is here to wed.</l></lg>
+
+<lg type="ABABC" n="5">
+<l>A maiden shining bright of blee,</l>
+<l>As Myrtle branchlet <placeName key="tgn,2097781">Asia</placeName> bred,</l>
+<l>Which Hamadryad deity</l>
+<l>As toy for joyance aye befed</l>
+<l>With humour of the dew.</l></lg>
+
+<lg type="ABABC" n="6">
+<l>Then hither come thou, hieing lief,</l>
+<l>Awhile to leave th' Aonian cave,</l>
+<l>Where 'neath the rocky Thespian cliff</l>
+<l>Nymph Aganippe loves to lave</l>
+<l>In cooly waves outpoured.</l></lg>
+
+<lg type="ABABC" n="7">
+<l>And call the house-bride, homewards bring</l>
+<l>Maid yearning for new married fere,</l>
+<l>Her mind with fondness manacling,</l>
+<l>As the tough ivy here and there</l>
+<l>Errant the tree enwinds.</l></lg>
+
+<lg type="ABABC" n="8">
+<l>And likewise ye, clean virginal</l>
+<l>Maidens, to whom shall haps befall</l>
+<l>Like day, in measure join ye all</l>
+<l>Singing, 0 Hymenaeus Hymen,</l>
+<l>0 Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="9">
+<l>That with more will-full will a-hearing</l>
+<l>The call to office due, he would</l>
+<l>Turn footsteps hither, here appearing,</l>
+  <l>Guide to good <persName><surname>Venus</surname></persName>, and the good</l>
+<l>Lover conjoining strait.</l></lg>
+
+<lg type="ABABC" n="10">
+<l>What God than other Godheads more</l>
+<l>Must love-sick wights for aid implore?</l>
+<l>Whose Godhead foremost shall adore</l>
+<l>Mankind? 0 Hymenaeus Hymen,</l>
+<l>O Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="11">
+<l>Thee for his own the trembling sire</l>
+<l>Invokes, thee Virgins ever sue</l>
+<l>Who laps of zone to loose aspire,</l>
+<l>And thee the bashful bridegrooms woo</l>
+<l>With ears that long to hear.</l></lg>
+
+<lg type="ABABC" n="12">
+<l>Thou to the hand of love-fierce swain</l>
+<l>Deliverest maiden fair and fain,</l>
+<l>From mother's fondling bosom ta'en</l>
+<l>Perforce, 0 Hymenaeus Hymen</l>
+<l>0 Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="13">
+  <l>Thou lacking, <persName><surname>Venus</surname></persName> ne'er avails&mdash;</l>
+<l>While Fame approves for honesty&mdash;</l>
+<l>Love-joys to lavish: ne'er she fails</l>
+<l>Thou willing:&mdash;with such Deity</l>
+<l>Whoe'er shall dare compare?</l></lg>
+
+<lg type="ABABC" n="14">
+<l>Thou wanting, never son and heir</l>
+<l>The Hearth can bear, nor parents be</l>
+<l>By issue girt, yet can it bear,</l>
+<l>Thou willing:&mdash;with such Deity,</l>
+<l>Whoe'er shall dare compare?</l></lg>
+
+<lg type="ABABC" n="15">
+<l>An lack a land thy sacring rite,</l>
+<l>The perfect rule we ne'er shall see</l>
+<l>Reach Earth's far bourne; yet such we sight,</l>
+<l>Thou willing:&mdash;with such Deity</l>
+<l>Whoe'er shall dare compare?</l></lg>
+
+<lg type="ABABC" n="16">
+<l>Your folds ye gateways wide-ope swing!</l>
+<l>The maiden comes.  Seest not the sheen</l>
+<l>Of links their splendent tresses fling?</l>
+<l>Let shame retard the modest mien.</l></lg>
+<l><gap extent="1 line"/></l>
+
+<lg type="ABABC" n="17">
+<l><gap extent="3 lines"/></l>
+<l>Who more she hears us weeps the more,</l>
+<l>That needs she must advance.</l></lg>
+
+<lg type="ABABC" n="18">
+<l>Cease raining tear-drops! not for thee,</l>
+<l>Aurunculeia, risk we deem,</l>
+<l>That fairer femininety</l>
+<l>Clear day outdawned from Ocean stream</l>
+<l>Shall ever more behold.</l></lg>
+
+<lg type="ABABC" n="19">
+<l>Such in the many-tinted bower</l>
+<l>Of rich man's garden passing gay</l>
+<l>Upstands the hyacinthine flower.</l>
+<l>But thou delayest, wanes the day:</l>
+<l>&ldquo;Prithee, come forth new Bride.&rdquo;</l></lg>
+
+<lg type="ABABC" n="20">
+<l>Prithee, come forth new Bride! methinks,</l>
+<l>Drawing in sight, the talk we hold</l>
+<l>Thou haply hearest.  See the Links!</l>
+<l>How shake their locks begilt with gold:</l>
+<l>Prithee, new Bride come forth.</l></lg>
+
+<lg type="ABABC" n="21">
+<l>Not lightly given thy mate to ill</l>
+<l>Joys and adulterous delights</l>
+<l>Foul fleshly pleasures seeking still</l>
+<l>Shall ever choose he lie o' nights</l>
+<l>Far from thy tender paps.</l></lg>
+
+<lg type="ABABC" n="22">
+<l>But as with pliant shoots the vine</l>
+<l>Round nearest tree-trunk winds her way,</l>
+<l>He shall be ever twined in thine</l>
+<l>Embraces:&mdash; yet, lo! wanes the day:</l>
+<l>Prithee, come forth new Bride!</l></lg>
+
+<lg type="ABABC" n="23">
+<l>Couchlet which to me and all</l>
+<l><gap extent="3 lines"/></l>
+<l>With bright white bedstead foot.</l></lg>
+
+<lg type="ABABC" n="24">
+<l>What joys the lord of thee betide!</l>
+<l>What love-liesse on vaguing way</l>
+<l>0' nights! What sweets in morning tide</l>
+<l>For thee be stored! Yet wanes the day:</l>
+<l>Prithee, come forth fresh Bride!</l></lg>
+<lg type="ABABC" n="25">
+<l>Your lighted links, 0 boys, wave high:</l>
+<l>I see the flamey veil draw nigh:</l>
+<l>Hie, sing in merry mode and cry</l>
+<l>"0 Hymen Hymenaeus io,</l>
+<l>0 Hymen Hymenaeus!"</l></lg>
+
+<lg type="ABABC" n="26">
+<l>Lest longer mute tongue stays that joys</l>
+<l>In festal jest, from Fescennine,</l>
+<l>Nor yet denay their nuts to boys,</l>
+<l>He-Concubine! who learns in fine</l>
+<l>His lordling's love is fled.</l></lg>
+
+<lg type="ABABC" n="27">
+<l>Throw nuts to boys thou idle all</l>
+<l>He-Concubine! wast fain full long</l>
+<l>With nuts to play: now pleased as thrall</l>
+<l>Be thou to swell Talasios' throng:</l>
+<l>He-Concubine throw nuts.</l></lg>
+
+<lg type="ABABC" n="28">
+<l>Wont thou at peasant-girls to jape</l>
+<l>He-whore! Thy Lord's delight the while:</l>
+<l>Now shall hair-curling chattel scrape</l>
+<l>Thy  cheeks: poor wretch, ah! poor and vile:&mdash;</l>
+<l>He-Concubine, throw nuts.</l></lg>
+ 
+<lg type="ABABC" n="29">
+<l>'Tis said from smooth-faced ingle train</l>
+<l>(Anointed bridegroom!) hardly fain</l>
+<l>Hast e'er refrained; now do refrain!</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>O Hymen Hymenaeus!</l></lg>
+
+<lg type="ABABC" n="30">
+<l>We know that naught save licit rites</l>
+<l>Be known to thee, but wedded wights</l>
+<l>No more deem lawful such delights.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>O Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="31">
+<l>Thou too, 0 Bride, whatever dare</l>
+<l>Thy groom, of coy rebuff beware,</l>
+<l>Lest he to find elsewhither fare.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>O Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="32">
+<l>Lo! here the house of high degree</l>
+<l>Thy husband's puissant home to be,</l>
+<l>Which ever shall obey thy gree.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>O Hymen Hymenaeus!</l></lg>
+
+<lg type="ABABC" n="33">
+<l>Till Time betide when eld the hoar</l>
+<l>Thy head and temples trembling o'er</l>
+<l>Make nod to all things evermore.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>0 Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="34">
+<l>O'erstep with omen meetest meet</l>
+<l>The threshold-stone thy golden feet</l>
+<l>Up, past the polisht panels fleet.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>O Hymen Hymerneus.</l></lg>
+
+<lg type="ABABC" n="35">
+<l>Within bestrewn thy bridegroom see</l>
+<l>On couch of Tyrian cramoisy</l>
+<l>All imminent awaiting thee.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>O Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="36">
+<l>For in his breast not less than thine</l>
+<l>Burn high the flames that deepest shrine,</l>
+<l>Yet his the lowe far deeper lien.</l>
+<l>O Hymen Hymemeus io,</l>
+<l>O Hymen Hymenaeus.</l></lg>
+<lg type="ABABC" n="37">
+<l>Let fall the maid's soft arms, thou fair</l>
+<l>Boy purple-hem'd: now be thy care</l>
+<l>Her bridegroom's couch she seek and share.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>0 Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="38">
+<l>Ye wives time-tried to husbands wed,</l>
+<l>Well-known for chastity inbred,</l>
+<l>Dispose the virginette a-bed.</l>
+<l>O Hymen Hymenaeus io,</l>
+<l>0 Hymen Hymenaeus.</l></lg>
+
+<lg type="ABABC" n="39">
+<l>Groom, now 'tis meet thou hither pace,</l>
+<l>With bride in genial bed to blend,</l>
+<l>For sheenly shines her flowery face</l>
+<l>Where the white chamomiles contend</l>
+<l>With poppies blushing red.</l></lg>
+
+<lg type="ABABC" n="40">
+<l>Yet bridegroom (So may Godhead deign</l>
+<l>Help me!) nowise in humbler way</l>
+  <l>Art fair, nor <persName><surname>Venus</surname></persName> shall disdain</l>
+<l>Thy charms, but look! how wanes the day:</l>
+<l>Forward, nor loiter more!</l></lg>
+
+<lg type="ABABC" n="41">
+<l>No longer loitering makest thou,</l>
+  <l>Now comest thou.  May <persName><surname>Venus</surname></persName> good</l>
+<l>Aid thee when frankly takest thou</l>
+<l>Thy wishes won, nor true Love woo'd</l>
+<l>Thou carest to conceal.</l></lg>
+
+<lg type="ABABC" n="42">
+<l>Of Afric's wolds and wilds each grain,</l>
+<l>Or constellations glistening,</l>
+<l>First reckon he that of the twain</l>
+<l>To count alone were fain to bring</l>
+<l>The many thousand joys.</l></lg>
+
+<lg type="ABABC" n="43">
+<l>Play as ye please: soon prove ye deft</l>
+<l>At babying babes,&mdash;'twere ill design'd</l>
+<l>A name thus ancient should be left</l>
+<l>Heirless, but issue like of kind</l>
+<l>Engendered aye should be.</l></lg>
+
+<lg type="ABABC" n="44">
+<l>A wee Torquaitus fain I'd see</l>
+<l>Encradled on his mother's breast</l>
+<l>Put forth his tender puds while he</l>
+<l>Smiles to his sire with sweetest gest</l>
+<l>And liplets half apart.</l></lg>
+
+<lg type="ABABC" n="45">
+<l>Let son like father's semblance show</l>
+  <l>(<persName><surname>Manlius</surname></persName>!) so with easy guess</l>
+<l>All know him where his sire they know,</l>
+<l>And still his face and form express</l>
+<l>His mother's honest love.</l></lg>
+
+<lg type="ABABC" n="46">
+<l>Approve shall fair approof his birth</l>
+<l>From mother's seed-stock generous,</l>
+<l>As rarest fame of mother's worth</l>
+<l>Unique exalts Telemachus</l>
+<l>Penelope's own son.</l></lg>
+
+<lg type="ABABC" n="47">
+<l>Fast close the door-leaves, virgin band:</l>
+<l>Enow we've played.  But ye the fair</l>
+<l>New-wedded twain live happy, and</l>
+<l>Functions of lusty married pair</l>
+<l>Exercise sans surcease.</l></lg>
+</div1>
+<div1 type="poem" n="62">
+<head>Nuptial Song By Youths And Damsels</head>
+<head>Epithalamium</head>
+
+<p></p><sp><speaker>Youths</speaker>
+  <l><persName><surname>Vesper</surname></persName> is here, O youths, rise all; for Vesper Olympus</l>
+<l>Scales and in fine enfires what lights so long were expected!</l>
+<l>Time 'tis now to arise, now leave we tables rich laden,</l>
+<l>Now shall the Virgin come; now chaunt we the Hymenaeus.</l>
+<l>Hymen O Hymenaeus: Hymen here, O Hymenaeus!</l>
+
+<p></p></sp><sp><speaker>Damsels</speaker>
+<l>View ye the Youths, O Maids unwed? Then rise to withstand them:</l>
+<l>Doubtless the night-fraught Star displays his splendour Oetean.</l>
+<l>Sooth 'tis so; d'ye sight how Speedily sprang they to warfare?</l>
+<l>Nor for a naught up-sprang: they'll Sing what need we to conquer.</l>
+<l>Hymen O Hymenaeus: Hymen here, O Hymenaeus!</l>
+
+<p></p></sp><sp><speaker>Youths</speaker>
+<l>Nowise easy the palm for us (Companions!) be proffer'd,</l>
+<l>Lo! now the maidens muse and meditate matter of forethought</l>
+<l>Nor meditate they in vain; they muse a humorous something.</l>
+<l>Yet naught wonder it is, their sprites be wholly in labour.</l>
+<l>We bear divided thought one way and hearing in other:</l>
+<l>Vanquish't by right we must be, since Victory loveth the heedful.</l>
+<l>Therefore at least d'ye turn your minds the task to consider,</l>
+<l>Soon shall begin their say whose countersay shall befit you.</l>
+<l>Hymen O Hymenaeus: Hymen here, O Hymenaeus!</l>
+
+<p></p></sp><sp><speaker>Damsels</speaker>
+  <l><persName><surname>Hesperus</surname></persName>! say what flame more cruel in Heaven be fanned?</l>
+<l>Thou who the girl perforce canst tear from a mother's embraces,</l>
+<l>Tear from a parent's clasp her child despite of her clinging</l>
+<l>And upon love-hot youth bestowest her chastest of maidenhoods!</l>
+<l>What shall the foeman deal more cruel to city becaptured?</l>
+<l>Hymen O Hymenaeus, Hymen here, O Hymenaeus!</l>
+
+<p></p></sp><sp><speaker>Youths</speaker>
+  <l><persName><surname>Hesperus</surname></persName>! say what flame more gladsome in Heavens be shining?</l>
+<l>Thou whose light makes sure long-pledged connubial promise</l>
+<l>Plighted erewhile by men and erstwhile plighted by parents.</l>
+<l>Yet to be ne'er fulfilled before thy fire's ardours have risen!</l>
+<l>What better boon can the gods bestow than hour so desir&egrave;d?</l>
+<l>Hymen O Hymenaeus, Hymen here, O Hymenaeus!</l>
+
+<p></p></sp><sp><speaker>Damsels</speaker>
+  <l><persName><surname>Hesperus</surname></persName>! one of ourselves (Companions!) carried elsewhither</l>
+<l><gap extent="4 lines"/>&gt;</l>
+<l>Hymen O Hymenaeus, Hymen here, O Hymenaeus!</l>
+<p></p></sp><sp><speaker>Youths</speaker>
+<l><gap extent="1 line"/></l>
+<l>For at thy coming in sight a guard is constantly watching.</l>
+<l>Hidden o'nights lurk thieves and these as oft as returnest,</l>
+  <l><persName><surname>Hesper</surname></persName>! thou seizest them with title changed to Eous.</l>
+<l>Pleases the bevy unwed with feigned complaints to accuse thee.</l>
+<l>What if assail they whom their souls in secrecy cherish?</l>
+<l>Hymen O Hymenaeus, Hymen here, O Hymenaeus!</l>
+<p></p></sp><sp><speaker>Damsels</speaker>
+<l>E'en as a flow'ret born secluded in garden enclosed,</l>
+<l>Unto the flock unknown and ne'er uptorn by the ploughshare,</l>
+<l>Soothed by the zephyrs and strengthened by suns and nourish't by showers</l>
+<l><gap extent="1 line"/></l>
+<l>Loves her many a youth and longs for her many a maiden:</l>
+<l>Yet from her lissome stalk when cropt that flower deflowered,</l>
+<l>Loves her never a youth nor longs for her ever a maiden:</l>
+<l>Thus while the virgin be whole, such while she's the dearling of kinsfolk;</l>
+<l>Yet no sooner is lost her bloom from body polluted,</l>
+<l>Neither to youths she is joy, nor a dearling she to the maidens.</l>
+<l>Hymen O Hymenaeus, Hymen here, O Hymenaeus!</l>
+
+<p></p></sp><sp><speaker>Youths</speaker>
+<l>E'en as an unmated vine which born in field of the barest</l>
+<l>Never upraises head nor breeds the mellowy grape-bunch,</l>
+<l>But under weight prone-bowed that tender body a-bending</l>
+<l>Makes she her root anon to touch her topmost of tendrils;</l>
+<l>Tends her never a hind nor tends her ever a herdsman:</l>
+<l>Yet if haply conjoined the same with elm as a husband,</l>
+<l>Tends her many a hind and tends her many a herdsman:</l>
+<l>Thus is the maid when whole, uncultured waxes she aged;</l>
+<l>But whenas union meet she wins her at ripest of seasons,</l>
+<l>More to her spouse she is dear and less she's irk to her parents.</l>
+<l>Hymen O Hymenaeus, Hymen here, O Hymenaeus!</l>
+
+<p></p></sp><sp><speaker>Youths and Damsels</speaker>
+<l>But do thou cease to resist (O Maid!) such bridegroom opposing,</l>
+<l>Right it is not to resist whereto consigned thee a father,</l>
+<l>Father and mother of thee unto whom obedience is owing.</l>
+<l>Not is that maidenhood all thine own, but partly thy parents!</l>
+<l>Owneth thy sire one third, one third is right of thy mother,</l>
+<l>Only the third is thine: stint thee to strive with the others,</l>
+<l>Who to the stranger son have yielded their dues with a dower!</l>
+<l>Hymen O Hymenaeus: Hymen here, O Hymenaeus!</l></sp>
+</div1>
+<div1 type="poem" n="63">
+<head>THE ADVENTURES OF ATYS</head>
+<l>O'er high deep seas in speedy ship his voyage Atys sped</l>
+<l>Until he trod the Phrygian grove with hurried eager tread</l>
+<l>And as the gloomy tree-shorn stead, the she-god's home, he sought</l>
+<l>There sorely stung with fiery ire and madman's vaguing thought,</l>
+<l>Share he with sharpened flint the freight wherewith his form was fraught.</l>
+<l>Then as the she-he sensed limbs were void of manly strain</l>
+<l>And sighted freshly shed a-ground spot of ensanguined stain,</l>
+<l>Snatched she the timbrel's legier load with hands as snowdrops white,</l>
+<l>Thy timbrel, Mother Cybele, the firstings of thy rite,</l>
+<l>And as her tender finger-tips on bull-back hollow rang</l>
+<l>She rose a-grieving and her song to listening comrades sang.</l>
+<l>"Up Gallae, hie together, haste for Cybele's deep grove,</l>
+<l>Hie to the Dindymnean dame, ye flocks that love to rove;</l>
+<l>The which affecting stranger steads as bound in exile's brunt</l>
+<l>My sect pursuing led by me have nerved you to confront</l>
+<l>The raging surge of salty sea and ocean's tyrant hand</l>
+  <l>As your hate of <persName><surname>Venus</surname></persName>' hest your manly forms unmann'd,</l>
+<l>Gladden your souls, ye mistresses, with sense of error bann'd.</l>
+<l>Drive from your spirits dull delay, together follow ye</l>
+<l>To hold of Phrygian goddess, home of Phrygian Cybebe,</l>
+<l>Where  loud the cymbal's voice resounds with timbrel-echoes blending,</l>
+<l>And where the Phrygian piper drones grave bass from reed a-bending,</l>
+<l>Where toss their ivy-circled heads with might the Maenades</l>
+<l>Where ply mid shrilly lullilooes the holiest mysteries,</l>
+<l>Where to fly here and there be wont the she-god's vaguing train,</l>
+<l>Thither behoves us lead the dance in quick-step hasty strain."</l>
+<l>Soon as had Atys (bastard-she) this lay to comrades sung</l>
+<l>The Chorus sudden lulliloos with quivering, quavering tongue,</l>
+<l>Again the nimble timbrel groans, the scooped-out cymbals clash,</l>
+<l>And up green Ida flits the Choir, with footsteps hurrying rash</l>
+<l>Then Atys frantic, panting, raves, a-wandering, lost, insane,</l>
+<l>And leads with timbrel hent and treads the shades where shadows rain,</l>
+<l>Like heifer spurning load of yoke in yet unbroken pride;</l>
+<l>And the swift Gallae follow fain their first and fleet-foot guide.</l>
+<l>But when the home of Cybele they make with toil out-worn</l>
+  <l>O'er much, they lay them down to sleep and gifts of <persName><surname>Ceres</surname></persName> scorn;</l>
+<l>Till heavy slumbers seal their eyelids langourous, drooping lowly,</l>
+<l>And raving frenzy flies each brain departing softly, slowly.</l>
+<l>But when Dan Sol with radiant eyes that fire his face of gold</l>
+<l>Surveyed white aether and solid soil and waters uncontrol'd,</l>
+<l>And chased with steeds sonorous-hooved the shades of lingering night,</l>
+<l>Then sleep from waking Atys fled fleeting with sudden flight,</l>
+<l>By Nymph Pasithae welcomed to palpitating breast.</l>
+<l>Thus when his frenzy raging rash was soothed to gentlest rest,</l>
+<l>Atys revolved deeds lately done, as thought from breast unfolding,</l>
+<l>And what he'd lost and what he was with lucid sprite beholding,</l>
+<l>To shallows led by surging soul again the way 'gan take.</l>
+<l>There casting glance of weeping eyes where vasty billows brake,</l>
+<l>Sad-voiced in pitifullest lay his native land bespake.</l>
+<l>"Country of me, Creatress mine, born to thee and bred,</l>
+<l>By hapless me abandoned as by thrall from lordling fled,</l>
+<l>When me to Ida's groves and glades these vaguing footsteps bore</l>
+<l>To tarry 'mid the snows and where lurk beasts in antres frore</l>
+<l>And seek the deeply hidden lairs where furious ferals meet!</l>
+<l>Where, Country! whither placed must I now hold thy site and seat?</l>
+<l>Lief would these balls of eyes direct to thee their line of sight,</l>
+<l>Which for a while, a little while, would free me from despite.</l>
+<l>Must I for ever roam these groves from house and home afar?</l>
+<l>Of country, parents, kith and kin (life's boon) myself debar?</l>
+<l>Fly Forum, fly  Palestra, fly the Stadium, the Gymnase?</l>
+<l>Wretch, ah poor wretch, I'm doomed (my soul!) to mourn throughout my days,</l>
+<l>For what of form or figure is, which I failed to enjoy?</l>
+<l>I full-grown man, I blooming youth, I stripling, I a boy,</l>
+<l>I of Gymnasium erst the bloom, I too of oil the pride:</l>
+<l>Warm was my threshold, ever stood my gateways opening wide,</l>
+<l>My house was ever garlanded and hung with flowery freight,</l>
+<l>And couch to quit with rising sun, has ever been my fate:</l>
+<l>Now must I Cybele's she-slave, priestess of gods, be hight?</l>
+<l>I Maenad I, mere bit of self, I neutral barren wight?</l>
+<l>I spend my life-tide couch't beneath high-towering Phrygian peaks?</l>
+<l>I dwell on Ida's verdant slopes mottled with snowy streaks,</l>
+<l>Where homes the forest-haunting doe, where roams the wildling boar?</l>
+<l>Now, now I rue my deed foredone, now, now it irks me sore!"</l>
+<l>Whenas from out those roseate lips these accents rapid flew,</l>
+<l>Bore them to ears divine consigned a Nuncio true and new;</l>
+<l>Then Cybele her lions twain disjoining from their yoke</l>
+<l>The left-hand enemy of the herds a-goading thus bespoke:</l>
+<l>"Up feral fell! up, hie with him, see rage his foot-steps urge,</l>
+<l>See that his fury smite him till he seek the forest verge,</l>
+<l>He who with over-freedom fain would fly mine empery.</l>
+<l>Go, slash thy flank with lashing tail and sense the strokes of thee,</l>
+<l>Make the whole mountain to thy roar sound and resound again,</l>
+<l>And fiercely toss thy brawny neck that bears the tawny mane!"</l>
+<l>So quoth an angered Cybele, and yoke with hand untied:</l>
+<l>The feral rose in fiery wrath and self-inciting hied,</l>
+<l>A-charging, roaring through the brake with breaking paws he tore.</l>
+<l>But when he reached the humid sands where surges cream the shore,</l>
+<l>Spying soft Atys lingering near the marbled pave of sea</l>
+<l>He springs: the terror-madded wretch back to the wood doth flee,</l>
+<l>Where for the remnant of her days a bondmaid's life led she.</l>
+<l>Great Goddess, Goddess Cybele, Dindymus dame divine,</l>
+<l>Far from my house and home thy wrath and wrack, dread mistress mine:</l>
+<l>Goad others on with Fury's goad, others to Ire consign!</l>
+</div1>
+<div1 type="poem" n="64">
+<head>Marriage of Peleus and Thetis</head>
+<l>Pine-trees gendered whilome upon soaring Peliac summit</l>
+  <l>Swam (as the tale is told) through liquid surges of <persName><surname>Neptune</surname></persName></l>
+<l>Far as the Phasis-flood and frontier-land Aeetean;</l>
+<l>Whenas the youths elect, of <placeName key="tgn,5001993">Argive</placeName> vigour the oak-heart,</l>
+<l>Longing the Golden Fleece of the Colchis-region to harry,</l>
+<l>Dared in a poop swift-paced to span salt seas and their shallows,</l>
+<l>Sweeping the deep blue seas with sweeps a-carven of fir-wood.</l>
+<l>She, that governing Goddess of citadels crowning the cities,</l>
+<l>Builded herself their car fast-flitting with lightest of breezes,</l>
+<l>Weaving plants of the pine conjoined in curve of the kelson;</l>
+<l>Foremost of all to imbue rude Amphitrite with ship-lore.</l>
+<l>Soon as her beak had burst through wind-rackt spaces of ocean,</l>
+<l>While the oar-tortured wave with spumy whiteness was blanching,</l>
+<l>Surged from the deep abyss and hoar-capped billows the faces</l>
+<l>Seaborn, Nereids eyeing the  prodigy wonder-smitten.</l>
+<l>There too mortal orbs through softened spendours regarded</l>
+<l>Ocean-nymphs who exposed bodies denuded of raiment</l>
+<l>Bare to the breast upthrust from hoar froth capping the sea-depths.</l>
+<l>Then Thetis Peleus fired (men say) a-sudden with love,</l>
+<l>Then Thetis nowise spurned to mate and marry with mortal,</l>
+<l>Then Thetis' Sire himself her yoke with Peleus sanctioned.</l>
+<l>Oh, in those happier days now fondly yearned-for, you heroes</l>
+<l>Born; (all hail!) of the gods begotten, and excellent issue</l>
+<l>Bred by your mothers, all hail! and placid deal me your favour.</l>
+<l>Oft with the sound of me, in strains and spells I'll invoke you;</l>
+<l>You too by wedding-torch so happily, highly augmented,</l>
+  <l>Peleus, <placeName key="tgn,7001399">Thessaly</placeName>'s ward, in whose favor <persName><surname>Jupiter</surname></persName> himself,</l>
+<l>The Father of the gods, resigned his passions.</l>
+<l>You Thetis, fairest of maids Nereian, vouchsafed to marry?</l>
+<l>You did Tethys empower to woo and wed with her grandchild;</l>
+<l>Nor less Oceanus, with water compassing th' Earth-globe?</l>
+<l>But when ended the term, and wisht-for light of the day-tide</l>
+<l>Uprose, flocks to the house in concourse mighty, convened,</l>
+<l><placeName key="tgn,7001399">Thessaly</placeName> all, with glad assembly the Palace fulfilling:</l>
+<l>Presents afore they bring, and joy in faces declare they.</l>
+<l>Cieros abides a desert: they quit Phthiotican Tempe,</l>
+<l>Homesteads of Crannon-town, eke bulwarkt walls Larissa;</l>
+<l>Meeting at <placeName key="tgn,7010797">Pharsalus</placeName>, and roof Pharsalian seeking.</l>
+<l>None will the fields now till; soft wax all necks the oxen,</l>
+<l>Never the humble vine is purged by curve of the rake-tooth,</l>
+<l>Never a pruner's hook thins out the shade of the tree-tufts,</l>
+<l>Never a bull up-plows broad glebe with bend of the coulter,</l>
+<l>Over whose point unuse displays the squalor of rust-stain.</l>
+<l>But in the homestead's heart, where'er that opulent palace</l>
+<l>Hides a retreat, all shines with splendour of gold and of silver.</l>
+<l>Ivory blanches the seats, bright gleam the flagons a-table,</l>
+<l>All of the mansion joys in royal riches and grandeur.</l>
+<l>But for the Diva's use bestrewn is the genial bedstead,</l>
+<l>Hidden in midmost stead, and its polisht framework of Indian</l>
+<l>Tusk underlies its cloth empurpled by juice of the dye-shell.</l>
+<l>This be a figured cloth with forms of manhood primeval</l>
+<l>Showing by marvel-art the gifts and graces of heroes.</l>
+<l>Here upon Dia's strand wave-resonant, ever-regarding</l>
+<l>Theseus borne from sight outside by fleet of the fleetest,</l>
+<l>Stands Ariadne with heart full-filled with furies unbated,</l>
+<l>Nor can her sense as yet believe she 'spies the espied,</l>
+<l>When like one that awakes new roused from slumber deceptive,</l>
+<l>Sees she her hapless self lone left on loneliest sandbank:</l>
+<l>While as the mindless youth with oars disturbeth the shallows,</l>
+<l>Casts to the windy storms what vows he vainly had vowed.</l>
+<l>Him through the sedges afar the sad-eyed maiden of Minos,</l>
+<l>Likest a Bacchant-girl stone-carven, (O her sorrow!)</l>
+<l>'Spies, a-tossing the while on sorest billows of love-care.</l>
+<l>Now no more on her blood-hued hair fine fillets retains she,</l>
+<l>No more now light veil conceals her bosom erst hidden,</l>
+<l>Now no more smooth zone contains her milky-hued paplets:</l>
+<l>All gear dropping adown from every part of her person</l>
+<l>Thrown, lie fronting her feet to the briny wavelets a sea-toy.</l>
+<l>But at such now no more of her veil or her fillet a-floating</l>
+<l>Had she regard: on you, Theseus! all of her heart-strength,</l>
+<l>All of her sprite, her mind, forlorn, were evermore hanging.</l>
+<l>Ah, sad soul, by grief and grievance driven beside you,</l>
+<l>Sowed Erycina first those brambly cares in thy bosom,</l>
+<l>What while issuing fierce with will enstarkened, Theseus</l>
+<l>Forth from the  bow-bent shore Piraean putting a-seawards</l>
+<l>Reacht the Gortynian roofs where dwelt the injurious Monarch.</l>
+<l>For 'twas told of yore how forced by pestilence cruel,</l>
+<l>Eke as a blood rite due for the Androgeonian murder,</l>
+<l>Many a chosen youth and the bloom of damsels unmarried</l>
+<l>Food for the Minotaur, Cecropia was wont to befurnish.</l>
+<l>Seeing his narrow walls in such wise vexed with evils,</l>
+<l>Theseus of freest will for dear-loved <placeName key="perseus,Athens">Athens</placeName> his body</l>
+<l>Offered a victim so that no more to <placeName key="tgn,7012056">Crete</placeName> be deported</l>
+<l>Lives by Cecropia doomed to burials burying nowise;</l>
+<l>Then with a swifty ship and soft breathed breezes a-stirring,</l>
+<l>Sought he Minos the Haughty where homed in proudest of Mansions.</l>
+<l>Him as with yearning glance forthright espied the royal</l>
+<l>Maiden, whom pure chaste couch aspiring delicate odours</l>
+<l>Cherisht, in soft embrace of a mother comforted all-whiles,</l>
+<l>(E'en as the myrtles begot by the flowing floods of Eurotas,</l>
+<l>Or as the tincts distinct brought forth by breath of the springtide)</l>
+<l>Never the burning lights of her eyes from gazing upon him</l>
+<l>Turned she, before fierce flame in all her body conceived she</l>
+<l>Down in its deepest depths and burning within her marrow.</l>
+<l>Ah, with unmitigate heart exciting wretchedmost furies,</l>
+<l>You, Boy sacrosanct! man's grief and gladness commingling,</l>
+<l>You too of Golgos Queen and Lady of leafy <placeName key="tgn,7002336">Idalium</placeName>,</l>
+<l>Whelm'd you in what manner waves that maiden fantasy-fired,</l>
+<l>All for a blond-haired youth suspiring many a singulf!</l>
+<l>Whiles how dire was the dread she dreed in languishing heart-strings;</l>
+<l><milestone n="100" unit="line"/>How yet more, ever more, with golden splendour she paled!</l>
+<l>Whenas yearning to mate his might with the furious monster</l>
+<l>Theseus braved his death or sought the prizes of praises.</l>
+<l>Then of her gifts to gods not ingrate, nor profiting naught,</l>
+<l>Promise with silent lip, addressed she timidly vowing.</l>
+<l>For as an oak that shakes on topmost summit of Taurus</l>
+<l>Its boughs, or cone-growing pine from bole bark resin exuding,</l>
+<l>Whirlwind of passing might that twists the stems with its storm-blasts,</l>
+<l>Uproots, deracinates, forthright its trunk to the farthest,</l>
+<l>Prone falls, shattering wide what lies in line of its downfall,&mdash;</l>
+<l>Thus was that wildling flung by Theseus and vanquisht of body,</l>
+<l>Vainly tossing its horns and goring the wind to no purpose.</l>
+<l>Thence with abounding praise returned he, guiding his footsteps,</l>
+<l>While a fine drawn thread checked steps in wander abounding,</l>
+<l>Lest when issuing forth of the winding maze labyrinthine</l>
+<l>Baffled become his track by inobservable error.</l>
+<l>But for what cause should I, from early subject digressing,</l>
+<l>Tell of the daughter who the face of her sire unseeing,</l>
+<l>Eke her sister's embrace nor less her mother's endearments,</l>
+<l>Who in despair bewept her hapless child that so gladly</l>
+<l>Chose before every and each the lively wooing of Theseus?</l>
+<l>Or how borne by the ship to the yeasting shore-line of Dia</l>
+<l>Came she? or how when bound her eyes in bondage of slumber</l>
+<l>Left her that chosen mate with mind unmindful departing?</l>
+<l>Often (they tell) with heart inflamed by fiery fury</l>
+<l>Poured she shrilling of shrieks from deepest depths of her bosom;</l>
+<l>Now she would sadly scale the broken faces of mountains,</l>
+<l>Whence she might overglance the boundless boiling of billows,</l>
+<l>Then she would  rush to bestem the salt-plain's quivering wavelet</l>
+<l>And from her ankles bare the dainty garment uplifting,</l>
+<l>Spoke she these words ('tis said) from sorrow's deepest abysses,</l>
+<l>While from her tear-drencht face outburst cold shivering sobs.</l>
+<l>"Thus from my patrial shore, O traitor, hurried to exile,</l>
+<l>Me on a lonely strand hast left, perfidious Theseus?</l>
+<l>Thus wise farest, despite the godhead of Deities spurned,</l>
+<l>(Reckless, alas!) to your home convoying perjury-curses?</l>
+<l>Naught, then, ever availed that mind of cruelest counsel</l>
+<l>Alter? No saving grace in you was evermore ready,</l>
+<l>That to have pity on me vouchsafed your pitiless bosom?</l>
+<l>Nevertheless not in past time such were the promises wordy</l>
+<l>Lavished; nor such hopes to me the hapless were bidden;</l>
+<l>But the glad married joys, the longed-for pleasures of wedlock.</l>
+<l>All now empty and vain, by breath of the breezes bescattered!</l>
+<l>Now, let woman no more trust her to man when he sweareth,</l>
+<l>Ne'er let her hope to find or truth or faith in his pleadings,</l>
+<l>Who when lustful thought forelooks to somewhat attaining,</l>
+<l>Never an oath they fear, shall spare no promise to promise.</l>
+<l>Yet no sooner they sate all lewdness and lecherous fancy,</l>
+<l>Nothing remember of words and reck they naught of fore-swearing.</l>
+<l>Certes, you did I snatch from midmost whirlpool of ruin</l>
+<l>Deadly, and held it cheap loss of a brother to suffer</l>
+<l>Rather than fail your need (O false!) at hour the supremest.</l>
+<l>Therefore my limbs are doomed to be torn of birds, and of ferals</l>
+<l>Prey, nor shall upheapt Earth afford a grave to my body.</l>
+<l>Say me, what lioness bare you 'neath lone rock of the desert?</l>
+<l>What sea spued you conceived from out the spume of his surges!</l>
+<l>What manner Syrt, what ravening Scylla, what vasty Charybdis?</l>
+<l>you who for sweet life saved such meeds are lief of returning!</l>
+<l>If never willed your breast with me to mate you in marriage,</l>
+<l>Hating the savage law decreed by primitive parent,</l>
+<l>Still of your competence 'twas within your household to home me,</l>
+<l>Where I might serve as slave in gladsome service familiar,</l>
+<l>Laving your snow-white feet in clearest chrystalline waters</l>
+<l>Or with its purpling gear your couch in company strewing.</l>
+<l>Yet for what cause should I complain in vain to the winds that unknow me,</l>
+<l>(I so beside me with grief!) which ne'er of senses endued</l>
+<l>Hear not the words sent forth nor aught avail they to answer?</l>
+<l>Now be his course well-nigh engaged in midway of ocean,</l>
+<l>Nor any mortal shape appears in barrens of sea-wrack.</l>
+<l>Thus at the latest hour with insults over-sufficient</l>
+<l>E'en to my plaints fere Fate begrudges ears that would hear me.</l>
+  <l><persName><surname>Jupiter</surname></persName>! Lord of All-might, Oh would in days that are bygone</l>
+<l>Ne'er had Cecropian poops toucht ground at Gnossian foreshore,</l>
+<l>Nor to the unconquered Bull that tribute direful conveying</l>
+<l>Had the false Seaman bound to Cretan island his hawser,</l>
+<l>Nor had yon evil wight, 'neath shape the softest hard purpose</l>
+<l>Hiding, enjoyed repose within our mansion beguested!</l>
+<l>Whither can wend I now? What hope lends help to the lost one?</l>
+<l>Idomenean mounts shall I scale? Ah, parted by whirlpools</l>
+<l>Widest, yon truculent main where yields it power of passage?</l>
+<l>Aid of my sire can I crave? Whom I willing abandoned,</l>
+<l>Treading in tracks of a youth bewrayed with blood of a brother!</l>
+<l>Can I console my soul with the helpful love of a helpmate</l>
+<l>Who flies me with pliant oars, flies overbounding the sea-depths?</l>
+<l>Nay, if this Coast I quit, this lone isle lends me no roof-tree,</l>
+<l>Nor aught issue allows begirt by billows of Ocean:</l>
+<l>Nowhere is path for flight: none hope shows: all things are silent:</l>
+<l>All be a desolate waste: all makes display of destruction.</l>
+<l>Yet never close these eyes in latest languor of dying,</l>
+<l>Ne'er from my wearied frame go forth slow-ebbing my senses,</l>
+<l>Ere from the Gods just doom implore I, treason-betrayed,</l>
+<l>And with my breath supreme firm faith of Celestials invoke I.</l>
+<l>Therefore, O you who 'venge man's deed with penalties direful,</l>
+<l>Eumenides! aye wont to bind with viperous hairlocks</l>
+<l>Foreheads,&mdash;Oh, deign outspeak fierce wrath from bosom outbreathing,</l>
+<l>Hither, Oh hither, speed, and lend you all ear to my grievance,</l>
+<l>Which now sad I (alas!) outpour from innermost vitals</l>
+<l>Maugre my will, sans help, blind, fired with furious madness.</l>
+<l>And, as indeed all spring from veriest core of my bosom,</l>
+<l>Suffer you not the cause of grief and woe to evanish;</l>
+<l>But with the Will wherewith could Theseus leave me in loneness,</l>
+<l>Goddesses! bid that Will lead him, lead his, to destruction."</l>
+<p></p><l><milestone n="202" unit="line"/>E'en as she thus poured forth these words from anguish of bosom,</l>
+<l>And for this cruel deed, distracted, sued she for vengeance,</l>
+<l>Nodded the Ruler of Gods Celestial, matchless of All-might,</l>
+<l>When at the gest earth-plain and horrid spaces of ocean</l>
+<l>Trembled, and every sphere rockt stars and planets resplendent.</l>
+<l>Meanwhile Theseus himself, obscured in blindness of darkness</l>
+<l>As to his mind, dismiss'd from breast oblivious all things</l>
+<l>Erewhile enjoined and held hereto in memory constant,</l>
+<l>Nor for his saddened sire the gladness-signals uphoisting</l>
+<l>Heralded safe return within sight of the Erechthean harbour.</l>
+<l>For 'twas told of yore, when from walls of the Virginal Deess</l>
+<l>Aegeus speeding his son, to the care of breezes committed,</l>
+<l>Thus with a last embrace to the youth spoke words of commandment:</l>
+<p></p><l>"Son! far nearer my heart (you alone) than life of the longest,</l>
+<l>Son, I perforce dismiss to doubtful, dangerous chances,</l>
+<l>Lately restored to me when eld draws nearest his ending,</l>
+<l>Since such fortune in me, and in you such boiling of valour</l>
+<l>Tear you away from me so loath, whose eyes in their languor</l>
+<l>Never are sated with sight of my son, all-dearest of figures.</l>
+<l>Nor will I send you forth with joy that gladdens my bosom,</l>
+<l>Nor will I suffer you show boon signs of favouring Fortune,</l>
+<l>But from my soul I'll first express an issue of sorrow,</l>
+<l>Soiling my hoary hairs with dust and ashes commingled;</l>
+<l>Then will I hang stained sails fast-made to the wavering yard-arms,</l>
+<l>So shall our mourning thought and burning torture of spirit</l>
+<l>Show by the dark sombre-dye of Iberian canvas spread.</l>
+<l>But, grant me the grace Who dwells in Sacred Itone,</l>
+<l>(And our issue to guard and ward the seats of Erechtheus</l>
+<l>Sware She) that if your right is besprent with blood of the Man-Bull,</l>
+<l>Then do you so-wise act, and stored in memory's heart-core</l>
+<l>Dwell these mandates of me, no time their traces untracing.</l>
+<l>Dip, when first shall arise our hills to gladden your eye-glance,</l>
+<l>Down from your every mast the ill-omened vestments of mourning,</l>
+<l>Then let the twisten ropes upheave the whitest of canvas,</l>
+<l>Wherewith splendid shall gleam the tallest spars of the top-mast,</l>
+<l>These seeing sans delay with joy exalting my spirit</l>
+<l>Well shall I wot boon Time sets you returning before me."</l>
+<p></p><l>Such were the mandates which stored at first in memory constant</l>
+<l>Faded from Theseus' mind like mists, compelled by the whirlwind,</l>
+<l>Fleet from aerial crests of mountains hoary with snow-drifts.</l>
+<l>But as the sire had sought the citadel's summit for outlook,</l>
+<l>Wasting his anxious eyes with tear-floods evermore flowing,</l>
+<l>Forthright e'en as he saw the sail-gear darkened with dye-stain,</l>
+<l>Headlong himself flung he from the sea-cliff's pinnacled summit</l>
+<l>Holding his Theseus lost by doom of pitiless Fortune.</l>
+<l>Thus as he came to the home funest, his roof-tree paternal,</l>
+<l>Theseus (vaunting the death), what dule to the maiden of Minos</l>
+<l>Dealt with unminding mind so dree'd he similar dolour.</l>
+<l>She too gazing in grief at the kelson vanishing slowly,</l>
+<l>Self-wrapt, manifold cares revolved in spirit perturbed.</l>
+<div2 type="part"><head>ON ANOTHER PART OF THE COVERLET</head>
+<l>But from the further side came flitting bright-faced Iacchus</l>
+<l>Girded by Satyr-crew and Nysa-reared Sileni</l>
+<l>Burning with love unto thee (Ariadne!) and greeting thy presence.</l>
+<l><gap/></l>
+<l>Who flocking eager to fray did rave with infuriate spirit,</l>
+<l>"Evoe" frenzying loud, with heads at "Evoe&rdquo; rolling.</l>
+<l>Brandisht some of the maids their thyrsi sheathed of spear-point,</l>
+<l>Some snatcht limbs and joints of sturlings rended to pieces,</l>
+<l>These girt necks and waists with writhing bodies of vipers,</l>
+<l>Those with the gear enwombed in crates dark orgies ordained&mdash;</l>
+<l>Orgies that ears profane must vainly lust for o'er hearing&mdash;</l>
+<l>Others with palms on high smote hurried strokes on the cymbal,</l>
+<l>Or from the polisht brass woke thin-toned tinkling music,</l>
+<l>While from the many there boomed and blared hoarse blast of the horn-trump,</l>
+<l>And with its horrid skirl loud shrilled the barbarous bag-pipe</l>
+<p></p><l>Showing such varied forms, that richly-decorated couch-cloth</l>                      
+<l>Folded in strait embrace the bedding drapery-veiled.</l>
+<l>This when the Thessalan youths had eyed with eager inspection</l>
+<l>Fulfilled, place they began to provide for venerate Godheads,</l>
+<l>Even as Zephyrus' breath, seas couching placid at dawn-tide,</l>
+<l>Roughens, then stings and spurs the wavelets slantingly fretted&mdash;</l>
+<l>Rising Aurora the while 'neath Sol the wanderer's threshold&mdash;</l>
+<l>Tardy at first they flow by the clement breathing of breezes</l>
+<l>Urged, and echo the shores with soft-toned ripples of laughter,</l>
+<l>But as the winds wax high so waves wax higher and higher,</l>
+<l>Flashing and floating afar to outswim morn's purpurine splendours,&mdash;</l>
+<l>So did the crowd fare forth, the royal vestibule leaving,</l>
+<l>And to their house each wight with vaguing paces departed.</l>
+<l>After their wending, the first, foremost from <placeName key="tgn,2096449">Pelion</placeName>'s summit,</l>
+<l>Chiron came to the front with woodland presents surcharged:</l>
+<l>Whatso of blooms and flowers bring forth Thessalian uplands</l>
+<l>Mighty with mountain crests, whate'er of riverine lea flowers</l>
+<l>Reareth Favonius' air, bud-breeding, tepidly breathing,</l>
+<l>All in his hands brought he, unseparate in woven garlands,</l>
+<l>Whereat laughed the house as soothed by pleasure of perfume.</l>
+<l>Presently P&eacute;neus appears, deserting verdurous <placeName key="tgn,7014367">Tempe</placeName>&mdash;</l>
+<l><placeName key="tgn,7014367">Tempe</placeName> girt by her belts of greenwood ever impending,</l>
+<l>Left for the Mamonides with frequent dances to worship&mdash;</l>
+<l>Nor is he empty of hand, for bears he tallest of beeches</l>
+<l>Deracinate, and bays with straight boles lofty and stately,</l>
+<l>Not without nodding plane-tree nor less the flexible sister</l>
+<l>Fire-slain Pha&euml;ton left, and not without cypresses airy.</l>
+<l>These in a line wide-broke set he, the Mansion surrounding,</l>
+<l>So by the soft leaves screened, the porch might flourish in verdure.</l>
+<l>Follows hard on his track with active spirit Prometheus,</l>
+<l>Bearing extenuate sign of penalties suffer'd in by-gones.</l>
+<l>Paid erewhiles what time fast-bound as to every member,</l>
+<l>Hung he in carkanet slung from the Scythian rocktor.</l>
+<l>Last did the Father of Gods with his sacred spouse and his offspring,</l>
+<l>Proud from the Heavens proceed, thee leaving (Phoebus) in loneness,</l>
+<l><milestone n="300" unit="line"/>Lone wi' thy sister twin who haunteth mountains of Idrus:</l>
+<l>For that the Virgin spurned as thou the person of Peleus,</l>
+<l>Nor Thetis' nuptial torch would greet by act of her presence.</l>
+<l>When they had leaned their limbs upon snowy benches reposing,</l>
+<l>Tables largely arranged with various viands were garnisht.</l>
+<l>But, ere opened the feast, with infirm gesture their semblance</l>
+<l>Shaking, the Parcae fell to chaunting veridique verses.</l>
+<l>Robed were their tremulous frames all o'er in muffle of garments</l>
+<l>Bright-white, purple of hem enfolding heels in its edges;</l>
+<l>Snowy the fillets that bound heads aged by many a year-tide,</l>
+<l>And, as their wont aye was, their hands plied labour unceasing.</l>
+<l>Each in her left upheld with soft fleece clothed a distaff,</l>
+<l>Then did the right that drew forth thread with upturn of fingers</l>
+<l>Gently fashion the yarn which deftly twisted by thumb-ball</l>
+<l>Speeded the spindle poised by thread-whorl perfect of polish;</l>
+<l>Thus as the work was wrought, the lengths were trimmed wi' the fore-teeth,</l>
+<l>While to their thin, dry lips stuck wool-flecks severed by biting,</l>
+<l>Which at the first outstood from yarn-hanks evenly fine-drawn.</l>
+<l>Still at their feet in front soft fleece-flecks white as the snow-flake</l>
+<l>Lay in the trusty guard of wickers woven in withies.</l>
+<l>Always a-carding the wool, with clear-toned voices resounding</l>
+<l>Told they such lots as these in song divinely directed,</l>
+<l>Chaunts which none after-time shall 'stablish falsehood-convicted.</l></div2>
+<div2 type="part"><head>1.</head>
+<l>O who by virtues great all highmost  honours enhancest,</l>
+<l>Guard of Em&aacute;thia-land, most famous made by thine offspring,</l>
+<l>Take what the Sisters deign this gladsome day to disclose thee,</l>
+<l>Oracles soothfast told,&mdash;And ye, by Destiny followed,</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>2.</head>
+<l>Soon to thy sight shall rise, their fond hopes bringing to bridegrooms,</l>
+  <l><persName><surname>Hesperus</surname></persName>: soon shall come thy spouse with planet auspicious,</l>
+<l>Who shall thy mind enbathe with a love that softens the spirit,</l>
+<l>And as thyself shall prepare for sinking in languorous slumber,</l>
+<l>Under thy neck robust, soft arms dispreading as pillow.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>3.</head>
+<l>Never a house like this such loves as these hath united,</l>
+<l>Never did love conjoin by such-like covenant lovers,</l>
+<l>As th'according tie Thetis deigned in concert wi' Peleus.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>4.</head>
+<l>Born of yon twain shall come Achilles guiltless of fear-sense,</l>
+<l>Known by his forceful breast and ne'er by back to the foeman,</l>
+<l>Who shall at times full oft in doubtful contest of race-course</l>
+<l>Conquer the fleet-foot doe with slot-tracks smoking and burning.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>5.</head>
+<l>None shall with him compare, howe'er war-doughty a hero,</l>
+<l>Whenas the Phrygian rills flow deep with bloodshed of Teucer,</l>
+<l>And beleaguering the walls of <placeName key="tgn,7014164">Troy</placeName> with longest of warfare</l>
+<l>He shall the works lay low, third heir of Pelops the perjured.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>6.</head>
+<l>His be the derring-do and deeds of valour egregious,</l>
+<l>Often mothers shall own at funeral-rites of their children,</l>
+<l>What time their hoary hairs from head in ashes are loosened,</l>
+<l>And wi' their hands infirm thay smite their bosoms loose dugg&egrave;d.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>7.</head>
+<l>For as the toiling hind bestrewing denseness of corn-stalks</l>
+<l>Under the broiling sun mows grain-fields yellow to harvest,</l>
+<l>So shall his baneful brand strew earth with corpses of Troy-born.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>8.</head>
+<l>Aye to his valorous worth attest shall wave of Scamander</l>
+<l>Which unto Hell&egrave;-Sea fast flowing ever dischargeth,</l>
+<l>Straiter whose course shall grow by up-heaped barrage of corpses,</l>
+<l>While in his depths runs warm his stream with slaughter commingled.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>9.</head>
+<l>Witness in fine shall be the victim rendered to death-stroke,</l>
+<l>Whenas the earthern tomb on lofty tumulus builded</l>
+<l>Shall of the stricken maid receive limbs white as the snow-flake.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>10.</head>
+<l>For when at last shall Fors to weary Achaians her fiat</l>
+<l>Deal, of Dardanus-town to burst Neptunian fetters,</l>
+<l>Then shall the high-reared tomb stand bathed with Polyxena's life-blood,</l>
+<l>Who, as the victim doomed to fall by the double-edged falchion,</l>
+<l>Forward wi' hams relaxt shall smite a body beheaded.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>11.</head>
+<l>Wherefore arise, ye pair, conjoin loves ardently longed-for,</l>
+<l>Now doth the groom receive with happiest omen his goddess,</l>
+<l>Now let the bride at length to her yearning spouse be delivered.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l></div2>
+<div2 type="part"><head>12.</head>
+<l>Neither the nurse who comes at dawn to visit her nursling</l>
+<l>E'er shall avail her neck to begird with yesterday's ribband.</l>
+<l>[Speed ye, the well-spun woof out-drawing, speed ye, 0 spindles.]</l>
+<l>Nor shall the mother's soul for ill-matcht daughter a-grieving</l>
+<l>Lose by a parted couch all hopes of favourite grandsons.</l>
+<l>Speed ye, the well-spun woof out-drawing, speed ye, 0 Spindles.</l>
+<l>Thus in the bygone day Peleus' fate foretelling</l>
+<l>Chaunted from breasts divine prophetic verse the Parcae.</l>
+<l>For that the pure chaste homes of heroes to visit in person</l>
+<l>Oft-tide the Gods, and themselves to display where mortals were gathered,</l>
+<l>Wont were the Heavenlies while none human piety spurned.</l>
+<l>Often the Deities' Sire, in fulgent temple a-dwelling,</l>
+<l>Whenas in festal days received he his annual worship,</l>
+<l>Looked upon hundreds of bulls felled prone on pavement before him.</l>
+<l>Full oft Liber who roamed from topmost peak of <placeName key="tgn,2113566">Parnassus</placeName></l>
+<l>Hunted his howling host, his Thyiads with tresses dishevelled.</l>
+<l>Then with contending troops from all their city outflocking</l>
+<l>Gladly the Delphians hailed their God with smoking of altars.</l>
+<l>Often in death-full war and bravest of battle, or Mavors</l>
+<l>Or rapid Triton's Queen or eke the Virgin Rhamnusian,</l>
+<l>Bevies of weaponed men exhorting, proved their presence.</l>
+<l>But from the time when earth was stained with unspeakable scandals</l>
+<l>And forth fro' greeding breasts of all men justice departed,</l>
+<l>Then did the brother drench his hands in brotherly bloodshed,</l>
+<l>Stinted the son in heart to mourn decease of his parents,</l>
+<l>Long&egrave;d the sire to sight his first-born's funeral convoy</l>
+<l>So more freely the flower of step-dame-maiden to rifle;</l>
+<l>After that impious Queen her guiltless son underlying,</l>
+<l>Impious, the household gods with crime ne'er dreading to sully&mdash;</l>
+<l>All things fair and nefand being mixt in fury of evil</l>
+<l>Turned from ourselves avert the great goodwill of the Godheads.</l>
+<l>Wherefor they nowise deign our human assemblies to visit,</l>
+<l>Nor do they suffer themselves be met in light of the day-tide.</l></div2>
+</div1>
+<div1 type="poem" n="65">
+<head>TO HORTALUS LAMENTING A LOST BROTHER.</head>
+<l>Albeit care that consumes, with dule assiduous grieving,</l>
+<l>Me from the Learn&egrave;d Maids (Hortalus!) ever seclude,</l>
+<l>Nor can avail sweet births of the Muses thou to deliver</l>
+<l>Thought o' my mind; (so much floats it on flooding of ills:</l>
+<l>For that the Lethe-wave upsurging of late from abysses,</l>
+<l>Lav&egrave;d my brother's foot, paling with pallor of death,</l>
+<l>He whom the Trojan soil, Rhoetean shore underlying, </l>
+<l>Buries for ever and aye, forcibly snatched from our sight.</l>
+<l><gap/></l>
+<l>I can address; no more shall I hear thee tell of thy doings,</l>
+<l>Say, shall I never again, brother all liefer than life,</l>
+<l>Sight thee henceforth? But I will surely love thee for ever</l>
+<l>Ever what songs I sing saddened shall be by thy death;</l>
+<l>Such as the Daulian bird 'neath gloom of shadowy frondage</l>
+<l>Warbles, of Itys lost ever bemoaning the lot.)</l>
+<l>Yet amid grief so great to thee, my Hortalus, send I</l>
+<l>These strains sung to a mode borrowed from Battiades;</l>
+<l>Lest shouldest weet of me thy words, to wandering wind-gusts</l>
+<l>Vainly committed, perchance forth of my memory flowed&mdash; </l>
+<l>As did that apple sent for a furtive giftie by wooer,</l>
+<l>In the chaste breast of the Maid hidden a-sudden out-sprang;</l>
+<l>For did the hapless forget when in loose-girt garment it lurk&egrave;d,</l>
+<l>Forth would it leap as she rose, scared by her mother's approach,</l>
+<l>And while coursing headlong, it rolls far out of her keeping,</l>
+<l>O'er the triste virgin's brow flushes the conscious blush.</l></div1>
+<div1 type="poem" n="66">
+<head>(LOQUITUR) BERENICE'S LOCK.</head>
+<l>He who every light of the sky world's vastness inspected,</l>
+<l>He who mastered in mind risings and settings of stars,</l>
+<l>How of the fast rising sun obscured be the fiery splendours,</l>
+<l>How at the seasons assured vanish the planets from view,</l>
+<l>How <placeName key="tgn,2118015">Diana</placeName> to lurk thief-like 'neath Latmian stone-fields,</l>
+<l>Summoned by sweetness of Love, comes from her a&euml;ry gyre;</l>
+<l>That same C&oacute;non espied among lights Celestial shining</l>
+<l>Me, Berenice's Hair, which, from her glorious head, </l>
+<l>Fulgent in brightness afar, to many a host of the Godheads</l>
+<l>Stretching her soft smooth arms she vowed to devoutly bestow,</l>
+<l>What time strengthened by joy of new-made wedlock the monarch</l>
+<l>Bounds of Assyrian land hurried to plunder and pill;</l>
+<l>Bearing of nightly strife new signs and traces delicious,</l>
+<l>Won in the war he waged virginal trophies to win. </l>
+  <l>Loathsome is <persName><surname>Venus</surname></persName> to all new-paired? Else why be the parents'</l>
+<l>Pleasure frustrated aye by the false flow of tears </l>
+<l>Poured in profusion amid illuminate genial chamber?</l>
+<l>Nay not real the 'groans; ever so help me the Gods!</l>
+<l>This truth taught me my Queen by force of manifold 'plainings</l>
+<l>After her new groom hied facing the fierceness of fight.</l>
+<l>Yet so thou mournedst not for a bed deserted of husband,</l>
+<l>As for a brother beloved wending on woefullest way?</l>
+<l>How was the marrow of thee consumedly wasted by sorrow!</l>
+<l>So clean forth of thy breast, rackt with solicitous care,</l>
+<l>Mind fled, sense being reft! But I have known thee for certain</l>
+<l>E'en from young virginal years lofty of spirit to be. </l>
+<l>Hast thou forgotten the feat whose greatness won thee a royal</l>
+<l>Marriage&mdash;a deed so prow, never a prower was dared?</l>
+<l>Yet how sad was the speech thou spakest, thy husband farewelling!</l>
+  <l>(<persName><surname>Jupiter</surname></persName>!) Often thine eyes wiping with sorrowful hand!</l>
+<l>What manner God so great thus changed thee? Is it that lovers</l>
+<l>Never will tarry afar parted from person beloved?</l>
+<l>Then unto every God on behalf of thy helpmate, thy sweeting,</l>
+<l>Me thou gayest in vow, not without bloodshed of bulls,</l>
+<l>If he be granted return, and long while nowise delaying,</l>
+<l>Captive <placeName key="tgn,2097781">Asia</placeName> he add unto Egyptian bounds.</l>
+<l>Now for such causes I, enrolled in host of the Heavens,</l>
+<l>By a new present, discharge promise thou madest of old:</l>
+<l>Maugr&egrave; my will, 0 Queen, my place on thy head I relinquished,</l>
+<l>Maugr&egrave; my will, I attest, swearing by thee and thy head;</l>
+<l>Penalty due shall befall whoso makes oath to no purpose.</l>
+<l>Yet who assumes the vaunt forceful as iron to be? </l>
+<l>E'en was that mount o'erthrown, though greatest in universe, where through</l>
+<l>Th&iacute;a's illustrious race speeded its voyage to end,</l>
+<l>Whenas the Medes brought forth new sea, and barbarous youth-hood</l>
+<l>Urged an <placeName key="tgn,2051145">Armada</placeName> to swim traversing middle-<placeName key="tgn,7002722">Athos</placeName>. </l>
+<l>What can be done by Hair when such things yield them to Iron?</l>
+  <l><persName><surname>Jupiter</surname></persName>! Grant Chalybon perish the whole of the race,</l>
+<l>Eke who in primal times ore seeking under the surface</l>
+<l>Showed th' example, and spalled iron however so hard.</l>
+<l>Shortly before I was shorn my sister tresses bewail&egrave;d</l>
+<l>Lot of me, e'en as the sole brother to Memnon the Black,</l>
+<l>Winnowing upper air wi' feathers flashing and quiv'ring,</l>
+<l>Chloris' wing-borne steed, came before Arsino&euml;,</l>
+<l>Whence upraising myself he flies through a&euml;ry shadows,</l>
+<l>And in chaste Venus' breast drops he the present he bears.</l>
+<l>Eke Zephyritis had sent, for the purpose trusted, her bondsman,</l>
+<l>Settler of Grecian strain on the Canopian strand.</l>
+<l>So willed various Gods, lest sole 'mid lights of the Heavens</l>
+<l>Should Ariadne's crown taken from temples of her</l>
+<l>Glitter in gold, but we not less shine fulgent in splendour,</l>
+<l>We the consecrate spoils shed by a blond-hued head,</l>
+<l>Even as weeping-wet sought I the fanes of Celestials </l>
+<l>Placed me the Goddess a new light amid star-lights of old:</l>
+<l>For with Virgo in touch and joining the furious Lion's</l>
+<l>Radiance with Callisto, maid of Lyc&acute;on beloved, </l>
+<l>Wind I still to the west, conducting tardy Bo&ouml;tes,</l>
+<l>Who unwilling and slow must into Ocean merge. </l>
+<l>Yet though press me o'night the pacing footprints of Godheads,</l>
+<l>Tethys, hoary of hair, ever regains me by day. </l>
+<l>(Lend me thy leave to speak such words, Rhamnusian Virgin,</l>
+<l>Verities like unto these never in fear will I veil; </l>
+<l>Albeit every star asperse me with enemy's censure,</l>
+<l>Secrets in soothfast heart hoarded perforce I reveal.) </l>
+<l>Nowise gladdens me so this state as absence torments me,</l>
+<l>Absence doom&euml;d for aye ta'en fro' my mistress's head,</l>
+<l>Where I was wont (though she such cares unknew in her girlhood)</l>
+<l>Many a thousand scents, Syrian unguents, to sip. </l>
+<l>Now do you pair conjoined by the longed-for light of the torches,</l>
+<l>Earlier yield not selves unto unanimous wills </l>
+<l>Nor wi' the dresses doft your bar&egrave;d nipples encounter,</l>
+<l>Ere shall yon onyx-vase pour me libations glad,</l>
+<l>Onyx yours, ye that seek only rights of virtuous bed-rite.</l>
+<l>But who yieldeth herself unto advowtry impure,</l>
+<l>Ah! may her loathed gifts in light dust uselessly soak,</l>
+<l>For of unworthy sprite never a gift I desire.</l>
+<l>Rather, 0 new-mated brides, be concord aye your companion,</l>
+<l>Ever let constant love dwell in the dwellings of you. </l>
+<l>Yet when thou sightest, 0 Queen, the Constellations, I pray thee,</l>
+<l>Every festal day Venus the Goddess appease;</l>
+<l>Nor of thy unguent-gifts allow myself to be lacking,</l>
+<l>Nay, do thou rather add largeliest increase to boons. </l>
+<l>Would but the stars down fall! Could I of my Queen be the hair-lock,</l>
+<l>Neighbour to Hydrochois e'en let Oarion shine.</l></div1>
+<div1 type="poem" n="67">
+<head>DIALOGUE CONCERNING CATULLUS AT A HARLOT'S DOOR.</head>
+<p></p><sp><speaker>Quintus.</speaker>
+<l>0 to the gentle spouse right dear, right dear to his parent,</l>
+<l>Hail, and with increase fair Jupiter lend thee his aid,</l>
+<l>Door, 'tis said wast fain kind service render to Balbus</l>
+<l>Erst while, long as the house by her old owner was held;</l>
+<l>Yet wast rumoured again to serve a purpose malignant,</l>
+<l>After the elder was stretched, thou being oped for a bride.</l>
+<l>Come, then, tell us the why in thee such change be reported</l>
+<l>That to thy lord hast abjured faithfulness owed of old?</l>
+<p></p></sp><sp><speaker>Door.</speaker>
+<l>Never (so chance I to please Caeci1ius owning me now-a-days!)</l>
+<l>Is it my own default, how so they say it be mine;</l>
+<l>Nor can any declare aught sin by me was committed.</l>
+<l>Yet it is so declared (Quintus!) by fable of folk;</l>
+<l>Who, whenever they find things done no better than should be,</l>
+<l>Come to me outcrying all:&mdash;"Door, the default is thine own!"</l>
+<p></p></sp><sp><speaker>Quintus.</speaker>
+<l>This be never enough for thee one-worded to utter,</l>
+<l>But in such way to deal, each and all sense it and see.</l>
+<p></p></sp><sp><speaker>Door.</speaker>
+<l>What shall I do? None asks, while nobody troubles to know.</l>
+<p></p></sp><sp><speaker>Quintus.</speaker>
+<l>Willing are we? unto us stay not thy saying to say.</l>
+<p></p></sp><sp><speaker>Door.</speaker>
+<l>First let me note that the maid to us committed (assert they)</l>
+<l>Was but a fraud: her mate never a touch of her had,</l>
+<l><gap extent="2 lines"/></l>
+<l>But that a father durst dishonour the bed of his first-born,</l>
+<l>Folk all swear, and the house hapless with incest bewray;</l>
+<l>Or that his impious mind was blunt with fiery passion</l>
+<l>Or that his impotent son sprang from incapable seed.</l>
+<l>And to be sought was one with nerve more nervous endow&egrave;d,</l>
+<l>Who could better avail zone of the virgin to loose.</l>
+<p></p></sp><sp><speaker>Quintus.</speaker>
+<l>'Sooth, of egregious sire for piety wondrous, thou tellest,</l>
+<l>Who in the heart of his son lief was . . . !</l>
+<l>Yet professed herself not only this to be knowing, </l>
+<l>Brixia-town that lies under the Cycnean cliff,</l>
+<l>Traversed by Mella-stream's soft-flowing yellow-hued current,</l>
+<l>Brixia, V&eacute;rona's mother, I love for my home.</l>
+<p></p></sp><sp><speaker>Door.</speaker>
+<l>Eke of Posthumius' loves and Cornelius too there be tattle,</l>
+<l>With whom dared the dame evil advowtry commit.</l>
+<p></p></sp><sp><speaker>Quintus.</speaker>
+<l>Here might somebody ask :&mdash;" How, Door, hast mastered such matter?</l>
+<l>Thou that canst never avail threshold of owner to quit,</l>
+<l>Neither canst listen to folk since here fast fixt to the side-posts</l>
+<l>Only one office thou hast, shutting or opening the house."</l>
+<p></p></sp><sp><speaker>Door.</speaker>
+<l>Oft have I heard our dame in furtive murmurs o'er telling,</l>
+<l>When with her handmaids alone, these her flagitious deeds,</l>
+<l>Citing fore-cited names for that she never could fancy</l>
+<l>Ever a Door was endow'd either with earlet or tongue.</l>
+<l>Further she noted a wight whose name in public to mention</l>
+<l>Nill I, lest he upraise eyebrows of carroty hue;</l>
+<l>Long is the loon and large the law-suit brought they against him</l>
+<l>Touching a child-bed false, claim of a belly that lied.</l></sp></div1>
+<div1 type="poem" n="68">
+<head>To MANIUS ON VARIOUS MATTERS.</head>
+<l>When to me sore opprest by bitter chance of misfortune</l>
+<l>This thy letter thou send'st written wi' blotting of tears,</l>
+<l>So might I save thee flung by spuming billows of ocean,</l>
+<l>Shipwreckt, rescuing life snatcht from the threshold of death;</l>
+<l>Eke neither Venus the Holy to rest in slumber's refreshment</l>
+<l>Grants thee her grace on couch lying deserted and lone,</l>
+<l>Nor can the Muses avail with dulcet song of old writers</l>
+<l>Ever delight thy mind sleepless in anxious care;</l>
+<l>Grateful be this to my thought since thus thy friend I'm entitled,</l>
+<l>Hence of me seekest thou gifts Muses and Venus can give:</l>
+<l>But that bide not unknown to thee my sorrows (0 Manius!)</l>
+<l>And lest office of host I should be holden to hate, </l>
+<l>Learn how in Fortune's deeps I chance myself to be drown&egrave;d,</l>
+<l>Nor fro' the poor rich boons furthermore prithee require.</l>
+<l>What while first to myself the pure-white garment was given,</l>
+<l>Whenas my flowery years flowed in fruition of spring,</l>
+<l>Much I disported enow, nor 'bode I a stranger to Goddess</l>
+<l>Who with our cares is lief sweetness of bitter to mix:</l>
+<l>Yet did a brother's death pursuits like these to my sorrow</l>
+<l>Bid for me cease: Oh, snatcht brother! from wretchedest me.</l>
+<l>Then, yea, thou by thy dying hast broke my comfort, 0 brother;</l>
+<l>Buried together wi' thee lieth the whole of our house;</l>
+<l>Perisht along wi' thyself all gauds and joys of our life-tide,</l>
+<l>Douce love fostered by thee during the term of our days.</l>
+<l>After thy doom of death fro' mind I banish&egrave;d wholly</l>
+<l>Studies like these, and all lending a solace to soul;</l>
+<l>Wherefore as to thy writ :&mdash;"Verona's home for Catullus</l>
+<l>Bringeth him shame, for there men of superior mark</l>
+<l>Must on a deserted couch fain chafe their refrigerate limbs:"</l>
+<l>Such be no shame (Manius!): rather 'tis matter of ruth.</l>
+<l>Pardon me, then, wilt thou an gifts bereft me by grieving</l>
+<l>These I send not to thee since I avail not present. </l>
+<l>For, that I own not here abundant treasure of writings</l>
+<l>Has for its cause, in Rome dwell I; and there am I homed,</l>
+<l>There be my seat, and there my years are gathered to harvest;</l>
+<l>Out of book-cases galore here am I followed by one. </l>
+<l>This being thus, nill I thou deem 'tis spirit malignant</l>
+<l>Acts in such wise or mind lacking of liberal mood </l>
+<l>That to thy prayer both gifts be not in plenty suppli&egrave;d:</l>
+<l>Willingly both had I sent, had I the needed supply.</l>
+<l>Nor can I (Goddesses!) hide in what things Allius sent me</l>
+<l>Aid, forbear to declare what was the aidance he deigned:</l>
+<l>Neither shall fugitive Time from centuries ever oblivious</l>
+<l>Veil in the blinds of night friendship he lavisht on me.</l>
+<l>But will I say unto you what you shall say to the many</l>
+<l>Thousands in turn, and make paper, old crone, to proclaim</l>
+<l><gap/></l>
+<l>And in his death become noted the more and the more,</l>
+<l>Nor let spider on high that weaves her delicate webbing</l>
+<l>Practise such labours o'er Allius' obsolete name.  </l>
+<l>For that ye weet right well what care Amath&uacute;sia two-faced</l>
+<l>Gave me, and how she dasht every hope to the ground,</l>
+<l>Whenas I burnt so hot as burn Trinacria's rocks or </l>
+<l>Mallia stream that feeds &OElig;t&eacute;an Thermopylae;</l>
+<l>Nor did these saddened eyes to be dimmed by assiduous weeping</l>
+<l>Cease, and my cheeks with showers ever in sadness be wet.</l>
+<l>E'en as from a&euml;ry heights of mountain springeth a springlet</l>
+<l>Limpidest leaping forth from rocking felted with moss,</l>
+<l>Then having headlong rolled the prone-laid valley downpouring,</l>
+<l>Populous region amid wendeth his gradual way,  </l>
+<l>Sweetest solace of all to the sweltering traveller wayworn,</l>
+<l>Whenas the heavy heat fissures the fiery fields; </l>
+<l>Or, as to seamen lost in night of whirlwind a-glooming</l>
+<l>Gentle of breath there comes fairest and favouring breeze,</l>
+<l>Pollux anon being prayed, nor less vows offered to Castor:&mdash;</l>
+<l>Such was the aidance to us Manius pleased to afford.</l>
+<l>He to my narrow domains far wider limits laid open,</l>
+<l>He too gave me the house, also he gave me the dame,</l>
+<l>She upon whom both might exert them, partners in love deeds.</l>
+<l>Thither graceful of gait pacing my goddess white-hued</l>
+<l>Came and with gleaming foot on the worn sole of the threshold</l>
+<l>Stood she and prest its slab creakihg her sandals the while;</l>
+<l>E'enso with love enflamed in olden days to her helpmate,</l>
+<l>Laodam&iacute;a the home Protesil&eacute;an besought,</l>
+<l>Sought, but in vain, for ne'er wi' sacrificial blood shed</l>
+<l>Victims appeased the Lords ruling Celestial seats:</l>
+<l>Never may I so joy in aught (Rhamnusian Virgin!) </l>
+<l>That I engage in deed maugr&egrave; the will of the Lords.</l>
+<l>How starved altar can crave for gore in piety poured,</l>
+<l>Laodamia learnt taught by the loss of her man,</l>
+<l>Driven perforce to loose the neck of new-wedded help-mate,</l>
+<l>Whenas a winter had gone, nor other winter had come,</l>
+<l>Ere in the long dark nights her greeding love was so sated</l>
+<l>That she had power to live maugr&egrave; a marriage broke off,</l>
+<l>Which, as the Parcae knew, too soon was fated to happen</l>
+<l>Should he a soldier sail bound for those llian walls. </l>
+<l>For that by Helena's rape, the Champion-leaders of Argives</l>
+<l>Unto herself to incite Troy had already begun,</l>
+<l>Troy (ah, curst be the name) common tomb of Asia and Europe,</l>
+<l>Troy to sad ashes that turned valour and valorous men!</l>
+<l>Eke to our brother beloved, destruction ever lamented</l>
+<l>Brought she : 0 Brother for aye lost unto wretchedmost me,</l>
+<l>Oh, to thy wretchedmost brother lost the light of his life-tide,</l>
+<l>Buried together wi' thee lieth the whole of our house:</l>
+<l>Perisht along wi' thyself forthright all joys we enjoy&egrave;d,</l>
+<l>Douce joys fed by thy love during the term of our days;</l>
+<l>Whom now art tombed so far nor 'mid familiar pavestones</l>
+<l>Nor wi' thine ashes stored near to thy kith and thy kin,</l>
+<l>But in that Troy obscene, that Troy of ill-omen, entomb&egrave;d</l>
+<l>Holds thee, an alien earth-buried in uttermost bourne.</l>
+<l>Thither in haste so hot ('tis said) from allwhere the Youth-hood</l>
+<l>Grecian, far&egrave;d in hosts forth of their hearths and their homes,</l>
+<l>Lest with a stolen punk with fullest of pleasure should Paris</l>
+<l>Fairly at leisure and ease sleep in the pacific bed.</l>
+<l>Such was the hapless chance, most beautiful Laodamia,</l>
+<l>Tare fro' thee dearer than life, dearer than spirit itself,</l>
+<l>Him, that husband, whose love in so mighty a whirlpool of passion</l>
+<l>Whelmed thee absorbed and plunged deep in its gulfy abyss,</l>
+<l>E'en as the Grecians tell hard by Phen&eacute;us of Cyll&eacute;ne</l>
+<l>Drained was the marish and dried, forming the fattest of soils,</l>
+<l>Whenas in days long done to delve through marrow of mountains</l>
+<l>Dar&eacute;d, falsing his sire, Amphtry&oacute;niades;</l>
+<l>What time sure of his shafts he smote Stymphalian monsters</l>
+<l>Slaying their host at the hest dealt by a lord of less worth,</l>
+<l>So might the gateway of Heaven be trodden by more of the godheads,</l>
+<l>Nor might H&eacute;b&eacute; abide longer to maidenhood doomed.</l>
+<l>Yet was the depth of thy love far deeper than deepest of marish</l>
+<l>Which the hard mistress's yoke taught him so tamely to bear;</l>
+<l>Never was head so dear to a grandsire wasted by life-tide</l>
+<l>Whenas one daughter alone a grandson so tardy had reared,</l>
+<l>Who being found against hope to inherit riches of forbears</l>
+<l>In the well-witnessed Will haply by name did appear,</l>
+<l>And 'spite impious hopes of baffled claimant to kinship</l>
+<l>Startles the Vulturine grip clutching the frost-bitten poll.</l>
+<l>Nor with such rapture e'er joyed his mate of snowy-hued plumage</l>
+<l>Dove-mate, albeit aye wont in her immoderate heat </l>
+<l>Said be the bird to snatch hot kisses with beak ever billing,</l>
+<l>As diddest thou :&mdash;yet is Woman multivolent still. </l>
+<l>But thou 'vailedest alone all these to conquer in love-lowe,</l>
+<l>When conjoindd once more unto thy yellow-haired spouse.</l>
+<l>Worthy of yielding to her in naught or ever so little </l>
+<l>Came to the bosom of us she, the fair light of my life,</l>
+<l>Round whom fluttering oft the Love-God hither and thither</l>
+<l>Shone with a candid sheen robed in his safflower dress.</l>
+<l>She though never she bide with one Catullus contented,</l>
+<l>Yet will I bear with the rare thefts of my dame the discreet,</l>
+<l>Lest over-irk I give which still of fools is the fashion. </l>
+<l>Often did Juno eke Queen of the Heavenly host</l>
+<l>Boil wi' the rabidest rage at dire default of a husband </l>
+<l>Learning the manifold thefts of her omnivolent Jove,</l>
+<l>Yet with the Gods mankind 'tis nowise righteous to liken,</l>
+<l><gap extent="2 lines"/></l>
+<l>Rid me of graceless task fit for a tremulous sire. </l>
+<l>Yet was she never to me by hand paternal committed</l>
+<l>Whenas she came to my house reeking Assyrian scents;</l>
+<l>Nay, in the darkness of night her furtive favours she deigned me,</l>
+<l>Self-willed taking herself from very mate's very breast.</l>
+<l>Wherefore I hold it enough since given to us and us only</l>
+<l>Boon of that day with Stone whiter than wont she denotes.</l>
+<l>This to thee&mdash;all that I can&mdash;this offering couched in verses</l>
+<l>(Allius!) as my return give I for service galore;</l>
+<l>So wi' the seabriny rust your name may never be sullied</l>
+<l>This day and that nor yet other and other again. </l>
+<l>Hereto add may the Gods all good gifts, which Themis erewhiles</l>
+<l>Wont on the pious of old from her full store to bestow:</l>
+<l>Blest be the times of the twain, thyself and she who thy life is,</l>
+<l>Also the home wherein dallied we, no less the Dame,</l>
+<l>Anser to boot who first of mortals brought us together,</l>
+<l>Whence from beginning all good Fortunes that blest us were born.</l>
+<l>Lastly than every else one dearer than self and far dearer,</l>
+<l>Light of my life who alive living to me can endear.</l></div1>
+<div1 type="poem" n="69">
+<head>TO RUFUS THE FETID.</head>
+<l>Wonder not blatantly why no woman shall ever be willing</l>
+<l>(Rufus!) her tender thigh under thyself to bestow, </l>
+<l>Not an thou tempt her full by bribes of the rarest garments,</l>
+<l>Or by the dear delights gems the pellucidest deal. </l>
+<l>Harms thee an ugly tale wherein of thee is recorded</l>
+<l>Horrible stench of the goat under thine arm-pits be lodged.</l>
+<l>All are in dread thereof; nor wonder this, for 'tis evil</l>
+<l>Beastie, nor damsel fair ever thereto shall succumb.</l>
+<l>So do thou either kill that cruel pest o' their noses,</l>
+<l>Or at their reason of flight blatantly wondering cease.</l></div1>
+<div1 type="poem" n="70">
+<head>ON WOMAN'S INCONSTANCY.</head>
+<l>Never, my woman oft says, with any of men will she mate be,</l>
+<l>Save wi' my own very self, ask her though Jupiter deign!</l>
+<l>Says she: but womanly words that are spoken to desireful lover</l>
+<l>Ought to be written on wind or upon water that runs.</l></div1>
+<div1 type="poem" n="71">
+<head>TO VERRO.</head>
+<l>An of a goat-stink damned from armpits fusty one suffer,</l>
+<l>Or if a crippling gout worthily any one rack,</l>
+<l>'Tis that rival o' thine who lief in loves of you meddles,</l>
+<l>And, by a wondrous fate, gains him the twain of such ills.</l>
+<l>For that, oft as he . . . , so oft that penance be two-fold;</l>
+<l>Stifles her stench of goat, he too is kilt by his gout.</l></div1>
+<div1 type="poem" n="72">
+<head>TO LESBIA THE FALSE.</head>
+<l>Wont thou to vaunt whil&ograve;me of, knowing only Catullus</l>
+<l>(Lesbia!) nor to prefer Jupiter's self to myself.</l>
+<l>Then, too, I loved thee well, not as vulgar wretch his mistress</l>
+<l>But as a father his sons loves and his sons by the law.</l>
+<l>Now have I learnt thee aright; wherefor though burn I the hotter,</l>
+<l>Lighter and viler by far thou unto me hast become. </l>
+<l>"How can this be?" dost ask: 'tis that such injury ever</l>
+<l>Forces the hotter to love, also the less well to will.</l></div1>
+<div1 type="poem" n="73">
+<head>OF AN INGRATE.</head>
+<l>Cease thou of any to hope desir&egrave;d boon of well-willing,</l>
+<l>Or deem any shall prove pious and true to his dues.</l>
+<l>Waxes the world ingrate, no deed benevolent profits, </l>
+<l>Nay full oft it irks even offending the more:</l>
+<l>Such is my case whom none maltreats more grievously bitter,</l>
+<l>Than does the man that me held one and only to friend.</l></div1>
+<div1 type="poem" n="74">
+<head>OF GELLIUS.</head>
+<l>Wont was Gellius hear his uncle rich in reproaches, </l>
+<l>When any ventured aught wanton in word or in deed.</l>
+<l>Lest to him chance such befall, his uncle's consort seduced he,</l>
+<l>And of his uncle himself fashioned an Harpocrates.</l>
+<l>What so he willed did he; and nowdays albe his uncle</l>
+<l>. . . .he, no word ever that uncle shall speak.</l></div1>
+<div1 type="poem" n="75">
+<l>So in devotion to thee lost is the duty self due,</l>
+<l>Nor can I will thee well if best of women thou prove thee,</l>
+<l>Nor can I cease to love, do thou what doings thou wilt.</l></div1>
+<div1 type="poem" n="76">
+<head>IN SELF-GRATULATION.</head>
+<l>If to remember deeds whil&ograve;me well done be a pleasure </l>
+<l>Meet for a man who deems all of his dealings be just,</l>
+<l>Nor Holy Faith ever broke nor in whatever his compact</l>
+<l>Sanction of Gods abused better to swindle mankind,</l>
+<l>Much there remains for thee during length of living, Catullus,</l>
+<l>Out of that Love ingrate further to solace thy soul; </l>
+<l>For whatever of good can mortal declare of another</l>
+<l>Or can avail he do, such thou hast said and hast done;</l>
+<l>While to a thankless mind entrusted all of them perisht.</l>
+<l>Why, then, crucify self now with a furthering pain?</l>
+<l>Why not steady thy thoughts and draw thee back from such purpose,</l>
+<l>Ceasing wretched to be maugr&egrave; the will of the Gods?</l>
+<l>Difficult 'tis indeed long Love to depose of a sudden,</l>
+<l>Difficult 'tis, yet do e'en as thou deem to be best.</l>
+<l>This be thy safe-guard sole; this conquest needs to be conquered;</l>
+<l>This thou must do, thus act, whether thou cannot or can.</l>
+<l>If an ye have (0 Gods!) aught ruth, or if you for any </l>
+<l>Bring at the moment of death latest assistance to man,</l>
+<l>Look upon me (poor me!) and, should I be cleanly of living,</l>
+<l>Out of my life deign pluck this my so pestilent plague,</l>
+<l>Which as a lethargy o'er mine inmost vitals a-creeping,</l>
+<l>Hath from my bosom expelled all of what joyance it joyed,</l>
+<l>Now will I crave no more she love me e'en as I love her,</l>
+<l>Nor (impossible chance!) ever she prove herself chaste:</l>
+<l>Would I were only healed and shed this fulsome disorder.</l>
+<l>Oh Gods, grant me this boon unto my piety due!</l></div1>
+<div1 type="poem" n="77">
+<head>TO RUFUS, THE TRAITOR FRIEND.</head>
+<l>Rufus, trusted as friend by me, so fruitlessly, vainly, </l>
+<l>(Vainly? nay to my bane and at a ruinous price!)</l>
+<l>Hast thou cajoled me thus, and enfiring innermost vitals,</l>
+<l>Ravished the whole of our good own'd by wretchedest me?</l>
+<l>Ravished; (alas and alas!) of our life thou cruellest cruel</l>
+<l>Venom, (alas and alas!) plague of our friendship and pest.</l>
+<l>Yet must I now lament that lips so pure of the purest </l>
+<l>Damsel, thy slaver foul soiled with filthiest kiss.</l>
+<l>But ne'er hope to escape scot free; for thee shall all ages</l>
+<l>Know, and what thing thou be, Fame, the old crone, shall declare.</l></div1>
+<div1 type="poem" n="78">
+<head>OF GALLUS.</head>
+<l>Gallus hath brothers in pair, this owning most beautiful consort,</l>
+<l>While unto that is given also a beautiful son.</l>
+<l>Gallus is charming as man; for sweet loves ever conjoins he,</l>
+<l>So that the charming lad sleep wi' the charmer his lass.</l>
+<l>Gallus is foolish wight, nor self regards he as husband,</l>
+<l>When being uncle how nuncle to cuckold he show.</l></div1>
+<div1 type="poem" n="79">
+<head>OF LESBIUS.</head>
+<l>Lesbius is beauty-man: why not? when Lesbia wills him</l>
+<l>Better, Catullus, than thee backed by the whole of thy clan.</l>
+<l>Yet may that beauty-man sell all his clan with Catullus,</l>
+<l>An of three noted names greeting salute he can gain.</l></div1>
+<div1 type="poem" n="80">
+<head>TO GELLIUS.</head>
+<l>How shall I (Gellius!) tell what way lips rosy as thine are</l>
+<l>Come to be bleached and blanched whiter than wintry snow,</l>
+<l>When as thou quittest the house a-morn, and at two after noon-tide</l>
+<l>Roused from quiet repose, wakest for length of the day?</l>
+<l>Cert&egrave;s sure am I not an Rumour rightfully whisper</l>
+<l> . . . . . . .</l>
+<l> . . . . . . . .</l>
+<l> . . . . . . .</l></div1>
+<div1 type="poem" n="81">
+<head>TO JUVENTIUS.</head>
+<l>Could there never be found in folk so thronging (Juventius!)</l>
+<l>Any one charming thee whom thou couldst fancy to love,</l>
+<l>Save and except that host from deadliest site of Pisaurum,</l>
+<l>Wight than a statue gilt wanner and yellower-hued,</l>
+<l>Whom to thy heart thou takest and whom thou darest before us</l>
+<l>Choose? But villain what deed doest thou little canst wot!</l></div1>
+<div1 type="poem" n="82">
+<head>TO QUINTIUS.</head>
+<l>Quintius! an thou wish that Catullus should owe thee his eyes</l>
+<l>Or aught further if aught dearer can be than his eyes,</l>
+<l>Thou wilt not ravish from him what deems he dearer and nearer</l>
+<l>E'en than his eyes if aught dearer there be than his eyes.</l></div1>
+<div1 type="poem" n="83">
+<head>OF LESBIA's HUSBAND.</head>
+<l>Lesbia heaps upon me foul words her mate being present;</l>
+<l>Which to that simple soul causes the fullest delight. </l>
+<l>Mule! naught sensest thou: did she forget us in silence,</l>
+<l>Whole she had been; but now what so she rails and she snarls,</l>
+<l>Not only dwells in her thought, but worse and even more risky,</l>
+<l>Wrathful she bides. Which means, she is afire and she fumes.</l></div1>
+<div1 type="poem" n="84">
+<head>ON ARRIUS, A ROMAN 'ARRY.</head>
+<l>Wontis Arrius say "Chommodious" whenas "commodious"</l>
+<l>Means he, and "Insidious "aspirate "Hinsidious," </l>
+<l>What time flattering self he speaks with marvellous purity,</l>
+<l>Clamouring "Hinsidious" loudly as ever he can. </l>
+<l>Deem I thus did his dame and thus-wise Liber his uncle</l>
+<l>Speak, and on spindle-side grandsire and grandmother too.</l>
+<l>Restful reposed all ears when he was sent into Syria, </l>
+<l>Hearing the self-same words softly and smoothly pronounc&egrave;d,</l>
+<l>Nor any feared to hear such harshness uttered thereafter,</l>
+<l>Whenas a sudden came message of horrible news,</l>
+<l>Namely th' lonian waves when Arrius thither had wended,</l>
+<l>Were "lonian" no more&mdash;they had "Hionian" become.</l></div1>
+<div1 type="poem" n="85">
+<head>HOW THE POET LOVES</head>
+<l>Hate I, and love I. Haps thou'lt ask me wherefore I do so.</l>
+<l>Wot I not, yet so I do feeling a torture of pain.</l></div1>
+<div1 type="poem" n="86">
+<head>OF QUINTIA.</head>
+<l>Quintia beautiful seems to the crowd; to me, fair, and tall,</l>
+<l>Straight; and merits as these readily thus I confess,</l>
+<l>But that she is beauteous all I deny, for nothing of lovesome,</l>
+<l>Never a grain of salt, shows in her person so large. </l>
+<l>Lesbia beautiful seems, and when all over she's fairest,</l>
+<l>Any Venus-gift stole she from every one.</l></div1>
+<div1 type="poem" n="87">
+<head>TO LESBIA.</head>
+<l>Never a woman could call herself so fondly beloved</l>
+<l>Truly as Lesbia mine has been beloved of myself.</l>
+<l>Never were Truth and Faith so firm in any one compact</l>
+<l>As on the part of me kept I my love to thyself.</l>
+<l>Now is my mind to a pass, my Lesbia, brought by thy treason,		</l></div1>
+ <div1 type="poem" n="88">
+<head>TO GELLIUS.</head>
+<l>What may he (Gellius!) do that ever for mother and sister</l>
+<l>Itches and wakes thro' the nights, working wi' tunic bedoffed?</l>
+<l>What may he do who nills his uncle ever be husband?</l>
+<l>Wottest thou how much he ventures of sacrilege-sin?</l>
+<l>Ventures he (0 Gellius!) what ne'er can ultimate Tethys</l>
+<l>Wash from his soul, nor yet Ocean, watery sire.</l>
+<l>For that of sin there's naught wherewith this sin can exceed he</l>
+<l>. . . . his head on himself.</l></div1>
+<div1 type="poem" n="89">
+<head>ON GELLIUS.</head>
+<l>Gellius is lean: Why not?  For him so easy a mother</l>
+<l>Lives, and a sister so boon, bonny and buxom to boot,</l>
+<l>Uncle so kindly good and all things full of his lady-</l>
+<l>Cousins, how can he cease leanest of lankies to be?</l>
+<l>Albeit, touch he naught save that whose touch is a scandal,</l>
+<l>Soon shall thou find wherefor he be as lean as thou like.</l></div1>
+<div1 type="poem" n="90">
+<head>ON GELLIUS.</head>
+<l>Born be a Magus, got by Gellius out of his mother</l>
+<l>(Marriage  nefand!) who shall Persian augury learn.</l>
+<l>Needs it a Magus begot of son upon mother who bare him,</l>
+<l>If that impious faith, Persian religion be fact,</l>
+<l>So may their issue adore busy gods with recognised verses</l>
+<l>Melting in altar-flame fatness contained by the caul.</l></div1>
+<div1 type="poem" n="91">
+<head>TO GELLIUS.</head>
+<l>Not for due cause I hoped to find thee (Gellius!) faithful</l>
+<l>In this saddest our love, love that is lost and forlore,</l>
+<l>Or fro' my wotting thee well or ever believing thee constant,</l>
+<l>Or that thy mind could reject villany ever so vile,</l>
+<l>But that because was she to thyself nor mother nor sister,</l>
+<l>This same damsel whose Love me in its greatness devoured.</l>
+<l>Yet though I had been joined wi' thee by amplest of usance,</l>
+<l>Still could I never believe this was sufficient of cause.</l>
+<l>Thou diddest deem it suffice: so great is thy pleasure in every</l>
+<l>Crime wherein may be found somewhat enormous of guilt.</l></div1>
+<div1 type="poem" n="92">
+<head>ON LESBIA.</head>
+<l>Lesbia naggeth at me evermore and ne'er is she silent</l>
+<l>Touching myself: May I die but that by Lesbia I'm loved.</l>
+<l>What be the proof?  I rail and retort like her and revile her</l>
+<l>Carefully, yet may I die but that I love her with love.</l></div1>
+<div1 type="poem" n="93">
+<head>ON JULIUS CAESAR.</head>
+<l>Study I not o'ermuch to please thee (Caesar!) and court thee,</l>
+<l>Nor do I care e'en to know an thou be white or be black.</l></div1>
+<div1 type="poem" n="94">
+<head>AGAINST MENTULA (MAMURRA).</head>
+<l>Mentula wooeth much: much wooeth he, be assur&egrave;d.</l>
+<l>That is, e'en as they say, the Pot gathers leeks for the pot.</l></div1>
+<div1 type="poem" n="95">
+<head>ON THE "ZMYRNA" OF THE POET CINNA.</head>
+<l>"Zmyrna" begun erstwhile nine harvests past by my Cinna</l>
+<l>Publisht appears when now nine of his winters be gone;</l>
+<l>Thousands fifty of lines meanwhile Hortensius in single</l>
+<l><gap/></l>
+<l>"Zmyrna" shall travel afar as the hollow breakers of Satrax,</l>
+<l>"Zmyrna" by ages grey lastingly shall be perused.</l>
+<l>But upon Padus' brink shall die Volusius his annals</l>
+<l>And to the mackerel oft loose-fitting jacket afford.</l>
+<l>Dear to my heart are aye the lightest works of my comrade,</l>
+<l>Leave I the mob to enjoy tumidest Antimachus.</l></div1>
+<div1 type="poem" n="96">
+<head>TO CALVUS ANENT DEAD QUINTILIA.</head>
+<l>If to the dumb deaf tomb can aught or grateful or pleasing</l>
+<l>(Calvus!) ever accrue rising from out of our dule,</l>
+<l>Wherewith yearning desire renews our loves in the bygone,</l>
+<l>And for long friendships lost many a tear must be shed;</l>
+<l>Cert&egrave;s, never so much for doom of premature death-day</l>
+<l>Must thy Quintilia mourn as she is joyed by thy love.</l></div1>
+<div1 type="poem" n="97">
+<head>ON AEMILIUS THE FOUL.</head>
+<l>Never (so love me the Gods!) deemed I 'twas preference matter</l>
+<l>Or Aemilius' mouth choose I to smell or his . . . .</l>
+<l>Nothing is this more clean, uncleaner nothing that other,</l>
+<l>Yet I ajudge . . . . cleaner and nicer to be;</l>
+<l>For while this one lacks teeth, that one has cubit-long tushes,</l>
+<l>Set in their battered gums favouring a muddy old box,</l>
+<l>Not to say aught of gape like wide-cleft gap of a she-mule</l>
+<l>Whenas in summer-heat wont peradventure to stale.</l>
+<l>Yet has he many a motte and holds himself to be handsome&mdash;</l>
+<l>Why wi' the baker's ass is he not bound to the mill?</l>
+<l>Him if a damsel kiss we fain must think she be ready</l>
+<l>With her fair lips . . . .</l></div1>
+<div1 type="poem" n="98">
+<head>TO VICTIUS THE STINKARD.</head>
+<l>Rightly of thee may be said, an of any, (thou stinkingest Victius!)</l>
+<l>Whatso wont we to say touching the praters and prigs.</l>
+<l>Thou wi' that tongue o' thine own, if granted occasion availest</l>
+<l>Brogues of the cowherds to kiss, also their . . . .</l>
+<l>Wouldst thou undo us all with a thorough undoing (0 Victius!)</l>
+<l>Open thy gape :&mdash;thereby all shall be wholly undone.</l></div1>
+<div1 type="poem" n="99">
+<head>TO JUVENTIUS.</head>
+<l>E'en as thou played'st, from thee snatched I (0 honied Juventius!)</l>
+<l>Kisslet  of savour so sweet sweetest Ambrosia unknows.</l>
+<l>Yet was the theft nowise scot-free, for more than an hour I</l>
+<l>Clearly remember me fixt hanging from crest of the Cross,</l>
+<l>Whatwhile I purged my sin unto thee nor with any weeping</l>
+<l>Tittle of cruel despite such as be thine could I 'bate.</l>
+<l>For that no sooner done thou washed thy liplets with many</l>
+<l>Drops which thy fingers did wipe, using their every joint,</l>
+<l>Lest of our mouths conjoined remain there aught by the contact</l>
+<l>Like unto slaver foul shed by the butter&egrave;d bun. </l>
+<l>Further, wretchedmost me betrayed to unfriendliest Love-god</l>
+<l>Never thou ceased'st to pain hurting with every harm,</l>
+<l>So that my taste be turned and kisses ambrosial erstwhile</l>
+<l>Even than hellebore-juice bitterest bitterer grow.</l>
+<l>Seeing such pangs as these prepared for unfortunate lover,</l>
+<l>After this never again kiss will I venture to snatch.</l></div1>
+<div1 type="poem" n="100">
+<head>ON CAELIUS AND QUINTIUS.</head>
+<l>Caelius Aufil&eacute;nus and Quintius Aufil&eacute;na,</l>
+<l>Love to the death, both swains bloom of the youth Veronese,</l>
+<l>This woo'd brother and that sue'd sister: so might the matter</l>
+<l>Claim to be titled wi' sooth fairest fraternalest tie.</l>
+<l>Whom shall I favour the first?  Thee (Caelius!) for thou hast prov&egrave;d</l>
+<l>Singular friendship to us shown by the deeds it has done,</l>
+<l>Whenas the flames insane had madded me, firing my marrow:</l>
+<l>Caelius! happy be thou; ever be lusty in love.</l></div1>
+<div1 type="poem" n="101">
+<head>ON THE BURIAL OF HIS BROTHER.</head>
+<l>Faring thro' many a folk and plowing many a sea-plain</l>
+<l>These sad funeral-rites (Brother!) to deal thee I come,</l>
+<l>So wi' the latest boons to the dead bestowed I may gift thee,</l>
+<l>And I may vainly address ashes that answer have none,</l>
+<l>Sithence of thee, very thee, to deprive me Fortune behested,</l>
+<l>Woe for thee, Brother forlore!  Cruelly severed fro' me.</l>
+<l><gap/></l>
+<l>Yet in the meanwhile now what olden usage of forbears</l>
+<l>Brings as the boons that befit mournfullest funeral rites,</l>
+<l>Thine  be these gifts which flow with tear-flood shed by thy brother,</l>
+<l>And,  for ever and aye (Brother!) all hail and farewell. </l></div1>
+<div1 type="poem" n="102">
+<head>TO CORNELIUS.</head>
+<l>If by confiding friend aught e'er be trusted in silence,</l>
+<l>Unto a man whose mind known is for worthiest trust,</l>
+<l>Me shalt thou find no less than such to secrecy oath-bound,</l>
+<l>(Cornelius!) and now hold me an Harpocrates.</l></div1>
+<div1 type="poem" n="103">
+<head>TO SILO.</head>
+<l>Or, d'ye hear, refund those ten sestertia (Silo!)</l>
+<l>Then be thou e'en at thy will surly and savage o' mood:</l>
+<l>Or, an thou love o'er-well those moneys, prithee no longer</l>
+<l>Prove thee a pimp and withal surly and savage o' mood.</l></div1>
+<div1 type="poem" n="104">
+<head>CONCERNING LESBIA.</head>
+<l>Canst thou credit that I could avail to revile my life-love,</l>
+<l>She who be dearer to me even than either my eyes?</l>
+<l>Ne'er could I, nor an I could, should I so losingly love her:</l>
+<l>But with Tappo thou dost design every monstrous deed.</l></div1>
+<div1 type="poem" n="105">
+<head>ON MAMURRA.</head>
+<l>Mentula fain would ascend Pipl&eacute;an mountain up-mounting:</l>
+<l>Pitch him the Muses down headlong wi' forklets a-hurled.</l></div1>
+<div1 type="poem" n="106">
+<head>THE AUCTIONEER AND THE FAIR BOY.</head>
+<l>When with a pretty-faced boy we see one playing the Crier,</l>
+<l>What can we wot except longs he for selling the same?</l></div1>
+<div1 type="poem" n="107">
+<head>TO LESBIA RECONCILED.</head>
+<l>An to one ever accrue any boon he lusted and longed for</l>
+<l>Any time after despair, grateful it comes to his soul.</l>
+<l>Thus 'tis grateful to us nor gold was ever so goodly,</l>
+<l>When thou restorest thyself (Lesbia!) to loving-most me,</l>
+<l>Self thou restorest unhoped, and after despair thou returnest.</l>
+<l>Oh the fair light of a Day noted with notabler white!</l>
+<l>Where lives a happier man than myself or&mdash;this being won me&mdash;</l>
+<l>Who shall e'er boast that his life brought him more coveted lot?</l></div1>
+<div1 type="poem" n="108">
+<head>ON COMINIUS.</head>
+<l>If by the verdict o' folk thy hoary old age  (0 Cominius!)</l>
+<l>Filthy with fulsomest lust ever be doomed to the death,</l>
+<l>Make I no manner of doubt but first thy tongue to the worthy</l>
+<l>Ever a foe, cut out, ravening Vulture shall feed;</l>
+<l>Gulp shall the Crow's black gorge those eye-balls dug from their sockets,</l>
+<l>Guts of thee go to the dogs, all that remains to the wolves.</l></div1>
+<div1 type="poem" n="109">
+<head>TO LESBIA ON HER VOW OF CONSTANCY.</head>
+<l>Gladsome to me, 0 my life, this love whose offer thou deignest</l>
+<l>Between us twain lively and lusty to last soothfast.</l>
+<l>(Great Gods!) grant ye the boon that prove her promises loyal,</l>
+<l>Saying her say in truth spoken with spirit sincere;</l>
+<l>So be it lawful for us to protract through length of our life-tide</l>
+<l>Mutual pact of our love, pledges of holy good will!</l></div1>
+<div1 type="poem" n="110">
+<head>TO AUFILENA.</head>
+<l>Aufil&eacute;na! for aye good lasses are lauded as loyal:</l>
+<l>Price of themselves they accept when they intend to perform.</l>
+<l>All thou promised'st me in belying proves thee unfriendly,</l>
+<l>For never giving and oft taking is deed illy done.</l>
+<l>Either as honest to grant, or modest as never to promise, </l>
+<l>Aufil&eacute;na! were fair, but at the gifties to clutch</l>
+<l>Fraudfully, viler seems than greed of greediest harlot</l>
+<l>Who with her every limb maketh a whore of herself.</l></div1>
+<div1 type="poem" n="111">
+<head>TO THE SAME.</head>
+<l>Aufil&eacute;na! to live content with only one husband,</l>
+<l>Praise is and truest of praise ever bestowed upon wife.</l>
+<l>Yet were it liefer to lie any wise with any for lover,</l>
+<l>Than to be breeder of boys uncle as cousins begat.</l></div1>
+<div1 type="poem" n="112">
+<head>ON NASO.</head>
+<l>Great th'art (Naso!) as man, nor like thee many in greatness</l>
+<l>Lower themselves (Naso!): great be thou, pathic to boot.</l></div1>
+<div1 type="poem" n="113">
+<head>TO CINNA.</head>
+<l>Pompey first being chosen Consul, twofold (O Cinna!)</l>
+<l>Men for amours were famed:  also when chosen again</l>
+<l>Two they remained; but now is each one grown to a thousand</l>
+<l>Gallants:&mdash;fecundate aye springeth adultery's seed.</l></div1>
+<div1 type="poem" n="114">
+<head>ON MAMURRA'S SQUANDERING.</head>
+<l>For yon Firmian domain not falsely Mentula hight is</l>
+<l>Richard, owning for self so many  excellent things&mdash;</l>
+<l>Fish, fur, feather, all kinds, with prairie, corn-land, and ferals.</l>
+<l>All no good: for th' outgoing, income immensely exceeds.</l>
+<l>Therefore his grounds be rich own I, while he's but a pauper.</l>
+<l>Laud we thy land while thou lackest joyance thereof.</l></div1>
+<div1 type="poem" n="115">
+<head>OF THE SAME.</head>
+<l>Mentula! masterest thou some thirty acres of grassland</l>
+<l>Full told, forty of field soil; others are sized as the sea.</l>
+<l>Why may he not surpass in his riches any a Cr&oelig;sus</l>
+<l>Who in his one domain owns such abundance of good,</l>
+<l>Grasslands, arable fields, vast woods and forest and marish</l>
+<l>Yonder to Boreal-bounds trenching  on  Ocean tide?</l>
+<l>Great are indeed all these, but thou by far be the greatest,</l>
+<l>Never a man, but a great Mentula of menacing might.</l></div1>
+<div1 type="poem" n="116">
+<head>TO GELLIUS THE CRITIC.</head>
+<l>Seeking often in mind with spirit eager of study</l>
+<l>How I could send thee songs chaunted of Battiad&eacute;s,</l>
+<l>So thou be softened to us, nor any attempting thou venture</l>
+<l>Shot of thy hostile shaft piercing me high as its head,&mdash;</l>
+<l>Now do I ken this toil with vainest purpose was taken,</l>
+<l>(Gellius!) nor herein aught  have our prayers avail&egrave;d.</l>
+<l>Therefore we'll parry with cloak what shafts thou shootest against us;</l>
+<l>And by our bolts transfixt, penalty due thou shalt pay.</l></div1>
+</body></text></TEI.2>

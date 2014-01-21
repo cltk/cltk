@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.XML "INCLUDE">
+<!ENTITY % PersProse PUBLIC "-//Perseus P4//DTD Perseus Prose//EN" "http://www.perseus.tufts.edu/DTD/1.0/PersProse.dtd" >
+%PersProse;
+]>
+<TEI.2>
+	<teiHeader type="text" status="new">
+		<fileDesc>
+			<titleStmt>
+				<title type="work">Attic Nights, introduction</title>
+				<title type="sub">Machine readable text</title>
+				<author n="Gell.">Aulus Gellius</author>
+				<editor role="editor" n="Rolfe">John C. Rolfe</editor>
+				&responsibility;
+				&fund.AnnCPB;
+			</titleStmt>
+			<extent>About 100Kb</extent>
+			&Perseus.publish;
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>The Attic Nights of Aulus Gellius</author>
+						<title>With An English Translation</title>
+						<editor role="editor" n="Rolfe">John C. Rolfe</editor>
+						<imprint>
+							<pubPlace>Cambridge</pubPlace>
+							<publisher>Cambridge, Mass., Harvard University Press; London, William Heinemann, Ltd.</publisher>
+							<date>1927</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		
+		<encodingDesc>
+			<refsDecl doctype="TEI.2">
+				<state unit="book"/>
+			</refsDecl>
+		</encodingDesc>
+		
+		<profileDesc>
+			<langUsage>
+				<language id="la">Latin</language>
+				<language id="greek">Greek</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change><date>2009</date>
+				<respStmt><name>GRC</name><resp>tagging</resp></respStmt>
+				<item></item>
+			</change>
+			
+		</revisionDesc>
+	</teiHeader>
+
+<text>
+<body>
+	<div1 type="dedication">
+		<p>To the memory of Samuel Ball Platner</p>  
+	</div1>  
+	<pb id="v1.p.ix"/>
+	<div1 type="preface"><head>Preface</head>
+		
+		<p>This book was originally assigned to my friend the late Samuel Ball Platner, of Western Reserve University. At the time of his death, on August 20, 1921, he had completed a rough draft of the translation of Books i&ndash;x. I have had the benefit of using this material, and to it I acknowledge my indebtedness.</p>
+		
+		<p>The text is independent, being based in general on that of Hertz and Hosius, but with numerous changes resulting from the attention which the text of Gellius has received since 1903. The punctuation, and the press work generally, have been made to conform to English and American usage.</p> <closer><signed>J. C. R.</signed> <dateline>Philadelphia, December 26, 1925.</dateline></closer>
+	</div1>  
+	<pb id="v1.p.xi"/>
+
+<div1 type="book" n="intro"><head>Introduction</head>
+
+<div2 type="chapter" n="1"><head>The Life And Works Of Aulus Gellius</head>
+
+<p>Comparatively little is known about Aulus Gellius, the author of the <hi rend="italics">Noces Atticae,</hi> and our sources of information are almost entirely his own writings. There is difference of opinion as to the date and the place of his birth and of his death, as to the time and duration of his residence in Athens, and as to the time of his appointment as <hi rend="italics">index</hi> and the beginning of his legal career. Opinions regarding these moot points are based upon his own statements or on the certain dates&mdash;also comparatively few in number&mdash;in the lives of various personages whom he mentions in the <hi rend="italics">Noctes;</hi> and the estimates of different scholars vary greatly.</p>
+
+<p>The <hi rend="italics">gens Gellia</hi> was a clan of Samnite origin, which seems to have taken up its residence in Rome soon after the close of the second Punic war. Two generals of the family, Statius Gellius and Gellius Egnatius, fought against the Romans, the former in the first, the latter in the second Samnite war. The one was defeated and taken prisoner in 305 B.C.,
+
+<note>Livy, ix. 44. 13.</note>
+the other lost his life in the battle of Sentinum in 295.
+
+<note>Livy, x. 18&ndash;29.</note>
+At Rome one branch of the  <pb id="v1.p.xii"/>  family attained noble rank, if not earlier, through Lucius Gellius Publicola, who was <hi rend="italics">praetor peregrinus</hi> in 94 B.C., consul in 72, and censor in 70.
+
+<note>V. 6. 15.</note>
+It was he who proposed to the senate that the civic crown should be conferred upon Cicero, in recognition of his services in suppressing the conspiracy of Catiline. Aulus Gellius also mentions two other members of the clan: Gnaeus Gellius, a contemporary and opponent of Cato the censor,
+
+<note>xiv. 2. 21 and 26.</note>
+and another Gnaeus Gellius,
+
+<note>xviii. 12. 6. </note>
+of the time of the Gracchi, who wrote a history of Rome, entitled <hi rend="italics">Annales,</hi> extending at least to the year 145 B.C. Aulus Gellius does not claim kinship with any of these Gellii, and tells us nothing of his own rank and social position. He was evidently of a good family and possessed of considerable means, being also, perhaps, the owner of a country estate at Praeneste.
+
+<note>Cf. xi. 3. 1.</note>
+He lived on terms of intimacy with many eminent men of his day, all of whom owed their distinction, at least in part, to their intellectual qualities.</p>
+
+<p>The birthplace of Aulus Gellius, or Agellius, as he was miscalled in the Middle Ages,
+
+<note>By joining his praenomen <hi rend="italics">A.</hi> with the <hi rend="italics">nomen;</hi> cf. the reverse process in M. Accius for T. Maccius Plautus.</note>
+is unknown. Some have thought that he was of African origin,
+
+<note>Sittl, <hi rend="italics">Die lok. Verschicdenheiten</hi> (1882), p 144.</note>
+but this is questioned by others.
+
+<note>Vogel, <hi rend="italics">Jahrb. f. klass. Phil.</hi> 127, p. 188.</note>
+He is perhaps one of the few Roman writers who were natives of the eternal city; at any rate, he was in Rome at the time when he assumed the gown of manhood, probably at the age of between fifteen and <pb id="v1.p.xiii"/> seventeen.
+
+<note>xviii. 4. 1.</note>
+The year of his birth has been variously conjectured from the few certain dates of his career We know that he was in Athens after A.D. 143, since at the time of his residence there he refers to Herodes Atticus, who was consul in that year, as <hi rend="italics">consularis vir.</hi> At the same time he speaks of himself as <hi rend="italics">invenis,</hi> from which some have inferred that he was then thirty years of age; but too much weight cannot be given to Gellius' use of <hi rend="italics">iuvenis</hi> and <hi rend="italics">adulescens</hi> (or <hi rend="italics">adulescentulus</hi>). Not only are <hi rend="italics">iuvenis</hi> and <hi rend="italics">adulescens</hi> used loosely by the Romans in general, and applied indifferently to men between the ages of seventeen and thirty or more, but Gellius seems to use <hi rend="italics">iuvenis</hi> in a complimentary sense and <hi rend="italics">adulescens</hi> with some degree of depreciation or, in speaking of himself, of modesty. Thus he commonly refers to his fellow-students at Athens, and to legitimate students of philosophy in general, as <hi rend="italics">iuvenes,</hi> while the ignorant and presuming young men whose <quote>taking down</quote> he describes ordinarily figure as adidlescentes.
+
+<note>For example, i. 2. 3; i. 10. 1; viii. 3; ix. 15. 2; x. 19. 1; xiii. 20. 3.</note>
+</p>
+
+<p>The date of his birth is variously assigned to A.D. 113,
+
+<note>Fritz Weiss, <hi rend="italics">Die Attischen N&auml;chte des Aulus Gellius,</hi> Leipzig, 1876, p. viii.</note>
+to the early years of the second century,
+
+<note>B. Romano, <hi rend="italics">Rivista di Filologia,</hi> xliv. (1916), pp. 547 ff.</note>
+to 123,
+
+<note><hi rend="italics">Lectures and Essays,</hi> 1885, p. 249 (from <hi rend="italics">Amer. Jour. of Phil. iv.</hi> pp. 4ff.).</note>
+and to <quote>about 130.</quote>
+
+<note>Teuffel, <hi rend="italics">R&ouml;mische Literatur,</hi> 6th ed., 1913, iii., p. 95, and Pauly-Wissowa, <hi rend="italics">Realencyk. s.v. Aulus Gellius.</hi></note>
+It is certain that no part of his writing was done until the reign  <pb id="v1.p.xiv"/>  of Antonius Pius (138&ndash;161), since he always refers to Hadrian as <hi rend="italics">Divus,</hi> and it probably continued during the first half of the principate of Marcus Aurelius (161&ndash;180). As he says nothing of the remarkable death of Peregrinus Proteus,
+
+<note>Lucian, <hi rend="italics">De Morte Peregrini.</hi></note>
+whom he knew and admired, some have assumed that he died before that event took place, in 165; but Radulfus de Diceto, writing in the early part of the thirteenth century, says: <quote>Agellius scribit anno CLXIX.</quote>
+
+<note><hi rend="italics">De Viris Illust.</hi> Radulfus is credited with using good sources (Teuffel, <hi rend="italics">R&omacr;m. Lit.</hi> ii<hi rend="sup">6</hi>, &sect; 285, 3), but see Schanz-Hosius, <hi rend="italics">R&omacr;m. Lit.</hi> iii<hi rend="sup">3</hi>, p. 178, and G&ouml;tz, <hi rend="italics">Ber. der S&auml;chs. Akad.</hi> 75 (1926).</note>
+It seems probable from the Preface to the <hi rend="italics">Noctes Atticae,</hi> which was obviously written after the completion of that work, that Gellius died soon after completing his book, since he has not given us the continuation which he promises.
+
+<note><hi rend="italics">Praef.</hi> 24.</note>
+It seems evident that at the time of writing the Preface he was in the prime of life; for his children were still continuing their education, while he himself was actively engaged in the practice of his profession, or of managing his property.
+
+<note><hi rend="italics">Praef.</hi> 23, quantum a tuenda re familiari procurandoque cultu liberorum meorum dabitur otium.</note>
+On the whole, it seems probable that he was born about 123, and, if we accept the statement of de Diceto, that he died soon after 169.</p>
+
+<p>Gellius pursued in the schools the usual course of study, consisting of grammar, in the Roman sense of the term, and rhetoric. Among his instructors in grammar was the celebrated Carthaginian scholar Sulpicius Apollinaris,
+
+<note>vii. 6. 12, <hi rend="italics">etc.</hi></note>
+who was also the teacher of  <pb id="v1.p.xv"/>  the emperor Pertinax. He studied rhetoric with Antonius Julianus,
+
+<note>ix. 15. 1; xix. 9.</note>
+with Titus Castricius,
+
+<note>xi. 13. 1.</note>
+and perhaps with Cornelius Fronto.
+
+<note>ii. 26. 1; xiii. 29. 2; xix. 8. 1.</note>
+After completing his studies in Rome Gellius went to Athens for instruction in philosophy, and, as Nettleship thought, remained there from the age of nineteen to that of twenty-three. It is certain that he spent at least a year in Greece, since he mentions the four seasons of spring, summer, autumn and winter in that connection. There is nothing, so far as I know, that indicates a longer residence; his book was merely begun in Athens,
+
+<note><hi rend="italics">Praef.</hi> 4.</note>
+not finished there.</p>
+
+<p>The question of the time of Gellius' stay in Greece is closely connected with that of his appointment as <hi rend="italics">index.</hi>
+
+<note>xiv. 2. 1; xii. 13. 1; cf. i 22. 6. Two separate appointments are mentioned, unless Gellius is inaccurate in referring one to the praetors and the other to the consuls.</note>
+At the time of his first appointment he must have been at least twenty-five years old,
+
+<note><hi rend="italics">Digest,</hi> xlii. 1. 57; 1. 4. 8.</note>
+although he refers to himself as <hi rend="italics">adulescens,</hi> and it seems wholly probable that he began his legal career after returning to Rome;
+
+<note>The writer in Teuffel's <hi rend="italics">R&ouml;mische Literatur</hi> thinks it was after his visit to Athens.</note>
+otherwise, since he continued to practise his profession for some time,
+
+<note>See xi. 3. 1.</note>
+if not to the end of his life, we must infer that his legal career was interrupted by his sojourn in Athens, which seems improbable.</p>
+
+<p>Gellius' student life in Athens combined serious work with agreeable entertainment. With Calvisius Taurus he studied Plato and Aristotle, but to what  <pb id="v1.p.xvi"/>  extent is uncertain. He seems to have seen a good deal of Peregrinus Proteus, of whom he gives us a very different impression from that conveyed by Lucian, and he was on intimate terms with the famous rhetorician Tiberius Claudius Herodes Atticus, who was afterwards, at Rome, the praeceptor of Lucius Verus and Marcus Aurelius.
+
+<note><hi rend="italics">Scr. Hist. Aug., vita M. Anton.</hi> ii. 4 (<hi rend="italics">L.C.L.</hi> i. <hi rend="italics">p.</hi> 136), <hi rend="italics">v. Ver.</hi> ii. 5 (<hi rend="italics">L.C.L.</hi> i. <hi rend="italics">p.</hi> 210).</note>
+With his fellow-students he enjoyed the hospitality of Herodes at his villa at Cephisia and elsewhere. He made an excursion to Aegina with his comrades,
+
+<note>ii. 21. 1.</note>
+and with Calvisius Taurus a trip to Delphi.
+
+<note>xii. 5. 1.</note>
+Every week the young philosophers met at dinner, where they indulged in various intellectual diversions.
+
+<note>xv. 2, 3.</note>
+</p>
+
+<p>After his return to Rome Gellius continued his interest in philosophy and other learning, and it was there that he became intimate with Favorinus, the friend of the emperor Hadrian.
+
+<note><hi rend="italics">Scr. Hist. Aug., vita Hadr.</hi> xiv. 12 (i. p. 49 <hi rend="italics">L.C.L.</hi>).</note>
+He speaks with particular admiration of Favorinus, whose <foreign lang="greek">Pantodaph\ (Istori/a</foreign> <foreign lang="greek">(Istori/a</foreign> may have suggested the form of the <hi rend="italics">Nodes Atticae,</hi> and perhaps have furnished some of its material. He was intimate also with the poets Julius Paulus
+
+<note>xix. 7. 1.</note>
+and Annianus,
+
+<note>xx. 8. 1&ndash;2.</note>
+and with other intellectual men of the time.</p>
+
+<p>The <hi rend="italics">Noctes Atticae</hi> is a collection of interesting notes on grammar, public and private antiquities, history and biography, philosophy (including natural philosophy), points of law, text criticism, literary criticism, and various other topics. It gives us valuable information in many fields of knowledge,  <pb id="v1.p.xvii"/>  and it contains extracts from a great number of Greek and Roman writers (275 are mentioned by name), the works of many of whom are otherwise wholly or in great part lost. While his ability is only moderate, Gellius is in the main accurate and conscientious, although he sometimes gives the impression that he has consulted original authorities when in fact he took his material at second hand. It is believed that he cites from no one whom he does not mention at least once by name, but it is not certain that this applies to the single works of a writer; it does not apply to his contemporaries. He seems to have consulted no authority earlier than Varro (116&ndash;28 B. C.), and often to have resorted for his quotations from earlier writers to commentaries and grammatical works. He sometimes tries to pass off the learning of others as his own, particularly in the case of his contemporaries.
+
+<note>For fuller details see Nettleship, <hi rend="italics">l. c.</hi> (p. xiii, n. 5) <hi rend="italics">passim.</hi></note>
+</p>
+
+<p>The style of Gellius is sometimes obscure, and although he deprecates the use of obsolete words, his own writings are by no means free from unusual and archaic words and expressions.
+
+<note>See Knapp, <hi rend="italics">Archaism in A. Gellius, Class. Stud. in hon. of H. Drisler,</hi> New York and London, 1894; Foster, <hi rend="italics">Studies in Archaism in A. Gellius,</hi> Columbia Univ. Diss., New York, 1912.</note>
+His faults are largely those of the time in which he lived, when the reaction which led to the so-called Silver Latin had come to an end and an archaistic tendency had taken its place. He frequently cites Cicero and Virgil, and always speaks of them with respect, but his authorities for the use of the Latin language are in large part the writers of the ante-classical period.  <pb id="v1.p.xviii"/>  His translator Weiss rates him most highly, and he is doubtless right in considering him modest and fond of learning. Augustine
+
+<note><hi rend="italics">De Civ. Dei,</hi> ix. 4.</note>
+calls him <quote>vir elegantissimi eloquii et facundae scientiae,</quote> and Erasmus
+
+<note>Adagiorum Chilias L, cent. 4, prov. xxxvii.</note>
+speaks of <quote>Gellii commentariis, quibus nihil fieri potest neque tersius neque eruditius.</quote> He was used by many later writers,
+
+<note>For a list see Hertz, ed. maior, ii. (1885), pp. v. ff.</note>
+extensively by Nonius Marcellus and Macrobius.</p></div2>
+
+<div2 type="chapter" n="2"><head>The Manuscripts</head>
+
+<p>Our earliest manuscripts divide the <hi rend="italics">Noctes Atticae</hi> into two parts, containing respectively Books i&ndash;vii and ix-xx. These were not united in a single codex before the fourteenth or fifteenth century. The eighth book is lost except for the chapter headings and some inconsiderable fragments, a loss which must have occurred between the time of Macrobius, who knew the eighth book, and that of the archetype of our oldest manuscripts; that is, between the fifth and the ninth centuries. That the division of the work was sometimes made after the ninth book is indicated by the epigram of Gaius Aurelius Romanus, which is found in some of the manuscripts at the end of that book; but it would be difficult to account for the loss of the eighth book, if that division had been universal. The manuscripts which contain the whole work are all late, with the exception of the <hi rend="italics">fragmnentum Buslidianum.</hi> Those which contain the first part, Books i&ndash;vii, are the following:</p>  <pb id="v1.p.xix"/>
+
+<p>P. Codex Parisinus 5765, of the thirteenth century, in the Biblioth&egrave;que Nationale at Paris. It omits i. 1&ndash;2. 10 and ends at vii. 4. 3 with the words <hi rend="italics">ictus solis.</hi></p>
+
+<p>R. Codex Lugduno-Batavianus Gronovianus 21, formerly Rottendorfianus. This manuscript is written in various hands, for the most part of the twelfth century. It comes to an end at vi. 20. 6, and it lacks the <hi rend="italics">lemmata.</hi></p>
+
+<p>V. Codex Vaticanus 3452, of the thirteenth century. It begins with the index of chapters, omitting the Preface.</p>
+
+<p>The descent of these manuscripts from a single archetype is shown by the occurrence of the same lacunae (see i. 4. 3 and i. 22. 5 and other examples in Hertz and Hosius), by the same arbitrary additions (iii. 17. 5; v. 18. 9, etc.), and by the same errors (i. 3. 19, 24, 25, etc.). The nature of some of the errors indicates that the archetype of P, R, and V was written in uncials without word-division.</p>
+
+<p>From a different archetype is our oldest manuscript:</p>
+
+<p>A. Palatino-Vaticanus xxiv, a palimpsest, assigned by Hertz to the fifth, by Teuffel (6th ed.) to the sixth, and by Hosius, with a query, to the seventh century. It contains a Latin version of the books of Tobias, Judith, Job and Esther, written over several earlier works: fragments of Livy xci, Cicero <hi rend="italics">pro Fonteio</hi> and <hi rend="italics">pro C. Rabirio,</hi> Seneca, Lucan and others. Beginning with the 80th folio it contains large parts of Books i&ndash;iv of the <hi rend="italics">Noctes Atticae</hi> with the addition of a few chapter headings. All the Greek is omitted and a space left for its insertion by another hand. Although carelessly written in <quote>litteris ex quadrata  <pb id="v1.p.xx"/>  forma detortis,</quote> A supplies lacunae and corrects some errors. It alone contains the end of the second chapter of Book i and the beginning of the third chapter.</p>
+
+<p><foreign lang="greek">B</foreign>. Besides these extant manuscripts we have some readings from a lost codex of Hieronymus Buslidius, a Belgian cleric and jurist, who died in 1517. These readings are for the most part from Book i, with some from Books ix, x, xvi, xvii, and xviii, and are largely due to L. Carrio. The codex had no connection with A, although it contained the same parts of Books i, ii and iii. The readings are not of great value, although they are occasionally helpful in filling lacunae. Carrio's good faith has been questioned by some, but apparently without sufficient reason.</p>
+
+<p>Of the other manuscripts of the first part of the <hi rend="italics">Noctes</hi> the earliest, R, is not the best, since it has many indications of corruption and interpolation. Moreover, the writer was unacquainted with Greek except as single words. Nevertheless R sometimes has value (<hi rend="italics">e.g.</hi> i. 11. 8; 14. 6, etc.). Of the three, V is the most valuable, since it contains all of Book vii, is more accurate in its Greek, and is very little inferior to P in other respects. The readings must, however, be carefully weighed in each case, and no codex has prime authority.</p>
+
+<p>Of Books ix&ndash;xx we have seven manuscripts, which on the basis of common readings (correct and incorrect) are divided into two classes. The first of these, <foreign lang="greek">g</foreign>, contains the following:</p>
+
+<p>O. Codex Reginensis inter Vaticanos 597, of the tenth century. It begins with ix. 14. 2, <hi rend="italics">grammaticam.</hi></p>
+
+<p>II. Codex Reginensis inter Vaticanos 1646, written  <pb id="v1.p.xxi"/>  in the year 1170, as appears from the colophon, <quote>Willelmus scripsit anno . . . MCLXX.</quote></p>
+
+<p>X. Codex Lugduno-Batavianus Vossianus Lat. F 112, of the tenth century. It contains Books x&ndash;xx, and also ix with the exception of 1&ndash;2. <hi rend="italics">10,fortissimorum;</hi> 8. 1, <hi rend="italics">nasci non</hi>&mdash;12. 10, <hi rend="italics">dicit;</hi> and 16. 6, <hi rend="italics">postulantis,</hi> etc.</p>
+
+<p>N. Codex Magliabecchianus 329, of the fifteenth century. This codex was written by Nicolai Nicoli, who was helped with the Greek by Ambrosius Traversarius. It is the only manuscript, except the <hi rend="italics">deteriores,</hi> which has the words following xx. 10. 7. It seems to owe to the hand of Nicolai some correct readings which it offers, either alone or in agreement with the second family.</p>
+
+<p>The second family, 8, contains the following:</p>
+
+<p>Q. Codex Parisinus 8664, of the thirteenth century. In the Bibl. Nat. at Paris.</p>
+
+<p>Z. Codex Lugduno-Batavianus Vossianus Lat. F 7, of the fourteenth century.</p>
+
+<p>B. Fragments written in the year 1173, a part of which are contained in the codex in the library of Berne which is numbered 404. It gives ix.&ndash;xii. 10. 3, <hi rend="italics">esse potuit.</hi> The rest, as far as xiii. 5 (xiii. 1&ndash;4 is omitted with a mistake in numbering), is supplied by leaves of a manuscript of the university library at Utrecht (<hi rend="italics">codex Ultra-traiectinus</hi>), designated as <hi rend="italics">Aevum vetus. Scriptores Graeci. No.</hi> 26.</p>
+
+<p>All these manuscripts of Books ix&ndash;xx, with the exception of Q, sometimes have all or a part of the Greek written in Latin letters. Neither family is greatly superior to the other. <foreign lang="greek">d</foreign> is slightly the better, especially Q; but all the codices of both families must be considered.</p>  <pb id="v1.p.xxii"/>
+
+<p>Codices O and Q have corrections by a second hand (O<hi rend="sup">2</hi>, Q<hi rend="sup">2</hi>). These sometimes eliminate obvious errors, but at other times introduce new conjectures. O also has corrections by a third hand (O<hi rend="sup">3</hi>).</p>
+
+<p>Besides these complete manuscripts there are two <hi rend="italics">Florilegia</hi> contained in cod. Parisinus 4952 (T) and Vaticanus 3307 (Y), both of the twelfth century. In spite of their age these only occasionally give readings of any value.</p>
+
+<p>Other codices used by Hertz are regarded by Hosius as of no importance.</p>
+
+<p>A number of inferior codices (<foreign lang="greek">s</foreign>), for the most part later than the fourteenth century, contain the whole of Gellius, including the last part of the last book (otherwise found only in N), as well as the chapterheadings of Book viii. For this reason, and because they occasionally correct errors, they are not wholly to be disregarded.</p>
+
+<p>The value of <hi rend="italics">testimonia</hi> in text criticism is generally recognized. Of these Hertz has made a thoroughgoing collection. In some <hi rend="italics">testimonia</hi> Gellius is named (Vopiscus, Lactantius, Servius, Augustinus, Priscian), but in very many instances he is used without mention of his name (as in Apuleius, Nonius, Ammianus, the Glossographers). <hi rend="italics">Testimonia</hi> later than the ninth century (Einhard, John of Salisbury, etc.) are of no value in restoring the text.</p></div2>
+
+<div2 type="chapter" n="3"><head>Bibliographical Note</head>
+
+<p>The <hi rend="italics">editio princeps</hi> of Gellius was published in Rome in 1469 in one volume. This was followed in 1472 by a second Roman edition in two volumes and a Venetian edition in one volume: the Venetian  <pb id="v1.p.xxiii"/>  edition appeared in a twelfth reprint in 1500. Other important early editions are the Aldine in 1515, that of J. F. &amp; J. Gronov, Leyden, 4 vols., 1706, and a new edition of the latter by J. L. Conradi, 2 vols., Leipzig, 1762. The standard critical edition is that of Martin Hertz, Leipzig, 1883. An <hi rend="italics">editio minor</hi> of Hertz appeared in 1886, and the edition of C. Hosius in 1903, both in the series of Teubner texts.</p>
+
+<p>There is an English translation by W. Beloe, London, 3 vols., 1795. It contains numerous errors and omits many words and phrases. A much better version is that into German by Weiss (see note 3, p. xiii). There is a good French translation in the edition of Apuleius, Gellius and Petronius by Nisard. Weiss (p. xvi) mentions four other French translations: one published at Paris in three volumes in 1789; one by Victor Verger with the Latin text, Paris, 3 vols., 1820; one by Jacquinet et Favre; and a fourth by Charpentier et Blanchet (the last two without dates); also a translation into Russian of 1820. Nothing approaching an adequate commentary on the <hi rend="italics">Noctes Atticae</hi> exists in any language.</p>
+
+<p>A list of the important works dealing with Gellius is given in the edition of Hosius, pp. lxi ff. Besides works already cited the following additions may be made to his list:</p>
+
+<p>W. Heraeus, review of Hosius, <hi rend="italics">Berl. phil. Woch.</hi> 1904, pp. 1163 ff.</p>
+
+<p>F. Hache, <hi rend="italics">Quaestiones Archaicae.</hi> I. <hi rend="italics">De A. Gellio veteris sermons imitatore,</hi> Breslau, 1907.</p>
+
+<p>A. J. Kronenberg, <hi rend="italics">ad Gellium, Class. Quart.,</hi> iv. (1910), pp. 23 f.</p>  <pb id="v1.p.xxiv"/>
+
+<p>O. Lauze, <hi rend="italics">Das synchronistische Kapitel des Gellius</hi> (xvii. 21), <hi rend="italics">Rh. Mus.</hi> lxvi. (1911), pp. 237&ndash;274.</p>
+
+<p>P. Maas, <hi rend="italics">Varro bei Gellius</hi> (on xviii. 15), <hi rend="italics">Hermes,</hi> xlviii. (1913), pp. 157&ndash;159.</p>
+
+<p>W. Schick, Favorin>, <foreign lang="greek">Peri\ Pai/dwn Trofh=s,</foreign> Leipzig, 1912.</p>
+
+<p>A. E. Evans, A. Gellius on <hi rend="italics">Mala prohibita vs Mala in se, Class. Jour.</hi> ix. (1914), pp. 396&ndash;398.</p>
+
+<p>P. H. Damst&eacute;, <hi rend="italics">ad A. Gellium, Mnemos.</hi> xlii. (1914), pp. 91&ndash;92.</p>
+
+<p><hi rend="italics">Emendatur locus Gellianus</hi> (xi. 21. 8), <hi rend="italics">Mnemos.</hi> xlvi. (1918), p. 444.</p>
+
+<p>Critical Notes on Gellius i&ndash;xx, <hi rend="italics">Mnemos.</hi> xlvii. (1919), pp. 288&ndash;298, and xlviii. pp. 80&ndash;89 and 193&ndash;204.</p>
+
+<p>E. W. Fay, <hi rend="italics">Nigidius Grammaticus</hi> (<hi rend="italics">casus interrogandi apud Gell.</hi> xx. 6. 7&ndash;8), <hi rend="italics">Amer. Jour. of Phil.</hi> xxxvi. (1915), pp. 76&ndash;79.</p>
+
+<p>M. L. De Gubernatis, <hi rend="italics">Questioncelle Probiane I</hi> (on Gellius xiii. 21), <hi rend="italics">Rivista di Filologia,</hi> xliv. (1916), pp. 235&ndash;245.</p>
+
+<p>J. C. Rolfe, <hi rend="italics">Prorsus</hi> in Gellius, <hi rend="italics">Class. Phil.</hi> xvii. (1922), pp. 144&ndash;146.
+
+<note>The total number of examples should be 42; add xiv. 1. 29; 2. 16; 6. 5; xvii. 20. 2; xx. 5. 10.</note>
+</p>
+
+<p>We now have <hi rend="italics">Noctes Atticus</hi> ed. P. K. Marshall 2 vols. Oxford Texts 1968, 1969.</p>
+
+<p><hi rend="italics">Les Nuites Attiques,</hi> i&ndash;iv ed. with French translation R. Marache Bud&eacute;, Paris 1967.</p>
+</div2>  
+	<pb id="v1.p.xxv"/>
+
+<div2 type="chapter" n="4"><head>Sigla</head>
+
+<p>For Books I&ndash;VII:</p>
+
+<p>A = Codex palimpsestus Palatino-Vaticanus.</p>
+
+<p>P = Codex Parisinus 5765.</p>
+
+<p>R = Codex Lugduno-Batavianus 21.</p>
+
+<p>V = Codex Vaticanus 3452.</p>
+
+<p><foreign lang="greek">w</foreign> = The agreement of (A), P, R, V.</p>
+
+<p><foreign lang="greek">b</foreign> = Codex Buslidianus.</p>
+
+<p>T Florilegium codicis Parisini 4952.</p>
+
+<p>Y = Florilegium codicis Vaticani 3307.</p>
+
+<p><foreign lang="greek">s</foreign> = The late and inferior codices.</p>
+
+<p><foreign lang="greek">s</foreign> = The vulgate reading.</p>
+
+<p>For Books IX&ndash;XX:</p>
+
+<p>N = Codex Magliabecchianus 329.</p>
+
+<p>O = Codex Reginensis 597.</p>
+
+<p>II = Codex Reginensis 1646.</p>
+
+<p>X = Codex Vossianus Lat. F 112.</p>
+
+<p><foreign lang="greek">g</foreign> = The archetype of N, O, II, X.</p>
+
+<p>B = Codex Bernensis 404 and Rheno-traiectinus, aevum vetus, Scriptores Graeci 26.</p>
+
+<p>Q = Codex Parisinus 8664.</p>
+
+<p>Z = Codex Vossianus Lat. F 7.</p>
+
+<p><foreign lang="greek">d</foreign> = The archetype of (B) Q, Z.</p>
+
+<p><foreign lang="greek">w</foreign> = The agreement of the codices of Books ix&ndash;xx.</p>
+
+<p>Q<hi rend="sup">2</hi>, O<hi rend="sup">2</hi> = Correctors of codices Q, O.</p>
+
+<p>T, Y, <foreign lang="greek">b, s, s,</foreign>, as for codices of Books i&ndash;vii.</p>
+</div2>
+
+<div2 type="chapter" n="5"><head>Note</head>
+
+<p>A complete Index of Proper Names is given at the end of vol. iii and, in connection with the names of the writers, the editions of the fragments of those whose works are in great part lost are there cited.</p>
+</div2>
+</div1>
+</body>
+</text>
+</TEI.2> 
