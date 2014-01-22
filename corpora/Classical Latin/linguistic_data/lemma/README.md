@@ -1,7 +1,7 @@
 About the lemmatizer
 ====================
 
-Original data taken from a dictionary-like morphological list from Perseus source, eg,
+Original data taken from a dictionary-like morphological list from Perseus source (../parse/latin-lemmata.txt), eg,
 
 > amicitia, amicitiae, amicitiam, amicitiarum, ...
 
@@ -16,3 +16,5 @@ This replacement list does not use j or v, so I created the "j\_and\_v_converter
 Two examples, "test\_operations/test\_2\_jv_replacing.py" and "test\_operations/test\_2\_lemmatizing.py", illustrate these replacers in action.
 
 Perseus data licensed under the Mozilla Public License 1.1 (MPL 1.1) (<http://www.mozilla.org/MPL/1.1/>). See LICENSE.md for this.
+
+TODO: Lemmatizing needs to be incorporated into the forthcoming CLTK lemmatizing functionality.
