@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace">
+	
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+  
+	<xsd:complexType name="annotatorType">
+		<xsd:sequence>
+			<xsd:element name="short" type="xsd:string"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="address" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="sentenceType">
+		<xsd:sequence>
+			<xsd:element name="primary" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="secondary" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="annotator" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="word" type="wordType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:nonNegativeInteger" use="required"/>
+		<xsd:attribute name="document_id" type="xsd:string" use="optional"/>
+		<xsd:attribute name="subdoc" type="xsd:string" use="optional"/>
+		<xsd:attribute name="span" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="wordType">
+		<xsd:attribute name="id" type="xsd:nonNegativeInteger" use="required"/>
+		<xsd:attribute name="cid" type="xsd:nonNegativeInteger" use="required"/>
+		<xsd:attribute name="form" type="xsd:string" use="required"/>
+		<xsd:attribute name="lemma" type="xsd:string" use="required"/>
+		<xsd:attribute name="postag" type="xsd:string" use="required"/>
+		<xsd:attribute name="head" type="xsd:nonNegativeInteger" use="required"/>
+		<xsd:attribute name="relation" type="xsd:string" use="required"/>
+	</xsd:complexType>
+
+	<xsd:element name="treebank">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="annotator" type="annotatorType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="sentence" type="sentenceType" minOccurs="1" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="version" type="xsd:decimal" use="required"/>
+			<xsd:attribute ref="xml:lang" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>
