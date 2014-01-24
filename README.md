@@ -21,28 +21,7 @@ pip install cltk
 
 USE
 ---
-The CLTK is developed in Python 3.3.
-
-To convert corpora into single JSON files, use the following in your example.
-
-```python
-from cltk.compiler import Compile
-
-c - Compile()
-c.dump_txts_phi7()
-c.dump_txts_phi5()
-c.dump_txts_tlg()
-```
-
-The above code looks for the original corpora in a script's current directory and outputs there, too. The <code>Compile()</code> class takes two optional parameters, being corpora directory and target directory for the JSON output. E.g,:
-
-```python
-from cltk.compiler import Compile
-
-c = Compile('/home/kyle/Documents/corpora', '/home/kyle/project_dir')
-```
-
-Note that the disks need to be labelled as follow: PHI5, PHI7, and TLG_E.
+The CLTK is developed in Python 3.3. See example/ for usage.
 
 FUTURE RELEASES
 ---------------
