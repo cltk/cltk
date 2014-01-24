@@ -1,0 +1,1 @@
+The file latin\_english\_lexicon\_old.xml comes from Perseus, where is was called 1999.04.0059.xml ([http://sourceforge.net/projects/perseus-hopper/](source here)) and licensed under the [Mozilla Public License 1.1 (MPL 1.1)](http://www.mozilla.org/MPL/1.1/).
