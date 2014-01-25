@@ -10,4 +10,4 @@ TODO
 
 - ~~See what 'ga^' is supposed to be on line 28 of the original Perseus file.~~ This has been removed from the unicode version.
 - Add alternate versions of these words to the list, such as 'ἐξ' for 'ἐκ'.
-- Eventually, an entirely new list of stopwords should be generated from the TLG corpus, excuding the most frequently found words in the entire Ancient Greek canon, as well as more specific lists according to date, genre, etc..
+- Eventually, an entirely new list of stopwords should be generated from the TLG corpus, including the most frequently found words in the entire Ancient Greek canon, as well as more specific lists according to date, genre, etc..
