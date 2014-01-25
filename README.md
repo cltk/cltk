@@ -1,6 +1,8 @@
 The Classical Language Toolkit
 ==============================
 
+WARNING: This is an alpha-stage project. Everything should work, but expect braking changes frequently.
+
 About 
 -----
 The Ancient Greek and Latin languages have not benefited from comprehensive scientific study. The goals of the Classical Language Toolkit (CLTK) are to:
