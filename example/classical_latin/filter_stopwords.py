@@ -1,4 +1,4 @@
-import nltk
+import nltk.tokenize
 
 from cltk.stop.classical_latin.stops import STOPS_LIST
 
