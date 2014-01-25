@@ -1,6 +1,8 @@
 The Classical Language Toolkit
 ==============================
 
+[![Build Status](https://travis-ci.org/kylepjohnson/cltk.png?branch=master)](https://travis-ci.org/kylepjohnson/cltk)
+
 WARNING: This is an alpha-stage project. Everything should work, but expect braking changes frequently.
 
 About 
