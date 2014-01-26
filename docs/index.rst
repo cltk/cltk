@@ -19,6 +19,7 @@ Contents:
    :maxdepth: 2
 
    about
+   classical_greek
    classical_latin
 
 
