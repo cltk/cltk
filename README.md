@@ -22,7 +22,7 @@ pip install cltk
 
 DOCS
 ----
-The official docs are at http://cltk.readthedocs.org/en/latest/index.html.
+The official docs are at [http://cltk.readthedocs.org](http://cltk.readthedocs.org/en/latest/index.html).
 
 LICENSE
 -------
