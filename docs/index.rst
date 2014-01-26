@@ -6,6 +6,11 @@
 Welcome to Classical Language Toolkit's documentation!
 ======================================================
 
+
+.. warning::
+
+   This is an alpha-stage project. Everything should work as described, but expect breaking changes.
+
 The Classical Language Toolkit is an extension of the NLTK and will offer natural language processing support for Classical languages.
 
 Contents:
@@ -14,6 +19,7 @@ Contents:
    :maxdepth: 2
 
    about
+   classical_latin
 
 
 
