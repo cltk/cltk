@@ -4,7 +4,11 @@ Classical Latin
 
 Usage
 ===================
-Filter Stopwords::
+
+Filter Stopwords
+----------------
+
+::
 
    import nltk.tokenize
    from cltk.stop.classical_latin.stops import STOPS_LIST
@@ -16,7 +20,10 @@ Filter Stopwords::
    
    print(filtered)
    
-Convert J to I, V to U::
+Convert J to I, V to U
+----------------------
+
+::
 
    from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
 
@@ -25,7 +32,10 @@ Convert J to I, V to U::
 
    print(replaced)
 
-Compile PHI5::
+Compile PHI5
+------------
+
+::
 
    from cltk.corpus.common.compiler import Compile
 
