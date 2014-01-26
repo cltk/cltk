@@ -19,9 +19,9 @@ Contents:
    :maxdepth: 2
 
    about
+   installation
    classical_greek
    classical_latin
-   installation
 
 
 
