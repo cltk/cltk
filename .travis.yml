@@ -2,6 +2,11 @@ language: python
 python:
   - "3.3"
 
+install:
+
+  - "pip install http://nltk.org/nltk3-alpha/nltk-3.0a3.tar.gz"
+  - "pip install -r requirements.txt"
+
 # command to run tests, e.g. python setup.py test
 script:
   - cd cltk/tests/
