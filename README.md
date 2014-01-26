@@ -26,6 +26,4 @@ The official docs are at http://cltk.readthedocs.org/en/latest/index.html.
 
 LICENSE
 -------
-The MIT License (MIT)
-
-Copyright (c) 2014 Kyle P. Johnson
+The CLTK is Copyright (c) 2014 Kyle P. Johnson, under The MIT License. See file LICENSE for details.
