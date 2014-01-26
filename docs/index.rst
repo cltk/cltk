@@ -21,6 +21,7 @@ Contents:
    about
    classical_greek
    classical_latin
+   installation
 
 
 
