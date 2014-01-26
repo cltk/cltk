@@ -6,6 +6,8 @@
 Welcome to Classical Language Toolkit's documentation!
 ======================================================
 
+The Classical Language Toolkit is an extension of the NLTK and will offer natural language processing support for Classical languages.
+
 Contents:
 
 .. toctree::
