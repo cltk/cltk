@@ -2,7 +2,7 @@ Classical Latin
 ************************
 
 
-Functionality
+Usage
 ===================
 Filter Stopwords::
 
