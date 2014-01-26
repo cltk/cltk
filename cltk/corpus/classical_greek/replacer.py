@@ -3,6 +3,8 @@
 import re
 
 UPPER = [
+    #this appears in Perseus, I don't think is TLG standard
+    (r'\*\)A', 'Ἀ'),
     (r'\*A\'', 'Ᾰ'),
     (r'\*I\'', 'Ῐ'),
     (r'\*U\'', 'Ῠ'),
@@ -264,12 +266,21 @@ LOWER = [
     (r'X', 'χ'),
     (r'Y', 'ψ'),
     (r'Z', 'ζ'),
-]
-
-PUNCT = [
+    #punctuation here
+    (r':', '·'),
     (r'\.', '.'),
     (r',', ','),
-    (r':', '·'), #!not working
+    (r';', ';'),
+    (r'\'', '’'),
+    (r'-', '-'),
+    (r'_', '—'),
+]
+
+#the third punctuation list wasn't working
+PUNCT = [
+    (r':', '·'),
+    (r'\.', '.'),
+    (r',', ','),
     (r';', ';'),
     (r'\'', '’'),
     (r'-', '-'),
@@ -301,6 +312,7 @@ class Replacer(object):#pylint: disable=R0903
             (beta_string, count) = re.subn(pattern, repl, beta_string)#pylint: disable=W0612
         for (pattern, repl) in self.pattern2:
             (beta_string, count) = re.subn(pattern, repl, beta_string)
+        #remove third run, if punct list not used
         for (pattern, repl) in self.pattern3:
             (unicode_string, count) = re.subn(pattern, repl, beta_string)
         return unicode_string

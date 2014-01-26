@@ -2,7 +2,7 @@ Classical Greek
 ***************
 
 
-Usage
+Use
 =====
 
 Convert Beta Code to Unicode
