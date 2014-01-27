@@ -14,7 +14,7 @@ The Classical Language Toolkit is an extension of the NLTK and will offer natura
 
 INSTALLATION
 ------------
-[CLTK sources are available from PyPI](https://pypi.python.org/pypi/cltk) and installable with pip.
+[CLTK is available from PyPI](https://pypi.python.org/pypi/cltk) and installable with pip.
 
 ```bash
 pip install cltk
