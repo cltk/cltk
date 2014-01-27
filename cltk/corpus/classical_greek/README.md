@@ -1,3 +1,8 @@
+TODO for perseus_compiler.py
+----------------------------
+
+I need to get rid of the bleach HTML tag stripping and actually parse the source XML, reading (I think) only the <p> tags.
+
 TODO for replacer.py
 --------------------
 
