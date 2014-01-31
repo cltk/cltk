@@ -24,7 +24,7 @@ setup(
     description=('NLP support for Ancient Greek and Latin'),
     keywords=['nlp', 'ancient greek', 'latin', 'tlg', 'phi', 'literature'],
     license='MIT',
-    long_description="""The Classical Language Toolkit (NLTK) is a \
+    long_description="""The Classical Language Toolkit (CLTK) is a \
 suite of tools assisting natural language processing for the Ancient Greek \
 and Latin languages. It is developed in Python 3.3.""",
     name='cltk',
