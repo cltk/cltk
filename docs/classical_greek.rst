@@ -22,11 +22,15 @@ Convert Beta Code to Unicode
 Compile TLG
 -----------
 
-::
+The TLG can be compiled into one giant JSON file or into individual files, as they were originally organized. To make into one file::
 
    from cltk.corpus.common.compiler import Compile
 
    c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/Downloads/project_dir')
+
+   c.dump_txts_tlg()
+
+or into multiple files::
 
    c.dump_txts_tlg()
 
