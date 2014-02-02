@@ -216,21 +216,23 @@ class Compile(object):
                     txt_read = index_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
                     local_replacer = Replacer()
-                    new_uni = local_replacer.beta_code(txt_ascii)
-                    #tlg_dict[abbrev] = new_uni
+0                   new_uni = local_replacer.beta_code(txt_ascii)
                     local_project_save = self.project_root + '/' + file_name + '.txt'
                     print(local_project_save)
                     try:
                         with open(local_project_save, 'w') as new_file:
-                            #json_array = json.dumps(tlg_dict)
                             new_file.write(new_uni)
                     except IOError:
                         logging.error('Failed to create and/or write to file tlg.json.')
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
-            #local_project_save = self.project_root + '/' + 'tlg.json'
-        #self.confirm_json_present('TLG_E')
+        local_project_save = self.project_root + '/' + 'AUTHTAB.txt'
+        try:
+            with open(local_project_save, 'w') as authtab_opened:
+                authtab_opened.write(INDEX_DICT_TLG)
+        except IOError:
+            logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished TLG corpus compilation.')
 
     def confirm_json_present(self, directory):
