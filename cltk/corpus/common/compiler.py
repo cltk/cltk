@@ -113,6 +113,13 @@ class Compile(object):
                         logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
             except IOError:
                 logging.error('Failed to open PHI7 file %s of author %s', file_name, abbrev)
+                #later delete the authdab-making part dict
+        authtab_path = phi7_path + '/' + 'AUTHTAB.txt'
+        try:
+            with open(authtab_path, 'w') as authtab_opened:
+                authtab_opened.write(str(INDEX_DICT_PHI7))
+        except IOError:
+            logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished PHI7 corpus compilation.')
 
     def open_index_phi5(self):
