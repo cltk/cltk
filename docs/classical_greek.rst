@@ -26,7 +26,7 @@ The TLG can be compiled into one giant JSON file or into individual files, as th
 
    from cltk.corpus.common.compiler import Compile
 
-   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus/classical_greek/plaintext/tlg_e')
+   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
 
    c.dump_txts_tlg_files()
 
@@ -34,7 +34,9 @@ or into multiple files::
 
    c.dump_txts_tlg()
 
-The PHI7 may also be generated with ``c.dump_txts_phi7()``.
+The PHI7 may also be generated with ``c.dump_txts_phi7()`` or ``c.dump_txts_phi7_files()``.
+
+    
 
 Filter Stopwords
 ----------------
