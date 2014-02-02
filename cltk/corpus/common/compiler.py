@@ -208,7 +208,6 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting TLG corpus compilation into files.')
         self.open_index_tlg()
-        tlg_dict = {}
         for file_name in INDEX_DICT_TLG:
             abbrev = INDEX_DICT_TLG[file_name]
             files_path = self.corpora_root + '/' + 'TLG_E' + '/' \
@@ -219,13 +218,15 @@ class Compile(object):
                     txt_ascii = remove_non_ascii(txt_read)
                     local_replacer = Replacer()
                     new_uni = local_replacer.beta_code(txt_ascii)
-                    local_project_save = self.project_root + '/' + file_name + '.txt'
+                    local_project_save = self.project_root + '/' + file_name +\
+                       '.txt'
                     print(local_project_save)
                     try:
                         with open(local_project_save, 'w') as new_file:
                             new_file.write(new_uni)
                     except IOError:
-                        logging.error('Failed to create and/or write to file tlg.json.')
+                        logging.error('Failed to create and/or write to file \
+                        tlg.json.')
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
