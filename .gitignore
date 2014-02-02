@@ -35,6 +35,21 @@ nosetests.xml
 .project
 .pydevproject
 
+classics_corpus_compiler.log
+
+*\~
+venv
+*.log
+
+tmp_*
+
+# Sphinx
+_build
+_static
+_templates
+
+# Greek and Latin
+# don't save proprietary data
 PHI5
 PHI7
 TLG_E
@@ -46,20 +61,5 @@ tlg.json
 phi5.pickle
 phi7.pickle
 tlg.pickle
-
-classics_corpus_compiler.log
-
-*\~
-venv
-*.log
-
-tmp_*
-# tlg_e/[^.]*
-# cltk/corpus/classical_greek/plaintext/tlg_e/
 TLG*
 AUTHTAB.txt
-
-# Sphinx
-_build
-_static
-_templates
