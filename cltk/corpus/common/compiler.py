@@ -174,6 +174,37 @@ class Compile(object):
             logging.error('Failed to create and write to file phi5.json.')
         logging.info('Finished PHI5 corpus compilation.')
 
+    def dump_txts_phi5_files(self):
+        """reads file and translates to ascii"""
+        logging.info('Starting PHI5 corpus compilation.')
+        phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
+        self.open_index_phi5()
+        for file_name in INDEX_DICT_PHI5:
+            abbrev = INDEX_DICT_PHI5[file_name]
+            files_path = self.corpora_root + '/' + 'PHI5' + '/' \
+              + file_name + '.TXT'
+            try:
+                with open(files_path, 'rb') as index_opened:
+                    txt_read = index_opened.read().decode('latin-1')
+                    txt_ascii = remove_non_ascii(txt_read)
+                    file_path = phi5_path + '/' + file_name + '.txt'
+                    print(file_path)
+                    try:
+                        with open(file_path, 'w') as new_file:
+                            new_file.write(txt_ascii)
+                    except IOError:
+                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+            except IOError:
+                logging.error('Failed to open PHI5 file %s of author %s', file_name, abbrev)
+        #later delete the authdab-making part dict
+        authtab_path = phi5_path + '/' + 'AUTHTAB.txt'
+        try:
+            with open(authtab_path, 'w') as authtab_opened:
+                authtab_opened.write(str(INDEX_DICT_PHI5))
+        except IOError:
+            logging.error('Failed to create and/or write to file tlg.json.')
+        logging.info('Finished PHI5 corpus compilation.')
+
     def open_index_tlg(self):
         """Creates a dictionary of TLG collections and file names."""
         global INDEX_DICT_TLG
