@@ -202,6 +202,37 @@ class Compile(object):
         self.confirm_json_present('TLG_E')
         logging.info('Finished TLG corpus compilation.')
 
+    def dump_txts_tlg_files(self):
+        """reads file and translates to ascii"""
+        logging.info('Starting TLG corpus compilation into files.')
+        self.open_index_tlg()
+        tlg_dict = {}
+        for file_name in INDEX_DICT_TLG:
+            abbrev = INDEX_DICT_TLG[file_name]
+            files_path = self.corpora_root + '/' + 'TLG_E' + '/' \
+              + file_name + '.TXT'
+            try:
+                with open(files_path, 'rb') as index_opened:
+                    txt_read = index_opened.read().decode('latin-1')
+                    txt_ascii = remove_non_ascii(txt_read)
+                    local_replacer = Replacer()
+                    new_uni = local_replacer.beta_code(txt_ascii)
+                    #tlg_dict[abbrev] = new_uni
+                    local_project_save = self.project_root + '/' + file_name + '.txt'
+                    print(local_project_save)
+                    try:
+                        with open(local_project_save, 'w') as new_file:
+                            #json_array = json.dumps(tlg_dict)
+                            new_file.write(new_uni)
+                    except IOError:
+                        logging.error('Failed to create and/or write to file tlg.json.')
+            except IOError:
+                logging.error('Failed to open TLG file %s of author %s',
+                              file_name, abbrev)
+            #local_project_save = self.project_root + '/' + 'tlg.json'
+        #self.confirm_json_present('TLG_E')
+        logging.info('Finished TLG corpus compilation.')
+
     def confirm_json_present(self, directory):
         """Checks that the JSON file is in fact present and opens OK"""
         logging.info('Confirming JSON file saved.')
