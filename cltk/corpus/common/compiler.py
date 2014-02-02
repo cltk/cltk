@@ -18,6 +18,7 @@ class Compile(object):
         """Initializer, optional corpora and project"""
         self.corpora_root = corpora_root
         self.project_root = project_root
+        '''
         local_project_save = self.project_root + '/' \
           + 'cltk.log'
         #clear_log()
@@ -25,6 +26,7 @@ class Compile(object):
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
                             datefmt='%m/%d/%Y %I:%M:%S %p')
+        '''
 
     def uppercase_files(self):
         """Uppercase corpora file names"""
@@ -216,7 +218,7 @@ class Compile(object):
                     txt_read = index_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
                     local_replacer = Replacer()
-0                   new_uni = local_replacer.beta_code(txt_ascii)
+                    new_uni = local_replacer.beta_code(txt_ascii)
                     local_project_save = self.project_root + '/' + file_name + '.txt'
                     print(local_project_save)
                     try:
