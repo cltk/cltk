@@ -115,6 +115,7 @@ class Compile(object):
                 logging.error('Failed to open PHI7 file %s of author %s', file_name, abbrev)
                 #later delete the authdab-making part dict
         authtab_path = phi7_path + '/' + 'AUTHTAB.txt'
+        print(authtab_path)
         try:
             with open(authtab_path, 'w') as authtab_opened:
                 authtab_opened.write(str(INDEX_DICT_PHI7))
@@ -198,6 +199,7 @@ class Compile(object):
                 logging.error('Failed to open PHI5 file %s of author %s', file_name, abbrev)
         #later delete the authdab-making part dict
         authtab_path = phi5_path + '/' + 'AUTHTAB.txt'
+        print(authtab_path)
         try:
             with open(authtab_path, 'w') as authtab_opened:
                 authtab_opened.write(str(INDEX_DICT_PHI5))
@@ -290,6 +292,7 @@ class Compile(object):
                               file_name, abbrev)
         #later delete the authdab-making part dict
         authtab_path = tlg_e_path + '/' + 'AUTHTAB.txt'
+        print(authtab_path)
         try:
             with open(authtab_path, 'w') as authtab_opened:
                 authtab_opened.write(str(INDEX_DICT_TLG))
