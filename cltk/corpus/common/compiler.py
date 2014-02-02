@@ -232,7 +232,7 @@ class Compile(object):
         local_project_save = self.project_root + '/' + 'AUTHTAB.txt'
         try:
             with open(local_project_save, 'w') as authtab_opened:
-                authtab_opened.write(INDEX_DICT_TLG)
+                authtab_opened.write(str(INDEX_DICT_TLG))
         except IOError:
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished TLG corpus compilation.')
