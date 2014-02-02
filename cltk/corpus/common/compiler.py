@@ -18,9 +18,6 @@ class Compile(object):
         """Initializer, optional corpora and project"""
         self.corpora_root = corpora_root
         self.project_root = project_root
-        phi5_path = self.project_root + '/classical_latin/plaintext/phi_5/'
-        phi7_path = self.project_root + '/classical_greek/plaintext/phi_7/'
-        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e/'
         logging.basicConfig(filename='compiler.log',
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
@@ -40,6 +37,7 @@ class Compile(object):
         """Creates a dictionary of PHI7 collections and file names."""
         global INDEX_DICT_PHI7
         logging.info('Starting PHI7 index parsing.')
+        #phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
         index = 'AUTHTAB.DIR'
         local_index = self.corpora_root + '/' + 'PHI7/' + index
         try:
@@ -68,6 +66,7 @@ class Compile(object):
     def dump_txts_phi7(self):
         """reads file and translates to ascii"""
         logging.info('Starting PHI7 corpus compilation.')
+        phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
         self.open_index_phi7()
         phi7_dict = {}
         for file_name in INDEX_DICT_PHI7:
@@ -90,7 +89,30 @@ class Compile(object):
                 json_opened.write(json_array)
         except IOError:
             logging.error('Failed to create and/or write to file phi7.json.')
-        self.confirm_json_present('PHI7')
+        logging.info('Finished PHI7 corpus compilation.')
+
+    def dump_txts_phi7_files(self):
+        """reads file and translates to ascii"""
+        logging.info('Starting PHI7 corpus compilation into files.')
+        phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
+        self.open_index_phi7()
+        for file_name in INDEX_DICT_PHI7:
+            abbrev = INDEX_DICT_PHI7[file_name]
+            files_path = self.corpora_root + '/' + 'PHI7' + '/' \
+              + file_name + '.TXT'
+            try:
+                with open(files_path, 'rb') as txt_opened:
+                    txt_read = txt_opened.read().decode('latin-1')
+                    txt_ascii = remove_non_ascii(txt_read)
+                    file_path = phi7_path + '/' + file_name + '.txt'
+                    print(file_path)
+                    try:
+                        with open(file_path, 'w') as new_file:
+                            new_file.write(txt_ascii)
+                    except IOError:
+                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+            except IOError:
+                logging.error('Failed to open PHI7 file %s of author %s', file_name, abbrev)
         logging.info('Finished PHI7 corpus compilation.')
 
     def open_index_phi5(self):
@@ -121,6 +143,7 @@ class Compile(object):
     def dump_txts_phi5(self):
         """reads file and translates to ascii"""
         logging.info('Starting PHI5 corpus compilation.')
+        phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
         self.open_index_phi5()
         phi5_dict = {}
         for file_name in INDEX_DICT_PHI5:
@@ -142,13 +165,13 @@ class Compile(object):
                 phi5_json.write(phi5_json_array)
         except IOError:
             logging.error('Failed to create and write to file phi5.json.')
-        self.confirm_json_present('PHI5')
         logging.info('Finished PHI5 corpus compilation.')
 
     def open_index_tlg(self):
         """Creates a dictionary of TLG collections and file names."""
         global INDEX_DICT_TLG
         logging.info('Starting TLG index parsing.')
+        #tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         index = 'AUTHTAB.DIR'
         local_index = self.corpora_root + '/' + 'TLG_E/' + index
         try:
@@ -174,6 +197,7 @@ class Compile(object):
     def dump_txts_tlg(self):
         """reads file and translates to ascii"""
         logging.info('Starting TLG corpus compilation.')
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         self.open_index_tlg()
         tlg_dict = {}
         for file_name in INDEX_DICT_TLG:
@@ -198,13 +222,12 @@ class Compile(object):
                 json_opened.write(json_array)
         except IOError:
             logging.error('Failed to create and/or write to file tlg.json.')
-
-        self.confirm_json_present('TLG_E')
         logging.info('Finished TLG corpus compilation.')
 
     def dump_txts_tlg_files(self):
         """reads file and translates to ascii"""
         logging.info('Starting TLG corpus compilation into files.')
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         self.open_index_tlg()
         for file_name in INDEX_DICT_TLG:
             abbrev = INDEX_DICT_TLG[file_name]
@@ -223,32 +246,18 @@ class Compile(object):
                         with open(file_path, 'w') as new_file:
                             new_file.write(new_uni)
                     except IOError:
-                        logging.error('Failed to create and/or write to file \
-                        tlg.json.')
+                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
+        #later delete the authdab-making part dict
         authtab_path = tlg_e_path + '/' + 'AUTHTAB.txt'
         try:
-            with open(authrab_path, 'w') as authtab_opened:
+            with open(authtab_path, 'w') as authtab_opened:
                 authtab_opened.write(str(INDEX_DICT_TLG))
         except IOError:
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished TLG corpus compilation.')
-
-    def confirm_json_present(self, directory):
-        """Checks that the JSON file is in fact present and opens OK"""
-        logging.info('Confirming JSON file saved.')
-        if directory == 'PHI7':
-            present = os.path.isfile(phi7_path + '/' + 'phi7.json')
-        elif directory == 'PHI5':
-            present = os.path.isfile(phi5_path + '/' + 'phi5.json')
-        elif directory == 'TLG_E':
-            present = os.path.isfile(tlg_e_path + '/' + 'tlg.json')
-        if present is True:
-            logging.info('%s JSON file is present.', directory)
-        else:
-            logging.error('%s JSON file is not present.', directory)
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
