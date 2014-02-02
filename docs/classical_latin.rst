@@ -34,16 +34,21 @@ Convert J to I, V to U
 
 Compile PHI5
 ------------
-
-::
+The PHI5 can be compiled into one big JSON file or into individual plaintext files, much as they originally came on the disk. For the call to ``Compile``, the first argument is to the directory just below where your PHI5 corpus is found, and the second is the path to the corpus directory of your cltk project::
 
    from cltk.corpus.common.compiler import Compile
 
-   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/Downloads/project_dir')
+   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
+
+To make into one file, the run::
+
    c.dump_txts_phi5()
 
-The PHI7 may be compiled with ``c.dump_txts_phi7()``.
+or into multiple files::
 
+   c.dump_txts_phi5_files()
+
+The PHI7 may also be generated in the same way, only with ``c.dump_txts_phi7()`` or ``c.dump_txts_phi7_files()``. Note that the CLTK by default puts all PHI7 files into the classical_greek directory.
 
 .. H3 -- Subsection
    ----------------

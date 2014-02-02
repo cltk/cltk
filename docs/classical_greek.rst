@@ -22,19 +22,21 @@ Convert Beta Code to Unicode
 Compile TLG
 -----------
 
-The TLG can be compiled into one giant JSON file or into individual files, as they were originally organized. To make into one file::
+The TLG can be compiled into one giant JSON file or into individual files, as they were originally organized. For the call to ``Compile``, the first argument is to the directory just below where your TLG corpus is found, and the second is the path to the corpus directory of your cltk project.::
 
    from cltk.corpus.common.compiler import Compile
 
    c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
 
-   c.dump_txts_tlg_files()
-
-or into multiple files::
+To make into one file, the run::
 
    c.dump_txts_tlg()
 
-The PHI7 may also be generated with ``c.dump_txts_phi7()`` or ``c.dump_txts_phi7_files()``.
+or into multiple files::
+
+   c.dump_txts_tlg_files()
+
+The PHI7 may also be generated in the same way, only with ``c.dump_txts_phi7()`` or ``c.dump_txts_phi7_files()``.
 
     
 
