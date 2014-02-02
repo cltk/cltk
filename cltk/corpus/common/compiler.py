@@ -14,19 +14,17 @@ INDEX_DICT_TLG = {}
 class Compile(object):
     """Make JSON files out of TLG & PHI disks"""
 
-    def __init__(self, corpora_root='.', project_root='.'):
+    def __init__(self, corpora_root='.', project_root='cltk/corpus'):
         """Initializer, optional corpora and project"""
         self.corpora_root = corpora_root
         self.project_root = project_root
-        '''
-        local_project_save = self.project_root + '/' \
-          + 'cltk.log'
-        #clear_log()
-        logging.basicConfig(filename=local_project_save,
+        phi5_path = self.project_root + '/classical_latin/plaintext/phi_5/'
+        phi7_path = self.project_root + '/classical_greek/plaintext/phi_7/'
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e/'
+        logging.basicConfig(filename='compiler.log',
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
                             datefmt='%m/%d/%Y %I:%M:%S %p')
-        '''
 
     def uppercase_files(self):
         """Uppercase corpora file names"""
@@ -85,9 +83,9 @@ class Compile(object):
             except IOError:
                 logging.error('Failed to open PHI7 file %s of author %s',
                               file_name, abbrev)
-        local_project_save = self.project_root + '/' + 'phi7.json'
+        json_path = phi7_path + '/' + 'phi7.json'
         try:
-            with open(local_project_save, 'w') as json_opened:
+            with open(json_path, 'w') as json_opened:
                 json_array = json.dumps(phi7_dict)
                 json_opened.write(json_array)
         except IOError:
@@ -137,9 +135,9 @@ class Compile(object):
             except IOError:
                 logging.error('Failed to open PHI5 file %s of author %s',
                               file_name, abbrev)
-        local_project_save = self.project_root + '/' + 'phi5.json'
+        json_path = phi5_path + '/' + 'phi5.json'
         try:
-            with open(local_project_save, 'w') as phi5_json:
+            with open(json_path, 'w') as phi5_json:
                 phi5_json_array = json.dumps(phi5_dict)
                 phi5_json.write(phi5_json_array)
         except IOError:
@@ -193,9 +191,9 @@ class Compile(object):
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
-        local_project_save = self.project_root + '/' + 'tlg.json'
+        json_path = tlg_e_path + '/' + 'tlg.json'
         try:
-            with open(local_project_save, 'w') as json_opened:
+            with open(json_path, 'w') as json_opened:
                 json_array = json.dumps(tlg_dict)
                 json_opened.write(json_array)
         except IOError:
@@ -218,11 +216,11 @@ class Compile(object):
                     txt_ascii = remove_non_ascii(txt_read)
                     local_replacer = Replacer()
                     new_uni = local_replacer.beta_code(txt_ascii)
-                    local_project_save = self.project_root + '/' + file_name +\
+                    file_path = tlg_e_path + '/' + file_name +\
                        '.txt'
-                    print(local_project_save)
+                    print(file_path)
                     try:
-                        with open(local_project_save, 'w') as new_file:
+                        with open(file_path, 'w') as new_file:
                             new_file.write(new_uni)
                     except IOError:
                         logging.error('Failed to create and/or write to file \
@@ -230,9 +228,9 @@ class Compile(object):
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
-        local_project_save = self.project_root + '/' + 'AUTHTAB.txt'
+        authtab_path = tlg_e_path + '/' + 'AUTHTAB.txt'
         try:
-            with open(local_project_save, 'w') as authtab_opened:
+            with open(authrab_path, 'w') as authtab_opened:
                 authtab_opened.write(str(INDEX_DICT_TLG))
         except IOError:
             logging.error('Failed to create and/or write to file tlg.json.')
@@ -242,11 +240,11 @@ class Compile(object):
         """Checks that the JSON file is in fact present and opens OK"""
         logging.info('Confirming JSON file saved.')
         if directory == 'PHI7':
-            present = os.path.isfile(self.project_root + '/' + 'phi7.json')
+            present = os.path.isfile(phi7_path + '/' + 'phi7.json')
         elif directory == 'PHI5':
-            present = os.path.isfile(self.project_root + '/' + 'phi5.json')
+            present = os.path.isfile(phi5_path + '/' + 'phi5.json')
         elif directory == 'TLG_E':
-            present = os.path.isfile(self.project_root + '/' + 'tlg.json')
+            present = os.path.isfile(tlg_e_path + '/' + 'tlg.json')
         if present is True:
             logging.info('%s JSON file is present.', directory)
         else:
