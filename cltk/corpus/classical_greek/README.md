@@ -1,7 +1,4 @@
-TODO for perseus_compiler.py
-----------------------------
-
-I need to get rid of the bleach HTML tag stripping and actually parse the source XML, reading (I think) only the <p> tags.
+See (instructions for loading TLG data files into the CLTK)[http://cltk.readthedocs.org/en/latest/classical_greek.html#compile-tlg].
 
 TODO for replacer.py
 --------------------
