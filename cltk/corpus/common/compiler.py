@@ -300,6 +300,33 @@ class Compile(object):
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished TLG corpus compilation.')
 
+    def dump_txts_tlg_idt(self):
+        """reads idt files and translates to ascii"""
+        logging.info('Starting to read and write TLG .idt files.')
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        self.open_index_tlg()
+        for file_name in INDEX_DICT_TLG:
+            abbrev = INDEX_DICT_TLG[file_name]
+            files_path = self.corpora_root + '/' + 'TLG_E' + '/' \
+              + file_name + '.IDT'
+            try:
+                with open(files_path, 'rb') as index_opened:
+                    txt_read = index_opened.read().decode('latin-1')
+                    txt_ascii = remove_non_ascii(txt_read)
+                    file_path = tlg_e_path + '/' + file_name +\
+                       '.idt'
+                    print(file_path)
+                    try:
+                        with open(file_path, 'w') as new_file:
+                            #print(txt_read)
+                            new_file.write(txt_read)
+                    except IOError:
+                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+            except IOError:
+                logging.error('Failed to open TLG file %s of author %s',
+                              file_name, abbrev)
+        logging.info('Finished TLG .idt compilation.')
+
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
     return "".join(i for i in input_string if ord(i) < 128)
