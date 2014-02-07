@@ -110,9 +110,11 @@ class Compile(object):
                         with open(file_path, 'w') as new_file:
                             new_file.write(txt_ascii)
                     except IOError:
-                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+                        logging.error('Failed to write to new file %s of \
+                        author %s', file_name, abbrev)
             except IOError:
-                logging.error('Failed to open PHI7 file %s of author %s', file_name, abbrev)
+                logging.error('Failed to open PHI7 file %s of author %s', \
+                              file_name, abbrev)
                 #later delete the authdab-making part dict
         authtab_path = phi7_path + '/' + 'AUTHTAB.txt'
         print(authtab_path)
@@ -194,9 +196,11 @@ class Compile(object):
                         with open(file_path, 'w') as new_file:
                             new_file.write(txt_ascii)
                     except IOError:
-                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+                        logging.error('Failed to write to new file %s of \
+                        author %s', file_name, abbrev)
             except IOError:
-                logging.error('Failed to open PHI5 file %s of author %s', file_name, abbrev)
+                logging.error('Failed to open PHI5 file %s of author %s', \
+                              file_name, abbrev)
         #later delete the authdab-making part dict
         authtab_path = phi5_path + '/' + 'AUTHTAB.txt'
         print(authtab_path)
@@ -286,7 +290,8 @@ class Compile(object):
                         with open(file_path, 'w') as new_file:
                             new_file.write(new_uni)
                     except IOError:
-                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+                        logging.error('Failed to write to new file %s of \
+                        author %s', file_name, abbrev)
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
@@ -321,7 +326,8 @@ class Compile(object):
                             #print(txt_read)
                             new_file.write(txt_read)
                     except IOError:
-                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+                        logging.error('Failed to write to new file %s of \
+                        author %s', file_name, abbrev)
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
