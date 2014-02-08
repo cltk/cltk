@@ -116,7 +116,7 @@ class Compile(object):
                 logging.error('Failed to open PHI7 file %s of author %s', \
                               file_name, abbrev)
                 #later delete the authdab-making part dict
-        authtab_path = phi7_path + '/' + 'AUTHTAB.txt'
+        authtab_path = phi7_path + '/' + 'authtab.txt'
         print(authtab_path)
         try:
             with open(authtab_path, 'w') as authtab_opened:
@@ -202,7 +202,7 @@ class Compile(object):
                 logging.error('Failed to open PHI5 file %s of author %s', \
                               file_name, abbrev)
         #later delete the authdab-making part dict
-        authtab_path = phi5_path + '/' + 'AUTHTAB.txt'
+        authtab_path = phi5_path + '/' + 'authtab.txt'
         print(authtab_path)
         try:
             with open(authtab_path, 'w') as authtab_opened:
@@ -296,7 +296,7 @@ class Compile(object):
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
         #later delete the authdab-making part dict
-        authtab_path = tlg_e_path + '/' + 'AUTHTAB.txt'
+        authtab_path = tlg_e_path + '/' + 'authtab.txt'
         print(authtab_path)
         try:
             with open(authtab_path, 'w') as authtab_opened:
@@ -365,6 +365,18 @@ class Compile(object):
                     logging.error('Failed to write to meta_list.txt file of TLG')
         except IOError:
             logging.error('Failed to open TLG index file LSTSCDCN.DIR')
+
+    def find_works(self):
+        """Finds texts within a generator author Unicode .txt file"""
+        logging.info('Starting to find works within a TLG author file.')
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        auth_file = tlg_e_path + '/TLG0020.txt'
+        with open(auth_file) as f:
+            s = f.read()
+            rg = re.compile('@\{1\$20.*?\$\}1')
+            print(rg.findall(s))
+
+
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
