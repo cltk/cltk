@@ -366,17 +366,36 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open TLG index file LSTSCDCN.DIR')
 
-    def find_works(self):
+    def find_works(self, auth_abbrev):
         """Finds texts within a generator author Unicode .txt file"""
+        global works
         logging.info('Starting to find works within a TLG author file.')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
-        auth_file = tlg_e_path + '/TLG0020.txt'
+        auth_file = tlg_e_path + '/' + auth_abbrev + '.txt'
         with open(auth_file) as f:
             s = f.read()
-            rg = re.compile('@\{1\$20.*?\$\}1')
-            print(rg.findall(s))
+            rg = re.compile('@\{1\$20.{1,30}?\$\}1')# or '@\{1\$20.{1,30}\$\}1'
+            works = rg.findall(s)
+            return works
 
-
+    def write_auth_works(self):
+        """read authtab.txt, read author file, and expand dict to include author works"""
+        logging.info('Starting to compile auth-works dict')
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        authtab_path = tlg_e_path + '/authtab.txt'
+        import ast
+        with open(authtab_path) as f:
+            r = f.read()
+            d = ast.literal_eval(r)
+            auth_work_dict = {}
+            for key in d:
+                self.find_works(key)
+                auth_name = d[key]
+                auth_node = {}
+                auth_node['Author'] = auth_name
+                auth_node['Works'] = works
+                print(auth_node)
+        logging.info('Finished compiling auth-works dict')
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
