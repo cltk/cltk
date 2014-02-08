@@ -333,6 +333,40 @@ class Compile(object):
                               file_name, abbrev)
         logging.info('Finished TLG .idt compilation.')
 
+    def write_tlg_meta_index(self):
+        """Reads and writes the LSTSCDCN.DIR file"""
+        logging.info('Starting to read the TLG file LSTSCDCN.DIR.')
+        index = 'LSTSCDCN.DIR'
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        local_index = self.corpora_root + '/' + 'TLG_E/' + index
+        meta_list_dict = {}
+        try:
+            with open(local_index, 'rb') as index_opened:
+                index_read = index_opened.read().decode('latin-1')
+                index_split = index_read.split('ÿ')[2:-3]
+                index_filter = [item for item in index_split if item]
+                for file in index_filter:
+                    rg_key = re.compile('^[AUT|AWN|BIB|DAT|LIS]{3}?.{5}?')
+                    m_key = rg_key.findall(file)
+                    rg_value = re.compile(r'^.{8}')
+                    m_value = rg_key.split(file)
+                    if not m_key:
+                        pass
+                    else:
+                        if not m_value:
+                            pass
+                        else:
+                            meta_list_dict[m_key[0]] = m_value[1]
+                file_path = tlg_e_path + '/' + 'meta_list.txt'
+                try:
+                    with open(file_path, 'w') as new_file:
+                        new_file.write(str(meta_list_dict))
+                except IOError:
+                    logging.error('Failed to write to meta_list.txt file of TLG')
+        except IOError:
+            logging.error('Failed to open TLG index file LSTSCDCN.DIR')
+
+
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
     return "".join(i for i in input_string if ord(i) < 128)
