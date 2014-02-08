@@ -374,7 +374,8 @@ class Compile(object):
         auth_file = tlg_e_path + '/' + auth_abbrev + '.txt'
         with open(auth_file) as f:
             s = f.read()
-            rg = re.compile('@\{1\$20.{1,30}?\$\}1')# or '@\{1\$20.{1,30}\$\}1'
+            #rg = re.compile('@\{1\$20.{1,30}?\$\}1')# or '@\{1\$20.{1,30}\$\}1'
+            rg = re.compile('\{1.{1,50}?\}1')# this works but stip out $ and other signs from w/in the tag
             works = rg.findall(s)
             return works
 
