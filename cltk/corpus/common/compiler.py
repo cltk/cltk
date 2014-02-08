@@ -394,9 +394,10 @@ class Compile(object):
                 auth_node = {}
                 self.find_works(key)
                 auth_name = d[key]
-                auth_node['Author'] = auth_name
-                auth_node['Works'] = works
-                auth_work_dict[key] = auth_node
+                auth_node['tlg_file'] = key
+                auth_node['tlg_name'] = auth_name
+                auth_node['works'] = works
+                auth_work_dict[auth_name] = auth_node
             file_path = tlg_e_path + '/' + 'auth_work.txt'
             try:
                 with open(file_path, 'w') as new_file:
