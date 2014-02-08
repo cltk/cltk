@@ -389,12 +389,18 @@ class Compile(object):
             d = ast.literal_eval(r)
             auth_work_dict = {}
             for key in d:
+                auth_node = {}
                 self.find_works(key)
                 auth_name = d[key]
-                auth_node = {}
                 auth_node['Author'] = auth_name
                 auth_node['Works'] = works
-                print(auth_node)
+                auth_work_dict[key] = auth_node
+            file_path = tlg_e_path + '/' + 'auth_work.txt'
+            try:
+                with open(file_path, 'w') as new_file:
+                    new_file.write(str(auth_work_dict))
+            except IOError:
+                logging.error('Failed to write to auth_work.txt')
         logging.info('Finished compiling auth-works dict')
 
 def remove_non_ascii(input_string):
