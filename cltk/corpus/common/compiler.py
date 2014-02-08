@@ -5,7 +5,7 @@ import logging
 import os
 import re
 import ast
-import pprint
+from pprint import pprint
 from cltk.corpus.classical_greek.replacer import Replacer
 
 INDEX_DICT_PHI5 = {}
@@ -400,9 +400,9 @@ class Compile(object):
             file_path = tlg_e_path + '/' + 'auth_work.txt'
             try:
                 with open(file_path, 'w') as new_file:
-                    pp = pprint.PrettyPrinter(indent=4)
-                    pp_auth = pp.pprint(auth_work_dict)
-                    new_file.write(str(pp_auth))
+                    #pp = pprint.PrettyPrinter(indent=4)
+                    pprint(auth_work_dict, stream=new_file)
+                    #new_file.write(pp_auth)
             except IOError:
                 logging.error('Failed to write to auth_work.txt')
         logging.info('Finished compiling auth-works dict')
