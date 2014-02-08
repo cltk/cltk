@@ -4,6 +4,8 @@ import json
 import logging
 import os
 import re
+import ast
+import pprint
 from cltk.corpus.classical_greek.replacer import Replacer
 
 INDEX_DICT_PHI5 = {}
@@ -384,7 +386,6 @@ class Compile(object):
         logging.info('Starting to compile auth-works dict')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         authtab_path = tlg_e_path + '/authtab.txt'
-        import ast
         with open(authtab_path) as f:
             r = f.read()
             d = ast.literal_eval(r)
@@ -399,7 +400,9 @@ class Compile(object):
             file_path = tlg_e_path + '/' + 'auth_work.txt'
             try:
                 with open(file_path, 'w') as new_file:
-                    new_file.write(str(auth_work_dict))
+                    pp = pprint.PrettyPrinter(indent=4)
+                    pp_auth = pp.pprint(auth_work_dict)
+                    new_file.write(str(pp_auth))
             except IOError:
                 logging.error('Failed to write to auth_work.txt')
         logging.info('Finished compiling auth-works dict')
