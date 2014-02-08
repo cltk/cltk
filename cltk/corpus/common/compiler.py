@@ -366,7 +366,6 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open TLG index file LSTSCDCN.DIR')
 
-
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
     return "".join(i for i in input_string if ord(i) < 128)
