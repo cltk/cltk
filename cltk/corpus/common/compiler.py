@@ -213,10 +213,23 @@ class Compile(object):
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished PHI5 corpus compilation.')
 
+    def find_phi5_works(self, auth_abbrev):
+        """Finds texts within a generator author Unicode .txt file"""
+        global works
+        logging.info('Starting to find works within a PHI5 author file.')
+        phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
+        auth_file = phi5_path + '/' + auth_abbrev + '.txt'
+        with open(auth_file) as f:
+            s = f.read()
+            #rg = re.compile('@\{1\$20.{1,30}?\$\}1')# or '@\{1\$20.{1,30}\$\}1'
+            rg = re.compile('\{1.{1,50}?\}1')# this works but stip out $ and other signs from w/in the tag
+            works = rg.findall(s)
+            return works
+
     def write_phi5_auth_works(self):
         """read authtab.txt, read author file, and expand dict to include author works"""
         logging.info('Starting to compile auth-works dict')
-        phi5_path = self.project_root + '/classical_greek/plaintext/phi5'
+        phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
         authtab_path = phi5_path + '/authtab.txt'
         with open(authtab_path) as f:
             r = f.read()
@@ -224,7 +237,7 @@ class Compile(object):
             auth_work_dict = {}
             for key in d:
                 auth_node = {}
-                self.find_works(key)
+                self.find_phi5_works(key)
                 auth_name = d[key]
                 auth_node['phi5_file'] = key
                 auth_node['phi5_name'] = auth_name
@@ -395,7 +408,7 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open TLG index file LSTSCDCN.DIR')
 
-    def find_works(self, auth_abbrev):
+    def find_tlg_works(self, auth_abbrev):
         """Finds texts within a generator author Unicode .txt file"""
         global works
         logging.info('Starting to find works within a TLG author file.')
@@ -419,7 +432,7 @@ class Compile(object):
             auth_work_dict = {}
             for key in d:
                 auth_node = {}
-                self.find_works(key)
+                self.find_tlg_works(key)
                 auth_name = d[key]
                 auth_node['tlg_file'] = key
                 auth_node['tlg_name'] = auth_name
