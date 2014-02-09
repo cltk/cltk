@@ -215,40 +215,39 @@ class Compile(object):
 
     def find_phi5_works(self, auth_abbrev):
         """Finds texts within a generator author Unicode .txt file"""
-        global works
+        global WORKS
         logging.info('Starting to find works within a PHI5 author file.')
         phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
         auth_file = phi5_path + '/' + auth_abbrev + '.txt'
-        with open(auth_file) as f:
-            s = f.read()
-            #rg = re.compile('@\{1\$20.{1,30}?\$\}1')# or '@\{1\$20.{1,30}\$\}1'
-            rg = re.compile('\{1.{1,50}?\}1')# this works but stip out $ and other signs from w/in the tag
-            works = rg.findall(s)
-            return works
+        with open(auth_file) as open_file:
+            string = open_file.read()
+            title_reg = re.compile('\{1.{1,50}?\}1')
+            WORKS = title_reg.findall(string)
+            return WORKS
 
     def write_phi5_auth_works(self):
-        """read authtab.txt, read author file, and expand dict to include author works"""
+        """read authtab.txt, read author file, and expand dict
+        to include author works
+        """
         logging.info('Starting to compile auth-works dict')
         phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
         authtab_path = phi5_path + '/authtab.txt'
-        with open(authtab_path) as f:
-            r = f.read()
-            d = ast.literal_eval(r)
+        with open(authtab_path) as file_opened:
+            read = file_opened.read()
+            dict_read = ast.literal_eval(read)
             auth_work_dict = {}
-            for key in d:
+            for key in dict_read:
                 auth_node = {}
                 self.find_phi5_works(key)
-                auth_name = d[key]
+                auth_name = dict_read[key]
                 auth_node['phi5_file'] = key
                 auth_node['phi5_name'] = auth_name
-                auth_node['works'] = works
+                auth_node['works'] = WORKS
                 auth_work_dict[auth_name] = auth_node
             file_path = phi5_path + '/' + 'auth_work.txt'
             try:
                 with open(file_path, 'w') as new_file:
-                    #pp = pprint.PrettyPrinter(indent=4)
                     pprint(auth_work_dict, stream=new_file)
-                    #new_file.write(pp_auth)
             except IOError:
                 logging.error('Failed to write to auth_work.txt')
         logging.info('Finished compiling auth-works dict')
@@ -359,7 +358,6 @@ class Compile(object):
             try:
                 with open(files_path, 'rb') as index_opened:
                     txt_read = index_opened.read().decode('latin-1')
-                    txt_ascii = remove_non_ascii(txt_read)
                     file_path = tlg_e_path + '/' + file_name +\
                        '.idt'
                     print(file_path)
@@ -390,7 +388,6 @@ class Compile(object):
                 for file in index_filter:
                     rg_key = re.compile('^[AUT|AWN|BIB|DAT|LIS]{3}?.{5}?')
                     m_key = rg_key.findall(file)
-                    rg_value = re.compile(r'^.{8}')
                     m_value = rg_key.split(file)
                     if not m_key:
                         pass
@@ -404,46 +401,46 @@ class Compile(object):
                     with open(file_path, 'w') as new_file:
                         new_file.write(str(meta_list_dict))
                 except IOError:
-                    logging.error('Failed to write to meta_list.txt file of TLG')
+                    logging.error('Failed to write to meta_list.txt file \
+                    of TLG')
         except IOError:
             logging.error('Failed to open TLG index file LSTSCDCN.DIR')
 
     def find_tlg_works(self, auth_abbrev):
         """Finds texts within a generator author Unicode .txt file"""
-        global works
+        global WORKS
         logging.info('Starting to find works within a TLG author file.')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         auth_file = tlg_e_path + '/' + auth_abbrev + '.txt'
-        with open(auth_file) as f:
-            s = f.read()
-            #rg = re.compile('@\{1\$20.{1,30}?\$\}1')# or '@\{1\$20.{1,30}\$\}1'
-            rg = re.compile('\{1.{1,50}?\}1')# this works but stip out $ and other signs from w/in the tag
-            works = rg.findall(s)
-            return works
+        with open(auth_file) as file_opened:
+            string = file_opened.read()
+            title_reg = re.compile('\{1.{1,50}?\}1')
+            WORKS = title_reg.findall(string)
+            return WORKS
 
     def write_tlg_auth_works(self):
-        """read authtab.txt, read author file, and expand dict to include author works"""
+        """read authtab.txt, read author file, and expand dict to
+        include author works
+        """
         logging.info('Starting to compile auth-works dict')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         authtab_path = tlg_e_path + '/authtab.txt'
-        with open(authtab_path) as f:
-            r = f.read()
-            d = ast.literal_eval(r)
+        with open(authtab_path) as file_opened:
+            read = file_opened.read()
+            dict_read = ast.literal_eval(read)
             auth_work_dict = {}
-            for key in d:
+            for key in dict_read:
                 auth_node = {}
                 self.find_tlg_works(key)
-                auth_name = d[key]
+                auth_name = dict_read[key]
                 auth_node['tlg_file'] = key
                 auth_node['tlg_name'] = auth_name
-                auth_node['works'] = works
+                auth_node['works'] = WORKS
                 auth_work_dict[auth_name] = auth_node
             file_path = tlg_e_path + '/' + 'auth_work.txt'
             try:
                 with open(file_path, 'w') as new_file:
-                    #pp = pprint.PrettyPrinter(indent=4)
                     pprint(auth_work_dict, stream=new_file)
-                    #new_file.write(pp_auth)
             except IOError:
                 logging.error('Failed to write to auth_work.txt')
         logging.info('Finished compiling auth-works dict')
