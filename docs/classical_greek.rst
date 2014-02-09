@@ -48,6 +48,14 @@ The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_t
 Compile Author-Works Indices
 ----------------------------
 
+.. important::
+
+   Versions of these auth_work.txt files come with the CLTK, though they do not catch every title within every file. This is due to some inconsistent markup within the original corpora. There remains to be written and tested additional regular expressions to catch all titles.
+
+.. note::
+
+   The TLG and PHI7 both come with index files (e.g., ``BIBINDCD.BIN``, ``LIST4CLA.BIN``), though these have proven difficult for the author of the CLTK to parse. Any assistance in this realm is heartily encouraged.
+
 After the TLG and PHI7 corpora have been compiled by the CLTK, it can generate indices for the works contained within each author file. Essentially, it looks in each author's file (e.g., ``TLG0020.txt``) and scans its contents looking for title tags (i.e., ``{1ΑΔΡΑΣΤΟΣ}1``).
 
 After the CLTK generates an author-work index, a file called ``auth_work.txt`` will be added to the respective directories (i.e., ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``, ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``). To generate for the TLG::
@@ -59,14 +67,6 @@ After the CLTK generates an author-work index, a file called ``auth_work.txt`` w
    c.write_tlg_auth_works()
 
 And for the PHI7, replace the final command with ``write_phi7_auth_works()``.
-
-.. important::
-
-   Versions of these auth_work.txt files come with the CLTK, though they do not catch every title within every file. This is due to some inconsistent markup within the original corpora. There remains to be written and tested additional regular expressions to catch all titles.
-
-.. note::
-
-   The TLG and PHI7 both come with index files (e.g., ``BIBINDCD.BIN``, ``LIST4CLA.BIN``), though these have proven difficult for the author of the CLTK to parse. Any assistance in this realm is heartily encouraged.
 
 
 Filter Stopwords
