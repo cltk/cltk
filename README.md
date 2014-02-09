@@ -2,15 +2,15 @@ The Classical Language Toolkit
 ==============================
 [![PyPI version](https://badge.fury.io/py/cltk.png)](http://badge.fury.io/py/cltk) [![Build Status](https://travis-ci.org/kylepjohnson/cltk.png?branch=master)](https://travis-ci.org/kylepjohnson/cltk)
 
-WARNING: This is an alpha-stage project. Everything should work, but expect braking changes frequently.
+WARNING: This is an alpha-stage project. Everything should work, but expect braking changes.
 
 About 
 -----
-The Classical Language Toolkit is an extension of the NLTK and will offer natural language processing support for Classical languages. The goals of the Classical Language Toolkit (CLTK) are to:
+The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. In some areas, it extends the NLTK. The goals of the Classical Language Toolkit (CLTK) are to:
 
-*   Compile analysis-friendly corpora
-*   Gather and improve linguistic data required for natural language processing
-*   Develop a free, open, stable, and modern platform for generating reproducible research
+*   Compile analysis-friendly corpora in a variety of Classical languages (Greek and Latin are in-process, with more in the pipeline)
+*   Gather, improve, and generate linguistic data required for NLP
+*   Develop a free and open platform for generating reproducible, scholarly research
 
 INSTALLATION
 ------------
@@ -20,9 +20,9 @@ INSTALLATION
 pip install cltk
 ```
 
-DOCS
+DOCUMENTATION
 ----
-The official docs are at [http://cltk.readthedocs.org](http://cltk.readthedocs.org/en/latest/index.html).
+The docs are at [http://cltk.readthedocs.org](http://cltk.readthedocs.org/en/latest/index.html).
 
 LICENSE
 -------
