@@ -127,6 +127,45 @@ class Compile(object):
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished PHI7 corpus compilation.')
 
+    def find_phi7_works(self, auth_abbrev):
+        """Finds texts within a generator author Unicode .txt file"""
+        global WORKS
+        logging.info('Starting to find works within a PHI7 author file.')
+        phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
+        auth_file = phi7_path + '/' + auth_abbrev + '.txt'
+        with open(auth_file) as open_file:
+            string = open_file.read()
+            title_reg = re.compile('\{1.{1,50}?\}1')
+            WORKS = title_reg.findall(string)
+            return WORKS
+
+    def write_phi7_auth_works(self):
+        """read authtab.txt, read author file, and expand dict
+        to include author works
+        """
+        logging.info('Starting to compile auth-works dict')
+        phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
+        authtab_path = phi7_path + '/authtab.txt'
+        with open(authtab_path) as file_opened:
+            read = file_opened.read()
+            dict_read = ast.literal_eval(read)
+            auth_work_dict = {}
+            for key in dict_read:
+                auth_node = {}
+                self.find_phi7_works(key)
+                auth_name = dict_read[key]
+                auth_node['phi7_file'] = key
+                auth_node['phi7_name'] = auth_name
+                auth_node['works'] = WORKS
+                auth_work_dict[auth_name] = auth_node
+            file_path = phi7_path + '/' + 'auth_work.txt'
+            try:
+                with open(file_path, 'w') as new_file:
+                    pprint(auth_work_dict, stream=new_file)
+            except IOError:
+                logging.error('Failed to write to auth_work.txt')
+        logging.info('Finished compiling auth-works dict')
+
     def open_index_phi5(self):
         """Creates a dictionary of PHI5 collections and file names."""
         global INDEX_DICT_PHI5
