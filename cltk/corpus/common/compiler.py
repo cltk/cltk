@@ -213,6 +213,33 @@ class Compile(object):
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished PHI5 corpus compilation.')
 
+    def write_phi5_auth_works(self):
+        """read authtab.txt, read author file, and expand dict to include author works"""
+        logging.info('Starting to compile auth-works dict')
+        phi5_path = self.project_root + '/classical_greek/plaintext/phi5'
+        authtab_path = phi5_path + '/authtab.txt'
+        with open(authtab_path) as f:
+            r = f.read()
+            d = ast.literal_eval(r)
+            auth_work_dict = {}
+            for key in d:
+                auth_node = {}
+                self.find_works(key)
+                auth_name = d[key]
+                auth_node['phi5_file'] = key
+                auth_node['phi5_name'] = auth_name
+                auth_node['works'] = works
+                auth_work_dict[auth_name] = auth_node
+            file_path = phi5_path + '/' + 'auth_work.txt'
+            try:
+                with open(file_path, 'w') as new_file:
+                    #pp = pprint.PrettyPrinter(indent=4)
+                    pprint(auth_work_dict, stream=new_file)
+                    #new_file.write(pp_auth)
+            except IOError:
+                logging.error('Failed to write to auth_work.txt')
+        logging.info('Finished compiling auth-works dict')
+
     def open_index_tlg(self):
         """Creates a dictionary of TLG collections and file names."""
         global INDEX_DICT_TLG
@@ -381,7 +408,7 @@ class Compile(object):
             works = rg.findall(s)
             return works
 
-    def write_auth_works(self):
+    def write_tlg_auth_works(self):
         """read authtab.txt, read author file, and expand dict to include author works"""
         logging.info('Starting to compile auth-works dict')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
