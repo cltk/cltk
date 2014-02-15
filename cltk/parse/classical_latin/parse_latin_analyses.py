@@ -4,7 +4,7 @@ with open('./latin-analyses.txt') as file_opened:
     string_raw = file_opened.read()
     string_rows = string_raw.splitlines()
     latin_analyses_dict = {}
-    for row in string_rows[0:300]:
+    for row in string_rows:
         headword = row.split('\t', 1)[0]
         #print(headword)
         analyses_string = row.split('\t', 1)[1]
@@ -26,16 +26,52 @@ with open('./latin-analyses.txt') as file_opened:
                 pass
             #print(third)
             pos = third.split(' ')
-            print(pos[0])
+            #print(pos[0])
+            verb = {}
+            if pos[0] in ('pres', 'imperf', 'fut', 'perf', 'plup', 'futperf'):
+                verb['tense'] = pos[0]
+                perseus_pos['type'] == 'verb'
+                perseus_pos['pos'] == verb
+            elif pos[0] == 'gerundive':
+                pass
+            elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
+                pass
+            elif pos[0] == 'supine':
+                pass
+            elif pos[0] == 'indeclform':
+                pass
+            elif pos[0] == 'adverbial':
+                pass
+            elif pos[0] in ('nom', 'abl', 'gen','dat', 'nom/acc', 'nom/voc'):
+                pass
+            elif pos[0] == 'sg':
+                pass #??? ex: ut, uter, altus, alter
+            elif pos[0] == 'comp':
+                pass # ex: diu, se
+            elif pos[0] in ('subj', 'ind'):
+                pass # ex: fio, impleo, deleo, compleo
+            elif pos[0] == 'nu_movable':
+                pass #only 1 ex: sum
+            else:
+                print(perseus_headword,pos)
             '''
             if pos[0] == 'gerundive':
                 perseus_pos['GERUNDIVE'] = pos[0]
-            elif pos[0] == 'pres' or 'imperf' or 'fut' or 'perf' or 'plup':
+                #print('found gerundive')
+            elif pos[0] == 'pres' or 'imperf' or 'fut' or 'perf' or 'plup' or 'futperf':
                 perseus_pos['VERB'] = pos[0]
+                print('found a verb')
             elif pos[0] == 'fem' or 'masc' or 'neut':
                 perseus_pos['Noun'] = pos[0]
+                #print('found a noun')
+            elif pos[0] == 'fem' or 'masc' or 'neut':
+                perseus_pos['Noun'] = pos[0]
+            else:
+                print(pos[0])
+                #print('found nothing')
             '''
 
+            #indeclform
 
             #print(perseus_headword_id)
             #print(perseus_pos_id)
