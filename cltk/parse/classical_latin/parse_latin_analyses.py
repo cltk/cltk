@@ -28,10 +28,12 @@ with open('./latin-analyses.txt') as file_opened:
             pos = third.split(' ')
             #print(pos[0])
             verb = {}
-            if pos[0] in ('pres', 'imperf', 'fut', 'perf', 'plup', 'futperf'):
+            if pos[0] in ('fut', 'futperf', 'imperf', 'perf', 'pres', 'plup'):
                 verb['tense'] = pos[0]
-                perseus_pos['type'] == 'verb'
-                perseus_pos['pos'] == verb
+                perseus_pos['pos_type'] = 'verb'
+                perseus_pos['parts'] = verb
+                #print(verb)
+                #print(perseus_pos)
             elif pos[0] == 'gerundive':
                 pass
             elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
@@ -54,60 +56,5 @@ with open('./latin-analyses.txt') as file_opened:
                 pass #only 1 ex: sum
             else:
                 print(perseus_headword,pos)
-            '''
-            if pos[0] == 'gerundive':
-                perseus_pos['GERUNDIVE'] = pos[0]
-                #print('found gerundive')
-            elif pos[0] == 'pres' or 'imperf' or 'fut' or 'perf' or 'plup' or 'futperf':
-                perseus_pos['VERB'] = pos[0]
-                print('found a verb')
-            elif pos[0] == 'fem' or 'masc' or 'neut':
-                perseus_pos['Noun'] = pos[0]
-                #print('found a noun')
-            elif pos[0] == 'fem' or 'masc' or 'neut':
-                perseus_pos['Noun'] = pos[0]
-            else:
-                print(pos[0])
-                #print('found nothing')
-            '''
+    print(perseus_pos)
 
-            #indeclform
-
-            #print(perseus_headword_id)
-            #print(perseus_pos_id)
-            #for part in parts:
-            #print(part)
-            #print(splitted)
-            #reg_digits = re.compile('\d*')
-            #zero = reg_digits.findall(splitted)
-            #little_number = reg_digits.findall(splitted)[3]
-            #print(zero)
-            #print(little_number)
-
-
-        '''
-        reg_headword = re.compile('\w+')
-        headword = reg_headword.findall(row)[0]
-        print(headword)
-        reg_bracket = re.compile('\{.*?\}')
-        def_brackets = reg_bracket.findall(row)
-        headword_dict = {}
-        for bracket in def_brackets:
-            #print(bracket)
-            reg_digits = re.compile('\d*')
-            big_number = reg_digits.findall(bracket)[1]
-            little_number = reg_digits.findall(bracket)[3]
-            #print(big_number)
-            #print(little_number)
-            reg_alphnum = re.compile('[a-zA-Z0-9_\,\-]*')
-            keys = reg_alphnum.findall(bracket)[5]#this actually point to the headwords they belong to, I think; these needs to be parsed and looped
-            #print(inflections)
-            pos_def = reg_alphnum.findall(bracket)[6:]#this actually has the english def in there too, which needs to be removed
-            #pos_filtered = [x for x in pos_def if x is not '']
-            pos_def_filtered = list(filter(''.__ne__, pos_def))
-            #print(pos_filtered)
-            headword_dict['big_number'] = big_number
-            headword_dict['little_number'] = little_number
-            headword_dict['pos_def'] = pos_def_filtered
-            print(headword_dict)
-        '''
