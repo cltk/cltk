@@ -32,8 +32,22 @@ with open('./latin-analyses.txt') as file_opened:
                 verb['tense'] = pos[0]
                 perseus_pos['pos_type'] = 'verb'
                 perseus_pos['parts'] = verb
-                #print(verb)
-                #print(perseus_pos)
+                if pos[1] in ('ind', 'imperat', 'subj'):
+                    if pos[2] in ('act', 'pass'):
+                        if pos[3] in ('1st', '2nd', '3rd'):
+                            pass
+                        else:
+                            print(pos[3])
+                    else:
+                        print(pos[2])
+                elif pos[1] in ('part'):
+                    pass
+                elif pos[1] in ('inf'):
+                    pass
+                elif pos[1] in ('act', 'pass'):
+                    pass
+                else:
+                    pass
             elif pos[0] == 'gerundive':
                 pass
             elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
@@ -55,6 +69,4 @@ with open('./latin-analyses.txt') as file_opened:
             elif pos[0] == 'nu_movable':
                 pass #only 1 ex: sum
             else:
-                print(perseus_headword,pos)
-    print(perseus_pos)
-
+                pass
