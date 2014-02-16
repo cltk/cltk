@@ -148,9 +148,11 @@ with open('./latin-analyses.txt') as file_opened:
                 if pos[1] == 'neut':
                     pos_dict['gender'] = pos[1]
                     if pos[2] in ('nom', 'dat'):
-                        pass
+                        pos_dict['case'] = pos[2]
+                        if pos[3] == 'sg':
+                            pos_dict['number'] = pos[3]
                     else:
-                        print(pos[2])
+                        pass
                 else:
                     pass
             elif pos[0] == 'indeclform':
