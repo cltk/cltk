@@ -108,7 +108,7 @@ with open('./latin-analyses.txt') as file_opened:
                 else:
                     pass
             elif pos[0] == 'gerundive':
-                #print(headword,pos)
+                word_dict['type'] = 'gerundive'
                 if pos[1] in ('fem', 'neut', 'masc', 'masc/neut'):
                     pos_dict['gender'] = pos[1]
                     if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
@@ -123,7 +123,25 @@ with open('./latin-analyses.txt') as file_opened:
                 else:
                     pass
             elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
-                pass
+                word_dict['type'] = 'substantive'
+                pos_dict['gender'] = pos[0]
+                try:
+                    if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
+                        pos_dict['case'] = pos[1]
+                        if pos[2] in ('pl', 'sg'):
+                            pass
+                        else:
+                            if pos[2] in ('comp', 'superl'):
+                                pos_dict['degree_of_comparison'] = pos[2]
+                            else:
+                                pass
+                    else:
+                        if pos[1] in ('pl', 'sg'):
+                            pos_dict['number'] = pos[1]
+                except:
+                    pos_dict['case'] = 'indeclinable'
+                    pos_dict['gender'] = pos[0]
+
             elif pos[0] == 'supine':
                 pass
             elif pos[0] == 'indeclform':
