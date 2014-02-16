@@ -144,7 +144,15 @@ with open('./latin-analyses.txt') as file_opened:
                     pos_dict['gender'] = pos[0]
                     pos_dict['number'] = 'sg'
             elif pos[0] == 'supine':
-                pass
+                pos_dict['type'] = pos[0]
+                if pos[1] == 'neut':
+                    pos_dict['gender'] = pos[1]
+                    if pos[2] in ('nom', 'dat'):
+                        pass
+                    else:
+                        print(pos[2])
+                else:
+                    pass
             elif pos[0] == 'indeclform':
                 pass
             elif pos[0] == 'adverbial':
