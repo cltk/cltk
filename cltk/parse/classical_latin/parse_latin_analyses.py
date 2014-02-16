@@ -1,5 +1,6 @@
 """rework Perseus latin-analyses.txt into Python dictionary"""
 import re
+from pprint import pprint
 
 with open('./latin-analyses.txt') as file_opened:
     string_raw = file_opened.read()
@@ -196,7 +197,8 @@ with open('./latin-analyses.txt') as file_opened:
                 pass
 
 try:
-    with open('cltk_analyses.txt', 'w') as write_morph:
-        write_morph.write(str(inflections))
+    with open('cltk_analyses.txt', 'w') as new_file:
+        #write_morph.write(str(inflections))
+        pprint(inflections, stream=new_file)
 except IOError:
     pass
