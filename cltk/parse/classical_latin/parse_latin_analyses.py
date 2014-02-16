@@ -93,14 +93,18 @@ with open('./latin-analyses.txt') as file_opened:
                     else:
                         pass
                 elif pos[1] in ('act', 'pass'):
-                    #adferretur
-                    #efferretur
-                    print(headword,pos)
+                    #ferre verbs
                     pos_dict['voice'] = pos[1]
                     if pos[2] in ('1st', '2nd', '3rd'):
-                        pass
+                        pos_dict['person'] = pos[2]
+                        if pos[3] in ('pl', 'sg'):
+                            pos_dict['number'] = pos[3]
+                            word_dict['pos'] = pos_dict
+                            inflections[headword] = word_dict
+                        else:
+                            pass
                     else:
-                        print(pos[2])
+                        pass
                 else:
                     pass
             elif pos[0] == 'gerundive':
