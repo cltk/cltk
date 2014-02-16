@@ -108,7 +108,20 @@ with open('./latin-analyses.txt') as file_opened:
                 else:
                     pass
             elif pos[0] == 'gerundive':
-                pass
+                #print(headword,pos)
+                if pos[1] in ('fem', 'neut', 'masc', 'masc/neut'):
+                    pos_dict['gender'] = pos[1]
+                    if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
+                        if pos[3] in ('pl', 'sg'):
+                            pos_dict['number'] = pos[3]
+                            word_dict['pos'] = pos_dict
+                            inflections[headword] = word_dict
+                        else:
+                            pass
+                    else:
+                        pass
+                else:
+                    pass
             elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
                 pass
             elif pos[0] == 'supine':
