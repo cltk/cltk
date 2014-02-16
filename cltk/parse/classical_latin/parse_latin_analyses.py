@@ -1,3 +1,4 @@
+"""rework Perseus latin-analyses.txt into Python dictionary"""
 import re
 
 with open('./latin-analyses.txt') as file_opened:
@@ -19,7 +20,7 @@ with open('./latin-analyses.txt') as file_opened:
             reg_digits = re.compile('\w+')
             perseus_headword_id = reg_digits.findall(first)[0]
             perseus_pos_id = reg_digits.findall(first)[1]
-            persues_parsed = reg_digits.findall(first)[2]
+            perseus_parsed = reg_digits.findall(first)[2]
             try:
                 perseus_headword = reg_digits.findall(first)[3]
             except:
@@ -27,6 +28,8 @@ with open('./latin-analyses.txt') as file_opened:
             pos = third.split(' ')
             word_dict = {}
             pos_dict = {}
+            #!come back to this, add pos counter for ambiguous forms
+            #pos_counter = 0
             if pos[0] in ('fut', 'futperf', 'imperf', 'perf', 'pres', 'plup'):
                 word_dict['type'] = 'verb'
                 pos_dict['tense'] = pos[0]
@@ -130,19 +133,24 @@ with open('./latin-analyses.txt') as file_opened:
                         pos_dict['case'] = pos[1]
                         if pos[2] in ('pl', 'sg'):
                             pos_dict['number'] = pos[2]
-                            print(pos[3])
                         else:
                             if pos[2] in ('comp', 'superl'):
                                 pos_dict['comparison'] = pos[2]
+                                word_dict['pos'] = pos_dict
+                                inflections[headword] = word_dict
                             else:
                                 pass
                     else:
                         if pos[1] in ('pl', 'sg'):
                             pos_dict['number'] = pos[1]
+                            word_dict['pos'] = pos_dict
+                            inflections[headword] = word_dict
                 except:
                     pos_dict['case'] = 'indeclinable'
                     pos_dict['gender'] = pos[0]
                     pos_dict['number'] = 'sg'
+                    word_dict['pos'] = pos_dict
+                    inflections[headword] = word_dict
             elif pos[0] == 'supine':
                 pos_dict['type'] = pos[0]
                 if pos[1] == 'neut':
@@ -151,6 +159,8 @@ with open('./latin-analyses.txt') as file_opened:
                         pos_dict['case'] = pos[2]
                         if pos[3] == 'sg':
                             pos_dict['number'] = pos[3]
+                            word_dict['pos'] = pos_dict
+                            inflections[headword] = word_dict
                     else:
                         pass
                 else:
@@ -164,13 +174,15 @@ with open('./latin-analyses.txt') as file_opened:
                     try:
                         if pos[1] in ('comp', 'superl'):
                             pos_dict['comparison'] = pos[1]
+                            word_dict['pos'] = pos_dict
+                            inflections[headword] = word_dict
                         else:
                             pass
                     except:
                         pass
                 else:
                     pass
-            elif pos[0] in ('nom', 'abl', 'gen','dat', 'nom/acc', 'nom/voc'):
+            elif pos[0] in ('nom', 'abl', 'gen', 'dat', 'nom/acc', 'nom/voc'):
                 pass
             elif pos[0] == 'sg':
                 pass #??? ex: ut, uter, altus, alter
@@ -183,4 +195,8 @@ with open('./latin-analyses.txt') as file_opened:
             else:
                 pass
 
-    #print(inflections)
+try:
+    with open('cltk_analyses.txt', 'w') as write_morph:
+        write_morph.write(str(inflections))
+except IOError:
+    pass
