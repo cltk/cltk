@@ -58,11 +58,15 @@ with open('./latin-analyses.txt') as file_opened:
                                 try:
                                     if pos[5] in ('pl', 'sg'):
                                         pos_dict['number'] = pos[5]
+                                        word_dict['pos'] = pos_dict
+                                        inflections[headword] = word_dict
                                     else:
                                         pass
                                 #~10 -iens participles w/o number
                                 except:
                                     pos_dict['number'] = 'sg'
+                                    word_dict['pos'] = pos_dict
+                                    inflections[headword] = word_dict
                     #b/c voice left off present tense participles
                     elif pos[2] in ('masc/fem/neut', 'masc/fem', 'neut'):
                         pos_dict['voice'] = 'act'
@@ -82,7 +86,12 @@ with open('./latin-analyses.txt') as file_opened:
                         else:
                             pass
                 elif pos[1] in ('inf'):
-                    pass
+                    if pos[2] in ('act', 'pass'):
+                        pos_dict['voice'] = pos[2]
+                        word_dict['pos'] = pos_dict
+                        inflections[headword] = word_dict
+                    else:
+                        pass
                 elif pos[1] in ('act', 'pass'):
                     pass
                 else:
