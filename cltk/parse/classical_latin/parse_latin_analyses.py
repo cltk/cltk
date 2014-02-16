@@ -2,6 +2,7 @@
 #!TODO
 #add count to ambiguous words, like, pos_0, pos_1, pos_3 ...
 #put word type w/in the pos, b/c/ some ambiguous forms could be of two types
+#add perseus word ids
 import re
 from pprint import pprint
 
@@ -16,7 +17,14 @@ with open('./latin-analyses.txt') as file_opened:
         analyses_string = row.split('\t', 1)[1]
         reg_bracket = re.compile('\{.*?\}')
         analyses = reg_bracket.findall(analyses_string)
+        print(headword)
+        #print(analyses)
+        #!how not to write over multipl pos's?
+        pos_counter = -1
         for analysis in analyses:
+            print(analysis)
+            pos_counter += 1
+            pos_iterator = 'pos' + str(pos_counter)
             parts = analysis.split('\t')
             first = parts[0][1:]
             gloss = parts[1]
@@ -32,8 +40,6 @@ with open('./latin-analyses.txt') as file_opened:
             pos = third.split(' ')
             word_dict = {}
             pos_dict = {}
-            #!come back to this, add pos counter for ambiguous forms
-            #pos_counter = 0
             if pos[0] in ('fut', 'futperf', 'imperf', 'perf', 'pres', 'plup'):
                 pos_dict['type'] = 'verb'
                 pos_dict['tense'] = pos[0]
@@ -45,7 +51,7 @@ with open('./latin-analyses.txt') as file_opened:
                             pos_dict['person'] = pos[3]
                             if pos[4] in ('pl', 'sg'):
                                 pos_dict['number'] = pos[4]
-                                word_dict['pos'] = pos_dict
+                                word_dict[pos_iterator] = pos_dict
                                 inflections[headword] = word_dict
                             else:
                                 pass
@@ -65,14 +71,14 @@ with open('./latin-analyses.txt') as file_opened:
                                 try:
                                     if pos[5] in ('pl', 'sg'):
                                         pos_dict['number'] = pos[5]
-                                        word_dict['pos'] = pos_dict
+                                        word_dict[pos_iterator] = pos_dict
                                         inflections[headword] = word_dict
                                     else:
                                         pass
                                 #~10 -iens participles w/o number
                                 except:
                                     pos_dict['number'] = 'sg'
-                                    word_dict['pos'] = pos_dict
+                                    word_dict[pos_iterator] = pos_dict
                                     inflections[headword] = word_dict
                     #b/c voice left off present tense participles
                     elif pos[2] in ('masc/fem/neut', 'masc/fem', 'neut'):
@@ -80,7 +86,7 @@ with open('./latin-analyses.txt') as file_opened:
                         if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
                             if pos[3] in ('pl', 'sg'):
                                 pos_dict['number'] = pos[4]
-                                word_dict['pos'] = pos_dict
+                                word_dict[pos_iterator] = pos_dict
                                 inflections[headword] = word_dict
                         else:
                             pass
@@ -88,14 +94,14 @@ with open('./latin-analyses.txt') as file_opened:
                         if pos[2] in ('abl', 'dat', 'gen'):
                             #b/c voice left off present voice participles
                             pos_dict['voice'] = 'act'
-                            word_dict['pos'] = pos_dict
+                            word_dict[pos_iterator] = pos_dict
                             inflections[headword] = word_dict
                         else:
                             pass
                 elif pos[1] in ('inf'):
                     if pos[2] in ('act', 'pass'):
                         pos_dict['voice'] = pos[2]
-                        word_dict['pos'] = pos_dict
+                        word_dict[pos_iterator] = pos_dict
                         inflections[headword] = word_dict
                     else:
                         pass
@@ -106,7 +112,7 @@ with open('./latin-analyses.txt') as file_opened:
                         pos_dict['person'] = pos[2]
                         if pos[3] in ('pl', 'sg'):
                             pos_dict['number'] = pos[3]
-                            word_dict['pos'] = pos_dict
+                            word_dict[pos_iterator] = pos_dict
                             inflections[headword] = word_dict
                         else:
                             pass
@@ -121,7 +127,7 @@ with open('./latin-analyses.txt') as file_opened:
                     if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
                         if pos[3] in ('pl', 'sg'):
                             pos_dict['number'] = pos[3]
-                            word_dict['pos'] = pos_dict
+                            word_dict[pos_iterator] = pos_dict
                             inflections[headword] = word_dict
                         else:
                             pass
@@ -140,20 +146,20 @@ with open('./latin-analyses.txt') as file_opened:
                         else:
                             if pos[2] in ('comp', 'superl'):
                                 pos_dict['comparison'] = pos[2]
-                                word_dict['pos'] = pos_dict
+                                word_dict[pos_iterator] = pos_dict
                                 inflections[headword] = word_dict
                             else:
                                 pass
                     else:
                         if pos[1] in ('pl', 'sg'):
                             pos_dict['number'] = pos[1]
-                            word_dict['pos'] = pos_dict
+                            word_dict[pos_iterator] = pos_dict
                             inflections[headword] = word_dict
                 except:
                     pos_dict['case'] = 'indeclinable'
                     pos_dict['gender'] = pos[0]
                     pos_dict['number'] = 'sg'
-                    word_dict['pos'] = pos_dict
+                    word_dict[pos_iterator] = pos_dict
                     inflections[headword] = word_dict
             elif pos[0] == 'supine':
                 pos_dict['type'] = pos[0]
@@ -163,7 +169,7 @@ with open('./latin-analyses.txt') as file_opened:
                         pos_dict['case'] = pos[2]
                         if pos[3] == 'sg':
                             pos_dict['number'] = pos[3]
-                            word_dict['pos'] = pos_dict
+                            word_dict[pos_iterator] = pos_dict
                             inflections[headword] = word_dict
                     else:
                         pass
@@ -178,7 +184,7 @@ with open('./latin-analyses.txt') as file_opened:
                     try:
                         if pos[1] in ('comp', 'superl'):
                             pos_dict['comparison'] = pos[1]
-                            word_dict['pos'] = pos_dict
+                            word_dict[pos_iterator] = pos_dict
                             inflections[headword] = word_dict
                         else:
                             pass
