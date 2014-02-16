@@ -3,14 +3,14 @@ import re
 with open('./latin-analyses.txt') as file_opened:
     string_raw = file_opened.read()
     string_rows = string_raw.splitlines()
-    latin_analyses_dict = {}
+    inflections = {}
+    inflection = {}#perseus_pos = {}
+    inflected = {}
     for row in string_rows:
         headword = row.split('\t', 1)[0]
-        #print(headword)
         analyses_string = row.split('\t', 1)[1]
         reg_bracket = re.compile('\{.*?\}')
         analyses = reg_bracket.findall(analyses_string)
-        perseus_pos = {}
         for analysis in analyses:
             parts = analysis.split('\t')
             first = parts[0][1:]
@@ -24,24 +24,63 @@ with open('./latin-analyses.txt') as file_opened:
                 perseus_headword = reg_digits.findall(first)[3]
             except:
                 pass
-            #print(third)
             pos = third.split(' ')
-            #print(pos[0])
-            verb = {}
+            word_dict = {}
+            pos_dict = {}
             if pos[0] in ('fut', 'futperf', 'imperf', 'perf', 'pres', 'plup'):
-                verb['tense'] = pos[0]
-                perseus_pos['pos_type'] = 'verb'
-                perseus_pos['parts'] = verb
+                word_dict['type'] = 'verb'
+                pos_dict['tense'] = pos[0]
                 if pos[1] in ('ind', 'imperat', 'subj'):
+                    pos_dict['mood'] = pos[1]
                     if pos[2] in ('act', 'pass'):
+                        pos_dict['voice'] = pos[2]
                         if pos[3] in ('1st', '2nd', '3rd'):
-                            pass
+                            pos_dict['person'] = pos[3]
+                            if pos[4] in ('pl', 'sg'):
+                                pos_dict['number'] = pos[4]
+                                word_dict['pos'] = pos_dict
+                                inflections[headword] = word_dict
+                            else:
+                                pass
                         else:
-                            print(pos[3])
+                            pass
                     else:
-                        print(pos[2])
+                        pass
                 elif pos[1] in ('part'):
-                    pass
+                    pos_dict['tense'] = pos[0]
+                    pos_dict['participle'] = pos[1]
+                    if pos[2] in ('act', 'pass'):
+                        pos_dict['voice'] = pos[2]
+                        if pos[3] in ('fem', 'masc', 'neut'):
+                            pos_dict['gender'] = pos[3]
+                            if pos[4] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
+                                pos_dict['case'] = pos[4]
+                                try:
+                                    if pos[5] in ('pl', 'sg'):
+                                        pos_dict['number'] = pos[5]
+                                    else:
+                                        pass
+                                #~10 -iens participles w/o number
+                                except:
+                                    pos_dict['number'] = 'sg'
+                    #b/c voice left off present tense participles
+                    elif pos[2] in ('masc/fem/neut', 'masc/fem', 'neut'):
+                        pos_dict['voice'] = 'act'
+                        if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
+                            if pos[3] in ('pl', 'sg'):
+                                pos_dict['number'] = pos[4]
+                                word_dict['pos'] = pos_dict
+                                inflections[headword] = word_dict
+                        else:
+                            pass
+                    else:
+                        if pos[2] in ('abl', 'dat', 'gen'):
+                            #b/c voice left off present voice participles
+                            pos_dict['voice'] = 'act'
+                            word_dict['pos'] = pos_dict
+                            inflections[headword] = word_dict
+                        else:
+                            pass
                 elif pos[1] in ('inf'):
                     pass
                 elif pos[1] in ('act', 'pass'):
@@ -70,3 +109,4 @@ with open('./latin-analyses.txt') as file_opened:
                 pass #only 1 ex: sum
             else:
                 pass
+    print(inflections)
