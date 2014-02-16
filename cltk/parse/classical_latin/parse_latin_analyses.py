@@ -1,4 +1,7 @@
 """rework Perseus latin-analyses.txt into Python dictionary"""
+#!TODO
+#add count to ambiguous words, like, pos_0, pos_1, pos_3 ...
+#put word type w/in the pos, b/c/ some ambiguous forms could be of two types
 import re
 from pprint import pprint
 
@@ -32,7 +35,7 @@ with open('./latin-analyses.txt') as file_opened:
             #!come back to this, add pos counter for ambiguous forms
             #pos_counter = 0
             if pos[0] in ('fut', 'futperf', 'imperf', 'perf', 'pres', 'plup'):
-                word_dict['type'] = 'verb'
+                pos_dict['type'] = 'verb'
                 pos_dict['tense'] = pos[0]
                 if pos[1] in ('ind', 'imperat', 'subj'):
                     pos_dict['mood'] = pos[1]
@@ -112,7 +115,7 @@ with open('./latin-analyses.txt') as file_opened:
                 else:
                     pass
             elif pos[0] == 'gerundive':
-                word_dict['type'] = 'gerundive'
+                pos_dict['type'] = 'gerundive'
                 if pos[1] in ('fem', 'neut', 'masc', 'masc/neut'):
                     pos_dict['gender'] = pos[1]
                     if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
@@ -127,7 +130,7 @@ with open('./latin-analyses.txt') as file_opened:
                 else:
                     pass
             elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
-                word_dict['type'] = 'substantive'
+                pos_dict['type'] = 'substantive'
                 pos_dict['gender'] = pos[0]
                 try:
                     if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
