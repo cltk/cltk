@@ -156,9 +156,20 @@ with open('./latin-analyses.txt') as file_opened:
                 else:
                     pass
             elif pos[0] == 'indeclform':
-                pass
+                pos_dict['case'] = pos[0]
+                pos_dict['type'] = pos[1][1:-1]
             elif pos[0] == 'adverbial':
-                pass
+                if pos[0] == 'adverbial':
+                    pos_dict['type'] = pos[0]
+                    try:
+                        if pos[1] in ('comp', 'superl'):
+                            pos_dict['comparison'] = pos[1]
+                        else:
+                            pass
+                    except:
+                        pass
+                else:
+                    pass
             elif pos[0] in ('nom', 'abl', 'gen','dat', 'nom/acc', 'nom/voc'):
                 pass
             elif pos[0] == 'sg':
