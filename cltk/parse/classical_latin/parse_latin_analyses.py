@@ -129,10 +129,11 @@ with open('./latin-analyses.txt') as file_opened:
                     if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
                         pos_dict['case'] = pos[1]
                         if pos[2] in ('pl', 'sg'):
-                            pass
+                            pos_dict['number'] = pos[2]
+                            print(pos[3])
                         else:
                             if pos[2] in ('comp', 'superl'):
-                                pos_dict['degree_of_comparison'] = pos[2]
+                                pos_dict['comparison'] = pos[2]
                             else:
                                 pass
                     else:
@@ -141,7 +142,7 @@ with open('./latin-analyses.txt') as file_opened:
                 except:
                     pos_dict['case'] = 'indeclinable'
                     pos_dict['gender'] = pos[0]
-
+                    pos_dict['number'] = 'sg'
             elif pos[0] == 'supine':
                 pass
             elif pos[0] == 'indeclform':
