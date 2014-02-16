@@ -93,7 +93,14 @@ with open('./latin-analyses.txt') as file_opened:
                     else:
                         pass
                 elif pos[1] in ('act', 'pass'):
-                    pass
+                    #adferretur
+                    #efferretur
+                    print(headword,pos)
+                    pos_dict['voice'] = pos[1]
+                    if pos[2] in ('1st', '2nd', '3rd'):
+                        pass
+                    else:
+                        print(pos[2])
                 else:
                     pass
             elif pos[0] == 'gerundive':
@@ -118,4 +125,5 @@ with open('./latin-analyses.txt') as file_opened:
                 pass #only 1 ex: sum
             else:
                 pass
-    print(inflections)
+
+    #print(inflections)
