@@ -1,13 +1,7 @@
 """rework Perseus latin-analyses.txt into Python dictionary"""
 #!TODO
-<<<<<<< HEAD
 #add perseus word ids
 #break multiple cases (eg, nom/acc/voc) and genders (masc/neut)
-=======
-#add count to ambiguous words, like, pos_0, pos_1, pos_3 ...
-#put word type w/in the pos, b/c/ some ambiguous forms could be of two types
-#add perseus word ids
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
 import re
 from pprint import pprint
 
@@ -15,37 +9,23 @@ with open('./latin-analyses.txt') as file_opened:
     string_raw = file_opened.read()
     string_rows = string_raw.splitlines()
     headword_dict = {}
-<<<<<<< HEAD
     for row in string_rows[35000:35100]:
-=======
-    for row in string_rows:
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
         perseus_pos_dict = {}
         headword = row.split('\t', 1)[0]
         analyses_string = row.split('\t', 1)[1]
         reg_bracket = re.compile('\{.*?\}')
         analyses = reg_bracket.findall(analyses_string)
         print(headword)
-<<<<<<< HEAD
-=======
-        #print(analyses)
-        #!how not to write over multipl pos's?
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
         pos_counter = -1
         perseus_pos_list = []
         for analysis in analyses:
             pos_counter += 1
-<<<<<<< HEAD
             pos_iterator = 'pos' + str(pos_counter)
-=======
-            #print(pos_counter)
-            #print(analysis)
-            pos_iterator = 'pos' + str(pos_counter)
-            #print(pos_iterator)
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
             parts = analysis.split('\t')
             first = parts[0][1:]
             gloss = parts[1]
+            if gloss == ' ':
+                gloss = ''
             third = parts[2][:-1]
             reg_digits = re.compile('\w+')
             perseus_headword_id = reg_digits.findall(first)[0]
@@ -72,10 +52,7 @@ with open('./latin-analyses.txt') as file_opened:
                             pos_dict['person'] = pos[3]
                             if pos[4] in ('pl', 'sg'):
                                 pos_dict['number'] = pos[4]
-<<<<<<< HEAD
                                 pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                                 word_dict[pos_iterator] = pos_dict
                                 perseus_pos_list.append(word_dict)
                                 perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -98,10 +75,7 @@ with open('./latin-analyses.txt') as file_opened:
                                 try:
                                     if pos[5] in ('pl', 'sg'):
                                         pos_dict['number'] = pos[5]
-<<<<<<< HEAD
                                         pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                                         word_dict[pos_iterator] = pos_dict
                                         perseus_pos_list.append(word_dict)
                                         perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -112,10 +86,7 @@ with open('./latin-analyses.txt') as file_opened:
                                 #~10 -iens participles w/o number
                                 except:
                                     pos_dict['number'] = 'sg'
-<<<<<<< HEAD
                                     pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                                     word_dict[pos_iterator] = pos_dict
                                     perseus_pos_list.append(word_dict)
                                     perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -126,10 +97,7 @@ with open('./latin-analyses.txt') as file_opened:
                         if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
                             if pos[3] in ('pl', 'sg'):
                                 pos_dict['number'] = pos[4]
-<<<<<<< HEAD
                                 pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                                 word_dict[pos_iterator] = pos_dict
                                 perseus_pos_list.append(word_dict)
                                 perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -140,10 +108,7 @@ with open('./latin-analyses.txt') as file_opened:
                         if pos[2] in ('abl', 'dat', 'gen'):
                             #b/c voice left off present voice participles
                             pos_dict['voice'] = 'act'
-<<<<<<< HEAD
                             pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                             word_dict[pos_iterator] = pos_dict
                             perseus_pos_list.append(word_dict)
                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -153,10 +118,7 @@ with open('./latin-analyses.txt') as file_opened:
                 elif pos[1] in ('inf'):
                     if pos[2] in ('act', 'pass'):
                         pos_dict['voice'] = pos[2]
-<<<<<<< HEAD
                         pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                         word_dict[pos_iterator] = pos_dict
                         perseus_pos_list.append(word_dict)
                         perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -170,10 +132,7 @@ with open('./latin-analyses.txt') as file_opened:
                         pos_dict['person'] = pos[2]
                         if pos[3] in ('pl', 'sg'):
                             pos_dict['number'] = pos[3]
-<<<<<<< HEAD
                             pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                             word_dict[pos_iterator] = pos_dict
                             perseus_pos_list.append(word_dict)
                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -191,10 +150,7 @@ with open('./latin-analyses.txt') as file_opened:
                     if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
                         if pos[3] in ('pl', 'sg'):
                             pos_dict['number'] = pos[3]
-<<<<<<< HEAD
                             pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                             word_dict[pos_iterator] = pos_dict
                             perseus_pos_list.append(word_dict)
                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -213,10 +169,7 @@ with open('./latin-analyses.txt') as file_opened:
                         pos_dict['case'] = pos[1]
                         if pos[2] in ('pl', 'sg'):
                             pos_dict['number'] = pos[2]
-<<<<<<< HEAD
                             pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                             word_dict[pos_iterator] = pos_dict
                             perseus_pos_list.append(word_dict)
                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -224,10 +177,7 @@ with open('./latin-analyses.txt') as file_opened:
                         else:
                             if pos[2] in ('comp', 'superl'):
                                 pos_dict['comparison'] = pos[2]
-<<<<<<< HEAD
                                 pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                                 word_dict[pos_iterator] = pos_dict
                                 perseus_pos_list.append(word_dict)
                                 perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -237,10 +187,7 @@ with open('./latin-analyses.txt') as file_opened:
                     else:
                         if pos[1] in ('pl', 'sg'):
                             pos_dict['number'] = pos[1]
-<<<<<<< HEAD
                             pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                             word_dict[pos_iterator] = pos_dict
                             perseus_pos_list.append(word_dict)
                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -249,10 +196,7 @@ with open('./latin-analyses.txt') as file_opened:
                     pos_dict['case'] = 'indeclinable'
                     pos_dict['gender'] = pos[0]
                     pos_dict['number'] = 'sg'
-<<<<<<< HEAD
                     pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                     word_dict[pos_iterator] = pos_dict
                     perseus_pos_list.append(word_dict)
                     perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -265,10 +209,7 @@ with open('./latin-analyses.txt') as file_opened:
                         pos_dict['case'] = pos[2]
                         if pos[3] == 'sg':
                             pos_dict['number'] = pos[3]
-<<<<<<< HEAD
                             pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                             word_dict[pos_iterator] = pos_dict
                             perseus_pos_list.append(word_dict)
                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -281,10 +222,7 @@ with open('./latin-analyses.txt') as file_opened:
             elif pos[0] == 'indeclform':
                 pos_dict['case'] = pos[0]
                 pos_dict['type'] = pos[1][1:-1]
-<<<<<<< HEAD
                 pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                 word_dict[pos_iterator] = pos_dict
                 perseus_pos_list.append(word_dict)
                 perseus_pos_dict['perseus_pos'] = perseus_pos_list
@@ -295,10 +233,7 @@ with open('./latin-analyses.txt') as file_opened:
                     try:
                         if pos[1] in ('comp', 'superl'):
                             pos_dict['comparison'] = pos[1]
-<<<<<<< HEAD
                             pos_dict['gloss'] = gloss
-=======
->>>>>>> 4f2ccdc1e7866ac5bcb916645d7c2cdd08a1443c
                             word_dict[pos_iterator] = pos_dict
                             perseus_pos_list.append(word_dict)
                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
