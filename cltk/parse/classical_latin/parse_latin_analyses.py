@@ -1,7 +1,5 @@
 """rework Perseus latin-analyses.txt into Python dictionary"""
 #!TODO
-#add count to ambiguous words, like, pos_0, pos_1, pos_3 ...
-#put word type w/in the pos, b/c/ some ambiguous forms could be of two types
 #add perseus word ids
 import re
 from pprint import pprint
@@ -17,16 +15,11 @@ with open('./latin-analyses.txt') as file_opened:
         reg_bracket = re.compile('\{.*?\}')
         analyses = reg_bracket.findall(analyses_string)
         print(headword)
-        #print(analyses)
-        #!how not to write over multipl pos's?
         pos_counter = -1
         perseus_pos_list = []
         for analysis in analyses:
             pos_counter += 1
-            #print(pos_counter)
-            #print(analysis)
             pos_iterator = 'pos' + str(pos_counter)
-            #print(pos_iterator)
             parts = analysis.split('\t')
             first = parts[0][1:]
             gloss = parts[1]
