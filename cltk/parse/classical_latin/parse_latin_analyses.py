@@ -9,7 +9,7 @@ with open('./latin-analyses.txt') as file_opened:
     string_raw = file_opened.read()
     string_rows = string_raw.splitlines()
     headword_dict = {}
-    for row in string_rows[35000:35100]:
+    for row in string_rows:
         perseus_pos_dict = {}
         headword = row.split('\t', 1)[0]
         analyses_string = row.split('\t', 1)[1]
