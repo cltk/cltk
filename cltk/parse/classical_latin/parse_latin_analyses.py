@@ -1,6 +1,7 @@
 """rework Perseus latin-analyses.txt into Python dictionary"""
 #!TODO
 #add perseus word ids
+#break multiple cases (eg, nom/acc/voc) and genders (masc/neut)
 import re
 from pprint import pprint
 
@@ -8,13 +9,14 @@ with open('./latin-analyses.txt') as file_opened:
     string_raw = file_opened.read()
     string_rows = string_raw.splitlines()
     headword_dict = {}
-    for row in string_rows:
+    for row in string_rows[15000:15100]:
         perseus_pos_dict = {}
         headword = row.split('\t', 1)[0]
         analyses_string = row.split('\t', 1)[1]
         reg_bracket = re.compile('\{.*?\}')
         analyses = reg_bracket.findall(analyses_string)
         print(headword)
+        print(row)
         pos_counter = -1
         perseus_pos_list = []
         for analysis in analyses:
