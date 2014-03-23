@@ -1,22 +1,24 @@
 Installation
 ************
 
-Through Pip
-===========
+Requirements
+============
 
-You'll need a working installation of Python 3.3 with `Pip installed alongside Python 3.3 <http://www.pip-installer.org/en/latest/installing.html>`_.
+First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now comes bundled with Pip.
 
-First, you'll need `the alpha version of the NLTK <http://nltk.org/nltk3-alpha/>`_::
+Next, install the `alpha version of the NLTK (3.0a3) <http://nltk.org/nltk3-alpha/>`_::
 
    pip install http://nltk.org/nltk3-alpha/nltk-3.0a3.tar.gz
 
-The CLTK is `available at PyPI <https://pypi.python.org/pypi/cltk>`_, which means that it may be installed with the following::
+Through Pip
+===========
+To install the CLTK with Pip::
 
    pip install cltk
 
 By source
 ======
 
-`The source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, run within the root directory::
+The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, clone and run within the repository's root directory::
 
    python setup.py sdist install
