@@ -20,9 +20,9 @@ class Compile(object):
     def __init__(self):
         """Initializer, optional corpora and project"""
         #self.corpora_root = corpora_root
-        self.corpora_root = os.path.abspath('../../../local/')
+        self.corpora_root = os.path.abspath('./local/')
         #self.project_root = project_root
-        self.project_root = os.path.abspath('../')
+        self.project_root = os.path.abspath('./cltk/corpus/')
         logging.basicConfig(filename='compiler.log',
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
@@ -100,6 +100,8 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting PHI7 corpus compilation into files.')
         phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
+        print(self.project_root)
+        print(self.corpora_root)
         self.open_index_phi7()
         for file_name in INDEX_DICT_PHI7:
             abbrev = INDEX_DICT_PHI7[file_name]
