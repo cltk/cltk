@@ -22,13 +22,23 @@ Convert Beta Code to Unicode
 Compile TLG
 -----------
 
-In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. For the arguments to ``Compile``, the first is the path to the directory just below where your TLG corpus is found, and the second is the path to the corpus directory of your CLTK project. For example, on a POSIX system, if one's home directory is ``/home/kyle``, and the CLTK project is installed at ``/home/kyle/cltk``, then the CLTK corpus directory would reside at ``/home/kyle/cltk/cltk/corpus``::
+In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory, open a Python shell::
 
-   from cltk.corpus.common.compiler import Compile
+ .. code-block:: bash
 
-   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
+    $ python
 
-   c.dump_txts_tlg_files()
+and then::
+
+   .. code-block:: python
+
+      from cltk.corpus.common.compiler import Compile
+
+      c = Compile()
+
+      c.dump_txts_tlg_files()
+
+Following this, you should see a screen printout of each TLG file as it is being transformed into Unicode and where it is being saved (e.g., ``/Users/kyle/cltk/cltk/corpus/classical_greek/plaintext/tlg_e/TLG5033.txt``).
 
 A few things to note: Your TLG directory must be named ``TLG_E`` and the TLG's file names must be all uppercase (e.g., ``TLG0020.TXT``).
 

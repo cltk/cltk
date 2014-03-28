@@ -381,13 +381,15 @@ class Compile(object):
                 logging.error('Failed to open TLG file %s of author %s',
                               file_name, abbrev)
         #later delete the authdab-making part dict
+        '''
         authtab_path = tlg_e_path + '/' + 'authtab.txt'
         print(authtab_path)
         try:
             with open(authtab_path, 'w') as authtab_opened:
                 authtab_opened.write(str(INDEX_DICT_TLG))
         except IOError:
-            logging.error('Failed to create and/or write to file tlg.json.')
+            logging.error('Failed to create and/or write to file authtab.txt.')
+        '''
         logging.info('Finished TLG corpus compilation.')
 
     def dump_txts_tlg_idt(self):
