@@ -1,12 +1,12 @@
 """Assembles JSON files of PHI and TLG corpora"""
 
+import ast
+from cltk.corpus.classical_greek.replacer import Replacer
 import json
 import logging
 import os
-import re
-import ast
 from pprint import pprint
-from cltk.corpus.classical_greek.replacer import Replacer
+import re
 
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
@@ -16,10 +16,13 @@ INDEX_DICT_TLG = {}
 class Compile(object):
     """Make JSON files out of TLG & PHI disks"""
 
-    def __init__(self, corpora_root='.', project_root='cltk/corpus'):
+    #def __init__(self, corpora_root='.', project_root='cltk/corpus'):
+    def __init__(self):
         """Initializer, optional corpora and project"""
-        self.corpora_root = corpora_root
-        self.project_root = project_root
+        #self.corpora_root = corpora_root
+        self.corpora_root = os.path.abspath('../../../local/')
+        #self.project_root = project_root
+        self.project_root = os.path.abspath('../')
         logging.basicConfig(filename='compiler.log',
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
