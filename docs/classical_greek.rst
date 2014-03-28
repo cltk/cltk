@@ -60,24 +60,11 @@ Compile Author-Works Indices
 
 .. important::
 
-   Two pre-compiled indices come with the CLTK: authtab.txt and auth_work.txt. The former is a dictionary listing of TLG file names and abbreviated author names (e.g, ``'TLG2474': 'Nicander Hist.'``). It is found , from the cltk root, at ``cltk/corpus/classical_greek/plaintext/tlg_e/authtab.txt``. The latter, auth_work, is a large dictionary containing metadata about authors and their writings (at  ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``). This has been compiled through regex searches through each TLG file, though not every title has been caught, due to some inconsistent markup within some original files. There remains to be written and tested additional regular expressions to catch all titles. For more on this, see ``write_tlg_auth_works`` in the compiler.py source code.
+   Two pre-compiled indices come with the CLTK: authtab.txt and auth_work.txt. The former is a dictionary listing of TLG file names and abbreviated author names (e.g, ``'TLG2474': 'Nicander Hist.'``). It is found , from the cltk root, at ``cltk/corpus/classical_greek/plaintext/tlg_e/authtab.txt``. The latter, auth_work, is a large dictionary containing metadata about authors and their writings (at  ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``). This has been compiled through regex searches through each TLG file, though not every title has been caught, due to some inconsistent markup within some original files. There remains to be written and tested additional regular expressions to catch all titles. For more on this, see ``write_tlg_auth_works()`` and ``write_phi7_auth_works()`` in the ``compiler.py`` source code.
 
 .. note::
 
    The TLG and PHI7 both come with index files (e.g., ``BIBINDCD.BIN``, ``LIST4CLA.BIN``), though these have proven difficult to parse.
-
-After the TLG and PHI7 corpora have been compiled by the CLTK, it can generate indices for the works contained within each author file. Essentially, it looks in each author's file (e.g., ``TLG0020.txt``) and scans its contents looking for title tags (i.e., ``{1ΑΔΡΑΣΤΟΣ}1``).
-
-After the CLTK generates an author-work index, a file called ``auth_work.txt`` will be added to the respective directories (i.e., ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``, ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``). To generate for the TLG::
-
-   from cltk.corpus.common.compiler import Compile
-
-   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
-
-   c.write_tlg_auth_works()
-
-And for the PHI7, replace the final command with ``write_phi7_auth_works()``.
-
 
 Filter Stopwords
 ----------------
