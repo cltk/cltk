@@ -10,34 +10,31 @@ Convert Beta Code to Unicode
 
 .. code-block:: python
 
-   from cltk.corpus.classical_greek.replacer import Replacer
+   >>> from cltk.corpus.classical_greek.replacer import Replacer
 
-   BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ PA/QWMEN E)KEI/NOIS, E)PI\ TH\N DIA/GNWSIN AU)TW=N E)/RXESQAI DEI= PRW=TON. TINE\S ME\N OU)=N AU)TW=N EI)SIN A)KRIBEI=S, TINE\S DE\ OU)K A)KRIBEI=S O)/NTES METAPI/-PTOUSIN EI)S TOU\S E)PI\ SH/YEI: OU(/TW GA\R KAI\ LOU=SAI KAI\ QRE/YAI KALW=S KAI\ MH\ LOU=SAI PA/LIN, O(/TE MH\ O)RQW=S DUNHQEI/HMEN."""
+   >>> BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ PA/QWMEN E)KEI/NOIS, E)PI\ TH\N DIA/GNWSIN AU)TW=N E)/RXESQAI DEI= PRW=TON. TINE\S ME\N OU)=N AU)TW=N EI)SIN A)KRIBEI=S, TINE\S DE\ OU)K A)KRIBEI=S O)/NTES METAPI/-PTOUSIN EI)S TOU\S E)PI\ SH/YEI: OU(/TW GA\R KAI\ LOU=SAI KAI\ QRE/YAI KALW=S KAI\ MH\ LOU=SAI PA/LIN, O(/TE MH\ O)RQW=S DUNHQEI/HMEN."""
 
-   MY_REPLACER = Replacer()
+   >>> r = Replacer()
 
-   unicode_converted = MY_REPLACER.beta_code(BETA_EXAMPLE)
+   >>> r.beta_code(BETA_EXAMPLE)
+   'ὅπωσ οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοισ, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲσ μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖσ, τινὲσ δὲ οὐκ ἀκριβεῖσ ὄντεσ μεταπίπτουσιν εἰσ τοὺσ ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶσ καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶσ δυνηθείημεν.'
 
-   print(unicode_converted)
 
 Filter Stopwords
 ----------------
 
 .. code-block:: python
 
-   import nltk.tokenize
-   from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
-
-   SENTENCE = """
-   Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.
-   """
-
-   lowered = SENTENCE.lower()
-   tokens = nltk.word_tokenize(lowered)
-   filtered = [w for w in tokens if not w in STOPS_LIST]
-
-   print(filtered)
-
+   >>> import nltk.tokenize
+   >>> from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
+   >>> SENTENCE = """
+   ... Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.
+   ... """
+   >>> lowered = SENTENCE.lower()
+   >>> tokens = nltk.word_tokenize(lowered)
+   >>> filtered = [w for w in tokens if not w in STOPS_LIST]
+   >>> print(filtered)
+   ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο', 'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',', 'ἅμα', 'ἀγόμενος', 'ἴωνας', 'αἰολέας', '.']
 
 COMPILE TLG
 ===========
@@ -45,9 +42,7 @@ COMPILE TLG
 Compile into files
 ------------------
 
-In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory, open a Python shell:
-
-   .. code-block:: python
+In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory, open a Python shell::
 
       from cltk.corpus.common.compiler import Compile
 
@@ -79,8 +74,6 @@ The CLTK comes with pre-compiled author-file and author-work indices for the TLG
 
 To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``::
 
-   .. code-block:: python
-
       from cltk.corpus.common.compiler import Compile
 
       c = Compile()
@@ -89,9 +82,9 @@ To re-compile these yourself, the following two methods may be used. To create `
 
 And to re-compile ``auth_work.txt``, do::
 
-   .. code-block:: python
-
       from cltk.corpus.common.compiler import Compile
+      
+      c = Compile()
 
       c.write_tlg_auth_works()
 
@@ -112,8 +105,6 @@ Compile into Files
 
 The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_txts_phi7_files()`` (or ``c.dump_txts_phi7()``).::
 
-.. code-block:: python
-
    from cltk.corpus.common.compiler import Compile
 
    c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
@@ -128,8 +119,6 @@ The CLTK comes with pre-compiled author-file and author-work indices for the PHI
 
 To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``::
 
-   .. code-block:: python
-
       from cltk.corpus.common.compiler import Compile
 
       c = Compile()
@@ -138,9 +127,9 @@ To re-compile these yourself, the following two methods may be used. To create `
 
 And to re-compile ``auth_work.txt``, do::
 
-   .. code-block:: python
-
       from cltk.corpus.common.compiler import Compile
+      
+      c = Compile()
 
       c.write_phi7_auth_works()
 
