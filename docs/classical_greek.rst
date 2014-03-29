@@ -9,13 +9,13 @@ Convert Beta Code to Unicode
 ----------------------------
 
 .. code-block:: python
-.. highlight:: python
 
    from cltk.corpus.classical_greek.replacer import Replacer
 
    BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ PA/QWMEN E)KEI/NOIS, E)PI\ TH\N DIA/GNWSIN AU)TW=N E)/RXESQAI DEI= PRW=TON. TINE\S ME\N OU)=N AU)TW=N EI)SIN A)KRIBEI=S, TINE\S DE\ OU)K A)KRIBEI=S O)/NTES METAPI/-PTOUSIN EI)S TOU\S E)PI\ SH/YEI: OU(/TW GA\R KAI\ LOU=SAI KAI\ QRE/YAI KALW=S KAI\ MH\ LOU=SAI PA/LIN, O(/TE MH\ O)RQW=S DUNHQEI/HMEN."""
 
    MY_REPLACER = Replacer()
+
    unicode_converted = MY_REPLACER.beta_code(BETA_EXAMPLE)
 
    print(unicode_converted)
@@ -45,13 +45,7 @@ COMPILE TLG
 Compile into files
 ------------------
 
-In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory, open a Python shell::
-
- .. code-block:: bash
-
-    $ python
-
-and then::
+In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory, open a Python shell:
 
    .. code-block:: python
 
@@ -81,28 +75,25 @@ The CLTK compiler can also output the entirety of the TLG into a single JSON obj
 Compile Author-File and Author-Works Indices
 --------------------------------------------
 
-The CLTK comes with pre-compiled author-file and author-work indices for the TLG (``authtab.txt`` and ``auth_work.txt``, respectively). They can be found at ``cltk/corpus/classical_greek/plaintext/tlg_e/``. The former is a dictionary listing of TLG file names and abbreviated author names (e.g, ``'TLG2474': 'Nicander Hist.'``). The latter, ``auth_work.txt``, is a large dictionary containing metadata about authors and their writings (at  ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``).
+The CLTK comes with pre-compiled author-file and author-work indices for the TLG (```` and ``auth_work.txt``, respectively). They can be found at ``cltk/corpus/classical_greek/plaintext/tlg_e/``. The former is a dictionary listing of TLG file names and abbreviated author names (e.g, ``'TLG2474': 'Nicander Hist.'``). The latter, ``auth_work.txt``, is a large dictionary containing metadata about authors and their writings (at  ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``).
 
-To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``:
+To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``::
 
-.. code-block:: python
+   .. code-block:: python
 
-   from cltk.corpus.common.compiler import Compile
+      from cltk.corpus.common.compiler import Compile
 
-   c = Compile()
+      c = Compile()
 
-   c.dump_txts_tlg()
+      c.make_tlg_authtab()
 
-And to re-compile ``auth_work.txt``, do:
+And to re-compile ``auth_work.txt``, do::
 
-.. code-block:: python
+   .. code-block:: python
 
-   from cltk.corpus.common.compiler import Compile
+      from cltk.corpus.common.compiler import Compile
 
-   c.make_authtab()
-
-   c.write_tlg_auth_works()
-
+      c.write_tlg_auth_works()
 
 .. note::
 
@@ -121,12 +112,36 @@ Compile into Files
 
 The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_txts_phi7_files()`` (or ``c.dump_txts_phi7()``).::
 
+.. code-block:: python
+
    from cltk.corpus.common.compiler import Compile
 
    c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
 
    c.dump_txts_phi7_files()
    
-write_phi7_auth_works()
+
+Compile Corpus-File and Corpus-Works Indices
+--------------------------------------------
+
+The CLTK comes with pre-compiled author-file and author-work indices for the PHI7 (```` and ``auth_work.txt``, respectively). They can be found at ``cltk/corpus/classical_greek/plaintext/phi_7/``. The former is a dictionary listing of PHI_7 file names and abbreviated author names (e.g, ``'DDP0128': 'PRyl'``). The latter, ``auth_work.txt``, is a large dictionary containing metadata about authors and their writings (at ``cltk/corpus/classical_greek/plaintext/phi_7/auth_work.txt``).
+
+To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``::
+
+   .. code-block:: python
+
+      from cltk.corpus.common.compiler import Compile
+
+      c = Compile()
+
+      c.make_phi7_authtab()
+
+And to re-compile ``auth_work.txt``, do::
+
+   .. code-block:: python
+
+      from cltk.corpus.common.compiler import Compile
+
+      c.write_phi7_auth_works()
 
 
