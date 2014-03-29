@@ -40,13 +40,13 @@ class Compile(object):
 
     def make_phi7_authtab(self):
         """Creates a dictionary of PHI7 collections and file names."""
-            global INDEX_DICT_PHI7
-            logging.info('Starting PHI7 index parsing.')
-            phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
-            index = 'AUTHTAB.DIR'
-            local_index = self.corpora_root + '/' + 'PHI7/' + index
-            try:
-                with open(local_index, 'rb') as index_opened:
+        global INDEX_DICT_PHI7
+        logging.info('Starting PHI7 index parsing.')
+        phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
+        index = 'AUTHTAB.DIR'
+        local_index = self.corpora_root + '/' + 'PHI7/' + index
+        try:
+            with open(local_index, 'rb') as index_opened:
                 index_read = index_opened.read().decode('latin-1')
                 index_split = index_read.split('ÿ')[2:-9]
                 index_filter = [item for item in index_split if item]
@@ -65,24 +65,21 @@ class Compile(object):
                         INDEX_DICT_PHI7[number] = name
                 logging.info('Finished PHI7 index parsing.')
                 logging.info('Starting writing PHI7 authtab.txt.')
-                    #return INDEX_DICT_PHI7
-                    authtab_path = phi7_path + '/' + 'authtab.txt'
-                        print(authtab_path)
-                        try:
-                            with open(authtab_path, 'w') as authtab_opened:
-                                authtab_opened.write(str(INDEX_DICT_PHI7))
-                                logging.info('Finished writing PHI7 authtab.txt.')
-                        except IOError:
-                            logging.error('Failed to write PHI7 authtab.txt.')
-            except IOError:
-                logging.error('Failed to open PHI7 index file AUTHTAB.DIR')
+                authtab_path = phi7_path + '/' + 'authtab.txt'
+                try:
+                    with open(authtab_path, 'w') as authtab_opened:
+                        authtab_opened.write(str(INDEX_DICT_PHI7))
+                        logging.info('Finished writing PHI7 authtab.txt.')
+                except IOError:
+                    logging.error('Failed to write PHI7 authtab.txt.')
+        except IOError:
+            logging.error('Failed to open PHI7 index file AUTHTAB.DIR')
 
 
     def open_index_phi7(self):
         """Creates a dictionary of PHI7 collections and file names."""
         global INDEX_DICT_PHI7
         logging.info('Starting PHI7 index parsing.')
-        #phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
         index = 'AUTHTAB.DIR'
         local_index = self.corpora_root + '/' + 'PHI7/' + index
         try:
@@ -375,7 +372,7 @@ class Compile(object):
         """Creates a dictionary of TLG collections and file names."""
         global INDEX_DICT_TLG
         logging.info('Starting TLG index parsing.')
-        #tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         index = 'AUTHTAB.DIR'
         local_index = self.corpora_root + '/' + 'TLG_E/' + index
         try:
@@ -555,7 +552,7 @@ class Compile(object):
         """read authtab.txt, read author file, and expand dict to
         include author works
         """
-        logging.info('Starting to compile auth-works dict')
+        logging.info('Starting to compile TLG auth_works.txt.')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         authtab_path = tlg_e_path + '/authtab.txt'
         with open(authtab_path) as file_opened:
@@ -576,7 +573,7 @@ class Compile(object):
                     pprint(auth_work_dict, stream=new_file)
             except IOError:
                 logging.error('Failed to write to auth_work.txt')
-        logging.info('Finished compiling auth-works dict')
+        logging.info('Finished compiling TLG auth_works.txt.')
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
