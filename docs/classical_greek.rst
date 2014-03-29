@@ -9,6 +9,7 @@ Convert Beta Code to Unicode
 ----------------------------
 
 .. code-block:: python
+.. highlight:: python
 
    from cltk.corpus.classical_greek.replacer import Replacer
 
@@ -38,8 +39,8 @@ Filter Stopwords
    print(filtered)
 
 
-TLG
-===
+COMPILE TLG
+===========
 
 Compile into files
 ------------------
@@ -108,8 +109,8 @@ And to re-compile ``auth_work.txt``, do:
    The TLG and PHI7 both come with index files (e.g., ``BIBINDCD.BIN``, ``LIST4CLA.BIN``), though these have proven challenging to parse.
 
 
-PHI7
-====
+COMPILE PHI7
+============
 
 Compile into Files
 ------------------
