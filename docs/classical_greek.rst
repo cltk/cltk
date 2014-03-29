@@ -2,13 +2,13 @@ Classical Greek
 ***************
 
 
-Use
-=====
+Text Processing
+===============
 
 Convert Beta Code to Unicode
 ----------------------------
 
-::
+.. code-block:: python
 
    from cltk.corpus.classical_greek.replacer import Replacer
 
@@ -19,8 +19,30 @@ Convert Beta Code to Unicode
 
    print(unicode_converted)
 
-Compile TLG
------------
+Filter Stopwords
+----------------
+
+.. code-block:: python
+
+   import nltk.tokenize
+   from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
+
+   SENTENCE = """
+   Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.
+   """
+
+   lowered = SENTENCE.lower()
+   tokens = nltk.word_tokenize(lowered)
+   filtered = [w for w in tokens if not w in STOPS_LIST]
+
+   print(filtered)
+
+
+TLG
+===
+
+Compile into files
+------------------
 
 In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory, open a Python shell::
 
@@ -42,10 +64,59 @@ Following this, you should see a screen printout of each TLG file as it is being
 
 A few things to note: Your TLG directory must be named ``TLG_E`` and the TLG's file names must be all uppercase (e.g., ``TLG0020.TXT``).
 
-The CLTK compiler can also output the entirety of the TLG into a single JSON object. Outputting this into one file (with ``c.dump_txts_tlg()``) is probably inadvisable, since it would be too large for efficient reading, but this code would only need a little modification to insert into a `document-oriented database <http://en.wikipedia.org/wiki/Document-oriented_database>`_ (such as MongoDB).
+Compile into JSON
+-----------------
 
-Compile PHI7
------------
+.. code-block:: python
+
+   from cltk.corpus.common.compiler import Compile
+
+   c = Compile()
+
+   c.dump_txts_tlg()
+
+The CLTK compiler can also output the entirety of the TLG into a single JSON object. Outputting this into one file is probably inadvisable, since it would be too large for efficient reading, but this code would only need a little modification to insert into a document-oriented database, such as MongoDB.
+
+Compile Author-File and Author-Works Indices
+--------------------------------------------
+
+The CLTK comes with pre-compiled author-file and author-work indices for the TLG (``authtab.txt`` and ``auth_work.txt``, respectively). They can be found at ``cltk/corpus/classical_greek/plaintext/tlg_e/``. The former is a dictionary listing of TLG file names and abbreviated author names (e.g, ``'TLG2474': 'Nicander Hist.'``). The latter, ``auth_work.txt``, is a large dictionary containing metadata about authors and their writings (at  ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``).
+
+To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``:
+
+.. code-block:: python
+
+   from cltk.corpus.common.compiler import Compile
+
+   c = Compile()
+
+   c.dump_txts_tlg()
+
+And to re-compile ``auth_work.txt``, do:
+
+.. code-block:: python
+
+   from cltk.corpus.common.compiler import Compile
+
+   c.make_authtab()
+
+   c.write_tlg_auth_works()
+
+
+.. note::
+
+   The TLG and PHI7 both come with index files (e.g., ``BIBINDCD.BIN``, ``LIST4CLA.BIN``), though these have proven challenging to parse.
+
+
+PHI7
+====
+
+Compile into Files
+------------------
+
+.. note::
+
+   The PHI7 is compiled but its Beta Code is not currently converted into Unicode. For this to be done, a little parser for Greek markup needs to be written.
 
 The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_txts_phi7_files()`` (or ``c.dump_txts_phi7()``).::
 
@@ -54,34 +125,7 @@ The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_t
    c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
 
    c.dump_txts_phi7_files()
-
-Compile Author-Works Indices
-----------------------------
-
-.. important::
-
-   Two pre-compiled indices come with the CLTK: authtab.txt and auth_work.txt. The former is a dictionary listing of TLG file names and abbreviated author names (e.g, ``'TLG2474': 'Nicander Hist.'``). It is found , from the cltk root, at ``cltk/corpus/classical_greek/plaintext/tlg_e/authtab.txt``. The latter, auth_work, is a large dictionary containing metadata about authors and their writings (at  ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``). This has been compiled through regex searches through each TLG file, though not every title has been caught, due to some inconsistent markup within some original files. There remains to be written and tested additional regular expressions to catch all titles. For more on this, see ``write_tlg_auth_works()`` and ``write_phi7_auth_works()`` in the ``compiler.py`` source code.
-
-.. note::
-
-   The TLG and PHI7 both come with index files (e.g., ``BIBINDCD.BIN``, ``LIST4CLA.BIN``), though these have proven difficult to parse.
-
-Filter Stopwords
-----------------
-
-::
-
-   import nltk.tokenize
-   from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
-
-   SENTENCE = """
-   Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.
-   """
-
-   lowered = SENTENCE.lower()
-   tokens = nltk.word_tokenize(lowered)
-   filtered = [w for w in tokens if not w in STOPS_LIST]
-
-   print(filtered)
+   
+write_phi7_auth_works()
 
 

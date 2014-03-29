@@ -72,6 +72,7 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting PHI7 corpus compilation.')
         phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
+        #later don't read self.open_index_phi7() but read from CLTK's authtab.txt
         self.open_index_phi7()
         phi7_dict = {}
         for file_name in INDEX_DICT_PHI7:
@@ -100,8 +101,9 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting PHI7 corpus compilation into files.')
         phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
-        print(self.project_root)
-        print(self.corpora_root)
+        #print(self.project_root)
+        #print(self.corpora_root)
+        #later don't read self.open_index_phi7() but read from CLTK's authtab.txt
         self.open_index_phi7()
         for file_name in INDEX_DICT_PHI7:
             abbrev = INDEX_DICT_PHI7[file_name]
@@ -122,7 +124,8 @@ class Compile(object):
             except IOError:
                 logging.error('Failed to open PHI7 file %s of author %s', \
                               file_name, abbrev)
-                #later delete the authdab-making part dict
+        '''
+        #later delete the authdab-making part dict
         authtab_path = phi7_path + '/' + 'authtab.txt'
         print(authtab_path)
         try:
@@ -130,6 +133,7 @@ class Compile(object):
                 authtab_opened.write(str(INDEX_DICT_PHI7))
         except IOError:
             logging.error('Failed to create and/or write to file tlg.json.')
+        '''
         logging.info('Finished PHI7 corpus compilation.')
 
     def find_phi7_works(self, auth_abbrev):
@@ -200,6 +204,7 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting PHI5 corpus compilation.')
         phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
+        #later don't read self.open_index_phi5() but read from CLTK's authtab.txt
         self.open_index_phi5()
         phi5_dict = {}
         for file_name in INDEX_DICT_PHI5:
@@ -227,6 +232,7 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting PHI5 corpus compilation.')
         phi5_path = self.project_root + '/classical_latin/plaintext/phi_5'
+        #later don't read self.open_index_phi5() but read from CLTK's authtab.txt
         self.open_index_phi5()
         for file_name in INDEX_DICT_PHI5:
             abbrev = INDEX_DICT_PHI5[file_name]
@@ -248,6 +254,7 @@ class Compile(object):
                 logging.error('Failed to open PHI5 file %s of author %s', \
                               file_name, abbrev)
         #later delete the authdab-making part dict
+        '''
         authtab_path = phi5_path + '/' + 'authtab.txt'
         print(authtab_path)
         try:
@@ -255,6 +262,7 @@ class Compile(object):
                 authtab_opened.write(str(INDEX_DICT_PHI5))
         except IOError:
             logging.error('Failed to create and/or write to file tlg.json.')
+        '''
         logging.info('Finished PHI5 corpus compilation.')
 
     def find_phi5_works(self, auth_abbrev):
@@ -327,6 +335,7 @@ class Compile(object):
         """reads file and translates to ascii"""
         logging.info('Starting TLG corpus compilation.')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        #later don't read self.open_index_tlg() but read from CLTK's authtab.txt
         self.open_index_tlg()
         tlg_dict = {}
         for file_name in INDEX_DICT_TLG:
@@ -352,11 +361,49 @@ class Compile(object):
         except IOError:
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished TLG corpus compilation.')
+    
+    def make_authtab(self):
+        """reads file and translates to ascii"""
+        logging.info('Starting TLG corpus compilation into files.')
+        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        #later don't read self.open_index_tlg() but read from CLTK's authtab.txt
+        self.open_index_tlg()
+        for file_name in INDEX_DICT_TLG:
+            abbrev = INDEX_DICT_TLG[file_name]
+            files_path = self.corpora_root + '/' + 'TLG_E' + '/' \
+                + file_name + '.TXT'
+            try:
+                with open(files_path, 'rb') as index_opened:
+                    txt_read = index_opened.read().decode('latin-1')
+                    txt_ascii = remove_non_ascii(txt_read)
+                    local_replacer = Replacer()
+                    new_uni = local_replacer.beta_code(txt_ascii)
+                    file_path = tlg_e_path + '/' + file_name +\
+                        '.txt'
+                    print(file_path)
+                    try:
+                        with open(file_path, 'w') as new_file:
+                            new_file.write(new_uni)
+                    except IOError:
+                        logging.error('Failed to write to new file %s of \
+                                      author %s', file_name, abbrev)
+            except IOError:
+                logging.error('Failed to open TLG file %s of author %s',
+                              file_name, abbrev)
+            authtab_path = tlg_e_path + '/' + 'authtab.txt'
+            print(authtab_path)
+            try:
+            with open(authtab_path, 'w') as authtab_opened:
+            authtab_opened.write(str(INDEX_DICT_TLG))
+            except IOError:
+            logging.error('Failed to create and/or write to file authtab.txt.')
+        logging.info('Finished TLG corpus compilation.')
 
     def dump_txts_tlg_files(self):
         """reads file and translates to ascii"""
         logging.info('Starting TLG corpus compilation into files.')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        #later don't read self.open_index_tlg() but read from CLTK's authtab.txt
         self.open_index_tlg()
         for file_name in INDEX_DICT_TLG:
             abbrev = INDEX_DICT_TLG[file_name]
@@ -396,6 +443,7 @@ class Compile(object):
         """reads idt files and translates to ascii"""
         logging.info('Starting to read and write TLG .idt files.')
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        #later don't read self.open_index_tlg() but read from CLTK's authtab.txt
         self.open_index_tlg()
         for file_name in INDEX_DICT_TLG:
             abbrev = INDEX_DICT_TLG[file_name]
