@@ -38,6 +38,46 @@ class Compile(object):
                 new = filename.upper()
                 os.rename(filename, new)
 
+    def make_phi7_authtab(self):
+        """Creates a dictionary of PHI7 collections and file names."""
+            global INDEX_DICT_PHI7
+            logging.info('Starting PHI7 index parsing.')
+            phi7_path = self.project_root + '/classical_greek/plaintext/phi_7'
+            index = 'AUTHTAB.DIR'
+            local_index = self.corpora_root + '/' + 'PHI7/' + index
+            try:
+                with open(local_index, 'rb') as index_opened:
+                index_read = index_opened.read().decode('latin-1')
+                index_split = index_read.split('ÿ')[2:-9]
+                index_filter = [item for item in index_split if item]
+                INDEX_DICT_PHI7 = {}
+                for file in index_filter:
+                    file_repl = file.replace('l', '').replace('g', '')\
+                        .replace('h', '').replace('>', '').replace(']]', ']')
+                    pattern = '.*Library.*|.*Inscriptions .*|.*Bibliography.*'
+                    match = re.search(pattern, file_repl)
+                    if match:
+                        pass
+                    else:
+                        split = file_repl.split(' ', 1)
+                        number = split[0]
+                        name = split[1]
+                        INDEX_DICT_PHI7[number] = name
+                logging.info('Finished PHI7 index parsing.')
+                logging.info('Starting writing PHI7 authtab.txt.')
+                    #return INDEX_DICT_PHI7
+                    authtab_path = phi7_path + '/' + 'authtab.txt'
+                        print(authtab_path)
+                        try:
+                            with open(authtab_path, 'w') as authtab_opened:
+                                authtab_opened.write(str(INDEX_DICT_PHI7))
+                                logging.info('Finished writing PHI7 authtab.txt.')
+                        except IOError:
+                            logging.error('Failed to write PHI7 authtab.txt.')
+            except IOError:
+                logging.error('Failed to open PHI7 index file AUTHTAB.DIR')
+
+
     def open_index_phi7(self):
         """Creates a dictionary of PHI7 collections and file names."""
         global INDEX_DICT_PHI7
@@ -331,6 +371,40 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open TLG index file AUTHTAB.DIR')
 
+    def make_tlg_authtab(self):
+        """Creates a dictionary of TLG collections and file names."""
+        global INDEX_DICT_TLG
+        logging.info('Starting TLG index parsing.')
+        #tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        index = 'AUTHTAB.DIR'
+        local_index = self.corpora_root + '/' + 'TLG_E/' + index
+        try:
+            with open(local_index, 'rb') as index_opened:
+                index_read = index_opened.read().decode('latin-1')
+                index_split = index_read.split('ÿ')[1:-7]
+                index_filter = [item for item in index_split if item]
+                INDEX_DICT_TLG = {}
+                for file in index_filter:
+                    file_repl = file.replace(' &1', ' ').replace('&', '')\
+                        .replace(' 1', ' ').replace('-1', '-').replace('[2', '[')\
+                        .replace(']2', ']').replace('1Z', '').replace('1P', 'P')\
+                        .replace('1D', 'D').replace('1L', 'L').replace('', ' ')
+                    file_split = file_repl.split(' ', 1)
+                    label = file_split[0]
+                    name = file_split[1]
+                    INDEX_DICT_TLG[label] = name
+                logging.info('Finished TLG index parsing.')
+                logging.info('Starting writing TLG authtab.txt.')
+                authtab_path = tlg_e_path + '/' + 'authtab.txt'
+                try:
+                    with open(authtab_path, 'w') as authtab_opened:
+                        authtab_opened.write(str(INDEX_DICT_TLG))
+                        logging.info('Finished writing TLG authtab.txt.')
+                except IOError:
+                    logging.error('Failed to write TLG authtab.txt.')
+        except IOError:
+            logging.error('Failed to open TLG index file AUTHTAB.DIR')
+
     def dump_txts_tlg(self):
         """reads file and translates to ascii"""
         logging.info('Starting TLG corpus compilation.')
@@ -362,42 +436,7 @@ class Compile(object):
             logging.error('Failed to create and/or write to file tlg.json.')
         logging.info('Finished TLG corpus compilation.')
     
-    def make_authtab(self):
-        """reads file and translates to ascii"""
-        logging.info('Starting TLG corpus compilation into files.')
-        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
-        #later don't read self.open_index_tlg() but read from CLTK's authtab.txt
-        self.open_index_tlg()
-        for file_name in INDEX_DICT_TLG:
-            abbrev = INDEX_DICT_TLG[file_name]
-            files_path = self.corpora_root + '/' + 'TLG_E' + '/' \
-                + file_name + '.TXT'
-            try:
-                with open(files_path, 'rb') as index_opened:
-                    txt_read = index_opened.read().decode('latin-1')
-                    txt_ascii = remove_non_ascii(txt_read)
-                    local_replacer = Replacer()
-                    new_uni = local_replacer.beta_code(txt_ascii)
-                    file_path = tlg_e_path + '/' + file_name +\
-                        '.txt'
-                    print(file_path)
-                    try:
-                        with open(file_path, 'w') as new_file:
-                            new_file.write(new_uni)
-                    except IOError:
-                        logging.error('Failed to write to new file %s of \
-                                      author %s', file_name, abbrev)
-            except IOError:
-                logging.error('Failed to open TLG file %s of author %s',
-                              file_name, abbrev)
-            authtab_path = tlg_e_path + '/' + 'authtab.txt'
-            print(authtab_path)
-            try:
-            with open(authtab_path, 'w') as authtab_opened:
-            authtab_opened.write(str(INDEX_DICT_TLG))
-            except IOError:
-            logging.error('Failed to create and/or write to file authtab.txt.')
-        logging.info('Finished TLG corpus compilation.')
+
 
     def dump_txts_tlg_files(self):
         """reads file and translates to ascii"""
