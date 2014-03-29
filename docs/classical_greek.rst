@@ -39,11 +39,11 @@ COMPILE TLG
 Compile into files
 ------------------
 
-In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory, open a Python shell::
+In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory::
 
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.dump_txts_tlg_files()
+      from cltk.corpus.common.compiler import Compile
+      c = Compile()
+      c.dump_txts_tlg_files()
 
 Following this, you should see a screen printout of each TLG file as it is being transformed into Unicode and where it is being saved (e.g., ``/Users/kyle/cltk/cltk/corpus/classical_greek/plaintext/tlg_e/TLG5033.txt``).
 
@@ -67,15 +67,15 @@ The CLTK comes with pre-compiled author-file and author-work indices for the TLG
 
 To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``::
 
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.make_tlg_authtab()
+      from cltk.corpus.common.compiler import Compile
+      c = Compile()
+      c.make_tlg_authtab()
 
 And to re-compile ``auth_work.txt``, do::
 
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.write_tlg_auth_works()
+      from cltk.corpus.common.compiler import Compile
+      c = Compile()
+      c.write_tlg_auth_works()
 
 .. note::
 
@@ -94,9 +94,9 @@ Compile into Files
 
 The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_txts_phi7_files()`` (or ``c.dump_txts_phi7()``).::
 
-   from cltk.corpus.common.compiler import Compile
-   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
-   c.dump_txts_phi7_files()
+      from cltk.corpus.common.compiler import Compile
+      c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
+      c.dump_txts_phi7_files()
    
 
 Compile Corpus-File and Corpus-Works Indices
@@ -106,14 +106,14 @@ The CLTK comes with pre-compiled author-file and author-work indices for the PHI
 
 To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``::
 
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.make_phi7_authtab()
+      from cltk.corpus.common.compiler import Compile
+      c = Compile()
+      c.make_phi7_authtab()
 
 And to re-compile ``auth_work.txt``, do::
 
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.write_phi7_auth_works()
+      from cltk.corpus.common.compiler import Compile
+      c = Compile()
+      c.write_phi7_auth_works()
 
 
