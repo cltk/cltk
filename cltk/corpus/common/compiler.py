@@ -1,12 +1,15 @@
 """Assembles JSON files of PHI and TLG corpora"""
 
 import ast
-from cltk.corpus.classical_greek.replacer import Replacer
-import json
 import logging
 import os
 from pprint import pprint
 import re
+import shutil
+import sys
+
+from cltk.corpus.classical_greek.replacer import Replacer
+
 
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
@@ -18,12 +21,53 @@ class Compile(object):
 
     def __init__(self):
         """Initializer, optional corpora and project"""
-        self.corpora_root = os.path.abspath('./local/')
-        self.project_root = os.path.abspath('./cltk/corpus/')
+        #make local CLTK dirs
+        default_cltk_local = '~/cltk_local'
+        cltk_local = os.path.expanduser(default_cltk_local)
+        if os.path.isdir(cltk_local) is True:
+            pass
+        else:
+            os.mkdir(cltk_local)
+        self.orig_files_dir = os.path.join(cltk_local, 'originals')
+        if os.path.isdir(self.orig_files_dir) is True:
+            pass
+        else:
+            os.mkdir(self.orig_files_dir)
+        self.compiled_files_dir = os.path.join(cltk_local, 'compiled')
+        if os.path.isdir(self.compiled_files_dir) is True:
+            pass
+        else:
+            os.mkdir(self.compiled_files_dir)
         logging.basicConfig(filename='compiler.log',
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
                             datefmt='%m/%d/%Y %I:%M:%S %p')
+
+    def import_corpora(self, corpus_name, corpus_location):
+        if corpus_name == 'tlg':
+            orig_files_dir_tlg = os.path.join(self.orig_files_dir, 'tlg')
+            if os.path.isdir(orig_files_dir_tlg) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_tlg)
+            copy_dir_contents(corpus_location, orig_files_dir_tlg)
+            #convert_tlg_txt() #change to look always in ~/cltk_local/originals
+        elif corpus_name == 'phi7':
+            orig_files_dir_phi7 = os.path.join(self.orig_files_dir, 'phi7')
+            if os.path.isdir(orig_files_dir_phi7) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_phi7)
+            copy_dir_contents(corpus_location, orig_files_dir_phi7)
+        elif corpus_name == 'phi5':
+            orig_files_dir_phi5 = os.path.join(self.orig_files_dir, 'phi5')
+            if os.path.isdir(orig_files_dir_phi5) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_phi5)
+            copy_dir_contents(corpus_location, orig_files_dir_phi5)
+        else:
+            logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5".')
 
     def read_tlg_index_file_author(self):
         """Reads CLTK's index_file_author.txt for TLG."""
@@ -34,6 +78,10 @@ class Compile(object):
             with open(tlg_index_path, 'r') as index_opened:
                 tlg_index = index_opened.read()
                 tlg_index = ast.literal_eval(tlg_index)
+                #!!!
+                print(self.cltk_local)
+                print(self.project_root)
+                print(self.cltk_root)
                 return tlg_index
         except IOError:
             logging.error('Failed to open TLG index file index_file_author.txt.')
@@ -43,7 +91,7 @@ class Compile(object):
         logging.info('Starting TLG index parsing.')
         cltk_tlg_path = self.project_root + '/classical_greek/plaintext/tlg_e'
         index = 'AUTHTAB.DIR'
-        local_index = self.corpora_root + '/' + 'TLG_E/' + index
+        local_index = self.cltk_local + '/' + 'TLG_E/' + index
         try:
             with open(local_index, 'rb') as index_opened:
                 index_read = index_opened.read().decode('latin-1')
@@ -78,7 +126,7 @@ class Compile(object):
         self.read_tlg_index_file_author()
         for file_name in tlg_index:
             abbrev = tlg_index[file_name]
-            files_path = self.corpora_root + '/TLG_E/' + file_name + '.TXT'
+            files_path = self.cltk_local + '/TLG_E/' + file_name + '.TXT'
             try:
                 with open(files_path, 'rb') as index_opened:
                     txt_read = index_opened.read().decode('latin-1')
@@ -136,7 +184,7 @@ class Compile(object):
         logging.info('Starting to read the TLG file LSTSCDCN.DIR.')
         index = 'LSTSCDCN.DIR'
         tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
-        local_index = self.corpora_root + '/' + 'TLG_E/' + index
+        local_index = self.cltk_local + '/' + 'TLG_E/' + index
         meta_list_dict = {}
         try:
             with open(local_index, 'rb') as index_opened:
@@ -175,3 +223,10 @@ def clear_log():
             logging.info('Cleared log if present.')
     except IOError:
         logging.error('Failed to clear log.')
+
+def copy_dir_contents(src, dest):
+    src_files = os.listdir(src)
+    for file_name in src_files:
+        full_file_name = os.path.join(src, file_name)
+        if (os.path.isfile(full_file_name)):
+            shutil.copy(full_file_name, dest)
