@@ -10,6 +10,17 @@ Convert Beta Code to Unicode
 
 .. code-block:: python
 
+   In [1]: from cltk.corpus.classical_greek.replacer import Replacer
+
+   In [2]: BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ PA/QWMEN E)KEI/NOIS, E)PI\ TH\N DIA/GNWSIN AU)TW=N E)/RXESQAI DEI= PRW=TON. TINE\S ME\N OU)=N AU)TW=N EI)SIN A)KRIBEI=S, TINE\S DE\ OU)K A)KRIBEI=S O)/NTES METAPI/-PTOUSIN EI)S TOU\S E)PI\ SH/YEI: OU(/TW GA\R KAI\ LOU=SAI KAI\ QRE/YAI KALW=S KAI\ MH\ LOU=SAI PA/LIN, O(/TE MH\ O)RQW=S DUNHQEI/HMEN."""
+
+   In [3]: r = Replacer()
+
+   In [4]: r.beta_code(BETA_EXAMPLE)
+   Out[4]: 'ὅπωσ οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοισ, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲσ μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖσ, τινὲσ δὲ οὐκ ἀκριβεῖσ ὄντεσ μεταπίπτουσιν εἰσ τοὺσ ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶσ καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶσ δυνηθείημεν.'
+
+.. code-block:: python
+
    >>> from cltk.corpus.classical_greek.replacer import Replacer
    >>> BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ PA/QWMEN E)KEI/NOIS, E)PI\ TH\N DIA/GNWSIN AU)TW=N E)/RXESQAI DEI= PRW=TON. TINE\S ME\N OU)=N AU)TW=N EI)SIN A)KRIBEI=S, TINE\S DE\ OU)K A)KRIBEI=S O)/NTES METAPI/-PTOUSIN EI)S TOU\S E)PI\ SH/YEI: OU(/TW GA\R KAI\ LOU=SAI KAI\ QRE/YAI KALW=S KAI\ MH\ LOU=SAI PA/LIN, O(/TE MH\ O)RQW=S DUNHQEI/HMEN."""
    >>> r = Replacer()
@@ -33,8 +44,23 @@ Filter Stopwords
    >>> print(filtered)
    ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο', 'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',', 'ἅμα', 'ἀγόμενος', 'ἴωνας', 'αἰολέας', '.']
 
+
+TLG
+===
+
+Import TLG
+----------
+
+The CLTK works soley out of the locally directory ``cltk_local``, which is created at a user's root directory. Within this are two directories, ``originals``, in which copies of outside corpora are made, and ``compiled``, in which transformed copies of the former are written.
+
+The first step is to copy outside files into the ``originals`` directory. If the TLG files were located at ``/Users/kyle/Downloads/corpora/TLG_E/``, then the command commands would be::
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+   In [2]: c = Compile()
+   In [3]: c.import_corpora('tlg', '/Users/kyle/Downloads/corpora/TLG_E/')
+ 
 COMPILE TLG
-===========
+-----------
  
 Currently, the following compile commands all need to be run in the root of the CLTK repository. These commands need to be run as follow::
 
@@ -70,6 +96,18 @@ You shouldn't have to do this, as the CLTK comes with these already, but the fol
 
    The TLG and PHI7 both come with index files (e.g., ``BIBINDCD.BIN``, ``LIST4CLA.BIN``), though these have proven challenging to parse.
 
+
+PHI 7
+=====
+
+Import PHI 7
+------------
+
+If the PHI 7 files were located at ``/Users/kyle/Downloads/corpora/PHI7/``, then the command commands would be::
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+   In [2]: c = Compile()
+   In [3]: c.import_corpora('phi7', '/Users/kyle/Downloads/corpora/PHI7/')
 
 COMPILE PHI7
 ============
