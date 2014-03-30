@@ -25,31 +25,31 @@ Filter Stopwords
 
 .. code-block:: python
 
-In [1]: import nltk.tokenize
+   In [1]: import nltk.tokenize
 
-In [2]: from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
+   In [2]: from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
 
-In [3]: SENTENCE = """
-   ...: Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.
-   ...: """
+   In [3]: SENTENCE = """
+      ...: Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.
+      ...: """
 
-In [4]: lowered = SENTENCE.lower()
+   In [4]: lowered = SENTENCE.lower()
 
-In [5]: tokens = nltk.word_tokenize(lowered)
+   In [5]: tokens = nltk.word_tokenize(lowered)
 
-In [6]: [w for w in tokens if not w in STOPS_LIST]
-Out[6]: 
-['ἅρπαγος',
- 'καταστρεψάμενος',
- 'ἰωνίην',
- 'ἐποιέετο',
- 'στρατηίην',
- 'κᾶρας',
- 'καυνίους',
- 'λυκίους',
- ',',
- 'ἅμα',
- 'ἀγόμενος',
- 'ἴωνας',
- 'αἰολέας',
- '.']
+   In [6]: [w for w in tokens if not w in STOPS_LIST]
+   Out[6]: 
+   ['ἅρπαγος',
+    'καταστρεψάμενος',
+    'ἰωνίην',
+    'ἐποιέετο',
+    'στρατηίην',
+    'κᾶρας',
+    'καυνίους',
+    'λυκίους',
+    ',',
+    'ἅμα',
+    'ἀγόμενος',
+    'ἴωνας',
+    'αἰολέας',
+    '.']
