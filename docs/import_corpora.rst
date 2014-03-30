@@ -1,4 +1,4 @@
-Classical Greek
+Import Corpora
 ***************
 
 TLG
