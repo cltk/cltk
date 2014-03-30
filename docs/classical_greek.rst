@@ -35,47 +35,36 @@ Filter Stopwords
 
 COMPILE TLG
 ===========
-
-Compile into files
-------------------
-
-In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode. To do this, first put the TLG_E/ directory into the local/ directory, at the root of the CLTK repository. Next, from within the root of the directory::
+ 
+Currently, the following compile commands all need to be run in the root of the CLTK repository. These commands need to be run as follow::
 
    from cltk.corpus.common.compiler import Compile
    c = Compile()
-   c.dump_txts_tlg_files()
+   c.make_tlg_file_author()
 
-Following this, you should see a screen printout of each TLG file as it is being transformed into Unicode and where it is being saved (e.g., ``/Users/kyle/cltk/cltk/corpus/classical_greek/plaintext/tlg_e/TLG5033.txt``).
+Convert
+-------
+
+In order for the CLTK to work with the TLG, its files first need to be translated from its legacy encoding into Unicode::
+
+   convert_tlg_txt(): Reads original Beta Code files and converts to Unicode files.
+
+This will take some time (approx. 10-20 minutes). When it is finished, you may find the .txt files in, from root, ``/cltk/corpus/classical_greek/plaintext/tlg_e/``).
 
 A few things to note: Your TLG directory must be named ``TLG_E`` and the TLG's file names must be all uppercase (e.g., ``TLG0020.TXT``).
 
-Compile into JSON
------------------
+Rebuild Indices
+---------------
 
-.. code-block:: python
+You shouldn't have to do this, as the CLTK comes with these already, but the following are the methods by which the indices were build:
 
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.dump_txts_tlg()
+``make_tlg_index_file_author()``: Reads TLG's AUTHTAB.DIR and writes a dict (index_file_author.txt) to the CLTK's corpus directory. ``cltk/corpus/classical_greek/plaintext/tlg_e/index_file_author.txt``
 
-The CLTK compiler can also output the entirety of the TLG into a single JSON object. Outputting this into one file is probably inadvisable, since it would be too large for efficient reading, but this code would only need a little modification to insert into a document-oriented database, such as MongoDB.
+``write_tlg_index_auth_works()``: Reads index_file_author.txt, read author file, and expand dict to include author works, index_author_works.txt. ``cltk/corpus/classical_greek/plaintext/tlg_e/index_author_works.txt``
 
-Compile Author-File and Author-Works Indices
---------------------------------------------
+``write_tlg_meta_index()``: Reads and writes the LSTSCDCN.DIR file. ``cltk/corpus/classical_greek/plaintext/tlg_e/meta_list.txt``
 
-The CLTK comes with pre-compiled author-file and author-work indices for the TLG (```` and ``auth_work.txt``, respectively). They can be found at ``cltk/corpus/classical_greek/plaintext/tlg_e/``. The former is a dictionary listing of TLG file names and abbreviated author names (e.g, ``'TLG2474': 'Nicander Hist.'``). The latter, ``auth_work.txt``, is a large dictionary containing metadata about authors and their writings (at  ``cltk/corpus/classical_greek/plaintext/tlg_e/auth_work.txt``).
-
-To re-compile these yourself, the following two methods may be used. To create ``authtab.txt``::
-
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.make_tlg_authtab()
-
-And to re-compile ``auth_work.txt``, do::
-
-   from cltk.corpus.common.compiler import Compile
-   c = Compile()
-   c.write_tlg_auth_works()
+``read_tlg_author_work_titles()``: Reads a converted TLG file and returns a list of header titles within it.
 
 .. note::
 
@@ -95,7 +84,7 @@ Compile into Files
 The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_txts_phi7_files()`` (or ``c.dump_txts_phi7()``).::
 
    from cltk.corpus.common.compiler import Compile
-   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
+   c = Compile()
    c.dump_txts_phi7_files()
    
 
