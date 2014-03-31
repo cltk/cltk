@@ -39,7 +39,7 @@ Compile into Unicode
 
    The PHI7 is compiled but its Beta Code is not currently converted into Unicode. For this to be done, a little parser for Greek markup needs to be written.
 
-The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_txts_phi7_files()`` (or ``c.dump_txts_phi7()``).:
+The PHI7 may also be generated in a way similar to the TLG, only with ``c.dump_txts_phi7_files()`` (or ``c.dump_txts_phi7()``):
 
 .. code-block:: python
 

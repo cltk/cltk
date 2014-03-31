@@ -2,8 +2,8 @@ Classical Latin
 ************************
 
 
-Use
-===================
+Text Processing
+===============
 
 Filter Stopwords
 ----------------
@@ -31,21 +31,6 @@ Convert J to I, V to U
    replaced = j.replace('vem jam')
 
    print(replaced)
-
-Compile PHI5
-------------
-
-In order for the CLTK to work with the PHI5, its files first need to be translated from its legacy encoding into Unicode. For the arguments to ``Compile``, the first is the path to the directory just below where your PHI5 corpus is found, and the second is the path to the corpus directory of your CLTK project. For example, on a POSIX system, if one's home directory is ``/home/kyle``, and the CLTK project is installed at ``/home/kyle/cltk``, then the CLTK corpus directory would reside at ``/home/kyle/cltk/cltk/corpus``::
-
-   from cltk.corpus.common.compiler import Compile
-
-   c = Compile('/home/kyle/Downloads/project_dir/corps', '/home/kyle/cltk/cltk/corpus')
-
-   c.dump_txts_phi5_files()
-
-A few things to note: Your PHI5 directory must be named ``PHI5`` and the PHI5's file names must be all uppercase (e.g., ``LAT0660.TXT``).
-
-The CLTK compiler can also output the entirety of the PHI5 into a single JSON object. Outputting this into one file (with ``c.dump_txts_phi5()``) is probably inadvisable, since it would be too large for efficient reading, but this code would only need a little modification to insert into a `document-oriented database <http://en.wikipedia.org/wiki/Document-oriented_database>`_ (such as MongoDB).
 
 Compile Author-Works Indices
 ----------------------------
