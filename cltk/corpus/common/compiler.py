@@ -21,6 +21,7 @@ class Compile(object):
 
     def __init__(self):
         """Initializer, optional corpora and project"""
+        self.cltk_bin_path = os.path.join(site.getsitepackages()[0], 'cltk')
         #make local CLTK dirs
         default_cltk_local = '~/cltk_local'
         cltk_local = os.path.expanduser(default_cltk_local)
@@ -52,6 +53,7 @@ class Compile(object):
                 os.mkdir(orig_files_dir_tlg)
             copy_dir_contents(corpus_location, orig_files_dir_tlg)
             #convert_tlg_txt() #change to look always in ~/cltk_local/originals
+            #self.convert_tlg_txt(orig_files_dir_tlg)
         elif corpus_name == 'phi7':
             orig_files_dir_phi7 = os.path.join(self.orig_files_dir, 'phi7')
             if os.path.isdir(orig_files_dir_phi7) is True:
@@ -73,15 +75,12 @@ class Compile(object):
         """Reads CLTK's index_file_author.txt for TLG."""
         global tlg_index
         logging.info('Starting TLG index_file_author.txt read.')
-        tlg_index_path = self.project_root + '/classical_greek/plaintext/tlg_e/index_file_author.txt'
+        tlg_index_path = os.path.join(self.cltk_bin_path, 'classical_greek/plaintext/tlg_e/index_file_author.txt')
+        #tlg_index_path = self.project_root + '/classical_greek/plaintext/tlg_e/index_file_author.txt'
         try:
             with open(tlg_index_path, 'r') as index_opened:
                 tlg_index = index_opened.read()
                 tlg_index = ast.literal_eval(tlg_index)
-                #!!!
-                print(self.cltk_local)
-                print(self.project_root)
-                print(self.cltk_root)
                 return tlg_index
         except IOError:
             logging.error('Failed to open TLG index file index_file_author.txt.')
@@ -122,18 +121,27 @@ class Compile(object):
     def convert_tlg_txt(self):
         """Reads original Beta Code files and converts to Unicode files"""
         logging.info('Starting TLG corpus compilation into files.')
-        tlg_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        compiled_files_dir_tlg = os.path.join(self.compiled_files_dir, 'tlg')
+        if os.path.isdir(compiled_files_dir_tlg) is True:
+            #maybe delete file contents here before re-copy
+            pass
+        else:
+            os.mkdir(compiled_files_dir_tlg)
+        compiled_files_dir_tlg = compiled_files_dir_tlg
         self.read_tlg_index_file_author()
         for file_name in tlg_index:
             abbrev = tlg_index[file_name]
-            files_path = self.cltk_local + '/TLG_E/' + file_name + '.TXT'
+            orig_files_dir_tlg = os.path.join(self.orig_files_dir, 'tlg')
+            file_name_txt = file_name + '.TXT'
+            files_path = os.path.join(orig_files_dir_tlg, file_name_txt)
             try:
                 with open(files_path, 'rb') as index_opened:
                     txt_read = index_opened.read().decode('latin-1')
                     txt_ascii = remove_non_ascii(txt_read)
                     local_replacer = Replacer()
                     new_uni = local_replacer.beta_code(txt_ascii)
-                    file_path = tlg_path + '/' + file_name + '.txt'
+                    file_name_txt_uni = file_name + '.txt'
+                    file_path = os.path.join(compiled_files_dir_tlg, file_name_txt_uni)
                     try:
                         with open(file_path, 'w') as new_file:
                             new_file.write(new_uni)
