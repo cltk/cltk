@@ -66,7 +66,7 @@ This will copy files from ``originals`` into ``compiled`` and translate them fro
 Make Indices
 ------------
 
-The TLG comes with several indices. To build a Python dictionary of the TLG's main ``AUTHTAB.DIR``, ``make_tlg_index_file_author()`` creates a file at ``cltk_local/compiled/tlg/index_file_author.txt``.
+To build a Python dictionary of the TLG's main ``AUTHTAB.DIR``, ``make_tlg_index_file_author()`` creates a file at ``cltk_local/compiled/tlg/index_file_author.txt``.
 
 .. code-block:: python
 
@@ -75,3 +75,13 @@ The TLG comes with several indices. To build a Python dictionary of the TLG's ma
    In [2]: c = Compile()
 
    In [3]: c.make_tlg_index_file_author()
+
+Once ``index_file_author.txt`` has been made, you can run ``make_tlg_index_auth_works()``, which reads each compiled tlg file and gathers information about the titles of the works contained within each author file. The output is at ``cltk_local/compiled/tlg/index_author_works.txt``.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.make_tlg_index_auth_works()
