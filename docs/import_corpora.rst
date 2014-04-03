@@ -66,7 +66,7 @@ This will copy files from ``originals`` into ``compiled`` and translate them fro
 Make Indices
 ------------
 
-To build a Python dictionary of the TLG's main ``AUTHTAB.DIR``, ``make_tlg_index_file_author()`` creates a file at ``cltk_local/compiled/tlg/index_file_author.txt``.
+To build a Python dictionary of the TLG's main ``AUTHTAB.DIR`` index, ``make_tlg_index_file_author()`` creates a file at ``cltk_local/compiled/tlg/index_file_author.txt``.
 
 .. code-block:: python
 
@@ -85,3 +85,15 @@ Once ``index_file_author.txt`` has been made, you can run ``make_tlg_index_auth_
    In [2]: c = Compile()
 
    In [3]: c.make_tlg_index_auth_works()
+
+The TLG comes with other indices, which are gathered in a file called ``LSTSCDCN.DIR``. You can build this into a Python dictionary with ``make_tlg_meta_index()``, which like the other indices is written to ``cltk_local/compiled/tlg/index_meta.txt``.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.make_tlg_meta_index()
+
+Not all of the indices found in ``index_meta.txt`` have been parsed. There remains for these to be parsed and, ultimately, each of these to be compiled into one master index of Greek authors, their works, genres, dates, etc..

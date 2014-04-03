@@ -176,8 +176,6 @@ class Compile(object):
             auth_node['tlg_name'] = auth_name
             auth_node['works'] = WORKS
             auth_work_dict[auth_name] = auth_node
-            print(auth_node)
-        print(auth_work_dict)
         file_path = compiled_files_dir_tlg + '/' + 'index_author_works.txt'
         try:
             with open(file_path, 'w') as new_file:
@@ -186,15 +184,18 @@ class Compile(object):
             logging.error('Failed to write to index_auth_work.txt')
         logging.info('Finished compiling TLG index_auth_works.txt.')
 
-    def write_tlg_meta_index(self):
+    def make_tlg_meta_index(self):
         """Reads and writes the LSTSCDCN.DIR file"""
         logging.info('Starting to read the TLG file LSTSCDCN.DIR.')
-        index = 'LSTSCDCN.DIR'
-        tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
-        local_index = self.cltk_local + '/' + 'TLG_E/' + index
+        #compiled_files_dir_tlg_list_index = os.path.join(self.compiled_files_dir, 'tlg', 'LSTSCDCN.DIR')
+        #index = 'LSTSCDCN.DIR'
+        #tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        #local_index = self.cltk_local + '/' + 'TLG_E/' + index
+        orig_files_dir_tlg_index_meta = os.path.join(self.orig_files_dir, 'tlg', 'LSTSCDCN.DIR')
+        compiled_files_dir_tlg_meta = os.path.join(self.compiled_files_dir, 'tlg', 'index_meta.txt')
         meta_list_dict = {}
         try:
-            with open(local_index, 'rb') as index_opened:
+            with open(orig_files_dir_tlg_index_meta, 'rb') as index_opened:
                 index_read = index_opened.read().decode('latin-1')
                 index_split = index_read.split('ÿ')[2:-3]
                 index_filter = [item for item in index_split if item]
@@ -209,7 +210,7 @@ class Compile(object):
                             pass
                         else:
                             meta_list_dict[m_key[0]] = m_value[1]
-                file_path = tlg_e_path + '/' + 'meta_list.txt'
+                file_path = compiled_files_dir_tlg_meta
                 try:
                     with open(file_path, 'w') as new_file:
                         new_file.write(str(meta_list_dict))
