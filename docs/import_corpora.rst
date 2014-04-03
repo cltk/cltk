@@ -62,3 +62,16 @@ This will copy files from ``originals`` into ``compiled`` and translate them fro
    In [2]: c = Compile()
 
    In [3]: c.convert_tlg_txt()
+
+Make Indices
+------------
+
+The TLG comes with several indices. To build a Python dictionary of the TLG's main ``AUTHTAB.DIR``, ``make_tlg_index_file_author()`` creates a file at ``cltk_local/compiled/tlg/index_file_author.txt``.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.make_tlg_index_file_author()
