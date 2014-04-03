@@ -74,10 +74,6 @@ class Compile(object):
         """Reads CLTK's index_file_author.txt for TLG."""
         global tlg_index
         logging.info('Starting TLG index_file_author.txt read.')
-        #tlg_index_path = os.path.join(self.cltk_bin_path, 'classical_greek/plaintext/tlg_e/index_file_author.txt')
-        #print(tlg_index_path)
-        #tlg_index_path = self.project_root + '/classical_greek/plaintext/tlg_e/index_file_author.txt'
-        #!
         compiled_files_dir_tlg_index = os.path.join(self.compiled_files_dir, 'tlg', 'index_file_author.txt')
         try:
             with open(compiled_files_dir_tlg_index, 'r') as index_opened:
@@ -157,18 +153,19 @@ class Compile(object):
         """Reads a converted TLG file and returns a list of header titles within it"""
         global WORKS
         logging.info('Starting to find works within a TLG author file.')
-        tlg_path = self.project_root + '/classical_greek/plaintext/tlg_e'
-        auth_file = tlg_path + '/' + auth_abbrev + '.txt'
+        compiled_files_dir_tlg = os.path.join(self.compiled_files_dir, 'tlg')
+        auth_file = compiled_files_dir_tlg + '/' + auth_abbrev + '.txt'
         with open(auth_file) as file_opened:
             string = file_opened.read()
             title_reg = re.compile('\{1.{1,50}?\}1')
             WORKS = title_reg.findall(string)
             return WORKS
 
-    def write_tlg_index_auth_works(self):
+    def make_tlg_index_auth_works(self):
         """read index_file_author.txt, read author file, and expand dict to include author works, index_author_works.txt"""
         logging.info('Starting to compile TLG auth_works.txt.')
-        tlg_path = self.project_root + '/classical_greek/plaintext/tlg_e'
+        orig_files_dir_tlg_index = os.path.join(self.orig_files_dir, 'tlg')
+        compiled_files_dir_tlg = os.path.join(self.compiled_files_dir, 'tlg')
         self.read_tlg_index_file_author()
         auth_work_dict = {}
         for file_name in tlg_index:
@@ -180,8 +177,8 @@ class Compile(object):
             auth_node['works'] = WORKS
             auth_work_dict[auth_name] = auth_node
             print(auth_node)
-        file_path = tlg_path + '/' + 'index_author_works.txt'
         print(auth_work_dict)
+        file_path = compiled_files_dir_tlg + '/' + 'index_author_works.txt'
         try:
             with open(file_path, 'w') as new_file:
                 pprint(auth_work_dict, stream=new_file)
