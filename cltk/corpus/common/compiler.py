@@ -88,10 +88,8 @@ class Compile(object):
             logging.error('Failed to open TLG index file index_file_author.txt.')
 
     def make_tlg_index_file_author(self):
-        """Reads TLG's AUTHTAB.DIR and writes a dict (index_file_author.txt) to the CLTK's corpus directory.
-        """
+        """Reads TLG's AUTHTAB.DIR and writes a dict (index_file_author.txt) to the CLTK's corpus directory."""
         logging.info('Starting TLG index parsing.')
-        #index = 'AUTHTAB.DIR'
         orig_files_dir_tlg_index = os.path.join(self.orig_files_dir, 'tlg', 'AUTHTAB.DIR')
         compiled_files_dir_tlg = os.path.join(self.compiled_files_dir, 'tlg')
         try:
