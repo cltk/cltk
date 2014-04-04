@@ -50,7 +50,7 @@ Import
 
    In [3]: c.import_corpora('tlg', '/Users/kyle/Downloads/corpora/TLG_E/')
  
-Compile into Unicode
+Compile to Unicode & Build Indices
 --------------------
 
 This will copy files from ``originals`` into ``compiled`` and translate them from Beta Code to Unicode.
@@ -63,37 +63,4 @@ This will copy files from ``originals`` into ``compiled`` and translate them fro
 
    In [3]: c.compile_tlg_txt()
 
-Make Indices
-------------
-
-To build a Python dictionary of the TLG's main ``AUTHTAB.DIR`` index, ``make_tlg_index_file_author()`` creates a file at ``cltk_local/compiled/tlg/index_file_author.txt``.
-
-.. code-block:: python
-
-   In [1]: from cltk.corpus.common.compiler import Compile
-
-   In [2]: c = Compile()
-
-   In [3]: c.make_tlg_index_file_author()
-
-Once ``index_file_author.txt`` has been made, you can run ``make_tlg_index_auth_works()``, which reads each compiled tlg file and gathers information about the titles of the works contained within each author file. The output is at ``cltk_local/compiled/tlg/index_author_works.txt``.
-
-.. code-block:: python
-
-   In [1]: from cltk.corpus.common.compiler import Compile
-
-   In [2]: c = Compile()
-
-   In [3]: c.make_tlg_index_auth_works()
-
-The TLG comes with other indices, which are gathered in a file called ``LSTSCDCN.DIR``. You can build this into a Python dictionary with ``make_tlg_meta_index()``, which like the other indices is written to ``cltk_local/compiled/tlg/index_meta.txt``.
-
-.. code-block:: python
-
-   In [1]: from cltk.corpus.common.compiler import Compile
-
-   In [2]: c = Compile()
-
-   In [3]: c.make_tlg_meta_index()
-
-Not all of the indices found in ``index_meta.txt`` have been parsed. There remains for these to be parsed and, ultimately, each of these to be compiled into one master index of Greek authors, their works, genres, dates, etc..
+This function also builds three indices, ``index_author_works.txt``, ``index_file_author.txt``, and ``index_meta.txt``, and places them at ``~/cltk_local/compiled/tlg/``. ``index_author_works.txt`` is a Python dictionary of the TLG's main ``AUTHTAB.DIR`` index. ``index_file_author.txt`` scans the compiled files and pulls out title information each author's file. ``make_tlg_meta_index()`` is a list of indices with which the TLG comes (``LSTSCDCN.DIR``).

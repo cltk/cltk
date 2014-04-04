@@ -115,7 +115,6 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open TLG index file AUTHTAB.DIR')
 
-    #add the metadata compile method to this
     def compile_tlg_txt(self):
         """Reads original Beta Code files and converts to Unicode files"""
         logging.info('Starting TLG corpus compilation into files.')
@@ -147,6 +146,9 @@ class Compile(object):
                 logging.info('Finished TLG corpus compilation to %s', file_path)
             except IOError:
                 logging.error('Failed to open TLG file %s of author %s', file_name, abbrev)
+        self.make_tlg_meta_index()
+        self.make_tlg_index_auth_works()
+
 
     def read_tlg_author_work_titles(self, auth_abbrev):
         """Reads a converted TLG file and returns a list of header titles within it"""
@@ -214,6 +216,103 @@ class Compile(object):
                     of TLG')
         except IOError:
             logging.error('Failed to open TLG index file LSTSCDCN.DIR')
+
+    def read_phi7_index_file_author(self):
+        """Reads CLTK's index_file_author.txt for phi7."""
+        global phi7_index
+        logging.info('Starting PHI7 index_file_author.txt read.')
+        compiled_files_dir_phi7_index = os.path.join(self.compiled_files_dir, 'phi7', 'index_file_author.txt')
+        try:
+            with open(compiled_files_dir_phi7_index, 'r') as index_opened:
+                phi7_index = index_opened.read()
+                phi7_index = ast.literal_eval(phi7_index)
+                return phi7_index
+        except IOError:
+            logging.error('Failed to open PHI7 index file index_file_author.txt.')
+
+    #not tested
+    def make_phi7_index_file_author(self):
+        """Reads phi7's AUTHTAB.DIR and writes a dict (index_file_author.txt) to the CLTK's corpus directory."""
+        logging.info('Starting phi7 index parsing.')
+        orig_files_dir_phi7_index = os.path.join(self.orig_files_dir, 'phi7', 'AUTHTAB.DIR')
+        compiled_files_dir_phi7 = os.path.join(self.compiled_files_dir, 'phi7')
+        try:
+            with open(orig_files_dir_phi7_index, 'rb') as index_opened:
+                index_read = index_opened.read().decode('latin-1')
+                index_split = index_read.split('ÿ')[2:-9]
+                index_filter = [item for item in index_split if item]
+                INDEX_DICT_PHI7 = {}
+                for file in index_filter:
+                    file_repl = file.replace('l', '').replace('g', '')\
+                      .replace('h', '').replace('>', '').replace(']]', ']')
+                    pattern = '.*Library.*|.*Inscriptions .*|.*Bibliography.*'
+                    match = re.search(pattern, file_repl)
+                    if match:
+                        pass
+                    else:
+                        split = file_repl.split(' ', 1)
+                        number = split[0]
+                        name = split[1]
+                        INDEX_DICT_PHI7[number] = name
+                logging.info('Finished PHI7 index parsing.')
+                logging.info('Starting writing PHI7 index_file_author.txt.')
+                compiled_files_dir_phi7_authtab = os.path.join(compiled_files_dir_phi7, 'index_file_author.txt')
+                try:
+                    with open(compiled_files_dir_phi7_authtab, 'w') as authtab_opened:
+                        authtab_opened.write(str(INDEX_DICT_PHI7))
+                        logging.info('Finished writing PHI7 index_file_author.txt.')
+                except IOError:
+                    logging.error('Failed to write PHI7 index_file_author.txt.')
+        except IOError:
+            logging.error('Failed to open PHI7 index file AUTHTAB.DIR')
+
+    #not tested
+    def read_phi7_index_file_author(self):
+        """Reads CLTK's index_file_author.txt for PHI7."""
+        global phi7_index
+        logging.info('Starting phi7 index_file_author.txt read.')
+        compiled_files_dir_phi7_index = os.path.join(self.compiled_files_dir, 'phi7', 'index_file_author.txt')
+        try:
+            with open(compiled_files_dir_phi7_index, 'r') as index_opened:
+                phi7_index = index_opened.read()
+                phi7_index = ast.literal_eval(phi7_index)
+                return phi7_index
+        except IOError:
+            logging.error('Failed to open PHI7 index file index_file_author.txt.')
+
+    #add smart parsing of beta code tags
+    #add the metadata compile method to this
+    def compile_phi7_txt(self):
+        """Reads original Beta Code files and converts to Unicode files"""
+        logging.info('Starting PHI7 corpus compilation into files.')
+        compiled_files_dir_phi7 = os.path.join(self.compiled_files_dir, 'phi7')
+        if os.path.isdir(compiled_files_dir_phi7) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_phi7)
+        self.make_phi7_index_file_author()
+        self.read_phi7_index_file_author()
+        for file_name in phi7_index:
+            abbrev = phi7_index[file_name]
+            orig_files_dir_phi7 = os.path.join(self.orig_files_dir, 'phi7')
+            file_name_txt = file_name + '.TXT'
+            files_path = os.path.join(orig_files_dir_phi7, file_name_txt)
+            try:
+                with open(files_path, 'rb') as index_opened:
+                    txt_read = index_opened.read().decode('latin-1')
+                    txt_ascii = remove_non_ascii(txt_read)
+                    #local_replacer = Replacer()
+                    #new_uni = local_replacer.beta_code(txt_ascii)
+                    file_name_txt_uni = file_name + '.txt'
+                    file_path = os.path.join(compiled_files_dir_phi7, file_name_txt_uni)
+                    try:
+                        with open(file_path, 'w') as new_file:
+                            new_file.write(txt_ascii)
+                    except IOError:
+                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+                logging.info('Finished PHI7 corpus compilation to %s', file_path)
+            except IOError:
+                logging.error('Failed to open PHI7 file %s of author %s', file_name, abbrev)
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
