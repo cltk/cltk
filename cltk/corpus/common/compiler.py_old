@@ -85,7 +85,7 @@ class Compile(object):
         try:
             with open(local_index, 'rb') as index_opened:
                 index_read = index_opened.read().decode('latin-1')
-                index_split = index_read.split('Ã¿')[2:-9]
+                index_split = index_read.split('ÿ')[2:-9]
                 index_filter = [item for item in index_split if item]
                 INDEX_DICT_PHI7 = {}
                 for file in index_filter:
