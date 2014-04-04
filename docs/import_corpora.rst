@@ -1,10 +1,9 @@
 Import Corpora
 **************
 
-The CLTK works soley out of the local directory ``cltk_local``, which is created at a user's root directory. Within this are two directories, ``originals``, in which copies of outside corpora are made, and ``compiled``, in which transformed copies of the former are written.
+The CLTK works solely out of the local directory ``cltk_local``, which is created at a user's root directory. Within this are two directories, ``originals``, in which copies of outside corpora are made, and ``compiled``, in which transformed copies of the former are written.
 
-The first step is to copy outside files into the ``originals`` directory with ``import_corpora()`` and then ``convert_tlg_txt()``.
-
+The first step is to copy outside files into the ``originals`` directory with ``import_corpora()`` and then make the corpora usable to the CLTK  with ``convert_tlg_txt()``.
 
 PHI 5
 =====
@@ -78,4 +77,4 @@ This will copy files from ``originals`` into ``compiled`` and translate them fro
 
    In [3]: c.compile_tlg_txt()
 
-This function also builds three indices, ``index_author_works.txt``, ``index_file_author.txt``, and ``index_meta.txt``, and places them at ``~/cltk_local/compiled/tlg/``. ``index_author_works.txt`` is a Python dictionary of the TLG's main ``AUTHTAB.DIR`` index. ``index_file_author.txt`` scans the compiled files and pulls out title information each author's file. ``make_tlg_meta_index()`` is a list of indices with which the TLG comes (``LSTSCDCN.DIR``).
+This function also builds three indices, ``index_author_works.txt``, ``index_file_author.txt``, and ``index_meta.txt``, and places them at ``~/cltk_local/compiled/tlg/``. ``index_author_works.txt`` is a Python dictionary of the TLG's main ``AUTHTAB.DIR`` index. ``index_file_author.txt`` scans the compiled files and pulls out title information from each author's file. ``make_tlg_meta_index()`` is a list of indices with which the TLG comes (``LSTSCDCN.DIR``).
