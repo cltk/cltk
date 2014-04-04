@@ -149,7 +149,6 @@ class Compile(object):
         self.make_tlg_meta_index()
         self.make_tlg_index_auth_works()
 
-
     def read_tlg_author_work_titles(self, auth_abbrev):
         """Reads a converted TLG file and returns a list of header titles within it"""
         global WORKS
@@ -280,8 +279,42 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open PHI7 index file index_file_author.txt.')
 
+    def read_phi7_author_work_titles(self, auth_abbrev):
+        """Reads a converted phi7 file and returns a list of header titles within it"""
+        global WORKS
+        logging.info('Starting to find works within a PHI7 author file.')
+        compiled_files_dir_phi7 = os.path.join(self.compiled_files_dir, 'phi7')
+        auth_file = compiled_files_dir_phi7 + '/' + auth_abbrev + '.txt'
+        with open(auth_file) as file_opened:
+            string = file_opened.read()
+            title_reg = re.compile('\{1.{1,50}?\}1')
+            WORKS = title_reg.findall(string)
+            return WORKS
+
+    def make_phi7_index_auth_works(self):
+        """read index_file_author.txt, read author file, and expand dict to include author works, index_author_works.txt"""
+        logging.info('Starting to compile PHI7 auth_works.txt.')
+        orig_files_dir_phi7_index = os.path.join(self.orig_files_dir, 'phi7')
+        compiled_files_dir_phi7 = os.path.join(self.compiled_files_dir, 'phi7')
+        self.read_phi7_index_file_author()
+        auth_work_dict = {}
+        for file_name in phi7_index:
+            auth_node = {}
+            self.read_phi7_author_work_titles(file_name)
+            auth_name = phi7_index[file_name]
+            auth_node['phi7_file'] = file_name
+            auth_node['phi7_name'] = auth_name
+            auth_node['works'] = WORKS
+            auth_work_dict[auth_name] = auth_node
+        file_path = compiled_files_dir_phi7 + '/' + 'index_author_works.txt'
+        try:
+            with open(file_path, 'w') as new_file:
+                pprint(auth_work_dict, stream=new_file)
+        except IOError:
+            logging.error('Failed to write to index_auth_work.txt')
+        logging.info('Finished compiling PHI7 index_auth_works.txt.')
+
     #add smart parsing of beta code tags
-    #add the metadata compile method to this
     def compile_phi7_txt(self):
         """Reads original Beta Code files and converts to Unicode files"""
         logging.info('Starting PHI7 corpus compilation into files.')
@@ -313,6 +346,8 @@ class Compile(object):
                 logging.info('Finished PHI7 corpus compilation to %s', file_path)
             except IOError:
                 logging.error('Failed to open PHI7 file %s of author %s', file_name, abbrev)
+        self.make_phi7_index_auth_works()
+
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
