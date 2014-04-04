@@ -229,7 +229,6 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open PHI7 index file index_file_author.txt.')
 
-    #not tested
     def make_phi7_index_file_author(self):
         """Reads phi7's AUTHTAB.DIR and writes a dict (index_file_author.txt) to the CLTK's corpus directory."""
         logging.info('Starting phi7 index parsing.')
@@ -265,7 +264,6 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open PHI7 index file AUTHTAB.DIR')
 
-    #not tested
     def read_phi7_index_file_author(self):
         """Reads CLTK's index_file_author.txt for PHI7."""
         global phi7_index
@@ -348,6 +346,137 @@ class Compile(object):
                 logging.error('Failed to open PHI7 file %s of author %s', file_name, abbrev)
         self.make_phi7_index_auth_works()
 
+    def read_phi5_index_file_author(self):
+        """Reads CLTK's index_file_author.txt for phi5."""
+        global phi5_index
+        logging.info('Starting PHI5 index_file_author.txt read.')
+        compiled_files_dir_phi5_index = os.path.join(self.compiled_files_dir, 'phi5', 'index_file_author.txt')
+        try:
+            with open(compiled_files_dir_phi5_index, 'r') as index_opened:
+                phi5_index = index_opened.read()
+                phi5_index = ast.literal_eval(phi5_index)
+                return phi5_index
+        except IOError:
+            logging.error('Failed to open PHI5 index file index_file_author.txt.')
+
+    #good
+    def make_phi5_index_file_author(self):
+        """Reads phi5's AUTHTAB.DIR and writes a dict (index_file_author.txt) to the CLTK's corpus directory."""
+        logging.info('Starting phi5 index parsing.')
+        orig_files_dir_phi5_index = os.path.join(self.orig_files_dir, 'phi5', 'AUTHTAB.DIR')
+        compiled_files_dir_phi5 = os.path.join(self.compiled_files_dir, 'phi5')
+        try:
+            with open(orig_files_dir_phi5_index, 'rb') as index_opened:
+                index_read = index_opened.read().decode('latin-1')
+                index_split = index_read.split('ÿ')[1:-21]
+                index_filter = [item for item in index_split if item]
+                INDEX_DICT_PHI5 = {}
+                for file in index_filter:
+                    file_repl = file.replace('\x83l', '')\
+                      .replace('Â€', '; ').replace('&1', '')\
+                      .replace('&', '').replace('\x80', '; ')
+                    split = file_repl.split(' ', 1)
+                    print(split)
+                    number = split[0]
+                    name = split[1]
+                    INDEX_DICT_PHI5[number] = name
+                logging.info('Finished PHI5 index parsing.')
+                logging.info('Starting writing PHI5 index_file_author.txt.')
+                compiled_files_dir_phi5_authtab = os.path.join(compiled_files_dir_phi5, 'index_file_author.txt')
+                try:
+                    with open(compiled_files_dir_phi5_authtab, 'w') as authtab_opened:
+                        authtab_opened.write(str(INDEX_DICT_PHI5))
+                        logging.info('Finished writing PHI5 index_file_author.txt.')
+                except IOError:
+                    logging.error('Failed to write PHI5 index_file_author.txt.')
+        except IOError:
+            logging.error('Failed to open PHI5 index file AUTHTAB.DIR')
+
+    #not tested
+    def read_phi5_index_file_author(self):
+        """Reads CLTK's index_file_author.txt for PHI5."""
+        global phi5_index
+        logging.info('Starting phi5 index_file_author.txt read.')
+        compiled_files_dir_phi5_index = os.path.join(self.compiled_files_dir, 'phi5', 'index_file_author.txt')
+        try:
+            with open(compiled_files_dir_phi5_index, 'r') as index_opened:
+                phi5_index = index_opened.read()
+                phi5_index = ast.literal_eval(phi5_index)
+                return phi5_index
+        except IOError:
+            logging.error('Failed to open PHI5 index file index_file_author.txt.')
+
+    #not tested
+    def read_phi5_author_work_titles(self, auth_abbrev):
+        """Reads a converted phi5 file and returns a list of header titles within it"""
+        global WORKS
+        logging.info('Starting to find works within a PHI5 author file.')
+        compiled_files_dir_phi5 = os.path.join(self.compiled_files_dir, 'phi5')
+        auth_file = compiled_files_dir_phi5 + '/' + auth_abbrev + '.txt'
+        with open(auth_file) as file_opened:
+            string = file_opened.read()
+            title_reg = re.compile('\{1.{1,50}?\}1')
+            WORKS = title_reg.findall(string)
+            return WORKS
+
+    #not tested
+    def make_phi5_index_auth_works(self):
+        """read index_file_author.txt, read author file, and expand dict to include author works, index_author_works.txt"""
+        logging.info('Starting to compile PHI5 auth_works.txt.')
+        orig_files_dir_phi5_index = os.path.join(self.orig_files_dir, 'phi5')
+        compiled_files_dir_phi5 = os.path.join(self.compiled_files_dir, 'phi5')
+        self.read_phi5_index_file_author()
+        auth_work_dict = {}
+        for file_name in phi5_index:
+            auth_node = {}
+            self.read_phi5_author_work_titles(file_name)
+            auth_name = phi5_index[file_name]
+            auth_node['phi5_file'] = file_name
+            auth_node['phi5_name'] = auth_name
+            auth_node['works'] = WORKS
+            auth_work_dict[auth_name] = auth_node
+        file_path = compiled_files_dir_phi5 + '/' + 'index_author_works.txt'
+        try:
+            with open(file_path, 'w') as new_file:
+                pprint(auth_work_dict, stream=new_file)
+        except IOError:
+            logging.error('Failed to write to index_auth_work.txt')
+        logging.info('Finished compiling PHI5 index_auth_works.txt.')
+
+    #not tested
+    #add smart parsing of beta code tags
+    def compile_phi5_txt(self):
+        """Reads original Beta Code files and converts to Unicode files"""
+        logging.info('Starting PHI5 corpus compilation into files.')
+        compiled_files_dir_phi5 = os.path.join(self.compiled_files_dir, 'phi5')
+        if os.path.isdir(compiled_files_dir_phi5) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_phi5)
+        self.make_phi5_index_file_author()
+        self.read_phi5_index_file_author()
+        for file_name in phi5_index:
+            abbrev = phi5_index[file_name]
+            orig_files_dir_phi5 = os.path.join(self.orig_files_dir, 'phi5')
+            file_name_txt = file_name + '.TXT'
+            files_path = os.path.join(orig_files_dir_phi5, file_name_txt)
+            try:
+                with open(files_path, 'rb') as index_opened:
+                    txt_read = index_opened.read().decode('latin-1')
+                    txt_ascii = remove_non_ascii(txt_read)
+                    #local_replacer = Replacer()
+                    #new_uni = local_replacer.beta_code(txt_ascii)
+                    file_name_txt_uni = file_name + '.txt'
+                    file_path = os.path.join(compiled_files_dir_phi5, file_name_txt_uni)
+                    try:
+                        with open(file_path, 'w') as new_file:
+                            new_file.write(txt_ascii)
+                    except IOError:
+                        logging.error('Failed to write to new file %s of author %s', file_name, abbrev)
+                logging.info('Finished PHI5 corpus compilation to %s', file_path)
+            except IOError:
+                logging.error('Failed to open PHI5 file %s of author %s', file_name, abbrev)
+        self.make_phi5_index_auth_works()
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
