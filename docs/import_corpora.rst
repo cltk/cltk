@@ -35,6 +35,21 @@ If the PHI 7 files were located at ``/Users/kyle/Downloads/corpora/PHI7/``, then
    In [2]: c = Compile()
    In [3]: c.import_corpora('phi7', '/Users/kyle/Downloads/corpora/PHI7/')
 
+ 
+Compile to Unicode & Build Indices
+----------------------------------
+
+This will copy files from ``originals`` into ``compiled`` and translate them from Beta Code to Unicode.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.compile_phi7_txt()
+
+This also builds two index files, ``index_file_author.txt`` and ``index_author_works.txt``. The first index is of file names and corresponding collection's names (e.g., ``'INS0015': 'Attica [Latin]'``). The latter is made from a scan of files to gather information about the sections within a collection.
 
 TLG
 ===
