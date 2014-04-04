@@ -61,7 +61,7 @@ This will copy files from ``originals`` into ``compiled`` and translate them fro
 
    In [2]: c = Compile()
 
-   In [3]: c.convert_tlg_txt()
+   In [3]: c.compile_tlg_txt()
 
 Make Indices
 ------------

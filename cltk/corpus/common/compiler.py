@@ -115,9 +115,8 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open TLG index file AUTHTAB.DIR')
 
-    #rename this method
     #add the metadata compile method to this
-    def convert_tlg_txt(self):
+    def compile_tlg_txt(self):
         """Reads original Beta Code files and converts to Unicode files"""
         logging.info('Starting TLG corpus compilation into files.')
         compiled_files_dir_tlg = os.path.join(self.compiled_files_dir, 'tlg')
@@ -187,10 +186,6 @@ class Compile(object):
     def make_tlg_meta_index(self):
         """Reads and writes the LSTSCDCN.DIR file"""
         logging.info('Starting to read the TLG file LSTSCDCN.DIR.')
-        #compiled_files_dir_tlg_list_index = os.path.join(self.compiled_files_dir, 'tlg', 'LSTSCDCN.DIR')
-        #index = 'LSTSCDCN.DIR'
-        #tlg_e_path = self.project_root + '/classical_greek/plaintext/tlg_e'
-        #local_index = self.cltk_local + '/' + 'TLG_E/' + index
         orig_files_dir_tlg_index_meta = os.path.join(self.orig_files_dir, 'tlg', 'LSTSCDCN.DIR')
         compiled_files_dir_tlg_meta = os.path.join(self.compiled_files_dir, 'tlg', 'index_meta.txt')
         meta_list_dict = {}
