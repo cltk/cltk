@@ -5,8 +5,11 @@ import logging
 import os
 from pprint import pprint
 import re
+import requests
+from requests_toolbelt import SSLAdapter
 import shutil
 import site
+import ssl
 import sys
 
 from cltk.corpus.classical_greek.replacer import Replacer
@@ -477,6 +480,13 @@ class Compile(object):
 
     #!add latin_library here
     #https://github.com/kylepjohnson/corpus_latin_library/blob/master/latin_library.tar.gz?raw=true
+    def download_latin_library_tar(self):
+        s = requests.Session()
+        s.mount('https://raw.githubusercontent.com/kylepjohnson/corpus_latin_library/master/latin_library_crawler.py', SSLAdapter(ssl.PROTOCOL_TLSv1))
+        r = s.get('https://raw.githubusercontent.com/kylepjohnson/corpus_latin_library/master/latin_library_crawler.py')
+        print(r.text)
+
+
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
