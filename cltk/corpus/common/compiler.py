@@ -475,6 +475,9 @@ class Compile(object):
                 logging.error('Failed to open PHI5 file %s of author %s', file_name, abbrev)
         self.make_phi5_index_auth_works()
 
+    #!add latin_library here
+    #https://github.com/kylepjohnson/corpus_latin_library/blob/master/latin_library.tar.gz?raw=true
+
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
     return "".join(i for i in input_string if ord(i) < 128)
