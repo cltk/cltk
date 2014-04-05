@@ -22,7 +22,7 @@ In addition to copying the PHI5's author files at ``~/cltk_local/compiled/phi5/`
 
 PHI 7
 -----
-See Import instructions under Classical Greek.
+See instructions under Classical Greek.
 
 
 Classical Greek
