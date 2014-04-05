@@ -11,11 +11,9 @@ import sys
 
 from cltk.corpus.classical_greek.replacer import Replacer
 
-
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
 INDEX_DICT_TLG = {}
-
 
 class Compile(object):
     """Make JSON files out of TLG & PHI disks"""
@@ -40,7 +38,8 @@ class Compile(object):
             pass
         else:
             os.mkdir(self.compiled_files_dir)
-        logging.basicConfig(filename='compiler.log',
+        log_path = os.path.join(default_cltk_local, cltk.log)
+        logging.basicConfig(filename=log_path,
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
                             datefmt='%m/%d/%Y %I:%M:%S %p')
@@ -53,6 +52,7 @@ class Compile(object):
             else:
                 os.mkdir(orig_files_dir_tlg)
             copy_dir_contents(corpus_location, orig_files_dir_tlg)
+            self.compile_tlg_txt()
         elif corpus_name == 'phi7':
             orig_files_dir_phi7 = os.path.join(self.orig_files_dir, 'phi7')
             if os.path.isdir(orig_files_dir_phi7) is True:
@@ -60,6 +60,7 @@ class Compile(object):
             else:
                 os.mkdir(orig_files_dir_phi7)
             copy_dir_contents(corpus_location, orig_files_dir_phi7)
+            self.compile_phi7_txt()
         elif corpus_name == 'phi5':
             orig_files_dir_phi5 = os.path.join(self.orig_files_dir, 'phi5')
             if os.path.isdir(orig_files_dir_phi5) is True:
@@ -67,6 +68,8 @@ class Compile(object):
             else:
                 os.mkdir(orig_files_dir_phi5)
             copy_dir_contents(corpus_location, orig_files_dir_phi5)
+            self.compile_phi5_txt()
+
         else:
             logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5".')
 
@@ -359,7 +362,6 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open PHI5 index file index_file_author.txt.')
 
-    #good
     def make_phi5_index_file_author(self):
         """Reads phi5's AUTHTAB.DIR and writes a dict (index_file_author.txt) to the CLTK's corpus directory."""
         logging.info('Starting phi5 index parsing.')
@@ -376,7 +378,6 @@ class Compile(object):
                       .replace('Â€', '; ').replace('&1', '')\
                       .replace('&', '').replace('\x80', '; ')
                     split = file_repl.split(' ', 1)
-                    print(split)
                     number = split[0]
                     name = split[1]
                     INDEX_DICT_PHI5[number] = name
@@ -392,7 +393,6 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open PHI5 index file AUTHTAB.DIR')
 
-    #not tested
     def read_phi5_index_file_author(self):
         """Reads CLTK's index_file_author.txt for PHI5."""
         global phi5_index
@@ -406,7 +406,6 @@ class Compile(object):
         except IOError:
             logging.error('Failed to open PHI5 index file index_file_author.txt.')
 
-    #not tested
     def read_phi5_author_work_titles(self, auth_abbrev):
         """Reads a converted phi5 file and returns a list of header titles within it"""
         global WORKS
@@ -419,7 +418,6 @@ class Compile(object):
             WORKS = title_reg.findall(string)
             return WORKS
 
-    #not tested
     def make_phi5_index_auth_works(self):
         """read index_file_author.txt, read author file, and expand dict to include author works, index_author_works.txt"""
         logging.info('Starting to compile PHI5 auth_works.txt.')
@@ -443,7 +441,6 @@ class Compile(object):
             logging.error('Failed to write to index_auth_work.txt')
         logging.info('Finished compiling PHI5 index_auth_works.txt.')
 
-    #not tested
     #add smart parsing of beta code tags
     def compile_phi5_txt(self):
         """Reads original Beta Code files and converts to Unicode files"""
