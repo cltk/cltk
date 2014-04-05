@@ -38,7 +38,7 @@ class Compile(object):
             pass
         else:
             os.mkdir(self.compiled_files_dir)
-        log_path = os.path.join(default_cltk_local, cltk.log)
+        log_path = os.path.join(cltk_local, 'cltk.log')
         logging.basicConfig(filename=log_path,
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
