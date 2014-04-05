@@ -7,6 +7,19 @@ The CLTK works solely out of the local directory ``cltk_local``, which is create
 Latin
 =====
 
+Latin Library
+-------------
+
+A pre--compiled version of the `Latin Library  <http://www.thelatinlibrary.com/>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_latin_library>`_. The CLTK can fetch a compressed file of the site's contents with:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.get_latin_library_tar()
+
 PHI 5
 -----
 
