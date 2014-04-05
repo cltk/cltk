@@ -11,12 +11,14 @@ import shutil
 import site
 import ssl
 import sys
+from urllib.parse import urlsplit
 
 from cltk.corpus.classical_greek.replacer import Replacer
 
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
 INDEX_DICT_TLG = {}
+
 
 class Compile(object):
     """Make JSON files out of TLG & PHI disks"""
@@ -47,7 +49,7 @@ class Compile(object):
                             format='%(asctime)s %(message)s',
                             datefmt='%m/%d/%Y %I:%M:%S %p')
 
-    def import_corpora(self, corpus_name, corpus_location):
+    def import_corpora(self, corpus_name, corpus_location=None):
         if corpus_name == 'tlg':
             orig_files_dir_tlg = os.path.join(self.orig_files_dir, 'tlg')
             if os.path.isdir(orig_files_dir_tlg) is True:
@@ -72,9 +74,18 @@ class Compile(object):
                 os.mkdir(orig_files_dir_phi5)
             copy_dir_contents(corpus_location, orig_files_dir_phi5)
             self.compile_phi5_txt()
-
+        elif corpus_name == 'latin_library':
+            orig_files_dir_latin_library = os.path.join(self.orig_files_dir, 'latin_library')
+            if os.path.isdir(orig_files_dir_latin_library) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_latin_library)
+            #copy_dir_contents(corpus_location, orig_files_dir_latin_library)
+            self.get_latin_library_tar()
+            #self.compile_latin_library_txt()
         else:
-            logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5".')
+            logging.error(
+                'Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library".')
 
     def read_tlg_index_file_author(self):
         """Reads CLTK's index_file_author.txt for TLG."""
@@ -101,9 +112,9 @@ class Compile(object):
                 index_filter = [item for item in index_split if item]
                 INDEX_DICT_TLG = {}
                 for file in index_filter:
-                    file_repl = file.replace(' &1', ' ').replace('&', '')\
-                        .replace(' 1', ' ').replace('-1', '-').replace('[2', '[')\
-                        .replace(']2', ']').replace('1Z', '').replace('1P', 'P')\
+                    file_repl = file.replace(' &1', ' ').replace('&', '') \
+                        .replace(' 1', ' ').replace('-1', '-').replace('[2', '[') \
+                        .replace(']2', ']').replace('1Z', '').replace('1P', 'P') \
                         .replace('1D', 'D').replace('1L', 'L').replace('Â€', ' ')
                     file_split = file_repl.split(' ', 1)
                     label = file_split[0]
@@ -247,8 +258,8 @@ class Compile(object):
                 index_filter = [item for item in index_split if item]
                 INDEX_DICT_PHI7 = {}
                 for file in index_filter:
-                    file_repl = file.replace('l', '').replace('g', '')\
-                      .replace('h', '').replace('>', '').replace(']]', ']')
+                    file_repl = file.replace('l', '').replace('g', '') \
+                        .replace('h', '').replace('>', '').replace(']]', ']')
                     pattern = '.*Library.*|.*Inscriptions .*|.*Bibliography.*'
                     match = re.search(pattern, file_repl)
                     if match:
@@ -377,9 +388,9 @@ class Compile(object):
                 index_filter = [item for item in index_split if item]
                 INDEX_DICT_PHI5 = {}
                 for file in index_filter:
-                    file_repl = file.replace('\x83l', '')\
-                      .replace('Â€', '; ').replace('&1', '')\
-                      .replace('&', '').replace('\x80', '; ')
+                    file_repl = file.replace('\x83l', '') \
+                        .replace('Â€', '; ').replace('&1', '') \
+                        .replace('&', '').replace('\x80', '; ')
                     split = file_repl.split(' ', 1)
                     number = split[0]
                     name = split[1]
@@ -478,19 +489,24 @@ class Compile(object):
                 logging.error('Failed to open PHI5 file %s of author %s', file_name, abbrev)
         self.make_phi5_index_auth_works()
 
-    #!add latin_library here
-    #https://github.com/kylepjohnson/corpus_latin_library/blob/master/latin_library.tar.gz?raw=true
-    def download_latin_library_tar(self):
+    def get_latin_library_tar(self):
+        orig_files_dir_latin_library = os.path.join(self.orig_files_dir, 'latin_library')
+        ll_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_latin_library/master/latin_library.tar.gz'
         s = requests.Session()
-        s.mount('https://raw.githubusercontent.com/kylepjohnson/corpus_latin_library/master/latin_library_crawler.py', SSLAdapter(ssl.PROTOCOL_TLSv1))
-        r = s.get('https://raw.githubusercontent.com/kylepjohnson/corpus_latin_library/master/latin_library_crawler.py')
-        print(r.text)
-
-
+        s.mount(ll_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        ll_tar = requests.get(ll_url, stream=True)
+        latin_library_file_name = urlsplit(ll_url).path.split('/')[-1]
+        latin_library_file_path = os.path.join(orig_files_dir_latin_library, latin_library_file_name)
+        try:
+            with open(latin_library_file_path, 'wb') as new_file:
+                new_file.write(ll_tar.content)
+        except IOError:
+            logging.error('Failed to write file %s', latin_library_file_name)
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
     return "".join(i for i in input_string if ord(i) < 128)
+
 
 def clear_log():
     """Truncates log"""
@@ -499,6 +515,7 @@ def clear_log():
             logging.info('Cleared log if present.')
     except IOError:
         logging.error('Failed to clear log.')
+
 
 def copy_dir_contents(src, dest):
     src_files = os.listdir(src)
