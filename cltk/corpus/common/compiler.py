@@ -494,7 +494,7 @@ class Compile(object):
         ll_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_latin_library/master/latin_library.tar.gz'
         s = requests.Session()
         s.mount(ll_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
-        ll_tar = requests.get(ll_url, stream=True)
+        ll_tar = s.get(ll_url, stream=True)
         latin_library_file_name = urlsplit(ll_url).path.split('/')[-1]
         latin_library_file_path = os.path.join(orig_files_dir_latin_library, latin_library_file_name)
         try:
