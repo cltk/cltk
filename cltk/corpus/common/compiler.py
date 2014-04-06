@@ -94,6 +94,14 @@ class Compile(object):
                 os.mkdir(orig_files_dir_perseus_latin)
                 logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_perseus_latin)
             self.get_perseus_latin_tar()
+        elif corpus_name == 'perseus_greek':
+            orig_files_dir_perseus_greek = os.path.join(self.orig_files_dir, 'perseus_greek')
+            if os.path.isdir(orig_files_dir_perseus_greek) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_perseus_greek)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_perseus_greek)
+            self.get_perseus_greek_tar()
         elif corpus_name == 'lacus_curtius_latin':
             orig_files_dir_lacus_curtius_latin = os.path.join(self.orig_files_dir, 'lacus_curtius_latin')
             if os.path.isdir(orig_files_dir_lacus_curtius_latin) is True:
@@ -103,7 +111,7 @@ class Compile(object):
                 logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_lacus_curtius_latin)
             self.get_lacus_curtius_latin_tar()
         else:
-            logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin", "lacus_curtius_latin".')
+            logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin", "perseus_greek", "lacus_curtius_latin".')
 
     def read_tlg_index_file_author(self):
         """Reads CLTK's index_file_author.txt for TLG."""
@@ -554,14 +562,15 @@ class Compile(object):
             except IOError:
                 logging.info('Failed to unpack %s.', perseus_latin_file_name)
 
+
     #get_lacus_curtius_latin_tar
     def get_lacus_curtius_latin_tar(self):
         orig_files_dir_lacus_curtius_latin = os.path.join(self.orig_files_dir, 'lacus_curtius_latin')
-        ll_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_lacus_curtius_latin/master/lacus_curtius.tar.gz'
+        lc_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_lacus_curtius_latin/master/lacus_curtius.tar.gz'
         s = requests.Session()
-        s.mount(ll_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
-        ll_tar = s.get(ll_url, stream=True)
-        lacus_curtius_latin_file_name = urlsplit(ll_url).path.split('/')[-1]
+        s.mount(lc_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        ll_tar = s.get(lc_url, stream=True)
+        lacus_curtius_latin_file_name = urlsplit(lc_url).path.split('/')[-1]
         lacus_curtius_latin_file_path = os.path.join(orig_files_dir_lacus_curtius_latin, lacus_curtius_latin_file_name)
         try:
             with open(lacus_curtius_latin_file_path, 'wb') as new_file:
@@ -575,6 +584,32 @@ class Compile(object):
         except IOError:
             logging.info('Failed to unpack %s.', lacus_curtius_latin_file_name)
 
+    def get_perseus_greek_tar(self):
+        orig_files_dir_perseus_greek = os.path.join(self.orig_files_dir, 'perseus_greek')
+        #make compiled files dir for perseus_greek
+        compiled_files_dir_perseus_greek = os.path.join(self.compiled_files_dir, 'perseus_greek')
+        if os.path.isdir(compiled_files_dir_perseus_greek) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_perseus_greek)
+        pg_urls = ['https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_1.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_2.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_3.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_4.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_5.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_6.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_7.tar.gz']
+        for pl_url in pg_urls:
+            s = requests.Session()
+            s.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+            pg_tar = s.get(pl_url, stream=True)
+            perseus_greek_file_name = urlsplit(pl_url).path.split('/')[-1]
+            perseus_greek_file_path = os.path.join(orig_files_dir_perseus_greek, perseus_greek_file_name)
+            try:
+                with open(perseus_greek_file_path, 'wb') as new_file:
+                    new_file.write(pg_tar.content)
+                    logging.info('Finished writing %s.', perseus_greek_file_name)
+            except IOError:
+                logging.error('Failed to write file %s', perseus_greek_file_name)
+            try:
+                shutil.unpack_archive(perseus_greek_file_path, compiled_files_dir_perseus_greek)
+                logging.info('Finished unpacking %s', perseus_greek_file_name)
+            except IOError:
+                logging.info('Failed to unpack %s.', perseus_greek_file_name)
 
 
 def remove_non_ascii(input_string):
