@@ -26,7 +26,7 @@ setup(
     license='MIT',
     long_description="""The Classical Language Toolkit (CLTK) is a \
 suite of tools assisting natural language processing for the Ancient Greek \
-and Latin languages. It is developed in Python 3.3.""",
+and Latin languages. It is developed in Python 3.4.""",
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
