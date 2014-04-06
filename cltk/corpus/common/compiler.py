@@ -78,7 +78,6 @@ class Compile(object):
                 logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_phi5)
             copy_dir_contents(corpus_location, orig_files_dir_phi5)
             self.compile_phi5_txt()
-        #add compiled dir mk here
         elif corpus_name == 'latin_library':
             orig_files_dir_latin_library = os.path.join(self.orig_files_dir, 'latin_library')
             if os.path.isdir(orig_files_dir_latin_library) is True:
@@ -86,9 +85,7 @@ class Compile(object):
             else:
                 os.mkdir(orig_files_dir_latin_library)
                 logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_latin_library)
-            #copy_dir_contents(corpus_location, orig_files_dir_latin_library)
             self.get_latin_library_tar()
-            #self.compile_latin_library_txt()
         elif corpus_name == 'perseus_latin':
             orig_files_dir_perseus_latin = os.path.join(self.orig_files_dir, 'perseus_latin')
             if os.path.isdir(orig_files_dir_perseus_latin) is True:
@@ -97,9 +94,16 @@ class Compile(object):
                 os.mkdir(orig_files_dir_perseus_latin)
                 logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_perseus_latin)
             self.get_perseus_latin_tar()
-            #self.compile_perseus_latin_txt()
+        elif corpus_name == 'lacus_curtius_latin':
+            orig_files_dir_lacus_curtius_latin = os.path.join(self.orig_files_dir, 'lacus_curtius_latin')
+            if os.path.isdir(orig_files_dir_lacus_curtius_latin) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_lacus_curtius_latin)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_lacus_curtius_latin)
+            self.get_lacus_curtius_latin_tar()
         else:
-            logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin".')
+            logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin", "lacus_curtius_latin".')
 
     def read_tlg_index_file_author(self):
         """Reads CLTK's index_file_author.txt for TLG."""
@@ -549,6 +553,28 @@ class Compile(object):
                 logging.info('Finished unpacking %s', perseus_latin_file_name)
             except IOError:
                 logging.info('Failed to unpack %s.', perseus_latin_file_name)
+
+    #get_lacus_curtius_latin_tar
+    def get_lacus_curtius_latin_tar(self):
+        orig_files_dir_lacus_curtius_latin = os.path.join(self.orig_files_dir, 'lacus_curtius_latin')
+        ll_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_lacus_curtius_latin/master/lacus_curtius.tar.gz'
+        s = requests.Session()
+        s.mount(ll_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        ll_tar = s.get(ll_url, stream=True)
+        lacus_curtius_latin_file_name = urlsplit(ll_url).path.split('/')[-1]
+        lacus_curtius_latin_file_path = os.path.join(orig_files_dir_lacus_curtius_latin, lacus_curtius_latin_file_name)
+        try:
+            with open(lacus_curtius_latin_file_path, 'wb') as new_file:
+                new_file.write(ll_tar.content)
+                logging.info('Finished writing %s.', lacus_curtius_latin_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', lacus_curtius_latin_file_name)
+        try:
+            shutil.unpack_archive(lacus_curtius_latin_file_path, self.compiled_files_dir)
+            logging.info('Finished unpacking %s', lacus_curtius_latin_file_name)
+        except IOError:
+            logging.info('Failed to unpack %s.', lacus_curtius_latin_file_name)
+
 
 
 def remove_non_ascii(input_string):
