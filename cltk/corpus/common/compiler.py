@@ -49,7 +49,7 @@ class Compile(object):
                             format='%(asctime)s %(message)s',
                             datefmt='%m/%d/%Y %I:%M:%S %p')
 
-    def import_corpora(self, corpus_name, corpus_location=None):
+    def import_corpus(self, corpus_name, corpus_location=None):
         if corpus_name == 'tlg':
             orig_files_dir_tlg = os.path.join(self.orig_files_dir, 'tlg')
             if os.path.isdir(orig_files_dir_tlg) is True:

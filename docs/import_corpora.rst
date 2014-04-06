@@ -18,7 +18,7 @@ A pre--compiled version of the `Latin Library  <http://www.thelatinlibrary.com/>
 
    In [2]: c = Compile()
 
-   In [3]: c.get_latin_library_tar()
+   In [3]: c.import_corpus('latin_library')
 
 PHI 5
 -----
@@ -29,7 +29,7 @@ If the PHI 5 files were located at ``/Users/kyle/Downloads/corpora/PHI5/``, then
 
    In [1]: from cltk.corpus.common.compiler import Compile
    In [2]: c = Compile()
-   In [3]: c.import_corpora('phi5', '/Users/kyle/Downloads/corpora/PHI5/')
+   In [3]: c.import_corpus('phi5', '/Users/kyle/Downloads/corpora/PHI5/')
 
 In addition to copying the PHI5's author files at ``~/cltk_local/compiled/phi5/``, it creates ``index_author_works.txt`` and ``index_file_author.txt``.
 
@@ -50,7 +50,7 @@ If the PHI 7 files were located at ``/Users/kyle/Downloads/corpora/PHI7/``, then
 
    In [1]: from cltk.corpus.common.compiler import Compile
    In [2]: c = Compile()
-   In [3]: c.import_corpora('phi7', '/Users/kyle/Downloads/corpora/PHI7/')
+   In [3]: c.import_corpus('phi7', '/Users/kyle/Downloads/corpora/PHI7/')
 
 In addition to copying the PHI7's author files at ``~/cltk_local/compiled/phi7/``, it creates ``index_author_works.txt`` and ``index_file_author.txt``.
 
@@ -63,7 +63,7 @@ TLG
 
    In [2]: c = Compile()
 
-   In [3]: c.import_corpora('tlg', '/Users/kyle/Downloads/corpora/TLG_E/')
+   In [3]: c.import_corpus('tlg', '/Users/kyle/Downloads/corpora/TLG_E/')
 
 
 In addition to copying the TLG's author files at ``~/cltk_local/compiled/tlg/``, it creates ``index_author_works.txt``, ``index_file_author.txt``,  and ``index_meta.txt`` (an index of the TLG's other indices).
