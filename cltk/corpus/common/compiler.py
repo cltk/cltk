@@ -500,8 +500,14 @@ class Compile(object):
         try:
             with open(latin_library_file_path, 'wb') as new_file:
                 new_file.write(ll_tar.content)
+                logging.info('Finished writing %s.', latin_library_file_name)
         except IOError:
             logging.error('Failed to write file %s', latin_library_file_name)
+        try:
+            shutil.unpack_archive(latin_library_file_path, self.compiled_files_dir)
+            logging.info('Finished unpacking %s', latin_library_file_name)
+        except IOError:
+            logging.info('Failed to unpack %s.', latin_library_file_name)
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
