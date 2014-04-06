@@ -56,6 +56,7 @@ class Compile(object):
                 pass
             else:
                 os.mkdir(orig_files_dir_tlg)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_tlg)
             copy_dir_contents(corpus_location, orig_files_dir_tlg)
             self.compile_tlg_txt()
         elif corpus_name == 'phi7':
@@ -64,6 +65,7 @@ class Compile(object):
                 pass
             else:
                 os.mkdir(orig_files_dir_phi7)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_phi7)
             copy_dir_contents(corpus_location, orig_files_dir_phi7)
             self.compile_phi7_txt()
         elif corpus_name == 'phi5':
@@ -72,20 +74,31 @@ class Compile(object):
                 pass
             else:
                 os.mkdir(orig_files_dir_phi5)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_phi5)
             copy_dir_contents(corpus_location, orig_files_dir_phi5)
             self.compile_phi5_txt()
+        #add compiled dir mk here
         elif corpus_name == 'latin_library':
             orig_files_dir_latin_library = os.path.join(self.orig_files_dir, 'latin_library')
             if os.path.isdir(orig_files_dir_latin_library) is True:
                 pass
             else:
                 os.mkdir(orig_files_dir_latin_library)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_latin_library)
             #copy_dir_contents(corpus_location, orig_files_dir_latin_library)
             self.get_latin_library_tar()
             #self.compile_latin_library_txt()
+        elif corpus_name == 'perseus_latin':
+            orig_files_dir_perseus_latin = os.path.join(self.orig_files_dir, 'perseus_latin')
+            if os.path.isdir(orig_files_dir_perseus_latin) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_perseus_latin)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_perseus_latin)
+            self.get_perseus_latin_tar()
+            #self.compile_perseus_latin_txt()
         else:
-            logging.error(
-                'Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library".')
+            logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin".')
 
     def read_tlg_index_file_author(self):
         """Reads CLTK's index_file_author.txt for TLG."""
@@ -508,6 +521,34 @@ class Compile(object):
             logging.info('Finished unpacking %s', latin_library_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', latin_library_file_name)
+
+    def get_perseus_latin_tar(self):
+        orig_files_dir_perseus_latin = os.path.join(self.orig_files_dir, 'perseus_latin')
+        #make compiled files dir for perseus_latin
+        compiled_files_dir_perseus_latin = os.path.join(self.compiled_files_dir, 'perseus_latin')
+        if os.path.isdir(compiled_files_dir_perseus_latin) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_perseus_latin)
+        pl_urls = ['https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_1.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_2.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_3.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_4.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_5.tar.gz']
+        for pl_url in pl_urls:
+            s = requests.Session()
+            s.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+            ll_tar = s.get(pl_url, stream=True)
+            perseus_latin_file_name = urlsplit(pl_url).path.split('/')[-1]
+            perseus_latin_file_path = os.path.join(orig_files_dir_perseus_latin, perseus_latin_file_name)
+            try:
+                with open(perseus_latin_file_path, 'wb') as new_file:
+                    new_file.write(ll_tar.content)
+                    logging.info('Finished writing %s.', perseus_latin_file_name)
+            except IOError:
+                logging.error('Failed to write file %s', perseus_latin_file_name)
+            try:
+                shutil.unpack_archive(perseus_latin_file_path, orig_files_dir_perseus_latin)
+                logging.info('Finished unpacking %s', perseus_latin_file_name)
+            except IOError:
+                logging.info('Failed to unpack %s.', perseus_latin_file_name)
+
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
