@@ -54,6 +54,21 @@ See instructions under Classical Greek.
 Classical Greek
 ===============
 
+
+Perseus Digital Library, Latin
+------------------------------
+
+A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tufts.edu/hopper/opensource/download>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_perseus_greek>`_. The CLTK can fetch a compressed files of the site's contents with:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('perseus_greek')
+
+
 PHI 7, Classical Greek
 ----------------------
 
