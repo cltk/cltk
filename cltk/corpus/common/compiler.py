@@ -1,4 +1,4 @@
-"""Assembles JSON files of PHI and TLG corpora"""
+"""Assembles corpora into ~/cltk_local"""
 
 import ast
 import logging
@@ -21,10 +21,10 @@ INDEX_DICT_TLG = {}
 
 
 class Compile(object):
-    """Make JSON files out of TLG & PHI disks"""
+    """Copy or download files out of TLG & PHI disks"""
 
     def __init__(self):
-        """Initializer, optional corpora and project"""
+        """Initializer, makes ~/cltk_local dirs"""
         self.cltk_bin_path = os.path.join(site.getsitepackages()[0], 'cltk')
         #make local CLTK dirs
         default_cltk_local = '~/cltk_local'
@@ -50,6 +50,7 @@ class Compile(object):
                             datefmt='%m/%d/%Y %I:%M:%S %p')
 
     def import_corpus(self, corpus_name, corpus_location=None):
+        """Main method. Copies or downloads corpora, moves to originals, then compiled"""
         if corpus_name == 'tlg':
             orig_files_dir_tlg = os.path.join(self.orig_files_dir, 'tlg')
             if os.path.isdir(orig_files_dir_tlg) is True:
