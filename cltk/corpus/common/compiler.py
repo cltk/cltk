@@ -544,7 +544,7 @@ class Compile(object):
             except IOError:
                 logging.error('Failed to write file %s', perseus_latin_file_name)
             try:
-                shutil.unpack_archive(perseus_latin_file_path, orig_files_dir_perseus_latin)
+                shutil.unpack_archive(perseus_latin_file_path, compiled_files_dir_perseus_latin)
                 logging.info('Finished unpacking %s', perseus_latin_file_name)
             except IOError:
                 logging.info('Failed to unpack %s.', perseus_latin_file_name)
