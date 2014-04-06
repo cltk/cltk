@@ -20,6 +20,20 @@ A pre--compiled version of the `Latin Library  <http://www.thelatinlibrary.com/>
 
    In [3]: c.import_corpus('latin_library')
 
+Perseus Digital Library, Latin
+------------------------------
+
+A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tufts.edu/hopper/opensource/download>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_perseus_latin>`_. The CLTK can fetch a compressed files of the site's contents with:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('perseus_latin')
+
+
 PHI 5
 -----
 
@@ -33,16 +47,15 @@ If the PHI 5 files were located at ``/Users/kyle/Downloads/corpora/PHI5/``, then
 
 In addition to copying the PHI5's author files at ``~/cltk_local/compiled/phi5/``, it creates ``index_author_works.txt`` and ``index_file_author.txt``.
 
-PHI 7
------
+PHI 7, Latin
+------------
 See instructions under Classical Greek.
-
 
 Classical Greek
 ===============
 
-PHI 7
------
+PHI 7, Classical Greek
+----------------------
 
 If the PHI 7 files were located at ``/Users/kyle/Downloads/corpora/PHI7/``, then the commands would be:
 
