@@ -55,7 +55,7 @@ Classical Greek
 ===============
 
 
-Perseus Digital Library, Latin
+Perseus Digital Library, Greek
 ------------------------------
 
 A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tufts.edu/hopper/opensource/download>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_perseus_greek>`_. The CLTK can fetch a compressed files of the site's contents with:
