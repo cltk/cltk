@@ -537,18 +537,20 @@ class Compile(object):
 
     def get_perseus_latin_tar(self):
         orig_files_dir_perseus_latin = os.path.join(self.orig_files_dir, 'perseus_latin')
-        #make compiled files dir for perseus_latin
+        #compiled files dir is redundant
+        '''
         compiled_files_dir_perseus_latin = os.path.join(self.compiled_files_dir, 'perseus_latin')
         if os.path.isdir(compiled_files_dir_perseus_latin) is True:
             pass
         else:
             os.mkdir(compiled_files_dir_perseus_latin)
+        '''
         pl_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin.tar.gz'
         s = requests.Session()
         s.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         ll_tar = s.get(pl_url, stream=True)
         perseus_latin_file_name = urlsplit(pl_url).path.split('/')[-1]
-        perseus_latin_file_path = os.path.join(orig_files_dir_perseus_latin, perseus_latin_file_name)
+        perseus_latin_file_path = os.path.join(self.orig_files_dir, perseus_latin_file_name)
         try:
             with open(perseus_latin_file_path, 'wb') as new_file:
                 new_file.write(ll_tar.content)
@@ -556,7 +558,7 @@ class Compile(object):
         except IOError:
             logging.error('Failed to write file %s', perseus_latin_file_name)
         try:
-            shutil.unpack_archive(perseus_latin_file_path, compiled_files_dir_perseus_latin)
+            shutil.unpack_archive(perseus_latin_file_path, self.compiled_files_dir)
             logging.info('Finished unpacking %s', perseus_latin_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', perseus_latin_file_name)
@@ -607,6 +609,33 @@ class Compile(object):
             logging.info('Finished unpacking %s', perseus_greek_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', perseus_greek_file_name)
+
+
+    def get_treebank_perseus_greek_tar(self):
+        orig_files_dir_treebank_perseus_greek = os.path.join(self.orig_files_dir, 'treebank_perseus_greek')
+        #make compiled files dir for treebank_perseus_greek
+        compiled_files_dir_treebank_perseus_greek = os.path.join(self.compiled_files_dir, 'treebank_perseus_greek')
+        if os.path.isdir(compiled_files_dir_treebank_perseus_greek) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_treebank_perseus_greek)
+        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/treebank_perseus_greek/master/treebank_perseus_greek.tar.gz'
+        s = requests.Session()
+        s.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = s.get(pg_url, stream=True)
+        treebank_perseus_greek_file_name = urlsplit(pg_url).path.split('/')[-1]
+        treebank_perseus_greek_file_path = os.path.join(orig_files_dir_treebank_perseus_greek, treebank_perseus_greek_file_name)
+        try:
+            with open(treebank_perseus_greek_file_path, 'wb') as new_file:
+                new_file.write(pg_tar.content)
+                logging.info('Finished writing %s.', treebank_perseus_greek_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', treebank_perseus_greek_file_name)
+        try:
+            shutil.unpack_archive(treebank_perseus_greek_file_path, compiled_files_dir_treebank_perseus_greek)
+            logging.info('Finished unpacking %s', treebank_perseus_greek_file_name)
+        except IOError:
+            logging.info('Failed to unpack %s.', treebank_perseus_greek_file_name)
 
 
 def remove_non_ascii(input_string):
