@@ -550,7 +550,7 @@ class Compile(object):
         s.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         ll_tar = s.get(pl_url, stream=True)
         perseus_latin_file_name = urlsplit(pl_url).path.split('/')[-1]
-        perseus_latin_file_path = os.path.join(self.orig_files_dir, perseus_latin_file_name)
+        perseus_latin_file_path = os.path.join(orig_files_dir_perseus_latin, perseus_latin_file_name)
         try:
             with open(perseus_latin_file_path, 'wb') as new_file:
                 new_file.write(ll_tar.content)
